@@ -30,6 +30,8 @@
 	taste_sensitivity = TASTE_DULL
 	mob_size = 12	//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
+	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
+	stomach_capacity = 10 //Big boys.
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
 	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
@@ -47,7 +49,8 @@
 		"response node"      = /obj/item/organ/internal/diona/node,
 		"gas bladder"        = /obj/item/organ/internal/diona/bladder,
 		"polyp segment"      = /obj/item/organ/internal/diona/polyp,
-		"anchoring ligament" = /obj/item/organ/internal/diona/ligament
+		"anchoring ligament" = /obj/item/organ/internal/diona/ligament,
+		BP_STOMACH           = /obj/item/organ/internal/stomach/diona
 	)
 
 	has_limbs = list(

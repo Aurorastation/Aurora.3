@@ -317,7 +317,7 @@ var/list/slot_equipment_priority = list( \
 
 /mob/living/carbon/throw_item(atom/target)
 	src.throw_mode_off()
-	if(usr.stat || !target)
+	if(stat || !target)
 		return
 	if(target.type == /obj/screen) return
 

@@ -134,8 +134,7 @@
 		var/mob/living/silicon/robot/borg = loc
 		borg.mmi = null
 	if(brainmob)
-		qdel(brainmob)
-		brainmob = null
+		QDEL_NULL(brainmob)
 	return ..()
 
 /obj/item/device/mmi/radio_enabled

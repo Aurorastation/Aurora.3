@@ -15,7 +15,7 @@
 		if (I.implanted)
 			I.trigger(act, src)
 
-	if(src.stat == 2.0 && (act != "deathgasp"))
+	if(stat == DEAD && (act != "deathgasp"))
 		return
 	switch(act)
 		if ("airguitar")
@@ -589,6 +589,8 @@
 					message = "sadly can't find anybody to give daps to, and daps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]. Shameful."
 
 		if ("scream")
+			if(stat >= UNCONSCIOUS)
+				return
 			if (miming)
 				message = "acts out a scream!"
 				m_type = 1
@@ -728,7 +730,7 @@
 	set desc = "Sets a description which will be shown when someone examines you."
 	set category = "IC"
 
-	pose =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"]...", "Pose", null)  as text)
+	pose =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"]...", "Pose", html_decode(pose))  as message)
 
 /mob/living/carbon/human/verb/set_flavor()
 	set name = "Set Flavour Text"

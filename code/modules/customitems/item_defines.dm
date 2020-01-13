@@ -3197,3 +3197,72 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
+
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet //Bouquet of Chrysanthemums - IRU-Sentiment - niennab
+	name = "bouquet of chrysanthemums"
+	desc = "A bouquet of white artificial chrysanthemum flowers wrapped in a sheet of newsprint."
+	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
+	icon_state = "sentiment_bouquet"
+	item_state = "sentiment_bouquet"
+	can_hold = list(/obj/item/clothing/accessory/fluff/sentiment_flower)
+	starts_with = list(/obj/item/clothing/accessory/fluff/sentiment_flower = 6)
+	storage_slots = 6
+	contained_sprite = TRUE
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet/update_icon()
+	icon_state = "[initial(icon_state)]_[contents.len]"
+	if(contents.len)
+		item_state = initial(item_state)
+	else
+		item_state = "[initial(item_state)]_e"
+
+/obj/item/clothing/accessory/fluff/sentiment_flower //Artificial Chrysanthemum - IRU-Sentiment - niennab
+	name = "artificial chrysanthemum"
+	desc = "An artificial white chrysanthemum flower."
+	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
+	icon_state = "sentiment_flower"
+	item_state = "sentiment_flower"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/head/welding/fluff/ioraks_mask //Iorakian Welding Mask - Kuhserze Ioraks - geeves
+	name = "iorakian welding mask"
+	desc = "A modified version of the standard issue NanoTrasen Engineering Corps welding mask, hand-painted into the colours of the Ioraks clan. Various alterations are clearly \
+	visible, including a darkened visor and refitted straps to keep the mask in place. On the inner side there is an ingraving of the Ioraks clan emblem, an open splayed hand with \
+	its palm facing the observer."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_mask"
+	item_state = "ioraks_mask"
+	contained_sprite = TRUE
+
+/obj/item/storage/box/fluff/ioraks_armbands //Delegation Armbands - Kuhserze Ioraks - geeves
+	name = "delegation armbands box"
+	desc = "A box full of team coloured armbands. It has a small picture of an Unathi's face misprinted on it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armbands"
+	item_state = "ioraks_armbands"
+	can_hold = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband)
+	starts_with = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband = 4, /obj/item/clothing/accessory/armband/fluff/ioraks_armband/alt = 4)
+	storage_slots = 8
+
+/obj/item/clothing/accessory/armband/fluff/ioraks_armband
+	name = "azszau armband"
+	desc = " A quite comfortable armband denoting its wearer as a member of the Azszau team. In fine print on the in-line of the fabric, it has \"The Skilled Hands\" worked into it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armband"
+	item_state = "ioraks_armband"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/armband/fluff/ioraks_armband/alt
+	name = "kutzis armband"
+	desc = "A quite comfortable armband denoting its wearer as a member of the Kutzis team. In fine print on the in-line of the fabric, it has \"The Bright Minds\" worked into it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armband2"
+	item_state = "ioraks_armband2"

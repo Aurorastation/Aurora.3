@@ -174,7 +174,7 @@
 			blood_max *= 0.8
 
 		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && do_spray.len)
-			owner.visible_message("<span class='danger'>Blood squirts from \the [owner]'s [pick(do_spray)]!</span>", "<span class='danger'><font size='3'>Blood is squirting out of your [pick(do_spray)]!</font></span>")
+			owner.visible_message("<span class='danger'>Blood squirts from \the [owner]'s [pick(do_spray)]!</span>", "<span class='danger'><font size=3>Blood is squirting out of your [pick(do_spray)]!</font></span>")
 			owner.eye_blurry = 2
 			owner.Stun(1)
 			next_blood_squirt = world.time + 100

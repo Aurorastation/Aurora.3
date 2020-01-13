@@ -94,3 +94,12 @@
 	if(item_flags & NOSLIP)
 		state = "enabled"
 	to_chat(user, "Its mag-pulse traction system appears to be [state].")
+
+/obj/item/clothing/shoes/magboots/hegemony
+	name = "hegemony magboots"
+	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. They're large enough to be worn over other footwear. This variant is frequently seen in the Hegemony Navy."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "hegemony_magboots0"
+	item_state = "hegemony_magboots"
+	icon_base = "hegemony_magboots"
+	contained_sprite = TRUE

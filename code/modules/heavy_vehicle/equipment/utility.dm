@@ -384,3 +384,38 @@
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 	..()
+
+// Kinda hacky, but hey, avoids some severe shitcode later on - geeves
+/obj/item/mecha_equipment/sleeper/passenger_compartment
+	name = "\improper mounted passenger compartment"
+	desc = "An exosuit-mounted passenger compartment that can comfortably hold a single humanoid."
+	icon_state = "mecha_passenger_open"
+	mech_layer = MECH_GEAR_LAYER
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_software = null
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	passive_power_use = 15
+
+/obj/item/mecha_equipment/sleeper/passenger_compartment/uninstalled()
+	. = ..()
+	icon_state = "mecha_passenger_open"
+	update_icon()
+	owner.update_icon()
+
+/obj/item/mecha_equipment/sleeper/passenger_compartment/attack_self(var/mob/user)
+	if(!sleeper.occupant)
+		to_chat(user, span("warning", "There's no one to eject!"))
+	else
+		visible_message(span("notice", "\The [src] ejects [sleeper.occupant.name]."))
+		sleeper.go_out()
+		icon_state = "mecha_passenger_open"
+		update_icon()
+		owner.update_icon()
+	return
+
+/obj/item/mecha_equipment/sleeper/passenger_compartment/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+	. = ..()
+	if(.)
+		icon_state = "mecha_passenger"
+		update_icon()
+		owner.update_icon()

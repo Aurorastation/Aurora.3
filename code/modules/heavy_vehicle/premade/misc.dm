@@ -21,15 +21,3 @@
 	color = COLOR_WHITE
 	mech_step_sound = 'sound/mecha/tanktread.ogg'
 	trample_damage = 25
-
-/obj/item/mech_component/chassis/pod
-	name = "spherical exosuit chassis"
-	hatch_descriptor = "hatch"
-	pilot_coverage = 100
-	transparent_cabin = TRUE
-	exosuit_desc_string = "a spherical chassis"
-	icon_state = "pod_body"
-	max_damage = 70
-	power_use = 5
-	has_hardpoints = list(HARDPOINT_BACK)
-	desc = "A simple spherical exosuit cockpit commonly used in space pods."

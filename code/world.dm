@@ -109,6 +109,20 @@ var/list/world_api_rate_limit = list()
 	var/list/response[] = list()
 	var/list/queryparams[]
 
+	if (!SSfail2topic)
+		response["statuscode"] = 500
+		response["response"] = "Server not initialized."
+		return json_encode(response)
+	else if (SSfail2topic.IsRateLimited(addr))
+		response["statuscode"] = 429
+		response["response"] = "Rate limited."
+		return json_encode(response)
+
+	if (length(T) > 2000)
+		response["statuscode"] = 413
+		response["response"] = "Payload too large."
+		return json_encode(response)
+
 	try
 		queryparams = json_decode(T)
 	catch()
@@ -132,11 +146,6 @@ var/list/world_api_rate_limit = list()
 	queryparams["addr"] = addr //Add the IP to the queryparams that are passed to the api functions
 	var/query = queryparams["query"]
 	var/auth = queryparams["auth"]
-
-	/*if (!SSticker) //If the game is not started most API Requests would not work because of the throtteling
-		response["statuscode"] = 500
-		response["response"] = "Game not started yet!"
-		return json_encode(response)*/
 
 	if (isnull(query))
 		log_debug("API - Bad Request - No query specified")

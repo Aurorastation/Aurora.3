@@ -48,13 +48,48 @@
 
 	pass_flags = PASSTABLE
 	holder_type = /obj/item/holder/monkey
+	var/static/list/no_touchie = list(/obj/item/mirror)
+
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
-	if(prob(33) && H.canmove && isturf(H.loc) && !H.pulledby) //won't move if being pulled
+	if(prob(33) && isturf(H.loc) && !H.pulledby && !ismob(H.loc)) //won't move if being pulled
 		step(H, pick(cardinal))
+
+	var/obj/held = H.get_active_hand()
+	if(held && prob(1) && !ismob(H.loc))
+		var/turf/T = get_random_turf_in_range(H, 7, 2)
+		if(T)
+			if(istype(held, /obj/item/gun) && prob(80))
+				var/obj/item/gun/G = held
+				G.Fire(T, H)
+			else
+				H.throw_item(T)
+		else
+			H.drop_item()
+	if(!held && !H.restrained() && prob(5) && !ismob(H.loc))
+		var/list/touchables = list()
+		for(var/obj/O in range(1,get_turf(H)))
+			if(O.simulated && O.Adjacent(H) && !is_type_in_list(O, no_touchie))
+				touchables += O
+		if(touchables.len)
+			var/obj/touchy = pick(touchables)
+			touchy.attack_hand(H)
+
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
+
+	if(H.get_shock() && H.shock_stage < 40 && prob(3))
+		H.custom_emote("chimpers pitifully")
+
+	if(H.shock_stage > 10 && prob(3))
+		H.emote(pick("cry","whimper"))
+
+	if(H.shock_stage >= 40 && prob(3))
+		H.emote("scream")
+
+	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
+		H.custom_emote("thrashes in agony")
 
 /datum/species/monkey/get_random_name()
 	return "[lowertext(name)] ([rand(100,999)])"

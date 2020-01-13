@@ -153,3 +153,12 @@
 	new /obj/item/ammo_magazine/c762/sol(src)
 	new /obj/item/gun/projectile/pistol/sol(src)
 	new /obj/item/ammo_magazine/mc9mm(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/syndicate_softsuits
+	req_access = list()
+
+/obj/structure/closet/crate/secure/gear_loadout/syndicate_softsuits/fill()
+	for(var/i in 1 to 6)
+		new /obj/item/clothing/head/helmet/space/syndicate/black/orange(src)
+		new /obj/item/clothing/suit/space/syndicate/black/orange(src)
+		new /obj/item/tank/emergency_oxygen/double(src)
