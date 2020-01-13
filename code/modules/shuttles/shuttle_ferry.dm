@@ -11,8 +11,8 @@
 	var/move_time = 0		//the time spent in the transition area
 	var/transit_direction = null	//needed for area/move_contents_to() to properly handle shuttle corners - not exactly sure how it works.
 
-	var/area_station
-	var/area_offsite
+	var/area/area_station
+	var/area/area_offsite
 	//TODO: change location to a string and use a mapping for area and dock targets.
 	var/dock_target_station
 	var/dock_target_offsite
@@ -67,6 +67,13 @@
 	Doing so will ensure that multiple jumps cannot be initiated in parallel.
 */
 /datum/shuttle/ferry/process()
+	if(moving_status != SHUTTLE_HALT)
+		if(!area_station || !area_offsite)
+			moving_status = SHUTTLE_HALT
+			return
+		if(!area_station.contents.len || !area_offsite.contents.len)
+			moving_status = SHUTTLE_HALT
+			return
 	switch(process_state)
 		if (WAIT_LAUNCH)
 			if (skip_docking_checks() || docking_controller.can_launch())
@@ -151,6 +158,8 @@
 	return 0
 
 /datum/shuttle/ferry/proc/can_cancel()
+	if(moving_status == SHUTTLE_HALT)
+		return 0
 	if (moving_status == SHUTTLE_WARMUP || process_state == WAIT_LAUNCH || process_state == FORCE_LAUNCH)
 		return 1
 	return 0

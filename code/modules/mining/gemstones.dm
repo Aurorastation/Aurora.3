@@ -67,7 +67,7 @@
 	if(src.gemtype == GEM_MIXED)
 		to_chat(user, span("notice", "Try disassembling the whole stack instead, if you want to separate it."))
 		return
-	else 
+	else
 		to_chat(user, span("notice", "You take a [src.gemsize] [src.gemtype] from the pile."))
 		src.stacksize -= 1
 		src.update_gem()
@@ -133,7 +133,7 @@
 				var/obj/item/precious/gemstone/mixed/large/pile = new(loc, stacksize, gemtype)
 				pile.add_gem(G)
 		qdel(src)
-	else 
+	else
 		to_chat(user, span("notice", "You add the [G.gemtype] to the pile."))
 		stack_contents[G.gemtype] += 1
 		src.stacksize += 1
@@ -209,7 +209,7 @@
 			if(15 to 30)
 				name = "heap of [gemsize] [plural]"
 				desc = "A hefty stack of [gemsize] [gemcolor] gemstones, heaped into a mass of glittering wealth. There are [stacksize] gems in the pile."
-	else 
+	else
 		desc = "A colorful pile of assorted [gemsize] gleaming gemstones. There are [stacksize] gems in the pile."
 
 var/list/gemtype2type = list(
@@ -527,13 +527,13 @@ var/list/gemtype2type = list(
 /turf/simulated/mineral/proc/findgem()
 	if(prob(95))
 		spawnsmallgem()
-	else 
+	else
 		if(prob(99))
 			spawnmediumgem()
-		else 
-			if (prob (95))
+		else
+			if(prob(95))
 				spawnlargegem()
-			else 
+			else
 				spawnhugegem()
 
 /turf/simulated/mineral/proc/spawnsmallgem()
@@ -555,7 +555,7 @@ var/list/gemtype2type = list(
 			new /obj/item/precious/gemstone/diamond(src)
 			visible_message(span("notice", "A couple tiny, glittering diamonds were in the rubble! Sweet!"))
 
-/turf/simulated/mineral/proc/spawnmediumgem(src)
+/turf/simulated/mineral/proc/spawnmediumgem()
 	if(prob(80))
 		var/picked = pick(/obj/item/precious/gemstone/ruby/med, /obj/item/precious/gemstone/topaz/med, /obj/item/precious/gemstone/sapphire/med, /obj/item/precious/gemstone/amethyst/med, /obj/item/precious/gemstone/emerald/med)
 		new picked(src)
@@ -564,18 +564,18 @@ var/list/gemtype2type = list(
 		new /obj/item/precious/gemstone/diamond/med(src)
 		visible_message(span("notice", "You found a small diamond in the rubble! Yeehaw!"))
 
-/turf/simulated/mineral/proc/spawnlargegem(src)
+/turf/simulated/mineral/proc/spawnlargegem()
 	var/picked = pick(/obj/item/precious/gemstone/ruby/large, /obj/item/precious/gemstone/topaz/large, /obj/item/precious/gemstone/sapphire/large, /obj/item/precious/gemstone/amethyst/large, /obj/item/precious/gemstone/diamond/large, /obj/item/precious/gemstone/emerald/large)
 	new picked(src)
 	visible_message(span("notice", "There was sizable gemstone in the rubble! Wow!"))
 
-/turf/simulated/mineral/proc/spawnhugegem(src)
+/turf/simulated/mineral/proc/spawnhugegem()
 	if(prob(90))
 		var/picked = pick(/obj/item/precious/gemstone/ruby/large, /obj/item/precious/gemstone/topaz/large, /obj/item/precious/gemstone/sapphire/large, /obj/item/precious/gemstone/amethyst/large, /obj/item/precious/gemstone/diamond/large, /obj/item/precious/gemstone/emerald/large)
 		new picked(src, rand(2,5))
 		visible_message(span("danger", "There is a loud crunching sound and you watch in horror as a enormous gemstone that had been embedded in the rock fractures into pieces."))
 		visible_message(span("notice", "Well, that was unlucky... at least the fragments are worth something, though..."))
-	else 
+	else
 		var/picked = pick(/obj/item/precious/gemstone/ruby/huge, /obj/item/precious/gemstone/topaz/huge, /obj/item/precious/gemstone/sapphire/huge, /obj/item/precious/gemstone/amethyst/huge, /obj/item/precious/gemstone/diamond/huge, /obj/item/precious/gemstone/emerald/huge)
 		new picked(src)
 		visible_message("<span style='color: green;'><i><em>An enormous gemstone tumbles out of the rubble, somehow managing to survive the destruction of the rock it was hidden in. Holy shit - this thing is larger than your head! You're going to be rich if you can get hold of that!</em></i></span>")
@@ -583,13 +583,13 @@ var/list/gemtype2type = list(
 /turf/simulated/mineral/proc/spawndiamond()
 	if(prob(95))
 		spawnsmalldiamond()
-	else 
+	else
 		if(prob(99))
 			spawnmediumdiamond()
-		else 
-			if (prob (95))
+		else
+			if(prob(95))
 				spawnlargediamond()
-			else 
+			else
 				spawnhugediamond()
 
 /turf/simulated/mineral/proc/spawnsmalldiamond()
@@ -613,6 +613,6 @@ var/list/gemtype2type = list(
 		new /obj/item/precious/gemstone/diamond/large(src, rand(2,5))
 		visible_message(span("danger", "There is a loud crunching sound and you watch in horror as a enormous diamond that had been embedded in the rock fractures into pieces."))
 		visible_message(span("notice", "Well, that was unlucky... at least the fragments are worth something, though..."))
-	else 
+	else
 		new /obj/item/precious/gemstone/diamond/huge(src)
 		visible_message("<span style='color: green;'><i><em>You find an enormous diamond in the rubble that managed to survive the destruction of the rock it was hidden in. Holy shit - this thing is larger than your head! You're going to be rich if you can get hold of that!</em></i></span>")

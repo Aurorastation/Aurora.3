@@ -40,5 +40,9 @@
 		qdel(aiming)
 		aiming = null
 	aimed.Cut()
+	if(vr_mob)
+		vr_mob = null
+	if(old_mob)
+		old_mob = null
 	return ..()
 
