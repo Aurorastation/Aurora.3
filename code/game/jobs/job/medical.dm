@@ -93,7 +93,9 @@
 	name = "Trauma Physician"
 	jobtype = /datum/job/doctor
 
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	uniform = /obj/item/clothing/under/rank/medical/black
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
+	shoes = /obj/item/clothing/shoes/trauma
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
 
