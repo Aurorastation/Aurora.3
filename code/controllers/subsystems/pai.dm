@@ -67,7 +67,7 @@
 		return
 
 	if(href_list["submit_candidate"])
-		var/datum/paiCandidate/candidate = ui.metadata["candidite"]
+		var/datum/paiCandidate/candidate = ui.metadata["candidate"]
 		if(!istype(candidate))
 			return
 		href_list["submit_candidate"]["name"] = sanitizeSafe(href_list["submit_candidate"]["name"], MAX_NAME_LEN)
@@ -137,12 +137,12 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(M, src)
 	if(!ui)
 		ui = new(M, src, "misc-pai-recruit", 580, 590, "pAI Personality Configuration", list(
-			"name" = candidate.name || "",
-			"description" = candidate.description || "",
-			"role" = candidate.role || "",
-			"comments" = candidate.comments || ""
-		), nstate = interactive_state)
-		ui.metadata = list("candidite" = candidate)
+			"name" = candidate.name,
+			"description" = candidate.description,
+			"role" = candidate.role,
+			"comments" = candidate.comments),
+		nstate = interactive_state)
+		ui.metadata = list("candidate" = candidate)
 		ui.header = "minimal"
 		
 	return ui.open()

@@ -933,8 +933,6 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	set name = "Submit pAI personality"
 	set desc = "Submits you pAI personality to the pAI candidate pool."
 
-	if(!src.MayRespawn(TRUE))
-		return
 	if(jobban_isbanned(src, "pAI"))
 		to_chat(src, "You are job banned from the pAI position.")
 		return
