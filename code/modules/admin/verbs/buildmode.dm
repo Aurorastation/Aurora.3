@@ -315,23 +315,20 @@
 		log_debug("Warning: Could not load the templates config as templates_list.json is missing - [ej]")
 		return
 
-	if(!templates)
+	if(!templates || !templates["templates_list"] || templates["templates_folder"] == "")
 		return
 
 	var/turf/T = get_turf(usr)
-	var/name = input(usr, "Which template would you like to load?", "Load Template", null) as null|anything in templates
+	var/name = input(usr, "Which template would you like to load?", "Load Template", null) as null|anything in templates["templates_list"]
 	
 	if (!name || !T)
 		return
 
-	var/datum/map_template/maploader = new
-	maploader.name = name
+	var/datum/map_template/maploader = new (templates["templates_folder"] + name, name)
 	if (!maploader)
 		log_debug("Error, unable to load maploader in proc load_template!")
 		return
 
-	var/base_dir = "maps/templates/"
-	maploader.mappath = base_dir + name
 	var/centered = input(usr, "Do you want template to load as center or Edge?", "Load Template", null) as null|anything in list("Center", "Edge")
 	maploader.load(T, centered == "Center" ? TRUE : FALSE)
 	log_and_message_admins("[key_name_admin(usr)] has loaded template [name] at the coordinates [T.x], [T.y], [T.z].", usr, T)
