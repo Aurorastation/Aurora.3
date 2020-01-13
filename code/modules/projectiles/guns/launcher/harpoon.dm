@@ -43,7 +43,7 @@
 		return FALSE
 	return ..()
 
-/obj/item/gun/launcher/harpoon/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/gun/launcher/harpoon/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/material/harpoon))
 		if(harpoons.len < max_harpoons)
 			user.drop_from_inventory(I,src)
