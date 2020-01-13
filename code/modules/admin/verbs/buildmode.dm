@@ -324,11 +324,14 @@
 	if (!name || !T)
 		return
 
-	var/dmm_suite/maploader = new
+	var/datum/map_template/maploader = new
+	maploader.name = name
 	if (!maploader)
 		log_debug("Error, unable to load maploader in proc load_template!")
 		return
 
 	var/base_dir = "maps/templates/"
-	maploader.load_map(file(base_dir + name), T.x, T.y, T.z, no_changeturf = TRUE)
-	log_and_message_admins("[usr.ckey] has loaded template [base_dir + name] at the coordinates [T.x], [T.y], [T.z].")
+	maploader.mappath = base_dir + name
+	var/centered = input(usr, "Do you want template to load as center or Edge?", "Load Template", null) as null|anything in list("Center", "Edge")
+	maploader.load(T, centered == "Center" ? TRUE : FALSE)
+	log_and_message_admins("[key_name_admin(usr)] has loaded template [name] at the coordinates [T.x], [T.y], [T.z].", usr, T)
