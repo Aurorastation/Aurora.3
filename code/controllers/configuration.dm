@@ -251,8 +251,7 @@ var/list/gamemode_cache = list()
 
 	//UDP GELF Logging
 	var/log_gelf_enabled = 0
-	var/log_gelf_ip = ""
-	var/log_gelf_port = ""
+	var/log_gelf_addr = ""
 
 	//IP Intel vars
 	var/ipintel_email
@@ -834,11 +833,8 @@ var/list/gamemode_cache = list()
 				if("log_gelf_enabled")
 					config.log_gelf_enabled = text2num(value)
 
-				if("log_gelf_ip")
-					config.log_gelf_ip = value
-
-				if("log_gelf_port")
-					config.log_gelf_port = value
+				if("log_gelf_addr")
+					config.log_gelf_addr = value
 
 				if("ipintel_email")
 					if (value != "ch@nge.me")

@@ -99,6 +99,12 @@
 	worn_state = "centcom"
 	displays_id = 0
 
+/obj/item/clothing/under/rank/fib
+	name = "\improper FIB agent uniform"
+	desc = "A formal uniform used by Federal Investigations Bureau agents."
+	icon_state = "fib_uniform"
+	worn_state = "fib_uniform"
+
 /obj/item/clothing/under/ert
 	name = "ERT tactical uniform"
 	desc = "A short-sleeved black uniform, paired with grey digital-camo cargo pants. It looks very tactical."

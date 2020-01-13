@@ -175,7 +175,7 @@
 		selected_system = null
 	selected_hardpoint = null
 
-/mob/living/heavy_vehicle/proc/enter(var/mob/user)
+/mob/living/heavy_vehicle/proc/enter(var/mob/user, var/instant = FALSE)
 	if(!user || user.incapacitated())
 		return
 	if(!user.Adjacent(src))
@@ -189,9 +189,10 @@
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
 		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
 		return
-	to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
-	if(!do_after(user, 30))
-		return
+	if(!instant)
+		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
+		if(!do_after(user, 30))
+			return
 	if(!user || user.incapacitated())
 		return
 	if(hatch_locked)

@@ -625,6 +625,12 @@
 	icon_open = "sec_dep_jacket_open"
 	icon_closed = "sec_dep_jacket"
 
+/obj/item/clothing/suit/storage/fib
+	name = "\improper FIB agent jacket"
+	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
+	icon_state = "fib_jacket"
+	item_state = "fib_jacket"
+
 /obj/item/clothing/suit/cardigan
 	name = "cardigan"
 	desc = "A cozy, warm knit cardigan. Only slightly worse than a blanket."
