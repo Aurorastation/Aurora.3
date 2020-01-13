@@ -20,7 +20,7 @@
 	While smaller version are carried by sailors and fishermen."
 
 	var/max_harpoons = 1
-	var/list/harpoons = new/list()
+	var/list/harpoons = list()
 
 
 /obj/item/gun/launcher/harpoon/Initialize()
