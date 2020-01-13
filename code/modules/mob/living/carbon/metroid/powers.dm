@@ -16,7 +16,7 @@
 
 /mob/living/carbon/slime/proc/invalidFeedTarget(var/mob/living/M)
 	if(!M || !istype(M))
-		return "This subject is incomparable..."
+		return "This subject is incompatible.."
 	if(istype(M, /mob/living/carbon/slime)) // No cannibalism... yet
 		return "I cannot feed on other slimes..."
 	if(!Adjacent(M))
