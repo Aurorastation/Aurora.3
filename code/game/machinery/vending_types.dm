@@ -550,6 +550,7 @@
 	icon_state = "seeds"
 	vend_id = "seeds"
 	products = list(
+		/obj/item/seeds/ambrosiavulgarisseed = 3,		
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
@@ -598,7 +599,6 @@
 		/obj/item/seeds/wulumunushaseed = 2
 	)
 	contraband = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/amanitamycelium = 3,
 		/obj/item/seeds/glowshroom = 3,
 		/obj/item/seeds/libertymycelium = 3,
@@ -609,6 +609,7 @@
 		/obj/item/seeds/ambrosiadeusseed = 3
 	)
 	prices = list(
+		/obj/item/seeds/ambrosiavulgarisseed = 70,		
 		/obj/item/seeds/appleseed = 50,
 		/obj/item/seeds/bananaseed = 60,
 		/obj/item/seeds/berryseed = 40,
