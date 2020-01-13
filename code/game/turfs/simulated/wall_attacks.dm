@@ -379,8 +379,3 @@
 				take_damage(damage_to_deal)
 			else
 				visible_message("<span class='warning'>[user] strikes \the [src] with [W], but it bounces off!</span>")
-
-
-
-
-
