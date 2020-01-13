@@ -7,7 +7,7 @@
 	requires_ntnet = 1
 	required_access_run = access_network
 	required_access_download = access_heads
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_STATIONBOUND
 	color = LIGHT_COLOR_GREEN
 	
 	available_on_ntnet = 1

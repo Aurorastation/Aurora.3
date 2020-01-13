@@ -11,7 +11,11 @@
 	max_hardware_size = 3
 	max_damage = 50
 	w_class = 3
+	enrolled = 2
 	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
+
+/obj/item/modular_computer/silicon/ui_host()
+	. = computer_host
 
 /obj/item/modular_computer/silicon/Initialize(mapload)
 	. = ..()
@@ -44,3 +48,14 @@
 /obj/item/modular_computer/silicon/Click(location, control, params)
 	return attack_self(usr)
 	
+/obj/item/modular_computer/silicon/install_default_hardware()
+	. = ..()
+	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
+	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
+	network_card = new /obj/item/computer_hardware/network_card/advanced(src)
+
+
+/obj/item/modular_computer/silicon/install_default_programs()
+	hard_drive.store_file(new /datum/computer_file/program/filemanager())
+	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload())
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))

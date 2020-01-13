@@ -136,6 +136,10 @@
 	if(!check_type)
 		check_type = requires_access_to_download
 
+	if(istype(computer, /obj/item/modular_computer/silicon/pai))
+		check_type = requires_access_to_run
+		access_to_check = required_access_run
+
 	// No required_access, allow it.
 	if(!access_to_check || !requires_access_to_download)
 		return 1

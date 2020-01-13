@@ -10,6 +10,10 @@
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
 	can_pull_size = 2 //max size for an object the pAI can pull
 
+	silicon_subsystems = list(
+		/mob/living/silicon/proc/computer_interact
+	)
+
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
 	var/ram = 100	// Used as currency to purchase different abilities
@@ -67,11 +71,6 @@
 
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
-
-	var/medical_cannotfind = 0
-	var/datum/record/general/active		// Datacore record declarations for record software
-
-	var/security_cannotfind = 0
 
 	var/obj/machinery/door/airlock/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
@@ -249,16 +248,6 @@
 	src.current = C
 	src.reset_view(C)
 	return 1
-
-/mob/living/silicon/pai/verb/reset_record_view()
-	set category = "pAI Commands"
-	set name = "Reset Records Software"
-
-	active = null
-	security_cannotfind = 0
-	medical_cannotfind = 0
-	SSnanoui.update_uis(src)
-	to_chat(usr, "<span class='notice'>You reset your record-viewing software.</span>")
 
 /mob/living/silicon/pai/cancel_camera()
 	set category = "pAI Commands"

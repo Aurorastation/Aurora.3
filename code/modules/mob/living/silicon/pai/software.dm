@@ -19,6 +19,7 @@ var/list/pai_emotions = list(
 /mob/living/silicon/pai/Initialize()
 	..()
 	software = SSpai.default_pai_software.Copy()
+	verbs |= silicon_subsystems
 
 /mob/living/silicon/pai/verb/paiInterface()
 	set category = "pAI Commands"
