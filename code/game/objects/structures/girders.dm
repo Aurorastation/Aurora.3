@@ -177,13 +177,13 @@
 		if(reinf_material)
 			weaken += reinf_material.integrity * 1.75 //Since girders don't have a secondary material, buff 'em up a bit.
 		weaken /= 100
-		damage_to_deal -= weaken
+		damage_to_deal -= weaken * 1.5
 		visible_message("<span class='notice'>[user] retracts their [W] and starts winding up a strike...</span>")
 		var/hit_delay = W.w_class * 10 //Heavier weapons take longer to swing, yeah?
 		if(do_after(user, hit_delay))
 			do_attack_animation(src)
 			playsound(src, 'sound/weapons/smash.ogg', 50)
-			if(damage_to_deal > weaken)
+			if(damage_to_deal > weaken || (damage_to_deal < MIN_DAMAGE_TO_HIT))
 				visible_message("<span class='warning'>[user] strikes \the [src] with [W], [is_sharp(W) ? "slicing" : "denting"] a support rod!</span>")
 				take_damage(damage_to_deal)
 			else
