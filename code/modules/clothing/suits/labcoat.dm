@@ -130,12 +130,12 @@
 	icon_closed = "labcoat_surgeon"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
-/obj/item/clothing/suit/storage/toggle/labcoat/emergencyphys
-	name = "emergency physician labcoat"
+/obj/item/clothing/suit/storage/toggle/labcoat/trauma
+	name = "trauma physician labcoat"
 	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a black stripe on the shoulder."
-	icon_state = "labcoat_em_phys_open"
-	icon_open = "labcoat_em_phys_open"
-	icon_closed = "labcoat_em_phys"
+	icon_state = "labcoat_trauma_open"
+	icon_open = "labcoat_trauma_open"
+	icon_closed = "labcoat_trauma"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/science
