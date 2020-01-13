@@ -7,7 +7,7 @@
 /datum/psionic_power/energistics
 	faculty = PSI_ENERGISTICS
 
-/datum/psionic_power/energistics/sequencer
+/datum/psionic_power/energistics/electropulse
 	name =            "Electropulse"
 	cost =            40
 	cooldown =        100
@@ -15,7 +15,7 @@
 	min_rank =        PSI_RANK_MASTER
 	use_description = "Target the right hand while on harm intent and click an object to use a melee attack that causes a localized EMP. This activates the EMP function on things, but it takes a while and applies a long cooldown, in addition to being expensive."
 
-/datum/psionic_power/energistics/sequencer/invoke(var/mob/living/user, var/mob/living/target)
+/datum/psionic_power/energistics/electropulse/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != BP_R_HAND)
 		return FALSE
 	if(istype(target, /turf) || ismob(target))
