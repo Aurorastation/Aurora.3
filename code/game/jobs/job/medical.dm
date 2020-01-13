@@ -62,7 +62,7 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Surgeon","Trauma Physician","Nurse")
+	alt_titles = list("Trauma Physician","Nurse")
 	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(

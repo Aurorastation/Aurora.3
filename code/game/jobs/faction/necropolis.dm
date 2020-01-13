@@ -55,7 +55,7 @@
 		"Warden" = /datum/outfit/job/warden/necropolis,
 		"Physician" = /datum/outfit/job/doctor/necropolis,
 		"Surgeon" = /datum/outfit/job/doctor/necropolis,
-		"Emergency Phyisician" = /datum/outfit/job/doctor/necropolis,
+		"Trauma Physician" = /datum/outfit/job/doctor/necropolis,
 		"Nurse" = /datum/outfit/job/doctor/necropolis,
 		"Pharmacist" = /datum/outfit/job/pharmacist/necropolis,
 		"Biochemist" = /datum/outfit/job/pharmacist/necropolis,

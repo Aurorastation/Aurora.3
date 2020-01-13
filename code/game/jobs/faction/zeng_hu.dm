@@ -54,7 +54,7 @@
 	titles_to_loadout = list(
 		"Physician" = /datum/outfit/job/doctor/zeng_hu,
 		"Surgeon" = /datum/outfit/job/doctor/zeng_hu,
-		"Emergency Phyisician" = /datum/outfit/job/doctor/zeng_hu,
+		"Trauma Physician" = /datum/outfit/job/doctor/zeng_hu,
 		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Biochemist" = /datum/outfit/job/pharmacist/zeng_hu,
