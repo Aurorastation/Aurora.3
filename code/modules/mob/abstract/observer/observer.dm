@@ -928,22 +928,22 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 	SSghostroles.vui_interact(src)
 
-/mob/abstract/observer/verb/submitpai() //Moves the ghost instead of just changing the ghosts's eye -Nodrak
+/mob/abstract/observer/verb/submitpai()
 	set category = "Ghost"
 	set name = "Submit pAI personality"
-	set desc = "Submits pAI personality to pAI candidite pool"
+	set desc = "Submits you pAI personality to the pAI candidate pool."
 
 	if(!src.MayRespawn(TRUE))
 		return
 	if(jobban_isbanned(src, "pAI"))
-		to_chat(src, "You are job banned for pAI position.")
+		to_chat(src, "You are job banned from the pAI position.")
 		return
 	SSpai.recruitWindow(src)
 
-/mob/abstract/observer/verb/revokepai() //Moves the ghost instead of just changing the ghosts's eye -Nodrak
+/mob/abstract/observer/verb/revokepai()
 	set category = "Ghost"
 	set name = "Revoke pAI personality"
-	set desc = "Removes you from pAI candidite pool"
+	set desc = "Removes you from the pAI candidite pool."
 
 	if(SSpai.revokeCandidancy(src))
-		to_chat(src, "You been removed from pAI condidite pool.")
+		to_chat(src, "You been removed from the pAI candidate pool.")

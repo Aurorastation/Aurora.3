@@ -1,6 +1,6 @@
 author: Karolis2011
 delete-after: True
 changes: 
-  - rscadd: "Added verbs to ghost meniu to submit pAI personality and revoke it."
+  - rscadd: "Added verbs to ghost menu to submit pAI personality and revoke it."
   - rscadd: "Added new VueUI for pAI personality submission."
-  - bugfix: "Fixed pAI prefrences."
+  - bugfix: "Fixed pAI preferences."
