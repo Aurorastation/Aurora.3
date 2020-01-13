@@ -3326,7 +3326,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
 							"Say Something New: A morose song about companionship, and being unable to continue without an undescribed dear friend. Morose, but overall motivational.",
-							"One By One -> A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
+							"One By One: A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
 
 /obj/item/fluff/cress_book/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
