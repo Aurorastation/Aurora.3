@@ -8,12 +8,12 @@
 	faculty = PSI_ENERGISTICS
 
 /datum/psionic_power/energistics/sequencer
-	name =            "Sequencer"
+	name =            "Electropulse"
 	cost =            40
 	cooldown =        100
 	use_melee =       TRUE
 	min_rank =        PSI_RANK_MASTER
-	use_description = "Target the right hand while on harm intent and click an object to use a melee attack that causes a localized electrocution. This functions like an emag, but is very expensive. Keep in mind that you will try to emag anything you click on."
+	use_description = "Target the right hand while on harm intent and click an object to use a melee attack that causes a localized EMP. This activates the EMP function on things, but it takes a while and applies a long cooldown, in addition to being expensive."
 
 /datum/psionic_power/energistics/sequencer/invoke(var/mob/living/user, var/mob/living/target)
 	if(user.zone_sel.selecting != BP_R_HAND)
@@ -26,7 +26,8 @@
 		if(do_after(user, 100, TRUE, target))
 			user.visible_message("<span class='danger'>\The [user] releases a gout of arcing lightning over \the [target]!</span>")
 			playsound(target, 'sound/magic/LightningShock.ogg', 75)
-			target.emag_act(0, user, "electricity arc")
+			var/severity = 1 + user.psi.get_rank(PSI_ENERGISTICS)
+			target.emp_act(severity)
 			return TRUE
 
 /datum/psionic_power/energistics/electrocute

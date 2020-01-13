@@ -41,6 +41,6 @@ changes:
   - rscadd: "Borer has been added as its own gamemode, requiring 3 borer players and 20 people readied."
   - tweak: "To be eligible as a borer host you now need the borer antag pref on. If a borer cannot find a suitable host, it will spawn in a randomly positioned landmark."
   - tweak: "Zorch, the eye laser power, has been made into a lightning arc power instead. It works like before, except it shoots teslabolts."
-  - tweak: "Disable, the EMP ability, has been made into an emag ability. You now activate it by targeting right hand and clicking on items."
+  - tweak: "Disable, the EMP ability, has been made into a localized EMP ability. It activates the EMP effect on items. You now activate it by targeting right hand and clicking on items."
   - tweak: "Increased borer psi awakening chemical cost to 150."
   - tweak: "Borer psi awakening is now a bit more painful."
