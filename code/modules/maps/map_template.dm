@@ -60,7 +60,7 @@
 
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
-	log_game("Z-level [name] loaded at at [x],[y],[world.maxz]")
+	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)
@@ -72,14 +72,14 @@
 	if(T.y+height > world.maxy)
 		return
 
-	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
+	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, no_changeturf = TRUE)
 	if(!bounds)
 		return
 
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 
-	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
+	log_game("[name] loaded at [T.x], [T.y], [T.z]")
 	return TRUE
 
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
