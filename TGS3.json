@@ -14,7 +14,8 @@
     ],
     "static_directories": [
       "config",
-      "data"
+      "data",
+      "maps/space_ruins"
     ],
     "dlls": [
       "libmysql.dll"

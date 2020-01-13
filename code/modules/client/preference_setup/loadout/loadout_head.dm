@@ -106,6 +106,19 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/head/flowercrown
+	display_name = "flowercrown selection"
+	description = "A set of flowercrowns, perfect for the queen or even the king."
+	path = /obj/item/clothing/head
+
+/datum/gear/head/flowercrown/New()
+	..()
+	var/flowercrown = list()
+	flowercrown["crown, sunflower"] = /obj/item/clothing/head/sunflower_crown
+	flowercrown["crown, harebell"] = /obj/item/clothing/head/lavender_crown
+	flowercrown["crown, poppy"] = /obj/item/clothing/head/poppy_crown
+	gear_tweaks += new/datum/gear_tweak/path(flowercrown)
+
 /datum/gear/head/pin
 	display_name = "pin selection"
 	path = /obj/item/clothing/head/pin
