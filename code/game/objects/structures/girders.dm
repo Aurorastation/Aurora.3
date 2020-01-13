@@ -1,4 +1,5 @@
 /obj/structure/girder
+	desc = "The basic building block of all walls."
 	icon_state = "girder"
 	anchored = 1
 	density = 1
@@ -10,19 +11,26 @@
 	var/material/reinf_material
 	var/reinforcing = 0
 
+/obj/structure/girder/examine(mob/user, distance, infix, suffix)
+	. = ..()
+	var/state
+	var/current_damage = health / initial(health)
+	switch(current_damage)
+		if(0 to 0.2)
+			state = "<span class='danger'>The support struts are collapsing!</span>"
+		if(0.2 to 0.4)
+			state = "<span class='warning'>The support struts are warped!</span>"
+		if(0.4 to 0.8)
+			state = "<span class='notice'>The support struts are dented, but holding together.</span>"
+		if(0.8 to 1)
+			state = "<span class='notice'>The support struts look completely intact.</span>"
+	to_chat(user, state)
+
 /obj/structure/girder/displaced
-	icon_state = "displaced"
+	icon_state = "displaced girder"
 	anchored = 0
 	health = 50
 	cover = 25
-
-/obj/structure/girder/attack_generic(var/mob/user, var/damage, var/attack_message = "smashes apart", var/wallbreaker)
-	if(!damage || !wallbreaker)
-		return 0
-	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] [attack_message] the [src]!</span>")
-	spawn(1) dismantle()
-	return 1
 
 /obj/structure/girder/bullet_act(var/obj/item/projectile/Proj)
 	//Girders only provide partial cover. There's a chance that the projectiles will just pass through. (unless you are trying to shoot the girder)
@@ -36,12 +44,15 @@
 	if(!istype(Proj, /obj/item/projectile/beam))
 		damage *= 0.4 //non beams do reduced damage
 
-	health -= damage
-	..()
-	if(health <= 0)
-		dismantle()
+	take_damage(damage)
 
-	return
+	return ..()
+
+/obj/structure/girder/proc/take_damage(var/damage)
+	health -= damage
+	if(health <= 0)
+		visible_message("<span class='warning'>\The [src] falls apart!</span>")
+		dismantle()
 
 /obj/structure/girder/proc/reset_girder()
 	anchored = 1
@@ -161,7 +172,25 @@
 				return ..()
 
 	else
-		return ..()
+		var/damage_to_deal = W.force
+		var/weaken = 0
+		if(reinf_material)
+			weaken += reinf_material.integrity * 1.75 //Since girders don't have a secondary material, buff 'em up a bit.
+		weaken /= 100
+		damage_to_deal -= weaken
+		visible_message("<span class='notice'>[user] retracts their [W] and starts winding up a strike...</span>")
+		var/hit_delay = W.w_class * 10 //Heavier weapons take longer to swing, yeah?
+		if(do_after(user, hit_delay))
+			do_attack_animation(src)
+			playsound(src, 'sound/weapons/smash.ogg', 50)
+			if(damage_to_deal > weaken)
+				visible_message("<span class='warning'>[user] strikes \the [src] with [W], [is_sharp(W) ? "slicing" : "denting"] a support rod!</span>")
+				take_damage(damage_to_deal)
+			else
+				visible_message("<span class='warning'>[user] strikes \the [src] with [W], but it bounces off!</span>")
+			return
+
+	return ..()
 
 /obj/structure/girder/proc/construct_wall(obj/item/stack/material/S, mob/user)
 	if(S.get_amount() < 2)

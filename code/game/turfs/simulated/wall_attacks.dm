@@ -102,15 +102,16 @@
 		return success_smash(user)
 	return fail_smash(user, wallbreaker)
 
-/turf/simulated/wall/attackby(obj/item/W as obj, mob/user as mob)
+/turf/simulated/wall/attackby(obj/item/W, mob/user)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if (!user)
+	if(!user)
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
 		return
 
 	//get the user's location
-	if(!istype(user.loc, /turf))	return	//can't do this stuff whilst inside objects and such
+	if(!istype(user.loc, /turf))
+		return	//can't do this stuff whilst inside objects and such
 
 	if(W)
 		radiate()
@@ -118,9 +119,9 @@
 			burn(is_hot(W))
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		if(W.iswelder() )
+		if(W.iswelder())
 			var/obj/item/weldingtool/WT = W
-			if( WT.remove_fuel(0,user) )
+			if(WT.remove_fuel(0,user))
 				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
 				playsound(src, 'sound/items/Welder.ogg', 10, 1)
 				for(var/obj/effect/overlay/wallrot/WR in src)
@@ -358,5 +359,28 @@
 		return
 
 	else if(!istype(W,/obj/item/rfd/construction) && !istype(W, /obj/item/reagent_containers))
-		return attack_hand(user)
+		//At this point we know that they probably wanna hit it.
+		if(user.a_intent != I_HURT || !W.force)
+			return attack_hand(user)
+
+		var/damage_to_deal = W.force
+		var/weaken = material?.integrity
+		if(reinf_material)
+			weaken *= reinf_material.integrity * 0.75 //Diminish the effects of the reinforcing material. It's reinforcement after all.
+		weaken /= 100 //For reference, plasteel's integrity is 600.
+		damage_to_deal -= weaken
+		visible_message("<span class='notice'>[user] retracts their [W] and starts winding up a strike...</span>")
+		var/hit_delay = W.w_class * 10 //Heavier weapons take longer to swing, yeah?
+		if(do_after(user, hit_delay))
+			user.do_attack_animation(src)
+			playsound(src, 'sound/weapons/smash.ogg', 50)
+			if(damage_to_deal > weaken)
+				visible_message("<span class='warning'>[user] strikes \the [src] with [W], [is_sharp(W) ? "slicing some of the plating" : "putting a heavy dent on it"]!</span>")
+				take_damage(damage_to_deal)
+			else
+				visible_message("<span class='warning'>[user] strikes \the [src] with [W], but it bounces off!</span>")
+
+
+
+
 
