@@ -1,7 +1,7 @@
 /mob/living/carbon/slime/examine(mob/user)
 	..(user)
 	var/msg = ""
-	if (src.stat == DEAD)
+	if(src.stat == DEAD)
 		msg += span("deadsay", "It is limp and unresponsive.\n")
 	else
 		if(src.getBruteLoss())

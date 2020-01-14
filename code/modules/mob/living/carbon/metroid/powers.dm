@@ -1,9 +1,9 @@
 /mob/living/carbon/slime/proc/Wrap(var/mob/living/M) // This is a proc for the clicks
-	if(Victim == M || src == M)
+	if(victim == M || src == M)
 		Feedstop()
 		return
 
-	if(Victim)
+	if(victim)
 		to_chat(src, span("warning", "I am already feeding..."))
 		return
 
@@ -21,42 +21,47 @@
 		return "I cannot feed on other slimes..."
 	if(!Adjacent(M))
 		return "This subject is too far away..."
-	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxHealth * 1.5 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
+	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxHealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
 		return "This subject does not have an edible life energy..."
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/human/H = M
 		if(istype(H) && (H.species.flags & NO_SCAN))
 			return "This subject has nothing for us to take..."
 	for(var/mob/living/carbon/slime/met in view())
-		if(met.Victim == M && met != src)
+		if(met.victim == M && met != src)
 			return "The [met.name] is already feeding on this subject..."
 	return FALSE
 
 /mob/living/carbon/slime/proc/Feedon(var/mob/living/M)
-	Victim = M
+	victim = M
 	loc = M.loc
 	canmove = FALSE
 	anchored = TRUE
+	visible_message(span("danger", "\The [src] leaps onto [victim], feeding on them!"), span("warning", "You start feeding on [victim]."))
 
 	regenerate_icons()
 
-	while(Victim && !invalidFeedTarget(M) && stat != DEAD)
+	while(victim && !invalidFeedTarget(M) && stat != DEAD && nutrition != get_max_nutrition())
 		canmove = FALSE
 
 		if(Adjacent(M))
 			UpdateFeed(M)
 
 			if(istype(M, /mob/living/carbon))
-				Victim.adjustCloneLoss(rand(5,6))
-				Victim.adjustToxLoss(rand(2,3))
-				if(Victim.health <= 0)
-					Victim.adjustToxLoss(rand(2,4))
+				victim.adjustCloneLoss(rand(5,6))
+				victim.adjustToxLoss(rand(5,8))
+				victim.adjustBruteLoss(is_adult ? rand(2, 4) : rand(1, 3))
+				victim.reagents.add_reagent("toxin", 2)
+				if(victim.health <= 0)
+					victim.adjustToxLoss(rand(6,9))
+				if(prob(20) && !isSynthetic(victim))
+					victim.emote(pick("scream", "whimper", "gasp", "choke", "twitch"))
 
 			else if(istype(M, /mob/living/simple_animal))
-				Victim.adjustBruteLoss(is_adult ? rand(7, 15) : rand(4, 12))
+				victim.adjustBruteLoss(is_adult ? rand(9, 17) : rand(6, 14))
 
 			else
-				to_chat(src, span("warning", "[pick("This subject is incompatable", "This subject does not have a life energy", "This subject is empty", "I am not satisified", "I can not feed from this subject", "I do not feel nourished", "This subject is not food")]..."))
+				to_chat(src, span("warning", "[pick("This subject is incompatible", "This subject does not have a life energy", "This subject is empty", "I am not satisfied", "I can not feed from this subject", "I do not feel nourished", "This subject is not food")]..."))
 				Feedstop()
 				break
 
@@ -77,8 +82,12 @@
 			adjustFireLoss(-10)
 			adjustCloneLoss(-10)
 			updatehealth()
-			if(Victim)
-				Victim.updatehealth()
+			if(victim)
+				victim.updatehealth()
+
+			if(nutrition == get_max_nutrition())
+				visible_message(span("warning", "\The [src] releases [victim], content and full."), span("warning", "You are full."))
+				break
 
 			sleep(30) // Deal damage every 3 seconds
 		else
@@ -89,28 +98,28 @@
 
 	if(M && invalidFeedTarget(M)) // This means that the slime drained the victim
 		if(!client)
-			if(Victim && !rabid && !attacked && Victim.LAssailant && Victim.LAssailant != Victim && prob(50))
-				var/real_assailant = Victim.LAssailant.resolve()
+			if(victim && !rabid && !attacked && victim.LAssailant && victim.LAssailant != victim && prob(50))
+				var/real_assailant = victim.LAssailant.resolve()
 				if(real_assailant)
-					if(!(real_assailant in Friends))
-						Friends[real_assailant] = TRUE
+					if(!(real_assailant in friends))
+						friends[real_assailant] = TRUE
 					else
-						++Friends[real_assailant]
+						++friends[real_assailant]
 
 		else
 			to_chat(src, span("notice", "This subject does not have a strong enough life energy anymore..."))
 
-	Victim = null
+	victim = null
 
 /mob/living/carbon/slime/proc/Feedstop()
-	if(Victim)
-		if(Victim.client)
-			to_chat(Victim, span("warning", "\The [src] has let go of your head!"))
-		Victim = null
+	if(victim)
+		if(victim.client)
+			to_chat(victim, span("warning", "\The [src] has let go of your head!"))
+		victim = null
 
 /mob/living/carbon/slime/proc/UpdateFeed(var/mob/M)
-	if(Victim)
-		if(Victim == M)
+	if(victim)
+		if(victim == M)
 			loc = M.loc // simple "attach to head" effect!
 
 /mob/living/carbon/slime/verb/Evolve()
@@ -122,10 +131,11 @@
 		return
 
 	if(!is_adult)
-		if(amount_grown >= 10)
+		if(amount_grown >= 5)
 			is_adult = TRUE
 			mob_size = 6 // Adult slimes are bigger
 			maxHealth = 200
+			health = maxHealth
 			amount_grown = 0
 			regenerate_icons()
 			name = text("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
@@ -144,7 +154,7 @@
 		return
 
 	if(is_adult)
-		if(amount_grown >= 10)
+		if(amount_grown >= 5)
 			if(stat)
 				to_chat(src, span("notice", "I must be conscious to do this..."))
 				return
@@ -162,7 +172,7 @@
 				M.powerlevel = new_powerlevel
 				if(i != 1)
 					step_away(M, src)
-				M.Friends = Friends.Copy()
+				M.friends = friends.Copy()
 				babies += M
 				feedback_add_details("slime_babies_born", "slimebirth_[replacetext(M.colour," ","_")]")
 

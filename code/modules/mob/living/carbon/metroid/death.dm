@@ -5,7 +5,7 @@
 	if(!gibbed && is_adult)
 		var/mob/living/carbon/slime/M = new /mob/living/carbon/slime(loc, colour)
 		M.rabid = TRUE
-		M.Friends = Friends.Copy()
+		M.friends = friends.Copy()
 		step_away(M, src)
 		is_adult = FALSE
 		maxHealth = 150

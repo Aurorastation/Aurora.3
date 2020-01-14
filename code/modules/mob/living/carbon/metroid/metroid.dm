@@ -14,6 +14,7 @@
 
 	update_icon = 0
 	nutrition = 700
+	max_nutrition = 1200
 
 	see_in_dark = 8
 	update_slimes = 0
@@ -22,35 +23,36 @@
 	// for the sake of cleanliness, though, here they are.
 	status_flags = CANPARALYSE|CANPUSH
 
-	var/cores = 1 // the number of /obj/item/slime_extract's the slime has left inside
+	var/cores = 1 			 // the number of /obj/item/slime_extract's the slime has left inside
 	var/mutation_chance = 30 // Chance of mutating, should be between 25 and 35
 
-	var/powerlevel = 0 // 0-10 controls how much electricity they are generating
-	var/amount_grown = 0 // controls how long the slime has been overfed, if 10, grows or reproduces
+	var/powerlevel = 0	 // 0-10 controls how much electricity they are generating
+	var/amount_grown = 0 // controls how long the slime has been overfed, if 5, grows or reproduces
 
 	var/number = 0 // Used to understand when someone is talking to it
 
-	var/mob/living/Victim = null // the person the slime is currently feeding on
-	var/mob/living/Target = null // AI variable - tells the slime to hunt this down
-	var/mob/living/Leader = null // AI variable - tells the slime to follow this person
+	var/mob/living/victim = null // the person the slime is currently feeding on
+	var/mob/living/target = null // AI variable - tells the slime to hunt this down
+	var/mob/living/leader = null // AI variable - tells the slime to follow this person
 
-	var/attacked = 0 // Determines if it's been attacked recently. Can be any number, is a cooloff-ish variable
-	var/rabid = 0 // If set to 1, the slime will attack and eat anything it comes in contact with
-	var/holding_still = 0 // AI variable, cooloff-ish for how long it's going to stay in one place
+	var/attacked = 0		// Determines if it's been attacked recently. Can be any number, is a cooloff-ish variable
+	var/rabid = 0			// If set to 1, the slime will attack and eat anything it comes in contact with
+	var/holding_still = 0	// AI variable, cooloff-ish for how long it's going to stay in one place
 	var/target_patience = 0 // AI variable, cooloff-ish for how long it's going to follow its target
 
-	var/list/Friends = list() // A list of friends; they are not considered targets for feeding; passed down after splitting
+	var/list/friends = list() // A list of friends; they are not considered targets for feeding; passed down after splitting
 
 	var/list/speech_buffer = list() // Last phrase said near it and person who said it
 
 	var/mood = "" // To show its face
 
-	var/AIproc = 0 // If it's 0, we need to launch an AI proc
-	var/Atkcool = 0 // attack cooldown
-	var/SStun = 0 // NPC stun variable. Used to calm them down when they are attacked while feeding, or they will immediately re-attach
-	var/Discipline = 0 // if a slime has been hit with a freeze gun, or wrestled/attacked off a human, they become disciplined and don't attack anymore for a while. The part about freeze gun is a lie
-	var/hurt_temperature = T0C-50 // slime keeps taking damage when its bodytemperature is below this
-	var/die_temperature = 50 // slime dies instantly when its bodytemperature is below this
+	var/last_AI						// The last time the AI did something, to ensure we aren't stuck in AIless limbo
+	var/AIproc = 0					// If it's 0, we need to launch an AI proc
+	var/Atkcool = 0					// Attack cooldown
+	var/SStun = 0					// NPC stun variable. Used to calm them down when they are attacked while feeding, or they will immediately re-attach
+	var/discipline = 0				// If a slime has been hit with a freeze gun, or wrestled/attacked off a human, they become disciplined and don't attack anymore for a while. The part about freeze gun is a lie
+	var/hurt_temperature = T0C-50	// Slime keeps taking damage when its bodytemperature is below this
+	var/die_temperature = 50		// Slime dies instantly when its bodytemperature is below this
 
 	var/co2overloadtime = null
 	var/temperature_resistance = T0C+75
@@ -83,6 +85,7 @@
 	mutation_chance = rand(25, 35)
 	var/sanitizedcolour = replacetext(colour, " ", "")
 	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
+	last_AI = world.time
 	regenerate_icons()
 
 /mob/living/carbon/slime/purple/Initialize(mapload, colour = "purple")
@@ -222,9 +225,9 @@
 	stat(null, "Health: [round((health / maxHealth) * 100)]%")
 	stat(null, "Intent: [a_intent]")
 
-	if (client.statpanel == "Status")
+	if(client.statpanel == "Status")
 		stat(null, "Nutrition: [nutrition]/[get_max_nutrition()]")
-		if(amount_grown >= 10)
+		if(amount_grown >= 5)
 			if(is_adult)
 				stat(null, "You can reproduce!")
 			else
@@ -276,8 +279,8 @@
 /mob/living/carbon/slime/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 
-	if(Victim)
-		if(Victim == M)
+	if(victim)
+		if(victim == M)
 			if(prob(60))
 				visible_message(span("warning", "[M] attempts to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
@@ -286,13 +289,13 @@
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(90) && !client)
-					Discipline++
+					discipline++
 
 				SStun = TRUE
 				spawn(rand(45,60))
 					SStun = FALSE
 
-				Victim = null
+				victim = null
 				anchored = FALSE
 				step_away(src,M)
 
@@ -300,36 +303,35 @@
 
 		else
 			if(prob(30))
-				visible_message(span("warning", "[M] attempts to wrestle \the [name] off of [Victim]!"))
+				visible_message(span("warning", "[M] attempts to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 			else
-				visible_message(span("warning", "[M] manages to wrestle \the [name] off of [Victim]!"))
+				visible_message(span("warning", "[M] manages to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(80) && !client)
-					Discipline++
+					discipline++
 
 					if(!is_adult)
-						if(Discipline)
+						if(discipline)
 							attacked = FALSE
 
 				SStun = TRUE
 				spawn(rand(55,65))
 					SStun = FALSE
 
-				Victim = null
+				victim = null
 				anchored = FALSE
 				step_away(src,M)
 
 			return
 
 	switch(M.a_intent)
-
-		if (I_HELP)
+		if(I_HELP)
 			help_shake_act(M)
 
-		if (I_GRAB)
-			if (M == src || anchored)
+		if(I_GRAB)
+			if(M == src || anchored)
 				return
 			var/obj/item/grab/G = new /obj/item/grab(M, src)
 
@@ -347,15 +349,15 @@
 			var/damage = rand(1, 9)
 
 			attacked += 10
-			if (prob(90))
-				if (HULK in M.mutations)
+			if(prob(90))
+				if(HULK in M.mutations)
 					damage += 5
-					if(Victim || Target)
-						Victim = null
-						Target = null
+					if(victim || target)
+						victim = null
+						target = null
 						anchored = 0
 						if(prob(80) && !client)
-							Discipline++
+							discipline++
 					spawn(0)
 						step_away(src,M,15)
 						sleep(3)
@@ -378,17 +380,17 @@
 		if(prob(25))
 			to_chat(user, span("danger", "[W] passes right through [src]!"))
 			return
-		if(Discipline && prob(50)) // wow, buddy, why am I getting attacked??
-			Discipline = FALSE
+		if(discipline && prob(50)) // wow, buddy, why am I getting attacked??
+			discipline = FALSE
 	if(W.force >= 3)
 		if(is_adult)
 			if(prob(5 + round(W.force/2)))
-				if(Victim || Target)
+				if(victim || target)
 					if(prob(80) && !client)
-						Discipline++
+						discipline++
 
-					Victim = null
-					Target = null
+					victim = null
+					target = null
 					anchored = FALSE
 
 					SStun = TRUE
@@ -407,17 +409,17 @@
 
 		else
 			if(prob(10 + W.force*2))
-				if(Victim || Target)
+				if(victim || target)
 					if(prob(80) && !client)
-						Discipline++
-					if(Discipline)
+						discipline++
+					if(discipline)
 						attacked = FALSE
 					SStun = TRUE
 					spawn(rand(5,20))
 						SStun = FALSE
 
-					Victim = null
-					Target = null
+					victim = null
+					target = null
 					anchored = FALSE
 
 					spawn(0)
@@ -438,10 +440,10 @@
 	return
 
 /mob/living/carbon/slime/proc/gain_nutrition(var/amount)
-	adjustNutritionLoss(-10)
 	if(prob(amount * 2)) // Gain around one level per 50 nutrition
 		powerlevel++
 		if(powerlevel > 10)
 			powerlevel = 10
 			adjustToxLoss(-10)
-	nutrition = max(nutrition, get_max_nutrition())
+	nutrition += amount
+	nutrition = min(nutrition, get_max_nutrition())

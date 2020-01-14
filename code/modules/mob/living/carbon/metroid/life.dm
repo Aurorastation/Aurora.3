@@ -13,7 +13,7 @@
 /mob/living/carbon/slime/think()
 	..()
 	handle_targets()
-	if(!AIproc)
+	if(!AIproc || last_AI > world.time + 1 MINUTE)
 		handle_AI()
 	handle_speech_and_mood()
 
@@ -41,7 +41,6 @@
 	//Account for massive pressure differences
 
 	if(bodytemperature < (T0C + 5)) // start calculating temperature damage etc
-
 		if(bodytemperature <= hurt_temperature)
 			if(bodytemperature <= die_temperature)
 				adjustToxLoss(200)
@@ -73,12 +72,16 @@
 
 /mob/living/carbon/slime/handle_chemicals_in_body()
 	chem_effects.Cut()
-	analgesic = 0
+	analgesic = FALSE
 
-	if(touching) touching.metabolize()
-	if(ingested) ingested.metabolize()
-	if(bloodstr) bloodstr.metabolize()
-	if(breathing) breathing.metabolize()
+	if(touching)
+		touching.metabolize()
+	if(ingested)
+		ingested.metabolize()
+	if(bloodstr)
+		bloodstr.metabolize()
+	if(breathing)
+		breathing.metabolize()
 
 	if(CE_PAINKILLER in chem_effects)
 		analgesic = chem_effects[CE_PAINKILLER]
@@ -104,122 +107,121 @@
 		adjustCloneLoss(-1)
 		adjustBruteLoss(-1)
 
-	if (src.stat == DEAD)
-		src.lying = 1
-		src.blinded = 1
+	if(src.stat == DEAD)
+		src.lying = TRUE
+		src.blinded = TRUE
 	else
-		if (src.paralysis || src.stunned || src.weakened || (status_flags && FAKEDEATH)) //Stunned etc.
-			if (src.stunned > 0)
+		if(src.paralysis || src.stunned || src.weakened || (status_flags && FAKEDEATH)) //Stunned etc.
+			if(src.stunned > 0)
 				AdjustStunned(-1)
-				src.stat = 0
-			if (src.weakened > 0)
+				src.stat = CONSCIOUS
+			if(src.weakened > 0)
 				AdjustWeakened(-1)
-				src.lying = 0
-				src.stat = 0
-			if (src.paralysis > 0)
+				src.lying = FALSE
+				src.stat = FALSE
+			if(src.paralysis > 0)
 				AdjustParalysis(-1)
-				src.blinded = 0
-				src.lying = 0
-				src.stat = 0
-
+				src.blinded = FALSE
+				src.lying = FALSE
+				src.stat = FALSE
 		else
-			src.lying = 0
-			src.stat = 0
+			src.lying = FALSE
+			src.stat = FALSE
 
-	if (src.stuttering) src.stuttering = 0
+	if(src.stuttering)
+		src.stuttering = FALSE
 
-	if (src.eye_blind)
-		src.eye_blind = 0
-		src.blinded = 1
+	if(src.eye_blind)
+		src.eye_blind = FALSE
+		src.blinded = TRUE
 
-	if (src.ear_deaf > 0) src.ear_deaf = 0
-	if (src.ear_damage < 25)
-		src.ear_damage = 0
+	if(src.ear_deaf > 0)
+		src.ear_deaf = FALSE
+	if(src.ear_damage < 25)
+		src.ear_damage = FALSE
 
-	src.density = !( src.lying )
+	src.density = !src.lying
 
-	if (src.sdisabilities & BLIND)
-		src.blinded = 1
-	if (src.sdisabilities & DEAF)
-		src.ear_deaf = 1
+	if(src.sdisabilities & BLIND)
+		src.blinded = TRUE
+	if(src.sdisabilities & DEAF)
+		src.ear_deaf = TRUE
 
-	if (src.eye_blurry > 0)
-		src.eye_blurry = 0
+	if(src.eye_blurry > 0)
+		src.eye_blurry = FALSE
 
-	if (src.druggy > 0)
-		src.druggy = 0
+	if(src.druggy > 0)
+		src.druggy = FALSE
 
-	return 1
+	return TRUE
 
 /mob/living/carbon/slime/proc/handle_nutrition()
-
-	if (prob(15))
+	if(prob(15))
 		adjustNutritionLoss(1 + is_adult)
 
 	if(nutrition <= 0)
 		nutrition = 0
 		adjustToxLoss(rand(1,3))
-		if (client && prob(5))
-			to_chat(src, "<span class='danger'>You are starving!</span>")
+		if(client && prob(5))
+			to_chat(src, span("danger", "You are starving!"))
 
-	else if (nutrition >= get_grow_nutrition() && amount_grown < 10)
+	else if(nutrition >= get_grow_nutrition() && amount_grown < 5)
 		adjustNutritionLoss(20)
 		amount_grown++
 
 /mob/living/carbon/slime/proc/handle_targets()
-	if(attacked > 50) attacked = 50 // Let's not get into absurdly long periods of rage
+	if(attacked > 50)
+		attacked = 50 // Let's not get into absurdly long periods of rage
 
 	if(attacked > 0)
 		attacked--
 
-	if(Discipline > 0)
-
-		if(Discipline >= 5 && rabid)
-			if(prob(60)) rabid = 0
-
+	if(discipline > 0)
+		if(discipline >= 5 && rabid)
+			if(prob(60))
+				rabid = 0
 		if(prob(10))
-			Discipline--
+			discipline--
 
-	if(!canmove) return
+	if(!canmove)
+		return
 
-	if(Victim) return // if it's eating someone already, continue eating!
+	if(victim)
+		return // if it's eating someone already, continue eating!
 
-	if(Target)
+	if(target)
 		--target_patience
-		if (target_patience <= 0 || SStun || Discipline || attacked) // Tired of chasing or something draws out attention
+		if(target_patience <= 0 || SStun || discipline || attacked) // Tired of chasing or something draws out attention
 			target_patience = 0
-			Target = null
+			target = null
 
 	var/hungry = 0 // determines if the slime is hungry
 
-	if (nutrition < get_starve_nutrition())
+	if(nutrition < get_starve_nutrition())
 		hungry = 2
-	else if (nutrition < get_grow_nutrition() && prob(25) || nutrition < get_hunger_nutrition())
+	else if(nutrition < get_grow_nutrition() && prob(25) || nutrition < get_hunger_nutrition())
 		hungry = 1
 
 	if(hungry == 2 && !client) // if a slime is starving, it starts losing its friends
-		if(Friends.len > 0 && prob(1))
-			var/mob/nofriend = pick(Friends)
-			if(nofriend && Friends[nofriend])
-				Friends[nofriend] -= 1
-				if (Friends[nofriend] <= 0)
-					Friends[nofriend] = null
-					Friends -= nofriend
-					Friends -= null
+		if(friends.len > 0 && prob(1))
+			var/mob/nofriend = pick(friends)
+			if(nofriend && friends[nofriend])
+				friends[nofriend] -= 1
+				if (friends[nofriend] <= 0)
+					friends[nofriend] = null
+					friends -= nofriend
+					friends -= null
 
-	if(!Target)
+	if(!target)
 		if(will_hunt(hungry) || attacked || rabid) // Only add to the list if we need to
 			var/list/targets = list()
 
 			for(var/mob/living/L in view(7,src))
-
 				if(isslime(L) || L.stat == DEAD || L.is_asystole()) // Ignore other slimes and dead mobs
 					continue
-
 				if(isskrell(L)) // we do not attack skrell - lore reason.
 					continue
-
-				if(L in Friends) // No eating friends!
+				if(L in friends) // No eating friends!
 					continue
 
 				if(issilicon(L) && (rabid || attacked)) // They can't eat silicons, but they can glomp them in defence
@@ -231,10 +233,10 @@
 						continue
 
 				if(!L.canmove) // Only one slime can latch on at a time.
-					var/notarget = 0
+					var/notarget = FALSE
 					for(var/mob/living/carbon/slime/M in view(1,L))
-						if(M.Victim == L)
-							notarget = 1
+						if(M.victim == L)
+							notarget = TRUE
 					if(notarget)
 						continue
 
@@ -242,117 +244,120 @@
 
 			if(targets.len > 0)
 				if(attacked || rabid || hungry == 2)
-					Target = targets[1] // I am attacked and am fighting back or so hungry I don't even care
+					target = targets[1] // I am attacked and am fighting back or so hungry I don't even care
 				else
 					for(var/mob/living/carbon/C in targets)
-						if(ishuman(C) && !Discipline && prob(5))
-							Target = C
+						if(ishuman(C) && !discipline && prob(5))
+							target = C
 							break
 
 						if(isalien(C) || issmall(C) || isanimal(C))
-							Target = C
+							target = C
 							break
 
-		if (Target)
+		if(target)
 			target_patience = rand(5,7)
 			if (is_adult)
 				target_patience += 3
 
-	if(!Target) // If we have no target, we are wandering or following orders
-		if (Leader)
-			if (holding_still)
+	if(!target) // If we have no target, we are wandering or following orders
+		if(leader)
+			if(holding_still)
 				holding_still = max(holding_still - 1, 0)
 			else if(canmove && isturf(loc))
-				step_to(src, Leader)
+				step_to(src, leader)
 
 		else if(hungry)
-			if (holding_still)
+			if(holding_still)
 				holding_still = max(holding_still - 1 - hungry, 0)
 			else if(canmove && isturf(loc) && prob(50))
 				step(src, pick(cardinal))
 
 		else
-			if (holding_still)
+			if(holding_still)
 				holding_still = max(holding_still - 1, 0)
 			else if(canmove && isturf(loc) && prob(33))
 				step(src, pick(cardinal))
 
-/mob/living/carbon/slime/proc/handle_AI()  // the master AI process
+/mob/living/carbon/slime/proc/handle_AI() // the master AI process
+	if(victim?.stat & DEAD)
+		victim = null
 
-	if(Victim && Victim.stat & DEAD)
-		Victim = null
+	last_AI = world.time
 
-	if(stat == DEAD || client || Victim) return // If we're dead or have a client, we don't need AI, if we're feeding, we continue feeding
-	AIproc = 1
+	if(stat == DEAD || client || victim)
+		return // If we're dead or have a client, we don't need AI, if we're feeding, we continue feeding
+	AIproc = TRUE
 
-	if(amount_grown >= 10 && !Target)
+	if(amount_grown >= 5)
 		if(is_adult)
 			Reproduce()
 		else
 			Evolve()
-		AIproc = 0
+		AIproc = FALSE
 		return
 
-	if(Target) // We're chasing the target
-		if(Target.stat == DEAD || Target.is_asystole())
-			Target = null
-			AIproc = 0
+	if(target) // We're chasing the target
+		if(target.stat == DEAD || target.is_asystole())
+			target = null
+			AIproc = FALSE
 			return
 
-		for(var/mob/living/carbon/slime/M in view(1, Target))
-			if(M.Victim == Target)
-				Target = null
-				AIproc = 0
+		for(var/mob/living/carbon/slime/M in view(1, target))
+			if(M.victim == target)
+				target = null
+				AIproc = FALSE
 				return
 
-		if(Target.Adjacent(src))
-			if(istype(Target, /mob/living/silicon)) // Glomp the silicons
+		if(target.Adjacent(src))
+			if(istype(target, /mob/living/silicon)) // Glomp the silicons
 				if(!Atkcool)
 					a_intent = I_HURT
-					UnarmedAttack(Target)
-					Atkcool = 1
+					UnarmedAttack(target)
+					Atkcool = TRUE
 					spawn(45)
-						Atkcool = 0
-				AIproc = 0
+						Atkcool = FALSE
+				AIproc = FALSE
 				return
 
-			if(Target.client && !Target.lying && prob(60 + powerlevel * 4)) // Try to take down the target first
+			if(target.client && !target.lying && prob(60 + powerlevel * 4)) // Try to take down the target first
 				if(!Atkcool)
-					Atkcool = 1
+					Atkcool = TRUE
 					spawn(45)
-						Atkcool = 0
+						Atkcool = FALSE
 
 					a_intent = I_DISARM
-					UnarmedAttack(Target)
+					UnarmedAttack(target)
 
 			else
 				if(!Atkcool)
 					a_intent = I_GRAB
-					UnarmedAttack(Target)
+					UnarmedAttack(target)
 
-		else if(Target in view(7, src))
-			step_to(src, Target)
+		else if(target in view(7, src))
+			step_to(src, target)
 
 		else
-			Target = null
-			AIproc = 0
+			target = null
+			AIproc = FALSE
 			return
 
 	else
 		var/mob/living/carbon/slime/frenemy
-		for (var/mob/living/carbon/slime/S in view(1, src))
-			if (S != src)
+		for(var/mob/living/carbon/slime/S in view(1, src))
+			if(S != src)
 				frenemy = S
-		if (frenemy && prob(1))
-			if (frenemy.colour == colour)
+		if(frenemy && prob(1))
+			if(frenemy.colour == colour)
 				a_intent = I_HELP
 			else
 				a_intent = I_HURT
 			UnarmedAttack(frenemy)
 
 	var/sleeptime = movement_delay()
-	if(sleeptime <= 5) sleeptime = 5 // Maximum one action per half a second
-	spawn (sleeptime)
+	if(sleeptime <= 5)
+		sleeptime = 5 // Maximum one action per half a second
+	spawn(sleeptime)
 		handle_AI()
 	return
 
@@ -363,16 +368,18 @@
 	if(rabid || attacked)
 		newmood = "angry"
 		a_intent = I_HURT
-	else if(Target) newmood = "mischevous"
+	else if(target)
+		newmood = "mischevous"
 
 	if(!newmood)
-		if(Discipline && prob(25))
+		if(discipline && prob(25))
 			newmood = "pout"
 		else if(prob(1))
 			newmood = pick("sad", ":3", "pout")
 
 	if((mood == "sad" || mood == ":3" || mood == "pout") && !newmood)
-		if (prob(75)) newmood = mood
+		if(prob(75))
+			newmood = mood
 
 	if(newmood != mood) // This is so we don't redraw them every time
 		mood = newmood
@@ -387,61 +394,61 @@
 			if(findtext(phrase, "hello") || findtext(phrase, "hi"))
 				to_say = pick("Hello...", "Hi...")
 			else if(findtext(phrase, "follow"))
-				if(Leader)
-					if(Leader == who) // Already following him
+				if(leader)
+					if(leader == who) // Already following him
 						to_say = pick("Yes...", "Lead...", "Following...")
-					else if(Friends[who] > Friends[Leader]) // VIVA
-						Leader = who
+					else if(friends[who] > friends[leader]) // VIVA
+						leader = who
 						to_say = "Yes... I follow [who]..."
 					else
-						to_say = "No... I follow [Leader]..."
+						to_say = "No... I follow [leader]..."
 				else
-					if(Friends[who] > 2)
-						Leader = who
+					if(friends[who] > 2)
+						leader = who
 						to_say = "I follow..."
 					else // Not friendly enough
 						to_say = pick("No...", "I won't follow...")
 			else if(findtext(phrase, "stop"))
-				if(Victim) // We are asked to stop feeding
-					if(Friends[who] > 4)
-						Victim = null
-						Target = null
-						if(Friends[who] < 7)
-							--Friends[who]
+				if(victim) // We are asked to stop feeding
+					if(friends[who] > 4)
+						victim = null
+						target = null
+						if(friends[who] < 7)
+							--friends[who]
 							to_say = "Grrr..." // I'm angry but I do it
 						else
 							to_say = "Fine..."
-				else if(Target) // We are asked to stop chasing
-					if(Friends[who] > 3)
-						Target = null
-						if(Friends[who] < 6)
-							--Friends[who]
+				else if(target) // We are asked to stop chasing
+					if(friends[who] > 3)
+						target = null
+						if(friends[who] < 6)
+							--friends[who]
 							to_say = "Grrr..." // I'm angry but I do it
 						else
 							to_say = "Fine..."
-				else if(Leader) // We are asked to stop following
-					if(Leader == who)
+				else if(leader) // We are asked to stop following
+					if(leader == who)
 						to_say = "Yes... I'll stay..."
-						Leader = null
+						leader = null
 					else
-						if(Friends[who] > Friends[Leader])
-							Leader = null
+						if(friends[who] > friends[leader])
+							leader = null
 							to_say = "Yes... I'll stop..."
 						else
 							to_say = "No... I'll keep following..."
 			else if(findtext(phrase, "stay"))
-				if(Leader)
-					if(Leader == who)
-						holding_still = Friends[who] * 10
+				if(leader)
+					if(leader == who)
+						holding_still = friends[who] * 10
 						to_say = "Yes... Staying..."
-					else if(Friends[who] > Friends[Leader])
-						holding_still = (Friends[who] - Friends[Leader]) * 10
+					else if(friends[who] > friends[leader])
+						holding_still = (friends[who] - friends[leader]) * 10
 						to_say = "Yes... Staying..."
 					else
 						to_say = "No... I'll keep following..."
 				else
-					if(Friends[who] > 2)
-						holding_still = Friends[who] * 10
+					if(friends[who] > 2)
+						holding_still = friends[who] * 10
 						to_say = "Yes... Staying..."
 					else
 						to_say = "No... I won't stay..."
@@ -449,7 +456,7 @@
 
 	//Speech starts here
 	if(to_say)
-		say (to_say)
+		say(to_say)
 	else if(prob(1))
 		emote(pick("bounce","sway","light","vibrate","jiggle"))
 	else
@@ -462,7 +469,7 @@
 				++slimes_near
 				if(M.stat == DEAD)
 					++dead_slimes
-			if(M in Friends)
+			if(M in friends)
 				t += 20
 				friends_near += M
 		if(nutrition < get_hunger_nutrition())
@@ -471,8 +478,8 @@
 			t += 10
 		if(prob(2) && prob(t))
 			var/phrases = list()
-			if(Target)
-				phrases += "[Target]... looks tasty..."
+			if(target)
+				phrases += "[target]... looks tasty..."
 			if(nutrition < get_starve_nutrition())
 				phrases += "So... hungry..."
 				phrases += "Very... hungry..."
@@ -501,7 +508,7 @@
 			if(getToxLoss() > 90)
 				phrases += "..."
 				phrases += "C... c..."
-			if(Victim)
+			if(victim)
 				phrases += "Nom..."
 				phrases += "Tasty..."
 			if(powerlevel > 3)
@@ -553,7 +560,9 @@
 /mob/living/carbon/slime/proc/will_hunt(var/hunger) // Check for being stopped from feeding and chasing
 	if(hunger == 2 || rabid || attacked)
 		return TRUE
-	if(Leader)
+	if(nutrition == get_max_nutrition())
+		return FALSE
+	if(leader)
 		return FALSE
 	if(holding_still)
 		return FALSE
