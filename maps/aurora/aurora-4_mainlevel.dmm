@@ -30895,6 +30895,8 @@
 	icon_state = "2-4"
 	},
 /obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bcb" = (
@@ -32577,12 +32579,6 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/storage/pill_bottle/tramadol,
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 9
@@ -32597,6 +32593,14 @@
 	icon_state = "tube1";
 	dir = 8
 	},
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/storage/pill_bottle/tramadol,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bfb" = (
@@ -38666,11 +38670,11 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/north,
-/obj/item/storage/firstaid/adv{
+/obj/item/storage/firstaid/o2{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/o2,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boI" = (
@@ -38690,8 +38694,14 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/item/storage/box/syringes,
-/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/toxin{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = 0;
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boJ" = (
@@ -38708,16 +38718,11 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)";
+/obj/item/storage/firstaid/fire{
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/firstaid/regular{
-	empty = 1;
-	name = "First-Aid (empty)"
-	},
+/obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boK" = (
@@ -38734,7 +38739,11 @@
 	dir = 8;
 	icon_state = "camera"
 	},
-/obj/item/storage/box/sharps,
+/obj/item/storage/firstaid/adv{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "boL" = (
@@ -39571,6 +39580,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/item/storage/box/sharps,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bqb" = (
@@ -40253,6 +40263,7 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/item/bodybag/cryobag,
+/obj/item/storage/box/syringes,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bri" = (
@@ -41799,7 +41810,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/grey,
-/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btv" = (
@@ -41821,7 +41831,6 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btw" = (
@@ -45847,7 +45856,6 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/white,
 /area/medical/custodial_closet)
 "bAt" = (
@@ -46709,6 +46717,8 @@
 /obj/structure/closet/crate/freezer{
 	name = "O- Blood Packs"
 	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/freezer{
@@ -65044,6 +65054,19 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "ifx" = (
+/obj/structure/closet/crate/freezer{
+	name = "Assorted Blood Packs"
+	},
+/obj/item/reagent_containers/blood/OPlus,
+/obj/item/reagent_containers/blood/OPlus,
+/obj/item/reagent_containers/blood/BPlus,
+/obj/item/reagent_containers/blood/BPlus,
+/obj/item/reagent_containers/blood/BMinus,
+/obj/item/reagent_containers/blood/BMinus,
+/obj/item/reagent_containers/blood/APlus,
+/obj/item/reagent_containers/blood/APlus,
+/obj/item/reagent_containers/blood/AMinus,
+/obj/item/reagent_containers/blood/AMinus,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "ikb" = (
