@@ -2,13 +2,13 @@
 	desc = "Regal blue gloves, with a nice gold trim. Swanky."
 	name = "captain's gloves"
 	icon_state = "captain"
-	item_state = "egloves"
+	item_state = "captain"
 
 /obj/item/clothing/gloves/cyborg
 	desc = "beep boop borp"
 	name = "cyborg gloves"
 	icon_state = "black"
-	item_state = ""
+	item_state = "black"
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/gloves/swat
@@ -37,7 +37,7 @@
 	desc = "These tactical gloves are somewhat fire and impact resistant."
 	name = "combat gloves"
 	icon_state = "black"
-	item_state = "swat_gl"
+	item_state = "black"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	cold_protection = HANDS
@@ -49,8 +49,8 @@
 	desc = "A pair of plain black infiltration gloves. Too thin to protect anything, but can fit underneath a hardsuit gauntlet."
 	name = "black slipgloves"
 	icon = 'icons/obj/clothing/gloves.dmi'
-	icon_state = "s-ninja"
-	item_state = "s-ninja"
+	icon_state = "black"
+	item_state = "black"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	undergloves = 1
@@ -63,7 +63,7 @@
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
 	icon_state = "latex"
-	item_state = "lgloves"
+	item_state = "latex"
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
@@ -74,7 +74,7 @@
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves."
 	icon_state = "nitrile"
-	item_state = "ngloves"
+	item_state = "nitrile"
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
@@ -104,7 +104,7 @@
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
 	name = "leather gloves"
 	icon_state = "leather"
-	item_state = "ggloves"
+	item_state = "leather"
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
 	drop_sound = 'sound/items/drop/leather.ogg'
@@ -118,10 +118,10 @@
 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/watch
-	desc = "A small wristwatch, capable of telling time."
 	name = "watch"
+	desc = "It's a Gauss-Io Zeit-Meister, a finely tuned wristwatch encased in black plastic."
 	icon_state = "watch"
-	item_state = "watchgloves"
+	item_state = "watch"
 	w_class = 1
 	wired = 1
 	species_restricted = null
@@ -130,6 +130,16 @@
 	fingerprint_chance = 100
 	var/flipped = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
+
+/obj/item/clothing/gloves/watch/silver
+	desc = "It's a Gauss-Io Zeit-Meister, a finely tuned wristwatch encased silver, to unleash the telemarketer in you!."
+	icon_state = "watch_silver"
+	item_state = "watch_silver"
+
+/obj/item/clothing/gloves/watch/gold
+	desc = "It's a Gauss-Io Zeit-Meister, a finely tuned wristwatch encased in <b>REAL</b> faux gold, like the pawn shop owner you'll never be."
+	icon_state = "watch_gold"
+	item_state = "watch_gold"
 
 /obj/item/clothing/gloves/watch/verb/checktime()
 	set category = "Object"
