@@ -54574,17 +54574,6 @@
 /obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
-"bSQ" = (
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "barshutters01";
-	name = "Bar Shutters"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/table/reinforced,
-/obj/item/clothing/head/cakehat,
-/turf/simulated/floor/lino,
-/area/crew_quarters/bar)
 "bSR" = (
 /obj/item/toy/figure/bartender,
 /obj/machinery/door/blast/shutters{
@@ -54594,18 +54583,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/turf/simulated/floor/lino,
-/area/crew_quarters/bar)
-"bSS" = (
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "barshutters01";
-	name = "Bar Shutters"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/table/reinforced,
-/obj/item/storage/box/matches,
-/obj/item/storage/fancy/candle_box,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "bST" = (
@@ -54804,6 +54781,7 @@
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/device/nanoquikpay,
+/obj/item/storage/box/matches,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTq" = (
@@ -63176,6 +63154,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"dwW" = (
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "barshutters01";
+	name = "Bar Shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/item/storage/fancy/cigar,
+/turf/simulated/floor/lino,
+/area/crew_quarters/bar)
 "dxG" = (
 /obj/structure/window/reinforced/polarized{
 	dir = 2;
@@ -65128,6 +65117,17 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"iDp" = (
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "barshutters01";
+	name = "Bar Shutters"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/machinery/media/jukebox/phonograph,
+/turf/simulated/floor/lino,
+/area/crew_quarters/bar)
 "iFV" = (
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
@@ -101207,7 +101207,7 @@ bSN
 bTq
 bTZ
 bUF
-uRY
+iDp
 bVz
 bWa
 bWo
@@ -102235,7 +102235,7 @@ aNK
 bTu
 bUb
 bTu
-bSQ
+bIt
 bVz
 bWa
 mJe
@@ -102749,7 +102749,7 @@ bhy
 bTu
 bTZ
 bTu
-bIt
+dwW
 bVz
 bWa
 bWo
@@ -103006,7 +103006,7 @@ bOt
 bTv
 bTZ
 bTu
-bSS
+uRY
 bVz
 bWa
 bWo
