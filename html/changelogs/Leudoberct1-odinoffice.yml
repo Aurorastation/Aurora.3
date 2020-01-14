@@ -1,0 +1,7 @@
+author: Leudoberct
+
+delete-after: True
+
+changes: 
+  - maptweak: "Renovated the Consular Officer office and moved it to the arrivals wing."
+  - tweak: "Made it so the clothes vendor doesn't mess with Consulars."
