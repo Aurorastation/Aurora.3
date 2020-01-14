@@ -135,6 +135,6 @@
 /datum/uplink_item/item/tools/suit_cooling_unit
 	name = "Portable suit cooling unit"
 	item_cost = 4
-	path = /obj/item/device/suit_cooling_unit/improved
+	path = /obj/item/device/suit_cooling_unit
 	desc = "A suit cooling unit with a high capacity power cell."
 
