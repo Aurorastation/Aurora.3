@@ -19,7 +19,7 @@
         <div class="item center"><span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span></div>
         <div class="item right" v-if="sensor.stype > 2">{{sensor.area}} ({{sensor.x}}, {{sensor.y}}, {{sensor.z}})</div>
         <div class="item right" v-else>Not Available</div>
-        <div class="item right" v-if="isAI"><vui-button :params="{'Track': sensor.ref}" :disabled="sensor.stype < 3">Track</vui-button></div>
+        <div class="item right" v-if="isAI"><vui-button :params="{track: sensor.ref}" :disabled="sensor.stype < 3">Track</vui-button></div>
       </div>
     </div>
   </div>
