@@ -28,5 +28,5 @@
 /obj/item/storage/briefcase/nt
 	name = "\improper NT briefcase"
 	desc = "The NanoTrasen-branded briefcase is an elegant, yet functional upgrade to the traditional black briefcase. The logo is the only difference, though."
-	icon_state = "briefcase_corporate"
-	item_state = "briefcase_corporate" 
+	icon_state = "briefcase_corpnt"
+	item_state = "briefcase_corpnt" 
