@@ -944,4 +944,4 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	set desc = "Removes you from the pAI candidite pool."
 
 	if(SSpai.revokeCandidancy(src))
-		to_chat(src, "You been removed from the pAI candidate pool.")
+		to_chat(src, "You have been removed from the pAI candidate pool.")
