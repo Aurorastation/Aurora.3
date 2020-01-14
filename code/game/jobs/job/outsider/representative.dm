@@ -11,6 +11,7 @@
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 
+
 	minimum_character_age = 25
 
 	access = list(access_lawyer, access_maint_tunnels)
@@ -53,6 +54,7 @@
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
+		H.megavend = 1
 		addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
 	return TRUE
 
