@@ -12026,8 +12026,8 @@
 /obj/item/storage/box/excavation,
 /obj/item/wrench,
 /obj/item/device/measuring_tape,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /obj/item/pickaxe/drill,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)

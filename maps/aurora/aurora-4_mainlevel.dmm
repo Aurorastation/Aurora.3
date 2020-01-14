@@ -61886,7 +61886,7 @@
 /area/outpost/mining_main/eva)
 "chi" = (
 /obj/structure/table/standard,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
