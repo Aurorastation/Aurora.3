@@ -3335,8 +3335,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, "<span class='notice'>You read on the pages of \the [src]: [pick(lyrics)]</span>")
 
 
-/obj/item/modular_computer/laptop/preset/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
+/obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
 	name = "developer's laptop"
+	anchored = FALSE
+	screen_on = FALSE
+	icon_state = "laptop-closed"
 	desc = "A portable computer, this one is covered edge-to-edge in stickers. Some stand out; such ones from a 2458 Game Jam, 2459 Game Jam and various title logos from obscure holovid series. Printed on the bottom panel \
 	is \"Hello, world!\" in a bright, monospace font."
 	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
+	..()
+	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
+	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
+	network_card = new /obj/item/computer_hardware/network_card(src)
+	battery_module = new /obj/item/computer_hardware/battery_module(src)
+	battery_module.charge_to_full()
+	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 10
+	nano_printer.stored_paper = 5
