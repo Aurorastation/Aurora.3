@@ -20,7 +20,7 @@
 	sawnoff_workmsg = "shorten the barrel and stock"
 
 /obj/item/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
-	icon_state = "sawn-off bolt action rifle"
+	icon_state = "obrez"
 	w_class = 3
 	recoil = 2
 	accuracy = -2
@@ -33,7 +33,7 @@
 		qdel(bayonet)
 		bayonet = null
 		update_icon()
-	name = "obrez"
+	name = "sawn-off bolt action rifle"
 	desc = "A shortened bolt action rifle, not really acurate. Uses 7.62mm rounds."
 	to_chat(user, "<span class='warning'>You shorten the barrel and stock of the rifle!</span>")
 
