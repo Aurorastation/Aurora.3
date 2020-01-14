@@ -44,11 +44,11 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/nstate = default_state)
+/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/state = default_state)
 	user = nuser
 	object = nobject
 	data = ndata
-	state = nstate
+	src.state = state
 	LAZYINITLIST(assets)
 
 	if (nactiveui)
@@ -98,6 +98,7 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/proc/close()
+	object.vueui_on_close(src)
 	SSvueui.ui_closed(src)
 	user << browse(null, "window=[windowid]")
 	status = null
