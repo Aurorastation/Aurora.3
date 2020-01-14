@@ -32,3 +32,9 @@
 	name = "5xFrag Grenades"
 	item_cost = 12
 	path = /obj/item/storage/box/frags
+
+/datum/uplink_item/item/grenades/cardox
+	name = "5xCardox Grenades"
+	item_cost = 10
+	path = /obj/item/storage/box/cardox
+	desc = "A box of five grenades that deploy cardox smoke in the thrown area. This smoke is incredibly toxic, especially to vaurca. It can also clear K'ois outbreaks with ease."

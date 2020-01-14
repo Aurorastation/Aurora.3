@@ -316,6 +316,12 @@
 	icon_state = "flashbang"
 	starts_with = list(/obj/item/grenade/frag = 5)
 
+/obj/item/storage/box/cardox
+	name = "box of cardox grenades"
+	desc = "A box containing 5 experimental cardox grenades."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/chem_grenade/large/phoroncleaner = 5)
+
 /obj/item/storage/box/trackimp
 	name = "boxed tracking implant kit"
 	desc = "Box full of scum-bag tracking utensils."
