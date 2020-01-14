@@ -169,7 +169,7 @@
 	var/new_latencies = rand(2,4)
 	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 	for(var/i = 1 to new_latencies)
-		to_chat(src, span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"))
+		custom_pain(span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
 		set_psi_rank(pick_n_take(faculties), 1)
 		sleep(30)
 		psi.update()
