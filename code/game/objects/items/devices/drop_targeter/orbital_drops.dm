@@ -23,8 +23,8 @@
 /obj/item/device/orbital_dropper/mecha/heavy
 	map = new /datum/map_template/mecha/heavy
 
-/obj/item/device/orbital_dropper/mecha/light
-	map = new /datum/map_template/mecha/light
+/obj/item/device/orbital_dropper/mecha/combat
+	map = new /datum/map_template/mecha/combat
 
 /obj/item/device/orbital_dropper/mecha/powerloader
 	map = new /datum/map_template/mecha/powerloader

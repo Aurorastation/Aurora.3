@@ -166,7 +166,7 @@
 	name = "Firing Pin Extractor"
 	item_cost = 2
 	path = /obj/item/device/pin_extractor
-	desc = "An extractor tool capable of extracting firing pins from all firearms, ever."
+	desc = "An extractor tool capable of extracting firing pins from most firearms."
 
 /datum/uplink_item/item/tools/radio_jammer
 	name = "Radio Jammer"
@@ -176,7 +176,7 @@
 
 /datum/uplink_item/item/tools/jetpack
 	name = "Jetpack"
-	item_cost = 8
+	item_cost = 5
 	path = /obj/item/tank/jetpack/oxygen
 
 /datum/uplink_item/item/tools/electropack

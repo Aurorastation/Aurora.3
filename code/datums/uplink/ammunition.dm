@@ -23,16 +23,16 @@
 	path = /obj/item/ammo_magazine/c45m
 	desc = "Contains seven rounds of .45 bullets."
 
-/datum/uplink_item/item/ammo/tommygundrum
+/datum/uplink_item/item/ammo/submachinegundrum
 	name = "Submachine Gun Drum Magazine (.45)"
 	item_cost = 6
-	path = /obj/item/ammo_magazine/tommydrum
+	path = /obj/item/ammo_magazine/submachinedrum
 	desc = "Contains fifty rounds of .45 bullets, for use with the vintage submachine gun."
 
-/datum/uplink_item/item/ammo/tommygunmag
+/datum/uplink_item/item/ammo/submachinegunmag
 	name = "Submachine Gun Magazine (.45)"
 	item_cost = 4
-	path = /obj/item/ammo_magazine/tommymag
+	path = /obj/item/ammo_magazine/submachinemag
 	desc = "Contains twenty rounds of .45 bullets, for use with the vintage submachine gun."
 
 /datum/uplink_item/item/ammo/a357

@@ -6,25 +6,25 @@
 /datum/uplink_item/item/exosuit_equipment/mounted_gun
 	name = "Mounted Electrolaser Carbine"
 	desc = "A dual fire mode electrolaser system connected to the exosuit's targetting system."
-	item_cost = 6
+	item_cost = 8
 	path = /obj/item/mecha_equipment/mounted_system/taser
 
 /datum/uplink_item/item/exosuit_equipment/mounted_gun/ion
 	name = "Mounted Ion Rifle"
 	desc = "An exosuit-mounted ion rifle. Handle with care."
-	item_cost = 10
+	item_cost = 12
 	path = /obj/item/mecha_equipment/mounted_system/taser/ion
 
 /datum/uplink_item/item/exosuit_equipment/mounted_gun/laser
 	name = "Mounted Laser Rifle"
 	desc = "An exosuit-mounted laser rifle. Handle with care."
-	item_cost = 8
+	item_cost = 10
 	path = /obj/item/mecha_equipment/mounted_system/taser/laser
 
 /datum/uplink_item/item/exosuit_equipment/mounted_gun/smg
 	name = "Mounted Machine Gun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
-	item_cost = 8
+	item_cost = 10
 	path = /obj/item/mecha_equipment/mounted_system/taser/smg
 
 /datum/uplink_item/item/exosuit_equipment/mounted_launcher
