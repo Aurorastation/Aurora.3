@@ -259,9 +259,7 @@ var/list/global/golem_runes = list()
 	if(O?.amount >= 10)
 		if(O.material.golem)
 			golem_type = O.material.golem
-			O.amount -= 10
-			if(O.amount <= 0)
-				qdel(O)
+			O.use(10)
 
 	var/mob/living/carbon/human/G = new(src.loc)
 
