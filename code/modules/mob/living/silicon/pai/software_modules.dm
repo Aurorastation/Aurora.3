@@ -20,7 +20,7 @@
 
 	proc/is_active(mob/living/silicon/pai/user)
 		return 0
-
+/*
 /datum/pai_software/directives
 	name = "Directives"
 	ram_cost = 0
@@ -76,6 +76,7 @@
 			else
 				to_chat(P, "[M] does not seem like \he is going to provide a DNA sample willingly.")
 			return 1
+			*/
 
 /datum/pai_software/radio_config
 	name = "Radio Configuration"
