@@ -128,6 +128,7 @@
 	name = "silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
 	icon_state = "silenced_pistol"
+	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	w_class = 3
 	accuracy = 1
 	caliber = ".45"
@@ -136,6 +137,17 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+
+	description_fluff = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a silencer integrated as part of its barrel. Carried by \
+	guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as recycled iron and tires, countless of \
+	those pistols were distributed among cells and ALA soldiers."
+
+/obj/item/gun/projectile/silenced/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "[initial(icon_state)]"
+	else
+		icon_state = "[initial(icon_state)]-e"
 
 /obj/item/gun/projectile/deagle
 	name = ".50 magnum pistol"
@@ -161,6 +173,9 @@
 	name = "adhomian heavy pistol"
 	desc = "A bulk handgun used by republican commissars and high-ranking members of the Hadiist Party."
 	icon_state = "adhomian_heavy_pistol"
+	description_fluff = "Given to Republican Commissars and high ranking Party members, the Nal'tor Model Pistol is notable for its large caliber. Unlike the Adar'Mazy pistol, only a \
+	single factory in Nal'tor is allowed to fabricate it, with its design being kept as a state secret. Because of its rarity and status, the Adhomai Heavy Pistol was a sought after \
+	war trophy by royalist and rebels forces."
 
 /obj/item/gun/projectile/gyropistol
 	name = "gyrojet pistol"
@@ -329,6 +344,8 @@
 	icon_state = "adhomian_pistol"
 	item_state = "pistol"
 	can_silence = FALSE
+	description_fluff = "A mass produced pistol issued to People's Republic officers, government officials and low-ranking Party members. Known for their simple, cheap and reliable \
+	design, this weapon is produced by nearly all weapon factories in the Republic. The Adar'Mazy is also found in the hands of Adhomai Liberation Army soldiers and commanders."
 
 /obj/item/gun/projectile/pistol/adhomai/update_icon()
 	..()
