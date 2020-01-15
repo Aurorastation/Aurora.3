@@ -776,3 +776,45 @@
 	item_state = "lance_dress_m"
 	worn_state = "lance_dress_m"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+
+/obj/item/clothing/under/dress/bluedress
+	name = "blue dress"
+	desc = "A plain blue dress with a white belt."
+	icon_state = "bluedress"
+	item_state = "bluedress_s"
+	worn_state = "bluedress"
+
+
+/obj/item/clothing/under/dress/darkreddress
+	name = "dark red dress"
+	desc = "A short, red dress with a black belt. Fancy."
+	icon_state = "darkreddress"
+	item_state = "darkreddress_s"
+	worn_state = "darkreddress"
+
+
+/obj/item/clothing/under/cropdress
+	name = "crop dress"
+	desc = "A red skirt and longsleeved button-up crop top."
+	icon_state = "cropdress"
+	item_state = "cropdress_s"
+	worn_state = "cropdress"
+
+
+/obj/item/clothing/under/formalblouse
+	name = "formal blouse"
+	desc = "A formal, office-style blouse, with a black skirt in addition."
+	icon_state = "formalblouse"
+	item_state = "formalblouse_s"
+	worn_state = "formalblouse"
+
+
+/obj/item/clothing/under/croptop
+	name = "crop top"
+	desc = "Light shirt which shows the midsection of the wearer."
+	icon_state = "croptop"
+	item_state = "croptop_s"
+	worn_state = "croptop"
+
+
