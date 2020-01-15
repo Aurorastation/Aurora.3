@@ -384,6 +384,8 @@
 	name = "Remote Xion Industrial Frame"
 	short_name = "rem_xmf"
 
+	spawn_flags = IS_RESTRICTED
+
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
 		BP_CELL    = /obj/item/organ/internal/cell,
@@ -526,6 +528,8 @@
 	name = "Remote Unbranded Frame"
 	short_name = "rem_unbran"
 	name_plural = "Remote Unbranded Frames"
+
+	spawn_flags = IS_RESTRICTED
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
