@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - tweak: "Secuity records program now has a dropdown-menu for the criminal status options, instead of a text input field."
