@@ -3266,3 +3266,91 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
 	icon_state = "ioraks_armband2"
 	item_state = "ioraks_armband2"
+
+
+/obj/item/clothing/accessory/poncho/fluff/solozel_mantle //Maraziite Throw Over - Kasluul Solozel - paradoxspace
+	name = "maraziite throw over"
+	desc = "It's a grey poncho, exclusively donned by the members of the Maraziite Order. This one has a Izweski Hegemony flag boldly sewn onto the shoulder."
+	icon = 'icons/obj/custom_items/solozel_items.dmi'
+	icon_state = "solozel_mantle"
+	item_state = "solozel_mantle"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+/obj/item/clothing/mask/fluff/solozel_mask //Iron Mask - Kasluul Solozel - paradoxspace
+	name = "iron mask"
+	desc = "It's a painted mask of white cast iron, decorated with two massive Hegeranzi horns. This is a slightly older design, worn by the members of the Maraziite Order; used to strike fear into the hearts of heretics."
+	icon = 'icons/obj/custom_items/solozel_items.dmi'
+	icon_state = "solozel_mask"
+	item_state = "solozel_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0
+
+
+/obj/item/cane/fluff/suul_staff //Akhanzi Staff - Suul Akhandi - herpetophilia
+	name = "akhanzi staff"
+	desc = "A staff usually carried by shamans of the Akhanzi Order. It is made out of dark, polished wood and is curved at the end."
+	icon = 'icons/obj/custom_items/suul_staff.dmi'
+	icon_state = "suul_staff"
+	item_state = "suul_staff"
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
+	w_class = 4
+
+/obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user as mob, proximity)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(!proximity)
+		return
+	if (istype(A, /turf/simulated/floor))
+		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
+		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
+		return
+
+
+/obj/item/clothing/accessory/sweater/fluff/cress_sweater //Star Sweater - Emily Cress - mattatlas
+	name = "star sweater"
+	desc = "An army green sweater. It looks well cared for and contains a star on the front, near the neck. To those familiar with it, the star is the same symbol as one of the nation alliances' logos in Earth's history."
+	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_state = "cress_sweater"
+	item_state = "cress_sweater"
+	contained_sprite = TRUE
+
+/obj/item/fluff/cress_book //Lyric Book - Emily Cress - mattatlas
+	name = "lyric book"
+	desc = "An old, faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. A dark purple H is scribbled on the center, along with half a heart on the \
+	left and a cut on the bottom right. The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock."
+	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_state = "cress_book"
+	w_class = 2
+	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
+							"Say Something New: A morose song about companionship, and being unable to continue without an undescribed dear friend. Morose, but overall motivational.",
+							"One By One: A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
+
+/obj/item/fluff/cress_book/attack_self(mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.visible_message("<span class='notice'>[user] begins searching through \the [src] pages.</span>")
+	if(do_after(user, 25))
+		to_chat(user, "<span class='notice'>You read on the pages of \the [src]: [pick(lyrics)]</span>")
+
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
+	name = "developer's laptop"
+	anchored = FALSE
+	screen_on = FALSE
+	icon_state = "laptop-closed"
+	desc = "A portable computer, this one is covered edge-to-edge in stickers. Some stand out; such ones from a 2458 Game Jam, 2459 Game Jam and various title logos from obscure holovid series. Printed on the bottom panel \
+	is \"Hello, world!\" in a bright, monospace font."
+	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
+	..()
+	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
+	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
+	network_card = new /obj/item/computer_hardware/network_card(src)
+	battery_module = new /obj/item/computer_hardware/battery_module(src)
+	battery_module.charge_to_full()
+	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 10
+	nano_printer.stored_paper = 5
