@@ -91,6 +91,8 @@
 
 	reagent_tag = IS_DIONA
 
+	virus_immune = TRUE
+
 	stamina = -1	// Diona sprinting uses energy instead of stamina
 	sprint_speed_factor = 0.5	//Speed gained is minor
 	sprint_cost_factor = 0.8
