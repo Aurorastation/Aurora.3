@@ -927,3 +927,21 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 		return
 
 	SSghostroles.vui_interact(src)
+
+/mob/abstract/observer/verb/submitpai()
+	set category = "Ghost"
+	set name = "Submit pAI personality"
+	set desc = "Submits you pAI personality to the pAI candidate pool."
+
+	if(jobban_isbanned(src, "pAI"))
+		to_chat(src, "You are job banned from the pAI position.")
+		return
+	SSpai.recruitWindow(src)
+
+/mob/abstract/observer/verb/revokepai()
+	set category = "Ghost"
+	set name = "Revoke pAI personality"
+	set desc = "Removes you from the pAI candidite pool."
+
+	if(SSpai.revokeCandidancy(src))
+		to_chat(src, "You have been removed from the pAI candidate pool.")
