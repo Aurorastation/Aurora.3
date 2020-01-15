@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Remote IPCs are no longer selectable in the Character Creation menu."
