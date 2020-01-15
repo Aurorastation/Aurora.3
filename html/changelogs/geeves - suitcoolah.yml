@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - tweak: "Suit coolers now start with high capacity cells."
+  - tweak: "Suit coolers printed at autolathes have no cells."

@@ -342,7 +342,7 @@
 
 /datum/autolathe/recipe/suit_cooling
 	name = "portable suit cooling unit"
-	path = /obj/item/device/suit_cooling_unit
+	path = /obj/item/device/suit_cooling_unit/no_cell
 	category = "Engineering"
 
 /datum/autolathe/recipe/emergency_cell

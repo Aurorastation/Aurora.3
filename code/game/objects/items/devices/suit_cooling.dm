@@ -32,7 +32,8 @@
 /obj/item/device/suit_cooling_unit/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	cell = new celltype(src)
+	if(celltype)
+		cell = new celltype(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -220,3 +221,6 @@
 		to_chat(user, span("notice", "The charge meter reads [round(cell.percent())]%."))
 	else
 		to_chat(user, span("notice", "It doesn't have a power cell installed."))
+
+/obj/item/device/suit_cooling_unit/no_cell
+	celltype = null
