@@ -22,21 +22,6 @@
     </template>
     <h2>Avaivable programs</h2>
     <vui-input-search style="float: right;" :input="unrestrictedPrograms" v-model="search_results" :keys="['name', 'filename', 'desc']" autofocus/>
-    <!-- <table class="program-list">
-      <tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Description</th>
-        <th>Action</th>
-      </tr>
-      <tr class="program" v-for="program in search_results" :key="program.filename">
-        <td>{{ program.name }}</td>
-        <td>{{ program.size }}</td>
-        <td>{{ program.desc }}</td>
-        <td>{{ program.filename }}</td>
-        <td></td>
-      </tr>
-    </table> -->
     <vui-group>
       <template v-for="program in search_results">
         <vui-group-item :key="program.filename" label="Program name:"><b>{{ program.name }}</b></vui-group-item>
