@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - rscadd: "Advanced pinpointer can now indicate z-direction toward its target with an overlay on the sides of the screen."
