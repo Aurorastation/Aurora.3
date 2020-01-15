@@ -23,6 +23,7 @@
 	var/record_prefix = ""
 	var/typechoices = list(
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
+		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
 		"medical" = list(
 			"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
