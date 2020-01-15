@@ -182,7 +182,7 @@
 	if(!owner)
 		return
 	to_chat(owner, "<span class = 'notice' font size='10'><B>What happened...?</B></span>")
-	alert(owner, "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
+	alert(owner.find_mob_consciousness(), "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
 
 /obj/item/organ/internal/brain/proc/handle_damage_effects()
 	if(owner.stat)
