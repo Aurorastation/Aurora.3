@@ -487,9 +487,9 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/autolathe/recipe/tommy_mag
-	name = "tommygun magazine (.45)"
-	path = /obj/item/ammo_magazine/tommymag
+/datum/autolathe/recipe/submachine_mag
+	name = "submachinegun magazine (.45)"
+	path = /obj/item/ammo_magazine/submachinemag
 	hidden = 1
 	category = "Arms and Ammunition"
 

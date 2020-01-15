@@ -29,11 +29,6 @@
 	item_cost = 8
 	path = /obj/item/storage/box/syndie_kit/g9mm
 
-/datum/uplink_item/item/visible_weapons/exolaser
-	name = "Exosuit Mounted Laser"
-	item_cost = 8
-	path = /obj/item/mecha_equipment/mounted_system/taser/laser
-
 /datum/uplink_item/item/visible_weapons/hammer
 	name = "Kneebreaker Hammer"
 	item_cost = 5
@@ -45,7 +40,7 @@
 	path = /obj/item/gun/projectile/revolver
 
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "Tommy Gun"
+	name = "Vintage Submachine Gun"
 	item_cost = 14
 	path = /obj/item/gun/projectile/automatic/tommygun
 
@@ -109,10 +104,25 @@
 	item_cost = 2
 	path = /obj/item/material/star
 
+/datum/uplink_item/item/visible_weapons/plasma_shotty
+	name = "Plasma Shotgun"
+	item_cost = 15
+	path = /obj/item/gun/projectile/plasma
+
 /datum/uplink_item/item/visible_weapons/icelance
 	name = "Icelance Rifle"
 	item_cost = 6
 	path = /obj/item/gun/energy/rifle/icelance
+
+/datum/uplink_item/item/visible_weapons/boltaction
+	name = "Bolt-Action Rifle"
+	item_cost = 8
+	path = /obj/item/gun/projectile/shotgun/pump/rifle
+
+/datum/uplink_item/item/visible_weapons/colt
+	name = "Vintage .45 Pistol"
+	item_cost = 6
+	path = /obj/item/gun/projectile/colt
 
 /datum/uplink_item/item/visible_weapons/custom_ka
 	name = "Kinetic Laser Assembly"

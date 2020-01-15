@@ -342,6 +342,8 @@
 #include "code\datums\uplink\announcements.dm"
 #include "code\datums\uplink\badassery.dm"
 #include "code\datums\uplink\devices and tools.dm"
+#include "code\datums\uplink\exosuit.dm"
+#include "code\datums\uplink\exosuit_equipment.dm"
 #include "code\datums\uplink\gear loadout.dm"
 #include "code\datums\uplink\grenades.dm"
 #include "code\datums\uplink\hardsuit_modules.dm"

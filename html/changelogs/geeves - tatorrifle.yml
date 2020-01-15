@@ -1,0 +1,11 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a bunch of descriptions to the traitor uplink so you can be more sure of what you're buying."
+  - rscadd: "Added various new weapons, tools, and kits to the traitor uplink."
+  - tweak: "Various traitor items have had their cost tweaked to bring them into a tighter balance."
+  - tweak: "The Tommygun is now know as the Vintage Sub-Machine gun everywhere."
+  - tweak: "Manhacks are now called Viscerators everywhere."
+  - rscadd: "Exosuit droppers and their equipment have both been given their own uplink catagories."
