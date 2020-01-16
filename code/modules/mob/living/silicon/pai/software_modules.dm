@@ -135,7 +135,7 @@
 			ui.set_initial_data(data)
 			ui.open()
 			ui.set_auto_update(1)
-*/
+
 
 /datum/pai_software/messenger
 	name = "Digital Messenger"
@@ -213,6 +213,8 @@
 				P.pda.create_message(P, target, 0)
 				return 1
 
+
+
 /datum/pai_software/door_jack
 	name = "Door Jack"
 	ram_cost = 30
@@ -258,36 +260,7 @@
 				               "<span class='warning'>You hear the soft click of something light and hard falling to the ground.</span>", 2)
 			return 1
 
-/mob/living/silicon/pai/proc/hackloop()
-	var/turf/T = get_turf_or_move(src.loc)
-	for(var/mob/living/silicon/ai/AI in player_list)
-		if(T.loc)
-			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b></font>")
-		else
-			to_chat(AI, "<font color = red><b>Network Alert: Brute-force encryption crack in progress. Unable to pinpoint location.</b></font>")
-	var/obj/machinery/door/airlock/D = cable.machine
-	if(!istype(D))
-		hack_aborted = 1
-		hackprogress = 0
-		cable.machine = null
-		hackdoor = null
-		return
-	while(hackprogress < 1000)
-		if(cable && cable.machine == D && cable.machine == hackdoor && get_dist(src, hackdoor) <= 1)
-			hackprogress = min(hackprogress+rand(1, 20), 1000)
-		else
-			hack_aborted = 1
-			hackprogress = 0
-			hackdoor = null
-			return
-		if(hackprogress >= 1000)
-			hackprogress = 0
-			D.unlock() //unbolts door as long as bolt wires aren't cut
-			D.open()
-			cable.machine = null
-			return
-		sleep(10)			// Update every second
-
+*/
 /datum/pai_software/atmosphere_sensor
 	name = "Atmosphere Sensor"
 	ram_cost = 5
