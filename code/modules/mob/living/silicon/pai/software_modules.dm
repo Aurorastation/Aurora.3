@@ -76,7 +76,7 @@
 			else
 				to_chat(P, "[M] does not seem like \he is going to provide a DNA sample willingly.")
 			return 1
-			*/
+			
 
 /datum/pai_software/radio_config
 	name = "Radio Configuration"
@@ -115,6 +115,8 @@
 		P.radio.Topic(href, href_list)
 		return 1
 
+
+
 /datum/pai_software/crew_manifest
 	name = "Crew Manifest"
 	ram_cost = 5
@@ -133,6 +135,7 @@
 			ui.set_initial_data(data)
 			ui.open()
 			ui.set_auto_update(1)
+*/
 
 /datum/pai_software/messenger
 	name = "Digital Messenger"

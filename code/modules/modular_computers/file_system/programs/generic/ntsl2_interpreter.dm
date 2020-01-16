@@ -3,10 +3,8 @@
 	filedesc = "NTSL2+ Interpreter"
 	extended_desc = "This program is used to run NTSL2+ programs."
 	program_icon_state = "generic"
-	size = 2
-	requires_ntnet = 1
+	size = 7
 	available_on_ntnet = 1
-	undeletable = 0
 
 	nanomodule_path = /datum/nano_module/program/computer_ntsl2_interpreter/
 
