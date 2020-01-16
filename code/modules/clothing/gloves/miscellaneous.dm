@@ -119,7 +119,8 @@
 
 /obj/item/clothing/gloves/watch
 	name = "watch"
-	desc = "It's a Gauss-Io Zeit-Meister, a finely tuned wristwatch encased in black plastic."
+	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in black plastic."
+	description_fluff = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
 	w_class = 1
@@ -132,14 +133,26 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
 /obj/item/clothing/gloves/watch/silver
-	desc = "It's a Gauss-Io Zeit-Meister, a finely tuned wristwatch encased silver, to unleash the telemarketer in you!."
+	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
+	description_fluff = "To unleash the telemarketer in you!"
 	icon_state = "watch_silver"
 	item_state = "watch_silver"
 
 /obj/item/clothing/gloves/watch/gold
-	desc = "It's a Gauss-Io Zeit-Meister, a finely tuned wristwatch encased in <b>REAL</b> faux gold, like the pawn shop owner you'll never be."
+	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in <b>REAL</b> faux gold."
+	description_fluff = "Be the jerk-ass pawn shop owner you'll never be."
 	icon_state = "watch_gold"
 	item_state = "watch_gold"
+
+/obj/item/clothing/gloves/watch/spy
+	desc = "It's a GENUINE Spy-Tech Invisi-watch! <b>WARNING</b> : Does not actually make you invisible."
+	description_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
+	icon_state = "watch_spy"
+	item_state = "watch_silver"
+
+/obj/item/clothing/gloves/watch/spy/examine(mob/user)
+	..()
+	to_chat(usr, "You check your watch. It's completely useless. Dork.")
 
 /obj/item/clothing/gloves/watch/verb/checktime()
 	set category = "Object"
@@ -161,11 +174,11 @@
 	set src in usr
 
 	if(wired && !clipped)
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes.</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 	else if(wired && clipped)
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open"), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken"), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
