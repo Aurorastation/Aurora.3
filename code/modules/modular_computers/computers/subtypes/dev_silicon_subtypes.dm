@@ -21,3 +21,4 @@
 /obj/item/modular_computer/silicon/pai/install_default_programs()
 	. = ..()
 	hard_drive.store_file(new /datum/computer_file/program/pai_directives())
+	hard_drive.store_file(new /datum/computer_file/program/pai_radio())

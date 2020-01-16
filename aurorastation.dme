@@ -2003,6 +2003,7 @@
 #include "code\modules\modular_computers\file_system\programs\generic\nttransfer.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\records.dm"
 #include "code\modules\modular_computers\file_system\programs\pai\directives.dm"
+#include "code\modules\modular_computers\file_system\programs\pai\radio.dm"
 #include "code\modules\modular_computers\file_system\programs\medical\suit_sensors.dm"
 #include "code\modules\modular_computers\file_system\programs\research\ai_restorer.dm"
 #include "code\modules\modular_computers\file_system\programs\research\ntmonitor.dm"

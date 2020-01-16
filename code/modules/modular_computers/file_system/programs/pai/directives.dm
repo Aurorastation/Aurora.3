@@ -1,5 +1,5 @@
 /datum/computer_file/program/pai_directives
-    filename = "pai_directives"
+	filename = "pai_directives"
 	filedesc = "pAI directives"
 	program_icon_state = "generic"
 	extended_desc = "This program is for viewing pAI directives."
@@ -41,9 +41,16 @@
 	
 /datum/computer_file/program/pai_directives/Topic(href, href_list)
 	. = ..()
+
+	if(!istype(computer, /obj/item/modular_computer/silicon))
+		return
+	var/obj/item/modular_computer/silicon/true_computer = computer
+	if(!istype(true_computer.computer_host, /mob/living/silicon/pai))
+		return
+	var/mob/living/silicon/pai/host = true_computer.computer_host
 	
 	if(href_list["getdna"])
-		var/mob/living/M = P.loc
+		var/mob/living/M = host.loc
 		var/count = 0
 
 		// Find the carrier
@@ -56,17 +63,17 @@
 			count++
 
 		// Check the carrier
-		var/answer = input(M, "[P] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "[P] Check DNA", "No") in list("Yes", "No")
+		var/answer = input(M, "[host] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "[host] Check DNA", "No") in list("Yes", "No")
 		if(answer == "Yes")
-			var/turf/T = get_turf_or_move(P.loc)
+			var/turf/T = get_turf_or_move(host.loc)
 			for (var/mob/v in viewers(T))
-				v.show_message("<span class='notice'>[M] presses \his thumb against [P].</span>", 3, "<span class='notice'>[P] makes a sharp clicking sound as it extracts DNA material from [M].</span>", 2)
+				v.show_message("<span class='notice'>[M] presses \his thumb against [host].</span>", 3, "<span class='notice'>[host] makes a sharp clicking sound as it extracts DNA material from [M].</span>", 2)
 			var/datum/dna/dna = M.dna
-			to_chat(P, "<font color = red><h3>[M]'s UE string : [dna.unique_enzymes]</h3></font>")
-			if(dna.unique_enzymes == P.master_dna)
-				to_chat(P, "<b>DNA is a match to stored Master DNA.</b>")
+			to_chat(host, "<font color = red><h3>[M]'s UE string : [dna.unique_enzymes]</h3></font>")
+			if(dna.unique_enzymes == host.master_dna)
+				to_chat(host, "<b>DNA is a match to stored Master DNA.</b>")
 			else
-				to_chat(P, "<b>DNA does not match stored Master DNA.</b>")
+				to_chat(host, "<b>DNA does not match stored Master DNA.</b>")
 		else
-			to_chat(P, "[M] does not seem like \he is going to provide a DNA sample willingly.")
+			to_chat(host, "[M] does not seem like \he is going to provide a DNA sample willingly.")
 		return 1
