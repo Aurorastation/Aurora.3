@@ -194,12 +194,12 @@
 
 	interface_name = "dead man's switch"
 	interface_desc = "An integrated self-destruct module. When the wearer dies, so does the surrounding area. Do not press this button."
-	var/list/explosion_values = list(3,4,5,6)
+	var/list/explosion_values = list(0,0,8,12)
 
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/self_destruct/small
-	explosion_values = list(1,2,3,4)
+	explosion_values = list(0,0,4,8)
 
 /obj/item/rig_module/self_destruct/activate()
 	return
@@ -220,7 +220,6 @@
 /obj/item/rig_module/self_destruct/engage(var/skip_check)
 	if(!skip_check && usr && alert(usr, "Are you sure you want to push that button?", "Self-destruct", "No", "Yes") == "No")
 		return
-	explosion(get_turf(src), explosion_values[1], explosion_values[2], explosion_values[3], explosion_values[4])
 	if(holder && holder.wearer)
 		holder.wearer.gib()
 		holder.wearer.drop_from_inventory(src)
