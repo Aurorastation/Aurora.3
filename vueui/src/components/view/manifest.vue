@@ -17,17 +17,24 @@
 <script>
 export default {
   data() {
-    return this.$root.$data.state;
+    return this.$root.$data.state
   },
   computed: {
     fixedmanifest() {
       var entries = Object.entries(this.manifest)
         .filter(([, crew]) => !!crew.length)
-        .flatMap(([name, crew]) => {
-          return [{header: name, class: this.getClass(name), name: this.getTitle(name)}, crew].flat()
-        })
+        .flatMap(([name, crew]) =>
+          [
+            {
+              header: name,
+              class: this.getClass(name),
+              name: this.getTitle(name),
+            },
+            crew,
+          ].flat()
+        )
       return entries
-    }
+    },
   },
   methods: {
     getTitle(key) {
@@ -61,8 +68,8 @@ export default {
         default:
           return key
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -58,7 +58,7 @@
           >Download</vui-button>
         </vui-group-item>
         <td colspan="2" :key="program.filename">
-          <hr />
+          <hr>
         </td>
       </template>
     </vui-group>
@@ -70,8 +70,8 @@ export default {
   data() {
     return {
       search_results: [],
-      s: this.$root.$data.state
-    };
+      s: this.$root.$data.state,
+    }
   },
   computed: {
     unrestrictedPrograms() {
@@ -82,22 +82,22 @@ export default {
         )
         .sort(([, avalue], [, bvalue]) => avalue.size - bvalue.size)
         .map(([key, value]) => {
-          value["filename"] = key;
-          return value;
-        });
-      return entries;
+          value["filename"] = key
+          return value
+        })
+      return entries
     },
     lowHardDrive() {
-      return this.s.disk_used / this.s.disk_size > 0.8; // More than 80%
+      return this.s.disk_used / this.s.disk_size > 0.8 // More than 80%
     },
     queue() {
       return Object.entries(this.s.queue).map(([name, progress]) => {
-        let fp = this.s.avaivable[name];
-        fp.progress = progress;
-        fp.filename = name;
-        return fp;
-      });
-    }
+        let fp = this.s.avaivable[name]
+        fp.progress = progress
+        fp.filename = name
+        return fp
+      })
+    },
   },
   methods: {
     canDownload(program) {
@@ -105,11 +105,11 @@ export default {
         program.size + this.s.queue_size + this.s.disk_used >
         this.s.disk_size
       )
-        return false;
-      return true;
-    }
-  }
-};
+        return false
+      return true
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
