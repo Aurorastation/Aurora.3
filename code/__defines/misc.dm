@@ -202,6 +202,10 @@
 #define PROGRAM_ACCESS_LIST_ONE 2
 #define PROGRAM_ACCESS_LIST_ALL 3
 
+#define PROGRAM_NORMAL 1
+#define PROGRAM_SERVICE 2
+#define PROGRAM_TYPE_ALL (PROGRAM_NORMAL | PROGRAM_SERVICE)
+
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
 #define PROJECTILE_FORCE_MISS -2 //if the projectile should treat the attack as a miss (suppresses attack and admin logs) - only applies to mobs.

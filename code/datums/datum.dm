@@ -11,6 +11,7 @@
 	weakref = null
 	destroyed_event.raise_event(src)
 	SSnanoui.close_uis(src)
+	SSvueui.close_uis(src)
 	tag = null
 	var/list/timers = active_timers
 	active_timers = null

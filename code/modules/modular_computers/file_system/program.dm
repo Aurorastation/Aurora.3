@@ -2,6 +2,7 @@
 /datum/computer_file/program
 	filetype = "PRG"
 	filename = "UnknownProgram"				// File name. FILE NAME MUST BE UNIQUE IF YOU WANT THE PROGRAM TO BE DOWNLOADABLE FROM NTNET!
+	var/program_type = PROGRAM_NORMAL		// Program type, used to determine if 
 	var/required_access_run = null			// List of required accesses to run the program.
 	var/required_access_download = null		// List of required accesses to download the program.
 	var/requires_access_to_run = PROGRAM_ACCESS_ONE	// Whether the program checks for required_access when run. (1 = requires single access, 2 = requires single access from list, 3 = requires all access from list)
@@ -23,6 +24,7 @@
 	var/computer_emagged = 0				// Set to 1 if computer that's running us was emagged. Computer updates this every Process() tick
 	var/ui_header = null					// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /nano/images/status_icons. Be careful not to use too large images!
 	var/color = "#FFFFFF"					// The color of light the computer should emit when this program is open.
+	var/service_state = PROGRAM_STATE_KILLED// PROGRAM_STATE_KILLED or PROGRAM_STATE_ACTIVE - specifies whether this programs service is running.
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp = null)
 	..()
@@ -30,6 +32,8 @@
 		computer = comp
 
 /datum/computer_file/program/Destroy()
+	computer.idle_threads -= src
+	computer.enabled_services -= src
 	computer = null
 	. = ..()
 
@@ -216,7 +220,6 @@
 
 // CONVENTIONS, READ THIS WHEN CREATING NEW PROGRAM AND OVERRIDING THIS PROC:
 // Topic calls are automagically forwarded from NanoModule this program contains.
-// Calls beginning with "PRG_" are reserved for programs handling.
 // Calls beginning with "PC_" are reserved for computer handling (by whatever runs the program)
 // ALWAYS INCLUDE PARENT CALL ..() OR DIE IN FIRE.
 /datum/computer_file/program/Topic(href, href_list)
@@ -231,3 +234,13 @@
 		return NM.check_eye(user)
 	else
 		return -1
+
+
+// Is called when program service is being activated
+// Returns 1 if service startup was sucessfull
+/datum/computer_file/program/proc/service_activate()
+	return 0
+
+// Is called when program service is being deactivated
+/datum/computer_file/program/proc/service_decactivate()
+	return

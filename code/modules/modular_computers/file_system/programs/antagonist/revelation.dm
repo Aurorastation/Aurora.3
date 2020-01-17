@@ -21,8 +21,7 @@
 		return
 
 	computer.visible_message("<span class='notice'>\The [computer]'s screen brightly flashes and emits a loud electrical buzzing.</span>")
-	computer.enabled = 0
-	computer.update_icon()
+	computer.shutdown_computer(0)
 	spark(computer.loc, 10, alldirs)
 
 	if(computer.hard_drive)

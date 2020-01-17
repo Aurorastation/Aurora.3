@@ -51,6 +51,10 @@
 		VUEUI_SET_CHECK(data["programs"][P.filename]["desc"], P.filedesc, ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["autorun"], (istype(autorun) && (autorun.stored_data == P.filename)), ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["running"], (P in idle_threads), ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["type"], P.program_type, ., data)
+		VUEUI_SET_CHECK_IFNOTSET(data["programs"][P.filename]["service"], list(), ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["service"]["enabled"], (P in enabled_services), ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["service"]["online"], (P.service_state == PROGRAM_STATE_ACTIVE), ., data)
 
 // Handles user's GUI input
 /obj/item/modular_computer/Topic(href, href_list)
@@ -91,7 +95,7 @@
 		to_chat(user, "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>")
 
 	if( href_list["PC_runprogram"] )
-		. = run_program(href_list["PC_runprogram"])
+		. = run_program(href_list["PC_runprogram"], usr)
 		ui_interact(usr)
 
 	if( href_list["PC_setautorun"] )
@@ -106,6 +110,10 @@
 			autorun.stored_data = null
 		else
 			autorun.stored_data = href_list["PC_setautorun"]
+	
+	if( href_list["PC_toggleservice"] )
+		toggle_service(href_list["PC_toggleservice"], usr)
+		return 1
 
 	if(.)
 		update_uis()
