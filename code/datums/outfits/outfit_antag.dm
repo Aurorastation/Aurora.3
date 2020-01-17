@@ -169,7 +169,7 @@
 	rig.dnaLock = H.dna
 	H.equip_to_slot_or_del(rig, slot_l_hand)
 
-	H.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(H, H.mind), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store)
 
 /datum/outfit/admin/syndicate/mercenary
 	name = "Mercenary"
@@ -253,7 +253,7 @@
 		return
 
 	if(!H.shoes)
-		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/unathi)
+		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/toeless)
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
 	var/obj/item/storage/wallet/W = H.wear_id

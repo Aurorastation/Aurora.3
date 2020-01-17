@@ -316,6 +316,12 @@
 	icon_state = "flashbang"
 	starts_with = list(/obj/item/grenade/frag = 5)
 
+/obj/item/storage/box/cardox
+	name = "box of cardox grenades"
+	desc = "A box containing 5 experimental cardox grenades."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/chem_grenade/large/phoroncleaner = 5)
+
 /obj/item/storage/box/trackimp
 	name = "boxed tracking implant kit"
 	desc = "Box full of scum-bag tracking utensils."
@@ -779,3 +785,14 @@
 /obj/item/storage/box/fountainpens
 	name = "box of fountain pens"
 	starts_with = list(/obj/item/pen/fountain = 7)
+
+/obj/item/storage/box/aggression
+	name = "box"
+	description_antag = "This box contains various implants that will make their owners increasingly aggressive."
+	max_storage_space = 12
+	starts_with = list(/obj/item/implantcase/aggression = 6, /obj/item/implanter = 1, /obj/item/implantpad = 1)
+
+/obj/item/storage/box/encryption_key
+	name = "box"
+	description_antag = "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
+	starts_with = list(/obj/item/device/encryptionkey/rev = 8)

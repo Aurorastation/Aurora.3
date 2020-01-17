@@ -260,7 +260,8 @@
 		close()
 
 /obj/machinery/door/firedoor/attackby(obj/item/C as obj, mob/user as mob)
-	add_fingerprint(user)
+	if(!istype(C, /obj/item/forensics))
+		add_fingerprint(user)
 	if(operating)
 		return//Already doing something.
 	if(C.iswelder() && !repairing)
@@ -525,4 +526,5 @@
 	icon = 'icons/obj/doors/DoorHazard2x1.dmi'
 	width = 2
 	dir = EAST
+
 	enable_smart_generation = FALSE

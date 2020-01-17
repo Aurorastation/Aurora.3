@@ -224,6 +224,7 @@
 	name = "pioneer's scarf"
 	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of expeditionaries."
 	icon_state = "pioneer_scarf"
+	item_flags = FLEXIBLEMATERIAL
 	item_state = "pioneer_scarf"
 	w_class = 2
 	body_parts_covered = FACE

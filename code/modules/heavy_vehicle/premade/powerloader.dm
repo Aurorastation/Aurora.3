@@ -31,7 +31,7 @@
 	max_damage = 70
 	power_use = 2000
 	melee_damage = 40
-	desc = "The Xion Industrial Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
+	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/ripley
@@ -42,6 +42,7 @@
 	move_delay = 4
 	turn_delay = 4
 	power_use = 2000
+	trample_damage = 10
 
 /obj/item/mech_component/sensors/ripley
 	name = "exosuit sensors"
@@ -173,3 +174,13 @@
 	..()
 	software = new(src)
 	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_WEAPONS)
+
+/mob/living/heavy_vehicle/premade/ripley/remote
+	name = "remote power loader"
+	dummy_colour = "#ffc44f"
+	remote_network = "remotemechs"
+
+/mob/living/heavy_vehicle/premade/ripley/remote_prison
+	name = "penal power loader"
+	dummy_colour = "#302e2b"
+	remote_network = "prisonmechs"

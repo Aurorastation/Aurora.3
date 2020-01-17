@@ -171,7 +171,7 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
-	if(!src.Adjacent(user) && !(TK in user.mutations))
+	if(!src.Adjacent(user))
 		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
 		return // please don't pick things up
 	src.pickup(user)
@@ -797,3 +797,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return TRUE
 	else
 		return FALSE
+
+/obj/item/do_simple_ranged_interaction(var/mob/user)
+	if(user)
+		attack_self(user)
+	return TRUE

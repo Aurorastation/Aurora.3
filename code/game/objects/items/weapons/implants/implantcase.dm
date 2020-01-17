@@ -169,3 +169,13 @@
 	src.imp = new /obj/item/implant/camera( src )
 	..()
 	return
+
+/obj/item/implantcase/aggression
+	name = "glass case - 'aggression'"
+	desc = "A case containing an aggression inducing implant."
+	icon_state = "implantcase-b"
+
+/obj/item/implantcase/aggression/New()
+	src.imp = new /obj/item/implant/aggression(src)
+	..()
+	return

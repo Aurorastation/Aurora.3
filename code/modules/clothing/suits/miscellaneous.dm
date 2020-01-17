@@ -526,7 +526,7 @@
 
 /obj/item/clothing/suit/varsity
 	name = "black varsity jacket"
-	desc = "A favorite of jocks everywhere from Sol to the Frontier."
+	desc = "A favorite of jocks everywhere from Sol to the Coalition."
 	icon_state = "varsity"
 	item_state = "varsity"
 	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
@@ -624,6 +624,12 @@
 	item_state = "sec_dep_jacket"
 	icon_open = "sec_dep_jacket_open"
 	icon_closed = "sec_dep_jacket"
+
+/obj/item/clothing/suit/storage/fib
+	name = "\improper FIB agent jacket"
+	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
+	icon_state = "fib_jacket"
+	item_state = "fib_jacket"
 
 /obj/item/clothing/suit/cardigan
 	name = "cardigan"

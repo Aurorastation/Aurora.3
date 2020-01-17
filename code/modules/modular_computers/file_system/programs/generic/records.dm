@@ -23,6 +23,7 @@
 	var/record_prefix = ""
 	var/typechoices = list(
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "Physically Unfit", "Disabled"),
+		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
 		"medical" = list(
 			"blood_type" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
@@ -67,7 +68,7 @@
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
-	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
+	required_access_run = list(access_heads, access_lawyer)
 	required_access_download = access_heads
 	available_on_ntnet = 1
 

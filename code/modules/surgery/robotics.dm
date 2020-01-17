@@ -133,7 +133,7 @@
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		if(tool.iswelder())
 			var/obj/item/weldingtool/welder = tool
-			if(!welder.isOn() || !welder.remove_fuel(1,user))
+			if(!welder.isOn() || !welder.remove_fuel(2,user))
 				return 0
 		return affected && affected.open == 3 && affected.brute_dam > 0 && target_zone != BP_MOUTH
 
@@ -170,8 +170,8 @@
 		var/limb_can_operate = (affected && affected.open == 3 && affected.burn_dam > 0 && target_zone != BP_MOUTH)
 		if(limb_can_operate)
 			if(istype(C))
-				if(!C.get_amount() >= 3)
-					to_chat(user, "<span class='danger'>You need three or more cable pieces to repair this damage.</span>")
+				if(!C.get_amount() >= 6)
+					to_chat(user, "<span class='danger'>You need six or more cable pieces to repair this damage.</span>")
 					return SURGERY_FAILURE
 				C.use(3)
 			return 1

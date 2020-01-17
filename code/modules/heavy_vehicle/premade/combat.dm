@@ -21,8 +21,9 @@
 
 /mob/living/heavy_vehicle/premade/combat/spawn_mech_equipment()
 	..()
-	install_system(new /obj/item/mecha_equipment/mounted_system/taser(src), HARDPOINT_LEFT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/blaster(src), HARDPOINT_LEFT_HAND)
 	install_system(new /obj/item/mecha_equipment/mounted_system/taser/ion(src), HARDPOINT_RIGHT_HAND)
+	install_system(new /obj/item/mecha_equipment/mounted_system/grenadetear(src), HARDPOINT_RIGHT_SHOULDER)
 
 /obj/item/mech_component/manipulators/combat
 	name = "combat arms"
@@ -39,6 +40,7 @@
 	move_delay = 3
 	turn_delay = 3
 	power_use = 5000
+	trample_damage = 35
 
 /obj/item/mech_component/sensors/combat
 	name = "combat sensors"

@@ -225,7 +225,7 @@
 	if(interviewee_id)
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"A interviewee has already been associated with this interview\".</span>")
 		return
-	
+
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.character_id)
@@ -277,3 +277,6 @@
 	storage_slots = 8
 	max_storage_space = 16
 
+/obj/item/storage/lockbox/cciaa/fib
+	name = "FIB agent briefcase"
+	desc = "A smart looking ID locked briefcase."

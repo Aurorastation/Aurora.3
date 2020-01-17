@@ -97,7 +97,7 @@
 	//var/jetpack = 0
 	var/obj/item/tank/jetpack/carbondioxide/synthetic/jetpack = null
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
-	var/datum/effect_system/sparks/spark_system//So they can initialize sparks whenever/N
+	var/datum/effect_system/sparks/spark_system //So they can initialize sparks whenever/N
 	var/jeton = 0
 	var/killswitch = 0
 	var/killswitch_time = 60
@@ -313,6 +313,7 @@
 	updatename()
 	recalculate_synth_capacities()
 	notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
+	SSrecords.reset_manifest()
 	selecting_module = 0
 
 /mob/living/silicon/robot/proc/updatename(var/prefix as text)
@@ -374,6 +375,7 @@
 
 		updatename()
 		updateicon()
+		SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest
 /mob/living/silicon/robot/verb/cmd_station_manifest()

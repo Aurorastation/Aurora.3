@@ -116,7 +116,8 @@
 // Description: If we are clicked with crowbar or wielded fire axe, try to manually open the door.
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
 /obj/machinery/door/blast/attackby(obj/item/C as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	if(!istype(C, /obj/item/forensics))
+		src.add_fingerprint(user)
 	if((istype(C, /obj/item/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/melee/hammer)))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()

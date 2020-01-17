@@ -82,9 +82,15 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigfilters_generic"
 	item_state = "cigpacket"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
 	w_class = 2
 	starts_with = list(/obj/item/paper/cig/filter = 10)
 	make_exact_fit()
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/storage/fancy/cigpaper/fine
 	name = "\improper Trident cigarette paper"
@@ -160,14 +166,14 @@
 //loose leaf
 
 /obj/item/storage/chewables/rollable/bad
-	name = "box of S'th Kasavakh tobacco"
+	name = "box of S'th Kasavakh tobacco leaves"
 	desc = "A box of coarse gritty tobacco which still manages to grow against the desertification of Moghes."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/bad = 8)
 	icon_state = "roll_bad"
 	item_state = "Fpacket"
 
 /obj/item/storage/chewables/rollable
-	name = "box of Agyre Lake tobacco"
+	name = "box of Agyre Lake tobacco leaves"
 	desc = "Advertised to be grown using fresh water pumped directly from the titular Martian lake."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco = 8)
 	icon_state = "roll_generic"
@@ -181,14 +187,14 @@
 	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/chewables/rollable/fine
-	name = "box of Excelsior Epsilon tobacco"
+	name = "box of Excelsior Epsilon tobacco leaves"
 	desc = "Quality tobacco favored by the Corporates of Eridani - just don't read the label at the bottom."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/fine = 8)
 	icon_state = "roll_fine"
 	item_state = "Dpacket"
 
 /obj/item/storage/chewables/rollable/nico
-	name = "box of Golden Sol tobacco"
+	name = "box of Golden Sol tobacco leaves"
 	desc = "A exclusive brand of overpriced tobacco, allegedly grown at a lagrange point station in Sol system."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/grown/dried_tobacco/pure = 8)
 	icon_state = "roll_nico"

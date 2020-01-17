@@ -15,7 +15,7 @@
 		)
 
 	//Species-specific stuff.
-	species_restricted = list("Human", "Bishop Accessory Frame")
+	species_restricted = list("Human", "Bishop Accessory Frame", "Zeng-Hu Mobility Frame")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
@@ -50,7 +50,7 @@
 		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
 		)
 
-	species_restricted = list("Human", "Skrell", "Bishop Accessory Frame")
+	species_restricted = list("Human", "Skrell", "Bishop Accessory Frame", "Zeng-Hu Mobility Frame")
 	sprite_sheets_refit = list(
 		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
 		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',

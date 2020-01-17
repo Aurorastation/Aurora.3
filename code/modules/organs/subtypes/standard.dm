@@ -16,10 +16,9 @@
 	artery_name = "internal thoracic artery"
 	dislocated = -1
 	gendered_icon = 1
-	cannot_amputate = 1
+	limb_flags = ORGAN_CAN_BREAK
 	parent_organ = null
 	encased = "ribcage"
-	can_be_maimed = FALSE
 
 /obj/item/organ/external/groin
 	name = "lower body"
@@ -47,11 +46,10 @@
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
 	joint = "left elbow"
-	has_tendon = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON | ORGAN_CAN_GRASP
 	tendon_name = "palmaris longus tendon"
 	artery_name = "basilic vein"
 	amputation_point = "left shoulder"
-	can_grasp = 1
 
 /obj/item/organ/external/arm/right
 	limb_name = "r_arm"
@@ -59,7 +57,6 @@
 	icon_name = "r_arm"
 	body_part = ARM_RIGHT
 	joint = "right elbow"
-	has_tendon = TRUE
 	tendon_name = "cruciate ligament"
 	artery_name = "brachial artery"
 	amputation_point = "right shoulder"
@@ -75,11 +72,10 @@
 	icon_position = LEFT
 	parent_organ = BP_GROIN
 	joint = "left knee"
-	has_tendon = TRUE
 	tendon_name = "quadriceps tendon"
 	artery_name = "femoral artery"
 	amputation_point = "left hip"
-	can_stand = 1
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
 
 /obj/item/organ/external/leg/right
 	limb_name = "r_leg"
@@ -102,7 +98,7 @@
 	parent_organ = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
-	can_stand = 1
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
 	maim_bonus = 1
 
 /obj/item/organ/external/foot/removed()
@@ -130,10 +126,9 @@
 	body_part = HAND_LEFT
 	parent_organ = BP_L_ARM
 	joint = "left wrist"
-	has_tendon = TRUE
 	tendon_name = "carpal ligament"
 	amputation_point = "left wrist"
-	can_grasp = 1
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP | ORGAN_HAS_TENDON
 	maim_bonus = 1
 
 /obj/item/organ/external/hand/removed()
