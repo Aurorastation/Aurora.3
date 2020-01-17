@@ -187,7 +187,7 @@
 				visible_message("<span class='warning'>[user] strikes \the [src] with [W], [is_sharp(W) ? "slicing" : "denting"] a support rod!</span>")
 				take_damage(damage_to_deal)
 			else
-				visible_message("<span class='warning'>[user] strikes \the [src] with [W], but it bounces off!</span>")
+				visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], but it bounces off!</span>")
 			return
 
 	return ..()
