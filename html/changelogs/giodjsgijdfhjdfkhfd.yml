@@ -1,0 +1,4 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - tweak: "Now atmospheric control consoles (like tank and supermatter) numeric inputs set value on enter key press."
