@@ -663,7 +663,7 @@ obj/machinery/atmospherics/mains_pipe/valve
 					radio_connection = SSradio.add_object(src, frequency, RADIO_ATMOSIA)
 
 		var/frequency = 0
-		var/
+		var/id = null
 		var/datum/radio_frequency/radio_connection
 
 		atmos_init()
