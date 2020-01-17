@@ -1,7 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "A vampire's blood drain will now work properly on Skrell who enter Srom during."
-  - bugfix: "Skrell who are in Srom will now properly receive the alert about memory loss due to brain damage to their real body."
