@@ -60,6 +60,7 @@ var/global/datum/repository/crew/crew_repository = new()
 					crewmemberData["toxyg"] = -1
 					crewmemberData["oxyg"] = OXYGENATION_STATE_UNDEFINED
 					if(!H.isSynthetic() && H.should_have_organ(BP_HEART))
+						crewmemberData["tpressure"] = H.get_blood_pressure_alert()
 						crewmemberData["pressure"] = H.get_blood_pressure()
 						crewmemberData["toxyg"] = H.get_blood_oxygenation()
 						switch (crewmemberData["toxyg"])

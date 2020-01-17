@@ -13,7 +13,7 @@
       <div class="sensor" v-for="sensor in crewmembers" :key="sensor.ref">
         <div class="item">{{ sensor.name }} ({{ sensor.ass }})</div>
         <div class="item center" :class="getPulseClass(sensor.tpulse)">{{ sensor.pulse }}</div>
-        <div class="item center" v-if="sensor.stype > 1">{{ sensor.pressure }}</div>
+        <div class="item center" :class="getPressureClass(sensor.tpressure)" v-if="sensor.stype > 1">{{ sensor.pressure }}</div>
         <div class="item center" v-else>N/A</div>
         <div class="item center" :class="getOxyClass(sensor.oxyg)">{{ toOxyLabel(sensor.oxyg) }}</div>
         <div class="item center"><span v-if="sensor.stype > 1">{{ roundTemp(sensor.bodytemp) }}</span></div>
@@ -79,6 +79,20 @@ export default {
         case 4:
           return "average"
         case 5:
+          return "bad"
+        default:
+          return "neutral"
+      }
+    },
+    getPressureClass(tpressure) {
+      switch (tpressure) {
+        case 1:
+          return "bad"
+        case 2:
+          return "good"
+        case 3:
+          return "average"
+        case 4:
           return "bad"
         default:
           return "neutral"
