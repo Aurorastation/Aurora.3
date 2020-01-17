@@ -178,3 +178,10 @@
 
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod
+
+// Handle cases where the mob's awareness may reside in another mob, but still cares about how its brain is doing
+/mob/living/carbon/human/proc/find_mob_consciousness()
+	if(istype(bg) && bg.client)
+		return bg
+
+	return src
