@@ -3803,10 +3803,10 @@
 	pixel_x = -1;
 	pixel_y = 8
 	},
-/obj/item/device/suit_cooling_unit/improved{
+/obj/item/device/suit_cooling_unit{
 	pixel_x = 8
 	},
-/obj/item/device/suit_cooling_unit/improved{
+/obj/item/device/suit_cooling_unit{
 	pixel_x = 8
 	},
 /obj/item/reagent_containers/food/drinks/cans/waterbottle{
@@ -5536,8 +5536,8 @@
 /area/syndicate_mothership)
 "anO" = (
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
@@ -17409,8 +17409,8 @@
 /area/skipjack_station/start)
 "aPp" = (
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /obj/item/rig/industrial/equipped,
 /obj/item/pickaxe/jackhammer,
 /obj/item/pickaxe/jackhammer,
@@ -25560,10 +25560,10 @@
 	},
 /obj/item/rig_module/cooling_unit,
 /obj/item/rig_module/cooling_unit,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
