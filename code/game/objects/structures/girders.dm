@@ -171,7 +171,7 @@
 			if(!construct_wall(W, user))
 				return ..()
 
-	else
+	else if(W.force)
 		var/damage_to_deal = W.force
 		var/weaken = 0
 		if(reinf_material)
