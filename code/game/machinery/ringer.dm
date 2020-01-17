@@ -7,7 +7,7 @@
 
 	req_access = list() //what access it needs to link your pda
 
-	id = null
+	
 	var/list/obj/item/device/pda/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
 	var/listener/ringers
 	var/on = TRUE

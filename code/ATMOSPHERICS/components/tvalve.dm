@@ -278,7 +278,7 @@
 	icon = 'icons/atmos/digital_tvalve.dmi'
 
 	var/frequency = 0
-	id = null
+	
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/atmospherics/tvalve/digital/bypass
@@ -418,7 +418,7 @@
 	icon = 'icons/atmos/digital_tvalve.dmi'
 
 	var/frequency = 0
-	id = null
+	
 	var/datum/radio_frequency/radio_connection
 
 /obj/machinery/atmospherics/tvalve/mirrored/digital/bypass

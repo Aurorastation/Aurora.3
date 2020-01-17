@@ -19,7 +19,7 @@
 	var/volume_rate = 50	//flow rate limit
 
 	var/frequency = 0
-	id = null
+	
 	var/datum/radio_frequency/radio_connection
 
 	level = 1

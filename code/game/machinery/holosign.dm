@@ -10,7 +10,7 @@
 	active_power_usage = 4
 	anchored = 1
 	var/lit = 0
-	id = null
+	
 	var/on_icon = "sign_on"
 	var/_wifi_id
 	var/datum/wifi/receiver/button/holosign/wifi_receiver
