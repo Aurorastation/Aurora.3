@@ -6,7 +6,7 @@
 			log_admin("[key_name(usr)] has left build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 0
 			M.client.show_popup_menus = 1
-			M.verbs -= /verb/load_template
+			M.verbs -= /verb/load_template_verb
 			for(var/obj/effect/bmode/buildholder/H)
 				if(H.cl == M.client)
 					qdel(H)
@@ -14,7 +14,7 @@
 			log_admin("[key_name(usr)] has entered build mode.",admin_key=key_name(usr))
 			M.client.buildmode = 1
 			M.client.show_popup_menus = 0
-			M.verbs += /verb/load_template
+			M.verbs += /verb/load_template_verb
 			var/obj/effect/bmode/buildholder/H = new/obj/effect/bmode/buildholder()
 			var/obj/effect/bmode/builddir/A = new/obj/effect/bmode/builddir(H)
 			A.master = H
@@ -24,15 +24,19 @@
 			C.master = H
 			var/obj/effect/bmode/buildquit/D = new/obj/effect/bmode/buildquit(H)
 			D.master = H
+			var/obj/effect/bmode/template/E = new/obj/effect/bmode/template(H)
+			E.master = H
 
 			H.builddir = A
 			H.buildhelp = B
 			H.buildmode = C
 			H.buildquit = D
+			H.load_template = E
 			M.client.screen += A
 			M.client.screen += B
 			M.client.screen += C
 			M.client.screen += D
+			M.client.screen += E
 			H.cl = M.client
 
 /obj/effect/bmode//Cleaning up the tree a bit
@@ -108,7 +112,7 @@
 
 /obj/effect/bmode/buildquit
 	icon_state = "buildquit"
-	screen_loc = "NORTH,WEST+3"
+	screen_loc = "NORTH,WEST+4"
 
 	Click()
 		togglebuildmode(master.cl.mob)
@@ -122,6 +126,7 @@
 	var/obj/effect/bmode/buildhelp/buildhelp = null
 	var/obj/effect/bmode/buildmode/buildmode = null
 	var/obj/effect/bmode/buildquit/buildquit = null
+	var/obj/effect/bmode/template/load_template = null
 	var/atom/movable/throw_atom = null
 
 /obj/effect/bmode/buildholder/Destroy()
@@ -137,9 +142,17 @@
 	cl = null
 	return ..()
 
+/obj/effect/bmode/template
+	icon_state = "load_template"
+	screen_loc = "NORTH,WEST+2"
+
+/obj/effect/bmode/template/Click()
+	load_template(usr)
+	return 1
+
 /obj/effect/bmode/buildmode
 	icon_state = "buildmode1"
-	screen_loc = "NORTH,WEST+2"
+	screen_loc = "NORTH,WEST+3"
 	var/varholder = "name"
 	var/valueholder = "derp"
 	var/objholder = /obj/structure/closet
@@ -299,10 +312,15 @@
 					holder.throw_atom.throw_at(object, 10, 1)
 					log_admin("[key_name(usr)] threw [holder.throw_atom] at [object]",admin_key=key_name(usr))
 
-/verb/load_template()
+/verb/load_template_verb()
 	set name = "Load Template"
 	set category = "Special Verbs"
 	if(!usr)
+		return
+	load_template(usr)
+
+/proc/load_template(var/mob/user)
+	if(!user)
 		return
 
 	if(!check_rights(R_SPAWN))
@@ -318,8 +336,8 @@
 	if(!templates || !templates["templates_list"] || templates["templates_folder"] == "")
 		return
 
-	var/turf/T = get_turf(usr)
-	var/name = input(usr, "Which template would you like to load?", "Load Template", null) as null|anything in templates["templates_list"]
+	var/turf/T = get_turf(user)
+	var/name = input(user, "Which template would you like to load?", "Load Template", null) as null|anything in templates["templates_list"]
 	
 	if (!name || !T)
 		return
@@ -329,6 +347,6 @@
 		log_debug("Error, unable to load maploader in proc load_template!")
 		return
 
-	var/centered = input(usr, "Do you want template to load as center or Edge?", "Load Template", null) as null|anything in list("Center", "Edge")
+	var/centered = input(user, "Do you want template to load as center or Edge?", "Load Template", null) as null|anything in list("Center", "Edge")
 	maploader.load(T, centered == "Center" ? TRUE : FALSE)
-	log_and_message_admins("[key_name_admin(usr)] has loaded template [name] at the coordinates [T.x], [T.y], [T.z].", usr, T)
+	log_and_message_admins("[key_name_admin(user)] has loaded template [name] at the coordinates [T.x], [T.y], [T.z].", user, T)
