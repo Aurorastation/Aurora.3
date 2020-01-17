@@ -62,11 +62,11 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Surgeon","Emergency Physician","Nurse")
+	alt_titles = list("Surgeon","Trauma Physician","Nurse")
 	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(
-		"Emergency Physician"=/datum/outfit/job/doctor/emergency_physician,
+		"Trauma Physician"=/datum/outfit/job/doctor/trauma_physician,
 		"Surgeon"=/datum/outfit/job/doctor/surgeon,
 		"Nurse"=/datum/outfit/job/doctor/nurse
 		)
@@ -89,11 +89,13 @@
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
-/datum/outfit/job/doctor/emergency_physician
-	name = "Emergency Physician"
+/datum/outfit/job/doctor/trauma_physician
+	name = "Trauma Physician"
 	jobtype = /datum/job/doctor
 
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	uniform = /obj/item/clothing/under/rank/medical/black
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
+	shoes = /obj/item/clothing/shoes/trauma
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
 

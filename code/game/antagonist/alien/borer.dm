@@ -42,6 +42,8 @@ var/datum/antagonist/xenos/borer/borers
 				continue
 			if(H.mind?.special_role)
 				continue
+			if(!(MODE_BORER in H.client.prefs.be_special_role)) //Don't draft people that don't have the borer pref on.
+				continue
 			if(H.stat == DEAD)
 				continue
 			if(H.isSynthetic() || H.is_diona())

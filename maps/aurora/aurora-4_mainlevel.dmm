@@ -68913,6 +68913,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"sJK" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/white,
+/area/medical/custodial_closet)
 "sKS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -111705,7 +111710,7 @@ brc
 bsf
 btu
 buy
-bvD
+sJK
 bwA
 bxY
 bzp

@@ -144,6 +144,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 	w_class = 3
+	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
 

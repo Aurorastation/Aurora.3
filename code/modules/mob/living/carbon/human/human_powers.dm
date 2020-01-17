@@ -5,6 +5,10 @@
 	set name = "Tie Hair"
 	set desc = "Style your hair."
 	set category = "IC"
+	
+	if(!use_check_and_message())
+		to_chat(src, span("warning", "You can't tie your hair when you are incapacitated!"))
+		return
 
 	if(h_style)
 		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
