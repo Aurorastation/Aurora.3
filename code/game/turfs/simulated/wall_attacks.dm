@@ -378,4 +378,4 @@
 				visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], [is_sharp(W) ? "slicing some of the plating" : "putting a heavy dent on it"]!</span>")
 				take_damage(damage_to_deal)
 			else
-				visible_message("<span class='warning'>[user] strikes \the [src] with [W], but it bounces off!</span>")
+				visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], but it bounces off!</span>")
