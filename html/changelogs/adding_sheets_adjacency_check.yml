@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Protolathe and Circuit Printer now properly check for adjacency when being filled with sheets."
