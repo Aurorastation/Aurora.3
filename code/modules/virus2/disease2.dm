@@ -76,6 +76,9 @@
 		return
 
 	if(mob.total_radiation > 50)
+		if(mob.is_diona() && prob(mob.total_radiation/5))
+			cure(mob)
+			return
 		if(prob(1))
 			majormutate()
 
