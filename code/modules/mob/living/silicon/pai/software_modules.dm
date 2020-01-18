@@ -301,6 +301,7 @@
 			ui.set_initial_data(data)
 			ui.open()
 
+/*
 /datum/pai_software/sec_hud
 	name = "Security HUD"
 	ram_cost = 20
@@ -323,6 +324,7 @@
 	is_active(mob/living/silicon/pai/user)
 		return user.medHUD
 
+
 /datum/pai_software/translator
 	name = "Universal Translator"
 	ram_cost = 35
@@ -344,6 +346,8 @@
 
 	is_active(mob/living/silicon/pai/user)
 		return user.translator_on
+
+*/
 
 /datum/pai_software/signaller
 	name = "Remote Signaller"
