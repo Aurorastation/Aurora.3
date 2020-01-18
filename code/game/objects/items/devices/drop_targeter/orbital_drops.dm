@@ -5,7 +5,7 @@
 	drop_message = "Stand by for drillfall, ETA ten seconds, clear the targetted area."
 	drop_message_emagged = "St%n^ b* for dr$llfa#l, ETA t@n s*c%&ds, RUN."
 
-	template_name = "drill.dmm"
+	map = new /datum/map_template/drill
 
 /obj/item/device/orbital_dropper/mecha
 	name = "mecha dropper"
@@ -18,7 +18,16 @@
 	announcer_name = "Respawn Mech Industries"
 	announcer_channel = "Common"
 
-	template_name = "combat-mecha.dmm"
+	map = new /datum/map_template/mecha
+
+/obj/item/device/orbital_dropper/mecha/heavy
+	map = new /datum/map_template/mecha/heavy
+
+/obj/item/device/orbital_dropper/mecha/combat
+	map = new /datum/map_template/mecha/combat
+
+/obj/item/device/orbital_dropper/mecha/powerloader
+	map = new /datum/map_template/mecha/powerloader
 
 /obj/item/device/orbital_dropper/armory
 	name = "armory dropper"
@@ -31,7 +40,7 @@
 	announcer_name = "GunCourier Industries Autodrone"
 	announcer_channel = "Common"
 
-	template_name = "mini-armory.dmm"
+	map = new /datum/map_template/armory
 
 /obj/item/device/orbital_dropper/armory/syndicate
 	description_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."

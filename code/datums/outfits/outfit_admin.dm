@@ -360,6 +360,7 @@
 
 	suit = /obj/item/clothing/suit/armor/vest/fib
 	belt =/obj/item/storage/belt/security
+	r_pocket = null
 	l_hand = null
 	belt_contents = list(
 		/obj/item/device/flash = 1,

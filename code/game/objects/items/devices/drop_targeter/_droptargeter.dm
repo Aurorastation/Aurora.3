@@ -21,7 +21,7 @@
 	var/announcer_name = "Mining Requests Console"
 	var/announcer_channel = "Supply" // If not emagged, will announce to this channel. If emagged, will always announce on the common channel.
 
-	var/template_name
+	var/datum/map_template/map
 
 /obj/item/device/orbital_dropper/attack_self(mob/user)
 	zoom(user, tileoffset, viewsize)
@@ -84,12 +84,11 @@
 	icon_state = "drillpointer"
 
 /obj/item/device/orbital_dropper/proc/orbital_drop(var/turf/target, var/user)
-	var/dmm_suite/maploader = new
-	if(!maploader)
-		log_debug("Error, unable to load maploader in proc orbital_drop!")
+	if(!map)
 		return
 	log_and_message_admins("[key_name_admin(src)] has used a [src] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>.")
-	maploader.load_map(file("maps/templates/orbital/" + template_name), target.x, target.y, target.z, no_changeturf = TRUE)
+	map.load(target, TRUE) //Target must be the center!
+	
 
 /obj/item/device/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)

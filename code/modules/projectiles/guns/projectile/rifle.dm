@@ -33,12 +33,12 @@
 		qdel(bayonet)
 		bayonet = null
 		update_icon()
-	name = "obrez"
+	name = "sawn-off bolt action rifle"
 	desc = "A shortened bolt action rifle, not really acurate. Uses 7.62mm rounds."
 	to_chat(user, "<span class='warning'>You shorten the barrel and stock of the rifle!</span>")
 
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez
-	name = "obrez"
+	name = "sawn-off bolt action rifle"
 	desc = "A shortened bolt action rifle, not really accurate. Uses 7.62mm rounds."
 	icon_state = "obrez"
 	item_state = "obrez"
@@ -114,7 +114,7 @@
 	..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage
-	name = "\improper vintage bolt action rifle"
+	name = "vintage bolt action rifle"
 	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
 	icon_state = "springfield"
 	icon_state = "springfield"
