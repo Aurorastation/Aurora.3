@@ -14,7 +14,7 @@
 	if(!proximity)
 		return
 	if(istype(I, /obj/item))
-		if(I.hidden_uplink && I.hidden_uplink.active) //No metagaming by using this on every PDA around just to see if it gets used up.
+		if(I.hidden_uplink && (I.hidden_uplink.active || istype(I, /obj/item/modular_computer))) //No metagaming by using this on every PDA around just to see if it gets used up.
 			I.hidden_uplink.uses += amount
 			I.hidden_uplink.update_nano_data()
 			SSnanoui.update_uis(I.hidden_uplink)

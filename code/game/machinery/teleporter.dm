@@ -209,7 +209,8 @@
 		if(istype(com.locked, /obj/item/device/radio/beacon/fulton))
 			var/obj/item/device/radio/beacon/fulton/F = com.locked
 			if(F.attached)
-				do_teleport(com.locked, locate(loc.x, loc.y - 1))
+				do_teleport(com.locked, locate(loc.x, loc.y))
+				com.locked = null
 				F.remove()
 				return
 		if(prob(5) && !accurate) //oh dear a problem, put em in deep space

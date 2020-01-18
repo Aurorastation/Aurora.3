@@ -1,4 +1,3 @@
-#define UIDEBUG
 /datum/computer_file/program/cmdr
 	filename = "cmdr"
 	filedesc = "Syndicate Command and Control"
@@ -12,6 +11,7 @@
 
 	var/mob/abstract/eye/syndnet/eye
 	var/list/datum/money_account/accounts
+	var/list/obj/item/device/uplink/uplinks
 	var/active = FALSE
 	var/money = 0
 
@@ -19,6 +19,7 @@
 	. = ..()
 	eye = new(src)
 	LAZYINITLIST(accounts)
+	LAZYINITLIST(uplinks)
 
 /datum/computer_file/program/cmdr/Destroy()
 	if(eye)
@@ -41,6 +42,13 @@
 	// 	if(istype(traitor.initial_account, /datum/money_account))
 	// 		accounts += traitor.initial_account
 
+/datum/computer_file/program/cmdr/proc/build_uplinks()
+	for(var/obj/item/device/uplink/U in world_uplinks)
+		if(istype(U) && U.uplink_owner)
+			var/datum/mind/M = U.uplink_owner
+			if(istype(M) && M.current.faction == "syndicate")
+				LAZYADD(uplinks, U)
+
 /datum/computer_file/program/cmdr/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
@@ -62,23 +70,39 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 		. = data
 
 	VUEUI_SET_CHECK_IFNOTSET(data["activeview"], "resources", ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["account_view"], 0, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["tc_view"], 0, ., data)
 
-	if(data["activeview"] == "resources")
-		LAZYINITLIST(data["accounts"])
-		LAZYINITLIST(data["transfer"])
-		build_accounts()
-		if(LAZYLEN(data["accounts"]) < LAZYLEN(accounts))
-			VUEUI_SET_CHECK(data["accounts"], list(), ., data)
-		for(var/datum/money_account/account in accounts)
-			LAZYINITLIST(data["accounts"]["\ref[account]"])
-			VUEUI_SET_CHECK(data["accounts"]["\ref[account]"]["name"], account.owner_name, ., data)
-			VUEUI_SET_CHECK(data["accounts"]["\ref[account]"]["amount"], account.money, ., data)
-		VUEUI_SET_CHECK_IFNOTSET(data["transfer"]["amount"], 0, ., data)
-		VUEUI_SET_CHECK(data["transfer"]["amount"], max(0, data["transfer"]["amount"]), ., data)
-		if(data["transfer"]["amount"] < 0)
-			data["transfer"]["amount"] = 0
-			. = data
-		VUEUI_SET_CHECK(data["crystals"], computer.hidden_uplink.uses, ., data)
+	LAZYINITLIST(data["accounts"])
+	LAZYINITLIST(data["transfer"])
+	LAZYINITLIST(data["uplinks"])
+	LAZYINITLIST(data["supply"])
+	build_accounts()
+	build_uplinks()
+
+	VUEUI_SET_CHECK(data["crystals"], computer.hidden_uplink.uses, ., data)
+
+	if(LAZYLEN(data["accounts"]) < LAZYLEN(accounts))
+		VUEUI_SET_CHECK(data["accounts"], list(), ., data)
+
+	if(LAZYLEN(data["uplinks"]) < LAZYLEN(uplinks))
+		VUEUI_SET_CHECK(data["uplinks"], list(), ., data)
+
+	for(var/datum/money_account/account in accounts)
+		LAZYINITLIST(data["accounts"]["\ref[account]"])
+		VUEUI_SET_CHECK(data["accounts"]["\ref[account]"]["name"], account.owner_name, ., data)
+		VUEUI_SET_CHECK(data["accounts"]["\ref[account]"]["amount"], account.money, ., data)
+
+	for(var/obj/item/device/uplink/U in uplinks)
+		LAZYINITLIST(data["uplinks"]["\ref[U]"])
+		VUEUI_SET_CHECK(data["uplinks"]["\ref[U]"]["name"], U.uplink_owner.current.name, ., data)
+		VUEUI_SET_CHECK(data["uplinks"]["\ref[U]"]["amount"], U.uses, ., data)
+
+	VUEUI_SET_CHECK_IFNOTSET(data["transfer"]["amount"], 0, ., data)
+	VUEUI_SET_CHECK(data["transfer"]["amount"], max(0, data["transfer"]["amount"]), ., data)
+
+	VUEUI_SET_CHECK_IFNOTSET(data["supply"]["amount"], 0, ., data)
+	VUEUI_SET_CHECK(data["supply"]["amount"], max(0, data["supply"]["amount"]), ., data)
 
 /datum/computer_file/program/clientmanager/vueui_transfer(oldobj)
 	SSvueui.transfer_uis(oldobj, src, "mcomputer-cmdr-main", 450, 520, filedesc)
@@ -119,8 +143,18 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 					money += transfer_amount
 				else
 					to_chat(usr, span("warning", "Transaction failed: Insufficient funds."))
+		SSvueui.check_uis_for_change(src)
 
-			SSvueui.check_uis_for_change(src)
+	if(href_list["supply"])
+		var/obj/item/device/uplink/transfer_uplink = locate(href_list["supply"]["to"])
+		if(istype(transfer_uplink))
+			var/supply_amount = href_list["supply"]["amount"]
+			if(computer.hidden_uplink.uses >= supply_amount)
+				computer.hidden_uplink.uses -= supply_amount
+				transfer_uplink.uses += supply_amount
+			else
+				to_chat(usr, span("warning", "Supply Request Failed: Insufficient TC."))
+		SSvueui.check_uis_for_change(src)
 
 /mob/proc/rebuild_hud()
 	if(client && client.screen)

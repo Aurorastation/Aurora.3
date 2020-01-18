@@ -10,7 +10,7 @@ var/global/list/teleportbeacons = list()
 
 /obj/item/device/radio/beacon/fulton
 	name = "two-way bluespace beacon"
-	desc = "A single-use, disposable tracking beacon capable of accurately translocating cargo containers when used alongside a bluespace teleporter. Not for use with sentient life."
+	desc = "A single-use, disposable tracking beacon capable of accurately translocating cargo containers when used alongside a bluespace teleporter."
 	origin_tech = list(TECH_BLUESPACE = 4)
 
 	var/attached
