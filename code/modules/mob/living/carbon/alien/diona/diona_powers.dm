@@ -350,14 +350,10 @@
 /mob/living/carbon/human/proc/consume_nutrition_from_air()
 	set category = "Abilities"
 	set name = "Toggle Consuming Air For Nutrition"
-	set desc = "Consumes air, restoring part of the nutrition."
+	set desc = "Consumes air, restoring your nutrition."
 
 	if(stat == DEAD)
 		return
-	
-	if(!consume_nutrition_from_air && (nutrition / max_nutrition > 0.25) )
-		to_chat(src, span("warning", "You still have plenty of nutrition left. Consuming air is the last resort."))
-		return
-	
+
 	consume_nutrition_from_air = !consume_nutrition_from_air
 	to_chat(src, span("notice", "You [consume_nutrition_from_air ? "started" : "stopped"] consuming air for nutrition."))
