@@ -10,14 +10,14 @@
       <vui-item :balance="0.65" label="Flow Rate Limit:">{{ state['input'].rate }} L/s</vui-item>
       <vui-item :balance="0.65" label="Command:">
         <vui-input-numeric
-          @keypress.enter="s({ in_set_flowrate: state['input'].setrate })"
+          @keypress.enter="s({ in_set_flowrate: inputrate })"
           width="3em"
           :button-count="3"
-          v-model="state['input'].setrate"
+          v-model="inputrate"
           :max="state.maxrate"
         />
         <br >
-        <vui-button push-state :params="{ in_set_flowrate: state['input'].setrate }">Set Flow Rate</vui-button>
+        <vui-button push-state :params="{ in_set_flowrate: inputrate }">Set Flow Rate</vui-button>
       </vui-item>
     </div>
     <vui-button v-else :params="{ in_refresh_status: 1 }">Search for input port</vui-button>
@@ -30,17 +30,17 @@
       <vui-item :balance="0.65" label="Max Output Pressure:">{{ state['output'].pressure }} kPa</vui-item>
       <vui-item :balance="0.65" label="Command:">
         <vui-input-numeric
-          @keypress.enter="s({ out_set_pressure: state['output'].setpressure })"
+          @keypress.enter="s({ out_set_pressure: outputpressure })"
           width="5em"
           :button-count="4"
           :decimal-places="2"
-          v-model="state['output'].setpressure"
+          v-model="outputpressure"
           :max="state.maxpressure"
         />
         <br >
         <vui-button
           push-state
-          :params="{ out_set_pressure: state['output'].setpressure }"
+          :params="{ out_set_pressure: outputpressure }"
         >Set Pressure</vui-button>
       </vui-item>
     </div>
@@ -52,7 +52,11 @@
 import Utils from '../../../../utils';
 export default {
   data() {
-    return this.$root.$data;
+    return {
+      state: this.$root.$data.state,
+      inputrate: this.$root.$data.state['input'].setrate,
+      outputpressure: this.$root.$data.state['output'].setpressure
+    };
   },
   methods: {
     s(parameters) {
