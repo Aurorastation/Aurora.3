@@ -816,5 +816,3 @@
 	icon_state = "croptop"
 	item_state = "croptop_s"
 	worn_state = "croptop"
-
-
