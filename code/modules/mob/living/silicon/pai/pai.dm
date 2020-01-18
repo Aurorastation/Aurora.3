@@ -503,3 +503,32 @@
 	else
 		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
 		return
+
+var/list/pai_emotions = list(
+		"Happy" = 1,
+		"Cat" = 2,
+		"Extremely Happy" = 3,
+		"Face" = 4,
+		"Laugh" = 5,
+		"Off" = 6,
+		"Sad" = 7,
+		"Angry" = 8,
+		"What" = 9,
+		"Neutral" = 10,
+		"Silly" = 11,
+		"Nose" = 12,
+		"Smirk" = 13,
+		"Exclamation Points" = 14,
+		"Question Mark" = 15
+	)
+
+
+/mob/living/silicon/pai/verb/select_card_icon()
+	set category = "pAI Commands"
+	set name = "Select card icon"
+
+	if(stat || sleeping || paralysis || weakened)
+		return
+
+	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
+	card.setEmotion(pai_emotions[selection])
