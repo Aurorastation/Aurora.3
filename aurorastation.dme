@@ -2007,6 +2007,7 @@
 #include "code\modules\modular_computers\file_system\programs\pai\directives.dm"
 #include "code\modules\modular_computers\file_system\programs\pai\hud.dm"
 #include "code\modules\modular_computers\file_system\programs\pai\radio.dm"
+#include "code\modules\modular_computers\file_system\programs\pai\signaler.dm"
 #include "code\modules\modular_computers\file_system\programs\medical\suit_sensors.dm"
 #include "code\modules\modular_computers\file_system\programs\pai\translator.dm"
 #include "code\modules\modular_computers\file_system\programs\research\ai_restorer.dm"

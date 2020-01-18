@@ -3,6 +3,9 @@
 	filedesc = "pAI Security HUD"
 	extended_desc = "This program is for enabling security HUD."
 	size = 10
+	program_type = PROGRAM_SERVICE
+	available_on_ntnet = 1
+	usage_flags = PROGRAM_SILICON_PAI
 
 /datum/computer_file/program/pai_sechud/service_activate()
 	. = ..()
@@ -29,6 +32,9 @@
 	filedesc = "pAI Medical HUD"
 	extended_desc = "This program is for enabling security HUD."
 	size = 10
+	program_type = PROGRAM_SERVICE
+	available_on_ntnet = 1
+	usage_flags = PROGRAM_SILICON_PAI
 
 /datum/computer_file/program/pai_medhud/service_activate()
 	. = ..()

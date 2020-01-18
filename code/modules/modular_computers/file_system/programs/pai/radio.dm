@@ -10,11 +10,11 @@
 /datum/computer_file/program/pai_radio/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-pai-radio", 300, 150, "pAI Radio Configuration")
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-pai-radio", 400, 150, "pAI Radio Configuration")
 	ui.open()
 
 /datum/computer_file/program/pai_radio/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-pai-radio", 300, 150, "pAI Radio Configuration")
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-pai-radio", 400, 150, "pAI Radio Configuration")
 	return TRUE
 
 // Gaters data for ui

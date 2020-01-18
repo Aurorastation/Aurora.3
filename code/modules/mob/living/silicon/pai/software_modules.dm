@@ -347,7 +347,7 @@
 	is_active(mob/living/silicon/pai/user)
 		return user.translator_on
 
-*/
+
 
 /datum/pai_software/signaller
 	name = "Remote Signaller"
@@ -391,3 +391,5 @@
 			P.sradio.code = min(100, P.sradio.code)
 			P.sradio.code = max(1, P.sradio.code)
 			return 1
+
+*/

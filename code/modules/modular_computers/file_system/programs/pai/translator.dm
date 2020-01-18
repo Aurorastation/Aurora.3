@@ -2,7 +2,10 @@
 	filename = "translator"
 	filedesc = "pAI Universal Translator"
 	extended_desc = "This program is for enabling universal translation."
-	size = 10
+	size = 12
+	program_type = PROGRAM_SERVICE
+	available_on_ntnet = 1
+	usage_flags = PROGRAM_SILICON_PAI
 
 /datum/computer_file/program/pai_translator/service_activate()
 	. = ..()
@@ -13,12 +16,12 @@
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
-    if(!host.translator_on)
-        host.add_language(LANGUAGE_UNATHI)
-        host.add_language(LANGUAGE_SIIK_MAAS)
-        host.add_language(LANGUAGE_SKRELLIAN)
-        host.add_language(LANGUAGE_ROOTSONG)
-    host.translator_on = TRUE
+	if(!host.translator_on)
+		host.add_language(LANGUAGE_UNATHI)
+		host.add_language(LANGUAGE_SIIK_MAAS)
+		host.add_language(LANGUAGE_SKRELLIAN)
+		host.add_language(LANGUAGE_ROOTSONG)
+	host.translator_on = TRUE
 
 /datum/computer_file/program/pai_translator/service_decactivate()
 	. = ..()
@@ -30,8 +33,8 @@
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
 	if(host.translator_on)
-        user.remove_language(LANGUAGE_UNATHI)
-        user.remove_language(LANGUAGE_SIIK_MAAS)
-        user.remove_language(LANGUAGE_SKRELLIAN)
-        user.remove_language(LANGUAGE_ROOTSONG)
-    host.translator_on = FALSE
+		host.remove_language(LANGUAGE_UNATHI)
+		host.remove_language(LANGUAGE_SIIK_MAAS)
+		host.remove_language(LANGUAGE_SKRELLIAN)
+		host.remove_language(LANGUAGE_ROOTSONG)
+	host.translator_on = FALSE
