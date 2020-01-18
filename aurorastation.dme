@@ -2002,6 +2002,7 @@
 #include "code\modules\modular_computers\file_system\programs\generic\ntnrc_client.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\ntsl2_interpreter.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\nttransfer.dm"
+#include "code\modules\modular_computers\file_system\programs\pai\atmospehere.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\records.dm"
 #include "code\modules\modular_computers\file_system\programs\pai\doorjack.dm"
 #include "code\modules\modular_computers\file_system\programs\pai\directives.dm"

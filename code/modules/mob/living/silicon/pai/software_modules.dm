@@ -260,7 +260,7 @@
 				               "<span class='warning'>You hear the soft click of something light and hard falling to the ground.</span>", 2)
 			return 1
 
-*/
+
 /datum/pai_software/atmosphere_sensor
 	name = "Atmosphere Sensor"
 	ram_cost = 5
@@ -301,7 +301,6 @@
 			ui.set_initial_data(data)
 			ui.open()
 
-/*
 /datum/pai_software/sec_hud
 	name = "Security HUD"
 	ram_cost = 20
