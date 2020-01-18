@@ -48,7 +48,10 @@ var/datum/uplink/uplink
 	if(!can_buy(U))
 		return
 
-	if(U.CanUseTopic(user, inventory_state) != STATUS_INTERACTIVE)
+	if(U.CanUseTopic(user, inventory_state) != STATUS_INTERACTIVE && !istype(U.loc, /obj/item/modular_computer))
+		return
+
+	if(istype(U.loc, /obj/item/modular_computer) && U.CanUseTopic(user, default_state) != STATUS_INTERACTIVE)
 		return
 
 	var/cost = cost(U.uses)

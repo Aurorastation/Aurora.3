@@ -37,8 +37,8 @@
 	usr.down()
 
 /obj/screen/syndeye/return_to_console
-	name = "Return to Console"
-	icon_state = "ai_core"
+	name = "Exit Camera Uplink"
+	icon_state = "call_shuttle"
 	screen_loc = ui_ai_core
 
 /obj/screen/syndeye/return_to_console/Click()

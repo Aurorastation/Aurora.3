@@ -322,8 +322,7 @@
 	var/list/_prg_list = list(
 		new/datum/computer_file/program/filemanager(),
 		new/datum/computer_file/program/ntnetdownload(),
-		new/datum/computer_file/program/syndicam(),
-		new/datum/computer_file/program/uplink()
+		new/datum/computer_file/program/cmdr()
 	)
 	return _prg_list
 
