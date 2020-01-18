@@ -1,7 +1,7 @@
 /datum/ghostspawner/human/golem
 	short_name = "golem"
 	name = "Bluespace Golem"
-	desc = "Serve your Master"
+	desc = "Serve your Master."
 	tags = list("Xenobiology")
 
 	respawn_flag = ANIMAL
