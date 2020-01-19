@@ -136,7 +136,6 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 
 	if(href_list["cams"] && eye)
 		active = eye.toggle_eye(usr)
-		usr.rebuild_hud()
 
 	if(href_list["uplink"])
 		if(computer.hidden_uplink)
@@ -185,10 +184,3 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 		else
 			to_chat(usr, span("warning", "Crystal purchase failed."))
 		SSvueui.check_uis_for_change(src)
-
-/mob/proc/rebuild_hud()
-	if(client && client.screen)
-		client.screen.len = null
-		if(hud_used)
-			qdel(hud_used)
-		hud_used = new /datum/hud(src)
