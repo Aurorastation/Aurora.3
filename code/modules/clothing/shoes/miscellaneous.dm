@@ -271,3 +271,11 @@
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/shoes/iac
+	name = "IAC shoes"
+	desc = "A pair of light blue and white shoes resistant to biological and chemical hazards."
+	icon_state = "surgeon"
+	item_state = "blue"
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
