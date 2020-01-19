@@ -692,7 +692,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	is_manifest = 0
 	if(!is_manifest)
 		is_manifest = 1
-		verbs += /mob/abstract/observer/proc/toggle_visibility
+		verbs += /mob/abstract/observer/proc/toggle_visibility_verb
 		verbs += /mob/abstract/observer/proc/ghost_whisper
 		verbs += /mob/abstract/observer/proc/move_item
 
@@ -724,11 +724,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/image/J = image('icons/mob/mob.dmi', loc = src, icon_state = icon)
 		client.images += J
 
-/mob/abstract/observer/proc/toggle_visibility(var/forced = 0)
+/mob/abstract/observer/proc/toggle_visibility_verb()
 	set category = "Ghost"
 	set name = "Toggle Visibility"
 	set desc = "Allows you to turn (in)visible (almost) at will."
 
+	toggle_visibility()
+
+/mob/abstract/observer/proc/toggle_visibility(var/forced = 0)
 	var/toggled_invisible
 	if(!forced && invisibility && world.time < toggled_invisible + 600)
 		to_chat(src, "You must gather strength before you can turn visible again...")
@@ -927,3 +930,21 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 		return
 
 	SSghostroles.vui_interact(src)
+
+/mob/abstract/observer/verb/submitpai()
+	set category = "Ghost"
+	set name = "Submit pAI personality"
+	set desc = "Submits you pAI personality to the pAI candidate pool."
+
+	if(jobban_isbanned(src, "pAI"))
+		to_chat(src, "You are job banned from the pAI position.")
+		return
+	SSpai.recruitWindow(src)
+
+/mob/abstract/observer/verb/revokepai()
+	set category = "Ghost"
+	set name = "Revoke pAI personality"
+	set desc = "Removes you from the pAI candidite pool."
+
+	if(SSpai.revokeCandidancy(src))
+		to_chat(src, "You have been removed from the pAI candidate pool.")
