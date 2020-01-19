@@ -2,35 +2,29 @@
 
 // TURFS
 
-/proc/updateVisibility(atom/A, var/opacity_check = 1)
-	for(var/datum/visualnet/VN in visual_nets)
-		VN.updateVisibility(A, opacity_check)
-
-/turf
-	var/list/image/obfuscations
+/proc/updateVisibility(atom/A, var/opacity_check = TRUE)
+	if(SSticker)
+		for(var/datum/visualnet/VN in visual_nets)
+			VN.update_visibility(A, opacity_check)
 
 /turf/drain_power()
 	return -1
 
-/turf/simulated/Destroy()
-	updateVisibility(src)
-	return ..()
-
-// STRUCTURES
-
-/obj/structure/Destroy()
-	updateVisibility(src)
-	return ..()
-
-// EFFECTS
-
-/obj/effect/Destroy()
-	updateVisibility(src)
-	return ..()
-
-/obj/effect/Initialize()
+/atom/Destroy()
+	if(opacity)
+		updateVisibility(src)
 	. = ..()
-	updateVisibility(src)
+
+
+/atom/movable/Move()
+	. = ..()
+	if(opacity && .)
+		updateVisibility(src)
+
+/atom/movable/forceMove()
+	. = ..()
+	if(opacity && .)
+		updateVisibility(src)
 
 // DOORS
 
@@ -40,4 +34,9 @@
 	// Glass door glass = 1
 	// don't check then?
 	if(!glass)
-		updateVisibility(src, 0)
+		updateVisibility(src, FALSE)
+
+/turf/ChangeTurf()
+	. = ..()
+	if(.)
+		updateVisibility(src, FALSE)

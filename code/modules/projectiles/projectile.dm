@@ -28,7 +28,8 @@
 
 	//Effects
 	var/damage = 10
-	var/damage_type = BRUTE		//BRUTE, BURN, TOX, OXY, CLONE, HALLOSS are the only things that should be in here
+	var/damage_type = BRUTE		//BRUTE, BURN, TOX, OXY, CLONE, PAIN are the only things that should be in here
+	var/damage_flags = DAM_BULLET
 	var/nodamage = FALSE		//Determines if the projectile will skip any damage inflictions
 	var/check_armour = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
 
@@ -107,7 +108,7 @@
 	if(isanimal(target))
 		return FALSE
 	var/mob/living/L = target
-	if (damage_type == BRUTE)
+	if (damage_type == BRUTE && damage > 5) //weak hits shouldn't make you gush blood
 		var/splatter_color = "#A10808"
 		var/mob/living/carbon/human/H = target
 		if (istype(H)&& H.species && H.species.blood_color)
@@ -154,7 +155,7 @@
 	return fire(angle_override, direct_target)
 
 //called to launch a projectile from a gun
-/obj/item/projectile/proc/launch_from_gun(atom/target, target_zone, mob/user, params, angle_override, forced_spread, obj/item/weapon/gun/launcher)
+/obj/item/projectile/proc/launch_from_gun(atom/target, target_zone, mob/user, params, angle_override, forced_spread, obj/item/gun/launcher)
 
 	shot_from = launcher.name
 	silenced = launcher.silenced
@@ -214,7 +215,7 @@
 		return FALSE
 
 	if(firer && !ignore_source_check)
-		if(A == firer || (A == firer.loc && istype(A, /obj/mecha))) //cannot shoot yourself or your mech
+		if(A == firer || (A == firer.loc)) //cannot shoot yourself or your mech
 			trajectory_ignore_forcemove = TRUE
 			forceMove(get_turf(A))
 			trajectory_ignore_forcemove = FALSE
@@ -226,7 +227,7 @@
 		var/mob/M = A
 		if(istype(A, /mob/living))
 			//if they have a neck grab on someone, that person gets hit instead
-			var/obj/item/weapon/grab/G = locate() in M
+			var/obj/item/grab/G = locate() in M
 			if(G && G.state >= GRAB_NECK)
 				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
 				if(Collide(G.affecting))
@@ -361,6 +362,10 @@
 				on_impact(loc)
 			qdel(src)
 		return
+
+	if (QDELETED(src))
+		return
+
 	last_projectile_move = world.time
 	if(!nondirectional_sprite && !hitscanning)
 		var/matrix/M = new
@@ -368,6 +373,11 @@
 		transform = M
 	trajectory.increment(trajectory_multiplier)
 	var/turf/T = trajectory.return_turf()
+
+	if (!T) // Nowhere to go. Just die.
+		qdel(src)
+		return
+
 	if(T.z != loc.z)
 		before_move()
 		before_z_change(loc, T)
@@ -419,6 +429,9 @@
 		var/y = text2num(screen_loc_Y[1]) * 32 + text2num(screen_loc_Y[2]) - 32
 
 		//Calculate the "resolution" of screen based on client's view and world's icon size. This will work if the user can view more tiles than average.
+		if(istype(user, /mob/living/heavy_vehicle))
+			var/mob/living/heavy_vehicle/H = user
+			user = pick(H.pilots) //since i assume this is a list, we want only 1 person
 		var/list/screenview = getviewsize(user.client.view)
 		var/screenviewX = screenview[1] * world.icon_size
 		var/screenviewY = screenview[2] * world.icon_size
@@ -459,7 +472,8 @@
 
 /obj/item/projectile/proc/process_hitscan()
 	var/safety = range * 3
-	record_hitscan_start(RETURN_POINT_VECTOR_INCREMENT(src, Angle, MUZZLE_EFFECT_PIXEL_INCREMENT, 1))
+	var/return_vector = RETURN_POINT_VECTOR_INCREMENT(src, Angle, MUZZLE_EFFECT_PIXEL_INCREMENT, 1)
+	record_hitscan_start(return_vector)
 	while(loc && !QDELETED(src))
 		if(paused)
 			stoplag(1)
@@ -508,7 +522,8 @@
 		required_moves = SSprojectiles.global_max_tick_moves
 	if(!required_moves)
 		return
-	for(var/i in 1 to required_moves)
+
+	for(var/i = 1; i <= required_moves && !QDELETED(src); i++)
 		pixel_move(required_moves)
 
 /obj/item/projectile/proc/setAngle(new_angle)	//wrapper for overrides.

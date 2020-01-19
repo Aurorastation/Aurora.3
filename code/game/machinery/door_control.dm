@@ -23,7 +23,9 @@
 	else
 		to_chat(user, "Error, no route to host.")
 
-/obj/machinery/button/remote/attackby(obj/item/weapon/W, mob/user as mob)
+/obj/machinery/button/remote/attackby(obj/item/W, mob/user as mob)
+	if(istype(W, /obj/item/forensics))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/button/remote/emag_act(var/remaining_charges, var/mob/user)
@@ -144,6 +146,14 @@
 			else
 				spawn(0)
 					M.close()
+					return
+
+/obj/machinery/button/remote/blast_door/open_only/trigger()
+	for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
+		if(M.id == src.id)
+			if(M.density)
+				spawn(0)
+					M.open()
 					return
 
 /*

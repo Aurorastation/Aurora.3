@@ -104,6 +104,44 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/industrial_xion/Initialize(mapload)
 	. = ..(mapload, "Xion Industrial Frame")
 
+/mob/living/carbon/human/industrial_xion_remote/Initialize(mapload)
+	. = ..(mapload, "Remote Xion Industrial Frame")
+
+	real_name = "Remote Robot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+
+	remote_network = "remoterobots"
+	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/industrial_xion_remote_mech/Initialize(mapload)
+	. = ..(mapload, "Remote Xion Industrial Frame")
+
+	real_name = "Remote Pilot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+
+/mob/living/carbon/human/industrial_xion_remote_bunker/Initialize(mapload)
+	. = ..(mapload, "Remote Xion Industrial Frame")
+
+	real_name = "Remote Robot [pick("Greaves", "Chamberlain", "Slater")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+
+	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
+	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
+
+	remote_network = "bunkerrobots"
+	SSvirtualreality.add_robot(src, remote_network)
+
 /mob/living/carbon/human/industrial_zenghu/Initialize(mapload)
 	. = ..(mapload, "Zeng-Hu Mobility Frame")
 
@@ -112,6 +150,35 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/unbranded_frame/Initialize(mapload)
 	. = ..(mapload, "Unbranded Frame")
+
+/mob/living/carbon/human/unbranded_frame_remote/Initialize(mapload)
+	. = ..(mapload, "Remote Unbranded Frame")
+
+	real_name = "Remote Robot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+
+	remote_network = "remoterobots"
+	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/unbranded_frame_remote_bunker/Initialize(mapload)
+	. = ..(mapload, "Remote Unbranded Frame")
+
+	real_name = "Remote Robot [pick("Greaves", "Chamberlain", "Slater")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+
+	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
+	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
+
+	remote_network = "bunkerrobots"
+	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/terminator/Initialize(mapload)
 	. = ..(mapload, "Military Frame")
@@ -122,22 +189,22 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	add_language(LANGUAGE_TRADEBAND, 1)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
-	src.equip_to_slot_or_del(new /obj/item/weapon/rig/terminator(src),slot_back)
-	src.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/terminator(src),slot_l_hand)
+	src.equip_to_slot_or_del(new /obj/item/rig/terminator(src),slot_back)
+	src.equip_to_slot_or_del(new /obj/item/gun/projectile/automatic/terminator(src),slot_l_hand)
 	src.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness, slot_w_uniform)
 	src.equip_to_slot_or_del(new /obj/item/device/radio/headset/syndicate(src), slot_l_ear)
-	src.equip_to_slot_or_del(new /obj/item/weapon/grenade/frag(src), slot_l_store)
-	src.equip_to_slot_or_del(new /obj/item/weapon/melee/energy/sword(src), slot_r_store)
+	src.equip_to_slot_or_del(new /obj/item/grenade/frag(src), slot_l_store)
+	src.equip_to_slot_or_del(new /obj/item/melee/energy/sword(src), slot_r_store)
 
-	var/obj/item/weapon/storage/belt/security/tactical/commando_belt = new(src)
+	var/obj/item/storage/belt/security/tactical/commando_belt = new(src)
 	commando_belt.contents += new /obj/item/ammo_magazine/flechette
 	commando_belt.contents += new /obj/item/ammo_magazine/flechette/explosive
 	commando_belt.contents += new /obj/item/ammo_magazine/flechette/explosive
-	commando_belt.contents += new /obj/item/weapon/melee/baton/loaded
-	commando_belt.contents += new /obj/item/weapon/shield/energy
-	commando_belt.contents += new /obj/item/weapon/handcuffs
-	commando_belt.contents += new /obj/item/weapon/handcuffs
-	commando_belt.contents += new /obj/item/weapon/plastique
+	commando_belt.contents += new /obj/item/melee/baton/loaded
+	commando_belt.contents += new /obj/item/shield/energy
+	commando_belt.contents += new /obj/item/handcuffs
+	commando_belt.contents += new /obj/item/handcuffs
+	commando_belt.contents += new /obj/item/plastique
 	src.equip_to_slot_or_del(commando_belt, slot_belt)
 	src.gender = NEUTER
 

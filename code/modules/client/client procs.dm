@@ -358,9 +358,9 @@
 		return m
 		//Do auth shit
 	else
-		. = ..()
 		src.InitClient()
 		src.InitPrefs()
+		. = ..()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -380,9 +380,11 @@
 	if(SStheming)
 		SStheming.apply_theme_from_perfs(src)
 
+	// Server greeting shenanigans.
+	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
+		server_greeting.display_to_client(src)
+
 /client/proc/InitClient()
-	if(initialized)
-		return
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
 	//Admin Authorisation
@@ -436,16 +438,12 @@
 
 	send_resources()
 
-	// Server greeting shenanigans.
-	if (server_greeting.find_outdated_info(src, 1))
-		server_greeting.display_to_client(src)
-
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	add_aooc_if_necessary()
 
 	check_ip_intel()
 
-	initialized = TRUE
+	fetch_unacked_warning_count()
 
 //////////////
 //DISCONNECT//

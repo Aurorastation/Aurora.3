@@ -62,7 +62,7 @@
 	var/mob/user = usr
 	if(!istype(user))
 		return
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	if(!istype(I) || !I.registered_name || !(access_armory in I.access) || issilicon(user))
 		to_chat(user, "Authentication error: Unable to locate ID with appropriate access to allow this operation.")
 		return
@@ -91,8 +91,8 @@
 
 	if(href_list["deletewarrant"])
 		. = 1
-		activewarrant = null
 		SSrecords.remove_record(activewarrant)
+		activewarrant = null
 
 	if(href_list["editwarrantname"])
 		. = 1

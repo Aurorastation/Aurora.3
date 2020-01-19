@@ -13,22 +13,22 @@
 /obj/structure/closet/secure_closet/miner/fill()
 	..()
 	if(prob(50))
-		new /obj/item/weapon/storage/backpack/industrial(src)
+		new /obj/item/storage/backpack/industrial(src)
 	else
-		new /obj/item/weapon/storage/backpack/satchel_eng(src)
+		new /obj/item/storage/backpack/satchel_eng(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/clothing/under/rank/miner(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/device/analyzer(src)
-	new /obj/item/weapon/storage/bag/ore(src)
-	new /obj/item/weapon/shovel(src)
-	new /obj/item/weapon/pickaxe(src)
-	new /obj/item/weapon/gun/custom_ka/frame01/prebuilt(src)
-	new /obj/item/weapon/ore_radar(src)
-	new /obj/item/weapon/key/minecarts(src)
+	new /obj/item/storage/bag/ore(src)
+	new /obj/item/shovel(src)
+	new /obj/item/pickaxe(src)
+	new /obj/item/gun/custom_ka/frame01/prebuilt(src)
+	new /obj/item/ore_radar(src)
+	new /obj/item/key/minecarts(src)
 	new /obj/item/device/gps/mining(src)
-	new /obj/item/weapon/book/manual/ka_custom(src)
+	new /obj/item/book/manual/ka_custom(src)
 	new /obj/item/clothing/accessory/storage/overalls/mining(src)
 
 /******************************Lantern*******************************/
@@ -45,7 +45,7 @@
 
 /*****************************Pickaxe********************************/
 
-/obj/item/weapon/pickaxe
+/obj/item/pickaxe
 	name = "pickaxe"
 	desc = "The most basic of mining implements. Surely this is a joke?"
 	icon = 'icons/obj/tools.dmi'
@@ -77,21 +77,21 @@
 
 	action_button_name = "Wield pick/drill"
 
-/obj/item/weapon/pickaxe/proc/unwield()
+/obj/item/pickaxe/proc/unwield()
 	wielded = 0
 	force = force_unwielded
 	digspeed = digspeed_unwielded
 	name = initial(name)
 	update_icon()
 
-/obj/item/weapon/pickaxe/proc/wield()
+/obj/item/pickaxe/proc/wield()
 	wielded = 1
 	force = force_wielded
 	digspeed = digspeed_wielded
 	name = "[name] (Wielded)"
 	update_icon()
 
-/obj/item/weapon/pickaxe/update_icon()
+/obj/item/pickaxe/update_icon()
 		..()
 		if(wielded)
 				item_state = "[initial(icon_state)]-wielded"
@@ -99,7 +99,7 @@
 				item_state = initial(item_state)
 		update_held_icon()
 
-/obj/item/weapon/pickaxe/mob_can_equip(M as mob, slot)
+/obj/item/pickaxe/mob_can_equip(M as mob, slot)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, "<span class='warning'>Unwield the [initial(name)] first!</span>")
@@ -107,19 +107,19 @@
 
 	return ..()
 
-/obj/item/weapon/pickaxe/dropped(mob/user as mob)
+/obj/item/pickaxe/dropped(mob/user as mob)
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
-		var/obj/item/weapon/pickaxe/O = user.get_inactive_hand()
+		var/obj/item/pickaxe/O = user.get_inactive_hand()
 		if(istype(O))
 			O.unwield()
 	return	unwield()
 
-/obj/item/weapon/pickaxe/pickup(mob/user)
+/obj/item/pickaxe/pickup(mob/user)
 	..()
 	unwield()
 
-/obj/item/weapon/pickaxe/attack_self(mob/user as mob)
+/obj/item/pickaxe/attack_self(mob/user as mob)
 
 	..()
 
@@ -142,7 +142,7 @@
 		unwield()
 		to_chat(user, "<span class='notice'>You are now carrying the [initial(name)] with one hand.</span>")
 
-		var/obj/item/weapon/pickaxe/offhand/O = user.get_inactive_hand()
+		var/obj/item/pickaxe/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
 			O.unwield()
 
@@ -153,7 +153,7 @@
 		wield()
 		to_chat(user, "<span class='notice'>You grab the [initial(name)] with both hands.</span>")
 
-		var/obj/item/weapon/pickaxe/offhand/O = new(user) ////Let's reserve his other hand~
+		var/obj/item/pickaxe/offhand/O = new(user) ////Let's reserve his other hand~
 		O.name = "[initial(name)] - offhand"
 		O.desc = "Your second grip on the [initial(name)]."
 		user.put_in_inactive_hand(O)
@@ -165,11 +165,11 @@
 
 	return
 
-/obj/item/weapon/pickaxe/ui_action_click()
+/obj/item/pickaxe/ui_action_click()
 	if(src in usr)
 		attack_self(usr)
 
-/obj/item/weapon/pickaxe/verb/wield_pick()
+/obj/item/pickaxe/verb/wield_pick()
 	if(can_wield)
 		set name = "Wield pick/drill"
 		set category = "Object"
@@ -177,7 +177,7 @@
 
 		attack_self(usr)
 
-/obj/item/weapon/pickaxe/offhand
+/obj/item/pickaxe/offhand
 	w_class = 5
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
@@ -187,31 +187,33 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/proc/copy_stats(obj/item/weapon/pickaxe/parent)
+/obj/item/pickaxe/proc/copy_stats(obj/item/pickaxe/parent)
 	digspeed_wielded = parent.digspeed_wielded
 	excavation_amount = parent.excavation_amount
 	force = parent.force_wielded
 
-/obj/item/weapon/pickaxe/offhand/unwield()
+/obj/item/pickaxe/offhand/unwield()
 	if (ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
 
 	qdel(src)
 
-/obj/item/weapon/pickaxe/offhand/wield()
+/obj/item/pickaxe/offhand/wield()
 	if (ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
 
 	qdel(src)
 
-/obj/item/weapon/pickaxe/hammer
+/obj/item/pickaxe/hammer
 	name = "sledgehammer"
-	//icon_state = "sledgehammer" Waiting on sprite
 	desc = "A mining hammer made of reinforced metal. You feel like smashing your boss in the face with this."
+	icon_state = "sledgehammer"
+	icon = 'icons/obj/weapons.dmi'
+	hitsound = "swing_hit"
 
-/obj/item/weapon/pickaxe/silver
+/obj/item/pickaxe/silver
 	name = "silver pickaxe"
 	icon_state = "spickaxe"
 	item_state = "spickaxe"
@@ -222,7 +224,7 @@
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
 
-/obj/item/weapon/pickaxe/drill
+/obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
 	icon_state = "handdrill"
 	item_state = "jackhammer"
@@ -241,7 +243,7 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/jackhammer
+/obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
@@ -260,7 +262,7 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/gold
+/obj/item/pickaxe/gold
 	name = "golden pickaxe"
 	icon_state = "gpickaxe"
 	item_state = "gpickaxe"
@@ -272,7 +274,7 @@
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
 
-/obj/item/weapon/pickaxe/diamond
+/obj/item/pickaxe/diamond
 	name = "diamond pickaxe"
 	icon_state = "dpickaxe"
 	item_state = "dpickaxe"
@@ -284,7 +286,7 @@
 	digspeed_wielded = 1
 	force_wielded = 25.0
 
-/obj/item/weapon/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
+/obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
@@ -304,7 +306,7 @@
 
 	action_button_name = null
 
-/obj/item/weapon/pickaxe/borgdrill
+/obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
@@ -323,7 +325,7 @@
 
 /*****************************Shovel********************************/
 
-/obj/item/weapon/shovel
+/obj/item/shovel
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
 	icon = 'icons/obj/tools.dmi'
@@ -340,7 +342,7 @@
 	sharp = 0
 	edge = 1
 
-/obj/item/weapon/shovel/spade
+/obj/item/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."
 	icon_state = "spade"
@@ -374,6 +376,18 @@
 	singular_name = "red beacon"
 	icon_state = "redflag"
 	light_color = LIGHT_COLOR_RED
+
+/obj/item/stack/flag/red/planted
+	name = "red beacon"
+	icon_state = "redflag_open"
+	amount = 1
+	upright = 1
+	anchored = 1
+
+/obj/item/stack/flag/red/planted/Initialize()
+	..()
+	base_state = "redflag"
+	set_light(2)
 
 /obj/item/stack/flag/yellow
 	name = "yellow beacons"
@@ -480,7 +494,7 @@
 		T.attackby(C, user)
 		return
 	if (C.iswelder())
-		var/obj/item/weapon/weldingtool/WT = C
+		var/obj/item/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			to_chat(user, "<span class='notice'>Slicing apart connectors ...</span>")
 		new /obj/item/stack/rods(src.loc)
@@ -522,14 +536,14 @@
 
 /obj/vehicle/train/cargo/engine/mining/Initialize()
 	. = ..()
-	cell = new /obj/item/weapon/cell/high(src)
+	cell = new /obj/item/cell/high(src)
 	key = null
 	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
 	turn_off()	//so engine verbs are correctly set
 
-/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/key/minecarts))
+/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/key/minecarts))
 		if(!key)
 			user.drop_from_inventory(W,src)
 			key = W
@@ -565,7 +579,7 @@
 /obj/vehicle/train/cargo/trolley/mining/Move(var/turf/destination)
 	return ((locate(/obj/structure/track) in destination)) ? ..() : FALSE
 
-/obj/item/weapon/key/minecarts
+/obj/item/key/minecarts
 	name = "key"
 	desc = "A keyring with a small steel key, and a pickaxe shaped fob."
 	icon = 'icons/obj/vehicles.dmi'
@@ -574,7 +588,7 @@
 
 /**********************Pinpointer**********************/
 
-/obj/item/weapon/ore_radar
+/obj/item/ore_radar
 	name = "scanner pad"
 	desc = "An antiquated device that can detect ore in a wide radius around the user."
 	icon = 'icons/obj/device.dmi'
@@ -590,7 +604,7 @@
 	var/active = 0
 
 
-/obj/item/weapon/ore_radar/attack_self(mob/user)
+/obj/item/ore_radar/attack_self(mob/user)
 	if(!active)
 		active = 1
 		to_chat(usr, "<span class='notice'>You activate the pinpointer</span>")
@@ -601,13 +615,13 @@
 		to_chat(usr, "<span>You deactivate the pinpointer</span>")
 		STOP_PROCESSING(SSfast_process, src)
 
-/obj/item/weapon/ore_radar/process()
+/obj/item/ore_radar/process()
 	if (active)
 		workdisk()
 	else
 		STOP_PROCESSING(SSfast_process, src)
 
-/obj/item/weapon/ore_radar/proc/workdisk()
+/obj/item/ore_radar/proc/workdisk()
 	if(!src.loc)
 		active = 0
 
@@ -671,7 +685,7 @@
 
 	for(var/obj/item/device/radio/beacon/B in teleportbeacons)
 		var/turf/T = get_turf(B)
-		if(T.z in current_map.station_levels)
+		if(isStationLevel(T.z))
 			destinations += B
 
 	return destinations
@@ -721,11 +735,11 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
+					addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
 
 /**********************Lazarus Injector**********************/
 
-/obj/item/weapon/lazarus_injector
+/obj/item/lazarus_injector
 	name = "lazarus injector"
 	desc = "An injector with a cocktail of nanomachines and chemicals, this device can seemingly raise animals from the dead. If no effect in 3 days please call customer support."
 	icon = 'icons/obj/syringe.dmi'
@@ -740,7 +754,7 @@
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
 	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
 
-/obj/item/weapon/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
+/obj/item/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
 	if(!loaded)
 		return
 	if(isliving(target) && proximity_flag)
@@ -766,11 +780,11 @@
 			to_chat(user, "<span class='info'>[src] is only effective on lesser beings.</span>")
 			return
 
-/obj/item/weapon/lazarus_injector/emp_act()
+/obj/item/lazarus_injector/emp_act()
 	if(!malfunctioning)
 		malfunctioning = 1
 
-/obj/item/weapon/lazarus_injector/examine(mob/user)
+/obj/item/lazarus_injector/examine(mob/user)
 	..()
 	if(!loaded)
 		to_chat(user, "<span class='info'>[src] is empty.</span>")
@@ -779,16 +793,16 @@
 
 /**********************Point Transfer Card**********************/
 
-/obj/item/weapon/card/mining_point_card
+/obj/item/card/mining_point_card
 	name = "mining points card"
 	desc = "A small card preloaded with mining points. Swipe your ID card over it to transfer the points, then discard."
 	icon_state = "data"
 	var/points = 500
 
-/obj/item/weapon/card/mining_point_card/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/weapon/card/id))
+/obj/item/card/mining_point_card/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/card/id))
 		if(points)
-			var/obj/item/weapon/card/id/C = I
+			var/obj/item/card/id/C = I
 			C.mining_points += points
 			to_chat(user, "<span class='info'>You transfer [points] points to [C].</span>")
 			points = 0
@@ -796,7 +810,7 @@
 			to_chat(user, "<span class='info'>There's no points left on [src].</span>")
 	..()
 
-/obj/item/weapon/card/mining_point_card/examine(mob/user)
+/obj/item/card/mining_point_card/examine(mob/user)
 	..()
 	to_chat(user, "There's [points] point\s on the card.")
 
@@ -804,7 +818,7 @@
 
 var/list/total_extraction_beacons = list()
 
-/obj/item/weapon/extraction_pack
+/obj/item/extraction_pack
 	name = "warp extraction pack"
 	desc = "A complex device that warps nonliving matter to nearby locations."
 	contained_sprite = 1
@@ -816,11 +830,11 @@ var/list/total_extraction_beacons = list()
 	var/uses_left = 3
 	origin_tech = list(TECH_BLUESPACE = 3, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
-/obj/item/weapon/extraction_pack/examine()
+/obj/item/extraction_pack/examine()
 	. = ..()
 	usr.show_message("It has [uses_left] uses remaining.", 1)
 
-/obj/item/weapon/extraction_pack/attack_self(mob/user)
+/obj/item/extraction_pack/attack_self(mob/user)
 	var/list/possible_beacons = list()
 	for(var/B in total_extraction_beacons)
 		var/obj/structure/extraction_point/EP = B
@@ -840,7 +854,7 @@ var/list/total_extraction_beacons = list()
 			return
 		beacon = A
 
-/obj/item/weapon/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user)
+/obj/item/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user)
 	if(!beacon)
 		to_chat(user, "[src] is not linked to a beacon, and cannot be used.")
 		return
@@ -905,7 +919,7 @@ var/list/total_extraction_beacons = list()
 
 /**********************Resonator**********************/
 
-/obj/item/weapon/resonator
+/obj/item/resonator
 	name = "resonator"
 	contained_sprite = 1
 	icon = 'icons/obj/mining_contained.dmi'
@@ -921,7 +935,7 @@ var/list/total_extraction_beacons = list()
 	var/quick_burst_mod = 0.8
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 
-/obj/item/weapon/resonator/upgraded
+/obj/item/resonator/upgraded
 	name = "upgraded resonator"
 	desc = "An upgraded version of the resonator that can produce more fields at once."
 	icon_state = "resonatoru"
@@ -931,7 +945,7 @@ var/list/total_extraction_beacons = list()
 	quick_burst_mod = 1
 	burst_time = 15
 
-/obj/item/weapon/resonator/proc/CreateResonance(target, creator)
+/obj/item/resonator/proc/CreateResonance(target, creator)
 	var/turf/T = get_turf(target)
 	var/obj/effect/resonance/R = locate(/obj/effect/resonance) in T
 	if(R)
@@ -943,7 +957,7 @@ var/list/total_extraction_beacons = list()
 		var/obj/effect/resonance/RE = new /obj/effect/resonance(T, creator, burst_time, src)
 		fields += RE
 
-/obj/item/weapon/resonator/attack_self(mob/user)
+/obj/item/resonator/attack_self(mob/user)
 	if(burst_time == 50)
 		burst_time = 30
 		to_chat(user, "<span class='info'>You set the resonator's fields to detonate after 3 seconds.</span>")
@@ -951,7 +965,7 @@ var/list/total_extraction_beacons = list()
 		burst_time = 50
 		to_chat(user, "<span class='info'>You set the resonator's fields to detonate after 5 seconds.</span>")
 
-/obj/item/weapon/resonator/afterattack(atom/target, mob/user, proximity_flag)
+/obj/item/resonator/afterattack(atom/target, mob/user, proximity_flag)
 	..()
 	if(user.Adjacent(target))
 		if(isturf(target))
@@ -967,7 +981,7 @@ var/list/total_extraction_beacons = list()
 	mouse_opacity = 0
 	var/resonance_damage = 20
 	var/creator
-	var/obj/item/weapon/resonator/res
+	var/obj/item/resonator/res
 
 /obj/effect/resonance/New(loc, set_creator, timetoburst, set_resonator)
 	..()
@@ -1003,7 +1017,7 @@ var/list/total_extraction_beacons = list()
 
 
 /******************************Ore Magnet*******************************/
-/obj/item/weapon/oremagnet
+/obj/item/oremagnet
 	name = "ore magnet"
 	contained_sprite = 1
 	icon = 'icons/obj/mining_contained.dmi'
@@ -1015,21 +1029,21 @@ var/list/total_extraction_beacons = list()
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
-/obj/item/weapon/oremagnet/attack_self(mob/user)
+/obj/item/oremagnet/attack_self(mob/user)
 	if (use_check_and_message(user))
 		return
 
 	toggle_on(user)
 
-/obj/item/weapon/oremagnet/process()
-	for(var/obj/item/weapon/ore/O in oview(7, loc))
+/obj/item/oremagnet/process()
+	for(var/obj/item/ore/O in oview(7, loc))
 		if(prob(80))
 			step_to(O, src.loc, 0)
 
 		if (TICK_CHECK)
 			return
 
-/obj/item/weapon/oremagnet/proc/toggle_on(mob/user)
+/obj/item/oremagnet/proc/toggle_on(mob/user)
 	if (!isprocessing)
 		START_PROCESSING(SSprocessing, src)
 	else
@@ -1038,13 +1052,13 @@ var/list/total_extraction_beacons = list()
 	if (user)
 		to_chat(user, "<span class='[isprocessing ? "notice" : "warning"]'>You switch [isprocessing ? "on" : "off"] [src].</span>")
 
-/obj/item/weapon/oremagnet/Destroy()
+/obj/item/oremagnet/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /******************************Ore Summoner*******************************/
 
-/obj/item/weapon/oreportal
+/obj/item/oreportal
 	name = "ore summoner"
 	contained_sprite = 1
 	icon = 'icons/obj/mining_contained.dmi'
@@ -1057,12 +1071,12 @@ var/list/total_extraction_beacons = list()
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
 	var/last_oresummon_time = 0
 
-/obj/item/weapon/oreportal/attack_self(mob/user)
+/obj/item/oreportal/attack_self(mob/user)
 	if(world.time - last_oresummon_time >= 25)
 		to_chat(user, "<span class='notice'>You pulse the ore summoner.</span>")
 		last_oresummon_time = world.time
 		var/limit = 50
-		for(var/obj/item/weapon/ore/O in orange(7,user))
+		for(var/obj/item/ore/O in orange(7,user))
 			if(limit <= 0)
 				break
 			single_spark(O.loc)
@@ -1074,7 +1088,7 @@ var/list/total_extraction_beacons = list()
 		return 0
 
 /******************************Sculpting*******************************/
-/obj/item/weapon/autochisel
+/obj/item/autochisel
 	name = "auto-chisel"
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "jackhammer"
@@ -1113,7 +1127,7 @@ var/list/total_extraction_beacons = list()
 		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>")
 		anchored = !anchored
 
-	if (istype(C, /obj/item/weapon/autochisel))
+	if (istype(C, /obj/item/autochisel))
 		if(!sculpted)
 			if(last_struck)
 				return
@@ -1252,13 +1266,13 @@ var/list/total_extraction_beacons = list()
 
 /******************************Seismic Charge*******************************/
 
-/obj/item/weapon/plastique/seismic
+/obj/item/plastique/seismic
 	name = "seismic charge"
 	desc = "A complex mining device that utilizes a seismic detonation to eliminate weak asteroid turf in a wide radius."
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 4, TECH_PHORON = 2)
 	timer = 15
 
-/obj/item/weapon/plastique/seismic/explode(var/turf/location)
+/obj/item/plastique/seismic/explode(var/turf/location)
 	if(!target)
 		target = get_atom_on_turf(src)
 	if(!target)
@@ -1284,14 +1298,14 @@ var/list/total_extraction_beacons = list()
 					var/mob/living/carbon/L = A
 					L.Weaken(3)
 					shake_camera(L, 20, 1)
-					if(!isipc(L))
-						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
+					if(!isipc(L) && ishuman(L))
+						addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
 
 		addtimer(CALLBACK(src, .proc/drill, location), 2)
 
 	qdel(src)
 
-/obj/item/weapon/plastique/seismic/proc/drill(var/turf/drill_loc)
+/obj/item/plastique/seismic/proc/drill(var/turf/drill_loc)
 	for(var/turf/simulated/mineral/M in range(7,drill_loc))
 		if(prob(75))
 			M.GetDrilled(1)

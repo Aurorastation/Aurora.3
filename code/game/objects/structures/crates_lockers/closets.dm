@@ -218,16 +218,14 @@
 	..()
 	damage(proj_damage)
 
-/obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
-		if(istype(W, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = W
+		if(istype(W, /obj/item/grab))
+			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
-		if(istype(W,/obj/item/tk_grab))
-			return 0
 		if(W.iswelder())
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
 					"<span class='warning'>[user] begins cutting [src] apart.</span>",
@@ -248,8 +246,8 @@
 					)
 					qdel(src)
 					return
-		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
-			var/obj/item/weapon/storage/laundry_basket/LB = W
+		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
+			var/obj/item/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)
 			for(var/obj/item/I in LB.contents)
 				LB.remove_from_storage(I, T)
@@ -268,7 +266,7 @@
 	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else if(W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(WT.isOn())
 			user.visible_message(
 				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
@@ -336,12 +334,6 @@
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
 	return toggle(user)
-
-// tk grab then use on self
-/obj/structure/closet/attack_self_tk(mob/user as mob)
-	add_fingerprint(user)
-	if(!toggle())
-		to_chat(usr, "<span class='notice'>It won't budge!</span>")
 
 /obj/structure/closet/verb/verb_toggleopen()
 	set src in oview(1)

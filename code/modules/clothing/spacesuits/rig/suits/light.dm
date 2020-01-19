@@ -1,10 +1,10 @@
 // Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered.
-/obj/item/weapon/rig/light
+/obj/item/rig/light
 	name = "light suit control module"
-	desc = "A lighter, less armoured rig suit."
+	desc = "A lighter, less armoured hardsuit."
 	icon_state = "ninja_rig"
 	suit_type = "light suit"
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank,/obj/item/device/suit_cooling_unit,/obj/item/weapon/cell)
+	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	emp_protection = 10
 	slowdown = 0
@@ -30,7 +30,7 @@
 /obj/item/clothing/head/helmet/space/rig/light
 	name = "hood"
 
-/obj/item/weapon/rig/light/hacker
+/obj/item/rig/light/hacker
 	name = "cybersuit control module"
 	suit_type = "cyber"
 	desc = "An advanced powered armour suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
@@ -73,7 +73,7 @@
 /obj/item/clothing/gloves/lightrig/hacker
 	siemens_coefficient = 0
 
-/obj/item/weapon/rig/light/ninja
+/obj/item/rig/light/ninja
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
 	desc = "A unique, vacuum-proof suit of nano-enhanced armor designed specifically for stealth operations."
@@ -111,7 +111,7 @@
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/weapon/rig/light/ninja/equipped
+/obj/item/rig/light/ninja/equipped
 	initial_modules = list(
 		/obj/item/rig_module/teleporter,
 		/obj/item/rig_module/stealth_field,
@@ -139,7 +139,7 @@
 	breach_threshold = 38 //comparable to regular hardsuits
 
 
-/obj/item/weapon/rig/light/stealth
+/obj/item/rig/light/stealth
 	name = "stealth suit control module"
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
@@ -155,12 +155,12 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_SPECIAL
 
-/obj/item/weapon/rig/light/offworlder
+/obj/item/rig/light/offworlder
 	name = "exo-stellar skeleton module"
 	suit_type = "exo-stellar skeleton"
 	desc = "A compact exoskeleton that hugs the body tightly and has various inbuilt utilities for life support."
 	icon_state = "offworlder_rig"
-	allowed = list(/obj/item/weapon/tank, /obj/item/device/flashlight)
+	allowed = list(/obj/item/tank, /obj/item/device/flashlight)
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 5, rad = 5)
 	airtight = 0
 	seal_delay = 5
@@ -188,9 +188,9 @@
 	cold_protection = UPPER_TORSO
 	flags_inv = 0
 
-/obj/item/weapon/rig/light/offworlder/techno
+/obj/item/rig/light/offworlder/techno
 	name = "techno-conglomerate mobility hardsuit control module"
-	desc = "A sleek hardsuit used by the frontier forces of the Techno-Conglomerate."
+	desc = "A sleek hardsuit used by the Coalition forces of the Techno-Conglomerate."
 	icon_state = "techno_rig"
 	suit_type = "techno-conglomerate mobility hardsuit"
 	armor = list(melee = 40, bullet = 20, laser = 30, energy = 15, bomb = 40, bio = 100, rad = 100)
@@ -203,12 +203,12 @@
 
 	allowed = list(
 		/obj/item/device/flashlight,
-		/obj/item/weapon/tank,
-		/obj/item/weapon/gun,
+		/obj/item/tank,
+		/obj/item/gun,
 		/obj/item/ammo_magazine,
 		/obj/item/ammo_casing,
-		/obj/item/weapon/melee/baton,
-		/obj/item/weapon/melee/energy/sword
+		/obj/item/melee/baton,
+		/obj/item/melee/energy/sword
 	)
 
 	initial_modules = list(
@@ -225,7 +225,7 @@
 	boot_type =  /obj/item/clothing/shoes/magboots/rig/light
 	glove_type = /obj/item/clothing/gloves/rig/light
 
-/obj/item/weapon/rig/light/offworlder/techno/equipped
+/obj/item/rig/light/offworlder/techno/equipped
 	initial_modules = list(
 		/obj/item/rig_module/device/healthscanner/vitalscanner,
 		/obj/item/rig_module/chem_dispenser/offworlder,

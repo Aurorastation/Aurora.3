@@ -51,6 +51,12 @@
 		return 0
 	return -1
 
+/atom/proc/additional_sight_flags()
+	return 0
+
+/atom/proc/additional_see_invisible()
+	return 0
+
 /atom/proc/on_reagent_change()
 	return
 
@@ -140,8 +146,21 @@
 
 	to_chat(user, "\icon[src] That's [f_name] [suffix]")
 	to_chat(user, desc)
+	if(description_info || description_fluff)
+		to_chat(user, span("notice", "This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+	if(description_antag && player_is_antag(user.mind))
+		to_chat(user, span("notice", "This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 
 	return distance == -1 || (get_dist(src, user) <= distance)
+
+/atom/Topic(href,href_list[])
+	. = ..()
+	if (.)
+		return
+
+	switch(href_list["examine"])
+		if("fluff")
+			usr.client.statpanel = "Examine"
 
 // called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled var set.
 // see code/modules/mob/mob_movement.dm for more.
@@ -349,13 +368,19 @@
 	. = 1
 	return 1
 
-/atom/proc/add_vomit_floor(mob/living/carbon/M, var/toxvomit = 0)
-	if( istype(src, /turf/simulated) )
+/atom/proc/add_vomit_floor(var/mob/living/carbon/M, var/toxvomit = 0, var/datum/reagents/inject_reagents)
+	if(istype(src, /turf/simulated))
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
+		if(istype(inject_reagents) && inject_reagents.total_volume)
+			inject_reagents.trans_to_obj(this, min(15, inject_reagents.total_volume))
+			this.reagents.add_reagent("stomachacid", 5)
 
 		// Make toxins vomit look different
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
+
+/mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+	vomit.reagents.add_reagent("stomachacid", 5)
 
 /atom/proc/clean_blood()
 	if(!simulated)

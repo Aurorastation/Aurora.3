@@ -29,14 +29,15 @@
 	unarmed_types = list(/datum/unarmed_attack/bite, /datum/unarmed_attack/claws)
 	inherent_verbs = list(/mob/living/proc/ventcrawl)
 	hud_type = /datum/hud_data/monkey
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/monkey
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/monkey
 
 	rarity_value = 0.1
 	total_health = 75
 	brute_mod = 1.5
 	burn_mod = 1.5
 	fall_mod = 0.5
-	grab_mod = 2
+	grab_mod = 1.25
+	resist_mod = 0.25
 	natural_climbing = 1
 
 	spawn_flags = IS_RESTRICTED
@@ -46,14 +47,49 @@
 	push_flags = MONKEY|SLIME|SIMPLE_ANIMAL|ALIEN
 
 	pass_flags = PASSTABLE
-	holder_type = /obj/item/weapon/holder/monkey
+	holder_type = /obj/item/holder/monkey
+	var/static/list/no_touchie = list(/obj/item/mirror)
+
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
-	if(prob(33) && H.canmove && isturf(H.loc) && !H.pulledby) //won't move if being pulled
+	if(prob(33) && isturf(H.loc) && !H.pulledby && !ismob(H.loc)) //won't move if being pulled
 		step(H, pick(cardinal))
+
+	var/obj/held = H.get_active_hand()
+	if(held && prob(1) && !ismob(H.loc))
+		var/turf/T = get_random_turf_in_range(H, 7, 2)
+		if(T)
+			if(istype(held, /obj/item/gun) && prob(80))
+				var/obj/item/gun/G = held
+				G.Fire(T, H)
+			else
+				H.throw_item(T)
+		else
+			H.drop_item()
+	if(!held && !H.restrained() && prob(5) && !ismob(H.loc))
+		var/list/touchables = list()
+		for(var/obj/O in range(1,get_turf(H)))
+			if(O.simulated && O.Adjacent(H) && !is_type_in_list(O, no_touchie))
+				touchables += O
+		if(touchables.len)
+			var/obj/touchy = pick(touchables)
+			touchy.attack_hand(H)
+
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
+
+	if(H.get_shock() && H.shock_stage < 40 && prob(3))
+		H.custom_emote("chimpers pitifully")
+
+	if(H.shock_stage > 10 && prob(3))
+		H.emote(pick("cry","whimper"))
+
+	if(H.shock_stage >= 40 && prob(3))
+		H.emote("scream")
+
+	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
+		H.custom_emote("thrashes in agony")
 
 /datum/species/monkey/get_random_name()
 	return "[lowertext(name)] ([rand(100,999)])"
@@ -72,7 +108,7 @@
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
 	tail = "farwatail"
-	holder_type = /obj/item/weapon/holder/monkey/farwa
+	holder_type = /obj/item/holder/monkey/farwa
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
@@ -101,7 +137,7 @@
 	blood_color = "#1D2CBF"
 	reagent_tag = IS_SKRELL
 	tail = null
-	holder_type = /obj/item/weapon/holder/monkey/neaera
+	holder_type = /obj/item/holder/monkey/neaera
 	fall_mod = 0.25
 
 /datum/species/monkey/unathi
@@ -118,7 +154,7 @@
 	flesh_color = "#34AF10"
 	base_color = "#066000"
 	reagent_tag = IS_UNATHI
-	holder_type = /obj/item/weapon/holder/monkey/stok
+	holder_type = /obj/item/holder/monkey/stok
 	fall_mod = 0.75
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -127,7 +163,7 @@
 	name = "V'krexi"
 	short_name = "kre"
 	name_plural = "V'krexi"
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat/bug
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
 	holder_type = null//No icons for held Vkrexi yet
 	icobase = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_vkrexi.dmi'

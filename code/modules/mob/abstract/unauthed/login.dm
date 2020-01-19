@@ -51,11 +51,14 @@
 	if(newkey)
 		client.key = newkey // Try seeting ckey
 	directory[c.ckey] = c
-	// If mob exists for that ckey, then BYOND will transfer client to it.
+	// Init the client and give it a new_player mob.
+	// Note that modifying the key variable does not invoke client/New() or client/Login() again.
+	c.InitClient()
+	c.InitPrefs()
+
 	if(istype(c.mob, /mob/abstract/unauthed))
-		c.mob = new /mob/abstract/new_player() // Else we just treat them as new player
-	c.InitClient() // And now we shall continue client initilization (permissions and stuff)
-	c.InitPrefs() // We init prefs just in case mob transfer didn't
+		c.mob = new /mob/abstract/new_player()
+
 	unauthed -= token
 
 /mob/abstract/unauthed/Topic(href, href_list)

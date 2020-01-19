@@ -278,7 +278,7 @@
 	<BR><B>Head(Mask):</B> <A href='?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
 	<BR><B>Left Hand:</B> <A href='?src=\ref[src];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
 	<BR><B>Right Hand:</B> <A href='?src=\ref[src];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/weapon/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
+	<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
 	<BR>[(internal ? text("<A href='?src=\ref[src];item=internal'>Remove Internal</A>") : "")]
 	<BR><A href='?src=\ref[src];item=pockets'>Empty Pockets</A>
 	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
@@ -331,7 +331,7 @@
 	var/master
 
 /mob/proc/ret_grab(datum/mobl/L, flag)
-	if ((!( istype(l_hand, /obj/item/weapon/grab) ) && !( istype(r_hand, /obj/item/weapon/grab) )))
+	if ((!( istype(l_hand, /obj/item/grab) ) && !( istype(r_hand, /obj/item/grab) )))
 		if (!( L ))
 			return null
 		else
@@ -341,14 +341,14 @@
 			L = new /datum/mobl
 			L.container += src
 			L.master = src
-		if (istype(l_hand, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = l_hand
+		if (istype(l_hand, /obj/item/grab))
+			var/obj/item/grab/G = l_hand
 			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
 					G.affecting.ret_grab(L, 1)
-		if (istype(r_hand, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = r_hand
+		if (istype(r_hand, /obj/item/grab))
+			var/obj/item/grab/G = r_hand
 			if (!(L.container.Find(G.affecting)))
 				L.container += G.affecting
 				if (G.affecting)
@@ -367,19 +367,20 @@
 	set category = "Object"
 	set src = usr
 
-	if(istype(loc,/obj/mecha)) return
-
 	if(hand)
 		var/obj/item/W = l_hand
 		if (W)
 			W.attack_self(src)
 			update_inv_l_hand()
+		else
+			attack_empty_hand(BP_L_HAND)
 	else
 		var/obj/item/W = r_hand
 		if (W)
 			W.attack_self(src)
 			update_inv_r_hand()
-	return
+		else
+			attack_empty_hand(BP_R_HAND)
 
 /mob/verb/memory()
 	set name = "Notes"
@@ -426,7 +427,7 @@
 /mob/proc/print_flavor_text()
 	if (flavor_text && flavor_text != "")
 		var/msg = replacetext(flavor_text, "\n", " ")
-		if(lentext(msg) <= 40)
+		if(length(msg) <= 40)
 			return "<span class='notice'>[msg]</span>"
 		else
 			return "<span class='notice'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a></span>"
@@ -522,7 +523,7 @@
 	for(var/obj/O in world)				//EWWWWWWWWWWWWWWWWWWWWWWWW ~needs to be optimised
 		if(!O.loc)
 			continue
-		if(istype(O, /obj/item/weapon/disk/nuclear))
+		if(istype(O, /obj/item/disk/nuclear))
 			var/name = "Nuclear Disk"
 			if (names.Find(name))
 				namecounts[name]++
@@ -606,16 +607,20 @@
 
 
 /mob/proc/pull_damage()
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		if(H.health - H.halloss <= config.health_threshold_softcrit)
-			for(var/name in H.organs_by_name)
-				var/obj/item/organ/external/e = H.organs_by_name[name]
-				if(e && H.lying)
-					if(((e.status & ORGAN_BROKEN && !(e.status & ORGAN_SPLINTED)) || e.status & ORGAN_BLEEDING) && (H.getBruteLoss() + H.getFireLoss() >= 100))
-						return 1
-						break
+	return 0
+
+/mob/living/carbon/human/pull_damage()
+	if(!lying || getBruteLoss() + getFireLoss() < 100)
 		return 0
+	for(var/thing in organs)
+		var/obj/item/organ/external/e = thing
+		if(!e || e.is_stump())
+			continue
+		if((e.status & ORGAN_BROKEN) && !(e.status & ORGAN_SPLINTED))
+			return 1
+		if(e.status & ORGAN_BLEEDING)
+			return 1
+	return 0
 
 /mob/MouseDrop(mob/M as mob)
 	..()
@@ -668,7 +673,7 @@
 		if(!iscarbon(src))
 			M.LAssailant = null
 		else
-			M.LAssailant = usr
+			M.LAssailant = WEAKREF(usr)
 
 	else if(isobj(AM))
 		var/obj/I = AM
@@ -846,7 +851,7 @@
 	else
 		density = initial(density)
 
-	for(var/obj/item/weapon/grab/G in grabbed_by)
+	for(var/obj/item/grab/G in grabbed_by)
 		if(G.state >= GRAB_AGGRESSIVE)
 			canmove = 0
 			break
@@ -994,7 +999,39 @@
 /mob/proc/embedded_needs_process()
 	return (embedded.len > 0)
 
-mob/proc/yank_out_object()
+/mob/proc/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
+	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
+		verbs -= /mob/proc/yank_out_object
+	for(var/obj/item/O in pinned)
+		if(O == implant)
+			pinned -= O
+		if(!pinned.len)
+			anchored = 0
+	implant.dropInto(loc)
+	implant.add_blood(src)
+	implant.update_icon()
+	if(istype(implant,/obj/item/implant))
+		var/obj/item/implant/imp = implant
+		imp.removed()
+	. = TRUE
+
+/mob/living/carbon/human/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE, var/obj/item/organ/external/affected)
+	if(!affected) //Grab the organ holding the implant.
+		for(var/obj/item/organ/external/organ in organs)
+			for(var/obj/item/O in organ.implants)
+				if(O == implant)
+					affected = organ
+					break
+	if(affected)
+		affected.implants -= implant
+		if(!surgical_removal)
+			shock_stage += 20
+			apply_damage((implant.w_class * 7), BRUTE, affected)
+			if(!BP_IS_ROBOTIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
+				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
+	. = ..()
+
+/mob/proc/yank_out_object()
 	set category = "Object"
 	set name = "Yank out object"
 	set desc = "Remove an embedded item at the cost of bleeding and pain."
@@ -1028,7 +1065,7 @@ mob/proc/yank_out_object()
 			to_chat(U, "[src] has nothing stuck in their wounds that is large enough to remove.")
 		return
 
-	var/obj/item/weapon/selection = input("What do you want to yank out?", "Embedded objects") in valid_objects
+	var/obj/item/selection = input("What do you want to yank out?", "Embedded objects") in valid_objects
 
 	if(self)
 		to_chat(src, "<span class='warning'>You attempt to get a good grip on [selection] in your body.</span>")
@@ -1041,50 +1078,18 @@ mob/proc/yank_out_object()
 		return
 
 	if(self)
-		visible_message("<span class='warning'><b>[src] rips [selection] out of their body.</b></span>","<span class='warning'><b>You rip [selection] out of your body.</b></span>")
+		visible_message("<span class='warning'><b>[src] rips [selection] out of their body!</b></span>","<span class='warning'><b>You rip [selection] out of your body!</b></span>")
 	else
-		visible_message("<span class='warning'><b>[usr] rips [selection] out of [src]'s body.</b></span>","<span class='warning'><b>[usr] rips [selection] out of your body.</b></span>")
+		visible_message("<span class='warning'><b>[usr] rips [selection] out of [src]'s body!</b></span>","<span class='warning'><b>[usr] rips [selection] out of your body!</b></span>")
 	valid_objects = get_visible_implants(0)
-	if(valid_objects.len == 1) //Yanking out last object - removing verb.
-		src.verbs -= /mob/proc/yank_out_object
 
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		var/obj/item/organ/external/affected
-
-		for(var/obj/item/organ/external/organ in H.organs) //Grab the organ holding the implant.
-			for(var/obj/item/O in organ.implants)
-				if(O == selection)
-					affected = organ
-
-		affected.implants -= selection
-		H.shock_stage+=20
-		affected.take_damage((selection.w_class * 3), 0, 0, 1, "Embedded object extraction")
-
-		if(prob(selection.w_class * 5)) //I'M SO ANEMIC I COULD JUST -DIE-.
-			var/datum/wound/internal_bleeding/I = new (min(selection.w_class * 5, 15))
-			affected.wounds += I
-			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 1)
-
-		if (ishuman(U))
-			var/mob/living/carbon/human/human_user = U
-			human_user.bloody_hands(H)
-
-	else if(issilicon(src))
-		var/mob/living/silicon/robot/R = src
-		R.embedded -= selection
-		R.adjustBruteLoss(5)
-		R.adjustFireLoss(10)
-
+	remove_implant(selection)
 	selection.forceMove(get_turf(src))
 	if(!(U.l_hand && U.r_hand))
 		U.put_in_hands(selection)
-
-	for(var/obj/item/weapon/O in pinned)
-		if(O == selection)
-			pinned -= O
-		if(!pinned.len)
-			anchored = 0
+	if(ishuman(U))
+		var/mob/living/carbon/human/human_user = U
+		human_user.bloody_hands(src)
 	return 1
 
 /mob/living/proc/handle_statuses()
@@ -1299,37 +1304,37 @@ mob/proc/yank_out_object()
 /client/verb/body_toggle_head()
 	set name = "body-toggle-head"
 	set hidden = 1
-	toggle_zone_sel(list("head","eyes","mouth"))
+	toggle_zone_sel(list(BP_HEAD,BP_EYES,BP_MOUTH))
 
 /client/verb/body_r_arm()
 	set name = "body-r-arm"
 	set hidden = 1
-	toggle_zone_sel(list("r_arm","r_hand"))
+	toggle_zone_sel(list(BP_R_ARM,BP_R_HAND))
 
 /client/verb/body_l_arm()
  	set name = "body-l-arm"
  	set hidden = 1
- 	toggle_zone_sel(list("l_arm","l_hand"))
+ 	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
 
 /client/verb/body_chest()
  	set name = "body-chest"
  	set hidden = 1
- 	toggle_zone_sel(list("chest"))
+ 	toggle_zone_sel(list(BP_CHEST))
 
 /client/verb/body_groin()
  	set name = "body-groin"
  	set hidden = 1
- 	toggle_zone_sel(list("groin"))
+ 	toggle_zone_sel(list(BP_GROIN))
 
 /client/verb/body_r_leg()
  	set name = "body-r-leg"
  	set hidden = 1
- 	toggle_zone_sel(list("r_leg","r_foot"))
+ 	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
 
 /client/verb/body_l_leg()
  	set name = "body-l-leg"
  	set hidden = 1
- 	toggle_zone_sel(list("l_leg","l_foot"))
+ 	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
 
 /client/proc/toggle_zone_sel(list/zones)
 	if(!check_has_body_select())

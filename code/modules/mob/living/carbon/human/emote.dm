@@ -11,11 +11,11 @@
 	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
 	//var/m_type = 1
 
-	for (var/obj/item/weapon/implant/I in src)
+	for (var/obj/item/implant/I in src)
 		if (I.implanted)
 			I.trigger(act, src)
 
-	if(src.stat == 2.0 && (act != "deathgasp"))
+	if(stat == DEAD && (act != "deathgasp"))
 		return
 	switch(act)
 		if ("airguitar")
@@ -340,8 +340,8 @@
 		if("snap", "snaps")
 			m_type = 2
 			var/mob/living/carbon/human/H = src
-			var/obj/item/organ/external/L = H.get_organ("l_hand")
-			var/obj/item/organ/external/R = H.get_organ("r_hand")
+			var/obj/item/organ/external/L = H.get_organ(BP_L_HAND)
+			var/obj/item/organ/external/R = H.get_organ(BP_R_HAND)
 			var/left_hand_good = 0
 			var/right_hand_good = 0
 			if(L && (!(L.status & ORGAN_DESTROYED)) && (!(L.status & ORGAN_BROKEN)))
@@ -589,6 +589,8 @@
 					message = "sadly can't find anybody to give daps to, and daps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]. Shameful."
 
 		if ("scream")
+			if(stat >= UNCONSCIOUS)
+				return
 			if (miming)
 				message = "acts out a scream!"
 				m_type = 1
@@ -728,7 +730,7 @@
 	set desc = "Sets a description which will be shown when someone examines you."
 	set category = "IC"
 
-	pose =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"]...", "Pose", null)  as text)
+	pose =  sanitize(input(usr, "This is [src]. [get_visible_gender() == MALE ? "He" : get_visible_gender() == FEMALE ? "She" : "They"]...", "Pose", html_decode(pose))  as message)
 
 /mob/living/carbon/human/verb/set_flavor()
 	set name = "Set Flavour Text"
@@ -743,13 +745,13 @@
 	HTML += TextPreview(flavor_texts["general"])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=head'>Head:</a> "
-	HTML += TextPreview(flavor_texts["head"])
+	HTML += TextPreview(flavor_texts[BP_HEAD])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=face'>Face:</a> "
 	HTML += TextPreview(flavor_texts["face"])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=eyes'>Eyes:</a> "
-	HTML += TextPreview(flavor_texts["eyes"])
+	HTML += TextPreview(flavor_texts[BP_EYES])
 	HTML += "<br>"
 	HTML += "<a href='byond://?src=\ref[src];flavor_change=torso'>Body:</a> "
 	HTML += TextPreview(flavor_texts["torso"])

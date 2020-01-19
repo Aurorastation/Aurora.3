@@ -10,6 +10,7 @@
 #define IS_MECHANICAL       256    // Is a robot.
 #define ACCEPTS_COOLER      512    // Can wear suit coolers and have them work without a suit.
 #define NO_CHUBBY           1024   // Cannot be visibly fat from nutrition type.
+#define NO_ARTERIES         2048   // This species does not have arteries.
 // unused: 0x8000(32768) - higher than this will overflow
 
 // Base flags for IPCs.
@@ -30,6 +31,7 @@
 #define HAS_HAIR_COLOR    0x20   // Hair colour selectable in chargen. (RGB)
 #define HAS_SOCKS         0x40   // If this species can wear socks
 #define HAS_FBP           0x80   // If for whatever ungodly reason we decide to ever have non-Shell FBPs.
+#define HAS_SKIN_PRESET   0x100  // Skin color presets selectable in character generation.
 
 // Tau-Ceti basic, language common to all crew.
 #define LANGUAGE_TCB "Ceti Basic"
@@ -54,6 +56,7 @@
 #define LANGUAGE_VOX "Vox-pidgin"
 #define LANGUAGE_CHANGELING "Changeling"
 #define LANGUAGE_BORER "Cortical Link"
+#define LANGUAGE_BORER_HIVEMIND "Cortical Hivemind"
 #define LANGUAGE_CULT "Cult"		// NOT CULTISTS!
 #define LANGUAGE_OCCULT "Occult"
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.

@@ -102,6 +102,8 @@
 /obj/structure/flora/pottedplant/attackby(obj/item/W, mob/user)
 	if(!ishuman(user))
 		return
+	if(istype(W, /obj/item/holder))
+		return //no hiding mobs in there
 	user.visible_message("[user] begins digging around inside of \the [src].", "You begin digging around in \the [src], trying to hide \the [W].")
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
 	if(do_after(user, 20, act_target = src))
@@ -209,8 +211,8 @@
 	..()
 	icon_state = "firstbush_[rand(1, 4)]"
 
-/obj/structure/flora/ausbushes/attackby(var/obj/item/weapon/W as obj, var/mob/user as mob)
-	if(istype(W,/obj/item/weapon/material/scythe/sickle))
+/obj/structure/flora/ausbushes/attackby(var/obj/item/W as obj, var/mob/user as mob)
+	if(istype(W,/obj/item/material/scythe/sickle))
 		if(prob(50))
 			new /obj/item/stack/material/wood(get_turf(src), 2)
 		if(prob(40))

@@ -10,10 +10,10 @@
       <vui-group-item label="Age:"><view-records-field :editable="(editable & 1) > 0" path="active.age"/></vui-group-item>
       <vui-group-item label="Sex:"><view-records-field :editable="(editable & 1) > 0" path="active.sex"/></vui-group-item>
       <vui-group-item label="Rank:"><view-records-field :editable="(editable & 1) > 0" path="active.rank"/></vui-group-item>
-      <vui-group-item label="Phisical Status:">
-        <view-records-field :editable="(editable & 1) > 0" path="active.phisical_status">
+      <vui-group-item label="Physical Status:">
+        <view-records-field :editable="(editable & 1) > 0" path="active.physical_status">
           <select v-model="$root.$data.state.editingvalue">
-            <option v-for="i in choices.phisical_status" :key="i" :value="i">{{ i }}</option>
+            <option v-for="i in choices.physical_status" :key="i" :value="i">{{ i }}</option>
           </select>
         </view-records-field>
       </vui-group-item>
@@ -29,6 +29,7 @@
         <vui-group-item label="Species:"><view-records-field :editable="(editable & 1) > 0" path="active.species"/></vui-group-item>
         <vui-group-item label="Citizenship:"><view-records-field :editable="(editable & 1) > 0" path="active.citizenship"/></vui-group-item>
         <vui-group-item label="Religion:"><view-records-field :editable="(editable & 1) > 0" path="active.religion"/></vui-group-item>
+        <vui-group-item label="Employer:"><view-records-field :editable="(editable & 1) > 0" path="active.employer"/></vui-group-item>
         <vui-group-item label="Employment/skills summary:"><view-records-field :editable="(editable & 1) > 0" path="active.notes"><textarea v-model="$root.$data.state.editingvalue"/></view-records-field></vui-group-item>
         <vui-group-item label="CCIA Notes:">{{ active.ccia_record }}</vui-group-item>
         <vui-group-item label="CCIA Actions:">

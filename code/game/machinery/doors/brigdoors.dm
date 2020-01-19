@@ -212,7 +212,7 @@
 		. += "Insert a Securty Incident Report to load a criminal sentence<br>"
 	else
 		// Time Left display (uses releasetime)
-		var/obj/item/weapon/card/id/card = incident.card.resolve()
+		var/obj/item/card/id/card = incident.card.resolve()
 		. += "<b>Criminal</b>: [card]\t"
 		. += "<a href='?src=\ref[src];button=menu_mode;menu_choice=menu_charges'>Charges</a><br>"
 		. += "<b>Sentence</b>: [add_zero( "[minute]", 2 )]:[add_zero( "[second]", 2 )]\t"
@@ -262,7 +262,7 @@
 	return .
 
 /obj/machinery/door_timer/attackby(obj/item/O as obj, var/mob/user as mob)
-	if( istype( O, /obj/item/weapon/paper/incident ))
+	if( istype( O, /obj/item/paper/incident ))
 		if( !incident )
 			if( import( O, user ))
 				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
@@ -272,13 +272,13 @@
 		else
 			to_chat(user,  "<span class='alert'>\The [src] buzzes, \"There's already an active sentence!\"</span>")
 		return
-	else if( istype( O, /obj/item/weapon/paper ))
+	else if( istype( O, /obj/item/paper ))
 		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\"</span>")
 		return
 
 	..()
 
-/obj/machinery/door_timer/proc/import( var/obj/item/weapon/paper/incident/I, var/user )
+/obj/machinery/door_timer/proc/import( var/obj/item/paper/incident/I, var/user )
 	if( !istype( I ))
 		to_chat(user,  "<span class='alert'>\The [src] buzzes, \"Could not import the incident report.\"</span>")
 		return 0
@@ -395,7 +395,7 @@
 //Stolen from status_display
 /obj/machinery/door_timer/proc/texticon(var/tn, var/px = 0, var/py = 0)
 	var/image/I = image('icons/obj/status_display.dmi', "blank")
-	var/len = lentext(tn)
+	var/len = length(tn)
 
 	for(var/d = 1 to len)
 		var/char = copytext(tn, len-d+1, len-d+2)

@@ -6,21 +6,23 @@
 	density = 1
 	anchored = 1
 	var/mob/living/carbon/human/occupant = null
-	var/list/available_chemicals = list("inaprovaline" = "Inaprovaline", "stoxin" = "Soporific", "paracetamol" = "Paracetamol", "anti_toxin" = "Dylovene", "dexalin" = "Dexalin")
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
+	var/list/available_chemicals = list("norepinephrine" = "Norepinephrine", "stoxin" = "Soporific", "paracetamol" = "Paracetamol", "dylovene" = "Dylovene", "dexalin" = "Dexalin")
+	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/allow_occupant_types = list(/mob/living/carbon/human)
 	var/disallow_occupant_types = list()
+	var/pump
+	var/display_loading_message = TRUE
 
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 200 //builtin health analyzer, dialysis machine, injectors.
 	component_types = list(
-			/obj/item/weapon/circuitboard/sleeper,
-			/obj/item/weapon/stock_parts/capacitor = 2,
-			/obj/item/weapon/stock_parts/scanning_module = 2,
-			/obj/item/weapon/stock_parts/console_screen,
-			/obj/item/weapon/reagent_containers/glass/beaker/large
+			/obj/item/circuitboard/sleeper,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module = 2,
+			/obj/item/stock_parts/console_screen,
+			/obj/item/reagent_containers/glass/beaker/large
 		)
 /obj/machinery/sleeper/Initialize()
 	. = ..()
@@ -41,6 +43,15 @@
 					occupant.vessel.trans_to_obj(beaker, pumped + 1)
 		else
 			toggle_filter()
+	if(pump > 0)
+		if(beaker && istype(occupant))
+			if(beaker.reagents.total_volume < beaker.reagents.maximum_volume)
+				var/datum/reagents/ingested = occupant.get_ingested_reagents()
+				if(ingested)
+					for(var/datum/reagent/x in ingested.reagent_list)
+						ingested.trans_to_obj(beaker, 1)
+		else
+			toggle_pump()
 
 /obj/machinery/sleeper/update_icon()
 	flick("[initial(icon_state)]-anim", src)
@@ -55,13 +66,13 @@
 	var/scan_rating = 0
 	var/cap_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(isscanner(P))
 			scan_rating += P.rating
 		else if(iscapacitor(P))
 			cap_rating += P.rating
 
-	beaker = locate(/obj/item/weapon/reagent_containers/glass/beaker) in component_parts
+	beaker = locate(/obj/item/reagent_containers/glass/beaker) in component_parts
 
 	active_power_usage = 200 - (cap_rating + scan_rating)*2
 
@@ -97,13 +108,9 @@
 			if(DEAD)
 				data["stat"] = "<font color='red'>Dead</font>"
 		data["health"] = occupant.health
-		if(iscarbon(occupant))
-			var/mob/living/carbon/C = occupant
-			data["pulse"] = C.get_pulse(GETPULSE_TOOL)
-		data["brute"] = occupant.getBruteLoss()
-		data["burn"] = occupant.getFireLoss()
-		data["oxy"] = occupant.getOxyLoss()
-		data["tox"] = occupant.getToxLoss()
+		if(ishuman(occupant))
+			var/mob/living/carbon/human/H = occupant
+			data["pulse"] = H.get_pulse(GETPULSE_TOOL)
 	else
 		data["occupant"] = 0
 	if(beaker)
@@ -111,6 +118,7 @@
 	else
 		data["beaker"] = -1
 	data["filtering"] = filtering
+	data["pump"] = pump
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
@@ -137,6 +145,9 @@
 	if(href_list["filter"])
 		if(filtering != text2num(href_list["filter"]))
 			toggle_filter()
+	if(href_list["pump"])
+		if(filtering != text2num(href_list["pump"]))
+			toggle_pump()
 	if(href_list["chemical"] && href_list["amount"])
 		if(occupant && occupant.stat != DEAD)
 			if(href_list["chemical"] in available_chemicals) // Your hacks are bad and you should feel bad
@@ -148,8 +159,9 @@
 	return attack_hand(user)
 
 /obj/machinery/sleeper/attackby(var/obj/item/I, var/mob/user)
-	add_fingerprint(user)
-	if(istype(I, /obj/item/weapon/reagent_containers/glass))
+	if(!istype(I, /obj/item/forensics))
+		add_fingerprint(user)
+	if(istype(I, /obj/item/reagent_containers/glass))
 		if(!beaker)
 			beaker = I
 			user.drop_from_inventory(I,src)
@@ -157,16 +169,17 @@
 		else
 			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
 		return
-	else if(istype(I, /obj/item/weapon/grab))
+	else if(istype(I, /obj/item/grab))
 
-		var/obj/item/weapon/grab/G = I
+		var/obj/item/grab/G = I
 		var/mob/living/L = G.affecting
 
 		if(!istype(L))
 			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
+		if(display_loading_message)
+			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
@@ -223,6 +236,13 @@
 		return
 	filtering = !filtering
 
+/obj/machinery/sleeper/proc/toggle_pump()
+	if(!occupant || !beaker)
+		pump = 0
+		return
+	to_chat(occupant, "<span class='warning'>You feel a tube jammed down your throat.</span>")
+	pump = !pump
+
 /obj/machinery/sleeper/proc/go_in(var/mob/M, var/mob/user)
 	if(!M)
 		return
@@ -232,10 +252,11 @@
 		to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 		return
 
-	if(M == user)
-		visible_message("\The [user] starts climbing into \the [src].")
-	else
-		visible_message("\The [user] starts putting [M] into \the [src].")
+	if(display_loading_message)
+		if(M == user)
+			visible_message("\The [user] starts climbing into \the [src].")
+		else
+			visible_message("\The [user] starts putting [M] into \the [src].")
 
 	if(do_after(user, 20))
 		if(occupant)
@@ -271,6 +292,7 @@
 		beaker.forceMove(loc)
 		beaker = null
 		toggle_filter()
+		toggle_pump()
 
 /obj/machinery/sleeper/proc/inject_chemical(var/mob/living/user, var/chemical, var/amount)
 	if(stat & (BROKEN|NOPOWER))

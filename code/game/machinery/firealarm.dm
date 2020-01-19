@@ -83,7 +83,10 @@
 	..()
 
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
+	else
+		return
 
 	if (W.isscrewdriver() && buildstage == 2)
 		if(!wiresexposed)
@@ -122,12 +125,12 @@
 					to_chat(user, "You pry out the circuit!")
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
-						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
+						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
 						circuit.forceMove(user.loc)
 						buildstage = 0
 						update_icon()
 			if(0)
-				if(istype(W, /obj/item/weapon/firealarm_electronics))
+				if(istype(W, /obj/item/firealarm_electronics))
 					to_chat(user, "You insert the circuit!")
 					qdel(W)
 					buildstage = 1
@@ -246,7 +249,7 @@
 	pixel_x = DIR2PIXEL_X(dir)
 	pixel_y = DIR2PIXEL_Y(dir)
 
-	if(z in current_map.contact_levels)
+	if(isContactLevel(z))
 		set_security_level(security_level ? get_security_level() : "green")
 
 // Convenience subtypes for mappers.
@@ -270,7 +273,7 @@
 FIRE ALARM CIRCUIT
 Just a object used in constructing fire alarms
 */
-/obj/item/weapon/firealarm_electronics
+/obj/item/firealarm_electronics
 	name = "fire alarm electronics"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"

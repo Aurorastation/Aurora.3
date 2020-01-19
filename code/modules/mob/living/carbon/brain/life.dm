@@ -74,7 +74,8 @@
 	analgesic = 0
 
 	if(touching) touching.metabolize()
-	if(ingested) ingested.metabolize()
+	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
+	if(istype(ingested)) ingested.metabolize()
 	if(bloodstr) bloodstr.metabolize()
 	if(breathing) breathing.metabolize()
 

@@ -34,7 +34,7 @@
 
 /obj/screen/ai
 	icon = 'icons/mob/screen/ai.dmi'
-	layer = 21
+	layer = SCREEN_LAYER
 
 /obj/screen/ai/core
 	name = "AI Core"
@@ -79,16 +79,6 @@
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
 		AI.toggle_camera_light()
-
-/obj/screen/ai/crew_monitoring
-	name = "Crew Monitoring"
-	icon_state = "crew_monitor"
-	screen_loc = ui_ai_crew_monitor
-
-/obj/screen/ai/crew_monitoring/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_crew_monitor()
 
 /obj/screen/ai/crew_manifest
 	name = "Show Crew Manifest"

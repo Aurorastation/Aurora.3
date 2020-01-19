@@ -16,7 +16,7 @@
 	var/state = 2
 	var/reinf = 0
 	var/basestate
-	var/shardtype = /obj/item/weapon/material/shard
+	var/shardtype = /obj/item/material/shard
 	var/glasstype = null // Set this in subtypes. Null is assumed strange or otherwise impossible to dismantle, such as for shuttle glass.
 	var/silicate = 0 // number of units of silicate
 
@@ -168,11 +168,7 @@
 		step(src, get_dir(AM, src))
 	take_damage(tforce)
 
-/obj/structure/window/attack_tk(mob/user as mob)
-	user.visible_message("<span class='notice'>Something knocks on [src].</span>")
-	playsound(loc, 'sound/effects/Glasshit.ogg', 60, 1)
-
-/obj/structure/window/attack_hand(mob/user as mob)
+/obj/structure/window/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(HULK in user.mutations)
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
@@ -180,23 +176,22 @@
 		user.do_attack_animation(src)
 		shatter()
 
-	else if (usr.a_intent == I_HURT)
-
-		if (istype(usr,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = usr
+	else if (user.a_intent == I_HURT)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
 			if(H.species.can_shred(H) || (H.is_berserk()))
 				attack_generic(H,25)
 				return
 
 		playsound(src.loc, 'sound/effects/glassknock.ogg', 90, 1)
 		user.do_attack_animation(src)
-		usr.visible_message("<span class='danger'>\The [usr] bangs against \the [src]!</span>",
+		user.visible_message("<span class='danger'>\The [user] bangs against \the [src]!</span>",
 							"<span class='danger'>You bang against \the [src]!</span>",
 							"You hear a banging sound.")
 	else
 		playsound(src.loc, 'sound/effects/glassknock.ogg', 60, 1)
-		usr.visible_message("[usr.name] knocks on the [src.name].",
-							"You knock on the [src.name].",
+		user.visible_message("[user] knocks on \the [src.name].",
+							"You knock on \the [src.name].",
 							"You hear a knocking sound.")
 	return
 
@@ -211,10 +206,15 @@
 	user.do_attack_animation(src)
 	return 1
 
+/obj/structure/window/do_simple_ranged_interaction(var/mob/user)
+	visible_message(span("notice", "Something knocks on \the [src]."))
+	playsound(loc, 'sound/effects/Glasshit.ogg', 50, 1)
+	return TRUE
+
 /obj/structure/window/attackby(obj/item/W as obj, mob/user as mob)
 	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/weapon/grab) && get_dist(src,user)<2)
-		var/obj/item/weapon/grab/G = W
+	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, BRUTE)
 			return
@@ -266,14 +266,14 @@
 		..()
 	return
 
-/obj/structure/window/proc/grab_smash_attack(obj/item/weapon/grab/G, var/damtype = BRUTE)
+/obj/structure/window/proc/grab_smash_attack(obj/item/grab/G, var/damtype = BRUTE)
 	var/mob/living/M = G.affecting
 	var/mob/living/user = G.assailant
 
 	var/state = G.state
 	qdel(G)	//gotta delete it here because if window breaks, it won't get deleted
 
-	var/def_zone = ran_zone("head", 20)
+	var/def_zone = ran_zone(BP_HEAD, 20)
 	var/blocked = M.run_armor_check(def_zone, "melee")
 	switch (state)
 		if(1)
@@ -425,7 +425,7 @@
 	desc = "A borosilicate alloy window. It seems to be quite strong."
 	basestate = "phoronwindow"
 	icon_state = "phoronwindow"
-	shardtype = /obj/item/weapon/material/shard/phoron
+	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronglass
 	maximal_heat = T0C + 2000
 	damage_per_fire_tick = 1.0
@@ -436,7 +436,7 @@
 	desc = "A borosilicate alloy window, with rods supporting it. It seems to be very strong."
 	basestate = "phoronrwindow"
 	icon_state = "phoronrwindow"
-	shardtype = /obj/item/weapon/material/shard/phoron
+	shardtype = /obj/item/material/shard/phoron
 	glasstype = /obj/item/stack/material/glass/phoronrglass
 	reinf = 1
 	maximal_heat = T0C + 4000
@@ -493,6 +493,12 @@
 	dir = 5
 	smooth = SMOOTH_TRUE
 	can_be_unanchored = TRUE
+
+/obj/structure/window/shuttle/legion
+	name = "cockpit window"
+	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
+	health = 160
+	maxhealth = 160
 
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."

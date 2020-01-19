@@ -7,7 +7,7 @@
 	check_armour = "bullet"
 	embed = 1
 	sharp = 1
-	shrapnel_type = /obj/item/weapon/material/shard/shrapnel
+	shrapnel_type = /obj/item/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
@@ -32,9 +32,6 @@
 
 /obj/item/projectile/bullet/check_penetrate(var/atom/A)
 	if(!A || !A.density) return 1 //if whatever it was got destroyed when we hit it, then I guess we can just keep going
-
-	if(istype(A, /obj/mecha))
-		return 1 //mecha have their own penetration handling
 
 	if(ismob(A))
 		if(!mob_passthrough_check)
@@ -142,7 +139,6 @@
 	damage = 5
 	agony = 40
 	embed = 0
-	sharp = 0
 
 /* shotgun projectiles */
 
@@ -235,9 +231,9 @@
 						L.emote("yawns")
 					if(blocked < 20)
 						if(L.reagents)	L.reagents.add_reagent("stoxin", 10)
-				if(def_zone == "head" && blocked < 100)
+				if(def_zone == BP_HEAD && blocked < 100)
 					if(L.reagents)	L.reagents.add_reagent("stoxin", 15)
-				if(def_zone != "torso" && def_zone != "head")
+				if(def_zone != "torso" && def_zone != BP_HEAD)
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
@@ -297,7 +293,7 @@
 
 /obj/item/projectile/bullet/pistol/cap
 	name = "cap"
-	damage_type = HALLOSS
+	damage_type = PAIN
 	damage = 0
 	nodamage = 1
 	embed = 0
@@ -321,7 +317,7 @@
 	muzzle_type = /obj/effect/projectile/muzzle/pulse
 
 /obj/item/projectile/bullet/flechette/explosive
-	shrapnel_type = /obj/item/weapon/material/shard/shrapnel/flechette
+	shrapnel_type = /obj/item/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
 
@@ -331,6 +327,22 @@
 	damage = 30
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
+
+/obj/item/projectile/bullet/gauss/highex
+	name ="high-ex shell"
+	damage = 10
+
+/obj/item/projectile/bullet/gauss/highex/on_impact(var/atom/A)
+	explosion(A, -1, 0, 2)
+	..()
+
+/obj/item/projectile/bullet/gauss/highex/on_hit(var/atom/target, var/blocked = 0)
+	explosion(target, -1, 0, 2)
+	sleep(0)
+	var/obj/T = target
+	var/throwdir = get_dir(firer,target)
+	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
+	return 1
 
 /obj/item/projectile/bullet/cannonball
 	name = "cannonball"
@@ -347,4 +359,19 @@
 
 /obj/item/projectile/bullet/cannonball/explosive/on_impact(var/atom/A)
 	explosion(A, -1, 1, 2)
+	..()
+
+/obj/item/projectile/bullet/nuke
+	name = "miniaturized nuclear warhead"
+	icon_state = "nuke"
+	damage = 25
+
+/obj/item/projectile/bullet/nuke/on_impact(var/atom/A)
+	for(var/mob/living/carbon/human/mob in human_mob_list)
+		var/turf/T = get_turf(mob)
+		if(T && (loc.z == T.z))
+			if(ishuman(mob))
+				mob.apply_effect(450, IRRADIATE)
+	new /obj/effect/temp_visual/nuke(A.loc)
+	explosion(A,2,5,9)
 	..()

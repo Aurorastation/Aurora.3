@@ -60,11 +60,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "nebula_glasses"
 	item_state = "nebula_glasses"
 	contained_sprite = TRUE
-	var/obj/item/weapon/disk/chip
+	var/obj/item/disk/chip
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/Initialize()
 	. = ..()
-	chip = new /obj/item/weapon/disk/fluff/nebula_chip()
+	chip = new /obj/item/disk/fluff/nebula_chip()
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/Destroy()
 	QDEL_NULL(chip)
@@ -76,8 +76,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of \the [src].</span>")
 		chip = null
 
-/obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/disk/fluff/nebula_chip) && !chip)
+/obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/disk/fluff/nebula_chip) && !chip)
 		//user.u_equip(W)
 		user.drop_from_inventory(W,src)
 		chip = W
@@ -85,7 +85,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		add_fingerprint(user)
 		to_chat(user, "<span class='notice'>You slot \the [W] back into its place in the frames of \the [src].</span>")
 
-/obj/item/weapon/disk/fluff/nebula_chip //data chip - Roxy Wallace - nebulaflare
+/obj/item/disk/fluff/nebula_chip //data chip - Roxy Wallace - nebulaflare
 	name = "data chip"
 	desc = "A small green chip."
 	icon = 'icons/obj/custom_items/nebula_chip.dmi'
@@ -110,14 +110,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 
-/obj/item/weapon/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
+/obj/item/fluff/kiara_altar //Pocket Altar - Kiara Branwen - nursiekitty
 	name = "pocket altar"
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 	icon = 'icons/obj/custom_items/kiara_altar.dmi'
 	icon_state = "kiara_altar1"
 	w_class = 2
 
-/obj/item/weapon/fluff/kiara_altar/attack_self(mob/user as mob)
+/obj/item/fluff/kiara_altar/attack_self(mob/user as mob)
 	if(src.icon_state == "kiara_altar1")
 		src.icon_state = "kiara_altar2"
 		to_chat(user, "<span class='notice'>You open \the [src], revealing its contents.</span>")
@@ -145,11 +145,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_open = "bell_coat"
 	icon_closed = "bell_coat"
 	contained_sprite = TRUE
-	allowed = list(/obj/item/weapon/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/weapon/gun/energy,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
-	/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/storage/fancy/cigarettes,/obj/item/weapon/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
+	/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
 
 
-/obj/item/weapon/melee/fluff/tina_knife //Consecrated Athame - Tina Kaekel - tainavaa
+/obj/item/melee/fluff/tina_knife //Consecrated Athame - Tina Kaekel - tainavaa
 	name = "consecrated athame"
 	desc = "An athame used in occult rituals. The double-edged dagger is dull. The handle is black with a pink/white occult design strewn about it, and \"Tina\" is inscribed into it in decorated letters."
 	icon = 'icons/obj/custom_items/tina_knife.dmi'
@@ -158,17 +158,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_BELT
 	w_class = 1
 
-
-/obj/item/device/kit/paint/ripley/fluff/zairjah_kit //Hephaestus Industrial Exosuit MK III Customization Kit - Zairjah - alberyk
-	name = "\"Hephaestus Industrial Exosuit MK III\" APLU customisation kit"
-	desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
-	new_name = "Hephaestus Industrial Exosuit MK III"
-	new_desc = "A ripley APLU model manufactured by Hephaestus industries, a common sight in New Gibson nowadays. It shines with chrome painting and a fancy reinforced glass cockpit."
-	new_icon = "ripley_zairjah" //a lot of thanks to cakeisossim for the sprites
-	allowed_types = list("ripley","firefighter")
-
-
-/obj/item/weapon/cane/fluff/usiki_cane //Inscribed Silver-handled Cane - Usiki Guwan - fireandglory
+/obj/item/cane/fluff/usiki_cane //Inscribed Silver-handled Cane - Usiki Guwan - fireandglory
 	name = "inscribed silver-handled cane"
 	desc = "This silver-handled cane has letters carved into the sides."
 	icon = 'icons/obj/custom_items/usiki_cane.dmi'
@@ -176,7 +166,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "usiki_cane"
 	contained_sprite = TRUE
 
-/obj/item/weapon/cane/fluff/usiki_cane/attack_self(mob/user as mob)
+/obj/item/cane/fluff/usiki_cane/attack_self(mob/user as mob)
 	if(all_languages[LANGUAGE_UNATHI] in user.languages)
 		to_chat(user, "<span class='notice'>This cane has the words \"A new and better life\" carved into one side in basic, and on the other side in Sinta'Unathi.</span>")
 	else
@@ -203,7 +193,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/structure/bed/chair/wheelchair/fluff/nomak_scooter/update_icon()
 	return
 
-/obj/item/weapon/coin/fluff/yoiko_coin //Sobriety Chip - Yurick Ali - raineko
+/obj/item/coin/fluff/yoiko_coin //Sobriety Chip - Yurick Ali - raineko
 	name = "sobriety chip"
 	desc = "A red coin, made from plastic. A triangle is engraved, surrounding it is the words: \"TO THINE OWN SELF BE TRUE\"."
 	icon = 'icons/obj/custom_items/yoiko_coin.dmi'
@@ -231,56 +221,47 @@ All custom items with worn sprites must follow the contained sprite system: http
 	species_restricted = list("Unathi")
 	contained_sprite = TRUE
 
-
-/obj/item/weapon/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron
-	name = "ATLAS poster"
-
-/obj/item/weapon/contraband/poster/fluff/conservan_poster/New()
-	..()
-	serial_number = 59
-
-
-/obj/item/weapon/flame/lighter/zippo/fluff/locke_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
+/obj/item/flame/lighter/zippo/fluff/locke_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
 	name = "fire extinguisher lighter"
 	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
 	icon = 'icons/obj/custom_items/locke_zippo.dmi'
 	icon_state = "locke_zippo"
 
 
-/obj/item/weapon/clipboard/fluff/zakiya_sketchpad //Sketchpad - Zakiya Ahmad - sierrakomodo
+/obj/item/clipboard/fluff/zakiya_sketchpad //Sketchpad - Zakiya Ahmad - sierrakomodo
 	name = "sketchpad"
 	desc = "A simple sketchpad, about the size of a regular sheet of paper."
 	icon = 'icons/obj/custom_items/zakiya_sketchpad.dmi' //thanks superballs for the sprites
 	icon_state = "zakiya_sketchpad"
 
-/obj/item/weapon/clipboard/fluff/zakiya_sketchpad/New()
+/obj/item/clipboard/fluff/zakiya_sketchpad/New()
 	..()
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
-	new /obj/item/weapon/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
 
-/obj/item/weapon/clipboard/fluff/zakiya_sketchpad/update_icon()
+/obj/item/clipboard/fluff/zakiya_sketchpad/update_icon()
 	if(toppaper)
 		icon_state = "zakiya_sketchpad1"
 	else
 		icon_state = "zakiya_sketchpad"
 	return
 
-/obj/item/weapon/pen/fluff/zakiya_pen //Sketching pencil - Zakiya Ahmad - sierrakomodo
+/obj/item/pen/fluff/zakiya_pen //Sketching pencil - Zakiya Ahmad - sierrakomodo
 	name = "sketching pencil"
 	desc = "A graphite sketching pencil."
 	icon = 'icons/obj/custom_items/zakiya_pen.dmi'
 	icon_state = "zakiya_pen"
 
 
-/obj/item/weapon/melee/fluff/zah_mandible //Broken Vaurca Mandible - Ka'Akaix'Zah Zo'ra - sleepywolf
+/obj/item/melee/fluff/zah_mandible //Broken Vaurca Mandible - Ka'Akaix'Zah Zo'ra - sleepywolf
 	name = "broken vaurca mandible"
 	desc = "A black, four inch long piece of a Vaurca mandible. It seems dulled, and looks like it was shot off."
 	icon = 'icons/obj/custom_items/zah_mandible.dmi'
@@ -299,11 +280,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/implanter/fluff //snowflake implanters for snowflakes
+/obj/item/implanter/fluff //snowflake implanters for snowflakes
 	var/allowed_ckey = ""
 	var/implant_type = null
 
-/obj/item/weapon/implanter/fluff/proc/create_implant()
+/obj/item/implanter/fluff/proc/create_implant()
 	if (!implant_type)
 		return
 	imp = new implant_type(src)
@@ -311,14 +292,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	return
 
-/obj/item/weapon/implanter/fluff/attack(mob/M as mob, mob/user as mob, var/target_zone)
+/obj/item/implanter/fluff/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if (!M.ckey || M.ckey != allowed_ckey)
 		return
 
 	..()
 
 
-/obj/item/weapon/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac
+/obj/item/fluff/moon_baton //Tiger Claw - Zander Moon - omnivac
 	name = "tiger claw"
 	desc = "A small ceremonial energy dagger given to Golden Tigers."
 	icon = 'icons/obj/custom_items/moon_baton.dmi'
@@ -330,7 +311,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	var/active = FALSE
 
-/obj/item/weapon/fluff/moon_baton/attack_self(mob/user)
+/obj/item/fluff/moon_baton/attack_self(mob/user)
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
@@ -448,7 +429,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	autodrobe_no_remove = TRUE
 
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100
+/obj/item/reagent_containers/food/drinks/flask/fluff/barcia_flask //First Shot - Gabriel Barcia - mrgabol100
 	name = "first shot"
 	desc = "A flask. Smells of absinthe, maybe vodka. The bottom left corner has a silver bar. The bottom is engraved, it reads: \"The First Shot\"."
 	icon = 'icons/obj/custom_items/barcia_flask.dmi'
@@ -472,16 +453,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sayyidah_dress"
 	contained_sprite = TRUE
 
-
-/obj/item/clothing/suit/storage/fluff/vittorio_jacket //Atlas Overcoat - Vittorio Giurifiglio - tytostyris
-	name = "atlas overcoat"
-	desc = "A classy black militaristic uniform, which is adorned with a sash and an eagle."
-	icon = 'icons/obj/custom_items/vittorio_jacket.dmi'
-	icon_state = "vittorio_jacket"
-	item_state = "vittorio_jacket"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor
 	name = "\improper CERN labcoat"
 	desc = "A Labcoat with a blue pocket and blue collar. On the pocket, you can read \"C.E.R.N.\"."
@@ -493,7 +464,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/shoes/jackboots/unathi/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
+/obj/item/clothing/shoes/jackboots/toeless/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
 	name = "marching sandals"
 	desc = "A pair of sturdy marching sandals made of layers of leather and with a reinforced sole, they are also rather big."
 	icon = 'icons/obj/custom_items/yinzr_sandals.dmi'
@@ -519,7 +490,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user.visible_message("<span class='danger'>[user] thrust the [src.name] into [M]'s face.</span>")
 
 
-/obj/item/weapon/fluff/akela_photo //Akela's Family Photo - Akela Ha'kim - moltenkore
+/obj/item/fluff/akela_photo //Akela's Family Photo - Akela Ha'kim - moltenkore
 	name = "family photo"
 	desc = "You see on the photo a tajaran couple holding a small kit in their arms, while looking very happy. On the back it is written; \"Nasir, Akela and Ishka\", with a little gold mark that reads: \"Two months\"."
 	icon = 'icons/obj/custom_items/akela_photo.dmi'
@@ -527,11 +498,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/weapon/implant/fluff/ziva_implant //Heart Condition - Ziva Ta'Kim - sierrakomodo
+/obj/item/implant/fluff/ziva_implant //Heart Condition - Ziva Ta'Kim - sierrakomodo
 	name = "heart monitor"
 	desc = "A small machine to watch upon broken hearts."
 
-/obj/item/weapon/implant/fluff/ziva_implant/implanted(mob/living/carbon/human/M as mob)
+/obj/item/implant/fluff/ziva_implant/implanted(mob/living/carbon/human/M as mob)
 	if (M.ckey == "sierrakomodo") //just to be sure
 		M.verbs += /mob/living/carbon/human/proc/heart_attack
 	else
@@ -548,7 +519,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	last_special = world.time + 500
 
-	var/obj/item/organ/F = src.internal_organs_by_name["heart"]
+	var/obj/item/organ/F = src.internal_organs_by_name[BP_HEART]
 
 	if(isnull(F))
 		return
@@ -649,7 +620,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_EARS
 
 
-/obj/item/weapon/coin/fluff/raymond_coin //Engraved Coin - Raymond Hawkins - aboshehab
+/obj/item/coin/fluff/raymond_coin //Engraved Coin - Raymond Hawkins - aboshehab
 	name = "engraved coin"
 	desc = "A coin of light and bright with one side having an engraving of a greek Lamba sign, and on the back the initials of R.H. are engraved."
 	icon = 'icons/obj/custom_items/raymond_items.dmi'
@@ -691,7 +662,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/melee/fluff/rook_whip //Ceremonial Whip - Rook Jameson - hivefleetchicken
+/obj/item/melee/fluff/rook_whip //Ceremonial Whip - Rook Jameson - hivefleetchicken
 	name = "ceremonial whip"
 	desc = "A traditional cat o'nine tails whip made of jet black leather and embroidered with a few golden touches, made on Earth. It looks ceremoniously robust."
 	icon = 'icons/obj/custom_items/rook_whip.dmi'
@@ -912,14 +883,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/fluff/zhilin_book //Siik'maas-Tau Ceti Basic Dictionary - Zhilin Vadim - fireandglory
+/obj/item/fluff/zhilin_book //Siik'maas-Tau Ceti Basic Dictionary - Zhilin Vadim - fireandglory
 	name = "siik'maas-tau ceti basic dictionary"
 	desc = "A hefty dictionary with a simple design on the cover, it seems to be for translations. There's a label on the back denoting that it belongs to a \"Zhilin Vadim\"."
 	icon = 'icons/obj/custom_items/zhilin_book.dmi'
 	icon_state = "zhilin_book"
 	w_class = 3
 
-/obj/item/weapon/fluff/zhilin_book/attack_self(mob/user as mob)
+/obj/item/fluff/zhilin_book/attack_self(mob/user as mob)
 	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>",
 						"<span class='notice'>You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users.</span>",
 						"<span class='notice'>You hear pages being flipped.</span>")
@@ -976,7 +947,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/nullrod/fluff/azaroz_staff //Null Staff - Kesaos Azaroz - paradoxspace
+/obj/item/nullrod/fluff/azaroz_staff //Null Staff - Kesaos Azaroz - paradoxspace
 	name = "null staff"
 	desc = "A long, heavy staff seemingly hand-crafted of obsidian and steel. Pure volcanic crystals lie at its end, giving it an appearance similar to a mace."
 	icon = 'icons/obj/custom_items/azaroz_staff.dmi'
@@ -1055,14 +1026,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3.0
 
 
-/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/brianne_teapot	//Ceramic Teapot - Sean Brianne - zelmana
+/obj/item/reagent_containers/food/drinks/teapot/fluff/brianne_teapot	//Ceramic Teapot - Sean Brianne - zelmana
 	name = "ceramic teapot"
 	desc = "A blue ceramic teapot, gilded with the abbreviation for NanoTrasen."
 	icon = 'icons/obj/custom_items/brianne_teapot.dmi'
 	icon_state = "brianne_teapot"
 
 
-/obj/item/weapon/reagent_containers/food/drinks/flask/fluff/nasser_flask //Workers Flask - Nasser Antonov - sonicgotnuked
+/obj/item/reagent_containers/food/drinks/flask/fluff/nasser_flask //Workers Flask - Nasser Antonov - sonicgotnuked
 	name = "workers flask"
 	desc = "A steel fold down flask that is dented and scratched. It looks like some parts are welded together, making it so it can not fold down anymore. It smells strongly of vodka.."
 	icon = 'icons/obj/custom_items/nasser_flask.dmi'
@@ -1115,7 +1086,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, "It is [active ? "on" : "off"].")
 
 
-/obj/item/weapon/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
+/obj/item/reagent_containers/food/drinks/bottle/cognac/fluff/leonce_cognac //Old Earth Luxury Cognac - Francois Leonce - driecg36
 	name = "old earth luxury cognac"
 	desc = "An unusually shaped crystal bottle, covered in elaborate etchings displaying the symbol of the house that produced it. Inside is a smooth, amber liquor, \
 	which smells of the barrel it was aged in. The region and producer are on the label."
@@ -1171,7 +1142,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	slot_flags = SLOT_EARS | SLOT_TIE
 
 
-/obj/item/weapon/book/fluff/huntington_book //Spark Theorem - Monica Huntington - moondancerpony
+/obj/item/book/fluff/huntington_book //Spark Theorem - Monica Huntington - moondancerpony
 	name = "\improper Spark Theorem"
 	desc = "A bound copy of the 2458 research paper \"Spark Theorem: Research Into the Development of Synthetic Consciousness and Sapience\". This one is signed by the author."
 	title = "Spark Theorem"
@@ -1192,7 +1163,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/storage/backpack/satchel/fluff/kresimir_bag //Worn Leather Bag - Kresimir Kostadinov - alberyk
+/obj/item/storage/backpack/satchel/fluff/kresimir_bag //Worn Leather Bag - Kresimir Kostadinov - alberyk
 	name = "worn leather bag"
 	desc = "A sturdy and worn leather bag. The clasp has a faded blue and golden insigna."
 	icon = 'icons/obj/custom_items/kresimir_bag.dmi'
@@ -1201,7 +1172,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/stamp/fluff/leland_stamp //Sol Alliance Government Foreign Relations Department Stamp - Leland Field - saudus
+/obj/item/stamp/fluff/leland_stamp //Sol Alliance Government Foreign Relations Department Stamp - Leland Field - saudus
 	name = "\improper Sol Alliance foreign relations department stamp"
 	desc = "A stamp with the emblem of the Sol Alliance Foreign Relations Department. The text \"Diplomatic Observer, L. Field\" is inscribed on the handle."
 	icon = 'icons/obj/custom_items/leland_items.dmi'
@@ -1297,7 +1268,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "zilosnish_mantle"
 	contained_sprite = TRUE
 
-/obj/item/weapon/pen/fluff/zilosnish_pen //Golden Pen - Zilosnish Szu - sleepywolf
+/obj/item/pen/fluff/zilosnish_pen //Golden Pen - Zilosnish Szu - sleepywolf
 	name = "golden pen"
 	desc = "A pen plated in gold. It has black ink."
 	icon = 'icons/obj/custom_items/zilosnish_items.dmi'
@@ -1393,17 +1364,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/storage/wallet/fluff/muhawir_wallet //Pineapple Wallet - Muhawir Nawfal - menown
+/obj/item/storage/wallet/fluff/muhawir_wallet //Pineapple Wallet - Muhawir Nawfal - menown
 	name = "pineapple wallet"
 	desc = "A rather small, cheaply made felt wallet with a zipper near the top. It looks like a pineapple."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "muhawir_wallet"
 
-/obj/item/weapon/storage/wallet/fluff/muhawir_wallet/update_icon()
+/obj/item/storage/wallet/fluff/muhawir_wallet/update_icon()
 	return
 
 
-/obj/item/weapon/folder/fluff/sukhoi_folder //Inventor's Notebook - Natascha Sukhoi - lancelynxx
+/obj/item/folder/fluff/sukhoi_folder //Inventor's Notebook - Natascha Sukhoi - lancelynxx
 	name = "inventor's notebook"
 	desc = "A dark-green notebook, with crumpled Post-Its sticking out and binding tearing at the edges. It reeks of DromedaryCo cigarettes. The words \"SUKH SYSTEMS\" are scribbled on the cover with a black sharpie."
 	icon = 'icons/obj/custom_items/sukhoi_folder.dmi'
@@ -1655,7 +1626,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3
 
 
-/obj/item/weapon/crowbar/fluff/grajahn_crowbar //Crowbar of Divine Strength - Es'tana Grajahn - ezuo
+/obj/item/crowbar/fluff/grajahn_crowbar //Crowbar of Divine Strength - Es'tana Grajahn - ezuo
 	name = "crowbar of divine strength"
 	desc = "An ordinary crowbar that has been painted red, and had some lights rigged to it. It pulsates a yellow light."
 	icon = 'icons/obj/custom_items/grajahn_crowbar.dmi'
@@ -1664,13 +1635,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/storage/wallet/fluff/raymond_wallet //Black Leather Wallet - Raymond Hawkins - aboshehab
+/obj/item/storage/wallet/fluff/raymond_wallet //Black Leather Wallet - Raymond Hawkins - aboshehab
 	name = "black leather wallet"
 	desc = "A sleek black leather wallet, with the initials of \"J.H.\" visible at the front side. It's got an old yet maintained look to it."
 	icon = 'icons/obj/custom_items/raymond_items.dmi'
 	icon_state = "raymond_wallet"
 
-/obj/item/weapon/storage/wallet/fluff/raymond_wallet/update_icon()
+/obj/item/storage/wallet/fluff/raymond_wallet/update_icon()
 	return
 
 /obj/item/fluff/raymond_tablet //Holo Tablet - Raymond Hawkins - aboshehab
@@ -1736,7 +1707,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	show_browser(user, "<center><b>You can see on the screen of the tablet:</b><br>[desc]</center>", "window=Holo Tablet")
 
 
-/obj/item/weapon/material/knife/fluff/yumi_knife //Cutting Metal - Yumi Yotin - trickingtrapster
+/obj/item/material/knife/fluff/yumi_knife //Cutting Metal - Yumi Yotin - trickingtrapster
 	name = "cutting metal"
 	desc = "Looks like a piece of sheet metal, sharpened on one end."
 	icon = 'icons/obj/custom_items/yotin_knife.dmi'
@@ -1764,7 +1735,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - marlonphoenix
+/obj/item/paper/fluff/jawdat_paper //Manifesto of the PRA - Rrazujun Rrhazkal-Jawdat - marlonphoenix
 	name = "manifesto of the PRA"
 	desc = "This is the manifesto of the People's Republic of Adhomai, written by many different Tajara thinkers in the 2430's. Depending on who you ask it is either an enlightening document that showcases the great \
 	intellectual and cultural genius of Tajara civilization, or a dense collection of gibberish commie nonsense."
@@ -1796,22 +1767,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 			Chapter 9: The Obliteration Of Class: The Final Goal<br>\
 			Chapter 10: Closing Arguments: Al'Mari's Vision Of A People's Republic</small>"
 
-/obj/item/weapon/paper/fluff/jawdat_paper/update_icon()
+/obj/item/paper/fluff/jawdat_paper/update_icon()
 	return
 
-/obj/item/weapon/folder/red/manifesto/Initialize()
+/obj/item/folder/red/manifesto/Initialize()
 	. = ..()
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
-	new /obj/item/weapon/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
+	new /obj/item/paper/fluff/jawdat_paper(src)
 
 
 /obj/item/clothing/accessory/holster/thigh/fluff/rifler_holster //Rifler's Holster - Sophie Rifler - shodan43893
@@ -1821,7 +1792,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "rifler_holster"
 
 
-/obj/item/weapon/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - nursiekitty
+/obj/item/storage/backpack/satchel/fluff/xerius_bag //Tote Bag - Shiur'izzi Xerius - nursiekitty
 	name = "tote bag"
 	desc = "A sackcloth bag with an image of Moghes printed onto it. Floating above the planet are the words \"Save Moghes!\"."
 	icon = 'icons/obj/custom_items/xerius_bag.dmi'
@@ -1830,7 +1801,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/flame/lighter/zippo/fluff/moretti_zippo //Moretti's Zippo - Billy Moretti - lordbalkara
+/obj/item/flame/lighter/zippo/fluff/moretti_zippo //Moretti's Zippo - Billy Moretti - lordbalkara
 	desc = "A dark zippo with a cool blue flame. Nice."
 	icon = 'icons/obj/custom_items/moretti_zippo.dmi'
 	icon_state = "moretti_zippo"
@@ -1884,7 +1855,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/weapon/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
+/obj/item/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
 	name = "laser retractor"
 	desc = "The fabled laser retractor. It's a horrible amalgamation of a laser pointer, a retractor, and lots of tape."
 	icon = 'icons/obj/custom_items/tristen_retractor.dmi'
@@ -2010,12 +1981,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3.0
 
 
-/obj/item/weapon/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
+/obj/item/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
 	weighted = TRUE
 	favored_number = 2
 
 
-/obj/item/weapon/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
+/obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - simontheminer
 	desc = "An old looking zippo lighter with Vasili Mine Logo engraved on it. \"Good Luck Nikit\" is crudely scratched on under the logo in small writing."
 	icon = 'icons/obj/custom_items/nikit_zippo.dmi'
 	icon_state = "nikit_zippo"
@@ -2029,7 +2000,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mar_dress"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
+/obj/item/clothing/shoes/jackboots/toeless/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
 	name = "unathi purple boots"
 	desc = "Giant, closed-toe boots with extra claw space and support, perfect for those with clawed feet."
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
@@ -2046,12 +2017,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/deck/tarot/fluff/klavdiya_cards //Adhomian Divination Cards Deck - Klavdiya Tikhomirov - alberyk
+/obj/item/deck/tarot/fluff/klavdiya_cards //Adhomian Divination Cards Deck - Klavdiya Tikhomirov - alberyk
 	name = "adhomian divination cards deck"
 	desc = "An adhomian deck of divination cards, used to read the one's fortune or play games."
 	icon_state = "deck_adhomai"
 
-/obj/item/weapon/deck/tarot/fluff/klavdiya_cards/generate_deck()
+/obj/item/deck/tarot/fluff/klavdiya_cards/generate_deck()
 	var/datum/playingcard/P
 	for(var/name in list("D'as'ral Massacre","Clairvoyant","Suns' Sister","Queen","King","Father of the Parivara","S'rendal'Matir","Tank","Royal Grenadier","Kraszarrumalkarii","Hand of Fate","Great Revolution","Assassin","Assassination","Dymtris Line",
 	"Rrak'narrr","Steeple","Messa","Raskara","S'rendarr","Kazarrhaldiye","Adhomai"))
@@ -2218,10 +2189,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A ball of yarn, this one is yellow."
 	color = "#FFFF00"
 
-/obj/item/weapon/storage/box/fluff/knitting //a bunch of things, so it goes into the box
+/obj/item/storage/box/fluff/knitting //a bunch of things, so it goes into the box
 	name = "knitting supplies"
 
-/obj/item/weapon/storage/box/fluff/knitting/fill()
+/obj/item/storage/box/fluff/knitting/fill()
 	..()
 	new /obj/item/fluff/fernando_knittingneedles(src)
 	new /obj/item/fluff/yarn(src)
@@ -2283,7 +2254,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/storage/fluff/sovno_carrier //Reinforced Cat Carrier - Anabelle Sovno - pratepresidenten
+/obj/item/storage/fluff/sovno_carrier //Reinforced Cat Carrier - Anabelle Sovno - pratepresidenten
 	name = "cat carrier"
 	desc = "It appears to be a reinforced cat carrier. Decals of hearts and kittens are plastered all over its sides."
 	icon = 'icons/obj/custom_items/sovno_carrier.dmi'
@@ -2291,22 +2262,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sovno_carrier"
 	contained_sprite = TRUE
 	w_class = 4
-	can_hold = list(/obj/item/weapon/holder/cat)
+	can_hold = list(/obj/item/holder/cat)
 	storage_slots = 4
 	max_storage_space = 16
 	var/used = FALSE
 
-/obj/item/weapon/storage/fluff/sovno_carrier/open(mob/user as mob)
+/obj/item/storage/fluff/sovno_carrier/open(mob/user as mob)
 	if(!used)
 		deploy_cats(user)
 	else
 		..()
 
-/obj/item/weapon/storage/fluff/sovno_carrier/attack_self(mob/user)
+/obj/item/storage/fluff/sovno_carrier/attack_self(mob/user)
 	if(!used)
 		deploy_cats(user)
 
-/obj/item/weapon/storage/fluff/sovno_carrier/proc/deploy_cats(mob/user as mob)
+/obj/item/storage/fluff/sovno_carrier/proc/deploy_cats(mob/user as mob)
 	used = TRUE
 	to_chat(user, "<span class='notice'>You open \the [src]'s hatch.</span>")
 	new /mob/living/simple_animal/cat/fluff/jonesy(user.loc)
@@ -2368,7 +2339,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/storage/backpack/cloak/fluff/ryn_cloak //Security Tunnel Cloak - Za'Akaix'Ryn Zo'ra - jamchop23334
+/obj/item/storage/backpack/cloak/fluff/ryn_cloak //Security Tunnel Cloak - Za'Akaix'Ryn Zo'ra - jamchop23334
 	name = "security tunnel cloak"
 	desc = "A blue, tailor-made tunnel cloak with paltry storage options. The fabric is smoother and less abrasive than regular tunnel cloaks, though it looks difficult to wear."
 	icon = 'icons/obj/custom_items/ryn_clothing.dmi'
@@ -2385,13 +2356,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork //Stainless Steel Fork - Vedai'Kwia Xizal - conspiir
+/obj/item/material/kitchen/utensil/fork/fluff/vedai_fork //Stainless Steel Fork - Vedai'Kwia Xizal - conspiir
 	desc = "A stainless steel fork. The word \"Kwia\" is engraved on the back of the handle."
 	icon = 'icons/obj/custom_items/vedai_fork.dmi'
 	icon_state = "vedai_fork"
 	applies_material_colour = FALSE
 
-/obj/item/weapon/material/kitchen/utensil/fork/fluff/vedai_fork/set_material(var/new_material)
+/obj/item/material/kitchen/utensil/fork/fluff/vedai_fork/set_material(var/new_material)
 	..()
 	name = "stainless [material.display_name] [initial(name)]"
 
@@ -2404,7 +2375,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/weapon/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
+/obj/item/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
 	name = "ghostly board"
 	desc = "An adhomian ghostly board, used in divination rituals. This one is blue and has the symbol of a moon on it."
 	icon = 'icons/obj/custom_items/klavdiya_amulet.dmi'
@@ -2449,7 +2420,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user,span("notice","It looks strangely familiar..."))
 		return
 
-	var/obj/item/organ/external/OL = H.get_organ("l_arm")
+	var/obj/item/organ/external/OL = H.get_organ(BP_L_ARM)
 	var/obj/item/organ/external/arm/industrial/fluff/dionaea_l_arm/NA = new(get_turf(src))
 	var/obj/item/organ/external/hand/industrial/fluff/dionaea_l_hand/NH = new(get_turf(src))
 
@@ -2521,7 +2492,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "krin_shoes"
 	contained_sprite = TRUE
 
-/obj/item/weapon/storage/backpack/fluff/krin_bag //Broken Pack - Krin Volqux - paradoxspace
+/obj/item/storage/backpack/fluff/krin_bag //Broken Pack - Krin Volqux - paradoxspace
 	name = "broken pack"
 	desc = "What appears to be a technologically-advanced backpack, the electronics are fried from a distant malfunction. It smells like a disposals track. \
 	A small \"Original Conglomerate\" patch has been applied to the strap, a popular moisturewave Idol group. It reads \"Not Dead Yet.\" next to a Neaera in a spacesuit."
@@ -2612,13 +2583,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_skirt"
 	contained_sprite = TRUE
 
-/obj/item/weapon/reagent_containers/glass/beaker/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - drwago
+/obj/item/reagent_containers/glass/beaker/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - drwago
 	name = "alchemist flask"
 	desc = "A large bottle used to mix chemicals inside."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_beaker"
 
-/obj/item/weapon/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - drwago
+/obj/item/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - drwago
 	name = "burlap bag"
 	desc = "A smallish burlup sack, modified to lug around belongings. Stiched into it is the letters '\"M.A.\"."
 	icon_state = "giftbag0"
@@ -2632,7 +2603,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_vest"
 	contained_sprite = TRUE
 
-/obj/item/weapon/cane/fluff/qrqil_cane //Energy Cane - Qrqil Qrrzix - yonnimer
+/obj/item/cane/fluff/qrqil_cane //Energy Cane - Qrqil Qrrzix - yonnimer
 	name = "energy cane"
 	desc = "This silver-handled cane has letters carved into the sides."
 	icon = 'icons/obj/custom_items/qrqil_cane.dmi'
@@ -2642,7 +2613,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 	var/active = FALSE
 
-/obj/item/weapon/cane/fluff/qrqil_cane/attack_self(mob/user)
+/obj/item/cane/fluff/qrqil_cane/attack_self(mob/user)
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
@@ -2658,7 +2629,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	user.update_inv_l_hand(FALSE)
 	user.update_inv_r_hand()
 
-/obj/item/weapon/cane/fluff/qrqil_cane/update_icon()
+/obj/item/cane/fluff/qrqil_cane/update_icon()
 	if(active)
 		icon_state = "[icon_state]_active"
 		item_state = icon_state
@@ -2691,7 +2662,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/storage/toolbox/fluff/bretscher_toolbox //Gang-colored Toolbox - Robert Bretscher - vtcobaltblood
+/obj/item/storage/toolbox/fluff/bretscher_toolbox //Gang-colored Toolbox - Robert Bretscher - vtcobaltblood
 	name = "gang-colored toolbox"
 	desc = "A toolbox painted in the traditional colors of a martian youth gang, the Shuttleyard Boys. It looks fairly old, the paint needs some renewal."
 	icon = 'icons/obj/custom_items/bretscher_toolbox.dmi'
@@ -2762,7 +2733,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = FALSE
 
 
-/obj/item/weapon/storage/bible/fluff/oscar_bible //The Holy Book Of The Trinary Perfection - Oscar O'Neil - ironchaos
+/obj/item/storage/bible/fluff/oscar_bible //The Holy Book Of The Trinary Perfection - Oscar O'Neil - ironchaos
 	name = "holy book of the trinary perfection"
 	desc = "A holy book for followers of The Trinary Perfection."
 	icon = 'icons/obj/custom_items/oscar_bible.dmi'
@@ -2880,7 +2851,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/reagent_containers/glass/bucket/fluff/khasan_bucket //Battered Metal Bucket - Khasan Mikhnovsky - alberyk
+/obj/item/reagent_containers/glass/bucket/fluff/khasan_bucket //Battered Metal Bucket - Khasan Mikhnovsky - alberyk
 	name = "battered metal bucket"
 	desc = "A battered rusty metal bucket. It has seen a lot of use and little maintenance."
 	icon = 'icons/obj/custom_items/khasan_bucket.dmi'
@@ -2925,14 +2896,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	user.update_inv_l_hand()
 	user.update_inv_r_hand()
 
-/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
+/obj/item/reagent_containers/food/drinks/teapot/fluff/thea_teapot //Bronze Teapot - Thea Reeves - shestrying
 	name = "bronze teapot"
 	desc = "A round-bottomed, well-used teapot. It looks as though it's been carefully maintained."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teapot"
 	center_of_mass = list("x"=16, "y"=13)
 
-/obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup //Bonze Teacup - Thea Reeves - shestrying
+/obj/item/reagent_containers/food/drinks/fluff/thea_teacup //Bonze Teacup - Thea Reeves - shestrying
 	name = "bronze teacup"
 	desc = "A shallow, bronze teacup. Looks heavy."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
@@ -2940,17 +2911,17 @@ All custom items with worn sprites must follow the contained sprite system: http
 	volume = 20
 	center_of_mass = list("x"=16, "y"=12)
 
-/obj/item/weapon/storage/box/fluff/thea_teabox //Tea Box - Thea Reeves - shestrying
+/obj/item/storage/box/fluff/thea_teabox //Tea Box - Thea Reeves - shestrying
 	desc = "A black, wooden box, the edges softened with transport and use."
 	icon = 'icons/obj/custom_items/thea_tea.dmi'
 	icon_state = "thea_teabox"
 	foldable = null
-	can_hold = list(/obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot, /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup)
+	can_hold = list(/obj/item/reagent_containers/food/drinks/teapot/fluff/thea_teapot, /obj/item/reagent_containers/food/drinks/fluff/thea_teacup)
 
-/obj/item/weapon/storage/box/fluff/thea_teabox/fill()
-	new /obj/item/weapon/reagent_containers/food/drinks/teapot/fluff/thea_teapot(src)
+/obj/item/storage/box/fluff/thea_teabox/fill()
+	new /obj/item/reagent_containers/food/drinks/teapot/fluff/thea_teapot(src)
 	for(var/i in 1 to 4)
-		new /obj/item/weapon/reagent_containers/food/drinks/fluff/thea_teacup(src)
+		new /obj/item/reagent_containers/food/drinks/fluff/thea_teacup(src)
 	make_exact_fit()
 
 /obj/item/fluff/fraseq_journal //Fraseq's Journal of Mysteries - Quorrdash Fraseq - kingoftheping
@@ -3016,7 +2987,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/toggle/det_trench/fluff/takahashi_coat //High Collar Dress Shirt - Shiki Takahashi - nantei
 	name = "long trenchcoat"
 	desc = "A very long, black, canvas trench coat. It goes down just below the knees. It looks to be custom-fitted, with a layer of graphene for added armor. There is an infinity \
-	symbol on the back, similar to the Frontier Alliance flag."
+	symbol on the back, similar to the Coalition of Colonies flag."
 	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
 	icon_state = "takahashi_coat"
 	item_state = "takahashi_coat"
@@ -3051,7 +3022,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/weapon/fluff/muhawir_bedroll //Bedroll - Muhawir Nawfal - menown
+/obj/item/fluff/muhawir_bedroll //Bedroll - Muhawir Nawfal - menown
 	name = "bedroll"
 	desc = "A portable bedroll, made of cloth and padding."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
@@ -3060,7 +3031,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	attack_verb = list("battered","whacked")
 	var/deployed = FALSE
 
-/obj/item/weapon/fluff/muhawir_bedroll/attack_self(mob/user as mob)
+/obj/item/fluff/muhawir_bedroll/attack_self(mob/user as mob)
 	if(!deployed)
 		to_chat(user, "<span class='notice'>You open the bedroll, extending it.</span>")
 		name = "open bedroll"
@@ -3070,7 +3041,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		deployed = TRUE
 	return
 
-/obj/item/weapon/fluff/muhawir_bedroll/attack_hand(mob/user as mob)
+/obj/item/fluff/muhawir_bedroll/attack_hand(mob/user as mob)
 	if(deployed)
 		to_chat(user, "<span class='notice'>You pick up and fold \the [src].</span>")
 		name = initial(name)
@@ -3080,7 +3051,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	..()
 
-/obj/item/weapon/fluff/muhawir_tenttools //Toolbag - Muhawir Nawfal - menown
+/obj/item/fluff/muhawir_tenttools //Toolbag - Muhawir Nawfal - menown
 	name = "toolbag"
 	desc = "A roll of poles and ropes. Anybody knowledgeable would know they are designed for erecting a tent."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
@@ -3088,7 +3059,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3.0
 	attack_verb = list("battered","whacked")
 
-/obj/item/weapon/fluff/muhawir_tent //Tentroll - Muhawir Nawfal - menown
+/obj/item/fluff/muhawir_tent //Tentroll - Muhawir Nawfal - menown
 	name = "tentroll"
 	desc = "A portable tent. All wrapped up with straps and buckles."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
@@ -3096,8 +3067,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3.0
 	attack_verb = list("battered","whacked")
 
-/obj/item/weapon/fluff/muhawir_tent/attackby(var/obj/item/W, mob/user as mob)
-	if(istype(W, /obj/item/weapon/fluff/muhawir_tenttools))
+/obj/item/fluff/muhawir_tent/attackby(var/obj/item/W, mob/user as mob)
+	if(istype(W, /obj/item/fluff/muhawir_tenttools))
 		user.visible_message("<span class='warning'>[user] unrolls the tent .</span>",
 			"<span class='notice'>You unroll the tent.</span>")
 		if(do_after(user, 5 SECONDS, act_target = src))
@@ -3130,7 +3101,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	var/has_bedroll = FALSE
 
 /obj/structure/closet/fluff/muhawir_tent/attackby(W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/fluff/muhawir_bedroll))
+	if(istype(W, /obj/item/fluff/muhawir_bedroll))
 		user.visible_message(
 		"<span class='warning'>[user] lays down the bedroll inside \the [src].</span>",
 		"<span class='notice'>You lay down the bedroll in \the [src].</span>")
@@ -3152,12 +3123,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(has_bedroll)
 		if(do_after(usr, 20 SECONDS, act_target = src))
 			to_chat(usr, "<span class='notice'>You roll up the bedroll inside \the [src].</span>")
-			new/obj/item/weapon/fluff/muhawir_bedroll(get_turf(usr))
+			new/obj/item/fluff/muhawir_bedroll(get_turf(usr))
 			has_bedroll = FALSE
 	if(do_after(usr, 50 SECONDS, act_target = src))
 		to_chat(usr, "<span class='notice'>You take down \the [src].</span>")
 		dump_contents()
-		new/obj/item/weapon/fluff/muhawir_tent(get_turf(usr))
+		new/obj/item/fluff/muhawir_tent(get_turf(usr))
 		qdel(src)
 		return
 
@@ -3189,3 +3160,197 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "djikstra_blade"
 	item_state = "djikstra_blade"
 	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/fluff/naali_blanket //Fuzzy Pink Blanket - Naali'Xiiux Qu-Uish - shestrying
+	name = "fuzzy pink blanket"
+	desc = "A rather large, pink, fluffy blanket. It feels quite heavy, and smells slightly of saltwater."
+	icon = 'icons/obj/custom_items/naali_blanket.dmi'
+	icon_state = "naali_blanket"
+	item_state = "naali_blanket"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/fluff/oscar_helmet //Necropolis Specialist Helmet -  Oscar Easter - slymantis84
+	name = "necropolis specialist helmet"
+	desc = "A modified EPMC specialist helmet, with a built-in visor and HUD to access electronics and receive tactical information. It doesn't appear to serve many purposes in Biesel"
+	icon = 'icons/obj/custom_items/oscar_helmet.dmi'
+	icon_state = "oscar_helmet"
+	item_state = "oscar_helmet"
+	contained_sprite = TRUE
+	var/online = FALSE
+
+/obj/item/clothing/head/helmet/fluff/oscar_helmet/attack_self(mob/user)
+	online= !online
+	if(online)
+		to_chat(user, "<span class='notice'>You turn \the [src] on.</span>")
+	else
+		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
+
+	update_icon()
+	user.update_inv_head()
+
+/obj/item/clothing/head/helmet/fluff/oscar_helmet/update_icon()
+	if(online)
+		icon_state = "oscar_helmet_active"
+		item_state = "oscar_helmet_active"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
+
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet //Bouquet of Chrysanthemums - IRU-Sentiment - niennab
+	name = "bouquet of chrysanthemums"
+	desc = "A bouquet of white artificial chrysanthemum flowers wrapped in a sheet of newsprint."
+	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
+	icon_state = "sentiment_bouquet"
+	item_state = "sentiment_bouquet"
+	can_hold = list(/obj/item/clothing/accessory/fluff/sentiment_flower)
+	starts_with = list(/obj/item/clothing/accessory/fluff/sentiment_flower = 6)
+	storage_slots = 6
+	contained_sprite = TRUE
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet/update_icon()
+	icon_state = "[initial(icon_state)]_[contents.len]"
+	if(contents.len)
+		item_state = initial(item_state)
+	else
+		item_state = "[initial(item_state)]_e"
+
+/obj/item/clothing/accessory/fluff/sentiment_flower //Artificial Chrysanthemum - IRU-Sentiment - niennab
+	name = "artificial chrysanthemum"
+	desc = "An artificial white chrysanthemum flower."
+	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
+	icon_state = "sentiment_flower"
+	item_state = "sentiment_flower"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/head/welding/fluff/ioraks_mask //Iorakian Welding Mask - Kuhserze Ioraks - geeves
+	name = "iorakian welding mask"
+	desc = "A modified version of the standard issue NanoTrasen Engineering Corps welding mask, hand-painted into the colours of the Ioraks clan. Various alterations are clearly \
+	visible, including a darkened visor and refitted straps to keep the mask in place. On the inner side there is an ingraving of the Ioraks clan emblem, an open splayed hand with \
+	its palm facing the observer."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_mask"
+	item_state = "ioraks_mask"
+	contained_sprite = TRUE
+
+/obj/item/storage/box/fluff/ioraks_armbands //Delegation Armbands - Kuhserze Ioraks - geeves
+	name = "delegation armbands box"
+	desc = "A box full of team coloured armbands. It has a small picture of an Unathi's face misprinted on it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armbands"
+	item_state = "ioraks_armbands"
+	can_hold = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband)
+	starts_with = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband = 4, /obj/item/clothing/accessory/armband/fluff/ioraks_armband/alt = 4)
+	storage_slots = 8
+
+/obj/item/clothing/accessory/armband/fluff/ioraks_armband
+	name = "azszau armband"
+	desc = " A quite comfortable armband denoting its wearer as a member of the Azszau team. In fine print on the in-line of the fabric, it has \"The Skilled Hands\" worked into it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armband"
+	item_state = "ioraks_armband"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/armband/fluff/ioraks_armband/alt
+	name = "kutzis armband"
+	desc = "A quite comfortable armband denoting its wearer as a member of the Kutzis team. In fine print on the in-line of the fabric, it has \"The Bright Minds\" worked into it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armband2"
+	item_state = "ioraks_armband2"
+
+
+/obj/item/clothing/accessory/poncho/fluff/solozel_mantle //Maraziite Throw Over - Kasluul Solozel - paradoxspace
+	name = "maraziite throw over"
+	desc = "It's a grey poncho, exclusively donned by the members of the Maraziite Order. This one has a Izweski Hegemony flag boldly sewn onto the shoulder."
+	icon = 'icons/obj/custom_items/solozel_items.dmi'
+	icon_state = "solozel_mantle"
+	item_state = "solozel_mantle"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+/obj/item/clothing/mask/fluff/solozel_mask //Iron Mask - Kasluul Solozel - paradoxspace
+	name = "iron mask"
+	desc = "It's a painted mask of white cast iron, decorated with two massive Hegeranzi horns. This is a slightly older design, worn by the members of the Maraziite Order; used to strike fear into the hearts of heretics."
+	icon = 'icons/obj/custom_items/solozel_items.dmi'
+	icon_state = "solozel_mask"
+	item_state = "solozel_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0
+
+
+/obj/item/cane/fluff/suul_staff //Akhanzi Staff - Suul Akhandi - herpetophilia
+	name = "akhanzi staff"
+	desc = "A staff usually carried by shamans of the Akhanzi Order. It is made out of dark, polished wood and is curved at the end."
+	icon = 'icons/obj/custom_items/suul_staff.dmi'
+	icon_state = "suul_staff"
+	item_state = "suul_staff"
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
+	w_class = 4
+
+/obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user as mob, proximity)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(!proximity)
+		return
+	if (istype(A, /turf/simulated/floor))
+		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
+		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
+		return
+
+
+/obj/item/clothing/accessory/sweater/fluff/cress_sweater //Star Sweater - Emily Cress - mattatlas
+	name = "star sweater"
+	desc = "An army green sweater. It looks well cared for and contains a star on the front, near the neck. To those familiar with it, the star is the same symbol as one of the nation alliances' logos in Earth's history."
+	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_state = "cress_sweater"
+	item_state = "cress_sweater"
+	contained_sprite = TRUE
+
+/obj/item/fluff/cress_book //Lyric Book - Emily Cress - mattatlas
+	name = "lyric book"
+	desc = "An old, faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. A dark purple H is scribbled on the center, along with half a heart on the \
+	left and a cut on the bottom right. The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock."
+	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_state = "cress_book"
+	w_class = 2
+	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
+							"Say Something New: A morose song about companionship, and being unable to continue without an undescribed dear friend. Morose, but overall motivational.",
+							"One By One: A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
+
+/obj/item/fluff/cress_book/attack_self(mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.visible_message("<span class='notice'>[user] begins searching through \the [src] pages.</span>")
+	if(do_after(user, 25))
+		to_chat(user, "<span class='notice'>You read on the pages of \the [src]: [pick(lyrics)]</span>")
+
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
+	name = "developer's laptop"
+	anchored = FALSE
+	screen_on = FALSE
+	icon_state = "laptop-closed"
+	desc = "A portable computer, this one is covered edge-to-edge in stickers. Some stand out; such ones from a 2458 Game Jam, 2459 Game Jam and various title logos from obscure holovid series. Printed on the bottom panel \
+	is \"Hello, world!\" in a bright, monospace font."
+	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
+	..()
+	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
+	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
+	network_card = new /obj/item/computer_hardware/network_card(src)
+	battery_module = new /obj/item/computer_hardware/battery_module(src)
+	battery_module.charge_to_full()
+	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 10
+	nano_printer.stored_paper = 5

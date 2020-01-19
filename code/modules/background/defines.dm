@@ -1,7 +1,7 @@
 //citizenship defines
 #define CITIZENSHIP_BIESEL "Republic of Biesel"
 #define CITIZENSHIP_SOL "Sol Alliance"
-#define CITIZENSHIP_FRONTIER "Frontier Alliance"
+#define CITIZENSHIP_COALITION "Coalition of Colonies"
 #define CITIZENSHIP_ELYRA "Republic of Elyra"
 #define CITIZENSHIP_ERIDANI "Eridani Federation"
 #define CITIZENSHIP_DOMINIA "Empire of Dominia"
@@ -10,7 +10,9 @@
 
 #define CITIZENSHIP_JARGON "Jargon Federation"
 
-#define CITIZENSHIP_PRA	"People's Republic of Adhomai"
+#define CITIZENSHIP_PRA "People's Republic of Adhomai"
+#define CITIZENSHIP_DPRA "Democratic People's Republic of Adhomai"
+#define CITIZENSHIP_NKA "New Kingdom of Adhomai"
 
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
 
@@ -26,6 +28,7 @@
 #define RELIGION_BUDDHISM "Buddhism"
 #define RELIGION_MOROZ "Moroz Holy Tribunal"
 #define RELIGION_TRINARY "Trinary Perfection"
+#define RELIGION_SCARAB "Scarab Folk Beliefs"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"

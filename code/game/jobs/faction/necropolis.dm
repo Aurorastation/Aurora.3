@@ -46,7 +46,6 @@
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
-		/datum/species/tajaran,
 		/datum/species/unathi,
 		/datum/species/diona
 	)
@@ -64,7 +63,7 @@
 		"Phoron Researcher" = /datum/outfit/job/scientist/necropolis,
 		"Xenoarcheologist" = /datum/outfit/job/scientist/necropolis,
 		"Anomalist" = /datum/outfit/job/scientist/necropolis,
-		"Forensics Technician" = /datum/outfit/job/forensics/necropolis,
+		"Forensic Technician" = /datum/outfit/job/forensics/necropolis,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/necropolis,
 		"Roboticist" = /datum/outfit/job/roboticist/necropolis,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/necropolis,
@@ -75,37 +74,37 @@
 /datum/outfit/job/officer/necropolis
 	name = "Security Officer - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
-	id = /obj/item/weapon/card/id/necropolis/sec
+	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/forensics/necropolis
 	name = "Forensics Technician - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
-	id = /obj/item/weapon/card/id/necropolis/sec
+	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/warden/necropolis
 	name = "Warden - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
-	id = /obj/item/weapon/card/id/necropolis/sec
+	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/doctor/necropolis
 	name = "Medical Doctor - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis/research
-	id = /obj/item/weapon/card/id/necropolis
+	id = /obj/item/card/id/necropolis
 
 /datum/outfit/job/pharmacist/necropolis
 	name = "Pharmacist - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis/research
-	id = /obj/item/weapon/card/id/necropolis
+	id = /obj/item/card/id/necropolis
 
 /datum/outfit/job/scientist/necropolis
 	name = "Scientist - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis/research
-	id = /obj/item/weapon/card/id/necropolis
+	id = /obj/item/card/id/necropolis
 
 /datum/outfit/job/roboticist/necropolis
 	name = "Roboticist - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis/research
-	id = /obj/item/weapon/card/id/necropolis
+	id = /obj/item/card/id/necropolis
 
 /datum/outfit/job/representative/necropolis
 	name = "Necropolis Corporate Liaison"
@@ -113,4 +112,4 @@
 	head = null
 	suit = null
 	implants = null
-	id = /obj/item/weapon/card/id/necropolis
+	id = /obj/item/card/id/necropolis

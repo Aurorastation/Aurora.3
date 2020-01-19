@@ -24,20 +24,22 @@
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
 
-	grab_mod = 1.25
+	grab_mod = 2
+	resist_mod = 0.5 // LIKE BABBY
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_SOCKS
 	flags = NO_SLIP
 
 	has_organ = list(
-		"heart" =    /obj/item/organ/heart/skrell,
-		"lungs" =    /obj/item/organ/lungs/skrell,
-		"liver" =    /obj/item/organ/liver/skrell,
-		"kidneys" =  /obj/item/organ/kidneys/skrell,
-		"brain" =    /obj/item/organ/brain/skrell,
-		"appendix" = /obj/item/organ/appendix,
-		"eyes" =     /obj/item/organ/eyes/skrell
+		BP_HEART =    /obj/item/organ/internal/heart/skrell,
+		BP_LUNGS =    /obj/item/organ/internal/lungs/skrell,
+		BP_LIVER =    /obj/item/organ/internal/liver/skrell,
+		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/skrell,
+		BP_BRAIN =    /obj/item/organ/internal/brain/skrell,
+		BP_STOMACH =  /obj/item/organ/internal/stomach,
+		BP_APPENDIX = /obj/item/organ/internal/appendix,
+		BP_EYES =     /obj/item/organ/internal/eyes/skrell
 		)
 
 	flesh_color = "#8CD7A3"
@@ -51,17 +53,19 @@
 	stamina = 90
 	sprint_speed_factor = 1.25 //Evolved for rapid escapes from predators
 
-	inherent_verbs = list(
-	/mob/living/carbon/human/proc/commune,
-	/mob/living/carbon/human/proc/sonar_ping,
-	)
-
 	default_h_style = "Skrell Short Tentacles"
 
-	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
+	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
+	default_citizenship = CITIZENSHIP_JARGON
 
 	zombie_type = "Skrell Zombie"
 
+/datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
+	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)
+
 /datum/species/skrell/can_breathe_water()
+	return TRUE
+
+/datum/species/skrell/can_commune()
 	return TRUE

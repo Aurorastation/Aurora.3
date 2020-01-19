@@ -200,18 +200,35 @@
 
 /obj/item/clothing/head/helmet/unathi
 	name = "unathi helmet"
-	desc = "A helmet designated to be worn by an unathi, used commonly by the hegemony levies."
+	desc = "An outdated helmet designated to be worn by an Unathi, it was commonly used by the Hegemony Levies."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
+/obj/item/clothing/head/helmet/unathi/hegemony
+	name = "hegemony helmet"
+	desc = "A highly armored helmet designated to be worn by an Unathi, a newer variant commonly worn by the Hegemony Levies."
+	icon_state = "hegemony_helmet"
+	item_state = "hegemony_helmet"
+	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
+
+/obj/item/clothing/head/helmet/unathi/klax
+	name = "klaxan hopeful helmet"
+	desc = "A helmet designated to be worn by a K'lax hopeful. The retrofit features a modified shape and an extra two eye visors.."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "klax_hopeful_helmet"
+	item_state = "klax_hopeful_helmet"
+	species_restricted = list("Vaurca")
+	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
+	siemens_coefficient = 0.35
+
 /obj/item/clothing/head/helmet/tank
 	name = "padded cap"
-	desc = "A padded skullcup for those prone to bumping their heads against hard surfaces."
+	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
 	color = "#5f5f5f"
@@ -223,6 +240,9 @@
 
 /obj/item/clothing/head/helmet/tank/tan
 	color = "#ae9f79"
+
+/obj/item/clothing/head/helmet/tank/legion
+	color = "#5674a6"
 
 //Non-hardsuit ERT helmets.
 /obj/item/clothing/head/helmet/ert
@@ -264,24 +284,43 @@
 	desc = "A large helmet meant to fit some pretty big heads. It has a ballistic faceplate on the front of it."
 	icon_state = "legion_helmet"
 	body_parts_covered = HEAD|FACE|EYES
-	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
+	flags_inv = HIDEEARS|HIDEEYES|BLOCKHEADHAIR
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
-/obj/item/clothing/head/helmet/tajara
-	name = "amohdan swordsmen helmet"
-	desc = "A helmet used by the traditional warriors of Amohda."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "amohdan_helmet"
-	item_state = "amohdan_helmet"
-	contained_sprite = TRUE
-	body_parts_covered = HEAD|FACE|EYES
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	species_restricted = list("Tajara")
-	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
-	allow_hair_covering = FALSE
-	description_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
-	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
-	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
-	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
+	action_button_name = "Toggle Helmet Light"
+	light_overlay = "helmet_light_dual"
+	brightness_on = 6
+	light_wedge = LIGHT_WIDE
+	on = 0
+
+/obj/item/clothing/head/helmet/legion_pilot
+	name = "foreign legion flight helmet"
+	desc = "A helmet with an aged pilot visor mounted to it. The visor feeds its wearer in-flight information via a heads-up display."
+	icon_state = "legion_pilot_up"
+	body_parts_covered = null
+	flags_inv = BLOCKHEADHAIR
+	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
+	action_button_name = "Flip Pilot Visor"
+
+/obj/item/clothing/head/helmet/legion_pilot/attack_self()
+	flip_visor()
+
+/obj/item/clothing/head/helmet/legion_pilot/verb/flip_visor()
+	set category = "Object"
+	set name = "Flip pilot visor"
+	var/mob/living/carbon/human/user
+	if(istype(usr,/mob/living/carbon/human))
+		user = usr
+	else
+		return
+	if(icon_state == initial(icon_state))
+		icon_state = "legion_pilot"
+		to_chat(user, "You flip down the pilot visor.")
+		sound_to(user, 'sound/items/goggles_charge.ogg')
+	else
+		icon_state = initial(icon_state)
+		to_chat(user, "You flip up the pilot visor.")
+	update_clothing_icon()
+	user.update_action_buttons()

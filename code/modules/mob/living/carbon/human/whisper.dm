@@ -58,11 +58,8 @@
 		var/list/handle_r = handle_speech_problems(message)
 		message = handle_r[1]
 		verb = handle_r[2]
-		if(verb == "yells loudly")
-			verb = "slurs emphatically"
-		else
-			var/adverb = pick("quietly", "softly")
-			verb = "[verb] [adverb]"
+		var/adverb = pick("quietly", "softly")
+		verb = "[verb] [adverb]"
 
 		speech_problem_flag = handle_r[3]
 
@@ -73,8 +70,8 @@
 
 	//looks like this only appears in whisper. Should it be elsewhere as well? Maybe handle_speech_problems?
 	var/voice_sub
-	if(istype(back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/rig = back
+	if(istype(back,/obj/item/rig))
+		var/obj/item/rig/rig = back
 		// todo: fix this shit
 		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.voice)
 			voice_sub = rig.speech.voice_holder.voice

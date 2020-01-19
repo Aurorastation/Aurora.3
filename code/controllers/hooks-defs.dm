@@ -33,7 +33,7 @@
 /**
  * Debrained hook.
  * Called in brain_item.dm when someone gets debrained.
- * Parameters: var/obj/item/organ/brain
+ * Parameters: var/obj/item/organ/internal/brain
  */
 /hook/debrain
 
@@ -68,14 +68,14 @@
 /**
  * Employee reassignment hook.
  * Called in card.dm when someone's card is reassigned at the HoP's desk.
- * Parameters: var/obj/item/weapon/card/id
+ * Parameters: var/obj/item/card/id
  */
 /hook/reassign_employee
 
 /**
  * Employee suspension hook.
  * Called in card.dm when someone's card is suspended at the HoP's desk.
- * Parameters: var/obj/item/weapon/card/id
+ * Parameters: var/obj/item/card/id
  */
 /hook/suspend_employee
 

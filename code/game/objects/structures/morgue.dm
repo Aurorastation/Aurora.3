@@ -90,6 +90,11 @@
 	update()
 	return
 
+/obj/structure/morgue/attack_robot(var/mob/user)
+	if(Adjacent(user))
+		return attack_hand(user)
+	else return ..()
+
 /obj/structure/morgue/attackby(obj/P, mob/user as mob)
 	if (P.ispen())
 		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
@@ -320,7 +325,7 @@
 			return
 
 	else
-		if(!isemptylist(src.search_contents_for(/obj/item/weapon/disk/nuclear)))
+		if(!isemptylist(src.search_contents_for(/obj/item/disk/nuclear)))
 			to_chat(usr, "You get the feeling that you shouldn't cremate one of the items in the cremator.")
 			return
 

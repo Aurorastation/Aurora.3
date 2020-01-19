@@ -93,6 +93,26 @@ proc/admin_notice(var/message, var/rights)
 		<A href='?src=\ref[src];subtlemessage=\ref[M]'>Subtle message</A>
 	"}
 
+	body += "<br><br>"
+	body += "<b>Psionics:</b><br/>"
+	if(isliving(M))
+		var/mob/living/psyker = M
+		if(psyker.psi)
+			body += "<a href='?src=\ref[src];remove_psionics=\ref[psyker.psi]'>Remove psionics.</a><br/><br/>"
+			body += "<a href='?src=\ref[src];trigger_psi_latencies\ref[psyker.psi]'>Trigger latencies.</a><br/>"
+		body += "<table width = '100%'>"
+		for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
+			var/datum/psionic_faculty/faculty_decl = SSpsi.get_faculty(faculty)
+			var/faculty_rank = psyker.psi ? psyker.psi.get_rank(faculty) : 0
+			body += "<tr><td><b>[faculty_decl.name]</b></td>"
+			for(var/i = 1 to LAZYLEN(psychic_ranks_to_strings))
+				var/psi_title = psychic_ranks_to_strings[i]
+				if(i == faculty_rank)
+					psi_title = "<b>[psi_title]</b>"
+				body += "<td><a href='?src=\ref[psyker.mind];set_psi_faculty_rank=[i];set_psi_faculty=[faculty]'>[psi_title]</a></td>"
+			body += "</tr>"
+		body += "</table>"
+
 	if (M.client)
 		if(!istype(M, /mob/abstract/new_player))
 			body += "<br><br>"
@@ -369,7 +389,7 @@ proc/admin_notice(var/message, var/rights)
 					if(FC.is_admin_channel)
 						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A></FONT></B><BR>"
 					else
-						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
+						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR></B>"
 			dat+={"<BR><HR><A href='?src=\ref[src];ac_refresh=1'>Refresh</A>
 				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>
 			"}
@@ -456,7 +476,7 @@ proc/admin_notice(var/message, var/rights)
 			else
 				for(var/channel in SSnews.network_channels)
 					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+={"
@@ -470,7 +490,7 @@ proc/admin_notice(var/message, var/rights)
 			else
 				for(var/channel in SSnews.network_channels)
 					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>"
 		if(12)
@@ -1126,7 +1146,7 @@ proc/admin_notice(var/message, var/rights)
 		out += "<b>Autotraitor <a href='?src=\ref[SSticker.mode];toggle=autotraitor'>disabled</a></b>.<br/>"
 
 	out += "<b>All antag ids:</b>"
-	if(LAZYLEN(SSticker.mode.antag_templates)).
+	if(LAZYLEN(SSticker.mode.antag_templates))
 		for(var/datum/antagonist/antag in SSticker.mode.antag_templates)
 			antag.update_current_antag_max()
 			out += " <a href='?src=\ref[SSticker.mode];debug_antag=[antag.id]'>[antag.id]</a>"
@@ -1374,8 +1394,8 @@ proc/admin_notice(var/message, var/rights)
 		return
 	if(!check_rights(R_SERVER,0))
 		message = sanitize(message, 500, extra = 0)
-	
-			
+
+
 	var/list/sounds = file2list("sound/serversound_list.txt");
 	sounds += "--CANCEL--"
 	sounds += "--LOCAL--"
@@ -1389,7 +1409,7 @@ proc/admin_notice(var/message, var/rights)
 		melody = input("Select a sound to play", "Sound select") as sound
 		if(!melody)
 			return
-	
+
 	command_announcement.Announce(message, title, new_sound = melody)
 	log_and_message_admins("made custom announcement with custom sound", usr)
 	feedback_add_details("admin_verb","ACS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

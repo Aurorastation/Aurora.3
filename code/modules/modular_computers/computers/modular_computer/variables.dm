@@ -18,7 +18,7 @@
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
 	var/enrolled = 0										// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
-	var/_app_preset_name = ""								// Used for specifying the software preset of the console
+	var/_app_preset_type = null								// Used for specifying the software preset of the console
 	var/ambience_last_played								// Last time sound was played
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
@@ -49,17 +49,17 @@
 	var/max_damage = 100		// Damage level at which the computer breaks apart.
 
 	// Important hardware (must be installed for computer to work)
-	var/obj/item/weapon/computer_hardware/processor_unit/processor_unit				// CPU. Without it the computer won't run. Better CPUs can run more programs at once.
-	var/obj/item/weapon/computer_hardware/network_card/network_card					// Network Card component of this computer. Allows connection to NTNet
-	var/obj/item/weapon/computer_hardware/hard_drive/hard_drive						// Hard Drive component of this computer. Stores programs and files.
+	var/obj/item/computer_hardware/processor_unit/processor_unit				// CPU. Without it the computer won't run. Better CPUs can run more programs at once.
+	var/obj/item/computer_hardware/network_card/network_card					// Network Card component of this computer. Allows connection to NTNet
+	var/obj/item/computer_hardware/hard_drive/hard_drive						// Hard Drive component of this computer. Stores programs and files.
 
 	// Optional hardware (improves functionality, but is not critical for computer to work in most cases)
-	var/obj/item/weapon/computer_hardware/battery_module/battery_module				// An internal power source for this computer. Can be recharged.
-	var/obj/item/weapon/computer_hardware/card_slot/card_slot						// ID Card slot component of this computer. Mostly for HoP modification console that needs ID slot for modification.
-	var/obj/item/weapon/computer_hardware/nano_printer/nano_printer					// Nano Printer component of this computer, for your everyday paperwork needs.
-	var/obj/item/weapon/computer_hardware/hard_drive/portable/portable_drive		// Portable data storage
-	var/obj/item/weapon/computer_hardware/ai_slot/ai_slot							// AI slot, an intellicard housing that allows modifications of AIs.
-	var/obj/item/weapon/computer_hardware/tesla_link/tesla_link						// Tesla Link, Allows remote charging from nearest APC.
+	var/obj/item/computer_hardware/battery_module/battery_module				// An internal power source for this computer. Can be recharged.
+	var/obj/item/computer_hardware/card_slot/card_slot						// ID Card slot component of this computer. Mostly for HoP modification console that needs ID slot for modification.
+	var/obj/item/computer_hardware/nano_printer/nano_printer					// Nano Printer component of this computer, for your everyday paperwork needs.
+	var/obj/item/computer_hardware/hard_drive/portable/portable_drive		// Portable data storage
+	var/obj/item/computer_hardware/ai_slot/ai_slot							// AI slot, an intellicard housing that allows modifications of AIs.
+	var/obj/item/computer_hardware/tesla_link/tesla_link						// Tesla Link, Allows remote charging from nearest APC.
 
 	var/listener/listener	//Listener needed for things
 

@@ -26,8 +26,8 @@
 
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
 	var/list/access_rights
-	var/obj/item/weapon/card/id/idcard
-	var/idcard_type = /obj/item/weapon/card/id/synthetic
+	var/obj/item/card/id/idcard
+	var/idcard_type = /obj/item/card/id/synthetic
 
 	mob_thinks = FALSE
 
@@ -47,6 +47,8 @@
 
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
+	QDEL_NULL(idcard)
+	QDEL_NULL(common_radio)
 	for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
 		AH.unregister_alarm(src)
 	return ..()

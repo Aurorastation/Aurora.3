@@ -22,12 +22,13 @@
 	ethanol_resistance = -1
 	taste_sensitivity = TASTE_NUMB
 
-	meat_type = /obj/item/weapon/ore/coal
+	meat_type = /obj/item/ore/coal
 
 	brute_mod = 2
 	burn_mod = 4
 	virus_immune = 1
 	grab_mod = 2
+	resist_mod = 2
 
 	warning_low_pressure = 50 //golems can into space now
 	hazard_low_pressure = 0
@@ -43,21 +44,21 @@
 	flesh_color = "#5C5B5D"
 
 	has_organ = list(
-		"brain" = /obj/item/organ/brain/golem
+		BP_BRAIN = /obj/item/organ/internal/brain/golem
 		)
 
 	has_limbs = list(
-		"chest" =  list("path" = /obj/item/organ/external/chest/unbreakable),
-		"groin" =  list("path" = /obj/item/organ/external/groin/unbreakable),
-		"head" =   list("path" = /obj/item/organ/external/head/unbreakable),
-		"l_arm" =  list("path" = /obj/item/organ/external/arm/unbreakable),
-		"r_arm" =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
-		"l_leg" =  list("path" = /obj/item/organ/external/leg/unbreakable),
-		"r_leg" =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
-		"l_hand" = list("path" = /obj/item/organ/external/hand/unbreakable),
-		"r_hand" = list("path" = /obj/item/organ/external/hand/right/unbreakable),
-		"l_foot" = list("path" = /obj/item/organ/external/foot/unbreakable),
-		"r_foot" = list("path" = /obj/item/organ/external/foot/right/unbreakable)
+		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
+		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
+		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
+		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
+		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/unbreakable),
+		BP_R_LEG =  list("path" = /obj/item/organ/external/leg/right/unbreakable),
+		BP_L_HAND = list("path" = /obj/item/organ/external/hand/unbreakable),
+		BP_R_HAND = list("path" = /obj/item/organ/external/hand/right/unbreakable),
+		BP_L_FOOT = list("path" = /obj/item/organ/external/foot/unbreakable),
+		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/unbreakable)
 		)
 
 	death_message = "becomes completely motionless..."
@@ -97,6 +98,11 @@
 		sleep(1)
 		new H.species.meat_type(H.loc, rand(3,8))
 		qdel(H)
+
+/datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE
 
 /datum/species/golem/iron
 	name = "Iron Golem"
@@ -342,7 +348,7 @@
 	brute_mod = 3
 	burn_mod = 0.3
 
-	meat_type = /obj/item/weapon/material/shard
+	meat_type = /obj/item/material/shard
 
 	blood_color = "#00E1FF"
 	flesh_color = "#00E1FF"
@@ -380,7 +386,7 @@
 	set waitfor = 0
 	sleep(1)
 	for(var/i in 1 to 5)
-		var/obj/item/weapon/material/shard/T = new meat_type(H.loc)
+		var/obj/item/material/shard/T = new meat_type(H.loc)
 		var/turf/landing = get_step(H, pick(alldirs))
 		addtimer(CALLBACK(T, /atom/movable/.proc/throw_at, landing, 30, 5), 0)
 	qdel(H)
@@ -527,7 +533,7 @@
 	brute_mod = 0.8
 	burn_mod = 2
 
-	meat_type = /obj/item/weapon/material/shard/wood
+	meat_type = /obj/item/material/shard/wood
 
 	blood_color = "#824B28"
 	flesh_color = "#824B28"
@@ -628,7 +634,7 @@
 	burn_mod = 1
 	slowdown = -2
 
-	meat_type = /obj/item/weapon/ore/glass
+	meat_type = /obj/item/ore/glass
 
 	blood_color = "#D9C179"
 	flesh_color = "#D9C179"
@@ -661,7 +667,7 @@
 		glassify(H)
 		return
 
-	if(H.getFireLoss() >= (H.health - config.health_threshold_crit))	//if the sand golem suffered enough burn damage it turns into a glass one
+	if(H.getFireLoss() >= (H.health - H.maxHealth))	//if the sand golem suffered enough burn damage it turns into a glass one
 		glassify(H)
 		return
 
@@ -772,7 +778,7 @@
 	warning_low_pressure = WARNING_LOW_PRESSURE
 	hazard_low_pressure = HAZARD_LOW_PRESSURE
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 
 	blood_color = "#5C4831"
 	flesh_color = "#FFC896"

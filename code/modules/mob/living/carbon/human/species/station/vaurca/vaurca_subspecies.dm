@@ -7,11 +7,15 @@
 	greater_form = "Vaurca Breeder"
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
+
 	brute_mod = 0.7
 	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
+
 	grab_mod = 1.25
+	resist_mod = 1.75
+
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
@@ -142,14 +146,14 @@
 
 	has_organ = list(
 		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
-		"lungs"               = /obj/item/organ/lungs/vaurca,
-		"right heart"         = /obj/item/organ/heart/right,
-		"left heart"          = /obj/item/organ/heart/left,
+		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
+		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
 		"phoron reservoir"    = /obj/item/organ/vaurca/reservoir,
-		"mechanical liver"    = /obj/item/organ/liver/vaurca/robo,
-		"mechanical kidneys"  = /obj/item/organ/kidneys/vaurca/robo,
-		"brain"               = /obj/item/organ/brain/vaurca,
-		"eyes"                = /obj/item/organ/eyes/vaurca,
+		"mechanical liver"    = /obj/item/organ/internal/liver/vaurca/robo,
+		"mechanical kidneys"  = /obj/item/organ/internal/kidneys/vaurca/robo,
+		BP_STOMACH            = /obj/item/organ/internal/stomach,
+		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
 		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
 	)
 

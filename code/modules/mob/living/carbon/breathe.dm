@@ -2,7 +2,7 @@
 
 //Start of a breath chain, calls breathe()
 /mob/living/carbon/handle_breathing()
-	if(SSair.times_fired%4==2 || failed_last_breath || (health < config.health_threshold_crit)) 	//First, resolve location and get a breath
+	if(SSair.times_fired%4==2 || failed_last_breath || is_asystole()) 	//First, resolve location and get a breath
 		breathe()
 
 /mob/living/carbon/proc/inhale(var/datum/reagents/from, var/datum/reagents/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE)
@@ -21,7 +21,6 @@
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
 
 /mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
-	//if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell)) return
 	if(species && (species.flags & NO_BREATHE)) return
 	
 	volume_needed *= (species?.breath_vol_mul || 1)
@@ -29,13 +28,13 @@
 	var/datum/gas_mixture/breath = null
 
 	//First, check if we can breathe at all
-	if(health < config.health_threshold_crit && !(CE_STABLE in chem_effects)) //crit aka circulatory shock
+	if(is_asystole() && !(CE_STABLE in chem_effects)) //crit aka circulatory shock
 		losebreath++
 
 	if(losebreath>0) //Suffocating so do not take a breath
 		losebreath--
-		if (prob(10) && !isipc(src)) //Gasp per 10 ticks? Sounds about right.
-			spawn emote("gasp")
+		if (prob(10) && !isipc(src) && !is_asystole()) //Gasp per 10 ticks? Sounds about right.
+			emote("gasp")
 	else
 		//Okay, we can breathe, now check if we can get air
 		breath = get_breath_from_internal(volume_needed) //First, check for air from internals

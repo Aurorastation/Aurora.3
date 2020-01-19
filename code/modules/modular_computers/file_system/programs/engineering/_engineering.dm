@@ -72,7 +72,7 @@
 	requires_ntnet = 1
 	network_destination = "atmospheric control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_SILICON
 	size = 17
 	color = LIGHT_COLOR_CYAN
 
@@ -87,7 +87,7 @@
 	requires_ntnet = 1
 	network_destination = "RCON remote control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON
 	size = 19
 	color = LIGHT_COLOR_GREEN
 
@@ -103,6 +103,6 @@
 	requires_ntnet = 1
 	network_destination = "APC Coordinator"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON
 	size = 9
 	color = LIGHT_COLOR_GREEN

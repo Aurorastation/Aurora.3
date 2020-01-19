@@ -30,12 +30,12 @@
 /obj/structure/filingcabinet/Initialize()
 	. = ..()
 	for(var/obj/item/I in loc)
-		if(istype(I, /obj/item/weapon/paper) || istype(I, /obj/item/weapon/folder) || istype(I, /obj/item/weapon/photo) || istype(I, /obj/item/weapon/paper_bundle))
+		if(istype(I, /obj/item/paper) || istype(I, /obj/item/folder) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
 			I.forceMove(src)
 
 
 /obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
-	if(istype(P, /obj/item/weapon/paper) || istype(P, /obj/item/weapon/folder) || istype(P, /obj/item/weapon/photo) || istype(P, /obj/item/weapon/paper_bundle))
+	if(istype(P, /obj/item/paper) || istype(P, /obj/item/folder) || istype(P, /obj/item/photo) || istype(P, /obj/item/paper_bundle))
 		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
 		user.drop_from_inventory(P,src)
 		flick("[initial(icon_state)]-open",src)
@@ -65,23 +65,6 @@
 
 	return
 
-/obj/structure/filingcabinet/attack_tk(mob/user)
-	if(anchored)
-		attack_self_tk(user)
-	else
-		..()
-
-/obj/structure/filingcabinet/attack_self_tk(mob/user)
-	if(contents.len)
-		if(prob(40 + contents.len * 5))
-			var/obj/item/I = pick(contents)
-			I.forceMove(loc)
-			if(prob(25))
-				step_rand(I)
-			to_chat(user, "<span class='notice'>You pull \a [I] out of [src] at random.</span>")
-			return
-	to_chat(user, "<span class='notice'>You find nothing in [src].</span>")
-
 /obj/structure/filingcabinet/Topic(href, href_list)
 	if(href_list["retrieve"])
 		usr << browse("", "window=filingcabinet") // Close the menu)
@@ -109,14 +92,14 @@
 	if(virgin)
 		for(var/datum/record/general/R in SSrecords.records)
 			if(istype(R) && istype(R.security))
-				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src)
+				var/obj/item/paper/P = new /obj/item/paper(src)
 				P.info = "<CENTER><B>Security Record</B></CENTER><BR>"
 				P.info += {"
 Name: [R.name] ID: [R.id]<BR>
 Sex: [R.sex]<BR>
 Age: [R.age]<BR>
 Fingerprint: [R.fingerprint]<BR>
-Physical Status: [R.phisical_status]<BR>
+Physical Status: [R.physical_status]<BR>
 Mental Status: [R.mental_status]<BR>
 <BR>
 <CENTER><B>Security Data</B></CENTER><BR>
@@ -138,7 +121,7 @@ Important Notes:<BR>
 	populate()
 	..()
 
-/obj/structure/filingcabinet/security/attack_tk()
+/obj/structure/filingcabinet/security/do_simple_ranged_interaction(var/mob/user)
 	populate()
 	..()
 
@@ -152,14 +135,14 @@ Important Notes:<BR>
 	if(virgin)
 		for(var/datum/record/general/R in SSrecords.records)
 			if(istype(R) && istype(R.medical))
-				var/obj/item/weapon/paper/P = new /obj/item/weapon/paper(src)
+				var/obj/item/paper/P = new /obj/item/paper(src)
 				var/info = "<CENTER><B>Medical Record</B></CENTER><BR>"
 				info += {"
 Name: [R.name] ID: [R.id]<BR>
 Sex: [R.sex]<BR>
 Age: [R.age]<BR>
 Fingerprint: [R.fingerprint]<BR>
-Physical Status: [R.phisical_status]<BR>
+Physical Status: [R.physical_status]<BR>
 Mental Status: [R.mental_status]<BR>
 <BR>
 <CENTER><B>Medical Data</B></CENTER><BR>
@@ -185,6 +168,6 @@ Important Notes:<BR>
 	populate()
 	..()
 
-/obj/structure/filingcabinet/medical/attack_tk()
+/obj/structure/filingcabinet/medical/do_simple_ranged_interaction(var/mob/user)
 	populate()
 	..()

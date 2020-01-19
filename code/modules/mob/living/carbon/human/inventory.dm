@@ -38,44 +38,44 @@ This saves us from having to call add_fingerprint() any time something is put in
 /mob/living/carbon/human/proc/has_organ_for_slot(slot)
 	switch(slot)
 		if(slot_back)
-			return has_organ("chest")
+			return has_organ(BP_CHEST)
 		if(slot_wear_mask)
-			return has_organ("head")
+			return has_organ(BP_HEAD)
 		if(slot_handcuffed)
-			return has_organ("l_hand") && has_organ("r_hand")
+			return has_organ(BP_L_HAND) && has_organ(BP_R_HAND)
 		if(slot_legcuffed)
-			return has_organ("l_leg") && has_organ("r_leg")
+			return has_organ(BP_L_LEG) && has_organ(BP_R_LEG)
 		if(slot_l_hand)
-			return has_organ("l_hand")
+			return has_organ(BP_L_HAND)
 		if(slot_r_hand)
-			return has_organ("r_hand")
+			return has_organ(BP_R_HAND)
 		if(slot_belt)
-			return has_organ("chest")
+			return has_organ(BP_CHEST)
 		if(slot_wear_id)
 			// the only relevant check for this is the uniform check
 			return 1
 		if(slot_l_ear)
-			return has_organ("head")
+			return has_organ(BP_HEAD)
 		if(slot_r_ear)
-			return has_organ("head")
+			return has_organ(BP_HEAD)
 		if(slot_glasses)
-			return has_organ("head")
+			return has_organ(BP_HEAD)
 		if(slot_gloves)
-			return has_organ("l_hand") || has_organ("r_hand")
+			return has_organ(BP_L_HAND) || has_organ(BP_R_HAND)
 		if(slot_head)
-			return has_organ("head")
+			return has_organ(BP_HEAD)
 		if(slot_shoes)
-			return has_organ("r_foot") || has_organ("l_foot")
+			return has_organ(BP_R_FOOT) || has_organ(BP_L_FOOT)
 		if(slot_wear_suit)
-			return has_organ("chest")
+			return has_organ(BP_CHEST)
 		if(slot_w_uniform)
-			return has_organ("chest")
+			return has_organ(BP_CHEST)
 		if(slot_l_store)
-			return has_organ("chest")
+			return has_organ(BP_CHEST)
 		if(slot_r_store)
-			return has_organ("chest")
+			return has_organ(BP_CHEST)
 		if(slot_s_store)
-			return has_organ("chest")
+			return has_organ(BP_CHEST)
 		if(slot_in_backpack)
 			return 1
 		if(slot_tie)
@@ -234,7 +234,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 				var/obj/item/clothing/ears/offear/O = new(W)
 				O.forceMove(src)
 				src.r_ear = O
-				O.layer = 20
+				O.layer = SCREEN_LAYER+0.01
 			W.equipped(src, slot)
 			update_inv_ears(redraw_mob)
 		if(slot_r_ear)
@@ -243,7 +243,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 				var/obj/item/clothing/ears/offear/O = new(W)
 				O.forceMove(src)
 				src.l_ear = O
-				O.layer = 20
+				O.layer = SCREEN_LAYER+0.01
 			W.equipped(src, slot)
 			update_inv_ears(redraw_mob)
 		if(slot_glasses)
@@ -311,7 +311,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 		src.r_hand = null
 		update_inv_r_hand()
 
-	W.layer = 20
+	W.layer = SCREEN_LAYER+0.01
 
 	if(W.action_button_name)
 		update_action_buttons()

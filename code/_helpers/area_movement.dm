@@ -57,6 +57,9 @@
 		if (!ST)	// Excluded turfs are null to keep the list ordered.
 			continue
 
+		if(istype(ST, /turf/unsimulated) || istype(ST, /turf/space))
+			ST.ChangeTurf(A.base_turf, 1, 0, 1)
+
 		var/turf/TT = ST.copy_turf(target_turfs[i])
 
 		for (var/thing in ST)
