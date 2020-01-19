@@ -70,6 +70,17 @@
 		/obj/item/powerdrill = 1
 	)
 
+/obj/item/storage/belt/utility/very_full
+	starts_with = list(
+		/obj/item/weldingtool/largetank = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1,
+		/obj/item/device/multitool = 1,
+		/obj/item/device/radio = 1
+	)
+
 
 /obj/item/storage/belt/utility/atmostech
 	starts_with = list(

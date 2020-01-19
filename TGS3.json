@@ -14,7 +14,8 @@
     ],
     "static_directories": [
       "config",
-      "data"
+      "data",
+      "dynamic_maps"
     ],
     "dlls": [
       "libmysql.dll"

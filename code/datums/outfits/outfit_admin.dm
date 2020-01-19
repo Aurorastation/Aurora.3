@@ -135,7 +135,7 @@
 	back = /obj/item/storage/backpack/satchel
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/heads/hop
+	l_ear = /obj/item/device/radio/headset/ert/ccia
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id
 
@@ -334,6 +334,46 @@
 	)
 
 	id_access = "Death Commando"
+
+/datum/outfit/admin/nt/fib
+	name = "FIB Agent"
+
+	uniform = /obj/item/clothing/under/rank/fib
+	suit = /obj/item/clothing/suit/storage/fib
+	gloves = /obj/item/clothing/gloves/black
+
+	l_pocket = /obj/item/reagent_containers/spray/pepper
+	r_pocket = /obj/item/device/taperecorder/cciaa
+	l_hand = /obj/item/storage/lockbox/cciaa/fib
+
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
+
+	backpack_contents = list(
+		/obj/item/storage/box/engineer = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/handcuffs = 1
+	)
+
+/datum/outfit/admin/nt/fib/guard
+	name = "FIB Escort"
+
+	suit = /obj/item/clothing/suit/armor/vest/fib
+	belt =/obj/item/storage/belt/security
+	r_pocket = null
+	l_hand = null
+	belt_contents = list(
+		/obj/item/device/flash = 1,
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/handcuffs = 2,
+		/obj/item/ammo_magazine/c45m = 2
+	)
+
+	backpack_contents = list(
+		/obj/item/storage/box/engineer = 1,
+		/obj/item/storage/box/zipties = 1,
+		/obj/item/clothing/head/helmet = 1
+	)
 
 
 /datum/outfit/admin/pirate

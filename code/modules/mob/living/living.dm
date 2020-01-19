@@ -178,7 +178,7 @@ default behaviour is:
 
 /mob/living/verb/succumb()
 	set hidden = 1
-	if (health < maxHealth/2)
+	if (health < maxHealth / 3)
 		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
 		to_chat(src, "<span class='notice'>You have given up life and succumbed to death.</span>")
 	else

@@ -235,3 +235,7 @@
 	load_method = SINGLE_CASING
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
+
+	description_fluff = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
+	mechanism, with the need to manually eject each of the used cartridges, and reload one cartridge at a time through a loading gate. However, their cheap manufacturing cost has \
+	allowed countless copies to flood the Kingdom's markets."

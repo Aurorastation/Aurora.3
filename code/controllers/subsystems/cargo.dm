@@ -559,7 +559,15 @@ var/datum/controller/subsystem/cargo/SScargo
 //To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
 /datum/controller/subsystem/cargo/proc/forbidden_atoms_check(atom/A)
 	if(istype(A,/mob/living))
-		return 1
+		var/mob/living/mob_to_send = A
+		var/mob_is_for_bounty = FALSE
+		if(!mob_to_send.mind)
+			for(var/bounty in bounties_list)
+				var/datum/bounty/B = bounty
+				if(B.applies_to(mob_to_send))
+					mob_is_for_bounty = TRUE
+		if(!mob_is_for_bounty)
+			return 1
 	if(istype(A,/obj/item/disk/nuclear))
 		return 1
 	if(istype(A,/obj/machinery/nuclearbomb))

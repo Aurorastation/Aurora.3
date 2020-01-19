@@ -29,5 +29,7 @@
 	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/stimulants
 
-
-
+/datum/uplink_item/item/medical/firstaid
+	name = "Standard First-Aid Kit"
+	item_cost = 6
+	path = /obj/item/storage/firstaid/regular

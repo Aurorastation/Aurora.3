@@ -106,6 +106,19 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/head/flowercrown
+	display_name = "flowercrown selection"
+	description = "A set of flowercrowns, perfect for the queen or even the king."
+	path = /obj/item/clothing/head
+
+/datum/gear/head/flowercrown/New()
+	..()
+	var/flowercrown = list()
+	flowercrown["crown, sunflower"] = /obj/item/clothing/head/sunflower_crown
+	flowercrown["crown, harebell"] = /obj/item/clothing/head/lavender_crown
+	flowercrown["crown, poppy"] = /obj/item/clothing/head/poppy_crown
+	gear_tweaks += new/datum/gear_tweak/path(flowercrown)
+
 /datum/gear/head/pin
 	display_name = "pin selection"
 	path = /obj/item/clothing/head/pin
@@ -221,10 +234,17 @@
 	path = /obj/item/clothing/head/soft/iacberet
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
 
-/datum/gear/head/tcflberet
-	display_name = "Tau Ceti Foreign Legion dress beret"
-	path = /obj/item/clothing/head/legion_beret
-
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
 	path = /obj/item/clothing/head/circuitry
+
+/datum/gear/head/tcfl
+	display_name = "tcfl hat selection"
+	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/tcfl/New()
+	..()
+	var/tcfl = list()
+	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/legion_beret
+	tcfl["tcfl beret, field"] = /obj/item/clothing/head/legion
+	gear_tweaks += new/datum/gear_tweak/path(tcfl)
