@@ -135,6 +135,8 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 		return
 
 	if(href_list["cams"] && eye)
+		if(!eye.attached_console)
+			eye.attached_console = computer
 		active = eye.toggle_eye(usr)
 
 	if(href_list["uplink"])
