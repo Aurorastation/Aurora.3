@@ -62,7 +62,8 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/firstaid/regular = 1
+		/obj/item/storage/firstaid/regular = 1,
+		/obj/item/gun/projectile/automatic/x9 = 1
 	)
 
 	belt_contents = list(
