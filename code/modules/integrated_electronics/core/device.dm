@@ -42,13 +42,13 @@
 //Called when another assembly acts on this one, var/radio will determine where it came from for wire calcs
 /obj/item/device/assembly/electronic_assembly/pulsed(radio = 0)
 	if(EA)
-		for(var/obj/item/integrated_circuit/built_in/device_input/I in EA.contents)
+		for(var/obj/item/integrated_circuit/built_in/device_input/I in EA.assembly_components)
 			I.do_work()
 
 /obj/item/device/assembly/electronic_assembly/examine(mob/user)
 	. = ..(user, 1)
 	if(EA)
-		for(var/obj/item/integrated_circuit/IC in EA.contents)
+		for(var/obj/item/integrated_circuit/IC in EA.assembly_components)
 			IC.external_examine(user)
 
 /obj/item/device/assembly/electronic_assembly/verb/toggle()

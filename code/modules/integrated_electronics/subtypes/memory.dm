@@ -1,32 +1,27 @@
 /obj/item/integrated_circuit/memory
-	complexity = 1
-	category_text = "Memory"
-	power_draw_per_use = 1
-
-/obj/item/integrated_circuit/memory/storage
 	name = "memory chip"
-	icon_state = "memory1"
 	desc = "This tiny chip can store one piece of data."
+	icon_state = "memory"
+	complexity = 1
 	inputs = list()
 	outputs = list()
-	activators = list(
-		"set" = IC_PINTYPE_PULSE_IN,
-		"on set" = IC_PINTYPE_PULSE_OUT
-	)
+	activators = list("set" = IC_PINTYPE_PULSE_IN, "on set" = IC_PINTYPE_PULSE_OUT)
+	category_text = "Memory"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	power_draw_per_use = 1
 	var/number_of_pins = 1
 
-/obj/item/integrated_circuit/memory/storage/Initialize()
+/obj/item/integrated_circuit/memory/Initialize()
 	for(var/i = 1 to number_of_pins)
 		inputs["input [i]"] = IC_PINTYPE_ANY // This is just a string since pins don't get built until ..() is called.
 		outputs["output [i]"] = IC_PINTYPE_ANY
 	complexity = number_of_pins
 	. = ..()
 
-/obj/item/integrated_circuit/memory/storage/examine(mob/user)
-	..()
+/obj/item/integrated_circuit/memory/examine(mob/user)
+	. = ..()
 	var/i
-	for (i in 1 to outputs.len)
+	for(i = 1, i <= outputs.len, i++)
 		var/datum/integrated_io/O = outputs[i]
 		var/data = "nothing"
 		if(isweakref(O.data))
@@ -37,90 +32,108 @@
 			data = O.data
 		to_chat(user, "\The [src] has [data] saved to address [i].")
 
-/obj/item/integrated_circuit/memory/storage/do_work()
+/obj/item/integrated_circuit/memory/do_work()
 	for(var/i = 1 to inputs.len)
-		var/data = get_pin_data(IC_INPUT, i)
-		set_pin_data(IC_OUTPUT, i, data)
-	push_data()
+		var/datum/integrated_io/I = inputs[i]
+		var/datum/integrated_io/O = outputs[i]
+		O.data = I.data
+		O.push_data()
 	activate_pin(2)
 
-/obj/item/integrated_circuit/memory/storage/medium
-	name = "memory circuit"
+/obj/item/integrated_circuit/memory/tiny
+	name = "small memory circuit"
+	desc = "This circuit can store two pieces of data."
+	icon_state = "memory4"
+	power_draw_per_use = 2
+	number_of_pins = 2
+
+/obj/item/integrated_circuit/memory/medium
+	name = "medium memory circuit"
 	desc = "This circuit can store four pieces of data."
 	icon_state = "memory4"
 	power_draw_per_use = 2
 	number_of_pins = 4
 
-/obj/item/integrated_circuit/memory/storage/large
+/obj/item/integrated_circuit/memory/large
 	name = "large memory circuit"
-	desc = "This big circuit can hold eight pieces of data."
+	desc = "This big circuit can store eight pieces of data."
 	icon_state = "memory8"
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 	power_draw_per_use = 4
 	number_of_pins = 8
 
-/obj/item/integrated_circuit/memory/storage/huge
+/obj/item/integrated_circuit/memory/huge
 	name = "large memory stick"
-	desc = "This stick of memory can hold up up to sixteen pieces of data."
+	desc = "This stick of memory can store up up to sixteen pieces of data."
 	icon_state = "memory16"
-	w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_SMALL
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4)
 	power_draw_per_use = 8
 	number_of_pins = 16
 
 /obj/item/integrated_circuit/memory/constant
 	name = "constant chip"
 	desc = "This tiny chip can store one piece of data, which cannot be overwritten without disassembly."
-	icon_state = "memory1"
+	icon_state = "memory"
 	inputs = list()
 	outputs = list("output pin" = IC_PINTYPE_ANY)
-	activators = list(
-		"push data" = IC_PINTYPE_PULSE_IN,
-		"on push" = IC_PINTYPE_PULSE_OUT
-	)
-	var/accepting_refs = 0
+	activators = list("push data" = IC_PINTYPE_PULSE_IN)
+	var/accepting_refs = FALSE
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	var/data
+	number_of_pins = 0
 
 /obj/item/integrated_circuit/memory/constant/do_work()
-	set_pin_data(IC_OUTPUT, 1, data)
-	push_data()
-	activate_pin(2)
+	var/datum/integrated_io/O = outputs[1]
+	O.push_data()
+
+/obj/item/integrated_circuit/memory/constant/emp_act()
+	for(var/i in 1 to activators.len)
+		var/datum/integrated_io/activate/A = activators[i]
+		A.scramble()
+
+/obj/item/integrated_circuit/memory/constant/save_special()
+	var/datum/integrated_io/O = outputs[1]
+	if(istext(O.data) || isnum(O.data))
+		return O.data
+
+/obj/item/integrated_circuit/memory/constant/load_special(special_data)
+	var/datum/integrated_io/O = outputs[1]
+	if(istext(special_data) || isnum(special_data))
+		O.data = special_data
 
 /obj/item/integrated_circuit/memory/constant/attack_self(mob/user)
 	var/datum/integrated_io/O = outputs[1]
-	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number","ref", "null")
-	if(!CanInteract(user, physical_state))
+	if(!user.IsAdvancedToolUser())
 		return
+	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number","ref", "null")
 
 	var/new_data = null
 	switch(type_to_use)
 		if("string")
-			accepting_refs = 0
-			new_data = sanitize(input("Now type in a string.","[src] string writing") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
-			if(istext(new_data) && CanInteract(user, physical_state))
-				data = new_data
-				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(data)].</span>")
+			accepting_refs = FALSE
+			new_data = input("Now type in a string.","[src] string writing") as null|text
+			if(istext(new_data) && user.IsAdvancedToolUser())
+				O.data = new_data
+				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(O.data)].</span>")
 		if("number")
-			accepting_refs = 0
+			accepting_refs = FALSE
 			new_data = input("Now type in a number.","[src] number writing") as null|num
-			if(isnum(new_data) && CanInteract(user, physical_state))
-				data = new_data
-				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(data)].</span>")
+			if(isnum(new_data) && user.IsAdvancedToolUser())
+				O.data = new_data
+				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(O.data)].</span>")
 		if("ref")
-			accepting_refs = 1
+			accepting_refs = TRUE
 			to_chat(user, "<span class='notice'>You turn \the [src]'s ref scanner on.  Slide it across \
 			an object for a ref of that object to save it in memory.</span>")
 		if("null")
-			data = null
+			O.data = null
 			to_chat(user, "<span class='notice'>You set \the [src]'s memory to absolutely nothing.</span>")
 
 /obj/item/integrated_circuit/memory/constant/afterattack(atom/target, mob/living/user, proximity)
+	. = ..()
 	if(accepting_refs && proximity)
 		var/datum/integrated_io/O = outputs[1]
-		data = WEAKREF(target)
-		visible_message("<span class='notice'>[user] slides [src]'s ref scanner over \the [target].</span>")
-		to_chat(user, "<span class='notice'>You set \the [src]'s memory to a reference to [O.display_data(data)].  The ref scanner is \
+		O.data = weakref(target)
+		visible_message("<span class='notice'>[user] slides \a [src]'s over \the [target].</span>")
+		to_chat(user, "<span class='notice'>You set \the [src]'s memory to a reference to [O.display_data(O.data)].  The ref scanner is \
 		now off.</span>")
-		accepting_refs = 0
+		accepting_refs = FALSE

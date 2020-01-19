@@ -1,7 +1,5 @@
 // Generic subtypes without a lot of special code.
 
-// Small assemblies.
-
 /obj/item/device/electronic_assembly/default
 	name = "type-a electronic assembly"
 
@@ -23,12 +21,21 @@
 /obj/item/device/electronic_assembly/hook
 	name = "type-e electronic assembly"
 	icon_state = "setup_small_hook"
-	desc = "It's a case, for building small electronics with. This one looks like it has a belt clip, but it's purely decorative."
+	desc = "It's a case, for building small electronics with. This one looks like it has a belt clip."
+	slot_flags = SLOT_BELT
 
 /obj/item/device/electronic_assembly/pda
 	name = "type-f electronic assembly"
 	icon_state = "setup_small_pda"
 	desc = "It's a case, for building small electronics with. This one resembles a PDA."
+	slot_flags = SLOT_BELT | SLOT_ID
+
+// TODO: Add this one?
+/obj/item/device/electronic_assembly/augment
+	name = "augment electronic assembly"
+	icon_state = "setup_augment"
+	desc = "It's a case, for building small electronics with. This one is designed to go inside a cybernetic augment."
+	circuit_flags = IC_FLAG_CAN_FIRE
 
 // Tiny assemblies.
 
@@ -56,7 +63,8 @@
 /obj/item/device/electronic_assembly/tiny/hook
 	name = "type-d electronic device"
 	icon_state = "setup_device_hook"
-	desc = "It's a case, for building tiny-sized electronics with. This one looks like it has a belt clip, but it's purely decorative."
+	desc = "It's a case, for building tiny-sized electronics with. This one looks like it has a belt clip."
+	slot_flags = SLOT_BELT
 
 /obj/item/device/electronic_assembly/tiny/box
 	name = "type-e electronic device"
@@ -72,6 +80,7 @@
 	w_class = ITEMSIZE_NORMAL
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
+	health = 20
 
 /obj/item/device/electronic_assembly/medium/default
 	name = "type-a electronic mechanism"
@@ -101,6 +110,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi',
 		)
+	circuit_flags = IC_FLAG_CAN_FIRE | IC_FLAG_ANCHORABLE
 
 /obj/item/device/electronic_assembly/medium/radio
 	name = "type-f electronic mechanism"
@@ -116,7 +126,8 @@
 	w_class = ITEMSIZE_LARGE
 	max_components = IC_COMPONENTS_BASE * 4
 	max_complexity = IC_COMPLEXITY_BASE * 4
-	can_anchor = TRUE
+	circuit_flags = IC_FLAG_ANCHORABLE
+	health = 30
 
 /obj/item/device/electronic_assembly/large/default
 	name = "type-a electronic machine"
@@ -152,10 +163,12 @@
 	name = "electronic drone"
 	icon_state = "setup_drone"
 	desc = "It's a case, for building mobile electronics with."
-	w_class = ITEMSIZE_NORMAL
-	max_components = IC_COMPONENTS_BASE * 1.5
-	max_complexity = IC_COMPLEXITY_BASE * 1.5
-	can_anchor = FALSE
+	w_class = ITEMSIZE_LARGE
+	max_components = IC_COMPONENTS_BASE * 3
+	max_complexity = IC_COMPLEXITY_BASE * 3
+	allowed_circuit_action_flags = IC_ACTION_MOVEMENT | IC_ACTION_COMBAT | IC_ACTION_LONG_RANGE
+	circuit_flags = 0
+	health = 50
 
 /obj/item/device/electronic_assembly/drone/can_move()
 	return TRUE
@@ -198,7 +211,8 @@
 	w_class = ITEMSIZE_NORMAL
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
-	can_anchor = TRUE
+	circuit_flags = IC_FLAG_ANCHORABLE
+	health = 10
 
 /obj/item/device/electronic_assembly/wallmount/proc/mount_assembly(turf/on_wall, mob/user)
 	if(get_dist(on_wall,user) > 1)

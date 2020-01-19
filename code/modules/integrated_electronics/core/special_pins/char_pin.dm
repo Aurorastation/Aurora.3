@@ -3,9 +3,10 @@
 	name = "char pin"
 
 /datum/integrated_io/char/ask_for_pin_data(mob/user)
-	var/new_data = sanitize(input("Please type in one character.","[src] char writing") as null|text)
+	var/new_data = input(user, "Please type in one character.", "[src] char writing]") as text
+	new_data = sanitize(new_data, 1, trim=0)
 	if(holder.check_interactivity(user) )
-		to_chat(user, "<span class='notice'>You input [new_data ? "'[new_data]'" : "NULL"] into the pin.</span>")
+		to_chat(user, "<span class='notice'>You input [new_data ? "new_data" : "NULL"] into the pin.</span>")
 		write_data_to_pin(new_data)
 
 /datum/integrated_io/char/write_data_to_pin(var/new_data)
@@ -19,7 +20,7 @@
 /datum/integrated_io/char/scramble()
 	if(!is_valid())
 		return
-	var/list/options = list("!","@","#","$","%","^","&","*") + alphabet_uppercase
+	var/list/options = list("!","@","#","$","%","^","&","*","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
 	data = pick(options)
 	push_data()
 

@@ -44,3 +44,13 @@
 			if(65 to 70)	. += ascii2text(ascii+32)	//letters A to F - translates to lowercase
 			else			return default
 	return .
+
+// Checks if the given input is a valid list index; returns true/false and doesn't change anything.
+/proc/is_valid_index(input, list/given_list)
+	if(!isnum(input))
+		return FALSE
+	if(input != round(input))
+		return FALSE
+	if(input < 1 || input > length(given_list))
+		return FALSE
+	return TRUE

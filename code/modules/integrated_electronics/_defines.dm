@@ -1,3 +1,9 @@
+#define IC_TOPIC_UNHANDLED 0
+#define IC_TOPIC_HANDLED 1
+#define IC_TOPIC_REFRESH 2
+#define IC_FLAG_ANCHORABLE 1
+#define IC_FLAG_CAN_FIRE 2
+
 #define IC_INPUT     "input"
 #define IC_OUTPUT    "output"
 #define IC_ACTIVATOR "activator"
@@ -10,6 +16,11 @@
 #define IC_SPAWN_DEFAULT  1 // If the circuit comes in the default circuit box and able to be printed in the IC printer.
 #define IC_SPAWN_RESEARCH 2 // If the circuit design will be available in the IC printer after upgrading it.
 
+// Categories that help differentiate circuits that can do different tipes of actions
+#define IC_ACTION_MOVEMENT		(1<<0) // If the circuit can move the assembly
+#define IC_ACTION_COMBAT		(1<<1) // If the circuit can cause harm
+#define IC_ACTION_LONG_RANGE	(1<<2) // If the circuit communicate with something outside of the assembly
+
 // Displayed along with the pin name to show what type of pin it is.
 #define IC_FORMAT_ANY     "\<ANY\>"
 #define IC_FORMAT_STRING  "\<TEXT\>"
@@ -20,6 +31,7 @@
 #define IC_FORMAT_BOOLEAN "\<BOOL\>"
 #define IC_FORMAT_REF     "\<REF\>"
 #define IC_FORMAT_LIST    "\<LIST\>"
+#define IC_FORMAT_INDEX   "\<INDEX\>"
 
 #define IC_FORMAT_PULSE   "\<PULSE\>"
 
@@ -32,36 +44,11 @@
 #define IC_PINTYPE_DIR     /datum/integrated_io/dir
 #define IC_PINTYPE_BOOLEAN /datum/integrated_io/boolean
 #define IC_PINTYPE_REF     /datum/integrated_io/ref
-#define IC_PINTYPE_LIST    /datum/integrated_io/list
+#define IC_PINTYPE_LIST    /datum/integrated_io/lists
+#define IC_PINTYPE_INDEX   /datum/integrated_io/index
 
 #define IC_PINTYPE_PULSE_IN  /datum/integrated_io/activate
 #define IC_PINTYPE_PULSE_OUT /datum/integrated_io/activate/out
 
 // Data limits.
 #define IC_MAX_LIST_LENGTH 200
-
-/obj/item/integrated_circuit
-	name = "integrated circuit"
-	desc = "It's a tiny chip!  This one doesn't seem to do much, however."
-	icon = 'icons/obj/assemblies/electronic_components.dmi'
-	icon_state = "template"
-	w_class = ITEMSIZE_TINY
-	var/obj/item/device/electronic_assembly/assembly // Reference to the assembly holding this circuit, if any.
-	var/extended_desc
-	var/list/inputs = list()
-	var/list/inputs_default = list()  // Assoc list which will fill a pin with data upon creation.  e.g. "2" = 0 will set input pin 2 to equal 0 instead of null.
-	var/list/outputs = list()
-	var/list/outputs_default = list() // Ditto, for output.
-	var/list/activators = list()
-	var/next_use = 0                //Uses world.time
-	var/complexity = 1              //This acts as a limitation on building machines, more resource-intensive components cost more 'space'.
-	var/size                        //This acts as a limitation on building machines, bigger components cost more 'space'. -1 for size 0
-	var/cooldown_per_use = 1 SECOND // Circuits are limited in how many times they can be work()'d by this variable.
-	var/power_draw_per_use = 0      // How much power is drawn when work()'d.
-	var/power_draw_idle = 0         // How much power is drawn when doing nothing.
-	var/spawn_flags                 // Used for world initializing, see the #defines above.
-	var/category_text = "NO CATEGORY THIS IS A BUG" // To show up on circuit printer, and perhaps other places.
-	var/removable = TRUE            // Determines if a circuit is removable from the assembly.
-	var/displayed_name = ""
-	var/allow_multitool = TRUE      // Allows additional multitool functionality
-	                                // Used as a global var, (Do not set manually in children).

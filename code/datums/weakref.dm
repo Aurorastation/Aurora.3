@@ -1,3 +1,14 @@
+/proc/weakref(datum/D)
+	if(!istype(D))
+		return
+	if(QDELETED(D))
+		return
+	if(istype(D, /datum/weakref))
+		return D
+	if(!D.weakref)
+		D.weakref = new/datum/weakref(D)
+	return D.weakref
+
 /datum/weakref
 	var/ref
 

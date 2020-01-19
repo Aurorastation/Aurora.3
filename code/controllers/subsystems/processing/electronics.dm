@@ -11,86 +11,79 @@
 	init_order = SS_INIT_MISC_FIRST
 
 	var/list/all_integrated_circuits = list()
+	var/list/all_assemblies = list()
+
+	// A list with circuits and assemblies to check their parameters
+	var/list/cached_circuits = list()
+	var/list/cached_assemblies = list()
+
+	// Array of cached circuits, needed for circuit bags to work
+	var/list/flat_circuit_list = list()
+
 	var/list/printer_recipe_list = list()
+
+	var/cipherkey
+
+	var/cost_multiplier = SHEET_MATERIAL_AMOUNT / 10
 
 /datum/controller/subsystem/processing/electronics/New()
 	NEW_SS_GLOBAL(SSelectronics)
 
 /datum/controller/subsystem/processing/electronics/Initialize(timeofday)
-	init_subtypes(/obj/item/integrated_circuit, all_integrated_circuits)
+	cipherkey = generateRandomString(2000+rand(0,10))
+	circuits_init()
+	..()
 
-	// First loop is to seperate the actual circuits from base circuits.
-	var/list/circuits_to_use = list()
-	for(var/obj/item/integrated_circuit/IC in all_integrated_circuits)
-		if((IC.spawn_flags & (IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH)))
-			circuits_to_use += IC
+/datum/controller/subsystem/processing/electronics/proc/circuits_init()
+	//Cached lists for free performance
+	var/atom/def = /obj/item/integrated_circuit
+	var/default_name = initial(def.name)
+	for(var/path in typesof(/obj/item/integrated_circuit))
+		var/obj/item/integrated_circuit/IC = path
+		var/name = initial(IC.name)
+		if(name == default_name)
+			continue
+		all_integrated_circuits[name] = path // Populating the component lists
+		cached_circuits[IC] = new path()
+		flat_circuit_list += cached_circuits[IC]
 
-	// Second loop is to find all categories.
-	var/list/found_categories = list()
-	for(var/obj/item/integrated_circuit/IC in circuits_to_use)
-		if(!(IC.category_text in found_categories))
-			found_categories += IC.category_text
+		if(!(initial(IC.spawn_flags) & (IC_SPAWN_DEFAULT | IC_SPAWN_RESEARCH)))
+			continue
 
-	// Third loop is to initialize lists by category names, then put circuits matching the category inside.
-	for(var/category in found_categories)
-		printer_recipe_list[category] = list()
-		var/list/current_list = printer_recipe_list[category]
-		for(var/obj/item/integrated_circuit/IC in circuits_to_use)
-			if(IC.category_text == category)
-				current_list += IC
+		var/category = initial(IC.category_text)
+		if(!printer_recipe_list[category])
+			printer_recipe_list[category] = list()
+		var/list/category_list = printer_recipe_list[category]
+		category_list += IC // Populating the fabricator categories
 
-	// Now for non-circuit things.
-	printer_recipe_list["Assemblies"] = list(
-		new /obj/item/device/electronic_assembly/default,
-		new /obj/item/device/electronic_assembly/calc,
-		new /obj/item/device/electronic_assembly/clam,
-		new /obj/item/device/electronic_assembly/simple,
-		new /obj/item/device/electronic_assembly/hook,
-		new /obj/item/device/electronic_assembly/pda,
-		new /obj/item/device/electronic_assembly/tiny/default,
-		new /obj/item/device/electronic_assembly/tiny/cylinder,
-		new /obj/item/device/electronic_assembly/tiny/scanner,
-		new /obj/item/device/electronic_assembly/tiny/hook,
-		new /obj/item/device/electronic_assembly/tiny/box,
-		new /obj/item/device/electronic_assembly/medium/default,
-		new /obj/item/device/electronic_assembly/medium/box,
-		new /obj/item/device/electronic_assembly/medium/clam,
-		new /obj/item/device/electronic_assembly/medium/medical,
-		new /obj/item/device/electronic_assembly/medium/gun,
-		new /obj/item/device/electronic_assembly/medium/radio,
-		new /obj/item/device/electronic_assembly/large/default,
-		new /obj/item/device/electronic_assembly/large/scope,
-		new /obj/item/device/electronic_assembly/large/terminal,
-		new /obj/item/device/electronic_assembly/large/arm,
-		new /obj/item/device/electronic_assembly/large/tall,
-		new /obj/item/device/electronic_assembly/large/industrial,
-		new /obj/item/device/electronic_assembly/drone/default,
-		new /obj/item/device/electronic_assembly/drone/arms,
-		new /obj/item/device/electronic_assembly/drone/secbot,
-		new /obj/item/device/electronic_assembly/drone/medbot,
-		new /obj/item/device/electronic_assembly/drone/genbot,
-		new /obj/item/device/electronic_assembly/drone/android,
-		new /obj/item/device/electronic_assembly/wallmount/tiny,
-		new /obj/item/device/electronic_assembly/wallmount/light,
-		new /obj/item/device/electronic_assembly/wallmount,
-		new /obj/item/device/electronic_assembly/wallmount/heavy,
-		new /obj/item/implant/integrated_circuit,
-		new /obj/item/clothing/under/circuitry,
-		new /obj/item/clothing/gloves/circuitry,
-		new /obj/item/clothing/glasses/circuitry,
-		new /obj/item/clothing/shoes/circuitry,
-		new /obj/item/clothing/head/circuitry,
-		new /obj/item/clothing/ears/circuitry,
-		new /obj/item/clothing/suit/circuitry
+	for(var/path in typesof(/obj/item/device/electronic_assembly))
+		var/obj/item/device/electronic_assembly/A = path
+		var/name = initial(A.name)
+		all_assemblies[name] = path
+		cached_assemblies[A] = new path()
+
+	//printer_recipe_list["Assemblies"] = subtypesof(/obj/item/device/electronic_assembly) - list(/obj/item/device/electronic_assembly/medium, /obj/item/device/electronic_assembly/large, /obj/item/device/electronic_assembly/drone, /obj/item/device/electronic_assembly/wallmount)
+
+	printer_recipe_list["Assemblies"] = subtypesof(/obj/item/device/electronic_assembly) + list(
+		/obj/item/implant/integrated_circuit,
+		/obj/item/clothing/under/circuitry,
+		/obj/item/clothing/gloves/circuitry,
+		/obj/item/clothing/glasses/circuitry,
+		/obj/item/clothing/shoes/circuitry,
+		/obj/item/clothing/head/circuitry,
+		/obj/item/clothing/ears/circuitry,
+		/obj/item/clothing/suit/circuitry
 	)
 
 	printer_recipe_list["Tools"] = list(
-		new /obj/item/device/integrated_electronics/wirer,
-		new /obj/item/device/integrated_electronics/debugger,
-		new /obj/item/device/integrated_electronics/detailer
+		/obj/item/device/integrated_electronics/wirer,
+		/obj/item/device/integrated_electronics/debugger,
+		/obj/item/device/integrated_electronics/analyzer,
+		/obj/item/device/integrated_electronics/detailer,
+		/obj/item/card/data,
+		//obj/item/card/data/full_color,
+		//obj/item/card/data/disk
 	)
-
-	..()
-
+	
 #undef IC_SPAWN_DEFAULT
 #undef IC_SPAWN_RESEARCH

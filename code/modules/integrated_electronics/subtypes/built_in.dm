@@ -3,7 +3,7 @@
 	desc = "It's a tiny chip!  This one doesn't seem to do much, however."
 	icon = 'icons/obj/assemblies/electronic_components.dmi'
 	icon_state = "template"
-	size = -1
+	size = 0
 	w_class = ITEMSIZE_TINY
 	removable = FALSE 			// Determines if a circuit is removable from the assembly.
 
