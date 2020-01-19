@@ -2,7 +2,7 @@
 	filename = "cmdr"
 	filedesc = "Syndicate Command and Control"
 	program_icon_state = "hostile"
-	extended_desc = "Uplink to syndicate command and control. Hosts a variety of features for the discerning operative."
+	extended_desc = "Uplink to Syndicate command and control. Hosts a variety of features for the discerning operative."
 	size = 25
 	available_on_ntnet = 0
 	available_on_syndinet = 1
@@ -12,14 +12,18 @@
 	var/mob/abstract/eye/syndnet/eye
 	var/list/datum/money_account/accounts
 	var/list/obj/item/device/uplink/uplinks
+	var/list/req_prices = list()
+
 	var/active = FALSE
 	var/money = 0
+	var/tc_price = 2500
 
 /datum/computer_file/program/cmdr/New()
 	. = ..()
 	eye = new(src)
 	LAZYINITLIST(accounts)
 	LAZYINITLIST(uplinks)
+	build_prices()
 
 /datum/computer_file/program/cmdr/Destroy()
 	if(eye)
@@ -49,6 +53,11 @@
 			if(istype(M) && M.current.faction == "syndicate")
 				LAZYADD(uplinks, U)
 
+/datum/computer_file/program/cmdr/proc/build_prices()
+	req_prices["shuttle"] = list()
+	req_prices["shuttle"]["price"] = 25000
+	req_prices["shuttle"]["type"] = "money"
+
 /datum/computer_file/program/cmdr/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
@@ -58,6 +67,7 @@
 VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 	watch_var("active", "active")
 	watch_var("money", "money")
+	watch_var("tc_price", "tc_price")
 
 /datum/computer_file/program/cmdr/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
@@ -72,11 +82,15 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 	VUEUI_SET_CHECK_IFNOTSET(data["activeview"], "resources", ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["account_view"], 0, ., data)
 	VUEUI_SET_CHECK_IFNOTSET(data["tc_view"], 0, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["res_view"], 0, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["misc_view"], 0, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["upgrade_view"], 0, ., data)
 
 	LAZYINITLIST(data["accounts"])
 	LAZYINITLIST(data["transfer"])
 	LAZYINITLIST(data["uplinks"])
 	LAZYINITLIST(data["supply"])
+	LAZYINITLIST(data["req_prices"])
 	build_accounts()
 	build_uplinks()
 
@@ -103,6 +117,10 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 
 	VUEUI_SET_CHECK_IFNOTSET(data["supply"]["amount"], 0, ., data)
 	VUEUI_SET_CHECK(data["supply"]["amount"], max(0, data["supply"]["amount"]), ., data)
+
+	for(var/item in req_prices)
+		LAZYINITLIST(data["req_prices"][item])
+		VUEUI_SET_CHECK(data["req_prices"][item], req_prices[item], ., data)
 
 /datum/computer_file/program/clientmanager/vueui_transfer(oldobj)
 	SSvueui.transfer_uis(oldobj, src, "mcomputer-cmdr-main", 450, 520, filedesc)
@@ -154,6 +172,18 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 				transfer_uplink.uses += supply_amount
 			else
 				to_chat(usr, span("warning", "Supply Request Failed: Insufficient TC."))
+		SSvueui.check_uis_for_change(src)
+
+	if(href_list["crystal"])
+		var/crystal_amt = href_list["crystal"]
+		if(istype(computer.hidden_uplink, /obj/item/device/uplink))
+			if((crystal_amt < 0 && crystal_amt * -1 > computer.hidden_uplink.uses) || (crystal_amt > 0 && crystal_amt * tc_price > money))
+				to_chat(usr, span("warning", "Crystal transaction failed. Insufficient resources."))
+				return
+			money -= crystal_amt * tc_price
+			computer.hidden_uplink.uses += crystal_amt
+		else
+			to_chat(usr, span("warning", "Crystal purchase failed."))
 		SSvueui.check_uis_for_change(src)
 
 /mob/proc/rebuild_hud()
