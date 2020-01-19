@@ -56,7 +56,7 @@
 	catch(var/exception/ej)
 		log_debug("SSatlas: Warning: Could not load space ruin config, as space_ruins.json is missing - [ej]")
 		return
-	
+
 	for(var/ruinname in ruinconfig)
 		//Create the datums
 		var/datum/space_ruin/sr = new(ruinname,ruinconfig[ruinname]["file_name"])
@@ -66,9 +66,9 @@
 			sr.valid_maps = ruinconfig[ruinname]["valid_maps"]
 		if("characteristics" in ruinconfig[ruinname])
 			sr.characteristics = ruinconfig[ruinname]["characteristics"]
-		
+
 		//Check if the file exists
-		var/map_directory = "maps/space_ruins/"
+		var/map_directory = "dynamic_maps/"
 		if(!fexists("[map_directory][sr.file_name]"))
 			admin_notice("<span class='danger'>Map file [sr.file_name] for ruin [sr.name] does not exist.</span>")
 			log_ss("atlas","Map file [sr.file_name] for ruin [sr.name] does not exist.")
@@ -80,7 +80,7 @@
 				continue
 		ruinlist[sr.name] = sr
 		weightedlist[sr.name] = sr.weight
-	
+
 	if(!length(ruinlist))
 		log_ss("atlas","Found no valid ruins for current map.")
 		return
@@ -95,7 +95,7 @@
 
 	if(!selected_ruin)
 		return
-	var/map_directory = "maps/space_ruins/"
+	var/map_directory = "dynamic_maps/"
 	var/mfile = "[map_directory][selected_ruin.file_name]"
 	var/time = world.time
 

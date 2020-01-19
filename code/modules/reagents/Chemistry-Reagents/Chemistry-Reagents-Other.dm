@@ -413,6 +413,7 @@
 	reagent_state = LIQUID
 	color = "#808080"
 	taste_description = "oil"
+	var/temp_set = FALSE
 
 /datum/reagent/nitroglycerin/proc/explode()
 	var/datum/effect/effect/system/reagents_explosion/e = new()
@@ -427,6 +428,9 @@
 
 /datum/reagent/nitroglycerin/add_thermal_energy(var/added_energy)
 	. = ..()
+	if(!temp_set) // so initial temperature-setting doesn't make stuff explode
+		temp_set = TRUE
+		return
 	if(abs(added_energy) > (specific_heat * 5 / volume)) // can explode via cold or heat shock
 		explode()
 
