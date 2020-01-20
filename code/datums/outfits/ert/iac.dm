@@ -54,7 +54,7 @@
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	accessory_contents = list(/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 2, /obj/item/reagent_containers/hypospray/autoinjector/survival = 1)
 	suit = /obj/item/clothing/suit/armor/tactical
-	suit_store = /obj/item/gun/projectile/automatic/rifle
+	suit_store = /obj/item/gun/energy/gun
 	back = /obj/item/storage/backpack/ert/medical
 	gloves = /obj/item/clothing/gloves/white
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -63,13 +63,16 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/firstaid/regular = 1,
+		/obj/item/stack/medical/advanced/bruise_pack = 2,
 		/obj/item/gun/projectile/automatic/x9 = 1
 	)
 
 	belt_contents = list(
-		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/ammo_magazine/c762 = 2,
-		/obj/item/ammo_magazine/c45x = 1
+		/obj/item/ammo_magazine/c45x = 2,
+		/obj/item/device/flash = 1,
+		/obj/item/handcuffs/ziptie = 2,
+		/obj/item/melee/baton = 1,
+		/obj/item/device/flashlight/flare = 1
 	)
 
 /datum/outfit/admin/ert/iac/paramedic
