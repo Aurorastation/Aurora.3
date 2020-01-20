@@ -287,7 +287,7 @@
 	use_description =   "Activate an empty hand on disarm intent to detect nearby psionic signatures."
 
 /datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
-	if((target && user != target) && user.a_intent != I_HELP)
+	if((target && user != target) || user.a_intent != I_HELP)
 		return FALSE
 	. = ..()
 	if(.)

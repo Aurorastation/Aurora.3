@@ -146,6 +146,50 @@
 	mob_name_prefix = "Sent. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
+/datum/ghostspawner/human/admin/fib
+	short_name = "fib"
+	name = "FIB Agent"
+	desc = "Investigate issues related to crimes under the jurisdiction of the Federal Investigations Bureau."
+
+	landmark_name = "CCIAAgent"
+	req_perms = R_CCIAA
+
+	outfit = /datum/outfit/admin/nt/fib
+	possible_species = list("Human")
+	possible_genders = list(MALE,FEMALE)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "FIB Agent"
+	special_role = "FIB Agent"
+	respawn_flag = null
+
+	mob_name = null
+	mob_name_prefix = "S/Agt. "
+	mob_name_pick_message = "Pick a name."
+
+/datum/ghostspawner/human/admin/fib/escort
+	short_name = "fibescort"
+	name = "FIB Escort"
+	desc = "Protect the agents of the Federal Investigations Bureau while on the field."
+
+	landmark_name = "CCIAEscort"
+
+	outfit = /datum/outfit/admin/nt/fib/guard
+
+	req_perms = null
+	req_perms_edit = R_CCIAA
+	max_count = 1
+
+	assigned_role = "FIB Escort"
+	special_role = "FIB Escort"
+	respawn_flag = null
+
+	enabled = FALSE
+
+	mob_name = null
+	mob_name_prefix = "Agt. "
+	mob_name_pick_message = "Pick a name."
+
 /client/proc/despawn()
 	set name = "Despawn"
 	set desc = "Your work is done. Leave this realm."

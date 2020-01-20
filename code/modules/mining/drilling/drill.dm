@@ -1,7 +1,7 @@
 /obj/machinery/mining
 	icon = 'icons/obj/mining_drill.dmi'
-	anchored = 0
-	use_power = 0 //The drill takes power directly from a cell.
+	anchored = FALSE
+	use_power = FALSE //The drill takes power directly from a cell.
 	density = 1
 	layer = MOB_LAYER+0.1 //So it draws over mobs in the tile north of it.
 
@@ -11,8 +11,8 @@
 	icon_state = "mining_drill"
 	var/braces_needed = 2
 	var/list/supports = list()
-	var/supported = 0
-	var/active = 0
+	var/supported = FALSE
+	var/active = FALSE
 	var/list/resource_field = list()
 
 	var/ore_types = list(
@@ -35,8 +35,8 @@
 	var/obj/item/cell/cell = null
 
 	//Flags
-	var/need_update_field = 0
-	var/need_player_check = 0
+	var/need_update_field = FALSE
+	var/need_player_check = FALSE
 
 	var/datum/effect_system/sparks/spark_system
 
@@ -63,7 +63,8 @@
 
 	check_supports()
 
-	if(!active) return
+	if(!active) 
+		return
 
 	if(!anchored || !use_cell_power())
 		system_error("system configuration or charge error")
@@ -92,22 +93,23 @@
 		var/turf/harvesting = pick(resource_field)
 
 		while(resource_field.len && !harvesting.resources)
-			harvesting.has_resources = 0
+			harvesting.has_resources = FALSE
 			harvesting.resources = null
 			resource_field -= harvesting
 			harvesting = pick(resource_field)
 
-		if(!harvesting) return
+		if(!harvesting) 
+			return
 
 		var/total_harvest = harvest_speed //Ore harvest-per-tick.
-		var/found_resource = 0 //If this doesn't get set, the area is depleted and the drill errors out.
+		var/found_resource = FALSE //If this doesn't get set, the area is depleted and the drill errors out.
 
 		for(var/metal in ore_types)
 
 			if(contents.len >= capacity)
 				system_error("insufficient storage space")
-				active = 0
-				need_player_check = 1
+				active = FALSE
+				need_player_check = TRUE
 				update_icon()
 				return
 
@@ -117,7 +119,7 @@
 			if(total_harvest <= 0) break
 			if(harvesting.resources[metal])
 
-				found_resource  = 1
+				found_resource  = TRUE
 
 				var/create_ore = 0
 				if(harvesting.resources[metal] >= total_harvest)
@@ -134,18 +136,30 @@
 					new oretype(src)
 
 		if(!found_resource)
-			harvesting.has_resources = 0
+			harvesting.has_resources = FALSE
 			harvesting.resources = null
 			resource_field -= harvesting
 	else
-		active = 0
-		need_player_check = 1
+		active = FALSE
+		need_player_check = TRUE
 		update_icon()
 
-/obj/machinery/mining/drill/attack_ai(var/mob/user as mob)
+/obj/machinery/mining/drill/examine(mob/user)
+	..(user)
+	if(need_player_check)
+		to_chat(user, "The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")
+	else
+		to_chat(user, "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"].")
+	if(panel_open)
+		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
+	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%")
+	return
+
+
+/obj/machinery/mining/drill/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/mining/drill/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/mining/drill/attackby(obj/item/O, mob/user)
 	if(!active)
 		if(default_deconstruction_screwdriver(user, O))
 			return
@@ -154,33 +168,48 @@
 				return
 			if(default_part_replacement(user, O))
 				return
-	if(active) return ..()
+	if(active) 
+		return ..()
 
 	if(O.iscrowbar())
-		if (panel_open && cell)
-			to_chat(user, "You wrench out \the [cell].")
-			cell.forceMove(get_turf(user))
-			component_parts -= cell
-			cell = null
-			return
+		if (panel_open)
+			if(cell)
+				to_chat(user, "You wrench out \the [cell].")
+				cell.forceMove(get_turf(user))
+				component_parts -= cell
+				cell = null
+				return
+			else
+				to_chat(user, "There's no cell to remove!")
+				return
 
 	if(istype(O, /obj/item/cell))
-		if(cell)
-			to_chat(user, "The drill already has a cell installed.")
+		if(panel_open)
+			if(cell)
+				to_chat(user, "There is already a power cell inside.")
+				return
+			else
+				// insert cell
+				user.drop_from_inventory(O,src)
+				cell = O
+				component_parts += O
+				O.add_fingerprint(user)
+				visible_message(span("notice", "[user] inserts a power cell into [src]."),
+					span("notice", "You insert the power cell into [src]."))
+				power_change()
 		else
-			user.drop_from_inventory(O,src)
-			cell = O
-			component_parts += O
-			to_chat(user, "You install \the [O].")
-		return
-	..()
+			to_chat(user, span("notice", "The hatch must be open to insert a power cell."))
+			return
+	else
+		..()
+	return
 
-/obj/machinery/mining/drill/attack_hand(mob/user as mob)
+/obj/machinery/mining/drill/attack_hand(mob/user)
 	check_supports()
 
 	if(need_player_check)
 		to_chat(user, "You hit the manual override and reset the drill's error checking.")
-		need_player_check = 0
+		need_player_check = FALSE
 		if(anchored)
 			get_resource_field()
 		update_icon()
@@ -190,7 +219,7 @@
 			active = !active
 			if(active)
 				visible_message("<span class='notice'>\The [src] lurches downwards, grinding noisily.</span>")
-				need_update_field = 1
+				need_update_field = TRUE
 			else
 				visible_message("<span class='notice'>\The [src] shudders to a grinding halt.</span>")
 		else
@@ -206,7 +235,7 @@
 					visible_message("<span class='notice'>\icon[src] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\"</span>")
 			if(supported && panel_open)
 				if(cell)
-					system_error("unsealed cell fitting error")
+					system_error("unsealed cell fitting error. Volatile cell discharge may occur if not immediately corrected")
 					spark_system.queue()
 					sleep(20)
 					spark_system.queue()
@@ -257,12 +286,12 @@
 
 /obj/machinery/mining/drill/proc/check_supports()
 
-	supported = 0
+	supported = FALSE
 
 	if((!supports || !supports.len) && initial(anchored) == 0)
 		icon_state = "mining_drill"
-		anchored = 0
-		active = 0
+		anchored = FALSE
+		active = FALSE
 	else
 		anchored = 1
 
@@ -276,17 +305,18 @@
 	if(error)
 		visible_message("<span class='warning'>\icon[src] [src.name] flashes a system warning: [error].</span>")
 		playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 100, 1)
-	need_player_check = 1
-	active = 0
+	need_player_check = TRUE
+	active = FALSE
 	update_icon()
 
 /obj/machinery/mining/drill/proc/get_resource_field()
 
 	resource_field = list()
-	need_update_field = 0
+	need_update_field = FALSE
 
 	var/turf/T = get_turf(src)
-	if(!istype(T)) return
+	if(!istype(T)) 
+		return
 
 	var/tx = T.x - 2
 	var/ty = T.y - 2
@@ -301,11 +331,12 @@
 		system_error("resources depleted")
 
 /obj/machinery/mining/drill/proc/use_cell_power()
-	if(!cell) return 0
+	if(!cell) 
+		return FALSE
 	if(cell.charge >= charge_use)
 		cell.use(charge_use)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/mining/drill/verb/unload()
 	set name = "Unload Drill"
@@ -335,7 +366,7 @@
 		/obj/item/circuitboard/miningdrillbrace
 	)
 
-/obj/machinery/mining/brace/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/mining/brace/attackby(obj/item/W, mob/user)
 	if(connected && connected.active)
 		to_chat(user, "<span class='notice'>You know you ought not work with the brace of a <i>running</i> drill, but you do anyways.</span>")
 		sleep(5)
@@ -438,7 +469,7 @@
 
 	if (src.anchored)
 		to_chat(usr, "It is anchored in place!")
-		return 0
+		return FALSE
 
 	src.set_dir(turn(src.dir, 90))
-	return 1
+	return TRUE

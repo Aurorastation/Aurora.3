@@ -4,11 +4,11 @@
 	anchored = 0
 	density = 1
 
-
-/obj/machinery/iv_drip/var/mob/living/carbon/human/attached = null
-/obj/machinery/iv_drip/var/mode = 1 // 1 is injecting, 0 is taking blood.
-/obj/machinery/iv_drip/var/transfer_amount = REM
-/obj/machinery/iv_drip/var/obj/item/reagent_containers/beaker = null
+	var/mob/living/carbon/human/attached = null
+	var/mode = 1 // 1 is injecting, 0 is taking blood.
+	var/transfer_amount = REM
+	var/obj/item/reagent_containers/beaker = null
+	var/blood_message_sent = FALSE
 
 /obj/machinery/iv_drip/update_icon()
 	if(src.attached)
@@ -40,9 +40,10 @@
 	..()
 
 	if(attached)
-		visible_message("[src.attached] is detached from \the [src]")
+		visible_message("[src.attached] is detached from \the [src].")
 		src.attached = null
 		src.update_icon()
+		blood_message_sent = FALSE
 		return
 
 	if(in_range(src, usr) && ishuman(over_object) && get_dist(over_object, src) <= 1)
@@ -76,7 +77,7 @@
 	if(src.attached)
 
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
-			var/obj/item/organ/external/affecting = src.attached:get_organ(pick(BP_R_ARM, BP_L_ARM))
+			var/obj/item/organ/external/affecting = src.attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
 			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
 			affecting.take_damage(brute = 5, sharp = 1)
 			src.attached = null
@@ -111,12 +112,18 @@
 			amount = min(amount, 4)
 			// If the beaker is full, ping
 			if(amount == 0)
-				if(prob(5)) visible_message("\The [src] pings.")
+				if(prob(5)) 
+					visible_message("\The [src] pings.")
 				return
+
+			if(T.get_blood_volume() < 90 && !blood_message_sent)
+				visible_message("\icon[src] \The <b>[src]</b> flashes a warning light!")
+				playsound(src, 'sound/machines/buzz-two.ogg', 50)
+				blood_message_sent = TRUE
 
 			var/datum/reagent/B = T.take_blood(beaker,amount)
 
-			if (B)
+			if(B)
 				beaker.reagents.reagent_list |= B
 				beaker.reagents.update_total()
 				beaker.on_reagent_change()

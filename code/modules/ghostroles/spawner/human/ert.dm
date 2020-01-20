@@ -115,6 +115,13 @@
 	desc = "The only medic of the freelancer mercenary team."
 	outfit = /datum/outfit/admin/ert/mercenary/specialist
 
+/datum/ghostspawner/human/ert/mercenary/engineer
+	name = "Mercenary Combat Engineer"
+	short_name = "merce"
+	max_count = 1
+	desc = "The only dedicated engineer of the freelancer mercenary team."
+	outfit = /datum/outfit/admin/ert/mercenary/engineer
+
 /datum/ghostspawner/human/ert/mercenary/leader
 	name = "Mercenary Leader"
 	short_name = "mercl"
@@ -194,7 +201,8 @@
 	max_count = 1
 	outfit = /datum/outfit/admin/ert/kataphract/klax
 	mob_name_prefix = "Zosaa "
-	req_species_whitelist = "Vaurca" // Kataphract K'lax would be more difficult
+	uses_species_whitelist = TRUE
+	req_species_whitelist = "Vaurca Warrior" // Kataphract K'lax would be more difficult
 	possible_species = list("Vaurca Warrior")
 	extra_languages = list(LANGUAGE_VAURCA)
 

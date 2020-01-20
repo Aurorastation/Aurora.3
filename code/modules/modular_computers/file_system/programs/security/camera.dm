@@ -36,6 +36,7 @@
 	requires_ntnet = 1
 	required_access_download = access_heads
 	color = LIGHT_COLOR_ORANGE
+	usage_flags = PROGRAM_ALL_REGULAR
 
 /datum/nano_module/camera_monitor
 	name = "Camera Monitoring program"

@@ -63,7 +63,7 @@
 		"Phoron Researcher" = /datum/outfit/job/scientist/necropolis,
 		"Xenoarcheologist" = /datum/outfit/job/scientist/necropolis,
 		"Anomalist" = /datum/outfit/job/scientist/necropolis,
-		"Forensics Technician" = /datum/outfit/job/forensics/necropolis,
+		"Forensic Technician" = /datum/outfit/job/forensics/necropolis,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/necropolis,
 		"Roboticist" = /datum/outfit/job/roboticist/necropolis,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/necropolis,

@@ -746,7 +746,8 @@
 			return 1
 
 /obj/machinery/alarm/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
 
 	switch(buildstage)
 		if(2)
