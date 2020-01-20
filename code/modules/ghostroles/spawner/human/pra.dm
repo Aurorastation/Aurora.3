@@ -20,7 +20,7 @@
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	uses_species_whitelist = FALSE
-	away_site = FALSE
+	away_site = TRUE
 
 /datum/ghostspawner/human/pra_cosmonaut/commissar
 	short_name = "pra_commissar"

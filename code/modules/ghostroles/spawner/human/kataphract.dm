@@ -22,7 +22,7 @@
 	special_role = "Kataphract-Hopeful"
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
-	away_site = FALSE
+	away_site = TRUE
 
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
