@@ -67,7 +67,7 @@
 		return ..(A, user, click_parameters)
 
 	var/obj/O = A
-	var/datum/expansion/multitool/MT = LAZYACCESS(O.expansions, /datum/expansion/multitool)
+	var/datum/extension/interactive/multitool/MT = get_extension(O, /datum/extension/interactive/multitool)
 	if(!MT)
 		return ..(A, user, click_parameters)
 
