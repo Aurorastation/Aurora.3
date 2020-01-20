@@ -1521,6 +1521,10 @@
 	dir = 10
 	},
 /obj/item/clothing/glasses/safety/goggles,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Operating Room 2";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "acT" = (
@@ -42591,6 +42595,9 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -43123,10 +43130,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
+/turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bvL" = (
 /obj/structure/cable{
@@ -43569,7 +43573,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Cloning Laboratory";
+	c_tag = "Medical - Custodial Closet";
 	dir = 4;
 	icon_state = "camera"
 	},
@@ -45259,9 +45263,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/custodial_closet)
 "bzr" = (
-/obj/structure/closet{
-	name = "Evidence Closet"
-	},
+/obj/structure/closet,
 /turf/simulated/floor/tiled/white,
 /area/medical/custodial_closet)
 "bzt" = (
@@ -47221,7 +47223,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -64849,25 +64850,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
-"hLN" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 4;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/machinery/door/airlock/maintenance{
-	name = "Maintenance Access";
-	req_access = list(66)
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay)
 "hND" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
@@ -66945,17 +66927,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
-"nEX" = (
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/maintenance/medbay)
 "nFQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -68297,6 +68268,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"qYj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgerywing)
 "qYo" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	icon_state = "up-scrubbers";
@@ -70508,16 +70486,6 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
-"wpl" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled/dark{
-	name = "cooled dark floor";
-	temperature = 278
-	},
-/area/maintenance/medbay)
 "wqS" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle{
@@ -107883,7 +107851,7 @@ bum
 bvz
 bwt
 bxS
-bzj
+qYj
 bzj
 bBi
 bCa
@@ -107891,7 +107859,7 @@ bDa
 bzj
 bEN
 bzj
-bzj
+qYj
 bHB
 bIB
 bvz
@@ -113021,7 +112989,7 @@ bsj
 bng
 buD
 bvI
-nEX
+buG
 byb
 blN
 bAv
@@ -113278,7 +113246,7 @@ bsk
 bng
 buD
 bvI
-buG
+bBo
 buG
 blN
 sby
@@ -113790,8 +113758,8 @@ bqa
 brh
 bsm
 bng
-buG
-wpl
+bBo
+bBo
 bvI
 buG
 blN
@@ -114049,7 +114017,7 @@ bng
 bng
 blN
 blN
-hLN
+bHF
 blN
 blN
 bHF
