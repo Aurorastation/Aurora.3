@@ -1,5 +1,5 @@
 /datum/job/hos
-	title = "Head of Security"
+	title = "Ranger Lieutenant"
 	flag = HOS
 	head_position = 1
 	department = "Security"
@@ -29,7 +29,7 @@
 	blacklisted_species = list("Off-Worlder Human", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Hephaestus G2 Industrial Frame", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/hos
-	name = "Head of Security"
+	name = "Ranger Lieutenant"
 	jobtype = /datum/job/hos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
@@ -63,12 +63,12 @@
 
 
 /datum/job/warden
-	title = "Warden"
+	title = "Ranger"
 	flag = WARDEN
 	department = "Security"
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 1
+	total_positions = 3
 	spawn_positions = 1
 	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
@@ -82,7 +82,7 @@
 	outfit = /datum/outfit/job/warden
 
 /datum/outfit/job/warden
-	name = "Warden"
+	name = "Ranger"
 	jobtype = /datum/job/warden
 
 	uniform = /obj/item/clothing/under/rank/warden
@@ -112,7 +112,7 @@
 
 
 /datum/job/detective
-	title = "Detective"
+	title = "Security Lead"
 	flag = DETECTIVE
 	department = "Security"
 	department_flag = ENGSEC
@@ -158,7 +158,7 @@
 	flag = FORENSICS
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
@@ -203,12 +203,12 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 
 /datum/job/officer
-	title = "Security Officer"
+	title = "Security Contractor"
 	flag = OFFICER
 	department = "Security"
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 4
+	total_positions = 3
 	spawn_positions = 4
 	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
@@ -254,7 +254,7 @@
 	flag = INTERN_SEC
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the Head of Security"
 	selection_color = "#FFA4A4"

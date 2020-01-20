@@ -9,7 +9,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "company officials and Corporate Regulations"
+	supervisors = "colonial officials."
 	selection_color = "#4747FF"
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
@@ -22,15 +22,14 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/captain
 
-	blacklisted_species = list("Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Unathi", "Aut'akh Unathi", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Unathi", "Aut'akh Unathi", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/captain
-	name = "Captain"
+	name = "Overseer"
 	jobtype = /datum/job/captain
 
 	uniform = /obj/item/clothing/under/rank/captain
 	shoes = /obj/item/clothing/shoes/brown
-	head = /obj/item/clothing/head/caphat
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
@@ -62,11 +61,11 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/captain/announce(mob/living/carbon/human/H)
 	. = ..()
-	captain_announcement.Announce("All hands, Captain [H.real_name] on deck!")
+	captain_announcement.Announce("All hands, Overseer [H.real_name] is present!")
 	callHook("captain_spawned", list(H))
 
 /datum/job/hop
-	title = "Head of Personnel"
+	title = "Operations Manager"
 	flag = HOP
 	department = "Civilian"
 	head_position = 1
@@ -74,7 +73,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain"
+	supervisors = "the overseer"
 	selection_color = "#9696FF"
 	minimal_player_age = 10
 	economic_modifier = 10
@@ -95,10 +94,10 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			            access_chapel_office, access_library, access_research, access_mining, access_mining_station, access_janitor,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("Aut'akh Unathi", "Diona", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/hop
-	name = "Head of Personnel"
+	name = "Operations Manager"
 	jobtype = /datum/job/hop
 
 	uniform = /obj/item/clothing/under/rank/head_of_personnel

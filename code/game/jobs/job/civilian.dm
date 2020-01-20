@@ -1,24 +1,23 @@
 //Food
 /datum/job/bartender
-	title = "Bartender"
+	title = "Server"
 	flag = BARTENDER
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the head of personnel"
+	supervisors = "the restaurant manager"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 18
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
-	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
 
 /datum/outfit/job/bartender
-	name = "Bartender"
+	name = "Server"
 	jobtype = /datum/job/bartender
 
 	uniform = /obj/item/clothing/under/rank/bartender
@@ -35,7 +34,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the head of personnel"
+	supervisors = "the restaurant manager"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 18
@@ -61,14 +60,14 @@
 	)
 
 /datum/job/hydro
-	title = "Gardener"
+	title = "Farmer"
 	flag = BOTANIST
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the farm"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 18
@@ -105,7 +104,7 @@
 
 //Cargo
 /datum/job/qm
-	title = "Quartermaster"
+	title = "Supply Manager"
 	flag = QUARTERMASTER
 	head_position = 1
 	department = "Cargo"
@@ -113,7 +112,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the operations manager"
 	selection_color = "#C0C0C0"
 	economic_modifier = 5
 
@@ -127,7 +126,7 @@
 	outfit = /datum/outfit/job/qm
 
 /datum/outfit/job/qm
-	name = "Quartermaster"
+	name = "Supply Manager"
 	jobtype = /datum/job/qm
 
 	uniform = /obj/item/clothing/under/rank/cargo
@@ -139,14 +138,14 @@
 
 
 /datum/job/cargo_tech
-	title = "Cargo Technician"
+	title = "Supply Worker"
 	flag = CARGOTECH
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "the quartermaster and the head of personnel"
+	supervisors = "the operations manager and the supply manager"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 18
@@ -156,7 +155,7 @@
 	outfit = /datum/outfit/job/cargo_tech
 
 /datum/outfit/job/cargo_tech
-	name = "Cargo Technician"
+	name = "Supply Worker"
 	jobtype = /datum/job/cargo_tech
 
 	uniform = /obj/item/clothing/under/rank/cargotech
@@ -173,7 +172,7 @@
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
-	spawn_positions = 4
+	spawn_positions = 0
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#C0C0C0"
 	economic_modifier = 5
@@ -219,7 +218,7 @@
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
@@ -237,22 +236,20 @@
 	l_ear = /obj/item/device/radio/headset/headset_service
 
 /datum/job/journalist
-	title = "Corporate Reporter"
+	title = "Reporter"
 	flag = JOURNALIST
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the news outlet"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 20
 
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
-	alt_titles = list("Freelance Journalist")
-	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 	outfit = /datum/outfit/job/journalist
 
@@ -288,7 +285,7 @@
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"

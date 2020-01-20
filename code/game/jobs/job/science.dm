@@ -5,7 +5,7 @@
 	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 	supervisors = "the captain"
 	selection_color = "#FF40FF"
@@ -51,7 +51,7 @@
 	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 5
+	total_positions = 0
 	spawn_positions = 3
 	supervisors = "the research director"
 	selection_color = "#FFAAFF"
@@ -120,14 +120,14 @@
 	uniform = /obj/item/clothing/under/rank/scientist/botany
 
 /datum/job/roboticist
-	title = "Roboticist"
+	title = "Mechanic"
 	flag = ROBOTICIST
 	department = "Science"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 1
 	spawn_positions = 2
-	supervisors = "research director"
+	supervisors = "your shop"
 	selection_color = "#FFAAFF"
 	economic_modifier = 5
 
@@ -142,7 +142,7 @@
 	outfit = /datum/outfit/job/roboticist
 
 /datum/outfit/job/roboticist
-	name = "Roboticist"
+	name = "Mechanic"
 	jobtype = /datum/job/roboticist
 
 	uniform = /obj/item/clothing/under/rank/roboticist
@@ -173,7 +173,7 @@
 	flag = INTERN_SCI
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the Research Director"
 	selection_color = "#FFAAFF"
