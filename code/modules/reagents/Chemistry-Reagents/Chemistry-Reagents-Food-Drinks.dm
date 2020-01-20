@@ -1686,7 +1686,7 @@
 	taste_description = "creamy chocolate"
 
 	glass_icon_state = "chocolateglass"
-	glass_name = "glass of hot chocolate"
+	glass_name = "cup of hot chocolate"
 	glass_desc = "Made with love! And cocoa beans."
 
 /datum/reagent/drink/sodawater
