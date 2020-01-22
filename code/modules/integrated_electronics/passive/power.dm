@@ -162,7 +162,7 @@
 			host = implant_assembly.implant.imp_in
 			if(!get_pin_data(IC_INPUT, 1))
 				if(test_validity(host))
-					assembly.give_power(10)
+					assembly.give_power(power_draw_per_use)
 					host.adjustNutritionLoss(HUNGER_FACTOR)
 			else
 				if(assembly.draw_power(power_draw_per_use*inefficiency)) // slightly less efficient the other way around
