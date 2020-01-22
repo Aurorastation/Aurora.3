@@ -233,7 +233,7 @@
 	drill_verb = "drilling"
 	autodrill = 1
 	drill_sound = 'sound/weapons/drill.ogg'
-	digspeed = 15
+	digspeed = 10
 	digspeed_unwielded = 15
 	force_unwielded = 15.0
 	excavation_amount = 100
@@ -252,7 +252,7 @@
 	drill_verb = "hammering"
 	autodrill = 1
 	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
-	digspeed = 10
+	digspeed = 5
 	digspeed_unwielded = 10
 	force_unwielded = 15.0
 	excavation_amount = 100
@@ -300,7 +300,7 @@
 
 	can_wield = 0
 	force = 20.0
-	digspeed = 3
+	digspeed = 2
 	digspeed_unwielded = 3
 	force_unwielded = 20.0
 
