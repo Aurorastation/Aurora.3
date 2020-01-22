@@ -1510,6 +1510,7 @@
 #include "code\modules\ghostroles\spawner\human\zenghu.dm"
 #include "code\modules\ghostroles\spawner\simplemob\maintdrone.dm"
 #include "code\modules\ghostroles\spawner\simplemob\rat.dm"
+#include "code\modules\ghostroles\spawner\simplemob\spider.dm"
 #include "code\modules\ghostroles\spawnpoint\spawnpoint.dm"
 #include "code\modules\ghosttrap\trap.dm"
 #include "code\modules\global_listener\devices.dm"
