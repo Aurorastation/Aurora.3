@@ -43496,8 +43496,8 @@
 "bwt" = (
 /obj/machinery/button/windowtint{
 	id = "OR1";
-	pixel_x = 0;
-	pixel_y = 26;
+	pixel_x = -4;
+	pixel_y = 24;
 	req_access = list(66)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -43505,6 +43505,11 @@
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
+	},
+/obj/machinery/button/holosign{
+	id = 1;
+	pixel_x = 3;
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -50179,7 +50184,7 @@
 "bIB" = (
 /obj/machinery/button/windowtint{
 	id = "OR2";
-	pixel_x = 0;
+	pixel_x = -4;
 	pixel_y = -26;
 	req_access = list(66)
 	},
@@ -50190,6 +50195,11 @@
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
+	},
+/obj/machinery/button/holosign{
+	id = 2;
+	pixel_x = 3;
+	pixel_y = -26
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -67179,12 +67189,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"opq" = (
-/obj/machinery/button/holosign{
-	id = 2
-	},
-/turf/simulated/wall,
-/area/medical/surgerywing)
 "opv" = (
 /obj/structure/closet,
 /obj/item/pickaxe{
@@ -67784,12 +67788,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"pzm" = (
-/obj/machinery/button/holosign{
-	id = 1
-	},
-/turf/simulated/wall,
-/area/medical/surgerywing)
 "pzv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -108881,11 +108879,11 @@ acq
 acr
 acs
 bAo
-pzm
+bvz
 bCd
 bDb
 bDR
-opq
+bvz
 bAo
 acz
 acR
