@@ -89,7 +89,7 @@
 	desc = "Produces electricity from chemicals."
 	icon_state = "chemical_cell"
 	extended_desc = "This is effectively an internal beaker. It will consume and produce power from phoron, welding fuel, carbon,\
-	 ethanol, nutriment, and blood in order of decreasing efficiency. It will consume fuel only if the battery can take more energy."
+	 ethanol, nutriment, and blood, in order of decreasing efficiency. It will consume fuel only if the battery can take more energy."
 	flags = OPENCONTAINER
 	complexity = 4
 	inputs = list()
@@ -97,15 +97,13 @@
 	activators = list("push ref" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/volume = 60
-	var/list/fuel = list(/datum/reagent/toxin/phoron = 50000, /datum/reagent/fuel = 15000, /datum/reagent/carbon = 10000, /datum/reagent/alcohol/ethanol = 10000, /datum/reagent/nutriment = 8000)
+	var/list/fuel = list("phoron" = 50000, "slimejelly" = 25000, "fuel" = 15000, "carbon" = 10000, "ethanol"= 10000, "nutriment" =8000, "blood" = 5000)
 	var/multi = 1
 	var/lfwb =TRUE
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/New()
 	..()
 	create_reagents(volume)
-	extended_desc +="But no fuel can be compared with blood of living human."
-
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/interact(mob/user)
 	set_pin_data(IC_OUTPUT, 2, weakref(src))
@@ -119,9 +117,6 @@
 /obj/item/integrated_circuit/passive/power/chemical_cell/make_energy()
 	if(assembly)
 		if(assembly.battery)
-			var/bp = 5000
-			if((assembly.battery.maxcharge-assembly.battery.charge) / CELLRATE > bp && reagents.remove_reagent(/datum/reagent/blood, 1)) //only blood is powerful enough to power the station(c)
-				assembly.give_power(bp)
 			for(var/I in fuel)
 				if((assembly.battery.maxcharge-assembly.battery.charge) / CELLRATE > fuel[I])
 					if(reagents.remove_reagent(I, 1))
