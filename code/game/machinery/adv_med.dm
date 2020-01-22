@@ -58,7 +58,7 @@
 /obj/machinery/bodyscanner/relaymove(mob/user as mob)
 	if (user.stat)
 		return
-	src.go_out()
+	go_out()
 	return
 
 /obj/machinery/bodyscanner/verb/eject()
@@ -66,9 +66,9 @@
 	set category = "Object"
 	set name = "Eject Body Scanner"
 
-	if (usr.stat != 0)
+	if (usr.stat != CONSCIOUS)
 		return
-	src.go_out()
+	go_out()
 	add_fingerprint(usr)
 	return
 
@@ -77,50 +77,50 @@
 	set category = "Object"
 	set name = "Enter Body Scanner"
 
-	if (usr.stat != 0)
+	if (usr.stat != CONSCIOUS)
 		return
-	if (src.occupant)
-		to_chat(usr, "<span class='warning'>The scanner is already occupied!</span>")
+	if (occupant)
+		to_chat(usr, span("warning", "The scanner is already occupied!"))
 		return
 	if (usr.abiotic())
-		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
+		to_chat(usr, span("warning", "The subject cannot have abiotic items on."))
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
 	usr.client.eye = src
 	usr.forceMove(src)
-	src.occupant = usr
+	occupant = usr
 	update_use_power(2)
 	update_icon()
-	src.add_fingerprint(usr)
+	add_fingerprint(usr)
 	return
 
 /obj/machinery/bodyscanner/proc/go_out()
-	if ((!( src.occupant ) || src.locked))
+	if(!occupant || locked)
 		return
 
-	last_occupant_name = src.occupant.name
-	if (src.occupant.client)
-		src.occupant.client.eye = src.occupant.client.mob
-		src.occupant.client.perspective = MOB_PERSPECTIVE
-	src.occupant.forceMove(src.loc)
-	src.occupant = null
+	last_occupant_name = occupant.name
+	if (occupant.client)
+		occupant.client.eye = occupant.client.mob
+		occupant.client.perspective = MOB_PERSPECTIVE
+	occupant.forceMove(loc)
+	occupant = null
 	update_use_power(1)
 	update_icon()
 	return
 
 /obj/machinery/bodyscanner/attackby(obj/item/grab/G, mob/user)
-	if ((!( istype(G, /obj/item/grab) ) || !( isliving(G.affecting) )))
+	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
-	if (src.occupant)
-		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
+	if (occupant)
+		to_chat(user, span("warning", "The scanner is already occupied!"))
 		return
 	if (G.affecting.abiotic())
-		to_chat(user, "<span class='warning'>Subject cannot have abiotic items on.</span>")
+		to_chat(user, span("warning", "Subject cannot have abiotic items on."))
 		return
 
 	var/mob/living/M = G.affecting
-	user.visible_message("<span class='notice'>[user] starts putting [M] into [src].</span>", "<span class='notice'>You start putting [M] into [src].</span>", range = 3)
+	user.visible_message(span("notice", "\The [user] starts putting \the [M] into \the [src]."), span("notice", "You start putting \the [M] into \the [src]."), range = 3)
 
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
@@ -134,11 +134,11 @@
 			M.client.eye = src
 
 		M.forceMove(src)
-		src.occupant = M
+		occupant = M
 		update_use_power(2)
 		update_icon()
 		//Foreach goto(154)
-	src.add_fingerprint(user)
+	add_fingerprint(user)
 	//G = null
 	qdel(G)
 	return
@@ -149,11 +149,11 @@
 	if(!ismob(O))
 		return
 	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
-	if (src.occupant)
-		to_chat(user, "<span class='notice'><B>The scanner is already occupied!</B></span>")
+	if (occupant)
+		to_chat(user, span("notice", "<B>The scanner is already occupied!</B>"))
 		return
 	if (M.abiotic())
-		to_chat(user, "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>")
+		to_chat(user, span("notice", "<B>Subject cannot have abiotic items on.</B>"))
 		return
 
 	var/mob/living/L = O
@@ -163,9 +163,9 @@
 		return
 
 	if(L == user)
-		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
+		user.visible_message(span("notice", "\The [user] starts climbing into \the [src]."), span("notice", "You start climbing into \the [src]."), range = 3)
 	else
-		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		user.visible_message(span("notice", "\The [user] starts putting \the [L] into \the [src]."), span("notice", "You start putting \the [L] into \the [src]."), range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -175,11 +175,11 @@
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
 		M.forceMove(src)
-		src.occupant = M
+		occupant = M
 		update_use_power(2)
 		update_icon()
-		playsound(src.loc, 'sound/machines/medbayscanner1.ogg', 50)
-	src.add_fingerprint(user)
+		playsound(loc, 'sound/machines/medbayscanner1.ogg', 50)
+	add_fingerprint(user)
 	//G = null
 	return
 
@@ -187,7 +187,7 @@
 	switch(severity)
 		if(1.0)
 			for(var/atom/movable/A as mob|obj in src)
-				A.forceMove(src.loc)
+				A.forceMove(loc)
 				ex_act(severity)
 				//Foreach goto(35)
 			//SN src = null
@@ -196,7 +196,7 @@
 		if(2.0)
 			if (prob(50))
 				for(var/atom/movable/A as mob|obj in src)
-					A.forceMove(src.loc)
+					A.forceMove(loc)
 					ex_act(severity)
 					//Foreach goto(108)
 				//SN src = null
@@ -205,7 +205,7 @@
 		if(3.0)
 			if (prob(25))
 				for(var/atom/movable/A as mob|obj in src)
-					A.forceMove(src.loc)
+					A.forceMove(loc)
 					ex_act(severity)
 					//Foreach goto(181)
 				//SN src = null
@@ -216,10 +216,10 @@
 
 /obj/machinery/bodyscanner/proc/check_species()
 	if (!occupant || !ishuman(occupant))
-		return 1
+		return TRUE
 	var/mob/living/carbon/human/O = occupant
 	if (!O)
-		return 1
+		return TRUE
 	return !(O.get_species() in allowed_species)
 
 /obj/machinery/body_scanconsole/ex_act(severity)
@@ -269,27 +269,27 @@
 	else
 		if (stat & NOPOWER)
 			spawn(rand(0, 15))
-				src.icon_state = "body_scannerconsole-p"
+				icon_state = "body_scannerconsole-p"
 		else
 			icon_state = initial(icon_state)
 
 /obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
-	if (!src.connected || !src.connected.occupant)
+	if (!connected || !connected.occupant)
 		return
-	if (src.connected.occupant.name != src.connected.last_occupant_name || !collapse_desc)
+	if (connected.occupant.name != connected.last_occupant_name || !collapse_desc)
 		var/ldesc = pick("Shows symptoms of collapse.", "Collapsed.", "Pneumothorax detected.")
 		collapse_desc = ldesc
-		src.connected.last_occupant_name = src.connected.occupant.name
+		connected.last_occupant_name = connected.occupant.name
 
 	return collapse_desc
 
 /obj/machinery/body_scanconsole/proc/get_broken_lung_desc()
-	if (!src.connected || !src.connected.occupant)
+	if (!connected || !connected.occupant)
 		return
-	if (src.connected.occupant.name != src.connected.last_occupant_name || !broken_desc)
+	if (connected.occupant.name != connected.last_occupant_name || !broken_desc)
 		var/ldesc = pick("Shows symptoms of rupture.", "Ruptured.", "Extensive damage detected.")
 		broken_desc = ldesc
-		src.connected.last_occupant_name = src.connected.occupant.name
+		connected.last_occupant_name = connected.occupant.name
 
 	return broken_desc
 
@@ -298,13 +298,12 @@
 	for(var/obj/machinery/bodyscanner/C in orange(1,src))
 		connected = C
 		break
-	src.connected.connected = src
+	connected.connected = src
 
-/obj/machinery/body_scanconsole/attack_ai(user as mob)
-	return src.attack_hand(user)
+/obj/machinery/body_scanconsole/attack_ai(var/mob/user)
+	return attack_hand(user)
 
-/obj/machinery/body_scanconsole/attack_hand(user as mob)
-
+/obj/machinery/body_scanconsole/attack_hand(var/mob/user)
 	if(..())
 		return
 
@@ -315,28 +314,36 @@
 
 	// shouldn't be reachable if occupant is invalid
 	if (href_list["print"])
-		var/obj/item/paper/R = new(src.loc)
+		var/obj/item/paper/R = new(loc)
 		R.color = "#eeffe8"
-		R.set_content_unsafe("Scan ([src.connected.occupant])", format_occupant_data(src.connected.get_occupant_data()))
+		R.set_content_unsafe("Scan ([connected.occupant])", format_occupant_data(connected.get_occupant_data()))
 
 		print(R, "[src] beeps, printing [R.name] after a moment.")
 
-/obj/machinery/body_scanconsole/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/list/data = list()
-	var/occupied = (src.connected && src.connected.occupant)
-	var/mob/living/carbon/human/occupant
-	if (src.connected)
-		occupant = src.connected.occupant
+/obj/machinery/body_scanconsole/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "medical-bodyscanner", 800, 600, capitalize(name))
+	ui.open()
 
-	data["noscan"]		= src.connected.check_species()
-	data["nocons"]		= !src.connected
-	data["occupied"] 	= occupied
-	data["invalid"]		= src.connected && src.connected.check_species()
-	data["ipc"]			= src.connected && occupant && isipc(occupant)
+/obj/machinery/body_scanconsole/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		data = list()
+	var/occupied = !!(connected && connected.occupant)
+	var/mob/living/carbon/human/occupant
+	if (connected)
+		occupant = connected.occupant
+
+		data["noscan"] = !!connected.check_species()
+		data["nocons"] = !connected
+		data["occupied"] = occupied
+		data["invalid"] = !!(connected && connected.check_species())
+		data["ipc"] = !!(connected && occupant && isipc(occupant))
+
 	if (!data["invalid"])
 		var/datum/reagents/R = occupant.bloodstr
 
-		var/brain_result = occupant.get_brain_status()
+		var/brain_result = occupant.get_brain_result()
 
 		var/pulse_result
 		if(occupant.should_have_organ(BP_HEART))
@@ -355,46 +362,42 @@
 		if(pulse_result == ">250")
 			pulse_result = -3
 
-		data["stat"]			= occupant.stat
-		data["name"]			= occupant.name
-		data["species"]			= occupant.get_species()	// mostly for fluff.
-		data["brain_activity"]  = brain_result
-		data["pulse"]           = text2num(pulse_result)
-		data["blood_pressure"]  = occupant.get_blood_pressure()
-		data["blood_volume"]    = occupant.get_blood_volume()
-		data["blood_o2"]        = occupant.get_blood_oxygenation()
-		data["rads"]			= occupant.total_radiation
+		data["stat"] = occupant.stat
+		data["name"] = occupant.name
+		data["species"] = occupant.get_species()
+		data["brain_activity"] = brain_result
+		data["pulse"] = text2num(pulse_result)
+		data["blood_pressure"] = occupant.get_blood_pressure()
+		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
+		data["blood_volume"] = occupant.get_blood_volume()
+		data["blood_o2"] = occupant.get_blood_oxygenation()
+		data["rads"] = occupant.total_radiation
 
-		data["cloneLoss"]		= get_severity(occupant.getCloneLoss(), TRUE)
-		data["oxyLoss"]			= get_severity(occupant.getOxyLoss(), TRUE)
-		data["bruteLoss"]		= get_severity(occupant.getBruteLoss(), TRUE)
-		data["fireLoss"]		= get_severity(occupant.getFireLoss(), TRUE)
-		data["toxLoss"]			= get_severity(occupant.getToxLoss(), TRUE)
+		data["cloneLoss"] = get_severity(occupant.getCloneLoss())
+		data["oxyLoss"] = get_severity(occupant.getOxyLoss())
+		data["bruteLoss"] = get_severity(occupant.getBruteLoss())
+		data["fireLoss"] = get_severity(occupant.getFireLoss())
+		data["toxLoss"] = get_severity(occupant.getToxLoss())
 
-		data["paralysis"]		= occupant.paralysis
-		data["bodytemp"]		= occupant.bodytemperature
-		data["occupant"] 		= occupant
-		data["norepiAmt"] 		= R.get_reagent_amount("norepinephrine")
-		data["soporAmt"] 		= R.get_reagent_amount("stoxin")
-		data["bicardAmt"] 		= R.get_reagent_amount("bicaridine")
-		data["dexAmt"] 			= R.get_reagent_amount("dexalin")
-		data["dermAmt"]			= R.get_reagent_amount("dermaline")
-		data["otherAmt"]		= R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"])
-		data["bodyparts"]		= get_external_wound_data(occupant)
-		data["organs"]			= get_internal_wound_data(occupant)
+		data["paralysis"] = occupant.paralysis
+		data["bodytemp"] = occupant.bodytemperature
+		data["occupant"] = occupant
+		data["norepiAmt"] = R.get_reagent_amount("norepinephrine")
+		data["soporAmt"] = R.get_reagent_amount("stoxin")
+		data["bicardAmt"] = R.get_reagent_amount("bicaridine")
+		data["dexAmt"] = R.get_reagent_amount("dexalin")
+		data["dermAmt"] = R.get_reagent_amount("dermaline")
+		data["otherAmt"] = R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"])
+		data["bodyparts"] = get_external_wound_data(occupant)
+		data["organs"] = get_internal_wound_data(occupant)
 		var/list/missing 		= get_missing_organs(occupant)
-		data["missingparts"]	= missing
-		data["hasmissing"]		= missing.len ? 1 : 0
-		data["hasvirus"]		= occupant.virus2.len || occupant.viruses.len
-		data["hastgvirus"]		= occupant.viruses.len
-		data["tgvirus"]			= occupant.viruses
+		data["missingparts"] = missing
+		data["hasmissing"] = !!missing.len
+		data["hasvirus"] = occupant.virus2.len || occupant.viruses.len
+		data["hastgvirus"] = occupant.viruses.len
+		data["tgvirus"] = occupant.viruses
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "med_diagnostics.tmpl", "Medical Diagnostics", 800, 500, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
 	if(I.is_broken())
@@ -457,7 +460,7 @@
 			if (unk)
 				wounds += "Has an abnormal mass present."
 
-		data["hasWounds"] = length(wounds) ? 1 : 0
+		data["hasWounds"] = !!length(wounds)
 		data["wounds"] = wounds
 		organs += list(data)
 
@@ -500,8 +503,9 @@
 		if(O.get_scarring_level() > 0.01)
 			wounds += "[O.get_scarring_results()]."
 
-		data["hasWounds"] = length(wounds) ? 1 : 0
+		data["hasWounds"] = !!length(wounds)
 		data["wounds"] = wounds
+
 		organs += list(data)
 	return organs
 
