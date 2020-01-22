@@ -322,7 +322,7 @@
 	var/dat = "<B><HR><FONT size=3>[name]</FONT></B><BR><HR>"
 
 	if(internals)
-		dat += "<B>Internals: [internal ? "On" : "Off"]</span></B><BR>"
+		dat += "<B>Internals: [internal ? "On" : "Off"]</B><BR>"
 
 	if(suit)
 		var/list/modes = list("Off" = 1, "Binary Sensors" = 2, "Vitals Tracker" = 3, "Tracking Beacon" = 4)
