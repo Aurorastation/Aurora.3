@@ -3,7 +3,7 @@
     <div class="table">
       <div class="header">
         <div class="header-item">Name</div>
-        <div class="header-item">Pulse</div>
+        <div class="header-item"><vui-tooltip label="Pulse/Cell">Pulse rate or Cell Charge (IPCs)</vui-tooltip></div>
         <div class="header-item"><vui-tooltip label="BP">Blood pressure</vui-tooltip></div>
         <div class="header-item"><vui-tooltip label="Oxy">Oxygenation</vui-tooltip></div>
         <div class="header-item"><vui-tooltip label="Temp">Temperature</vui-tooltip></div>
@@ -12,7 +12,8 @@
       </div>
       <div class="sensor" v-for="sensor in crewmembers" :key="sensor.ref">
         <div class="item">{{ sensor.name }} ({{ sensor.ass }})</div>
-        <div class="item center" :class="getPulseClass(sensor.tpulse)">{{ sensor.pulse }}</div>
+        <div class="item center" :class="getPulseClass(sensor.tpulse)" v-if="sensor.cellCharge == -1">{{ sensor.pulse }}</div>
+        <div class="item center" :class="getChargeClass(sensor.cellCharge)" v-else>{{ sensor.cellCharge }}%</div>
         <div class="item center" :class="getPressureClass(sensor.tpressure)" v-if="sensor.stype > 1">{{ sensor.pressure }}</div>
         <div class="item center" v-else>N/A</div>
         <div class="item center" :class="getOxyClass(sensor.oxyg)">{{ toOxyLabel(sensor.oxyg) }}</div>
@@ -97,6 +98,12 @@ export default {
         default:
           return "neutral"
       }
+    },
+    getChargeClass(cellCharge) {
+        if(cellCharge > 10) {
+          return "highlight"
+      }
+        return "bad"
     }
   }
 }
