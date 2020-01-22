@@ -130,3 +130,58 @@
 /obj/item/integrated_circuit/passive/power/chemical_cell/do_work()
 	set_pin_data(IC_OUTPUT, 2, weakref(src))
 	push_data()
+
+
+// For implants.
+/obj/item/integrated_circuit/passive/power/metabolic_siphon
+	name = "metabolic siphon"
+	desc = "A complicated piece of technology which converts bodily nutriments of a host into electricity, or vice versa."
+	extended_desc = "The siphon generates 10W of energy, so long as the siphon exists inside a biological entity.  The entity will feel an increased \
+	appetite and will need to eat more often due to this.  This device will fail if used inside synthetic entities.\
+	If the polarity is reversed, it will instead generate chemical energy with electricity, continuously consuming power from the assembly.\
+	It is slightly less efficient than generating power."
+	icon_state = "setup_implant"
+	complexity = 10
+	origin_tech = list(TECH_POWER = 4, TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_BIO = 5)
+	spawn_flags = IC_SPAWN_RESEARCH
+	inputs = list("reverse" = IC_PINTYPE_BOOLEAN)
+	outputs = list("nutrition" = IC_PINTYPE_NUMBER)
+	power_draw_per_use = 10
+	var/inefficiency = 1.2
+
+/obj/item/integrated_circuit/passive/power/metabolic_siphon/proc/test_validity(var/mob/living/carbon/human/host)
+	if(!host || host.isSynthetic() || host.stat == DEAD || host.nutrition <= 10)
+		return FALSE // Robots and dead people don't have a metabolism.
+	return TRUE
+
+/obj/item/integrated_circuit/passive/power/metabolic_siphon/make_energy()
+	var/mob/living/carbon/human/host
+	if(assembly && istype(assembly, /obj/item/device/electronic_assembly/implant))
+		var/obj/item/device/electronic_assembly/implant/implant_assembly = assembly
+		if(implant_assembly.implant.imp_in)
+			host = implant_assembly.implant.imp_in
+			if(!get_pin_data(IC_INPUT, 1))
+				if(test_validity(host))
+					assembly.give_power(10)
+					host.adjustNutritionLoss(HUNGER_FACTOR)
+			else
+				if(assembly.draw_power(power_draw_per_use*inefficiency)) // slightly less efficient the other way around
+					host.adjustNutritionLoss(-HUNGER_FACTOR)
+			set_pin_data(IC_OUTPUT, 1, host.nutrition)
+
+/obj/item/integrated_circuit/passive/power/metabolic_siphon/synthetic
+	name = "internal energy siphon"
+	desc = "A small circuit designed to be connected to an internal power wire inside a synthetic entity."
+	extended_desc = "The siphon generates 10W of energy, so long as the siphon exists inside a synthetic entity.  The entity needs to recharge \
+	more often due to this. If the polarity is reversed, it will instead transfer electricity back to the entity, continuously consuming power from \
+	the assembly. This device will fail if used inside organic entities."
+	icon_state = "setup_implant"
+	complexity = 10
+	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 4, TECH_DATA = 3)
+	spawn_flags = IC_SPAWN_RESEARCH
+	inefficiency = 1 // it's not converting anything, just transferring power
+
+/obj/item/integrated_circuit/passive/power/metabolic_siphon/synthetic/test_validity(var/mob/living/carbon/human/host)
+	if(!host || !host.isSynthetic() || host.stat == DEAD || host.nutrition <= 10)
+		return FALSE // This time we don't want a metabolism.
+	return TRUE
