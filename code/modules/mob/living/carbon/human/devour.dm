@@ -45,21 +45,29 @@
 	//A bite will be taken every 4 seconds
 	var/bite_delay = 4
 	var/bite_size = mouth_size * 0.5
-	var/num_bites_needed = (victim.mob_size * 2)/bite_size//total bites needed to eat it from full health
-	var/PEPB = 1/num_bites_needed//Percentage eaten per bite
+	var/num_bites_needed = (victim.mob_size * 2)/bite_size //Total bites needed to eat it from full health
+	var/PEPB = 1/num_bites_needed //Percentage eaten per bite
 	var/turf/ourloc = src.loc
 	var/turf/victimloc = victim.loc
-	var/messes = 0//number of bloodstains we've placed
+	var/messes = 0 //Number of bloodstains we've placed
 	var/datum/reagents/vessel = victim.get_vessel(1)
 	if(!victim.composition_reagent_quantity)
 		victim.calculate_composition()
+	var/dam_multiplier = 1
 
-	var/victim_maxhealth = victim.maxHealth//We cache this here incase we need to edit it.
+	var/victim_maxhealth = victim.maxHealth //We cache this here in case we need to edit it.
+
+	if(ishuman(victim))
+		victim_maxhealth *= 2
+		bite_delay *= 3
+		dam_multiplier = 0.75
+
+	var/damage_dealt = victim_maxhealth * PEPB * dam_multiplier
 
 	//Now, incase we're resuming an earlier feeding session on the same creature
 	//We calculate the actual bites needed to fully eat it based on how eaten it already is
-	if(victim.getCloneLoss())
-		var/percentageDamaged = victim.getCloneLoss() / victim_maxhealth
+	if(victim.getBruteLoss())
+		var/percentageDamaged = victim.getBruteLoss() / victim_maxhealth
 		var/percentageRemaining = 1 - percentageDamaged
 		num_bites_needed = percentageRemaining / PEPB
 
@@ -73,20 +81,19 @@
 	else
 		time_needed_string = "[time_needed_seconds] seconds"
 
-	src.visible_message("<span class='danger'>[src] starts devouring [victim]</span>!","<span class='danger'>You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, but you can interrupt feeding anytime and leave with what you've already eaten.</span>")
-
-	if(ishuman(victim))
-		bite_delay *= 3 //Eating humans takes A LOT of time.
+	src.visible_message("<span class='danger'>[src] starts to devour [victim]</span>!", \
+						"<span class='danger'>You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, \
+						but you can interrupt feeding anytime and leave with what you've already eaten.</span>")
 
 	for (var/i = 0 to num_bites_needed)
-		if(do_mob(src, victim, bite_delay, extra_checks = CALLBACK(src, .proc/devouring_equals, victim)))
+		if(do_mob(src, victim, bite_delay * 10, extra_checks = CALLBACK(src, .proc/devouring_equals, victim)))
 			face_atom(victim)
-			victim.apply_damage(victim_maxhealth*PEPB, BRUTE)
+			victim.apply_damage(damage_dealt, BRUTE)
 			var/obj/item/organ/internal/stomach/S = internal_organs_by_name[BP_STOMACH]
 			if(S)
 				S.ingested.add_reagent(victim.composition_reagent, (victim.composition_reagent_quantity * 0.5) * PEPB)
 			visible_message("<span class='danger'>[src] bites a chunk out of [victim]!</span>","<span class='danger'>[bitemessage(victim)]</span>")
-			if (messes < victim.mob_size - 1 && prob(50))
+			if(messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim, vessel)
 			if(!ishuman(victim))
 				if(victim.getBruteLoss() >= victim_maxhealth)
@@ -96,20 +103,18 @@
 			else
 				var/mob/living/carbon/human/H = victim
 				if(H.stat == DEAD)
-					visible_message("<span class='danger'>[src] moves their jaws away from [victim], leaving behind a soulless husk of bones...</span>", "<span class='warning'>Your victim is nothing more than strands of meat attached to bone now.</span>")
+					visible_message("<span class='danger'>[src] moves their jaws away from [victim], leaving behind a soulless husk of bones!</span>", "<span class='warning'>Your victim is nothing more than strands of meat attached to bone now.</span>")
 					handle_devour_mess(src, victim, vessel, 1)
-					H.ChangeToHusk()
-				break
+					break
 		else
-			if(nutrition >= max_nutrition - 30)
-				to_chat(src, "<span class='danger'>You can't eat anymore!</span>")
-			if (victim && victimloc != victim.loc)
+			if(nutrition >= (max_nutrition - 60))
+				to_chat(src, "<span class='danger'>Your stomach is full!</span>")
+			if (victim && !QDELETED(victim) && victimloc != victim.loc) //This procs when the victim gets moved to nullspace.
 				to_chat(src, "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>")
 			else if (ourloc != src.loc)
 				to_chat(src, "<span class='danger'>You moved! Devouring cancelled.</span>")
 			else
-				to_chat(src, "Devouring cancelled.")//reason unknown, maybe the eater got stunned?)
-				//This can also happen if you start devouring something else
+				to_chat(src, "Devouring cancelled.") //Reason unknown, maybe the eater got stunned?
 			break
 
 /mob/living/carbon/human/proc/devouring_equals(var/mob/victim)

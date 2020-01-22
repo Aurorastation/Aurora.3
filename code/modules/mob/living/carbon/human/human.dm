@@ -134,6 +134,17 @@
 			to_chat(src, span("warning", "Your [stomach.name] is full!"))
 		return FALSE
 
+	if(species?.gluttonous & GLUT_MESSY)
+		if(ismob(victim))
+			var/mob/M = victim
+			for(var/obj/item/grab/G in M.grabbed_by)
+				if(G && G.state < GRAB_NECK)
+					if(!silent)
+						to_chat(src, span("warning", "You need a tighter hold on \the [M]!"))
+					return FALSE
+		else
+			return FALSE
+
 	. = stomach.get_devour_time(victim) || ..()
 
 /mob/living/carbon/human/get_ingested_reagents()
