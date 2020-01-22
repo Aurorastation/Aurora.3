@@ -75,6 +75,7 @@ var/datum/controller/subsystem/http/SShttp
 	if (r == RUSTG_JOB_NO_RESULTS_YET)
 		return FALSE
 	else
+		log_debug("Finished rustg http: [r]")
 		_raw_response = r
 		in_progress = FALSE
 		return TRUE

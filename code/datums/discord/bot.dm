@@ -168,9 +168,11 @@ var/datum/discord_bot/discord_bot = null
  */
 /datum/discord_bot/proc/retreive_pins()
 	if (!active || !auth_token)
+		testing("one")
 		return list()
 
 	if (!channels.len || isnull(channels_to_group["channel_pins"]))
+		testing("two")
 		if (robust_debug)
 			log_debug("BOREALIS: No pins channel group.")
 		return list()
@@ -189,6 +191,8 @@ var/datum/discord_bot/discord_bot = null
 
 	if (robust_debug)
 		log_debug("BOREALIS: Finished acquiring pins.")
+
+	testing("finished: [output]")
 
 	return output
 

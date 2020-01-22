@@ -91,6 +91,8 @@
 		var/list/memos = temp_list[A]
 		var/flag = text2num(A)
 
+		log_debug("Adding memo: [json_encode(memos)]")
+
 		memo_list += new /datum/memo_datum(memos, flag)
 
 /*
