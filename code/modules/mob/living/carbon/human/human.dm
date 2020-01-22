@@ -1611,24 +1611,19 @@
 	set desc = "Pop a joint back into place. Extremely painful."
 	set src in view(1)
 
-	if(!isliving(usr) || !usr.canClick())
+	if(use_check_and_message(usr, USE_ALLOW_INCAPACITATED))
 		return
 
+	if(!usr.canClick())
+		to_chat(usr, span("warning", "You cannot do this so soon!"))
+		return
 	usr.setClickCooldown(20)
 
-	if(usr.stat > 0)
-		to_chat(usr, "You are unconcious and cannot do that!")
-		return
-
-	if(usr.restrained())
-		to_chat(usr, "You are restrained and cannot do that!")
-		return
-
-	var/mob/S = src
+	var/mob/living/carbon/human/S = src
 	var/mob/U = usr
 	var/self = null
 	if(S == U)
-		self = 1 // Removing object from yourself.
+		self = TRUE // Relocating own joint
 
 	var/list/limbs = list()
 	for(var/limb in organs_by_name)
@@ -1649,7 +1644,7 @@
 		U.visible_message("<span class='warning'>[U] tries to relocate [S]'s [current_limb.joint]...</span>", \
 		"<span class='warning'>You begin to relocate [S]'s [current_limb.joint]...</span>")
 
-	if(!do_after(U, 30))
+	if(!do_after(U, 30, no_stun = FALSE))
 		return
 	if(!choice || !current_limb || !S || !U)
 		return
@@ -1661,6 +1656,7 @@
 		U.visible_message("<span class='danger'>[U] pops [S]'s [current_limb.joint] back in!</span>", \
 		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
 	current_limb.undislocate()
+	custom_pain("A sharp pain jolts through your body as your [current_limb.joint] is reset!", 15)
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
 	if(W in organs)

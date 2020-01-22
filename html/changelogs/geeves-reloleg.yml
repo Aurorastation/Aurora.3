@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "You can now undislocate joints even while stunned and weakened, but not unconscious."
+  - rscadd: "Added pain to undislocating joints. I suggest giving your patients painkillers, medical."

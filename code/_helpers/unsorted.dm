@@ -678,7 +678,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	if (progbar)
 		qdel(progbar)
 
-/proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
+/proc/do_after(mob/user, delay, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks, no_stun = TRUE)
 	if(!user || isnull(user))
 		return 0
 
@@ -713,7 +713,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 		else
 			user_loc_to_check = user.loc
 
-		if (!user || user.stat || user.weakened || user.stunned || (use_user_turf >= 0 && user_loc_to_check != Location))
+		if (!user || user.stat || (user.weakened || user.stunned) && no_stun || (use_user_turf >= 0 && user_loc_to_check != Location))
 			. = 0
 			break
 
