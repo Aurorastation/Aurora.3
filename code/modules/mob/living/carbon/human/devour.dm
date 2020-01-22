@@ -113,8 +113,6 @@
 				to_chat(src, "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>")
 			else if (ourloc != src.loc)
 				to_chat(src, "<span class='danger'>You moved! Devouring cancelled.</span>")
-			else
-				to_chat(src, "Devouring cancelled.") //Reason unknown, maybe the eater got stunned?
 			break
 
 /mob/living/carbon/human/proc/devouring_equals(var/mob/victim)
