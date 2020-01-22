@@ -345,7 +345,7 @@ var/datum/discord_bot/discord_bot = null
  *						  Num upon failure.
  */
 /datum/discord_channel/proc/get_pins(var/token)
-	var/datum/http_request/req = SShttp.get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization", "Bot [token]"))
+	var/datum/http_request/req = SShttp.get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization" = "Bot [token]"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())
