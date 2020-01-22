@@ -3,6 +3,7 @@
 	short_name = "dio"
 	name_plural = "Dionaea"
 	bodytype = "Diona"
+	age_min = 1
 	age_max = 1000
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
