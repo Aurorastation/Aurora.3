@@ -587,7 +587,7 @@
  */
 /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
 	name = "engineering department jacket"
-	desc = "A cozy jacket in engineering's colors. Show your department pride!"
+	desc = "A cozy jacket in engineering's colors, featuring spacious pockets you won't even use."
 	icon_state = "engi_dep_jacket"
 	item_state = "engi_dep_jacket"
 	icon_open = "engi_dep_jacket_open"
@@ -595,7 +595,7 @@
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
 	name = "supply department jacket"
-	desc = "A cozy jacket in supply's colors. Show your department pride!"
+	desc = "A cozy jacket in supply's colors, perfect for folding up and forgetting bounty lists."
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
 	icon_open = "supply_dep_jacket_open"
@@ -603,7 +603,7 @@
 
 /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
 	name = "science department jacket"
-	desc = "A cozy jacket in science's colors. Show your department pride!"
+	desc = "A cozy jacket in science's colors, offering the latest in a complete lack of protection against chemical spills."
 	icon_state = "sci_dep_jacket"
 	item_state = "sci_dep_jacket"
 	icon_open = "sci_dep_jacket_open"
@@ -611,7 +611,7 @@
 
 /obj/item/clothing/suit/storage/toggle/med_dep_jacket
 	name = "medical department jacket"
-	desc = "A cozy jacket in medical's colors. Show your department pride!"
+	desc = "A cozy jacket in medical's colors, guaranteed not to leak the latest gossip."
 	icon_state = "med_dep_jacket"
 	item_state = "med_dep_jacket"
 	icon_open = "med_dep_jacket_open"
@@ -619,11 +619,19 @@
 
 /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 	name = "security department jacket"
-	desc = "A cozy jacket in security's colors. Show your department pride!"
+	desc = "A cozy jacket in security's colors, luckily able to be easily cleaned of blood stains"
 	icon_state = "sec_dep_jacket"
 	item_state = "sec_dep_jacket"
 	icon_open = "sec_dep_jacket_open"
 	icon_closed = "sec_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/serv_dep_jacket
+	name = "service department jacket"
+	desc = "A cozy jacket in service's colors, reminding many employees that even service has colors."
+	icon_state = "serv_dep_jacket"
+	item_state = "serv_dep_jacket"
+	icon_open = "serv_dep_jacket_open"
+	icon_closed = "serv_dep_jacket"
 
 /obj/item/clothing/suit/storage/fib
 	name = "\improper FIB agent jacket"
