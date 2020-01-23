@@ -364,17 +364,23 @@
 			return attack_hand(user)
 
 		var/damage_to_deal = W.force
-		var/weaken = material?.integrity
+		var/weaken = 0
+		var/sound_to_play = 'sound/weapons/smash.ogg'
+		if(material)
+			weaken += material.integrity * 2
+			sound_to_play = material.hitsound
 		if(reinf_material)
-			weaken += reinf_material.integrity * 0.75 //Diminish the effects of the reinforcing material. It's reinforcement after all.
+			weaken += reinf_material.integrity * 2
 		weaken /= 100 //For reference, plasteel's integrity is 600.
-		damage_to_deal -= weaken * 1.5
 		visible_message("<span class='notice'>[user] retracts their [W] and starts winding up a strike...</span>")
 		var/hit_delay = W.w_class * 10 //Heavier weapons take longer to swing, yeah?
 		if(do_after(user, hit_delay))
 			user.do_attack_animation(src)
-			playsound(src, 'sound/weapons/smash.ogg', 50)
-			if(damage_to_deal < (MIN_DAMAGE_TO_HIT + weaken))
+			playsound(src, sound_to_play, 50)
+			if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
+				//Plasteel walls take 24 & 15 minimum damage.
+				//Steel walls take 3 & 15 minimum damage.
+				damage_to_deal -= weaken
 				visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], [is_sharp(W) ? "slicing some of the plating" : "putting a heavy dent on it"]!</span>")
 				take_damage(damage_to_deal)
 			else
