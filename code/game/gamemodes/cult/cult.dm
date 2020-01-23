@@ -5,5 +5,5 @@
 	config_tag = "cult"
 	required_players = 9
 	required_enemies = 4
-	end_on_antag_death = 1
+	end_on_antag_death = FALSE
 	antag_tags = list(MODE_CULTIST)

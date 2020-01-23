@@ -17,182 +17,43 @@
 	return list(user)
 
 /spell/rune_write/cast(null, mob/user = usr)
-	if(!cultwords["travel"])
-		runerandom()
-	var/list/runes = list("Teleport", "Teleport Other", "Spawn a Tome", "Change Construct Type", "Convert", "EMP", "Drain Blood", "See Invisible", "Resurrect", "Hide Runes", "Reveal Runes", "Astral Journey", "Manifest a Ghost", "Imbue Talisman", "Sacrifice", "Wall", "Free Cultist", "Summon Cultist", "Deafen", "Blind", "BloodBoil", "Communicate", "Stun")
-	var/r = input(user, "Choose a rune to scribe", "Rune Scribing") in runes //not cancellable.
-	if(locate(/obj/effect/rune) in user.loc)
-		to_chat(user, "<span class='warning'>There is already a rune in this location.</span>")
+	if(!istype(user.loc, /turf))
+		to_chat(user, span("warning", "You do not have enough space to write a proper rune."))
+
+	var/rune = input(user, "Choose a rune to scribe", "Rune Scribing") in rune_types //not cancellable.
+	if(locate(/obj/effect/rune) in get_turf(user))
+		to_chat(user, span("warning", "There is already a rune in this location."))
 		return
 
-	var/obj/effect/rune/R = new /obj/effect/rune(user.loc)
-	if(istype(user.loc,/turf))
-		var/area/A = get_area(user)
-		log_and_message_admins("created \an [r] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].", user)
-		switch(r)
-			if("Teleport")
-				if(cast_check(1))
-					var/beacon
-					if(user)
-						beacon = input(user, "Select the last rune", "Rune Scribing") in rnwords
-					R.word1=cultwords["travel"]
-					R.word2=cultwords["self"]
-					R.word3=beacon
-					R.check_icon()
-			if("Teleport Other")
-				if(cast_check(1))
-					var/beacon
-					if(user)
-						beacon = input(user, "Select the last rune", "Rune Scribing") in rnwords
-					R.word1=cultwords["travel"]
-					R.word2=cultwords["other"]
-					R.word3=beacon
-					R.check_icon()
-			if("Spawn a Tome")
-				if(cast_check(1))
-					R.word1=cultwords["see"]
-					R.word2=cultwords["blood"]
-					R.word3=cultwords["hell"]
-					R.check_icon()
-			if("Change Construct Type")
-				if(cast_check(1))
-					R.word1=cultwords["hell"]
-					R.word2=cultwords["destroy"]
-					R.word3=cultwords["other"]
-					R.check_icon()
-			if("Convert")
-				if(cast_check(1))
-					R.word1=cultwords["join"]
-					R.word2=cultwords["blood"]
-					R.word3=cultwords["self"]
-					R.check_icon()
-			if("EMP")
-				if(cast_check(1))
-					R.word1=cultwords["destroy"]
-					R.word2=cultwords["see"]
-					R.word3=cultwords["technology"]
-					R.check_icon()
-			if("Drain Blood")
-				if(cast_check(1))
-					R.word1=cultwords["travel"]
-					R.word2=cultwords["blood"]
-					R.word3=cultwords["self"]
-					R.check_icon()
-			if("See Invisible")
-				if(cast_check(1))
-					R.word1=cultwords["see"]
-					R.word2=cultwords["hell"]
-					R.word3=cultwords["join"]
-					R.check_icon()
-			if("Resurrect")
-				if(cast_check(1))
-					R.word1=cultwords["blood"]
-					R.word2=cultwords["join"]
-					R.word3=cultwords["hell"]
-					R.check_icon()
-			if("Hide Runes")
-				if(cast_check(1))
-					R.word1=cultwords["hide"]
-					R.word2=cultwords["see"]
-					R.word3=cultwords["blood"]
-					R.check_icon()
-			if("Astral Journey")
-				if(cast_check(1))
-					R.word1=cultwords["hell"]
-					R.word2=cultwords["travel"]
-					R.word3=cultwords["self"]
-					R.check_icon()
-			if("Manifest a Ghost")
-				if(cast_check(1))
-					R.word1=cultwords["blood"]
-					R.word2=cultwords["see"]
-					R.word3=cultwords["travel"]
-					R.check_icon()
-			if("Imbue Talisman")
-				if(cast_check(1))
-					R.word1=cultwords["hell"]
-					R.word2=cultwords["technology"]
-					R.word3=cultwords["join"]
-					R.check_icon()
-			if("Sacrifice")
-				if(cast_check(1))
-					R.word1=cultwords["hell"]
-					R.word2=cultwords["blood"]
-					R.word3=cultwords["join"]
-					R.check_icon()
-			if("Reveal Runes")
-				if(cast_check(1))
-					R.word1=cultwords["blood"]
-					R.word2=cultwords["see"]
-					R.word3=cultwords["hide"]
-					R.check_icon()
-			if("Wall")
-				if(cast_check(1))
-					R.word1=cultwords["destroy"]
-					R.word2=cultwords["travel"]
-					R.word3=cultwords["self"]
-					R.check_icon()
-			if("Freedom")
-				if(cast_check(1))
-					R.word1=cultwords["travel"]
-					R.word2=cultwords["technology"]
-					R.word3=cultwords["other"]
-					R.check_icon()
-			if("Cultsummon")
-				if(cast_check(1))
-					R.word1=cultwords["join"]
-					R.word2=cultwords["other"]
-					R.word3=cultwords["self"]
-					R.check_icon()
-			if("Deafen")
-				if(cast_check(1))
-					R.word1=cultwords["hide"]
-					R.word2=cultwords["other"]
-					R.word3=cultwords["see"]
-					R.check_icon()
-			if("Blind")
-				if(cast_check(1))
-					R.word1=cultwords["destroy"]
-					R.word2=cultwords["see"]
-					R.word3=cultwords["other"]
-					R.check_icon()
-			if("BloodBoil")
-				if(cast_check(1))
-					R.word1=cultwords["destroy"]
-					R.word2=cultwords["see"]
-					R.word3=cultwords["blood"]
-					R.check_icon()
-			if("Communicate")
-				if(cast_check(1))
-					R.word1=cultwords["self"]
-					R.word2=cultwords["other"]
-					R.word3=cultwords["technology"]
-					R.check_icon()
-			if("Stun")
-				if(cast_check(1))
-					R.word1=cultwords["join"]
-					R.word2=cultwords["hide"]
-					R.word3=cultwords["technology"]
-					R.check_icon()
-		for(var/obj/O in range(1,user))
-			O.cultify()
-		for(var/turf/T in range(1,user))
-			var/atom/movable/overlay/animation = new /atom/movable/overlay(T)
-			animation.name = "conjure"
-			animation.density = 0
-			animation.anchored = 1
-			animation.icon = 'icons/effects/effects.dmi'
-			animation.layer = 3
-			animation.master = T
-			if(istype(T,/turf/simulated/wall))
-				animation.icon_state = "cultwall"
-				flick("cultwall",animation)
-			else
-				animation.icon_state = "cultfloor"
-				flick("cultfloor",animation)
-			spawn(10)
-				qdel(animation)
-			T.cultify()
-	else
-		to_chat(user, "<span class='warning'>You do not have enough space to write a proper rune.</span>")
-	return
+	var/rune_path = rune_types[rune]
+	var/obj/effect/rune/R = new rune_path(get_turf(user))
+
+	var/network
+	if(istype(R, /obj/effect/rune/teleport))
+		network = input(user, "Choose a teleportation network for the rune to connect to.", "Teleport Rune") in teleport_network
+	if(network)
+		R.network = network
+	R.cult_description = rune
+
+	var/area/A = get_area(R)
+	log_and_message_admins("created \an [rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].", user)
+
+	for(var/obj/O in range(1,user))
+		O.cultify()
+	for(var/turf/T in range(1,user))
+		var/atom/movable/overlay/animation = new /atom/movable/overlay(T)
+		animation.name = "conjure"
+		animation.density = 0
+		animation.anchored = 1
+		animation.icon = 'icons/effects/effects.dmi'
+		animation.layer = 3
+		animation.master = T
+		if(istype(T,/turf/simulated/wall))
+			animation.icon_state = "cultwall"
+			flick("cultwall",animation)
+		else
+			animation.icon_state = "cultfloor"
+			flick("cultfloor",animation)
+		spawn(10)
+			qdel(animation)
+		T.cultify()
