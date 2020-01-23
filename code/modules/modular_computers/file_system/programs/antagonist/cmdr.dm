@@ -55,8 +55,9 @@
 
 /datum/computer_file/program/cmdr/proc/build_prices()
 	req_prices["shuttle"] = list()
-	req_prices["shuttle"]["price"] = 25000
-	req_prices["shuttle"]["type"] = "money"
+	req_prices["shuttle"]["price"] = 10
+	req_prices["shuttle"]["type"] = "crystal"
+	req_prices["shuttle"]["purchased"] = 0
 
 /datum/computer_file/program/cmdr/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -186,3 +187,17 @@ VUEUI_MONITOR_VARS(/datum/computer_file/program/cmdr, cmdrmonitor)
 		else
 			to_chat(usr, span("warning", "Crystal purchase failed."))
 		SSvueui.check_uis_for_change(src)
+
+	if(href_list["purchase"])
+		if(href_list["purchase"] == "shuttle")
+			if(computer.hidden_uplink.uses < req_prices["shuttle"]["price"])
+				to_chat(usr, span("warning", "Insufficient funds."))
+				return
+			if(req_prices["shuttle"]["purchased"])
+				to_chat(usr, span("warning", "You've purchased this already!"))
+				return
+			computer.hidden_uplink.uses -= req_prices["shuttle"]["price"]
+			req_prices["shuttle"]["purchased"] = 1
+			SSvueui.check_uis_for_change(src)
+			var/datum/wifi/sender/door/wifi_sender = new("syndicate_shuttle", src)
+			wifi_sender.activate("open")

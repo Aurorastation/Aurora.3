@@ -169,7 +169,7 @@
 /obj/item/device/camera_bug
 	name = "camera bugger"
 	desc = "A simple-to-use electronic camera reprogramming device. Forces cameras to broadcast on a pre-set camera network. Monitor sold separately."
-	icon_state = "motion1"
+	icon_state = "bugger"
 	item_state = "signaler"
 
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1, TECH_ILLEGAL = 3)

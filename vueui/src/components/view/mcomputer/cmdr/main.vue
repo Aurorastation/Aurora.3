@@ -8,7 +8,7 @@
         <vui-button :params="{cams: 1}">Camera View</vui-button>
       </div>
       <div id="resource-panel">
-        <span>$</span> {{money}} &nbsp;&nbsp; <span>♦</span> {{crystals}}
+        <span>电</span> {{money}} &nbsp;&nbsp; <span>♦</span> {{crystals}}
       </div>
     </div>
     <hr>

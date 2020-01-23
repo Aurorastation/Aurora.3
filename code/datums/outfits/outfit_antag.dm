@@ -108,6 +108,8 @@
 		/obj/item/reagent_containers/pill/cyanide = 1
 	)
 
+	implants = null
+
 	uplink_uses = 10
 
 	id_access = "Syndicate Commander"

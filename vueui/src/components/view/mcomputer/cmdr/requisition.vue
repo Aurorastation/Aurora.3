@@ -12,7 +12,7 @@
     <template v-if="misc_view">
       <br>
       <div>
-        <vui-button :disabled="canAfford(req_prices['shuttle'])" :params="{ purchase: 'shuttle' }">Syndicate Shuttle Access Codes (${{req_prices['shuttle']['price']}})</vui-button>
+        <vui-button :disabled="cantAfford(req_prices['shuttle'])" :params="{ purchase: 'shuttle' }">Syndicate Shuttle Access Codes (♦ {{req_prices['shuttle']['price']}})</vui-button>
         <p class="desc">Command-level authcodes for unlocking the Syndicate's stealth shuttle. Handle with care.</p>
         <vui-button :class="{ disabled: ert_capable }" :params="{ purchase: 'ERT' }">Request Emergency Commando Deployment</vui-button>
         <p class="desc">Requests an immediate deployment of Syndicate forces to the station. Due to the immediacy of the request, neither quality nor loyalty are guaranteed. Only usable once 50% or more operatives are KIA.</p>
@@ -27,9 +27,11 @@ export default {
 		return this.$root.$data.state;
 	},
 	methods: {
-		canAfford(item) {
+		cantAfford(item) {
 			if(!item.hasOwnProperty('type'))
-				return false
+				return true
+			else if(item['purchased'] == 1)
+				return true
 			else if(item['type'] == 'money')
 				return item['price'] > this.money
 			else
