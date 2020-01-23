@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "Dismantling mech-suits will no longer produce a spooky invisible second mech-suit."
