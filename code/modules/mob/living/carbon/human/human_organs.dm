@@ -227,5 +227,5 @@
 			else if(brain_result <= 80)
 				brain_result = "<span class='average'>[brain_result]%</span>"
 			else
-				brain_result = "[brain_result]%"
+				brain_result = "<span class ='scan_green'>[brain_result]%</span>"
 	return brain_result
