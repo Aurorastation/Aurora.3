@@ -4246,8 +4246,7 @@
 	pixel_y = 4
 	},
 /obj/effect/landmark{
-	name = "Nuclear-Code";
-	step_x = 0
+	name = "Nuclear-Code"
 	},
 /turf/unsimulated/floor{
 	icon_state = "grimy"
