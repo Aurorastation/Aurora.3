@@ -81,6 +81,8 @@
 			memo_hash = ""
 
 /datum/server_greeting/proc/update_pins()
+	set background = 1
+
 	var/list/temp_list = discord_bot.retreive_pins()
 
 	// A is a number in a string form

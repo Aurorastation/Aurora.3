@@ -1,16 +1,26 @@
 /datum/gear/utility
-	display_name = "briefcase"
-	path = /obj/item/storage/briefcase
+	display_name = "clipboard"
+	path = /obj/item/clipboard
 	sort_category = "Utility"
+
+/datum/gear/utility/briefcase
+	display_name = "briefcase selection"
+	description = "A selection of briefcases."
+	path = /obj/item/storage/briefcase
+
+/datum/gear/utility/briefcase/New()
+	..()
+	var/briefcases = list()
+	briefcases["brown briefcase"] = /obj/item/storage/briefcase
+	briefcases["black briefcase"] = /obj/item/storage/briefcase/black
+	briefcases["metal briefcase"] = /obj/item/storage/briefcase/aluminium
+	briefcases["NT briefcase"] = /obj/item/storage/briefcase/nt
+	gear_tweaks += new/datum/gear_tweak/path(briefcases)
 
 /datum/gear/utility/secure
 	display_name = "secure briefcase"
 	path = /obj/item/storage/secure/briefcase
 	cost = 2
-
-/datum/gear/utility/clipboard
-	display_name = "clipboard"
-	path = /obj/item/clipboard
 
 /datum/gear/utility/folder
 	display_name = "folders"
