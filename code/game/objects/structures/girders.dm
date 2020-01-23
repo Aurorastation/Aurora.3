@@ -27,7 +27,8 @@
 	to_chat(user, state)
 
 /obj/structure/girder/displaced
-	icon_state = "displaced girder"
+	name = "displaced girder"
+	icon_state = "displaced"
 	anchored = 0
 	health = 50
 	cover = 25
