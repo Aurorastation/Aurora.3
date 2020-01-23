@@ -1,15 +1,16 @@
 /obj/effect/rune/emp
 	can_talisman = TRUE
 
-/obj/effect/rune/emp/do_rune_action(mob/living/user)
-	log_and_message_admins("activated an EMP rune.")
+/obj/effect/rune/emp/do_rune_action(mob/living/user, obj/O = src)
 	var/radius = 4
-	if(istype(src,/obj/effect/rune))
+	if(istype(O, /obj/effect/rune))
 		user.say("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
+		log_and_message_admins("activated an EMP rune.")
 	else
 		user.whisper("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
 		radius = 2
-	var/turf/T = get_turf(src)
+		log_and_message_admins("activated an EMP talisman.")
+	var/turf/T = get_turf(O)
 	playsound(T, 'sound/magic/Disable_Tech.ogg', 25, 1)
 
 	var/list/ex = list(user) // exclude caster
@@ -18,6 +19,6 @@
 			ex += M
 		else
 			continue
-	empulse(T, 1, 3, exclude = ex)
-	qdel(src)
-	return
+	empulse(T, 1, radius, exclude = ex)
+	qdel(O)
+	return TRUE

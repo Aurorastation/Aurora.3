@@ -3,7 +3,7 @@
 	var/obj/item/paper/new_talisman
 	var/cant_talisman
 
-	for(var/obj/item/paper/P in src.loc)
+	for(var/obj/item/paper/P in get_turf(src))
 		if(!P.info)
 			new_talisman = P
 			break
@@ -21,7 +21,7 @@
 		if(!R.can_talisman)
 			continue
 		var/obj/item/paper/talisman/T = new /obj/item/paper/talisman(get_turf(src))
-		T.imbue = "[R.type]/proc/do_rune_action"
+		T.imbued_rune = CALLBACK(R, /obj/effect/rune/.proc/do_rune_action)
 		T.rune = R.cult_description
 		imbued_from = R
 		if(R.network)

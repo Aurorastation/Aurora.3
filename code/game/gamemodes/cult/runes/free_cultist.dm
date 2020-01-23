@@ -1,4 +1,4 @@
-/obj/effect/rune/freedom/do_rune_action(var/mob/living/user)
+/obj/effect/rune/freedom/do_rune_action(mob/living/user)
 	var/list/mob/living/carbon/human/cultists = list()
 	for(var/datum/mind/H in cult.current_antagonists)
 		if(istype(H.current,/mob/living/carbon/human))
@@ -47,6 +47,11 @@
 			if(D.locked)
 				cultist_free = FALSE
 				D.locked = FALSE
+		for(var/obj/machinery/door/airlock/door in range(2, get_turf(cultist)))
+			if(door.locked)
+				cultist_free = FALSE
+				door.unlock()
+				door.open()
 		
 		if(!cultist_free)
 			to_chat(cultist, span("cult", "Your fellow cultists have freed you!"))

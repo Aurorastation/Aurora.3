@@ -49,6 +49,6 @@
 	if(D)
 		D.visible_message("<span class='danger'>[D] slowly dissipates into dust and bones.</span>", \
 		"<span class='danger'>You feel pain, as bonds formed between your soul and this homunculus break.</span>", \
-		"<span class='warning'>You hear faint rustle.</span>")
+		"<span class='warning'>You hear a faint rustling.</span>")
 		D.dust()
 	return

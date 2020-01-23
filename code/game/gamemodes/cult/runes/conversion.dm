@@ -1,5 +1,5 @@
 /obj/effect/rune/convert/do_rune_action(mob/living/user)
-	var/mob/attacker = user
+	var/mob/living/attacker = user
 	var/mob/living/carbon/target = null
 	for(var/mob/living/carbon/M in src.loc)
 		if(!iscultist(M) && M.stat < DEAD && !(M in converting))
@@ -38,7 +38,7 @@
 					target.take_overall_damage(0, 5)
 				if(45 to 75)
 					to_chat(target, span("cult", "You begin to hallucinate images of a dark and incomprehensible being and your entire body feels like its engulfed in flame as your mental defenses crumble."))
-					target.apply_effect(rand(1,10), STUTTER)
+					target.apply_effect(rand(1, 10), STUTTER)
 					target.take_overall_damage(0, 10)
 				if(75 to 100)
 					to_chat(target, span("cult", "Your mind turns to ash as the burning flames engulf your very soul and images of an unspeakable horror begin to bombard the last remnants of mental resistance."))
@@ -51,7 +51,7 @@
 					to_chat(target, span("cult", "Your entire broken soul and being is engulfed in corruption and flames as your mind shatters away into nothing."))
 					target.hallucination += 5000
 					target.apply_effect(15, STUTTER)
-					target.adjustBrainLoss(rand(1,5), 55)
+					target.adjustBrainLoss(rand(1, 5), 55)
 
 		initial_message = TRUE
 		if(!target.can_feel_pain())
@@ -64,7 +64,7 @@
 
 			if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist"))//putting jobban check here because is_convertable uses mind as argument
 				//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
-				to_chat(target, span("cult", "Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root."))
+				to_chat(target, span("cult", "Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind, something sinister takes root."))
 				to_chat(target, span("cult", "And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come."))
 				var/has_implant // we don't want people with loy implants to just get gibbed
 				for(var/obj/item/implant/loyalty/L in target)

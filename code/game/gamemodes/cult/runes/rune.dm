@@ -65,7 +65,7 @@ var/global/list/static/rune_types = list(
 /obj/effect/rune/examine(mob/user)
 	..()
 	if(iscultist(user) && cult_description)
-		to_chat(user, "This spell circle reads: <b><i>[cult_description]</i></b>.")
+		to_chat(user, "This spell circle reads: <span class='cult'><b><i>[cult_description]</i></b></span>.")
 
 /obj/effect/rune/attackby(obj/I, mob/user)
 	if(istype(I, /obj/item/book/tome) && iscultist(user))
@@ -88,7 +88,7 @@ var/global/list/static/rune_types = list(
 	return do_rune_action(user)
 
 // Runes should override this
-/obj/effect/rune/proc/do_rune_action(var/mob/living/user)
+/obj/effect/rune/proc/do_rune_action(var/mob/living/user, var/obj/O = src)
 	return
 
 /obj/effect/rune/proc/fizzle(var/mob/living/user)

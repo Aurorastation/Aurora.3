@@ -14,13 +14,13 @@
 			M.take_overall_damage(50, 50)
 			to_chat(M, span("danger", "Your blood boils!"))
 			victims += M
-		for(var/mob/living/carbon/human/C in orange(1,src))
+		for(var/mob/living/carbon/human/C in orange(1, src))
 			if(iscultist(C) && !C.stat)
 				C.say("Dedo ol[pick("'","`")]btoh!")
 				C.take_overall_damage(15, 0)
 		admin_attacker_log_many_victims(user, victims, "Used a blood boil rune.", "Was the victim of a blood boil rune.", "used a blood boil rune on")
 		log_and_message_admins_many(cultists - user, "assisted activating a blood boil rune.")
 		qdel(src)
+		return TRUE
 	else
 		return fizzle(user)
-	return

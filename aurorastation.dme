@@ -465,7 +465,7 @@
 #include "code\game\gamemodes\cult\runes\blood_boil.dm"
 #include "code\game\gamemodes\cult\runes\blood_drain.dm"
 #include "code\game\gamemodes\cult\runes\communicate.dm"
-#include "code\game\gamemodes\cult\runes\convertion.dm"
+#include "code\game\gamemodes\cult\runes\conversion.dm"
 #include "code\game\gamemodes\cult\runes\create_talisman.dm"
 #include "code\game\gamemodes\cult\runes\deafen_others.dm"
 #include "code\game\gamemodes\cult\runes\emp.dm"

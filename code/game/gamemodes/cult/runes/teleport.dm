@@ -11,7 +11,7 @@ var/global/list/static/teleport_network = list("Vernuth", "Koglan", "Irgros", "A
 /obj/effect/rune/teleport/examine(mob/user)
 	..()
 	if(iscultist(user) && network)
-		to_chat(user, "This rune's network tag reads: <b><i>[network]</i></b>.")
+		to_chat(user, "This rune's network tag reads: <span class='cult'><b><i>[network]</i></b></span>.")
 
 /obj/effect/rune/teleport/proc/random_network()
 	if(!network) // check if it hasn't been assigned yet
@@ -40,8 +40,8 @@ var/global/list/static/teleport_network = list("Vernuth", "Koglan", "Irgros", "A
 		"<span class='cult'>You feel as your body gets dragged through the dimension of Nar-Sie!</span>", \
 		"<span class='warning'>You hear a sickening crunch and sloshing of viscera.</span>")
 		user.forceMove(get_turf(pick(possible_runes)))
-		return
-	if(istype(src,/obj/effect/rune))
+		return TRUE
+	if(istype(src, /obj/effect/rune))
 		return fizzle(user) //Use friggin manuals, Dorf, your list was of zero length.
 	else
 		call(/obj/effect/rune/proc/fizzle)(user)

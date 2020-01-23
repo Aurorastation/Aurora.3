@@ -1,17 +1,17 @@
 /obj/effect/rune/revealrunes
 	can_talisman = TRUE
 
-/obj/effect/rune/revealrunes/do_rune_action(mob/living/user, var/obj/W = src)
+/obj/effect/rune/revealrunes/do_rune_action(mob/living/user, obj/O = src)
 	var/reveal = FALSE
 	var/rad
 	var/did_reveal
-	if(istype(W,/obj/effect/rune))
+	if(istype(O, /obj/effect/rune))
 		rad = 6
 		reveal = TRUE
-	if(istype(W,/obj/item/paper/talisman))
+	if(istype(O, /obj/item/paper/talisman))
 		rad = 4
 		reveal = TRUE
-	if(istype(W,/obj/item/nullrod))
+	if(istype(O, /obj/item/nullrod))
 		rad = 2
 		reveal = TRUE
 	if(reveal)
@@ -21,16 +21,16 @@
 			R.visible = 15
 			did_reveal = TRUE
 	if(did_reveal)
-		if(istype(W,/obj/item/nullrod))
+		if(istype(O, /obj/item/nullrod))
 			visible_message(span("warning", "Arcane markings suddenly glow from underneath a thin layer of dust!"))
 			return
-		if(istype(W,/obj/effect/rune))
+		if(istype(O, /obj/effect/rune))
 			user.say("Nikt[pick("'","`")]o barada kla'atu!")
 			for(var/mob/V in viewers(src))
 				to_chat(V, span("warning", "The rune turns into red dust, reveaing the surrounding runes."))
 			qdel(src)
-			return
-		if(istype(W,/obj/item/paper/talisman))
+			return TRUE
+		if(istype(O, /obj/item/paper/talisman))
 			user.whisper("Nikt[pick("'","`")]o barada kla'atu!")
 			to_chat(user, span("warning", "Your talisman turns into red dust, revealing the surrounding runes."))
 			for(var/mob/V in orange(1, user.loc))
@@ -39,9 +39,10 @@
 				to_chat(V, span("warning", "Red dust emanates from [user]'s hands for a moment."))
 			qdel(src)
 			return
-		return
-	if(istype(W,/obj/effect/rune))
+		return TRUE
+	if(istype(O, /obj/effect/rune))
 		return fizzle(user)
-	if(istype(W,/obj/item/paper/talisman))
-		call(/obj/effect/rune/proc/fizzle)(user)
+	if(istype(O, /obj/item/paper/talisman))
+		var/datum/callback/cb = CALLBACK(src, /obj/effect/rune/.proc/fizzle)
+		cb.Invoke(user)
 		return

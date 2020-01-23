@@ -10,7 +10,8 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/head/culthood/cultify()
-	return
+	new /obj/item/clothing/head/helmet/space/cult(get_turf(src))
+	..()
 
 /obj/item/clothing/head/culthood/alt
 	icon_state = "cult_hoodalt"
@@ -21,13 +22,14 @@
 	icon_state = "cultrobes"
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/book/tome,/obj/item/melee/cultblade)
+	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade)
 	armor = list(melee = 50, bullet = 30, laser = 50, energy = 20, bomb = 25, bio = 10, rad = 0)
 	flags_inv = HIDEJUMPSUIT
 	siemens_coefficient = 0
 
 /obj/item/clothing/suit/cultrobes/cultify()
-	return
+	new /obj/item/clothing/suit/space/cult(get_turf(src))
+	..()
 
 /obj/item/clothing/suit/cultrobes/alt
 	icon_state = "cultrobesalt"

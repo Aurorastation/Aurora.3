@@ -69,7 +69,7 @@
 	"<span class='danger'>You hear a thousand voices, all crying in pain.</span>")
 
 	var/list/obj/item/organ/external/possible_limbs = list()
-	var/limbs_to_drop = rand(1, 3)
+	var/limbs_to_drop = round(rand(1, 3))
 	for(var/obj/item/organ/external/E in body_to_maim.organs)
 		if(E.vital)
 			continue

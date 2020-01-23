@@ -8,7 +8,6 @@
 	unique = TRUE
 	slot_flags = SLOT_BELT
 	var/tomedat = ""
-	var/list/words = list("ire" = "ire", "ego" = "ego", "nahlizet" = "nahlizet", "certum" = "certum", "veri" = "veri", "jatkaa" = "jatkaa", "balaq" = "balaq", "mgar" = "mgar", "karazet" = "karazet", "geeri" = "geeri")
 
 	tomedat = {"<html>
 				<head>
@@ -131,7 +130,7 @@
 				if("Cancel")
 					return
 				if("Read it")
-					if(user.get_active_hand() != src)
+					if(use_check_and_message(user))
 						return
 					user << browse("[tomedat]", "window=Arcane Tome")
 					return
@@ -146,31 +145,29 @@
 			to_chat(user, span("notice", "You cannot draw runes, as you have no blood."))
 			return
 
-		if(user.get_active_hand() != src)
+		if(use_check_and_message(user))
 			return
 
 		var/chosen_rune
 		var/network
-		if(user)
-			chosen_rune = input("Choose a rune to scribe.") in rune_types
-			if(!chosen_rune)
-				return
-			if(chosen_rune == "None")
-				to_chat(user, span("notice", "You decide against scribing a rune, perhaps you should take this time to study your notes."))
-				return
-			if(chosen_rune == "Teleport")
-				network = input(user, "Choose a teleportation network for the rune to connect to.", "Teleportation Rune") in teleport_network
+		chosen_rune = input("Choose a rune to scribe.") in rune_types
+		if(!chosen_rune)
+			return
+		if(chosen_rune == "None")
+			to_chat(user, span("notice", "You decide against scribing a rune, perhaps you should take this time to study your notes."))
+			return
+		if(chosen_rune == "Teleport")
+			network = input(user, "Choose a teleportation network for the rune to connect to.", "Teleportation Rune") in teleport_network
 
-		if(user.get_active_hand() != src)
+		if(use_check_and_message(user))
 			return
 
-		user.visible_message(span("warning", "\The [user] slices open a finger and begins to chant and paint symbols on the floor."), span("cult", "You slice open one of your fingers and begin drawing a rune on the floor whilst softly chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world."))
+		user.visible_message(span("warning", "\The [user] slices open a finger and begins to chant and paint symbols on the floor."), span("notice", "You slice open one of your fingers and begin drawing a rune on the floor whilst softly chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world."))
 		user.take_overall_damage((rand(9)+1)/10) // 0.1 to 1.0 damage
 
 		if(do_after(user, 50))
 			var/area/A = get_area(user)
-			if(user.get_active_hand() != src)
-				to_chat(user, span("warning", "The tome must remain in your hand!"))
+			if(use_check_and_message(user))
 				return
 			
 			//prevents using multiple dialogs to layer runes.
@@ -183,7 +180,7 @@
 			var/mob/living/carbon/human/H = user
 			var/rune_path = rune_types[chosen_rune]
 			var/obj/effect/rune/R = new rune_path(get_turf(user))
-			to_chat(user, span("cult", "You finish drawing the arcane markings of the Geometer."))
+			to_chat(user, span("notice", "You finish drawing the arcane markings of the Geometer."))
 			R.blood_DNA = list()
 			R.blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
 			if(network)

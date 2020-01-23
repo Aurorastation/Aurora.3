@@ -1,10 +1,10 @@
 /obj/effect/rune/blind
 	can_talisman = TRUE
 
-/obj/effect/rune/blind/do_rune_action(mob/living/user)
-	if(istype(src,/obj/effect/rune))
+/obj/effect/rune/blind/do_rune_action(mob/living/user, obj/O = src)
+	if(istype(O, /obj/effect/rune))
 		var/list/affected = list()
-		for(var/mob/living/carbon/C in viewers(src))
+		for(var/mob/living/carbon/C in viewers(get_turf(O)))
 			if(iscultist(C))
 				continue
 			var/obj/item/nullrod/N = locate() in C
@@ -22,7 +22,8 @@
 			user.say("Sti[pick("'","`")] kaliesin!")
 			to_chat(user, span("warning", "The rune flashes, blinding those who not follow the Nar-Sie, and dissipates into fine dust."))
 			admin_attacker_log_many_victims(user, affected, "Used a blindness rune.", "Was victim of a blindness rune.", "used a blindness rune on")
-			qdel(src)
+			qdel(O)
+			return TRUE
 		else
 			return fizzle(user)
 	else
@@ -41,5 +42,5 @@
 		if(length(affected))
 			user.whisper("Sti[pick("'","`")] kaliesin!")
 			to_chat(user, span("warning", "Your talisman turns into gray dust, blinding those who not follow the Nar-Sie."))
-			admin_attacker_log_many_victims(user, affected, "Used a blindness rune.", "Was victim of a blindness rune.", "used a blindness rune on")
-	return
+			admin_attacker_log_many_victims(user, affected, "Used a blindness talisman.", "Was victim of a blindness talisman.", "used a blindness talisman on")
+		return TRUE

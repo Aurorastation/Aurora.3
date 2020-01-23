@@ -19,6 +19,8 @@
 	icon_state = "cult_helmet"
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0
+	light_overlay = "helmet_light_dual_red"
+	light_color = "FF6D6D"
 
 /obj/item/clothing/head/helmet/space/cult/cultify()
 	return
@@ -29,7 +31,7 @@
 	item_state = "cult_armour"
 	desc = "A bulky suit of armour, bristling with spikes. It looks space proof."
 	w_class = 3
-	allowed = list(/obj/item/book/tome,/obj/item/melee/cultblade,/obj/item/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	slowdown = 1
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0

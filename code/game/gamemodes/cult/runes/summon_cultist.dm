@@ -1,23 +1,26 @@
 /obj/effect/rune/summon_cultist/do_rune_action(mob/living/user)
-	var/list/mob/living/carbon/cultists = new
+	var/list/mob/living/carbon/cultists = list()
 	for(var/datum/mind/H in cult.current_antagonists)
-		if (istype(H.current,/mob/living/carbon))
-			cultists+=H.current
-	var/list/mob/living/carbon/users = new
-	for(var/mob/living/carbon/C in orange(1,src))
+		if(istype(H.current, /mob/living/carbon))
+			cultists += H.current
+
+	var/list/mob/living/carbon/users = list()
+	for(var/mob/living/carbon/C in orange(1, src))
 		if(iscultist(C) && !C.stat)
 			users += C
-	if(users.len>=3)
+
+	if(users.len >= 3)
 		var/mob/living/carbon/cultist = input("Choose the one who you want to summon", "Followers of Geometer") as null|anything in (cultists - user)
 		if(!cultist)
 			return fizzle(user)
-		if (cultist == user) //just to be sure.
+		if(cultist == user) //just to be sure.
 			return
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
-			to_chat(user, "<span class='warning'>You cannot summon \the [cultist], for \his shackles of blood are strong.</span>")
+			for(var/mob/C in users)
+				to_chat(C, span("warning", "You cannot summon \the [cultist], for \his shackles of blood are strong."))
 			return fizzle(user)
-		cultist.forceMove(src.loc)
-		cultist.lying = 1
+		cultist.forceMove(get_turf(src))
+		cultist.lying = TRUE
 		cultist.regenerate_icons()
 
 		var/dam = round(25 / (users.len/2))	//More people around the rune less damage everyone takes. Minimum is 3 cultists

@@ -1,6 +1,6 @@
 /obj/effect/gateway
 	name = "gateway"
-	desc = "You're pretty sure that abyss is staring back"
+	desc = "You're pretty sure that abyss is staring back."
 	icon = 'icons/obj/cult.dmi'
 	icon_state = "hole"
 	density = TRUE
