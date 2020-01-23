@@ -40,32 +40,26 @@ var/global/list/static/rune_types = list(
 	var/cult_description // what does the cult see the rune as?
 
 	var/network // For teleportation runes. Can connect to other runes in the network.
-	var/image/blood_image
 	var/list/converting = list()
 
 /obj/effect/rune/Initialize()
 	. = ..()
-	blood_image = image(loc = src)
-	blood_image.override = TRUE
-	for(var/mob/living/silicon/ai/AI in player_list)
-		if(AI.client)
-			AI.client.images += blood_image
 	rune_list += src
 	name = "graffiti"
+	icon_state = pick("1", "2", "3", "4", "5", "6")
 
 /obj/effect/rune/Destroy()
-	for(var/mob/living/silicon/ai/AI in player_list)
-		if(AI.client)
-			AI.client.images -= blood_image
-	qdel(blood_image)
-	blood_image = null
 	rune_list -= src
 	return ..()
 
 /obj/effect/rune/examine(mob/user)
-	..()
-	if(iscultist(user) && cult_description)
-		to_chat(user, "This spell circle reads: <span class='cult'><b><i>[cult_description]</i></b></span>.")
+	..(user)
+	if(iscultist(user) || isobserver(user))
+		desc = "A powerful rune drawn with blood magic gifted by Nar'sie Himself."
+		if(cult_description)
+			to_chat(user, "This spell circle reads: <span class='cult'><b><i>[cult_description]</i></b></span>.")
+	else
+		desc = "A strange collection of symbols drawn in blood."
 
 /obj/effect/rune/attackby(obj/I, mob/user)
 	if(istype(I, /obj/item/book/tome) && iscultist(user))

@@ -19,3 +19,6 @@ changes:
   - rscadd: "The freedom rune can now open bolted airlocks."
   - tweak: "Cultist clothes now get turned into eldritch voidsuits when cultified. Find out how to do so."
   - tweak: "The daemon forge can now be used to cultify objects."
+  - rscadd: "IPCs can now scribe runes, and do more rune based stuff in general."
+  - rscadd: "Runes now take the colour of the blood of the person who drew them. Remember to be stealthy."
+  - rscadd: "Cult structures (altars, forges and desks) have now been given some use. Examine them as an antag to find out their secrets."

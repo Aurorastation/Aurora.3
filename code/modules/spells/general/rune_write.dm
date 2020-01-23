@@ -34,6 +34,7 @@
 	if(network)
 		R.network = network
 	R.cult_description = rune
+	R.color = "#A10808"
 
 	var/area/A = get_area(R)
 	log_and_message_admins("created \an [rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].", user)

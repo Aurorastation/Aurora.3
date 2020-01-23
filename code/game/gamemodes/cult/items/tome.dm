@@ -140,11 +140,6 @@
 			to_chat(user, span("warning", "There is already a rune in this location."))
 			return
 
-		//TO-DO Oil Runes
-		if(isipc(user))
-			to_chat(user, span("notice", "You cannot draw runes, as you have no blood."))
-			return
-
 		if(use_check_and_message(user))
 			return
 
@@ -186,6 +181,9 @@
 			if(network)
 				R.network = network
 			R.cult_description = chosen_rune
+			if(ishuman(user))
+				var/mob/living/carbon/human/scribe = user
+				R.color = scribe.species.blood_color
 		return
 	else
 		to_chat(user, span("cult", "The book seems full of illegible scribbles."))
@@ -193,7 +191,7 @@
 
 /obj/item/book/tome/examine(mob/user)
 	..(user)
-	if(!iscultist(user))
+	if(!iscultist(user) || !isobserver(user))
 		desc = "An old, dusty tome with frayed edges and a sinister looking cover."
 	else
 		desc = "The scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Contains the details of every ritual his followers could think of. Most of these are useless, though."
