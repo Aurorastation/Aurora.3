@@ -57,4 +57,5 @@
 			else
 				C.say("Khari[pick("'","`")]d! Gual'te nikka!")
 		qdel(src)
-	return fizzle(user)
+	else if(istype(src, /obj/effect/rune))
+		return fizzle(user)
