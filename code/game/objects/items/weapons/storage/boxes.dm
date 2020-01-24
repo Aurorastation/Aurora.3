@@ -587,10 +587,26 @@
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = 3
-	can_hold = list(/obj/item/organ, /obj/item/reagent_containers/food, /obj/item/reagent_containers/glass)
 	max_storage_space = 21
-	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
+	use_to_pickup = 0 // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
+
+	/obj/item/storage/box/freezer/organcooler
+	name = "organ cooler"
+	desc = "A sealed, cooled container to keep organs from decaying."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "organcooler"
+	item_state = "medicalpack"
+	max_w_class = 3
+	w_class = 4
+	can_hold = list(
+		/obj/item/organ,
+		/obj/item/reagent_containers/food,
+		/obj/item/reagent_containers/glass,
+		/obj/item/gun
+	)
+	use_to_pickup = 0
+	storage_slots = 2
 
 /obj/item/storage/box/kitchen
 	name = "kitchen supplies"
