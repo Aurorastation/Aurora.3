@@ -1,0 +1,7 @@
+author: Alberyk, Kyres1
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added new space ruin."
+  - tweak: "Space ruin ghost roles will now only open when the research shuttle is launched from the station."
