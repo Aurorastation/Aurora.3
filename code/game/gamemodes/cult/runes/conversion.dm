@@ -46,12 +46,12 @@
 					//hallucination is reduced when the step off as well, provided they haven't hit the last stage...
 					target.hallucination += 5000
 					target.apply_effect(10, STUTTER)
-					target.adjustBrainLoss(1, 55)
+					target.adjustBrainLoss(1)
 				if(100 to INFINITY)
 					to_chat(target, span("cult", "Your entire broken soul and being is engulfed in corruption and flames as your mind shatters away into nothing."))
 					target.hallucination += 5000
 					target.apply_effect(15, STUTTER)
-					target.adjustBrainLoss(rand(1, 5), 55)
+					target.adjustBrainLoss(rand(1, 5))
 
 		initial_message = TRUE
 		if(!target.can_feel_pain())
@@ -71,17 +71,16 @@
 					if(L?.imp_in == target)
 						has_implant = TRUE
 				if(!has_implant)
-					spawn(10)
-						to_chat(target, span("cult", "..or will it?"))
-						target.gib() // people who can't be cultists get gibbed to preserve cult anonymity
-			else spawn()
+					to_chat(target, span("cult", "..or will it?"))
+					target.gib() // people who can't be cultists get gibbed to preserve cult anonymity
+			else
 				var/choice = alert(target,"Do you want to join the cult?", "Submit to Nar'Sie", "Resist", "Submit")
 				waiting_for_input[target] = FALSE
 				if(choice == "Submit") //choosing 'Resist' does nothing of course.
 					cult.add_antagonist(target.mind)
 					converting -= target
-					target.hallucination = FALSE //sudden clarity
-					target.rejuvenate() // nar'sie heals you
+					target.hallucination = 0 //sudden clarity
+					target.setBrainLoss(0) // nar'sie heals you
 					sound_to(target, 'sound/effects/bloodcult.ogg')
 		sleep(100) //proc once every 10 seconds
 	return TRUE

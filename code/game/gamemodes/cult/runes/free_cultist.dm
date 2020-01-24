@@ -42,11 +42,6 @@
 			if(C.locked)
 				cultist_free = FALSE
 				C.locked = FALSE
-		if(istype(cultist.loc, /obj/machinery/dna_scannernew))
-			var/obj/machinery/dna_scannernew/D = cultist.loc
-			if(D.locked)
-				cultist_free = FALSE
-				D.locked = FALSE
 		for(var/obj/machinery/door/airlock/door in range(2, get_turf(cultist)))
 			if(door.locked)
 				cultist_free = FALSE

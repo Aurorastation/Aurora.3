@@ -21,8 +21,3 @@
 					continue
 				to_chat(V, span("warning", "Dust emanates from [user]'s hands for a moment."))
 		return TRUE
-	if(istype(O,/obj/effect/rune))
-		return fizzle(user)
-	else
-		call(/obj/effect/rune/proc/fizzle)(user)
-		return
