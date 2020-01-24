@@ -400,6 +400,9 @@
 		return
 	var/mob/living/L = O
 
+	if (!L.bucklecheck(user)) //We must make sure the person is unbuckled before they go in
+		return
+
 	if(L.stat == DEAD)
 		to_chat(user, "<span class='notice'>Dead people can not be put into stasis.</span>")
 		return
