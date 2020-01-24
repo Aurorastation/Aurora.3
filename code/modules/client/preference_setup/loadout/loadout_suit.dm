@@ -256,7 +256,7 @@
 	..()
 	var/tcfljac = list()
 	tcfljac ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
-	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
+	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
 	gear_tweaks += new/datum/gear_tweak/path(tcfljac)
 
 /datum/gear/suit/dep_jacket
