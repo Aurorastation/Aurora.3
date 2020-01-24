@@ -407,8 +407,8 @@
 		to_chat(user, "<span class='notice'>Dead people can not be put into stasis.</span>")
 		return
 	for(var/mob/living/carbon/slime/M in range(1,L))
-		if(M.Victim == L)
-			to_chat(usr, "[L.name] will not fit into the cryo pod because they have a slime latched onto their head.")
+		if(M.victim == L)
+			to_chat(usr, span("warning", "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."))
 			return
 
 	var/willing = null //We don't want to allow people to be forced into despawning.
@@ -494,8 +494,8 @@
 		return
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
-			to_chat(usr, "You're too busy getting your life sucked out of you.")
+		if(M.victim == usr)
+			to_chat(usr, span("warning", "You cannot do this while a slime is latched onto you!"))
 			return
 
 	usr.visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)

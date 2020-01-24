@@ -1,5 +1,5 @@
 /obj/item/slime_extract/Value(var/base)
-	return base * Uses
+	return base * uses
 
 /obj/item/ammo_casing/Value()
 	if(!BB)
