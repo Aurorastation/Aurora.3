@@ -54,6 +54,14 @@
 	display_name = "beret, purple"
 	path = /obj/item/clothing/head/beret/purple
 
+/datum/gear/head/beret/color
+	display_name = "beret (colorable)"
+	path = /obj/item/clothing/head/beret/misc
+
+/datum/gear/head/beret/color/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice
+
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
@@ -228,6 +236,9 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/head/nonla
+	display_name = "non la hat"
+	path = /obj/item/clothing/head/nonla
 
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"

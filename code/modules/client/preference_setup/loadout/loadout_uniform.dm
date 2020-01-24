@@ -8,7 +8,7 @@
 /datum/gear/uniform/kilt
 	display_name = "kilt"
 	path = /obj/item/clothing/under/kilt
-	
+
 /datum/gear/uniform/formalblouse
     display_name = "formal blouse"
     path = /obj/item/clothing/under/formalblouse
@@ -65,6 +65,7 @@
 	..()
 	var/skirts = list()
 	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
+	skirts["casual skirt, alt"] = /obj/item/clothing/under/skirt/casual/alt
 	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
@@ -212,6 +213,18 @@
 	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
 	pants["khaki shorts shorts"] = /obj/item/clothing/under/shorts/khaki/female
 	gear_tweaks += new/datum/gear_tweak/path(pants)
+
+/datum/gear/uniform/colorpants
+	display_name = "pants (recolorable)"
+	path = /obj/item/clothing/under/pants/dress
+
+/datum/gear/uniform/colorpants/New()
+	..()
+	var/colorpants = list()
+	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
+	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
+	gear_tweaks += new/datum/gear_tweak/path(colorpants)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"

@@ -247,9 +247,17 @@
 	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
-/datum/gear/suit/legion_jacket
-	display_name = "Tau Ceti Foreign Legion jacket"
+/datum/gear/suit/tcfl
+	display_name = "Tau Ceti Foreign Legion jacket selection"
+	description = "A selection of fine, surplus jackets of the Foreign Legion."
 	path = /obj/item/clothing/suit/storage/legion
+
+/datum/gear/suit/tcfl/New()
+	..()
+	var/tcfljac = list()
+	tcfljac ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
+	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	gear_tweaks += new/datum/gear_tweak/path(tcfljac)
 
 /datum/gear/suit/dep_jacket
 	display_name = "department jackets selection"
