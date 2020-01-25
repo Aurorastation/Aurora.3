@@ -95,23 +95,23 @@
 
 	if(reagents.total_volume)
 		var/target_text = trans_dest? "\the [trans_dest]" : "\the [user.loc]"
-		user.visible_message(span("danger", "\The [user] begins to wring out [src] over [target_text]."), span("notice", "You begin to wring out [src] over [target_text]."))
+		user.visible_message(span("danger", "\The [user] begins to wring out \the [src] over \the [target_text]."), span("notice", "You begin to wring out \the [src] over \the [target_text]."))
 
 		if(do_after(user, reagents.total_volume*5)) //50 for a fully soaked rag
 			if(trans_dest)
 				reagents.trans_to(trans_dest, reagents.total_volume)
 			else
 				reagents.splash(user.loc, reagents.total_volume)
-			user.visible_message(span("danger", "\The [user] wrings out [src] over [target_text]."), span("notice", "You finish to wringing out [src]."))
+			user.visible_message(span("danger", "\The [user] wrings out \the [src] over \the [target_text]."), span("notice", "You finish wringing out \the [src]."))
 			update_name()
 			update_icon()
 
 /obj/item/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, span("warning", "The [initial(name)] is dry!"))
+		to_chat(user, span("warning", "\The [initial(name)] is dry!"))
 	else
 		if ( !(last_clean && world.time < last_clean + 120) )
-			user.visible_message("\The [user] starts to wipe down [A] with [src]!")
+			user.visible_message("\The [user] starts to wipe down \the [A] with \the [src]!")
 			clean_msg = TRUE
 			last_clean = world.time
 		else
@@ -129,7 +129,7 @@
 	if(isliving(target))
 		var/mob/living/M = target
 		if(on_fire)
-			user.visible_message(span("danger", "\The [user] hits [target] with [src]!"))
+			user.visible_message(span("danger", "\The [user] hits \the [target] with \the [src]!"))
 			user.do_attack_animation(src)
 			M.IgniteMob()
 		else if(ishuman(M))
@@ -190,7 +190,7 @@
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-			user.visible_message(span("notice", "\The [user] soaks [src] using [A]."), span("notice", "You soak [src] using [A]."))
+			user.visible_message(span("notice", "\The [user] soaks \the [src] using \the [A]."), span("notice", "You soak \the [src] using \the [A]."))
 			update_name()
 			update_icon()
 		return
@@ -284,4 +284,3 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	cleantime = 15
-
