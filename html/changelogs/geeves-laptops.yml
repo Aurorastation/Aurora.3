@@ -9,4 +9,4 @@ changes:
   - tweak: "Renamed the Computer Configuration Tool to Hardware Configuration Tool."
   - rscadd: "Added a basic laptop to the loadout."
   - tweak: "Increased the DDOS program's DDOSing power a bit."
-  - rscadd: "Added Sudoko to the CE's laptop."
+  - rscadd: "Added Sudoku to the CE's laptop."
