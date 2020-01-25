@@ -588,7 +588,7 @@
 	item_state = "medicalpack"
 	max_w_class = 3
 	max_storage_space = 21
-	use_to_pickup = 0 // for picking up broken bulbs, not that most people will try
+	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
 
 	/obj/item/storage/box/freezer/organcooler
