@@ -186,6 +186,8 @@ var/list/name_to_material
 			skip_blend = TRUE
 		if ("shuttle")
 			skip_blend = TRUE
+		if ("skrell")
+			skip_blend = TRUE
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
@@ -1017,3 +1019,9 @@ var/list/name_to_material
 	hardness = 500
 	weight = 500
 	protectiveness = 80 // 80%
+
+/material/shuttle/skrell
+	name = "skrell"
+	display_name = "superadvanced alloy"
+	icon_colour = null
+	icon_base = "skrell"

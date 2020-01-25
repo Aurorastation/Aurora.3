@@ -48,6 +48,15 @@ var/list/flooring_types
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = /obj/item/stack/tile/grass
 
+/decl/flooring/grass/alt
+	name = "grass"
+	desc = "A soft patch of grass"
+	icon = 'icons/turf/total_floors.dmi'
+	icon_base = "grass_alt"
+	flags = TURF_ACID_IMMUNE
+	build_type = null
+	has_base_range = 0
+
 /decl/flooring/asteroid
 	name = "coarse sand"
 	desc = "Gritty and unpleasant."
@@ -82,6 +91,15 @@ var/list/flooring_types
 	build_type = /obj/item/stack/tile/floor
 	can_paint = 1
 
+/decl/flooring/tiling/asteroid
+	name = "floor"
+	icon = 'icons/turf/total_floors.dmi'
+	icon_base = "asteroidfloor"
+	has_damage_range = null
+
+/decl/flooring/tiling/asteroid/plating
+	icon_base = "asteroidfloor"
+
 /decl/flooring/linoleum
 	name = "linoleum"
 	desc = "It's like the 2390's all over again."
@@ -99,7 +117,8 @@ var/list/flooring_types
 
 /decl/flooring/tiling/steel
 	name = "floor"
-	icon_base = "steel"
+	icon = 'icons/turf/total_floors.dmi'
+	icon_base = "steel_dirty"
 	has_damage_range = null
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_steel
@@ -280,3 +299,23 @@ var/list/flooring_types
 
 /decl/flooring/shuttle/dark_blue
 	icon_base = "floor9"
+
+/decl/flooring/shuttle/advanced
+	icon_base = "advanced_plating"
+
+/decl/flooring/shuttle/advanced/alt
+	icon_base = "advanced_plating_alt"
+
+/decl/flooring/shuttle/skrell
+	desc = "Typical flooring of skrell vessels, soft and springy to the touch."
+	icon_base = "skrell_purple"
+
+/decl/flooring/shuttle/skrell/blue
+	icon_base = "skrell_blue"
+
+/decl/flooring/shuttle/skrell/ramp
+	name = "footramp"
+	icon_base = "skrellramp-bottom"
+
+/decl/flooring/shuttle/skrell/ramp/top
+	icon_base = "skrellramp-top"

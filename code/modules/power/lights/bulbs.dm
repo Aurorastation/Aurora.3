@@ -52,6 +52,11 @@
 	name = "cyan light tube"
 	brightness_color = LIGHT_COLOR_CYAN
 
+/obj/item/light/tube/skrell
+	name = "advanced light tube"
+	brightness_color = LIGHT_COLOR_CYAN
+	lighttype = "skrell"
+
 /obj/item/light/tube/large
 	w_class = 2
 	name = "large light tube"

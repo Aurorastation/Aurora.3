@@ -37,6 +37,22 @@
 /obj/item/stool/padded/New(var/newloc, var/new_material)
 	..(newloc, "steel", "carpet")
 
+/obj/item/stool/hover_skrell
+	name = "hoverstool"
+	desc = "Apply butt. Now as comfortable as a cloud."
+	icon_state = "hover_stool"
+	item_state_slots = null
+
+/obj/item/stool/hover_skrell/New(var/newloc, var/new_material)
+	..(newloc, "skrell")
+
+/obj/item/stool/hover_skrell/Initialize()
+	.=..()
+	set_light(1,1,LIGHT_COLOR_CYAN)
+
+/obj/item/stool/hover_skrell/update_icon()
+	return
+
 /obj/item/stool/update_icon()
 	// Prep icon.
 	icon_state = ""
