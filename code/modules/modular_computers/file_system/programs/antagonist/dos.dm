@@ -2,7 +2,7 @@
 	filename = "ntn_dos"
 	filedesc = "DoS Traffic Generator"
 	program_icon_state = "hostile"
-	extended_desc = "This advanced script can perform denial of service attacks against NTNet quantum relays. The system administrator will probably notice this. Multiple devices can run this program together against same relay for increased effect"
+	extended_desc = "This advanced script can perform denial of service attacks against NTNet quantum relays. The system administrator will probably notice this. Multiple devices can run this program together against the same relay for increased effect."
 	size = 20
 	requires_ntnet = 1
 	available_on_ntnet = 0
@@ -18,11 +18,11 @@
 	dos_speed = 0
 	switch(ntnet_status)
 		if(1)
-			dos_speed = NTNETSPEED_LOWSIGNAL * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = (NTNETSPEED_LOWSIGNAL * 4) * NTNETSPEED_DOS_AMPLIFICATION
 		if(2)
-			dos_speed = NTNETSPEED_HIGHSIGNAL * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = (NTNETSPEED_HIGHSIGNAL * 4) * NTNETSPEED_DOS_AMPLIFICATION
 		if(3)
-			dos_speed = NTNETSPEED_ETHERNET * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = (NTNETSPEED_ETHERNET * 2) * NTNETSPEED_DOS_AMPLIFICATION
 	if(target && executed)
 		target.dos_overload += dos_speed
 		if(!target.operable())
