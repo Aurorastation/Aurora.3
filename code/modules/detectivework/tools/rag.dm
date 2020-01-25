@@ -102,7 +102,7 @@
 				reagents.trans_to(trans_dest, reagents.total_volume)
 			else
 				reagents.splash(user.loc, reagents.total_volume)
-			user.visible_message(span("danger", "\The [user] wrings out [src] over [target_text]."), span("notice", "You finish to wringing out [src]."))
+			user.visible_message(span("danger", "\The [user] wrings out \the [src] over \the [target_text]."), span("notice", "You finish wringing out \the [src]."))
 			update_name()
 			update_icon()
 
