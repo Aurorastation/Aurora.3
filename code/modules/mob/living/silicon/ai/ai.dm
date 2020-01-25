@@ -231,6 +231,27 @@ var/list/ai_verbs_default = list(
 
 	return ..()
 
+/mob/living/silicon/ai/getFireLoss()
+	return fireloss
+
+/mob/living/silicon/ai/getBruteLoss()
+	return bruteloss
+
+/mob/living/silicon/ai/getOxyLoss()
+	return oxyloss
+
+/mob/living/silicon/ai/adjustFireLoss(var/amount)
+	if(status_flags & GODMODE) return
+	fireloss = max(0, fireloss + min(amount, health))
+
+/mob/living/silicon/ai/adjustBruteLoss(var/amount)
+	if(status_flags & GODMODE) return
+	bruteloss = max(0, bruteloss + min(amount, health))
+
+/mob/living/silicon/ai/adjustOxyLoss(var/amount)
+	if(status_flags & GODMODE) return
+	oxyloss = max(0, oxyloss + min(amount, maxHealth - oxyloss))
+
 /mob/living/silicon/ai/proc/setup_icon()
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
