@@ -129,7 +129,7 @@
 	if(isliving(target))
 		var/mob/living/M = target
 		if(on_fire)
-			user.visible_message(span("danger", "\The [user] hits [target] with [src]!"))
+			user.visible_message(span("danger", "\The [user] hits \the [target] with \the [src]!"))
 			user.do_attack_animation(src)
 			M.IgniteMob()
 		else if(ishuman(M))
