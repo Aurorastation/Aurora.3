@@ -11,7 +11,7 @@
 
 	var/list/choices = list()
 	for(var/mob/living/carbon/human/H in view(1, src))
-		if(!src.Adjacent(H) || !H.client)
+		if(!Adjacent(H) || !H.client)
 			continue
 		if(is_diona(H) == DIONA_WORKER)
 			choices += H
@@ -25,7 +25,7 @@
 
 
 /mob/living/carbon/alien/diona/proc/do_merge(var/mob/living/carbon/human/H)
-	if(!istype(H) || !src || !src.Adjacent(H))
+	if(!istype(H) || !Adjacent(H))
 		return FALSE
 
 	to_chat(src, span("warning", "Requesting consent from [H]"))
@@ -39,7 +39,7 @@
 	face_atom(H)
 	H.face_atom(get_turf(src))
 	if(do_mob(src, H, 150, needhand = FALSE))
-		if(!src.Adjacent(H) || !istype(src.loc, /turf)) //The loc check prevents us from absorbing the same nymph multiple times at once
+		if(!Adjacent(H) || !isturf(loc)) //The loc check prevents us from absorbing the same nymph multiple times at once
 			to_chat(src, span("warning", "Something went wrong while trying to merge into [H], cancelling."))
 			return FALSE
 
@@ -73,7 +73,7 @@
 
 	var/list/choices = list()
 	for(var/mob/living/carbon/alien/diona/C in view(1, src))
-		if(!src.Adjacent(C) || C.gestalt || C == src) //cant steal nymphs right out of other gestalts
+		if(!Adjacent(C) || C.gestalt || C == src) //cant steal nymphs right out of other gestalts
 			continue
 		choices += C
 
@@ -94,7 +94,7 @@
 		if(r != "Yes, I will join!")
 			to_chat(src, span("warning", "[D] has refused to join you!"))
 			return
-		else if(!src.Adjacent(D) || !istype(D.loc, /turf))
+		else if(!Adjacent(D) || !isturf(D.loc))
 			to_chat(src, span("warning", "Something went wrong while trying to absorb [D], cancelling."))
 			return
 
@@ -103,7 +103,7 @@
 	face_atom(D)
 	D.face_atom(get_turf(src))
 	if(do_mob(src, D, 150, needhand = FALSE))
-		if(!src.Adjacent(D) || !istype(D.loc, /turf)) //The loc check prevents us from absorbing the same nymph multiple times at once
+		if(!Adjacent(D) || !isturf(D.loc)) //The loc check prevents us from absorbing the same nymph multiple times at once
 			to_chat(src, span("warning", "Something went wrong while trying to absorb [D], cancelling."))
 			return
 
@@ -144,7 +144,7 @@
 		to_chat(src, span("notice", "Your host is still storing you as a nymphatic husk and preventing your departure."))
 		return
 
-	if(!istype(src.loc,/mob/living/carbon))
+	if(!iscarbon(loc))
 		src.verbs -= /mob/living/carbon/alien/diona/proc/split
 		return
 
@@ -173,7 +173,7 @@
 	//For fun factor, we'll allow the nymph to choose nonvalid targets
 	var/list/choices = list()
 	for(var/mob/living/L in view(1, src))
-		if(!src.Adjacent(L) || L == src)
+		if(!Adjacent(L) || L == src)
 			continue
 		if(is_diona(L))
 			continue
@@ -183,7 +183,7 @@
 		to_chat(src, span("warning", "There are no life forms nearby to sample!"))
 		return
 
-	if(choices.len >= 1)
+	if(choices.len)
 		choices += "Cancel"
 
 	var/mob/living/donor = input(src, "Who do you wish to sample?") in null|choices
@@ -209,7 +209,7 @@
 	else if (types & TYPE_WEIRD)
 		src.visible_message(span("danger", "[src] attempts to bite into [donor.name] but passes right through it!."), span("danger", "You attempt to sink your fangs into [donor.name] but pass right through it!"))
 		return
-	else if (istype(donor, /mob/living/carbon))
+	else if (iscarbon(donor))
 		//If we get here, it's -probably- valid
 
 		src.visible_message(span("danger", "[src] is trying to bite [donor.name]."), span("danger", "You start biting [donor.name], you both must stay still!"))
