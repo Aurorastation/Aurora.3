@@ -1,5 +1,5 @@
 /datum/job/chief_engineer
-	title = "Foreman"
+	title = "Engineering Foreman"
 	flag = CHIEF
 	head_position = TRUE
 	department = "Engineering"
@@ -30,7 +30,7 @@
 	blacklisted_species = list("Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/chief_engineer
-	name = "Foreman"
+	name = "Engineering Foreman"
 	jobtype = /datum/job/chief_engineer
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer

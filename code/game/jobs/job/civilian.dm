@@ -101,7 +101,7 @@
 
 //Cargo
 /datum/job/qm
-	title = "Supply Manager"
+	title = "Supply Chief"
 	flag = QUARTERMASTER
 	head_position = 1
 	department = "Cargo"
@@ -123,7 +123,7 @@
 	outfit = /datum/outfit/job/qm
 
 /datum/outfit/job/qm
-	name = "Supply Manager"
+	name = "Supply Chief"
 	jobtype = /datum/job/qm
 
 	uniform = /obj/item/clothing/under/rank/cargo
