@@ -45,15 +45,17 @@
 				return
 			if (paper_result > 0)
 				paperamount += paper_result
+			if(W.icon_state == "scrap")
+				flick("papershredder_s_on", src)
+			else if(W.icon_state == "paper_words")
+				flick("papershredder_w_on", src)
+			else if(W.icon_state == "paper_plane")
+				flick("papershredder_p_on", src)
+			else
+				flick("papershredder_on", src)
 			qdel(W)
 			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
 			to_chat(user, span("notice", "You shred the paper."))
-			if(W.icon_state == "scrap")
-				flick("papershredder_s_on", src)
-			if(W.icon_state == "scrap")
-				flick("papershredder_s_on", src)
-			else
-				flick("papershredder_on", src)
 			if(paperamount > max_paper)
 				to_chat(user, span("danger", "\The [src] was too full, and shredded paper goes everywhere!"))
 				for(var/i=(paperamount-max_paper);i>0;i--)
