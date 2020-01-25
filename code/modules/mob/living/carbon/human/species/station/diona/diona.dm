@@ -16,7 +16,8 @@
 		/datum/unarmed_attack/diona
 	)
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/consume_nutrition_from_air
+		/mob/living/carbon/human/proc/consume_nutrition_from_air,
+		/mob/living/carbon/human/proc/create_structure
 	)
 	//primitive_form = "Nymph"
 	slowdown = 7
