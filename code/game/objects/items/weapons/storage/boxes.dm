@@ -598,7 +598,7 @@
 	icon_state = "organcooler"
 	item_state = "firstaid-advanced"
 	max_w_class = ITEMSIZE_NORMAL
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	can_hold = list(
 		/obj/item/organ,
 		/obj/item/reagent_containers/food,
