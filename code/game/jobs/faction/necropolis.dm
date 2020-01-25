@@ -53,9 +53,9 @@
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/necropolis,
 		"Warden" = /datum/outfit/job/warden/necropolis,
-		"Medical Doctor" = /datum/outfit/job/doctor/necropolis,
+		"Physician" = /datum/outfit/job/doctor/necropolis,
 		"Surgeon" = /datum/outfit/job/doctor/necropolis,
-		"Emergency Phyisician" = /datum/outfit/job/doctor/necropolis,
+		"Trauma Physician" = /datum/outfit/job/doctor/necropolis,
 		"Nurse" = /datum/outfit/job/doctor/necropolis,
 		"Pharmacist" = /datum/outfit/job/pharmacist/necropolis,
 		"Biochemist" = /datum/outfit/job/pharmacist/necropolis,
@@ -87,7 +87,7 @@
 	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/doctor/necropolis
-	name = "Medical Doctor - Necropolis"
+	name = "Physician - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis/research
 	id = /obj/item/card/id/necropolis
 
