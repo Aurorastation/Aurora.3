@@ -108,7 +108,7 @@
 
 /obj/item/reagent_containers/glass/rag/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, span("warning", "The [initial(name)] is dry!"))
+		to_chat(user, span("warning", "\The [initial(name)] is dry!"))
 	else
 		if ( !(last_clean && world.time < last_clean + 120) )
 			user.visible_message("\The [user] starts to wipe down [A] with [src]!")
