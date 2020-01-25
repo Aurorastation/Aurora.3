@@ -27,7 +27,7 @@
 		to_chat(src, span("warning", "You are already part of a collective, if you wish to form your own, you must split off first."))
 		return
 
-	if(!istype(loc, /turf))
+	if(!isturf(loc))
 		to_chat(src, span("warning", "There's not enough space to grow here. Stand on the floor!"))
 		return
 
@@ -52,10 +52,10 @@
 		mind.original = src //This tracks which nymph 'is' the gestalt
 		mind.transfer_to(adult)
 	else
-		adult.key = src.key
+		adult.key = key
 
-	for (var/obj/item/W in src.contents)
-		src.drop_from_inventory(W)
+	for (var/obj/item/W in contents)
+		drop_from_inventory(W)
 
 	// Remove the adult's languages, then add the babby nymph's languages - geeves
 	//So that the nymph doesn't get basic for free when evolving.
@@ -77,7 +77,7 @@
 	src.nutrition = 0
 	src.forceMove(adult)
 	src.stat = CONSCIOUS
-	src.gestalt = adult
+	gestalt = adult
 
 	//What do you call a person with no arms or no legs?
 	var/list/organ_removal_priorities = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)

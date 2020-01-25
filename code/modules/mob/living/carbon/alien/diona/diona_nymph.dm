@@ -226,12 +226,12 @@
 	DS.max_health = maxHealth
 	DS.pain_factor = (50 / dark_consciousness) / MLS
 	DS.trauma_factor = (DS.max_health / dark_survival) / MLS
-	DS.dionatype = 1 //Nymph
+	DS.dionatype = DIONA_NYMPH
 
 //This is called periodically to register or remove this nymph's status as a bad organ of the gestalt
 //This is used to notify the gestalt when it needs repaired
 /mob/living/carbon/alien/diona/proc/check_status_as_organ()
-	if(istype(gestalt, /mob/living/carbon/human) && !QDELETED(gestalt))
+	if(ishuman(gestalt) && !QDELETED(gestalt))
 		var/mob/living/carbon/human/H = gestalt
 		if(!H.bad_internal_organs)
 			return
@@ -302,7 +302,7 @@
 
 		if(sleeping)
 			if(mind)
-				if(mind.active && client != null)
+				if(mind.active && client)
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
 			stat = UNCONSCIOUS

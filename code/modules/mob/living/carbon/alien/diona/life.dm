@@ -16,7 +16,7 @@
 	if(breathing) breathing.metabolize()
 
 	// nutrition decrease
-	if(nutrition > 0 && stat != 2)
+	if(nutrition > 0 && stat != DEAD)
 		adjustNutritionLoss(nutrition_loss)
 
 	//handle_trace_chems() implement this later maybe
