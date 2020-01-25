@@ -1,5 +1,5 @@
 /datum/outfit/admin/ert/iac
-	name = "IAC Responder"
+	name = "IAC Doctor"
 
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
 	suit = /obj/item/clothing/suit/storage/iacvest
@@ -76,7 +76,7 @@
 	)
 
 /datum/outfit/admin/ert/iac/paramedic
-	name = "IAC Paramedic Responder"
+	name = "IAC Paramedic"
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
