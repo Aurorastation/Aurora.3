@@ -88,7 +88,7 @@
 		empty_into = null
 
 	if(empty_into && empty_into.contents.len >= empty_into.storage_slots)
-		to_chat(user,  span("notice", "\The [empty_into] is full.</span>"))
+		to_chat(user,  span("notice", "\The [empty_into] is full."))
 		return
 
 	while(paperamount)
