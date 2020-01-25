@@ -36,7 +36,6 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/cmo
 	pda = /obj/item/device/pda/heads/cmo
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv

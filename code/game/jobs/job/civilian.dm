@@ -23,7 +23,6 @@
 	uniform = /obj/item/clothing/under/rank/bartender
 	pda = /obj/item/device/pda/bar
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 
 
 /datum/job/chef
@@ -53,7 +52,6 @@
 	head = /obj/item/clothing/head/chefhat
 	pda = /obj/item/device/pda/chef
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 
 	backpack_contents = list(
 		/obj/item/storage/box/produce = 1
@@ -85,7 +83,6 @@
 	suit = /obj/item/clothing/suit/apron
 	pda = /obj/item/device/pda/botanist
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 	suit_store = /obj/item/device/analyzer/plant_analyzer
 
 	backpack = /obj/item/storage/backpack/hydroponics
@@ -132,7 +129,6 @@
 	uniform = /obj/item/clothing/under/rank/cargo
 	pda = /obj/item/device/pda/quartermaster
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/qm
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
@@ -162,7 +158,6 @@
 	pda = /obj/item/device/pda/cargo
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/headset_cargo
 
 
 /datum/job/mining
@@ -193,7 +188,6 @@
 	pda = /obj/item/device/pda/shaftminer
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_mining
 
 	l_hand = /obj/item/storage/toolbox/ka
 
@@ -233,7 +227,6 @@
 	uniform = /obj/item/clothing/under/rank/janitor
 	pda = /obj/item/device/pda/janitor
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 
 /datum/job/journalist
 	title = "Reporter"
@@ -260,7 +253,6 @@
 	uniform = /obj/item/clothing/under/suit_jacket/red
 	pda = /obj/item/device/pda/librarian
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1
@@ -302,7 +294,6 @@
 	uniform = /obj/item/clothing/under/suit_jacket/red
 	pda = /obj/item/device/pda/librarian
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
 

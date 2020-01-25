@@ -7,7 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain"
+	supervisors = "the frontier alliance"
 	selection_color = "#FF6363"
 	economic_modifier = 10
 
@@ -32,7 +32,7 @@
 	name = "Ranger Lieutenant"
 	jobtype = /datum/job/hos
 
-	uniform = /obj/item/clothing/under/rank/head_of_security
+	uniform = /obj/item/clothing/under/tactical
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/heads/hos
 	pda = /obj/item/device/pda/heads/hos
@@ -70,14 +70,14 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 1
-	supervisors = "the head of security"
+	supervisors = "the ranger lieutenant"
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
 
 	minimum_character_age = 25
 
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_external_airlocks, access_weapons)
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
 
@@ -85,7 +85,7 @@
 	name = "Ranger"
 	jobtype = /datum/job/warden
 
-	uniform = /obj/item/clothing/under/rank/warden
+	uniform = /obj/item/clothing/under/tactical
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/warden
@@ -119,24 +119,33 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of security"
+	supervisors = "the overseer and operations manager"
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
 
 	minimum_character_age = 25
 
-	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective, access_weapons)
-	minimal_access = list(access_security, access_sec_doors, access_morgue, access_detective, access_weapons)
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
+			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
+			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
+				    access_detective, access_weapons)
+	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
+			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
+			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
+			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
+				    access_detective, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/detective
 
 /datum/outfit/job/detective
-	name = "Detective"
+	name = "Security Lead"
 	jobtype = /datum/job/detective
 
-	uniform = /obj/item/clothing/under/det
+	uniform = /obj/item/clothing/under/rank/head_of_security/corp
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/headset_sec
+	id = /obj/item/card/id/navy
 	pda = /obj/item/device/pda/detective
 
 	backpack_contents = list(
@@ -210,7 +219,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 4
-	supervisors = "the head of security"
+	supervisors = "the security lead"
 	selection_color = "#FFA4A4"
 	economic_modifier = 4
 

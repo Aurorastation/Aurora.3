@@ -39,7 +39,6 @@
 	pda = /obj/item/device/pda/heads/ce
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/heads/ce
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -92,7 +91,6 @@
 	pda = /obj/item/device/pda/engineering
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/headset_eng
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial

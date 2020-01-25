@@ -28,14 +28,17 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	name = "Overseer"
 	jobtype = /datum/job/captain
 
-	uniform = /obj/item/clothing/under/rank/captain
+	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/captain
+	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
 	pda = /obj/item/device/pda/captain
+	accessory = /obj/item/clothing/accessory/holster/hip
+
 	backpack_contents = list(
-		/obj/item/storage/box/ids = 1
+		/obj/item/storage/box/ids = 1,
+		/obj/item/device/radio
 	)
 
 	implants = list(
@@ -100,9 +103,9 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	name = "Operations Manager"
 	jobtype = /datum/job/hop
 
-	uniform = /obj/item/clothing/under/rank/head_of_personnel
+	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/hop
+	l_ear = /obj/item/device/radio/headset
 	id = /obj/item/card/id/navy
 	pda = /obj/item/device/pda/heads/hop
 	backpack_contents = list(

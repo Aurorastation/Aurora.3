@@ -57,27 +57,23 @@ var/list/assistant_occupations = list() //Leaving this on one line stops Travis 
 
 
 var/list/command_positions = list(
-	"Captain",
-	"Head of Personnel",
-	"Head of Security",
-	"Chief Engineer",
-	"Research Director",
-	"Chief Medical Officer"
+	"Overseer",
+	"Operations Manager",
+	"Ranger Lieutenant"
 )
 
 
 var/list/engineering_positions = list(
-	"Chief Engineer",
-	"Station Engineer",
+	"Foreman",
+	"Engineer",
 	"Atmospheric Technician",
 	"Engineering Apprentice"
 )
 
 
 var/list/medical_positions = list(
-	"Chief Medical Officer",
 	"Physician",
-	"Surgeon",
+	"Clinic Doctor",
 	"Psychiatrist",
 	"Pharmacist",
 	"Paramedic",
@@ -88,20 +84,20 @@ var/list/medical_positions = list(
 var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
-	"Roboticist",
+	"Mechanic",
 	"Xenobiologist",
 	"Lab Assistant"
 )
 
 //BS12 EDIT
 var/list/cargo_positions = list(
-	"Quartermaster",
-	"Cargo Technician",
+	"Supply Manager",
+	"Supply Worker",
 	"Shaft Miner"
 )
 
 var/list/civilian_positions = list(
-	"Head of Personnel",
+	"Operations Manager",
 	"Corporate Liaison",
 	"Bartender",
 	"Gardener",
@@ -115,11 +111,11 @@ var/list/civilian_positions = list(
 
 
 var/list/security_positions = list(
-	"Head of Security",
-	"Warden",
-	"Detective",
+	"Ranger Lieutenant",
+	"Ranger",
+	"Security Lead",
 	"Forensic Technician",
-	"Security Officer",
+	"Security Contractor",
 	"Security Cadet"
 )
 
