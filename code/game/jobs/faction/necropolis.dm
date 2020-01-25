@@ -37,6 +37,7 @@
 		/datum/job/forensics,
 		/datum/job/warden,
 		/datum/job/doctor,
+		/datum/job/surgeon,
 		/datum/job/pharmacist,
 		/datum/job/scientist,
 		/datum/job/roboticist,

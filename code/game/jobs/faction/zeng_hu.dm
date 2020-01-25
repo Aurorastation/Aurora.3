@@ -35,6 +35,7 @@
 
 	allowed_role_types = list(
 		/datum/job/doctor,
+		/datum/job/surgeon,
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
 		/datum/job/paramedic,
