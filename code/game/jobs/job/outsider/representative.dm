@@ -4,7 +4,7 @@
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 	supervisors = "company officials"
 	selection_color = "#C0C0C0"

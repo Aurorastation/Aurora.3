@@ -185,7 +185,7 @@
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 	economic_modifier = 5
 
