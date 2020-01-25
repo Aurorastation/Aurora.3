@@ -200,27 +200,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "coin_yoiko_heads" //thanks fireandglory for the sprites
 	cmineral = "yoiko"
 
-/obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35
-	name = "unathi wrappings"
-	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
-	icon = 'icons/obj/custom_items/karnaikai_wrappings.dmi'
-	icon_state = "karnaikai_wrappings" //special thanks to Araskael
-	item_state = "karnaikai_wrappings"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	flags_inv = HIDEJUMPSUIT|HIDETAIL
-	species_restricted = list("Unathi")
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/mask/gas/fluff/karnaikai_mask //Unathi head wrappings - Azeazekal Karnaikai - canon35
-	name = "unathi head wrappings"
-	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
-	icon = 'icons/obj/custom_items/karnaikai_mask.dmi'
-	icon_state = "karnaikai_mask" //special thanks to Araskael
-	item_state = "karnaikai_mask"
-	species_restricted = list("Unathi")
-	contained_sprite = TRUE
-
 /obj/item/flame/lighter/zippo/fluff/locke_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
 	name = "fire extinguisher lighter"
 	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
