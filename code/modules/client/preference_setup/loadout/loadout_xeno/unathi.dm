@@ -49,7 +49,7 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
-/datum/gear/autakh_engineering
+/datum/gear/augment/autakh_engineering
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
@@ -58,7 +58,7 @@
 	cost = 3
 	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
 
-/datum/gear/autakh_mining
+/datum/gear/augment/autakh_mining
 	display_name = "mining grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
@@ -67,7 +67,7 @@
 	cost = 3
 	allowed_roles = list("Shaft Miner")
 
-/datum/gear/autakh_medical
+/datum/gear/augment/autakh_medical
 	display_name = "medical grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
@@ -76,7 +76,7 @@
 	cost = 3
 	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
-/datum/gear/autakh_security
+/datum/gear/augment/autakh_security
 	display_name = "security grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security

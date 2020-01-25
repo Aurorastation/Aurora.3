@@ -236,6 +236,7 @@ var/list/gear_datums = list()
 	var/faction            //Is this item whitelisted for a faction?
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
+	var/list/augment = FALSE
 
 /datum/gear/New()
 	..()
