@@ -48,6 +48,11 @@ var/list/ai_verbs_default = list(
 	anchored = 1 // -- TLE
 	density = 1
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
+
+	var/fireloss = 0
+	var/bruteloss = 0
+	var/oxyloss = 0
+
 	//shouldnt_see - set in New()
 	var/list/network = list("Station")
 	var/obj/machinery/camera/camera = null
@@ -189,6 +194,19 @@ var/list/ai_verbs_default = list(
 	ai_list += src
 	return ..()
 
+/mob/living/silicon/ai/Destroy()
+	QDEL_NULL(aiPDA)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
+	ai_list -= src
+	destroy_eyeobj()
+	QDEL_NULL(psupply)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
+	QDEL_NULL(aiCamera)
+
+	return ..()
+
 /mob/living/silicon/ai/proc/init_powersupply()
 	new /obj/machinery/ai_powersupply(src)
 
@@ -217,19 +235,6 @@ var/list/ai_verbs_default = list(
 	job = "AI"
 	setup_icon()
 	eyeobj.possess(src)
-
-/mob/living/silicon/ai/Destroy()
-	QDEL_NULL(aiPDA)
-	QDEL_NULL(aiMulti)
-	QDEL_NULL(aiRadio)
-	ai_list -= src
-	destroy_eyeobj()
-	QDEL_NULL(psupply)
-	QDEL_NULL(aiMulti)
-	QDEL_NULL(aiRadio)
-	QDEL_NULL(aiCamera)
-
-	return ..()
 
 /mob/living/silicon/ai/getFireLoss()
 	return fireloss
@@ -267,7 +272,7 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		set_stat(CONSCIOUS)
+		stat = CONSCIOUS
 		setOxyLoss(0)
 	else
 		health = maxHealth - getFireLoss() - getBruteLoss() // Oxyloss is not part of health as it represents AIs backup power. AI is immune against ToxLoss as it is machine.
