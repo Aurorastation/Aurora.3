@@ -95,7 +95,7 @@
 
 	if(reagents.total_volume)
 		var/target_text = trans_dest? "\the [trans_dest]" : "\the [user.loc]"
-		user.visible_message(span("danger", "\The [user] begins to wring out [src] over [target_text]."), span("notice", "You begin to wring out [src] over [target_text]."))
+		user.visible_message(span("danger", "\The [user] begins to wring out \the [src] over \the [target_text]."), span("notice", "You begin to wring out \the [src] over \the [target_text]."))
 
 		if(do_after(user, reagents.total_volume*5)) //50 for a fully soaked rag
 			if(trans_dest)
@@ -284,4 +284,3 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	cleantime = 15
-
