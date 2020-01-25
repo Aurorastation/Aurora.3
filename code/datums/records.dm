@@ -190,7 +190,7 @@
 // Record for storing security data
 /datum/record/security
 	var/criminal = "None"
-	var/crimes = "There is no crime convictions."
+	var/crimes = "No criminal record."
 	var/list/incidents = list()
 	var/list/comments = list()
 

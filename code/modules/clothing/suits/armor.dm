@@ -85,6 +85,12 @@
 	icon_state = "commissar_warden"
 	item_state = "commissar_warden"
 
+/obj/item/clothing/suit/armor/vest/fib
+	name = "\improper FIB armored vest"
+	desc = "An armored vest used by Federal Investigations Bureau agents during operations."
+	icon_state = "fib_armor"
+	item_state = "fib_armor"
+
 /obj/item/clothing/suit/armor/hos
 	name = "head of security's jacket"
 	desc = "An armoured jacket with golden rank pips and livery."

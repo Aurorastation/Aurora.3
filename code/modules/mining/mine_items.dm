@@ -88,7 +88,6 @@
 	wielded = 1
 	force = force_wielded
 	digspeed = digspeed_wielded
-	name = "[name] (Wielded)"
 	update_icon()
 
 /obj/item/pickaxe/update_icon()

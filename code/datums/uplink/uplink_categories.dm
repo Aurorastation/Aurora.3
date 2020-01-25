@@ -53,6 +53,12 @@
 /datum/uplink_category/badassery
 	name = "Badassery"
 
+/datum/uplink_category/exosuit
+	name = "Exosuit"
+
+/datum/uplink_category/exosuit_equipment
+	name = "Exosuit Equipment"
+
 /datum/uplink_category/telecrystals
 	name = "Telecrystals"
 

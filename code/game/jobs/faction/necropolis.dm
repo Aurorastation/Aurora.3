@@ -37,6 +37,7 @@
 		/datum/job/forensics,
 		/datum/job/warden,
 		/datum/job/doctor,
+		/datum/job/surgeon,
 		/datum/job/pharmacist,
 		/datum/job/scientist,
 		/datum/job/roboticist,
@@ -53,9 +54,9 @@
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/necropolis,
 		"Warden" = /datum/outfit/job/warden/necropolis,
-		"Medical Doctor" = /datum/outfit/job/doctor/necropolis,
+		"Physician" = /datum/outfit/job/doctor/necropolis,
 		"Surgeon" = /datum/outfit/job/doctor/necropolis,
-		"Emergency Phyisician" = /datum/outfit/job/doctor/necropolis,
+		"Trauma Physician" = /datum/outfit/job/doctor/necropolis,
 		"Nurse" = /datum/outfit/job/doctor/necropolis,
 		"Pharmacist" = /datum/outfit/job/pharmacist/necropolis,
 		"Biochemist" = /datum/outfit/job/pharmacist/necropolis,
@@ -63,7 +64,7 @@
 		"Phoron Researcher" = /datum/outfit/job/scientist/necropolis,
 		"Xenoarcheologist" = /datum/outfit/job/scientist/necropolis,
 		"Anomalist" = /datum/outfit/job/scientist/necropolis,
-		"Forensics Technician" = /datum/outfit/job/forensics/necropolis,
+		"Forensic Technician" = /datum/outfit/job/forensics/necropolis,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/necropolis,
 		"Roboticist" = /datum/outfit/job/roboticist/necropolis,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/necropolis,
@@ -87,7 +88,7 @@
 	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/doctor/necropolis
-	name = "Medical Doctor - Necropolis"
+	name = "Physician - Necropolis"
 	uniform = /obj/item/clothing/under/rank/necropolis/research
 	id = /obj/item/card/id/necropolis
 
