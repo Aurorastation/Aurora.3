@@ -597,7 +597,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "organcooler"
 	item_state = "firstaid-advanced"
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	w_class = 4
 	can_hold = list(
 		/obj/item/organ,
