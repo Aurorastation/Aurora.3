@@ -252,6 +252,26 @@ var/list/ai_verbs_default = list(
 	if(status_flags & GODMODE) return
 	oxyloss = max(0, oxyloss + min(amount, maxHealth - oxyloss))
 
+/mob/living/silicon/ai/setFireLoss(var/amount)
+	if(status_flags & GODMODE)
+		fireloss = 0
+		return
+	fireloss = max(0, amount)
+
+/mob/living/silicon/ai/setOxyLoss(var/amount)
+	if(status_flags & GODMODE)
+		oxyloss = 0
+		return
+	oxyloss = max(0, amount)
+
+/mob/living/silicon/ai/updatehealth()
+	if(status_flags & GODMODE)
+		health = maxHealth
+		set_stat(CONSCIOUS)
+		setOxyLoss(0)
+	else
+		health = maxHealth - getFireLoss() - getBruteLoss() // Oxyloss is not part of health as it represents AIs backup power. AI is immune against ToxLoss as it is machine.
+
 /mob/living/silicon/ai/proc/setup_icon()
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
