@@ -26,14 +26,15 @@
 		"<span class='danger'>...but it wasn't nearly enough. You crave, crave for more. The hunger consumes you from within.</span>", \
 		"<span class='warning'>You hear a heartbeat.</span>")
 		user.bhunger += drain
-		spawn()
-			for(,user.bhunger > 0, user.bhunger--)
-				sleep(50)
-				user.take_overall_damage(3, 0)
+		while(user.bhunger)
+			user.bhunger--
+			sleep(50)
+			user.take_overall_damage(3, 0)
 		return
 	user.heal_organ_damage(drain%5, 0)
 	drain-=drain%5
-	for(,drain > 0, drain -= 5)
+	while(drain)
+		drain -= 5
 		sleep(2)
 		user.heal_organ_damage(5, 0)
 	return TRUE

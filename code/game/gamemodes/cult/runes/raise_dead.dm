@@ -24,7 +24,7 @@
 			if(N?.mind == cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
 			else
-				if(N.stat!= DEAD)
+				if(N.stat != DEAD)
 					body_to_maim = N
 					found_sacrifice = TRUE
 					break
@@ -77,7 +77,7 @@
 
 	for(var/i = 1; i < limbs_to_drop + 1; i++)
 		var/obj/item/organ/external/limb = pick(possible_limbs)
-		limb.droplimb(0,DROPLIMB_BURN)
+		limb.droplimb(FALSE, DROPLIMB_BURN)
 
 	to_chat(corpse_to_raise, span("cult", "Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root."))
 	to_chat(corpse_to_raise, span("cult", "Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring it back."))

@@ -51,10 +51,9 @@
 		animation.master = T
 		if(istype(T,/turf/simulated/wall))
 			animation.icon_state = "cultwall"
-			flick("cultwall",animation)
+			flick("cultwall", animation)
 		else
 			animation.icon_state = "cultfloor"
-			flick("cultfloor",animation)
-		spawn(10)
-			qdel(animation)
+			flick("cultfloor", animation)
+		QDEL_IN(animation, 10)
 		T.cultify()
