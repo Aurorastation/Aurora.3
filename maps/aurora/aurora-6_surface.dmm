@@ -22110,8 +22110,7 @@
 "Py" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
-	name = "Firefighting Equipment";
-	req_access = list(12)
+	name = "Firefighting Equipment"
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)

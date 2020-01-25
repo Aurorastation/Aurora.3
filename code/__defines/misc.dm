@@ -98,6 +98,7 @@
 #define SHUTTLE_IDLE      0
 #define SHUTTLE_WARMUP    1
 #define SHUTTLE_INTRANSIT 2
+#define SHUTTLE_HALT      3 // State of no recovery
 
 // Ferry shuttle processing status.
 #define IDLE_STATE   0
@@ -143,6 +144,8 @@
 
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
+
+#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon. 
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_WALL_MATERIAL "steel"

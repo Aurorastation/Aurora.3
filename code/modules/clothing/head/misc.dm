@@ -489,14 +489,13 @@
 
 /obj/item/clothing/head/legion
 	name = "TCFL field beret"
-	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". Offers some minor protection."
-	armor = list(melee = 20, bullet = 10, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
+	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
 	icon_state = "legion_field_beret"
 	item_state = "legion_field_beret"
 
 /obj/item/clothing/head/legion/sentinel
 	name = "TCFL sentinel beret"
-	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". Offers some minor protection."
+	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
 	icon_state = "legion_sentinel_beret"
 	item_state = "legion_sentinel_beret"
 
@@ -685,3 +684,9 @@
 	item_state = "helmet_tac_sol"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	contained_sprite = 1
+
+/obj/item/clothing/head/nonla
+	name = "non la"
+	desc = "A conical straw hat enjoyed particularly by residents of New Hai Phong, to protect the head from sweltering suns and heavy rains."
+	icon_state = "nonla"
+	item_state = "nonla"

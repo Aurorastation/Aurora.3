@@ -12,8 +12,6 @@
 	max_damage = 70
 	relative_size = 60
 
-	var/tolerance = 5
-
 /obj/item/organ/internal/liver/process()
 
 	..()
@@ -28,45 +26,33 @@
 		if(prob(1))
 			spawn owner.delayed_vomit()
 
-	if(!(owner.life_tick % PROCESS_ACCURACY == 0))
-		return
-
-	//A liver's duty is to get rid of toxins
-	if(owner.getToxLoss() > 0 && owner.getToxLoss() <= tolerance)
-		owner.adjustToxLoss(-0.2) //there isn't a lot of toxin damage, so we're going to be chill and slowly filter it out
-	else if(owner.getToxLoss() > tolerance)
-		if(is_bruised())
-			//damaged liver works less efficiently
-			owner.adjustToxLoss(-0.5)
-			if(!owner.chem_effects[CE_ANTITOXIN]) //no damage to liver if anti-toxin is present
-				src.damage += 0.1 * PROCESS_ACCURACY
-		else if(is_broken())
-			//non-functioning liver ADDS toxins
-			owner.adjustToxLoss(-0.1) //roughly 33 minutes to kill someone straight out, stacks with 60+ tox proc tho
-		else 
-			//functioning liver removes toxins at a cost
-			owner.adjustToxLoss(-1)
-			if(!owner.chem_effects[CE_ANTITOXIN]) //no damage to liver if anti-toxin is present
-				src.damage += 0.05 * PROCESS_ACCURACY
-
-
-	//High toxins levels are super dangerous
-	if(owner.getToxLoss() >= 60 && !owner.chem_effects[CE_ANTITOXIN])
-		//Healthy liver suffers on its own
-		if (src.damage < min_broken_damage)
-			src.damage += 0.2 * PROCESS_ACCURACY
-		//Damaged one shares the fun
-		else
-			var/obj/item/organ/O = pick(owner.internal_organs)
-			if(O)
-				O.damage += 0.2  * PROCESS_ACCURACY
-
 	//Detox can heal small amounts of damage
-	if (src.damage && src.damage < src.min_bruised_damage && owner.chem_effects[CE_ANTITOXIN])
-		src.damage -= 0.2 * PROCESS_ACCURACY
+	if (damage < max_damage && !owner.chem_effects[CE_TOXIN])
+		heal_damage(0.2 * owner.chem_effects[CE_ANTITOXIN])
 
-	if(src.damage < 0)
-		src.damage = 0
+	// Get the effectiveness of the liver.
+	var/filter_effect = 3
+	if(is_bruised())
+		filter_effect -= 1
+	if(is_broken())
+		filter_effect -= 2
+	// Robotic organs filter better but don't get benefits from dylovene for filtering.
+	if(BP_IS_ROBOTIC(src))
+		filter_effect += 1
+	if(getToxLoss() >= 60) //Too many toxins to process. Abort, abort.
+		filter_effect -= 2
+	else if(owner.chem_effects[CE_ANTITOXIN])
+		filter_effect += 1
+
+	if(filter_effect < 2) //Trouble. You're not filtering well.
+		owner.adjustToxLoss(0.8 * max(2 - filter_effect, 0))
+
+	// Heal a bit if needed and we're not busy. This allows recovery from low amounts of toxloss.
+	if(!owner.total_radiation && damage > 0)
+		if(damage < min_broken_damage)
+			heal_damage(0.2)
+		if(damage < min_bruised_damage)
+			heal_damage(0.3)
 
 	var/filter_strength = INTOX_FILTER_HEALTHY
 	if(is_bruised())

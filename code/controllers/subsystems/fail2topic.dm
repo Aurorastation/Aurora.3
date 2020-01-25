@@ -32,6 +32,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 	if (!enabled)
 		suspended = TRUE
+		flags |= SS_NO_FIRE
 
 	. = ..()
 
@@ -72,7 +73,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 		if (isnull(failures))
 			fail_counts[ip] = 1
-			return FALSE
+			return TRUE
 		else if (failures > max_fails)
 			BanFromFirewall(ip)
 			return TRUE

@@ -78,6 +78,9 @@
 
 	..()
 
+/obj/item/organ/internal/brain/getToxLoss()
+	return 0
+
 /obj/item/organ/internal/brain/can_recover()
 	return ~status & ORGAN_DEAD
 
@@ -140,7 +143,7 @@
 					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
 					if(!past_damage_threshold(6) && prob(damprob))
 						take_internal_damage(1)
-					if(!owner.paralysis && prob(15))
+					if(!owner.paralysis)
 						owner.Paralyse(3,5)
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
 				if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
@@ -155,11 +158,10 @@
 /obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)
 	set waitfor = 0
 	..()
-	if(damage >= 10) //This probably won't be triggered by oxyloss or mercury. Probably.
+	if(damage >= (max_damage / 3)) //This probably won't be triggered by oxyloss or mercury. Probably.
 		var/damage_secondary = damage * 0.20
 		owner.eye_blurry += damage_secondary
 		owner.confused += damage_secondary * 2
-		owner.Paralyse(damage_secondary)
 		owner.Weaken(round(damage, 1))
 		if(prob(30))
 			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
@@ -180,7 +182,7 @@
 	if(!owner)
 		return
 	to_chat(owner, "<span class = 'notice' font size='10'><B>What happened...?</B></span>")
-	alert(owner, "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
+	alert(owner.find_mob_consciousness(), "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
 
 /obj/item/organ/internal/brain/proc/handle_damage_effects()
 	if(owner.stat)
@@ -194,9 +196,9 @@
 		to_chat(owner, "<span class='danger'>Your hand won't respond properly, and you drop what you are holding!</span>")
 		owner.drop_item()
 	if(damage >= 0.6*max_damage)
-		owner.slurring = max(owner.slurring, 2)
+		owner.stuttering = max(owner.slurring, 2)
 	if(is_broken())
-		if(!owner.lying)
+		if(!owner.lying && prob(5))
 			to_chat(owner, "<span class='danger'>You black out!</span>")
 		owner.Paralyse(10)
 

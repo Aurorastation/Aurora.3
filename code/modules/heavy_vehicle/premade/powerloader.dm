@@ -174,3 +174,13 @@
 	..()
 	software = new(src)
 	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_WEAPONS)
+
+/mob/living/heavy_vehicle/premade/ripley/remote
+	name = "remote power loader"
+	dummy_colour = "#ffc44f"
+	remote_network = "remotemechs"
+
+/mob/living/heavy_vehicle/premade/ripley/remote_prison
+	name = "penal power loader"
+	dummy_colour = "#302e2b"
+	remote_network = "prisonmechs"

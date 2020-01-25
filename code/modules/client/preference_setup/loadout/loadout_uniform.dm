@@ -9,10 +9,22 @@
 	display_name = "kilt"
 	path = /obj/item/clothing/under/kilt
 
+/datum/gear/uniform/formalblouse
+    display_name = "formal blouse"
+    path = /obj/item/clothing/under/formalblouse
+
+/datum/gear/uniform/croptop
+    display_name = "crop top"
+    path = /obj/item/clothing/under/croptop
+
+/datum/gear/uniform/cropdress
+    display_name = "crop dress"
+    path = /obj/item/clothing/under/cropdress
+
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -53,6 +65,7 @@
 	..()
 	var/skirts = list()
 	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
+	skirts["casual skirt, alt"] = /obj/item/clothing/under/skirt/casual/alt
 	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
@@ -90,7 +103,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Medical Doctor", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -128,6 +141,8 @@
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
 	dress["cheongsam, green"] = /obj/item/clothing/under/cheongsam/green
 	dress["cheongsam, purple"] = /obj/item/clothing/under/cheongsam/purple
+	dress["dress, blue"] = /obj/item/clothing/under/dress/bluedress
+	dress["dress, dark red"] = /obj/item/clothing/under/dress/darkreddress
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/uniform_captain
@@ -198,6 +213,18 @@
 	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
 	pants["khaki shorts shorts"] = /obj/item/clothing/under/shorts/khaki/female
 	gear_tweaks += new/datum/gear_tweak/path(pants)
+
+/datum/gear/uniform/colorpants
+	display_name = "pants (recolorable)"
+	path = /obj/item/clothing/under/pants/dress
+
+/datum/gear/uniform/colorpants/New()
+	..()
+	var/colorpants = list()
+	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
+	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
+	gear_tweaks += new/datum/gear_tweak/path(colorpants)
+	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"

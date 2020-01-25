@@ -5426,8 +5426,8 @@
 /area/syndicate_mothership)
 "aoI" = (
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
 /obj/item/tank/emergency_oxygen/double,
@@ -10833,8 +10833,8 @@
 /area/skipjack_station/start)
 "aGI" = (
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit/improved,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
 /obj/item/rig/industrial/syndicate,
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
@@ -16238,7 +16238,7 @@
 /area/centcom/creed)
 "aUb" = (
 /obj/structure/table/rack,
-/obj/item/device/suit_cooling_unit/improved,
+/obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/shuttle/red,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"

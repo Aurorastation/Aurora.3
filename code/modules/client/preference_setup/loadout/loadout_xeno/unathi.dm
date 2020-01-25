@@ -74,7 +74,7 @@
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
 /datum/gear/autakh_security
 	display_name = "security grasper"
