@@ -190,7 +190,7 @@
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-			user.visible_message(span("notice", "\The [user] soaks [src] using [A]."), span("notice", "You soak [src] using [A]."))
+			user.visible_message(span("notice", "\The [user] soaks \the [src] using \the [A]."), span("notice", "You soak \the [src] using \the [A]."))
 			update_name()
 			update_icon()
 		return
