@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - admin: "Fixed a bug where banning someone from Malf AI, Renegade, Asset Protection Specialist, Syndicate Commando, Highlander or Traitor would ban someone from all of those roles."
