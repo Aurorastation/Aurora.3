@@ -57,11 +57,6 @@
 
 	var/victim_maxhealth = victim.maxHealth //We cache this here in case we need to edit it.
 
-	if(ishuman(victim))
-		victim_maxhealth *= 2
-		bite_delay *= 3
-		dam_multiplier = 0.75
-
 	var/damage_dealt = victim_maxhealth * PEPB * dam_multiplier
 
 	//Now, incase we're resuming an earlier feeding session on the same creature
@@ -95,17 +90,10 @@
 			visible_message("<span class='danger'>[src] bites a chunk out of [victim]!</span>","<span class='danger'>[bitemessage(victim)]</span>")
 			if(messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim, vessel)
-			if(!ishuman(victim))
-				if(victim.getBruteLoss() >= victim_maxhealth)
-					visible_message("<span class='danger'>[src] finishes devouring [victim].</span>","<span class='warning'>You finish devouring [victim].</span>")
-					handle_devour_mess(src, victim, vessel, 1)
-					qdel(victim)
-			else
-				var/mob/living/carbon/human/H = victim
-				if(H.stat == DEAD)
-					visible_message("<span class='danger'>[src] moves their jaws away from [victim], leaving behind a soulless husk of bones!</span>", "<span class='warning'>Your victim is nothing more than strands of meat attached to bone now.</span>")
-					handle_devour_mess(src, victim, vessel, 1)
-					break
+			if(victim.getBruteLoss() >= victim_maxhealth)
+				visible_message("<span class='danger'>[src] finishes devouring [victim].</span>","<span class='warning'>You finish devouring [victim].</span>")
+				handle_devour_mess(src, victim, vessel, 1)
+				qdel(victim)
 		else
 			if(nutrition >= (max_nutrition - 60))
 				to_chat(src, "<span class='danger'>Your stomach is full!</span>")

@@ -39,6 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscdel: "Unathi can no longer swallow mobs or items whole."
-  - rscadd: "Instead, they now have their old devour, still tied to a grab. You need a red grab now, however."
+  - rscadd: "Instead, they now have their old devour, still tied to a grab. You need a red grab now, however. It does not work on humans."
   - tweak: "Unathi devour is now overall faster."
-  - rscadd: "It works on humans as well, but takes a bit more time in that case."

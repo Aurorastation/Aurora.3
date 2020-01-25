@@ -137,6 +137,9 @@
 	if(species?.gluttonous & GLUT_MESSY)
 		if(ismob(victim))
 			var/mob/M = victim
+			if(ishuman(victim))
+				to_chat(src, span("warning", "You can't devour humanoids!"))
+				return FALSE
 			for(var/obj/item/grab/G in M.grabbed_by)
 				if(G && G.state < GRAB_NECK)
 					if(!silent)
