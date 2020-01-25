@@ -137,4 +137,26 @@
 	display_name = "tool-belt, alt"
 	cost = 0
 	path = /obj/item/storage/belt/utility/alt
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
+
+/datum/gear/utility/guns
+	display_name = "sidearms"
+	description = "A selection of sidearms."
+	path = /obj/item/gun
+
+/datum/gear/utility/guns/New()
+	..()
+	var/guns = list()
+	guns["vintage .45 pistol"] = /obj/item/gun/projectile/colt
+	guns[".45 pistol"] = /obj/item/gun/projectile/sec/lethal
+	guns["9mm pistol"] = /obj/item/gun/projectile/pistol
+	guns["service pistol"] = /obj/item/gun/projectile/pistol/sol
+	guns["adhomian service pistol"] = /obj/item/gun/projectile/pistol/adhomai
+	guns["revolver"] = /obj/item/gun/projectile/revolver/detective
+	guns["adhomian service revolver"] = /obj/item/gun/projectile/revolver/adhomian
+	guns["blaster pistol"] = /obj/item/gun/energy/blaster
+	guns["blaster revolver"] = /obj/item/gun/energy/blaster/revolver
+	guns["energy pistol"] = /obj/item/gun/energy/pistol
+	guns["hegemony energy pistol"] = /obj/item/gun/energy/pistol/hegemony
+	guns["taser gun"] = /obj/item/gun/energy/taser
+	guns["stun revolver"] = /obj/item/gun/energy/stunrevolver
+	gear_tweaks += new/datum/gear_tweak/path(guns)
