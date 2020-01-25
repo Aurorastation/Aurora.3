@@ -363,11 +363,11 @@
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss( volume * (removed/REM) * 0.5 )
 		if(!S.client)
-			if(S.Target) // Like cats
-				S.Target = null
-				++S.Discipline
+			if(S.target) // Like cats
+				S.target = null
+				++S.discipline
 		if(dose == removed)
-			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
+			S.visible_message(span("warning", "[S]'s flesh sizzles where the space cleaner touches it!"), span("danger", "Your flesh burns in the space cleaner!"))
 
 /datum/reagent/lube
 	name = "Space Lube"

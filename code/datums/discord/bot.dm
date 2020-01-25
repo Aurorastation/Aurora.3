@@ -185,7 +185,9 @@ var/datum/discord_bot/discord_bot = null
 		if (isnull(output["[channel.pin_flag]"]))
 			output["[channel.pin_flag]"] = list()
 
-		output["[channel.pin_flag]"] += channel.get_pins(auth_token)
+		var/ch_pins = channel.get_pins(auth_token)
+		if (length(ch_pins))
+			output["[channel.pin_flag]"] += ch_pins
 
 	if (robust_debug)
 		log_debug("BOREALIS: Finished acquiring pins.")
@@ -341,7 +343,7 @@ var/datum/discord_bot/discord_bot = null
  *						  Num upon failure.
  */
 /datum/discord_channel/proc/get_pins(var/token)
-	var/datum/http_request/req = SShttp.get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization", "Bot [token]"))
+	var/datum/http_request/req = SShttp.get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization" = "Bot [token]"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())
