@@ -8,3 +8,4 @@ changes:
   - tweak: "Diona nymphs don't have to be whitelisted to grow until a full diona now. Administrative action will be taken if this right is abused."
   - rscadd: "Diona gestalts can now use their biomass / arms to create biomass structures."
   - rscdel: "Removed nymphs' ability to open biomass walls. It was buggy."
+  - tweak: "Nymphs can now be holstered and worn on the ear slots."
