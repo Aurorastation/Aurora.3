@@ -186,15 +186,15 @@
 
 /proc/get_turfs_in_view(var/R, var/atom/source)
 	var/turf/start_point = get_turf(source)
-	var/list/hear = list()
+	var/list/hear_turfs = list()
 
 	if(!start_point)
-		return hear
+		return hear_turfs
 
 	var/list/range = hear(R, start_point)
 	for(var/turf/T in range)
-		hear += T
-	return hear
+		hear_turfs[T] = TRUE
+	return hear_turfs
 
 
 /proc/get_mobs_in_radio_ranges(var/list/obj/item/device/radio/radios)

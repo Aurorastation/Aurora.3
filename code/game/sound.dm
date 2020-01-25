@@ -251,7 +251,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 	for(var/mob/M in player_list)
 		if(!M.sound_can_play(required_preferences, required_asfx_toggles))
 			continue
-		if(!(get_turf(M) in sound_turfs))
+		if(!sound_turfs[get_turf(M)])
 			continue
 		M.playsound_to(source_turf, S, use_random_freq = use_random_freq, use_pressure = use_pressure, modify_environment = modify_environment)
 
