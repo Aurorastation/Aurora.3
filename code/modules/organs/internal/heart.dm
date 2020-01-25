@@ -30,7 +30,7 @@
 	..()
 
 /obj/item/organ/internal/heart/proc/handle_pulse()
-	if((species && species.flags & NO_BLOOD) || BP_IS_ROBOTIC(src)) //No heart, no pulse, buddy. Or if the heart is robotic.
+	if(owner.stat == DEAD || (species && species.flags & NO_BLOOD) || BP_IS_ROBOTIC(src)) //No heart, no pulse, buddy. Or if the heart is robotic. Or you're dead.
 		pulse = PULSE_NONE
 		return
 

@@ -684,3 +684,9 @@
 	item_state = "helmet_tac_sol"
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	contained_sprite = 1
+
+/obj/item/clothing/head/nonla
+	name = "non la"
+	desc = "A conical straw hat enjoyed particularly by residents of New Hai Phong, to protect the head from sweltering suns and heavy rains."
+	icon_state = "nonla"
+	item_state = "nonla"

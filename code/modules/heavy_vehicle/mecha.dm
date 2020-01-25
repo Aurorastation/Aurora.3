@@ -84,10 +84,6 @@
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
 
-	for(var/thing in hud_elements)
-		qdel(thing)
-	hud_elements.Cut()
-
 	hardpoint_hud_elements = null
 
 	hardpoints = null
