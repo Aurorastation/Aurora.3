@@ -245,15 +245,13 @@
 //This function makes sure the nymph has the correct split/merge verbs, depending on whether or not its part of a gestalt
 /mob/living/carbon/alien/diona/proc/update_verbs()
 	if(gestalt && !detached)
-		if(!(/mob/living/carbon/alien/diona/proc/split in verbs))
-			verbs += /mob/living/carbon/alien/diona/proc/split
-
 		verbs -= /mob/living/proc/ventcrawl
 		verbs -= /mob/living/proc/hide
 		verbs -= /mob/living/carbon/alien/diona/proc/grow
 		verbs -= /mob/living/carbon/alien/diona/proc/merge
 		verbs -= /mob/living/carbon/proc/absorb_nymph
 		verbs -= /mob/living/carbon/alien/diona/proc/sample
+		verbs |= /mob/living/carbon/alien/diona/proc/split
 	else
 		verbs |= /mob/living/carbon/alien/diona/proc/merge
 		verbs |= /mob/living/carbon/proc/absorb_nymph
