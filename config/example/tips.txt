@@ -53,6 +53,7 @@ As a Security Officer, your sechuds or HUDsunglasses can not only see crewmates'
 As a Security Officer, examining someone while wearing sechuds or HUDsunglasses will let you set their arrest level, which will cause Beepsky and other security bots to chase after them.
 As the Forensic Technician, people leave fingerprints everywhere and on everything. With the exception of white latex, gloves will hide them. All is not lost, however, as gloves leave fibers specific to their kind such as black or nitrile, pointing to a general department.
 As the Head of Personnel, you are just as large a target as the Captain because of the potential power your ID and computer can hand out.
+As the Chaplain, your bible is also a container that can store small items.
 As the Chaplain, your null rod has a lot of functions: it can convert water into holy water, which if spread on the ground prevents wizards from jaunting away, can destroy cultist runes by hitting them, and is a very powerful weapon to boot!
 As the Chaplain, you are much more likely to get a response by praying to the gods than most people. To boost your chances, make altars with colorful crayon runes, lit candles, and wire art.
 As a Botanist, you can hack the MegaSeed Vendor to get access to more exotic seeds. These seeds can alternatively be ordered from cargo.
