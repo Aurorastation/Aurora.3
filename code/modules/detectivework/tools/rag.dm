@@ -43,7 +43,7 @@
 	STOP_PROCESSING(SSprocessing, src) //so we don't continue turning to ash while gc'd
 	return ..()
 
-/obj/item/reagent_containers/glass/rag/attack_self(mob/user as mob)
+/obj/item/reagent_containers/glass/rag/attack_self(mob/user)
 	if(on_fire)
 		user.visible_message(span("warning", "\The [user] stamps out \the [src]."), span("warning", "You stamp out \the [src]."))
 		user.unEquip(src)
