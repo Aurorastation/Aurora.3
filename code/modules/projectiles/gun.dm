@@ -545,6 +545,8 @@
 
 /obj/item/gun/examine(mob/user)
 	..()
+	if(get_dist(src, user) > 1)
+		return
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
