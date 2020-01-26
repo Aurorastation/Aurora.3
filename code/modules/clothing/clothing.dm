@@ -625,7 +625,6 @@
 	var/shoes_under_pants = 0
 
 	permeability_coefficient = 0.50
-	slowdown = SHOES_SLOWDOWN
 	force = 0
 	var/overshoes = 0
 	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
