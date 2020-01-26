@@ -114,6 +114,19 @@
 /turf/simulated/wall/shuttle/legion/cardinal
 	smooth = SMOOTH_MORE
 
+/turf/simulated/wall/shuttle/palepurple
+	icon = 'icons/turf/smooth/shuttle_wall_palepurple.dmi'
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/palepurple,
+		/obj/structure/window/shuttle/palepurple,
+		/obj/machinery/door/airlock,
+		/obj/machinery/door/unpowered/shuttle,
+		/obj/structure/shuttle/engine/propulsion
+	)
+
+/turf/simulated/wall/shuttle/palepurple/cardinal
+	smooth = SMOOTH_MORE
+
 /turf/simulated/wall/shuttle/skrell
 	icon_state = "skrell_purple"
 	icon = 'icons/turf/smooth/skrell_purple.dmi'

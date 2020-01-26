@@ -505,6 +505,9 @@
 	health = 160
 	maxhealth = 160
 
+/obj/structure/window/shuttle/palepurple
+	icon = 'icons/obj/smooth/shuttle_window_palepurple.dmi'
+
 /obj/structure/window/shuttle/skrell
 	name = "advanced borosilicate alloy window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."

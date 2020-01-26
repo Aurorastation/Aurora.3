@@ -368,6 +368,11 @@
 	mineral = "sandstone"
 	hatch_colour = "#efc8a8"
 
+/obj/machinery/door/airlock/palepurple
+	name = "airlock"
+	icon = 'icons/obj/doors/Doorpalepurple.dmi'
+	hashatch = FALSE
+
 /obj/machinery/door/airlock/highsecurity
 	name = "Secure Airlock"
 	icon = 'icons/obj/doors/hightechsecurity.dmi'
