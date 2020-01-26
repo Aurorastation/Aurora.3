@@ -588,7 +588,7 @@
 	item_state = "medicalpack"
 	max_w_class = 3
 	max_storage_space = 21
-	use_to_pickup = 0 // for picking up broken bulbs, not that most people will try
+	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
 
 	/obj/item/storage/box/freezer/organcooler
@@ -597,15 +597,15 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "organcooler"
 	item_state = "firstaid-advanced"
-	max_w_class = 3
-	w_class = 4
+	max_w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_LARGE
 	can_hold = list(
 		/obj/item/organ,
 		/obj/item/reagent_containers/food,
 		/obj/item/reagent_containers/glass,
 		/obj/item/gun
 	)
-	use_to_pickup = 0
+	use_to_pickup = FALSE
 	storage_slots = 2
 
 /obj/item/storage/box/kitchen
