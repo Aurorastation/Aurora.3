@@ -5,7 +5,8 @@
 	simulated = 0
 	opacity = 0
 	mouse_opacity = 0
-	layer = FLY_LAYER
+	layer = DEEP_FLUID_LAYER
+	plane = DEEP_FLUID_LAYER
 	alpha = 0
 	color = COLOR_OCEAN
 
@@ -26,7 +27,7 @@
 /obj/effect/fluid/Initialize()
 	. = ..()
 	start_loc = get_turf(src)
-	if(!istype(start_loc))
+	if(!istype(start_loc) || start_loc.flooded)
 		qdel(src)
 		return
 	var/turf/simulated/T = start_loc

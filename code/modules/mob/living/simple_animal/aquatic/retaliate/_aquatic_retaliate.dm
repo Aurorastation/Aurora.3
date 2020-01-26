@@ -15,9 +15,9 @@
 	minbodytemp = 0
 
 /mob/living/simple_animal/hostile/retaliate/aquatic/Life()
-	if(!loc || !loc.is_flooded(1))
+	if(!submerged())
 		if(icon_state == icon_living)
 			icon_state = "[icon_living]_dying"
-		SetStunned(3)
-		stat = UNCONSCIOUS
+		walk(src, 0)
+		Paralyse(3)
 	. = ..()
