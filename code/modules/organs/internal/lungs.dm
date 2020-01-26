@@ -17,6 +17,7 @@
 	relative_size = 60
 
 	var/breathing = 0
+	var/has_gills = FALSE
 
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 	var/oxygen_deprivation = 0
@@ -38,6 +39,9 @@
 	if(status & ORGAN_DEAD)
 		return 100
 	return round((oxygen_deprivation/species.total_health)*100)
+
+/obj/item/organ/internal/lungs/proc/can_drown()
+	return (is_broken() || !has_gills)
 
 /obj/item/organ/internal/lungs/process()
 	..()

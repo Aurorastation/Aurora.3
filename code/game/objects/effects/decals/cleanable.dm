@@ -14,3 +14,7 @@
 	. = ..()
 	if (!mapload && ROUND_IS_STARTED)
 		SSfeedback.IncrementSimpleStat("messes_made")
+
+/obj/effect/decal/cleanable/water_act(var/depth)
+	..()
+	qdel(src)

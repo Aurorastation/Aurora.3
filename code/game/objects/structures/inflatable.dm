@@ -14,6 +14,8 @@
 	R.add_fingerprint(user)
 	qdel(src)
 
+/obj/structure/inflatable/CanFluidPass(var/coming_from)
+	return !density
 
 /obj/item/inflatable/wall
 	name = "inflatable wall"

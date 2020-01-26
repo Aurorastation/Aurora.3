@@ -154,6 +154,7 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "welder_off"
 	flags = CONDUCT
+	waterproof = FALSE
 	slot_flags = SLOT_BELT
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
 	var/base_itemstate = "welder"
@@ -201,7 +202,8 @@
 //The Experimental Welding Tool!
 /obj/item/weldingtool/experimental
 	name = "experimental welding tool"
-	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
+	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply. It's waterproof, to boot."
+	waterproof = TRUE
 	max_fuel = 40
 	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
@@ -287,12 +289,16 @@
 	..()
 	return
 
+/obj/item/weldingtool/water_act()
+	if(welding && !waterproof)
+		setWelding(0)
+
 /obj/item/weldingtool/process()
 	if(welding)
 		if(prob(5))
 			remove_fuel(1, null, colourChange = FALSE)
 
-		if(get_fuel() < 1)
+		if(get_fuel() < 1 || submerged())
 			setWelding(0)
 
 	//I'm not sure what this does. I assume it has to do with starting fires...
@@ -423,7 +429,13 @@
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
 /obj/item/weldingtool/proc/setWelding(var/set_welding, var/mob/M)
-	if(!status)	return
+	if(!status)
+		return
+
+	if(!welding && !waterproof && submerged())
+		if(M)
+			to_chat(M, "<span class='warning'>You cannot light \the [src] underwater.</span>")
+		return
 
 	var/turf/T = get_turf(src)
 	//If we're turning it on

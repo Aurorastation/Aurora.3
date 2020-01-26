@@ -14,7 +14,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 //For anything that can light stuff on fire
 /obj/item/flame
+	waterproof = FALSE
 	var/lit = 0
+
+/obj/item/flame/proc/extinguish(var/mob/user, var/no_message)
+	lit = 0
+	damtype = "brute"
+	STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/flame/water_act(var/depth)
+	..()
+	if(!waterproof && lit)
+		if(submerged(depth))
+			extinguish(no_message = TRUE)
 
 /proc/isflamesource(A)
 	var/obj/item/I = A
@@ -58,14 +70,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		M.IgniteMob()
 	var/turf/location = get_turf(src)
 	smoketime--
-	if(smoketime < 1)
-		burn_out()
+	if(submerged() || smoketime < 1)
+		extinguish()
 		return
 	if(location)
 		location.hotspot_expose(700, 5)
 		return
 
-/obj/item/flame/match/dropped(mob/user as mob)
+/obj/item/flame/match/dropped(mob/user)
 	//If dropped, put ourselves out
 	//not before lighting up the turf we land on, though.
 	if(lit)
@@ -73,10 +85,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			var/turf/location = src.loc
 			if(istype(location))
 				location.hotspot_expose(700, 5)
-			burn_out()
+			extinguish()
 	return ..()
 
-/obj/item/flame/match/proc/burn_out()
+/obj/item/flame/match/extinguish(mob/user, var/no_message)
+	. = ..()
 	lit = 0
 	burnt = 1
 	damtype = "brute"
@@ -84,7 +97,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "match_burnt"
 	name = "burnt match"
 	desc = "A match. This one has seen better days."
-	STOP_PROCESSING(SSprocessing, src)
 
 //////////////////
 //FINE SMOKABLES//
@@ -97,6 +109,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	body_parts_covered = 0
+	waterproof = FALSE
 	var/lit = 0
 	var/icon_on
 	var/icon_off
@@ -118,7 +131,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 
 /obj/item/clothing/mask/smokable/process()
-
+	if(submerged())
+		die(TRUE)
 	if(reagents && reagents.total_volume && burn_rate)
 		if(!initial_volume)
 			initial_volume = reagents.total_volume
@@ -140,6 +154,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit)
+		if(submerged())
+			to_chat(usr, "<span class='warning'>You cannot light \the [src] underwater.</span>")
+			return
 		src.lit = 1
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
 		src.reagents.set_temperature(T0C + 45)
@@ -169,6 +186,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		T.visible_message(flavor_text)
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
+
+/obj/item/clothing/mask/smokable/water_act(var/depth)
+	..()
+	if(!waterproof && lit)
+		if(submerged(depth))
+			die(TRUE)
 
 /obj/item/clothing/mask/smokable/proc/die(var/nomessage = 0)
 	var/turf/T = get_turf(src)
@@ -488,6 +511,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/pipe/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit && burn_rate)
+		if(submerged())
+			to_chat(usr, "<span class='warning'>You cannot light \the [src] underwater.</span>")
+			return
 		src.lit = 1
 		damtype = "fire"
 		icon_state = icon_on
@@ -684,7 +710,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(M.IgniteMob())
 			M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
 
-	if (istype(loc, /obj/item/storage))//A lighter shouldn't stay lit inside a closed container
+	if(submerged() || istype(loc, /obj/item/storage))//A lighter shouldn't stay lit inside a closed container
 		lit = 0
 		icon_state = "[base_state]"
 		item_state = "[base_state]"

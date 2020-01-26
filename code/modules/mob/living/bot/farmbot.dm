@@ -169,7 +169,7 @@
 					frustration = 0
 					break
 			if(check_tank())
-				for(var/obj/structure/sink/source in view(7, src))
+				for(var/obj/structure/hygiene/sink/source in view(7, src))
 					target = source
 					frustration = 0
 					break
@@ -239,7 +239,7 @@
 		action = ""
 		update_icons()
 		T.update_icon()
-	else if(istype(A, /obj/structure/sink))
+	else if(istype(A, /obj/structure/hygiene/sink))
 		if(!tank || tank.reagents.total_volume >= tank.reagents.maximum_volume)
 			return
 		action = "water"

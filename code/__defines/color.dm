@@ -98,3 +98,6 @@
 #define COLOR_ASSEMBLY_BLUE     "#38559E"
 #define COLOR_ASSEMBLY_PURPLE   "#6F6192"
 #define COLOR_ASSEMBLY_HOT_PINK "#FF69B4"
+
+// fluids
+#define COLOR_OCEAN "#99f5ff"

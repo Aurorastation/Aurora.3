@@ -54,7 +54,7 @@
 /area/dungeon/syndie_listening_post)
 "ah" = (
 /obj/effect/decal/cleanable/generic,
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	name = "sink";
 	pixel_y = 24
 	},

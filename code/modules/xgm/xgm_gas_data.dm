@@ -15,6 +15,10 @@
 	var/list/overlay_limit = list()
 	//Flags.
 	var/list/flags = list()
+	// Temperature in K that the gas will condense.
+	var/list/condensation_points = list()
+	// Reagent path resulting from condesation.
+	var/list/condensation_products = list()
 
 /decl/xgm_gas
 	var/id = ""
@@ -26,6 +30,9 @@
 	var/overlay_limit = null
 
 	var/flags = 0
+
+	var/condensation_point = INFINITY
+	var/condensation_product
 
 /hook/startup/proc/generateGasData()
 	gas_data = new
@@ -42,5 +49,9 @@
 		if(gas.tile_overlay) gas_data.tile_overlay[gas.id] = image('icons/effects/tile_effects.dmi', gas.tile_overlay, FLY_LAYER)
 		if(gas.overlay_limit) gas_data.overlay_limit[gas.id] = gas.overlay_limit
 		gas_data.flags[gas.id] = gas.flags
+
+		if(!isnull(gas.condensation_product) && !isnull(gas.condensation_point))
+			gas_data.condensation_points[gas.id] = gas.condensation_point
+			gas_data.condensation_products[gas.id] = gas.condensation_product
 
 	return 1

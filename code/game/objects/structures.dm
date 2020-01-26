@@ -8,10 +8,13 @@
 	var/list/climbers
 
 /obj/structure/Destroy()
-	if(parts)
-		new parts(loc)
+	var/turf/T = get_turf(src)
+	if(T && parts)
+		new parts(T)
 	if (smooth)
 		queue_smooth_neighbors(src)
+	if(istype(T))
+		T.fluid_update()
 	return ..()
 
 /obj/structure/attack_hand(mob/user)
@@ -52,6 +55,13 @@
 	if (smooth)
 		queue_smooth(src)
 		queue_smooth_neighbors(src)
+	if(!CanFluidPass())
+		fluid_update()
+
+/obj/structure/Move()
+	. = ..()
+	if(. && !CanFluidPass())
+		fluid_update()
 
 /obj/structure/proc/climb_on()
 

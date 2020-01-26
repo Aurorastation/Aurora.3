@@ -477,13 +477,13 @@
 /turf/simulated/floor/carpet,
 /area/tcommsat/lounge)
 "bf" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/tcommsat/lounge)
 "bg" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 28
 	},
 /obj/structure/mirror{

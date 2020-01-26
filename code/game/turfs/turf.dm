@@ -34,6 +34,11 @@
 
 	var/movement_cost = 0 // How much the turf slows down movement, if any.
 
+	var/fluid_can_pass
+	var/obj/effect/flood/flood_object
+	var/fluid_blocked_dirs = 0
+	var/flooded // Whether or not this turf is absolutely flooded ie. a water source.
+
 	//Mining resources (for the large drills).
 	var/has_resources
 	var/list/resources
@@ -97,6 +102,9 @@
 
 	cleanup_roof()
 
+	fluid_update()
+	REMOVE_ACTIVE_FLUID_SOURCE(src)
+
 	if (ao_queued)
 		SSocclusion.queue -= src
 		ao_queued = 0
@@ -109,6 +117,16 @@
 
 	..()
 	return QDEL_HINT_IWILLGC
+
+/turf/update_icon()
+	update_flood_overlay()
+
+/turf/proc/update_flood_overlay()
+	if(is_flooded(absolute = TRUE))
+		if(!flood_object)
+			flood_object = new(src)
+	else if(flood_object)
+		QDEL_NULL(flood_object)
 
 /turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.appearance = src

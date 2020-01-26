@@ -442,3 +442,14 @@ Class Procs:
 			if(H.can_feel_pain())
 				H.emote("scream")
 				H.apply_damage(45, PAIN)
+
+// This is really pretty crap and should be overridden for specific machines.
+/obj/machinery/water_act(var/depth)
+	..()
+	if(!(stat & (NOPOWER|BROKEN)) && !waterproof && (depth > FLUID_DEEP))
+		ex_act(3)
+
+/obj/machinery/Move()
+	. = ..()
+	if(. && !CanFluidPass())
+		fluid_update()

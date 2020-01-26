@@ -1305,7 +1305,7 @@
 /turf/space/transit/north/shuttlespace_ns13,
 /area/template_noop)
 "adi" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -1516,7 +1516,7 @@
 /turf/space/transit/north/shuttlespace_ns7,
 /area/template_noop)
 "adI" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -4404,7 +4404,7 @@
 	},
 /area/syndicate_mothership)
 "alF" = (
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
 	},
 /turf/unsimulated/floor{
@@ -4772,7 +4772,7 @@
 	},
 /area/syndicate_mothership)
 "amx" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -4781,7 +4781,7 @@
 	},
 /area/syndicate_mothership)
 "amy" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 32
 	},
 /obj/structure/window/basic{
@@ -4793,7 +4793,7 @@
 	},
 /area/syndicate_mothership)
 "amz" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 32
 	},
 /obj/item/soap/syndie,
@@ -4895,7 +4895,7 @@
 	},
 /area/syndicate_mothership)
 "amK" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -4931,7 +4931,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -5101,7 +5101,7 @@
 	},
 /area/syndicate_mothership)
 "anf" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -6106,7 +6106,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "apa" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -6307,7 +6307,7 @@
 /turf/simulated/floor/plating,
 /area/syndicate_station/start)
 "apF" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -8952,7 +8952,7 @@
 	},
 /area/centcom/control)
 "awY" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 26
 	},
 /turf/unsimulated/floor{
@@ -10909,7 +10909,7 @@
 	},
 /area/centcom/specops)
 "aAT" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -13269,7 +13269,7 @@
 	},
 /area/syndicate_mothership/raider_base)
 "aGm" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 11
 	},
 /obj/structure/mirror{
@@ -13282,7 +13282,7 @@
 /area/syndicate_mothership/raider_base)
 "aGn" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower,
+/obj/structure/hygiene/shower,
 /obj/item/soap/syndie,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
@@ -14695,7 +14695,7 @@
 	},
 /area/centcom/holding)
 "aJA" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -14893,7 +14893,7 @@
 	},
 /area/centcom/holding)
 "aJU" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -14905,7 +14905,7 @@
 /obj/structure/mirror{
 	pixel_y = 32
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
 /turf/unsimulated/floor{
@@ -15426,7 +15426,7 @@
 	},
 /area/centcom/spawning)
 "aLb" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 26
 	},
 /turf/unsimulated/floor{
@@ -15593,7 +15593,7 @@
 	pixel_y = 8;
 	specialfunctions = 4
 	},
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 1
 	},
 /obj/machinery/light/small{
@@ -15608,7 +15608,7 @@
 /obj/structure/window/basic{
 	dir = 8
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/machinery/door/window/northright{
@@ -15624,7 +15624,7 @@
 /obj/structure/window/basic{
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/machinery/door/window/northleft{
@@ -17494,7 +17494,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/skipjack_station/start)
 "aPH" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -17646,7 +17646,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/skipjack_station/start)
 "aQd" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -17797,7 +17797,7 @@
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "aQs" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -18065,7 +18065,7 @@
 	},
 /area/centcom/spawning)
 "aRa" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 8;
 	icon_state = "sink";
 	pixel_x = -12;
@@ -18092,7 +18092,7 @@
 	},
 /area/centcom/spawning)
 "aRc" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 8;
 	icon_state = "shower";
 	pixel_x = 0;
@@ -18251,7 +18251,7 @@
 	},
 /area/wizard_station)
 "aRw" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -18339,7 +18339,7 @@
 	},
 /area/wizard_station)
 "aRD" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -18417,7 +18417,7 @@
 	},
 /area/centcom/spawning)
 "aRL" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	dir = 4;
 	icon_state = "urinal";
 	pixel_x = -32
@@ -18440,7 +18440,7 @@
 	},
 /area/centcom/spawning)
 "aRN" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 8
 	},
 /obj/machinery/button/remote/airlock{
@@ -22662,7 +22662,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/merchant_station/warehouse)
 "emM" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -23483,7 +23483,7 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 20
 	},
 /turf/simulated/floor/tiled,
@@ -24819,7 +24819,7 @@
 /area/centcom/legion/hangar5)
 "iMB" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 20
 	},
 /turf/unsimulated/floor{
@@ -25597,7 +25597,7 @@
 	},
 /area/centcom/spawning)
 "kzV" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	pixel_x = 0;
 	pixel_y = 16
 	},
@@ -25920,7 +25920,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "liJ" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 18
 	},
 /obj/structure/mirror{
@@ -26057,7 +26057,7 @@
 /turf/template_noop,
 /area/template_noop)
 "lEU" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 8;
 	icon_state = "sink";
 	pixel_x = -12;
@@ -26351,7 +26351,7 @@
 	},
 /area/centcom/legion)
 "mpg" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 28
 	},
 /turf/unsimulated/floor{
@@ -26698,7 +26698,7 @@
 	},
 /area/centcom/legion/hangar5)
 "ngc" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -28587,7 +28587,7 @@
 /turf/space/transit/east/shuttlespace_ew14,
 /area/shuttle/distress/transit)
 "qDS" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
 /obj/structure/mirror{
@@ -28605,7 +28605,7 @@
 "qEE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
 /obj/structure/mirror{
@@ -28623,7 +28623,7 @@
 /turf/template_noop,
 /area/template_noop)
 "qFT" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 20
 	},
 /obj/structure/curtain/open/shower,
@@ -28928,7 +28928,7 @@
 	},
 /area/centcom/legion/hangar5)
 "rcJ" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -28964,7 +28964,7 @@
 	},
 /area/shuttle/specops/centcom)
 "reg" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	dir = 4;
 	icon_state = "urinal";
 	pixel_x = -32;
@@ -29890,7 +29890,7 @@
 	},
 /area/centcom/living)
 "tdp" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
 /obj/structure/mirror{
@@ -30267,7 +30267,7 @@
 /area/shuttle/merchant/start)
 "tRd" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 8;
 	icon_state = "sink";
 	pixel_x = -12;
@@ -32358,7 +32358,7 @@
 "yjn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	pixel_y = 20
 	},
 /turf/unsimulated/floor{

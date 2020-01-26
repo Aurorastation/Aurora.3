@@ -1466,6 +1466,9 @@ About the new airlock wires panel:
 		to_chat(usr, "\The [bracer] is installed on \the [src], preventing it from opening.")
 		to_chat(usr, bracer.health)
 
+/obj/machinery/door/airlock/CanFluidPass(var/coming_from)
+	return !density
+
 #undef AIRLOCK_CRUSH_DIVISOR
 #undef CYBORG_AIRLOCKCRUSH_RESISTANCE
 #undef BOLTS_FINE

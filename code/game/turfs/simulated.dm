@@ -57,11 +57,11 @@
 	if (mapload)
 		if(istype(loc, /area/chapel))
 			holy = 1
-
 	. = ..()
 	levelupdate(mapload)
 	if (!mapload)
 		updateVisibility(src)
+		fluid_update()
 
 /turf/simulated/proc/AddTracks(var/typepath,var/bloodDNA,var/comingdir,var/goingdir,var/bloodcolor="#A10808")
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src

@@ -4,6 +4,7 @@
 
 /obj/item/organ/internal/lungs/skrell
 	icon_state = "lungs_skrell"
+	has_gills = TRUE
 
 /obj/item/organ/internal/kidneys/skrell
 	icon_state = "kidney_skrell"

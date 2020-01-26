@@ -1,6 +1,7 @@
 /turf/simulated/floor/update_icon(var/update_neighbors)
 	cut_overlays()
 
+	..()
 	if(lava)
 		return
 

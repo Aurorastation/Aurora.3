@@ -1,8 +1,8 @@
 /atom/movable
 	layer = 3
+	var/waterproof = TRUE
 	var/last_move = null
 	var/anchored = 0
-	// var/elevation = 2    - not used anywhere
 	var/move_speed = 10
 	var/l_move_time = 1
 	var/m_flag = 1
@@ -20,13 +20,6 @@
 
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
-
-// We don't really need this, and apparently defining it slows down GC.
-/*/atom/movable/Del()
-	if(!QDELING(src) && loc)
-		testing("GC: -- [type] was deleted via del() rather than qdel() --")
-		crash_with("GC: -- [type] was deleted via del() rather than qdel() --") // stick a stack trace in the runtime logs
-	..()*/
 
 /atom/movable/Destroy()
 	. = ..()

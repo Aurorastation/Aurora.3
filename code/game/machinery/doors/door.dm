@@ -578,3 +578,6 @@
 		else if(can_close())
 			close()
 	return TRUE
+
+/obj/machinery/door/CanFluidPass(var/coming_from)
+	return !density

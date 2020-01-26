@@ -49,6 +49,7 @@
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("struck", "hit", "bashed")
 	zoomdevicename = "scope"
+	waterproof = FALSE
 
 	var/burst = 1
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
@@ -241,7 +242,7 @@
 		to_chat(user, "You refrain from firing, as you aren't on harm intent.")
 		return 0
 
-	if(!special_check(user))
+	if((!waterproof && submerged()) || !special_check(user))
 		return 0
 
 	var/failure_chance = 100 - reliability

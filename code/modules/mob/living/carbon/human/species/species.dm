@@ -580,3 +580,6 @@
 
 /datum/species/proc/can_commune()
 	return FALSE
+
+/datum/species/proc/water_act(var/mob/living/carbon/human/H, var/depth)
+	return

@@ -28,7 +28,7 @@
 	var/datum/gas_mixture/breath = null
 
 	//First, check if we can breathe at all
-	if(is_asystole() && !(CE_STABLE in chem_effects)) //crit aka circulatory shock
+	if(handle_drowning() || (is_asystole() && !(CE_STABLE in chem_effects))) //crit aka circulatory shock
 		losebreath++
 
 	if(losebreath>0) //Suffocating so do not take a breath

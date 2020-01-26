@@ -306,3 +306,6 @@
 	dir = SOUTH
 	icon_state = "rightsecure"
 	base_state = "rightsecure"
+
+/obj/machinery/door/window/CanFluidPass(var/coming_from)
+	return ((dir in global.cardinal) && coming_from != dir)

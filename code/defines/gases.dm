@@ -43,3 +43,12 @@
 	tile_overlay = "sleeping_agent"
 	overlay_limit = 1
 	flags = XGM_GAS_OXIDIZER
+
+/decl/xgm_gas/vapor
+	id = "watervapor"
+	name = "Water Vapor"
+
+	specific_heat = 30	// J/(mol*K)
+	molar_mass = 0.020	// kg/mol
+	condensation_product = /datum/reagent/water
+	condensation_point =   308.15 // 35C. Dew point is ~20C but this is better for gameplay considerations.

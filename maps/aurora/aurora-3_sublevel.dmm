@@ -2237,7 +2237,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "aeL" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 4;
 	pixel_x = 0;
@@ -2260,7 +2260,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/engineering/bathroom)
 "aeO" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -2895,7 +2895,7 @@
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
 "agb" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -5710,7 +5710,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 5;
@@ -15153,7 +15153,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aBX" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -15188,7 +15188,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "aCb" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 8;
 	icon_state = "sink";
 	pixel_x = -12;
@@ -18872,7 +18872,7 @@
 /area/rnd/xenobiology)
 "aJV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 8;
 	icon_state = "shower";
 	pixel_x = 0;
@@ -19439,7 +19439,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 8;
 	icon_state = "sink";
 	pixel_x = -12;
@@ -19562,7 +19562,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -20819,13 +20819,13 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "aNI" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -20838,7 +20838,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aNJ" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
@@ -20848,13 +20848,13 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aNK" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
 	pixel_y = 0
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/machinery/access_button{
@@ -20940,7 +20940,7 @@
 	c_tag = "Research Sublevel - Xenobiology East Cells";
 	dir = 8
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 8;
 	icon_state = "shower";
 	pixel_x = 0;
@@ -21380,7 +21380,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantine)
 "aOP" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 8
 	},
 /obj/machinery/button/remote/airlock{
@@ -21797,7 +21797,7 @@
 	icon_state = "left";
 	name = "Emergency Shower"
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -22409,7 +22409,7 @@
 /area/rnd/test_area)
 "aRc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -23306,7 +23306,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -23380,7 +23380,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
@@ -23995,7 +23995,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
 "aVK" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
 /obj/structure/mirror{
@@ -24007,7 +24007,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
 "aVL" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
 /obj/structure/mirror{
@@ -24598,7 +24598,7 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/cells/echo)
 "aYj" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	icon_state = "toilet00";
 	dir = 1
 	},
@@ -25477,7 +25477,7 @@
 /area/medical/medbay4)
 "bbT" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_y = -8
@@ -28400,7 +28400,7 @@
 	icon_state = "warning";
 	dir = 1
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/machinery/light{
@@ -28969,7 +28969,7 @@
 	icon_state = "warning";
 	dir = 1
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
@@ -29728,7 +29728,7 @@
 "eUT" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 8;
 	icon_state = "sink";
 	pixel_x = -12;
@@ -30120,7 +30120,7 @@
 /area/engineering/break_room)
 "fXR" = (
 /obj/structure/window/reinforced,
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 12;
@@ -30360,7 +30360,7 @@
 /area/rnd/xenobiology/xenoflora)
 "gkk" = (
 /obj/structure/curtain/open/shower,
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_y = -8
@@ -33961,7 +33961,7 @@
 "pUY" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/industrial/warning,
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 12;
@@ -34035,7 +34035,7 @@
 	},
 /area/mine/unexplored)
 "qfv" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	icon_state = "toilet00";
 	dir = 1
 	},
@@ -34828,7 +34828,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "rPy" = (
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	dir = 8;
 	icon_state = "sink_alt";
 	name = "Autopsy sink";
@@ -35186,7 +35186,7 @@
 	icon_state = "warning";
 	dir = 1
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -36225,7 +36225,7 @@
 /area/engineering/break_room)
 "vnf" = (
 /obj/machinery/light/small,
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 8;
 	icon_state = "sink";
 	pixel_x = -12;
@@ -36938,7 +36938,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 12;

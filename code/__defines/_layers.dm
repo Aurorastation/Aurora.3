@@ -9,12 +9,16 @@
 #define AO_LAYER (ON_TURF_LAYER + 0.1)
 #define PIPE_LAYER 2.4 //under wires with their 2.44
 #define CABLE_LAYER 2.44
+#define MOB_HIDING_LAYER 2.45
 #define ABOVE_CABLE_LAYER (CABLE_LAYER + 0.1)
+#define SHALLOW_FLUID_LAYER 2.55
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6
 #define UNDERDOOR 3.09		//Just barely under a closed door.
 #define DOOR_CLOSED_LAYER 3.1	//Above most items if closed
 #define BELOW_MOB_LAYER 3.7
 #define ABOVE_MOB_LAYER 4.1
+#define DEEP_FLUID_LAYER 4.2
+#define EFFECTS_BELOW_LIGHTING_LAYER 10.9
 #define LIGHTING_LAYER 11
 #define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
 #define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put

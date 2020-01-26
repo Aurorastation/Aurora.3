@@ -10,9 +10,28 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
+	var/clogged
+	var/filter_water
 	var/gas_filter_strength = 1			//For gas mask filters
 	var/list/filtered_gases = list("phoron", "sleeping_agent")
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 75, rad = 0)
+
+/obj/item/clothing/mask/gas/examine(mob/user)
+	. = ..()
+	if(clogged)
+		to_chat(user, "<span class='warning'>The intakes are clogged with [clogged]!</span>")
+
+/obj/item/clothing/mask/gas/filters_water()
+	return (filter_water && !clogged)
+
+/obj/item/clothing/mask/gas/attack_self(var/mob/user)
+	if(clogged)
+		user.visible_message("<span class='notice'>\The [user] begins unclogging the intakes of \the [src].</span>")
+		if(do_after(user, 100, progress = 1) && clogged)
+			user.visible_message("<span class='notice'>\The [user] has unclogged \the [src].</span>")
+			clogged = FALSE
+		return
+	. = ..()
 
 /obj/item/clothing/mask/gas/filter_air(datum/gas_mixture/air)
 	var/datum/gas_mixture/filtered = new
@@ -119,3 +138,14 @@
 	item_state = "fullgas"
 	w_class = 2.0
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
+
+/obj/item/clothing/mask/gas/aquabreather
+	name = "aquabreather"
+	desc = "A compact CO2 scrubber and breathing apparatus that draws oxygen from water."
+	icon = 'icons/obj/clothing/aquabreather.dmi'
+	icon_state = "aquabreather"
+	item_state = "aquabreather"
+	contained_sprite = TRUE
+	filter_water = TRUE
+	body_parts_covered = FACE
+	w_class = 2

@@ -11230,7 +11230,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
 "aun" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -11564,7 +11564,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "avg" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -11572,7 +11572,7 @@
 /area/security/prison)
 "avh" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_x = 5;
@@ -11586,7 +11586,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
 "avj" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -12000,7 +12000,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/evahallway)
 "awf" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_x = 5;
@@ -12016,7 +12016,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/security/prison)
 "awh" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -15166,7 +15166,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "aBW" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 4;
 	icon_state = "shower";
 	pixel_x = 5;
@@ -15180,7 +15180,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "aBY" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 8;
 	icon_state = "shower";
 	pixel_x = -5;
@@ -15573,7 +15573,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "aCP" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -15594,13 +15594,13 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "aCR" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "aCS" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -16264,7 +16264,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "aEl" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -17890,7 +17890,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep)
 "aHd" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -17906,7 +17906,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "aHf" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	pixel_y = 8
 	},
 /obj/machinery/light/small{
@@ -17930,7 +17930,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -18761,7 +18761,7 @@
 /turf/simulated/wall,
 /area/hallway/primary/central_two)
 "aIM" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -19689,7 +19689,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -20581,7 +20581,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hydroponics)
 "aMg" = (
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -20644,7 +20644,7 @@
 /turf/simulated/floor/plating,
 /area/hydroponics)
 "aMn" = (
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -24870,7 +24870,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aUm" = (
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -25001,7 +25001,7 @@
 /area/hydroponics/garden)
 "aUA" = (
 /obj/structure/flora/ausbushes/brflowers,
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	pixel_y = 28
 	},
 /obj/item/reagent_containers/glass/bucket,
@@ -29940,7 +29940,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/locker)
 "bdo" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	pixel_y = 8
 	},
 /obj/machinery/light/small{
@@ -30625,7 +30625,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "beO" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -31353,7 +31353,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/locker/locker_toilet)
 "bgk" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -37424,7 +37424,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bro" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -38505,7 +38505,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "bsY" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 8
 	},
@@ -39035,7 +39035,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/captain)
 "btZ" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -39507,7 +39507,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "buP" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -40207,7 +40207,7 @@
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "bvS" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -41072,7 +41072,7 @@
 	icon_state = "left";
 	name = "Shower"
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 4
 	},
@@ -50762,7 +50762,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/sleeper)
 "bOo" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -54525,7 +54525,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/sleeper)
 "bVh" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -58368,7 +58368,7 @@
 /obj/structure/mirror{
 	pixel_y = 32
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
 /obj/machinery/firealarm/west,
@@ -58378,13 +58378,13 @@
 /obj/structure/mirror{
 	pixel_y = 32
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/engi_wash)
 "ccm" = (
-/obj/structure/urinal{
+/obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -60198,7 +60198,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/medical/patient_wing)
 "cfB" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -61498,7 +61498,7 @@
 /obj/structure/window/basic{
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/machinery/door/window/northleft{
@@ -61512,7 +61512,7 @@
 /obj/structure/window/basic{
 	dir = 8
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/machinery/door/window/northright{
@@ -61529,7 +61529,7 @@
 	pixel_y = 8;
 	specialfunctions = 4
 	},
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 1
 	},
 /obj/machinery/light/small{
@@ -62102,7 +62102,7 @@
 	pixel_x = 24;
 	pixel_y = 2
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -62182,7 +62182,7 @@
 	pixel_x = -24;
 	pixel_y = 2
 	},
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -62366,7 +62366,7 @@
 /turf/simulated/floor/tiled,
 /area/medical/virologyaccess)
 "cjB" = (
-/obj/structure/toilet{
+/obj/structure/hygiene/toilet{
 	dir = 1
 	},
 /obj/machinery/light/small{
@@ -62375,7 +62375,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/medical/patient_wing)
 "cjC" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	dir = 1
 	},
 /obj/machinery/light/small{
@@ -63192,7 +63192,7 @@
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora)
 "cle" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -64051,7 +64051,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_storage)
 "cmv" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -64696,7 +64696,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 4
 	},
@@ -65281,7 +65281,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "coL" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -67654,7 +67654,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "ctf" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -68179,7 +68179,7 @@
 /turf/simulated/floor/plating,
 /area/medical/virology)
 "cua" = (
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 4
 	},
@@ -68959,7 +68959,7 @@
 /turf/simulated/floor/plating,
 /area/medical/virology)
 "cvi" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	icon_state = "sink";
 	dir = 8;
 	pixel_x = -12;
@@ -69556,7 +69556,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
 "cwu" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -69617,7 +69617,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "cwA" = (
-/obj/structure/sink{
+/obj/structure/hygiene/sink{
 	dir = 4;
 	icon_state = "sink";
 	pixel_x = 11;
@@ -72743,7 +72743,7 @@
 	icon_state = "warning";
 	dir = 9
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 4
 	},
@@ -73860,7 +73860,7 @@
 	icon_state = "warning";
 	dir = 8
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 4
 	},
@@ -74021,7 +74021,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/shower{
+/obj/structure/hygiene/shower{
 	icon_state = "shower";
 	dir = 4
 	},
@@ -77841,7 +77841,7 @@
 /turf/simulated/floor/plating,
 /area/lawoffice)
 "fiJ" = (
-/obj/structure/sink/kitchen{
+/obj/structure/hygiene/sink/kitchen{
 	name = "Autopsy sink";
 	pixel_y = 28
 	},
