@@ -162,12 +162,12 @@
 	game_log("GC", text)
 	send_gelf_log(text, "[time_stamp()]: [text]", high_severity ? SEVERITY_WARNING : SEVERITY_DEBUG, "GARBAGE", additional_data = list("_type" = "[type]"))
 
-/proc/log_ss(subsystem, text, log_world = TRUE)
+/proc/log_ss(subsystem, text, log_world = TRUE, severity = SEVERITY_DEBUG)
 	if (!subsystem)
 		subsystem = "UNKNOWN"
 	var/msg = "[subsystem]: [text]"
 	game_log("SS", msg)
-	send_gelf_log(msg, "[time_stamp()]: [msg]", SEVERITY_DEBUG, "SUBSYSTEM", additional_data = list("_subsystem" = subsystem))
+	send_gelf_log(msg, "[time_stamp()]: [msg]", severity, "SUBSYSTEM", additional_data = list("_subsystem" = subsystem))
 	if (log_world)
 		world.log <<  "SS[subsystem]: [text]"
 
@@ -280,5 +280,4 @@
 /proc/key_name_admin(var/whom, var/include_name = 1)
 	return key_name(whom, 1, include_name, 1)
 
-#undef RUST_G
 #undef WRITE_LOG

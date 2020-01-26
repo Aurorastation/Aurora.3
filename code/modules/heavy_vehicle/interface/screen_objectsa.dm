@@ -33,6 +33,11 @@
 	maptext_y = 3
 	maptext_width = 72
 
+/obj/screen/movable/mecha/hardpoint/Destroy()
+	owner = null
+	holding = null
+	. = ..()
+
 /obj/screen/movable/mecha/hardpoint/MouseDrop()
 	..()
 	if(holding) holding.screen_loc = screen_loc
@@ -198,6 +203,9 @@
 	icon_state = "hardpoint_lock"
 
 /obj/screen/movable/mecha/toggle/hardpoint/toggled()
+	if(owner.force_locked)
+		to_chat(usr, "<span class='warning'>The locking system cannot be operated due to software restriction. Contact the manufacturer for more details.</span>")
+		return
 	owner.hardpoints_locked = ..()
 	to_chat(usr, "<span class='notice'>Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"].</span>")
 
@@ -208,6 +216,9 @@
 /obj/screen/movable/mecha/toggle/hatch/toggled()
 	if(!owner.hatch_locked && !owner.hatch_closed)
 		to_chat(usr, "<span class='warning'>You cannot lock the hatch while it is open.</span>")
+		return
+	if(owner.force_locked)
+		to_chat(usr, "<span class='warning'>The locking system cannot be operated due to software restriction. Contact the manufacturer for more details.</span>")
 		return
 	owner.hatch_locked = ..()
 	to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked.</span>")

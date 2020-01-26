@@ -150,6 +150,13 @@ emp_act
 				return 1
 	return 0
 
+/mob/living/carbon/human/proc/check_head_airtight_coverage()
+	var/list/clothing = list(head, wear_mask, wear_suit)
+	for(var/obj/item/clothing/C in clothing)
+		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT|STOPPRESSUREDAMAGE)))
+			return TRUE
+	return FALSE
+
 //Used to check if they can be fed food/drinks/pills
 /mob/living/carbon/human/proc/check_mouth_coverage()
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform)
@@ -272,7 +279,7 @@ emp_act
 	if(effective_force > 10 || effective_force >= 5 && prob(33))
 		forcesay(hit_appends)	//forcesay checks stat already
 
-	if((I.damtype == BRUTE || I.damtype == HALLOSS) && prob(25 + (effective_force * 2)))
+	if((I.damtype == BRUTE || I.damtype == PAIN) && prob(25 + (effective_force * 2)))
 		if(!stat)
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
@@ -544,7 +551,7 @@ emp_act
 		return
 	user.put_in_active_hand(G)
 	G.synch()
-	LAssailant = user
+	LAssailant = WEAKREF(user)
 
 	user.do_attack_animation(src)
 	playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)

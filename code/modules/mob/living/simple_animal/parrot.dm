@@ -49,6 +49,7 @@
 	response_harm   = "swats"
 	stop_automated_movement = 1
 	universal_speak = 1
+	canbrush = TRUE
 
 	flying = TRUE
 

@@ -30,6 +30,7 @@
 		if(SHUTTLE_IDLE) shuttle_state = "idle"
 		if(SHUTTLE_WARMUP) shuttle_state = "warmup"
 		if(SHUTTLE_INTRANSIT) shuttle_state = "in_transit"
+		if(SHUTTLE_HALT) shuttle_state = "halt"
 
 	var/shuttle_status
 	switch (shuttle.process_state)

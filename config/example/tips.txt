@@ -17,9 +17,9 @@ As the Captain, you are one of the highest priority targets on the station. Ever
 As the Captain, you have absolute access and control over the station, but this does not mean that being a horrible person won't result in mutiny and a ban.
 As the Chief Medical Officer, your hypospray is like an instant injection syringe that can hold 30 units as opposed to the standard 15.
 As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and EMTs during a pirate raid, blob infestation, or some other crisis to keep people alive and fighting.
-As a Medical Doctor, you can attempt to drain blood from a husk with a syringe to determine the cause. If you can extract blood, it was caused by extreme temperatures or lasers, if there is no blood to extract, it was caused by something unnatural.
-As a Medical Doctor, you can surgically implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.
-As a Medical Doctor, you must target the correct limb and be on help intent when trying to perform surgery on someone.
+As a Physician, you can attempt to drain blood from a husk with a syringe to determine the cause. If you can extract blood, it was caused by extreme temperatures or lasers, if there is no blood to extract, it was caused by something unnatural.
+As a Physician, you can surgically implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.
+As a Physician, you must target the correct limb and be on help intent when trying to perform surgery on someone.
 As a Chemist, there are dozens of chemicals that can heal, and even more that can cause harm. Experiment!
 As the Biochemist, you only require small amounts of vaccine to heal a sick patient. Use your chemistry access to distribute your cures more efficiently.
 As the Research Director, you can take AIs out of their cores by loading them into an intelliCard, and then from there into an AI system integrity restorer computer to revive and/or repair them.
@@ -137,7 +137,7 @@ Service borgs can use the special maidborg sprite if they pray hard enough.
 Chainswords and energy weapons can slice both walls and people.
 If you see this message something has gone seriously wrong.
 If you're having trouble as an antagonist, consider a Dionaea whitelist.
-As a Medical Doctor, you can attach limbs from one species to the torso of another species. You too can make your own Frankenstein monster!
+As a Physician, you can attach limbs from one species to the torso of another species. You too can make your own Frankenstein monster!
 The second antag contest is still running, you know.
 Killing mice on sight is not and never will be gank, no matter how much people complain.
 Unathi are the only species capable of wearing the rare Breacher hardsuits.

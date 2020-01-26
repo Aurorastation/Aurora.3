@@ -149,6 +149,7 @@
 		return attack_self(user)
 	else if(adj)
 		setClickCooldown(arms ? arms.action_delay : 15)
+		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
 
@@ -174,7 +175,7 @@
 		selected_system = null
 	selected_hardpoint = null
 
-/mob/living/heavy_vehicle/proc/enter(var/mob/user)
+/mob/living/heavy_vehicle/proc/enter(var/mob/user, var/instant = FALSE)
 	if(!user || user.incapacitated())
 		return
 	if(!user.Adjacent(src))
@@ -188,9 +189,10 @@
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
 		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
 		return
-	to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
-	if(!do_after(user, 30))
-		return
+	if(!instant)
+		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
+		if(!do_after(user, 30))
+			return
 	if(!user || user.incapacitated())
 		return
 	if(hatch_locked)
@@ -290,14 +292,18 @@
 		Move(target_loc, direction)
 	else
 		get_cell().use(legs.power_use * CELLRATE)
-		playsound(src.loc,mech_turn_sound,40,1)
+		if(legs && legs.mech_turn_sound)
+			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_move = world.time + legs.turn_delay
 		set_dir(direction)
+		update_icon()
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))
-		playsound(src.loc,mech_step_sound,40,1)
+		if(legs && legs.mech_step_sound)
+			playsound(src.loc,legs.mech_step_sound,40,1)
 		get_cell().use(legs.power_use * CELLRATE)
+	update_icon()
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
 	if(user.a_intent != I_HURT && istype(thing, /obj/item/mecha_equipment))
@@ -318,18 +324,6 @@
 			return
 		to_chat(user, "<span class='warning'>\The [thing] could not be installed in that hardpoint.</span>")
 		return
-
-	else if(istype(thing, /obj/item/device/kit/paint))
-		user.visible_message("<span class='notice'>\The [user] opens \the [thing] and spends some quality time customising \the [src].</span>")
-		var/obj/item/device/kit/paint/P = thing
-		desc = P.new_desc
-		for(var/obj/item/mech_component/comp in list(arms, legs, head, body))
-			comp.decal = P.new_icon
-		if(P.new_icon_file)
-			icon = P.new_icon_file
-		queue_icon_update()
-		P.use(1, user)
-		return 1
 
 	else
 		if(user.a_intent != I_HURT)
@@ -470,3 +464,30 @@
 		return
 	name = new_name
 	to_chat(user, "<span class='notice'>You have redesignated this exosuit as \the [name].</span>")
+
+/mob/living/heavy_vehicle/proc/trample(var/mob/living/H)
+	if(!LAZYLEN(pilots))
+		return
+	if(!isliving(H))
+		return
+
+	if(legs?.trample_damage)
+		if(ishuman(H))
+			var/mob/living/carbon/human/D = H
+			if(D.lying)
+				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
+				attack_log += text("\[[time_stamp()]\] <font color='red'>trampled [D.name] ([D.ckey]) with \the [src].</font>")
+				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
+				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
+				D.apply_damage(legs.trample_damage, BRUTE)
+				return TRUE
+
+		else
+			var/mob/living/L = H
+			src.visible_message("<span class='danger'>\The [src] runs over \the [L]!</span>")
+			if(isanimal(L))
+				if(issmall(L) && (L.stat == DEAD))
+					L.gib()
+					return TRUE
+			L.apply_damage(legs.trample_damage, BRUTE)
+			return TRUE

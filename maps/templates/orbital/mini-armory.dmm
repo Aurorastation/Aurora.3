@@ -1,0 +1,56 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/table/rack,
+/obj/item/gun/projectile/automatic/mini_uzi,
+/obj/item/gun/projectile/silenced,
+/turf/simulated/floor/reinforced/airless,
+/area/security/armoury)
+"b" = (
+/turf/simulated/floor/reinforced/airless,
+/area/security/armoury)
+"c" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/rifle/icelance,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/turf/simulated/floor/reinforced/airless,
+/area/security/armoury)
+"d" = (
+/obj/structure/table/rack,
+/obj/item/gun/projectile/dragunov,
+/obj/item/gun/energy/rifle/icelance,
+/turf/simulated/floor/reinforced/airless,
+/area/security/armoury)
+"e" = (
+/obj/structure/table/rack,
+/obj/item/gun/projectile/tanto,
+/obj/item/gun/projectile/automatic/mini_uzi,
+/turf/simulated/floor/reinforced/airless,
+/area/security/armoury)
+"f" = (
+/obj/structure/table/rack,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/obj/item/gun/projectile/tanto,
+/turf/simulated/floor/reinforced/airless,
+/area/security/armoury)
+"g" = (
+/obj/structure/table/rack,
+/obj/item/gun/projectile/automatic/rifle/sts35,
+/obj/item/gun/projectile/silenced,
+/turf/simulated/floor/reinforced/airless,
+/area/security/armoury)
+
+(1,1,1) = {"
+a
+d
+f
+"}
+(2,1,1) = {"
+b
+b
+b
+"}
+(3,1,1) = {"
+c
+e
+g
+"}

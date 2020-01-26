@@ -20,7 +20,7 @@
 	var/sight_mode = 0
 	var/custom_name = ""
 	var/custom_sprite = 0 //Due to all the sprites involved, a var for our custom borgs may be best
-	var/crisis //Admin-settable for combat module use.
+	var/crisis = 0 //Admin-settable for combat module use.
 	var/crisis_override = 0
 	var/malfAImodule = 0
 	var/integrated_light_power = 4
@@ -97,7 +97,7 @@
 	//var/jetpack = 0
 	var/obj/item/tank/jetpack/carbondioxide/synthetic/jetpack = null
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail = null
-	var/datum/effect_system/sparks/spark_system//So they can initialize sparks whenever/N
+	var/datum/effect_system/sparks/spark_system //So they can initialize sparks whenever/N
 	var/jeton = 0
 	var/killswitch = 0
 	var/killswitch_time = 60
@@ -293,7 +293,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(robot_module_types)
-	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA) //no fun allowed anymore.
+	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level ==  SEC_LEVEL_DELTA || crisis == 1) //no fun allowed anymore.
 		to_chat(src, "<span class='warning'>Crisis mode active. Combat module available.</span>")
 		modules+="Combat"
 	modtype = input("Please, select a module!", "Robot", null, null) as null|anything in modules
@@ -313,6 +313,7 @@
 	updatename()
 	recalculate_synth_capacities()
 	notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
+	SSrecords.reset_manifest()
 	selecting_module = 0
 
 /mob/living/silicon/robot/proc/updatename(var/prefix as text)
@@ -374,6 +375,7 @@
 
 		updatename()
 		updateicon()
+		SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest
 /mob/living/silicon/robot/verb/cmd_station_manifest()
@@ -393,7 +395,7 @@
 	return dat
 
 /mob/living/silicon/robot/proc/toggle_overclock()
-	set category = "Robot Commands"
+	set category = "Syndicate"
 	set name = "Toggle Overclock"
 	set desc = "Enable an overclocking of your systems, greatly increasing the power available to your modules."
 
@@ -791,18 +793,19 @@
 	return ..(user,Floor(damage/2),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
-	//check if it doesn't require any access at all
+	// Check if the borg doesn't require any access at all
 	if(check_access(null))
 		return 1
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		//if they are holding or wearing a card that has access, that works
-		if(check_access(H.get_active_hand()) || check_access(H.wear_id))
-			return 1
-	else if(istype(M, /mob/living/silicon/robot))
+	// Borgs should be handled a bit differently, since their IDs are not really IDs
+	if(istype(M, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
 		if(check_access(R.get_active_hand()) || istype(R.get_active_hand(), /obj/item/card/robot))
 			return 1
+	else if(istype(M, /mob/living))
+		var/id = M.GetIdCard()
+		// Check if the ID card the user has (if any) has access
+		if(id)
+			return check_access(id)
 	return 0
 
 /mob/living/silicon/robot/proc/check_access(obj/item/card/id/I)
@@ -1037,7 +1040,7 @@
 
 
 /mob/living/silicon/robot/proc/ResetSecurityCodes()
-	set category = "Robot Commands"
+	set category = "Syndicate"
 	set name = "Reset Identity Codes"
 	set desc = "Scrambles your security and identification codes and resets your current buffers.  Unlocks you and but permenantly severs you from your AI and the robotics console and will deactivate your camera system."
 

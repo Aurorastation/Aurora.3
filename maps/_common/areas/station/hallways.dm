@@ -82,3 +82,7 @@
 /area/hallway/secondary/entry/locker
 	name = "\improper Surface - Locker Room"
 	icon_state = "locker"
+
+/area/hallway/secondary/entry/stairs
+	name = "\improper Surface Access Stairwell"
+	icon_state = "dk_yellow"

@@ -4,7 +4,7 @@
 	desc = "Protect the People's Republic of Adhomai's possessions on space."
 	tags = list("External")
 
-	enabled = TRUE
+	enabled = FALSE
 	spawnpoints = list("pra_cosmonaut")
 	req_perms = null
 	max_count = 3
@@ -20,6 +20,7 @@
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	uses_species_whitelist = FALSE
+	away_site = TRUE
 
 /datum/ghostspawner/human/pra_cosmonaut/commissar
 	short_name = "pra_commissar"
@@ -39,7 +40,7 @@
 	name = "Kosmostrelki"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
-	shoes = /obj/item/clothing/shoes/jackboots/unathi
+	shoes = /obj/item/clothing/shoes/jackboots/toeless
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/gun/projectile/shotgun/pump/rifle
 	id = /obj/item/card/id/syndicate
@@ -49,9 +50,7 @@
 						/obj/item/grenade/smokebomb = 2,
 						/obj/item/plastique = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1
-
 						)
-	l_hand = /obj/item/clothing/accessory/storage/bayonet
 	r_hand = /obj/item/storage/field_ration
 
 /datum/outfit/admin/pra_cosmonaut/commissar
@@ -64,7 +63,6 @@
 	belt_contents = null
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
-						/obj/item/clothing/accessory/holster/hip = 1,
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,

@@ -6,19 +6,25 @@
 /datum/integrated_io/list/ask_for_pin_data(mob/user)
 	interact(user)
 
+// Positionless remove/Edit are a bit weird,
+// not sure if adding these buttons is quite a good idea.
+// They introduce uncertainty, since, in case of 2 elements, 
+// they will work just with the 1st one
 /datum/integrated_io/list/proc/interact(mob/user)
 	var/list/my_list = data
 	var/t = "<h2>[src]</h2><br>"
 	t += "List length: [my_list.len]<br>"
 	t += "<a href='?src=\ref[src]'>Refresh</a>  |  "
 	t += "<a href='?src=\ref[src];add=1'>Add</a>  |  "
+	t += "<a href='?src=\ref[src];remove=1'>Remove</a>  |  "
+	t += "<a href='?src=\ref[src];edit=1'>Edit</a>  |  "
 	t += "<a href='?src=\ref[src];swap=1'>Swap</a>  |  "
 	t += "<a href='?src=\ref[src];clear=1'>Clear</a><br>"
 	t += "<hr>"
-	var/i = 0
-	for(var/line in my_list)
-		i++
-		t += "#[i] | [display_data(line)]  |  "
+	// Iterating by index simplifies editing/deletion in game, 
+	// since the href_list["pos"] var is consistent
+	for(var/i = 1, i <= my_list.len; i++)
+		t += "#[i] | [display_data(my_list[i])]  |  "
 		t += "<a href='?src=\ref[src];edit=1;pos=[i]'>Edit</a>  |  "
 		t += "<a href='?src=\ref[src];remove=1;pos=[i]'>Remove</a><br>"
 	var/datum/browser/B = new(user, "list_pin_\ref[src]", null, 500, 400)
@@ -28,7 +34,8 @@
 /datum/integrated_io/list/proc/add_to_list(mob/user, new_entry)
 	if(!new_entry && user)
 		new_entry = ask_for_data_type(user)
-	if(is_valid(new_entry))
+	// is_valid can't be used here, since is_valid checks "data" and has no arguments
+	if(!isnull(new_entry))
 		Add(new_entry)
 
 /datum/integrated_io/list/proc/Add(new_entry)
@@ -44,9 +51,11 @@
 		return
 	if(!position)
 		return
-	var/target_entry = my_list.Find(position)
-	if(target_entry)
-		my_list -= target_entry
+	if(position > my_list.len)
+		return
+	var/target_entry = my_list[position]
+	// Should be able to remove nulls, since we can add a null to the list from the outside.
+	my_list -= target_entry
 
 /datum/integrated_io/list/proc/remove_from_list(mob/user, target_entry)
 	var/list/my_list = data
@@ -67,8 +76,9 @@
 		target_entry = input("Which piece of data do you want to edit?", "Edit") as null|anything in my_list
 	if(target_entry)
 		var/edited_entry = ask_for_data_type(user, target_entry)
+		var/i = my_list.Find(target_entry)
 		if(edited_entry)
-			target_entry = edited_entry
+			my_list[i] = edited_entry
 
 /datum/integrated_io/list/proc/edit_in_list_by_position(mob/user, var/position)
 	var/list/my_list = data
@@ -77,11 +87,13 @@
 		return
 	if(!position)
 		return
-	var/target_entry = my_list.Find(position)
+	if(position > my_list.len)
+		return
+	var/target_entry = my_list[position]
 	if(target_entry)
 		var/edited_entry = ask_for_data_type(user, target_entry)
 		if(edited_entry)
-			target_entry = edited_entry
+			my_list[position] = edited_entry
 
 /datum/integrated_io/list/proc/swap_inside_list(mob/user, var/first_target, var/second_target)
 	var/list/my_list = data
@@ -112,6 +124,8 @@
 /datum/integrated_io/list/write_data_to_pin(var/new_data)
 	if(islist(new_data))
 		var/list/new_list = new_data
+		// Sanitize the input - no nulls allowed.
+		while(new_list.Remove(null) == 1)
 		data = new_list.Copy()
 		holder.on_data_written()
 

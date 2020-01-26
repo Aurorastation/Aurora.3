@@ -36,7 +36,7 @@
 	cold_level_3 = 0
 
 	eyes = "vox_eyes_s"
-	gluttonous = TRUE
+	gluttonous = 2
 	virus_immune = 1
 
 	breath_type = "nitrogen"
@@ -139,3 +139,5 @@
 		/mob/living/carbon/human/proc/sonar_ping
 		)
 
+/datum/species/vox/armalis/can_commune()
+	return TRUE

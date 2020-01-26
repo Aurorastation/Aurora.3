@@ -217,7 +217,7 @@
 	starts_with = list(/obj/item/reagent_containers/pill/tramadol = 7)
 
 /obj/item/storage/pill_bottle/paracetamol
-	name = "bottle of paracetamol pills"
+	name = "bottle of Paracetamol pills"
 	desc = "Contains pills used to relieve pain and reduce fevers."
 	starts_with = list(/obj/item/reagent_containers/pill/paracetamol = 7)
 

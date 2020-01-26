@@ -213,6 +213,24 @@
 	. = ..()
 	durability = 2 * material.integrity
 
+/obj/item/material/drill_head/proc/get_durability_percentage()
+	return (durability * 100) / (2 * material.integrity)
+
+/obj/item/material/drill_head/examine(mob/user, distance)
+	. = ..()
+	var/percentage = get_durability_percentage()
+	var/descriptor = "looks close to breaking"
+	if(percentage > 10)
+		descriptor = "is very worn"
+	if(percentage > 50)
+		descriptor = "is fairly worn"
+	if(percentage > 75)
+		descriptor = "shows some signs of wear"
+	if(percentage > 95)
+		descriptor = "shows no wear"
+
+	to_chat(user, span("notice", "It [descriptor]."))
+
 /obj/item/mecha_equipment/drill
 	name = "drill"
 	desc = "This is the drill that'll pierce the heavens!"
@@ -235,6 +253,11 @@
 		if(drill_head)
 			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menancingly.</span>")
 			playsound(src, 'sound/mecha/mechdrill.ogg', 50, 1)
+
+/obj/item/mecha_equipment/drill/get_hardpoint_maptext()
+	if(drill_head)
+		return "Integrity: [round(drill_head.get_durability_percentage())]%"
+	return
 
 /obj/item/mecha_equipment/drill/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
@@ -361,3 +384,38 @@
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
 	..()
+
+// Kinda hacky, but hey, avoids some severe shitcode later on - geeves
+/obj/item/mecha_equipment/sleeper/passenger_compartment
+	name = "\improper mounted passenger compartment"
+	desc = "An exosuit-mounted passenger compartment that can comfortably hold a single humanoid."
+	icon_state = "mecha_passenger_open"
+	mech_layer = MECH_GEAR_LAYER
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_software = null
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	passive_power_use = 15
+
+/obj/item/mecha_equipment/sleeper/passenger_compartment/uninstalled()
+	. = ..()
+	icon_state = "mecha_passenger_open"
+	update_icon()
+	owner.update_icon()
+
+/obj/item/mecha_equipment/sleeper/passenger_compartment/attack_self(var/mob/user)
+	if(!sleeper.occupant)
+		to_chat(user, span("warning", "There's no one to eject!"))
+	else
+		visible_message(span("notice", "\The [src] ejects [sleeper.occupant.name]."))
+		sleeper.go_out()
+		icon_state = "mecha_passenger_open"
+		update_icon()
+		owner.update_icon()
+	return
+
+/obj/item/mecha_equipment/sleeper/passenger_compartment/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
+	. = ..()
+	if(.)
+		icon_state = "mecha_passenger"
+		update_icon()
+		owner.update_icon()

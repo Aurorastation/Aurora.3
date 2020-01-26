@@ -94,23 +94,22 @@
 /datum/reagent/nutriment/mix_data(var/list/newdata, var/newamount)
 	if(!islist(newdata) || !newdata.len)
 		return
-	for(var/i in 1 to newdata.len)
-		if(!(newdata[i] in data))
-			data.Add(newdata[i])
-			data[newdata[i]] = 0
-		data[newdata[i]] += newdata[newdata[i]]
-	var/totalFlavor = 0
+	for(var/i in newdata)
+		if(!(i in data))
+			data[i] = 0
+			continue
+		data[i] += newdata[i]
+	var/totalFlavor = 1
 	for(var/i in 1 to data.len)
 		totalFlavor += data[data[i]]
 
 	if (!totalFlavor)
 		return
 
-	for(var/i in 1 to data.len) //cull the tasteless
-		if(data[data[i]]/totalFlavor * 100 < 10)
-			data[data[i]] = null
+	for(var/i in data) //cull the tasteless
+		if(data[i] && data[i]/totalFlavor * 100 < 10)
+			data[i] = null
 			data -= data[i]
-			data -= null
 
 /datum/reagent/nutriment/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(injectable)
@@ -593,7 +592,7 @@
 		if(prob(5) || dose == metabolism) //dose == metabolism is a very hacky way of forcing the message the first time this procs
 			to_chat(M, discomfort_message)
 	else
-		M.apply_effect(agony_amount, AGONY, 0)
+		M.apply_effect(agony_amount, PAIN, 0)
 		if(prob(5))
 			M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
 			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
@@ -672,7 +671,7 @@
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
 			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
-		M.apply_effect(40, HALLOSS, 0)
+		M.apply_effect(40, PAIN, 0)
 
 /datum/reagent/capsaicin/condensed/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
@@ -682,7 +681,7 @@
 	if(dose == metabolism)
 		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	else
-		M.apply_effect(4, HALLOSS, 0)
+		M.apply_effect(4, PAIN, 0)
 		if(prob(5))
 			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
@@ -747,7 +746,7 @@
 		if (caffeine)
 			if(!modifier)
 				modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = caffeine, override = MODIFIER_OVERRIDE_STRENGTHEN)
-			M.add_chemical_effect(CE_PULSE, caffeine*2)
+			M.add_chemical_effect(CE_PULSE, 1)
 		M.dizziness = max(0, M.dizziness + adj_dizzy)
 		M.drowsyness = max(0, M.drowsyness + adj_drowsy)
 		M.sleeping = max(0, M.sleeping + adj_sleepy)
@@ -1687,7 +1686,7 @@
 	taste_description = "creamy chocolate"
 
 	glass_icon_state = "chocolateglass"
-	glass_name = "glass of hot chocolate"
+	glass_name = "cup of hot chocolate"
 	glass_desc = "Made with love! And cocoa beans."
 
 /datum/reagent/drink/sodawater
@@ -3876,7 +3875,7 @@
 			if(prob(5) || dose == metabolism)
 				to_chat(M, discomfort_message)
 		else
-			M.apply_effect(agony_amount, AGONY, 0)
+			M.apply_effect(agony_amount, PAIN, 0)
 			if(prob(5))
 				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
 				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")

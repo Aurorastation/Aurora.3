@@ -27,6 +27,8 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
+	blacklisted_species = list("Off-Worlder Human", "M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"
 	jobtype = /datum/job/chief_engineer
@@ -150,7 +152,8 @@
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
-		/obj/item/device/t_scanner = 1
+		/obj/item/device/t_scanner = 1,
+		/obj/item/powerdrill = 1
 	)
 
 /datum/job/intern_eng

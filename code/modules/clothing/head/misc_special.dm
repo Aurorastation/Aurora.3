@@ -5,7 +5,8 @@
  *		Ushanka
  *		Pumpkin head
  *		Kitty ears
- *
+ *		Chicken mask
+ *		Warning cone
  */
 
 /*
@@ -15,6 +16,7 @@
 	name = "welding helmet"
 	desc = "A head-mounted face cover designed to protect the wearer completely from space-arc eye."
 	icon_state = "welding"
+	item_state = "welding"
 	item_state_slots = list(
 		slot_l_hand_str = "welding",
 		slot_r_hand_str = "welding"
@@ -49,25 +51,28 @@
 	if(!base_state)
 		base_state = icon_state
 
-	if(usr.canmove && !usr.stat && !usr.restrained())
-		if(src.up)
-			src.up = !src.up
-			body_parts_covered |= (EYES|FACE)
-			flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			flash_protection = initial(flash_protection)
-			tint = initial(tint)
-			icon_state = base_state
-			to_chat(usr, "You flip the [src] down to protect your eyes.")
-		else
-			src.up = !src.up
-			body_parts_covered &= ~(EYES|FACE)
-			flash_protection = FLASH_PROTECTION_NONE
-			tint = TINT_NONE
-			flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
-			icon_state = "[base_state]up"
-			to_chat(usr, "You push the [src] up out of your face.")
-		update_clothing_icon()	//so our mob-overlays
-		usr.update_action_buttons()
+	if(use_check_and_message(usr))
+		return
+
+	src.up = !src.up
+	if(!src.up)
+		body_parts_covered |= (EYES|FACE)
+		flags_inv |= (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
+		flash_protection = initial(flash_protection)
+		tint = initial(tint)
+		icon_state = base_state
+		item_state = base_state
+		to_chat(usr, "You flip the [src] down to protect your eyes.")
+	else
+		body_parts_covered &= ~(EYES|FACE)
+		flash_protection = FLASH_PROTECTION_NONE
+		tint = TINT_NONE
+		flags_inv &= ~(HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
+		icon_state = "[base_state]up"
+		item_state = "[base_state]up"
+		to_chat(usr, "You push the [src] up out of your face.")
+	update_clothing_icon()	//so our mob-overlays
+	usr.update_action_buttons()
 
 
 /*
@@ -259,9 +264,33 @@
 	else if (icon_override)
 		icon_override = null
 
+/*
+ * Chicken mask
+ */
+
 /obj/item/clothing/head/richard
 	name = "chicken mask"
 	desc = "You can hear the distant sounds of rhythmic electronica."
 	icon_state = "richard"
 	body_parts_covered = HEAD|FACE
 	flags_inv = BLOCKHAIR
+
+/*
+ * Warning cone
+ */
+
+/obj/item/clothing/head/cone
+	name = "warning cone"
+	desc = "This cone is trying to warn you of something!"
+	description_info = "It looks like you can wear it in your head slot."
+	icon_state = "cone"
+	item_state = "cone"
+	drop_sound = 'sound/items/drop/shoes.ogg'
+	force = 1
+	throwforce = 3
+	throw_speed = 2
+	throw_range = 5
+	w_class = 2
+	body_parts_covered = HEAD
+	attack_verb = list("warned", "cautioned", "smashed")
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)

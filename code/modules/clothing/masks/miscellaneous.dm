@@ -28,16 +28,51 @@
 	..()
 
 /obj/item/clothing/mask/surgical
-	name = "sterile mask"
-	desc = "A sterile mask designed to help prevent the spread of diseases."
-	icon_state = "sterile"
-	item_state = "sterile"
+	name = "surgical mask"
+	desc = "A surgical mask designed to help prevent the spread of diseases."
+	icon_state = "surgical"
+	item_state = "surgical"
 	w_class = 2
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+	down_gas_transfer_coefficient = 1
+	down_body_parts_covered = null
+	adjustable = TRUE
+
+/obj/item/clothing/mask/surgical/w
+	desc = "A surgical mask designed to help prevent the spread of diseases. This one's in white."
+	icon_state = "surgicalw"
+	item_state = "surgicalw"
+
+/obj/item/clothing/mask/cloth
+	name = "cloth mask"
+	desc = "A colorable cloth mask designed to protect the wearer against allergens, illnesses, and social interaction."
+	icon_state = "cloth"
+	item_state = "cloth"
+	w_class = 2
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 0)
+	down_gas_transfer_coefficient = 1
+	down_body_parts_covered = null
+	adjustable = TRUE
+
+/obj/item/clothing/mask/dust
+	name = "dust mask"
+	desc = "A dust mask designed to protect the wearer against construction and/or custodial particulate."
+	icon_state = "dust"
+	item_state = "dust"
+	w_class = 2
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 15, rad = 10)
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
 	adjustable = TRUE
@@ -53,6 +88,7 @@
 	name = "snorkel"
 	desc = "For the Swimming Savant."
 	icon_state = "snorkel"
+	item_state = "snorkel"
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
 
@@ -188,6 +224,7 @@
 	name = "pioneer's scarf"
 	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of expeditionaries."
 	icon_state = "pioneer_scarf"
+	item_flags = FLEXIBLEMATERIAL
 	item_state = "pioneer_scarf"
 	w_class = 2
 	body_parts_covered = FACE
@@ -196,6 +233,6 @@
 	name = "starveil"
 	desc = "A thin holographic veil meant to cover the face, intended to block out light."
 	icon_state = "starveil"
-	item_state = "starveil"
+	item_state = "muzzle"
 	down_body_parts_covered = null
 	adjustable = TRUE

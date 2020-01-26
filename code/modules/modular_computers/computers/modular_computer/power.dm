@@ -38,6 +38,16 @@
 	A.use_power(power_usage, EQUIP)
 	return TRUE
 
+
+// Tries to use power in general (Abstraction)
+/obj/item/modular_computer/proc/computer_use_power(var/power_usage = 0)
+	// First tries to charge from an APC, if APC is unavailable switches to battery power. If neither works the computer fails.
+	if(apc_power(power_usage))
+		return TRUE
+	if(battery_power(power_usage))
+		return TRUE
+	return FALSE
+
 // Handles power-related things, such as battery interaction, recharging, shutdown when it's discharged
 /obj/item/modular_computer/proc/handle_power()
 	var/power_usage = screen_on ? base_active_power_usage : base_idle_power_usage
@@ -47,13 +57,8 @@
 				power_usage += H.power_usage
 		last_power_usage = power_usage
 
-	// First tries to charge from an APC, if APC is unavailable switches to battery power. If neither works the computer fails.
-	if(apc_power(power_usage))
-		if (power_has_failed)
-			power_has_failed = FALSE
-			update_icon()
-		return
-	if(battery_power(power_usage))
+	
+	if(computer_use_power(power_usage))
 		if (power_has_failed)
 			power_has_failed = FALSE
 			update_icon()

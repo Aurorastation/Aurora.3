@@ -108,15 +108,16 @@
 		/obj/item/gun/projectile/pirate                       = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/contender                    = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/lemat               = TRADER_THIS_TYPE,
-		/obj/item/gun/projectile/shotgun/pump/rifle/vintage   = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/shotgun/pump/rifle/vintage   = TRADER_BLACKLIST,
 		/obj/item/gun/energy/rifle/icelance                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/accessory/storage/bayonet          = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/cannon                       = TRADER_THIS_TYPE,
 		/obj/item/ammo_casing/cannon                          = TRADER_ALL,
-		/obj/item/gun/projectile/nuke                         = TRADER_THIS_TYPE,
-		/obj/item/ammo_magazine/nuke                          = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/pistol/adhomai               = TRADER_THIS_TYPE,
-		/obj/item/gun/projectile/deagle/adhomai               = TRADER_THIS_TYPE
+		/obj/item/gun/projectile/deagle/adhomai               = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/revolver/adhomian            = TRADER_THIS_TYPE,
+		/obj/item/gun/launcher/harpoon                        = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/shotgun/foldable             = TRADER_THIS_TYPE
 	)
 
 

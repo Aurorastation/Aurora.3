@@ -26,6 +26,8 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/cmo
@@ -45,13 +47,13 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/doctor
-	title = "Medical Doctor"
+	title = "Physician"
 	flag = DOCTOR
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 3
+	total_positions = 4
+	spawn_positions = 4
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
 	economic_modifier = 7
@@ -60,18 +62,36 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Surgeon","Emergency Physician","Nurse")
+	alt_titles = list("Trauma Physician","Nurse")
 	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(
-		"Emergency Physician"=/datum/outfit/job/doctor/emergency_physician,
-		"Surgeon"=/datum/outfit/job/doctor/surgeon,
+		"Trauma Physician"=/datum/outfit/job/doctor/trauma_physician,
 		"Nurse"=/datum/outfit/job/doctor/nurse
 		)
 
+/datum/job/surgeon
+	title = "Surgeon"
+	flag = SURGEON
+	department = "Medical"
+	department_flag = MEDSCI
+	faction = "Station"
+	supervisors = "the chief medical officer"
+	selection_color = "#FF97D1"
+	economic_modifier = 7
+
+	spawn_positions = 2
+	total_positions = 2
+
+	minimum_character_age = 30
+
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
+	outfit = /datum/outfit/job/doctor/surgeon
+
 /datum/outfit/job/doctor
-	name = "Medical Doctor"
-	base_name = "Medical Doctor"
+	name = "Physician"
+	base_name = "Physician"
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical
@@ -87,11 +107,13 @@
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
-/datum/outfit/job/doctor/emergency_physician
-	name = "Emergency Physician"
+/datum/outfit/job/doctor/trauma_physician
+	name = "Trauma Physician"
 	jobtype = /datum/job/doctor
 
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	uniform = /obj/item/clothing/under/rank/medical/black
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
+	shoes = /obj/item/clothing/shoes/trauma
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
 
@@ -223,6 +245,8 @@
 	alt_titles = list("Emergency Medical Technician")
 	outfit = /datum/outfit/job/paramedic
 	alt_outfits = list("Emergency Medical Technician"=/datum/outfit/job/paramedic/emt)
+
+	blacklisted_species = list("Diona")
 
 /datum/outfit/job/paramedic
 	name = "Paramedic"

@@ -93,7 +93,7 @@
 
 			visible_message("<span class='danger'>[H] has punched [src]!</span>")
 
-			apply_damage(damage, HALLOSS, affecting, armor_block)
+			apply_damage(damage, PAIN, affecting, armor_block)
 			if(damage >= 9)
 				visible_message("<span class='danger'>[H] has weakened [src]!</span>")
 				apply_effect(4, WEAKEN, armor_block)
@@ -327,7 +327,7 @@
 					real_damage += G.punch_force
 					hit_dam_type = G.punch_damtype
 					if(H.pulling_punches)
-						hit_dam_type = HALLOSS
+						hit_dam_type = PAIN
 
 					if(G.sharp)
 						is_sharp = 1
@@ -351,6 +351,11 @@
 
 			// Finally, apply damage to target
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
+
+
+			if(M.resting && src.help_up_offer)
+				M.visible_message(span("warning", "[M] slaps away [src]'s hand!"))
+				src.help_up_offer = 0
 
 		if(I_DISARM)
 			var/disarm_cost

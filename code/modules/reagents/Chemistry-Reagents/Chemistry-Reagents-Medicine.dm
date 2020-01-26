@@ -101,17 +101,12 @@
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
-	metabolism = REM * 1.5//Get to overdose state a bit faster
+	metabolism = REM * 0.5
 	taste_description = "bitterness"
 	taste_mult = 3
-	breathe_met = REM * 1.5 * 0.5
-	breathe_mul = 0.5
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
-	if(M.getBruteLoss() && prob(7))
-		to_chat(M, span("warning", "Your muscles spasm and you find yourself unable to stand!"))
-		M.Weaken(3)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals arterial bleeding
@@ -128,12 +123,12 @@
 	color = "#FFA800"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
+	metabolism = REM * 0.5
 	taste_description = "bitterness"
 	var/strength = 6
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
-	M.add_chemical_effect(CE_DROPITEM, 6/strength * max_dose)
 
 /datum/reagent/kelotane/dermaline
 	name = "Dermaline"
@@ -151,10 +146,11 @@
 	description = "Dylovene is a broad-spectrum antitoxin."
 	reagent_state = LIQUID
 	color = "#00A000"
-	scannable = 1
+	scannable = TRUE
+	metabolism = REM * 0.5
 
 	taste_description = "a roll of gauze"
-	var/remove_generic = 1
+	var/remove_generic = TRUE
 	var/list/remove_toxins = list(
 		/datum/reagent/toxin/zombiepowder
 	)
@@ -218,6 +214,7 @@
 	fallback_specific_heat = 1
 	taste_description = "bitterness"
 	breathe_mul = 0
+	metabolism = REM * 0.25
 
 /datum/reagent/tricordrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/power = 1 + Clamp((get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
@@ -230,7 +227,7 @@
 /datum/reagent/atropine
 	name = "Atropine"
 	id = "atropine"
-	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxins increase."
+	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxins increase, muscle weakness, and increased heartrate."
 	reagent_state = LIQUID
 	metabolism = 1
 	color = "#FF40FF"
@@ -239,12 +236,15 @@
 	breathe_mul = 0
 
 /datum/reagent/atropine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/reagent_strength = max(0.25,1 - (M.health/100))
+	var/reagent_strength = Clamp(1 - (M.health/100),0.1,2)
 	M.adjustOxyLoss(-8 * removed * reagent_strength)
 	M.adjustBruteLoss(-8 * removed * reagent_strength)
 	M.adjustFireLoss(-8 * removed * reagent_strength)
-
-	M.adjustToxLoss(1 * removed)
+	M.adjustToxLoss(2 * removed)
+	M.add_chemical_effect(CE_PULSE, 1)
+	if(prob(10))
+		to_chat(M, span("warning", "Your muscles spasm and you find yourself unable to stand!"))
+		M.Weaken(3)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -526,7 +526,7 @@
 		for(var/datum/reagent/R in ingested.reagent_list)
 			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
-				M.ingested.remove_reagent(R.id, amount)
+				ingested.remove_reagent(R.id, amount)
 				P -= amount
 				if (P <= 0)
 					return
@@ -663,7 +663,7 @@
 /datum/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
-/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/M, var/alien, var/removed) // effects based loosely on DXM
+/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/human/M, var/alien, var/removed) // effects based loosely on DXM
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
 	if(prob(dose))
@@ -861,6 +861,37 @@
 	M.adjustOxyLoss(10 * removed * scale)
 	M.Weaken(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
+
+/datum/reagent/tobacco
+	name = "Tobacco"
+	id = "tobacco"
+	description = "Cut and processed tobacco leaves."
+	taste_description = "tobacco"
+	reagent_state = SOLID
+	color = "#684b3c"
+	data = 0
+	scannable = 1
+	var/nicotine = REM * 0.2
+	fallback_specific_heat = 1
+	value = 3
+
+/datum/reagent/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.reagents.add_reagent("nicotine")
+
+/datum/reagent/tobacco/fine
+	name = "Fine Tobacco"
+	id = "tobaccofine"
+	taste_description = "fine tobacco"
+	data = 0
+	value = 5
+
+/datum/reagent/tobacco/bad
+	name = "Terrible Tobacco"
+	id = "tobaccobad"
+	taste_description = "acrid smoke"
+	data = 0
+	value = 0
 
 /datum/reagent/mental/methylphenidate
 	name = "Methylphenidate"
@@ -1188,7 +1219,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 	M.drowsyness = 0
 
-/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale)
 	. = ..()
 	M.adjustOxyLoss(1 * removed * scale)
 	M.Weaken(10 * removed * scale)
@@ -1429,7 +1460,7 @@
 			M.add_chemical_effect(CE_CARDIOTOXIC, -removed * nutritionmod)
 	..()
 
-/datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_HEPATOTOXIC, 1)
@@ -1487,10 +1518,11 @@
 	if(alien == IS_DIONA)
 		return
 	if(dose < 1)	//not that effective after initial rush
-		M.add_chemical_effect(CE_PAINKILLER, min(20*volume, 80))
+		M.add_chemical_effect(CE_PAINKILLER, min(15*volume, 35))
 		M.add_chemical_effect(CE_PULSE, 1)
-	M.add_chemical_effect(CE_PAINKILLER, min(10*volume, 20))
-	M.add_chemical_effect(CE_PULSE, 2)
+	else
+		M.add_chemical_effect(CE_PAINKILLER, min(10*volume, 15))
+		M.add_chemical_effect(CE_PULSE, 2)
 	if(dose > 5)
 		M.make_jittery(5)
 	if(volume >= 5 && M.is_asystole())

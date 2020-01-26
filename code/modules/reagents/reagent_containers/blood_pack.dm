@@ -173,6 +173,7 @@
 /obj/item/reagent_containers/blood/ripped
 	name = "ripped blood pack"
 	desc = "It's torn up and useless."
+	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "ripped"
 	volume = 0
 

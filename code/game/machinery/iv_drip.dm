@@ -1,6 +1,8 @@
 #define IV_MODE_INJECT	"inject"
 #define IV_MODE_DRAW  	"draw"
 #define IV_MODE_OFF		"off"
+#define IV_PRIMARY		"primary"
+#define IV_SECONDARY	"secondary"
 
 /obj/machinery/iv_drip
 	name = "\improper IV drip"
@@ -8,10 +10,11 @@
 	anchored = 0
 	density = 1
 	var/mob/living/carbon/human/attached = null
-	var/mode = list("Primary" = 1, "Secondary" = 1) // IV_MODE_OFF, IV_MODE_INJECT, IV_MODE_DRAW
-	var/list/transfer_amount = list("Primary" = REM, "Secondary" = REM)
+	var/mode = list(IV_PRIMARY = 1, "Secondary" = 1) // IV_MODE_OFF, IV_MODE_INJECT, IV_MODE_DRAW
+	var/list/transfer_amount = list(IV_PRIMARY = REM, "Secondary" = REM)
 	var/obj/item/reagent_containers/primary = null // can be any size, is the first one attached
 	var/obj/item/reagent_containers/secondary = null // must be less than or equal to 120 units in capacity`
+	var/blood_message_sent = FALSE
 
 /obj/machinery/iv_drip/update_icon()
 	if(src.attached)
@@ -34,7 +37,6 @@
 				if(75 to 79)	filling.icon_state = "reagent75"
 				if(80 to 90)	filling.icon_state = "reagent80"
 				if(91 to INFINITY)	filling.icon_state = "reagent100"
-
 			filling.icon += primary.reagents.get_color()
 			add_overlay(filling)
 	
@@ -62,6 +64,7 @@
 		visible_message("[src.attached] is detached from \the [src]")
 		src.attached = null
 		src.update_icon()
+		blood_message_sent = FALSE
 		return
 
 	if(in_range(src, usr) && ishuman(over_object) && get_dist(over_object, src) <= 1)
@@ -101,7 +104,7 @@
 
 /obj/machinery/iv_drip/machinery_process()
 	set background = 1
-
+	
 	if(!istype(attached))
 		return
 
@@ -114,9 +117,9 @@
 		return
 
 	// Give blood
-	switch(mode["Primary"])
+	switch(mode[IV_PRIMARY])
 		if(IV_MODE_INJECT)
-			inject(primary, transfer_amount["Primary"])
+			inject(primary, transfer_amount[IV_PRIMARY])
 		if(IV_MODE_DRAW)
 			drawblood(primary)
 	
@@ -194,8 +197,8 @@
 			to_chat(usr, "<span class='notice'>Attached is \a [primary] with [primary.reagents.total_volume] units of liquid.</span>")
 		else
 			to_chat(usr, span("notice", "Attached is an empty [primary]."))
-		if(mode["Primary"] != IV_MODE_OFF)
-			to_chat(user, span("notice", "\The [primary] is set to [mode["Primary"]] [transfer_amount["Primary"]] units per second."))
+		if(mode[IV_PRIMARY] != IV_MODE_OFF)
+			to_chat(user, span("notice", "\The [primary] is set to [mode[IV_PRIMARY]] [transfer_amount[IV_PRIMARY]] units per second."))
 		else
 			to_chat(user, span("notice", "\The [primary]'s IV drip is off."))
 
@@ -204,8 +207,8 @@
 			to_chat(usr, span("notice", "Attached is \a [secondary] with [secondary.reagents.total_volume] units of liquid."))
 		else
 			to_chat(usr, span("notice", "Attached is an empty [secondary]."))
-		if(mode["Secondary"] != IV_MODE_OFF)
-			to_chat(user, span("notice", "\The [secondary] is set to [mode["Primary"]] [transfer_amount["Secondary"]] units per second."))
+		if(mode[IV_SECONDARY] != IV_MODE_OFF)
+			to_chat(user, span("notice", "\The [secondary] is set to [mode[IV_SECONDARY]] [transfer_amount[IV_SECONDARY]] units per second."))
 		else
 			to_chat(user, span("notice", "\The [secondary]'s IV drip is off."))
 	else
@@ -221,7 +224,7 @@
 
 	if (use_check(usr))
 		return
-	var/container = input("Select which transfer rate you want to modify:") as null|anything in list("Primary", "Secondary")
+	var/container = input("Select which transfer rate you want to modify:") as null|anything in list("Primary", IV_SECONDARY)
 	if(!container)
 		return
 	var/amount = min(input("Set transfer rate as units per second (between 4 and 0.001).", "[container] Transfer Rate") as null|num, 4)

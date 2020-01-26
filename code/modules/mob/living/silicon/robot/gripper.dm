@@ -240,9 +240,9 @@
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab
-	name = "chemistry gripper"
+	name = "medical gripper"
 	icon_state = "gripper-sci"
-	desc = "A specialised grasping tool designed for working in chemistry and pharmaceutical labs"
+	desc = "A specialised grasping tool designed for working in medical treatment facilities and pharmaceutical labs."
 
 	can_hold = list(
 		/obj/item/reagent_containers/glass,
@@ -252,8 +252,12 @@
 		/obj/item/reagent_containers/spray,
 		/obj/item/storage/pill_bottle,
 		/obj/item/hand_labeler,
+		/obj/item/virusdish,
 		/obj/item/paper,
-		/obj/item/stack/material/phoron
+		/obj/item/stack/material/phoron,
+		/obj/item/reagent_containers/blood,
+		/obj/item/reagent_containers/food/drinks/sillycup,
+		/obj/item/reagent_containers/food/drinks/medcup
 		)
 
 

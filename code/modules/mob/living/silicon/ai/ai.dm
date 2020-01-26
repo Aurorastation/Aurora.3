@@ -48,6 +48,11 @@ var/list/ai_verbs_default = list(
 	anchored = 1 // -- TLE
 	density = 1
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
+
+	var/fireloss = 0
+	var/bruteloss = 0
+	var/oxyloss = 0
+
 	//shouldnt_see - set in New()
 	var/list/network = list("Station")
 	var/obj/machinery/camera/camera = null
@@ -189,6 +194,19 @@ var/list/ai_verbs_default = list(
 	ai_list += src
 	return ..()
 
+/mob/living/silicon/ai/Destroy()
+	QDEL_NULL(aiPDA)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
+	ai_list -= src
+	destroy_eyeobj()
+	QDEL_NULL(psupply)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
+	QDEL_NULL(aiCamera)
+
+	return ..()
+
 /mob/living/silicon/ai/proc/init_powersupply()
 	new /obj/machinery/ai_powersupply(src)
 
@@ -212,38 +230,55 @@ var/list/ai_verbs_default = list(
 
 	if (malf && !(mind in malf.current_antagonists))
 		show_laws()
-		to_chat(src, "<b>These laws may be changed by other players, or by you being the traitor.</b>")
+		to_chat(src, "<b>These laws may be changed by other players, or by you if you are malfunctioning.</b>")
 
 	job = "AI"
 	setup_icon()
 	eyeobj.possess(src)
 
-/mob/living/silicon/ai/Destroy()
-	qdel(aiPDA)
-	qdel(aiMulti)
-	qdel(aiRadio)
-	aiPDA = null
-	aiMulti = null
-	aiRadio = null
+/mob/living/silicon/ai/getFireLoss()
+	return fireloss
 
-	ai_list -= src
+/mob/living/silicon/ai/getBruteLoss()
+	return bruteloss
 
-	qdel(eyeobj)
-	eyeobj = null
+/mob/living/silicon/ai/getOxyLoss()
+	return oxyloss
 
-	qdel(psupply)
-	psupply = null
+/mob/living/silicon/ai/adjustFireLoss(var/amount)
+	if(status_flags & GODMODE)
+		return
+	fireloss = max(0, fireloss + min(amount, health))
 
-	qdel(aiMulti)
-	aiMulti = null
+/mob/living/silicon/ai/adjustBruteLoss(var/amount)
+	if(status_flags & GODMODE)
+		return
+	bruteloss = max(0, bruteloss + min(amount, health))
 
-	qdel(aiRadio)
-	aiRadio = null
+/mob/living/silicon/ai/adjustOxyLoss(var/amount)
+	if(status_flags & GODMODE)
+		return
+	oxyloss = max(0, oxyloss + min(amount, maxHealth - oxyloss))
 
-	qdel(aiCamera)
-	aiCamera = null
+/mob/living/silicon/ai/setFireLoss(var/amount)
+	if(status_flags & GODMODE)
+		fireloss = 0
+		return
+	fireloss = max(0, amount)
 
-	return ..()
+/mob/living/silicon/ai/setOxyLoss(var/amount)
+	if(status_flags & GODMODE)
+		oxyloss = 0
+		return
+	oxyloss = max(0, amount)
+
+/mob/living/silicon/ai/updatehealth()
+	if(status_flags & GODMODE)
+		health = maxHealth
+		stat = CONSCIOUS
+		setOxyLoss(0)
+	else
+		health = maxHealth - getFireLoss() - getBruteLoss() // Oxyloss is not part of health as it represents AIs backup power. AI is immune against ToxLoss as it is machine.
 
 /mob/living/silicon/ai/proc/setup_icon()
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
@@ -279,6 +314,7 @@ var/list/ai_verbs_default = list(
 		idcard.update_name()
 
 	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
+	SSrecords.reset_manifest()
 
 /*
 	The AI Power supply is a dummy object used for powering the AI since only machinery should be using power.

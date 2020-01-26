@@ -2,13 +2,13 @@
 	category = /datum/uplink_category/gear_loadout
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT*4
 
-/datum/uplink_item/item/gear_loadout/frontier
-	name = "Frontier Alliance Assets (Group)"
-	path = /obj/structure/closet/crate/secure/gear_loadout/frontier
+/datum/uplink_item/item/gear_loadout/coalition
+	name = "Coalition of Colonies Assets (Group)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/coalition
 
-/datum/uplink_item/item/gear_loadout/frontier_single
-	name = "Frontier Alliance Assets (Single)"
-	path = /obj/structure/closet/crate/secure/gear_loadout/frontier_single
+/datum/uplink_item/item/gear_loadout/coalition_single
+	name = "Coalition of Colonies Assets (Single)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/coalition_single
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 
 /datum/uplink_item/item/gear_loadout/eridani
@@ -46,3 +46,13 @@
 	name = "Sol Alliance Assets (Single)"
 	path = /obj/structure/closet/crate/secure/gear_loadout/sol_single
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
+
+/datum/uplink_item/item/gear_loadout/cowboys
+	name = "Frontier Cowboys (Group)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT*2
+
+/datum/uplink_item/item/gear_loadout/cowboy_single
+	name = "Frontier Cowboy (Single)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT/2

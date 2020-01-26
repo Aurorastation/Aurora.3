@@ -125,7 +125,7 @@
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	max_shots = 5
+	max_shots = 7
 	fire_delay = 4
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam/pistol

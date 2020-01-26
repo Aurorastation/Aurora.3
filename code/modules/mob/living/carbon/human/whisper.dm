@@ -58,11 +58,8 @@
 		var/list/handle_r = handle_speech_problems(message)
 		message = handle_r[1]
 		verb = handle_r[2]
-		if(verb == "yells loudly")
-			verb = "slurs emphatically"
-		else
-			var/adverb = pick("quietly", "softly")
-			verb = "[verb] [adverb]"
+		var/adverb = pick("quietly", "softly")
+		verb = "[verb] [adverb]"
 
 		speech_problem_flag = handle_r[3]
 

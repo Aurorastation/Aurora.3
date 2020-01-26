@@ -43,23 +43,11 @@
 	build_path = /obj/item/circuitboard/security
 	sort_string = "DAAAA"
 
-/datum/design/circuit/secdata
-	name = "security records console"
-	id = "sec_data"
-	build_path = /obj/item/circuitboard/secure_data
-	sort_string = "DABAA"
-
 /datum/design/circuit/prisonmanage
 	name = "prisoner management console"
 	id = "prisonmanage"
 	build_path = /obj/item/circuitboard/prisoner
 	sort_string = "DACAA"
-
-/datum/design/circuit/med_data
-	name = "medical records console"
-	id = "med_data"
-	build_path = /obj/item/circuitboard/med_data
-	sort_string = "FAAAA"
 
 /datum/design/circuit/sentencing
 	name = "criminal sentencing console"
@@ -78,34 +66,6 @@
 	id = "pandemic"
 	build_path = /obj/item/circuitboard/pandemic
 	sort_string = "FAEAA"
-
-/datum/design/circuit/clonecontrol
-	name = "cloning control console"
-	id = "clonecontrol"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/circuitboard/cloning
-	sort_string = "FAGAC"
-
-/datum/design/circuit/clonepod
-	name = "clone pod"
-	id = "clonepod"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/circuitboard/clonepod
-	sort_string = "FAGAE"
-
-/datum/design/circuit/clonescanner
-	name = "cloning scanner"
-	id = "clonescanner"
-	req_tech = list(TECH_DATA = 3, TECH_BIO = 3)
-	build_path = /obj/item/circuitboard/clonescanner
-	sort_string = "FAGAG"
-
-/datum/design/circuit/crewconsole
-	name = "crew monitoring console"
-	id = "crewconsole"
-	req_tech = list(TECH_DATA = 3, TECH_MAGNET = 2, TECH_BIO = 2)
-	build_path = /obj/item/circuitboard/crew
-	sort_string = "FAGAI"
 
 /datum/design/circuit/teleconsole
 	name = "teleporter control console"
@@ -444,12 +404,6 @@
 	build_path = /obj/item/circuitboard/biogenerator
 	sort_string = "KBAAA"
 
-/datum/design/circuit/emp_data
-	name = "employment records console"
-	id = "emp_data"
-	build_path = /obj/item/circuitboard/skills
-	sort_string = "LAAAC"
-
 /datum/design/circuit/shield
 	req_tech = list(TECH_BLUESPACE = 4, TECH_PHORON = 3)
 	materials = list("glass" = 2000, "gold" = 1000)
@@ -558,42 +512,42 @@
 	sort_string = "WAAAJ"
 
 /datum/design/circuit/hazard
-	name = "hazard rig central circuit board"
+	name = "hazard hardsuit central circuit board"
 	id = "hazard_rig"
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/hazard
 	sort_string = "WAAAK"
 
 /datum/design/circuit/hazard_target
-	name = "hazard rig control and targeting board"
+	name = "hazard hardsuit control and targeting board"
 	id = "hazard_rig_target"
 	req_tech = list(TECH_DATA = 4, TECH_COMBAT = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/hazard
 	sort_string = "WAAAL"
 
 /datum/design/circuit/combat
-	name = "combat rig central circuit board"
+	name = "combat hardsuit central circuit board"
 	id = "combat_rig"
 	req_tech = list(TECH_DATA = 6)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/combat
 	sort_string = "WAAAM"
 
 /datum/design/circuit/combat_target
-	name = "combat rig control and targeting board"
+	name = "combat hardsuit control and targeting board"
 	id = "combat_rig_target"
 	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 5)
 	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/combat
 	sort_string = "WAAAN"
 
 /datum/design/circuit/hacker
-	name = "cybersuit rig central circuit board"
+	name = "cybersuit hardsuit central circuit board"
 	id = "hacker_rig"
 	req_tech = list(TECH_DATA = 6, TECH_ILLEGAL = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/illegal/hacker
 	sort_string = "WAAAO"
 
 /datum/design/circuit/hacker_target
-	name = "cybersuit rig control and targeting board"
+	name = "cybersuit hardsuit control and targeting board"
 	id = "hacker_rig_target"
 	req_tech = list(TECH_DATA = 6, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/illegal/targeting/hacker

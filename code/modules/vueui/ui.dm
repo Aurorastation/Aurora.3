@@ -29,6 +29,8 @@ main ui datum.
 	var/windowid
 	// determines if ui state should be constantly be cheacked for updates
 	var/auto_update_content = FALSE
+	// list for storing ui sensitive data. this meant for object data tracking
+	var/list/metadata 
 
 /**
   * Creates a new ui

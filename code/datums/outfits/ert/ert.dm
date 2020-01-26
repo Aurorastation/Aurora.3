@@ -92,7 +92,7 @@
 	name = "TCFL Dropship Pilot"
 	uniform = /obj/item/clothing/under/legion/pilot
 	head = /obj/item/clothing/head/helmet/legion_pilot
-	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	suit = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
 	gloves = null
 	back = null
 	belt = /obj/item/storage/belt/security/tactical
@@ -162,7 +162,7 @@
 	)
 
 /datum/outfit/admin/ert/mercenary/get_id_access()
-	return get_distress_access()
+	return get_distress_access_lesser()
 
 /datum/outfit/admin/ert/mercenary/specialist
 	name = "Mercenary Freelancer Medic"
@@ -184,6 +184,33 @@
 		/obj/item/stack/medical/advanced/ointment = 1,
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1
 	)
+
+/datum/outfit/admin/ert/mercenary/engineer
+	name = "Mercenary Freelancer Combat Engineer"
+
+	back = /obj/item/storage/backpack/duffel
+	belt = /obj/item/storage/belt/utility/full
+	gloves = /obj/item/clothing/gloves/yellow
+	accessory = /obj/item/clothing/accessory/storage/brown_vest
+	accessory_contents = list(
+								/obj/item/plastique = 5
+							)
+
+	backpack_contents = list(
+		/obj/item/material/knife/trench = 1,
+		/obj/item/shield/energy = 1,
+		/obj/item/handcuffs/ziptie = 1,
+		/obj/item/tank/oxygen = 1,
+		/obj/item/device/multitool = 1,
+		/obj/item/weldingtool/hugetank = 1,
+		/obj/item/clothing/glasses/welding/superior = 1,
+		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
+		/obj/item/storage/box/shotgunshells = 1,
+		/obj/item/landmine/frag = 1,
+		/obj/item/landmine/emp = 1
+	)
+
+	belt_contents = null
 
 /datum/outfit/admin/ert/mercenary/leader
 	name = "Mercenary Freelancer Leader"

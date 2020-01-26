@@ -110,33 +110,7 @@ BREATH ANALYZER
 	. += "[b]Scan results for \the [H]:[endb]"
 
 	// Brain activity.
-	var/brain_result = "normal"
-	if(H.should_have_organ(BP_BRAIN))
-		var/obj/item/organ/internal/brain/brain = H.internal_organs_by_name[BP_BRAIN]
-		if(!brain || H.stat == DEAD || (H.status_flags & FAKEDEATH))
-			brain_result = "<span class='scan_danger'>none, patient is braindead</span>"
-		else if(H.stat != DEAD)
-			if(istype(brain))
-				switch(brain.get_current_damage_threshold())
-					if(0)
-						brain_result = "normal"
-					if(1 to 2)
-						brain_result = "<span class='scan_notice'>minor brain damage</span>"
-					if(3 to 5)
-						brain_result = "<span class='scan_warning'>weak</span>"
-					if(6 to 8)
-						brain_result = "<span class='scan_danger'>extremely weak</span>"
-					if(9 to INFINITY)
-						brain_result = "<span class='scan_danger'>fading</span>"
-					else
-						brain_result = "<span class='scan_danger'>ERROR - Hardware fault</span>"
-			else
-				if(H.isFBP())
-					brain_result = "normal"
-				else
-					brain_result = "<span class='scan_danger'>ERROR - Organ not recognized</span>"
-	else
-		brain_result = "<span class='scan_danger'>ERROR - Non-standard biology</span>"
+	var/brain_result = H.get_brain_status()
 	dat += "Brain activity: [brain_result]."
 
 	if(H.stat == DEAD || (H.status_flags & FAKEDEATH))
