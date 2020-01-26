@@ -7,6 +7,7 @@ import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
 import Store from './store.js'
+import Utils from './utils.js'
 import './assets/global.scss'
 
 const requireComponent = require.context(
@@ -18,14 +19,14 @@ const requireComponent = require.context(
 requireComponent.keys().forEach(fileName => {
   const componentConfig = requireComponent(fileName)
   const componentName = upperFirst(
-      camelCase(
-          // Strip the leading `'./` and extension from the filename
-          fileName.replace(/^\.\/(.*)\.\w+$/, '$1')
-      )
+    camelCase(
+      // Strip the leading `'./` and extension from the filename
+      fileName.replace(/^\.\/(.*)\.\w+$/, '$1')
+    )
   )
   Vue.component(
-      componentName,
-      componentConfig.default || componentConfig
+    componentName,
+    componentConfig.default || componentConfig
   )
 })
 
@@ -39,22 +40,22 @@ if (document.getElementById("app")) {
   var state = JSON.parse(document.getElementById('initialstate').innerHTML)
 
   Store.loadState(state)
-  
+
   window.__wtimetimer = window.setInterval(() => {
     Store.state.wtime += 2
   }, 200)
-  
+
   new Vue({
     data: Store.state,
     template: "<div><p class='csserror'>Javascript loaded, stylesheets has failed to load. <a href='javascript:void(0)'><vui-button :params='{ vueuiforceresource: 1}'>Click here to load.</vui-button></a></p><component v-if='componentName' :is='componentName'/><component v-if='templateString' :is='{template:templateString}'/></div>",
     computed: {
       componentName() {
-        if(this.$root.$data.active.charAt(0) != "?") {
+        if (this.$root.$data.active.charAt(0) != "?") {
           return 'view-' + this.$root.$data.active
         }
       },
       templateString() {
-        if(this.$root.$data.active.charAt(0) == "?") {
+        if (this.$root.$data.active.charAt(0) == "?") {
           return "<div>" + this.$root.$data.active.substr(1) + "</div>"
         }
       }
@@ -62,7 +63,7 @@ if (document.getElementById("app")) {
     watch: {
       state: {
         handler() {
-          Store.pushState()
+          Utils.pushState();
         },
         deep: true
       }
@@ -91,4 +92,6 @@ if (document.getElementById("dapp")) {
       }
     }
   }).$mount('#dapp')
+
+  Store.debug = true
 }

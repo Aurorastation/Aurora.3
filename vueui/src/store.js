@@ -25,18 +25,7 @@ export default {
   },
   isUpdating: false,
   lastUpdateTime: null,
-  getStatePushString () {
-    return "vueuistateupdate=" + encodeURIComponent(this.getStatePushDataString())
-  },
   getStatePushDataString () {
     return JSON.stringify(this.state)
-  },
-  pushState() {
-    if (this.isUpdating || (Date.now() - this.lastUpdateTime) < 100 ) {
-      return
-    }
-    var r = new XMLHttpRequest()
-    r.open("GET", "?src=" + this.state.uiref + "&vueuipushonly=1&" + this.getStatePushString(), true);
-    r.send()
   }
 }
