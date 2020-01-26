@@ -175,3 +175,7 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/diona/before_equip(var/mob/living/carbon/human/H)
+	. = ..()
+	H.gender = NEUTER
