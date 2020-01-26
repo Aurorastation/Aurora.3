@@ -45,7 +45,7 @@
 
 /obj/item/reagent_containers/glass/rag/attack_self(mob/user as mob)
 	if(on_fire)
-		user.visible_message(span("warning", "\The [user] stamps out [src]."), span("warning", "You stamp out [src]."))
+		user.visible_message(span("warning", "\The [user] stamps out \the [src]."), span("warning", "You stamp out \the [src]."))
 		user.unEquip(src)
 		extinguish()
 	else
