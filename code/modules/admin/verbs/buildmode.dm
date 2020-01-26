@@ -351,4 +351,4 @@
 
 	var/centered = input(user, "Do you want template to load as center or Edge?", "Load Template", null) as null|anything in list("Center", "Edge")
 	maploader.load(T, centered == "Center" ? TRUE : FALSE)
-	log_and_message_admins("[key_name_admin(user)] has loaded template [name] at the coordinates [T.x], [T.y], [T.z].", user, T)
+	log_and_message_admins("[key_name_admin(user)] has loaded template [name] at the coordinates.", user, T)
