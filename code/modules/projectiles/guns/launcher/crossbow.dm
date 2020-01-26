@@ -295,9 +295,9 @@
 /obj/item/gun/launcher/crossbow/RFD
 	name = "Rapid-Fabrication-Device Crossbow"
 	desc = "A hacked together RFD turns an innocent tool into the penultimate destruction tool. Flashforges bolts using matter units when the string is drawn back."
-	icon = 'icons/obj/weapons.dmi'
+	icon = "icons/obj/guns/rxb.dmi"
 	icon_state = "rxb"
-	item_state = "rfd"
+	item_state = "rxb"
 	slot_flags = null
 	draw_time = 10
 	var/stored_matter = 0

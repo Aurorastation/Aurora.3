@@ -3,6 +3,7 @@
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	icon = "icons/obj/guns/colt.dmi"
 	icon_state = "colt"
 	caliber = ".45"
 	accuracy = 1
@@ -42,8 +43,9 @@
 	name = ".45 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
 	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .45 rounds."
-	icon_state = "secguncomp"
-	item_state = "mk58standard"
+	icon = "icons/obj/guns/secgun.dmi"
+	icon_state = "secgun"
+	item_state = "secgun"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
@@ -70,8 +72,9 @@
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
 	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a wooden grip. It uses .45 rounds."
 	name = "custom .45 Pistol"
-	icon_state = "secgundark"
-	item_state = "mk58custom"
+	icon = "icons/obj/guns/secgun_wood.dmi"
+	icon_state = "secgunwood"
+	item_state = "secgunwood"
 
 /obj/item/gun/projectile/sec/wood/update_icon()
 	..()
@@ -83,6 +86,7 @@
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
 	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
+	icon = "icons/obj/guns/x9.dmi"
 	icon_state = "x9tactical"
 	w_class = 3
 	accuracy = 1
@@ -101,6 +105,7 @@
 /obj/item/gun/projectile/tanto
 	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
 	name = "10mm auto-pistol"
+	icon = "icons/obj/guns/c05r.dmi"
 	icon_state = "c05r"
 	magazine_type = /obj/item/ammo_magazine/mc10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
@@ -126,7 +131,8 @@
 
 /obj/item/gun/projectile/silenced
 	name = "silenced pistol"
-	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."
+	desc = "A small, quiet, easily concealable gun. Uses .45 rounds."
+	icon = "icons/obj/guns/silenced_pistol.dmi"
 	icon_state = "silenced_pistol"
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	w_class = 3
@@ -152,6 +158,7 @@
 /obj/item/gun/projectile/deagle
 	name = ".50 magnum pistol"
 	desc = "A robust handgun that uses .50 AE ammo."
+	icon = "icons/obj/guns/deagle.dmi"
 	icon_state = "deagle"
 	force = 10
 	accuracy = 1
@@ -172,6 +179,7 @@
 /obj/item/gun/projectile/deagle/adhomai
 	name = "adhomian heavy pistol"
 	desc = "A bulk handgun used by republican commissars and high-ranking members of the Hadiist Party."
+	icon = "icons/obj/guns/adhomian_heavy_pistol.dmi"
 	icon_state = "adhomian_heavy_pistol"
 	description_fluff = "Given to Republican Commissars and high ranking Party members, the Nal'tor Model Pistol is notable for its large caliber. Unlike the Adar'Mazy pistol, only a \
 	single factory in Nal'tor is allowed to fabricate it, with its design being kept as a state secret. Because of its rarity and status, the Adhomai Heavy Pistol was a sought after \
@@ -180,6 +188,7 @@
 /obj/item/gun/projectile/gyropistol
 	name = "gyrojet pistol"
 	desc = "A bulky pistol designed to fire self propelled rounds"
+	icon = "icons/obj/guns/gyropistol.dmi"
 	icon_state = "gyropistol"
 	max_shells = 8
 	accuracy = 1
@@ -203,8 +212,8 @@
 /obj/item/gun/projectile/pistol
 	name = "9mm pistol"
 	desc = "500 years since its creation and the Stechkin automatic pistol is still a common sight throughout the Frontier."
+	icon = "icons/obj/guns/pistol.dmi"
 	icon_state = "pistol"
-	item_state = null
 	w_class = 2
 	accuracy = 1
 	caliber = "9mm"
@@ -266,15 +275,16 @@
 /obj/item/silencer
 	name = "silencer"
 	desc = "A silencer"
-	icon = 'icons/obj/gun.dmi'
+	icon = "icons/obj/guns/pistol.dmi"
 	icon_state = "silencer"
 	w_class = 2
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
 	desc = "Little more than a barrel, handle, and firing mechanism, cheap makeshift firearms like this one are not uncommon in frontier systems."
+	icon = "icons/obj/guns/zipgun.dmi"
 	icon_state = "zipgun"
-	item_state = "sawnshotgun"
+	item_state = "zipgun"
 	handle_casings = CYCLE_CASINGS //player has to take the old casing out manually before reloading
 	load_method = SINGLE_CASING
 	max_shells = 1 //literally just a barrel
@@ -302,6 +312,7 @@
 /obj/item/gun/projectile/leyon
 	name = "10mm pistol"
 	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
+	icon = "icons/obj/guns/leyon.dmi"
 	icon_state = "leyon"
 	caliber = "10mm"
 	w_class = 2
@@ -327,8 +338,8 @@
 /obj/item/gun/projectile/pistol/sol
 	name = "service pistol"
 	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Necropolis."
+	icon = "icons/obj/guns/m8.dmi"
 	icon_state = "m8"
-	item_state = "pistol"
 	can_silence = FALSE
 
 /obj/item/gun/projectile/pistol/sol/update_icon()
@@ -341,8 +352,8 @@
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
 	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
+	icon = "icons/obj/guns/adhomian_pistol.dmi"
 	icon_state = "adhomian_pistol"
-	item_state = "pistol"
 	can_silence = FALSE
 	description_fluff = "A mass produced pistol issued to People's Republic officers, government officials and low-ranking Party members. Known for their simple, cheap and reliable \
 	design, this weapon is produced by nearly all weapon factories in the Republic. The Adar'Mazy is also found in the hands of Adhomai Liberation Army soldiers and commanders."

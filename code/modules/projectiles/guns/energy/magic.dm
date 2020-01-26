@@ -3,8 +3,7 @@
 /obj/item/gun/energy/staff
 	name = "staff of change"
 	desc = "An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself."
-	icon = 'icons/obj/gun.dmi'
-	item_icons = null
+	icon = "icons/obj/guns/staffofchange.dmi"
 	icon_state = "staffofchange"
 	item_state = "staffofchange"
 	fire_sound = 'sound/magic/Staff_Change.ogg'

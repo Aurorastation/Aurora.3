@@ -32,13 +32,11 @@
 	name = "gun"
 	desc = "Its a gun. It's pretty terrible, though."
 	icon = 'icons/obj/gun.dmi'
-	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi'
-		)
-	icon_state = "detective"
-	item_state = "gun"
-	flags =  CONDUCT
+	contained_sprite = TRUE
+	icon = "icons/obj/guns/pistol.dmi"
+	icon_state = "pistol"
+	item_state = "pistol"
+	flags = CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = 3

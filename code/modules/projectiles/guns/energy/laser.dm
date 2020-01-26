@@ -1,6 +1,7 @@
 /obj/item/gun/energy/laser
 	name = "laser carbine"
 	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
+	icon = "icons/obj/guns/laserrifle.dmi"
 	icon_state = "laserrifle"
 	item_state = "laserrifle"
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -32,6 +33,7 @@
 
 obj/item/gun/energy/retro
 	name = "retro laser"
+	icon = "icons/obj/guns/retro.dmi"
 	icon_state = "retro"
 	item_state = "retro"
 	desc = "An older model of the basic lasergun. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
@@ -46,6 +48,7 @@ obj/item/gun/energy/retro
 
 /obj/item/gun/energy/captain
 	name = "antique laser gun"
+	icon = "icons/obj/guns/caplaser.dmi"
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy. On the item is an image of Baystation 12. The station is exploding."
@@ -65,6 +68,7 @@ obj/item/gun/energy/retro
 	name = "laser cannon"
 	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
 	description_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
+	icon = "icons/obj/guns/lasercannon.dmi"
 	icon_state = "lasercannon"
 	item_state = null
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
@@ -93,6 +97,7 @@ obj/item/gun/energy/retro
 	name = "xray laser gun"
 	desc = "A Nanotrasen designed high-power laser sidearm capable of expelling concentrated xray blasts."
 	description_fluff = "The NT XG-1 is a laser sidearm developed and produced by Nanotrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
+	icon = "icons/obj/guns/xray.dmi"
 	icon_state = "xray"
 	item_state = "xray"
 	fire_sound = 'sound/weapons/laser3.ogg'
@@ -116,8 +121,9 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
 	desc = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	icon = "icons/obj/guns/sniper.dmi"
 	icon_state = "sniper"
-	item_state = "psniper"
+	item_state = "sniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/beam/sniper
@@ -152,8 +158,9 @@ obj/item/gun/energy/retro
 	name = "quad-beam laser"
 	desc = "A Nanotrasen designed laser weapon, designed to split a single beam four times."
 	description_fluff = "The NT QB-2 is a laser weapon developed and produced by Nanotrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
-	icon_state = "oldenergykill"
-	item_state = "energykill"
+	icon = "icons/obj/guns/ecarbine.dmi" // using this as placeholder until proper sprites are made
+	icon_state = "energykill100"
+	item_state = "energykill100"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
@@ -194,6 +201,7 @@ obj/item/gun/energy/retro
 	return ..()
 
 /obj/item/gun/energy/lasertag/blue
+	icon = "icons/obj/guns/bluetag.dmi"
 	icon_state = "bluetag"
 	item_state = "bluetag"
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
@@ -204,6 +212,7 @@ obj/item/gun/energy/retro
 	turret_sprite_set = "blue"
 
 /obj/item/gun/energy/lasertag/red
+	icon = "icons/obj/guns/bluetag.dmi"
 	icon_state = "redtag"
 	item_state = "redtag"
 	projectile_type = /obj/item/projectile/beam/lastertag/red

@@ -1,7 +1,8 @@
 /obj/item/gun/projectile/automatic
 	name = "prototype SMG"
 	desc = "A protoype lightweight, fast firing gun. Uses 9mm rounds."
-	icon_state = "saber"	//ugly
+	icon = "icons/obj/guns/saber.dmi"
+	icon_state = "saber"	//ugly //yup
 	w_class = 3
 	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
 	max_shells = 22
@@ -25,6 +26,7 @@
 /obj/item/gun/projectile/automatic/mini_uzi
 	name = ".45 machine pistol"
 	desc = "A lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
+	icon = "icons/obj/guns/mini-uzi.dmi"
 	icon_state = "mini-uzi"
 	item_state = "mini-uzi"
 	w_class = 3
@@ -43,6 +45,7 @@
 /obj/item/gun/projectile/automatic/c20r
 	name = "submachine gun"
 	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. Uses 10mm rounds. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
+	icon = "icons/obj/guns/c20r.dmi"
 	icon_state = "c20r"
 	item_state = "c20r"
 	w_class = 3
@@ -68,6 +71,7 @@
 /obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
 	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Necropolis Industries for paramilitary and private use. Uses 9mm rounds."
+	icon = "icons/obj/guns/wt550.dmi"
 	icon_state = "wt550"
 	item_state = "wt550"
 	w_class = 3
@@ -93,8 +97,9 @@
 /obj/item/gun/projectile/automatic/rifle
 	name = "automatic rifle"
 	desc = "A weapon firing an intermediate caliber round, or larger."
+	icon = "icons/obj/guns/arifle.dmi"
 	icon_state = "arifle"
-	item_state = null
+	item_state = "arifle"
 	w_class = 4
 	force = 10
 	caliber = "a762"
@@ -142,6 +147,7 @@
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "battle rifle"
 	desc = "A powerful battle rifle, the M469 is a highly accurate skirmishing firearm of Necropolis make which is chambered in 7.62."
+	icon = "icons/obj/guns/battlerifle.dmi"
 	icon_state = "battlerifle"
 	item_state = "battlerifle"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
@@ -169,8 +175,9 @@
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
 	desc = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
+	icon = "icons/obj/guns/carbine.dmi"
 	icon_state = "carbine"
-	item_state = "z8carbine"
+	item_state = "carbine"
 	w_class = 4
 	force = 10
 	caliber = "a556"
@@ -229,9 +236,9 @@
 	else
 		icon_state = "carbine"
 	if(wielded)
-		item_state = "z8carbine-wielded"
+		item_state = "carbine-wielded"
 	else
-		item_state = "z8carbine"
+		item_state = "carbine"
 	update_held_icon()
 	return
 
@@ -245,6 +252,7 @@
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
 	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2431' engraved on the receiver"
+	icon = "icons/obj/guns/l6.dmi"
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
 	w_class = 4
@@ -316,6 +324,7 @@
 /obj/item/gun/projectile/automatic/tommygun
 	name = "vintage submachine gun"
 	desc = "A classic submachine gun. Uses .45 rounds."
+	icon = "icons/obj/guns/tommygun.dmi"
 	icon_state = "tommygun"
 	item_state = "tommygun"
 	w_class = 3
@@ -336,6 +345,7 @@
 /obj/item/gun/projectile/automatic/railgun
 	name = "railgun"
 	desc = "An advanced rifle that magnetically propels hyperdense rods at breakneck speeds to devastating effect."
+	icon = "icons/obj/guns/railgun.dmi"
 	icon_state = "railgun"
 	item_state = "railgun"
 	w_class = 4
@@ -359,10 +369,9 @@
 /obj/item/gun/projectile/automatic/terminator
 	name = "flechette rifle"
 	desc = "A fearsome Necropolis Industries designed rifle with unattached bayonet that fires lethal flechette rounds."
-	icon = 'icons/obj/terminator.dmi'
+	icon = "icons/obj/guns/flechette.dmi"
 	icon_state = "flechetterifle"
 	item_state = "flechetterifle"
-	contained_sprite = 1
 	w_class = 5
 	force = 30
 	caliber = "flechette"
@@ -404,6 +413,7 @@
 /obj/item/gun/projectile/automatic/rifle/shotgun
 	name = "assault shotgun"
 	desc = "A experimental, semi-automatic combat shotgun, designed for boarding operations and law enforcement agencies."
+	icon = "icons/obj/guns/assaultshotgun.dmi"
 	icon_state = "assaultshotgun"
 	item_state = "assaultshotgun"
 	w_class = 4

@@ -1,6 +1,7 @@
 /obj/item/gun/launcher/grenade
 	name = "grenade launcher"
 	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
+	//TO-DO get sprites
 	icon_state = "riotgun"
 	item_state = "riotgun"
 	w_class = 4

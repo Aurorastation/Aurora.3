@@ -38,6 +38,7 @@
 /obj/item/gun/projectile/shotgun/pump
 	name = "pump shotgun"
 	desc = "An ubiquitous unbranded shotgun. Useful for sweeping alleys."
+	icon = "icons/obj/guns/shotgun.dmi"
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 4
@@ -96,6 +97,7 @@
 /obj/item/gun/projectile/shotgun/pump/combat
 	name = "combat shotgun"
 	desc = "Built for close quarters combat, the Hephaestus Industries KS-40 is widely regarded as a weapon of choice for repelling boarders."
+	icon = "icons/obj/guns/cshotgun.dmi"
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
@@ -106,6 +108,7 @@
 /obj/item/gun/projectile/shotgun/pump/combat/sol
 	name = "naval shotgun"
 	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Necropolis Industries."
+	icon = "icons/obj/guns/malella.dmi"
 	icon_state = "malella"
 	item_state = "malella"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
@@ -114,6 +117,7 @@
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
+	icon = "icons/obj/guns/dshotgun.dmi"
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
 	//SPEEDLOADER because rapid unloading.
@@ -151,6 +155,7 @@
 	..(user, allow_dump=1)
 
 /obj/item/gun/projectile/shotgun/doublebarrel/saw_off(mob/user, obj/item/tool)
+	icon = "icons/obj/guns/sawnshotgun.dmi"
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
 	w_class = 3
@@ -164,6 +169,7 @@
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 	name = "sawn-off shotgun"
 	desc = "Omar's coming!"
+	icon = "icons/obj/guns/sawnshotgun.dmi"
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -174,7 +180,9 @@
 /obj/item/gun/projectile/shotgun/foldable
 	name = "foldable shotgun"
 	desc = "A single-shot shotgun that can be folded for easy concealment."
+	icon = "icons/obj/guns/overunder.dmi"
 	icon_state = "overunder"
+	item_state = "overunder"
 	slot_flags = SLOT_BELT
 	w_class = 3
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet

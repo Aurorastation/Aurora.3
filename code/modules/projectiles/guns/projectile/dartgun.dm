@@ -44,6 +44,7 @@
 /obj/item/gun/projectile/dartgun
 	name = "dart gun"
 	desc = "A small gas-powered dartgun, capable of delivering chemical cocktails swiftly across short distances."
+	icon = "icons/obj/guns/dartgun.dmi"
 	icon_state = "dartgun-empty"
 	item_state = null
 
@@ -93,9 +94,6 @@
 		fill_dart(dart)
 
 /obj/item/gun/projectile/dartgun/examine(mob/user)
-	//update_icon()
-	//if (!..(user, 2))
-	//	return
 	..()
 	if (beakers.len)
 		to_chat(user, "<span class='notice'>[src] contains:</span>")
