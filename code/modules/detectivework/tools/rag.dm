@@ -57,7 +57,7 @@
 		if(F.lit)
 			ignite()
 			if(on_fire)
-				visible_message(span("warning", "\The [user] lights [src] with [W]."))
+				visible_message(span("warning", "\The [user] lights \the [src] with \the [W]."))
 			else
 				to_chat(user, span("warning", "You manage to singe \the [src], but fail to light it."))
 
