@@ -1,0 +1,7 @@
+author: Pratepresidenten
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes: 
+  - tweak: "Round tips have been given some love."
