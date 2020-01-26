@@ -25,7 +25,7 @@
 
 /turf/proc/make_flooded()
 	if(!flooded)
-		flooded = true
+		flooded = TRUE
 		for(var/obj/effect/fluid/F in src)
 			qdel(F)
 		update_icon()

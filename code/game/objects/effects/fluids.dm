@@ -6,7 +6,6 @@
 	opacity = 0
 	mouse_opacity = 0
 	layer = DEEP_FLUID_LAYER
-	plane = DEEP_FLUID_LAYER
 	alpha = 0
 	color = COLOR_OCEAN
 
