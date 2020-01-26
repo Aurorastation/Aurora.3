@@ -34,6 +34,6 @@ export default {
       vueuipushonly: 1,
       vueuistateupdate: Store.getStatePushDataString()
     }
-    this.sendToTopicRaw()
+    this.sendToTopicRaw(pushData)
   }
 }
