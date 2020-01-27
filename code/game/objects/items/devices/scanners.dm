@@ -468,9 +468,9 @@ BREATH ANALYZER
 		to_chat(user, span("warning", "Anomalous number of slime cores detected."))
 	else if(!T.cores)
 		to_chat(user, span("warning", "No slime cores detected."))
-	to_chat(user,span( "notice", "Genetic Information:"))
+	to_chat(user, span("notice", "Genetic Information:"))
 	if(T.slime_mutation[4] == T.colour)
-		to_chat(user, span("warning", "This slime does not evolve any further."))
+		to_chat(user, span("warning", "This slime cannot evolve any further."))
 	else
 		if(T.slime_mutation[3] == T.slime_mutation[4])
 			if(T.slime_mutation[2] == T.slime_mutation[1])
