@@ -89,7 +89,7 @@
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing,src)
-	to_chat(user, span("notice", "You set \the condenser switch to \the <b>'[refill_enabled ? "ON" : "OFF"]'</b> position."))
+	to_chat(user, span("notice", "You set the condenser switch to the <b>'[refill_enabled ? "ON" : "OFF"]'</b> position."))
 	playsound(user, 'sound/machines/click.ogg', 25, 1)
 
 /obj/item/mop/advanced/process()
@@ -104,4 +104,3 @@
 	if(refill_enabled)
 		STOP_PROCESSING(SSprocessing, src)
 	return ..()
-
