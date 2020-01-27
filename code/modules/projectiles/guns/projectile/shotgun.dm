@@ -168,6 +168,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	is_wieldable = FALSE
 	w_class = 3
 	force = 5
 	slot_flags &= ~SLOT_BACK	//you can't sling it on your back
@@ -182,6 +183,7 @@
 	icon = 'icons/obj/guns/sawnshotgun.dmi'
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
+	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	w_class = 3

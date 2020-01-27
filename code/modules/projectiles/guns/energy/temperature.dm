@@ -3,6 +3,7 @@
 	icon = 'icons/obj/guns/freezegun.dmi'
 	icon_state = "freezegun"
 	item_state = "freezegun"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/pulse3.ogg'
 	desc = "A gun that changes temperatures. It has a small label on the side, 'More extreme temperatures will cost more charge!'"
 	var/temperature = T20C

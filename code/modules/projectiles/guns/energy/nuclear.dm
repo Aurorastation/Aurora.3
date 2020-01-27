@@ -3,8 +3,8 @@
 	desc = "A Nanotrasen designed energy-based carbine with two settings: Stun and kill."
 	description_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
-	icon_state = "energystun100"
-	item_state = null	// so the human update icon uses the icon_state instead.
+	icon_state = "energystun"
+	item_state = "energystun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	accuracy = 1
@@ -37,6 +37,7 @@
 	desc = "An energy gun with an experimental miniaturized reactor."
 	icon = 'icons/obj/guns/nucgun.dmi'
 	icon_state = "nucgun"
+	item_state = "nucgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
 	slot_flags = SLOT_BELT
 	force = 8 //looks heavier than a pistol
@@ -120,7 +121,8 @@
 	desc = "A Nanotrasen energy-based pistol gun with two settings: Stun and kill."
 	description_fluff = "The NT EP-3 is an energy sidearm developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/epistol.dmi'
-	icon_state = "epistolstun100"
+	icon_state = "epistolstun"
+	item_state = "epistolstun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 7
@@ -147,6 +149,7 @@
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	item_state = "hegemony_pistol"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 10

@@ -4,6 +4,7 @@
 	icon = 'icons/obj/guns/laserrifle.dmi'
 	icon_state = "laserrifle"
 	item_state = "laserrifle"
+	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
@@ -36,6 +37,7 @@ obj/item/gun/energy/retro
 	icon = 'icons/obj/guns/retro.dmi'
 	icon_state = "retro"
 	item_state = "retro"
+	has_item_ratio = FALSE
 	desc = "An older model of the basic lasergun. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
@@ -51,6 +53,7 @@ obj/item/gun/energy/retro
 	icon = 'icons/obj/guns/caplaser.dmi'
 	icon_state = "caplaser"
 	item_state = "caplaser"
+	has_item_ratio = FALSE
 	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy. On the item is an image of Baystation 12. The station is exploding."
 	force = 5
 	fire_sound = 'sound/weapons/Laser.ogg'
@@ -70,7 +73,7 @@ obj/item/gun/energy/retro
 	description_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon"
-	item_state = null
+	item_state = "lasercannon"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	slot_flags = SLOT_BELT|SLOT_BACK
@@ -100,6 +103,7 @@ obj/item/gun/energy/retro
 	icon = 'icons/obj/guns/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	projectile_type = /obj/item/projectile/beam/xray
@@ -124,6 +128,7 @@ obj/item/gun/energy/retro
 	icon = 'icons/obj/guns/sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"
+	has_item_ratio = FALSE // same as the laserrifle
 	fire_sound = 'sound/weapons/marauder.ogg'
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/beam/sniper
@@ -159,8 +164,8 @@ obj/item/gun/energy/retro
 	desc = "A Nanotrasen designed laser weapon, designed to split a single beam four times."
 	description_fluff = "The NT QB-2 is a laser weapon developed and produced by Nanotrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
 	icon = 'icons/obj/guns/ecarbine.dmi' // using this as placeholder until proper sprites are made
-	icon_state = "energykill100"
-	item_state = "energykill100"
+	icon_state = "energykill"
+	item_state = "energykill"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
@@ -185,6 +190,7 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/lasertag
 	name = "laser tag gun"
 	item_state = "laser"
+	has_item_ratio = FALSE
 	desc = "Standard issue weapon of the Imperial Guard"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	self_recharge = 1

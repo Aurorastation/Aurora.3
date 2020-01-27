@@ -4,6 +4,7 @@
 	icon = 'icons/obj/guns/blaster_pistol.dmi'
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = 2

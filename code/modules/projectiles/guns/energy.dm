@@ -8,6 +8,8 @@
 	fire_sound_text = "laser blast"
 	update_icon_on_init = TRUE
 
+	var/has_item_ratio = TRUE // Does this gun use the ratio system to paint its item_states?
+
 	var/obj/item/cell/power_supply //What type of power cell this uses
 	var/charge_cost = 200 //How much energy is needed to fire.
 	var/max_shots = 10 //Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
@@ -69,10 +71,14 @@
 	addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
 /obj/item/gun/energy/consume_next_projectile()
-	if(!power_supply) return null
-	if(!ispath(projectile_type)) return null
-	if(!power_supply.checked_use(charge_cost)) return null
-	if (self_recharge) addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+	if(!power_supply)
+		return null
+	if(!ispath(projectile_type))
+		return null
+	if(!power_supply.checked_use(charge_cost))
+		return null
+	if(self_recharge)
+		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	return new projectile_type(src)
 
 /obj/item/gun/energy/proc/get_external_power_supply()
@@ -102,6 +108,7 @@
 	..()
 	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
+		var/item_state_ratio = ""
 
 		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
 		if(power_supply.charge < charge_cost)
@@ -109,10 +116,13 @@
 		else
 			ratio = max(round(ratio, 0.25) * 100, 25)
 
+		if(has_item_ratio)
+			item_state_ratio = ratio
+
 		if(modifystate)
 			icon_state = "[modifystate][ratio]"
-			item_state = "[modifystate][ratio]"
+			item_state = "[modifystate][item_state_ratio]"
 		else
 			icon_state = "[initial(icon_state)][ratio]"
-			item_state = "[initial(item_state)][ratio]"
+			item_state = "[initial(item_state)][item_state_ratio]"
 	update_held_icon()

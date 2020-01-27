@@ -3,7 +3,7 @@
 	desc = "The NT Mk30 NL is a small, low capacity gun used for non-lethal takedowns."
 	icon = 'icons/obj/guns/taser.dmi'
 	icon_state = "taser"
-	item_state = null	//so the human update icon uses the icon_state instead.
+	item_state = "taser"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	max_shots = 5
 	accuracy = 1 // More of a buff to secborgs and mounted taser users.
@@ -25,6 +25,7 @@
 	icon = 'icons/obj/guns/stunrevolver.dmi'
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
 	projectile_type = /obj/item/projectile/energy/electrode
@@ -37,6 +38,7 @@
 	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
+	has_item_ratio = FALSE
 	w_class = 2.0
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)

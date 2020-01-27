@@ -2,6 +2,8 @@
 	name = "\improper Lawgiver Mk II"
 	icon = 'icons/obj/guns/lawgiver.dmi'
 	icon_state = "lawgiver"
+	item_state = "lawgiver"
+	has_item_ratio = FALSE
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
 	sel_mode = 1
 	var/mode_check = 1

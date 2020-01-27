@@ -6613,6 +6613,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
+/obj/item/gun/projectile/pirate,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "anq" = (
@@ -27141,6 +27142,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
+/obj/item/gun/projectile/silenced,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aVx" = (
@@ -28892,6 +28894,7 @@
 	pixel_x = 32;
 	pixel_y = -8
 	},
+/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aYv" = (
@@ -29508,6 +29511,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/pistol,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "aZA" = (
@@ -29522,6 +29526,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/pistol/adhomai,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "aZB" = (
@@ -29548,6 +29553,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/pistol/flash,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZD" = (
@@ -29560,6 +29566,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/closet/walllocker/emerglocker/south,
+/obj/item/gun/projectile/revolver/deckard/emp,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZE" = (
@@ -29572,6 +29579,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/plasma,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZF" = (
@@ -29583,6 +29591,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/pistol/sol,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZG" = (
@@ -29595,6 +29604,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/revolver/deckard,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZH" = (
@@ -29609,6 +29619,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/revolver/lemat,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZI" = (
@@ -29623,6 +29634,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/sec/flash,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZJ" = (
@@ -29635,6 +29647,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/shotgun/improvised,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZK" = (
@@ -29653,6 +29666,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZL" = (
@@ -29664,6 +29678,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/item/gun/projectile/shotgun/pump/combat,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZM" = (
@@ -29684,6 +29699,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZN" = (
@@ -29699,6 +29715,7 @@
 	codes_txt = "patrol;next_patrol=S2";
 	location = "S1"
 	},
+/obj/item/gun/projectile/shotgun/pump/rifle,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aZO" = (
@@ -31573,6 +31590,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
+/obj/item/gun/projectile/leyon,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bdq" = (
@@ -33277,6 +33295,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
+/obj/item/gun/projectile/heavysniper/tranq,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bgj" = (
@@ -35576,6 +35595,7 @@
 /area/hallway/primary/central_one)
 "bka" = (
 /obj/machinery/firealarm/east,
+/obj/item/gun/projectile/gauss,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bkb" = (
@@ -40506,6 +40526,7 @@
 /area/hallway/primary/central_one)
 "brE" = (
 /obj/effect/floor_decal/corner/lime,
+/obj/item/gun/projectile/colt/detective,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "brF" = (
@@ -41329,6 +41350,7 @@
 /obj/item/device/radio/intercom{
 	pixel_x = -28
 	},
+/obj/item/gun/bang/sec/flash,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bsQ" = (
@@ -42219,6 +42241,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/gun/projectile/cannon,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "btX" = (
@@ -42841,6 +42864,7 @@
 /obj/structure/sign/science{
 	pixel_x = -32
 	},
+/obj/item/gun/bang/silenced,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bvd" = (
@@ -42866,6 +42890,7 @@
 	icon_state = "corner_white";
 	dir = 4
 	},
+/obj/item/gun/projectile/automatic/x9,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bvg" = (
@@ -43281,6 +43306,7 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
+/obj/item/gun/bang/tanto,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bwb" = (
@@ -43300,6 +43326,7 @@
 	c_tag = "Central Corridor - Medical EMT Entrance";
 	dir = 8
 	},
+/obj/item/gun/projectile/automatic/wt550,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bwd" = (
@@ -45029,6 +45056,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/item/gun/projectile/automatic/terminator,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "byS" = (
@@ -46115,6 +46143,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/item/gun/projectile/automatic/rifle/sts35,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bAU" = (
@@ -46152,6 +46181,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/item/gun/projectile/automatic/rifle/w556,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bBa" = (
@@ -47851,6 +47881,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/item/gun/projectile/automatic/rifle/sol,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bEs" = (
@@ -47957,6 +47988,7 @@
 /obj/machinery/status_display{
 	pixel_x = -32
 	},
+/obj/item/gun/energy/blaster/revolver/pilot,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bEB" = (
@@ -48884,6 +48916,7 @@
 /obj/machinery/computer/guestpass{
 	pixel_x = -32
 	},
+/obj/item/gun/energy/captain,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bGn" = (
@@ -49444,6 +49477,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/gun/energy/captain/xenoarch,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bHh" = (
@@ -49618,6 +49652,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/gun/projectile/automatic/improvised,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bHt" = (
@@ -49991,6 +50026,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/item/gun/energy/chameleon,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bIe" = (
@@ -50001,6 +50037,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/gun/energy/decloner,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bIg" = (
@@ -50018,6 +50055,7 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/gun/projectile/automatic/c20r,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bIi" = (
@@ -51192,6 +51230,7 @@
 /obj/machinery/door/firedoor{
 	enable_smart_generation = 0
 	},
+/obj/item/gun/energy/gun/nuclear,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bKN" = (
@@ -51491,6 +51530,7 @@
 	c_tag = "Aft Corridor - Camera 4";
 	dir = 4
 	},
+/obj/item/gun/energy/laser,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bLw" = (
@@ -52248,6 +52288,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/item/gun/energy/laser/practice/xenoarch,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bMK" = (
@@ -52510,6 +52551,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/item/gun/energy/laser/shotgun,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bNy" = (
@@ -52517,6 +52559,7 @@
 	pixel_x = 32;
 	pixel_y = 0
 	},
+/obj/item/gun/launcher/crossbow/RFD,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bNz" = (
@@ -53733,6 +53776,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/gun/energy/lasertag/red,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bQw" = (
@@ -53908,6 +53952,7 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
+/obj/item/gun/energy/mindflayer,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bQV" = (
@@ -54257,6 +54302,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
+/obj/item/gun/energy/noisecannon,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bSk" = (
@@ -54786,6 +54832,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/item/gun/energy/vaurca/typec,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bTn" = (
@@ -55066,6 +55113,7 @@
 /obj/machinery/door/firedoor{
 	enable_smart_generation = 0
 	},
+/obj/item/gun/energy/vaurca/thermaldrill,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bTV" = (
@@ -55398,6 +55446,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/gun/energy/pulse,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bUA" = (
@@ -55586,6 +55635,7 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
+/obj/item/gun/energy/vaurca/gatlinglaser,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bUW" = (
@@ -55795,6 +55845,7 @@
 /obj/item/device/radio/intercom{
 	pixel_x = 32
 	},
+/obj/item/gun/energy/vaurca/blaster,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bVw" = (
@@ -56133,6 +56184,7 @@
 /obj/machinery/newscaster{
 	pixel_x = -32
 	},
+/obj/item/gun/energy/rifle/icelance,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bWi" = (
@@ -56789,6 +56841,7 @@
 	icon_state = "corner_white";
 	dir = 8
 	},
+/obj/item/gun/energy/rifle/laser/heavy,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bXC" = (
@@ -56951,6 +57004,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/item/gun/energy/rifle/laser/tachyon,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bXT" = (
@@ -57024,6 +57078,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/gun/energy/rifle/laser/xray,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bYg" = (
@@ -57155,6 +57210,7 @@
 	icon_state = "corner_white";
 	dir = 1
 	},
+/obj/item/gun/energy/rifle/pulse,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bYw" = (
@@ -57314,6 +57370,7 @@
 /obj/machinery/door/firedoor{
 	enable_smart_generation = 0
 	},
+/obj/item/gun/energy/staff,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bYM" = (
@@ -62847,6 +62904,10 @@
 "coP" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/storage_eva)
+"cph" = (
+/obj/item/gun/energy/wand/toy,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "cqF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable{
@@ -62932,12 +62993,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"cDb" = (
+/obj/item/gun/energy/crossbow/ninja,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "cGg" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"cHT" = (
+/obj/item/gun/launcher/syringe,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "cJo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/costume/imperium_monk,
@@ -62948,6 +63017,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"cLw" = (
+/obj/item/gun/bang/pistol,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "cMe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/meter{
@@ -62955,6 +63028,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"cOe" = (
+/obj/item/gun/projectile/heavysniper,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"cOo" = (
+/obj/item/gun/energy/vaurca/bfg,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "cPY" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -63058,6 +63139,10 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/airless,
 /area/maintenance/cargo)
+"dga" = (
+/obj/item/gun/projectile/automatic/tommygun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "dgR" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -63095,6 +63180,28 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"djS" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/gun/energy/toxgun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"djV" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/item/gun/projectile/contender,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "dnl" = (
 /mob/living/simple_animal/rat/hooded,
 /turf/simulated/floor/plating,
@@ -63158,6 +63265,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
+"dsP" = (
+/obj/item/gun/bang/revolver,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "dtt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -63331,10 +63442,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"dHg" = (
+/obj/item/gun/energy/wand/fire,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"dJp" = (
+/obj/item/gun/energy/crossbow,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "dKk" = (
 /obj/machinery/computer/guestpass{
 	pixel_x = 32
 	},
+/obj/item/gun/energy/wand/animation,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "dKW" = (
@@ -63344,6 +63464,10 @@
 "dNy" = (
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator)
+"dNI" = (
+/obj/item/gun/launcher/spikethrower,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "dPs" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -63417,6 +63541,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"dYW" = (
+/obj/item/gun/energy/xray,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "eco" = (
 /obj/machinery/power/terminal{
 	dir = 8
@@ -63498,6 +63626,10 @@
 "ekr" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/engineering_ladder)
+"elj" = (
+/obj/item/gun/energy/xray/xenoarch,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "elB" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/fancy/crayons/chalkbox,
@@ -63565,6 +63697,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"ewB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "eye" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -63650,6 +63794,10 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
+"eMH" = (
+/obj/item/gun/energy/temperature,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "eNR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
@@ -63991,6 +64139,13 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"fIO" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/item/gun/energy/wand/force,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "fIX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -64038,6 +64193,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"fNc" = (
+/obj/machinery/door/firedoor{
+	enable_smart_generation = 0
+	},
+/obj/item/gun/energy/gun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "fNM" = (
 /obj/structure/table/standard,
 /obj/item/tape_roll,
@@ -64104,6 +64266,11 @@
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /turf/simulated/floor/plating,
 /area/engineering/engine_waste)
+"fVf" = (
+/obj/machinery/light,
+/obj/item/gun/energy/crossbow/largecrossbow,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "fXi" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -64137,6 +64304,13 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"gal" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/item/gun/projectile/dragunov,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "gaR" = (
 /obj/machinery/power/singularity_beacon/emergency{
 	name = "emergency tesla beacon"
@@ -64286,6 +64460,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"gvJ" = (
+/obj/item/gun/energy/pistol/hegemony,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "gxO" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
@@ -64403,6 +64581,10 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"gJO" = (
+/obj/item/gun/energy/retro,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "gKs" = (
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -64577,6 +64759,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"heZ" = (
+/obj/machinery/door/firedoor{
+	enable_smart_generation = 0
+	},
+/obj/item/gun/launcher/pneumatic,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "hfd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -64586,6 +64775,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"hgQ" = (
+/obj/item/gun/energy/staff/chaos,
+/obj/item/gun/energy/staff/focus,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "hgW" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -64927,6 +65121,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"hRl" = (
+/obj/item/gun/energy/pistol,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "hRF" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -65049,6 +65247,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
+"iaG" = (
+/obj/item/gun/bang/x9,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "ifx" = (
 /obj/structure/closet/crate/freezer{
 	name = "Assorted Blood Packs"
@@ -65065,6 +65267,13 @@
 /obj/item/reagent_containers/blood/AMinus,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
+"iib" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/item/gun/projectile/gyropistol,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "ikb" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
@@ -65108,6 +65317,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
+"iro" = (
+/obj/item/gun/projectile/deagle/adhomai,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"iyY" = (
+/obj/item/gun/energy/laser/xenoarch,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "izh" = (
 /obj/structure/bed/chair/wood{
 	dir = 1
@@ -65147,6 +65364,18 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"iEA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/shotgun/foldable,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "iFV" = (
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
@@ -65301,6 +65530,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"jnT" = (
+/obj/item/gun/energy/tesla,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "jpf" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -65333,6 +65566,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"jvb" = (
+/obj/item/gun/energy/laser/practice,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "jvm" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -65342,6 +65579,27 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"jvB" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/revolver/mateba,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
+"jvG" = (
+/obj/item/gun/projectile/dartgun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"jxx" = (
+/obj/item/gun/energy/beegun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "jyi" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -65389,6 +65647,18 @@
 /obj/effect/floor_decal/corner/lime/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
+"jHC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/revolver/detective,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "jHQ" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -65597,6 +65867,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"kdD" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/sec/wood,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "kdE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -65662,6 +65944,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"kiW" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/revolver/capgun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "kkX" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -65782,11 +66076,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/medbreak)
+"kCZ" = (
+/obj/item/gun/energy/taser,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "kGv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stool,
 /turf/simulated/floor/tiled,
 /area/maintenance/cargo)
+"kHy" = (
+/obj/item/gun/energy/wand/teleport,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"kHX" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/item/gun/bang/sec/wood,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "kIj" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 2;
@@ -65850,11 +66160,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"kUJ" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/item/gun/projectile/colt,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "kVD" = (
 /obj/item/stool/padded,
 /mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"kWs" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/revolver/derringer,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "kWH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -65862,8 +66191,13 @@
 /obj/machinery/door/firedoor{
 	enable_smart_generation = 0
 	},
+/obj/item/gun/energy/sniperrifle,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"kXC" = (
+/obj/item/gun/bang/deagle,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "kYd" = (
 /obj/item/stack/tile/floor_white{
 	pixel_x = -3;
@@ -66065,6 +66399,17 @@
 /obj/random/junk,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"lvd" = (
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/door/firedoor{
+	enable_smart_generation = 0
+	},
+/obj/item/gun/energy/blaster/rifle,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "lyh" = (
 /obj/machinery/camera/network/engineering{
 	c_tag = "Maintenance - Atmospherics"
@@ -66401,6 +66746,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"mmP" = (
+/obj/item/gun/launcher/crossbow,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "mmQ" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -66447,6 +66796,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/icu)
+"muh" = (
+/obj/item/gun/bang/pirate,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "mxd" = (
 /obj/structure/table/rack,
 /obj/random/arcade,
@@ -66535,6 +66888,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)
+"mDp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/item/gun/energy/rifle/laser,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "mEf" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -66718,6 +67078,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"mVQ" = (
+/obj/item/gun/energy/floragun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "mWu" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -66932,6 +67296,10 @@
 "nAn" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/vault)
+"nBI" = (
+/obj/item/gun/launcher/syringe/rapid,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "nCg" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -66979,6 +67347,18 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"nKb" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/plasma/bolter,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "nKv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/fueltank,
@@ -67021,6 +67401,15 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/maintenance/vault)
+"nOD" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/item/gun/energy/vaurca/tachyon,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "nOE" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -67070,6 +67459,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
+"nVw" = (
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "nXe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/costume/gladiator,
@@ -67085,12 +67478,37 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"nYj" = (
+/obj/machinery/door/firedoor{
+	enable_smart_generation = 0
+	},
+/obj/item/gun/launcher/pneumatic/small,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"nZw" = (
+/obj/machinery/door/firedoor{
+	enable_smart_generation = 0
+	},
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "oaR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"ocn" = (
+/obj/machinery/door/firedoor{
+	enable_smart_generation = 0
+	},
+/obj/item/gun/energy/rifle/pulse/destroyer,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
+"odp" = (
+/obj/item/gun/projectile/improvised_handgun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "odr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -67111,6 +67529,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"ogr" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/item/gun/energy/blaster,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "ohn" = (
 /obj/structure/bed/chair{
 	dir = 4
@@ -67243,6 +67668,10 @@
 "oud" = (
 /turf/simulated/wall,
 /area/maintenance/substation/supply)
+"ouP" = (
+/obj/item/gun/energy/blaster/revolver,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "ouZ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -67352,6 +67781,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"oFj" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/item/gun/projectile/automatic/rifle/l6_saw,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "oGJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/tile/wood,
@@ -67390,6 +67834,18 @@
 	icon_state = "asteroidplating"
 	},
 /area/outpost/mining_main/eva)
+"oIZ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/shotgun/improvised/sawn,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "oMl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -67572,6 +68028,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"pgd" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/shotgun/doublebarrel,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "pgz" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -67638,6 +68106,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
+"piT" = (
+/obj/machinery/firealarm/east,
+/obj/item/gun/projectile/automatic/mini_uzi,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "piW" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -67782,6 +68255,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
+"pyQ" = (
+/obj/item/gun/energy,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "pzj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -68169,6 +68646,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"qKX" = (
+/obj/item/gun/launcher/harpoon,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "qLi" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -68268,6 +68749,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"qWe" = (
+/obj/item/gun/energy/lawgiver,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "qYj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -68316,6 +68801,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"qZw" = (
+/obj/item/gun/energy/pulse/pistol,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "qZF" = (
 /obj/item/material/shard/shrapnel,
 /obj/effect/decal/cleanable/dirt,
@@ -68409,6 +68898,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"rky" = (
+/obj/item/gun/energy/stunrevolver,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "rnc" = (
 /obj/structure/largecrate/animal/cow,
 /turf/simulated/floor/plating,
@@ -68422,6 +68915,10 @@
 /obj/random/junk,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"roW" = (
+/obj/item/gun/projectile/automatic/rifle/shotgun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "rqe" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/bottle{
@@ -68543,6 +69040,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/engineering)
+"rFC" = (
+/obj/item/gun/projectile/nuke,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "rGp" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
@@ -68570,6 +69071,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
+"rHn" = (
+/obj/item/gun/energy/gravity_gun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "rHX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -68648,6 +69153,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"rVl" = (
+/obj/item/gun/energy/rifle,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "rVD" = (
 /obj/structure/lattice/catwalk,
 /obj/item/hoist_kit,
@@ -68663,6 +69172,18 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"rYx" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/sec,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "sad" = (
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -68693,6 +69214,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
+"sbh" = (
+/obj/item/gun/energy/wand/polymorph,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "sbm" = (
 /obj/structure/table/wood,
 /obj/random/loot,
@@ -68721,6 +69246,7 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/west,
+/obj/item/gun/energy/mousegun,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "sfh" = (
@@ -68823,6 +69349,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
+"soo" = (
+/obj/item/gun/energy/net,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "soq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -68895,6 +69425,16 @@
 /mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"sGf" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/item/gun/bang/sec,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "sGu" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -68954,6 +69494,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"sOk" = (
+/obj/item/gun/energy/blaster/carbine,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "sOQ" = (
 /obj/structure/window/reinforced/polarized{
 	dir = 2;
@@ -69126,6 +69670,18 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
+"tmo" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/sec/lethal,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "tow" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -69160,6 +69716,10 @@
 /obj/item/mirror,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"tuL" = (
+/obj/item/gun/energy/meteorgun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "tuN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -69180,6 +69740,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"tuT" = (
+/obj/item/gun/energy/lasertag/blue,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "txe" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -69460,6 +70024,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"tUU" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/revolver,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "tVF" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -69469,6 +70045,10 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"tXc" = (
+/obj/item/gun/projectile/automatic,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "tXo" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -69688,6 +70268,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"urx" = (
+/obj/item/gun/energy/rifle/ionrifle,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "usI" = (
 /obj/structure/table,
 /turf/simulated/floor/plating,
@@ -69907,6 +70491,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"uZY" = (
+/obj/item/gun/projectile/tanto,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "vak" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/sunnybush,
@@ -70013,6 +70601,7 @@
 	pixel_x = 32;
 	pixel_y = 4
 	},
+/obj/item/gun/launcher/crossbow/vaurca,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "viQ" = (
@@ -70071,6 +70660,7 @@
 	dir = 8;
 	network = list("Service")
 	},
+/obj/item/gun/energy/staff/animate,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "vnR" = (
@@ -70378,6 +70968,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"vSl" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/item/gun/projectile/deagle,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
+"vSX" = (
+/obj/item/gun/projectile/automatic/rifle/z8,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "vTE" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
@@ -70394,6 +70995,10 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
+"vWq" = (
+/obj/item/gun/bang/colt,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "vYh" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -70797,6 +71402,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"xfQ" = (
+/obj/item/gun/launcher/rocket,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "xge" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -70842,6 +71451,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engineering_hallway_main)
+"xlb" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/item/gun/launcher/grenade,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/aft)
 "xlC" = (
 /obj/machinery/optable{
 	name = "Autopsy Table"
@@ -70953,6 +71569,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"xxL" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/gun/projectile/revolver/adhomian,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/starboard)
 "xBY" = (
 /obj/structure/coatrack{
 	pixel_x = -10;
@@ -71103,6 +71731,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"xQV" = (
+/obj/item/gun/projectile/automatic/railgun,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "xRc" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -97560,25 +98192,25 @@ bdh
 bhr
 biJ
 aZs
-aZs
-aZs
-aZs
-aZs
-aZs
-bbE
+vWq
+kXC
+muh
+cLw
+dsP
+sGf
 bsP
-bdh
+kHX
 bvc
 bwa
+iaG
 aZs
-aZs
-aZs
-aZs
-biJ
-aZs
-aZs
+pyQ
+jxx
+ogr
+sOk
+ouP
 bEA
-baF
+lvd
 bGm
 bHg
 bId
@@ -97838,7 +98470,7 @@ bbF
 baG
 bbF
 bHh
-aZs
+dJp
 bIV
 bJL
 bJL
@@ -98095,7 +98727,7 @@ bbG
 bFn
 bbG
 bHi
-bIe
+fVf
 bIW
 bJM
 bKK
@@ -98352,7 +98984,7 @@ bwb
 baI
 bGn
 bHj
-aZs
+cDb
 bIX
 bJN
 bKL
@@ -98866,7 +99498,7 @@ bve
 baI
 bGo
 bHj
-aZs
+mVQ
 bIY
 bJO
 bJO
@@ -99123,38 +99755,38 @@ bve
 bFo
 aZs
 bHl
-aZs
-aWB
+rHn
+fNc
 bJP
 bKM
 bLu
-bLw
+jvb
 bMJ
 bNw
-bLw
-bLw
+iyY
+tuT
 bQs
-bLw
-bLw
+qWe
+tuL
 bQU
 sez
-bLw
+soo
 bSj
-bLw
-bLw
-bKM
+hRl
+gvJ
+nZw
 bUz
-bLw
-bLw
-bLw
+qZw
+gJO
+rVl
 bWh
-bLw
-bNw
+urx
+mDp
 bXB
 bXS
 bYf
 bYv
-bKM
+ocn
 dyG
 bZp
 bZQ
@@ -99637,36 +100269,36 @@ bve
 btU
 aZs
 bHn
-aZs
-aWB
+xfQ
+nYj
 bJP
-bKM
-bLw
-bPz
+heZ
+qKX
+xlb
 vhg
 bNy
+mmP
 bLw
-bLw
-bLw
-bLw
-bLw
-bLw
-bLw
-bPz
-bLw
+elj
+dYW
+cph
+kHy
+sbh
+fIO
+dHg
 dKk
 bTm
 bTU
-bYx
+nOD
 bUV
 bVv
-bLw
-bMJ
-bLw
-bLw
-bLw
-bLw
-bLw
+cOo
+djS
+jnT
+eMH
+kCZ
+rky
+hgQ
 vnf
 bYL
 bYx
@@ -99894,7 +100526,7 @@ bve
 baI
 bGp
 bHo
-aZs
+dNI
 bJa
 bJR
 bJR
@@ -100151,7 +100783,7 @@ bve
 bFp
 aZs
 bHj
-aZs
+cHT
 bJb
 bJS
 lCV
@@ -100408,7 +101040,7 @@ bwb
 baI
 bGq
 bHq
-aZs
+nBI
 bJb
 bJT
 bKO
@@ -100922,7 +101554,7 @@ bEB
 bFr
 bFr
 bHr
-aZs
+tXc
 bJb
 bJT
 bKP
@@ -101151,33 +101783,33 @@ aWP
 aYn
 aZz
 anp
-aZs
+rFC
 bdp
-aZs
+odp
 bgi
-aZs
-bdp
+cOe
+iib
 bka
-bdp
-aZs
-bdp
-aZs
-bdp
+gal
+iro
+vSl
+jvG
+djV
 brE
-bdp
+kUJ
 btW
 bvf
 bwc
-aZs
+dga
 byQ
-aZs
+vSX
 bAZ
 bAT
 bEq
-aZs
-aYn
-aZs
-bka
+roW
+oFj
+xQV
+piT
 bHs
 bIh
 bJc
@@ -102691,7 +103323,7 @@ aUa
 aQL
 aKd
 aLP
-aZF
+nKb
 baL
 bbR
 bds
@@ -102948,7 +103580,7 @@ aUb
 aQL
 aWS
 aLP
-aZF
+tUU
 baL
 bbP
 beR
@@ -103205,7 +103837,7 @@ aUa
 aQL
 awK
 aLP
-aZF
+xxL
 baL
 bbO
 biS
@@ -103462,7 +104094,7 @@ aUc
 aQL
 aWT
 aLP
-aZF
+kiW
 baL
 bbS
 bdu
@@ -104233,7 +104865,7 @@ aUd
 aQL
 awK
 aLP
-aZF
+kWs
 baM
 bbV
 bdz
@@ -104490,7 +105122,7 @@ aUe
 aQL
 aWV
 aLP
-aZF
+jHC
 baM
 bbW
 bmO
@@ -105004,7 +105636,7 @@ aUf
 aQL
 awK
 aLP
-aZE
+jvB
 baN
 bbY
 bdC
@@ -105261,7 +105893,7 @@ aUg
 aQL
 awL
 aLP
-aZF
+rYx
 baN
 bbZ
 bdD
@@ -105775,7 +106407,7 @@ aUi
 aQL
 awK
 aLP
-aZF
+tmo
 baN
 bcb
 bdF
@@ -106032,7 +106664,7 @@ aCL
 aQL
 aKe
 aLP
-aZF
+kdD
 baN
 bcc
 bdG
@@ -106289,7 +106921,7 @@ aUj
 aQL
 awK
 aLP
-aZF
+pgd
 baN
 baN
 baN
@@ -106546,7 +107178,7 @@ aUk
 aQL
 aKd
 aLP
-aZF
+ewB
 avd
 avd
 bdH
@@ -106803,7 +107435,7 @@ aCO
 aQL
 aWY
 aLP
-aZF
+iEA
 baO
 bcd
 bdI
@@ -107317,7 +107949,7 @@ aUm
 aVv
 aWZ
 aLP
-aZF
+oIZ
 baQ
 bcf
 bdK
@@ -108341,9 +108973,9 @@ aNH
 azX
 awK
 awK
-awK
+uZY
 aVw
-awK
+nVw
 aYu
 aZN
 baR

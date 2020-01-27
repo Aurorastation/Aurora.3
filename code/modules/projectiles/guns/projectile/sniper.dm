@@ -114,9 +114,9 @@
 	else
 		icon_state = "tranqsniper"
 	if(wielded)
-		item_state = "heavysniper-wielded"
+		item_state = "tranqsniper-wielded"
 	else
-		item_state = "heavysniper"
+		item_state = "tranqsniper"
 	update_held_icon()
 
 /obj/item/gun/projectile/dragunov
@@ -215,7 +215,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/w556/update_icon()
 	if(wielded)
-		item_state = "heavysniper-wielded"
+		item_state = "w556rifle-wielded"
 	else
-		item_state = "heavysniper"
+		item_state = "w556rifle"
 	update_held_icon()

@@ -1,9 +1,10 @@
 /obj/item/gun/energy/rifle
 	name = "energy rifle"
-	desc = "A Nanotrasen designed energy-based rifle with two settings: stun and kill."
+	desc = "A Nanotrasen designed energy-based rifle with two settings: Stun and Kill."
 	description_fluff = "The NT ER-2 is an energy rifle developed and produced by Nanotrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
 	icon = 'icons/obj/guns/erifle.dmi'
-	icon_state = "eriflestun100"
+	icon_state = "eriflestun"
+	icon_state = "eriflestun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
@@ -42,6 +43,7 @@
 	icon = 'icons/obj/guns/laserrifle.dmi'
 	icon_state = "laserrifle"
 	item_state = "laserrifle"
+	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/Laser.ogg'
 	max_shots = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
@@ -70,6 +72,7 @@
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon"
 	item_state = "lasercannon"
+	has_item_ratio = TRUE
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	projectile_type = /obj/item/projectile/beam/heavylaser
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
@@ -130,8 +133,8 @@
 /obj/item/gun/energy/rifle/pulse/destroyer
 	name = "pulse destroyer"
 	desc = "A heavy-duty, pulse-based energy weapon. Because of its complexity and cost, it is rarely seen in use except by specialists."
-	fire_sound='sound/weapons/pulse.ogg'
-	projectile_type=/obj/item/projectile/beam/pulse
+	fire_sound = 'sound/weapons/pulse.ogg'
+	projectile_type = /obj/item/projectile/beam/pulse
 	burst_delay = 5
 	burst = 3
 	max_shots = 30
@@ -144,10 +147,10 @@
 /obj/item/gun/energy/rifle/laser/tachyon
 	name = "tachyon rifle"
 	desc = "A Vaurcan rifle that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
-	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "tachyonrifle"
 	item_state = "tachyonrifle"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
