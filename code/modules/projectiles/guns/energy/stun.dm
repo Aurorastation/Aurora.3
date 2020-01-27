@@ -1,7 +1,7 @@
 /obj/item/gun/energy/taser
 	name = "taser gun"
 	desc = "The NT Mk30 NL is a small, low capacity gun used for non-lethal takedowns."
-	icon = "icons/obj/guns/taser.dmi"
+	icon = 'icons/obj/guns/taser.dmi'
 	icon_state = "taser"
 	item_state = null	//so the human update icon uses the icon_state instead.
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -22,7 +22,7 @@
 	name = "stun revolver"
 	desc = "A Hephaestus designed high-tech revolver that fires rechargable stun bolts."
 	description_fluff = "The ST-30 is a highly advanced sidearm produced by Hephaestus Industries. It is designed for self-defense in a less-than-lethal manner. While the weapon design itself is not groundbreaking, it fires high velocity energy bolts with rechargable cartridges, possessing unusual high stopping power."
-	icon = "icons/obj/guns/stunrevolver.dmi"
+	icon = 'icons/obj/guns/stunrevolver.dmi'
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
 	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
@@ -34,7 +34,7 @@
 /obj/item/gun/energy/crossbow
 	name = "mini energy-crossbow"
 	desc = "A weapon favored by many mercenary stealth specialists."
-	icon = "icons/obj/guns/crossbow.dmi"
+	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	w_class = 2.0

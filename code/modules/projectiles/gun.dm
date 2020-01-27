@@ -30,12 +30,11 @@
 //Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
 /obj/item/gun
 	name = "gun"
-	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/gun.dmi'
-	contained_sprite = TRUE
-	icon = "icons/obj/guns/pistol.dmi"
+	desc = "It's a gun. It's pretty terrible, though."
+	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
+	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -114,7 +113,7 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image('icons/obj/gun.dmi', "bayonet")
+		I = image(icon = 'icons/obj/guns/bayonet.dmi', "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I

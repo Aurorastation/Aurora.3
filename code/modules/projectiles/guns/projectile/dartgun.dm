@@ -44,7 +44,7 @@
 /obj/item/gun/projectile/dartgun
 	name = "dart gun"
 	desc = "A small gas-powered dartgun, capable of delivering chemical cocktails swiftly across short distances."
-	icon = "icons/obj/guns/dartgun.dmi"
+	icon = 'icons/obj/guns/dartgun.dmi'
 	icon_state = "dartgun-empty"
 	item_state = null
 

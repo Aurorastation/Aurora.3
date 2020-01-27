@@ -3,7 +3,7 @@
 /obj/item/gun/projectile/shotgun/improvised //similar to the double barrel, but without the option to fire both barrels
 	name = "improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
-	icon = "icons/obj/guns/ishotgun.dmi"
+	icon = 'icons/obj/guns/ishotgun.dmi'
 	icon_state = "ishotgun"
 	item_state = "ishotgun"
 	max_shells = 2
@@ -64,7 +64,7 @@
 /obj/item/gun/projectile/shotgun/improvised/sawn
 	name = "sawn-off improvised shotgun"
 	desc = "An improvised pipe assembly that can fire shotgun shells."
-	icon = "icons/obj/guns/ishotgunsawn.dmi"
+	icon = 'icons/obj/guns/ishotgunsawn.dmi'
 	icon_state = "ishotgunsawn"
 	item_state = "ishotgunsawn"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -142,7 +142,7 @@
 	recoil = 2
 	accuracy = -1
 	fire_delay = 9
-	icon = "icons/obj/guns/ipistol.dmi"
+	icon = 'icons/obj/guns/ipistol.dmi'
 	icon_state = "ipistol"
 	caliber = ".45"
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
@@ -207,7 +207,7 @@
 /obj/item/gun/projectile/automatic/improvised
 	name = "improvised machine pistol"
 	desc = "An improvised automatic handgun. Uses .45 rounds."
-	icon = 'icons/obj/improvised.dmi'
+	icon = 'icons/obj/guns/ismg.dmi'
 	icon_state = "ismg"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45uzi

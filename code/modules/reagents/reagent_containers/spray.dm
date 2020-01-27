@@ -186,9 +186,10 @@
 /obj/item/reagent_containers/spray/chemsprayer
 	name = "chem sprayer"
 	desc = "A utility used to spray large amounts of reagent in a given area."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/chemsprayer.dmi'
 	icon_state = "chemsprayer"
 	item_state = "chemsprayer"
+	contained_sprite = TRUE
 	center_of_mass = list("x" = 16,"y" = 16)
 	throwforce = 3
 	w_class = 3.0
@@ -219,9 +220,10 @@
 /obj/item/reagent_containers/spray/chemsprayer/xenobiology
 	name = "xenoblaster"
 	desc = "A child's plastic watergun repurposed for the use in pacifying slimes. Has an adjustable nozzle that controls precision as well as strength."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/xenoblaster.dmi'
 	icon_state = "xenoblaster"
 	item_state = "xenoblaster"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	volume = 200
 	spray_size = 3

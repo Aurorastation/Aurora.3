@@ -1,6 +1,6 @@
 /obj/item/gun/energy/lawgiver
 	name = "\improper Lawgiver Mk II"
-	icon = "icons/obj/guns/lawgiver.dmi"
+	icon = 'icons/obj/guns/lawgiver.dmi'
 	icon_state = "lawgiver"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
 	sel_mode = 1

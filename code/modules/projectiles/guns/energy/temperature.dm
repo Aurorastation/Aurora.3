@@ -1,6 +1,6 @@
 /obj/item/gun/energy/temperature
 	name = "freeze ray"
-	icon = "icons/obj/guns/freezegun.dmi"
+	icon = 'icons/obj/guns/freezegun.dmi'
 	icon_state = "freezegun"
 	item_state = "freezegun"
 	fire_sound = 'sound/weapons/pulse3.ogg'
