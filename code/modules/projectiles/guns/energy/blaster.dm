@@ -40,6 +40,7 @@
 	desc = "A robust eight-shot blaster.."
 	icon = 'icons/obj/guns/blaster_revolver.dmi'
 	icon_state = "blaster_revolver"
+	item_state = "blaster_revolver"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 8

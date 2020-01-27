@@ -209,7 +209,7 @@
 		item_state = icon_state
 	else
 		icon_state = "[initial(icon_state)]-d"
-		item_state = "shotgun"
+		item_state = "[initial(item_state)]-d"
 	update_held_icon()
 
 /obj/item/gun/projectile/shotgun/foldable/proc/toggle_folded(mob/living/user)

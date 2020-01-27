@@ -3,6 +3,7 @@
 	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
 	icon = 'icons/obj/guns/colt.dmi'
 	icon_state = "colt"
+	item_state = "colt"
 	pixel_offset_x = 30
 	pixel_offset_y = 18
 
@@ -32,6 +33,7 @@
 	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "x9tactical"
+	item_state = "x9"
 	pixel_offset_x = 28
 	pixel_offset_y = 13
 
@@ -40,6 +42,7 @@
 	name = "10mm pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
+	item_state = "c05r"
 	pixel_offset_x = 31
 	pixel_offset_y = 14
 
@@ -48,6 +51,7 @@
 	desc = "A small, quiet, easily concealable gun. Uses .45 rounds."
 	icon = 'icons/obj/guns/silenced_pistol.dmi'
 	icon_state = "silenced_pistol"
+	item_state = "silenced_pistol"
 	pixel_offset_x = -4
 	pixel_offset_y = 15
 
@@ -56,6 +60,7 @@ obj/item/gun/bang/deagle
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
+	item_state = "deagle"
 	pixel_offset_x = -4
 	pixel_offset_y = 16
 
@@ -64,7 +69,7 @@ obj/item/gun/bang/deagle
 	desc = "500 years since its creation and the Stechkin automatic pistol is still a common sight throughout the Frontier."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
-	item_state = null
+	item_state = "pistol"
 	pixel_offset_x = 26
 	pixel_offset_y = 14
 

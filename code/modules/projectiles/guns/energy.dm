@@ -111,6 +111,8 @@
 
 		if(modifystate)
 			icon_state = "[modifystate][ratio]"
+			item_state = "[modifystate][ratio]"
 		else
 			icon_state = "[initial(icon_state)][ratio]"
+			item_state = "[initial(item_state)][ratio]"
 	update_held_icon()

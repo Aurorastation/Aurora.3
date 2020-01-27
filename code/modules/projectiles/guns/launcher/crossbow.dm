@@ -52,8 +52,8 @@
 /obj/item/gun/launcher/crossbow
 	name = "powered crossbow"
 	desc = "A 2457AD twist on an old classic. Pick up that can."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "crossbow"
+	icon = 'icons/obj/guns/crossbow.dmi'
+	icon_state = "powered_crossbow"
 	item_state = "crossbow-solid"
 	fire_sound = 'sound/weapons/crossbow.ogg'
 	fire_sound_text = "a solid thunk"

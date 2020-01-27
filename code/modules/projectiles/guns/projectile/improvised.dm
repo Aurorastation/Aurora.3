@@ -144,6 +144,7 @@
 	fire_delay = 9
 	icon = 'icons/obj/guns/ipistol.dmi'
 	icon_state = "ipistol"
+	item_state = "ipistol"
 	caliber = ".45"
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -209,6 +210,7 @@
 	desc = "An improvised automatic handgun. Uses .45 rounds."
 	icon = 'icons/obj/guns/ismg.dmi'
 	icon_state = "ismg"
+	item_state = "ismg"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45uzi
 	allowed_magazines = list(/obj/item/ammo_magazine/c45uzi)

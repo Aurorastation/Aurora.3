@@ -149,7 +149,7 @@
 	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
 	icon = 'icons/obj/guns/gyrorifle.dmi'
 	icon_state = "gyrorifle"
-	item_state = "arifle"
+	item_state = "gyrorifle"
 	charge_meter = 0
 	w_class = 4
 	fire_sound = 'sound/effects/Buzz2.ogg'

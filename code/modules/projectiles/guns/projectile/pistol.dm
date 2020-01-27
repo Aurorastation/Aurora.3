@@ -5,6 +5,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon = 'icons/obj/guns/colt.dmi'
 	icon_state = "colt"
+	item_state = "colt"
 	caliber = ".45"
 	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -88,6 +89,7 @@
 	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "x9tactical"
+	item_state = "x9"
 	w_class = 3
 	accuracy = 1
 	load_method = MAGAZINE
@@ -107,6 +109,7 @@
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
+	item_state = "c05r"
 	magazine_type = /obj/item/ammo_magazine/mc10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
@@ -134,6 +137,7 @@
 	desc = "A small, quiet, easily concealable gun. Uses .45 rounds."
 	icon = 'icons/obj/guns/silenced_pistol.dmi'
 	icon_state = "silenced_pistol"
+	item_state = "silenced_pistol"
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
 	w_class = 3
 	accuracy = 1
@@ -160,6 +164,7 @@
 	desc = "A robust handgun that uses .50 AE ammo."
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
+	item_state = "deagle"
 	force = 10
 	accuracy = 1
 	caliber = ".50"
@@ -181,6 +186,7 @@
 	desc = "A bulk handgun used by republican commissars and high-ranking members of the Hadiist Party."
 	icon = 'icons/obj/guns/adhomian_heavy_pistol.dmi'
 	icon_state = "adhomian_heavy_pistol"
+	item_state = "adhomian_heavy_pistol"
 	description_fluff = "Given to Republican Commissars and high ranking Party members, the Nal'tor Model Pistol is notable for its large caliber. Unlike the Adar'Mazy pistol, only a \
 	single factory in Nal'tor is allowed to fabricate it, with its design being kept as a state secret. Because of its rarity and status, the Adhomai Heavy Pistol was a sought after \
 	war trophy by royalist and rebels forces."
@@ -190,6 +196,7 @@
 	desc = "A bulky pistol designed to fire self propelled rounds"
 	icon = 'icons/obj/guns/gyropistol.dmi'
 	icon_state = "gyropistol"
+	item_state = "gyropistol"
 	max_shells = 8
 	accuracy = 1
 	caliber = "75"
@@ -214,6 +221,7 @@
 	desc = "500 years since its creation and the Stechkin automatic pistol is still a common sight throughout the Frontier."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
+	item_state = "pistol"
 	w_class = 2
 	accuracy = 1
 	caliber = "9mm"
@@ -314,6 +322,7 @@
 	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
 	icon = 'icons/obj/guns/leyon.dmi'
 	icon_state = "leyon"
+	item_state = "leyon"
 	caliber = "10mm"
 	w_class = 2
 	ammo_type = /obj/item/ammo_casing/c10mm
@@ -340,6 +349,7 @@
 	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Necropolis."
 	icon = 'icons/obj/guns/m8.dmi'
 	icon_state = "m8"
+	item_state = "m8"
 	can_silence = FALSE
 
 /obj/item/gun/projectile/pistol/sol/update_icon()
@@ -354,6 +364,7 @@
 	desc = "The Adar'Mazy pistol is an adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
 	icon = 'icons/obj/guns/adhomian_pistol.dmi'
 	icon_state = "adhomian_pistol"
+	item_state = "adhomian_pistol"
 	can_silence = FALSE
 	description_fluff = "A mass produced pistol issued to People's Republic officers, government officials and low-ranking Party members. Known for their simple, cheap and reliable \
 	design, this weapon is produced by nearly all weapon factories in the Republic. The Adar'Mazy is also found in the hands of Adhomai Liberation Army soldiers and commanders."
