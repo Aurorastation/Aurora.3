@@ -52,10 +52,8 @@
 
 	if(fluid_amount > FLUID_OVER_MOB_HEAD)
 		layer = DEEP_FLUID_LAYER
-		plane = EFFECTS_BELOW_LIGHTING_LAYER
 	else
 		layer = SHALLOW_FLUID_LAYER
-		plane = MOB_HIDING_LAYER
 
 	if(fluid_amount > FLUID_DEEP)
 		alpha = FLUID_MAX_ALPHA

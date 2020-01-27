@@ -46,9 +46,14 @@
 			to_chat(user, "<span class='notice'>There is a thick layer of silicate covering it.</span>")
 
 /obj/structure/window/CanFluidPass(var/coming_from)
-	return (!is_full_window() && coming_from != dir)
+	var/allow_pass = TRUE
+	if(is_full_window())
+		allow_pass = FALSE
+	if(coming_from == dir)
+		allow_pass = FALSE
+	return allow_pass
 
-/obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
+/obj/structure/window/proc/take_damage(var/damage = 0, var/sound_effect = 1)
 	var/initialhealth = health
 
 	if(silicate)
