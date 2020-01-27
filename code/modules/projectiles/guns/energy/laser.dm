@@ -48,7 +48,7 @@ obj/item/gun/energy/retro
 	name = "antique laser gun"
 	icon_state = "caplaser"
 	item_state = "caplaser"
-	desc = "This is an antique laser gun. Its craftsmanship is of the highest quality."
+	desc = "This is an antique laser gun. Its craftsmanship is of the highest quality. The object menaces with spikes of energy."
 	force = 5
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
