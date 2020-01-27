@@ -297,6 +297,14 @@
 		dismantle()
 	return
 
+/obj/structure/girder/attack_generic(var/mob/user, var/damage, var/attack_message = "smashes apart", var/wallbreaker)
+	if(!damage || !wallbreaker)
+		return FALSE
+	user.do_attack_animation(src)
+	visible_message("<span class='danger'>[user] [attack_message] \the [src]!</span>")
+	dismantle()
+	return TRUE
+
 /obj/structure/girder/cult
 	icon= 'icons/obj/cult.dmi'
 	icon_state= "cultgirder"
