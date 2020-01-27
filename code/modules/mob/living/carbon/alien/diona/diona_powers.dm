@@ -352,6 +352,7 @@
 
 	if(!is_diona(src))
 		to_chat(src, span("danger", "You are not a diona! You should not have this ability."))
+		return
 
 	if(use_check_and_message(src))
 		return
@@ -372,7 +373,7 @@
 	if(can_use_biomass)
 		to_chat(src, span("notice", "We will expend biomass to create this structure."))
 		build_method = "biomass"
-	else if(!can_use_biomass && can_use_limbs)
+	else if(can_use_limbs)
 		to_chat(src, span("notice", "We will detach our arm nymphs and have them form the structure."))
 		build_method = "nymphs"
 	else
@@ -390,6 +391,7 @@
 	chosen_structure = input("Choose a structure to grow.") in diona_structures
 	if(!chosen_structure || chosen_structure == "Cancel")
 		to_chat(src, span("warning", "We have elected to not grow anything right now."))
+		return
 
 	if(use_check_and_message(src))
 		return
