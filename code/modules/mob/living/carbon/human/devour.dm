@@ -13,7 +13,7 @@
 	var/eat_speed = 100
 	if(can_eat == DEVOUR_FAST)
 		eat_speed = 30
-	if(species?.gluttonous & GLUT_MESSY && ismob(victim))
+	if((species?.gluttonous & GLUT_MESSY) && ismob(victim))
 		eat_speed *= 3 //We want our bites to take a lot so as to not spam the chat.
 		do_gradual_devour(victim, eat_speed)
 		return
