@@ -6,8 +6,9 @@
 	icon = 'icons/obj/guns/staffofchange.dmi'
 	icon_state = "staffofchange"
 	item_state = "staffofchange"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/magic/Staff_Change.ogg'
-	flags =  CONDUCT
+	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	w_class = 4.0
 	max_shots = 1
@@ -179,9 +180,9 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	name = "wand of nothing"
 	desc = "A magic stick, this one don't do much however."
 	icon = 'icons/obj/wands.dmi'
-	item_icons = null
 	icon_state = "nothingwand"
 	item_state = "wand"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/magic/wand.ogg'
 	slot_flags = SLOT_BELT
 	w_class = 3
