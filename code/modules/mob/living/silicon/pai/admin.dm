@@ -20,7 +20,7 @@
 			return
 		pai_key = C.key
 
-	log_and_message_admins("made a pAI with key=[pai_key] at ([T.x],[T.y],[T.z])")
+	log_and_message_admins("made a pAI with key=[pai_key]")
 	var/obj/item/device/paicard/card = new(T)
 	var/mob/living/silicon/pai/pai = new(card)
 	pai.key = pai_key

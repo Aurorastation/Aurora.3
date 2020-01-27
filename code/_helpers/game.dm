@@ -191,8 +191,8 @@
 	if(!start_point)
 		return hear_turfs
 
-	var/list/range = hear(R, start_point)
-	for(var/turf/T in range)
+	var/list/see_turf = hear(R, start_point)
+	for(var/turf/T in see_turf)
 		hear_turfs[T] = TRUE
 	return hear_turfs
 
