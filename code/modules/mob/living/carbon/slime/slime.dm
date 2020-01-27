@@ -452,6 +452,6 @@
 /mob/living/carbon/slime/proc/set_content(var/do_content)
 	if(do_content)
 		content = TRUE
-		mood = ":3"
+		mood = HAPPY
 	else
 		content = FALSE

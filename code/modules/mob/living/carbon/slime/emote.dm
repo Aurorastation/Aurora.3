@@ -60,23 +60,23 @@
 			updateicon = 1
 
 		if("pout")
-			mood = "pout"
+			mood = POUT
 			updateicon = 1
 
 		if("sad")
-			mood = "sad"
+			mood = SAD
 			updateicon = 1
 
 		if("angry")
-			mood = "angry"
+			mood = ANGRY
 			updateicon = 1
 
 		if("frown")
-			mood = "mischevous"
+			mood = MISCHIEVOUS
 			updateicon = 1
 
 		if("smile")
-			mood = ":3"
+			mood = HAPPY
 			updateicon = 1
 
 		if("help") //This is an exception
