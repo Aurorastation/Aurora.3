@@ -366,6 +366,7 @@
 	var/newmood = ""
 	a_intent = I_HELP
 	if(rabid || attacked)
+		set_content(FALSE)
 		newmood = "angry"
 		a_intent = I_HURT
 	else if(target)
@@ -380,6 +381,9 @@
 	if((mood == "sad" || mood == ":3" || mood == "pout") && !newmood)
 		if(prob(75))
 			newmood = mood
+
+	if(!newmood && !mood && content)
+		mood = ":3"
 
 	if(newmood != mood) // This is so we don't redraw them every time
 		mood = newmood

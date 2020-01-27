@@ -35,6 +35,7 @@
 	var/mob/living/target = null // AI variable - tells the slime to hunt this down
 	var/mob/living/leader = null // AI variable - tells the slime to follow this person
 
+	var/content = FALSE		// Don't attack humanoids while content, this gives xenobiologists the time to move slimes post-splitting
 	var/attacked = 0		// Determines if it's been attacked recently. Can be any number, is a cooloff-ish variable
 	var/rabid = 0			// If set to 1, the slime will attack and eat anything it comes in contact with
 	var/holding_still = 0	// AI variable, cooloff-ish for how long it's going to stay in one place
@@ -447,3 +448,10 @@
 			adjustToxLoss(-10)
 	nutrition += amount
 	nutrition = min(nutrition, get_max_nutrition())
+
+/mob/living/carbon/slime/proc/set_content(var/do_content)
+	if(do_content)
+		content = TRUE
+		mood = ":3"
+	else
+		content = FALSE
