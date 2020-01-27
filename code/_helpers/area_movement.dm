@@ -104,7 +104,12 @@
 		if (!ST || (plating_required && TTi.type == baseturf))	// Excluded turfs are null to keep the list ordered.
 			continue
 
-		var/turf/TT = ST.copy_turf(TTi, ignore_air = TRUE)
+
+		var/turf/TT
+		if(istype(ST, /turf/simulated))
+			TT = ST.copy_turf(TTi, ignore_air = TRUE)
+		else
+			TT = ST.copy_turf(TTi)
 
 		for (var/thing in ST)
 			var/atom/movable/AM = thing

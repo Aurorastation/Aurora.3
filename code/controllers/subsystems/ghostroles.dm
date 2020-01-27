@@ -4,7 +4,7 @@
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
 
-	var/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
+	var/list/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
 		// -> type 1 -> spawnpoint 1
 		//           -> spawnpoint 2
 

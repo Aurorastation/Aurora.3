@@ -35,7 +35,8 @@
 				to_chat(user, "<span class='warning'>Access Denied</span>")
 		else if(istype(W, /obj/item/melee/energy/blade))
 			if(emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
-				W:spark_system.queue()
+				var/obj/item/melee/energy/blade/blade = W
+				blade.spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
 		if(!locked)

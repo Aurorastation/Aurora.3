@@ -25,7 +25,8 @@
 	for(var/variable in src.vars)
 		if(exclusions[variable]) continue
 		if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
-			copied.vars[variable] = src.vars[variable].Copy()
+			var/list/V = vars[variable]
+			copied.vars[variable] = V.Copy()
 		else
 			copied.vars[variable] = src.vars[variable]
 	return copied
@@ -45,18 +46,21 @@
 		if(!exclusions[variable])
 			if(deep && (istype(src.vars[variable], /datum/record)))
 				if(to_update)
-					var/listified = src.vars[variable].Listify(to_update = to_update[variable])
+					var/datum/record/R = src.vars[variable]
+					var/listified = R.Listify(to_update = to_update[variable])
 					if(listified)
 						record[variable] = listified
 						. = record
 				else
-					record[variable] = src.vars[variable].Listify()
+					var/datum/record/R = src.vars[variable]
+					record[variable] = R.Listify()
 			else if(deep && istype(src.vars[variable], /list) && is_list_containing_type(src.vars[variable], /datum/record))
 				record[variable] = list()
 				for(var/subr in src.vars[variable])
 					var/datum/record/r = subr
 					record[variable] += list(r.Listify())
-				if(to_update && to_update[variable].len != record[variable].len)
+				var/list/L = to_update[variable]
+				if(L.len != record[variable].len)
 					. = record
 			else if(istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])

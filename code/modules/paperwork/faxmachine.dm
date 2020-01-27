@@ -49,7 +49,7 @@ var/list/admin_departments
 
 	if(newdata["alertpdas"] && alert_pdas && newdata["alertpdas"].len != alert_pdas.len)
 		. = newdata
-	newdata["alertpdas"] = list()
+	newdata["alertpdas"].Cut()
 	if (alert_pdas && alert_pdas.len)
 		for (var/obj/item/device/pda/pda in alert_pdas)
 			newdata["alertpdas"] += list(list("name" = "[alert_pdas[pda]]", "ref" = "\ref[pda]"))
