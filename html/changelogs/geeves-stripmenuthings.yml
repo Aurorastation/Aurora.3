@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added an internals and suit sensors indicator to the strip menu."
+  - tweak: "Toggle internals in the strip menu now displays whether you're toggling it on or off."
+  - rscadd: "Added an adjust mask and tank pressure check to the strip menu."
