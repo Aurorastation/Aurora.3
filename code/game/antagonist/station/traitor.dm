@@ -9,6 +9,7 @@ var/datum/antagonist/traitor/traitors
 	required_age = 10
 
 	faction = "syndicate"
+	bantype = "traitor"
 
 /datum/antagonist/traitor/New()
 	..()
