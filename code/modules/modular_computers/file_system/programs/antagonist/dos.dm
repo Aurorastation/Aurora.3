@@ -18,11 +18,11 @@
 	dos_speed = 0
 	switch(ntnet_status)
 		if(1)
-			dos_speed = (NTNETSPEED_LOWSIGNAL * 4) * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = NTNETSPEED_LOWSIGNAL * NTNETSPEED_DOS_AMPLIFICATION
 		if(2)
-			dos_speed = (NTNETSPEED_HIGHSIGNAL * 4) * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = NTNETSPEED_HIGHSIGNAL * NTNETSPEED_DOS_AMPLIFICATION
 		if(3)
-			dos_speed = (NTNETSPEED_ETHERNET * 2) * NTNETSPEED_DOS_AMPLIFICATION
+			dos_speed = NTNETSPEED_ETHERNET * NTNETSPEED_DOS_AMPLIFICATION
 	if(target && executed)
 		target.dos_overload += dos_speed
 		if(!target.operable())
