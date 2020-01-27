@@ -43,6 +43,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	h_style = "blue IPC screen"
 	. = ..(mapload, "Baseline Frame")
 
+/mob/living/carbon/human/machine/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
+
 /mob/living/carbon/human/monkey/Initialize(mapload)
 	. = ..(mapload, "Monkey")
 
@@ -95,14 +101,38 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/industrial/Initialize(mapload)
 	. = ..(mapload, "Hephaestus G1 Industrial Frame")
 
+/mob/living/carbon/human/industrial/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
+
 /mob/living/carbon/human/shell/Initialize(mapload)
 	. = ..(mapload, "Shell Frame")
+
+/mob/living/carbon/human/shell/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_hephaestus/Initialize(mapload)
 	. = ..(mapload, "Hephaestus G2 Industrial Frame")
 
+/mob/living/carbon/human/industrial_hephaestus/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
+
 /mob/living/carbon/human/industrial_xion/Initialize(mapload)
 	. = ..(mapload, "Xion Industrial Frame")
+
+/mob/living/carbon/human/industrial_xion/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_xion_remote/Initialize(mapload)
 	. = ..(mapload, "Remote Xion Industrial Frame")
@@ -116,6 +146,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	remote_network = "remoterobots"
 	SSvirtualreality.add_robot(src, remote_network)
 
+/mob/living/carbon/human/industrial_xion_remote/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
+
 /mob/living/carbon/human/industrial_xion_remote_mech/Initialize(mapload)
 	. = ..(mapload, "Remote Xion Industrial Frame")
 
@@ -124,6 +160,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	dna.real_name = real_name
 	if(mind)
 		mind.name = real_name
+
+/mob/living/carbon/human/industrial_xion_remote_mech/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_xion_remote_bunker/Initialize(mapload)
 	. = ..(mapload, "Remote Xion Industrial Frame")
@@ -142,14 +184,38 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	remote_network = "bunkerrobots"
 	SSvirtualreality.add_robot(src, remote_network)
 
+/mob/living/carbon/human/industrial_xion_remote_bunker/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
+
 /mob/living/carbon/human/industrial_zenghu/Initialize(mapload)
 	. = ..(mapload, "Zeng-Hu Mobility Frame")
+
+/mob/living/carbon/human/industrial_zenghu/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_bishop/Initialize(mapload)
 	. = ..(mapload, "Bishop Accessory Frame")
 
+/mob/living/carbon/human/industrial_bishop/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
+
 /mob/living/carbon/human/unbranded_frame/Initialize(mapload)
 	. = ..(mapload, "Unbranded Frame")
+
+/mob/living/carbon/human/unbranded_frame/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/unbranded_frame_remote/Initialize(mapload)
 	. = ..(mapload, "Remote Unbranded Frame")
@@ -162,6 +228,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	remote_network = "remoterobots"
 	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/unbranded_frame_remote/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/unbranded_frame_remote_bunker/Initialize(mapload)
 	. = ..(mapload, "Remote Unbranded Frame")
@@ -179,6 +251,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	remote_network = "bunkerrobots"
 	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/unbranded_frame_remote_bunker/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/terminator/Initialize(mapload)
 	. = ..(mapload, "Military Frame")
@@ -207,6 +285,12 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	commando_belt.contents += new /obj/item/plastique
 	src.equip_to_slot_or_del(commando_belt, slot_belt)
 	src.gender = NEUTER
+
+/mob/living/carbon/human/terminator/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat("Battery Charge:", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/terminator
 	mob_size = 30
