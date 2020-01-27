@@ -16,7 +16,8 @@
 	)
 	primitive_form = "Stok"
 	darksight = 3
-	gluttonous = GLUT_SMALLER|GLUT_ITEM_TINY
+	gluttonous = GLUT_MESSY
+	stomach_capacity = 7
 	slowdown = 0.5
 
 	brute_mod = 0.8
