@@ -13,7 +13,7 @@ Holding alt and left clicking a tile will allow you to see its contents in the t
 The resist button will allow you to resist out of handcuffs, being buckled to a chair or bed, out of locked lockers and more. Whenever you're stuck, try resisting!
 You can move an item out of the way by dragging it and then clicking on an adjacent tile with an empty hand.
 Maintenance is full of equipment that is randomized every round. Look around and see if anything is worth using. There are many places around the station to hide contraband. A few for starters: linen boxes, toilet cisterns, body bags. Experiment to find more!
-As the Captain, you are one of the highest priority targets on the station. Everything from revolutions, to mercenaries, to traitors that need to rob you of your unique lasgun or your life are things to worry about.
+As the Captain, you are one of the highest priority targets on the station. Everything from revolutions, to mercenaries, to traitors that need to rob you of your antique laser gun or your life are things to worry about.
 As the Captain, you have absolute access and control over the station, but this does not mean that being a horrible person won't result in mutiny and a ban.
 As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and EMTs during a pirate raid, blob infestation, or some other crisis to keep people alive and fighting.
 As a Physician, you can attempt to drain blood from a husk with a syringe to determine the cause. If you can extract blood, it was caused by extreme temperatures or lasers, if there is no blood to extract, it was caused by something unnatural.
