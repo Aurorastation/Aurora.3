@@ -23,7 +23,7 @@
 		cult.allow_narsie = FALSE
 		return
 	else
-		for(var/mob/M in range(1, src))
+		for(var/mob/M in cultists)
 			if(!iscultist(M))
 				continue
 			to_chat(M, span("warning", "Not enough cultists are around to summon the Great Dark One!"))
