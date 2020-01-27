@@ -142,7 +142,7 @@
 			name = text("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
 			real_name = name
 			set_content(TRUE)
-			addtimer(CALLBACK(src, .proc/toggle_content, FALSE), 1200) // You get two minutes of safety
+			addtimer(CALLBACK(src, .proc/set_content, FALSE), 1200) // You get two minutes of safety
 		else
 			to_chat(src, span("notice", "I am not ready to evolve yet..."))
 	else
