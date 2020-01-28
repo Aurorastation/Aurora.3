@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - bugfix: "You no longer can eat soup with a fork. Weep and/or rejoice."
   - tweak: "Drinking soup should display more correct messages and sounds."
+  - bugfix: "Eating things with utensils will no longer delete the trash item."
