@@ -153,7 +153,7 @@
 		new_species = "Human"
 
 	if(species)
-		if(species?.name == new_species)
+		if(species.name == new_species)
 			return
 		if(species.language)
 			remove_language(species.language)
@@ -174,9 +174,8 @@
 	species.handle_post_spawn(src)
 	maxHealth = species.total_health
 
-	spawn(0)
-		regenerate_icons()
-		make_blood()
+	regenerate_icons()
+	make_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client?.screen)
@@ -185,10 +184,7 @@
 			qdel(hud_used)
 		hud_used = new /datum/hud(src)
 
-	if(species)
-		return TRUE
-	else
-		return FALSE
+	return !!species
 
 
 /mob/living/carbon/alien/diona/proc/make_blood()

@@ -95,7 +95,7 @@
 			to_chat(src, span("warning", "[D] has refused to join you!"))
 			return
 		else if(!Adjacent(D) || !isturf(D.loc))
-			to_chat(src, span("warning", "Something went wrong while trying to absorb [D], cancelling."))
+			to_chat(src, span("warning", "\The [D] must remain close to the collective if \he wishes to be part of us."))
 			return
 
 	src.visible_message(span("warning", "[src] starts absorbing [D] into its body."), span("warning", "You start absorbing [D]. This will take 15 seconds and both of you must remain still."), span("warning", "You hear a strange, alien, sucking noise."))
@@ -104,7 +104,7 @@
 	D.face_atom(get_turf(src))
 	if(do_mob(src, D, 150, needhand = FALSE))
 		if(!Adjacent(D) || !isturf(D.loc)) //The loc check prevents us from absorbing the same nymph multiple times at once
-			to_chat(src, span("warning", "Something went wrong while trying to absorb [D], cancelling."))
+			to_chat(src, span("warning", "\The [D] must remain close to the collective if \he wishes to be part of us."))
 			return
 
 		if(D.stat == DEAD)
@@ -120,8 +120,8 @@
 				src.adjustNutritionLoss(-NYMPH_ABSORB_NUTRITION)
 				src.adjustNutritionLoss(-D.nutrition)
 				D.nutrition = FALSE
-			to_chat(D, span("notice", "You feel your being twine with that of \the [src] as you merge with its biomass."))
-			to_chat(src, span("notice", "You feel your being twine with that of \the [D] as it merges with your biomass."))
+			to_chat(D, span("notice", "You feel your being entwine with that of \the [src] as you merge with its biomass."))
+			to_chat(src, span("notice", "You feel your being entwine with that of \the [D] as it merges with your biomass."))
 			for(var/obj/O in D.contents)
 				D.drop_from_inventory(O)
 			D.forceMove(src)
@@ -145,21 +145,21 @@
 		return
 
 	if(!iscarbon(loc))
-		src.verbs -= /mob/living/carbon/alien/diona/proc/split
+		verbs -= /mob/living/carbon/alien/diona/proc/split
 		return
 
 	var/r = alert(src, "Splitting will remove you from your gestalt and deposit you on the ground, allowing you continue alone. If you had any stored biomass before you joined the gestalt, you will not get it back. Are you sure you wish to split?", "Confirm Split", "I am ready to leave.", "I'll stick around.")
 	if(r != "I am ready to leave.")
 		return
 
-	to_chat(src.loc, span("warning", "You feel a pang of loss as [src] splits away from your biomass."))
-	to_chat(src, span("notice", "You wiggle out of the depths of [src.loc]'s biomass and plop to the ground."))
+	to_chat(gestalt, span("warning", "You feel a pang of loss as [src] splits away from your biomass."))
+	to_chat(src, span("notice", "You wiggle out of the depths of [gestalt]'s biomass and plop to the ground."))
 
 	if(gestalt.is_diona() == DIONA_NYMPH)
 		gestalt.adjustNutritionLoss(NYMPH_ABSORB_NUTRITION)
 
 	split_languages(gestalt)
-	src.forceMove(get_turf(src))
+	forceMove(get_turf(src))
 	stat = CONSCIOUS
 	gestalt = null
 	update_verbs()
@@ -222,7 +222,7 @@
 			var/newDNA
 			var/datum/reagent/blood/B = vessel.get_master_reagent()
 			var/total_blood = B.volume
-			var/remove_amount = total_blood * 0.05 // Take 5% of their blood
+			var/remove_amount = min(species.blood_amount * 0.05, total_blood) // Take 5% of their blood
 			if(remove_amount > 0)
 				vessel.remove_reagent("blood", remove_amount, TRUE)
 				adjustNutritionLoss(-remove_amount * 0.5)
@@ -298,15 +298,10 @@
 	if(use_check_and_message(usr))
 		return FALSE
 
-	var/energy
-
+	var/energy = FALSE
 	var/r = alert(src, "Do you choose to eject echoes as nymphs or energy?", "Identify Waste", "Energy", "Nymphs")
-	if(r == "Nymphs")
-		energy = FALSE
-	else if(r == "Energy")
+	if("Energy")
 		energy = TRUE
-	else
-		return
 
 	for(var/mob/living/carbon/alien/diona/D in src)
 		if(D.mind && D.echo)
@@ -351,7 +346,8 @@
 	set desc = "Expend nymphs or biomass to create structures."
 
 	if(!is_diona(src))
-		to_chat(src, span("danger", "You are not a diona! You should not have this ability."))
+		to_chat(src, span("danger", "You are not a Diona! You should not have this ability."))
+		log_debug("Non-Diona [src.name] had Create Structure ability.")
 		return
 
 	if(use_check_and_message(src))
@@ -404,13 +400,13 @@
 			if(nutrition >= max_nutrition * 0.25)
 				nutrition -= max_nutrition * 0.25
 			else
-				to_chat(src, span("warning", "We do not have enough biomass! Aborting build..."))
+				to_chat(src, span("warning", "We do not have enough biomass!"))
 				return
 		else if(build_method == "nymphs")
 			for(var/limb in viable_limbs)
 				var/obj/item/organ/external/O = organs_by_name[limb]
 				if(!O)
-					to_chat(src, span("warning", "We lost our arm while constructing! Aborting build..."))
+					to_chat(src, span("warning", "We lost our arm while constructing!"))
 					return
 				O.droplimb(TRUE, DROPLIMB_EDGE)
 				qdel(O)
