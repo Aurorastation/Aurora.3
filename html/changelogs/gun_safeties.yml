@@ -1,7 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - rscadd: "All guns (except mech guns) now have safeties. CTRL+Click to disable to safety. Firing on harm intent will automatically disable the safety."
-  - rscdel: "Removes old pref-based gun safety system."
