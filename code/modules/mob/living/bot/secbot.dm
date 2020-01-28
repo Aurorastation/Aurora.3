@@ -154,7 +154,7 @@
 			mode = SECBOT_IDLE
 		if("declarearrests")
 			declare_arrests = !declare_arrests
-	open_interface(usr)
+	open_interface(user)
 
 /mob/living/bot/secbot/think()
 	..()
