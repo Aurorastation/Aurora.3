@@ -228,7 +228,7 @@
 				U.add_overlay(I)
 
 				reagents.trans_to_obj(U, min(reagents.total_volume,5))
-				if(src.is_liquid)
+				if(is_liquid)
 					U.loadedis_liquid = TRUE
 				if (reagents.total_volume <= 0)
 					if(trash)
