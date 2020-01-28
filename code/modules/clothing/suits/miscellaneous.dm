@@ -442,7 +442,7 @@
 	icon_closed = "trenchcoat_grey"
 
 /obj/item/clothing/suit/storage/toggle/trench/greentrench
-    name = "Green Trenchcoat"
+    name = "green trenchcoat"
     desc = "A comfy looking green trenchcoat with fur."
     icon_state = "greentrench"
     item_state = "greentrench"
