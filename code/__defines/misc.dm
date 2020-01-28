@@ -53,6 +53,7 @@
 #define CHAT_GHOSTRADIO 0x2000
 #define SHOW_TYPING     0x4000
 #define CHAT_NOICONS    0x8000
+#define CHAT_AOOC       0x10000
 
 #define PARALLAX_SPACE 0x1
 #define PARALLAX_DUST  0x2
