@@ -1,4 +1,4 @@
- #define NUTRIMENT_GOOD "nutriment"
+#define NUTRIMENT_GOOD "nutriment"
 #define NUTRIMENT_BAD  "synnutriment"
 
 //Food items that are eaten normally and don't leave anything behind.
