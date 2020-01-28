@@ -90,4 +90,3 @@
 		O.droplimb(1, DROPLIMB_EDGE)
 		qdel(O)
 		limbs_to_remove -= 1
-	//Matt
