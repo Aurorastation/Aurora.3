@@ -1,4 +1,4 @@
-#define NUTRIMENT_GOOD "nutriment"
+ #define NUTRIMENT_GOOD "nutriment"
 #define NUTRIMENT_BAD  "synnutriment"
 
 //Food items that are eaten normally and don't leave anything behind.
@@ -42,7 +42,7 @@
 
 /obj/item/reagent_containers/food/snacks/proc/on_consume(var/mob/eater, var/mob/feeder = null)
 	if(!reagents.total_volume)
-		eater.visible_message("<span class='notice'>[eater] finishes eating \the [src].</span>","<span class='notice'>You finish eating \the [src].</span>")
+		eater.visible_message("<span class='notice'>[eater] finishes [is_liquid ? "drinking" : "eating"] \the [src].</span>","<span class='notice'>You finish [is_liquid ? "drinking" : "eating"] \the [src].</span>")
 
 		if (!feeder)
 			feeder = eater
@@ -115,20 +115,18 @@
 				return
 
 			var/feedback_message
-
 			if(is_full)
 				feedback_message = "You cannot force any more of \the [src] to go down your throat!"
 			else if(fullness <= CREW_NUTRITION_VERYHUNGRY)
-				feedback_message = "You hungrily chew out a piece of \the [src] and gobble it!"
+				feedback_message = "You hungrily [is_liquid ? "chug a portion" : "chew out a piece"] of \the [src] and [is_liquid ? "swallow" : "gobble"] it!"
 			else if(fullness <= CREW_NUTRITION_HUNGRY)
-				feedback_message = "You hungrily begin to eat \the [src]."
+				feedback_message = "You hungrily begin to [is_liquid ? "drink" : "eat"] \the [src]."
 			else if(fullness <= CREW_NUTRITION_SLIGHTLYHUNGRY)
-				feedback_message = "You take a bite of \the [src]."
+				feedback_message = "You [is_liquid ? "have a drink" : "take a bite"] of \the [src]."
 			else if(fullness <= CREW_NUTRITION_FULL)
-				feedback_message = "You take a bite of \the [src]."
+				feedback_message = "You [is_liquid ? "have a drink" : "take a bite"] of \the [src]."
 			else if(fullness <= CREW_NUTRITION_OVEREATEN)
-				feedback_message = "You unwillingly chew a bit of \the [src]."
-
+				feedback_message = "You unwillingly [is_liquid ? "sip" : "chew"] a bit of \the [src]."
 
 			if(is_full)
 				to_chat(user,span("danger",feedback_message))
@@ -152,7 +150,10 @@
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 
-	feed_sound(user)
+	if(is_liquid)
+		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+	else
+		playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)
 	bitecount++
 	on_consume(target,user)
 
@@ -202,31 +203,42 @@
 	// Eating with forks
 	if(istype(W,/obj/item/material/kitchen/utensil))
 		var/obj/item/material/kitchen/utensil/U = W
-		if(U.scoop_food)
-			if(!U.reagents)
-				U.create_reagents(5)
-
-			if (U.reagents.total_volume > 0)
-				to_chat(user, "<span class='warning'>You already have something on your [U].</span>")
-				return
-
-			user.visible_message( \
-				"\The [user] scoops up some [src] with \the [U]!", \
-				"<span class='notice'>You scoop up some [src] with \the [U]!</span>" \
-			)
-
-			src.bitecount++
-			U.cut_overlays()
-			U.loaded = "[src]"
-			var/image/I = new(U.icon, "loadedfood")
-			I.color = src.filling_color
-			U.add_overlay(I)
-
-			reagents.trans_to_obj(U, min(reagents.total_volume,5))
-
-			if (reagents.total_volume <= 0)
-				qdel(src)
+		if(istype(W,/obj/item/material/kitchen/utensil/fork)&&(is_liquid))
+			to_chat(user, "<span class='notice'>You uselessly pass \the [U] through \the [src].</span>")
 			return
+		else
+			if(U.scoop_food)
+				if(!U.reagents)
+					U.create_reagents(5)
+
+				if (U.reagents.total_volume > 0)
+					to_chat(user, "<span class='warning'>You already have \the [src] on \the [U].</span>")
+					return
+
+				user.visible_message( \
+					"\The [user] scoops up some of \the [src] with \the [U]!", \
+					"<span class='notice'>You scoop up some of \the [src] with \the [U]!</span>" \
+				)
+
+				src.bitecount++
+				U.cut_overlays()
+				U.loaded = "[src]"
+				var/image/I = new(U.icon, "loadedfood")
+				I.color = src.filling_color
+				U.add_overlay(I)
+
+				reagents.trans_to_obj(U, min(reagents.total_volume,5))
+				if(src.is_liquid)
+					U.loadedis_liquid = TRUE
+				if (reagents.total_volume <= 0)
+					if(trash)
+						if(ispath(trash,/obj/item))
+							var/obj/item/TrashItem = new trash(user)
+							user.put_in_hands(TrashItem)
+						else if(istype(trash,/obj/item))
+							user.put_in_hands(trash)
+					qdel(src)
+				return
 
 	if (is_sliceable())
 		//these are used to allow hiding edge items in food that is not on a table/tray
@@ -1780,14 +1792,21 @@
 	nutriment_amt = 5
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/soup
+	name = "water soup"
+	desc = "Water. And it tastes...fuck all."
+	icon_state = "wishsoup"
+	nutriment_desc = list("soup" = 5)
+	trash = /obj/item/trash/snack_bowl
+	center_of_mass = list("x"=16, "y"=8)
+	bitesize = 5
+	is_liquid = TRUE
+
 /obj/item/reagent_containers/food/snacks/soup/meatball
 	name = "meatball soup"
 	desc = "You've got balls kid, BALLS!"
 	icon_state = "meatballsoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#785210"
-	center_of_mass = list("x"=16, "y"=8)
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/soup/meatball/Initialize()
 	. = ..()
@@ -1799,7 +1818,6 @@
 	desc = "If no water is available, you may substitute tears."
 	icon_state = "slimesoup" //nonexistant?
 	filling_color = "#C4DBA0"
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/soup/slime/Initialize()
 	. = ..()
@@ -1811,8 +1829,6 @@
 	desc = "Smells like copper."
 	icon_state = "tomatosoup"
 	filling_color = "#FF0000"
-	center_of_mass = list("x"=16, "y"=7)
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/soup/blood/Initialize()
 	. = ..()
@@ -1825,10 +1841,8 @@
 	desc = "Not very funny."
 	icon_state = "clownstears"
 	filling_color = "#C4FBFF"
-	center_of_mass = list("x"=16, "y"=7)
 	nutriment_desc = list("salt" = 1, "the worst joke" = 3)
 	nutriment_amt = 4
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/clownstears/Initialize()
 	. = ..()
@@ -1839,12 +1853,9 @@
 	name = "vegetable soup"
 	desc = "A true vegan meal" //TODO
 	icon_state = "vegetablesoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#AFC4B5"
-	center_of_mass = list("x"=16, "y"=8)
 	nutriment_desc = list("carrot" = 2, "corn" = 2, "eggplant" = 2, "potato" = 2)
 	nutriment_amt = 8
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/soup/vegetable/Initialize()
 	. = ..()
@@ -1854,12 +1865,9 @@
 	name = "nettle soup"
 	desc = "To think, the botanist would've beat you to death with one of these."
 	icon_state = "nettlesoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#AFC4B5"
-	center_of_mass = list("x"=16, "y"=7)
 	nutriment_desc = list("salad" = 4, "egg" = 2, "potato" = 2)
 	nutriment_amt = 8
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/soup/nettle/Initialize()
 	. = ..()
@@ -1870,12 +1878,9 @@
 	name = "mystery soup"
 	desc = "The mystery is, why aren't you eating it?"
 	icon_state = "mysterysoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#F082FF"
-	center_of_mass = list("x"=16, "y"=6)
 	nutriment_desc = list("backwash" = 1)
 	nutriment_amt = 1
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/soup/mystery/Initialize()
 	. = ..()
@@ -1919,10 +1924,7 @@
 	name = "wish soup"
 	desc = "I wish this was soup."
 	icon_state = "wishsoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#D1F4FF"
-	center_of_mass = list("x"=16, "y"=11)
-	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/soup/wish/Initialize()
 	. = ..()
@@ -2187,10 +2189,7 @@
 	name = "tomato soup"
 	desc = "Drinking this feels like being a vampire! A tomato vampire..."
 	icon_state = "tomatosoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#D92929"
-	center_of_mass = list("x"=16, "y"=7)
-	nutriment_desc = list("soup" = 5)
 	nutriment_amt = 5
 	bitesize = 3
 
@@ -2202,9 +2201,7 @@
 	name = "bluespace tomato soup"
 	desc = "A scientific experiment turned into a possibly unsafe meal."
 	icon_state = "spiral_soup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#0066FF"
-	nutriment_desc = list("soup" = 5)
 	nutriment_amt = 5
 	bitesize = 3
 
@@ -2229,14 +2226,17 @@
 	reagents.add_reagent("psilocybin", 8)
 
 /obj/item/reagent_containers/food/snacks/stew
-	name = "Stew"
+	name = "stew"
 	desc = "A nice and warm stew. Healthy and strong."
 	icon_state = "stew"
+	trash = /obj/item/trash/stew
+	drop_sound = 'sound/items/drop/shovel.ogg'
 	filling_color = "#9E673A"
 	center_of_mass = list("x"=16, "y"=5)
 	nutriment_desc = list("potato" = 2, "carrot" = 2, "eggplant" = 2, "mushroom" = 2)
 	nutriment_amt = 6
 	bitesize = 10
+	is_liquid = TRUE
 
 /obj/item/reagent_containers/food/snacks/stew/Initialize()
 	. = ..()
@@ -2294,8 +2294,6 @@
 	name = "milosoup"
 	desc = "The universes best soup! Yum!!!"
 	icon_state = "milosoup"
-	trash = /obj/item/trash/snack_bowl
-	center_of_mass = list("x"=16, "y"=7)
 	nutriment_desc = list("soy" = 8)
 	nutriment_amt = 8
 	bitesize = 4
@@ -2538,9 +2536,7 @@
 	name = "chantrelle soup"
 	desc = "A delicious and hearty mushroom soup."
 	icon_state = "mushroomsoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#E386BF"
-	center_of_mass = list("x"=17, "y"=10)
 	nutriment_desc = list("mushroom" = 8, "milk" = 2)
 	nutriment_amt = 8
 	bitesize = 3
@@ -2580,9 +2576,7 @@
 	name = "beet soup"
 	desc = "Wait, how do you spell it again..?"
 	icon_state = "beetsoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FAC9FF"
-	center_of_mass = list("x"=15, "y"=8)
 	nutriment_desc = list("tomato" = 4, "beet" = 4)
 	nutriment_amt = 8
 	bitesize = 2
@@ -2715,18 +2709,15 @@
 	reagents.add_reagent("tomatojuice", 2)
 	reagents.add_reagent("hyperzine", 5)
 
-/obj/item/reagent_containers/food/snacks/bearstew
+/obj/item/reagent_containers/food/snacks/stew/bear
 	name = "bear stew"
 	gender = PLURAL
 	desc = "A thick, dark stew of bear meat and vegetables."
-	icon_state = "stew"
-	filling_color = "#9E673A"
-	center_of_mass = list("x"=16, "y"=5)
+	icon_state = "bearstew"
 	nutriment_desc = list("mushroom" = 2, "potato" = 2, "carrot" = 2)
-	nutriment_amt = 6
 	bitesize = 6
 
-/obj/item/reagent_containers/food/snacks/bearstew/Initialize()
+/obj/item/reagent_containers/food/snacks/stew/bear/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 4)
 	reagents.add_reagent("hyperzine", 5)
@@ -4270,6 +4261,7 @@
 	filling_color = "#A8A8A8"
 	center_of_mass = list("x"=16, "y"=15)
 	bitesize = 4
+	is_liquid = TRUE
 
 /obj/item/reagent_containers/food/snacks/liquidfood/Initialize()
 	. = ..()
@@ -4389,7 +4381,6 @@
 	name = "k'ois paste"
 	desc = "A thick K'ois goop, piled into a bowl."
 	icon_state = "koissoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#4E6E600"
 	bitesize = 2
 
@@ -5231,8 +5222,8 @@
 	desc = "A traditional tajaran bread, usually baked with blizzard ears' flour."
 	icon_state = "tajaran_bread"
 	bitesize = 2
-	nutriment_desc = list("bread" = 2)
 	nutriment_amt = 5
+	nutriment_desc = list("bread" = 2)
 	description_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Bread, baked with flour produced from a variation of the Blizzard Ears, is considered an essential part of a worker's breakfast."
 
@@ -5241,23 +5232,21 @@
 	desc = "A soup made with earthen-root, a traditional dish from Northern Harr'masir."
 	icon_state = "tajaran_soup"
 	bitesize = 2
-	nutriment_desc = list("soup" = 5)
 	nutriment_amt = 4
-	trash = /obj/item/trash/snack_bowl
 	description_fluff = "The Earth-Root soup is a common sight on the tables, of all social sectors, in the Northern Harr'masir. Prepared traditionally with water, Earth-Root and \
 	other plants, such as the Nif-Berries."
 
-/obj/item/reagent_containers/food/snacks/tajaran_stew
+/obj/item/reagent_containers/food/snacks/stew/tajaran
 	name = "adhomian stew"
 	desc = "An adhomian stew, made with nav'twir meat and native plants."
 	icon_state = "tajaran_stew"
 	bitesize = 2
-	nutriment_desc = list("sweetness" = 2)
 	nutriment_amt = 4
+	nutriment_desc = list("sweetness" = 2)
 	description_fluff = "Traditional adhomian stews are made with diced vegetables, such as Nif-Berries, and meat, Snow Strider is commonly used by the rural population, while \
 	industrialized Fatshouters's beef is prefered by the city's inhabitants."
 
-/obj/item/reagent_containers/food/snacks/tajaran_stew/Initialize()
+/obj/item/reagent_containers/food/snacks/stew/tajaran/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 4)
 	reagents.add_reagent("water", 4)
@@ -5301,7 +5290,6 @@
 	name = "onion soup"
 	desc = "A soup with layers."
 	icon_state = "onionsoup"
-	trash = /obj/item/trash/snack_bowl
 	filling_color = "#E0C367"
 	center_of_mass = list("x"=16, "y"=7)
 	nutriment_amt = 5

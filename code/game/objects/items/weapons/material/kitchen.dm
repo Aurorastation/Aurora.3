@@ -15,6 +15,7 @@
 	force_divisor = 0.1 // 6 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 	var/loaded      //Descriptive string for currently loaded food object.
+	var/loadedis_liquid = FALSE //whether you've got liquid on your utensil
 	var/scoop_food = 1
 
 /obj/item/material/kitchen/utensil/New()
@@ -43,7 +44,7 @@
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
 				to_chat(M, "You cannot force anymore food down!")
 				return
-			M.visible_message("<span class='notice'>\The [user] eats some [loaded] from \the [src].</span>")
+			M.visible_message("<span class='notice'>\The [user] [loadedis_liquid ? "drinks" : "eats"] some [loaded] from \the [src].</span>")
 		else
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
 				to_chat(M, "You cannot force anymore food down their throat!")
@@ -53,7 +54,11 @@
 				return
 			M.visible_message("<span class='notice'>\The [user] feeds some [loaded] to \the [M] with \the [src].</span>")
 		reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
-		playsound(M.loc,'sound/items/eatfood.ogg', rand(10,40), 1)
+		if(loadedis_liquid)
+			playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+		else
+			playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)
+		loadedis_liquid = FALSE
 		cut_overlays()
 		return
 	else
