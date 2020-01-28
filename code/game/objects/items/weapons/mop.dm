@@ -32,7 +32,7 @@
 			if(clean_msg)
 				to_chat(user, span("notice", "Your mop is dry!"))
 			return
-		if ( !(last_clean && world.time < last_clean + 120) ) //spam is bad
+		if (!(last_clean && world.time < last_clean + 120)) //spam is bad
 			user.visible_message(span("warning", "[user] begins to mop \the [get_turf(A)]."))
 			clean_msg = TRUE
 			last_clean = world.time
