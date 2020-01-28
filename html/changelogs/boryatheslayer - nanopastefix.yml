@@ -1,7 +1,0 @@
-
-author: BoryaTheSlayer
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixes nanopaste not using charge when used for internal robotic repairs."
