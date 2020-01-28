@@ -31,23 +31,7 @@
 			to_chat(M, "<font color='#960018'><span class='ooc'>" + create_text_tag("aooc", "Antag-OOC:", M.client) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>")
 
 	log_ooc("(ANTAG) [key] : [msg]",ckey=key_name(mob))
-	
-	for(var/client/target in clients)
-		if(target.prefs.toggles & CHAT_AOOC)
-			admin_stuff = ""
-			var/display_remote = 0
-			if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
-				display_remote = 1
-			if(display_remote)
-				prefix = "(R)"
-				admin_stuff += "/([source.key])"
-				if(target != source.client)
-					admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[mob]'>JMP</A>)"
-			if(target.mob in messagemobs)
-				prefix = ""
-			if((target.mob in messagemobs) || display_remote)
-				to_chat(target, "<span class='Aoc'><span class='Aooc'>" + create_text_tag("Aooc", "AOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>")
-				
+
 // Checks if a newly joined player is an antag, and adds the AOOC verb if they are.
 // Because they're tied to client objects, this gets removed every time you disconnect.
 /client/proc/add_aooc_if_necessary()
