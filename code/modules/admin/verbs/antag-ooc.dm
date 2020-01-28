@@ -14,7 +14,7 @@
 	if(!msg)
 		return
 
-if(!(prefs.toggles & CHAT_AOOC))
+	if(!(prefs.toggles & CHAT_AOOC))
 		to_chat(src, "<span class='warning'>You have AOOC muted.</span>")
 		return
 
