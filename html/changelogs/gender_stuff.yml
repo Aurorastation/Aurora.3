@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Species that are gender neutral will now properly spawn with the neuter gender, and be neuter gender in the character setup."
