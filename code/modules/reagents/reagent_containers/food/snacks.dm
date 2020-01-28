@@ -42,7 +42,7 @@
 
 /obj/item/reagent_containers/food/snacks/proc/on_consume(var/mob/eater, var/mob/feeder = null)
 	if(!reagents.total_volume)
-		eater.visible_message("<span class='notice'>[eater] finishes [is_liquid ? "drinking" : "eating"] \the [src].</span>","<span class='notice'>You finish [is_liquid ? "drinking" : "eating"] \the [src].</span>")
+		eater.visible_message(span("notice", "[eater] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src].")
 
 		if (!feeder)
 			feeder = eater
