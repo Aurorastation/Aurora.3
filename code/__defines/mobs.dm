@@ -209,11 +209,13 @@
 #define GLUT_TINY 1       // Eat anything tiny and smaller
 #define GLUT_SMALLER 2    // Eat anything smaller than we are
 #define GLUT_ANYTHING 4   // Eat anything, ever
+#define GLUT_MESSY 8      // Only eat mobs, and eat them in chunks.
 
-#define GLUT_ITEM_TINY 8         // Eat items with a w_class of small or smaller
-#define GLUT_ITEM_NORMAL 16      // Eat items with a w_class of normal or smaller
-#define GLUT_ITEM_ANYTHING 32    // Eat any item
-#define GLUT_PROJECTILE_VOMIT 64 // When vomitting, does it fly out?
+#define GLUT_ITEM_TINY 16         // Eat items with a w_class of small or smaller
+#define GLUT_ITEM_NORMAL 32      // Eat items with a w_class of normal or smaller
+#define GLUT_ITEM_ANYTHING 64    // Eat any item
+#define GLUT_PROJECTILE_VOMIT 128 // When vomitting, does it fly out?
+
 
 // Devour speeds, returned by can_devour()
 #define DEVOUR_SLOW 1
