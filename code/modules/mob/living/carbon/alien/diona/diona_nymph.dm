@@ -184,7 +184,7 @@
 	spawn(0)
 		regenerate_icons()
 		make_blood()
-
+		verbs += /mob/living/carbon/alien/proc/nymph_set_name
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
 		client.screen.len = null
@@ -365,6 +365,29 @@
 	hat = new_hat
 	new_hat.forceMove(src)
 	update_icons()
+
+/mob/living/carbon/alien/proc/nymph_set_name()
+	set name = "Set Nymph Name"
+	set desc = "Choose a name for your yourself."
+	set category = "Abilities"
+
+	var/newname
+	var/suggestion = ""
+	var/textbox = ""
+	var/datum/language/L = locate(/datum/language/diona) in languages
+	if (L)
+		suggestion = L.get_random_name()
+
+
+	textbox	= "What shall we name ourself? Type in a name, or leave blank to cancel."
+
+	newname = input(src, textbox, "Choosing a name.", suggestion)
+	if (newname)
+		real_name = newname
+		name = newname
+		mind.name = newname
+		to_chat(src, "<span class=notice>We shall now be known as [real_name] !</span>")
+		verbs.Remove(/mob/living/carbon/alien/proc/nymph_set_name)
 
 /mob/living/carbon/alien/diona/MiddleClickOn(var/atom/A)
 	if(istype(A, /mob/living/carbon/alien/diona))
