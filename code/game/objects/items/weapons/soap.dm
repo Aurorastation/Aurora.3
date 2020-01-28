@@ -62,7 +62,7 @@
 		else
 			to_chat(user, "\The [target] is empty!")
 	else
-		if ( !(last_clean && world.time < last_clean + 120) )
+		if (!(last_clean && world.time < last_clean + 120))
 			to_chat(user, "You start scrubbing the [target.name]")
 			clean_msg = TRUE
 			last_clean = world.time
