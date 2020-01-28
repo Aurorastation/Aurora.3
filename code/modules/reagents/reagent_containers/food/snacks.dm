@@ -42,13 +42,10 @@
 
 /obj/item/reagent_containers/food/snacks/proc/on_consume(var/mob/eater, var/mob/feeder = null)
 	if(!reagents.total_volume)
-		eater.visible_message(span("notice", "[eater] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src].")
-
-		if (!feeder)
+		eater.visible_message(span("notice", "[eater] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
+		if(!feeder)
 			feeder = eater
-
 		feeder.drop_from_inventory(src)	//so icons update :[ //what the fuck is this????
-
 		if(trash)
 			if(ispath(trash,/obj/item))
 				var/obj/item/TrashItem = new trash(feeder)
