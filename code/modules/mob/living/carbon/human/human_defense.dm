@@ -136,7 +136,7 @@ emp_act
 		if(gear.body_parts_covered & def_zone.body_part)
 			protection = add_armor(protection, gear.armor[type])
 		if(length(gear.accessories))
-			for(var/obj/item/clothing/gear/accessory/A in gear.accessories)
+			for(var/obj/item/clothing/accessory/A in gear.accessories)
 				if(A.body_parts_covered & def_zone.body_part)
 					protection = add_armor(protection, A.armor[type])
 
