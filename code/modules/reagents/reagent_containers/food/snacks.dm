@@ -5291,7 +5291,6 @@
 	desc = "A soup with layers."
 	icon_state = "onionsoup"
 	filling_color = "#E0C367"
-	center_of_mass = list("x"=16, "y"=7)
 	nutriment_amt = 5
 	nutriment_desc = list("onion" = 2, "soup" = 2)
 	bitesize = 3
