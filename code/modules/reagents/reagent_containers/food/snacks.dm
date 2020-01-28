@@ -220,7 +220,7 @@
 					"<span class='notice'>You scoop up some of \the [src] with \the [U]!</span>" \
 				)
 
-				src.bitecount++
+				bitecount++
 				U.cut_overlays()
 				U.loaded = "[src]"
 				var/image/I = new(U.icon, "loadedfood")
