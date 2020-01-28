@@ -56,6 +56,7 @@
 		reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		if(loadedis_liquid)
 			playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
+			loadedis_liquid = FALSE
 		else
 			playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)
 		loadedis_liquid = FALSE
