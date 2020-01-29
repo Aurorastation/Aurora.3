@@ -222,7 +222,7 @@
 			var/newDNA
 			var/datum/reagent/blood/B = vessel.get_master_reagent()
 			var/total_blood = B.volume
-			var/remove_amount = min(species.blood_amount * 0.05, total_blood) // Take 5% of their blood
+			var/remove_amount = min(donor.species.blood_amount * 0.05, total_blood) // Take 5% of their blood
 			if(remove_amount > 0)
 				vessel.remove_reagent("blood", remove_amount, TRUE)
 				adjustNutritionLoss(-remove_amount * 0.5)
