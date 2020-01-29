@@ -156,7 +156,7 @@
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
 
-		user.visible_message(span("[class]", "[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!"), \
+		user.visible_message(span("[class]", "[user] holds \the [P] up to \the [src], trying to burn it!"), \
 		span("[class]", "You hold \the [P] up to \the [src], burning it slowly."))
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
 		flick("shredp_onfire", src) //no do_after here, so people can walk n' burn at the same time. -wezzy
