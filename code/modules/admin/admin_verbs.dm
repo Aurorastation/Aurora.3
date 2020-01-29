@@ -788,7 +788,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Show/Hide AOOC"
 	set category = "Preferences"
 	
-	prefs.toggles ^= CHAT_AOO
+	prefs.toggles ^= CHAT_AOOC
 	if (prefs.toggles & CHAT_AOOC)
 		to_chat(usr, "You now will see messages in aooc")
 	else
