@@ -24,7 +24,7 @@
 	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content) // don't eat humans while content
 		return "I'm already content..."
 	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxHealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
-		return "This subject does not have an edible life energy..."
+		return "This subject does not have any edible life energy..."
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/human/H = M
 		if(istype(H) && (H.species.flags & NO_SCAN))
