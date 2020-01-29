@@ -300,7 +300,7 @@
 
 	var/energy = FALSE
 	var/r = alert(src, "Do you choose to eject echoes as nymphs or energy?", "Identify Waste", "Energy", "Nymphs")
-	if("Energy")
+	if(r == "Energy")
 		energy = TRUE
 
 	for(var/mob/living/carbon/alien/diona/D in src)
