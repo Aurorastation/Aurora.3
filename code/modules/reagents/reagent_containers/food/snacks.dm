@@ -160,17 +160,17 @@
 	if(!..(user, 1))
 		return
 	if(name != initial(name))
-		to_chat(user, "<span class='notice'>You know the item as [initial(name)], however a little piece of propped up paper indicates it's \a [name].</span>")
+		to_chat(user, span("notice", "You know the item as [initial(name)], however a little piece of propped up paper indicates it's \a [name]."))
 	if (coating)
-		to_chat(user, "<span class='notice'>It's coated in [coating.name]!</span>")
+		to_chat(user, span("notice", "It's coated in [coating.name]!"))
 	if (bitecount==0)
 		return
 	else if (bitecount==1)
-		to_chat(user, "<span class='notice'>\The [src] was bitten by someone!</span>")
+		to_chat(user, span("notice", "\The [src] was bitten by someone!"))
 	else if (bitecount<=3)
-		to_chat(user, "<span class='notice'>\The [src] was bitten [bitecount] time\s!</span>")
+		to_chat(user, span("notice", "\The [src] was bitten [bitecount] time\s!"))
 	else
-		to_chat(user, "<span class='notice'>\The [src] was bitten multiple times!</span>")
+		to_chat(user, span("notice", "\The [src] was bitten multiple times!"))
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W as obj, mob/user as mob)
 
@@ -180,14 +180,14 @@
 		if(selection == "Name")
 			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null, MAX_LNAME_LEN)
 			if(input_clean_name)
-				user.visible_message("<span class='notice'>\The [user] labels \the [name] as \"[input_clean_name]\".</span>")
+				user.visible_message(span("notice", "\The [user] labels \the [name] as \"[input_clean_name]\"."))
 				name = input_clean_name
 			else
 				name = initial(name)
 		else if(selection == "Description")
 			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null, MAX_MESSAGE_LEN)
 			if(input_clean_desc)
-				user.visible_message("<span class='notice'>\The [user] adds a note to \the [name].</span>")
+				user.visible_message(span("notice", "\The [user] adds a note to \the [name]."))
 				desc = input_clean_desc
 			else
 				desc = initial(desc)
@@ -201,7 +201,8 @@
 	if(istype(W,/obj/item/material/kitchen/utensil))
 		var/obj/item/material/kitchen/utensil/U = W
 		if(istype(W,/obj/item/material/kitchen/utensil/fork)&&(is_liquid))
-			to_chat(user, "<span class='notice'>You uselessly pass \the [U] through \the [src].</span>")
+			to_chat(user, span("notice", "You uselessly pass \the [U] through \the [src]."))
+			playsound(user.loc, 'sound/effects/pour.ogg', 10, 1)
 			return
 		else
 			if(U.scoop_food)
@@ -209,12 +210,12 @@
 					U.create_reagents(5)
 
 				if (U.reagents.total_volume > 0)
-					to_chat(user, "<span class='warning'>You already have \the [src] on \the [U].</span>")
+					to_chat(user, span("warning", "You already have \the [src] on \the [U]."))
 					return
 
 				user.visible_message( \
 					"\The [user] scoops up some of \the [src] with \the [U]!", \
-					"<span class='notice'>You scoop up some of \the [src] with \the [U]!</span>" \
+					span("notice", "You scoop up some of \the [src] with \the [U]!") \
 				)
 
 				bitecount++
@@ -246,7 +247,7 @@
 			if (W.w_class >= src.w_class || is_robot_module(W))
 				return
 
-			to_chat(user, "<span class='warning'>You slip \the [W] inside \the [src].</span>")
+			to_chat(user, span("warning", "You slip \the [W] inside \the [src]."))
 			user.remove_from_mob(W)
 			W.dropped(user)
 			add_fingerprint(user)
@@ -255,15 +256,15 @@
 
 		if (has_edge(W))
 			if (!can_slice_here)
-				to_chat(user, "<span class='warning'>You cannot slice \the [src] here! You need a table or at least a tray to do it.</span>")
+				to_chat(user, span("warning", "You cannot slice \the [src] here! You need a table or at least a tray to do it."))
 				return
 
 			var/slices_lost = 0
 			if (W.w_class > 3)
-				user.visible_message("<span class='notice'>\The [user] crudely slices \the [src] with [W]!</span>", "<span class='notice'>You crudely slice \the [src] with your [W]!</span>")
+				user.visible_message(span("notice", "\The [user] crudely slices \the [src] with [W]!"), span("notice", "You crudely slice \the [src] with your [W]!"))
 				slices_lost = rand(1,min(1,round(slices_num/2)))
 			else
-				user.visible_message("<span class='notice'>\The [user] slices \the [src]!</span>", "<span class='notice'>You slice \the [src]!</span>")
+				user.visible_message(span("notice", "\The [user] slices \the [src]!"), span("notice", "You slice \the [src]!"))
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))
@@ -413,7 +414,7 @@
 		m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
 		amount_eaten = m_bitesize
 		if (!SA.can_eat())
-			to_chat(user, "<span class='danger'>You're too full to eat anymore!</span>")
+			to_chat(user, span("danger", "You're too full to eat anymore!"))
 			return
 
 	if(reagents && user.reagents)
@@ -426,12 +427,12 @@
 	if (amount_eaten)
 		bitecount++
 		if (amount_eaten < m_bitesize)
-			user.visible_message("<span class='notice'><b>[user]</b> reluctantly nibbles a tiny part of \the [src].</span>","<span class='notice'>You reluctantly nibble a tiny part of \the [src]. <b>You can't stomach much more!</b>.</span>")
+			user.visible_message(span("notice", "<b>[user]</b> reluctantly nibbles a tiny part of \the [src]."),span("notice", "You reluctantly nibble a tiny part of \the [src]. <b>You can't stomach much more!</b>."))
 		animate_shake()
 		var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
 		playsound(loc, toplay, 30, 1)
 	else
-		to_chat(user, "<span class='danger'>You're too full to eat anymore!</span>")
+		to_chat(user, span("danger", "You're too full to eat anymore!"))
 
 	spawn(5)
 		if(!src && !user.client)
@@ -796,7 +797,7 @@
 	..()
 	new/obj/effect/decal/cleanable/egg_smudge(src.loc)
 	src.reagents.splash(hit_atom, reagents.total_volume)
-	src.visible_message("<span class='warning'>\The [src] has been squashed!</span>","<span class='warning'>You hear a smack.</span>")
+	src.visible_message(span("warning", "\The [src] has been squashed!"),span("warning", "You hear a smack."))
 	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/W as obj, mob/user as mob)
@@ -805,10 +806,10 @@
 		var/clr = C.colourName
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))
-			to_chat(usr, "<span class='notice'>The egg refuses to take on this color!</span>")
+			to_chat(usr, span("notice", "The egg refuses to take on this color!"))
 			return
 
-		to_chat(usr, "<span class='notice'>You color \the [src] [clr]</span>")
+		to_chat(usr, span("notice", "You color \the [src] [clr]"))
 		icon_state = "egg-[clr]"
 	else
 		..()
@@ -1080,10 +1081,10 @@
 
 /obj/item/reagent_containers/food/snacks/donkpocket/sinpocket/attack_self(mob/user)
 	if(has_been_heated)
-		to_chat(user, "<span class='notice'>The heating chemicals have already been spent.</span>")
+		to_chat(user, span("notice", "The heating chemicals have already been spent."))
 		return
 	has_been_heated = TRUE
-	user.visible_message("<span class='notice'>[user] crushes \the [src] package.</span>", "You crush \the [src] package and feel it rapidly heat up.")
+	user.visible_message(span("notice", "[user] crushes \the [src] package."), "You crush \the [src] package and feel it rapidly heat up.")
 	name = "cooked Sin-pocket"
 	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
 	reagents.add_reagent("doctorsdelight", 5)
@@ -1295,7 +1296,7 @@
 /obj/item/reagent_containers/food/snacks/pie/throw_impact(atom/hit_atom)
 	..()
 	new/obj/effect/decal/cleanable/pie_smudge(src.loc)
-	src.visible_message("<span class='danger'>\The [src.name] splats.</span>","<span class='danger'>You hear a splat.</span>")
+	src.visible_message(span("danger", "\The [src.name] splats."),span("danger", "You hear a splat."))
 	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/berryclafoutis
@@ -1526,7 +1527,7 @@
 
 /obj/item/reagent_containers/food/snacks/popcorn/on_consume()
 	if(prob(unpopped))	//lol ...what's the point? // IMPLEMENT DENTISTRY WHEN?
-		to_chat(usr, "<span class='warning'>You bite down on an un-popped kernel!</span>")
+		to_chat(usr, span("warning", "You bite down on an un-popped kernel!"))
 		unpopped = max(0, unpopped-1)
 	..()
 
@@ -1995,7 +1996,7 @@
 		Unwrap(user)
 
 /obj/item/reagent_containers/food/snacks/monkeycube/proc/Expand()
-	src.visible_message("<span class='notice'>\The [src] expands!</span>")
+	src.visible_message(span("notice", "\The [src] expands!"))
 	if(istype(loc, /obj/item/gripper)) // fixes ghost cube when using syringe
 		var/obj/item/gripper/G = loc
 		G.drop_item()
@@ -3911,7 +3912,7 @@
 	if( open && pizza )
 		user.put_in_hands( pizza )
 
-		to_chat(user, "<span class='warning'>You take \the [src.pizza] out of \the [src].</span>")
+		to_chat(user, span("warning", "You take \the [src.pizza] out of \the [src]."))
 		src.pizza = null
 		update_icon()
 		return
@@ -3925,7 +3926,7 @@
 		boxes -= box
 
 		user.put_in_hands( box )
-		to_chat(user, "<span class='warning'>You remove the topmost [src] from your hand.</span>")
+		to_chat(user, span("warning", "You remove the topmost [src] from your hand."))
 		box.update_icon()
 		update_icon()
 		return
@@ -3962,11 +3963,11 @@
 				box.update_icon()
 				update_icon()
 
-				to_chat(user, "<span class='warning'>You put \the [box] ontop of \the [src]!</span>")
+				to_chat(user, span("warning", "You put \the [box] ontop of \the [src]!"))
 			else
-				to_chat(user, "<span class='warning'>The stack is too high!</span>")
+				to_chat(user, span("warning", "The stack is too high!"))
 		else
-			to_chat(user, "<span class='warning'>Close \the [box] first!</span>")
+			to_chat(user, span("warning", "Close \the [box] first!"))
 
 		return
 
@@ -3978,9 +3979,9 @@
 
 			update_icon()
 
-			to_chat(user, "<span class='warning'>You put \the [I] in \the [src]!</span>")
+			to_chat(user, span("warning", "You put \the [I] in \the [src]!"))
 		else
-			to_chat(user, "<span class='warning'>You try to push \the [I] through the lid but it doesn't work!</span>")
+			to_chat(user, span("warning", "You try to push \the [I] through the lid but it doesn't work!"))
 		return
 
 	if( I.ispen() )
