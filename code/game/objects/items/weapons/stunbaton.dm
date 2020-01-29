@@ -164,19 +164,19 @@
 			var/mob/living/carbon/slime/S =  L
 			if(!status)
 				L.visible_message("<span class='warning'>[S] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
-				return 1
+				return TRUE
 			else
 				L.visible_message("<span class='danger'>[S] has been prodded with \the [src] by [user]!</span>")
 
-			S.Discipline ++
-			if(prob(5))
-				S.Discipline = 0
-				S.rabid = 1 // heres that "or piss them off part"
+			S.discipline++
+			if(prob(1))
+				S.discipline = 0
+				S.rabid = TRUE // heres that "or piss them off part"
 
 		else
 			if(!status)
 				L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Luckily it was off.</span>")
-				return 1
+				return TRUE
 			else
 				L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
 

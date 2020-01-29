@@ -358,11 +358,11 @@
 	if(istype(S))
 		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
-			if(S.Target) // Like cats
-				S.Target = null
-				++S.Discipline
+			if(S.target) // Like cats
+				S.target = null
+				++S.discipline
 		if(dose == removed)
-			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the foam touches it!</span>", "<span class='danger'>Your flesh burns in the foam!</span>")
+			S.visible_message(span("warning", "[S]'s flesh sizzles where the foam touches it!"), span("danger", "Your flesh burns in the foam!"))
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"

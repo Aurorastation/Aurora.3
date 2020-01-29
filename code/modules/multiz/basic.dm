@@ -46,7 +46,7 @@
 		return TRUE
 
 	if (SSatlas.connected_z_cache.len >= zA && SSatlas.connected_z_cache[zA])
-		return SSatlas.connected_z_cache[zA][zB]
+		return (SSatlas.connected_z_cache[zA].len >= zB && SSatlas.connected_z_cache[zA][zB])
 
 	var/list/levels = GetConnectedZlevels(zA)
 	var/list/new_entry = new(max(levels))
@@ -58,7 +58,7 @@
 
 	SSatlas.connected_z_cache[zA] = new_entry
 
-	return new_entry[zB]
+	return (SSatlas.connected_z_cache[zA].len >= zB && SSatlas.connected_z_cache[zA][zB])
 
 /proc/get_zstep(atom/ref, dir)
 	if (!isloc(ref))

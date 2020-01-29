@@ -134,6 +134,20 @@
 			to_chat(src, span("warning", "Your [stomach.name] is full!"))
 		return FALSE
 
+	if(species?.gluttonous & GLUT_MESSY)
+		if(ismob(victim))
+			var/mob/M = victim
+			if(ishuman(victim))
+				to_chat(src, span("warning", "You can't devour humanoids!"))
+				return FALSE
+			for(var/obj/item/grab/G in M.grabbed_by)
+				if(G && G.state < GRAB_NECK)
+					if(!silent)
+						to_chat(src, span("warning", "You need a tighter hold on \the [M]!"))
+					return FALSE
+		else
+			return FALSE
+
 	. = stomach.get_devour_time(victim) || ..()
 
 /mob/living/carbon/human/get_ingested_reagents()
@@ -311,15 +325,25 @@
 
 
 /mob/living/carbon/human/show_inv(mob/user as mob)
-	if(user.incapacitated()  || !user.Adjacent(src))
+	if(user.incapacitated() || !user.Adjacent(src))
 		return
 
 	var/obj/item/clothing/under/suit = null
-	if (istype(w_uniform, /obj/item/clothing/under))
+	if(istype(w_uniform, /obj/item/clothing/under))
 		suit = w_uniform
 
 	user.set_machine(src)
 	var/dat = "<B><HR><FONT size=3>[name]</FONT></B><BR><HR>"
+
+	if(internals)
+		dat += "<B>Internals: [internal ? "On" : "Off"]</B><BR>"
+
+	if(suit)
+		var/list/modes = list("Off" = 1, "Binary Sensors" = 2, "Vitals Tracker" = 3, "Tracking Beacon" = 4)
+		dat += "<B>Suit Sensors: [modes[suit.sensor_mode + 1]]</B><BR>"
+	
+	if(internals || suit)
+		dat += "<HR>"
 
 	for(var/entry in species.hud.gear)
 		var/list/slot_ref = species.hud.gear[entry]
@@ -334,10 +358,22 @@
 		dat += "<BR><b>Left hand:</b> <A href='?src=\ref[src];item=[slot_l_hand]'>[istype(l_hand) ? l_hand : "nothing"]</A>"
 		dat += "<BR><b>Right hand:</b> <A href='?src=\ref[src];item=[slot_r_hand]'>[istype(r_hand) ? r_hand : "nothing"]</A>"
 
-	// Do they get an option to set internals?
-	if(istype(wear_mask, /obj/item/clothing/mask) || istype(head, /obj/item/clothing/head/helmet/space))
-		if(istype(back, /obj/item/tank) || istype(belt, /obj/item/tank) || istype(s_store, /obj/item/tank))
-			dat += "<BR><A href='?src=\ref[src];item=internals'>Toggle internals.</A>"
+	var/has_mask // 0, no mask | 1, mask but it's down | 2, mask and it's ready
+	var/has_helmet
+	if(istype(wear_mask, /obj/item/clothing/mask))
+		var/obj/item/clothing/mask/M = wear_mask
+		has_mask = 1
+		if(!M.hanging)
+			has_mask = 2
+	if(istype(head, /obj/item/clothing/head/helmet/space))
+		has_helmet = TRUE
+
+	var/has_tank
+	if(istype(back, /obj/item/tank) || istype(belt, /obj/item/tank) || istype(s_store, /obj/item/tank))
+		has_tank = TRUE
+
+	if((has_mask == 2|| has_helmet) && has_tank)
+		dat += "<BR><A href='?src=\ref[src];item=internals'>Toggle internals [internal ? "off" : "on"]</A>"
 
 	// Other incidentals.
 	if(istype(suit) && suit.has_sensor == 1)
@@ -347,6 +383,12 @@
 	if(legcuffed)
 		dat += "<BR><A href='?src=\ref[src];item=[slot_legcuffed]'>Legcuffed</A>"
 
+	if(has_mask)
+		var/obj/item/clothing/mask/M = wear_mask
+		if(M.adjustable)
+			dat += "<BR><A href='?src=\ref[src];item=mask'>Adjust mask</A>"
+	if(has_tank && internal)
+		dat += "<BR><A href='?src=\ref[src];item=tank'>Check air tank</A>"
 	if(suit && LAZYLEN(suit.accessories))
 		dat += "<BR><A href='?src=\ref[src];item=tie'>Remove accessory</A>"
 	dat += "<BR><A href='?src=\ref[src];item=splints'>Remove splints</A>"
@@ -1317,7 +1359,7 @@
 						"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>")
 					to_chat(src, msg)
 
-				adjustHalLoss(rand(1, 3))
+				organ.take_damage(rand(1, 3), sharp = TRUE, edge = TRUE, used_weapon = O)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
@@ -1714,6 +1756,8 @@
 /mob/living/carbon/human/proc/get_traumas()
 	. = list()
 	var/obj/item/organ/internal/brain/B = internal_organs_by_name[BP_BRAIN]
+	if(istype(B, /obj/item/organ/internal/borer))
+		return
 	if(B && should_have_organ(BP_BRAIN) && !isipc(src))
 		. = B.traumas
 

@@ -150,6 +150,13 @@ emp_act
 				return 1
 	return 0
 
+/mob/living/carbon/human/proc/check_head_airtight_coverage()
+	var/list/clothing = list(head, wear_mask, wear_suit)
+	for(var/obj/item/clothing/C in clothing)
+		if((C.body_parts_covered & HEAD) && (C.item_flags & (AIRTIGHT|STOPPRESSUREDAMAGE)))
+			return TRUE
+	return FALSE
+
 //Used to check if they can be fed food/drinks/pills
 /mob/living/carbon/human/proc/check_mouth_coverage()
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform)
@@ -539,7 +546,7 @@ emp_act
 
 	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
-		to_chat(user, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
+		to_chat(user, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)

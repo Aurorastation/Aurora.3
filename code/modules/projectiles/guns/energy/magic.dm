@@ -18,6 +18,7 @@
 	recharge_time = 15
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
+	has_safety = FALSE
 
 /obj/item/gun/energy/staff/emp_act(severity) // to prevent it from breaking.
 	return
@@ -194,7 +195,8 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 	charge_failure_message = null
-
+	has_safety = FALSE
+	
 /obj/item/gun/energy/wand/get_cell()
 	return DEVICE_NO_CELL
 

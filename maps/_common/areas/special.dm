@@ -186,6 +186,74 @@
 	no_light_control = 1
 	centcomm_area = 1
 
+/area/kataphract_chapter
+	name = "\improper Kataphract Chapter"
+	icon_state = "yellow"
+	requires_power = 1
+	dynamic_lighting = 1
+	no_light_control = 0
+	base_turf = /turf/space
+
+/area/kataphract_chapter/bridge
+	name = "\improper Kataphract Chapter - Bridge"
+	icon_state = "bridge"
+
+/area/kataphract_chapter/sparring_chamber
+	name = "\improper Kataphract Chapter - Sparring Chamber"
+	icon_state = "security"
+
+/area/kataphract_chapter/commissary
+	name = "\improper Kataphract Chapter - Commissary"
+	icon_state = "Warden"
+
+/area/kataphract_chapter/main_ring
+	name = "\improper Kataphract Chapter - Main Ring"
+	icon_state = "yellow"
+
+/area/kataphract_chapter/dorms
+	name = "\improper Kataphract Chapter - Dorms"
+	icon_state = "Sleep"
+
+/area/kataphract_chapter/toilets
+	name = "\improper Kataphract Chapter - Toilets"
+	icon_state = "toilet"
+
+/area/kataphract_chapter/office
+	name = "\improper Kataphract Chapter - Knight's Office"
+	icon_state = "law"
+
+/area/kataphract_chapter/cafeteria
+	name = "\improper Kataphract Chapter - Cafeteria"
+	icon_state = "kitchen"
+
+/area/kataphract_chapter/engineering
+	name = "\improper Kataphract Chapter - Engineering"
+	icon_state = "engineering_workshop"
+
+/area/kataphract_chapter/port_solars
+	name = "\improper Kataphract Chapter - Port Solars"
+	icon_state = "panelsA"
+
+/area/kataphract_chapter/starboard_solars
+	name = "\improper Kataphract Chapter - Starboard Solars"
+	icon_state = "panelsA"
+
+/area/kataphract_chapter/trading_area
+	name = "\improper Kataphract Chapter - Trading Area"
+	icon_state = "quartoffice"
+
+/area/kataphract_chapter/warehouse
+	name = "\improper Kataphract Chapter - Warehouse"
+	icon_state = "quartstorage"
+
+/area/kataphract_chapter/hangar
+	name = "\improper Kataphract Chapter - Hangar"
+	icon_state = "green"
+
+/area/kataphract_chapter/hull
+	name = "\improper Kataphract Chapter - Hull"
+	icon_state = "blue"
+
 /area/skipjack_station
 	name = "\improper Skipjack"
 	icon_state = "yellow"

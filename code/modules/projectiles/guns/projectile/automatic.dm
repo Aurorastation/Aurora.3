@@ -325,8 +325,8 @@
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/c45
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/tommymag
-	allowed_magazines = list(/obj/item/ammo_magazine/tommymag, /obj/item/ammo_magazine/tommydrum)
+	magazine_type = /obj/item/ammo_magazine/submachinemag
+	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag, /obj/item/ammo_magazine/submachinedrum)
 	fire_sound = 'sound/weapons/tommygun_shoot.ogg'
 
 /obj/item/gun/projectile/automatic/tommygun/update_icon()

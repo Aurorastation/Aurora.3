@@ -6,7 +6,6 @@
 #define SEND_OK			0
 #define SEND_TIMEOUT	1
 #define ERROR_PROC		2
-#define ERROR_CURL		3
 #define ERROR_HTTP		4
 
 var/datum/discord_bot/discord_bot = null
@@ -34,7 +33,7 @@ var/datum/discord_bot/discord_bot = null
 		var/client/cc = C
 		if (cc.holder && (cc.holder.rights & (R_MOD|R_ADMIN)))
 			admins_number++
-	
+
 	post_webhook_event(WEBHOOK_ROUNDSTART, list("playercount"=clients.len))
 	if (!admins_number)
 		post_webhook_event(WEBHOOK_ALERT_NO_ADMINS, list())
@@ -186,7 +185,9 @@ var/datum/discord_bot/discord_bot = null
 		if (isnull(output["[channel.pin_flag]"]))
 			output["[channel.pin_flag]"] = list()
 
-		output["[channel.pin_flag]"] += channel.get_pins(auth_token)
+		var/ch_pins = channel.get_pins(auth_token)
+		if (length(ch_pins))
+			output["[channel.pin_flag]"] += ch_pins
 
 	if (robust_debug)
 		log_debug("BOREALIS: Finished acquiring pins.")
@@ -201,6 +202,7 @@ var/datum/discord_bot/discord_bot = null
  * @return text	- The invite URL to the designated invite channel.
  */
 /datum/discord_bot/proc/retreive_invite()
+	set background = 1
 	if (!active || !auth_token)
 		return ""
 
@@ -215,6 +217,7 @@ var/datum/discord_bot/discord_bot = null
  * Forwards a message to the admin channels.
  */
 /datum/discord_bot/proc/send_to_admins(message)
+	set background = 1
 	send_message(CHAN_ADMIN, message)
 
 /*
@@ -222,6 +225,7 @@ var/datum/discord_bot/discord_bot = null
  * Forwards a message to the CCIAA channels.
  */
 /datum/discord_bot/proc/send_to_cciaa(message)
+	set background = 1
 	send_message(CHAN_CCIAA, message)
 
 /*
@@ -229,6 +233,7 @@ var/datum/discord_bot/discord_bot = null
  * Forwards a message to the announcements channels.
  */
 /datum/discord_bot/proc/send_to_announce(message, prepend_role = 0)
+	set background = 1
 	if (prepend_role && subscriber_role)
 		message = "<@&[subscriber_role]> " + message
 	send_message(CHAN_ANNOUNCE, message)
@@ -269,6 +274,7 @@ var/datum/discord_bot/discord_bot = null
  * Can be toggled via config.
  */
 /datum/discord_bot/proc/alert_server_visibility()
+	set background = 1
 	if (alert_visibility && !world.visibility)
 		send_to_admins("Server started as invisible!")
 
@@ -306,21 +312,23 @@ var/datum/discord_bot/discord_bot = null
 	if (!token || !message)
 		return ERROR_PROC
 
-	var/res = send_post_request("https://discordapp.com/api/channels/[id]/messages", message, "Authorization: Bot [token]", "Content-Type: application/json")
+	var/datum/http_request/req = SShttp.post("https://discordapp.com/api/channels/[id]/messages", message, list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
 
-	switch (res)
-		if (-1)
-			return ERROR_PROC
+	req.begin_async()
+	UNTIL(req.is_complete())
 
+	var/datum/http_response/res = req.into_response()
+
+	if (res.errored)
+		log_debug("BOREALIS: library error during HTTP query. [res.error]")
+		return ERROR_PROC
+
+	switch (res.status_code)
 		if (200)
 			return SEND_OK
 
 		if (429)
 			return SEND_TIMEOUT
-
-		if (0 to 90)
-			log_debug("BOREALIS: cURL error while forwarding message to Discord API: [res]. Message body: [message].")
-			return ERROR_CURL
 
 		else
 			log_debug("BOREALIS: HTTP error while forwarding message to Discord API: [res]. Channel: [id]. Message body: [message].")
@@ -335,27 +343,21 @@ var/datum/discord_bot/discord_bot = null
  *						  Num upon failure.
  */
 /datum/discord_channel/proc/get_pins(var/token)
-	var/res = send_get_request("https://discordapp.com/api/channels/[id]/pins", "Authorization: Bot [token]")
+	var/datum/http_request/req = SShttp.get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization" = "Bot [token]"))
 
-	// Is a number, so an error code.
-	if (isnum(res))
-		switch (res)
-			if (-1)
-				return ERROR_PROC
+	req.begin_async()
+	UNTIL(req.is_complete())
 
-			if (0 to 90)
-				log_debug("BOREALIS: cURL error while fetching pins from the Discord API: [res].")
-				return ERROR_CURL
+	var/datum/http_response/res = req.into_response()
 
-			if (100 to 600)
-				log_debug("BOREALIS: HTTP error while fetching pins from the Discord API: [res].")
-				return ERROR_HTTP
-
-			else
-				log_debug("BOREALIS: Unknown response code while fetching pins from the Discord API: [res].")
-				return ERROR_PROC
+	if (res.errored)
+		log_debug("BOREALIS: Proc error while fetching pins: [res.error]")
+		return
+	else if (res.status_code != 200)
+		log_debug("BOREALIS: HTTP error while fetching pins: [res.status_code].")
+		return
 	else
-		var/list/A = res
+		var/list/A = json_decode(res.body)
 		var/list/pinned_messages = list()
 
 		// Begin processing the list structure delivered back to us from send_get_request.
@@ -391,31 +393,25 @@ var/datum/discord_bot/discord_bot = null
 	if (invite_url)
 		return invite_url
 
-	var/res = send_get_request("https://discordapp.com/api/channels/[id]/invites", "Authorization: Bot [token]")
+	var/datum/http_request/req = SShttp.get("https://discordapp.com/api/channels/[id]/invites", headers = list("Authorization" = "Bot [token]"))
 
-	// Is a number, so an error code.
-	if (isnum(res))
-		switch (res)
-			if (-1)
-				return ERROR_PROC
+	req.begin_async()
+	UNTIL(req.is_complete())
 
-			if (0 to 90)
-				log_debug("BOREALIS: cURL error while fetching pins from the Discord API: [res].")
-				return ERROR_CURL
+	var/datum/http_response/res = req.into_response()
 
-			if (100 to 600)
-				log_debug("BOREALIS: HTTP error while fetching pins from the Discord API: [res].")
-				return ERROR_HTTP
-
-			else
-				log_debug("BOREALIS: Unknown response code while fetching pins from the Discord API: [res].")
-				return ERROR_PROC
+	if (res.errored)
+		log_debug("BOREALIS: Proc error while fetching invite: [res.error]")
+		return
+	else if (res.status_code != 200)
+		log_debug("BOREALIS: HTTP error while fetching invite: [res.status_code].")
+		return
 	else
-		var/list/A = res
+		var/list/A = res.body
 
 		// No length to return data, but a valid 200 return header.
 		// So we simply have no invites active. Make one!
-		if (!A || !A.len)
+		if (!A?.len)
 			return create_invite(token)
 
 		var/best_age = A[1]["max_age"]
@@ -436,6 +432,7 @@ var/datum/discord_bot/discord_bot = null
 		// Sanity check for debug I guess.
 		if (!code)
 			log_debug("BOREALIS: Retreived an empty invite. This should not happen. Response object: [json_encode(A)]")
+			return
 
 		// Save the URL for later retreival.
 		invite_url = "https://discord.gg/[code]"
@@ -452,16 +449,18 @@ var/datum/discord_bot/discord_bot = null
  */
 /datum/discord_channel/proc/create_invite(var/token)
 	var/data = list("max_age" = 0, "max_uses" = 0)
-	var/res = send_post_request("https://discordapp.com/api/channels/[id]/invites", json_encode(data), "Authorization: Bot [token]", "Content-Type: application/json")
+	var/datum/http_request/req = SShttp.post("https://discordapp.com/api/channels/[id]/invites", json_encode(data), list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
 
-	if (res == 200)
-		var/list/get_req = send_get_request("https://discordapp.com/api/channels/[id]/invites", "Authorization: Bot [token]")
+	req.begin_async()
+	UNTIL(req.is_complete())
 
-		if (!istype(get_req) || !get_req.len)
-			return ERROR_PROC
+	var/datum/http_response/res = req.into_response()
+
+	if (!res.errored && res.status_code == 200)
+		var/list/r_data = json_decode(res.body)
 
 		// The first index should now exist. So we just use that!
-		invite_url = "https://discord.gg/[get_req[1]["code"]]"
+		invite_url = "https://discord.gg/[r_data["code"]]"
 		return invite_url
 
 /proc/discord_escape(var/input, var/remove_everyone = TRUE, var/remove_mentions = FALSE)
@@ -487,5 +486,4 @@ var/datum/discord_bot/discord_bot = null
 #undef SEND_OK
 #undef SEND_TIMEOUT
 #undef ERROR_PROC
-#undef ERROR_CURL
 #undef ERROR_HTTP

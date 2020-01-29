@@ -1,9 +1,9 @@
 /mob/living/carbon/slime/regenerate_icons()
-	if (stat == DEAD)
+	if(stat == DEAD)
 		icon_state = "[colour] baby slime dead"
 	else
-		icon_state = "[colour] [is_adult ? "adult" : "baby"] slime[Victim ? "" : " eat"]"
+		icon_state = "[colour] [is_adult ? "adult" : "baby"] slime[victim ? "" : " eat"]"
 	cut_overlays()
-	if (mood)
+	if(mood)
 		add_overlay("aslime-[mood]")
 	..()

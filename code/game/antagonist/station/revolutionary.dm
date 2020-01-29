@@ -7,7 +7,7 @@ var/datum/antagonist/revolutionary/revs
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
 	antag_indicator = "rev_head"
-	welcome_text = "Down with the capitalists! Down with the Bourgeoise!"
+	welcome_text = "You are a Head Revolutionary! Your goal is to create and progress a story. <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
 	victory_text = "The heads of staff were relieved of their posts! The revolutionaries win!"
 	loss_text = "The heads of staff managed to stop the revolution!"
 	victory_feedback_tag = "win - heads killed"
@@ -26,7 +26,7 @@ var/datum/antagonist/revolutionary/revs
 	faction_verb = /mob/living/proc/convert_to_rev
 	faction_welcome = "Help the cause overturn the ruling class. Do not harm your fellow freedom fighters."
 	faction_indicator = "rev"
-	faction_invisible = 1
+	faction_invisible = TRUE
 
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
@@ -41,7 +41,7 @@ var/datum/antagonist/revolutionary/revs
 		return
 	global_objectives = list()
 	for(var/mob/living/carbon/human/player in mob_list)
-		if(!player.mind || player.stat==2 || !(player.mind.assigned_role in command_positions))
+		if(!player.mind || player.stat == DEAD || !(player.mind.assigned_role in command_positions))
 			continue
 		var/datum/objective/rev/rev_obj = new
 		rev_obj.target = player.mind
@@ -50,18 +50,26 @@ var/datum/antagonist/revolutionary/revs
 
 /datum/antagonist/revolutionary/can_become_antag(var/datum/mind/player)
 	if(!..())
-		return 0
+		return FALSE
 	for(var/obj/item/implant/loyalty/L in player.current)
-		if(L && (L.imp_in == player.current))
-			return 0
-	return 1
+		if(L?.imp_in == player.current)
+			return FALSE
+	return TRUE
 
 /datum/antagonist/revolutionary/equip(var/mob/living/carbon/human/player)
 
 	if(!..())
-		return 0
+		return FALSE
 
+	if(!player.back)
+		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
 	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player), slot_in_backpack)
 
 	give_codewords(player)
-	return 1
+	alert(player, "As a Head Revolutionary, you are given an uplink with a lot of telecrystals. \
+				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
+				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
+				Doing so may lead to administrative action being taken.",
+				"Antagonist Introduction", "I understand.")
+	return TRUE
