@@ -39585,6 +39585,7 @@
 	pixel_y = 0
 	},
 /obj/item/storage/box/sharps,
+/obj/item/storage/box/freezer/organcooler,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bqb" = (
@@ -47652,6 +47653,7 @@
 "bDR" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/bloodpacks,
+/obj/item/storage/box/freezer/organcooler,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
