@@ -237,9 +237,9 @@
 				if(org.status & ORGAN_BLEEDING)
 					status += span("danger", "bleeding")
 				if(status.len)
-					src.show_message("My [org.name] is <span class='warning'>[english_list(status)].",1)
+					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]" ,1)
 				else
-					src.show_message("My [org.name] is <span class='notice'>OK.",1)
+					src.show_message("My [org.name] is [span("notice", "OK.")]" ,1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -304,7 +304,7 @@
 							src.help_up_offer = 0
 					else
 						M.visible_message(span("warning", "[M] grabs onto [src], trying to pull themselves up."), \
-											span("warning", "You grab onto [src], trying to pull yourself up."))
+										  span("warning", "You grab onto [src], trying to pull yourself up."))
 						if(M.fire_stacks >= (src.fire_stacks + 3))
 							src.adjust_fire_stacks(1)
 							M.adjust_fire_stacks(-1)
