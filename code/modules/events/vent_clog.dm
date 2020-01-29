@@ -9,27 +9,22 @@
 		"water",
 		"carbon",
 		"flour",
-		"radium",
-		"toxin",
 		"cleaner",
 		"nutriment",
-		"condensedcapsaicin",
 		"mindbreaker",
 		"lube",
 		"plantbgone",
 		"banana",
 		"space_drugs",
-		"holywater",
-		"ethanol",
 		"hot_coco",
-		"sacid",
 		"hyperzine",
 		"paint",
 		"luminol",
-		"fuel",
 		"blood",
 		"sterilizine",
-		"ipecac"
+		"ipecac",
+		"egg"
+
 	)
 
 

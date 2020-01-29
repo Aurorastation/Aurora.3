@@ -243,8 +243,8 @@
 	color = "#d0583a"
 	var/datum/modifier = null
 	metabolism = REM * 3
-	overdose = 10
-	strength = 3
+	overdose = 30
+	strength = 0.25
 
 /datum/reagent/toxin/stimm/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_TAJARA)
@@ -272,7 +272,7 @@
 	color = "#600060"
 	metabolism = REM // twice as fast as space drugs
 	overdose = 10
-	strength = 1.5 // makes up for it with slight suffocation damage
+	strength = 0.25 // makes up for it with slight suffocation damage
 
 	glass_name = "glass of purple drank"
 	glass_desc = "Bottoms up."

@@ -6,7 +6,7 @@
 	description = "Intensely coloured powder obtained by grinding crayons."
 	reagent_state = LIQUID
 	color = "#888888"
-	overdose = 5
+	overdose = 20
 	taste_description = "the back of class"
 	fallback_specific_heat = 0.4
 

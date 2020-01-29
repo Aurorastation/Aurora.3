@@ -1,0 +1,10 @@
+ 
+author: Aticius
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+
+changes: 
+  - tweak: "Adjusted Liver's ability to heal toxins. Should be stronger now; but not too much.
+  - rscdel: "Removed anything outwardly dangerous from the Scrubber Clog event."

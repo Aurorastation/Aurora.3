@@ -33,17 +33,17 @@
 
 	//A liver's duty is to get rid of toxins
 	if(owner.getToxLoss() > 0 && owner.getToxLoss() <= tolerance)
-		owner.adjustToxLoss(-0.2) //there isn't a lot of toxin damage, so we're going to be chill and slowly filter it out
+		owner.adjustToxLoss(-0.4) //there isn't a lot of toxin damage, so we're going to be chill and slowly filter it out
 	else if(owner.getToxLoss() > tolerance)
 		if(is_bruised())
 			//damaged liver works less efficiently
-			owner.adjustToxLoss(-0.5)
+			owner.adjustToxLoss(-0.7)
 			if(!owner.chem_effects[CE_ANTITOXIN]) //no damage to liver if anti-toxin is present
 				src.damage += 0.1 * PROCESS_ACCURACY
 		else if(is_broken())
 			//non-functioning liver ADDS toxins
 			owner.adjustToxLoss(-0.1) //roughly 33 minutes to kill someone straight out, stacks with 60+ tox proc tho
-		else 
+		else
 			//functioning liver removes toxins at a cost
 			owner.adjustToxLoss(-1)
 			if(!owner.chem_effects[CE_ANTITOXIN]) //no damage to liver if anti-toxin is present
@@ -51,7 +51,7 @@
 
 
 	//High toxins levels are super dangerous
-	if(owner.getToxLoss() >= 60 && !owner.chem_effects[CE_ANTITOXIN])
+	if(owner.getToxLoss() >= 120 && !owner.chem_effects[CE_ANTITOXIN])
 		//Healthy liver suffers on its own
 		if (src.damage < min_broken_damage)
 			src.damage += 0.2 * PROCESS_ACCURACY

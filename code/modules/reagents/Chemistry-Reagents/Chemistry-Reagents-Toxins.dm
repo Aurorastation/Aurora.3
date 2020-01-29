@@ -12,7 +12,7 @@
 	fallback_specific_heat = 0.75
 
 	var/target_organ // needs to be null by default
-	var/strength = 4 // How much damage it deals per unit
+	var/strength = 2 // How much damage it deals per unit
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength && alien != IS_DIONA)
@@ -39,7 +39,7 @@
 	description = "Liquid plastic, do not eat."
 	reagent_state = LIQUID
 	color = "#CF3600"
-	strength = 5
+	strength = 2
 	taste_description = "plastic"
 
 /datum/reagent/toxin/amatoxin
@@ -48,7 +48,7 @@
 	description = "A powerful poison derived from certain species of mushroom."
 	reagent_state = LIQUID
 	color = "#792300"
-	strength = 10
+	strength = 3
 	taste_description = "mushroom"
 
 /datum/reagent/toxin/carpotoxin
@@ -57,7 +57,7 @@
 	description = "A deadly neurotoxin produced by the dreaded space carp."
 	reagent_state = LIQUID
 	color = "#003333"
-	strength = 10
+	strength = 2
 	taste_description = "fish"
 	target_organ = BP_BRAIN
 
@@ -84,7 +84,7 @@
 	description = "Phoron in its liquid form. Twice as potent when breathed in."
 	reagent_state = LIQUID
 	color = "#9D14DB"
-	strength = 30
+	strength = 10
 	touch_met = 5
 	taste_mult = 1.5
 	breathe_mul = 2
@@ -150,7 +150,7 @@
 	description = "A mysterious molten mixture with strange chemical properties. Incredibly deadly to all lifeforms, especially Vaurca."
 	reagent_state = SOLID
 	color = "#7C4876"
-	strength = 30
+	strength = 10
 	default_temperature = 130 //Kelvin
 
 /datum/reagent/toxin/cardox
@@ -267,7 +267,7 @@
 	reagent_state = SOLID
 	color = "#669900"
 	metabolism = REM
-	strength = 3
+	strength = 2
 	taste_description = "death"
 	target_organ = BP_BRAIN
 
@@ -370,7 +370,7 @@
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"
 	reagent_state = LIQUID
 	color = "#49002E"
-	strength = 4
+	strength = 1
 	metabolism = REM*1.5
 	taste_mult = 1
 	unaffected_species = IS_MACHINE
@@ -660,7 +660,7 @@
 	description = "An illegal chemical enhancer, may cause aggressive and violent behavior."
 	reagent_state = LIQUID
 	color = "#AF111C"
-	strength = 5
+	strength = 1
 	taste_description = "bitterness"
 	metabolism = REM * 2
 	unaffected_species = IS_DIONA | IS_MACHINE
@@ -687,7 +687,7 @@
 	description = "A hallucinogen chemical, rumored to be used by mystics and religious figures in their rituals."
 	reagent_state = LIQUID
 	color = "#800080"
-	strength = 5
+	strength = 0.5
 	taste_description = "acid"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE
@@ -744,7 +744,7 @@
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
 
 
-			
+
 /datum/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
 	id = "dextrotoxin"
@@ -764,7 +764,7 @@
 		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
-	if(dose > 0.2)	
+	if(dose > 0.2)
 		M.Weaken(10)
 
 /datum/reagent/toxin/dextrotoxin/Destroy()
