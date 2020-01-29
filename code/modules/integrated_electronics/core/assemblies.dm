@@ -113,7 +113,7 @@
 		P.make_energy()
 
 	var/power_failure = FALSE
-	if(initial(health)/health < 0.5 && prob(5))
+	if((health / initial(health)) < 0.5 && prob(5))
 		visible_message("<span class='warning'>\The [src] shudders and sparks</span>")
 		power_failure = TRUE
 	// Now spend it.
@@ -218,13 +218,13 @@
 				show_browser(usr, saved, "window=circuit_scan;size=500x600;border=1;can_resize=1;can_close=1;can_minimize=1")
 			else
 				to_chat(usr, "<span class='warning'>The circuit is empty!</span>")
-		return 0
+		return TOPIC_NOACTION
 
 	if(isobserver(usr))
-		return
+		return TOPIC_NOACTION
 
 	if(!check_interactivity(usr))
-		return 0
+		return TOPIC_NOACTION
 
 	if(href_list["select_page"])
 		interact_page = text2num(href_list["select_page"])
@@ -246,7 +246,7 @@
 		if(component)
 			// Builtin components are not supposed to be removed or rearranged
 			if(!component.removable)
-				return 0
+				return TOPIC_NOACTION
 
 			add_allowed_scanner(usr.ckey)
 
@@ -260,9 +260,9 @@
 				if(href_list["set_slot"])
 					var/selected_slot = input("Select a new slot", "Select slot", current_pos) as null|num
 					if(!check_interactivity(usr))
-						return 0
+						return TOPIC_NOACTION
 					if(selected_slot < 1 || selected_slot > length(assembly_components))
-						return 0
+						return TOPIC_NOACTION
 
 					assembly_components.Remove(component)
 					assembly_components.Insert(selected_slot, component)
@@ -356,7 +356,7 @@
 	if(!user.unEquip(IC,src))
 		return FALSE
 
-	to_chat(user, "<span class='notice'>You slide [IC] inside [src].</span>")
+	to_chat(user, "<span class='notice'>You slide \the [IC] inside \the [src].</span>")
 	playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 	add_allowed_scanner(user.ckey)
 
@@ -379,7 +379,7 @@
 
 	if(!IC.removable)
 		if(!silent)
-			to_chat(user, "<span class='warning'>[src] is permanently attached to the case.</span>")
+			to_chat(user, "<span class='warning'>\The [src] is permanently attached to the case.</span>")
 		return FALSE
 
 	remove_component(IC)
@@ -414,7 +414,7 @@
 
 /obj/item/device/electronic_assembly/attackby(obj/item/I, mob/living/user)
 	if(I.iswrench())
-		if(istype(loc, /turf) && (IC_FLAG_ANCHORABLE & circuit_flags))
+		if(isturf(loc) && (IC_FLAG_ANCHORABLE & circuit_flags))
 			user.visible_message("\The [user] starts wrenching \the [src]'s anchoring bolts [anchored ? "back" : "into position"].")
 			playsound(get_turf(user), 'sound/items/Ratchet.ogg',50)
 			if(do_after(user, 50/I.toolspeed))
@@ -429,7 +429,7 @@
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
-	else if(istype(I, /obj/item/device/multitool) || istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger))
+	else if(I.ismultitool() || istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger))
 		if(opened)
 			interact(user)
 			return TRUE
@@ -440,12 +440,12 @@
 			return ..()
 	else if(istype(I, /obj/item/cell/device))
 		if(!opened)
-			to_chat(user, "<span class='warning'>[src]'s hatch is closed, so you can't access \the [src]'s power supplier.</span>")
+			to_chat(user, "<span class='warning'>\The [src]'s hatch is closed, so you can't access \the [src]'s power supplier.</span>")
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
 		if(battery)
-			to_chat(user, "<span class='warning'>[src] already has \a [battery] installed. Remove it first if you want to replace it.</span>")
+			to_chat(user, "<span class='warning'>\The [src] already has \a [battery] installed. Remove it first if you want to replace it.</span>")
 			for(var/obj/item/integrated_circuit/input/S in assembly_components)
 				S.attackby_react(I,user,user.a_intent)
 			return ..()
@@ -476,11 +476,11 @@
 
 		playsound(src, 'sound/items/Screwdriver.ogg', 25)
 		opened = !opened
-		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] the maintenance hatch of [src].</span>")
+		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] the maintenance hatch of \the [src].</span>")
 		update_icon()
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = I
-		if(health != initial(health) && do_after(user, 10, src) && C.use(1))
+		if(health < initial(health) && do_after(user, 10, src) && C.use(1))
 			user.visible_message("\The [user] patches up \the [src]")
 			health = min(initial(health), health + 5)
 	else
@@ -505,7 +505,7 @@
 
 // Returns true if power was successfully drawn.
 /obj/item/device/electronic_assembly/proc/draw_power(amount)
-	if(battery && battery.use(amount * CELLRATE))
+	if(battery?.use(amount * CELLRATE))
 		return TRUE
 	return FALSE
 

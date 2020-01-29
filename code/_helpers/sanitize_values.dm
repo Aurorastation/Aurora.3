@@ -51,6 +51,6 @@
 		return FALSE
 	if(input != round(input))
 		return FALSE
-	if(input < 1 || input > length(given_list))
+	if(!(input in 1 to length(given_list)))
 		return FALSE
 	return TRUE
