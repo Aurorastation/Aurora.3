@@ -13,7 +13,6 @@
 		"nutriment",
 		"mindbreaker",
 		"lube",
-		"plantbgone",
 		"banana",
 		"space_drugs",
 		"hot_coco",
