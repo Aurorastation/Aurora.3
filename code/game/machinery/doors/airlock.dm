@@ -1035,17 +1035,15 @@ About the new airlock wires panel:
 				"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
 				"You hear a welding torch on metal."
 			)
-			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			if (!do_after(user, 2/C.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
 				return
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 				return
-			if(!src.welded)
-				src.welded = 1
-			else
-				src.welded = null
-			src.update_icon()
+			playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+			welded = !welded
+			update_icon()
 			return
 		else
 			return

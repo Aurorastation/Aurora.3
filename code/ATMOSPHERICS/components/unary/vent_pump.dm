@@ -352,16 +352,14 @@
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>Now welding the vent.</span>")
 			if(do_after(user, 30/W.toolspeed))
-				if(!src || !WT.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-				if(!welded)
-					user.visible_message("<span class='danger'>\The [user] welds \the [src] shut.</span>", "<span class='notice'>You weld \the [src] shut.</span>", "You hear welding.")
-					welded = 1
-					update_icon()
-				else
-					user.visible_message("<span class='danger'>[user] unwelds \the [src].</span>", "<span class='notice'>You unweld \the [src].</span>", "You hear welding.")
-					welded = 0
-					update_icon()
+				if(!src || !WT.isOn()) 
+					return
+				welded = !welded
+				update_icon()
+				playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+				user.visible_message("<span class='notice'>\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"].</span>", \
+									 "<span class='notice'>You [welded ? "weld \the [src] shut" : "unweld \the [src]"].</span>", \
+									 "You hear welding.")
 			else
 				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
 		else
