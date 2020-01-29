@@ -126,6 +126,7 @@
 	set name = "Show/Hide AOOC"
 	set category = "Preferences"
 	set desc = "Toggles seeing Antagonist OutOfCharacter chat"
+	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))	return
 	prefs.toggles ^= CHAT_AOOC
 	prefs.save_preferences()
 
