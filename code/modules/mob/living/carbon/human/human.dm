@@ -1709,9 +1709,11 @@
 	if(self)
 		U.visible_message(span("danger", "[U] pops their [current_limb.joint] back in!"), \
 		span("danger", "You pop your [current_limb.joint] back in!"))
+		playsound(src.loc, "fracture", 50, 1, -2)
 	else
 		U.visible_message(span("danger", "[U] pops [S]'s [current_limb.joint] back in!"), \
 		span("danger", "You pop [S]'s [current_limb.joint] back in!"))
+		playsound(src.loc, "fracture", 50, 1, -2)
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
