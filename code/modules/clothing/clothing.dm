@@ -571,13 +571,19 @@
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
 
-/obj/item/clothing/mask/proc/adjust_mask(mob/user)
+/obj/item/clothing/mask/proc/adjust_mask(mob/user, var/self = TRUE)
 	set name = "Adjust Mask"
 	set category = "Object"
+
 	if(!adjustable)
 		return
-	if(use_check_and_message(user))
-		return
+
+	if(self)
+		if(use_check_and_message(user))
+			return
+	else
+		if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
+			return
 
 	hanging = !hanging
 
@@ -587,7 +593,8 @@
 		icon_state = "[icon_state]down"
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
-		user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
+		if(self)
+			user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -595,7 +602,8 @@
 		item_state = initial(icon_state)
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
-		user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
+		if(self)
+			user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
 	usr.update_action_buttons()
 	update_clothing_icon()
 
