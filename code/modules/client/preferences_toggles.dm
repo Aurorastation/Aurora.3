@@ -121,18 +121,6 @@
 	to_chat(src, "You will [(prefs.toggles & CHAT_LOOC) ? "now" : "no longer"] see messages on the LOOC channel.")
 	feedback_add_details("admin_verb","TLOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	
-
-/client/verb/listen_Aooc()
-	set name = "Show/Hide AOOC"
-	set category = "Preferences"
-	set desc = "Toggles seeing Antagonist OutOfCharacter chat"
-	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))	return
-	prefs.toggles ^= CHAT_AOOC
-	prefs.save_preferences()
-
-	to_chat(src, "You will [(prefs.toggles & CHAT_AOOC) ? "now" : "no longer"] see messages on the AOOC channel.")
-	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	
 	
 /client/verb/toggle_chattags()
 	set name = "Show/Hide Chat Tags"
