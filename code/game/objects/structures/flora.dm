@@ -55,6 +55,18 @@
 /obj/structure/flora/grass/jungle/b
 	icon_state = "grassb"
 
+//rocks
+/obj/structure/flora/rock
+	icon_state = "basalt"
+	desc = "A rock."
+	icon = 'icons/obj/flora/rocks_grey.dmi'
+	density = TRUE
+
+/obj/structure/flora/rock/pile
+	name = "rocks"
+	icon_state = "lavarocks"
+	desc = "A pile of rocks."
+
 //grass
 /obj/structure/flora/grass
 	name = "grass"
@@ -82,7 +94,6 @@
 /obj/structure/flora/grass/both/New()
 	..()
 	icon_state = "snowgrassall[rand(1, 3)]"
-
 
 //bushes
 /obj/structure/flora/bush
