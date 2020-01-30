@@ -210,6 +210,7 @@
 		src.visible_message(span("danger", "[src] attempts to bite into [donor.name] but passes right through it!."), span("danger", "You attempt to sink your fangs into [donor.name] but pass right through it!"))
 		return
 	else if (iscarbon(donor))
+		var/mob/living/carbon/D = donor
 		//If we get here, it's -probably- valid
 
 		src.visible_message(span("danger", "[src] is trying to bite [donor.name]."), span("danger", "You start biting [donor.name], you both must stay still!"))
