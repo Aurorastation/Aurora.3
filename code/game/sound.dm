@@ -284,7 +284,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		return DIZZY
 	else if (confused)
 		return DIZZY
-	else if (sleeping)
+	else if (stat == UNCONSCIOUS)
 		return UNDERWATER
 	else
 		return ..()
