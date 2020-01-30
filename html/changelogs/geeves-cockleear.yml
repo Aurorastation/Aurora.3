@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a hearing aid item. Also added it to the Utility catagory in the loadout menu."

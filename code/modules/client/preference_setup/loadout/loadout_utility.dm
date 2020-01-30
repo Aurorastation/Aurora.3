@@ -51,6 +51,11 @@
 	fountainpens["white fountain pen"] = /obj/item/pen/fountain/white
 	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
 
+/datum/gear/utility/hearing_aid
+	display_name = "hearing aid"
+	path = /obj/item/device/hearing_aid
+	cost = 1
+
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
