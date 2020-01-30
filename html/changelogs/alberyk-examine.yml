@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Gun's extra examine information is now only displayed when you are next to it."
-  - bugfix: "Fixed powercell examining not returning any text when you were far enough."
