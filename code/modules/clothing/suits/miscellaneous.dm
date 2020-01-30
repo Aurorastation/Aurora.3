@@ -441,7 +441,7 @@
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
 
-/obj/item/clothing/suit/storage/toggle/trench/greentrench
+/obj/item/clothing/suit/storage/toggle/trench/green
     name = "green trenchcoat"
     desc = "A comfy looking green trenchcoat with fur."
     icon_state = "greentrench"
