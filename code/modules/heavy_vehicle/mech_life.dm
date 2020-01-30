@@ -24,6 +24,9 @@
 	if(radio)
 		radio.on = (head && head.radio && head.radio.is_functional())
 
+	if(camera)
+		camera.status = (head && head.camera && head.camera.is_functional())
+
 	body.update_air(hatch_closed && use_air)
 
 	if((client || LAZYLEN(pilots)) && get_cell())
