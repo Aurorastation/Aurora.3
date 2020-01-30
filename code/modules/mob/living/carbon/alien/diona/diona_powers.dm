@@ -223,7 +223,10 @@
 			var/newDNA
 			var/datum/reagent/blood/B = vessel.get_master_reagent()
 			var/total_blood = B.volume
-			var/remove_amount = min(D.species.blood_amount * 0.05, total_blood) // Take 5% of their blood
+			var/remove_amount = total_blood * 0.05
+			if(ishuman(D))
+				var/mob/living/carbon/human/H = D
+				remove_amount = H.species.blood_volume * 0.05
 			if(remove_amount > 0)
 				vessel.remove_reagent("blood", remove_amount, TRUE)
 				adjustNutritionLoss(-remove_amount * 0.5)
@@ -231,7 +234,7 @@
 			newDNA = data["blood_DNA"]
 
 			if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
-				newDNA = md5("\ref[donor]")
+				newDNA = md5("\ref[D]")
 
 			D.adjustBruteLoss(4)
 			src.visible_message(span("notice", "[src] sucks some blood from [D.name].") , span("notice", "You extract a delicious mouthful of blood from [D.name]!"))
