@@ -6,3 +6,4 @@
 	item_state = "hearing_aid"
 	contained_sprite = TRUE
 	slot_flags = SLOT_EARS
+	w_class = ITEMSIZE_SMALL
