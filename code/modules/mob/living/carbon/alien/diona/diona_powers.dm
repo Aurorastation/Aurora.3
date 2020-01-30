@@ -213,17 +213,17 @@
 		var/mob/living/carbon/D = donor
 		//If we get here, it's -probably- valid
 
-		src.visible_message(span("danger", "[src] is trying to bite [donor.name]."), span("danger", "You start biting [donor.name], you both must stay still!"))
-		face_atom(get_turf(donor))
-		if(do_mob(src, donor, 40, needhand = FALSE))
+		src.visible_message(span("danger", "[src] is trying to bite [D.name]."), span("danger", "You start biting [D.name], you both must stay still!"))
+		face_atom(get_turf(D))
+		if(do_mob(src, D, 40, needhand = FALSE))
 			//Attempt to find the blood vessel, but don't create a fake one if its not there.
 			//If the target doesn't have a vessel its probably due to someone not implementing it properly, like xenos
 			//We'll still allow it
-			var/datum/reagents/vessel = donor.get_vessel(1)
+			var/datum/reagents/vessel = D.get_vessel(1)
 			var/newDNA
 			var/datum/reagent/blood/B = vessel.get_master_reagent()
 			var/total_blood = B.volume
-			var/remove_amount = min(donor.species.blood_amount * 0.05, total_blood) // Take 5% of their blood
+			var/remove_amount = min(D.species.blood_amount * 0.05, total_blood) // Take 5% of their blood
 			if(remove_amount > 0)
 				vessel.remove_reagent("blood", remove_amount, TRUE)
 				adjustNutritionLoss(-remove_amount * 0.5)
@@ -233,8 +233,8 @@
 			if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
 				newDNA = md5("\ref[donor]")
 
-			donor.adjustBruteLoss(4)
-			src.visible_message(span("notice", "[src] sucks some blood from [donor.name].") , span("notice", "You extract a delicious mouthful of blood from [donor.name]!"))
+			D.adjustBruteLoss(4)
+			src.visible_message(span("notice", "[src] sucks some blood from [D.name].") , span("notice", "You extract a delicious mouthful of blood from [D.name]!"))
 
 			if(newDNA in sampled_DNA)
 				to_chat(src, span("danger", "You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else."))
@@ -249,7 +249,7 @@
 				//2 = We learned something!
 
 				//Now we sample their languages!
-				for(var/datum/language/L in donor.languages)
+				for(var/datum/language/L in D.languages)
 					learned = max(learned, 1)
 					if (!(L in languages) && !(L in diona_banned_languages))
 						//We don't know this language, and we can learn it!
@@ -266,7 +266,7 @@
 
 				update_languages()
 		else
-			to_chat(src, span("warning", "Something went wrong while trying to sample [donor], both you and the target must remain still."))
+			to_chat(src, span("warning", "Something went wrong while trying to sample [D], both you and the target must remain still."))
 
 //Checks progress on learned languages
 /mob/living/carbon/alien/diona/proc/update_languages()
