@@ -286,6 +286,8 @@
 	selection_color = "#C0C0C0"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
+	alt_titles = list("Custodian", "Tech Support")
+	alt_outfits = list("Custodian" = /datum/outfit/job/librarian/custodian, "Tech Support" = /datum/outfit/job/librarian/tech_support)
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian
@@ -298,3 +300,20 @@
 	l_ear = /obj/item/device/radio/headset/headset_service
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
+
+/datum/outfit/job/librarian/custodian
+	name = "Custodian"
+	jobtype = /datum/job/librarian
+
+	uniform = /obj/item/clothing/under/suit_jacket
+	r_pocket = /obj/item/device/price_scanner
+	l_hand = null
+
+/datum/outfit/job/librarian/tech_support
+	name = "Tech Support"
+	jobtype = /datum/job/librarian
+
+	uniform = /obj/item/clothing/under/suit_jacket/charcoal
+	l_pocket = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
+	r_pocket = /obj/item/card/tech_support
+	l_hand = /obj/item/modular_computer/laptop/preset
