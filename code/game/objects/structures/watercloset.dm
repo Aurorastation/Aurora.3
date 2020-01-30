@@ -470,8 +470,8 @@
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent("water", trans)
-				to_chat(oviewers(3, usr), span("notice", "[usr] uses \the [S] to draw water from \the [src]."))
-				to_chat(usr, span("notice", "You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+				user.visible_message(span("notice", "[usr] uses \the [S] to draw water from \the [src]."),
+									 span("notice", "You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
 				if(!S.reagents.total_volume)
 					to_chat(usr, span("warning", "\The [S] is already empty."))
@@ -479,8 +479,8 @@
 
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
-				to_chat(oviewers(3, usr), span("notice", "[usr] empties \the [S] into \the [src]."))
-				to_chat(usr, span("notice", "You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+				user.visible_message(span("notice", "[usr] empties \the [S] into \the [src]."),
+									 span("notice", "You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 
 		return
 
