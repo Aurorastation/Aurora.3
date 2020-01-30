@@ -79,7 +79,7 @@
 
 /obj/item/gun/projectile/sec/wood/update_icon()
 	..()
-	if(ammo_magazine?stored_ammo.len)
+	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "secgunwood"
 	else
 		icon_state = "secgunwood-e"
