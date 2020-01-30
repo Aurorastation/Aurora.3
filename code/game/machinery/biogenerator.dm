@@ -364,7 +364,7 @@
 		return
 	if(istype(O, /obj/item/reagent_containers/glass))
 		if(beaker)
-			to_chat(user, span("notice", "]The [src] is already loaded."))
+			to_chat(user, span("notice", "\The [src] is already loaded."))
 		else
 			user.remove_from_mob(O)
 			O.forceMove(src)
