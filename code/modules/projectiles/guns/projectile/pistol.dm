@@ -67,7 +67,7 @@
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/gun/projectile/sec/wood
-	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a faux wooden grip. Uses .45 rounds."
 	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a wooden grip. It uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
@@ -79,6 +79,22 @@
 		icon_state = "secgundark"
 	else
 		icon_state = "secgundark-e"
+
+/obj/item/gun/projectile/sec/detective
+	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses .45 rounds."
+	description_fluff = "The NT Mk10 Inspector is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Inspector is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk10 is compact and chambered in .45 caliber. With all the bells and whistles of a modern, quality police pistol, the Inspector's main drawback is the notoriously nippy recoil - .45 in such a small package does not play well with the average shooter."
+	name = "compact .45 pistol"
+	icon_state = "detgun"
+	item_state = "detgunheld"
+	w_class = 2
+	magazine_type = /obj/item/ammo_magazine/c45m
+
+/obj/item/gun/projectile/sec/detective/update_icon()
+	..()
+	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+		icon_state = "detgun"
+	else
+		icon_state = "detgunempty"
 
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
@@ -202,7 +218,8 @@
 
 /obj/item/gun/projectile/pistol
 	name = "9mm pistol"
-	desc = "500 years since its creation and the Stechkin automatic pistol is still a common sight throughout the Frontier."
+	desc = "A compact 9mm handgun, extremely popular all throughout human space."
+	description_fluff = "The Necropolis Industries Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon_state = "pistol"
 	item_state = null
 	w_class = 2
