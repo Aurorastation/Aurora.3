@@ -124,13 +124,6 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 
-/obj/item/clothing/head/hasturhood
-	name = "hastur's hood"
-	desc = "It's unspeakably stylish"
-	icon_state = "hasturhood"
-	flags_inv = BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-
 /obj/item/clothing/head/nursehat
 	name = "nurse's hat"
 	desc = "It allows quick identification of trained medical personnel."
