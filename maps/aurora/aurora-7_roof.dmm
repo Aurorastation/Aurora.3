@@ -1780,10 +1780,29 @@
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "dO" = (
-/obj/structure/cable/yellow,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "dP" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "dQ" = (
@@ -1798,15 +1817,9 @@
 	icon_state = "2-4"
 	},
 /obj/structure/cable/yellow{
+	d1 = 1;
 	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"dS" = (
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
@@ -2069,6 +2082,12 @@
 /obj/machinery/power/smes/buildable{
 	charge = 0;
 	cur_coils = 2;
+	input_attempt = 1;
+	input_level = 500000;
+	inputting = 1;
+	output_attempt = 1;
+	output_level = 500000;
+	outputting = 1;
 	RCon_tag = "Solar - Roof"
 	},
 /obj/structure/cable{
@@ -2147,16 +2166,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "ey" = (
-/obj/machinery/power/solar_control{
-	id = "starboardsolar";
-	name = "Aft Starboard Solar Control";
-	track = 0
-	},
 /obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/power/solar_control/autostart{
+	id = "starboardsolar";
+	name = "Aft Starboard Solar Control"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "ez" = (
@@ -2453,8 +2471,9 @@
 /area/solar/auxport)
 "eV" = (
 /obj/structure/cable/yellow{
+	d1 = 4;
 	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
@@ -3092,6 +3111,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
+"wU" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
 "xr" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -3621,13 +3658,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"NK" = (
-/obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
 "NR" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -28568,7 +28598,7 @@ bb
 bb
 bb
 dV
-dP
+eV
 PA
 bb
 bb
@@ -28825,7 +28855,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dW
 dF
@@ -29083,7 +29113,7 @@ dK
 dK
 dO
 dP
-dS
+dO
 dX
 dX
 dX
@@ -29339,7 +29369,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -29596,7 +29626,7 @@ ah
 ah
 ah
 ah
-dP
+eV
 ah
 ah
 ah
@@ -29853,7 +29883,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -30111,7 +30141,7 @@ dK
 dK
 dO
 dP
-dS
+dO
 dX
 dX
 dX
@@ -30367,7 +30397,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -30624,7 +30654,7 @@ ah
 ah
 ah
 ah
-dP
+eV
 ah
 ah
 ah
@@ -30881,7 +30911,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -31139,7 +31169,7 @@ dK
 dK
 dO
 dP
-dS
+dO
 dX
 dX
 dX
@@ -31395,7 +31425,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -31652,7 +31682,7 @@ ag
 fy
 aP
 dV
-NK
+eV
 ad
 ag
 ag
@@ -32423,7 +32453,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -32680,8 +32710,8 @@ dK
 dK
 dK
 dO
-dP
-dS
+wU
+dO
 dX
 dX
 dX
@@ -32937,7 +32967,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -33194,7 +33224,7 @@ ah
 ah
 ah
 ah
-dP
+eV
 ah
 ah
 ah
@@ -33451,7 +33481,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -33708,8 +33738,8 @@ dK
 dK
 dK
 dO
-dP
-dS
+wU
+dO
 dX
 dX
 dX
@@ -33965,7 +33995,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -34222,7 +34252,7 @@ ah
 ah
 ah
 ah
-dP
+eV
 ah
 ah
 ah
@@ -34479,7 +34509,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -34736,8 +34766,8 @@ dK
 dK
 dK
 dO
-dP
-dS
+wU
+dO
 dX
 dX
 dX
@@ -34993,7 +35023,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -35250,7 +35280,7 @@ oH
 oH
 oH
 dV
-dP
+eV
 PA
 oH
 oH
@@ -35507,7 +35537,7 @@ dF
 dF
 dF
 dF
-NK
+eV
 dW
 dF
 dF

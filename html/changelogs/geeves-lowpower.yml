@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Roof solars start wired, SMES starts set. Interact with the solar control computer to connect the devices."
