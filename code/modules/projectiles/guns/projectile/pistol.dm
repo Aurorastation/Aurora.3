@@ -86,7 +86,7 @@
 	name = "compact .45 pistol"
 	icon_state = "detgun"
 	item_state = "detgunheld"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	magazine_type = /obj/item/ammo_magazine/c45m
 
 /obj/item/gun/projectile/sec/detective/update_icon()
