@@ -437,12 +437,10 @@ var/list/sacrificed = list()
 /////////////////////////////////////////ELEVENTH RUNE
 
 /obj/effect/rune/proc/manifest(var/mob/living/user)
-	var/obj/effect/rune/this_rune = src
-	if(user.loc!=this_rune.loc)
-		return this_rune.fizzle(user)
+	if(user.loc!=src.loc)
+		return src.fizzle(user)
 	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in this_rune.loc)
-		if(!O.client) continue
+	for(var/mob/abstract/observer/O in src.loc)
 		if(!O.MayRespawn()) continue
 		if(jobban_isbanned(O, "cultist")) continue
 		if(O.mind)
@@ -453,16 +451,16 @@ var/list/sacrificed = list()
 		ghost = O
 		break
 	if(!ghost)
-		return this_rune.fizzle(user)
+		return src.fizzle(user)
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
-	var/mob/living/carbon/human/apparition/D = new(this_rune.loc)
+	var/mob/living/carbon/human/apparition/D = new(src.loc)
 	user.visible_message("<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
 	"<span class='warning'>You hear liquid flowing.</span>")
 
 	var/chose_name = 0
-	for(var/obj/item/paper/P in this_rune.loc)
+	for(var/obj/item/paper/P in src.loc)
 		if(P.info)
 			D.real_name = copytext(P.info, findtext(P.info,">")+1, findtext(P.info,"<",2) )
 			chose_name = 1
@@ -480,7 +478,7 @@ var/list/sacrificed = list()
 
 	log_and_message_admins("used a manifest rune.")
 
-	while(this_rune && user && user.stat==CONSCIOUS && user.client && user.loc==this_rune.loc)
+	while(src && user && user.stat==CONSCIOUS && user.client && user.loc==src.loc)
 		user.take_organ_damage(1, 0)
 		sleep(30)
 	if(D)
