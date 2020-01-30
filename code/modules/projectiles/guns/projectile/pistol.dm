@@ -57,10 +57,10 @@
 
 /obj/item/gun/projectile/sec/update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
-		icon_state = "secguncomp"
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "secgun"
 	else
-		icon_state = "secguncomp-e"
+		icon_state = "secgun-e"
 
 /obj/item/gun/projectile/sec/lethal
 	magazine_type = /obj/item/ammo_magazine/c45m
@@ -79,10 +79,10 @@
 
 /obj/item/gun/projectile/sec/wood/update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
-		icon_state = "secgundark"
+	if(ammo_magazine?stored_ammo.len)
+		icon_state = "secgunwood"
 	else
-		icon_state = "secgundark-e"
+		icon_state = "secgunwood-e"
 
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"

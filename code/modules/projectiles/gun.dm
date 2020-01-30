@@ -32,6 +32,7 @@
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
 	icon = 'icons/obj/guns/pistol.dmi'
+	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
 	contained_sprite = TRUE
