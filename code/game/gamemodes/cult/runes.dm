@@ -442,14 +442,17 @@ var/list/sacrificed = list()
 		return this_rune.fizzle(user)
 	var/mob/abstract/observer/ghost
 	for(var/mob/abstract/observer/O in this_rune.loc)
-		if(!O.client)	continue
+		if(!O.client) continue
 		if(!O.MayRespawn()) continue
-		if(O.mind && O.mind.current && O.mind.current.stat != DEAD)	continue
+		if(jobban_isbanned(O, "cultist")) continue
+		if(O.mind)
+			if(O.mind.current && O.mind.current.stat != DEAD)
+				continue
+			if(!(O.mind in cult.current_antagonists))
+				continue
 		ghost = O
 		break
 	if(!ghost)
-		return this_rune.fizzle(user)
-	if(jobban_isbanned(ghost, "cultist"))
 		return this_rune.fizzle(user)
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
