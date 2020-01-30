@@ -527,7 +527,8 @@
 /obj/machinery/power/solar_control/autostart
 	track = 2 // Auto tracking mode
 
-/obj/machinery/power/solar_control/autostart/LateInitialize()
+/obj/machinery/power/solar_control/autostart/Initialize()
+	..()
 	do_solars()
 	addtimer(CALLBACK(src, .proc/do_solars), 1800) // do it again three minutes later, just to be sure
 
