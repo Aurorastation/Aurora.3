@@ -91,7 +91,7 @@
 
 /obj/item/gun/projectile/sec/detective/update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+	if(ammo_magazine?.stored_ammo.len)
 		icon_state = "detgun"
 	else
 		icon_state = "detgunempty"
