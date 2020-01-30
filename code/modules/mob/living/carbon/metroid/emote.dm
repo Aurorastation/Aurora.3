@@ -1,6 +1,5 @@
 /mob/living/carbon/slime/emote(var/act, var/m_type=1, var/message = null)
-
-	if (findtext(act, "-", 1, null))
+	if(findtext(act, "-", 1, null))
 		var/t1 = findtext(act, "-", 1, null)
 		//param = copytext(act, t1 + 1, length(act) + 1)
 		act = copytext(act, 1, t1)
@@ -11,23 +10,21 @@
 	var/updateicon = 0
 
 	switch(act) //Alphabetical please
-		if ("me")
+		if("me")
 			if(silent)
 				return
-			if (src.client)
-				if (client.prefs.muted & MUTE_IC)
-					to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
+			if(src.client)
+				if(client.prefs.muted & MUTE_IC)
+					to_chat(src, span("warning", "You cannot send IC messages (muted)."))
 					return
-				if (stat)
-					return
-				if(!(message))
+				if(stat || !message)
 					return
 				return custom_emote(m_type, message)
 		if("bounce")
 			message = "<B>The [src.name]</B> bounces in place."
 			m_type = 1
 
-		if ("custom")
+		if("custom")
 			return custom_emote(m_type, message)
 
 		if("jiggle")
@@ -82,12 +79,13 @@
 			mood = ":3"
 			updateicon = 1
 
-		if ("help") //This is an exception
+		if("help") //This is an exception
 			to_chat(src, "Help for slime emotes. You can use these emotes with say \"*emote\":\n\nbounce, custom, jiggle, light, moan, shiver, sway, twitch, vibrate. You can also set your face with: \n\nnomood, pout, sad, angry, frown, smile")
 
 		else
-			to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
-	if ((message && src.stat == 0))
+			to_chat(src, span("notice", "Unusable emote '[act]'. Say *help for a list."))
+
+	if(message && !stat)
 		send_emote(message, m_type)
 	if(updateicon)
 		regenerate_icons()

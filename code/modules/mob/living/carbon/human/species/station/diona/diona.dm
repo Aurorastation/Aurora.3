@@ -5,6 +5,7 @@
 	bodytype = "Diona"
 	age_min = 1
 	age_max = 1000
+	default_genders = list(NEUTER)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
@@ -148,7 +149,6 @@
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.gender = NEUTER
 	if (ishuman(H))
 		return ..()
 	else//Most of the stuff in the parent function doesnt apply to nymphs

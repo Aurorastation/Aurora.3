@@ -61,7 +61,12 @@ var/datum/controller/subsystem/http/SShttp
 		crash_with("Attempted to re-use a request object.")
 
 	id = rustg_http_request_async(method, url, body, headers)
-	in_progress = TRUE
+
+	if (isnull(text2num(id)))
+		crash_with("Proc error: [id]")
+		_raw_response = "Proc error: [id]"
+	else
+		in_progress = TRUE
 
 /datum/http_request/proc/is_complete()
 	if (isnull(id))

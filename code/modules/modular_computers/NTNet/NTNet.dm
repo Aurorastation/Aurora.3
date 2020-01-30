@@ -38,6 +38,9 @@ var/global/datum/ntnet/ntnet_global = new()
 	build_news_list()
 	add_log("NTNet logging system activated.")
 
+	//add some default channels
+	new /datum/ntnet_conversation("NTNet Relay", TRUE)
+
 // Simplified logging: Adds a log. log_string is mandatory parameter, source is optional.
 /datum/ntnet/proc/add_log(var/log_string, var/obj/item/computer_hardware/network_card/source = null)
 	var/log_text = "[worldtime2text()] - "

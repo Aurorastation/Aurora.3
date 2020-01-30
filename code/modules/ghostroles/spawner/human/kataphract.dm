@@ -4,7 +4,7 @@
 	desc = "Display honour in everything you do. Be an excellent person."
 	tags = list("External")
 
-	enabled = TRUE
+	enabled = FALSE
 	spawnpoints = list("kataphract")
 	req_perms = null
 	max_count = 2
@@ -22,6 +22,7 @@
 	special_role = "Kataphract-Hopeful"
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
+	away_site = TRUE
 
 /datum/ghostspawner/human/kataphract/klax
 	short_name = "kataphract_hop_klax"
