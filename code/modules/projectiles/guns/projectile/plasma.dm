@@ -1,6 +1,7 @@
 /obj/item/gun/projectile/plasma
 	name = "plasma shotgun"
 	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results."
+	icon = 'icons/obj/guns/slammer.dmi'
 	icon_state = "slammer"
 	item_state = "slammer"
 	w_class = ITEMSIZE_LARGE
@@ -25,6 +26,7 @@
 /obj/item/gun/projectile/plasma/bolter
 	name = "plasma bolter"
 	desc = "A miniaturized, less efficient version of the infamous plasma slammer. Sacrifices much of its power for a more compact frame."
+	icon = 'icons/obj/guns/bolter.dmi'
 	icon_state = "bolter"
 	item_state = "bolter"
 	w_class = ITEMSIZE_NORMAL
