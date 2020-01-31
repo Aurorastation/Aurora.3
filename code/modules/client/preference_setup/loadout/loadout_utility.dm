@@ -160,3 +160,50 @@
 	guns["taser gun"] = /obj/item/gun/energy/taser
 	guns["stun revolver"] = /obj/item/gun/energy/stunrevolver
 	gear_tweaks += new/datum/gear_tweak/path(guns)
+
+/datum/gear/utility/ammunition1
+	display_name = "ammunition one"
+	description = "A selection of magazines."
+	path = /obj/item/ammo_magazine
+	cost = 1
+
+/datum/gear/utility/ammunition1/New()
+	..()
+	var/ammo1 = list()
+	ammo1["magazine (.45)"] = /obj/item/ammo_magazine/c45m
+	ammo1["magazine (9mm)"] = /obj/item/ammo_magazine/mc9mm
+	ammo1["speed loader (.38)"] = /obj/item/ammo_magazine/c38
+	gear_tweaks += new/datum/gear_tweak/path(ammo1)
+
+/datum/gear/utility/ammunition2
+	display_name = "ammunition two"
+	description = "A selection of magazines."
+	path = /obj/item/pen/fountain
+	cost = 1
+
+/datum/gear/utility/ammunition2/New()
+	..()
+	var/ammo2 = list()
+	ammo2["magazine (.45)"] = /obj/item/ammo_magazine/c45m
+	ammo2["magazine (9mm)"] = /obj/item/ammo_magazine/mc9mm
+	ammo2["speed loader (.38)"] = /obj/item/ammo_magazine/c38
+	gear_tweaks += new/datum/gear_tweak/path(ammo2)
+
+
+/datum/gear/utility/melee
+	display_name = "melee weapons"
+	description = "A selection of melee weapons."
+	path = /obj/item
+
+/datum/gear/utility/melee/New()
+	..()
+	var/melee = list()
+	melee["energy utility knife"] = /obj/item/melee/energy/sword/knife
+	melee["tactical knife"] = /obj/item/material/knife/tacknife
+	melee["trench knife"] = /obj/item/material/knife/trench
+	melee["butterfly knife"] = /obj/item/material/knife/butterfly
+	melee["switchblade"] = /obj/item/material/knife/butterfly/switchblade
+	melee["bat"] = /obj/item/material/twohanded/baseballbat
+	melee["duelling knife"] = /obj/item/material/hatchet/unathiknife
+	melee["police baton"] = /obj/item/melee/classic_baton
+	gear_tweaks += new/datum/gear_tweak/path(melee)
