@@ -215,13 +215,3 @@
 		to_chat(src, "Space will no longer move.")
 	else
 		to_chat(src, "Space will now move.")
-
-/client/verb/toggle_safety_check()
-
-	set name = "Toggle Gun Safety Check"
-	set category = "Preferences"
-	set desc = "Toggles firing guns on intents other than help."
-
-	prefs.toggles_secondary ^= SAFETY_CHECK //Held in Parallax because we don't want to deal with an SQL migration right now.
-	prefs.save_preferences()
-	to_chat(src, "You will [(prefs.toggles_secondary & SAFETY_CHECK) ? "no longer" : "now"] fire your weapon on intents other than harm.")

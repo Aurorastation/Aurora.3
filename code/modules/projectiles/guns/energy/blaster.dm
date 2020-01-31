@@ -1,8 +1,10 @@
 /obj/item/gun/energy/blaster
 	name = "blaster pistol"
 	desc = "A tiny energy pistol converted to fire off energy bolts rather than lasers beams."
+	icon = 'icons/obj/guns/blaster_pistol.dmi'
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = 2
@@ -37,7 +39,9 @@
 /obj/item/gun/energy/blaster/revolver
 	name = "blaster revolver"
 	desc = "A robust eight-shot blaster.."
+	icon = 'icons/obj/guns/blaster_revolver.dmi'
 	icon_state = "blaster_revolver"
+	item_state = "blaster_revolver"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 8
@@ -63,6 +67,7 @@
 /obj/item/gun/energy/blaster/carbine
 	name = "blaster carbine"
 	desc = "A short-barreled blaster carbine meant for easy handling and comfort when in combat."
+	icon = 'icons/obj/guns/blaster_carbine.dmi'
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
 	max_shots = 12
@@ -74,6 +79,7 @@
 /obj/item/gun/energy/blaster/rifle
 	name = "bolt slinger"
 	desc = "A blaster rifle which seems to work by accelerating particles and flinging them out in destructive bolts."
+	icon = 'icons/obj/guns/blaster_rifle.dmi'
 	icon_state = "blaster_rifle"
 	item_state = "blaster_rifle"
 	max_shots = 20

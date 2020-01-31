@@ -19131,7 +19131,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
@@ -19955,7 +19955,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
@@ -37223,7 +37223,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/exam_room)
@@ -56261,7 +56261,7 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/stool/padded,
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
@@ -59458,7 +59458,7 @@
 	},
 /obj/machinery/hologram/holopad,
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)

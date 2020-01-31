@@ -79,8 +79,8 @@
 		return
 
 	// Eating
-	if(Victim)
-		if (Victim == A)
+	if(victim)
+		if (victim == A)
 			Feedstop()
 		return
 
