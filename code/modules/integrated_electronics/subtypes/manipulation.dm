@@ -23,7 +23,7 @@
 		"switch mode" = IC_PINTYPE_PULSE_IN
 
 	)
-	var/obj/item/gun/energy/installed_gun = null
+	var/obj/item/gun/installed_gun = null
 	spawn_flags = IC_SPAWN_RESEARCH
 	action_flags = IC_ACTION_COMBAT
 	power_draw_per_use = 30
@@ -35,22 +35,21 @@
 	return ..()
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attackby(var/obj/O, var/mob/user)
-	if(istype(O, /obj/item/gun/energy))
-		var/obj/item/gun/energy/gun = O
+	if(istype(O, /obj/item/gun))
+		var/obj/item/gun/gun = O
 		if(installed_gun)
 			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
 			return
-		if(!user.unEquip(gun,src))
+		if(!user.unEquip(gun, 0, src))
 			return
 		installed_gun = gun
+		size += installed_gun.w_class
 		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
 		if(installed_gun.fire_delay)
-			cooldown_per_use = installed_gun.fire_delay * 10
+			cooldown_per_use = installed_gun.fire_delay * 5
 		if(cooldown_per_use < 30)
 			cooldown_per_use = 30 //If there's no defined fire delay let's put some
-		if(installed_gun.charge_cost)
-			power_draw_per_use = installed_gun.charge_cost
 		set_pin_data(IC_OUTPUT, 1, weakref(installed_gun))
 		if(installed_gun.firemodes.len)
 			var/datum/firemode/fm = installed_gun.firemodes[installed_gun.sel_mode]
@@ -61,7 +60,7 @@
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
-		installed_gun.dropInto(loc)
+		user.put_in_hands(installed_gun)
 		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
 		size = initial(size)
 		playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
@@ -74,7 +73,7 @@
 /obj/item/integrated_circuit/manipulation/weapon_firing/do_work(ord)
 	if(!installed_gun)
 		return
-	if(!isturf(assembly.loc) && !((IC_FLAG_CAN_FIRE & assembly.circuit_flags)  && ishuman(assembly.loc)))
+	if(!isturf(assembly.loc) && !((IC_FLAG_CAN_FIRE & assembly.circuit_flags) && ishuman(assembly.loc)))
 		return
 	set_pin_data(IC_OUTPUT, 1, weakref(installed_gun))
 	push_data()
@@ -105,7 +104,7 @@
 	if(!istype(T) || !istype(U))
 		return
 	update_icon()
-	installed_gun.Fire_userless(T)
+	installed_gun.Fire_userless(U)
 
 /obj/item/integrated_circuit/manipulation/locomotion
 	name = "locomotion circuit"
@@ -254,6 +253,8 @@
 	if(istype(TR))
 		switch(get_pin_data(IC_INPUT, 2))
 			if(0)
+				// TODO: Not touching the botany code in this already huge PR
+				//  Add returns to the harvest proc later
 				var/list/harvest_output = TR.harvest()
 				for(var/i in 1 to length(harvest_output))
 					harvest_output[i] = weakref(harvest_output[i])
@@ -266,15 +267,18 @@
 				TR.update_icon()
 			if(2)
 				if(TR.seed) //Could be that they're just using it as a de-weeder
+					// TODO: Again, don't want to deal with botany code too much so far
+					//  This way, spore releasing will trigger when harvesting
+					// Should add a way to completely remove plants to the hydroponics tray
+					TR.die()
 					TR.age = 0
+					TR.sampled = FALSE
 					TR.health = 0
-					if(TR.harvest)
-						TR.harvest = FALSE //To make sure they can't just put in another seed and insta-harvest it
-					qdel(TR.seed)
-					TR.seed = null
+					TR.lastproduce = 0
+					QDEL_NULL(TR.seed)
 				TR.weedlevel = 0 //Has a side effect of cleaning up those nasty weeds
-				TR.dead = 0
-				TR.update_icon()
+				TR.dead = FALSE
+				TR.check_health()
 			if(3)
 				if(!check_target(O))
 					activate_pin(2)
@@ -282,14 +286,24 @@
 
 				else if(istype(O, /obj/item/seeds) && !istype(O, /obj/item/seeds/cutting))
 					if(!TR.seed)
-						acting_object.visible_message("<span class='notice'>[acting_object] plants [O].</span>")
+						// Code copypasted from the tray
+						// TODO: generalize the code for planting into a tray
+						var/obj/item/seeds/S = O
+						if(!S.seed)
+							acting_object.visible_message("<span class='warning'>[acting_object] discards the empty seed packet.</span>")
+							qdel(O)
+							return
+
+						acting_object.visible_message("<span class='notice'>[acting_object] plants [S].</span>")
+						TR.lastproduce = 0
+						TR.seed = S.seed //Grab the seed datum.
 						TR.dead = 0
-						TR.seed = O
 						TR.age = 1
+						//Snowflakey, maybe move this to the seed datum
 						TR.health = TR.seed.get_trait(TRAIT_ENDURANCE)
 						TR.lastcycle = world.time
-						O.forceMove(TR)
-						TR.update_icon()
+						qdel(O)
+						TR.check_health()
 	activate_pin(2)
 
 /obj/item/integrated_circuit/manipulation/seed_extractor
@@ -325,6 +339,7 @@
 		push_data()
 	activate_pin(2)
 
+// TODO: Make the grabber behave like an insert? (make inserts behave similar to grabber?)
 /obj/item/integrated_circuit/manipulation/grabber
 	name = "grabber"
 	desc = "A circuit with its own inventory for items. Used to grab and store things."
@@ -439,7 +454,8 @@
 
 /obj/item/integrated_circuit/manipulation/claw/proc/pull()
 	var/obj/acting_object = get_object()
-	if(istype(acting_object.loc, /turf))
+	// Don't try pulling things that are not on the ground
+	if(isturf(acting_object.loc) && (pulling && isturf(pulling.loc)))
 		step_towards(pulling,src)
 	else
 		stop_pulling()
@@ -501,8 +517,11 @@
 	if(!(IC_FLAG_CAN_FIRE & assembly.circuit_flags) && ishuman(assembly.loc))
 		return
 
+	// If the item is in a grabber circuit we'll update the grabber's outputs after we've thrown it.
+	var/obj/item/integrated_circuit/manipulation/grabber/G = A.loc
+
 	// Is the target inside the assembly or close to it?
-	if(!check_target(A, exclude_components = TRUE))
+	if(!istype(G) && !check_target(A, exclude_components = TRUE))
 		return
 
 	var/turf/T = get_turf(get_object())
@@ -514,9 +533,6 @@
 		var/mob/living/M = A.loc
 		if(!M.unEquip(A))
 			return
-
-	// If the item is in a grabber circuit we'll update the grabber's outputs after we've thrown it.
-	var/obj/item/integrated_circuit/manipulation/grabber/G = A.loc
 
 	var/x_abs = Clamp(T.x + target_x_rel, 0, world.maxx)
 	var/y_abs = Clamp(T.y + target_y_rel, 0, world.maxy)
@@ -581,6 +597,7 @@
 */
 
 /obj/item/integrated_circuit/manipulation/ai
+	// Can't test this one myself, sadly.
 	name = "integrated intelligence control circuit"
 	desc = "Similar in structure to a intellicard, this circuit allows the AI to pulse four different activators for control of a circuit."
 	extended_desc = "Loading an AI is easy, all that is required is to insert the container into the device's slot. Unloading is a similar process, simply press\

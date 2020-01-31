@@ -29,8 +29,8 @@ D [1]/  ||
 
 /datum/integrated_io/New(loc, _name, _data, _pin_type,_ord)
 	name = _name
-	if(_data)
-		data = _data
+	// No need for special checks here - null is a completely valid value anyway
+	data = _data
 	if(_pin_type)
 		pin_type = _pin_type
 	if(_ord)
@@ -133,14 +133,14 @@ D [1]/  ||
 		data = new_list.Copy(max(1,new_list.len - IC_MAX_LIST_LENGTH+1),0)
 		holder.on_data_written()
 
-/datum/integrated_io/proc/push_data()
+/datum/integrated_io/proc/push_data(pin_number)
 	for(var/k in 1 to linked.len)
 		var/datum/integrated_io/io = linked[k]
 		io.write_data_to_pin(data)
 
-/datum/integrated_io/activate/push_data()
+/datum/integrated_io/activate/push_data(pin_number)
 	for(var/datum/integrated_io/io in linked)
-		io.holder.check_then_do_work(FALSE)
+		io.holder.check_then_do_work(pin_number)
 
 /datum/integrated_io/proc/pull_data()
 	for(var/k in 1 to linked.len)
@@ -200,7 +200,7 @@ D [1]/  ||
 	write_data_to_pin(new_data)
 
 /datum/integrated_io/activate/ask_for_pin_data(mob/user) // This just pulses the pin.
-	holder.check_then_do_work(ord,ignore_power = TRUE)
+	holder.check_then_do_work(ord, ignore_power = TRUE)
 	to_chat(user, "<span class='notice'>You pulse \the [holder]'s [src] pin.</span>")
 
 /datum/integrated_io/activate
@@ -208,4 +208,9 @@ D [1]/  ||
 	io_type = PULSE_CHANNEL
 
 /datum/integrated_io/activate/out // All this does is just make the UI say 'out' instead of 'in'
+	data = 1
+
+// Needed due to overwrites from setup_io
+/datum/integrated_io/activate/out/New(loc, _name, _data, _pin_type, _ord)
+	..(loc, _name, _data, _pin_type, _ord)
 	data = 1

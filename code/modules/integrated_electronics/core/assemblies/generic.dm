@@ -31,24 +31,21 @@
 	slot_flags = SLOT_BELT | SLOT_ID
 
 // TODO: Add this one?
-/obj/item/device/electronic_assembly/augment
-	name = "augment electronic assembly"
-	icon_state = "setup_augment"
-	desc = "It's a case, for building small electronics with. This one is designed to go inside a cybernetic augment."
-	circuit_flags = IC_FLAG_CAN_FIRE
+///obj/item/device/electronic_assembly/augment
+//	name = "augment electronic assembly"
+//	icon_state = "setup_augment"
+//	desc = "It's a case, for building small electronics with. This one is designed to go inside a cybernetic augment."
+//	circuit_flags = IC_FLAG_CAN_FIRE
 
 // Tiny assemblies.
 
 /obj/item/device/electronic_assembly/tiny
-	name = "electronic device"
+	name = "type-a electronic device"
 	icon_state = "setup_device"
 	desc = "It's a case, for building tiny-sized electronics with."
 	w_class = ITEMSIZE_TINY
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
-
-/obj/item/device/electronic_assembly/tiny/default
-	name = "type-a electronic device"
 
 /obj/item/device/electronic_assembly/tiny/cylinder
 	name = "type-b electronic device"
@@ -74,16 +71,13 @@
 // Medium assemblies.
 
 /obj/item/device/electronic_assembly/medium
-	name = "electronic mechanism"
+	name = "type-a electronic mechanism"
 	icon_state = "setup_medium"
 	desc = "It's a case, for building medium-sized electronics with."
 	w_class = ITEMSIZE_NORMAL
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
 	health = 20
-
-/obj/item/device/electronic_assembly/medium/default
-	name = "type-a electronic mechanism"
 
 /obj/item/device/electronic_assembly/medium/box
 	name = "type-b electronic mechanism"
@@ -120,7 +114,7 @@
 // Large assemblies.
 
 /obj/item/device/electronic_assembly/large
-	name = "electronic machine"
+	name = "type-a electronic machine"
 	icon_state = "setup_large"
 	desc = "It's a case, for building large electronics with."
 	w_class = ITEMSIZE_LARGE
@@ -128,9 +122,6 @@
 	max_complexity = IC_COMPLEXITY_BASE * 4
 	circuit_flags = IC_FLAG_ANCHORABLE
 	health = 30
-
-/obj/item/device/electronic_assembly/large/default
-	name = "type-a electronic machine"
 
 /obj/item/device/electronic_assembly/large/scope
 	name = "type-b electronic machine"
@@ -160,7 +151,7 @@
 // Drone assemblies, which can move with the locomotion circuit.
 
 /obj/item/device/electronic_assembly/drone
-	name = "electronic drone"
+	name = "type-a electronic drone"
 	icon_state = "setup_drone"
 	desc = "It's a case, for building mobile electronics with."
 	w_class = ITEMSIZE_LARGE

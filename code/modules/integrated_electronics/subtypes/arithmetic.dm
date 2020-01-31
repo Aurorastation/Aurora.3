@@ -220,11 +220,11 @@
 /obj/item/integrated_circuit/arithmetic/average/do_work()
 	var/result = 0
 	var/inputs_used = 0
-	for(var/k in 2 to inputs.len)
-		var/I = get_pin_data(IC_INPUT, k)
-		if(isnum(I))
+	for(var/datum/integrated_io/I in inputs)
+		I.pull_data()
+		if(isnum(I.data))
 			inputs_used++
-			result += I
+			result = result + I.data
 
 	if(inputs_used)
 		result = result / inputs_used
@@ -243,7 +243,7 @@
 
 /obj/item/integrated_circuit/arithmetic/pi/Initialize()
 	. = ..()
-	desc = "Not recommended for cooking. Outputs '[M_PI]' when it receives a pulse."
+	desc = "Not recommended for cooking. Outputs '[M_PI]' when it rece	ives a pulse."
 
 /obj/item/integrated_circuit/arithmetic/pi/do_work()
 	set_pin_data(IC_OUTPUT, 1, M_PI)

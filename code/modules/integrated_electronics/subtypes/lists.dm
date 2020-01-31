@@ -136,7 +136,7 @@
 			for(var/sample_item in sample_list)
 				if(!isnull(sample_item))
 					if(istext(input_item) && istext(sample_item) && findtext(input_item, sample_item))
-						output += input_item
+						output += input_item	
 					if(istype(input_item, /atom) && istext(sample_item))
 						var/atom/input_item_atom = input_item
 						if(istext(sample_item) && findtext(input_item_atom.name, sample_item))
@@ -215,7 +215,7 @@
 	var/index = get_pin_data(IC_INPUT, 2)
 
 	// Check if index is valid
-	if(index > input_list.len)
+	if(!is_valid_index(index, input_list))
 		set_pin_data(IC_OUTPUT, 1, null)
 		push_data()
 		activate_pin(3)
@@ -235,7 +235,7 @@
 		"index" = IC_PINTYPE_INDEX
 		)
 	outputs = list(
-		"item" = IC_PINTYPE_LIST
+		"result" = IC_PINTYPE_LIST
 		)
 	icon_state = "addition"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
@@ -316,11 +316,11 @@
 
 /obj/item/integrated_circuit/lists/jointext
 	name = "join text circuit"
-	desc = "This circuit will combine two lists into one, and output it as a string."
+	desc = "This circuit will combine elements of a list into a string with delimiters into a string."
 	extended_desc = "Default settings will encode the entire list into a string."
 	icon_state = "join"
 	inputs = list(
-		"list to join" = IC_PINTYPE_LIST,//
+		"list to join" = IC_PINTYPE_LIST,
 		"delimiter" = IC_PINTYPE_STRING,
 		"start" = IC_PINTYPE_INDEX,
 		"end" = IC_PINTYPE_NUMBER
@@ -355,6 +355,7 @@
 /obj/item/integrated_circuit/lists/constructor
 	name = "large list constructor"
 	desc = "This circuit will build a list out of up to sixteen input values."
+	extended_desc = "Input lists will be ignored to prevent nested lists, instead, null will be added."
 	icon_state = "constr8"
 	inputs = list()
 	outputs = list(
@@ -421,7 +422,7 @@
 
 	for(var/i = 1 to number_of_pins)
 		var/list_index = i + start_index - 1
-		if(list_index > input_list.len)
+		if(!is_valid_index(list_index, input_list))
 			set_pin_data(IC_OUTPUT, i, null)
 		else
 			set_pin_data(IC_OUTPUT, i, input_list[list_index])

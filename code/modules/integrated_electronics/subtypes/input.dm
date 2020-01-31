@@ -209,7 +209,7 @@
 		set_pin_data(IC_OUTPUT, 8, H.get_pulse_as_number())
 		set_pin_data(IC_OUTPUT, 9, H.get_blood_oxygenation())
 		set_pin_data(IC_OUTPUT, 10, damage_to_severity(H.get_shock()))
-		set_pin_data(IC_OUTPUT, 11, H.total_radiation)
+		set_pin_data(IC_OUTPUT, 11, (H.total_radiation || 0))	// total_radiation can be null. This makes it 0
 
 	push_data()
 	activate_pin(2)
@@ -343,9 +343,9 @@
 		set_pin_data(IC_OUTPUT, i, null)
 	if(H in view(get_turf(src))) // Like medbot's analyzer it can be used in range..
 		if(H.seed)
-			for(var/chem_path in H.seed.chems)
-				var/datum/reagent/R = chem_path
-				greagents.Add(initial(R.name))
+			// No idea what to really return here, so returning internal chemical IDs
+			for(var/chem_id in H.seed.chems)
+				greagents.Add(chem_id)
 
 	set_pin_data(IC_OUTPUT, 1, greagents)
 	push_data()
@@ -1044,15 +1044,16 @@
 	set_pin_data(IC_OUTPUT, 3, null)
 	if(O)
 		var/obj/item/cell/C = O.get_cell()
-		if(C)
+		if(C && C != DEVICE_NO_CELL)
 			var/turf/A = get_turf(src)
 			if(get_turf(O) in view(A))
 				set_pin_data(IC_OUTPUT, 1, C.charge)
 				set_pin_data(IC_OUTPUT, 2, C.maxcharge)
 				set_pin_data(IC_OUTPUT, 3, C.percent())
-	push_data()
-	activate_pin(2)
-	return
+		// Think this is the best place possible? Push data only if the reference was scanned, 
+		//  regardless of its battery stuff
+		push_data()
+		activate_pin(2)
 
 /obj/item/integrated_circuit/input/matscan
 	name = "material scanner"
@@ -1072,9 +1073,7 @@
 		"Solid Phoron"			= IC_PINTYPE_NUMBER,
 		"Uranium"				= IC_PINTYPE_NUMBER,
 		"Plasteel"				= IC_PINTYPE_NUMBER,
-		"Titanium"				= IC_PINTYPE_NUMBER,
-		"Glass"					= IC_PINTYPE_NUMBER,
-		"Plastic"				= IC_PINTYPE_NUMBER,
+		"Plastic"				= IC_PINTYPE_NUMBER
 		)
 	activators = list(
 		"scan" = IC_PINTYPE_PULSE_IN,
@@ -1083,7 +1082,7 @@
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 40
-	var/list/mtypes = list("steel", "glass", "silver", "gold", "diamond", "phoron", "uranium", "plasteel", "titanium", "glass", "plastic")
+	var/list/mtypes = list("steel", "glass", "silver", "gold", "diamond", "phoron", "uranium", "plasteel", "plastic")
 
 /obj/item/integrated_circuit/input/matscan/do_work()
 	var/obj/O = get_pin_data_as_type(IC_INPUT, 1, /obj)
@@ -1096,7 +1095,7 @@
 			if(amount)
 				set_pin_data(IC_OUTPUT, I, amount)
 			else
-				set_pin_data(IC_OUTPUT, I, null)
+				set_pin_data(IC_OUTPUT, I, 0)
 		push_data()
 		activate_pin(2)
 	else

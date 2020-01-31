@@ -17,9 +17,9 @@
 			io_type_override = io_list_copy[io_entry]
 
 		if(io_type_override)
-			io_list.Add(new io_type_override(src, io_entry, default_data, pin_type,i))
+			io_list.Add(new io_type_override(src, io_entry, default_data, pin_type, i))
 		else
-			io_list.Add(new io_type(src, io_entry, default_data, pin_type,i))
+			io_list.Add(new io_type(src, io_entry, default_data, pin_type, i))
 
 
 /obj/item/integrated_circuit/proc/set_pin_data(pin_type, pin_number, datum/new_data)
@@ -42,7 +42,7 @@
 
 /obj/item/integrated_circuit/proc/activate_pin(pin_number)
 	var/datum/integrated_io/activate/A = activators[pin_number]
-	A.push_data()
+	A.push_data(pin_number)
 
 /obj/item/integrated_circuit/proc/get_pin_ref(pin_type, pin_number)
 	switch(pin_type)
@@ -143,12 +143,12 @@
 /proc/check_data_signature(signature, data)
 	return (compute_signature(data) == signature)
 
-/obj/item/integrated_circuit/proc/check_for_insert(var/atom/movable/target)
+/obj/item/integrated_circuit/proc/check_for_insert(var/atom/movable/target, var/remove = FALSE)
 	if(!target)
 		return null
 	
 	var/obj/item/integrated_circuit/input/insert_slot/slot = target
 	if(istype(slot))
-		return slot.get_item()
+		return slot.get_item(remove)
 
 	return target

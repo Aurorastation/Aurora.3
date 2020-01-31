@@ -4,6 +4,7 @@
 	desc = "Does power stuff."
 	complexity = 5
 	category_text = "Power - Passive"
+	var/power_amount = 0		// Generic amount of power produced - usage varies between circuits
 
 /obj/item/integrated_circuit/passive/power/proc/make_energy()
 	return
@@ -16,12 +17,12 @@
 	icon_state = "solar_cell"
 	complexity = 8
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	var/max_power = 30
+	power_amount = 30
 
 /obj/item/integrated_circuit/passive/power/solar_cell/make_energy()
 	var/turf/T = get_turf(src)
 	var/light_amount = T ? T.get_lumcount() : 0
-	var/adjusted_power = max(max_power * light_amount, 0)
+	var/adjusted_power = max(power_amount * light_amount, 0)
 	adjusted_power = round(adjusted_power, 0.1)
 	if(adjusted_power)
 		if(assembly)
@@ -58,14 +59,14 @@
 	icon_state = "power_relay"
 	complexity = 7
 	spawn_flags = IC_SPAWN_RESEARCH
-	var/power_amount = 50
+	power_amount = 50
 
 
 /obj/item/integrated_circuit/passive/power/relay/make_energy()
 	if(!assembly)
 		return
 	var/area/A = get_area(src)
-	if(A && A.powered(EQUIP) && assembly.give_power(power_amount))
+	if(A?.powered(EQUIP) && assembly.give_power(power_amount))
 		A.use_power(power_amount, EQUIP)
 		// give_power() handles CELLRATE on its own.
 
@@ -83,7 +84,7 @@
 	power_amount = 1000
 
 
-//fuel cell
+// Fuel cell
 /obj/item/integrated_circuit/passive/power/chemical_cell
 	name = "fuel cell"
 	desc = "Produces electricity from chemicals."
@@ -99,10 +100,9 @@
 	var/volume = 60
 	var/list/fuel = list("phoron" = 50000, "slimejelly" = 25000, "fuel" = 15000, "carbon" = 10000, "ethanol"= 10000, "nutriment" =8000, "blood" = 5000)
 	var/multi = 1
-	var/lfwb =TRUE
 
-/obj/item/integrated_circuit/passive/power/chemical_cell/New()
-	..()
+/obj/item/integrated_circuit/passive/power/chemical_cell/Initialize()
+	. = ..()
 	create_reagents(volume)
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/interact(mob/user)
@@ -135,13 +135,14 @@
 	appetite and will need to eat more often due to this.  This device will fail if used inside synthetic entities.\
 	If the polarity is reversed, it will instead generate chemical energy with electricity, continuously consuming power from the assembly.\
 	It is slightly less efficient than generating power."
+	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_implant"
 	complexity = 10
 	origin_tech = list(TECH_POWER = 4, TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_BIO = 5)
 	spawn_flags = IC_SPAWN_RESEARCH
 	inputs = list("reverse" = IC_PINTYPE_BOOLEAN)
 	outputs = list("nutrition" = IC_PINTYPE_NUMBER)
-	power_draw_per_use = 10
+	power_amount = 10
 	var/inefficiency = 1.2
 
 /obj/item/integrated_circuit/passive/power/metabolic_siphon/proc/test_validity(var/mob/living/carbon/human/host)
@@ -157,10 +158,10 @@
 			host = implant_assembly.implant.imp_in
 			if(!get_pin_data(IC_INPUT, 1))
 				if(test_validity(host))
-					assembly.give_power(power_draw_per_use)
+					assembly.give_power(power_amount)
 					host.adjustNutritionLoss(HUNGER_FACTOR)
 			else
-				if(assembly.draw_power(power_draw_per_use*inefficiency)) // slightly less efficient the other way around
+				if(assembly.draw_power(power_amount * inefficiency)) // slightly less efficient the other way around
 					host.adjustNutritionLoss(-HUNGER_FACTOR)
 			set_pin_data(IC_OUTPUT, 1, host.nutrition)
 
@@ -171,9 +172,7 @@
 	more often due to this. If the polarity is reversed, it will instead transfer electricity back to the entity, continuously consuming power from \
 	the assembly. This device will fail if used inside organic entities."
 	icon_state = "setup_implant"
-	complexity = 10
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 4, TECH_DATA = 3)
-	spawn_flags = IC_SPAWN_RESEARCH
 	inefficiency = 1 // it's not converting anything, just transferring power
 
 /obj/item/integrated_circuit/passive/power/metabolic_siphon/synthetic/test_validity(var/mob/living/carbon/human/host)

@@ -298,8 +298,8 @@
 	name = "string exploder"
 	desc = "This splits a single string into a list of strings."
 	extended_desc = "This circuit splits a given string into a list of strings based on the string and given delimiter. \
-	For example, 'eat this burger' will be converted to list('eat','this','burger'). Leave the delimiter null to get a list \
-	of every individual character."
+	For example, 'eat this burger' can be converted to list('eat','this','burger'). Leave the delimiter null to get a list \
+	of every individual character. Leave the delimiter to empty string to split on spaces."
 	icon_state = "split"
 	complexity = 4
 	inputs = list(
@@ -316,8 +316,15 @@
 	var/strin = get_pin_data(IC_INPUT, 1)
 	var/delimiter = get_pin_data(IC_INPUT, 2)
 	if(delimiter == null)
-		set_pin_data(IC_OUTPUT, 1, splittext(strin,null))
+		// splittext(strin, null) doesn't work, special check required
+		var/list/result = list()
+		for(var/c = 1, c <= length(strin), c++)
+			result.Add(strin[c])
+		set_pin_data(IC_OUTPUT, 1, result)
 	else
+		// Sanitization forbids exploding on spaces, since just spaces are reduced to empty strings
+		if(length(delimiter) == 0)
+			delimiter = " "
 		set_pin_data(IC_OUTPUT, 1, splittext(strin, delimiter))
 	push_data()
 
@@ -363,6 +370,7 @@
 /obj/item/integrated_circuit/converter/abs_to_rel_coords
 	name = "abs to rel coordinate converter"
 	desc = "Easily convert absolute coordinates to relative coordinates with this."
+	extended_desc = "X1 and Y1 are coordinates of the target point, X2 and Y2 are coordinates of the origin point"
 	complexity = 1
 	inputs = list(
 		"X1" = IC_PINTYPE_NUMBER,

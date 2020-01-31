@@ -11,10 +11,10 @@
 
 /datum/integrated_io/index/write_data_to_pin(new_data)
 	if(isnull(new_data))
-		new_data = 0
+		new_data = 1
 
 	if(isnum(new_data))
-		data = Clamp(round(new_data), 0, IC_MAX_LIST_LENGTH)
+		data = Clamp(round(new_data), 1, IC_MAX_LIST_LENGTH)
 		holder.on_data_written()
 
 /datum/integrated_io/index/display_pin_type()
