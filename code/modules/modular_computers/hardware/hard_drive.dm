@@ -179,7 +179,6 @@
 	for(var/datum/computer_file/F in stored_files)
 		remove_file(F)
 	install_default_programs()
-	store_file(new /datum/computer_file/program/ntnetdownload(src))
 
 /obj/item/computer_hardware/hard_drive/attackby(obj/item/W, mob/living/user)
 	if(istype(W, /obj/item/card/tech_support))

@@ -286,8 +286,8 @@
 	selection_color = "#C0C0C0"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
-	alt_titles = list("Custodian", "Tech Support")
-	alt_outfits = list("Custodian" = /datum/outfit/job/librarian/custodian, "Tech Support" = /datum/outfit/job/librarian/tech_support)
+	alt_titles = list("Curator", "Tech Support")
+	alt_outfits = list("Curator" = /datum/outfit/job/librarian/custodian, "Tech Support" = /datum/outfit/job/librarian/tech_support)
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian
@@ -301,8 +301,8 @@
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
 
-/datum/outfit/job/librarian/custodian
-	name = "Custodian"
+/datum/outfit/job/librarian/curator
+	name = "Curator"
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/suit_jacket
