@@ -9,7 +9,13 @@
 
 /obj/item/device/integrated_electronics/analyzer/afterattack(var/atom/A, var/mob/living/user)
 	. = ..()
-	if(istype(A, /obj/item/device/electronic_assembly))
+	if(istype(A, /obj/item/device/electronic_assembly) || istype(A, /obj/item/clothing) || istype(A, /obj/item/implant/integrated_circuit))
+		if(istype(A, /obj/item/clothing))
+			var/obj/item/clothing/cloth = A
+			A = cloth.IC
+		else if (istype(A, /obj/item/implant/integrated_circuit))
+			var/obj/item/implant/integrated_circuit/implant = A
+			A = implant.IC
 		var/saved = "[A.name] analyzed! On circuit printers with cloning enabled, you may use the code below to clone the circuit:<br><br><code>[SSelectronics.save_electronic_assembly(A)]</code>"
 		if(saved)
 			to_chat(user, "<span class='notice'>You scan \the [A].</span>")

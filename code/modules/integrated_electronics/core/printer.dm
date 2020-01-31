@@ -40,7 +40,8 @@
 	visible_message("<span class='notice'>[src] has finished printing its assembly!</span>")
 	playsound(src, 'sound/items/poster_being_created.ogg', 50, TRUE)
 	var/obj/item/device/electronic_assembly/assembly = SSelectronics.load_electronic_assembly(get_turf(src), program)
-	assembly.creator = key_name(user)
+	if(assembly)
+		assembly.creator = key_name(user)
 	cloning = FALSE
 
 /obj/item/device/integrated_circuit_printer/proc/recycle(obj/item/O, mob/user, obj/item/device/electronic_assembly/assembly)
@@ -217,23 +218,25 @@
 		if(!build_type || !ispath(build_type))
 			return TRUE
 
-		var/list/cost
+		var/list/cost = list()
 		var/is_asm = FALSE
 		if(ispath(build_type, /obj/item/device/electronic_assembly))
 			var/obj/item/device/electronic_assembly/E = SSelectronics.cached_assemblies[build_type]
 			cost = E.matter
 			is_asm = TRUE
+		else if(ispath(build_type, /obj/item/clothing/) || ispath(build_type, /obj/item/implant/integrated_circuit))
+			// TODO: add matter calculations
+			//is_asm = TRUE
 		else if(ispath(build_type, /obj/item/integrated_circuit))
 			var/obj/item/integrated_circuit/IC = SSelectronics.cached_circuits[build_type]
 			cost = IC.matter
-		else if(!(build_type in SSelectronics.printer_recipe_list["Tools"]))
-			return
 
 		if(!debug && !subtract_material_costs(cost, usr))
 			return
 
 		var/obj/item/built
 
+		// TODO: Deal with batteries in clothing assemblies
 		if(is_asm)
 			built = new build_type(get_turf(src), TRUE)
 		else

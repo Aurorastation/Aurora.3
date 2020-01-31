@@ -33,16 +33,25 @@
 	return dat
 
 /obj/item/implant/integrated_circuit/emp_act(severity)
-	IC.emp_act(severity)
+	if(IC)
+		IC.emp_act(severity)
 
 /obj/item/implant/integrated_circuit/examine(mob/user)
-	IC.examine(user)
+	if(IC)
+		IC.examine(user)
 
 /obj/item/implant/integrated_circuit/attackby(var/obj/item/O, var/mob/user)
-	if(O.iscrowbar() || istype(O, /obj/item/device/integrated_electronics) || istype(O, /obj/item/integrated_circuit) || O.isscrewdriver() || istype(O, /obj/item/cell/device) )
-		IC.attackby(O, user)
-	else
-		..()
+	if(IC)
+		if(istype(O, /obj/item/device/integrated_electronics) ||\
+				istype(O, /obj/item/integrated_circuit) ||\
+				O.isscrewdriver() ||\
+				istype(O, /obj/item/cell/device) ||\
+				istype(O, /obj/item/device/integrated_electronics/debugger) ||\
+				istype(O, /obj/item/device/integrated_electronics/wirer) )
+			IC.attackby(O, user)
+		else
+			..()
 
 /obj/item/implant/integrated_circuit/attack_self(mob/user)
-	IC.attack_self(user)
+	if(IC)
+		IC.attack_self(user)

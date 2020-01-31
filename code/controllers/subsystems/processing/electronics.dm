@@ -10,8 +10,12 @@
 	flags = SS_KEEP_TIMING
 	init_order = SS_INIT_MISC_FIRST
 
+	// List of all types related to circuits
 	var/list/all_integrated_circuits = list()
 	var/list/all_assemblies = list()
+
+	// Special types, needed for clothing circuits
+	var/list/special_paths = list()
 
 	// A list with circuits and assemblies to check their parameters
 	var/list/cached_circuits = list()
@@ -35,6 +39,17 @@
 	..()
 
 /datum/controller/subsystem/processing/electronics/proc/circuits_init()
+	var/list/special = list(
+		/obj/item/clothing/under/circuitry,
+		/obj/item/clothing/gloves/circuitry,
+		/obj/item/clothing/glasses/circuitry,
+		/obj/item/clothing/shoes/circuitry,
+		/obj/item/clothing/head/circuitry,
+		/obj/item/clothing/ears/circuitry,
+		/obj/item/clothing/suit/circuitry,
+		/obj/item/implant/integrated_circuit
+	)
+
 	//Cached lists for free performance
 	var/atom/def = /obj/item/integrated_circuit
 	var/default_name = initial(def.name)
@@ -62,18 +77,17 @@
 		all_assemblies[name] = path
 		cached_assemblies[A] = new path()
 
-	//printer_recipe_list["Assemblies"] = subtypesof(/obj/item/device/electronic_assembly) - list(/obj/item/device/electronic_assembly/medium, /obj/item/device/electronic_assembly/large, /obj/item/device/electronic_assembly/drone, /obj/item/device/electronic_assembly/wallmount)
+	// Saving special cases
+	for(var/path in special)
+		var/obj/A = path
+		var/name = initial(A.name)
+		special_paths[name] = path
 
-	printer_recipe_list["Assemblies"] = subtypesof(/obj/item/device/electronic_assembly) + list(
-		/obj/item/implant/integrated_circuit,
-		/obj/item/clothing/under/circuitry,
-		/obj/item/clothing/gloves/circuitry,
-		/obj/item/clothing/glasses/circuitry,
-		/obj/item/clothing/shoes/circuitry,
-		/obj/item/clothing/head/circuitry,
-		/obj/item/clothing/ears/circuitry,
-		/obj/item/clothing/suit/circuitry
-	)
+
+	// Specific Recipe Lists
+	printer_recipe_list["Assemblies"] = subtypesof(/obj/item/device/electronic_assembly) -\
+		typesof(/obj/item/device/electronic_assembly/clothing) - /obj/item/device/electronic_assembly/implant +\
+		special
 
 	printer_recipe_list["Tools"] = list(
 		/obj/item/device/integrated_electronics/wirer,

@@ -130,8 +130,14 @@
 	if(initial(detail_color) != detail_color)
 		assembly_params["detail_color"] = detail_color
 
+	var/special = save_special()
+	if(!isnull(special))
+		assembly_params["special"] = special
+
 	return assembly_params
 
+/obj/item/device/electronic_assembly/proc/save_special()
+	return null
 
 // Verifies a list of assembly parameters
 // Returns null on success, error name on failure
@@ -160,8 +166,13 @@
 	if(assembly_params["detail_color"])
 		detail_color = assembly_params["detail_color"]
 
+	if(!isnull(assembly_params["special"]))
+		load_special(assembly_params["special"])
+
 	update_icon()
 
+/obj/item/device/electronic_assembly/proc/load_special(special_data)
+	return
 
 
 // Attempts to save an assembly into a save file format.

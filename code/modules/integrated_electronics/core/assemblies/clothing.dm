@@ -18,6 +18,49 @@
 /obj/item/device/electronic_assembly/clothing/resolve_ui_host()
 	return clothing
 
+/obj/item/device/electronic_assembly/clothing/save_special()
+	if(clothing)
+		var/out = list("type" = initial(clothing.name))
+		var/custom_name = clothing.name
+		// Might be a good idea to save the description as well, but that would be too big
+		// Also, if someon's planning to mass-produce completely customized items, then they stop being unique
+		if(custom_name != initial(clothing.name))
+			out["name"] = sanitize(clothing.name)
+		return out
+	return null
+
+/obj/item/device/electronic_assembly/clothing/load_special(special_data)
+	// Verify and load
+	if(islist(special_data) && special_data["type"])
+		var/cloth_path = SSelectronics.special_paths[special_data["type"]]
+		if(cloth_path)
+			var/obj/item/clothing/cloth = new cloth_path(null)
+			var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null
+			if(special_data["name"])
+				cloth.name = sanitize(special_data["name"])
+
+			for(var/var/obj/item/integrated_circuit/IC in assembly_components)
+				if(istype(IC.type, /obj/item/integrated_circuit/built_in/action_button))
+					action_circuit = IC
+					break		// Possible speed-up for bigger assemblies?
+
+			// Remove old IC
+			QDEL_NULL(cloth.IC)
+			clothing = cloth
+			clothing.IC = src
+			clothing.action_circuit = action_circuit
+
+/obj/item/device/electronic_assembly/clothing/post_load()
+	..()
+	if(clothing)
+		// Replace the assembly with the clothing piece
+		var/old_loc = loc
+		forceMove(clothing)
+		clothing.loc = old_loc
+	else
+		visible_message("<span class='warning'>The malformed device crumples on the floor!</span>")
+		qdel(src)			// EMERGENCY DELETION!
+
 /obj/item/device/electronic_assembly/clothing/update_icon()
 	..()
 	clothing.icon_state = icon_state
@@ -27,14 +70,13 @@
 /obj/item/device/electronic_assembly/clothing/small
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
-	w_class = ITEMSIZE_TINY
+	w_class = ITEMSIZE_SMALL
 
 // Ditto.
 /obj/item/device/electronic_assembly/clothing/large
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
 	w_class = ITEMSIZE_NORMAL
-
 
 // This is defined higher up, in /clothing to avoid lots of copypasta.
 /obj/item/clothing
