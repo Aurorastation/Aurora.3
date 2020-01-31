@@ -790,7 +790,7 @@ var/list/admin_verbs_cciaa = list(
 	
 	prefs.toggles ^= CHAT_AOOC
 	if (prefs.toggles & CHAT_AOOC)
-		to_chat(usr, "You now will see messages in aooc")
+		to_chat(usr, "You now will see all messages in AOOC.")
 	else
 		to_chat(usr, "You now won't see messages in aooc")
 
