@@ -38,6 +38,8 @@
 
 /obj/item/gun/launcher/spikethrower/examine(mob/user)
 	..(user)
+	if(get_dist(src, user) > 1)
+		return
 	to_chat(user, "It has [spikes] spike\s remaining.")
 
 /obj/item/gun/launcher/spikethrower/update_icon()

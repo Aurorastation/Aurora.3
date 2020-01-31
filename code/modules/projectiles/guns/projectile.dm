@@ -233,6 +233,8 @@
 
 /obj/item/gun/projectile/examine(mob/user)
 	..(user)
+	if(get_dist(src, user) > 1)
+		return
 	if(is_jammed)
 		to_chat(user, "<span class='warning'>It looks jammed.</span>")
 	if(ammo_magazine)

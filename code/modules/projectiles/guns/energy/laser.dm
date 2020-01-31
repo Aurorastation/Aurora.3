@@ -54,7 +54,7 @@ obj/item/gun/energy/retro
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	has_item_ratio = FALSE
-	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy. On the item is an image of Baystation 12. The station is exploding."
+	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
 	force = 5
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
