@@ -529,8 +529,7 @@
 
 /obj/machinery/power/solar_control/autostart/Initialize()
 	..()
-	do_solars()
-	addtimer(CALLBACK(src, .proc/do_solars), 1800) // do it again three minutes later, just to be sure
+	addtimer(CALLBACK(src, .proc/do_solars), 1800)
 
 /obj/machinery/power/solar_control/autostart/proc/do_solars()
 	search_for_connected()
