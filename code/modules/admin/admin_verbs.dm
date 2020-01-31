@@ -788,11 +788,13 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Show/Hide AOOC"
 	set category = "Preferences"
 	
+	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))	return
+	
 	prefs.toggles ^= CHAT_AOOC
 	if (prefs.toggles & CHAT_AOOC)
 		to_chat(usr, "You now will see all messages in AOOC.")
 	else
-		to_chat(usr, "You will no longer see AOOC messages.")
+		to_chat(usr, "You now won't see messages in aooc")
 
 /client/proc/deadmin_self()
 	set name = "De-admin self"
