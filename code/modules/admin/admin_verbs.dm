@@ -792,7 +792,7 @@ var/list/admin_verbs_cciaa = list(
 	if (prefs.toggles & CHAT_AOOC)
 		to_chat(usr, "You now will see all messages in AOOC.")
 	else
-		to_chat(usr, "You now won't see messages in aooc")
+		to_chat(usr, "You will no longer see AOOC messages.")
 
 /client/proc/deadmin_self()
 	set name = "De-admin self"
