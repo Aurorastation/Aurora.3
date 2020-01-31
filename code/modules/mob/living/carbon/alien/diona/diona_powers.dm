@@ -351,7 +351,7 @@
 
 	if(!is_diona(src))
 		to_chat(src, span("danger", "You are not a Diona! You should not have this ability."))
-		log_debug("Non-Diona [src.name] had Create Structure ability.")
+		log_debug("Non-Diona [name] had Create Structure ability.")
 		return
 
 	if(use_check_and_message(src))
