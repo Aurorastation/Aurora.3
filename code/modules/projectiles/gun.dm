@@ -591,9 +591,6 @@
 
 // Safety Procs
 
-/obj/item/gun/AltClick()
-	toggle_safety(usr)
-
 /obj/item/gun/proc/toggle_safety(var/mob/user)
 	safety_state = !safety_state
 	update_icon()
