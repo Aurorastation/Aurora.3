@@ -287,7 +287,7 @@
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
 	alt_titles = list("Curator", "Tech Support")
-	alt_outfits = list("Curator" = /datum/outfit/job/librarian/custodian, "Tech Support" = /datum/outfit/job/librarian/tech_support)
+	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian
