@@ -649,7 +649,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/schlorrgo
 	name = "schlorrgo"
 	icon = 'icons/mob/npc/livestock.dmi'
-	icon_state = "schlorrgo"
-	item_state = "schlorrgo"
+	icon_state = "schlorgo"
+	item_state = "schlorgo"
 	w_class = 3
 
