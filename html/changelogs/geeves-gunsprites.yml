@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - backend: "All the gun sprites have been moved into seperate files, this has no user-facing change, but will likely result in some sprites being missing. Please report missing sprites to Github."
-  - rscadd: "The double barrel shotgun can now be wielded."
