@@ -330,9 +330,11 @@
 				qdel(E)
 
 /obj/machinery/shower/machinery_process()
-	if(!on) return
+	if(!on) 
+		return
 	wash_floor()
-	if(!mobpresent)	return
+	if(!mobpresent)	
+		return
 	for(var/mob/living/L in loc)
 		wash(L) // Why was it not here before?
 		process_heat(L)
@@ -348,7 +350,8 @@
 		is_washing = 0
 
 /obj/machinery/shower/proc/process_heat(mob/living/M)
-	if(!on || !istype(M)) return
+	if(!on || !istype(M)) 
+		return
 
 	var/temperature = temperature_settings[watertemp]
 	var/temp_adj = between(BODYTEMP_COOLING_MAX, temperature - M.bodytemperature, BODYTEMP_HEATING_MAX)
@@ -415,7 +418,8 @@
 		return TRUE
 	busy = 0
 
-	if(!Adjacent(user)) return		//Person has moved away from the sink
+	if(!Adjacent(user)) 
+		return		//Person has moved away from the sink
 
 	user.clean_blood()
 	user.visible_message( \
@@ -456,7 +460,7 @@
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				user.visible_message(span("notice", "[user] empties [empty_amount]u of \the [RG] into \the [src]."),
 									 span("notice", "You empty [empty_amount]u of \the [RG] into \the [src]."))
-				playsound(src.loc, 'sound/effects/pour.ogg', 25, 1)
+				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
 		return
 
 	// Filling/empying Syringes
@@ -481,7 +485,6 @@
 				S.reagents.remove_any(trans)
 				user.visible_message(span("notice", "[usr] empties \the [S] into \the [src]."),
 									 span("notice", "You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
-
 		return
 
 	else if (istype(O, /obj/item/melee/baton))
@@ -532,11 +535,9 @@
 		span("notice", "[user] washes \a [I] using \the [src]."), \
 		span("notice", "You wash \a [I] using \the [src]."))
 
-
 /obj/structure/sink/kitchen
 	name = "kitchen sink"
 	icon_state = "sink_alt"
-
 
 /obj/structure/sink/puddle	//splishy splashy ^_^
 	name = "puddle"
