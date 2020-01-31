@@ -60,7 +60,7 @@
 			message = "<b>[message]</b>"
 
 	var/hearing_aid
-	if(istype(src, /mob/living/carbon/human))
+	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		hearing_aid = H.has_hearing_aid()
 

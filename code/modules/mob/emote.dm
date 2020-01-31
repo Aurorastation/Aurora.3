@@ -59,9 +59,9 @@
 	var/list/messagemobs_neardead = list()//List of nearby ghosts who can hear it. Those that qualify ONLY go in this list
 
 	var/hearing_aid
-	if(type == 2 && istype(src, /mob/living/carbon/human))
+	if(type == 2 && ishuman(src))
 		var/mob/living/carbon/human/H = src
-		hearing_aid =  H.has_hearing_aid()
+		hearing_aid = H.has_hearing_aid()
 
 	for (var/turf in view(world.view, get_turf(src)))
 		messageturfs += turf
@@ -73,7 +73,7 @@
 			if (istype(M, /mob/abstract/observer))
 				messagemobs_neardead += M
 				continue
-			else if (istype(M, /mob/living) && !(type == 2 && ((sdisabilities & DEAF || ear_deaf) && !hearing_aid)))
+			else if (isliving(M) && !(type == 2 && ((sdisabilities & DEAF || ear_deaf) && !hearing_aid)))
 				messagemobs += M
 		else if(src.client)
 			if (M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT))
