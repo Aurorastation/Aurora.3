@@ -213,8 +213,8 @@
 	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
-	name = "suspicious briefcase"
-	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
+//	name = "suspicious briefcase"
+//	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
 	starts_with = list(/obj/item/spacecash/c1000 = 10)
 
 /obj/item/storage/box/syndie_kit/stimulants
