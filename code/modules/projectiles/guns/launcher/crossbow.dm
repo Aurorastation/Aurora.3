@@ -365,4 +365,6 @@
 /obj/item/gun/launcher/crossbow/RFD/examine(var/user)
 	. = ..()
 	if(.)
+		if(get_dist(src, user) > 1)
+			return
 		to_chat(user, "It currently holds [stored_matter]/[max_stored_matter] matter-units.")
