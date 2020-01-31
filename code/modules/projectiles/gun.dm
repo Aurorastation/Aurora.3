@@ -92,7 +92,7 @@
 	var/tmp/list/mob/living/aim_targets //List of who yer targeting.
 	var/tmp/mob/living/last_moved_mob //Used to fire faster at more than one person.
 	var/tmp/lock_time = -100
-	var/safety_state = TRUE
+	var/safety_state = FALSE
 	var/has_safety = TRUE
 	var/safety_icon	= "safety"   //overlay to apply to gun based on safety state, if any
 
@@ -590,6 +590,9 @@
 		to_chat(user, span("notice", "\The [src] is now set to [new_mode.name]."))
 
 // Safety Procs
+
+/obj/item/gun/AltClick()
+	toggle_safety(usr)
 
 /obj/item/gun/proc/toggle_safety(var/mob/user)
 	safety_state = !safety_state

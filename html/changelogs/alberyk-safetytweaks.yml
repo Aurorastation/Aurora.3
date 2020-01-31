@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Guns now start with the safety off."
+  - rscadd: "You can toggle gun's safety with alt click now."
