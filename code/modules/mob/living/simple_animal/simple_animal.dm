@@ -411,7 +411,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return
 
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag. 
+	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
 		attacked_with_item(O, user)
 		return
 	if(has_udder)
@@ -445,8 +445,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
 		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
-		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off. 
-			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"] happily.")) //purring	
+		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
+			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"] happily.")) //purring
 		return
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -543,7 +543,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return 1
 
 /mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
-	set name = "Resist"
+	set name = "Make Sound"
 	set category = "Abilities"
 
 	if((usr && usr.stat == DEAD) || !make_sound)

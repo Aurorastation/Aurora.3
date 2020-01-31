@@ -113,7 +113,7 @@
 	emote_hear = list("moans", "moans raucously")
 	emote_see = list("rolls around")
 
-	emote_sounds = list('sound/effects/creatures/schlorgo_moan.ogg')
+	emote_sounds = list('sound/effects/creatures/schlorgo_moan.ogg', 'sound/effects/creatures/ough')
 
 	meat_amount = 3
 	hunger_enabled = TRUE
