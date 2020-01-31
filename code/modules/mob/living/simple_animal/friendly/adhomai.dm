@@ -125,5 +125,7 @@
 	has_udder = TRUE
 	milk_type = "milk"
 
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 5)
+
+	holder_type = /obj/item/holder/schlorrgo
