@@ -386,7 +386,7 @@ This function restores all organs.
 
 /mob/living/carbon/human/proc/get_organ(var/zone)
 	if(!zone)	zone = BP_CHEST
-	if (zone in list( BP_EYES, BP_MOUTH ))
+	if (zone in list(BP_EYES, BP_MOUTH))
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
@@ -401,7 +401,7 @@ This function restores all organs.
 	//Handle other types of damage
 	if(damagetype != BRUTE && damagetype != BURN)
 		if(!stat && damagetype == PAIN && (can_feel_pain()))
-			if ((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
+			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
 
 		..(damage, damagetype, def_zone, blocked)
@@ -436,12 +436,11 @@ This function restores all organs.
 				damage *= species.brute_mod
 			if(organ.take_damage(damage, 0, sharp, edge, used_weapon, damage_flags = damage_flags))
 				UpdateDamageIcon()
+
 		if(BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.burn_mod
-
-
 			if(organ.take_damage(0, damage, sharp, edge, used_weapon, damage_flags = damage_flags))
 				UpdateDamageIcon()
 

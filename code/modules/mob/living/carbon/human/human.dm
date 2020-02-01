@@ -1357,9 +1357,7 @@
 						"<span class='warning'>A spike of pain jolts your [organ.name] as you bump [O] inside.</span>", \
 						"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>", \
 						"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>")
-					to_chat(src, msg)
-
-				organ.take_damage(rand(1, 3), sharp = TRUE, edge = TRUE, used_weapon = O)
+					custom_pain(msg, 5, 10)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
