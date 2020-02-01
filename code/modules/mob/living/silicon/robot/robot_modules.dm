@@ -266,7 +266,7 @@ var/global/list/robot_modules = list(
 			"Drone" = "drone-medical",
 			"Standard" = "surgeon",
 			"Advanced Droid" = "droid-rescue",
-			"Heavy" = "heavymed"
+			"Heavy" = "heavymed",
 			)
 
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -336,7 +336,7 @@ var/global/list/robot_modules = list(
 					"Treadmate" = "engiborg+tread",
 					"HD-MAD" = "mcspizzytronengi",
 					"Drone" = "drone-engineer",
-					"Heavy" = "heavyeng"
+					"Heavy" = "heavyeng",
 					"HH-Android" = "droid",
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -666,7 +666,7 @@ var/global/list/robot_modules = list(
 					"HD-MAD" = "mcspizzytronsci",
 					"Drone" = "drone-science",
 					"Droid" = "droid-science",
-					"Heavy" = "heavysci"
+					"Heavy" = "heavysci",
 					)
 
 /obj/item/robot_module/research/New()
