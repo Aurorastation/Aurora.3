@@ -146,7 +146,7 @@
 /obj/item/gun/energy/pistol/hegemony
 	name = "hegemony energy pistol"
 	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite."
-	description_fluff = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to pinpoint penetrate armor with deadly accuracy."
+	description_fluff = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	item_state = "hegemony_pistol"
