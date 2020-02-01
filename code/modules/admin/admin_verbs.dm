@@ -788,7 +788,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Show/Hide AOOC"
 	set category = "Preferences"
 	
-	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))	return
+	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))
+		return
 	
 	prefs.toggles ^= CHAT_AOOC
 	if (prefs.toggles & CHAT_AOOC)
