@@ -172,6 +172,10 @@
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
 
+/datum/gear/suit/winter/red
+	display_name = "winter coat, red"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/red
+
 /datum/gear/suit/winter/captain
 	display_name = "winter coat, captain"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
