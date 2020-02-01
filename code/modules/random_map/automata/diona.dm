@@ -42,6 +42,16 @@
 	light_power = 3
 	light_range = 3
 	light_color = "#557733"
+	density = 0
+
+/obj/structure/diona/bulb/attackby(obj/item/W, mob/user)
+	if(W.iswelder())
+		var/obj/item/weldingtool/WT = W
+		if(WT.remove_fuel(0, user))
+			to_chat(user, "<span class='notice'>You slice through the skin of the bulb, revealing a confused nymph!</span>")
+		playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+		spawn_diona_nymph(src.loc)
+		qdel(src)
 
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"
