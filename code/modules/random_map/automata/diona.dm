@@ -49,6 +49,7 @@
 		var/obj/item/weldingtool/WT = W
 		if (!WT.welding)
 			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+			return
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>You begin slicing through the skin of \the [src].</span>")
 			if(do_after(user, 20/W.toolspeed, act_target = src))
