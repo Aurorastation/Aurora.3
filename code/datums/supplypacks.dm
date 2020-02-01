@@ -1409,8 +1409,7 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 	containername = "Imported carpet crate"
 	cost = 15
 	group = "Miscellaneous"
-	contains = list(/obj/item/stack/tile/carpet)
-	amount = 50
+	contains = list(/obj/item/stack/tile/carpet/full)
 
 /datum/supply_packs/hydrotray
 	name = "Empty hydroponics tray"

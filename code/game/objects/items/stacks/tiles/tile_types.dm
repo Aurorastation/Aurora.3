@@ -66,6 +66,9 @@
 	flags = 0
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
+/obj/item/stack/tile/carpet/full
+	amount = 50
+
 /obj/item/stack/tile/floor
 	name = "floor tile"
 	singular_name = "floor tile"
