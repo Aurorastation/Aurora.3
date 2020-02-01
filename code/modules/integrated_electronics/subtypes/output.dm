@@ -74,6 +74,7 @@
 	var/light_toggled = 0
 	var/light_brightness = 1
 	var/light_rgb = "#ffffff"
+	light_wedge = LIGHT_OMNI
 	power_draw_idle = 0 // Adjusted based on brightness.
 
 /obj/item/integrated_circuit/output/light/do_work()
@@ -83,7 +84,7 @@
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(light_toggled)
 		if(assembly)
-			assembly.set_light(light_brightness, 1, 4, 2, light_rgb)
+			assembly.set_light(light_brightness, light_brightness, light_rgb)
 	else
 		if(assembly)
 			assembly.set_light(0)
@@ -96,6 +97,7 @@
 /obj/item/integrated_circuit/output/light/advanced
 	name = "advanced light"
 	desc = "A light that takes a hexadecimal color value and a brightness value, and can be toggled on/off by pulsing it."
+	extended_desc = "THis light can achieve a maximum brightness of 6. Anything above that will be treated as brightness 6."
 	icon_state = "light_adv"
 	complexity = 8
 	inputs = list(
@@ -109,11 +111,11 @@
 	update_lighting()
 
 /obj/item/integrated_circuit/output/light/advanced/update_lighting()
-	var/new_color = get_pin_data(IC_INPUT, 1)
+	var/new_color = get_pin_data(IC_INPUT, 1) || COLOR_WHITE	//Safeguard - if no color is given, white is used
 	var/brightness = get_pin_data(IC_INPUT, 2)
 
-	if(new_color && isnum(brightness))
-		brightness = Clamp(brightness, 0, 1)
+	if(isnum(brightness))
+		brightness = Clamp(brightness, 0, 6)
 		light_rgb = new_color
 		light_brightness = brightness
 
@@ -214,7 +216,7 @@
 /obj/item/integrated_circuit/output/video_camera
 	name = "video camera circuit"
 	desc = "Takes a string as a name and a boolean to determine whether it is on, and uses this to be a camera linked to the research network."
-	extended_desc = "The camera is linked to the Research camera network."
+	extended_desc = "The camera is linked to the Research camera network. You might need to turn the camera on/off for it to show porperly."
 	icon_state = "video_camera"
 	w_class = ITEMSIZE_SMALL
 	complexity = 10
@@ -231,14 +233,9 @@
 	var/obj/machinery/camera/network/research/camera
 	var/updating = FALSE
 
-/obj/item/integrated_circuit/output/video_camera/Initialize()
-	. = ..()
-	camera = new(src)
-	camera.replace_networks(list(NETWORK_THUNDER))
-	on_data_written()
-
 /obj/item/integrated_circuit/output/video_camera/Destroy()
-	QDEL_NULL(camera)
+	if(camera)
+		QDEL_NULL(camera)
 	return ..()
 
 /obj/item/integrated_circuit/output/video_camera/proc/set_camera_status(var/status)
@@ -250,6 +247,10 @@
 				power_fail()
 
 /obj/item/integrated_circuit/output/video_camera/on_data_written()
+	// Lazy initialization to remove cluttering the Research network cameras with default/cached cameras
+	if(!camera)
+		camera = new(src)
+
 	if(camera)
 		var/cam_name = get_pin_data(IC_INPUT, 1)
 		var/cam_active = get_pin_data(IC_INPUT, 2)
@@ -259,8 +260,9 @@
 
 /obj/item/integrated_circuit/output/video_camera/power_fail()
 	if(camera)
-		set_camera_status(0)
+		set_camera_status(FALSE)
 		set_pin_data(IC_INPUT, 2, FALSE)
+		push_data()
 
 /obj/item/integrated_circuit/output/led
 	name = "light-emitting diode"

@@ -42,7 +42,8 @@
 			push_data()
 
 /obj/item/integrated_circuit/input/insert_slot/attackby_react(obj/item/I, mob/living/user, intent)	
-	if(!check_target(I))
+	// Adjacent is here so that people could insert stuff into free-standing assemblies
+	if(!check_target(I) && !Adjacent(I.loc))
 		return FALSE
 
 	if(is_type_in_list(I, allowed_types))
