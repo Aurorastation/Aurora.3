@@ -112,7 +112,7 @@
 		else if(client && willfully_sleeping)
 			visible_message(span("notice", "[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
-			willfully_sleeping = 0
+			willfully_sleeping = FALSE
 
 	for(var/datum/disease/D in viruses)
 
@@ -401,7 +401,7 @@
 		to_chat(usr, span("warning", "You are already sleeping"))
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
-		willfully_sleeping = 1
+		willfully_sleeping = TRUE
 		usr.sleeping = 20 //Short nap
 
 /mob/living/carbon/Collide(atom/A)
