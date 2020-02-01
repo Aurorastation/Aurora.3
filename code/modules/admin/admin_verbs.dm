@@ -790,7 +790,6 @@ var/list/admin_verbs_cciaa = list(
 	
 	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))
 		return
-	
 	prefs.toggles ^= CHAT_AOOC
 	if (prefs.toggles & CHAT_AOOC)
 		to_chat(usr, "You now will see all messages in AOOC.")
