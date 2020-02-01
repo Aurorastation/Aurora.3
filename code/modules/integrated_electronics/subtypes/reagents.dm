@@ -56,7 +56,7 @@
 			if(!reagents || (reagents.total_volume < IC_SMOKE_REAGENTS_MINIMUM_UNITS))
 				return
 			var/location = get_turf(src)
-			var/datum/effect/effect/system/smoke_spread/chem/S = new
+			var/datum/effect/effect/system/smoke_spread/chem/S = new()
 			S.attach(location)
 			playsound(location, 'sound/effects/smoke.ogg', 50, 1, -3)
 			if(S)
@@ -98,7 +98,6 @@
 		"on injected" = IC_PINTYPE_PULSE_OUT,
 		"on fail" = IC_PINTYPE_PULSE_OUT,
 		"push ref" = IC_PINTYPE_PULSE_IN
-
 		)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 15
@@ -437,9 +436,10 @@
 	desc = "Filters liquids by list of desired or unwanted reagents."
 	icon_state = "reagent_filter"
 	extended_desc = "This is a filter which will move liquids from the source to its target. \
-	If the amount in the fourth pin is positive, it will move all reagents except those in the unwanted list. \
-	If the amount in the fourth pin is negative, it will only move the reagents in the wanted list. \
-	The third pin determines how many reagents are moved per pulse, between 0 and 50. Amount is given for each separate reagent."
+	The list contains the names of the liquids to move, capitalization is not important. \
+	If the amount in the third pin is positive, it will move all reagents except those in the unwanted list. \
+	If the amount in the third pin is negative, it will only move the reagents in the wanted list. \
+	The third pin determines how many reagents are moved per pulse, between 0 and 50. Amount is applied for each separate reagent."
 
 	complexity = 8
 	inputs = list(
@@ -491,15 +491,18 @@
 	if(!source.is_open_container() || istype(source, /mob))
 		return
 
+	if(!target.is_open_container() || istype(target, /mob))
+		return
+
 	if(target.reagents.maximum_volume - target.reagents.total_volume <= 0)
 		return
 
 	for(var/datum/reagent/G in source.reagents.reagent_list)
 		if(!direction_mode)
-			if(G.name in demand)
+			if(lowertext(G.name) in demand)
 				source.reagents.trans_id_to(target, G.id, transfer_amount)
 		else
-			if(!(G.name in demand))
+			if(!(lowertext(G.name) in demand))
 				source.reagents.trans_id_to(target, G.id, transfer_amount)
 	activate_pin(2)
 	push_data()
