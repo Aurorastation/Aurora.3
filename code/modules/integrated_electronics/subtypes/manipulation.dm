@@ -517,11 +517,8 @@
 	if(!(IC_FLAG_CAN_FIRE & assembly.circuit_flags) && ishuman(assembly.loc))
 		return
 
-	// If the item is in a grabber circuit we'll update the grabber's outputs after we've thrown it.
-	var/obj/item/integrated_circuit/manipulation/grabber/G = A.loc
-
 	// Is the target inside the assembly or close to it?
-	if(!istype(G) && !check_target(A, exclude_components = TRUE))
+	if(!check_target(A, exclude_components = TRUE))
 		return
 
 	var/turf/T = get_turf(get_object())
@@ -542,6 +539,9 @@
 	log_attack("[assembly] \ref[assembly] has thrown [A].")
 	A.dropInto(loc)
 	A.throw_at(locate(x_abs, y_abs, T.z), range, 3)
+
+	// If the item is in a grabber circuit we'll update the grabber's outputs after we've thrown it.
+	var/obj/item/integrated_circuit/manipulation/grabber/G = A.loc
 
 	// If the item came from a grabber now we can update the outputs since we've thrown it.
 	if(istype(G))
