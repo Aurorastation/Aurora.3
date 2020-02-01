@@ -441,6 +441,15 @@
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
 
+/obj/item/clothing/suit/storage/toggle/trench/green
+    name = "green trenchcoat"
+    desc = "A comfy looking green trenchcoat with fur."
+    icon_state = "greentrench"
+    item_state = "greentrench"
+    icon_open = "greentrench_open"
+    icon_closed = "greentrench"
+    body_parts_covered = UPPER_TORSO|ARMS
+
 /obj/item/clothing/suit/storage/dominia
 	name = "dominia cape"
 	desc = "This is a cape in the style of Dominia nobility. It's the latest fashion across Dominian space."
