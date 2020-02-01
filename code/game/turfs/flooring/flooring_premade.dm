@@ -3,7 +3,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /decl/flooring/carpet
-	footstep_sound = "dirtstep"//It sounds better than squeaky hard-floor audio
+	footstep_type = "dirtstep"//It sounds better than squeaky hard-floor audio
 
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
@@ -28,7 +28,7 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
-	footstep_sound = "grassstep"
+	footstep_type = "grassstep"
 
 /turf/simulated/floor/carpet/blue
 	name = "blue carpet"
@@ -46,7 +46,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced"
 	initial_flooring = /decl/flooring/reinforced
-	footstep_sound = "concretestep"
+	footstep_type = "concretestep"
 
 /turf/simulated/floor/reinforced/airless
 	oxygen = 0
@@ -165,7 +165,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
-	footstep_sound = "concretestep"
+	footstep_type = "concretestep"
 
 	roof_type = null
 
@@ -212,7 +212,7 @@
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
-	footstep_sound = "gravelstep"
+	footstep_type = "gravelstep"
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()
@@ -221,7 +221,7 @@
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowplating"
-	footstep_sound = "gravelstep"
+	footstep_type = "gravelstep"
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
@@ -268,7 +268,7 @@
 	name = "foamed metal"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "metalfoam"
-	footstep_sound = "gravelstep"
+	footstep_type = "gravelstep"
 
 /turf/simulated/floor/foamedmetal/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

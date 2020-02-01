@@ -587,7 +587,7 @@ var/list/mineral_can_smooth_with = list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = "gravelstep"
+	footstep_type = "gravelstep"
 
 	roof_type = null
 

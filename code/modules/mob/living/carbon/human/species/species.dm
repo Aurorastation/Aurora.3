@@ -583,3 +583,6 @@
 
 /datum/species/proc/can_commune()
 	return FALSE
+
+/datum/species/proc/get_footstep(var/mob/living/carbon/human/H, var/footstep_type)
+	return

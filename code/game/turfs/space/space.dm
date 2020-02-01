@@ -4,7 +4,7 @@
 	desc = "The final frontier."
 	icon_state = "0"
 	dynamic_lighting = 0
-	footstep_sound = null //Override to make sure because yeah
+	footstep_type = null //Override to make sure because yeah
 
 	plane = PLANE_SPACE_BACKGROUND
 

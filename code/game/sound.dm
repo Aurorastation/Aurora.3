@@ -90,50 +90,6 @@ var/list/fracture_sound = list(
 	'sound/effects/bonebreak3.ogg',
 	'sound/effects/bonebreak4.ogg'
 )
-
-//FOOTSTEPS
-var/list/defaultfootsteps = list(
-	'sound/effects/footsteps/tile1.wav',
-	'sound/effects/footsteps/tile2.wav',
-	'sound/effects/footsteps/tile3.wav',
-	'sound/effects/footsteps/tile4.wav'
-)
-var/list/concretefootsteps = list(
-	'sound/effects/footsteps/concrete1.wav',
-	'sound/effects/footsteps/concrete2.wav',
-	'sound/effects/footsteps/concrete3.wav',
-	'sound/effects/footsteps/concrete4.wav'
-)
-var/list/grassfootsteps = list(
-	'sound/effects/footsteps/grass1.wav',
-	'sound/effects/footsteps/grass2.wav',
-	'sound/effects/footsteps/grass3.wav',
-	'sound/effects/footsteps/grass4.wav'
-)
-var/list/dirtfootsteps = list(
-	'sound/effects/footsteps/dirt1.wav',
-	'sound/effects/footsteps/dirt2.wav',
-	'sound/effects/footsteps/dirt3.wav',
-	'sound/effects/footsteps/dirt4.wav'
-)
-var/list/waterfootsteps = list(
-	'sound/effects/footsteps/slosh1.wav',
-	'sound/effects/footsteps/slosh2.wav',
-	'sound/effects/footsteps/slosh3.wav',
-	'sound/effects/footsteps/slosh4.wav'
-)
-var/list/sandfootsteps = list(
-	'sound/effects/footsteps/sand1.wav',
-	'sound/effects/footsteps/sand2.wav',
-	'sound/effects/footsteps/sand3.wav',
-	'sound/effects/footsteps/sand4.wav'
-)
-var/list/gravelfootsteps = list(
-	'sound/effects/footsteps/gravel1.wav',
-	'sound/effects/footsteps/gravel2.wav',
-	'sound/effects/footsteps/gravel3.wav',
-	'sound/effects/footsteps/gravel4.wav'
-)
 var/list/computerbeeps = list(
 	'sound/machines/compbeep1.ogg',
 	'sound/machines/compbeep2.ogg',
@@ -362,13 +318,6 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("pageturn") soundin = pick(page_sound)
 			if ("fracture") soundin = pick(fracture_sound)
 			//if ("gunshot") soundin = pick(gun_sound)
-			if ("defaultstep") soundin = pick(defaultfootsteps)
-			if ("concretestep") soundin = pick(concretefootsteps)
-			if ("grassstep") soundin = pick(grassfootsteps)
-			if ("dirtstep") soundin = pick(dirtfootsteps)
-			if ("waterstep") soundin = pick(waterfootsteps)
-			if ("sandstep") soundin = pick(sandfootsteps)
-			if ("gravelstep") soundin = pick(gravelfootsteps)
 			if ("computerbeep") soundin = pick(computerbeeps)
 			if ("switch") soundin = pick(switchsounds)
 			if ("keyboard") soundin = pick(keyboardsounds)

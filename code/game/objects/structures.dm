@@ -7,6 +7,12 @@
 	var/parts
 	var/list/climbers
 
+	var/list/footstep_type	//footstep sounds when stepped on
+
+/obj/structure/proc/get_footstep_type()
+	if(LAZYLEN(footstep_type)) return pick(footstep_type)
+
+
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)

@@ -145,16 +145,16 @@
 		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
-		if ((x == last_x && y == last_y) || !T.footstep_sound)
+		if ((x == last_x && y == last_y) || !T.footstep_type)
 			return
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+			playsound(src, T.footstep_type, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+				playsound(src, T.footstep_type, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

@@ -18,7 +18,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /decl/flooring/carpet
-	footstep_sound = "dirtstep"//It sounds better than squeaky hard-floor audio
+	footstep_type = "dirtstep"//It sounds better than squeaky hard-floor audio
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
@@ -60,7 +60,7 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
-	footstep_sound = "grassstep"
+	footstep_type = "grassstep"
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
@@ -69,20 +69,20 @@
 	base_icon = 'icons/turf/floors.dmi'
 	icon_state = "snow"
 	base_icon_state = "snow"
-	footstep_sound = "gravelstep"
+	footstep_type = "gravelstep"
 
 /turf/simulated/floor/holofloor/reinforced
 	icon = 'icons/turf/flooring/tiles.dmi'
 	initial_flooring = /decl/flooring/reinforced
 	name = "reinforced holofloor"
 	icon_state = "reinforced"
-	footstep_sound = "concretestep"
+	footstep_type = "concretestep"
 
 /turf/simulated/floor/holofloor/space
 	icon = 'icons/turf/space.dmi'
 	name = "\proper space"
 	icon_state = "0"
-	footstep_sound = null
+	footstep_type = null
 	plane = PLANE_SPACE_BACKGROUND
 	dynamic_lighting = 0
 
@@ -101,7 +101,7 @@
 	icon = 'icons/misc/beach.dmi'
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
-	footstep_sound = "sandstep"
+	footstep_type = "sandstep"
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
@@ -113,13 +113,13 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
-	footstep_sound = "waterstep"
+	footstep_type = "waterstep"
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
-	footstep_sound = "waterstep"
+	footstep_type = "waterstep"
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -131,7 +131,7 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
-	footstep_sound = "gravelstep"
+	footstep_type = "gravelstep"
 
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()
