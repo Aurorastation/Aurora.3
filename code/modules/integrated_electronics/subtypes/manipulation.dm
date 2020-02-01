@@ -4,10 +4,11 @@
 /obj/item/integrated_circuit/manipulation/weapon_firing
 	name = "weapon firing mechanism"
 	desc = "This somewhat complicated system allows one to slot in a gun, direct it towards a position, and remotely fire it."
-	extended_desc = "The firing mechanism can slot in any energy weapon. \
+	extended_desc = "The firing mechanism can slot in any projectile weapon. \
+	The mechanism will act as a firing pin for the weapon. \
 	The first and second inputs need to be numbers which correspond to coordinates for the gun to fire at relative to the machine itself. \
 	The 'fire' activator will cause the mechanism to attempt to fire the weapon at the coordinates, if possible. Mode will switch between \
-	lethal (TRUE) or stun (FALSE) modes. It uses the internal battery of the weapon itself, not the assembly. If you wish to fire the gun while the circuit is in \
+	lethal (TRUE) or stun (FALSE) modes. It uses the internal ammo of the weapon itself, the assembly doesn't affect it. If you wish to fire the gun while the circuit is in \
 	hand, you will need to use an assembly that is a gun."
 	complexity = 20
 	w_class = ITEMSIZE_SMALL
