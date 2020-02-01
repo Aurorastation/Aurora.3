@@ -43,6 +43,9 @@
 	icon_state = "hover_stool"
 	item_state_slots = null
 
+/obj/item/stool/wood/New(var/newloc, var/new_material)
+	..(newloc, "wood")
+
 /obj/item/stool/hover_skrell/New(var/newloc, var/new_material)
 	..(newloc, "skrell")
 
