@@ -415,4 +415,8 @@
 				O.droplimb(TRUE, DROPLIMB_EDGE)
 				qdel(O)
 		var/structure_path = diona_structures[chosen_structure]
-		new structure_path(get_turf(src))
+		var/turf/T = get_turf(src)
+		if(isturf(structure_path))
+			T.ChangeTurf(structure_path)
+		else
+			new structure_path(T)
