@@ -262,12 +262,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aaC" = (
-/obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/reagent_dispensers/acid{
 	pixel_y = 32
 	},
-/obj/item/reagent_containers/glass/beaker/sulphuric,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "aaD" = (
@@ -31438,16 +31436,18 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "bdf" = (
 /obj/structure/table/standard,
-/obj/item/device/mmi,
-/obj/item/device/mmi,
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/modular_computer/laptop/preset/medical,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "bdg" = (
@@ -32394,6 +32394,9 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
+/obj/structure/closet/secure_closet/medical2{
+	req_access = list(29)
+	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "beK" = (
@@ -32418,12 +32421,13 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/machinery/conveyor_switch/oneway{
+	convdir = -1;
+	id = "RobotSurg"
+	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "beM" = (
-/obj/structure/closet/secure_closet/medical2{
-	req_access = list(29)
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -32431,6 +32435,9 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/structure/table/standard,
+/obj/item/device/mmi,
+/obj/item/device/mmi,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "beN" = (
@@ -33181,9 +33188,16 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "bgb" = (
-/obj/machinery/conveyor_switch/oneway{
-	convdir = -1;
-	id = "RobotSurg"
+/obj/structure/table/standard,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 3
+	},
+/obj/item/stack/medical/bruise_pack{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/obj/item/stack/medical/ointment{
+	pixel_y = -6
 	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
@@ -34649,15 +34663,12 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/table/standard,
-/obj/item/storage/bag/circuits/basic,
-/obj/item/device/integrated_electronics/wirer,
-/obj/item/device/integrated_electronics/debugger,
 /obj/machinery/power/apc/high{
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
 	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bix" = (
@@ -34721,18 +34732,17 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "biB" = (
-/obj/structure/reagent_dispensers/fueltank,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/standard,
+/obj/item/storage/bag/circuits/basic,
+/obj/item/device/integrated_electronics/wirer,
+/obj/item/device/integrated_electronics/debugger,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "biC" = (
-/obj/machinery/vending/robotics{
-	products = list(/obj/item/clothing/suit/storage/toggle/labcoat = 4, /obj/item/clothing/under/rank/roboticist = 4, /obj/item/stack/cable_coil = 4, /obj/item/cell/high = 12, /obj/item/device/assembly/prox_sensor = 8, /obj/item/device/assembly/signaler = 3, /obj/item/device/healthanalyzer = 8, /obj/item/scalpel = 2, /obj/item/circular_saw = 2, /obj/item/tank/anesthetic = 2, /obj/item/clothing/mask/breath/medical = 5, /obj/item/screwdriver = 5, /obj/item/crowbar = 5)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "biD" = (
@@ -35461,6 +35471,7 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bjR" = (
@@ -36086,6 +36097,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkI" = (
@@ -36095,6 +36107,7 @@
 	name = "Robotics"
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkJ" = (
@@ -36102,6 +36115,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/standard,
+/obj/item/crowbar,
+/obj/item/screwdriver,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkK" = (
@@ -36110,6 +36126,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkL" = (
@@ -36134,7 +36151,10 @@
 	pixel_x = 30;
 	req_access = list(29)
 	},
-/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/vending/robotics{
+	products = list(/obj/item/clothing/suit/storage/toggle/labcoat = 4, /obj/item/clothing/under/rank/roboticist = 4, /obj/item/stack/cable_coil = 4, /obj/item/cell/high = 12, /obj/item/device/assembly/prox_sensor = 8, /obj/item/device/assembly/signaler = 3, /obj/item/device/healthanalyzer = 8, /obj/item/scalpel = 2, /obj/item/circular_saw = 2, /obj/item/tank/anesthetic = 2, /obj/item/clothing/mask/breath/medical = 5, /obj/item/screwdriver = 5, /obj/item/crowbar = 5)
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkO" = (
@@ -36165,6 +36185,7 @@
 /area/assembly/chargebay)
 "bkQ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled/white,
 /area/assembly/chargebay)
 "bkR" = (
@@ -36930,27 +36951,6 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/substation/research)
 "bmf" = (
-/obj/structure/table/standard,
-/obj/item/stack/material/steel{
-	amount = 50
-	},
-/obj/item/stack/material/steel{
-	amount = 50;
-	pixel_x = 5;
-	pixel_y = 5
-	},
-/obj/item/stack/material/steel{
-	amount = 50
-	},
-/obj/item/stack/material/steel{
-	amount = 50
-	},
-/obj/item/stack/material/glass{
-	amount = 20
-	},
-/obj/item/stack/material/glass{
-	amount = 50
-	},
 /obj/structure/sign/nosmoking_1{
 	pixel_x = -32
 	},
@@ -36958,9 +36958,6 @@
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
-	},
-/obj/item/stack/material/plasteel{
-	amount = 20
 	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
@@ -36995,6 +36992,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bml" = (
@@ -37940,7 +37938,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -39042,6 +39039,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bpe" = (
@@ -39761,7 +39759,6 @@
 /obj/item/device/assembly/prox_sensor,
 /obj/item/device/assembly/prox_sensor,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/crowbar,
 /obj/item/device/mmi/digital/posibrain,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -65152,6 +65149,12 @@
 "iFV" = (
 /turf/simulated/floor/tiled/dark,
 /area/assembly/chargebay)
+"iKe" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/assembly/robotics)
 "iKN" = (
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
@@ -66393,6 +66396,8 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "mlB" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/bodybags,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "mmr" = (
@@ -68411,6 +68416,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"rli" = (
+/obj/structure/table/standard,
+/obj/item/stack/material/plasteel{
+	amount = 20
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/item/stack/material/glass{
+	amount = 50
+	},
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/item/reagent_containers/glass/beaker/sulphuric,
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
 "rnc" = (
 /obj/structure/largecrate/animal/cow,
 /turf/simulated/floor/plating,
@@ -68465,6 +68493,9 @@
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
+"rtZ" = (
+/turf/simulated/floor/tiled/white,
+/area/assembly/robotics)
 "rut" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
@@ -92163,9 +92194,9 @@ bcX
 bcY
 bfQ
 aKT
-aiN
 rME
-baE
+asq
+rli
 bmf
 bnC
 boZ
@@ -92420,10 +92451,10 @@ bqh
 beD
 bfR
 aKT
-aiN
 rME
-baE
+asq
 bmg
+rtZ
 bnD
 bpa
 bqm
@@ -94734,7 +94765,7 @@ tPt
 bfX
 baE
 biB
-bjO
+iKe
 bkM
 bmo
 bnM

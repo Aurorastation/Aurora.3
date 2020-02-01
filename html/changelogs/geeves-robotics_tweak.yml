@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Remapped Robotics some. Should be a better experience all around."
+  - rscadd: "Added a medical laptop, gauze, ointment, and space cleaner to the cyborgification bay."
+  - rscadd: "Allowed Roboticists to access medical records."
