@@ -100,7 +100,7 @@
 		if(suppressing && victim.sleeping < 3)
 			victim.Sleeping(3 - victim.sleeping)
 			if(!victim.willfully_sleeping) //While we're suppressing, we don't want them to go into srom 3 billion times.
-				willfully_sleeping = FALSE
+				victim.willfully_sleeping = FALSE
 		return 1
 	icon_state = "[modify_state]-idle"
 	return 0
