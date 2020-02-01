@@ -1043,13 +1043,19 @@
 	set_pin_data(IC_OUTPUT, 2, null)
 	set_pin_data(IC_OUTPUT, 3, null)
 	if(O)
-		var/obj/item/cell/C = O.get_cell()
-		if(C && C != DEVICE_NO_CELL)
+		var/obj/item/cell/cell = O.get_cell()
+		// Try to find some cell if no cell is provided directly
+		if(cell == DEVICE_NO_CELL)
+			for(var/obj/item/cell/C in O.contents)
+				if(C) // Find one cell to charge.
+					cell = C
+					break
+		if(cell && cell != DEVICE_NO_CELL)
 			var/turf/A = get_turf(src)
 			if(get_turf(O) in view(A))
-				set_pin_data(IC_OUTPUT, 1, C.charge)
-				set_pin_data(IC_OUTPUT, 2, C.maxcharge)
-				set_pin_data(IC_OUTPUT, 3, C.percent())
+				set_pin_data(IC_OUTPUT, 1, cell.charge)
+				set_pin_data(IC_OUTPUT, 2, cell.maxcharge)
+				set_pin_data(IC_OUTPUT, 3, cell.percent())
 		// Think this is the best place possible? Push data only if the reference was scanned, 
 		//  regardless of its battery stuff
 		push_data()

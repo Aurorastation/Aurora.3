@@ -16,6 +16,9 @@
 	var/minor_fault = 0 //If not 100% reliable, it will build up faults.
 	matter = list(DEFAULT_WALL_MATERIAL = 700, "glass" = 50)
 
+/obj/item/cell/get_cell()
+	return src
+
 //currently only used by energy-type guns, that may change in the future.
 /obj/item/cell/device
 	name = "device power cell"

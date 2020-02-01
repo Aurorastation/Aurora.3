@@ -45,7 +45,13 @@
 	if(!assembly)
 		return FALSE // Pointless to do everything else if there's no battery to draw from.
 	var/obj/item/cell/cell = O.get_cell()
-	if(cell)
+	// Try to find a cell if no cell is provided directly
+	if(cell == DEVICE_NO_CELL)
+		for(var/obj/item/cell/C in O.contents)
+			if(C) // Find one cell to charge.
+				cell = C
+				break
+	if(cell && cell != DEVICE_NO_CELL)
 		var/transfer_amount = amount_to_move
 		var/turf/A = get_turf(src)
 		var/turf/B = get_turf(O)
