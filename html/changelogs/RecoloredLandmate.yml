@@ -38,5 +38,9 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Recolored and added lots of Landmate and Treadmate 'borg sprites, cleaned up the names some."
-  - tweak: "Recolored some basic 'borg sprites."
+  - imageadd: "Recolored and added the new HD-MAD series, a series of humanoid 'borgs, recolored and outfitted for every department, there's even a syndi version."
+  - rscdel: "Removed the spiderborg sprite from the available module options."
+  - rscdel: "Removed all of the old humanoid legacy sprites from the available module options."
+  - tweak: "Swapped the red cross variant of the medical droid to the rescue green cross droid to avoid copyright issues."
+  - rscadd: "Added the 'Droid' sprite (The one with the electricity animation) to every Module including Syndicate under the name 'HH-Android', short for Hephaestus Android."
+  - bugfix: "While doing all of this I noticed where I forgot to add eyes for the new treadmate/landmate series, and so I fixed that problem, I also streamlined the old treadmate/landmate to have a matching state name."
