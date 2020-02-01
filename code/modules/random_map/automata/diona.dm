@@ -52,7 +52,8 @@
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>You begin slicing through the skin of \the [src].</span>")
 			if(do_after(user, 20/W.toolspeed, act_target = src))
-				if(!src || !WT.isOn()) return
+				if(QDELETED(src) || !WT.isOn())
+					return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				user.visible_message("<span class='notice'>\ [user] slices through the skin of \the [src], revealing a confused diona nymph.</span>")
 		spawn_diona_nymph(src.loc)
