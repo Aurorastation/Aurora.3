@@ -332,12 +332,12 @@ var/global/list/robot_modules = list(
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
 					"Basic" = "robotengi",
-					"Landmate" = "landmate",
-					"Treadmate" = "engiborg+tread",
+					"Landmate" = "landmateengi",
+					"Treadmate" = "treadmateengi",
 					"HD-MAD" = "mcspizzytronengi",
 					"Drone" = "drone-engineer",
-					"Heavy" = "heavyeng",
 					"HH-Android" = "droid",
+					"Heavy" = "heavyeng",
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -504,6 +504,7 @@ var/global/list/robot_modules = list(
 					"Treadmate" = "treadmatejani",
 					"HD-MAD" = "mcspizzytronjani",
 					"Drone" = "drone-janitor",
+					"HH-Android" = "droid",
 					"Gear Rex" = "mopgearrex",
 					)
 
@@ -556,6 +557,7 @@ var/global/list/robot_modules = list(
 					"Treadmate" = "treadmateserv",
 					"HD-MAD" = "mcspizzytronserv",
 					"Drone" = "drone-service",
+					"HH-Android" = "droid",
 					"Kent" = "toiletbot",
 					"Heavy" = "heavyserv",
 					"Gear Rex" = "botany",
@@ -634,6 +636,7 @@ var/global/list/robot_modules = list(
 					"Treadmate" = "treadmatemine",
 					"HD-MAD" = "mcspizzytronmine",
 					"Drone" = "drone-miner",
+					"HH-Android" = "droid",
 					"Treadhead" = "miner",
 					"Heavy" = "heavymine",
 				)
@@ -665,6 +668,7 @@ var/global/list/robot_modules = list(
 					"Treadmate" = "treadmatejani",
 					"HD-MAD" = "mcspizzytronsci",
 					"Drone" = "drone-science",
+					"HH-Android" = "droid",
 					"Droid" = "droid-science",
 					"Heavy" = "heavysci",
 					)
@@ -722,9 +726,10 @@ var/global/list/robot_modules = list(
 	sprites = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
-					"HD-MAD" = "mcspizzytronsyndie",
+					"HD-MAD" = "mcspizzytronsyndi",
 					"Precision" = "syndi-medi",
 					"Heavy" = "syndi-heavy",
+					"HH-Android" = "droid",
 					)
 
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
