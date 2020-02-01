@@ -191,16 +191,11 @@ var/global/list/robot_modules = list(
 				"Basic" = "robotmedi",
 				"Landmate" = "landmatemedi",
 				"Treadmate" = "treadmatemedi",
-				"Classic" = "medbot",
-				"Heavy" = "heavymed",
-				"Needles" = "medicalrobot",
+				"HD-MAD" = "mcspizzytronmedi",
+				"Drone" = "drone-medical",
 				"Standard" = "surgeon",
-				"Advanced Droid - Medical" = "droid-medical",
-				"Advanced Droid - Chemistry" = "droid-chemistry",
-				"Drone - Medical" = "drone-surgery",
-				"Drone - Chemistry" = "drone-chemistry",
-				"Sleek - Medical" = "sleekmedic",
-				"Sleek - Chemistry" = "sleekchemistry"
+		    	"Advanced Droid" = "droid-rescue",
+				"Heavy" = "heavymed",
 				)
 
 /obj/item/robot_module/medical/general
@@ -267,12 +262,10 @@ var/global/list/robot_modules = list(
 			"Basic" = "robotmedi",
 			"Landmate" = "landmatemedi",
 			"Treadmate" = "treadmatemedi",
-			"Classic" = "medbot",
+			"HD-MAD" = "mcspizzytronmedi",
+			"Drone" = "drone-medical",
 			"Standard" = "surgeon",
 			"Advanced Droid" = "droid-rescue",
-			"Sleek" = "sleekrescue",
-			"Needles" = "medicalrobot",
-			"Drone" = "drone-medical",
 			"Heavy" = "heavymed"
 			)
 
@@ -341,14 +334,10 @@ var/global/list/robot_modules = list(
 					"Basic" = "robotengi",
 					"Landmate" = "landmate",
 					"Treadmate" = "engiborg+tread",
-					"Antique" = "engineerrobot",
+					"HD-MAD" = "mcspizzytronengi",
 					"Drone" = "drone-engineer",
-					"Android" = "droid",
-					"Classic" = "engineering",
-					"Sleek" = "sleekengineer",
-					"Spider" = "spidereng",
-					"Plated" = "ceborg",
 					"Heavy" = "heavyeng"
+					"HH-Android" = "droid",
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -513,12 +502,9 @@ var/global/list/robot_modules = list(
 					"Basic" = "robotjani",
 					"Landmate" = "landmatejani",
 					"Treadmate" = "treadmatejani",
-					"Mopbot"  = "janitorrobot",
-					"Mop Gear Rex" = "mopgearrex",
+					"HD-MAD" = "mcspizzytronjani",
 					"Drone" = "drone-janitor",
-					"Classic" = "janbot2",
-					"Buffer" = "mechaduster",
-					"Sleek" = "sleekjanitor"
+					"Gear Rex" = "mopgearrex",
 					)
 
 /obj/item/robot_module/janitor/New()
@@ -568,16 +554,11 @@ var/global/list/robot_modules = list(
 					"Basic" = "robotserv",
 					"Landmate" = "landmateserv",
 					"Treadmate" = "treadmateserv",
-	                "Waitress" = "service",
+					"HD-MAD" = "mcspizzytronserv",
+					"Drone" = "drone-service",
 					"Kent" = "toiletbot",
-					"Bro" = "brobot",
-					"Rich" = "maximillion",
-					"Drone - Service" = "drone-service",
-					"Drone - Hydro" = "drone-hydro",
-					"Classic" = "service2",
-					"Gardener" = "botany",
-					"Mobile Bar" = "heavyserv",
-					"Sleek" = "sleekservice"
+					"Heavy" = "heavyserv",
+					"Gear Rex" = "botany",
 				  	)
 
 /obj/item/robot_module/clerical/butler
@@ -651,13 +632,10 @@ var/global/list/robot_modules = list(
 					"Basic" = "robotmine",
 					"Landmate" = "landmatemine",
 					"Treadmate" = "treadmatemine",
-					"Advanced Droid" = "droid-miner",
-					"Sleek" = "sleekminer",
-					"Treadhead" = "miner",
+					"HD-MAD" = "mcspizzytronmine",
 					"Drone" = "drone-miner",
-					"Classic" = "miner_old",
+					"Treadhead" = "miner",
 					"Heavy" = "heavymine",
-					"Spider" = "spidermining"
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -685,9 +663,9 @@ var/global/list/robot_modules = list(
 				    "Basic" = "robotjani",
 					"Landmate" = "landmatejani",
 					"Treadmate" = "treadmatejani",
-					"Droid" = "droid-science",
+					"HD-MAD" = "mcspizzytronsci",
 					"Drone" = "drone-science",
-					"Sleek" = "sleekscience",
+					"Droid" = "droid-science",
 					"Heavy" = "heavysci"
 					)
 
@@ -744,9 +722,9 @@ var/global/list/robot_modules = list(
 	sprites = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
+					"HD-MAD" = "mcspizzytronsyndie",
 					"Precision" = "syndi-medi",
 					"Heavy" = "syndi-heavy",
-					"Artillery" = "spidersyndi"
 					)
 
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
