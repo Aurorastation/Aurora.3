@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Replaced the Izweski Hegemony Consular's Chinese Dao with a standard Hegemony Energy Pistol."
+  - rscadd: "Gave the above Consular a waist holster."

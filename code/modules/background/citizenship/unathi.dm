@@ -39,6 +39,7 @@
 	name = "Izweski Hegemony Consular Officer"
 
 	uniform = /obj/item/clothing/under/unathi
+	accessory = /obj/item/clothing/accessory/holster/waist
 	suit = /obj/item/clothing/suit/unathi/mantle
 	backpack_contents = list(/obj/item/device/camera = 1)
-	belt = /obj/item/material/sword/dao
+	belt = /obj/item/gun/energy/pistol/hegemony
