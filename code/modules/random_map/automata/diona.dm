@@ -47,9 +47,14 @@
 /obj/structure/diona/bulb/attackby(obj/item/W, mob/user)
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
-			to_chat(user, "<span class='notice'>You slice through the skin of the bulb, revealing a confused nymph!</span>")
-		playsound(loc, 'sound/items/Welder2.ogg', 50, 1)
+		if (!WT.welding)
+			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+		else if (WT.remove_fuel(0,user))
+			to_chat(user, "<span class='notice'>You begin slicing through the skin of \the [src].</span>")
+			if(do_after(user, 20/W.toolspeed, act_target = src))
+				if(!src || !WT.isOn()) return
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				user.visible_message("<span class='notice'>\ [user] slices through the skin of \the [src], revealing a confused diona nymph.</span>")
 		spawn_diona_nymph(src.loc)
 		qdel(src)
 
