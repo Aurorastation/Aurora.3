@@ -3,6 +3,10 @@
 	name = "list pin"
 	data = list()
 
+/datum/integrated_io/lists/New()
+	..()
+	data = list()
+
 /datum/integrated_io/lists/ask_for_pin_data(mob/user)
 	interact(user)
 

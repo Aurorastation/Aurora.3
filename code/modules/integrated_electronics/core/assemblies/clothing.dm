@@ -35,24 +35,33 @@
 		var/cloth_path = SSelectronics.special_paths[special_data["type"]]
 		if(cloth_path)
 			var/obj/item/clothing/cloth = new cloth_path(null)
-			var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null
 			if(special_data["name"])
 				cloth.name = sanitize(special_data["name"])
 
-			for(var/var/obj/item/integrated_circuit/IC in assembly_components)
-				if(istype(IC.type, /obj/item/integrated_circuit/built_in/action_button))
-					action_circuit = IC
-					break		// Possible speed-up for bigger assemblies?
-
-			// Remove old IC
+			// Replace old IC
 			QDEL_NULL(cloth.IC)
 			clothing = cloth
 			clothing.IC = src
-			clothing.action_circuit = action_circuit
 
 /obj/item/device/electronic_assembly/clothing/post_load()
 	..()
 	if(clothing)
+		// Find and add the action circuit to the clothing
+		// load_special loads before cicruits are loaded, therefore it can't load the action circuit
+		var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null
+		for(var/var/obj/item/integrated_circuit/IC in assembly_components)
+			if(istype(IC, /obj/item/integrated_circuit/built_in/action_button))
+				action_circuit = IC
+				break
+			
+		// No action circuit found - malformed input
+		if(!action_circuit)
+			visible_message("<span class='warning'>The malformed device crumples on the floor!</span>")
+			qdel(clothing)
+			qdel(src)			// EMERGENCY DELETION!
+			return
+
+		clothing.action_circuit = action_circuit
 		// Replace the assembly with the clothing piece
 		var/old_loc = loc
 		forceMove(clothing)

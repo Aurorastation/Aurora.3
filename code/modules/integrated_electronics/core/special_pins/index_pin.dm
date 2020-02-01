@@ -3,6 +3,10 @@
 	name = "index pin"
 	data = 1
 
+/datum/integrated_io/index/New()
+	..()
+	data = 1
+
 /datum/integrated_io/index/ask_for_pin_data(mob/user)
 	var/new_data = input("Please type in an index.","[src] index writing") as num
 	if(isnum(new_data) && holder.check_interactivity(user))

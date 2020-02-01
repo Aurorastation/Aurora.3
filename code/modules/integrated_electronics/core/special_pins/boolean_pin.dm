@@ -3,6 +3,10 @@
 	name = "boolean pin"
 	data = FALSE
 
+/datum/integrated_io/boolean/New()
+	..()
+	data = FALSE
+
 /datum/integrated_io/boolean/ask_for_pin_data(mob/user) // 'Ask' is a bit misleading, acts more like a toggle.
 	var/new_data = !data
 	to_chat(user, "<span class='notice'>You switch the data bit to [new_data ? "TRUE" : "FALSE"].</span>")
