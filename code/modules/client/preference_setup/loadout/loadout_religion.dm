@@ -1,0 +1,20 @@
+/datum/gear/religion
+	display_name = "triniary perfection robes"
+	path = /obj/item/clothing/suit/trinary_robes
+	sort_category = "Religion"
+
+/datum/gear/religion/triniary/mask
+	display_name = "triniary perfection mask"
+	path = /obj/item/clothing/mask/trinary_mask
+
+/datum/gear/religion/triniary/cape
+	display_name = "triniary perfection cape"
+	path = /obj/item/clothing/accessory/poncho/trinary
+
+/datum/gear/religion/triniary/badge
+	display_name = "trinary perfection brooch"
+	path = /obj/item/clothing/accessory/badge/trinary
+
+/datum/gear/religion/rosary
+	display_name = "rosary"
+	path = /obj/item/clothing/accessory/rosary

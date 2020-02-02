@@ -92,6 +92,17 @@
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
 
+/obj/item/clothing/mask/trinary_mask
+	name = "trinary perfection mask"
+	desc = "A simple lace mask worn by IPCs and organics alike while within the churches of the Trinary Perfection."
+	icon_state = "trinary_mask"
+	item_state = "trinary_mask"
+	w_class = 2
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	down_body_parts_covered = null
+	adjustable = TRUE
+
 //scarves (fit in in mask slot)
 //None of these actually have on-mob sprites...
 /obj/item/clothing/mask/bluescarf
