@@ -193,6 +193,7 @@ var/global/list/robot_modules = list(
 				"Treadmate" = "treadmatemedi",
 				"HD-MAD" = "mcspizzytronmedi",
 				"Hover Drone" = "drone-medical",
+		    	"Heph Android" = "droid",
 				"Hoverbot" = "surgeon",
 		    	"Advanced Droid" = "droid-rescue",
 				"Heavy Duty" = "heavymed",
