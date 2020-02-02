@@ -77,7 +77,7 @@
 /mob/living/carbon/gib()
 	for(var/mob/M in contents)
 		M.dropInto(loc)
-		visible_message("<span class='danger'>\The [M] bursts out of \the [src]!</span>")
+		visible_message(span("danger", "\The [M] bursts out of \the [src]!"))
 	..()
 
 /mob/living/carbon/attack_hand(mob/M as mob)
@@ -197,11 +197,11 @@
 	if (!is_asystole())
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
-			src.visible_message( \
-				text("<span class='notice'>[src] examines [].</span>",src.gender==MALE?"himself":"herself"), \
+			src.visible_message(
+				span("notice", "[src] examines [src.gender==MALE?"himself":"herself"]."), \
 				span("notice", "You check yourself for injuries.") \
 				)
-
+				
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
@@ -237,9 +237,9 @@
 				if(org.status & ORGAN_BLEEDING)
 					status += span("danger", "bleeding")
 				if(status.len)
-					src.show_message("My [org.name] is <span class='warning'>[english_list(status)].</span>",1)
+					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]" ,1)
 				else
-					src.show_message("My [org.name] is <span class='notice'>OK.</span>",1)
+					src.show_message("My [org.name] is [span("notice", "OK.")]" ,1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -304,7 +304,7 @@
 							src.help_up_offer = 0
 					else
 						M.visible_message(span("warning", "[M] grabs onto [src], trying to pull themselves up."), \
-											span("warning", "You grab onto [src], trying to pull yourself up."))
+										  span("warning", "You grab onto [src], trying to pull yourself up."))
 						if(M.fire_stacks >= (src.fire_stacks + 3))
 							src.adjust_fire_stacks(1)
 							M.adjust_fire_stacks(-1)
@@ -316,8 +316,8 @@
 				else if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
-					M.visible_message("<span class='notice'>[M] taps [src] to get their attention!</span>", \
-								"<span class='notice'>You tap [src] to get their attention!</span>")
+					M.visible_message(span("notice", "[M] taps [src] to get their attention!"), \
+								span("notice", "You tap [src] to get their attention!"))
 
 			if(stat != DEAD)
 				AdjustParalysis(-3)
@@ -339,23 +339,6 @@
 	dna = newDNA
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
-
-/mob/living/carbon/clean_blood()
-	. = ..()
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		if(H.gloves)
-			if(H.gloves.clean_blood())
-				H.update_inv_gloves(0)
-			H.gloves.germ_level = 0
-		else
-			if(!isnull(H.bloody_hands))
-				H.bloody_hands = null
-				H.update_inv_gloves(0)
-			H.germ_level = 0
-	update_icons()	//apply the now updated overlays to the mob
-
-
 
 /mob/living/carbon/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	..()

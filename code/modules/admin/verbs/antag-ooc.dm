@@ -14,6 +14,10 @@
 	if(!msg)
 		return
 
+	if(!(prefs.toggles & CHAT_AOOC))
+		to_chat(src, "<span class='warning'>You have AOOC muted.</span>")
+		return
+
 	var/display_name = src.key
 	if (holder)
 		display_name = "[display_name]([holder.rank])"
