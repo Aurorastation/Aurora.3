@@ -192,10 +192,10 @@ var/global/list/robot_modules = list(
 				"Landmate" = "landmatemedi",
 				"Treadmate" = "treadmatemedi",
 				"HD-MAD" = "mcspizzytronmedi",
-				"Drone" = "drone-medical",
-				"Standard" = "surgeon",
+				"Hover Drone" = "drone-medical",
+				"Hoverbot" = "surgeon",
 		    	"Advanced Droid" = "droid-rescue",
-				"Heavy" = "heavymed",
+				"Heavy Duty" = "heavymed",
 				)
 
 /obj/item/robot_module/medical/general
@@ -263,10 +263,11 @@ var/global/list/robot_modules = list(
 			"Landmate" = "landmatemedi",
 			"Treadmate" = "treadmatemedi",
 			"HD-MAD" = "mcspizzytronmedi",
-			"Drone" = "drone-medical",
-			"Standard" = "surgeon",
+			"Hover Drone" = "drone-medical",
+			"Heph Android" = "droid",
+			"Hoverbot" = "surgeon",
 			"Advanced Droid" = "droid-rescue",
-			"Heavy" = "heavymed",
+			"Heavy Duty" = "heavymed",
 			)
 
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -335,9 +336,9 @@ var/global/list/robot_modules = list(
 					"Landmate" = "landmateengi",
 					"Treadmate" = "treadmateengi",
 					"HD-MAD" = "mcspizzytronengi",
-					"Drone" = "drone-engineer",
-					"HH-Android" = "droid",
-					"Heavy" = "heavyeng",
+					"Hover Drone" = "drone-engineer",
+					"Heph Android" = "droid",
+					"Heavy Duty" = "heavyeng",
 					)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -503,8 +504,8 @@ var/global/list/robot_modules = list(
 					"Landmate" = "landmatejani",
 					"Treadmate" = "treadmatejani",
 					"HD-MAD" = "mcspizzytronjani",
-					"Drone" = "drone-janitor",
-					"HH-Android" = "droid",
+					"Hover Drone" = "drone-janitor",
+					"Heph Android" = "droid",
 					"Gear Rex" = "mopgearrex",
 					)
 
@@ -556,10 +557,10 @@ var/global/list/robot_modules = list(
 					"Landmate" = "landmateserv",
 					"Treadmate" = "treadmateserv",
 					"HD-MAD" = "mcspizzytronserv",
-					"Drone" = "drone-service",
-					"HH-Android" = "droid",
-					"Kent" = "toiletbot",
-					"Heavy" = "heavyserv",
+					"Hover Drone" = "drone-service",
+					"Heph Android" = "droid",
+					"Hoverbot" = "toiletbot",
+					"Heavy Duty" = "heavyserv",
 					"Gear Rex" = "botany",
 				  	)
 
@@ -635,10 +636,10 @@ var/global/list/robot_modules = list(
 					"Landmate" = "landmatemine",
 					"Treadmate" = "treadmatemine",
 					"HD-MAD" = "mcspizzytronmine",
-					"Drone" = "drone-miner",
-					"HH-Android" = "droid",
+					"Hover Drone" = "drone-miner",
+					"Heph Android" = "droid",
 					"Treadhead" = "miner",
-					"Heavy" = "heavymine",
+					"Heavy Duty" = "heavymine",
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -667,10 +668,10 @@ var/global/list/robot_modules = list(
 					"Landmate" = "landmatejani",
 					"Treadmate" = "treadmatejani",
 					"HD-MAD" = "mcspizzytronsci",
-					"Drone" = "drone-science",
-					"HH-Android" = "droid",
-					"Droid" = "droid-science",
-					"Heavy" = "heavysci",
+					"Hover Drone" = "drone-science",
+					"Heph Android" = "droid",
+					"Advanced Droid" = "droid-science",
+					"Heavy Duty" = "heavysci",
 					)
 
 /obj/item/robot_module/research/New()
@@ -727,9 +728,9 @@ var/global/list/robot_modules = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
 					"HD-MAD" = "mcspizzytronsyndi",
-					"Precision" = "syndi-medi",
-					"Heavy" = "syndi-heavy",
-					"HH-Android" = "droid",
+					"Heph Android" = "droid",
+					"Hoverbot" = "syndi-medi",
+					"Heavy Duty" = "syndi-heavy",
 					)
 
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
