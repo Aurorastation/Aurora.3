@@ -22050,7 +22050,7 @@
 /turf/space/transit/east/shuttlespace_ew10,
 /area/shuttle/distress/transit)
 "dus" = (
-/obj/item/stool/hover_skrell,
+/obj/item/stool/hover,
 /turf/simulated/floor/ice,
 /area/centcom/shared_dream)
 "dzu" = (

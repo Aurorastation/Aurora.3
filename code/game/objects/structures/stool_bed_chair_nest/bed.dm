@@ -199,14 +199,14 @@
 	var/item_bedpath = /obj/item/roller
 	anchored = 0
 
-/obj/structure/bed/roller/skrell
+/obj/structure/bed/roller/hover
 	name = "medical hoverbed"
 	icon_state = "hover_down"
 	base_state = "hover"
 	makes_sound = FALSE
-	item_bedpath = /obj/item/roller/skrell
+	item_bedpath = /obj/item/roller/hover
 
-/obj/structure/bed/roller/skrell/Initialize()
+/obj/structure/bed/roller/hover/Initialize()
 	.=..()
 	set_light(2,1,LIGHT_COLOR_CYAN)
 
@@ -237,11 +237,11 @@
 	var/bedpath = /obj/structure/bed/roller
 	w_class = 4.0 // Can't be put in backpacks. Oh well.
 
-/obj/item/roller/skrell
+/obj/item/roller/hover
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
 	icon_state = "hover_folded"
-	bedpath = /obj/structure/bed/roller/skrell
+	bedpath = /obj/structure/bed/roller/hover
 
 /obj/item/roller/attack_self(mob/user)
 		var/obj/structure/bed/roller/R = new bedpath(user.loc)
