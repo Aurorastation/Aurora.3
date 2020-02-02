@@ -114,9 +114,9 @@ var/list/sand_footstep = list(
 var/list/footstepfx = list("blank", "catwalk", "wood", "tiles", "plating", "carpet", "asteroid", "grass", "water", "lava", "snow", "sand")
 
 var/list/shatter_sound = list(
-	'sound/effects/Glassbr1.ogg',
-	'sound/effects/Glassbr2.ogg',
-	'sound/effects/Glassbr3.ogg'
+	'sound/effects/glass_break1.ogg',
+	'sound/effects/glass_break2.ogg',
+	'sound/effects/glass_break3.ogg'
 )
 var/list/explosion_sound = list(
 	'sound/effects/Explosion1.ogg',
@@ -195,7 +195,13 @@ var/list/pickaxe_sound = list(
 	'sound/weapons/mine/pickaxe2.ogg',
 	'sound/weapons/mine/pickaxe3.ogg',
 	'sound/weapons/mine/pickaxe4.ogg'
-)
+	)
+var/list/glasscrack_sound = list(
+	'sound/effects/glass_crack1.ogg',
+	'sound/effects/glass_crack2.ogg',
+	'sound/effects/glass_crack3.ogg',
+	'sound/effects/glass_crack4.ogg'
+	)
 //var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
@@ -406,6 +412,7 @@ var/list/pickaxe_sound = list(
 			if ("pageturn") soundin = pick(page_sound)
 			if ("fracture") soundin = pick(fracture_sound)
 			//if ("gunshot") soundin = pick(gun_sound)
+			if ("glasscrack") soundin = pick(glasscrack_sound)
 			if ("computerbeep") soundin = pick(computerbeep_sound)
 			if ("switch") soundin = pick(switch_sound)
 			if ("keyboard") soundin = pick(keyboard_sound)
