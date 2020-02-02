@@ -1357,7 +1357,7 @@
 						"<span class='warning'>A spike of pain jolts your [organ.name] as you bump [O] inside.</span>", \
 						"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>", \
 						"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>")
-					custom_pain(msg, 5, 10)
+					custom_pain(msg, 10, 10, organ)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
