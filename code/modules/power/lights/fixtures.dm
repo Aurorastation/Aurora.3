@@ -51,8 +51,8 @@
 	supports_nightmode = FALSE
 	fitting= "skrell"
 	bulb_is_noisy = FALSE
-	light_type = /obj/item/light/tube/skrell
-	inserted_light = /obj/item/light/tube/skrell
+	light_type = /obj/item/light/tube
+	inserted_light = /obj/item/light/tube
 	brightness_power = 1
 	brightness_color = LIGHT_COLOR_PURPLE
 

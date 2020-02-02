@@ -40,5 +40,3 @@
 /obj/effect/decal/fake_object/light_source/invisible
 	simulated = 0
 	invisibility = 101
-
-
