@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Dionae structures now correctly assume the lighting of their surroundings."
