@@ -22,7 +22,7 @@
 	var/pathweight = 1          // How much does it cost to pathfind over this turf?
 	var/blessed = 0             // Has the turf been blessed?
 
-	var/footstep_sound = "defaultstep"
+	var/footstep_sound = "tiles"
 
 	var/list/decals
 

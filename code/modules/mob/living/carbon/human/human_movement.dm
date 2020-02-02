@@ -137,24 +137,28 @@
 	. = ..()
 
 	var/turf/T = loc
-	if (!isturf(T))
-		return
+	var/footsound
+	for(var/obj/structure/S in T)
+		footsound = S.footstep_sound
+		if(footsound) break
+	if(!footsound)
+		footsound = T.footstep_sound
 
 	if (client)
 		var/turf/B = GetAbove(T)
 		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
-		if ((x == last_x && y == last_y) || !T.footstep_sound)
+		if ((x == last_x && y == last_y) || !footsound)
 			return
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+			playsound(src, footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+				playsound(src, footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

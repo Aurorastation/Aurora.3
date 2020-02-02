@@ -18,7 +18,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /decl/flooring/carpet
-	footstep_sound = "dirtstep"//It sounds better than squeaky hard-floor audio
+	footstep_sound = "carpet"
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
@@ -101,7 +101,7 @@
 	icon = 'icons/misc/beach.dmi'
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
-	footstep_sound = "sandstep"
+	footstep_sound = "sand"
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
@@ -113,13 +113,13 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
-	footstep_sound = "waterstep"
+	footstep_sound = "water"
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
-	footstep_sound = "waterstep"
+	footstep_sound = "water"
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -131,7 +131,7 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
-	footstep_sound = "gravelstep"
+	footstep_sound = "sand"
 
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()

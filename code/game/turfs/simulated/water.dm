@@ -1,7 +1,7 @@
 /turf/simulated/floor/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
-	footstep_sound = "sandstep"
+	footstep_sound = "sand"
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
@@ -14,12 +14,12 @@
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
-	footstep_sound = "waterstep"
+	footstep_sound = "water"
 
 /turf/simulated/floor/beach/water
 	name = "water"
 	icon_state = "water"
-	footstep_sound = "waterstep"
+	footstep_sound = "water"
 	movement_cost = 2
 	var/watertype = "water5"
 	var/obj/effect/water_effect/water_overlay
