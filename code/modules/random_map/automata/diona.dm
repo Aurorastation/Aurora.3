@@ -1,6 +1,25 @@
 /turf/simulated/wall/diona/Initialize(mapload)
 	. = ..(mapload, "biomass")
 
+/turf/simulated/wall/diona/attack_hand(mob/user)
+	if(istype(user, /mob/living/carbon/alien/diona) || istype(user, /mob/living/carbon/human/diona))
+		attack_generic(user)
+	else
+		..()
+
+/turf/simulated/wall/diona/attack_generic(mob/user, var/damage, var/attack_message)
+	if(istype(user, /mob/living/carbon/alien/diona) || istype(user, /mob/living/carbon/human/diona))
+		if(can_open == WALL_OPENING)
+			return
+		can_open = WALL_CAN_OPEN
+		user.visible_message(span("notice", "\The [user] strokes its feelers against \the [src] and the biomass [density ? "moves aside" : "closes up"]."))
+		toggle_open(user)
+		sleep(15)
+		if(can_open == WALL_CAN_OPEN)
+			can_open = 0
+	else
+		return ..(user, damage, attack_message)
+
 /obj/structure/diona
 	icon = 'icons/obj/diona.dmi'
 	anchored = 1
