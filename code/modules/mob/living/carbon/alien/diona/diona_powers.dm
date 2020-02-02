@@ -416,7 +416,7 @@
 				qdel(O)
 		var/structure_path = diona_structures[chosen_structure]
 		var/turf/T = get_turf(src)
-		if(isturf(structure_path))
+		if(ispath(structure_path, /turf))
 			T.ChangeTurf(structure_path)
 		else
 			new structure_path(T)
