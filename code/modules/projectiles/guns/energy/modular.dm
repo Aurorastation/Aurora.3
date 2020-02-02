@@ -28,6 +28,8 @@
 
 /obj/item/gun/energy/laser/prototype/examine(mob/user)
 	..(user)
+	if(get_dist(src, user) > 1)
+		return
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 			to_chat(user, "You can see \the [modifier] attached.")

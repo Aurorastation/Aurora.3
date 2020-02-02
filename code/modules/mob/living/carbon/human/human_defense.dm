@@ -132,11 +132,13 @@ emp_act
 	if(!type || !def_zone) return 0
 	var/protection = 0
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
-	for(var/gear in protective_gear)
-		if(gear && istype(gear ,/obj/item/clothing))
-			var/obj/item/clothing/C = gear
-			if(istype(C) && C.body_parts_covered & def_zone.body_part && C.armor)
-				protection = add_armor(protection, C.armor[type])
+	for(var/obj/item/clothing/gear in protective_gear)
+		if(gear.body_parts_covered & def_zone.body_part)
+			protection = add_armor(protection, gear.armor[type])
+		for(var/obj/item/clothing/accessory/A in gear.accessories)
+			if(A.body_parts_covered & def_zone.body_part)
+				protection = add_armor(protection, A.armor[type])
+
 	return protection
 
 /mob/living/carbon/human/proc/check_head_coverage()
@@ -546,7 +548,7 @@ emp_act
 
 	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
-		to_chat(user, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
+		to_chat(user, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)

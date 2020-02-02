@@ -30,16 +30,13 @@
 //Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
 /obj/item/gun
 	name = "gun"
-	desc = "Its a gun. It's pretty terrible, though."
-	icon = 'icons/obj/gun.dmi'
-	var/gun_gui_icons = 'icons/obj/gun_gui.dmi'
-	item_icons = list(//DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi'
-		)
-	icon_state = "detective"
-	item_state = "gun"
-	flags =  CONDUCT
+	desc = "It's a gun. It's pretty terrible, though."
+	icon = 'icons/obj/guns/pistol.dmi'
+	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
+	icon_state = "pistol"
+	item_state = "pistol"
+	contained_sprite = TRUE
+	flags = CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = 3
@@ -121,7 +118,7 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon, "bayonet")
+		I = image(icon = 'icons/obj/guns/bayonet.dmi', "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
@@ -559,6 +556,8 @@
 
 /obj/item/gun/examine(mob/user)
 	..()
+	if(get_dist(src, user) > 1)
+		return
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")

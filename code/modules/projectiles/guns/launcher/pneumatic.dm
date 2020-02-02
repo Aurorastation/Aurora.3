@@ -1,11 +1,12 @@
 /obj/item/gun/launcher/pneumatic
 	name = "pneumatic cannon"
 	desc = "A large gas-powered cannon."
+	icon = 'icons/obj/guns/pneumatic.dmi'
 	icon_state = "pneumatic"
 	item_state = "pneumatic"
 	slot_flags = SLOT_BELT
 	w_class = 5.0
-	flags =  CONDUCT
+	flags = CONDUCT
 	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
 	fire_sound = 'sound/weapons/tablehit1.ogg'
