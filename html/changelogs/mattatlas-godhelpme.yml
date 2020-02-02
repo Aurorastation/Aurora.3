@@ -39,6 +39,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - experimental: "Lowered the threshold at which you fall down in paincrit."
+  - experimental: "Melee weapons no longer have a chance to RNG knockdown when aiming for the chest."
   - tweak: "Shrapnel no longer causes direct damage. It now adds pain to the organ the shrapnel is in."
   - tweak: "Lasers now evaporate less blood, but deal more pain."
   - tweak: "Arterial bleeding is now MUCH nastier."
