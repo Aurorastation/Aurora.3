@@ -59,7 +59,7 @@
 		if(client.prefs.toggles & CHAT_GHOSTEARS && speaker in view(src))
 			message = "<b>[message]</b>"
 
-	var/hearing_aid
+	var/hearing_aid = FALSE
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		hearing_aid = H.has_hearing_aid()

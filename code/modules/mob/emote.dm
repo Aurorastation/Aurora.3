@@ -58,7 +58,7 @@
 	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messagemobs_neardead = list()//List of nearby ghosts who can hear it. Those that qualify ONLY go in this list
 
-	var/hearing_aid
+	var/hearing_aid = FALSE
 	if(type == 2 && ishuman(src))
 		var/mob/living/carbon/human/H = src
 		hearing_aid = H.has_hearing_aid()
@@ -87,5 +87,4 @@
 
 	for (var/mob/O in messagemobs_neardead)
 		O.show_message(message, type)
-
 
