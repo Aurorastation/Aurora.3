@@ -399,7 +399,12 @@ var/list/name_to_material
 	icon_colour = null
 	stack_type = null
 	icon_base = "biomass"
-	integrity = 600
+	integrity = 100
+	// below is same as wood
+	melting_point = T0C + 300
+	ignition_point = T0C + 288
+	golem = "Wood Golem"
+	hitsound = 'sound/effects/woodhit.ogg'
 
 /material/diona/place_dismantled_product()
 	return

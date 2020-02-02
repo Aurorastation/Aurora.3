@@ -63,22 +63,27 @@
 /obj/item/gun/energy/taser/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
+	has_safety = FALSE
 
 /obj/item/gun/energy/rifle/ionrifle/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
+	has_safety = FALSE	
 
 /obj/item/gun/energy/laser/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
+	has_safety = FALSE	
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
+	has_safety = FALSE	
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
+	has_safety = FALSE	
 
 /*Launchers*/
 
@@ -137,6 +142,8 @@
 
 	release_force = 0
 	throw_distance = 10
+
+	has_safety = FALSE
 
 /obj/item/gun/launcher/mech/Initialize()
 	. = ..()
