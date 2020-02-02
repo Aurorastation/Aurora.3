@@ -99,7 +99,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
 	/client/proc/reset_openturf,
-	/client/proc/listen_aooc
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -344,7 +343,6 @@ var/list/admin_verbs_mod = list(
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
 	/client/proc/print_logout_report,
-	/client/proc/listen_aooc
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
@@ -393,7 +391,6 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
 	/client/proc/check_antagonists,
-	/client/proc/listen_aooc
 )
 
 /client/proc/add_admin_verbs()
@@ -783,18 +780,6 @@ var/list/admin_verbs_cciaa = list(
 		message_admins("[src] re-admined themself.", 1)
 		to_chat(src, "<span class='interface'>You now have the keys to control the planet, or atleast a small space station</span>")
 		verbs -= /client/proc/readmin_self
-
-/client/proc/listen_aooc()
-	set name = "Show/Hide AOOC"
-	set category = "Preferences"
-	
-	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))
-		return
-	prefs.toggles_secondary ^= CHAT_AOOC
-	if (prefs.toggles_secondary & CHAT_AOOC)
-		to_chat(usr, "You now will see all messages in AOOC.")
-	else
-		to_chat(usr, "You now won't see messages in AOOC")
 
 /client/proc/deadmin_self()
 	set name = "De-admin self"
