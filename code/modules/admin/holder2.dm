@@ -61,12 +61,6 @@ var/list/admin_datums = list()
 	if(owner)
 		owner.MuteAOOC()
 
-/datum/admins/proc/ShowAntag()
-	if(owner)
-		owner.MuteAOOC()
-		
-		
-
 /datum/admins/proc/update_newscaster_sig()
 	if (!admincaster_signature)
 		admincaster_signature = "[current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
