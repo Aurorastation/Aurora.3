@@ -22,6 +22,7 @@
 	var/can_dismantle = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/apply_material_color = TRUE
+	var/buckle_sound = 'sound/effects/buckle.ogg'
 
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()
@@ -38,6 +39,11 @@
 
 /obj/structure/bed/get_material()
 	return material
+
+/obj/structure/bed/buckle_mob(mob/living/M)
+	. = ..()
+	if(. && buckle_sound)
+		playsound(src, buckle_sound, 20)
 
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()

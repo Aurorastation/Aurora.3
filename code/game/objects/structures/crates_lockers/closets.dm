@@ -16,8 +16,8 @@
 	var/storage_capacity = 40 //Tying this to mob sizes was dumb
 	//This is so that someone can't pack hundreds of items in a locker/crate
 							  //then open it in a populated area to crash clients.
-	var/open_sound = 'sound/effects/locker_open.ogg'
-	var/close_sound = 'sound/effects/locker_close.ogg'
+	var/open_sound = 'sound/effects/closet_open.ogg'
+	var/close_sound = 'sound/effects/closet_close.ogg'
 
 	var/store_misc = 1
 	var/store_items = 1
