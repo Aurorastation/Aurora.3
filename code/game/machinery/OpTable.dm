@@ -30,7 +30,7 @@
 
 /obj/machinery/optable/examine(var/mob/user)
 	. = ..()
-	to_chat(user, "<span class='notice'>The neural suppressors are switched [suppressing ? "on" : "off"].</span>")
+	to_chat(user, span("notice", "The neural suppressors are switched [suppressing ? "on" : "off"]."))
 
 /obj/machinery/optable/ex_act(severity)
 
@@ -50,26 +50,27 @@
 		else
 	return
 
-/obj/machinery/optable/attack_hand(mob/user as mob)
-	if (HULK in usr.mutations)
-		visible_message("<span class='danger'>\The [usr] destroys \the [src]!</span>")
+/obj/machinery/optable/attack_hand(mob/user)
+	if (HULK in user.mutations)
+		visible_message(span("danger", "\The [user] destroys \the [src]!"))
 		src.density = 0
 		qdel(src)
 		return
 
 	if(!victim)
-		to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
+		to_chat(user, span("warning", "There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 		return TRUE
 
 	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
-		user.visible_message("<span class='warning'>\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor.</span>")
+		user.visible_message(span("warning", "\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
 		if(!do_after(user, 30, src))
 			return
 		if(!victim)
-			to_chat(user, "<span class='warning'>There is nobody on \the [src]. It would be pointless to turn the suppressor on.</span>")
+			to_chat(user, span("warning", "There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 
 		suppressing = !suppressing
-		user.visible_message("<span class='notice'>\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor.</span>")
+		user.visible_message(span("notice", "\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."))
+		playsound(src.loc, "switchsounds", 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
@@ -110,7 +111,7 @@
 	if (C == user)
 		user.visible_message("[user] climbs on \the [src].","You climb on \the [src].")
 	else
-		visible_message("<span class='notice'>\The [C] has been laid on \the [src] by [user].</span>")
+		visible_message(span("notice", "\The [C] has been laid on \the [src] by [user]."))
 	if (C.client)
 		C.client.perspective = EYE_PERSPECTIVE
 		C.client.eye = src
@@ -139,9 +140,9 @@
 
 
 		if(L == user)
-			user.visible_message("<span class='notice'>[user] starts climbing onto [src].</span>", "<span class='notice'>You start climbing onto [src].</span>", range = 3)
+			user.visible_message(span("notice", "[user] starts climbing onto [src]."), span("notice", "You start climbing onto [src]."), range = 3)
 		else
-			user.visible_message("<span class='notice'>[user] starts putting [L] onto [src].</span>", "<span class='notice'>You start putting [L] onto [src].</span>", range = 3)
+			user.visible_message(span("notice", "[user] starts putting [L] onto [src]."), span("notice", "You start putting [L] onto [src]."), range = 3)
 		if (do_mob(user, L, 10, needhand = 0))
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
@@ -164,7 +165,7 @@
 	if (istype(W, /obj/item/grab))
 		var/obj/item/grab/G = W
 		if (src.victim)
-			to_chat(usr, "<span class='notice'><B>The table is already occupied!</B></span>")
+			to_chat(usr, span("notice", "<B>The table is already occupied!</B>"))
 			return 0
 
 		var/mob/living/L = G.affecting
@@ -175,9 +176,9 @@
 
 
 		if(L == user)
-			user.visible_message("<span class='notice'>[user] starts climbing onto [src].</span>", "<span class='notice'>You start climbing onto [src].</span>", range = 3)
+			user.visible_message(span("notice", "[user] starts climbing onto [src]."), span("notice", "You start climbing onto [src]."), range = 3)
 		else
-			user.visible_message("<span class='notice'>[user] starts putting [L] onto [src].</span>", "<span class='notice'>You start putting [L] onto [src].</span>", range = 3)
+			user.visible_message(span("notice", "[user] starts putting [L] onto [src]."), span("notice", "You start putting [L] onto [src]."), range = 3)
 		if (do_mob(user, L, 10, needhand = 0))
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
@@ -195,9 +196,9 @@
 /obj/machinery/optable/proc/check_table(mob/living/carbon/patient as mob)
 	check_victim()
 	if(src.victim && get_turf(victim) == get_turf(src) && victim.lying)
-		to_chat(usr, "<span class='warning'>\The [src] is already occupied!</span>")
+		to_chat(usr, span("warning", "\The [src] is already occupied!"))
 		return 0
 	if(patient.buckled)
-		to_chat(usr, "<span class='notice'>Unbuckle \the [patient] first!</span>")
+		to_chat(usr, span("notice", "Unbuckle \the [patient] first!"))
 		return 0
 	return 1
