@@ -7,7 +7,8 @@ var/list/admin_verbs_default = list(
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
 	/client/proc/cmd_mentor_check_new_players,
-	/client/proc/notification_add		/*allows everyone to set up player notifications*/
+	/client/proc/notification_add,		/*allows everyone to set up player notifications*/
+	/client/proc/Hide_AOOC /*Hides AOOC*/
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
@@ -319,7 +320,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/cure_traumas,
 	/client/proc/add_traumas,
-	/datum/admins/proc/ccannoucment
+	/datum/admins/proc/ccannoucment,
+	/client/proc/Hide_AOOC
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -792,6 +794,23 @@ var/list/admin_verbs_cciaa = list(
 			deadmin()
 			to_chat(src, "<span class='interface'>You are now a normal player.</span>")
 			verbs |= /client/proc/readmin_self
+	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/Show_AOOC()
+	set name = "Show AOOC"
+	set category = "Admin"
+	to_chat(src, "<span class='interface'>AOOC is now unmuted</span>")
+	verbs -= /client/proc/Show_AOOC
+	verbs |= /client/proc/aooc
+	verbs |= /client/proc/Hide_AOOC
+
+/client/proc/Hide_AOOC()
+	set name = "Hide AOOC"
+	set category = "Admin"
+	to_chat(src, "<span class='interface'>AOOC is now muted</span>")
+	verbs |= /client/proc/Show_AOOC
+	verbs -= /client/proc/aooc
+	verbs -= /client/proc/Hide_AOOC
 	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_log_hrefs()
