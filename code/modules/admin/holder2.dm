@@ -56,6 +56,16 @@ var/list/admin_datums = list()
 		owner.holder = src
 		owner.deadmin_holder = null
 		owner.add_admin_verbs()
+		
+/datum/admins/proc/HideAntag()
+	if(owner)
+		owner.MuteAOOC()
+
+/datum/admins/proc/ShowAntag()
+	if(owner)
+		owner.MuteAOOC()
+		
+		
 
 /datum/admins/proc/update_newscaster_sig()
 	if (!admincaster_signature)
@@ -107,5 +117,11 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 /client/proc/deadmin()
 	if(holder)
 		holder.disassociate()
+		//qdel(holder)
+	return 1
+	
+/client/proc/HideAntagOOC()
+	if(holder)
+		holder.HideAntag()
 		//qdel(holder)
 	return 1
