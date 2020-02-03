@@ -321,7 +321,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cure_traumas,
 	/client/proc/add_traumas,
 	/datum/admins/proc/ccannoucment,
-	/client/proc/Hide_AOOC
+	/client/proc/hide_aooc
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
