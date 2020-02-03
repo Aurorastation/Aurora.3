@@ -802,8 +802,8 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Show AOOC"
 	set category = "Admin"
 
-	if(HideA_holder)
-		HideA.ShowAntag()
+	if(AOOCT_holder)
+		AOOCT_holder.ShowAntag()
 		to_chat(src, "<span class='interface'>You now have AOOC unmuted</span>")
 		verbs -= /client/proc/Hide_AOOC
 	feedback_add_details("admin_verb","ASHOW") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
