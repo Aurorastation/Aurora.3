@@ -95,7 +95,7 @@
 			if(R.overclocked)
 				return
 
-		M.Weaken(rand(3,7)) //should be that borg is disabled for around 3-7 seconds
+			flick("e_flash", M.flash)
 
 	else
 		flashfail = 1
