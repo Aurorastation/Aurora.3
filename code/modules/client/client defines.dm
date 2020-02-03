@@ -6,6 +6,7 @@
 		////////////////
 	var/datum/admins/holder = null
 	var/datum/admins/deadmin_holder = null
+	var/datum/admins/AOOCT_holder = null.
 	var/buildmode		= 0
 
 		///////////////////
