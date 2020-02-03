@@ -243,7 +243,7 @@
 
 /obj/item/integrated_circuit/arithmetic/pi/Initialize()
 	. = ..()
-	desc = "Not recommended for cooking. Outputs '[M_PI]' when it rece	ives a pulse."
+	desc = "Not recommended for cooking. Outputs '[M_PI]' when it receives a pulse."
 
 /obj/item/integrated_circuit/arithmetic/pi/do_work()
 	set_pin_data(IC_OUTPUT, 1, M_PI)
