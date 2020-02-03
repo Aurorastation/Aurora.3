@@ -797,18 +797,16 @@ var/list/admin_verbs_cciaa = list(
 			verbs |= /client/proc/readmin_self
 	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-var/togantag = 0
 /client/proc/toggle_aooc()
 	set name = "Toggle AOOC"
 	set category = "Admin"
-	if (togantag == 0)
-		to_chat(src, "<span class='interface'>AOOC is now muted</span>")
-		verbs -= /client/proc/aooc
-		togantag = 1
-	else
-		to_chat(src, "<span class='interface'>AOOC is now unmuted</span>")
-		verbs |= /client/proc/aooc
-		togantag = 0
+	if(holder)
+		if (tao() == 0)
+			to_chat(src, "<span class='interface'>AOOC is now muted</span>")
+			verbs -= /client/proc/aooc
+		else
+			to_chat(src, "<span class='interface'>AOOC is now unmuted</span>")
+			verbs |= /client/proc/aooc
 	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_log_hrefs()
