@@ -8,7 +8,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
 	/client/proc/cmd_mentor_check_new_players,
 	/client/proc/notification_add,		/*allows everyone to set up player notifications*/
-	/client/proc/hide_aooc
+	/client/proc/toggle_aooc /*Mutes AOOC*/
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
@@ -321,7 +321,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cure_traumas,
 	/client/proc/add_traumas,
 	/datum/admins/proc/ccannoucment,
-	/client/proc/hide_aooc
+	/client/proc/toggle_aooc
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -787,6 +787,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "De-admin self"
 	set category = "Admin"
 
+
 	if(holder)
 		if(alert("Confirm self-deadmin for the round? You can re-admin yourself at any time.",,"Yes","No") == "Yes")
 			log_admin("[src] deadmined themself.",admin_key=key_name(src))
@@ -796,22 +797,19 @@ var/list/admin_verbs_cciaa = list(
 			verbs |= /client/proc/readmin_self
 	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/Show_AOOC()
-	set name = "Show AOOC"
+var/togantag = 0
+/client/proc/toggle_aooc()
+	set name = "Toggle AOOC"
 	set category = "Admin"
-	to_chat(src, "<span class='interface'>AOOC is now unmuted</span>")
-	verbs -= /client/proc/Show_AOOC
-	verbs |= /client/proc/aooc
-	verbs |= /client/proc/Hide_AOOC
-
-/client/proc/Hide_AOOC()
-	set name = "Hide AOOC"
-	set category = "Admin"
-	to_chat(src, "<span class='interface'>AOOC is now muted</span>")
-	verbs |= /client/proc/Show_AOOC
-	verbs -= /client/proc/aooc
-	verbs -= /client/proc/Hide_AOOC
-	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	if (togantag == 0)
+		to_chat(src, "<span class='interface'>AOOC is now muted</span>")
+		verbs -= /client/proc/aooc
+		togantag = 1
+	else
+		to_chat(src, "<span class='interface'>AOOC is now unmuted</span>")
+		verbs |= /client/proc/aooc
+		togantag = 0
+	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_log_hrefs()
 	set name = "Toggle href logging"
