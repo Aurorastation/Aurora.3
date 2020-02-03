@@ -4,7 +4,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/player_panel_modern,
 	/client/proc/toggleadminhelpsound,	/*toggles whether we hear a sound when adminhelps/PMs are used*/
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
-	/client/proc/Hide_AOOC,   	        /*Hides AOOC for the staffmember
+	/client/proc/Hide_AOOC,   	        /*Hides AOOC for the staffmember*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
 	/client/proc/cmd_mentor_check_new_players,
