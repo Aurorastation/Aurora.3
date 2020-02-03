@@ -224,7 +224,7 @@
 		I.pull_data()
 		if(isnum(I.data))
 			inputs_used++
-			result = result + I.data
+			result += I.data
 
 	if(inputs_used)
 		result = result / inputs_used

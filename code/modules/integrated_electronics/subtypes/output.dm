@@ -234,8 +234,7 @@
 	var/updating = FALSE
 
 /obj/item/integrated_circuit/output/video_camera/Destroy()
-	if(camera)
-		QDEL_NULL(camera)
+	QDEL_NULL(camera)
 	return ..()
 
 /obj/item/integrated_circuit/output/video_camera/proc/set_camera_status(var/status)
@@ -251,12 +250,11 @@
 	if(!camera)
 		camera = new(src)
 
-	if(camera)
-		var/cam_name = get_pin_data(IC_INPUT, 1)
-		var/cam_active = get_pin_data(IC_INPUT, 2)
-		if(!isnull(cam_name))
-			camera.c_tag = cam_name
-		set_camera_status(cam_active)
+	var/cam_name = get_pin_data(IC_INPUT, 1)
+	var/cam_active = get_pin_data(IC_INPUT, 2)
+	if(!isnull(cam_name))
+		camera.c_tag = cam_name
+	set_camera_status(cam_active)
 
 /obj/item/integrated_circuit/output/video_camera/power_fail()
 	if(camera)
