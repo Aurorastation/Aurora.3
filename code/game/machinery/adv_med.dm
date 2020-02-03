@@ -313,7 +313,7 @@
 	..()
 
 	// shouldn't be reachable if occupant is invalid
-	if (href_list["print"])
+	if(href_list["print"])
 		var/obj/item/paper/R = new(loc)
 		R.color = "#eeffe8"
 		R.set_content_unsafe("Scan ([connected.occupant])", format_occupant_data(connected.get_occupant_data()))
@@ -329,16 +329,16 @@
 /obj/machinery/body_scanconsole/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		data = list()
-	var/occupied = !!(connected && connected.occupant)
+
 	var/mob/living/carbon/human/occupant
 	if (connected)
 		occupant = connected.occupant
 
-		data["noscan"] = !!connected.check_species()
-		data["nocons"] = !connected
-		data["occupied"] = occupied
-		data["invalid"] = !!(connected && connected.check_species())
-		data["ipc"] = !!(connected && occupant && isipc(occupant))
+		VUEUI_SET_CHECK(data["noscan"], !!connected.check_species(), ., data)
+		VUEUI_SET_CHECK(data["nocons"], !connected, ., data)
+		VUEUI_SET_CHECK(data["occupied"], connected.occupant, ., data)
+		VUEUI_SET_CHECK(data["invalid"], !!connected.check_species(), ., data)
+		VUEUI_SET_CHECK(data["ipc"], !!(occupant && isipc(occupant)), ., data)
 
 	if (!data["invalid"])
 		var/datum/reagents/R = occupant.bloodstr
@@ -362,42 +362,40 @@
 		if(pulse_result == ">250")
 			pulse_result = -3
 
-		data["stat"] = occupant.stat
-		data["name"] = occupant.name
-		data["species"] = occupant.get_species()
-		data["brain_activity"] = brain_result
-		data["pulse"] = text2num(pulse_result)
-		data["blood_pressure"] = occupant.get_blood_pressure()
-		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
-		data["blood_volume"] = occupant.get_blood_volume()
-		data["blood_o2"] = occupant.get_blood_oxygenation()
-		data["rads"] = occupant.total_radiation
+		VUEUI_SET_CHECK(data["stat"], occupant.stat, ., data)
+		VUEUI_SET_CHECK(data["name"], occupant.name, ., data)
+		VUEUI_SET_CHECK(data["species"], occupant.get_species(), ., data)
+		VUEUI_SET_CHECK(data["brain_activity"], brain_result, ., data)
+		VUEUI_SET_CHECK(data["pulse"], text2num(pulse_result), ., data)
+		VUEUI_SET_CHECK(data["blood_pressure"], occupant.get_blood_pressure(), ., data)
+		VUEUI_SET_CHECK(data["blood_pressure_level"], occupant.get_blood_pressure_alert(), ., data)
+		VUEUI_SET_CHECK(data["blood_volume"], occupant.get_blood_volume(), ., data)
+		VUEUI_SET_CHECK(data["blood_o2"], occupant.get_blood_oxygenation(), ., data)
+		VUEUI_SET_CHECK(data["rads"], occupant.total_radiation, ., data)
 
-		data["cloneLoss"] = get_severity(occupant.getCloneLoss())
-		data["oxyLoss"] = get_severity(occupant.getOxyLoss())
-		data["bruteLoss"] = get_severity(occupant.getBruteLoss())
-		data["fireLoss"] = get_severity(occupant.getFireLoss())
-		data["toxLoss"] = get_severity(occupant.getToxLoss())
+		VUEUI_SET_CHECK(data["cloneLoss"], get_severity(occupant.getCloneLoss()), ., data)
+		VUEUI_SET_CHECK(data["oxyLoss"], get_severity(occupant.getOxyLoss()), ., data)
+		VUEUI_SET_CHECK(data["bruteLoss"], get_severity(occupant.getBruteLoss()), ., data)
+		VUEUI_SET_CHECK(data["fireLoss"], get_severity(occupant.getFireLoss()), ., data)
+		VUEUI_SET_CHECK(data["toxLoss"], get_severity(occupant.getToxLoss()), ., data)
 
-		data["paralysis"] = occupant.paralysis
-		data["bodytemp"] = occupant.bodytemperature
-		data["occupant"] = occupant
-		data["norepiAmt"] = R.get_reagent_amount("norepinephrine")
-		data["soporAmt"] = R.get_reagent_amount("stoxin")
-		data["bicardAmt"] = R.get_reagent_amount("bicaridine")
-		data["dexAmt"] = R.get_reagent_amount("dexalin")
-		data["dermAmt"] = R.get_reagent_amount("dermaline")
-		data["otherAmt"] = R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"])
-		data["bodyparts"] = get_external_wound_data(occupant)
-		data["organs"] = get_internal_wound_data(occupant)
+		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
+		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
+		VUEUI_SET_CHECK(data["occupant"], occupant, ., data)
+		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount("norepinephrine"), ., data)
+		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount("stoxin"), ., data)
+		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount("bicaridine"), ., data)
+		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount("dexalin"), ., data)
+		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount("dermaline"), ., data)
+		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
+		VUEUI_SET_CHECK(data["bodyparts"], get_external_wound_data(occupant), ., data)
+		VUEUI_SET_CHECK(data["organs"], get_internal_wound_data(occupant), ., data)
 		var/list/missing 		= get_missing_organs(occupant)
-		data["missingparts"] = missing
-		data["hasmissing"] = !!missing.len
-		data["hasvirus"] = occupant.virus2.len || occupant.viruses.len
-		data["hastgvirus"] = occupant.viruses.len
-		data["tgvirus"] = occupant.viruses
-
-	return data
+		VUEUI_SET_CHECK(data["missingparts"], missing, ., data)
+		VUEUI_SET_CHECK(data["hasmissing"], !!missing.len, ., data)
+		VUEUI_SET_CHECK(data["hasvirus"], occupant.virus2.len || occupant.viruses.len, ., data)
+		VUEUI_SET_CHECK(data["hastgvirus"], occupant.viruses.len, ., data)
+		VUEUI_SET_CHECK(data["tgvirus"], occupant.viruses, ., data)
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
 	if(I.is_broken())
