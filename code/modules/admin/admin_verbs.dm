@@ -250,7 +250,7 @@ var/list/admin_verbs_rejuv = list(
 //verbs which can be hidden - needs work
 var/list/admin_verbs_hideable = list(
 	/client/proc/deadmin_self,
-	/client/proc/Hide_AOOC(),
+	/client/proc/Hide_AOOC,
 //	/client/proc/deadchat,
 	/client/proc/toggleprayers,
 	/client/proc/toggle_hear_radio,
