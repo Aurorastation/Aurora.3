@@ -1181,9 +1181,11 @@
 			if(prob(90))
 				to_chat(user, "You emag the cover lock.")
 				locked = 0
+				Weaken(5)
 			else
 				to_chat(user, "You fail to emag the cover lock.")
 				to_chat(src, "Hack attempt detected.")
+				Weaken(5)
 			return 1
 		else
 			to_chat(user, "The cover is already unlocked.")
@@ -1241,5 +1243,6 @@
 			else
 				to_chat(user, "You fail to hack [src]'s interface.")
 				to_chat(src, "Hack attempt detected.")
+				Weaken(5)
 			return 1
 		return
