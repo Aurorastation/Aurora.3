@@ -8,7 +8,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
 	/client/proc/cmd_mentor_check_new_players,
 	/client/proc/notification_add,		/*allows everyone to set up player notifications*/
-	/client/proc/Hide_AOOC /*Hides AOOC*/
+	/client/proc/hide_aooc
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
