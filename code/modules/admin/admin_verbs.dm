@@ -434,6 +434,10 @@ var/list/admin_verbs_cciaa = list(
 		)
 	add_aooc_if_necessary()
 
+/client/proc/MuteAOOC()
+	prefs.toggles_secondary ^= CHAT_AOOC
+	prefs.save_preferences()	
+
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
 	set name = "Adminverbs - Hide Most"
 	set category = "Admin"
@@ -793,6 +797,26 @@ var/list/admin_verbs_cciaa = list(
 			to_chat(src, "<span class='interface'>You are now a normal player.</span>")
 			verbs |= /client/proc/readmin_self
 	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/Show_AOOC()
+	set name = "Show AOOC"
+	set category = "Admin"
+
+	if(HideA_holder)
+		HideA.ShowAntag()
+		to_chat(src, "<span class='interface'>You now have AOOC unmuted</span>")
+		verbs -= /client/proc/Hide_AOOC
+	feedback_add_details("admin_verb","ASHOW") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/Hide_AOOC()
+	set name = "Hide AOOC"
+	set category = "Admin"
+
+	if(holder)
+		HideAntagOOC()
+		to_chat(src, "<span class='interface'>AOOC is now muted.</span>")
+		verbs |= /client/proc/Show_AOOC
+	feedback_add_details("admin_verb","AHIDE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_log_hrefs()
 	set name = "Toggle href logging"
