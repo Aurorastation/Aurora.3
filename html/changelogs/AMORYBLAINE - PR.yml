@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "Resprites Z8 ERT carbine."
   - rscadd: "Resprites C20r syndicate submachinegun."
-  - rscadd: "Fixes missing sprites for shotguns (pumpaction, double barrel, ect.)
+  - rscadd: "Fixes missing sprites for shotguns (pumpaction, double barrel, ect.)"
