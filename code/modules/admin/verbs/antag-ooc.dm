@@ -3,6 +3,10 @@
 	set name = "AOOC"
 	set desc = "Antagonist OOC"
 
+	if(!(prefs.toggles_secondary & CHAT_AOOC))
+		to_chat(src, "<span class='warning'>You have AOOC muted.</span>")
+		return
+		
 	if (istype(src.mob, /mob/abstract/observer) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0))
 		to_chat(src, "<span class='warning'>You cannot use AOOC while ghosting/observing!</span>")
 		return
