@@ -81,8 +81,9 @@
 	..()
 
 /mob/living/carbon/attack_hand(mob/M as mob)
-	if(!istype(M, /mob/living/carbon)) return
-	if (!M.can_use_hand())
+	if(!istype(M, /mob/living/carbon))
+		return
+	if(!M.can_use_hand())
 		return
 
 	if(M.a_intent != I_HELP)
@@ -115,29 +116,26 @@
 			willfully_sleeping = 0
 
 	for(var/datum/disease/D in viruses)
-
 		if(D.spread_by_touch())
-
 			M.contract_disease(D, 0, 1, CONTACT_HANDS)
 
 	for(var/datum/disease/D in M.viruses)
-
 		if(D.spread_by_touch())
-
 			contract_disease(D, 0, 1, CONTACT_HANDS)
 
 	return
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
-	if(status_flags & GODMODE)	return 0	//godmode
-	if (!tesla_shock)
+	if(status_flags & GODMODE)
+		return 0	//godmode
+	if(!tesla_shock)
 		shock_damage *= siemens_coeff
-	if (shock_damage<1)
+	if(shock_damage<1)
 		return 0
 
 	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
 	playsound(loc, "sparks", 50, 1, -1)
-	if (shock_damage > 15 || tesla_shock)
+	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			span("warning", "[src] was shocked by the [source]!"), \
 			span("danger", "You feel a powerful shock course through your body!"), \
@@ -151,9 +149,7 @@
 			span("warning", "You feel a mild shock course through your body."), \
 			span("warning", "You hear a light zapping.") \
 		)
-
 	spark(loc, 5, alldirs)
-
 	return shock_damage
 
 /mob/proc/swap_hand()
@@ -166,7 +162,7 @@
 			if(item_in_hand:wielded == 1)
 				to_chat(usr, span("warning", "Your other hand is too busy holding the [item_in_hand.name]"))
 				return
-	src.hand = !( src.hand )
+	src.hand = !src.hand
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
 			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
@@ -181,10 +177,8 @@
 	return
 
 /mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
-
 	if(istext(selhand))
 		selhand = lowertext(selhand)
-
 		if(selhand == "right" || selhand == "r")
 			selhand = 0
 		if(selhand == "left" || selhand == "l")

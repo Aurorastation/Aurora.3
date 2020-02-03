@@ -91,6 +91,7 @@ mob/var/next_pain_time = 0
 		return
 	if(analgesic > 70)
 		return
+
 	var/maxdam = 0
 	var/obj/item/organ/external/damaged_organ = null
 	for(var/obj/item/organ/external/E in organs)
