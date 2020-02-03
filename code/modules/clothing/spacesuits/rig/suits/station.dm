@@ -70,7 +70,6 @@
 	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
-	chest_type = /obj/item/clothing/suit/space/rig/industrial
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill)
 
@@ -89,10 +88,6 @@
 		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
 		)
-
-/obj/item/clothing/suit/space/rig/industrial
-    flags_inv = HIDETAIL
-		if(obj/item/clothing/under/dress = TRUE) HIDEJUMPSUIT
 
 /obj/item/rig/industrial/syndicate
 
