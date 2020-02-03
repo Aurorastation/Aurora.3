@@ -1,14 +1,14 @@
 /datum/gear/religion
-	display_name = "triniary perfection robes"
+	display_name = "trinary perfection robes"
 	path = /obj/item/clothing/suit/trinary_robes
 	sort_category = "Religion"
 
 /datum/gear/religion/triniary/mask
-	display_name = "triniary perfection mask"
+	display_name = "trinary perfection mask"
 	path = /obj/item/clothing/mask/trinary_mask
 
 /datum/gear/religion/triniary/cape
-	display_name = "triniary perfection cape"
+	display_name = "trinary perfection cape"
 	path = /obj/item/clothing/accessory/poncho/trinary
 
 /datum/gear/religion/triniary/badge
