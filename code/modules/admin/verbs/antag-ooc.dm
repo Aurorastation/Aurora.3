@@ -3,7 +3,7 @@
 	set name = "AOOC"
 	set desc = "Antagonist OOC"
 
-	if(!(prefs.toggles_secondary & CHAT_AOOC))
+	if(!(prefs.toggles_secondary & CHAT_AOOC) && check_rights(R_ADMIN|R_MOD|R_CCIAA))
 		to_chat(src, "<span class='warning'>You have AOOC muted.</span>")
 		return
 		
