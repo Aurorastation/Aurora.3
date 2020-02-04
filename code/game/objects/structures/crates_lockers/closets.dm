@@ -114,7 +114,7 @@
 
 	icon_state = icon_opened
 	opened = 1
-	playsound(loc, open_sound, 15, 1, -3)
+	playsound(loc, open_sound, 25, 0, -3)
 	density = 0
 	return 1
 
