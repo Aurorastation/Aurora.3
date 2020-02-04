@@ -82,10 +82,6 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
 
-/obj/item/integrated_circuit/time/ticker/Destroy()
-	STOP_PROCESSING(SSelectronics, src)
-	. = ..()
-
 /obj/item/integrated_circuit/time/ticker/on_data_written()
 	var/do_tick = get_pin_data(IC_INPUT, 1)
 	if(do_tick && !is_running)
