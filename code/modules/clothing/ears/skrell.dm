@@ -3,7 +3,7 @@
 	desc = "Some stuff worn by skrell to adorn their head tentacles."
 	icon = 'icons/obj/clothing/ears.dmi'
 	w_class = 1
-	slot_flags = SLOT_EARS
+	slot_flags = SLOT_HEAD | SLOT_EARS
 	species_restricted = list("Skrell")
 
 /obj/item/clothing/ears/skrell/chain

@@ -31,3 +31,10 @@
 	desc = "A two-piece, jagged filtering mask meant to conform to one's face comfortably."
 	icon_state = "jagmask"
 	item_state = "muzzle"
+
+/obj/item/clothing/mask/breath/skrell
+	name = "skrellian gill cover"
+	desc = "A comfy technological piece used typically by those suffering from gill-related disorders. It goes around the neck and shoulders with a small water tank on the back, featuring a hookup for oxytanks to keep the water oxygenated."
+	icon_state = "gillcover"
+	item_state = "gillcover"
+	species_restricted = list("Skrell")
