@@ -2,13 +2,13 @@
 	. = ..(mapload, "biomass")
 
 /turf/simulated/wall/diona/attack_hand(mob/user)
-	if(istype(user, /mob/living/carbon/alien/diona) || istype(user, /mob/living/carbon/human/diona))
+	if(user.is_diona())
 		attack_generic(user)
 	else
 		..()
 
 /turf/simulated/wall/diona/attack_generic(mob/user, var/damage, var/attack_message)
-	if(istype(user, /mob/living/carbon/alien/diona) || istype(user, /mob/living/carbon/human/diona))
+	if(user.is_diona())
 		if(can_open == WALL_OPENING)
 			return
 		can_open = WALL_CAN_OPEN
