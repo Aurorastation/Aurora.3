@@ -759,5 +759,5 @@ var/global/list/default_medbay_channels = list(
 
 /obj/item/device/radio/CouldUseTopic(var/mob/user)
 	..()
-	if(istype(user, /mob/living/carbon))
+	if(iscarbon(user))
 		playsound(src, "button", 10)
