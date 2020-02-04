@@ -38,3 +38,4 @@
 	icon_state = "gillcover"
 	item_state = "gillcover"
 	species_restricted = list("Skrell")
+	adjustable = FALSE
