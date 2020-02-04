@@ -37,9 +37,9 @@
 #define SPACE UNDERWATER
 
 var/list/shatter_sound = list(
-	'sound/effects/Glassbr1.ogg',
-	'sound/effects/Glassbr2.ogg',
-	'sound/effects/Glassbr3.ogg'
+	'sound/effects/glass_break1.ogg',
+	'sound/effects/glass_break2.ogg',
+	'sound/effects/glass_break3.ogg'
 )
 var/list/explosion_sound = list(
 	'sound/effects/Explosion1.ogg',
@@ -163,6 +163,12 @@ var/list/pickaxesounds = list(
 	'sound/weapons/mine/pickaxe3.ogg',
 	'sound/weapons/mine/pickaxe4.ogg'
 	)
+var/list/glasscrack_sound = list(
+	'sound/effects/glass_crack1.ogg',
+	'sound/effects/glass_crack2.ogg',
+	'sound/effects/glass_crack3.ogg',
+	'sound/effects/glass_crack4.ogg'
+	)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
 
@@ -284,7 +290,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		return DIZZY
 	else if (confused)
 		return DIZZY
-	else if (sleeping)
+	else if (stat == UNCONSCIOUS)
 		return UNDERWATER
 	else
 		return ..()
@@ -373,4 +379,5 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("switch") soundin = pick(switchsounds)
 			if ("keyboard") soundin = pick(keyboardsounds)
 			if ("pickaxe") soundin = pick(pickaxesounds)
+			if ("glasscrack") soundin = pick(glasscrack_sound)
 	return soundin

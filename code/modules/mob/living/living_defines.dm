@@ -60,7 +60,7 @@
 
 	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter
 
-	var/total_radiation	// DON'T MODIFY THIS DIRECTLY. USE apply_radiation()!
+	var/total_radiation	= 0 // DON'T MODIFY THIS DIRECTLY. USE apply_radiation()!
 	var/cloaked = 0//Set to 1 by cloaking devices, optimises update_icons
 
 	var/tesla_ignore = 0	// If true, mob is not affected by tesla bolts.
