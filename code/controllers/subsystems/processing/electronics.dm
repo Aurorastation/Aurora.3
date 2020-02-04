@@ -59,7 +59,7 @@
 		if(name == default_name)
 			continue
 		all_integrated_circuits[name] = path // Populating the component lists
-		cached_circuits[IC] = new path()
+		cached_circuits[IC] = new path(null)
 		flat_circuit_list += cached_circuits[IC]
 
 		if(!(initial(IC.spawn_flags) & (IC_SPAWN_DEFAULT | IC_SPAWN_RESEARCH)))
@@ -75,7 +75,9 @@
 		var/obj/item/device/electronic_assembly/A = path
 		var/name = initial(A.name)
 		all_assemblies[name] = path
-		cached_assemblies[A] = new path()
+		cached_assemblies[A] = new path(null)
+		// Ideally, the cached assemblies should be removed from processing, 
+		//  but since Initialize is called after New, it can't be done here
 
 	// Saving special cases
 	for(var/path in special)
