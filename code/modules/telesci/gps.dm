@@ -14,10 +14,11 @@ var/list/GPS_list = list()
 	var/held_by = null
 	var/turf/locked_location
 	var/list/tracking = list()
+	var/list/static/gps_count = list()
 
 /obj/item/device/gps/Initialize()
 	. = ..()
-	gpstag = get_initial_tag()
+	gpstag = next_initial_tag()
 	name = "global positioning system ([gpstag])"
 	update_position()
 	add_overlay("working")
@@ -149,11 +150,14 @@ var/list/GPS_list = list()
 	var/turf/T = get_turf(src)
 	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[get_area(src).name]", "emped" = emped)
 
-/obj/item/device/gps/proc/get_initial_tag()
-	for(var/i = 1 to length(GPS_list)+1)
-		. = "[gps_prefix][i]"
-		if(!GPS_list[.])
-			break
+/obj/item/device/gps/proc/next_initial_tag()
+	if(!LAZYACCESS(gps_count, gps_prefix))
+		gps_count[gps_prefix] = 0
+
+	. = "[gps_prefix][gps_count[gps_prefix]++]"
+
+	if(GPS_list[.]) // if someone has renamed a GPS manually to take this tag already
+		. = next_initial_tag()
 
 /obj/item/device/gps/science
 	icon_state = "gps-s"
