@@ -6,10 +6,10 @@ var/global/nttransfer_uid = 0
 	extended_desc = "This program allows for simple file transfer via direct peer to peer connection."
 	program_icon_state = "comm_logs"
 	size = 7
-	requires_ntnet = 1
+	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_PEERTOPEER
 	network_destination = "other device via P2P tunnel"
-	available_on_ntnet = 1
+	available_on_ntnet = TRUE
 	nanomodule_path = /datum/nano_module/program/computer_nttransfer/
 	color = LIGHT_COLOR_GREEN
 
