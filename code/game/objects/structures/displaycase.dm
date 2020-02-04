@@ -43,7 +43,7 @@
 			playsound(src, "shatter", 70, 1)
 			update_icon()
 	else
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 	return
 
 /obj/structure/displaycase/update_icon()

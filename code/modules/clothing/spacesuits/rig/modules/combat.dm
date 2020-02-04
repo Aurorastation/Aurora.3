@@ -137,6 +137,8 @@
 /obj/item/rig_module/mounted/New()
 	..()
 	gun = new gun_type(src)
+	if(istype(gun, /obj/item/gun))
+		gun.has_safety = FALSE
 
 /obj/item/rig_module/mounted/engage(atom/target)
 

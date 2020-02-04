@@ -51,7 +51,7 @@
 		shatter()
 	else
 		visible_message("<span class='warning'>[user] hits [src] with [I]!</span>")
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 70, 1)
+		playsound(src.loc, 'sound/effects/glass_hit.ogg', 70, 1)
 
 /obj/structure/mirror/attack_generic(var/mob/user, var/damage)
 
