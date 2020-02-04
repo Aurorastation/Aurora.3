@@ -437,7 +437,7 @@ var/list/sacrificed = list()
 /////////////////////////////////////////ELEVENTH RUNE
 
 /obj/effect/rune/proc/manifest(var/mob/living/user)
-	if(user.loc!=src.loc)
+	if(user.loc!=loc)
 		return src.fizzle(user)
 	var/mob/abstract/observer/ghost
 	for(var/mob/abstract/observer/O in src.loc)
