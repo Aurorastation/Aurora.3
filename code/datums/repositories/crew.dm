@@ -49,17 +49,25 @@ var/global/datum/repository/crew/crew_repository = new()
 				if(C.sensor_mode >= SUIT_SENSOR_BINARY)
 					crewmemberData["pulse"] = "N/A"
 					crewmemberData["tpulse"] = -1
-					if(!H.isSynthetic() && H.should_have_organ(BP_HEART))
-						var/obj/item/organ/internal/heart/O = H.internal_organs_by_name[BP_HEART]
-						if (!O || !BP_IS_ROBOTIC(O)) // Don't make medical freak out over prosthetic hearts
-							crewmemberData["tpulse"] = H.pulse()
-							crewmemberData["pulse"] = H.get_pulse(GETPULSE_TOOL)
+					crewmemberData["cellCharge"] = -1
+					if(!H.isSynthetic())
+						if(H.should_have_organ(BP_HEART))
+							var/obj/item/organ/internal/heart/O = H.internal_organs_by_name[BP_HEART]
+							if (!O || !BP_IS_ROBOTIC(O)) // Don't make medical freak out over prosthetic hearts
+								crewmemberData["tpulse"] = H.pulse()
+								crewmemberData["pulse"] = H.get_pulse(GETPULSE_TOOL)
+					else
+						if(isipc(H) && H.internal_organs_by_name[BP_IPCTAG]) // Don't make untagged IPCs obvious
+							var/obj/item/organ/internal/cell/cell = H.internal_organs_by_name[BP_CELL]
+							if(cell)
+								crewmemberData["cellCharge"] = Floor(100*H.nutrition / H.max_nutrition)
 
 				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
 					crewmemberData["pressure"] = "N/A"
 					crewmemberData["toxyg"] = -1
 					crewmemberData["oxyg"] = OXYGENATION_STATE_UNDEFINED
 					if(!H.isSynthetic() && H.should_have_organ(BP_HEART))
+						crewmemberData["tpressure"] = H.get_blood_pressure_alert()
 						crewmemberData["pressure"] = H.get_blood_pressure()
 						crewmemberData["toxyg"] = H.get_blood_oxygenation()
 						switch (crewmemberData["toxyg"])
