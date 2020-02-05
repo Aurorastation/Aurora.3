@@ -7,7 +7,7 @@
 	display_name = "trinary perfection mask"
 	path = /obj/item/clothing/mask/trinary_mask
 
-/datum/gear/religion/triniary/cape
+/datum/gear/religion/trinary/cape
 	display_name = "trinary perfection cape"
 	path = /obj/item/clothing/accessory/poncho/trinary
 
