@@ -53,3 +53,26 @@
 	desc = "A simple, cheap t-shirt."
 	icon_state = "tshirt"
 	item_state = "tshirt"
+
+/obj/item/clothing/accessory/silversun
+	name = "silversun shirt"
+	desc = "A stylish Solarian shirt of Silversun design. This one is cyan."
+	icon = 'icons/mob/clothing/shirts/hawaiian.dmi'
+	icon_state = "hawaii"
+	item_state = "hawaii"
+	contained_sprite = TRUE
+	var/open = FALSE
+
+/obj/item/clothing/accessory/silversun/attack_self(mob/user)
+	open = !open
+	icon_state = "[initial(icon_state)][open ? "_open" : ""]"
+	item_state = icon_state
+	to_chat(user, span("notice", "You [open ? "open" : "close"] \the [src]."))
+	// the below forces the shirt to hard reset its image so it resets later its fucking weird ok
+	inv_overlay = null
+	mob_overlay = null
+
+/obj/item/clothing/accessory/silversun/red
+	desc = "A stylish Solarian shirt of Silversun design. This one is red."
+	icon_state = "hawaii_red"
+	item_state = "hawaii_red"
