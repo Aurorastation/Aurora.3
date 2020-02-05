@@ -425,9 +425,6 @@ var/list/mineral_can_smooth_with = list(
 			if(prob(3))
 				excavate_find(prob(5), finds[1])
 
-	if(prob(5))
-		findgem()
-
 	//Add some rubble,  you did just clear out a big chunk of rock.
 	ChangeTurf(mined_turf)
 
