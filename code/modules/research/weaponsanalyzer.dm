@@ -5,21 +5,27 @@
 	density = 1
 	anchored = 1
 	use_power = 1
-	var/obj/item/weapon/gun/gun = null
+	var/obj/item/gun/gun = null
+	var/obj/item/item = null
 	var/obj/item/device/laser_assembly/assembly = null
 	var/process = FALSE
 
 /obj/machinery/weapons_analyzer/examine(mob/user)
 	..()
-	to_chat(user, span("notice", "It has [gun ? "[gun]" : "nothing"] attached."))
+	var/name_of_thing
+	if(gun)
+		name_of_thing = gun.name
+	else if(item)
+		name_of_thing = item.name
+	to_chat(user, span("notice", "It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
 
-/obj/machinery/weapons_analyzer/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/machinery/weapons_analyzer/attackby(var/obj/item/I, var/mob/user as mob)
 	if(!I || !user || !ishuman(user))
 		return
 
 	var/mob/living/carbon/human/H = user
 
-	if(istype(I, /obj/item/weapon/gun))
+	if(istype(I, /obj/item/gun))
 
 		if(!check_gun(user))
 			return
@@ -49,6 +55,11 @@
 		process = TRUE
 		addtimer(CALLBACK(src, .proc/reset), 40)
 		update_icon()
+	else if(I)
+		item = I
+		H.drop_from_inventory(I)
+		I.forceMove(src)
+		update_icon()
 
 /obj/machinery/weapons_analyzer/proc/reset()
 	process = FALSE
@@ -61,9 +72,13 @@
 	if(assembly)
 		to_chat(user, span("warning", "\The [src] already has \the [assembly] mounted. Remove it first."))
 		return FALSE
+	if(item)
+		to_chat(user, span("warning", "\The [src] already has \the [item] mounted. Remove it first."))
+		return FALSE
+
 	return TRUE
 
-/obj/machinery/weapons_analyzer/verb/eject_gun_or_assembly()
+/obj/machinery/weapons_analyzer/verb/eject_inserted_item()
 	set category = "Object"
 	set name = "Eject gun or assembly"
 	set src in view(1)
@@ -75,13 +90,22 @@
 		to_chat(usr, span("warning", "There is no gun in \the [src]."))
 		return
 	
-	if(!assembly)
+	else if(!assembly)
 		to_chat(usr, span("warning", "There is no assembly in \the [src]."))
+		return
+	
+	else if(!item)
+		to_chat(usr, span("warning", "There is no item in \the [src]."))
 		return
 	
 	if(gun)
 		gun.forceMove(usr.loc)
 		gun = null
+		update_icon()
+
+	else if(item)
+		item.forceMove(usr.loc)
+		item = null
 		update_icon()
 
 	else
@@ -104,6 +128,9 @@
 	else if(assembly)
 		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
 		Icon_used = new /icon(assembly.icon, assembly.icon_state)
+	else if(item)
+		icon_state = "[icon_state]_on"
+		Icon_used = new /icon(item.icon, item.icon_state)
 
 	if(Icon_used)
 		// Making gun sprite smaller and centering it where we want, cause dang they are thicc
