@@ -80,7 +80,7 @@
 
 /obj/machinery/weapons_analyzer/verb/eject_inserted_item()
 	set category = "Object"
-	set name = "Eject gun or assembly"
+	set name = "Eject inserted item"
 	set src in view(1)
 
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))
