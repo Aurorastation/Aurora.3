@@ -3,7 +3,7 @@
 	path = /obj/item/clothing/suit/trinary_robes
 	sort_category = "Religion"
 
-/datum/gear/religion/triniary/mask
+/datum/gear/religion/trinary/mask
 	display_name = "trinary perfection mask"
 	path = /obj/item/clothing/mask/trinary_mask
 
