@@ -38,9 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "SMES now properly counts its coils when constructed."
-  - bugfix: "Modular guns can now be used for turret construction."
-  - bugfix: "Magnetic locks now properly drop from user inventory when activated."
-  - tweak: "Modular guns no longer can accept mods of the same type."
-  - tweak: "Turrets now use best accuracy value between projectile or gun but is 25% more accurate than person would use the gun."
-  - soundadd: "Turrets now have deploy, retract and rotate sound effects."
+  - tweak: ""
