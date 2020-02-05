@@ -4,7 +4,7 @@
 	name = "recharger"
 	desc = "Useful for recharging electronic devices."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "recharger0"
+	icon_state = "recharger_off"
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 6
@@ -20,9 +20,9 @@
 		/obj/item/modular_computer,
 		/obj/item/computer_hardware/battery_module
 	)
-	var/icon_state_charged = "recharger2"
-	var/icon_state_charging = "recharger1"
-	var/icon_state_idle = "recharger0" //also when unpowered
+	var/icon_state_charged = "recharger100"
+	var/icon_state_charging = "recharger"
+	var/icon_state_idle = "recharger_off" //also when unpowered
 	var/portable = 1
 	var/list/chargebars
 
@@ -110,8 +110,18 @@
 		if(istype(cell))
 			var/obj/item/cell/C = cell
 			if(!C.fully_charged())
-				icon_state = icon_state_charging
+				if(cell.charge / cell.maxcharge * 100 < 20)
+					icon_state = icon_state_charging + "0"
+				else if(cell.charge / cell.maxcharge * 100 < 40)
+					icon_state = icon_state_charging + "20"
+				else if(cell.charge / cell.maxcharge * 100 < 60)
+					icon_state = icon_state_charging + "40"
+				else if(cell.charge / cell.maxcharge * 100 < 80)
+					icon_state = icon_state_charging + "60"
+				else
+					icon_state = icon_state_charging + "80"
 				C.give(active_power_usage*CELLRATE*charging_efficiency)
+				
 				update_use_power(2)
 			else
 				icon_state = icon_state_charged
@@ -149,7 +159,7 @@
 
 /obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
 	if(charging)
-		icon_state = icon_state_charging
+		icon_state = icon_state_charging + "0"
 	else
 		icon_state = icon_state_idle
 
@@ -157,14 +167,13 @@
 	name = "wall recharger"
 	desc = "A heavy duty wall recharger specialized for energy weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "wrecharger0"
+	icon_state = "wrecharger_off"
 	active_power_usage = 75 KILOWATTS
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton
 	)
-	icon_state_charged = "wrecharger2"
-	icon_state_charging = "wrecharger1"
-	icon_state_idle = "wrecharger0"
+	icon_state_charged = "wrecharger100"
+	icon_state_charging = "wrecharger"
+	icon_state_idle = "wrecharger_off"
 	portable = 0
-	charging_efficiency = 1.3
