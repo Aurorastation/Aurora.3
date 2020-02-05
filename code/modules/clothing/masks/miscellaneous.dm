@@ -97,7 +97,7 @@
 	desc = "A simple lace mask worn by IPCs and organics alike while within the churches of the Trinary Perfection."
 	icon_state = "trinary_mask"
 	item_state = "trinary_mask"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
 	down_body_parts_covered = null
@@ -221,7 +221,7 @@
 		return
 	if(user.get_equipped_item(slot_wear_mask) != src)
 		return
-	
+
 	eye.possess(user)
 	to_chat(eye.owner, span("notice", "You feel disoriented for a moment as your mind connects to the camera network."))
 

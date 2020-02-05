@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "A religion tab in the loadout menu has been added. It could be used in the future for religious stuff."
+  - rscadd: "A religion tab in the loadout menu has been added. All Trinary related items are located inside, and could be used in the feature for other religions."
   - rscadd: "Following the Trinary Perfection rework, clothing related to it has been added."
   - rscadd: "A new antenna is available for the IPCs that serve the Trinary Perfection."
