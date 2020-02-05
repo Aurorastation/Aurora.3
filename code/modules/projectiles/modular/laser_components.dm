@@ -263,6 +263,13 @@
 	desc = "A modification that improves the fire delay of the prototype."
 	fire_delay = 0.5
 	gun_overlay = "grip"
+	icon_state = "grip"
+
+/obj/item/laser_components/modifier/grip/improved
+	name = "enhanced grip MK2"
+	desc = "A modification that improves the fire delay of the prototype. Slight improvement over a predecessor."
+	fire_delay = 0.7
+	gun_overlay = "grip"
 	icon_state = "enhanced_grip"
 
 /obj/item/laser_components/modifier/stock
@@ -276,7 +283,7 @@
 /obj/item/laser_components/modifier/stock/gyro
 	name = "stability stock"
 	desc = "A better version of na improved stock. This stock is more ergonomic, with in-built gyroscope increasing handly and accuracy."
-	fire_delay = 0.6
+	fire_delay = 0.7
 	accuracy = 1.5
 	icon_state = "stable_stock"
 

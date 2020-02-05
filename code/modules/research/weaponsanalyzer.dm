@@ -50,10 +50,13 @@
 		if(!assembly)
 			to_chat(user, span("warning", "\The [src] does not have any assembly installed!"))
 			return
+		if(process)
+			to_chat(user, span("warning", "\The [src] is busy installing component!"))
+			return
 		assembly.attackby(I, user)
 		playsound(loc, 'sound/machines/weapns_analyzer.ogg', 75, 1)
 		process = TRUE
-		addtimer(CALLBACK(src, .proc/reset), 40)
+		addtimer(CALLBACK(src, .proc/reset), 65)
 		update_icon()
 	else if(I)
 		item = I
@@ -86,18 +89,6 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))
 		return
 	
-	if(!gun)
-		to_chat(usr, span("warning", "There is no gun in \the [src]."))
-		return
-	
-	else if(!assembly)
-		to_chat(usr, span("warning", "There is no assembly in \the [src]."))
-		return
-	
-	else if(!item)
-		to_chat(usr, span("warning", "There is no item in \the [src]."))
-		return
-	
 	if(gun)
 		gun.forceMove(usr.loc)
 		gun = null
@@ -108,12 +99,14 @@
 		item = null
 		update_icon()
 
-	else
+	else if(assembly)
 		gun.forceMove(usr.loc)
 		assembly.ready_to_craft = FALSE
 		assembly.analyzer = null
 		assembly = null
 		update_icon()
+	else
+		to_chat(usr, span("warning", "There is nothing in \the [src]."))
 
 /obj/machinery/weapons_analyzer/update_icon()
 	icon_state = initial(icon_state)
@@ -122,10 +115,12 @@
 	var/icon/Icon_used
 
 	if(gun)
+		gun.update_icon()
 		icon_state = "[icon_state]_on"
 		Icon_used = new /icon(gun.icon, gun.icon_state)
 
 	else if(assembly)
+		assembly.update_icon()
 		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
 		Icon_used = new /icon(assembly.icon, assembly.icon_state)
 	else if(item)
@@ -134,7 +129,7 @@
 
 	if(Icon_used)
 		// Making gun sprite smaller and centering it where we want, cause dang they are thicc
-		Icon_used.Scale(round(Icon_used.Width() * 0.6), round(Icon_used.Height() * 0.6))
+		Icon_used.Scale(round(Icon_used.Width() * 0.75), round(Icon_used.Height() * 0.75))
 		var/image/gun_overlay = image(Icon_used)
 		gun_overlay.pixel_x += 7
 		gun_overlay.pixel_y += 8
