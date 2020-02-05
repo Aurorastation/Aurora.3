@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - tweak: "GPSes have a new UI, and only track tags you tell it to rather than everything."
