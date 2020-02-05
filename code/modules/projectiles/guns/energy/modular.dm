@@ -11,11 +11,7 @@
 	force = 10
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-<<<<<<< HEAD
-	can_turret = 1
-=======
 	can_turret = TRUE
->>>>>>> upstream/master
 	zoomdevicename = null
 	max_shots = 0
 	burst_delay = 0
