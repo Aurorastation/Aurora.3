@@ -5,7 +5,7 @@ var/list/admin_datums = list()
 	var/client/owner	= null
 	var/rights = 0
 	var/fakekey			= null
-	var/togantag = 0
+	var/toggleantagoocverb = 0
 	var/datum/marked_datum
 
 	var/mob/living/original_mob = null
@@ -61,12 +61,12 @@ var/list/admin_datums = list()
 	if (!admincaster_signature)
 		admincaster_signature = "[current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
 
-/datum/admins/proc/taooc()
-	if(togantag == 0)
-		togantag = 1
+/datum/admins/proc/ToggleAOOCDatum()
+	if(toggleantagoocverb == 0)
+		toggleantagoocverb = 1
 		return 0
 	else
-		togantag = 0
+		toggleantagoocverb = 0
 		return 1
 /*
 checks if usr is an admin with at least ONE of the flags in rights_required. (Note, they don't need all the flags)
@@ -115,6 +115,6 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 		//qdel(holder)
 	return 1
 
-/client/proc/tao()
+/client/proc/toggleantagooc()
 	if(holder)
-		return holder.taooc()
+		return holder.ToggleAOOCDatum()
