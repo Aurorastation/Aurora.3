@@ -11,7 +11,7 @@
 	display_name = "trinary perfection cape"
 	path = /obj/item/clothing/accessory/poncho/trinary
 
-/datum/gear/religion/triniary/badge
+/datum/gear/religion/trinary/badge
 	display_name = "trinary perfection brooch"
 	path = /obj/item/clothing/accessory/badge/trinary
 
