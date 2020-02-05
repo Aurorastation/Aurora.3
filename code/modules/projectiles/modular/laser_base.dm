@@ -1,6 +1,7 @@
 /obj/item/laser_components
-	icon = 'icons/obj/modular_laser.dmi'
+	icon = 'icons/obj/guns/modular_laser.dmi'
 	icon_state = "bfg"
+	contained_sprite = TRUE
 	var/reliability = 0
 	var/damage = 1
 	var/fire_delay = 0
@@ -8,7 +9,7 @@
 	var/shots = 0
 	var/burst = 0
 	var/accuracy = 0
-	var/obj/item/weapon/repair_item
+	var/obj/item/repair_item
 	var/gun_overlay
 
 /obj/item/laser_components/proc/degrade(var/increment = 1)
@@ -17,7 +18,7 @@
 		if(condition > reliability)
 			condition = reliability
 
-/obj/item/laser_components/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+/obj/item/laser_components/attackby(var/obj/item/D as obj, var/mob/user as mob)
 	if(!istype(D,repair_item))
 		return ..()
 	to_chat(user, "<span class='warning'>You begin repairing \the [src].</span>")
@@ -26,7 +27,7 @@
 	else
 		to_chat(user, "<span class='warning'>You fail to repair \the [src].</span>")
 
-/obj/item/laser_components/proc/repair_module(var/obj/item/weapon/D)
+/obj/item/laser_components/proc/repair_module(var/obj/item/D)
 	return 1
 
 /obj/item/laser_components/modifier
@@ -41,7 +42,7 @@
 	var/burst_delay = 0
 	var/scope_name
 	var/criticality
-	repair_item = /obj/item/weapon/weldingtool
+	repair_item = /obj/item/weldingtool
 
 /obj/item/laser_components/modifier/examine(mob/user)
 	. = ..(user, 1)
@@ -55,7 +56,7 @@
 		if(malus > abs(base_malus*2))
 			malus = abs(base_malus*2)
 
-/obj/item/laser_components/modifier/repair_module(var/obj/item/weapon/weldingtool/W)
+/obj/item/laser_components/modifier/repair_module(var/obj/item/weldingtool/W)
 	if(!istype(W))
 		return
 	if(malus == base_malus)
@@ -90,13 +91,13 @@
 		if(condition > 0)
 			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
 
-/obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
+/obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	return
 
-/obj/item/laser_components/capacitor/proc/medium_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
+/obj/item/laser_components/capacitor/proc/medium_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	return
 
-/obj/item/laser_components/capacitor/proc/critical_fail(var/mob/user, var/obj/item/weapon/gun/energy/laser/prototype/prototype)
+/obj/item/laser_components/capacitor/proc/critical_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	qdel(src)
 	return
 
@@ -139,8 +140,9 @@
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
 	w_class = 2
-	icon = 'icons/obj/modular_laser.dmi'
+	icon = 'icons/obj/guns/modular_laser.dmi'
 	icon_state = "small"
+	contained_sprite = TRUE
 	var/stage = 1
 	var/size = CHASSIS_SMALL
 	var/modifier_cap = 3
@@ -157,7 +159,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/device/laser_assembly/attackby(var/obj/item/weapon/D as obj, var/mob/user as mob)
+/obj/item/device/laser_assembly/attackby(var/obj/item/D as obj, var/mob/user as mob)
 	var/obj/item/laser_components/A = D
 	if(!istype(A))
 		return ..()
@@ -206,10 +208,14 @@
 		finish()
 
 /obj/item/device/laser_assembly/proc/finish()
+
 	var/obj/machinery/weapons_analyzer/an = analyzer.resolve()
 	if(!an)
 		return
-	var/obj/item/weapon/gun/energy/laser/prototype/A = new /obj/item/weapon/gun/energy/laser/prototype
+
+	var/obj/item/gun/energy/laser/prototype/A = new /obj/item/gun/energy/laser/prototype
+	A.icon_state = icon_state
+	A.modifystate = icon_state
 	A.origin_chassis = size
 	A.capacitor = capacitor
 	capacitor.forceMove(A)
@@ -222,8 +228,9 @@
 			var/obj/item/laser_components/modifier/mod = v
 			A.gun_mods += mod
 			mod.forceMove(A)
+			if(mod.gun_overlay)
+				A.underlays += mod.gun_overlay
 	A.forceMove(get_turf(src))
-	A.icon = getFlatIcon(src)
 	A.updatetype()
 	A.pin = null
 	gun_mods = null

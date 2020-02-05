@@ -15,7 +15,7 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "cellconsole"
 	light_color = LIGHT_COLOR_GREEN
-	circuit = /obj/item/weapon/circuitboard/cryopodcontrol
+	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = 0
 	interact_offline = 1
 	var/mode = null
@@ -34,7 +34,7 @@
 	desc = "An interface between crew and the robotic storage systems"
 	icon = 'icons/obj/robot_storage.dmi'
 	icon_state = "console"
-	circuit = /obj/item/weapon/circuitboard/robotstoragecontrol
+	circuit = /obj/item/circuitboard/robotstoragecontrol
 
 	storage_type = "cyborgs"
 	storage_name = "Robotic Storage Control"
@@ -130,12 +130,12 @@
 	src.updateUsrDialog()
 	return
 
-/obj/item/weapon/circuitboard/cryopodcontrol
+/obj/item/circuitboard/cryopodcontrol
 	name = "Circuit board (Cryogenic Oversight Console)"
 	build_path = "/obj/machinery/computer/cryopod"
 	origin_tech = list(TECH_DATA = 3)
 
-/obj/item/weapon/circuitboard/robotstoragecontrol
+/obj/item/circuitboard/robotstoragecontrol
 	name = "Circuit board (Robotic Storage Console)"
 	build_path = "/obj/machinery/computer/cryopod/robot"
 	origin_tech = list(TECH_DATA = 3)
@@ -168,28 +168,29 @@
 	var/allow_occupant_types = list(/mob/living/carbon/human)
 	var/disallow_occupant_types = list()
 
-	var/mob/occupant = null       // Person waiting to be despawned.
-	var/time_till_despawn = 9000  // 15 minutes-ish safe period before being despawned.
-	var/time_entered = 0          // Used to keep track of the safe period.
-	var/obj/item/device/radio/intercom/announce //
+	var/mob/occupant = null         // Person waiting to be despawned.
+	var/time_till_despawn = 1200     // Two minute safe period before being despawned.
+	var/time_till_force_cryo = 3000 // Five minutes safe period until they're despawned even if active.
+	var/time_entered = 0            // Used to keep track of the safe period.
+	var/obj/item/device/radio/intercom/announce
 
 	var/obj/machinery/computer/cryopod/control_computer
 	var/last_no_computer_message = 0
 
 	// These items are preserved when the process() despawn proc occurs.
 	var/list/preserve_items = list(
-		/obj/item/weapon/hand_tele,
-		/obj/item/weapon/card/id/captains_spare,
-		/obj/item/weapon/aicard,
+		/obj/item/hand_tele,
+		/obj/item/card/id/captains_spare,
+		/obj/item/aicard,
 		/obj/item/device/mmi,
 		/obj/item/device/paicard,
-		/obj/item/weapon/gun,
-		/obj/item/weapon/pinpointer,
+		/obj/item/gun,
+		/obj/item/pinpointer,
 		/obj/item/clothing/suit,
 		/obj/item/clothing/shoes/magboots,
 		/obj/item/blueprints,
 		/obj/item/clothing/head/helmet/space,
-		/obj/item/weapon/storage/internal
+		/obj/item/storage/internal
 	)
 
 /obj/machinery/cryopod/robot
@@ -216,6 +217,11 @@
 
 	icon_state = base_icon_state
 	find_control_computer()
+
+/obj/machinery/cryopod/examine(mob/user)
+	..(user)
+	if(occupant)
+		to_chat(user, "[occupant] [gender_datums[occupant.gender].is] inside \the [src].")
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
 	//control_computer = locate(/obj/machinery/computer/cryopod) in src.loc.loc
@@ -249,15 +255,17 @@
 //Lifted from Unity stasis.dm and refactored. ~Zuhayr
 /obj/machinery/cryopod/machinery_process()
 	if(occupant)
-		//Allow a ten minute gap between entering the pod and actually despawning.
+		//Allow a two minute gap between entering the pod and actually despawning.
 		if((world.time - time_entered < time_till_despawn) && occupant.ckey)
 			return
+		if(!control_computer)
+			if(!find_control_computer(urgent=1))
+				return
 
-		if(!occupant.client && occupant.stat<2) //Occupant is living and has no client.
-			if(!control_computer)
-				if(!find_control_computer(urgent=1))
-					return
+		if(!occupant.client && occupant.stat != DEAD) //Occupant is living and has no client.
+			despawn_occupant()
 
+		else if(world.time - time_entered > time_till_force_cryo)
 			despawn_occupant()
 
 // This function can not be undone; do not call this unless you are sure
@@ -284,7 +292,7 @@
 
 		if(W.contents.len) //Make sure we catch anything not handled by qdel() on the items.
 			for(var/obj/item/O in W.contents)
-				if(istype(O,/obj/item/weapon/storage/internal)) //Stop eating pockets, you fuck!
+				if(istype(O,/obj/item/storage/internal)) //Stop eating pockets, you fuck!
 					continue
 				O.forceMove(src)
 
@@ -328,7 +336,7 @@
 
 	set_occupant(null)
 
-/obj/machinery/cryopod/attackby(var/obj/item/weapon/grab/G, var/mob/user as mob)
+/obj/machinery/cryopod/attackby(var/obj/item/grab/G, var/mob/user as mob)
 
 	if(istype(G))
 
@@ -370,7 +378,7 @@
 			icon_state = occupied_icon_state
 
 			to_chat(M, "<span class='notice'>[on_enter_occupant_message]</span>")
-			to_chat(M, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
+			to_chat(M, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
 			time_entered = world.time
 
@@ -392,12 +400,15 @@
 		return
 	var/mob/living/L = O
 
+	if (!L.bucklecheck(user)) //We must make sure the person is unbuckled before they go in
+		return
+
 	if(L.stat == DEAD)
 		to_chat(user, "<span class='notice'>Dead people can not be put into stasis.</span>")
 		return
 	for(var/mob/living/carbon/slime/M in range(1,L))
-		if(M.Victim == L)
-			to_chat(usr, "[L.name] will not fit into the cryo pod because they have a slime latched onto their head.")
+		if(M.victim == L)
+			to_chat(usr, span("warning", "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."))
 			return
 
 	var/willing = null //We don't want to allow people to be forced into despawning.
@@ -432,7 +443,7 @@
 		icon_state = occupied_icon_state
 
 		to_chat(L, "<span class='notice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
-		to_chat(L, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
+		to_chat(L, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 		occupant = L
 		time_entered = world.time
 
@@ -483,8 +494,8 @@
 		return
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
-			to_chat(usr, "You're too busy getting your life sucked out of you.")
+		if(M.victim == usr)
+			to_chat(usr, span("warning", "You cannot do this while a slime is latched onto you!"))
 			return
 
 	usr.visible_message("<span class='notice'>[usr] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
@@ -508,7 +519,7 @@
 		icon_state = occupied_icon_state
 
 		to_chat(usr, "<span class='notice'>[on_enter_occupant_message]</span>")
-		to_chat(usr, "<span class='notice'><b>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</b></span>")
+		to_chat(usr, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 
 		time_entered = world.time
 

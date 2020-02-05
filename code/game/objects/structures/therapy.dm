@@ -27,10 +27,10 @@
 
 	. = ..()
 
-/obj/structure/bed/chair/e_chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/e_chair/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
-		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(loc, W.usesound, 50, 1)
 		C.set_dir(dir)
 		part.forceMove(get_turf(src))
 		part.master = null
@@ -63,16 +63,16 @@
 	flick("echair1", src)
 	spark(src, 12, alldirs)
 	if(buckled_mob && istype(C))
-		if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
+		if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
 			to_chat(buckled_mob, "<span class='danger'>You feel a deep shock course through your body!</span>")
 			sleep(1)
-			if(electrocute_mob(buckled_mob, C, src, 1.25, "head"))
+			if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
 				buckled_mob.Stun(PN.get_electrocute_damage()*10)
 	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
 
 	return
 
-/obj/item/weapon/mesmetron
+/obj/item/mesmetron
 	name = "mesmetron pocketwatch"
 	desc = "An elaborate pocketwatch, with captivating gold etching and an enchanting face. . ."
 	icon = 'icons/obj/items.dmi'
@@ -82,12 +82,12 @@
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 
-/obj/item/weapon/mesmetron/Destroy()
+/obj/item/mesmetron/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
 	thrall = null
 	. = ..()
 
-/obj/item/weapon/mesmetron/process()
+/obj/item/mesmetron/process()
 	if (!thrall)
 		STOP_PROCESSING(SSfast_process, src)
 		return
@@ -112,7 +112,7 @@
 	else
 		STOP_PROCESSING(SSfast_process, src)
 
-/obj/item/weapon/mesmetron/attack_self(mob/user as mob)
+/obj/item/mesmetron/attack_self(mob/user as mob)
 	if(!thrall || !thrall.resolve())
 		thrall = null
 		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
@@ -142,7 +142,7 @@
 		else
 			thrall = null
 
-/obj/item/weapon/mesmetron/afterattack(mob/living/carbon/human/H, mob/user, proximity)
+/obj/item/mesmetron/afterattack(mob/living/carbon/human/H, mob/user, proximity)
 	if(!proximity)
 		return
 
@@ -185,9 +185,9 @@
 	. = ..()
 	START_PROCESSING(SSfast_process, src)
 
-/obj/structure/metronome/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/metronome/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.iswrench())
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(src.loc, W.usesound, 50, 1)
 		if(anchored)
 			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
 			STOP_PROCESSING(SSfast_process, src)
@@ -238,6 +238,12 @@
 	var/datum/weakref/occupant = null
 	var/locked
 	var/obj/machinery/chakraconsole/connected
+
+	component_types = list(
+			/obj/item/circuitboard/crystelpod,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module = 2
+		)
 
 /obj/machinery/chakrapod/Destroy()
 	if (connected)
@@ -299,8 +305,6 @@
 	update_use_power(2)
 	flick("[initial(icon_state)]-anim", src)
 	update_icon()
-	for(var/obj/O in src)
-		O.forceMove(get_turf(src))
 	src.add_fingerprint(usr)
 	return
 
@@ -316,8 +320,6 @@
 		if(!do_after(H, 1200))
 			return
 
-	for(var/obj/O in src)
-		O.forceMove(get_turf(src))
 	if (H.client)
 		H.client.eye = H.client.mob
 		H.client.perspective = MOB_PERSPECTIVE
@@ -328,7 +330,7 @@
 	update_icon()
 	return
 
-/obj/machinery/chakrapod/attackby(obj/item/weapon/grab/G, mob/user)
+/obj/machinery/chakrapod/attackby(obj/item/grab/G, mob/user)
 	if (!istype(G) || !ishuman(G.affecting))
 		return
 	if (occupant)
@@ -362,8 +364,6 @@
 		update_use_power(2)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
-		for(var/obj/O in src)
-			O.forceMove(get_turf(src))
 
 	src.add_fingerprint(user)
 	qdel(G)
@@ -404,8 +404,6 @@
 		update_use_power(2)
 		flick("[initial(icon_state)]-anim", src)
 		update_icon()
-		for(var/obj/Obj in src)
-			Obj.forceMove(get_turf(src))
 	src.add_fingerprint(user)
 	return
 
@@ -419,6 +417,11 @@
 	var/obj/machinery/chakrapod/connected
 	var/crystal = 0
 	var/working = 0
+	component_types = list(
+			/obj/item/circuitboard/crystelpodconsole,
+			/obj/item/stock_parts/capacitor = 1,
+			/obj/item/stock_parts/scanning_module = 2
+		)
 
 /obj/machinery/chakraconsole/ex_act(severity)
 
@@ -496,7 +499,7 @@
 			if("Initiate Neural Scan")
 				visible_message("<span class='warning'>[connected] begins humming with an electrical tone.</span>", "<span class='warning'>You hear an electrical humming.</span>")
 				if(H && connected.occupant.resolve() == H)
-					var/obj/item/organ/brain/sponge = H.internal_organs_by_name["brain"]
+					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 					var/retardation = H.getBrainLoss()
 					if(sponge && istype(sponge))
 						if(!sponge.lobotomized)
@@ -552,7 +555,7 @@
 			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
 			break
 
-		var/obj/item/organ/brain/sponge = H.internal_organs_by_name["brain"]
+		var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 		if (!istype(sponge) || !sponge.traumas.len)
 			if(get_dist(user,src) <= 1)
 				to_chat(user, "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>")

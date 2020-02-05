@@ -21,9 +21,13 @@
 	display_name = "monocle"
 	path = /obj/item/clothing/glasses/monocle
 
-/datum/gear/eyes/glasses/goggles
-	display_name = "goggles"
-	path = /obj/item/clothing/glasses/goggles
+/datum/gear/eyes/glasses/safety
+	display_name = "safety glasses"
+	path = /obj/item/clothing/glasses/safety
+
+/datum/gear/eyes/glasses/safety/goggles
+	display_name = "safety goggles"
+	path = /obj/item/clothing/glasses/safety/goggles
 
 /datum/gear/eyes/scanning_goggles
 	display_name = "scanning goggles"
@@ -60,7 +64,7 @@
 /datum/gear/eyes/medical
 	display_name = "medical HUD"
 	path = /obj/item/clothing/glasses/hud/health
-	allowed_roles = list("Medical Doctor", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Resident")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Resident")
 
 /datum/gear/eyes/medical/aviator
 	display_name = "aviators, medical"
@@ -104,7 +108,7 @@
 /datum/gear/eyes/medpatch
 	display_name = "HUDpatch, Medical"
 	path = /obj/item/clothing/glasses/eyepatch/hud/medical
-	allowed_roles = list("Medical Doctor", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Resident")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Resident")
 	cost = 2
 
 /datum/gear/eyes/mespatch
@@ -133,3 +137,7 @@
 /datum/gear/eyes/spiffygogs
 	display_name = "orange goggles"
 	path = /obj/item/clothing/glasses/spiffygogs
+
+/datum/gear/eyes/circuitry
+	display_name = "goggles, circuitry (empty)"
+	path = /obj/item/clothing/glasses/circuitry

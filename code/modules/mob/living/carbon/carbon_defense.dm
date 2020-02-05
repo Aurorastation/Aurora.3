@@ -19,19 +19,19 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message(span("danger", "[src] was hit by [AM] waking [t_him] up!"))
+			visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
-			visible_message(span("danger","[src] was hit by [AM], but they do not respond... Maybe they have S.S.D?"))
+			visible_message(span("danger","[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		visible_message(span("danger", "[src] was hit by [AM] waking [t_him] up!"))
+		visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 /mob/living/carbon/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..(P, def_zone)
@@ -51,7 +51,7 @@
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
@@ -59,7 +59,7 @@
 	else if(client && willfully_sleeping)
 		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 /mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
 	var/t_him = "it"
@@ -77,17 +77,17 @@
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
-			user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-					    "<span class='danger'>You attacked [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
+			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [t_him] up!</span>", \
+					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
 		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
-				    "<span class='danger'>You attacked [src] with [I] waking [t_him] up!</span>")
+				    "<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 
 	if(!effective_force || blocked >= 100)
@@ -126,14 +126,14 @@
 // Attacking someone with a weapon while they are neck-grabbed
 /mob/living/carbon/proc/check_attack_throat(obj/item/W, mob/user)
 	if(user.a_intent == I_HURT)
-		for(var/obj/item/weapon/grab/G in src.grabbed_by)
+		for(var/obj/item/grab/G in src.grabbed_by)
 			if(G.assailant == user && G.state >= GRAB_NECK)
 				if(attack_throat(W, G, user))
 					return 1
 	return 0
 
 // Knifing
-/mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/weapon/grab/G, mob/user)
+/mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/grab/G, mob/user)
 
 	if(!W.edge || !W.force || W.damtype != BRUTE)
 		return 0 //unsuitable weapon
@@ -141,7 +141,7 @@
 	user.visible_message("<span class='danger'>\The [user] begins to slit [src]'s throat with \the [W]!</span>")
 
 	user.next_move = world.time + 20 //also should prevent user from triggering this repeatedly
-	if(!do_after(user, 20))
+	if(!do_after(user, 20/W.toolspeed))
 		return 0
 	if(!(G && G.assailant == user && G.affecting == src)) //check that we still have a grab
 		return 0
@@ -156,7 +156,7 @@
 	var/total_damage = 0
 	for(var/i in 1 to 3)
 		var/damage = min(W.force*1.5, 20)*damage_mod
-		apply_damage(damage, W.damtype, "head", 0, sharp=W.sharp, edge=W.edge)
+		apply_damage(damage, W.damtype, BP_HEAD, 0, sharp=W.sharp, edge=W.edge)
 		total_damage += damage
 
 	var/oxyloss = total_damage
@@ -166,13 +166,19 @@
 	adjustOxyLoss(min(oxyloss, 100 - getOxyLoss())) //don't put them over 100 oxyloss
 
 	if(total_damage)
-		if(oxyloss >= 40)
-			user.visible_message("<span class='danger'>\The [user] slit [src]'s throat open with \the [W]!</span>")
+		if(getOxyLoss() >= 40)
+			user.visible_message("<span class='danger'>\The [user] slices [src]'s throat open with \the [W]!</span>")
 		else
-			user.visible_message("<span class='danger'>\The [user] cut [src]'s neck with \the [W]!</span>")
+			user.visible_message("<span class='danger'>\The [user] cuts [src]'s neck open with \the [W]!</span>")
 
 		if(W.hitsound)
 			playsound(loc, W.hitsound, 50, 1, -1)
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		var/obj/item/organ/external/head = H.get_organ("head")
+		if(head)
+			head.sever_artery()
 
 	G.last_action = world.time
 	flick(G.hud.icon_state, G.hud)
@@ -181,3 +187,23 @@
 	src.attack_log += "\[[time_stamp()]\]<font color='orange'> Got knifed by [user.name] ([user.ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"
 	msg_admin_attack("[key_name_admin(user)] knifed [key_name_admin(src)] with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])",ckey=key_name(user),ckey_target=key_name(src) )
 	return 1
+
+/mob/living/carbon/Stun(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Weaken(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Paralyse(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Sleeping(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Resting(amount)
+	help_up_offer = 0
+	..()

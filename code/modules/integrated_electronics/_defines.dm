@@ -43,7 +43,7 @@
 /obj/item/integrated_circuit
 	name = "integrated circuit"
 	desc = "It's a tiny chip!  This one doesn't seem to do much, however."
-	icon = 'icons/obj/electronic_assemblies.dmi'
+	icon = 'icons/obj/assemblies/electronic_components.dmi'
 	icon_state = "template"
 	w_class = ITEMSIZE_TINY
 	var/obj/item/device/electronic_assembly/assembly // Reference to the assembly holding this circuit, if any.

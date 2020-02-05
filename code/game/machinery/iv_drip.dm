@@ -4,11 +4,11 @@
 	anchored = 0
 	density = 1
 
-
-/obj/machinery/iv_drip/var/mob/living/carbon/human/attached = null
-/obj/machinery/iv_drip/var/mode = 1 // 1 is injecting, 0 is taking blood.
-/obj/machinery/iv_drip/var/transfer_amount = REM
-/obj/machinery/iv_drip/var/obj/item/weapon/reagent_containers/beaker = null
+	var/mob/living/carbon/human/attached = null
+	var/mode = 1 // 1 is injecting, 0 is taking blood.
+	var/transfer_amount = REM
+	var/obj/item/reagent_containers/beaker = null
+	var/blood_message_sent = FALSE
 
 /obj/machinery/iv_drip/update_icon()
 	if(src.attached)
@@ -40,9 +40,10 @@
 	..()
 
 	if(attached)
-		visible_message("[src.attached] is detached from \the [src]")
+		visible_message("[src.attached] is detached from \the [src].")
 		src.attached = null
 		src.update_icon()
+		blood_message_sent = FALSE
 		return
 
 	if(in_range(src, usr) && ishuman(over_object) && get_dist(over_object, src) <= 1)
@@ -51,12 +52,12 @@
 		src.update_icon()
 
 
-/obj/machinery/iv_drip/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/iv_drip/attackby(obj/item/W as obj, mob/user as mob)
 
-	if (istype(W, /obj/item/weapon/reagent_containers/blood/ripped))
+	if (istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return
-	if (istype(W, /obj/item/weapon/reagent_containers))
+	if (istype(W, /obj/item/reagent_containers))
 		if(!isnull(src.beaker))
 			to_chat(user, "There is already a reagent container loaded!")
 			return
@@ -76,8 +77,8 @@
 	if(src.attached)
 
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
-			var/obj/item/organ/external/affecting = src.attached:get_organ(pick("r_arm", "l_arm"))
-			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == "r_arm" ? "right arm" : "left arm"].</span>")
+			var/obj/item/organ/external/affecting = src.attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
+			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
 			affecting.take_damage(brute = 5, sharp = 1)
 			src.attached = null
 			src.update_icon()
@@ -111,16 +112,18 @@
 			amount = min(amount, 4)
 			// If the beaker is full, ping
 			if(amount == 0)
-				if(prob(5)) visible_message("\The [src] pings.")
+				if(prob(5)) 
+					visible_message("\The [src] pings.")
 				return
 
-			// If the human is losing too much blood, beep.
-			if(T.vessel.get_reagent_amount("blood") < BLOOD_VOLUME_SAFE) if(prob(5))
-				visible_message("<span class='warning'>\The [src] beeps loudly.</span>")
+			if(T.get_blood_volume() < 90 && !blood_message_sent)
+				visible_message("\icon[src] \The <b>[src]</b> flashes a warning light!")
+				playsound(src, 'sound/machines/buzz-two.ogg', 50)
+				blood_message_sent = TRUE
 
 			var/datum/reagent/B = T.take_blood(beaker,amount)
 
-			if (B)
+			if(B)
 				beaker.reagents.reagent_list |= B
 				beaker.reagents.update_total()
 				beaker.on_reagent_change()

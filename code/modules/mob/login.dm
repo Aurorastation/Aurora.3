@@ -24,8 +24,6 @@
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).",ckey=key_name(src))
 
 /mob/Login()
-	client.InitClient()
-	client.InitPrefs() // Init perfs in case they wasn't initilized
 	player_list |= src
 	update_Login_details()
 	SSfeedback.update_status()
@@ -42,6 +40,8 @@
 	disconnect_time = null
 	..()
 
+	player_age = client.player_age
+
 	if(loc && !isturf(loc))
 		client.eye = loc
 		client.perspective = EYE_PERSPECTIVE
@@ -49,9 +49,11 @@
 		client.eye = src
 		client.perspective = MOB_PERSPECTIVE
 
+	if(eyeobj)
+		eyeobj.possess(src)
+
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
 	MOB_STOP_THINKING(src)
 
 	update_client_color()
-	testing("mob_login - end")

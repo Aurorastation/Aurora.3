@@ -1,4 +1,4 @@
-/obj/item/weapon/pinpointer
+/obj/item/pinpointer
 	name = "pinpointer"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "pinoff"
@@ -9,10 +9,10 @@
 	throw_speed = 4
 	throw_range = 20
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
-	var/obj/item/weapon/disk/nuclear/the_disk = null
+	var/obj/item/disk/nuclear/the_disk = null
 	var/active = 0
 
-/obj/item/weapon/pinpointer/attack_self()
+/obj/item/pinpointer/attack_self()
 	if(!active)
 		active = 1
 		START_PROCESSING(SSfast_process, src)
@@ -23,13 +23,13 @@
 		icon_state = "pinoff"
 		to_chat(usr, "<span>You deactivate the pinpointer</span>")
 
-/obj/item/weapon/pinpointer/process()
+/obj/item/pinpointer/process()
 	if (active)
 		workdisk()
 	else
 		STOP_PROCESSING(SSfast_process, src)
 
-/obj/item/weapon/pinpointer/proc/workdisk()
+/obj/item/pinpointer/proc/workdisk()
 	if(!active) return
 	if(!the_disk)
 		the_disk = locate()
@@ -46,19 +46,20 @@
 			icon_state = "pinonmedium"
 		if(16 to INFINITY)
 			icon_state = "pinonfar"
+	return TRUE
 
-/obj/item/weapon/pinpointer/examine(mob/user)
+/obj/item/pinpointer/examine(mob/user)
 	..(user)
 	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.all_machines)
 		if(bomb.timing)
 			to_chat(user, "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]")
 
-/obj/item/weapon/pinpointer/Destroy()
+/obj/item/pinpointer/Destroy()
 	active = 0
 	STOP_PROCESSING(SSfast_process, src)
 	return ..()
 
-/obj/item/weapon/pinpointer/advpinpointer
+/obj/item/pinpointer/advpinpointer
 	name = "Advanced Pinpointer"
 	icon = 'icons/obj/device.dmi'
 	desc = "A larger version of the normal pinpointer, this unit features a helpful quantum entanglement detection system to locate various objects that do not broadcast a locator signal."
@@ -66,7 +67,7 @@
 	var/turf/location = null
 	var/obj/target = null
 
-/obj/item/weapon/pinpointer/advpinpointer/attack_self()
+/obj/item/pinpointer/advpinpointer/attack_self()
 	if(!active)
 		active = 1
 		if(mode == 0)
@@ -80,9 +81,10 @@
 	else
 		active = 0
 		icon_state = "pinoff"
+		cut_overlays()
 		to_chat(usr, "<span class='notice'>You deactivate the pinpointer</span>")
 
-/obj/item/weapon/pinpointer/advpinpointer/process()
+/obj/item/pinpointer/advpinpointer/process()
 	switch(mode)
 		if (0)
 			workdisk()
@@ -91,7 +93,7 @@
 		if (2)
 			workobj()
 
-/obj/item/weapon/pinpointer/advpinpointer/proc/worklocation()
+/obj/item/pinpointer/advpinpointer/proc/worklocation()
 	if(!active)
 		STOP_PROCESSING(SSfast_process, src)
 		return
@@ -99,6 +101,7 @@
 		icon_state = "pinonnull"
 		return
 	set_dir(get_dir(src,location))
+	set_z_overlays(location)
 	switch(get_dist(src,location))
 		if(0)
 			icon_state = "pinondirect"
@@ -109,7 +112,24 @@
 		if(16 to INFINITY)
 			icon_state = "pinonfar"
 
-/obj/item/weapon/pinpointer/advpinpointer/proc/workobj()
+/obj/item/pinpointer/advpinpointer/proc/set_z_overlays(var/atom/target)
+	cut_overlays()
+	if(AreConnectedZLevels(src.loc.z, target.z))
+		if(src.loc.z > target.z)
+			add_overlay("pinzdown")
+		else if(src.loc.z < target.z)
+			add_overlay("pinzup")
+	else
+		active = 0
+		if(ismob(loc))
+			var/mob/holder = loc
+			to_chat(holder, "<span class='notice>\The [src] cannot locate chosen target, shutting down.</span>")
+
+/obj/item/pinpointer/advpinpointer/workdisk()
+	if(..())
+		set_z_overlays(the_disk)
+
+/obj/item/pinpointer/advpinpointer/proc/workobj()
 	if(!active)
 		STOP_PROCESSING(SSfast_process, src)
 		return
@@ -117,6 +137,7 @@
 		icon_state = "pinonnull"
 		return
 	set_dir(get_dir(src,target))
+	set_z_overlays(target)
 	switch(get_dist(src,target))
 		if(0)
 			icon_state = "pinondirect"
@@ -127,7 +148,7 @@
 		if(16 to INFINITY)
 			icon_state = "pinonfar"
 
-/obj/item/weapon/pinpointer/advpinpointer/verb/toggle_mode()
+/obj/item/pinpointer/advpinpointer/verb/toggle_mode()
 	set category = "Object"
 	set name = "Toggle Pinpointer Mode"
 	set src in view(1)
@@ -194,11 +215,11 @@
 ///////////////////////
 
 
-/obj/item/weapon/pinpointer/nukeop
+/obj/item/pinpointer/nukeop
 	var/mode = 0	//Mode 0 locates disk, mode 1 locates the shuttle
 	var/obj/machinery/computer/shuttle_control/multi/syndicate/home = null
 
-/obj/item/weapon/pinpointer/nukeop/attack_self(mob/user as mob)
+/obj/item/pinpointer/nukeop/attack_self(mob/user as mob)
 	if(!active)
 		active = 1
 		START_PROCESSING(SSfast_process, src)
@@ -214,13 +235,13 @@
 		icon_state = "pinoff"
 		to_chat(user, "<span class='notice'>You deactivate the pinpointer.</span>")
 
-/obj/item/weapon/pinpointer/nukeop/process()
+/obj/item/pinpointer/nukeop/process()
 	if (mode)
 		workdisk()
 	else
 		worklocation()
 
-/obj/item/weapon/pinpointer/nukeop/workdisk()
+/obj/item/pinpointer/nukeop/workdisk()
 	if(!active) return
 	if(mode)		//Check in case the mode changes while operating
 		worklocation()
@@ -250,7 +271,7 @@
 		if(16 to INFINITY)
 			icon_state = "pinonfar"
 
-/obj/item/weapon/pinpointer/nukeop/proc/worklocation()
+/obj/item/pinpointer/nukeop/proc/worklocation()
 	if(!active)	return
 	if(!mode)
 		workdisk()

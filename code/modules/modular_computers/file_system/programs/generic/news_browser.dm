@@ -4,8 +4,8 @@
 	extended_desc = "This program may be used to view and download news articles from the network."
 	program_icon_state = "generic"
 	size = 8
-	requires_ntnet = 1
-	available_on_ntnet = 1
+	requires_ntnet = TRUE
+	available_on_ntnet = TRUE
 
 	nanomodule_path = /datum/nano_module/program/computer_newsbrowser/
 	var/datum/computer_file/data/news_article/loaded_article
@@ -72,7 +72,7 @@
 		var/savename = sanitize(input(usr, "Enter file name or leave blank to cancel:", "Save article", loaded_article.filename))
 		if(!savename)
 			return 1
-		var/obj/item/weapon/computer_hardware/hard_drive/HDD = computer.hard_drive
+		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
 			return 1
 		var/datum/computer_file/data/news_article/N = loaded_article.clone()
@@ -93,7 +93,7 @@
 	var/datum/computer_file/program/newsbrowser/PRG
 	var/list/data = list()
 	if(program)
-		data = program.get_header_data()
+		data = list("_PC" = program.get_header_data())
 		PRG = program
 	else
 		return

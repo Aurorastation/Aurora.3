@@ -20,13 +20,13 @@
 				qdel(src)
 	return
 
-/obj/effect/spider/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/effect/spider/attackby(var/obj/item/W, var/mob/user)
 	visible_message("<span class='warning'>[src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]</span>")
 
 	var/damage = W.force / 4.0
 
 	if(W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
 			damage = 15
@@ -60,7 +60,7 @@
 
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
-	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
+	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider) || istype(mover,/mob/living/simple_animal/hostile/spider_queen))
 		return 1
 	else if(istype(mover, /mob/living))
 		if(prob(50))

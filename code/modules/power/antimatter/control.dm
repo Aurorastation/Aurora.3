@@ -15,7 +15,7 @@
 
 	var/list/obj/machinery/am_shielding/linked_shielding
 	var/list/obj/machinery/am_shielding/linked_cores
-	var/obj/item/weapon/am_containment/fueljar
+	var/obj/item/am_containment/fueljar
 	var/update_shield_icons = 0
 	var/stability = 100
 	var/exploding = 0
@@ -148,7 +148,7 @@
 		return
 	if(W.iswrench())
 		if(!anchored)
-			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(get_turf(src), W.usesound, 75, 1)
 			user.visible_message("[user.name] secures the [src.name] to the floor.", \
 				"You secure the anchor bolts to the floor.", \
 				"You hear a ratchet")
@@ -157,7 +157,7 @@
 			check_shield_icons()
 			connect_to_network()
 		else if(!linked_shielding.len > 0)
-			playsound(get_turf(src), 'sound/items/Ratchet.ogg', 75, 1)
+			playsound(get_turf(src), W.usesound, 75, 1)
 			user.visible_message("[user.name] unsecures the [src.name].", \
 				"You remove the anchor bolts.", \
 				"You hear a ratchet")
@@ -167,7 +167,7 @@
 			to_chat(user, "<span class='warning'>Once bolted and linked to a shielding unit it the [src.name] is unable to be moved!</span>")
 		return
 
-	if(istype(W, /obj/item/weapon/am_containment))
+	if(istype(W, /obj/item/am_containment))
 		if(fueljar)
 			to_chat(user, "<span class='warning'>There is already a [fueljar] inside!</span>")
 			return

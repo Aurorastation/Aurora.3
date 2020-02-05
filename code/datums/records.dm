@@ -5,6 +5,7 @@
 
 	var/cmp_field = "id"
 	var/list/excluded_fields
+	var/list/excluded_print_fields
 
 /datum/record/New()
 	..()
@@ -12,6 +13,10 @@
 	excluded_fields = list()
 	for(var/f in tmp_ex)
 		excluded_fields[f] = f
+	tmp_ex = excluded_print_fields
+	excluded_print_fields = list()
+	for(var/f in tmp_ex)
+		excluded_print_fields[f] = f
 
 /datum/record/proc/Copy(var/datum/copied)
 	if(!copied)
@@ -60,20 +65,46 @@
 				else if(!to_update)
 					record[variable] = src.vars[variable]
 
+
+/datum/record/proc/Printify(var/list/excluded = list()) // Mostyl to support old things or to use with serialization
+	. = ""
+	var/tmp_ex = excluded
+	excluded = list()
+	for(var/e in tmp_ex)
+		excluded[e] = e
+	var/exclusions = (SSrecords.excluded_fields | src.excluded_fields | excluded | src.excluded_print_fields)
+	var/extendedVars = list() // To put last
+	for(var/variable in src.vars)
+		if(!exclusions[variable])
+			if(istype(src.vars[variable], /datum/record))
+				extendedVars[variable] = src.vars[variable]
+				// . += "<h3>[variable]</h3>"
+				// . += src.vars[variable].Printify()
+			else if(istype(src.vars[variable], /list))
+				. += "<b>[get_field_name(variable)]:</b><br>"
+				. += jointext(src.vars[variable], "<br>")
+			else if(istext(src.vars[variable]) || isnum(src.vars[variable]))
+				. += "<b>[get_field_name(variable)]:</b> [src.vars[variable]]<br>"
+	for(var/variable in extendedVars)
+		. += "<center><h3>[get_field_name(variable)]</h3></center>"
+		. += src.vars[variable].Printify()
+
+/datum/record/proc/get_field_name(var/field)
+	. = SSrecords.localized_fields[src.type][field]
+	if(!.)
+		return capitalize(replacetext(field, "_", " "))
+
 // Record for storing general data, data tree top level datum
 /datum/record/general
-	var/datum/record/medical/medical
-	var/datum/record/security/security
 	var/name = "New Record"
 	var/real_rank = "Unassigned"
 	var/rank = "Unassigned"
 	var/age = 0
 	var/sex = "Unknown"
 	var/fingerprint = "Unknown"
-	var/phisical_status = "Active"
+	var/physical_status = "Active"
 	var/mental_status = "Stable"
 	var/species = "Unknown"
-	var/home_system = "Unknown"
 	var/citizenship = "Unknown"
 	var/employer = "Unknown"
 	var/religion = "Unknown"
@@ -81,9 +112,12 @@
 	var/list/ccia_actions = list()
 	var/icon/photo_front
 	var/icon/photo_side
-	var/list/advanced_fields = list("species", "home_system", "citizenship", "faction", "religion", "ccia_record", "ccia_actions")
+	var/datum/record/medical/medical
+	var/datum/record/security/security
+	var/list/advanced_fields = list("species", "citizenship", "employer", "religion", "ccia_record", "ccia_actions")
 	cmp_field = "name"
-	excluded_fields = list("photo_front", "photo_side", "advanced_fields")
+	excluded_fields = list("photo_front", "photo_side", "advanced_fields", "real_rank")
+	excluded_print_fields = list("ccia_actions")
 
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
 	..()
@@ -105,10 +139,9 @@
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.gender
 		species = H.get_species()
-		home_system = H.home_system
 		citizenship = H.citizenship
 		employer = H.employer_faction
-		religion = H.religion
+		religion = SSrecords.get_religion_record_name(H.religion)
 		ccia_record = H.ccia_record
 		ccia_actions = H.ccia_actions
 		if(H.gen_record && !jobban_isbanned(H, "Records"))
@@ -157,7 +190,7 @@
 // Record for storing security data
 /datum/record/security
 	var/criminal = "None"
-	var/crimes = "There is no crime convictions."
+	var/crimes = "No criminal record."
 	var/list/incidents = list()
 	var/list/comments = list()
 

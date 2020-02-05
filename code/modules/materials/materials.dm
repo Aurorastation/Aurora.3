@@ -6,7 +6,7 @@
 
 	PATHS THAT USE DATUMS
 		turf/simulated/wall
-		obj/item/weapon/material
+		obj/item/material
 		obj/structure/barricade
 		obj/item/stack/material
 		obj/structure/table
@@ -184,6 +184,8 @@ var/list/name_to_material
 		if ("vaurca")
 			wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
 			skip_blend = TRUE
+		if ("shuttle")
+			skip_blend = TRUE
 		else
 			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
 
@@ -249,7 +251,7 @@ var/list/name_to_material
 // As above.
 /material/proc/place_shard(var/turf/target)
 	if(shard_type)
-		return new /obj/item/weapon/material/shard(target, src.name)
+		return new /obj/item/material/shard(target, src.name)
 
 // Used by walls and weapons to determine if they break or not.
 /material/proc/is_brittle()
@@ -282,8 +284,8 @@ var/list/name_to_material
 	reflectivity = 0.6
 	conductivity = 1
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
-	hitsound = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
+	hitsound = 'sound/effects/glass_hit.ogg'
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
 	golem = "Diamond Golem"
@@ -293,7 +295,7 @@ var/list/name_to_material
 	stack_type = /obj/item/stack/material/gold
 	icon_colour = "#EDD12F"
 	weight = 30
-	hardness = 15 
+	hardness = 15
 	conductivity = 41
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	sheet_singular_name = "ingot"
@@ -395,7 +397,12 @@ var/list/name_to_material
 	icon_colour = null
 	stack_type = null
 	icon_base = "biomass"
-	integrity = 600
+	integrity = 100
+	// below is same as wood
+	melting_point = T0C + 300
+	ignition_point = T0C + 288
+	golem = "Wood Golem"
+	hitsound = 'sound/effects/woodhit.ogg'
 
 /material/diona/place_dismantled_product()
 	return
@@ -449,7 +456,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 30
 	weight = 15
 	protectiveness = 0 // 0%
@@ -543,7 +550,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -562,7 +569,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -665,22 +672,17 @@ var/list/name_to_material
 	hitsound = 'sound/weapons/smash.ogg'
 
 // Adminspawn only, do not let anyone get this.
-/material/voxalloy
-	name = "voxalloy"
-	display_name = "durable alloy"
-	stack_type = null
-	icon_colour = "#6C7364"
-	integrity = 1200
-	melting_point = 6000       // Hull plating.
-	explosion_resistance = 200 // Hull plating.
-	hardness = 500
-	weight = 500
-	protectiveness = 80 // 80%
-
-/material/voxalloy/elevatorium
+/material/elevatorium
 	name = "elevatorium"
 	display_name = "elevator panelling"
+	stack_type = null
 	icon_colour = "#666666"
+	integrity = 1200
+	melting_point = 6000
+	explosion_resistance = 200
+	hardness = 500
+	weight = 500
+	protectiveness = 80
 
 /material/wood
 	name = "wood"
@@ -705,6 +707,37 @@ var/list/name_to_material
 	sheet_plural_name = "planks"
 	golem = "Wood Golem"
 	hitsound = 'sound/effects/woodhit.ogg'
+
+/material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
+	name = "log"
+	stack_type = /obj/item/stack/material/woodlog
+	icon_colour = "#824B28"
+	integrity = 50
+	icon_base = "solid"
+	explosion_resistance = 4
+	hardness = 30
+	weight = 30 //Logs are heavier then normal pieces of wood
+	conductivity = 0.8
+	melting_point = T0C+380
+	ignition_point = T0C+328
+	destruction_desc = "splinters"
+	sheet_singular_name = "log"
+	sheet_plural_name = "logs"
+
+/material/wood/branch
+	name = "branch"
+	stack_type = /obj/item/stack/material/woodbranch
+	icon_colour = "#824B28"
+	integrity = 50
+	icon_base = "solid"
+	explosion_resistance = 0
+	hardness = 0.1
+	weight = 7
+	melting_point = T0C+220
+	ignition_point = T0C+218
+	sheet_singular_name = "branch"
+	sheet_plural_name = "branch"
+
 
 /material/rust
 	name = "rust"
@@ -976,3 +1009,16 @@ var/list/name_to_material
 	weight = 23
 	protectiveness = 20 // 50%
 	conductivity = 10
+
+/material/shuttle
+	name = "shuttle"
+	display_name = "spaceship alloy"
+	stack_type = null
+	icon_colour = "#6C7364"
+	icon_base = "shuttle"
+	integrity = 1200
+	melting_point = 6000       // Hull plating.
+	explosion_resistance = 200 // Hull plating.
+	hardness = 500
+	weight = 500
+	protectiveness = 80 // 80%

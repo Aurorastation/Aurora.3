@@ -63,7 +63,7 @@
 	if(!istype(PRG))
 		return
 
-	data = PRG.get_header_data()
+	data = list("_PC" = PRG.get_header_data())
 
 	data["armed"] = PRG.armed
 

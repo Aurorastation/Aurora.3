@@ -33,10 +33,13 @@
 
 	allowed_role_types = list(
 		/datum/job/officer,
+		/datum/job/detective,
+		/datum/job/forensics,
 		/datum/job/bartender,
 		/datum/job/chef,
 		/datum/job/hydro,
 		/datum/job/cargo_tech,
+		/datum/job/qm,
 		/datum/job/representative
 	)
 
@@ -44,47 +47,70 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/tajaran
+		/datum/species/tajaran,
+		/datum/species/diona
 	)
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/idris,
+		"Forensic Technician" = /datum/outfit/job/forensics/idris,
+		"Crime Scene Investigator" = /datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
+		"Cook" = /datum/outfit/job/chef/idris,
+		"Detective" = /datum/outfit/job/detective/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
+		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Cargo Technician" = /datum/outfit/job/cargo_tech/idris,
+		"Quartermaster" = /datum/outfit/job/qm/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 	uniform = /obj/item/clothing/under/rank/security/idris
-	id = /obj/item/weapon/card/id/idris/sec
+	id = /obj/item/card/id/idris/sec
+
+/datum/outfit/job/detective/idris
+	name = "Detective - Idris"
+	uniform = /obj/item/clothing/under/rank/security/idris
+	id = /obj/item/card/id/idris/sec
+
+/datum/outfit/job/forensics/idris
+	name = "Forensics Technician - Idris"
+	uniform = /obj/item/clothing/under/rank/security/idris
+	id = /obj/item/card/id/idris/sec
 
 /datum/outfit/job/bartender/idris
 	name = "Bartender - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
-	id = /obj/item/weapon/card/id/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
+	id = /obj/item/card/id/idris
 
 /datum/outfit/job/chef/idris
 	name = "Chef - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
-	id = /obj/item/weapon/card/id/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
+	id = /obj/item/card/id/idris
 
 /datum/outfit/job/hydro/idris
 	name = "Gardener - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
-	id = /obj/item/weapon/card/id/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
+	id = /obj/item/card/id/idris
 
 /datum/outfit/job/cargo_tech/idris
 	name = "Cargo Technician - Idris"
-	uniform = /obj/item/clothing/under/rank/idris
-	id = /obj/item/weapon/card/id/idris
+	uniform = /obj/item/clothing/under/rank/idris/service
+	id = /obj/item/card/id/idris
+
+/datum/outfit/job/qm/idris
+	name = "Quartermaster - Idris"
+	uniform = /obj/item/clothing/under/rank/idris/service
+	id = /obj/item/card/id/idris
+
 
 /datum/outfit/job/representative/idris
-	name = "Corporate Liaison - Idris"
+	name = "Idris Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/idris
 	head = null
 	suit = null
 	implants = null
-	id = /obj/item/weapon/card/id/idris
+	id = /obj/item/card/id/idris

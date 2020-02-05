@@ -13,7 +13,8 @@
 	var/throw_range = 7
 	var/moved_recently = 0
 	var/mob/pulledby = null
-	var/item_state = null // Base name of the image used for when the item is worn. Suffixes are added to this.
+	var/item_state = null // Base name of the image used for when the item is in someone's hand. Suffixes are added to this. Doubles as legacy overlay_state.
+	var/overlay_state = null // Base name of the image used for when the item is worn. Suffixes are added to this. Important for icon flipping as _flip is added at the end of the value.
 	//Also used on holdable mobs for the same info related to their held version
 	var/does_spin = TRUE // Does the atom spin when thrown (of course it does :P)
 
@@ -292,3 +293,6 @@
 			bound_overlay.forceMove(get_step(src, UP))
 			if (bound_overlay.dir != dir)
 				bound_overlay.set_dir(dir)
+
+/atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
+	return FALSE

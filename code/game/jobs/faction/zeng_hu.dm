@@ -12,7 +12,7 @@
 	</p>
 	<p>Some character examples are:
 	<ul>
-	<li><b>Senior Medical Doctor</b>: Zeng-Hu has some of the best medical staff
+	<li><b>Senior Physician</b>: Zeng-Hu has some of the best medical staff
 	in the world and you are one of them. Highly trained and highly experienced
 	you are better then the rest save your colleagues in Zeng-Hu. You expect to
 	be heard and obeyed. Your bedside manner is impeccable and far out classes
@@ -35,9 +35,12 @@
 
 	allowed_role_types = list(
 		/datum/job/doctor,
+		/datum/job/surgeon,
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
 		/datum/job/paramedic,
+		/datum/job/roboticist,
+		/datum/job/xenobiologist,
 		/datum/job/representative
 	)
 
@@ -45,46 +48,68 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/machine,
-		/datum/species/bug
+		/datum/species/bug,
+		/datum/species/diona
 	)
 
 	titles_to_loadout = list(
-		"Medical Doctor" = /datum/outfit/job/doctor/zeng_hu,
+		"Physician" = /datum/outfit/job/doctor/zeng_hu,
+		"Surgeon" = /datum/outfit/job/doctor/zeng_hu,
+		"Trauma Physician" = /datum/outfit/job/doctor/zeng_hu,
+		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
+		"Biochemist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
+		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Paramedic" = /datum/outfit/job/paramedic/zeng_hu,
+		"Emergency Medical Technician" = /datum/outfit/job/paramedic/zeng_hu,
+		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
+		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
+		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
+		"Xenobiologist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
+		"Xenobotanist" = /datum/outfit/job/scientist/xenobiologist/zeng_hu,
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
 	)
 
 /datum/outfit/job/doctor/zeng_hu
-	name = "Medical Doctor - Zeng-Hu"
+	name = "Physician - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/roboticist/zeng_hu
+	name = "Roboticist - Zeng-Hu"
+	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/pharmacist/zeng_hu
 	name = "Pharmacist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/psychiatrist/zeng_hu
 	name = "Psychiatrist - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/paramedic/zeng_hu
 	name = "Paramedic - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu
+
+/datum/outfit/job/scientist/xenobiologist/zeng_hu
+	name = "Xenobiologist - Zeng-Hu"
+	uniform = /obj/item/clothing/under/rank/zeng
+	id = /obj/item/card/id/zeng_hu
 
 /datum/outfit/job/representative/zeng_hu
-	name = "Corporate Liaison - Zeng-Hu"
-	uniform = /obj/item/clothing/under/rank/zeng
+	name = "Zeng-Hu Corporate Liaison"
+	uniform = /obj/item/clothing/under/rank/zeng/civilian
 	head = null
 	suit = null
 	implants = null
-	id = /obj/item/weapon/card/id/zeng_hu
+	id = /obj/item/card/id/zeng_hu

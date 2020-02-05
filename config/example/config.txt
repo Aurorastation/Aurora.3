@@ -42,6 +42,9 @@ JOBS_HAVE_MINIMAL_ACCESS
 # What to multiply power by when crossing Z-levels.
 #EXPLOSION_Z_MULT 0.75
 
+# What to subtract power by when crossing Z-levels.
+#EXPLOSION_Z_SUB 2
+
 ## log OOC channel
 LOG_OOC
 
@@ -376,8 +379,11 @@ EVENT_CUSTOM_START_MAJOR 80;100
 ## Uncomment to disable the OOC channel by default.
 #DISABLE_OOC
 
-## Uncomment to disable the dead OOC channel by default.
+## Uncomment to disable the dead (global) OOC channel by default.
 #DISABLE_DEAD_OOC
+
+## Uncomment to disable the dead LOOC channel by default.
+#DISABLE_DEAD_LOOC
 
 ## Uncomment to disable ghost chat by default.
 #DISABLE_DSAY
@@ -473,8 +479,8 @@ MC_TICKLIMIT_INIT 500
 
 ## GELF Logging Configuration
 LOG_GELF_ENABLED 0
-LOG_GELF_IP 192.168.100.80
-LOG_GELF_PORT 12201
+# Make sure the IP string is written in a manner of "IP:port", without the quotes.
+#LOG_GELF_ADDR 127.0.0.1:5667
 
 ### IPINTEL:
 ### This allows you to detect likely proxies by checking ips against getipintel.net
@@ -525,16 +531,6 @@ FORCE_MAP aurora
 # n - do this every n rounds.
 #ROUNDS_UNTIL_HARD_RESTART -1
 
-ERT_BASE_CHANCE 10
-ERT_GREEN_INC 1
-ERT_YELLOW_INC 1
-ERT_BLUE_INC 2
-ERT_RED_INC 3
-ERT_DELTA_INC 10
-ERT_SCALING_FACTOR 1
-ERT_SCALING_FACTOR_ANTAG 1
-ERT_SCALING_FACTOR_DEAD 2
-
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
@@ -544,5 +540,19 @@ NTSL_PORT 1945
 
 # Specifies where to load random documents from. Valid values: sql, json
 DOCS_LOAD_DOCS_FROM sql
+# Specifies where to load custom synth sprites from. Valid values: sql, json
+LOAD_CUSTOMSYNTHS_FROM sql
 # Specifies where random document images are hosted at. Valid format is "https://cdn.aurorastation.org/images/", trailing slash included.
 DOCS_IMAGE_HOST https://cdn.aurorastation.org/images/
+
+### FAIL2TOPIC:
+### fail2topic is a system for automating IP bans for abusers of the world/Topic API.
+### Note that this subsystem respects the IPs listed in api_rate_limit_whitelist. They will not be considered for a ban.
+## Uncomment and set to 1 to enable the API.
+FAIL2TOPIC_ENABLED 0
+## The minimum wait time, in seconds, between valid requests.
+#FAIL2TOPIC_RATE_LIMIT 1
+## The number of requests above rate limit in sequence for which we ban.
+#FAIL2TOPIC_MAX_FAILS 5
+## The name of the firewall rule used.
+#FAIL2TOPIC_RULE_NAME _dd_fail2topic

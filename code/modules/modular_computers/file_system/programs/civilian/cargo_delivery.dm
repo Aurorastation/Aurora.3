@@ -29,7 +29,7 @@
 			mod_mode = 0 //We can't pay for orders when there is no card reader and no network card
 
 	if(program && program.computer && program.computer.card_slot)
-		var/obj/item/weapon/card/id/id_card = program.computer.card_slot.stored_card
+		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
 		data["has_id"] = !!id_card
 		data["id_account_number"] = id_card ? id_card.associated_account_number : null
 		//data["id_rank"] = id_card && id_card.assignment ? id_card.assignment : "Unassigned"
@@ -76,7 +76,7 @@
 			return 1
 
 		if(program && program.computer && program.computer.card_slot && program.computer.network_card)
-			var/obj/item/weapon/card/id/id_card = program.computer.card_slot.stored_card
+			var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
 			if(!id_card || !id_card.registered_name)
 				status_message = "Card Error: Invalid ID Card in Card Reader"
 				return 1
@@ -117,7 +117,7 @@
 	var/mob/user = usr
 	if(!istype(user))
 		return
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	if(!istype(I) || !I.registered_name || !(access_cargo in I.access) || issilicon(user))
 		to_chat(user, "Authentication error: Unable to locate ID with appropriate access to allow this operation.")
 		return

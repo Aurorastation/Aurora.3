@@ -127,7 +127,7 @@
 		set_death_time(CREW, world.time)
 
 /mob/abstract/observer/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/weapon/book/tome))
+	if(istype(W,/obj/item/book/tome))
 		var/mob/abstract/observer/M = src
 		M.manifest(user)
 
@@ -143,11 +143,7 @@ Works together with spawning an observer, noted above.
 	if(!loc) return
 	if(!client) return 0
 
-
-	if(client.images.len)
-		for(var/image/hud in client.images)
-			if(copytext(hud.icon_state,1,4) == "hud")
-				client.images.Remove(hud)
+	handle_hud_glasses()
 
 	if(antagHUD)
 		var/list/target_list = list()
@@ -487,46 +483,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, "<span class='notice'>Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)</span>")
 		to_chat(src, "<span class='notice'>Heat Capacity: [round(environment.heat_capacity(),0.1)]</span>")
 
-/mob/abstract/observer/verb/become_mouse()
-	set name = "Become Rat"
-	set category = "Ghost"
-
-	if(config.disable_player_rats)
-		to_chat(src, "<span class='warning'>Spawning as a rat is currently disabled.</span>")
-		return
-
-	if(!ROUND_IS_STARTED)
-		to_chat(src, "<span class='warning'>You can not spawn as a rat before round start!</span>")
-		return
-
-	if(!MayRespawn(1, ANIMAL))
-		return
-
-	var/turf/T = get_turf(src)
-	if(!T || (T.z in current_map.admin_levels))
-		to_chat(src, "<span class='warning'>You may not spawn as a rat on this Z-level.</span>")
-		return
-
-	var/response = alert(src, "Are you -sure- you want to become a rat?","Are you sure you want to squeek?","Squeek!","Nope!")
-	if(response != "Squeek!") return  //Hit the wrong key...again.
-
-
-	//find a viable mouse candidate
-	var/mob/living/simple_animal/rat/host
-	var/obj/machinery/atmospherics/unary/vent_pump/spawnpoint = find_mouse_spawnpoint(T.z)
-
-	if (spawnpoint)
-		host = new /mob/living/simple_animal/rat(spawnpoint.loc)
-	else
-		to_chat(src, "<span class='warning'>Unable to find any safe, unwelded vents to spawn rats at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
-
-	if(host)
-		if(config.uneducated_rats)
-			host.universal_understand = 0
-		announce_ghost_joinleave(src, 0, "They are now a rat.")
-		host.ckey = src.ckey
-		to_chat(host, "<span class='info'>You are now a rat. Though you may interact with players, do not give any hints away that you are more than a simple rodent. Find food, avoid cats, and try to survive!</span>")
-
 /proc/find_mouse_spawnpoint(var/ZLevel)
 	//This function will attempt to find a good spawnpoint for rats, and prevent them from spawning in closed vent systems with no escape
 	//It does this by bruteforce: Picks a random vent, tests if it has enough connections, if not, repeat
@@ -643,7 +599,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if(usr == src && try_possession(M))
 			return
 	if(istype(over, /obj/machinery/drone_fabricator))
-		if(try_drone_spawn(src, over))
+		var/obj/machinery/drone_fabricator/fab = over
+		if(fab.create_drone(src))
 			return
 
 	return ..()
@@ -658,7 +615,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 //Used for drawing on walls with blood puddles as a spooky ghost.
 /mob/abstract/observer/verb/bloody_doodle()
-
 	set category = "Ghost"
 	set name = "Write in blood"
 	set desc = "If the round is sufficiently spooky, write a short message in blood on the floor or a wall. Remember, no IC in OOC or OOC in IC."
@@ -736,7 +692,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	is_manifest = 0
 	if(!is_manifest)
 		is_manifest = 1
-		verbs += /mob/abstract/observer/proc/toggle_visibility
+		verbs += /mob/abstract/observer/proc/toggle_visibility_verb
 		verbs += /mob/abstract/observer/proc/ghost_whisper
 		verbs += /mob/abstract/observer/proc/move_item
 
@@ -768,11 +724,14 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		var/image/J = image('icons/mob/mob.dmi', loc = src, icon_state = icon)
 		client.images += J
 
-/mob/abstract/observer/proc/toggle_visibility(var/forced = 0)
+/mob/abstract/observer/proc/toggle_visibility_verb()
 	set category = "Ghost"
 	set name = "Toggle Visibility"
 	set desc = "Allows you to turn (in)visible (almost) at will."
 
+	toggle_visibility()
+
+/mob/abstract/observer/proc/toggle_visibility(var/forced = 0)
 	var/toggled_invisible
 	if(!forced && invisibility && world.time < toggled_invisible + 600)
 		to_chat(src, "You must gather strength before you can turn visible again...")
@@ -959,3 +918,33 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 	if((!target) || (!ghost)) return
 	. = "<a href='byond://?src=\ref[ghost];track=\ref[target]'>\[F\]</a>"
 	. += target.extra_ghost_link(ghost)
+
+
+//Opens the Ghost Spawner Menu
+/mob/abstract/observer/verb/ghost_spawner()
+	set category = "Ghost"
+	set name = "Ghost Spawner"
+	
+	if(!ROUND_IS_STARTED)
+		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		return
+
+	SSghostroles.vui_interact(src)
+
+/mob/abstract/observer/verb/submitpai()
+	set category = "Ghost"
+	set name = "Submit pAI personality"
+	set desc = "Submits you pAI personality to the pAI candidate pool."
+
+	if(jobban_isbanned(src, "pAI"))
+		to_chat(src, "You are job banned from the pAI position.")
+		return
+	SSpai.recruitWindow(src)
+
+/mob/abstract/observer/verb/revokepai()
+	set category = "Ghost"
+	set name = "Revoke pAI personality"
+	set desc = "Removes you from the pAI candidite pool."
+
+	if(SSpai.revokeCandidancy(src))
+		to_chat(src, "You have been removed from the pAI candidate pool.")

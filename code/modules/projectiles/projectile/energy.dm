@@ -43,10 +43,11 @@
 /obj/item/projectile/energy/electrode
 	name = "electrode"
 	icon_state = "spark"
-	nodamage = 1
+	damage = 2 //Flavor.
+	damage_type = BURN
 	taser_effect = 1
 	agony = 40
-	damage_type = HALLOSS
+	eyeblur = 1
 	//Damage will be handled on the MOB side, to prevent window shattering.
 
 /obj/item/projectile/energy/electrode/stunshot
@@ -132,7 +133,7 @@
 			if(M.stat == DEAD)
 				M.gib()
 			else
-				M.apply_damage(60, BRUTE, "head")
+				M.apply_damage(60, BRUTE, BP_HEAD)
 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 		else if(isturf(a) || isobj(a))
 			var/atom/A = a
@@ -158,6 +159,15 @@
 	. = ..()
 	if(isliving(target))
 		tesla_zap(target, 3, 5000)
+
+/obj/item/projectile/energy/tesla/master
+	damage = 15
+
+/obj/item/projectile/energy/tesla/grandmaster
+	damage = 20
+
+/obj/item/projectile/energy/tesla/paramount
+	damage = 25
 
 /obj/item/projectile/energy/gravitydisabler
 	name = "gravity disabler"
@@ -200,7 +210,7 @@
 /obj/item/projectile/energy/bee/on_impact(var/atom/A)
 	playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 70, 1)
 	var/turf/T = get_turf(A)
-	if(!istype(T, /turf/simulated/wall) && !istype(T, /turf/simulated/shuttle/wall) && !istype(A, /obj/structure/window) && !istype(A, /obj/machinery/door))
+	if(!istype(T, /turf/simulated/wall) && !istype(A, /obj/structure/window) && !istype(A, /obj/machinery/door))
 		for(var/i=1, i<=8, i++)
 			var/atom/movable/x = new /mob/living/simple_animal/bee/beegun //hackmaster pro, butt fuck it
 			x.forceMove(T)

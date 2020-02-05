@@ -13,6 +13,7 @@
 	var/list/friends = list()
 	var/break_stuff_probability = 10
 	stop_automated_movement_when_pulled = 0
+	attacktext = "hits"
 	var/destroy_surroundings = 1
 	a_intent = I_HURT
 	hunger_enabled = 0//Until automated eating mechanics are enabled, disable hunger for hostile mobs
@@ -30,7 +31,6 @@
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
 	target_type_validator_map[/mob/living] = CALLBACK(src, .proc/validator_living)
-	target_type_validator_map[/obj/mecha] = CALLBACK(src, .proc/validator_mecha)
 	target_type_validator_map[/obj/machinery/bot] = CALLBACK(src, .proc/validator_bot)
 	target_type_validator_map[/obj/machinery/porta_turret] = CALLBACK(src, .proc/validator_turret)
 
@@ -122,7 +122,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	return (target_mob in view(7, src)) ? (TRUE) : (FALSE)
+	return (target_mob in view(10, src)) ? (TRUE) : (FALSE)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -169,10 +169,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		var/mob/living/L = target_mob
 		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
 		return L
-	if(istype(target_mob, /obj/mecha))
-		var/obj/mecha/M = target_mob
-		M.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
-		return M
 	if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		B.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
@@ -195,11 +191,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 /mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
 	var/list/L = view(src, dist)
-
-	for (var/obj/mecha/M in mechas_list)
-		if (M.z == src.z && get_dist(src, M) <= dist)
-			L += M
-
 	return L
 
 /mob/living/simple_animal/hostile/death()
@@ -246,8 +237,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 	else
 		Shoot(target, src.loc, src)
+
 		if(casingtype)
-			new casingtype(loc)
+			new casingtype(get_turf(src))
+			playsound(src, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
 
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
@@ -266,6 +259,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			var/mob/M = V
 			if((M.faction == faction) || (M in friends))
 				return FALSE
+		if(validator_e_field(V, null))
+			target_hit = TRUE
 
 	return target_hit
 
@@ -287,6 +282,14 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 /mob/living/simple_animal/hostile/proc/DestroySurroundings(var/bypass_prob = FALSE)
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
 		for(var/dir in cardinal) // North, South, East, West
+			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
+			if(e)
+				e.Stress(rand(1,2))
+				visible_message("<span class='danger'>\the [src] [attacktext] \the [e]!</span>")
+				src.do_attack_animation(e)
+				target_mob = e
+				stance = HOSTILE_STANCE_ATTACKING
+				return 1
 			for(var/obj/structure/window/obstacle in get_step(src, dir))
 				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
 					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
@@ -347,6 +350,11 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 //////////////////////////////
 
 /mob/living/simple_animal/hostile/proc/validator_living(var/mob/living/L, var/atom/current)
+	if(ismech(L))
+		var/mob/living/heavy_vehicle/M = L
+		if(!M.pilots?.len)
+			return FALSE
+
 	if((L.faction == src.faction) && !attack_same)
 		return FALSE
 	if(L in friends)
@@ -360,14 +368,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			return TRUE
 	return FALSE
 
-/mob/living/simple_animal/hostile/proc/validator_mecha(var/obj/mecha/M, var/atom/current)
-	if(isliving(current)) // We prefer mobs over anything else
-		return FALSE
-	if (M.occupant)
-		return TRUE
-	else
-		return FALSE
-
 /mob/living/simple_animal/hostile/proc/validator_bot(var/obj/machinery/bot/B, var/atom/current)
 	if(isliving(current)) // We prefer mobs over anything else
 		return FALSE
@@ -380,3 +380,11 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(isliving(current)) // We prefer mobs over anything else
 		return FALSE
 	return !(T.health <= 0)
+
+/mob/living/simple_animal/hostile/proc/validator_e_field(var/obj/effect/energy_field/E, var/atom/current)
+	if(isliving(current)) // We prefer mobs over anything else
+		return FALSE
+	if(get_dist(src, E) < get_dist(src, current))
+		return TRUE
+	else
+		return FALSE

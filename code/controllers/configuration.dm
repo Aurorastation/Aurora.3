@@ -124,7 +124,7 @@ var/list/gamemode_cache = list()
 	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
-	//so that it's similar to HALLOSS. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
+	//so that it's similar to PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
 	var/organ_damage_spillover_multiplier = 0.5
 
 	var/bones_can_break = 0
@@ -205,6 +205,7 @@ var/list/gamemode_cache = list()
 	var/ooc_allowed = 1
 	var/looc_allowed = 1
 	var/dooc_allowed = 1
+	var/dead_looc_allowed = TRUE
 	var/dsay_allowed = 1
 
 	var/starlight = 0	// Whether space turfs have ambient light or not
@@ -250,8 +251,7 @@ var/list/gamemode_cache = list()
 
 	//UDP GELF Logging
 	var/log_gelf_enabled = 0
-	var/log_gelf_ip = ""
-	var/log_gelf_port = ""
+	var/log_gelf_addr = ""
 
 	//IP Intel vars
 	var/ipintel_email
@@ -279,23 +279,15 @@ var/list/gamemode_cache = list()
 
 	var/iterative_explosives_z_threshold = 10
 	var/iterative_explosives_z_multiplier = 0.75
+	var/iterative_explosives_z_subtraction = 2
 
 	var/ticket_reminder_period = 0
 
 	var/rounds_until_hard_restart = -1 // Changes how often a hard restart will be executed.
 
 	var/docs_load_docs_from
+	var/load_customsynths_from
 	var/docs_image_host
- 
-	var/ert_base_chance = 10
-	var/ert_green_inc = 1
-	var/ert_yellow_inc = 1
-	var/ert_blue_inc = 2
-	var/ert_red_inc = 3
-	var/ert_delta_inc = 10
-	var/ert_scaling_factor = 1
-	var/ert_scaling_factor_antag = 1
-	var/ert_scaling_factor_dead = 2
 
 	// Configurable hostname / port for the NTSL Daemon.
 	var/ntsl_hostname = "localhost"
@@ -303,6 +295,12 @@ var/list/gamemode_cache = list()
 
 	// Is external Auth enabled
 	var/external_auth = FALSE
+
+	// fail2topic settings
+	var/fail2topic_rate_limit = 5 SECONDS
+	var/fail2topic_max_fails = 5
+	var/fail2topic_rule_name = "_DD_Fail2topic"
+	var/fail2topic_enabled = FALSE
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -478,9 +476,6 @@ var/list/gamemode_cache = list()
 				if ("allow_ai")
 					config.allow_ai = 1
 
-//				if ("authentication")
-//					config.enable_authentication = 1
-
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
 
@@ -532,6 +527,9 @@ var/list/gamemode_cache = list()
 
 				if ("disable_dead_ooc")
 					config.dooc_allowed = 0
+
+				if ("disable_dead_looc")
+					config.dead_looc_allowed = FALSE
 
 				if ("disable_dsay")
 					config.dsay_allowed = 0
@@ -787,7 +785,7 @@ var/list/gamemode_cache = list()
 
 				if("sql_saves")
 					config.sql_saves = 1
-				
+
 				if("sql_ccia_logs")
 					config.sql_ccia_logs = 1
 
@@ -829,18 +827,14 @@ var/list/gamemode_cache = list()
 				if("api_rate_limit_whitelist")
 					config.api_rate_limit_whitelist = text2list(value, ";")
 
-
 				if("mc_ticklimit_init")
 					config.mc_init_tick_limit = text2num(value) || TICK_LIMIT_MC_INIT_DEFAULT
 
 				if("log_gelf_enabled")
 					config.log_gelf_enabled = text2num(value)
 
-				if("log_gelf_ip")
-					config.log_gelf_ip = value
-
-				if("log_gelf_port")
-					config.log_gelf_port = value
+				if("log_gelf_addr")
+					config.log_gelf_addr = value
 
 				if("ipintel_email")
 					if (value != "ch@nge.me")
@@ -882,6 +876,9 @@ var/list/gamemode_cache = list()
 				if ("explosion_z_mult")
 					iterative_explosives_z_multiplier = text2num(value)
 
+				if ("explosion_z_sub")
+					iterative_explosives_z_subtraction = text2num(value)
+
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1
 
@@ -895,27 +892,10 @@ var/list/gamemode_cache = list()
 
 				if ("docs_load_docs_from")
 					docs_load_docs_from = value
+				if ("load_customsynths_from")
+					load_customsynths_from = value
 				if ("docs_image_host")
 					docs_image_host = value
-
-				if ("ert_base_chance")
-					ert_base_chance = text2num(value)
-				if ("ert_green_inc")
-					ert_green_inc = text2num(value)
-				if ("ert_yellow_inc")
-					ert_yellow_inc = text2num(value)
-				if ("ert_blue_inc")
-					ert_blue_inc = text2num(value)
-				if ("ert_red_inc")
-					ert_red_inc = text2num(value)
-				if ("ert_delta_inc")
-					ert_delta_inc = text2num(value)
-				if ("ert_scaling_factor")
-					ert_scaling_factor = text2num(value)
-				if ("ert_scaling_factor_antag")
-					ert_scaling_factor_antag = text2num(value)
-				if ("ert_scaling_factor_dead")
-					ert_scaling_factor_dead = text2num(value)
 
 				if ("ntsl_hostname")
 					ntsl_hostname = value
@@ -924,6 +904,15 @@ var/list/gamemode_cache = list()
 
 				if ("external_auth")
 					external_auth = TRUE
+
+				if ("fail2topic_rate_limit")
+					fail2topic_rate_limit = text2num(value) SECONDS
+				if ("fail2topic_max_fails")
+					fail2topic_max_fails = text2num(value)
+				if ("fail2topic_rule_name")
+					fail2topic_rule_name = value
+				if ("fail2topic_enabled")
+					fail2topic_enabled = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

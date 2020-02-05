@@ -1,12 +1,12 @@
 /******************** Requests Console ********************/
 /** Originally written by errorage, updated by: Carn, needs more work though. I just added some security fixes */
 
-//Request Console Department Types
+//Requests Console Department Types
 #define RC_ASSIST 1		//Request Assistance
 #define RC_SUPPLY 2		//Request Supplies
 #define RC_INFO   4		//Relay Info
 
-//Request Console Screens
+//Requests Console Screens
 #define RCS_MAINMENU 0	// Main menu
 #define RCS_RQASSIST 1	// Request supplies
 #define RCS_RQSUPPLY 2	// Request assistance
@@ -29,6 +29,11 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	anchored = 1
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp0"
+	component_types = list(
+			/obj/item/circuitboard/requestconsole,
+			/obj/item/stock_parts/capacitor,
+			/obj/item/stock_parts/console_screen,
+		)
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
 	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
@@ -79,8 +84,17 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			else
 				set_light(0)
 
-/obj/machinery/requests_console/Initialize()
+/obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
+
+	if(building)
+		if(dir)
+			src.set_dir(dir)
+
+		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
+		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+		update_icon()
+		return
 
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
@@ -173,7 +187,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
-		ui = new(user, src, ui_key, "request_console.tmpl", "[department] Request Console", 520, 410)
+		ui = new(user, src, ui_key, "requests_console.tmpl", "[department] Requests Console", 520, 410)
 		ui.set_initial_data(data)
 		ui.open()
 
@@ -288,7 +302,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			var/id = query.item[1]
 			var/name = query.item[2]
 			var/data = query.item[3]
-			var/obj/item/weapon/paper/C = new()
+			var/obj/item/paper/C = new()
+			C.color = "#fff9e8"
 
 			//Let's start the BB >> HTML conversion!
 
@@ -331,15 +346,15 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	return
 
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
-/obj/machinery/requests_console/attackby(var/obj/item/weapon/O as obj, var/mob/user as mob)
-	if (istype(O, /obj/item/weapon/card/id))
+/obj/machinery/requests_console/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	if (istype(O, /obj/item/card/id))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
-			var/obj/item/weapon/card/id/T = O
+			var/obj/item/card/id/T = O
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
-			var/obj/item/weapon/card/id/ID = O
+			var/obj/item/card/id/ID = O
 			if (access_RC_announce in ID.GetAccess())
 				announceAuth = 1
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
@@ -347,15 +362,15 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				reset_message()
 				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
 			updateUsrDialog()
-	else if (istype(O, /obj/item/weapon/stamp))
+	else if (istype(O, /obj/item/stamp))
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
-			var/obj/item/weapon/stamp/T = O
+			var/obj/item/stamp/T = O
 			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
 			updateUsrDialog()
-	else if (istype(O, /obj/item/weapon/paper_bundle))
+	else if (istype(O, /obj/item/paper_bundle))
 		if(lid)	//More of that restocking business
-			var/obj/item/weapon/paper_bundle/C = O
+			var/obj/item/paper_bundle/C = O
 			paperstock += C.amount
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
@@ -363,9 +378,9 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
 			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
-	else if (istype(O, /obj/item/weapon/paper))
+	else if (istype(O, /obj/item/paper))
 		if(lid)					//Stocking them papers
-			var/obj/item/weapon/paper/C = O
+			var/obj/item/paper/C = O
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			paperstock++
@@ -387,8 +402,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 							return
 						if(!sent)
 							sent = 1
-						var/obj/item/weapon/paper/C = O
-						var/obj/item/weapon/paper/P = new /obj/item/weapon/paper()
+						var/obj/item/paper/C = O
+						var/obj/item/paper/P = new /obj/item/paper()
 						var/info = "<font color = #101010>"
 						var/copied = html_decode(C.info)
 						copied = replacetext(copied, "<font face=\"[P.deffont]\" color=", "<font face=\"[P.deffont]\" nocolor=")	//state of the art techniques in action
@@ -396,6 +411,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 						info += copied
 						info += "</font>"
 						var/pname = C.name
+						P.color = "#fff9e8"
 						P.fields = C.fields
 						P.stamps = C.stamps
 						P.stamped = C.stamped

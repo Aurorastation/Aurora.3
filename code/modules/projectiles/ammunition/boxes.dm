@@ -1,7 +1,4 @@
 /obj/item/ammo_magazine/a357
-	//name = "ammo box (.357)"
-	//desc = "A box of .357 ammo"
-	//icon_state = "357"
 	name = "speed loader (.357)"
 	icon_state = "T38"
 	caliber = "357"
@@ -300,7 +297,7 @@
 /obj/item/ammo_magazine/c45uzi/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/tommymag
+/obj/item/ammo_magazine/submachinemag
 	name = "magazine (.45)"
 	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
@@ -309,10 +306,10 @@
 	caliber = ".45"
 	max_ammo = 20
 
-/obj/item/ammo_magazine/tommymag/empty
+/obj/item/ammo_magazine/submachinemag/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/tommydrum
+/obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
 	w_class = 3 // Bulky ammo doesn't fit in your pockets!
@@ -440,3 +437,13 @@
 	caliber = "plasma bolt"
 	ammo_type = /obj/item/ammo_casing/plasma_bolt
 	max_ammo = 30
+
+/obj/item/ammo_magazine/nuke
+	name = "nuclear launcher cartridge"
+	icon_state = "nukemag"
+	w_class = 3
+	mag_type = MAGAZINE
+	caliber = "nuke"
+	ammo_type = /obj/item/ammo_casing/nuke
+	max_ammo = 2
+	multiple_sprites = 1

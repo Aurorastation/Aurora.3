@@ -2,11 +2,11 @@
 //moved these here from code/defines/obj/weapon.dm
 //please preference put stuff where it's easy to find - C
 
-/obj/item/weapon/autopsy_scanner
+/obj/item/autopsy_scanner
 	name = "autopsy scanner"
 	desc = "Extracts information on wounds."
-	icon = 'icons/obj/autopsy_scanner.dmi'
-	icon_state = ""
+	icon = 'icons/obj/device.dmi'
+	icon_state = "autopsy"
 	flags = CONDUCT
 	w_class = 2.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
@@ -37,7 +37,7 @@
 		W.time_inflicted = time_inflicted
 		return W
 
-/obj/item/weapon/autopsy_scanner/proc/add_data(var/obj/item/organ/external/O)
+/obj/item/autopsy_scanner/proc/add_data(var/obj/item/organ/external/O)
 	if(!O.autopsy_data.len && !O.trace_chemicals.len) return
 
 	for(var/V in O.autopsy_data)
@@ -75,7 +75,7 @@
 		if(O.trace_chemicals[V] > 0 && !chemtraces.Find(V))
 			chemtraces += V
 
-/obj/item/weapon/autopsy_scanner/verb/print_data()
+/obj/item/autopsy_scanner/verb/print_data()
 	set category = "Object"
 	set src in view(usr, 1)
 	set name = "Print Data"
@@ -150,18 +150,19 @@
 			scan_data += "<br>"
 
 	for(var/mob/O in viewers(usr))
-		O.show_message("<span class='notice'>\The [src] rattles and prints out a sheet of paper.</span>", 1)
+		O.show_message(span("notice", "\The [src] rattles and prints out a sheet of paper."), 1)
+		playsound(loc, "sound/bureaucracy/print_short.ogg", 50, 1)
 
 	sleep(10)
 
-	var/obj/item/weapon/paper/P = new(usr.loc)
+	var/obj/item/paper/P = new(usr.loc)
 	P.name = "Autopsy Data ([target_name])"
 	P.info = "<tt>[scan_data]</tt>"
 	P.icon_state = "paper_words"
 
 	usr.put_in_hands(P)
 
-/obj/item/weapon/autopsy_scanner/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/autopsy_scanner/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	if(!istype(M))
 		return
 
@@ -173,19 +174,19 @@
 		src.wdata = list()
 		src.chemtraces = list()
 		src.timeofdeath = null
-		to_chat(user, "<span class='notice'>A new patient has been registered.. Purging data for previous patient.</span>")
+		to_chat(user, span("notice", "A new patient has been registered. Purging data for previous patient."))
 
 	src.timeofdeath = M.timeofdeath
 
 	var/obj/item/organ/external/S = M.get_organ(user.zone_sel.selecting)
 	if(!S)
-		to_chat(usr, "<span class='warning'>You can't scan this body part.</span>")
+		to_chat(usr, span("warning", "You can't scan this body part."))
 		return
 	if(!S.open)
-		to_chat(usr, "<span class='warning'>You have to cut the limb open first!</span>")
+		to_chat(usr, span("warning", "You have to cut the limb open first!"))
 		return
 	for(var/mob/O in viewers(M))
-		O.show_message("<span class='notice'>\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]</span>", 1)
+		O.show_message(span("notice", "\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
 
 	src.add_data(S)
 

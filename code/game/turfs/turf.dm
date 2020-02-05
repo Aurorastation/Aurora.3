@@ -43,6 +43,7 @@
 	var/base_desc = "The naked hull."
 	var/base_icon = 'icons/turf/flooring/plating.dmi'
 	var/base_icon_state = "plating"
+	var/last_clean //for clean log spam.
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
@@ -322,9 +323,11 @@ var/const/enterloopsanity = 100
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if (R.visibility)
-					to_chat(user, "<span class='warning'>No matter how well you wash, the bloody symbols remain!</span>")
+					to_chat(user, span("warning", "No matter how well you wash, the bloody symbols remain!"))
 	else
-		to_chat(user, "<span class='warning'>\The [source] is too dry to wash that.</span>")
+		if( !(last_clean && world.time < last_clean + 100) )
+			to_chat(user, span("warning", "\The [source] is too dry to wash that."))
+			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
 /turf/proc/update_blood_overlays()
@@ -409,7 +412,7 @@ var/const/enterloopsanity = 100
 			L.Add(t)
 	return L
 
-
+// CRAWLING + MOVING STUFF
 /turf/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
 	var/turf/T = get_turf(user)
 	var/area/A = T.loc
@@ -417,7 +420,7 @@ var/const/enterloopsanity = 100
 		return
 	if(istype(O, /obj/screen))
 		return
-	if(user.restrained() || user.stat || user.stunned || user.paralysis || !user.lying)
+	if(user.restrained() || user.stat || user.incapacitated(INCAPACITATION_KNOCKOUT) || !user.lying)
 		return
 	if((!(istype(O, /atom/movable)) || O.anchored || !Adjacent(user) || !Adjacent(O) || !user.Adjacent(O)))
 		return
@@ -425,15 +428,40 @@ var/const/enterloopsanity = 100
 		return
 	if(isanimal(user) && O != user)
 		return
+
+	var/tally = 0
+
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		var/has_right_hand = TRUE
-		var/obj/item/organ/external/rhand = H.organs_by_name["r_hand"]
-		if(!rhand || rhand.is_stump())
-			has_right_hand = FALSE
-		var/obj/item/organ/external/lhand = H.organs_by_name["l_hand"]
-		if(!lhand || lhand.is_stump())
-			if(!has_right_hand)
-				return
-	if (do_after(user, 25 + (5 * user.weakened)) && !(user.stat))
+
+		var/obj/item/organ/external/rhand = H.organs_by_name[BP_R_HAND]
+		tally += limbCheck(rhand)
+
+		var/obj/item/organ/external/lhand = H.organs_by_name[BP_L_HAND]
+		tally += limbCheck(lhand)
+
+		var/obj/item/organ/external/rfoot = H.organs_by_name[BP_R_FOOT]
+		tally += limbCheck(rfoot)
+
+		var/obj/item/organ/external/lfoot = H.organs_by_name[BP_L_FOOT]
+		tally += limbCheck(lfoot)
+
+	if(tally >= 120)
+		to_chat(user, span("notice", "You're too injured to do this!"))
+		return
+
+	var/finaltime = 25 + (5 * (user.weakened * 1.5))
+	if(tally >= 45) // If you have this much missing, you'll crawl slower.
+		finaltime += tally
+
+	if(do_after(user, finaltime) && !user.stat)
 		step_towards(O, src)
+
+// Checks status of limb, returns an amount to
+/turf/proc/limbCheck(var/obj/item/organ/external/limb)
+	if(!limb) // Limb is null, thus missing. Add 3 seconds.
+		return 30
+	else if(!limb.is_usable() || limb.is_broken()) // You can't use the limb, but it's still there to manoevre yourself
+		return 15
+	else
+		return 0

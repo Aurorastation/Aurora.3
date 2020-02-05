@@ -35,7 +35,10 @@
             {{if data.change_skin_tone}}
                 {{:helper.link('Change skin tone', null, { 'skin_tone' : 1})}}
             {{/if}}
-            {{if data.change_skin_color}}
+            {{if data.change_skin_preset}}
+                {{:helper.link('Change skin preset', null, { 'skin_preset' : 1})}}
+            {{/if}}
+            {{if data.change_skin_color && !data.change_skin_preset}}
                 {{:helper.link('Change skin color', null, { 'skin_color' : 1})}}
             {{/if}}
             {{if data.change_hair_color}}

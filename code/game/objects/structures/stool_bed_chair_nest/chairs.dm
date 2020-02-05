@@ -8,7 +8,7 @@
 	buckle_lying = 0 //force people to sit up in chairs when buckled
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
-/obj/structure/bed/chair/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
 		var/obj/item/assembly/shock_kit/SK = W
@@ -23,12 +23,10 @@
 		SK.master = E
 		qdel(src)
 
-/obj/structure/bed/chair/attack_tk(mob/user as mob)
-	if(buckled_mob)
-		..()
-	else
-		rotate()
-	return
+/obj/structure/bed/chair/do_simple_ranged_interaction(var/mob/user)
+	if(!buckled_mob && user)
+		rotate(user)
+	return TRUE
 
 /obj/structure/bed/chair/post_buckle_mob()
 	update_icon()
@@ -130,7 +128,7 @@
 /obj/structure/bed/chair/office/update_icon()
 	return
 
-/obj/structure/bed/chair/office/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/office/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()
@@ -189,6 +187,19 @@
 	icon_state = "bridge"
 	anchored = 1
 
+/obj/structure/bed/chair/office/bridge/legion
+	name = "legion pilot seat"
+	desc = "A comfortable seat for a pilot."
+	icon_state = "bridge_legion"
+
+/obj/structure/bed/chair/office/bridge/generic
+	icon_state = "bridge_generic"
+
+/obj/structure/bed/chair/office/bridge/pilot
+	name = "pilot seat"
+	desc = "A comfortable seat for a pilot."
+	icon_state = "pilot"
+
 /obj/structure/bed/chair/office/Initialize()
 	. = ..()
 	var/image/I = image(icon, "[icon_state]_over")
@@ -204,7 +215,7 @@
 /obj/structure/bed/chair/wood/update_icon()
 	return
 
-/obj/structure/bed/chair/wood/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/bed/chair/wood/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/stack) || W.iswirecutter())
 		return
 	..()

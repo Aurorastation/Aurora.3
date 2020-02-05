@@ -1,5 +1,5 @@
 //replaces our stun baton code with /tg/station's code
-/obj/item/weapon/melee/baton
+/obj/item/melee/baton
 	name = "stunbaton"
 	desc = "A stun baton for incapacitating people with."
 	icon_state = "stunbaton"
@@ -13,25 +13,25 @@
 	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten")
 	var/stunforce = 0
-	var/agonyforce = 120
+	var/agonyforce = 70
 	var/status = 0		//whether the thing is on or not
-	var/obj/item/weapon/cell/bcell
-	var/hitcost = 1000	//oh god why do power cells carry so much charge? We probably need to make a distinction between "industrial" sized power cells for APCs and power cells for everything else.
+	var/obj/item/cell/bcell
+	var/hitcost = 1000
 	var/baton_color = "#FF6A00"
 	var/sheathed = 1 //electrocutes only on harm intent
 
-/obj/item/weapon/melee/baton/Initialize()
+/obj/item/melee/baton/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/item/weapon/melee/baton/loaded/Initialize() //this one starts with a cell pre-installed.
-	bcell = new/obj/item/weapon/cell/high(src)
+/obj/item/melee/baton/loaded/Initialize() //this one starts with a cell pre-installed.
+	bcell = new/obj/item/cell/high(src)
 	. = ..()
 
-/obj/item/weapon/melee/baton/get_cell()
+/obj/item/melee/baton/get_cell()
 	return bcell
 
-/obj/item/weapon/melee/baton/proc/deductcharge(var/chrgdeductamt)
+/obj/item/melee/baton/proc/deductcharge(var/chrgdeductamt)
 	if(bcell)
 		if(bcell.checked_use(chrgdeductamt))
 			return 1
@@ -41,7 +41,7 @@
 			return 0
 	return null
 
-/obj/item/weapon/melee/baton/update_icon()
+/obj/item/melee/baton/update_icon()
 	if(status)
 		icon_state = "[initial(name)]_active"
 	else if(!bcell)
@@ -54,7 +54,7 @@
 	else
 		set_light(0)
 
-/obj/item/weapon/melee/baton/examine(mob/user)
+/obj/item/melee/baton/examine(mob/user)
 	if(!..(user, 1))
 		return
 
@@ -63,8 +63,8 @@
 	else
 		to_chat(user, "<span class='warning'>The baton does not have a power source installed.</span>")
 
-/obj/item/weapon/melee/baton/attackby(obj/item/weapon/W, mob/user)
-	if(istype(W, /obj/item/weapon/cell))
+/obj/item/melee/baton/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/cell))
 		if(!bcell)
 			user.drop_from_inventory(W,src)
 			bcell = W
@@ -85,7 +85,7 @@
 		..()
 	return
 
-/obj/item/weapon/melee/baton/attack_self(mob/user)
+/obj/item/melee/baton/attack_self(mob/user)
 	if(bcell && bcell.charge > hitcost)
 		status = !status
 		to_chat(user, "<span class='notice'>[src] is now [status ? "on" : "off"].</span>")
@@ -99,7 +99,7 @@
 			to_chat(user, "<span class='warning'>[src] is out of charge.</span>")
 	add_fingerprint(user)
 
-/obj/item/weapon/melee/baton/attack(mob/living/L, mob/user, var/hit_zone)
+/obj/item/melee/baton/attack(mob/living/L, mob/user, var/hit_zone)
 	if(!L) return
 
 	if(status && (user.is_clumsy()) && prob(50))
@@ -157,26 +157,26 @@
 				else
 					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with \the [src] by [user]!</span>")
 					var/intent = "(INTENT: [user? uppertext(user.a_intent) : "N/A"])"
-					admin_attack_log(user, L, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src] \the")
+					admin_attack_log(user, L, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src]")
 					if(!sheathed)
 						H.electrocute_act(force * 2, src, ground_zero = target_zone)
 		if(isslime(L))
 			var/mob/living/carbon/slime/S =  L
 			if(!status)
 				L.visible_message("<span class='warning'>[S] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
-				return 1
+				return TRUE
 			else
 				L.visible_message("<span class='danger'>[S] has been prodded with \the [src] by [user]!</span>")
 
-			S.Discipline ++
-			if(prob(5))
-				S.Discipline = 0
-				S.rabid = 1 // heres that "or piss them off part"
+			S.discipline++
+			if(prob(1))
+				S.discipline = 0
+				S.rabid = TRUE // heres that "or piss them off part"
 
 		else
 			if(!status)
 				L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Luckily it was off.</span>")
-				return 1
+				return TRUE
 			else
 				L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
 
@@ -194,30 +194,30 @@
 
 	return 1
 
-/obj/item/weapon/melee/baton/emp_act(severity)
+/obj/item/melee/baton/emp_act(severity)
 	if(bcell)
 		bcell.emp_act(severity)	//let's not duplicate code everywhere if we don't have to please.
 	..()
 
 //secborg stun baton module
 
-/obj/item/weapon/melee/baton/robot
+/obj/item/melee/baton/robot
 	hitcost = 300
 
-/obj/item/weapon/melee/baton/robot/attack_self(mob/user)
+/obj/item/melee/baton/robot/attack_self(mob/user)
 	//try to find our power cell
 	var/mob/living/silicon/robot/R = loc
 	if (istype(R))
 		bcell = R.cell
 	return ..()
 
-/obj/item/weapon/melee/baton/robot/attackby(obj/item/weapon/W, mob/user)
+/obj/item/melee/baton/robot/attackby(obj/item/W, mob/user)
 	return
 
-/obj/item/weapon/melee/baton/robot/arm
+/obj/item/melee/baton/robot/arm
 	name = "electrified arm"
 
-/obj/item/weapon/melee/baton/robot/arm/update_icon()
+/obj/item/melee/baton/robot/arm/update_icon()
 	if(status)
 		icon_state = "[initial(icon_state)]_active"
 	else
@@ -229,7 +229,7 @@
 		set_light(0)
 
 //Makeshift stun baton. Replacement for stun gloves.
-/obj/item/weapon/melee/baton/cattleprod
+/obj/item/melee/baton/cattleprod
 	name = "stunprod"
 	desc = "An improvised stun baton."
 	icon_state = "stunprod_nocell"
@@ -237,30 +237,32 @@
 	force = 3
 	throwforce = 5
 	stunforce = 0
-	agonyforce = 120	//same force as a stunbaton, but uses way more charge.
-	hitcost = 2500
+	agonyforce = 60	//Marginally more inefficient.
+	hitcost = 2000
 	attack_verb = list("poked")
 	slot_flags = null
 	baton_color = "#FFDF00"
 	sheathed = 0
 
-/obj/item/weapon/melee/baton/stunrod
+/obj/item/melee/baton/stunrod
 	name = "stunrod"
 	desc = "A more-than-lethal weapon used to deal with high threat situations."
 	icon = 'icons/obj/stunrod.dmi'
 	icon_state = "stunrod"
 	item_state = "stunrod"
 	force = 7
+	agonyforce = 80
+	hitcost = 1000
 	baton_color = "#75ACFF"
 	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
 	contained_sprite = 1
 	sheathed = 0
 
-/obj/item/weapon/melee/baton/stunrod/Initialize()
-	bcell = new/obj/item/weapon/cell/high(src)
+/obj/item/melee/baton/stunrod/Initialize()
+	bcell = new/obj/item/cell/high(src)
 	. = ..()
 
-/obj/item/weapon/melee/baton/stunrod/update_icon() //this is needed due to how contained sprites work
+/obj/item/melee/baton/stunrod/update_icon() //this is needed due to how contained sprites work
 	if(status)
 		icon_state = "[initial(name)]_active"
 		item_state = "[initial(name)]_active"
@@ -273,7 +275,7 @@
 
 	..()
 
-/obj/item/weapon/melee/baton/slime // sprites
+/obj/item/melee/baton/slime // sprites
 	name = "Slime Baton"
 	desc = "A special baton used to help deal with agressive slimes. Works 95% of the time!"
 	icon = 'icons/obj/stunrod.dmi'
@@ -281,12 +283,13 @@
 	item_state = "stunrod"
 	baton_color = "#75ACFF"
 	force = 3
-	agonyforce = 60
+	hitcost = 1000
+	agonyforce = 50
 
-/obj/item/weapon/melee/baton/slime/Initialize()
-	bcell = new/obj/item/weapon/cell/high(src)
+/obj/item/melee/baton/slime/Initialize()
+	bcell = new/obj/item/cell/high(src)
 	. = ..()
 
-/obj/item/weapon/melee/baton/slime/update_icon()
+/obj/item/melee/baton/slime/update_icon()
 	icon_state = initial(icon_state)
 	item_state = initial(item_state)

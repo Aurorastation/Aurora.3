@@ -1,4 +1,4 @@
-/obj/item/weapon/book/manual/ntsl2
+/obj/item/book/manual/ntsl2
 	name = "NTSL2+ For Dummies"
 	icon_state ="bookNTSL"
 	author = "Brogrammer George"
@@ -20,14 +20,14 @@
 				<h1>NTSL2+ For Dummies</h1>
 
 				So you want to write NTSL2+ huh?<br>
-				Well good luck to you. Over this short guide, we'll be detailing the setup and execution of basic programs, aswell as documenting some more complicated functions.<br>
+				Well good luck to you. Over this short guide, we'll be detailing the setup and execution of basic programs, as well as documenting some more complicated functions.<br>
 
 				<h2>Installing</h2>
 				Firstly, if you're running this on a Telecommunications server, skip this step. It's already installed. Just, skip ahead to the Telecomms section...<br>
 				Secondly, if you're running this on a Telecommunications server and this book is your only guide, re-evaluate touching the Telecommunications server until later.<br><br>
 
 				<b>Step One:</b> Launch your computer or laptop.<br>
-				<b>Step Two:</b> Configure it for private use. Anything with access to the NT/Net Software Download Tool will techincally work, but you're clearly new here, so don't push your luck.<br>
+				<b>Step Two:</b> Configure it for private use. Anything with access to the NT/Net Software Download Tool will technically work, but you're clearly new here, so don't push your luck.<br>
 				<b>Step Three:</b> Download <i>NTSL2+ Interpreter</i>. Patiently wait for the download. You've got time, right?<br>
 				<b>Step Four:</b> You're done. Either learn to program or download someone else's code.<br>
 
@@ -56,18 +56,18 @@
 				Simple enough. this demonstrates calling a function, <code>print</code>, and a raw string argument, <code>"Hello, World!"</code><br>
 				NTSL2+ has a habit of hating people, so make sure you fully understand this. Play with that raw string argument, understand it. Test the limitations of this simple program, don't be afraid to break it.<br><br><br><br><br>
 				If you spent long enough following my last instruction, you probably noticed something strange. <code>print "Hello, World!"</code> worked.<br>
-				If you're new here, that's probably perfectly logical. If you've been programming for a while, this might be really wierd. (Unless you write python...).<br>
-				This is because functions can <i>implicitely</i> be called with string or table <b>constructors</b> as an argument. This will make more sense later, hopefully.<br><br>
+				If you're new here, that's probably perfectly logical. If you've been programming for a while, this might be really weird. (Unless you still write python 2...).<br>
+				This is because functions can <i>implicitly</i> be called with string or table <b>constructors</b> as an argument. This will make more sense later, hopefully.<br><br>
 				Next, is a <b>For loop</b>. Like wise, make a new program, or edit your old one. I'm not your boss.<br>
 				Fill it with:<br>
 <code>for(i=0; i < 10; i++){<br>
 &ensp;print `Number: \[i]`<br>
 }</code><br>
-				This code prints all the numbers from 0 to 9, with the text "Number: " behind it.<br>
+				This code prints all the numbers from 0 to 9, with the text "Number: " in front of it.<br>
 				Like last time, a lot of that code can still function if changed, play around with it.<br>
 				Different this time, however, is the use of backticks. <code>`Number: \[i]`</code><br>
 				These allow you to put <b>expressions</b> within your <b>string constructor</b>. Anything in square brackets, in this case, <code>\[i]</code> will be added to the string as the result of it's expression. So, the value of i.<br>
-				You can also escape these square bracks with a backslash, if you ever wanted to use them raw like that.<br><br>
+				You can also escape these square brackets with a backslash, if you ever wanted to use them raw like that.<br><br>
 				Your last tutorial: User Input.<br>
 				I'm going to throw a program at you, it'll contain a lot of words you've not been taught yet. But you might be ready now. Just try it out, play with the code, see what you can change.<br>
 				The Code:<br>
@@ -81,7 +81,7 @@ when term.topic{<br>
 }</code><br>
 				Don't worry, Don't be scared, I'll step through this with you.<br>
 				<font size=4px>I'll be gentle.</font><br>
-				First thing that happens is <code>term.set_cursor(0,0)</code>. We've got another function call here, but with <code>term.</code> at the back. This means that the function being run, set_cursor, is inside the table called term.<br>
+				First thing that happens is <code>term.set_cursor(0,0)</code>. We've got another function call here, but with <code>term.</code> ahead it. This means that the function being run, set_cursor, is inside the table called term.<br>
 				The function itself moves the terminal cursor to position 0,0. You know how when stuff was printed it appeared on a new line? You can change where that starts with this.<br>
 				<code>term.write</code> is a lot like <code>print</code> but instead of writing a line, it just writes what you put in. Doesn't move the cursor down for next time.<br>
 				<code>term.set_topic</code> is the way you make <i>fun buttons!</i> The first two arguments are an x and y coordinate, just like what we did when we moved the cursor. The second two are width and height, they're the size of the button. Lastly, is the topic value. This is what we'll get back when <code>term.topic</code> is called. if this starts with a question mark like it does here, it'll ask for user input, and change how it's returned to compensate. so <code>?prompt</code> when pushed, and the text "hi" is entered, will return with <code>prompt?hi</code><br>
@@ -133,7 +133,7 @@ when term.topic{<br>
 				If your program is too slow, then a message might get out before your code can tell the server what it should actually say. If changes to people's voices don't seem to do anything, try immediently stopping the message when you get it handed, then just send out a fake one with broadcast later.<br><br>
 
 				<h2>Networking</h2>
-				Networking is important if you want two programs to talk to eachother. Even more important if you want to control Telecomms from your personal laptop, ignoring the dangers of that.<br><br>
+				Networking is important if you want two programs to talk to each other. Even more important if you want to control Telecomms from your personal laptop, ignoring the dangers of that.<br><br>
 				Networking is just like Telecomms, simple sending and hooking. Because NTSL2+ is written by the lowest bidder, security functions aren't default. Write your own.<br><br>
 
 				<h3>Receiving</h3>
@@ -157,4 +157,3 @@ when term.topic{<br>
 				</body>
 			</html>
 			"}
-

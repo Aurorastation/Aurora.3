@@ -524,3 +524,39 @@
 		subject_l = subject
 		if (subject_l[final])
 			return subject_l[final]
+
+/datum/proc/dd_SortValue()
+	return "[src]"
+
+/obj/machinery/dd_SortValue()
+	return "[sanitize_old(name)]"
+
+/obj/machinery/camera/dd_SortValue()
+	return "[c_tag]"
+
+/datum/alarm/dd_SortValue()
+	return "[sanitize_old(last_name)]"
+
+// Insertion into a sorted list, preserving sortedness using binary search
+
+/proc/dd_binaryInsertSorted(var/list/L, var/O)
+	var/min = 1
+	var/max = L.len + 1
+	var/Oval = O:dd_SortValue()
+
+	while(1)
+		var/mid = min+round((max-min)/2)
+
+		if(mid == max)
+			L.Insert(mid, O)
+			return
+
+		var/Lmid = L[mid]
+		var/midval = Lmid:dd_SortValue()
+		if(Oval == midval)
+			L.Insert(mid, O)
+			return
+		else if(Oval < midval)
+			max = mid
+		else
+			min = mid+1

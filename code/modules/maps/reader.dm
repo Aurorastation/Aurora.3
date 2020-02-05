@@ -230,10 +230,13 @@ var/global/dmm_suite/preloader/_preloader = new
 
 			var/full_def = trim_text(copytext(model, old_position, dpos)) //full definition, e.g : /obj/foo/bar{variables=derp}
 			var/variables_start = findtext(full_def, "{")
-			var/atom_def = text2path(trim_text(copytext(full_def, 1, variables_start))) //path definition, e.g /obj/foo/bar
+
+			var/path_str = trim_text(copytext(full_def, 1, variables_start))
+			var/atom_def = text2path(path_str) //path definition, e.g /obj/foo/bar
 			old_position = dpos + 1
 
 			if(!atom_def) // Skip the item if the path does not exist.  Fix your crap, mappers!
+				crash_with("Invalid type in map. [path_str]")
 				continue
 
 			members += atom_def

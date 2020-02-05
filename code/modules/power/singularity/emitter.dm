@@ -141,7 +141,7 @@
 		var/burst_time = (min_burst_delay + max_burst_delay)/2 + 2*(burst_shots-1)
 		var/power_per_shot = active_power_usage * (burst_time/10) / burst_shots
 
-		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1)
+		playsound(src.loc, 'sound/weapons/emitter.ogg', 25, 1, 3, 0.5, 1)
 		if(prob(35))
 			spark_system.queue()
 
@@ -158,14 +158,14 @@
 		switch(state)
 			if(0)
 				state = 1
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, W.usesound, 75, 1)
 				user.visible_message("[user.name] secures [src] to the floor.", \
 					"You secure the external reinforcing bolts to the floor.", \
 					"You hear a ratchet")
 				src.anchored = 1
 			if(1)
 				state = 0
-				playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
+				playsound(src.loc, W.usesound, 75, 1)
 				user.visible_message("[user.name] unsecures [src] reinforcing bolts from the floor.", \
 					"You undo the external reinforcing bolts.", \
 					"You hear a ratchet")
@@ -175,7 +175,7 @@
 		return
 
 	if(W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(active)
 			to_chat(user, "Turn off [src] first.")
 			return
@@ -188,7 +188,7 @@
 					user.visible_message("[user.name] starts to weld [src] to the floor.", \
 						"You start to weld [src] to the floor.", \
 						"You hear welding")
-					if (do_after(user,20))
+					if (do_after(user,20/W.toolspeed))
 						if(!src || !WT.isOn()) return
 						state = 2
 						to_chat(user, "You weld [src] to the floor.")
@@ -201,7 +201,7 @@
 					user.visible_message("[user.name] starts to cut [src] free from the floor.", \
 						"You start to cut [src] free from the floor.", \
 						"You hear welding")
-					if (do_after(user,20))
+					if (do_after(user,20/W.toolspeed))
 						if(!src || !WT.isOn()) return
 						state = 1
 						to_chat(user, "You cut [src] free from the floor.")
@@ -210,7 +210,7 @@
 					to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 		return
 
-	if(istype(W, /obj/item/weapon/card/id) || istype(W, /obj/item/device/pda))
+	if(istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))
 		if(emagged)
 			to_chat(user, "<span class='warning'>The lock seems to be broken.</span>")
 			return

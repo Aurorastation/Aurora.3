@@ -24,7 +24,7 @@
 	and you think you might know how.</li>
 	<li><b>Personal Security Professional</b>: Excellent customer service and client
 	care is why Necropolis wins security contracts and you know this. A cut above
-	the rest you are clear, calm, concise and polite when working. As a security
+	the rest, you are clear, calm, concise and polite when working. As a security
 	force you were voted the top firm to employ and as such, NT ISD should really
 	be referring to your better judgement with security issues as far as you're
 	concerned. All crew are your customers and as such deserve a top notch customer
@@ -34,8 +34,10 @@
 
 	allowed_role_types = list(
 		/datum/job/officer,
+		/datum/job/forensics,
 		/datum/job/warden,
 		/datum/job/doctor,
+		/datum/job/surgeon,
 		/datum/job/pharmacist,
 		/datum/job/scientist,
 		/datum/job/roboticist,
@@ -45,55 +47,70 @@
 	allowed_species_types = list(
 		/datum/species/human,
 		/datum/species/skrell,
-		/datum/species/tajaran,
-		/datum/species/unathi
+		/datum/species/unathi,
+		/datum/species/diona
 	)
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/necropolis,
 		"Warden" = /datum/outfit/job/warden/necropolis,
-		"Medical Doctor" = /datum/outfit/job/doctor/necropolis,
+		"Physician" = /datum/outfit/job/doctor/necropolis,
+		"Surgeon" = /datum/outfit/job/doctor/necropolis,
+		"Trauma Physician" = /datum/outfit/job/doctor/necropolis,
+		"Nurse" = /datum/outfit/job/doctor/necropolis,
 		"Pharmacist" = /datum/outfit/job/pharmacist/necropolis,
-		"Medical Doctor" = /datum/outfit/job/doctor/necropolis,
+		"Biochemist" = /datum/outfit/job/pharmacist/necropolis,
 		"Scientist" = /datum/outfit/job/scientist/necropolis,
+		"Phoron Researcher" = /datum/outfit/job/scientist/necropolis,
+		"Xenoarcheologist" = /datum/outfit/job/scientist/necropolis,
+		"Anomalist" = /datum/outfit/job/scientist/necropolis,
+		"Forensic Technician" = /datum/outfit/job/forensics/necropolis,
+		"Crime Scene Investigator" = /datum/outfit/job/forensics/necropolis,
 		"Roboticist" = /datum/outfit/job/roboticist/necropolis,
+		"Biomechanical Engineer" = /datum/outfit/job/roboticist/necropolis,
+		"Mechatronic Engineer" = /datum/outfit/job/roboticist/necropolis,
 		"Corporate Liaison" = /datum/outfit/job/representative/necropolis
 	)
 
 /datum/outfit/job/officer/necropolis
 	name = "Security Officer - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
-	id = /obj/item/weapon/card/id/necropolis/sec
+	id = /obj/item/card/id/necropolis/sec
+
+/datum/outfit/job/forensics/necropolis
+	name = "Forensics Technician - Necropolis"
+	uniform = /obj/item/clothing/under/rank/security/necropolis
+	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/warden/necropolis
 	name = "Warden - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
-	id = /obj/item/weapon/card/id/necropolis/sec
+	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/doctor/necropolis
-	name = "Medical Doctor - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
-	id = /obj/item/weapon/card/id/necropolis
+	name = "Physician - Necropolis"
+	uniform = /obj/item/clothing/under/rank/necropolis/research
+	id = /obj/item/card/id/necropolis
 
 /datum/outfit/job/pharmacist/necropolis
 	name = "Pharmacist - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
-	id = /obj/item/weapon/card/id/necropolis
+	uniform = /obj/item/clothing/under/rank/necropolis/research
+	id = /obj/item/card/id/necropolis
 
 /datum/outfit/job/scientist/necropolis
 	name = "Scientist - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
-	id = /obj/item/weapon/card/id/necropolis
+	uniform = /obj/item/clothing/under/rank/necropolis/research
+	id = /obj/item/card/id/necropolis
 
 /datum/outfit/job/roboticist/necropolis
 	name = "Roboticist - Necropolis"
-	uniform = /obj/item/clothing/under/rank/necropolis
-	id = /obj/item/weapon/card/id/necropolis
+	uniform = /obj/item/clothing/under/rank/necropolis/research
+	id = /obj/item/card/id/necropolis
 
 /datum/outfit/job/representative/necropolis
-	name = "Corporate Liaison - Necropolis"
+	name = "Necropolis Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/necropolis
 	head = null
 	suit = null
 	implants = null
-	id = /obj/item/weapon/card/id/necropolis
+	id = /obj/item/card/id/necropolis

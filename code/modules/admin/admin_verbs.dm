@@ -1,7 +1,7 @@
 //admin verb groups - They can overlap if you so wish. Only one of each verb will exist in the verbs list regardless
 var/list/admin_verbs_default = list(
 	/datum/admins/proc/show_player_panel,	//shows an interface for individual players, with various links (links require additional flags,
-	/client/proc/player_panel,
+	/client/proc/player_panel_modern,
 	/client/proc/toggleadminhelpsound,	/*toggles whether we hear a sound when adminhelps/PMs are used*/
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
@@ -11,7 +11,6 @@ var/list/admin_verbs_default = list(
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
-	/client/proc/player_panel_new,		/*shows an interface for all players, with links to various panels*/
 	/client/proc/invisimin,				/*allows our mob to go invisible/visible*/
 //	/datum/admins/proc/show_traitor_panel,	/*interface which shows a mob's mind*/ -Removed due to rare practical use. Moved to debug verbs ~Errorage */
 	/datum/admins/proc/show_game_mode,  /*Configuration window for the current game mode.*/
@@ -23,8 +22,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/colorooc,				/*allows us to set a custom colour for everythign we say in ooc*/
 	/client/proc/admin_ghost,			/*allows us to ghost/reenter body at will*/
 	/client/proc/toggle_view_range,		/*changes how far we can see*/
-	/datum/admins/proc/view_txt_log,	/*shows the server log (diary) for today*/
-	/datum/admins/proc/view_atk_log,	/*shows the server combat-log, doesn't do anything presently*/
 	/client/proc/cmd_admin_pm_context,	/*right-click adminPM interface*/
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
 	/client/proc/cmd_admin_subtle_message,	/*send an message to somebody as a 'voice in their head'*/
@@ -135,7 +132,8 @@ var/list/admin_verbs_fun = list(
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
 	/client/proc/cure_traumas,
-	/client/proc/add_traumas
+	/client/proc/add_traumas,
+	/datum/admins/proc/ccannoucment
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -224,7 +222,9 @@ var/list/admin_verbs_debug = list(
 	/client/proc/global_ao_regenerate,
 	/client/proc/add_client_color,
 	/client/proc/connect_ntsl,
-	/client/proc/disconnect_ntsl
+	/client/proc/disconnect_ntsl,
+	/turf/proc/view_chunk,
+	/turf/proc/update_chunk
 	)
 
 var/list/admin_verbs_paranoid_debug = list(
@@ -257,8 +257,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/colorooc,
 	/client/proc/admin_ghost,
 	/client/proc/toggle_view_range,
-	/datum/admins/proc/view_txt_log,
-	/datum/admins/proc/view_atk_log,
 	/client/proc/cmd_admin_subtle_message,
 	/client/proc/cmd_admin_check_contents,
 	/datum/admins/proc/access_news_network,
@@ -316,7 +314,8 @@ var/list/admin_verbs_hideable = list(
 	/proc/release,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/cure_traumas,
-	/client/proc/add_traumas
+	/client/proc/add_traumas,
+	/datum/admins/proc/ccannoucment
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -327,7 +326,6 @@ var/list/admin_verbs_mod = list(
 	/client/proc/admin_ghost,			// allows us to ghost/reenter body at will,
 	/client/proc/cmd_mod_say,
 	/datum/admins/proc/show_player_info,
-	/client/proc/player_panel_new,
 	/client/proc/dsay,
 	/datum/admins/proc/show_skills,
 	/datum/admins/proc/show_player_panel,
@@ -371,7 +369,7 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/hide_most_verbs,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
-	/client/proc/player_panel,
+	/client/proc/player_panel_modern,
 	/client/proc/togglebuildmodeself,
 	/client/proc/toggledebuglogs,
 	/client/proc/ZASSettings,
@@ -383,15 +381,12 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
-	/client/proc/spawn_duty_officer,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
-	/client/proc/returntobody,
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
-	/client/proc/check_antagonists,
-	/client/proc/spawn_ert_commander
+	/client/proc/check_antagonists
 )
 
 /client/proc/add_admin_verbs()
@@ -515,22 +510,16 @@ var/list/admin_verbs_cciaa = list(
 			to_chat(mob, "<span class='notice'><b>Invisimin on. You are now as invisible as a ghost.</b></span>")
 			mob.alpha = max(mob.alpha - 100, 0)
 
-
-/client/proc/player_panel()
+/client/proc/player_panel_modern()
 	set name = "Player Panel"
 	set category = "Admin"
 	if(holder)
-		holder.player_panel_old()
-	feedback_add_details("admin_verb","PP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+		if(!global_player_panel)
+			global_player_panel = new()
+		global_player_panel.ui_interact(usr)
+	feedback_add_details("admin_verb","PPM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
-/client/proc/player_panel_new()
-	set name = "Player Panel New"
-	set category = "Admin"
-	if(holder)
-		holder.player_panel_new()
-	feedback_add_details("admin_verb","PPN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	return
 
 /client/proc/check_antagonists()
 	set name = "Check Antagonists"
@@ -945,10 +934,10 @@ var/list/admin_verbs_cciaa = list(
 		M.g_skin = hex2num(copytext(new_skin, 4, 6))
 		M.b_skin = hex2num(copytext(new_skin, 6, 8))
 
-	var/new_tone = input("Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation")  as text
+	var/new_tone = input("Please select skin tone level: 30-220. Higher is darker.", "Character Generation")  as text
 
 	if (new_tone)
-		M.s_tone = max(min(round(text2num(new_tone)), 220), 1)
+		M.s_tone = max(min(round(text2num(new_tone)), 220), 30)
 		M.s_tone =  -M.s_tone + 35
 
 	// hair

@@ -54,6 +54,14 @@
 	display_name = "beret, purple"
 	path = /obj/item/clothing/head/beret/purple
 
+/datum/gear/head/beret/color
+	display_name = "beret (colorable)"
+	path = /obj/item/clothing/head/beret/misc
+
+/datum/gear/head/beret/color/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice
+
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
@@ -68,6 +76,11 @@
 	display_name = "beret, security (head of security)"
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
+
+/datum/gear/head/beret/medical
+	display_name = "beret, medical"
+	path = /obj/item/clothing/head/beret/medical
+	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
@@ -99,7 +112,20 @@
 
 /datum/gear/head/hairflower/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
+
+/datum/gear/head/flowercrown
+	display_name = "flowercrown selection"
+	description = "A set of flowercrowns, perfect for the queen or even the king."
+	path = /obj/item/clothing/head
+
+/datum/gear/head/flowercrown/New()
+	..()
+	var/flowercrown = list()
+	flowercrown["crown, sunflower"] = /obj/item/clothing/head/sunflower_crown
+	flowercrown["crown, harebell"] = /obj/item/clothing/head/lavender_crown
+	flowercrown["crown, poppy"] = /obj/item/clothing/head/poppy_crown
+	gear_tweaks += new/datum/gear_tweak/path(flowercrown)
 
 /datum/gear/head/pin
 	display_name = "pin selection"
@@ -175,7 +201,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -192,7 +218,7 @@
 
 /datum/gear/head/headbando/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/head/beanie
 	display_name = "beanie"
@@ -200,7 +226,7 @@
 
 /datum/gear/head/beanie/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/head/loose_beanie
 	display_name = "loose beanie"
@@ -208,14 +234,28 @@
 
 /datum/gear/head/loose_beanie/New()
 	..()
-	gear_tweaks = list(gear_tweak_free_color_choice)
+	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/head/nonla
+	display_name = "non la hat"
+	path = /obj/item/clothing/head/nonla
 
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
 
-/datum/gear/head/tcflberet
-	display_name = "Tau Ceti Foreign Legion dress beret"
+/datum/gear/head/circuitry
+	display_name = "headwear, circuitry (empty)"
+	path = /obj/item/clothing/head/circuitry
+
+/datum/gear/head/tcfl
+	display_name = "tcfl hat selection"
 	path = /obj/item/clothing/head/legion_beret
+
+/datum/gear/head/tcfl/New()
+	..()
+	var/tcfl = list()
+	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/legion_beret
+	tcfl["tcfl beret, field"] = /obj/item/clothing/head/legion
+	gear_tweaks += new/datum/gear_tweak/path(tcfl)

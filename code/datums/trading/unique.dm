@@ -25,23 +25,71 @@
 /datum/trader/ship/unique/what_do_you_want()
 	return get_response("what_want", "I don't want anything!")
 
+/datum/trader/ship/unique/syndicate
+	name = "Cyndie Kate"
+	origin = "Cloaked ship"
+
+	possible_wanted_items = list (
+		/obj/item/gun/energy/captain                 = TRADER_THIS_TYPE,
+		/obj/item/hand_tele                          = TRADER_THIS_TYPE,
+		/obj/item/blueprints                         = TRADER_THIS_TYPE,
+		/obj/item/disk/nuclear                       = TRADER_THIS_TYPE,
+		/obj/item/card/id/captains_spare             = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/heavysniper/tranq   = TRADER_THIS_TYPE,
+	)
+
+	possible_trading_items = list (
+		/obj/item/antag_spawner/borg_tele            = TRADER_THIS_TYPE,
+		/obj/item/storage/box/syndie_kit             = TRADER_SUBTYPES_ONLY,
+		/obj/item/syndie/c4explosive                 = TRADER_ALL,
+		/obj/item/melee/energy/sword                 = TRADER_ALL,
+		/obj/item/melee/energy/sword/color           = TRADER_BLACKLIST,
+		/obj/item/melee/energy/axe                   = TRADER_THIS_TYPE,
+		/obj/item/shield/energy                      = TRADER_ALL,
+		/obj/item/clothing/gloves/force/syndicate    = TRADER_THIS_TYPE,
+		/obj/item/card/id/syndicate                  = TRADER_THIS_TYPE,
+		/obj/item/rig/merc                           = TRADER_THIS_TYPE,
+		/obj/item/rig/light/stealth                  = TRADER_THIS_TYPE,
+		/obj/item/rig/light/hacker                   = TRADER_THIS_TYPE,
+		/obj/item/gun/launcher/grenade               = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
+		/mob/living/heavy_vehicle/premade/combat     = TRADER_THIS_TYPE
+
+	)
+
+	speech = list(
+		"hail_generic"         = "Look, you can't afford the stuff I sell. You'll go get me valuable things from that station nearby, and I'll trade you my stuff. And you better do it fast, I think I might be tracked.",
+		"hail_deny"            = "This is not worth my time.",
+		"trade_complete"       = "Oooh, the commander will LOVE this!",
+		"trade_no_money"       = "Don't waste my time!",
+		"trade_not_enough"     = "Get me the good stuff I need or I'm gone!",
+		"trade_found_unwanted" = "I need high value things, not this garbage!",
+		"how_much"             = "I need VALUABLE things, and I need them FAST.",
+		"what_want"            = "There's a station near you, go there, get some high value and classified things. Or crystals.",
+		"compliment_deny"      = "Shove your compliments, I'm busy!",
+		"compliment_accept"    = "I might just recommend you to my employers...",
+		"insult_good"          = "Heh, you got style.",
+		"insult_bad"           = "I'm marking you for a hit..."
+	)
+
+	mob_transfer_message = "<span class='danger'>You are transported to ORIGIN, and with a sickening thud, you fall unconscious, never to wake again.</span>"
+
 /datum/trader/ship/unique/severance
 	name = "Unknown"
 	origin = "SGS Severance"
 
 	possible_wanted_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/reagent_containers/food/snacks/meat/human = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/human      = TRADER_SUBTYPES_ONLY,
+		/obj/item/reagent_containers/food/snacks/meat/human = TRADER_THIS_TYPE,
 		/mob/living/carbon/human                                   = TRADER_ALL
 	)
 
 	possible_trading_items = list(
-		/obj/mecha/combat                               = TRADER_SUBTYPES_ONLY,
-		/obj/mecha/combat/phazon                        = TRADER_BLACKLIST_ALL,
-		/obj/mecha/combat/tank                          = TRADER_BLACKLIST_ALL,
-		/obj/item/weapon/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/gun/energy/pulse               = TRADER_ALL,
-		/obj/item/weapon/gun/energy/rifle/pulse         = TRADER_THIS_TYPE
+		/obj/item/gun/projectile/automatic/rifle = TRADER_SUBTYPES_ONLY,
+		/obj/item/gun/energy/pulse               = TRADER_ALL,
+		/obj/item/gun/energy/rifle/pulse         = TRADER_THIS_TYPE,
+		/mob/living/heavy_vehicle/premade/heavy         = TRADER_THIS_TYPE
 	)
 
 	blacklisted_trade_items = list(/datum/species/monkey, /datum/species/machine, /datum/species/bug, /datum/species/diona)
@@ -69,11 +117,12 @@
 	origin = "Floating rock"
 
 	possible_wanted_items = list(
-		/obj/item/weapon/ore = TRADER_ALL
+		/obj/item/ore = TRADER_ALL
 	)
 	possible_trading_items = list(
-		/obj/machinery/power/supermatter = TRADER_ALL,
-		/obj/item/weapon/aiModule        = TRADER_SUBTYPES_ONLY
+		/obj/machinery/power/supermatter                = TRADER_ALL,
+		/obj/item/custom_ka_upgrade/barrels/supermatter = TRADER_THIS_TYPE,
+		/obj/item/aiModule                       = TRADER_SUBTYPES_ONLY
 	)
 
 	speech = list(
@@ -92,87 +141,27 @@
 		"insult_bad"           = "Blub feels bad now."
 	)
 
-
-/datum/trader/ship/unique/wizard
-	name = "The Grand Master"
-	origin = "Interdimensional Prison Cell"
-
-	possible_wanted_items = list(
-		/mob/living/simple_animal/construct              = TRADER_SUBTYPES_ONLY,
-		/obj/item/weapon/melee/cultblade                 = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/culthood                 = TRADER_ALL,
-		/obj/item/clothing/suit/space/cult               = TRADER_ALL,
-		/obj/item/clothing/suit/cultrobes                = TRADER_ALL,
-		/obj/item/clothing/head/helmet/space/cult        = TRADER_ALL,
-		/obj/structure/cult                              = TRADER_SUBTYPES_ONLY,
-		/obj/structure/constructshell                    = TRADER_ALL,
-		/mob/living/simple_animal/familiar               = TRADER_SUBTYPES_ONLY,
-		/mob/living/simple_animal/familiar/pet           = TRADER_BLACKLIST,
-		/mob/living/simple_animal/hostile/mimic          = TRADER_ALL,
-		/obj/item/clothing/head/helmet/space/void/wizard = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/wizard                   = TRADER_ALL,
-		/obj/item/clothing/suit/space/void/wizard        = TRADER_THIS_TYPE,
-		/obj/item/weapon/scrying                         = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/energy/wizard             = TRADER_THIS_TYPE,
-		/obj/item/phylactery                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/staff                = TRADER_ALL,
-		/obj/item/weapon/gun/energy/wand                 = TRADER_ALL,
-		/obj/item/weapon/gun/energy/wand/toy             = TRADER_BLACKLIST,
-		/obj/item/device/soulstone                       = TRADER_THIS_TYPE
-	)
-
-	possible_trading_items = list(
-		/obj/item/weapon/contract/wizard/tk              = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/smoke      = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/horsemask  = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/gestalt    = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/fireball   = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/forcewall  = TRADER_THIS_TYPE,
-		/obj/item/weapon/contract/boon/wizard/charge     = TRADER_THIS_TYPE,
-		/obj/item/toy/figure/wizard                      = TRADER_THIS_TYPE,
-		/obj/item/weapon/staff                           = TRADER_ALL,
-		/obj/machinery/from_beyond                       = TRADER_ALL
-	)
-
-	speech = list(
-		"hail_generic"         = "Hello! Are you here on pleasure or business?",
-		"hail_Golem"           = "Interesting... how incredibly interesting... come! Let us do business!",
-		"hail_deny"            = "I'm sorry, but I REALLY don't want to speak to you.",
-		"trade_complete"       = "Pleasure doing business with you! Just don't feed it after midnight!",
-		"trade_no_money"       = "Cash? Ha! What's cash to a man like me?",
-		"trade_not_enough"     = "Hm, well I do enjoy what you're offering, I prefer a fair trade.",
-		"trade_found_unwanted" = "What? I want oddities! Don't you understand?",
-		"how_much"             = "I want dark things, brooding things... things that go bump in the night. Things that bleed wrong, live wrong, are wrong.",
-		"what_want"            = "Have anything from a broodish cult?",
-		"compliment_deny"      = "Like I haven't heard that one before!",
-		"compliment_accept"    = "Haha! Aren't you nice.",
-		"insult_good"          = "Naughty naughty.",
-		"insult_bad"           = "Now where do you get off talking to me like that?"
-	)
-
-
 /datum/trader/ship/unique/vaurca
 	origin = "The Hive Shop"
 	name_language = LANGUAGE_VAURCA
 
 	possible_wanted_items = list(
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/koisbar_clean    = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koisbar          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean    = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/grown/kois       = TRADER_THIS_TYPE,
 		/obj/item/stack/material/phoron                                  = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
 		/obj/item/clothing/mask/breath/vaurca            = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/energy/vaurca             = TRADER_THIS_TYPE,
+		/obj/item/melee/energy/vaurca             = TRADER_THIS_TYPE,
 		/obj/item/vaurca/box                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/vaurca/rock               = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
+		/obj/item/melee/vaurca/rock               = TRADER_THIS_TYPE,
+		/obj/item/grenade/spawnergrenade/vaurca   = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/vaurca        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/vaurca = TRADER_THIS_TYPE,
 		/obj/item/clothing/shoes/magboots/vox/vaurca     = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/vaurca/gatlinglaser  = TRADER_THIS_TYPE
+		/obj/item/gun/energy/vaurca/blaster       = TRADER_THIS_TYPE
 	)
 
 	speech = list(
@@ -199,24 +188,18 @@
 		/obj/item/bluespace_crystal                   = TRADER_ALL,
 		/obj/machinery/bluespacerelay                 = TRADER_ALL,
 		/obj/item/stack/telecrystal                   = TRADER_THIS_TYPE,
-		/obj/item/organ/brain/golem                   = TRADER_THIS_TYPE,
+		/obj/item/organ/internal/brain/golem                   = TRADER_THIS_TYPE,
 		/obj/item/device/soulstone                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/circuitboard/telesci_console = TRADER_THIS_TYPE,
-		/obj/item/weapon/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
+		/obj/item/circuitboard/telesci_console = TRADER_THIS_TYPE,
+		/obj/item/circuitboard/telesci_pad     = TRADER_THIS_TYPE,
 		/obj/item/phylactery                          = TRADER_THIS_TYPE,
 		/obj/item/blueprints                          = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/backpack/holding     = TRADER_THIS_TYPE,
-		/obj/item/weapon/teleportation_scroll         = TRADER_THIS_TYPE
+		/obj/item/storage/backpack/holding     = TRADER_THIS_TYPE,
+		/obj/item/teleportation_scroll         = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
-		/obj/item/mecha_parts/chassis/phazon                 = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_torso              = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_head               = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_left_arm           = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_right_arm          = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_left_leg           = TRADER_THIS_TYPE,
-		/obj/item/mecha_parts/part/phazon_right_leg          = TRADER_THIS_TYPE
+		/obj/item/bluespace_crystal			                 = TRADER_THIS_TYPE
 	)
 
 	speech = list(

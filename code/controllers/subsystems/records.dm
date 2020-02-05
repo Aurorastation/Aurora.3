@@ -11,9 +11,21 @@
 	var/list/viruses
 
 	var/list/excluded_fields
+	var/list/localized_fields
 
 	var/manifest_json
 	var/list/manifest
+
+	var/list/citizenships = list()
+	var/list/religions = list()
+
+/datum/controller/subsystem/records/Initialize()
+	..()
+	for(var/type in localized_fields)
+		localized_fields[type] = compute_localized_field(type)
+
+	InitializeCitizenships()
+	InitializeReligions()
 
 /datum/controller/subsystem/records/New()
 	records = list()
@@ -21,6 +33,7 @@
 	warrants = list()
 	viruses = list()
 	excluded_fields = list()
+	localized_fields = list()
 	manifest = list()
 	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
@@ -28,6 +41,49 @@
 		excluded_fields[v] = v
 	excluded_fields["cmp_field"] = "cmp_field"
 	excluded_fields["excluded_fields"] = "excluded_fields"
+	excluded_fields["excluded_print_fields"] = "excluded_print_fields"
+	localized_fields[/datum/record] = list(
+		"id" = "Id",
+		"notes" = "Notes"
+	)
+	localized_fields[/datum/record/general] = list(
+		"_parent" = /datum/record,
+		"name" = "Name",
+		"rank" = "Rank",
+		"age" = "Age",
+		"sex" = "Sex",
+		"fingerprint" = "Fingerprint",
+		"physical_status" = "Physical Status",
+		"mental_status" = "Mental Status",
+		"species" = "Species",
+		"citizenship" = "Citizenship",
+		"employer" = "",
+		"religion" = "Religion",
+		"ccia_record" = "CCIA Notes",
+		"notes" = "Employment/skills summary",
+	)
+	localized_fields[/datum/record/medical] = list(
+		"_parent" = /datum/record,
+		"blood_type" = "Blood type",
+		"blood_dna" = "DNA",
+		"disabilities" = "Disabilities",
+		"allergies" = "Allergies",
+		"diseases" = "Diseases",
+		"comments" = "Comments"
+	)
+	localized_fields[/datum/record/security] = list(
+		"_parent" = /datum/record,
+		"criminal" = "Criminal Status",
+		"crimes" = "Crimes",
+		"incidents" = "Incidents",
+		"comments" = "Comments"
+	)
+	localized_fields[/datum/record/virus] = list(
+		"_parent" = /datum/record,
+		"description" = "Description",
+		"antigen" = "",
+		"spread_type" = "",
+	)
 
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
@@ -77,7 +133,9 @@
 	qdel(record)
 
 /datum/controller/subsystem/records/proc/remove_record_by_field(var/field, var/value, var/record_type = RECORD_GENERAL)
-	remove_record(find_record(field, value, record_type))
+	. = find_record(field, value, record_type)
+	if(.)
+		remove_record(.)
 
 /datum/controller/subsystem/records/proc/find_record(var/field, var/value, var/record_type = RECORD_GENERAL)
 	if(excluded_fields[field])
@@ -145,7 +203,7 @@
 		else
 			isactive[M.real_name] = 0
 
-	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "bot" = "Silicon", "misc" = "Miscellaneous")
+	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
 	for(var/dep in manifest)
 		var/list/depI = manifest[dep]
 		if(depI.len > 0)
@@ -187,10 +245,10 @@
 		var/rank = sanitize(t.rank)
 		var/real_rank = make_list_rank(t.real_rank)
 
-		var/isactive = t.phisical_status
+		var/isactive = t.physical_status
 		var/department = 0
 		var/depthead = 0            // Department Heads will be placed at the top of their lists.
-		
+
 		for(var/positionType in positions)
 			var/typesPositions = positions[positionType]
 			if(real_rank in typesPositions)
@@ -203,6 +261,21 @@
 
 		if(!department && !(name in manifest["heads"]))
 			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = rank, "active" = isactive)
+
+	for(var/mob/living/silicon/S in player_list)
+		if(istype(S, /mob/living/silicon/robot))
+			var/mob/living/silicon/robot/R = S
+			if(R.scrambledcodes)
+				continue
+			var/selected_module = "Default Module"
+			if(R.module)
+				selected_module = capitalize_first_letters(R.module.name)
+			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online")
+		if(istype(S, /mob/living/silicon/ai))
+			var/mob/living/silicon/ai/A = S
+			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online")
+			if(manifest["bot"].len != 1)
+				manifest["bot"].Swap(1, manifest["bot"].len)
 
 	manifest_json = json_encode(manifest)
 	return manifest_json
@@ -236,3 +309,44 @@
 
 /proc/generate_record_id()
 	return add_zero(num2hex(rand(1, 65535)), 4)
+
+
+/datum/controller/subsystem/records/proc/InitializeCitizenships()
+	for (var/type in subtypesof(/datum/citizenship))
+		var/datum/citizenship/citizenship = new type()
+
+		citizenships[citizenship.name] = citizenship
+
+	if (!citizenships.len)
+		crash_with("No citizenships located in SSrecords.")
+
+/datum/controller/subsystem/records/proc/InitializeReligions()
+	for (var/type in subtypesof(/datum/religion))
+		var/datum/religion/religion = new type()
+
+		religions[religion.name] = religion
+
+	if (!religions.len)
+		crash_with("No citizenships located in SSrecords.")
+
+/datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
+	var/datum/religion/religion = SSrecords.religions[target_religion]
+	if(religion)
+		return religion.get_records_name()
+
+/datum/controller/subsystem/records/proc/compute_localized_field(var/type)
+	if(!localized_fields[type])
+		return
+	if(localized_fields[type]["_parent"])
+		. = compute_localized_field(localized_fields[type]["_parent"])
+	else
+		. = list()
+
+	for(var/field in localized_fields[type])
+		if(field == "_parent")
+			continue
+		var/value = localized_fields[type][field]
+		//if(istype(value))
+		//	.[field] = compute_localized_field(value)
+		//	continue
+		.[field] = value

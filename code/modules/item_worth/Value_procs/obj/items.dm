@@ -1,12 +1,12 @@
 /obj/item/slime_extract/Value(var/base)
-	return base * Uses
+	return base * uses
 
 /obj/item/ammo_casing/Value()
 	if(!BB)
 		return 1
 	return ..()
 
-/obj/item/weapon/reagent_containers/Value()
+/obj/item/reagent_containers/Value()
 	. = ..()
 	if(reagents)
 		for(var/a in reagents.reagent_list)
@@ -22,14 +22,14 @@
 		return ..()
 	return material.value * amount
 
-/obj/item/weapon/ore/Value()
+/obj/item/ore/Value()
 	var/material/mat = get_material_by_name(material)
 	if(mat)
 		return mat.value
 	return 0
 
-/obj/item/weapon/material/Value()
+/obj/item/material/Value()
 	return material.value * worth_multiplier
 
-/obj/item/weapon/spacecash/Value()
+/obj/item/spacecash/Value()
 	return worth

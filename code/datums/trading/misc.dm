@@ -1,4 +1,4 @@
-/datum/trader/ship/pet_shop
+/datum/trader/pet_shop
 	name = "Pet Shop Owner"
 	name_language = LANGUAGE_SKRELLIAN
 	origin = "Pet Shop"
@@ -25,7 +25,7 @@
 	possible_wanted_items = list(
 		/mob/living/simple_animal/mushroom                           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tomato                             = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/rat/king                         = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/rat/king                           = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/diyaab                     = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/shantak                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/hostile/samak                      = TRADER_THIS_TYPE,
@@ -44,7 +44,7 @@
 		/mob/living/simple_animal/cat/kitten             = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/crab                   = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/lizard                 = TRADER_THIS_TYPE,
-		/mob/living/simple_animal/rat                  = TRADER_THIS_TYPE,
+		/mob/living/simple_animal/rat                    = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/parrot                 = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/tindalos               = TRADER_THIS_TYPE,
 		/mob/living/simple_animal/cow                    = TRADER_THIS_TYPE,
@@ -59,7 +59,7 @@
 		/obj/item/device/dociler                         = TRADER_THIS_TYPE
 	)
 
-/datum/trader/ship/prank_shop
+/datum/trader/prank_shop
 	name = "Prank Shop Owner"
 	name_language = LANGUAGE_ROOTSONG
 	origin = "Prank Shop"
@@ -89,24 +89,24 @@
 		/obj/item/clothing/shoes/clown_shoes                    = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/rank/clown                     = TRADER_THIS_TYPE,
 		/obj/item/device/pda/clown                              = TRADER_THIS_TYPE,
-		/obj/item/weapon/cartridge/clown                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/stamp/clown                            = TRADER_THIS_TYPE,
-		/obj/item/weapon/storage/backpack/clown                 = TRADER_THIS_TYPE,
-		/obj/item/weapon/bananapeel                             = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,
-		/obj/item/weapon/bikehorn                               = TRADER_THIS_TYPE,
-		/obj/item/weapon/reagent_containers/spray/waterflower   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/projectile/revolver/capgun         = TRADER_THIS_TYPE,
+		/obj/item/cartridge/clown                        = TRADER_THIS_TYPE,
+		/obj/item/stamp/clown                            = TRADER_THIS_TYPE,
+		/obj/item/storage/backpack/clown                 = TRADER_THIS_TYPE,
+		/obj/item/bananapeel                             = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,
+		/obj/item/bikehorn                               = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/spray/waterflower   = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/revolver/capgun         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/fakemoustache                   = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/energy/wand/toy                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/spawnergrenade/fake_carp       = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/spawnergrenade/singularity/toy = TRADER_THIS_TYPE,
-		/obj/item/weapon/grenade/fake                           = TRADER_THIS_TYPE,
-		/obj/item/weapon/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE,
+		/obj/item/gun/energy/wand/toy                    = TRADER_THIS_TYPE,
+		/obj/item/grenade/spawnergrenade/fake_carp       = TRADER_THIS_TYPE,
+		/obj/item/grenade/spawnergrenade/singularity/toy = TRADER_THIS_TYPE,
+		/obj/item/grenade/fake                           = TRADER_THIS_TYPE,
+		/obj/item/gun/launcher/pneumatic/small           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/monkeymask                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/monkeysuit                      = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
-		/obj/item/weapon/gun/bang                               = TRADER_SUBTYPES_ONLY
+		/obj/item/gun/bang                               = TRADER_SUBTYPES_ONLY
 	)
 
 /datum/trader/ship/replica_shop
@@ -133,10 +133,9 @@
 
 	possible_trading_items = list(
 		/obj/item/clothing/head/wizard/magus            = TRADER_THIS_TYPE,
-		/obj/item/weapon/shield/buckler                 = TRADER_THIS_TYPE,
+		/obj/item/shield/buckler                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/redcoat                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/powdered_wig            = TRADER_THIS_TYPE,
-		/obj/item/clothing/head/hasturhood              = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/gladiator        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/plaguedoctorhat         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/unathi           = TRADER_THIS_TYPE,
@@ -156,14 +155,14 @@
 		/obj/item/clothing/under/kilt                   = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/redcoat                = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/soviet                 = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/harpoon               = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/sword                 = TRADER_ALL,
-		/obj/item/weapon/material/scythe                = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/star                  = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/twohanded/baseballbat = TRADER_THIS_TYPE,
-		/obj/item/weapon/material/twohanded/pike        = TRADER_ALL,
-		/obj/item/weapon/material/twohanded/zweihander  = TRADER_THIS_TYPE,
-		/obj/item/weapon/melee/whip                     = TRADER_THIS_TYPE
+		/obj/item/material/harpoon               = TRADER_THIS_TYPE,
+		/obj/item/material/sword                 = TRADER_ALL,
+		/obj/item/material/scythe                = TRADER_THIS_TYPE,
+		/obj/item/material/star                  = TRADER_THIS_TYPE,
+		/obj/item/material/twohanded/baseballbat = TRADER_THIS_TYPE,
+		/obj/item/material/twohanded/pike        = TRADER_ALL,
+		/obj/item/material/twohanded/zweihander  = TRADER_THIS_TYPE,
+		/obj/item/melee/whip                     = TRADER_THIS_TYPE
 	)
 
 
@@ -172,18 +171,18 @@
 	name_language = LANGUAGE_UNATHI
 	origin = "Azazi Bulk Supply Guild"
 	possible_trading_items = list(
-		/obj/item/weapon/rig/unathi                    = TRADER_ALL,
-		/obj/item/weapon/rig/internalaffairs           = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/industrial                = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/eva                       = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/ce                        = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/hazmat                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/medical                   = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/hazard                    = TRADER_THIS_TYPE,
-		/obj/item/weapon/rig/combat                    = TRADER_THIS_TYPE,
+		/obj/item/rig/unathi                    = TRADER_ALL,
+		/obj/item/rig/internalaffairs           = TRADER_THIS_TYPE,
+		/obj/item/rig/industrial                = TRADER_THIS_TYPE,
+		/obj/item/rig/eva                       = TRADER_THIS_TYPE,
+		/obj/item/rig/ce                        = TRADER_THIS_TYPE,
+		/obj/item/rig/hazmat                    = TRADER_THIS_TYPE,
+		/obj/item/rig/medical                   = TRADER_THIS_TYPE,
+		/obj/item/rig/hazard                    = TRADER_THIS_TYPE,
+		/obj/item/rig/combat                    = TRADER_THIS_TYPE,
 		/obj/item/rig_module/device/healthscanner      = TRADER_THIS_TYPE,
 		/obj/item/rig_module/device/drill              = TRADER_THIS_TYPE,
-		/obj/item/rig_module/device/rcd                = TRADER_THIS_TYPE,
+		/obj/item/rig_module/device/rfd_c              = TRADER_THIS_TYPE,
 		/obj/item/rig_module/chem_dispenser            = TRADER_ALL,
 		/obj/item/rig_module/voice                     = TRADER_THIS_TYPE,
 		/obj/item/rig_module/vision                    = TRADER_SUBTYPES_ONLY,
@@ -194,7 +193,7 @@
 
 	speech = list(
 		"hail_generic"      = "Welcome to the Azazi Bulk Sssupply Guild! We sssupply in bulk!",
-		"hail_Unathi"      = "Hello fellow Sinta! We have many fine wares that will bring you a sense of home in this alien system.",
+		"hail_Unathi"       = "Hello fellow Sinta! We have many fine wares that will bring you a sense of home in this alien system.",
 		"hail_deny"         = "Go away, Guwan.",
 		"trade_complete"    = "Ah, excellent.",
 		"trade_blacklist"   = "I will pretend I didn't ssssee that.",

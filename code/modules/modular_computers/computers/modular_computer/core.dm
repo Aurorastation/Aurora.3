@@ -31,16 +31,16 @@
 		else
 			idle_threads.Remove(P)
 
-	working = hard_drive && processor_unit && damage < broken_damage && (apc_power(0) || battery_power(0))
+	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
 	if (working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
 		playsound(loc, "computerbeep", 30, 1, 10, required_preferences = SOUND_AMBIENCE)
 		ambience_last_played = world.time
 
-/obj/item/modular_computer/proc/get_preset_programs(var/app_preset_name)
+/obj/item/modular_computer/proc/get_preset_programs(preset_type)
 	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
-		if(prs.name == app_preset_name)
+		if(prs.type == preset_type)
 			return prs.return_install_programs()
 
 // Used to perform preset-specific hardware changes.
@@ -50,7 +50,7 @@
 // Used to install preset-specific programs
 /obj/item/modular_computer/proc/install_default_programs()
 	if(enrolled)
-		var/programs = get_preset_programs(_app_preset_name)
+		var/programs = get_preset_programs(_app_preset_type)
 		for (var/datum/computer_file/program/prog in programs)
 			hard_drive.store_file(prog)
 
@@ -65,7 +65,7 @@
 
 /obj/item/modular_computer/Destroy()
 	kill_program(1)
-	for(var/obj/item/weapon/computer_hardware/CH in src.get_all_components())
+	for(var/obj/item/computer_hardware/CH in src.get_all_components())
 		uninstall_component(null, CH)
 		qdel(CH)
 	STOP_PROCESSING(SSprocessing, src)
@@ -125,7 +125,7 @@
 		else
 			to_chat(user, "You press the power button, but the computer fails to boot up, displaying variety of errors before shutting down again.")
 		return
-	if(processor_unit && (apc_power(0) || battery_power(0))) // Battery-run and charged or non-battery but powered by APC.
+	if(processor_unit && computer_use_power()) // Battery-run and charged or non-battery but powered by APC.
 		if(issynth)
 			to_chat(user, "You send an activation signal to \the [src], turning it on")
 		else
@@ -142,9 +142,10 @@
 /obj/item/modular_computer/proc/kill_program(var/forced = 0)
 	if(active_program)
 		active_program.kill_program(forced)
+		src.vueui_transfer(active_program)
 		active_program = null
 	var/mob/user = usr
-	if(user && istype(user))
+	if(user && istype(user) && !forced)
 		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
@@ -161,12 +162,14 @@
 	return ntnet_global.add_log(text, network_card)
 
 /obj/item/modular_computer/proc/shutdown_computer(var/loud = 1)
+	SSvueui.close_uis(active_program)
 	kill_program(1)
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(1)
 		idle_threads.Remove(P)
 	if(loud)
 		visible_message("\The [src] shuts down.")
+	SSvueui.close_uis(src)
 	enabled = 0
 	update_icon()
 
@@ -189,6 +192,7 @@
 	idle_threads.Add(active_program)
 	active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
 	SSnanoui.close_uis(active_program.NM ? active_program.NM : active_program)
+	src.vueui_transfer(active_program)
 	active_program = null
 	update_icon()
 	if(istype(user))
@@ -214,6 +218,8 @@
 		active_program = P
 		idle_threads.Remove(P)
 		update_icon()
+		if(!P.vueui_transfer(src))
+			SSvueui.close_uis(src)
 		return
 
 	if(idle_threads.len >= processor_unit.max_idle_programs+1)
@@ -229,6 +235,8 @@
 
 	if(P.run_program(user))
 		active_program = P
+		if(!P.vueui_transfer(src))
+			SSvueui.close_uis(src)
 		update_icon()
 	return 1
 

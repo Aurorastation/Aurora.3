@@ -7,10 +7,10 @@
 	return mloc
 
 /proc/iswall(turf/T)
-	return (istype(T, /turf/simulated/wall) || istype(T, /turf/unsimulated/wall) || istype(T, /turf/simulated/shuttle/wall))
+	return (istype(T, /turf/simulated/wall) || istype(T, /turf/unsimulated/wall))
 
 /proc/isfloor(turf/T)
-	return (istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor) || istype(T, /turf/simulated/shuttle/floor))
+	return (istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
 
 
 //Edit by Nanako
@@ -24,6 +24,22 @@
 		if(A.density)
 			return 0
 	return 1
+
+/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range)
+	origin = get_turf(origin)
+	if(!origin)
+		return
+	var/list/turfs = list()
+	for(var/turf/T in orange(origin, outer_range))
+		if(!(T.z in current_map.sealed_levels)) // Picking a turf outside the map edge isn't recommended
+			if(T.x >= world.maxx-TRANSITIONEDGE || T.x <= TRANSITIONEDGE)
+				continue
+			if(T.y >= world.maxy-TRANSITIONEDGE || T.y <= TRANSITIONEDGE)
+				continue
+		if(!inner_range || get_dist(origin, T) >= inner_range)
+			turfs += T
+	if(turfs.len)
+		return pick(turfs)
 
 // This proc will check if a neighboring tile in the stated direction "dir" is dense or not
 // Will return 1 if it is dense and zero if not
@@ -72,3 +88,10 @@
 
 /proc/is_station_turf(var/turf/T)
 	return T && isStationLevel(T.z)
+
+/proc/is_below_sound_pressure(var/turf/T)
+	var/datum/gas_mixture/environment = T ? T.return_air() : null
+	var/pressure =  environment ? environment.return_pressure() : 0
+	if(pressure < SOUND_MINIMUM_PRESSURE)
+		return TRUE
+	return FALSE
