@@ -7,8 +7,7 @@ var/list/admin_verbs_default = list(
 	/client/proc/hide_verbs,			/*hides all our adminverbs*/
 	/client/proc/hide_most_verbs,		/*hides all our hideable adminverbs*/
 	/client/proc/cmd_mentor_check_new_players,
-	/client/proc/notification_add,		/*allows everyone to set up player notifications*/
-	/client/proc/toggle_aooc /*Mutes AOOC*/
+	/client/proc/notification_add		/*allows everyone to set up player notifications*/
 	)
 var/list/admin_verbs_admin = list(
 	/client/proc/debug_variables,		/*allows us to -see- the variables of any instance in the game.*/
@@ -99,7 +98,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
-	/client/proc/reset_openturf
+	/client/proc/reset_openturf,
+	/client/proc/toggle_aooc
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -344,7 +344,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/check_words,			/*displays cult-words*/
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
-	/client/proc/print_logout_report
+	/client/proc/print_logout_report,
+	/client/proc/toggle_aooc
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
@@ -392,7 +393,8 @@ var/list/admin_verbs_cciaa = list(
 	/datum/admins/proc/create_admin_fax,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
-	/client/proc/check_antagonists
+	/client/proc/check_antagonists,
+	/client/proc/toggle_aooc
 )
 
 /client/proc/add_admin_verbs()
