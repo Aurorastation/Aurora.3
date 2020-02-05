@@ -800,6 +800,8 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/toggle_aooc()
 	set name = "Toggle AOOC"
 	set category = "Admin"
+	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))
+		return
 	if(holder)
 		if (toggleantagooc() == FALSE)
 			to_chat(src, "<span class='interface'>AOOC is now muted</span>")
