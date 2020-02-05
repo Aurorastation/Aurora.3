@@ -35,7 +35,6 @@
 
 	// Gather data for computer header
 	data["_PC"] = get_header_data(data["_PC"])
-	. = data
 	
 	var/datum/signal/signal
 	signal = telecomms_process_active()
@@ -95,6 +94,8 @@
 			usr.reset_view()
 		else
 			var/mob/living/heavy_vehicle/M = locate(href_list["track_mech"]) in mob_list
+			if(!istype(M))
+				return FALSE
 			var/obj/machinery/camera/C = M.camera
 			if(C)
 				switch_to_camera(usr, C)
@@ -109,7 +110,7 @@
 	if(href_list["terminate"])
 		var/mob/living/M = locate(href_list["terminate"]) in mob_list
 		if(M?.old_mob && M.vr_mob)
-			to_chat(M, "<span class='warning'>Your connection to remote-controlled [M] is forcibly severed!</span>")
+			to_chat(M, span("warning", "Your connection to remote-controlled [M] is forcibly severed!"))
 			M.body_return()
 			return TRUE
 
@@ -118,8 +119,8 @@
 		if(ismob(M))
 			var/message = sanitize(input("Message to [M.old_mob]", "Set Message") as text|null)
 
-			to_chat(usr, "<span class='notice'>Sending message to [M.old_mob]: [message]</span>")
-			to_chat(M, "<span class='warning'>Remote Penal Monitoring: [message]</span>")
+			to_chat(usr, span("notice", "Sending message to [M.old_mob]: [message]"))
+			to_chat(M, span("warning", "Remote Penal Monitoring: [message]"))
 			return TRUE
 
 
@@ -164,7 +165,7 @@
 
 /datum/computer_file/program/penal_mechs/check_eye(var/mob/user)
 	if(!current_camera)
-		return 0
+		return FALSE
 	var/viewflag = current_camera.check_eye(user)
 	if ( viewflag < 0 ) //camera doesn't work
 		reset_current()

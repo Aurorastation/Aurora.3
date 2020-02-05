@@ -48,7 +48,7 @@
 		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return MOVEMENT_STOP
 	if(exosuit.lockdown)
-		to_chat(mover, "<span class='warning'>You cannot move while the exosuit's lockdown mode is active.</span>")
+		to_chat(mover, span("warning", "You cannot move while the exosuit's lockdown mode is active."))
 		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return MOVEMENT_STOP
 	var/obj/item/cell/C = exosuit.get_cell()
