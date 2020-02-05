@@ -1,0 +1,8 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - rscadd: "Mechs now have a lockdown function."
+  - rscadd: "Mechs can now be linked to cameranet networks."
+  - rscadd: "Adds a program for security that allows them to monitor & lockdown prisoner-controlled mechs and robots."
