@@ -801,7 +801,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Toggle AOOC"
 	set category = "Admin"
 	if(holder)
-		if (tao() == 0)
+		if (tao() == FALSE)
 			to_chat(src, "<span class='interface'>AOOC is now muted</span>")
 			verbs -= /client/proc/aooc
 		else
