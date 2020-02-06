@@ -30,7 +30,7 @@
 		construct_msg(Z, construct_class)
 		Z.cancel_camera()
 	
-	else if(istype(user, /mob/living/carbon/human))
+	else if(ishuman(user))
 		user.equip_to_slot_or_del(new /obj/item/clothing/head/culthood/alt(user), slot_head)
 		user.equip_to_slot_or_del(new /obj/item/clothing/suit/cultrobes/alt(user), slot_wear_suit)
 		user.equip_to_slot_or_del(new /obj/item/clothing/shoes/cult(user), slot_shoes)
