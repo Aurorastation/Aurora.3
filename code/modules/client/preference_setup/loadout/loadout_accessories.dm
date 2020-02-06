@@ -263,3 +263,7 @@
 /datum/gear/accessory/sleeve_patch/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
+
+/datum/gear/accessory/rosary
+	display_name = "rosary"
+	path = /obj/item/clothing/accessory/rosary

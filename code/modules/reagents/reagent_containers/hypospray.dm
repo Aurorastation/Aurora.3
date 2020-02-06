@@ -4,7 +4,7 @@
 
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
-	desc = "The Zeng-Hu Pharmaceuticals hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
+	desc = "The DeForest Medical Corporation hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
@@ -15,24 +15,13 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	center_of_mass = null
-	drop_sound = 'sound/items/drop/bottle.ogg'
 	var/armorcheck = 1
 	var/time = 3 SECONDS
-	var/has_level_sprites = TRUE
 	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
-
-/obj/item/reagent_containers/hypospray/Initialize()
-	. = ..()
-	update_icon()
-
-/obj/item/reagent_containers/hypospray/on_reagent_change()
-	update_icon()
-	return
 
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
-	desc = "The Zeng-Hu Pharmaceuticalsn premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
-	item_state = "cmo_hypo"
+	desc = "The DeForest Medical Corporation premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
 	volume = 30
 	time = 0
 
@@ -46,22 +35,6 @@
 			inj_time += 6 SECONDS
 		if(!do_mob(user, M, inj_time))
 			return 1
-
-/obj/item/reagent_containers/hypospray/update_icon()
-	if(!has_level_sprites)
-		return
-	var/percent = round((reagents.total_volume / 10) * 100)
-	switch(percent)
-		if(0 to 25)
-			icon_state = "[item_state]"
-		if(26 to 50)
-			icon_state = "[item_state]_25"
-		if(51 to 75)
-			icon_state = "[item_state]_50"
-		if(76 to 99)
-			icon_state = "[item_state]_75"
-		if(100 to INFINITY)
-			icon_state = "[item_state]_100"
 
 /obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
@@ -101,7 +74,6 @@
 	amount_per_transfer_from_this = 5
 	volume = 5
 	time = 0
-	has_level_sprites = FALSE
 
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
@@ -196,7 +168,6 @@
 	volume = 20
 	armorcheck = 0
 	time = 0
-	has_level_sprites = FALSE
 
 /obj/item/reagent_containers/hypospray/combat/Initialize()
 	. = ..()
