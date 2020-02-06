@@ -1,5 +1,5 @@
 /obj/effect/rune/manifest/do_rune_action(mob/living/user)
-	if(!istype(user, /mob/living/carbon))
+	if(!iscarbon(user))
 		to_chat(user, span("warning", "Your primitive form cannot use this rune!"))
 	if(get_turf(user) != get_turf(src))
 		return fizzle(user)
