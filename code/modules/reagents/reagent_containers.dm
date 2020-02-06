@@ -74,7 +74,7 @@
 		return
 	if(standard_splash_obj(user, target))
 		return
-	
+
 	if(istype(target, /obj/))
 		var/obj/O = target
 		if(!(O.flags & NOBLUDGEON) && reagents)
