@@ -45,3 +45,4 @@ changes:
   - rscadd: "Added the 'Droid' sprite (The one with the electricity animation) to every Module including Syndicate under the name 'HH-Android', short for Hephaestus Android."
   - tweak: "Removed the excess floating Drone sprites, now we only have one Drone sprite per module (And they're here to stay unless someone decides otherwise)"
   - bugfix: "While doing all of this I noticed where I forgot to add eyes for the new treadmate/landmate series, and so I fixed that problem, I also streamlined the old treadmate/landmate to have a matching state name."
+  - tweak: "Re-adjusted the Sprite names across each Module so they're consistent, less random, and easier to find no matter which one you usually choose."
