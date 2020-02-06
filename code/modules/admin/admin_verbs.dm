@@ -805,11 +805,11 @@ var/list/admin_verbs_cciaa = list(
 	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))
 		return
 	if(holder)
-		if (toggleantagooc() == FALSE)
-			to_chat(src, "<span class='interface'>AOOC is now muted</span>")
+		if (toggle_aooc_holder_check() == FALSE)
+			to_chat(src, "<span class='notice'>AOOC is now muted</span>")
 			verbs -= /client/proc/aooc
 		else
-			to_chat(src, "<span class='interface'>AOOC is now unmuted.</span>")
+			to_chat(src, "<span class='notice'>AOOC is now unmuted.</span>")
 			verbs |= /client/proc/aooc
 	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
