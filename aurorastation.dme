@@ -2025,6 +2025,7 @@
 #include "code\modules\modular_computers\file_system\programs\research\ntmonitor.dm"
 #include "code\modules\modular_computers\file_system\programs\security\camera.dm"
 #include "code\modules\modular_computers\file_system\programs\security\digitalwarrant.dm"
+#include "code\modules\modular_computers\file_system\programs\security\penalmechs.dm"
 #include "code\modules\modular_computers\file_system\programs\system\client_manager.dm"
 #include "code\modules\modular_computers\file_system\programs\system\configurator.dm"
 #include "code\modules\modular_computers\file_system\programs\system\file_browser.dm"
