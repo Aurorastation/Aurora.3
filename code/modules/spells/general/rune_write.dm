@@ -17,7 +17,7 @@
 	return list(user)
 
 /spell/rune_write/cast(null, mob/user = usr)
-	if(!istype(user.loc, /turf))
+	if(!isturf(user.loc))
 		to_chat(user, span("warning", "You do not have enough space to write a proper rune."))
 
 	var/rune = input(user, "Choose a rune to scribe", "Rune Scribing") in rune_types //not cancellable.
