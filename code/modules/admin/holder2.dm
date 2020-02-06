@@ -5,7 +5,7 @@ var/list/admin_datums = list()
 	var/client/owner	= null
 	var/rights = 0
 	var/fakekey			= null
-	var/toggleantagoocverb = 0
+	var/aooc_mute = FALSE
 	var/datum/marked_datum
 
 	var/mob/living/original_mob = null
@@ -61,13 +61,12 @@ var/list/admin_datums = list()
 	if (!admincaster_signature)
 		admincaster_signature = "[current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
 
-/datum/admins/proc/ToggleAOOCDatum()
-	if(toggleantagoocverb == 0)
-		toggleantagoocverb = 1
-		return 0
+/datum/admins/proc/toggle_aooc_mute_check()
+	if(aooc_mute == FALSE)
+		aooc_mute = TRUE
 	else
-		toggleantagoocverb = 0
-		return 1
+		aooc_mute = FALSE
+	return !aooc_mute
 /*
 checks if usr is an admin with at least ONE of the flags in rights_required. (Note, they don't need all the flags)
 if rights_required == 0, then it simply checks if they are an admin.
@@ -115,6 +114,6 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 		//qdel(holder)
 	return 1
 
-/client/proc/toggleantagooc()
+/client/proc/toggle_aooc_holder_check()
 	if(holder)
-		return holder.ToggleAOOCDatum()
+		return holder.toggle_aooc_mute_check()
