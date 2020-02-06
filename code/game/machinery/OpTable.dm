@@ -100,6 +100,7 @@
 	if(victim)
 		if(suppressing && victim.sleeping < 3)
 			victim.Sleeping(3 - victim.sleeping)
+			victim.willfully_sleeping = FALSE
 		return 1
 	icon_state = "[modify_state]-idle"
 	return 0
