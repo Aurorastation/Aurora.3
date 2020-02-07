@@ -402,6 +402,16 @@
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	src.verbs -= silicon_subsystems
 
+/mob/living/silicon/robot/drone/examine(mob/user)
+	..()
+
+	var/msg
+	if(emagged)
+		msg += "Their eye glows red."
+	else
+		msg += "Their eye glows green."
+	to_chat(user, msg)
+
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, "<b>You are a construction drone, an autonomous engineering and fabrication system.</b>.")
 	to_chat(src, "You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible.")
