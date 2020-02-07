@@ -139,6 +139,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)
+"ap" = (
+/turf/simulated/wall,
+/area/mine/unexplored)
 "aq" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -162,6 +165,30 @@
 "ar" = (
 /turf/simulated/wall/r_wall,
 /area/maintenance/elevator)
+"as" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 1;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "medsec"
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "at" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -252,6 +279,50 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"aC" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 1;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "medsec"
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
+"aD" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 1;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "medsec"
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "aE" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -290,6 +361,43 @@
 "aG" = (
 /turf/simulated/open,
 /area/turbolift/main_mid_aux)
+"aH" = (
+/obj/machinery/disposal,
+/obj/effect/floor_decal/corner/blue/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"aI" = (
+/obj/structure/flora/pottedplant/random,
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 1
+	},
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"aJ" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "medsec"
+	},
+/turf/simulated/floor/plating,
+/area/medical/virologyaccess)
 "aK" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/yellow{
@@ -333,6 +441,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"aO" = (
+/obj/structure/flora/pottedplant/random,
+/obj/effect/floor_decal/corner/blue/full{
+	icon_state = "corner_white_full";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"aP" = (
+/obj/item/modular_computer/console/preset/security,
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
 "aQ" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -343,6 +463,19 @@
 	pixel_y = -26
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"aR" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/item/paper_bin{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/obj/item/pen,
+/turf/simulated/floor/tiled/white,
 /area/mine/unexplored)
 "aS" = (
 /obj/structure/grille,
@@ -408,6 +541,24 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/interstitial)
+"aY" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/newscaster{
+	pixel_y = 32
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Security Office"
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
 "aZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -540,6 +691,9 @@
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
+"bj" = (
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
 "bk" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -970,6 +1124,24 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"bW" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
 "bX" = (
 /turf/simulated/open,
 /area/turbolift/command_mid)
@@ -994,6 +1166,26 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"bZ" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"ca" = (
+/obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virologyaccess)
 "cb" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -1121,6 +1313,62 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator)
+"cl" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virologyaccess)
+"cm" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 1
+	},
+/obj/machinery/requests_console{
+	department = "Security";
+	departmentType = 5;
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cn" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/security{
+	id_tag = "medsecdoor";
+	name = "Medical Security Office";
+	req_access = list(63)
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/virologyaccess)
 "co" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -1155,6 +1403,29 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
+"cr" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cs" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/machinery/button/windowtint{
+	id = "medsec";
+	pixel_x = 27;
+	pixel_y = -30;
+	req_access = list(5)
+	},
+/obj/machinery/button/remote/airlock{
+	id = "medsecdoor";
+	name = "Office Door Control";
+	pixel_x = 35;
+	pixel_y = -30;
+	req_access = list(63)
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
 "ct" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1180,9 +1451,90 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
+"cv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
+	},
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cw" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cx" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/pink/full,
+/turf/simulated/floor/tiled/white,
+/area/medical/virologyaccess)
 "cy" = (
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
+"cz" = (
+/obj/machinery/hologram/holopad,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cA" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cB" = (
+/obj/structure/table/standard,
+/obj/item/book/manual/wiki/security_space_law,
+/obj/item/book/manual/wiki/station_procedure,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cC" = (
+/obj/structure/table/standard,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
 "cE" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -1199,6 +1551,116 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
+"cF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cG" = (
+/obj/structure/coatrack,
+/obj/structure/window/reinforced,
+/obj/effect/floor_decal/corner/blue,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	icon_state = "intact-supply";
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cH" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
+"cI" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cJ" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4;
+	icon_state = "bulb1";
+	name = "elevator light fixture";
+	pixel_y = -10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
+"cK" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cL" = (
+/obj/structure/closet/secure_closet/security,
+/obj/effect/floor_decal/corner/blue/full{
+	icon_state = "corner_white_full";
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"cM" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "medsec"
+	},
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "cN" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -1206,6 +1668,18 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/unexplored)
+"cO" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "medsec"
+	},
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "cP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -1267,6 +1741,22 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
+"cY" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "medsec"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "medsec"
+	},
+/turf/simulated/floor/plating,
+/area/medical/virology)
 "cZ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -1282,6 +1772,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/interstitial)
+"da" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "db" = (
 /turf/simulated/wall,
 /area/security/range)
@@ -2162,6 +2659,18 @@
 /obj/item/modular_computer/console/preset/security/investigations,
 /turf/simulated/floor/lino,
 /area/security/detectives_office)
+"eE" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(63)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine/unexplored)
 "eF" = (
 /obj/structure/bed/chair/comfy/beige,
 /obj/structure/window/reinforced{
@@ -2745,6 +3254,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
+"fP" = (
+/obj/effect/floor_decal/corner/blue/full,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
 "fQ" = (
 /obj/structure/disposalpipe/segment{
 	icon_state = "conpipe-c";
@@ -2767,6 +3284,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/forensics_office)
+"fS" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/machinery/power/apc{
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
 "fT" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
@@ -2994,6 +3532,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
+"gn" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
 "go" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3737,6 +4285,44 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
+"hm" = (
+/obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Elevator Maintenance";
+	open_layer = 2.8;
+	req_access = list(12)
+	},
+/obj/structure/sign/drop{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/maintenance/elevator)
+"hn" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
 "ho" = (
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/airtight{
@@ -3901,11 +4487,82 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/investigations)
+"hA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/disposalpipe/junction/yjunction,
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
+"hB" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
 "hC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/security/forensics_office)
+"hD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
+"hE" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/obj/effect/floor_decal/corner/yellow{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 28;
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/interstitial_main)
 "hF" = (
 /obj/structure/morgue{
 	icon_state = "morgue1";
@@ -4788,19 +5445,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator)
-"ju" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4;
-	icon_state = "bulb1";
-	name = "elevator light fixture";
-	pixel_y = -10
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/elevator)
 "jv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -6664,25 +7308,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
-"nA" = (
-/obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor,
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Elevator Maintenance";
-	open_layer = 2.8;
-	req_access = list(12)
-	},
-/obj/structure/sign/drop{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/elevator)
 "nD" = (
 /obj/structure/track{
 	icon_state = "track3"
@@ -6905,19 +7530,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
-"pc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/pink{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/virologyaccess)
 "pd" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7888,27 +8500,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"uX" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/virologyaccess)
 "va" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -9335,25 +9926,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
-"Ex" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/white,
-/area/medical/virologyaccess)
 "EC" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -10250,62 +10822,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
-"Jb" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/interstitial_main)
-"Jd" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/interstitial_main)
-"Je" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1";
-	pixel_x = 0
-	},
-/obj/effect/floor_decal/corner/yellow{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 28;
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/interstitial_main)
 "Jf" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -10532,30 +11048,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
-"JQ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/virologyaccess)
 "JU" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	icon_state = "warningcorner_dust";
@@ -12323,26 +12815,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"Sx" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/grille,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 8;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/virologyaccess)
 "SA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -12864,17 +13336,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
-"Vv" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/obj/structure/bed/chair{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/pink/full,
-/turf/simulated/floor/tiled/white,
-/area/medical/virologyaccess)
 "Vx" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -13137,23 +13598,6 @@
 /obj/random/loot,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"Xn" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/effect/floor_decal/corner/yellow/full{
-	icon_state = "corner_white_full";
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/maintenance/interstitial_main)
 "Xu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -41999,7 +42443,7 @@ aG
 aG
 ar
 yf
-Jb
+hA
 Jg
 bb
 Jm
@@ -42256,7 +42700,7 @@ aG
 aG
 Ev
 Lr
-Jd
+hB
 XV
 iD
 Jn
@@ -42513,7 +42957,7 @@ aG
 aG
 KU
 aM
-nz
+hD
 Pm
 iD
 bk
@@ -42762,15 +43206,15 @@ LI
 LI
 Vx
 LI
-LI
-LI
-LI
-LI
-LI
-LI
-nA
-Xn
-Je
+cH
+gn
+gn
+gn
+gn
+gn
+hm
+hn
+hE
 Jh
 iD
 Jo
@@ -43019,7 +43463,7 @@ ar
 ar
 ar
 ar
-ju
+cJ
 ar
 ar
 WS
@@ -43276,7 +43720,7 @@ mo
 ar
 mo
 ar
-ar
+da
 ar
 Kv
 Oz
@@ -43532,8 +43976,8 @@ mo
 mo
 mo
 mo
-mo
-mo
+ar
+da
 ar
 XA
 MX
@@ -43784,13 +44228,13 @@ aa
 aa
 aa
 aa
+ab
 mo
-mo
-mo
-mo
-mo
-mo
-mo
+ap
+ap
+ap
+ad
+eE
 ar
 ar
 ar
@@ -44041,14 +44485,14 @@ aa
 aa
 aa
 aa
-mo
-mo
-mo
-mo
-mo
-mo
-mo
-Am
+ab
+ab
+as
+aO
+cm
+cA
+fP
+cM
 DU
 DU
 xy
@@ -44298,14 +44742,14 @@ aa
 aa
 aa
 aa
-aa
-mo
-mo
-mo
-mo
-mo
-mo
-Am
+ab
+ab
+aC
+aP
+cs
+cB
+bj
+cO
 QE
 xy
 Ad
@@ -44554,15 +44998,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 ab
 ab
-mo
-mo
-mo
-Am
+ab
+aD
+aR
+cr
+cC
+cI
+cY
 DU
 DU
 nN
@@ -44811,14 +45255,14 @@ aa
 aa
 aa
 aa
-aa
 ab
 ab
-ab
-ab
-ab
-mo
-mo
+ap
+ap
+aY
+cv
+cD
+fS
 Am
 Am
 tR
@@ -45070,12 +45514,12 @@ aa
 aa
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-mo
+ap
+aH
+bZ
+cz
+cF
+cK
 Am
 of
 BP
@@ -45327,12 +45771,12 @@ aa
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-mo
+ap
+aI
+bW
+cw
+cG
+cL
 Am
 CP
 GA
@@ -45584,10 +46028,10 @@ aa
 ab
 ab
 LL
-JQ
-Sx
-Sx
-uX
+LL
+aJ
+cn
+aJ
 UK
 UK
 UK
@@ -45843,8 +46287,8 @@ ab
 Xv
 Ts
 BC
-pc
-Vv
+ca
+cx
 UK
 QB
 QC
@@ -46100,7 +46544,7 @@ ab
 na
 yX
 Bg
-Ex
+cl
 Gg
 Fj
 Cc
