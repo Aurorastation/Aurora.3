@@ -167,6 +167,12 @@ var/list/fracture_sound = list(
 	'sound/effects/bonebreak3.ogg',
 	'sound/effects/bonebreak4.ogg'
 )
+var/list/button_sound = list(
+	'sound/machines/button1.ogg',
+	'sound/machines/button2.ogg',
+	'sound/machines/button3.ogg',
+	'sound/machines/button4.ogg'
+)
 var/list/computerbeep_sound = list(
 	'sound/machines/compbeep1.ogg',
 	'sound/machines/compbeep2.ogg',
@@ -320,7 +326,7 @@ var/list/glasscrack_sound = list(
 		return DIZZY
 	else if (confused)
 		return DIZZY
-	else if (sleeping)
+	else if (stat == UNCONSCIOUS)
 		return UNDERWATER
 	else
 		return ..()
@@ -412,8 +418,8 @@ var/list/glasscrack_sound = list(
 			if ("pageturn") soundin = pick(page_sound)
 			if ("fracture") soundin = pick(fracture_sound)
 			//if ("gunshot") soundin = pick(gun_sound)
+			if ("button") soundin = pick(button_sound)
 			if ("glasscrack") soundin = pick(glasscrack_sound)
-			if ("computerbeep") soundin = pick(computerbeep_sound)
 			if ("switch") soundin = pick(switch_sound)
 			if ("keyboard") soundin = pick(keyboard_sound)
 			if ("pickaxe") soundin = pick(pickaxe_sound)

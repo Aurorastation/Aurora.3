@@ -613,6 +613,13 @@
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
 
+/obj/item/clothing/accessory/poncho/trinary
+    name = "trinary perfection cape"
+    desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
+    icon_state = "trinary_cape"
+    item_state = "trinary_cape"
+    overlay_state = "trinary_cape"
+
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
 	name = "seniority ribbons"

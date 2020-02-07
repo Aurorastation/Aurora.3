@@ -8,6 +8,7 @@
 	fire_sound_text = "laser blast"
 	update_icon_on_init = TRUE
 
+	var/has_icon_ratio = TRUE // Does this gun use the ratio system to modify its icon_state?
 	var/has_item_ratio = TRUE // Does this gun use the ratio system to paint its item_states?
 
 	var/obj/item/cell/power_supply //What type of power cell this uses
@@ -110,6 +111,7 @@
 	..()
 	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
+		var/icon_state_ratio = ""
 		var/item_state_ratio = ""
 
 		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
@@ -118,13 +120,15 @@
 		else
 			ratio = max(round(ratio, 0.25) * 100, 25)
 
+		if(has_icon_ratio)
+			icon_state_ratio = ratio
 		if(has_item_ratio)
 			item_state_ratio = ratio
 
 		if(modifystate)
-			icon_state = "[modifystate][ratio]"
+			icon_state = "[modifystate][icon_state_ratio]"
 			item_state = "[modifystate][item_state_ratio]"
 		else
-			icon_state = "[initial(icon_state)][ratio]"
+			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
 	update_held_icon()
