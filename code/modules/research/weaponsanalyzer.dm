@@ -64,6 +64,10 @@
 		I.forceMove(src)
 		update_icon()
 
+/obj/machinery/weapons_analyzer/attack_hand(mob/user as mob)
+	user.set_machine(src)
+	ui_interact(user)
+
 /obj/machinery/weapons_analyzer/proc/reset()
 	process = FALSE
 	update_icon()
@@ -134,3 +138,26 @@
 		gun_overlay.pixel_x += 7
 		gun_overlay.pixel_y += 8
 		add_overlay(gun_overlay)
+
+#define UIDEBUG
+
+VUEUI_MONITOR_VARS(/obj/machinery/weapons_analyzer, analyzermonitor)
+	watch_var("object-icon", "object-icon")
+
+/obj/machinery/weapons_analyzer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	var/icon/Icon_used
+	if(gun)
+		Icon_used = new /icon(gun.icon, gun.icon_state)
+
+	else if(assembly)
+		Icon_used = new /icon(assembly.icon, assembly.icon_state)
+	else if(item)
+		Icon_used = new /icon(item.icon, item.icon_state)
+	ui.add_asset("object-icon", Icon_used) 
+	ui.send_asset("object-icon")
+
+/obj/machinery/weapons_analyzer/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "wanalyzer-analyzer", 500, 500, capitalize(name))
+	ui.open()
