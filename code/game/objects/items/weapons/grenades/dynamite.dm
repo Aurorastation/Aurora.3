@@ -2,12 +2,15 @@
 	name = "dynamite"
 	desc = "A bundle of Adhomian dynamite."
 	icon_state = "dynamite"
+	activation_sound = 'sound/items/flare.ogg'
 
 /obj/item/grenade/dynamite/attack_self(mob/user as mob)
 	return
 
 /obj/item/grenade/dynamite/attackby(obj/item/W as obj, mob/user as mob)
 	..()
+	if(active)
+		return
 	var/prepared = FALSE
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
@@ -42,20 +45,20 @@
 			C.throw_mode_on()
 
 
-/obj/item/grenade/dynamite/frag/prime()
-	set waitfor = 0
-	..()
+/obj/item/grenade/dynamite/prime()
 	var/turf/O = get_turf(src)
 	explosion(O, -1, -1, 3, 4)
+	qdel(src)
+	return
 
 
-/obj/item/grenade/dynamite/frag/throw_impact(atom/hit_atom)
+/obj/item/grenade/dynamite/throw_impact(atom/hit_atom)
 	..()
 	if(!active)
 		if(prob(25))
 			prime()
 
-/obj/item/grenade/dynamite/frag/ex_act(var/severity = 2.0)
+/obj/item/grenade/dynamite/ex_act(var/severity = 2.0)
 	if(!active)
 		prime()
 
@@ -70,7 +73,7 @@
 	chewable = FALSE
 	w_class = 4
 
-/obj/item/storage/box/dynamite
+/obj/item/storage/box/dynamite/throw_impact(atom/hit_atom)
 	..()
 	spill()
 

@@ -2377,6 +2377,7 @@
 #include "code\modules\research\xenoarchaeology\artifact\artifact_replicator.dm"
 #include "code\modules\research\xenoarchaeology\artifact\artifact_unknown.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effect.dm"
+#include "code\modules\research\xenoarchaeology\artifact\tajara.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_affect_cold.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_badfeeling.dm"
 #include "code\modules\research\xenoarchaeology\artifact\effects\unknown_effect_cellcharge.dm"
