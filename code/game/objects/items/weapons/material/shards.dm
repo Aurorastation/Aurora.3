@@ -99,7 +99,7 @@
 	..(loc, "titanium")
 
 /obj/item/material/shard/phoron/New(loc)
-	..(loc, "phglass")
+	..(loc, "borosilicate glass")
 
 /obj/item/material/shard/wood/New(loc)
 	..(loc, "wood")
