@@ -218,3 +218,4 @@
 	desc = "A pair of striped pants. Typically seen among privateers."
 	icon_state = "stripedpants"
 	item_state = "stripedpants"
+

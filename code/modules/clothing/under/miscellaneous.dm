@@ -76,8 +76,8 @@
 
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
-	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
 	name = "officer's dress uniform"
+	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
 	icon_state = "officer"
 	item_state = "lawyer_black"
 	worn_state = "officer"
@@ -107,10 +107,9 @@
 
 /obj/item/clothing/under/ert
 	name = "ERT tactical uniform"
-	desc = "A short-sleeved black uniform, paired with grey digital-camo cargo pants. It looks very tactical."
-	icon_state = "ert_uniform"
-	item_state = "bl_suit"
-	worn_state = "ert_uniform"
+	desc = "High quality military fatigues, this set is in a flavour of blue used by NT's security forces, crossed with camoflague."
+	icon_state = "tactical_nt_camo"
+	worn_state = "tactical_nt_camo"
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/ccpolice
@@ -248,9 +247,8 @@
 
 /obj/item/clothing/under/soviet
 	name = "soviet uniform"
-	desc = "For the Motherland!"
+	desc = "A well-pressed uniform of the Soviet Union's navy."
 	icon_state = "soviet"
-	item_state = "gy_suit"
 	worn_state = "soviet"
 
 /obj/item/clothing/under/redcoat
@@ -816,3 +814,9 @@
 	icon_state = "croptop"
 	item_state = "croptop_s"
 	worn_state = "croptop"
+
+/obj/item/clothing/under/retro_sec
+	name = "retro security uniform"
+	desc = "An NT security uniform from bygone years. It looks well-kept."
+	icon_state = "retro_officer"
+	worn_state = "retro_officer"

@@ -53,6 +53,7 @@
 	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/yellowgreen
 	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/lightred
 	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/darkred
+	jumpsuit["maroon jumpsuit"] = /obj/item/clothing/under/color/maroon
 	jumpsuit["rainbow jumpsuit"] = /obj/item/clothing/under/rainbow
 	gear_tweaks += new/datum/gear_tweak/path(jumpsuit)
 
@@ -266,7 +267,7 @@
 	var/uniform = list()
 	uniform["officer uniform, standard"] = /obj/item/clothing/under/rank/security
 	uniform["officer uniform, corporate"] = /obj/item/clothing/under/rank/security/corp
-	uniform["officer uniform, blue"] = /obj/item/clothing/under/rank/security/blue
+	uniform["officer uniform, alternate"] = /obj/item/clothing/under/rank/security/blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 
@@ -281,7 +282,7 @@
 	var/uniform = list()
 	uniform["warden uniform, standard"] = /obj/item/clothing/under/rank/warden
 	uniform["warden uniform, corporate"] = /obj/item/clothing/under/rank/warden/corp
-	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
+	uniform["warden uniform, alternate"] = /obj/item/clothing/under/rank/warden/blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 

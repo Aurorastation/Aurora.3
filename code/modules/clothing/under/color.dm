@@ -162,3 +162,8 @@
 	icon_state = "darkred"
 	item_state = "r_suit"
 	worn_state = "darkred"
+
+/obj/item/clothing/under/color/maroon
+	name = "maroon jumpsuit"
+	icon_state = "maroon"
+	worn_state = "maroon"
