@@ -223,7 +223,10 @@ mob/living/carbon/human/proc/change_monitor()
 	return FALSE
 
 /mob/living/carbon/human/can_commune()
-	return species ? species.can_commune() : FALSE
+	if(psi)
+		return TRUE
+	else
+		return species ? species.can_commune() : FALSE
 
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
