@@ -141,7 +141,7 @@
 /area/maintenance/engineering_ladder)
 "ap" = (
 /turf/simulated/wall,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aq" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -188,7 +188,7 @@
 	id = "medsec"
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/security/main/medical)
 "at" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -298,7 +298,7 @@
 	id = "medsec"
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aD" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -322,7 +322,7 @@
 	id = "medsec"
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aE" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -369,7 +369,7 @@
 	},
 /obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aI" = (
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/blue/full{
@@ -377,7 +377,7 @@
 	},
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aJ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -448,11 +448,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aP" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aQ" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
@@ -476,7 +476,7 @@
 	},
 /obj/item/pen,
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aS" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -558,7 +558,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "aZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -693,7 +693,7 @@
 /area/maintenance/interstitial_construction_site/office)
 "bj" = (
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "bk" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1141,7 +1141,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "bX" = (
 /turf/simulated/open,
 /area/turbolift/command_mid)
@@ -1169,7 +1169,7 @@
 "bZ" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "ca" = (
 /obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
@@ -1348,7 +1348,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cn" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1406,7 +1406,7 @@
 "cr" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cs" = (
 /obj/structure/bed/chair/office/light{
 	dir = 4
@@ -1425,7 +1425,7 @@
 	req_access = list(63)
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "ct" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1460,7 +1460,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cw" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 4
@@ -1476,7 +1476,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cx" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 0;
@@ -1495,7 +1495,7 @@
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cA" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -1506,7 +1506,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cB" = (
 /obj/structure/table/standard,
 /obj/item/book/manual/wiki/security_space_law,
@@ -1515,7 +1515,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cC" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1525,7 +1525,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1534,7 +1534,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cE" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -1560,7 +1560,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cG" = (
 /obj/structure/coatrack,
 /obj/structure/window/reinforced,
@@ -1579,7 +1579,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cH" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
@@ -1602,21 +1602,16 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cJ" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/ladder/up{
 	pixel_y = 16
 	},
-/obj/machinery/light/small/emergency{
-	dir = 4;
-	icon_state = "bulb1";
-	name = "elevator light fixture";
-	pixel_y = -10
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "cK" = (
@@ -1630,7 +1625,7 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cL" = (
 /obj/structure/closet/secure_closet/security,
 /obj/effect/floor_decal/corner/blue/full{
@@ -1644,7 +1639,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "cM" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -1660,7 +1655,7 @@
 	id = "medsec"
 	},
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/security/main/medical)
 "cN" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -1679,7 +1674,7 @@
 	id = "medsec"
 	},
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/security/main/medical)
 "cP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -1756,7 +1751,7 @@
 	id = "medsec"
 	},
 /turf/simulated/floor/plating,
-/area/medical/virology)
+/area/security/main/medical)
 "cZ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -2670,7 +2665,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/security/main/medical)
 "eF" = (
 /obj/structure/bed/chair/comfy/beige,
 /obj/structure/window/reinforced{
@@ -3261,7 +3256,7 @@
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "fQ" = (
 /obj/structure/disposalpipe/segment{
 	icon_state = "conpipe-c";
@@ -3304,7 +3299,7 @@
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
-/area/mine/unexplored)
+/area/security/main/medical)
 "fT" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
 /obj/structure/table/glass,
@@ -13428,6 +13423,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/medical/virology)
+"Wf" = (
+/turf/simulated/wall/r_wall,
+/area/security/main/medical)
 "Wk" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -44233,7 +44231,7 @@ mo
 ap
 ap
 ap
-ad
+Wf
 eE
 ar
 ar

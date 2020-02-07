@@ -1,4 +1,4 @@
-
+ 
 //Security
 
 /area/security
@@ -8,6 +8,22 @@
 
 /area/security/main
 	name = "\improper Security - Equipment Room"
+	icon_state = "security"
+	
+/area/security/main/medical
+	name = "\improper Medical - Security Office"
+	icon_state = "security"
+	
+/area/security/main/research
+	name = "\improper Research - Security Office"
+	icon_state = "security"
+	
+/area/security/main/engineering
+	name = "\improper Engineering - Security Office"
+	icon_state = "security"
+	
+/area/security/main/civilian
+	name = "\improper Civilian - Security Office"
 	icon_state = "security"
 
 /area/security/lobby
