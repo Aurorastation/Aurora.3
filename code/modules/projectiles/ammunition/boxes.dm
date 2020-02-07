@@ -69,6 +69,7 @@
 
 /obj/item/ammo_magazine/c45m/rubber
 	name = "magazine (.45 rubber)"
+	icon_state = "r45"
 	ammo_type = /obj/item/ammo_casing/c45/rubber
 
 /obj/item/ammo_magazine/c45m/practice
