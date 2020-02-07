@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscdel: "Removed stealth changeling absorb DNA power."
-  - bugfix: "Fixed horror ling changeling mobs not destroying the human inside of them properly when killed."
