@@ -156,7 +156,7 @@
 
 		return ..(user, distance, "", "It is \a [size] item.")
 	else 
-		to_chat(user, "Thats \a [name].")
+		to_chat(user, "\icon[src] That's \a [name].")
 		to_chat(user, span("notice", "You have to go closer if you want to examine it."))
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
