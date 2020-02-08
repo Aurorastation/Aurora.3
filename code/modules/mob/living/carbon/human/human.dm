@@ -341,7 +341,7 @@
 	if(suit)
 		var/list/modes = list("Off" = 1, "Binary Sensors" = 2, "Vitals Tracker" = 3, "Tracking Beacon" = 4)
 		dat += "<B>Suit Sensors: [modes[suit.sensor_mode + 1]]</B><BR>"
-	
+
 	if(internals || suit)
 		dat += "<HR>"
 
@@ -840,6 +840,7 @@
 
 	if (href_list["flavor_change"])
 		if(src != usr)
+			log_and_message_admins("attempted to use a exploit to change the flavor text of [src]", usr)
 			return
 		switch(href_list["flavor_change"])
 			if("done")
