@@ -11,13 +11,15 @@
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	language = LANGUAGE_ROOTSONG
+	secondary_langs = list(LANGUAGE_AZAZIBA)
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/diona
 	)
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/consume_nutrition_from_air
+		/mob/living/carbon/human/proc/consume_nutrition_from_air,
+		/mob/living/carbon/human/proc/create_structure
 	)
 	//primitive_form = "Nymph"
 	slowdown = 7
@@ -26,7 +28,8 @@
 	siemens_coefficient = 0.3
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
-	num_alternate_languages = 1
+	num_alternate_languages = 2
+	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL

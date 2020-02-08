@@ -37,9 +37,9 @@
 #define SPACE UNDERWATER
 
 var/list/shatter_sound = list(
-	'sound/effects/Glassbr1.ogg',
-	'sound/effects/Glassbr2.ogg',
-	'sound/effects/Glassbr3.ogg'
+	'sound/effects/glass_break1.ogg',
+	'sound/effects/glass_break2.ogg',
+	'sound/effects/glass_break3.ogg'
 )
 var/list/explosion_sound = list(
 	'sound/effects/Explosion1.ogg',
@@ -134,6 +134,12 @@ var/list/gravelfootsteps = list(
 	'sound/effects/footsteps/gravel3.wav',
 	'sound/effects/footsteps/gravel4.wav'
 )
+var/list/button_sound = list(
+	'sound/machines/button1.ogg',
+	'sound/machines/button2.ogg',
+	'sound/machines/button3.ogg',
+	'sound/machines/button4.ogg'
+)
 var/list/computerbeeps = list(
 	'sound/machines/compbeep1.ogg',
 	'sound/machines/compbeep2.ogg',
@@ -162,6 +168,12 @@ var/list/pickaxesounds = list(
 	'sound/weapons/mine/pickaxe2.ogg',
 	'sound/weapons/mine/pickaxe3.ogg',
 	'sound/weapons/mine/pickaxe4.ogg'
+	)
+var/list/glasscrack_sound = list(
+	'sound/effects/glass_crack1.ogg',
+	'sound/effects/glass_crack2.ogg',
+	'sound/effects/glass_crack3.ogg',
+	'sound/effects/glass_crack4.ogg'
 	)
 
 var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
@@ -284,7 +296,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		return DIZZY
 	else if (confused)
 		return DIZZY
-	else if (sleeping)
+	else if (stat == UNCONSCIOUS)
 		return UNDERWATER
 	else
 		return ..()
@@ -370,7 +382,9 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("sandstep") soundin = pick(sandfootsteps)
 			if ("gravelstep") soundin = pick(gravelfootsteps)
 			if ("computerbeep") soundin = pick(computerbeeps)
+			if ("button") soundin = pick(button_sound)
 			if ("switch") soundin = pick(switchsounds)
 			if ("keyboard") soundin = pick(keyboardsounds)
 			if ("pickaxe") soundin = pick(pickaxesounds)
+			if ("glasscrack") soundin = pick(glasscrack_sound)
 	return soundin

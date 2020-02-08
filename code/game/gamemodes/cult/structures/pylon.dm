@@ -439,7 +439,7 @@
 		else
 			if (user && !ranged)
 				to_chat(user, "You hit the pylon!")
-			playsound(get_turf(src), 'sound/effects/Glasshit.ogg', 75, 1)
+			playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, 1)
 	else
 		if(prob(damagetaken))
 			if (user)
@@ -447,7 +447,7 @@
 			qdel(src)
 		else if (user && !ranged)
 			to_chat(user, "You hit the pylon!")
-		playsound(get_turf(src), 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, 1)
 
 	start_process()
 
@@ -456,7 +456,7 @@
 	"<span class='danger'>The pylon shatters into shards of crystal!</span>",
 	"You hear a tinkle of crystal shards"
 	)
-	playsound(get_turf(src), 'sound/effects/Glassbr3.ogg', 75, 1)
+	playsound(get_turf(src), "shatter", 75, 1)
 	isbroken = 1
 	if (pylonmode == 2)
 		//If the pylon had a soul in it then it plays a creepy evil sound as the soul is released
