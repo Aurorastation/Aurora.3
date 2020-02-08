@@ -67,6 +67,9 @@ var/list/admin_datums = list()
 	else
 		aooc_mute = FALSE
 	return !aooc_mute
+
+/datum/admins/proc/check_aooc_mute()
+	return aooc_mute
 /*
 checks if usr is an admin with at least ONE of the flags in rights_required. (Note, they don't need all the flags)
 if rights_required == 0, then it simply checks if they are an admin.
@@ -117,3 +120,7 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 /client/proc/toggle_aooc_holder_check()
 	if(holder)
 		return holder.toggle_aooc_mute_check()
+
+/client/proc/aooc_mute_holder_check()
+	if(holder)
+		return holder.check_aooc_mute()
