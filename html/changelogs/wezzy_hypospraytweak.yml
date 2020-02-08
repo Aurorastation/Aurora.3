@@ -41,3 +41,4 @@ changes:
   - imageadd: "Changes the hypospray sprite again."
   - bugfix: "CMO's hypospray should have a inhand again."
   - tweak: "Reagents inside syringes and hyposprays should be more visible now."
+  - tweak: "Made hypospray descriptions much more descriptive."

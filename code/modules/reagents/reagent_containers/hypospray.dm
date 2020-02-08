@@ -4,7 +4,9 @@
 
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
-	desc = "The Zeng-Hu Pharmaceuticals' hypodermic spray is a sterile, air-needle autoinjector for administration of drugs to patients."
+	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
+	description_fluff = "The Zeng-Hu Pharmaceuticals' HypoSpray - 9 out of 10 doctors recommend it!"
+	description_info = "Unlike a syringe, reagent has to be poured into the hypospray before it can be injected."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
@@ -31,7 +33,9 @@
 
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
-	desc = "The Zeng-Hu Pharmaceuticals' premium hypodermic spray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
+	desc = "A premium version of the common hypospray, it allows rapid administration of drugs to patients."
+	description_fluff = "The Zeng-Hu Pharmaceuticals' HypoSpray Mk-II is a much more cutting-edge version of the regular hypospray."
+	description_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
 	time = 0
