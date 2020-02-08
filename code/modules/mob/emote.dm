@@ -73,7 +73,7 @@
 			if (istype(M, /mob/abstract/observer))
 				messagemobs_neardead += M
 				continue
-			else if (isliving(M) && !(type == 2 && ((sdisabilities & DEAF || ear_deaf) && !hearing_aid)))
+			else if (istype(M, /mob/living) && !(type == 2 && ((sdisabilities & DEAF) && !hearing_aid) || ear_deaf > 1))
 				messagemobs += M
 		else if(src.client)
 			if (M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT))
