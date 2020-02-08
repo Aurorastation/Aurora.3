@@ -17,11 +17,6 @@ In short:
 
 /datum/universal_state/hell/OnShuttleCall(var/mob/user)
 	return 1
-	/*
-	if(user)
-		to_chat(user, "<span class='sinister'>All you hear on the frequency is static and panicked screaming. There will be no shuttle call today.</span>")
-	return 0
-	*/
 
 /datum/universal_state/hell/DecayTurf(var/turf/T)
 	if(!T.holy)
@@ -53,7 +48,7 @@ In short:
 	KillMobs()
 	OverlayAndAmbientSet()
 
-	runedec += 9000	//basically removing the rune cap
+	rune_boost += 9001	//basically removing the rune cap
 
 /datum/universal_state/hell/proc/AreaSet()
 	for(var/area/A in all_areas)
