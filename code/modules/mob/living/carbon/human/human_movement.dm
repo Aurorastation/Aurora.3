@@ -138,7 +138,11 @@
 
 	var/turf/T = loc
 	var/footsound
+	var/top_layer = 0
 	for(var/obj/structure/S in T)
+		if(S.layer > top_layer && S.footstep_sound)
+			top_layer = S.layer
+			footsound = S.footstep_sound
 		footsound = S.footstep_sound
 		if(footsound) break
 	if(!footsound)
