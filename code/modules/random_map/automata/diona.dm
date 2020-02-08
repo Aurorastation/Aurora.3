@@ -1,14 +1,20 @@
+/turf/simulated/wall/diona
+	var/acts_as_door = TRUE // can dionae open this variant of wall
+
+/turf/simulated/wall/diona/no_open
+	acts_as_door = FALSE
+
 /turf/simulated/wall/diona/Initialize(mapload)
 	. = ..(mapload, "biomass")
 
 /turf/simulated/wall/diona/attack_hand(mob/user)
-	if(user.is_diona())
+	if(user.is_diona() && acts_as_door)
 		attack_generic(user)
 	else
 		..()
 
 /turf/simulated/wall/diona/attack_generic(mob/user, var/damage, var/attack_message)
-	if(user.is_diona())
+	if(user.is_diona() && acts_as_door)
 		if(can_open == WALL_OPENING)
 			return
 		can_open = WALL_CAN_OPEN
