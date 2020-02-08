@@ -140,23 +140,27 @@
 	I.forceMove(T)
 
 /obj/item/examine(mob/user, var/distance = -1)
-	var/size
-	switch(src.w_class)
-		if (5.0 to INFINITY)
-			size = "huge"
-		if (4.0 to 5.0)
-			size = "bulky"
-		if (3.0 to 4.0)
-			size = "normal-sized"
-		if (2.0 to 3.0)
-			size = "small"
-		if (0 to 2.0)
-			size = "tiny"
+	if(in_range(user, src) || isobserver(user))
+		var/size
+		switch(w_class)
+			if (ITEMSIZE_HUGE to INFINITY)
+				size = "huge"
+			if (ITEMSIZE_LARGE to ITEMSIZE_HUGE)
+				size = "bulky"
+			if (ITEMSIZE_NORMAL to ITEMSIZE_LARGE)
+				size = "normal-sized"
+			if (ITEMSIZE_SMALL to ITEMSIZE_NORMAL)
+				size = "small"
+			if (0 to ITEMSIZE_TINY)
+				size = "tiny"
+
+		return ..(user, distance, "", "It is \a [size] item.")
+	else 
+		to_chat(user, "Thats \a [name].")
+		to_chat(user, span("notice", "You have to go closer if you want to examine it."))
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
-
-	return ..(user, distance, "", "It is a [size] item.")
 
 /obj/item/attack_hand(mob/user as mob)
 	if (!user) return
