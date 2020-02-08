@@ -154,6 +154,12 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	flags_inv = HIDEJUMPSUIT
 
+/obj/item/clothing/suit/trinary_robes
+    name = "trinary perfection robe"
+    desc = "Robes worn by those who serve The Trinary Perfection."
+    icon_state = "trinary_robes"
+    item_state = "trinary_robes"
+	
 /*
  * Misc
  */
@@ -440,6 +446,15 @@
 	item_state = "trenchcoat_grey"
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
+
+/obj/item/clothing/suit/storage/toggle/trench/green
+    name = "green trenchcoat"
+    desc = "A comfy looking green trenchcoat with fur."
+    icon_state = "greentrench"
+    item_state = "greentrench"
+    icon_open = "greentrench_open"
+    icon_closed = "greentrench"
+    body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/dominia
 	name = "dominia cape"

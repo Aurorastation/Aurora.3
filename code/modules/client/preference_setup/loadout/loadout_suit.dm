@@ -145,6 +145,7 @@
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 
@@ -171,6 +172,10 @@
 /datum/gear/suit/winter
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
+
+/datum/gear/suit/winter/red
+	display_name = "winter coat, red"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/red
 
 /datum/gear/suit/winter/captain
 	display_name = "winter coat, captain"

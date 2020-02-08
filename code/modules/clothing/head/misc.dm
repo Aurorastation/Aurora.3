@@ -124,13 +124,6 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 
-/obj/item/clothing/head/hasturhood
-	name = "hastur's hood"
-	desc = "It's unspeakably stylish"
-	icon_state = "hasturhood"
-	flags_inv = BLOCKHAIR
-	body_parts_covered = HEAD|FACE|EYES
-
 /obj/item/clothing/head/nursehat
 	name = "nurse's hat"
 	desc = "It allows quick identification of trained medical personnel."
@@ -599,6 +592,12 @@
 	name = "right antenna ear"
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
+
+/obj/item/clothing/head/antenna/trinary_halo
+	name = "trinary perfection antenna"
+	desc = "A decorative antenna that is commonly worn by IPCs who serve the Trinary Perfection. It resembles a golden gear."
+	icon_state = "trinary_halo"
+	item_state = "trinary_halo"
 
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"

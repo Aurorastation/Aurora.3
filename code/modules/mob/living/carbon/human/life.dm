@@ -784,7 +784,7 @@
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
-			willfully_sleeping = 0
+			willfully_sleeping = FALSE
 
 		// Check everything else.
 
