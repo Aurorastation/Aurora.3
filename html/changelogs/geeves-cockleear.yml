@@ -1,0 +1,6 @@
+author: Code by Geeves, Sprites by Wezzy
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a hearing aid item. Also added it to the Utility catagory in the loadout menu. There are two designs, Skrellian and Human. Both designs work for any species."
