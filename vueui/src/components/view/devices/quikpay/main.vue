@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Utils from '../../../utils.js'
+import Utils from '../../../../utils.js'
 export default {
   data() {
     return this.$root.$data.state;
