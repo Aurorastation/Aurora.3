@@ -5,4 +5,4 @@
 # Ranks can be anything defined in admin_ranks.txt           ~Carn   #
 ######################################################################
 
-amoryblaine - Host
+# not_a_user - Admin
