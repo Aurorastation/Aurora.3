@@ -61,7 +61,7 @@
 		//Updates the number of stored chemicals for powers
 		handle_changeling()
 
-		//Organs and blood
+		//Organs
 		handle_organs()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
@@ -749,10 +749,10 @@
 			for(var/atom/a in hallucinations)
 				qdel(a)
 
-		if(get_shock() >= species.total_health)
+		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
-				src.visible_message("<B>[src]</B> [species.halloss_message].")
+				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
 		if(paralysis || sleeping)
