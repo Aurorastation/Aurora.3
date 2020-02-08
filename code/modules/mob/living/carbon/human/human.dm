@@ -839,6 +839,8 @@
 		src.examinate(M)
 
 	if (href_list["flavor_change"])
+		if(src != usr)
+			return
 		switch(href_list["flavor_change"])
 			if("done")
 				src << browse(null, "window=flavor_changes")
@@ -1072,6 +1074,7 @@
 
 	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
 	if(new_facial)
+
 		r_facial = hex2num(copytext(new_facial, 2, 4))
 		g_facial = hex2num(copytext(new_facial, 4, 6))
 		b_facial = hex2num(copytext(new_facial, 6, 8))
