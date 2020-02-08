@@ -143,7 +143,6 @@
 		if(S.layer > top_layer && S.footstep_sound)
 			top_layer = S.layer
 			footsound = S.footstep_sound
-		if(footsound) break
 	if(!footsound)
 		footsound = T.footstep_sound
 
