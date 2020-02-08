@@ -134,6 +134,12 @@ var/list/gravelfootsteps = list(
 	'sound/effects/footsteps/gravel3.wav',
 	'sound/effects/footsteps/gravel4.wav'
 )
+var/list/button_sound = list(
+	'sound/machines/button1.ogg',
+	'sound/machines/button2.ogg',
+	'sound/machines/button3.ogg',
+	'sound/machines/button4.ogg'
+)
 var/list/computerbeeps = list(
 	'sound/machines/compbeep1.ogg',
 	'sound/machines/compbeep2.ogg',
@@ -376,6 +382,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("sandstep") soundin = pick(sandfootsteps)
 			if ("gravelstep") soundin = pick(gravelfootsteps)
 			if ("computerbeep") soundin = pick(computerbeeps)
+			if ("button") soundin = pick(button_sound)
 			if ("switch") soundin = pick(switchsounds)
 			if ("keyboard") soundin = pick(keyboardsounds)
 			if ("pickaxe") soundin = pick(pickaxesounds)

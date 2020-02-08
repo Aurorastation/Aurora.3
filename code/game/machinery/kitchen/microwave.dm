@@ -10,6 +10,9 @@
 	idle_power_usage = 5
 	active_power_usage = 2000
 	flags = OPENCONTAINER | NOREACT
+	clicksound = "button"
+	clickvol = "30"
+
 	var/operating = FALSE // Is it on?
 	var/dirty = 0 // = {0..100} Does it need cleaning?
 	var/broken = 0 // ={0,1,2} How broken is it???

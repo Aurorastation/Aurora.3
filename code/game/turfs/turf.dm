@@ -322,7 +322,7 @@ var/const/enterloopsanity = 100
 			if(istype(O,/obj/effect/rune))
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
-				if (R.visibility)
+				if(R.visible)
 					to_chat(user, span("warning", "No matter how well you wash, the bloody symbols remain!"))
 	else
 		if( !(last_clean && world.time < last_clean + 100) )

@@ -1367,9 +1367,7 @@
 						span("warning", "A spike of pain jolts your [organ.name] as you bump [O] inside."), \
 						span("warning", "Your movement jostles [O] in your [organ.name] painfully."), \
 						span("warning", "Your movement jostles [O] in your [organ.name] painfully."))
-					to_chat(src, msg)
-
-				organ.take_damage(rand(1, 3), sharp = TRUE, edge = TRUE, used_weapon = O)
+					custom_pain(msg, 10, 10, organ)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
@@ -1864,11 +1862,50 @@
 		return 0
 
 //Get fluffy numbers
-/mob/living/carbon/human/proc/get_blood_pressure()
+/mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return "[Floor(120+rand(-5,5))*0.25]/[Floor(80+rand(-5,5)*0.25)]"
+		return list(Floor(120+rand(-5,5))*0.25, Floor(80+rand(-5,5)*0.25))
 	var/blood_result = get_blood_circulation()
-	return "[Floor((120+rand(-5,5))*(blood_result/100))]/[Floor((80+rand(-5,5))*(blood_result/100))]"
+	return list(Floor((120+rand(-5,5))*(blood_result/100)), Floor((80+rand(-5,5))*(blood_result/100)))
+
+//Formats blood pressure for text display
+/mob/living/carbon/human/proc/get_blood_pressure()
+	var/list/bp = blood_pressure()
+	return "[bp[1]]/[bp[2]]"
+
+//Works out blood pressure alert level -- not very accurate
+/mob/living/carbon/human/proc/get_blood_pressure_alert()
+	var/list/bp = blood_pressure()
+	var/systolic_alert
+	var/diastolic_alert
+
+	switch(bp[1])
+		if(BP_HIGH_SYSTOLIC to INFINITY)
+			systolic_alert = 4
+		if(BP_PRE_HIGH_SYSTOLIC to BP_HIGH_SYSTOLIC)
+			systolic_alert = 3
+		if(BP_IDEAL_SYSTOLIC to BP_PRE_HIGH_SYSTOLIC)
+			systolic_alert = 2
+		if(-INFINITY to BP_IDEAL_SYSTOLIC)
+			systolic_alert = 1
+
+	switch(bp[2])
+		if(BP_HIGH_DIASTOLIC to INFINITY)
+			diastolic_alert = 4
+		if(BP_PRE_HIGH_DIASTOLIC to BP_HIGH_DIASTOLIC)
+			diastolic_alert = 3
+		if(BP_IDEAL_DIASTOLIC to BP_PRE_HIGH_DIASTOLIC)
+			diastolic_alert = 2
+		if(-INFINITY to BP_IDEAL_DIASTOLIC)
+			diastolic_alert = 1
+	if(systolic_alert == 4 || diastolic_alert == 4)
+		return 4
+	if(systolic_alert == 3 || diastolic_alert == 3)
+		return 3
+	if(systolic_alert == 1 || diastolic_alert == 1)
+		return 1
+	if(systolic_alert <= 2 && diastolic_alert <= 2)
+		return 2
 
 //Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
 /mob/living/carbon/human/nervous_system_failure()

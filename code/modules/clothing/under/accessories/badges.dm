@@ -228,3 +228,10 @@
 	icon_state = "intelbadge"
 	overlay_state = "intelbadge"
 	badge_string = null
+
+/obj/item/clothing/accessory/badge/trinary
+    name = "trinary perfection brooch"
+    desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
+    icon_state = "trinary_badge"
+    overlay_state = "trinary_badge"
+    badge_string = null
