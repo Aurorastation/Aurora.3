@@ -107,7 +107,7 @@
 
 /obj/item/clothing/under/ert
 	name = "ERT tactical uniform"
-	desc = "High quality military fatigues, this set is in a flavour of blue used by NT's security forces, crossed with camoflague."
+	desc = "High quality military fatigues, this set is in a flavor of blue used by NT's security forces, crossed with camouflage."
 	icon_state = "tactical_nt_camo"
 	worn_state = "tactical_nt_camo"
 	siemens_coefficient = 0.7
