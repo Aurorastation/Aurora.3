@@ -46,6 +46,8 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/storage/box/firingpinsRD(src)
 	new /obj/item/device/pin_extractor(src)
+	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/gun/projectile/sec/flash(src)
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"

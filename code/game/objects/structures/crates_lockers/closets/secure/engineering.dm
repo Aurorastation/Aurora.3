@@ -36,6 +36,8 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/chief(src)
+	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/gun/projectile/sec/flash(src)
 
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"
