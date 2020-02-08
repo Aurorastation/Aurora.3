@@ -194,7 +194,7 @@
 	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/silversun
-	display_name = "silversun shirt selection"
+	display_name = "silversun floral shirt selection"
 	path = /obj/item/clothing/accessory/silversun
 
 /datum/gear/accessory/silversun/New()

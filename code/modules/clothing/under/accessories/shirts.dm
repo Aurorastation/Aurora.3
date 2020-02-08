@@ -55,9 +55,9 @@
 	item_state = "tshirt"
 
 /obj/item/clothing/accessory/silversun
-	name = "silversun shirt"
-	desc = "A stylish Solarian shirt of Silversun design. This one is cyan."
-	icon = 'icons/mob/clothing/shirts/hawaiian.dmi'
+	name = "silversun floral shirt"
+	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is cyan."
+	icon = 'icons/clothing/under/shirts/hawaiian.dmi'
 	icon_state = "hawaii"
 	item_state = "hawaii"
 	contained_sprite = TRUE
@@ -73,6 +73,6 @@
 	mob_overlay = null
 
 /obj/item/clothing/accessory/silversun/red
-	desc = "A stylish Solarian shirt of Silversun design. This one is red."
+	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is crimson."
 	icon_state = "hawaii_red"
 	item_state = "hawaii_red"
