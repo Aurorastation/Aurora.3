@@ -241,8 +241,8 @@
 	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
 	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
-	suit["lyodsuit"] = /obj/item/clothing/under/lyodsuit
-	suit["hoodied lyodsuit"] = /obj/item/clothing/under/lyodsuit/hoodie
+	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
+	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/miscellaneous/kimono
