@@ -62,10 +62,7 @@ var/list/admin_datums = list()
 		admincaster_signature = "[current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
 
 /datum/admins/proc/toggle_aooc_mute_check()
-	if(aooc_mute == FALSE)
-		aooc_mute = TRUE
-	else
-		aooc_mute = FALSE
+	aooc_mute = !aooc_mute
 	return !aooc_mute
 
 /datum/admins/proc/check_aooc_mute()
