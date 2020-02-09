@@ -86,7 +86,7 @@
 
 /obj/item/gun/projectile/sec/detective
 	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses .45 rounds."
-	description_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Inspector is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk10 is compact and chambered in .45 caliber. With all the bells and whistles of a modern, quality police pistol, the Inspector's main drawback is the notoriously nippy recoil - .45 in such a small package does not play well with the average shooter."
+	description_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in .45 caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - .45 in such a small package does not play well with the average shooter."
 	name = "compact .45 pistol"
 	icon = 'icons/obj/guns/detgun.dmi'
 	icon_state = "detgun"
