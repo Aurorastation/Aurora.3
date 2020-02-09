@@ -195,6 +195,7 @@ var/global/list/robot_modules = list(
 				"Toileto-tron" = "toiletbotmedi",
 				"HD-MAD" = "mcspizzytronmedi",
 				"SD-MAD" = "floatspizzytronmedi",
+				"Unbranded-MAD" = "offfloatspizzytronmedi",
 				"Hover-Drone" = "drone-medical",
 		    	"Heph-Android" = "droid",
 		    	"Advanced Droid" = "droid-rescue",
@@ -269,6 +270,7 @@ var/global/list/robot_modules = list(
 			"Toileto-tron" = "toiletbotmedi",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
+			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Hover-Drone" = "drone-medical",
 			"Heph-Android" = "droid",
 			"Advanced-Droid" = "droid-rescue",
@@ -336,16 +338,17 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_ENGINEERING)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
-					"Basic" = "robotengi",
-					"Landmate" = "landmateengi",
-					"Treadmate" = "treadmateengi",
-					"Treadhead" = "treadheadengi",
-					"Toileto-tron" = "toiletbotengi",
-					"HD-MAD" = "mcspizzytronengi",
-					"SD-MAD" = "floatspizzytronengi",
-					"Hover-Drone" = "drone-engineer",
-					"Heph-Android" = "droid",
-					)
+				"Basic" = "robotengi",
+				"Landmate" = "landmateengi",
+				"Treadmate" = "treadmateengi",
+				"Treadhead" = "treadheadengi",
+				"Toileto-tron" = "toiletbotengi",
+				"HD-MAD" = "mcspizzytronengi",
+				"SD-MAD" = "floatspizzytronengi",
+				"Unbranded-MAD" = "offfloatspizzytronengi",
+				"Hover-Drone" = "drone-engineer",
+				"Heph-Android" = "droid",
+				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/engineering/construction
@@ -506,16 +509,17 @@ var/global/list/robot_modules = list(
 	channels = list("Service" = 1)
 	networks = list(NETWORK_SERVICE)
 	sprites = list(
-					"Basic" = "robotjani",
-					"Landmate" = "landmatejani",
-					"Treadmate" = "treadmatejani",
-					"Treadhead" = "treadheadjani",
-					"Toileto-tron" = "toiletbotjani",
-					"HD-MAD" = "mcspizzytronjani",
-					"SD-MAD" = "floatspizzytronmedi",
-					"Hover-Drone" = "drone-janitor",
-					"Heph-Android" = "droid",
-					)
+				"Basic" = "robotjani",
+				"Landmate" = "landmatejani",
+				"Treadmate" = "treadmatejani",
+				"Treadhead" = "treadheadjani",
+				"Toileto-tron" = "toiletbotjani",
+				"HD-MAD" = "mcspizzytronjani",
+				"SD-MAD" = "floatspizzytronjani",
+				"Unbranded-MAD" = "offfloatspizzytronjani",
+				"Hover-Drone" = "drone-janitor",
+				"Heph-Android" = "droid",
+				)
 
 /obj/item/robot_module/janitor/New()
 	..()
@@ -561,15 +565,16 @@ var/global/list/robot_modules = list(
 					)
 
 	sprites = list(
-					"Basic" = "robotserv",
-					"Landmate" = "landmateserv",
-					"Treadmate" = "treadmateserv",
-					"Treadhead" = "treadheadserv",
-					"Toileto-tron" = "toiletbotserv",
-					"HD-MAD" = "mcspizzytronserv",
-					"SD-MAD" = "floatspizzytronmine",
-					"Hover-Drone" = "drone-service",
-					"Heph-Android" = "droid",
+				"Basic" = "robotserv",
+				"Landmate" = "landmateserv",
+				"Treadmate" = "treadmateserv",
+				"Treadhead" = "treadheadserv",
+				"Toileto-tron" = "toiletbotserv",
+				"HD-MAD" = "mcspizzytronserv",
+				"SD-MAD" = "floatspizzytronserv",
+				"Unbranded-MAD" = "offfloatspizzytronserv",
+				"Hover-Drone" = "drone-service",
+				"Heph-Android" = "droid",
 				  	)
 
 /obj/item/robot_module/clerical/butler
@@ -640,16 +645,17 @@ var/global/list/robot_modules = list(
 	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-					"Basic" = "robotmine",
-					"Landmate" = "landmatemine",
-					"Treadmate" = "treadmatemine",
-					"Treadhead" = "treadheadmine",
-					"Toileto-tron" = "toiletbotmine",
-					"HD-MAD" = "mcspizzytronmine",
-					"SD-MAD" = "floatspizzytronmine",
-					"Hover-Drone" = "drone-miner",
-					"Heph-Android" = "droid",
-				)
+				"Basic" = "robotmine",
+				"Landmate" = "landmatemine",
+				"Treadmate" = "treadmatemine",
+				"Treadhead" = "treadheadmine",
+				"Toileto-tron" = "toiletbotmine",
+				"HD-MAD" = "mcspizzytronmine",
+				"SD-MAD" = "floatspizzytronmine",
+				"Unbranded-MAD" = "offfloatspizzytronmine",
+				"Hover-Drone" = "drone-miner",
+				"Heph-Android" = "droid",
+			)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/miner/New()
@@ -673,17 +679,18 @@ var/global/list/robot_modules = list(
 	channels = list("Science" = 1)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
-					"Basic" = "robotjani",
-					"Landmate" = "landmatejani",
-					"Treadmate" = "treadmatejani",
-					"Treadhead" = "treadheadsci",
-					"Toileto-tron" = "toiletbotsci",
-					"HD-MAD" = "mcspizzytronsci",
-					"SD-MAD" = "floatspizzytronsci",
-					"Hover-Drone" = "drone-science",
-					"Heph-Android" = "droid",
-					"Advanced Anroid" = "droid-science",
-					)
+				"Basic" = "robotjani",
+				"Landmate" = "landmatejani",
+				"Treadmate" = "treadmatejani",
+				"Treadhead" = "treadheadsci",
+				"Toileto-tron" = "toiletbotsci",
+				"HD-MAD" = "mcspizzytronsci",
+				"SD-MAD" = "floatspizzytronsci",
+				"Unbranded-MAD" = "offfloatspizzytronsci",
+				"Hover-Drone" = "drone-science",
+				"Heph-Android" = "droid",
+				"Advanced Anroid" = "droid-science",
+				)
 
 /obj/item/robot_module/research/New()
 	..()
