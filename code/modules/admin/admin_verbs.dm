@@ -806,7 +806,7 @@ var/list/admin_verbs_cciaa = list(
 		return
 	if(holder)
 		if (toggle_aooc_holder_check() == FALSE)
-			to_chat(src, "<span class='notice'>AOOC is now muted</span>")
+			to_chat(src, "<span class='notice'>AOOC is now muted.</span>")
 			verbs -= /client/proc/aooc
 		else
 			to_chat(src, "<span class='notice'>AOOC is now unmuted.</span>")
