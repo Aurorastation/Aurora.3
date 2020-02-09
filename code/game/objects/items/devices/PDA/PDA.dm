@@ -1529,6 +1529,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		plist[text("[name]")] = P
 	return plist
 
+/obj/item/device/pda/CouldUseTopic(var/mob/user)
+	..()
+	if(iscarbon(user))
+		playsound(src, 'sound/machines/pda_click.ogg', 40)
 
 //Some spare PDAs in a box
 /obj/item/storage/box/PDAs
