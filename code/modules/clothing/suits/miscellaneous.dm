@@ -452,7 +452,7 @@
 	icon_open = "trenchcoat_white_open"
 	icon_closed = "trenchcoat_white"
 
-/obj/item/clothing/suit/storage/fib
+/obj/item/clothing/suit/storage/toggle/fib
 	name = "\improper FIB agent jacket"
 	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
 	icon_state = "trenchcoat_fib"
