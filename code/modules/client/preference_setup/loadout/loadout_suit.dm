@@ -224,7 +224,7 @@
 
 
 /datum/gear/suit/secjacketinvestigator
-	display_name = "green investigator jacket"
+	display_name = "green security jacket (Investigative)"
 	path = /obj/item/clothing/suit/storage/toggle/security/greeninvestigator
 	allowed_roles = list("Forensic Technician, Detective")
 
