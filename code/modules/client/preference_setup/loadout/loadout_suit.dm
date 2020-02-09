@@ -224,17 +224,17 @@
 
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket (Security Officer)"
-	path = /obj/item/clothing/suit/security/navyofficer
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	path = /obj/item/clothing/suit/storage/toggle/security/navyofficer
+	allowed_roles = list("Security Officer")
 
 /datum/gear/suit/secjacketwarden
 	display_name = "navy security jacket (Warden)"
-	path = /obj/item/clothing/suit/security/navywarden
-	allowed_roles = list("Head of Security", "Warden")
+	path = /obj/item/clothing/suit/storage/toggle/security/navywarden
+	allowed_roles = list("Warden")
 
 /datum/gear/suit/secjackethos
 	display_name = "navy security jacket (Head of Security)"
-	path = /obj/item/clothing/suit/security/navyhos
+	path = /obj/item/clothing/suit/storage/toggle/security/navyhos
 	allowed_roles = list("Head of Security")
 
 /datum/gear/suit/dominia

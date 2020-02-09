@@ -350,7 +350,7 @@
 
 /obj/structure/closet/secure_closet/detective/fill()
 	//Appearance
-	new /obj/item/clothing/suit/security/toggle/greeninvestigator(src)
+	new /obj/item/clothing/suit/storage/toggle/security/greeninvestigator(src)
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/gloves/black(src)
@@ -377,7 +377,7 @@
 
 /obj/structure/closet/secure_closet/csi/fill()
 	//Appearance
-	new /obj/item/clothing/suit/security/toggle/greeninvestigator(src)
+	new /obj/item/clothing/suit/storage/toggle/security/greeninvestigator(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/suit/storage/vest/csi(src)
 	new /obj/item/clothing/under/det/forensics(src)

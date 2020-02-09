@@ -96,28 +96,28 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = 0
 
 //Security
-/obj/item/clothing/suit/security/formalofficer
+/obj/item/clothing/suit/formal/officer
 	name = "formal security officer jacket"
 	desc = "This jacket is for those special occasions when a security officer actually feels safe."
 	icon_state = "officerbluejacket"
 	item_state = "officerbluejacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/formalwarden
+/obj/item/clothing/suit/formal/warden
 	name = "formal warden jacket"
 	desc = "Perfectly suited for the warden that wants to leave an impression of style on those who visit the brig."
 	icon_state = "wardenbluejacket"
 	item_state = "wardenbluejacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/security/formalhos
+/obj/item/clothing/suit/formal/hos
 	name = "formal head of security jacket"
 	desc = "This piece of clothing was specifically designed for asserting superior authority."
 	icon_state = "hosbluejacket"
 	item_state = "hosbluejacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/toggle/security/navyofficer
+/obj/item/clothing/suit/storage/toggle/security/navyofficer
 	name = "security officer jacket"
 	desc = "A comfy security jacket for everyday wear. This one has the sleeve insignia of a security officer."
 	icon_state = "jacket_officer"
@@ -126,7 +126,8 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_closed = "jacket_officer"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/toggle/security/navywarden
+
+/obj/item/clothing/suit/storage/toggle/security/navywarden
 	name = "brig officer jacket"
 	desc = "A comfy security jacket for everyday wear. This one has the sleeve insignia of a brig officer."
 	icon_state = "jacket_warden"
@@ -135,7 +136,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_closed = "jacket_warden"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/toggle/security/navyhos
+/obj/item/clothing/suit/storage/toggle/security/navyhos
 	name = "head of security jacket"
 	desc = "A comfy security jacket for everyday wear. This one has the sleeve insignia of a head of security."
 	icon_state = "jacket_hos"
@@ -144,20 +145,17 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_closed = "jacket_hos"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-//Detective
+/obj/item/clothing/suit/storage/toggle/security/greeninvestigator
+	name = "investigative jacket"
+	desc = "A comfy security jacket for everyday wear. This one has the sleeve insignia of a member of the investigative team."
+	icon_state = "jacket_investigative"
+	item_state = "jacket_investigative"
+	icon_open = "jacket_investigative_open"
+	icon_closed = "jacket_investigative"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/toggle/det_jacket
-	name = "detective's jacket"
-	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for NT detectives. Unique fiber structure will offer moderate protection from various hazards investigators may encounter in the line of duty"
-	icon = 'icons/obj/clothing/detective.dmi'
-	icon_state = "det"
-	item_state = "det"
-	blood_overlay_type = "coat"
-	contained_sprite = TRUE
-	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
-	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
+
+//Detective
 
 /obj/item/clothing/suit/storage/toggle/det_trench
 	name = "brown trenchcoat"
@@ -178,15 +176,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "trenchcoat_grey"
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
-
-/obj/item/clothing/suit/toggle/security/greeninvestigator
-	name = "investigative jacket"
-	desc = "A comfy security jacket for everyday wear. This one has the sleeve insignia of a member of the investigative team."
-	icon_state = "jacket_investigative"
-	item_state = "jacket_investigative"
-	icon_open = "jacket_investigative_open"
-	icon_closed = "jacket_investigative"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 //Forensics
 /obj/item/clothing/suit/storage/forensics
