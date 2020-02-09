@@ -222,6 +222,12 @@
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")
 
+
+/datum/gear/suit/secjacketinvestigator
+	display_name = "green investigator jacket"
+	path = /obj/item/clothing/suit/storage/toggle/security/greeninvestigator
+	allowed_roles = list("Forensic Technician, Detective")
+
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket (Security Officer)"
 	path = /obj/item/clothing/suit/storage/toggle/security/navyofficer
