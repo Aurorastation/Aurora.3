@@ -1,7 +1,9 @@
 <template>
-  <div v-if="$root.$data.assets['object-icon']" class="photos">
-      <vui-img name="object-icon"/><br>
+  <div>
+    <div v-if="$root.$data.assets['object-icon']">
+        <vui-img name="object-icon"/>
     </div>
+  </div>
 </template>
 
 <script>
