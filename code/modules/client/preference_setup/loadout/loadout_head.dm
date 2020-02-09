@@ -64,13 +64,13 @@
 
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
-	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	path = /obj/item/clothing/head/beret/sec/alt
+	allowed_roles = list("Security Officer")
 
 /datum/gear/head/beret/warden
 	display_name = "beret, security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
-	allowed_roles = list("Head of Security", "Warden")
+	allowed_roles = list("Warden")
 
 /datum/gear/head/beret/hos
 	display_name = "beret, security (head of security)"
