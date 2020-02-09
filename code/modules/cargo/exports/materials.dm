@@ -15,15 +15,15 @@
 
 	return M.amount
 
-// Materials. Nothing but Diamonds is really worth selling. Better leave it all to RnD.
+// Materials. Nothing but Phoron is really worth selling. Better leave it all to RnD.
 
 /datum/export/material/diamond
-	cost = 200
+	cost = 100
 	material_id = "diamond"
 	message = "diamond sheets"
 
 /datum/export/material/phoron
-	cost = 30
+	cost = 175
 	k_elasticity = 0
 	material_id = "phoron"
 	message = "phoron sheets"
