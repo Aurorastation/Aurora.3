@@ -160,7 +160,7 @@
 
 /obj/item/attack_hand(mob/user as mob)
 	if (!user) return
-	if (hasorgans(user))
+	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)

@@ -17,7 +17,7 @@
 	max_duration = 90
 
 /datum/surgery_step/fix_vein/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -64,7 +64,7 @@
 	max_duration = 160
 
 /datum/surgery_step/fix_dead_tissue/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -134,7 +134,7 @@
 	if(!container.reagents.has_reagent("peridaxon"))
 		return 0
 
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 
 		if (target_zone == BP_MOUTH || target_zone == BP_EYES)

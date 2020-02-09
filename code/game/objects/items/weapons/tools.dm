@@ -305,66 +305,75 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 5)
 
-/obj/item/weldingtool/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/weldingtool/attack(mob/living/M, mob/user, var/target_zone)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/external/S = H.organs_by_name[target_zone]
 
-	if(hasorgans(M))
+		if(!S)
+			return
 
-		var/obj/item/organ/external/S = M:organs_by_name[target_zone]
-
-		if (!S) return
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
+		if(H.isSynthetic() && H == user && !(H.get_species() == "Military Frame"))
 			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
 			return
-		if(S.brute_dam == 0)
-			// Organ undamaged
-			to_chat(user, "Nothing to fix here!")
-			return
-		if (!src.welding)
-			// Welder is switched off!
-			to_chat(user, "<span class='warning'>You need to light the welding tool, first!</span>")
+
+		if (!welding)
+			to_chat(user, "<span class='warning'>You need to light the welding tool first!</span>")
 			return
 
 		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
-			user << "<span class='warning'>The damage is far too severe to patch over externally.</span>"
+			to_chat(user, "<span class='warning'>The damage is far too severe to patch over externally!</span>")
 			return
 
-		if (src.remove_fuel(0))
-			// Use a bit of fuel and repair
-			S.heal_damage(15,0,0,1)
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			user.visible_message("<span class='warning'>\The [user] patches some dents on \the [M]'s [S.name] with \the [src].</span>")
-		else
-			// Welding tool is out of fuel
-			to_chat(user, "Need more welding fuel!")
-		return
+		repair_organ(user, H, S)
 
 	else
 		return ..()
 
+/obj/item/weldingtool/proc/repair_organ(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
+	if(!affecting.brute_dam)
+		user.visible_message("<span class='notice'>[user] finishes repairing the physical damage on [target]'s [affecting.name].</span>")
+		return
+	if(do_mob(user, target, 30))
+		if(remove_fuel(0))
+			var/static/list/repair_messages = list(
+				"patches some dents",
+				"mends some tears",
+				"repairs some joints"
+			)
+			affecting.heal_damage(brute = 15, robo_repair = TRUE)
+			user.visible_message("<span class='notice'>\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src].</span>")
+			playsound(user, 'sound/items/Welder2.ogg', 15)
+			repair_organ(user, target, affecting)
+		else
+			// Welding tool is out of fuel
+			to_chat(user, "<span class='warning'>\The [src] flickers off.</span>")
+
 /obj/item/weldingtool/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(!proximity) return
-	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !src.welding)
+	if(!proximity)
+		return
+	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src, O) <= 1 && !welding)
 		O.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>Welder refueled</span>")
+		to_chat(user, "<span class='notice'>You refuel your welder.</span>")
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
-	else if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && src.welding)
+	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && welding)
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
-			to_chat(user, "You are already heating the [O]")
+			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
 			return
-		user.visible_message("[user] begins heating the [O].", "You start to heat the [O].")
+		user.visible_message("<span class='warning'>[user] begins heating \the [O]...</span>", "<span class='warning'>You start to heat \the [O]!</span>")
 		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
-				to_chat(user, span("alert", "Heating the fueltank..."))
+				to_chat(user, span("alert", "You start heating the fueltank..."))
 				tank.armed = 1
 				if(do_after(user, 100))
 					if(tank.defuse)
-						user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
+						user.visible_message("[user] melts some of the framework on the [O]!", "You melt some of the framework!")
 						tank.defuse = 0
 						tank.armed = 0
 						return
