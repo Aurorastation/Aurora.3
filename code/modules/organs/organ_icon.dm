@@ -126,9 +126,7 @@
 			mob_icon.Blend(skin_color, ICON_ADD)
 		apply_markings(restrict_to_robotic = TRUE)
 	else
-		if (status & ORGAN_NYMPH)
-			mob_icon = new /icon('icons/mob/human_races/limbs_nymph.dmi', "[icon_name][gender ? "_[gender]" : ""]")
-		else if(!dna)
+		if(!dna)
 			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
 		else
 			if(!gendered_icon)
