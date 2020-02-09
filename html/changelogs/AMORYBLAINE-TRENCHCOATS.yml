@@ -38,5 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "New trenchcoats. No more old trenchcoats."
-
+  - rscadd: "New trenchcoats."
+  - rscadd: "New security jackets."
+  - rscdel: "Become Human reference removed."
+  - rscdel: "Removed excess jackets and clothing from detective and forensic lockers."
