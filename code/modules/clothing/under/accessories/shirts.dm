@@ -63,6 +63,20 @@
 	contained_sprite = TRUE
 	var/open = FALSE
 
+/obj/item/clothing/accessory/silversun/verb/unbutton()
+	set name = "Unbutton Shirt"
+	set category = "Object"
+	set src in usr
+
+	if(!istype(usr, /mob/living))
+		return
+	if(use_check_and_message(usr))
+		return
+
+	if(ismob(usr))
+		var/mob/user = usr
+		attack_self(user)
+
 /obj/item/clothing/accessory/silversun/attack_self(mob/user)
 	open = !open
 	icon_state = "[initial(icon_state)][open ? "_open" : ""]"
