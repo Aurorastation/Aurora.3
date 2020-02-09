@@ -159,7 +159,7 @@
     desc = "Robes worn by those who serve The Trinary Perfection."
     icon_state = "trinary_robes"
     item_state = "trinary_robes"
-	
+
 /*
  * Misc
  */
@@ -415,37 +415,50 @@
 
 /obj/item/clothing/suit/storage/toggle/trench
 	name = "brown trenchcoat"
-	desc = "A rugged canvas trenchcoat."
-	icon_state = "trench"
-	item_state = "trench"
-	icon_open = "trench_open"
-	icon_closed = "trench"
+	desc = "A fashionable trenchcoat."
+	icon_state = "trenchcoat_brown"
+	item_state = "trenchcoat_brown"
+	icon_open = "trenchcoat_brown_open"
+	icon_closed = "trenchcoat_brown"
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/trench/grey
 	name = "grey trenchcoat"
-	icon_state = "trench2"
-	item_state = "trench2"
-	icon_open = "trench2_open"
-	icon_closed = "trench2"
-	blood_overlay_type = "coat"
-
-/obj/item/clothing/suit/storage/toggle/trench/alt
-	name = "brown trenchcoat"
-	desc = "A sleek canvas trenchcoat"
-	icon_state = "trenchcoat_brown"
-	item_state = "trenchcoat_brown"
-	icon_open = "trenchcoat_brown_open"
-	icon_closed = "trenchcoat_brown"
-
-/obj/item/clothing/suit/storage/toggle/trench/grey_alt
-	name = "grey trenchcoat"
-	desc = "A sleek canvas trenchcoat"
 	icon_state = "trenchcoat_grey"
 	item_state = "trenchcoat_grey"
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
+	blood_overlay_type = "coat"
+
+/obj/item/clothing/suit/storage/toggle/trench/black
+	name = "black trenchcoat"
+	icon_state = "trenchcoat_black"
+	item_state = "trenchcoat_black"
+	icon_open = "trenchcoat_black_open"
+	icon_closed = "trenchcoat_black"
+
+/obj/item/clothing/suit/storage/toggle/trench/tan
+	name = "tan trenchcoat"
+	icon_state = "trenchcoat_tan"
+	item_state = "trenchcoat_tan"
+	icon_open = "trenchcoat_tan_open"
+	icon_closed = "trenchcoat_tan"
+
+/obj/item/clothing/suit/storage/toggle/trench/white
+	name = "white trenchcoat"
+	icon_state = "trenchcoat_white"
+	item_state = "trenchcoat_white"
+	icon_open = "trenchcoat_white_open"
+	icon_closed = "trenchcoat_white"
+
+/obj/item/clothing/suit/storage/fib
+	name = "\improper FIB agent jacket"
+	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
+	icon_state = "trenchcoat_fib"
+	item_state = "trenchcoat_fib"
+	icon_open = "trenchcoat_fib_open"
+	icon_closed = "trenchcoat_fib"
 
 /obj/item/clothing/suit/storage/toggle/trench/green
     name = "green trenchcoat"
@@ -652,12 +665,6 @@
 	item_state = "serv_dep_jacket"
 	icon_open = "serv_dep_jacket_open"
 	icon_closed = "serv_dep_jacket"
-
-/obj/item/clothing/suit/storage/fib
-	name = "\improper FIB agent jacket"
-	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
-	icon_state = "fib_jacket"
-	item_state = "fib_jacket"
 
 /obj/item/clothing/suit/cardigan
 	name = "cardigan"

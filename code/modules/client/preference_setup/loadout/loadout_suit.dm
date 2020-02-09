@@ -143,8 +143,9 @@
 	var/coat = list()
 	coat["trenchcoat, brown"] = /obj/item/clothing/suit/storage/toggle/trench
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
-	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
-	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	coat["trenchcoat, black"] = /obj/item/clothing/suit/storage/toggle/trench/black
+	coat["trenchcoat, tan"] = /obj/item/clothing/suit/storage/toggle/trench/tan
+	coat["trenchcoat, white"] = /obj/item/clothing/suit/storage/toggle/trench/white
 	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
@@ -158,9 +159,8 @@
 /datum/gear/suit/det_trenchcoat/New()
 	..()
 	var/coat = list()
-	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
-	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
-	coat["technicolor trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
+	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/trench
+	coat["grey trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/trench/grey
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 

@@ -135,11 +135,11 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/det_trench
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
-	icon_state = "detective"
-	item_state = "detective"
+	icon_state = "trenchcoat_brown"
+	item_state = "trenchcoat_brown"
 	blood_overlay_type = "coat"
-	icon_open = "detective_open"
-	icon_closed = "detective"
+	icon_open = "trenchcoat_brown_open"
+	icon_closed = "trenchcoat_brown"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
@@ -148,41 +148,9 @@ obj/item/clothing/suit/apron/overalls/blue
 
 /obj/item/clothing/suit/storage/toggle/det_trench/black
 	name = "black trenchcoat"
-	icon_state = "detective2"
-	icon_open = "detective2_open"
-	icon_closed = "detective2"
-
-/obj/item/clothing/suit/storage/toggle/det_trench/technicolor
-	name = "black trenchcoat"
-	desc = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent."
-	icon_state = "suit_detective_black"
-	item_state = "suit_detective_black"
-	icon_open = "suit_detective_black_open"
-	icon_closed = "suit_detective_black"
-	var/suit_color
-
-/obj/item/clothing/suit/storage/toggle/det_trench/technicolor/Initialize()
-	if(prob(5))
-		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
-		var/color = pickweight(colors)
-		name = "[color] trenchcoat"
-		icon_state = "suit_detective_[color]"
-		item_state = "suit_detective_[color]"
-		icon_open = "suit_detective_[color]_open"
-		icon_closed = "suit_detective_[color]"
-	. = ..()
-
-/obj/item/clothing/suit/storage/toggle/det_trench/technicolor/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/glass/paint))
-		var/obj/item/reagent_containers/glass/paint/P = O
-		suit_color = P.paint_type
-		name = "[suit_color] trenchcoat" // Added name change, why was it never here?!
-		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
-		icon_state = "suit_detective_[suit_color]"
-		item_state = "suit_detective_[suit_color]"
-		icon_open = "suit_detective_[suit_color]_open"
-		icon_closed = "suit_detective_[suit_color]"
-	. = ..()
+	icon_state = "trenchcoat_grey"
+	icon_open = "trenchcoat_grey_open"
+	icon_closed = "trenchcoat_grey"
 
 //Forensics
 /obj/item/clothing/suit/storage/forensics
