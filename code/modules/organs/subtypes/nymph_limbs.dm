@@ -118,8 +118,7 @@
         return
 
     E.status |= ORGAN_NYMPH
-    E.species = all_species["Diona"]
-    E.icon = 'icons/mob/human_races/limbs_nymph.dmi'
+    E.species = all_species["Nymph Limb"]
     E.fingerprints = null
     if(!E.dna)
         E.blood_DNA = list()
@@ -138,7 +137,6 @@
         var/datum/reagent/blood/B = locate() in E.owner.vessel.reagent_list
         if(B)
             B.volume -= BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len) // Full set of nymph limbs makes natural blood regen 50% slower
-            world.log << "Removing [BLOOD_REGEN_RATE / (2*nymph_limb_types_by_name.len)]"
 
 // Host detach
 /mob/living/carbon/human/proc/detach_nymph_limb()
@@ -291,3 +289,24 @@
     for(var/obj/item/organ/external/child in E.children)
         nymphize(H, child.organ_tag, TRUE)
     H.verbs |= /mob/living/carbon/human/proc/detach_nymph_limb
+
+/datum/species/diona/nymph_limb // For use on nymph-limb organs only
+	name = "Nymph Limb"
+	short_name = "nym"
+	name_plural = "Nymph Limbs"
+	bodytype = "Nymph"
+	icobase = 'icons/mob/human_races/limbs_nymph.dmi'
+	deform = 'icons/mob/human_races/limbs_nymph.dmi'
+
+	has_organ = list()
+
+	has_limbs = list(
+        BP_L_ARM = list( "path" = /obj/item/organ/external/arm/nymph),
+        BP_R_ARM = list( "path" = /obj/item/organ/external/arm/right/nymph),
+        BP_L_LEG = list( "path" = /obj/item/organ/external/leg/nymph),
+        BP_R_LEG = list( "path" = /obj/item/organ/external/leg/right/nymph),
+        BP_L_HAND = list( "path" = /obj/item/organ/external/hand/nymph),
+        BP_R_HAND = list( "path" = /obj/item/organ/external/hand/right/nymph),
+        BP_L_FOOT = list( "path" = /obj/item/organ/external/foot/nymph),
+        BP_R_FOOT = list( "path" = /obj/item/organ/external/foot/right/nymph)    
+		)
