@@ -131,6 +131,14 @@
         return FALSE
     if((!E.owner || E:nymph.stat == DEAD))
         nymph_out(E, E:nymph)
+        return FALSE
+
+    var/blood_volume = round(E.owner.vessel.get_reagent_amount("blood"))
+    if(blood_volume)
+        var/datum/reagent/blood/B = locate() in E.owner.vessel.reagent_list
+        if(B)
+            B.volume -= BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len) // Full set of nymph limbs makes natural blood regen 50% slower
+            world.log << "Removing [BLOOD_REGEN_RATE / (2*nymph_limb_types_by_name.len)]"
 
 // Host detach
 /mob/living/carbon/human/proc/detach_nymph_limb()
@@ -188,10 +196,7 @@
     set category = "Abilities"
     set name = "Attach to Nearby Host"
 
-    if(is_diona(src) != DIONA_NYMPH)
-        verbs -= /mob/living/carbon/alien/diona/proc/attach_nymph_limb
-        return
-    if(stat != CONSCIOUS)
+    if(incapacitated())
         return
     if(!isturf(loc))
         return
@@ -211,7 +216,7 @@
 
     var/choice = input(src, "Choose a host to bond to:", "Attach to Host") in mob_list
     var/mob/living/carbon/human/target = choice
-    if(!Adjacent(target) || target.stat != CONSCIOUS || !target.client)
+    if(!Adjacent(target) || target.stat || !target.client)
         return
 
     // Find a location to bond to, on the host

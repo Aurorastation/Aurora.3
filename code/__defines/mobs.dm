@@ -310,3 +310,5 @@
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
+
+#define BLOOD_REGEN_RATE 0.1 

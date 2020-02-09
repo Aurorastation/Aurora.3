@@ -128,7 +128,7 @@
 							B = D
 							break
 
-				B.volume += 0.1 // regenerate blood VERY slowly
+				B.volume += BLOOD_REGEN_RATE // regenerate blood VERY slowly
 				if(blood_volume <= BLOOD_VOLUME_SAFE) //We loose nutrition and hydration very slowly if our blood is too low
 					owner.adjustNutritionLoss(2)
 					owner.adjustHydrationLoss(1)
