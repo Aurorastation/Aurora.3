@@ -140,6 +140,10 @@
 		if(/obj/machinery/power/supermatter)
 			return "Super dense phoron clump - Appears to have been shaped or hewn, structure is composed of matter 2000% denser than ordinary carbon matter residue.\
 			Potential application as unrefined phoron source."
+		if(/obj/item/incarnate_banner/real)
+			return "Primitive Heirloom - Item is composed of silk, silver and gold. Covered by a unknown preserving substance. Object is more than two thousand years old."
+		if(/obj/item/incarnate_banner)
+			return "Primitive Heirloom - Item is composed of linen, wool and plastic. Object is less than ten years old."
 		if(/obj/structure/constructshell)
 			return "Tribal idol - Item resembles statues/emblems built by superstitious pre-warp civilisations to honour their gods. Material appears to be a \
 			rock/plastcrete composite."

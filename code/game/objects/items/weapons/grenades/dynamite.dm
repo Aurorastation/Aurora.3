@@ -16,26 +16,26 @@
 		var/obj/item/weldingtool/WT = W
 		if(WT.isOn())
 			activate(user)
-			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
+			user.visible_message("<span class='danger'>\The [user] casually lights \the [name] with [W].</span>")
 			prepared = TRUE
 
 	else if(isflamesource(W))
 		activate(user)
-		to_chat(user, span("notice", "\The [user] lights \the [name]."))
+		user.visible_message("<span class='danger'>\The [user] lights \the [name].</span>")
 		prepared = TRUE
 
 	else if(istype(W, /obj/item/flame/candle))
 		var/obj/item/flame/candle/C = W
 		if(C.lit)
 			activate(user)
-			to_chat(user, span("notice", "\The [user] lights \the [name]."))
+			user.visible_message("<span class='danger'>\The [user] lights \the [name].</span>")
 			prepared = TRUE
 
 	else if(istype(W, /obj/item/grenade/dynamite))
 		var/obj/item/grenade/dynamite/C = W
 		if(C.active)
 			activate(user)
-			to_chat(user, span("notice", "\The [user] lights \the [name]."))
+			user.visible_message("<span class='danger'>\The [user] lights \the [name].</span>")
 			prepared = TRUE
 
 	if(prepared)
@@ -62,6 +62,9 @@
 	if(!active)
 		prime()
 
+/obj/item/grenade/dynamite/fire_act()
+	if(!active)
+		prime()
 
 /obj/item/storage/box/dynamite
 	name = "wooden crate"
