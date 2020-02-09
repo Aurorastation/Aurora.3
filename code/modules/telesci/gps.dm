@@ -62,7 +62,7 @@ var/list/GPS_list = list()
 	if(!data)
 		. = data = list()
 
-	VUEUI_SET_CHECK(data["own_tag"], gpstag, . , data)
+	data["own_tag"] = gpstag
 
 	var/list/tracking_list = list()
 	for(var/tracking_tag in sortList(tracking))
@@ -73,7 +73,9 @@ var/list/GPS_list = list()
 		if(AreConnectedZLevels(loc.z, GPS_list[tracking_tag]["pos_z"]))
 			tracking_list[tracking_tag] = (GPS_list[tracking_tag])
 
-	VUEUI_SET_CHECK(data["tracking_list"], tracking_list, ., data)
+	data["tracking_list"] = tracking_list
+
+	return data // should update constantly
 
 /obj/item/device/gps/attack_self(mob/user)
 	if(!emped)
@@ -99,7 +101,7 @@ var/list/GPS_list = list()
 
 		if(loc == usr)
 			if(!GPS_list[set_tag])
-				GPS_list[gpstag] = null
+				GPS_list -= gpstag
 				gpstag = set_tag
 				name = "global positioning system ([gpstag])"
 
@@ -121,10 +123,10 @@ var/list/GPS_list = list()
 		
 		if(GPS_list[new_tag])
 			tracking |= new_tag
-			return TRUE
 		else
 			to_chat(usr, "Could not locate GPS tag.")
-			return TRUE
+		
+		return TRUE
 
 	if(href_list["remove_tag"])
 		tracking -= href_list["remove_tag"]
@@ -149,6 +151,7 @@ var/list/GPS_list = list()
 /obj/item/device/gps/proc/update_position()
 	var/turf/T = get_turf(src)
 	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[get_area(src).name]", "emped" = emped)
+	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/gps/proc/next_initial_tag()
 	if(!LAZYACCESS(gps_count, gps_prefix))
