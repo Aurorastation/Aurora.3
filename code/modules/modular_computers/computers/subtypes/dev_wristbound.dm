@@ -7,7 +7,7 @@
 	icon_state_unpowered = "wristbound_unpowered"
 	icon_state_menu = "menu"
 	icon_state_screensaver = "standby"
-	hardware_flag = PROGRAM_TABLET
+	hardware_flag = PROGRAM_WRISTBOUND
 	slot_flags = SLOT_GLOVES
 	max_hardware_size = 1
 	w_class = ITEMSIZE_NORMAL
