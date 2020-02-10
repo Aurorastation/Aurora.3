@@ -5,7 +5,7 @@
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
-	description_fluff = "The Zeng-Hu Pharmaceuticals' HypoSpray - 9 out of 10 doctors recommend it!"
+	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
 	description_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
