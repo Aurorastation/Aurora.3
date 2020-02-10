@@ -43,7 +43,7 @@
 	for(var/obj/item/material/shard/S in H.contents)
 		visible_message("<span class='notice'>[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...</span>")
 		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
-		if(do_mob(usr, H, 100 * skill_time_reduction("medical", 0.1, user)))
+		if(do_mob(usr, H, 100 * skill_time_reduction("medical", 0.1, usr)))
 			H.remove_implant(S, FALSE)
 			log_and_message_admins("has extracted shrapnel out of [key_name(H)]")
 		if(H.can_feel_pain())

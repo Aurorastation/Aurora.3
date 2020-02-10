@@ -25,7 +25,7 @@
 		to_chat(user, "<span class='notice'>The [E.encased ? E.encased : "bones in the [E.name]"] seem to be fine.</span>")
 
 	to_chat(user, "<span class='notice'>Checking skin now...</span>")
-	if(!do_mob(user, H, 10 * skill_time_reduction("anatomy", 0.1, user) * * skill_time_reduction("medical", 0.05, user)))
+	if(!do_mob(user, H, 10 * skill_time_reduction("anatomy", 0.1, user) * skill_time_reduction("medical", 0.05, user)))
 		to_chat(user, "<span class='notice'>You must stand still to check [H]'s skin for abnormalities.</span>")
 	else
 		var/bad = 0
