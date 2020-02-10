@@ -694,8 +694,6 @@ var/list/worths = list(
 					/obj/item/bluespace_crystal = 10000,
 					/obj/item/vaurca/box = 250,
 					/obj/item/hoist_kit = 150,
-					/obj/item/incarnate_banner/real = 1000000000,
-					/obj/item/incarnate_banner = 100,
 					/obj/item = 5,
 //STRUCTURES,
 					/obj/structure/ore_box = 12,

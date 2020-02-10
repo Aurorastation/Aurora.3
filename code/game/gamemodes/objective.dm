@@ -445,8 +445,7 @@ datum/objective/steal
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
 		"the hypospray" = /obj/item/reagent_containers/hypospray,
 		"the captain's pinpointer" = /obj/item/pinpointer,
-		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof,
-		"ancient artifact" = /obj/item/incarnate_banner/real
+		"an ablative armor vest" = /obj/item/clothing/suit/armor/laserproof
 	)
 
 	var/global/possible_items_special[] = list(
