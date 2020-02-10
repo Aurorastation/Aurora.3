@@ -10,7 +10,7 @@
 	var/list/mechs = list() // A list of lists, containing the mechs and their networks
 
 	// IPC BODIES
-	var/list/robotnetworks = list("remoterobots", "bunkerrobots")
+	var/list/robotnetworks = list("remoterobots", "bunkerrobots", "prisonrobots")
 	var/list/robots = list()
 
 /datum/controller/subsystem/virtualreality/New()

@@ -284,8 +284,8 @@ var/list/name_to_material
 	reflectivity = 0.6
 	conductivity = 1
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
-	hitsound = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
+	hitsound = 'sound/effects/glass_hit.ogg'
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
 	golem = "Diamond Golem"
@@ -397,7 +397,12 @@ var/list/name_to_material
 	icon_colour = null
 	stack_type = null
 	icon_base = "biomass"
-	integrity = 600
+	integrity = 100
+	// below is same as wood
+	melting_point = T0C + 300
+	ignition_point = T0C + 288
+	golem = "Wood Golem"
+	hitsound = 'sound/effects/woodhit.ogg'
 
 /material/diona/place_dismantled_product()
 	return
@@ -451,7 +456,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 30
 	weight = 15
 	protectiveness = 0 // 0%
@@ -545,7 +550,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -564,7 +569,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)

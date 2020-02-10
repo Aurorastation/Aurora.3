@@ -48,7 +48,7 @@ mob/living/carbon/proc/handle_hallucinations()
 						halitem.layer = 50
 						switch(rand(1,6))
 							if(1) //revolver
-								halitem.icon = 'icons/obj/gun.dmi'
+								halitem.icon = 'icons/obj/guns/revolver.dmi'
 								halitem.icon_state = "revolver"
 								halitem.name = "Revolver"
 							if(2) //c4
@@ -110,9 +110,9 @@ mob/living/carbon/proc/handle_hallucinations()
 						if(prob(50)) sound_to(src, 'sound/effects/Explosion1.ogg')
 						else sound_to(src, 'sound/effects/Explosion2.ogg')
 					if(3) sound_to(src, 'sound/effects/explosionfar.ogg')
-					if(4) sound_to(src, 'sound/effects/Glassbr1.ogg')
-					if(5) sound_to(src, 'sound/effects/Glassbr2.ogg')
-					if(6) sound_to(src, 'sound/effects/Glassbr3.ogg')
+					if(4) sound_to(src, 'sound/effects/glass_break1.ogg')
+					if(5) sound_to(src, 'sound/effects/glass_break2.ogg')
+					if(6) sound_to(src, 'sound/effects/glass_break3.ogg')
 					if(7) sound_to(src, 'sound/machines/twobeep.ogg')
 					if(8) sound_to(src, 'sound/machines/windowdoor.ogg')
 					if(9)
