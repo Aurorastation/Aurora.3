@@ -53,9 +53,9 @@
 
 	titles_to_loadout = list(
 		"General Officer" = /datum/outfit/job/officer/idris,
-		"Medical Officer" = /datum/outfit/job/officer/idris,
-		"Science Officer" = /datum/outfit/job/officer/idris,
-		"Supply Officer" = /datum/outfit/job/officer/idris,
+		"Medical Officer" = /datum/outfit/job/officer/idris/med,
+		"Science Officer" = /datum/outfit/job/officer/idris/sci,
+		"Supply Officer" = /datum/outfit/job/officer/idris/sup,
 		"Forensic Technician" = /datum/outfit/job/forensics/idris,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
@@ -70,9 +70,33 @@
 	)
 
 /datum/outfit/job/officer/idris
-	name = "Security Officer - Idris"
+	name = "General Officer - Idris"
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
+
+/datum/outfit/job/officer/idris/eng
+	name = "Engineering Officer - Idris"
+
+	accessory = /obj/item/clothing/accessory/armband/engine
+	l_ear = /obj/item/device/radio/headset/headset_eng/sec
+
+/datum/outfit/job/officer/idris/med
+	name = "Medical Officer - Idris"
+
+	accessory = /obj/item/clothing/accessory/armband/medgreen
+	l_ear = /obj/item/device/radio/headset/headset_med/sec
+
+/datum/outfit/job/officer/idris/sci
+	name = "Science Officer - Idris"
+
+	accessory = /obj/item/clothing/accessory/armband/science
+	l_ear = /obj/item/device/radio/headset/headset_sci/sec
+
+/datum/outfit/job/officer/idris/sup
+	name = "Supply Officer - Idris"
+
+	accessory = /obj/item/clothing/accessory/armband/cargo
+	l_ear = /obj/item/device/radio/headset/headset_cargo/sec
 
 /datum/outfit/job/detective/idris
 	name = "Detective - Idris"

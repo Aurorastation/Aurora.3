@@ -53,9 +53,9 @@
 
 	titles_to_loadout = list(
 		"General Officer" = /datum/outfit/job/officer/necropolis,
-		"Medical Officer" = /datum/outfit/job/officer/necropolis,
-		"Science Officer" = /datum/outfit/job/officer/necropolis,
-		"Supply Officer" = /datum/outfit/job/officer/necropolis,
+		"Medical Officer" = /datum/outfit/job/officer/necropolis/med,
+		"Science Officer" = /datum/outfit/job/officer/necropolis/sci,
+		"Supply Officer" = /datum/outfit/job/officer/necropolis/sup,
 		"Warden" = /datum/outfit/job/warden/necropolis,
 		"Physician" = /datum/outfit/job/doctor/necropolis,
 		"Surgeon" = /datum/outfit/job/doctor/necropolis,
@@ -76,9 +76,33 @@
 	)
 
 /datum/outfit/job/officer/necropolis
-	name = "Security Officer - Necropolis"
+	name = "General Officer - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
 	id = /obj/item/card/id/necropolis/sec
+
+/datum/outfit/job/officer/necropolis/eng
+	name = "Engineering Officer - Necropolis"
+
+	accessory = /obj/item/clothing/accessory/armband/engine
+	l_ear = /obj/item/device/radio/headset/headset_eng/sec
+
+/datum/outfit/job/officer/necropolis/med
+	name = "Medical Officer - Necropolis"
+
+	accessory = /obj/item/clothing/accessory/armband/medgreen
+	l_ear = /obj/item/device/radio/headset/headset_med/sec
+
+/datum/outfit/job/officer/necropolis/sci
+	name = "Science Officer - Necropolis"
+
+	accessory = /obj/item/clothing/accessory/armband/science
+	l_ear = /obj/item/device/radio/headset/headset_sci/sec
+
+/datum/outfit/job/officer/necropolis/sup
+	name = "Supply Officer - Necropolis"
+
+	accessory = /obj/item/clothing/accessory/armband/cargo
+	l_ear = /obj/item/device/radio/headset/headset_cargo/sec
 
 /datum/outfit/job/forensics/necropolis
 	name = "Forensics Technician - Necropolis"

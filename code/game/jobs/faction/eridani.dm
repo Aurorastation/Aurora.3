@@ -41,9 +41,9 @@
 
 	titles_to_loadout = list(
 		"General Officer" = /datum/outfit/job/officer/eridani,
-		"Medical Officer" = /datum/outfit/job/officer/eridani,
-		"Science Officer" = /datum/outfit/job/officer/eridani,
-		"Supply Officer" = /datum/outfit/job/officer/eridani,
+		"Medical Officer" = /datum/outfit/job/officer/eridani/med,
+		"Science Officer" = /datum/outfit/job/officer/eridani/sci,
+		"Supply Officer" = /datum/outfit/job/officer/eridani/sup,
 		"Warden" = /datum/outfit/job/warden/eridani,
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
@@ -53,9 +53,33 @@
 	)
 
 /datum/outfit/job/officer/eridani
-	name = "Security Officer - Eridani"
+	name = "General Officer - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
 	id = /obj/item/card/id/eridani
+
+/datum/outfit/job/officer/eridani/eng
+	name = "Engineering Officer - Eridani"
+
+	accessory = /obj/item/clothing/accessory/armband/engine
+	l_ear = /obj/item/device/radio/headset/headset_eng/sec
+
+/datum/outfit/job/officer/eridani/med
+	name = "Medical Officer - Eridani"
+
+	accessory = /obj/item/clothing/accessory/armband/medgreen
+	l_ear = /obj/item/device/radio/headset/headset_med/sec
+
+/datum/outfit/job/officer/eridani/sci
+	name = "Science Officer - Eridani"
+
+	accessory = /obj/item/clothing/accessory/armband/science
+	l_ear = /obj/item/device/radio/headset/headset_sci/sec
+
+/datum/outfit/job/officer/eridani/sup
+	name = "Supply Officer - Eridani"
+
+	accessory = /obj/item/clothing/accessory/armband/cargo
+	l_ear = /obj/item/device/radio/headset/headset_cargo/sec
 
 /datum/outfit/job/warden/eridani
 	name = "Warden - Eridani"
