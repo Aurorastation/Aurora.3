@@ -34,7 +34,7 @@
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
-	description_fluff = "The Zeng-Hu Pharmaceuticals' HypoSpray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
+	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
 	description_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
