@@ -77,7 +77,7 @@
 
 
 
-		if(!do_after(user,P.digspeed))
+		if(!do_after(user, P.digspeed * skill_time_reduction("mining", 0.1, user)))
 			return
 
 		to_chat(user, "<span class='notice'>You finish [P.drill_verb] [src].</span>")

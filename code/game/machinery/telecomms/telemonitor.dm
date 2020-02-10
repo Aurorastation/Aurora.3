@@ -126,7 +126,7 @@
 	attackby(var/obj/item/D as obj, var/mob/user as mob)
 		if(D.isscrewdriver())
 			playsound(src.loc, D.usesound, 50, 1)
-			if(do_after(user, 20/D.toolspeed))
+			if(do_after(user, 20/D.toolspeed * skill_time_reduction("construction", 0.05, user)))
 				if (src.stat & BROKEN)
 					to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
 					var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )

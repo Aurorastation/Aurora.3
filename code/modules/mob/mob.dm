@@ -1072,7 +1072,7 @@
 	else
 		to_chat(U, "<span class='warning'>You attempt to get a good grip on [selection] in [S]'s body.</span>")
 
-	if(!do_after(U, 30))
+	if(!do_after(U, 30 * skill_time_reduction("medical", 0.1, U)))
 		return
 	if(!selection || !S || !U)
 		return

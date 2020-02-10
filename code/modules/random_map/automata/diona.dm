@@ -52,7 +52,7 @@
 			return
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>You begin slicing through the skin of \the [src].</span>")
-			if(do_after(user, 20/W.toolspeed, act_target = src))
+			if(do_after(user, 20/W.toolspeed * skill_time_reduction("cooking", 0.1, user), act_target = src))
 				if(QDELETED(src) || !WT.isOn())
 					return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)

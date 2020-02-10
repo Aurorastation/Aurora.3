@@ -120,7 +120,7 @@
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
 		update_icon()
-		if(do_after(user,cleantime))
+		if(do_after(user, cleantime * skill_time_reduction("cleaning", 0.1, user)))
 			if(clean_msg)
 				user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()

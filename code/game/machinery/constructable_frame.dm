@@ -54,7 +54,7 @@
 			if(1)
 				if(P.ismultitool())
 					to_chat(user, span("notice", "You begin to finalize the blueprint."))
-					if(do_after(user, 20) && state == 1)
+					if(do_after(user, 20 * skill_time_reduction("construction", 0.05, user)) && state == 1)
 						to_chat(user, span("notice", "You finalize the blueprint."))
 						playsound(src.loc, 'sound/items/poster_being_created.ogg', 75, 1)
 						state = 2
@@ -72,7 +72,7 @@
 						return
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 					to_chat(user, span("notice", "You start to add cables to the blueprint."))
-					if(do_after(user, 20) && state == 2)
+					if(do_after(user, 20 * skill_time_reduction("electrical", 0.05, user)) && state == 2)
 						if(C.use(5))
 							to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 							state = 3

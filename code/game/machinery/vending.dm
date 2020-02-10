@@ -252,7 +252,7 @@
 		else
 			user.visible_message("[user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
 
-		if(do_after(user, 20/W.toolspeed))
+		if(do_after(user, 20/W.toolspeed * skill_time_reduction("construction", 0.05, user)))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
 			anchored = !anchored

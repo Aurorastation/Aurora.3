@@ -450,7 +450,7 @@
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
+		if (!do_after(user, 3 SECONDS * skill_time_reduction("electrical", 0.15, user), act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 			return
 		zipped = !zipped
 		update_icon()

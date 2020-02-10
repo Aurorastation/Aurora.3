@@ -69,7 +69,7 @@
 	current_hacks += target
 
 	// On average hackin takes ~30 seconds. Fairly small random span to avoid people simply aborting and trying again
-	var/hack_result = do_after(user, hack_time + rand(-5,5), use_user_turf = (allow_movement ? -1 : FALSE))
+	var/hack_result = do_after(user, hack_time * skill_time_reduction("computer", 0.1, user) + rand(-5,5), use_user_turf = (allow_movement ? -1 : FALSE))
 	is_hacking = 0
 	current_hacks -= target
 

@@ -194,7 +194,7 @@ RFD Construction-Class
 	working = 1
 	to_chat(user, "[(deconstruct ? "Deconstructing" : "Building")] [build_type]...")
 
-	if(build_delay && !do_after(user, build_delay))
+	if(build_delay && !do_after(user, build_delay * skill_time_reduction("construction", 0.1, user)))
 		working = 0
 		return 0
 
@@ -402,7 +402,7 @@ RFD Mining-Class
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 	var/used_energy = 100
 	to_chat(user, "Fabricating machine...")
-	if(do_after(user, 30 SECONDS, act_target = src))
+	if(do_after(user, 30 SECONDS * skill_time_reduction("construction", 0.05, user), act_target = src))
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
 		product.forceMove(get_turf(A))

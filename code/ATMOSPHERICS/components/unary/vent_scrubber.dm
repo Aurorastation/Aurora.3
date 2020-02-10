@@ -273,7 +273,7 @@
 			return 1
 		playsound(src.loc, W.usesound, 50, 1)
 		to_chat(user, span("notice", "You begin to unfasten \the [src]..."))
-		if (do_after(user, 40/W.toolspeed, act_target = src))
+		if (do_after(user, 40/W.toolspeed * skill_time_reduction("atmos", 0.05, user) * skill_time_reduction("construction", 0.1, user), act_target = src))
 			user.visible_message( \
 				span("notice", "\The [user] unfastens \the [src]."), \
 				span("notice", "You have unfastened \the [src]."), \
@@ -289,7 +289,7 @@
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, span("notice", "Now welding \the [src]."))
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
-			if(do_after(user, 20/W.toolspeed, act_target = src))
+			if(do_after(user, 20/W.toolspeed * skill_time_reduction("atmos", 0.05, user) * skill_time_reduction("construction", 0.1, user), act_target = src))
 				if(!src || !WT.isOn()) 
 					return
 				welded = !welded

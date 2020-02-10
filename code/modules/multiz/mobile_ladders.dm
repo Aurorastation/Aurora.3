@@ -56,7 +56,7 @@
 	place_ladder(A,user)
 
 /obj/item/ladder_mobile/proc/handle_action(atom/A, mob/user)
-	if (!do_after(user, 30, act_target = user))
+	if (!do_after(user, 30 * skill_time_reduction("mining", 0.1, user) * skill_time_reduction("construction", 0.1, user), act_target = user))
 		to_chat(user, "Can't place ladder! You were interrupted!")
 		return FALSE
 	if (!A || QDELETED(src) || QDELETED(user))
@@ -80,7 +80,7 @@
 	H.visible_message("<span class='notice'>[H] starts folding up [src].</span>",
 		"<span class='notice'>You start folding up [src].</span>")
 
-	if (!do_after(H, 30, act_target = src))
+	if (!do_after(H, 30 * skill_time_reduction("mining", 0.1, H) * skill_time_reduction("construction", 0.1, H), act_target = src))
 		to_chat(H, "<span class='warning'>You are interrupted!</span>")
 		return
 

@@ -76,7 +76,7 @@
 /obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
 	if (C.iswelder())
 		var/obj/item/weldingtool/WT = C
-		if (do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
+		if (do_after(user, 5/C.toolspeed * skill_time_reduction("construction", 0.1, user), act_target = src) && WT.remove_fuel(1, user))
 			to_chat(user, "<span class='notice'>You slice apart [src].</span>")
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			new /obj/item/stack/rods{amount = 3}(loc)

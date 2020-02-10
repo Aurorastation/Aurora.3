@@ -93,7 +93,7 @@ for reference:
 				to_chat(user, "<span class='warning'>You need one sheet of [material.display_name] to repair \the [src].</span>")
 				return
 			visible_message("<span class='notice'>[user] begins to repair \the [src].</span>")
-			if(do_after(user,20) && health < maxhealth)
+			if(do_after(user, 20 * skill_time_reduction("construction", 0.05, user)) && health < maxhealth)
 				if (D.use(1))
 					health = maxhealth
 					visible_message("<span class='notice'>[user] repairs \the [src].</span>")
@@ -284,7 +284,7 @@ for reference:
 
 /obj/item/deployable_kit/attack_self(mob/user)
 	to_chat(user, span("notice","You start assembling \the [src]..."))
-	if(do_after(user, assembly_time))
+	if(do_after(user, assembly_time * skill_time_reduction("construction", 0.1, user)))
 		assemble_kit(user)
 		qdel(src)
 

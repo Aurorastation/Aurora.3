@@ -70,7 +70,7 @@
 			if(P.iscrowbar())
 				to_chat(user, "You begin prying out the circuit board other components...")
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-				if(do_after(user,60/P.toolspeed))
+				if(do_after(user,60/P.toolspeed * skill_time_reduction("electrical", 0.1, user)))
 					to_chat(user, "You finish prying out the components.")
 
 					// Drop all the component stuff

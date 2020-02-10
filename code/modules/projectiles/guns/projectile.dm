@@ -202,7 +202,7 @@
 /obj/item/gun/projectile/attack_self(mob/user as mob)
 	if(is_jammed)
 		to_chat(user, "<span class='notice'>\The [user] unjams \the [src]!</span>")
-		if(do_after(user, 5))
+		if(do_after(user, 5 * skill_time_reduction("weapons", 0.1, user)))
 			playsound(src.loc, 'sound/weapons/empty.ogg', 100, 1)
 			is_jammed = 0
 	else if(firemodes.len > 1)

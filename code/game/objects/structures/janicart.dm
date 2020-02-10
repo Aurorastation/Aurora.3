@@ -156,7 +156,7 @@
 		if (user)
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 			user.visible_message("[user] starts taking apart the [src]", "You start disasembling the [src]")
-			if (!do_after(user, 30, needhand = 0))
+			if (!do_after(user, 30 * skill_time_reduction("construction", 0.1, user), needhand = 0))
 				return
 
 		new /obj/item/stack/material/steel(src.loc, 15)

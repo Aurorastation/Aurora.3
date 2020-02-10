@@ -111,7 +111,7 @@
 	spawn(50)
 		inuse = 0
 
-	if(!do_after(user,50))
+	if(!do_after(user, 50 * skill_time_reduction("medical", 0.1, user)))
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)

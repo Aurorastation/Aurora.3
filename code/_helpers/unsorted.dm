@@ -678,6 +678,15 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	if (progbar)
 		qdel(progbar)
 
+/proc/skill_time_reduction(var/skill_key, var/ratio = 0.1, var/mob/user)
+	var/time_reduced = 1
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.client?.prefs)
+			time_reduced = H.client.prefs?.skills[skill_key] ? H.client.prefs?.skills[skill_key]  * ratio : 1
+	message_admins("Reducing by: [time_reduced]");
+	return time_reduced
+
 /proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
 	if(!user || isnull(user))
 		return 0

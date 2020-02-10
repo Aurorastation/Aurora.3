@@ -115,7 +115,7 @@
 
 				H.visible_message("<span class='notice'>\The [H] is trying to perform CPR on \the [src].</span>")
 
-				if(!do_after(H, rand(3, 5), src))
+				if(!do_after(H, rand(3, 5) * skill_time_reduction("medical", 0.1, H), src))
 					cpr_time = 1
 					return
 				cpr_time = 1
@@ -518,7 +518,7 @@
 
 	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
 	user.limb_breaking = TRUE
-	if(do_after(user, 100))
+	if(do_after(user, 100 * skill_time_reduction("combat", 0.1, user) * skill_time_reduction("medical", 0.1, user)))
 		organ.dislocate(1)
 		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")

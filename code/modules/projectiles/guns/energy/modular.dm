@@ -280,7 +280,7 @@
 						)
 		is_charging = 1
 
-		if(!do_after(user, chargetime))
+		if(!do_after(user, chargetime * skill_time_reduction("weapons", 0.1, user)))
 			is_charging = 0
 			return 0
 

@@ -100,7 +100,7 @@
 /obj/machinery/computer/attackby(var/obj/W, user as mob)
 	if(W.isscrewdriver() && circuit)
 		playsound(src.loc,  W.usesound, 50, 1)
-		if(do_after(user, 20))
+		if(do_after(user, 20 * skill_time_reduction("electrical", 0.05, user)))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 			var/obj/item/circuitboard/M = new circuit( A )
 			A.circuit = M

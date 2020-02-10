@@ -41,14 +41,14 @@
 				return
 
 			if (W.isscrewdriver())
-				if (do_after(user, 20/W.toolspeed))
+				if (do_after(user, 20/W.toolspeed * skill_time_reduction("construction", 0.05, user)))
 					src.open =! src.open
 					user.show_message(text("<span class='notice'>You [] the service panel.</span>", (src.open ? "open" : "close")))
 				return
 			if ((W.ismultitool()) && (src.open == 1)&& (!src.l_hacking))
 				user.show_message("<span class='notice'>Now attempting to reset internal memory, please hold.</span>", 1)
 				src.l_hacking = 1
-				if (do_after(usr, 100))
+				if (do_after(usr, 100 * skill_time_reduction("devices", 0.1, user)))
 					if (prob(40))
 						src.l_setshort = 1
 						src.l_set = 0

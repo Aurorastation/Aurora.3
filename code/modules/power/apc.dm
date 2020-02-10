@@ -450,7 +450,7 @@
 				return
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 			to_chat(user, "You are trying to remove the power control board...")
-			if(do_after(user, 50/W.toolspeed))
+			if(do_after(user, 50/W.toolspeed * skill_time_reduction("electrical", 0.1, user)))
 				if (has_electronics==1)
 					has_electronics = 0
 					if ((stat & BROKEN))
@@ -562,7 +562,7 @@
 		user.visible_message("<span class='warning'>[user.name] adds cables to the APC frame.</span>", \
 							"You start adding cables to the APC frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 20/W.toolspeed))
+		if(do_after(user, 20/W.toolspeed * skill_time_reduction("electrical", 0.1, user)))
 			if (C.amount >= 10 && !terminal && opened && has_electronics != 2)
 				var/obj/structure/cable/N = T.get_cable_node()
 				if (prob(50) && electrocute_mob(usr, N, N))
@@ -583,7 +583,7 @@
 		user.visible_message("<span class='warning'>[user.name] dismantles the power terminal from [src].</span>", \
 							"You begin to cut the cables...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 50/W.toolspeed))
+		if(do_after(user, 50/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 			if(terminal && opened && has_electronics!=2)
 				if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 					spark(src, 5, alldirs)
@@ -596,7 +596,7 @@
 		user.visible_message("<span class='warning'>[user.name] inserts the power control board into [src].</span>", \
 							"You start to insert the power control board into the frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		if(do_after(user, 10/W.toolspeed))
+		if(do_after(user, 10/W.toolspeed * skill_time_reduction("electrical", 0.05, user)))
 			if(has_electronics==0)
 				has_electronics = 1
 				to_chat(user, "<span class='notice'>You place the power control board inside the frame.</span>")
@@ -614,7 +614,7 @@
 							"You start welding the APC frame...", \
 							"You hear welding.")
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-		if(do_after(user, 50/W.toolspeed))
+		if(do_after(user, 50/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 			if(!src || !WT.remove_fuel(3, user)) return
 			if (emagged || (stat & BROKEN) || opened==2)
 				new /obj/item/stack/material/steel(loc)
@@ -645,7 +645,7 @@
 			return
 		user.visible_message("<span class='warning'>[user.name] replaces the damaged APC frame with a new one.</span>",\
 							"You begin to replace the damaged APC frame...")
-		if(do_after(user, 50/W.toolspeed))
+		if(do_after(user, 50/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 			user.visible_message(\
 				"<span class='notice'>[user.name] has replaced the damaged APC frame with new one.</span>",\
 				"You replace the damaged APC frame with new one.")
@@ -661,16 +661,16 @@
 	else if (istype(W, /obj/item/device/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, "<span class='warning'>There is a software error with the device. Attempting to fix...</span>")
-			if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+			if(do_after(user, 10/W.toolspeed SECONDS * skill_time_reduction("devices", 0.1, user), act_target = src))
 				to_chat(user, "<span class='notice'>Problem diagnosed, searching for solution...</span>")
-				if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
+				if(do_after(user, 30/W.toolspeed SECONDS * skill_time_reduction("devices", 0.1, user), act_target = src))
 					to_chat(user, "<span class='notice'>Solution found. Applying fixes...</span>")
-					if(do_after(user, 60/W.toolspeed SECONDS, act_target = src))
+					if(do_after(user, 60/W.toolspeed SECONDS * skill_time_reduction("devices", 0.1, user), act_target = src))
 						if(prob(15))
 							to_chat(user, "<span class='warning'>Error while applying fixes. Please try again.</span>")
 							return
 					to_chat(user, "<span class='notice'>Applied default software. Restarting APC...</span>")
-					if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+					if(do_after(user, 10/W.toolspeed SECONDS * skill_time_reduction("devices", 0.1, user), act_target = src))
 						to_chat(user, "<span class='notice'>APC Reset. Fixes applied.</span>")
 						if(hacker)
 							hacker.hacked_apcs -= src
@@ -697,7 +697,7 @@
 				to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
 				return
 			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-			if(do_after(user, 10/W.toolspeed))
+			if(do_after(user, 10/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 				if(!src || !WT.remove_fuel(1, user)) return
 				if ((stat & BROKEN))
 					new /obj/item/stack/material/steel(loc)
@@ -741,7 +741,7 @@
 			to_chat(user, "Nothing happens.")
 		else
 			flick("apc-spark", src)
-			if (do_after(user,6))
+			if (do_after(user, 6 * skill_time_reduction("devices", 0.1, user)))
 				if(prob(50))
 					emagged = 1
 					locked = 0

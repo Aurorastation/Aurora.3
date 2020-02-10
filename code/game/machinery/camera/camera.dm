@@ -375,7 +375,7 @@
 	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	WT.eyecheck(user)
 	busy = 1
-	if(do_after(user, 100/WT.toolspeed))
+	if(do_after(user, 100/WT.toolspeed * skill_time_reduction("construction", 0.15, user)))
 		busy = 0
 		if(!WT.isOn())
 			return 0

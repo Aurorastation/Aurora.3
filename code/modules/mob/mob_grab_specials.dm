@@ -132,7 +132,7 @@
 		to_chat(attacker, "<span class='warning'>You are already pinning [target] to the ground.</span>")
 
 	attacker.visible_message("<span class='danger'>[attacker] starts forcing [target] to the ground!</span>")
-	if(do_after(attacker, 20) && target)
+	if(do_after(attacker, 20 * skill_time_reduction("combat", 0.1, attacker)) && target)
 		last_action = world.time
 		attacker.visible_message("<span class='danger'>[attacker] forces [target] to the ground!</span>")
 		apply_pinning(target, attacker)

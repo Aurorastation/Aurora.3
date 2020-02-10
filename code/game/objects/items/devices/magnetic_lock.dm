@@ -169,7 +169,7 @@
 					user.visible_message(span("notice", "[user] starts welding the metal shell of [src]."), span("notice", "You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
 					add_overlay("overlay_welding")
-					if (do_after(user, 25/I.toolspeed))
+					if (do_after(user, 25/I.toolspeed * skill_time_reduction("construction", 0.05, user)))
 						to_chat(user, span("notice", "You are able to [hacked ? "repair" : "weld through"] the metal shell of [src]."))
 						if (hacked) locked = 1
 						else locked = 0

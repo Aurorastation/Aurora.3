@@ -48,7 +48,7 @@
 	if(I.iscrowbar())
 		to_chat(user, span("notice", "You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
-		if(do_after(user, 30/I.toolspeed))
+		if(do_after(user, 30/I.toolspeed * skill_time_reduction("construction", 0.1, user)))
 			user.visible_message(span("notice", "[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!"), span("notice", "You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!"), "You hear grinding porcelain.")
 			cistern = !cistern
 			update_icon()
@@ -413,7 +413,7 @@
 	playsound(loc, 'sound/effects/sink_long.ogg', 75, 1)
 
 	busy = 1
-	if(!do_after(user, 40, src))
+	if(!do_after(user, 40 * skill_time_reduction("cleaning", 0.1, user), src))
 		busy = 0
 		return TRUE
 	busy = 0
@@ -521,7 +521,7 @@
 	playsound(loc, 'sound/effects/sink_long.ogg', 75, 1)
 
 	busy = 1
-	if(!do_after(user, 40, src))
+	if(!do_after(user, 40 * skill_time_reduction("cleaning", 0.1, user), src))
 		busy = 0
 		return TRUE
 	busy = 0

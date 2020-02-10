@@ -146,7 +146,7 @@
 		if(!smashed.reagents && !sheet_reagents[smashed.type])
 			return // should never happen anyway, but still
 		to_chat(user, span("notice", "You begin to [pick("crush","smash","grind")] [smashed]."))
-		if(!do_after(user, 15 SECONDS))
+		if(!do_after(user, 15 SECONDS * skill_time_reduction("chemistry", 0.15, user)))
 			return
 		smash(smashed, user)
 		return
@@ -154,7 +154,7 @@
 		var/obj/item/chopped = pick(contents - analyzer)
 		if(!chopped.reagents)
 			return
-		if(!do_after(user, 5 SECONDS))
+		if(!do_after(user, 5 SECONDS * skill_time_reduction("chemistry", 0.1, user)))
 			return
 		chop(chopped, user)
 		return

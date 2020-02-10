@@ -351,7 +351,7 @@
 			to_chat(user, span("danger", "\The [WT] must be turned on!"))
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, span("notice", "Now welding the vent."))
-			if(do_after(user, 30/W.toolspeed))
+			if(do_after(user, 30/W.toolspeed * skill_time_reduction("atmos", 0.05, user) * skill_time_reduction("construction", 0.1, user)))
 				if(!src || !WT.isOn()) 
 					return
 				welded = !welded
@@ -400,7 +400,7 @@
 		return 1
 	playsound(src.loc, W.usesound, 50, 1)
 	to_chat(user, span("notice", "You begin to unfasten \the [src]..."))
-	if (do_after(user, 40/W.toolspeed))
+	if (do_after(user, 40/W.toolspeed * skill_time_reduction("atmos", 0.05, user) * skill_time_reduction("construction", 0.1, user)))
 		user.visible_message( \
 			span("notice", "\The [user] unfastens \the [src]."), \
 			span("notice", "You have unfastened \the [src]."), \

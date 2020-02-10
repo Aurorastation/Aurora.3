@@ -200,7 +200,7 @@ proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
 
 	to_chat(user, "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>")
 	playsound(src.loc, 'sound/items/drumroll.ogg', 20, 0, -4)
-	if(do_after(user,4.5 SECONDS))
+	if(do_after(user, 4.5 SECONDS))
 		var/won = 0
 		var/result = rand(1,10000)
 		if(result <= 4000) // 40% chance to not earn anything at all.

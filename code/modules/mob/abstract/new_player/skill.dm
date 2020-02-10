@@ -38,7 +38,7 @@ datum/skill/weapons
 datum/skill/EVA
     ID = "EVA"
     name = "Extra-vehicular activity"
-    desc = "This skill describes your skill and knowledge of space-suits and working in vacuum."
+    desc = "This skill describes your skill and knowledge of space-suits and RIGs and working in vacuum."
     field = "Engineering"
     secondary = 1
 
@@ -64,7 +64,7 @@ datum/skill/knowledge/law
 datum/skill/devices
     ID = "devices"
     name = "Complex Devices"
-    desc = "Describes the ability to assemble complex devices, such as computers, circuits, printers, robots or gas tank assemblies(bombs). Note that if a device requires electronics or programming, those skills are also required in addition to this skill."
+    desc = "Describes the ability to assemble complex devices, such as computers, circuits, printers, robots, mechs or gas tank assemblies(bombs). Note that if a device requires electronics or programming, those skills are also required in addition to this skill."
     field = "Science"
 
 datum/skill/electrical
@@ -82,7 +82,7 @@ datum/skill/atmos
 datum/skill/engines
 	ID = "engines"
 	name = "Engines"
-	desc = "Describes your knowledge of the various engine types common on space stations, such as the singularity or anti-matter engine."
+	desc = "Describes your knowledge of the various engine types common on space stations, such as the singularity or anti-matter engine, supermatter or Tesla."
 	field = "Engineering"
 	secondary = 1
 
@@ -107,7 +107,7 @@ datum/skill/medical
 datum/skill/anatomy
     ID = "anatomy"
     name = "Anatomy"
-    desc = "Gives you a detailed insight of the human body. A high skill in this is required to perform surgery.This skill may also help in examining alien biology."
+    desc = "Gives you a detailed insight of the human body. A high skill in this is required to perform surgery. This skill may also help in examining alien biology."
     field = "Medical"
 
 datum/skill/virology
@@ -137,6 +137,16 @@ datum/skill/cooking
 	ID = "cooking"
 	name = "Cooking"
 	desc = "Describes a character's skill at preparing meals and other consumable goods. This includes mixing alcoholic beverages."
+
+datum/skill/cleaning
+	ID = "cleaning"
+	name = "Cleaning"
+	desc = "Describes a character's skill in cleaning."
+
+datum/skill/mining
+	ID = "mining"
+	name = "Mining"
+	desc = "Describes a character's ability to use mining equipment."
 
 datum/skill/science
 	ID = "science"

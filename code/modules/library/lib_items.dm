@@ -43,7 +43,7 @@
 	else if(O.isscrewdriver())
 		playsound(loc, O.usesound, 75, 1)
 		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
-		if(do_after(user,25))
+		if(do_after(user, 25 * skill_time_reduction("construction", 0.1, user)))
 			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
 			new /obj/item/stack/material/wood(get_turf(src), 3)
 			for(var/obj/item/book/b in contents)

@@ -138,7 +138,7 @@
 
 	if (recipe.time)
 		to_chat(user, "<span class='notice'>Building [recipe.title] ...</span>")
-		if (!do_after(user, recipe.time))
+		if (!do_after(user, recipe.time * skill_time_reduction("construction", 0.1, user)))
 			return
 
 	if (use(required))

@@ -159,7 +159,7 @@
 			return
 		to_chat(user, span("notice", "You begin to disassemble \the [src]."))
 		playsound(user, W.usesound, 100, 1)
-		if (do_after(user, 20/W.toolspeed))
+		if (do_after(user, 20/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 			new /obj/item/stack/material/steel(get_turf(src.loc), steel_sheet_cost)
 			src.visible_message("\The [user] disassembles \the [src].",
 				"You disassemble \the [src].",
@@ -178,7 +178,7 @@
 
 		to_chat(user, "You begin repairing damage to \the [src]...")
 		playsound(src, 'sound/items/Welder.ogg', 100, 1)
-		if(WT.remove_fuel(round(damage/75)) && do_after(usr, damage/10))
+		if(WT.remove_fuel(round(damage/75)) && do_after(usr, damage/10 * skill_time_reduction("construction", 0.1, user)))
 			damage = 0
 			to_chat(user, "You repair \the [src].")
 		update_icon()

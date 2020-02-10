@@ -26,7 +26,7 @@
 	if(istype(O,/obj/item/tank))
 		return
 	if(istype(O,/obj/item/shovel))
-		if(do_after(user, 50/O.toolspeed))
+		if(do_after(user, 50/O.toolspeed * skill_time_reduction("botany", 0.15, user)))
 			new /obj/item/stack/material/sandstone{amount = 3}(loc)
 			to_chat(user, "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>")
 			playsound(src, 'sound/effects/stonedoor_openclose.ogg', 40, 1)

@@ -44,7 +44,7 @@
 		var/obj/item/weldingtool/W = I
 		if(W.welding)
 			src.visible_message(span("notice","[user] starts cutting \the [src] apart."))
-			if(do_after(user, 200))
+			if(do_after(user, 200 * skill_time_reduction("construction", 0.1, user)))
 				src.visible_message(span("danger","\The [src] is cut apart by [user]!"))
 				playsound(src, 'sound/items/Welder.ogg', 100, 1)
 				new /obj/item/stack/material/titanium(src.loc, 10)

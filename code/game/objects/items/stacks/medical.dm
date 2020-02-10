@@ -320,7 +320,7 @@ Contains:
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				user.visible_message("<span class='notice'>\The [user] starts treating [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start treating [M]'s [affecting.name].</span>" )
-				if(!do_after(user, 100, act_target = M))
+				if(!do_after(user, 100 * skill_time_reduction("medical", 0.15, user), act_target = M))
 					return
 				for (var/datum/wound/W in affecting.wounds)
 					if (W.bandaged)
@@ -374,7 +374,7 @@ Contains:
 				to_chat(user, "<span class='danger'>You can't apply a splint to the arm you're using!</span>")
 				return
 			user.visible_message("<span class='danger'>[user] starts to apply \the [src] to their [limb].</span>", "<span class='danger'>You start to apply \the [src] to your [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")
-		if(do_after(user, 50))
+		if(do_after(user, 50 * skill_time_reduction("medical", 0.1, user)))
 			if (M != user)
 				user.visible_message("<span class='danger'>[user] finishes applying \the [src] to [M]'s [limb].</span>", "<span class='danger'>You finish applying \the [src] to [M]'s [limb].</span>", "<span class='danger'>You hear something being wrapped.</span>")
 			else

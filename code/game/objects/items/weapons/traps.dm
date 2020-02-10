@@ -570,7 +570,7 @@
 							  "<span class='notice'>You beign [anchored ? "un" : "" ]securing \the [src]!</span>")
 		playsound(src.loc, W.usesound, 50, 1)
 
-		if(do_after(user, 30/W.toolspeed, act_target = src))
+		if(do_after(user, 30/W.toolspeed * skill_time_reduction("construction", 0.1, user), act_target = src))
 			anchored = !anchored
 			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
 								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
@@ -622,7 +622,7 @@
 
 			to_chat(user, "<span class='notice'>You are trying to add metal bars to \the [src].</span>")
 
-			if (!do_after(user, 2 SECONDS, act_target = src))
+			if (!do_after(user, 2 SECONDS * skill_time_reduction("construction", 0.15, user), act_target = src))
 				return
 
 			to_chat(user, "<span class='notice'>You add metal bars to \the [src].</span>")

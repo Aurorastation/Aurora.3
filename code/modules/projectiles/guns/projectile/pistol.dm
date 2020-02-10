@@ -351,7 +351,7 @@
 
 /obj/item/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)
 	user.visible_message("[user] begins reloading \the [src].", "You begin reloading \the [src].")
-	if(!do_after(user, 20, act_target = src))
+	if(!do_after(user, 20 * skill_time_reduction("weapons", 0.1, user), act_target = src))
 		return
 	return ..()
 

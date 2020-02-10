@@ -285,7 +285,7 @@
 	if (W.isscrewdriver())
 		src.add_fingerprint(user)
 		playsound(src.loc, W.usesound, 100, 1)
-		if(do_after(user, 20))
+		if(do_after(user, 20 * skill_time_reduction("construction", 0.1, user)))
 			if(!src) return
 			switch (anchored)
 				if (0)
