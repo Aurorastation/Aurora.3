@@ -7,6 +7,10 @@
 	name = "sand"
 	icon_state = "sand"
 
+/turf/simulated/floor/beach/sand/alt
+	icon = 'icons/turf/total_floors.dmi'
+	icon_state = "sand_alt"
+
 /turf/simulated/floor/beach/sand/desert
 	icon_state = "desert"
 
