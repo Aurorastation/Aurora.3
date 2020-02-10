@@ -54,7 +54,7 @@
 
 	user.visible_message("<span class='danger'>\The [user] is attempting to put [cuff_type] on \the [H]!</span>")
 
-	if(!do_mob(user, target, 30))
+	if(!do_mob(user, target, 30 * skill_time_reduction("combat", 0.1, user)))
 		return
 
 	H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been handcuffed (attempt) by [user.name] ([user.ckey])</font>")

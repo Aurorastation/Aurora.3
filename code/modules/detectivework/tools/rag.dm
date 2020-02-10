@@ -140,7 +140,7 @@
 					if(W.bandaged || W.clamped)
 						continue
 					to_chat(user, span("notice", "You begin to bandage \a [W.desc] on [M]'s [affecting.name] with a rag."))
-					if(!do_mob(user, M, W.damage/10)) // takes twice as long as a normal bandage
+					if(!do_mob(user, M, W.damage/10 * skill_time_reduction("medical", 0.1, user))) // takes twice as long as a normal bandage
 						to_chat(user, span("notice","You must stand still to bandage wounds."))
 						break
 					for(var/datum/reagent/R in reagents.reagent_list)

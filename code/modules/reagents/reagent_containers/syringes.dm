@@ -130,7 +130,7 @@
 			var/P = (user == target) ? "their" : (target.name + "\'s")
 			var/SM = (user == target) ? "your" : (target.name + "\'s")
 			user.visible_message(span("danger", "[user] aims \the [src] between [P] ribs!"), span("danger", "You aim \the [src] between [SM] ribs!"))
-			if(!do_mob(user, target, 1.5 SECONDS))
+			if(!do_mob(user, target, 1.5 SECONDS * skill_time_reduction("medical", 0.1, user)))
 				return
 			user.visible_message(span("warning", "[user] jabs \the [src] between [P] ribs with \the [src]!"), span("warning", "You jab \the [src] between [SM] ribs!"))
 			if(H.is_lung_ruptured())
@@ -266,7 +266,7 @@
 				user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 				user.do_attack_animation(target)
 
-				if(!do_mob(user, target, injtime))
+				if(!do_mob(user, target, injtime * skill_time_reduction("medical", 0.1, user)))
 					return
 
 				user.visible_message("<span class='warning'>[user] injects [target] with the syringe!</span>")

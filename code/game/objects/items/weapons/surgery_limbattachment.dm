@@ -37,7 +37,7 @@
 				"<span class='notice'>\The [user] begins to attach a robotic limb where \his [S.display_name] used to be with [src].</span>", \
 				"<span class='notice'>You begin to attach \the [src] where your [S.display_name] used to be.</span>")
 
-		if(do_mob(user, H, 100))
+		if(do_mob(user, H, 100 * skill_time_reduction("anatomy", 0.1, user) * skill_time_reduction("devices", 0.05, user)))
 			if(M != user)
 				M.visible_message( \
 					"<span class='notice'>\The [user] finishes attaching [H]'s new [S.display_name].</span>", \

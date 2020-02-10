@@ -144,7 +144,7 @@
 			user.visible_message(span("notice", "[user] starts climbing onto [src]."), span("notice", "You start climbing onto [src]."), range = 3)
 		else
 			user.visible_message(span("notice", "[user] starts putting [L] onto [src]."), span("notice", "You start putting [L] onto [src]."), range = 3)
-		if (do_mob(user, L, 10, needhand = 0))
+		if (do_mob(user, L, 10 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
 				LB.user_unbuckle_mob(user)
@@ -180,7 +180,7 @@
 			user.visible_message(span("notice", "[user] starts climbing onto [src]."), span("notice", "You start climbing onto [src]."), range = 3)
 		else
 			user.visible_message(span("notice", "[user] starts putting [L] onto [src]."), span("notice", "You start putting [L] onto [src]."), range = 3)
-		if (do_mob(user, L, 10, needhand = 0))
+		if (do_mob(user, L, 10 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
 				LB.user_unbuckle_mob(user)

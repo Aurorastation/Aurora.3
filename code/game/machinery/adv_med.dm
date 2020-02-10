@@ -122,7 +122,7 @@
 	var/mob/living/M = G.affecting
 	user.visible_message(span("notice", "\The [user] starts putting \the [M] into \the [src]."), span("notice", "You start putting \the [M] into \the [src]."), range = 3)
 
-	if (do_mob(user, G.affecting, 30, needhand = 0))
+	if (do_mob(user, G.affecting, 30 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
 		if (!bucklestatus)//incase the patient got buckled during the delay
 			return
@@ -167,7 +167,7 @@
 	else
 		user.visible_message(span("notice", "\The [user] starts putting \the [L] into \the [src]."), span("notice", "You start putting \the [L] into \the [src]."), range = 3)
 
-	if (do_mob(user, L, 30, needhand = 0))
+	if (do_mob(user, L, 30 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)

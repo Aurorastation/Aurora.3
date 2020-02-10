@@ -183,7 +183,7 @@
 
 		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 
-		if(do_mob(user, L, 30, needhand = 0))
+		if(do_mob(user, L, 30 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
 			if(!bucklestatus)//incase the patient got buckled during the delay
 				return
@@ -219,7 +219,7 @@
 		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
 	else
 		user.visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
-	if (do_mob(user, L, 30, needhand = 0))
+	if (do_mob(user, L, 30 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)

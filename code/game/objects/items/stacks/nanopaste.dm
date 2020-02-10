@@ -27,7 +27,7 @@
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			if(do_mob(user, M, 7))
+			if(do_mob(user, M, 7 * skill_time_reduction("devices", 0.1, user)))
 				R.adjustBruteLoss(-15)
 				R.adjustFireLoss(-15)
 				R.updatehealth()
@@ -54,7 +54,7 @@
 						to_chat(user, "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>")
 						return
 
-				if(do_mob(user, M, 7))
+				if(do_mob(user, M, 7 * skill_time_reduction("medical", 0.1, user)))
 					S.heal_damage(15, 15, robo_repair = 1)
 					H.updatehealth()
 					use(1)
@@ -96,7 +96,7 @@
 			"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
 			)
 
-			if (!do_mob(user, M, 2))
+			if (!do_mob(user, M, 2 * skill_time_reduction("devices", 0.1, user)))
 				return 0
 
 			s = new /obj/item/organ/internal/surge()
@@ -117,7 +117,7 @@
 				"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
 				)
 
-				if (!do_mob(user, M, 2))
+				if (!do_mob(user, M, 2 * skill_time_reduction("devices", 0.1, user)))
 					return 0
 
 				s.surge_left = rand(2, 5)

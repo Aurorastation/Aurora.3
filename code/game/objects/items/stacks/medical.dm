@@ -59,7 +59,7 @@ Contains:
 				"<span class = 'notice'> [user] starts applying \the [src] to [M].</span>", \
 				"<span class = 'notice'> You start applying \the [src] to [M].</span>" \
 			)
-		if (do_mob(user, M, 30))
+		if (do_mob(user, M, 30 * skill_time_reduction("medical", 0.1, user)))
 			M.heal_organ_damage((src.heal_brute/2), (src.heal_burn/2))
 			user.visible_message( \
 				"<span class = 'notice'> [M] has been applied with [src] by [user].</span>", \
@@ -106,7 +106,7 @@ Contains:
 						continue
 					if(used == amount)
 						break
-					if(!do_mob(user, M, W.damage/5))
+					if(!do_mob(user, M, W.damage/5 * skill_time_reduction("medical", 0.1, user)))
 						to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
@@ -169,7 +169,7 @@ Contains:
 				user.visible_message("<span class='notice'>\The [user] starts salving wounds on [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start salving the wounds on [M]'s [affecting.name].</span>" )
 				playsound(src, pick(apply_sounds), 25)
-				if(!do_mob(user, M, 10))
+				if(!do_mob(user, M, 10 * skill_time_reduction("medical", 0.1, user)))
 					to_chat(user, "<span class='notice'>You must stand still to salve wounds.</span>")
 					return 1
 				user.visible_message("<span class='notice'>[user] salved wounds on [M]'s [affecting.name].</span>", \
@@ -218,7 +218,7 @@ Contains:
 						continue
 					if(used == amount)
 						break
-					if(!do_mob(user, M, W.damage/5))
+					if(!do_mob(user, M, W.damage/5 * skill_time_reduction("medical", 0.1, user)))
 						to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 						break
 					if (W.current_stage <= W.max_bleeding_stage)
@@ -277,7 +277,7 @@ Contains:
 				user.visible_message("<span class='notice'>\The [user] starts salving wounds on [M]'s [affecting.name].</span>", \
 						             "<span class='notice'>You start salving the wounds on [M]'s [affecting.name].</span>" )
 				playsound(src, pick(apply_sounds), 25)
-				if(!do_mob(user, M, 10))
+				if(!do_mob(user, M, 10 * skill_time_reduction("medical", 0.1, user)))
 					to_chat(user, "<span class='notice'>You must stand still to salve wounds.</span>")
 					return 1
 				user.visible_message( 	"<span class='notice'>[user] covers wounds on [M]'s [affecting.name] with regenerative membrane.</span>", \
@@ -327,7 +327,7 @@ Contains:
 						continue
 					if(used == amount)
 						break
-					if(!do_mob(user, M, W.damage/5))
+					if(!do_mob(user, M, W.damage/5 * skill_time_reduction("medical", 0.1, user)))
 						to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
 						break
 					if (W.current_stage <= W.max_bleeding_stage)

@@ -231,7 +231,7 @@
 		if(istype(user, /mob/living/carbon/human) && !user.stat && Adjacent(user))
 			spawn (0)
 				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
-				if (do_mob(user, src, 15))
+				if (do_mob(user, src, 15 * skill_time_reduction("medical", 0.1, user)))
 					if(pulse() == PULSE_NONE)
 						to_chat(user, "<span class='deadsay'>[T.He] [T.has] no pulse.</span>")
 					else

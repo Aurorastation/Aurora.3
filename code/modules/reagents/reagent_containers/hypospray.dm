@@ -44,7 +44,7 @@
 		var/inj_time = time
 		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			inj_time += 6 SECONDS
-		if(!do_mob(user, M, inj_time))
+		if(!do_mob(user, M, inj_time * skill_time_reduction("medical", 0.1, user)))
 			return 1
 
 /obj/item/reagent_containers/hypospray/update_icon()
