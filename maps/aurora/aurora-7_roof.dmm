@@ -1356,7 +1356,12 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/device/binoculars,
+/obj/item/device/binoculars{
+	pixel_y = -4
+	},
+/obj/item/device/binoculars{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
 	dir = 5
@@ -1411,6 +1416,10 @@
 	dir = 4;
 	pixel_y = 0
 	},
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -24
+	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
 	dir = 5
@@ -1424,6 +1433,7 @@
 	dir = 4;
 	status = 2
 	},
+/obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
 	dir = 5
@@ -1461,6 +1471,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/table/standard,
+/obj/item/storage/fancy/donut,
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
 	dir = 5
@@ -1515,6 +1527,18 @@
 "df" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/snacks/chips{
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/cans/zoracthur{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/food/drinks/cans/zoraklax{
+	pixel_x = 6;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
@@ -3003,6 +3027,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
+"tj" = (
+/obj/structure/bed/chair/office/dark,
+/turf/simulated/floor/tiled{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/security/checkpoint2)
 "tr" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3224,6 +3255,15 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/running)
+"Ce" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/security,
+/turf/simulated/floor/tiled{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/security/checkpoint2)
 "CC" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -29310,7 +29350,7 @@ ah
 ah
 ah
 ah
-ah
+an
 ah
 ah
 ah
@@ -30847,8 +30887,8 @@ cC
 cN
 cM
 cS
-cS
-de
+tj
+Ce
 di
 ah
 ah
@@ -31107,7 +31147,7 @@ cX
 da
 df
 dj
-an
+ah
 ah
 ah
 ah
