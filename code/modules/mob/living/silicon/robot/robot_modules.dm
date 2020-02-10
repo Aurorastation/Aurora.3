@@ -193,13 +193,12 @@ var/global/list/robot_modules = list(
 				"Treadmate" = "treadmatemedi",
 				"Treadhead" = "treadheadmedi",
 				"Toileto-tron" = "toiletbotmedi",
+				"Hephaestus-Android" = "droid-rescue",
 				"HD-MAD" = "mcspizzytronmedi",
 				"SD-MAD" = "floatspizzytronmedi",
+				"Repo-Icarus-Drone" = "repodronemedi",
 				"Unbranded-MAD" = "offfloatspizzytronmedi",
-				"Hover-Drone" = "drone-medical",
-		    	"Heph-Android" = "droid",
-		    	"Advanced Droid" = "droid-rescue",
-				"Heavy-Duty" = "heavymed",
+				"Unbranded-Android" = "droid",
 				)
 
 /obj/item/robot_module/medical/general
@@ -268,12 +267,12 @@ var/global/list/robot_modules = list(
 			"Treadmate" = "treadmatemedi",
 			"Treadhead" = "treadheadmedi",
 			"Toileto-tron" = "toiletbotmedi",
+			"Hephaestus-Android" = "droid-rescue",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
+			"Repo-Icarus-Drone" = "repodronemedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
-			"Hover-Drone" = "drone-medical",
-			"Heph-Android" = "droid",
-			"Advanced-Droid" = "droid-rescue",
+			"Unbranded-Android" = "droid",
 			)
 
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -345,9 +344,9 @@ var/global/list/robot_modules = list(
 				"Toileto-tron" = "toiletbotengi",
 				"HD-MAD" = "mcspizzytronengi",
 				"SD-MAD" = "floatspizzytronengi",
+				"Repo-Icarus-Drone" = "repodroneengi",
 				"Unbranded-MAD" = "offfloatspizzytronengi",
-				"Hover-Drone" = "drone-engineer",
-				"Heph-Android" = "droid",
+				"Unbranded-Android" = "droid",
 				)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -516,9 +515,9 @@ var/global/list/robot_modules = list(
 				"Toileto-tron" = "toiletbotjani",
 				"HD-MAD" = "mcspizzytronjani",
 				"SD-MAD" = "floatspizzytronjani",
+				"Repo-Icarus-Drone" = "repodronejani",
 				"Unbranded-MAD" = "offfloatspizzytronjani",
-				"Hover-Drone" = "drone-janitor",
-				"Heph-Android" = "droid",
+				"Unbranded-Android" = "droid",
 				)
 
 /obj/item/robot_module/janitor/New()
@@ -572,9 +571,9 @@ var/global/list/robot_modules = list(
 				"Toileto-tron" = "toiletbotserv",
 				"HD-MAD" = "mcspizzytronserv",
 				"SD-MAD" = "floatspizzytronserv",
+				"Repo-Icarus-Drone" = "repodroneserv",
 				"Unbranded-MAD" = "offfloatspizzytronserv",
-				"Hover-Drone" = "drone-service",
-				"Heph-Android" = "droid",
+				"Unbranded-Android" = "droid",
 				  	)
 
 /obj/item/robot_module/clerical/butler
@@ -652,9 +651,9 @@ var/global/list/robot_modules = list(
 				"Toileto-tron" = "toiletbotmine",
 				"HD-MAD" = "mcspizzytronmine",
 				"SD-MAD" = "floatspizzytronmine",
+				"Repo-Icarus-Drone" = "repodronemine",
 				"Unbranded-MAD" = "offfloatspizzytronmine",
-				"Hover-Drone" = "drone-miner",
-				"Heph-Android" = "droid",
+				"Unbranded-Android" = "droid",
 			)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -684,12 +683,12 @@ var/global/list/robot_modules = list(
 				"Treadmate" = "treadmatejani",
 				"Treadhead" = "treadheadsci",
 				"Toileto-tron" = "toiletbotsci",
+				"Hephaestus-Android" = "droid-science",
 				"HD-MAD" = "mcspizzytronsci",
 				"SD-MAD" = "floatspizzytronsci",
+				"Repo-Icarus-Drone" = "repodronesci",
 				"Unbranded-MAD" = "offfloatspizzytronsci",
-				"Hover-Drone" = "drone-science",
-				"Heph-Android" = "droid",
-				"Advanced Anroid" = "droid-science",
+				"Unbranded-Android" = "droid",
 				)
 
 /obj/item/robot_module/research/New()
