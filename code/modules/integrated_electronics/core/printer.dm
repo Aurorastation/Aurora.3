@@ -15,7 +15,7 @@
 	var/recycling = FALSE		// If an assembly is being emptied into this printer
 	var/list/program			// Currently loaded save, in form of list
 	var/materials = list(DEFAULT_WALL_MATERIAL = 0, "glass" = 0)
-	var/metal_max = 25 * SHEET_MATERIAL_AMOUNT
+	var/material_max = 25 * SHEET_MATERIAL_AMOUNT
 
 /obj/item/device/integrated_circuit_printer/proc/check_interactivity(mob/user)
 	return CanUseTopic(user)
@@ -33,6 +33,12 @@
 	fast_clone = TRUE
 	w_class = ITEMSIZE_TINY
 
+/obj/item/device/integrated_circuit_printer/proc/try_update_ui(mob/user)
+	if(user)
+		var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+		if(ui)
+			ui.check_for_change()
+
 /obj/item/device/integrated_circuit_printer/proc/print_program(mob/user)
 	if(!cloning)
 		return
@@ -48,7 +54,7 @@
 	if(!O.canremove) //in case we have an augment circuit
 		return
 	for(var/material in O.matter)
-		if(materials[material] + O.matter[material] > metal_max)
+		if(materials[material] + O.matter[material] > material_max)
 			var/material/material_datum = get_material_by_name(material)
 			if(material_datum)
 				to_chat(user, "<span class='notice'>[src] can't hold any more [material_datum.display_name]!</span>")
@@ -66,21 +72,19 @@
 	if(istype(O, /obj/item/stack/material))
 		var/obj/item/stack/material/M = O
 		var/amt = M.amount
-		if(amt * SHEET_MATERIAL_AMOUNT + materials[M.material.name] > metal_max)
-			amt = -round(-(metal_max - materials[M.material.name]) / SHEET_MATERIAL_AMOUNT) //round up
+		if(amt * SHEET_MATERIAL_AMOUNT + materials[M.material.name] > material_max)
+			amt = -round(-(material_max - materials[M.material.name]) / SHEET_MATERIAL_AMOUNT) //round up
 		if(M.use(amt))
-			materials[M.material.name] = min(metal_max, materials[M.material.name] + amt * SHEET_MATERIAL_AMOUNT)
+			materials[M.material.name] = min(material_max, materials[M.material.name] + amt * SHEET_MATERIAL_AMOUNT)
 			to_chat(user, "<span class='warning'>You insert [M.material.display_name] into \the [src].</span>")
-			if(user)
-				attack_self(user) // We're really bad at refreshing the UI, so this is the best we've got.
+			try_update_ui(user)
 	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
 			to_chat(user, "<span class='warning'>[src] already has this upgrade. </span>")
 			return TRUE
 		to_chat(user, "<span class='notice'>You install [O] into [src]. </span>")
 		upgraded = TRUE
-		if(user)
-			attack_self(user)
+		try_update_ui(user)
 		return TRUE
 
 	if(istype(O, /obj/item/disk/integrated_circuit/upgrade/clone))
@@ -89,8 +93,7 @@
 			return TRUE
 		to_chat(user, "<span class='notice'>You install [O] into [src]. Circuit cloning will now be instant. </span>")
 		fast_clone = TRUE
-		if(user)
-			attack_self(user)
+		try_update_ui(user)
 		return TRUE
 
 	if(istype(O, /obj/item/device/electronic_assembly))
@@ -136,72 +139,55 @@
 		return
 
 	if(isnull(current_category))
-		//current_category = SScircuit.circuit_fabricator_recipe_list[1]
 		current_category = SSelectronics.printer_recipe_list[1]
 
-	//Preparing the browser
-	var/datum/browser/popup = new(user, "printernew", "Integrated Circuit Printer", 800, 630) // Set up the popup browser window
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "circuits-printer", 800, 630, "Integrated Circuit Printer")
 
-	var/list/HTML = list()
-	HTML += "<center><h2>Integrated Circuit Printer</h2></center><br>"
-	if(debug)
-		HTML += "<center><h3>DEBUG PRINTER -- Infinite materials. Cloning available.</h3></center>"
-	else
-		HTML += "Materials: "
-		var/list/dat = list()
-		for(var/material in materials)
-			var/material/material_datum = get_material_by_name(material)
-			dat += "[materials[material]]/[metal_max] [material_datum.display_name]"
-		HTML += jointext(dat, "; ")
-		HTML += ".<br><br>"
+	ui.open()
 
-	//if(config.allow_ic_printing || debug)
-	HTML += "Assembly duplication: [can_clone ? (fast_clone ? "Instant" : "Available") : "Unavailable"].<br>"
+/obj/item/device/integrated_circuit_printer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		. = data = list()
 
-	HTML += "Circuits available: [upgraded || debug ? "Advanced":"Regular"]."
-	if(!upgraded)
-		HTML += "<br>Crossed out circuits mean that the printer is not sufficiently upgraded to create that circuit."
+	LAZYINITLIST(data["materials"])
 
-	HTML += "<hr>"
-	//if((can_clone && config.allow_ic_printing) || debug)
-	HTML += "Here you can load script for your assembly.<br>"
-	if(!cloning)
-		HTML += " <A href='?src=\ref[src];print=load'>{Load Program}</a> "
-	else
-		HTML += " {Load Program}"
-	if(!program)
-		HTML += " {[fast_clone ? "Print" : "Begin Printing"] Assembly}"
-	else if(cloning)
-		HTML += " <A href='?src=\ref[src];print=cancel'>{Cancel Print}</a>"
-	else
-		HTML += " <A href='?src=\ref[src];print=print'>{[fast_clone ? "Print" : "Begin Printing"] Assembly}</a>"
+	for(var/material in materials)
+		var/material/material_datum = get_material_by_name(material)
+		VUEUI_SET_CHECK(data["materials"][material_datum.display_name], "[materials[material]]/[material_max]", ., data)
 
-	HTML += "<br><hr>"
-	
-	HTML += "Categories:"
-	for(var/category in SSelectronics.printer_recipe_list)
-		if(category != current_category)
-			HTML += " <a href='?src=\ref[src];category=[category]'>\[[category]\]</a> "
-		else // Bold the button if it's already selected.
-			HTML += " <b>\[[category]\]</b> "
-	HTML += "<hr>"
-	HTML += "<center><h4>[current_category]</h4></center>"
+	if(current_category != data["current_category"])
+		// Clear the list since we might need a new one
+		data["category_recipes"] = list()
+		// current_category is set in interact(). Shouldn't cause a problem here?
+		for(var/path in SSelectronics.printer_recipe_list[current_category])
+			var/obj/O = path
+			var/can_build = TRUE
+			if(ispath(path, /obj/item/integrated_circuit))
+				var/obj/item/integrated_circuit/IC = path
+				if((initial(IC.spawn_flags) & IC_SPAWN_RESEARCH) && (!(initial(IC.spawn_flags) & IC_SPAWN_DEFAULT)) && !upgraded)
+					can_build = FALSE
 
-	var/list/current_list = SSelectronics.printer_recipe_list[current_category]
-	for(var/path in current_list)
-		var/obj/O = path
-		var/can_build = TRUE
-		if(ispath(path, /obj/item/integrated_circuit))
-			var/obj/item/integrated_circuit/IC = path
-			if((initial(IC.spawn_flags) & IC_SPAWN_RESEARCH) && (!(initial(IC.spawn_flags) & IC_SPAWN_DEFAULT)) && !upgraded)
-				can_build = FALSE
-		if(can_build)
-			HTML += "<A href='?src=\ref[src];build=\ref[path]'>\[[initial(O.name)]\]</A>: [initial(O.desc)]<br>"
-		else
-			HTML += "<s>\[[initial(O.name)]\]</s>: [initial(O.desc)]<br>"
+			VUEUI_SET_CHECK(data["category_recipes"][initial(O.name)], list(initial(O.desc), can_build, "\ref[path]"), ., data)
 
-	popup.set_content(jointext(HTML, null))
-	popup.open()
+
+	LAZYINITLIST(data["categories"])
+	if(LAZYLEN(data["categories"]) == 0)
+		for(var/category in SSelectronics.printer_recipe_list)
+			data["categories"].Add(category)
+
+	// Using VueUI monitor here breaks /advanced and /debug printers, which is kinda bad?
+	VUEUI_SET_CHECK_IFNOTSET(data["debug"], debug, ., data)
+	VUEUI_SET_CHECK(data["can_clone"], can_clone, ., data)
+	VUEUI_SET_CHECK(data["fast_clone"], fast_clone, ., data)
+	VUEUI_SET_CHECK(data["upgraded"], upgraded, ., data)
+	VUEUI_SET_CHECK(data["cloning"], cloning, ., data)
+	VUEUI_SET_CHECK(data["current_category"], current_category, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["recipes"], SSelectronics.printer_recipe_list, ., data)
+	// Program can be null, which kinda breaks VUEUI_SET_CHECK, since data["program"] is null at first too
+	if(isnull(data["program"]) || program != data["program"])
+		data["program"] = program
 
 /obj/item/device/integrated_circuit_printer/Topic(href, href_list, state = interactive_state)
 	if(!check_interactivity(usr))
@@ -209,6 +195,8 @@
 	if(..())
 		return TRUE
 	add_fingerprint(usr)
+
+	var/datum/vueui/ui = href_list["vueui"]
 
 	if(href_list["category"])
 		current_category = href_list["category"]
@@ -331,9 +319,10 @@
 				cloning = FALSE
 				var/cost = program["cost"]
 				for(var/material in cost)
-					materials[material] = min(metal_max, materials[material] + cost[material])
+					materials[material] = min(material_max, materials[material] + cost[material])
 
-	interact(usr)
+	// forces change checking because it fails on some elements
+	ui.check_for_change(TRUE)
 
 /obj/item/device/integrated_circuit_printer/proc/subtract_material_costs(var/list/cost, var/mob/user)
 	for(var/material in cost)
