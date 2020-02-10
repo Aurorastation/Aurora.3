@@ -247,9 +247,9 @@
 	if(..(user, 0))
 		to_chat(user, text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel ))
 
-/obj/item/weldingtool/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
-		if (isrobot(loc))
+		if(isrobot(loc))
 			to_chat(user, span("alert", "You cannot modify your own welder!"))
 			return
 		if(welding)
@@ -260,28 +260,17 @@
 			to_chat(user, span("notice", "You secure the welder."))
 		else
 			to_chat(user, span("notice", "The welder can now be attached and modified."))
-		src.add_fingerprint(user)
+		add_fingerprint(user)
 		return
 
-	if((!status) && (istype(W,/obj/item/stack/rods)))
+	if(!status && (istype(W, /obj/item/stack/rods)))
 		var/obj/item/stack/rods/R = W
 		R.use(1)
-		var/obj/item/flamethrower/F = new/obj/item/flamethrower(user.loc)
-		src.forceMove(F)
+		add_fingerprint(user)
+		user.drop_from_inventory(src)
+		var/obj/item/flamethrower/F = new /obj/item/flamethrower()
 		F.weldtool = src
-		if (user.client)
-			user.client.screen -= src
-		if (user.r_hand == src)
-			user.remove_from_mob(src)
-		else
-			user.remove_from_mob(src)
-		src.master = F
-		src.layer = initial(src.layer)
-		user.remove_from_mob(src)
-		if (user.client)
-			user.client.screen -= src
-		src.forceMove(F)
-		src.add_fingerprint(user)
+		user.put_in_hands(F)
 		return
 
 	..()
@@ -333,10 +322,11 @@
 	else
 		return ..()
 
-/obj/item/weldingtool/proc/repair_organ(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
+/obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
 	if(!affecting.brute_dam)
 		user.visible_message("<span class='notice'>[user] finishes repairing the physical damage on [target]'s [affecting.name].</span>")
 		return
+
 	if(do_mob(user, target, 30))
 		if(remove_fuel(0))
 			var/static/list/repair_messages = list(
@@ -346,13 +336,12 @@
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
 			user.visible_message("<span class='notice'>\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src].</span>")
-			playsound(user, 'sound/items/Welder2.ogg', 15)
+			playsound(target, 'sound/items/Welder2.ogg', 15)
 			repair_organ(user, target, affecting)
 		else
-			// Welding tool is out of fuel
-			to_chat(user, "<span class='warning'>\The [src] flickers off.</span>")
+			to_chat(user, "<span class='warning'>\The [src] flickers off!</span>")
 
-/obj/item/weldingtool/afterattack(obj/O as obj, mob/user as mob, proximity)
+/obj/item/weldingtool/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src, O) <= 1 && !welding)
@@ -390,7 +379,7 @@
 				to_chat(user, "You thought better of yourself.")
 				return
 		return
-	if (src.welding)
+	if (welding)
 		remove_fuel(1)
 		var/turf/location = get_turf(user)
 		if(isliving(O))
@@ -400,9 +389,8 @@
 			location.hotspot_expose(700, 50, 1)
 	return
 
-/obj/item/weldingtool/attack_self(mob/user as mob)
-	setWelding(!welding, usr)
-	return
+/obj/item/weldingtool/attack_self(mob/user)
+	setWelding(!welding, user)
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
@@ -432,7 +420,8 @@
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
 /obj/item/weldingtool/proc/setWelding(var/set_welding, var/mob/M)
-	if(!status)	return
+	if(!status)
+		return
 
 	var/turf/T = get_turf(src)
 	//If we're turning it on
@@ -443,12 +432,12 @@
 			else if(T)
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
 			playsound(loc, 'sound/items/WelderActivate.ogg', 50, 1)
-			src.force = 15
-			src.damtype = "fire"
-			src.w_class = 4
-			welding = 1
+			force = 15
+			damtype = BURN
+			w_class = ITEMSIZE_LARGE
+			welding = TRUE
 			update_icon()
-			set_processing(1)
+			set_processing(TRUE)
 		else
 			if(M)
 				to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
@@ -460,11 +449,11 @@
 		else if(T)
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
 		playsound(loc, 'sound/items/WelderDeactivate.ogg', 50, 1)
-		src.force = 3
-		src.damtype = "brute"
-		src.w_class = initial(src.w_class)
-		src.welding = 0
-		set_processing(0)
+		force = 3
+		damtype = BRUTE
+		w_class = initial(w_class)
+		welding = FALSE
+		set_processing(FALSE)
 		update_icon()
 
 //A wrapper function for the experimental tool to override
@@ -476,42 +465,35 @@
 
 //Decides whether or not to damage a player's eyes based on what they're wearing as protection
 //Note: This should probably be moved to mob
-/obj/item/weldingtool/proc/eyecheck(mob/user as mob)
-	if(!iscarbon(user))	return 1
-	if(istype(user, /mob/living/carbon/human))
+/obj/item/weldingtool/proc/eyecheck(mob/user)
+	if(!iscarbon(user))
+		return 1
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/internal/eyes/E = H.get_eyes()
 		if(!E)
 			return
-		var/safety = H.eyecheck()
 		if(H.status_flags & GODMODE)
 			return
+		var/safety = H.eyecheck()
+		var/damage_to_take = 0
 		switch(safety)
 			if(FLASH_PROTECTION_MODERATE)
-				to_chat(usr, "<span class='warning'>Your eyes sting a little.</span>")
-				E.damage += rand(1, 2)
-				if(E.damage > 12)
-					user.eye_blurry += rand(3,6)
+				damage_to_take = E.max_damage / 6
+				to_chat(user, "<span class='warning'>Your eyes sting a little.</span>")
+				E.take_damage(damage_to_take)
 			if(FLASH_PROTECTION_NONE)
-				to_chat(usr, "<span class='warning'>Your eyes burn.</span>")
-				E.damage += rand(2, 4)
-				if(E.damage > 10)
-					E.damage += rand(4,10)
+				damage_to_take = E.max_damage / 5
+				to_chat(user, "<span class='warning'>Your eyes burn!</span>")
+				E.take_damage(damage_to_take)
 			if(FLASH_PROTECTION_REDUCED)
-				to_chat(usr, "<span class='danger'>Your equipment intensify the welder's glow. Your eyes itch and burn severely.</span>")
-				user.eye_blurry += rand(12,20)
-				E.damage += rand(12, 16)
-		if(safety<FLASH_PROTECTION_MAJOR)
-			if(E.damage > 10)
-				to_chat(user, "<span class='warning'>Your eyes are really starting to hurt. This can't be good for you!</span>")
-
-			if (E.damage >= E.min_broken_damage)
-				to_chat(user, "<span class='danger'>You go blind!</span>")
-				user.sdisabilities |= BLIND
-			else if (E.damage >= E.min_bruised_damage)
-				to_chat(user, "<span class='danger'>You go blind!</span>")
-				user.eye_blind = 5
-				user.eye_blurry = 5
+				damage_to_take = E.max_damage / 3
+				to_chat(user, "<span class='danger'><font size=4>Your eyes are burning!</font></span>")
+				user.eye_blurry += rand(12, 20)
+				E.take_damage(damage_to_take)
+		if(safety < FLASH_PROTECTION_MAJOR)
+			if(E.is_bruised())
+				to_chat(user, "<span class='danger'>You can't see anymore!</span>")
 				user.disabilities |= NEARSIGHTED
 				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
 
@@ -536,16 +518,12 @@
 	fuel_gen()
 
 /obj/item/weldingtool/experimental/proc/fuel_gen()//Proc to make the experimental welder generate fuel, optimized as fuck -Sieve
-
 	if (get_fuel() < max_fuel)
-		var/gen_amount = ((world.time-last_gen)/fuelgen_delay)
+		var/gen_amount = ((world.time-last_gen) / fuelgen_delay)
 		var/remainder = max_fuel - get_fuel()
 		gen_amount = min(gen_amount, remainder)
 		reagents.add_reagent("fuel", gen_amount)
-		//reagents += (gen_amount)
-
 		if(get_fuel() >= max_fuel)
-			//reagents = max_fuel
 			set_processing(0)
 	else
 		set_processing(0)
