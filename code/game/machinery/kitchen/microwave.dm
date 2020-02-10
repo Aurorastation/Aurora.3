@@ -140,7 +140,7 @@
 				"<span class='notice'>\The [user] starts to clean the microwave.</span>", \
 				"<span class='notice'>You start to clean the microwave.</span>" \
 			)
-			if (do_after(user, 20/O.toolspeed * skill_time_reduction("cleaning", 0.05, user)))
+			if (do_after(user, 20/O.toolspeed * skill_time_reduction("sanitation", 0.05, user)))
 				user.visible_message( \
 					"<span class='notice'>\The [user] has cleaned the microwave.</span>", \
 					"<span class='notice'>You have cleaned the microwave.</span>" \

@@ -201,6 +201,7 @@
 			break
 
 		var/acc = burst_accuracy[min(i, burst_accuracy.len)]
+		acc += burst_accuracy[min(i, burst_accuracy.len)] * (skill_time_reduction("weapons", 0.08, user) + skill_time_reduction("weapons", 0.05, user))
 		var/disp = dispersion[min(i, dispersion.len)]
 		process_accuracy(projectile, user, target, acc, disp)
 

@@ -248,7 +248,7 @@
 		return 1
 	playsound(src.loc, W.usesound, 50, 1)
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if (do_after(user, 40/W.toolspeed * skill_time_reduction("atmos", 0.05, user) * skill_time_reduction("construction", 0.1, user), act_target = src))
+	if (do_after(user, 40/W.toolspeed - 40/W.toolspeed * (skill_time_reduction("atmos", 0.05, user) + skill_time_reduction("construction", 0.1, user)), act_target = src))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

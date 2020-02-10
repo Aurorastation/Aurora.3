@@ -138,10 +138,10 @@ datum/skill/cooking
 	name = "Cooking"
 	desc = "Describes a character's skill at preparing meals and other consumable goods. This includes mixing alcoholic beverages."
 
-datum/skill/cleaning
-	ID = "cleaning"
-	name = "Cleaning"
-	desc = "Describes a character's skill in cleaning."
+datum/skill/sanitation
+	ID = "sanitation"
+	name = "Sanitation"
+	desc = "Describes a character's skill in cleaning and sanitizing things and equipment."
 
 datum/skill/mining
 	ID = "mining"

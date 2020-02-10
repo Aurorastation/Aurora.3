@@ -413,7 +413,7 @@
 	playsound(loc, 'sound/effects/sink_long.ogg', 75, 1)
 
 	busy = 1
-	if(!do_after(user, 40 * skill_time_reduction("cleaning", 0.1, user), src))
+	if(!do_after(user, 40 * skill_time_reduction("sanitation", 0.1, user), src))
 		busy = 0
 		return TRUE
 	busy = 0
@@ -521,7 +521,7 @@
 	playsound(loc, 'sound/effects/sink_long.ogg', 75, 1)
 
 	busy = 1
-	if(!do_after(user, 40 * skill_time_reduction("cleaning", 0.1, user), src))
+	if(!do_after(user, 40 * skill_time_reduction("sanitation", 0.1, user), src))
 		busy = 0
 		return TRUE
 	busy = 0

@@ -133,7 +133,7 @@
 			to_chat(user, "<span class='warning'>There are no more working lights left in the box!</span>")
 			return
 
-		if (do_after(user, load_interval * skill_time_reduction("cleaning", 0.1, user), needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
+		if (do_after(user, load_interval * skill_time_reduction("sanitation", 0.1, user), needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
 			uses++
 			to_chat(user, "<span class='notice'>Light loaded: [uses]/[max_uses]</span>")
 			playsound(src.loc, 'sound/machines/click.ogg', 20, 1)
