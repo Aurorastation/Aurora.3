@@ -43,7 +43,7 @@
 	handle_hud_icons()
 
 /mob/living/heavy_vehicle/get_cell()
-	set SpacemanDMM_return_type = /obj/item/cell
+	RETURN_TYPE(/obj/item/cell)
 	return body.cell
 
 /mob/living/heavy_vehicle/proc/calc_power_draw()

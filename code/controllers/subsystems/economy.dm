@@ -244,7 +244,7 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 //gets a departmental account by name
 /datum/controller/subsystem/economy/proc/get_department_account(var/department)
-	set SpacemanDMM_return_type = /datum/money_account
+	RETURN_TYPE(/datum/money_account)
 	if(department_accounts[department])
 		return department_accounts[department]
 
