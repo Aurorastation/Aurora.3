@@ -52,7 +52,10 @@
 	)
 
 	titles_to_loadout = list(
-		"Security Officer" = /datum/outfit/job/officer/idris,
+		"General Officer" = /datum/outfit/job/officer/idris,
+		"Medical Officer" = /datum/outfit/job/officer/idris,
+		"Science Officer" = /datum/outfit/job/officer/idris,
+		"Supply Officer" = /datum/outfit/job/officer/idris,
 		"Forensic Technician" = /datum/outfit/job/forensics/idris,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,

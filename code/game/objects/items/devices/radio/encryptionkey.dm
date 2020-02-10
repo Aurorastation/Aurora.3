@@ -56,6 +56,10 @@
 	icon_state = "eng_cypherkey"
 	channels = list("Engineering" = 1)
 
+/obj/item/device/encryptionkey/headset_eng/sec
+	name = "engineering security radio encryption key"
+	channels = list("Engineering" = 1, "Security" = 1)
+
 /obj/item/device/encryptionkey/headset_rob
 	name = "robotics radio encryption key"
 	icon_state = "rob_cypherkey"
@@ -66,10 +70,19 @@
 	icon_state = "med_cypherkey"
 	channels = list("Medical" = 1)
 
+/obj/item/device/encryptionkey/headset_med/sec
+	name = "medical security radio encryption key"
+	channels = list("Medical" = 1, "Security" = 1)
+
 /obj/item/device/encryptionkey/headset_sci
 	name = "science radio encryption key"
 	icon_state = "sci_cypherkey"
 	channels = list("Science" = 1)
+
+
+/obj/item/device/encryptionkey/headset_sci/sec
+	name = "science security radio encryption key"
+	channels = list("Science" = 1, "Security" = 1)
 
 /obj/item/device/encryptionkey/headset_medsci
 	name = "medical research radio encryption key"
@@ -117,22 +130,14 @@
 	icon_state = "hop_cypherkey"
 	channels = list("Supply" = 1, "Service" = 1, "Command" = 1, "Security" = 0)
 
-
-/*
-/obj/item/device/encryptionkey/headset_mine
-	name = "mining radio encryption key"
-	icon_state = "mine_cypherkey"
-	channels = list("Mining" = 1)
-
-/obj/item/device/encryptionkey/heads/qm
-	name = "quartermaster's encryption key"
-	icon_state = "qm_cypherkey"
-	channels = list("Cargo" = 1, "Mining" = 1)
-*/
 /obj/item/device/encryptionkey/headset_cargo
 	name = "supply radio encryption key"
 	icon_state = "cargo_cypherkey"
 	channels = list("Supply" = 1)
+
+/obj/item/device/encryptionkey/headset_cargo/sec
+	name = "supply security radio encryption key"
+	channels = list("Supply" = 1, "Security" = 1)
 
 /obj/item/device/encryptionkey/headset_service
 	name = "service radio encryption key"

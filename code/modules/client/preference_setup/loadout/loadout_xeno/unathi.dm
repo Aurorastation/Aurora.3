@@ -83,7 +83,7 @@
 	whitelisted = list("Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	allowed_roles = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Head of Security", "Warden")
 
 /datum/gear/uniform/unathi/jizixi
 	display_name = "jizixi dress"

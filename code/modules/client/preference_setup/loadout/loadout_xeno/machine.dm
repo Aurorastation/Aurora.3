@@ -92,7 +92,7 @@
 	path = /obj/item/clothing/suit/armor/vest/idris
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+	allowed_roles = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
 
 /datum/gear/suit/idris/New()
 	..()

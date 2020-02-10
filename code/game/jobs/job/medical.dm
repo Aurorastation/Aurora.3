@@ -303,3 +303,33 @@
 	satchel = /obj/item/storage/backpack/satchel_med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
+
+/datum/job/officer/med
+	title = "Medical Officer"
+	flag = MEDSEC
+	department = "Medical"
+	department_flag = MEDSCI
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the chief medical officer and head of security"
+	selection_color = "#ed66b1"
+	economic_modifier = 4
+
+	minimum_character_age = 18
+
+	access = list (access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
+	minimal_player_age = 7
+	outfit = /datum/outfit/job/officer/med
+
+/datum/outfit/job/officer/med
+	name = "Medical Officer"
+	jobtype = /datum/job/officer/med
+
+	accessory = /obj/item/clothing/accessory/armband/medgreen
+	l_ear = /obj/item/device/radio/headset/headset_med/sec
+
+	backpack_contents = list(
+		/obj/item/handcuffs = 1
+	) 

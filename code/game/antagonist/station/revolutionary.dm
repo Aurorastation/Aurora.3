@@ -29,7 +29,7 @@ var/datum/antagonist/revolutionary/revs
 	faction_invisible = TRUE
 
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
+	protected_jobs = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
 	required_age = 31
 
 /datum/antagonist/revolutionary/New()

@@ -182,3 +182,33 @@
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+/datum/job/officer/eng
+	title = "Engineering Officer"
+	flag = ENGISEC
+	department = "Engineering"
+	department_flag = ENGSEC
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the chief engineer and head of security"
+	selection_color = "#dbba35"
+	economic_modifier = 4
+
+	minimum_character_age = 18
+
+	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_construction, access_atmospherics)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_construction, access_atmospherics)
+	minimal_player_age = 7
+	outfit = /datum/outfit/job/officer/eng
+
+/datum/outfit/job/officer/eng
+	name = "Engineering Officer"
+	jobtype = /datum/job/officer/eng
+
+	accessory = /obj/item/clothing/accessory/armband/engine
+	l_ear = /obj/item/device/radio/headset/headset_eng/sec
+
+	backpack_contents = list(
+		/obj/item/handcuffs = 1
+	) 

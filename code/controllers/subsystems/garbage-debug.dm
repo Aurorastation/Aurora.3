@@ -546,7 +546,7 @@
 	SearchVar(HOS)
 	SearchVar(WARDEN)
 	SearchVar(DETECTIVE)
-	SearchVar(OFFICER)
+	SearchVar(BRIGSEC)
 	SearchVar(CHIEF)
 	SearchVar(ENGINEER)
 	SearchVar(ATMOSTECH)

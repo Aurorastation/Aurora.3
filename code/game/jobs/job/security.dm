@@ -203,8 +203,8 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 
 /datum/job/officer
-	title = "Security Officer"
-	flag = OFFICER
+	title = "General Officer"
+	flag = BRIGSEC
 	department = "Security"
 	department_flag = ENGSEC
 	faction = "Station"
@@ -222,7 +222,7 @@
 	outfit = /datum/outfit/job/officer
 
 /datum/outfit/job/officer
-	name = "Security Officer"
+	name = "General Officer"
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security

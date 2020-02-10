@@ -235,6 +235,11 @@
 	icon_state = "eng_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/headset_eng/sec
+	name = "engineering security radio headset"
+	desc = "Percussive maintenance."
+	ks2type = /obj/item/device/encryptionkey/headset_eng/sec
+
 /obj/item/device/radio/headset/heads/ce
 	name = "chief engineer's headset"
 	desc = "The headset of the guy who is in charge of morons."
@@ -260,6 +265,11 @@
 	name = "cargo bowman headset"
 	icon_state = "cargo_headset_alt"
 	item_state = "headset_alt"
+
+/obj/item/device/radio/headset/headset_cargo/sec
+	name = "supply security radio headset"
+	desc = "Pick up that crate."
+	ks2type = /obj/item/device/encryptionkey/headset_cargo/sec
 
 /obj/item/device/radio/headset/headset_mining
 	name = "mining radio headset"
@@ -298,6 +308,11 @@
 	icon_state = "med_headset_alt"
 	item_state = "headset_alt"
 
+/obj/item/device/radio/headset/headset_med/sec
+	name = "medical security radio headset"
+	desc = "You might not be able to arrest the injuries, unfortunately."
+	ks2type = /obj/item/device/encryptionkey/headset_med/sec
+
 /obj/item/device/radio/headset/heads/cmo
 	name = "chief medical officer's headset"
 	desc = "The headset of the highly trained medical chief."
@@ -322,6 +337,11 @@
 /obj/item/device/radio/headset/headset_sci/alt
 	name = "science bowman headset"
 	icon_state = "sci_headset_alt"
+
+/obj/item/device/radio/headset/headset_sci/sec
+	name = "science security radio headset"
+	desc = "Don't touch those buttons, you don't have that kind of diploma."
+	ks2type = /obj/item/device/encryptionkey/headset_sci/sec
 
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"

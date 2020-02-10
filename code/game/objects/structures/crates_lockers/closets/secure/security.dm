@@ -317,26 +317,37 @@
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/storage/belt/security(src)
 
+/obj/structure/closet/secure_closet/security/cargo
+	req_access = list(access_cargo, access_brig)
+
 /obj/structure/closet/secure_closet/security/cargo/fill()
 	..()
 	new /obj/item/clothing/accessory/armband/cargo(src)
-	new /obj/item/device/encryptionkey/headset_cargo(src)
+	new /obj/item/device/radio/headset/headset_cargo/sec(src)
+
+/obj/structure/closet/secure_closet/security/engine
+	req_access = list(access_engine, access_brig)
 
 /obj/structure/closet/secure_closet/security/engine/fill()
 	..()
 	new /obj/item/clothing/accessory/armband/engine(src)
-	new /obj/item/device/encryptionkey/headset_eng(src)
+	new /obj/item/device/encryptionkey/headset_eng/sec(src)
+
+/obj/structure/closet/secure_closet/security/science
+	req_access = list(access_research, access_brig)
 
 /obj/structure/closet/secure_closet/security/science/fill()
 	..()
 	new /obj/item/clothing/accessory/armband/science(src)
-	new /obj/item/device/encryptionkey/headset_sci(src)
+	new /obj/item/device/encryptionkey/headset_sci/sec(src)
+
+/obj/structure/closet/secure_closet/security/med
+	req_access = list(access_medical, access_brig)
 
 /obj/structure/closet/secure_closet/security/med/fill()
 	..()
 	new /obj/item/clothing/accessory/armband/medgreen(src)
-	new /obj/item/device/encryptionkey/headset_med(src)
-
+	new /obj/item/device/encryptionkey/headset_med/sec(src)
 
 /obj/structure/closet/secure_closet/detective
 	name = "detective's locker"

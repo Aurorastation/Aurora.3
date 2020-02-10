@@ -4,7 +4,7 @@ var/datum/antagonist/traitor/traitors
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
 	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	protected_jobs = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	required_age = 10
 

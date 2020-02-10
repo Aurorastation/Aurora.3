@@ -5,7 +5,7 @@ var/const/CAPTAIN			=(1<<0)
 var/const/HOS				=(1<<1)
 var/const/WARDEN			=(1<<2)
 var/const/DETECTIVE			=(1<<3)
-var/const/OFFICER			=(1<<4)
+var/const/BRIGSEC			=(1<<4)
 var/const/CHIEF				=(1<<5)
 var/const/ENGINEER			=(1<<6)
 var/const/ATMOSTECH			=(1<<7)
@@ -14,6 +14,8 @@ var/const/CYBORG			=(1<<9)
 var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/FORENSICS			=(1<<12)
+var/const/ENGISEC			=(1<<13)
+var/const/CARSEC			=(1<<14)			
 
 
 var/const/MEDSCI			=(1<<1)
@@ -31,6 +33,8 @@ var/const/XENOBIOLOGIST		=(1<<9)
 var/const/PARAMEDIC			=(1<<10)
 var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
+var/const/MEDSEC			=(1<<13)
+var/const/SCISEC			=(1<<14)
 
 
 var/const/CIVILIAN			=(1<<2)
@@ -119,7 +123,7 @@ var/list/security_positions = list(
 	"Warden",
 	"Detective",
 	"Forensic Technician",
-	"Security Officer",
+	"General Officer",
 	"Security Cadet"
 )
 

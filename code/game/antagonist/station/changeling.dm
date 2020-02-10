@@ -6,7 +6,7 @@
 	feedback_tag = "changeling_objective"
 	restricted_jobs = list("AI", "Cyborg", "Head of Security", "Captain", "Internal Affairs Agent")
 
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	protected_jobs = list("Supply Officer", "Medical Officer", "Science Officer", "General Officer", "Engineering Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	restricted_species = list(
 		"Baseline Frame",
 		"Shell Frame",
