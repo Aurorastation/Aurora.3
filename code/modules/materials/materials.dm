@@ -286,8 +286,8 @@ var/list/name_to_material
 	reflectivity = 0.6
 	conductivity = 1
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
-	hitsound = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
+	hitsound = 'sound/effects/glass_hit.ogg'
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
 	golem = "Diamond Golem"
@@ -458,7 +458,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 30
 	weight = 15
 	protectiveness = 0 // 0%
@@ -552,7 +552,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -571,7 +571,7 @@ var/list/name_to_material
 	opacity = 0.3
 	integrity = 100
 	shard_type = SHARD_SHARD
-	tableslam_noise = 'sound/effects/Glasshit.ogg'
+	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)

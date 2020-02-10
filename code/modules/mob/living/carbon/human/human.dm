@@ -341,7 +341,7 @@
 	if(suit)
 		var/list/modes = list("Off" = 1, "Binary Sensors" = 2, "Vitals Tracker" = 3, "Tracking Beacon" = 4)
 		dat += "<B>Suit Sensors: [modes[suit.sensor_mode + 1]]</B><BR>"
-	
+
 	if(internals || suit)
 		dat += "<HR>"
 
@@ -523,7 +523,7 @@
 			if(7)//snowflake arc - only happens when they have long hair.
 				damage_areas = list(BP_R_HAND, BP_R_ARM, BP_CHEST, BP_HEAD)
 				h_style = "skinhead"
-				visible_message("<span class='warning'>[src]'s hair gets a burst of electricty through it, burning and turning to dust!</span>", "<span class='danger'>your hair burns as the current flows through it, turning to dust!</span>", "<span class='notice'>You hear a crackling sound, and smell burned hair!.</span>")
+				visible_message(span("warning", "[src]'s hair gets a burst of electricty through it, burning and turning to dust!"), span("danger", "your hair burns as the current flows through it, turning to dust!"), span("notice", "You hear a crackling sound, and smell burned hair!."))
 				update_hair()
 	else
 		damage_areas = list(def_zone)
@@ -568,18 +568,18 @@
 
 	if (shock_damage > 15)
 		visible_message(
-		"<span class='warning'>[src] was shocked by the [source]!</span>",
-		"<span class='danger'>You feel a powerful shock course through your body!</span>",
-		"<span class='warning'>You hear a heavy electrical crack.</span>"
+		span("warning", "[src] was shocked by the [source]!"),
+		span("danger", "You feel a powerful shock course through your body!"),
+		span("warning", "You hear a heavy electrical crack.")
 		)
 		Stun(10)//This should work for now, more is really silly and makes you lay there forever
 		Weaken(10)
 
 	else
 		visible_message(
-		"<span class='warning'>[src] was mildly shocked by the [source].</span>",
-		"<span class='warning'>You feel a mild shock course through your body.</span>",
-		"<span class='warning'>You hear a light zapping.</span>"
+		span("warning", "[src] was mildly shocked by the [source]."),
+		span("warning", "You feel a mild shock course through your body."),
+		span("warning", "You hear a light zapping.")
 		)
 
 	spark(loc, 5, alldirs)
@@ -632,7 +632,7 @@
 									U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
+				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecord"])
 		if(hasHUD(usr,"security"))
@@ -657,7 +657,7 @@
 					read = 1
 
 			if(!read)
-				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
+				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecordComment"])
 		if(hasHUD(usr,"security"))
@@ -684,7 +684,7 @@
 					to_chat(usr, "<a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>")
 
 			if(!read)
-				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
+				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
@@ -742,7 +742,7 @@
 								U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
+				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecord"])
 		if(hasHUD(usr,"medical"))
@@ -768,7 +768,7 @@
 					read = 1
 
 			if(!read)
-				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
+				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecordComment"])
 		if(hasHUD(usr,"medical"))
@@ -795,7 +795,7 @@
 					to_chat(usr, "<a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>")
 
 			if(!read)
-				to_chat(usr, "<span class='warning'>Unable to locate a data core entry for this person.</span>")
+				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
@@ -839,6 +839,9 @@
 		src.examinate(M)
 
 	if (href_list["flavor_change"])
+		if(src != usr)
+			log_and_message_admins("attempted to use a exploit to change the flavor text of [src]", usr)
+			return
 		switch(href_list["flavor_change"])
 			if("done")
 				src << browse(null, "window=flavor_changes")
@@ -896,17 +899,17 @@
 
 	if(is_berserk())
 		if(!silent)
-			to_chat(src, "<span class='warning'>You are in no state to use that!</span>")
+			to_chat(src, span("warning", "You are in no state to use that!"))
 		return 0
 
 	if(!species.has_fine_manipulation)
 		if(!silent)
-			to_chat(src, "<span class='warning'>You don't have the dexterity to use that!</span>")
+			to_chat(src, span("warning", "You don't have the dexterity to use that!"))
 		return 0
 
 	if(disabilities & MONKEYLIKE)
 		if(!silent)
-			to_chat(src, "<span class='warning'>You don't have the dexterity to use that!</span>")
+			to_chat(src, span("warning", "You don't have the dexterity to use that!"))
 		return 0
 
 	return 1
@@ -935,7 +938,7 @@
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
-		visible_message("<span class='warning'>\The [src] begins playing \his ribcage like a xylophone. It's quite spooky.</span>","<span class='notice'>You begin to play a spooky refrain on your ribcage.</span>","<span class='warning'>You hear a spooky xylophone melody.</span>")
+		visible_message(span("warning", "\The [src] begins playing \his ribcage like a xylophone. It's quite spooky."),span("notice", "You begin to play a spooky refrain on your ribcage."),span("warning", "You hear a spooky xylophone melody."))
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -1072,6 +1075,7 @@
 
 	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
 	if(new_facial)
+
 		r_facial = hex2num(copytext(new_facial, 2, 4))
 		g_facial = hex2num(copytext(new_facial, 4, 6))
 		b_facial = hex2num(copytext(new_facial, 6, 8))
@@ -1135,7 +1139,7 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message("<span class='notice'>\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!</span>", "<span class='notice'>You change your appearance!</span>", "<span class='warning'>Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!</span>")
+	visible_message(span("notice", "\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!"), span("notice", "You change your appearance!"), span("warning", "Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -1161,10 +1165,10 @@
 
 	var/say = sanitize(input("What do you wish to say"))
 	if(mRemotetalk in target.mutations)
-		target.show_message("<span class='notice'>You hear [src.real_name]'s voice: [say]</span>")
+		target.show_message(span("notice", "You hear [src.real_name]'s voice: [say]"))
 	else
-		target.show_message("<span class='notice'>You hear a voice that seems to echo around the room: [say]</span>")
-	usr.show_message("<span class='notice'>You project your mind into [target.real_name]: [say]</span>")
+		target.show_message(span("notice", "You hear a voice that seems to echo around the room: [say]"))
+	usr.show_message(span("notice", "You project your mind into [target.real_name]: [say]"))
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
 	for(var/mob/abstract/observer/G in dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
@@ -1318,6 +1322,16 @@
 
 /mob/living/carbon/human/clean_blood(var/clean_feet)
 	.=..()
+	if(gloves)
+		if(gloves.clean_blood())
+			update_inv_gloves(1)
+		gloves.germ_level = 0
+	else
+		if(!isnull(bloody_hands))
+			bloody_hands = null
+			update_inv_gloves(1)
+		germ_level = 0
+
 	gunshot_residue = null
 	if(clean_feet && !shoes)
 		feet_blood_color = null
@@ -1351,15 +1365,13 @@
 			if(!istype(O,/obj/item/implant) && prob(5)) //Moving with things stuck in you could be bad.
 				// All kinds of embedded objects cause bleeding.
 				if(!can_feel_pain())
-					to_chat(src, "<span class='warning'>You feel [O] moving inside your [organ.name].</span>")
+					to_chat(src, span("warning", "You feel [O] moving inside your [organ.name]."))
 				else
 					var/msg = pick( \
-						"<span class='warning'>A spike of pain jolts your [organ.name] as you bump [O] inside.</span>", \
-						"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>", \
-						"<span class='warning'>Your movement jostles [O] in your [organ.name] painfully.</span>")
-					to_chat(src, msg)
-
-				organ.take_damage(rand(1, 3), sharp = TRUE, edge = TRUE, used_weapon = O)
+						span("warning", "A spike of pain jolts your [organ.name] as you bump [O] inside."), \
+						span("warning", "Your movement jostles [O] in your [organ.name] painfully."), \
+						span("warning", "Your movement jostles [O] in your [organ.name] painfully."))
+					custom_pain(msg, 10, 10, organ)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
@@ -1378,25 +1390,25 @@
 		return
 
 	if(!self)
-		usr.visible_message("<span class='notice'>[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse.</span>",\
+		usr.visible_message(span("notice", "[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse."),\
 		"You begin counting [src]'s pulse")
 	else
-		usr.visible_message("<span class='notice'>[usr] begins counting their pulse.</span>",\
+		usr.visible_message(span("notice", "[usr] begins counting their pulse."),\
 		"You begin counting your pulse.")
 
 	if(pulse())
-		to_chat(usr, "<span class='notice'>[self ? "You have a" : "[src] has a"] pulse! Counting...</span>")
+		to_chat(usr, span("notice", "[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
-		to_chat(usr, "<span class='danger'>[src] has no pulse!</span>")	//it is REALLY UNLIKELY that a dead person would check his own pulse)
+		to_chat(usr, span("danger", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
 	if(do_mob(usr, src, 60))
 		var/pulsae = src.get_pulse(GETPULSE_HAND)
 		var/introspect = self ? "Your" : "[src]'s"
-		to_chat(usr, "<span class='notice'>[introspect] pulse is [pulsae].</span>")
+		to_chat(usr, span("notice", "[introspect] pulse is [pulsae]."))
 	else
-		to_chat(usr, "<span class='warning'>You failed to check the pulse. Try again.</span>")
+		to_chat(usr, span("warning", "You failed to check the pulse. Try again."))
 
 /mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
 	cached_bodytype = null
@@ -1509,26 +1521,26 @@
 		verbs -= /mob/living/carbon/human/proc/bloody_doodle
 
 	if (src.gloves)
-		to_chat(src, "<span class='warning'>Your [src.gloves] are getting in the way.</span>")
+		to_chat(src, span("warning", "Your [src.gloves] are getting in the way."))
 		return
 
 	var/turf/simulated/T = src.loc
 	if (!istype(T)) //to prevent doodling out of mechs and lockers
-		to_chat(src, "<span class='warning'>You cannot reach the floor.</span>")
+		to_chat(src, span("warning", "You cannot reach the floor."))
 		return
 
 	var/direction = input(src,"Which way?","Tile selection") as anything in list("Here","North","South","East","West")
 	if (direction != "Here")
 		T = get_step(T,text2dir(direction))
 	if (!istype(T))
-		to_chat(src, "<span class='warning'>You cannot doodle there.</span>")
+		to_chat(src, span("warning", "You cannot doodle there."))
 		return
 
 	var/num_doodles = 0
 	for (var/obj/effect/decal/cleanable/blood/writing/W in T)
 		num_doodles++
 	if (num_doodles > 4)
-		to_chat(src, "<span class='warning'>There is no space to write on!</span>")
+		to_chat(src, span("warning", "There is no space to write on!"))
 		return
 
 	var/max_length = bloody_hands * 30 //tweeter style
@@ -1541,7 +1553,7 @@
 
 		if (length(message) > max_length)
 			message += "-"
-			to_chat(src, "<span class='warning'>You ran out of blood to write with!</span>")
+			to_chat(src, span("warning", "You ran out of blood to write with!"))
 
 		var/obj/effect/decal/cleanable/blood/writing/W = new(T)
 		W.basecolor = (hand_blood_color) ? hand_blood_color : "#A10808"
@@ -1577,7 +1589,7 @@
 	if(!. && error_msg && user)
 		if(!fail_msg)
 			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
-		to_chat(user, "<span class='alert'>[fail_msg]</span>")
+		to_chat(user, span("alert", "[fail_msg]"))
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
 	var/list/equipment = list(src.head,src.wear_mask,src.glasses,src.w_uniform,src.wear_suit,src.gloves,src.shoes)
@@ -1685,11 +1697,11 @@
 	var/obj/item/organ/external/current_limb = organs_by_name[choice]
 
 	if(self)
-		U.visible_message("<span class='warning'>[U] tries to relocate their [current_limb.joint]...</span>", \
-		"<span class='warning'>You brace yourself to relocate your [current_limb.joint]...</span>")
+		U.visible_message(span("warning", "[U] tries to relocate their [current_limb.joint]..."), \
+		span("warning", "You brace yourself to relocate your [current_limb.joint]..."))
 	else
-		U.visible_message("<span class='warning'>[U] tries to relocate [S]'s [current_limb.joint]...</span>", \
-		"<span class='warning'>You begin to relocate [S]'s [current_limb.joint]...</span>")
+		U.visible_message(span("warning", "[U] tries to relocate [S]'s [current_limb.joint]..."), \
+		span("warning", "You begin to relocate [S]'s [current_limb.joint]..."))
 
 	if(!do_after(U, 30))
 		return
@@ -1697,11 +1709,13 @@
 		return
 
 	if(self)
-		U.visible_message("<span class='danger'>[U] pops their [current_limb.joint] back in!</span>", \
-		"<span class='danger'>You pop your [current_limb.joint] back in!</span>")
+		U.visible_message(span("danger", "[U] pops their [current_limb.joint] back in!"), \
+		span("danger", "You pop your [current_limb.joint] back in!"))
+		playsound(src.loc, "fracture", 50, 1, -2)
 	else
-		U.visible_message("<span class='danger'>[U] pops [S]'s [current_limb.joint] back in!</span>", \
-		"<span class='danger'>You pop [S]'s [current_limb.joint] back in!</span>")
+		U.visible_message(span("danger", "[U] pops [S]'s [current_limb.joint] back in!"), \
+		span("danger", "You pop [S]'s [current_limb.joint] back in!"))
+		playsound(src.loc, "fracture", 50, 1, -2)
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
@@ -1750,7 +1764,7 @@
 
 	if(stat) return
 	pulling_punches = !pulling_punches
-	to_chat(src, "<span class='notice'>You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"].</span>")
+	to_chat(src, span("notice", "You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
 	return
 
 /mob/living/carbon/human/proc/get_traumas()
@@ -1852,11 +1866,52 @@
 		return 0
 
 //Get fluffy numbers
-/mob/living/carbon/human/proc/get_blood_pressure()
+/mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return "[Floor(120+rand(-5,5))*0.25]/[Floor(80+rand(-5,5)*0.25)]"
+		return list(Floor(120+rand(-5,5))*0.25, Floor(80+rand(-5,5)*0.25))
 	var/blood_result = get_blood_circulation()
-	return "[Floor((120+rand(-5,5))*(blood_result/100))]/[Floor((80+rand(-5,5))*(blood_result/100))]"
+	return list(Floor((120+rand(-5,5))*(blood_result/100)), Floor((80+rand(-5,5))*(blood_result/100)))
+
+//Formats blood pressure for text display
+/mob/living/carbon/human/proc/get_blood_pressure()
+	var/list/bp = blood_pressure()
+	return "[bp[1]]/[bp[2]]"
+
+//Works out blood pressure alert level -- not very accurate
+/mob/living/carbon/human/proc/get_blood_pressure_alert()
+	var/list/bp = blood_pressure()
+	// For a blood pressure, e.g. 120/80
+	var/systolic_alert // this is the top number '120' -- highest pressure when heart beats
+	var/diastolic_alert // this is the bottom number '80' -- lowest pressure when heart relaxes
+
+	switch(bp[1])
+		if(BP_HIGH_SYSTOLIC to INFINITY)
+			systolic_alert = BLOOD_PRESSURE_HIGH
+		if(BP_PRE_HIGH_SYSTOLIC to BP_HIGH_SYSTOLIC)
+			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		if(BP_IDEAL_SYSTOLIC to BP_PRE_HIGH_SYSTOLIC)
+			systolic_alert = BLOOD_PRESSURE_IDEAL
+		if(-INFINITY to BP_IDEAL_SYSTOLIC)
+			systolic_alert = BLOOD_PRESSURE_LOW
+
+	switch(bp[2])
+		if(BP_HIGH_DIASTOLIC to INFINITY)
+			diastolic_alert = BLOOD_PRESSURE_HIGH
+		if(BP_PRE_HIGH_DIASTOLIC to BP_HIGH_DIASTOLIC)
+			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		if(BP_IDEAL_DIASTOLIC to BP_PRE_HIGH_DIASTOLIC)
+			diastolic_alert = BLOOD_PRESSURE_IDEAL
+		if(-INFINITY to BP_IDEAL_DIASTOLIC)
+			diastolic_alert = BLOOD_PRESSURE_LOW
+
+	if(systolic_alert == BLOOD_PRESSURE_HIGH || diastolic_alert == BLOOD_PRESSURE_HIGH)
+		return BLOOD_PRESSURE_HIGH
+	if(systolic_alert == BLOOD_PRESSURE_PRE_HIGH || diastolic_alert == BLOOD_PRESSURE_PRE_HIGH)
+		return BLOOD_PRESSURE_PRE_HIGH
+	if(systolic_alert == BLOOD_PRESSURE_LOW || diastolic_alert == BLOOD_PRESSURE_LOW)
+		return BLOOD_PRESSURE_LOW
+	if(systolic_alert <= BLOOD_PRESSURE_IDEAL && diastolic_alert <= BLOOD_PRESSURE_IDEAL)
+		return BLOOD_PRESSURE_IDEAL
 
 //Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
 /mob/living/carbon/human/nervous_system_failure()

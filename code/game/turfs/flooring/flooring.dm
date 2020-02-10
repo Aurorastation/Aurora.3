@@ -37,6 +37,7 @@ var/list/flooring_types
 	var/descriptor = "tiles"
 	var/flags
 	var/can_paint
+	var/footstep_sound = "tiles"
 
 /decl/flooring/grass
 	name = "grass"
@@ -47,6 +48,7 @@ var/list/flooring_types
 	damage_temperature = T0C+80
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = /obj/item/stack/tile/grass
+	footstep_sound = "grass"
 
 /decl/flooring/grass/alt
 	name = "grass"
@@ -64,6 +66,7 @@ var/list/flooring_types
 	icon_base = "asteroid"
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = null
+	footstep_sound = "asteroid"
 
 /decl/flooring/carpet
 	name = "carpet"
@@ -73,6 +76,7 @@ var/list/flooring_types
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
 	flags = TURF_HAS_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BURN
+	footstep_sound = "carpet"
 
 /decl/flooring/carpet/blue
 	name = "carpet"
@@ -90,6 +94,7 @@ var/list/flooring_types
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
 	can_paint = 1
+	footstep_sound = "tiles"
 
 /decl/flooring/tiling/asteroid
 	name = "floor"
@@ -107,6 +112,7 @@ var/list/flooring_types
 	icon_base = "lino"
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	can_paint = 1
+	footstep_sound = "tiles"
 
 /decl/flooring/tiling/red
 	name = "floor"
@@ -164,6 +170,7 @@ var/list/flooring_types
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER | TURF_CAN_BURN
+	footstep_sound = "wood"
 
 /decl/flooring/reinforced
 	name = "reinforced floor"
@@ -177,6 +184,7 @@ var/list/flooring_types
 	apply_thermal_conductivity = 0.025
 	apply_heat_capacity = 325000
 	can_paint = 1
+	footstep_sound = "plating"
 
 /decl/flooring/reinforced/circuit
 	name = "processing strata"
@@ -224,6 +232,7 @@ var/list/flooring_types
 	icon = 'icons/turf/floors.dmi'
 	icon_base = "diona"
 	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL
+	footstep_sound = "grass"
 
 //material turfs
 

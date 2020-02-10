@@ -161,7 +161,7 @@
 	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	initial_flooring = /decl/flooring/shuttle
-	footstep_sound = "concretestep"
+	footstep_sound = "plating"
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"

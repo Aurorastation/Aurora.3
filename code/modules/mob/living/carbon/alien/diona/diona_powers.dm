@@ -173,17 +173,18 @@
 	//For fun factor, we'll allow the nymph to choose nonvalid targets
 	var/list/choices = list()
 	for(var/mob/living/L in view(1, src))
-		if(!Adjacent(L) || L == src)
+		if(L == src)
 			continue
-		if(is_diona(L))
+		if(!Adjacent(L))
+			continue
+		if(L.is_diona())
 			continue
 		choices += L
 
-	if(!choices.len)
+	if(!length(choices))
 		to_chat(src, span("warning", "There are no life forms nearby to sample!"))
 		return
-
-	if(choices.len)
+	else
 		choices += "Cancel"
 
 	var/mob/living/donor = input(src, "Who do you wish to sample?") in null|choices
@@ -416,7 +417,7 @@
 				qdel(O)
 		var/structure_path = diona_structures[chosen_structure]
 		var/turf/T = get_turf(src)
-		if(isturf(structure_path))
+		if(ispath(structure_path, /turf))
 			T.ChangeTurf(structure_path)
 		else
 			new structure_path(T)

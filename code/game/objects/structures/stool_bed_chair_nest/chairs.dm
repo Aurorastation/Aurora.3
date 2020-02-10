@@ -135,7 +135,7 @@
 
 /obj/structure/bed/chair/office/Move()
 	. = ..()
-	if(makes_sound)
+	if(makes_rolling_sound)
 		playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
@@ -205,7 +205,7 @@
 	name = "hoverchair"
 	desc = "Adjusts itself to the sitter's weight resulting in a most comfortable sitting experience. Like floating on a cloud."
 	icon_state = "hover_chair"
-	makes_sound = FALSE
+	makes_rolling_sound = FALSE
 	can_dismantle = FALSE
 
 /obj/structure/bed/chair/office/hover/Initialize()
