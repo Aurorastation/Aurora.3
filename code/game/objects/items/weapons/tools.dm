@@ -270,6 +270,7 @@
 		user.drop_from_inventory(src)
 		var/obj/item/flamethrower/F = new /obj/item/flamethrower()
 		F.weldtool = src
+		forceMove(F)
 		user.put_in_hands(F)
 		return
 
