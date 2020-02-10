@@ -107,7 +107,8 @@
 
 		var/turf/TT
 		if(istype(ST, /turf/simulated))
-			TT = ST.copy_turf(TTi, ignore_air = TRUE)
+			var/turf/simulated/ST_sim = ST
+			TT = ST_sim.copy_turf(TTi, ignore_air = TRUE)
 		else
 			TT = ST.copy_turf(TTi)
 

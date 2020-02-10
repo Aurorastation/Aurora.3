@@ -43,7 +43,8 @@
 	handle_hud_icons()
 
 /mob/living/heavy_vehicle/get_cell()
-	return body ? body.cell : null
+	var/obj/item/cell/C = body?.cell ? body.cell : null
+	return C
 
 /mob/living/heavy_vehicle/proc/calc_power_draw()
 	var/total_draw = 0

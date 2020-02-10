@@ -244,8 +244,10 @@ var/datum/controller/subsystem/economy/SSeconomy
 
 //gets a departmental account by name
 /datum/controller/subsystem/economy/proc/get_department_account(var/department)
+	var/datum/money_account/D
 	if(department_accounts[department])
-		return department_accounts[department]
+		D = department_accounts[department]
+		return D
 	return
 
 /**

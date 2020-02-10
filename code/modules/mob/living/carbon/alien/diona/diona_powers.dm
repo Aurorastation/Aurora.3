@@ -292,7 +292,6 @@
 				DIO.master_nymph = D
 			break
 		return TRUE
-	..()
 
 /mob/living/carbon/proc/echo_eject()
 	set category = "Abilities"

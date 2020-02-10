@@ -1,5 +1,6 @@
 // Generic data stored in record
 /datum/record
+	var/name
 	var/id
 	var/notes = "No notes found."
 
@@ -60,7 +61,7 @@
 					var/datum/record/r = subr
 					record[variable] += list(r.Listify())
 				var/list/L = to_update[variable]
-				if(L.len != record[variable].len)
+				if(L.len != LAZYLEN(record[variable]))
 					. = record
 			else if(istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])
@@ -81,7 +82,8 @@
 	for(var/variable in src.vars)
 		if(!exclusions[variable])
 			if(istype(src.vars[variable], /datum/record))
-				extendedVars[variable] = src.vars[variable]
+				var/datum/record/R = src.vars[variable]
+				extendedVars[variable] = R
 				// . += "<h3>[variable]</h3>"
 				// . += src.vars[variable].Printify()
 			else if(istype(src.vars[variable], /list))
@@ -91,7 +93,8 @@
 				. += "<b>[get_field_name(variable)]:</b> [src.vars[variable]]<br>"
 	for(var/variable in extendedVars)
 		. += "<center><h3>[get_field_name(variable)]</h3></center>"
-		. += src.vars[variable].Printify()
+		var/datum/record/R = src.vars[variable]
+		. += R.Printify()
 
 /datum/record/proc/get_field_name(var/field)
 	. = SSrecords.localized_fields[src.type][field]
@@ -100,7 +103,7 @@
 
 // Record for storing general data, data tree top level datum
 /datum/record/general
-	var/name = "New Record"
+	name = "New Record"
 	var/real_rank = "Unassigned"
 	var/rank = "Unassigned"
 	var/age = 0
@@ -213,7 +216,7 @@
 /datum/record/warrant
 	var/authorization = "Unauthorized"
 	var/wtype = "Unknown"
-	var/name = "Unknown"
+	name = "Unknown"
 	notes = "No charges present"
 	cmp_field = "name"
 
@@ -224,7 +227,7 @@ var/warrant_uid = 0
 
 // Virus record
 /datum/record/virus
-	var/name = "Unknown"
+	name = "Unknown"
 	var/description = ""
 	var/antigen
 	var/spread_type = "Unknown"

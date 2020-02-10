@@ -553,6 +553,7 @@
 
 // called when area power state changes
 /obj/machinery/light/power_change()
+	SHOULD_CALL_PARENT(FALSE)
 	addtimer(CALLBACK(src, .proc/handle_power_change), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /obj/machinery/light/proc/handle_power_change()
