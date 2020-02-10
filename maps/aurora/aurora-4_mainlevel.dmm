@@ -52883,12 +52883,10 @@
 /area/library)
 "bOl" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/wood,
-/area/library)
-"bOm" = (
-/obj/structure/table/wood,
-/obj/item/toy/figure/librarian,
+/obj/item/device/flashlight/lamp/green{
+	step_x = 18;
+	step_y = 20
+	},
 /turf/simulated/floor/wood,
 /area/library)
 "bOn" = (
@@ -53075,7 +53073,8 @@
 /turf/simulated/floor/wood,
 /area/library)
 "bOM" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/table/wood,
+/obj/item/storage/card,
 /turf/simulated/floor/carpet,
 /area/library)
 "bON" = (
@@ -53084,9 +53083,9 @@
 /turf/simulated/floor/carpet,
 /area/library)
 "bOO" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 4
-	},
+/obj/structure/table/wood,
+/obj/item/deck/tarot,
+/obj/item/deck/cards,
 /turf/simulated/floor/carpet,
 /area/library)
 "bOP" = (
@@ -53359,6 +53358,7 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
+/obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet,
 /area/library)
 "bPw" = (
@@ -53497,9 +53497,6 @@
 	dir = 4;
 	network = list("Service")
 	},
-/turf/simulated/floor/carpet,
-/area/library)
-"bPR" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet,
 /area/library)
@@ -53511,13 +53508,6 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
-/turf/simulated/floor/carpet,
-/area/library)
-"bPU" = (
-/obj/structure/table/wood,
-/obj/item/deck/cards,
-/obj/item/deck/tarot,
-/obj/item/storage/card,
 /turf/simulated/floor/carpet,
 /area/library)
 "bPX" = (
@@ -62957,6 +62947,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"cPe" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
+/area/library)
 "cPY" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -68840,6 +68836,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/misc_lab)
+"spN" = (
+/obj/structure/table/wood,
+/obj/machinery/librarypubliccomp{
+	pixel_y = 8
+	},
+/obj/item/toy/figure/librarian{
+	step_x = 16;
+	step_y = 0
+	},
+/turf/simulated/floor/wood,
+/area/library)
 "sry" = (
 /obj/random/tech_supply,
 /turf/simulated/floor/plating,
@@ -71113,6 +71120,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"xRZ" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor/wood,
+/area/library)
 "xTH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -96047,7 +96058,7 @@ bJG
 bKE
 bLm
 bIT
-bMC
+spN
 bNp
 bKL
 bOG
@@ -96823,7 +96834,7 @@ bNr
 bOk
 bOJ
 bJL
-bPR
+bJL
 bJL
 bQN
 bIT
@@ -97080,7 +97091,7 @@ bJN
 bOl
 bOK
 bJL
-bPR
+bJL
 bJL
 bQO
 bIT
@@ -97334,10 +97345,10 @@ bLq
 bMf
 bMF
 bJN
-bOm
+bJN
 bOK
 bJL
-bPS
+bJL
 bJL
 bQP
 bIT
@@ -97593,7 +97604,7 @@ bMF
 bNs
 bNp
 bOK
-bJL
+bPS
 bPS
 bJL
 bQP
@@ -98105,7 +98116,7 @@ bLr
 bJL
 bMG
 bKL
-bJL
+cPe
 bOM
 bOO
 bPT
@@ -98365,8 +98376,8 @@ bNt
 bOn
 bON
 bPx
-bPU
 bPT
+bJL
 abX
 bIT
 bNn
@@ -98614,15 +98625,15 @@ bHk
 bIf
 bIX
 bJN
-bJN
-bLp
+bKL
+xRZ
 bJL
 bMG
 bNu
 bJL
-bOO
-bOM
-bOO
+bJL
+bJL
+bJL
 bJL
 bQT
 bIT
