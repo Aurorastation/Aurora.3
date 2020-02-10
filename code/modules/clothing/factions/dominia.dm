@@ -138,8 +138,8 @@
 	name = "dominia sweater"
 	desc = "This is a sweater of Dominian style."
 	icon = 'icons/clothing/under/uniforms/dominia_sweater.dmi'
-	icon_state = "dominia_sweater"
-	item_state = "dominia_sweater"
+	icon_state = "dom_sweater"
+	item_state = "dom_sweater"
 
 /obj/item/clothing/under/dominia/lyodsuit
 	name = "lyodsuit"
