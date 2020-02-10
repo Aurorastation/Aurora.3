@@ -1,7 +1,0 @@
-author: Cnaym
-delete-after: True
-changes: 
-  - tweak: "Increases pickaxes and drill efficiency across the board."
-  - tweak: "Decreases export values of ores to adjust for the hilarious KA mining speed."
-  - tweak: "Slightly modifies the KA Damage upgrade towards more damage, slower rate of fire"
-  - tweak: "Mining now get's exploited by the company and not the other departments."
