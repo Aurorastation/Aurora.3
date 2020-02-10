@@ -16,7 +16,6 @@
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
-	center_of_mass = null
 	drop_sound = 'sound/items/drop/gun.ogg'
 	var/armorcheck = 1
 	var/time = 3 SECONDS
@@ -40,19 +39,6 @@
 	volume = 30
 	time = 0
 
-/obj/item/reagent_containers/hypospray/cmo/update_icon()
-	cut_overlays()
-
-	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / 6))
-	icon_state = "[initial(icon_state)]_[rounded_vol]"
-	if(reagents.total_volume)
-		filling = image('icons/obj/syringe.dmi', src, "cmo_hypo30")
-
-		filling.icon_state = "[initial(icon_state)][rounded_vol]"
-
-		filling.color = reagents.get_color()
-		add_overlay(filling)
-
 /obj/item/reagent_containers/hypospray/attack(var/mob/M, var/mob/user, target_zone)
 	. = ..()
 	var/mob/living/carbon/human/H = M
@@ -67,16 +53,16 @@
 /obj/item/reagent_containers/hypospray/update_icon()
 	cut_overlays()
 
-	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / 3))
+	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
 	icon_state = "[initial(icon_state)]_[rounded_vol]"
+
 	if(reagents.total_volume)
-		filling = image('icons/obj/syringe.dmi', src, "hypo15")
+		filling = image('icons/obj/syringe.dmi', src, "[initial(icon_state)][volume]")
 
 		filling.icon_state = "[initial(icon_state)][rounded_vol]"
 
 		filling.color = reagents.get_color()
 		add_overlay(filling)
-
 /obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
