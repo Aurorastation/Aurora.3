@@ -124,7 +124,8 @@
 	LAZYINITLIST(data["record_viruses"])
 	if(authenticated)
 		if(LAZYLEN(data["allrecords"]) != SSrecords.records.len)
-			LAZYCLEARLIST(data["allrecords"])
+			var/list/allrecords = data["allrecords"]
+			data["allrecords"] = allrecords.Cut()
 		for(var/tR in sortRecord(SSrecords.records))
 			var/datum/record/general/R = tR
 			LAZYINITLIST(data["allrecords"][R.id])
@@ -141,7 +142,8 @@
 
 		if(records_type & RECORD_LOCKED)
 			if(LAZYLEN(data["allrecords_locked"]) != SSrecords.records_locked.len)
-				LAZYCLEARLIST(data["allrecords_locked"])
+				var/list/allrecords_locked = data["allrecords_locked"]
+				data["allrecords_locked"] = allrecords_locked.Cut()
 			for(var/tR in sortRecord(SSrecords.records_locked))
 				var/datum/record/general/R = tR
 				LAZYINITLIST(data["allrecords_locked"][R.id])
@@ -151,7 +153,8 @@
 
 		if(records_type & RECORD_VIRUS)
 			if(LAZYLEN(data["record_viruses"]) != SSrecords.viruses.len)
-				LAZYCLEARLIST(data["record_viruses"])
+				var/list/record_viruses = data["record_viruses"]
+				data["record_viruses"] = record_viruses.Cut()
 			for(var/tR in sortRecord(SSrecords.viruses))
 				var/datum/record/virus/R = tR
 				LAZYINITLIST(data["record_viruses"]["[R.id]"])
