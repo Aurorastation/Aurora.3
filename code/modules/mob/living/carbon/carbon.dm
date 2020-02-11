@@ -77,12 +77,13 @@
 /mob/living/carbon/gib()
 	for(var/mob/M in contents)
 		M.dropInto(loc)
-		visible_message("<span class='danger'>\The [M] bursts out of \the [src]!</span>")
+		visible_message(span("danger", "\The [M] bursts out of \the [src]!"))
 	..()
 
 /mob/living/carbon/attack_hand(mob/M as mob)
-	if(!istype(M, /mob/living/carbon)) return
-	if (!M.can_use_hand())
+	if(!istype(M, /mob/living/carbon))
+		return
+	if(!M.can_use_hand())
 		return
 
 	if(M.a_intent != I_HELP)
@@ -112,32 +113,29 @@
 		else if(client && willfully_sleeping)
 			visible_message(span("notice", "[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
-			willfully_sleeping = 0
+			willfully_sleeping = FALSE
 
 	for(var/datum/disease/D in viruses)
-
 		if(D.spread_by_touch())
-
 			M.contract_disease(D, 0, 1, CONTACT_HANDS)
 
 	for(var/datum/disease/D in M.viruses)
-
 		if(D.spread_by_touch())
-
 			contract_disease(D, 0, 1, CONTACT_HANDS)
 
 	return
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
-	if(status_flags & GODMODE)	return 0	//godmode
-	if (!tesla_shock)
+	if(status_flags & GODMODE)
+		return 0	//godmode
+	if(!tesla_shock)
 		shock_damage *= siemens_coeff
-	if (shock_damage<1)
+	if(shock_damage<1)
 		return 0
 
 	src.apply_damage(shock_damage, BURN, def_zone, used_weapon="Electrocution")
 	playsound(loc, "sparks", 50, 1, -1)
-	if (shock_damage > 15 || tesla_shock)
+	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
 			span("warning", "[src] was shocked by the [source]!"), \
 			span("danger", "You feel a powerful shock course through your body!"), \
@@ -151,9 +149,7 @@
 			span("warning", "You feel a mild shock course through your body."), \
 			span("warning", "You hear a light zapping.") \
 		)
-
 	spark(loc, 5, alldirs)
-
 	return shock_damage
 
 /mob/proc/swap_hand()
@@ -166,7 +162,7 @@
 			if(item_in_hand:wielded == 1)
 				to_chat(usr, span("warning", "Your other hand is too busy holding the [item_in_hand.name]"))
 				return
-	src.hand = !( src.hand )
+	src.hand = !src.hand
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
 			hud_used.l_hand_hud_object.icon_state = "l_hand_active"
@@ -181,10 +177,8 @@
 	return
 
 /mob/living/carbon/proc/activate_hand(var/selhand) //0 or "r" or "right" for right hand; 1 or "l" or "left" for left hand.
-
 	if(istext(selhand))
 		selhand = lowertext(selhand)
-
 		if(selhand == "right" || selhand == "r")
 			selhand = 0
 		if(selhand == "left" || selhand == "l")
@@ -197,11 +191,11 @@
 	if (!is_asystole())
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
-			src.visible_message( \
-				text("<span class='notice'>[src] examines [].</span>",src.gender==MALE?"himself":"herself"), \
+			src.visible_message(
+				span("notice", "[src] examines [src.gender==MALE?"himself":"herself"]."), \
 				span("notice", "You check yourself for injuries.") \
 				)
-
+				
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
@@ -237,9 +231,9 @@
 				if(org.status & ORGAN_BLEEDING)
 					status += span("danger", "bleeding")
 				if(status.len)
-					src.show_message("My [org.name] is <span class='warning'>[english_list(status)].</span>",1)
+					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]" ,1)
 				else
-					src.show_message("My [org.name] is <span class='notice'>OK.</span>",1)
+					src.show_message("My [org.name] is [span("notice", "OK.")]" ,1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -304,7 +298,7 @@
 							src.help_up_offer = 0
 					else
 						M.visible_message(span("warning", "[M] grabs onto [src], trying to pull themselves up."), \
-											span("warning", "You grab onto [src], trying to pull yourself up."))
+										  span("warning", "You grab onto [src], trying to pull yourself up."))
 						if(M.fire_stacks >= (src.fire_stacks + 3))
 							src.adjust_fire_stacks(1)
 							M.adjust_fire_stacks(-1)
@@ -316,8 +310,8 @@
 				else if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
-					M.visible_message("<span class='notice'>[M] taps [src] to get their attention!</span>", \
-								"<span class='notice'>You tap [src] to get their attention!</span>")
+					M.visible_message(span("notice", "[M] taps [src] to get their attention!"), \
+								span("notice", "You tap [src] to get their attention!"))
 
 			if(stat != DEAD)
 				AdjustParalysis(-3)
@@ -339,23 +333,6 @@
 	dna = newDNA
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
-
-/mob/living/carbon/clean_blood()
-	. = ..()
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		if(H.gloves)
-			if(H.gloves.clean_blood())
-				H.update_inv_gloves(0)
-			H.gloves.germ_level = 0
-		else
-			if(!isnull(H.bloody_hands))
-				H.bloody_hands = null
-				H.update_inv_gloves(0)
-			H.germ_level = 0
-	update_icons()	//apply the now updated overlays to the mob
-
-
 
 /mob/living/carbon/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	..()
@@ -401,7 +378,7 @@
 		to_chat(usr, span("warning", "You are already sleeping"))
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
-		willfully_sleeping = 1
+		willfully_sleeping = TRUE
 		usr.sleeping = 20 //Short nap
 
 /mob/living/carbon/Collide(atom/A)

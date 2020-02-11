@@ -154,6 +154,12 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	flags_inv = HIDEJUMPSUIT
 
+/obj/item/clothing/suit/trinary_robes
+    name = "trinary perfection robe"
+    desc = "Robes worn by those who serve The Trinary Perfection."
+    icon_state = "trinary_robes"
+    item_state = "trinary_robes"
+	
 /*
  * Misc
  */
@@ -300,11 +306,16 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
 	name = "tcfl flight jacket"
-	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
+	desc = "A Tau Ceti Foreign Legion pilot's jacket. This is the more common, less durable variety, which typically finds itself percolating amongst all ranks of the TCFL."
 	icon_state = "lflight"
 	item_state = "lflight"
 	icon_open = "lflight_open"
 	icon_closed = "lflight"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	siemens_coefficient = 0.75
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
+	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	armor = list(melee = 40, bullet = 10, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
@@ -435,6 +446,15 @@
 	item_state = "trenchcoat_grey"
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
+
+/obj/item/clothing/suit/storage/toggle/trench/green
+    name = "green trenchcoat"
+    desc = "A comfy looking green trenchcoat with fur."
+    icon_state = "greentrench"
+    item_state = "greentrench"
+    icon_open = "greentrench_open"
+    icon_closed = "greentrench"
+    body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/dominia
 	name = "dominia cape"

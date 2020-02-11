@@ -55,7 +55,15 @@
 			if(istype(A, type))
 				.++
 
-
+/proc/same_entries(var/list/first, var/list/second)
+	if(!islist(first) || !islist(second))
+		return FALSE
+	if(length(first) != length(second))
+		return FALSE
+	for(var/entry in first)
+		if(!(entry in second) || (first[entry] != second[entry]))
+			return FALSE
+	return TRUE
 
 //Removes any null entries from the list
 //Returns TRUE if the list had nulls, FALSE otherwise

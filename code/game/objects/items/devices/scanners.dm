@@ -123,7 +123,7 @@ BREATH ANALYZER
 			pulse_result = 0
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
-		pulse_result = "[pulse_result]bpm"
+		pulse_result = "<span class='scan_green'>[pulse_result]bpm</span>"
 		if(H.pulse() == PULSE_NONE)
 			pulse_result = "<span class='scan_danger'>[pulse_result]</span>"
 		else if(H.pulse() < PULSE_NORM)
@@ -141,7 +141,7 @@ BREATH ANALYZER
 	if(H.should_have_organ(BP_HEART))
 		if(H.get_blood_volume() <= 70)
 			dat += "<span class='scan_danger'>Severe blood loss detected.</span>"
-		var/oxygenation_string = "[H.get_blood_oxygenation()]% blood oxygenation"
+		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]% blood oxygenation</span>"
 		switch(H.get_blood_oxygenation())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]</span>"
@@ -149,7 +149,18 @@ BREATH ANALYZER
 				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]</span>"
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
 				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]</span>"
-		dat += "[b]Blood pressure:[endb] [H.get_blood_pressure()] ([oxygenation_string])"
+
+		var/blood_pressure_string
+		switch(H.get_blood_pressure_alert())
+			if(1)
+				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
+			if(2)
+				blood_pressure_string = "<span class='scan_green'>[H.get_blood_pressure()]</span>"
+			if(3)
+				blood_pressure_string = "<span class='scan_warning'>[H.get_blood_pressure()]</span>"
+			if(4)
+				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
+		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
 	else
 		if(H.isFBP())
 			dat += "[b]Blood pressure:[endb] [rand(118, 125)]/[rand(77, 85)] (100%)"
@@ -157,7 +168,12 @@ BREATH ANALYZER
 			dat += "[b]Blood pressure:[endb] N/A"
 
 	// Body temperature.
-	dat += "Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)"
+	var/temperature_string
+	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
+		temperature_string = "<span class='scan_warning'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+	else
+		temperature_string = "<span class='scan_green'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+	dat += temperature_string
 
 	// Traumatic shock.
 	if(H.is_asystole())
@@ -168,7 +184,7 @@ BREATH ANALYZER
 	if(H.getOxyLoss() > 50)
 		dat += "<span class='scan_blue'>[b]Severe oxygen deprivation detected.[endb]</span>"
 	if(H.getToxLoss() > 50)
-		dat += "<span class='scan_green'>[b]Major systemic organ failure detected.[endb]</span>"
+		dat += "<span class='scan_orange'>[b]Major systemic organ failure detected.[endb]</span>"
 	if(H.getFireLoss() > 50)
 		dat += "<span class='scan_orange'>[b]Severe burn damage detected.[endb]</span>"
 	if(H.getBruteLoss() > 50)

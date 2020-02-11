@@ -2,14 +2,14 @@
 	filename = "ntnrc_client"
 	filedesc = "NTNet Relay Chat Client"
 	program_icon_state = "command"
-	extended_desc = "This program allows communication over NTNRC network"
+	extended_desc = "This program allows communication over the NTNRC network."
 	size = 8
-	requires_ntnet = 1
+	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	network_destination = "NTNRC server"
 	ui_header = "ntnrc_idle.gif"
-	available_on_ntnet = 1
-	nanomodule_path = /datum/nano_module/program/computer_chatclient/
+	available_on_ntnet = TRUE
+	nanomodule_path = /datum/nano_module/program/computer_chatclient
 	var/last_message = null				// Used to generate the toolbar icon
 	var/username
 	var/datum/ntnet_conversation/channel = null
@@ -22,12 +22,12 @@
 
 /datum/computer_file/program/chatclient/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 
 	if(href_list["PRG_speak"])
-		. = 1
+		. = TRUE
 		if(!channel)
-			return 1
+			return TRUE
 		var/mob/living/user = usr
 		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
 		if(!message || !channel)
@@ -35,7 +35,7 @@
 		channel.add_message(message, username, usr)
 
 	if(href_list["PRG_joinchannel"])
-		. = 1
+		. = TRUE
 		var/datum/ntnet_conversation/C
 		for(var/datum/ntnet_conversation/chan in ntnet_global.chat_channels)
 			if(chan.id == text2num(href_list["PRG_joinchannel"]))
@@ -43,11 +43,11 @@
 				break
 
 		if(!C)
-			return 1
+			return TRUE
 
 		if(netadmin_mode)
 			channel = C		// Bypasses normal leave/join and passwords. Technically makes the user invisible to others.
-			return 1
+			return TRUE
 
 		if(C.password)
 			var/mob/living/user = usr
@@ -55,33 +55,32 @@
 			if(C && (password == C.password))
 				C.add_client(src)
 				channel = C
-			return 1
+			return TRUE
 		C.add_client(src)
 		channel = C
 	if(href_list["PRG_leavechannel"])
-		. = 1
+		. = TRUE
 		if(channel)
 			channel.remove_client(src)
 		channel = null
 	if(href_list["PRG_newchannel"])
-		. = 1
+		. = TRUE
 		var/mob/living/user = usr
 		var/channel_title = sanitize(input(user,"Enter channel name or leave blank to cancel:"))
 		if(!channel_title)
 			return
-		var/datum/ntnet_conversation/C = new/datum/ntnet_conversation()
+		var/datum/ntnet_conversation/C = new /datum/ntnet_conversation(channel_title)
 		C.add_client(src)
 		C.operator = src
 		channel = C
-		C.title = channel_title
 	if(href_list["PRG_toggleadmin"])
-		. = 1
+		. = TRUE
 		if(netadmin_mode)
-			netadmin_mode = 0
+			netadmin_mode = FALSE
 			if(channel)
 				channel.remove_client(src) // We shouldn't be in channel's user list, but just in case...
 				channel = null
-			return 1
+			return TRUE
 		var/mob/living/user = usr
 		if(can_run(usr, 1, access_network))
 			if(channel)
@@ -92,9 +91,9 @@
 						channel = null
 				else
 					return
-			netadmin_mode = 1
+			netadmin_mode = TRUE
 	if(href_list["PRG_changename"])
-		. = 1
+		. = TRUE
 		var/mob/living/user = usr
 		var/newname = sanitize(input(user,"Enter new nickname or leave blank to cancel:"))
 		if(!newname)
@@ -104,14 +103,14 @@
 		username = newname
 
 	if(href_list["PRG_savelog"])
-		. = 1
+		. = TRUE
 		if(!channel)
 			return
 		var/mob/living/user = usr
 		var/logname = input(user,"Enter desired logfile name (.log) or leave blank to cancel:")
 		if(!logname || !channel)
-			return 1
-		var/datum/computer_file/data/logfile = new/datum/computer_file/data/logfile()
+			return TRUE
+		var/datum/computer_file/data/logfile = new /datum/computer_file/data/logfile()
 		// Now we will generate HTML-compliant file that can actually be viewed/printed.
 		logfile.filename = logname
 		logfile.stored_data = "\[b\]Logfile dump from NTNRC channel [channel.title]\[/b\]\[BR\]"
@@ -123,15 +122,15 @@
 			if(!computer)
 				// This program shouldn't even be runnable without computer.
 				CRASH("Var computer is null!")
-				return 1
+				return TRUE
 			if(!computer.hard_drive)
 				computer.visible_message("\The [computer] shows an \"I/O Error - Hard drive connection error\" warning.")
 			else	// In 99.9% cases this will mean our HDD is full
 				computer.visible_message("\The [computer] shows an \"I/O Error - Hard drive may be full. Please free some space and try again. Required space: [logfile.size]GQ\" warning.")
 	if(href_list["PRG_renamechannel"])
-		. = 1
+		. = TRUE
 		if(!operator_mode || !channel)
-			return 1
+			return TRUE
 		var/mob/living/user = usr
 		var/newname = sanitize(input(user, "Enter new channel name or leave blank to cancel:"))
 		if(!newname || !channel)
@@ -139,19 +138,19 @@
 		channel.add_status_message("Channel renamed from [channel.title] to [newname] by operator.")
 		channel.title = newname
 	if(href_list["PRG_deletechannel"])
-		. = 1
+		. = TRUE
 		if(channel && ((channel.operator == src) || netadmin_mode))
 			qdel(channel)
 			channel = null
 	if(href_list["PRG_setpassword"])
-		. = 1
+		. = TRUE
 		if(!channel || ((channel.operator != src) && !netadmin_mode))
-			return 1
+			return TRUE
 
 		var/mob/living/user = usr
 		var/newpassword = sanitize(input(user, "Enter new password for this channel. Leave blank to cancel, enter 'nopassword' to remove password completely:"))
 		if(!channel || !newpassword || ((channel.operator != src) && !netadmin_mode))
-			return 1
+			return TRUE
 
 		if(newpassword == "nopassword")
 			channel.password = ""
@@ -164,7 +163,10 @@
 		ui_header = "ntnrc_idle.gif"
 		if(channel)
 			// Remember the last message. If there is no message in the channel remember null.
-			last_message = channel.messages.len ? channel.messages[channel.messages.len - 1] : null
+			if(length(channel.messages) > 1) // len - 1 = 0 and that's array out of bounds
+				last_message = channel.messages[channel.messages.len - 1]
+			else
+				last_message = null
 		else
 			last_message = null
 		return 1
@@ -173,7 +175,7 @@
 	else
 		ui_header = "ntnrc_idle.gif"
 
-/datum/computer_file/program/chatclient/kill_program(var/forced = 0)
+/datum/computer_file/program/chatclient/kill_program(var/forced = FALSE)
 	if(channel)
 		channel.remove_client(src)
 		channel = null
@@ -228,4 +230,4 @@
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
-		ui.set_auto_update(1)
+		ui.set_auto_update(TRUE)

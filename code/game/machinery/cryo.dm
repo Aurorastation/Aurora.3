@@ -13,6 +13,8 @@
 	use_power = 1
 	idle_power_usage = 20
 	active_power_usage = 200
+	clicksound = 'sound/machines/buttonbeep.ogg'
+	clickvol = 30
 
 	var/temperature_archived
 	var/mob/living/carbon/occupant = null
@@ -181,16 +183,16 @@
 
 		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
 
-		if (do_mob(user, L, 30, needhand = 0))
+		if(do_mob(user, L, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
-			if (!bucklestatus)//incase the patient got buckled during the delay
+			if(!bucklestatus)//incase the patient got buckled during the delay
 				return
-			if (bucklestatus == 2)
+			if(bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
 				LB.user_unbuckle_mob(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
-				if(M.Victim == L)
-					to_chat(user, "[L] will not fit into the cryo because they have a slime latched onto their head.")
+				if(M.victim == L)
+					to_chat(user, span("warning", "[L] will not fit into the cryo because they have a slime latched onto their head."))
 					return
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
@@ -204,8 +206,8 @@
 		return
 	var/mob/living/L = O
 	for(var/mob/living/carbon/slime/M in range(1,L))
-		if(M.Victim == L)
-			to_chat(usr, "[L.name] will not fit into the cryo because they have a slime latched onto their head.")
+		if(M.victim == L)
+			to_chat(usr, span("warning", "[L.name] will not fit into the cryo because they have a slime latched onto their head."))
 			return
 
 	var/bucklestatus = L.bucklecheck(user)
@@ -383,8 +385,8 @@
 	set category = "Object"
 	set src in oview(1)
 	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
-			to_chat(usr, "You're too busy getting your life sucked out of you.")
+		if(M.victim == usr)
+			to_chat(usr, span("warning", "You cannot do this while a slime is latched onto you!"))
 			return
 	if (usr.stat != 0)
 		return

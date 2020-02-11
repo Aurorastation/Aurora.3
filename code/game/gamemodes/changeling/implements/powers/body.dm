@@ -471,6 +471,7 @@
 	flick("summoning", effect)
 	QDEL_IN(effect, 10)
 	M.forceMove(ling) //move inside the new dude to hide him.
+	ling.occupant = M
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
 	addtimer(CALLBACK(src, .proc/revert_horror_form,ling), 10 MINUTES)
 
