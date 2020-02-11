@@ -168,10 +168,6 @@
 	icon_state = "pantyhose"
 	has_color = TRUE
 
-/datum/category_item/underwear/socks/fishnets
-	name = "Fishnets"
-	icon_state = "fishnets"
-
 /datum/category_item/underwear/socks/stockings_blue
 	name = "Stockings, Blue"
 	icon_state = "stockings_blue"

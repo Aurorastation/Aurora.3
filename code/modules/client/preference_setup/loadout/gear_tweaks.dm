@@ -45,7 +45,8 @@ Color adjustment
 	if(valid_colors && !(metadata in valid_colors))
 		return
 	I.color = metadata
-	I.update_icon()
+	if(istype(I))
+		I.update_icon()
 
 /*
 Path adjustment

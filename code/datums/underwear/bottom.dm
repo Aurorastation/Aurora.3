@@ -141,20 +141,6 @@
 	icon_state = "ljonb_alt"
 	has_color = TRUE
 
-/datum/category_item/underwear/bottom/fishnets
-	name = "Fishnets"
-	icon_state = "fishnet_lower"
-
-/datum/category_item/underwear/bottom/neko
-	name = "Neko Bottom"
-	icon_state = "nekob"
-	has_color = TRUE
-
-/datum/category_item/underwear/bottom/mankini
-	name = "Mankini"
-	icon_state = "mankini"
-	has_color = TRUE
-
 /datum/category_item/underwear/bottom/onepiece
 	name = "One Piece"
 	icon_state = "onepiece"

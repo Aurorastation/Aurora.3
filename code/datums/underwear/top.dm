@@ -95,23 +95,6 @@
 	icon_state = "tubetop"
 	has_color = TRUE
 
-/datum/category_item/underwear/top/neko
-	name = "Neko Top"
-	icon_state = "nekot"
-	has_color = TRUE
-
-/datum/category_item/underwear/top/fishnet
-	name = "Fishnet Top"
-	icon_state = "fishnet_body"
-
-/datum/category_item/underwear/top/fishnet_sleeves
-	name = "Fishnet Top, Sleeves"
-	icon_state = "fishnet_sleeves"
-
-/datum/category_item/underwear/top/fishnet_gloves
-	name = "Fishnet Top, Gloves"
-	icon_state = "fishnet_gloves"
-
 /datum/category_item/underwear/top/swimtop
 	name = "Swimming Top"
 	icon_state = "swimtop"
