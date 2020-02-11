@@ -185,3 +185,8 @@
 		return bg
 
 	return src
+
+/mob/living/carbon/human/proc/has_hearing_aid()
+	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
+		return TRUE
+	return FALSE

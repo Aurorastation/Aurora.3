@@ -328,7 +328,44 @@
 
 /obj/machinery/body_scanconsole/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
-		data = list()
+		data = list(
+			"noscan" = null,
+			"nocons" = null,
+			"occupied" = null,
+			"invalid" = null,
+			"ipc" = null,
+			"stat" = null,
+			"name" = null,
+			"species" = null,
+			"brain_activity" = null,
+			"pulse" = null,
+			"blood_pressure" = null,
+			"blood_pressure_level" = null,
+			"blood_volume" = null,
+			"blood_o2" = null,
+			"rads" = null,
+			"cloneLoss" = null,
+			"oxyLoss" = null,
+			"bruteLoss" = null,
+			"fireLoss" = null,
+			"toxLoss" = null,
+			"paralysis" = null,
+			"bodytemp" = null,
+			"occupant" = null,
+			"norepiAmt" = null,
+			"soporAmt" = null,
+			"bicardAmt" = null,
+			"dexAmt" = null,
+			"dermAmt" = null,
+			"otherAmt" = null,
+			"bodyparts" = list(),
+			"organs" = list(),
+			"missingparts" = list(),
+			"hasmissing" = null,
+			"hasvirus" = null,
+			"hastgvirus" = null,
+			"tgvirus" = list()
+		)
 
 	var/mob/living/carbon/human/occupant
 	if (connected)
@@ -338,7 +375,7 @@
 		VUEUI_SET_CHECK(data["nocons"], !connected, ., data)
 		VUEUI_SET_CHECK(data["occupied"], connected.occupant, ., data)
 		VUEUI_SET_CHECK(data["invalid"], !!connected.check_species(), ., data)
-		VUEUI_SET_CHECK(data["ipc"], !!(occupant && isipc(occupant)), ., data)
+		VUEUI_SET_CHECK(data["ipc"], (occupant && isipc(occupant)), ., data)
 
 	if (!data["invalid"])
 		var/datum/reagents/R = occupant.bloodstr
@@ -381,21 +418,21 @@
 
 		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
-		VUEUI_SET_CHECK(data["occupant"], occupant, ., data)
+		VUEUI_SET_CHECK(data["occupant"], !!occupant, ., data)
 		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount("norepinephrine"), ., data)
 		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount("stoxin"), ., data)
 		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount("bicaridine"), ., data)
 		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount("dexalin"), ., data)
 		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount("dermaline"), ., data)
 		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
-		VUEUI_SET_CHECK(data["bodyparts"], get_external_wound_data(occupant), ., data)
-		VUEUI_SET_CHECK(data["organs"], get_internal_wound_data(occupant), ., data)
+		VUEUI_SET_CHECK_LIST(data["bodyparts"], get_external_wound_data(occupant), ., data)
+		VUEUI_SET_CHECK_LIST(data["organs"], get_internal_wound_data(occupant), ., data)
 		var/list/missing 		= get_missing_organs(occupant)
-		VUEUI_SET_CHECK(data["missingparts"], missing, ., data)
-		VUEUI_SET_CHECK(data["hasmissing"], !!missing.len, ., data)
+		VUEUI_SET_CHECK_LIST(data["missingparts"], missing, ., data)
+		VUEUI_SET_CHECK(data["hasmissing"], missing.len, ., data)
 		VUEUI_SET_CHECK(data["hasvirus"], occupant.virus2.len || occupant.viruses.len, ., data)
 		VUEUI_SET_CHECK(data["hastgvirus"], occupant.viruses.len, ., data)
-		VUEUI_SET_CHECK(data["tgvirus"], occupant.viruses, ., data)
+		VUEUI_SET_CHECK_LIST(data["tgvirus"], occupant.viruses, ., data)
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
 	if(I.is_broken())
