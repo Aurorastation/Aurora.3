@@ -52,7 +52,7 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
 
-	if(istype(usr, /mob/abstract/new_player))
+	if(isnewplayer(usr))
 		return
 
 	if(config.allow_admin_jump)
