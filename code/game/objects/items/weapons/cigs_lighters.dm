@@ -279,7 +279,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/transfered = glass.reagents.trans_to_obj(src, chem_volume)
 		if(transfered)	//if reagents were transfered, show the message
 			to_chat(user, span("warning", "You dip \the [src] into \the [glass]."))
-			playsound(src.loc, 'sound/effects/footsteps/slosh1.wav', 50, 1)
+			playsound(src.loc, 'sound/effects/footstep/water1.ogg', 50, 1)
 		else			//if not, either the beaker was empty, or the cigarette was full
 			if(!glass.reagents.total_volume)
 				to_chat(user, span("notice", "[glass] is empty."))
