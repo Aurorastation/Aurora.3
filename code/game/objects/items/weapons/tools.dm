@@ -345,7 +345,7 @@
 /obj/item/weldingtool/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
 		return
-	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src, O) <= 1 && !welding)
+	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && Adjacent(O) && !welding)
 		O.reagents.trans_to_obj(src, max_fuel)
 		to_chat(user, "<span class='notice'>You refuel your welder.</span>")
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
