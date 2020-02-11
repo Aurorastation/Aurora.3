@@ -72,30 +72,6 @@
 	icon_state = "panties_tanga_lace"
 	has_color = TRUE
 
-/datum/category_item/underwear/bottom/panties_noback
-	name = "Panties, No Back"
-	icon_state = "panties_noback"
-	has_color = TRUE
-
-/datum/category_item/underwear/bottom/thong
-	name = "Thong"
-	icon_state = "thong"
-	has_color = TRUE
-
-/datum/category_item/underwear/bottom/thong_string
-	name = "Thong, String"
-	icon_state = "thong_string"
-	has_color = TRUE
-
-/datum/category_item/underwear/bottom/lacy_thong
-	name = "Thong, Lacy"
-	icon_state = "thong_lacy"
-
-/datum/category_item/underwear/bottom/lacy_thong_alt
-	name = "Thong, Lacy Alt"
-	icon_state = "thong_lacy_alt"
-	has_color = TRUE
-
 /datum/category_item/underwear/bottom/compression_shorts
 	name = "Compression Shorts"
 	icon_state = "compression_shorts"
