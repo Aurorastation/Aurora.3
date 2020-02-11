@@ -311,7 +311,7 @@
 			return
 
 		if (!welding)
-			to_chat(user, "<span class='warning'>You need to light the welding tool first!</span>")
+			to_chat(user, span("warning, "You need to light the welding tool first!"))
 			return
 
 		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
