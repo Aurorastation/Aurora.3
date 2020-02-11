@@ -158,7 +158,7 @@
 
 	return ..(user, distance, "", "It is a [size] item.")
 
-/obj/item/attack_hand(mob/user as mob)
+/obj/item/attack_hand(mob/user)
 	if (!user) return
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
