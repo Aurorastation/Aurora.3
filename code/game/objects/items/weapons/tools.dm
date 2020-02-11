@@ -307,19 +307,19 @@
 			return ..()
 
 		if(H.isSynthetic() && H == user && !(H.get_species() == "Military Frame"))
-			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
+			to_chat(user, span("warning", "You can't repair damage to your own body - it's against OH&S."))
 			return
 
 		if (!welding)
-			to_chat(user, span("warning, "You need to light the welding tool first!"))
+			to_chat(user, span("warning", "You need to light the welding tool first!"))
 			return
 
-		if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
-			to_chat(user, "<span class='warning'>The damage is far too severe to patch over externally!</span>")
-			return
-
-		repair_organ(user, H, S)
-
+		if(S.brute_dam)
+			if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
+				to_chat(user, span("warning", "The damage is far too severe to patch over externally!"))
+				return
+			else
+				repair_organ(user, H, S)
 	else
 		return ..()
 
@@ -336,11 +336,9 @@
 				"repairs some joints"
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
-			user.visible_message("<span class='notice'>\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src].</span>")
+			user.visible_message(span("warning", "\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
 			playsound(target, 'sound/items/Welder2.ogg', 15)
 			repair_organ(user, target, affecting)
-		else
-			to_chat(user, "<span class='warning'>\The [src] flickers off!</span>")
 
 /obj/item/weldingtool/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
@@ -350,7 +348,7 @@
 		to_chat(user, "<span class='notice'>You refuel your welder.</span>")
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
-	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && welding)
+	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && Adjacent(O) && welding)
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
 			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")

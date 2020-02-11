@@ -553,28 +553,30 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 		if(!S)
 			return
+
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
+
 		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
-			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
+			to_chat(user, span("warning", "You can't repair damage to your own body - it's against OH&S."))
 			return
 
 		if(S.burn_dam)
-			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
-				to_chat(user, "<span class='warning'>The damage is far too severe to patch over externally.</span>")
+			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP && BP_IS_ROBOTIC(S))
+				to_chat(user, span("warning", "The damage is far too severe to patch over externally."))
 				return
 
 			repair_organ(user, H, S)
 
 		else if(S.open != 2)
-			to_chat(user, "<span class='notice'>Nothing to fix!</span>")
+			to_chat(user, span("notice", "You can't see any external damage to fix."))
 
 	else
 		return ..()
 
 /obj/item/stack/cable_coil/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
 	if(!affecting.burn_dam)
-		user.visible_message("<span class='notice'>[user] finishes mending the burnt wiring in [target]'s [affecting].</span>")
+		user.visible_message(span("notice", "\The [user] finishes mending the burnt wiring in [target]'s [affecting]."))
 		return
 
 	if(do_mob(user, target, 30))
@@ -585,11 +587,11 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				"splices some cables"
 			)
 			affecting.heal_damage(burn = 15, robo_repair = TRUE)
-			user.visible_message("<span class='notice'>\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src].</span>")
+			user.visible_message(span("notice", "\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."))
 			playsound(target, 'sound/items/Wirecutter.ogg', 15)
 			repair_organ(user, target, affecting)
 		else
-			to_chat(user, "<span class='warning'>You don't have enough cable for this!</span>")
+			to_chat(user, span("warning", "You don't have enough cable for this!"))
 
 /obj/item/stack/cable_coil/update_icon()
 	if (!color)
