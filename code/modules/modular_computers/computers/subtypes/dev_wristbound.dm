@@ -22,10 +22,6 @@
 	..()
 
 /obj/item/modular_computer/wristbound/MouseDrop(obj/over_object)
-	var/mob/living/carbon/user
-	if(ishuman(usr) || issmall(usr))
-		user = usr
-	else
 	var/mob/living/carbon/user = usr
 	if(!ishuman(user) || !issmall(user))
 		return
