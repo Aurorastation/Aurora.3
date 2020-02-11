@@ -47,6 +47,20 @@
 #define GETPULSE_TOOL 1 // More accurate. (med scanner, sleeper, etc.)
 #define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
 
+// Blood pressure levels, simplified
+#define BP_HIGH_SYSTOLIC 		140
+#define BP_PRE_HIGH_SYSTOLIC 	125
+#define BP_IDEAL_SYSTOLIC		80
+
+#define BP_HIGH_DIASTOLIC 		100
+#define BP_PRE_HIGH_DIASTOLIC	85
+#define BP_IDEAL_DIASTOLIC 		60
+
+#define BLOOD_PRESSURE_HIGH     4
+#define BLOOD_PRESSURE_PRE_HIGH 3
+#define BLOOD_PRESSURE_IDEAL    2
+#define BLOOD_PRESSURE_LOW      1
+
 //intent flags, why wasn't this done the first time?
 #define I_HELP		"help"
 #define I_DISARM	"disarm"

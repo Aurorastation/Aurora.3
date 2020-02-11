@@ -20,6 +20,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
+	footstep_sound = "catwalk"
 
 /obj/structure/lattice/Initialize()
 	. = ..()

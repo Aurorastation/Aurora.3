@@ -219,3 +219,9 @@
 	icon_state = "stripedpants"
 	item_state = "stripedpants"
 
+/obj/item/clothing/under/pants/tacticool
+	name = "tacticool pants"
+	desc = "A pair of rugged camo pants. Pairs well with canned rations and an SKS."
+	icon_state = "tacticoolpants"
+	item_state = "tacticoolpants"
+

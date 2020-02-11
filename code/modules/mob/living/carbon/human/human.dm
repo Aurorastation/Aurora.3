@@ -341,7 +341,7 @@
 	if(suit)
 		var/list/modes = list("Off" = 1, "Binary Sensors" = 2, "Vitals Tracker" = 3, "Tracking Beacon" = 4)
 		dat += "<B>Suit Sensors: [modes[suit.sensor_mode + 1]]</B><BR>"
-	
+
 	if(internals || suit)
 		dat += "<HR>"
 
@@ -839,6 +839,9 @@
 		src.examinate(M)
 
 	if (href_list["flavor_change"])
+		if(src != usr)
+			log_and_message_admins("attempted to use a exploit to change the flavor text of [src]", usr)
+			return
 		switch(href_list["flavor_change"])
 			if("done")
 				src << browse(null, "window=flavor_changes")
@@ -1072,6 +1075,7 @@
 
 	var/new_facial = input("Please select facial hair color.", "Character Generation",rgb(r_facial,g_facial,b_facial)) as color
 	if(new_facial)
+
 		r_facial = hex2num(copytext(new_facial, 2, 4))
 		g_facial = hex2num(copytext(new_facial, 4, 6))
 		b_facial = hex2num(copytext(new_facial, 6, 8))
@@ -1367,9 +1371,7 @@
 						span("warning", "A spike of pain jolts your [organ.name] as you bump [O] inside."), \
 						span("warning", "Your movement jostles [O] in your [organ.name] painfully."), \
 						span("warning", "Your movement jostles [O] in your [organ.name] painfully."))
-					to_chat(src, msg)
-
-				organ.take_damage(rand(1, 3), sharp = TRUE, edge = TRUE, used_weapon = O)
+					custom_pain(msg, 10, 10, organ)
 
 /mob/living/carbon/human/verb/check_pulse()
 	set category = "Object"
@@ -1864,11 +1866,52 @@
 		return 0
 
 //Get fluffy numbers
-/mob/living/carbon/human/proc/get_blood_pressure()
+/mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return "[Floor(120+rand(-5,5))*0.25]/[Floor(80+rand(-5,5)*0.25)]"
+		return list(Floor(120+rand(-5,5))*0.25, Floor(80+rand(-5,5)*0.25))
 	var/blood_result = get_blood_circulation()
-	return "[Floor((120+rand(-5,5))*(blood_result/100))]/[Floor((80+rand(-5,5))*(blood_result/100))]"
+	return list(Floor((120+rand(-5,5))*(blood_result/100)), Floor((80+rand(-5,5))*(blood_result/100)))
+
+//Formats blood pressure for text display
+/mob/living/carbon/human/proc/get_blood_pressure()
+	var/list/bp = blood_pressure()
+	return "[bp[1]]/[bp[2]]"
+
+//Works out blood pressure alert level -- not very accurate
+/mob/living/carbon/human/proc/get_blood_pressure_alert()
+	var/list/bp = blood_pressure()
+	// For a blood pressure, e.g. 120/80
+	var/systolic_alert // this is the top number '120' -- highest pressure when heart beats
+	var/diastolic_alert // this is the bottom number '80' -- lowest pressure when heart relaxes
+
+	switch(bp[1])
+		if(BP_HIGH_SYSTOLIC to INFINITY)
+			systolic_alert = BLOOD_PRESSURE_HIGH
+		if(BP_PRE_HIGH_SYSTOLIC to BP_HIGH_SYSTOLIC)
+			systolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		if(BP_IDEAL_SYSTOLIC to BP_PRE_HIGH_SYSTOLIC)
+			systolic_alert = BLOOD_PRESSURE_IDEAL
+		if(-INFINITY to BP_IDEAL_SYSTOLIC)
+			systolic_alert = BLOOD_PRESSURE_LOW
+
+	switch(bp[2])
+		if(BP_HIGH_DIASTOLIC to INFINITY)
+			diastolic_alert = BLOOD_PRESSURE_HIGH
+		if(BP_PRE_HIGH_DIASTOLIC to BP_HIGH_DIASTOLIC)
+			diastolic_alert = BLOOD_PRESSURE_PRE_HIGH
+		if(BP_IDEAL_DIASTOLIC to BP_PRE_HIGH_DIASTOLIC)
+			diastolic_alert = BLOOD_PRESSURE_IDEAL
+		if(-INFINITY to BP_IDEAL_DIASTOLIC)
+			diastolic_alert = BLOOD_PRESSURE_LOW
+
+	if(systolic_alert == BLOOD_PRESSURE_HIGH || diastolic_alert == BLOOD_PRESSURE_HIGH)
+		return BLOOD_PRESSURE_HIGH
+	if(systolic_alert == BLOOD_PRESSURE_PRE_HIGH || diastolic_alert == BLOOD_PRESSURE_PRE_HIGH)
+		return BLOOD_PRESSURE_PRE_HIGH
+	if(systolic_alert == BLOOD_PRESSURE_LOW || diastolic_alert == BLOOD_PRESSURE_LOW)
+		return BLOOD_PRESSURE_LOW
+	if(systolic_alert <= BLOOD_PRESSURE_IDEAL && diastolic_alert <= BLOOD_PRESSURE_IDEAL)
+		return BLOOD_PRESSURE_IDEAL
 
 //Point at which you dun breathe no more. Separate from asystole crit, which is heart-related.
 /mob/living/carbon/human/nervous_system_failure()
