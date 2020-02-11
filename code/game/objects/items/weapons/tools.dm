@@ -325,7 +325,7 @@
 
 /obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
 	if(!affecting.brute_dam)
-		user.visible_message("<span class='notice'>[user] finishes repairing the physical damage on [target]'s [affecting.name].</span>")
+		user.visible_message(span("notice", "\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 
 	if(do_mob(user, target, 30))
