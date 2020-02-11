@@ -21,8 +21,10 @@
 		return "I cannot feed on other slimes..."
 	if(!Adjacent(M))
 		return "This subject is too far away..."
+	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content) // don't eat humans while content
+		return "I'm already content..."
 	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxHealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
-		return "This subject does not have an edible life energy..."
+		return "This subject does not have any edible life energy..."
 	if(istype(M, /mob/living/carbon))
 		var/mob/living/carbon/human/H = M
 		if(istype(H) && (H.species.flags & NO_SCAN))
@@ -49,9 +51,8 @@
 
 			if(istype(M, /mob/living/carbon))
 				victim.adjustCloneLoss(rand(5,6))
-				victim.adjustToxLoss(rand(5,8))
+				victim.adjustToxLoss(rand(3,6))
 				victim.adjustBruteLoss(is_adult ? rand(2, 4) : rand(1, 3))
-				victim.reagents.add_reagent("toxin", 2)
 				if(victim.health <= 0)
 					victim.adjustToxLoss(rand(6,9))
 				if(prob(20) && !isSynthetic(victim))
@@ -140,6 +141,8 @@
 			regenerate_icons()
 			name = text("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
 			real_name = name
+			set_content(TRUE)
+			addtimer(CALLBACK(src, .proc/set_content, FALSE), 1200) // You get two minutes of safety
 		else
 			to_chat(src, span("notice", "I am not ready to evolve yet..."))
 	else
@@ -174,6 +177,8 @@
 					step_away(M, src)
 				M.friends = friends.Copy()
 				babies += M
+				M.set_content(TRUE)
+				addtimer(CALLBACK(M, .proc/set_content, FALSE), 1200) // You get two minutes of safety
 				feedback_add_details("slime_babies_born", "slimebirth_[replacetext(M.colour," ","_")]")
 
 			var/mob/living/carbon/slime/new_slime = pick(babies)
