@@ -742,6 +742,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigfilter"
 	w_class = 1.0
 
+/obj/item/paper/cig/filter/attackby()
+	return //no writing on filters now
+
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
 	plantname = "tobacco"
