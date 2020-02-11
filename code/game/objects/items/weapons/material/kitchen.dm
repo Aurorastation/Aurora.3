@@ -107,7 +107,7 @@
 	applies_material_colour = 0
 	unbreakable = 1
 
-/obj/item/material/kitchen/utensil/knife/attack(target, mob/living/user, var/target_zone)
+/obj/item/material/kitchen/utensil/knife/attack(mob/target, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, span("warning", "You accidentally cut yourself with \the [src]."))
 		user.take_organ_damage(20)
