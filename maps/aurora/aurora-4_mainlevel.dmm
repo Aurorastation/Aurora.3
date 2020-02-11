@@ -53084,9 +53084,10 @@
 /turf/simulated/floor/carpet,
 /area/library)
 "bOO" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 4
-	},
+/obj/structure/table/wood,
+/obj/item/storage/card,
+/obj/item/deck/tarot,
+/obj/item/deck/cards,
 /turf/simulated/floor/carpet,
 /area/library)
 "bOP" = (
@@ -53359,6 +53360,7 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
+/obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet,
 /area/library)
 "bPw" = (
@@ -53497,9 +53499,6 @@
 	dir = 4;
 	network = list("Service")
 	},
-/turf/simulated/floor/carpet,
-/area/library)
-"bPR" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet,
 /area/library)
@@ -53511,13 +53510,6 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
-/turf/simulated/floor/carpet,
-/area/library)
-"bPU" = (
-/obj/structure/table/wood,
-/obj/item/deck/cards,
-/obj/item/deck/tarot,
-/obj/item/storage/card,
 /turf/simulated/floor/carpet,
 /area/library)
 "bPX" = (
@@ -66309,6 +66301,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"mbJ" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
+/area/library)
 "mbS" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
@@ -96823,7 +96819,7 @@ bNr
 bOk
 bOJ
 bJL
-bPR
+bJL
 bJL
 bQN
 bIT
@@ -97080,7 +97076,7 @@ bJN
 bOl
 bOK
 bJL
-bPR
+bJL
 bJL
 bQO
 bIT
@@ -97337,7 +97333,7 @@ bJN
 bOm
 bOK
 bJL
-bPS
+bJL
 bJL
 bQP
 bIT
@@ -97593,7 +97589,7 @@ bMF
 bNs
 bNp
 bOK
-bJL
+bPS
 bPS
 bJL
 bQP
@@ -98105,8 +98101,8 @@ bLr
 bJL
 bMG
 bKL
-bJL
 bOM
+mbJ
 bOO
 bPT
 bJL
@@ -98365,8 +98361,8 @@ bNt
 bOn
 bON
 bPx
-bPU
 bPT
+bJL
 abX
 bIT
 bNn
@@ -98620,9 +98616,9 @@ bJL
 bMG
 bNu
 bJL
-bOO
-bOM
-bOO
+bJL
+bJL
+bJL
 bJL
 bQT
 bIT
