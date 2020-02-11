@@ -22,23 +22,23 @@
 		else
 			..()
 	else
-		..()
+	..()
 
 /obj/item/modular_computer/wristbound/MouseDrop(obj/over_object)
 	var/mob/living/carbon/user
 	if(ishuman(usr) || issmall(usr))
 		user = usr
 	else
+	var/mob/living/carbon/user = usr
+	if(!ishuman(user) || !issmall(user))
 		return
 	switch(over_object.name)
 		if(BP_R_HAND)
 			user.u_equip(src)
 			user.put_in_r_hand(src, FALSE)
-			return
 		if(BP_L_HAND)
 			user.u_equip(src)
 			user.put_in_l_hand(src, FALSE)
-			return
 
 /obj/item/modular_computer/wristbound/AltClick(mob/user)
 	if(ishuman(user))
