@@ -19,9 +19,6 @@
 		var/mob/living/carbon/human/H = user
 		if(H.gloves == src)
 			return attack_self(user)
-		else
-			..()
-	else
 	..()
 
 /obj/item/modular_computer/wristbound/MouseDrop(obj/over_object)
