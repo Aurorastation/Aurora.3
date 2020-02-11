@@ -67099,6 +67099,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
+"oeQ" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
+/area/library)
 "ofm" = (
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
@@ -68661,6 +68665,13 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"rYm" = (
+/obj/structure/table/wood,
+/obj/item/storage/card,
+/obj/item/deck/tarot,
+/obj/item/deck/cards,
+/turf/simulated/floor/carpet,
+/area/library)
 "sad" = (
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -95801,7 +95812,7 @@ bJF
 bKD
 bLl
 bIT
-bJN
+bOm
 bNo
 bOj
 bOF
@@ -98118,7 +98129,8 @@ bMG
 bKL
 cPe
 bOM
-bOO
+oeQ
+rYm
 bPT
 bJL
 bQR
@@ -98377,6 +98389,7 @@ bOn
 bON
 bPx
 bPT
+bOO
 bJL
 abX
 bIT
