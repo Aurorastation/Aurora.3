@@ -1,10 +1,10 @@
 #define Clamp(x, low, high) 	max(low, min(high, x))
 #define CLAMP01(x) 		(Clamp(x, 0, 1))
 
-#define span(class, text) ("<span class='[class]'>[text]</span>")
-#define SPAN_NOTICE(X) ("span class='notice'>[X]</span>")
-#define SPAN_WARNING(X) ("span class='warning'>[X]</span>")
-#define SPAN_DANGER(X) ("span class='danger'>[X]</span>")
+#define span(class, text) "<span class='[class]'>[text]</span>"
+#define SPAN_NOTICE(X) "<span class='notice'>[X]</span>"
+#define SPAN_WARNING(X) "<span class='warning'>[X]</span>"
+#define SPAN_DANGER(X) "<span class='danger'>[X]</span>"
 #define SPAN_CULT(X) "<span class='cult'>[X]</span>"
 #define SPAN_GOOD(X) "<span class='good'>[X]</span>"
 #define SPAN_ALIEN(X) "<span class='alium'>[X]</span>"
