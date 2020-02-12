@@ -2483,6 +2483,7 @@
 #include "code\modules\shuttles\escape_pods.dm"
 #include "code\modules\shuttles\shuttle.dm"
 #include "code\modules\shuttles\shuttle_arrival.dm"
+#include "code\modules\shuttles\shuttle_autoreturn.dm"
 #include "code\modules\shuttles\shuttle_console.dm"
 #include "code\modules\shuttles\shuttle_emergency.dm"
 #include "code\modules\shuttles\shuttle_ferry.dm"
