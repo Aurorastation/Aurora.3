@@ -19,7 +19,7 @@
 	var/disabled = FALSE
 	var/shocked = FALSE
 	var/busy = FALSE
-	var/build_item = ""
+	var/build_item
 
 	var/mat_efficiency = 1
 	var/build_time = 50
