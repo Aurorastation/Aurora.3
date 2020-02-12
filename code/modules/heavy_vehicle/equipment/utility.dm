@@ -438,7 +438,14 @@
 /obj/item/mecha_equipment/autolathe/Initialize()
 	. = ..()
 	lathe = new /obj/machinery/autolathe/mounted(src)
+
+/obj/item/mecha_equipment/autolathe/installed()
 	lathe.print_loc = owner
+	..()
+
+/obj/item/mecha_equipment/autolathe/uninstalled()
+	lathe.print_loc = null
+	..()
 
 /obj/item/mecha_equipment/autolathe/Destroy()
 	. = ..()
