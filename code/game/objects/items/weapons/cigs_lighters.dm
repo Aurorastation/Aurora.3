@@ -731,7 +731,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigpaper_generic"
 	w_class = 1.0
 
-/obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/paper/cig/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/flame) || P.iswelder())
 		..()
 	if(P.ispen())
