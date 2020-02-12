@@ -73,9 +73,8 @@
 	if(use_check_and_message(usr))
 		return
 
-	if(ismob(usr))
-		var/mob/user = usr
-		attack_self(user)
+	var/mob/user = usr
+	attack_self(user)
 
 /obj/item/clothing/accessory/silversun/attack_self(mob/user)
 	open = !open
