@@ -366,20 +366,24 @@
 	var/newmood = ""
 	a_intent = I_HELP
 	if(rabid || attacked)
-		newmood = "angry"
+		set_content(FALSE)
+		newmood = ANGRY
 		a_intent = I_HURT
 	else if(target)
-		newmood = "mischevous"
+		newmood = MISCHIEVOUS
 
 	if(!newmood)
 		if(discipline && prob(25))
-			newmood = "pout"
+			newmood = POUT
 		else if(prob(1))
-			newmood = pick("sad", ":3", "pout")
+			newmood = pick(SAD, HAPPY, POUT)
 
-	if((mood == "sad" || mood == ":3" || mood == "pout") && !newmood)
+	if((mood == SAD || mood == HAPPY || mood == POUT) && !newmood)
 		if(prob(75))
 			newmood = mood
+
+	if(!newmood && !mood && content)
+		mood = HAPPY
 
 	if(newmood != mood) // This is so we don't redraw them every time
 		mood = newmood
@@ -496,7 +500,7 @@
 				phrases += "Hrr..."
 				phrases += "Nhuu..."
 				phrases += "Unn..."
-			if(mood == ":3")
+			if(mood == HAPPY)
 				phrases += "Purr..."
 			if(attacked)
 				phrases += "Grrr..."
