@@ -117,12 +117,14 @@
     else if(!is_type_in_list(E, nymph_extremity_types))
         return
 
-    E.status |= ORGAN_NYMPH
+    E.status &= (ORGAN_PLANT | ORGAN_NYMPH)
     E.species = all_species["Nymph Limb"]
     E.fingerprints = null
     if(!E.dna)
         E.blood_DNA = list()
         E.set_dna(new /datum/dna)
+
+    E.limb_flags &= ~(ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON)
 
 // Called by process()
 /decl/nymph_limb/proc/handle_nymph(var/obj/item/organ/external/E)
@@ -132,11 +134,17 @@
         nymph_out(E, E:nymph)
         return FALSE
 
+    if(!E.is_usable())
+        nymph_out(E, E:nymph, forced = TRUE)
+        return FALSE
+
     var/blood_volume = round(E.owner.vessel.get_reagent_amount("blood"))
     if(blood_volume)
         var/datum/reagent/blood/B = locate() in E.owner.vessel.reagent_list
         if(B)
             B.volume -= BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len) // Full set of nymph limbs makes natural blood regen 50% slower
+    if(blood_volume <= 0)
+        nymph_out(E, E:nymph, forced = TRUE)
 
 // Host detach
 /mob/living/carbon/human/proc/detach_nymph_limb()
@@ -198,6 +206,8 @@
         return
     if(!isturf(loc))
         return
+    if(!can_attach)
+        to_chat(src, span("warning", "You do not have the strength to attach to another host so soon."))
 
     var/decl/nymph_limb/N = new
     var/list/mob/living/carbon/human/mob_list = list()
@@ -262,14 +272,23 @@
     E:nymph = nymph
     nymph.forceMove(E)
 
-/decl/nymph_limb/proc/nymph_out(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
+/decl/nymph_limb/proc/nymph_out(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph, var/forced = FALSE)
     if(nymph.client)
         nymph.client.eye = nymph
     nymph.forceMove(get_turf(E))
     E:nymph = null
 
+    if(forced)
+        nymph.can_attach = FALSE
+        addtimer(CALLBACK(nymph, /decl/nymph_limb/.proc/can_attach, nymph), 5 MINUTES, TIMER_UNIQUE)
+
     E.removed(E.owner)
     qdel(E)
+
+/decl/nymph_limb/proc/can_attach(var/mob/living/carbon/alien/diona/nymph)
+    if(nymph)
+        nymph.can_attach = TRUE
+        to_chat(nymph, span("notice", "Your body has regained enough strength to attach to a new host, if you can find one."))
 
 // For limbs created by character setup
 /decl/nymph_limb/proc/nymphize(var/mob/living/carbon/human/H, var/organ_name, var/forced = FALSE)

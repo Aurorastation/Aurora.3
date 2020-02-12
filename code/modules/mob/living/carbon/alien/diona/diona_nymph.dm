@@ -47,6 +47,8 @@
 
 	var/datum/reagents/metabolism/ingested
 
+	var/can_attach = TRUE // Whether they can attach to a host
+
 /mob/living/carbon/alien/diona/get_ingested_reagents()
 	return ingested
 
