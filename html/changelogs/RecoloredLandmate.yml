@@ -51,3 +51,4 @@ changes:
   - imageadd: "Added the new Repo-Icarus-Drone series."
   - imageadd: "Recolored the Medical 'Droid sprite for every department, making it less medical and more multipurpose looking."
   - imagedel: "Removed the heavy sprite series from available sprite options."
+  - imageadd: "Created a new Drone sprite and eye overlays and recoloed it for every department by popular request, It's the old Drone but with new overlays."
