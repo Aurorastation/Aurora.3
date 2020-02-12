@@ -731,6 +731,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigpaper_generic"
 	w_class = 1.0
 
+/obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
+	if(istype(P, /obj/item/flame) || P.iswelder())
+		..()
+	if(P.ispen())
+		..()
+	else
+		return
+
 /obj/item/paper/cig/fine
 	name = "\improper Trident rolling paper"
 	desc = "A thin piece of trident branded paper used to make fine smokables."
@@ -742,8 +750,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigfilter"
 	w_class = 1.0
 
-/obj/item/paper/cig/filter/attackby()
-	return //no writing on filters now
+/obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
+	if(istype(P, /obj/item/flame) || P.iswelder())
+		..()
+	else
+		return //no writing on filters now
+
+/obj/item/paper/cig/attack_self(mob/living/user as mob)
+	if(user.a_intent == I_HURT)
+		..()
+		return
+	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+		user.show_message(span("alert", "The cigarette paper is too small to fold into a plane."))
+		return
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
