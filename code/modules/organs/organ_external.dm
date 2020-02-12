@@ -577,6 +577,10 @@ This function completely restores a damaged organ to perfect condition.
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
 
+		if(status & ORGAN_NYMPH)
+			var/decl/nymph_limb/N = new
+			N.handle_nymph(src)
+
 		//Infections
 		update_germs()
 

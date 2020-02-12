@@ -456,4 +456,7 @@
 	return reagents
 
 /mob/living/carbon/proc/should_have_organ(var/organ_check)
-	return 0
+	return FALSE
+
+/mob/living/carbon/proc/should_have_limb(var/organ_check)
+	return FALSE

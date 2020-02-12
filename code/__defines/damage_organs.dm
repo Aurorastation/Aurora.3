@@ -42,6 +42,7 @@
 #define ORGAN_PLANT      (1<<10)
 #define ORGAN_ARTERY_CUT (1<<11)
 #define ORGAN_TENDON_CUT (1<<12)
+#define ORGAN_NYMPH      (1<<13)
 
 // Limb behaviour defines.
 #define ORGAN_CAN_AMPUTATE (1<<0) //Can this organ be amputated?

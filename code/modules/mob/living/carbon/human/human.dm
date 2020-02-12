@@ -1926,6 +1926,9 @@
 /mob/living/carbon/human/should_have_organ(var/organ_check)
 	return (species?.has_organ[organ_check])
 
+/mob/living/carbon/human/should_have_limb(var/organ_check)
+	return (species?.has_limbs[organ_check])
+
 /mob/living/carbon/human/proc/resuscitate()
 	if(!is_asystole() || !should_have_organ(BP_HEART))
 		return
