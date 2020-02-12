@@ -188,18 +188,19 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_MEDICAL)
 	can_be_pushed = 0
 	sprites = list(
-				"Basic" = "robotmedi",
-				"Landmate" = "landmatemedi",
-				"Treadmate" = "treadmatemedi",
-				"Treadhead" = "treadheadmedi",
-				"Toileto-tron" = "toiletbotmedi",
-				"Hephaestus-Android" = "droidrecolormedi",
-				"HD-MAD" = "mcspizzytronmedi",
-				"SD-MAD" = "floatspizzytronmedi",
-				"Repo-Icarus-Drone" = "repodronemedi",
-				"Unbranded-MAD" = "offfloatspizzytronmedi",
-				"Unbranded-Android" = "droid",
-				)
+			"Basic" = "robotmedi",
+			"Landmate" = "landmatemedi",
+			"Treadmate" = "treadmatemedi",
+			"Treadhead" = "treadheadmedi",
+			"Toileto-tron" = "toiletbotmedi",
+			"Hephaestus-Android" = "droidrecolormedi",
+			"HD-MAD" = "mcspizzytronmedi",
+			"SD-MAD" = "floatspizzytronmedi",
+			"Tau-Ceti-Drone" = "dronerecolormedi",
+			"Repo-Icarus-Drone" = "repodronemedi",
+			"Unbranded-MAD" = "offfloatspizzytronmedi",
+			"Unbranded-Android" = "droid",
+			)
 
 /obj/item/robot_module/medical/general
 	name = "medical robot module"
@@ -270,6 +271,7 @@ var/global/list/robot_modules = list(
 			"Hephaestus-Android" = "droidrecolormedi",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
+			"Tau-Ceti-Drone" = "dronerecolormedi",
 			"Repo-Icarus-Drone" = "repodronemedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
@@ -337,18 +339,19 @@ var/global/list/robot_modules = list(
 	networks = list(NETWORK_ENGINEERING)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
-				"Basic" = "robotengi",
-				"Landmate" = "landmateengi",
-				"Treadmate" = "treadmateengi",
-				"Treadhead" = "treadheadengi",
-				"Toileto-tron" = "toiletbotengi",
-				"Hephaestus-Android" = "droidrecolorengi",
-				"HD-MAD" = "mcspizzytronengi",
-				"SD-MAD" = "floatspizzytronengi",
-				"Repo-Icarus-Drone" = "repodroneengi",
-				"Unbranded-MAD" = "offfloatspizzytronengi",
-				"Unbranded-Android" = "droid",
-				)
+			"Basic" = "robotengi",
+			"Landmate" = "landmateengi",
+			"Treadmate" = "treadmateengi",
+			"Treadhead" = "treadheadengi",
+			"Toileto-tron" = "toiletbotengi",
+			"Hephaestus-Android" = "droidrecolorengi",
+			"HD-MAD" = "mcspizzytronengi",
+			"SD-MAD" = "floatspizzytronengi",
+			"Tau-Ceti-Drone" = "dronerecolorengi",
+			"Repo-Icarus-Drone" = "repodroneengi",
+			"Unbranded-MAD" = "offfloatspizzytronengi",
+			"Unbranded-Android" = "droid",
+			)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/engineering/construction
@@ -509,18 +512,19 @@ var/global/list/robot_modules = list(
 	channels = list("Service" = 1)
 	networks = list(NETWORK_SERVICE)
 	sprites = list(
-				"Basic" = "robotjani",
-				"Landmate" = "landmatejani",
-				"Treadmate" = "treadmatejani",
-				"Treadhead" = "treadheadjani",
-				"Toileto-tron" = "toiletbotjani",
-				"Hephaestus-Android" = "droidrecolorjani",
-				"HD-MAD" = "mcspizzytronjani",
-				"SD-MAD" = "floatspizzytronjani",
-				"Repo-Icarus-Drone" = "repodronejani",
-				"Unbranded-MAD" = "offfloatspizzytronjani",
-				"Unbranded-Android" = "droid",
-				)
+			"Basic" = "robotjani",
+			"Landmate" = "landmatejani",
+			"Treadmate" = "treadmatejani",
+			"Treadhead" = "treadheadjani",
+			"Toileto-tron" = "toiletbotjani",
+			"Hephaestus-Android" = "droidrecolorjani",
+			"HD-MAD" = "mcspizzytronjani",
+			"SD-MAD" = "floatspizzytronjani",
+			"Tau-Ceti-Drone" = "dronerecolorjani",
+			"Repo-Icarus-Drone" = "repodronejani",
+			"Unbranded-MAD" = "offfloatspizzytronjani",
+			"Unbranded-Android" = "droid",
+			)
 
 /obj/item/robot_module/janitor/New()
 	..()
@@ -566,18 +570,19 @@ var/global/list/robot_modules = list(
 					)
 
 	sprites = list(
-				"Basic" = "robotserv",
-				"Landmate" = "landmateserv",
-				"Treadmate" = "treadmateserv",
-				"Treadhead" = "treadheadserv",
-				"Toileto-tron" = "toiletbotserv",
-				"Hephaestus-Android" = "droidrecolorserv",
-				"HD-MAD" = "mcspizzytronserv",
-				"SD-MAD" = "floatspizzytronserv",
-				"Repo-Icarus-Drone" = "repodroneserv",
-				"Unbranded-MAD" = "offfloatspizzytronserv",
-				"Unbranded-Android" = "droid",
-				  	)
+			"Basic" = "robotserv",
+			"Landmate" = "landmateserv",
+			"Treadmate" = "treadmateserv",
+			"Treadhead" = "treadheadserv",
+			"Toileto-tron" = "toiletbotserv",
+			"Hephaestus-Android" = "droidrecolorserv",
+			"HD-MAD" = "mcspizzytronserv",
+			"SD-MAD" = "floatspizzytronserv",
+			"Tau-Ceti-Drone" = "dronerecolorserv",
+			"Repo-Icarus-Drone" = "repodroneserv",
+			"Unbranded-MAD" = "offfloatspizzytronserv",
+			"Unbranded-Android" = "droid",
+			  	)
 
 /obj/item/robot_module/clerical/butler
 
@@ -647,17 +652,18 @@ var/global/list/robot_modules = list(
 	channels = list("Supply" = 1)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-				"Basic" = "robotmine",
-				"Landmate" = "landmatemine",
-				"Treadmate" = "treadmatemine",
-				"Treadhead" = "treadheadmine",
-				"Toileto-tron" = "toiletbotmine",
-				"Hephaestus-Android" = "droidrecolormine",
-				"HD-MAD" = "mcspizzytronmine",
-				"SD-MAD" = "floatspizzytronmine",
-				"Repo-Icarus-Drone" = "repodronemine",
-				"Unbranded-MAD" = "offfloatspizzytronmine",
-				"Unbranded-Android" = "droid",
+			"Basic" = "robotmine",
+			"Landmate" = "landmatemine",
+			"Treadmate" = "treadmatemine",
+			"Treadhead" = "treadheadmine",
+			"Toileto-tron" = "toiletbotmine",
+			"Hephaestus-Android" = "droidrecolormine",
+			"HD-MAD" = "mcspizzytronmine",
+			"SD-MAD" = "floatspizzytronmine",
+			"Tau-Ceti-Drone" = "dronerecolormine",
+			"Repo-Icarus-Drone" = "repodronemine",
+			"Unbranded-MAD" = "offfloatspizzytronmine",
+			"Unbranded-Android" = "droid",
 			)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
@@ -682,18 +688,19 @@ var/global/list/robot_modules = list(
 	channels = list("Science" = 1)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
-				"Basic" = "robotjani",
-				"Landmate" = "landmatejani",
-				"Treadmate" = "treadmatejani",
-				"Treadhead" = "treadheadsci",
-				"Toileto-tron" = "toiletbotsci",
-				"Hephaestus-Android" = "droidrecolorsci",
-				"HD-MAD" = "mcspizzytronsci",
-				"SD-MAD" = "floatspizzytronsci",
-				"Repo-Icarus-Drone" = "repodronesci",
-				"Unbranded-MAD" = "offfloatspizzytronsci",
-				"Unbranded-Android" = "droid",
-				)
+			"Basic" = "robotjani",
+			"Landmate" = "landmatejani",
+			"Treadmate" = "treadmatejani",
+			"Treadhead" = "treadheadsci",
+			"Toileto-tron" = "toiletbotsci",
+			"Hephaestus-Android" = "droidrecolorsci",
+			"HD-MAD" = "mcspizzytronsci",
+			"SD-MAD" = "floatspizzytronsci",
+			"Tau-Ceti-Drone" = "dronerecolorsci",
+			"Repo-Icarus-Drone" = "repodronesci",
+			"Unbranded-MAD" = "offfloatspizzytronsci",
+			"Unbranded-Android" = "droid",
+			)
 
 /obj/item/robot_module/research/New()
 	..()
