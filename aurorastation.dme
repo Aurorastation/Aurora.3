@@ -1340,6 +1340,7 @@
 #include "code\modules\clothing\ears\bandanna.dm"
 #include "code\modules\clothing\ears\earmuffs.dm"
 #include "code\modules\clothing\ears\skrell.dm"
+#include "code\modules\clothing\factions\dominia.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
 #include "code\modules\clothing\glasses\hud.dm"
 #include "code\modules\clothing\gloves\arm_guard.dm"
