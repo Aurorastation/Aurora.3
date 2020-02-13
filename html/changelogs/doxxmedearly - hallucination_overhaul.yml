@@ -1,0 +1,24 @@
+
+# Your name.  
+author: Doxxmedearly
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - project: "Hallucination handling has been totally overhauled by taking, modifying and tremendously expanding on Bay's system. Goodbye, 2012 hallucination code. The new system aims to use hallucinations to facilitate roleplay through prompts and odd effects, rather than interrupting it with Pun-Pun spamming 'punch1.ogg'."
+  - rscdel: "Removed the following hallucination effects: Fake HUD updates (No oxygen, paincrit, toxin indicator), weird items spawning in your hand, 'fake death' (aka just randomly falling over)."
+  - rscdel: "Removed the "fake attacker" effect. Pun-pun will not appear and attack you anymore. It is planned to be replaced with something far weirder and less annoying in a future project."
+  - rscadd: "Added over a dozen new categories of potential hallucination effects. Some are subtle, some are more overt. Don't code-dive if you want to avoid spoilers."
+  - rscadd: "Increased the variety of previously-existing hallucination effects (Audio variety, seeing more things that aren't there)."
+  - rscadd: "Added hallucination effects that involve perceiving the people around you doing or saying things they aren't, which should go further in facilitating RP than being punched by invisible monkeys."
+  - rscadd: "Similar to being sick or on drugs, you have a chance to involuntarily emote things while hallucinating. You may not always be aware of it."
+  - rscadd: "Some hallucinations only appear if you're hallucinating heavily. There will be a difference between 'kinda hallucinating' and 'mind machine broke.'"
+  - rscadd: "Added several large lists of prompts that should keep hallucinations varied and interesting for a long time. These can also easily be expanded upon!"
+  - backend: "Moves around some things in code. Hallucination effects are now datums (Before, they were mob/living/carbon vars). Larger prompt lists were added as text files in a new config/hallucination folder. Hallucination.dm moved from flufftext to mob/living/carbon."
+

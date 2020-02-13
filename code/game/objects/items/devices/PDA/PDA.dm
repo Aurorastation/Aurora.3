@@ -1121,6 +1121,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	t = sanitize(t)
 	//t = readd_quotes(t)
 	t = replace_characters(t, list("&#34;" = "\""))
+	if(iscarbon(U) && t)
+		var/mob/living/carbon/C = U
+		if(C.hallucination >= 50 && prob(C.hallucination / 10))			//If you're really hallucinating, you might not be typing what you think you are
+			var/t_orig = t
+			t = pick(hallucinated_phrases)								//see carbon/hallucination.dm
+			log_pda("[usr] (PDA: [src.name]) typed \"[t_orig]\" then hallucination changed it to \"[t]\". Recipient was [P.owner]",ckey=key_name(usr),ckey_target=key_name(P.owner))
 	if (!t || !istype(P))
 		return
 	if (!in_range(src, U) && loc != U)
