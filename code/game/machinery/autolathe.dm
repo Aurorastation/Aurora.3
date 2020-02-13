@@ -19,7 +19,7 @@
 	var/disabled = FALSE
 	var/shocked = FALSE
 	var/busy = FALSE
-	var/build_item
+	var/datum/autolathe/recipe/build_item
 
 	var/mat_efficiency = 1
 	var/build_time = 50
@@ -107,7 +107,7 @@
 				material_string += ".<br></td>"
 				//Build list of multipliers for sheets.
 				if(R.is_stack)
-					if(max_sheets && max_sheets > 0)
+					if(max_sheets)
 						var/obj/item/stack/R_stack = R.path
 						max_sheets = min(max_sheets, initial(R_stack.max_amount))
 						multiplier_string += "<br>"
@@ -233,32 +233,31 @@
 	if(href_list["make"] && machine_recipes)
 		var/index = text2num(href_list["make"])
 		var/multiplier = text2num(href_list["multiplier"])
-		var/datum/autolathe/recipe/making
+		build_item = null
 
 		if(index > 0 && index <= machine_recipes.len)
-			making = machine_recipes[index]
+			build_item = machine_recipes[index]
 
 		//Exploit detection, not sure if necessary after rewrite.
-		if(!making || multiplier < 0 || multiplier > 100)
+		if(!build_item || multiplier < 0 || multiplier > 100)
 			var/turf/exploit_loc = get_turf(usr)
 			message_admins("[key_name_admin(usr)] tried to exploit an autolathe to duplicate an item! ([exploit_loc ? "<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[exploit_loc.x];Y=[exploit_loc.y];Z=[exploit_loc.z]'>JMP</a>" : "null"])", 0)
 			log_admin("EXPLOIT : [key_name(usr)] tried to exploit an autolathe to duplicate an item!",ckey=key_name(usr))
 			return
 
 		busy = TRUE
-		build_item = making.name
 		update_use_power(2)
 
 		//Check if we still have the materials.
-		for(var/material in making.resources)
+		for(var/material in build_item.resources)
 			if(!isnull(stored_material[material]))
-				if(stored_material[material] < round(making.resources[material] * mat_efficiency) * multiplier)
+				if(stored_material[material] < round(build_item.resources[material] * mat_efficiency) * multiplier)
 					return
 
 		//Consume materials.
-		for(var/material in making.resources)
+		for(var/material in build_item.resources)
 			if(!isnull(stored_material[material]))
-				stored_material[material] = max(0, stored_material[material] - round(making.resources[material] * mat_efficiency) * multiplier)
+				stored_material[material] = max(0, stored_material[material] - round(build_item.resources[material] * mat_efficiency) * multiplier)
 
 		//Fancy autolathe animation.
 		flick("autolathe_n", src)
@@ -269,11 +268,11 @@
 		update_use_power(1)
 
 		//Sanity check.
-		if(!making || !src)
+		if(!build_item || !src)
 			return
 
 		//Create the desired item.
-		var/obj/item/I = new making.path(get_turf(src))
+		var/obj/item/I = new build_item.path(get_turf(src))
 		I.Created()
 		if(multiplier > 1 && istype(I, /obj/item/stack))
 			var/obj/item/stack/S = I

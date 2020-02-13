@@ -432,7 +432,7 @@
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
 	if(lathe?.build_item)
-		return lathe.build_item
+		return lathe.build_item.name
 	. = ..()
 
 /obj/item/mecha_equipment/autolathe/Initialize()

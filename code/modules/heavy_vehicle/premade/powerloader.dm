@@ -125,7 +125,7 @@
 	e_body = /obj/item/mech_component/chassis/ripley
 	e_arms = /obj/item/mech_component/manipulators/ripley
 	e_legs = /obj/item/mech_component/propulsion/ripley
-	e_color = "#849bc1"
+	e_color = COLOR_TCFL
 
 	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/grenadesmoke
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
