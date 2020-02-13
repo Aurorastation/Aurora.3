@@ -24,7 +24,7 @@
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
 			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload)
-	minimal_player_age = 7
+	minimal_player_age = 0
 	outfit = /datum/outfit/job/chief_engineer
 
 	blacklisted_species = list("Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")

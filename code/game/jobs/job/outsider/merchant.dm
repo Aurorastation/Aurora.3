@@ -8,7 +8,7 @@
 	spawn_positions = 0
 	supervisors = "yourself and the market"
 	selection_color = "#515151"
-	minimal_player_age = 10
+	minimal_player_age = 0
 	economic_modifier = 5
 	ideal_character_age = 30
 	create_record = 0

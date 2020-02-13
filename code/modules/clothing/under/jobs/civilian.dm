@@ -248,3 +248,17 @@
 	worn_state = "eridani_medic"
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)		
+
+
+// side project placeholders of what needs to be done, using other codebase sprites or present ones
+
+//ranger stuff
+/obj/item/clothing/under/rank/ranger
+	name = "Ranger uniform"
+	desc = "A uniform utilized by rank and file rangers."
+	icon_state = "necro_research_alt"
+	worn_state = "necro_research_alt"
+
+/obj/item/clothing/under/rank/ranger/lead
+	name = "Ranger Lieutenant uniform"
+	desc = "A uniform utilized by ranking ranger officers."

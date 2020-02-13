@@ -122,7 +122,6 @@
 	species_restricted = list("Human")
 
 /obj/item/rig/gunslinger/equipped
-	req_access = list(access_syndicate)
 
 	initial_modules = list(
 		/obj/item/rig_module/vision/thermal,
@@ -147,7 +146,6 @@
 	species_restricted = list("Human")
 
 /obj/item/rig/strike/equipped
-	req_access = list(access_syndicate)
 
 	initial_modules = list(
 		/obj/item/rig_module/fabricator/energy_net,

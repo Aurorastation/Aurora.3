@@ -22,7 +22,7 @@
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
 			access_paramedic, access_maint_tunnels)
 
-	minimal_player_age = 10
+	minimal_player_age = 0
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 

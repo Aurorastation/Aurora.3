@@ -23,7 +23,7 @@
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
 				    access_detective, access_weapons)
-	minimal_player_age = 14
+	minimal_player_age = 0
 	outfit = /datum/outfit/job/hos
 
 	blacklisted_species = list("Off-Worlder Human", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Hephaestus G2 Industrial Frame", "Vaurca Worker", "Vaurca Warrior")
@@ -32,12 +32,11 @@
 	name = "Ranger Lieutenant"
 	jobtype = /datum/job/hos
 
-	uniform = /obj/item/clothing/under/tactical
-	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/heads/hos
+	uniform = /obj/item/clothing/under/rank/ranger/lead
+	shoes = /obj/item/clothing/shoes/combat
 	pda = /obj/item/device/pda/heads/hos
 	id = /obj/item/card/id/navy
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
+	glasses = /obj/item/clothing/glasses/sunglasses/big
 
 	backpack_contents = list(
 		/obj/item/storage/box/ids = 1
@@ -78,18 +77,17 @@
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
-	minimal_player_age = 7
+	minimal_player_age = 0
 	outfit = /datum/outfit/job/warden
 
 /datum/outfit/job/warden
 	name = "Ranger"
 	jobtype = /datum/job/warden
 
-	uniform = /obj/item/clothing/under/tactical
-	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_sec
+	uniform = /obj/item/clothing/under/rank/ranger
+	shoes = /obj/item/clothing/shoes/combat
 	pda = /obj/item/device/pda/warden
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
+	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_pocket = /obj/item/device/flash
 
 	backpack = /obj/item/storage/backpack/security
@@ -135,7 +133,7 @@
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
 				    access_detective, access_weapons)
-	minimal_player_age = 7
+	minimal_player_age = 0
 	outfit = /datum/outfit/job/detective
 
 /datum/outfit/job/detective
@@ -178,7 +176,7 @@
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
 	alt_titles = list("Crime Scene Investigator")
-	minimal_player_age = 3
+	minimal_player_age = 0
 	outfit = /datum/outfit/job/forensics
 	alt_outfits = list("Crime Scene Investigator"=/datum/outfit/job/forensics/csi)
 
@@ -227,7 +225,7 @@
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
-	minimal_player_age = 7
+	minimal_player_age = 0
 	outfit = /datum/outfit/job/officer
 
 /datum/outfit/job/officer
