@@ -290,17 +290,19 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	duration = 30
 /datum/hallucination/insides/start()
 	world << "Called: Insides"
-	if(istype(holder,/mob/living/carbon/human))
+	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
 		var/obj/O = pick(H.organs)
 		to_chat(holder,span("danger", "You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
+	else
+		to_chat(holder,span("danger", "You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
 
 /datum/hallucination/insides/end()
 	if(prob(50))
 		to_chat(holder, span("warning", pick("You see something moving under your skin!", "Whatever it is, it's definitely alive!", "If you don't get it out soon...", "It's moving towards your mouth!")))
 	..()
 
-/datum/hallucination/pain
+/datum/hallucination/pain				//Pain. Picks a random type of pain, and severity is based on their level of hallucination.
 /datum/hallucination/pain/start()
 	var/pain_type = rand(1,5)
 	world << "Called: Pain at value [holder.hallucination] with type [pain_type]"
@@ -348,9 +350,11 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 					to_chat(holder, span("danger", "It feels like you're being burnt to the bone!"))
 					holder.eye_blurry += 6
 
+	holder.adjustHalLoss(max(holder.hallucination / 2, 50))		//always cause fake pain
 
 
-/datum/hallucination/friendly
+
+/datum/hallucination/friendly			//sort of like the vampire friend messages.
 	max_power = 60
 /datum/hallucination/friendly/start()
 	world << "Called: Friendly Feeling"
@@ -380,7 +384,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/rage/start()		//We don't want ALL the effects of berserk. You're not going to hallucinate the ability to tear down walls
 	duration = rand(120, 220)
-	to_chat(holder, "<span class='danger'>An uncontrollable rage overtakes your thoughts!</span>")
+	to_chat(holder, span("danger", "An uncontrollable rage overtakes your thoughts!"))
 	holder.a_intent_change(I_HURT)
 	if(prob(50))							//Getting this overlay too frequently is kind of a nuisance when tested.
 		holder.add_client_color(/datum/client_color/berserk)
@@ -401,7 +405,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		var/rage_pick = pick(rage_targets)
 		to_chat(holder, span("danger", pick("You need to hit [rage_pick], NOW!", "[rage_pick] needs a good punch!", "Someone needs to shut [rage_pick] up!", "[rage_pick] is really irritating you!", "[rage_pick] is trying to ruin you!", "You know you'll feel better if you just get a good hit on [rage_pick]!", "You can't calm down with [rage_pick] standing there!")))
 	else
-		to_chat(holder, "<span class='danger'>You need to hit something, NOW!</span>")
+		to_chat(holder, span("danger", "You need to hit something, NOW!"))
 	holder.emote("me",1,"growls angrily.")
 
 
@@ -431,6 +435,9 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/passive/proc/calm_feeling()
     var/feeling = pick("You feel calm. It's so peaceful.", "You feel particularly passive.", "You feel relaxed and peaceful.", "A wave of calm washes over you as you feel all your anger leave you.")
     to_chat(holder, span("good", feeling))
+
+
+
 
 /datum/hallucination/sound
 	max_power = 70
@@ -469,6 +476,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		sound_to(holder, pick(sounds))
 	..()
 
+
 /datum/hallucination/sound/tools
 	sounds = list('sound/items/Ratchet.ogg','sound/items/Welder.ogg','sound/items/Crowbar.ogg','sound/items/Screwdriver.ogg')
 
@@ -501,6 +509,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/sound/reaction
 	min_power = 20
+
 /datum/hallucination/sound/reaction/start()
 	world << "Called: Sound with reaction."
 	switch(rand(1,3))
@@ -547,7 +556,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	holder.remove_client_color(colorblindness)
 	..()
 
-/datum/hallucination/fakeattack
+/datum/hallucination/fakeattack			//imagining someone hits you.
 	min_power = 30
 
 /datum/hallucination/fakeattack/can_affect(mob/living/carbon/C)
@@ -671,17 +680,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		return
 	holder.hallucinations += src
 	start()
-/*
-/datum/hallucination/talking/proc/repeat()
-	world << "Called: Talking REPEAT"
-	if(!holder)				//if they've gone somehow, we're done.
-		end()
-	if(repeats && can_affect(holder))	//check can_affect() again to make sure mobs have not left our visual range since the first one.
-		start()				//do it again!
-	else
-		end()				//we out
 
-*/
 /datum/hallucination/talking/start()
 	if(!can_affect(holder) || !holder || !repeats)	//sanity check
 		end()
@@ -735,7 +734,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		addtimer(CALLBACK(src, .proc/start), rand(50, 100))
 	else
 		end()
-	//addtimer(CALLBACK(src, .proc/repeat), rand(50, 100))
 
 /datum/hallucination/whisper			//Thinking people are whispering messages to you.
 /datum/hallucination/whisper/can_affect()
