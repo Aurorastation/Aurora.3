@@ -1278,10 +1278,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/camera,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cL" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1297,19 +1294,13 @@
 	pixel_x = -8;
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cN" = (
 /obj/structure/ladder{
@@ -1324,10 +1315,7 @@
 	icon_state = "warningcee";
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cP" = (
 /obj/structure/sign/electricshock{
@@ -1362,16 +1350,10 @@
 /obj/item/device/binoculars{
 	pixel_y = 4
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cS" = (
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cT" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1382,10 +1364,7 @@
 	icon_state = "warningcorner";
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cU" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1420,10 +1399,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -24
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cX" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1431,13 +1407,10 @@
 	},
 /obj/machinery/light{
 	dir = 4;
-	status = 2
+	status = 0
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "cY" = (
 /obj/structure/grille,
@@ -1462,10 +1435,7 @@
 	dir = 8
 	},
 /obj/structure/bed/chair,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "da" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1473,10 +1443,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/fancy/donut,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "db" = (
 /obj/structure/grille,
@@ -1502,27 +1469,18 @@
 /obj/structure/table/standard,
 /obj/item/dice,
 /obj/item/deck/cards,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "dd" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "de" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "df" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1540,10 +1498,7 @@
 	pixel_x = 6;
 	pixel_y = -2
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "dg" = (
 /obj/structure/grille,
@@ -2539,19 +2494,13 @@
 	icon_state = "warning";
 	dir = 5
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "fd" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "fe" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -3029,10 +2978,7 @@
 /area/crew_quarters/fitness/running)
 "tj" = (
 /obj/structure/bed/chair/office/dark,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "tr" = (
 /obj/machinery/door/firedoor,
@@ -3259,10 +3205,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/security,
-/turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "CC" = (
 /obj/effect/floor_decal/corner/red{
