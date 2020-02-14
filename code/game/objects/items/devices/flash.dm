@@ -80,7 +80,7 @@
 		if(safety <= 0)
 			flick("e_flash", M.flash)
 			M.make_dizzy(20)
-			M.confused(5)
+			M.confused = rand(5,15)
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/internal/eyes/E = H.get_eyes()
 			if(!E)
