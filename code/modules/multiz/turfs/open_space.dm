@@ -12,8 +12,8 @@
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
 	flags = MIMIC_BELOW | MIMIC_OVERWRITE | MIMIC_NO_AO
-
 	roof_type = null
+	footstep_sound = null
 
 	// A lazy list to contain a list of mobs who are currently scaling
 	// up this turf. Used in human/can_fall.

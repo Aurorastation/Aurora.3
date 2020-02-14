@@ -412,7 +412,7 @@
 	new /obj/item/clothing/under/tactical(src)
 	new /obj/item/clothing/suit/armor/tactical(src)
 	new /obj/item/clothing/head/helmet/tactical(src)
-	new /obj/item/clothing/mask/balaclava/tactical(src)
+	new /obj/item/clothing/mask/balaclava/white(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/tactical(src)
 	new /obj/item/storage/belt/security/tactical(src)
 	new /obj/item/clothing/shoes/jackboots(src)

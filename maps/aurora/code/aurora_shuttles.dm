@@ -51,31 +51,7 @@
 		shuttles["Escape Pod 3"]
 	)
 
-	// Admin shuttles.
-	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/transport1/centcom)
-	shuttle.area_station = locate(/area/shuttle/transport1/station)
-	shuttle.docking_controller_tag = "centcom_shuttle"
-	shuttle.dock_target_station = "centcom_shuttle_dock_airlock"
-	shuttle.dock_target_offsite = "centcom_shuttle_bay"
-	shuttles["Centcom"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
-
-	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10	//want some warmup time so people can cancel.
-	shuttle.area_offsite = locate(/area/shuttle/administration/centcom)
-	shuttle.area_station = locate(/area/shuttle/administration/station)
-	shuttle.docking_controller_tag = "admin_shuttle"
-	shuttle.dock_target_station = "admin_shuttle_dock_airlock"
-	shuttle.dock_target_offsite = "admin_shuttle_bay"
-	shuttles["Administration"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
-
 	// Merchant Shuttle
-
 	shuttle = new()
 	shuttle.location = 1
 	shuttle.warmup_time = 5
@@ -89,6 +65,30 @@
 	shuttle.move_time = 20
 	shuttles["Merchant"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
+
+	// Admin Shuttle
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 10	//want some warmup time so people can cancel.
+	shuttle.area_offsite = locate(/area/shuttle/administration/centcom)
+	shuttle.area_station = locate(/area/shuttle/administration/station)
+	shuttle.docking_controller_tag = "admin_shuttle"
+	shuttle.dock_target_station = "admin_shuttle_dock_airlock"
+	shuttle.dock_target_offsite = "admin_shuttle_bay"
+	shuttles["Administration"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	// CCIA Shuttle
+	var/datum/shuttle/ferry/autoreturn/A = new()
+	A.location = 1
+	A.warmup_time = 10
+	A.area_offsite = locate(/area/shuttle/transport1/centcom)
+	A.area_station = locate(/area/shuttle/transport1/station)
+	A.docking_controller_tag = "centcom_shuttle"
+	A.dock_target_station = "centcom_shuttle_dock_airlock"
+	A.dock_target_offsite = "centcom_shuttle_bay"
+	shuttles["Centcom"] = A
+	START_PROCESSING(shuttle_controller, A)
 
 	// ERT Shuttle
 	var/datum/shuttle/ferry/multidock/specops/ERT = new()

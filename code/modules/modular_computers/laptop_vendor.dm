@@ -263,31 +263,8 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-
-obj/machinery/lapvend/attackby(obj/item/W as obj, mob/user as mob)
-	// Awaiting payment state
-	if(state == 2)
-		var/obj/item/card/id/I = W.GetID()
-		if(process_payment(I,W))
-			fabricate_and_recalc_price(1)
-			if((devtype == 1) && fabricated_laptop)
-				if(fabricated_laptop.battery_module)
-					fabricated_laptop.battery_module.charge_to_full()
-				fabricated_laptop.forceMove(src.loc)
-				fabricated_laptop.screen_on = 0
-				fabricated_laptop.anchored = 0
-				fabricated_laptop.update_icon()
-				fabricated_laptop = null
-			else if((devtype == 2) && fabricated_tablet)
-				if(fabricated_tablet.battery_module)
-					fabricated_tablet.battery_module.charge_to_full()
-				fabricated_tablet.forceMove(src.loc)
-				fabricated_tablet = null
-			ping("Enjoy your new product!")
-			state = 3
-			return 1
-		return 0
-	else if(W.iswrench())
+/obj/machinery/lapvend/attackby(obj/item/W, mob/user)
+	if(W.iswrench())
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
@@ -297,10 +274,37 @@ obj/machinery/lapvend/attackby(obj/item/W as obj, mob/user as mob)
 		if(do_after(user, 20/W.toolspeed))
 			if(!src)
 				return
-			to_chat(user, span("notice","You [anchored? "un" : ""]secured \the [src]!"))
+			to_chat(user, span("notice", "You [anchored ? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 		return
+	else if(state == 2) // awaiting payment state
+		if(istype(W, /obj/item/card/id))
+			var/obj/item/card/id/I = W.GetID()
+			if(process_payment(I, W))
+				create_device()
+				return TRUE
+		else if(istype(W, /obj/item/card/tech_support))
+			create_device("Have a Nanotrasen day!")
+			return TRUE
 	return ..()
+
+/obj/machinery/lapvend/proc/create_device(var/message = "Enjoy your new product!")
+	fabricate_and_recalc_price(TRUE)
+	if((devtype == 1) && fabricated_laptop)
+		if(fabricated_laptop.battery_module)
+			fabricated_laptop.battery_module.charge_to_full()
+		fabricated_laptop.forceMove(src.loc)
+		fabricated_laptop.screen_on = 0
+		fabricated_laptop.anchored = 0
+		fabricated_laptop.update_icon()
+		fabricated_laptop = null
+	else if((devtype == 2) && fabricated_tablet)
+		if(fabricated_tablet.battery_module)
+			fabricated_tablet.battery_module.charge_to_full()
+		fabricated_tablet.forceMove(src.loc)
+		fabricated_tablet = null
+	ping(message)
+	state = 3
 
 // Simplified payment processing, returns 1 on success.
 /obj/machinery/lapvend/proc/process_payment(var/obj/item/card/id/I, var/obj/item/ID_container)
