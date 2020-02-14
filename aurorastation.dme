@@ -867,6 +867,7 @@
 #include "code\game\objects\items\weapons\candle.dm"
 #include "code\game\objects\items\weapons\cards_ids.dm"
 #include "code\game\objects\items\weapons\cards_ids_syndicate.dm"
+#include "code\game\objects\items\weapons\cards_tech_support.dm"
 #include "code\game\objects\items\weapons\chaplain_items.dm"
 #include "code\game\objects\items\weapons\chewables.dm"
 #include "code\game\objects\items\weapons\cigs_lighters.dm"
