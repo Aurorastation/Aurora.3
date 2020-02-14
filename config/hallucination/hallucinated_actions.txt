@@ -9,26 +9,39 @@ twitches.
 holds up a very familiar key...
 cowers from you.
 bleeds profusely from their eyes!
-drools
+drools.
 flails about, unable to breathe!
 grows a fabulous head of hair!
 snorts!
 waves at you to come closer.
-strikes you as a great friend.
-is out to get you.
-is your favorite child.
 hums your favorite song. 
 doesn't seem to cast a shadow.
 beeps.
-is going to die if you don't help them!
+is going to die if they don't get help!
 yawns.
 points a gun at you!
-whispers your secrets into their headset.
+whispers into their headset while watching you.
 frowns at you.
 shakes their head at you.
 looks around.
 swats at the air!
 coughs up a tooth. 
 shivers.
-looks past you. 
+looks behind you. 
 spits blood.
+shrieks!
+applies some lipstick.
+scowls.
+looks at you and frowns.
+wipes the blood from their hands.
+sneezes.
+screams as a loud snapping sound comes from their body!
+snaps.
+holds up a bloodied organ and examines it.
+giggles.
+looks at you and clenches a fist.
+jabs a finger at you!
+stomps their feet.
+seems to phase out for a moment.
+coughs up a plume of colorful smoke.
+huffs.

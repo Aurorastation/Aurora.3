@@ -14,7 +14,9 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		language = pick(hallucinated_languages)
 	if(hallucination >= 80 && prob(1))
 		world << "Called: Hear_say_message"
+		var/orig_message = message
 		message = pick(hallucinated_phrases)
+		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
 /mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
 	if(hallucination >= 40 && prob(hallucination/40))		//Hallucinating someone speaking in a different language.
@@ -23,7 +25,9 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		world << "Called: Hear_radio_language"
 	if(hallucination >= 80 && prob(1))
 		world << "Called: Hear_radio_message"
+		var/orig_message = message
 		message = pick(hallucinated_phrases)
+		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
 
 /mob/living/carbon/proc/handle_hallucinations()     //Main handling proc, called in life()
@@ -73,7 +77,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			"what have you DONE?", "Miranda Trasen", "Central Command", "AI", "maintenance drone", "Unknown", "I don't want to die")
 
 /////////////////////////////////////////////
-/////				PROCS				/////
+/////		PROCS			/////
 /////////////////////////////////////////////
 /datum/hallucination/proc/start()
 
@@ -117,8 +121,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		for(var/mob/M in oviewers(world.view,src))		//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
 			to_chat(M, "[holder] [pick(hal_emote)]")
 
-/datum/hallucination/proc/hallucination_thought()
-	if(prob(25))				//Thoughts should come to you frequently, but not be spammed. This is called on every end() so usually occurs a few times.
+/datum/hallucination/proc/hallucination_thought()	//Thoughts should come to you frequently, but not be spammed. This is called on every end() so usually occurs a few times.
+	if(prob(min(holder.hallucination/2, 50)))
 		to_chat(holder, span("notice", "<i>[pick(hallucinated_thoughts)]</i>"))
 
 /////////////////////////////////////////////
@@ -231,10 +235,13 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/paranoia/start()		//hallucinate someone else doing something. Yes, it's intentional that it's any living mob, not just other characters.
 	world << "Called: Paranoia"
 	var/list/hal_target = list() //The mob you're going to imagine doing this
+	var/firstname = copytext(holder.real_name, 1, findtext(holder.real_name, " "))
+	var/t = pick(hallucinated_actions)
+	t = replace_characters(t, list("you" = "[firstname]"))		//the list contains items that say "you." This replaces "you" with the hallucinator's first name to sell the fact that the person is doing the emote.
 	for(var/mob/living/M in oview(holder))
 		hal_target += M
 	if(hal_target.len)
-		to_chat(holder, "<b>[pick(hal_target)]</b> [pick(hallucinated_actions)]")
+		to_chat(holder, "<b>[pick(hal_target)]</b> [t]")
 
 
 
@@ -350,7 +357,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 					to_chat(holder, span("danger", "It feels like you're being burnt to the bone!"))
 					holder.eye_blurry += 6
 
-	holder.adjustHalLoss(max(holder.hallucination / 2, 50))		//always cause fake pain
+	holder.adjustHalLoss(min(holder.hallucination / 2, 50))		//always cause fake pain
 
 
 
@@ -520,7 +527,9 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 		if(2) //Gunshot
 			sound_to(holder, 'sound/weapons/gunshot/gunshot1.ogg')
-			to_chat(holder, span("danger", "You feel a sharp pain in your [pick("chest", "left leg", "right leg", "left arm", "right arm", "head", "lower body")]!")) //phantom pain reaction to audio
+			if(ishuman(holder))
+				var/mob/living/carbon.human/H = holder
+				to_chat(holder, span("danger", "You feel a sharp pain in your [LAZYPICK(H.organs, "chest")]!")) //phantom pain reaction to audio
 			holder.adjustHalLoss(15)
 			shake_camera(holder, 3, 1)
 			if(prob(50))
@@ -638,10 +647,15 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	min_power = 50
 	number = 10
 
+/datum/hallucination/mirage/carnage/start()
+	if(holder.hallucination >= 100)				//Heavily hallucinating will increase the amount of horrific carnage we witness
+		number = 20
+	..()
+
 /datum/hallucination/mirage/carnage/generate_mirage()
 	if(prob(50))
 		var/image/I = image('icons/effects/blood.dmi', pick("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7"), layer = TURF_LAYER)
-		I.color = "#A10808"
+		I.color = pick("#1D2CBF", "#E6E600", "#A10808", "#A10808", "#A10808")	//skrell, vaurca, human. most likely to pick regular red
 		return I
 	else
 		var/image/I = image('icons/obj/ammo.dmi', "s-casing-spent", layer = OBJ_LAYER)
@@ -650,6 +664,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		I.pixel_x = rand(-10,10)
 		I.pixel_y = rand(-10,10)
 		return I
+
 
 /datum/hallucination/mirage/viscerator
 	min_power = 50
@@ -777,23 +792,23 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	world << "Called: MINDREAD start"
 	to_chat(holder, span("notice", "<B><font size = 3>You have developed a psionic gift!</font></B>"))
 	to_chat(holder, span("notice", "You can feel your mind surging with power! Check the abilities tab to use your new power!"))
-	holder.verbs += /mob/living/carbon/human/proc/fakemindread
+	holder.verbs += /mob/living/carbon/human/verb/fakemindread
 
 /datum/hallucination/mindread/end()
 	world << "Called: MINDREAD end"
 	if(holder)
-		holder.verbs -= /mob/living/carbon/human/proc/fakemindread
+		holder.verbs -= /mob/living/carbon/human/verb/fakemindread
 		to_chat(holder, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 		holder.drowsyness += 5
 		world << "Called: MINDREAD remove verb"
 	..()
 
-/mob/living/carbon/human/proc/fakemindread()
+/mob/living/carbon/human/verb/fakemindread()
 	set name = "Read Mind"
 	set category = "Abilities"
 
 	if(!hallucination)
-		src.verbs -= /mob/living/carbon/human/proc/fakemindread
+		src.verbs -= /mob/living/carbon/human/verb/fakemindread
 		return
 
 	if(stat)
@@ -810,7 +825,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(isnull(target))
 		return
 
-	to_chat(usr, span("notice", "<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking a prominent thought."))
+	to_chat(usr, span("notice", "<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking a prominent thought.</b>"))
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
 		to_chat(usr, span("notice", "<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(hallucinated_phrases)]</i>\"</b>"))

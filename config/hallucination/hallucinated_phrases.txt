@@ -1,6 +1,5 @@
 Give it back!
 Don't worry, we'll never be apart.
-Why?!
 Just let me help you.
 You don't know anything!
 I forgive you.
@@ -20,7 +19,7 @@ Just go away!
 It's okay, I'm here.
 Where are we going? 
 Oh, did you forget? 
-You forgot about me already... 
+You forgot about me already, didn't you?
 You're not safe here.
 Why are you asking me?
 Don't you know any better?
@@ -36,12 +35,11 @@ Didn't you call for me?
 I know you lied to me.
 You just had to ruin everything, didn't you? 
 It's so nice to see you!
-Wait...
 Did you remember your assignment?
 Don't give up!
 Nobody else believes in you, but I do. 
 When's the shuttle coming?
-Shuttle will be here in a minute.
+The shuttle will be here in a minute.
 I tried calling you last night. You never answer.
 What is THAT supposed to be?
 Did you hear about the fire?
@@ -57,3 +55,7 @@ Is your sexlife growing dull? Your late-night sessions growing short? Have you c
 We know who you are. Expect us.
 Where's your ID?
 You know nobody wants you here, right?
+Uh, do you know you're bleeding?
+I know your secret, you know. You're bad at hiding it.
+I would kill you if I could get away with it.
+You should probably leave, trust me.
