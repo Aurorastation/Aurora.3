@@ -6,7 +6,7 @@
     <div>
       <table>
         <tr>
-          <th>Name</th>
+          <th>Device Name</th>
           <th>Location</th>
           <th>Interface</th>
         </tr>

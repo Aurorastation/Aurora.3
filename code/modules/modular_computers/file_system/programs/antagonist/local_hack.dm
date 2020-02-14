@@ -22,7 +22,7 @@
 		ui.auto_update_content = TRUE
 	return TRUE
 
-/datum/computer_file/program/local_hack/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+/datum/computer_file/program/local_hack/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
 
@@ -31,7 +31,7 @@
 
 	var/list/hackables = list()
 
-	for(var/obj/machinery/door/airlock/airlock in range(5, src))
+	for(var/obj/machinery/door/airlock/airlock in range(5, src.holder.holder2))
 		var/list/airlockData = list("name" = null, "location" = null, "ref" = "\ref[airlock]")
 
 		airlockData["name"] = airlock.name
@@ -49,6 +49,6 @@
 
 	if(href_list["hack"])
 		to_chat(usr, span("notice", "You begin the hack."))
-		var/obj/machinery/door/airlock/airlock = locate(href_list["hack"]) in range(5, src)
+		var/obj/machinery/door/airlock/airlock = locate(href_list["hack"]) in range(5, src.holder.holder2)
 		airlock.ui_interact(usr)
 		return TRUE

@@ -76,6 +76,7 @@
 	download_completion = 0
 	download_last_update = 0
 	ui_header = "downloader_finished.gif"
+	playsound(src.holder.holder2, 'sound/machines/ping.ogg', 50, 0)
 
 /datum/computer_file/program/ntnetdownload/process_tick()
 	if(!downloaded_file)

@@ -78,7 +78,7 @@
 		return NO_EMAG_ACT
 	else
 		computer_emagged = 1
-		to_chat(user, "You emag \the [src]. Its screen briefly displays a \"OVERRIDE ACCEPTED: New software downloads available.\" message.")
+		to_chat(user, span("warning", "You emag \the [src]. Its screen briefly displays a \"OVERRIDE ACCEPTED: New software downloads available.\" message."))
 		return 1
 
 /obj/item/modular_computer/update_icon()
