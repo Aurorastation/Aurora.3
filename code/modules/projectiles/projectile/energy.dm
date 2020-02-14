@@ -23,6 +23,8 @@
 	//blind adjacent people
 	for (var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
+			M.make_dizzy(60)
+			M.confused = rand(5,15)
 			flick("e_flash", M.flash)
 
 	//snap pop
