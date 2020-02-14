@@ -522,6 +522,7 @@
 #include "code\game\gamemodes\malfunction\newmalf_ability_trees\tree_synthetic.dm"
 #include "code\game\gamemodes\meteor\meteor.dm"
 #include "code\game\gamemodes\meteor\meteors.dm"
+#include "code\game\gamemodes\mixed\acolytes.dm"
 #include "code\game\gamemodes\mixed\bughunt.dm"
 #include "code\game\gamemodes\mixed\conflux.dm"
 #include "code\game\gamemodes\mixed\crossfire.dm"
