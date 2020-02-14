@@ -535,8 +535,6 @@
 
 	else if(istype(P, /obj/item/flame) || P.iswelder())
 		burnpaper(P, user)
-	else if(P.iswelder())
-		burnpaper(P, user)
 
 	update_icon()
 	add_fingerprint(user)
