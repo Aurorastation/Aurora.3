@@ -33,7 +33,7 @@ export default {
   display: table;
   width: 100%;
 
-  .header, .mech, .cyborg {
+  .header, .hackable {
     display: table-row;
     font-weight: bold;
     width: 20%;
