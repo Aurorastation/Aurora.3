@@ -270,7 +270,7 @@ var/list/global/golem_runes = list()
 			golem_type = O.material.golem
 			O.use(10)
 
-	spark(spawn_loc, 10, alldirs)
+	spark(get_turf(src), 10, alldirs)
 
 	var/mob/living/carbon/human/G = new(src.loc)
 
