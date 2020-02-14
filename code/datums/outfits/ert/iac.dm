@@ -4,7 +4,7 @@
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
 	suit = /obj/item/clothing/suit/storage/iacvest
 	head = /obj/item/clothing/head/helmet/iachelmet
-	mask = /obj/item/clothing/mask/balaclava/iacmask
+	mask = /obj/item/clothing/mask/balaclava/iac
 	shoes = /obj/item/clothing/shoes/iac
 	gloves = /obj/item/clothing/gloves/white
 	belt = /obj/item/storage/belt/medical

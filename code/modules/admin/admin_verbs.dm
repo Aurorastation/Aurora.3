@@ -95,7 +95,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/clear_toxins,
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
-	/client/proc/reset_openturf
+	/client/proc/reset_openturf,
+	/client/proc/toggle_aooc
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -313,7 +314,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/cure_traumas,
 	/client/proc/add_traumas,
-	/datum/admins/proc/ccannoucment
+	/datum/admins/proc/ccannoucment,
+	/client/proc/toggle_aooc
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -335,7 +337,8 @@ var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_check_contents,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
-	/client/proc/print_logout_report
+	/client/proc/print_logout_report,
+	/client/proc/toggle_aooc
 )
 
 var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
@@ -381,9 +384,11 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
 	/datum/admins/proc/create_admin_fax,
+	/client/proc/launch_ccia_shuttle,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
-	/client/proc/check_antagonists
+	/client/proc/check_antagonists,
+	/client/proc/toggle_aooc
 )
 
 /client/proc/add_admin_verbs()
@@ -778,6 +783,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "De-admin self"
 	set category = "Admin"
 
+
 	if(holder)
 		if(alert("Confirm self-deadmin for the round? You can re-admin yourself at any time.",,"Yes","No") == "Yes")
 			log_admin("[src] deadmined themself.",admin_key=key_name(src))
@@ -786,6 +792,23 @@ var/list/admin_verbs_cciaa = list(
 			to_chat(src, "<span class='interface'>You are now a normal player.</span>")
 			verbs |= /client/proc/readmin_self
 	feedback_add_details("admin_verb","DAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/toggle_aooc()
+	set name = "Toggle AOOC"
+	set category = "Admin"
+	
+	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))
+		return
+		
+	if(holder)
+		if (toggle_aooc_holder_check() == FALSE)
+			to_chat(src, "<span class='notice'>AOOC is now muted.</span>")
+			verbs -= /client/proc/aooc
+		else
+			to_chat(src, "<span class='notice'>AOOC is now unmuted.</span>")
+			verbs |= /client/proc/aooc
+			
+	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_log_hrefs()
 	set name = "Toggle href logging"

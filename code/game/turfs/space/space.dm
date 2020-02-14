@@ -15,6 +15,9 @@
 
 	permit_ao = FALSE
 
+/turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
+	dynamic_lighting = 1
+
 // Copypaste of parent for performance.
 /turf/space/Initialize()
 	appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]

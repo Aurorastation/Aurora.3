@@ -121,6 +121,10 @@
 	display_name = "black boots"
 	path = /obj/item/clothing/shoes/black_boots
 
+/datum/gear/shoes/lyodsuit_boots
+	display_name = "lyodsuit boots"
+	path = /obj/item/clothing/shoes/lyodsuit
+
 /datum/gear/shoes/circuitry
 	display_name = "boots, circuitry (empty)"
 	path = /obj/item/clothing/shoes/circuitry
