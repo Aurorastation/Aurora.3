@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added two librarian alt-titles. Tech Support, which handles.. IT stuff, such as resetting devices, and Curator, which handles display of artifacts, as well as pricing things with their price scanner."
-  - rscadd: "Added the tech support card, which can reset devices to their original state, as well as vend devices from the laptop vendor for free."
