@@ -11,7 +11,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - project: "Hallucination handling has been totally overhauled by taking, modifying and tremendously expanding on Bay's system. Goodbye, 2012 hallucination code. The new system aims to use hallucinations to facilitate roleplay through prompts and odd effects, rather than interrupting it with Pun-Pun spamming 'punch1.ogg'."
+  - rscadd: "Hallucination handling has been totally overhauled by taking, modifying and tremendously expanding on Bay's system. Goodbye, 2012 hallucination code. The new system aims to use hallucinations to facilitate roleplay through prompts and odd effects, rather than interrupting it with Pun-Pun spamming 'punch1.ogg'."
   - rscdel: "Removed the following hallucination effects: Fake HUD updates (No oxygen, paincrit, toxin indicator), weird items spawning in your hand, 'fake death' (aka just randomly falling over)."
   - rscdel: "Removed the 'fake attacker' effect. Pun-pun will not appear and attack you anymore. It is planned to be replaced with something far weirder and less annoying in a future project."
   - rscadd: "Added over a dozen new categories of potential hallucination effects. Some are subtle, some are more overt. Don't code-dive if you want to avoid spoilers."
