@@ -529,6 +529,7 @@
 #include "code\game\gamemodes\mixed\incursion.dm"
 #include "code\game\gamemodes\mixed\infestation.dm"
 #include "code\game\gamemodes\mixed\infiltration.dm"
+#include "code\game\gamemodes\mixed\insurrection.dm"
 #include "code\game\gamemodes\mixed\intrigue.dm"
 #include "code\game\gamemodes\mixed\paranoia.dm"
 #include "code\game\gamemodes\mixed\siege.dm"
