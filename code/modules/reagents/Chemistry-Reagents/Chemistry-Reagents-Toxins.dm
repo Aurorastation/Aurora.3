@@ -12,12 +12,11 @@
 	fallback_specific_heat = 0.75
 
 	var/target_organ // needs to be null by default
-	var/strength = 4 // How much damage it deals per unit
+	var/strength = 2 // How much damage it deals per unit
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength && alien != IS_DIONA)
 		var/dam = (strength * removed)
-		M.add_chemical_effect(CE_TOXIN, dam)
 		if(target_organ && ishuman(M))
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
@@ -31,7 +30,7 @@
 						I.take_internal_damage(dam, silent=TRUE)
 						dam = 0
 		if(dam)
-			M.adjustToxLoss(target_organ ? (dam * 0.75) : dam)
+			M.adjustToxLoss(target_organ ? (dam * 0.5) : dam)
 
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"

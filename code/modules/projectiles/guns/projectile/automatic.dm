@@ -127,7 +127,6 @@
 	fire_delay_wielded = 6
 	accuracy_wielded = 2
 
-
 /obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
 	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."

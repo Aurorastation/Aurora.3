@@ -100,8 +100,8 @@ export default {
       }
     },
     getChargeClass(cellCharge) {
-        if(cellCharge > 10) {
-          return "highlight"
+      if(cellCharge > 10) {
+        return "highlight"
       }
         return "bad"
     }
