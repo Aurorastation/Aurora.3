@@ -267,3 +267,20 @@ var/global/photo_count = 0
 		p.id = id
 
 	return p
+
+/obj/item/device/camera/tv
+	name = "press camera drone"
+	icon = 'icons/obj/bureaucracy.dmi'
+	desc = "A press camera drone."
+	icon_state = "camcorder"
+	item_state = "camcorder"
+	contained_sprite = TRUE
+	icon_on = "camcorder"
+	icon_off = "camcorder_off"
+	var/obj/machinery/camera/camera
+
+/obj/item/device/camera/tv/Initialize()
+	. = ..()
+	camera = new /obj/machinery/camera(src)
+	camera.c_tag = name
+	camera.replace_networks(list(NETWORK_SERVICE))
