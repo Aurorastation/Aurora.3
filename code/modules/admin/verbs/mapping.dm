@@ -37,7 +37,11 @@ var/intercom_range_display_status = 0
 /obj/effect/debugging/marker/Move()
 	return 0
 
-// None of these are for in-game use
+/client/proc/do_not_use_these()
+	set category = "Mapping"
+	set name = "-None of these are for ingame use!!"
+
+	..()
 
 /client/proc/camera_view()
 	set category = "Mapping"
@@ -122,8 +126,9 @@ var/intercom_range_display_status = 0
 					qdel(F)
 	feedback_add_details("admin_verb","mIRD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-var/list/debug_verbs = list ( // None of these are for in-game use
-	/client/proc/camera_view
+var/list/debug_verbs = list (
+	/client/proc/do_not_use_these
+	,/client/proc/camera_view
 	,/client/proc/sec_camera_report
 	,/client/proc/intercom_view
 	,/client/proc/Cell
