@@ -172,7 +172,7 @@
 	else
 		to_chat(user, span("notice", "\The [src] was bitten multiple times!"))
 
-/obj/item/reagent_containers/food/snacks/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/living/user)
 
 	if(istype(W,/obj/item/pen))
 
@@ -238,12 +238,12 @@
 					qdel(src)
 				return
 
-	if (is_sliceable())
+	if(is_sliceable())
 		//these are used to allow hiding edge items in food that is not on a table/tray
 		var/can_slice_here = isturf(src.loc) && ((locate(/obj/structure/table) in src.loc) || (locate(/obj/machinery/optable) in src.loc) || (locate(/obj/item/tray) in src.loc))
 		var/hide_item = !has_edge(W) || !can_slice_here
 
-		if (hide_item)
+		if(hide_item && user.a_intent == I_HURT)
 			if (W.w_class >= src.w_class || is_robot_module(W))
 				return
 
@@ -254,13 +254,13 @@
 			contents += W
 			return
 
-		if (has_edge(W))
+		if(has_edge(W))
 			if (!can_slice_here)
 				to_chat(user, span("warning", "You cannot slice \the [src] here! You need a table or at least a tray to do it."))
 				return
 
 			var/slices_lost = 0
-			if (W.w_class > 3)
+			if(W.w_class > 3)
 				user.visible_message(span("notice", "\The [user] crudely slices \the [src] with [W]!"), span("notice", "You crudely slice \the [src] with your [W]!"))
 				slices_lost = rand(1,min(1,round(slices_num/2)))
 			else
@@ -4173,19 +4173,9 @@
 	icon_state = "rawcutlet"
 	bitesize = 1
 	center_of_mass = list("x"=17, "y"=20)
+	slice_path = /obj/item/reagent_containers/food/snacks/rawbacon
+	slices_num = 2
 
-/obj/item/reagent_containers/food/snacks/rawcutlet/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 1)
-
-/obj/item/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/material/knife))
-		new /obj/item/reagent_containers/food/snacks/rawbacon(src)
-		new /obj/item/reagent_containers/food/snacks/rawbacon(src)
-		to_chat(user, "You slice the cutlet into thin strips of bacon.")
-		qdel(src)
-	else
-		..()
 
 /obj/item/reagent_containers/food/snacks/cutlet
 	name = "cutlet"
@@ -4843,9 +4833,6 @@
 	bitesize = 1
 	center_of_mass = list("x"=16, "y"=16)
 
-/obj/item/reagent_containers/food/snacks/rawbacon/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 0.33)
 
 /obj/item/reagent_containers/food/snacks/bacon
 	name = "bacon"

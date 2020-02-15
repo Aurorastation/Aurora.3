@@ -101,3 +101,9 @@
 	algae["glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles
 	gear_tweaks += new/datum/gear_tweak/path(algae)
 	gear_tweaks += list(gear_tweak_free_color_choice)
+
+/datum/gear/mask/skrell
+	display_name = "skrell gill cover"
+	path = /obj/item/clothing/mask/breath/skrell
+	whitelisted = list("Skrell")
+	sort_category = "Xenowear - Skrell"
