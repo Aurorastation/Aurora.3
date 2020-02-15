@@ -174,3 +174,29 @@
 	w_class = 1
 	light_wedge = LIGHT_WIDE
 	body_parts_covered = 0
+
+/obj/item/device/flashlight/emp
+	var/loaded = TRUE
+
+/obj/item/device/flashlight/emp/afterattack(atom/A, mob/user, proximity)
+	. = ..()
+	if(!proximity)
+		return
+
+	if(!on)
+		return
+
+	if (loaded)
+		A.visible_message("<span class='danger'>[user] blinks \the [src] at \the [A].", "<span class='userdanger'>[user] blinks \the [src] at \the [A].")
+		A.emp_act(1)
+		sound_to(A, 'sound/effects/EMPulse.ogg')
+		loaded = FALSE
+		addtimer(CALLBACK(src, .proc/rearm), 45 SECONDS)
+	else
+		to_chat(user, "<span class='warning'>\The [src] needs time to recharge!</span>")
+
+	return
+
+/obj/item/device/flashlight/emp/proc/rearm()
+	src.visible_message("<span class='notice'>\The [src] blinks.</span>")
+	loaded = TRUE
