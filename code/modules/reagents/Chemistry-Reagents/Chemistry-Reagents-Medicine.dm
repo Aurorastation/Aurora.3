@@ -153,7 +153,7 @@
 
 	if(remove_generic)
 		M.drowsyness = max(0, M.drowsyness - 6 * removed)
-		M.hallucination += (-9 * removed)
+		M.hallucination -= (2 * removed)
 		M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
 
 	var/removing = (4 * removed)
