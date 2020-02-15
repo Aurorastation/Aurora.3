@@ -86,7 +86,7 @@ default behaviour is:
 				tmob.forceMove(oldloc)
 				now_pushing = FALSE
 				for(var/mob/living/carbon/slime/slime in view(1,tmob))
-					if(slime.Victim == tmob)
+					if(slime.victim == tmob)
 						slime.UpdateFeed()
 				return
 

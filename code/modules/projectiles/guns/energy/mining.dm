@@ -3,7 +3,6 @@
 /obj/item/gun/energy/plasmacutter
 	name = "plasma cutter"
 	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
-	contained_sprite = 1
 	charge_meter = 0
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "plasma"

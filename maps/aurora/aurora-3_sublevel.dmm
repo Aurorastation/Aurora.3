@@ -24118,7 +24118,8 @@
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aWB" = (
-/obj/effect/floor_decal/corner/lime{
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -24128,16 +24129,17 @@
 	name = "Station Intercom (General)";
 	pixel_y = 22
 	},
-/obj/effect/floor_decal/corner/lime/full{
+/obj/structure/flora/pottedplant/random,
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white_full";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aWD" = (
-/obj/effect/floor_decal/corner/lime{
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
-	dir = 1
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -24145,22 +24147,23 @@
 /obj/structure/noticeboard{
 	pixel_y = 32
 	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
 	},
-/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aWF" = (
-/obj/structure/bed/chair/office/light,
-/obj/effect/landmark/start{
-	name = "Chief Medical Officer"
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
 	},
-/obj/effect/floor_decal/corner/lime{
+/obj/effect/landmark/start{
+	name = "Paramedic"
+	},
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
-	dir = 4
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -24168,9 +24171,9 @@
 /obj/structure/sign/greencross{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/lime/full{
-	icon_state = "corner_white_full";
-	dir = 1
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -24309,7 +24312,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime{
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -24335,39 +24339,54 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aXn" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
+"aXo" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aXo" = (
-/obj/structure/table/glass,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aXp" = (
-/obj/structure/table/glass,
-/obj/item/folder/white,
-/obj/item/pen,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Paramedic"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aXq" = (
-/obj/structure/table/glass,
-/obj/item/paper_bin,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aXy" = (
@@ -24504,19 +24523,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
-"aXN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aXO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
 "aXQ" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
@@ -24615,85 +24621,53 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
 "aYk" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Pharmacist"
-	},
-/obj/effect/floor_decal/corner/lime{
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aYl" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Pharmacist"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/paper_bin,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aYm" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Psychiatrist"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	icon_state = "intact-scrubbers";
-	dir = 1
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aYn" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
 /obj/effect/landmark/start{
-	name = "Virologist"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aYz" = (
-/obj/machinery/firealarm/west,
-/obj/effect/floor_decal/corner/lime{
+/obj/effect/landmark/start{
+	name = "Chief Medical Officer"
+	},
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aYA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aYB" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/item/folder,
+/obj/item/pen,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aYC" = (
-/obj/machinery/alarm{
-	dir = 8;
-	icon_state = "alarm0";
-	pixel_x = 24
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -24724,113 +24698,48 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_xenobiology)
 "aYQ" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Medical Doctor"
-	},
-/obj/effect/floor_decal/corner/lime{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aYR" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Medical Doctor"
-	},
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aYT" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Medical Doctor"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aZd" = (
 /obj/machinery/requests_console{
 	department = "Medical Bay";
 	departmentType = 1;
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/corner/lime{
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
-"aZe" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
+"aYR" = (
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
-"aZt" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Medical Resident"
-	},
-/obj/effect/floor_decal/corner/lime/full,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aZu" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Medical Resident"
-	},
-/obj/effect/floor_decal/corner/lime{
+"aZd" = (
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
-"aZv" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/lime/diagonal,
+"aZt" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "aZw" = (
-/obj/structure/bed/chair{
-	dir = 1
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/effect/landmark/start{
-	name = "Paramedic"
-	},
-/obj/effect/floor_decal/corner/lime,
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
-"aZx" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Paramedic"
-	},
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 4
+	name = "Pharmacist"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -25496,12 +25405,10 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/sleep/medical)
 "bbY" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Briefing Room";
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -31299,6 +31206,13 @@
 /obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/tiled/dark,
 /area/medical/quarantineaccess)
+"iHK" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "iIQ" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/machinery/light/small/emergency,
@@ -31401,6 +31315,11 @@
 	temperature = 278
 	},
 /area/medical/quarantineautopsy)
+"iWa" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "iZk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -31792,6 +31711,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"jSu" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "jVc" = (
 /obj/structure/closet{
 	icon_closed = "cabinet_closed";
@@ -31985,6 +31911,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
+"kwz" = (
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Surgeon"
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "kGt" = (
 /obj/machinery/light/small/emergency{
 	icon_state = "bulb1";
@@ -33507,6 +33447,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantineaccess)
+"ozn" = (
+/obj/structure/flora/pottedplant/random,
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white_full"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "oFa" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "research_sensor";
@@ -34529,6 +34476,20 @@
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/carpet,
 /area/medical/patient_wing_library)
+"rjC" = (
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Pharmacist"
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "rmO" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet,
@@ -34688,6 +34649,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/virologytesting)
+"rCQ" = (
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Virologist"
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "rDB" = (
 /obj/structure/bed/chair/office/light{
 	dir = 1
@@ -35213,6 +35188,20 @@
 	roof_type = null
 	},
 /area/maintenance/engsublevel)
+"sWS" = (
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Medical Resident"
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "sXy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -35240,9 +35229,12 @@
 	pixel_x = -26;
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/corner/lime{
+/obj/effect/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
@@ -35614,6 +35606,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
+"tSk" = (
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Psychiatrist"
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "tSs" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_white_full";
@@ -36405,6 +36411,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/isolation_c)
+"vMS" = (
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Medical Resident"
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "vPb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -36706,6 +36730,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"wnO" = (
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Virologist"
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "wqz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -36973,6 +37015,22 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora_hazard)
+"wSX" = (
+/obj/machinery/alarm{
+	dir = 8;
+	icon_state = "alarm0";
+	pixel_x = 24
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "wVj" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -37232,6 +37290,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"xyk" = (
+/obj/structure/sign/nosmoking_1{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "xym" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -77732,7 +77805,7 @@ aSM
 aSM
 aSM
 aSM
-aaa
+aSM
 aaa
 aaa
 aaa
@@ -77988,8 +78061,8 @@ aYz
 aYQ
 aZd
 aZt
+ozn
 aSM
-aaa
 aaa
 aaa
 aaa
@@ -78239,14 +78312,14 @@ aVf
 aVO
 aWD
 aXn
-aXN
+aXM
 aYl
 aYA
 aYR
 aXM
-aZu
+aXM
+jSu
 aSM
-aaa
 aaa
 aaa
 aaa
@@ -78496,14 +78569,14 @@ aVg
 aLk
 aWE
 aXo
+iWa
+iWa
+iHK
 aXM
 aXM
 aXM
-aXM
-aXM
-aZv
+jSu
 aSM
-aaa
 aaa
 aaa
 aaa
@@ -78753,14 +78826,14 @@ aVg
 aVO
 aWF
 aXp
-aXO
+aXM
 aYm
-aYB
-aYR
+aYm
+aYm
 aXM
 aZw
+rjC
 aSM
-aaa
 aaa
 aaa
 aaa
@@ -79011,13 +79084,13 @@ aLk
 aWG
 aXq
 bbY
-aYn
+bbY
 aYC
-aYT
-aZe
-aZx
+aXM
+aXM
+aXM
+jSu
 aSM
-aaa
 aaa
 aaa
 aaa
@@ -79265,16 +79338,16 @@ aSM
 aSM
 aSM
 aSM
+vMS
+sWS
+wSX
+kwz
+tSk
+kwz
+xyk
+rCQ
+wnO
 aSM
-aSM
-aSM
-aSM
-aSM
-aSM
-aSM
-aSM
-aSM
-aaa
 aaa
 aaa
 aaa
@@ -79517,21 +79590,21 @@ bFN
 wIA
 ukB
 bFN
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
+aSM
 aaa
 aaa
 aaa

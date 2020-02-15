@@ -12,7 +12,7 @@
 	</p>
 	<p>Some character examples are:
 	<ul>
-	<li><b>Senior Medical Doctor</b>: Zeng-Hu has some of the best medical staff
+	<li><b>Senior Physician</b>: Zeng-Hu has some of the best medical staff
 	in the world and you are one of them. Highly trained and highly experienced
 	you are better then the rest save your colleagues in Zeng-Hu. You expect to
 	be heard and obeyed. Your bedside manner is impeccable and far out classes
@@ -35,6 +35,7 @@
 
 	allowed_role_types = list(
 		/datum/job/doctor,
+		/datum/job/surgeon,
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
 		/datum/job/paramedic,
@@ -52,9 +53,9 @@
 	)
 
 	titles_to_loadout = list(
-		"Medical Doctor" = /datum/outfit/job/doctor/zeng_hu,
+		"Physician" = /datum/outfit/job/doctor/zeng_hu,
 		"Surgeon" = /datum/outfit/job/doctor/zeng_hu,
-		"Emergency Phyisician" = /datum/outfit/job/doctor/zeng_hu,
+		"Trauma Physician" = /datum/outfit/job/doctor/zeng_hu,
 		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Biochemist" = /datum/outfit/job/pharmacist/zeng_hu,
@@ -71,7 +72,7 @@
 	)
 
 /datum/outfit/job/doctor/zeng_hu
-	name = "Medical Doctor - Zeng-Hu"
+	name = "Physician - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/card/id/zeng_hu
 
