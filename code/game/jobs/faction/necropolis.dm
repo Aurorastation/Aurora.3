@@ -98,7 +98,7 @@
 	accessory = /obj/item/clothing/accessory/armband/science
 	l_ear = /obj/item/device/radio/headset/headset_sci/sec
 
-/datum/outfit/job/officer/necropolis/sup
+/datum/outfit/job/officer/necropolis/cargo
 	name = "Supply Officer - Necropolis"
 
 	accessory = /obj/item/clothing/accessory/armband/cargo

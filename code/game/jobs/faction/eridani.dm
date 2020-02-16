@@ -75,7 +75,7 @@
 	accessory = /obj/item/clothing/accessory/armband/science
 	l_ear = /obj/item/device/radio/headset/headset_sci/sec
 
-/datum/outfit/job/officer/eridani/sup
+/datum/outfit/job/officer/eridani/cargo
 	name = "Supply Officer - Eridani"
 
 	accessory = /obj/item/clothing/accessory/armband/cargo

@@ -92,7 +92,7 @@
 	accessory = /obj/item/clothing/accessory/armband/science
 	l_ear = /obj/item/device/radio/headset/headset_sci/sec
 
-/datum/outfit/job/officer/idris/sup
+/datum/outfit/job/officer/idris/cargo
 	name = "Supply Officer - Idris"
 
 	accessory = /obj/item/clothing/accessory/armband/cargo

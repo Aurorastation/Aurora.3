@@ -204,6 +204,36 @@
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
+/datum/job/officer/cargo
+	title = "Supply Officer"
+	flag = CARGOSEC
+	department = "Cargo"
+	department_flag = CIVILIAN
+	faction = "Station"
+	total_positions = 1
+	spawn_positions = 1
+	supervisors = "the quartermaster and head of security"
+	selection_color = "#C0C0C0"
+	economic_modifier = 4
+
+	minimum_character_age = 18
+
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
+	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
+	minimal_player_age = 7
+	outfit = /datum/outfit/job/officer/cargo
+
+/datum/outfit/job/officer/cargo
+	name = "Supply Officer"
+	jobtype = /datum/job/officer/cargo
+
+	accessory = /obj/item/clothing/accessory/armband/cargo
+	l_ear = /obj/item/device/radio/headset/headset_cargo/sec
+
+	backpack_contents = list(
+		/obj/item/handcuffs = 1
+	)
+
 //Not engineers, just the mop boys
 /datum/job/janitor
 	title = "Janitor"

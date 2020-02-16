@@ -15,7 +15,7 @@ var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/FORENSICS			=(1<<12)
 var/const/ENGISEC			=(1<<13)
-var/const/CARSEC			=(1<<14)			
+var/const/CARGOSEC			=(1<<14)			
 
 
 var/const/MEDSCI			=(1<<1)
