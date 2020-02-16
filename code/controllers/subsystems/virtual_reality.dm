@@ -7,6 +7,7 @@
 
 	// MECHA
 	var/list/mechnetworks = list("remotemechs", "prisonmechs") // A list of all the networks a mech can possibly connect to
+<<<<<<< HEAD
 	var/list/list/mechs = list() // A list of lists, containing the mechs and their networks
 
 	// IPC BODIES
@@ -21,6 +22,13 @@
 	var/list/robotnetworks = list("remoterobots", "bunkerrobots", "prisonrobots")
 	var/list/list/robots = list()
 >>>>>>> upstream/master
+=======
+	var/list/mechs = list() // A list of lists, containing the mechs and their networks
+
+	// IPC BODIES
+	var/list/robotnetworks = list("remoterobots", "bunkerrobots")
+	var/list/robots = list()
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 
 /datum/controller/subsystem/virtualreality/New()
 	NEW_SS_GLOBAL(SSvirtualreality)
@@ -109,12 +117,20 @@
 			continue
 		if(!R.pilots.len)
 			continue
+<<<<<<< HEAD
 		var/mob/living/mech_pilot = R.pilots[1]
 		if(mech_pilot.client || mech_pilot.ckey)
 			continue
 		if(mech_pilot.stat == DEAD)
 			continue
 		mech[mech_pilot.name] = mech_pilot
+=======
+		if(R.pilots[1].client || R.pilots[1].ckey)
+			continue
+		if(R.pilots[1].stat == DEAD)
+			continue
+		mech[R.name] = R
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 
 	if(mech.len == 1)
 		to_chat(user, span("warning", "No active remote mechs are available."))

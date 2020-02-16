@@ -1,5 +1,10 @@
 var/list/GPS_list = list()
 
+<<<<<<< HEAD
+=======
+var/global/list/gps_by_type = list()
+
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 /obj/item/device/gps
 	name = "global positioning system"
 	desc = "Helping lost spacemen find their way through the planets since 2016."
@@ -11,6 +16,7 @@ var/list/GPS_list = list()
 	var/gps_prefix = "COM"
 	var/gpstag = "COM0"
 	var/emped = 0
+<<<<<<< HEAD
 	var/held_by = null
 	var/turf/locked_location
 	var/list/tracking = list()
@@ -45,17 +51,39 @@ var/list/GPS_list = list()
 	held_by = null
 	moved_event.unregister(user, src)
 
+=======
+	var/turf/locked_location
+
+/obj/item/device/gps/Initialize()
+	. = ..()
+	GPS_list += src
+	LAZYADD(gps_by_type["[type]"], src)
+	gpstag = "[gps_prefix][LAZYLEN(gps_by_type["[type]"])]"
+	name = "global positioning system ([gpstag])"
+	add_overlay("working")
+
+/obj/item/device/gps/Destroy()
+	GPS_list -= src
+	var/list/typelist = gps_by_type["[type]"]
+	LAZYREMOVE(typelist, src)
+	return ..()
+
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 /obj/item/device/gps/emp_act(severity)
 	emped = 1
 	cut_overlay("working")
 	add_overlay("emp")
 	addtimer(CALLBACK(src, .proc/post_emp), 300)
+<<<<<<< HEAD
 	update_position()
+=======
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 
 /obj/item/device/gps/proc/post_emp()
 	emped = 0
 	cut_overlay("emp")
 	add_overlay("working")
+<<<<<<< HEAD
 	update_position()
 
 /obj/item/device/gps/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -63,6 +91,11 @@ var/list/GPS_list = list()
 		. = data = list()
 
 <<<<<<< HEAD
+=======
+
+/obj/item/device/gps/attack_self(mob/user)
+
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 	var/obj/item/device/gps/t = ""
 	var/gps_window_height = 110 + GPS_list.len * 20 // Variable window height, depending on how many GPS units there are to show
 	if(emped)
@@ -81,6 +114,7 @@ var/list/GPS_list = list()
 			if(G.emped == 1 || !pos)
 				t += "<BR>[tracked_gpstag]: ERROR"
 			else
+<<<<<<< HEAD
 <<<<<<< HEAD
 				t += "<BR>[tracked_gpstag]: [format_text(gps_area.name)] ([pos.x], [pos.y], [pos.z])"
 =======
@@ -140,6 +174,17 @@ var/list/GPS_list = list()
 /obj/item/device/gps/Topic(href, href_list)
 	..()
 <<<<<<< HEAD
+=======
+				t += "<BR>[tracked_gpstag]: [format_text(gps_area.name)] ([pos.x], [pos.y], [pos.z])"
+
+	var/datum/browser/popup = new(user, "GPS", name, 360, min(gps_window_height, 800))
+	popup.set_content(t)
+	popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
+	popup.open()
+
+/obj/item/device/gps/Topic(href, href_list)
+	..()
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 	if(href_list["tag"] )
 		var/a = input("Please enter desired tag.", name, gpstag) as text
 		a = uppertext(copytext(sanitize(a), 1, 5))
@@ -147,6 +192,7 @@ var/list/GPS_list = list()
 			gpstag = a
 			name = "global positioning system ([gpstag])"
 			attack_self(usr)
+<<<<<<< HEAD
 =======
 =======
 
@@ -230,6 +276,8 @@ var/list/GPS_list = list()
 >>>>>>> upstream/master
 =======
 >>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
+=======
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 
 /obj/item/device/gps/science
 	icon_state = "gps-s"

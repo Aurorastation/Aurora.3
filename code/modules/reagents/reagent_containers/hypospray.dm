@@ -6,6 +6,7 @@
 	name = "hypospray"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	desc = "The DeForest Medical Corporation hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
 =======
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
@@ -15,6 +16,9 @@
 =======
 	desc = "The Zeng-Hu Pharmaceuticals hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
 >>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
+=======
+	desc = "The DeForest Medical Corporation hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
@@ -24,6 +28,7 @@
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
+<<<<<<< HEAD
 <<<<<<< HEAD
 	center_of_mass = null
 	drop_sound = 'sound/items/drop/bottle.ogg'
@@ -64,6 +69,16 @@
 	desc = "The Zeng-Hu Pharmaceuticalsn premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
 	item_state = "cmo_hypo"
 >>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
+=======
+	center_of_mass = null
+	var/armorcheck = 1
+	var/time = 3 SECONDS
+	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
+
+/obj/item/reagent_containers/hypospray/cmo
+	name = "premium hypospray"
+	desc = "The DeForest Medical Corporation premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 	volume = 30
 	time = 0
 
@@ -71,13 +86,18 @@
 	. = ..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
+<<<<<<< HEAD
 		user.visible_message(span("warning", "\The [user] is trying to inject \the [M] with \the [src]!"),span("notice", "You are trying to inject \the [M] with \the [src]."))
+=======
+		user.visible_message("<span class='warning'>\The [user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 		var/inj_time = time
 		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			inj_time += 6 SECONDS
 		if(!do_mob(user, M, inj_time))
 			return 1
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -113,6 +133,8 @@
 			icon_state = "[item_state]_100"
 
 >>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
+=======
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 /obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
@@ -122,13 +144,22 @@
 		return
 
 	if(!reagents.total_volume)
+<<<<<<< HEAD
 		to_chat(user,span("warning", "\The [src] is empty."))
+=======
+		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
+<<<<<<< HEAD
 	to_chat(user,span("notice", "You inject \the [M] with \the [src]."))
 	to_chat(M,span("notice", "You feel a tiny prick!"))
+=======
+	to_chat(user,"<span class='notice'>You inject \the [M] with \the [src].</span>")
+	to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 	playsound(src, 'sound/items/hypospray.ogg',25)
 
 	if(M.reagents)
@@ -136,7 +167,11 @@
 		var/temp = reagents.get_temperature()
 		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
 		admin_inject_log(user, M, src, contained, temp, trans)
+<<<<<<< HEAD
 		to_chat(user,span("notice", "[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
+=======
+		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 
 	update_icon()
 	return TRUE
@@ -151,7 +186,10 @@
 	amount_per_transfer_from_this = 5
 	volume = 5
 	time = 0
+<<<<<<< HEAD
 	has_level_sprites = FALSE
+=======
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
@@ -160,13 +198,18 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
 	if(is_open_container())
+<<<<<<< HEAD
 		to_chat(user,span("notice", "You must secure the reagents inside \the [src] before using it!"))
+=======
+		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 		return FALSE
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
+<<<<<<< HEAD
 			to_chat(user,span("notice", "With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			flags &= ~OPENCONTAINER
 			update_icon()
@@ -174,11 +217,24 @@
 			to_chat(user,span("notice", "You can't secure \the [src] without putting reagents in!"))
 	else
 		to_chat(user,span("notice", "The reagents inside \the [src] are already secured."))
+=======
+			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
+			flags &= ~OPENCONTAINER
+			update_icon()
+		else
+			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
+	else
+		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 	return
 
 /obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
+<<<<<<< HEAD
 		to_chat(user,span("notice", "Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
+=======
+		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the autoinjector's lid.</span>") // it locks shut after being secured
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 		flags |= OPENCONTAINER
 		update_icon()
 		return
@@ -193,9 +249,15 @@
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
 	if(reagents && reagents.reagent_list.len)
+<<<<<<< HEAD
 		to_chat(user, span("notice", "It is currently loaded."))
 	else
 		to_chat(user, span("notice", "It is empty."))
+=======
+		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
+	else
+		to_chat(user, "<span class='notice'>It is empty.</span>")
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 
 
 /obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
@@ -246,7 +308,10 @@
 	volume = 20
 	armorcheck = 0
 	time = 0
+<<<<<<< HEAD
 	has_level_sprites = FALSE
+=======
+>>>>>>> parent of a1db73faf7... Merge remote-tracking branch 'upstream/master' into Bongoborgo-Painted-Robots-V2
 
 /obj/item/reagent_containers/hypospray/combat/Initialize()
 	. = ..()
