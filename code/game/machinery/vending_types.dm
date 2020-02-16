@@ -550,7 +550,7 @@
 	icon_state = "seeds"
 	vend_id = "seeds"
 	products = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 3,		
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
@@ -609,7 +609,7 @@
 		/obj/item/seeds/ambrosiadeusseed = 3
 	)
 	prices = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 70,		
+		/obj/item/seeds/ambrosiavulgarisseed = 70,
 		/obj/item/seeds/appleseed = 50,
 		/obj/item/seeds/bananaseed = 60,
 		/obj/item/seeds/berryseed = 40,
@@ -1026,3 +1026,49 @@
 		/obj/item/coin/battlemonsters = 10
 	)
 	restock_items = 0
+
+
+/obj/machinery/vending/casino
+	name = "grand romanovich casino vending machine"
+	desc = "A vending machine commonly found in Crevus' casinos."
+	icon_state = "catvend"
+	product_slogans = "The House always wins!;Spends your chips and credits right here!;Let Go and Begin Again..."
+	product_ads = "Finding it, though, that's not the hard part. It's letting go."
+	vend_id = "zora"
+	products = list(
+		/obj/item/coin/casino = 50
+	)
+	contraband = list(
+		/obj/item/ammo_magazine/boltaction = 2
+	)
+	premium = list(
+		/obj/item/gun/projectile/shotgun/pump/rifle/blank = 5,
+		/obj/item/ammo_magazine/boltaction/blank = 15,
+		/obj/item/storage/fancy/cigarettes/pra = 15,
+		/obj/item/storage/chewables/tobacco/bad = 15,
+		/obj/item/reagent_containers/food/drinks/bottle/messa_mead = 15,
+		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 15,
+		/obj/item/reagent_containers/food/drinks/bottle/pwine = 5,
+		/obj/item/reagent_containers/food/snacks/hardbread = 10,
+		/obj/item/reagent_containers/food/drinks/cans/adhomai_milk = 10,
+		/obj/item/reagent_containers/food/snacks/adhomian_can = 10,
+		/obj/item/reagent_containers/food/snacks/clam = 5,
+		/obj/item/reagent_containers/food/snacks/tajaran_bread = 5,
+		/obj/item/toy/plushie/farwa = 10,
+		/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube = 5,
+		/obj/item/razor = 5,
+		/obj/item/toy/syndicateballoon = 5,
+		/obj/item/grenade/fake = 5,
+		/obj/item/eightball/haunted = 5,
+		/obj/item/spirit_board = 5,
+		/obj/item/device/flashlight/maglight = 5,
+		/obj/item/contraband/poster = 5,
+		/obj/item/spacecash/ewallet/lotto = 15,
+		/obj/item/device/laser_pointer = 5
+		)
+	prices = list(
+		/obj/item/coin/casino = 300
+	)
+
+	restock_items = 0
+	random_itemcount = 0

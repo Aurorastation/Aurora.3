@@ -102,3 +102,10 @@
 	playsound(src.loc, 'sound/items/coinflip.ogg', 100, 1, -4)
 	user.visible_message("<span class='notice'>[user] has thrown \the [src]. It lands on [comment]! </span>", \
 						 "<span class='notice'>You throw \the [src]. It lands on [comment]! </span>")
+
+/obj/item/coin/casino
+	name = "grand romanovich casino chip"
+	icon_state = "catcoin"
+
+/obj/item/coin/casino/attack_self(mob/user as mob)
+	return

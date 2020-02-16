@@ -305,7 +305,7 @@
 /obj/item/storage/bag/money
 	icon = 'icons/obj/storage.dmi'
 	name = "money bag"
-	desc = "A bag for carrying lots of money. It's got a big dollar sign printed on the front."
+	desc = "A bag for carrying lots of money. It's got a big credit sign printed on the front."
 	icon_state = "moneybag"
 	flags = CONDUCT
 	max_storage_space = 100
@@ -322,6 +322,13 @@
 	new /obj/item/coin/silver(src)
 	new /obj/item/coin/gold(src)
 	new /obj/item/coin/gold(src)
+
+/obj/item/storage/bag/money/casino/New()
+	..()
+	new /obj/item/coin/casino(src)
+	new /obj/item/coin/casino(src)
+	new /obj/item/coin/casino(src)
+	new /obj/item/coin/casino(src)
 
 // -----------------------------
 //           Book bag
