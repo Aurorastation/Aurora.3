@@ -79,8 +79,7 @@
 		var/safety = M:eyecheck(TRUE)
 		if(safety <= 0)
 			flick("e_flash", M.flash)
-			M.make_dizzy(60)
-			M.confused = rand(5,15)
+			M.confused = 10
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/internal/eyes/E = H.get_eyes()
 			if(!E)
