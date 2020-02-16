@@ -20,7 +20,7 @@
 
 /obj/machinery/computer/station_alert/Initialize()
 	alarm_monitor = new monitor_type(src)
-	alarm_monitor.register_alarm(src, .update_icon)
+	alarm_monitor.register_alarm(src, .proc/update_icon)
 	. = ..()
 	if(monitor_type)
 		register_monitor(new monitor_type(src))
