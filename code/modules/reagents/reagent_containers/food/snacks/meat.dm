@@ -6,22 +6,14 @@
 	filling_color = "#FF1C1C"
 	center_of_mass = list("x"=16, "y"=14)
 	cooked_icon = "meatstake"
+	slice_path = /obj/item/reagent_containers/food/snacks/rawcutlet
+	slices_num = 3
 
 /obj/item/reagent_containers/food/snacks/meat/Initialize()
 	. = ..()
 	reagents.add_reagent("protein", 6)
 	reagents.add_reagent("triglyceride", 2)
 	src.bitesize = 1.5
-
-/obj/item/reagent_containers/food/snacks/meat/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/material/knife))
-		new /obj/item/reagent_containers/food/snacks/rawcutlet(src)
-		new /obj/item/reagent_containers/food/snacks/rawcutlet(src)
-		new /obj/item/reagent_containers/food/snacks/rawcutlet(src)
-		to_chat(user, "You cut the meat into thin strips.")
-		qdel(src)
-	else
-		..()
 
 /obj/item/reagent_containers/food/snacks/meat/cook()
 
