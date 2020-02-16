@@ -67,8 +67,6 @@
 		)
 
 	action_button_name = "Toggle Helmet"
-	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
-	var/helmet_retract_sound = 'sound/items/helmet_open.ogg'
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
 	//With 0.2 resiliance, will reach 10 breach damage after 3 laser carbine blasts or 8 smg hits.
@@ -115,7 +113,6 @@
 			to_chat(M, "You are unable to deploy your suit's helmet as \the [H.head] is in the way.")
 		else if (H.equip_to_slot_if_possible(helmet, slot_head))
 			to_chat(M, "Your suit's helmet deploys with a hiss.")
-			playsound(loc, helmet_deploy_sound, 30)
 			helmet.canremove = 0
 
 	if(tank)
@@ -174,7 +171,6 @@
 
 	if(H.head == helmet)
 		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
-		playsound(loc, helmet_retract_sound, 30)
 		helmet.canremove = 1
 		H.drop_from_inventory(helmet,src)
 	else

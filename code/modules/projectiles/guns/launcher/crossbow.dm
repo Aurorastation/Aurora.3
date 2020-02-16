@@ -52,8 +52,8 @@
 /obj/item/gun/launcher/crossbow
 	name = "powered crossbow"
 	desc = "A 2457AD twist on an old classic. Pick up that can."
-	icon = 'icons/obj/guns/crossbow.dmi'
-	icon_state = "powered_crossbow"
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "crossbow"
 	item_state = "crossbow-solid"
 	fire_sound = 'sound/weapons/crossbow.ogg'
 	fire_sound_text = "a solid thunk"
@@ -295,9 +295,9 @@
 /obj/item/gun/launcher/crossbow/RFD
 	name = "Rapid-Fabrication-Device Crossbow"
 	desc = "A hacked together RFD turns an innocent tool into the penultimate destruction tool. Flashforges bolts using matter units when the string is drawn back."
-	icon = 'icons/obj/guns/rxb.dmi'
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "rxb"
-	item_state = "rxb"
+	item_state = "rfd"
 	slot_flags = null
 	draw_time = 10
 	var/stored_matter = 0
@@ -365,6 +365,4 @@
 /obj/item/gun/launcher/crossbow/RFD/examine(var/user)
 	. = ..()
 	if(.)
-		if(get_dist(src, user) > 1)
-			return
 		to_chat(user, "It currently holds [stored_matter]/[max_stored_matter] matter-units.")

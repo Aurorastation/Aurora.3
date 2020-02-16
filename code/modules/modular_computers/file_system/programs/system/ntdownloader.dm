@@ -2,15 +2,15 @@
 	filename = "ntndownloader"
 	filedesc = "NTNet Software Download Tool"
 	program_icon_state = "generic"
-	extended_desc = "This program allows the download of software from official NT repositories."
+	extended_desc = "This program allows downloads of software from official NT repositories"
 	color = LIGHT_COLOR_GREEN
-	unsendable = TRUE
-	undeletable = TRUE
+	unsendable = 1
+	undeletable = 1
 	size = 4
-	requires_ntnet = TRUE
+	requires_ntnet = 1
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
-	available_on_ntnet = FALSE
-	nanomodule_path = /datum/nano_module/program/computer_ntnetdownload
+	available_on_ntnet = 0
+	nanomodule_path = /datum/nano_module/program/computer_ntnetdownload/
 	ui_header = "downloader_finished.gif"
 	var/datum/computer_file/program/downloaded_file = null
 	var/hacked_download = 0
@@ -22,22 +22,22 @@
 
 /datum/computer_file/program/ntnetdownload/proc/begin_file_download(var/filename, var/user = null)
 	if(downloaded_file)
-		return FALSE
+		return 0
 
 	var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(filename)
 
 	if(!PRG || !istype(PRG))
-		return FALSE
+		return 0
 
 	// Attempting to download antag only program, but without having emagged computer. No.
 	if(PRG.available_on_syndinet && !computer_emagged)
-		return FALSE
+		return 0
 
 	if(!computer || !computer.hard_drive || !computer.hard_drive.try_store_file(PRG))
-		return FALSE
+		return 0
 
 	if(computer.enrolled == 1 && !computer_emagged)
-		return FALSE
+		return 0
 
 	ui_header = "downloader_running.gif"
 
@@ -122,19 +122,19 @@
 
 /datum/computer_file/program/ntnetdownload/Topic(href, href_list)
 	if(..())
-		return TRUE
+		return 1
 	if(href_list["PRG_downloadfile"])
 		if(!downloaded_file)
 			begin_file_download(href_list["PRG_downloadfile"], usr)
-		return TRUE
+		return 1
 	if(href_list["PRG_reseterror"])
 		if(downloaderror)
 			download_completion = 0
 			download_netspeed = 0
 			downloaded_file = null
 			downloaderror = ""
-		return TRUE
-	return FALSE
+		return 1
+	return 0
 
 /datum/nano_module/program/computer_ntnetdownload
 	name = "Network Downloader"

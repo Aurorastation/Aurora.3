@@ -10,7 +10,7 @@
 	var/spikes = 3
 	release_force = 30
 	slot_flags = SLOT_BELT|SLOT_BACK
-	icon = 'icons/obj/guns/spikethrower.dmi'
+	icon = 'icons/obj/gun.dmi'
 	icon_state = "spikethrower3"
 	item_state = "spikethrower"
 	fire_sound_text = "a strange noise"
@@ -38,8 +38,6 @@
 
 /obj/item/gun/launcher/spikethrower/examine(mob/user)
 	..(user)
-	if(get_dist(src, user) > 1)
-		return
 	to_chat(user, "It has [spikes] spike\s remaining.")
 
 /obj/item/gun/launcher/spikethrower/update_icon()
@@ -67,7 +65,7 @@
 	name = "alien heavy cannon"
 	desc = "It's some kind of enormous alien weapon, as long as a man is tall."
 
-	icon = 'icons/obj/guns/noisecannon.dmi'
+	icon = 'icons/obj/gun.dmi' //Actual on-sprite is handled by icon_override.
 	icon_state = "noisecannon"
 	item_state = "noisecannon"
 	recoil = 1

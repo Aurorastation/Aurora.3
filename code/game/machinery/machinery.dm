@@ -231,7 +231,7 @@ Class Procs:
 
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
-	if(clicksound && iscarbon(user))
+	if(istype (user, /mob/living/carbon))
 		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 

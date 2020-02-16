@@ -224,11 +224,6 @@
 	station_area = 0
 	base_turf = /turf/simulated/floor/reinforced
 
-/area/shuttle/research/transit
-	name = "\improper Hyperspace"
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
-
 /area/shuttle/legion
 	name = "\improper Foreign Legion Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF

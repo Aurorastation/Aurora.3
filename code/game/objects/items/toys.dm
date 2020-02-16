@@ -131,11 +131,14 @@
 /obj/item/toy/crossbow
 	name = "foam dart crossbow"
 	desc = "A weapon favored by many overactive children. Ages 8 and up."
-	icon = 'icons/obj/guns/crossbow.dmi'
+	icon = 'icons/obj/gun.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	contained_sprite = TRUE
+	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
+		icon_l_hand = 'icons/mob/items/lefthand_guns.dmi',
+		icon_r_hand = 'icons/mob/items/righthand_guns.dmi'
+		)
 	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
 	var/bullets = 5
@@ -625,8 +628,8 @@
 	icon_state = "librarian"
 
 /obj/item/toy/figure/md
-	name = "physician action figure"
-	desc = "A \"Space Life\" brand physician action figure."
+	name = "medical doctor action figure"
+	desc = "A \"Space Life\" brand medical doctor action figure."
 	icon_state = "md"
 
 /obj/item/toy/figure/mime

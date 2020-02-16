@@ -107,3 +107,5 @@
 	desc = "A portable computer belonging to the representative's office."
 	_app_preset_type = /datum/modular_computer_app_presets/representative
 	enrolled = TRUE
+
+

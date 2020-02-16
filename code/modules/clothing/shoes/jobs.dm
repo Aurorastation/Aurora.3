@@ -5,7 +5,7 @@
 	item_state = "galoshes"
 	permeability_coefficient = 0.05
 	item_flags = NOSLIP
-	slowdown = 1
+	slowdown = SHOES_SLOWDOWN+1
 	species_restricted = null
 	drop_sound = 'sound/items/drop/rubber.ogg'
 

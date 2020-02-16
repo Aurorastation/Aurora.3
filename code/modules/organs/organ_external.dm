@@ -251,10 +251,10 @@
 
 	var/laser = (damage_flags & DAM_LASER)
 
-	add_pain(0.8*burn + 0.5*brute)
+	add_pain(0.6*burn + 0.4*brute)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
-		if(owner && (owner.can_feel_pain()))
+		if (owner && (owner.can_feel_pain()))
 			owner.emote("scream")	//getting hit on broken hand hurts
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
@@ -262,10 +262,7 @@
 	// High brute damage or sharp objects may damage internal organs
 	if(length(internal_organs))
 		if(damage_internal_organs(brute, burn, sharp, damage_flags))
-			var/brute_div = 2 //We want melee weapons to not be affected by this.
-			if(damage_flags & DAM_BULLET)
-				brute_div = 1.25
-			brute /= brute_div
+			brute /= 2
 			burn /= 2
 
 	var/can_cut = (prob(brute*2) || sharp) && !(status & ORGAN_ROBOT)
@@ -323,7 +320,7 @@
 	// sync the organ's damage with its wounds
 	update_damages()
 
-	if(owner)
+	if (owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 
 	return update_icon()
@@ -345,7 +342,7 @@
 
 	var/organ_damage_threshold = 10
 	if(sharp)
-		organ_damage_threshold *= 0.3
+		organ_damage_threshold *= 0.5
 	if(laser)
 		organ_damage_threshold *= 2
 
@@ -482,10 +479,8 @@ This function completely restores a damaged organ to perfect condition.
 	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
 		var/fluid_loss_severity
 		switch(type)
-			if(BURN)
-				fluid_loss_severity = FLUIDLOSS_WIDE_BURN
-			if(LASER)
-				fluid_loss_severity = FLUIDLOSS_CONC_BURN
+			if(BURN)  fluid_loss_severity = FLUIDLOSS_WIDE_BURN
+			if(LASER) fluid_loss_severity = FLUIDLOSS_CONC_BURN
 		var/fluid_loss = (damage/(owner.maxHealth - config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
 		owner.remove_blood_simple(fluid_loss)
 
@@ -1021,7 +1016,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	perma_injury = brute_dam
 
 	// Fractures have a chance of getting you out of restraints
-	if(prob(25))
+	if (prob(25))
 		release_restraints()
 
 	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
@@ -1350,7 +1345,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	pain = max(0, min(max_damage, pain + amount))
+	pain = max(0,min(max_damage,pain+amount))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	return pain-last_pain

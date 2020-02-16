@@ -2,10 +2,8 @@
 	name = "upgrade chip - damage increase"
 	desc = "Increases damage and recoil, reduces accuracy."
 	icon_state = "upgrade_chip"
-	damage_increase = 15
+	damage_increase = 10
 	recoil_increase = 3
-	firedelay_increase = 1.5 SECONDS
-	cost_increase = 3
 
 /obj/item/custom_ka_upgrade/upgrade_chips/firerate
 	name = "upgrade chip - firedelay increase"

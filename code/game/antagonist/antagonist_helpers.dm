@@ -1,19 +1,18 @@
 /datum/antagonist/proc/can_become_antag(var/datum/mind/player, var/ignore_role)
-	if(!player.current)
-		return FALSE
+	if (!player.current)
+		return 0
 	if(jobban_isbanned(player.current, bantype))
+		return 0
+	if(required_age && required_age > player.current.client.player_age)
 		return FALSE
 	if(!ignore_role)
-		if(establish_db_connection(dbcon)) //no database, no age restriction
-			if(required_age && required_age > player.current.client.player_age)
-				return FALSE
 		if(player.assigned_role in restricted_jobs)
-			return FALSE
+			return 0
 		if(config.protect_roles_from_antagonist && (player.assigned_role in protected_jobs))
-			return FALSE
+			return 0
 		if(player.current.client.prefs && player.current.client.prefs.species in restricted_species)
-			return FALSE
-	return TRUE
+			return 0
+	return 1
 
 /datum/antagonist/proc/antags_are_dead()
 	for(var/datum/mind/antag in current_antagonists)

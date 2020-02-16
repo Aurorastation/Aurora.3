@@ -221,7 +221,6 @@
 	min_rank =          PSI_RANK_OPERANT
 	use_sound =         null
 	use_description =   "Target the mouth and click on a creature on disarm intent to psionically send them a message."
-	admin_log = FALSE
 
 /datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
 	if((target == user) || user.zone_sel.selecting != BP_MOUTH)
@@ -286,7 +285,6 @@
 	min_rank =          PSI_RANK_OPERANT
 	use_sound =         null
 	use_description =   "Activate an empty hand on disarm intent to detect nearby psionic signatures."
-	admin_log = FALSE
 
 /datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
 	if((target && user != target) || user.a_intent != I_HELP)

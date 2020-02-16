@@ -4,7 +4,7 @@
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = "Human"
-	default_genders = list(MALE, FEMALE)
+	neuter_ipc = FALSE
 
 	burn_mod = 1.2
 	grab_mod = 1

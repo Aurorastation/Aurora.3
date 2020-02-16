@@ -37,7 +37,6 @@
 	layer = 2.9
 	anchored = 1
 	density = 1
-	clicksound = "button"
 
 	var/icon_vend //Icon_state when vending
 	var/icon_deny //Icon_state when denying access
@@ -124,6 +123,7 @@
 	src.build_inventory()
 	power_change()
 
+
 /**
  *  Build src.produdct_records from the products lists
  *
@@ -207,10 +207,12 @@
 			var/obj/item/spacecash/ewallet/C = W
 			paid = pay_with_ewallet(C)
 			handled = 1
+			playsound(user.loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		else if (istype(W, /obj/item/spacecash))
 			var/obj/item/spacecash/C = W
 			paid = pay_with_cash(C, user)
 			handled = 1
+			playsound(user.loc, 'sound/machines/id_swipe.ogg', 100, 1)
 
 		if(paid)
 			src.vend(currently_vending, usr)
@@ -345,7 +347,6 @@
  */
 /obj/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet)
 	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>")
-	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	if(currently_vending.price > wallet.worth)
 		src.status_message = "Insufficient funds on chargecard."
 		src.status_error = 1
@@ -366,7 +367,6 @@
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
-	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
 	if (!customer_account)
@@ -509,7 +509,7 @@
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	if(stat & (BROKEN|NOPOWER))
 		return
-	if(..())
+	if(usr.stat || usr.restrained())
 		return
 
 	if(href_list["remove_coin"] && !istype(usr,/mob/living/silicon))

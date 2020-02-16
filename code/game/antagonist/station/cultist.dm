@@ -38,6 +38,7 @@ var/datum/antagonist/cultist/cult
 
 	var/allow_narsie = 1
 	var/datum/mind/sacrifice_target
+	var/list/allwords = list("travel","self","see","hell","blood","join","tech","destroy", "other", "hide")
 	var/list/sacrificed = list()
 	var/list/harvested = list()
 
@@ -66,7 +67,7 @@ var/datum/antagonist/cultist/cult
 	if(!..())
 		return 0
 
-	var/obj/item/book/tome/T = new(get_turf(player))
+	var/obj/item/paper/talisman/supply/T = new(get_turf(player))
 	var/list/slots = list (
 		"backpack" = slot_in_backpack,
 		"left pocket" = slot_l_store,
@@ -101,8 +102,8 @@ var/datum/antagonist/cultist/cult
 
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
-		return FALSE
+		return 0
 	for(var/obj/item/implant/loyalty/L in player.current)
-		if(L?.imp_in == player.current)
-			return FALSE
-	return TRUE
+		if(L && (L.imp_in == player.current))
+			return 0
+	return 1

@@ -1,5 +1,0 @@
-#define POUT "pout"
-#define SAD "sad"
-#define ANGRY "angry"
-#define MISCHIEVOUS "mischevous"
-#define HAPPY ":3"

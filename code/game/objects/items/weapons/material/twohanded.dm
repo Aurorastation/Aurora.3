@@ -41,6 +41,7 @@
 /obj/item/material/twohanded/proc/wield()
 	wielded = 1
 	force = force_wielded
+	name = "[base_name] (Wielded)"
 	update_icon()
 
 /obj/item/material/twohanded/update_force()

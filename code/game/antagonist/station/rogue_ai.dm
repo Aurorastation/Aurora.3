@@ -16,7 +16,6 @@ var/datum/antagonist/rogue_ai/malf
 	initial_spawn_target = 1
 	antaghud_indicator = "hudmalai"
 	required_age = 31
-	bantype = "rogue-ai"
 
 /datum/antagonist/rogue_ai/New()
 	..()

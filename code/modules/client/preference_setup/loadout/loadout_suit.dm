@@ -95,13 +95,13 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
@@ -145,7 +145,6 @@
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
-	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 
@@ -173,10 +172,6 @@
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
 
-/datum/gear/suit/winter/red
-	display_name = "winter coat, red"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/red
-
 /datum/gear/suit/winter/captain
 	display_name = "winter coat, captain"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
@@ -195,7 +190,7 @@
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Pharmacist")
+	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Pharmacist")
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
@@ -252,17 +247,9 @@
 	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
-/datum/gear/suit/tcfl
-	display_name = "Tau Ceti Foreign Legion jacket selection"
-	description = "A selection of fine, surplus jackets of the Foreign Legion."
+/datum/gear/suit/legion_jacket
+	display_name = "Tau Ceti Foreign Legion jacket"
 	path = /obj/item/clothing/suit/storage/legion
-
-/datum/gear/suit/tcfl/New()
-	..()
-	var/tcfljac = list()
-	tcfljac ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
-	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
-	gear_tweaks += new/datum/gear_tweak/path(tcfljac)
 
 /datum/gear/suit/dep_jacket
 	display_name = "department jackets selection"
@@ -277,7 +264,6 @@
 	jacket["department jacket, science"] = /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
 	jacket["department jacket, medical"] = /obj/item/clothing/suit/storage/toggle/med_dep_jacket
 	jacket["department jacket, security"] = /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
-	jacket["departmental jacket, service"] = /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
 	gear_tweaks += new/datum/gear_tweak/path(jacket)
 
 

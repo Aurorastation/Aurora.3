@@ -17,7 +17,6 @@
 	var/offset_y = 0
 
 	var/obj/item/device/radio/exosuit/radio
-	var/obj/machinery/camera/camera
 
 	var/wreckage_path = /obj/structure/mech_wreckage
 
@@ -50,7 +49,6 @@
 	var/list/hardpoints = list()
 	var/hardpoints_locked
 	var/maintenance_protocols
-	var/lockdown
 
 	// Material
 	var/material/material
@@ -85,6 +83,10 @@
 	
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
+
+	for(var/thing in hud_elements)
+		qdel(thing)
+	hud_elements.Cut()
 
 	hardpoint_hud_elements = null
 
@@ -182,11 +184,6 @@
 
 	if(head && head.radio)
 		radio = new(src)
-
-	if(!camera)
-		camera = new /obj/machinery/camera(src)
-		camera.c_tag = name
-		camera.replace_networks(list(NETWORK_MECHS))
 
 	// Create HUD.
 	instantiate_hud()

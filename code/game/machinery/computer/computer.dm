@@ -7,8 +7,6 @@
 	use_power = 1
 	idle_power_usage = 300
 	active_power_usage = 300
-	clicksound = "keyboard"
-	
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
 
@@ -17,6 +15,7 @@
 	var/light_power_on = 1
 	var/overlay_layer
 	var/is_holographic = TRUE
+	clicksound = "keyboard"
 
 /obj/machinery/computer/Initialize()
 	. = ..()

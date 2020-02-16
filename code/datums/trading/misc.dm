@@ -136,6 +136,7 @@
 		/obj/item/shield/buckler                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/redcoat                 = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/powdered_wig            = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/hasturhood              = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/gladiator        = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/plaguedoctorhat         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/unathi           = TRADER_THIS_TYPE,

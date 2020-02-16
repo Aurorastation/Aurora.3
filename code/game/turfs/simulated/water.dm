@@ -1,15 +1,11 @@
 /turf/simulated/floor/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
-	footstep_sound = "sand"
+	footstep_sound = "sandstep"
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
 	icon_state = "sand"
-
-/turf/simulated/floor/beach/sand/alt
-	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "sand_alt"
 
 /turf/simulated/floor/beach/sand/desert
 	icon_state = "desert"
@@ -18,12 +14,12 @@
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
-	footstep_sound = "water"
+	footstep_sound = "waterstep"
 
 /turf/simulated/floor/beach/water
 	name = "water"
 	icon_state = "water"
-	footstep_sound = "water"
+	footstep_sound = "waterstep"
 	movement_cost = 2
 	var/watertype = "water5"
 	var/obj/effect/water_effect/water_overlay

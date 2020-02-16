@@ -14,8 +14,6 @@ var/datum/antagonist/renegade/renegades
 	initial_spawn_req = 3
 	initial_spawn_target = 6
 
-	bantype = "renegade"
-
 	var/list/spawn_guns = list(
 		/obj/item/gun/energy/gun,
 		/obj/item/gun/energy/retro,

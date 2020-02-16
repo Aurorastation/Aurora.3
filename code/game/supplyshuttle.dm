@@ -29,3 +29,9 @@
 	anchored = 1
 	opacity = 0
 */
+
+/datum/supply_order
+	var/ordernum
+	var/datum/supply_packs/object = null
+	var/orderedby = null
+	var/comment = null

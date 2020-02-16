@@ -146,9 +146,3 @@
 	new /obj/item/clothing/head/helmet/thunderdome(src)
 	new /obj/item/clothing/head/helmet/thunderdome(src)
 	new /obj/item/clothing/head/helmet/thunderdome(src)
-
-/obj/structure/closet/skrell
-	icon_state = "skrell"
-	icon_closed = "skrell"
-	icon_opened = "skrellopen"
-	layer = OBJ_LAYER - 0.01

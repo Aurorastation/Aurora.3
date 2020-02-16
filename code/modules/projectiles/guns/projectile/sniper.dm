@@ -1,7 +1,6 @@
 /obj/item/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
 	desc = "A portable anti-armour rifle fitted with a scope, the PTR-7 is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
-	icon = 'icons/obj/guns/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
 	w_class = 4
@@ -87,9 +86,8 @@
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
 	desc = "A nonlethal modification to the PTR-7 anti-materiel rifle meant for sedation and capture of the most dangerous of game. Fires .50 cal PPS shells that deploy a torpor inducing drug payload."
-	icon = 'icons/obj/guns/tranqsniper.dmi'
 	icon_state = "tranqsniper"
-	item_state = "tranqsniper"
+	item_state = "heavysniper"
 	w_class = 4
 	force = 10
 	slot_flags = SLOT_BACK
@@ -114,15 +112,14 @@
 	else
 		icon_state = "tranqsniper"
 	if(wielded)
-		item_state = "tranqsniper-wielded"
+		item_state = "heavysniper-wielded"
 	else
-		item_state = "tranqsniper"
+		item_state = "heavysniper"
 	update_held_icon()
 
 /obj/item/gun/projectile/dragunov
 	name = "antique sniper rifle"
 	desc = "An old semi-automatic marksman rifle. Uses 7.62mm rounds."
-	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
 	w_class = 4
@@ -177,9 +174,8 @@
 /obj/item/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
 	desc = "A lightweight Neyland 556mi 'Ranger' used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with moderate stopping power. Chambered in 5.56 rounds."
-	icon = 'icons/obj/guns/w556.dmi'
 	icon_state = "w556rifle"
-	item_state = "w556rifle"
+	item_state = "heavysniper"
 	w_class = 4
 	force = 10
 	slot_flags = SLOT_BACK
@@ -215,7 +211,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/w556/update_icon()
 	if(wielded)
-		item_state = "w556rifle-wielded"
+		item_state = "heavysniper-wielded"
 	else
-		item_state = "w556rifle"
+		item_state = "heavysniper"
 	update_held_icon()

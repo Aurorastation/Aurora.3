@@ -4,13 +4,13 @@
 	program_icon_state = "comm_monitor"
 	extended_desc = "This program monitors stationwide NTNet network, provides access to logging systems, and allows for configuration changes"
 	size = 12
-	requires_ntnet = TRUE
+	requires_ntnet = 1
 	required_access_run = access_network
 	required_access_download = access_heads
 	usage_flags = PROGRAM_CONSOLE
 	color = LIGHT_COLOR_GREEN
 	
-	available_on_ntnet = TRUE
+	available_on_ntnet = 1
 	nanomodule_path = /datum/nano_module/computer_ntnetmonitor/
 
 /datum/nano_module/computer_ntnetmonitor
@@ -40,54 +40,54 @@
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_monitor.tmpl", "NTNet Diagnostics and Monitoring Tool", 575, 700, state = state)
 		if(host.update_layout())
-			ui.auto_update_layout = TRUE
+			ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
 
 /datum/nano_module/computer_ntnetmonitor/Topic(href, href_list)
 	if(..())
-		return TRUE
+		return 1
 	if(href_list["resetIDS"])
-		. = TRUE
+		. = 1
 		if(ntnet_global)
 			ntnet_global.resetIDS()
-		return TRUE
+		return 1
 	if(href_list["toggleIDS"])
-		. = TRUE
+		. = 1
 		if(ntnet_global)
 			ntnet_global.toggleIDS()
-		return TRUE
+		return 1
 	if(href_list["toggleWireless"])
-		. = TRUE
+		. = 1
 		if(!ntnet_global)
-			return TRUE
+			return 1
 
 		// NTNet is disabled. Enabling can be done without user prompt
 		if(ntnet_global.setting_disabled)
-			ntnet_global.setting_disabled = FALSE
-			return TRUE
+			ntnet_global.setting_disabled = 0
+			return 1
 
 		// NTNet is enabled and user is about to shut it down. Let's ask them if they really want to do it, as wirelessly connected computers won't connect without NTNet being enabled (which may prevent people from turning it back on)
 		var/mob/user = usr
 		if(!user)
-			return TRUE
+			return 1
 		var/response = alert(user, "Really disable NTNet wireless? If your computer is connected wirelessly you won't be able to turn it back on! This will affect all connected wireless devices.", "NTNet shutdown", "Yes", "No")
 		if(response == "Yes")
-			ntnet_global.setting_disabled = TRUE
-		return TRUE
+			ntnet_global.setting_disabled = 1
+		return 1
 	if(href_list["purgelogs"])
-		. = TRUE
+		. = 1
 		if(ntnet_global)
 			ntnet_global.purge_logs()
 	if(href_list["updatemaxlogs"])
-		. = TRUE
+		. = 1
 		var/mob/user = usr
 		var/logcount = text2num(input(user,"Enter amount of logs to keep in memory ([MIN_NTNET_LOGS]-[MAX_NTNET_LOGS]):"))
 		if(ntnet_global)
 			ntnet_global.update_max_log_count(logcount)
 	if(href_list["toggle_function"])
-		. = TRUE
+		. = 1
 		if(!ntnet_global)
-			return TRUE
+			return 1
 		ntnet_global.toggle_function(href_list["toggle_function"])

@@ -238,20 +238,21 @@
 	if(istype(S))
 		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
-			if(S.target) // Like cats
-				S.target = null
-				++S.discipline
+			if(S.Target) // Like cats
+				S.Target = null
+				++S.Discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the water touches it!"), span("danger", "Your flesh burns in the water!"))
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
 
 
 /datum/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(istype(M, /mob/living/carbon/slime))
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss(12 * removed) // A slime having water forced down its throat would cause much more damage then being splashed on it
-		if(!S.client && S.target)
-			S.target = null
-			++S.discipline
+		if (!S.client && S.Target)
+
+			S.Target = null
+			++S.Discipline
 
 
 /datum/reagent/fuel

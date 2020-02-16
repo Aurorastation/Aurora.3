@@ -6,7 +6,6 @@
 	blocks_air = 1
 	density = 1
 	gender = PLURAL
-	opacity = 1
 
 // This is a global list so we can share the same list with all mineral turfs; it's the same for all of them anyways.
 var/list/mineral_can_smooth_with = list(
@@ -425,9 +424,12 @@ var/list/mineral_can_smooth_with = list(
 			if(prob(3))
 				excavate_find(prob(5), finds[1])
 
+	if(prob(5))
+		findgem()
+
 	//Add some rubble,  you did just clear out a big chunk of rock.
 	ChangeTurf(mined_turf)
-
+	
 	if(rand(1,500) == 1)
 		visible_message("<span class='notice'>An old dusty crate was buried within!</span>")
 		new /obj/structure/closet/crate/secure/loot(src)

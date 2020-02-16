@@ -76,7 +76,6 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/water,
 			/obj/item/reagent_containers/chem_disp_cartridge/ice,
 			/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
-			/obj/item/reagent_containers/chem_disp_cartridge/hot_coco{temperature_override = 349},			
 			/obj/item/reagent_containers/chem_disp_cartridge/cream,
 			/obj/item/reagent_containers/chem_disp_cartridge/tea{temperature_override = 349},
 			/obj/item/reagent_containers/chem_disp_cartridge/icetea,
@@ -148,7 +147,6 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/sugar,
 			/obj/item/reagent_containers/chem_disp_cartridge/milk,
 			/obj/item/reagent_containers/chem_disp_cartridge/soymilk,
-			/obj/item/reagent_containers/chem_disp_cartridge/hot_coco{temperature_override = 349},
 			/obj/item/reagent_containers/chem_disp_cartridge/water{temperature_override = 373}
 		)
 
