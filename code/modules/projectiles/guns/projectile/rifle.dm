@@ -63,6 +63,7 @@
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/a556
+	magazine_type = /obj/item/ammo_magazine/a556
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	load_method = SINGLE_CASING
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'

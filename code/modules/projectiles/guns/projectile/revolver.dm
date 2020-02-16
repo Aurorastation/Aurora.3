@@ -93,6 +93,7 @@
 	item_state = "deckard"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = null
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/gun/projectile/revolver/deckard/update_icon()
@@ -123,6 +124,7 @@
 	load_method = SINGLE_CASING
 	max_shells = 2
 	ammo_type = /obj/item/ammo_casing/a357
+	magazine_type = null
 
 /obj/item/gun/projectile/revolver/capgun
 	name = "cap gun"
@@ -253,6 +255,7 @@
 	load_method = SINGLE_CASING
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = null
 
 	description_fluff = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
 	mechanism, with the need to manually eject each of the used cartridges, and reload one cartridge at a time through a loading gate. However, their cheap manufacturing cost has \
