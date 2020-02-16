@@ -60,13 +60,40 @@ var/global/list/gps_by_type = list()
 			if(G.emped == 1 || !pos)
 				t += "<BR>[tracked_gpstag]: ERROR"
 			else
+<<<<<<< HEAD
 				t += "<BR>[tracked_gpstag]: [format_text(gps_area.name)] ([pos.x], [pos.y], [pos.z])"
+=======
+				to_chat(usr, span("warning", "GPS tag already assigned, choose another."))
+
+		return TRUE
+
+	if(href_list["add_tag"])
+		var/new_tag = uppertext(copytext(sanitize(href_list["add_tag"]), 1, 8))
+
+		if(GPS_list[new_tag])
+			tracking |= new_tag
+		else
+			to_chat(usr, "Could not locate GPS tag.")
+
+		return TRUE
+
+	if(href_list["remove_tag"])
+		tracking -= href_list["remove_tag"]
+
+		return TRUE
+
+	if(href_list["add_all"])
+		tracking.Cut()
+		for(var/gps in GPS_list)
+			tracking += GPS_list[gps]["tag"]
+>>>>>>> upstream/master
 
 	var/datum/browser/popup = new(user, "GPS", name, 360, min(gps_window_height, 800))
 	popup.set_content(t)
 	popup.set_title_image(user.browse_rsc_icon(src.icon, src.icon_state))
 	popup.open()
 
+<<<<<<< HEAD
 /obj/item/device/gps/Topic(href, href_list)
 	..()
 	if(href_list["tag"] )
@@ -76,6 +103,30 @@ var/global/list/gps_by_type = list()
 			gpstag = a
 			name = "global positioning system ([gpstag])"
 			attack_self(usr)
+=======
+	if(href_list["clear_all"])
+		tracking.Cut()
+		tracking |= gpstag // always want to track ourselves
+
+		return TRUE
+
+	return FALSE
+
+/obj/item/device/gps/proc/update_position()
+	var/turf/T = get_turf(src)
+	var/area/gpsarea = get_area(src)
+	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped)
+	SSvueui.check_uis_for_change(src)
+
+/obj/item/device/gps/proc/next_initial_tag()
+	if(!LAZYACCESS(gps_count, gps_prefix))
+		gps_count[gps_prefix] = 0
+
+	. = "[gps_prefix][gps_count[gps_prefix]++]"
+
+	if(GPS_list[.]) // if someone has renamed a GPS manually to take this tag already
+		. = next_initial_tag()
+>>>>>>> upstream/master
 
 /obj/item/device/gps/science
 	icon_state = "gps-s"

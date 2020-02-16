@@ -116,7 +116,11 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
+<<<<<<< HEAD
 		I = image('icons/obj/gun.dmi', "bayonet")
+=======
+		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
+>>>>>>> upstream/master
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
