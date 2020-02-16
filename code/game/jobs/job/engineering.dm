@@ -197,8 +197,8 @@
 
 	minimum_character_age = 18
 
-	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_construction, access_atmospherics)
-	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_construction, access_atmospherics)
+	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_maint_tunnels, access_construction)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_maint_tunnels, access_construction)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer/eng
 
@@ -211,4 +211,4 @@
 
 	backpack_contents = list(
 		/obj/item/handcuffs = 1
-	) 
+	)
