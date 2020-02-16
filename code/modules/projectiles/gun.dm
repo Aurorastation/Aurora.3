@@ -118,7 +118,7 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', "bayonet")
+		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
@@ -411,7 +411,7 @@
 			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
 
 	if(recoil)
-		addtimer(CALLBACK(src, /proc/shake_camera, user, recoil+1, recoil), 0, TIMER_UNIQUE)
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/shake_camera, user, recoil+1, recoil), 0, TIMER_UNIQUE)
 	update_icon()
 
 

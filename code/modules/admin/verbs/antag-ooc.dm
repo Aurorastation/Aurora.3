@@ -21,7 +21,7 @@
 			display_name = holder.fakekey
 
 	for(var/mob/M in mob_list)
-		if (check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, M))
+		if (check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, M) && M.client.aooc_mute_holder_check() == FALSE)
 			to_chat(M, "<font color='#960018'><span class='ooc'>" + create_text_tag("aooc", "Antag-OOC:", M.client) + " <EM>[get_options_bar(src, 0, 1, 1)](<A HREF='?_src_=holder;adminplayerobservejump=\ref[src.mob]'>JMP</A>):</EM> <span class='message'>[msg]</span></span></font>")
 		else if (M.mind && M.mind.special_role && M.client)
 			to_chat(M, "<font color='#960018'><span class='ooc'>" + create_text_tag("aooc", "Antag-OOC:", M.client) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>")
