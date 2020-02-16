@@ -4,7 +4,9 @@
 
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
-	desc = "The Zeng-Hu Pharmaceuticals hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
+	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
+	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
+	description_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
@@ -31,7 +33,9 @@
 
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
-	desc = "The Zeng-Hu Pharmaceuticalsn premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
+	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
+	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
+	description_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	item_state = "cmo_hypo"
 	volume = 30
 	time = 0
@@ -40,7 +44,7 @@
 	. = ..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
-		user.visible_message("<span class='warning'>\The [user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
+		user.visible_message(span("warning", "\The [user] is trying to inject \the [M] with \the [src]!"),span("notice", "You are trying to inject \the [M] with \the [src]."))
 		var/inj_time = time
 		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			inj_time += 6 SECONDS
