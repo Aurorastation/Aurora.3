@@ -235,7 +235,7 @@
 		var/multiplier = text2num(href_list["multiplier"])
 		build_item = null
 
-		if(index in 0 to machine_recipes.len)
+		if(index > 0 && index <= machine_recipes.len)
 			build_item = machine_recipes[index]
 
 		//Exploit detection, not sure if necessary after rewrite.
