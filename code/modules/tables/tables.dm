@@ -425,7 +425,7 @@
 		if(material && T.material && material.name == T.material.name && flipped == T.flipped)
 			connection_dirs |= T_dir
 		if(propagate)
-			INVOKE_ASYNC(T, .update_connections)
+			INVOKE_ASYNC(T, .proc/update_connections)
 			INVOKE_ASYNC(T, /atom/.proc/queue_icon_update)
 
 	connections = dirs_to_corner_states(connection_dirs)

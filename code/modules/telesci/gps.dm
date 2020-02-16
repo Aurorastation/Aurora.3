@@ -120,12 +120,12 @@ var/list/GPS_list = list()
 
 	if(href_list["add_tag"])
 		var/new_tag = uppertext(copytext(sanitize(href_list["add_tag"]), 1, 8))
-		
+
 		if(GPS_list[new_tag])
 			tracking |= new_tag
 		else
 			to_chat(usr, "Could not locate GPS tag.")
-		
+
 		return TRUE
 
 	if(href_list["remove_tag"])
@@ -150,7 +150,8 @@ var/list/GPS_list = list()
 
 /obj/item/device/gps/proc/update_position()
 	var/turf/T = get_turf(src)
-	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[get_area(src).name]", "emped" = emped)
+	var/area/gpsarea = get_area(src)
+	GPS_list[gpstag] = list("tag" = gpstag, "pos_x" = T.x, "pos_y" = T.y, "pos_z" = T.z, "area" = "[gpsarea.name]", "emped" = emped)
 	SSvueui.check_uis_for_change(src)
 
 /obj/item/device/gps/proc/next_initial_tag()
