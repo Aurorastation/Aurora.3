@@ -128,14 +128,17 @@
 
 // Called by process()
 /decl/nymph_limb/proc/handle_nymph(var/obj/item/organ/external/E)
+	var/mob/living/carbon/alien/diona/limb_nymph = E:nymph
+	if(!istype(limb_nymph))
+		return FALSE
     if(!E || !is_type_in_list(E, nymph_limb_types))
         return FALSE
-    if((!E.owner || E:nymph.stat == DEAD))
-        nymph_out(E, E:nymph)
+    if((!E.owner || limb_nymph.stat == DEAD))
+        nymph_out(E, limb_nymph)
         return FALSE
 
     if(!E.is_usable())
-        nymph_out(E, E:nymph, forced = TRUE)
+        nymph_out(E, limb_nymph, forced = TRUE)
         return FALSE
 
     var/blood_volume = round(E.owner.vessel.get_reagent_amount("blood"))
@@ -144,7 +147,7 @@
         if(B)
             B.volume -= BLOOD_REGEN_RATE / (2 * nymph_limb_types_by_name.len) // Full set of nymph limbs makes natural blood regen 50% slower
     if(blood_volume <= 0)
-        nymph_out(E, E:nymph, forced = TRUE)
+        nymph_out(E, limb_nymph, forced = TRUE)
 
 // Host detach
 /mob/living/carbon/human/proc/detach_nymph_limb()
@@ -261,16 +264,17 @@
     N.nymph_in(new_nymph_limb, src)
 
 /decl/nymph_limb/proc/nymph_in(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
-    if(E:nymph)
-        if(!E:nymph.client)
-            QDEL_NULL(E:nymph)
+    var/mob/living/carbon/alien/diona/limb_nymph = E:nymph
+    if(limb_nymph)
+        if(!limb_nymph.client)
+            QDEL_NULL(limb_nymph)
         else
             return
     
     if(nymph.client)
         nymph.client.eye = E.owner
-    E:nymph = nymph
-    nymph.forceMove(E)
+    limb_nymph = nymph
+    limb_nymph.forceMove(E)
 
 /decl/nymph_limb/proc/nymph_out(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph, var/forced = FALSE)
     if(nymph.client)
