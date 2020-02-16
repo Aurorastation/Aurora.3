@@ -14,6 +14,7 @@
 	volume = 60
 	unacidable = 0
 	flags = OPENCONTAINER
+	no_shatter = TRUE
 	var/paint_reagent = null //name of the reagent responsible for colouring the paint
 	var/paint_type = null //used for colouring detective technicolor coat and hat
 
