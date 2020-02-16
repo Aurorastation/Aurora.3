@@ -33,7 +33,7 @@ var/global/list/areas_by_type = list()
 var/global/list/all_areas = list()
 
 //Languages/species/whitelist.
-var/global/list/datum/species/all_species = list()
+var/global/list/all_species = list()
 var/global/list/all_languages = list()
 var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.

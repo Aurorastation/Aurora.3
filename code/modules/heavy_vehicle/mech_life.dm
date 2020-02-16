@@ -27,7 +27,7 @@
 	body.update_air(hatch_closed && use_air)
 
 	if((client || LAZYLEN(pilots)) && get_cell())
-		get_cell()?.drain_power(0, 0, calc_power_draw())
+		get_cell().drain_power(0, 0, calc_power_draw())
 
 	updatehealth()
 	if(health <= 0 && stat != DEAD)
@@ -40,8 +40,7 @@
 	handle_hud_icons()
 
 /mob/living/heavy_vehicle/get_cell()
-	RETURN_TYPE(/obj/item/cell)
-	return body.cell
+	return body ? body.cell : null
 
 /mob/living/heavy_vehicle/proc/calc_power_draw()
 	var/total_draw = 0

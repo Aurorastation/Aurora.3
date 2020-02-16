@@ -109,7 +109,6 @@ var/global/list/map_sectors = list()
 	testing("Temporary sector at [x],[y] was created, corresponding zlevel is [map_z].")
 
 /obj/effect/map/sector/temporary/Destroy()
-	SHOULD_CALL_PARENT(FALSE)
 	map_sectors["[map_z]"] = null
 	testing("Temporary sector at [x],[y] was deleted.")
 	if (can_die())

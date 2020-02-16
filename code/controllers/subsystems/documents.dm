@@ -41,10 +41,9 @@ var/datum/controller/subsystem/docs/SSdocs
 /datum/controller/subsystem/docs/proc/pick_document()
 	var/subtotal = rand() * src.total_docs
 	for (var/doc in docs)
-		var/datum/docs_document/dd = doc
-		subtotal -= dd.chance
+		subtotal -= docs[doc].chance
 		if (subtotal <= 0)
-			return dd
+			return docs[doc]
 	return null
 
 //Pick a document by one tag
@@ -53,10 +52,9 @@ var/datum/controller/subsystem/docs/SSdocs
 		return null
 	var/subtotal = rand() * src.total_by_tags[tag]
 	for (var/doc in docs_by_tags[tag])
-		var/datum/docs_document/dd = doc
-		subtotal -= dd.chance
+		subtotal -= docs_by_tags[tag][doc].chance
 		if (subtotal <= 0)
-			return dd
+			return docs_by_tags[tag][doc]
 	return null
 
 //Pick a document by any tag from a list of tags. Weighted.
@@ -72,10 +70,9 @@ var/datum/controller/subsystem/docs/SSdocs
 		tag_sublist += docs_by_tags[t]
 	var/subtotal = total_chance * rand()
 	for(var/doc in tag_sublist)
-		var/datum/docs_document/dd = doc
-		subtotal -= dd.chance
+		subtotal -= tag_sublist[doc].chance
 		if(subtotal <= 0)
-			return dd
+			return tag_sublist[doc]
 	return null
 
 //Pick a document by multiple tags that it must have.
@@ -89,15 +86,13 @@ var/datum/controller/subsystem/docs/SSdocs
 		tag_sublist &= docs_by_tags[t]
 	log_ss("docs", "Tag sublist has length [tag_sublist.len].")
 	var/subtotal = 0
-	for(var/doc in tag_sublist)
-		var/datum/docs_document/dd = doc
+	for(var/datum/docs_document/dd in tag_sublist)
 		subtotal += dd.chance
 	subtotal *= rand()
 	for (var/doc in tag_sublist)
-		var/datum/docs_document/dd = doc
-		subtotal -= dd.chance
+		subtotal -= tag_sublist[doc].chance
 		if (subtotal <= 0)
-			return tag_sublist[dd]
+			return tag_sublist[doc]
 	return null
 /*
 	Loading Data

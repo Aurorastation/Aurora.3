@@ -906,6 +906,7 @@
 	set category = "Object"
 	set src in usr
 	set_sensors(usr)
+	..()
 
 /obj/item/clothing/under/verb/rollsuit()
 	set name = "Roll Down Jumpsuit"

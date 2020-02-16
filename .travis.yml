@@ -9,7 +9,6 @@ env:
     FLYWAY_BUILD="5.2.4"
     NODE_VERSION=10
     RUST_G_VERSION="0.4.1"
-    SPACEMAN_DMM_VERSION="suite-1.1"
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime
@@ -73,8 +72,6 @@ jobs:
         - pip3 install --user bidict -q
         - chmod +x ./vueui/install
         - ./vueui/install
-        - chmod +x ./scripts/install-spaceman-dmm.sh
-        - ./scripts/install-spaceman-dmm.sh dreamchecker
         - chmod +x ./scripts/rust_g.sh
         - ./scripts/rust_g.sh
       script:
@@ -92,4 +89,3 @@ jobs:
         - python tools/TagMatcher/tag-matcher.py ../..
         - python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs --dry-run
         - python3 tools/mapmerge2/travis_mapcheck.py
-        - ~/dreamchecker

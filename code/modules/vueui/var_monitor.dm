@@ -6,7 +6,7 @@
 
 /datum/vueui_var_monitor
 	var/subject_type
-	var/list/datum/vueui_var_holder/var_holders
+	var/datum/vueui_var_holder/list/var_holders
 
 /datum/vueui_var_monitor/New()
 	var_holders = list()

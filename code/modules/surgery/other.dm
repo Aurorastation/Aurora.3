@@ -94,7 +94,7 @@
 	..()
 
 /datum/surgery_step/fix_dead_tissue/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/list/obj/item/organ/internal/dead_organs = list()
+	var/obj/item/organ/internal/list/dead_organs = list()
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && !(I.status & ORGAN_CUT_AWAY) && (I.status & ORGAN_DEAD) && !BP_IS_ROBOTIC(I))

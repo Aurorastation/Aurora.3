@@ -19,7 +19,7 @@
 		else
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 			for(var/hair_string in hair_styles_list)
-				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+				var/list/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
 				if(test.length >= 2 && (species.bodytype in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
 			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
@@ -40,7 +40,7 @@ mob/living/carbon/human/proc/change_monitor()
 		var/selected_string
 		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
 		for(var/screen_string in facial_hair_styles_list)
-			var/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
+			var/list/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
 			if(species.bodytype in test.species_allowed)
 				valid_screenstyles.Add(screen_string)
 		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles

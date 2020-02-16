@@ -15,7 +15,7 @@
 	accuracy = 0.1
 	w_class = 2
 	flags = OPENCONTAINER
-	var/fragile = TRUE // most glassware is super fragile
+	var/fragile = 1 // most glassware is super fragile
 	var/no_shatter = FALSE //does this container shatter?
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
@@ -60,8 +60,7 @@
 /obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
 	if(reagents.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
-	audible_message(span("warning", "\The [src] shatters with a resounding crash!"), span("warning", "\The [src] breaks."))
-	playsound(src, "shatter", 70, 1)
+	audible_message("\The [src] shatters with a resounding crash!", "\The [src] breaks.")
 	new /obj/item/material/shard(loc, "glass")
 	qdel(src)
 
@@ -79,7 +78,7 @@
 			update_name_label()
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
-	if(!(W.flags & NOBLUDGEON) && fragile && (W.force > fragile) && !no_shatter)
+	if(!(W.flags & NOBLUDGEON) && fragile && (W.force > fragile))
 		shatter()
 		return
 
@@ -275,7 +274,7 @@
 	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
 
 
-/obj/item/reagent_containers/glass/bucket/wood
+obj/item/reagent_containers/glass/bucket/wood
 	desc = "An old wooden bucket."
 	name = "wooden bucket"
 	icon = 'icons/obj/janitor.dmi'

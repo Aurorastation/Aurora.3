@@ -653,6 +653,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		src.use(15)
 	else
 		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
+	..()
 
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
 	set name = "Change Colour"
@@ -969,6 +970,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		src.use(25)
 	else
 		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
+	..()
 
 /obj/structure/noose
 	name = "noose"

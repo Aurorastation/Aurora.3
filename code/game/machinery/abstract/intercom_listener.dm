@@ -17,7 +17,6 @@
 	return ..()
 
 /obj/machinery/abstract/intercom_listener/power_change()
-	..()
 	if (master)
 		var/state = powered(power_channel)
 		master.power_change(state)

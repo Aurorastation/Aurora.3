@@ -57,9 +57,8 @@ var/datum/vueui_module/player_panel/global_player_panel
 	var/list/mobs = sortmobs()
 	
 	LAZYINITLIST(data["players"])
-	if(LAZYLEN(data["players"]) != mobs.len)
-		var/list/players = data["players"]
-		data["players"] = players.Cut()
+	if(data["players"].len != mobs.len)
+		data["players"].Cut()
 	for(var/mob/M in mobs)
 		var/ref = "\ref[M]"
 		if(!M.ckey)

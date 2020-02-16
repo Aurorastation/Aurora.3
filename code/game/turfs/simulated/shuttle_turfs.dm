@@ -95,7 +95,7 @@
 	if(underlay_dir)
 		underlay_fetch_dir = underlay_dir
 	var/turf/T = get_step(src, underlay_fetch_dir)
-	var/mutable_appearance/underlay_appearance = mutable_appearance(null, layer = TURF_LAYER)
+	var/mutable_appearance/underlay_appearance = new(layer = TURF_LAYER)
 	var/list/U = list(underlay_appearance)
 	if(T && !istype(T, /turf/simulated/open))
 		underlay_appearance.appearance = T

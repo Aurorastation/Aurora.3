@@ -14,7 +14,7 @@
 	var/list/localized_fields
 
 	var/manifest_json
-	var/list/list/manifest
+	var/list/manifest
 
 	var/list/citizenships = list()
 	var/list/religions = list()

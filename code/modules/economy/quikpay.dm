@@ -109,7 +109,7 @@
 		var/transaction_purpose = "[destinationact] Payment"
 		var/transaction_terminal = machine_id
 
-		var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact)?.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
+		var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact).account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 
 		if(transaction)
 			to_chat(usr,"\icon[src]<span class='warning'>[transaction].</span>")

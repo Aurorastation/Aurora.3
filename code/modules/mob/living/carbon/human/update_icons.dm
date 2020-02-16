@@ -636,25 +636,23 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	var/image/glasses_overlay = null
+	overlays_raw[GLASSES_LAYER] = null
 	if(check_draw_glasses())
 		if(glasses.contained_sprite)
 			glasses.auto_adapt_species(src)
 			var/state = "[UNDERSCORE_OR_NULL(glasses.icon_species_tag)][glasses.item_state][WORN_EYES]"
 
-			glasses_overlay = image(glasses.icon_override || glasses.icon, state)
+			overlays_raw[GLASSES_LAYER] = image(glasses.icon_override || glasses.icon, state)
 
 		else if(glasses.icon_override)
-			glasses_overlay = image(glasses.icon_override, glasses.icon_state)
+			overlays_raw[GLASSES_LAYER] = image(glasses.icon_override, glasses.icon_state)
 		else if(glasses.sprite_sheets && glasses.sprite_sheets[GET_BODY_TYPE])
-			glasses_overlay = image(glasses.sprite_sheets[GET_BODY_TYPE], glasses.icon_state)
+			overlays_raw[GLASSES_LAYER] = image(glasses.sprite_sheets[GET_BODY_TYPE], glasses.icon_state)
 		else
-			glasses_overlay = image('icons/mob/eyes.dmi', glasses.icon_state)
+			overlays_raw[GLASSES_LAYER] = image('icons/mob/eyes.dmi', glasses.icon_state)
 
 		if(glasses.color)
-			glasses_overlay.color = glasses.color
-
-	overlays_raw[GLASSES_LAYER] = glasses_overlay
+			overlays_raw[GLASSES_LAYER].color = glasses.color
 
 	if(update_icons)
 		update_icons()

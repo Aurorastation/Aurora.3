@@ -192,7 +192,7 @@
 	var/datum/weakref/LAssailant
 
 //Wizard mode, but can be used in other modes thanks to the brand new "Give Spell" badmin button
-	var/list/spell/spell_list
+	var/spell/list/spell_list
 
 //List of active diseases
 

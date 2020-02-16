@@ -15,9 +15,9 @@
 	var/points = 0
 	var/obj/item/card/id/inserted_id
 
-	var/list/ore/input_mats = list()
-	var/list/material/output_mats = list()
-	var/list/datum/alloy/alloy_mats = list()
+	var/ore/list/input_mats = list()
+	var/material/list/output_mats = list()
+	var/datum/alloy/list/alloy_mats = list()
 	var/waste = 0
 	var/idx = 0
 

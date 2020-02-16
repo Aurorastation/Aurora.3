@@ -45,8 +45,9 @@ datum/track/New(var/title_name, var/audio)
 	return ..()
 
 /obj/machinery/media/jukebox/power_change()
-	..()
-	if(!anchored)
+	if(!powered(power_channel) || !anchored)
+		stat |= NOPOWER
+	else
 		stat &= ~NOPOWER
 
 	if(stat & (NOPOWER|BROKEN) && playing)

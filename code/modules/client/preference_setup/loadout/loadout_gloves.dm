@@ -24,7 +24,6 @@
 	gloves["grey gloves"] = /obj/item/clothing/gloves/grey
 	gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow
 	gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather
-	gloves["lyodsuit gloves"] = /obj/item/clothing/gloves/lyodsuit
 	gear_tweaks += new/datum/gear_tweak/path(gloves)
 
 /datum/gear/gloves/evening

@@ -1,6 +1,5 @@
 // Generic data stored in record
 /datum/record
-	var/name
 	var/id
 	var/notes = "No notes found."
 
@@ -26,8 +25,7 @@
 	for(var/variable in src.vars)
 		if(exclusions[variable]) continue
 		if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
-			var/list/V = vars[variable]
-			copied.vars[variable] = V.Copy()
+			copied.vars[variable] = src.vars[variable].Copy()
 		else
 			copied.vars[variable] = src.vars[variable]
 	return copied
@@ -47,21 +45,18 @@
 		if(!exclusions[variable])
 			if(deep && (istype(src.vars[variable], /datum/record)))
 				if(to_update)
-					var/datum/record/R = src.vars[variable]
-					var/listified = R.Listify(to_update = to_update[variable])
+					var/listified = src.vars[variable].Listify(to_update = to_update[variable])
 					if(listified)
 						record[variable] = listified
 						. = record
 				else
-					var/datum/record/R = src.vars[variable]
-					record[variable] = R.Listify()
+					record[variable] = src.vars[variable].Listify()
 			else if(deep && istype(src.vars[variable], /list) && is_list_containing_type(src.vars[variable], /datum/record))
 				record[variable] = list()
 				for(var/subr in src.vars[variable])
 					var/datum/record/r = subr
 					record[variable] += list(r.Listify())
-				var/list/L = to_update[variable]
-				if(L.len != LAZYLEN(record[variable]))
+				if(to_update && to_update[variable].len != record[variable].len)
 					. = record
 			else if(istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])
@@ -82,8 +77,7 @@
 	for(var/variable in src.vars)
 		if(!exclusions[variable])
 			if(istype(src.vars[variable], /datum/record))
-				var/datum/record/R = src.vars[variable]
-				extendedVars[variable] = R
+				extendedVars[variable] = src.vars[variable]
 				// . += "<h3>[variable]</h3>"
 				// . += src.vars[variable].Printify()
 			else if(istype(src.vars[variable], /list))
@@ -93,8 +87,7 @@
 				. += "<b>[get_field_name(variable)]:</b> [src.vars[variable]]<br>"
 	for(var/variable in extendedVars)
 		. += "<center><h3>[get_field_name(variable)]</h3></center>"
-		var/datum/record/R = src.vars[variable]
-		. += R.Printify()
+		. += src.vars[variable].Printify()
 
 /datum/record/proc/get_field_name(var/field)
 	. = SSrecords.localized_fields[src.type][field]
@@ -103,7 +96,7 @@
 
 // Record for storing general data, data tree top level datum
 /datum/record/general
-	name = "New Record"
+	var/name = "New Record"
 	var/real_rank = "Unassigned"
 	var/rank = "Unassigned"
 	var/age = 0
@@ -216,7 +209,7 @@
 /datum/record/warrant
 	var/authorization = "Unauthorized"
 	var/wtype = "Unknown"
-	name = "Unknown"
+	var/name = "Unknown"
 	notes = "No charges present"
 	cmp_field = "name"
 
@@ -227,7 +220,7 @@ var/warrant_uid = 0
 
 // Virus record
 /datum/record/virus
-	name = "Unknown"
+	var/name = "Unknown"
 	var/description = ""
 	var/antigen
 	var/spread_type = "Unknown"

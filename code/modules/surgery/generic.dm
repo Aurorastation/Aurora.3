@@ -368,7 +368,7 @@
 	if(istype(tool, /obj/item/melee/chainsword))//Chainswords rip and tear, so the limb removal is not clean
 		clean = 0
 
-	var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
+	var/var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
 	affected.droplimb(clean,DROPLIMB_EDGE)
 
 	if(istype(tool, /obj/item/melee/energy))//Code for energy weapons cauterising the cut

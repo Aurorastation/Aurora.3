@@ -10,8 +10,7 @@
 	minimal_player_age = 7
 	account_allowed = 0
 	economic_modifier = 0
-
-/datum/job/ai/equip(var/mob/living/carbon/human/H, var/alt_title)
+	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
 		return 1
 
@@ -37,7 +36,7 @@
 	account_allowed = 0
 	economic_modifier = 0
 
-/datum/job/cyborg/equip(var/mob/living/carbon/human/H, var/alt_title)
+	equip(var/mob/living/carbon/human/H)
 		if(!H)	return 0
 		return 1
 
