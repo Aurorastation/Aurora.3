@@ -56,6 +56,11 @@
 #define BP_PRE_HIGH_DIASTOLIC	85
 #define BP_IDEAL_DIASTOLIC 		60
 
+#define BLOOD_PRESSURE_HIGH     4
+#define BLOOD_PRESSURE_PRE_HIGH 3
+#define BLOOD_PRESSURE_IDEAL    2
+#define BLOOD_PRESSURE_LOW      1
+
 //intent flags, why wasn't this done the first time?
 #define I_HELP		"help"
 #define I_DISARM	"disarm"

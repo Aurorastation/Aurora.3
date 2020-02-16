@@ -87,7 +87,7 @@
 			if (!data["alt"])
 				return
 			var/alt = ckey(data["alt"])
-			var/ban = get_stickyban_from_ckey(ckey)
+			var/list/list/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
 				to_chat(usr, "<span class='adminnotice'>Error: No sticky ban for [ckey] found!</span>")
 				return
@@ -159,7 +159,7 @@
 			if (!data["alt"])
 				return
 			var/alt = ckey(data["alt"])
-			var/ban = get_stickyban_from_ckey(ckey)
+			var/list/list/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
 				to_chat(usr, "<span class='adminnotice'>Error: No sticky ban for [ckey] found!</span>")
 				return
@@ -204,7 +204,7 @@
 			if (!data["alt"])
 				return
 			var/alt = ckey(data["alt"])
-			var/ban = get_stickyban_from_ckey(ckey)
+			var/list/list/ban = get_stickyban_from_ckey(ckey)
 			if (!ban)
 				to_chat(usr, "<span class='adminnotice'>Error: No sticky ban for [ckey] found!</span>")
 				return

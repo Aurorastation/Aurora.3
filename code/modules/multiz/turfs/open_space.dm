@@ -12,8 +12,8 @@
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
 	flags = MIMIC_BELOW | MIMIC_OVERWRITE | MIMIC_NO_AO
-
 	roof_type = null
+	footstep_sound = null
 
 	// A lazy list to contain a list of mobs who are currently scaling
 	// up this turf. Used in human/can_fall.
@@ -25,8 +25,7 @@
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
 	if (istype(mover) && isturf(oldloc))
 		if (mover.Check_Shoegrip(FALSE) && mover.can_fall(below, src))
-			to_chat(mover, span("notice",
-				"You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
+			to_chat(mover, span("notice", "You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
 			return FALSE
 
 	return ..()
