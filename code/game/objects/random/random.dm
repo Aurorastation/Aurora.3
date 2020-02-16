@@ -1400,3 +1400,133 @@
 		/obj/item/xmasgift/medium =  0.3,
 		/obj/item/xmasgift/large = 0.2
 	)
+
+/obj/random/weapon_and_ammo
+	name = "random weapon and ammo"
+	desc = "Summons a random weapon, with ammo if applicable"
+	icon = 'icons/obj/guns/xenoblaster.dmi'
+	icon_state = "xenoblaster"
+	has_postspawn = TRUE
+
+	var/list/Shoddy = list(
+		/obj/item/gun/energy/blaster = 1,
+		/obj/item/gun/energy/blaster/carbine = 1,
+		/obj/item/gun/energy/retro = 1,
+		/obj/item/gun/energy/toxgun = 1,
+		/obj/item/gun/projectile/automatic/improvised = 1,
+		/obj/item/gun/projectile/contender = 1,
+		//obj/item/gun/projectile/improvised_handgun/loaded = 1,
+		/obj/item/gun/projectile/leyon = 1,
+		/obj/item/gun/projectile/revolver/derringer = 1,
+		/obj/item/gun/projectile/shotgun/improvised/sawn = 1,
+		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
+		/obj/item/gun/projectile/shotgun/pump/rifle/vintage = 1
+		)
+
+	var/list/Common = list(
+		/obj/item/gun/energy/blaster,
+		/obj/item/gun/energy/blaster/carbine = 1,
+		/obj/item/gun/energy/crossbow/largecrossbow = 1,
+		/obj/item/gun/energy/laser = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/gun/energy/rifle = 1,
+		/obj/item/gun/projectile/automatic/c20r = 1,
+		/obj/item/gun/projectile/automatic/mini_uzi = 1,
+		/obj/item/gun/projectile/automatic/wt550 = 1,
+		/obj/item/gun/projectile/colt = 1,
+		/obj/item/gun/projectile/pistol/sol = 1,
+		/obj/item/gun/projectile/pistol/adhomai = 1,
+		/obj/item/gun/projectile/revolver/detective = 1,
+		/obj/item/gun/projectile/revolver/adhomian = 1,
+		/obj/item/gun/projectile/revolver/deckard = 1,
+		/obj/item/gun/projectile/revolver/lemat = 1,
+		/obj/item/gun/projectile/sec/lethal= 1,
+		/obj/item/gun/projectile/shotgun/doublebarrel/pellet = 1,
+		/obj/item/gun/projectile/shotgun/pump/rifle = 1
+		)
+
+	var/list/Rare = list(
+		/obj/item/gun/energy/blaster/revolver = 1,
+		/obj/item/gun/energy/blaster/rifle = 1,
+		/obj/item/gun/energy/pistol/hegemony = 1,
+		/obj/item/gun/energy/rifle/laser = 1,
+		/obj/item/gun/energy/rifle/ionrifle = 1,
+		/obj/item/gun/energy/vaurca/blaster = 1,
+		/obj/item/gun/energy/xray = 1,
+		/obj/item/gun/projectile/automatic/rifle/sts35 = 1,
+		/obj/item/gun/projectile/automatic/x9 = 1,
+		/obj/item/gun/projectile/deagle = 1,
+		/obj/item/gun/projectile/deagle/adhomai = 1,
+		/obj/item/gun/projectile/dragunov = 1,
+		/obj/item/gun/projectile/gauss = 1,
+		/obj/item/gun/projectile/plasma/bolter = 1,
+		/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
+		/obj/item/gun/projectile/shotgun/pump/combat = 1,
+		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1
+		)
+
+	var/list/Epic = list(
+		/obj/item/gun/energy/decloner = 1,
+		/obj/item/gun/energy/pulse/pistol = 1,
+		/obj/item/gun/energy/decloner = 1,
+		/obj/item/gun/energy/rifle/laser/xray = 1,
+		/obj/item/gun/energy/rifle/laser/tachyon = 1,
+		/obj/item/gun/energy/sniperrifle = 1,
+		/obj/item/gun/energy/tesla = 1,
+		/obj/item/gun/projectile/automatic/rifle/shotgun = 1,
+		/obj/item/gun/projectile/automatic/rifle/sol = 1,
+		/obj/item/gun/projectile/automatic/rifle/w556 = 1,
+		/obj/item/gun/projectile/automatic/rifle/z8 = 1,
+		/obj/item/gun/projectile/cannon = 1,
+		/obj/item/gun/projectile/gyropistol = 1,
+		/obj/item/gun/projectile/heavysniper = 1,
+		/obj/item/gun/projectile/plasma = 1
+		)
+
+	var/list/Legendary = list(
+		/obj/item/gun/energy/lawgiver = 1,
+		/obj/item/gun/energy/pulse = 1,
+		/obj/item/gun/energy/rifle/pulse = 1,
+		/obj/item/gun/projectile/automatic/railgun = 1,
+		/obj/item/gun/projectile/automatic/rifle/l6_saw = 1,
+		/obj/item/gun/projectile/automatic/rifle/minigun = 1,
+		/obj/item/gun/projectile/automatic/terminator = 1,
+		/obj/item/gun/projectile/nuke = 1,
+		/obj/item/gun/projectile/revolver/mateba = 1
+		)
+
+/obj/random/weapon_and_ammo/post_spawn(var/obj/item/gun/projectile/spawned)
+	if(istype(spawned, /obj/item/gun/energy))
+		return
+	if(spawned.magazine_type)
+		message_admins("magazine_type, [spawned.magazine_type]")
+		var/obj/item/ammo_magazine/am = spawned.magazine_type
+		new am(spawned.loc)
+		new am(spawned.loc)
+	else if(istype(spawned, /obj/item/gun/projectile/shotgun) && spawned.caliber == "shotgun")
+		for(var/i = 0; i < 8; i++)
+			new spawned.ammo_type(spawned.loc)
+
+/obj/random/weapon_and_ammo/spawn_item()
+	var/list/possible_rarities = list(
+		"Shoddy" = 25,
+		"Common" = 35,
+		"Rare" = 25,
+		"Epic" = 14,
+		"Legendary" = 1
+		)
+	var/chosen_rarity = pickweight(possible_rarities)
+	message_admins("[chosen_rarity]")
+	var/obj/item/W
+	switch(chosen_rarity)
+		if("Shoddy")
+			W = pickweight(Shoddy)
+		if("Common")
+			W = pickweight(Common)
+		if("Rare")
+			W = pickweight(Rare)
+		if("Epic")
+			W = pickweight(Epic)
+		if("Legendary")
+			W = pickweight(Legendary)
+	. = new W(loc)

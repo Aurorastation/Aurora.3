@@ -10,6 +10,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 8
 	ammo_type = /obj/item/ammo_casing/a357
+	magazine_type = /obj/item/ammo_magazine/a357
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
@@ -47,6 +48,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_mateba.ogg'
 	ammo_type = /obj/item/ammo_casing/a454
+	magazine_type = /obj/item/ammo_magazine/a454
 
 /obj/item/gun/projectile/revolver/detective
 	name = "revolver"
@@ -60,6 +62,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = /obj/item/ammo_magazine/c38
 
 /obj/item/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -157,6 +160,7 @@
 	caliber = "38"
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = /obj/item/ammo_magazine/c38
 	var/secondary_max_shells = 1
 	var/secondary_caliber = "shotgun"
 	var/secondary_ammo_type = /obj/item/ammo_casing/shotgun/pellet
