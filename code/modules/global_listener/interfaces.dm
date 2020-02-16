@@ -67,7 +67,7 @@ Iterating through a listener list:
 	if(istype(O))
 		parent = O
 
-/datum/wifi/Destroy(wifi/device)
+/datum/wifi/Destroy()
 	parent = null
 	return ..()
 
