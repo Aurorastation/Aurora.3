@@ -3,27 +3,15 @@
 	desc = "A sleek, modern combat exosuit."
 	icon_state = "durand"
 
-/mob/living/heavy_vehicle/premade/combat/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/combat(src)
-		arms.color = COLOR_DARK_GUNMETAL
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/combat(src)
-		legs.color = COLOR_DARK_GUNMETAL
-	if(!head)
-		head = new /obj/item/mech_component/sensors/combat(src)
-		head.color = COLOR_DARK_GUNMETAL
-	if(!body)
-		body = new /obj/item/mech_component/chassis/combat(src)
-		body.color = COLOR_DARK_GUNMETAL
+	e_head = /obj/item/mech_component/sensors/combat
+	e_body = /obj/item/mech_component/chassis/combat
+	e_arms = /obj/item/mech_component/manipulators/combat
+	e_legs = /obj/item/mech_component/propulsion/combat
+	e_color = COLOR_DARK_GUNMETAL
 
-	. = ..()
-
-/mob/living/heavy_vehicle/premade/combat/spawn_mech_equipment()
-	..()
-	install_system(new /obj/item/mecha_equipment/mounted_system/blaster(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/taser/ion(src), HARDPOINT_RIGHT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/grenadetear(src), HARDPOINT_RIGHT_SHOULDER)
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/grenadetear
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/blaster
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/taser/ion
 
 /obj/item/mech_component/manipulators/combat
 	name = "combat arms"
