@@ -49,7 +49,7 @@
 
 /mob/living/simple_animal/construct/Initialize()
 	. = ..()
-	var/list/construct_descriptors = list("lumbering", "ponderous", "rumbling", "sleek", "solid", "ephemeral", "dense", "shimmering", "dull", "glittering", "shining", "sluggish", "quiet", "ominious", "weighty", "mysterious")
+	var/static/list/construct_descriptors = list("lumbering", "ponderous", "rumbling", "sleek", "solid", "ephemeral", "dense", "shimmering", "dull", "glittering", "shining", "sluggish", "quiet", "ominious", "weighty", "mysterious")
 	name = "[capitalize(pick(construct_descriptors))] [initial(name)]"
 	real_name = name
 	add_language("Cult")
