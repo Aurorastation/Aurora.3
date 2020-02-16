@@ -826,7 +826,10 @@
 	cut_overlays()
 
 	if(stat == CONSCIOUS)
-		add_overlay("eyes-[module_sprites[icontype]]")
+		if(a_intent == "help")
+			add_overlay("eyes-[module_sprites[icontype]]-help")
+		else
+			add_overlay("eyes-[module_sprites[icontype]]-harm")
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
