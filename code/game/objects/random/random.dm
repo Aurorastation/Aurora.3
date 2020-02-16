@@ -209,7 +209,7 @@
 /obj/random/energy
 	name = "Random Energy Weapon"
 	desc = "This is a random security weapon."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energykill100"
 	problist = list(
 		/obj/item/gun/energy/rifle/laser = 2,
@@ -220,8 +220,8 @@
 /obj/random/projectile
 	name = "Random Projectile Weapon"
 	desc = "This is a random security weapon."
-	icon = 'icons/obj/gun.dmi'
-	icon_state = "revolver"
+	icon = 'icons/obj/guns/cshotgun.dmi'
+	icon_state = "cshotgun"
 	problist = list(
 		/obj/item/gun/projectile/shotgun/pump = 3,
 		/obj/item/gun/projectile/automatic/wt550 = 2,
@@ -231,8 +231,8 @@
 /obj/random/handgun
 	name = "Random Handgun"
 	desc = "This is a random security sidearm."
-	icon = 'icons/obj/gun.dmi'
-	icon_state = "secgundark"
+	icon = 'icons/obj/guns/secgun.dmi'
+	icon_state = "secgun"
 	problist = list(
 		/obj/item/gun/projectile/sec = 3,
 		/obj/item/gun/projectile/sec/wood = 1
@@ -650,7 +650,7 @@
 /obj/random/energy_antag
 	name = "random energy weapon"
 	desc = "This is a random energy weapon."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/retro.dmi'
 	icon_state = "retro100"
 	spawnlist = list(
 		/obj/item/gun/energy/retro,
@@ -1307,8 +1307,8 @@
 /obj/random/vault_weapon
 	name = "random vault weapon"
 	desc = "This is a random vault weapon."
-	icon = 'icons/obj/gun.dmi'
-	icon_state = "retro100"
+	icon = 'icons/obj/guns/caplaser.dmi'
+	icon_state = "caplaser"
 	spawnlist = list(
 		/obj/item/gun/custom_ka/frameA/prebuilt = 1,
 		/obj/item/gun/custom_ka/frameB/prebuilt = 0.5,

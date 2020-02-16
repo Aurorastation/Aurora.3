@@ -329,7 +329,7 @@
 					else if(H.client && H.willfully_sleeping)
 						message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
 						H.sleeping = 0
-						H.willfully_sleeping = 0
+						H.willfully_sleeping = FALSE
 					else
 						message = "<span class='danger'>slaps [M] across the face. Ouch!</span>"
 				else

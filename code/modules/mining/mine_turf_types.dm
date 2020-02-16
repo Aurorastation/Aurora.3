@@ -63,7 +63,7 @@
 	canSmoothWith = null
 	openspace_override_type = /turf/simulated/open/chasm/airless
 
-	footstep_sound = "concretestep"
+	footstep_sound = "asteroid"
 
 /turf/unsimulated/floor/asteroid/basalt/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.icon = icon
@@ -92,7 +92,7 @@
 	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
-	footstep_sound = "sandstep"
+	footstep_sound = "sand"
 
 /turf/unsimulated/floor/asteroid/ash/Initialize()
 	. = ..()
@@ -105,4 +105,3 @@
 	base_icon_state = "rockyash"
 	base_icon = 'icons/turf/smooth/rocky_ash.dmi'
 	desc = "A fine grey ash. Seems to contain medium-sized rocks."
-	footstep_sound = "gravelstep"

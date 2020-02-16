@@ -152,3 +152,9 @@
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy! miniature cookies"
 	icon_state = "cookiesnack"
+
+/obj/item/trash/stew
+	name = "empty pot"
+	icon = 'icons/obj/food.dmi'
+	icon_state = "stew_empty"
+	drop_sound = 'sound/items/drop/shovel.ogg'

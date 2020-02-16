@@ -1,6 +1,7 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
 	desc = "The revised Mark II Necropolis Industries revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
+	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
 	accuracy = 1
@@ -37,7 +38,9 @@
 /obj/item/gun/projectile/revolver/mateba
 	name = "mateba"
 	desc = "The Mateba .454 Autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
+	icon = 'icons/obj/guns/mateba.dmi'
 	icon_state = "mateba"
+	item_state = "mateba"
 	max_shells = 7
 	accuracy = 2
 	caliber = "454"
@@ -48,7 +51,9 @@
 /obj/item/gun/projectile/revolver/detective
 	name = "revolver"
 	desc = "A cheap Martian knock-off of a Smith & Wesson Model 10. Uses .38-Special rounds."
+	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
+	item_state = "detective"
 	max_shells = 6
 	accuracy = 1
 	caliber = "38"
@@ -80,7 +85,9 @@
 	desc = "A custom-built revolver, based off the semi-popular Detective Special model."
 	max_shells = 6
 	accuracy = 2
+	icon = 'icons/obj/guns/deckard.dmi'
 	icon_state = "deckard-empty"
+	item_state = "deckard"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
@@ -103,8 +110,9 @@
 /obj/item/gun/projectile/revolver/derringer
 	name = "derringer"
 	desc = "A small pocket pistol, easily concealed. Uses .357 rounds."
+	icon = 'icons/obj/guns/derringer.dmi'
 	icon_state = "derringer"
-	item_state = "concealed"
+	item_state = "derringer"
 	accuracy = -1
 	w_class = 2
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
@@ -116,8 +124,9 @@
 /obj/item/gun/projectile/revolver/capgun
 	name = "cap gun"
 	desc = "Looks almost like the real thing! Ages 8 and up."
+	icon = 'icons/obj/guns/capgun.dmi'
 	icon_state = "capgun"
-	item_state = "revolver"
+	item_state = "capgun"
 	caliber = "caps"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	handle_casings = CYCLE_CASINGS
@@ -129,14 +138,17 @@
 	if(!W.iswirecutter() || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
+	icon = 'icons/obj/guns/revolver.dmi'
 	name = "revolver"
 	icon_state = "revolver"
+	item_state = "revolvers"
 	desc += " Someone snipped off the barrel's toy mark. How dastardly."
 	return 1
 
 /obj/item/gun/projectile/revolver/lemat
 	name = "grapeshot revolver"
 	desc = "A six shot revolver with a secondary firing barrel loading shotgun shells. Uses .38-Special and 12g rounds depending on the barrel."
+	icon = 'icons/obj/guns/lemat.dmi'
 	icon_state = "lemat"
 	item_state = "lemat"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -229,7 +241,9 @@
 /obj/item/gun/projectile/revolver/adhomian
 	name = "adhomian service revolver"
 	desc = "The Royal Firearms Service Revolver is a simple and reliable design, favored by the nobility of the New Kingdom of Adhomai."
+	icon = 'icons/obj/guns/adhomian_revolver.dmi'
 	icon_state = "adhomian_revolver"
+	item_state = "adhomian_revolver"
 	caliber = "38"
 	max_shells = 7
 	load_method = SINGLE_CASING

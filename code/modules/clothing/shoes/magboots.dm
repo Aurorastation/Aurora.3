@@ -15,7 +15,7 @@
 	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/clothing/shoes/magboots/proc/set_slowdown()
-	slowdown = shoes? max(SHOES_SLOWDOWN, shoes.slowdown): SHOES_SLOWDOWN	//So you can't put on magboots to make you walk faster.
+	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.
 	if (magpulse)
 		slowdown += 3
 

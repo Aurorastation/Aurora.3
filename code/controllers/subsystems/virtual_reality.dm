@@ -10,7 +10,15 @@
 	var/list/mechs = list() // A list of lists, containing the mechs and their networks
 
 	// IPC BODIES
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of e50f451873... Revert "Trying to fix a p. big mistake, I think."
 	var/list/robotnetworks = list("remoterobots", "bunkerrobots")
+=======
+	var/list/robotnetworks = list("remoterobots", "bunkerrobots", "prisonrobots")
+>>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
 	var/list/robots = list()
 
 /datum/controller/subsystem/virtualreality/New()

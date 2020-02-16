@@ -19,7 +19,7 @@
 
 	var/last_dock_attempt_time = 0
 
-/datum/shuttle/ferry/short_jump(var/area/origin,var/area/destination)
+/datum/shuttle/ferry/short_jump(var/area/origin, var/area/destination)
 	if(isnull(location))
 		return
 
