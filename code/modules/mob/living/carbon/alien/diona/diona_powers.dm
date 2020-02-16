@@ -303,12 +303,8 @@
 			for(var/mob/living/carbon/alien/diona/DIO in src.birds_of_feather) //its me!
 				DIO.master_nymph = D
 			break
-<<<<<<< HEAD
 		return 1
 	..()
-=======
-		return TRUE
->>>>>>> upstream/master
 
 /mob/living/carbon/proc/echo_eject()
 	set category = "Abilities"
@@ -364,85 +360,4 @@
 		return
 	
 	consume_nutrition_from_air = !consume_nutrition_from_air
-<<<<<<< HEAD
 	to_chat(src, span("notice", "You [consume_nutrition_from_air ? "started" : "stopped"] consuming air for nutrition."))
-=======
-	to_chat(src, span("notice", "You [consume_nutrition_from_air ? "started" : "stopped"] consuming air for nutrition."))
-
-/mob/living/carbon/human/proc/create_structure()
-	set category = "Abilities"
-	set name = "Create Structure"
-	set desc = "Expend nymphs or biomass to create structures."
-
-	if(!is_diona(src))
-		to_chat(src, span("danger", "You are not a Diona! You should not have this ability."))
-		log_debug("Non-Diona [name] had Create Structure ability.")
-		return
-
-	if(use_check_and_message(src))
-		return
-
-	var/can_use_biomass
-	if(nutrition >= max_nutrition * 0.25)
-		can_use_biomass = TRUE
-
-	var/can_use_limbs = TRUE
-	var/list/viable_limbs = list(BP_L_ARM, BP_R_ARM)
-	for(var/limb in viable_limbs)
-		var/obj/item/organ/external/O = organs_by_name[limb]
-		if(!O)
-			can_use_limbs = FALSE
-			break
-
-	var/build_method // What are we using to build this thing?
-	if(can_use_biomass)
-		to_chat(src, span("notice", "We will expend biomass to create this structure."))
-		build_method = "biomass"
-	else if(can_use_limbs)
-		to_chat(src, span("notice", "We will detach our arm nymphs and have them form the structure."))
-		build_method = "nymphs"
-	else
-		to_chat(src, span("notice", "We do not have the nymphs nor the biomass to do this!"))
-		return
-	
-	var/list/diona_structures = list(
-			"Wall" = /turf/simulated/wall/diona,
-			"Floor" = /turf/simulated/floor/diona,
-			"Glow Bulb" = /obj/structure/diona/bulb/unpowered,
-			"Cancel" = null
-			)
-
-	var/chosen_structure
-	chosen_structure = input("Choose a structure to grow.") in diona_structures
-	if(!chosen_structure || chosen_structure == "Cancel")
-		to_chat(src, span("warning", "We have elected to not grow anything right now."))
-		return
-
-	if(use_check_and_message(src))
-		return
-	
-	if(chosen_structure)
-		to_chat(src, span("notice", "We are now creating a [lowertext(chosen_structure)] using our [build_method]..."))
-
-	if(do_after(src, 50))
-		if(build_method == "biomass") // checking again, a lot can change in a short amount of time - geeves
-			if(nutrition >= max_nutrition * 0.25)
-				nutrition -= max_nutrition * 0.25
-			else
-				to_chat(src, span("warning", "We do not have enough biomass!"))
-				return
-		else if(build_method == "nymphs")
-			for(var/limb in viable_limbs)
-				var/obj/item/organ/external/O = organs_by_name[limb]
-				if(!O)
-					to_chat(src, span("warning", "We lost our arm while constructing!"))
-					return
-				O.droplimb(TRUE, DROPLIMB_EDGE)
-				qdel(O)
-		var/structure_path = diona_structures[chosen_structure]
-		var/turf/T = get_turf(src)
-		if(ispath(structure_path, /turf))
-			T.ChangeTurf(structure_path)
-		else
-			new structure_path(T)
->>>>>>> upstream/master
