@@ -38,5 +38,17 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Recolored and added lots of Landmate and Treadmate 'borg sprites, cleaned up the names some."
-  - tweak: "Recolored some basic 'borg sprites."
+  - tweak: "Removed all of the old humanoid legacy sprites from the available module options."
+  - tweak: "Replaced the Spiderborgs with the 'Unbranded Android' (The exoskeleton with a visible posibrain and a v. intricate electricity animation)"
+  - tweak: "Removed *all* of the red crosses from the 'borg sprites, they're green now."
+  - bugfix: "Created eye overlays for all of my old treadmate/landmate sprite recolors and streamlined their sprite names to be consistent among every variant including the legacy ones."
+  - imageadd: "Created a new Treadhead sprite and eye overlays and recolor it for every department."
+  - imageadd: "Created new toiletbot sprites and eye overlays recolored them for every department."
+  - rscadd: "Implemented a new 'borg eye overlay system that allows locking them to intent, help or harm. I've decided to go with green for help and blue for harm."
+  - imageadd: "Created the new SD-MAD hoverbot series."
+  - imageadd: "Created the new off-brand MAD hoverbot series."
+  - imageadd: "Added the new HD-MAD series."
+  - imageadd: "Added the new Repo-Icarus-Drone series."
+  - imageadd: "Recolored the Medical 'Droid sprite for every department, making it less medical and more multipurpose looking."
+  - imagedel: "Removed the heavy sprite series from available sprite options."
+  - imageadd: "Added the new 'Tau-Ceti-Drone' (Old Drone sprite) by popular request."
