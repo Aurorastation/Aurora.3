@@ -130,6 +130,6 @@
 	path = /obj/item/gun/custom_ka/frame01/illegal
 
 /datum/uplink_item/item/visible_weapons/random_weapon
-	name = "Random gun"
+	name = "Random Gun"
 	item_cost = 13
 	path = /obj/item/storage/box/syndie_kit/random_weapon
