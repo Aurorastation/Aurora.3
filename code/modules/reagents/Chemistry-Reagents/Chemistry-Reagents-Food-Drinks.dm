@@ -284,7 +284,7 @@
 	color = "#c79705"
 	touch_met = 1.5
 	var/lastburnmessage = 0
-	taste_description = "some short of oil"
+	taste_description = "some sort of oil"
 	taste_mult = 0.1
 
 /datum/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T)
