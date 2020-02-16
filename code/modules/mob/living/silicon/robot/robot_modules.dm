@@ -352,6 +352,7 @@ var/global/list/robot_modules = list(
 			"Unbranded-MAD" = "offfloatspizzytronengi",
 			"Unbranded-Android" = "droid",
 			)
+
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/engineering/construction
@@ -665,6 +666,7 @@ var/global/list/robot_modules = list(
 			"Unbranded-MAD" = "offfloatspizzytronmine",
 			"Unbranded-Android" = "droid",
 			)
+
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/miner/New()

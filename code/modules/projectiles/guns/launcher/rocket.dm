@@ -1,6 +1,7 @@
 /obj/item/gun/launcher/rocket
 	name = "rocket launcher"
 	desc = "MAGGOT."
+	icon = 'icons/obj/guns/rocket.dmi'
 	icon_state = "rocket"
 	item_state = "rocket"
 	w_class = 4.0

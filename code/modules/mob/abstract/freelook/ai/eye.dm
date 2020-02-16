@@ -48,9 +48,8 @@
 	if(client)
 		client.eye = new_eye
 
-/mob/living/silicon/ai/proc/create_eyeobj(var/newloc)
+/mob/living/silicon/ai/proc/create_eyeobj(var/newloc = get_turf(src))
 	if(eyeobj) destroy_eyeobj()
-	if(!newloc) newloc = get_turf(src)
 	eyeobj = new /mob/abstract/eye/aiEye(newloc)
 	eyeobj.possess(src)
 

@@ -5,12 +5,16 @@
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
 <<<<<<< HEAD
+<<<<<<< HEAD
 	desc = "The DeForest Medical Corporation hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
 =======
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
 	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
 	description_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 >>>>>>> upstream/master
+=======
+	desc = "The Zeng-Hu Pharmaceuticals hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
+>>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
@@ -22,18 +26,32 @@
 	slot_flags = SLOT_BELT
 <<<<<<< HEAD
 	center_of_mass = null
+	drop_sound = 'sound/items/drop/bottle.ogg'
 	var/armorcheck = 1
 	var/time = 3 SECONDS
+<<<<<<< HEAD
 =======
 	drop_sound = 'sound/items/drop/gun.ogg'
 	var/armorcheck = 1
 	var/time = 3 SECONDS
 	var/image/filling //holds a reference to the current filling overlay
 >>>>>>> upstream/master
+=======
+	var/has_level_sprites = TRUE
+>>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
 	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
+
+/obj/item/reagent_containers/hypospray/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/reagent_containers/hypospray/on_reagent_change()
+	update_icon()
+	return
 
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
+<<<<<<< HEAD
 <<<<<<< HEAD
 	desc = "The DeForest Medical Corporation premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
 =======
@@ -42,6 +60,10 @@
 	description_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 >>>>>>> upstream/master
+=======
+	desc = "The Zeng-Hu Pharmaceuticalsn premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
+	item_state = "cmo_hypo"
+>>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
 	volume = 30
 	time = 0
 
@@ -56,6 +78,7 @@
 		if(!do_mob(user, M, inj_time))
 			return 1
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 /obj/item/reagent_containers/hypospray/update_icon()
@@ -72,6 +95,24 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 >>>>>>> upstream/master
+=======
+/obj/item/reagent_containers/hypospray/update_icon()
+	if(!has_level_sprites)
+		return
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 25)
+			icon_state = "[item_state]"
+		if(26 to 50)
+			icon_state = "[item_state]_25"
+		if(51 to 75)
+			icon_state = "[item_state]_50"
+		if(76 to 99)
+			icon_state = "[item_state]_75"
+		if(100 to INFINITY)
+			icon_state = "[item_state]_100"
+
+>>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
 /obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
@@ -110,6 +151,7 @@
 	amount_per_transfer_from_this = 5
 	volume = 5
 	time = 0
+	has_level_sprites = FALSE
 
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
@@ -204,6 +246,7 @@
 	volume = 20
 	armorcheck = 0
 	time = 0
+	has_level_sprites = FALSE
 
 /obj/item/reagent_containers/hypospray/combat/Initialize()
 	. = ..()

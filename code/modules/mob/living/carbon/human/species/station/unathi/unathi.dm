@@ -16,7 +16,8 @@
 	)
 	primitive_form = "Stok"
 	darksight = 3
-	gluttonous = GLUT_SMALLER|GLUT_ITEM_TINY
+	gluttonous = GLUT_MESSY
+	stomach_capacity = 7
 	slowdown = 0.5
 
 	brute_mod = 0.8
@@ -90,7 +91,7 @@
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)
-	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
+	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
 	default_citizenship = CITIZENSHIP_IZWESKI
 
 	zombie_type = "Unathi Zombie"

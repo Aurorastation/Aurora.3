@@ -10,6 +10,9 @@
 	idle_power_usage = 5
 	active_power_usage = 2000
 	flags = OPENCONTAINER | NOREACT
+	clicksound = "button"
+	clickvol = "30"
+
 	var/operating = FALSE // Is it on?
 	var/dirty = 0 // = {0..100} Does it need cleaning?
 	var/broken = 0 // ={0,1,2} How broken is it???
@@ -255,9 +258,9 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 
 	// if BYOND lists are smaller than UI, then something (or everything) was removed - wipe the list
 	if(LAZYLEN(contents) < LAZYLEN(data["cookingobjs"]))
-		VUEUI_SET_CHECK(data["cookingobjs"], list(), ., data)
+		VUEUI_SET_CHECK_LIST(data["cookingobjs"], list(), ., data)
 	if(LAZYLEN(reagents.reagent_list) < LAZYLEN(data["cookingreas"]))
-		VUEUI_SET_CHECK(data["cookingreas"], list(), ., data)
+		VUEUI_SET_CHECK_LIST(data["cookingreas"], list(), ., data)
 
 	// build the list of objs and reagents
 	if (LAZYLEN(contents))

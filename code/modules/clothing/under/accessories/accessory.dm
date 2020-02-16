@@ -395,7 +395,6 @@
 	item_state = "classicponcho"
 	icon_override = 'icons/mob/ties.dmi'
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
@@ -613,6 +612,13 @@
 	icon_state = "galaxycape"
 	item_state = "galaxycape"
 	overlay_state = "galaxycape"
+
+/obj/item/clothing/accessory/poncho/trinary
+    name = "trinary perfection cape"
+    desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
+    icon_state = "trinary_cape"
+    item_state = "trinary_cape"
+    overlay_state = "trinary_cape"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion

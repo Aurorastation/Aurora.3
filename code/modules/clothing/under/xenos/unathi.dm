@@ -108,3 +108,25 @@
 		to_chat(usr, span("notice", "You roll up your [src]'s sleeves."))
 		rolled_sleeves = TRUE
 	update_clothing_icon()
+
+/obj/item/clothing/suit/unathi/mantle/wrapping
+	name = "unathi wrappings"
+	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
+	description_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "thakh_wrappings" //special thanks to Araskael
+	item_state = "thakh_wrappings"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+	flags_inv = HIDEJUMPSUIT|HIDETAIL
+	species_restricted = list("Unathi")
+	contained_sprite = TRUE
+
+/obj/item/clothing/mask/gas/wrapping
+	name = "unathi head wrappings"
+	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
+	description_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "thakh_mask" //special thanks to Araskael
+	item_state = "thakh_mask"
+	species_restricted = list("Unathi")
+	contained_sprite = TRUE

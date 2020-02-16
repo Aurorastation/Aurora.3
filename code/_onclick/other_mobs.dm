@@ -79,16 +79,17 @@
 		return
 
 	// Eating
-	if(Victim)
-		if (Victim == A)
+	if(victim)
+		if (victim == A)
 			Feedstop()
 		return
 
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	var/mob/living/M = A
-	if (istype(M))
-
+	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content)
+		return
+	if(istype(M))
 		switch(src.a_intent)
 			if (I_HELP) // We just poke the other
 				M.visible_message("<span class='notice'>[src] gently pokes [M]!</span>", "<span class='notice'>[src] gently pokes you!</span>")
@@ -100,15 +101,21 @@
 						var/mob/living/carbon/human/H = M
 						stunprob *= H.species.siemens_coefficient
 
-
 					switch(power * 10)
-						if(0) stunprob *= 10
-						if(1 to 2) stunprob *= 20
-						if(3 to 4) stunprob *= 30
-						if(5 to 6) stunprob *= 40
-						if(7 to 8) stunprob *= 60
-						if(9) 	   stunprob *= 70
-						if(10) 	   stunprob *= 95
+						if(0)
+							stunprob *= 10
+						if(1 to 2)
+							stunprob *= 20
+						if(3 to 4)
+							stunprob *= 30
+						if(5 to 6)
+							stunprob *= 40
+						if(7 to 8)
+							stunprob *= 60
+						if(9)
+							stunprob *= 70
+						if(10)
+							stunprob *= 95
 
 				if(prob(stunprob))
 					powerlevel = max(0, powerlevel-3)
