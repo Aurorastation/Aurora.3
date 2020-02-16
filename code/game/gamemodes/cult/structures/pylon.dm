@@ -326,8 +326,7 @@
 	A.launch_projectile(target)
 	next_shot = world.time + shot_delay
 	A = null //So projectiles can GC
-	spawn(shot_delay + 1)
-		handle_firing()
+	addtimer(CALLBACK(src, .proc/handle_firing), shot_delay + 1)
 
 /obj/structure/cult/pylon/attack_hand(mob/M)
 	if (M.a_intent == "help")
