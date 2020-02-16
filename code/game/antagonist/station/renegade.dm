@@ -16,25 +16,6 @@ var/datum/antagonist/renegade/renegades
 
 	bantype = "renegade"
 
-	var/list/spawn_guns = list(
-		/obj/item/gun/energy/gun,
-		/obj/item/gun/energy/retro,
-		/obj/item/gun/energy/xray,
-		/obj/item/gun/projectile/revolver,
-		/obj/item/gun/projectile/revolver/deckard,
-		/obj/item/gun/projectile/revolver/adhomian,
-		/obj/item/gun/projectile/automatic/c20r,
-		/obj/item/gun/projectile/deagle,
-		/obj/item/gun/projectile/pistol,
-		/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
-		/obj/item/gun/projectile/automatic,
-		/obj/item/gun/projectile/automatic/c20r,
-		/obj/item/gun/projectile/automatic/tommygun,
-		/obj/item/gun/projectile/automatic/mini_uzi,
-		/obj/item/gun/projectile/tanto
-		)
-
 /datum/antagonist/renegade/New()
 	..()
 	renegades = src
@@ -53,10 +34,9 @@ var/datum/antagonist/renegade/renegades
 	if(!..())
 		return
 
-	var/gun_type = pick(spawn_guns)
 	if(!player.back)
 		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
-	player.equip_to_slot_or_del(new gun_type(player), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/storage/box/syndie_kit/random_weapon(player), slot_in_backpack)
 
 /proc/rightandwrong()
 	to_chat(usr, "<B>You summoned guns!</B>")
