@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - backend: "Made mechs a bit better to work with behind the scenes, as well as put some future goodies into work."
