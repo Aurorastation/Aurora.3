@@ -61,4 +61,4 @@
 
 /obj/effect/rune/manifest/Destroy()
 	apparition_check()
-	. = ..()
+	return ..()
