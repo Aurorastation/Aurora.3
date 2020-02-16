@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "New trash states for cup ramen and coffee cups! Check them out!"
   - imageadd: "Tweaks some drink sprites, namely soda cans."
+  - soundadd: "New paper cup sound and tweaks the coffee vend sound again."
