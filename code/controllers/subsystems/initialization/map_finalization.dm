@@ -53,6 +53,7 @@
 
 	var/list/subfolders = get_subfolders(map_directory)
 
+	//Build the list of available missions
 	for(var/folder in subfolders)
 		var/list/mission_config = null
 		var/datum/away_mission/am = null
@@ -91,9 +92,21 @@
 		return
 
 	log_ss("map_finalization", "Loaded ruin config.")
+
+	//Check if we have a enforced mission we should try to load.
+	if(SSpersist_config.forced_awaymission)
+		if(SSpersist_config.forced_awaymission in mission_list)
+			selected_mission = mission_list[SSpersist_config.forced_awaymission]
+			log_ss("map_finalization", "Selected enforced away mission.")
+			admin_notice("<span class='danger'>Selected enforced away mission.</span>", R_DEBUG)
+			return
+		else
+			log_ss("map_finalization", "Failed to selected enforced away mission. Fallback to weighted selection.")
+			admin_notice("<span class='danger'>Failed to selected enforced away mission. Fallback to weighted selection.</span>", R_DEBUG)
+
 	var/mission_name = pickweight(weighted_mission_list)
 	selected_mission = mission_list[mission_name]
-	admin_notice("<span class='danger'>Selected Away Mission.</span>", R_DEBUG)
+	admin_notice("<span class='danger'>Selected away mission.</span>", R_DEBUG)
 	return
 
 /datum/controller/subsystem/finalize/proc/load_space_ruin()
