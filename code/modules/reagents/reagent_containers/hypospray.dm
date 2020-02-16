@@ -4,9 +4,7 @@
 
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
-	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
-	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
-	description_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
+	desc = "The Zeng-Hu Pharmaceuticals hypospray is a sterile, air-needle autoinjector for administration of drugs to patients."
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
@@ -16,10 +14,11 @@
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
-	drop_sound = 'sound/items/drop/gun.ogg'
+	center_of_mass = null
+	drop_sound = 'sound/items/drop/bottle.ogg'
 	var/armorcheck = 1
 	var/time = 3 SECONDS
-	var/image/filling //holds a reference to the current filling overlay
+	var/has_level_sprites = TRUE
 	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/hypospray/Initialize()
@@ -32,10 +31,8 @@
 
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
-	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
-	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
-	description_info = "This version of the hypospray has no delay before injecting a patient with reagent."
-	icon_state = "cmo_hypo"
+	desc = "The Zeng-Hu Pharmaceuticalsn premium hypospray is a cutting-edge, sterile, air-needle autoinjector for rapid administration of drugs to patients."
+	item_state = "cmo_hypo"
 	volume = 30
 	time = 0
 
@@ -43,7 +40,7 @@
 	. = ..()
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
-		user.visible_message(span("warning", "\The [user] is trying to inject \the [M] with \the [src]!"),span("notice", "You are trying to inject \the [M] with \the [src]."))
+		user.visible_message("<span class='warning'>\The [user] is trying to inject \the [M] with \the [src]!</span>","<span class='notice'>You are trying to inject \the [M] with \the [src].</span>")
 		var/inj_time = time
 		if(armorcheck && H.run_armor_check(target_zone,"melee",0,"Your armor slows down the injection!","Your armor slows down the injection!"))
 			inj_time += 6 SECONDS
@@ -51,18 +48,21 @@
 			return 1
 
 /obj/item/reagent_containers/hypospray/update_icon()
-	cut_overlays()
+	if(!has_level_sprites)
+		return
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 25)
+			icon_state = "[item_state]"
+		if(26 to 50)
+			icon_state = "[item_state]_25"
+		if(51 to 75)
+			icon_state = "[item_state]_50"
+		if(76 to 99)
+			icon_state = "[item_state]_75"
+		if(100 to INFINITY)
+			icon_state = "[item_state]_100"
 
-	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
-	icon_state = "[initial(icon_state)]_[rounded_vol]"
-
-	if(reagents.total_volume)
-		filling = image('icons/obj/syringe.dmi', src, "[initial(icon_state)][volume]")
-
-		filling.icon_state = "[initial(icon_state)][rounded_vol]"
-
-		filling.color = reagents.get_color()
-		add_overlay(filling)
 /obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
@@ -72,13 +72,13 @@
 		return
 
 	if(!reagents.total_volume)
-		to_chat(user,span("warning", "\The [src] is empty."))
+		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
-	to_chat(user,span("notice", "You inject \the [M] with \the [src]."))
-	to_chat(M,span("notice", "You feel a tiny prick!"))
+	to_chat(user,"<span class='notice'>You inject \the [M] with \the [src].</span>")
+	to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
 	playsound(src, 'sound/items/hypospray.ogg',25)
 
 	if(M.reagents)
@@ -86,7 +86,7 @@
 		var/temp = reagents.get_temperature()
 		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
 		admin_inject_log(user, M, src, contained, temp, trans)
-		to_chat(user,span("notice", "[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
+		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
 
 	update_icon()
 	return TRUE
@@ -101,6 +101,7 @@
 	amount_per_transfer_from_this = 5
 	volume = 5
 	time = 0
+	has_level_sprites = FALSE
 
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
@@ -109,25 +110,25 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
 	if(is_open_container())
-		to_chat(user,span("notice", "You must secure the reagents inside \the [src] before using it!"))
+		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
-			to_chat(user,span("notice", "With a quick twist of \the [src]'s lid, you secure the reagents inside."))
+			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
 			flags &= ~OPENCONTAINER
 			update_icon()
 		else
-			to_chat(user,span("notice", "You can't secure \the [src] without putting reagents in!"))
+			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
 	else
-		to_chat(user,span("notice", "The reagents inside \the [src] are already secured."))
+		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
 /obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,span("notice", "Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
+		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the autoinjector's lid.</span>") // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
 		return
@@ -142,9 +143,9 @@
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
 	if(reagents && reagents.reagent_list.len)
-		to_chat(user, span("notice", "It is currently loaded."))
+		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
 	else
-		to_chat(user, span("notice", "It is empty."))
+		to_chat(user, "<span class='notice'>It is empty.</span>")
 
 
 /obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
@@ -195,6 +196,7 @@
 	volume = 20
 	armorcheck = 0
 	time = 0
+	has_level_sprites = FALSE
 
 /obj/item/reagent_containers/hypospray/combat/Initialize()
 	. = ..()
