@@ -62,6 +62,7 @@ var/datum/vueui_module/player_panel/global_player_panel
 		data["players"] = players.Cut()
 	for(var/mob/M in mobs)
 		var/ref = "\ref[M]"
+		LAZYINITLIST(data["players"][ref])
 		if(!M.ckey)
 			data["players"][ref] = FALSE
 			continue
