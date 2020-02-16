@@ -26,6 +26,7 @@
 	..()
 	var/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
+	jackets["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
@@ -232,6 +233,10 @@
 	path = /obj/item/clothing/suit/security/navyhos
 	allowed_roles = list("Head of Security")
 
+/datum/gear/suit/dominia_cape
+	display_name = "dominia cape"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape
+
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
 	description = "A selection of Dominian coats."
@@ -240,11 +245,9 @@
 /datum/gear/suit/dominia/New()
 	..()
 	var/coat = list()
-	coat["dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia
-	coat["dominia great coat, alternative"] = /obj/item/clothing/suit/storage/toggle/dominia/alt
-	coat["dominia cape"] = /obj/item/clothing/suit/storage/dominia
+	coat["dominia great coat, red"] = /obj/item/clothing/suit/storage/toggle/dominia
+	coat["dominia great coat, gold"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
-	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/legion_jacket

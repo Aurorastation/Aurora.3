@@ -330,7 +330,10 @@
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
-		flick("paper_onfire", src)
+		if(icon_state == "scrap")
+			flick("scrap_onfire", src)
+		else
+			flick("paper_onfire", src)
 
 		//I was going to add do_after in here, but keeping the current method allows people to burn papers they're holding, while they move. That seems fine to keep -Nanako
 		spawn(20)
@@ -534,8 +537,6 @@
 		to_chat(user, span("notice", "You stamp the paper with \the [P]."))
 
 	else if(istype(P, /obj/item/flame) || P.iswelder())
-		burnpaper(P, user)
-	else if(P.iswelder())
 		burnpaper(P, user)
 
 	update_icon()

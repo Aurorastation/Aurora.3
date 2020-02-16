@@ -70,7 +70,7 @@
 		setClickCooldown(15)
 		return
 
-	if(!get_cell().checked_use(arms.power_use * CELLRATE))
+	if(!(get_cell()?.checked_use(arms.power_use * CELLRATE)))
 		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
 
 	if(user != src)
@@ -291,7 +291,7 @@
 			return
 		Move(target_loc, direction)
 	else
-		get_cell().use(legs.power_use * CELLRATE)
+		get_cell()?.use(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_move = world.time + legs.turn_delay
@@ -302,7 +302,7 @@
 	if(..() && !istype(loc, /turf/space))
 		if(legs && legs.mech_step_sound)
 			playsound(src.loc,legs.mech_step_sound,40,1)
-		get_cell().use(legs.power_use * CELLRATE)
+		get_cell()?.use(legs.power_use * CELLRATE)
 	update_icon()
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)

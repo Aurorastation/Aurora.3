@@ -410,7 +410,6 @@
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
 		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
-	..()
 
 /obj/item/clothing/accessory/poncho/big
 	name = "large poncho"

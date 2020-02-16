@@ -6341,6 +6341,8 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
+/obj/item/crowbar,
+/obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lr" = (
@@ -6410,6 +6412,8 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/item/crowbar,
+/obj/item/device/flash,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "lv" = (
@@ -6701,8 +6705,6 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/crowbar,
-/obj/item/device/flash,
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
@@ -6752,8 +6754,6 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/crowbar,
-/obj/item/device/flash,
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
 	dir = 4

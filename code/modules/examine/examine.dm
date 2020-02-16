@@ -63,7 +63,7 @@
 
 //override examinate verb to update description holders when things are examined
 /mob/examinate(atom/A as mob|obj|turf in view())
-	if(..())
+	if(UNLINT(..()))
 		return 1
 	
 	if(!A)

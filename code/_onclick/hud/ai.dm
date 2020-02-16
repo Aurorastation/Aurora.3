@@ -1,8 +1,9 @@
 /datum/hud/proc/ai_hud()
 	other = list()
 
-	mymob:computer.screen_loc = ui_ai_crew_monitor
-	mymob:computer.layer = SCREEN_LAYER
+	var/mob/living/silicon/ai/myai = mymob
+	myai.computer.screen_loc = ui_ai_crew_monitor
+	myai.computer.layer = SCREEN_LAYER
 
 	adding = list(
 		new /obj/screen/ai/core,
@@ -21,7 +22,7 @@
 		new /obj/screen/ai/sensor_aug,
 		new /obj/screen/ai/move_up,
 		new /obj/screen/ai/move_down,
-		mymob:computer
+		myai.computer
 	)
 
 	mymob.client.screen += adding + other

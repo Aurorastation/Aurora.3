@@ -3,26 +3,14 @@
 	desc = "An aging exosuit, produced to be a cheap variant to traditional space transport."
 	icon_state = "engineering_pod"
 
-/mob/living/heavy_vehicle/premade/hoverpod/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/ripley(src)
-		arms.color = COLOR_BLUE_GRAY
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/hover(src)
-		legs.color = COLOR_BLUE_GRAY
-	if(!head)
-		head = new /obj/item/mech_component/sensors/ripley(src)
-		head.color = COLOR_BLUE_GRAY
-	if(!body)
-		body = new /obj/item/mech_component/chassis/pod(src)
-		body.color = COLOR_BLUE_GRAY
+	e_head = /obj/item/mech_component/sensors/ripley
+	e_body = /obj/item/mech_component/chassis/pod
+	e_arms = /obj/item/mech_component/manipulators/ripley
+	e_legs = /obj/item/mech_component/propulsion/hover
+	e_color = COLOR_BLUE_GRAY
 
-	. = ..()
-
-/mob/living/heavy_vehicle/premade/hoverpod/spawn_mech_equipment()
-	..()
-	install_system(new /obj/item/mecha_equipment/drill(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/clamp(src), HARDPOINT_RIGHT_HAND)
+	h_l_hand = /obj/item/mecha_equipment/drill
+	h_r_hand = /obj/item/mecha_equipment/clamp
 
 /obj/item/mech_component/propulsion/hover
 	name = "hover thrusters"
@@ -40,6 +28,7 @@
 
 /obj/item/mech_component/chassis/pod
 	name = "spherical exosuit chassis"
+	desc = "A simple spherical exosuit cockpit commonly used in space pods."
 	hatch_descriptor = "window"
 	pilot_coverage = 100
 	transparent_cabin = TRUE
@@ -49,7 +38,6 @@
 	max_damage = 70
 	power_use = 5
 	has_hardpoints = list(HARDPOINT_BACK)
-	desc = "A simple spherical exosuit cockpit commonly used in space pods."
 
 /obj/item/mech_component/chassis/pod/prebuild()
 	. = ..()
