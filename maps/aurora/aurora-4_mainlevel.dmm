@@ -1521,10 +1521,6 @@
 	dir = 10
 	},
 /obj/item/clothing/glasses/safety/goggles,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Operating Room 2";
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
 "acT" = (
@@ -39585,7 +39581,6 @@
 	pixel_y = 0
 	},
 /obj/item/storage/box/sharps,
-/obj/item/storage/box/freezer/organcooler,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bqb" = (
@@ -42596,9 +42591,6 @@
 /obj/structure/closet{
 	name = "Evidence Closet"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -43131,7 +43123,10 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
 /area/maintenance/medbay)
 "bvL" = (
 /obj/structure/cable{
@@ -43497,8 +43492,8 @@
 "bwt" = (
 /obj/machinery/button/windowtint{
 	id = "OR1";
-	pixel_x = -4;
-	pixel_y = 24;
+	pixel_x = 0;
+	pixel_y = 26;
 	req_access = list(66)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -43506,11 +43501,6 @@
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
-	},
-/obj/machinery/button/holosign{
-	id = 1;
-	pixel_x = 3;
-	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -43579,7 +43569,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Custodial Closet";
+	c_tag = "Medical - Cloning Laboratory";
 	dir = 4;
 	icon_state = "camera"
 	},
@@ -45269,7 +45259,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/custodial_closet)
 "bzr" = (
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "Evidence Closet"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/custodial_closet)
 "bzt" = (
@@ -47229,6 +47221,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -47653,7 +47646,6 @@
 "bDR" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/bloodpacks,
-/obj/item/storage/box/freezer/organcooler,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -50186,7 +50178,7 @@
 "bIB" = (
 /obj/machinery/button/windowtint{
 	id = "OR2";
-	pixel_x = -4;
+	pixel_x = 0;
 	pixel_y = -26;
 	req_access = list(66)
 	},
@@ -50197,11 +50189,6 @@
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
-	},
-/obj/machinery/button/holosign{
-	id = 2;
-	pixel_x = 3;
-	pixel_y = -26
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgerywing)
@@ -64525,9 +64512,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/machinery/media/jukebox/phonograph{
-	anchored = 1
-	},
+/obj/machinery/media/jukebox/phonograph,
 /turf/simulated/floor/lino,
 /area/crew_quarters/bar)
 "hcd" = (
@@ -64864,6 +64849,25 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
+"hLN" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Maintenance Access";
+	req_access = list(66)
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay)
 "hND" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
@@ -66941,6 +66945,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"nEX" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/maintenance/medbay)
 "nFQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -67193,6 +67208,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"opq" = (
+/obj/machinery/button/holosign{
+	id = 2
+	},
+/turf/simulated/wall,
+/area/medical/surgerywing)
 "opv" = (
 /obj/structure/closet,
 /obj/item/pickaxe{
@@ -67792,6 +67813,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
+"pzm" = (
+/obj/machinery/button/holosign{
+	id = 1
+	},
+/turf/simulated/wall,
+/area/medical/surgerywing)
 "pzv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -68270,13 +68297,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"qYj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
 "qYo" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	icon_state = "up-scrubbers";
@@ -70488,6 +70508,16 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"wpl" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/dark{
+	name = "cooled dark floor";
+	temperature = 278
+	},
+/area/maintenance/medbay)
 "wqS" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle{
@@ -107853,7 +107883,7 @@ bum
 bvz
 bwt
 bxS
-qYj
+bzj
 bzj
 bBi
 bCa
@@ -107861,7 +107891,7 @@ bDa
 bzj
 bEN
 bzj
-qYj
+bzj
 bHB
 bIB
 bvz
@@ -108883,11 +108913,11 @@ acq
 acr
 acs
 bAo
-bvz
+pzm
 bCd
 bDb
 bDR
-bvz
+opq
 bAo
 acz
 acR
@@ -112991,7 +113021,7 @@ bsj
 bng
 buD
 bvI
-buG
+nEX
 byb
 blN
 bAv
@@ -113248,7 +113278,7 @@ bsk
 bng
 buD
 bvI
-bBo
+buG
 buG
 blN
 sby
@@ -113760,8 +113790,8 @@ bqa
 brh
 bsm
 bng
-bBo
-bBo
+buG
+wpl
 bvI
 buG
 blN
@@ -114019,7 +114049,7 @@ bng
 bng
 blN
 blN
-bHF
+hLN
 blN
 blN
 bHF

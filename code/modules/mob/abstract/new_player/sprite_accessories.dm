@@ -2846,18 +2846,6 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list("Unathi")
 
-	una_clawshand
-		name = "Claws (Hands)"
-		icon_state = "una_claws"
-		body_parts = list(BP_L_HAND,BP_R_HAND)
-		species_allowed = list("Unathi")
-
-	una_clawsfoot
-		name = "Claws (Feet)"
-		icon_state = "una_claws"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT)
-		species_allowed = list("Unathi")
-
 	spelunker
 		name = "Spelunker"
 		icon_state = "spelunker"

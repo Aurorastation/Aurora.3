@@ -151,12 +151,10 @@
 	name = real_name
 
 /mob/living/silicon/robot/drone/updateicon()
+
 	cut_overlays()
-	if(stat == CONSCIOUS)
-		if(!emagged)
-			add_overlay("eyes-[icon_state]")
-		else
-			add_overlay("eyes-[icon_state]-emag")
+	if(stat == 0)
+		add_overlay("eyes-[icon_state]")
 	if(hat) // Let the drones wear hats.
 		add_overlay(get_hat_icon(hat, hat_x_offset, hat_y_offset))
 
@@ -253,7 +251,6 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and \his commands.</span>")
-	updateicon()
 	return 1
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
@@ -401,16 +398,6 @@
 
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	src.verbs -= silicon_subsystems
-
-/mob/living/silicon/robot/drone/examine(mob/user)
-	..()
-
-	var/msg
-	if(emagged)
-		msg += "Their eye glows red."
-	else
-		msg += "Their eye glows green."
-	to_chat(user, msg)
 
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, "<b>You are a construction drone, an autonomous engineering and fabrication system.</b>.")

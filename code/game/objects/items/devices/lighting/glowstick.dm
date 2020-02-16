@@ -9,7 +9,7 @@
 	item_state = "glowstick"
 	uv_intensity = 255
 	light_wedge = LIGHT_OMNI
-	activation_sound = 'sound/items/glowstick.ogg'
+	activation_sound = null
 
 /obj/item/device/flashlight/flare/glowstick/New()
 	. = ..()
@@ -40,7 +40,7 @@
 /obj/item/device/flashlight/flare/glowstick/attack_self(var/mob/living/user)
 
 	if(((user.is_clumsy())) && prob(50))
-		to_chat(user, span("notice", "You break \the [src] apart, spilling its contents everywhere!"))
+		to_chat(user, "<span class='notice'>You break \the [src] apart, spilling its contents everywhere!</span>")
 		fuel = 0
 		new /obj/effect/decal/cleanable/greenglow(get_turf(user))
 		user.apply_effect((rand(15,30)),IRRADIATE,blocked = user.getarmor(null, "rad"))
@@ -48,18 +48,18 @@
 		return
 
 	if(!fuel)
-		to_chat(user, span("notice", "\The [src] has already been used."))
+		to_chat(user, "<span class='notice'>\The [src] has already been used.</span>")
 		return
 	if(on)
-		to_chat(user, span("notice", "\The [src] has already been turned on."))
+		to_chat(user, "<span class='notice'>\The [src] has already been turned on.</span>")
 		return
 
 	. = ..()
 
 	if(.)
 		user.visible_message(
-		span("notice", "[user] cracks and shakes \the [src]."),
-		span("notice", "You crack and shake \the [src], turning it on!")
+		"<span class='notice'>[user] cracks and shakes \the [src].</span>",
+		"<span class='notice'>You crack and shake \the [src], turning it on!</span>"
 		)
 		update_icon()
 		START_PROCESSING(SSprocessing, src)

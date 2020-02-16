@@ -64,7 +64,7 @@ var/datum/antagonist/revolutionary/revs
 	if(!player.back)
 		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
 	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
-	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player), slot_in_backpack)
 
 	give_codewords(player)
 	alert(player, "As a Head Revolutionary, you are given an uplink with a lot of telecrystals. \

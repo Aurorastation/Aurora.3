@@ -174,12 +174,12 @@
 			if(items[name] && selection[name])
 				sum += items[name] * selection[name]
 				receipt += "<b>[name]</b> : [items[name]]x[selection[name]]:  [items[name] * selection[name]]<br>"
-		ui.activeui = "devices-quikpay-confirmation"	
+		ui.activeui = "quikpay-confirmation"	
 		. = TRUE
 	if(href_list["return"])
 		sum = 0
 		receipt = ""
-		ui.activeui = "devices-quikpay-main"	
+		ui.activeui = "quikpay-main"	
 		. = TRUE
 
 

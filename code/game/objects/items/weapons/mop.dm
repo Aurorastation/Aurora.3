@@ -13,8 +13,6 @@
 	var/mopping = 0
 	var/mopcount = 0
 	var/cleantime = 25
-	var/last_clean
-	var/clean_msg = FALSE
 
 /obj/item/mop/Initialize()
 	. = ..()
@@ -29,23 +27,17 @@
 	if(!proximity) return
 	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
 		if(reagents.total_volume < 1)
-			if(clean_msg)
-				to_chat(user, span("notice", "Your mop is dry!"))
+			to_chat(user, "<span class='notice'>Your mop is dry!</span>")
 			return
-		if (!(last_clean && world.time < last_clean + 120)) //spam is bad
-			user.visible_message(span("warning", "[user] begins to mop \the [get_turf(A)]."))
-			clean_msg = TRUE
-			last_clean = world.time
-		else
-			clean_msg = FALSE
+
+		user.visible_message("<span class='warning'>[user] begins to mop \the [get_turf(A)].</span>")
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 
 		if(do_after(user, cleantime))
 			var/turf/T = get_turf(A)
 			if(T)
 				T.clean(src, user)
-			if(clean_msg)
-				to_chat(user, span("notice", "You have finished mopping!"))
+			to_chat(user, "<span class='notice'>You have finished mopping!</span>")
 			update_icon()
 
 
@@ -89,7 +81,7 @@
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing,src)
-	to_chat(user, span("notice", "You set the condenser switch to the <b>'[refill_enabled ? "ON" : "OFF"]'</b> position."))
+	to_chat(user, "<span class='notice'>You set the condenser switch to the '[refill_enabled ? "ON" : "OFF"]' position.</span>")
 	playsound(user, 'sound/machines/click.ogg', 25, 1)
 
 /obj/item/mop/advanced/process()
@@ -98,9 +90,10 @@
 
 /obj/item/mop/advanced/examine(mob/user)
 	..()
-	to_chat(user, span("notice", "\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>."))
+	to_chat(user, "<span class='notice'>The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.</span>")
 
 /obj/item/mop/advanced/Destroy()
 	if(refill_enabled)
 		STOP_PROCESSING(SSprocessing, src)
 	return ..()
+

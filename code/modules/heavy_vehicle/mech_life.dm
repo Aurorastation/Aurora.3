@@ -22,10 +22,7 @@
 		update_pilot_overlay()
 
 	if(radio)
-		radio.on = (head?.radio && head.radio.is_functional())
-
-	if(camera)
-		camera.status = (head?.camera && head.camera.is_functional())
+		radio.on = (head && head.radio && head.radio.is_functional())
 
 	body.update_air(hatch_closed && use_air)
 

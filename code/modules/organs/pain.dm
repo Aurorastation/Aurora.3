@@ -59,11 +59,7 @@ mob/var/next_pain_time = 0
 
 	// Excessive halloss is horrible, just give them enough to make it visible.
 	if(!nohalloss && power)
-		if(!affecting)
-			adjustHalLoss(Ceiling(power/2))
-		else
-			affecting.add_pain(Ceiling(power/2))
-	
+		adjustHalLoss(Ceiling(power/2))
 
 	flash_pain(min(round(2*power)+55, 255))
 
@@ -81,17 +77,14 @@ mob/var/next_pain_time = 0
 
 	next_pain_time = world.time + (100-power)
 
-/mob/living/carbon/human/proc/handle_pain()
+mob/living/carbon/human/proc/handle_pain()
 	// not when sleeping
 
-	if(!can_feel_pain())
-		return
+	if(!can_feel_pain()) return
 
-	if(stat >= DEAD)
-		return
+	if(stat >= 2) return
 	if(analgesic > 70)
 		return
-
 	var/maxdam = 0
 	var/obj/item/organ/external/damaged_organ = null
 	for(var/obj/item/organ/external/E in organs)
@@ -119,7 +112,7 @@ mob/var/next_pain_time = 0
 			else if (I.is_damaged())
 				painmessage = "You feel discomfort in your [parent.name]."
 			if(painmessage)
-				custom_pain(painmessage, 5, 5)
+				src.custom_pain(painmessage, I.is_bruised())
 			//The less hardcoded values, the better.
 
 	var/toxDamageMessage = null
@@ -142,4 +135,4 @@ mob/var/next_pain_time = 0
 			toxDamageMessage = "Your body aches all over, it's driving you mad!"
 
 	if(toxDamageMessage && prob(toxMessageProb))
-		custom_pain(toxDamageMessage, 5, 5)
+		src.custom_pain(toxDamageMessage, getToxLoss() >= 15)

@@ -74,7 +74,6 @@
 	greentea	spawn_reagent = "greentea"
 	chaitea		spawn_reagent = "chaitea"
 	ciderhot	spawn_reagent = "ciderhot"
-	hot_coco	spawn_reagent = "hot_coco"
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"

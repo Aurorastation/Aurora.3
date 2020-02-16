@@ -571,19 +571,13 @@
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
 
-/obj/item/clothing/mask/proc/adjust_mask(mob/user, var/self = TRUE)
+/obj/item/clothing/mask/proc/adjust_mask(mob/user)
 	set name = "Adjust Mask"
 	set category = "Object"
-
 	if(!adjustable)
 		return
-
-	if(self)
-		if(use_check_and_message(user))
-			return
-	else
-		if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
-			return
+	if(use_check_and_message(user))
+		return
 
 	hanging = !hanging
 
@@ -593,8 +587,7 @@
 		icon_state = "[icon_state]down"
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
-		if(self)
-			user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
+		user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -602,8 +595,7 @@
 		item_state = initial(icon_state)
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
-		if(self)
-			user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
+		user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
 	usr.update_action_buttons()
 	update_clothing_icon()
 
@@ -633,6 +625,7 @@
 	var/shoes_under_pants = 0
 
 	permeability_coefficient = 0.50
+	slowdown = SHOES_SLOWDOWN
 	force = 0
 	var/overshoes = 0
 	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")

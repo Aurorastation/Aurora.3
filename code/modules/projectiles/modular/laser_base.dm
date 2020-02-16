@@ -1,7 +1,6 @@
 /obj/item/laser_components
-	icon = 'icons/obj/guns/modular_laser.dmi'
+	icon = 'icons/obj/modular_laser.dmi'
 	icon_state = "bfg"
-	contained_sprite = TRUE
 	var/reliability = 0
 	var/damage = 1
 	var/fire_delay = 0
@@ -140,9 +139,8 @@
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
 	w_class = 2
-	icon = 'icons/obj/guns/modular_laser.dmi'
+	icon = 'icons/obj/modular_laser.dmi'
 	icon_state = "small"
-	contained_sprite = TRUE
 	var/stage = 1
 	var/size = CHASSIS_SMALL
 	var/modifier_cap = 3
@@ -196,8 +194,6 @@
 
 /obj/item/device/laser_assembly/proc/finish()
 	var/obj/item/gun/energy/laser/prototype/A = new /obj/item/gun/energy/laser/prototype
-	A.icon_state = icon_state
-	A.modifystate = icon_state
 	A.origin_chassis = size
 	A.capacitor = capacitor
 	capacitor.forceMove(A)
@@ -209,9 +205,8 @@
 		for(var/obj/item/laser_components/modifier/mod in gun_mods)
 			A.gun_mods += mod
 			mod.forceMove(A)
-			if(mod.gun_overlay)
-				A.underlays += mod.gun_overlay
 	A.forceMove(get_turf(src))
+	A.icon = getFlatIcon(src)
 	A.updatetype()
 	A.pin = null
 	gun_mods = null

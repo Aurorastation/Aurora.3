@@ -48,11 +48,6 @@ var/list/ai_verbs_default = list(
 	anchored = 1 // -- TLE
 	density = 1
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
-
-	var/fireloss = 0
-	var/bruteloss = 0
-	var/oxyloss = 0
-
 	//shouldnt_see - set in New()
 	var/list/network = list("Station")
 	var/obj/machinery/camera/camera = null
@@ -194,19 +189,6 @@ var/list/ai_verbs_default = list(
 	ai_list += src
 	return ..()
 
-/mob/living/silicon/ai/Destroy()
-	QDEL_NULL(aiPDA)
-	QDEL_NULL(aiMulti)
-	QDEL_NULL(aiRadio)
-	ai_list -= src
-	destroy_eyeobj()
-	QDEL_NULL(psupply)
-	QDEL_NULL(aiMulti)
-	QDEL_NULL(aiRadio)
-	QDEL_NULL(aiCamera)
-
-	return ..()
-
 /mob/living/silicon/ai/proc/init_powersupply()
 	new /obj/machinery/ai_powersupply(src)
 
@@ -236,49 +218,18 @@ var/list/ai_verbs_default = list(
 	setup_icon()
 	eyeobj.possess(src)
 
-/mob/living/silicon/ai/getFireLoss()
-	return fireloss
+/mob/living/silicon/ai/Destroy()
+	QDEL_NULL(aiPDA)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
+	ai_list -= src
+	destroy_eyeobj()
+	QDEL_NULL(psupply)
+	QDEL_NULL(aiMulti)
+	QDEL_NULL(aiRadio)
+	QDEL_NULL(aiCamera)
 
-/mob/living/silicon/ai/getBruteLoss()
-	return bruteloss
-
-/mob/living/silicon/ai/getOxyLoss()
-	return oxyloss
-
-/mob/living/silicon/ai/adjustFireLoss(var/amount)
-	if(status_flags & GODMODE)
-		return
-	fireloss = max(0, fireloss + min(amount, health))
-
-/mob/living/silicon/ai/adjustBruteLoss(var/amount)
-	if(status_flags & GODMODE)
-		return
-	bruteloss = max(0, bruteloss + min(amount, health))
-
-/mob/living/silicon/ai/adjustOxyLoss(var/amount)
-	if(status_flags & GODMODE)
-		return
-	oxyloss = max(0, oxyloss + min(amount, maxHealth - oxyloss))
-
-/mob/living/silicon/ai/setFireLoss(var/amount)
-	if(status_flags & GODMODE)
-		fireloss = 0
-		return
-	fireloss = max(0, amount)
-
-/mob/living/silicon/ai/setOxyLoss(var/amount)
-	if(status_flags & GODMODE)
-		oxyloss = 0
-		return
-	oxyloss = max(0, amount)
-
-/mob/living/silicon/ai/updatehealth()
-	if(status_flags & GODMODE)
-		health = maxHealth
-		stat = CONSCIOUS
-		setOxyLoss(0)
-	else
-		health = maxHealth - getFireLoss() - getBruteLoss() // Oxyloss is not part of health as it represents AIs backup power. AI is immune against ToxLoss as it is machine.
+	return ..()
 
 /mob/living/silicon/ai/proc/setup_icon()
 	var/datum/custom_synth/sprite = robot_custom_icons[name]

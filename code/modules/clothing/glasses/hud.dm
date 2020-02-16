@@ -16,7 +16,6 @@
 	name = "health scanner HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their health status."
 	icon_state = "healthhud"
-	item_state = "healthhud"
 	body_parts_covered = 0
 
 
@@ -31,12 +30,11 @@
 	item_state = "healthhudpresc"
 
 /obj/item/clothing/glasses/hud/health/prescription/attack_self(mob/user)
-	to_chat(user, span("notice", "You detach a set of medical HUDs from your glasses."))
+	to_chat(user, "<span class='notice'>You detach a set of medical HUDs form your glasses.</span>")
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
-	var/obj/item/clothing/glasses/regular/R = new /obj/item/clothing/glasses/regular(user.loc)
-	user.put_in_hands(R)
-	var/obj/item/clothing/glasses/hud/health/H = new /obj/item/clothing/glasses/hud/health(user.loc)
-	user.put_in_hands(H)
+	var/turf/T = get_turf(src)
+	new /obj/item/clothing/glasses/hud/health(T)
+	new /obj/item/clothing/glasses/regular(T)
 	user.drop_item(src)
 	qdel(src)
 
@@ -44,7 +42,6 @@
 	name = "security HUD"
 	desc = "A heads-up display that scans the humans in view and provides accurate data about their ID status and security records."
 	icon_state = "securityhud"
-	item_state = "securityhud"
 	body_parts_covered = 0
 	var/global/list/jobs[0]
 
@@ -56,12 +53,11 @@
 	item_state = "sechudpresc"
 
 /obj/item/clothing/glasses/hud/security/prescription/attack_self(mob/user)
-	to_chat(user, span("notice", "You detach a set of security HUDs from your glasses."))
+	to_chat(user, "<span class='notice'>You detach a set of security HUDs form your glasses.</span>")
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
-	var/obj/item/clothing/glasses/regular/R = new /obj/item/clothing/glasses/regular(user.loc)
-	user.put_in_hands(R)
-	var/obj/item/clothing/glasses/hud/security/S = new /obj/item/clothing/glasses/hud/security(user.loc)
-	user.put_in_hands(S)
+	var/turf/T = get_turf(src)
+	new /obj/item/clothing/glasses/hud/health(T)
+	new /obj/item/clothing/glasses/regular(T)
 	user.drop_item(src)
 	qdel(src)
 

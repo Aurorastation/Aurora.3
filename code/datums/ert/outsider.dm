@@ -8,11 +8,6 @@
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/kataphract
 
-/datum/responseteam/iac
-	name = "Interstellar Aid Corps"
-	chance = 15
-	spawner = /datum/ghostspawner/human/ert/iac
-
 /datum/responseteam/syndicate
 	name = "Syndicate Commandos"
 	spawner = /datum/ghostspawner/human/ert/commando

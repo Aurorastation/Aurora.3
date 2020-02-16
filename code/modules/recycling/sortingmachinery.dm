@@ -274,7 +274,7 @@
 	openwindow(usr)
 
 /obj/machinery/disposal/deliveryChute
-	name = "delivery chute"
+	name = "Delivery chute"
 	desc = "A chute for big and small packages alike!"
 	density = 1
 	icon_state = "intake"
@@ -338,10 +338,6 @@
 /obj/machinery/disposal/deliveryChute/attackby(var/obj/item/I, var/mob/user)
 	if(!I || !user)
 		return
-
-	if(istype(I, /obj/item/holder))
-		user.drop_item(I)
-		CollidedWith(I)
 
 	if(I.isscrewdriver())
 		if(c_mode==0)

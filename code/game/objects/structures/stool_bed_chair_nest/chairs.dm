@@ -135,8 +135,7 @@
 
 /obj/structure/bed/chair/office/Move()
 	. = ..()
-	if(makes_rolling_sound)
-		playsound(src, 'sound/effects/roll.ogg', 100, 1)
+	playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		occupant.buckled = null
@@ -200,20 +199,6 @@
 	name = "pilot seat"
 	desc = "A comfortable seat for a pilot."
 	icon_state = "pilot"
-
-/obj/structure/bed/chair/office/hover
-	name = "hoverchair"
-	desc = "Adjusts itself to the sitter's weight resulting in a most comfortable sitting experience. Like floating on a cloud."
-	icon_state = "hover_chair"
-	makes_rolling_sound = FALSE
-	can_dismantle = FALSE
-
-/obj/structure/bed/chair/office/hover/Initialize()
-	.=..()
-	set_light(1,1,LIGHT_COLOR_CYAN)
-
-/obj/structure/bed/chair/office/hover/command
-	icon_state = "hover_command"
 
 /obj/structure/bed/chair/office/Initialize()
 	. = ..()

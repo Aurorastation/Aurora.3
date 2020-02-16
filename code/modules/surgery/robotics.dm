@@ -246,10 +246,6 @@
 				var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 				if(sponge && istype(I, sponge))
 					target.cure_all_traumas()
-				if(istype(tool, /obj/item/stack/nanopaste))
-					var/obj/item/stack/nanopaste/nanopaste = tool
-					nanopaste.use(1)
-					return
 
 /datum/surgery_step/robotics/fix_organ_robotic/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!hasorgans(target))

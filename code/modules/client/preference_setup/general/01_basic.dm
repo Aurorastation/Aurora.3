@@ -1,6 +1,7 @@
 /datum/category_item/player_setup_item/general/basic
 	name = "Basic"
 	sort_order = 1
+	var/static/list/valid_player_genders = list(MALE, FEMALE)
 
 /datum/category_item/player_setup_item/general/basic/load_character(var/savefile/S)
 	S["real_name"]  >> pref.real_name
@@ -86,7 +87,7 @@
 		pref.species = "Human"
 
 	pref.age           = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
-	pref.gender        = sanitize_gender(pref.gender, pref.species)
+	pref.gender        = sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
 	pref.real_name     = sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
 		pref.real_name = random_name(pref.gender, pref.species)
@@ -138,8 +139,7 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["gender"])
-		var/datum/species/S = all_species[pref.species]
-		pref.gender = next_in_list(pref.gender, valid_player_genders & S.default_genders)
+		pref.gender = next_in_list(pref.gender, valid_player_genders)
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment

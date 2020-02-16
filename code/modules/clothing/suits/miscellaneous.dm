@@ -154,12 +154,6 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	flags_inv = HIDEJUMPSUIT
 
-/obj/item/clothing/suit/trinary_robes
-    name = "trinary perfection robe"
-    desc = "Robes worn by those who serve The Trinary Perfection."
-    icon_state = "trinary_robes"
-    item_state = "trinary_robes"
-	
 /*
  * Misc
  */
@@ -306,16 +300,11 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
 	name = "tcfl flight jacket"
-	desc = "A Tau Ceti Foreign Legion pilot's jacket. This is the more common, less durable variety, which typically finds itself percolating amongst all ranks of the TCFL."
+	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	icon_state = "lflight"
 	item_state = "lflight"
 	icon_open = "lflight_open"
 	icon_closed = "lflight"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
-	siemens_coefficient = 0.75
-
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
-	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	armor = list(melee = 40, bullet = 10, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
@@ -448,18 +437,6 @@
 	icon_closed = "trenchcoat_grey"
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/obj/item/clothing/suit/storage/toggle/trench/green
-    name = "green trenchcoat"
-    desc = "A comfy looking green trenchcoat with fur."
-    icon_state = "greentrench"
-    item_state = "greentrench"
-    icon_open = "greentrench_open"
-    icon_closed = "greentrench"
-    body_parts_covered = UPPER_TORSO|ARMS
-
->>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
 /obj/item/clothing/suit/storage/dominia
 	name = "dominia cape"
 	desc = "This is a cape in the style of Dominia nobility. It's the latest fashion across Dominian space."
@@ -621,7 +598,7 @@
  */
 /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
 	name = "engineering department jacket"
-	desc = "A cozy jacket in engineering's colors, featuring spacious pockets you won't even use."
+	desc = "A cozy jacket in engineering's colors. Show your department pride!"
 	icon_state = "engi_dep_jacket"
 	item_state = "engi_dep_jacket"
 	icon_open = "engi_dep_jacket_open"
@@ -629,7 +606,7 @@
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
 	name = "supply department jacket"
-	desc = "A cozy jacket in supply's colors, perfect for folding up and forgetting bounty lists."
+	desc = "A cozy jacket in supply's colors. Show your department pride!"
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
 	icon_open = "supply_dep_jacket_open"
@@ -637,7 +614,7 @@
 
 /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
 	name = "science department jacket"
-	desc = "A cozy jacket in science's colors, offering the latest in a complete lack of protection against chemical spills."
+	desc = "A cozy jacket in science's colors. Show your department pride!"
 	icon_state = "sci_dep_jacket"
 	item_state = "sci_dep_jacket"
 	icon_open = "sci_dep_jacket_open"
@@ -645,7 +622,7 @@
 
 /obj/item/clothing/suit/storage/toggle/med_dep_jacket
 	name = "medical department jacket"
-	desc = "A cozy jacket in medical's colors, guaranteed not to leak the latest gossip."
+	desc = "A cozy jacket in medical's colors. Show your department pride!"
 	icon_state = "med_dep_jacket"
 	item_state = "med_dep_jacket"
 	icon_open = "med_dep_jacket_open"
@@ -653,19 +630,11 @@
 
 /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 	name = "security department jacket"
-	desc = "A cozy jacket in security's colors, luckily able to be easily cleaned of blood stains"
+	desc = "A cozy jacket in security's colors. Show your department pride!"
 	icon_state = "sec_dep_jacket"
 	item_state = "sec_dep_jacket"
 	icon_open = "sec_dep_jacket_open"
 	icon_closed = "sec_dep_jacket"
-
-/obj/item/clothing/suit/storage/toggle/serv_dep_jacket
-	name = "service department jacket"
-	desc = "A cozy jacket in service's colors, reminding many employees that even service has colors."
-	icon_state = "serv_dep_jacket"
-	item_state = "serv_dep_jacket"
-	icon_open = "serv_dep_jacket_open"
-	icon_closed = "serv_dep_jacket"
 
 /obj/item/clothing/suit/storage/fib
 	name = "\improper FIB agent jacket"

@@ -1547,6 +1547,6 @@
 	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
 	reagent_state = LIQUID
 	color = "#AA8866"
-	metabolism = 0.2 * REM
+	metabolism = 0.5 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1

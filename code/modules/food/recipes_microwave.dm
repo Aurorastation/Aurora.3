@@ -727,7 +727,7 @@
 	reagents = list("water" = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/bearmeat)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
-	result = /obj/item/reagent_containers/food/snacks/stew/bear
+	result = /obj/item/reagent_containers/food/snacks/bearstew
 
 /datum/recipe/bibimbap
 	fruit = list("carrot" = 1, "cabbage" = 1, "mushroom" = 1)
@@ -1120,7 +1120,7 @@
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
 		/obj/item/reagent_containers/food/snacks/meat/adhomai
 	)
-	result = /obj/item/reagent_containers/food/snacks/stew/tajaran
+	result = /obj/item/reagent_containers/food/snacks/tajaran_stew
 
 /datum/recipe/spicy_clams
 	fruit = list("chili" = 1, "cabbage" = 1)

@@ -44,9 +44,9 @@
 /obj/item/gun/projectile/dartgun
 	name = "dart gun"
 	desc = "A small gas-powered dartgun, capable of delivering chemical cocktails swiftly across short distances."
-	icon = 'icons/obj/guns/dartgun.dmi'
 	icon_state = "dartgun-empty"
-	icon_state = "dartgun-empty"
+	item_state = null
+
 	caliber = "dart"
 	fire_sound = 'sound/weapons/empty.ogg'
 	fire_sound_text = "a metallic click"
@@ -76,18 +76,14 @@
 /obj/item/gun/projectile/dartgun/update_icon()
 	if(!ammo_magazine)
 		icon_state = "dartgun-empty"
-		item_state = icon_state
 		return 1
 
 	if(!ammo_magazine.stored_ammo || ammo_magazine.stored_ammo.len)
 		icon_state = "dartgun-0"
-		item_state = icon_state
 	else if(ammo_magazine.stored_ammo.len > 5)
 		icon_state = "dartgun-5"
-		item_state = icon_state
 	else
 		icon_state = "dartgun-[ammo_magazine.stored_ammo.len]"
-		item_state = icon_state
 	return 1
 
 /obj/item/gun/projectile/dartgun/consume_next_projectile()
@@ -97,6 +93,9 @@
 		fill_dart(dart)
 
 /obj/item/gun/projectile/dartgun/examine(mob/user)
+	//update_icon()
+	//if (!..(user, 2))
+	//	return
 	..()
 	if (beakers.len)
 		to_chat(user, "<span class='notice'>[src] contains:</span>")

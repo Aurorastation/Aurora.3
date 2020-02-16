@@ -38,7 +38,6 @@
 	max_tox = 0
 
 	var/is_devouring = FALSE
-	var/mob/living/carbon/human/occupant = null
 
 /mob/living/simple_animal/hostile/true_changeling/Initialize()
 	. = ..()
@@ -65,8 +64,6 @@
 	if(!gibbed)
 		visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
 		playsound(loc, 'sound/effects/creepyshriek.ogg', 30, 1)
-		if(occupant)
-			qdel(occupant)
 		gibs(src.loc)
 		qdel(src)
 		return

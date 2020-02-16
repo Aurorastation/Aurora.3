@@ -6,6 +6,7 @@
 /obj/item/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
+	icon_state = "revolver"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	w_class = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
@@ -233,8 +234,6 @@
 
 /obj/item/gun/projectile/examine(mob/user)
 	..(user)
-	if(get_dist(src, user) > 1)
-		return
 	if(is_jammed)
 		to_chat(user, "<span class='warning'>It looks jammed.</span>")
 	if(ammo_magazine)

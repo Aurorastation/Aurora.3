@@ -3,23 +3,19 @@
 	short_name = "dio"
 	name_plural = "Dionaea"
 	bodytype = "Diona"
-	age_min = 1
 	age_max = 1000
-	default_genders = list(NEUTER)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	language = LANGUAGE_ROOTSONG
-	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/diona
 	)
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/consume_nutrition_from_air,
-		/mob/living/carbon/human/proc/create_structure
+		/mob/living/carbon/human/proc/consume_nutrition_from_air
 	)
 	//primitive_form = "Nymph"
 	slowdown = 7
@@ -28,8 +24,7 @@
 	siemens_coefficient = 0.3
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
-	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SKRELLIAN)
+	num_alternate_languages = 1
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
@@ -152,6 +147,7 @@
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
+	H.gender = NEUTER
 	if (ishuman(H))
 		return ..()
 	else//Most of the stuff in the parent function doesnt apply to nymphs

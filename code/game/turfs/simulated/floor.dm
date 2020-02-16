@@ -34,7 +34,6 @@
 	//Set the initial strings
 	name = flooring.name
 	desc = flooring.desc
-	footstep_sound = flooring.footstep_sound
 	if (mapload)
 		queue_icon_update()
 	else

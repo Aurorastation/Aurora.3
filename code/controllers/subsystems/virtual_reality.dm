@@ -11,11 +11,7 @@
 
 	// IPC BODIES
 <<<<<<< HEAD
-<<<<<<< HEAD
 	var/list/robotnetworks = list("remoterobots", "bunkerrobots")
-=======
-	var/list/robotnetworks = list("remoterobots", "bunkerrobots", "prisonrobots")
->>>>>>> parent of 003240027c... Revert "Merge branch 'master' into Bongoborgo-Painted-Robots-V2"
 	var/list/robots = list()
 =======
 	var/list/robotnetworks = list("remoterobots", "bunkerrobots", "prisonrobots")

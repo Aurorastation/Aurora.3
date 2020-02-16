@@ -56,7 +56,6 @@ var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
 var/global/list/body_marking_styles_list = list()
 var/global/list/chargen_disabilities_list = list()
-var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER)
 
 	//Underwear
 var/global/list/underwear_m = list("White" = "m1", "Grey" = "m2", "Green" = "m3", "Blue" = "m4", "Black" = "m5", "Mankini" = "m6", "Boxers" = "boxers", "Green and blue boxers" = "boxers_green_and_blue","Loveheart boxers" = "boxers_loveheart","None") //Curse whoever made male/female underwear diffrent colours

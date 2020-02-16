@@ -12,11 +12,12 @@
 	fallback_specific_heat = 0.75
 
 	var/target_organ // needs to be null by default
-	var/strength = 2 // How much damage it deals per unit
+	var/strength = 4 // How much damage it deals per unit
 
 /datum/reagent/toxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(strength && alien != IS_DIONA)
 		var/dam = (strength * removed)
+		M.add_chemical_effect(CE_TOXIN, dam)
 		if(target_organ && ishuman(M))
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
@@ -30,7 +31,7 @@
 						I.take_internal_damage(dam, silent=TRUE)
 						dam = 0
 		if(dam)
-			M.adjustToxLoss(target_organ ? (dam * 0.5) : dam)
+			M.adjustToxLoss(target_organ ? (dam * 0.75) : dam)
 
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"
@@ -357,11 +358,11 @@
 	if(istype(S))
 		S.adjustToxLoss( volume * (removed/REM) * 0.23 )
 		if(!S.client)
-			if(S.target) // Like cats
-				S.target = null
-				++S.discipline
+			if(S.Target) // Like cats
+				S.Target = null
+				++S.Discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the foam touches it!"), span("danger", "Your flesh burns in the foam!"))
+			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the foam touches it!</span>", "<span class='danger'>Your flesh burns in the foam!</span>")
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
