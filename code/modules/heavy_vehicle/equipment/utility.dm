@@ -19,6 +19,7 @@
 				owner.visible_message("<span class='notice'>\The [user] carefully grabs \the [carrying] from \the [src].</span>")
 				carrying = null
 	. = ..()
+
 /obj/item/mecha_equipment/clamp/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 
@@ -419,3 +420,48 @@
 		icon_state = "mecha_passenger"
 		update_icon()
 		owner.update_icon()
+
+/obj/item/mecha_equipment/autolathe
+	name = "mounted autolathe"
+	desc = "A large, heavy industrial autolathe. Most of the exterior and interior is stripped, relying primarily on the structure of the exosuit."
+	icon_state = "mech_sleeper"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	var/obj/machinery/autolathe/mounted/lathe
+
+/obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
+	if(lathe?.build_item)
+		return lathe.build_item.name
+	. = ..()
+
+/obj/item/mecha_equipment/autolathe/Initialize()
+	. = ..()
+	lathe = new /obj/machinery/autolathe/mounted(src)
+
+/obj/item/mecha_equipment/autolathe/installed()
+	lathe.print_loc = owner
+	..()
+
+/obj/item/mecha_equipment/autolathe/uninstalled()
+	lathe.print_loc = null
+	..()
+
+/obj/item/mecha_equipment/autolathe/Destroy()
+	. = ..()
+	QDEL_NULL(lathe)
+
+/obj/item/mecha_equipment/autolathe/attack_self(mob/user)
+	. = ..()
+	if(.)
+		lathe.attack_hand(user)
+
+/obj/item/mecha_equipment/autolathe/afterattack(atom/target, mob/living/user, inrange, params)
+	. = ..()
+	if(istype(target, /obj/item/stack/material/steel) || istype(target, /obj/item/stack/material/glass))
+		lathe.attackby(target, owner)
+
+/obj/item/mecha_equipment/autolathe/attackby(obj/item/W, mob/user)
+	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter())
+		lathe.attackby(W, user)
+	..()
