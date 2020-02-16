@@ -76,13 +76,13 @@
 		return
 
 	if(!reagents.total_volume)
-		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
+		to_chat(user,span("warning", "\The [src] is empty."))
 		return
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
-	to_chat(user,"<span class='notice'>You inject \the [M] with \the [src].</span>")
-	to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
+	to_chat(user,span("notice", "You inject \the [M] with \the [src]."))
+	to_chat(M,span("notice", "You feel a tiny prick!"))
 	playsound(src, 'sound/items/hypospray.ogg',25)
 
 	if(M.reagents)
@@ -90,7 +90,7 @@
 		var/temp = reagents.get_temperature()
 		var/trans = reagents.trans_to_mob(M, amount_per_transfer_from_this, CHEM_BLOOD)
 		admin_inject_log(user, M, src, contained, temp, trans)
-		to_chat(user,"<span class='notice'>[trans] units injected. [reagents.total_volume] units remaining in \the [src].</span>")
+		to_chat(user,span("notice", "[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
 
 	update_icon()
 	return TRUE
@@ -114,25 +114,25 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
 	if(is_open_container())
-		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
+		to_chat(user,span("notice", "You must secure the reagents inside \the [src] before using it!"))
 		return FALSE
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
-			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
+			to_chat(user,span("notice", "With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			flags &= ~OPENCONTAINER
 			update_icon()
 		else
-			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
+			to_chat(user,span("notice", "You can't secure \the [src] without putting reagents in!"))
 	else
-		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
+		to_chat(user,span("notice", "The reagents inside \the [src] are already secured."))
 	return
 
 /obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the autoinjector's lid.</span>") // it locks shut after being secured
+		to_chat(user,span("notice", "Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
 		flags |= OPENCONTAINER
 		update_icon()
 		return
@@ -147,9 +147,9 @@
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
 	if(reagents && reagents.reagent_list.len)
-		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
+		to_chat(user, span("notice", "It is currently loaded."))
 	else
-		to_chat(user, "<span class='notice'>It is empty.</span>")
+		to_chat(user, span("notice", "It is empty."))
 
 
 /obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
