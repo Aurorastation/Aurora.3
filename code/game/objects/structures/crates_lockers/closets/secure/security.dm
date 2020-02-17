@@ -372,6 +372,7 @@
 /obj/structure/closet/secure_closet/csi/fill()
 	//Appearance
 	new /obj/item/clothing/gloves/black(src)
+	new	/obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/security/greeninvestigator(src)
 	new /obj/item/clothing/suit/storage/vest/csi(src)
 	new /obj/item/clothing/under/det/forensics(src)
