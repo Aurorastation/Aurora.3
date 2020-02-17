@@ -19,7 +19,7 @@
 	else
 		playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)
 
-/obj/item/reagent_containers/food/proc/on_consume(var/mob/user = null, var/mob/target)
+/obj/item/reagent_containers/food/proc/on_consume(var/mob/user, var/mob/target)
 	if(!reagents.total_volume)
 		if(!user)
 			user = target
