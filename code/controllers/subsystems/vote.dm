@@ -371,7 +371,7 @@ var/datum/controller/subsystem/vote/SSvote
 	if(!data)
 		. = list("choices" = list(), "mode" = 0, "voted" = 0)
 	data = . || data
-	if(choices.len != data["choices"].len)
+	if(choices.len != LAZYLEN(data["choices"]))
 		data["choices"] = list()
 	for(var/choice in choices)
 		VUEUI_SET_IFNOTSET(data["choices"][choice], deepCopyList(choices[choice]), ., data)
