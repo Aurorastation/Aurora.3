@@ -1,6 +1,0 @@
-author: Ferner, Happy_Fox
-delete-after: True
-changes: 
-  - rscadd: "Added a new type of linoleum, rubber carpets, dark/light metal grates. Added some proper footramp damaged states. All spriting by Happy_Fox"
-  - tweak: "Blue/Green Circuit tiles can now be made in the autolathe."
-  - bugfix: "Blown up footramps will no longer result in a 'Fix me!' icon appearing."
