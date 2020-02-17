@@ -15,36 +15,36 @@
 
 	return M.amount
 
-// Materials. Nothing but plasma is really worth selling. Better leave it all to RnD and sell some plasma instead.
+// Materials. Nothing but Phoron is really worth selling. Better leave it all to RnD.
 
 /datum/export/material/diamond
-	cost = 500
+	cost = 100
 	material_id = "diamond"
 	message = "diamond sheets"
 
 /datum/export/material/phoron
-	cost = 200
+	cost = 175
 	k_elasticity = 0
 	material_id = "phoron"
 	message = "phoron sheets"
 
 /datum/export/material/uranium
-	cost = 100
+	cost = 10
 	material_id = "uranium"
 	message = "uranium sheets"
 
 /datum/export/material/gold
-	cost = 125
+	cost = 25
 	material_id = "gold"
 	message = "gold sheets"
 
 /datum/export/material/silver
-	cost = 50
+	cost = 10
 	material_id = "silver"
 	message = "silver sheets"
 
 /datum/export/material/platinum
-	cost = 125
+	cost = 20
 	material_id = "platinum"
 	message = "platinum sheets"
 

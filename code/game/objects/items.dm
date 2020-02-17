@@ -262,7 +262,6 @@
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
 /obj/item/proc/dropped(var/mob/user)
-	..()
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
 
