@@ -545,6 +545,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 						else
 							to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
 					affecting.update_damages()
+			else
+				return ..()
 
 /obj/item/stack/cable_coil/afterattack(var/mob/living/M, var/mob/user)
 	if(ishuman(M))
