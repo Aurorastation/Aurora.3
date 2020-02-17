@@ -71,34 +71,11 @@
 	icon_state = "armorsec"
 	item_state = "armor"
 
-/obj/item/clothing/suit/armor/vest/warden
-	name = "warden's jacket"
-	desc = "An armoured jacket with silver rank pips and livery."
-	icon_state = "warden_jacket"
-	item_state = "warden_jacket"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	pocket_slots = 4//Jackets have more slots
-
-/obj/item/clothing/suit/armor/vest/warden/commissar
-	name = "commissar's jacket"
-	desc = "An tasteful dark blue jacket with silver and white highlights. Has hard-plate inserts for armor."
-	icon_state = "commissar_warden"
-	item_state = "commissar_warden"
-
 /obj/item/clothing/suit/armor/vest/fib
 	name = "\improper FIB armored vest"
 	desc = "An armored vest used by Federal Investigations Bureau agents during operations."
 	icon_state = "fib_armor"
 	item_state = "fib_armor"
-
-/obj/item/clothing/suit/armor/hos
-	name = "head of security's jacket"
-	desc = "An armoured jacket with golden rank pips and livery."
-	icon_state = "hos"
-	item_state = "hos"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	pocket_slots = 4//More slots because coat
 
 /obj/item/clothing/suit/storage/toggle/armor/hos/jensen
 	name = "armored trenchcoat"

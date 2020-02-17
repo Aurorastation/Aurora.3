@@ -144,26 +144,11 @@
 	var/coat = list()
 	coat["trenchcoat, brown"] = /obj/item/clothing/suit/storage/toggle/trench
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
-	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
-	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
+	coat["trenchcoat, black"] = /obj/item/clothing/suit/storage/toggle/trench/black
+	coat["trenchcoat, tan"] = /obj/item/clothing/suit/storage/toggle/trench/tan
+	coat["trenchcoat, white"] = /obj/item/clothing/suit/storage/toggle/trench/white
 	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
-
-
-/datum/gear/suit/det_trenchcoat
-	display_name = "detective trenchcoat selection"
-	description = "A selection of detective trenchcoats."
-	path = /obj/item/clothing/suit/storage/toggle/det_trench
-	allowed_roles = list("Detective")
-
-/datum/gear/suit/det_trenchcoat/New()
-	..()
-	var/coat = list()
-	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
-	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
-	coat["technicolor trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
-	gear_tweaks += new/datum/gear_tweak/path(coat)
-
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
@@ -222,21 +207,6 @@
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")
-
-/datum/gear/suit/secjacket
-	display_name = "navy security jacket (Security Officer)"
-	path = /obj/item/clothing/suit/security/navyofficer
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
-
-/datum/gear/suit/secjacketwarden
-	display_name = "navy security jacket (Warden)"
-	path = /obj/item/clothing/suit/security/navywarden
-	allowed_roles = list("Head of Security", "Warden")
-
-/datum/gear/suit/secjackethos
-	display_name = "navy security jacket (Head of Security)"
-	path = /obj/item/clothing/suit/security/navyhos
-	allowed_roles = list("Head of Security")
 
 /datum/gear/suit/dominia_cape
 	display_name = "dominia cape"
@@ -336,3 +306,24 @@
 /datum/gear/suit/cardigan/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
+
+
+/datum/gear/suit/secjacket
+	display_name = "navy security jacket (Security Officer)"
+	path = /obj/item/clothing/suit/storage/toggle/security/navyofficer
+	allowed_roles = list("Security Officer")
+
+/datum/gear/suit/secjacketdet
+	display_name = "pine security jacket (Investigative)"
+	path = /obj/item/clothing/suit/storage/toggle/security/greeninvestigator
+	allowed_roles = list("Detective","Forensic Technician")
+
+/datum/gear/suit/secjacketwarden
+	display_name = "navy security jacket (Warden)"
+	path = /obj/item/clothing/suit/storage/toggle/security/navywarden
+	allowed_roles = list("Warden")
+
+/datum/gear/suit/secjackethos
+	display_name = "navy security jacket (Head of Security)"
+	path = /obj/item/clothing/suit/storage/toggle/security/navyhos
+	allowed_roles = list("Head of Security")

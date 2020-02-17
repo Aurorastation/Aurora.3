@@ -159,7 +159,7 @@
     desc = "Robes worn by those who serve The Trinary Perfection."
     icon_state = "trinary_robes"
     item_state = "trinary_robes"
-	
+
 /*
  * Misc
  */
@@ -413,40 +413,6 @@
 	icon_open = "flannel_yellow_open"
 	icon_closed = "flannel_yellow"
 
-/obj/item/clothing/suit/storage/toggle/trench
-	name = "brown trenchcoat"
-	desc = "A rugged canvas trenchcoat."
-	icon_state = "trench"
-	item_state = "trench"
-	icon_open = "trench_open"
-	icon_closed = "trench"
-	blood_overlay_type = "coat"
-	body_parts_covered = UPPER_TORSO|ARMS
-
-/obj/item/clothing/suit/storage/toggle/trench/grey
-	name = "grey trenchcoat"
-	icon_state = "trench2"
-	item_state = "trench2"
-	icon_open = "trench2_open"
-	icon_closed = "trench2"
-	blood_overlay_type = "coat"
-
-/obj/item/clothing/suit/storage/toggle/trench/alt
-	name = "brown trenchcoat"
-	desc = "A sleek canvas trenchcoat"
-	icon_state = "trenchcoat_brown"
-	item_state = "trenchcoat_brown"
-	icon_open = "trenchcoat_brown_open"
-	icon_closed = "trenchcoat_brown"
-
-/obj/item/clothing/suit/storage/toggle/trench/grey_alt
-	name = "grey trenchcoat"
-	desc = "A sleek canvas trenchcoat"
-	icon_state = "trenchcoat_grey"
-	item_state = "trenchcoat_grey"
-	icon_open = "trenchcoat_grey_open"
-	icon_closed = "trenchcoat_grey"
-
 /obj/item/clothing/suit/storage/toggle/trench/green
 	name = "green trenchcoat"
 	desc = "A comfy looking green trenchcoat with fur."
@@ -621,12 +587,6 @@
 	icon_open = "serv_dep_jacket_open"
 	icon_closed = "serv_dep_jacket"
 
-/obj/item/clothing/suit/storage/fib
-	name = "\improper FIB agent jacket"
-	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
-	icon_state = "fib_jacket"
-	item_state = "fib_jacket"
-
 /obj/item/clothing/suit/cardigan
 	name = "cardigan"
 	desc = "A cozy, warm knit cardigan. Only slightly worse than a blanket."
@@ -676,3 +636,54 @@
 		src.item_state = "caution"
 		usr.show_message("You turn the wet floor sign off.")
 	update_clothing_icon()
+
+//Trenchcoats
+
+/obj/item/clothing/suit/storage/toggle/trench
+	name = "brown trenchcoat"
+	desc = "A high quality trench coat made of cotton gabardine; this one is brown."
+	icon_state = "trenchcoat_brown"
+	item_state = "trenchcoat_brown"
+	icon_open = "trenchcoat_brown_open"
+	icon_closed = "trenchcoat_brown"
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/toggle/trench/grey
+	name = "grey trenchcoat"
+	desc = "A high quality trench coat made of cotton gabardine; this one is grey."
+	icon_state = "trenchcoat_grey"
+	item_state = "trenchcoat_grey"
+	icon_open = "trenchcoat_grey_open"
+	icon_closed = "trenchcoat_grey"
+
+/obj/item/clothing/suit/storage/toggle/trench/white
+	name = "white trenchcoat"
+	desc = "A high quality trench coat made of cotton gabardine; this one is white."
+	icon_state = "trenchcoat_white"
+	item_state = "trenchcoat_white"
+	icon_open = "trenchcoat_white_open"
+	icon_closed = "trenchcoat_white"
+
+/obj/item/clothing/suit/storage/toggle/trench/tan
+	name = "tan trenchcoat"
+	desc = "A high quality trench coat made of cotton gabardine; this one is tan."
+	icon_state = "trenchcoat_tan"
+	item_state = "trenchcoat_tan"
+	icon_open = "trenchcoat_tan_open"
+	icon_closed = "trenchcoat_tan"
+
+/obj/item/clothing/suit/storage/toggle/trench/black
+	name = "black trenchcoat"
+	desc = "A high quality trench coat made of cotton gabardine; this one is black."
+	icon_state = "trenchcoat_black"
+	item_state = "trenchcoat_black"
+	icon_open = "trenchcoat_black_open"
+	icon_closed = "trenchcoat_black"
+
+/obj/item/clothing/suit/storage/toggle/trench/fib
+	name = "\improper FIB windbreaker"
+	desc = "A blue windbreaker; it has the markings of the FIB on it."
+	icon_state = "trenchcoat_fib"
+	item_state = "trenchcoat_fib"
+	icon_open = "trenchcoat_fib_open"
+	icon_closed = "trenchcoat_fib"
