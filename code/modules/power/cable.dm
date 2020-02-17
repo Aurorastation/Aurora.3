@@ -569,6 +569,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			repair_organ(user, H, S)
 
 		else if(S.open != 2)
+		else if(S.open != 2)
 			to_chat(user, span("notice", "You can't see any external damage to fix."))
 
 	else
