@@ -351,7 +351,7 @@
 		to_chat(user, "<span class='notice'>You refuel your welder.</span>")
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
-	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && Adjacent(O) && welding)
+	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
 			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
