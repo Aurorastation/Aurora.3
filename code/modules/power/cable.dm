@@ -502,7 +502,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil/attack(mob/living/carbon/M, mob/user)
 	if(..())
-		return 1
+		return TRUE
 	
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
