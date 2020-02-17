@@ -320,7 +320,8 @@
 				return
 			else
 				repair_organ(user, H, S)
-		else
+
+		else if(S.open != 2)
 			to_chat(user, span("notice", "You can't see any external damage to repair."))
 	else
 		return ..()

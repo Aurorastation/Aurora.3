@@ -562,15 +562,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			return
 
 		if(S.burn_dam)
-			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP && BP_IS_ROBOTIC(S))
-				to_chat(user, span("warning", "The damage is far too severe to patch over externally."))
+			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP)
+				to_chat(user, span("warning", "The damage is far too severe to patch over externally!"))
 				return
-
-			repair_organ(user, H, S)
+			else
+				repair_organ(user, H, S)
 
 		else if(S.open != 2)
-		else if(S.open != 2)
-			to_chat(user, span("notice", "You can't see any external damage to fix."))
+			to_chat(user, span("notice", "You can't see any external damage to repair."))
 
 	else
 		return ..()
