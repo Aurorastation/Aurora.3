@@ -10,6 +10,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Most forms of flashes/blinds, especially mounted flashers, now confuse and render organics dizzy after blinding."
+  - rscadd: "Most forms of flashes/blinds, especially mounted flashers, now confuse organics after blinding."
   - tweak: "Confusion has been buffed up a bit to make you move in an unintended direction a bit more often."
   - tweak: "Pocket flashes have had their break chance lowered, and unified together and now don't have a ridiculous chance of breaking for manually using them. This mechanic was a problem for too many years, sorry."
