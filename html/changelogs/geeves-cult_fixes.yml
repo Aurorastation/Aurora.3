@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed Manifest Ghost not working for cultists."
-  - bugfix: "Fixed cultists being unable to summon soulstones and constructs."
