@@ -17,18 +17,13 @@
 	new /obj/item/clothing/under/rank/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/shoes/black_boots(src)
+	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/head/soft/sec(src)
 	new /obj/item/clothing/head/soft/sec(src)
 	new /obj/item/clothing/head/soft/sec(src)
-	new /obj/item/clothing/head/beret/sec(src)
-	new /obj/item/clothing/head/beret/sec(src)
-	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
@@ -36,7 +31,7 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
-
+	new /obj/item/clothing/shoes/jackboots/toeless(src)
 	return
 
 /obj/structure/closet/wardrobe/pink

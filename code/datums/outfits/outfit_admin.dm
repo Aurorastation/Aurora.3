@@ -339,7 +339,7 @@
 	name = "FIB Agent"
 
 	uniform = /obj/item/clothing/under/rank/fib
-	suit = /obj/item/clothing/suit/storage/fib
+	suit = /obj/item/clothing/suit/storage/toggle/trench/fib
 	gloves = /obj/item/clothing/gloves/black
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper

@@ -130,14 +130,12 @@
 	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
 	new /obj/item/clothing/suit/storage/toggle/armor/hos/jensen(src)
-	new /obj/item/clothing/suit/armor/hos(src)
+	new /obj/item/clothing/suit/storage/toggle/security/navyhos(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
 	new /obj/item/clothing/head/helmet/hos/cap(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/head/beret/sec/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/hos(src)
 	new /obj/item/device/radio/headset/heads/hos(src)
@@ -210,15 +208,11 @@
 	new /obj/item/clothing/suit/storage/vest/warden(src)
 	new /obj/item/clothing/under/rank/warden(src)
 	new /obj/item/clothing/under/rank/warden/corp(src)
-	new /obj/item/clothing/suit/armor/vest/warden(src)
-	new /obj/item/clothing/suit/armor/vest/warden/commissar(src)
+	new /obj/item/clothing/suit/storage/toggle/security/navywarden(src)
 	new /obj/item/clothing/head/beret/sec/warden(src)
 	new /obj/item/clothing/head/helmet/warden(src)
-	new /obj/item/clothing/head/helmet/warden/commissar(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/security(src)
 	new /obj/item/device/radio/headset/headset_sec(src)
@@ -288,6 +282,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
+	new	/obj/item/clothing/suit/storage/toggle/security/navyofficer
 	new /obj/item/clothing/head/soft/sec/corp(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
@@ -350,12 +345,10 @@
 
 /obj/structure/closet/secure_closet/detective/fill()
 	//Appearance
-	new /obj/item/clothing/suit/storage/toggle/det_jacket(src)
+	new /obj/item/clothing/suit/storage/toggle/security/greeninvestigator(src)
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/black(src)
-	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/shoes/brown(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
@@ -379,13 +372,10 @@
 /obj/structure/closet/secure_closet/csi/fill()
 	//Appearance
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/suit/storage/forensics/blue(src)
-	new /obj/item/clothing/suit/storage/forensics/red(src)
+	new /obj/item/clothing/suit/storage/toggle/security/greeninvestigator(src)
 	new /obj/item/clothing/suit/storage/vest/csi(src)
 	new /obj/item/clothing/under/det/forensics(src)
 	new /obj/item/clothing/under/det/black(src)
-	new /obj/item/clothing/under/det/classic(src)
-	new /obj/item/clothing/shoes/laceup(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
