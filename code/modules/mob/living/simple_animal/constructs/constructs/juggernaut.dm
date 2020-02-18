@@ -6,7 +6,6 @@
 	icon_state = "behemoth"
 	icon_living = "behemoth"
 	maxHealth = 400
-	health = 400
 	health_prefix = "juggernaut"
 	response_harm = "harmlessly punches"
 	harm_intent_damage = 0
