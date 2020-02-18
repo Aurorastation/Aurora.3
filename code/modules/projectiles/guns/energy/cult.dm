@@ -60,6 +60,7 @@
 		power_supply.give(charge_cost)
 
 /obj/item/gun/energy/rifle/cult/mounted
+	max_shots = 15
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
