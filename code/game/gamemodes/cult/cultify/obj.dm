@@ -11,22 +11,22 @@
 	return
 
 /obj/item/device/flashlight/lamp/cultify()
-	new /obj/structure/cult/pylon(loc)
+	new /obj/structure/cult/pylon(get_turf(src))
 	..()
 
 /obj/item/stack/material/wood/cultify()
 	return
 
 /obj/item/book/cultify()
-	new /obj/item/book/tome(loc)
+	new /obj/item/book/tome(get_turf(src))
 	..()
 
 /obj/item/material/sword/cultify()
-	new /obj/item/melee/cultblade(loc)
+	new /obj/item/melee/cultblade(get_turf(src))
 	..()
 
 /obj/item/storage/backpack/cultify()
-	new /obj/item/storage/backpack/cultpack(loc)
+	new /obj/item/storage/backpack/cultpack(get_turf(src))
 	..()
 
 /obj/item/storage/backpack/cultpack/cultify()
@@ -42,7 +42,7 @@
 			/obj/structure/cult/tome
 			)
 		var/I = pick(random_structure)
-		new I(loc)
+		new I(get_turf(src))
 	..()
 
 /obj/machinery/atmospherics/cultify()
@@ -51,15 +51,15 @@
 		density = 0
 
 /obj/machinery/cooker/cultify()
-	new /obj/structure/cult/talisman(loc)
+	new /obj/structure/cult/talisman(get_turf(src))
 	qdel(src)
 
 /obj/machinery/computer/cultify()
-	new /obj/structure/cult/tome(loc)
+	new /obj/structure/cult/tome(get_turf(src))
 	qdel(src)
 
 /obj/machinery/door/airlock/external/cultify()
-	new /obj/structure/simple_door/wood(loc)
+	new /obj/structure/simple_door/wood(get_turf(src))
 	..()
 
 /obj/machinery/door/cultify()
@@ -73,7 +73,7 @@
 	qdel(src)
 
 /obj/machinery/light/cultify()
-	new /obj/structure/cult/pylon(loc)
+	new /obj/structure/cult/pylon(get_turf(src))
 	qdel(src)
 
 /obj/machinery/mech_sensor/cultify()
@@ -84,11 +84,11 @@
 		src.invisibility = INVISIBILITY_MAXIMUM
 
 /obj/machinery/vending/cultify()
-	new /obj/structure/cult/forge(loc)
+	new /obj/structure/cult/forge(get_turf(src))
 	qdel(src)
 
 /obj/structure/bed/chair/cultify()
-	var/obj/structure/bed/chair/wood/wings/I = new(loc)
+	var/obj/structure/bed/chair/wood/wings/I = new(get_turf(src))
 	I.dir = dir
 	..()
 
@@ -106,7 +106,7 @@
 	return
 
 /obj/structure/simple_door/cultify()
-	new /obj/structure/simple_door/wood(loc)
+	new /obj/structure/simple_door/wood(get_turf(src))
 	..()
 
 /obj/structure/simple_door/wood/cultify()
@@ -118,7 +118,7 @@
 	qdel(src)
 
 /obj/structure/shuttle/engine/heater/cultify()
-	new /obj/structure/cult/pylon(loc)
+	new /obj/structure/cult/pylon(get_turf(src))
 	..()
 
 /obj/structure/shuttle/engine/propulsion/cultify()
@@ -137,3 +137,8 @@
 	update_connections(1)
 	update_icon()
 	update_material()
+
+/obj/item/gun/cultify()
+	if(w_class > ITEMSIZE_NORMAL)
+		new /obj/item/gun/energy/rifle/cult(get_turf(src))
+	..()

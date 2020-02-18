@@ -375,3 +375,17 @@
 	new /obj/effect/temp_visual/nuke(A.loc)
 	explosion(A,2,5,9)
 	..()
+
+/obj/item/projectile/bullet/shard
+	name = "shard"
+	icon_state = "shard"
+	damage = 20
+	damage_type = BRUTE
+	check_armour = "bullet"
+	embed = TRUE
+	sharp = TRUE
+	shrapnel_type = /obj/item/material/shard/shrapnel
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
+/obj/item/projectile/bullet/shard/heavy
+	damage = 30

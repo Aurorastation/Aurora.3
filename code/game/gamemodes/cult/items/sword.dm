@@ -5,12 +5,13 @@
 	item_state = "cultblade"
 	icon = 'icons/obj/weapons.dmi'
 	w_class = 4
-	force = 30
+	force = 25
 	throwforce = 10
 	slot_flags = SLOT_BELT
 	edge = TRUE
 	sharp = TRUE
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	var/does_cult_check = TRUE
 
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	can_embed = FALSE //can't get stuck anymore, because blood magic
@@ -19,7 +20,7 @@
 	return
 
 /obj/item/melee/cultblade/attack(mob/living/M, mob/living/user, var/target_zone)
-	if(iscultist(user))
+	if(iscultist(user) || !does_cult_check)
 		return ..()
 
 	var/zone = (user.hand ? BP_L_ARM:BP_R_ARM)
@@ -55,3 +56,8 @@
 		var/obj/item/material/sword/blade = new(get_turf(src))
 		blade.force = 15
 		qdel(src)
+
+/obj/item/melee/cultblade/mounted
+	name = "daemon doomblade"
+	force = 40
+	does_cult_check = FALSE

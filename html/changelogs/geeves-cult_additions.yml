@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed Daemon Forges not properly cultifying items."
+  - tweak: "Reduced the damage cult swords do by five."
+  - rscadd: "You can now summon a cult mech by parking a normal mech on top of a Create Armour rune, and using the rune with two other cultists next to it."
+  - rscadd: "Added a new cult rifle, which shoots crystal shards. It recharges ammo by sucking your blood. It can be create by casting a large gun into the daemon forge."
