@@ -89,6 +89,10 @@ var/list/flooring_types
 	icon_base = "rub_carpet"
 	build_type = /obj/item/stack/tile/carpet_rubber
 
+/decl/flooring/carpet/art
+	icon_base = "artcarpet"
+	build_type = /turf/simulated/floor/carpet/art
+
 /decl/flooring/tiling
 	name = "floor"
 	desc = "Scuffed from the passage of countless greyshirts."

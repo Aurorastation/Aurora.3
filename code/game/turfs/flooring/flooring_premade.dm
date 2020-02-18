@@ -15,6 +15,10 @@
 	icon_state = "rub_carpet"
 	initial_flooring = /decl/flooring/carpet/rubber
 
+/turf/simulated/floor/carpet/art
+	icon_state = "artcarpet"
+	initial_flooring = /decl/flooring/carpet/art
+
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
