@@ -167,10 +167,10 @@
 /obj/vehicle/bike/casino
 	name = "retrofitted snowmobile"
 	desc = "A modified snowmobile, there is a coin slot on the panel."
-	icon_state = "snowmobile_on"
+	icon_state = "snow_on"
 
-	bike_icon = "snowmobile"
-	land_speed = 3
+	bike_icon = "snow"
+	land_speed = 2
 	var/paid = FALSE
 
 /obj/vehicle/bike/casino/Move(var/turf/destination)
@@ -182,6 +182,8 @@
 	if(istype(W, /obj/item/coin/casino))
 		if(!paid)
 			paid = TRUE
+			user.drop_from_inventory(W,src)
+			qdel(W)
 			to_chat(user, "<span class='notice'>Payment confirmed, enjoy two minutes of unlimited snowmobile use!</span>")
 			addtimer(CALLBACK(src, .proc/rearm), 2 MINUTES)
 		return
