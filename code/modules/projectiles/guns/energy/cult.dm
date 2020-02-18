@@ -9,8 +9,8 @@
 	slot_flags = SLOT_BACK // see if i can get a sprite for this
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	max_shots = 20
-	fire_delay = 18
+	max_shots = 5
+	fire_delay = 25
 	accuracy = -1
 	can_turret = FALSE
 	can_switch_modes = FALSE
@@ -45,16 +45,18 @@
 	return ..()
 
 /obj/item/gun/energy/rifle/cult/process()
-	. = ..()
-	world << "processing"
 	if(power_supply.charge >= power_supply.maxcharge)
 		return
 	if(ishuman(src.loc))
 		var/mob/living/carbon/human/H = src.loc
-		if(H.vessel.get_reagent_amount("blood") > BLOOD_VOLUME_BAD)
+		if(isipc(src.loc)) // if it's an IPC, we use its cell charge to charge
+			if(H.nutrition)
+				H.adjustNutritionLoss(20)
+				power_supply.give(charge_cost)
 			return
-		H.vessel.remove_reagent("blood", 5)
-		world << "recharging with blood"
+		if(H.vessel.get_reagent_amount("blood") < BLOOD_VOLUME_OKAY)
+			return
+		H.vessel.remove_reagent("blood", (H.species.blood_volume * 0.025)) // otherwise, if it's a human, we use blood to recharge
 		power_supply.give(charge_cost)
 
 /obj/item/gun/energy/rifle/cult/mounted
