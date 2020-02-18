@@ -6,7 +6,6 @@
 	icon_state = "harvester"
 	icon_living = "harvester"
 	maxHealth = 150
-	health = 150
 	health_prefix = "harvester"
 	melee_damage_lower = 25
 	melee_damage_upper = 25

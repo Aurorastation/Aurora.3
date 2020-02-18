@@ -150,7 +150,7 @@
 //If user is a cultist, speaks message to them with a prefix
 //If user is not cultist, then speaks cult-y gibberish
 /obj/structure/cult/pylon/proc/speak_to(var/mob/user, var/message)
-	if(iscult(user) || (/datum/language/cultcommon in user.languages))
+	if(iscult(user) || (all_languages[LANGUAGE_CULT] in user.languages))
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[message]</i></span>")
 	else
 		to_chat(user, "A voice speaks into your mind, <span class='cult'><i>[lang.scramble(message)]</i></span>")
@@ -287,9 +287,9 @@
 			continue
 		if(!isInSight(src, L))
 			continue
-		if(istype(L, /mob/living/heavy_vehicle))
+		if(ismech(L))
 			var/mob/living/heavy_vehicle/mech = L
-			if(!length(mech.pilots))
+			if(!LAZYLEN(mech.pilots))
 				continue
 			for(var/mob/M in mech.pilots)
 				if(M == sacrificer || iscult(M))

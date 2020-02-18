@@ -30,13 +30,13 @@
 		var/reflectchance = 80 - round(P.damage / 3)
 		if(prob(reflectchance))
 			adjustBruteLoss(P.damage * 0.3)
-			visible_message("<span class='danger'>The [P.name] gets reflected by [src]'s shell!</span>", \
-							"<span class='danger'>The [P.name] gets reflected by [src]'s shell!</span>")
+			visible_message(SPAN_DANGER("\The [P.name] gets reflected by \the [src]'s shell!"), \
+							SPAN_DANGER("\The [P.name] gets reflected by \the [src]'s shell!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
-				var/new_x = P.starting.x + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
-				var/new_y = P.starting.y + pick(0, 0, -1, 1, -2, 2, -2, 2, -2, 2, -3, 3, -3, 3)
+				var/new_x = P.starting.x + text2num(pickweight(list("0" = 1, "1" = 1, "2" = 3, "3" = 2))) * pick(1, -1)
+				var/new_y = P.starting.y + text2num(pickweight(list("0" = 1, "1" = 1, "2" = 3, "3" = 2))) * pick(1, -1)
 
 				// redirect the projectile
 				P.firer = src

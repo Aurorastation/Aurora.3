@@ -6,7 +6,6 @@
 	icon_state = "floating"
 	icon_living = "floating"
 	maxHealth = 100
-	health = 100
 	health_prefix = "wraith"
 	melee_damage_lower = 25
 	melee_damage_upper = 25

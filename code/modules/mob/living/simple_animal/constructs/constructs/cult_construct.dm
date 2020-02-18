@@ -52,8 +52,8 @@
 	var/static/list/construct_descriptors = list("lumbering", "ponderous", "rumbling", "sleek", "solid", "ephemeral", "dense", "shimmering", "dull", "glittering", "shining", "sluggish", "quiet", "ominious", "weighty", "mysterious")
 	name = "[capitalize(pick(construct_descriptors))] [initial(name)]"
 	real_name = name
-	add_language("Cult")
-	add_language("Occult")
+	add_language(LANGUAGE_CULT)
+	add_language(LANGUAGE_OCCULT)
 	for(var/spell in construct_spells)
 		src.add_spell(new spell, "const_spell_ready")
 	updateicon()
@@ -70,7 +70,7 @@
 	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/simple_animal/construct/C = user
 		if(C.can_repair)
-			if(getBruteLoss() > 0)
+			if(getBruteLoss())
 				adjustBruteLoss(-5)
 				adjustFireLoss(-5)
 				user.visible_message(span("notice", "\The [user] mends some of \the [src]'s wounds."))
@@ -105,7 +105,7 @@
 		overlay_layer = TURF_LAYER + 0.2
 
 	add_overlay(image(icon, "glow-[icon_state]", overlay_layer))
-	set_light(2, -2, l_color = "#FFFFFF")
+	set_light(2, -2, l_color = COLOR_WHITE)
 
 /mob/living/simple_animal/construct/Life()
 	. = ..()
