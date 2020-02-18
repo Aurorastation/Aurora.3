@@ -80,6 +80,8 @@
 #define COLOR_ASTEROID_ROCK    "#735555"
 #define COLOR_HOT_PINK         "#ff6088"
 #define COLOR_DIAMOND          "#d8d4ea"
+#define COLOR_TCFL             "#849bc1"
+#define COLOR_RIPLEY           "#ffbc37"
 
 //Color defines used by the assembly detailer.
 #define COLOR_ASSEMBLY_BLACK    "#545454"
