@@ -14,8 +14,7 @@
 /spell/aoe_turf/conjure/wall/conjure_animation(var/atom/movable/overlay/animation, var/turf/target)
 	animation.icon_state = "cultwall"
 	flick("cultwall", animation)
-	spawn(10)
-		qdel(animation)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, animation), 10)
 
 /spell/aoe_turf/conjure/wall/reinforced
 	name = "Greater Construction"

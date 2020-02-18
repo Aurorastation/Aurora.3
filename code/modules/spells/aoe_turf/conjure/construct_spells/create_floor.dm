@@ -14,5 +14,4 @@
 /spell/aoe_turf/conjure/floor/conjure_animation(var/atom/movable/overlay/animation, var/turf/target)
 	animation.icon_state = "cultfloor"
 	flick("cultfloor", animation)
-	spawn(10)
-		qdel(animation)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, animation), 10)

@@ -1,3 +1,8 @@
+#define PYLON_IDLE 0				//0 = Idle, the pylon is an inert crystal
+#define PYLON_AWAITING_SACRIFICE 1	//1 = Awaiting sacrifice. The pylon is actively tracking a creature to be sacrificed to it
+#define PYLON_TURRET 2				//2 = Turret. The pylon has been empowered by a sacrifice and is now a turret permanantly
+
+
 /obj/structure/cult/pylon
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
@@ -10,11 +15,7 @@
 	var/isbroken = FALSE
 	light_range = 5
 	light_color = "#3e0000"
-	var/pylonmode = 0
-	//Pylon has three states:
-	//0 = Idle, the pylon is an inert crystal
-	//1 = Awaiting sacrifice. The pylon is actively tracking a creature to be sacrificed to it
-	//2 = Turret. The pylon has been empowered by a sacrifice and is now a turret permanantly
+	var/pylonmode = PYLON_IDLE
 
 	var/damagetaken = 0
 	var/empowered = FALSE //Number of empowered, higher-damage shots remaining
@@ -42,7 +43,7 @@
 //Just a subtype that starts off in turret mode. For adminbus and debugging. Maybe a future wizard spell
 //Spawn them next to ERPers
 /obj/structure/cult/pylon/turret
-	pylonmode = 2
+	pylonmode = PYLON_TURRET
 
 /obj/structure/cult/pylon/turret/New()
 	..()
@@ -111,10 +112,10 @@
 	if(isbroken)
 		return FALSE
 
-	if(pylonmode == 2)
+	if(pylonmode == PYLON_TURRET)
 		return TRUE
 
-	if(pylonmode == 1)
+	if(pylonmode == PYLON_AWAITING_SACRIFICE)
 		if(sacrifice)
 			return TRUE
 
@@ -166,7 +167,7 @@
 		to_chat(user, span("warning", "The pylon lies silent."))
 		return FALSE
 
-	if(pylonmode != 0)
+	if(pylonmode != PYLON_IDLE)
 		to_chat(user, span("warning", "This pylon is already tracking a sacrifice."))
 		return FALSE
 
@@ -196,7 +197,7 @@
 		H.release_to_floor()
 	else
 		sacrifice.forceMove(get_turf(sacrifice))
-	pylonmode = 1
+	pylonmode = PYLON_AWAITING_SACRIFICE
 	update_icon()
 	start_process()
 
@@ -224,7 +225,7 @@
 		if(-1)
 			speak_to(sacrificer, "Fool! Your offering has escaped. Bring it back, or find us another...")
 			sacrifice = null
-			pylonmode = 0
+			pylonmode = PYLON_IDLE
 			update_icon()
 			if(sacrifice)
 				walk_to(sacrifice, 0)
@@ -242,7 +243,7 @@
 		H.release_to_floor()
 	else
 		sacrifice.forceMove(get_turf(sacrifice)) //Make sure its on the floor before we gib it
-	pylonmode = 2
+	pylonmode = PYLON_TURRET
 	sacrifice.gib()
 
 	update_icon()
@@ -430,7 +431,7 @@
 	visible_message(span("danger", "The pylon shatters into shards of crystal!"), span("warning", "You hear a tinkle of crystal shards."))
 	playsound(get_turf(src), "shatter", 75, 1)
 	isbroken = TRUE
-	if(pylonmode == 2)
+	if(pylonmode == PYLON_TURRET)
 		//If the pylon had a soul in it then it plays a creepy evil sound as the soul is released
 		var/list/possibles = list('sound/hallucinations/far_noise.ogg',
 		'sound/hallucinations/growl3.ogg',
@@ -439,7 +440,7 @@
 		'sound/voice/hiss5.ogg')
 		playsound(get_turf(src), pick(possibles), 50, 1)
 
-	pylonmode = 0 //A broken pylon loses its soul. Even if repaired it will need a new sacrifice to re-empower it
+	pylonmode = PYLON_IDLE //A broken pylon loses its soul. Even if repaired it will need a new sacrifice to re-empower it
 
 	//Make sure we stop it from firing
 	target = null
@@ -472,9 +473,9 @@
 
 /obj/structure/cult/pylon/update_icon()
 	cut_overlays()
-	if(pylonmode == 2)
-		anchored = 1
-		if(empowered > 0)
+	if(pylonmode == PYLON_TURRET)
+		anchored = TRUE
+		if(empowered)
 			add_overlay("crystal_overcharge")
 			set_light(7, 3, l_color = "#a160bf")
 		else
@@ -483,10 +484,14 @@
 	else if(!isbroken)
 		set_light(5, 2, l_color = "#3e0000")
 		add_overlay("crystal_idle")
-		if(pylonmode == 1)
-			anchored = 1
+		if(pylonmode == PYLON_AWAITING_SACRIFICE)
+			anchored = TRUE
 		else
-			anchored = 0
+			anchored = FALSE
 	else
-		anchored = 0
+		anchored = FALSE
 		set_light(0)
+
+#undef PYLON_IDLE
+#undef PYLON_AWAITING_SACRIFICE
+#undef PYLON_TURRET
