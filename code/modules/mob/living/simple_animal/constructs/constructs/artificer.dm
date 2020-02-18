@@ -6,7 +6,6 @@
 	icon_state = "artificer"
 	icon_living = "artificer"
 	maxHealth = 50
-	health = 50
 	health_prefix = "artificer"
 	response_harm = "viciously beaten"
 	harm_intent_damage = 5
