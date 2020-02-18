@@ -11,6 +11,7 @@
 	name = "daemon doomblade"
 	desc = "A large blade menacing with demonic energy, try to not touch the red parts."
 	icon_state = "mecha_doomblade"
+	equipment_delay = 5
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_CULT)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
