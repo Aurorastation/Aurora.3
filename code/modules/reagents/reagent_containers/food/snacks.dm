@@ -212,11 +212,8 @@
 					U.is_liquid = TRUE
 				if (reagents.total_volume <= 0)
 					if(trash)
-						if(ispath(trash,/obj/item))
-							var/obj/item/TrashItem = new trash(user)
-							user.put_in_hands(TrashItem)
-						else if(istype(trash,/obj/item))
-							user.put_in_hands(trash)
+						var/obj/item/TrashItem = new trash(user)
+						user.put_in_hands(TrashItem)
 					qdel(src)
 				return
 

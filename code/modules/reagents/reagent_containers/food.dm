@@ -21,15 +21,10 @@
 
 /obj/item/reagent_containers/food/proc/on_consume(var/mob/user, var/mob/target)
 	if(!reagents.total_volume)
-		if(!user)
-			user = target
 		user.drop_from_inventory(src)	//so trash actually stays in the active hand.
 		if(trash)
-			if(ispath(trash,/obj/item))
-				var/obj/item/TrashItem = new trash(user)
-				user.put_in_hands(TrashItem)
-			else if(istype(trash,/obj/item))
-				user.put_in_hands(trash)
+			var/obj/item/TrashItem = new trash(user)
+			user.put_in_hands(TrashItem)
 			target.visible_message(span("notice", "[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
 								   span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 		qdel(src)
