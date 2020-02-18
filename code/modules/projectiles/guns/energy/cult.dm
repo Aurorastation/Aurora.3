@@ -41,8 +41,7 @@
 		START_PROCESSING(SSprocessing, src)
 
 /obj/item/gun/energy/rifle/cult/Destroy()
-	if(does_process)
-		STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
 /obj/item/gun/energy/rifle/cult/process()

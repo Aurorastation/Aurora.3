@@ -19,7 +19,7 @@
 	exosuit_desc_string = "bloodpact reinforced manipulators"
 	icon_state = "cult_arms"
 	melee_damage = 50
-	action_delay = 15
+	action_delay = 5
 	max_damage = 90
 	power_use = 7500
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'

@@ -3,7 +3,7 @@
 	desc = "A heavy duty daemon shardlauncher, not for the faint of heart."
 	icon_state = "mecha_souljavelin"
 	holding_type = /obj/item/gun/energy/rifle/cult/mounted
-	equipment_delay = -8
+	equipment_delay = -2
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_CULT)
 
@@ -23,11 +23,9 @@
 /obj/item/mecha_equipment/doomblade/attack(mob/living/M, mob/living/user)
 	if(!owner)
 		return
-	var/target_zone
+	var/target_zone = BP_CHEST
 	for(var/mob/living/carbon/human/pilot in owner.pilots)
 		if(pilot)
 			target_zone = pilot.zone_sel.selecting
 			break
-	if(!target_zone)
-		target_zone = BP_CHEST
 	doomblade.attack(M, user, target_zone)
