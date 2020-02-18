@@ -1,6 +1,6 @@
 /mob/living/heavy_vehicle/premade/cult
 	name = "Daemon Exosuit"
-	desc = "An unholy construction, a mecha ripped from the jaws of the underworld, here to wreck havoc on the living."
+	desc = "An unholy construction, a mecha ripped from the jaws of the underworld, here to wreak havoc on the living."
 	icon_state = "durand"
 
 	e_head = /obj/item/mech_component/sensors/cult
@@ -15,7 +15,7 @@
 
 /obj/item/mech_component/manipulators/cult
 	name = "daemon arms"
-	desc = "Forged by the Great Unknown, these arms wield the dark weapons gifted by Nar'Sie."
+	desc = "Forged by the Great Unknown, these arms wield dark weapons gifted by Nar'Sie."
 	exosuit_desc_string = "bloodpact reinforced manipulators"
 	icon_state = "cult_arms"
 	melee_damage = 50

@@ -17,7 +17,7 @@
 			for(var/mob/M in cultists)
 				to_chat(M, span("warning", "There aren't enough cultists to create a cult mecha construct!"))
 				return
-		if(length(cult_mecha.pilots))
+		if(LAZYLEN(cult_mecha.pilots))
 			continue
 		for(var/hardpoint in cult_mecha.hardpoints)
 			cult_mecha.remove_system(hardpoint, force = TRUE)
