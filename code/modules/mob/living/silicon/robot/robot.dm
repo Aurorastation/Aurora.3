@@ -826,7 +826,7 @@
 	cut_overlays()
 
 	if(stat == CONSCIOUS)
-		if(a_intent == "help")
+		if(a_intent == I_HELP)
 			add_overlay("eyes-[module_sprites[icontype]]-help")
 		else
 			add_overlay("eyes-[module_sprites[icontype]]-harm")
