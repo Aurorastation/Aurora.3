@@ -8,6 +8,7 @@
 	pass_flags = PASSTABLE
 	req_access = list(access_mining, access_robotics)
 	idcard_type = /obj/item/card/id/minedrone
+	speed = -1
 	var/health_upgrade
 	var/ranged_upgrade
 	var/melee_upgrade

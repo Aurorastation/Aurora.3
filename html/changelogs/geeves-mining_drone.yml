@@ -5,7 +5,6 @@ delete-after: True
 changes: 
   - tweak: "Tweaked the mining drone lawset to be a little more sane."
   - tweak: "Upgraded cyborg KA's to be a bit better to use."
-  - tweak: "Increased Mining Drones' walking speed."
   - rscadd: "Allowed mining drones to speak normal languages."
   - rscdel: "Removed drone and robot speak from mining drones."
   - rscadd: "Allowed mining drones to pull ore boxes."
