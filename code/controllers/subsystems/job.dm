@@ -704,6 +704,8 @@
 	H.ckey = null
 
 	// Delete the mob.
+	if(H.species)
+		H.species.handle_despawn(H)
 	qdel(H)
 
 // Equips a human-type with their custom loadout crap.
