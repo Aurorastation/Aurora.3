@@ -2,11 +2,9 @@
 	can_talisman = TRUE
 
 /obj/effect/rune/armor/do_rune_action(mob/living/user, obj/O = src)
-	var/mob/living/heavy_vehicle/cult_mecha
-	for(var/mob/living/heavy_vehicle/mecha in range(1, src))
-		if(istype(mecha, /mob/living/heavy_vehicle/premade/cult))
+	for(var/mob/living/heavy_vehicle/cult_mecha in range(1, src))
+		if(istype(cult_mecha, /mob/living/heavy_vehicle/premade/cult))
 			continue
-		cult_mecha = mecha
 		var/list/mob/cultists = list()
 		for(var/mob/M in range(1, src))
 			if(istype(M, /mob/living/carbon/human/apparition))
