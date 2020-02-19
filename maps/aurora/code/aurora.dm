@@ -23,8 +23,6 @@
 		"9" = /turf/space
 	)
 
-	has_space_ruins = TRUE
-
 	station_name = "NSS Aurora"
 	station_short = "Aurora"
 	dock_name = "NTCC Odin"
