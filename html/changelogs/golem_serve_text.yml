@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "Spawning as a golem no longer tells you to serve your ghostmob."
