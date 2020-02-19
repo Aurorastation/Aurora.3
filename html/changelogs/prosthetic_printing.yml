@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Prosthetic external organs from the Prosthetics (External) tab of the mechfab are now only for surgery on human-mobs, and are now properly attachable. For robots use the robotic limbs that are now in the 'Robot' tab of the fabber."
