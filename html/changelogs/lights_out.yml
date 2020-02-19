@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Removing an assembly light will now turn the light off."

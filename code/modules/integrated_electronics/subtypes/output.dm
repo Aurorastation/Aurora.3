@@ -83,6 +83,11 @@
 			assembly.set_light(0)
 	power_draw_idle = light_toggled ? light_brightness * 2 : 0
 
+/obj/item/integrated_circuit/output/light/disconnect_all()
+	..()
+	light_toggled = FALSE
+	update_lighting()
+
 /obj/item/integrated_circuit/output/light/advanced/update_lighting()
 	var/new_color = get_pin_data(IC_INPUT, 1)
 	var/brightness = get_pin_data(IC_INPUT, 2)
