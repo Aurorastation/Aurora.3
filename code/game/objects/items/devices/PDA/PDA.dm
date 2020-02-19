@@ -744,11 +744,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				scanmode = 0
 			else if((!isnull(cartridge)) && (cartridge.access_reagent_scanner))
 				scanmode = 3
-		if("Halogen Counter")
-			if(scanmode == 4)
-				scanmode = 0
-			else if((!isnull(cartridge)) && (cartridge.access_engine))
-				scanmode = 4
 		if("Honk")
 			if ( !(last_honk && world.time < last_honk + 20) )
 				playsound(loc, 'sound/items/bikehorn.ogg', 50, 1)
