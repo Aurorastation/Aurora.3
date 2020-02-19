@@ -20,6 +20,7 @@
 				C.stuttering = 1
 			if(is_rune)
 				C.Weaken(3)
+			C.confused = 10
 			C.Stun(3)
 			C.silent += 15
 			to_chat(C, span("danger", "The rune explodes in a bright flash!"))
