@@ -40,3 +40,21 @@
 /obj/effect/decal/fake_object/light_source/invisible
 	simulated = 0
 	invisibility = 101
+
+
+/obj/effect/decal/fake_object/spacestuff
+	name = "object"
+	icon = 'icons/obj/spacestuff.dmi'
+	icon_state = "a2"
+	density = 0
+	anchored = 1
+	layer = ON_TURF_LAYER
+	mouse_opacity = FALSE
+
+/obj/effect/decal/fake_object/spacestuff/rocks/Initialize()
+	.=..()
+	icon_state = "a[rand(2,10)]"
+
+/obj/effect/decal/fake_object/spacestuff/bigrock
+	icon_state = "bigrock"
+	icon = 'icons/obj/bigrock.dmi'

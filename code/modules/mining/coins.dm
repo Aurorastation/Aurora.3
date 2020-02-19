@@ -105,6 +105,7 @@
 
 /obj/item/coin/casino
 	name = "grand romanovich casino chip"
+	desc = "A fancy casino chip."
 	icon_state = "catcoin"
 
 /obj/item/coin/casino/attack_self(mob/user as mob)
