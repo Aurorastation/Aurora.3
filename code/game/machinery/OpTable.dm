@@ -97,7 +97,7 @@
 			if(H.lying)
 				icon_state = H.pulse() ? "[modify_state]-active" : "[modify_state]-idle"
 				victim = H
-	if(victim)
+	if(victim && !victim.isSynthetic())
 		if(suppressing && victim.sleeping < 3)
 			victim.Sleeping(3 - victim.sleeping)
 			victim.willfully_sleeping = FALSE
