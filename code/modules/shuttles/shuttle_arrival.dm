@@ -40,6 +40,8 @@
 						mobstoyellat -= A
 					else if(!ishuman(A) && SSarrivals.failreturnnumber >=4 && !A.client) // remove non-player mobs to keep things rolling
 						qdel(A)
+					else if(issilicon(A.loc) && A.isMMI())
+						mobstoyellat -= A
 				if (mobstoyellat)
 					global_announcer.autosay("Current life-forms on shuttle: [english_list(mobstoyellat)].", "Arrivals Shuttle Oversight") // tell on them
 			return

@@ -19,6 +19,14 @@
 /mob/living/carbon/human/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
+/mob/living/proc/isMMI()
+	return FALSE
+
+/mob/living/carbon/isMMI()
+	if(isbrain(src))
+		var/mob/living/carbon/brain/B = src
+		return (B.container && istype(B.container, /obj/item/device/mmi))
+
 /mob/living/bot/isSynthetic()
 	return 1
 
