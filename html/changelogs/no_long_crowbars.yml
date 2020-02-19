@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Robots moving away while someone tries to crowbar them open/closed will now properly cancel the opening/closing."
