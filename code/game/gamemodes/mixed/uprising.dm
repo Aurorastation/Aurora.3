@@ -5,7 +5,5 @@
 	extended_round_description = "Traitors and revolutionaries spawn in this round."
 	required_players = 15
 	required_enemies = 3
-	end_on_antag_death = 1
 	antag_tags = list(MODE_REVOLUTIONARY, MODE_LOYALIST, MODE_TRAITOR)
-	require_all_templates = 1
-	votable = 1
+	require_all_templates = TRUE
