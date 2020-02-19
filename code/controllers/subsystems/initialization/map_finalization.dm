@@ -94,19 +94,18 @@
 	log_ss("map_finalization", "Loaded ruin config.")
 
 	//Check if we have a enforced mission we should try to load.
-	if(SSpersist_config.forced_awaymission)
-		if(SSpersist_config.forced_awaymission in mission_list)
-			selected_mission = mission_list[SSpersist_config.forced_awaymission]
-			log_ss("map_finalization", "Selected enforced away mission.")
-			admin_notice("<span class='danger'>Selected enforced away mission.</span>", R_DEBUG)
-			return
-		else
-			log_ss("map_finalization", "Failed to selected enforced away mission. Fallback to weighted selection.")
-			admin_notice("<span class='danger'>Failed to selected enforced away mission. Fallback to weighted selection.</span>", R_DEBUG)
+	if(SSpersist_config.forced_awaymission in mission_list)
+		selected_mission = mission_list[SSpersist_config.forced_awaymission]
+		log_ss("map_finalization", "Selected enforced away mission.")
+		admin_notice(SPAN_DANGER("Selected enforced away mission."), R_DEBUG)
+		return
+	else
+		log_ss("map_finalization", "Failed to selected enforced away mission. Fallback to weighted selection.")
+		admin_notice(SPAN_DANGER("Failed to selected enforced away mission. Fallback to weighted selection."), R_DEBUG)
 
 	var/mission_name = pickweight(weighted_mission_list)
 	selected_mission = mission_list[mission_name]
-	admin_notice("<span class='danger'>Selected away mission.</span>", R_DEBUG)
+	admin_notice(SPAN_DANGER("Selected away mission."), R_DEBUG)
 	return
 
 /datum/controller/subsystem/finalize/proc/load_space_ruin()
@@ -114,7 +113,7 @@
 
 	if(!selected_mission)
 		log_ss("map_finalization", "Not loading away mission, because no mission has been selected.")
-		admin_notice("<span class='danger'>Not loading away mission, because no mission has been selected.</span>", R_DEBUG)
+		admin_notice(SPAN_DANGER("Not loading away mission, because no mission has been selected."), R_DEBUG)
 		return
 	for(var/map in selected_mission.map_files)
 		var/mfile = "[selected_mission.base_dir][map]"
@@ -123,10 +122,10 @@
 
 		if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
 			log_ss("map_finalization", "Failed to load '[mfile]'!")
-			admin_notice("<span class='danger'>Failed to load '[mfile]'!</span>", R_DEBUG)
+			admin_notice(SPAN_DANGER("Failed to load '[mfile]'!"), R_DEBUG)
 		else
 			log_ss("map_finalization", "Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds.")
-			admin_notice("<span class='danger'>Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds.</span>", R_DEBUG)
+			admin_notice(SPAN_DANGER("Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds."), R_DEBUG)
 			current_map.restricted_levels.Add(world.maxz)
 	QDEL_NULL(maploader)
 
@@ -177,7 +176,7 @@
 		return
 	var/report_text = selected_mission.get_contact_report()
 	for(var/obj/effect/landmark/C in landmarks_list)
-		if(C.name == "Space Ruin Paper")
+		if(C.name == "Mission Paper")
 			var/obj/item/paper/P = new /obj/item/paper(get_turf(C))
 			P.name = "Icarus reading report"
 			P.info = report_text

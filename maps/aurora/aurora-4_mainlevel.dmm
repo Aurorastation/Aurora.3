@@ -44861,7 +44861,7 @@
 /obj/item/pen,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/landmark{
-	name = "Space Ruin Paper"
+	name = "Mission Paper"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/rdoffice)
