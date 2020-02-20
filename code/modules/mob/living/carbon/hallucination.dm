@@ -402,7 +402,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	allow_duplicates = FALSE
 
 /datum/hallucination/passive/can_affect(mob/living/carbon/C)
-	if((locate(/datum/hallucination/passive) in C.hallucinations))		//Kinda silly to be passive AND mad
+	if(locate(/datum/hallucination/passive) in C.hallucinations)		//Kinda silly to be passive AND mad
 		return FALSE
 	return ..()
 
@@ -441,7 +441,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/passive/can_affect(mob/living/carbon/C)
 	if(C.disabilities & PACIFIST)
 		return FALSE
-	if((locate(/datum/hallucination/rage) in C.hallucinations))		//Kinda silly to be passive AND mad
+	if(locate(/datum/hallucination/rage) in C.hallucinations)		//Kinda silly to be passive AND mad
 		return FALSE
 	return ..()
 
