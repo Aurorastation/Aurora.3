@@ -792,7 +792,7 @@ var/list/name_to_material
 	name = "cult"
 	display_name = "daemon stone"
 	icon_base = "cult"
-	icon_colour = "#402821"
+	icon_colour = COLOR_CULT
 	icon_reinf = "reinf_cult"
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "resin"
@@ -808,7 +808,7 @@ var/list/name_to_material
 
 /material/cult/reinf
 	name = "cult_reinforced"
-	icon_colour = "#8f3329"
+	icon_colour = COLOR_CULT_REINFORCED
 	display_name = "human remains"
 
 /material/cult/reinf/place_dismantled_product(var/turf/target)

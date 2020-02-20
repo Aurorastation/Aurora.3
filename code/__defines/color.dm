@@ -82,6 +82,10 @@
 #define COLOR_DIAMOND          "#d8d4ea"
 #define COLOR_TCFL             "#849bc1"
 #define COLOR_RIPLEY           "#ffbc37"
+#define COLOR_CULT             "#402821"
+#define COLOR_CULT_REINFORCED  "#8f3329"
+#define COLOR_CULT_DOOR        "#402821"
+
 
 //Color defines used by the assembly detailer.
 #define COLOR_ASSEMBLY_BLACK    "#545454"

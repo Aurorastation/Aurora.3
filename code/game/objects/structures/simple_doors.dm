@@ -250,4 +250,4 @@
 
 /obj/structure/simple_door/cult/New(var/newloc, var/material_name)
 	..(newloc, "cult")
-	color = "#4a3631" // looks better than the standard cult colours
+	color = COLOR_CULT_DOOR // looks better than the standard cult colours
