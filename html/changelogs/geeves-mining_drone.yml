@@ -1,0 +1,15 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Tweaked the mining drone lawset to be a little more sane."
+  - tweak: "Upgraded cyborg KA's to be a bit better to use."
+  - rscadd: "Allowed mining drones to speak normal languages."
+  - rscdel: "Removed drone and robot speak from mining drones."
+  - rscadd: "Allowed mining drones to pull ore boxes."
+  - rscdel: "Removed the ability to recycle mining drones, you can only reboot them now by swiping your ID."
+  - rscdel: "Removed the ability for mining drones to print reports. They can speak now."
+  - bugfix: "Installing a KA upgrade onto a mining drone will no longer delete its upgraded drill."
+  - rscadd: "Increased the capacity of the mining drone's default orebag."
+  - rscadd: "Gave the mining drone a Screwdriver, a GPS, a working jetpack, and a stack of rods."

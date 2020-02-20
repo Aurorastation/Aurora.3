@@ -60,7 +60,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/electronic_assembly        = TRADER_BLACKLIST_ALL, // Not a circuit trader
 		/obj/item/device/integrated_circuit_printer = TRADER_BLACKLIST_ALL, //Not a circuit trader
 		/obj/item/device/integrated_electronics     = TRADER_BLACKLIST_ALL, // Not a circuit trader
-		/obj/item/device/mine_bot_ugprade           = TRADER_BLACKLIST_ALL, // Not a mining vendor + drone stuff
+		/obj/item/device/mine_bot_upgrade           = TRADER_BLACKLIST_ALL, // Not a mining vendor + drone stuff
 		/obj/item/device/mmi                        = TRADER_BLACKLIST_SUB, // removes MMI Subtypes to prevent trading confusion
 		/obj/item/device/soulstone                  = TRADER_BLACKLIST, // Wiz item
 		/obj/item/device/firing_pin                 = TRADER_BLACKLIST_ALL, // Not a weapons trader
