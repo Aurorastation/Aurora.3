@@ -27,4 +27,4 @@
 	range = 0
 	cast_delay = 50
 
-	summon_type = list(/turf/simulated/wall/r_wall)
+	summon_type = list(/turf/simulated/wall/cult_reinforced)

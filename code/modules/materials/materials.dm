@@ -805,7 +805,8 @@ var/list/name_to_material
 	new /obj/effect/decal/cleanable/blood(target)
 
 /material/cult/reinf
-	name = "cult2"
+	name = "cult_reinforced"
+	icon_colour = "#8f3329"
 	display_name = "human remains"
 
 /material/cult/reinf/place_dismantled_product(var/turf/target)
