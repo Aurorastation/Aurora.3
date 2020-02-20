@@ -217,6 +217,7 @@
 	selection_color = "#C0C0C0"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
 	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
+	alt_titles = list("Sanitation Technician", "Appliances Technician")
 	outfit = /datum/outfit/job/janitor
 
 /datum/outfit/job/janitor
