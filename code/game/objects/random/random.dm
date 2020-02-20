@@ -1406,7 +1406,8 @@
 	desc = "Summons a random weapon, with ammo if applicable"
 	icon = 'icons/obj/guns/xenoblaster.dmi'
 	icon_state = "xenoblaster"
-	var/chosen_rarity //Can be set to force certain rarity.
+	var/chosen_rarity //Can be set to force certain rarity
+	var/concealable = FALSE //If the gun should fit in a backpack
 	has_postspawn = TRUE
 
 	var/list/Shoddy = list(
@@ -1495,6 +1496,9 @@
 		/obj/item/gun/projectile/revolver/mateba = 1
 		)
 
+/obj/random/weapon_and_ammo/concealable
+	concealable = TRUE
+
 /obj/random/weapon_and_ammo/post_spawn(var/obj/item/gun/projectile/spawned)
 	if(!istype(spawned, /obj/item/gun/projectile))
 		return
@@ -1513,6 +1517,10 @@
 			new spawned.ammo_type(spawned.loc)
 
 /obj/random/weapon_and_ammo/spawn_item()
+	var/obj/item/W = pick_gun()
+	. = new W(loc)
+
+/obj/random/weapon_and_ammo/proc/pick_gun()
 	var/list/possible_rarities = list(
 		"Shoddy" = 25,
 		"Common" = 35,
@@ -1534,4 +1542,10 @@
 			W = pickweight(Epic)
 		if("Legendary")
 			W = pickweight(Legendary)
-	. = new W(loc)
+	if(concealable)
+		var/weapon_w_class = initial(W.w_class)
+		if(weapon_w_class > 3)
+			chosen_rarity = null
+			return pick_gun()
+
+	return W
