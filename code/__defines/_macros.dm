@@ -8,6 +8,8 @@
 #define SPAN_CULT(X) "<span class='cult'>[X]</span>"
 #define SPAN_GOOD(X) "<span class='good'>[X]</span>"
 #define SPAN_ALIEN(X) "<span class='alium'>[X]</span>"
+#define SPAN_ITALIC(X) "<span class='italic'>[X]</span>"
+#define SPAN_BOLD(X) "<span class='bold'>[X]</span>"
 
 #define FONT_SMALL(X) "<font size='1'>[X]</font>"
 #define FONT_NORMAL(X) "<font size='2'>[X]</font>"
