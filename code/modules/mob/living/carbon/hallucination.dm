@@ -4,7 +4,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 /mob/living/carbon/var/next_hallucination = 0			//Hallucination spam limit var
-/mob/living/carbon/var/list/hallucinations = list()		//Hallucinations currently affecting the mob
+/mob/living/carbon/var/list/hallucinations = list()		//Hallucinations currently affecting the mob. Not to be confused with singular "hallucination" which is a NUM variable like confused/drowsy/eye_blind etc
 
 ///////////////////////////////////////Hallucinated Hearing///////////////////////////
 /mob/living/carbon/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
@@ -55,11 +55,11 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 ///////////////////////////Hallucination Datums//////////////////////////
 
 /datum/hallucination
-	var/mob/living/carbon/holder
+	var/mob/living/carbon/holder	//Who is hallucinating?
 	var/allow_duplicates = TRUE     //This is set to false for hallucinations with long durations or ones we do not want repeated for a time
-	var/duration = 10		//how long before we call end()
-	var/min_power = 0 		//mobs only get this hallucination at this threshold
-	var/max_power = INFINITY	//mobs don't get this hallucination if it's above this threshold. Used to weed out more common ones if you're super fucked up
+	var/duration = 10				//how long before we call end()
+	var/min_power = 0 				//mobs only get this hallucination at this threshold
+	var/max_power = INFINITY		//mobs don't get this hallucination if it's above this threshold. Used to weed out more common ones if you're super fucked up
 	var/hearing_dependent = FALSE	//Deaf people won't get these if true
 
 ///////////Things you involuntarily emote while hallucinating //////////////
@@ -82,7 +82,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		hallucination_emote(holder)		//Always a chance to involuntarily emote to others as if on drugs
 		holder.hallucinations -= src
 	qdel(src)
-	//holder = null
+	holder = null
 
 /datum/hallucination/proc/can_affect(mob/living/carbon/C)		//Used to verify if a hallucination can be added to the list of candidates
 	if(!C.client)
@@ -110,8 +110,11 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/proc/hallucination_emote()		//You emoting to others involuntarily. This happens mostly in end()
 	if(prob(min(holder.hallucination - 5, 80)) && !holder.stat)
 		var/chosen_emote = LAZYPICK(hal_emote, "twitches.")
-		for(var/mob/M in oviewers(world.view, holder))		//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
-			to_chat(M, "[holder] [chosen_emote]")
+			if(prob(10))										//You are aware of it in this instance
+				holder.emote("me",1,chosen_emote)
+			else
+				for(var/mob/M in oviewers(world.view, holder))		//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
+				to_chat(M, "<B>[holder]</B> [chosen_emote]")
 
 //I had to move this to carbon because /datum/hallucinations get deleted when they end, which I think messes with the addtimer callback. If anyone has a less janky way of doing this let me know
 
@@ -219,12 +222,11 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	allow_duplicates = FALSE
 
 /datum/hallucination/pda/start()
-	world << "Called: PDA"
 	var/list/sender = message_sender
 	var/mob/living/carbon/human/M = holder
 	for(var/mob/living/carbon/human/H in living_mob_list)
-		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))
-			sender += H	//adds current players to default list to provide variety
+		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//adds current players to default list to provide variety. leaves out offstation antags.
+			sender += H	
 	holder.show_message("<b>Message from [pick(sender)] to [holder.name] ([M.job]),</b> \"[pick(hallucinated_phrases)]\" (<FONT color = blue><u>reply</u></FONT>)")
 	sound_to(holder, 'sound/machines/twobeep.ogg')
 
@@ -401,7 +403,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	min_power = 50
 	allow_duplicates = FALSE
 
-/datum/hallucination/passive/can_affect(mob/living/carbon/C)
+/datum/hallucination/rage/can_affect(mob/living/carbon/C)
 	if(locate(/datum/hallucination/passive) in C.hallucinations)		//Kinda silly to be passive AND mad
 		return FALSE
 	return ..()
@@ -484,7 +486,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			'sound/items/air_wrench.ogg')
 
 /datum/hallucination/sound/start()
-	world << "Called: Sound"
 	sound_to(holder, pick(sounds))
 
 
@@ -963,7 +964,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		holder.verbs -= /mob/living/carbon/human/verb/fakemindread
 		to_chat(holder, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 		holder.drowsyness += 5
-		world << "Called: MINDREAD remove verb"
 	..()
 
 /mob/living/carbon/human/verb/fakemindread()
