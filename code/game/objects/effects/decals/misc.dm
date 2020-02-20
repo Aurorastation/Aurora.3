@@ -56,5 +56,9 @@
 	icon_state = "a[rand(2,10)]"
 
 /obj/effect/decal/fake_object/spacestuff/bigrock
-	icon_state = "bigrock"
 	icon = 'icons/obj/bigrock.dmi'
+	icon_state = "bigrock"
+
+/obj/effect/decal/fake_object/spacestuff/nebula
+	icon = 'icons/obj/nebula.dmi'
+	icon_state = "nebula"

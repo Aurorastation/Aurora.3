@@ -159,6 +159,7 @@
 	if(user)
 		the_name = user.real_name
 		visible_message("<span class='notice'>[user] pulls the lever and the slot machine starts spinning!</span>")
+		playsound(src, 'sound/effects/money_launcher.ogg', 50, 1)
 	else
 		the_name = "Exaybachay"
 
@@ -219,6 +220,7 @@
 
 	if(reels[1][2] + reels[2][2] + reels[3][2] + reels[4][2] + reels[5][2] == "[SEVEN][SEVEN][SEVEN][SEVEN][SEVEN]")
 		visible_message("<b>[src]</b> says, 'JACKPOT! You win [money] credits worth of coins!'")
+		playsound(src, 'sound/effects/money_launcher_jackpot.ogg', 50, 1)
 		jackpots += 1
 		balance += money - give_coins(JACKPOT)
 		money = 0
