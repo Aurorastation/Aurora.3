@@ -20,6 +20,5 @@ changes:
   - rscadd: "Similar to being sick or on drugs, you have a chance to involuntarily emote things while hallucinating. You may not always be aware of it."
   - rscadd: "Some hallucinations only appear if you're hallucinating heavily. There will be a difference between 'kinda hallucinating' and 'mind machine broke.'"
   - rscadd: "Added several large lists of prompts that should keep hallucinations varied and interesting for a long time. These can also easily be expanded upon!"
-  - tweak: "Dylovene is now less effective at helping with hallucinations, as it was way too effective for a basic medication. Use the various mental medications or synaptizine."
   - tweak: "Sounds will have less reverb while hallucinating, so you probably won't need to tear your headset off while resisting a cult conversion."
   - backend: "Moves around some things in code. Hallucination effects are now datums (Before, they were mob/living/carbon vars). Larger prompt lists were added as text files in a new config/hallucination folder. Hallucination.dm moved from flufftext to mob/living/carbon."
