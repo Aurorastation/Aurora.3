@@ -24,7 +24,7 @@
 #define UNDERWATER 22
 #define DRUGGED 23
 #define DIZZY 24
-#define PSYCHOTIC 25
+
 
 #define STANDARD_STATION STONEROOM
 #define LARGE_ENCLOSED HANGAR
@@ -35,6 +35,7 @@
 #define SMALL_SOFTFLOOR ROOM
 #define ASTEROID CAVE
 #define SPACE UNDERWATER
+#define PSYCHOTIC PARKING_LOT
 
 //footsteps
 var/list/blank_footstep = list('sound/effects/footstep/blank.ogg')
