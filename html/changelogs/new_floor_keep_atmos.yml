@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Laying a new flooring tile no longer deletes the air on that turf."
