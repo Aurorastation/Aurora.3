@@ -8,25 +8,17 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 ///////////////////////////////////////Hallucinated Hearing///////////////////////////
 /mob/living/carbon/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if(hallucination >= 40 && prob(hallucination/40))		//Hallucinating someone speaking in a different language.
-		world << "Called: Hear_say_language"
-		var/list/hallucinated_languages = subtypesof(/datum/language)
-		language = pick(hallucinated_languages)
-	if(hallucination >= 80 && prob(1))
+	if(hallucination >= 60 && prob(1))
 		world << "Called: Hear_say_message"
 		var/orig_message = message
-		message = pick(hallucinated_phrases)
+		message = LAZYPICK(hallucinated_phrases, message)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
 /mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
-	if(hallucination >= 40 && prob(hallucination/40))		//Hallucinating someone speaking in a different language.
-		var/list/hallucinated_languages = subtypesof(/datum/language)
-		language = pick(hallucinated_languages)
-		world << "Called: Hear_radio_language"
-	if(hallucination >= 80 && prob(1))
+	if(hallucination >= 60 && prob(1))
 		world << "Called: Hear_radio_message"
 		var/orig_message = message
-		message = pick(hallucinated_phrases)
+		message = LAZYPICK(hallucinated_phrases, message)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
 
@@ -40,12 +32,16 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(!client || stat || world.time < next_hallucination)
 		return
 
-	var/hall_delay = rand(160,250)
+	var/hall_delay = rand(160,250)		//Time between hallucinations, modified by switch below
 
-	if(hallucination < 25)		//Winding down, less frequent.
-		hall_delay *= 2
-	if(hallucination > 75)		//Yo mind really fucked, more frequent.
-		hall_delay *= 0.75
+	switch(hallucination)
+		if(1 to 25)		//Winding down, less frequent.
+			hall_delay *= 2
+		if(26 to 399)		//Yo mind really fucked, more frequent.
+			hall_delay *= 0.75
+		if(400 to INFINITY)		//This should only be possible in cult conversions. Very low delay to represent your flayed mind.
+			hall_delay *= 0.25
+
 	next_hallucination = world.time + hall_delay
 	var/list/candidates = list()
 	for(var/T in subtypesof(/datum/hallucination/))
@@ -67,6 +63,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	var/duration = 10		//how long before we call end()
 	var/min_power = 0 		//mobs only get this hallucination at this threshold
 	var/max_power = INFINITY	//mobs don't get this hallucination if it's above this threshold. Used to weed out more common ones if you're super fucked up
+	var/hearing_dependent = FALSE	//Deaf people won't get these if true
 
 ///////////Things you involuntarily emote while hallucinating //////////////
 	var/list/hal_emote = list("mutters quietly.", "stares.", "grunts.", "looks around.", "twitches.", "shivers.", "swats at the air.", "wobbles.", "gasps!", "blinks rapidly.", "murmurs.",
@@ -101,6 +98,9 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(min_power > C.hallucination || max_power < C.hallucination)
 		world << "[src] cannot affect due to: min or max power"
 		return FALSE
+	if(hearing_dependent && (C.disabilities & DEAF))
+		world << "[src] cannot affect due to: deaf"
+		return FALSE
 	return TRUE
 
 /datum/hallucination/Destroy()
@@ -110,7 +110,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/proc/activate()		//The actual kickoff to each effect
 	if(!holder || !holder.client)
 		return
-	world << "Called: Activate Generic"
 	holder.hallucinations += src
 	start()
 	addtimer(CALLBACK(src, .proc/end), duration)
@@ -118,11 +117,11 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/proc/hallucination_emote()		//You emoting to others involuntarily. This happens mostly in end()
 	if(prob(min(holder.hallucination - 5, 80)) && !holder.stat)
-		var/chosen_emote = pick(hal_emote)
+		var/chosen_emote = LAZYPICK(hal_emote, "twitches.")
 		for(var/mob/M in oviewers(world.view, holder))		//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
 			to_chat(M, "[holder] [chosen_emote]")
 
-//I had to move this to carbon because /datum/hallucinations get deleted when they end, which I think messes with the callback. If anyone has a less janky way of doing this let me know
+//I had to move this to carbon because /datum/hallucinations get deleted when they end, which I think messes with the addtimer callback. If anyone has a less janky way of doing this let me know
 
 /mob/living/carbon/proc/hallucination_thought()	//Thoughts should come to you frequently, but not be spammed. This is called on every end() so usually occurs a few times.
 	if(prob(min(src.hallucination/2, 50)))
@@ -130,6 +129,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /mob/living/carbon/proc/hal_thought_give()
 	to_chat(src, span("notice", "<i>[pick(hallucinated_thoughts)]</i>"))
+
 
 /////////////////////////////////////////////
 /////	    BASIC HALLUCINATIONS	/////
@@ -144,14 +144,14 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	world << "Called: Announcement Start"
 	var/list/hal_sender = message_sender
 	for(var/mob/living/carbon/human/H in living_mob_list)
-		if(H.client)
+		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))		//We're not going to add ninjas, mercs, borers, etc to prevent meta.
 			hal_sender += H
 			world << "[H] added to sender list"
 	switch(rand(1,15))
 		if(1)
 			sound_to(holder, 'sound/AI/radiation.ogg')
 			to_chat(holder, "<h2 class='alert'>Anomaly Break</h2>")
-			to_chat(holder, span("alert", "Comfortable levels of radiation detected near the station. [pick(hallucinated_phrases)]. Please become one of the shielded maintenance burrows."))
+			to_chat(holder, span("alert", "Comfortable levels of radiation detected near the station. [pick(hallucinated_phrases)] Please become one of the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
 
 		if(2)
 			sound_to(holder, 'sound/AI/strangeobject.ogg')
@@ -208,12 +208,12 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			sound_to(holder, 'sound/misc/announcements/notice.ogg')
 			to_chat(holder, "<h2 class='alert'>Attention</h2>")
 			to_chat(holder, span("alert", pick(body)))
-			to_chat(holder, span("alert", "-[pick(hal_sender)]"))
+			to_chat(holder, span("alert", "-[LAZYPICK(hal_sender, holder)]"))
 
 /datum/hallucination/announcement/proc/delam_call()	//for REALLY selling that fake delamination
 	var/list/people = list()
 	for(var/mob/living/carbon/human/M in living_mob_list)
-		if(!M.isMonkey())
+		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE))		//Antag check prevents meta
 			people += M
 	people -= holder
 	if(!people.len)
@@ -224,7 +224,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 /datum/hallucination/pda				//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.
-	min_power = 25
+	min_power = 20
 	duration = 900					//this duration length + not allowing duplicates prevents spamming messages on every valid handle_hallucination() which can get VERY annoying if rng decides to give you 3 in a row
 	allow_duplicates = FALSE
 
@@ -233,11 +233,10 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	var/list/sender = message_sender
 	var/mob/living/carbon/human/M = holder
 	for(var/mob/living/carbon/human/H in living_mob_list)
-		if(H.client)
+		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))
 			sender += H	//adds current players to default list to provide variety
 	holder.show_message("<b>Message from [pick(sender)] to [holder.name] ([M.job]),</b> \"[pick(hallucinated_phrases)]\" (<FONT color = blue><u>reply</u></FONT>)")
 	sound_to(holder, 'sound/machines/twobeep.ogg')
-
 
 
 /datum/hallucination/paranoia
@@ -259,12 +258,14 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(hal_target.len)
 		to_chat(holder, "<b>[pick(hal_target)]</b> [t]")
 
+/datum/hallucination/paranoia/second		//Just so we get another chance at picking this.
+
+
 
 
 /datum/hallucination/skitter
 	max_power = 60
 /datum/hallucination/skitter/start()
-	world << "Called: Skitter"
 	to_chat(holder, "The spiderling skitters around.")
 
 
@@ -280,26 +281,24 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		if(1)
 			holder.druggy += min(holder.hallucination, 20)
 		if(2)
-			holder.make_dizzy(10)
+			holder.make_dizzy(105)
 		if(3)
 			to_chat(holder,"<span class='good'>You feel good.</span>")
 	..()
 
 /datum/hallucination/prick/by_person	//the prick feeling but you actually imagine someone injecting you
-	min_power = 40
+	min_power = 30
 	duration = 20
 	var/injector
 	var/needle
 
 /datum/hallucination/prick/by_person/can_affect(mob/living/carbon/C)
 	if(!..())
-		world << "prick by person returned false"
 		return FALSE
 	for(var/mob/living/M in oview(C, 1))
 		return TRUE
 
 /datum/hallucination/prick/by_person/start()
-	world << "CALLED: Prick by person"
 	var/list/prick_candidates = list()
 	for(var/mob/living/carbon/human/M in oview(holder, 1))
 		if(!M.stat)
@@ -319,15 +318,15 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/insides
 	duration = 60
+
 /datum/hallucination/insides/start()
-	world << "Called: Insides"
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
 		var/obj/O = pick(H.organs)
 		to_chat(holder,span("danger", "You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
 	else
 		to_chat(holder,span("danger", "You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
-	if(prob(min(holder.hallucination/2, 50)))
+	if(prob(min(holder.hallucination/2, 80)))
 		sound_to(holder, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/effects/squelch1.ogg'))
 
 /datum/hallucination/insides/end()
@@ -340,7 +339,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/pain				//Pain. Picks a random type of pain, and severity is based on their level of hallucination.
 /datum/hallucination/pain/start()
 	var/pain_type = rand(1,5)
-	world << "Called: Pain at value [holder.hallucination] with type [pain_type]"
 	switch(pain_type)
 		if(1)
 			to_chat(holder,span("danger", "You feel a sharp pain in your head!"))
@@ -352,8 +350,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 					to_chat(holder, span("danger", "You feel a throbbing pain in your head!"))
 				if(41 to INFINITY)
 					to_chat(holder, span("danger", "You feel an excruciating pain in your head!"))
-					holder.eye_blurry += 9
 					holder.emote("me",1,"winces.")
+					holder.eye_blurry += 9
 		if(3)
 			switch(holder.hallucination)
 				if(1 to 15)
@@ -361,8 +359,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 				if(16 to 40)
 					to_chat(holder, span("danger", "The muscles in your body cramp up painfully."))
 				if(41 to INFINITY)
-					holder.emote("me",1,"flinches as all the muscles in their body cramp up.")
 					to_chat(holder, span("danger", "There's pain all over your body."))
+					holder.emote("me",1,"flinches as all the muscles in their body cramp up.")
 					holder.eye_blurry += 9
 		if(4)
 			switch(holder.hallucination)
@@ -371,8 +369,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 				if(16 to 40)
 					to_chat(holder, span("danger", "You want to scratch your itch badly!"))
 				if(41 to INFINITY)
-					holder.emote("me",1,"shivers slightly.")
 					to_chat(holder, span("danger", "This itch makes it really hard to concentrate!"))
+					holder.emote("me",1,"shivers slightly.")
 					holder.eye_blurry += 9
 		if(5)
 			switch(holder.hallucination)
@@ -381,37 +379,32 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 				if(16 to 40)
 					to_chat(holder, span("danger", "You feel a horrible burning sensation!"))
 				if(41 to INFINITY)
-					holder.emote("me",1,"flinches.")
 					to_chat(holder, span("danger", "It feels like you're being burnt to the bone!"))
+					holder.emote("me",1,"flinches.")
 					holder.eye_blurry += 9
 
 	holder.adjustHalLoss(min(holder.hallucination / 2, 50))		//always cause fake pain
 
 
-
-
 /datum/hallucination/friendly			//sort of like the vampire friend messages.
 	max_power = 60
+
 /datum/hallucination/friendly/start()
-	world << "Called: Friendly Feeling"
 	var/list/halpal = list()
 	for(var/mob/living/L in oview(holder))
 		halpal += L
-		world << "[L] added to halpal"
-	if(!halpal.len)
-		world << "Called: No HalPal for friendly feeling. Ending"
-		end()
-	var/pal = pick(halpal)
-	var/list/halpal_emotes = list("[pal] looks trustworthy.",
-		"You feel as if [pal] is a relatively friendly individual.",
-		"You feel yourself paying more attention to what [pal] is saying.",
-		"[pal] has your best interests at heart, you can feel it.",
-		"A quiet voice tells you that [pal] should be considered a friend.",
-		"You never noticed until now how delightful [pal] is...",
-		"[pal] will keep you safe.",
-		"You feel captivated by [pal]'s charisma.",
-		"[pal] might as well be family to you.")
-	to_chat(holder, "<font color='green'><i>[pick(halpal_emotes)]</i></font>")
+	if(halpal.len)
+		var/pal = pick(halpal)
+		var/list/halpal_emotes = list("[pal] looks trustworthy.",
+			"You feel as if [pal] is a relatively friendly individual.",
+			"You feel yourself paying more attention to what [pal] is saying.",
+			"[pal] has your best interests at heart, you can feel it.",
+			"A quiet voice tells you that [pal] should be considered a friend.",
+			"You never noticed until now how delightful [pal] is...",
+			"[pal] will keep you safe.",
+			"You feel captivated by [pal]'s charisma.",
+			"[pal] might as well be family to you.")
+		to_chat(holder, "<font color='green'><i>[pick(halpal_emotes)]</i></font>")
 
 
 
@@ -419,11 +412,16 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	min_power = 50
 	allow_duplicates = FALSE
 
+/datum/hallucination/passive/can_affect(mob/living/carbon/C)
+	if((locate(/datum/hallucination/passive) in C.hallucinations))		//Kinda silly to be passive AND mad
+		return FALSE
+	return ..()
+
 /datum/hallucination/rage/start()		//We don't want ALL the effects of berserk. You're not going to hallucinate the ability to tear down walls
 	duration = rand(150, 300)
 	to_chat(holder, span("danger", "An uncontrollable rage overtakes your thoughts!"))
 	holder.a_intent_change(I_HURT)
-	if(prob(60))							//Getting this overlay too frequently is kind of a nuisance when tested. We're trying to keep away from memery interruptions
+	if(holder.hallucination >= 100)
 		holder.add_client_color(/datum/client_color/berserk)
 	if(prob(holder.hallucination))
 		addtimer(CALLBACK(src, .proc/fury), rand(40, 60))
@@ -447,50 +445,54 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 
-
 /datum/hallucination/passive
-	duration = 600	//minute
+	duration = 600	//minute fallback
 	allow_duplicates = FALSE
 
 /datum/hallucination/passive/can_affect(mob/living/carbon/C)
 	if(C.disabilities & PACIFIST)
-		world << "[src] cannot affect due to: pacifist flag"
 		return FALSE
-	if((locate(/datum/hallucination/rage) in C.hallucinations))
-		world << "[src] cannot affect due to: RAGE"
+	if((locate(/datum/hallucination/rage) in C.hallucinations))		//Kinda silly to be passive AND mad
 		return FALSE
 	return ..()
 
 /datum/hallucination/passive/start()
-    var/message = pick("You hurt so many people before...", "You won't hurt anyone ever again.", "You're a monster, but you don't have to hurt anyone!", "Violence has caused so many problems. It's time to stop.", "The idea of conflict is terrifying!", "You realize that violence isn't the answer. Ever.", "You're struck by an overwhelming sense of guilt for your past acts of violence!")
-    to_chat(holder, span("notice", "A sudden thought overtakes your mind. [message]"))
-    duration += holder.hallucination
-    holder.disabilities |= PACIFIST
-    addtimer(CALLBACK(src, .proc/calm_feeling), rand(100, 250))
+	duration = rand(500, 700)
+	var/message = pick("You hurt so many people before...", "You won't hurt anyone ever again.", "You're a monster, but you don't have to hurt anyone!", "Violence has caused so many problems. It's time to stop.", "The idea of conflict is terrifying!", "You realize that violence isn't the answer. Ever.", "You're struck by an overwhelming sense of guilt for your past acts of violence!")
+	to_chat(holder, span("notice", "A sudden thought overtakes your mind. [message]"))
+	duration += holder.hallucination
+	holder.disabilities |= PACIFIST
+	addtimer(CALLBACK(src, .proc/calm_feeling), rand(100, 250))
 
 /datum/hallucination/passive/end()
-    if(holder.disabilities & PACIFIST)
-        holder.disabilities &= ~PACIFIST
-    to_chat(holder, span("notice", "You no longer feel passive."))
-    ..()
+	if(holder.disabilities & PACIFIST)
+		holder.disabilities &= ~PACIFIST
+	to_chat(holder, span("notice", "You no longer feel passive."))
+	..()
 
 /datum/hallucination/passive/proc/calm_feeling()
-    var/feeling = pick("You feel calm. It's so peaceful.", "You feel particularly passive.", "You feel relaxed and peaceful.", "A wave of calm washes over you as you feel all your anger leave you.")
-    to_chat(holder, span("good", feeling))
+	var/feeling = pick("You feel calm. It's so peaceful.", "You feel particularly passive.", "You feel relaxed and peaceful.", "A wave of calm washes over you as you feel all your anger leave you.")
+	to_chat(holder, span("good", feeling))
 
 
 
 
 /datum/hallucination/sound
 	max_power = 70
-	var/audio_effect = FALSE
+	hearing_dependent = TRUE
 	var/list/sounds = list('sound/weapons/smash.ogg',
 			'sound/weapons/flash_ring.ogg',
 			'sound/effects/Explosion1.ogg',
 			'sound/effects/Explosion2.ogg',
 			'sound/effects/explosionfar.ogg',
 			'sound/effects/crusher_alarm.ogg',
-			'sound/effects/smoke.ogg')
+			'sound/effects/smoke.ogg',
+			'sound/items/Ratchet.ogg',
+			'sound/items/Welder.ogg',
+			'sound/items/Crowbar.ogg',
+			'sound/items/Screwdriver.ogg', 
+			'sound/items/drill_use.ogg', 
+			'sound/items/air_wrench.ogg')
 
 /datum/hallucination/sound/start()
 	world << "Called: Sound"
@@ -516,18 +518,14 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			'sound/effects/squelch1.ogg')
 
 /datum/hallucination/sound/echo/end()
-	world << "Called: Sound echo end()"
 	if(prob(holder.hallucination / 2))
 		sound_to(holder, pick(sounds))
 	..()
 
-
-/datum/hallucination/sound/tools
-	sounds = list('sound/items/Ratchet.ogg','sound/items/Welder.ogg','sound/items/Crowbar.ogg','sound/items/Screwdriver.ogg', 'sound/items/drill_use.ogg', 'sound/items/air_wrench.ogg')
-
 /datum/hallucination/sound/creepy
 	min_power = 40
 	max_power = INFINITY
+	hearing_dependent = FALSE		//These are spooky enough to happen even when deaf
 	sounds = list('sound/effects/ghost.ogg',
 				'sound/effects/ghost2.ogg',
 				'sound/effects/screech.ogg',
@@ -553,9 +551,9 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/sound/reaction
 	min_power = 20
+	hearing_dependent = FALSE
 
 /datum/hallucination/sound/reaction/start()
-	world << "Called: Sound with reaction."
 	switch(rand(1,3))
 		if(1) //Nearmiss
 			sound_to(holder, 'sound/weapons/gunshot/gunshot_light.ogg')
@@ -581,31 +579,45 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 
-
 /datum/hallucination/colorblind
 	min_power = 30
 	duration = 100
 	allow_duplicates = FALSE
-	var/datum/client_color/colorblindness
+	var/colorblindness
 
 /datum/hallucination/colorblind/can_affect(mob/living/carbon/C)
-	var/datum/client_color/D
-	if(locate(D in C.client_colors))		//if they're already colorblind, we bail.
-		world << "Called: CBLIND cannot affect due to client colors"
+	if(C.client.color)		//if they're already colorblind, we bail.
 		return FALSE
 	return ..()
 
 /datum/hallucination/colorblind/start()
-	duration = rand(100, 200)
-	colorblindness = pick("/datum/client_color/deuteranopia", "/datum/client_color/protanopia", "/datum/client_color/tritanopia", "/datum/client_color/monochrome")
-	holder.add_client_color(colorblindness)
-	world << "Called: Colorblind with colorblindness = [colorblindness]"
+	duration = rand(350, 750)
+	colorblindness = pick("deuteranopia", "protanopia", "tritanopia", "monochrome")
+	switch(colorblindness)
+		if("deuteranopia")
+			holder.add_client_color(/datum/client_color/deuteranopia)
+		if("protanopia")
+			holder.add_client_color(/datum/client_color/protanopia)
+		if("tritanopia")
+			holder.add_client_color(/datum/client_color/tritanopia)
+		if("monochrome")
+			holder.add_client_color(/datum/client_color/monochrome)
+	var/color_mes = pick("Everything looks... off.", "The colors shift around you.", "Wait, what happened to the colors?", "You watch as the colors around you swirl and shift.")
+	to_chat(holder, span("good", color_mes))	//Good span makes it stand out
 
 /datum/hallucination/colorblind/end()
-	world << "Called: Colorblind End"
-	holder.remove_client_color(colorblindness)
+	to_chat(holder, span("good", "Slowly the colors around you shift back to what you feel is normal."))
+	if(holder)
+		switch(colorblindness)
+			if("deuteranopia")
+				holder.remove_client_color(/datum/client_color/deuteranopia)
+			if("protanopia")
+				holder.remove_client_color(/datum/client_color/protanopia)
+			if("tritanopia")
+				holder.remove_client_color(/datum/client_color/tritanopia)
+			if("monochrome")
+				holder.remove_client_color(/datum/client_color/monochrome)
 	..()
-
 
 
 
@@ -643,6 +655,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			sound_to(holder, 'sound/weapons/thudswoosh.ogg')
 
 
+
 /////////////////////////////////////////////
 /////	    	 MIRAGES		/////
 /////////////////////////////////////////////
@@ -653,7 +666,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	var/list/mirages = list()
 
 /datum/hallucination/mirage/start()
-	world << "Called: Mirage Start"
+	duration = rand(100, 150)
 	var/list/possible_points = list()
 	for(var/turf/simulated/floor/F in view(holder, world.view+1))
 		possible_points += F
@@ -663,8 +676,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			mirages += thing
 			thing.loc = pick(possible_points)
 		holder.client.images += mirages
-	else
-		world << "No mirage possible points.len"
 
 /datum/hallucination/mirage/Destroy()
 	if(holder.client)
@@ -676,29 +687,80 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	return image(T, pick(T.IconStates()), layer = OBJ_LAYER)
 
 /datum/hallucination/mirage/end()
-	world << "Called: Mirage End"
 	if(holder.client)
 		holder.client.images -= mirages
 	..()
+
+
+/datum/hallucination/mirage/bleeding
+	min_power = 35
+	duration = 350
+	allow_duplicates = FALSE
+	number = 4
+	var/part = "chest"
+
+/datum/hallucination/mirage/bleeding/start()
+	number = min(round(holder.hallucination/10), 7)	//cap at 7 times for duration's sake
+	for(var/i = 1; i <= number; i++)
+		addtimer(CALLBACK(src, .proc/show_mirage), rand(30,50)*i)	//every 3 to 5 seconds
+	if(ishuman(holder))
+		var/mob/living/carbon/human/H = holder
+		part = LAZYPICK(H.organs, "chest")
+	to_chat(holder, span("danger", "The flesh on your [part] splits open. It doesn't hurt, but the blood won't stop coming..."))
+
+
+/datum/hallucination/mirage/bleeding/generate_mirage()
+	if(prob(min(holder.hallucination, 80)))
+		var/image/I = image('icons/effects/blood.dmi', pick("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5", "mfloor6", "mfloor7"), layer = TURF_LAYER)
+		I.color = holder.species.blood_color
+		return I
+	else
+		var/icon/T = image('icons/effects/drip.dmi')
+		return image(T, pick(T.IconStates()), layer = TURF_LAYER)
+
+
+/datum/hallucination/mirage/bleeding/proc/show_mirage()
+	var/image/thing = generate_mirage()
+	mirages += thing
+	thing.loc = get_turf(holder)
+	holder.client.images += thing	//one at a time
+	if(prob(15))
+		var/list/message_picks = list("It won't stop, it won't stop...!", "You're feeling lightheaded...", "Your [part] won't stop gushing blood!", "The blood is everywhere!", "Everything around you is soaked with your blood...!")
+		to_chat(holder, span("danger", LAZYPICK(message_picks, "The blood keeps coming!")))
+
+
+/datum/hallucination/mirage/bleeding/end()
+	to_chat(holder, span("warning", "The flesh on your [part] suddenly appears whole again. You can't see the blood anymore, but the scent of it lingers heavily in the air."))
+	..()
+
 
 
 /datum/hallucination/mirage/horror
 	min_power = 70
 	number = 1
 
+/datum/hallucination/mirage/horror/start()
+	..()
+	to_chat(holder, span("warning", "The horror [pick("gnashes", "lunges", "shrieks")] at [holder]!"))
+
+/datum/hallucination/mirage/horror/end()
+	to_chat(holder, span("warning", "With a final shriek that seems to originate from within your mind, the entity fades away."))
+	//that spooky shriek sound
+	..()
+
 /datum/hallucination/mirage/horror/generate_mirage()
-	world << "Called Mirage Horror"
 	var/icon/T = new('icons/mob/npc/animal.dmi')
-	return image(T, pick("abomination", "lesser_ling", "faithless", "shark", "otherthing"), layer = MOB_LAYER)
+	return image(T, pick("abomination", "lesser_ling", "faithless", "otherthing"), layer = MOB_LAYER)
+
+
 
 /datum/hallucination/mirage/carnage
-	min_power = 50
+	min_power = 35
 	number = 10
 
 /datum/hallucination/mirage/carnage/start()
 	if(holder.hallucination >= 100)				//Heavily hallucinating will increase the amount of horrific carnage we witness
 		number = 20
-		world << "Carnage changed to 20"
 	..()
 
 /datum/hallucination/mirage/carnage/generate_mirage()
@@ -714,8 +776,10 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		I.pixel_y = rand(-10,10)
 		return I
 
+
+
 /datum/hallucination/mirage/anomaly
-	min_power = 40
+	min_power = 30
 	number = 1
 
 /datum/hallucination/mirage/anomaly/start()
@@ -724,7 +788,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	sound_to(holder, 'sound/effects/stealthoff.ogg')
 
 /datum/hallucination/mirage/anomaly/generate_mirage()
-	world << "Generated anomaly"
 	var/istate = pick("ano01", "ano11", "ano21", "ano31", "ano41", "ano81", "ano121")
 	var/image/I = image('icons/obj/xenoarchaeology.dmi', istate, layer = OBJ_LAYER)
 	return I
@@ -734,8 +797,10 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	sound_to(holder, 'sound/effects/phasein.ogg')
 	..()
 
+
+
 /datum/hallucination/mirage/viscerator
-	min_power = 50
+	min_power = 40
 	number = 3
 
 /datum/hallucination/mirage/viscerator/start()
@@ -751,9 +816,36 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 
+/datum/hallucination/mirage/eyes
+	min_power = 50
+	number = 6
+
+/datum/hallucination/mirage/eyes/start()
+	if(holder.hallucination >= 100)	
+		number = 15
+	..()
+
+/datum/hallucination/mirage/eyes/generate_mirage()
+	var/icon/T = new('icons/obj/eyes.dmi')
+	return image(T, pick(T.IconStates()), layer = OBJ_LAYER)
+
+
+
+/datum/hallucination/mirage/narsie
+	min_power = 5000					//this level of hallucination is only possible on the 2 last stages of your mind breaking during cult conversions. Or admin fuckery
+	number = 1
+	duration = 30
+
+/datum/hallucination/mirage/narsie/generate_mirage()
+	var/image/T = image('icons/obj/narsie.dmi', "narsie-small-chains", layer = MOB_LAYER+0.01)
+	return T
+
 /////////////////////////////////////////////
 /////	PEOPLE TALKING ABOUT OR TO YOU	/////
 /////////////////////////////////////////////
+/datum/hallucination/talking
+	var/repeats = 2		//In total, we'll get two messages. We don't need to reset this number anywhere because on end() it's deleted and a new one will be created if it's chosen again in handle_hallucinations
+	hearing_dependent = TRUE
 
 /datum/hallucination/talking/can_affect(mob/living/carbon/C)
 	if(!..())
@@ -762,36 +854,31 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		if(!M.stat)
 			return TRUE
 
-/datum/hallucination/talking
-	var/repeats = 2		//In total, we'll get three messages. We don't need to reset this number anywhere because on end() it's deleted and a new one will be created if it's chosen again in handle_hallucinations
-
 /datum/hallucination/talking/activate()		//Unique since we are not adding the end() callback in activate(); we're handling it in start() since it can loop
-	world << "Called: Talking activate"
 	if(!holder || !holder.client)
 		return
 	holder.hallucinations += src
+	if(holder.hallucination >= 50)
+		repeats = 3
 	start()
 
 /datum/hallucination/talking/start()
 	if(!can_affect(holder) || !holder || !repeats)	//sanity check
 		end()
-	world << "Called: Talking START"
 	var/list/candidates = list()
 	for(var/mob/living/carbon/human/M in oview(holder))
 		if(!M.stat)
 			candidates += M
-			world << "Called: Talking Candidates + [M]"
 	if(holder.hallucination >= 100)				//If you're super fucked up you'll imagine more than just humans talking about you
 		for(var/mob/living/L in oview(holder))
 			if(!ishuman(L))
 				candidates += L
 	if(!candidates.len)
-		world << "No candidates for talker. Ending"
 		end()
 	var/talker = pick(candidates)
 	var/message
-	if(prob(80))
-		world << "Called: Talking prob80 WORDS"
+
+	if(prob(80))		//80% chance that we will hallucinate someone speaking. If we don't, it will be a nonverbal gesture.
 		var/list/names = list()
 		var/lastname = copytext(holder.real_name, findtext(holder.real_name, " ")+1)
 		var/firstname = copytext(holder.real_name, 1, findtext(holder.real_name, " "))
@@ -803,30 +890,35 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			names += holder.real_name
 
 		//////Setting up messages//////
-		var/add = prob(20) ? ", [pick(names)]" : ""		//Accompanies phrases list. Chance to add the first or last name to the phrase for variation
-		var/list/phrases = list("Get out[add]!","Go away[add].","What are you doing[add]?","Where's your ID[add]?", "You know I love you[add].", "You do great work[add]!")
-		if(holder.hallucination > 50)
+		//// This looks like a bit of a mess so check the comments ////
+
+		var/add = prob(20) ? ", [pick(names)]" : ""		//Accompanies phrases list. 20% chance to add the first or last name to the phrase for variation
+		var/list/phrases = list("Get out[add]!","Go away[add].","What are you doing[add]?","Where's your ID[add]?", "You know I love you[add].", "You do great work[add]!")		//this is the phrase. [add] is chosen in the previous line.
+		if(holder.hallucination > 50)		//If you're very messed up, the message variety gets a little more aggressive by adding these options
 			phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You're a failure, [pick(names)].","Just kill yourself already, [pick(names)].","Put on some clothes[add].","You're a horrible person[add].","You know nobody wants you here, right[add]?")
 
-		var/speak_prefix = prob(50) ? "[pick("Hey", "Uh", "Um", "Oh", "Ah")], " : ""	//Separate from list/phrases. Possibly chooses a generic greeting...
-		speak_prefix = "[speak_prefix][pick(names)][pick(".","!","?")]"					//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name?") etc.
+		var/speak_prefix = prob(50) ? "[pick("Hey", "Uh", "Um", "Oh", "Ah")], " : ""	//Separate from list/phrases. Again, for variety, we have a different greeting. This one has a chance of picking a starter....
+		speak_prefix = "[speak_prefix][pick(names)][pick(".","!","?")]"					//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
+
 		//////Choosing the message//////
+		//Here we have two different choices of message. We can either use the one set up in var/list/phrases (30% chance) or one that takes the speak_prefix and adds it to a message from the large text file list.
+		//This is, again, for variety's sake.
+
 		if(prob(30))
-			world << "Called: Talking 30prob PHRASES"
-			message = pick(phrases)		//Less variation in phrases, so less chance to pick them.
+			message = pick(phrases)		//Less variation in these phrases, so we have less chance to pick them. Mitigates some repetition.
 		else
-			world << "Called: Talking HAL_SPEAK"
-			message = prob(70) ? "[speak_prefix] [pick(hallucinated_phrases)]" : "[pick(hallucinated_phrases)]"	//Don't always apply the speak_prefix. Sometimes they just need to say weird shit in general.
+			message = prob(70) ? "[speak_prefix] [pick(hallucinated_phrases)]" : "[pick(hallucinated_phrases)]"	//Here's the message that uses the hallucinated_phrases text list. Notice that it won't always apply the speak_prefix. Sometimes they just need to say weird shit in general.
 
 		//////Sending the message//////
+		//Finally, we deliver the chosen message. The format below replicates the format of a person speaking.
+
 		to_chat(holder,"<span class='game say'><span class='name'>[talker]</span> [holder.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
-	else
-		world << "Called: Talking prob20 NONVERBAL"
-		to_chat(holder,"<B>[talker]</B> [pick("points", "looks", "stares", "smirks")] at [holder.name]")
-		to_chat(holder,"<span class='game say'><span class='name'>[talker]</span> says something softly.</span>")
+	
+	else	//If we DON'T send a message, we choose this, instead.
+		to_chat(holder,"<B>[talker]</B> [pick("points", "looks", "stares", "smirks")] at [holder.name] and says something softly.")
+
 	repeats -= 1
-	if(repeats)
-		world << "Talking Repeating"
+	if(repeats)		//And we do it all over again, one or two more times.
 		addtimer(CALLBACK(src, .proc/start), rand(50, 100))
 	else
 		end()
@@ -834,6 +926,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 /datum/hallucination/whisper			//Thinking people are whispering messages to you.
+	hearing_dependent = TRUE
+
 /datum/hallucination/whisper/can_affect(mob/living/carbon/C)
 	if(!..())
 		return FALSE
@@ -842,20 +936,16 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			return TRUE
 
 /datum/hallucination/whisper/start()
-	world << "Called: Whisper start"
 	var/list/whisper_candidates = list()
 	for(var/mob/living/M in oview(holder, 1))
 		if(!M.stat)
 			whisper_candidates += M
-		world << "added [M] to candidates"
-	if(!whisper_candidates.len)
-		world << "No candidates for whisper"
-		return
-	var/whisperer = pick(whisper_candidates)
-	if(prob(70))
-		to_chat(holder, "<B>[whisperer]</B> whispers, <I>\"[pick(hallucinated_phrases)]\"</I>")
-	else
-		to_chat(holder, "<B>[whisperer]</B> [pick("gently nudges", "pokes at", "taps", "looks at", "pats")] [holder], trying to get their attention.")
+	if(whisper_candidates.len)
+		var/whisperer = pick(whisper_candidates)
+		if(prob(70))
+			to_chat(holder, "<B>[whisperer]</B> whispers, <I>\"[pick(hallucinated_phrases)]\"</I>")
+		else
+			to_chat(holder, "<B>[whisperer]</B> [pick("gently nudges", "pokes at", "taps", "looks at", "pats")] [holder], trying to get their attention.")
 
 
 /////////////////////////////////////////////
@@ -870,19 +960,16 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mindread/can_affect(mob/living/carbon/C)	//Don't give it to people who already have psi powers
 	if(C.psi)
-		world << "[src] cannot affect due to psi"
 		return FALSE
 	return ..()
 
 /datum/hallucination/mindread/start()
 	duration = rand(2, 4) MINUTES
-	world << "Called: MINDREAD start"
 	to_chat(holder, span("notice", "<B><font size = 3>You have developed a psionic gift!</font></B>"))
 	to_chat(holder, span("notice", "You can feel your mind surging with power! Check the abilities tab to use your new power!"))
 	holder.verbs += /mob/living/carbon/human/verb/fakemindread
 
 /datum/hallucination/mindread/end()
-	world << "Called: MINDREAD end"
 	if(holder)
 		holder.verbs -= /mob/living/carbon/human/verb/fakemindread
 		to_chat(holder, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
@@ -909,6 +996,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	var/mob/target = input("Whose mind do you wish to probe?") as null|anything in creatures
 	if(target.stat)
 		to_chat(usr, span("warning", "\The [target]'s mind is not in any state to be probed!"))
+		return
 	if(isnull(target))
 		return
 
@@ -918,5 +1006,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		to_chat(usr, span("notice", "<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(hallucinated_phrases)]</i>\"</b>"))
 	else
 		to_chat(usr, span("warning", "You need to stay still to focus your energy!"))
+		
 	for(var/mob/living/carbon/human/M in oviewers(src))
 		to_chat(M, "<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].")
