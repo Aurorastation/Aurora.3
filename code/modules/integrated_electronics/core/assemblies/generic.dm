@@ -100,10 +100,6 @@
 	item_state = "circuitgun"
 	desc = "It's a case, for building medium-sized electronics with. This one resembles a gun, or some type of tool, \
 	if you're feeling optimistic."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi',
-		)
 	circuit_flags = IC_FLAG_CAN_FIRE | IC_FLAG_ANCHORABLE
 
 /obj/item/device/electronic_assembly/medium/radio
