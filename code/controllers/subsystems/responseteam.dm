@@ -80,7 +80,7 @@
 
 	handle_spawner()
 
-	sleep(120 SECONDS)
+	sleep(150 SECONDS)
 
 	for(var/datum/ghostspawner/G in sent_teams)
 		G.disable()
@@ -95,6 +95,7 @@
 				var/datum/ghostspawner/human/ert/good_spawner = SSghostroles.spawners[role_spawner]
 				sent_teams += good_spawner //Enable that spawner.
 				good_spawner.enable()
+	var/list/distress_equipment_landmarks = list()
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
 	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)

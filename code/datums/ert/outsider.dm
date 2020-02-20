@@ -12,6 +12,7 @@
 	name = "Interstellar Aid Corps"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/iac
+	has_extra_equipment = TRUE
 
 /datum/responseteam/syndicate
 	name = "Syndicate Commandos"
