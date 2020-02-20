@@ -9,14 +9,12 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 ///////////////////////////////////////Hallucinated Hearing///////////////////////////
 /mob/living/carbon/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(hallucination >= 60 && prob(1))
-		world << "Called: Hear_say_message"
 		var/orig_message = message
 		message = LAZYPICK(hallucinated_phrases, message)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
 /mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
 	if(hallucination >= 60 && prob(1))
-		world << "Called: Hear_radio_message"
 		var/orig_message = message
 		message = LAZYPICK(hallucinated_phrases, message)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
@@ -48,7 +46,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		var/datum/hallucination/H = new T
 		if(H.can_affect(src))
 			candidates += H
-			world << "[H] added to candidates"
 	if(candidates.len)
 		var/datum/hallucination/H = pick(candidates)
 		H.holder = src
@@ -80,7 +77,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/proc/start()
 
 /datum/hallucination/proc/end()
-	world << "Called: Default End"
 	if(holder)
 		holder.hallucination_thought()			//Hallucinations really focus on your mind.
 		hallucination_emote(holder)		//Always a chance to involuntarily emote to others as if on drugs
@@ -90,16 +86,12 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/proc/can_affect(mob/living/carbon/C)		//Used to verify if a hallucination can be added to the list of candidates
 	if(!C.client)
-		world << "[src] cannot affect due to: no client"
 		return FALSE
 	if(!allow_duplicates && (locate(type) in C.hallucinations))
-		world << "[src] cannot affect due to: duplicate in list"
 		return FALSE
 	if(min_power > C.hallucination || max_power < C.hallucination)
-		world << "[src] cannot affect due to: min or max power"
 		return FALSE
 	if(hearing_dependent && (C.disabilities & DEAF))
-		world << "[src] cannot affect due to: deaf"
 		return FALSE
 	return TRUE
 
@@ -141,12 +133,10 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	allow_duplicates = FALSE
 
 /datum/hallucination/announcement/start()
-	world << "Called: Announcement Start"
 	var/list/hal_sender = message_sender
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))		//We're not going to add ninjas, mercs, borers, etc to prevent meta.
 			hal_sender += H
-			world << "[H] added to sender list"
 	switch(rand(1,15))
 		if(1)
 			sound_to(holder, 'sound/AI/radiation.ogg')
@@ -248,7 +238,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		return TRUE
 
 /datum/hallucination/paranoia/start()		//hallucinate someone else doing something. Yes, it's intentional that it's any living mob, not just other characters.
-	world << "Called: Paranoia"
 	var/list/hal_target = list() //The mob you're going to imagine doing this
 	var/firstname = copytext(holder.real_name, 1, findtext(holder.real_name, " "))
 	var/t = pick(hallucinated_actions)
@@ -1006,6 +995,6 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		to_chat(usr, span("notice", "<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(hallucinated_phrases)]</i>\"</b>"))
 	else
 		to_chat(usr, span("warning", "You need to stay still to focus your energy!"))
-		
+
 	for(var/mob/living/carbon/human/M in oviewers(src))
 		to_chat(M, "<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].")
