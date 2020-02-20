@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Cultifying an area now cultifies the table and airlocks as well, with some high security exceptions."
