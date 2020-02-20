@@ -4,3 +4,5 @@ delete-after: True
 
 changes: 
   - bugfix: "Lights will now work properly when inside clothing assemblies."
+  - tweak: "Lighting ICs now only illuminate a cone infront of them, like flashlights."
+  - balance: "Lighting ICs now do not produce UV."
