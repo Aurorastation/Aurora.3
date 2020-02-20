@@ -488,18 +488,12 @@ BREATH ANALYZER
 	if(T.slime_mutation[4] == T.colour)
 		to_chat(user, span("warning", "This slime cannot evolve any further."))
 	else
-		if(T.slime_mutation[3] == T.slime_mutation[4])
-			if(T.slime_mutation[2] == T.slime_mutation[1])
-				to_chat(user, span("notice", "Possible mutation: [T.slime_mutation[3]]"))
-				to_chat(user, span("notice", "Instability: [T.mutation_chance/2]% chance of mutation upon reproduction."))
-			else
-				to_chat(user, span("notice", "Possible mutations: [T.slime_mutation[1]], [T.slime_mutation[2]], [T.slime_mutation[3]] (x2)"))
-				to_chat(user, span("notice", "Instability: [T.mutation_chance]% chance of mutation upon reproduction."))
-		else
-			to_chat(user, span("notice", "Possible mutations: [T.slime_mutation[1]], [T.slime_mutation[2]], [T.slime_mutation[3]], [T.slime_mutation[4]]"))
-			to_chat(user, span("notice", "Instability: [T.mutation_chance]% chance of mutation upon reproduction."))
-	to_chat(user, span("notice", "**************************"))
-
+		var/list/poss_mutations = uniquelist(T.slime_mutation)
+		var/mutation_message = capitalize(english_list(poss_mutations))
+		to_chat(user, SPAN_NOTICE(mutation_message))
+		var/mut_chance = T.mutation_chance / (poss_mutations.len > 2 ? 1 : 2)
+		to_chat(user, SPAN_NOTICE("Instability: [mut_chance]% chance of mutation upon reproduction."))
+		to_chat(user, SPAN_NOTICE("**************************"))
 
 /obj/item/device/price_scanner
 	name = "price scanner"

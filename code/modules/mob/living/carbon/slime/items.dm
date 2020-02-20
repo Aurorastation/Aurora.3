@@ -267,7 +267,7 @@ var/list/global/golem_runes = list()
 	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
-	to_chat(G, span("notice", "You are a golem. Serve [user], and assist them in completing their goals at any cost."))
+	to_chat(G, span("notice", "You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 	qdel(src)
 
 /obj/effect/golemrune/proc/announce_to_ghosts()

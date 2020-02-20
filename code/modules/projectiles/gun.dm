@@ -128,7 +128,7 @@
 			var/image/gun_overlay = I
 			if(gun_overlay.icon == gun_gui_icons && dd_hasprefix(gun_overlay.icon_state, "[safety_icon]"))
 				overlays -= gun_overlay
-		if(ismob(loc))
+		if(!isturf(loc)) // In a mob, holster or bag or something
 			overlays += image(gun_gui_icons,"[safety_icon][safety()]")
 
 //Checks whether a given mob can use the gun
