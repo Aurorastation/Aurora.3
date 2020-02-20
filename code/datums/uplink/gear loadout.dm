@@ -46,3 +46,13 @@
 	name = "Sol Alliance Assets (Single)"
 	path = /obj/structure/closet/crate/secure/gear_loadout/sol_single
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
+
+/datum/uplink_item/item/gear_loadout/cowboys
+	name = "Frontier Cowboys (Group)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT*2
+
+/datum/uplink_item/item/gear_loadout/cowboy_single
+	name = "Frontier Cowboy (Single)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch/single
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT/2

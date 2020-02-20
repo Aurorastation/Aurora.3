@@ -86,7 +86,7 @@ default behaviour is:
 				tmob.forceMove(oldloc)
 				now_pushing = FALSE
 				for(var/mob/living/carbon/slime/slime in view(1,tmob))
-					if(slime.Victim == tmob)
+					if(slime.victim == tmob)
 						slime.UpdateFeed()
 				return
 
@@ -369,7 +369,7 @@ default behaviour is:
 
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
-	var/t = shooter:zone_sel.selecting
+	var/t = shooter.zone_sel?.selecting
 	if ((t in list( BP_EYES, BP_MOUTH )))
 		t = BP_HEAD
 	var/obj/item/organ/external/def_zone = ran_zone(t)

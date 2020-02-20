@@ -132,6 +132,9 @@
 	var/amount = round(input("How many sheets do you want to add?") as num)//No decimals
 	if(!O)
 		return
+	if(!Adjacent(user))
+		to_chat(user, "<span class='notice'>\The [src] is too far away for you to insert this.</span>")
+		return
 	if(amount <= 0)//No negative numbers
 		return
 	if(amount > stack.get_amount())

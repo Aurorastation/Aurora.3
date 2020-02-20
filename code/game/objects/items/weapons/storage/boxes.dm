@@ -316,6 +316,12 @@
 	icon_state = "flashbang"
 	starts_with = list(/obj/item/grenade/frag = 5)
 
+/obj/item/storage/box/cardox
+	name = "box of cardox grenades"
+	desc = "A box containing 5 experimental cardox grenades."
+	icon_state = "flashbang"
+	starts_with = list(/obj/item/grenade/chem_grenade/large/phoroncleaner = 5)
+
 /obj/item/storage/box/trackimp
 	name = "boxed tracking implant kit"
 	desc = "Box full of scum-bag tracking utensils."
@@ -581,10 +587,27 @@
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = 3
-	can_hold = list(/obj/item/organ, /obj/item/reagent_containers/food, /obj/item/reagent_containers/glass)
 	max_storage_space = 21
-	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
+	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
+
+	/obj/item/storage/box/freezer/organcooler
+	name = "organ cooler"
+	desc = "A sealed, cooled container to keep organs from decaying."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "organcooler"
+	item_state = "firstaid-advanced"
+	max_w_class = ITEMSIZE_NORMAL
+	foldable = FALSE
+	w_class = ITEMSIZE_LARGE
+	can_hold = list(
+		/obj/item/organ,
+		/obj/item/reagent_containers/food,
+		/obj/item/reagent_containers/glass,
+		/obj/item/gun
+	)
+	use_to_pickup = FALSE
+	storage_slots = 2
 
 /obj/item/storage/box/kitchen
 	name = "kitchen supplies"

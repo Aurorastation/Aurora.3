@@ -15,9 +15,9 @@
 	var/points = 0
 	var/obj/item/card/id/inserted_id
 
-	var/ore/list/input_mats = list()
-	var/material/list/output_mats = list()
-	var/datum/alloy/list/alloy_mats = list()
+	var/list/ore/input_mats = list()
+	var/list/material/output_mats = list()
+	var/list/datum/alloy/alloy_mats = list()
 	var/waste = 0
 	var/idx = 0
 
@@ -248,9 +248,9 @@
 	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
-
-	playsound(loc, "sound/bureaucracy/print.ogg", 75, 1)
-	user.visible_message("\The [src] spits out a piece of paper.")
+	
+	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
+	playsound(loc, "sound/bureaucracy/print_short.ogg", 50, 1)
 
 	// reset
 	output_mats = list()

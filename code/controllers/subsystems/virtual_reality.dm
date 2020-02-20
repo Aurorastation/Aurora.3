@@ -7,11 +7,11 @@
 
 	// MECHA
 	var/list/mechnetworks = list("remotemechs", "prisonmechs") // A list of all the networks a mech can possibly connect to
-	var/list/mechs = list() // A list of lists, containing the mechs and their networks
+	var/list/list/mechs = list() // A list of lists, containing the mechs and their networks
 
 	// IPC BODIES
-	var/list/robotnetworks = list("remoterobots", "bunkerrobots")
-	var/list/robots = list()
+	var/list/robotnetworks = list("remoterobots", "bunkerrobots", "prisonrobots")
+	var/list/list/robots = list()
 
 /datum/controller/subsystem/virtualreality/New()
 	NEW_SS_GLOBAL(SSvirtualreality)
@@ -100,11 +100,12 @@
 			continue
 		if(!R.pilots.len)
 			continue
-		if(R.pilots[1].client || R.pilots[1].ckey)
+		var/mob/living/mech_pilot = R.pilots[1]
+		if(mech_pilot.client || mech_pilot.ckey)
 			continue
-		if(R.pilots[1].stat == DEAD)
+		if(mech_pilot.stat == DEAD)
 			continue
-		mech[R.name] = R
+		mech[mech_pilot.name] = mech_pilot
 
 	if(mech.len == 1)
 		to_chat(user, span("warning", "No active remote mechs are available."))

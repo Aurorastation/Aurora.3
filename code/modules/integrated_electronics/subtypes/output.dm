@@ -90,6 +90,11 @@
 			assembly.set_light(0)
 	power_draw_idle = light_toggled ? light_brightness * 2 : 0
 
+/obj/item/integrated_circuit/output/light/disconnect_all()
+	..()
+	light_toggled = FALSE
+	update_lighting()
+
 /obj/item/integrated_circuit/output/light/power_fail() // Turns off the flashlight if there's no power left.
 	light_toggled = FALSE
 	update_lighting()

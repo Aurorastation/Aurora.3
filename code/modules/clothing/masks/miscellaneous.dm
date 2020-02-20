@@ -92,6 +92,17 @@
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
 
+/obj/item/clothing/mask/trinary_mask
+	name = "trinary perfection mask"
+	desc = "A simple lace mask worn by IPCs and organics alike while within the churches of the Trinary Perfection."
+	icon_state = "trinary_mask"
+	item_state = "trinary_mask"
+	w_class = ITEMSIZE_SMALL
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	down_body_parts_covered = null
+	adjustable = TRUE
+
 //scarves (fit in in mask slot)
 //None of these actually have on-mob sprites...
 /obj/item/clothing/mask/bluescarf
@@ -210,7 +221,7 @@
 		return
 	if(user.get_equipped_item(slot_wear_mask) != src)
 		return
-	
+
 	eye.possess(user)
 	to_chat(eye.owner, span("notice", "You feel disoriented for a moment as your mind connects to the camera network."))
 
@@ -224,6 +235,7 @@
 	name = "pioneer's scarf"
 	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of expeditionaries."
 	icon_state = "pioneer_scarf"
+	item_flags = FLEXIBLEMATERIAL
 	item_state = "pioneer_scarf"
 	w_class = 2
 	body_parts_covered = FACE

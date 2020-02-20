@@ -9,7 +9,7 @@
 	return TRUE
 
 /obj/item/implant/integrated_circuit/Initialize()
-	..()
+	. = ..()
 	IC = new(src)
 	IC.implant = src
 

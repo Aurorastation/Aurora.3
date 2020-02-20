@@ -1,29 +1,22 @@
-//Verbs after this point.
-
-
 //Merge:
 //Joins yourself into an existing gestalt, becoming just a small part of it
 //The nymph player moves inside the gestalt and no longer has control of movement or actions
 /mob/living/carbon/alien/diona/proc/merge()
-
 	set category = "Abilities"
 	set name = "Merge with gestalt"
 	set desc = "Merge yourself into a larger gestalt, you will no longer retain control."
 
-	if(stat == DEAD || paralysis || weakened || stunned || restrained())
-		return
+	if(use_check_and_message(usr))
+		return FALSE
 
 	var/list/choices = list()
-	for(var/mob/living/carbon/C in view(1,src))
+	for(var/mob/living/carbon/human/H in view(1, src))
+		if(!Adjacent(H) || !H.client)
+			continue
+		if(is_diona(H) == DIONA_WORKER)
+			choices += H
 
-		if(!(src.Adjacent(C)) || !(C.client)) continue
-
-		if(istype(C,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = C
-			if(H.species && H.species.name == "Diona" && H.client)
-				choices += H
-
-	var/mob/living/M = input(src,"Who do you wish to merge with?") in null|choices
+	var/mob/living/M = input(src, "Who do you wish to merge with?") in null|choices
 
 	if(!M)
 		to_chat(src, span("warning", "There are no active gestalts nearby to merge with."))
@@ -32,40 +25,38 @@
 
 
 /mob/living/carbon/alien/diona/proc/do_merge(var/mob/living/carbon/human/H)
-	if(!istype(H) || !src || !(src.Adjacent(H)))
-		return 0
+	if(!istype(H) || !Adjacent(H))
+		return FALSE
 
 	to_chat(src, span("warning", "Requesting consent from [H]"))
-	var/r = alert(H,"[src] wishes to join your collective, and become a part of your gestalt. If you accept they will become an equal part of you, though you will remain in control?", "[src] wishes to join you", "Welcome!", "No, leave us..")
-	if (r != "Welcome!")
+	var/r = alert(H, "[src] wishes to join your collective, and become a part of your gestalt. If you accept they will become an equal part of you, though you will remain in control.", "[src] wishes to join you", "Welcome!", "No, leave us..")
+	if(r != "Welcome!")
 		to_chat(src, span("warning", "[H.name] has rejected your wish to merge!"))
-		return	0
+		return FALSE
 
-	H.visible_message(span("warning", "[H] starts absorbing [src] into its body"), span("warning", "You start absorbing [src]. This will take 15 seconds and both of you must remain still"), span("warning", "You hear a strange, alien. sucking sound"))
-	to_chat(src, "<span class='notice'>You feel yourself slowly becoming part of something greater, remain still to finish.</span>")
+	H.visible_message(span("warning", "[H] starts absorbing [src] into its body."), span("warning", "You start absorbing [src]. This will take 15 seconds and both of you must remain still."), span("warning", "You hear a strange, alien, sucking noise."))
+	to_chat(src, span("notice", "You feel yourself slowly becoming part of something greater, remain still to finish."))
 	face_atom(H)
 	H.face_atom(get_turf(src))
-	if(do_mob(src, H, 150, needhand = 0))
-		if (!(src.Adjacent(H)) || !(istype(src.loc, /turf)))//The loc check prevents us from absorbing the same nymph multiple times at once
+	if(do_mob(src, H, 150, needhand = FALSE))
+		if(!Adjacent(H) || !isturf(loc)) //The loc check prevents us from absorbing the same nymph multiple times at once
 			to_chat(src, span("warning", "Something went wrong while trying to merge into [H], cancelling."))
-			return 0
+			return FALSE
 
 		gestalt = H
 		sync_languages(gestalt)
 		update_verbs()
-		sleep(2)//Altering the verbs list takes some time and it wont complete after the nymph is moved in. This sleep is necessary
-		to_chat(H, "<span class='notice'>You feel your being twine with that of \the [src] as it merges with your biomass.</span>")
+		sleep(2) //Altering the verbs list takes some time and it wont complete after the nymph is moved in. This sleep is necessary
+		to_chat(H, span("notice", "You feel your being twine with that of \the [src] as it merges with your biomass."))
 		H.status_flags |= PASSEMOTES
-		to_chat(src, "<span class='notice'>You feel your being twine with that of \the [H] as you merge with its biomass.</span>")
+		to_chat(src, span("notice", "You feel your being twine with that of \the [H] as you merge with its biomass."))
 		for(var/obj/O in src.contents)
 			drop_from_inventory(O)
 		src.forceMove(H)
 	else
 		to_chat(src, span("warning", "Something went wrong while trying to merge into [H], cancelling."))
-		return 0
-
-
-	return 1
+		return FALSE
+	return TRUE
 
 
 
@@ -79,70 +70,66 @@
 	set category = "Abilities"
 	set name = "Absorb Nymph"
 	set desc = "Absorb a diona nymph into yourself, you will remain in control and gain any biomass it has absorbed."
+
 	var/list/choices = list()
-	for(var/mob/living/carbon/alien/diona/C in view(1,src))
+	for(var/mob/living/carbon/alien/diona/C in view(1, src))
+		if(!Adjacent(C) || C.gestalt || C == src) //cant steal nymphs right out of other gestalts
+			continue
+		choices += C
 
-		if((!(src.Adjacent(C)) || C.gestalt || C == src)) continue//cant steal nymphs right out of other gestalts
-		choices.Add(C)
-
-	var/mob/living/carbon/alien/diona/M = input(src,"Which nymph do you wish to absorb?") in null|choices
+	var/mob/living/carbon/alien/diona/M = input(src, "Which nymph do you wish to absorb?") in null|choices
 
 	if(!M)
-		to_chat(src, span("warning", "There is nothing nearby to absorb"))
+		to_chat(src, span("warning", "There are no nymphs in your vicinity."))
 	else if(!do_absorb(M))
 		to_chat(src, span("warning", "You fail to merge with \the [M]..."))
 
 
 
 /mob/living/carbon/proc/do_absorb(var/mob/living/carbon/alien/diona/D)
-	if (D.key)
+	if(D.key)
 		//Code for requesting permission goes here. We will return if its denied or ignored
-		to_chat(src, span("warning", "Requesting consent from [D]"))
-		var/r = alert(D,"[src] wishes to absorb your being, and make you a part of their gestalt. If you accept you will join with them, and give up control to be a part of their collective. \nYou will be part of their larger gestalt if they grow later, too, and all of your stored biomass will be transferred to them. You can split away at anytime, but you cannot reclaim the biomass. Do you wish to be absorbed?", "[src] wishes to absorb you", "Yes, we will join!", "No, i wish to remain alone")
-		if (r != "Yes, we will join!")
+		to_chat(src, span("warning", "Requesting consent from [D]."))
+		var/r = alert(D,"[src] wishes to absorb your being, and make you a part of their gestalt. If you accept you will join with them, and give up control to be a part of their collective. \nYou will be part of their larger gestalt if they grow later, too, and all of your stored biomass will be transferred to them. You can split away at anytime, but you cannot reclaim the biomass. Do you wish to be absorbed?", "[src] wishes to absorb you", "Yes, I will join!", "No, I wish to remain alone!")
+		if(r != "Yes, I will join!")
 			to_chat(src, span("warning", "[D] has refused to join you!"))
 			return
-		else
-			if (!(src.Adjacent(D)) || !(istype(D.loc, /turf)))
-				to_chat(src, span("warning", "Something went wrong while trying to absorb [D], cancelling."))
-				return
-
-	src.visible_message(span("warning", "[src] starts absorbing [D] into its body"), span("warning", "You start absorbing [D]. This will take 15 seconds and both of you must remain still"), span("warning", "You hear a strange, alien. sucking sound"))
-	to_chat(D, "<span class='notice'>You feel yourself slowly becoming part of something greater, remain still to finish.</span>")
-	face_atom(D)
-	D.face_atom(get_turf(src))
-	if(do_mob(src, D, 150, needhand = 0))
-		if (!(src.Adjacent(D)) || !(istype(D.loc, /turf)))//The loc check prevents us from absorbing the same nymph multiple times at once
-			to_chat(src, span("warning", "Something went wrong while trying to absorb [D], cancelling."))
+		else if(!Adjacent(D) || !isturf(D.loc))
+			to_chat(src, span("warning", "\The [D] must remain close to the collective if \he wishes to be part of us."))
 			return
 
-		if (D.stat == DEAD)
+	src.visible_message(span("warning", "[src] starts absorbing [D] into its body."), span("warning", "You start absorbing [D]. This will take 15 seconds and both of you must remain still."), span("warning", "You hear a strange, alien, sucking noise."))
+	to_chat(D, span("notice", "You feel yourself slowly becoming part of something greater, remain still to finish."))
+	face_atom(D)
+	D.face_atom(get_turf(src))
+	if(do_mob(src, D, 150, needhand = FALSE))
+		if(!Adjacent(D) || !isturf(D.loc)) //The loc check prevents us from absorbing the same nymph multiple times at once
+			to_chat(src, span("warning", "\The [D] must remain close to the collective if \he wishes to be part of us."))
+			return
+
+		if(D.stat == DEAD)
 			src.adjustNutritionLoss(-NYMPH_ABSORB_NUTRITION * NYMPH_ABSORB_DEAD_FACTOR)
 			qdel(D)
-			return 1
+			return TRUE
 		else
-
 			D.gestalt = src
 			D.sync_languages(D.gestalt)
 			D.update_verbs()
 			sleep(2)
-			if (is_diona() == DIONA_NYMPH)//We only care about biomass if we're a nymph
+			if(is_diona() == DIONA_NYMPH) //We only care about biomass if we're a nymph
 				src.adjustNutritionLoss(-NYMPH_ABSORB_NUTRITION)
 				src.adjustNutritionLoss(-D.nutrition)
-				D.nutrition = 0
-
-			to_chat(D, "<span class='notice'>You feel your being twine with that of \the [src] as you merge with its biomass.</span>")
-			to_chat(src, "<span class='notice'>You feel your being twine with that of \the [D] as it merges with your biomass.</span>")
+				D.nutrition = FALSE
+			to_chat(D, span("notice", "You feel your being entwine with that of \the [src] as you merge with its biomass."))
+			to_chat(src, span("notice", "You feel your being entwine with that of \the [D] as it merges with your biomass."))
 			for(var/obj/O in D.contents)
 				D.drop_from_inventory(O)
 			D.forceMove(src)
-
 			D.stat = CONSCIOUS
 			status_flags |= PASSEMOTES
-			return 1
-
+			return TRUE
 	else
-		return 0
+		return FALSE
 
 //Split allows a nymph to peel away from a gestalt and be a lone agent
 /mob/living/carbon/alien/diona/proc/split()
@@ -150,29 +137,29 @@
 	set name = "Break from gestalt"
 	set desc = "Split away from your gestalt as a lone nymph."
 
-	if(stat == DEAD || paralysis || weakened || stunned || restrained())
-		return
+	if(use_check_and_message(usr))
+		return FALSE
 
 	if(echo)
-		to_chat(src, "<span class='notice'>Your host is still storing you as a nymphatic husk and preventing your departure.</span>")
+		to_chat(src, span("notice", "Your host is still storing you as a nymphatic husk and preventing your departure."))
 		return
 
-	if(!(istype(src.loc,/mob/living/carbon)))
-		src.verbs -= /mob/living/carbon/alien/diona/proc/split
+	if(!iscarbon(loc))
+		verbs -= /mob/living/carbon/alien/diona/proc/split
 		return
 
-	var/r = alert(src,"Splitting will remove you from your gestalt and deposit you on the ground, allowing you to go it alone. If you had any stored biomass before you joined the gestalt, you will not get it back. Are you sure you wish to split?", "Confirm Split", "Time to leaf", "I'll stick around")
-	if (r != "Time to leaf")
+	var/r = alert(src, "Splitting will remove you from your gestalt and deposit you on the ground, allowing you continue alone. If you had any stored biomass before you joined the gestalt, you will not get it back. Are you sure you wish to split?", "Confirm Split", "I am ready to leave.", "I'll stick around.")
+	if(r != "I am ready to leave.")
 		return
 
-	to_chat(src.loc,  "<span class='warning'>You feel a pang of loss as [src] splits away from your biomass.</span>")
-	to_chat(src, "<span class='notice'>You wiggle out of the depths of [src.loc]'s biomass and plop to the ground.</span>")
+	to_chat(gestalt, span("warning", "You feel a pang of loss as [src] splits away from your biomass."))
+	to_chat(src, span("notice", "You wiggle out of the depths of [gestalt]'s biomass and plop to the ground."))
 
-	if (gestalt.is_diona() == DIONA_NYMPH)
+	if(gestalt.is_diona() == DIONA_NYMPH)
 		gestalt.adjustNutritionLoss(NYMPH_ABSORB_NUTRITION)
 
 	split_languages(gestalt)
-	src.forceMove(get_turf(src))
+	forceMove(get_turf(src))
 	stat = CONSCIOUS
 	gestalt = null
 	update_verbs()
@@ -185,75 +172,77 @@
 
 	//For fun factor, we'll allow the nymph to choose nonvalid targets
 	var/list/choices = list()
-	for(var/mob/living/L in view(1,src))
+	for(var/mob/living/L in view(1, src))
+		if(L == src)
+			continue
+		if(!Adjacent(L))
+			continue
+		if(L.is_diona())
+			continue
+		choices += L
 
-		if((!(src.Adjacent(L)) || L == src)) continue
-		choices.Add(L)
-
-	if (!choices.len)
+	if(!length(choices))
 		to_chat(src, span("warning", "There are no life forms nearby to sample!"))
 		return
+	else
+		choices += "Cancel"
 
-	if (choices.len == 1)
-		choices.Add("Cancel")
+	var/mob/living/donor = input(src, "Who do you wish to sample?") in null|choices
 
-	var/mob/living/donor = input(src,"Who do you wish to drain?") in null|choices
-
-	if (!donor || donor == "Cancel")//they cancelled
+	if(!donor || donor == "Cancel") //they cancelled
 		return
 
 	face_atom(donor)
 	var/types = donor.find_type()
 
-	if (types & TYPE_SYNTHETIC)
-		src.visible_message("<span class='danger'>[src] attempts to bite into [donor.name] but leaps back in surprise as its fangs hit metal.</span>", "<span class='danger'>You attempt to sink your fangs into [donor.name] and get a faceful of unyielding steel as the force breaks several fine protrusions in your mouth.</span>")
+	if(types & TYPE_SYNTHETIC)
+		src.visible_message(span("danger", "[src] attempts to bite into [donor.name] but leaps back in surprise as its fangs hit metal."), span("danger", "You attempt to sink your fangs into [donor.name] and get a faceful of unyielding steel as the force breaks several fine protrusions in your mouth."))
 		donor.adjustBruteLoss(2)
-		src.adjustBruteLoss(15)//biting metal hurts!
+		src.adjustBruteLoss(15) //biting metal hurts!
 		return
 
 	else if (isanimal(donor) && (types & TYPE_ORGANIC) && donor.stat != DEAD)
-		src.visible_message("<span class='danger'>[src] bites into [donor.name] and drains some of their blood</span>", "<span class='danger'>You bite into [donor.name] and drain some blood.</span>")
-		to_chat(src, "<span class='danger'>This simple creature has insufficient intelligence for you to learn anything!</span>")
+		src.visible_message(span("danger", "[src] bites into [donor.name] and drains some of their blood."), span("danger", "You bite into [donor.name] and drain some of their blood."))
+		to_chat(src, span("danger", "This simple creature has insufficient intelligence for you to learn anything!"))
 		donor.adjustBruteLoss(4)
 		adjustNutritionLoss(-20)
 		return
 	else if (types & TYPE_WEIRD)
-		src.visible_message("<span class='danger'>[src] attempts to bite into [donor.name] but passes right through it!.</span>", "<span class='danger'>You attempt to sink your fangs into [donor.name] but pass right through it!</span>")
+		src.visible_message(span("danger", "[src] attempts to bite into [donor.name] but passes right through it!."), span("danger", "You attempt to sink your fangs into [donor.name] but pass right through it!"))
 		return
-	else if (donor.is_diona())
-		to_chat(src, span("warning", "You can't sample the DNA of other diona!"))
-		return
-	else if (istype(donor, /mob/living/carbon))
+	else if (iscarbon(donor))
+		var/mob/living/carbon/D = donor
 		//If we get here, it's -probably- valid
 
-		src.visible_message("<span class='danger'>[src] is trying to bite [donor.name]</span>", span("danger", "You start biting [donor.name], you both must stay still!"))
-		face_atom(get_turf(donor))
-		if (do_mob(src, donor, 40, needhand = 0))
-
+		src.visible_message(span("danger", "[src] is trying to bite [D.name]."), span("danger", "You start biting [D.name], you both must stay still!"))
+		face_atom(get_turf(D))
+		if(do_mob(src, D, 40, needhand = FALSE))
 			//Attempt to find the blood vessel, but don't create a fake one if its not there.
 			//If the target doesn't have a vessel its probably due to someone not implementing it properly, like xenos
 			//We'll still allow it
-			var/datum/reagents/vessel = donor.get_vessel(1)
+			var/datum/reagents/vessel = D.get_vessel(1)
 			var/newDNA
 			var/datum/reagent/blood/B = vessel.get_master_reagent()
 			var/total_blood = B.volume
-			var/remove_amount = (total_blood - 280) * 0.3
-			if (remove_amount > 0)
-				vessel.remove_reagent("blood", remove_amount, 1)//85 units of blood is enough to affect a human and make them woozy
-				adjustNutritionLoss(-remove_amount*0.5)
+			var/remove_amount = total_blood * 0.05
+			if(ishuman(D))
+				var/mob/living/carbon/human/H = D
+				remove_amount = H.species.blood_volume * 0.05
+			if(remove_amount > 0)
+				vessel.remove_reagent("blood", remove_amount, TRUE)
+				adjustNutritionLoss(-remove_amount * 0.5)
 			var/list/data = vessel.get_data("blood")
 			newDNA = data["blood_DNA"]
 
-			if (!newDNA)//Fallback. Adminspawned mobs, and possibly some others, have null dna.
-				newDNA = md5("\ref[donor]")
+			if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
+				newDNA = md5("\ref[D]")
 
-			donor.adjustBruteLoss(4)
-			src.visible_message("<span class='notice'>[src] sucks some blood from [donor.name]</span>", "<span class='notice'>You extract a delicious mouthful of blood from [donor.name]!</span>")
+			D.adjustBruteLoss(4)
+			src.visible_message(span("notice", "[src] sucks some blood from [D.name].") , span("notice", "You extract a delicious mouthful of blood from [D.name]!"))
 
-			if (newDNA in sampled_DNA)
-				to_chat(src, "<span class='danger'>You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else.</span>")
+			if(newDNA in sampled_DNA)
+				to_chat(src, span("danger", "You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else."))
 				return
-
 			else
 				sampled_DNA.Add(newDNA)
 
@@ -264,31 +253,31 @@
 				//2 = We learned something!
 
 				//Now we sample their languages!
-				for (var/datum/language/L in donor.languages)
+				for(var/datum/language/L in D.languages)
 					learned = max(learned, 1)
 					if (!(L in languages) && !(L in diona_banned_languages))
 						//We don't know this language, and we can learn it!
 						var/current_progress = language_progress[L.name]
 						current_progress += 1
 						language_progress[L.name] = current_progress
-						to_chat(src, "<span class='notice'><font size=3>You come a little closer to learning [L.name]!</font></span>")
+						to_chat(src, span("notice", "<font size=3>You come a little closer to learning [L.name]!</font>"))
 						learned = 2
 
-				if (!learned)
-					to_chat(src, "<span class='danger'>This creature doesn't know any languages at all!</span>")
+				if(!learned)
+					to_chat(src, span("danger", "This creature doesn't know any languages at all!"))
 				else if (learned == 1)
-					to_chat(src, "<span class='danger'>We have nothing more to learn from this creature. Perhaps try a different species?</span>")
+					to_chat(src, span("danger", "We have nothing more to learn from this creature. Perhaps try a different sample?"))
 
 				update_languages()
 		else
-			to_chat(src, span("warning", "Something went wrong while trying to sample [donor], both you and the target must remain still."))
+			to_chat(src, span("warning", "Something went wrong while trying to sample [D], both you and the target must remain still."))
 
 //Checks progress on learned languages
 /mob/living/carbon/alien/diona/proc/update_languages()
-	for (var/i in language_progress)
-		if (language_progress[i] >= LANGUAGE_POINTS_TO_LEARN)
+	for(var/i in language_progress)
+		if(language_progress[i] >= LANGUAGE_POINTS_TO_LEARN)
 			add_language(i)
-			to_chat(src, "<span class='notice'><font size=3>You have mastered the [i] language!</font></span>")
+			to_chat(src, span("notice", "<font size=3>You have mastered the [i] language!</font>"))
 			language_progress.Remove(i)
 
 /mob/living/carbon/alien/diona/proc/transferMind(var/atom/A)
@@ -299,45 +288,38 @@
 	for(var/mob/living/carbon/alien/diona/D in view(7))
 		if(D.master_nymph == src && mind && !client) //if the nymph is subservient to you
 			mind.transfer_to(D)
-			D.stunned = 0//Switching mind seems to temporarily stun mobs
+			D.stunned = 0 //Switching mind seems to temporarily stun mobs
 			for(var/mob/living/carbon/alien/diona/DIO in src.birds_of_feather) //its me!
 				DIO.master_nymph = D
 			break
-		return 1
-	..()
+		return TRUE
 
 /mob/living/carbon/proc/echo_eject()
 	set category = "Abilities"
 	set name = "Eject Echo"
 	set desc = "Eject any nymphatic husks."
 
-	if(stat == DEAD || paralysis || weakened || stunned || restrained())
-		return
+	if(use_check_and_message(usr))
+		return FALSE
 
-	var/energy
-
-	var/r = alert(src,"Do you choose to eject echoes as nymphs or energy?", "Identify Waste", "Energy", "Nymphs")
-	if (r == "Nymphs")
-		energy = 0
-	else if (r == "Energy")
-		energy = 1
-	else
-		return
+	var/energy = FALSE
+	var/r = alert(src, "Do you choose to eject echoes as nymphs or energy?", "Identify Waste", "Energy", "Nymphs")
+	if(r == "Energy")
+		energy = TRUE
 
 	for(var/mob/living/carbon/alien/diona/D in src)
 		if(D.mind && D.echo)
 			if(energy)
 				var/mob/living/simple_animal/shade/bluespace/BS = new /mob/living/simple_animal/shade/bluespace(get_turf(D))
-				to_chat(D, "<span class='danger'>You feel your nymphatic husk split as you are released again as pure energy!</span>")
+				to_chat(D, span("danger", "You feel your nymphatic husk split as you are released again as pure energy!"))
 				D.mind.transfer_to(BS)
 				to_chat(BS, "<b>You are now a bluespace echo - consciousness imprinted upon wavelengths of bluespace energy. You currently retain no memories of your previous life, but do express a strong desire to return to corporeality. You will die soon, fading away forever. Good luck!</b>")
 				qdel(D)
-
 			else
 				to_chat(src, span("warning", "You feel a pang of loss as [src] splits away from your biomass."))
-				to_chat(D, "<span class='notice'>You wiggle out of the depths of [src.loc]'s biomass and plop to the ground.</span>")
+				to_chat(D, span("notice", "You wiggle out of the depths of [src.loc]'s biomass and plop to the ground."))
 
-				if (D.gestalt.is_diona() == DIONA_NYMPH)
+				if(D.gestalt.is_diona() == DIONA_NYMPH)
 					D.gestalt.adjustNutritionLoss(NYMPH_ABSORB_NUTRITION)
 
 				D.split_languages(D.gestalt)
@@ -355,9 +337,86 @@
 	if(stat == DEAD)
 		return
 	
-	if(!consume_nutrition_from_air && (nutrition / max_nutrition > 0.25) )
+	if(!consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
 		to_chat(src, span("warning", "You still have plenty of nutrition left. Consuming air is the last resort."))
 		return
 	
 	consume_nutrition_from_air = !consume_nutrition_from_air
 	to_chat(src, span("notice", "You [consume_nutrition_from_air ? "started" : "stopped"] consuming air for nutrition."))
+
+/mob/living/carbon/human/proc/create_structure()
+	set category = "Abilities"
+	set name = "Create Structure"
+	set desc = "Expend nymphs or biomass to create structures."
+
+	if(!is_diona(src))
+		to_chat(src, span("danger", "You are not a Diona! You should not have this ability."))
+		log_debug("Non-Diona [name] had Create Structure ability.")
+		return
+
+	if(use_check_and_message(src))
+		return
+
+	var/can_use_biomass
+	if(nutrition >= max_nutrition * 0.25)
+		can_use_biomass = TRUE
+
+	var/can_use_limbs = TRUE
+	var/list/viable_limbs = list(BP_L_ARM, BP_R_ARM)
+	for(var/limb in viable_limbs)
+		var/obj/item/organ/external/O = organs_by_name[limb]
+		if(!O)
+			can_use_limbs = FALSE
+			break
+
+	var/build_method // What are we using to build this thing?
+	if(can_use_biomass)
+		to_chat(src, span("notice", "We will expend biomass to create this structure."))
+		build_method = "biomass"
+	else if(can_use_limbs)
+		to_chat(src, span("notice", "We will detach our arm nymphs and have them form the structure."))
+		build_method = "nymphs"
+	else
+		to_chat(src, span("notice", "We do not have the nymphs nor the biomass to do this!"))
+		return
+	
+	var/list/diona_structures = list(
+			"Wall" = /turf/simulated/wall/diona,
+			"Floor" = /turf/simulated/floor/diona,
+			"Glow Bulb" = /obj/structure/diona/bulb/unpowered,
+			"Cancel" = null
+			)
+
+	var/chosen_structure
+	chosen_structure = input("Choose a structure to grow.") in diona_structures
+	if(!chosen_structure || chosen_structure == "Cancel")
+		to_chat(src, span("warning", "We have elected to not grow anything right now."))
+		return
+
+	if(use_check_and_message(src))
+		return
+	
+	if(chosen_structure)
+		to_chat(src, span("notice", "We are now creating a [lowertext(chosen_structure)] using our [build_method]..."))
+
+	if(do_after(src, 50))
+		if(build_method == "biomass") // checking again, a lot can change in a short amount of time - geeves
+			if(nutrition >= max_nutrition * 0.25)
+				nutrition -= max_nutrition * 0.25
+			else
+				to_chat(src, span("warning", "We do not have enough biomass!"))
+				return
+		else if(build_method == "nymphs")
+			for(var/limb in viable_limbs)
+				var/obj/item/organ/external/O = organs_by_name[limb]
+				if(!O)
+					to_chat(src, span("warning", "We lost our arm while constructing!"))
+					return
+				O.droplimb(TRUE, DROPLIMB_EDGE)
+				qdel(O)
+		var/structure_path = diona_structures[chosen_structure]
+		var/turf/T = get_turf(src)
+		if(ispath(structure_path, /turf))
+			T.ChangeTurf(structure_path)
+		else
+			new structure_path(T)

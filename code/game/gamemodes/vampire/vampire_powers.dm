@@ -49,6 +49,8 @@
 	if (T.mind && T.mind.vampire)
 		draining_vamp = T.mind.vampire
 
+	var/target_aware = !!T.client
+
 	var/blood = 0
 	var/blood_total = 0
 	var/blood_usable = 0
@@ -91,7 +93,7 @@
 		var/frenzy_lower_chance = 0
 
 		// Alive and not of empty mind.
-		if (T.stat < 2 && T.client)
+		if (check_drain_target_state(T))
 			blood = min(15, T.vessel.get_reagent_amount("blood"))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
@@ -135,12 +137,18 @@
 	if(vampire.stealth)
 		endsuckmsg += "They will remember nothing of this occurance, provided they survived."
 	visible_message("<span class='danger'>[src.name] stops biting [T.name]'s neck!</span>", "<span class='notice'>[endsuckmsg]</span>")
-	if(T.stat != 2 && vampire.stealth)
-		to_chat(T, span("warning", "You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name]."))
+	if(target_aware)
 		T.paralysis = 0
-	else if(T.stat != 2)
-		to_chat(T, span("warning", "You remember everything about being fed upon. How you react to [src.name]'s actions is up to you."))
-		T.paralysis = 0
+		if(T.stat != DEAD && vampire.stealth)
+			to_chat(T.find_mob_consciousness(), span("warning", "You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name]."))
+		else if(T.stat != DEAD)
+			to_chat(T.find_mob_consciousness(), span("warning", "You remember everything about being fed upon. How you react to [src.name]'s actions is up to you."))
+
+// Check that our target is alive, logged in, and any other special cases
+/mob/living/carbon/human/proc/check_drain_target_state(var/mob/living/carbon/human/T)
+	if(T.stat < DEAD)
+		if(T.client || (T.bg && T.bg.client))
+			return TRUE
 
 // Small area of effect stun.
 /mob/living/carbon/human/proc/vampire_glare()
@@ -167,6 +175,7 @@
 
 		H.Weaken(8)
 		H.stuttering = 20
+		H.confused = 10
 		to_chat(H, "<span class='danger'>You are blinded by [src]'s glare!</span>")
 		flick("flash", H.flash)
 		victims += H

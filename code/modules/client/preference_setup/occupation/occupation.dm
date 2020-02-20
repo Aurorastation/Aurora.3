@@ -170,7 +170,9 @@
 		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		var/dispRank = LAZYACCESS(pref.GetValidTitles(job), 1) || rank
+
+		var/list/available = pref.GetValidTitles(job)
+		var/dispRank = LAZYLEN(available) ? LAZYACCESS(available, 1) : rank
 		var/ban_reason = jobban_isbanned(user, rank)
 		if(ban_reason == "WHITELISTED")
 			dat += "<del>[dispRank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"

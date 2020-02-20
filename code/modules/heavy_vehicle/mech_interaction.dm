@@ -17,7 +17,7 @@
 	else . = ..()
 
 /mob/living/heavy_vehicle/MouseDrop_T(src_object, over_object, src_location, over_location, src_control, over_control, params, var/mob/user)
-	if(!user || incapacitated() || user.incapacitated())
+	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return FALSE
 
 	if(!(user in pilots) && user != src)
@@ -30,7 +30,7 @@
 
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
 
-	if(!user || incapacitated() || user.incapacitated())
+	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return
 
 	if(!loc) return
@@ -70,7 +70,7 @@
 		setClickCooldown(15)
 		return
 
-	if(!get_cell().checked_use(arms.power_use * CELLRATE))
+	if(!(get_cell()?.checked_use(arms.power_use * CELLRATE)))
 		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
 
 	if(user != src)
@@ -258,7 +258,7 @@
 	if(world.time < next_move)
 		return 0
 
-	if(!user || incapacitated() || user.incapacitated())
+	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return
 
 	if(!legs)
@@ -291,7 +291,7 @@
 			return
 		Move(target_loc, direction)
 	else
-		get_cell().use(legs.power_use * CELLRATE)
+		get_cell()?.use(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_move = world.time + legs.turn_delay
@@ -302,7 +302,7 @@
 	if(..() && !istype(loc, /turf/space))
 		if(legs && legs.mech_step_sound)
 			playsound(src.loc,legs.mech_step_sound,40,1)
-		get_cell().use(legs.power_use * CELLRATE)
+		get_cell()?.use(legs.power_use * CELLRATE)
 	update_icon()
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
@@ -491,3 +491,10 @@
 					return TRUE
 			L.apply_damage(legs.trample_damage, BRUTE)
 			return TRUE
+
+/mob/living/heavy_vehicle/proc/ToggleLockdown()
+	lockdown = !lockdown
+	if(lockdown)
+		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!</span>")
+	else
+		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")		

@@ -231,7 +231,7 @@ Class Procs:
 
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
-	if(istype (user, /mob/living/carbon))
+	if(clicksound && iscarbon(user))
 		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
@@ -386,7 +386,7 @@ Class Procs:
 		update_icon()
 	else
 		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
-		for(var/var/obj/item/C in component_parts)
+		for(var/obj/item/C in component_parts)
 			to_chat(user, "<span class='notice'>    [C.name]</span>")
 	return 1
 

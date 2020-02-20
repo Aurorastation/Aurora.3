@@ -153,3 +153,55 @@
 
 		if(hologram_message)
 			visible_message("<span class='notice'>[hologram_message]</span>")
+
+/obj/item/jargontag
+	name = "\improper Jargon Federation loyalty ear-tag"
+	desc = "An ear-tag that shows the wearer is loyal to the Jargon Federation. A small cable travels into the ear canal..."
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_EARS
+	icon = 'icons/obj/skrell_items.dmi'
+	icon_state = "jargtag"
+	item_state = "jargtag"
+	contained_sprite = TRUE
+	var/fried = FALSE // Doesn't work anymore
+
+/obj/item/jargontag/equipped(mob/living/carbon/human/M)
+	..()
+	if(fried)
+		return
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.l_ear == src || H.r_ear == src)
+			clamp_on(H)
+
+// Could add some stuff to this in the future? I dunno. I just couldn't figure out how to callback to_chat LOL - geeves
+/obj/item/jargontag/proc/do_loyalty(var/mob/wearer)
+	to_chat(wearer, span("good", "You feel an intense feeling of loyalty towards the Jargon Federation surge through your brain."))
+
+/obj/item/jargontag/proc/clamp_on(var/mob/wearer)
+	if(fried)
+		return
+	canremove = FALSE
+	icon_state = "[initial(icon_state)]_active"
+	to_chat(wearer, span("warning", "\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
+	addtimer(CALLBACK(src, .proc/do_loyalty, wearer), 15)
+
+/obj/item/jargontag/proc/unclamp()
+	if(fried)
+		return
+	if(!canremove)
+		icon_state = initial(icon_state)
+		visible_message(span("warning", "\The [src] fizzles loudly, then clicks open!"))
+		canremove = TRUE
+		fried = TRUE
+
+/obj/item/jargontag/emp_act(severity)
+	unclamp()
+
+/obj/item/jargontag/emag_act(var/remaining_charges, var/mob/user)
+	if(anchored && !canremove)
+		unclamp()
+		return TRUE
+	else
+		to_chat(user, span("notice", "\The [src] isn't locked down, your e-mag has no effect!"))
+		return FALSE
