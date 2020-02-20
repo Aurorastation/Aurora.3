@@ -112,3 +112,41 @@
 /obj/machinery/case_button/shuttle/deactivate(mob/user)
 	..()
 	return cancel_call_proc(user)
+
+
+/obj/machinery/case_button/casino
+	name = "self destruct button"
+	desc = "The house always wins."
+	icon_state = "b41"
+	button_type = "self_destruct"
+	req_access = list(access_syndicate)
+	button = 41
+	var/primed = FALSE
+	var/already_preparing = FALSE
+	var/exploding = FALSE
+
+
+/obj/machinery/case_button/casino/activate(mob/user)
+	user.visible_message("<span class='notice'>\The [user] presses the button.</span>","<span class='notice'>You press the button.</span>","You hear something being pressed.")
+	if(exploding)
+		to_chat(user, "<span class='danger'>It is too late now.</span>")
+		return 0
+	if(already_preparing)
+		return 0
+	if(primed)
+		explodethis()
+	if(!primed)
+		visible_message("<b>\The [src] buzzes,</b> \"Self destruct protocols are being prepared, they will be ready in five minutes.\"")
+		already_preparing = TRUE
+		addtimer(CALLBACK(src, .proc/armup), 5 MINUTES)
+		return 1
+	return 1
+
+/obj/machinery/case_button/casino/proc/armup()
+	primed = TRUE
+	already_preparing = FALSE
+	visible_message("<b>\The [src] buzzes,</b> \"Self destruct protocols are ready.\"")
+
+/obj/machinery/case_button/casino/proc/explodethis()
+	exploding = TRUE
+	command_announcement.Announce("Grand Romanovich Casino's scuttling systems are now online and engaged, self-destruction will be triggered in ten minutes. All crew must evacuate.", "The House Always Wins", new_sound = 'sound/effects/siren.ogg')
