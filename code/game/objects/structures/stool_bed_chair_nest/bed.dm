@@ -270,7 +270,7 @@
 	name = "roller bed rack"
 	desc = "A rack for carrying a collapsed roller bed."
 	icon = 'icons/obj/rollerbed.dmi'
-	icon_state = "folded"
+	icon_state = "standard_folded"
 	var/obj/item/roller/held
 
 /obj/item/roller_holder/New()

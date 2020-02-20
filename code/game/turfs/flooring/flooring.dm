@@ -81,8 +81,13 @@ var/list/flooring_types
 /decl/flooring/carpet/blue
 	name = "carpet"
 	icon_base = "bcarpet"
-	build_type = null
-	flags = TURF_HAS_EDGES
+	build_type = /obj/item/stack/tile/carpet_blue
+
+/decl/flooring/carpet/rubber
+	name = "rubber carpet"
+	desc = "Durable, easy to clean and provides extra grip. Perfect for industrial settings."
+	icon_base = "rub_carpet"
+	build_type = /obj/item/stack/tile/carpet_rubber
 
 /decl/flooring/tiling
 	name = "floor"
@@ -111,8 +116,14 @@ var/list/flooring_types
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_base = "lino"
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	build_type = /obj/item/stack/tile/lino
 	can_paint = 1
-	footstep_sound = "tiles"
+	footstep_sound = "carpet"
+
+/decl/flooring/linoleum/grey
+	icon_base = "lino_grey"
+	build_type = /obj/item/stack/tile/lino_grey
+	has_damage_range = 2
 
 /decl/flooring/tiling/red
 	name = "floor"
@@ -188,15 +199,19 @@ var/list/flooring_types
 
 /decl/flooring/reinforced/circuit
 	name = "processing strata"
+	desc = "A durable surface covered in various circuity and wiring."
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_base = "bcircuit"
 	build_type = null
+	build_cost = 1
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_CROWBAR
 	can_paint = 1
+	build_type = /obj/item/stack/tile/circuit_blue
 
 /decl/flooring/reinforced/circuit/green
 	name = "processing strata"
 	icon_base = "gcircuit"
+	build_type = /obj/item/stack/tile/circuit_green
 
 /decl/flooring/reinforced/circuit/red
 	icon_base = "rcircuit"
@@ -219,7 +234,7 @@ var/list/flooring_types
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "ramptop"
 	build_type = null
-	has_damage_range = 1
+	has_damage_range = 2
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
 	can_paint = 1
 
