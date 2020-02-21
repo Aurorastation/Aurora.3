@@ -99,7 +99,6 @@
 		var/landmark_position
 		for(var/obj/effect/landmark/distress_team_equipment/L in landmarks_list)
 			landmark_position = L.loc
-			break
 		if(landmark_position)
 			picked_team.equipment_map.load(landmark_position)
 

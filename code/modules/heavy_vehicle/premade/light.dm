@@ -95,7 +95,7 @@
 	desc = "A light and agile exosuit painted in the colours of the Interstellar Aid Corps."
 	icon_state = "odysseus"
 
-	e_color = "#96bcde"
+	e_color = COLOR_IAC
 
 	h_head = /obj/item/mecha_equipment/light
 	h_back = /obj/item/mecha_equipment/sleeper
