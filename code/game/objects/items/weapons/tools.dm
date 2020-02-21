@@ -550,6 +550,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 	drop_sound = 'sound/items/drop/sword.ogg'
+	usesound = 'sound/items/Crowbar.ogg'
 
 /obj/item/crowbar/iscrowbar()
 	return TRUE
