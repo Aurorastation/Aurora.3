@@ -1,6 +1,0 @@
-author: Ghostsheet
-
-delete-after: True
-
-changes: 
-  - bugfix: "Hot Drinks machine no longer has transparent pixels."
