@@ -256,4 +256,4 @@
 	icon_state = "yellow"
 
 /obj/effect/landmark/distress_team_equipment
-	name = "distress equipment landmark"
+	name = "distress equipment"
