@@ -61,7 +61,6 @@
 
 	to_chat(src, "<span class='notice'>We have absorbed [T]!</span>")
 	src.visible_message("<span class='danger'>[src] sucks the fluids from [T]!</span>")
-	to_chat(T, "<span class='danger'>You have been absorbed by the changeling!</span>")
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	changeling.chem_charges += 50
@@ -108,6 +107,8 @@
 
 	admin_attack_log(usr, T, "absorbed the DNA of", "had their DNA absorbed by", "lethally absorbed DNA from")
 
+	var/mob/abstract/hivemind/hivemind = new /mob/abstract/hivemind(src)
+	hivemind.add_to_hivemind(T, src)
 	T.death(0)
 	T.Drain()
 	return TRUE

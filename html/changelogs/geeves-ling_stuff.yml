@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "When lings suck people dry, those people are added to the ling's internal hivemind, where they can communicate with eachother."
+  - rscadd: "The hiveminded person can ghost, which will tell the ling and the others in the hivemind that they have left."
+  - rscadd: "The ling can eject people out of their hivemind. This has no benefit to the ling, unless the person was salty and was spamming the ling. This ability does not make salt okay."
