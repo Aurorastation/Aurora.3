@@ -100,3 +100,9 @@
 #define COLOR_ASSEMBLY_BLUE     "#38559E"
 #define COLOR_ASSEMBLY_PURPLE   "#6F6192"
 #define COLOR_ASSEMBLY_HOT_PINK "#FF69B4"
+
+// Blob Colours
+#define BLOB_COLOR_CORE         "#c96e28"
+#define BLOB_COLOR_SHIELD       "#9ed659"
+#define BLOB_COLOR_RAV          "#d65f42"
+#define BLOB_COLOR_PULS         "#b5ff5b"

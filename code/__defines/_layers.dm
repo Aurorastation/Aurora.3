@@ -29,3 +29,8 @@
 #define MECH_ARM_LAYER              4.06
 #define MECH_DECAL_LAYER            4.07
 #define MECH_GEAR_LAYER             4.08
+
+// Blob Layers
+#define BLOB_SHIELD_LAYER           4.11
+#define BLOB_NODE_LAYER             4.12
+#define BLOB_CORE_LAYER	            4.13
