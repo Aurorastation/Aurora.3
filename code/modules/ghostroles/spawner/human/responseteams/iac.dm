@@ -11,7 +11,7 @@
 /datum/ghostspawner/human/ert/iac/bodyguard
 	name = "IAC Bodyguard"
 	short_name = "iacbodyguard"
-	mob_name_prefix = "Gd. "
+	mob_name_prefix = "Bgd. "
 	max_count = 1
 	desc = "A highly trained bodyguard. Sticks close to the medics while they work."
 	outfit = /datum/outfit/admin/ert/iac/bodyguard
