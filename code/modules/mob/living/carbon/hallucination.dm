@@ -110,17 +110,17 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/proc/hallucination_emote()		//You emoting to others involuntarily. This happens mostly in end()
 	if(prob(min(holder.hallucination - 5, 80)) && !holder.stat)
 		var/chosen_emote = LAZYPICK(hal_emote, "twitches.")
-			if(prob(10))										//You are aware of it in this instance
-				holder.emote("me",1,chosen_emote)
-			else
-				for(var/mob/M in oviewers(world.view, holder))		//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
+		if(prob(10))										//You are aware of it in this instance
+			holder.visible_message("<B>[holder]</B> [chosen_emote]")
+		else
+			for(var/mob/M in oviewers(world.view, holder))		//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
 				to_chat(M, "<B>[holder]</B> [chosen_emote]")
 
 //I had to move this to carbon because /datum/hallucinations get deleted when they end, which I think messes with the addtimer callback. If anyone has a less janky way of doing this let me know
 
 /mob/living/carbon/proc/hallucination_thought()	//Thoughts should come to you frequently, but not be spammed. This is called on every end() so usually occurs a few times.
 	if(prob(min(src.hallucination/2, 50)))
-		addtimer(CALLBACK(src, .proc/hal_thought_give), rand(30,70))
+		addtimer(CALLBACK(src, .proc/hal_thought_give), rand(30,90))
 
 /mob/living/carbon/proc/hal_thought_give()
 	to_chat(src, span("notice", "<i>[pick(hallucinated_thoughts)]</i>"))
@@ -270,7 +270,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/prick/end()		//chance to feel another effect after duration time
 	switch(rand(1,6))
 		if(1)
-			holder.druggy += min(holder.hallucination, 20)
+			holder.druggy += min(holder.hallucination, 15)
 		if(2)
 			holder.make_dizzy(105)
 		if(3)
@@ -318,7 +318,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	else
 		to_chat(holder,span("danger", "You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
 	if(prob(min(holder.hallucination/2, 80)))
-		sound_to(holder, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/effects/squelch1.ogg'))
+		sound_to(holder, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/effects/squelch1.ogg', 'sound/effects/lingextends.ogg'))
 
 /datum/hallucination/insides/end()
 	if(prob(50))
@@ -404,6 +404,10 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	allow_duplicates = FALSE
 
 /datum/hallucination/rage/can_affect(mob/living/carbon/C)
+	if(C.is_berserk())
+		return FALSE
+	if(C.disabilities & PACIFIST)
+		return FALSE
 	if(locate(/datum/hallucination/passive) in C.hallucinations)		//Kinda silly to be passive AND mad
 		return FALSE
 	return ..()
@@ -416,6 +420,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		holder.add_client_color(/datum/client_color/berserk)
 	if(prob(holder.hallucination))
 		addtimer(CALLBACK(src, .proc/fury), rand(40, 60))
+	sound_to(holder, pick('sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg', 'sound/effects/creatures/bear_quiet_2.ogg', 'sound/effects/creatures/bear_quiet_4.ogg', 'sound/effects/creatures/monstergrowl.ogg', 'sound/effects/greaterling.ogg'))
 
 /datum/hallucination/rage/end()
 	to_chat(holder, span("danger", "Your thoughts clear as you feel your rage slip away."))
@@ -441,6 +446,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	allow_duplicates = FALSE
 
 /datum/hallucination/passive/can_affect(mob/living/carbon/C)
+	if(C.is_berserk())
+		return FALSE
 	if(C.disabilities & PACIFIST)
 		return FALSE
 	if(locate(/datum/hallucination/rage) in C.hallucinations)		//Kinda silly to be passive AND mad
@@ -477,13 +484,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			'sound/effects/Explosion2.ogg',
 			'sound/effects/explosionfar.ogg',
 			'sound/effects/crusher_alarm.ogg',
-			'sound/effects/smoke.ogg',
-			'sound/items/Ratchet.ogg',
-			'sound/items/Welder.ogg',
-			'sound/items/Crowbar.ogg',
-			'sound/items/Screwdriver.ogg', 
-			'sound/items/drill_use.ogg', 
-			'sound/items/air_wrench.ogg')
+			'sound/effects/smoke.ogg')
 
 /datum/hallucination/sound/start()
 	sound_to(holder, pick(sounds))
@@ -505,7 +506,13 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			'sound/effects/stealthoff.ogg',
 			'sound/misc/zapsplat/chitter1.ogg',
 			'sound/misc/zapsplat/chitter2.ogg', 
-			'sound/effects/squelch1.ogg')
+			'sound/effects/squelch1.ogg',
+			'sound/items/Ratchet.ogg',
+			'sound/items/Welder.ogg',
+			'sound/items/Crowbar.ogg',
+			'sound/items/Screwdriver.ogg', 
+			'sound/items/drill_use.ogg', 
+			'sound/items/air_wrench.ogg')
 
 /datum/hallucination/sound/echo/end()
 	if(prob(holder.hallucination / 2))
@@ -519,6 +526,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	sounds = list('sound/effects/ghost.ogg',
 				'sound/effects/ghost2.ogg',
 				'sound/effects/screech.ogg',
+				'sound/effects/creepyshriek.ogg',
 				'sound/hallucinations/behind_you1.ogg',
 				'sound/hallucinations/behind_you2.ogg',
 				'sound/hallucinations/far_noise.ogg',
@@ -651,6 +659,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /////////////////////////////////////////////
 
 /datum/hallucination/mirage
+	max_power = 30
 	duration = 120
 	var/number = 3
 	var/list/mirages = list()
@@ -684,6 +693,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/bleeding
 	min_power = 35
+	max_power = INFINITY
 	duration = 350
 	allow_duplicates = FALSE
 	number = 4
@@ -727,6 +737,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/horror
 	min_power = 70
+	max_power = INFINITY
 	number = 1
 
 /datum/hallucination/mirage/horror/start()
@@ -735,7 +746,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/horror/end()
 	to_chat(holder, span("warning", "With a final shriek that seems to originate from within your mind, the entity fades away."))
-	//that spooky shriek sound
+	sound_to(holder, pick('sound/hallucinations/wail.ogg', 'sound/hallucinations/far_noise.ogg', 'sound/effects/creepyshriek.ogg'))
 	..()
 
 /datum/hallucination/mirage/horror/generate_mirage()
@@ -746,6 +757,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/carnage
 	min_power = 35
+	max_power = INFINITY
 	number = 10
 
 /datum/hallucination/mirage/carnage/start()
@@ -770,6 +782,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/anomaly
 	min_power = 30
+	max_power = INFINITY
 	number = 1
 
 /datum/hallucination/mirage/anomaly/start()
@@ -791,6 +804,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/viscerator
 	min_power = 40
+	max_power = INFINITY
 	number = 3
 
 /datum/hallucination/mirage/viscerator/start()
@@ -808,6 +822,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/eyes
 	min_power = 50
+	max_power = INFINITY
 	number = 6
 
 /datum/hallucination/mirage/eyes/start()
@@ -823,6 +838,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/narsie
 	min_power = 5000					//this level of hallucination is only possible on the 2 last stages of your mind breaking during cult conversions. Or admin fuckery
+	max_power = INFINITY
 	number = 1
 	duration = 30
 
@@ -938,6 +954,19 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			to_chat(holder, "<B>[whisperer]</B> [pick("gently nudges", "pokes at", "taps", "looks at", "pats")] [holder], trying to get their attention.")
 
 
+
+/datum/hallucination/whisper/no_entity		//whispers that don't depend on a person's proximity
+	min_power = 30
+
+/datum/hallucination/whisper/no_entity/can_affect(mob/living/carbon/C)
+	return ..()
+
+/datum/hallucination/whisper/no_entity/start()
+	var/list/whisper_candidates = list("A familiar voice", "A distant voice", "A child's voice", "Something inside your head", "Your own voice", "A ghastly voice")
+	to_chat(holder, "<B>[LAZYPICK(whisper_candidates, "A distant voice")]</B> whispers directly into your mind, <I>\"[pick(hallucinated_phrases)]\"</I>")
+	sound_to(holder, pick('sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg', 'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg'))
+	holder.emote("me",1,"shivers.")
+
 /////////////////////////////////////////////
 /////	 	  FAKE POWERS		/////
 /////////////////////////////////////////////
@@ -963,7 +992,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(holder)
 		holder.verbs -= /mob/living/carbon/human/verb/fakemindread
 		to_chat(holder, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
-		holder.drowsyness += 5
+		holder.drowsyness += 12
 	..()
 
 /mob/living/carbon/human/verb/fakemindread()
@@ -971,7 +1000,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	set category = "Abilities"
 
 	if(!hallucination)
-		src.verbs -= /mob/living/carbon/human/verb/fakemindread
+		for(var/datum/hallucination/mindread/H in hallucinations)
+			H.end()
 		return
 
 	if(stat)
@@ -993,8 +1023,71 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
 		to_chat(usr, span("notice", "<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(hallucinated_phrases)]</i>\"</b>"))
+		for(var/mob/living/carbon/human/M in oviewers(src))
+			to_chat(M, "<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].")
 	else
 		to_chat(usr, span("warning", "You need to stay still to focus your energy!"))
 
-	for(var/mob/living/carbon/human/M in oviewers(src))
-		to_chat(M, "<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].")
+
+//Fake telepathy, inspired by and mostly ported from Bay's
+/datum/hallucination/telepathy
+	min_power = 60
+	allow_duplicates = FALSE
+
+/datum/hallucination/telepathy/can_affect(mob/living/carbon/C)	//Don't give it to people who already have psi powers
+	if(C.psi)
+		return FALSE
+	return ..()
+
+
+/datum/hallucination/telepathy/start()
+	duration = rand(2, 4) MINUTES
+	to_chat(holder, span("notice", "<B><font size = 3>You have developed a psionic gift!</font></B>"))
+	to_chat(holder, span("notice", "You can feel your mind surging with power! Check the abilities tab to use your new power!"))
+	holder.verbs += /mob/living/carbon/human/verb/faketelepathy
+
+/datum/hallucination/telepathy/end()
+	if(holder)
+		holder.verbs -= /mob/living/carbon/human/verb/faketelepathy
+		to_chat(holder, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
+		holder.drowsyness += 12
+	..()
+
+
+/mob/living/carbon/human/verb/faketelepathy()
+	set name = "Send Telepathic Message"
+	set category = "Abilities"
+
+	if(!hallucination)
+		for(var/datum/hallucination/telepathy/H in hallucinations)
+			H.end()
+		return
+
+	if(stat)
+		to_chat(usr, span("warning", "You're not in any state to use your powers right now!"))
+		return
+
+	var/list/creatures = list()
+	for(var/mob/living/C in oview(usr))
+		creatures += C
+	creatures -= usr
+
+	var/mob/target = input("Who do you wish to send a message to?") as null|anything in creatures
+	if(target.stat)
+		to_chat(usr, span("warning", "\The [target]'s mind is not in any state to receive messages!"))
+		return
+	if(isnull(target))
+		return
+
+	var/message = sanitizeSafe(input("Enter your message."), MAX_MESSAGE_LEN)
+	if(!message)
+		return
+
+	to_chat(usr, span("notice", "<b>You focus your mental energy and begin projecting your message into the mind of \the [target]...</b>"))
+
+	if(do_after(usr, 30))
+		to_chat(usr, span("notice", "<b>You feel your message enter \the [target]'s mind!</b>"))
+		for(var/mob/living/carbon/human/M in oviewers(src))
+			to_chat(M,"<span class='game say'><span class='name'>[usr]</span> [usr.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+	else
+		to_chat(usr, span("warning", "You need to stay still to focus your efforts!"))
