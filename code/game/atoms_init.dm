@@ -40,6 +40,8 @@
 	if (update_icon_on_init)
 		queue_icon_update()
 
+	ComponentInitialize()
+
 	return INITIALIZE_HINT_NORMAL
 
 //called if Initialize returns INITIALIZE_HINT_LATELOAD
@@ -50,6 +52,10 @@
 		WARNING("Old style LateInitialize behaviour detected in [type]!")
 		warned_types[type] = TRUE
 	Initialize(FALSE)
+
+/// Put your AddComponent() calls here
+/atom/proc/ComponentInitialize()
+	return
 
 /atom/Destroy(force = FALSE)
 	if (reagents)
