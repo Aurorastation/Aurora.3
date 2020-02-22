@@ -31,7 +31,7 @@
 			failed_icons += atom_type
 
 	if(LAZYLEN(failed_icons))
-		fail("One or more atom initial icons were not found.")
+		fail("[LAZYLEN(failed_icons)] atom initial icons were not found.")
 	else
 		pass("All atom initial icons were valid.")
 
