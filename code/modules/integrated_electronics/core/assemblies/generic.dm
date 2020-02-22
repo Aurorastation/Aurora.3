@@ -249,3 +249,6 @@
 	w_class = ITEMSIZE_TINY
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
+
+/obj/item/device/electronic_assembly/proc/get_assembly_holder()
+	return src
