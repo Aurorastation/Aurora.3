@@ -145,7 +145,7 @@
 /obj/machinery/case_button/casino/proc/armup()
 	primed = TRUE
 	already_preparing = FALSE
-	visible_message("<b>\The [src] buzzes,</b> \"Self destruct protocols are ready.\"")
+	visible_message("<b>\The [src] buzzes,</b> \"Self destruct protocols are ready. Press the button again to start the scuttling system.\"")
 
 /obj/machinery/case_button/casino/proc/explodethis()
 	exploding = TRUE
