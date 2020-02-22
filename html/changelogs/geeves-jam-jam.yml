@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Tweaked how gunjamming works. You now have to spam the Z button, or keep clicking the gun sprite if you don't have hotkeys, to unjam it."
+  - rscadd: "Added sounds to jamming and unjamming guns."
