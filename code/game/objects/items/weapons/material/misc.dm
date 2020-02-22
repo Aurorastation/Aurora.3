@@ -6,7 +6,23 @@
 	icon_state = "harpoon"
 	item_state = "harpoon"
 	force_divisor = 0.3 // 18 with hardness 60 (steel)
+	thrown_force_divisor = 0.85
 	attack_verb = list("jabbed","stabbed","ripped")
+
+/obj/item/material/harpoon/proc/prime()
+	return
+
+/obj/item/material/harpoon/explosive
+	name = "explosive harpoon"
+
+/obj/item/material/harpoon/explosive/prime()
+	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, 1)
+	addtimer(CALLBACK(src, .proc/detonate), 3 SECONDS)
+	return
+
+/obj/item/material/harpoon/explosive/proc/detonate()
+	explosion(get_turf(src), -1, -1, 2)
+	qdel(src)
 
 /obj/item/material/hatchet
 	name = "hatchet"

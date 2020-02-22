@@ -50,10 +50,10 @@
 	holsters["black holster, hip"] = /obj/item/clothing/accessory/holster/hip
 	holsters["black holster, waist"] = /obj/item/clothing/accessory/holster/waist
 	holsters["black holster, thigh"] = /obj/item/clothing/accessory/holster/thigh
-	holsters["brown holster, armpit"] = /obj/item/clothing/accessory/holster/armpit
-	holsters["brown holster, hip"] = /obj/item/clothing/accessory/holster/hip
-	holsters["brown holster, waist"] = /obj/item/clothing/accessory/holster/waist
-	holsters["brown holster, thigh"] = /obj/item/clothing/accessory/holster/thigh
+	holsters["brown holster, armpit"] = /obj/item/clothing/accessory/holster/armpit/brown
+	holsters["brown holster, hip"] = /obj/item/clothing/accessory/holster/hip/brown
+	holsters["brown holster, waist"] = /obj/item/clothing/accessory/holster/waist/brown
+	holsters["brown holster, thigh"] = /obj/item/clothing/accessory/holster/thigh/brown
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
 /datum/gear/accessory/tie
@@ -99,7 +99,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -119,7 +119,7 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist","Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -193,6 +193,17 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/accessory/silversun
+	display_name = "silversun floral shirt selection"
+	path = /obj/item/clothing/accessory/silversun
+
+/datum/gear/accessory/silversun/New()
+	..()
+	var/shirts = list()
+	shirts["cyan silversun shirt"] = /obj/item/clothing/accessory/silversun
+	shirts["red silversun shirt"] = /obj/item/clothing/accessory/silversun/red
+	gear_tweaks += new/datum/gear_tweak/path(shirts)
+
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
@@ -263,7 +274,3 @@
 /datum/gear/accessory/sleeve_patch/New()
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
-
-/datum/gear/accessory/rosary
-	display_name = "rosary"
-	path = /obj/item/clothing/accessory/rosary

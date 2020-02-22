@@ -19,6 +19,11 @@
 /mob/living/carbon/human/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
+/proc/isMMI(A)
+	if(isbrain(A))
+		var/mob/living/carbon/brain/B = A
+		return istype(B.container, /obj/item/device/mmi)
+
 /mob/living/bot/isSynthetic()
 	return 1
 
@@ -162,9 +167,6 @@ proc/isdeaf(A)
 		return (M.sdisabilities & DEAF) || M.ear_deaf
 	return 0
 
-proc/hasorgans(A) // Fucking really??
-	return ishuman(A)
-
 proc/iscuffed(A)
 	if(istype(A, /mob/living/carbon))
 		var/mob/living/carbon/C = A
@@ -186,10 +188,8 @@ proc/getsensorlevel(A)
 		return U.sensor_mode
 	return SUIT_SENSOR_OFF
 
-
 /proc/is_admin(var/mob/user)
 	return check_rights(R_ADMIN, 0, user) != 0
-
 
 /proc/hsl2rgb(h, s, l)
 	return //TODO: Implement
@@ -214,7 +214,7 @@ proc/getsensorlevel(A)
 
 //The base miss chance for the different defence zones
 var/list/global/base_miss_chance = list(
-	BP_HEAD = 85,
+	BP_HEAD = 70,
 	BP_CHEST = 10,
 	BP_GROIN = 20,
 	BP_L_LEG = 20,

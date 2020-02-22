@@ -186,7 +186,6 @@ var/global/list/robot_modules = list(
 	name = "medical robot module"
 	channels = list("Medical" = 1)
 	networks = list(NETWORK_MEDICAL)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	can_be_pushed = 0
 	sprites = list(
 				"Basic" = "robotmedi",
@@ -225,6 +224,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/surgicaldrill(src)
 	src.modules += new /obj/item/gripper/chemistry(src)
 	src.modules += new /obj/item/reagent_containers/dropper/industrial(src)
+	src.modules += new /obj/item/roller_holder(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
 	src.modules += new /obj/item/autopsy_scanner(src) // an autopsy scanner
@@ -336,7 +336,6 @@ var/global/list/robot_modules = list(
 	name = "engineering robot module"
 	channels = list("Engineering" = 1)
 	networks = list(NETWORK_ENGINEERING)
-	subsystems = list(/mob/living/silicon/proc/subsystem_power_monitor)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
 					"Basic" = "robotengi",
@@ -416,6 +415,7 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/engineering/general/New()
 	..()
 	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/extinguisher(src)
 	src.modules += new /obj/item/weldingtool/largetank(src)
@@ -769,7 +769,6 @@ var/global/list/robot_modules = list(
 	name = "combat robot module"
 	channels = list("Security" = 1)
 	networks = list(NETWORK_SECURITY)
-	subsystems = list(/mob/living/silicon/proc/subsystem_crew_monitor)
 	sprites = list("Roller" = "droid-combat")
 	can_be_pushed = 0
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
@@ -881,65 +880,51 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/mining_drone
 	name = "mining drone module"
-	no_slip = 1
+	no_slip = TRUE
 	networks = list(NETWORK_MINE)
 
-/obj/item/robot_module/mining_drone/basic/New(var/mob/living/silicon/robot/robot)
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/storage/bag/ore(src)
-	src.modules += new /obj/item/pickaxe/drill(src)
-	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
-	src.modules += new /obj/item/gripper/miner(src)
-	src.modules += new /obj/item/wrench(src)
-	src.modules += new /obj/item/mining_scanner(src)
+/obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/drill = TRUE)
+	modules += new /obj/item/device/flash(src)
+	modules += new /obj/item/borg/sight/material(src)
+	if(drill)
+		modules += new /obj/item/pickaxe/drill(src)
+	modules += new /obj/item/storage/bag/ore/drone(src)
+	modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
+	modules += new /obj/item/gripper/miner(src)
+	modules += new /obj/item/screwdriver/robotic(src)
+	modules += new /obj/item/wrench/robotic(src)
+	modules += new /obj/item/mining_scanner(src)
+	modules += new /obj/item/device/gps/mining(src)
+	modules += new /obj/item/tank/jetpack/carbondioxide(src)
 
-	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
-	src.emag.name = "Mounted Plasma Cutter"
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(20000)
+	synths += metal
+	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
+	rods.synths = list(metal)
+	modules += rods
+
+	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
+	emag.name = "Mounted Plasma Cutter"
+
+/obj/item/robot_module/mining_drone/basic/New(mob/living/silicon/robot/robot)
 	..()
+	set_up_default(src)
 
-/obj/item/robot_module/mining_drone/drill/New(var/mob/living/silicon/robot/robot)
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/pickaxe/jackhammer(src)
-	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
-	src.modules += new /obj/item/gripper/miner(src)
-	src.modules += new /obj/item/wrench(src)
-	src.modules += new /obj/item/mining_scanner(src)
-
-	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
-	src.emag.name = "Mounted Plasma Cutter"
+/obj/item/robot_module/mining_drone/drill/New(mob/living/silicon/robot/robot)
 	..()
+	set_up_default(src, FALSE)
+	modules += new /obj/item/pickaxe/jackhammer(src)
 
-/obj/item/robot_module/mining_drone/ka/New(var/mob/living/silicon/robot/robot)
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/gun/custom_ka/cyborg(src)
-	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
-	src.modules += new /obj/item/gripper/miner(src)
-	src.modules += new /obj/item/wrench(src)
-	src.modules += new /obj/item/mining_scanner(src)
-
-	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
-	src.emag.name = "Mounted Plasma Cutter"
+/obj/item/robot_module/mining_drone/ka/New(mob/living/silicon/robot/robot)
 	..()
+	set_up_default(src)
+	modules += new /obj/item/gun/custom_ka/cyborg(src)
 
-/obj/item/robot_module/mining_drone/drillandka/New(var/mob/living/silicon/robot/robot)
-	src.modules += new /obj/item/device/flash(src)
-	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/storage/bag/ore/drone(src)
-	src.modules += new /obj/item/gun/custom_ka/cyborg(src)
-	src.modules += new /obj/item/pickaxe/jackhammer(src)
-	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
-	src.modules += new /obj/item/gripper/miner(src)
-	src.modules += new /obj/item/wrench(src)
-	src.modules += new /obj/item/mining_scanner(src)
-
-	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
-	src.emag.name = "Mounted Plasma Cutter"
+/obj/item/robot_module/mining_drone/drillandka/New(mob/living/silicon/robot/robot)
 	..()
+	set_up_default(src, FALSE)
+	modules += new /obj/item/pickaxe/jackhammer(src)
+	modules += new /obj/item/gun/custom_ka/cyborg(src)
 
 /obj/item/robot_module/bluespace
 	name = "bluespace robot module"
@@ -974,10 +959,6 @@ var/global/list/robot_modules = list(
 		"Command" = 1,
 		"Response Team" = 1,
 		"AI Private" = 1
-		)
-	subsystems = list(
-		/mob/living/silicon/proc/subsystem_crew_monitor,
-		/mob/living/silicon/proc/subsystem_power_monitor
 		)
 	sprites = list("Roller" = "droid-combat") //TMP
 	can_be_pushed = 0

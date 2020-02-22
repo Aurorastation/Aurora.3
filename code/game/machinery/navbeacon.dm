@@ -246,7 +246,7 @@ Transponder Codes:<UL>"}
 					updateDialog()
 
 /obj/machinery/navbeacon/Destroy()
-	navbeacons.Remove(src)
+	navbeacons?.Remove(src)
 	if(SSradio)
 		SSradio.remove_object(src, freq)
 	return ..()

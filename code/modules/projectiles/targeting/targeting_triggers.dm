@@ -9,9 +9,13 @@
 				AO.update_aiming_deferred()
 
 /obj/aiming_overlay/proc/trigger(var/perm)
-	if(owner && owner.client && (owner.client.prefs.toggles_secondary & SAFETY_CHECK) && owner.a_intent != I_HURT) //Check this first to save time.
-		to_chat(owner, "You refrain from firing, as you aren't on harm intent.")
-		return
+	var/obj/item/gun/G = aiming_with
+	if(istype(G) && G.safety())
+		if(owner.a_intent == I_HURT)
+			G.toggle_safety()
+		else
+			G.handle_click_empty(owner)
+			to_chat(owner, span("warning", "Your [G]'s safety prevents firing."))
 	if(!owner || !aiming_with || !aiming_at || !locked)
 		return
 	if(perm && (target_permissions & perm))
@@ -20,7 +24,6 @@
 		return
 	owner.setClickCooldown(5) // Spam prevention, essentially.
 	owner.visible_message("<span class='danger'>\The [owner] pulls the trigger reflexively!</span>")
-	var/obj/item/gun/G = aiming_with
 	if(istype(G))
 		G.Fire(aiming_at, owner)
 	cancel_aiming()//if you can't remove it, nerf it

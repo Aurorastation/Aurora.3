@@ -44,13 +44,13 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/slime_scanner              = TRADER_BLACKLIST, //If it was doing slime stuff, it already had this
 		/obj/item/device/spy_bug                    = TRADER_BLACKLIST, // Traitor stuff
 		/obj/item/device/spy_monitor                = TRADER_BLACKLIST, // Traitor stuff
-		/obj/item/device/suit_cooling_unit/improved = TRADER_BLACKLIST, // Not on Aurora
+		/obj/item/device/suit_cooling_unit          = TRADER_BLACKLIST, // Not on Aurora
 		/obj/item/device/taperecorder/cciaa         = TRADER_BLACKLIST, // Admin item
 		/obj/item/device/batterer                   = TRADER_BLACKLIST, // Item too rare
 		/obj/item/device/contract_uplink            = TRADER_BLACKLIST, // Traitor stuff
 		/obj/item/device/uplink                     = TRADER_BLACKLIST_ALL, // Traitor stuff
 		/obj/item/device/announcer                  = TRADER_BLACKLIST, // Rev item
-		/obj/item/device/ninja_uplink               = TRADER_BLACKLIST, // Ninja item
+		/obj/item/device/special_uplink             = TRADER_BLACKLIST,
 		/obj/item/device/onetankbomb                = TRADER_BLACKLIST, // Not weapons trader
 		/obj/item/device/kinetic_analyzer           = TRADER_BLACKLIST, // Not KA trader
 		/obj/item/device/camera                     = TRADER_BLACKLIST_SUB, // a lot of ai/drone/cyborg/fluff items
@@ -60,7 +60,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/electronic_assembly        = TRADER_BLACKLIST_ALL, // Not a circuit trader
 		/obj/item/device/integrated_circuit_printer = TRADER_BLACKLIST_ALL, //Not a circuit trader
 		/obj/item/device/integrated_electronics     = TRADER_BLACKLIST_ALL, // Not a circuit trader
-		/obj/item/device/mine_bot_ugprade           = TRADER_BLACKLIST_ALL, // Not a mining vendor + drone stuff
+		/obj/item/device/mine_bot_upgrade           = TRADER_BLACKLIST_ALL, // Not a mining vendor + drone stuff
 		/obj/item/device/mmi                        = TRADER_BLACKLIST_SUB, // removes MMI Subtypes to prevent trading confusion
 		/obj/item/device/soulstone                  = TRADER_BLACKLIST, // Wiz item
 		/obj/item/device/firing_pin                 = TRADER_BLACKLIST_ALL, // Not a weapons trader

@@ -24,6 +24,8 @@
 		to_chat(user, "Error, no route to host.")
 
 /obj/machinery/button/remote/attackby(obj/item/W, mob/user as mob)
+	if(istype(W, /obj/item/forensics))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/button/remote/emag_act(var/remaining_charges, var/mob/user)
@@ -93,8 +95,6 @@
 /obj/machinery/button/remote/airlock/trigger()
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/airlock))
 		var/obj/machinery/door/airlock/D = i
-		if(!D)
-			continue
 		if(specialfunctions & OPEN)
 			if (D.density)
 				INVOKE_ASYNC(D, /obj/machinery/door/airlock/open)
@@ -136,8 +136,6 @@
 /obj/machinery/button/remote/blast_door/trigger()
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/blast))
 		var/obj/machinery/door/blast/M = i
-		if(!M)
-			continue
 		if(M.density)
 			INVOKE_ASYNC(M, /obj/machinery/door/blast/open)
 		else
@@ -146,8 +144,6 @@
 /obj/machinery/button/remote/blast_door/open_only/trigger()
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/blast))
 		var/obj/machinery/door/blast/M = i
-		if(!M)
-			continue
 		if(M.density)
 			INVOKE_ASYNC(M, /obj/machinery/door/blast/open)
 
@@ -161,8 +157,6 @@
 /obj/machinery/button/remote/emitter/trigger(mob/user as mob)
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/power/emitter))
 		var/obj/machinery/power/emitter/E = i
-		if(!E)
-			continue
 
 		E.activate(user)
 
@@ -181,24 +175,18 @@
 
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/blast))
 		var/obj/machinery/door/blast/M = i
-		if(!M)
-			continue
 		INVOKE_ASYNC(M, /obj/machinery/door/blast/open)
 
 	sleep(20)
 
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/mass_driver))
 		var/obj/machinery/mass_driver/M = i
-		if(!M)
-			continue
 		INVOKE_ASYNC(M, /obj/machinery/mass_driver/proc/drive)
 
 	sleep(50)
 
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/blast))
 		var/obj/machinery/door/blast/M = i
-		if(!M)
-			continue
 		INVOKE_ASYNC(M, /obj/machinery/door/blast/close)
 
 	icon_state = "launcherbtt"

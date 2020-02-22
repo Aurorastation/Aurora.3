@@ -46,6 +46,18 @@
 	path = /obj/machinery/floor_light
 	category = "General"
 
+/datum/autolathe/recipe/tile_circuit_blue
+	name = "circuit tile, blue"
+	path = /obj/item/stack/tile/circuit_blue
+	category = "General"
+	is_stack = 1
+
+/datum/autolathe/recipe/tile_circuit_green
+	name = "circuit tile, green"
+	path = /obj/item/stack/tile/circuit_green
+	category = "General"
+	is_stack = 1
+
 /datum/autolathe/recipe/extinguisher
 	name = "extinguisher"
 	path = /obj/item/extinguisher
@@ -342,7 +354,7 @@
 
 /datum/autolathe/recipe/suit_cooling
 	name = "portable suit cooling unit"
-	path = /obj/item/device/suit_cooling_unit
+	path = /obj/item/device/suit_cooling_unit/no_cell
 	category = "Engineering"
 
 /datum/autolathe/recipe/emergency_cell
@@ -487,9 +499,9 @@
 	hidden = 1
 	category = "Arms and Ammunition"
 
-/datum/autolathe/recipe/tommy_mag
-	name = "tommygun magazine (.45)"
-	path = /obj/item/ammo_magazine/tommymag
+/datum/autolathe/recipe/submachine_mag
+	name = "submachinegun magazine (.45)"
+	path = /obj/item/ammo_magazine/submachinemag
 	hidden = 1
 	category = "Arms and Ammunition"
 

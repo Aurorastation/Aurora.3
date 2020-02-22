@@ -6,7 +6,7 @@
 
 /mob/living/exosuit/Move()
 	. = ..()
-	if(. && !istype(loc, /turf/space))
+	if(. && !istype(loc, /turf/space) && legs.mech_step_sound)
 		playsound(src.loc, mech_step_sound, 40, 1)
 
 //Override this and space move once a way to travel vertically is in
@@ -45,6 +45,10 @@
 		return MOVEMENT_STOP
 	if(exosuit.maintenance_protocols)
 		to_chat(mover, "<span class='warning'>Maintenance protocols are in effect.</span>")
+		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
+		return MOVEMENT_STOP
+	if(exosuit.lockdown)
+		to_chat(mover, span("warning", "You cannot move while the exosuit's lockdown mode is active."))
 		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return MOVEMENT_STOP
 	var/obj/item/cell/C = exosuit.get_cell()

@@ -65,8 +65,6 @@
 	var/lobby_icon                         // The icon which contains the lobby image(s)
 	var/list/lobby_screens = list("title") // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
 
-	var/has_space_ruins = FALSE	//if this map picks and creates a space ruin
-
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
