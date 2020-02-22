@@ -119,7 +119,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 //I had to move this to carbon because /datum/hallucinations get deleted when they end, which I think messes with the addtimer callback. If anyone has a less janky way of doing this let me know
 
 /mob/living/carbon/proc/hallucination_thought()	//Thoughts should come to you frequently, but not be spammed. This is called on every end() so usually occurs a few times.
-	if(prob(min(src.hallucination/2, 50)))
+	if(prob(min(hallucination/2, 50)))
 		addtimer(CALLBACK(src, .proc/hal_thought_give), rand(30,90))
 
 /mob/living/carbon/proc/hal_thought_give()
@@ -199,7 +199,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 						"Please stop [pick("drawing in blood. It's unsanitary.", "killing your fellow crew. It's rude.", "[holder] at all costs.", "falling down holes.")]",
 						"[holder] disappoints us all once again.")
 			sound_to(holder, 'sound/misc/announcements/notice.ogg')
-			to_chat(holder, "<h2 class='alert'>Attention</h2>")
+			to_chat(holder, "<h2 class='alert'>Station Announcement</h2>")
 			to_chat(holder, span("alert", pick(body)))
 			to_chat(holder, span("alert", "-[LAZYPICK(hal_sender, holder)]"))
 
@@ -282,20 +282,18 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	duration = 20
 	var/injector
 	var/needle
+	var/list/prick_candidates = list()
 
 /datum/hallucination/prick/by_person/can_affect(mob/living/carbon/C)
 	if(!..())
 		return FALSE
 	for(var/mob/living/M in oview(C, 1))
+		if(!M.stat)
+			prick_candidates += M
+	if(prick_candidates.len)
 		return TRUE
 
 /datum/hallucination/prick/by_person/start()
-	var/list/prick_candidates = list()
-	for(var/mob/living/carbon/human/M in oview(holder, 1))
-		if(!M.stat)
-			prick_candidates += M
-	if(!prick_candidates.len)
-		return
 	injector = pick(prick_candidates)
 	needle = pick("syringe", "hypospray", "pen")
 	to_chat(holder, span("warning", "\The [injector] is trying to inject \the [holder] with \the [needle]!"))
@@ -621,18 +619,18 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/fakeattack			//imagining someone hits you.
 	min_power = 30
+	var/list/attacker_candidates = list()
 
 /datum/hallucination/fakeattack/can_affect(mob/living/carbon/C)
 	if(!..())
 		return FALSE
 	for(var/mob/living/M in oview(C,1))
+		if(!M.stat)
+			attacker_candidates += M
+	if(attacker_candidates.len)
 		return TRUE
 
 /datum/hallucination/fakeattack/start()
-	var/list/attacker_candidates = list()
-	for(var/mob/living/M in oview(holder,1))
-		if(!M.stat)
-			attacker_candidates += M
 	var/attacker = pick(attacker_candidates)
 	attacker_candidates -= attacker
 	if(prob(50))
@@ -768,7 +766,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/mirage/carnage/generate_mirage()
 	if(prob(50))
 		var/image/I = image('icons/effects/blood.dmi', pick("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7"), layer = TURF_LAYER)
-		I.color = pick("#1D2CBF", "#E6E600", "#A10808", "#A10808", "#A10808")	//skrell, vaurca, human. most likely to pick regular red
+		var/list/blood_picks = list("#1D2CBF" = 0.1, "#E6E600" = 0.1, "#A10808" = 0.8)	//skrell, vaurca, human. most likely to pick regular red
+		I.color = pickweight(blood_picks)
 		return I
 	else
 		var/image/I = image('icons/obj/ammo.dmi', "s-casing-spent", layer = OBJ_LAYER)
