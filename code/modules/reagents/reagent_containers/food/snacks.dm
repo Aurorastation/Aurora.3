@@ -623,7 +623,7 @@
 /obj/item/reagent_containers/food/snacks/goldenegg
 	name = "golden egg"
 	desc = "It's the golden egg!"
-	icon_state = "goldenegg"
+	icon_state = "egg-yellow"
 	filling_color = "#7D5F46"
 	nutriment_amt = 12
 	nutriment_desc = list("chocolate" = 5)
@@ -1814,7 +1814,6 @@
 /obj/item/reagent_containers/food/snacks/soup/slime
 	name = "slime soup"
 	desc = "If no water is available, you may substitute tears."
-	icon_state = "slimesoup" //nonexistant?
 	filling_color = "#C4DBA0"
 
 /obj/item/reagent_containers/food/snacks/soup/slime/Initialize()
@@ -2488,16 +2487,6 @@
 /obj/item/reagent_containers/food/snacks/jellysandwich/cherry/Initialize()
 	. = ..()
 	reagents.add_reagent("cherryjelly", 5)
-
-/obj/item/reagent_containers/food/snacks/boiledslimecore
-	name = "boiled slime core"
-	desc = "A boiled red thing."
-	icon_state = "boiledslimecore" //nonexistant?
-	bitesize = 3
-
-/obj/item/reagent_containers/food/snacks/boiledslimecore/Initialize()
-	. = ..()
-	reagents.add_reagent("slimejelly", 5)
 
 /obj/item/reagent_containers/food/snacks/mint
 	name = "mint"

@@ -132,6 +132,7 @@
 
 /obj/structure/door_assembly/multi_tile
 	icon = 'icons/obj/doors/door_assembly2x1.dmi'
+	icon_state = null //only have icons for the glass version
 	dir = EAST
 	var/width = 1
 

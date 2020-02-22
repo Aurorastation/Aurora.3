@@ -194,7 +194,7 @@
 	name = "hand of cards"
 	desc = "Some playing cards."
 	icon = 'icons/obj/playing_cards.dmi'
-	icon_state = "empty"
+	icon_state = null
 	drop_sound = 'sound/items/drop/paper.ogg'
 	w_class = 1
 
