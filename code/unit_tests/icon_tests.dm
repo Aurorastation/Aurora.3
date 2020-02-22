@@ -26,6 +26,7 @@
 			if(!(atom_icon_state in valid_states))
 				failed = TRUE
 				log_unit_test("[ascii_red]--------------- [atom_type] - Icon state [atom_icon_state] was not found in [atom_icon].")
+				log_unit_test("[ascii_red]--------------- Icon states in [atom_icon] are [english_list(valid_states)].")
 
 		if(failed)
 			failed_icons += atom_type
