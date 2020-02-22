@@ -7,7 +7,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 /obj/machinery/navbeacon
 
 	icon = 'icons/obj/objects.dmi'
-	icon_state = "navbeacon0-f"
+	icon_state = null
 	name = "navigation beacon"
 	desc = "A radio beacon used for bot navigation."
 	level = 1		// underfloor
