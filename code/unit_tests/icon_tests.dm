@@ -10,7 +10,7 @@
 /datum/unit_test/icon_test/all_initial_icon_states_shall_exist/start_test()
 	var/list/failed_icons = list()
 
-	for(var/atom_type in typecacheof(/atom) - excepted_atoms)
+	for(var/atom_type in (subtypesof(/atom) - excepted_atoms))
 		var/failed = FALSE
 		var/atom/test_atom = atom_type
 
