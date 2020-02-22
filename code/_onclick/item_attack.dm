@@ -54,6 +54,11 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return I.attack(src, user, user.zone_sel.selecting)
 
 /mob/living/carbon/human/attackby(obj/item/I, mob/user)
+	var/mob/living/carbon/human/H = user
+	if(H?.a_intent != I_HELP && prob(skill_time_reduction("combat", 0.1, user))) //If you are good at hand combat, you can have chance to block
+		H.visible_message(SPAN_WARNING("\the [src] managed to block [H]'s attack!"), SPAN_WARNING("You managed to block [H]'s attack"))
+		return FALSE
+
 	if(user == src && zone_sel.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)

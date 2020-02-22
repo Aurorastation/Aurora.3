@@ -285,7 +285,7 @@
 			handle_click_empty(user)
 			break
 
-		var/acc = burst_accuracy[min(i, burst_accuracy.len)]
+		var/acc = burst_accuracy[min(i, burst_accuracy.len)] + burst_accuracy[min(i, burst_accuracy.len)] * skill_time_reduction("weapons", 0.08, user)
 		var/disp = dispersion[min(i, dispersion.len)]
 		process_accuracy(projectile, user, target, acc, disp)
 

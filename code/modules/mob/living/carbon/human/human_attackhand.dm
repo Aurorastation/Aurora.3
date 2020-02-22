@@ -42,6 +42,10 @@
 
 		if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves))
 			var/obj/item/clothing/gloves/G = H.gloves
+			if(prob(skill_time_reduction("combat", 0.1, src))) //If you are good at hand combat, you can have chance to block
+				M.visible_message(SPAN_WARNING("\the [src] managed to block [M]'s attack!"), SPAN_WARNING("You managed to block [M]'s attack"))
+				return FALSE
+
 			if(G.cell)
 				if(M.a_intent == I_HURT)//Stungloves. Any contact will stun the alien.
 					if(G.cell.charge >= 2500)
@@ -79,7 +83,7 @@
 		if(istype(H.gloves, /obj/item/clothing/gloves/boxing/hologlove))
 			H.do_attack_animation(src)
 			var/damage = rand(0, 9)
-			if(!damage)
+			if(!damage || prob(skill_time_reduction("combat", 0.1, src)))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 				visible_message("<span class='danger'>[H] has attempted to punch [src]!</span>")
 				return 0
@@ -197,6 +201,11 @@
 
 			H.do_attack_animation(src)
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+
+			if(prob(skill_time_reduction("combat", 0.1, src))) //If you are good at hand combat, you can have chance to block
+				M.visible_message(SPAN_WARNING("\the [src] managed to block [M]'s attack!"), SPAN_WARNING("You managed to block [M]'s attack"))
+				return FALSE
+
 			if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force/syndicate)) //only antag gloves can do this for now
 				G.state = GRAB_AGGRESSIVE
 				G.icon_state = "grabbed1"
@@ -236,7 +245,7 @@
 					accurate = 1
 				if(I_HURT, I_GRAB)
 					// We're in a fighting stance, there's a chance we block
-					if(src.canmove && src!=H && prob(20))
+					if(src.canmove && src!=H && prob(20 + prob(skill_time_reduction("combat", 0.1, src))))
 						block = 1
 
 			if (M.grabbed_by.len)
@@ -385,6 +394,10 @@
 
 			if(attacker_style && attacker_style.disarm_act(H, src))
 				return TRUE
+			
+			if(prob(skill_time_reduction("combat", 0.1, src))) //If you are good at hand combat, you can have chance to block
+				M.visible_message(SPAN_WARNING("\the [src] managed to block [M]'s attack!"), SPAN_WARNING("You managed to block [M]'s attack"))
+				return FALSE
 
 			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
 			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
