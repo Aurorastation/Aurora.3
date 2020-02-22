@@ -1,4 +1,4 @@
-
+var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and CIVILIAN
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
