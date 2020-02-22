@@ -143,10 +143,10 @@ datum/skill/sanitation
 	name = "Sanitation"
 	desc = "Describes a character's skill in cleaning and sanitizing things and equipment."
 
-datum/skill/mining
-	ID = "mining"
-	name = "Mining"
-	desc = "Describes a character's ability to use mining equipment."
+datum/skill/prospecting
+	ID = "prospecting"
+	name = "Prospecting"
+	desc = "Describes a character's ability to use mining equipment, searching for mineral deposits in a place, especially by means of experimental drilling and excavation.."
 
 datum/skill/science
 	ID = "science"
