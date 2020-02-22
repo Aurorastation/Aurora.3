@@ -294,7 +294,7 @@ obj/machinery/lapvend/attackby(obj/item/W as obj, mob/user as mob)
 			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
 		else
 			user.visible_message("[user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
-		if(do_after(user, 20/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
+		if(do_after(user, 20/W.toolspeed - 20/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 			if(!src)
 				return
 			to_chat(user, span("notice","You [anchored? "un" : ""]secured \the [src]!"))

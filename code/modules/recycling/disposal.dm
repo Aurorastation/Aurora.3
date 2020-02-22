@@ -77,7 +77,7 @@
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 				to_chat(user, "You start slicing the floorweld off the disposal unit.")
 
-				if(do_after(user, 20/W.toolspeed) * skill_time_reduction("construction", 0.1, user))
+				if(do_after(user, 20/W.toolspeed - 20/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 					if(!src || !W.isOn()) return
 					to_chat(user, "You sliced the floorweld off the disposal unit.")
 					var/obj/structure/disposalconstruct/C = new (src.loc)
@@ -866,8 +866,8 @@
 		if(W.remove_fuel(0,user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			// check if anything changed over 3 seconds
-			to_chat(user, "Slicing the disposal pipe...")
-			if (do_after(user, 3/W.toolspeed SECONDS * skill_time_reduction("construction", 0.1, user), act_target = src))
+			to_chat(user, "Slicing the disposal pipe.")
+			if (do_after(user, 3/W.toolspeed SECONDS - 3/W.toolspeed SECONDS * skill_time_reduction("construction", 0.1, user), act_target = src))
 				if(!src || !W.isOn()) return
 				welded()
 			else
@@ -1339,7 +1339,7 @@
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			to_chat(user, "Slicing the disposal pipe.")
-			if (do_after(user, 3/W.toolspeed SECONDS * skill_time_reduction("construction", 0.1, user), act_target = src))
+			if (do_after(user, 3/W.toolspeed SECONDS - 3/W.toolspeed SECONDS * skill_time_reduction("construction", 0.1, user), act_target = src))
 				if(!src || !W.isOn()) return
 				welded()
 			else
@@ -1505,7 +1505,7 @@
 		if(W.remove_fuel(0,user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")
-			if(do_after(user, 20/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
+			if(do_after(user, 20/W.toolspeed - 20/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 				if(!src || !W.isOn()) return
 				to_chat(user, "You slice the floorweld off the disposal outlet.")
 				var/obj/structure/disposalconstruct/C = new (src.loc)

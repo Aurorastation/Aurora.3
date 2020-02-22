@@ -40,7 +40,7 @@
 				)
 		playsound(user.loc, 'sound/items/crank.ogg', 60, 1)
 		is_charging = TRUE
-		if(do_after(user, 20 * skill_time_reduction("weapons", 0.1, user)))
+		if(do_after(user, 20 - 20 * skill_time_reduction("weapons", 0.1, user)))
 			to_chat(user, "<span class='notice'>You finish charging \the [src].</span>")
 			power_supply.give(charge_cost)
 			update_icon()

@@ -682,7 +682,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
 			"<span class='notice'>You take a step backwards and then...</span>")
-	if(do_after(src, 5 * skill_time_reduction("combat", 0.1, src)))
+	if(do_after(src, 5 - 5 * skill_time_reduction("combat", 0.1, src)))
 		playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
 		src.visible_message("<span class='danger'>\The [src] charges!</span>")
 		trampling()

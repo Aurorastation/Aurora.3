@@ -167,7 +167,7 @@
 		if(WT.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>You start repairing the damage to [src].</span>")
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
-			if(do_after(user, max(5, damage / 5) * skill_time_reduction("construction", 0.1, user)) && WT && WT.isOn())
+			if(do_after(user, max(5, damage / 5) - max(5, damage / 5) *  skill_time_reduction("construction", 0.1, user)) && WT && WT.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to [src].</span>")
 				take_damage(-damage)
 		else
@@ -233,7 +233,7 @@
 			if(cut_delay<0)
 				cut_delay = 1
 
-			if(!do_after(user, cut_delay/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
+			if(!do_after(user, cut_delay/W.toolspeed - cut_delay/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 				return
 
 
@@ -260,7 +260,7 @@
 				if (W.isscrewdriver())
 					to_chat(user, "<span class='notice'>You begin removing the support lines.</span>")
 					playsound(src, W.usesound, 100, 1)
-					if(!do_after(user, 60/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
+					if(!do_after(user, 60/W.toolspeed - 60/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 5)
 						return
 					construction_stage = 4
 					update_icon()
@@ -290,7 +290,7 @@
 				if(cut_cover)
 					to_chat(user, "<span class='notice'>You begin slicing through the metal cover.</span>")
 					playsound(src, 'sound/items/Welder.ogg', 100, 1)
-					if(!do_after(user, 60/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 4)
+					if(!do_after(user, 60/W.toolspeed - 60/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 4)
 						return
 					construction_stage = 3
 					update_icon()
@@ -300,7 +300,7 @@
 				if (W.iscrowbar())
 					to_chat(user, "<span class='notice'>You struggle to pry off the cover.</span>")
 					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
-					if(!do_after(user, 100/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
+					if(!do_after(user, 100/W.toolspeed - 100/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
 					construction_stage = 2
 					update_icon()
@@ -310,7 +310,7 @@
 				if (W.iswrench())
 					to_chat(user, "<span class='notice'>You start loosening the anchoring bolts which secure the support rods to their frame.</span>")
 					playsound(src, W.usesound, 100, 1)
-					if(!do_after(user, 40/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
+					if(!do_after(user, 40/W.toolspeed - 40/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 2)
 						return
 					construction_stage = 1
 					update_icon()
@@ -330,7 +330,7 @@
 				if(cut_cover)
 					to_chat(user, "<span class='notice'>You begin slicing through the support rods.</span>")
 					playsound(src, 'sound/items/Welder.ogg', 100, 1)
-					if(!do_after(user, 70/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
+					if(!do_after(user, 70/W.toolspeed - 70/W.toolspeed * skill_time_reduction("construction", 0.1, user)) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
 						return
 					construction_stage = 0
 					update_icon()

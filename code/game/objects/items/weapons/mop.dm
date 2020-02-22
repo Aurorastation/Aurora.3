@@ -40,7 +40,7 @@
 			clean_msg = FALSE
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 
-		if(do_after(user, cleantime * skill_time_reduction("sanitation", 0.1, user)))
+		if(do_after(user, cleantime - cleantime * skill_time_reduction("sanitation", 0.1, user)))
 			var/turf/T = get_turf(A)
 			if(T)
 				T.clean(src, user)

@@ -35,9 +35,9 @@
 				return
 			var/obj/item/gun/G = target
 			if(G.pin)
-				to_chat(user, "<span class ='notice'>You begin removing [G.name]'s [G.pin.name] using \the [src.name], it will take [15 SECONDS * skill_time_reduction("devices", 0.15, user)] seconds.</span>")
+				to_chat(user, "<span class ='notice'>You begin removing [G.name]'s [G.pin.name] using \the [src.name], it will take [15 SECONDS - 15 SECONDS * skill_time_reduction("devices", 0.15, user)] seconds.</span>")
 
-				if(!do_after(user, 15 SECONDS * skill_time_reduction("devices", 0.15, user), act_target = target))
+				if(!do_after(user, 15 SECONDS - 15 SECONDS * skill_time_reduction("devices", 0.15, user), act_target = target))
 					return
 
 				to_chat(user, "<span class ='notice'>You remove [G.name]'s [G.pin.name].</span>")

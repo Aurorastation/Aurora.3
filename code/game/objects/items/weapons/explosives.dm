@@ -48,7 +48,7 @@
 	to_chat(user, "Planting explosives...")
 	user.do_attack_animation(target)
 
-	if(do_after(user, 50 * skill_time_reduction("weapons", 0.1, user)) && in_range(user, target))
+	if(do_after(user, 50 - 50 * skill_time_reduction("weapons", 0.1, user)) && in_range(user, target))
 		user.drop_item() //TODO: Look into this
 		src.target = target
 		loc = null

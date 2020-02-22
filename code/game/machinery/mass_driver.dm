@@ -88,7 +88,7 @@
 
 /obj/item/mass_driver_diy/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")
-	if(do_after(user, 80) * skill_time_reduction("construction", 0.1, user))
+	if(do_after(user, 80 - 80 * skill_time_reduction("construction", 0.1, user)))
 		var/master_id = "[user.name] - [pick("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")][rand(100,999)]"
 		var/obj/machinery/mass_driver/mining/R = new /obj/machinery/mass_driver/mining(user.loc)
 		R.id = master_id

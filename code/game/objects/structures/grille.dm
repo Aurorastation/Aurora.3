@@ -145,7 +145,7 @@
 				to_chat(user, "<span class='notice'>There is already a window facing this way there.</span>")
 				return
 		to_chat(user, "<span class='notice'>You start placing the window.</span>")
-		if(do_after(user, 20 * skill_time_reduction("construction", 0.1, user)))
+		if(do_after(user, 20 - 20 * skill_time_reduction("construction", 0.1, user)))
 			for(var/obj/structure/window/WINDOW in loc)
 				if(WINDOW.dir == dir_to_set)//checking this for a 2nd time to check if a window was made while we were waiting.
 					to_chat(user, "<span class='notice'>There is already a window facing this way there.</span>")

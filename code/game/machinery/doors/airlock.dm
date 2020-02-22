@@ -804,7 +804,7 @@ About the new airlock wires panel:
 
 			H.visible_message("\The [H] begins to pry open \the [src]!", "You begin to pry open \the [src]!", "You hear the sound of an airlock being forced open.")
 
-			if(!do_after(H, 120 * skill_time_reduction("construction", 0.15, user), 1, act_target = src))
+			if(!do_after(H, 120 - 120 * skill_time_reduction("construction", 0.15, user), 1, act_target = src))
 				return
 
 			src.do_animate("spark")
@@ -877,7 +877,8 @@ About the new airlock wires panel:
 	else if(src.bolt_cut_state == BOLTS_EXPOSED)
 		to_chat(user, "You begin [cut_verb] through the door bolts.")
 
-	cut_delay *= 0.25 * skill_time_reduction("construction", 0.1, user)
+	cut_delay *= 0.25
+	cut_delay -= cut_delay * skill_time_reduction("construction", 0.1, user)
 
 	var/i
 	for(i = 0; i < 4; i += 1)
@@ -1036,7 +1037,7 @@ About the new airlock wires panel:
 				"You hear a welding torch on metal."
 			)
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
-			if (!do_after(user, 2/C.toolspeed SECONDS * skill_time_reduction("construction", 0.1, user), act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
+			if (!do_after(user, 2/C.toolspeed SECONDS - 2/C.toolspeed SECONDS * skill_time_reduction("construction", 0.1, user), act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
 				return
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, span("notice", "You need more welding fuel to complete this task."))
@@ -1074,7 +1075,7 @@ About the new airlock wires panel:
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && !src.locked)))
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
-			if(do_after(user, 40/C.toolspeed * skill_time_reduction("electrical", 0.1, user)))
+			if(do_after(user, 40/C.toolspeed - 40/C.toolspeed * skill_time_reduction("electrical", 0.1, user)))
 				to_chat(user, span("notice", "You removed the airlock electronics!"))
 				CreateAssembly()
 				return
@@ -1132,7 +1133,7 @@ About the new airlock wires panel:
 				span("warning", "You start cutting the airlock control panel..."),\
 				span("notice", "You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS * skill_time_reduction("construction", 0.05, user), act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS - ChainSawVar.opendelay SECONDS * skill_time_reduction("construction", 0.05, user), act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
 				user.visible_message(\
 					span("warning", "[user.name] finishes cutting the control pannel of the airlock with the [C]."),\
 					span("warning", "You finish cutting the airlock control panel."),\
@@ -1150,7 +1151,7 @@ About the new airlock wires panel:
 				span("warning", "You start cutting below the airlock..."),\
 				span("notice", "You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS * skill_time_reduction("construction", 0.05, user), act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS - ChainSawVar.opendelay SECONDS * skill_time_reduction("construction", 0.05, user), act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
 				user.visible_message(\
 					span("warning", "[user.name] finishes cutting below the airlock with the [C]."),\
 					span("notice", "You finish cutting below the airlock."),\
@@ -1166,7 +1167,7 @@ About the new airlock wires panel:
 				span("warning", "You start cutting between the airlock..."),\
 				span("notice", "You hear a loud buzzing sound and metal grinding on metal...")\
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS * skill_time_reduction("construction", 0.05, user), act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS - ChainSawVar.opendelay SECONDS * skill_time_reduction("construction", 0.05, user), act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
 				user.visible_message(\
 					span("warning", "[user.name] finishes cutting between the airlock."),\
 					span("warning", "You finish cutting between the airlock."),\

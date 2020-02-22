@@ -39,7 +39,7 @@
 
 
 			owner.visible_message("<span class='notice'>\The [owner] begins loading \the [O].</span>")
-			if(do_after(owner, 20 * skill_time_reduction("pilot", 0.05, user), O, 0, 1))
+			if(do_after(owner, 20 - 20 * skill_time_reduction("pilot", 0.05, user), O, 0, 1))
 				O.forceMove(src)
 				carrying = O
 				owner.visible_message("<span class='notice'>\The [owner] loads \the [O] into its cargo compartment.</span>")
@@ -290,7 +290,7 @@
 		//Better materials = faster drill!
 		var/delay = max(5, 20 - drill_head.material.protectiveness)
 		owner.setClickCooldown(delay) //Don't spamclick!
-		if(do_after(owner, delay * skill_time_reduction("pilot", 0.05, user), target) && drill_head)
+		if(do_after(owner, delay - delay * skill_time_reduction("pilot", 0.05, user), target) && drill_head)
 			if(src == owner.selected_system)
 				if(drill_head.durability <= 0)
 					drill_head.shatter()

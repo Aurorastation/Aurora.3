@@ -256,7 +256,7 @@ var/list/mineral_can_smooth_with = list(
 	if (istype(W, /obj/item/device/measuring_tape))
 		var/obj/item/device/measuring_tape/P = W
 		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
-		if(do_after(user, 25 * skill_time_reduction("mining", 0.1, user)))
+		if(do_after(user, 25 - 25 * skill_time_reduction("mining", 0.1, user)))
 			if (!istype(src, /turf/simulated/mineral))
 				return
 
@@ -299,7 +299,7 @@ var/list/mineral_can_smooth_with = list(
 				if(prob(50))
 					artifact_debris()
 
-		if(do_after(user, P.digspeed * skill_time_reduction("mining", 0.1, user)))
+		if(do_after(user, P.digspeed - P.digspeed * skill_time_reduction("mining", 0.1, user)))
 			if (!istype(src, /turf/simulated/mineral))
 				return
 
@@ -372,7 +372,7 @@ var/list/mineral_can_smooth_with = list(
 
 		to_chat(user, "<span class='warning'>You start chiselling [src] into a sculptable block.</span>")
 
-		if(!do_after(user, 80/W.toolspeed * skill_time_reduction("mining", 0.1, user)))
+		if(!do_after(user, 80/W.toolspeed - 80/W.toolspeed * skill_time_reduction("mining", 0.1, user)))
 			return
 
 		if (!istype(src, /turf/simulated/mineral))
@@ -705,7 +705,7 @@ var/list/asteroid_floor_smooth = list(
 			to_chat(user, "<span class='warning'>You start digging deeper.</span>")
 			playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 			digging = 1
-			if(!do_after(user, 60/W.toolspeed * skill_time_reduction("mining", 0.1, user)))
+			if(!do_after(user, 60/W.toolspeed - 60/W.toolspeed * skill_time_reduction("mining", 0.1, user)))
 				if (istype(src, /turf/unsimulated/floor/asteroid))
 					digging = 0
 				return
@@ -754,7 +754,7 @@ var/list/asteroid_floor_smooth = list(
 		playsound(user.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 
 		digging = 1
-		if(!do_after(user, 40 * skill_time_reduction("mining", 0.1, user)))
+		if(!do_after(user, 40 - 40 * skill_time_reduction("mining", 0.1, user)))
 			if (istype(src, /turf/unsimulated/floor/asteroid))
 				digging = 0
 			return

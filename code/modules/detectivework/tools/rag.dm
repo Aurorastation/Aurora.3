@@ -120,7 +120,7 @@
 		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
 		update_icon()
-		if(do_after(user, cleantime * skill_time_reduction("sanitation", 0.1, user)))
+		if(do_after(user, cleantime - cleantime * skill_time_reduction("sanitation", 0.1, user)))
 			if(clean_msg)
 				user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
@@ -140,7 +140,7 @@
 					if(W.bandaged || W.clamped)
 						continue
 					to_chat(user, span("notice", "You begin to bandage \a [W.desc] on [M]'s [affecting.name] with a rag."))
-					if(!do_mob(user, M, W.damage/10 * skill_time_reduction("medical", 0.1, user))) // takes twice as long as a normal bandage
+					if(!do_mob(user, M, W.damage/10 - W.damage/10 * skill_time_reduction("medical", 0.1, user))) // takes twice as long as a normal bandage
 						to_chat(user, span("notice","You must stand still to bandage wounds."))
 						break
 					for(var/datum/reagent/R in reagents.reagent_list)

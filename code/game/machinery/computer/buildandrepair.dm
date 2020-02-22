@@ -15,7 +15,7 @@
 		if(0)
 			if(P.iswrench())
 				playsound(src.loc, P.usesound, 50, 1)
-				if(do_after(user, 20/P.toolspeed * skill_time_reduction("construction", 0.05, user)))
+				if(do_after(user, 20/P.toolspeed - 20/P.toolspeed * skill_time_reduction("construction", 0.05, user)))
 					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
 					src.anchored = 1
 					src.state = 1
@@ -25,7 +25,7 @@
 					to_chat(user, "The welding tool must be on to complete this task.")
 					return
 				playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-				if(do_after(user, 20/P.toolspeed * skill_time_reduction("construction", 0.05, user)))
+				if(do_after(user, 20/P.toolspeed - 20/P.toolspeed * skill_time_reduction("construction", 0.05, user)))
 					if(!src || !WT.isOn()) return
 					to_chat(user, "<span class='notice'>You deconstruct the frame.</span>")
 					new /obj/item/stack/material/steel( src.loc, 5 )
@@ -33,7 +33,7 @@
 		if(1)
 			if(P.iswrench())
 				playsound(src.loc, P.usesound, 50, 1)
-				if(do_after(user, 20/P.toolspeed * skill_time_reduction("construction", 0.05, user)))
+				if(do_after(user, 20/P.toolspeed - 20/P.toolspeed * skill_time_reduction("construction", 0.05, user)))
 					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
 					src.anchored = 0
 					src.state = 0
@@ -72,7 +72,7 @@
 					return
 				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				if(do_after(user, 20 * skill_time_reduction("electrical", 0.05, user)) && state == 2)
+				if(do_after(user, 20 - 20 * skill_time_reduction("electrical", 0.05, user)) && state == 2)
 					if (C.use(5))
 						to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
 						state = 3
@@ -93,7 +93,7 @@
 					return
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You start to put in the glass keyboard.</span>")
-				if(do_after(user, 20 * skill_time_reduction("construction", 0.05, user)) && state == 3)
+				if(do_after(user, 20 - 20 * skill_time_reduction("construction", 0.05, user)) && state == 3)
 					if (G.use(2))
 						to_chat(user, "<span class='notice'>You put in the glass keyboard.</span>")
 						src.state = 4

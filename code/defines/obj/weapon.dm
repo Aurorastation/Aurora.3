@@ -106,7 +106,7 @@
 			soundname = "punch"
 			if(targetIsHuman)
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a disarm...</span>")
-				if (do_mob(user, target, chargedelay * skill_time_reduction("combat", 0.1, user), display_progress=0))
+				if (do_mob(user, target, chargedelay - chargedelay * skill_time_reduction("combat", 0.1, user), display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
 						if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
@@ -129,7 +129,7 @@
 			soundname = "punch"
 			if(targetIsHuman)
 				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a grab...</span>")
-				if (do_mob(user, target, chargedelay * skill_time_reduction("combat", 0.1, user), display_progress=0))
+				if (do_mob(user, target, chargedelay - chargedelay * skill_time_reduction("combat", 0.1, user), display_progress=0))
 					if(!wasblocked && damageamount)
 						user.start_pulling(target)
 					else

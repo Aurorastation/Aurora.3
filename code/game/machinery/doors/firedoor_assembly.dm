@@ -21,7 +21,7 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 			to_chat(user, "<span class='warning'>You need one length of coil to wire \the [src].</span>")
 			return
 		user.visible_message("[user] wires \the [src].", "You start to wire \the [src].")
-		if(do_after(user, 40 * skill_time_reduction("electrical", 0.1, user)) && !wired && anchored)
+		if(do_after(user, 40 - 40 * skill_time_reduction("electrical", 0.1, user)) && !wired && anchored)
 			if (cable.use(1))
 				wired = 1
 				to_chat(user, "<span class='notice'>You wire \the [src].</span>")
@@ -30,7 +30,7 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from \the [src].", "You start to cut the wires from \the [src].")
 
-		if(do_after(user, 40/C.toolspeed * skill_time_reduction("electrical", 0.1, user)))
+		if(do_after(user, 40/C.toolspeed - 40/C.toolspeed * skill_time_reduction("electrical", 0.1, user)))
 			if(!src) return
 			to_chat(user, "<span class='notice'>You cut the wires!</span>")
 			new/obj/item/stack/cable_coil(src.loc, 1)
@@ -57,7 +57,7 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 		if(WT.remove_fuel(0, user))
 			user.visible_message("<span class='warning'>[user] dissassembles \the [src].</span>",
 			"You start to dissassemble \the [src].")
-			if(do_after(user, 40/C.toolspeed * skill_time_reduction("construction", 0.05, user)))
+			if(do_after(user, 40/C.toolspeed - 40/C.toolspeed * skill_time_reduction("construction", 0.05, user)))
 				if(!src || !WT.isOn()) return
 				user.visible_message("<span class='warning'>[user] has dissassembled \the [src].</span>",
 									"You have dissassembled \the [src].")

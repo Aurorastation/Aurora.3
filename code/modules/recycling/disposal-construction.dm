@@ -271,7 +271,7 @@
 				if(W.remove_fuel(0,user))
 					playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
 					to_chat(user, "Welding the [nicetype] in place.")
-					if(do_after(user, 20/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
+					if(do_after(user, 20/W.toolspeed - 20/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 						if(!src || !W.isOn()) return
 						to_chat(user, "The [nicetype] has been welded in place!")
 						update() // TODO: Make this neat

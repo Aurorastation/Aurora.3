@@ -516,7 +516,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 					if(W.current_stage <= W.max_bleeding_stage)
 						user.visible_message("<span class='notice'>\The [user] starts carefully suturing the open wound on [M]'s [affecting.name]...</span>", \
 											  "<span class='notice'>You start carefully suturing the open wound on [M]'s [affecting.name]... This will take a while.</span>")
-						if(!do_mob(user, M, 200 * skill_time_reduction("medical", 0.1, user)))
+						if(!do_mob(user, M, 200 - 200 * skill_time_reduction("medical", 0.1, user)))
 							user.visible_message("<span class='danger'>[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!</span>", \
 													 "<span class='danger'><font size=2>The wound on your [affecting.name] is torn open!</font></span>")
 							M.apply_damage(rand(1,10), BRUTE)

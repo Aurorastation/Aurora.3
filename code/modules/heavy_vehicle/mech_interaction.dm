@@ -191,7 +191,7 @@
 		return
 	if(!instant)
 		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
-		if(!do_after(user, 30 * skill_time_reduction("pilot", 0.1, user)))
+		if(!do_after(user, 30 - 30 * skill_time_reduction("pilot", 0.1, user)))
 			return
 	if(!user || user.incapacitated())
 		return
@@ -381,7 +381,7 @@
 					to_chat(user, "<span class='warning'>There is no cell here for you to remove!</span>")
 					return
 				var/delay = 10
-				if(!do_after(user, delay * skill_time_reduction("devices", 0.1, user)) || !maintenance_protocols || !body || !body.cell)
+				if(!do_after(user, delay - delay * skill_time_reduction("devices", 0.1, user)) || !maintenance_protocols || !body || !body.cell)
 					return
 
 				user.put_in_hands(body.cell)

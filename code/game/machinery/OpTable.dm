@@ -63,7 +63,7 @@
 
 	if(user != victim && !use_check_and_message(user)) // Skip checks if you're doing it to yourself or turning it off, this is an anti-griefing mechanic more than anything.
 		user.visible_message(span("warning", "\The [user] begins switching [suppressing ? "off" : "on"] \the [src]'s neural suppressor."))
-		if(!do_after(user, 30 * skill_time_reduction("medical", 0.05, user), src))
+		if(!do_after(user, 30 - 30 * skill_time_reduction("medical", 0.05, user), src))
 			return
 		if(!victim)
 			to_chat(user, span("warning", "There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
@@ -144,7 +144,7 @@
 			user.visible_message(span("notice", "[user] starts climbing onto [src]."), span("notice", "You start climbing onto [src]."), range = 3)
 		else
 			user.visible_message(span("notice", "[user] starts putting [L] onto [src]."), span("notice", "You start putting [L] onto [src]."), range = 3)
-		if (do_mob(user, L, 10 * skill_time_reduction("medical", 0.1, user), needhand = 0))
+		if (do_mob(user, L, 10 - 10 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
 				LB.user_unbuckle_mob(user)
@@ -180,7 +180,7 @@
 			user.visible_message(span("notice", "[user] starts climbing onto [src]."), span("notice", "You start climbing onto [src]."), range = 3)
 		else
 			user.visible_message(span("notice", "[user] starts putting [L] onto [src]."), span("notice", "You start putting [L] onto [src]."), range = 3)
-		if (do_mob(user, L, 10 * skill_time_reduction("medical", 0.1, user), needhand = 0))
+		if (do_mob(user, L, 10 - 10 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 			if (bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
 				LB.user_unbuckle_mob(user)

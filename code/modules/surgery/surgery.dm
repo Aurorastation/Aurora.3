@@ -92,6 +92,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofai
 		if(S.tool_quality(tool))
 			var/step_is_valid = S.can_use(user, M, zone, tool)
 			if(step_is_valid && S.is_valid_target(M))
+				var/chance = rand(S.min_duration, S.max_duration)
 				if(step_is_valid == SURGERY_FAILURE) // This is a failure that already has a message for failing.
 					return 1
 				M.op_stage.in_progress += zone
@@ -100,7 +101,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofai
 				if(autofail)
 					S.fail_step(user, M, zone, tool)
 				//We had proper tools! (or RNG smiled.) and user did not move or change hands.
-				else if(prob(S.tool_quality(tool)) &&  do_mob(user, M, rand(S.min_duration, S.max_duration) * skill_time_reduction("anatomy", 0.1, user) * skill_time_reduction("medical", 0.05, user)))
+				else if(prob(S.tool_quality(tool)) &&  do_mob(user, M, chance - chance * (skill_time_reduction("anatomy", 0.1, user) + skill_time_reduction("medical", 0.05, user))))
 					S.end_step(user, M, zone, tool)		//finish successfully
 				else if ((tool in user.contents) && user.Adjacent(M))			//or
 					S.fail_step(user, M, zone, tool)		//malpractice~

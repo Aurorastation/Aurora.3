@@ -868,7 +868,7 @@ var/list/total_extraction_beacons = list()
 		if(A.anchored)
 			return
 		to_chat(user, "<span class='notice'>You start attaching the pack to [A]...</span>")
-		if(do_after(user, 50 * skill_time_reduction("mining", 0.1, user)))
+		if(do_after(user, 50 - 50 * skill_time_reduction("mining", 0.1, user)))
 			to_chat(user, "<span class='notice'>You attach the pack to [A] and activate it.</span>")
 			uses_left--
 			if(uses_left <= 0)
@@ -893,7 +893,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/warp_core/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>You start placing down the beacon. . .</span>")
-	if(do_after(user, 15 * skill_time_reduction("devices", 0.1, user) * skill_time_reduction("mining", 0.05, user)))
+	if(do_after(user, 15 - 15 * (skill_time_reduction("devices", 0.1, user) + skill_time_reduction("mining", 0.05, user))))
 		new /obj/structure/extraction_point(get_turf(user))
 		qdel(src)
 
@@ -1160,7 +1160,7 @@ var/list/total_extraction_beacons = list()
 						playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, 1)
 
 			last_struck = 1
-			if(do_after(user, 20 * skill_time_reduction("mining", 0.05, user)))
+			if(do_after(user, 20 - 20 * skill_time_reduction("mining", 0.05, user)))
 				last_struck = 0
 				if(times_carved <= 9)
 					times_carved += 1

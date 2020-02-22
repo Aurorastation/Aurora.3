@@ -67,7 +67,7 @@
 				to_chat(user, "<span class='warning'>You require at least [use_flooring.build_cost] [S.name] to complete the [use_flooring.descriptor].</span>")
 				return
 			// Stay still and focus...
-			if(use_flooring.build_time && !do_after(user, use_flooring.build_time * skill_time_reduction("construction", 0.1, user)))
+			if(use_flooring.build_time && !do_after(user, use_flooring.build_time - use_flooring.build_time * skill_time_reduction("construction", 0.1, user)))
 				return
 			if(flooring || !S || !user || !use_flooring)
 				return

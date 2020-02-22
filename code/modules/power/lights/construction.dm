@@ -48,7 +48,7 @@
 		if (src.stage == 1)
 			playsound(src.loc, W.usesound, 75, 1)
 			to_chat(usr, "You begin deconstructing [src].")
-			if (!do_after(usr, 30 * skill_time_reduction("construction", 0.1, user), act_target = src))
+			if (!do_after(usr, 30 - 30 * skill_time_reduction("construction", 0.1, user), act_target = src))
 				return
 			new /obj/item/stack/material/steel(get_turf(src.loc), sheets_refunded)
 			user.visible_message(

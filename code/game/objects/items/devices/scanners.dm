@@ -559,7 +559,7 @@ BREATH ANALYZER
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
 		src.other_DNA_type = "saliva"
 
-	if (!do_after(user, 2 SECONDS * skill_time_reduction("medical", 0.15, user), act_target = H))
+	if (!do_after(user, 2 SECONDS - 2 SECONDS * skill_time_reduction("medical", 0.15, user), act_target = H))
 		to_chat(user,"<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
 		return
 

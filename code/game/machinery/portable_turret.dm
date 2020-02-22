@@ -301,7 +301,7 @@
 			//If the turret is destroyed, you can remove it with a crowbar to
 			//try and salvage its components
 			to_chat(user, "<span class='notice'>You begin prying the metal coverings off.</span>")
-			if(do_after(user, 20/I.toolspeed * skill_time_reduction("construction", 0.05, user)))
+			if(do_after(user, 20/I.toolspeed - 20/I.toolspeed * skill_time_reduction("construction", 0.05, user)))
 				if(prob(70) && !no_salvage)
 					to_chat(user, "<span class='notice'>You remove the turret and salvage some components.</span>")
 					if(installation)
@@ -336,7 +336,7 @@
 			)
 
 		wrenching = 1
-		if(do_after(user, 50/I.toolspeed * skill_time_reduction("construction", 0.1, user)))
+		if(do_after(user, 50/I.toolspeed - 50/I.toolspeed * skill_time_reduction("construction", 0.1, user)))
 			//This code handles moving the turret around. After all, it's a portable turret!
 			if(!anchored)
 				playsound(loc, I.usesound, 100, 1)
@@ -369,7 +369,7 @@
 			return
 		else if (WT.remove_fuel(3, user))
 			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
-			if(do_after(user, 5 * skill_time_reduction("construction", 0.05, user)))
+			if(do_after(user, 5 - 5 * skill_time_reduction("construction", 0.05, user)))
 				if(QDELETED(src) || !WT.isOn())
 					return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
@@ -822,7 +822,7 @@
 					return
 
 				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
-				if(do_after(user, 20/I.toolspeed * skill_time_reduction("construction", 0.05, user)))
+				if(do_after(user, 20/I.toolspeed - 20/I.toolspeed * skill_time_reduction("construction", 0.05, user)))
 					if(!src || !WT.remove_fuel(5, user)) return
 					build_step = 1
 					to_chat(user, "You remove the turret's interior metal armor.")
@@ -911,7 +911,7 @@
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
 				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
-				if(do_after(user, 30/I.toolspeed * skill_time_reduction("construction", 0.07, user)))
+				if(do_after(user, 30/I.toolspeed - 30/I.toolspeed * skill_time_reduction("construction", 0.07, user)))
 					if(!src || !WT.remove_fuel(5, user))
 						return
 					build_step = 8

@@ -35,7 +35,7 @@
 			"<span class='danger'>You begin deploying \the [src]!</span>"
 			)
 
-		if (do_after(user, 60 * skill_time_reduction("weapons", 0.1, user)))
+		if (do_after(user, 60 - 60 * skill_time_reduction("weapons", 0.1, user)))
 			user.visible_message(
 				"<span class='danger'>[user] has deployed \the [src].</span>",
 				"<span class='danger'>You have deployed \the [src]!</span>"

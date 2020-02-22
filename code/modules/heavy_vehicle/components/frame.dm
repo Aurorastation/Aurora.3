@@ -165,7 +165,7 @@
 
 		user.visible_message("\The [user] begins wiring \the [src]...")
 
-		if(!do_after(user, 30 * skill_time_reduction("electrical", 0.1, user)))
+		if(!do_after(user, 30 - 30 * skill_time_reduction("electrical", 0.1, user)))
 			return
 
 		if(!CC || !user || !src || CC.amount < 10 || is_wired)

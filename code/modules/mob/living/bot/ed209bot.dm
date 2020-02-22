@@ -369,7 +369,7 @@
 					to_chat(user, "<span class='warning'>You need one coil of wire to wire [src].</span>")
 					return
 				to_chat(user, "<span class='notice'>You start to wire [src].</span>")
-				if(do_after(user, 40 * skill_time_reduction("electrical", 0.1, user)) && build_step == 6)
+				if(do_after(user, 40 - 40 * skill_time_reduction("electrical", 0.1, user)) && build_step == 6)
 					if(C.use(1))
 						build_step++
 						to_chat(user, "<span class='notice'>You wire the ED-209 assembly.</span>")

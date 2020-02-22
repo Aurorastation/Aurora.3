@@ -53,7 +53,7 @@
 	if(W.iswirecutter() || W.sharp && !W.noslice)
 		visible_message(span("notice", "[user] begins cutting down \the [src]."),
 					span("notice", "You begin cutting down \the [src]."))
-		if(!do_after(user, 30/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
+		if(!do_after(user, 30/W.toolspeed - 30/W.toolspeed * skill_time_reduction("construction", 0.1, user)))
 			manipulating = FALSE
 			return
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)

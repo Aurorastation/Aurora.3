@@ -184,7 +184,7 @@
 		if(display_loading_message)
 			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 
-		if (do_mob(user, G.affecting, 20 * skill_time_reduction("medical", 0.1, user), needhand = 0))
+		if (do_mob(user, G.affecting, 20 - 20 * skill_time_reduction("medical", 0.1, user), needhand = 0))
 			if(occupant)
 				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
 				return

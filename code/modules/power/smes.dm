@@ -271,7 +271,7 @@
 			to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			return 1
 	to_chat(user, "<span class='notice'>You start adding cable to the [src].</span>")
-	if(do_after(user, 50 * skill_time_reduction("electrical", 0.1, user)))
+	if(do_after(user, 50 - 50 * skill_time_reduction("electrical", 0.1, user)))
 		terminal = new /obj/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
 		terminal.master = src
@@ -337,7 +337,7 @@
 			else
 				to_chat(user, "<span class='notice'>You begin to cut the cables...</span>")
 				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-				if(do_after(user, 50/W.toolspeed * skill_time_reduction("electrical", 0.1, user)))
+				if(do_after(user, 50/W.toolspeed - 50/W.toolspeed * skill_time_reduction("electrical", 0.1, user)))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 						big_spark.queue()
 						building_terminal = 0

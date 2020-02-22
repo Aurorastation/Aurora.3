@@ -22,7 +22,7 @@
 	if(!istype(D,repair_item))
 		return ..()
 	to_chat(user, "<span class='warning'>You begin repairing \the [src].</span>")
-	if(do_after(user, 20 * skill_time_reduction("devices", 0.1, user) * skill_time_reduction("weapons", 0.05, user)) && repair_module(D))
+	if(do_after(user, 20 - 20 * (skill_time_reduction("devices", 0.1, user) + skill_time_reduction("weapons", 0.05, user))) && repair_module(D))
 		to_chat(user, "<span class='notice'>You repair \the [src].</span>")
 	else
 		to_chat(user, "<span class='warning'>You fail to repair \the [src].</span>")

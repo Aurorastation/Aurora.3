@@ -32,7 +32,7 @@
 
 	to_chat(user, "<span class='notice'>The microscope whirrs as you examine \the [sample].</span>")
 
-	if(!do_after(user, 25 * skill_time_reduction("forensics", 0.1, user) * skill_time_reduction("medical", 0.1, user)) || !sample)
+	if(!do_after(user, 25 - 25 * (skill_time_reduction("forensics", 0.1, user) + skill_time_reduction("medical", 0.1, user))) || !sample)
 		return
 
 	to_chat(user, "<span class='notice'>Printing findings now...</span>")

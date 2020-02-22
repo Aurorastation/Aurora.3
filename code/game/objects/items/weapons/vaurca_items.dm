@@ -136,7 +136,7 @@
 		to_chat(user, "<span class='notice'>You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)</span>")
 		if(do_after(user, 100))
 			to_chat(user, "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>")
-			if(do_after(user, 600 * skill_time_reduction("devices", 0.15, user)))
+			if(do_after(user, 600 - 600 * skill_time_reduction("devices", 0.15, user)))
 				to_chat(user, "<span class='notice'>After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing.</span>")
 				var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
 				user.remove_from_mob(src)

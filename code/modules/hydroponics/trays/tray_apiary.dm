@@ -68,7 +68,7 @@
 			angry_swarm(user)
 		else
 			to_chat(user, "<span class='notice'>You begin to dislodge the dead apiary from the tray.</span>")
-		if(do_after(user, 50/O.toolspeed * skill_time_reduction("construction", 0.1, user) * skill_time_reduction("botany", 0.05, user)))
+		if(do_after(user, 50/O.toolspeed - 50/O.toolspeed * (skill_time_reduction("construction", 0.1, user) + skill_time_reduction("botany", 0.05, user))))
 			new hydrotray_type(src.loc)
 			new /obj/item/apiary(src.loc)
 			to_chat(user, "<span class='warning'>You dislodge the apiary from the tray.</span>")
@@ -89,7 +89,7 @@
 				angry_swarm(user)
 			else
 				to_chat(user, "<span class='notice'>You begin to harvest the honey.</span>")
-			if(do_after(user, 50/O.toolspeed * skill_time_reduction("botany", 0.15, user)))
+			if(do_after(user, 50/O.toolspeed - 50/O.toolspeed * skill_time_reduction("botany", 0.15, user)))
 				G.reagents.add_reagent("honey",harvestable_honey)
 				harvestable_honey = 0
 				to_chat(user, "<span class='notice'>You successfully harvest the honey.</span>")

@@ -1703,7 +1703,7 @@
 		U.visible_message(span("warning", "[U] tries to relocate [S]'s [current_limb.joint]..."), \
 		span("warning", "You begin to relocate [S]'s [current_limb.joint]..."))
 
-	if(!do_after(U, 30 * skill_time_reduction("medical", 0.1, U)))
+	if(!do_after(U, 30 - 30 * skill_time_reduction("medical", 0.1, U)))
 		return
 	if(!choice || !current_limb || !S || !U)
 		return

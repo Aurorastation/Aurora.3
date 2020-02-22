@@ -362,7 +362,7 @@
 				log_and_message_admins("is attempting to welderbomb", user)
 				to_chat(user, span("alert", "Heating the fueltank..."))
 				tank.armed = 1
-				if(do_after(user, 100 * skill_time_reduction("construction", 0.1, user)))
+				if(do_after(user, 100 - 100 * skill_time_reduction("construction", 0.1, user)))
 					if(tank.defuse)
 						user.visible_message("[user] melts some of the framework on the [O].", "You melt some of the framework.")
 						tank.defuse = 0

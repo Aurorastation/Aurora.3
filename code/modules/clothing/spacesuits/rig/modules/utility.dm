@@ -701,7 +701,7 @@
 		if (!combatType)
 			H.visible_message("<span class='notice'>\The [H] starts pulling \himself up onto \the [leapEnd].</span>",
 				"<span class='notice'>You start pulling yourself up onto \the [leapEnd].</span>")
-			if (!do_after(H, 4 SECONDS * skill_time_reduction("EVA", 0.1, H), use_user_turf = TRUE))
+			if (!do_after(H, 4 SECONDS - 4 SECONDS * skill_time_reduction("EVA", 0.1, H), use_user_turf = TRUE))
 				H.visible_message("<span class='warning'>\The [H] is interrupted and falls!</span>",
 					"<span class='danger'>You are interrupted and fall back down!</span>")
 
