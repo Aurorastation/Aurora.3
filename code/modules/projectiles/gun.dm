@@ -118,7 +118,7 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', "bayonet")
+		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
@@ -128,7 +128,7 @@
 			var/image/gun_overlay = I
 			if(gun_overlay.icon == gun_gui_icons && dd_hasprefix(gun_overlay.icon_state, "[safety_icon]"))
 				overlays -= gun_overlay
-		if(ismob(loc))
+		if(!isturf(loc)) // In a mob, holster or bag or something
 			overlays += image(gun_gui_icons,"[safety_icon][safety()]")
 
 //Checks whether a given mob can use the gun

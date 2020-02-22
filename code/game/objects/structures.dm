@@ -6,6 +6,7 @@
 	var/breakable
 	var/parts
 	var/list/climbers
+	var/list/footstep_sound	//footstep sounds when stepped on
 
 /obj/structure/Destroy()
 	if(parts)

@@ -11,7 +11,7 @@
 		return 0
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
 		return 0
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)
@@ -332,7 +332,7 @@
 /datum/surgery_step/generic/amputate/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
 		return 0
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)
@@ -368,7 +368,7 @@
 	if(istype(tool, /obj/item/melee/chainsword))//Chainswords rip and tear, so the limb removal is not clean
 		clean = 0
 
-	var/var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
+	var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
 	affected.droplimb(clean,DROPLIMB_EDGE)
 
 	if(istype(tool, /obj/item/melee/energy))//Code for energy weapons cauterising the cut

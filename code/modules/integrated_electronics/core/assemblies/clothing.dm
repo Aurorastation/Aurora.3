@@ -18,6 +18,9 @@
 /obj/item/device/electronic_assembly/clothing/resolve_ui_host()
 	return clothing
 
+/obj/item/device/electronic_assembly/clothing/get_assembly_holder()
+	return clothing
+
 /obj/item/device/electronic_assembly/clothing/update_icon()
 	..()
 	clothing.icon_state = icon_state

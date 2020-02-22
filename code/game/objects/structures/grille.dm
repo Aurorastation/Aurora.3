@@ -236,6 +236,9 @@
 		health = rand(-5, -1) //In the destroyed but not utterly threshold.
 		healthcheck() //Send this to healthcheck just in case we want to do something else with it.
 
+/obj/structure/grille/diagonal
+	icon_state = "grille_diagonal"
+
 /obj/structure/grille/cult
 	name = "cult grille"
 	desc = "A matrice built out of an unknown material, with some sort of force field blocking air around it"
