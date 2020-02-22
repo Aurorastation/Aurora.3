@@ -23,6 +23,14 @@
 
 		. += AM.get_mob()
 
+/proc/skill_time_reduction(var/skill_key, var/ratio = 0.1, var/mob/user)
+	var/time_reduced = 0
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.client?.prefs)
+			time_reduced = H.client.prefs?.skills[skill_key] ? H.client.prefs?.skills[skill_key] * ratio : 0
+	return time_reduced
+
 proc/random_hair_style(gender, species = "Human")
 	var/h_style = "Bald"
 
