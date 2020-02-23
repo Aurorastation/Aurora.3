@@ -33,4 +33,3 @@
 			target.visible_message(span("notice", "[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
 								   span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 		qdel(src)
-	return
