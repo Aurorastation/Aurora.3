@@ -112,7 +112,6 @@
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "ringer"
 	anchored = TRUE
-	id = ""
 
 /obj/machinery/ringer_button/Initialize(mapload, newid)
 	. = ..()
