@@ -580,6 +580,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "simon_scarf"
 	item_state = "simon_scarf"
 	contained_sprite = TRUE
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	w_class = 2
+	gas_transfer_coefficient = 0.90
 
 
 /obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - marlonphoenix
@@ -1429,15 +1433,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
 	icon_state = "jennifer_tee"
 	item_state = "jennifer_tee"
-	has_sensor = 0
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/fluff/jennifer_jersey //Capital Sting FC Outfit - Jennifer Beal - synnono
-	name = "association football outfit"
-	desc = "A yellow and black jersey for the Mendell City women's club \"Capital Sting FC\" paired with black athletic shorts. This belongs on the pitch!"
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_jersey"
-	item_state = "jennifer_jersey"
 	has_sensor = 0
 	contained_sprite = TRUE
 

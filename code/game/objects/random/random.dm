@@ -621,7 +621,7 @@
 	name = "random coin"
 	desc = "This is a random coin."
 	icon = 'icons/obj/coins.dmi'
-	icon_state = "coin"
+	icon_state = "coin__heads"
 	problist = list(
 		/obj/item/coin/iron = 5,
 		/obj/item/coin/silver = 3,
