@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Successfully firing a gun or sprayer while cloaked by a RIG stealth module will deactivate your cloak."
