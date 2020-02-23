@@ -53,7 +53,7 @@
 	desiredstate = !desiredstate
 	trigger(user)
 
-	addtimer(CALLBACK(src, /obj/machinery/button/remote/update_icon), 15)
+	addtimer(CALLBACK(src, /atom/.proc/update_icon), 15)
 
 /obj/machinery/button/remote/proc/trigger()
 	return
