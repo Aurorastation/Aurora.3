@@ -168,9 +168,9 @@
 	name = "\improper chicken"
 	desc = "Hopefully the eggs are good this season."
 	icon = 'icons/mob/npc/livestock.dmi'
-	icon_state = "chicken"
-	icon_living = "chicken"
-	icon_dead = "chicken_dead"
+	icon_state = null
+	icon_living = null
+	icon_dead = null
 	speak = list("Cluck!","BWAAAAARK BWAK BWAK BWAK!","Bwaak bwak.")
 	speak_emote = list("clucks","croons")
 	emote_hear = list("clucks")

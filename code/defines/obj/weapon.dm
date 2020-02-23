@@ -386,7 +386,7 @@
 	name = "stick"
 	desc = "A great tool to drag someone else's drinks across the bar."
 	icon = 'icons/obj/weapons.dmi'
-	icon_state = "stick"
+	icon_state = "qstaff0"
 	item_state = "stick"
 	force = 3.0
 	throwforce = 5.0
@@ -394,20 +394,9 @@
 	throw_range = 5
 	w_class = 2.0
 
-/obj/item/wire
-	desc = "This is just a simple piece of regular insulated wire."
-	name = "wire"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "item_wire"
-	var/amount = 1.0
-	var/laying = 0.0
-	var/old_lay = null
-	matter = list(DEFAULT_WALL_MATERIAL = 40)
-	attack_verb = list("whipped", "lashed", "disciplined", "tickled")
-
 /obj/item/module
 	icon = 'icons/obj/module.dmi'
-	icon_state = "std_module"
+	icon_state = "std_mod"
 	w_class = 2.0
 	item_state = "electronic"
 	flags = CONDUCT

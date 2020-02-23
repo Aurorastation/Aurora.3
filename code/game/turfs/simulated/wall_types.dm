@@ -27,13 +27,6 @@
 	icon_state = "cult"
 	appearance_flags = NO_CLIENT_COLOR
 
-/turf/simulated/wall/rusty
-	icon_state = "arust"
-
-/turf/simulated/wall/rusty/Initialize(mapload)
-	. = ..(mapload,"rust")
-	desc = "Rust stains this ancient wall."
-
 /turf/simulated/wall/vaurca/Initialize(mapload)
 	. = ..(mapload,"alien biomass")
 
