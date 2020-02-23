@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - rscadd: "Health analyzer will now report a rough radiation level for a scanned patient."
