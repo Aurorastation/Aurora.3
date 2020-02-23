@@ -15,20 +15,20 @@
 		)
 
 	//Species-specific stuff.
-	species_restricted = list("Human", "Bishop Accessory Frame", "Zeng-Hu Mobility Frame")
+	species_restricted = list(SPECIES_HUMAN, SPECIES_BISHOP_IPC, SPECIES_ZENGHU_IPC)
 	sprite_sheets_refit = list(
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Skrell" = 'icons/mob/species/skrell/helmet.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/helmet.dmi',
-		"Machine" = 'icons/mob/species/machine/helmet.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/helmet.dmi',
+		SPECIES_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
+		SPECIES_SKRELL = 'icons/mob/species/skrell/helmet.dmi',
+		SPECIES_VAURCA_WORKER = 'icons/mob/species/vaurca/helmet.dmi',
+		SPECIES_IPC = 'icons/mob/species/machine/helmet.dmi'
 		)
 	sprite_sheets_obj = list(
-		"Unathi" = 'icons/obj/clothing/species/unathi/hats.dmi',
-		"Tajara" = 'icons/obj/clothing/species/tajaran/hats.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/hats.dmi',
-		"Vaurca" = 'icons/obj/clothing/species/vaurca/hats.dmi',
-		"Machine" = 'icons/obj/clothing/species/machine/hats.dmi'
+		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/hats.dmi',
+		SPECIES_TAJARA = 'icons/obj/clothing/species/tajaran/hats.dmi',
+		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/hats.dmi',
+		SPECIES_VAURCA_WORKER = 'icons/obj/clothing/species/vaurca/hats.dmi',
+		SPECIES_IPC = 'icons/obj/clothing/species/machine/hats.dmi'
 		)
 
 	light_overlay = "helmet_light"
@@ -50,20 +50,20 @@
 		slot_r_hand_str = 'icons/mob/items_righthand.dmi'
 		)
 
-	species_restricted = list("Human", "Skrell", "Bishop Accessory Frame", "Zeng-Hu Mobility Frame")
+	species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_BISHOP_IPC, SPECIES_ZENGHU_IPC)
 	sprite_sheets_refit = list(
-		"Unathi" = 'icons/mob/species/unathi/suit.dmi',
-		"Tajara" = 'icons/mob/species/tajaran/suit.dmi',
-		"Skrell" = 'icons/mob/species/skrell/suit.dmi',
-		"Vaurca" = 'icons/mob/species/vaurca/suit.dmi',
-		"Machine" = 'icons/mob/species/machine/suit.dmi'
+		SPECIES_UNATHI = 'icons/mob/species/unathi/suit.dmi',
+		SPECIES_TAJARA = 'icons/mob/species/tajaran/suit.dmi',
+		SPECIES_SKRELL = 'icons/mob/species/skrell/suit.dmi',
+		SPECIES_VAURCA_WORKER = 'icons/mob/species/vaurca/suit.dmi',
+		SPECIES_IPC = 'icons/mob/species/machine/suit.dmi'
 		)
 	sprite_sheets_obj = list(
-		"Unathi" = 'icons/obj/clothing/species/unathi/suits.dmi',
-		"Tajara" = 'icons/obj/clothing/species/tajaran/suits.dmi',
-		"Skrell" = 'icons/obj/clothing/species/skrell/suits.dmi',
-		"Vaurca" = 'icons/obj/clothing/species/vaurca/suits.dmi',
-		"Machine" = 'icons/obj/clothing/species/machine/suits.dmi'
+		SPECIES_UNATHI = 'icons/obj/clothing/species/unathi/suits.dmi',
+		SPECIES_TAJARA = 'icons/obj/clothing/species/tajaran/suits.dmi',
+		SPECIES_SKRELL = 'icons/obj/clothing/species/skrell/suits.dmi',
+		SPECIES_VAURCA_WORKER = 'icons/obj/clothing/species/vaurca/suits.dmi',
+		SPECIES_IPC = 'icons/obj/clothing/species/machine/suits.dmi'
 		)
 
 	action_button_name = "Toggle Helmet"

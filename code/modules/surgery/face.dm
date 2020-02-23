@@ -64,7 +64,7 @@
 	max_duration = 110
 
 /datum/surgery_step/robotics/face/synthskin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	return ..() && target.op_stage.face == 0 && target.get_species() == "Shell Frame"
+	return ..() && target.op_stage.face == 0 && target.get_species() == SPECIES_SHELL_IPC
 
 /datum/surgery_step/robotics/face/synthskin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \

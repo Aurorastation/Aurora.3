@@ -33,7 +33,7 @@ var/list/advance_cures = 	list(
 	agent = "advance microbes"
 	max_stages = 5
 	spread = "Unknown"
-	affected_species = list("Human","Monkey")
+	affected_species = list(SPECIES_HUMAN,SPECIES_MONKEY)
 
 	// NEW VARS
 

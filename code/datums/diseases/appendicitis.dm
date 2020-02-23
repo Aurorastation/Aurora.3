@@ -5,7 +5,7 @@
 	spread = "Acute"
 	cure = "Surgery"
 	agent = "Appendix"
-	affected_species = list("Human")
+	affected_species = list(SPECIES_HUMAN)
 	permeability_mod = 1
 	contagious_period = 9001 //slightly hacky, but hey! whatever works, right?
 	desc = "If left untreated the subject will become very weak, and may vomit often."

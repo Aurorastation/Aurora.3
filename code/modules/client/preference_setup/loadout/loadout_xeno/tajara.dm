@@ -2,7 +2,8 @@
 	display_name = "tajara gloves selection"
 	description = "A selection of tajaran gloves."
 	path = /obj/item/clothing/gloves/black/tajara
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/gloves/tajara/New()
@@ -23,7 +24,8 @@
 	display_name = "tajara coat selection"
 	description = "A selection of tajaran native coats."
 	path = /obj/item/clothing/suit/storage/tajaran
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajara_coat/New()
@@ -40,7 +42,8 @@
 	display_name = "tajaran religious suits selection"
 	description = "A selection of tajaran religious robes."
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajara_priest/New()
@@ -55,7 +58,8 @@
 /datum/gear/suit/tajaran_labcoat
 	display_name = "PRA medical coat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
 	sort_category = "Xenowear - Tajara"
 
@@ -63,7 +67,8 @@
 	display_name = "tajaran uniform selection"
 	description = "A selection of tajaran native uniforms."
 	path = /obj/item/clothing/under/tajaran
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara/New()
@@ -82,7 +87,8 @@
 	display_name = "tajaran dress selection"
 	description = "A selection of tajaran native dresses."
 	path = /obj/item/clothing/under/dress/tajaran
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara_dress/New()
@@ -102,7 +108,8 @@
 	display_name = "fur scarf"
 	description = "A selection of tajaran colored fur scarfs."
 	path = /obj/item/clothing/accessory/tajaran
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara/New()
@@ -123,7 +130,8 @@
 	display_name = "adhomian headgear selection"
 	description = "A selection of tajaran native headgear."
 	path = /obj/item/clothing/head/tajaran/circlet
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/head/tajara/New()
@@ -139,7 +147,8 @@
 	display_name = "marriage wrap"
 	description = "A holy cloth wrap that signifies marriage amongst tajara."
 	path = /obj/item/clothing/accessory/tajaran_wrap
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajara_wrap/New()
@@ -152,31 +161,36 @@
 /datum/gear/accessory/tajara_pelt
 	display_name = "ceremonial pelt"
 	path = /obj/item/clothing/accessory/tajaran_pelt
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/mask/tajara
 	display_name = "sun sister veil"
 	path = /obj/item/clothing/mask/tajara
 	cost = 1
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/shoes/tajara
 	display_name = "native tajaran foot-wear"
 	path = /obj/item/clothing/shoes/tajara
 	sort_category = "Xenowear - Tajara"
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 
 /datum/gear/accessory/partymembership
 	display_name = "honorary party member card"
 	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 
 /datum/gear/gloves/shumalia_belt
 	display_name = "hammer buckle belt"
 	description = "A leather belt adorned by a hammer shaped buckle, worn by priesthood and worshippers of Shumaila."
 	path = /obj/item/storage/belt/shumaila_buckle
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list(SPECIES_TAJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_MSAI_TJARA)
 	sort_category = "Xenowear - Tajara"

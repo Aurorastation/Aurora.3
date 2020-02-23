@@ -7,7 +7,7 @@
 	cure_id = list("synaptizine","sulfur")
 	cure_chance = 15//higher chance to cure, since two reagents are required
 	agent = "Gravitokinetic Bipotential SADS+"
-	affected_species = list("Human")
+	affected_species = list(SPECIES_HUMAN)
 	curable = 0
 	permeability_mod = 1
 

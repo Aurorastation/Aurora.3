@@ -271,7 +271,7 @@
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
+				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
 						to_chat(src, "<span class='warning'>Your hair falls out.</span>")
 						h_style = "Bald"
@@ -1120,7 +1120,7 @@
 		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
-		if(shock_stage == 60) 
+		if(shock_stage == 60)
 			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)

@@ -124,4 +124,4 @@
 		return eyegb
 
 /datum/species/unathi/autakh/get_cloning_variant()
-	return "Unathi"
+	return SPECIES_UNATHI

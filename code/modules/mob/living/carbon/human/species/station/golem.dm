@@ -673,7 +673,7 @@
 
 /datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
 	H.visible_message("<span class='warning'>\The [H] vitrifies into a glass construct!</span>")
-	H.set_species("Glass Golem")
+	H.set_species(SPECIES_GLASS_GOLEM)
 
 /datum/species/golem/plastic
 	name = "Plastic Golem"

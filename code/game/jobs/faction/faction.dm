@@ -6,6 +6,8 @@
 	var/list/allowed_role_types
 	var/list/allowed_species_types
 
+	var/list/faction_job_species_blacklist
+
 	var/is_default = FALSE
 
 	var/list/titles_to_loadout = list()

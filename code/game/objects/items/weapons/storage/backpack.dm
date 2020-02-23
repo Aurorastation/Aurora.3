@@ -22,7 +22,7 @@
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 28
-	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	var/species_restricted = list("exclude",SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
@@ -178,7 +178,7 @@
 	desc = "It's a Vaurca cloak, with paltry storage options."
 	icon_state = "cape"
 	max_storage_space = 12
-	sprite_sheets = list("Vaurca" = 'icons/mob/species/vaurca/back.dmi')
+	sprite_sheets = list(SPECIES_VAURCA_WORKER = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/storage/backpack/syndie
 	name = "syndicate rucksack"
@@ -514,5 +514,5 @@
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
 	canremove = 0
-	species_restricted = list("Vaurca Breeder")
-	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/back.dmi')
+	species_restricted = list(SPECIES_VAURCA_BREEDER)
+	sprite_sheets = list(SPECIES_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')

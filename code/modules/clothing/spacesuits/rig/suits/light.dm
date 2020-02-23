@@ -82,7 +82,7 @@
 	emp_protection = 40
 	slowdown = 0
 
-	species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Vaurca")
+	species_restricted = list(SPECIES_HUMAN,SPECIES_TAJARA,SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_IPC, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WARFORM)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/light/ninja
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
@@ -174,7 +174,7 @@
 		/obj/item/rig_module/chem_dispenser/offworlder
 		)
 
-	species_restricted = list("Human")
+	species_restricted = list(SPECIES_HUMAN)
 
 	siemens_coefficient = 0.9
 

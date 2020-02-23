@@ -26,7 +26,8 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list(SPECIES_MSAI_TJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_AUTAKH_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"
@@ -246,7 +247,7 @@
 	outfit = /datum/outfit/job/paramedic
 	alt_outfits = list("Emergency Medical Technician"=/datum/outfit/job/paramedic/emt)
 
-	blacklisted_species = list("Diona")
+	blacklisted_species = list(SPECIES_DIONA)
 
 /datum/outfit/job/paramedic
 	name = "Paramedic"

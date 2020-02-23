@@ -1,5 +1,5 @@
 /mob/living/carbon/human/shadow/Initialize(mapload)
-	. = ..(mapload, "Shadow")
+	. = ..(mapload, SPECIES_SHADOW)
 
 /datum/species/shadow
 	name = "Shadow"

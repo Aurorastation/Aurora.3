@@ -6,7 +6,7 @@
 	cure = "Chick Chicky Boom!"
 	cure_id = list("phoron")
 	agent = "Unknown"
-	affected_species = list("Human")
+	affected_species = list(SPECIES_HUMAN)
 	permeability_mod = 1
 
 /datum/disease/rhumba_beat/stage_act()

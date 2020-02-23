@@ -1,5 +1,5 @@
 /mob/living/carbon/human/skeleton/Initialize(mapload)
-	. = ..(mapload, "Skeleton")
+	. = ..(mapload, SPECIES_SKELETON)
 
 /datum/species/skeleton //SPOOKY
 	name = "Skeleton"
@@ -88,7 +88,7 @@
 	return FALSE
 
 /mob/living/carbon/human/apparition/Initialize(mapload)
-	. = ..(mapload, "Apparition")
+	. = ..(mapload, SPECIES_APPARITION)
 
 /datum/species/apparition
 	name = "Apparition"
@@ -143,7 +143,7 @@
 
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
-	. = ..(mapload, "Zombie")
+	. = ..(mapload, SPECIES_ZOMBIE)
 
 /datum/species/zombie
 	name = "Zombie"

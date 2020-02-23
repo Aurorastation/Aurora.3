@@ -8,9 +8,9 @@
 	siemens_coefficient = 0.35
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	species_restricted = list("Vox", "Vox Armalis")
+	species_restricted = list(SPECIES_VOX, "Vox Armalis")
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi',
+		SPECIES_VOX = 'icons/mob/species/vox/suit.dmi',
 		"Vox Armalis" = 'icons/mob/species/armalis/suit.dmi'
 		)
 
@@ -19,9 +19,9 @@
 	siemens_coefficient = 0.35
 	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = null
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(SPECIES_VOX,"Vox Armalis")
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi',
+		SPECIES_VOX = 'icons/mob/species/vox/head.dmi',
 		"Vox Armalis" = 'icons/mob/species/armalis/head.dmi'
 		)
 
@@ -75,7 +75,7 @@
 
 /obj/item/clothing/under/vox
 	has_sensor = 0
-	species_restricted = list("Vox")
+	species_restricted = list(SPECIES_VOX)
 
 /obj/item/clothing/under/vox/vox_casual
 	name = "alien clothing"
@@ -97,9 +97,9 @@
 	item_state = "gloves-vox"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(SPECIES_VOX,"Vox Armalis")
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi',
+		SPECIES_VOX = 'icons/mob/species/vox/gloves.dmi',
 		"Vox Armalis" = 'icons/mob/species/armalis/gloves.dmi'
 		)
 
@@ -110,9 +110,9 @@
 	item_state = "boots-vox"
 	icon_state = "boots-vox"
 
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(SPECIES_VOX,"Vox Armalis")
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi',
+		SPECIES_VOX = 'icons/mob/species/vox/shoes.dmi',
 		"Vox Armalis" = 'icons/mob/species/armalis/feet.dmi'
 		)
 

@@ -55,7 +55,7 @@ var/datum/vueui_module/player_panel/global_player_panel
 
 
 	var/list/mobs = sortmobs()
-	
+
 	LAZYINITLIST(data["players"])
 	if(LAZYLEN(data["players"]) != mobs.len)
 		data["players"] = list()
@@ -117,7 +117,7 @@ var/datum/vueui_module/player_panel/global_player_panel
 	if(isobserver(M))
 		return "Ghost"
 	if(issmall(M))
-		return "Monkey"
+		return SPECIES_MONKEY
 	if(isalien(M))
 		return "Alien"
 	return "Unknown"

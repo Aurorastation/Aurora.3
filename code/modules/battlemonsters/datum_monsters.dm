@@ -30,7 +30,7 @@
 	rarity_score = -1
 
 /datum/battle_monsters/monster/human/female
-	name = "Human"
+	name = SPECIES_HUMAN
 	id = "human_female"
 	icon_state = "human"
 	power_add = BATTLE_MONSTERS_POWER_PETTY

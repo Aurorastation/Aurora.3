@@ -6,7 +6,7 @@
 	cure = "???"
 	cure_id = "???"
 	agent = "Bees"
-	affected_species = list("Human","Monkey")
+	affected_species = list(SPECIES_HUMAN,SPECIES_MONKEY)
 	curable = 0
 
 /datum/disease/beesease/stage_act()

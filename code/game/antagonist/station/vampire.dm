@@ -10,14 +10,14 @@ var/datum/antagonist/vampire/vamp = null
 
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	restricted_species = list(
-		"Baseline Frame",
-		"Shell Frame",
-		"Hephaestus G1 Industrial Frame",
-		"Diona",
-		"Hephaestus G2 Industrial Frame",
-		"Xion Industrial Frame",
-		"Zeng-Hu Mobility Frame",
-		"Bishop Accessory Frame"
+		SPECIES_IPC,
+		SPECIES_SHELL_IPC,
+		SPECIES_HEPHAESTUS_G1_IPC,
+		SPECIES_DIONA,
+		SPECIES_HEPHAESTUS_G2_IPC,
+		SPECIES_XION_IPC,
+		SPECIES_ZENGHU_IPC,
+		SPECIES_BISHOP_IPC
 	)
 	required_age = 10
 

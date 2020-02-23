@@ -11,7 +11,7 @@
 	vision_restriction = TINT_HEAVY
 	offline_vision_restriction = TINT_BLIND
 
-	species_restricted = list("Unathi")
+	species_restricted = list(SPECIES_UNATHI)
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
@@ -42,7 +42,7 @@
 	slowdown = 2
 	offline_slowdown = 3
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WARFORM)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
 	air_type =   /obj/item/tank/phoron
@@ -85,7 +85,7 @@
 	offline_slowdown = 3
 	siemens_coefficient = 0
 
-	species_restricted = list("Tajara")
+	species_restricted = list(SPECIES_TAJARA)
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 

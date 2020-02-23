@@ -1974,7 +1974,7 @@
 	center_of_mass = list("x"=16, "y"=14)
 
 	var/wrapped = 0
-	var/monkey_type = "Monkey"
+	var/monkey_type = SPECIES_MONKEY
 
 /obj/item/reagent_containers/food/snacks/monkeycube/Initialize()
 	. = ..()

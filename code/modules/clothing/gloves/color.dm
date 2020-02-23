@@ -100,49 +100,49 @@
 	item_state = "ygloves"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
-	species_restricted = list("Unathi")
+	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/black/unathi
 	name = "black gloves"
 	desc = "Black gloves made for Unathi use."
-	species_restricted = list("Unathi")
+	species_restricted = list(SPECIES_UNATHI)
 
 //more snowflake gloves for the custom loadout
 
 /obj/item/clothing/gloves/red/unathi
  	name = "red gloves"
  	desc = "Red gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/blue/unathi
  	name = "blue gloves"
  	desc = "Blue gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/orange/unathi
  	name = "orange gloves"
  	desc = "Orange gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/purple/unathi
  	name = "purple gloves"
  	desc = "Purple gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/brown/unathi
  	name = "brown gloves"
  	desc = "Brown gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/green/unathi
  	name = "green gloves"
  	desc = "Green gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/white/unathi
  	name = "white gloves"
  	desc = "White gloves made for Unathi use."
- 	species_restricted = list("Unathi")
+ 	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/evening
 	name = "evening gloves"
@@ -162,4 +162,4 @@
 	item_state = "fingerlessgloves"
 	fingerprint_chance = 100
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",SPECIES_GOLEM,SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)

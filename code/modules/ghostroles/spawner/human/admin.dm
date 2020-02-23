@@ -16,7 +16,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/ert_commander
-	possible_species = list("Human")
+	possible_species = list(SPECIES_HUMAN)
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -37,7 +37,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/tcfl_legate
-	possible_species = list("Human","M'sai Tajara","Skrell", "Unathi","Baseline Frame")
+	possible_species = list(SPECIES_HUMAN,SPECIES_MSAI_TJARA,SPECIES_SKRELL, SPECIES_UNATHI,SPECIES_IPC)
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -59,7 +59,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/cciaa
-	possible_species = list("Human")
+	possible_species = list(SPECIES_HUMAN)
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -84,7 +84,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/protection_detail
-	possible_species = list("Human","Skrell")
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -110,7 +110,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/odinsec
-	possible_species = list("Human","Skrell")
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -134,7 +134,8 @@
 	max_count = 4
 
 	outfit = /datum/outfit/admin/ert/legion/sentinel
-	possible_species = list("Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Diona")
+	possible_species = list(SPECIES_HUMAN, SPECIES_TAJARA, SPECIES_MSAI_TJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_DIONA)
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -155,7 +156,7 @@
 	req_perms = R_CCIAA
 
 	outfit = /datum/outfit/admin/nt/fib
-	possible_species = list("Human")
+	possible_species = list(SPECIES_HUMAN)
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 

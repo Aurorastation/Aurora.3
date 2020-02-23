@@ -7,7 +7,7 @@
 	outfit = /datum/outfit/admin/ert/kataphract
 	mob_name_prefix = "Zosaa "
 	uses_species_whitelist = FALSE // Anyone should be able to play a Kataphract Unathi
-	possible_species = list("Unathi")
+	possible_species = list(SPECIES_UNATHI)
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 
 /datum/ghostspawner/human/ert/kataphract/klax
@@ -19,8 +19,8 @@
 	outfit = /datum/outfit/admin/ert/kataphract/klax
 	mob_name_prefix = "Zosaa "
 	uses_species_whitelist = TRUE
-	req_species_whitelist = "Vaurca Warrior" // Kataphract K'lax would be more difficult
-	possible_species = list("Vaurca Warrior")
+	req_species_whitelist = SPECIES_VAURCA_WARRIOR // Kataphract K'lax would be more difficult
+	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
 
 /datum/ghostspawner/human/ert/kataphract/specialist

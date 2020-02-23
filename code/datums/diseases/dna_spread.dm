@@ -7,7 +7,7 @@
 	cure_id = "ryetalyn"
 	curable = 1
 	agent = "S4E1 retrovirus"
-	affected_species = list("Human")
+	affected_species = list(SPECIES_HUMAN)
 	var/list/original_dna = list()
 	var/transformed = 0
 	desc = "This disease transplants the genetic code of the intial vector into new hosts."

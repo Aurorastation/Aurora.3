@@ -8,7 +8,7 @@
 	var/list/part = null // Order of args is important for installing robolimbs.
 	var/sabotaged = 0 //Emagging limbs can have repercussions when installed as prosthetics.
 	var/model_info
-	var/linked_frame = "Unbranded Frame"
+	var/linked_frame = SPECIES_UNBRANDED_IPC
 	dir = SOUTH
 
 /obj/item/robot_parts/set_dir()
@@ -196,7 +196,7 @@
 
 			if(!src.head.law_manager)
 
-				if(!is_alien_whitelisted(M.brainmob, "Baseline Frame") && config.usealienwhitelist)
+				if(!is_alien_whitelisted(M.brainmob, SPECIES_IPC) && config.usealienwhitelist)
 					to_chat(user, "<span class='warning'>\The [W] does not seem to fit.</span>")
 					return
 
@@ -346,28 +346,28 @@
 /obj/item/robot_parts/chest/bishop
 	name = "Bishop cybernetics torso"
 	model_info = 1
-	linked_frame = "Bishop Accessory Frame"
+	linked_frame = SPECIES_BISHOP_IPC
 
 /obj/item/robot_parts/chest/hephaestus
 	name = "Hephaestus industries torso"
-	linked_frame = "Hephaestus G2 Industrial Frame"
+	linked_frame = SPECIES_HEPHAESTUS_G2_IPC
 
 /obj/item/robot_parts/chest/zenghu
 	name = "Zeng-Hu pharmaceuticals torso"
-	linked_frame = "Zeng-Hu Mobility Frame"
+	linked_frame = SPECIES_ZENGHU_IPC
 
 /obj/item/robot_parts/chest/synthskin
 	name = "Human synthskin torso"
-	linked_frame = "Shell Frame"
+	linked_frame = SPECIES_SHELL_IPC
 
 /obj/item/robot_parts/chest/xion
 	name = "Xion manufacturing group torso"
-	linked_frame = "Xion Industrial Frame"
+	linked_frame = SPECIES_XION_IPC
 
 /obj/item/robot_parts/chest/ipc
 	name = "Hephaestus integrated torso"
-	linked_frame = "Baseline Frame"
+	linked_frame = SPECIES_IPC
 
 /obj/item/robot_parts/chest/industrial
 	name = "Hephaestus industrial torso"
-	linked_frame = "Hephaestus G1 Industrial Frame"
+	linked_frame = SPECIES_HEPHAESTUS_G1_IPC

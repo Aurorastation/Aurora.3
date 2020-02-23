@@ -28,14 +28,14 @@
 	var/robotic_name
 	var/robotic_sprite
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
-	
+
 	//Lists.
 	var/list/transplant_data
 	var/list/datum/autopsy_data/autopsy_data = list()
 	var/list/organ_verbs	//verb that are added when you gain the organ
 	var/list/trace_chemicals = list() // traces of chemicals in the organ,
 									  // links chemical IDs to number of ticks for which they'll stay in the blood
-	
+
 	//DNA stuff.
 	var/datum/dna/dna
 	var/datum/species/species
@@ -90,7 +90,7 @@
 		max_damage = min_broken_damage * 2
 	if(istype(holder))
 		src.owner = holder
-		species = all_species["Human"]
+		species = all_species[SPECIES_HUMAN]
 		if(holder.dna)
 			dna = holder.dna.Clone()
 			species = all_species[dna.species]

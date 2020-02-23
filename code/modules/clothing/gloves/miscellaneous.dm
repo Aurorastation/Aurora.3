@@ -81,24 +81,24 @@
 	desc = "Sterile nitrile gloves. Designed for Unathi use."
 	icon_state = "nitrile"
 	item_state = "ngloves"
-	species_restricted = list("Unathi")
+	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/latex/nitrile/tajara
 	name = "tajaran nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Tajara use."
 	icon_state = "nitrile"
 	item_state = "ngloves"
-	species_restricted = list("Tajara")
+	species_restricted = list(SPECIES_TAJARA)
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
 	desc = "Sterile latex gloves. Designed for Unathi use."
-	species_restricted = list("Unathi")
+	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/latex/tajara
 	name = "tajaran latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
-	species_restricted = list("Tajara")
+	species_restricted = list(SPECIES_TAJARA)
 
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
@@ -111,11 +111,11 @@
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
-	species_restricted = list("Unathi")
+	species_restricted = list(SPECIES_UNATHI)
 
 /obj/item/clothing/gloves/botanic_leather/tajara
 	name = "tajaran leather gloves"
-	species_restricted = list("Tajara")
+	species_restricted = list(SPECIES_TAJARA)
 
 /obj/item/clothing/gloves/watch
 	desc = "A small wristwatch, capable of telling time."
@@ -314,7 +314,7 @@
 	force = 5
 	punch_force = 10
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",SPECIES_GOLEM,SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/metalboots.ogg'
 	gender = NEUTER
 
@@ -366,7 +366,7 @@
 	fingerprint_chance = 50
 	siemens_coefficient = 1
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",SPECIES_GOLEM,SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/metalboots.ogg'
 	gender = NEUTER
 	var/obj/item/gun/projectile/mounted

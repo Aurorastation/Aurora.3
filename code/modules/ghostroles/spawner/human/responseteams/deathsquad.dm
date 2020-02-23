@@ -6,7 +6,7 @@
 	welcome_message = "The NSS Aurora has been compromised. Recover NanoTrasen assets by any means necessary. Crew expendable."
 	outfit = /datum/outfit/admin/deathsquad
 	spawnpoints = list("DeathERTSpawn")
-	possible_species = list("Human")
+	possible_species = list(SPECIES_HUMAN)
 	mob_name_prefix = "Spec. "
 
 	var/deployed = TRUE

@@ -501,7 +501,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		chosen_species = all_species[client.prefs.species]
 
 	if(!chosen_species)
-		return "Human"
+		return SPECIES_HUMAN
 
 	if(is_species_whitelisted(chosen_species) || has_admin_rights())
 		if (reference)
@@ -509,7 +509,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		else
 			return chosen_species.name
 
-	return "Human"
+	return SPECIES_HUMAN
 
 /mob/abstract/new_player/get_gender()
 	if(!client || !client.prefs)

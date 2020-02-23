@@ -8,7 +8,7 @@
 	spawnpoints = list("ERTSpawn")
 
 	//Vars related to human mobs
-	possible_species = list("Human", "Skrell", "Tajara", "M'sai Tajara", "Unathi", "Baseline Frame")
+	possible_species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_TAJARA, SPECIES_MSAI_TJARA, SPECIES_UNATHI, SPECIES_IPC)
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 

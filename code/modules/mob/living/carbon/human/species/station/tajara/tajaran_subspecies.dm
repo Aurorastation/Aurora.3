@@ -28,7 +28,7 @@
 	heat_level_2 = 360 //RaceDefault 380 Default 400
 	heat_level_3 = 700 //RaceDefault 800 Default 1000
 
-	primitive_form = "Zhan-Khazan Farwa"
+	primitive_form = SPECIES_TAJARA_ZHAN_KHAZAN_MONKEY
 
 	num_alternate_languages = 1 // Only one Extra Language
 
@@ -55,6 +55,6 @@
 	heat_level_2 = 390 //RaceDefault 380 Default 400
 	heat_level_3 = 900 //RaceDefault 800 Default 1000
 
-	primitive_form = "M'sai Farwa"
+	primitive_form = SPECIES_TAJARA_MSAI_MONKEY
 
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)

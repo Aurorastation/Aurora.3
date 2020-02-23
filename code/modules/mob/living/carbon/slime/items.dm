@@ -253,7 +253,7 @@ var/list/global/golem_runes = list()
 		icon_state = "golem"
 
 /obj/effect/golemrune/proc/spawn_golem(var/mob/user)
-	var/golem_type = "Adamantine Golem"
+	var/golem_type = SPECIES_ADAMANTINE_GOLEM
 
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O?.amount >= 10)

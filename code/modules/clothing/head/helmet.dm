@@ -172,8 +172,8 @@
 	icon_state = "swathelm"
 	flags_inv = HIDEEARS|BLOCKHAIR
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
+		SPECIES_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
 	siemens_coefficient = 0.35
@@ -204,7 +204,7 @@
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
 	contained_sprite = TRUE
-	species_restricted = list("Unathi")
+	species_restricted = list(SPECIES_UNATHI)
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
@@ -221,7 +221,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "klax_hopeful_helmet"
 	item_state = "klax_hopeful_helmet"
-	species_restricted = list("Vaurca")
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WARFORM)
 	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
 	siemens_coefficient = 0.35
 

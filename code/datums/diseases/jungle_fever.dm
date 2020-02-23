@@ -4,7 +4,7 @@
 	cure = "None"
 	spread = "Bites"
 	spread_type = SPECIAL
-	affected_species = list("Monkey", "Human")
+	affected_species = list(SPECIES_MONKEY, SPECIES_HUMAN)
 	curable = 0
 	desc = "monkeys with this disease will bite humans, causing humans to spontaneously mutate into a monkey."
 	severity = "Medium"

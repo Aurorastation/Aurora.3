@@ -94,7 +94,7 @@
 	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
 	default_citizenship = CITIZENSHIP_IZWESKI
 
-	zombie_type = "Unathi Zombie"
+	zombie_type = SPECIES_UNATHI_ZOMBIE
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

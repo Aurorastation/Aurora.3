@@ -75,7 +75,7 @@
 	default_citizenship = CITIZENSHIP_PRA
 	allowed_religions = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 
-	zombie_type = "Tajara Zombie"
+	zombie_type = SPECIES_TAJARA_ZOMBIE
 
 /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

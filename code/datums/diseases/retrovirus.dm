@@ -6,7 +6,7 @@
 	cure = "Rest or an injection of ryetalyn"
 	cure_chance = 6
 	agent = ""
-	affected_species = list("Human")
+	affected_species = list(SPECIES_HUMAN)
 	desc = "A DNA-altering retrovirus that scrambles the structural and unique enzymes of a host constantly."
 	severity = "Severe"
 	permeability_mod = 0.4

@@ -6,7 +6,7 @@
 	cure = "Common Cold Anti-bodies & Deltamivir"
 	cure_id = "deltamivir"
 	agent = "ICE9-rhinovirus"
-	affected_species = list("Human")
+	affected_species = list(SPECIES_HUMAN)
 	desc = "If left untreated the subject will slow, as if partly frozen."
 	severity = "Moderate"
 

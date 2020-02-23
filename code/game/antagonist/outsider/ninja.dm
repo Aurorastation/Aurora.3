@@ -7,7 +7,7 @@ var/datum/antagonist/ninja/ninjas
 	bantype = "ninja"
 	landmark_id = "ninjastart"
 	welcome_text = "<span class='info'>You are an elite stealth agent. You can equip your suit with the latest technology using your uplink.</span>"
-	restricted_species = list("Diona")
+	restricted_species = list(SPECIES_DIONA)
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudninja"
 	required_age = 10
@@ -148,7 +148,7 @@ var/datum/antagonist/ninja/ninjas
 		if(13)
 			directive += "Some disgruntled [current_map.company_name] employees have been supportive of our operations. Be wary of any mistreatment by command staff."
 		if(14)
-			var/xenorace = pick("Unathi","Tajara", "Skrell")
+			var/xenorace = pick(SPECIES_UNATHI,SPECIES_TAJARA, SPECIES_SKRELL)
 			directive += "A group of [xenorace] radicals have been loyal supporters of the Spider Clan. Favor [xenorace] crew whenever possible."
 		if(15)
 			directive += "The Spider Clan has recently been accused of religious insensitivity. Attempt to speak with the Chaplain and prove these accusations false."

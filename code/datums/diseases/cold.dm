@@ -5,7 +5,7 @@
 	cure = "Rest & Deltamivir"
 	cure_id = "deltamivir"
 	agent = "XY-rhinovirus"
-	affected_species = list("Human", "Monkey")
+	affected_species = list(SPECIES_HUMAN, SPECIES_MONKEY)
 	permeability_mod = 0.5
 	desc = "If left untreated the subject will contract the flu."
 	severity = "Minor"

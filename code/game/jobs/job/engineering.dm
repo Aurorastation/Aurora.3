@@ -27,7 +27,8 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
-	blacklisted_species = list("Off-Worlder Human", "M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list(SPECIES_OFFWORLDER_HUMAN, SPECIES_MSAI_TJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_AUTAKH_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"

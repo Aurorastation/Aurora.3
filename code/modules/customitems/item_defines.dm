@@ -49,7 +49,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/yinzr_mantle.dmi'
 	icon_state = "yinzr_mantle" //special thanks to Araskael
 	item_state = "yinzr_mantle"
-	species_restricted = list("Unathi") //forged for lizardmen
+	species_restricted = list(SPECIES_UNATHI) //forged for lizardmen
 	contained_sprite = TRUE
 
 
@@ -404,7 +404,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	canremove = FALSE
 	abstract = TRUE
-	species_restricted = list("Machine")
+	species_restricted = list(SPECIES_IPC)
 	autodrobe_no_remove = TRUE
 
 
@@ -559,7 +559,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	body_parts_covered = 0
 	canremove = FALSE
-	species_restricted = list("Machine")
+	species_restricted = list(SPECIES_IPC)
 	autodrobe_no_remove = TRUE
 	var/emagged = FALSE
 
@@ -908,7 +908,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ghoz_eyes"
 	contained_sprite = TRUE
 	action_button_name = "Toggle Eyelids"
-	species_restricted = list("Vaurca") //i think this would make sense since those are some kind of vaurca build prothestic
+	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WARFORM) //i think this would make sense since those are some kind of vaurca build prothestic
 
 
 /obj/item/clothing/head/det/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto
@@ -1343,7 +1343,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/karihaakaki_mask.dmi'
 	icon_state = "karihaakaki_mask"
 	item_state = "karihaakaki_mask"
-	species_restricted = list("Vox")
+	species_restricted = list(SPECIES_VOX)
 	contained_sprite = TRUE
 
 
@@ -2375,7 +2375,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "This limb is covered in a strange formation of metal and organic matter."
 	icon = 'icons/mob/human_races/r_ind_diona.dmi'
 	linked_frame = "Unknown Entity"
-	species_can_use = list("Diona")
+	species_can_use = list(SPECIES_DIONA)
 	unavailable_at_chargen = TRUE
 
 /obj/item/fluff/dionaea_arm

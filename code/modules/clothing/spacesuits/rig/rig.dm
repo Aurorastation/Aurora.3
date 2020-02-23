@@ -87,7 +87,7 @@
 	var/datum/effect_system/sparks/spark_system
 
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
-	var/list/species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Bishop Accessory Frame", "Zeng-Hu Mobility Frame")
+	var/list/species_restricted = list(SPECIES_HUMAN,SPECIES_TAJARA,SPECIES_UNATHI, SPECIES_SKRELL, SPECIES_IPC, SPECIES_BISHOP_IPC, SPECIES_ZENGHU_IPC)
 
 /obj/item/rig/examine()
 	to_chat(usr, "This is \icon[src][src.name].")

@@ -2,28 +2,28 @@
 	display_name = "vaurca blindfold"
 	path = /obj/item/clothing/glasses/sunglasses/blinders
 	cost = 2
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca
 	display_name = "mandible garment"
 	path = /obj/item/clothing/mask/breath/vaurca
 	cost = 1
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/filterport
 	display_name = "filter port"
 	path = /obj/item/clothing/mask/breath/vaurca/filter
 	cost = 1
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression
 	display_name = "human expression mask"
 	path = /obj/item/clothing/head/expression
 	cost = 1
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression/New()
@@ -37,7 +37,7 @@
 /datum/gear/head/shaper
 	display_name = "shaper helmet"
 	path = /obj/item/clothing/head/shaper
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/head/shaper/New()
@@ -48,7 +48,7 @@
 	display_name = "tunnel cloak"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/cape/New()
@@ -60,7 +60,7 @@
 	description = "A selection of vaurca colored hive cloaks."
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/vaurca_robe/New()
@@ -75,7 +75,7 @@
 /datum/gear/uniform/vaurca
 	display_name = "vaurca clothes"
 	path = /obj/item/clothing/under/vaurca
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/uniform/vaurca/New()
@@ -86,7 +86,7 @@
 	display_name = "shaper robes"
 	path = /obj/item/clothing/suit/vaurca/shaper
 	slot = slot_wear_suit
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 	cost = 1
 
@@ -97,7 +97,7 @@
 /datum/gear/shoes/vaurca
 	display_name = "vaurca shoes"
 	path = /obj/item/clothing/shoes/vaurca
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/shoes/vaurca/New()
@@ -109,7 +109,7 @@
 	description = "A selection of vaurca colored shrouds."
 	path = /obj/item/clothing/head/shroud
 	cost = 1
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/suit/vaurca_shroud/New()
@@ -126,7 +126,7 @@
 	display_name = "vaurcan mantle"
 	path = /obj/item/clothing/suit/vaurca/mantle
 	cost = 1
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/suit/vaurca_mantle/New()

@@ -11,7 +11,7 @@
 	blood_mask = 'icons/mob/human_races/masks/blood_monkey.dmi'
 	language = null
 	default_language = "Chimpanzee"
-	greater_form = "Human"
+	greater_form = SPECIES_HUMAN
 	mob_size = MOB_SMALL
 	has_fine_manipulation = 0
 	show_ssd = null
@@ -83,7 +83,7 @@
 	icobase = 'icons/mob/human_races/monkeys/r_farwa.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_farwa.dmi'
 
-	greater_form = "Tajara"
+	greater_form = SPECIES_TAJARA
 	default_language = "Farwa"
 	flesh_color = "#AFA59E"
 	base_color = "#333333"
@@ -97,11 +97,12 @@
 
 /datum/species/monkey/tajaran/m_sai
 	name = "M'sai Farwa"
-	greater_form = "M'sai Tajara"
+	greater_form = SPECIES_MSAI_TJARA
 
 /datum/species/monkey/tajaran/zhan_khazan
 	name = "Zhan-Khazan Farwa"
-	greater_form = "Zhan-Khazan Tajara"
+	greater_form = SPECIES_ZHAN_KHAZAN_TAJARA
+
 
 /datum/species/monkey/skrell
 	name = "Neaera"
@@ -111,7 +112,7 @@
 	icobase = 'icons/mob/human_races/monkeys/r_neaera.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_neaera.dmi'
 
-	greater_form = "Skrell"
+	greater_form = SPECIES_SKRELL
 	default_language = "Neaera"
 	flesh_color = "#8CD7A3"
 	blood_color = "#1D2CBF"
@@ -129,7 +130,7 @@
 	deform = 'icons/mob/human_races/monkeys/r_stok.dmi'
 
 	tail = "stoktail"
-	greater_form = "Unathi"
+	greater_form = SPECIES_UNATHI
 	default_language = "Stok"
 	flesh_color = "#34AF10"
 	base_color = "#066000"
@@ -153,7 +154,7 @@
 		)
 
 	tail = "vkrexitail"
-	greater_form = "Vaurca Worker"
+	greater_form = SPECIES_VAURCA_WORKER
 	default_language = "V'krexi"
 	blood_color = "#E6E600"
 	flesh_color = "#E6E600"

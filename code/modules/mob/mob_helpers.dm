@@ -38,7 +38,7 @@
 
 
 /proc/ishuman_species(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Human"))
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_HUMAN))
 		return 1
 	return 0
 
@@ -46,53 +46,54 @@
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
 		switch(H.get_species())
-			if ("Unathi")
+			if (SPECIES_UNATHI)
 				return 1
-			if("Aut'akh Unathi")
+			if(SPECIES_AUTAKH_UNATHI)
 				return 1
-			if ("Unathi Zombie")
+			if (SPECIES_UNATHI_ZOMBIE)
 				return 1
 	return 0
 
 /proc/isautakh(A)
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
-		if(H.get_species() == "Aut'akh Unathi")
+		if(H.get_species() == SPECIES_AUTAKH_UNATHI)
 			return 1
 	return 0
 
 /proc/istajara(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Tajara")
+			if (SPECIES_TAJARA)
 				return 1
-			if("Zhan-Khazan Tajara")
+			if(SPECIES_ZHAN_KHAZAN_TAJARA
+)
 				return 1
-			if("M'sai Tajara")
+			if(SPECIES_MSAI_TJARA)
 				return 1
-			if ("Tajara Zombie")
+			if (SPECIES_TAJARA_ZOMBIE)
 				return 1
 	return 0
 
 /proc/isskrell(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Skrell")
+			if (SPECIES_SKRELL)
 				return 1
-			if ("Skrell Zombie")
+			if (SPECIES_SKRELL_ZOMBIE)
 				return 1
 	return 0
 
 /proc/isvaurca(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if("Vaurca Worker")
+			if(SPECIES_VAURCA_WORKER)
 				return 1
-			if("Vaurca Warrior")
+			if(SPECIES_VAURCA_WARRIOR)
 				return 1
-			if("Vaurca Breeder")
+			if(SPECIES_VAURCA_BREEDER)
 				return 1
-			if("Vaurca Warform")
+			if(SPECIES_VAURCA_WARFORM)
 				return 1
 			if("V'krexi")
 				return 1
@@ -107,7 +108,7 @@
 /proc/isvox(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Vox")
+			if (SPECIES_VOX)
 				return 1
 			if ("Vox Armalis")
 				return 1
@@ -125,31 +126,31 @@
 	return 0
 
 /proc/isskeleton(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skeleton"))
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
 		return 1
 	return 0
 
 /proc/isundead(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Skeleton")
+			if (SPECIES_SKELETON)
 				return 1
-			if ("Zombie")
+			if (SPECIES_ZOMBIE)
 				return 1
-			if ("Tajara Zombie")
+			if (SPECIES_TAJARA_ZOMBIE)
 				return 1
-			if ("Unathi Zombie")
+			if (SPECIES_UNATHI_ZOMBIE)
 				return 1
-			if ("Skrell Zombie")
+			if (SPECIES_SKRELL_ZOMBIE)
 				return 1
-			if ("Apparition")
+			if (SPECIES_APPARITION)
 				return 1
 	return 0
 
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Monkey")
+			if (SPECIES_MONKEY)
 				return 1
 			if ("Farwa")
 				return 1
@@ -673,7 +674,7 @@ proc/is_blind(A)
 		if(istype(belt, /obj/item/gun) || istype(belt, /obj/item/melee))
 			threatcount += 2
 
-		if(species.name != "Human")
+		if(species.name != SPECIES_HUMAN)
 			threatcount += 2
 
 	if(check_records || check_arrest)

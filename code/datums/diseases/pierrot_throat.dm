@@ -6,7 +6,7 @@
 	cure_id = "banana"
 	cure_chance = 75
 	agent = "H0NI<42 Virus"
-	affected_species = list("Human")
+	affected_species = list(SPECIES_HUMAN)
 	permeability_mod = 0.75
 	desc = "If left untreated the subject will probably drive others to insanity."
 	severity = "Medium"

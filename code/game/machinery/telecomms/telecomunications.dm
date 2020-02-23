@@ -538,12 +538,12 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 					race = "Sapient Species"
 					log.parameters["intelligible"] = 1
 				else if(M.isMonkey())
-					race = "Monkey"
+					race = SPECIES_MONKEY
 				else if(issilicon(M))
 					race = "Artificial Life"
 					log.parameters["intelligible"] = 1
 				else if(isslime(M))
-					race = "Slime"
+					race = SPECIES_SLIME
 				else if(isanimal(M))
 					race = "Domestic Animal"
 

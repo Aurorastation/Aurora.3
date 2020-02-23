@@ -5,7 +5,7 @@
 	cure = "Iron"
 	cure_id = "iron"
 	agent = "Fukkos Miracos"
-	affected_species = list("Human")
+	affected_species = list(SPECIES_HUMAN)
 	curable = 0
 	permeability_mod = 0.75
 	desc = "This disease disrupts the magnetic field of your body, making it act as if a powerful magnet. Injections of iron help stabilize the field."

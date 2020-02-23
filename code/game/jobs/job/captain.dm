@@ -22,7 +22,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	outfit = /datum/outfit/job/captain
 
-	blacklisted_species = list("Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Unathi", "Aut'akh Unathi", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list(SPECIES_OFFWORLDER_HUMAN, SPECIES_TAJARA, SPECIES_MSAI_TJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_UNATHI, SPECIES_AUTAKH_UNATHI, SPECIES_DIONA, SPECIES_IPC, SPECIES_HEPHAESTUS_G1_IPC, SPECIES_HEPHAESTUS_G2_IPC, SPECIES_XION_IPC, SPECIES_ZENGHU_IPC, SPECIES_BISHOP_IPC, SPECIES_SHELL_IPC, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 
 /datum/outfit/job/captain
 	name = "Captain"
@@ -95,7 +96,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 			            access_chapel_office, access_library, access_research, access_mining, access_mining_station, access_janitor,
 			            access_hop, access_RC_announce, access_keycard_auth, access_gateway, access_weapons, access_journalist)
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list(SPECIES_MSAI_TJARA, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_AUTAKH_UNATHI, SPECIES_DIONA, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 
 /datum/outfit/job/hop
 	name = "Head of Personnel"

@@ -90,12 +90,12 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
+		if(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_ZENGHU_IPC, SPECIES_BISHOP_IPC)	//humanoid bodytypes
 			species_restricted = list(
-				"Human",
-				"Skrell",
-				"Zeng-Hu Mobility Frame",
-				"Bishop Accessory Frame"
+				SPECIES_HUMAN,
+				SPECIES_SKRELL,
+				SPECIES_ZENGHU_IPC,
+				SPECIES_BISHOP_IPC
 			) //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)
@@ -117,8 +117,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Skrell", "Human")
-			species_restricted = list("Human", "Skrell", "Machine") // skrell helmets like to share
+		if(SPECIES_SKRELL, SPECIES_HUMAN)
+			species_restricted = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_IPC) // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)
@@ -331,9 +331,9 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WARFORM, SPECIES_GOLEM,SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi'
+		SPECIES_VOX = 'icons/mob/species/vox/gloves.dmi'
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
@@ -372,9 +372,9 @@
 		name = "modified [name]"
 		desc = "[desc]<br>They have had the fingertips cut off of them."
 		if("exclude" in species_restricted)
-			species_restricted -= "Unathi"
-			species_restricted -= "Tajara"
-			species_restricted -= "Vaurca"
+			species_restricted -= SPECIES_UNATHI
+			species_restricted -= SPECIES_TAJARA
+			species_restricted -= SPECIES_VAURCA_WORKER
 		return
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot)
@@ -432,7 +432,7 @@
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 
@@ -442,7 +442,7 @@
 	var/on = 0
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		SPECIES_VOX = 'icons/mob/species/vox/head.dmi'
 		)
 
 /obj/item/clothing/head/attack_self(mob/user)
@@ -541,11 +541,11 @@
 	drop_sound = 'sound/items/drop/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/masks.dmi',
-		"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
-		"Unathi" = 'icons/mob/species/unathi/mask.dmi')
+		SPECIES_VOX = 'icons/mob/species/vox/masks.dmi',
+		SPECIES_TAJARA = 'icons/mob/species/tajaran/mask.dmi',
+		SPECIES_UNATHI = 'icons/mob/species/unathi/mask.dmi')
 
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -635,11 +635,11 @@
 	permeability_coefficient = 0.50
 	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
+	species_restricted = list("exclude",SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_VOX,SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WARFORM,SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
+	sprite_sheets = list(SPECIES_VOX = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi'
+		SPECIES_VOX = 'icons/mob/species/vox/shoes.dmi'
 		)
 
 /obj/item/clothing/shoes/proc/draw_knife()
@@ -728,10 +728,10 @@
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = 3
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi'
+		SPECIES_VOX = 'icons/mob/species/vox/suit.dmi'
 		)
 
 	valid_accessory_slots = list("armband","decor", "over")
@@ -766,9 +766,9 @@
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/uniform.dmi',
-		"Golem" = 'icons/mob/uniform_fat.dmi')
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+		SPECIES_VOX = 'icons/mob/species/vox/uniform.dmi',
+		SPECIES_GOLEM = 'icons/mob/uniform_fat.dmi')
+	species_restricted = list("exclude",SPECIES_VAURCA_BREEDER,SPECIES_VAURCA_WARFORM)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.

@@ -9,7 +9,7 @@
 	economic_modifier = 2
 	language = LANGUAGE_VAURCA
 	primitive_form = "V'krexi"
-	greater_form = "Vaurca Warrior"
+	greater_form = SPECIES_VAURCA_WARRIOR
 	icobase = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	preview_icon = 'icons/mob/human_races/vaurca/vaurca_preview.dmi'

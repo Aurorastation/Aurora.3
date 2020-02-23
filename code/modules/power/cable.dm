@@ -503,7 +503,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/item/stack/cable_coil/attack(mob/living/carbon/M, mob/user)
 	if(..())
 		return TRUE
-	
+
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
@@ -512,7 +512,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if(can_operate(H))
 				if(do_surgery(H,user,src))
 					return TRUE
-		else 
+		else
 			if(!BP_IS_ROBOTIC(affecting))
 				if(affecting.is_bandaged())
 					to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been closed.</span>")
@@ -559,7 +559,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
+		if(M.isSynthetic() && M == user && !(M.get_species() == SPECIES_TERMINATOR_IPC))
 			to_chat(user, span("warning", "You can't repair damage to your own body - it's against OH&S."))
 			return
 

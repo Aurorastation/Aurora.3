@@ -31,10 +31,10 @@ BLIND     // can't see anything
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/eyes.dmi',
-		"Vaurca Warform" = 'icons/mob/species/warriorform/eyes.dmi'
+		SPECIES_VOX = 'icons/mob/species/vox/eyes.dmi',
+		SPECIES_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
 		)
-	species_restricted = list("exclude","Vaurca Breeder")
+	species_restricted = list("exclude",SPECIES_VAURCA_BREEDER)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
 // Called in mob/RangedAttack() and mob/UnarmedAttack.

@@ -26,7 +26,8 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
-	blacklisted_species = list("Off-Worlder Human", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Hephaestus G2 Industrial Frame", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list(SPECIES_OFFWORLDER_HUMAN, SPECIES_ZHAN_KHAZAN_TAJARA
+, SPECIES_AUTAKH_UNATHI, SPECIES_DIONA, SPECIES_HEPHAESTUS_G2_IPC, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 
 /datum/outfit/job/hos
 	name = "Head of Security"
