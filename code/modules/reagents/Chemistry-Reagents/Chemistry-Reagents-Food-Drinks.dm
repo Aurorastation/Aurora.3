@@ -3731,16 +3731,16 @@
 	glass_name = "glass of Brandy"
 	glass_desc = "Cheap knock off for cognac."
 
-/datum/reagent/alcohol/ethanol/guinnes
+/datum/reagent/alcohol/ethanol/guinness
 	name = "Guinness"
-	id = "guinnes"
+	id = "guinness"
 	description = "Special Guinnes drink."
 	color = "#2E6671"
 	strength = 8
 	taste_description = "dryness"
 	carbonated = TRUE
 
-	glass_icon_state = "guinnes_glass"
+	glass_icon_state = "guinness_glass"
 	glass_name = "glass of Guinness"
 	glass_desc = "A glass of Guinness."
 
