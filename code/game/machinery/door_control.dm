@@ -97,9 +97,9 @@
 		var/obj/machinery/door/airlock/D = i
 		if(specialfunctions & OPEN)
 			if (D.density)
-				INVOKE_ASYNC(D, /obj/machinery/door/airlock/open)
+				INVOKE_ASYNC(D, /obj/machinery/door/airlock/.proc/open)
 			else
-				INVOKE_ASYNC(D, /obj/machinery/door/airlock/close)
+				INVOKE_ASYNC(D, /obj/machinery/door/airlock/.proc/close)
 
 		if(desiredstate == 1)
 			if(specialfunctions & IDSCAN)
@@ -137,15 +137,15 @@
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/blast))
 		var/obj/machinery/door/blast/M = i
 		if(M.density)
-			INVOKE_ASYNC(M, /obj/machinery/door/blast/open)
+			INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/open)
 		else
-			INVOKE_ASYNC(M, /obj/machinery/door/blast/close)
+			INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/close)
 
 /obj/machinery/button/remote/blast_door/open_only/trigger()
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/blast))
 		var/obj/machinery/door/blast/M = i
 		if(M.density)
-			INVOKE_ASYNC(M, /obj/machinery/door/blast/open)
+			INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/open)
 
 /*
 	Emitter remote control
@@ -175,7 +175,7 @@
 
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/blast))
 		var/obj/machinery/door/blast/M = i
-		INVOKE_ASYNC(M, /obj/machinery/door/blast/open)
+		INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/open)
 
 	sleep(20)
 
@@ -187,7 +187,7 @@
 
 	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/door/blast))
 		var/obj/machinery/door/blast/M = i
-		INVOKE_ASYNC(M, /obj/machinery/door/blast/close)
+		INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/close)
 
 	icon_state = "launcherbtt"
 	active = 0
