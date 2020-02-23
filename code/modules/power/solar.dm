@@ -10,8 +10,7 @@
 	density = 1
 	use_power = 0
 	idle_power_usage = 0
-	active_power_usage = 0
-	id = 0
+	active_power_usage = 0	
 	var/health = 10
 	var/obscured = 0
 	var/sunfrac = 0
@@ -279,7 +278,6 @@
 	density = 1
 	use_power = 1
 	idle_power_usage = 250
-	id = 0
 	var/cdir = 0
 	var/targetdir = 0		// target angle in manual tracking (since it updates every game minute)
 	var/gen = 0
