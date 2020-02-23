@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Character setup record setting options now have a clear button, submitting a blank record or clicking cancel will no longer clear it."
