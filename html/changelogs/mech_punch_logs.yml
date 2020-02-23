@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - admin: "Mech arm attacks now produce attack logs."
