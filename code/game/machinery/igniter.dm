@@ -9,6 +9,7 @@
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
+	button_control = TRUE
 	var/_wifi_id
 	var/datum/wifi/receiver/button/igniter/wifi_receiver
 
@@ -70,6 +71,7 @@
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 4
+	button_control = TRUE
 	var/_wifi_id
 	var/datum/wifi/receiver/button/sparker/wifi_receiver
 
@@ -151,14 +153,14 @@
 
 	active = 1
 	icon_state = "launcheract"
+	
+	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/sparker))
+		var/obj/machinery/sparker/M = i
+		INVOKE_ASYNC(M, /obj/machinery/sparker/proc/ignite)
 
-	for(var/obj/machinery/sparker/M in SSmachinery.all_machines)
-		if (M.id == id)
-			INVOKE_ASYNC(M, /obj/machinery/sparker/proc/ignite)
-
-	for(var/obj/machinery/igniter/M in SSmachinery.all_machines)
-		if(M.id == id)
-			M.ignite()
+	for (var/i in get_listeners_by_type("machinebtn_[id]", /obj/machinery/igniter))
+		var/obj/machinery/igniter/M = i
+		INVOKE_ASYNC(M, /obj/machinery/igniter/proc/ignite)
 
 	sleep(50)
 
