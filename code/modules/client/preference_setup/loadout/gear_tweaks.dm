@@ -44,9 +44,7 @@ Color adjustment
 /datum/gear_tweak/color/tweak_item(var/obj/item/I, var/metadata)
 	if(valid_colors && !(metadata in valid_colors))
 		return
-	I.color = metadata
-	if(istype(I))
-		I.update_icon()
+	I.color = sanitize_hexcolor(metadata, I.color)
 
 /*
 Path adjustment
