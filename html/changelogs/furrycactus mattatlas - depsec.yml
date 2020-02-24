@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Implements Departmental Security."
+  - rscadd: "Implements Departmental Security. Department Officers do not have absolute universal access to their departments. If you can't get into a room, then you're not supposed to. Do not demand to be let in to places that you lack access to, and remember that privacy laws and warrants are still a thing."
