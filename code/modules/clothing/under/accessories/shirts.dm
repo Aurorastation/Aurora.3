@@ -93,7 +93,8 @@
 /obj/item/clothing/accessory/silversun/random
 	name = "silversun floral shirt"
 
-/obj/item/clothing/accessory/silversun/random/New()
+/obj/item/clothing/accessory/silversun/random/Initialize()
+	. = ..()
 	if(prob(50))
 		icon_state = "hawaii_red"
 	color = color_rotation(rand(-11,12)*15)
