@@ -10,11 +10,11 @@
 	appearance_flags = NO_CLIENT_COLOR
 
 /turf/simulated/wall/cult/Initialize(mapload)
-	. = ..(mapload,"cult")
+	. = ..(mapload, "cult")
 	desc = "Hideous images dance beneath the surface."
 
 /turf/simulated/wall/cult_reinforced/Initialize(mapload)
-	. = ..(mapload,"cult","cult2")
+	. = ..(mapload, "cult", "cult_reinforced")
 	desc = "Hideous images dance beneath the surface."
 
 /turf/unsimulated/wall/cult
