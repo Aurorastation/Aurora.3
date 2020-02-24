@@ -175,6 +175,7 @@
 
 		H.Weaken(8)
 		H.stuttering = 20
+		H.confused = 10
 		to_chat(H, "<span class='danger'>You are blinded by [src]'s glare!</span>")
 		flick("flash", H.flash)
 		victims += H

@@ -313,31 +313,31 @@
 		if(panel_open)
 			switch(input(user, "What would you like to select?", "Machine Debug Software") as null|anything in list("SmartHeater", "MegaSeed Storage", "Slime Extract Storage", "Refrigerated Chemical Storage", "Refrigerated Virus Storage", "Drink Showcase", "Drying Rack"))
 				if("SmartHeater")
-					new /obj/machinery/smartfridge/foodheater(loc, make_from=src)
+					new /obj/machinery/smartfridge/foodheater(loc)
 					qdel(src)
 
 				if("MegaSeed Storage")
-					new /obj/machinery/smartfridge/seeds(loc, make_from=src)
+					new /obj/machinery/smartfridge/seeds(loc)
 					qdel(src)
 
 				if("Slime Extract Storage")
-					new /obj/machinery/smartfridge/secure/extract(loc, make_from=src)
+					new /obj/machinery/smartfridge/secure/extract(loc)
 					qdel(src)
 
 				if("Refrigerated Chemical Storage")
-					new /obj/machinery/smartfridge/secure/medbay(loc, make_from=src)
+					new /obj/machinery/smartfridge/secure/medbay(loc)
 					qdel(src)
 
 				if("Refrigerated Virus Storage")
-					new /obj/machinery/smartfridge/secure/virology(loc, make_from=src)
+					new /obj/machinery/smartfridge/secure/virology(loc)
 					qdel(src)
 
 				if("Drink Showcase")
-					new /obj/machinery/smartfridge/drinks(loc, make_from=src)
+					new /obj/machinery/smartfridge/drinks(loc)
 					qdel(src)
 
 				if("Drying Rack")
-					new /obj/machinery/smartfridge/drying_rack(loc, make_from=src)
+					new /obj/machinery/smartfridge/drying_rack(loc)
 					qdel(src)
 
 

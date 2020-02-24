@@ -300,7 +300,7 @@
 	if(D.build_path)
 		var/loc_offset = get_step(src, dir)
 		var/obj/new_item = D.Fabricate(loc_offset, src)
-		visible_message("\The [src] pings, indicating that \the [D] is complete.", "You hear a ping.")
+		visible_message("\The [src] pings, indicating that \the [new_item] is complete.", "You hear a ping.")
 		if(mat_efficiency != 1)
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)

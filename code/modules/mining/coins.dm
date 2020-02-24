@@ -3,7 +3,7 @@
 /obj/item/coin
 	icon = 'icons/obj/coins.dmi'
 	name = "Coin"
-	icon_state = "coin"
+	icon_state = "coin__heads"
 	randpixel = 8
 	desc = "A flat disc or piece of metal with an official stamp. An archaic type of currency."
 	flags = CONDUCT

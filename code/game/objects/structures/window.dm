@@ -448,8 +448,8 @@
 /obj/structure/window/phoronreinforced/skrell
 	name = "advanced borosilicate-alloy window"
 	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
-	basestate = "skrell_phoronwindow"
-	icon_state = "skrell_phoronwindow"
+	basestate = "phoronwindow"
+	icon_state = "phoronwindow"
 	maxhealth = 250
 
 /obj/structure/window/reinforced
