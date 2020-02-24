@@ -515,14 +515,6 @@
 	items = list()
 	result = /obj/item/reagent_containers/food/snacks/soup/slime
 
-
-/datum/recipe/boiledslimeextract
-	reagents = list("water" = 5)
-	items = list(
-		/obj/item/slime_extract
-	)
-	result = /obj/item/reagent_containers/food/snacks/boiledslimecore
-
 /datum/recipe/chocolateegg
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg,

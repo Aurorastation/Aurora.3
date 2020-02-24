@@ -790,10 +790,12 @@ var/list/name_to_material
 
 /material/cult
 	name = "cult"
-	display_name = "disturbing stone"
+	display_name = "daemon stone"
 	icon_base = "cult"
-	icon_colour = "#402821"
+	icon_colour = COLOR_CULT
 	icon_reinf = "reinf_cult"
+	dooropen_noise = 'sound/effects/doorcreaky.ogg'
+	door_icon_base = "resin"
 	shard_type = SHARD_STONE_PIECE
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
@@ -805,7 +807,8 @@ var/list/name_to_material
 	new /obj/effect/decal/cleanable/blood(target)
 
 /material/cult/reinf
-	name = "cult2"
+	name = "cult_reinforced"
+	icon_colour = COLOR_CULT_REINFORCED
 	display_name = "human remains"
 
 /material/cult/reinf/place_dismantled_product(var/turf/target)

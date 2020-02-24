@@ -190,6 +190,18 @@ BREATH ANALYZER
 	if(H.getBruteLoss() > 50)
 		dat += "<span class='scan_red'>[b]Severe anatomical damage detected.[endb]</span>"
 
+	var/rad_result = "Radiation: "
+	switch(H.total_radiation)
+		if(RADS_NONE)
+			rad_result += span("scan_green", "No radiation detected.")
+		if(RADS_LOW to RADS_MED)
+			rad_result += span("scan_orange", "Low levels of radiation poisoning detected.")
+		if(RADS_MED to RADS_HIGH)
+			rad_result += span("scan_orange", "Severe levels of radiation poisoning detected!")
+		if(RADS_HIGH to INFINITY)
+			rad_result += span("scan_red", "[b]Extreme levels of radiation poisoning detected![endb]")
+	dat += rad_result
+	
 	if(show_limb_damage)
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)
@@ -488,18 +500,12 @@ BREATH ANALYZER
 	if(T.slime_mutation[4] == T.colour)
 		to_chat(user, span("warning", "This slime cannot evolve any further."))
 	else
-		if(T.slime_mutation[3] == T.slime_mutation[4])
-			if(T.slime_mutation[2] == T.slime_mutation[1])
-				to_chat(user, span("notice", "Possible mutation: [T.slime_mutation[3]]"))
-				to_chat(user, span("notice", "Instability: [T.mutation_chance/2]% chance of mutation upon reproduction."))
-			else
-				to_chat(user, span("notice", "Possible mutations: [T.slime_mutation[1]], [T.slime_mutation[2]], [T.slime_mutation[3]] (x2)"))
-				to_chat(user, span("notice", "Instability: [T.mutation_chance]% chance of mutation upon reproduction."))
-		else
-			to_chat(user, span("notice", "Possible mutations: [T.slime_mutation[1]], [T.slime_mutation[2]], [T.slime_mutation[3]], [T.slime_mutation[4]]"))
-			to_chat(user, span("notice", "Instability: [T.mutation_chance]% chance of mutation upon reproduction."))
-	to_chat(user, span("notice", "**************************"))
-
+		var/list/poss_mutations = uniquelist(T.slime_mutation)
+		var/mutation_message = capitalize(english_list(poss_mutations))
+		to_chat(user, SPAN_NOTICE(mutation_message))
+		var/mut_chance = T.mutation_chance / (poss_mutations.len > 2 ? 1 : 2)
+		to_chat(user, SPAN_NOTICE("Instability: [mut_chance]% chance of mutation upon reproduction."))
+		to_chat(user, SPAN_NOTICE("**************************"))
 
 /obj/item/device/price_scanner
 	name = "price scanner"

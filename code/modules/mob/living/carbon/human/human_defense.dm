@@ -133,10 +133,10 @@ emp_act
 	var/protection = 0
 	var/list/protective_gear = list(head, wear_mask, wear_suit, w_uniform, gloves, shoes)
 	for(var/obj/item/clothing/gear in protective_gear)
-		if(gear.body_parts_covered & def_zone.body_part)
+		if(!isnull(gear.armor) && gear.body_parts_covered & def_zone.body_part)
 			protection = add_armor(protection, gear.armor[type])
 		for(var/obj/item/clothing/accessory/A in gear.accessories)
-			if(A.body_parts_covered & def_zone.body_part)
+			if(!isnull(A.armor) && A.body_parts_covered & def_zone.body_part)
 				protection = add_armor(protection, A.armor[type])
 
 	return protection

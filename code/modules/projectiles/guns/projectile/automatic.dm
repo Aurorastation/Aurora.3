@@ -85,6 +85,9 @@
 	magazine_type = /obj/item/ammo_magazine/mc9mmt/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mmt)
 
+/obj/item/gun/projectile/automatic/wt550/lethal
+	magazine_type = /obj/item/ammo_magazine/mc9mmt
+
 /obj/item/gun/projectile/automatic/wt550/update_icon()
 	..()
 	if(ammo_magazine)

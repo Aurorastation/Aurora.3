@@ -10,10 +10,11 @@
 // in this config! This config is viewable by VV.
 
 	// Keep this variable up to date for the parsers to work.
-	var/list/_variables_to_save = list("last_gamemode", "rounds_since_hard_restart")
+	var/list/_variables_to_save = list("last_gamemode", "rounds_since_hard_restart", "forced_awaymission")
 
 	var/last_gamemode = "extended"
 	var/rounds_since_hard_restart = 0
+	var/forced_awaymission = FALSE
 
 /datum/controller/subsystem/persistent_configuration/Initialize(timeofday)
 	SSpersist_config = src
@@ -57,6 +58,7 @@
 	master_mode = last_gamemode
 
 	IF_FOUND_CONV(decoded, rounds_since_hard_restart, text2num)
+	IF_FOUND_USE(decoded, forced_awaymission)
 
 #undef IF_FOUND_USE
 #undef IF_FOUND_CONV
