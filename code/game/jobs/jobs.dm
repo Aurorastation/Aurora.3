@@ -73,6 +73,7 @@ var/list/engineering_positions = list(
 	"Chief Engineer",
 	"Station Engineer",
 	"Atmospheric Technician",
+	"Engineering Officer",
 	"Engineering Apprentice"
 )
 
@@ -81,6 +82,7 @@ var/list/medical_positions = list(
 	"Chief Medical Officer",
 	"Physician",
 	"Surgeon",
+	"Medical Officer",
 	"Psychiatrist",
 	"Pharmacist",
 	"Paramedic",
@@ -91,6 +93,7 @@ var/list/medical_positions = list(
 var/list/science_positions = list(
 	"Research Director",
 	"Scientist",
+	"Science Officer",
 	"Roboticist",
 	"Xenobiologist",
 	"Lab Assistant"
@@ -100,6 +103,7 @@ var/list/science_positions = list(
 var/list/cargo_positions = list(
 	"Quartermaster",
 	"Cargo Technician",
+	"Supply Officer",
 	"Shaft Miner"
 )
 

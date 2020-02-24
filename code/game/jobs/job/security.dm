@@ -214,6 +214,9 @@
 	selection_color = "#FFA4A4"
 	economic_modifier = 4
 
+	total_positions = 1
+	spawn_positions = 1
+
 	minimum_character_age = 18
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
