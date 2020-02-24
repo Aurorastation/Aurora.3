@@ -92,37 +92,16 @@
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
 
-//scarves (fit in in mask slot)
-//None of these actually have on-mob sprites...
-/obj/item/clothing/mask/bluescarf
-	name = "blue neck scarf"
-	desc = "A blue neck scarf."
-	icon_state = "blueneckscarf"
-	item_state = "blueneckscarf"
+/obj/item/clothing/mask/trinary_mask
+	name = "trinary perfection mask"
+	desc = "A simple lace mask worn by IPCs and organics alike while within the churches of the Trinary Perfection."
+	icon_state = "trinary_mask"
+	item_state = "trinary_mask"
+	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
-	w_class = 2
-	gas_transfer_coefficient = 0.90
-
-/obj/item/clothing/mask/redscarf
-	name = "red scarf"
-	desc = "A red and white checkered neck scarf."
-	icon_state = "redwhite_scarf"
-	item_state = "redwhite_scarf"
-	body_parts_covered = FACE
-	item_flags = FLEXIBLEMATERIAL
-	w_class = 2
-	gas_transfer_coefficient = 0.90
-
-/obj/item/clothing/mask/greenscarf
-	name = "green scarf"
-	desc = "A green neck scarf."
-	icon_state = "green_scarf"
-	item_state = "green_scarf"
-	body_parts_covered = FACE
-	item_flags = FLEXIBLEMATERIAL
-	w_class = 2
-	gas_transfer_coefficient = 0.90
+	down_body_parts_covered = null
+	adjustable = TRUE
 
 /obj/item/clothing/mask/pig
 	name = "pig mask"
@@ -149,6 +128,65 @@
 	// The horse mask doesn't cause voice changes by default, the wizard spell changes the flag as necessary
 	say_messages = list("NEEIIGGGHHHH!", "NEEEIIIIGHH!", "NEIIIGGHH!", "HAAWWWWW!", "HAAAWWW!")
 	say_verbs = list("whinnies", "neighs", "says")
+
+/obj/item/clothing/mask/ai
+	name = "camera MIU"
+	desc = "Allows for direct mental connection to accessible camera networks."
+	icon_state = "s-ninja"
+	item_state = "s-ninja"
+	flags_inv = HIDEFACE
+	body_parts_covered = FACE|EYES
+	action_button_name = "Toggle MIU"
+	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
+	var/active = FALSE
+	var/mob/abstract/eye/cameranet/eye
+
+/obj/item/clothing/mask/ai/Initialize()
+	eye = new(src)
+	eye.name_suffix = "camera MIU"
+	. = ..()
+
+/obj/item/clothing/mask/ai/Destroy()
+	if(eye)
+		if(active)
+			disengage_mask(eye.owner)
+		qdel(eye)
+		eye = null
+
+	..()
+
+/obj/item/clothing/mask/ai/attack_self(mob/user)
+	if(user.incapacitated())
+		return
+	active = !active
+	to_chat(user, span("notice", "You [active ? "" : "dis"]engage \the [src]."))
+	if(active)
+		engage_mask(user)
+	else
+		disengage_mask(user)
+
+/obj/item/clothing/mask/ai/equipped(mob/user, slot)
+	..(user, slot)
+	engage_mask(user)
+
+/obj/item/clothing/mask/ai/dropped(mob/user)
+	..()
+	disengage_mask(user)
+
+/obj/item/clothing/mask/ai/proc/engage_mask(mob/user)
+	if(!active)
+		return
+	if(user.get_equipped_item(slot_wear_mask) != src)
+		return
+
+	eye.possess(user)
+	to_chat(eye.owner, span("notice", "You feel disoriented for a moment as your mind connects to the camera network."))
+
+/obj/item/clothing/mask/ai/proc/disengage_mask(mob/user)
+	if(user == eye.owner)
+		to_chat(eye.owner, span("notice", "You feel disoriented for a moment as your mind disconnects from the camera network."))
+		eye.release(eye.owner)
+		eye.forceMove(src)
 
 /obj/item/clothing/mask/offworlder
 	name = "pioneer's scarf"

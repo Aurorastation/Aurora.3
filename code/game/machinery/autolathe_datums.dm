@@ -46,6 +46,18 @@
 	path = /obj/machinery/floor_light
 	category = "General"
 
+/datum/autolathe/recipe/tile_circuit_blue
+	name = "circuit tile, blue"
+	path = /obj/item/stack/tile/circuit_blue
+	category = "General"
+	is_stack = 1
+
+/datum/autolathe/recipe/tile_circuit_green
+	name = "circuit tile, green"
+	path = /obj/item/stack/tile/circuit_green
+	category = "General"
+	is_stack = 1
+
 /datum/autolathe/recipe/extinguisher
 	name = "extinguisher"
 	path = /obj/item/extinguisher

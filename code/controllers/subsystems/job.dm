@@ -438,7 +438,7 @@
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		if(!src.megavend)
 			var/rank= src.mind.assigned_role
-			SSjobs.EquipRank(src, rank, 1)
+			SSjobs.EquipRank(src, rank, 1, megavend = TRUE)
 			src.megavend = TRUE
 	else
 		SSjobs.centcomm_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
@@ -704,6 +704,8 @@
 	H.ckey = null
 
 	// Delete the mob.
+	if(H.species)
+		H.species.handle_despawn(H)
 	qdel(H)
 
 // Equips a human-type with their custom loadout crap.

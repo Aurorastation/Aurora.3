@@ -8,7 +8,7 @@
 	speak_emote = list("chirps")
 	health = 100
 	maxHealth = 100
-	response_help  = "pets"
+	response_help   = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
 	emote_see = list("jiggles", "bounces in place")

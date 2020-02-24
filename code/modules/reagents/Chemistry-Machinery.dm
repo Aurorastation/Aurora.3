@@ -14,6 +14,8 @@
 	use_power = 1
 	idle_power_usage = 20
 	layer = 2.9
+	clicksound = "button"
+	
 	var/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
 	var/mode = TRUE

@@ -14,6 +14,7 @@
 	var/age_min = 17
 	var/age_max = 85
 	var/economic_modifier = 0
+	var/list/default_genders = list(MALE, FEMALE)
 
 	// Icon/appearance vars.
 	var/icobase = 'icons/mob/human_races/human/r_human.dmi'    // Normal icon set.
@@ -398,6 +399,8 @@
 			H.dna.SetSEState(MONKEYBLOCK,1)
 		else
 			H.dna.SetSEState(MONKEYBLOCK,0)
+	if(!H.client || !H.client.prefs || !H.client.prefs.gender)
+		H.gender = pick(default_genders)
 
 /datum/species/proc/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0) //Handles any species-specific death events (such as dionaea nymph spawns).
 	return
@@ -455,10 +458,8 @@
 
 	if(!H.druggy)
 		H.see_in_dark = (H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
-		if(H.seer)
-			var/obj/effect/rune/R = locate() in H.loc
-			if(R && R.word1 == cultwords["see"] && R.word2 == cultwords["hell"] && R.word3 == cultwords["join"])
-				H.see_invisible = SEE_INVISIBLE_CULT
+		if(H.seer && locate(/obj/effect/rune/see_invisible) in get_turf(H))
+			H.see_invisible = SEE_INVISIBLE_CULT
 		if(H.see_invisible != SEE_INVISIBLE_CULT && H.equipment_see_invis)
 			H.see_invisible = min(H.see_invisible, H.equipment_see_invis)
 
@@ -580,3 +581,6 @@
 
 /datum/species/proc/can_commune()
 	return FALSE
+
+/datum/species/proc/handle_despawn()
+	return

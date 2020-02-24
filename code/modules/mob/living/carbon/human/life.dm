@@ -61,7 +61,7 @@
 		//Updates the number of stored chemicals for powers
 		handle_changeling()
 
-		//Organs and blood
+		//Organs
 		handle_organs()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
@@ -374,7 +374,8 @@
 	else
 		var/loc_temp = T0C
 		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			loc_temp = loc:air_contents.temperature
+			var/obj/machinery/atmospherics/unary/cryo_cell/C = loc
+			loc_temp = C.air_contents?.temperature
 		else
 			loc_temp = environment.temperature
 
@@ -749,10 +750,10 @@
 			for(var/atom/a in hallucinations)
 				qdel(a)
 
-		if(get_shock() >= species.total_health)
+		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
-				src.visible_message("<B>[src]</B> [species.halloss_message].")
+				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
 		if(paralysis || sleeping)
@@ -784,7 +785,7 @@
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
-			willfully_sleeping = 0
+			willfully_sleeping = FALSE
 
 		// Check everything else.
 
@@ -1082,7 +1083,6 @@
 		mind.changeling.regenerate()
 
 /mob/living/carbon/human/proc/handle_shock()
-	..()
 	if(status_flags & GODMODE)
 		return 0
 	if(!can_feel_pain())

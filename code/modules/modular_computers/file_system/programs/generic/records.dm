@@ -5,10 +5,10 @@
 
 	program_icon_state = "generic"
 	color = LIGHT_COLOR_BLUE
-	available_on_ntnet = 0
+	available_on_ntnet = FALSE
 	size = 6
 
-	requires_ntnet = 1
+	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 
@@ -18,7 +18,7 @@
 	var/datum/record/virus/active_virus
 	var/listener/record/rconsole/listener
 	var/isEditing = FALSE
-	var/authenticated = 0
+	var/authenticated = FALSE
 	var/default_screen = "general"
 	var/record_prefix = ""
 	var/typechoices = list(
@@ -38,7 +38,7 @@
 
 	required_access_run = list(access_medical_equip, access_forensics_lockers, access_detective, access_hop)
 	required_access_download = access_heads
-	available_on_ntnet = 1
+	available_on_ntnet = TRUE
 
 	records_type = RECORD_MEDICAL | RECORD_VIRUS
 	edit_type = RECORD_MEDICAL
@@ -54,7 +54,7 @@
 
 	required_access_run = list(access_security, access_forensics_lockers, access_lawyer, access_hop)
 	required_access_download = access_heads
-	available_on_ntnet = 1
+	available_on_ntnet = TRUE
 
 	records_type = RECORD_SECURITY
 	edit_type = RECORD_SECURITY
@@ -70,7 +70,7 @@
 
 	required_access_run = list(access_heads, access_lawyer)
 	required_access_download = access_heads
-	available_on_ntnet = 1
+	available_on_ntnet = TRUE
 
 	records_type = RECORD_GENERAL | RECORD_SECURITY
 	edit_type = RECORD_GENERAL
@@ -123,8 +123,8 @@
 	LAZYINITLIST(data["allrecords_locked"])
 	LAZYINITLIST(data["record_viruses"])
 	if(authenticated)
-		if(data["allrecords"].len != SSrecords.records.len)
-			data["allrecords"].Cut()
+		if(LAZYLEN(data["allrecords"]) != SSrecords.records.len)
+			data["allrecords"] = list()
 		for(var/tR in sortRecord(SSrecords.records))
 			var/datum/record/general/R = tR
 			LAZYINITLIST(data["allrecords"][R.id])
@@ -140,8 +140,8 @@
 
 
 		if(records_type & RECORD_LOCKED)
-			if(data["allrecords_locked"].len != SSrecords.records_locked.len)
-				data["allrecords_locked"].Cut()
+			if(LAZYLEN(data["allrecords_locked"]) != SSrecords.records_locked.len)
+				data["allrecords_locked"] = list()
 			for(var/tR in sortRecord(SSrecords.records_locked))
 				var/datum/record/general/R = tR
 				LAZYINITLIST(data["allrecords_locked"][R.id])
@@ -150,8 +150,8 @@
 				VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["rank"], R.rank, ., data)
 
 		if(records_type & RECORD_VIRUS)
-			if(data["record_viruses"].len != SSrecords.viruses.len)
-				data["record_viruses"].Cut()
+			if(LAZYLEN(data["record_viruses"]) != SSrecords.viruses.len)
+				data["record_viruses"] = list()
 			for(var/tR in sortRecord(SSrecords.viruses))
 				var/datum/record/virus/R = tR
 				LAZYINITLIST(data["record_viruses"]["[R.id]"])
@@ -192,7 +192,7 @@
 
 /datum/computer_file/program/records/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 	var/datum/vueui/ui = href_list["vueui"]
 	if(!istype(ui))
 		return
@@ -203,7 +203,7 @@
 			to_chat(usr, "[src] beeps: Access Denied")
 		SSvueui.check_uis_for_change(src)
 	if(href_list["logout"])
-		authenticated = 0
+		authenticated = FALSE
 		active = null
 		active_virus = null
 		ui.remove_asset("front")
@@ -284,7 +284,8 @@
 	if(href_list["print"])
 		if(!(href_list["print"] in list("active", "active_virus")))
 			return
-		if(computer?.nano_printer && vars[href_list["print"]])
+		var/datum/record/R = vars[href_list["print"]]
+		if(computer?.nano_printer && R)
 			var/excluded = list()
 			if(href_list["print"] == "active")
 				if(!(records_type & RECORD_GENERAL))
@@ -293,8 +294,8 @@
 					excluded += "security"
 				if(!(records_type & RECORD_MEDICAL))
 					excluded += "medical"
-			var/out = vars[href_list["print"]].Printify(excluded)
-			computer.nano_printer.print_text(out, "[record_prefix]Record ([vars[href_list["print"]].name])")
+			var/out = R.Printify(excluded)
+			computer.nano_printer.print_text(out, "[record_prefix]Record ([R.name])")
 
 
 /datum/computer_file/program/records/proc/canEdit(list/key)

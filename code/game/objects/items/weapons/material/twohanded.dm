@@ -41,7 +41,6 @@
 /obj/item/material/twohanded/proc/wield()
 	wielded = 1
 	force = force_wielded
-	name = "[base_name] (Wielded)"
 	update_icon()
 
 /obj/item/material/twohanded/update_force()
@@ -557,8 +556,8 @@
 	desc = "An old farming tool, not something you would find at hydroponics."
 
 /obj/item/material/twohanded/zweihander
-	icon_state = "zweihander"
-	base_icon = "zweihander"
+	icon_state = "zweihander0"
+	base_icon = "zweihander0"
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
 	force = 20
