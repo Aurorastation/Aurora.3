@@ -575,7 +575,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/melonliquor,
 		/obj/item/reagent_containers/food/drinks/bottle/pwine,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy,
-		/obj/item/reagent_containers/food/drinks/bottle/guinnes,
+		/obj/item/reagent_containers/food/drinks/bottle/guinness,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette,
 		/obj/item/reagent_containers/food/drinks/bottle/cremewhite,
