@@ -159,7 +159,7 @@
     desc = "Robes worn by those who serve The Trinary Perfection."
     icon_state = "trinary_robes"
     item_state = "trinary_robes"
-	
+
 /*
  * Misc
  */
@@ -198,18 +198,6 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.75
-
-/obj/item/clothing/suit/browncoat
-	name = "brown leather coat"
-	desc = "A long, brown leather coat."
-	icon_state = "browncoat"
-	item_state = "browncoat"
-
-/obj/item/clothing/suit/neocoat
-	name = "black coat"
-	desc = "A flowing, black coat."
-	icon_state = "neocoat"
-	item_state = "neocoat"
 
 /obj/item/clothing/suit/xenos
 	name = "xenos suit"

@@ -20,7 +20,7 @@
 		model_info = model
 		var/datum/robolimb/R = all_robolimbs[model]
 		if(R)
-			name = "[R.company] [initial(name)]"
+			name = "[R.company] robot [initial(name)]"
 			desc = "[R.desc]"
 			linked_frame = R.linked_frame
 			if(icon_state in icon_states(R.icon))

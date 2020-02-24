@@ -74,7 +74,7 @@
 	stamina_recovery = 3
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP
+	flags = NO_SCAN | NO_SLIP | NO_ARTERIES
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite
@@ -135,7 +135,7 @@
 	warning_high_pressure = 3250 //Default 325
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE
+	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/rebel_yell,

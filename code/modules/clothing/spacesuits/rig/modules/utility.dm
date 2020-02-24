@@ -114,7 +114,7 @@
 /obj/item/rig_module/device/rfd_c
 	name = "RFD-C mount"
 	desc = "A cell-powered rapid construction device for a hardsuit."
-	icon_state = "rfd"
+	icon_state = "rcd"
 	interface_name = "mounted RFD-C"
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	usable = 1

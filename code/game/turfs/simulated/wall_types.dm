@@ -10,11 +10,11 @@
 	appearance_flags = NO_CLIENT_COLOR
 
 /turf/simulated/wall/cult/Initialize(mapload)
-	. = ..(mapload,"cult")
+	. = ..(mapload, "cult")
 	desc = "Hideous images dance beneath the surface."
 
 /turf/simulated/wall/cult_reinforced/Initialize(mapload)
-	. = ..(mapload,"cult","cult2")
+	. = ..(mapload, "cult", "cult_reinforced")
 	desc = "Hideous images dance beneath the surface."
 
 /turf/unsimulated/wall/cult
@@ -26,13 +26,6 @@
 	smoothing_hints = SMOOTHHINT_TARGETS_NOT_UNIQUE | SMOOTHHINT_ONLY_MATCH_TURF
 	icon_state = "cult"
 	appearance_flags = NO_CLIENT_COLOR
-
-/turf/simulated/wall/rusty
-	icon_state = "arust"
-
-/turf/simulated/wall/rusty/Initialize(mapload)
-	. = ..(mapload,"rust")
-	desc = "Rust stains this ancient wall."
 
 /turf/simulated/wall/vaurca/Initialize(mapload)
 	. = ..(mapload,"alien biomass")

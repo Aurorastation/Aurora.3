@@ -127,5 +127,5 @@
 	name = "mysterious scroll"
 	desc = "A scroll filled with strange markings. It seems to be drawings of some sort of martial art."
 	icon = 'icons/obj/wizard.dmi'
-	icon_state = "scroll2"
+	icon_state = "scroll"
 	martial_art = /datum/martial_art/the_sleeping_carp

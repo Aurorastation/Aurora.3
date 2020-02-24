@@ -1018,7 +1018,6 @@
 /obj/machinery/atmospherics/pipe/cap/visible/scrubbers
 	name = "scrubbers pipe endcap"
 	desc = "An endcap for scrubbers pipes"
-	icon_state = "cap-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
 	layer = 2.38
 	icon_connect_type = "-scrubbers"
@@ -1027,7 +1026,6 @@
 /obj/machinery/atmospherics/pipe/cap/visible/supply
 	name = "supply pipe endcap"
 	desc = "An endcap for supply pipes"
-	icon_state = "cap-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	layer = 2.39
 	icon_connect_type = "-supply"
@@ -1041,7 +1039,6 @@
 /obj/machinery/atmospherics/pipe/cap/hidden/scrubbers
 	name = "scrubbers pipe endcap"
 	desc = "An endcap for scrubbers pipes"
-	icon_state = "cap-f-scrubbers"
 	connect_types = CONNECT_TYPE_SCRUBBER
 	layer = 2.38
 	icon_connect_type = "-scrubbers"
@@ -1050,7 +1047,6 @@
 /obj/machinery/atmospherics/pipe/cap/hidden/supply
 	name = "supply pipe endcap"
 	desc = "An endcap for supply pipes"
-	icon_state = "cap-f-supply"
 	connect_types = CONNECT_TYPE_SUPPLY
 	layer = 2.39
 	icon_connect_type = "-supply"
