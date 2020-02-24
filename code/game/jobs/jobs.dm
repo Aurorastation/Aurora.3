@@ -15,7 +15,6 @@ var/const/INTERN_SEC		=(1<<10)
 var/const/INTERN_ENG		=(1<<11)
 var/const/FORENSICS			=(1<<12)
 var/const/ENGISEC			=(1<<13)
-var/const/CARGOSEC			=(1<<14)			
 
 
 var/const/MEDSCI			=(1<<1)
@@ -55,6 +54,7 @@ var/const/MIME				=(1<<12)
 var/const/MERCHANT			=(1<<13)
 var/const/JOURNALIST		=(1<<14)
 var/const/ASSISTANT			=(1<<15)
+var/const/CARGOSEC			=(1<<16)
 
 
 var/list/assistant_occupations = list() //Leaving this on one line stops Travis complaining ~Scopes
