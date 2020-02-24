@@ -586,7 +586,6 @@
 	SearchVar(MINER)
 	SearchVar(LAWYER)
 	SearchVar(CHAPLAIN)
-	SearchVar(CLOWN)
 	SearchVar(MIME)
 	SearchVar(MERCHANT)
 	SearchVar(ASSISTANT)
