@@ -175,7 +175,7 @@
 /obj/item/reagent_containers/food/drinks/hotcider
 	name = "hot cider"
 	desc = "A hearty apple drink, spiced just right."
-	icon_state = "soy_latte"
+	icon_state = "soy_latte_vended"
 	item_state = "contvapour"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
