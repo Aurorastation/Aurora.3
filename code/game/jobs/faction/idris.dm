@@ -55,7 +55,7 @@
 		"General Officer" = /datum/outfit/job/officer/idris,
 		"Medical Officer" = /datum/outfit/job/officer/idris/med,
 		"Science Officer" = /datum/outfit/job/officer/idris/sci,
-		"Supply Officer" = /datum/outfit/job/officer/idris/sup,
+		"Supply Officer" = /datum/outfit/job/officer/idris/cargo,
 		"Forensic Technician" = /datum/outfit/job/forensics/idris,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,

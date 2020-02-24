@@ -43,7 +43,7 @@
 		"General Officer" = /datum/outfit/job/officer/eridani,
 		"Medical Officer" = /datum/outfit/job/officer/eridani/med,
 		"Science Officer" = /datum/outfit/job/officer/eridani/sci,
-		"Supply Officer" = /datum/outfit/job/officer/eridani/sup,
+		"Supply Officer" = /datum/outfit/job/officer/eridani/cargo,
 		"Warden" = /datum/outfit/job/warden/eridani,
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,

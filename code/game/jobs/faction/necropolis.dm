@@ -55,7 +55,7 @@
 		"General Officer" = /datum/outfit/job/officer/necropolis,
 		"Medical Officer" = /datum/outfit/job/officer/necropolis/med,
 		"Science Officer" = /datum/outfit/job/officer/necropolis/sci,
-		"Supply Officer" = /datum/outfit/job/officer/necropolis/sup,
+		"Supply Officer" = /datum/outfit/job/officer/necropolis/cargo,
 		"Warden" = /datum/outfit/job/warden/necropolis,
 		"Physician" = /datum/outfit/job/doctor/necropolis,
 		"Surgeon" = /datum/outfit/job/doctor/necropolis,
