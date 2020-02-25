@@ -438,6 +438,7 @@ datum/access/access_cargo_order
 	region = ACCESS_REGION_SUPPLY
 
 var/const/access_treatment_areas = 75
+datum/access/access_treatment_areas
 	id = access_treatment_areas
 	desc = "Treatment Areas"
 	region = ACCESS_REGION_MEDBAY
