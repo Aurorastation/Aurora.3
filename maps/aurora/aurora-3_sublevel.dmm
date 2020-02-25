@@ -2522,7 +2522,7 @@
 	},
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Storage";
-	req_access = list(10)
+	req_access = list(11)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2889,7 +2889,9 @@
 /area/mine/unexplored)
 "aga" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/structure/closet/secure_closet/engineering_welding{
+	req_access = list(11)
+	},
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
 /turf/simulated/floor/tiled,
@@ -6278,7 +6280,8 @@
 /area/maintenance/engsublevel)
 "ams" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(11,24)
+	req_access = list(10);
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10022,7 +10025,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(12)
+	req_access = list(10)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19738,7 +19741,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/medical{
 	name = "Staff Wing";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -22683,7 +22686,7 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Staff Facilities";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/medical)
@@ -23869,7 +23872,7 @@
 "aVa" = (
 /obj/machinery/door/airlock/medical{
 	name = "Staff Showers";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/freezer,
@@ -23877,7 +23880,7 @@
 "aVb" = (
 /obj/machinery/door/airlock/medical{
 	name = "Staff Hygiene Facilities";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -24330,7 +24333,7 @@
 	},
 /obj/machinery/door/airlock/glass_medical{
 	name = "Briefing Room";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
@@ -25356,7 +25359,7 @@
 "bbR" = (
 /obj/machinery/door/airlock/medical{
 	name = "Staff Dormitories";
-	req_access = list(66)
+	req_access = list(5)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -29008,7 +29011,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Storage";
-	req_one_access = list(11,24)
+	req_access = list(11);
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -33211,7 +33215,7 @@
 /area/medical/patient_d)
 "nJV" = (
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(12)
+	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -34386,7 +34390,8 @@
 /area/mine/unexplored)
 "qWW" = (
 /obj/machinery/door/airlock/maintenance{
-	req_one_access = list(11,24)
+	req_access = list(10);
+	req_one_access = null
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -34756,20 +34761,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantine)
-"rJP" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/structure/bed/chair/office{
-	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Medical Officer"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
 "rKS" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -35568,6 +35559,20 @@
 /obj/structure/closet/wardrobe/white,
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantine)
+"tMD" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Medical Officer"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "tMU" = (
 /obj/machinery/camera/network/research_outpost{
 	c_tag = "Research Sublevel - Artifact Storage";
@@ -36021,7 +36026,7 @@
 "uGF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_access = list(12)
+	req_access = list(10)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -78335,7 +78340,7 @@ aYA
 aYR
 aXM
 aXM
-rJP
+tMD
 aSM
 aaa
 aaa

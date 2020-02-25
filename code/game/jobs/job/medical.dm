@@ -318,8 +318,8 @@
 
 	minimum_character_age = 18
 
-	access = list (access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_morgue, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
-	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_morgue, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
+	access = list (access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_morgue, access_external_airlocks, access_psychiatrist, access_paramedic)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_morgue, access_external_airlocks, access_psychiatrist, access_paramedic)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer/med
 

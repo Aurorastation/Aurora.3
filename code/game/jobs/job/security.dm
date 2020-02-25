@@ -76,7 +76,7 @@
 
 	minimum_character_age = 25
 
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/warden
@@ -125,7 +125,7 @@
 
 	minimum_character_age = 25
 
-	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective, access_weapons)
+	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_detective, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_morgue, access_detective, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/detective
@@ -166,7 +166,7 @@
 
 	minimum_character_age = 25
 
-	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
+	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
 	alt_titles = list("Crime Scene Investigator")
 	minimal_player_age = 3
@@ -219,7 +219,7 @@
 
 	minimum_character_age = 18
 
-	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
+	access = list(access_security, access_eva, access_sec_doors, access_brig, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer
@@ -261,7 +261,7 @@
 	spawn_positions = 2
 	supervisors = "the Head of Security"
 	selection_color = "#FFA4A4"
-	access = list(access_security, access_sec_doors, access_maint_tunnels)
+	access = list(access_security, access_sec_doors)
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
 

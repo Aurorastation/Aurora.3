@@ -19,11 +19,11 @@
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload)
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_rnd_console)
 	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload)
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_rnd_console)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
@@ -127,7 +127,7 @@
 	minimum_character_age = 25
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
-	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
+	minimal_access = list(access_eva, access_engine, access_engine_equip, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
 	outfit = /datum/outfit/job/atmos
 
 /datum/outfit/job/atmos
@@ -197,8 +197,8 @@
 
 	minimum_character_age = 18
 
-	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_maint_tunnels, access_construction)
-	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_maint_tunnels, access_construction)
+	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_construction)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_construction)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer/eng
 

@@ -413,6 +413,30 @@ var/const/access_journalist = 70//journalist's office access
 	desc = "Journalist Office"
 	region = ACCESS_REGION_GENERAL
 
+var/const/access_rnd_console = 71
+datum/access/access_rnd_console
+	id = access_rnd_console
+	desc = "R&D Console"
+	region = ACCESS_REGION_RESEARCH
+
+var/const/access_mech_fab = 72
+datum/access/access_mech_fab
+	id = access_mech_fab
+	desc = "Robotics Fabricator"
+	region = ACCESS_REGION_RESEARCH
+
+var/const/access_warehouse = 73
+datum/access/access_warehouse
+	id = access_warehouse
+	desc = "Warehouse"
+	region = ACCESS_REGION_SUPPLY
+
+var/const/access_cargo_order = 74
+datum/access/access_cargo_order
+	id = access_cargo_order
+	desc = "Cargo Order"
+	region = ACCESS_REGION_SUPPLY
+
 /******************
 * Central Command *
 ******************/

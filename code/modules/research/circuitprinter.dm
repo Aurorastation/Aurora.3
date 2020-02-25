@@ -20,6 +20,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 2500
+	req_access = list(access_rnd_console)	
 
 	component_types = list(
 		/obj/item/circuitboard/circuit_imprinter,

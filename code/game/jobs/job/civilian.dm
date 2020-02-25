@@ -119,8 +119,8 @@
 
 	minimum_character_age = 22
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_warehouse, access_cargo_order)
+	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_warehouse, access_cargo_order)
 
 	ideal_character_age = 40
 
@@ -151,8 +151,8 @@
 
 	minimum_character_age = 18
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_warehouse, access_cargo_order)
+	minimal_access = list(access_cargo, access_cargo_bot, access_mailsorting, access_warehouse, access_cargo_order)
 	outfit = /datum/outfit/job/cargo_tech
 
 /datum/outfit/job/cargo_tech
@@ -218,8 +218,8 @@
 
 	minimum_character_age = 18
 
-	access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_maint_tunnels, access_mailsorting, access_cargo, access_mining, access_mining_station)
-	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_maint_tunnels, access_mailsorting, access_cargo, access_mining, access_mining_station)
+	access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_mailsorting, access_cargo, access_mining, access_mining_station)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_mailsorting, access_cargo, access_mining, access_mining_station)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer/cargo
 

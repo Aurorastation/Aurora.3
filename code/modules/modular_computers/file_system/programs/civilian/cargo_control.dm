@@ -6,7 +6,7 @@
 	requires_ntnet = 1
 	available_on_ntnet = 1
 	required_access_download = access_hop
-	required_access_run = access_cargo
+	required_access_run = access_cargo_order
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_TELESCREEN
 	nanomodule_path = /datum/nano_module/program/civilian/cargocontrol/
 
