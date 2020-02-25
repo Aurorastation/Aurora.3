@@ -24,6 +24,10 @@
 
 	allowed_role_types = list(
 		/datum/job/officer,
+		/datum/job/officer/med,
+		/datum/job/officer/cargo,
+		/datum/job/officer/eng,
+		/datum/job/officer/sci,
 		/datum/job/warden,
 		/datum/job/forensics,
 		/datum/job/paramedic,
