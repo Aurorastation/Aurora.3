@@ -412,6 +412,13 @@
 
 	if(recoil)
 		addtimer(CALLBACK(GLOBAL_PROC, /proc/shake_camera, user, recoil+1, recoil), 0, TIMER_UNIQUE)
+
+	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+		var/mob/living/carbon/human/H = user
+		if(istype(H.back,/obj/item/rig))
+			var/obj/item/rig/R = H.back
+			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
+				S.deactivate()
 	update_icon()
 
 

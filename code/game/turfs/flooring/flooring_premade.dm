@@ -135,7 +135,7 @@
 
 /turf/simulated/floor/tiled/asteroid
 	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "asteroidfloor"
+	icon_state = "asteroid"
 	initial_flooring = /decl/flooring/tiling/asteroid
 
 /turf/simulated/floor/plating/asteroid

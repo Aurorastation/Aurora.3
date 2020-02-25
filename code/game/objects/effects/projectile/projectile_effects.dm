@@ -1,7 +1,7 @@
 /obj/effect/projectile
 	name = "pew"
 	icon = 'icons/obj/projectiles.dmi'
-	icon_state = "nothing"
+	icon_state = null
 	layer = 4.5
 	anchored = TRUE
 	unacidable = TRUE

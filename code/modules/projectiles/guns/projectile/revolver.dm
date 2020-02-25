@@ -10,6 +10,7 @@
 	handle_casings = CYCLE_CASINGS
 	max_shells = 8
 	ammo_type = /obj/item/ammo_casing/a357
+	magazine_type = /obj/item/ammo_magazine/a357
 	fire_sound = 'sound/weapons/gunshot/gunshot_revolver.ogg'
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 
@@ -47,6 +48,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_mateba.ogg'
 	ammo_type = /obj/item/ammo_casing/a454
+	magazine_type = /obj/item/ammo_magazine/a454
 
 /obj/item/gun/projectile/revolver/detective
 	name = "revolver"
@@ -60,6 +62,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = /obj/item/ammo_magazine/c38
 
 /obj/item/gun/projectile/revolver/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -90,6 +93,7 @@
 	item_state = "deckard"
 	caliber = "38"
 	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = null
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/gun/projectile/revolver/deckard/update_icon()
@@ -120,6 +124,7 @@
 	load_method = SINGLE_CASING
 	max_shells = 2
 	ammo_type = /obj/item/ammo_casing/a357
+	magazine_type = null
 
 /obj/item/gun/projectile/revolver/capgun
 	name = "cap gun"
@@ -157,6 +162,7 @@
 	caliber = "38"
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = /obj/item/ammo_magazine/c38
 	var/secondary_max_shells = 1
 	var/secondary_caliber = "shotgun"
 	var/secondary_ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -249,6 +255,7 @@
 	load_method = SINGLE_CASING
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = null
 
 	description_fluff = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
 	mechanism, with the need to manually eject each of the used cartridges, and reload one cartridge at a time through a loading gate. However, their cheap manufacturing cost has \
