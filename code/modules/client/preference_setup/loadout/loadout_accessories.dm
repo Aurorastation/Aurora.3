@@ -94,7 +94,7 @@
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("General Officer", "Medical Officer", "Science Officer", "Engineering Officer", "Supply Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
@@ -114,7 +114,7 @@
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("General Officer", "Medical Officer", "Science Officer", "Engineering Officer", "Supply Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
@@ -231,7 +231,7 @@
 /datum/gear/accessory/holobadge
 	display_name = "badge, holo"
 	path = /obj/item/clothing/accessory/badge/holo
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
+	allowed_roles = list("General Officer", "Medical Officer", "Science Officer", "Engineering Officer", "Supply Officer","Head of Security", "Warden", "Security Cadet")
 
 /datum/gear/accessory/holobadge/New()
 	..()

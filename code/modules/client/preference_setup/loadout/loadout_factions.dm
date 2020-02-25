@@ -63,7 +63,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/necrosec
 	slot = slot_tie
 	faction = "Necropolis Industries"
-	allowed_roles = list("Security Officer","Forensic Technician","Warden")
+	allowed_roles = list("General Officer", "Medical Officer", "Science Officer", "Engineering Officer", "Supply Officer","Forensic Technician","Warden")
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
@@ -75,4 +75,4 @@
 	display_name = "idris security sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
-	allowed_roles = list("Security Officer","Detective")
+	allowed_roles = list("General Officer", "Medical Officer", "Science Officer", "Engineering Officer", "Supply Officer","Detective")

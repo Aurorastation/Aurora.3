@@ -85,7 +85,7 @@
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
+	allowed_roles = list("General Officer", "Medical Officer", "Science Officer", "Engineering Officer", "Supply Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
 
 /datum/gear/head/sec
 	display_name = "cap, security"
