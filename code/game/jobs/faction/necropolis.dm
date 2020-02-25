@@ -73,6 +73,17 @@
 		"Corporate Liaison" = /datum/outfit/job/representative/necropolis
 	)
 
+	job_species_blacklist = list(
+		/datum/job/representative = list(
+			/datum/species/human,
+			/datum/species/skrell,
+			/datum/species/unathi,
+			/datum/species/diona
+		)
+	)
+
+
+
 /datum/outfit/job/officer/necropolis
 	name = "Security Officer - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
