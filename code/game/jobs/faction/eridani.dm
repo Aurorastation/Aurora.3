@@ -45,9 +45,10 @@
 
 	titles_to_loadout = list(
 		"General Officer" = /datum/outfit/job/officer/eridani,
-		"Medical Officer" = /datum/outfit/job/officer/eridani/med,
-		"Science Officer" = /datum/outfit/job/officer/eridani/sci,
-		"Supply Officer" = /datum/outfit/job/officer/eridani/cargo,
+		"Medical Officer" = /datum/outfit/job/officer/med/eridani,
+		"Science Officer" = /datum/outfit/job/officer/sci/eridani,
+		"Supply Officer" = /datum/outfit/job/officer/cargo/eridani,
+		"Engineering Officer" = /datum/outfit/job/officer/eng/eridani,
 		"Warden" = /datum/outfit/job/warden/eridani,
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
@@ -61,29 +62,37 @@
 	uniform = /obj/item/clothing/under/rank/security/eridani
 	id = /obj/item/card/id/eridani
 
-/datum/outfit/job/officer/eridani/eng
+/datum/outfit/job/officer/eng/eridani
 	name = "Engineering Officer - Eridani"
 
 	accessory = /obj/item/clothing/accessory/armband/engine
 	l_ear = /obj/item/device/radio/headset/headset_eng/sec
+	uniform = /obj/item/clothing/under/rank/security/eridani
+	id = /obj/item/card/id/eridani
 
-/datum/outfit/job/officer/eridani/med
+/datum/outfit/job/officer/med/eridani
 	name = "Medical Officer - Eridani"
 
 	accessory = /obj/item/clothing/accessory/armband/medgreen
 	l_ear = /obj/item/device/radio/headset/headset_med/sec
+	uniform = /obj/item/clothing/under/rank/security/eridani
+	id = /obj/item/card/id/eridani
 
-/datum/outfit/job/officer/eridani/sci
+/datum/outfit/job/officer/sci/eridani
 	name = "Science Officer - Eridani"
 
 	accessory = /obj/item/clothing/accessory/armband/science
 	l_ear = /obj/item/device/radio/headset/headset_sci/sec
+	uniform = /obj/item/clothing/under/rank/security/eridani
+	id = /obj/item/card/id/eridani
 
-/datum/outfit/job/officer/eridani/cargo
+/datum/outfit/job/officer/cargo/eridani
 	name = "Supply Officer - Eridani"
 
 	accessory = /obj/item/clothing/accessory/armband/cargo
 	l_ear = /obj/item/device/radio/headset/headset_cargo/sec
+	uniform = /obj/item/clothing/under/rank/security/eridani
+	id = /obj/item/card/id/eridani
 
 /datum/outfit/job/warden/eridani
 	name = "Warden - Eridani"

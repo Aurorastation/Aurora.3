@@ -57,9 +57,10 @@
 
 	titles_to_loadout = list(
 		"General Officer" = /datum/outfit/job/officer/necropolis,
-		"Medical Officer" = /datum/outfit/job/officer/necropolis/med,
-		"Science Officer" = /datum/outfit/job/officer/necropolis/sci,
-		"Supply Officer" = /datum/outfit/job/officer/necropolis/cargo,
+		"Medical Officer" = /datum/outfit/job/officer/med/necropolis,
+		"Science Officer" = /datum/outfit/job/officer/sci/necropolis,
+		"Supply Officer" = /datum/outfit/job/officer/cargo/necropolis,
+		"Engineering Officer" = /datum/outfit/job/officer/eng/necropolis,
 		"Warden" = /datum/outfit/job/warden/necropolis,
 		"Physician" = /datum/outfit/job/doctor/necropolis,
 		"Surgeon" = /datum/outfit/job/doctor/necropolis,
@@ -84,29 +85,37 @@
 	uniform = /obj/item/clothing/under/rank/security/necropolis
 	id = /obj/item/card/id/necropolis/sec
 
-/datum/outfit/job/officer/necropolis/eng
+/datum/outfit/job/officer/eng/necropolis
 	name = "Engineering Officer - Necropolis"
 
 	accessory = /obj/item/clothing/accessory/armband/engine
 	l_ear = /obj/item/device/radio/headset/headset_eng/sec
+	uniform = /obj/item/clothing/under/rank/security/necropolis
+	id = /obj/item/card/id/necropolis/sec
 
-/datum/outfit/job/officer/necropolis/med
+/datum/outfit/job/officer/med/necropolis
 	name = "Medical Officer - Necropolis"
 
 	accessory = /obj/item/clothing/accessory/armband/medgreen
 	l_ear = /obj/item/device/radio/headset/headset_med/sec
+	uniform = /obj/item/clothing/under/rank/security/necropolis
+	id = /obj/item/card/id/necropolis/sec
 
-/datum/outfit/job/officer/necropolis/sci
+/datum/outfit/job/officer/sci/necropolis
 	name = "Science Officer - Necropolis"
 
 	accessory = /obj/item/clothing/accessory/armband/science
 	l_ear = /obj/item/device/radio/headset/headset_sci/sec
+	uniform = /obj/item/clothing/under/rank/security/necropolis
+	id = /obj/item/card/id/necropolis/sec
 
-/datum/outfit/job/officer/necropolis/cargo
+/datum/outfit/job/officer/cargo/necropolis
 	name = "Supply Officer - Necropolis"
 
 	accessory = /obj/item/clothing/accessory/armband/cargo
 	l_ear = /obj/item/device/radio/headset/headset_cargo/sec
+	uniform = /obj/item/clothing/under/rank/security/necropolis
+	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/forensics/necropolis
 	name = "Forensics Technician - Necropolis"
