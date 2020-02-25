@@ -1,3 +1,21 @@
+var/global/list/golem_types = list("Coal Golem",
+								   "Iron Golem",
+								   "Bronze Golem",
+								   "Steel Golem",
+								   "Plasteel Golem",
+								   "Titanium Golem",
+								   "Cloth Golem",
+								   "Cardboard Golem",
+								   "Glass Golem",
+								   "Phoron Golem",
+								   "Metallic Hydrogen Golem",
+								   "Wood Golem",
+								   "Diamond Golem",
+								   "Sand Golem",
+								   "Uranium Golem",
+								   "Homunculus",
+								   "Adamantine Golem")
+
 /datum/species/golem
 	name = "Coal Golem"
 	name_plural = "coal golems"
