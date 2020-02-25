@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "The unknown transport signature can now bring something more interesting on-station."
-  - bugfix: "Fixed the golem ghostspawner being enabled at all times and producing an error message."
