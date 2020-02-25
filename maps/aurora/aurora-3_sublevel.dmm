@@ -14566,7 +14566,7 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Quarantine Processing";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantineaccess)
@@ -15105,7 +15105,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_medical{
 	name = "Quarantine Entrance";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantineaccess)
@@ -15899,7 +15899,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
@@ -16827,7 +16827,7 @@
 	name = "Exterior access button";
 	pixel_x = 25;
 	pixel_y = 25;
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
@@ -16839,7 +16839,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/medical{
 	name = "Supervised Living Center - Processing";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
@@ -17073,7 +17073,7 @@
 "aGf" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Quarantine Ward";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/effect/floor_decal/corner/lime{
 	icon_state = "corner_white";
@@ -19118,7 +19118,7 @@
 	name = "Exterior access button";
 	pixel_x = -27;
 	pixel_y = 25;
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
@@ -19178,7 +19178,7 @@
 	name = "Interior access button";
 	pixel_x = 25;
 	pixel_y = 25;
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
@@ -19221,7 +19221,7 @@
 	name = "Interior access button";
 	pixel_x = -27;
 	pixel_y = 25;
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/machinery/light_switch{
 	pixel_x = 0;
@@ -22686,7 +22686,7 @@
 	},
 /obj/machinery/door/airlock/medical{
 	name = "Staff Facilities";
-	req_access = list(5)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/sleep/medical)
@@ -23872,7 +23872,7 @@
 "aVa" = (
 /obj/machinery/door/airlock/medical{
 	name = "Staff Showers";
-	req_access = list(5)
+	req_access = list(75)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/freezer,
@@ -23880,7 +23880,7 @@
 "aVb" = (
 /obj/machinery/door/airlock/medical{
 	name = "Staff Hygiene Facilities";
-	req_access = list(5)
+	req_access = list(75)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -24333,7 +24333,7 @@
 	},
 /obj/machinery/door/airlock/glass_medical{
 	name = "Briefing Room";
-	req_access = list(5)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
@@ -25226,7 +25226,7 @@
 "bbG" = (
 /obj/machinery/door/airlock/medical{
 	name = "Observation Post Two";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -25292,7 +25292,7 @@
 	id_tag = "quarantine_airlock_interior";
 	locked = 1;
 	name = "Quarantine Interior Airlock";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	icon_state = "door_open";
@@ -25359,7 +25359,7 @@
 "bbR" = (
 /obj/machinery/door/airlock/medical{
 	name = "Staff Dormitories";
-	req_access = list(5)
+	req_access = list(75)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -29205,7 +29205,7 @@
 	id_tag = "processing_airlock_interior";
 	locked = 1;
 	name = "Supervised Living Center Interior";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
@@ -29308,6 +29308,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"eeC" = (
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 10
+	},
+/obj/structure/bed/chair/office{
+	icon_state = "chair_preview";
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Medical Officer"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay4)
 "ehn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/emitter,
@@ -31862,7 +31876,7 @@
 	id_tag = "quarantine_airlock_exterior";
 	locked = 1;
 	name = "Quarantine Exterior Airlock";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/machinery/door/firedoor/multi_tile{
 	icon_state = "door_open";
@@ -32236,7 +32250,7 @@
 /obj/structure/table/standard,
 /obj/machinery/door/window/southleft{
 	name = "Processing Window";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/firedoor,
@@ -32372,7 +32386,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
@@ -33623,7 +33637,7 @@
 	id_tag = "processing_airlock_exterior";
 	locked = 1;
 	name = "Supervised Living Center Exterior";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
@@ -35559,20 +35573,6 @@
 /obj/structure/closet/wardrobe/white,
 /turf/simulated/floor/tiled/white,
 /area/medical/quarantine)
-"tMD" = (
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/structure/bed/chair/office{
-	icon_state = "chair_preview";
-	dir = 1
-	},
-/obj/effect/landmark/start{
-	name = "Medical Officer"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay4)
 "tMU" = (
 /obj/machinery/camera/network/research_outpost{
 	c_tag = "Research Sublevel - Artifact Storage";
@@ -35624,7 +35624,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/airlock/glass_medical{
 	name = "Processing";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_post1)
@@ -36861,7 +36861,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "Quarantine Processing Desk";
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/structure/table/standard,
 /obj/machinery/door/blast/shutters{
@@ -37153,14 +37153,14 @@
 	name = "Operate Exterior Airlock";
 	pixel_x = 24;
 	pixel_y = -8;
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/machinery/button/remote/airlock{
 	id = "processing_airlock_exterior";
 	name = "Bolt Exterior Airlock";
 	pixel_x = 35;
 	pixel_y = -8;
-	req_access = list(66);
+	req_access = list(75);
 	specialfunctions = 4
 	},
 /obj/machinery/button/remote/airlock{
@@ -37168,14 +37168,14 @@
 	name = "Operate Interior Airlock";
 	pixel_x = 24;
 	pixel_y = 4;
-	req_access = list(66)
+	req_access = list(75)
 	},
 /obj/machinery/button/remote/airlock{
 	id = "processing_airlock_interior";
 	name = "Bolt Interior Airlock";
 	pixel_x = 35;
 	pixel_y = 4;
-	req_access = list(66);
+	req_access = list(75);
 	specialfunctions = 4
 	},
 /obj/item/roller,
@@ -78340,7 +78340,7 @@ aYA
 aYR
 aXM
 aXM
-tMD
+eeC
 aSM
 aaa
 aaa

@@ -16,11 +16,11 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
-			access_paramedic, access_maint_tunnels)
+			access_paramedic, access_maint_tunnels, access_treatment_areas)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
-			access_paramedic, access_maint_tunnels)
+			access_paramedic, access_maint_tunnels, access_treatment_areas)
 
 	minimal_player_age = 10
 	ideal_character_age = 50
@@ -60,8 +60,8 @@
 
 	minimum_character_age = 30
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva, access_treatment_areas)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva, access_treatment_areas)
 	alt_titles = list("Trauma Physician","Nurse")
 	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
@@ -85,8 +85,8 @@
 
 	minimum_character_age = 30
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva, access_treatment_areas)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva, access_treatment_areas)
 	outfit = /datum/outfit/job/doctor/surgeon
 
 /datum/outfit/job/doctor
@@ -149,8 +149,8 @@
 
 	minimum_character_age = 26
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
-	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_treatment_areas)
+	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology, access_treatment_areas)
 	alt_titles = list("Biochemist")
 	outfit = /datum/outfit/job/pharmacist
 	alt_outfits = list(
@@ -200,8 +200,8 @@
 
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist)
-	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist, access_treatment_areas)
+	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist, access_treatment_areas)
 	alt_titles = list("Psychologist")
 	outfit = /datum/outfit/job/psychiatrist
 	alt_outfits = list("Psychologist" = /datum/outfit/job/psychiatrist/psycho)
@@ -240,8 +240,8 @@
 	minimum_character_age = 24
 	alt_ages = list("Emergency Medical Technician" = 20)
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic, access_treatment_areas)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic, access_treatment_areas)
 	alt_titles = list("Emergency Medical Technician")
 	outfit = /datum/outfit/job/paramedic
 	alt_outfits = list("Emergency Medical Technician"=/datum/outfit/job/paramedic/emt)
@@ -318,8 +318,8 @@
 
 	minimum_character_age = 18
 
-	access = list (access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_morgue, access_external_airlocks, access_psychiatrist, access_paramedic)
-	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_morgue, access_external_airlocks, access_psychiatrist, access_paramedic)
+	access = list (access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_morgue, access_external_airlocks, access_psychiatrist, access_paramedic, access_treatment_areas)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_weapons, access_medical, access_morgue, access_external_airlocks, access_psychiatrist, access_paramedic, access_treatment_areas)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer/med
 

@@ -437,6 +437,11 @@ datum/access/access_cargo_order
 	desc = "Cargo Order"
 	region = ACCESS_REGION_SUPPLY
 
+var/const/access_treatment_areas = 75
+	id = access_treatment_areas
+	desc = "Treatment Areas"
+	region = ACCESS_REGION_MEDBAY
+
 /******************
 * Central Command *
 ******************/
