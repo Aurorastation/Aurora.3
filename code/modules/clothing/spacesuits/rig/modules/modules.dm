@@ -12,7 +12,7 @@
 	name = "hardsuit upgrade"
 	desc = "It looks pretty sciency."
 	icon = 'icons/obj/rig_modules.dmi'
-	icon_state = "module"
+	icon_state = "generic"
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, "plastic" = 30000, "glass" = 5000)
 
 	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL=7000,"glass"=7000)
