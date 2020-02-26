@@ -1082,3 +1082,37 @@ var/global/list/robot_modules = list(
 		S.mode = initial(S.mode)
 		S.desc = initial(S.desc)
 		S.update_icon()
+
+/obj/item/robot_module/pra
+	name = "republican defensive robot module"
+	sprites = list("PRA" = "republicon")
+	sprites = list("PRA" = "republicon")
+	can_be_pushed = 0
+	languages = list(
+					LANGUAGE_SOL_COMMON = 0,
+					LANGUAGE_TRADEBAND = 0,
+					LANGUAGE_UNATHI = 0,
+					LANGUAGE_SIIK_MAAS = 1,
+					LANGUAGE_SKRELLIAN = 0,
+					LANGUAGE_GUTTER = 0,
+					LANGUAGE_VAURCESE = 0,
+					LANGUAGE_ROOTSONG = 0,
+					LANGUAGE_SIGN = 0,
+					LANGUAGE_SIGN_TAJARA = 0,
+					LANGUAGE_SIIK_TAJR = 0,
+					LANGUAGE_AZAZIBA = 0,
+					LANGUAGE_DELVAHII = 0,
+					LANGUAGE_YA_SSA = 0
+					)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
+
+/obj/item/robot_module/pra/New()
+	..()
+	src.modules += new /obj/item/device/flash(src)
+	src.modules += new /obj/item/borg/sight/thermal(src)
+	src.modules += new /obj/item/gun/energy/mountedsmg(src)
+	src.modules += new /obj/item/gun/energy/mountedcannon(src)
+	src.modules += new /obj/item/crowbar/robotic(src)
+	src.modules += new /obj/item/melee/hammer/robot(src)
+	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
+	return

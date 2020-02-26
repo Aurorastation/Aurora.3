@@ -21,6 +21,12 @@
 	scrambledcodes = 1
 	lawupdate = 0
 
+/mob/living/silicon/robot/scrambled/pra
+	modtype = "Republican Defensive"
+	cell_type = /obj/item/cell/super
+	spawn_module =/obj/item/robot_module/pra
+	braintype = "Robot"
+
 /mob/living/silicon/robot/bluespace
 	modtype = "Bluespace"
 	spawn_module = /obj/item/robot_module/bluespace

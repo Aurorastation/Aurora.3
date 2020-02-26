@@ -408,3 +408,9 @@
 
 /obj/item/weldingtool/robotic
 	icon = 'icons/obj/robot_items.dmi'
+
+/obj/item/melee/hammer/robot
+	name = "robot retractable blade"
+	desc = "A cyborg mounted blade, used to pry open doors and attack hostile elements."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "trench"

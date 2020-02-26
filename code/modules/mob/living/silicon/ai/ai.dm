@@ -856,5 +856,150 @@ var/list/ai_verbs_default = list(
 /mob/living/silicon/ai/proc/has_power()
 	return (aiRestorePowerRoutine == 0)
 
+
+/mob/living/silicon/ai/pra
+	icon = 'icons/mob/pra-ai.dmi'
+	icon_state = "pra-ai-0"
+	var/state = 0
+	var/obj/item/mech_component/control_module/control = null
+	var/has_cables = FALSE
+	var/obj/item/stock_parts/capacitor/capacitor = null
+	var/has_plasteel_plating = FALSE
+	var/obj/item/cell/powercell = null
+	var/obj/item/stock_parts/console_screen/screen = null
+	var/list/knowpositions = list("roboticist", "Research Director", "Scientist")
+
+/mob/living/silicon/ai/pra/update_icon()
+	updateicon()
+
+/mob/living/silicon/ai/pra/updateicon()
+	icon_state = "pra-ai-[state]"
+
+/mob/living/silicon/ai/pra/attackby(obj/item/P as obj, mob/user as mob)
+	if(user.a_intent == I_HURT)
+		P.attack(src, user, user.zone_sel.selecting)
+
+	if(P.iswrench())
+		if(anchored)
+			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
+			if(!do_after(user,40/P.toolspeed))
+				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
+				return
+			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
+			anchored = 0
+			return
+		else
+			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
+			if(!do_after(user,40/P.toolspeed))
+				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
+				return
+			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
+			anchored = 1
+			return
+
+	if(istype(P, /obj/item/device/robotanalyzer))
+		get_missing_parts(user)
+		return
+
+	switch(state)
+		if(0)
+			if(istype(P, /obj/item/mech_component/control_module))
+				if(do_after(user, 20))
+					to_chat(user, "<span class='notice'>You place \the [P] into place.</span>")
+					state = 1
+					user.drop_from_inventory(P,src)
+					control = P
+					updateicon()
+					return
+
+		if(1)
+			if(P.iscoil())
+				var/obj/item/stack/cable_coil/C = P
+				if (C.get_amount() < 5)
+					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
+					return
+				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
+				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				if (do_after(user, 20) && state == 1)
+					if (C.use(5))
+						to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
+						state = 2
+						has_cables = TRUE
+						updateicon()
+						return
+
+		if(2)
+			if(istype(P, /obj/item/stock_parts/capacitor))
+				if(do_after(user, 20))
+					to_chat(user, "<span class='notice'>You place \the [P] into place.</span>")
+					state = 3
+					user.drop_from_inventory(P,src)
+					capacitor = P
+					updateicon()
+					return
+
+		if(3)
+			if(istype(P, /obj/item/stack/material) && P.get_material_name() == "plasteel")
+				var/obj/item/stack/RG = P
+				if (RG.get_amount() < 20)
+					to_chat(user, "<span class='warning'>You need twenty sheets of plasteel to add the hull.</span>")
+					return
+				to_chat(user, "<span class='notice'>You start to place the hull into place.</span>")
+				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
+				if (do_after(user, 20) && state == 3)
+					if(RG.use(20))
+						to_chat(user, "<span class='notice'>You place the hull into place.</span>")
+						has_plasteel_plating = TRUE
+						state = 4
+						updateicon()
+
+		if(4)
+			if(istype(P, /obj/item/stock_parts/console_screen))
+				if(do_after(user, 20))
+					to_chat(user, "<span class='notice'>You place \the [P] into place.</span>")
+					state = 5
+					user.drop_from_inventory(P,src)
+					screen = P
+					updateicon()
+					return
+		if(5)
+			if(istype(P, /obj/item/cell))
+				if(do_after(user, 20))
+					to_chat(user, "<span class='notice'>You place \the [P] into place.</span>")
+					state = 6
+					user.drop_from_inventory(P,src)
+					powercell = P
+					APU_power = TRUE
+					updateicon()
+					return
+		if(6)
+			if(istype(P, /obj/item/aicard))
+
+				var/obj/item/aicard/card = P
+				card.grab_ai(src, user)
+
+/mob/living/silicon/ai/pra/proc/get_missing_parts(mob/user)
+	to_chat(user, "<span class='notice'>Analyzing Results for [src]</span>")
+	if(!control)
+		to_chat(user, "It is missing a control module.")
+	if(!has_cables)
+		to_chat(user, "It is missing cables.")
+	if(!capacitor)
+		to_chat(user, "It is missing a capacitor.")
+	if(!has_plasteel_plating)
+		to_chat(user, "It is missing a plasteel hull.")
+	if(!screen)
+		to_chat(user, "It is missing a screen.")
+	if(!powercell)
+		to_chat(user, "It is missing a power source.")
+
+/mob/living/silicon/ai/pra/death()
+	..(null,"is smashed into pieces!")
+	var/T = get_turf(src)
+	new /obj/effect/gibspawner/robot(T)
+	spark(T, 3, alldirs)
+	state = 0
+	updateicon()
+
 #undef AI_CHECK_WIRELESS
 #undef AI_CHECK_RADIO

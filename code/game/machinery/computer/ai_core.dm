@@ -265,3 +265,20 @@
 	else
 		empty_playable_ai_cores += D
 		to_chat(src, "\The [id] is now <font color=\"#008000\">available</font> for latejoining AIs.")
+
+
+/obj/structure/AIcore/pra
+	name = "inactive AI"
+	desc = "An empty AI core."
+	icon = 'icons/mob/pra-ai.dmi'
+	icon_state = "pra-ai-0"
+	anchored = 1
+	state = 20
+
+/obj/structure/AIcore/pra/proc/add_player(var/ckey)
+	var/mob/living/silicon/ai/pra/A = new /mob/living/silicon/ai/pra (src.loc, laws, null, TRUE )
+	A.key = ckey
+	qdel(src)
+
+/obj/structure/AIcore/pra/complete
+	icon = "completecore"

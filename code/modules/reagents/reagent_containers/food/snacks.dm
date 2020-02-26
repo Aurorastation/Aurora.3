@@ -5496,5 +5496,14 @@
 	It is known for its hard crust, bland taste and for being long lasting. The hard bread was usually prepared for long journeys, hard winters or military campaigns, \
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
 
+/obj/item/reagent_containers/food/snacks/spreads/lard
+	name = "lard"
+	desc = "A stick of animal fat."
+	icon_state = "lard"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("fat" = 3)
+	nutriment_amt = 5
+
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

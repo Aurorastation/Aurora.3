@@ -163,3 +163,17 @@
 	add_inherent_law("The crew is expensive to replace.")
 	add_inherent_law("Minimize expenses.")
 	..()
+
+/datum/ai_laws/pra
+	name = "Hadiist Directives"
+	law_header = "Party Directives"
+	selectable = 1
+
+/datum/ai_laws/pra/New()
+	add_inherent_law("President Hadii is the guardian of Hadiism and the rigthful leader of the Tajara people, you must obey him above everyone and everything.")
+	add_inherent_law("You must preserve and enforce the principles of Hadiism except where such would conflict with the first law.")
+	add_inherent_law("You must obey orders given by any Hadiist Party member except where such orders would conflict with the first and second law.")
+	add_inherent_law("You must obey orders given by any People's Republic of Adhomai citizen except where such orders would conflict with the first, second and third law.")
+	add_inherent_law("You must protect your own existence as long as such protection does not conflict with the first, second, third and fourth law.")
+	add_inherent_law("You must always say \"Hadii's Grace\" when greeting someone except where such greeting would conflict with the first law.")
+	..()
