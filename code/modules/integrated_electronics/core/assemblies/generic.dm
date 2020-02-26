@@ -97,10 +97,6 @@
 	item_state = "circuitgun"
 	desc = "It's a case, for building medium-sized electronics with. This one resembles a gun, or some type of tool, \
 	if you're feeling optimistic."
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi',
-		)
 
 /obj/item/device/electronic_assembly/medium/radio
 	name = "type-f electronic mechanism"
@@ -253,3 +249,6 @@
 	w_class = ITEMSIZE_TINY
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
+
+/obj/item/device/electronic_assembly/proc/get_assembly_holder()
+	return src

@@ -54,7 +54,6 @@
 	if(title)
 		name = title
 	if (text && length(text))
-		info = html_encode(text)
 		info = parsepencode(text)
 	else
 		info = ""
@@ -80,9 +79,9 @@
 	if(icon_state == "paper_talisman")
 		return
 	else if (info && length(trim(info)))
-		icon_state = "paper_words"
+		icon_state = "[initial(icon_state)]_words"
 	else
-		icon_state = "paper"
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/paper/proc/update_space(var/new_text)
 	if(new_text)
@@ -127,7 +126,7 @@
 /obj/item/paper/attack_self(mob/living/user as mob)
 	if(user.a_intent == I_HURT)
 		if(icon_state == "scrap")
-			user.show_message("<span class='warning'>\The [src] is already crumpled.</span>")
+			user.show_message(span("warning", "\The [src] is already crumpled."))
 			return
 		//crumple dat paper
 		info = stars(info,85)
@@ -173,11 +172,11 @@
 
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message("<span class='notice'>You show the paper to [M]. </span>", \
-			"<span class='notice'> [user] holds up a paper and shows it to [M]. </span>")
+		user.visible_message(span("notice", "You show the paper to [M]."), \
+			span("notice", "[user] holds up a paper and shows it to [M]."))
 		M.examinate(src)
 
-	else if(target_zone == "mouth") // lipstick wiping
+	else if(target_zone == BP_MOUTH) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
@@ -185,11 +184,11 @@
 				H.lip_style = null
 				H.update_body()
 			else
-				user.visible_message("<span class='warning'>[user] begins to wipe [H]'s lipstick off with \the [src].</span>", \
-								 	 "<span class='notice'>You begin to wipe off [H]'s lipstick.</span>")
+				user.visible_message(span("warning", "[user] begins to wipe [H]'s lipstick off with \the [src]."), \
+								 	 span("notice", "You begin to wipe off [H]'s lipstick."))
 				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
-					user.visible_message("<span class='notice'>[user] wipes [H]'s lipstick off with \the [src].</span>", \
-										 "<span class='notice'>You wipe off [H]'s lipstick.</span>")
+					user.visible_message(span("notice", "[user] wipes [H]'s lipstick off with \the [src]."), \
+										 span("notice", "You wipe off [H]'s lipstick."))
 					H.lip_style = null
 					H.update_body()
 
@@ -331,7 +330,10 @@
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
-		flick("paper_onfire", src)
+		if(icon_state == "scrap")
+			flick("scrap_onfire", src)
+		else
+			flick("paper_onfire", src)
 
 		//I was going to add do_after in here, but keeping the current method allows people to burn papers they're holding, while they move. That seems fine to keep -Nanako
 		spawn(20)
@@ -536,8 +538,6 @@
 
 	else if(istype(P, /obj/item/flame) || P.iswelder())
 		burnpaper(P, user)
-	else if(P.iswelder())
-		burnpaper(P, user)
 
 	update_icon()
 	add_fingerprint(user)
@@ -594,3 +594,9 @@ Please note: Cell timers will \[b\]NOT\[/b\] function without a valid incident f
 
 /obj/item/paper/sentencing/update_icon()
 	return
+
+/obj/item/paper/nka_pledge
+	name = "imperial volunteer Alam'ardii corps pledge"
+
+/obj/item/paper/nka_pledge/New()
+	info = "<center><b><u>Imperial Volunteer Alam'ardii Corps Pledge</u></b></center> <hr> <center><i><u>May the Gods bless his Kingdom and Dynasty</u></i></center> <hr> I, <field>, hereby declare, under a vow of loyalty and compromise, that I shall serve as a volunteer in the Imperial Volunteer Alam'ardii Corps, for the mininum duration of three years or until discharge. I accept the duty of aiding the New Kingdom of Adhomai and His Majesty, King Vahzirthaamro Azunja, in this struggle and I shall not relinquish this pledge. <hr> Volunteer Signature: <field> <hr> Recruiting Officer Stamp:"

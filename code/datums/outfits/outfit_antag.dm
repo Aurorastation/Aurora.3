@@ -35,8 +35,9 @@
 
 	var/obj/item/device/radio/uplink/U = H.r_store
 	if(istype(U))
-		U.hidden_uplink.uplink_owner = "[H.key]"
+		U.hidden_uplink.uplink_owner = H.mind
 		U.hidden_uplink.uses = uplink_uses
+		U.hidden_uplink.nanoui_menu = 1
 
 /datum/outfit/admin/syndicate/get_id_access()
 	return get_syndicate_access(id_access)
@@ -141,7 +142,7 @@
 	rig.dnaLock = H.dna
 	H.equip_to_slot_or_del(rig, slot_l_hand)
 
-	H.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(H, H.mind), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store)
 
 /datum/outfit/admin/syndicate/mercenary
 	name = "Mercenary"
@@ -162,7 +163,7 @@
 		return
 
 	if(!H.shoes)
-		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/unathi(H), slot_shoes)
+		H.equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots/toeless(H), slot_shoes)
 
 /datum/outfit/admin/syndicate/raider
 	name = "Raider"
@@ -225,7 +226,7 @@
 		return
 
 	if(!H.shoes)
-		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/unathi)
+		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/toeless)
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
 	var/obj/item/storage/wallet/W = H.wear_id

@@ -23,7 +23,7 @@
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
@@ -31,7 +31,7 @@
 	else if(client && willfully_sleeping)
 		visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 /mob/living/carbon/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..(P, def_zone)
@@ -51,7 +51,7 @@
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
@@ -59,7 +59,7 @@
 	else if(client && willfully_sleeping)
 		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 /mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
 	var/t_him = "it"
@@ -77,7 +77,7 @@
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
@@ -87,7 +87,7 @@
 		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
 				    "<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 
 	if(!effective_force || blocked >= 100)
@@ -187,3 +187,23 @@
 	src.attack_log += "\[[time_stamp()]\]<font color='orange'> Got knifed by [user.name] ([user.ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"
 	msg_admin_attack("[key_name_admin(user)] knifed [key_name_admin(src)] with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])",ckey=key_name(user),ckey_target=key_name(src) )
 	return 1
+
+/mob/living/carbon/Stun(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Weaken(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Paralyse(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Sleeping(amount)
+	help_up_offer = 0
+	..()
+
+/mob/living/carbon/Resting(amount)
+	help_up_offer = 0
+	..()

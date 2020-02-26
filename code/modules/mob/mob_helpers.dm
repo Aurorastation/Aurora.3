@@ -19,6 +19,11 @@
 /mob/living/carbon/human/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
+/proc/isMMI(A)
+	if(isbrain(A))
+		var/mob/living/carbon/brain/B = A
+		return istype(B.container, /obj/item/device/mmi)
+
 /mob/living/bot/isSynthetic()
 	return 1
 
@@ -162,9 +167,6 @@ proc/isdeaf(A)
 		return (M.sdisabilities & DEAF) || M.ear_deaf
 	return 0
 
-proc/hasorgans(A) // Fucking really??
-	return ishuman(A)
-
 proc/iscuffed(A)
 	if(istype(A, /mob/living/carbon))
 		var/mob/living/carbon/C = A
@@ -186,10 +188,8 @@ proc/getsensorlevel(A)
 		return U.sensor_mode
 	return SUIT_SENSOR_OFF
 
-
 /proc/is_admin(var/mob/user)
 	return check_rights(R_ADMIN, 0, user) != 0
-
 
 /proc/hsl2rgb(h, s, l)
 	return //TODO: Implement
@@ -214,7 +214,7 @@ proc/getsensorlevel(A)
 
 //The base miss chance for the different defence zones
 var/list/global/base_miss_chance = list(
-	BP_HEAD = 85,
+	BP_HEAD = 70,
 	BP_CHEST = 10,
 	BP_GROIN = 20,
 	BP_L_LEG = 20,
@@ -248,7 +248,7 @@ var/list/global/organ_rel_size = list(
 	switch(zone)
 		if(BP_EYES)
 			zone = BP_HEAD
-		if("mouth")
+		if(BP_MOUTH)
 			zone = BP_HEAD
 	return zone
 
@@ -709,46 +709,6 @@ proc/is_blind(A)
 			to_chat(user, "You must unbuckle the subject first")
 			return 0
 	return 1
-
-/mob/living/carbon/proc/vomit()
-	var/canVomit = FALSE
-
-	if(nutrition > 0)
-		canVomit = TRUE
-
-	if(canVomit)
-		Stun(4)
-		var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
-		var/obj/vomitReceptacle
-		for(var/obj/vessel in view(1, src))
-			if (!is_type_in_typecache(vessel, vomitCandidate))
-				continue
-			if(!vessel.Adjacent(src))
-				continue
-			vomitReceptacle = vessel
-			break
-
-		if(vomitReceptacle)
-			src.visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
-			playsound(vomitReceptacle, 'sound/effects/splat.ogg', 50, 1)
-		else
-			src.visible_message("<span class='warning'>[src] vomits!</span>","<span class='warning'>You vomit!</span>")
-			playsound(loc, 'sound/effects/splat.ogg', 50, 1)
-
-		var/turf/location = loc
-		if(!vomitReceptacle)
-			if (istype(location, /turf/simulated))
-				location.add_vomit_floor(src, 1)
-		adjustNutritionLoss(60)
-		adjustHydrationLoss(30)
-		if (intoxication)//The pain and system shock of vomiting, sobers you up a little
-			intoxication *= 0.9
-
-		if (istype(src, /mob/living/carbon/human))
-			ingested.trans_to_turf(location,30)//Vomiting empties the stomach, transferring 30u reagents to the floor where you vomited
-	else if (prob(50))
-		src.visible_message("<span class='warning'>[src] retches, attempting to vomit!</span>","<span class='warning'>You gag and collapse as you feel the urge to vomit, but there's nothing in your stomach!</span>")
-		Weaken(4)
 
 /mob/living/carbon/human/proc/delayed_vomit()
 	if(!check_has_mouth())

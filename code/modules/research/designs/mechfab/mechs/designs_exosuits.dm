@@ -49,14 +49,14 @@
 /datum/design/item/mechfab/exosuit/basic_armour
 	name = "basic exosuit armour"
 	id = "mech_armour_basic"
-	build_path = /obj/item/robot_parts/robot_component/armour
+	build_path = /obj/item/robot_parts/robot_component/armor/mech
 	time = 30
 	materials = list(DEFAULT_WALL_MATERIAL = 7500)
 
 /datum/design/item/mechfab/exosuit/radproof_armour
 	name = "radiation-proof exosuit armour"
 	id = "mech_armour_radproof"
-	build_path = /obj/item/robot_parts/robot_component/armor/radproof
+	build_path = /obj/item/robot_parts/robot_component/armor/mech/radproof
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500)
@@ -64,7 +64,7 @@
 /datum/design/item/mechfab/exosuit/em_armour
 	name = "EM-shielded exosuit armour"
 	id = "mech_armour_em"
-	build_path = /obj/item/robot_parts/robot_component/armor/em
+	build_path = /obj/item/robot_parts/robot_component/armor/mech/em
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "silver" = 1000)
@@ -72,7 +72,7 @@
 /datum/design/item/mechfab/exosuit/combat_armour
 	name = "combat exosuit armor"
 	id = "mech_armour_combat"
-	build_path = /obj/item/robot_parts/robot_component/armor/combat
+	build_path = /obj/item/robot_parts/robot_component/armor/mech/combat
 	time = 50
 	req_tech = list(TECH_MATERIAL = 4, TECH_COMBAT = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, "diamond" = 5000)
@@ -213,6 +213,20 @@
 	build_path = /obj/item/mech_component/propulsion/spider
 	req_tech = list(TECH_ENGINEERING = 2)
 
+/datum/design/item/mechfab/exosuit/hover_torso
+	name = "hoverpod torso"
+	id = "hoverpod_body"
+	time = 40
+	materials = list(DEFAULT_WALL_MATERIAL = 22000)
+	build_path = /obj/item/mech_component/chassis/pod
+
+/datum/design/item/mechfab/exosuit/hover_legs
+	name = "hover thrusters"
+	id = "hover_thrusters"
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 14000)
+	build_path = /obj/item/mech_component/propulsion/hover
+
 /datum/design/item/mechfab/exosuit/track
 	name = "armored treads"
 	id = "treads"
@@ -220,13 +234,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 25000)
 	build_path = /obj/item/mech_component/propulsion/tracks
 	req_tech = list(TECH_MATERIAL = 4)
-
-/datum/design/item/mechfab/exosuit/sphere_body
-	name = "spherical chassis"
-	id = "sphere_body"
-	build_path = /obj/item/mech_component/chassis/pod
-	time = 50
-	materials = list(DEFAULT_WALL_MATERIAL = 18000)
 
 /datum/design/item/mechfab/exosuit/hydraulic_clamp
 	name = "hydraulic clamp"
@@ -339,3 +346,9 @@
 	id   = "mech_flare"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/mounted_system/flarelauncher
+
+/datum/design/item/mechfab/exosuit/passenger_compartment
+	name = "mounted passenger compartment"
+	id = "mech_pass_comp"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	build_path = /obj/item/mecha_equipment/sleeper/passenger_compartment

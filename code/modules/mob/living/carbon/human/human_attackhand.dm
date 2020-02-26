@@ -186,7 +186,7 @@
 
 			var/obj/item/grab/G = new /obj/item/grab(M, src)
 			if(buckled)
-				to_chat(M, "<span class='notice'>You cannot grab [src], \he is buckled in!</span>")
+				to_chat(M, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
 			if(!G)	//the grab will delete itself in New if affecting is anchored
 				return
 			M.put_in_active_hand(G)
@@ -351,6 +351,11 @@
 
 			// Finally, apply damage to target
 			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
+
+
+			if(M.resting && src.help_up_offer)
+				M.visible_message(span("warning", "[M] slaps away [src]'s hand!"))
+				src.help_up_offer = 0
 
 		if(I_DISARM)
 			var/disarm_cost

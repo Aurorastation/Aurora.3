@@ -286,6 +286,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (jobban_isbanned(src,rank))
 		return FALSE
 
+	if(job.blacklisted_species) // check for restricted species
+		var/datum/species/S = all_species[client.prefs.species]
+		if(S.name in job.blacklisted_species)
+			return FALSE
+
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
 	if (!(job.type in faction.allowed_role_types))
 		return FALSE
@@ -331,6 +336,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		empty_playable_ai_cores -= C
 
 		character.forceMove(C.loc)
+		character.eyeobj.forceMove(C.loc)
 
 		AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [character.loc.loc]")
 		SSticker.mode.handle_latejoin(character)

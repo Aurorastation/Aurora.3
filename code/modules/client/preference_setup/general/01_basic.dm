@@ -1,7 +1,6 @@
 /datum/category_item/player_setup_item/general/basic
 	name = "Basic"
 	sort_order = 1
-	var/static/list/valid_player_genders = list(MALE, FEMALE)
 
 /datum/category_item/player_setup_item/general/basic/load_character(var/savefile/S)
 	S["real_name"]  >> pref.real_name
@@ -87,7 +86,7 @@
 		pref.species = "Human"
 
 	pref.age           = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
-	pref.gender        = sanitize_inlist(pref.gender, valid_player_genders, pick(valid_player_genders))
+	pref.gender        = sanitize_gender(pref.gender, pref.species)
 	pref.real_name     = sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
 		pref.real_name = random_name(pref.gender, pref.species)
@@ -139,7 +138,8 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["gender"])
-		pref.gender = next_in_list(pref.gender, valid_player_genders)
+		var/datum/species/S = all_species[pref.species]
+		pref.gender = next_in_list(pref.gender, valid_player_genders & S.default_genders)
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment
@@ -162,7 +162,7 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["metadata"])
-		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata)) as message|null
+		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata) as message|null)
 		if(new_metadata && CanUseTopic(user))
 			pref.metadata = sanitize(new_metadata)
 			return TOPIC_REFRESH

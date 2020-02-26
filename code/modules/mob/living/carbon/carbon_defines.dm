@@ -31,5 +31,11 @@
 
 	var/coughedtime = null // should only be useful for carbons as the only thing using it has a carbon arg.
 
-	var/willfully_sleeping = 0
+	var/willfully_sleeping = FALSE
 	var/consume_nutrition_from_air = FALSE // used by Diona
+
+	var/help_up_offer = 0 //if they have their hand out to offer someone up from the ground.
+
+	var/list/organs_by_name = list() // map organ names to organs
+	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
+

@@ -144,9 +144,7 @@
 	starts_with = list(
 		/obj/item/pen/reagent/healing = 1,
 		/obj/item/pen/reagent/pacifier = 1,
-		/obj/item/pen/reagent/hyperzine = 1,
-		/obj/item/pen/reagent/poison = 1
-
+		/obj/item/pen/reagent/hyperzine = 1
 	)
 
 /obj/item/storage/box/syndie_kit/spy
@@ -228,3 +226,14 @@
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large/norepinephrine = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large = 1,
 	)
+
+/obj/item/storage/box/syndie_kit/random_weapon
+	desc = "An untraceable gun of varying quality. Acquired from unknown sources. Includes ammunition if applicable."
+	starts_with = list(/obj/random/weapon_and_ammo = 1)
+
+/obj/item/storage/box/syndie_kit/random_weapon/concealable
+	starts_with = list(/obj/random/weapon_and_ammo/concealable = 1)
+
+/obj/item/storage/box/syndie_kit/random_weapon/Initialize()
+	.=..()
+	desc = "A sleek, sturdy box"

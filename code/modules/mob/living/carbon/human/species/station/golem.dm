@@ -1,3 +1,21 @@
+var/global/list/golem_types = list("Coal Golem",
+								   "Iron Golem",
+								   "Bronze Golem",
+								   "Steel Golem",
+								   "Plasteel Golem",
+								   "Titanium Golem",
+								   "Cloth Golem",
+								   "Cardboard Golem",
+								   "Glass Golem",
+								   "Phoron Golem",
+								   "Metallic Hydrogen Golem",
+								   "Wood Golem",
+								   "Diamond Golem",
+								   "Sand Golem",
+								   "Uranium Golem",
+								   "Homunculus",
+								   "Adamantine Golem")
+
 /datum/species/golem
 	name = "Coal Golem"
 	name_plural = "coal golems"
@@ -28,6 +46,7 @@
 	burn_mod = 4
 	virus_immune = 1
 	grab_mod = 2
+	resist_mod = 2
 
 	warning_low_pressure = 50 //golems can into space now
 	hazard_low_pressure = 0
@@ -355,7 +374,7 @@
 	death_message = "shatters into many shards!"
 	death_message_range = 7
 
-	death_sound = 'sound/effects/Glassbr1.ogg'
+	death_sound = "shatter"
 
 	heat_level_1 = T0C+350
 	heat_level_2 = T0C+550

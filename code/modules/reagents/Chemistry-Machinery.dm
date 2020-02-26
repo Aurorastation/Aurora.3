@@ -14,6 +14,8 @@
 	use_power = 1
 	idle_power_usage = 20
 	layer = 2.9
+	clicksound = "button"
+	
 	var/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
 	var/mode = TRUE
@@ -641,14 +643,7 @@
 	var/beaker_contents = ""
 	var/dat = ""
 
-	if(istype(user, /mob/living/carbon/human))
-		var/mob/living/carbon/human/M = user
-		if(M.h_style == "Floorlength Braid" || M.h_style == "Very Long Hair")
-			if(prob(10))
-				M.apply_damage(30, BRUTE, BP_HEAD)
-				M.apply_damage(45, PAIN)
-				M.visible_message("<span class='warning'>[user]'s hair catches in the [src]!</span>", "<span class='danger'>Your hair gets caught in the [src]!</span>")
-				M.say("*scream")
+	do_hair_pull(user)
 
 	if(!inuse)
 		for (var/obj/item/O in holdingitems)

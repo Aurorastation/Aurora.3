@@ -10,7 +10,7 @@
 	var/list/accessories
 	var/list/valid_accessory_slots
 	var/list/restricted_accessory_slots
-
+	var/list/starting_accessories
 	/*
 		Sprites used when the clothing item is refit. This is done by setting icon_override.
 		For best results, if this is set then sprite_sheets should be null and vice versa, but that is by no means necessary.
@@ -34,9 +34,14 @@
 		material_key = default_material
 	if(material_key) // May still be null if a material was not specified as a default.
 		set_material(material_key)
+	if(starting_accessories)
+		for(var/T in starting_accessories)
+			var/obj/item/clothing/accessory/tie = new T(src)
+			src.attach_accessory(null, tie)
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL_LIST(accessories)
 	return ..()
 
 //Updates the icons of the mob wearing the clothing item, if any.
@@ -528,7 +533,12 @@
 /obj/item/clothing/mask
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_masks.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_masks.dmi'
+		)
 	slot_flags = SLOT_MASK
+	drop_sound = 'sound/items/drop/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
@@ -561,13 +571,19 @@
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
 
-/obj/item/clothing/mask/proc/adjust_mask(mob/user)
+/obj/item/clothing/mask/proc/adjust_mask(mob/user, var/self = TRUE)
 	set name = "Adjust Mask"
 	set category = "Object"
+
 	if(!adjustable)
 		return
-	if(use_check_and_message(user))
-		return
+
+	if(self)
+		if(use_check_and_message(user))
+			return
+	else
+		if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
+			return
 
 	hanging = !hanging
 
@@ -577,8 +593,8 @@
 		icon_state = "[icon_state]down"
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
-		user.visible_message("<span class='notice'>[user] adjust \his [src] to hang around \his neck.</span>", "<span class='notice'>Your [src] is now hanging around your neck.</span>")
-
+		if(self)
+			user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -586,9 +602,9 @@
 		item_state = initial(icon_state)
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
-		to_chat(user, "You pull [src] up to cover your face.")
-		user.visible_message("<span class='notice'>[user] puts \his [src] back up, to cover \his face.</span>", "<span class='notice'>Your put your [src] back on.</span>")
-
+		if(self)
+			user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
+	usr.update_action_buttons()
 	update_clothing_icon()
 
 /obj/item/clothing/mask/attack_self(mob/user)
@@ -600,6 +616,10 @@
 /obj/item/clothing/shoes
 	name = "shoes"
 	icon = 'icons/obj/clothing/shoes.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_shoes.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_shoes.dmi'
+		)
 	desc = "Comfortable-looking shoes."
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	siemens_coefficient = 0.9
@@ -613,7 +633,6 @@
 	var/shoes_under_pants = 0
 
 	permeability_coefficient = 0.50
-	slowdown = SHOES_SLOWDOWN
 	force = 0
 	var/overshoes = 0
 	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
@@ -894,7 +913,6 @@
 	set category = "Object"
 	set src in usr
 	set_sensors(usr)
-	..()
 
 /obj/item/clothing/under/verb/rollsuit()
 	set name = "Roll Down Jumpsuit"

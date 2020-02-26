@@ -78,6 +78,7 @@
 	use_power = 0
 	req_access = list(access_engine_equip)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	clicksound = "switch"
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell
@@ -440,7 +441,8 @@
 
 	if (istype(user, /mob/living/silicon) && get_dist(src,user)>1)
 		return src.attack_hand(user)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
 	if (W.iscrowbar() && opened)
 		if (has_electronics==1)
 			if (terminal)

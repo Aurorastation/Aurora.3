@@ -1,6 +1,6 @@
 /obj/item/mecha_equipment/sleeper
 	name = "\improper exosuit sleeper"
-	desc = "An exosuit-mounted sleeper designed to mantain patients stabilized on their way to medical facilities."
+	desc = "An exosuit-mounted sleeper designed to maintain patients stabilized on their way to medical facilities."
 	icon_state = "mech_sleeper"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
@@ -57,6 +57,7 @@
 	idle_power_usage = 0
 	active_power_usage = 0 //It'd be hard to handle, so for now all power is consumed by mech sleeper object
 	interact_offline = TRUE
+	display_loading_message = FALSE
 
 /obj/machinery/sleeper/mounted/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = mech_state)
 	. = ..()
@@ -133,7 +134,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/mecha_equipment/crisis_drone/process()	// Will continually try to find the nearest person above the threshold that is a valid target, and try to heal them.
-	if(!(owner.get_cell() && owner.get_cell().check_charge(active_power_use * CELLRATE)))
+	if(!(owner.get_cell()?.check_charge(active_power_use * CELLRATE)))
 		shut_down()
 
 	var/mob/living/carbon/Targ = Target
@@ -247,7 +248,6 @@
 
 /obj/item/mecha_equipment/crisis_drone/proc/toggle_drone()
 	for(var/mob/pilot in owner.pilots)
-		..()
 		if(owner)
 			enabled = !enabled
 			update_icon()

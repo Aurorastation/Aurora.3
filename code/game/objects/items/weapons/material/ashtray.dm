@@ -1,7 +1,6 @@
 /obj/item/material/ashtray
 	name = "ashtray"
 	icon = 'icons/obj/ashtray.dmi'
-	icon_state = "blank"
 	randpixel = 5
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -41,7 +40,7 @@
 /obj/item/material/ashtray/attackby(obj/item/W as obj, mob/user as mob)
 	if (health <= 0)
 		return
-	if (istype(W,/obj/item/cigbutt) || istype(W,/obj/item/clothing/mask/smokable/cigarette) || istype(W, /obj/item/flame/match))
+	if (istype(W,/obj/item/trash/cigbutt) || istype(W,/obj/item/clothing/mask/smokable/cigarette) || istype(W, /obj/item/flame/match))
 		if (contents.len >= max_butts)
 			to_chat(user, "\The [src] is full.")
 			return

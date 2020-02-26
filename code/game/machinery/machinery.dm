@@ -231,7 +231,7 @@ Class Procs:
 
 /obj/machinery/CouldUseTopic(var/mob/user)
 	..()
-	if(istype (user, /mob/living/carbon))
+	if(clicksound && iscarbon(user))
 		playsound(src, clicksound, clickvol)
 	user.set_machine(src)
 
@@ -386,7 +386,7 @@ Class Procs:
 		update_icon()
 	else
 		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
-		for(var/var/obj/item/C in component_parts)
+		for(var/obj/item/C in component_parts)
 			to_chat(user, "<span class='notice'>    [C.name]</span>")
 	return 1
 
@@ -419,3 +419,26 @@ Class Procs:
 /obj/machinery/proc/print_move_paper(obj/paper)
 	paper.forceMove(loc)
 	printing = FALSE
+
+/obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
+	if(!ishuman(H))
+		return
+
+	//for whatever reason, skrell's tentacles have a really long length
+	//horns would not get caught in the machine
+	//vaurca have fine control of their antennae
+	if(isskrell(H) || isunathi(H) || isvaurca(H))
+		return
+
+	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]
+	for(var/obj/item/protection in list(H.head))
+		if(protection && (protection.flags_inv & BLOCKHAIR))
+			return
+
+	if(hair_style.length >= 4)
+		if(prob(25))
+			H.apply_damage(30, BRUTE, BP_HEAD)
+			H.visible_message("<span class='danger'>[H]'s hair catches in \the [src]!</span>", "<span class='danger'>Your hair gets caught in \the [src]!</span>")
+			if(H.can_feel_pain())
+				H.emote("scream")
+				H.apply_damage(45, PAIN)

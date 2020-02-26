@@ -52,8 +52,8 @@
 /obj/item/gun/launcher/crossbow
 	name = "powered crossbow"
 	desc = "A 2457AD twist on an old classic. Pick up that can."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "crossbow"
+	icon = 'icons/obj/guns/crossbow.dmi'
+	icon_state = "powered_crossbow"
 	item_state = "crossbow-solid"
 	fire_sound = 'sound/weapons/crossbow.ogg'
 	fire_sound_text = "a solid thunk"
@@ -160,7 +160,7 @@
 
 	if(istype(W, /obj/item/cell))
 		if(!cell)
-			user.drop_from_inventory(cell,src)
+			user.drop_from_inventory(W, src)
 			cell = W
 			to_chat(user, "<span class='notice'>You jam [cell] into [src] and wire it to the firing coil.</span>")
 			superheat_rod(user)
@@ -180,12 +180,16 @@
 		..()
 
 /obj/item/gun/launcher/crossbow/proc/superheat_rod(var/mob/user)
-	if(!user || !cell || !bolt) return
-	if(cell.charge < 500) return
-	if(bolt.throwforce >= 15) return
-	if(!istype(bolt,/obj/item/arrow/rod)) return
+	if(!user || !cell || !bolt)
+		return
+	if(cell.charge < 500)
+		return
+	if(bolt.throwforce >= 15)
+		return
+	if(!istype(bolt,/obj/item/arrow/rod))
+		return
 
-	to_chat(user, "<span class='notice'>[bolt] plinks and crackles as it begins to glow red-hot.</span>")
+	to_chat(user, "<span class='warning'>[bolt] plinks and crackles as it begins to glow red-hot.</span>")
 	bolt.throwforce = 15
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)
@@ -291,9 +295,9 @@
 /obj/item/gun/launcher/crossbow/RFD
 	name = "Rapid-Fabrication-Device Crossbow"
 	desc = "A hacked together RFD turns an innocent tool into the penultimate destruction tool. Flashforges bolts using matter units when the string is drawn back."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/guns/rxb.dmi'
 	icon_state = "rxb"
-	item_state = "rfd"
+	item_state = "rxb"
 	slot_flags = null
 	draw_time = 10
 	var/stored_matter = 0
@@ -361,4 +365,6 @@
 /obj/item/gun/launcher/crossbow/RFD/examine(var/user)
 	. = ..()
 	if(.)
+		if(get_dist(src, user) > 1)
+			return
 		to_chat(user, "It currently holds [stored_matter]/[max_stored_matter] matter-units.")

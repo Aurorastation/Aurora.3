@@ -67,12 +67,12 @@
 
 	var/can_wield = 1
 
-	var/excavation_amount = 30
+	var/excavation_amount = 40
 	var/wielded = 0
 	var/force_unwielded = 5.0
 	var/force_wielded = 15.0
 	var/digspeed_unwielded = 30
-	var/digspeed_wielded = 10
+	var/digspeed_wielded = 5
 	var/drilling = 0
 
 	action_button_name = "Wield pick/drill"
@@ -88,7 +88,6 @@
 	wielded = 1
 	force = force_wielded
 	digspeed = digspeed_wielded
-	name = "[name] (Wielded)"
 	update_icon()
 
 /obj/item/pickaxe/update_icon()
@@ -219,7 +218,7 @@
 	item_state = "spickaxe"
 	origin_tech = list(TECH_MATERIAL = 3)
 	desc = "This makes no metallurgic sense."
-	excavation_amount = 30
+	excavation_amount = 50
 
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
@@ -233,8 +232,8 @@
 	drill_verb = "drilling"
 	autodrill = 1
 	drill_sound = 'sound/weapons/drill.ogg'
-	digspeed = 20
-	digspeed_unwielded = 30
+	digspeed = 10
+	digspeed_unwielded = 15
 	force_unwielded = 15.0
 	excavation_amount = 100
 
@@ -252,8 +251,8 @@
 	drill_verb = "hammering"
 	autodrill = 1
 	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
-	digspeed = 15
-	digspeed_unwielded = 15
+	digspeed = 5
+	digspeed_unwielded = 10
 	force_unwielded = 15.0
 	excavation_amount = 100
 
@@ -269,7 +268,7 @@
 	digspeed = 10
 	origin_tech = list(TECH_MATERIAL = 4)
 	desc = "This makes no metallurgic sense."
-	excavation_amount = 50
+	excavation_amount = 40
 
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
@@ -280,9 +279,9 @@
 	item_state = "dpickaxe"
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 4)
 	desc = "A pickaxe with a diamond pick head."
-	excavation_amount = 30
-
-	digspeed_unwielded = 20
+	excavation_amount = 50
+	autodrill = 1
+	digspeed_unwielded = 10
 	digspeed_wielded = 1
 	force_wielded = 25.0
 
@@ -290,7 +289,7 @@
 	name = "diamond mining drill"
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
-	digspeed = 5 //Digs through walls, girders, and can dig up sand
+	digspeed = 3 //Digs through walls, girders, and can dig up sand
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 4, TECH_ENGINEERING = 5)
 	desc = "Yours is the drill that will pierce the heavens!"
 	drill_verb = "drilling"
@@ -300,8 +299,8 @@
 
 	can_wield = 0
 	force = 20.0
-	digspeed = 5
-	digspeed_unwielded = 5
+	digspeed = 2
+	digspeed_unwielded = 3
 	force_unwielded = 20.0
 
 	action_button_name = null
@@ -310,8 +309,8 @@
 	name = "cyborg mining drill"
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
-	digspeed = 15
-	digspeed_unwielded = 15
+	digspeed = 10
+	digspeed_unwielded = 10
 	force_unwielded = 25.0
 	desc = ""
 	drill_verb = "drilling"
@@ -735,7 +734,7 @@
 				L.Weaken(3)
 				if(ishuman(L))
 					shake_camera(L, 20, 1)
-					addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
+					addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
 
 /**********************Lazarus Injector**********************/
 
@@ -1298,8 +1297,8 @@ var/list/total_extraction_beacons = list()
 					var/mob/living/carbon/L = A
 					L.Weaken(3)
 					shake_camera(L, 20, 1)
-					if(!isipc(L))
-						addtimer(CALLBACK(L, /mob/living/carbon/.proc/vomit), 20)
+					if(!isipc(L) && ishuman(L))
+						addtimer(CALLBACK(L, /mob/living/carbon/human.proc/vomit), 20)
 
 		addtimer(CALLBACK(src, .proc/drill, location), 2)
 

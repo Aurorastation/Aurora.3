@@ -192,6 +192,22 @@
 		stored_mmi.forceMove(get_turf(src))
 		qdel(src)
 
+/obj/item/organ/internal/mmi_holder/circuit/Initialize()
+	robotize()
+	stored_mmi = new /obj/item/device/mmi/digital/robot(src)
+	. = ..()
+	addtimer(CALLBACK(src, .proc/setup_brain), 1)
+
+/obj/item/organ/internal/mmi_holder/circuit/proc/setup_brain()
+	if(owner)
+		stored_mmi.name = "robotic intelligence circuit ([owner.name])"
+		stored_mmi.brainmob.real_name = owner.name
+		stored_mmi.brainmob.name = stored_mmi.brainmob.real_name
+		update_from_mmi()
+	else
+		stored_mmi.forceMove(get_turf(src))
+		qdel(src)
+
 //////////////
 //Terminator//
 //////////////

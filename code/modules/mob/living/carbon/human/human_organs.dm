@@ -7,8 +7,6 @@
 /mob/living/carbon/var/list/internal_organs = list()
 /mob/living/carbon/var/shock_stage = 0
 /mob/living/carbon/human/var/list/organs = list()
-/mob/living/carbon/human/var/list/organs_by_name = list() // map organ names to organs
-/mob/living/carbon/human/var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 
 /mob/living/carbon/human/proc/recheck_bad_external_organs()
 	var/damage_this_tick = getToxLoss()
@@ -137,7 +135,7 @@
 		return
 
 	for (var/obj/item/organ/external/E in organs)
-		if(!E || !E.can_grasp || (E.status & ORGAN_SPLINTED))
+		if(!E || !(E.limb_flags & ORGAN_CAN_GRASP) || (E.status & ORGAN_SPLINTED))
 			continue
 
 		if(E.is_broken() || E.is_dislocated())
@@ -153,7 +151,7 @@
 
 			var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
 			emote("me", 1, "[(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
-		
+
 		else if(!(E.status & ORGAN_ROBOT) && CE_DROPITEM in chem_effects && prob(chem_effects[CE_DROPITEM]))
 			to_chat(src, span("warning", "Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
 			emote("me", 1, "drops what they were holding in their [E.name]!")
@@ -207,7 +205,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/get_brain_status()
+/mob/living/carbon/human/proc/get_brain_result()
 	var/brain_result
 	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
@@ -217,7 +215,10 @@
 			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
 	else
 		brain_result = -1
+	return brain_result
 
+/mob/living/carbon/human/proc/get_brain_status()
+	var/brain_result = get_brain_result()
 	switch(brain_result)
 		if(0)
 			brain_result = "<span class='bad'>none, patient is braindead</span>"
@@ -229,5 +230,5 @@
 			else if(brain_result <= 80)
 				brain_result = "<span class='average'>[brain_result]%</span>"
 			else
-				brain_result = "[brain_result]%"
+				brain_result = "<span class ='scan_green'>[brain_result]%</span>"
 	return brain_result

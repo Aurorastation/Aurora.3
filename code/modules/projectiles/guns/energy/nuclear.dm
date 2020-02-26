@@ -1,9 +1,10 @@
 /obj/item/gun/energy/gun
 	name = "energy carbine"
 	desc = "A Nanotrasen designed energy-based carbine with two settings: Stun and kill."
-	description_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen.  Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	description_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energystun100"
-	item_state = null	// so the human update icon uses the icon_state instead.
+	item_state = "energystun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	accuracy = 1
@@ -34,7 +35,9 @@
 /obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
+	icon = 'icons/obj/guns/nucgun.dmi'
 	icon_state = "nucgun"
+	item_state = "nucgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
 	slot_flags = SLOT_BELT
 	force = 8 //looks heavier than a pistol
@@ -106,11 +109,7 @@
 			add_overlay("nucgun-stun")
 		if("lethal")
 			add_overlay("nucgun-kill")
-/*
-/obj/item/gun/energy/gun/nuclear/emp_act(severity)
-	..()
-	reliability -= round(15/severity)
-*/
+
 /obj/item/gun/energy/gun/nuclear/update_icon()
 	cut_overlays()
 	update_charge()
@@ -121,8 +120,9 @@
 	name = "energy pistol"
 	desc = "A Nanotrasen energy-based pistol gun with two settings: Stun and kill."
 	description_fluff = "The NT EP-3 is an energy sidearm developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	icon = 'icons/obj/guns/epistol.dmi'
 	icon_state = "epistolstun100"
-	item_state = null	//so the human update icon uses the icon_state instead.
+	item_state = "epistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 7
@@ -145,9 +145,12 @@
 
 /obj/item/gun/energy/pistol/hegemony
 	name = "hegemony energy pistol"
-	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite"
+	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite."
+	description_fluff = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
+	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	item_state = "hegemony_pistol"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 10
@@ -156,11 +159,11 @@
 	secondary_projectile_type = /obj/item/projectile/beam/pistol/hegemony
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_switch_modes = TRUE
- 
+
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	modifystate = "hegemony_pistol"
- 
+
 	firemodes = list(
 		list(mode_name="incapacitate", projectile_type=/obj/item/projectile/beam/stun, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/Laser.ogg')

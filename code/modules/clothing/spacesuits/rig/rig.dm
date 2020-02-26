@@ -32,6 +32,7 @@
 	var/interface_title = "Hardsuit Controller"
 	var/wearer_move_delay //Used for AI moving.
 	var/ai_controlled_move_delay = 10
+	var/last_remote_message // when did a mounted pAI or AI use a module? used to prevent admin msg spam
 
 	// Keeps track of what this rig should spawn with.
 	var/suit_type = "hardsuit"
@@ -87,7 +88,7 @@
 	var/datum/effect_system/sparks/spark_system
 
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
-	var/list/species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine")
+	var/list/species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Bishop Accessory Frame", "Zeng-Hu Mobility Frame")
 
 /obj/item/rig/examine()
 	to_chat(usr, "This is \icon[src][src.name].")
@@ -114,6 +115,8 @@
 	spark_system = bind_spark(src, 5)
 
 	START_PROCESSING(SSprocessing, src)
+
+	last_remote_message = world.time
 
 	if(initial_modules && initial_modules.len)
 		for(var/path in initial_modules)

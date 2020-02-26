@@ -111,5 +111,5 @@
 	name = "frayed scroll"
 	desc = "An aged and frayed scrap of paper written in shifting runes. There are hand-drawn illustrations of pugilism."
 	icon = 'icons/obj/wizard.dmi'
-	icon_state ="scroll2"
+	icon_state ="scroll"
 	martial_art = /datum/martial_art/plasma_fist

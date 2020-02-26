@@ -3,19 +3,23 @@
 	short_name = "dio"
 	name_plural = "Dionaea"
 	bodytype = "Diona"
+	age_min = 1
 	age_max = 1000
+	default_genders = list(NEUTER)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	language = LANGUAGE_ROOTSONG
+	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/diona
 	)
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/consume_nutrition_from_air
+		/mob/living/carbon/human/proc/consume_nutrition_from_air,
+		/mob/living/carbon/human/proc/create_structure
 	)
 	//primitive_form = "Nymph"
 	slowdown = 7
@@ -24,12 +28,15 @@
 	siemens_coefficient = 0.3
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
-	num_alternate_languages = 1
+	num_alternate_languages = 2
+	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
 	mob_size = 12	//Worker gestalts are 150kg
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
+	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
+	stomach_capacity = 10 //Big boys.
 	blurb = "Commonly referred to (erroneously) as 'plant people', the Dionaea are a strange space-dwelling collective \
 	species hailing from Epsilon Ursae Minoris. Each 'diona' is a cluster of numerous cat-sized organisms called nymphs; \
 	there is no effective upper limit to the number that can fuse in gestalt, and reports exist	of the Epsilon Ursae \
@@ -38,7 +45,8 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	grab_mod = 1.1
+	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
+	resist_mod = 3 // Pretty stronk tho, can break out
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -46,7 +54,8 @@
 		"response node"      = /obj/item/organ/internal/diona/node,
 		"gas bladder"        = /obj/item/organ/internal/diona/bladder,
 		"polyp segment"      = /obj/item/organ/internal/diona/polyp,
-		"anchoring ligament" = /obj/item/organ/internal/diona/ligament
+		"anchoring ligament" = /obj/item/organ/internal/diona/ligament,
+		BP_STOMACH           = /obj/item/organ/internal/stomach/diona
 	)
 
 	has_limbs = list(
@@ -76,9 +85,11 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	appearance_flags = HAS_HAIR_COLOR
-	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES | NO_TENDONS
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
+	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
+
+	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
 	blood_color = "#97dd7c"
 	flesh_color = "#907E4A"
@@ -93,7 +104,7 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_FRONTIER, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
+	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
@@ -141,7 +152,6 @@
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.gender = NEUTER
 	if (ishuman(H))
 		return ..()
 	else//Most of the stuff in the parent function doesnt apply to nymphs
@@ -168,3 +178,8 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/diona/handle_despawn(var/mob/living/carbon/human/H)
+	for(var/mob/living/carbon/alien/diona/D in H.contents)
+		if((!D.client && !D.mind) || D.stat == DEAD)
+			qdel(D)

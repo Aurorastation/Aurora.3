@@ -3,12 +3,11 @@
 	desc = "A complex single use recharging injector that spreads a complex neurological serum that makes animals docile and friendly. Somewhat."
 	w_class = 3
 	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
-	icon_state = "animal_tagger1"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_guns.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_guns.dmi'
-		)
-	item_state = "gun"
+	// To-do track down where the hell this sprite went?
+	icon = 'icons/obj/guns/decloner.dmi'
+	icon_state = "decloner"
+	item_state = "decloner"
+	contained_sprite = TRUE
 	force = 0
 	var/loaded = 1
 	var/mode = "completely"

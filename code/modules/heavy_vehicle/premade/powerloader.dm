@@ -2,35 +2,30 @@
 	name = "power loader"
 	desc = "An ancient but well-liked cargo handling exosuit."
 
+	e_head = /obj/item/mech_component/sensors/ripley
+	e_body = /obj/item/mech_component/chassis/ripley
+	e_arms = /obj/item/mech_component/manipulators/ripley
+	e_legs = /obj/item/mech_component/propulsion/ripley
+	e_color = COLOR_RIPLEY
+
+	h_l_hand = /obj/item/mecha_equipment/drill
+	h_r_hand = /obj/item/mecha_equipment/clamp
+
 /mob/living/heavy_vehicle/premade/ripley/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/ripley(src)
-		arms.color = "#ffbc37"
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/ripley(src)
-		legs.color = "#ffbc37"
-	if(!head)
-		head = new /obj/item/mech_component/sensors/ripley(src)
-		head.color = "#ffbc37"
-	if(!body)
-		body = new /obj/item/mech_component/chassis/ripley(src)
-		body.color = "#ffdc37"
-
-	body.armor = new /obj/item/robot_parts/robot_component/armour(src)
-
 	. = ..()
+	body.armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
 
-/mob/living/heavy_vehicle/premade/ripley/spawn_mech_equipment()
-	..()
-	install_system(new /obj/item/mecha_equipment/drill(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/clamp(src), HARDPOINT_RIGHT_HAND)
+/mob/living/heavy_vehicle/premade/ripley/cargo
+	h_back = /obj/item/mecha_equipment/autolathe
 
 /obj/item/mech_component/manipulators/ripley
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"
 	max_damage = 70
 	power_use = 2000
-	desc = "The Xion Industrial Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
+	melee_damage = 40
+	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
+	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/ripley
 	name = "exosuit legs"
@@ -40,6 +35,7 @@
 	move_delay = 4
 	turn_delay = 4
 	power_use = 2000
+	trample_damage = 10
 
 /obj/item/mech_component/sensors/ripley
 	name = "exosuit sensors"
@@ -65,7 +61,7 @@
 
 /obj/item/mech_component/chassis/ripley/prebuild()
 	. = ..()
-	armor = new /obj/item/robot_parts/robot_component/armour(src)
+	armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
 
 /obj/item/mech_component/chassis/ripley/Initialize()
 	pilot_positions = list(
@@ -101,28 +97,18 @@
 	desc = "A mix and match of industrial parts designed to withstand fires."
 	icon_state = "firefighter"
 
+	e_head = /obj/item/mech_component/sensors/ripley
+	e_body = /obj/item/mech_component/chassis/ripley
+	e_arms = /obj/item/mech_component/manipulators/ripley
+	e_legs = /obj/item/mech_component/propulsion/ripley
+	e_color = "#385b3c"
+
+	h_l_hand = /obj/item/mecha_equipment/drill
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/extinguisher
+
 /mob/living/heavy_vehicle/premade/firefighter/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/ripley(src)
-		arms.color = "#385b3c"
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/ripley(src)
-		legs.color = "#385b3c"
-	if(!head)
-		head = new /obj/item/mech_component/sensors/ripley(src)
-		head.color = "#385b3c"
-	if(!body)
-		body = new /obj/item/mech_component/chassis/ripley(src)
-		body.color = "#385b3c"
-
 	. = ..()
-
 	material = get_material_by_name("osmium", "carbide", "plasteel")
-
-/mob/living/heavy_vehicle/premade/firefighter/spawn_mech_equipment()
-	..()
-	install_system(new /obj/item/mecha_equipment/drill(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/extinguisher(src), HARDPOINT_RIGHT_HAND)
 
 /obj/item/mech_component/sensors/firefighter/prebuild()
 	..()
@@ -135,30 +121,20 @@
 	icon_state = "combatripley"
 	decal = "ripley_legion"
 
+	e_head = /obj/item/mech_component/sensors/combatripley
+	e_body = /obj/item/mech_component/chassis/ripley
+	e_arms = /obj/item/mech_component/manipulators/ripley
+	e_legs = /obj/item/mech_component/propulsion/ripley
+	e_color = COLOR_TCFL
+
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/grenadesmoke
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/blaster
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/gauss
+
 /mob/living/heavy_vehicle/premade/combatripley/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/ripley(src)
-		arms.color = "#849bc1"
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/ripley(src)
-		legs.color = "#849bc1"
-	if(!head)
-		head = new /obj/item/mech_component/sensors/combatripley(src)
-		head.color = "#849bc1"
-	if(!body)
-		body = new /obj/item/mech_component/chassis/ripley(src)
-		body.color = "#849bc1"
-
-		body.mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
-
 	. = ..()
-
-/mob/living/heavy_vehicle/premade/combatripley/spawn_mech_equipment()
-	..()
-	install_system(new /obj/item/mecha_equipment/mounted_system/blaster(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/gauss(src), HARDPOINT_RIGHT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/flarelauncher(src), HARDPOINT_RIGHT_SHOULDER)
-	install_system(new /obj/item/mecha_equipment/mounted_system/grenadesmoke(src), HARDPOINT_LEFT_SHOULDER)
+	body.mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
 /obj/item/mech_component/sensors/combatripley
 	name = "exosuit sensors"
@@ -171,3 +147,13 @@
 	..()
 	software = new(src)
 	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_WEAPONS)
+
+/mob/living/heavy_vehicle/premade/ripley/remote
+	name = "remote power loader"
+	dummy_colour = "#ffc44f"
+	remote_network = "remotemechs"
+
+/mob/living/heavy_vehicle/premade/ripley/remote_prison
+	name = "penal power loader"
+	dummy_colour = "#302e2b"
+	remote_network = "prisonmechs"

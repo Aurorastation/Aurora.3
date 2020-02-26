@@ -438,3 +438,9 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 	edges -= E
 	if(!E.sleeping)
 		active_edges -= E
+
+/datum/controller/subsystem/air/ExplosionStart()
+	suspend()
+
+/datum/controller/subsystem/air/ExplosionEnd()
+	wake()

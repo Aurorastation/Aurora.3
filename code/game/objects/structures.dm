@@ -6,6 +6,7 @@
 	var/breakable
 	var/parts
 	var/list/climbers
+	var/list/footstep_sound	//footstep sounds when stepped on
 
 /obj/structure/Destroy()
 	if(parts)
@@ -30,9 +31,6 @@
 		structure_shaken()
 
 	return ..()
-
-/obj/structure/attack_tk()
-	return
 
 /obj/structure/ex_act(severity)
 	switch(severity)

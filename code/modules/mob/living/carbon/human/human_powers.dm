@@ -5,6 +5,10 @@
 	set name = "Tie Hair"
 	set desc = "Style your hair."
 	set category = "IC"
+	
+	if(!use_check_and_message())
+		to_chat(src, span("warning", "You can't tie your hair when you are incapacitated!"))
+		return
 
 	if(h_style)
 		var/datum/sprite_accessory/hair/hair_style = hair_styles_list[h_style]
@@ -15,7 +19,7 @@
 		else
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 			for(var/hair_string in hair_styles_list)
-				var/list/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
 				if(test.length >= 2 && (species.bodytype in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
 			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
@@ -29,14 +33,14 @@
 mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
 	set desc = "Change the display on your screen."
-	set category = "IC"
+	set category = "Abilities"
 
 	if(f_style)
 		var/datum/sprite_accessory/facial_hair/screen_style = facial_hair_styles_list[f_style]
 		var/selected_string
 		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
 		for(var/screen_string in facial_hair_styles_list)
-			var/list/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
+			var/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
 			if(species.bodytype in test.species_allowed)
 				valid_screenstyles.Add(screen_string)
 		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
@@ -216,12 +220,13 @@ mob/living/carbon/human/proc/change_monitor()
 
 // Simple mobs cannot use Skrellepathy
 /mob/proc/can_commune()
-	return 0
+	return FALSE
 
 /mob/living/carbon/human/can_commune()
-	if(/mob/living/carbon/human/proc/commune in verbs)
-		return 1
-	return ..()
+	if(psi)
+		return TRUE
+	else
+		return species ? species.can_commune() : FALSE
 
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
@@ -309,24 +314,10 @@ mob/living/carbon/human/proc/change_monitor()
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
 				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
 				H.drip(3)
-			else if(prob(25) && (can_feel_pain()))
+			else if(prob(25) && (H.can_feel_pain()))
 				to_chat(H,"<span class='warning'>Your head hurts...</span>")
 			else if(prob(50))
 				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
-
-
-/mob/living/carbon/human/proc/regurgitate()
-	set name = "Regurgitate"
-	set desc = "Empties the contents of your stomach"
-	set category = "Abilities"
-
-	if(LAZYLEN(stomach_contents))
-		for(var/mob/M in src)
-			if(M in stomach_contents)
-				LAZYREMOVE(stomach_contents, M)
-				M.forceMove(loc)
-		src.visible_message(span("danger", "\The [src] hurls out the contents of their stomach!"))
-	return
 
 /mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())
 	set name = "Psychic Whisper"
@@ -1031,7 +1022,7 @@ mob/living/carbon/human/proc/change_monitor()
 /mob/living/carbon/human/proc/self_diagnostics()
 	set name = "Self-Diagnostics"
 	set desc = "Run an internal self-diagnostic to check for damage."
-	set category = "IC"
+	set category = "Abilities"
 
 	if(stat == DEAD) return
 
@@ -1169,3 +1160,46 @@ mob/living/carbon/human/proc/change_monitor()
 		for(var/line in airInfo)
 			to_chat(src, span("notice", "[line]"))
 		return
+
+/mob/living/carbon/human/proc/crush()
+	set category = "Abilities"
+	set name = "Crush"
+	set desc = "While grabbing someone in a neck grab, crush them with your arms."
+
+	if(last_special > world.time)
+		to_chat(src, "<span class='warning'>Your arms are still recovering!</span>")
+		return
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/grab/G = src.get_active_hand()
+	if(!istype(G))
+		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		return
+
+	if(G.state < GRAB_NECK)
+		to_chat(src, "<span class='warning'>You must have a stronger grab to crush your prey!</span>")
+		return
+
+	if(ishuman(G.affecting))
+		var/mob/living/carbon/human/H = G.affecting
+		var/hit_zone = zone_sel.selecting
+		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
+
+		if(!affected || affected.is_stump())
+			to_chat(H, "<span class='danger'>They are missing that limb!</span>")
+			return
+
+		H.apply_damage(40, BRUTE, hit_zone)
+		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
+		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
+	else
+		var/mob/living/M = G.affecting
+		if(!istype(M))
+			return
+		M.apply_damage(40,BRUTE)
+		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
+		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
+	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
+	last_special = world.time + 100

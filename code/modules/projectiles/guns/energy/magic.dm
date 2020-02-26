@@ -3,12 +3,12 @@
 /obj/item/gun/energy/staff
 	name = "staff of change"
 	desc = "An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself."
-	icon = 'icons/obj/gun.dmi'
-	item_icons = null
+	icon = 'icons/obj/guns/staffofchange.dmi'
 	icon_state = "staffofchange"
 	item_state = "staffofchange"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/magic/Staff_Change.ogg'
-	flags =  CONDUCT
+	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	w_class = 4.0
 	max_shots = 1
@@ -18,6 +18,7 @@
 	recharge_time = 15
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
+	has_safety = FALSE
 
 /obj/item/gun/energy/staff/emp_act(severity) // to prevent it from breaking.
 	return
@@ -101,7 +102,7 @@ obj/item/gun/energy/staff/animate/special_check(var/mob/living/user)
 obj/item/gun/energy/staff/focus
 	name = "mental focus"
 	desc = "An artefact that channels the will of the user into destructive bolts of force. If you aren't careful with it, you might poke someone's brain out."
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/guns/mental_focus.dmi'
 	icon_state = "focus"
 	item_state = "focus"
 	fire_sound = 'sound/magic/wand.ogg'
@@ -145,12 +146,11 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/gun/energy/staff/chaos
 	name = "staff of chaos"
 	desc = "An artefact that spits bolts of chaotic energy, expect anything."
-	icon = 'icons/obj/wands.dmi'
+	icon = 'icons/obj/guns/staff_of_chaos.dmi'
 	icon_state = "staffofchaos"
 	item_state = "staffofchaos"
-	contained_sprite = 1
 	fire_sound = 'sound/magic/Staff_Chaos.ogg'
-	flags =  CONDUCT
+	flags = CONDUCT
 	w_class = 4.0
 	max_shots = 5
 	projectile_type = /obj/item/projectile/magic
@@ -181,10 +181,9 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	name = "wand of nothing"
 	desc = "A magic stick, this one don't do much however."
 	icon = 'icons/obj/wands.dmi'
-	item_icons = null
 	icon_state = "nothingwand"
 	item_state = "wand"
-	contained_sprite = 1
+	has_item_ratio = FALSE
 	fire_sound = 'sound/magic/wand.ogg'
 	slot_flags = SLOT_BELT
 	w_class = 3
@@ -194,6 +193,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 	charge_failure_message = null
+	has_safety = FALSE
 
 /obj/item/gun/energy/wand/get_cell()
 	return DEVICE_NO_CELL
@@ -218,7 +218,6 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	name = "wand of fire"
 	desc = "A wand that can fire destructive flames."
 	icon = 'icons/obj/wands.dmi'
-	contained_sprite = 1
 	icon_state = "firewand"
 	item_state = "firewand"
 	fire_sound = 'sound/magic/Fireball.ogg'
@@ -244,7 +243,6 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	name = "wand of polymorph"
 	desc = "A wand that will change the shape of the its victims."
 	icon = 'icons/obj/wands.dmi'
-	contained_sprite = 1
 	icon_state = "polywand"
 	item_state = "polywand"
 	fire_sound = 'sound/magic/Staff_Change.ogg'
@@ -270,7 +268,6 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	name = "wand of teleportation"
 	desc = "This wand will send your targets away, or closer, to yourself."
 	icon = 'icons/obj/wands.dmi'
-	contained_sprite = 1
 	icon_state = "telewand"
 	item_state = "telewand"
 	fire_sound = 'sound/magic/Wand_Teleport.ogg'
@@ -307,7 +304,6 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	name = "wand of force"
 	desc = "A more portable version of the mental focus, still deadly."
 	icon = 'icons/obj/wands.dmi'
-	contained_sprite = 1
 	icon_state = "deathwand"
 	item_state = "deathwand"
 	max_shots = 10
@@ -333,7 +329,6 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	name = "wand of animation"
 	desc = "This wand will create a legion of murderous toilets, for your own leisure."
 	icon = 'icons/obj/wands.dmi'
-	contained_sprite = 1
 	icon_state = "revivewand"
 	item_state = "revivewand"
 	max_shots = 10

@@ -194,7 +194,7 @@
 /obj/structure/sign/directions
 	name = "direction sign"
 	desc = "A direction sign, claiming to know the way."
-	icon_state = "direction"
+	icon_state = null
 
 /obj/structure/sign/directions/science
 	name = "\improper Science department"
@@ -240,6 +240,11 @@
 	name = "\improper Command department"
 	desc = "A direction sign, pointing out which way the Command sector is."
 	icon_state = "direction_com"
+
+/obj/structure/sign/directions/tcom
+	name = "\improper Telecommunications"
+	desc = "A direction sign, pointing out which way Telecommunications is."
+	icon_state = "direction_tcom"
 
 /obj/structure/sign/directions/all
 	name = "\improper All directions"

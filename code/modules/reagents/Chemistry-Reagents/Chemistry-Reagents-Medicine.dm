@@ -99,7 +99,6 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
-	M.drowsyness = max(M.drowsyness, 5)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals arterial bleeding
@@ -122,7 +121,6 @@
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
-	M.drowsyness = max(M.drowsyness, strength/6)
 
 /datum/reagent/kelotane/dermaline
 	name = "Dermaline"
@@ -520,7 +518,7 @@
 		for(var/datum/reagent/R in ingested.reagent_list)
 			if(istype(R, /datum/reagent/alcohol/ethanol))
 				var/amount = min(P, R.volume)
-				M.ingested.remove_reagent(R.id, amount)
+				ingested.remove_reagent(R.id, amount)
 				P -= amount
 				if (P <= 0)
 					return
@@ -657,7 +655,7 @@
 /datum/reagent/coughsyrup/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 5) // very slight painkiller effect at low doses
 
-/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/M, var/alien, var/removed) // effects based loosely on DXM
+/datum/reagent/coughsyrup/overdose(var/mob/living/carbon/human/M, var/alien, var/removed) // effects based loosely on DXM
 	M.hallucination = max(M.hallucination, 40)
 	M.add_chemical_effect(CE_PAINKILLER, 20) // stronger at higher doses
 	if(prob(dose))
@@ -855,6 +853,37 @@
 	M.adjustOxyLoss(10 * removed * scale)
 	M.Weaken(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
+
+/datum/reagent/tobacco
+	name = "Tobacco"
+	id = "tobacco"
+	description = "Cut and processed tobacco leaves."
+	taste_description = "tobacco"
+	reagent_state = SOLID
+	color = "#684b3c"
+	data = 0
+	scannable = 1
+	var/nicotine = REM * 0.2
+	fallback_specific_heat = 1
+	value = 3
+
+/datum/reagent/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.reagents.add_reagent("nicotine")
+
+/datum/reagent/tobacco/fine
+	name = "Fine Tobacco"
+	id = "tobaccofine"
+	taste_description = "fine tobacco"
+	data = 0
+	value = 5
+
+/datum/reagent/tobacco/bad
+	name = "Terrible Tobacco"
+	id = "tobaccobad"
+	taste_description = "acrid smoke"
+	data = 0
+	value = 0
 
 /datum/reagent/mental/methylphenidate
 	name = "Methylphenidate"
@@ -1182,7 +1211,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 	M.drowsyness = 0
 
-/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/scale)
+/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale)
 	. = ..()
 	M.adjustOxyLoss(1 * removed * scale)
 	M.Weaken(10 * removed * scale)
@@ -1423,7 +1452,7 @@
 			M.add_chemical_effect(CE_CARDIOTOXIC, -removed * nutritionmod)
 	..()
 
-/datum/reagent/adipemcina/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_HEPATOTOXIC, 1)
@@ -1518,6 +1547,6 @@
 	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
 	reagent_state = LIQUID
 	color = "#AA8866"
-	metabolism = 0.5 * REM
+	metabolism = 0.2 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1

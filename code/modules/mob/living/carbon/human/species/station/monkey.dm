@@ -36,7 +36,8 @@
 	brute_mod = 1.5
 	burn_mod = 1.5
 	fall_mod = 0.5
-	grab_mod = 2
+	grab_mod = 1.25
+	resist_mod = 0.25
 	natural_climbing = 1
 
 	spawn_flags = IS_RESTRICTED
@@ -47,13 +48,28 @@
 
 	pass_flags = PASSTABLE
 	holder_type = /obj/item/holder/monkey
+
 /datum/species/monkey/handle_npc(var/mob/living/carbon/human/H)
 	if(H.stat != CONSCIOUS)
 		return
+
 	if(prob(33) && H.canmove && isturf(H.loc) && !H.pulledby) //won't move if being pulled
 		step(H, pick(cardinal))
+
 	if(prob(1))
 		H.emote(pick("scratch","jump","roll","tail"))
+
+	if(H.get_shock() && H.shock_stage < 40 && prob(3))
+		H.custom_emote("chimpers pitifully")
+
+	if(H.shock_stage > 10 && prob(3))
+		H.emote(pick("cry","whimper"))
+
+	if(H.shock_stage >= 40 && prob(3))
+		H.emote("scream")
+
+	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
+		H.custom_emote("thrashes in agony")
 
 /datum/species/monkey/get_random_name()
 	return "[lowertext(name)] ([rand(100,999)])"

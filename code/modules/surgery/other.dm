@@ -17,7 +17,7 @@
 	max_duration = 90
 
 /datum/surgery_step/fix_vein/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -64,7 +64,7 @@
 	max_duration = 160
 
 /datum/surgery_step/fix_dead_tissue/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -94,7 +94,7 @@
 	..()
 
 /datum/surgery_step/fix_dead_tissue/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/internal/list/dead_organs = list()
+	var/list/obj/item/organ/internal/dead_organs = list()
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && !(I.status & ORGAN_CUT_AWAY) && (I.status & ORGAN_DEAD) && !BP_IS_ROBOTIC(I))
@@ -134,10 +134,10 @@
 	if(!container.reagents.has_reagent("peridaxon"))
 		return 0
 
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 
-		if (target_zone == "mouth" || target_zone == BP_EYES)
+		if (target_zone == BP_MOUTH || target_zone == BP_EYES)
 			return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

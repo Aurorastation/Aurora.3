@@ -417,20 +417,6 @@ There are several things that need to be remembered:
 				add_image = 1
 	for(var/mut in mutations)
 		switch(mut)
-			/*
-			if(HULK)
-				if(fat)
-					standing.underlays	+= "hulk_[fat]_s"
-				else
-					standing.underlays	+= "hulk_[g]_s"
-				add_image = 1
-			if(COLD_RESISTANCE)
-				standing.underlays	+= "fire[fat]_s"
-				add_image = 1
-			if(TK)
-				standing.underlays	+= "telekinesishead[fat]_s"
-				add_image = 1
-			*/
 			if(LASER_EYES)
 				standing.overlays += "lasereyes_s"
 				add_image = 1
@@ -650,20 +636,25 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[GLASSES_LAYER] = null
+	var/image/glasses_overlay = null
 	if(check_draw_glasses())
 		if(glasses.contained_sprite)
 			glasses.auto_adapt_species(src)
 			var/state = "[UNDERSCORE_OR_NULL(glasses.icon_species_tag)][glasses.item_state][WORN_EYES]"
 
-			overlays_raw[GLASSES_LAYER] = image(glasses.icon_override || glasses.icon, state)
+			glasses_overlay = image(glasses.icon_override || glasses.icon, state)
 
 		else if(glasses.icon_override)
-			overlays_raw[GLASSES_LAYER] = image(glasses.icon_override, glasses.icon_state)
+			glasses_overlay = image(glasses.icon_override, glasses.icon_state)
 		else if(glasses.sprite_sheets && glasses.sprite_sheets[GET_BODY_TYPE])
-			overlays_raw[GLASSES_LAYER] = image(glasses.sprite_sheets[GET_BODY_TYPE], glasses.icon_state)
+			glasses_overlay = image(glasses.sprite_sheets[GET_BODY_TYPE], glasses.icon_state)
 		else
-			overlays_raw[GLASSES_LAYER] = image('icons/mob/eyes.dmi', glasses.icon_state)
+			glasses_overlay = image('icons/mob/eyes.dmi', glasses.icon_state)
+
+		if(glasses.color)
+			glasses_overlay.color = glasses.color
+
+	overlays_raw[GLASSES_LAYER] = glasses_overlay
 
 	if(update_icons)
 		update_icons()

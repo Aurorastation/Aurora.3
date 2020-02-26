@@ -3,43 +3,35 @@
 	desc = "A heavily armored combat exosuit."
 	icon_state = "durand"
 
-/mob/living/heavy_vehicle/premade/heavy/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/heavy(src)
-		arms.color = COLOR_TITANIUM
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/heavy(src)
-		legs.color = COLOR_TITANIUM
-	if(!head)
-		head = new /obj/item/mech_component/sensors/heavy(src)
-		head.color = COLOR_TITANIUM
-	if(!body)
-		body = new /obj/item/mech_component/chassis/heavy(src)
-		body.color = COLOR_TITANIUM
+	e_head = /obj/item/mech_component/sensors/heavy
+	e_body = /obj/item/mech_component/chassis/heavy
+	e_arms = /obj/item/mech_component/manipulators/heavy
+	e_legs = /obj/item/mech_component/propulsion/heavy
+	e_color = COLOR_TITANIUM
 
-	. = ..()
-
-	install_system(new /obj/item/mecha_equipment/mounted_system/taser/laser(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/taser/ion(src), HARDPOINT_RIGHT_HAND)
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/taser/laser
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/taser/ion
 
 /obj/item/mech_component/manipulators/heavy
 	name = "heavy arms"
 	exosuit_desc_string = "super-heavy reinforced manipulators"
 	icon_state = "heavy_arms"
 	desc = "Designed to function where any other piece of equipment would have long fallen apart, the Hephaestus Superheavy Lifter series can take a beating and excel at delivering it."
-	melee_damage = 25
+	melee_damage = 50
 	action_delay = 15
 	max_damage = 90
 	power_use = 7500
+	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/heavy
 	name = "heavy legs"
 	exosuit_desc_string = "heavy hydraulic legs"
-	desc = "Oversized actuators struggle to move these armoured legs. "
+	desc = "Oversized actuators struggle to move these armoured legs."
 	icon_state = "heavy_legs"
 	move_delay = 5
 	max_damage = 90
 	power_use = 5000
+	trample_damage = 45
 
 /obj/item/mech_component/sensors/heavy
 	name = "heavy sensors"
@@ -68,7 +60,7 @@
 
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()
-	mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
 /obj/item/mech_component/chassis/superheavy
 	name = "reinforced exosuit chassis"
@@ -84,31 +76,19 @@
 /obj/item/mech_component/chassis/superheavy/prebuild()
 	. = ..()
 	cell = new /obj/item/cell/super(src)
-	mech_armor = new /obj/item/robot_parts/robot_component/armor/combat(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
 /mob/living/heavy_vehicle/premade/superheavy
 	name = "Marauder"
 	desc = "Heavy-duty, combat exosuit, developed after the Durand model. Rarely found among civilian populations."
 	icon_state = "darkgygax"
 
-/mob/living/heavy_vehicle/premade/superheavy/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/heavy(src)
-		arms.color = COLOR_DARK_GUNMETAL
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/heavy(src)
-		legs.color = COLOR_DARK_GUNMETAL
-	if(!head)
-		head = new /obj/item/mech_component/sensors/heavy(src)
-		head.color = COLOR_DARK_GUNMETAL
-	if(!body)
-		body = new /obj/item/mech_component/chassis/superheavy(src)
-		body.color = COLOR_DARK_GUNMETAL
+	e_head = /obj/item/mech_component/sensors/heavy
+	e_body = /obj/item/mech_component/chassis/superheavy
+	e_arms = /obj/item/mech_component/manipulators/heavy
+	e_legs = /obj/item/mech_component/propulsion/heavy
+	e_color = COLOR_DARK_GUNMETAL
 
-	. = ..()
-
-/mob/living/heavy_vehicle/premade/superheavy/spawn_mech_equipment()
-	..()
-	install_system(new /obj/item/mecha_equipment/mounted_system/missile(src), HARDPOINT_RIGHT_SHOULDER)
-	install_system(new /obj/item/mecha_equipment/mounted_system/pulse(src), HARDPOINT_LEFT_SHOULDER)
-	install_system(new /obj/item/mecha_equipment/mounted_system/taser/smg(src), HARDPOINT_RIGHT_HAND)
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/missile
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/pulse
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/taser/smg

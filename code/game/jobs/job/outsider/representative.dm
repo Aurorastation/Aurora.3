@@ -11,12 +11,14 @@
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 
-	minimum_character_age = 25
+	minimum_character_age = 30
 
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
 	outfit = /datum/outfit/job/representative
 	alt_titles = list("Consular Officer")
+
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi")
 
 /datum/job/representative/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	if(H.mind?.role_alt_title == "Consular Officer" || alt_title == "Consular Officer")

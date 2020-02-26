@@ -119,8 +119,20 @@
 	airlock_type = "/lift"
 	glass = -1
 
+/obj/structure/door_assembly/door_assembly_skrell
+	base_icon_state = "skrell_purple"
+	base_name = "Airlock"
+	airlock_type = "/skrell"
+	glass = -1
+
+/obj/structure/door_assembly/door_assembly_skrell/grey
+	base_icon_state = "skrell_grey"
+	base_name = "Airlock"
+	airlock_type = "/skrell/grey"
+
 /obj/structure/door_assembly/multi_tile
 	icon = 'icons/obj/doors/door_assembly2x1.dmi'
+	icon_state = null //only have icons for the glass version
 	dir = EAST
 	var/width = 1
 

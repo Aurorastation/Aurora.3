@@ -15,7 +15,7 @@
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
 "ad" = (
-/turf/unsimulated/mineral/asteroid,
+/turf/simulated/mineral,
 /area/mine/unexplored)
 "ae" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{

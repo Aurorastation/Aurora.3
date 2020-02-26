@@ -111,8 +111,6 @@
 	overlay_state = "holobadge"
 	var/emagged //Emagging removes Sec check.
 
-	drop_sound = 'sound/items/drop/rubber.ogg'
-
 /obj/item/clothing/accessory/badge/holo/cord
 	icon_state = "holobadge-cord"
 	overlay_state = null
@@ -189,21 +187,6 @@
 
 	drop_sound = 'sound/items/drop/card.ogg'
 
-/obj/item/clothing/accessory/badge/hadii_card
-	name = "honorary party member card"
-	desc = "A card denoting a honorary member of the Hadiist party."
-	icon_state = "hadii-id"
-	overlay_state = "hadii-id"
-	slot_flags = SLOT_TIE
-	badge_string = "Honorary Member of Party of the Free Tajara under the Leadership of Hadii"
-	description_fluff = "The Party of the Free Tajara under the Leadership of Hadii is the only and ruling party in the PRA, with its leader always being the elected president. \
-	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
-	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
-	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
-	w_class = 1
-
-	drop_sound = 'sound/items/drop/card.ogg'
-
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
 	desc = "A star-shaped brass badge denoting who the law is around these parts."
@@ -245,3 +228,10 @@
 	icon_state = "intelbadge"
 	overlay_state = "intelbadge"
 	badge_string = null
+
+/obj/item/clothing/accessory/badge/trinary
+    name = "trinary perfection brooch"
+    desc = "A metal brooch worn by those who serve or follow the beliefs of the Trinary Perfection. It resembles a gear with a triangle inside."
+    icon_state = "trinary_badge"
+    overlay_state = "trinary_badge"
+    badge_string = null

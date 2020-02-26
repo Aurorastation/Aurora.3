@@ -200,36 +200,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "coin_yoiko_heads" //thanks fireandglory for the sprites
 	cmineral = "yoiko"
 
-/obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35
-	name = "unathi wrappings"
-	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
-	icon = 'icons/obj/custom_items/karnaikai_wrappings.dmi'
-	icon_state = "karnaikai_wrappings" //special thanks to Araskael
-	item_state = "karnaikai_wrappings"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	flags_inv = HIDEJUMPSUIT|HIDETAIL
-	species_restricted = list("Unathi")
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/mask/gas/fluff/karnaikai_mask //Unathi head wrappings - Azeazekal Karnaikai - canon35
-	name = "unathi head wrappings"
-	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
-	icon = 'icons/obj/custom_items/karnaikai_mask.dmi'
-	icon_state = "karnaikai_mask" //special thanks to Araskael
-	item_state = "karnaikai_mask"
-	species_restricted = list("Unathi")
-	contained_sprite = TRUE
-
-
-/obj/item/contraband/poster/fluff/conservan_poster //ATLAS poster - Conservan Xullie - conservatron
-	name = "ATLAS poster"
-
-/obj/item/contraband/poster/fluff/conservan_poster/New()
-	..()
-	serial_number = 59
-
-
 /obj/item/flame/lighter/zippo/fluff/locke_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
 	name = "fire extinguisher lighter"
 	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
@@ -462,16 +432,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "sayyidah_dress"
 	contained_sprite = TRUE
 
-
-/obj/item/clothing/suit/storage/fluff/vittorio_jacket //Atlas Overcoat - Vittorio Giurifiglio - tytostyris
-	name = "atlas overcoat"
-	desc = "A classy black militaristic uniform, which is adorned with a sash and an eagle."
-	icon = 'icons/obj/custom_items/vittorio_jacket.dmi'
-	icon_state = "vittorio_jacket"
-	item_state = "vittorio_jacket"
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/helmut_labcoat //CERN Labcoat - Helmut Kronigernischultz - pyrociraptor
 	name = "\improper CERN labcoat"
 	desc = "A Labcoat with a blue pocket and blue collar. On the pocket, you can read \"C.E.R.N.\"."
@@ -483,7 +443,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/shoes/jackboots/unathi/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
+/obj/item/clothing/shoes/jackboots/toeless/fluff/yinzr_sandals //Marching Sandals - Sslazhir Yinzr - alberyk
 	name = "marching sandals"
 	desc = "A pair of sturdy marching sandals made of layers of leather and with a reinforced sole, they are also rather big."
 	icon = 'icons/obj/custom_items/yinzr_sandals.dmi'
@@ -620,6 +580,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "simon_scarf"
 	item_state = "simon_scarf"
 	contained_sprite = TRUE
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	w_class = 2
+	gas_transfer_coefficient = 0.90
 
 
 /obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - marlonphoenix
@@ -1472,15 +1436,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	has_sensor = 0
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/fluff/jennifer_jersey //Capital Sting FC Outfit - Jennifer Beal - synnono
-	name = "association football outfit"
-	desc = "A yellow and black jersey for the Mendell City women's club \"Capital Sting FC\" paired with black athletic shorts. This belongs on the pitch!"
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_jersey"
-	item_state = "jennifer_jersey"
-	has_sensor = 0
-	contained_sprite = TRUE
-
 /obj/item/clothing/shoes/fluff/jennifer_pboots //Black Punk Boots - Jennifer Beal - synnono
 	name = "black punk boots"
 	desc = "A tall pair of thick-heeled black leather boots. They are fastened with several burnished steel buckles."
@@ -2019,7 +1974,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mar_dress"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/jackboots/unathi/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
+/obj/item/clothing/shoes/jackboots/toeless/fluff/marwani_shoes //Unathi Purple Boots - Ilaeza Marwani - burgerbb
 	name = "unathi purple boots"
 	desc = "Giant, closed-toe boots with extra claw space and support, perfect for those with clawed feet."
 	icon = 'icons/obj/custom_items/marwani_dress.dmi'
@@ -3006,7 +2961,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/toggle/det_trench/fluff/takahashi_coat //High Collar Dress Shirt - Shiki Takahashi - nantei
 	name = "long trenchcoat"
 	desc = "A very long, black, canvas trench coat. It goes down just below the knees. It looks to be custom-fitted, with a layer of graphene for added armor. There is an infinity \
-	symbol on the back, similar to the Frontier Alliance flag."
+	symbol on the back, similar to the Coalition of Colonies flag."
 	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
 	icon_state = "takahashi_coat"
 	item_state = "takahashi_coat"
@@ -3216,3 +3171,160 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
+
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet //Bouquet of Chrysanthemums - IRU-Sentiment - niennab
+	name = "bouquet of chrysanthemums"
+	desc = "A bouquet of white artificial chrysanthemum flowers wrapped in a sheet of newsprint."
+	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
+	icon_state = "sentiment_bouquet"
+	item_state = "sentiment_bouquet"
+	can_hold = list(/obj/item/clothing/accessory/fluff/sentiment_flower)
+	starts_with = list(/obj/item/clothing/accessory/fluff/sentiment_flower = 6)
+	storage_slots = 6
+	contained_sprite = TRUE
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	use_sound = 'sound/items/drop/paper.ogg'
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet/fill()
+	. = ..()
+	update_icon()
+
+/obj/item/storage/fancy/fluff/sentiment_bouquet/update_icon()
+	icon_state = "[initial(icon_state)]_[contents.len]"
+	if(contents.len)
+		item_state = initial(item_state)
+	else
+		item_state = "[initial(item_state)]_e"
+
+/obj/item/clothing/accessory/fluff/sentiment_flower //Artificial Chrysanthemum - IRU-Sentiment - niennab
+	name = "artificial chrysanthemum"
+	desc = "An artificial white chrysanthemum flower."
+	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
+	icon_state = "sentiment_flower"
+	item_state = "sentiment_flower"
+	contained_sprite = TRUE
+
+
+/obj/item/clothing/head/welding/fluff/ioraks_mask //Iorakian Welding Mask - Kuhserze Ioraks - geeves
+	name = "iorakian welding mask"
+	desc = "A modified version of the standard issue NanoTrasen Engineering Corps welding mask, hand-painted into the colours of the Ioraks clan. Various alterations are clearly \
+	visible, including a darkened visor and refitted straps to keep the mask in place. On the inner side there is an ingraving of the Ioraks clan emblem, an open splayed hand with \
+	its palm facing the observer."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_mask"
+	item_state = "ioraks_mask"
+	contained_sprite = TRUE
+
+/obj/item/storage/box/fluff/ioraks_armbands //Delegation Armbands - Kuhserze Ioraks - geeves
+	name = "delegation armbands box"
+	desc = "A box full of team coloured armbands. It has a small picture of an Unathi's face misprinted on it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armbands"
+	item_state = "ioraks_armbands"
+	can_hold = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband)
+	starts_with = list(/obj/item/clothing/accessory/armband/fluff/ioraks_armband = 4, /obj/item/clothing/accessory/armband/fluff/ioraks_armband/alt = 4)
+	storage_slots = 8
+
+/obj/item/clothing/accessory/armband/fluff/ioraks_armband
+	name = "azszau armband"
+	desc = " A quite comfortable armband denoting its wearer as a member of the Azszau team. In fine print on the in-line of the fabric, it has \"The Skilled Hands\" worked into it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armband"
+	item_state = "ioraks_armband"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/armband/fluff/ioraks_armband/alt
+	name = "kutzis armband"
+	desc = "A quite comfortable armband denoting its wearer as a member of the Kutzis team. In fine print on the in-line of the fabric, it has \"The Bright Minds\" worked into it."
+	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
+	icon_state = "ioraks_armband2"
+	item_state = "ioraks_armband2"
+
+
+/obj/item/clothing/accessory/poncho/fluff/solozel_mantle //Maraziite Throw Over - Kasluul Solozel - paradoxspace
+	name = "maraziite throw over"
+	desc = "It's a grey poncho, exclusively donned by the members of the Maraziite Order. This one has a Izweski Hegemony flag boldly sewn onto the shoulder."
+	icon = 'icons/obj/custom_items/solozel_items.dmi'
+	icon_state = "solozel_mantle"
+	item_state = "solozel_mantle"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+/obj/item/clothing/mask/fluff/solozel_mask //Iron Mask - Kasluul Solozel - paradoxspace
+	name = "iron mask"
+	desc = "It's a painted mask of white cast iron, decorated with two massive Hegeranzi horns. This is a slightly older design, worn by the members of the Maraziite Order; used to strike fear into the hearts of heretics."
+	icon = 'icons/obj/custom_items/solozel_items.dmi'
+	icon_state = "solozel_mask"
+	item_state = "solozel_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0
+
+
+/obj/item/cane/fluff/suul_staff //Akhanzi Staff - Suul Akhandi - herpetophilia
+	name = "akhanzi staff"
+	desc = "A staff usually carried by shamans of the Akhanzi Order. It is made out of dark, polished wood and is curved at the end."
+	icon = 'icons/obj/custom_items/suul_staff.dmi'
+	icon_state = "suul_staff"
+	item_state = "suul_staff"
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
+	w_class = 4
+
+/obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user as mob, proximity)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(!proximity)
+		return
+	if (istype(A, /turf/simulated/floor))
+		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
+		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
+		return
+
+
+/obj/item/clothing/accessory/sweater/fluff/cress_sweater //Star Sweater - Emily Cress - mattatlas
+	name = "star sweater"
+	desc = "An army green sweater. It looks well cared for and contains a star on the front, near the neck. To those familiar with it, the star is the same symbol as one of the nation alliances' logos in Earth's history."
+	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_state = "cress_sweater"
+	item_state = "cress_sweater"
+	contained_sprite = TRUE
+
+/obj/item/fluff/cress_book //Lyric Book - Emily Cress - mattatlas
+	name = "lyric book"
+	desc = "An old, faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. A dark purple H is scribbled on the center, along with half a heart on the \
+	left and a cut on the bottom right. The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock."
+	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_state = "cress_book"
+	w_class = 2
+	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
+							"Say Something New: A morose song about companionship, and being unable to continue without an undescribed dear friend. Morose, but overall motivational.",
+							"One By One: A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
+
+/obj/item/fluff/cress_book/attack_self(mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.visible_message("<span class='notice'>[user] begins searching through \the [src] pages.</span>")
+	if(do_after(user, 25))
+		to_chat(user, "<span class='notice'>You read on the pages of \the [src]: [pick(lyrics)]</span>")
+
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
+	name = "developer's laptop"
+	anchored = FALSE
+	screen_on = FALSE
+	icon_state = "laptop-closed"
+	desc = "A portable computer, this one is covered edge-to-edge in stickers. Some stand out; such ones from a 2458 Game Jam, 2459 Game Jam and various title logos from obscure holovid series. Printed on the bottom panel \
+	is \"Hello, world!\" in a bright, monospace font."
+	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
+	..()
+	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
+	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
+	network_card = new /obj/item/computer_hardware/network_card(src)
+	battery_module = new /obj/item/computer_hardware/battery_module(src)
+	battery_module.charge_to_full()
+	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 10
+	nano_printer.stored_paper = 5

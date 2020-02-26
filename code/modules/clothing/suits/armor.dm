@@ -85,6 +85,12 @@
 	icon_state = "commissar_warden"
 	item_state = "commissar_warden"
 
+/obj/item/clothing/suit/armor/vest/fib
+	name = "\improper FIB armored vest"
+	desc = "An armored vest used by Federal Investigations Bureau agents during operations."
+	icon_state = "fib_armor"
+	item_state = "fib_armor"
+
 /obj/item/clothing/suit/armor/hos
 	name = "head of security's jacket"
 	desc = "An armoured jacket with golden rank pips and livery."
@@ -511,7 +517,7 @@
 
 /obj/item/clothing/suit/armor/unathi
 	name = "unathi body armor"
-	desc = "An armored chestplate designated to be worn by an unathi, used commonly by the hegemony levies."
+	desc = "An outdated armored chestplate designated to be worn by an Unathi, it was commonly used by the Hegemony Levies."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_armor"
 	item_state = "unathi_armor"
@@ -519,6 +525,13 @@
 	species_restricted = list("Unathi")
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
+
+/obj/item/clothing/suit/armor/unathi/hegemony
+	name = "hegemony body armor"
+	desc = "A highly armored chestplate designated to be worn by an Unathi, a newer variant commonly worn by the Hegemony Levies."
+	icon_state = "hegemony_armor"
+	item_state = "hegemony_armor"
+	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
 
 // Vaurca version of Unathi armour
 /obj/item/clothing/suit/armor/unathi/klax
@@ -530,29 +543,8 @@
 	contained_sprite = TRUE
 	species_restricted = list("Vaurca")
 	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
 	siemens_coefficient = 0.35
-
-/obj/item/clothing/suit/armor/tajara
-	name = "amohdan swordsmen armor"
-	desc = "A suit of armor used by the traditional warriors of Amohda."
-	icon = 'icons/obj/tajara_items.dmi'
-	icon_state = "amohdan_armor"
-	item_state = "amohdan_armor"
-	contained_sprite = TRUE
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/gun,/obj/item/material/sword)
-	flags_inv = HIDEJUMPSUIT|HIDETAIL
-	species_restricted = list("Tajara")
-	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
-	siemens_coefficient = 0.35
-	description_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
-	single combat in their quests to become the greatest swordsman. Modern Amohda is a mix between loyalists to the NKA and to the DPRA, with almost universal praise for a return to \
-	traditional culture, yet often violent disagreement about the course of the island's political future. A sizable third party of monarchists which advocate the reestablishment of the \
-	Imperial Amohdan dynasty also exists, fragmenting the monarchist factions on the island and further complicating political violence in the area."
-
-
-//tau ceti foreign legion armor
 
 /obj/item/clothing/suit/storage/vest/legion
 	name = "foreign legion armored suit"

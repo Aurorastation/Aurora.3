@@ -3,37 +3,25 @@
 	desc = "A light and agile exosuit."
 	icon_state = "odysseus"
 
-/mob/living/heavy_vehicle/premade/light/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/light(src)
-		arms.color = COLOR_OFF_WHITE
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/light(src)
-		legs.color = COLOR_OFF_WHITE
-	if(!head)
-		head = new /obj/item/mech_component/sensors/light(src)
-		head.color = COLOR_OFF_WHITE
-	if(!body)
-		body = new /obj/item/mech_component/chassis/light(src)
-		body.color = COLOR_OFF_WHITE
+	e_head = /obj/item/mech_component/sensors/light
+	e_body = /obj/item/mech_component/chassis/light
+	e_arms = /obj/item/mech_component/manipulators/light
+	e_legs = /obj/item/mech_component/propulsion/light
+	e_color = COLOR_OFF_WHITE
 
-	. = ..()
-
-/mob/living/heavy_vehicle/premade/light/spawn_mech_equipment()
-	..()
-	install_system(new /obj/item/mecha_equipment/catapult(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/sleeper(src), HARDPOINT_BACK)
-	install_system(new /obj/item/mecha_equipment/light(src), HARDPOINT_HEAD)
+	h_back = /obj/item/mecha_equipment/sleeper
+	h_l_hand = /obj/item/mecha_equipment/catapult
 
 /obj/item/mech_component/manipulators/light
 	name = "light arms"
 	exosuit_desc_string = "lightweight, segmented manipulators"
 	icon_state = "light_arms"
-	melee_damage = 5
+	melee_damage = 15
 	action_delay = 15
 	max_damage = 40
 	power_use = 3000
-	desc = "As flexible as they are fragile, these Vey-Med manipulators can follow a pilot's movements in close to real time."
+	desc = "As flexible as they are fragile, these Bishop Cybernetics manipulators can follow a pilot's movements in close to real time."
+	punch_sound = 'sound/mecha/mech_punch_fast.ogg'
 
 /obj/item/mech_component/propulsion/light
 	name = "light legs"
@@ -64,9 +52,8 @@
 /obj/item/mech_component/chassis/light
 	name = "light exosuit chassis"
 	pilot_coverage = 100
-	transparent_cabin =  TRUE
+	transparent_cabin = TRUE
 	hatch_descriptor = "canopy"
-	hide_pilot = TRUE //Sprite too small, legs clip through, so for now hide pilot
 	exosuit_desc_string = "an open and light chassis"
 	icon_state = "light_body"
 	max_damage = 50
@@ -76,7 +63,7 @@
 
 /obj/item/mech_component/chassis/light/prebuild()
 	. = ..()
-	mech_armor = new /obj/item/robot_parts/robot_component/armor/radproof(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/radproof(src)
 
 /obj/item/mech_component/chassis/light/Initialize()
 	pilot_positions = list(
@@ -94,26 +81,11 @@
 	desc = "A light and agile exosuit painted in the colours of the Tau Ceti Foreign Legion."
 	icon_state = "odysseus"
 
-/mob/living/heavy_vehicle/premade/light/legion/Initialize()
-	if(!arms)
-		arms = new /obj/item/mech_component/manipulators/light(src)
-		arms.color = "#849bc1"
-	if(!legs)
-		legs = new /obj/item/mech_component/propulsion/light(src)
-		legs.color = "#849bc1"
-	if(!head)
-		head = new /obj/item/mech_component/sensors/light(src)
-		head.color = "#849bc1"
-	if(!body)
-		body = new /obj/item/mech_component/chassis/light(src)
-		body.color = "#849bc1"
+	e_color = COLOR_TCFL
 
-	. = ..()
-
-/mob/living/heavy_vehicle/premade/light/legion/spawn_mech_equipment()
-	install_system(new /obj/item/mecha_equipment/clamp(src), HARDPOINT_RIGHT_HAND)
-	install_system(new /obj/item/mecha_equipment/mounted_system/medanalyzer(src), HARDPOINT_LEFT_HAND)
-	install_system(new /obj/item/mecha_equipment/sleeper(src), HARDPOINT_BACK)
-	install_system(new /obj/item/mecha_equipment/light(src), HARDPOINT_HEAD)
-	install_system(new /obj/item/mecha_equipment/mounted_system/flarelauncher(src), HARDPOINT_RIGHT_SHOULDER)
-	install_system(new /obj/item/mecha_equipment/crisis_drone(src), HARDPOINT_LEFT_SHOULDER)
+	h_head = /obj/item/mecha_equipment/light
+	h_back = /obj/item/mecha_equipment/sleeper
+	h_l_shoulder = /obj/item/mecha_equipment/crisis_drone
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/medanalyzer
+	h_r_hand = /obj/item/mecha_equipment/clamp

@@ -33,7 +33,8 @@
 	if(faction_verb && player.current)
 		player.current.verbs |= faction_verb
 
-	player.current.client.verbs += /client/proc/aooc
+	if(player.current.client)
+		player.current.client.verbs += /client/proc/aooc
 
 	to_chat(player.current, "<span class='notice'>Once you decide on a goal to pursue, you can optionally display it to everyone at the end of the shift with the <b>Set Ambition</b> verb, located in the IC tab.  You can change this at any time, and it otherwise has no bearing on your round.</span>")
 	player.current.verbs += /mob/living/proc/write_ambition
@@ -68,8 +69,9 @@
 		update_icons_removed(player)
 		BITSET(player.current.hud_updateflag, SPECIALROLE_HUD)
 
-		if (!is_special_character(player) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))
-			player.current.client.verbs -= /client/proc/aooc
+		if(player.current.client)
+			if(!is_special_character(player) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))
+				player.current.client.verbs -= /client/proc/aooc
 
 		if(!is_special_character(player))
 			player.current.verbs -= /mob/living/proc/write_ambition

@@ -57,14 +57,6 @@
 	fire_resist = T0C+5200
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
-
-/obj/item/clothing/suit/greatcoat
-	name = "great coat"
-	desc = "A heavy great coat"
-	icon_state = "nazi"
-	item_state = "nazi"
-
-
 /obj/item/clothing/suit/johnny_coat
 	name = "johnny~~ coat"
 	desc = "Johnny~~"
@@ -162,6 +154,12 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	flags_inv = HIDEJUMPSUIT
 
+/obj/item/clothing/suit/trinary_robes
+    name = "trinary perfection robe"
+    desc = "Robes worn by those who serve The Trinary Perfection."
+    icon_state = "trinary_robes"
+    item_state = "trinary_robes"
+
 /*
  * Misc
  */
@@ -200,18 +198,6 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.75
-
-/obj/item/clothing/suit/browncoat
-	name = "brown leather coat"
-	desc = "A long, brown leather coat."
-	icon_state = "browncoat"
-	item_state = "browncoat"
-
-/obj/item/clothing/suit/neocoat
-	name = "black coat"
-	desc = "A flowing, black coat."
-	icon_state = "neocoat"
-	item_state = "neocoat"
 
 /obj/item/clothing/suit/xenos
 	name = "xenos suit"
@@ -308,11 +294,16 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
 	name = "tcfl flight jacket"
-	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
+	desc = "A Tau Ceti Foreign Legion pilot's jacket. This is the more common, less durable variety, which typically finds itself percolating amongst all ranks of the TCFL."
 	icon_state = "lflight"
 	item_state = "lflight"
 	icon_open = "lflight_open"
 	icon_closed = "lflight"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	siemens_coefficient = 0.75
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion/alt
+	desc = "A Tau Ceti Foreign Legion pilot's jacket made from a silky, shiny nanonylon material and lined with tough, protective synthfabrics."
 	armor = list(melee = 40, bullet = 10, laser = 20, energy = 10, bomb = 30, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
@@ -339,7 +330,7 @@
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
 	icon_state = "mold_alt"
-	item_state = "mold_alt"	
+	item_state = "mold_alt"
 
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
@@ -444,37 +435,14 @@
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
 
-/obj/item/clothing/suit/storage/dominia
-	name = "dominia cape"
-	desc = "This is a cape in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon_state = "dominian_cape"
-	item_state = "dominian_cape"
-
-/obj/item/clothing/suit/storage/toggle/dominia
-	name = "dominia great coat"
-	desc = "This is a great coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon_state = "dominian_noble"
-	item_state = "dominian_noble"
-	icon_open = "dominian_noble_open"
-	icon_closed = "dominian_noble"
-
-/obj/item/clothing/suit/storage/toggle/dominia/alt
-	icon_state = "dominian_noble2"
-	item_state = "dominian_noble2"
-	icon_open = "dominian_noble2_open"
-	icon_closed = "dominian_noble2"
-
-/obj/item/clothing/suit/storage/toggle/dominia/black
-	icon_state = "dominian_noble4"
-	item_state = "dominian_noble4"
-	icon_open = "dominian_noble4_open"
-	icon_closed = "dominian_noble4"
-
-/obj/item/clothing/suit/storage/toggle/dominia/black/alt
-	icon_state = "dominian_noble5"
-	item_state = "dominian_noble5"
-	icon_open = "dominian_noble5_open"
-	icon_closed = "dominian_noble5"
+/obj/item/clothing/suit/storage/toggle/trench/green
+	name = "green trenchcoat"
+	desc = "A comfy looking green trenchcoat with fur."
+	icon_state = "greentrench"
+	item_state = "greentrench"
+	icon_open = "greentrench_open"
+	icon_closed = "greentrench"
+	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/greengov
 	name = "green formal jacket"
@@ -534,7 +502,7 @@
 
 /obj/item/clothing/suit/varsity
 	name = "black varsity jacket"
-	desc = "A favorite of jocks everywhere from Sol to the Frontier."
+	desc = "A favorite of jocks everywhere from Sol to the Coalition."
 	icon_state = "varsity"
 	item_state = "varsity"
 	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
@@ -595,7 +563,7 @@
  */
 /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
 	name = "engineering department jacket"
-	desc = "A cozy jacket in engineering's colors. Show your department pride!"
+	desc = "A cozy jacket in engineering's colors, featuring spacious pockets you won't even use."
 	icon_state = "engi_dep_jacket"
 	item_state = "engi_dep_jacket"
 	icon_open = "engi_dep_jacket_open"
@@ -603,7 +571,7 @@
 
 /obj/item/clothing/suit/storage/toggle/supply_dep_jacket
 	name = "supply department jacket"
-	desc = "A cozy jacket in supply's colors. Show your department pride!"
+	desc = "A cozy jacket in supply's colors, perfect for folding up and forgetting bounty lists."
 	icon_state = "supply_dep_jacket"
 	item_state = "supply_dep_jacket"
 	icon_open = "supply_dep_jacket_open"
@@ -611,7 +579,7 @@
 
 /obj/item/clothing/suit/storage/toggle/sci_dep_jacket
 	name = "science department jacket"
-	desc = "A cozy jacket in science's colors. Show your department pride!"
+	desc = "A cozy jacket in science's colors, offering the latest in a complete lack of protection against chemical spills."
 	icon_state = "sci_dep_jacket"
 	item_state = "sci_dep_jacket"
 	icon_open = "sci_dep_jacket_open"
@@ -619,7 +587,7 @@
 
 /obj/item/clothing/suit/storage/toggle/med_dep_jacket
 	name = "medical department jacket"
-	desc = "A cozy jacket in medical's colors. Show your department pride!"
+	desc = "A cozy jacket in medical's colors, guaranteed not to leak the latest gossip."
 	icon_state = "med_dep_jacket"
 	item_state = "med_dep_jacket"
 	icon_open = "med_dep_jacket_open"
@@ -627,11 +595,25 @@
 
 /obj/item/clothing/suit/storage/toggle/sec_dep_jacket
 	name = "security department jacket"
-	desc = "A cozy jacket in security's colors. Show your department pride!"
+	desc = "A cozy jacket in security's colors, luckily able to be easily cleaned of blood stains"
 	icon_state = "sec_dep_jacket"
 	item_state = "sec_dep_jacket"
 	icon_open = "sec_dep_jacket_open"
 	icon_closed = "sec_dep_jacket"
+
+/obj/item/clothing/suit/storage/toggle/serv_dep_jacket
+	name = "service department jacket"
+	desc = "A cozy jacket in service's colors, reminding many employees that even service has colors."
+	icon_state = "serv_dep_jacket"
+	item_state = "serv_dep_jacket"
+	icon_open = "serv_dep_jacket_open"
+	icon_closed = "serv_dep_jacket"
+
+/obj/item/clothing/suit/storage/fib
+	name = "\improper FIB agent jacket"
+	desc = "A jacket used by Federal Investigations Bureau agents while on the field."
+	icon_state = "fib_jacket"
+	item_state = "fib_jacket"
 
 /obj/item/clothing/suit/cardigan
 	name = "cardigan"
@@ -646,3 +628,39 @@
 	item_state = "cultrobes"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT
+
+/obj/item/clothing/suit/caution
+	name = "wet floor sign"
+	desc = "Caution! Wet Floor!"
+	description_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
+	description_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
+	icon = 'icons/obj/janitor.dmi'
+	icon_state = "caution"
+	drop_sound = 'sound/items/drop/shoes.ogg'
+	force = 1
+	throwforce = 3
+	throw_speed = 2
+	throw_range = 5
+	w_class = 2
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	attack_verb = list("warned", "cautioned", "smashed")
+	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+
+/obj/item/clothing/suit/caution/attack_self()
+	toggle()
+
+/obj/item/clothing/suit/caution/AltClick()
+	toggle()
+
+/obj/item/clothing/suit/caution/proc/toggle()
+	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
+	else if(src.icon_state == "caution")
+		src.icon_state = "caution_blinking"
+		src.item_state = "caution_blinking"
+		usr.show_message("You turn the wet floor sign on.")
+		playsound(src.loc, 'sound/items/flashlight.ogg', 75, 1)
+	else
+		src.icon_state = "caution"
+		src.item_state = "caution"
+		usr.show_message("You turn the wet floor sign off.")
+	update_clothing_icon()

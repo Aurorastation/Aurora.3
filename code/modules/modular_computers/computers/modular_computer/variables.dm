@@ -7,6 +7,7 @@
 	var/enabled = 0											// Whether the computer is turned on.
 	var/screen_on = 1										// Whether the computer is active/opened/it's screen is on.
 	var/working = 1											// Whether the computer is working.
+	var/can_reset = FALSE									// Whether you can reset this device with the tech support card.
 	var/datum/computer_file/program/active_program = null	// A currently active program running on the computer.
 	var/hardware_flag = 0									// A flag that describes this device type
 	var/last_power_usage = 0								// Last tick power usage of this computer
@@ -18,7 +19,7 @@
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
 	var/enrolled = 0										// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
-	var/_app_preset_name = ""								// Used for specifying the software preset of the console
+	var/_app_preset_type = null								// Used for specifying the software preset of the console
 	var/ambience_last_played								// Last time sound was played
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)

@@ -1,0 +1,402 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor,
+/area/derelict)
+"b" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"c" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/derelict)
+"d" = (
+/turf/space,
+/area/space)
+"e" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict)
+"f" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 9
+	},
+/area/derelict)
+"g" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 6
+	},
+/area/derelict)
+"h" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"i" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"j" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 10
+	},
+/area/derelict)
+"k" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor,
+/area/derelict)
+"l" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"m" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"n" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"o" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"p" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"q" = (
+/obj/structure/table/standard,
+/obj/item/fossil/shell,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"r" = (
+/obj/machinery/porta_turret/xray,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"s" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"t" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"u" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"v" = (
+/turf/simulated/floor,
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict)
+"w" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/derelict)
+"x" = (
+/obj/machinery/constructable_frame,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"y" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 9
+	},
+/area/derelict)
+"z" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 6
+	},
+/area/derelict)
+"A" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 10
+	},
+/area/derelict)
+"B" = (
+/turf/simulated/floor,
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	icon_state = "diagonalWall3"
+	},
+/area/derelict)
+
+(1,1,1) = {"
+d
+d
+d
+v
+k
+e
+e
+e
+e
+B
+d
+d
+d
+"}
+(2,1,1) = {"
+d
+d
+d
+e
+a
+e
+q
+h
+t
+e
+d
+d
+d
+"}
+(3,1,1) = {"
+d
+d
+f
+e
+k
+e
+h
+l
+l
+e
+A
+d
+d
+"}
+(4,1,1) = {"
+b
+v
+e
+g
+l
+o
+h
+l
+l
+w
+e
+B
+b
+"}
+(5,1,1) = {"
+c
+e
+e
+h
+l
+l
+l
+l
+l
+x
+e
+e
+z
+"}
+(6,1,1) = {"
+d
+c
+e
+h
+l
+l
+l
+l
+l
+x
+e
+z
+d
+"}
+(7,1,1) = {"
+d
+d
+e
+i
+l
+l
+r
+l
+l
+h
+e
+d
+d
+"}
+(8,1,1) = {"
+d
+d
+e
+i
+l
+l
+l
+l
+l
+h
+e
+d
+d
+"}
+(9,1,1) = {"
+d
+d
+e
+j
+m
+l
+l
+l
+m
+y
+e
+d
+d
+"}
+(10,1,1) = {"
+d
+d
+c
+e
+i
+l
+m
+l
+i
+e
+z
+d
+d
+"}
+(11,1,1) = {"
+d
+d
+d
+e
+h
+l
+i
+l
+h
+e
+d
+d
+d
+"}
+(12,1,1) = {"
+d
+d
+d
+c
+n
+p
+p
+s
+u
+z
+d
+d
+d
+"}

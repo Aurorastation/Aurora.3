@@ -8,12 +8,12 @@
 	can_infect = 0
 
 /datum/surgery_step/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected || (affected.status & ORGAN_ROBOT))
 		return 0
-	return target_zone == "mouth"
+	return target_zone == BP_MOUTH
 
 /datum/surgery_step/generic/cut_face
 	allowed_tools = list(
@@ -26,7 +26,7 @@
 	max_duration = 110
 
 /datum/surgery_step/generic/cut_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	return ..() && target_zone == "mouth" && target.op_stage.face == 0
+	return ..() && target_zone == BP_MOUTH && target.op_stage.face == 0
 
 /datum/surgery_step/generic/cut_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s face and neck with \the [tool].", \
@@ -51,7 +51,7 @@
 	can_infect = 0
 
 /datum/surgery_step/robotics/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	return target_zone == "mouth"
+	return target_zone == BP_MOUTH
 
 /datum/surgery_step/robotics/face/synthskin
 	allowed_tools = list(

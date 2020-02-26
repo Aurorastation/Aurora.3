@@ -106,7 +106,7 @@
 	new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/shoes/leather(src)
+	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/head/caphat/hop(src)
 
@@ -360,9 +360,8 @@
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/suit/storage/vest/detective(src)
-	new /obj/item/ammo_magazine/c38(src)
-	new /obj/item/ammo_magazine/c38(src)
-	new /obj/item/gun/projectile/revolver/detective(src)
+	new /obj/item/ammo_magazine/c45m(src)
+	new /obj/item/gun/projectile/sec/detective(src)
 	new /obj/item/taperoll/police(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
@@ -442,6 +441,7 @@
 /obj/structure/closet/secure_closet/wall
 	name = "wall locker"
 	req_access = list(access_security)
+	icon = 'icons/obj/walllocker.dmi'
 	icon_state = "wall-locker1"
 	density = 1
 	icon_closed = "wall-locker"

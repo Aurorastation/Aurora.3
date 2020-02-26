@@ -177,6 +177,11 @@
 /datum/mind/Topic(href, href_list)
 	if(!check_rights(R_ADMIN))	return
 
+	if(current && isliving(current))
+		if(href_list["set_psi_faculty"] && href_list["set_psi_faculty_rank"])
+			current.set_psi_rank(href_list["set_psi_faculty"], text2num(href_list["set_psi_faculty_rank"]))
+			return TRUE
+
 	if(href_list["add_antagonist"])
 		var/datum/antagonist/antag = all_antag_types[href_list["add_antagonist"]]
 		if(antag)
@@ -254,7 +259,7 @@
 				var/mob/def_target = null
 				var/objective_list[] = list(/datum/objective/assassinate, /datum/objective/protect, /datum/objective/debrain)
 				if (objective&&(objective.type in objective_list) && objective:target)
-					def_target = objective:target.current
+					def_target = objective.target.current
 
 				var/new_target = input("Select target:", "Objective target", def_target) as null|anything in possible_targets
 				if (!new_target) return
@@ -528,6 +533,9 @@
 /mob/living/carbon/slime/mind_initialize()
 	..()
 	mind.assigned_role = "slime"
+
+/mob/living/carbon/alien/larva
+	icon_state = "larva0"
 
 /mob/living/carbon/alien/larva/mind_initialize()
 	..()

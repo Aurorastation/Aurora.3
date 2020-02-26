@@ -96,7 +96,7 @@
 			class = "notice"
 			punct = "."
 			soundname = 0
-			if (target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == "mouth")
+			if (target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == BP_MOUTH)
 				verbtouse = pick("tapped")
 			else
 				verbtouse = pick("tapped","poked","prodded","touched")
@@ -318,50 +318,6 @@
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
 
-/obj/item/caution
-	desc = "Caution! Wet Floor!"
-	name = "wet floor sign"
-	icon = 'icons/obj/janitor.dmi'
-	icon_state = "caution"
-	force = 1.0
-	throwforce = 3.0
-	throw_speed = 1
-	throw_range = 5
-	w_class = 2.0
-	attack_verb = list("warned", "cautioned", "smashed")
-	drop_sound = 'sound/items/drop/shoes.ogg'
-
-/obj/item/caution/attack_self(mob/user as mob)
-    if(src.icon_state == "caution")
-        src.icon_state = "caution_blinking"
-        to_chat(user, "You turn the sign on.")
-    else
-        src.icon_state = "caution"
-        to_chat(user, "You turn the sign off.")
-
-/obj/item/caution/AltClick()
-	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
-	if(src.icon_state == "caution")
-		src.icon_state = "caution_blinking"
-		to_chat(usr, "You turn the sign on.")
-	else
-		src.icon_state = "caution"
-		to_chat(usr, "You turn the sign off.")
-
-/obj/item/caution/cone
-	desc = "This cone is trying to warn you of something!"
-	name = "warning cone"
-	icon_state = "cone"
-	item_state = "cone"
-	contained_sprite = 1
-	slot_flags = SLOT_HEAD
-
-/obj/item/caution/cone/attack_self(mob/user as mob)
-	return
-
-/obj/item/caution/cone/AltClick()
-	return
-
 /*/obj/item/syndicate_uplink
 	name = "station bounced radio"
 	desc = "Remain silent about this..."
@@ -430,7 +386,7 @@
 	name = "stick"
 	desc = "A great tool to drag someone else's drinks across the bar."
 	icon = 'icons/obj/weapons.dmi'
-	icon_state = "stick"
+	icon_state = "qstaff0"
 	item_state = "stick"
 	force = 3.0
 	throwforce = 5.0
@@ -438,20 +394,9 @@
 	throw_range = 5
 	w_class = 2.0
 
-/obj/item/wire
-	desc = "This is just a simple piece of regular insulated wire."
-	name = "wire"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "item_wire"
-	var/amount = 1.0
-	var/laying = 0.0
-	var/old_lay = null
-	matter = list(DEFAULT_WALL_MATERIAL = 40)
-	attack_verb = list("whipped", "lashed", "disciplined", "tickled")
-
 /obj/item/module
 	icon = 'icons/obj/module.dmi'
-	icon_state = "std_module"
+	icon_state = "std_mod"
 	w_class = 2.0
 	item_state = "electronic"
 	flags = CONDUCT

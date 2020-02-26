@@ -137,6 +137,8 @@
 /obj/item/rig_module/mounted/New()
 	..()
 	gun = new gun_type(src)
+	if(istype(gun, /obj/item/gun))
+		gun.has_safety = FALSE
 
 /obj/item/rig_module/mounted/engage(atom/target)
 
@@ -375,7 +377,7 @@
 	interface_name = "wet floor sign launcher"
 	interface_desc = "An integrated microfactory that produces wet floor signs from thin air and electricity."
 
-	fabrication_type = /obj/item/caution
+	fabrication_type = /obj/item/clothing/suit/caution
 
 	category = MODULE_GENERAL
 

@@ -358,9 +358,9 @@
 		return m
 		//Do auth shit
 	else
-		. = ..()
 		src.InitClient()
 		src.InitPrefs()
+		. = ..()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -385,8 +385,6 @@
 		server_greeting.display_to_client(src)
 
 /client/proc/InitClient()
-	if(initialized)
-		return
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
 	//Admin Authorisation
@@ -446,8 +444,6 @@
 	check_ip_intel()
 
 	fetch_unacked_warning_count()
-
-	initialized = TRUE
 
 //////////////
 //DISCONNECT//

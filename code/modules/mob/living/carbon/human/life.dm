@@ -61,7 +61,7 @@
 		//Updates the number of stored chemicals for powers
 		handle_changeling()
 
-		//Organs and blood
+		//Organs
 		handle_organs()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
@@ -218,7 +218,7 @@
 				pixel_x = old_x
 				pixel_y = old_y
 				return
-	if (disabilities & STUTTER)
+	if (disabilities & STUTTERING)
 		speech_problem_flag = 1
 		if (prob(10))
 			stuttering = max(10, stuttering)
@@ -374,7 +374,8 @@
 	else
 		var/loc_temp = T0C
 		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			loc_temp = loc:air_contents.temperature
+			var/obj/machinery/atmospherics/unary/cryo_cell/C = loc
+			loc_temp = C.air_contents?.temperature
 		else
 			loc_temp = environment.temperature
 
@@ -448,10 +449,15 @@
 	else if(adjusted_pressure >= species.hazard_low_pressure)
 		pressure_alert = -1
 	else
-		if( !(COLD_RESISTANCE in mutations))
-			take_overall_damage(brute=LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
-			if(getOxyLoss() < 55) // 11 OxyLoss per 4 ticks when wearing internals;    unconsciousness in 16 ticks, roughly half a minute
-				adjustOxyLoss(4)  // 16 OxyLoss per 4 ticks when no internals present; unconsciousness in 13 ticks, roughly twenty seconds
+		if(!(COLD_RESISTANCE in mutations))
+			var/list/obj/item/organ/external/organs = get_damageable_organs()
+			for(var/obj/item/organ/external/O in organs)
+				if(QDELETED(O))
+					continue
+				if((O.damage + LOW_PRESSURE_DAMAGE) < O.max_damage)
+					O.take_damage(brute = LOW_PRESSURE_DAMAGE, used_weapon = "Low Pressure")
+			if(getOxyLoss() < 55)
+				adjustOxyLoss(4)
 			pressure_alert = -2
 		else
 			pressure_alert = -1
@@ -744,10 +750,10 @@
 			for(var/atom/a in hallucinations)
 				qdel(a)
 
-		if(get_shock() >= species.total_health)
+		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
-				src.visible_message("<B>[src]</B> [species.halloss_message].")
+				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
 		if(paralysis || sleeping)
@@ -779,7 +785,7 @@
 		//CONSCIOUS
 		else
 			stat = CONSCIOUS
-			willfully_sleeping = 0
+			willfully_sleeping = FALSE
 
 		// Check everything else.
 
@@ -821,8 +827,6 @@
 				if (prob(5))
 					sleeping += 1
 					Paralyse(5)
-
-		confused = max(0, confused - 1)
 
 		// If you're dirty, your gloves will become dirty, too.
 		if(gloves && germ_level > gloves.germ_level && prob(10))
@@ -880,8 +884,8 @@
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
+		var/ovr
 		if(hurtdamage)
-			var/ovr
 			switch(hurtdamage)
 				if(10 to 25)
 					ovr = "brutedamageoverlay1"
@@ -896,10 +900,10 @@
 				if(85 to INFINITY)
 					ovr = "brutedamageoverlay6"
 
-			if (last_brute_overlay != ovr)
-				damageoverlay.cut_overlay(last_brute_overlay)
-				damageoverlay.add_overlay(ovr)
-				last_brute_overlay = ovr
+		if(last_brute_overlay != ovr)
+			damageoverlay.cut_overlay(last_brute_overlay)
+			damageoverlay.add_overlay(ovr)
+			last_brute_overlay = ovr
 
 		if(healths)
 			healths.overlays.Cut()
@@ -1079,7 +1083,6 @@
 		mind.changeling.regenerate()
 
 /mob/living/carbon/human/proc/handle_shock()
-	..()
 	if(status_flags & GODMODE)
 		return 0
 	if(!can_feel_pain())
@@ -1117,7 +1120,8 @@
 		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
-		if(shock_stage == 60) emote("me",1,"'s body becomes limp.")
+		if(shock_stage == 60) 
+			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
@@ -1399,5 +1403,4 @@
 	else if (last_oxy_overlay)
 		damageoverlay.cut_overlay(last_oxy_overlay)
 		last_oxy_overlay = null
-
 

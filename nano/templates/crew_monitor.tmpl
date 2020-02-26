@@ -18,10 +18,10 @@ Used In File(s): \code\game\machinery\computer\crew.dm
 <table class='wideTable'><tbody>
 	{{for data.crewmembers}}
 		<tr class="candystripe">
-			<td>{{:value.name}} ({{:value.assignment}}): </td>
+			<td>{{:value.name}} ({{:value.ass}}): </td>
 
-			{{if value.sensor_type >= 2}}
-				{{if value.true_pulse == -1}}
+			{{if value.stype >= 1}}
+				{{if value.tpulse == -1}}
 					<td><span class="white">Pulse</span> <span class='{{:value.pulse_span}}'>{{:value.pulse}}</span></td>
 				{{else}}
 					<td><span class="white">Pulse</span> <span class='{{:value.pulse_span}}'>{{:value.pulse}}</span> bpm</td>
@@ -34,28 +34,28 @@ Used In File(s): \code\game\machinery\computer\crew.dm
 				{{/if}}
 			{{/if}}
 
-			{{if value.sensor_type >= 2}}
-				<td><span class="white">BP</span> {{:value.pressure}} {{if value.oxygenation}}(<span class='{{:value.oxygenation_span}}'>{{:value.oxygenation}}</span> oxygenation){{/if}}</td>
+			{{if value.stype >= 2}}
+				<td><span class="white">BP</span> {{:value.pressure}} {{if value.oxyg}}(<span>{{:value.oxyg}}</span> oxygenation){{/if}}</td>
 			{{else}}
 				<td></td>
 			{{/if}}
 
-			{{if value.sensor_type >= 2}}
+			{{if value.stype >= 2}}
 				<td><span class="white">Temp</span> {{:value.bodytemp}} C</td>
 			{{else}}
 				<td></td>
 			{{/if}}
 
-			{{if value.sensor_type >= 3}}
+			{{if value.stype >= 3}}
 				<td><span class="white">Location</span> {{:value.area}} ({{:value.x}}, {{:value.y}}, {{:value.z}})</td>
-			{{else value.sensor_type == 2}}
+			{{else value.stype == 2}}
 				<td><span class="white">Location</span> Not Available</td>
 			{{else}}
 				<td></td>
 			{{/if}}
 
 			{{if data.isAI}}
-				{{if value.sensor_type >= 3}}
+				{{if value.stype >= 3}}
 					<td class='tracking'>{{:helper.link('Track', null, {'track' : value.ref})}}</td>
 				{{else}}
 					<td class='tracking'>{{:helper.link('Track', null, {}, 'disabled')}}</td>

@@ -126,23 +126,40 @@
 		H.unholster(usr)
 
 /obj/item/clothing/accessory/holster/armpit
-	name = "armpit holster"
+	name = "black armpit holster"
 	desc = "A worn-out handgun holster. Mostly seen in cheesy cop flicks, used to keep the actor's face in the shot."
 	icon_state = "holster"
 
 /obj/item/clothing/accessory/holster/waist
-	name = "waist holster"
+	name = "black waist holster"
 	desc = "A handgun holster, made of expensive leather. Can possibly be concealed under a shirt, albeit a little archaic."
 	icon_state = "holster_low"
 
 /obj/item/clothing/accessory/holster/hip
-	name = "hip holster"
+	name = "black hip holster"
 	desc = "<i>No one dared to ask his business, no one dared to make a slip. The stranger there among them had a big iron on his hip.</i>"
 	icon_state = "holster_hip"
 
 /obj/item/clothing/accessory/holster/thigh
-	name = "thigh holster"
+	name = "black thigh holster"
 	desc = "A drop leg holster made of a durable synthetic fiber."
 	icon_state = "holster_thigh"
 	sound_in = 'sound/weapons/holster/tactiholsterin.ogg'
 	sound_out = 'sound/weapons/holster/tactiholsterout.ogg'
+
+/obj/item/clothing/accessory/holster/armpit/brown
+	name = "brown armpit holster"
+	icon_state = "holster_brown"
+
+/obj/item/clothing/accessory/holster/waist/brown
+	name = "brown waist holster"
+	icon_state = "holster_brown_low"
+
+/obj/item/clothing/accessory/holster/hip/brown
+	name = "brown hip holster"
+	icon_state = "holster_brown_hip"
+
+/obj/item/clothing/accessory/holster/thigh/brown
+	name = "brown thigh holster"
+	icon_state = "holster_brown_thigh"
+
