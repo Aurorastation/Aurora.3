@@ -443,6 +443,18 @@ datum/access/access_treatment_areas
 	desc = "Treatment Areas"
 	region = ACCESS_REGION_MEDBAY
 
+var/const/access_mining_equipment = 76
+datum/access/access_mining_equipment
+	id = access_mining_equipment
+	desc = "Mining Equipment"
+	region = ACCESS_REGION_SUPPLY
+
+var/const/access_research_equipment = 77
+datum/access/access_research_equipment
+	id = access_research_equipment
+	desc = "Research Equipment"
+	region = ACCESS_REGION_RESEARCH
+
 /******************
 * Central Command *
 ******************/

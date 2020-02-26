@@ -119,8 +119,8 @@
 
 	minimum_character_age = 22
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_warehouse, access_cargo_order)
-	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_warehouse, access_cargo_order)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_warehouse, access_cargo_order, access_mining_equipment)
+	minimal_access = list(access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_warehouse, access_cargo_order, access_mining_equipment)
 
 	ideal_character_age = 40
 
@@ -180,8 +180,8 @@
 
 	minimum_character_age = 18
 
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
-	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
+	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_mining_equipment)
+	minimal_access = list(access_mining, access_mining_station, access_mailsorting, access_mining_equipment)
 	outfit = /datum/outfit/job/mining
 
 /datum/outfit/job/mining

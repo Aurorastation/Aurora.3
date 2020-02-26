@@ -16,11 +16,11 @@
 	access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
-			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_maint_tunnels, access_rnd_console, access_mech_fab, access_treatment_areas)
+			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_maint_tunnels, access_rnd_console, access_mech_fab, access_treatment_areas, access_research_equipment)
 	minimal_access = list(access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks,
 			            access_tox_storage, access_teleporter, access_sec_doors, access_medical, access_engine, access_construction,
 			            access_research, access_robotics, access_xenobiology, access_ai_upload, access_tech_storage,
-			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_maint_tunnels, access_rnd_console, access_mech_fab, access_treatment_areas)
+			            access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway, access_xenoarch, access_network, access_maint_tunnels, access_rnd_console, access_mech_fab, access_treatment_areas, access_research_equipment)
 	minimal_player_age = 14
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/rd
@@ -59,7 +59,7 @@
 
 	minimum_character_age = 25
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_rnd_console)
+	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_rnd_console, access_research_equipment)
 	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
 
@@ -101,7 +101,7 @@
 
 	minimum_character_age = 25
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics)
+	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics, access_research_equipment)
 	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage)
 	alt_titles = list("Xenobotanist")
 
@@ -133,8 +133,8 @@
 
 	minimum_character_age = 25
 
-	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_rnd_console, access_mech_fab) //As a job that handles so many corpses, it makes sense for them to have morgue access.
-	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research, access_rnd_console, access_mech_fab) //As a job that handles so many corpses, it makes sense for them to have morgue access.
+	access = list(access_robotics, access_tox, access_tox_storage, access_tech_storage, access_morgue, access_research, access_rnd_console, access_mech_fab, access_research_equipment) //As a job that handles so many corpses, it makes sense for them to have morgue access.
+	minimal_access = list(access_robotics, access_tech_storage, access_morgue, access_research, access_rnd_console, access_mech_fab, access_research_equipment) //As a job that handles so many corpses, it makes sense for them to have morgue access.
 	alt_titles = list("Biomechanical Engineer","Mechatronic Engineer")
 
 	minimal_player_age = 7
@@ -177,8 +177,8 @@
 	spawn_positions = 2
 	supervisors = "the Research Director"
 	selection_color = "#FFAAFF"
-	access = list(access_research, access_tox, access_rnd_console)
-	minimal_access = list(access_research, access_tox, access_rnd_console)
+	access = list(access_research, access_tox, access_rnd_console, access_research_equipment)
+	minimal_access = list(access_research, access_tox, access_rnd_console, access_research_equipment)
 	outfit = /datum/outfit/job/intern_sci
 
 /datum/outfit/job/intern_sci
