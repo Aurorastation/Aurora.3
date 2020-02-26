@@ -1,8 +1,0 @@
-author: Ghostsheet
-
-delete-after: True
-
-changes: 
-  - tweak: "Voidsuit can now be adjusted in hand (but not worn)."
-  - tweak: "Voidsuit tank can be ejected from adjacent range."
-  - rscadd: "Voidsuit adjustment now has more sound effects for audio feedback"
