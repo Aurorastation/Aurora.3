@@ -783,7 +783,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.modules += new /obj/item/handcuffs/cyborg(src)
 	src.modules += new /obj/item/crowbar/robotic(src)
-	src.emag = new /obj/item/gun/energy/lasercannon/mounted(src)
 
 /obj/item/robot_module/drone
 	name = "drone module"
