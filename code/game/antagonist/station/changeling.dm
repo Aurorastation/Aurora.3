@@ -18,7 +18,7 @@
 	)
 	required_age = 10
 
-	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you perform a Full DNA Extraction them."
+	welcome_text = "You are an unknown alien with the ability to sculpt your own biological matter. This allows you to be open ended and creative of your orgins, motivations, and emotes. Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you perform a Full DNA Extraction them."
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	antaghud_indicator = "hudchangeling"
 
