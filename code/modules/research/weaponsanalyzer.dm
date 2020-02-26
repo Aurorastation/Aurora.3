@@ -141,10 +141,15 @@
 
 #define UIDEBUG
 
-VUEUI_MONITOR_VARS(/obj/machinery/weapons_analyzer, analyzermonitor)
-	watch_var("object-icon", "object-icon")
+/obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	if(!data)
+		. = data = list()
 
-/obj/machinery/weapons_analyzer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/obj/machinery/weapons_analyzer/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "wanalyzer-analyzer", 500, 500, capitalize(name))
+
 	var/icon/Icon_used
 	if(gun)
 		Icon_used = new /icon(gun.icon, gun.icon_state)
@@ -153,11 +158,6 @@ VUEUI_MONITOR_VARS(/obj/machinery/weapons_analyzer, analyzermonitor)
 		Icon_used = new /icon(assembly.icon, assembly.icon_state)
 	else if(item)
 		Icon_used = new /icon(item.icon, item.icon_state)
-	ui.add_asset("object-icon", Icon_used) 
-	ui.send_asset("object-icon")
-
-/obj/machinery/weapons_analyzer/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "wanalyzer-analyzer", 500, 500, capitalize(name))
+	ui.add_asset("icon", Icon_used) 
+	ui.send_asset("icon")
 	ui.open()
