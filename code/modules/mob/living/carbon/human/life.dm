@@ -374,7 +374,8 @@
 	else
 		var/loc_temp = T0C
 		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			loc_temp = loc:air_contents.temperature
+			var/obj/machinery/atmospherics/unary/cryo_cell/C = loc
+			loc_temp = C.air_contents?.temperature
 		else
 			loc_temp = environment.temperature
 
@@ -1067,7 +1068,6 @@
 		mind.changeling.regenerate()
 
 /mob/living/carbon/human/proc/handle_shock()
-	..()
 	if(status_flags & GODMODE)
 		return 0
 	if(!can_feel_pain())

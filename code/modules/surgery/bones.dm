@@ -15,7 +15,7 @@
 	max_duration = 60
 
 /datum/surgery_step/glue_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.open < 3 && affected.stage == 0
@@ -50,7 +50,7 @@
 	max_duration = 70
 
 /datum/surgery_step/set_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.name != BP_HEAD && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.stage == 1
@@ -89,7 +89,7 @@
 	max_duration = 70
 
 /datum/surgery_step/mend_skull/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.name == BP_HEAD && !(affected.status & ORGAN_ROBOT) && affected.open >= 2 && affected.stage == 1
@@ -125,7 +125,7 @@
 	max_duration = 60
 
 /datum/surgery_step/finish_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.open >= 2 && affected.open < 3 && !(affected.status & ORGAN_ROBOT) && affected.stage == 2

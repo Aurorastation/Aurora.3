@@ -29,10 +29,11 @@
 	damage = 35
 
 /obj/item/projectile/beam/pistol/hegemony
-	icon_state = "hegemony"
+	icon = 'icons/obj/guns/hegemony_pistol.dmi'
+	icon_state = "hegemony_pistol"
 	damage = 30
 	armor_penetration = 5
- 
+
 	muzzle_type = /obj/effect/projectile/muzzle/hegemony
 	tracer_type = /obj/effect/projectile/tracer/hegemony
 	impact_type = /obj/effect/projectile/impact/hegemony
@@ -289,7 +290,7 @@
 
 /obj/item/projectile/beam/megaglaive
 	name = "thermal lance"
-	icon_state = "megaglaive"
+	icon_state = "gauss"
 	damage = 10
 	incinerate = 5
 	armor_penetration = 10
@@ -318,7 +319,7 @@
 
 /obj/item/projectile/beam/thermaldrill
 	name = "thermal drill"
-	icon_state = "megaglaive"
+	icon_state = "gauss"
 	damage = 1
 	no_attack_log = 1
 

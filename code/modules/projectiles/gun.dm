@@ -118,7 +118,7 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', "bayonet")
+		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
@@ -128,7 +128,7 @@
 			var/image/gun_overlay = I
 			if(gun_overlay.icon == gun_gui_icons && dd_hasprefix(gun_overlay.icon_state, "[safety_icon]"))
 				overlays -= gun_overlay
-		if(ismob(loc))
+		if(!isturf(loc)) // In a mob, holster or bag or something
 			overlays += image(gun_gui_icons,"[safety_icon][safety()]")
 
 //Checks whether a given mob can use the gun
@@ -412,6 +412,13 @@
 
 	if(recoil)
 		addtimer(CALLBACK(GLOBAL_PROC, /proc/shake_camera, user, recoil+1, recoil), 0, TIMER_UNIQUE)
+
+	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+		var/mob/living/carbon/human/H = user
+		if(istype(H.back,/obj/item/rig))
+			var/obj/item/rig/R = H.back
+			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
+				S.deactivate()
 	update_icon()
 
 

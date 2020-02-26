@@ -302,7 +302,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 // Special AI/pAI PDAs that cannot explode.
 /obj/item/device/pda/ai
-	icon_state = "NONE"
+	icon_state = null
 	ttone = "data"
 	newstone = "news"
 	detonate = 0
@@ -535,7 +535,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						if(P.icon_state == "pda-hop"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef"||P.icon_state == "pda-j")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(8)	//medical
-						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
+						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem"||P.icon_state == "pda-psych")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 			count++
 
@@ -744,11 +744,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				scanmode = 0
 			else if((!isnull(cartridge)) && (cartridge.access_reagent_scanner))
 				scanmode = 3
-		if("Halogen Counter")
-			if(scanmode == 4)
-				scanmode = 0
-			else if((!isnull(cartridge)) && (cartridge.access_engine))
-				scanmode = 4
 		if("Honk")
 			if ( !(last_honk && world.time < last_honk + 20) )
 				playsound(loc, 'sound/items/bikehorn.ogg', 50, 1)
@@ -1535,6 +1530,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		plist[text("[name]")] = P
 	return plist
 
+/obj/item/device/pda/CouldUseTopic(var/mob/user)
+	..()
+	if(iscarbon(user))
+		playsound(src, 'sound/machines/pda_click.ogg', 20)
 
 //Some spare PDAs in a box
 /obj/item/storage/box/PDAs

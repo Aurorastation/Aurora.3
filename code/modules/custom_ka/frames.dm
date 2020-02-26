@@ -73,7 +73,8 @@
 	can_disassemble_cell = FALSE
 
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cyborg
-	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel01
+	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02
+	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/damage
 
 /obj/item/gun/custom_ka/frameA
 	name = "vented kinetic accelerator frame"

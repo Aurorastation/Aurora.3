@@ -178,3 +178,8 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/diona/handle_despawn(var/mob/living/carbon/human/H)
+	for(var/mob/living/carbon/alien/diona/D in H.contents)
+		if((!D.client && !D.mind) || D.stat == DEAD)
+			qdel(D)
