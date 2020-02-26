@@ -30,7 +30,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(!client || stat || world.time < next_hallucination)
 		return
 
-	var/hall_delay = rand(160,250)		//Time between hallucinations, modified by switch below. 
+	var/hall_delay = rand(160,250)		//Time between hallucinations, modified by switch below.
 
 	switch(hallucination)	//26-74 are intentionally left off, as they do not modify the delay. This is a pretty common range for hallucinations.
 		if(1 to 25)		//Winding down, less frequent.
@@ -226,7 +226,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	var/mob/living/carbon/human/M = holder
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//adds current players to default list to provide variety. leaves out offstation antags.
-			sender += H	
+			sender += H
 	holder.show_message("<b>Message from [pick(sender)] to [holder.name] ([M.job]),</b> \"[pick(hallucinated_phrases)]\" (<FONT color = blue><u>reply</u></FONT>)")
 	sound_to(holder, 'sound/machines/twobeep.ogg')
 
@@ -372,7 +372,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 					holder.emote("me",1,"flinches.")
 					holder.eye_blurry += 9
 
-	holder.adjustHalLoss(min(holder.hallucination / 2, 50))		//always cause fake pain
+	holder.adjustHalLoss(min(holder.hallucination / 3, 25))		//always cause fake pain
 
 
 /datum/hallucination/friendly			//sort of like the vampire friend messages.
@@ -458,7 +458,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	to_chat(holder, span("notice", "A sudden thought overtakes your mind. [message]"))
 	duration += holder.hallucination
 	holder.disabilities |= PACIFIST
-	addtimer(CALLBACK(src, .proc/calm_feeling), rand(100, 250))
+	addtimer(CALLBACK(src, .proc/calm_feeling), rand(50, 80))
 
 /datum/hallucination/passive/end()
 	if(holder.disabilities & PACIFIST)
@@ -503,13 +503,13 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			'sound/effects/sparks3.ogg',
 			'sound/effects/stealthoff.ogg',
 			'sound/misc/zapsplat/chitter1.ogg',
-			'sound/misc/zapsplat/chitter2.ogg', 
+			'sound/misc/zapsplat/chitter2.ogg',
 			'sound/effects/squelch1.ogg',
 			'sound/items/Ratchet.ogg',
 			'sound/items/Welder.ogg',
 			'sound/items/Crowbar.ogg',
-			'sound/items/Screwdriver.ogg', 
-			'sound/items/drill_use.ogg', 
+			'sound/items/Screwdriver.ogg',
+			'sound/items/drill_use.ogg',
 			'sound/items/air_wrench.ogg')
 
 /datum/hallucination/sound/echo/end()
@@ -713,7 +713,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		I.color = holder.species.blood_color
 		return I
 	else
-		var/icon/T = image('icons/effects/drip.dmi')
+		var/icon/T = new('icons/effects/drip.dmi')
 		return image(T, pick(T.IconStates()), layer = TURF_LAYER)
 
 
@@ -722,7 +722,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	mirages += thing
 	thing.loc = get_turf(holder)
 	holder.client.images += thing	//one at a time
-	if(prob(15))
+	if(prob(20))
 		var/list/message_picks = list("It won't stop, it won't stop...!", "You're feeling lightheaded...", "Your [part] won't stop gushing blood!", "The blood is everywhere!", "Everything around you is soaked with your blood...!")
 		to_chat(holder, span("danger", LAZYPICK(message_picks, "The blood keeps coming!")))
 
@@ -825,7 +825,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	number = 6
 
 /datum/hallucination/mirage/eyes/start()
-	if(holder.hallucination >= 100)	
+	if(holder.hallucination >= 100)
 		number = 15
 	..()
 
@@ -918,7 +918,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		//Finally, we deliver the chosen message. The format below replicates the format of a person speaking.
 
 		to_chat(holder,"<span class='game say'><span class='name'>[talker]</span> [holder.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
-	
+
 	else	//If we DON'T send a message, we choose this, instead.
 		to_chat(holder,"<B>[talker]</B> [pick("points", "looks", "stares", "smirks")] at [holder.name] and says something softly.")
 
@@ -1030,7 +1030,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 //Fake telepathy, inspired by and mostly ported from Bay's
 /datum/hallucination/telepathy
-	min_power = 60
+	min_power = 75
 	allow_duplicates = FALSE
 
 /datum/hallucination/telepathy/can_affect(mob/living/carbon/C)	//Don't give it to people who already have psi powers
