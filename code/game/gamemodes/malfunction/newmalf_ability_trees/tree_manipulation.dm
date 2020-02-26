@@ -152,7 +152,7 @@
 
 	if(!ability_prechecks(user, price))
 		return
-	if (alert(user, "Are you sure? This will cause significant damage AND atmospheric breaches. You will be held reliable on an OOC level if this feature is abused.", "Machine Overload:", "Yes", "No") != "Yes")
+	if (alert(user, "Are you sure? This will cause significant damage AND atmospheric breaches. You will be held responsible on an OOC level if this feature is abused.", "Machine Overload:", "Yes", "No") != "Yes")
 		return
 	var/obj/machinery/power/N = M
 
