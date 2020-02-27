@@ -885,7 +885,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(!candidates.len)	//No candidates, no effect.
 		end()
 
-	var/talker = pick(candidates)	//Who is talking to us?
+	var/mob/living/talker = pick(candidates)	//Who is talking to us?
 	var/message						//What will they say?
 
 	//Name selection. This gives us variety. Sometimes it will be your last name, sometimes your first.
@@ -914,7 +914,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 				phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You're a failure, [pick(names)].","Just kill yourself already, [pick(names)].","Put on some clothes[add].","You're a horrible person[add].","You know nobody wants you here, right[add]?")
 
 			message = pick(phrases)
-			to_chat(holder,"<span class='game say'><span class='name'>[talker]</span> [holder.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
 
 		else		//More varied messages using text list and different speech prefixes
@@ -924,7 +924,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 			speak_prefix = "[speak_prefix][pick(names)][pick(".","!","?")]"		//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
 
 			message = prob(70) ? "[speak_prefix] [pick(hallucinated_phrases)]" : pick(hallucinated_phrases) //Here's the message that uses the hallucinated_phrases text list. Won't always apply the speak_prefix; sometimes they say weird shit without addressing you.
-			to_chat(holder,"<span class='game say'><span class='name'>[talker]</span> [holder.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
 	repeats -= 1
 	if(repeats)		//And we do it all over again, one or two more times.
@@ -987,7 +987,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mindread/start()
 	duration = rand(2, 4) MINUTES
-	to_chat(holder, SPAN_NOTICE("<B><font size = 3>You have developed a psionic gift!</font></B>"))
+	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
 	holder.verbs += /mob/living/carbon/human/verb/fakemindread
 
@@ -1045,7 +1045,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/telepathy/start()
 	duration = rand(2, 4) MINUTES
-	to_chat(holder, SPAN_NOTICE("<B><font size = 3>You have developed a psionic gift!</font></B>"))
+	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
 	holder.verbs += /mob/living/carbon/human/verb/faketelepathy
 
