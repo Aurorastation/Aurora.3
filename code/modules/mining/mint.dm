@@ -2,13 +2,13 @@
 
 
 /obj/machinery/mineral/mint
-	name = "Coin press"
+	name = "coin press"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "coinpress0"
-	density = 1
-	anchored = 1.0
-	var/obj/machinery/mineral/input = null
-	var/obj/machinery/mineral/output = null
+	density = TRUE
+	anchored = TRUE
+	var/obj/machinery/mineral/input
+	var/obj/machinery/mineral/output
 	var/amt_silver = 0 //amount of silver
 	var/amt_gold = 0   //amount of gold
 	var/amt_diamond = 0
@@ -22,20 +22,22 @@
 
 /obj/machinery/mineral/mint/Initialize()
 	. = ..()
-	for (var/dir in cardinal)
+	for(var/dir in cardinal)
 		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(src.input) break
-	for (var/dir in cardinal)
+		if(src.input)
+			break
+	for(var/dir in cardinal)
 		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(src.output) break
+		if(src.output)
+			break
 	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/mineral/mint/machinery_process()
-	if ( src.input)
+	if(input)
 		var/obj/item/stack/O
-		O = locate(/obj/item/stack, input.loc)
+		O = locate(/obj/item/stack, get_turf(input))
 		if(O)
-			var/processed = 1
+			var/processed = TRUE
 			switch(O.get_material_name())
 				if("gold")
 					amt_gold += 100 * O.get_amount()
@@ -50,54 +52,52 @@
 				if(DEFAULT_WALL_MATERIAL)
 					amt_iron += 100 * O.get_amount()
 				else
-					processed = 0
+					processed = FALSE
 			if(processed)
 				qdel(O)
 
-/obj/machinery/mineral/mint/attack_hand(user as mob)
-
+/obj/machinery/mineral/mint/attack_hand(user)
 	var/dat = "<b>Coin Press</b><br>"
 
-	if (!input)
+	if(!input)
 		dat += text("input connection status: ")
 		dat += text("<b><font color='red'>NOT CONNECTED</font></b><br>")
-	if (!output)
+	if(!output)
 		dat += text("<br>output connection status: ")
 		dat += text("<b><font color='red'>NOT CONNECTED</font></b><br>")
 
 	dat += text("<br><font color='#ffcc00'><b>Gold inserted: </b>[amt_gold]</font> ")
-	if (chosen == "gold")
+	if(chosen == "gold")
 		dat += text("chosen")
 	else
 		dat += text("<A href='?src=\ref[src];choose=gold'>Choose</A>")
 	dat += text("<br><font color='#888888'><b>Silver inserted: </b>[amt_silver]</font> ")
-	if (chosen == "silver")
+	if(chosen == "silver")
 		dat += text("chosen")
 	else
 		dat += text("<A href='?src=\ref[src];choose=silver'>Choose</A>")
 	dat += text("<br><font color='#555555'><b>Iron inserted: </b>[amt_iron]</font> ")
-	if (chosen == DEFAULT_WALL_MATERIAL)
+	if(chosen == DEFAULT_WALL_MATERIAL)
 		dat += text("chosen")
 	else
 		dat += text("<A href='?src=\ref[src];choose=metal'>Choose</A>")
 	dat += text("<br><font color='#8888FF'><b>Diamond inserted: </b>[amt_diamond]</font> ")
-	if (chosen == "diamond")
+	if(chosen == "diamond")
 		dat += text("chosen")
 	else
 		dat += text("<A href='?src=\ref[src];choose=diamond'>Choose</A>")
 	dat += text("<br><font color='#FF8800'><b>Phoron inserted: </b>[amt_phoron]</font> ")
-	if (chosen == "phoron")
+	if(chosen == "phoron")
 		dat += text("chosen")
 	else
 		dat += text("<A href='?src=\ref[src];choose=phoron'>Choose</A>")
 	dat += text("<br><font color='#008800'><b>Uranium inserted: </b>[amt_uranium]</font> ")
-	if (chosen == "uranium")
+	if(chosen == "uranium")
 		dat += text("chosen")
 	else
 		dat += text("<A href='?src=\ref[src];choose=uranium'>Choose</A>")
 
 	dat += text("<br><br>Will produce [coinsToProduce] [chosen] coins if enough materials are available.<br>")
-	//dat += text("The dial which controls the number of conins to produce seems to be stuck. A technician has already been dispatched to fix this.")
 	dat += text("<A href='?src=\ref[src];chooseAmt=-10'>-10</A> ")
 	dat += text("<A href='?src=\ref[src];chooseAmt=-5'>-5</A> ")
 	dat += text("<A href='?src=\ref[src];chooseAmt=-1'>-1</A> ")
@@ -111,11 +111,11 @@
 
 /obj/machinery/mineral/mint/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
-	if(processing==1)
-		to_chat(usr, "<span class='notice'>The machine is processing.</span>")
+	if(processing)
+		to_chat(usr, SPAN_WARNING("The machine is busy processing."))
 		return
 	if(href_list["choose"])
 		chosen = href_list["choose"]
@@ -123,77 +123,77 @@
 		coinsToProduce = between(0, coinsToProduce + text2num(href_list["chooseAmt"]), 1000)
 	if(href_list["makeCoins"])
 		var/temp_coins = coinsToProduce
-		if (src.output)
-			processing = 1;
+		if(output)
+			processing = TRUE
 			icon_state = "coinpress1"
 			var/obj/item/storage/bag/money/M
 			switch(chosen)
 				if(DEFAULT_WALL_MATERIAL)
-					while(amt_iron > 0 && coinsToProduce > 0)
-						if (locate(/obj/item/storage/bag/money,output.loc))
-							M = locate(/obj/item/storage/bag/money,output.loc)
+					while(amt_iron && coinsToProduce)
+						if(locate(/obj/item/storage/bag/money, get_turf(output)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output))
 						else
-							M = new/obj/item/storage/bag/money(output.loc)
-						new/obj/item/coin/iron(M)
+							M = new/obj/item/storage/bag/money(get_turf(output))
+						new /obj/item/coin/iron(M)
 						amt_iron -= 20
 						coinsToProduce--
 						newCoins++
 						src.updateUsrDialog()
-						sleep(5);
+						sleep(5)
 				if("gold")
-					while(amt_gold > 0 && coinsToProduce > 0)
-						if (locate(/obj/item/storage/bag/money,output.loc))
-							M = locate(/obj/item/storage/bag/money,output.loc)
+					while(amt_gold && coinsToProduce)
+						if(locate(/obj/item/storage/bag/money, get_turf(output)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output))
 						else
-							M = new/obj/item/storage/bag/money(output.loc)
+							M = new/obj/item/storage/bag/money(get_turf(output))
 						new /obj/item/coin/gold(M)
 						amt_gold -= 20
 						coinsToProduce--
 						newCoins++
 						src.updateUsrDialog()
-						sleep(5);
+						sleep(5)
 				if("silver")
-					while(amt_silver > 0 && coinsToProduce > 0)
-						if (locate(/obj/item/storage/bag/money,output.loc))
-							M = locate(/obj/item/storage/bag/money,output.loc)
+					while(amt_silver && coinsToProduce)
+						if(locate(/obj/item/storage/bag/money, get_turf(output)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output))
 						else
-							M = new/obj/item/storage/bag/money(output.loc)
+							M = new/obj/item/storage/bag/money(get_turf(output))
 						new /obj/item/coin/silver(M)
 						amt_silver -= 20
 						coinsToProduce--
 						newCoins++
 						src.updateUsrDialog()
-						sleep(5);
+						sleep(5)
 				if("diamond")
-					while(amt_diamond > 0 && coinsToProduce > 0)
-						if (locate(/obj/item/storage/bag/money,output.loc))
-							M = locate(/obj/item/storage/bag/money,output.loc)
+					while(amt_diamond && coinsToProduce)
+						if(locate(/obj/item/storage/bag/money, get_turf(output)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output))
 						else
-							M = new/obj/item/storage/bag/money(output.loc)
+							M = new/obj/item/storage/bag/money(get_turf(output))
 						new /obj/item/coin/diamond(M)
 						amt_diamond -= 20
 						coinsToProduce--
 						newCoins++
 						src.updateUsrDialog()
-						sleep(5);
+						sleep(5)
 				if("phoron")
-					while(amt_phoron > 0 && coinsToProduce > 0)
-						if (locate(/obj/item/storage/bag/money,output.loc))
-							M = locate(/obj/item/storage/bag/money,output.loc)
+					while(amt_phoron && coinsToProduce)
+						if(locate(/obj/item/storage/bag/money, get_turf(output)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output))
 						else
-							M = new/obj/item/storage/bag/money(output.loc)
+							M = new/obj/item/storage/bag/money(get_turf(output))
 						new /obj/item/coin/phoron(M)
 						amt_phoron -= 20
 						coinsToProduce--
 						newCoins++
 						src.updateUsrDialog()
-						sleep(5);
+						sleep(5)
 				if("uranium")
-					while(amt_uranium > 0 && coinsToProduce > 0)
-						if (locate(/obj/item/storage/bag/money,output.loc))
-							M = locate(/obj/item/storage/bag/money,output.loc)
+					while(amt_uranium && coinsToProduce)
+						if(locate(/obj/item/storage/bag/money, get_turf(output)))
+							M = locate(/obj/item/storage/bag/money, get_turf(output))
 						else
-							M = new/obj/item/storage/bag/money (output.loc)
+							M = new /obj/item/storage/bag/money(get_turf(output))
 						new /obj/item/coin/uranium(M)
 						amt_uranium -= 20
 						coinsToProduce--
@@ -201,7 +201,7 @@
 						src.updateUsrDialog()
 						sleep(5)
 			icon_state = "coinpress0"
-			processing = 0;
+			processing = FALSE
 			coinsToProduce = temp_coins
 	src.updateUsrDialog()
 	return

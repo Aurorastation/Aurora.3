@@ -63,8 +63,8 @@ var/global/list/minevendor_list = list( //keep in order of price
 	desc = "An equipment vendor for miners, points collected at an ore redemption machine can be spent here."
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "mining"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/obj/item/card/id/inserted_id
 
 /datum/data/mining_equipment
@@ -85,8 +85,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	name = "circuit board (Mining Equipment Vendor)"
 	build_path = /obj/machinery/mineral/equipment_vendor
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	req_components = list(
-							/obj/item/stock_parts/console_screen = 1,
+	req_components = list(	/obj/item/stock_parts/console_screen = 1,
 							/obj/item/stock_parts/matter_bin = 3)
 
 /obj/machinery/mineral/equipment_vendor/power_change()
@@ -146,11 +145,12 @@ var/global/list/minevendor_list = list( //keep in order of price
 			if(istype(I))
 				usr.drop_from_inventory(I,src)
 				inserted_id = I
-			else to_chat(usr, "<span class='danger'>No valid ID.</span>")
+			else
+				to_chat(usr, SPAN_DANGER("No valid ID."))
 	if(href_list["purchase"])
 		if(istype(inserted_id))
 			var/datum/data/mining_equipment/prize = locate(href_list["purchase"])
-			if (!prize || !(prize in minevendor_list))
+			if(!prize || !(prize in minevendor_list))
 				return
 			if(prize.amount <= 0 && prize.amount != -1)
 				return
@@ -161,14 +161,15 @@ var/global/list/minevendor_list = list( //keep in order of price
 					if(shuttle)
 						var/area/area_shuttle = shuttle.get_location_area()
 						if(!area_shuttle)
-							to_chat(usr, "<span class='danger'>{ERR Code: NO_SHUTTLE} Order failed! Please try again.</span>")
+							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE} Order failed! Please try again."))
 							return
 
 
 						var/list/clear_turfs = list()
 
 						for(var/turf/T in area_shuttle)
-							if(T.density)	continue
+							if(T.density)
+								continue
 							var/contcount
 							for(var/atom/A in T.contents)
 								if(!A.simulated)
@@ -178,28 +179,28 @@ var/global/list/minevendor_list = list( //keep in order of price
 								continue
 							clear_turfs += T
 
-						if(!clear_turfs.len)
-							to_chat(usr, "<span class='danger'>{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again.</span>")
+						if(!LAZYLEN(clear_turfs))
+							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
 							return
 
-						var/i = rand(1,clear_turfs.len)
+						var/i = rand(1, LAZYLEN(clear_turfs))
 						var/turf/pickedloc = clear_turfs[i]
 
 						if(pickedloc)
 							inserted_id.mining_points -= prize.cost
 							new prize.equipment_path(pickedloc)
-							to_chat(usr, "<span class='danger'>Order passed. Your order has been placed on the next available supply shuttle.</span>")
+							to_chat(usr, SPAN_NOTICE("Order passed. Your order has been placed on the next available supply shuttle."))
 						else
-							to_chat(usr, "<span class='danger'>{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again.</span>")
+							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
 							return
 					else
-						to_chat(usr, "<span class='danger'>{ERR Code: NO_SHUTTLE} Order failed! Please try again.</span>")
+						to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE} Order failed! Please try again."))
 						return
 				else
 					inserted_id.mining_points -= prize.cost
 					if(prize.amount != -1)
 						prize.amount--
-					new prize.equipment_path(src.loc)
+					new prize.equipment_path(get_turf(src))
 
 	updateUsrDialog()
 	return

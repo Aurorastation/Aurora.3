@@ -7,8 +7,8 @@
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 
-/obj/item/mining_scanner/attack_self(mob/user as mob)
-	to_chat(user, "You begin sweeping \the [src] about, scanning for metal deposits.")
+/obj/item/mining_scanner/attack_self(mob/user)
+	to_chat(user, SPAN_NOTICE("You begin sweeping \the [src] about, scanning for metal deposits."))
 
 	if(!do_after(user, 50))
 		return
@@ -21,7 +21,6 @@
 		)
 
 	for(var/turf/T in range(2, get_turf(user)))
-
 		if(!T.has_resources)
 			continue
 
@@ -29,21 +28,29 @@
 			var/ore_type
 
 			switch(metal)
-				if("silicates", "carbonaceous rock", "iron")	ore_type = "surface minerals"
-				if("gold", "silver", "diamond")					ore_type = "precious metals"
-				if("uranium")									ore_type = "nuclear fuel"
-				if("phoron", "osmium", "hydrogen")				ore_type = "exotic matter"
+				if("silicates", "carbonaceous rock", "iron")
+					ore_type = "surface minerals"
+				if("gold", "silver", "diamond")
+					ore_type = "precious metals"
+				if("uranium")
+					ore_type = "nuclear fuel"
+				if("phoron", "osmium", "hydrogen")
+					ore_type = "exotic matter"
 
-			if(ore_type) metals[ore_type] += T.resources[metal]
+			if(ore_type)
+				metals[ore_type] += T.resources[metal]
 
-	to_chat(user, "\icon[src] <span class='notice'>The scanner beeps and displays a readout.</span>")
+	to_chat(user, "\icon[src] [SPAN_NOTICE("The scanner beeps and displays a readout:")]")
 
 	for(var/ore_type in metals)
 		var/result = "no sign"
 
 		switch(metals[ore_type])
-			if(1 to 25) result = "trace amounts"
-			if(26 to 75) result = "significant amounts"
-			if(76 to INFINITY) result = "huge quantities"
+			if(1 to 25)
+				result = "trace amounts"
+			if(26 to 75)
+				result = "significant amounts"
+			if(76 to INFINITY)
+				result = "huge quantities"
 
-		to_chat(user, "- [result] of [ore_type].")
+		to_chat(user, SPAN_NOTICE("- [result] of [ore_type]."))

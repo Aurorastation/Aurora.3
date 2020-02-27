@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - backend: "Fixed up a lot of mining-related things in the backend. You might notice some changes in-game."
+  - tweak: "Locked abandoned crates found in the mine now has 15 attempts to hack instead of 10."

@@ -38,12 +38,10 @@
 	..()
 	var/mob/living/carbon/human/H = hit_atom
 	if(istype(H) && H.has_eyes() && prob(85))
-		to_chat(H, "<span class='danger'>Some of \the [src] gets in your eyes!</span>")
+		to_chat(H, SPAN_DANGER("Some of \the [src] gets in your eyes!"))
 		H.eye_blind += 5
 		H.eye_blurry += 10
-		spawn(1)
-			if(istype(loc, /turf/)) qdel(src)
-
+		qdel(src)
 
 /obj/item/ore/phoron
 	name = "phoron crystals"
@@ -79,6 +77,8 @@
 	icon_state = "ore_hydrogen"
 	material = ORE_HYDROGEN
 
+// maybe someone can think of a creative way to use slag
+// and make slagging shit not absolutely bomb mining - geeves
 /obj/item/ore/slag
 	name = "Slag"
 	desc = "Someone screwed up..."
@@ -89,7 +89,7 @@
 	if((randpixel_xy()) && icon_state == "ore1")
 		icon_state = "ore[pick(1,2,3)]"
 
-/obj/item/ore/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/ore/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/device/core_sampler))
 		var/obj/item/device/core_sampler/C = W
 		C.sample_item(src, user)
