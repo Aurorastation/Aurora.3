@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Prosthetics printer can now also print hands and feet. It is necessary to print these in addition to an arm/leg if you are doing a full limb replacement."

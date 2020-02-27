@@ -41,3 +41,31 @@
 	build_path = /obj/item/organ/external/leg/right/industrial
 	time = 20
 	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+
+/datum/design/item/mechfab/prosthetic/l_hand
+	name = "Prosthetic left hand"
+	id = "prosthetic_l_hand"
+	build_path = /obj/item/organ/external/hand/industrial
+	time = 20
+	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+
+/datum/design/item/mechfab/prosthetic/r_hand
+	name = "Prosthetic right hand"
+	id = "prosthetic_r_hand"
+	build_path = /obj/item/organ/external/hand/right/industrial
+	time = 20
+	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+
+/datum/design/item/mechfab/prosthetic/l_foot
+	name = "Prosthetic left foot"
+	id = "prosthetic_l_foot"
+	build_path = /obj/item/organ/external/foot/industrial
+	time = 20
+	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+
+/datum/design/item/mechfab/prosthetic/r_foot
+	name = "Prosthetic right foot"
+	id = "prosthetic_r_hand"
+	build_path = /obj/item/organ/external/foot/right/industrial
+	time = 20
+	materials = list(DEFAULT_WALL_MATERIAL = 8000)
