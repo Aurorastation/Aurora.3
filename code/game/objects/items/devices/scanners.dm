@@ -190,6 +190,18 @@ BREATH ANALYZER
 	if(H.getBruteLoss() > 50)
 		dat += "<span class='scan_red'>[b]Severe anatomical damage detected.[endb]</span>"
 
+	var/rad_result = "Radiation: "
+	switch(H.total_radiation)
+		if(RADS_NONE)
+			rad_result += span("scan_green", "No radiation detected.")
+		if(RADS_LOW to RADS_MED)
+			rad_result += span("scan_orange", "Low levels of radiation poisoning detected.")
+		if(RADS_MED to RADS_HIGH)
+			rad_result += span("scan_orange", "Severe levels of radiation poisoning detected!")
+		if(RADS_HIGH to INFINITY)
+			rad_result += span("scan_red", "[b]Extreme levels of radiation poisoning detected![endb]")
+	dat += rad_result
+	
 	if(show_limb_damage)
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)

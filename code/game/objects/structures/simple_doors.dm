@@ -82,6 +82,11 @@
 /obj/structure/simple_door/attack_hand(mob/user as mob)
 	return TryToSwitchState(user)
 
+/obj/structure/simple_door/attack_generic(mob/user)
+	if(istype(user, /mob/living/simple_animal/construct)) // don't know of any other attack_generic smart enough to open doors
+		TryToSwitchState(user)
+	return
+
 /obj/structure/simple_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return 0
 	if(istype(mover, /obj/effect/beam))
@@ -101,6 +106,8 @@
 				var/mob/living/carbon/C = M
 				if(!C.handcuffed)
 					SwitchState(user)
+			else if(istype(M, /mob/living/simple_animal/construct))
+				SwitchState(M)
 
 /obj/structure/simple_door/proc/SwitchState(mob/user)
 	if(state)
@@ -240,3 +247,7 @@
 
 /obj/structure/simple_door/resin/New(var/newloc,var/material_name)
 	..(newloc, "resin")
+
+/obj/structure/simple_door/cult/New(var/newloc, var/material_name)
+	..(newloc, "cult")
+	color = COLOR_CULT_DOOR // looks better than the standard cult colours

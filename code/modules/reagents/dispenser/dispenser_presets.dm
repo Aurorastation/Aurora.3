@@ -94,7 +94,8 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/apple,
 			/obj/item/reagent_containers/chem_disp_cartridge/watermelon,
 			/obj/item/reagent_containers/chem_disp_cartridge/clean_kois,
-			/obj/item/reagent_containers/chem_disp_cartridge/banana
+			/obj/item/reagent_containers/chem_disp_cartridge/banana,
+			/obj/item/reagent_containers/chem_disp_cartridge/root_beer
 		)
 
 /obj/machinery/chemical_dispenser/bar_alc

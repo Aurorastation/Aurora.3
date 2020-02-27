@@ -1,7 +1,7 @@
 /turf/unsimulated/floor
 	name = "floor"
 	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "Floor3"
+	icon_state = "floor3"
 
 /turf/unsimulated/floor/xmas
 	name = "snow"
