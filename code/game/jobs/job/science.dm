@@ -60,7 +60,7 @@
 	minimum_character_age = 25
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_rnd_console, access_research_equipment)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch)
+	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_rnd_console, access_research_equipment)
 	alt_titles = list("Xenoarcheologist", "Anomalist", "Phoron Researcher")
 
 	minimal_player_age = 14
@@ -102,7 +102,7 @@
 	minimum_character_age = 25
 
 	access = list(access_robotics, access_tox, access_tox_storage, access_research, access_xenobiology, access_hydroponics, access_research_equipment)
-	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage)
+	minimal_access = list(access_research, access_xenobiology, access_hydroponics, access_tox_storage, access_research_equipment)
 	alt_titles = list("Xenobotanist")
 
 	minimal_player_age = 14
