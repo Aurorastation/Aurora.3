@@ -139,11 +139,57 @@
 		gun_overlay.pixel_y += 8
 		add_overlay(gun_overlay)
 
-#define UIDEBUG
+//#define UIDEBUG
 
 /obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
 		. = data = list()
+	data["name"] = ""
+	data["item"] = FALSE
+	data["energy"] = FALSE
+	data["gun"] = FALSE
+	if(item)
+		data["name"] = item.name
+		data["item"] = TRUE
+		data["force"] = item.force
+		data["sharp"] = item.sharp ? "sharp" : "not sharp"
+		data["edge"] = item.edge ? "likely to dismember" : "not likely to dismember"
+		data["penetration"] = item.armor_penetration
+		data["throw_force"] = item.throwforce
+		if(istype(item, /obj/item/melee/energy))
+			data["energy"] = TRUE
+			var/obj/item/melee/energy/E_item = item
+			data["active_force"] = E_item.active_force
+			data["active_throw_force"] = E_item.active_throwforce
+			data["can_block"] = E_item.can_block_bullets ? "can block" : "cannot block"
+			data["base_reflectchance"] = E_item.base_reflectchance
+			data["base_block_chance"] = E_item.base_block_chance
+			data["shield_power"] = E_item.shield_power
+	else if(gun)
+		data["name"] = gun.name
+		data["gun"] = TRUE
+		data["max_shots"] = 0
+		data["recharge"] = "none"
+		data["recharge_time"] = "none"
+		data["damage"] = 0
+		if(istype(gun, /obj/item/gun/energy))
+			var/obj/item/gun/energy/E = gun
+			var/obj/item/projectile/P = new E.projectile_type
+			data["max_shots"] = E.max_shots
+			data["recharge"] = E.self_recharge ? "self recharging" : "not self recharging"
+			data["recharge_time"] = E.recharge_time
+			data["damage"] = P.damage
+			if(E.secondary_projectile_type)
+				var/obj/item/projectile/P_second = new E.secondary_projectile_type
+				data["secondary_damage"] = P_second.damage
+		else
+			var/obj/item/gun/projectile/P_gun = gun
+			var/obj/item/ammo_casing/casing = P_gun.chambered
+			var/obj/item/projectile/P = new casing.projectile_type
+			data["max_shots"] = P_gun.max_shells
+			data["damage"] = P.damage
+		data["burst"] = gun.burst
+		data["reliability"] = gun.reliability
 
 /obj/machinery/weapons_analyzer/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
