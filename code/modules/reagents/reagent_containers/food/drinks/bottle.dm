@@ -19,7 +19,7 @@
 	var/rag_underlay = "rag"
 
 /obj/item/reagent_containers/food/drinks/bottle/Initialize()
-	..()
+	. = ..()
 	if(isGlass)
 		unacidable = 1
 
@@ -115,7 +115,7 @@
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/open(mob/user)
-	if(rag) 
+	if(rag)
 		return
 	..()
 
