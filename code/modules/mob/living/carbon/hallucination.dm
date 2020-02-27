@@ -263,6 +263,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/prick
 	duration = 40
+	max_power = 35
 
 /datum/hallucination/prick/start()
 	to_chat(holder,SPAN_NOTICE("You feel a tiny prick!"))
@@ -279,6 +280,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/prick/by_person	//the prick feeling but you actually imagine someone injecting you
 	min_power = 30
+	max_power = INFINITY
 	duration = 20
 	var/injector
 	var/needle
@@ -307,6 +309,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/insides
 	duration = 60
+	max_power = 75
 
 /datum/hallucination/insides/start()
 	if(ishuman(holder))
@@ -376,7 +379,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 /datum/hallucination/friendly			//sort of like the vampire friend messages.
-	max_power = 60
+	max_power = 45
 
 /datum/hallucination/friendly/start()
 	var/list/halpal = list()
@@ -442,6 +445,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/passive
 	duration = 600	//minute fallback
 	allow_duplicates = FALSE
+	max_power = 55
 
 /datum/hallucination/passive/can_affect(mob/living/carbon/C)
 	if(C.is_berserk())
@@ -474,7 +478,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 /datum/hallucination/sound
-	max_power = 70
+	max_power = 40
 	hearing_dependent = TRUE
 	var/list/sounds = list('sound/weapons/smash.ogg',
 			'sound/weapons/flash_ring.ogg',
@@ -490,6 +494,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/sound/echo
 	duration = 50	//This delays end() by 5 seconds, where we have a chance of playing another sound from this list.
+	max_power = 65
 	sounds = list('sound/machines/airlock.ogg',
 			'sound/voice/shriek1.ogg',
 			'sound/misc/nymphchirp.ogg',
@@ -518,7 +523,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	..()
 
 /datum/hallucination/sound/creepy
-	min_power = 40
+	min_power = 45
 	max_power = INFINITY
 	hearing_dependent = FALSE		//These are spooky enough to happen even when deaf
 	sounds = list('sound/effects/ghost.ogg',
@@ -547,6 +552,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/sound/reaction
 	min_power = 20
+	max_power = INFINITY
 	hearing_dependent = FALSE
 
 /datum/hallucination/sound/reaction/start()
@@ -690,7 +696,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 /datum/hallucination/mirage/bleeding
-	min_power = 35
+	min_power = 30
 	max_power = INFINITY
 	duration = 350
 	allow_duplicates = FALSE
@@ -780,7 +786,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 
 /datum/hallucination/mirage/anomaly
-	min_power = 30
+	min_power = 40
 	max_power = INFINITY
 	number = 1
 
