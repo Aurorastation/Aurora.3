@@ -281,4 +281,4 @@
 	qdel(src)
 
 /obj/structure/AIcore/pra/complete
-	icon = "completecore"
+	icon_state = "completecore"
