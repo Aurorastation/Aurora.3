@@ -45,8 +45,9 @@
 	new /obj/effect/overlay/temp/kinetic_blast(target_turf)
 
 	if(new_aoe > 0)
+		aoe_s = 0
+		ignore_source_check = TRUE
 		for(var/new_target in orange(new_aoe, target_turf))
-			aoe_s = 0
 			damage = max(base_damage - base_damage * get_dist(new_target, target_turf) * 0.25, 0)
 			src.Collide(new_target)
 			CHECK_TICK

@@ -40,10 +40,13 @@
 /obj/item/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
 	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
 
-/obj/item/reagent_containers/food/snacks/on_consume()
-	..()
-	if(!reagents.total_volume)
+/obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
+	if(!reagents.total_volume && !trash)
+		target.visible_message(SPAN_NOTICE("[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
+					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 		qdel(src)
+	else
+		..()
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
@@ -132,9 +135,9 @@
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 
-	feed_sound(target,user)
+	feed_sound(target)
 	bitecount++
-	on_consume(target,user)
+	on_consume(user, target)
 
 	return 1
 
