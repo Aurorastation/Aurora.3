@@ -208,8 +208,8 @@
 
 	minimum_character_age = 18
 
-	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_tox, access_tox_storage, access_research, access_robotics, access_xenobiology, access_xenoarch)
-	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_tox, access_tox_storage, access_research, access_robotics, access_xenobiology, access_xenoarch)
+	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_tox, access_research, access_xenoarch)
+	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_tox, access_research, access_xenoarch)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer/sci
 
