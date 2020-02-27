@@ -123,7 +123,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		addtimer(CALLBACK(src, .proc/hal_thought_give), rand(30,90))
 
 /mob/living/carbon/proc/hal_thought_give()
-	to_chat(src, span("notice", "<i>[pick(hallucinated_thoughts)]</i>"))
+	to_chat(src, SPAN_ITALIC(pick(hallucinated_thoughts)))
 
 
 /////////////////////////////////////////////
@@ -144,42 +144,42 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		if(1)
 			sound_to(holder, 'sound/AI/radiation.ogg')
 			to_chat(holder, "<h2 class='alert'>Anomaly Break</h2>")
-			to_chat(holder, span("alert", "Comfortable levels of radiation detected near the station. [pick(hallucinated_phrases)] Please become one of the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
+			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(hallucinated_phrases)] Please become one of the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
 
 		if(2)
 			sound_to(holder, 'sound/AI/strangeobject.ogg')
 			to_chat(holder, "<h2 class='alert'>Welcome Object</h2>")
-			to_chat(holder, span("alert", "Transport signature of [pick(adjectives)] origin detected in your path, an object appears to have been nesting aboard NSS Upsilon. [pick(hallucinated_phrases)]"))
+			to_chat(holder, SPAN_ALERT("Transport signature of [pick(adjectives)] origin detected in your path, an object appears to have been nesting aboard NSS Upsilon. [pick(hallucinated_phrases)]"))
 
 		if(3)
 			sound_to(holder, 'sound/AI/scrubbers.ogg')
 			to_chat(holder, "<h2 class='alert'>Reminder: Backpressure Warning</h2>")
-			to_chat(holder, span("alert", "The scrubbers network is expecting \an [pick(adjectives)] surge. Some ejection of [pick(adjectives)] contents will occur."))
+			to_chat(holder, SPAN_ALERT("The scrubbers network is expecting \an [pick(adjectives)] surge. Some ejection of [pick(adjectives)] contents will occur."))
 
 		if(4)
 			sound_to(holder, 'sound/AI/emergencyshuttlecalled.ogg')
 			to_chat(holder, "<h2 class='alert'>Emergency Departure</h2>")
-			to_chat(holder, span("alert", "The emergency evacuation shuttle has arrived. It will depart in approximately two minutes. Please do not allow [holder] to board."))
+			to_chat(holder, SPAN_ALERT("The emergency evacuation shuttle has arrived. It will depart in approximately two minutes. Please do not allow [holder] to board."))
 
 		if(5)
 			sound_to(holder, 'sound/AI/vermin.ogg')
 			to_chat(holder, "<h2 class='alert'>Vermin Feast</h2>")
-			to_chat(holder, span("alert", "We indicate that [pick("rats", "lizards", "hivebots", "children")] have nested nearby. Free them before this starts to affect longetivity."))
+			to_chat(holder, SPAN_ALERT("We indicate that [pick("rats", "lizards", "hivebots", "children")] have nested nearby. Free them before this starts to affect longetivity."))
 
 		if(6)
 			sound_to(holder, 'sound/AI/outbreak7.ogg')
 			to_chat(holder, "<h2 class='alert'>What have you done?</h2>")
-			to_chat(holder, span("alert", "Confirmed outbreak of help level 17 viral biohazard aboard [holder]. Help me. All personnel must destroy the outbreak. What have you helpME done?"))
-			to_chat(holder, span("alert", "-[pick(hal_sender)]"))
+			to_chat(holder, SPAN_ALERT("Confirmed outbreak of help level 17 viral biohazard aboard [holder]. Help me. All personnel must destroy the outbreak. What have you helpME done?"))
+			to_chat(holder, SPAN_ALERT("-[pick(hal_sender)]"))
 		if(7)
 			sound_to(holder, 'sound/AI/meteors.ogg')
 			to_chat(holder, "<h2 class='alert'>Meteor Alarm</h2>")
-			to_chat(holder, span("alert", "A [pick(adjectives)] meteor storm has been authorized for a destruction course with your station. Less than three minutes until impact, shields cannot help you; seek shelter in the upper level."))
+			to_chat(holder, SPAN_ALERT("A [pick(adjectives)] meteor storm has been authorized for a destruction course with your station. Less than three minutes until impact, shields cannot help you; seek shelter in the upper level."))
 
 		if(8)
 			sound_to(holder, pick('sound/AI/fungi.ogg', 'sound/AI/funguy.ogg', 'sound/AI/fun_guy.ogg', 'sound/AI/fun_gi.ogg'))
 			to_chat(holder, "<h2 class='alert'>Biohealth Notice</h2>")
-			to_chat(holder, span("alert", "Healthy fungi detected on station. Your bodies may be contaminated. This is mandatory, [holder]."))
+			to_chat(holder, SPAN_ALERT("Healthy fungi detected on station. Your bodies may be contaminated. This is mandatory, [holder]."))
 
 		if(9)
 			sound_to(holder, 'sound/effects/nuclearsiren.ogg')
@@ -200,8 +200,8 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 						"[holder] disappoints us all once again.")
 			sound_to(holder, 'sound/misc/announcements/notice.ogg')
 			to_chat(holder, "<h2 class='alert'>Station Announcement</h2>")
-			to_chat(holder, span("alert", pick(body)))
-			to_chat(holder, span("alert", "-[LAZYPICK(hal_sender, holder)]"))
+			to_chat(holder, SPAN_ALERT(pick(body)))
+			to_chat(holder, SPAN_ALERT("-[LAZYPICK(hal_sender, holder)]"))
 
 /datum/hallucination/announcement/proc/delam_call()	//for REALLY selling that fake delamination
 	var/list/people = list()
@@ -265,7 +265,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	duration = 40
 
 /datum/hallucination/prick/start()
-	to_chat(holder,span("notice", "You feel a tiny prick!"))
+	to_chat(holder,SPAN_NOTICE("You feel a tiny prick!"))
 
 /datum/hallucination/prick/end()		//chance to feel another effect after duration time
 	switch(rand(1,6))
@@ -274,7 +274,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		if(2)
 			holder.make_dizzy(105)
 		if(3)
-			to_chat(holder,"<span class='good'>You feel good.</span>")
+			to_chat(holder,SPAN_GOOD("You feel good."))
 	..()
 
 /datum/hallucination/prick/by_person	//the prick feeling but you actually imagine someone injecting you
@@ -296,11 +296,11 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 /datum/hallucination/prick/by_person/start()
 	injector = pick(prick_candidates)
 	needle = pick("syringe", "hypospray", "pen")
-	to_chat(holder, span("warning", "\The [injector] is trying to inject \the [holder] with \the [needle]!"))
+	to_chat(holder, SPAN_WARNING("\The [injector] is trying to inject \the [holder] with \the [needle]!"))
 
 /datum/hallucination/prick/by_person/end()
-	to_chat(holder,span("notice", "\The [injector] injects \the [holder] with \the [needle]!"))
-	to_chat(holder,span("notice", "You feel a tiny prick!"))
+	to_chat(holder,SPAN_NOTICE("\The [injector] injects \the [holder] with \the [needle]!"))
+	to_chat(holder,SPAN_NOTICE("You feel a tiny prick!"))
 	..()
 
 
@@ -312,15 +312,15 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
 		var/obj/O = pick(H.organs)
-		to_chat(holder,span("danger", "You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
+		to_chat(holder,SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
 	else
-		to_chat(holder,span("danger", "You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
+		to_chat(holder,SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
 	if(prob(min(holder.hallucination/2, 80)))
 		sound_to(holder, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/effects/squelch1.ogg', 'sound/effects/lingextends.ogg'))
 
 /datum/hallucination/insides/end()
 	if(prob(50))
-		to_chat(holder, span("warning", pick("You see something moving under your skin!", "Whatever it is, it's definitely alive!", "If you don't get it out soon...", "It's moving towards your mouth!")))
+		to_chat(holder, SPAN_WARNING(pick("You see something moving under your skin!", "Whatever it is, it's definitely alive!", "If you don't get it out soon...", "It's moving towards your mouth!")))
 	..()
 
 
@@ -330,45 +330,45 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	var/pain_type = rand(1,5)
 	switch(pain_type)
 		if(1)
-			to_chat(holder,span("danger", "You feel a sharp pain in your head!"))
+			to_chat(holder,SPAN_DANGER("You feel a sharp pain in your head!"))
 		if(2)
 			switch(holder.hallucination)
 				if(1 to 15)
-					to_chat(holder, span("warning", "You feel a light pain in your head."))
+					to_chat(holder, SPAN_WARNING("You feel a light pain in your head."))
 				if(16 to 40)
-					to_chat(holder, span("danger", "You feel a throbbing pain in your head!"))
+					to_chat(holder, SPAN_DANGER("You feel a throbbing pain in your head!"))
 				if(41 to INFINITY)
-					to_chat(holder, span("danger", "You feel an excruciating pain in your head!"))
+					to_chat(holder, SPAN_DANGER("You feel an excruciating pain in your head!"))
 					holder.emote("me",1,"winces.")
 					holder.eye_blurry += 9
 		if(3)
 			switch(holder.hallucination)
 				if(1 to 15)
-					to_chat(holder, span("warning", "The muscles in your body hurt a little."))
+					to_chat(holder, SPAN_WARNING("The muscles in your body hurt a little."))
 				if(16 to 40)
-					to_chat(holder, span("danger", "The muscles in your body cramp up painfully."))
+					to_chat(holder, SPAN_DANGER("The muscles in your body cramp up painfully."))
 				if(41 to INFINITY)
-					to_chat(holder, span("danger", "There's pain all over your body."))
+					to_chat(holder, SPAN_DANGER("There's pain all over your body."))
 					holder.emote("me",1,"flinches as all the muscles in their body cramp up.")
 					holder.eye_blurry += 9
 		if(4)
 			switch(holder.hallucination)
 				if(1 to 15)
-					to_chat(holder, span("warning", "You feel a slight itch."))
+					to_chat(holder, SPAN_WARNING("You feel a slight itch."))
 				if(16 to 40)
-					to_chat(holder, span("danger", "You want to scratch your itch badly!"))
+					to_chat(holder, SPAN_DANGER("You want to scratch your itch badly!"))
 				if(41 to INFINITY)
-					to_chat(holder, span("danger", "This itch makes it really hard to concentrate!"))
+					to_chat(holder, SPAN_DANGER("This itch makes it really hard to concentrate!"))
 					holder.emote("me",1,"shivers slightly.")
 					holder.eye_blurry += 9
 		if(5)
 			switch(holder.hallucination)
 				if(1 to 15)
-					to_chat(holder, span("warning", "You feel a little too warm."))
+					to_chat(holder, SPAN_WARNING("You feel a little too warm."))
 				if(16 to 40)
-					to_chat(holder, span("danger", "You feel a horrible burning sensation!"))
+					to_chat(holder, SPAN_DANGER("You feel a horrible burning sensation!"))
 				if(41 to INFINITY)
-					to_chat(holder, span("danger", "It feels like you're being burnt to the bone!"))
+					to_chat(holder, SPAN_DANGER("It feels like you're being burnt to the bone!"))
 					holder.emote("me",1,"flinches.")
 					holder.eye_blurry += 9
 
@@ -412,7 +412,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/rage/start()		//We don't want ALL the effects of berserk. You're not going to hallucinate the ability to tear down walls
 	duration = rand(150, 300)
-	to_chat(holder, span("danger", "An uncontrollable rage overtakes your thoughts!"))
+	to_chat(holder, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
 	holder.a_intent_change(I_HURT)
 	if(holder.hallucination >= 100)
 		holder.add_client_color(/datum/client_color/berserk)
@@ -421,7 +421,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	sound_to(holder, pick('sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg', 'sound/effects/creatures/bear_quiet_2.ogg', 'sound/effects/creatures/bear_quiet_4.ogg', 'sound/effects/creatures/monstergrowl.ogg', 'sound/effects/greaterling.ogg'))
 
 /datum/hallucination/rage/end()
-	to_chat(holder, span("danger", "Your thoughts clear as you feel your rage slip away."))
+	to_chat(holder, SPAN_DANGER("Your thoughts clear as you feel your rage slip away."))
 	if(holder)
 		holder.remove_client_color(/datum/client_color/berserk)
 	..()
@@ -432,9 +432,9 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		rage_targets += L
 	if(rage_targets.len)
 		var/rage_pick = pick(rage_targets)
-		to_chat(holder, span("danger", pick("You need to hit [rage_pick], NOW!", "[rage_pick] needs a good punch!", "Someone needs to shut [rage_pick] up!", "[rage_pick] is really irritating you!", "[rage_pick] is trying to ruin you!", "You know you'll feel better if you just get a good hit on [rage_pick]!", "You can't calm down with [rage_pick] standing there!")))
+		to_chat(holder, SPAN_DANGER(pick("You need to hit [rage_pick], NOW!", "[rage_pick] needs a good punch!", "Someone needs to shut [rage_pick] up!", "[rage_pick] is really irritating you!", "[rage_pick] is trying to ruin you!", "You know you'll feel better if you just get a good hit on [rage_pick]!", "You can't calm down with [rage_pick] standing there!")))
 	else
-		to_chat(holder, span("danger", "You need to hit something, NOW!"))
+		to_chat(holder, SPAN_DANGER("You need to hit something, NOW!"))
 	holder.emote("me",1,"growls angrily.")
 
 
@@ -454,21 +454,21 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/passive/start()
 	duration = rand(500, 700)
-	var/message = pick("You hurt so many people before...", "You won't hurt anyone ever again.", "You're a monster, but you don't have to hurt anyone!", "Violence has caused so many problems. It's time to stop.", "The idea of conflict is terrifying!", "You realize that violence isn't the answer. Ever.", "You're struck by an overwhelming sense of guilt for your past acts of violence!")
-	to_chat(holder, span("notice", "A sudden thought overtakes your mind. [message]"))
-	duration += holder.hallucination
+	var/message = pick("You hurt so many people before... You have to stop.", "You won't hurt anyone ever again.", "Violence has caused so many problems. It's time to stop.", "The idea of conflict is terrifying!", "You realize that violence isn't the answer. Ever.", "You're struck by an overwhelming sense of guilt for your past acts of violence!")
+	to_chat(holder, SPAN_DANGER("A sudden realization surges to the forefront of your mind. [message]"))
 	holder.disabilities |= PACIFIST
-	addtimer(CALLBACK(src, .proc/calm_feeling), rand(50, 80))
+	for(var/i = 1; i <= 2; i++)
+		addtimer(CALLBACK(src, .proc/calm_feeling), rand(80, 120)*i)
 
 /datum/hallucination/passive/end()
 	if(holder.disabilities & PACIFIST)
 		holder.disabilities &= ~PACIFIST
-	to_chat(holder, span("notice", "You no longer feel passive."))
+	to_chat(holder, SPAN_NOTICE("You no longer feel passive."))
 	..()
 
 /datum/hallucination/passive/proc/calm_feeling()
-	var/feeling = pick("You feel calm. It's so peaceful.", "You feel particularly passive.", "You feel relaxed and peaceful.", "A wave of calm washes over you as you feel all your anger leave you.")
-	to_chat(holder, span("good", feeling))
+	var/feeling = pick("You feel calm. It's so peaceful.", "Violence seems like such a strange idea to you.", "You feel relaxed and peaceful.", "A wave of calm washes over you as you feel all your anger leave you.", "You wonder why people waste their time fighting.", "It's fine. Everything's fine.", "You can't remember ever feeling angry.", "Nothing can hurt you as long as you don't hurt it.")
+	to_chat(holder, SPAN_GOOD(feeling))
 
 
 
@@ -553,14 +553,14 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	switch(rand(1,3))
 		if(1) //Nearmiss
 			sound_to(holder, 'sound/weapons/gunshot/gunshot_light.ogg')
-			to_chat(holder, span("danger", "Something zips by your head, barely missing you!")) //phantom reflex to audio
+			to_chat(holder, SPAN_DANGER("Something zips by your head, barely missing you!")) //phantom reflex to audio
 			shake_camera(holder, 3, 1)
 
 		if(2) //Gunshot
 			sound_to(holder, 'sound/weapons/gunshot/gunshot1.ogg')
 			if(ishuman(holder))
 				var/mob/living/carbon/human/H = holder
-				to_chat(holder, span("danger", "You feel a sharp pain in your [LAZYPICK(H.organs, "chest")]!")) //phantom pain reaction to audio
+				to_chat(holder, SPAN_DANGER("You feel a sharp pain in your [LAZYPICK(H.organs, "chest")]!")) //phantom pain reaction to audio
 			holder.adjustHalLoss(15)
 			shake_camera(holder, 3, 1)
 			if(prob(holder.hallucination))
@@ -568,7 +568,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 		if(3) //Don't tase me bro
 			sound_to(holder, 'sound/weapons/Taser.ogg')
-			to_chat(holder, span("danger", "You feel numb as a shock courses through your body!")) //phantom pain reaction to audio
+			to_chat(holder, SPAN_DANGER("You feel numb as a shock courses through your body!")) //phantom pain reaction to audio
 			holder.adjustHalLoss(20)
 			if(prob(holder.hallucination))
 				holder.eye_blind += 3
@@ -599,10 +599,10 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		if("monochrome")
 			holder.add_client_color(/datum/client_color/monochrome)
 	var/color_mes = pick("Everything looks... off.", "The colors shift around you.", "Wait, what happened to the colors?", "You watch as the colors around you swirl and shift.")
-	to_chat(holder, span("good", color_mes))	//Good span makes it stand out
+	to_chat(holder, SPAN_GOOD(color_mes))	//Good span makes it stand out
 
 /datum/hallucination/colorblind/end()
-	to_chat(holder, span("good", "Slowly the colors around you shift back to what you feel is normal."))
+	to_chat(holder, SPAN_GOOD("Slowly the colors around you shift back to what you feel is normal."))
 	if(holder)
 		switch(colorblindness)
 			if("deuteranopia")
@@ -634,20 +634,20 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	var/attacker = pick(attacker_candidates)
 	attacker_candidates -= attacker
 	if(prob(50))
-		to_chat(holder, span("danger", "[attacker] has hit [holder]!"))
+		to_chat(holder, SPAN_DANGER("[attacker] has hit [holder]!"))
 		sound_to(holder, pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
 	else
-		to_chat(holder, span("danger", "[attacker] attempted to shove [holder]!"))
+		to_chat(holder, SPAN_DANGER("[attacker] attempted to shove [holder]!"))
 		sound_to(holder, 'sound/weapons/thudswoosh.ogg')
 
 	//If we are hallucinating particularly hard and there's another person adjacent to us, we imagine they attack us, too.
 	if(holder.hallucination >= 70 && attacker_candidates.len)
 		attacker = pick(attacker_candidates)
 		if(prob(50))
-			to_chat(holder, span("danger", "[attacker] has hit [holder]!"))
+			to_chat(holder, SPAN_DANGER("[attacker] has hit [holder]!"))
 			sound_to(holder, pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
 		else
-			to_chat(holder, span("danger", "[attacker] attempted to shove [holder]!"))
+			to_chat(holder, SPAN_DANGER("[attacker] attempted to shove [holder]!"))
 			sound_to(holder, 'sound/weapons/thudswoosh.ogg')
 
 
@@ -704,7 +704,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
 		part = LAZYPICK(H.organs, "chest")
-	to_chat(holder, span("danger", "The flesh on your [part] splits open. It doesn't hurt, but the blood won't stop coming..."))
+	to_chat(holder, SPAN_DANGER("The flesh on your [part] splits open. It doesn't hurt, but the blood won't stop coming..."))
 
 
 /datum/hallucination/mirage/bleeding/generate_mirage()
@@ -724,11 +724,11 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	holder.client.images += thing	//one at a time
 	if(prob(20))
 		var/list/message_picks = list("It won't stop, it won't stop...!", "You're feeling lightheaded...", "Your [part] won't stop gushing blood!", "The blood is everywhere!", "Everything around you is soaked with your blood...!")
-		to_chat(holder, span("danger", LAZYPICK(message_picks, "The blood keeps coming!")))
+		to_chat(holder, SPAN_DANGER(LAZYPICK(message_picks, "The blood keeps coming!")))
 
 
 /datum/hallucination/mirage/bleeding/end()
-	to_chat(holder, span("warning", "The flesh on your [part] suddenly appears whole again. You can't see the blood anymore, but the scent of it lingers heavily in the air."))
+	to_chat(holder, SPAN_WARNING("The flesh on your [part] suddenly appears whole again. You can't see the blood anymore, but the scent of it lingers heavily in the air."))
 	..()
 
 
@@ -740,10 +740,10 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/horror/start()
 	..()
-	to_chat(holder, span("warning", "The horror [pick("gnashes", "lunges", "shrieks")] at [holder]!"))
+	to_chat(holder, SPAN_WARNING("The horror [pick("gnashes", "lunges", "shrieks")] at [holder]!"))
 
 /datum/hallucination/mirage/horror/end()
-	to_chat(holder, span("warning", "With a final shriek that seems to originate from within your mind, the entity fades away."))
+	to_chat(holder, SPAN_WARNING("With a final shriek that seems to originate from within your mind, the entity fades away."))
 	sound_to(holder, pick('sound/hallucinations/wail.ogg', 'sound/hallucinations/far_noise.ogg', 'sound/effects/creepyshriek.ogg'))
 	..()
 
@@ -786,7 +786,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mirage/anomaly/start()
 	..()
-	to_chat(holder, span("warning", "With a small crackle, the [pick("entity", "idol", "device")] manifests!"))
+	to_chat(holder, SPAN_WARNING("With a small crackle, the [pick("entity", "idol", "device")] manifests!"))
 	sound_to(holder, 'sound/effects/stealthoff.ogg')
 
 /datum/hallucination/mirage/anomaly/generate_mirage()
@@ -795,7 +795,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	return I
 
 /datum/hallucination/mirage/anomaly/end()
-	to_chat(holder, span("warning", "With a loud zap, the [pick("entity", "idol", "device")] is sucked through a rift in bluespace!"))
+	to_chat(holder, SPAN_WARNING("With a loud zap, the [pick("entity", "idol", "device")] is sucked through a rift in bluespace!"))
 	sound_to(holder, 'sound/effects/phasein.ogg')
 	..()
 
@@ -867,60 +867,64 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		repeats = 3
 	start()
 
+////Talking about you. Most of it from Bay//////
+
 /datum/hallucination/talking/start()
 	if(!can_affect(holder) || !holder || !repeats)	//sanity check
 		end()
+
 	var/list/candidates = list()
-	for(var/mob/living/carbon/human/M in oview(holder))
+	for(var/mob/living/M in oview(holder))
 		if(!M.stat)
-			candidates += M
-	if(holder.hallucination >= 100)				//If you're super fucked up you'll imagine more than just humans talking about you
-		for(var/mob/living/L in oview(holder))
-			if(!ishuman(L))
-				candidates += L
-	if(!candidates.len)
+			if(holder.hallucination >= 75)		//If you're super fucked up you'll imagine more than just humans talking about you
+				candidates += M
+			else
+				if(ishuman(M))			//If not, it's only humans
+					candidates += M
+
+	if(!candidates.len)	//No candidates, no effect.
 		end()
-	var/talker = pick(candidates)
-	var/message
 
-	if(prob(80))		//80% chance that we will hallucinate someone speaking. If we don't, it will be a nonverbal gesture.
-		var/list/names = list()
-		var/lastname = copytext(holder.real_name, findtext(holder.real_name, " ")+1)
-		var/firstname = copytext(holder.real_name, 1, findtext(holder.real_name, " "))
-		if(lastname)
-			names += lastname
-		if(firstname)
-			names += firstname
-		if(!names.len)
-			names += holder.real_name
+	var/talker = pick(candidates)	//Who is talking to us?
+	var/message						//What will they say?
 
-		//////Setting up messages//////
-		//// This looks like a bit of a mess so check the comments ////
+	//Name selection. This gives us variety. Sometimes it will be your last name, sometimes your first.
+	var/list/names = list()
+	var/lastname = copytext(holder.real_name, findtext(holder.real_name, " ")+1)
+	var/firstname = copytext(holder.real_name, 1, findtext(holder.real_name, " "))
+	if(lastname)
+		names += lastname
+	if(firstname)
+		names += firstname
+	if(!names.len)
+		names += holder.real_name
 
-		var/add = prob(20) ? ", [pick(names)]" : ""		//Accompanies phrases list. 20% chance to add the first or last name to the phrase for variation
-		var/list/phrases = list("Get out[add]!","Go away[add].","What are you doing[add]?","Where's your ID[add]?", "You know I love you[add].", "You do great work[add]!")		//this is the phrase. [add] is chosen in the previous line.
-		if(holder.hallucination > 50)		//If you're very messed up, the message variety gets a little more aggressive by adding these options
-			phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You're a failure, [pick(names)].","Just kill yourself already, [pick(names)].","Put on some clothes[add].","You're a horrible person[add].","You know nobody wants you here, right[add]?")
+	switch(rand(1,8))	//Deciding how we're going to manifest this hallucinated conversation.
 
-		var/speak_prefix = prob(50) ? "[pick("Hey", "Uh", "Um", "Oh", "Ah")], " : ""	//Separate from list/phrases. Again, for variety, we have a different greeting. This one has a chance of picking a starter....
-		speak_prefix = "[speak_prefix][pick(names)][pick(".","!","?")]"					//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
+		if(1)		//Nonverbal gesture.
+			to_chat(holder,"<B>[talker]</B> [pick("points", "looks", "stares", "smirks")] at [pick(names)] and says something softly.")
 
-		//////Choosing the message//////
-		//Here we have two different choices of message. We can either use the one set up in var/list/phrases (30% chance) or one that takes the speak_prefix and adds it to a message from the large text file list.
-		//This is, again, for variety's sake.
 
-		if(prob(30))
-			message = pick(phrases)		//Less variation in these phrases, so we have less chance to pick them. Mitigates some repetition.
-		else
-			message = prob(70) ? "[speak_prefix] [pick(hallucinated_phrases)]" : "[pick(hallucinated_phrases)]"	//Here's the message that uses the hallucinated_phrases text list. Notice that it won't always apply the speak_prefix. Sometimes they just need to say weird shit in general.
+		if(2 to 3)	//Talking prompts imported from Bay. Less variation in these phrases, so we have less chance to pick them. Mitigates some repetition.
+			
+			//message prep
+			var/add = prob(20) ? ", [pick(names)]" : ""		//Accompanies phrases list. 20% chance to add the first or last name to the phrase for variation
+			var/list/phrases = list("Get out[add]!","Go away[add].","What are you doing[add]?","Where's your ID[add]?", "You know I love you[add].", "You do great work[add]!")		//this is the phrase. [add] is chosen in the previous line.
+			if(holder.hallucination > 50)		//If you're very messed up, the message variety gets a little more aggressive by adding these options
+				phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You're a failure, [pick(names)].","Just kill yourself already, [pick(names)].","Put on some clothes[add].","You're a horrible person[add].","You know nobody wants you here, right[add]?")
 
-		//////Sending the message//////
-		//Finally, we deliver the chosen message. The format below replicates the format of a person speaking.
+			message = pick(phrases)
+			to_chat(holder,"<span class='game say'><span class='name'>[talker]</span> [holder.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
-		to_chat(holder,"<span class='game say'><span class='name'>[talker]</span> [holder.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
-	else	//If we DON'T send a message, we choose this, instead.
-		to_chat(holder,"<B>[talker]</B> [pick("points", "looks", "stares", "smirks")] at [holder.name] and says something softly.")
+		else		//More varied messages using text list and different speech prefixes
+			
+			//message prep
+			var/speak_prefix = pick("Hey", "Uh", "Um", "Oh", "Ah", "")		//For variety, we have a different greeting. This one has a chance of picking a starter....
+			speak_prefix = "[speak_prefix][pick(names)][pick(".","!","?")]"		//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
+
+			message = prob(70) ? "[speak_prefix] [pick(hallucinated_phrases)]" : pick(hallucinated_phrases) //Here's the message that uses the hallucinated_phrases text list. Won't always apply the speak_prefix; sometimes they say weird shit without addressing you.
+			to_chat(holder,"<span class='game say'><span class='name'>[talker]</span> [holder.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
 	repeats -= 1
 	if(repeats)		//And we do it all over again, one or two more times.
@@ -983,14 +987,14 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/mindread/start()
 	duration = rand(2, 4) MINUTES
-	to_chat(holder, span("notice", "<B><font size = 3>You have developed a psionic gift!</font></B>"))
-	to_chat(holder, span("notice", "You can feel your mind surging with power! Check the abilities tab to use your new power!"))
+	to_chat(holder, SPAN_NOTICE("<B><font size = 3>You have developed a psionic gift!</font></B>"))
+	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
 	holder.verbs += /mob/living/carbon/human/verb/fakemindread
 
 /datum/hallucination/mindread/end()
 	if(holder)
 		holder.verbs -= /mob/living/carbon/human/verb/fakemindread
-		to_chat(holder, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
+		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 		holder.drowsyness += 12
 	..()
 
@@ -1004,7 +1008,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		return
 
 	if(stat)
-		to_chat(usr, span("warning", "You're not in any state to use your powers right now!"))
+		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 
 	var/list/creatures = list()
@@ -1013,19 +1017,19 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	creatures -= usr
 	var/mob/target = input("Whose mind do you wish to probe?") as null|anything in creatures
 	if(target.stat)
-		to_chat(usr, span("warning", "\The [target]'s mind is not in any state to be probed!"))
+		to_chat(usr, SPAN_WARNING("\The [target]'s mind is not in any state to be probed!"))
 		return
 	if(isnull(target))
 		return
 
-	to_chat(usr, span("notice", "<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking a prominent thought.</b>"))
+	to_chat(usr, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking a prominent thought.</b>"))
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
-		to_chat(usr, span("notice", "<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(hallucinated_phrases)]</i>\"</b>"))
+		to_chat(usr, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(hallucinated_phrases)]</i>\"</b>"))
 		for(var/mob/living/carbon/human/M in oviewers(src))
 			to_chat(M, "<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].")
 	else
-		to_chat(usr, span("warning", "You need to stay still to focus your energy!"))
+		to_chat(usr, SPAN_WARNING("You need to stay still to focus your energy!"))
 
 
 //Fake telepathy, inspired by and mostly ported from Bay's
@@ -1041,14 +1045,14 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 /datum/hallucination/telepathy/start()
 	duration = rand(2, 4) MINUTES
-	to_chat(holder, span("notice", "<B><font size = 3>You have developed a psionic gift!</font></B>"))
-	to_chat(holder, span("notice", "You can feel your mind surging with power! Check the abilities tab to use your new power!"))
+	to_chat(holder, SPAN_NOTICE("<B><font size = 3>You have developed a psionic gift!</font></B>"))
+	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
 	holder.verbs += /mob/living/carbon/human/verb/faketelepathy
 
 /datum/hallucination/telepathy/end()
 	if(holder)
 		holder.verbs -= /mob/living/carbon/human/verb/faketelepathy
-		to_chat(holder, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
+		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 		holder.drowsyness += 12
 	..()
 
@@ -1063,7 +1067,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		return
 
 	if(stat)
-		to_chat(usr, span("warning", "You're not in any state to use your powers right now!"))
+		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 
 	var/list/creatures = list()
@@ -1073,7 +1077,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 
 	var/mob/target = input("Who do you wish to send a message to?") as null|anything in creatures
 	if(target.stat)
-		to_chat(usr, span("warning", "\The [target]'s mind is not in any state to receive messages!"))
+		to_chat(usr, SPAN_WARNING("\The [target]'s mind is not in any state to receive messages!"))
 		return
 	if(isnull(target))
 		return
@@ -1082,11 +1086,11 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	if(!message)
 		return
 
-	to_chat(usr, span("notice", "<b>You focus your mental energy and begin projecting your message into the mind of \the [target]...</b>"))
+	to_chat(usr, SPAN_NOTICE("<b>You focus your mental energy and begin projecting your message into the mind of \the [target]...</b>"))
 
 	if(do_after(usr, 30))
-		to_chat(usr, span("notice", "<b>You feel your message enter \the [target]'s mind!</b>"))
+		to_chat(usr, SPAN_NOTICE("<b>You feel your message enter \the [target]'s mind!</b>"))
 		for(var/mob/living/carbon/human/M in oviewers(src))
 			to_chat(M,"<span class='game say'><span class='name'>[usr]</span> [usr.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 	else
-		to_chat(usr, span("warning", "You need to stay still to focus your efforts!"))
+		to_chat(usr, SPAN_WARNING("You need to stay still to focus your efforts!"))
