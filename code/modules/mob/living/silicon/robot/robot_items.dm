@@ -414,3 +414,8 @@
 	desc = "A cyborg mounted blade, used to pry open doors and attack hostile elements."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "trench"
+	sharp = 1
+	edge = 1
+	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	can_embed = 0

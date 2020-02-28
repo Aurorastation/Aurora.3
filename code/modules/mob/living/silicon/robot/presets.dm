@@ -27,6 +27,15 @@
 	spawn_module =/obj/item/robot_module/pra
 	braintype = "Robot"
 
+/mob/living/silicon/robot/scrambled/pra/updateicon()
+	cut_overlays()
+
+	if(stat == CONSCIOUS)
+		add_overlay("eyes-[module_sprites[icontype]]")
+		icon_state = "republicon"
+	else
+		icon_state = "republicon_dead"
+
 /mob/living/silicon/robot/bluespace
 	modtype = "Bluespace"
 	spawn_module = /obj/item/robot_module/bluespace
