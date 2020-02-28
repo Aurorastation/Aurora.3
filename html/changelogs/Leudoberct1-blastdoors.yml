@@ -1,0 +1,6 @@
+ author: Leudoberct
+
+delete-after: True
+
+changes: 
+  - maptweak: "Removes unneeded blast doors from the Research sublevel."
