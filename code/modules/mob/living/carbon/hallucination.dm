@@ -13,7 +13,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 		message = LAZYPICK(hallucinated_phrases, message)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
-/mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
+/mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language, var/part_a, var/part_b, var/mob/speaker, var/hard_to_hear = 0, var/vname ="")
 	if(hallucination >= 60 && prob(1))
 		var/orig_message = message
 		message = LAZYPICK(hallucinated_phrases, message)
