@@ -973,9 +973,8 @@ var/list/ai_verbs_default = list(
 					updateicon()
 					return
 		if(6)
-			if(istype(P, /obj/item/aicard))
-
-				var/obj/item/aicard/card = P
+			if(istype(P, /obj/item/aicard/pra))
+				var/obj/item/aicard/pra/card = P
 				card.grab_ai(src, user)
 
 /mob/living/silicon/ai/pra/proc/get_missing_parts(mob/user)
@@ -998,6 +997,18 @@ var/list/ai_verbs_default = list(
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
 	spark(T, 3, alldirs)
+	if(control)
+		control = null
+	if(has_cables)
+		has_cables = FALSE
+	if(capacitor)
+		capacitor = null
+	if(has_plasteel_plating)
+		has_plasteel_plating = FALSE
+	if(screen)
+		screen = null
+	if(powercell)
+		powercell = null
 	state = 0
 	updateicon()
 
