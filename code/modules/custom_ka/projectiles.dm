@@ -9,6 +9,7 @@
 	var/pressure_decrease = 0.25
 	var/base_damage = 0
 	var/aoe_shot = FALSE
+	ignore_source_check = TRUE
 
 /obj/item/projectile/kinetic/mech
 	damage = 40
