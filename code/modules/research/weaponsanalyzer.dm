@@ -148,6 +148,8 @@
 	data["item"] = FALSE
 	data["energy"] = FALSE
 	data["gun"] = FALSE
+	data["damage_type"] = "none"
+
 	if(item)
 		data["name"] = item.name
 		data["item"] = TRUE
@@ -156,6 +158,7 @@
 		data["edge"] = item.edge ? "likely to dismember" : "not likely to dismember"
 		data["penetration"] = item.armor_penetration
 		data["throw_force"] = item.throwforce
+		data["damage_type"] = item.damtype
 		if(istype(item, /obj/item/melee/energy))
 			data["energy"] = TRUE
 			var/obj/item/melee/energy/E_item = item
@@ -165,6 +168,7 @@
 			data["base_reflectchance"] = E_item.base_reflectchance
 			data["base_block_chance"] = E_item.base_block_chance
 			data["shield_power"] = E_item.shield_power
+
 	else if(gun)
 		data["name"] = gun.name
 		data["gun"] = TRUE
@@ -172,6 +176,9 @@
 		data["recharge"] = "none"
 		data["recharge_time"] = "none"
 		data["damage"] = 0
+		data["shrapnel_type"] = "none"
+		data["armor_penetration"] = "none"
+
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = gun
 			var/obj/item/projectile/P = new E.projectile_type
@@ -179,22 +186,39 @@
 			data["recharge"] = E.self_recharge ? "self recharging" : "not self recharging"
 			data["recharge_time"] = E.recharge_time
 			data["damage"] = P.damage
+			data["damage_type"] = P.damage_type
+			data["check_armor"] = P.check_armour
+			data["stun"] = P.stun ? "stuns" : "does not stun"
+			data["shrapnel_type"] = P.shrapnel_type ? P.shrapnel_type : "none"
+			data["armor_penetration"] = P.armor_penetration
+
 			if(E.secondary_projectile_type)
 				var/obj/item/projectile/P_second = new E.secondary_projectile_type
 				data["secondary_damage"] = P_second.damage
+				data["secondary_damage_type"] = P_second.damage_type
+				data["secondary_check_armor"] = P_second.check_armour
+				data["secondary_stun"] = P_second.stun ? "stuns" : "does not stun"
+				data["secondary_shrapnel_type"] = P_second.shrapnel_type ? P_second.shrapnel_type : "none"
+				data["secondary_armor_penetration"] = P_second.armor_penetration
+
 		else
 			var/obj/item/gun/projectile/P_gun = gun
-			var/obj/item/ammo_casing/casing = P_gun.chambered
+			var/obj/item/ammo_casing/casing = P_gun.ammo_type
 			var/obj/item/projectile/P = new casing.projectile_type
 			data["max_shots"] = P_gun.max_shells
 			data["damage"] = P.damage
+			data["damage_type"] = P.damage_type
+			data["check_armor"] = P.check_armour
+			data["stun"] = P.stun ? "stuns" : "does not stun"
+			data["shrapnel_type"] = P.shrapnel_type ? P.shrapnel_type : "none"
 		data["burst"] = gun.burst
 		data["reliability"] = gun.reliability
 
 /obj/machinery/weapons_analyzer/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	var/height = gun ? 600 : 300
 	if (!ui)
-		ui = new(user, src, "wanalyzer-analyzer", 500, 500, capitalize(name))
+		ui = new(user, src, "wanalyzer-analyzer", 300, height, capitalize(name))
 
 	var/icon/Icon_used
 	if(gun)
