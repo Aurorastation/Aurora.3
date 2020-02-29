@@ -74,11 +74,14 @@
 	)
 
 	job_species_blacklist = list(
-		/datum/job/representative = list(
-			/datum/species/human,
-			/datum/species/skrell,
-			/datum/species/unathi,
-			/datum/species/diona
+		"Corporate Liaison" = list(
+			"Baseline Frame",
+			"Hephaestus G1 Industrial Frame",
+			"Hephaestus G2 Industrial Frame",
+			"Xion Industrial Frame",
+			"Zeng-Hu Mobility Frame",
+			"Bishop Accessory Frame",
+			"Shell Frame"
 		)
 	)
 
