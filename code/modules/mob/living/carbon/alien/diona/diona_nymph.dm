@@ -364,3 +364,10 @@
 		else
 			user.visible_message(span("warning", "[user] butchers \the [src] messily!"))
 			gib()
+
+
+
+/mob/living/carbon/alien/diona/adjustBruteLoss(var/amount)
+	if (status_flags & GODMODE)
+		return
+	health = min(health - amount, maxHealth)
