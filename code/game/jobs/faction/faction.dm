@@ -26,10 +26,10 @@
 	. = list()
 
 	for (var/path in allowed_role_types)
-		. += SSjobs.type_occupations[path]
 		var/datum/job/role = SSjobs.type_occupations[path]
-		if(job_species_blacklist && job_species_blacklist[path])
-			role.blacklisted_species = job_species_blacklist[path]
+		if(LAZYACCESS(job_species_blacklist, role.title))
+			role = SSjobs.type_occupations[path]
+			role.blacklisted_species = job_species_blacklist[role.title]
 		. += role
 
 /datum/faction/proc/get_selection_error(datum/preferences/prefs)
