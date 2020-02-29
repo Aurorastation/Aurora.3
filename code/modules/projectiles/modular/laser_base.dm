@@ -1,6 +1,6 @@
 /obj/item/laser_components
 	icon = 'icons/obj/guns/modular_laser.dmi'
-	icon_state = "bfg"
+	var/base_icon_state = "bfg"
 	contained_sprite = TRUE
 	var/reliability = 0
 	var/damage = 1
@@ -69,7 +69,7 @@
 /obj/item/laser_components/capacitor
 	name = "capacitor"
 	desc = "A basic laser weapon capacitor."
-	icon_state = "capacitor"
+	base_icon_state = "capacitor"
 	shots = 5
 	damage = 10
 	reliability = 50
@@ -104,7 +104,7 @@
 /obj/item/laser_components/focusing_lens
 	name = "focusing lens"
 	desc = "A basic laser weapon focusing lens."
-	icon_state = "lens"
+	base_icon_state = "lens"
 	var/list/dispersion = list(0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2)
 	reliability = 25
 	repair_item = /obj/item/stack/nanopaste
@@ -128,7 +128,7 @@
 /obj/item/laser_components/modulator
 	name = "laser modulator"
 	desc = "A modification that modulates the beam into a standard laser beam."
-	icon_state = "laser"
+	base_icon_state = "laser"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
 	var/firing_sound = 'sound/weapons/Laser.ogg'
@@ -141,7 +141,7 @@
 	desc = "A case for shoving things into. Hopefully they work."
 	w_class = 2
 	icon = 'icons/obj/guns/modular_laser.dmi'
-	icon_state = "small"
+	var/base_icon_state = "small"
 	contained_sprite = TRUE
 	var/stage = 1
 	var/size = CHASSIS_SMALL
@@ -183,7 +183,7 @@
 /obj/item/device/laser_assembly/update_icon()
 	..()
 	underlays.Cut()
-	icon_state = "[initial(icon_state)]_[stage]"
+	icon_state = "[base_icon_state]_[stage]"
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/mod in gun_mods)
 			if(mod.gun_overlay)

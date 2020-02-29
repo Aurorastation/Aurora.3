@@ -84,6 +84,7 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/trash/spitwad
 	name = "spit wad"
 	desc = "A disgusting spitwad."
+	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "spit-chew"
 
 /obj/item/clothing/mask/chewable/proc/spitout(var/mob/user, var/no_message)
@@ -138,6 +139,7 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/trash/spitgum
 	name = "old gum"
 	desc = "A disgusting chewed up wad of gum."
+	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "spit-gum"
 
 /obj/item/clothing/mask/chewable/candy/gum
@@ -180,6 +182,7 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/trash/lollibutt
 	name = "popsicle stick"
 	desc = "A popsicle stick devoid of pop."
+	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "lollipop_stick"
 
 /obj/item/clothing/mask/chewable/candy/lolli/update_icon()

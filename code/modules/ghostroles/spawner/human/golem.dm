@@ -5,6 +5,7 @@
 	tags = list("Xenobiology")
 
 	respawn_flag = ANIMAL
+	enabled = FALSE
 
 	spawn_mob = /mob/living/carbon/human/golem
 

@@ -100,7 +100,7 @@
 
 /obj/effect/meteor/small
 	name = "small meteor"
-	icon_state = "smallf"
+	icon_state = "small"
 	pass_flags = PASSTABLE | PASSGRILLE
 	power = 1
 	power_step = 0.5

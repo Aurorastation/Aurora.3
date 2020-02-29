@@ -2,7 +2,6 @@
 	name = "heavy-duty cell charger"
 	desc = "A much more powerful version of the standard recharger that is specially designed for charging power cells."
 	icon = 'icons/obj/power.dmi'
-	icon_state = "ccharger0"
 	anchored = 1
 	use_power = 1
 	idle_power_usage = 5
@@ -11,6 +10,10 @@
 	var/charging_efficiency = 1.38
 	var/obj/item/cell/charging = null
 	var/chargelevel = -1
+
+/obj/machinery/cell_charger/Initialize(mapload)
+	. = ..()
+	update_icon()
 
 /obj/machinery/cell_charger/update_icon()
 	icon_state = "ccharger[charging ? 1 : 0]"
