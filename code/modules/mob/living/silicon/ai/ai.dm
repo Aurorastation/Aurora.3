@@ -902,8 +902,8 @@ var/list/ai_verbs_default = list(
 		return
 
 	if(istype(P, /obj/item/device/multitool))
-		src.flipped = !src.flipped
-		to_chat(usr, "You change [src.flipped ? "left" : "right"] the law changing protocols.")
+		src.allow_lawchange = !src.allow_lawchange
+		to_chat(usr, "You [src.allow_lawchange ? "enable" : "disable"] the law changing protocols.")
 
 	switch(state)
 		if(0)
