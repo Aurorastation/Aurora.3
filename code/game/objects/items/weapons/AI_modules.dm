@@ -38,6 +38,10 @@ AI MODULES
 			to_chat(usr, "Law uploads have been disabled by [current_map.company_name]!")
 			return
 
+		if(!comp.current.allow_lawchange)
+			to_chat(usr, "Law uploads have been disabled by core's protocols!")
+			return
+
 		if (comp.current.stat == 2 || comp.current.control_disabled == 1)
 			to_chat(usr, "Upload failed. No signal is being detected from the AI.")
 		else if (comp.current.see_in_dark == 0)

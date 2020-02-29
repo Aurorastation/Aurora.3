@@ -100,6 +100,17 @@
 /mob/living/simple_animal/hostile/republicon/isSynthetic()
 	return TRUE
 
+/mob/living/simple_animal/hostile/republicon/attackby(obj/item/O, mob/user)
+	..()
+	if((istype(O, /obj/item/clothing/accessory/hadii_pin)) || (istype(O, /obj/item/clothing/accessory/badge/hadii_card)))
+		reactivate()
+
+/mob/living/simple_animal/hostile/republicon/proc/reactivate()
+	if (stat == DEAD)
+		rejuvenate()
+		update_icons()
+		visible_message(span("notice", "\The [src] shudders back to life!."))
+
 /mob/living/simple_animal/hostile/republicon/ranged
 	icon_state = "republicon-armed"
 	icon_living = "republicon-armed"

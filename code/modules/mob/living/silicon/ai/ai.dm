@@ -96,7 +96,7 @@ var/list/ai_verbs_default = list(
 	var/carded
 
 	var/multitool_mode = 0
-
+	var/allow_lawchange = TRUE
 /mob/living/silicon/ai/proc/add_ai_verbs()
 	src.verbs |= ai_verbs_default
 	src.verbs |= silicon_subsystems
@@ -867,7 +867,7 @@ var/list/ai_verbs_default = list(
 	var/has_plasteel_plating = FALSE
 	var/obj/item/cell/powercell = null
 	var/obj/item/stock_parts/console_screen/screen = null
-	var/list/knowpositions = list("roboticist", "Research Director", "Scientist")
+	allow_lawchange = FALSE
 
 /mob/living/silicon/ai/pra/update_icon()
 	updateicon()
@@ -900,6 +900,10 @@ var/list/ai_verbs_default = list(
 	if(istype(P, /obj/item/device/robotanalyzer))
 		get_missing_parts(user)
 		return
+
+	if(istype(P, /obj/item/device/multitool))
+		src.flipped = !src.flipped
+		to_chat(usr, "You change [src.flipped ? "left" : "right"] the law changing protocols.")
 
 	switch(state)
 		if(0)
