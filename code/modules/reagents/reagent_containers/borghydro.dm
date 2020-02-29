@@ -155,3 +155,6 @@
 	reagent_volumes[rid] -= amt
 	to_chat(user, "<span class='notice'>You transfer [amt] units of the solution to [target].</span>")
 	return
+
+/obj/item/reagent_containers/borghypo/service/pra
+	reagent_ids = list("victorygin")

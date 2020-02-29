@@ -1086,7 +1086,6 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/pra
 	name = "republican defensive robot module"
 	sprites = list("PRA" = "republicon")
-	sprites = list("PRA" = "republicon")
 	can_be_pushed = 0
 	languages = list(
 					LANGUAGE_SOL_COMMON = 0,
@@ -1111,8 +1110,15 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/gun/energy/mountedsmg(src)
-	src.modules += new /obj/item/gun/energy/mountedcannon(src)
 	src.modules += new /obj/item/crowbar/robotic(src)
 	src.modules += new /obj/item/melee/hammer/robot(src)
+	src.modules += new /obj/item/borg/combat/shield(src)
+	src.modules += new /obj/item/reagent_containers/borghypo/service/pra(src)
+
+	var/obj/item/rfd/service/M = new /obj/item/rfd/service(src)
+	M.stored_matter = 30
+	src.modules += M
+
+	src.emag = new /obj/item/gun/energy/mountedcannon(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	return
