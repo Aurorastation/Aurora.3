@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes:
+  - backend: "Removes recently added icon state unit test due to BYOND issues."
