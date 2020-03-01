@@ -151,7 +151,7 @@
 	item_state = "watch_silver"
 
 /obj/item/clothing/gloves/watch/spy/checktime()
-	to_chat(usr, "You check your watch. It's completely useless. Dork.")
+	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
 
 /obj/item/clothing/gloves/watch/examine(mob/user)
 	..()
