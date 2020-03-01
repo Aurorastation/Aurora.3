@@ -60,7 +60,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		mind.changeling = new /datum/changeling(gender)
 
 	verbs += /datum/changeling/proc/EvolutionMenu
-	add_language("Changeling")
+	add_language(LANGUAGE_CHANGELING)
 
 	var/lesser_form = !ishuman(src)
 

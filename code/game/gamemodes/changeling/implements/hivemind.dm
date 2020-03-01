@@ -19,29 +19,30 @@
 /mob/abstract/hivemind/proc/add_to_hivemind(var/mob/original_body, var/mob/living/carbon/human/ling)
 	src.name = original_body.real_name
 	src.languages = original_body.languages
-	src.languages += ling.languages
-	src.remove_language("Changeling") // no actual changeling speak for you, buddy
+	for(var/language in ling.languages)
+		add_language(language)
+	src.remove_language(LANGUAGE_CHANGELING) // no actual changeling speak for you, buddy
 	if(original_body.ckey)
 		src.ckey = original_body.ckey
-	src.changeling_mob = ling
+		src.changeling_mob = ling
 	if(changeling_mob)
 		changeling_mob.mind.changeling.hivemind |= src
 		update_hivemind()
-	introduction(ling)
+		introduction(changeling_mob)
 
-/mob/abstract/hivemind/proc/introduction(var/mob/ling)
-	to_chat(src, SPAN_NOTICE("********************************************************************"))
+/mob/abstract/hivemind/proc/introduction(var/mob/living/carbon/human/ling)
+	to_chat(src, SPAN_DANGER(FONT_LARGE("You are a member of a Changeling's Hivemind!")))
 	to_chat(src, SPAN_DANGER("You have been absorbed by [ling]! Do not fret."))
 	to_chat(src, SPAN_DANGER("You are now a part of their hivemind."))
-	to_chat(src, SPAN_DANGER("You can speak normally, to speak with them and the rest of the hivemind."))
-	to_chat(src, SPAN_NOTICE("********************************************************************"))
+	to_chat(src, SPAN_DANGER("You can use 'say' to speak with them and the rest of the hivemind."))
+	to_chat(src, SPAN_DANGER("What you say can only be heard by [ling] and the other members of the hivemind."))
 
 /mob/abstract/hivemind/proc/update_hivemind() // this brings all the hiveminds up to date with the ling's hivemind
 	for(var/mob/abstract/hivemind/H in changeling_mob.mind.changeling.hivemind)
 		H.hivemind = changeling_mob.mind.changeling.hivemind
 
 /mob/abstract/hivemind/say(message)
-	message = sanitize(message)
+	message = sanitize_text(message)
 
 	if(!message)
 		return
@@ -53,11 +54,11 @@
 		return
 
 	to_chat(changeling_mob, message_process(message)) // tell the changeling
-	for(var/mob/abstract/hivemind/H in hivemind) // tell the other hiveminds
+	for(var/H in hivemind) // tell the other hiveminds
 		to_chat(H, message_process(message))
 
 /mob/abstract/hivemind/proc/message_process(var/message)
-	return "<font color=#94582e>[src] says, \"[message]\"</font>"
+	return "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>"
 
 /mob/abstract/hivemind/emote()
 	to_chat(src, SPAN_WARNING("You cannot emote."))
