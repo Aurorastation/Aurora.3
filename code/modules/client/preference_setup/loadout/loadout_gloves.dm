@@ -36,7 +36,7 @@
 	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/gloves/ring
-	display_name = "ring"
+	display_name = "ring selection"
 	description = "A selection of rings."
 	path = /obj/item/clothing/ring/engagement
 
@@ -57,7 +57,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(ringtype)
 
 /datum/gear/gloves/watch
-	display_name = "watch"
+	display_name = "watch selection"
 	description = "A selection of watches."
 	path = /obj/item/clothing/gloves/watch
 

@@ -131,7 +131,7 @@
 	var/time_counter = 0
 	var/closed = FALSE
 
-/obj/item/mesmetron/AltClick()
+/obj/item/mesmetron/AltClick(mob/user)
 	if(!closed)
 		icon_state = "[initial(icon_state)]_closed"
 		to_chat(user, "You clasp the [name] shut.")
