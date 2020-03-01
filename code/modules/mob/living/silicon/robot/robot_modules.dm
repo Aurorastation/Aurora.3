@@ -772,9 +772,10 @@ var/global/list/robot_modules = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
 					"HD-MAD" = "mcspizzytronsyndi",
+					"Industrial" = "heavysyndi",
 					"Heph-Android" = "droid",
 					"Arachnotronic" = "spidersyndi",
-					"Toiletotron" = "syndi-medi",
+					"Toileto-tron" = "syndi-medi",
 					)
 
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
