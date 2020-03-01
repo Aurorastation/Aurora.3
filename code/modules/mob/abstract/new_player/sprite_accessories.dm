@@ -2140,6 +2140,12 @@ Follow by example and make good judgement based on length which list to include 
 			length = 5
 			chatname = "horns"
 
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "unathi_hood"
+			length = 5
+			chatname = "hood"
+
 //skrell tentacles
 
 	skr_tentacle_m
@@ -2557,6 +2563,10 @@ Follow by example and make good judgement based on length which list to include 
 		una_double
 			name = "Unathi Double Horns"
 			icon_state = "facial_dubhorns"
+
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "facial_hood"
 
 //ipc screens
 

@@ -91,7 +91,7 @@
 	var/tmp/lock_time = -100
 	var/safety_state = TRUE
 	var/has_safety = TRUE
-	var/safety_icon	= "safety"   //overlay to apply to gun based on safety state, if any
+	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
 
@@ -123,13 +123,11 @@
 		I.pixel_y = knife_y_offset
 		underlays += I
 
-	if(has_safety && safety_icon)
-		for(var/I in overlays)
-			var/image/gun_overlay = I
-			if(gun_overlay.icon == gun_gui_icons && dd_hasprefix(gun_overlay.icon_state, "[safety_icon]"))
-				overlays -= gun_overlay
+	if(has_safety)
+		cut_overlay(safety_overlay, TRUE)
 		if(!isturf(loc)) // In a mob, holster or bag or something
-			overlays += image(gun_gui_icons,"[safety_icon][safety()]")
+			safety_overlay = image(gun_gui_icons,"[safety()]")
+			add_overlay(safety_overlay, TRUE)
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.

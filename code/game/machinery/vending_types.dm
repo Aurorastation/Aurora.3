@@ -92,7 +92,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/mintsyrup = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cremewhite = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy = 4,
-		/obj/item/reagent_containers/food/drinks/bottle/guinnes = 4,
+		/obj/item/reagent_containers/food/drinks/bottle/guinness = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice = 8,
