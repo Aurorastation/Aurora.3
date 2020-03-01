@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - imageadd: "Adds new glove inhand sprites."
   - tweak: "Tweaks watches, skrell armchain and bracer sprites."
-  - rscadd: "Adds new types of watches! Choose from 3 awesome designs!"
+  - rscadd: "Adds new types of watches! Choose from five awesome designs!"
