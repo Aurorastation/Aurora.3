@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
+  - tweak: "Tweaks gloves, watches, skrell armchain and bracer sprites."
   - imageadd: "Adds new glove inhand sprites."
-  - tweak: "Tweaks watches, skrell armchain and bracer sprites."
   - rscadd: "Adds new types of watches! Choose from five awesome designs!"
