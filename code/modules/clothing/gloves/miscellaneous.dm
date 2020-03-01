@@ -30,7 +30,7 @@
 /obj/item/clothing/gloves/swat/tactical
 	name = "\improper tactical gloves"
 	icon_state = "black_leather"
-	item_state = "black_leather_gloves"
+	item_state = "black_leather"
 	species_restricted = null
 
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
@@ -150,8 +150,7 @@
 	icon_state = "watch_spy"
 	item_state = "watch_silver"
 
-/obj/item/clothing/gloves/watch/spy/examine(mob/user)
-	..()
+/obj/item/clothing/gloves/watch/spy/checktime()
 	to_chat(usr, "You check your watch. It's completely useless. Dork.")
 
 /obj/item/clothing/gloves/watch/verb/checktime()
@@ -318,6 +317,7 @@
 	name = "brass knuckles"
 	desc = "A pair of brass knuckles. Generally used to enhance the user's punches."
 	icon_state = "knuckledusters"
+	item_state = "knuckledusters"
 	attack_verb = list("punched", "beaten", "struck")
 	siemens_coefficient = 1
 	fingerprint_chance = 100
@@ -364,6 +364,7 @@
 	name = "clawed gauntlets"
 	desc = "A pair of metal gauntlets outfited with menacing sharp blades."
 	icon_state = "warping_claws"
+	item_state = "warping_claws"
 	attack_verb = list("ripped", "torn", "cut")
 	armor = list(melee = 50, bullet = 15, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
 	siemens_coefficient = 1
@@ -445,7 +446,7 @@
 /obj/item/clothing/gloves/ballistic/double
 	name = "ballistic gauntlets"
 	icon_state = "dual-ballisticfist"
-	item_state = "dual-ballisticfist"
+	item_state = "ballisticfist" //just reuse the single inhand
 	fingerprint_chance = 0
 	gender = PLURAL
 
