@@ -134,6 +134,7 @@
 	updatename(modtype)
 	updateicon()
 	if(mmi && mmi.brainobj)
+		mmi.name = "[initial(mmi.name)]: [name]"
 		mmi.brainobj.lobotomized = 1
 
 	radio = new /obj/item/device/radio/borg(src)
@@ -337,6 +338,8 @@
 
 	real_name = changed_name
 	name = real_name
+	if(mmi)
+		mmi.name = "[initial(mmi.name)]: [name]"
 
 	// if we've changed our name, we also need to update the display name for our PDA
 	setup_PDA()
@@ -365,17 +368,16 @@
 /mob/living/silicon/robot/verb/Namepick()
 	set category = "Robot Commands"
 	if(custom_name)
-		return 0
+		return FALSE
 
-	spawn(0)
-		var/newname
-		newname = sanitizeSafe(input(src,"You are a robot. Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
-		if (newname)
-			custom_name = newname
+	var/newname
+	newname = sanitizeSafe(input(src,"You are a robot. Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
+	if(newname)
+		custom_name = newname
 
-		updatename()
-		updateicon()
-		SSrecords.reset_manifest()
+	updatename()
+	updateicon()
+	SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest
 /mob/living/silicon/robot/verb/cmd_station_manifest()
