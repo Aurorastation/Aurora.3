@@ -179,11 +179,11 @@ var/global/list/minevendor_list = list( //keep in order of price
 								continue
 							clear_turfs += T
 
-						if(!LAZYLEN(clear_turfs))
+						if(!length(clear_turfs))
 							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))
 							return
 
-						var/i = rand(1, LAZYLEN(clear_turfs))
+						var/i = rand(1, length(clear_turfs))
 						var/turf/pickedloc = clear_turfs[i]
 
 						if(pickedloc)

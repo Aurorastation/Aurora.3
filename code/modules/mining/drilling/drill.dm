@@ -88,10 +88,10 @@
 		T.ex_act(2.0)
 
 	//Dig out the tasty ores.
-	if(LAZYLEN(resource_field))
+	if(length(resource_field))
 		var/turf/harvesting = pick(resource_field)
 
-		while(LAZYLEN(resource_field) && !harvesting.resources)
+		while(length(resource_field) && !harvesting.resources)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
 			resource_field -= harvesting
@@ -104,15 +104,15 @@
 		var/found_resource = FALSE //If this doesn't get set, the area is depleted and the drill errors out.
 
 		for(var/ore in ore_types)
-			if(LAZYLEN(contents) >= capacity)
+			if(length(contents) >= capacity)
 				system_error("Insufficient storage space.")
 				active = FALSE
 				need_player_check = TRUE
 				update_icon()
 				return
 
-			if(LAZYLEN(contents) + total_harvest >= capacity)
-				total_harvest = capacity - LAZYLEN(contents)
+			if(length(contents) + total_harvest >= capacity)
+				total_harvest = capacity - length(contents)
 
 			if(total_harvest <= 0)
 				break
@@ -292,7 +292,7 @@
 	else
 		anchored = TRUE
 
-	if(supports && LAZYLEN(supports) >= braces_needed)
+	if(supports && length(supports) >= braces_needed)
 		supported = TRUE
 
 	update_icon()
@@ -323,7 +323,7 @@
 			if(mine_turf && mine_turf.has_resources)
 				resource_field += mine_turf
 
-	if(!LAZYLEN(resource_field))
+	if(!length(resource_field))
 		system_error("Resources depleted.")
 
 /obj/machinery/mining/drill/proc/use_cell_power()

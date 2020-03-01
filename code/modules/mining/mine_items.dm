@@ -690,7 +690,7 @@
 		return
 
 	var/list/L = get_destinations(user)
-	if(!LAZYLEN(L))
+	if(!length(L))
 		to_chat(user, SPAN_NOTICE("\The [src] found no beacons in the world to anchor a wormhole to."))
 		return
 	var/chosen_beacon = pick(L)
@@ -836,12 +836,12 @@ var/list/total_extraction_beacons = list()
 		if(EP.beacon_network in beacon_networks)
 			possible_beacons += EP
 
-	if(!LAZYLEN(possible_beacons))
+	if(!length(possible_beacons))
 		to_chat(user, SPAN_NOTICE("There are no extraction beacons in existence!"))
 		return
 
 	else
-		var/A = input("Select a beacon to connect to", "Warp Extraction Pack", A) in possible_beacons
+		var/A = input(user, "Select a beacon to connect to", "Warp Extraction Pack") in possible_beacons
 		if(!A)
 			return
 		beacon = A
@@ -870,7 +870,7 @@ var/list/total_extraction_beacons = list()
 			var/list/flooring_near_beacon = list()
 			for(var/turf/simulated/floor/floor in orange(1, beacon))
 				flooring_near_beacon += floor
-			if(LAZYLEN(flooring_near_beacon))
+			if(length(flooring_near_beacon))
 				A.forceMove(pick(flooring_near_beacon))
 			else
 				A.forceMove(get_turf(beacon))
@@ -1096,7 +1096,7 @@ var/list/total_extraction_beacons = list()
 	density = TRUE
 	opacity = TRUE
 	anchored = FALSE
-	var/sculpted = facial_hair_styles_male_list
+	var/sculpted = FALSE
 	var/mob/living/T
 	var/times_carved = 0
 	var/last_struck = 0

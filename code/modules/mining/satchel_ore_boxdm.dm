@@ -45,7 +45,7 @@
 
 	add_fingerprint(user)
 
-	if(!LAZYLEN(contents))
+	if(!length(contents))
 		to_chat(user, SPAN_NOTICE("It is empty."))
 		return
 
@@ -76,7 +76,7 @@
 
 	add_fingerprint(usr)
 
-	if(!LAZYLEN(contents))
+	if(!length(contents))
 		to_chat(usr, SPAN_WARNING("\The [src] is empty."))
 		return
 

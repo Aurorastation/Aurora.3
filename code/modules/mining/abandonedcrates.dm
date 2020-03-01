@@ -187,7 +187,7 @@
 
 /obj/structure/closet/crate/secure/loot/proc/check_input(var/input)
 	if(length(input) != codelen)
-		return false
+		return FALSE
 
 	. = 1
 	lastattempt.Cut()
@@ -205,7 +205,7 @@
 				to_chat(user, SPAN_WARNING("* Anti-Tamper system will activate on the next failed access attempt."))
 			else
 				to_chat(user, SPAN_NOTICE("* Anti-Tamper system will activate after [src.attempts] failed access attempts."))
-			if(LAZYLEN(lastattempt))
+			if(length(lastattempt))
 				var/bulls = 0
 				var/cows = 0
 
