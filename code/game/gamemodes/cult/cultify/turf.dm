@@ -9,6 +9,9 @@
 /turf/simulated/wall/cultify()
 	cultify_wall()
 
+/turf/simulated/wall/r_wall/cultify()
+	ChangeTurf(/turf/simulated/wall/cult_reinforced)
+
 /turf/simulated/wall/cult/cultify()
 	return
 

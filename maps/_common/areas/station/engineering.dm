@@ -115,7 +115,7 @@
 
 /area/engineering/cooling
 	name = "\improper Engineering - Engine Cooling Radiator"
-	icon_state = "engineering_monitoring"
+	icon_state = "engine_monitoring"
 
 /area/engineering/gravity_gen
 	name = "\improper Engineering - Gravity Generator"

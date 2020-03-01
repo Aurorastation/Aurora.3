@@ -14,7 +14,7 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module
 	name = "robot module"
 	icon = 'icons/obj/module.dmi'
-	icon_state = "std_module"
+	icon_state = "std_mod"
 	w_class = 100.0
 	item_state = "electronic"
 	flags = CONDUCT

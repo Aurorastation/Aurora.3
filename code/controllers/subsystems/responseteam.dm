@@ -100,7 +100,8 @@
 		for(var/obj/effect/landmark/distress_team_equipment/L in landmarks_list)
 			landmark_position = L.loc
 		if(landmark_position)
-			picked_team.equipment_map.load(landmark_position)
+			var/datum/map_template/distress_map = new picked_team.equipment_map
+			distress_map.load(landmark_position)
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
 	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)
