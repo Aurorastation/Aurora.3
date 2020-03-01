@@ -66,14 +66,6 @@
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
 	)
 
-	job_species_blacklist = list(
-		"Corporate Liaison" = list(
-			"Tajara",
-			"M'sai Tajara",
-			"Zhan-Khazan Tajara"
-		)
-	)
-
 /datum/outfit/job/engineer/hephaestus
 	name = "Station Engineer - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus

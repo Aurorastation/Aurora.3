@@ -5,7 +5,6 @@
 
 	var/list/allowed_role_types
 	var/list/allowed_species_types
-	var/list/job_species_blacklist //will override the normal job species list for a member of this faction
 
 	var/is_default = FALSE
 
@@ -26,10 +25,7 @@
 	. = list()
 
 	for (var/path in allowed_role_types)
-		var/datum/job/role = SSjobs.type_occupations[path]
-		if(LAZYACCESS(job_species_blacklist, role.title))
-			role.blacklisted_species = job_species_blacklist[role.title]
-		. += role
+		. += SSjobs.type_occupations[path]
 
 /datum/faction/proc/get_selection_error(datum/preferences/prefs)
 	if (!length(allowed_species_types))
