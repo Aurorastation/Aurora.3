@@ -153,6 +153,11 @@
 /obj/item/clothing/gloves/watch/spy/checktime()
 	to_chat(usr, "You check your watch. It's completely useless. Dork.")
 
+/obj/item/clothing/gloves/watch/examine(mob/user)
+	..()
+	if (get_dist(src, user) <= 1)
+		checktime()
+
 /obj/item/clothing/gloves/watch/verb/checktime()
 	set category = "Object"
 	set name = "Check Time"
@@ -163,9 +168,9 @@
 		if (emergency_shuttle.get_status_panel_eta())
 			to_chat(usr, span("warning", "The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
 	else if(wired && clipped)
-		to_chat(usr, "You check your watch realising it's still open")
+		to_chat(usr, "You check your watch, realising it's still open.")
 	else
-		to_chat(usr, "You check your watch as it dawns on you that it's broken")
+		to_chat(usr, "You check your watch as it dawns on you that it's broken.")
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
@@ -175,9 +180,9 @@
 	if(wired && !clipped)
 		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 	else if(wired && clipped)
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open"), span("notice", "You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken"), span("notice", "You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
@@ -194,11 +199,6 @@
 		src.item_state = initial(item_state)
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
 	update_clothing_icon()
-
-/obj/item/clothing/gloves/watch/examine(mob/user)
-	..()
-	if (get_dist(src, user) <= 1)
-		checktime()
 
 /obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
