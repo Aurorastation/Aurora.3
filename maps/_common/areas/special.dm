@@ -11,7 +11,7 @@
 	icon_state = "centcom"
 	requires_power = 0
 	no_light_control = 1
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
 
 /area/centcom/control
