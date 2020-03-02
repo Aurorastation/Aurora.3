@@ -44,6 +44,14 @@
             Shrapnel type: {{secondary_shrapnel_type}} <br>
             Stun: {{secondary_stun}} <br>
         </div>
+        <div v-if="gun_mods">
+          <br><b>Modular gun information: </b><br>
+
+            <b-table striped hover :items="gun_mods"></b-table>
+          <!-- <vui-item v-for="(info, index) in gun_mods" :key="index" :label="index" :balance="0.4">
+            <div> {{info}} : {{gun_mods[index]}}</div> <br>
+          </vui-item> -->
+        </div>
     </div>
   </div>
 </template>

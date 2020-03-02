@@ -139,7 +139,7 @@
 		gun_overlay.pixel_y += 8
 		add_overlay(gun_overlay)
 
-//#define UIDEBUG
+#define UIDEBUG
 
 /obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
@@ -168,6 +168,8 @@
 			data["base_reflectchance"] = E_item.base_reflectchance
 			data["base_block_chance"] = E_item.base_block_chance
 			data["shield_power"] = E_item.shield_power
+	else if(assembly)
+		data["name"] = assembly.name
 
 	else if(gun)
 		data["name"] = gun.name
@@ -178,39 +180,53 @@
 		data["damage"] = 0
 		data["shrapnel_type"] = "none"
 		data["armor_penetration"] = "none"
+		data["gun_mods"] = FALSE
 
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/E = gun
-			var/obj/item/projectile/P = new E.projectile_type
-			data["max_shots"] = E.max_shots
-			data["recharge"] = E.self_recharge ? "self recharging" : "not self recharging"
-			data["recharge_time"] = E.recharge_time
-			data["damage"] = P.damage
-			data["damage_type"] = P.damage_type
-			data["check_armor"] = P.check_armour
-			data["stun"] = P.stun ? "stuns" : "does not stun"
-			data["shrapnel_type"] = P.shrapnel_type ? P.shrapnel_type : "none"
-			data["armor_penetration"] = P.armor_penetration
+			var/obj/item/projectile/P = E.projectile_type
+			data["max_shots"] = initial(E.max_shots)
+			data["recharge"] = initial(E.self_recharge) ? "self recharging" : "not self recharging"
+			data["recharge_time"] = initial(E.recharge_time)
+			data["damage"] = initial(P.damage)
+			data["damage_type"] = initial(P.damage_type)
+			data["check_armor"] = initial(P.check_armour)
+			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
+			data["shrapnel_type"] = initial(P.shrapnel_type) ? initial(P.shrapnel_type) : "none"
+			data["armor_penetration"] = initial(P.armor_penetration)
+
+			if(istype(gun, /obj/item/gun/energy/laser/prototype))
+				var/obj/item/gun/energy/laser/prototype/E_prototype = gun
+				var/list/mods = list()
+				data["gun_mods"] = mods
+				for(var/i in list(E_prototype.capacitor, E_prototype.focusing_lens, E_prototype.modulator) + E_prototype.gun_mods)
+					var/obj/item/laser_components/l_component = i
+					var/l_repair_name = initial(l_component.repair_item) ? initial(l_component.repair_item) : "nothing"
+					mods += list(list( 
+						"name" = initial(l_component.name), "reliability" = initial(l_component.reliability), "damage modifier" = initial(l_component.damage), "fire delay modifier" = initial(l_component.fire_delay),
+						 "shots modifier" = initial(l_component.shots), "burst modifier" = initial(l_component.burst), "accuracy modifier" = initial(l_component.accuracy), "repair tool" = l_repair_name
+						))
+				data["gun_mods"] = mods
 
 			if(E.secondary_projectile_type)
-				var/obj/item/projectile/P_second = new E.secondary_projectile_type
-				data["secondary_damage"] = P_second.damage
-				data["secondary_damage_type"] = P_second.damage_type
-				data["secondary_check_armor"] = P_second.check_armour
-				data["secondary_stun"] = P_second.stun ? "stuns" : "does not stun"
-				data["secondary_shrapnel_type"] = P_second.shrapnel_type ? P_second.shrapnel_type : "none"
-				data["secondary_armor_penetration"] = P_second.armor_penetration
+				var/obj/item/projectile/P_second = E.secondary_projectile_type
+				data["secondary_damage"] = initial(P_second.damage)
+				data["secondary_damage_type"] = initial(P_second.damage_type)
+				data["secondary_check_armor"] = initial(P_second.check_armour)
+				data["secondary_stun"] = initial(P_second.stun) ? "stuns" : "does not stun"
+				data["secondary_shrapnel_type"] = initial(P_second.shrapnel_type) ? initial(P_second.shrapnel_type) : "none"
+				data["secondary_armor_penetration"] = initial(P_second.armor_penetration)
 
 		else
 			var/obj/item/gun/projectile/P_gun = gun
 			var/obj/item/ammo_casing/casing = P_gun.ammo_type
-			var/obj/item/projectile/P = new casing.projectile_type
+			var/obj/item/projectile/P = casing.projectile_type
 			data["max_shots"] = P_gun.max_shells
-			data["damage"] = P.damage
-			data["damage_type"] = P.damage_type
-			data["check_armor"] = P.check_armour
-			data["stun"] = P.stun ? "stuns" : "does not stun"
-			data["shrapnel_type"] = P.shrapnel_type ? P.shrapnel_type : "none"
+			data["damage"] = initial(P.damage)
+			data["damage_type"] = initial(P.damage_type)
+			data["check_armor"] = initial(P.check_armour)
+			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
+			data["shrapnel_type"] = initial(P.shrapnel_type) ? initial(P.shrapnel_type) : "none"
 		data["burst"] = gun.burst
 		data["reliability"] = gun.reliability
 
