@@ -647,7 +647,7 @@ var/list/hallucinated_thoughts = file2list("config/hallucination/hallucinated_th
 	var/attacker = pick(attacker_candidates)
 	attacker_candidates -= attacker
 	if(prob(50))
-		to_chat(holder, SPAN_DANGER("[attacker] has hit [holder]!"))
+		to_chat(holder, SPAN_DANGER("[attacker] has punched [holder]!"))
 		sound_to(holder, pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
 	else
 		to_chat(holder, SPAN_DANGER("[attacker] attempted to shove [holder]!"))
