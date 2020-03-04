@@ -1496,7 +1496,7 @@
 	color = "#664300"
 	taste_description = "creamy coffee"
 
-	glass_icon_state = "soy_latte"
+	glass_icon_state = "soy_latte_vended"
 	glass_name = "glass of soy latte"
 	glass_desc = "A nice and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
