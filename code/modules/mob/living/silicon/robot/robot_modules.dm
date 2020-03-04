@@ -768,7 +768,7 @@ var/global/list/robot_modules = list(
 					"HD-MAD" = "mcspizzytronsyndi",
 					"Industrial" = "heavysyndi",
 					"Heph-Android" = "droid",
-					"Arachnotronic" = "spidersyndi",
+					"Arachnotronic" = "arachnotronicsyndi",
 					"Toileto-tron" = "syndi-medi",
 					)
 
