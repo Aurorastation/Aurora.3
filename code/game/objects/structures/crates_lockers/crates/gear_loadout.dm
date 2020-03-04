@@ -208,3 +208,27 @@
 	new /obj/item/clothing/head/cowboy(src)
 	new /obj/item/melee/whip(src)
 	new /obj/item/gun/projectile/revolver/detective(src)
+//Megacorporate suits are used in devices and tools in the uplink
+/obj/structure/closet/crate/secure/gear_loadout/necropolis/fill()
+	new /obj/item/clothing/head/helmet/space/void/necropolis(src)
+	new /obj/item/clothing/suit/space/void/necropolis(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/clothing/shoes/magboots(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/zenghu/fill()
+	new /obj/item/clothing/head/helmet/space/void/zenghu(src)
+	new /obj/item/clothing/suit/space/void/zenghu(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/clothing/shoes/magboots(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/hephaestus/fill()
+	new /obj/item/clothing/head/helmet/space/void/hephaestus(src)
+	new /obj/item/clothing/suit/space/void/hephaestus(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/clothing/shoes/magboots(src)
+
+/obj/structure/closet/crate/secure/gear_loadout/einstein/fill()
+	new /obj/item/clothing/head/helmet/space/void/einstein(src)
+	new /obj/item/clothing/suit/space/void/einstein(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/clothing/shoes/magboots(src)
