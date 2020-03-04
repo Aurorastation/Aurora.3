@@ -199,7 +199,6 @@ var/global/list/robot_modules = list(
 			"SD-MAD" = "floatspizzytronmedi",
 			"Arachnotronic" = "arachnotronicmedi",
 			"TC-Drone" = "dronerecolormedi",
-			"Repo-Icarus-Drone" = "repodronemedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
 			)
@@ -276,7 +275,6 @@ var/global/list/robot_modules = list(
 			"SD-MAD" = "floatspizzytronmedi",
 			"Arachnotronic" = "arachnotronicmedi",
 			"TC-Drone" = "dronerecolormedi",
-			"Repo-Icarus-Drone" = "repodronemedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
 			)
@@ -354,7 +352,6 @@ var/global/list/robot_modules = list(
 			"SD-MAD" = "floatspizzytronengi",
 			"Arachnotronic" = "arachnotronicengi",
 			"TC-Drone" = "dronerecolorengi",
-			"Repo-Icarus-Drone" = "repodroneengi",
 			"Unbranded-MAD" = "offfloatspizzytronengi",
 			"Unbranded-Android" = "droid",
 			)
@@ -530,7 +527,6 @@ var/global/list/robot_modules = list(
 			"SD-MAD" = "floatspizzytronjani",
 			"Arachnotronic" = "arachnotronicjani",
 			"TC-Drone" = "dronerecolorjani",
-			"Repo-Icarus-Drone" = "repodronejani",
 			"Unbranded-MAD" = "offfloatspizzytronjani",
 			"Unbranded-Android" = "droid",
 			)
@@ -674,7 +670,6 @@ var/global/list/robot_modules = list(
 			"SD-MAD" = "floatspizzytronmine",
 			"Arachnotronic" = "arachnotronicmine",
 			"TC-Drone" = "dronerecolormine",
-			"Repo-Icarus-Drone" = "repodronemine",
 			"Unbranded-MAD" = "offfloatspizzytronmine",
 			"Unbranded-Android" = "droid",
 			)
@@ -713,7 +708,6 @@ var/global/list/robot_modules = list(
 			"SD-MAD" = "floatspizzytronsci",
 			"Arachnotronic" = "arachnotronicsci",
 			"TC-Drone" = "dronerecolorsci",
-			"Repo-Icarus-Drone" = "repodronesci",
 			"Unbranded-MAD" = "offfloatspizzytronsci",
 			"Unbranded-Android" = "droid",
 			)
