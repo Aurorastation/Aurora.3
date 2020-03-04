@@ -38,5 +38,8 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Recolored and added lots of Landmate and Treadmate 'borg sprites, cleaned up the names some."
-  - tweak: "Recolored some basic 'borg sprites."
+  - imageadd: "Added the new 'Arachnotronic' sprite line to replace the old spiderborg sprites, the alpha and omega of the Spider Drone series of Synths, for now..."
+  - tweak: "Adjusted all of the old Drone sprites to have really neat new overlays."
+  - rscdel: "Removed the old spiderborg sprite from the available options."
+  - rscdel: "Removed the Repo-Icarus-Drone series by popular request, I guess it really doesn't match the others in quality. :("
+  - imageadd: "Animated *all* of the legacy treaded and spiked 'borg sprites to have a walking animation, it's just like the drones'.
