@@ -426,7 +426,11 @@
 		/obj/item/clothing/suit/space/void/hos = /obj/item/clothing/head/helmet/space/void/hos,
 		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
 		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol,
+		/obj/item/clothing/suit/space/void/hephaestus = /obj/item/clothing/head/helmet/space/void/hephaestus,
+		/obj/item/clothing/suit/space/void/zenghu = /obj/item/clothing/head/helmet/space/void/zenghu,
+		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
+		/obj/item/clothing/suit/space/void/necropolis = /obj/item/clothing/head/helmet/space/void/necropolis
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
@@ -442,7 +446,11 @@
 		/obj/item/clothing/suit/space/void/hos = 0.3,
 		/obj/item/clothing/suit/space/void/lancer = 0.3,
 		/obj/item/clothing/suit/space/void/sci = 2,
-		/obj/item/clothing/suit/space/void/sol = 0.5
+		/obj/item/clothing/suit/space/void/sol = 0.5,
+		/obj/item/clothing/suit/space/void/necropolis = 1,
+		/obj/item/clothing/suit/space/void/einstein = 1,
+		/obj/item/clothing/suit/space/void/hephaestus = 1,
+		/obj/item/clothing/suit/space/void/zenghu = 1
 	)
 	has_postspawn = TRUE
 
