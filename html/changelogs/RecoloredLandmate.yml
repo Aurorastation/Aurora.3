@@ -42,4 +42,4 @@ changes:
   - tweak: "Adjusted all of the old Drone sprites to have really neat new overlays."
   - rscdel: "Removed the old spiderborg sprite from the available options."
   - rscdel: "Removed the Repo-Icarus-Drone series by popular request, I guess it really doesn't match the others in quality. :("
-  - imageadd: "Animated *all* of the legacy treaded and spiked 'borg sprites to have a walking animation, it's just like the drones'..
+  - imageadd: "Animated *all* of the legacy treaded and spiked 'borg sprites to have a walking animation, it's just like the drones'.."
