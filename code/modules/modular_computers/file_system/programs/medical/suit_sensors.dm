@@ -8,7 +8,7 @@
 	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE | PROGRAM_SILICON
+	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE | PROGRAM_SILICON | PROGRAM_TABLET
 	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/suit_sensors/ui_interact(mob/user)
@@ -57,4 +57,4 @@
 			var/mob/living/silicon/ai/AI = usr
 			var/mob/living/carbon/human/H = locate(href_list["track"]) in mob_list
 			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
-				AI.ai_actual_track(H)
+				AI.ai_actual_track(H) 
