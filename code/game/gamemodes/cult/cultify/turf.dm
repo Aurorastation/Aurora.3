@@ -30,6 +30,12 @@
 /turf/unsimulated/wall/cultify()
 	cultify_wall()
 
+/turf/unsimulated/floor/asteroid/cultify()
+	return
+
+/turf/simulated/mineral/cultify()
+	return
+
 /turf/proc/cultify_floor()
 	if((icon_state != "cult")&&(icon_state != "cult-narsie"))
 		icon = 'icons/turf/flooring/cult.dmi'
