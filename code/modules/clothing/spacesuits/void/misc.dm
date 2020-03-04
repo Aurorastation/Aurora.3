@@ -118,7 +118,35 @@
 	species_restricted = list("Human")
 	refittable = FALSE
 
-//Freelancer voidsuit
+//Einstein Engines espionage voidsuit
+/obj/item/clothing/head/helmet/space/void/einstein
+	name = "banshee combat suit helmet"
+	desc = "A sleek, menacing voidsuit helmet with the branding of Taipei Engineering Industrial's private military contractors."
+	icon_state = "banshee"
+
+	armor = list(melee = 35, bullet = 35, laser = 75,energy = 55, bomb = 25, bio = 100, rad = 10)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	light_overlay = "helmet_light_banshee"
+	brightness_on = 6
+	light_color = "#7ffbf7"
+	description_fluff = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
+
+/obj/item/clothing/suit/space/void/einstein
+	icon_state = "banshee"
+	name = "banshee combat suit"
+	desc = "A tightly-fitting suit manufactured with shimmering, ablative plating. Looks almost weightless."
+	item_state = "freelancer"
+
+	slowdown = 1
+	w_class = 3
+	armor = list(melee = 35, bullet = 35, laser = 75,energy = 55, bomb = 25, bio = 100, rad = 10)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human", "Skrell", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	description_fluff = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
+
+	//Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
 	name = "freelancer voidsuit helmet"
 	desc = "An older design of special operations voidsuit helmet utilized by private military corporations."
