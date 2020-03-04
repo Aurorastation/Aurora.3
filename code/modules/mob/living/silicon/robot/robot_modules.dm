@@ -586,7 +586,6 @@ var/global/list/robot_modules = list(
 			"SD-MAD" = "floatspizzytronserv",
 			"Arachnotronic" = "arachnotronicserv",
 			"TC-Drone" = "dronerecolorserv",
-			"Repo-Icarus-Drone" = "repodroneserv",
 			"Unbranded-MAD" = "offfloatspizzytronserv",
 			"Unbranded-Android" = "droid",
 			  	)
