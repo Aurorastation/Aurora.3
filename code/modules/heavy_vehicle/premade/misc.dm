@@ -20,4 +20,5 @@
 	power_use = 7500
 	color = COLOR_WHITE
 	mech_step_sound = 'sound/mecha/tanktread.ogg'
+	mech_turn_sound = 'sound/mecha/tanktread.ogg'
 	trample_damage = 25
