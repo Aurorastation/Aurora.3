@@ -201,11 +201,11 @@
 				data["gun_mods"] = mods
 				for(var/i in list(E_prototype.capacitor, E_prototype.focusing_lens, E_prototype.modulator) + E_prototype.gun_mods)
 					var/obj/item/laser_components/l_component = i
-					var/l_repair_name = initial(l_component.repair_item) ? initial(l_component.repair_item) : "nothing"
-					mods += list(list( 
-						"name" = initial(l_component.name), "reliability" = initial(l_component.reliability), "damage modifier" = initial(l_component.damage), "fire delay modifier" = initial(l_component.fire_delay),
+					var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
+					mods[initial(l_component.name)] = list(
+						"reliability" = initial(l_component.reliability), "damage modifier" = initial(l_component.damage), "fire delay modifier" = initial(l_component.fire_delay),
 						 "shots modifier" = initial(l_component.shots), "burst modifier" = initial(l_component.burst), "accuracy modifier" = initial(l_component.accuracy), "repair tool" = l_repair_name
-						))
+						)
 				data["gun_mods"] = mods
 
 			if(E.secondary_projectile_type)

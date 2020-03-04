@@ -46,11 +46,26 @@
         </div>
         <div v-if="gun_mods">
           <br><b>Modular gun information: </b><br>
-
-            <b-table striped hover :items="gun_mods"></b-table>
-          <!-- <vui-item v-for="(info, index) in gun_mods" :key="index" :label="index" :balance="0.4">
-            <div> {{info}} : {{gun_mods[index]}}</div> <br>
-          </vui-item> -->
+          <table>
+            <tr>
+                <th> Name </th>
+                <th> Reliability </th>
+                <th> Damage modifier </th>
+                <th> Fire delay modifier </th>
+                <th> Number of Shots modifier </th>
+                <th> Burst modifier </th>
+                <th> Accuracy modifier </th>
+                <th> Repair tool </th>
+            </tr>
+            <vui-item v-for="(mod_info, mod_index) in gun_mods" :key="mod_index" :label="mod_index" :balance="0.4">
+              <tr>
+                <td>{{mod_index}}</td>
+                <vui-item v-for="(info, index) in gun_mods[mod_index]" :key="index" :label="index" :balance="0.4">
+                  <td> {{gun_mods[mod_index][index]}} </td>
+                </vui-item>
+              </tr>
+            </vui-item>
+          </table>
         </div>
     </div>
   </div>
@@ -63,3 +78,16 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+</style>
