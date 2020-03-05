@@ -134,7 +134,9 @@
 	updatename(modtype)
 	updateicon()
 	if(mmi && mmi.brainobj)
-		mmi.name = "[initial(mmi.name)]: [name]"
+		mmi.brainmob.name = src.name
+		mmi.brainmob.real_name = src.name
+		mmi.name = "[initial(mmi.name)]: [src.name]"
 		mmi.brainobj.lobotomized = 1
 
 	radio = new /obj/item/device/radio/borg(src)
@@ -339,7 +341,9 @@
 	real_name = changed_name
 	name = real_name
 	if(mmi)
-		mmi.name = "[initial(mmi.name)]: [name]"
+		mmi.brainmob.name = src.name
+		mmi.brainmob.real_name = src.name
+		mmi.name = "[initial(mmi.name)]: [src.name]"
 
 	// if we've changed our name, we also need to update the display name for our PDA
 	setup_PDA()
