@@ -256,7 +256,7 @@
 		var/list/nearby = oview(2, src)
 		if(length(nearby))
 			walk_to(src, pick(nearby), 2)
-	
+			return
 	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
 	die()
 
