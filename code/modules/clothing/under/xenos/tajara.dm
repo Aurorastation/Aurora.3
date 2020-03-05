@@ -166,3 +166,317 @@
 	desc = "A blue uniform used by the diplomatic service of the New Kingdom of Adhomai."
 	icon_state = "nka_consular"
 	item_state = "nka_consular"
+
+
+//circus stuff
+
+/obj/item/clothing/under/tajaran/ringmaster
+	name = "ringmaster uniform"
+	desc = "A fancy uniform used by adhomian ringmaster."
+	icon_state = "uniform_ringmaster"
+	item_state = "uniform_ringmaster"
+
+/obj/item/clothing/head/tajaran/ringmaster
+	name = "ringmaster top hat"
+	desc = "A adhomian top hat worn by ringmasters."
+	icon_state = "hat_ringmasters"
+	item_state = "hat_ringmasters"
+
+/obj/item/clothing/suit/storage/tajaran/ringmaster
+	name = "ringmaster coat"
+	desc = "A fancy ringmaster coat."
+	icon_state = "coat_ringmasters"
+	item_state = "coat_ringmasters"
+
+/obj/item/clothing/shoes/tajara/ringmaster
+	name = "adhomian boots"
+	desc = "A fancy pair of adhomian shoes."
+	icon_state = "shoe_ringmasters"
+	item_state = "shoe_ringmasters"
+
+/obj/item/clothing/under/tajaran/strongman
+	name = "strongman outfit"
+	desc = "A sturdy uniform used by adhomian strongman."
+	icon_state = "uniform_strongman"
+	item_state = "uniform_strongman"
+
+/obj/item/clothing/shoes/tajara/strongman
+	name = "strongman sandals"
+	desc = "A pair of very sturdy sandals."
+	icon_state = "shoe_strongman"
+	item_state = "shoe_strongman"
+
+/obj/item/clothing/under/tajaran/animaltrainer
+	name = "animal trainer outfit"
+	desc = "A fancy uniform used by adhomian animal trainers."
+	icon_state = "uniform_animaltrainer"
+	item_state = "uniform_animaltrainer"
+
+/obj/item/clothing/under/dress/tajaran/fortuneteller
+	name = "fortune teller outfit"
+	desc = "A adhomian dress used by fortune tellers."
+	icon_state = "fortuneteller"
+	item_state = "fortuneteller"
+
+/obj/item/clothing/head/tajaran/clown
+	name = "clown hat"
+	desc = "A adhomian clown hat."
+	icon_state = "clownhat"
+	item_state = "clownhat"
+
+/obj/item/clothing/under/tajaran/clown
+	name = "clown uniform"
+	desc = "A sad adhomian clown uniform."
+	icon_state = "clownsuit"
+	item_state = "clownsuit"
+
+/obj/item/clothing/mask/gas/voice/clown
+	name = "clown mask"
+	desc = "An adhomian clown mask."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "clownmask"
+	item_state = "clownmask"
+	contained_sprite = TRUE
+
+/obj/item/clothing/shoes/clown_shoes/tajara
+	name = "clown shoes"
+	desc = "An adhomian clown shoes."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "clownshoes"
+	item_state = "clownshoes"
+	contained_sprite = TRUE
+
+/obj/item/dumbbell
+	name = "adhomian dumbbell"
+	desc = "A heavy piece of metal used in weight lifting."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "dumbbell"
+	item_state = "dumbbell"
+	contained_sprite = TRUE
+	var/weight = "10"
+
+/obj/item/dumbbell/examine(mob/user)
+	..()
+	to_chat(user,"It weights [weight] kilograms.")
+
+/obj/item/dumbbell/twenty
+	weight = "20"
+
+/obj/item/dumbbell/barbell
+	name = "adhomian barbell"
+	icon_state = "barbell"
+	item_state = "barbell"
+	weight = "40"
+	slowdown = 1
+	w_class = 5
+	var/lifttime = 10
+
+/obj/item/dumbbell/barbell/attack_hand(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.visible_message("<span class = 'notice'>\The [H] starts to try to lift \the [src]!</span>","<span class = 'notice'>You attempt to lift \the [src].</span>")
+		if (do_mob(user, H, lifttime))
+			if(!pickuptest(H))
+				H.visible_message("<span class = 'danger'>\The [H] drops \the [src], failing to lift it!</span>","<span class = 'danger'>You fail to lift \the [src].</span>")
+				return FALSE
+			else
+				user.visible_message("<span class = 'notice'>\The [user] lifts \the [src]!</span>")
+				..()
+		else
+			return
+
+/obj/item/dumbbell/barbell/proc/pickuptest(var/mob/living/carbon/human/user)
+	return TRUE
+
+/obj/item/dumbbell/barbell/sixty
+	weight = "60"
+	lifttime = 15
+	slowdown = 2
+
+/obj/item/dumbbell/barbell/eighty
+	weight = "80"
+	lifttime = 25
+	slowdown = 3
+
+/obj/item/dumbbell/barbell/hundred
+	weight = "100"
+	lifttime = 30
+	slowdown = 4
+
+/obj/item/dumbbell/barbell/hundred/pickuptest(var/mob/living/carbon/human/user)
+	if(isunathi(user))
+		return TRUE
+	if(isvaurca(user))
+		return TRUE
+	if(isipc(user))
+		return TRUE
+	if(user.is_diona())
+		return TRUE
+	if(user.is_berserk())
+		return TRUE
+	if(HULK in user.mutations)
+		return TRUE
+	else
+		return FALSE
+
+/obj/item/dumbbell/barbell/hundredforty
+	weight = "140"
+	lifttime = 35
+	slowdown = 5
+
+/obj/item/dumbbell/barbell/hundredforty/pickuptest(var/mob/living/carbon/human/user)
+	if(isunathi(user))
+		return TRUE
+	if(user.species.name == "Vaurca Warrior")
+		return TRUE
+	if(user.species.name == "Hephaestus G1 Industrial Frame")
+		return TRUE
+	if(user.species.name == "Hephaestus G2 Industrial Frame")
+		return TRUE
+	if(user.species.name == "Xion Industrial Frame")
+		return TRUE
+	if(user.is_diona())
+		return TRUE
+	if(user.is_berserk())
+		return TRUE
+	if(HULK in user.mutations)
+		return TRUE
+	else
+		return FALSE
+
+/obj/item/dumbbell/barbell/hundredeighty
+	weight = "180"
+	lifttime = 40
+	slowdown = 6
+
+/obj/item/dumbbell/barbell/hundredeighty/pickuptest(var/mob/living/carbon/human/user)
+	if(isunathi(user))
+		return TRUE
+	if(user.species.name == "Vaurca Warrior")
+		return TRUE
+	if(user.species.name == "Hephaestus G1 Industrial Frame")
+		return TRUE
+	if(user.species.name == "Hephaestus G2 Industrial Frame")
+		return TRUE
+	if(user.species.name == "Xion Industrial Frame")
+		return TRUE
+	if(user.is_diona())
+		return TRUE
+	if(HULK in user.mutations)
+		return TRUE
+	else
+		return FALSE
+
+/obj/item/dumbbell/barbell/twohundred
+	weight = "200"
+	lifttime = 40
+	slowdown = 7
+
+/obj/item/dumbbell/barbell/twohundred/pickuptest(var/mob/living/carbon/human/user)
+	if(user.species.name == "Aut'akh Unathi")
+		return TRUE
+	if(user.species.name == "Vaurca Warrior")
+		return TRUE
+	if(user.species.name == "Hephaestus G1 Industrial Frame")
+		return TRUE
+	if(user.species.name == "Hephaestus G2 Industrial Frame")
+		return TRUE
+	if(user.species.name == "Xion Industrial Frame")
+		return TRUE
+	if(user.is_diona())
+		return TRUE
+	if(HULK in user.mutations)
+		return TRUE
+	else
+		return FALSE
+
+/obj/item/dumbbell/barbell/twohundredtwenty
+	weight = "220"
+	lifttime = 40
+	slowdown = 8
+
+/obj/item/dumbbell/barbell/twohundredtwenty/pickuptest(var/mob/living/carbon/human/user)
+	if(user.species.name == "Vaurca Warrior")
+		return TRUE
+	if(user.species.name == "Hephaestus G1 Industrial Frame")
+		return TRUE
+	if(user.species.name == "Hephaestus G2 Industrial Frame")
+		return TRUE
+	if(user.is_diona())
+		return TRUE
+	if(HULK in user.mutations)
+		return TRUE
+	else
+		return FALSE
+
+/obj/item/dumbbell/barbell/twohundredforty
+	weight = "240"
+	lifttime = 40
+	slowdown = 9
+
+/obj/item/dumbbell/barbell/twohundredforty/pickuptest(var/mob/living/carbon/human/user)
+	if(user.species.name == "Hephaestus G1 Industrial Frame")
+		return TRUE
+	if(user.species.name == "Hephaestus G2 Industrial Frame")
+		return TRUE
+	if(user.is_diona())
+		return TRUE
+	if(HULK in user.mutations)
+		return TRUE
+	else
+		return FALSE
+
+/obj/item/dumbbell/barbell/twohundredsixty
+	weight = "260"
+	lifttime = 50
+	slowdown = 10
+
+/obj/item/dumbbell/barbell/twohundredsixty/pickuptest(var/mob/living/carbon/human/user)
+	if(user.species.name == "Hephaestus G2 Industrial Frame")
+		return TRUE
+	if(HULK in user.mutations)
+		return TRUE
+	else
+		return FALSE
+
+/obj/item/dumbbell/barbell/threehundred
+	weight = "300"
+	lifttime = 50
+	slowdown = 11
+
+/obj/item/dumbbell/barbell/threehundred/pickuptest(var/mob/living/carbon/human/user)
+	if(user.species.name == "Hephaestus G2 Industrial Frame")
+		return TRUE
+	if(HULK in user.mutations)
+		return TRUE
+	else
+		return FALSE
+
+/obj/structure/ballooncanister
+	name = "balloon canister"
+	desc = "A helium gas canister with several balloons hanging from it."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "ballon_dispenser"
+
+/obj/structure/ballooncanister/attack_hand(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		H.visible_message("<span class = 'notice'>\The [H] picks a balloon from \the [src].</span>")
+		var/obj/item/tajballoon/B = new(src.loc)
+		user.put_in_hands(B)
+		return
+
+/obj/item/tajballoon
+	name = "balloon"
+	desc = "A colorful circus balloon."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "dumbbell"
+	item_state = "dumbbell"
+	contained_sprite = TRUE
+	w_class = 3
+
+/obj/item/tajballoon/Initialize()
+	. = ..()
+	var/color = pick("balloonred", "balloonblue", "balloonyellow")
+	icon_state = color
+	item_state = color

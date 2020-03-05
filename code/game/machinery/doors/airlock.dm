@@ -808,7 +808,7 @@ About the new airlock wires panel:
 					user.visible_message(span("warning", "[user] headbutts the airlock. Good thing they're wearing a helmet."))
 				return
 
-		if(H.species.can_shred(H))
+		if((H.species.can_shred(H)) || (HULK in H.mutations))
 
 			if(!src.density)
 				return

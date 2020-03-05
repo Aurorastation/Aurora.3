@@ -96,7 +96,7 @@ proc/get_radio_key_from_channel(var/channel)
 	var/list/returns[4]
 	var/speech_problem_flag = 0
 	if((HULK in mutations) && health >= 25 && length(message))
-		message = "[uppertext(message)]!!!"
+//		message = "[uppertext(message)]!!!"
 		verb = pick("yells","roars","hollers")
 		speech_problem_flag = 1
 	if(slurring)
@@ -267,7 +267,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 	var/list/hear_clients = list()
-	for(var/m in listening)		
+	for(var/m in listening)
 		var/mob/M = m
 		M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 		if (M.client)
