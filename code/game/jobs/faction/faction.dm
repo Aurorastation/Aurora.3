@@ -5,7 +5,6 @@
 
 	var/list/allowed_role_types
 	var/list/allowed_species_types
-	var/list/job_species_blacklist //will override the normal job species list for a member of this faction
 
 	var/is_default = FALSE
 

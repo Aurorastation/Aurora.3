@@ -48,8 +48,7 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/unathi,
-		/datum/species/diona,
-		/datum/species/machine
+		/datum/species/diona
 	)
 
 	titles_to_loadout = list(
@@ -72,20 +71,6 @@
 		"Mechatronic Engineer" = /datum/outfit/job/roboticist/necropolis,
 		"Corporate Liaison" = /datum/outfit/job/representative/necropolis
 	)
-
-	job_species_blacklist = list(
-		"Corporate Liaison" = list(
-			"Baseline Frame",
-			"Hephaestus G1 Industrial Frame",
-			"Hephaestus G2 Industrial Frame",
-			"Xion Industrial Frame",
-			"Zeng-Hu Mobility Frame",
-			"Bishop Accessory Frame",
-			"Shell Frame"
-		)
-	)
-
-
 
 /datum/outfit/job/officer/necropolis
 	name = "Security Officer - Necropolis"

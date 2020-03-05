@@ -66,14 +66,6 @@
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
-	job_species_blacklist = list(
-		"Corporate Liaison" = list(
-			"Tajara",
-			"M'sai Tajara",
-			"Zhan-Khazan Tajara"
-		)
-	)
-
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 	uniform = /obj/item/clothing/under/rank/security/idris
