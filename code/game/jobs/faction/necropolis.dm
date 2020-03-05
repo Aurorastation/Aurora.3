@@ -64,8 +64,7 @@
 		"Phoron Researcher" = /datum/outfit/job/scientist/necropolis,
 		"Xenoarcheologist" = /datum/outfit/job/scientist/necropolis,
 		"Anomalist" = /datum/outfit/job/scientist/necropolis,
-		"Forensic Technician" = /datum/outfit/job/forensics/necropolis,
-		"Crime Scene Investigator" = /datum/outfit/job/forensics/necropolis,
+		"Detective" = /datum/outfit/job/detective/necropolis,
 		"Roboticist" = /datum/outfit/job/roboticist/necropolis,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/necropolis,
 		"Mechatronic Engineer" = /datum/outfit/job/roboticist/necropolis,
@@ -77,8 +76,8 @@
 	uniform = /obj/item/clothing/under/rank/security/necropolis
 	id = /obj/item/card/id/necropolis/sec
 
-/datum/outfit/job/forensics/necropolis
-	name = "Forensics Technician - Necropolis"
+/datum/outfit/job/detective/necropolis
+	name = "Detective - Necropolis"
 	uniform = /obj/item/clothing/under/rank/security/necropolis
 	id = /obj/item/card/id/necropolis/sec
 
