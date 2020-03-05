@@ -122,7 +122,7 @@
 /obj/item/clothing/head/helmet/space/void/einstein
 	name = "banshee combat suit helmet"
 	desc = "A sleek, menacing voidsuit helmet with the branding of Taipei Engineering Industrial's private military contractors."
-	icon = 'icons/obj/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "bansheehelm"
 	item_state = "bansheehelm"
 	contained_sprite = 1
@@ -139,7 +139,7 @@
 /obj/item/clothing/suit/space/void/einstein
 	name = "banshee combat suit"
 	desc = "A tightly-fitting suit manufactured with shimmering, ablative plating. Looks almost weightless."
-	icon = 'icons/obj/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "banshee"
 	item_state = "banshee"
 	contained_sprite = 1
@@ -156,7 +156,7 @@
 /obj/item/clothing/head/helmet/space/void/zenghu
 	name = "dragon biohazard suit helmet"
 	desc = "A lightweight form-fitting helmet with sparse plating and weird, bug-like goggles."
-	icon = 'icons/obj/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "dragonhelm"
 	item_state = "dragonhelm"
 	contained_sprite = 1
@@ -173,7 +173,7 @@
 /obj/item/clothing/suit/space/void/zenghu
 	name = "dragon biohazard control suit"
 	desc = "A remarkably lightweight Zeng-Hu Pharmaceuticals suit sporting excellent ambient radiation protection."
-	icon = 'icons/obj/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "dragon"
 	item_state = "dragon"
 	contained_sprite = 1
@@ -190,7 +190,7 @@
 /obj/item/clothing/head/helmet/space/void/hephaestus
 	name = "caiman drop suit helmet"
 	desc = "A massively heavy helmet, part of a larger terraforming suit assembly."
-	icon = 'icons/obj/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "caimanhelm"
 	item_state = "caimanhelm"
 	contained_sprite = 1
@@ -207,7 +207,7 @@
 /obj/item/clothing/suit/space/void/hephaestus
 	name = "caiman drop suit"
 	desc = "A superheavy Hephaestus designed terraforming suit, iconic for its usage in orbital drops onto hostile jungle worlds."
-	icon = 'icons/obj/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "caiman"
 	item_state = "caiman"
 	contained_sprite = 1
@@ -224,7 +224,7 @@
 /obj/item/clothing/head/helmet/space/void/necropolis
 	name = "revenant suit helmet"
 	desc = "A scary-looking helmet with blood red optics."
-	icon = 'icons/obj/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "revenanthelm"
 	item_state = "revenanthelm"
 	contained_sprite = 1
@@ -240,7 +240,7 @@
 /obj/item/clothing/suit/space/void/necropolis
 	name = "revenant combat suit"
 	desc = "A robust skirmishing suit with lightweight plating. It is branded with Kumar Arms logos, a subsidiary of Necropolis Industries. It looks very portable."
-	icon = 'icons/obj/megacorp.dmi'
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
 	icon_state = "revenant"
 	item_state = "revenant"
 	contained_sprite = 1
