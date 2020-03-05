@@ -447,6 +447,14 @@
 	icon_state = "corner_white_full";
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -32;
+	pixel_y = -11
+	},
 /turf/simulated/floor/tiled/white,
 /area/security/main/medical)
 "aP" = (
@@ -1638,6 +1646,9 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
+/obj/item/device/flashlight/maglight,
+/obj/item/device/radio,
+/obj/item/crowbar,
 /turf/simulated/floor/tiled/white,
 /area/security/main/medical)
 "cM" = (
@@ -8127,6 +8138,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)
+"sC" = (
+/turf/simulated/wall/r_wall,
+/area/security/main/medical)
 "sE" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -9803,9 +9817,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
-"DQ" = (
-/turf/simulated/wall/r_wall,
-/area/security/main/medical)
 "DU" = (
 /turf/simulated/open,
 /area/medical/virology)
@@ -44231,7 +44242,7 @@ mo
 ap
 ap
 ap
-DQ
+sC
 eE
 ar
 ar
