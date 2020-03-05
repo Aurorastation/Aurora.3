@@ -34,7 +34,6 @@
 	allowed_role_types = list(
 		/datum/job/officer,
 		/datum/job/detective,
-		/datum/job/forensics,
 		/datum/job/bartender,
 		/datum/job/chef,
 		/datum/job/hydro,
@@ -53,8 +52,7 @@
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/idris,
-		"Forensic Technician" = /datum/outfit/job/forensics/idris,
-		"Crime Scene Investigator" = /datum/outfit/job/forensics/idris,
+		"Crime Scene Investigator" = /datum/outfit/job/detective/idris,
 		"Bartender" = /datum/outfit/job/bartender/idris,
 		"Chef" = /datum/outfit/job/chef/idris,
 		"Cook" = /datum/outfit/job/chef/idris,
@@ -73,11 +71,6 @@
 
 /datum/outfit/job/detective/idris
 	name = "Detective - Idris"
-	uniform = /obj/item/clothing/under/rank/security/idris
-	id = /obj/item/card/id/idris/sec
-
-/datum/outfit/job/forensics/idris
-	name = "Forensics Technician - Idris"
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
 
