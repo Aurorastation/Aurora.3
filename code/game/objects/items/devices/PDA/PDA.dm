@@ -1120,7 +1120,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		var/mob/living/carbon/C = U
 		if(C.hallucination >= 50 && prob(C.hallucination / 10))			//If you're really hallucinating, you might not be typing what you think you are
 			var/t_orig = t
-			t = pick(hallucinated_phrases)								//see carbon/hallucination.dm
+			t = pick(SShallucinations.hallucinated_phrases)								//see carbon/hallucination.dm
 			log_pda("[usr] (PDA: [C.name]) typed \"[t_orig]\" then hallucination changed it to \"[t]\". Recipient was [P.owner]",ckey=key_name(C),ckey_target=key_name(P.owner))
 	if (!t || !istype(P))
 		return

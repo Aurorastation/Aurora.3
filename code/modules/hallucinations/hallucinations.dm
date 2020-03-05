@@ -47,7 +47,7 @@
 
 /datum/hallucination/proc/hallucination_emote()		//You emoting to others involuntarily. This happens mostly in end()
 	if(prob(min(holder.hallucination - 5, 80)) && !holder.stat)
-		var/chosen_emote = pick(hal_emote)
+		var/chosen_emote = pick(SShallucinations.hal_emote)
 		if(prob(10))										//You are aware of it in this instance
 			holder.visible_message("<B>[holder]</B> [chosen_emote]")
 		else

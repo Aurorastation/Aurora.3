@@ -1,6 +1,6 @@
 /datum/hallucination/sound
 	max_power = 40
-	hearing_dependent = TRUE
+	special_flags = HEARING_DEPENDENT
 	var/list/sounds = list('sound/weapons/smash.ogg',
 			'sound/weapons/flash_ring.ogg',
 			'sound/effects/Explosion1.ogg',
@@ -46,7 +46,7 @@
 /datum/hallucination/sound/creepy
 	min_power = 45
 	max_power = INFINITY
-	hearing_dependent = FALSE		//These are spooky enough to happen even when deaf
+	special_flags = null		//These are spooky enough to happen even when deaf
 	sounds = list('sound/effects/ghost.ogg',
 				'sound/effects/ghost2.ogg',
 				'sound/effects/screech.ogg',
@@ -74,7 +74,7 @@
 /datum/hallucination/sound/reaction
 	min_power = 20
 	max_power = INFINITY
-	hearing_dependent = FALSE
+	special_flags = null
 
 /datum/hallucination/sound/reaction/start()
 	switch(rand(1,3))

@@ -4,7 +4,7 @@
 	allow_duplicates = FALSE
 
 /datum/hallucination/announcement/start()
-	var/list/hal_sender = message_sender
+	var/list/hal_sender = SShallucinations.message_sender
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))		//We're not going to add ninjas, mercs, borers, etc to prevent meta.
 			hal_sender += H
@@ -12,12 +12,12 @@
 		if(1)
 			sound_to(holder, 'sound/AI/radiation.ogg')
 			to_chat(holder, "<h2 class='alert'>Anomaly Break</h2>")
-			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(hallucinated_phrases)] Please become one of the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
+			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(SShallucinations.hallucinated_phrases)] Please become one of the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
 
 		if(2)
 			sound_to(holder, 'sound/AI/strangeobject.ogg')
 			to_chat(holder, "<h2 class='alert'>Welcome Object</h2>")
-			to_chat(holder, SPAN_ALERT("Transport signature of [pick(adjectives)] origin detected in your path, an object appears to have been nesting aboard NSS Upsilon. [pick(hallucinated_phrases)]"))
+			to_chat(holder, SPAN_ALERT("Transport signature of [pick(adjectives)] origin detected in your path, an object appears to have been nesting aboard NSS Upsilon. [pick(SShallucinations.hallucinated_phrases)]"))
 
 		if(3)
 			sound_to(holder, 'sound/AI/scrubbers.ogg')
@@ -69,7 +69,7 @@
 			sound_to(holder, 'sound/misc/announcements/notice.ogg')
 			to_chat(holder, "<h2 class='alert'>Station Announcement</h2>")
 			to_chat(holder, SPAN_ALERT(pick(body)))
-			to_chat(holder, SPAN_ALERT("-[LAZYPICK(hal_sender, holder)]"))
+			to_chat(holder, SPAN_ALERT("-[pick(hal_sender)]"))
 
 /datum/hallucination/announcement/proc/delam_call()	//for REALLY selling that fake delamination
 	var/list/people = list()
@@ -89,7 +89,7 @@
 	allow_duplicates = FALSE
 
 /datum/hallucination/pda/start()
-	var/list/sender = message_sender
+	var/list/sender = SShallucinations.message_sender
 	var/hall_job = "Unknown"
 	if(ishuman(holder))
 		var/mob/living/carbon/human/M = holder
@@ -97,7 +97,7 @@
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//adds current players to default list to provide variety. leaves out offstation antags.
 			sender += H
-	to_chat(holder, "<b>Message from [pick(sender)] to [holder.name] ([hall_job]),</b> \"[pick(hallucinated_phrases)]\" (<FONT color = blue><u>reply</u></FONT>)")
+	to_chat(holder, "<b>Message from [pick(sender)] to [holder.name] ([hall_job]),</b> \"[pick(SShallucinations.hallucinated_phrases)]\" (<FONT color = blue><u>reply</u></FONT>)")
 	sound_to(holder, 'sound/machines/twobeep.ogg')
 
 
@@ -112,7 +112,7 @@
 /datum/hallucination/paranoia/start()		//hallucinate someone else doing something. Yes, it's intentional that it's any living mob, not just other characters.
 	var/list/hal_target = list() //The mob you're going to imagine doing this
 	var/firstname = copytext(holder.real_name, 1, findtext(holder.real_name, " "))
-	var/t = pick(hallucinated_actions)
+	var/t = pick(SShallucinations.hallucinated_actions)
 	t = replace_characters(t, list("you" = "[firstname]"))		//the list contains items that say "you." This replaces "you" with the hallucinator's first name to sell the fact that the person is doing the emote.
 	for(var/mob/living/M in oview(holder))
 		hal_target += M
@@ -193,6 +193,7 @@
 
 
 /datum/hallucination/pain				//Pain. Picks a random type of pain, and severity is based on their level of hallucination.
+	special_flags = NO_EMOTE
 /datum/hallucination/pain/start()
 	var/pain_type = rand(1,5)
 	switch(pain_type)
@@ -248,6 +249,7 @@
 
 /datum/hallucination/friendly			//sort of like the vampire friend messages.
 	max_power = 45
+	special_flags = NO_THOUGHT
 
 /datum/hallucination/friendly/start()
 	var/list/halpal = list()
@@ -420,7 +422,7 @@
 /////////////////////////////////////////////
 /datum/hallucination/talking
 	var/repeats = 2		//In total, we'll get two messages. We don't need to reset this number anywhere because on end() it's deleted and a new one will be created if it's chosen again in handle_hallucinations
-	hearing_dependent = TRUE
+	special_flags = HEARING_DEPENDENT | NO_THOUGHT
 
 /datum/hallucination/talking/can_affect(mob/living/carbon/C)
 	if(!..())
@@ -489,7 +491,7 @@
 			var/speak_prefix = pick("Hey", "Uh", "Um", "Oh", "Ah", "")		//For variety, we have a different greeting. This one has a chance of picking a starter....
 			speak_prefix = "[speak_prefix][pick(names)][pick(".","!","?")]"		//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
 
-			message = prob(70) ? "[speak_prefix] [pick(hallucinated_phrases)]" : pick(hallucinated_phrases) //Here's the message that uses the hallucinated_phrases text list. Won't always apply the speak_prefix; sometimes they say weird shit without addressing you.
+			message = prob(70) ? "[speak_prefix] [pick(SShallucinations.hallucinated_phrases)]" : pick(SShallucinations.hallucinated_phrases) //Here's the message that uses the hallucinated_phrases text list. Won't always apply the speak_prefix; sometimes they say weird shit without addressing you.
 			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
 	repeats -= 1
@@ -500,7 +502,7 @@
 
 
 /datum/hallucination/whisper			//Thinking people are whispering messages to you.
-	hearing_dependent = TRUE
+	special_flags = HEARING_DEPENDENT
 
 /datum/hallucination/whisper/can_affect(mob/living/carbon/C)
 	if(!..())
@@ -517,7 +519,7 @@
 	if(whisper_candidates.len)
 		var/whisperer = pick(whisper_candidates)
 		if(prob(70))
-			to_chat(holder, "<B>[whisperer]</B> whispers, <I>\"[pick(hallucinated_phrases)]\"</I>")
+			to_chat(holder, "<B>[whisperer]</B> whispers, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
 		else
 			to_chat(holder, "<B>[whisperer]</B> [pick("gently nudges", "pokes at", "taps", "looks at", "pats")] [holder], trying to get their attention.")
 
@@ -530,6 +532,6 @@
 
 /datum/hallucination/whisper/no_entity/start()
 	var/list/whisper_candidates = list("A familiar voice", "A distant voice", "A child's voice", "Something inside your head", "Your own voice", "A ghastly voice")
-	to_chat(holder, "<B>pick(whisper_candidates)</B> whispers directly into your mind, <I>\"[pick(hallucinated_phrases)]\"</I>")
+	to_chat(holder, "<B>[pick(whisper_candidates)]</B> whispers directly into your mind, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
 	sound_to(holder, pick('sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg', 'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg'))
 	holder.emote("me",1,"shivers.")

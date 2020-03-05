@@ -1,6 +1,7 @@
 /datum/hallucination/mindread
 	allow_duplicates = FALSE
 	min_power = 50
+	special_flags = NO_THOUGHT | NO_EMOTE
 
 /datum/hallucination/mindread/can_affect(mob/living/carbon/C)	//Don't give it to people who already have psi powers
 	if(C.psi)
@@ -37,17 +38,20 @@
 	for(var/mob/living/C in oview(usr))
 		creatures += C
 	creatures -= usr
+	if(!creatures.len)
+		return
+
 	var/mob/target = input("Whose mind do you wish to probe?") as null|anything in creatures
+	if(isnull(target))
+		return
 	if(target.stat)
 		to_chat(usr, SPAN_WARNING("\The [target]'s mind is not in any state to be probed!"))
-		return
-	if(isnull(target))
 		return
 
 	to_chat(usr, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking a prominent thought.</b>"))
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
-		to_chat(usr, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(hallucinated_phrases)]</i>\"</b>"))
+		to_chat(usr, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"))
 		for(var/mob/living/carbon/human/M in oviewers(src))
 			to_chat(M, "<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].")
 	else
@@ -58,6 +62,7 @@
 /datum/hallucination/telepathy
 	min_power = 75
 	allow_duplicates = FALSE
+	special_flags = NO_THOUGHT | NO_EMOTE
 
 /datum/hallucination/telepathy/can_affect(mob/living/carbon/C)	//Don't give it to people who already have psi powers
 	if(C.psi)
@@ -96,12 +101,13 @@
 	for(var/mob/living/C in oview(usr))
 		creatures += C
 	creatures -= usr
-
+	if(!creatures.len)
+		return
 	var/mob/target = input("Who do you wish to send a message to?") as null|anything in creatures
+	if(isnull(target))
+		return
 	if(target.stat)
 		to_chat(usr, SPAN_WARNING("\The [target]'s mind is not in any state to receive messages!"))
-		return
-	if(isnull(target))
 		return
 
 	var/message = sanitizeSafe(input("Enter your message."), MAX_MESSAGE_LEN)

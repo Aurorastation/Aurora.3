@@ -1816,7 +1816,6 @@
 #include "code\modules\mob\living\carbon\carbon_defines.dm"
 #include "code\modules\mob\living\carbon\diona_base.dm"
 #include "code\modules\mob\living\carbon\give.dm"
-#include "code\modules\mob\living\carbon\hallucination.dm"
 #include "code\modules\mob\living\carbon\resist.dm"
 #include "code\modules\mob\living\carbon\taste.dm"
 #include "code\modules\mob\living\carbon\viruses.dm"

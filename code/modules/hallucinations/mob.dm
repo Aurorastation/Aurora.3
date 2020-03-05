@@ -6,13 +6,13 @@
 /mob/living/carbon/hear_say(var/message, var/verb = "says", var/datum/language/language, var/alt_name = "",var/italics = 0, var/mob/speaker, var/sound/speech_sound, var/sound_vol)
 	if(hallucination >= 60 && prob(1))
 		var/orig_message = message
-		message = LAZYPICK(hallucinated_phrases, message)
+		message = pick(SShallucinations.hallucinated_phrases)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
 /mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language, var/part_a, var/part_b, var/mob/speaker, var/hard_to_hear = 0, var/vname ="")
 	if(hallucination >= 60 && prob(1))
 		var/orig_message = message
-		message = LAZYPICK(hallucinated_phrases, message)
+		message = pick(SShallucinations.hallucinated_phrases)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
 
@@ -42,4 +42,4 @@
 		addtimer(CALLBACK(src, .proc/hal_thought_give), rand(30,90))
 
 /mob/living/carbon/proc/hal_thought_give()
-	to_chat(src, SPAN_ITALIC(pick(hallucinated_thoughts)))
+	to_chat(src, "<I>[pick(SShallucinations.hallucinated_thoughts)]</I>")
