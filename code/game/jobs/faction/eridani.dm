@@ -25,7 +25,7 @@
 	allowed_role_types = list(
 		/datum/job/officer,
 		/datum/job/warden,
-		/datum/job/forensics,
+		/datum/job/detective,
 		/datum/job/paramedic,
 		/datum/job/representative
 	)
@@ -59,8 +59,8 @@
 	uniform = /obj/item/clothing/under/rank/security/eridani
 	id = /obj/item/card/id/eridani
 
-/datum/outfit/job/forensics/eridani
-	name = "Forensic Technician - Eridani"
+/datum/outfit/job/detective/eridani
+	name = "Detective - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani
 	id = /obj/item/card/id/eridani
 
