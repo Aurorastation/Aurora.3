@@ -117,8 +117,8 @@
 	department = "Security"
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the head of security"
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
@@ -152,55 +152,14 @@
 	else
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 
-
-/datum/job/forensics
-	title = "Forensic Technician"
-	flag = FORENSICS
-	department_flag = ENGSEC
-	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the head of security"
-	selection_color = "#FFA4A4"
-	economic_modifier = 5
-
-	minimum_character_age = 25
-
-	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_weapons)
-	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_weapons)
-	alt_titles = list("Crime Scene Investigator")
-	minimal_player_age = 3
-	outfit = /datum/outfit/job/forensics
-	alt_outfits = list("Crime Scene Investigator"=/datum/outfit/job/forensics/csi)
-
-/datum/outfit/job/forensics
-	name = "Forensic Technician"
-	jobtype = /datum/job/forensics
+/datum/outfit/job/detective/csi
+	name = "Crime Scene Investigator"
+	jobtype = /datum/job/detective
 
 	uniform = /obj/item/clothing/under/det/forensics
-	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/headset_sec
-	pda = /obj/item/device/pda/detective
-
-	backpack_contents = list(
-		/obj/item/storage/box/evidence = 1
-	)
-
-/datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
-	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
-	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
-
-
-/datum/outfit/job/forensics/csi
-	name = "Crime Scene Investigator"
-	jobtype = /datum/job/forensics
-
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
+
+
 
 /datum/job/officer
 	title = "Security Officer"
