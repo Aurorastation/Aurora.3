@@ -122,7 +122,10 @@
 /obj/item/clothing/head/helmet/space/void/einstein
 	name = "banshee combat suit helmet"
 	desc = "A sleek, menacing voidsuit helmet with the branding of Taipei Engineering Industrial's private military contractors."
-	icon_state = "banshee"
+	icon = 'icons/obj/megacorp.dmi'
+	icon_state = "bansheehelm"
+	item_state = "bansheehelm"
+	contained_sprite = 1
 
 	armor = list(melee = 35, bullet = 35, laser = 75,energy = 55, bomb = 25, bio = 100, rad = 10)
 	siemens_coefficient = 0.35
@@ -134,9 +137,12 @@
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/einstein
-	icon_state = "banshee"
 	name = "banshee combat suit"
 	desc = "A tightly-fitting suit manufactured with shimmering, ablative plating. Looks almost weightless."
+	icon = 'icons/obj/megacorp.dmi'
+	icon_state = "banshee"
+	item_state = "banshee"
+	contained_sprite = 1
 
 	slowdown = 1
 	armor = list(melee = 35, bullet = 35, laser = 75,energy = 55, bomb = 25, bio = 100, rad = 10)
@@ -150,19 +156,27 @@
 /obj/item/clothing/head/helmet/space/void/zenghu
 	name = "dragon biohazard suit helmet"
 	desc = "A lightweight form-fitting helmet with sparse plating and weird, bug-like goggles."
-	icon_state = "dragon"
+	icon = 'icons/obj/megacorp.dmi'
+	icon_state = "dragonhelm"
+	item_state = "dragonhelm"
+	contained_sprite = 1
 
 	armor = list(melee = 45, bullet = 15, laser = 35,energy = 25, bomb = 55, bio = 100, rad = 100)
 	siemens_coefficient = 0.35
 	species_restricted = list("Human", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	light_overlay = "helmet_light_dragon"
 	brightness_on = 6
+	light_color = "#7ffbf7"
 	description_fluff = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/zenghu
-	icon_state = "dragon"
 	name = "dragon biohazard control suit"
 	desc = "A remarkably lightweight Zeng-Hu Pharmaceuticals suit sporting excellent ambient radiation protection."
+	icon = 'icons/obj/megacorp.dmi'
+	icon_state = "dragon"
+	item_state = "dragon"
+	contained_sprite = 1
 
 	slowdown = 1
 	armor = list(melee = 60, bullet = 15, laser = 35,energy = 25, bomb = 55, bio = 100, rad = 100)
@@ -176,19 +190,27 @@
 /obj/item/clothing/head/helmet/space/void/hephaestus
 	name = "caiman drop suit helmet"
 	desc = "A massively heavy helmet, part of a larger terraforming suit assembly."
-	icon_state = "caiman"
+	icon = 'icons/obj/megacorp.dmi'
+	icon_state = "caimanhelm"
+	item_state = "caimanhelm"
+	contained_sprite = 1
 
 	armor = list(melee = 75, bullet = 45, laser = 15,energy = 25, bomb = 75, bio = 100, rad = 15)
 	siemens_coefficient = 0.35
 	species_restricted = list("Human")
+	light_overlay = "helmet_light_caiman"
 	brightness_on = 6
+	light_color = "#ffce01"
 	description_fluff = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
 	refittable = FALSE
 
 /obj/item/clothing/suit/space/void/hephaestus
-	icon_state = "caiman"
 	name = "caiman drop suit"
 	desc = "A superheavy Hephaestus designed terraforming suit, iconic for its usage in orbital drops onto hostile jungle worlds."
+	icon = 'icons/obj/megacorp.dmi'
+	icon_state = "caiman"
+	item_state = "caiman"
+	contained_sprite = 1
 
 	slowdown = 2
 	armor = list(melee = 75, bullet = 45, laser = 15,energy = 25, bomb = 75, bio = 100, rad = 15)
@@ -202,7 +224,10 @@
 /obj/item/clothing/head/helmet/space/void/necropolis
 	name = "revenant suit helmet"
 	desc = "A scary-looking helmet with blood red optics."
-	icon_state = "revenant"
+	icon = 'icons/obj/megacorp.dmi'
+	icon_state = "revenanthelm"
+	item_state = "revenanthelm"
+	contained_sprite = 1
 
 	armor = list(melee = 25, bullet = 65, laser = 35,energy = 25, bomb = 15, bio = 100, rad = 15)
 	siemens_coefficient = 0.35
@@ -213,9 +238,12 @@
 	description_fluff = "An ominous helmet of Necropolis make with its past veiled in mystery, used for high-end corporate backstabbing and secret operations."
 
 /obj/item/clothing/suit/space/void/necropolis
-	icon_state = "revenant"
 	name = "revenant combat suit"
 	desc = "A robust skirmishing suit with lightweight plating. It is branded with Kumar Arms logos, a subsidiary of Necropolis Industries. It looks very portable."
+	icon = 'icons/obj/megacorp.dmi'
+	icon_state = "revenant"
+	item_state = "revenant"
+	contained_sprite = 1
 
 	w_class = 3
 	armor = list(melee = 25, bullet = 65, laser = 35,energy = 25, bomb = 15, bio = 100, rad = 15)
