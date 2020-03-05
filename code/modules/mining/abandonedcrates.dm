@@ -201,7 +201,7 @@
 	if(locked)
 		if(W.ismultitool()) // Greetings Urist McProfessor, how about a nice game of cows and bulls?
 			to_chat(user, SPAN_NOTICE("DECA-CODE LOCK ANALYSIS:"))
-			if(attempts)
+			if(attempts == 1)
 				to_chat(user, SPAN_WARNING("* Anti-Tamper system will activate on the next failed access attempt."))
 			else
 				to_chat(user, SPAN_NOTICE("* Anti-Tamper system will activate after [src.attempts] failed access attempts."))
