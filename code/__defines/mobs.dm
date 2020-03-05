@@ -62,6 +62,13 @@
 #define BLOOD_PRESSURE_IDEAL    2
 #define BLOOD_PRESSURE_LOW      1
 
+// total_radiation levels (Note that total_radiation can be above RADS_MAX until handle_mutations_and_radiation() runs)
+#define RADS_NONE 0
+#define RADS_LOW 1
+#define RADS_MED 50
+#define RADS_HIGH 75
+#define RADS_MAX 100
+
 //intent flags, why wasn't this done the first time?
 #define I_HELP		"help"
 #define I_DISARM	"disarm"

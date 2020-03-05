@@ -1,8 +1,8 @@
 // This borer is the worm that replaced the host's brain, not the brainworm latched onto a brain
 /obj/item/organ/internal/borer
 	name = "cortical borer"
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "borer"
+	icon = 'icons/mob/npc/animal.dmi'
+	icon_state = "brainslug"
 	organ_tag = BP_BRAIN
 	desc = "A disgusting space slug."
 	parent_organ = BP_HEAD

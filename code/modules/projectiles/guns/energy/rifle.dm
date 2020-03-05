@@ -3,8 +3,8 @@
 	desc = "A Nanotrasen designed energy-based rifle with two settings: Stun and Kill."
 	description_fluff = "The NT ER-2 is an energy rifle developed and produced by Nanotrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
 	icon = 'icons/obj/guns/erifle.dmi'
-	icon_state = "eriflestun"
-	icon_state = "eriflestun"
+	icon_state = "eriflestun100"
+	icon_state = "eriflestun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
@@ -70,8 +70,8 @@
 	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
 	description_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
-	icon_state = "lasercannon"
-	item_state = "lasercannon"
+	icon_state = "lasercannon100"
+	item_state = "lasercannon100"
 	has_item_ratio = TRUE
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	projectile_type = /obj/item/projectile/beam/heavylaser
@@ -85,6 +85,8 @@
 	can_switch_modes = 0
 	turret_sprite_set = "cannon"
 	turret_is_lethal = 1
+
+	modifystate = "lasercannon"
 
 	accuracy_wielded = 2
 	fire_delay_wielded = 20
