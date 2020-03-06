@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - imageadd: "Changes spilled fuel sprite back to its original, plus a slight brown tint so it is visible now."
