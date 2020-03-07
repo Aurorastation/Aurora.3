@@ -4596,6 +4596,7 @@
 	nutriment_desc = list("tortilla chips" = 10)
 	bitesize = 1
 	nutriment_amt = 10
+	var/unitname = "chip"
 
 /obj/item/reagent_containers/food/snacks/chipplate/attack_hand(mob/user as mob)
 	var/obj/item/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
@@ -4604,9 +4605,9 @@
 	returningitem.bitesize = bitesize/2
 	user.put_in_hands(returningitem)
 	if (reagents && reagents.total_volume)
-		to_chat(user, "You take a chip from the plate.")
+		to_chat(user, "You take a [unitname] from the plate.")
 	else
-		to_chat(user, "You take the last chip from the plate.")
+		to_chat(user, "You take the last [unitname] from the plate.")
 		var/obj/waste = new trash(loc)
 		if (loc == user)
 			user.put_in_hands(waste)
@@ -5507,6 +5508,46 @@
 	center_of_mass = list("x"=16, "y"=16)
 	nutriment_desc = list("fat" = 3)
 	nutriment_amt = 5
+
+/obj/item/reagent_containers/food/snacks/chipplate/tajcandy
+	name = "plate of sugar tree candy"
+	desc = "A plate full of adhomian candy."
+	icon_state = "cubes26"
+	trash = /obj/item/trash/candybowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/tajcandy
+	nutriment_desc = list("candy" = 1)
+	bitesize = 1
+	nutriment_amt = 26
+	unitname = "candy"
+
+/obj/item/reagent_containers/food/snacks/chipplate/tajcandy/update_icon()
+	switch(reagents.total_volume)
+		if(1)
+			icon_state = "cubes1"
+		if(2 to 5)
+			icon_state = "cubes5"
+		if(6 to 10)
+			icon_state = "cubes10"
+		if(11 to 15)
+			icon_state = "cubes15"
+		if(16 to 20)
+			icon_state = "cubes20"
+		if(21 to 25)
+			icon_state = "cubes25"
+		if(26 to INFINITY)
+			icon_state = "cubes26"
+
+/obj/item/reagent_containers/food/snacks/tajcandy
+	name = "sugar tree candy"
+	desc = "An adhomian candy made from the Nm'shaan plant."
+	icon_state = "tajcandy"
+	nutriment_desc = list("candy" = 3)
+	nutriment_amt = 1
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/tajcandy/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 3)
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

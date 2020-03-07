@@ -396,3 +396,10 @@
 		else if (reagents.total_volume > 500)
 			env.temperature -= 100
 		QDEL_IN(src, 10)
+
+/obj/structure/reagent_dispensers/keg/mead
+	name = "mead barrel"
+	desc = "A wooden mead barrel."
+	icon_state = "woodkeg"
+	reagentid = "messa_mead"
+	filled = TRUE

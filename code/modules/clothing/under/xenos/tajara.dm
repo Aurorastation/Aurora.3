@@ -480,3 +480,17 @@
 	var/color = pick("balloonred", "balloonblue", "balloonyellow")
 	icon_state = color
 	item_state = color
+
+
+/obj/item/intelligence
+	name = "bundle of documents"
+	desc = "A cluster of documents and folders, written in some alien language."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "intelligence"
+	item_state = "intelligence"
+	w_class = 2
+
+/obj/item/intelligence/examine(mob/user)
+	if(..(user, 1))
+		if(all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+			to_chat(user, "<span class='notice'>The documents describes smuggling operations logistics, weapon numbers and location of training cells in Little Adhomai. Several information also leads to some individual known as Abdukrahman Al-Mazir.</span>")
