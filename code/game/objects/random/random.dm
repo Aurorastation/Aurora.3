@@ -447,10 +447,10 @@
 		/obj/item/clothing/suit/space/void/lancer = 0.3,
 		/obj/item/clothing/suit/space/void/sci = 2,
 		/obj/item/clothing/suit/space/void/sol = 0.5,
-		/obj/item/clothing/suit/space/void/necropolis = 1,
-		/obj/item/clothing/suit/space/void/einstein = 1,
-		/obj/item/clothing/suit/space/void/hephaestus = 1,
-		/obj/item/clothing/suit/space/void/zenghu = 1
+		/obj/item/clothing/suit/space/void/necropolis = 0.5,
+		/obj/item/clothing/suit/space/void/einstein = 0.5,
+		/obj/item/clothing/suit/space/void/hephaestus = 0.5,
+		/obj/item/clothing/suit/space/void/zenghu = 0.5
 	)
 	has_postspawn = TRUE
 

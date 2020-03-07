@@ -508,7 +508,6 @@
 	icon_state = "dropcrate"
 	icon_opened = "dropcrate-open"
 	icon_closed = "dropcrate"
-	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/drop/grey
 	name = "drop crate"
@@ -516,7 +515,6 @@
 	icon_state = "dropcrate-grey"
 	icon_opened = "dropcrate-grey-open"
 	icon_closed = "dropcrate-grey"
-	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/radiation
 	name = "radioactive gear crate"
@@ -549,7 +547,6 @@
 	icon_opened = "tcflcrateopen"
 	icon_closed = "tcflcrate"
 	req_access = list(access_legion)
-	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"
