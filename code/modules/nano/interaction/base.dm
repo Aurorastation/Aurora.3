@@ -32,6 +32,6 @@
 	. = STATUS_INTERACTIVE
 	if(!cell || (cell && cell.charge <= 0))
 		return STATUS_CLOSE
-	if(lockcharge)
+	if(lock_charge)
 		. = STATUS_DISABLED
 	return min(., ..())

@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - backend: "Tweaked a hell of a lot of silicon code to make synthetics better."
+  - rscadd: "Synths with scrambled codes that prevent them from being on robotics computers will now appear on Merc camera networks."
+  - rscadd: "Both variants of the engineering borg can now deploy the malf borging machine."
+  - tweak: "Medical borgs no longer get polyacid sprays, instead getting Wulumunusha CMO Hyposprays, which cause muteness."
+  - tweak: "You must now be on help intent to use items like crowbars and screwdrivers on borgs. Otherwise you hit them with it."
