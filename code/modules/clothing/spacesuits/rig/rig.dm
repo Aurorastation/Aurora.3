@@ -32,6 +32,7 @@
 	var/interface_title = "Hardsuit Controller"
 	var/wearer_move_delay //Used for AI moving.
 	var/ai_controlled_move_delay = 10
+	var/last_remote_message // when did a mounted pAI or AI use a module? used to prevent admin msg spam
 
 	// Keeps track of what this rig should spawn with.
 	var/suit_type = "hardsuit"
@@ -114,6 +115,8 @@
 	spark_system = bind_spark(src, 5)
 
 	START_PROCESSING(SSprocessing, src)
+
+	last_remote_message = world.time
 
 	if(initial_modules && initial_modules.len)
 		for(var/path in initial_modules)

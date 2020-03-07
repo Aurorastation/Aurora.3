@@ -15,7 +15,7 @@
 	firedelay_increase = -0.5 SECONDS
 
 /obj/item/custom_ka_upgrade/upgrade_chips/effeciency
-	name = "upgrade chip - effeciency increase"
+	name = "upgrade chip - efficiency increase"
 	desc = "Reduces the cost of shots by 1, reduces damage."
 	icon_state = "upgrade_chip"
 	damage_increase = -5

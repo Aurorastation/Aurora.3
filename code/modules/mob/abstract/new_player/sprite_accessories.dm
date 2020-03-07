@@ -2140,6 +2140,24 @@ Follow by example and make good judgement based on length which list to include 
 			length = 5
 			chatname = "horns"
 
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "unathi_hood"
+			length = 5
+			chatname = "hood"
+
+		una_skewers
+			name = "Unathi Super Long Horns"
+			icon_state = "unathi_skewers"
+			length = 6
+			chatname = "huge horns"
+
+		una_chameleon
+			name = "Unathi Chameleon Horns"
+			icon_state = "unathi_chameleon"
+			length = 3
+			chatname = "small horns"
+
 //skrell tentacles
 
 	skr_tentacle_m
@@ -2557,6 +2575,18 @@ Follow by example and make good judgement based on length which list to include 
 		una_double
 			name = "Unathi Double Horns"
 			icon_state = "facial_dubhorns"
+
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "facial_hood"
+
+		una_skewers
+			name = "Unathi Super Long Horns"
+			icon_state = "facial_skewers"
+
+		una_chameleon
+			name = "Unathi Chameleon Horns"
+			icon_state = "facial_chameleon"
 
 //ipc screens
 
