@@ -1,5 +1,5 @@
 /obj/item/mech_component/chassis/tank
-	name = "hull"
+	name = "tank hull"
 	icon_state = "pra_hull"
 	mech_health = 1000
 	has_hardpoints = list(HARDPOINT_BACK)
@@ -11,6 +11,42 @@
 
 /obj/item/mech_component/chassis/tank/emp_act(var/severity)
 	return
+
+/obj/item/mech_component/chassis/tank/smash(var/atom/movable/AM)
+	if(isliving(AM))
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
+			src.visible_message("<span class='danger'>\The [src] smashes into \the [H]!</span>")
+			playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
+			H.apply_damage(30, BRUTE)
+			H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
+			H.apply_effect(4, WEAKEN)
+			return TRUE
+
+		if(isanimal(AM))
+			var/mob/living/simple_animal/C = AM
+			if(issmall(C))
+				src.visible_message("<span class='danger'>\The [src] runs over \the [C]!</span>")
+				C.gib()
+				return TRUE
+			else
+				src.visible_message("<span class='danger'>\The [src] smashes into \the [C]!</span>")
+				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
+				C.apply_damage(40, BRUTE)
+				return TRUE
+
+		else
+			var/mob/living/L = AM
+			src.visible_message("<span class='danger'>\The [src] smashes into \the [L]!</span>")
+			playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
+			L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
+			L.apply_damage(30, BRUTE)
+			return TRUE
+
+	else
+		AM.ex_act(1)
+	return TRUE
 
 /obj/item/mech_component/sensors/tank
 	name = "turret"

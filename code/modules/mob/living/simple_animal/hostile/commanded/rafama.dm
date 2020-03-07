@@ -18,6 +18,8 @@
 	maxHealth = 150
 	health = 150
 
+	density = 1
+
 	harm_intent_damage = 3
 	melee_damage_lower = 15
 	melee_damage_upper = 15

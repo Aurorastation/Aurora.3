@@ -119,3 +119,6 @@
 		C.forceMove(src)
 		update_components()
 	else . = ..()
+
+/obj/item/mech_component/chassis/proc/smash(var/atom/movable/AM)
+	return FALSE

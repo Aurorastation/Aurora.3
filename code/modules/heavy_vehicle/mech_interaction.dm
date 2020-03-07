@@ -504,3 +504,11 @@
 		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!</span>")
 	else
 		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")
+
+
+/mob/living/heavy_vehicle/Collide(var/atom/movable/AM)
+	. = ..()
+	if(LAZYLEN(pilots))
+		if(body)
+			if(body.smash(AM))
+				setClickCooldown(5)
