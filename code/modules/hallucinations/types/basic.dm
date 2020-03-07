@@ -108,7 +108,8 @@
 	if(!..())
 		return FALSE
 	for(var/mob/living/M in oview(C))
-		hal_target += M
+		if(!M.stat)
+			hal_target += M
 	if(hal_target.len)
 		return TRUE
 
@@ -331,7 +332,7 @@
 	to_chat(holder, SPAN_DANGER("A sudden realization surges to the forefront of your mind. [message]"))
 	holder.disabilities |= PACIFIST
 	for(var/i = 1; i <= 2; i++)
-		addtimer(CALLBACK(src, .proc/calm_feeling), rand(80, 120)*i)
+		addtimer(CALLBACK(src, .proc/calm_feeling), rand(80, 150)*i)
 
 /datum/hallucination/passive/end()
 	if(holder.disabilities & PACIFIST)

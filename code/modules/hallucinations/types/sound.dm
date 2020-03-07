@@ -87,8 +87,12 @@
 			sound_to(holder, 'sound/weapons/gunshot/gunshot1.ogg')
 			if(ishuman(holder))
 				var/mob/living/carbon/human/H = holder
-				to_chat(holder, SPAN_DANGER("You feel a sharp pain in your [LAZYPICK(H.organs, "chest")]!")) //phantom pain reaction to audio
-			holder.adjustHalLoss(15)
+				var/obj/item/organ/external/O = pick(H.organs)
+				O.add_pain(15)
+				to_chat(holder, SPAN_DANGER("You feel a sharp pain in your [O]!")) //phantom pain reaction to audio
+			else
+				holder.adjustHalLoss(15)
+				to_chat(holder, SPAN_DANGER("You feel a sharp pain in your chest!"))
 			shake_camera(holder, 3, 1)
 			if(prob(holder.hallucination))
 				holder.eye_blurry += 8
@@ -98,4 +102,4 @@
 			to_chat(holder, SPAN_DANGER("You feel numb as a shock courses through your body!")) //phantom pain reaction to audio
 			holder.adjustHalLoss(20)
 			if(prob(holder.hallucination))
-				holder.eye_blind += 3
+				holder.eye_blind += 4
