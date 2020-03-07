@@ -7,7 +7,7 @@
 	icon_state = "unloader"
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 	var/obj/machinery/mineral/input

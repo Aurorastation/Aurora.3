@@ -81,9 +81,9 @@ var/list/mineral_can_smooth_with = list(
 	turfs += src
 
 	if(dynamic_lighting)
-		luminosity = FALSE
+		luminosity = 0
 	else
-		luminosity = TRUE
+		luminosity = 1
 
 	has_opaque_atom = TRUE
 
@@ -189,9 +189,9 @@ var/list/mineral_can_smooth_with = list(
 	turfs += src
 
 	if(dynamic_lighting)
-		luminosity = FALSE
+		luminosity = 0
 	else
-		luminosity = TRUE
+		luminosity = 1
 
 	has_opaque_atom = TRUE
 
@@ -569,9 +569,9 @@ var/list/asteroid_floor_smooth = list(
 	turfs += src
 
 	if(dynamic_lighting)
-		luminosity = FALSE
+		luminosity = 0
 	else
-		luminosity = TRUE
+		luminosity = 1
 
 	if(mapload && permit_ao)
 		queue_ao()
@@ -786,7 +786,7 @@ var/list/asteroid_floor_smooth = list(
 								ore += /obj/item/ore/glass
 					else
 						ore += /obj/item/ore/glass
-		if(LAZYLEN(ore))
+		if(length(ore))
 			var/ore_path = pick(ore)
 			if(ore)
 				new ore_path(src)

@@ -6,7 +6,7 @@
 	icon_state = "console"
 	density = FALSE
 	anchored = TRUE
-	use_power = TRUE
+	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
