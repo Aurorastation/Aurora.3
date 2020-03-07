@@ -24,7 +24,8 @@
 	var/damage_max = 30
 	var/pruned = FALSE
 	var/product = /obj/item/blob_tendril
-	var/attack_freq = 5 //see proc/attempt_attack; lower is more often, min 1
+	var/next_attack = 0
+	var/attack_time = 40 // time in deciseconds before next attack will occur
 
 /obj/effect/blob/Initialize()
 	. = ..()
@@ -52,10 +53,11 @@
 	else
 		icon_state = "blob_damaged"
 
-/obj/effect/blob/process(wait, times_fired)
+/obj/effect/blob/process()
 	regen()
-	if(times_fired % attack_freq)
+	if(world.time < next_attack + attack_time)
 		return
+	next_attack = world.time
 	attempt_attack(global.alldirs)
 
 /obj/effect/blob/proc/take_damage(var/damage)
@@ -231,7 +233,7 @@ regen() will cover update_icon() for this proc
 		if(75 to INFINITY)
 			brute_resist = 3.5
 			fire_resist = 2
-			attack_freq = 5
+			attack_time = 40
 			regen_rate = 2
 			times_to_pulse = 4
 			if(reported_low_damage)
@@ -239,13 +241,13 @@ regen() will cover update_icon() for this proc
 		if(50 to 74)
 			brute_resist = 2.5
 			fire_resist = 1.5
-			attack_freq = 4
+			attack_time = 35
 			regen_rate = 3
 			times_to_pulse = 3
 		if(34 to 49)
 			brute_resist = 1
 			fire_resist = 0.8
-			attack_freq = 3
+			attack_time = 25
 			regen_rate = 4
 			times_to_pulse = 2
 		if(-INFINITY to 33)
@@ -314,7 +316,7 @@ regen() will cover update_icon() for this proc
 	maxHealth = 120
 	damage_min = 13
 	damage_max = 25
-	attack_freq = 7
+	attack_time = 60
 	regen_rate = 4
 	opacity = TRUE
 	expandType = /obj/effect/blob/ravaging
@@ -346,7 +348,7 @@ regen() will cover update_icon() for this proc
 	maxHealth = 20
 	damage_min = 27
 	damage_max = 36
-	attack_freq = 3
+	attack_time = 30
 	light_color = BLOB_COLOR_RAV
 	color = "#ffd400" //Temporary, for until they get a new sprite.
 
