@@ -9,6 +9,7 @@
 		message = pick(SShallucinations.hallucinated_phrases)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	..()
+
 /mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language, var/part_a, var/part_b, var/mob/speaker, var/hard_to_hear = 0, var/vname ="")
 	if(hallucination >= 60 && prob(1))
 		var/orig_message = message

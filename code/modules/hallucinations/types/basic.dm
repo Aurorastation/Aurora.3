@@ -102,27 +102,27 @@
 
 
 /datum/hallucination/paranoia
+	var/list/hal_target = list()	//The potential mob you're going to imagine doing this
 
 /datum/hallucination/paranoia/can_affect(mob/living/carbon/C)
 	if(!..())
 		return FALSE
 	for(var/mob/living/M in oview(C))
+		hal_target += M
+	if(hal_target.len)
 		return TRUE
 
 /datum/hallucination/paranoia/start()		//hallucinate someone else doing something. Yes, it's intentional that it's any living mob, not just other characters.
-	var/list/hal_target = list() //The mob you're going to imagine doing this
 	var/firstname = copytext(holder.real_name, 1, findtext(holder.real_name, " "))
 	var/t = pick(SShallucinations.hallucinated_actions)
 	t = replace_characters(t, list("you" = "[firstname]"))		//the list contains items that say "you." This replaces "you" with the hallucinator's first name to sell the fact that the person is doing the emote.
-	for(var/mob/living/M in oview(holder))
-		hal_target += M
-	if(hal_target.len)
-		to_chat(holder, "<b>[pick(hal_target)]</b> [t]")
+	to_chat(holder, "<b>[pick(hal_target)]</b> [t]")
 
 /datum/hallucination/paranoia/second		//Just so we get another chance at picking this.
 
 /datum/hallucination/skitter
 	max_power = 60
+
 /datum/hallucination/skitter/start()
 	to_chat(holder, "The spiderling skitters around.")
 
@@ -194,6 +194,7 @@
 
 /datum/hallucination/pain				//Pain. Picks a random type of pain, and severity is based on their level of hallucination.
 	special_flags = NO_EMOTE
+
 /datum/hallucination/pain/start()
 	var/pain_type = rand(1,5)
 	switch(pain_type)
