@@ -634,7 +634,7 @@
 
 /obj/random/spacecash
 	name = "random credit chips"
-	desc = "This is a random credit ships."
+	desc = "This is a random credit chip."
 	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	problist = list(
@@ -673,7 +673,7 @@
 
 /obj/random/colored_jumpsuit
 	name = "random colored jumpsuit"
-	desc = "This is a random colowerd jumpsuit."
+	desc = "This is a random colored jumpsuit."
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	icon_state = "black"
 	spawnlist = list(
@@ -880,7 +880,8 @@
 		/obj/random/technology_scanner = 1,
 		/obj/random/tool = 1,
 		/obj/random/toolbox = 1,
-		/obj/random_produce = 0.25
+		/obj/random_produce = 0.25,
+		/obj/random/watches = 1
 	)
 
 
@@ -936,10 +937,20 @@
 		/obj/item/clothing/gloves/fyellow = 1.2,
 		/obj/item/clothing/gloves/latex = 0.5,
 		/obj/item/clothing/gloves/latex/nitrile = 0.4,
-		/obj/item/clothing/gloves/watch = 0.3,
 		/obj/item/clothing/gloves/yellow = 0.9
 	)
 
+/obj/random/watches
+	name = "random watches"
+	desc = "Random watches, probably able to tell the time."
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "watch"
+	problist = list(
+		/obj/item/clothing/gloves/watch = 1,
+		/obj/item/clothing/gloves/watch/silver = 0.7,
+		/obj/item/clothing/gloves/watch/gold = 0.5,
+		/obj/item/clothing/gloves/watch/spy = 0.3,
+	)
 
 /obj/random/hoodie
 	name = "random winter coat"
