@@ -9,7 +9,6 @@
 	icon_state = "hephcrate"
 	icon_opened = "hephcrateopen"
 	icon_closed = "hephcrate"
-	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/gear_loadout/zenghu
 	desc = "A sturdy crate with Zeng-Hu Pharmaceuticals branding."
@@ -17,7 +16,6 @@
 	icon_state = "zenghucrate"
 	icon_opened = "zenghucrateopen"
 	icon_closed = "zenghucrate"
-	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/gear_loadout/einstein
 	desc = "A sturdy crate with Einstein Engines branding."
@@ -25,7 +23,6 @@
 	icon_state = "einsteincrate"
 	icon_opened = "einsteincrateopen"
 	icon_closed = "einsteincrate"
-	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/gear_loadout/necropolis
 	desc = "A sturdy crate with Necropolis Industries branding."
@@ -33,7 +30,6 @@
 	icon_state = "necrocrate"
 	icon_opened = "necrocrateopen"
 	icon_closed = "necrocrate"
-	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/secure/gear_loadout/coalition/fill()
 	new /obj/item/rig/gunslinger/equipped(src)
