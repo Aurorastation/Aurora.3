@@ -234,3 +234,14 @@ datum/track/New(var/title_name, var/audio)
 	icon_state = state_base
 	if(playing)
 		add_overlay("[state_base]-running")
+
+/obj/machinery/media/jukebox/calliope
+	name = "adhomian calliope"
+	desc = "An antique adhomian instrument."
+	icon_state = "calliope"
+	state_base = "calliope"
+	tracks = list(
+		new/datum/track("That is his Rafama", 'sound/music/recordplayer/thats-my-horse.ogg'))
+
+/obj/machinery/media/jukebox/calliope/update_icon()
+	return

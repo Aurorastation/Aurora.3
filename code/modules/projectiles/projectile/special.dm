@@ -229,13 +229,21 @@
 	name ="armor-piercing shell"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "shell"
-	damage = 90
-	armor_penetration = 80
-	penetrating = 1
+	damage = 60
+	armor_penetration = 20
+	penetrating = 0
 
 /obj/item/projectile/bullet/cannon/on_impact(var/atom/A)
-	explosion(A, 1, 2, 3, 3)
+	explosion(A, -1, 0, 2)
 	..()
+
+/obj/item/projectile/bullet/cannon/on_hit(var/atom/target, var/blocked = 0)
+	explosion(target, -1, 0, 2)
+	sleep(0)
+	var/obj/T = target
+	var/throwdir = get_dir(firer,target)
+	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
+	return 1
 
 //magic
 

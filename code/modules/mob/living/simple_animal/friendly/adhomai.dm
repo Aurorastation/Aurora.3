@@ -129,3 +129,4 @@
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 5)
 
 	holder_type = /obj/item/holder/schlorrgo
+
