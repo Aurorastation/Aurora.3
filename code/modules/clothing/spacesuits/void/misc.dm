@@ -118,6 +118,140 @@
 	species_restricted = list("Human")
 	refittable = FALSE
 
+//Einstein Engines espionage voidsuit
+/obj/item/clothing/head/helmet/space/void/einstein
+	name = "banshee combat suit helmet"
+	desc = "A sleek, menacing voidsuit helmet with the branding of Taipei Engineering Industrial's private military contractors."
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
+	icon_state = "bansheehelm"
+	item_state = "bansheehelm"
+	contained_sprite = 1
+
+	armor = list(melee = 35, bullet = 35, laser = 75,energy = 55, bomb = 25, bio = 100, rad = 10)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	light_overlay = "helmet_light_banshee"
+	brightness_on = 6
+	light_color = "#7ffbf7"
+	description_fluff = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
+	refittable = FALSE
+
+/obj/item/clothing/suit/space/void/einstein
+	name = "banshee combat suit"
+	desc = "A tightly-fitting suit manufactured with shimmering, ablative plating. Looks almost weightless."
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
+	icon_state = "banshee"
+	item_state = "banshee"
+	contained_sprite = 1
+
+	slowdown = 1
+	armor = list(melee = 35, bullet = 35, laser = 75,energy = 55, bomb = 25, bio = 100, rad = 10)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	description_fluff = "An easily recognized Einstein Engines-made PMC voidsuit piece. It is a telltale mark of corporate espionage and more often than not ends up buried with its user."
+	refittable = FALSE
+
+//Zeng-Hu Pharmaceuticals espionage voidsuit
+/obj/item/clothing/head/helmet/space/void/zenghu
+	name = "dragon biohazard suit helmet"
+	desc = "A lightweight form-fitting helmet with sparse plating and weird, bug-like goggles."
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
+	icon_state = "dragonhelm"
+	item_state = "dragonhelm"
+	contained_sprite = 1
+
+	armor = list(melee = 45, bullet = 15, laser = 35,energy = 25, bomb = 55, bio = 100, rad = 100)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	light_overlay = "helmet_light_dragon"
+	brightness_on = 6
+	light_color = "#7ffbf7"
+	description_fluff = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit helmet. Its bug-eyed goggle visor design is unique among its class, alongside cutting-edge radiation protection."
+	refittable = FALSE
+
+/obj/item/clothing/suit/space/void/zenghu
+	name = "dragon biohazard control suit"
+	desc = "A remarkably lightweight Zeng-Hu Pharmaceuticals suit sporting excellent ambient radiation protection."
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
+	icon_state = "dragon"
+	item_state = "dragon"
+	contained_sprite = 1
+
+	slowdown = 1
+	armor = list(melee = 60, bullet = 15, laser = 35,energy = 25, bomb = 55, bio = 100, rad = 100)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human", "Heavy Machine", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	description_fluff = "An easily recognized Zeng-Hu Pharmaceuticals biohazard control suit. It is relatively fragile but has very apparent radiation shielding. Most often seen in the hands of post-disaster cleanup teams and private military contractors."
+	refittable = FALSE
+
+//Hephaestus Industries espionage voidsuit
+/obj/item/clothing/head/helmet/space/void/hephaestus
+	name = "caiman drop suit helmet"
+	desc = "A massively heavy helmet, part of a larger terraforming suit assembly."
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
+	icon_state = "caimanhelm"
+	item_state = "caimanhelm"
+	contained_sprite = 1
+
+	armor = list(melee = 75, bullet = 45, laser = 15,energy = 25, bomb = 75, bio = 100, rad = 15)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human")
+	light_overlay = "helmet_light_caiman"
+	brightness_on = 6
+	light_color = "#ffce01"
+	description_fluff = "An easily recognized Hephaestus terraforming suit helmet. Its low, protruding brow and heavy plating is useful in the event you happen to be cutting down things. Mostly trees. Hopefully trees."
+	refittable = FALSE
+
+/obj/item/clothing/suit/space/void/hephaestus
+	name = "caiman drop suit"
+	desc = "A superheavy Hephaestus designed terraforming suit, iconic for its usage in orbital drops onto hostile jungle worlds."
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
+	icon_state = "caiman"
+	item_state = "caiman"
+	contained_sprite = 1
+
+	slowdown = 2
+	armor = list(melee = 75, bullet = 45, laser = 15,energy = 25, bomb = 75, bio = 100, rad = 15)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human")
+	description_fluff = "An easily recognized Hephaestus terraforming suit. Used often on jungle worlds to handle local wildlife and safely deforest areas in hostile environments. It found recent popularity due to its combat effectiveness that resulted in its proliferation in the hands of Hephaestus private military."
+	refittable = FALSE
+
+//Necropolis Industries espionage voidsuit
+/obj/item/clothing/head/helmet/space/void/necropolis
+	name = "revenant suit helmet"
+	desc = "A scary-looking helmet with blood red optics."
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
+	icon_state = "revenanthelm"
+	item_state = "revenanthelm"
+	contained_sprite = 1
+
+	armor = list(melee = 25, bullet = 65, laser = 35,energy = 25, bomb = 15, bio = 100, rad = 15)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human")
+	light_overlay = "helmet_light_revenant"
+	brightness_on = 6
+	light_color = "#f65858"
+	description_fluff = "An ominous helmet of Necropolis make with its past veiled in mystery, used for high-end corporate backstabbing and secret operations."
+
+/obj/item/clothing/suit/space/void/necropolis
+	name = "revenant combat suit"
+	desc = "A robust skirmishing suit with lightweight plating. It is branded with Kumar Arms logos, a subsidiary of Necropolis Industries. It looks very portable."
+	icon = 'icons/obj/clothing/voidsuit/megacorp.dmi'
+	icon_state = "revenant"
+	item_state = "revenant"
+	contained_sprite = 1
+
+	w_class = 3
+	armor = list(melee = 25, bullet = 65, laser = 35,energy = 25, bomb = 15, bio = 100, rad = 15)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human")
+	description_fluff = "A portable, sleek combat suit utilized in excess by Necropolis private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
+
 //Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
 	name = "freelancer voidsuit helmet"

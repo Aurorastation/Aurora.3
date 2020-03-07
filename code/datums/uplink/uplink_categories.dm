@@ -59,6 +59,9 @@
 /datum/uplink_category/exosuit_equipment
 	name = "Exosuit Equipment"
 
+/datum/uplink_category/corporate_equipment
+	name = "Corporate Equipment"
+
 /datum/uplink_category/telecrystals
 	name = "Telecrystals"
 
