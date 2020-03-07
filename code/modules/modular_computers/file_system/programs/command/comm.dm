@@ -399,6 +399,10 @@ Command action procs
 		to_chat(user, "Under directive 7-10, [station_name()] is quarantined until further notice.")
 		return 0
 
+	for(var/obj/machinery/commsjammer/M in SSmachinery.all_machines)
+		to_chat(user, "Shuttle system are offline due to unknown interference.")
+		return 0
+
 	emergency_shuttle.call_evac()
 	log_game("[key_name(user)] has called the shuttle.",ckey=key_name(user))
 	message_admins("[key_name_admin(user)] has called the shuttle.", 1)
