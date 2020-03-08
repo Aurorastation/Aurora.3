@@ -195,10 +195,8 @@
 		return  //Yeah just stop.
 
 	if(power)
-		soundloop.volume = min(100, (round(power/7)+1))
-	else
-		soundloop.volume = 0
-	
+		soundloop.volume = min(40, (round(power/100)/50)+1)
+
 	if(damage > explosion_point)
 		if(!exploded)
 			if(!istype(L, /turf/space))

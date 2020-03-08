@@ -251,7 +251,6 @@ var/list/glasscrack_sound = list(
 	S.frequency = frequency
 	S.falloff = fall_off || FALLOFF_SOUNDS
 	S.environment = environment
-	S.volume = volume
 
 	return S
 
