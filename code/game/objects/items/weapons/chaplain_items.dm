@@ -125,11 +125,12 @@
 /obj/item/nullrod/afterattack(atom/A, mob/user as mob, proximity)
 	if(!proximity)
 		return
-	if (istype(A, /turf/simulated/floor) && (cooldown + 5 SECONDS < world.time))
+	if(istype(A, /turf/simulated/floor) && (cooldown + 5 SECONDS < world.time))
 		cooldown = world.time
 		user.visible_message(span("notice", "[user] loudly taps their [src.name] against the floor."))
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
-		call(/obj/effect/rune/proc/revealrunes)(src)
+		var/datum/callback/cb = CALLBACK(src, /obj/effect/rune/revealrunes/.proc/do_rune_action)
+		cb.Invoke(user, src)
 		return
 
 /obj/item/reagent_containers/spray/aspergillum

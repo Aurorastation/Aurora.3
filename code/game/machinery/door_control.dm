@@ -188,7 +188,7 @@
 	for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)
 		if (M.id == src.id)
 			same_id += M
-			INVOKE_ASYNC(M, /obj/machinery/door/blast/open)
+			INVOKE_ASYNC(M, /obj/machinery/door/blast/.proc/open)
 
 	sleep(20)
 
@@ -199,7 +199,7 @@
 	sleep(50)
 
 	for(var/mm in same_id)
-		INVOKE_ASYNC(mm, /obj/machinery/door/blast/close)
+		INVOKE_ASYNC(mm, /obj/machinery/door/blast/.proc/close)
 
 	icon_state = "launcherbtt"
 	active = 0

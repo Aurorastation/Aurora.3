@@ -22,14 +22,16 @@
 	return amount
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
+	if(status_flags & GODMODE)
+		return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
 			sponge.take_internal_damage(amount)
 
 /mob/living/carbon/human/setBrainLoss(var/amount)
-	if(status_flags & GODMODE)	return 0	//godmode
+	if(status_flags & GODMODE)
+		return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
@@ -37,7 +39,8 @@
 			updatehealth()
 
 /mob/living/carbon/human/getBrainLoss()
-	if(status_flags & GODMODE)	return 0	//godmode
+	if(status_flags & GODMODE)
+		return 0	//godmode
 	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/sponge = internal_organs_by_name[BP_BRAIN]
 		if(sponge)
@@ -114,15 +117,18 @@
 	BITSET(hud_updateflag, HEALTH_HUD)
 
 /mob/living/carbon/human/Stun(amount)
-	if(HULK in mutations)	return
+	if(HULK in mutations)
+		return
 	..()
 
 /mob/living/carbon/human/Weaken(amount)
-	if(HULK in mutations)	return
+	if(HULK in mutations)
+		return
 	..()
 
 /mob/living/carbon/human/Paralyse(amount)
-	if(HULK in mutations)	return
+	if(HULK in mutations)
+		return
 	// Notify our AI if they can now control the suit.
 	if(wearing_rig && !stat && paralysis < amount) //We are passing out right this second.
 		wearing_rig.notify_ai("<span class='danger'>Warning: user consciousness failure. Mobility control passed to integrated intelligence system.</span>")
@@ -386,7 +392,7 @@ This function restores all organs.
 
 /mob/living/carbon/human/proc/get_organ(var/zone)
 	if(!zone)	zone = BP_CHEST
-	if (zone in list( BP_EYES, BP_MOUTH ))
+	if (zone in list(BP_EYES, BP_MOUTH))
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
@@ -401,7 +407,7 @@ This function restores all organs.
 	//Handle other types of damage
 	if(damagetype != BRUTE && damagetype != BURN)
 		if(!stat && damagetype == PAIN && (can_feel_pain()))
-			if ((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
+			if((damage > 25 && prob(20)) || (damage > 50 && prob(60)))
 				emote("scream")
 
 		..(damage, damagetype, def_zone, blocked)
@@ -436,12 +442,11 @@ This function restores all organs.
 				damage *= species.brute_mod
 			if(organ.take_damage(damage, 0, sharp, edge, used_weapon, damage_flags = damage_flags))
 				UpdateDamageIcon()
+
 		if(BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.burn_mod
-
-
 			if(organ.take_damage(0, damage, sharp, edge, used_weapon, damage_flags = damage_flags))
 				UpdateDamageIcon()
 
@@ -451,20 +456,17 @@ This function restores all organs.
 	return 1
 
 /mob/living/carbon/human/apply_radiation(var/rads)
-	if (species && rads > 0)
+	if(species && rads > 0)
 		rads = rads * species.radiation_mod
 	..(rads)
 
 /mob/living/carbon/human/proc/get_shock()
-
-	if (!can_feel_pain())
+	if(!can_feel_pain())
 		return 0
 
 	var/traumatic_shock = getHalLoss()                 // Pain.
 	traumatic_shock -= chem_effects[CE_PAINKILLER]
 
-	if(stat == UNCONSCIOUS)
-		traumatic_shock *= 0.6
 	return max(0,traumatic_shock)
 
 /mob/living/carbon/human/remove_blood_simple(var/blood)

@@ -22,13 +22,16 @@
 	. = ..()
 	if(isGlass)
 		unacidable = 1
-		drop_sound = 'sound/items/drop/bottle.ogg'
 
 /obj/item/reagent_containers/food/drinks/bottle/Destroy()
 	if(rag)
 		rag.forceMove(src.loc)
 	rag = null
 	return ..()
+
+/obj/item/reagent_containers/food/drinks/bottle/on_reagent_change()
+	update_icon()
+
 
 //when thrown on impact, bottles smash and spill their contents
 /obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, var/speed)
@@ -112,7 +115,8 @@
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/open(mob/user)
-	if(rag) return
+	if(rag)
+		return
 	..()
 
 /obj/item/reagent_containers/food/drinks/bottle/update_icon()
@@ -120,6 +124,13 @@
 	if(rag)
 		var/underlay_image = image(icon='icons/obj/drinks.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
 		underlays += underlay_image
+		set_light(2)
+	else
+		set_light(0)
+		if(reagents.total_volume)
+			icon_state = "[initial(icon_state)]"
+		else
+			icon_state = "[initial(icon_state)]_empty"
 
 /obj/item/reagent_containers/food/drinks/bottle/attack(mob/living/target, mob/living/user, var/hit_zone)
 	var/blocked = ..()
@@ -170,6 +181,7 @@
 	desc = "A bottle with a sharp broken bottom."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "broken_bottle"
+	drop_sound = 'sound/items/drop/glass.ogg'
 	force = 9
 	throwforce = 5
 	throw_speed = 3
@@ -219,7 +231,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/fireball
 	name = "Uncle Git's Cinnamon Fireball"
 	desc = "A premium single-malt whiskey, infused with cinnamon and hot pepper inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES."
-	icon_state = "fireballbottle"
+	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
@@ -578,14 +590,14 @@
 		. = ..()
 		reagents.add_reagent("brandy", 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/guinnes
+/obj/item/reagent_containers/food/drinks/bottle/guinness
 	name = "Guinness"
 	desc = "A bottle of good old Guinness."
-	icon_state = "guinnes_bottle"
+	icon_state = "guinness_bottle"
 	center_of_mass = list("x" = 15,"y" = 4)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("guinnes", 100)
+		reagents.add_reagent("guinness", 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/drambuie
 	name = "Drambuie"

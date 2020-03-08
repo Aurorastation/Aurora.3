@@ -47,8 +47,7 @@ var/list/admin_departments
 		VUEUI_SET_CHECK(newdata["idname"], "", ., newdata)
 	VUEUI_SET_CHECK(newdata["paper"], (copyitem ? copyitem.name : ""), ., newdata)
 
-	if(newdata["alertpdas"] && alert_pdas && newdata["alertpdas"].len != alert_pdas.len)
-		. = newdata
+	VUEUI_SET_CHECK_LIST(newdata["alertpdas"], alert_pdas, ., newdata)
 	newdata["alertpdas"] = list()
 	if (alert_pdas && alert_pdas.len)
 		for (var/obj/item/device/pda/pda in alert_pdas)

@@ -43,7 +43,7 @@
 	name = "wood floor tile"
 	singular_name = "wood floor tile"
 	desc = "An easy to fit wooden floor tile."
-	icon_state = "tile-wood"
+	icon_state = "tile_wood"
 	force = 1.0
 	throwforce = 1.0
 	throw_speed = 5
@@ -58,13 +58,95 @@
 	name = "carpet"
 	singular_name = "carpet"
 	desc = "A piece of carpet. It is the same size as a normal floor tile!"
-	icon_state = "tile-carpet"
+	icon_state = "tile_carpet"
 	force = 1.0
 	throwforce = 1.0
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
 	drop_sound = 'sound/items/drop/clothing.ogg'
+
+/obj/item/stack/tile/carpet_blue
+	name = "blue carpet"
+	singular_name = "carpet"
+	desc = "A piece of carpet. It is the same size as a normal floor tile!"
+	icon_state = "tile_carpet_blue"
+	force = 1.0
+	throwforce = 1.0
+	throw_speed = 5
+	throw_range = 20
+	flags = 0
+	drop_sound = 'sound/items/drop/clothing.ogg'
+
+/obj/item/stack/tile/carpet_rubber
+	name = "rubber carpet"
+	singular_name = "carpet"
+	desc = "A piece of rubber carpet. It is the same size as a normal floor tile!"
+	icon_state = "tile_carpet_rubber"
+	force = 1.0
+	throwforce = 1.0
+	throw_speed = 5
+	throw_range = 20
+	flags = 0
+	drop_sound = 'sound/items/drop/clothing.ogg'
+
+/obj/item/stack/tile/lino
+	name = "old linoleum"
+	singular_name = "linoleum"
+	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
+	icon_state = "tile_linoleum"
+	force = 1.0
+	throwforce = 1.0
+	throw_speed = 5
+	throw_range = 20
+	flags = 0
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	matter = list("plastic" = 937.5)
+
+/obj/item/stack/tile/lino_grey
+	name = "linoleum"
+	singular_name = "linoleum"
+	desc = "A piece of linoleum. It is the same size as a normal floor tile!"
+	icon_state = "tile_linoleum_grey"
+	force = 1.0
+	throwforce = 1.0
+	throw_speed = 5
+	throw_range = 20
+	flags = 0
+	drop_sound = 'sound/items/drop/clothing.ogg'
+	matter = list("plastic" = 937.5)
+
+/*
+ * Circuits
+ */
+
+/obj/item/stack/tile/circuit_blue
+	name = "circuit tile"
+	singular_name = "circuit tile"
+	desc = "An advanced tile covered in various circuitry and wiring."
+	icon_state = "tile_bcircuit"
+	force = 6.0
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5,"glass" = 937.5)
+	throwforce = 15.0
+	throw_speed = 5
+	throw_range = 20
+	flags = CONDUCT
+
+/obj/item/stack/tile/circuit_green
+	name = "circuit tile"
+	singular_name = "circuit tile"
+	desc = "An advanced tile covered in various circuitry and wiring."
+	icon_state = "tile_gcircuit"
+	force = 6.0
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5,"glass" = 937.5)
+	throwforce = 15.0
+	throw_speed = 5
+	throw_range = 20
+	flags = CONDUCT
+
+/*
+ * Floors
+ */
 
 /obj/item/stack/tile/floor
 	name = "floor tile"

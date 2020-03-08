@@ -67,6 +67,8 @@
 		)
 
 	action_button_name = "Toggle Helmet"
+	var/helmet_deploy_sound = 'sound/items/helmet_close.ogg'
+	var/helmet_retract_sound = 'sound/items/helmet_open.ogg'
 
 	//Breach thresholds, should ideally be inherited by most (if not all) voidsuits.
 	//With 0.2 resiliance, will reach 10 breach damage after 3 laser carbine blasts or 8 smg hits.
@@ -113,6 +115,7 @@
 			to_chat(M, "You are unable to deploy your suit's helmet as \the [H.head] is in the way.")
 		else if (H.equip_to_slot_if_possible(helmet, slot_head))
 			to_chat(M, "Your suit's helmet deploys with a hiss.")
+			playsound(loc, helmet_deploy_sound, 30)
 			helmet.canremove = 0
 
 	if(tank)
@@ -171,6 +174,7 @@
 
 	if(H.head == helmet)
 		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
+		playsound(loc, helmet_retract_sound, 30)
 		helmet.canremove = 1
 		H.drop_from_inventory(helmet,src)
 	else
@@ -187,23 +191,24 @@
 
 	set name = "Eject Voidsuit Tank"
 	set category = "Object"
-	set src in usr
+	set src in view(1)
 
-	if(!istype(src.loc,/mob/living)) return
+	var/mob/living/user = usr
+
+	if(use_check_and_message(user))	return
 
 	if(!tank)
 		to_chat(usr, "There is no tank inserted.")
 		return
 
-	var/mob/living/carbon/human/H = usr
-
-	if(!istype(H)) return
-	if(H.stat) return
-	if(H.wear_suit != src) return
-
-	to_chat(H, "<span class='info'>You press the emergency release, ejecting \the [tank] from your suit.</span>")
+	to_chat(user, "<span class='info'>You press the emergency release, ejecting \the [tank] from your suit.</span>")
 	tank.canremove = 1
-	H.drop_from_inventory(tank)
+	playsound(src, 'sound/effects/air_seal.ogg', 50, 1)
+
+	if(user.get_inventory_slot(src) == slot_wear_suit)
+		user.drop_from_inventory(tank)
+	else
+		tank.forceMove(get_turf(src))
 	src.tank = null
 
 /obj/item/clothing/suit/space/void/attack_self()
@@ -216,7 +221,7 @@
 	if(istype(W,/obj/item/clothing/accessory) || istype(W, /obj/item/hand_labeler))
 		return ..()
 
-	if(istype(src.loc,/mob/living))
+	if(user.get_inventory_slot(src) == slot_wear_suit)
 		to_chat(user, "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>")
 		return
 
@@ -225,6 +230,7 @@
 			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank)
 			if(!choice) return
 
+			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 			if(choice == tank)	//No, a switch doesn't work here. Sorry. ~Techhead
 				to_chat(user, "You pop \the [tank] out of \the [src]'s storage compartment.")
 				tank.forceMove(get_turf(src))
@@ -241,9 +247,10 @@
 			to_chat(user, "\The [src] does not have anything installed.")
 		return
 	else if(istype(W,/obj/item/clothing/head/helmet/space))
-		if(helmet)
+		if(helmet)	
 			to_chat(user, "\The [src] already has a helmet installed.")
 		else
+			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
 			to_chat(user, "You attach \the [W] to \the [src]'s helmet mount.")
 			user.drop_from_inventory(W,src)
 			src.helmet = W
@@ -252,6 +259,7 @@
 		if(boots)
 			to_chat(user, "\The [src] already has magboots installed.")
 		else
+			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
 			to_chat(user, "You attach \the [W] to \the [src]'s boot mounts.")
 			user.drop_from_inventory(W,src)
 			boots = W
@@ -262,6 +270,7 @@
 		else if(istype(W,/obj/item/tank/phoron))
 			to_chat(user, "\The [W] cannot be inserted into \the [src]'s storage compartment.")
 		else
+			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
 			to_chat(user, "You insert \the [W] into \the [src]'s storage compartment.")
 			user.drop_from_inventory(W,src)
 			tank = W

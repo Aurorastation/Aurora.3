@@ -32,13 +32,13 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Class D Kinetic Accelerator", /obj/item/gun/custom_ka/frame02/prebuilt,			12,					400),
 	new /datum/data/mining_equipment("Autochisel",					/obj/item/autochisel,								10,					400),
 	new /datum/data/mining_equipment("Jetpack",						/obj/item/tank/jetpack,								10,					400),
-	new /datum/data/mining_equipment("Drone Drill Upgrade",			/obj/item/device/mine_bot_ugprade,							10,					400),
+	new /datum/data/mining_equipment("Drone Drill Upgrade",			/obj/item/device/mine_bot_upgrade,							10,					400),
 	new /datum/data/mining_equipment("Industrial Drill Brace",		/obj/machinery/mining/brace,								-1,					500,	1),
 	new /datum/data/mining_equipment("Point Transfer Card",			/obj/item/card/mining_point_card,					-1,					500),
 	new /datum/data/mining_equipment("Explorer's Belt",				/obj/item/storage/belt/mining,						10,					500),
 	new /datum/data/mining_equipment("Item-Warp Beacon",			/obj/item/warp_core,										25,					500),
 	new /datum/data/mining_equipment("Item-Warp Pack",				/obj/item/extraction_pack,							25,					600),
-	new /datum/data/mining_equipment("Drone Health Upgrade", 		/obj/item/device/mine_bot_ugprade/health,					20,					600),
+	new /datum/data/mining_equipment("Drone Health Upgrade", 		/obj/item/device/mine_bot_upgrade/health,					20,					600),
 	new /datum/data/mining_equipment("RFD M-Class",             	/obj/item/rfd/mining,								10,					600),
 	new /datum/data/mining_equipment("Brute First-Aid Kit",			/obj/item/storage/firstaid/brute,					30,					600),
 	new /datum/data/mining_equipment("Ore Magnet",					/obj/item/oremagnet,									10,					600),
@@ -49,7 +49,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Mass Driver",					/obj/item/mass_driver_diy,							5,					800),
 	new /datum/data/mining_equipment("Mining Drone",				/mob/living/silicon/robot/drone/mining,						15,					800),
 	new /datum/data/mining_equipment("Minecart Engine",				/obj/vehicle/train/cargo/engine/mining,						-1,					800,	1),
-	new /datum/data/mining_equipment("Drone KA Upgrade",			/obj/item/device/mine_bot_ugprade/ka,						10,					800),
+	new /datum/data/mining_equipment("Drone KA Upgrade",			/obj/item/device/mine_bot_upgrade/ka,						10,					800),
 	new /datum/data/mining_equipment("Ore Summoner",				/obj/item/oreportal,									35,					800),
 	new /datum/data/mining_equipment("Lazarus Injector",			/obj/item/lazarus_injector,							25,					1000),
 	new /datum/data/mining_equipment("Industrial Drill Head",		/obj/machinery/mining/drill,								-1,					1000,	1),
@@ -109,7 +109,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	var/dat
 	dat +="<div class='statusDisplay'>"
 	if(istype(inserted_id))
-		dat += "You have [inserted_id.mining_points] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
+		dat += "You have [inserted_id.mining_points ? inserted_id.mining_points : 0] mining points collected. <A href='?src=\ref[src];choice=eject'>Eject ID.</A><br>"
 	else
 		dat += "No ID inserted.  <A href='?src=\ref[src];choice=insert'>Insert ID.</A><br>"
 	dat += "</div>"

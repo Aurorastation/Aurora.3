@@ -14,6 +14,7 @@
 #define FAKEDEATH   0x2000  // Replaces stuff like changeling.changeling_fakedeath.
 #define DISFIGURED  0x4000  // Set but never checked. Remove this sometime and replace occurences with the appropriate organ code
 #define XENO_HOST   0x8000  // Tracks whether we're gonna be a baby alien's mummy.
+#define NO_ANTAG    0x10000  // Players are restricted from gaining antag roles when occupying this mob
 
 // Grab levels.
 #define GRAB_PASSIVE    1
@@ -55,6 +56,18 @@
 #define BP_HIGH_DIASTOLIC 		100
 #define BP_PRE_HIGH_DIASTOLIC	85
 #define BP_IDEAL_DIASTOLIC 		60
+
+#define BLOOD_PRESSURE_HIGH     4
+#define BLOOD_PRESSURE_PRE_HIGH 3
+#define BLOOD_PRESSURE_IDEAL    2
+#define BLOOD_PRESSURE_LOW      1
+
+// total_radiation levels (Note that total_radiation can be above RADS_MAX until handle_mutations_and_radiation() runs)
+#define RADS_NONE 0
+#define RADS_LOW 1
+#define RADS_MED 50
+#define RADS_HIGH 75
+#define RADS_MAX 100
 
 //intent flags, why wasn't this done the first time?
 #define I_HELP		"help"

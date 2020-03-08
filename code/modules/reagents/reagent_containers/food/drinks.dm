@@ -15,12 +15,6 @@
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
 	return
 
-/obj/item/reagent_containers/food/drinks/feed_sound(var/mob/user)
-	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
-
-/obj/item/reagent_containers/food/drinks/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
-
 /obj/item/reagent_containers/food/drinks/attack_self(mob/user as mob)
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
@@ -130,61 +124,72 @@
 		reagents.add_reagent("soymilk", 50)
 
 /obj/item/reagent_containers/food/drinks/coffee
-	name = "Robust coffee"
+	name = "robust coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
-	icon_state = "coffee"
+	icon_state = "coffee_vended"
 	item_state = "contvapour"
-	drop_sound = 'sound/items/drop/box.ogg'
+	trash = /obj/item/trash/coffee
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("coffee", 30)
 
 /obj/item/reagent_containers/food/drinks/pslatte
-	name = "Seasonal Pumpkin Spice Latte"
+	name = "seasonal pumpkin spice latte"
 	desc = "A limited edition pumpkin spice coffee drink!"
 	icon_state = "psl_vended"
-	drop_sound = 'sound/items/drop/box.ogg'
+	item_state = "contvapour"
+	trash = /obj/item/trash/coffee
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("sadpslatte", 30)
 
 /obj/item/reagent_containers/food/drinks/tea
-	name = "Duke purple tea"
+	name = "duke purple tea"
 	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
-	icon_state = "coffee"
-	item_state = "coffee"
+	icon_state = "coffee_vended"
+	item_state = "contvapour"
+	trash = /obj/item/trash/coffee
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("tea", 30)
 
 /obj/item/reagent_containers/food/drinks/greentea
-	name = "Green Tea"
+	name = "green tea"
 	desc = "Tasty green tea. It's good for you!"
 	icon_state = "greentea_vended"
-	item_state = "coffee"
+	item_state = "contvapour"
+	trash = /obj/item/trash/coffee
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("greentea", 30)
 
 /obj/item/reagent_containers/food/drinks/hotcider
-	name = "Hot Cider"
+	name = "hot cider"
 	desc = "A hearty apple drink, spiced just right."
-	icon_state = "soy_latte"
-	item_state = "coffee"
+	icon_state = "soy_latte_vended"
+	item_state = "contvapour"
+	trash = /obj/item/trash/coffee
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
 		. = ..()
 		reagents.add_reagent("ciderhot", 30)
 
 /obj/item/reagent_containers/food/drinks/chaitea
-	name = "Chai Tea"
+	name = "chai Tea"
 	desc = "The name is redundant but the flavor is delicious!"
 	icon_state = "chai_vended"
-	item_state = "coffee"
+	item_state = "contvapour"
+	trash = /obj/item/trash/coffee
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
 		. = ..()
@@ -193,7 +198,10 @@
 /obj/item/reagent_containers/food/drinks/ice
 	name = "ice cup"
 	desc = "Careful, cold ice, do not chew."
-	icon_state = "coffee"
+	icon_state = "coffee_vended"
+	item_state = "contvapour"
+	trash = /obj/item/trash/coffee
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=10)
 	Initialize()
 		. = ..()
@@ -203,7 +211,9 @@
 	name = "dutch hot coco"
 	desc = "Made in Space South America."
 	icon_state = "hot_coco"
-	item_state = "coffee"
+	item_state = "contvapour"
+	trash = /obj/item/trash/coffee
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=13)
 	Initialize()
 		. = ..()
@@ -213,7 +223,9 @@
 	name = "cup ramen"
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
 	icon_state = "ramen"
-	drop_sound = 'sound/items/drop/gloves.ogg'
+	item_state = "contvapour"
+	trash = /obj/item/trash/ramen
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
 		. = ..()
@@ -224,7 +236,7 @@
 	name = "paper cup"
 	desc = "A paper water cup."
 	icon_state = "water_cup_e"
-	drop_sound = 'sound/items/drop/paper.ogg'
+	drop_sound = 'sound/items/drop/papercup.ogg'
 	possible_transfer_amounts = null
 	volume = 10
 	center_of_mass = list("x"=16, "y"=12)
