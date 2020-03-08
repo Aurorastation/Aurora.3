@@ -300,6 +300,7 @@
 	amount_per_transfer_from_this = 10
 	volume = 120
 	center_of_mass = list("x"=16, "y"=8)
+	var/spam_flag = 0
 
 /obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user as mob)
 	if (spam_flag == 0)
