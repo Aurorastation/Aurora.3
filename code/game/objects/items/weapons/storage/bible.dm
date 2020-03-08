@@ -2,6 +2,7 @@
 	name = "bible"
 	desc = "A holy item, containing the written words of a religion."
 	icon_state = "bible"
+	item_state = "bible"
 	icon = 'icons/obj/library.dmi'
 	throw_speed = 1
 	throw_range = 5
