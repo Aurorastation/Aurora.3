@@ -32,12 +32,13 @@
 
 /datum/ntsl_program/proc/tc_message(var/datum/signal/signal)
 	if(ntsl2.connected)
+		var/datum/language/signal_language = signal.data["language"]
 		ntsl2.send(list(action = "message", id = id, sig_ref = "\ref[signal]", signal = list2params(list(
 			content = html_decode(signal.data["message"]),
 			source = html_decode(signal.data["name"]),
 			job = html_decode(signal.data["job"]),
 			freq = signal.frequency,
 			pass = !(signal.data["reject"]),
-			language = signal.data["language"].name,
+			language = signal_language.name,
 			verb = signal.data["verb"]
 		))))

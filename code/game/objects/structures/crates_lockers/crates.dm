@@ -502,6 +502,20 @@
 	icon_opened = "largebinopen"
 	icon_closed = "largebin"
 
+/obj/structure/closet/crate/drop
+	name = "drop crate"
+	desc = "A large, sturdy crate meant for airdrops."
+	icon_state = "dropcrate"
+	icon_opened = "dropcrate-open"
+	icon_closed = "dropcrate"
+
+/obj/structure/closet/crate/drop/grey
+	name = "drop crate"
+	desc = "A large, sturdy crate meant for airdrops."
+	icon_state = "dropcrate-grey"
+	icon_opened = "dropcrate-grey-open"
+	icon_closed = "dropcrate-grey"
+
 /obj/structure/closet/crate/radiation
 	name = "radioactive gear crate"
 	desc = "A crate with a radiation sign on it."
@@ -533,7 +547,6 @@
 	icon_opened = "tcflcrateopen"
 	icon_closed = "tcflcrate"
 	req_access = list(access_legion)
-	layer = OBJ_LAYER - 0.01
 
 /obj/structure/closet/crate/secure/phoron
 	name = "phoron crate"

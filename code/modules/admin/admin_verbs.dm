@@ -384,6 +384,7 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/cmd_cciaa_say,
 	/datum/admins/proc/create_admin_fax,
+	/client/proc/launch_ccia_shuttle,
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
 	/client/proc/check_antagonists,

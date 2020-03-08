@@ -127,7 +127,7 @@ var/datum/controller/subsystem/vote/SSvote
 		. = pick(winners)
 
 		for(var/key in current_votes)
-			if(choices[current_votes[key]]["votes"] == .)
+			if(current_votes[key] == .)
 				round_voters += key // Keep track of who voted for the winning round.
 		if((mode == "gamemode" && . == "Extended") || SSticker.hide_mode == 0) // Announce Extended gamemode, but not other gamemodes
 			text += "<b>Vote Result: [.]</b>"
@@ -371,7 +371,7 @@ var/datum/controller/subsystem/vote/SSvote
 	if(!data)
 		. = list("choices" = list(), "mode" = 0, "voted" = 0)
 	data = . || data
-	if(choices.len != data["choices"].len)
+	if(choices.len != LAZYLEN(data["choices"]))
 		data["choices"] = list()
 	for(var/choice in choices)
 		VUEUI_SET_IFNOTSET(data["choices"][choice], deepCopyList(choices[choice]), ., data)

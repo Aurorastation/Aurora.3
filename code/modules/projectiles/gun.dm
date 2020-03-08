@@ -91,7 +91,7 @@
 	var/tmp/lock_time = -100
 	var/safety_state = TRUE
 	var/has_safety = TRUE
-	var/safety_icon	= "safety"   //overlay to apply to gun based on safety state, if any
+	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
 
@@ -118,18 +118,16 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', "bayonet")
+		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
 
-	if(has_safety && safety_icon)
-		for(var/I in overlays)
-			var/image/gun_overlay = I
-			if(gun_overlay.icon == gun_gui_icons && dd_hasprefix(gun_overlay.icon_state, "[safety_icon]"))
-				overlays -= gun_overlay
-		if(ismob(loc))
-			overlays += image(gun_gui_icons,"[safety_icon][safety()]")
+	if(has_safety)
+		cut_overlay(safety_overlay, TRUE)
+		if(!isturf(loc)) // In a mob, holster or bag or something
+			safety_overlay = image(gun_gui_icons,"[safety()]")
+			add_overlay(safety_overlay, TRUE)
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -412,6 +410,13 @@
 
 	if(recoil)
 		addtimer(CALLBACK(GLOBAL_PROC, /proc/shake_camera, user, recoil+1, recoil), 0, TIMER_UNIQUE)
+
+	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+		var/mob/living/carbon/human/H = user
+		if(istype(H.back,/obj/item/rig))
+			var/obj/item/rig/R = H.back
+			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
+				S.deactivate()
 	update_icon()
 
 

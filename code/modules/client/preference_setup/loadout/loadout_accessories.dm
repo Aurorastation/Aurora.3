@@ -193,6 +193,18 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
+/datum/gear/accessory/silversun
+	display_name = "silversun floral shirt selection"
+	path = /obj/item/clothing/accessory/silversun
+
+/datum/gear/accessory/silversun/New()
+	..()
+	var/shirts = list()
+	shirts["cyan silversun shirt"] = /obj/item/clothing/accessory/silversun
+	shirts["red silversun shirt"] = /obj/item/clothing/accessory/silversun/red
+	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
+	gear_tweaks += new/datum/gear_tweak/path(shirts)
+
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf

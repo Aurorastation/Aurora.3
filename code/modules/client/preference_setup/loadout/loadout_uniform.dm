@@ -233,16 +233,18 @@
 	path = /obj/item/clothing/under/syndicate/tacticool
 
 /datum/gear/uniform/dominia
-	display_name = "dominia suit selection"
-	description = "A selection of dominian suits."
+	display_name = "dominia clothing selection"
+	description = "A selection of dominian clothing."
 	path = /obj/item/clothing/under/dominia
 
 /datum/gear/uniform/dominia/New()
 	..()
 	var/suit = list()
-	suit["dominia suit"] = /obj/item/clothing/under/dominia
+	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
-	suit["lyodsuit"] = /obj/item/clothing/under/dom_thermal
+	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
+	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
+	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/miscellaneous/kimono

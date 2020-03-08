@@ -627,7 +627,7 @@
 	if (stat == DEAD)
 		SSfeedback.IncrementSimpleStat("openturf_human_deaths")
 
-/mob/living/carbon/human/bst/fall_impact()
+/mob/living/carbon/human/bst/fall_impact(var/damage_mod)
 	return FALSE
 
 /mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)

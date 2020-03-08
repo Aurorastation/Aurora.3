@@ -5,6 +5,16 @@
 	initial_flooring = /decl/flooring/carpet
 	footstep_sound = "carpet"
 
+/turf/simulated/floor/carpet/blue
+	name = "blue carpet"
+	icon_state = "bcarpet"
+	initial_flooring = /decl/flooring/carpet/blue
+
+/turf/simulated/floor/carpet/rubber
+	name = "rubber carpet"
+	icon_state = "rub_carpet"
+	initial_flooring = /decl/flooring/carpet/rubber
+
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -35,11 +45,6 @@
 	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "grass_alt"
 	initial_flooring = /decl/flooring/grass/alt
-
-/turf/simulated/floor/carpet/blue
-	name = "blue carpet"
-	icon_state = "bcarpet"
-	initial_flooring = /decl/flooring/carpet/blue
 
 /turf/simulated/floor/tiled
 	name = "floor"
@@ -126,7 +131,7 @@
 
 /turf/simulated/floor/tiled/asteroid
 	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "asteroidfloor"
+	icon_state = "asteroid"
 	initial_flooring = /decl/flooring/tiling/asteroid
 
 /turf/simulated/floor/plating/asteroid
@@ -166,6 +171,10 @@
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_state = "lino"
 	initial_flooring = /decl/flooring/linoleum
+
+/turf/simulated/floor/lino/grey
+	icon_state = "lino_grey"
+	initial_flooring = /decl/flooring/linoleum/grey
 
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless

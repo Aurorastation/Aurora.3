@@ -616,6 +616,9 @@
 			if(cell)
 				user.visible_message("<span class='notice'>\The [user] begins clasping shut \the [src]'s maintenance hatch.</span>", "<span class='notice'>You begin closing up \the [src].</span>")
 				if(do_after(user, 50/W.toolspeed, src))
+					if(!Adjacent(user))
+						to_chat(user, SPAN_NOTICE("You are too far from \the [src]'s to open its hatch."))
+						return
 					to_chat(user, "<span class='notice'>You close \the [src]'s maintenance hatch.</span>")
 					opened = 0
 					updateicon()
@@ -667,6 +670,9 @@
 			else
 				user.visible_message("<span class='notice'>\The [user] begins prying open \the [src]'s maintenance hatch.</span>", "<span class='notice'>You start opening \the [src]'s maintenance hatch.</span>")
 				if(do_after(user, 50/W.toolspeed, src))
+					if(!Adjacent(user))
+						to_chat(user, SPAN_NOTICE("You are too far from \the [src]'s to close its hatch."))
+						return
 					to_chat(user, "<span class='notice'>You open \the [src]'s maintenance hatch.</span>")
 					opened = 1
 					updateicon()
@@ -826,7 +832,10 @@
 	cut_overlays()
 
 	if(stat == CONSCIOUS)
-		add_overlay("eyes-[module_sprites[icontype]]")
+		if(a_intent == I_HELP)
+			add_overlay("eyes-[module_sprites[icontype]]-help")
+		else
+			add_overlay("eyes-[module_sprites[icontype]]-harm")
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"

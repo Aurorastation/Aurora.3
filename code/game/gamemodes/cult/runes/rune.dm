@@ -1,8 +1,10 @@
 var/global/rune_boost = 0 // How many extra runes the cult can lay down
 
 var/global/list/static/rune_types = list(
-			"Armor" = /obj/effect/rune/armor,
+			"Create Armor" = /obj/effect/rune/armor,
+			"Create Construct" = /obj/effect/rune/create_construct,
 			"Summon Tome" = /obj/effect/rune/summon_tome,
+			"Summon Soulstone" = /obj/effect/rune/summon_soulstone,
 			"Become Ethereal" = /obj/effect/rune/ethereal,
 			"Manifest Ghost" = /obj/effect/rune/manifest,
 			"Raise Dead" = /obj/effect/rune/raise_dead,

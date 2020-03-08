@@ -159,7 +159,7 @@
     desc = "Robes worn by those who serve The Trinary Perfection."
     icon_state = "trinary_robes"
     item_state = "trinary_robes"
-	
+
 /*
  * Misc
  */
@@ -198,18 +198,6 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.75
-
-/obj/item/clothing/suit/browncoat
-	name = "brown leather coat"
-	desc = "A long, brown leather coat."
-	icon_state = "browncoat"
-	item_state = "browncoat"
-
-/obj/item/clothing/suit/neocoat
-	name = "black coat"
-	desc = "A flowing, black coat."
-	icon_state = "neocoat"
-	item_state = "neocoat"
 
 /obj/item/clothing/suit/xenos
 	name = "xenos suit"
@@ -448,45 +436,13 @@
 	icon_closed = "trenchcoat_grey"
 
 /obj/item/clothing/suit/storage/toggle/trench/green
-    name = "green trenchcoat"
-    desc = "A comfy looking green trenchcoat with fur."
-    icon_state = "greentrench"
-    item_state = "greentrench"
-    icon_open = "greentrench_open"
-    icon_closed = "greentrench"
-    body_parts_covered = UPPER_TORSO|ARMS
-
-/obj/item/clothing/suit/storage/dominia
-	name = "dominia cape"
-	desc = "This is a cape in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon_state = "dominian_cape"
-	item_state = "dominian_cape"
-
-/obj/item/clothing/suit/storage/toggle/dominia
-	name = "dominia great coat"
-	desc = "This is a great coat in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon_state = "dominian_noble"
-	item_state = "dominian_noble"
-	icon_open = "dominian_noble_open"
-	icon_closed = "dominian_noble"
-
-/obj/item/clothing/suit/storage/toggle/dominia/alt
-	icon_state = "dominian_noble2"
-	item_state = "dominian_noble2"
-	icon_open = "dominian_noble2_open"
-	icon_closed = "dominian_noble2"
-
-/obj/item/clothing/suit/storage/toggle/dominia/black
-	icon_state = "dominian_noble4"
-	item_state = "dominian_noble4"
-	icon_open = "dominian_noble4_open"
-	icon_closed = "dominian_noble4"
-
-/obj/item/clothing/suit/storage/toggle/dominia/black/alt
-	icon_state = "dominian_noble5"
-	item_state = "dominian_noble5"
-	icon_open = "dominian_noble5_open"
-	icon_closed = "dominian_noble5"
+	name = "green trenchcoat"
+	desc = "A comfy looking green trenchcoat with fur."
+	icon_state = "greentrench"
+	item_state = "greentrench"
+	icon_open = "greentrench_open"
+	icon_closed = "greentrench"
+	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/greengov
 	name = "green formal jacket"
@@ -544,37 +500,49 @@
 	icon_closed = "trackjacketwhite"
 	contained_sprite = 1
 
-/obj/item/clothing/suit/varsity
+/obj/item/clothing/suit/storage/toggle/varsity
 	name = "black varsity jacket"
 	desc = "A favorite of jocks everywhere from Sol to the Coalition."
 	icon_state = "varsity"
 	item_state = "varsity"
+	icon_open = "varsity_open"
+	icon_closed = "varsity"
 	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
 
-/obj/item/clothing/suit/varsity/red
+/obj/item/clothing/suit/storage/toggle/varsity/red
 	name = "red varsity jacket"
 	icon_state = "varsity_red"
 	item_state = "varsity_red"
+	icon_open = "varsity_red_open"
+	icon_closed = "varsity_red"
 
-/obj/item/clothing/suit/varsity/purple
+/obj/item/clothing/suit/storage/toggle/varsity/purple
 	name = "purple varsity jacket"
 	icon_state = "varsity_purple"
 	item_state = "varsity_purple"
+	icon_open = "varsity_purple_open"
+	icon_closed = "varsity_purple"
 
-/obj/item/clothing/suit/varsity/green
+/obj/item/clothing/suit/storage/toggle/varsity/green
 	name = "green varsity jacket"
 	icon_state = "varsity_green"
 	item_state = "varsity_green"
+	icon_open = "varsity_green_open"
+	icon_closed = "varsity_green"
 
-/obj/item/clothing/suit/varsity/blue
+/obj/item/clothing/suit/storage/toggle/varsity/blue
 	name = "blue varsity jacket"
 	icon_state = "varsity_blue"
 	item_state = "varsity_blue"
+	icon_open = "varsity_blue_open"
+	icon_closed = "varsity_blue"
 
-/obj/item/clothing/suit/varsity/brown
+/obj/item/clothing/suit/storage/toggle/varsity/brown
 	name = "brown varsity jacket"
 	icon_state = "varsity_brown"
 	item_state = "varsity_brown"
+	icon_open = "varsity_brown_open"
+	icon_closed = "varsity_brown"
 
 /obj/item/clothing/suit/storage/legion
 	name = "tcfl jacket"
