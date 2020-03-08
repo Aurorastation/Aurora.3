@@ -351,32 +351,20 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		malfunction--
 
 /obj/item/implant/loyalty
-	name = "loyalty implant"
-	desc = "Makes you loyal or such."
+	name = "mind shield implant"
+	desc = "A controversial and debatably unethical neurostimulator and autohypnosis device. When implanted against the amygdala, it ensures the host maintains a consistent personality, preventing outside interference through brainwashing or hypnotic suggestion."
 
 /obj/item/implant/loyalty/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
 <b>Name:</b> [current_map.company_name] Employee Management Implant<BR>
 <b>Life:</b> Ten years.<BR>
-<b>Important Notes:</b> Personnel injected with this device tend to be much more loyal to the company.<BR>
+<b>Important Notes:</b> Personnel injected with this device tend to be much more resistant to brain washing and other external influences.<BR>
 <HR>
 <b>Implant Details:</b><BR>
 <b>Function:</b> Contains a small pod of nanobots that manipulate the host's mental functions.<BR>
 <b>Special Features:</b> Will prevent and cure most forms of brainwashing.<BR>
 <b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
-
-/obj/item/implant/loyalty/implanted(mob/M)
-	if(!istype(M, /mob/living/carbon/human))	return 0
-	var/mob/living/carbon/human/H = M
-	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
-	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-		H.visible_message("[H] seems to resist the implant!", "You feel the corporate tendrils of [current_map.company_name] try to invade your mind!")
-		return 0
-	else
-		clear_antag_roles(H.mind, 1)
-		to_chat(H, "<span class='notice'>You feel a surge of loyalty towards [current_map.company_name].</span>")
-	return 1
 
 /obj/item/implant/loyalty/emp_act(severity)
 	if (malfunction)
@@ -394,11 +382,10 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		malfunction--
 
 /obj/item/implant/loyalty/ipc
-	name = "loyalty chip"
-	desc = "A device that sets directives programmed for loyalty to NanoTrasen on the synthetic subject. Will not work on organics."
+	name = "software protection chip"
+	desc = "A dedicated processor core designed to identify and terminate malignant software, ensuring a synthetics protection from outside hacking."
 
 /obj/item/implant/loyalty/ipc/implanted(mob/M)
-
 	if (!isipc(M))
 		return
 

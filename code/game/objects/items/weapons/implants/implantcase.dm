@@ -96,8 +96,8 @@
 
 
 /obj/item/implantcase/loyalty
-	name = "glass case - 'loyalty'"
-	desc = "A case containing a loyalty implant."
+	name = "glass case - 'mind shield'"
+	desc = "A case containing a mind shield implant."
 	icon_state = "implantcase-r"
 
 /obj/item/implantcase/loyalty/New()
