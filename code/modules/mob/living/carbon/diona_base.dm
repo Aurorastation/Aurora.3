@@ -614,6 +614,9 @@ var/list/diona_banned_languages = list(
 				C.DS.regen_limb_progress = 0
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)
+				
+			to_chat(C, span("warning", "It will take roughly thirty seconds for your lost nymph to remerge, you need to stand still during this process."))
+			if(do_after(src, 300))
 			to_chat(C, span("notice", "Your lost nymph merged back."))
 			C.add_nymph()
 			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
