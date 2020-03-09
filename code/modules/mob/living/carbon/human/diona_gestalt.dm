@@ -239,6 +239,10 @@
 		return
 	
 	// Get rid of our limb and replace with stump
+	visible_message(
+			"<span class='danger'>\The [src] beings to shift and quiver a bit, with their [var/choice] beginging to droop!</span>",
+			"<span class='warning'>You begin the process to deattch a nymph from your gestalt. [HC]. (This will take around [displaytime] minutes and you need to stand still)</span>"
+			)
 	var/obj/item/organ/external/stump/stump = new (src, 0, O)
 	O.removed(null, TRUE)
 	organs |= stump
