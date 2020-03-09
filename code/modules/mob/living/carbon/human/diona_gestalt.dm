@@ -240,25 +240,27 @@
 	
 	// Get rid of our limb and replace with stump
 	visible_message(
-			"<span class='danger'>\The [src] beings to shift and quiver a bit, with their [var/choice] beginging to droop!</span>",
-			"<span class='warning'>You begin the process to deattch a nymph from your gestalt. [HC]. (This will take around [displaytime] minutes and you need to stand still)</span>"
+			"<span class='danger'>\The [src] beings to shift and quiver!</span>",
+			"<span class='warning'>You begin the process to deattch a nymph from your gestalt. (This will take around 30 seconds and you need to stand still)</span>"
 			)
-	var/obj/item/organ/external/stump/stump = new (src, 0, O)
-	O.removed(null, TRUE)
-	organs |= stump
-	stump.update_damages()
-	O.post_droplimb(src)
-	// If we got parent organ - drop it too
-	if(O.parent_organ && O.parent_organ != BP_CHEST)
-		var/obj/item/organ/external/parent = organs_by_name[O.parent_organ]
-		var/obj/item/organ/external/stump/parent_stump = new (src, 0, parent)
-		parent.removed(null, TRUE)
-		organs |= parent_stump
-		parent_stump.update_damages()
-		parent.post_droplimb(src)
-		qdel(parent)
-	to_chat(src, span("notice", "You detach [O.name] nymph from your body."))
-	qdel(O)
+	var/split_time = 300
+	if(do_after(src, split_time))
+		var/obj/item/organ/external/stump/stump = new (src, 0, O)
+		O.removed(null, TRUE)
+		organs |= stump
+		stump.update_damages()
+		O.post_droplimb(src)
+		// If we got parent organ - drop it too
+		if(O.parent_organ && O.parent_organ != BP_CHEST)
+			var/obj/item/organ/external/parent = organs_by_name[O.parent_organ]
+			var/obj/item/organ/external/stump/parent_stump = new (src, 0, parent)
+			parent.removed(null, TRUE)
+			organs |= parent_stump
+			parent_stump.update_damages()
+			parent.post_droplimb(src)
+			qdel(parent)
+		to_chat(src, span("notice", "You detach [O.name] nymph from your body."))
+		qdel(O)
 
 	var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
 	if(!M)
