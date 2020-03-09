@@ -243,8 +243,8 @@
 			"<span class='danger'>\The [src] beings to shift and quiver!</span>",
 			"<span class='warning'>You begin the process to deattch a nymph from your gestalt. (This will take around 30 seconds and you need to stand still)</span>"
 			)
-	var/split_time = 300
-	if(do_after(src, split_time))
+			
+	if(do_after(src, 300))
 		var/obj/item/organ/external/stump/stump = new (src, 0, O)
 		O.removed(null, TRUE)
 		organs |= stump
@@ -262,31 +262,31 @@
 		to_chat(src, span("notice", "You detach [O.name] nymph from your body."))
 		qdel(O)
 
-	var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
-	if(!M)
-		return
-	M.forceMove(get_turf(src))
+		var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
+		if(!M)
+			return
+		M.forceMove(get_turf(src))
 
-	// Switch control to nymph
-	M.key = src.key
-	teleop = TRUE
-	M.teleop = TRUE
-	src.key = "@[M.key]"
-	src.ajourn = 0
-	DS.nym = WEAKREF(M)
-	M.gestalt = src
-	M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
-	M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
-	verbs += /mob/living/carbon/human/proc/switch_to_nymph
-	M.detached = TRUE
-	M.update_verbs(TRUE)
-	M.languages = languages.Copy()
+		// Switch control to nymph
+		M.key = src.key
+		teleop = TRUE
+		M.teleop = TRUE
+		src.key = "@[M.key]"
+		src.ajourn = 0
+		DS.nym = WEAKREF(M)
+		M.gestalt = src
+		M.verbs += /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt
+		M.verbs += /mob/living/carbon/alien/diona/proc/switch_to_gestalt
+		verbs += /mob/living/carbon/human/proc/switch_to_nymph
+		M.detached = TRUE
+		M.update_verbs(TRUE)
+		M.languages = languages.Copy()
 
-	update_dionastats() //Re-find the organs in case they were lost or regained
-	nutrition -= REGROW_FOOD_REQ
-	DS.stored_energy -= REGROW_ENERGY_REQ
-	diona_handle_regeneration(DS)
-	playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
+		update_dionastats() //Re-find the organs in case they were lost or regained
+		nutrition -= REGROW_FOOD_REQ
+		DS.stored_energy -= REGROW_ENERGY_REQ
+		diona_handle_regeneration(DS)
+		playsound(src, 'sound/species/diona/gestalt_grow.ogg', 30, 1)
 
 /mob/living/carbon/human/proc/switch_to_nymph()
 	set name = "Switch to Nymph"
