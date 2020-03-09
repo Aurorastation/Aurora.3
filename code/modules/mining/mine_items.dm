@@ -344,6 +344,10 @@
 /obj/item/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	icon_state = "spade"
 	item_state = "spade"
 	force = 5.0

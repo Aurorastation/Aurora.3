@@ -90,6 +90,10 @@ Protectiveness | Armor %
 	desc = "It's a bucket with a large hole cut into it.  You could wear it on your head."
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHAIR
 	icon = 'icons/obj/clothing/material_armor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "bucket"
 	item_state = "bucket"
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
