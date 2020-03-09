@@ -603,28 +603,28 @@ var/list/diona_banned_languages = list(
 		if(!H.is_diona())
 			continue
 		var/mob/living/carbon/human/diona/C = H
-		if(C == gestalt)
-			C.nutrition += REGROW_FOOD_REQ * 0.75
-			C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
-			C.key = src.key
-			if(C.DS.regen_limb)
-				C.DS.regen_limb.Invoke()
-				if(C.DS.regen_extra)
-					C.DS.regen_extra.Invoke()
-				C.DS.regen_limb_progress = 0
-			else
-				C.diona_handle_regeneration(C.DS, TRUE)
-				
-			to_chat(C, span("warning", "It will take roughly thirty seconds for your lost nymph to remerge, you need to stand still during this process."))
-			if(do_after(src, 300))
+		to_chat(C, span("warning", "It will take roughly thirty seconds for your lost nymph to remerge, you need to stand still during this process."))
+		if(do_after(src, 300))
 			to_chat(C, span("notice", "Your lost nymph merged back."))
-			C.add_nymph()
-			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
-			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
-			C.DS.nym = null
-			detached = FALSE
-			src.forceMove(C)
-			break
+			if(C == gestalt)
+				C.nutrition += REGROW_FOOD_REQ * 0.75
+				C.DS.stored_energy += REGROW_ENERGY_REQ * 0.75
+				C.key = src.key
+				if(C.DS.regen_limb)
+					C.DS.regen_limb.Invoke()
+					if(C.DS.regen_extra)
+						C.DS.regen_extra.Invoke()
+					C.DS.regen_limb_progress = 0
+				else
+					C.diona_handle_regeneration(C.DS, TRUE)
+				
+				C.add_nymph()
+				verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
+				C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph
+				C.DS.nym = null
+				detached = FALSE
+				src.forceMove(C)
+				break
 
 //DIONASTATS DEFINES
 
