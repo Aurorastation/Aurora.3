@@ -222,8 +222,7 @@
 	set desc = "Allows you to detach specific nymph, and control it."
 	set category = "Abilities"
 
-	if(stat || paralysis || stunned || weakened || lying || restrained())
-		to_chat(src,"<span class='warning'>You can not do that in your current state!</span>")
+	if(use_check_and_message(src))
 		return
 
 	if(nutrition <= 150)
