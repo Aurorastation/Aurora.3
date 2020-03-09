@@ -302,7 +302,7 @@
 	center_of_mass = list("x"=16, "y"=8)
 	var/spam_flag = 0
 
-/obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user as mob)
+/obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user)
 	if (spam_flag == 0)
 		spam_flag = 1
 		playsound(src.loc, 'sound/items/soda_shaking.ogg', 50, 1)
