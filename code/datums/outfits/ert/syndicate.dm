@@ -2,7 +2,7 @@
 	name = "Syndicate Commando"
 
 	uniform = /obj/item/clothing/under/syndicate
-	belt = /obj/item/storage/belt/military/syndicate
+	belt = /obj/item/storage/belt/military
 	mask = /obj/item/clothing/mask/gas/syndicate
 	l_ear = /obj/item/device/radio/headset/syndicate
 	glasses = /obj/item/clothing/glasses/thermal

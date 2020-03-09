@@ -47,7 +47,7 @@
 	name = "Syndicate Operative"
 
 	suit = /obj/item/clothing/suit/space/void/merc
-	belt = /obj/item/storage/belt/military/syndicate
+	belt = /obj/item/storage/belt/military
 	head = /obj/item/clothing/head/helmet/space/void/merc
 	mask = /obj/item/clothing/mask/gas/syndicate
 	l_ear = /obj/item/device/radio/headset/syndicate

@@ -32,9 +32,9 @@
 
 /obj/item/storage/belt/utility
 	name = "tool-belt" //Carn: utility belt is nicer, but it bamboozles the text parsing.
-	desc = "A sturdy belt for holding various tools."
-	icon_state = "utilitybelt"
-	item_state = "utility"
+	desc = "A sturdy belt for holding various tools. This version is yellow with brown pouches."
+	icon_state = "belt-utility"
+	item_state = "belt-utility"
 	can_hold = list(
 		///obj/item/combitool,
 		/obj/item/crowbar,
@@ -93,15 +93,15 @@
 	)
 
 /obj/item/storage/belt/utility/alt
-	desc = "A sturdy belt for holding various tools. This one eschews pouches for tight loops to hold your tools."
-	icon_state = "utilitybelt_alt"
-	item_state = "utility_alt"
+	desc = "A sturdy belt for holding various tools. This version is brown with yellow pouches."
+	icon_state = "belt-utility-alt"
+	item_state = "belt-utility-alt"
 
 /obj/item/storage/belt/medical
 	name = "medical belt"
-	desc = "Can hold various medical equipment."
-	icon_state = "medicalbelt"
-	item_state = "medical"
+	desc = "A sleek belt for holding various medical items. This version is designed for use by Nanotrasen medical personnel, coming with green pouches."
+	icon_state = "belt-medical"
+	item_state = "belt-medical"
 	can_hold = list(
 		/obj/item/device/breath_analyzer,
 		/obj/item/device/healthanalyzer,
@@ -133,15 +133,15 @@
 
 /obj/item/storage/belt/medical/emt
 	name = "EMT utility belt"
-	desc = "A sturdy black webbing belt with attached pouches."
-	icon_state = "emsbelt"
-	item_state = "emsbelt"
+	desc = "A sturdy belt for holding various medical items. This version is designed for use by emergency medical responders, with dark blue, and white, pouches."
+	icon_state = "belt-ems"
+	item_state = "belt-ems"
 
 /obj/item/storage/belt/security
 	name = "security belt"
-	desc = "Can hold security gear like handcuffs and flashes."
-	icon_state = "securitybelt"
-	item_state = "security"
+	desc = "A sturdy belt for holding standard security or police equipment."
+	icon_state = "belt-security"
+	item_state = "belt-security"
 	can_hold = list(
 		/obj/item/grenade,
 		/obj/item/reagent_containers/spray/pepper,
@@ -172,43 +172,25 @@
 		/obj/item/device/radio
 		)
 
-/obj/item/storage/belt/soulstone
-	name = "soul stone belt"
-	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away"
-	icon_state = "soulstonebelt"
-	item_state = "soulstonebelt"
-	storage_slots = 6
-	can_hold = list(
-		/obj/item/device/soulstone
-		)
 
 /obj/item/storage/belt/soulstone/full
 	starts_with = list(/obj/item/device/soulstone = 6)
 
-/obj/item/storage/belt/champion
-	name = "championship belt"
-	desc = "Proves to the world that you are the strongest!"
-	icon_state = "championbelt"
-	item_state = "champion"
-	storage_slots = 1
-	can_hold = list(
-		"/obj/item/clothing/mask/luchador"
-		)
 
 /obj/item/storage/belt/security/tactical
-	name = "combat belt"
-	desc = "Can hold security gear like handcuffs and flashes, with more pouches for more storage."
-	icon_state = "swatbelt"
-	item_state = "swatbelt"
+	name = "tactical belt"
+	desc = "A sleek belt for holding tactical equipment."
+	icon_state = "belt-security"
+	item_state = "belt-security"
 	storage_slots = 9
 	max_w_class = 3
 	max_storage_space = 28
 
 /obj/item/storage/belt/military
 	name = "military belt"
-	desc = "A lightweight, quick to use, military belt. Designed to be comfortably worn even during lengthy military operations."
-	icon_state = "militarybelt"
-	item_state = "militarybelt"
+	desc = "A sturdy belt for holding a large array of items, mainly under the umbrella of security and military equipment."
+	icon_state = "belt-military"
+	item_state = "belt-military"
 	storage_slots = 9 //same as a combat belt now
 	max_w_class = 3
 	max_storage_space  = 28
@@ -239,16 +221,82 @@
 		/obj/item/device/radio
 		)
 
-/obj/item/storage/belt/military/syndicate
-	desc = "A syndicate belt designed to be used by boarding parties. Its style is modeled after the hardsuits they wear."
-	icon_state = "militarybelt_syndie"
-	item_state = "militarybelt_syndie"
+/obj/item/storage/belt/ninja //credits to BurgerBB
+	name = "advanced tactical belt"
+	desc = "A sleek belt for holding a large array of items, mainly under the umbrella of security and military specialist equipment."
+	icon_state = "securitybelt"
+	item_state = "security"
+	storage_slots = 9
+	max_w_class = 4
+	max_storage_space = 28
+
+	can_hold = list(
+		/obj/item/grenade,
+		/obj/item/handcuffs,
+		/obj/item/device/flash,
+		/obj/item/device/paicard,
+		/obj/item/clothing/glasses,
+		/obj/item/ammo_casing/shotgun,
+		/obj/item/ammo_magazine,
+		/obj/item/melee/baton,
+		/obj/item/device/flashlight,
+		/obj/item/device/pda,
+		/obj/item/device/radio/headset,
+		/obj/item/melee,
+		/obj/item/crowbar,
+		/obj/item/screwdriver,
+		/obj/item/shield/energy,
+		/obj/item/pinpointer,
+		/obj/item/plastique,
+		/obj/item/gun/projectile/pistol,
+		/obj/item/gun/energy/crossbow,
+		/obj/item/ammo_casing/a145,
+		/obj/item/device/radio/uplink,
+		/obj/item/card/emag,
+		/obj/item/device/multitool/hacktool,
+		/obj/item/reagent_containers,
+		/obj/item/stack/telecrystal,
+		/obj/item/material/sword,
+		/obj/item/material/star,
+		/obj/item/device/radio
+	)
+
+/obj/item/storage/belt/soulstone
+	name = "soul stone belt"
+	desc = "A sturdy belt for holding arcane crystals."
+	icon_state = "belt-soulstone"
+	item_state = "belt-soulstone"
+	storage_slots = 6
+	can_hold = list(
+		/obj/item/device/soulstone
+		)
+
+/obj/item/storage/belt/wands
+	name = "wand belt"
+	desc = "A sturdy belt for holding a multitude of compactible wands."
+	icon_state = "soulstonebelt"
+	item_state = "soulstonebelt"
+	storage_slots = 5
+	max_w_class = 3
+	max_storage_space  = 28
+	can_hold = list(
+		/obj/item/gun/energy/wand
+	)
+
+/obj/item/storage/belt/wands/full
+	starts_with = list(
+		/obj/item/gun/energy/wand/fire = 1,
+		/obj/item/gun/energy/wand/polymorph = 1,
+		/obj/item/gun/energy/wand/teleport = 1,
+		/obj/item/gun/energy/wand/force = 1,
+		/obj/item/gun/energy/wand/animation = 1
+	)
 
 /obj/item/storage/belt/janitor
-	name = "janibelt"
-	desc = "A belt used to hold most janitorial supplies."
-	icon_state = "janibelt"
-	item_state = "janibelt"
+	name = "janitorial belt"
+	desc = "A sturdy belt for holding custodial equipment."
+	icon_state = "belt-janitorial"
+	item_state = "belt-janitorial"
 	storage_slots = 6
 	w_class = 3
 	max_w_class = 3
@@ -270,29 +318,35 @@
 		/obj/item/gun/energy/mousegun
 		)
 
-/obj/item/storage/belt/wands
-	name = "wand belt"
-	desc = "A belt designed to hold various rods of power."
-	icon_state = "soulstonebelt"
-	item_state = "soulstonebelt"
-	storage_slots = 5
-	max_w_class = 3
-	max_storage_space  = 28
+/obj/item/storage/belt/hydro
+	name = "hydroponics belt"
+	desc = "A sturdy belt for holding plant cultivation equipment."
+	icon_state = "belt-gardening"
+	item_state = "belt-gardening"
+	storage_slots = 9
+	w_class = 3
+	max_w_class = 4
 	can_hold = list(
-		/obj/item/gun/energy/wand
+		/obj/item/reagent_containers/glass,
+		/obj/item/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
+		/obj/item/bee_smoker, //will this ever get used? Probally not.
+		/obj/item/plantspray/pests,
+		/obj/item/storage/bag/plants,
+		/obj/item/reagent_containers/food/snacks/grown,
+		/obj/item/seeds,
+		/obj/item/grown,
+		/obj/item/material/minihoe,
+		/obj/item/material/hatchet,
+		/obj/item/wirecutters,
+		/obj/item/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
+		/obj/item/device/analyzer/plant_analyzer,
+		/obj/item/clothing/gloves/botanic_leather,
+		/obj/item/device/radio
 	)
 
-/obj/item/storage/belt/wands/full
-	starts_with = list(
-		/obj/item/gun/energy/wand/fire = 1,
-		/obj/item/gun/energy/wand/polymorph = 1,
-		/obj/item/gun/energy/wand/teleport = 1,
-		/obj/item/gun/energy/wand/force = 1,
-		/obj/item/gun/energy/wand/animation = 1
-	)
 
 /obj/item/storage/belt/mining
-	name = "explorer's belt"
+	name = "explorer's rig"
 	desc = "A versatile chest rig, cherished by miners and hunters alike."
 	icon_state = "explorer"
 	item_state = "explorer"
@@ -341,71 +395,6 @@
 		/obj/item/gun/custom_ka
 		)
 
-/obj/item/storage/belt/hydro
-	name = "hydrobelt"
-	desc = "A utility belt to store and provide easy access to your floral utilities."
-	icon_state = "growbelt"
-	item_state = "growbelt"
-	storage_slots = 9
-	w_class = 3
-	max_w_class = 4
-	can_hold = list(
-		/obj/item/reagent_containers/glass,
-		/obj/item/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
-		/obj/item/bee_smoker, //will this ever get used? Probally not.
-		/obj/item/plantspray/pests,
-		/obj/item/storage/bag/plants,
-		/obj/item/reagent_containers/food/snacks/grown,
-		/obj/item/seeds,
-		/obj/item/grown,
-		/obj/item/material/minihoe,
-		/obj/item/material/hatchet,
-		/obj/item/wirecutters,
-		/obj/item/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
-		/obj/item/device/analyzer/plant_analyzer,
-		/obj/item/clothing/gloves/botanic_leather,
-		/obj/item/device/radio
-	)
-
-/obj/item/storage/belt/ninja //credits to BurgerBB
-	name = "advanced combat belt"
-	desc = "A very robust belt that can hold various specialized gear such as swords, grenades, shurikens, and food rations."
-	icon_state = "securitybelt"
-	item_state = "security"
-	storage_slots = 9
-	max_w_class = 4
-	max_storage_space = 28
-
-	can_hold = list(
-		/obj/item/grenade,
-		/obj/item/handcuffs,
-		/obj/item/device/flash,
-		/obj/item/device/paicard,
-		/obj/item/clothing/glasses,
-		/obj/item/ammo_casing/shotgun,
-		/obj/item/ammo_magazine,
-		/obj/item/melee/baton,
-		/obj/item/device/flashlight,
-		/obj/item/device/pda,
-		/obj/item/device/radio/headset,
-		/obj/item/melee,
-		/obj/item/crowbar,
-		/obj/item/screwdriver,
-		/obj/item/shield/energy,
-		/obj/item/pinpointer,
-		/obj/item/plastique,
-		/obj/item/gun/projectile/pistol,
-		/obj/item/gun/energy/crossbow,
-		/obj/item/ammo_casing/a145,
-		/obj/item/device/radio/uplink,
-		/obj/item/card/emag,
-		/obj/item/device/multitool/hacktool,
-		/obj/item/reagent_containers,
-		/obj/item/stack/telecrystal,
-		/obj/item/material/sword,
-		/obj/item/material/star,
-		/obj/item/device/radio
-	)
 
 /obj/item/storage/belt/fannypack
 	name = "leather fannypack"
@@ -460,6 +449,16 @@
  	name = "yellow fannypack"
  	icon_state = "fannypack_yellow"
  	item_state = "fannypack_yellow"
+
+/obj/item/storage/belt/champion
+	name = "championship belt"
+	desc = "Proves to the world that you are the strongest!"
+	icon_state = "championbelt"
+	item_state = "champion"
+	storage_slots = 1
+	can_hold = list(
+		"/obj/item/clothing/mask/luchador"
+		)
 
 /obj/item/storage/belt/shumaila_buckle
 	name = "hammer buckle belt"
