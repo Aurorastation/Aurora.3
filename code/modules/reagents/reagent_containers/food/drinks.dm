@@ -300,15 +300,13 @@
 	amount_per_transfer_from_this = 10
 	volume = 120
 	center_of_mass = list("x"=16, "y"=8)
-	var/spam_flag = 0
+	var/last_shake = 0
 
 /obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user)
-	if (spam_flag == 0)
-		spam_flag = 1
+	if(last_shake <= world.time - 10) //Spam limiter.
+		last_shake = world.time
 		playsound(src.loc, 'sound/items/soda_shaking.ogg', 50, 1)
-		src.add_fingerprint(user)
-		spawn(10)
-			spam_flag = 0
+	src.add_fingerprint(user)
 	return
 
 /obj/item/reagent_containers/food/drinks/teapot
