@@ -45,18 +45,19 @@
 		addtimer(CALLBACK(src, .proc/show_mirage), rand(30,50)*i)	//every 3 to 5 seconds
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
-		part = LAZYPICK(H.organs, "chest")
+		part = pick(H.organs)
 	to_chat(holder, SPAN_DANGER("The flesh on your [part] splits open. It doesn't hurt, but the blood won't stop coming..."))
 
 
 /datum/hallucination/mirage/bleeding/generate_mirage()
+	var/image/I
 	if(prob(min(holder.hallucination, 80)))
-		var/image/I = image('icons/effects/blood.dmi', pick("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5", "mfloor6", "mfloor7"), layer = TURF_LAYER)
-		I.color = holder.species.blood_color
-		return I
+		I = image('icons/effects/blood.dmi', pick("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5", "mfloor6", "mfloor7"), layer = TURF_LAYER)
 	else
 		var/icon/T = new('icons/effects/drip.dmi')
-		return image(T, pick(T.IconStates()), layer = TURF_LAYER)
+		I = image(T, pick(T.IconStates()), layer = TURF_LAYER)
+	I.color = holder.species.blood_color
+	return I
 
 
 /datum/hallucination/mirage/bleeding/proc/show_mirage()
@@ -66,7 +67,7 @@
 	holder.client.images += thing	//one at a time
 	if(prob(20))
 		var/list/message_picks = list("It won't stop, it won't stop...!", "You're feeling lightheaded...", "Your [part] won't stop gushing blood!", "The blood is everywhere!", "Everything around you is soaked with your blood...!")
-		to_chat(holder, SPAN_DANGER(LAZYPICK(message_picks, "The blood keeps coming!")))
+		to_chat(holder, SPAN_DANGER(pick(message_picks)))
 
 
 /datum/hallucination/mirage/bleeding/end()
