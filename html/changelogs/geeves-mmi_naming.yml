@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Cyborgs' and robots' MMIs, Posibrains, or Robotic Circuits, will now receive their name designation when a name is picked."
