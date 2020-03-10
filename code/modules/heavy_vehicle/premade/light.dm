@@ -89,3 +89,17 @@
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_l_hand = /obj/item/mecha_equipment/mounted_system/medanalyzer
 	h_r_hand = /obj/item/mecha_equipment/clamp
+
+/mob/living/heavy_vehicle/premade/light/iac
+	name = "IAC exosuit"
+	desc = "A light and agile exosuit painted in the colours of the Interstellar Aid Corps."
+	icon_state = "odysseus"
+
+	e_color = COLOR_IAC
+
+	h_head = /obj/item/mecha_equipment/light
+	h_back = /obj/item/mecha_equipment/sleeper
+	h_l_shoulder = /obj/item/mecha_equipment/crisis_drone
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/medanalyzer
+	h_r_hand = /obj/item/mecha_equipment/clamp
