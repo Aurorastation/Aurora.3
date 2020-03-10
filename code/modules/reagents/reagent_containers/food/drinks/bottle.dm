@@ -412,7 +412,7 @@
 	icon_state = "colabottle"
 	center_of_mass = list("x"=16, "y"=6)
 	bottle_flags = null
-	dropsound = 'sound/items/drop/shoes.ogg'
+	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		. = ..()
 		reagents.add_reagent("cola", 100)
@@ -423,7 +423,7 @@
 	icon_state = "space-up_bottle"
 	center_of_mass = list("x"=16, "y"=6)
 	bottle_flags = null
-	dropsound = 'sound/items/drop/shoes.ogg'
+	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		..()
 		reagents.add_reagent("space_up", 100)
@@ -434,7 +434,7 @@
 	icon_state = "space_mountain_wind_bottle"
 	center_of_mass = list("x"=16, "y"=6)
 	bottle_flags = null
-	dropsound = 'sound/items/drop/shoes.ogg'
+	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		. = ..()
 		reagents.add_reagent("spacemountainwind", 100)
