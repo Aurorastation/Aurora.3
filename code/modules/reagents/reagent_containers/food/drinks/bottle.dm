@@ -2,7 +2,7 @@
 //Functionally identical to regular drinks. The only difference is that the default bottle size is 100. - Darem
 //Bottles now weaken and break when smashed on people's heads. - Giacom
 
-#define BOTTLE_EMPTY_ICON 1		//If icon has an empty state, use this flag. Empty states should be labelled "iconstatename_empty"; see update_icon(). Add this flag if you add empty states
+#define NO_EMPTY_ICON 1			//If icon does not have iconnamestate_empty as an empty state, use this flag to prevent it going invisible.  See update_icon(). Remove this flag if you add empty states
 #define BOTTLE_IS_GLASS 2		//Whether the 'bottle' is made of glass or not so that milk cartons dont shatter when someone gets hit by it
 
 /obj/item/reagent_containers/food/drinks/bottle
@@ -19,7 +19,7 @@
 
 	var/obj/item/reagent_containers/glass/rag/rag = null
 	var/rag_underlay = "rag"
-	var/bottle_flags = BOTTLE_EMPTY_ICON | BOTTLE_IS_GLASS
+	var/bottle_flags = BOTTLE_IS_GLASS
 
 /obj/item/reagent_containers/food/drinks/bottle/Initialize()
 	. = ..()
@@ -131,7 +131,7 @@
 		set_light(2)
 	else
 		set_light(0)
-		if(!reagents.total_volume && (bottle_flags & BOTTLE_EMPTY_ICON))
+		if(!reagents.total_volume && !(bottle_flags & NO_EMPTY_ICON))
 			icon_state = "[initial(icon_state)]_empty"
 		else
 			icon_state = "[initial(icon_state)]"
@@ -381,7 +381,7 @@
 	desc = "A bottle of 46 proof Emeraldine Melon Liquor. Sweet and light."
 	icon_state = "alco-green" //Placeholder.
 	center_of_mass = list("x"=16, "y"=6)
-	bottle_flags = BOTTLE_IS_GLASS
+	bottle_flags = BOTTLE_IS_GLASS | NO_EMPTY_ICON
 	Initialize()
 		. = ..()
 		reagents.add_reagent("melonliquor", 100)
@@ -390,7 +390,7 @@
 	name = "Miss blue curacao"
 	desc = "A fruity, exceptionally azure drink. Does not allow the imbiber to use the fifth magic."
 	icon_state = "alco-blue" //Placeholder.
-	bottle_flags = BOTTLE_IS_GLASS
+	bottle_flags = BOTTLE_IS_GLASS | NO_EMPTY_ICON
 	center_of_mass = list("x"=16, "y"=6)
 	Initialize()
 		. = ..()
@@ -400,7 +400,7 @@
 	name = "Briar Rose grenadine syrup"
 	desc = "Sweet and tangy, a bar syrup used to add color or flavor to drinks."
 	icon_state = "grenadinebottle"
-	bottle_flags = BOTTLE_IS_GLASS
+	bottle_flags = BOTTLE_IS_GLASS | NO_EMPTY_ICON
 	center_of_mass = list("x"=16, "y"=6)
 	Initialize()
 		. = ..()
@@ -411,7 +411,7 @@
 	desc = "Cola. in space"
 	icon_state = "colabottle"
 	center_of_mass = list("x"=16, "y"=6)
-	bottle_flags = null
+	bottle_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		. = ..()
@@ -422,7 +422,7 @@
 	desc = "Tastes like a hull breach in your mouth."
 	icon_state = "space-up_bottle"
 	center_of_mass = list("x"=16, "y"=6)
-	bottle_flags = null
+	bottle_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		..()
@@ -433,7 +433,7 @@
 	desc = "Blows right through you like a space wind."
 	icon_state = "space_mountain_wind_bottle"
 	center_of_mass = list("x"=16, "y"=6)
-	bottle_flags = null
+	bottle_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		. = ..()
@@ -453,7 +453,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/carton/
 	name = "Generic Carton"
 	desc = "An abstract way to organize bottles that are really cartons. Finally!"
-	bottle_flags = null
+	bottle_flags = NO_EMPTY_ICON
 	item_state = "carton"
 	center_of_mass = list("x"=16, "y"=6)
 	drop_sound = 'sound/items/drop/box.ogg'
