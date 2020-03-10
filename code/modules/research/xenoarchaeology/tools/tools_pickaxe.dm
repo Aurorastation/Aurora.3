@@ -154,7 +154,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "excavation"
 	desc = "A set of picks for excavation."
-	item_state = "syringe_kit"
+	item_state = "box"
 	foldable = /obj/item/stack/material/cardboard //BubbleWrap
 	storage_slots = 7
 	w_class = 2

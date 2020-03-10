@@ -362,7 +362,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
 		if (clipped)
 			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
 			update_icon()

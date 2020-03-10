@@ -11,6 +11,10 @@
 	name = "first-aid kit"
 	desc = "It's an emergency medical kit for those serious boo-boos."
 	icon_state = "firstaid"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	center_of_mass = list("x" = 13,"y" = 10)
 	throw_speed = 2
 	throw_range = 8
@@ -25,7 +29,7 @@
 	name = "fire first-aid kit"
 	desc = "It's an emergency medical kit for when the toxins lab <i>-spontaneously-</i> burns down."
 	icon_state = "ointment"
-	item_state = "firstaid-ointment"
+	item_state = "ointment"
 	starts_with = list(
 		/obj/item/reagent_containers/pill/kelotane = 3,
 		/obj/item/stack/medical/ointment = 2,
@@ -50,7 +54,7 @@
 	name = "toxin first aid"
 	desc = "Used to treat when you have a high amount of toxins in your body."
 	icon_state = "antitoxin"
-	item_state = "firstaid-toxin"
+	item_state = "antitoxin"
 	starts_with = list(
 		/obj/item/reagent_containers/syringe/dylovene = 3,
 		/obj/item/reagent_containers/pill/antitox = 3,
@@ -65,7 +69,7 @@
 	name = "oxygen deprivation kit"
 	desc = "A box full of oxygen related goodies."
 	icon_state = "o2"
-	item_state = "firstaid-o2"
+	item_state = "o2"
 	starts_with = list(
 		/obj/item/reagent_containers/inhaler/dexalin = 4,
 		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 2,
@@ -76,7 +80,7 @@
 	name = "advanced first-aid kit"
 	desc = "Contains advanced medical treatments."
 	icon_state = "advfirstaid"
-	item_state = "firstaid-advanced"
+	item_state = "advfirstaid"
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
@@ -88,7 +92,7 @@
 	name = "combat medical kit"
 	desc = "Contains advanced medical treatments."
 	icon_state = "bezerk"
-	item_state = "firstaid-advanced"
+	item_state = "bezerk"
 	starts_with = list(
 		/obj/item/storage/pill_bottle/bicaridine = 1,
 		/obj/item/storage/pill_bottle/dermaline = 1,
@@ -103,18 +107,18 @@
 	name = "surgery kit"
 	desc = "Contains tools for surgery. Has precise foam fitting for safe transport."
 	icon_state = "purplefirstaid"
-	item_state = "firstaid-advanced"
+	item_state = "purplefirstaid"
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	starts_with = list(
-		/obj/item/bonesetter = 1,
-		/obj/item/cautery = 1,
-		/obj/item/circular_saw = 1,
-		/obj/item/hemostat = 1,
-		/obj/item/retractor = 1,
-		/obj/item/scalpel = 1,
-		/obj/item/surgicaldrill = 1,
-		/obj/item/bonegel = 1,
-		/obj/item/FixOVein = 1,
+		/obj/item/surgery/bonesetter = 1,
+		/obj/item/surgery/cautery = 1,
+		/obj/item/surgery/circular_saw = 1,
+		/obj/item/surgery/hemostat = 1,
+		/obj/item/surgery/retractor = 1,
+		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/surgicaldrill = 1,
+		/obj/item/surgery/bonegel = 1,
+		/obj/item/surgery/FixOVein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 		/obj/item/reagent_containers/inhaler/soporific = 2
 	)
@@ -128,6 +132,7 @@
 	name = "brute aid kit"
 	desc = "A NanoTrasen care package for moderately injured miners."
 	icon_state = "brute"
+	item_state = "brute"
 	starts_with = list(
 		/obj/item/stack/medical/bruise_pack = 4,
 		/obj/item/stack/medical/advanced/bruise_pack = 2
@@ -141,7 +146,11 @@
 	desc = "It's an airtight container for storing medication."
 	icon_state = "pill_canister"
 	icon = 'icons/obj/chemical.dmi'
-	item_state = "contsolid"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
+	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
 	w_class = 2.0
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/dice,/obj/item/paper)

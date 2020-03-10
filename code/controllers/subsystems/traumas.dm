@@ -103,7 +103,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 												 /obj/item/storage/backpack/medic, /obj/item/storage/backpack/messenger/med, /obj/item/storage/belt/medical,
 												 /obj/machinery/vending/medical, /obj/structure/closet/crate/medical, /obj/structure/closet/medical_wall,
 												 /obj/structure/sign/greencross, /obj/item/clothing/accessory/armband/med, /obj/item/clothing/head/helmet/space/void/medical, /obj/item/clothing/mask/breath/medical,
-												 /obj/item/clothing/under/rank/medical, /obj/item/scalpel, /obj/machinery/clonepod, /obj/item/storage/firstaid, /obj/machinery/optable,
+												 /obj/item/clothing/under/rank/medical, /obj/item/surgery/scalpel, /obj/machinery/clonepod, /obj/item/storage/firstaid, /obj/machinery/optable,
 												 /obj/item/clothing/accessory/armband/science, /obj/item/clothing/under/rank/scientist, /obj/machinery/door/airlock/science, /obj/machinery/door/airlock/medical))
 
 					   )

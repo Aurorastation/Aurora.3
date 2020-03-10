@@ -15,7 +15,7 @@
 
 
 /obj/item/storage/fancy
-	item_state = "syringe_kit" //placeholder, many of these don't have inhands
+	item_state = "box" //placeholder, many of these don't have inhands
 	var/icon_type = null
 	var/storage_type = "box"
 	drop_sound = 'sound/items/drop/box.ogg'
@@ -339,7 +339,7 @@
 	desc = "A locked box for keeping things away from children."
 	icon = 'icons/obj/vialbox.dmi'
 	icon_state = "vialbox0"
-	item_state = "syringe_kit"
+	item_state = "box"
 	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/metalboots.ogg'
 	max_w_class = 2

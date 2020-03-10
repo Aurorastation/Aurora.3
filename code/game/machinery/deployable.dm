@@ -278,7 +278,7 @@ for reference:
 	desc = "A do-it-yourself kit for constructing the finest of emergency floodlights."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	item_state = "box"
 	var/kit_product = /obj/machinery/floodlight
 	var/assembly_time = 8 SECONDS
 

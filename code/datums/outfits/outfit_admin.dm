@@ -437,7 +437,7 @@
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/thermal/plain/monocle
 	l_pocket = /obj/item/material/knife
-	r_pocket = /obj/item/scalpel
+	r_pocket = /obj/item/surgery/scalpel
 	r_hand = /obj/item/material/twohanded/fireaxe
 	id = null
 

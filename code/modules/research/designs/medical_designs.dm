@@ -89,7 +89,7 @@
 	id = "scalpel_laser1"
 	req_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2, TECH_MAGNET = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500)
-	build_path = /obj/item/scalpel/laser1
+	build_path = /obj/item/surgery/scalpel/laser1
 	sort_string = "MBBAA"
 
 /datum/design/item/scalpel_laser2
@@ -98,7 +98,7 @@
 	id = "scalpel_laser2"
 	req_tech = list(TECH_BIO = 3, TECH_MATERIAL = 4, TECH_MAGNET = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500, "silver" = 2500)
-	build_path = /obj/item/scalpel/laser2
+	build_path = /obj/item/surgery/scalpel/laser2
 	sort_string = "MBBAB"
 
 /datum/design/item/scalpel_laser3
@@ -107,7 +107,7 @@
 	id = "scalpel_laser3"
 	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 6, TECH_MAGNET = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500, "silver" = 2000, "gold" = 1500)
-	build_path = /obj/item/scalpel/laser3
+	build_path = /obj/item/surgery/scalpel/laser3
 	sort_string = "MBBAC"
 
 /datum/design/item/scalpel_manager
@@ -116,7 +116,7 @@
 	id = "scalpel_manager"
 	req_tech = list(TECH_BIO = 4, TECH_MATERIAL = 7, TECH_MAGNET = 5, TECH_DATA = 4)
 	materials = list (DEFAULT_WALL_MATERIAL = 12500, "glass" = 7500, "silver" = 1500, "gold" = 1500, "diamond" = 750)
-	build_path = /obj/item/scalpel/manager
+	build_path = /obj/item/surgery/scalpel/manager
 	sort_string = "MBBAD"
 
 /datum/design/item/medical/inhaler

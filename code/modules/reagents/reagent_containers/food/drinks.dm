@@ -127,7 +127,7 @@
 	name = "robust coffee"
 	desc = "Careful, the beverage you're about to enjoy is extremely hot."
 	icon_state = "coffee_vended"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
@@ -139,7 +139,7 @@
 	name = "seasonal pumpkin spice latte"
 	desc = "A limited edition pumpkin spice coffee drink!"
 	icon_state = "psl_vended"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
@@ -151,7 +151,7 @@
 	name = "duke purple tea"
 	desc = "An insult to Duke Purple is an insult to the Space Queen! Any proper gentleman will fight you, if you sully this tea."
 	icon_state = "coffee_vended"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
@@ -163,7 +163,7 @@
 	name = "green tea"
 	desc = "Tasty green tea. It's good for you!"
 	icon_state = "greentea_vended"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
@@ -175,7 +175,7 @@
 	name = "hot cider"
 	desc = "A hearty apple drink, spiced just right."
 	icon_state = "soy_latte_vended"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
@@ -187,7 +187,7 @@
 	name = "chai Tea"
 	desc = "The name is redundant but the flavor is delicious!"
 	icon_state = "chai_vended"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
@@ -199,7 +199,7 @@
 	name = "ice cup"
 	desc = "Careful, cold ice, do not chew."
 	icon_state = "coffee_vended"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=10)
@@ -211,7 +211,7 @@
 	name = "dutch hot coco"
 	desc = "Made in Space South America."
 	icon_state = "hot_coco"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/coffee
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=13)
@@ -223,7 +223,7 @@
 	name = "cup ramen"
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
 	icon_state = "ramen"
-	item_state = "contvapour"
+	item_state = "coffee"
 	trash = /obj/item/trash/ramen
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)

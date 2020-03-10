@@ -296,7 +296,7 @@
 	return
 
 /obj/item/organ/internal/brain/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/surgicaldrill))
+	if(istype(W,/obj/item/surgery/surgicaldrill))
 		if(!can_lobotomize)
 			return
 		if(!lobotomized)

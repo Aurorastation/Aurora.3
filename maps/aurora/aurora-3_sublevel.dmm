@@ -17275,8 +17275,8 @@
 /area/rnd/xenobiology)
 "aGK" = (
 /obj/structure/table/standard,
-/obj/item/circular_saw,
-/obj/item/scalpel{
+/obj/item/surgery/circular_saw,
+/obj/item/surgery/scalpel{
 	pixel_y = 8
 	},
 /obj/machinery/alarm{
@@ -21002,7 +21002,7 @@
 "aOa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/standard,
-/obj/item/scalpel,
+/obj/item/surgery/scalpel,
 /obj/item/autopsy_scanner,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
@@ -26054,7 +26054,7 @@
 	pixel_x = -2;
 	pixel_y = 7
 	},
-/obj/item/scalpel,
+/obj/item/surgery/scalpel,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278
@@ -31575,9 +31575,9 @@
 /area/rnd/isolation_a)
 "jED" = (
 /obj/structure/table/standard,
-/obj/item/hemostat,
-/obj/item/retractor,
-/obj/item/circular_saw,
+/obj/item/surgery/hemostat,
+/obj/item/surgery/retractor,
+/obj/item/surgery/circular_saw,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/test_range)
 "jHy" = (
@@ -37499,7 +37499,7 @@
 "xSj" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
-/obj/item/scalpel{
+/obj/item/surgery/scalpel{
 	desc = "Cut, cut, and once more cut. This one is extra shiny!";
 	name = "shiny scalpel"
 	},

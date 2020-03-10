@@ -63,7 +63,7 @@
 	name = "light bulb"
 	desc = "A replacement light bulb."
 	icon_state = "lbulb_preset"//preset state for mapping
-	item_state = "contvapour"
+	item_state = "egg"
 	matter = list("glass" = 100)
 	brightness_range = 5
 	brightness_power = 0.75

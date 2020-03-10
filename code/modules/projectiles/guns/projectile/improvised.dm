@@ -33,7 +33,7 @@
 
 
 /obj/item/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/circular_saw) || istype(A, /obj/item/melee/energy) || istype(A, /obj/item/gun/energy/plasmacutter) && w_class != 3)
+	if(istype(A, /obj/item/surgery/circular_saw) || istype(A, /obj/item/melee/energy) || istype(A, /obj/item/gun/energy/plasmacutter) && w_class != 3)
 		to_chat(user, "<span class='notice'>You begin to shorten the barrel of \the [src].</span>")
 		if(loaded.len)
 			for(var/i in 1 to max_shells)

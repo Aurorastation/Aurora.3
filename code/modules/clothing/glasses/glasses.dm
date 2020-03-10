@@ -577,7 +577,7 @@ BLIND     // can't see anything
 	name = "optical thermal implants"
 	desc = "A set of implantable lenses designed to augment your vision"
 	icon_state = "thermalimplants"
-	item_state = "syringe_kit"
+	item_state = "box"
 	item_flags = null
 
 /obj/item/clothing/glasses/thermal/aviator

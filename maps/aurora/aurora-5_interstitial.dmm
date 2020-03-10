@@ -7573,7 +7573,7 @@
 "sN" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
-/obj/item/scalpel{
+/obj/item/surgery/scalpel{
 	desc = "Cut, cut, and once more cut. This one is extra shiny!";
 	name = "shiny scalpel"
 	},
@@ -8638,9 +8638,9 @@
 /area/medical/upperlevel)
 "zU" = (
 /obj/structure/table/standard,
-/obj/item/hemostat,
-/obj/item/retractor,
-/obj/item/circular_saw,
+/obj/item/surgery/hemostat,
+/obj/item/surgery/retractor,
+/obj/item/surgery/circular_saw,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278

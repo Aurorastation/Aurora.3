@@ -76,7 +76,7 @@ STOCK_ITEM_RARE(sword, 0.5)
 	new /obj/random/sword(L)
 
 STOCK_ITEM_RARE(ims, 1.5)
-	new /obj/item/scalpel/manager(L)
+	new /obj/item/surgery/scalpel/manager(L)
 
 STOCK_ITEM_RARE(exogear, 1.5)
 	var/list/equips = list(

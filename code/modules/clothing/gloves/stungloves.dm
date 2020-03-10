@@ -42,7 +42,7 @@
 		update_icon()
 		return
 
-	else if((cell || wired) && (W.iswirecutter() || istype(W, /obj/item/scalpel)))
+	else if((cell || wired) && (W.iswirecutter() || istype(W, /obj/item/surgery/scalpel)))
 
 		//stunglove stuff
 		if(cell)

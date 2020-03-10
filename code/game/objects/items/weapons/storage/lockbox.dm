@@ -95,7 +95,7 @@
 	name = "medal box"
 	desc = "A locked box used to store medals."
 	icon_state = "medalbox+l"
-	item_state = "syringe_kit"
+	item_state = "box"
 	w_class = 3
 	max_w_class = 2
 	req_access = list(access_captain)
