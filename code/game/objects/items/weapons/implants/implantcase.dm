@@ -101,7 +101,7 @@
 	icon_state = "implantcase-r"
 
 /obj/item/implantcase/loyalty/New()
-	src.imp = new /obj/item/implant/loyalty( src )
+	src.imp = new /obj/item/implant/mindshield( src )
 	..()
 	return
 

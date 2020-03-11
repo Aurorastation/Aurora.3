@@ -250,7 +250,7 @@
 		to_chat(src, span("warning", "You cannot infest someone who is already infested!"))
 		return
 
-	for (var/obj/item/implant/loyalty/I in M)
+	for (var/obj/item/implant/mindshield/I in M)
 		if (I.implanted)
 			to_chat(src, span("warning", "\The [host]'s mind is shielded against your powers."))
 			return
@@ -273,7 +273,7 @@
 		to_chat(src, span("notice", "You cannot do that in your current state."))
 		return
 
-	for (var/obj/item/implant/loyalty/I in host)
+	for (var/obj/item/implant/mindshield/I in host)
 		if (I.implanted)
 			to_chat(src, span("warning", "\The [host]'s mind is shielded against your powers."))
 			return
@@ -429,7 +429,7 @@
 		to_chat(src, span("warning", "You don't have enough chemicals!"))
 		return
 
-	for (var/obj/item/implant/loyalty/I in host)
+	for (var/obj/item/implant/mindshield/I in host)
 		if (I.implanted)
 			to_chat(src, span("warning", "\The [host]'s mind is shielded against your powers."))
 			return
@@ -461,7 +461,7 @@
 		to_chat(src, span("warning", "You don't have enough chemicals!"))
 		return
 
-	for (var/obj/item/implant/loyalty/I in host)
+	for (var/obj/item/implant/mindshield/I in host)
 		if (I.implanted)
 			to_chat(src, span("warning", "\The [host]'s mind is shielded against your powers."))
 			return

@@ -51,7 +51,7 @@ var/datum/antagonist/revolutionary/revs
 /datum/antagonist/revolutionary/can_become_antag(var/datum/mind/player)
 	if(!..())
 		return FALSE
-	for(var/obj/item/implant/loyalty/L in player.current)
+	for(var/obj/item/implant/mindshield/L in player.current)
 		if(L?.imp_in == player.current)
 			return FALSE
 	return TRUE

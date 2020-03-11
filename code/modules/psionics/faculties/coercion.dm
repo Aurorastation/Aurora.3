@@ -61,7 +61,7 @@
 		to_chat(user, span("warning", "\The [target] is in no state for a mind-read."))
 		return TRUE
 
-	for (var/obj/item/implant/loyalty/I in target)
+	for (var/obj/item/implant/mindshield/I in target)
 		if (I.implanted)
 			to_chat(user, span("warning", "\The [target]'s mind is protected from the mind-read."))
 			return TRUE
@@ -151,7 +151,7 @@
 		if(!target.mind || !target.key)
 			to_chat(user, "<span class='warning'>\The [target] is mindless!</span>")
 			return TRUE
-		for (var/obj/item/implant/loyalty/I in target)
+		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
 				to_chat(user, span("warning", "\The [target]'s mind is protected from the mindslaving."))
 				return TRUE
@@ -261,7 +261,7 @@
 			to_chat (user, "<span class='cult'>You feel your thoughts pass right through a mind empty of psychic energy.</span>")
 			return
 
-		for (var/obj/item/implant/loyalty/I in target)
+		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
 				to_chat(user, span("warning", "\The [target]'s mind rejects your attempt to communicate."))
 				return TRUE

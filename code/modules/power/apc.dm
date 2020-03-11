@@ -768,7 +768,7 @@
 				to_chat(H, "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>")
 				H.adjustFireLoss(10, 0)
 			if(infected)
-				for (var/obj/item/implant/loyalty/ipc/I in H)
+				for (var/obj/item/implant/mindshield/ipc/I in H)
 					if (I.implanted)
 						return
 				if(SOFTREF(H) in hacked_ipcs)

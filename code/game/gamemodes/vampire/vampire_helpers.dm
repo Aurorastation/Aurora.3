@@ -91,7 +91,7 @@
 			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
 		return FALSE
 	if (account_loyalty_implant)
-		for (var/obj/item/implant/loyalty/I in T)
+		for (var/obj/item/implant/mindshield/I in T)
 			if (I.implanted)
 				if (notify)
 					to_chat(src, "<span class='warning'>You feel that [T]'s mind is unreachable due to forced loyalty.</span>")
