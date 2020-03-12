@@ -450,7 +450,7 @@
 
 //////////////////////////JUICES AND STUFF ///////////////////////
 
-/obj/item/reagent_containers/food/drinks/bottle/carton/
+/obj/item/reagent_containers/food/drinks/bottle/carton
 	name = "carton"
 	desc = "An abstract way to organize bottles that are really cartons. Finally!"
 	bottle_flags = NO_EMPTY_ICON
