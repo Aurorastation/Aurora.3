@@ -14,11 +14,6 @@
 /datum/category_item/underwear/top/bra/is_default(var/gender)
 	return gender == FEMALE
 
-/datum/category_item/underwear/top/bra_alt
-	name = "Bra, Alt"
-	icon_state = "bra_alt"
-	has_color = TRUE
-
 /datum/category_item/underwear/top/bra_bikini
 	name = "Bra, Bikini"
 	icon_state = "bra_bikini"
@@ -52,16 +47,6 @@
 	icon_state = "bra_lingerie_alt"
 	has_color = TRUE
 
-/datum/category_item/underwear/top/bra_strapless
-	name = "Bra, Strapless"
-	icon_state = "bra_strapless"
-	has_color = TRUE
-
-/datum/category_item/underwear/top/bra_strapless_pushup
-	name = "Bra, Strapless Pushup"
-	icon_state = "bra_strapless_push"
-	has_color = TRUE
-
 /datum/category_item/underwear/top/bra_striped
 	name = "Bra, Striped"
 	icon_state = "bra_striped"
@@ -72,11 +57,6 @@
 	icon_state = "sports_bra"
 	has_color = TRUE
 
-/datum/category_item/underwear/top/sports_bra_alt
-	name = "Sports Bra, Alt"
-	icon_state = "sports_bra_alt"
-	has_color = TRUE
-
 /datum/category_item/underwear/top/binder
 	name = "Binder"
 	icon_state = "binder"
@@ -84,11 +64,6 @@
 /datum/category_item/underwear/top/binder_strapless
 	name = "Binder, Strapless"
 	icon_state = "binder_strapless"
-
-/datum/category_item/underwear/top/halterneck_bra
-	name = "Halterneck Bra"
-	icon_state = "halterneck_bra"
-	has_color = TRUE
 
 /datum/category_item/underwear/top/tubetop
 	name = "Tube Top"
@@ -98,9 +73,4 @@
 /datum/category_item/underwear/top/swimtop
 	name = "Swimming Top"
 	icon_state = "swimtop"
-	has_color = TRUE
-
-/datum/category_item/underwear/top/swimtop_strapless
-	name = "Swimming Top, Strapless"
-	icon_state = "swimtop_strapless"
 	has_color = TRUE

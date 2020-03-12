@@ -47,29 +47,9 @@
 	icon_state = "panties_bikini"
 	has_color = TRUE
 
-/datum/category_item/underwear/bottom/panties_bikini_lace
-	name = "Panties, Bikini Lace"
-	icon_state = "panties_bikini_lace"
-	has_color = TRUE
-
-/datum/category_item/underwear/bottom/panties_bikini_lace_alt
-	name = "Panties, Bikini Lace Alt"
-	icon_state = "panties_bikini_lace_alt"
-	has_color = TRUE
-
 /datum/category_item/underwear/bottom/panties_hipster
 	name = "Panties, Hipster"
 	icon_state = "panties_hipster"
-	has_color = TRUE
-
-/datum/category_item/underwear/bottom/panties_tanga
-	name = "Panties, Tanga"
-	icon_state = "panties_tanga"
-	has_color = TRUE
-
-/datum/category_item/underwear/bottom/panties_tanga_lace
-	name = "Panties, Tanga Lace"
-	icon_state = "panties_tanga_lace"
 	has_color = TRUE
 
 /datum/category_item/underwear/bottom/compression_shorts
@@ -120,11 +100,6 @@
 /datum/category_item/underwear/bottom/onepiece
 	name = "One Piece"
 	icon_state = "onepiece"
-	has_color = TRUE
-
-/datum/category_item/underwear/bottom/onepiece_strapless
-	name = "One Piece, Strapless"
-	icon_state = "onepiece_strapless"
 	has_color = TRUE
 
 /datum/category_item/underwear/bottom/onepiece_striped

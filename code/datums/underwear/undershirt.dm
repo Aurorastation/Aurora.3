@@ -67,22 +67,6 @@
 	name = "Tank Top, Fire Feminine"
 	icon_state = "tank_fire_fem"
 
-/datum/category_item/underwear/undershirt/tank_top_rainbow
-	name = "Tank Top, Rainbow"
-	icon_state = "tank_rainbow"
-
-/datum/category_item/underwear/undershirt/tank_top_rainbow_fem
-	name = "Tank Top, Rainbow Feminine"
-	icon_state = "tank_rainbow_fem"
-
-/datum/category_item/underwear/undershirt/tank_top_rainbow_alt
-	name = "Tank Top, Rainbow Alt"
-	icon_state = "tank_rainbow_alt"
-
-/datum/category_item/underwear/undershirt/tank_top_rainbow_alt_fem
-	name = "Tank Top, Rainbow Alt Fem"
-	icon_state = "tank_rainbow_alt_fem"
-
 /datum/category_item/underwear/undershirt/tank_top_stripes
 	name = "Tank Top, Stripes"
 	icon_state = "tank_stripes"
@@ -122,16 +106,6 @@
 /datum/category_item/underwear/undershirt/tank_top_tight_fem
 	name = "Tank Top, Tight Feminine"
 	icon_state = "tank_tight_fem"
-
-/datum/category_item/underwear/undershirt/halter
-	name = "Halter Top"
-	icon_state = "halter"
-	has_color = TRUE
-
-/datum/category_item/underwear/undershirt/babydoll_lingerie
-	name = "Babydoll Lingerie"
-	icon_state = "babydoll_lingerie"
-	has_color = TRUE
 
 /datum/category_item/underwear/undershirt/shortsleeve_undershirt
 	name = "Shortsleeve Undershirt"
@@ -231,10 +205,6 @@
 /datum/category_item/underwear/undershirt/shirt_peace
 	name = "Shirt, Peace"
 	icon_state = "shirt_peace"
-
-/datum/category_item/underwear/undershirt/shirt_pogoman
-	name = "Shirt, Pogoman"
-	icon_state = "shirt_pogoman"
 
 /datum/category_item/underwear/undershirt/shirt_question
 	name = "Shirt, Question"

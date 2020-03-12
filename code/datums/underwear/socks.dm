@@ -21,10 +21,6 @@
 	name = "Short, Bee"
 	icon_state = "bee_short"
 
-/datum/category_item/underwear/socks/cow_short
-	name = "Short, Cow"
-	icon_state = "cowsocks_short"
-
 /datum/category_item/underwear/socks/woolblueorange_short
 	name = "Short, Wool Blue/Orange"
 	icon_state = "woolbo_short"
@@ -59,10 +55,6 @@
 /datum/category_item/underwear/socks/bee_normal
 	name = "Normal, Bee"
 	icon_state = "bee_normal"
-
-/datum/category_item/underwear/socks/cow_normal
-	name = "Normal, Cow"
-	icon_state = "cowsocks_normal"
 
 /datum/category_item/underwear/socks/woolblueorange_normal
 	name = "Normal, Wool Blue/Orange"
@@ -99,10 +91,6 @@
 	name = "Knee, Bee"
 	icon_state = "bee_knee"
 
-/datum/category_item/underwear/socks/cow_knee
-	name = "Knee, Cow"
-	icon_state = "cowsocks_knee"
-
 /datum/category_item/underwear/socks/woolblueorange_knee
 	name = "Knee, Wool Blue/Orange"
 	icon_state = "woolbo_knee"
@@ -137,10 +125,6 @@
 /datum/category_item/underwear/socks/bee_thigh
 	name = "Thigh, Bee"
 	icon_state = "bee_thigh"
-
-/datum/category_item/underwear/socks/cow_thigh
-	name = "Thigh, Cow"
-	icon_state = "cowsocks_thigh"
 
 /datum/category_item/underwear/socks/woolblueorange_thigh
 	name = "Thigh, Wool Blue/Orange"
