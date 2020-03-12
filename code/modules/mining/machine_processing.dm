@@ -286,7 +286,7 @@
 	var/list/ores_stored[0]
 	var/static/list/alloy_data
 	var/active = 0
-	use_power = TRUE
+	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 150
 
