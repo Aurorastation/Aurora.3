@@ -127,6 +127,7 @@
 
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels, access_detective, access_weapons)
 	minimal_access = list(access_security, access_sec_doors, access_morgue, access_detective, access_weapons)
+	alt_titles = list("Crime Scene Investigator")
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/detective
 
