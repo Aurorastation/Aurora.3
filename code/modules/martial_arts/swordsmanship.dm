@@ -7,5 +7,6 @@
 /obj/item/martial_manual/swordsmanship
 	name = "swordsmanship manual"
 	desc = "A manual containing basic swordsmanship instruction and techniques."
-	icon_state ="rulebook"
+	icon_state = "rulebook"
+	item_state = "rulebook"
 	martial_art = /datum/martial_art/swordsmanship
