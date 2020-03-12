@@ -144,7 +144,6 @@
 		mmi.brainmob.name = src.name
 		mmi.brainmob.real_name = src.name
 		mmi.name = "[initial(mmi.name)]: [src.name]"
-		mmi.brainobj.lobotomized = 1
 
 	radio = new /obj/item/device/radio/borg(src)
 	common_radio = radio
