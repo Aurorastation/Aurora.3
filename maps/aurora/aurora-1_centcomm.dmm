@@ -1192,6 +1192,22 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/desert,
 /area/holodeck/source_picnicarea)
+"acX" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery3";
+	name = "Battery 3 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
 "acY" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_theatre)
@@ -2817,6 +2833,22 @@
 	},
 /turf/space/transit/north/shuttlespace_ns8,
 /area/template_noop)
+"agZ" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "28"
+	},
+/obj/machinery/computer/artillerycontrol{
+	desc = "Bluespace Artillery; the thinking man's solution."
+	},
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding2";
+	dir = 6
+	},
+/area/centcom/control)
 "aha" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -2838,6 +2870,79 @@
 	},
 /turf/space/transit/north/shuttlespace_ns6,
 /area/template_noop)
+"ahc" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "29"
+	},
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding6"
+	},
+/area/centcom/control)
+"ahd" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding9"
+	},
+/area/centcom/control)
+"ahe" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery2";
+	name = "Battery 2 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
+"ahf" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery1";
+	name = "Battery 1 Firing Control"
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/reagent_containers/glass/rag,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding10"
+	},
+/area/centcom/control)
+"ahg" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
 "ahh" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -2849,6 +2954,46 @@
 	},
 /turf/space/transit/north/shuttlespace_ns4,
 /area/template_noop)
+"ahi" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stool,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
+"ahj" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/electrical,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding1";
+	dir = 6
+	},
+/area/centcom/control)
+"ahk" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	icon_state = "phoronrwindow";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding9"
+	},
+/area/centcom/control)
 "ahl" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -2883,6 +3028,84 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"aho" = (
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/obj/item/stool/padded,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "siding2"
+	},
+/area/centcom/holding)
+"ahp" = (
+/obj/structure/table/rack,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/rig_module/cooling_unit,
+/obj/item/rig_module/cooling_unit,
+/turf/unsimulated/floor{
+	icon_state = "platebot"
+	},
+/area/centcom/distress_prep)
+"ahq" = (
+/obj/structure/table/rack,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/utility/very_full,
+/turf/unsimulated/floor{
+	icon_state = "platebot"
+	},
+/area/centcom/distress_prep)
+"ahr" = (
+/obj/structure/table/rack,
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_x = -16
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/unsimulated/floor{
+	icon_state = "platebot"
+	},
+/area/centcom/distress_prep)
+"ahs" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots,
+/turf/unsimulated/floor{
+	icon_state = "platebot"
+	},
+/area/centcom/distress_prep)
 "aht" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -3609,9 +3832,7 @@
 	})
 "ajU" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -3792,6 +4013,13 @@
 	icon_state = "circuit"
 	},
 /area/syndicate_mothership/elite_squad)
+"ako" = (
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/shuttle/dark/cardinal{
+	icon_state = "swall_c"
+	},
+/area/template_noop)
 "akp" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -3900,6 +4128,12 @@
 	icon_state = "floor4"
 	},
 /area/syndicate_mothership/elite_squad)
+"akE" = (
+/obj/effect/landmark/distress_team_equipment,
+/turf/unsimulated/floor{
+	icon_state = "platebot"
+	},
+/area/centcom/distress_prep)
 "akF" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -3944,10 +4178,16 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership/elite_squad)
+"akI" = (
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/shuttle/dark/cardinal{
+	icon_state = "swall_c";
+	dir = 8
+	},
+/area/template_noop)
 "akJ" = (
 /obj/machinery/door/airlock/external{
 	name = "Shuttle Airlock";
@@ -3964,39 +4204,29 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/syndicate_elite/mothership)
 "akK" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership/elite_squad)
 "akL" = (
 /obj/machinery/door/airlock/external{
 	req_access = list(150)
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership/elite_squad)
 "akM" = (
 /obj/machinery/computer/teleporter,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "akN" = (
 /obj/machinery/teleport/station,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "akO" = (
 /obj/machinery/teleport/hub,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -4032,9 +4262,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -4055,17 +4283,13 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
 "akW" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -4073,9 +4297,7 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
@@ -4102,6 +4324,19 @@
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/syndicate_elite/mothership)
+"ala" = (
+/turf/unsimulated/floor{
+	icon_state = "platebot"
+	},
+/area/centcom/distress_prep)
+"alb" = (
+/turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/shuttle/dark/cardinal{
+	icon_state = "swall_c";
+	dir = 4
+	},
+/area/template_noop)
 "alc" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
@@ -4189,9 +4424,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "alk" = (
 /obj/structure/bed,
@@ -4221,9 +4454,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "alo" = (
 /obj/structure/window/reinforced{
@@ -4234,9 +4465,7 @@
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "alp" = (
 /obj/item/device/pda/syndicate,
@@ -4258,9 +4487,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "als" = (
 /obj/structure/window/reinforced,
@@ -4268,9 +4495,7 @@
 	dir = 1
 	},
 /obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "alt" = (
 /obj/structure/window/reinforced,
@@ -4281,9 +4506,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "alu" = (
 /obj/machinery/door/airlock/centcom{
@@ -4688,13 +4911,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
-"amo" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	icon_state = "swall_c"
-	},
-/area/template_noop)
 "amp" = (
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
@@ -4745,9 +4961,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "amv" = (
 /obj/structure/window/reinforced,
@@ -4758,9 +4972,7 @@
 	dir = 4
 	},
 /obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "amw" = (
 /turf/unsimulated/floor{
@@ -4951,9 +5163,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "amR" = (
 /obj/machinery/door/airlock/centcom{
@@ -4975,14 +5185,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
-"amT" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	icon_state = "swall_c";
-	dir = 8
-	},
-/area/template_noop)
 "amU" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/ionrifle,
@@ -5028,14 +5230,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
-"amY" = (
-/turf/template_noop,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	icon_state = "swall_c";
-	dir = 4
-	},
-/area/template_noop)
 "amZ" = (
 /obj/structure/window/reinforced,
 /obj/structure/lattice,
@@ -5392,9 +5586,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/syndicate_mothership)
 "anL" = (
 /obj/structure/table/rack,
@@ -6174,22 +6366,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
-"apk" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery3";
-	name = "Battery 3 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
 "apm" = (
 /obj/structure/table/standard,
 /obj/item/cautery,
@@ -6479,9 +6655,7 @@
 /turf/simulated/floor/shuttle/yellow,
 /area/shuttle/administration/centcom)
 "aqt" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "aqu" = (
 /turf/unsimulated/floor,
@@ -6728,22 +6902,6 @@
 	},
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
-"ars" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "28"
-	},
-/obj/machinery/computer/artillerycontrol{
-	desc = "Bluespace Artillery; the thinking man's solution."
-	},
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding2";
-	dir = 6
-	},
-/area/centcom/control)
 "art" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -7217,18 +7375,14 @@
 	},
 /area/centcom/suppy)
 "atf" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "atg" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "ath" = (
 /turf/unsimulated/floor{
@@ -7826,9 +7980,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "auG" = (
 /obj/machinery/light/spot{
@@ -7856,9 +8008,7 @@
 	pixel_y = 0;
 	tag_door = "admin_shuttle_bay_door"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "auJ" = (
 /turf/unsimulated/floor{
@@ -7906,9 +8056,7 @@
 	id_tag = "admin_shuttle_bay_door";
 	locked = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "auP" = (
 /obj/machinery/light{
@@ -7961,18 +8109,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/living)
-"auY" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "29"
-	},
-/obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding6"
-	},
-/area/centcom/control)
 "auZ" = (
 /obj/machinery/telecomms/bus/preset_cent,
 /turf/unsimulated/floor{
@@ -7980,39 +8116,6 @@
 	dir = 8
 	},
 /area/centcom/living)
-"ava" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/area/centcom/control)
-"avb" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery2";
-	name = "Battery 2 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
 "avc" = (
 /turf/unsimulated/floor{
 	icon_state = "engine"
@@ -8020,9 +8123,7 @@
 /area/centcom/control)
 "avd" = (
 /obj/machinery/light/spot,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "ave" = (
 /turf/unsimulated/wall/riveted,
@@ -8030,24 +8131,6 @@
 "avf" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/creed)
-"avg" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery1";
-	name = "Battery 1 Firing Control"
-	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/item/reagent_containers/glass/rag,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
 "avh" = (
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -8266,27 +8349,6 @@
 	dir = 8
 	},
 /area/centcom/living)
-"avD" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
-	},
-/area/centcom/control)
-"avE" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
-	},
-/area/centcom/control)
 "avF" = (
 /obj/machinery/light{
 	dir = 4;
@@ -8395,17 +8457,6 @@
 	icon_state = "green"
 	},
 /area/centcom/living)
-"avN" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/toolbox/electrical,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1";
-	dir = 6
-	},
-/area/centcom/control)
 "avO" = (
 /obj/machinery/computer/rdservercontrol{
 	badmin = 1;
@@ -8433,9 +8484,7 @@
 /area/centcom/living)
 "avR" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/living)
 "avS" = (
 /obj/machinery/mech_recharger,
@@ -8523,24 +8572,6 @@
 	icon_state = "grimy"
 	},
 /area/centcom/creed)
-"awe" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	icon_state = "phoronrwindow";
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/area/centcom/control)
 "awf" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -8559,7 +8590,9 @@
 /area/centcom/living)
 "awh" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/template_noop,
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
 /area/centcom/control)
 "awi" = (
 /obj/machinery/porta_turret/crescent,
@@ -8710,14 +8743,10 @@
 /obj/effect/landmark{
 	name = "Marauder Exit"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "awz" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "awA" = (
 /obj/machinery/door/blast/odin{
@@ -8727,9 +8756,7 @@
 	name = "Launch Bay #3";
 	p_open = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "awB" = (
 /turf/unsimulated/floor{
@@ -9468,7 +9495,7 @@
 "axZ" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
-	name = "plating"
+	icon_state = "plating"
 	},
 /area/centcom/specops)
 "aya" = (
@@ -9595,9 +9622,7 @@
 	name = "Launch Bay #2";
 	p_open = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ayp" = (
 /obj/machinery/mass_driver{
@@ -9678,9 +9703,7 @@
 /area/centcom/control)
 "ayw" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/control)
 "ayx" = (
 /turf/unsimulated/floor{
@@ -9920,9 +9943,7 @@
 	name = "Launch Bay #1";
 	p_open = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "ayZ" = (
 /obj/machinery/mass_driver{
@@ -10021,13 +10042,6 @@
 /obj/structure/closet/crate/freezer/rations,
 /turf/unsimulated/floor{
 	icon_state = "dark"
-	},
-/area/centcom/specops)
-"azi" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 8
 	},
 /area/centcom/specops)
 "azj" = (
@@ -10279,16 +10293,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/control)
-"azL" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/obj/item/stool/padded,
-/turf/unsimulated/floor{
-	name = "plating";
-	icon_state = "siding2"
-	},
-/area/centcom/holding)
 "azM" = (
 /obj/structure/sign/nosmoking_2,
 /turf/unsimulated/wall/riveted,
@@ -10304,9 +10308,7 @@
 	name = "Launch Bay #0";
 	p_open = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "azP" = (
 /obj/machinery/mass_driver{
@@ -10574,10 +10576,6 @@
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
-/area/centcom/control)
-"aAr" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor,
 /area/centcom/control)
 "aAs" = (
 /obj/structure/table/reinforced,
@@ -11582,7 +11580,9 @@
 /area/centcom/holding)
 "aCm" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
 /area/centcom/holding)
 "aCn" = (
 /obj/item/modular_computer/console/preset/security,
@@ -11883,9 +11883,7 @@
 /area/centcom/holding)
 "aDb" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aDc" = (
 /obj/machinery/door/blast/odin{
@@ -11913,9 +11911,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "aDf" = (
 /obj/structure/holostool,
@@ -11944,9 +11940,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "aDj" = (
 /obj/structure/table/standard,
@@ -12249,14 +12243,10 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aDU" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aDV" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -12267,18 +12257,14 @@
 	pixel_y = 25;
 	tag_door = "centcom_shuttle_bay_door"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aDW" = (
 /obj/machinery/computer/shuttle_control{
 	req_access = list(38);
 	shuttle_tag = "Centcom"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aDX" = (
 /obj/structure/bed/chair/unmovable{
@@ -12551,9 +12537,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aEL" = (
 /obj/structure/bed/chair/comfy/brown,
@@ -12714,9 +12698,7 @@
 /area/centcom/holding)
 "aFg" = (
 /obj/machinery/light/spot,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aFh" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -13933,12 +13915,6 @@
 	icon_state = "whitegreenfull"
 	},
 /area/centcom/holding)
-"aHV" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
 "aHW" = (
 /obj/machinery/door/airlock/glass{
 	name = "NMSS Odin Sports Megacenter"
@@ -14723,23 +14699,17 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aJH" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aJI" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aJJ" = (
 /obj/structure/table/rack,
@@ -15360,7 +15330,7 @@
 "aKZ" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
-	name = "plating"
+	icon_state = "plating"
 	},
 /area/centcom/spawning)
 "aLa" = (
@@ -16210,9 +16180,7 @@
 	name = "Arrivals Airlock";
 	req_access = list(13)
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aMO" = (
 /obj/structure/window/reinforced/holowindow{
@@ -16308,15 +16276,11 @@
 /area/centcom/spawning)
 "aNb" = (
 /obj/machinery/megavendor,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNc" = (
 /obj/machinery/light/spot,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNd" = (
 /turf/simulated/wall/shuttle/raider,
@@ -16496,7 +16460,7 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/floor{
-	name = "plating"
+	icon_state = "plating"
 	},
 /area/centcom/spawning)
 "aNx" = (
@@ -17785,12 +17749,6 @@
 	icon_state = "bluefull"
 	},
 /area/centcom/holding)
-"aQw" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	icon_state = "dark"
-	},
-/area/centcom/holding)
 "aQx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Security Checkpoint";
@@ -18670,7 +18628,7 @@
 "aSq" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor{
-	name = "plating"
+	icon_state = "plating"
 	},
 /area/tdome)
 "aSr" = (
@@ -19381,9 +19339,7 @@
 /obj/effect/landmark{
 	name = "tdome2"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome2)
 "aUe" = (
 /obj/machinery/door/blast/regular{
@@ -19397,9 +19353,7 @@
 /obj/effect/landmark{
 	name = "tdome1"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome1)
 "aUg" = (
 /obj/structure/table/rack,
@@ -19420,9 +19374,7 @@
 /obj/effect/landmark{
 	name = "tdome2"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome2)
 "aUi" = (
 /obj/machinery/recharger{
@@ -19431,9 +19383,7 @@
 /obj/effect/landmark{
 	name = "tdome1"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome1)
 "aUj" = (
 /turf/unsimulated/wall/fakeglass{
@@ -19455,9 +19405,7 @@
 	c_tag = "Thunderdome - Red Team";
 	invisibility = 101
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome2)
 "aUm" = (
 /turf/simulated/floor/bluegrid,
@@ -19477,9 +19425,7 @@
 	c_tag = "Green Team";
 	invisibility = 101
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome1)
 "aUq" = (
 /obj/machinery/atmospherics/pipe/vent,
@@ -20127,7 +20073,7 @@
 	name = "Security Doors"
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "plating"
 	},
 /area/centcom/checkpoint/fore)
 "aWh" = (
@@ -20220,7 +20166,7 @@
 	name = "Security Doors"
 	},
 /turf/unsimulated/floor{
-	icon_state = "floor"
+	icon_state = "plating"
 	},
 /area/centcom/checkpoint/aft)
 "aWs" = (
@@ -21051,9 +20997,7 @@
 	id = "tcfl_hangar5";
 	name = "Garage"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "bfv" = (
 /obj/item/reagent_containers/glass/bucket{
@@ -21134,9 +21078,7 @@
 "blQ" = (
 /obj/machinery/mech_recharger,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "bmq" = (
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -21224,9 +21166,7 @@
 	name = "Thruster Maintenance Hatch";
 	req_access = list(112)
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "bye" = (
 /obj/effect/decal/fake_object/light_source{
@@ -21351,9 +21291,7 @@
 	icon_state = "burst_l";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "bUI" = (
 /obj/structure/table/rack,
@@ -21535,9 +21473,7 @@
 	pixel_x = -1;
 	pixel_y = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "cpV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -21618,9 +21554,7 @@
 	id = "tcfl_hangar5";
 	name = "Armoury"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "cxK" = (
 /obj/structure/window/reinforced{
@@ -21798,9 +21732,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "cKC" = (
 /turf/simulated/floor/carpet,
@@ -21840,6 +21772,39 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/start)
+"cRb" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/obj/structure/window/reinforced/crescent{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/closet/crate/internals{
+	name = "emergency equipment"
+	},
+/obj/item/roller{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/item/roller{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/item/airbubble,
+/obj/item/airbubble,
+/obj/item/storage/firstaid/o2{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/obj/item/storage/briefcase/inflatable,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/distress_prep)
 "cRL" = (
 /obj/structure/bed/chair/comfy/brown{
 	can_buckle = 0;
@@ -21857,9 +21822,7 @@
 "cTG" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/broken_bottle,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "cVA" = (
 /obj/machinery/light{
@@ -21941,9 +21904,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "ddQ" = (
 /obj/effect/floor_decal/corner/blue/full{
@@ -21969,9 +21930,7 @@
 	icon_state = "spline_plain";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "dib" = (
 /obj/structure/ore_box{
@@ -22044,7 +22003,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 31
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "drL" = (
 /turf/space/transit/east/shuttlespace_ew10,
@@ -22121,9 +22080,7 @@
 	pixel_x = 32;
 	pixel_y = -64
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "dHZ" = (
 /obj/structure/table/standard,
@@ -22278,9 +22235,7 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "dWO" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -22537,9 +22492,7 @@
 /area/centcom/legion/hangar5)
 "eLM" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "eNF" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -22575,9 +22528,7 @@
 	icon_state = "bulb1";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "eQO" = (
 /obj/structure/table/rack,
@@ -22736,7 +22687,7 @@
 	pixel_y = -22;
 	req_access = list(112)
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "fbV" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -22771,9 +22722,7 @@
 	},
 /obj/machinery/porta_turret/legion,
 /obj/effect/floor_decal/industrial/warning,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "feQ" = (
 /obj/structure/undies_wardrobe,
@@ -23175,9 +23124,7 @@
 	pixel_y = 6
 	},
 /obj/item/weldingtool/hugetank,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "fTE" = (
 /obj/structure/closet/crate/secure/legion,
@@ -23249,18 +23196,14 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "gid" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "giC" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Aft Thrusters Access - Deck 1";
 	req_access = null
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "gjo" = (
 /obj/effect/floor_decal/corner/yellow/full{
@@ -23352,7 +23295,7 @@
 	pixel_y = 22;
 	req_access = list(112)
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "gmG" = (
 /obj/effect/decal/fake_object{
@@ -23378,9 +23321,7 @@
 	icon_state = "propulsion";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "gnj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -23394,9 +23335,7 @@
 	pixel_x = -42;
 	pixel_y = -10
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "gpl" = (
 /obj/effect/decal/cleanable/dirt,
@@ -23467,9 +23406,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "gvy" = (
 /obj/machinery/chem_master{
@@ -23785,9 +23722,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "gYs" = (
 /obj/machinery/door/airlock/glass_command{
@@ -23853,9 +23788,7 @@
 	pixel_x = -9;
 	pixel_y = 7
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "hhX" = (
 /obj/machinery/light{
@@ -23906,9 +23839,7 @@
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "hmr" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -24008,11 +23939,7 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 4
 	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = -30
-	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "hBP" = (
 /obj/structure/lattice,
@@ -24143,9 +24070,7 @@
 /area/centcom/living)
 "hHP" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "hJC" = (
 /obj/structure/bed/chair/comfy/brown,
@@ -24340,9 +24265,7 @@
 	pixel_x = 1;
 	pixel_y = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "hYP" = (
 /obj/structure/table/rack,
@@ -24506,11 +24429,11 @@
 	},
 /area/centcom/legion)
 "ijd" = (
+/obj/machinery/recharge_station,
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
 	dir = 4
 	},
-/obj/machinery/recharge_station,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 5
@@ -24579,9 +24502,7 @@
 /obj/effect/decal/cleanable/dirt{
 	layer = 3.3
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "itb" = (
 /obj/machinery/conveyor_switch/oneway{
@@ -24601,9 +24522,7 @@
 /area/centcom/legion/hangar5)
 "izN" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "iAP" = (
 /turf/simulated/floor/snow,
@@ -24988,7 +24907,7 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/door/blast/odin/shuttle/ert,
 /turf/unsimulated/floor{
-	name = "plating"
+	icon_state = "plating"
 	},
 /area/centcom/specops)
 "jmT" = (
@@ -25000,9 +24919,7 @@
 	dir = 10;
 	icon_state = "spline_plain"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "jnf" = (
 /turf/simulated/wall/shuttle/legion,
@@ -25032,9 +24949,7 @@
 /obj/structure/bed/chair/office/dark{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "jpq" = (
 /obj/effect/floor_decal/industrial/warning/full,
@@ -25042,9 +24957,7 @@
 	name = "service ladder";
 	pixel_y = 24
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "jpz" = (
 /obj/machinery/mech_recharger,
@@ -25153,9 +25066,7 @@
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "jBJ" = (
 /obj/machinery/computer/message_monitor,
@@ -25258,9 +25169,7 @@
 	id = "tcfl_jotun";
 	name = "Superheavy Support Garage"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "jKW" = (
 /obj/machinery/light/spot{
@@ -25350,9 +25259,7 @@
 	name = "Elevator Maintenance Hatch";
 	req_access = list(111)
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "jXZ" = (
 /turf/simulated/floor/tiled/dark,
@@ -25507,9 +25414,7 @@
 	id = "tcfl_hangar5";
 	name = "Armoury"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "ktR" = (
 /turf/unsimulated/floor{
@@ -25569,9 +25474,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "kCZ" = (
 /obj/structure/table/standard,
@@ -25674,9 +25577,7 @@
 	name = "Garage"
 	},
 /obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "kLE" = (
 /obj/structure/window/reinforced{
@@ -25693,9 +25594,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "kNH" = (
 /turf/simulated/wall/elevator,
@@ -25788,9 +25687,7 @@
 	id = "tcflcheckpoint";
 	name = "Security Checkpoint"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "kWI" = (
 /obj/machinery/light/small{
@@ -25822,6 +25719,18 @@
 "ldQ" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/legion/hangar5)
+"lfp" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_y = 16
+	},
+/turf/unsimulated/floor{
+	icon_state = "vault";
+	dir = 5
+	},
+/area/centcom/distress_prep)
 "lgu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -25838,10 +25747,6 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "lhQ" = (
-/obj/structure/bed/chair/office/bridge{
-	icon_state = "bridge";
-	dir = 4
-	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "distress_blast_shield";
@@ -25849,6 +25754,7 @@
 	pixel_y = -22;
 	req_access = list(112)
 	},
+/obj/structure/bed/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "liJ" = (
@@ -25878,7 +25784,7 @@
 	pixel_x = 0;
 	pixel_y = 16
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "lmb" = (
 /obj/structure/lattice/catwalk,
@@ -25914,6 +25820,12 @@
 /obj/item/hand_labeler,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"lwA" = (
+/obj/item/device/radio/intercom{
+	pixel_y = -30
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/distress/centcom)
 "lwP" = (
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
@@ -25983,9 +25895,7 @@
 /area/centcom/checkpoint/aft)
 "lBN" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "lEa" = (
 /turf/simulated/floor/carpet,
@@ -26061,9 +25971,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "lKB" = (
 /obj/structure/table/reinforced/steel,
@@ -26176,9 +26084,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "lXq" = (
 /obj/machinery/porta_turret/crescent,
@@ -26203,7 +26109,9 @@
 /area/centcom/evac)
 "mbM" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/template_noop,
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
 /area/centcom/evac)
 "mcC" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -26271,9 +26179,7 @@
 	pixel_x = -1;
 	pixel_y = -12
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "mnk" = (
 /obj/machinery/light{
@@ -26388,9 +26294,7 @@
 	id = "tcfl_hangar5";
 	name = "Armoury"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "mxY" = (
 /obj/structure/bed/roller,
@@ -26424,9 +26328,7 @@
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -28
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "mzf" = (
 /turf/unsimulated/floor{
@@ -26497,9 +26399,7 @@
 	pixel_x = -9;
 	pixel_y = 30
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "mNk" = (
 /turf/unsimulated/floor{
@@ -26523,9 +26423,7 @@
 	id = "tcfl_hangar5";
 	name = "Armoury"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "mQj" = (
 /turf/unsimulated/floor{
@@ -26753,9 +26651,7 @@
 	icon_state = "warning";
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "nkd" = (
 /obj/machinery/account_database{
@@ -26924,12 +26820,10 @@
 	pixel_x = 16;
 	pixel_y = 32
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "nzS" = (
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /turf/simulated/wall/shuttle/dark/corner{
 	icon_state = "wall3";
 	dir = 6
@@ -26984,34 +26878,6 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
-"nCx" = (
-/obj/structure/table/rack{
-	pixel_y = -3
-	},
-/obj/item/tank/emergency_oxygen/double{
-	pixel_y = 3
-	},
-/obj/item/tank/emergency_oxygen/double{
-	pixel_y = 3
-	},
-/obj/item/tank/emergency_oxygen/double{
-	pixel_y = 3
-	},
-/obj/item/tank/emergency_oxygen/double{
-	pixel_y = 3
-	},
-/obj/item/tank/emergency_oxygen/double{
-	pixel_y = 3
-	},
-/obj/item/tank/emergency_oxygen/double{
-	pixel_y = 3
-	},
-/obj/item/clothing/shoes/magboots,
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/distress_prep)
 "nDW" = (
 /obj/machinery/door/airlock/glass{
 	name = "Merchant's Office";
@@ -27098,23 +26964,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "nKG" = (
-/obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1";
-	name = "adjusted light fixture";
-	pixel_x = 16
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
-/obj/item/device/radio/intercom{
-	pixel_y = -30
-	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "nLp" = (
 /obj/machinery/light{
@@ -27126,6 +26983,34 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"nLZ" = (
+/obj/structure/table/rack{
+	pixel_y = -3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/tank/emergency_oxygen/double{
+	pixel_y = 3
+	},
+/obj/item/clothing/shoes/magboots,
+/turf/unsimulated/floor{
+	dir = 8;
+	icon_state = "wood"
+	},
+/area/centcom/distress_prep)
 "nON" = (
 /turf/unsimulated/wall/fakeairlock{
 	icon = 'icons/obj/doors/Doorext.dmi';
@@ -27218,9 +27103,7 @@
 	icon_state = "warning";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "nUb" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -27248,9 +27131,7 @@
 	icon_state = "spline_plain";
 	dir = 9
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "nXw" = (
 /obj/effect/landmark{
@@ -27558,9 +27439,7 @@
 /area/merchant_station)
 "orV" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "otY" = (
 /turf/unsimulated/floor{
@@ -27644,9 +27523,7 @@
 	pixel_y = -4
 	},
 /obj/item/stack/rods,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "ozQ" = (
 /obj/structure/closet/crate/loot{
@@ -27848,18 +27725,20 @@
 	pixel_x = 1;
 	pixel_y = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "oQu" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/wall/riveted,
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
 /area/centcom/living)
 "oQO" = (
 /obj/structure/lattice,
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/template_noop,
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
 /area/centcom/evac)
 "oRK" = (
 /obj/structure/flora/ausbushes/leafybush,
@@ -27921,9 +27800,7 @@
 	icon_state = "bulb1";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "oWD" = (
 /obj/machinery/door/airlock/hatch{
@@ -28094,6 +27971,10 @@
 	icon_state = "spline_plain";
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	anchored = 1;
+	pixel_x = 0
+	},
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 5
@@ -28126,9 +28007,7 @@
 "prH" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "pux" = (
 /obj/item/pickaxe,
@@ -28144,23 +28023,8 @@
 	name = "service ladder";
 	pixel_y = 24
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
-"pBa" = (
-/obj/effect/floor_decal/corner/blue{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	anchored = 1;
-	pixel_x = 0
-	},
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/area/centcom/distress_prep)
 "pBg" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -28198,9 +28062,7 @@
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "pEJ" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -28298,9 +28160,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "pTm" = (
 /obj/structure/window/reinforced{
@@ -28314,9 +28174,7 @@
 	dir = 8
 	},
 /obj/structure/grille,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "pUe" = (
 /obj/item/shovel,
@@ -28360,9 +28218,7 @@
 	},
 /area/centcom/legion/hangar5)
 "pWv" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "pWD" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -28402,9 +28258,7 @@
 /area/shuttle/distress/centcom)
 "qgw" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/template_noop)
 "qjm" = (
 /obj/item/gun/energy/blaster{
@@ -28599,8 +28453,19 @@
 /obj/structure/closet/walllocker/emerglocker/north{
 	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
 	},
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
+"qwV" = (
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_x = 16
+	},
+/turf/unsimulated/floor{
+	icon_state = "platebot"
+	},
+/area/centcom/distress_prep)
 "qyn" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8;
@@ -29165,9 +29030,7 @@
 	name = "Arrivals Airlock";
 	req_access = list(13)
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "rlP" = (
 /obj/machinery/vending/assist{
@@ -29227,9 +29090,7 @@
 /area/shuttle/legion/centcom)
 "rug" = (
 /obj/effect/decal/cleanable/blood/drip,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "rwg" = (
 /turf/unsimulated/floor{
@@ -29246,7 +29107,15 @@
 /area/centcom/legion)
 "ryo" = (
 /obj/structure/bed/chair/shuttle,
-/turf/simulated/floor/shuttle/red,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 22
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 32
+	},
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "rys" = (
 /turf/simulated/floor/beach/sand{
@@ -29384,7 +29253,9 @@
 "rOK" = (
 /obj/structure/lattice,
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/template_noop,
+/turf/unsimulated/floor{
+	icon_state = "plating"
+	},
 /area/centcom/control)
 "rPy" = (
 /turf/simulated/wall/shuttle,
@@ -29438,9 +29309,7 @@
 	id = "tcflcheckpoint";
 	name = "Security Checkpoint"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "rSX" = (
 /obj/structure/flora/rock{
@@ -29516,38 +29385,11 @@
 	icon_state = "warning";
 	dir = 6
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "sdL" = (
-/obj/item/airbubble,
-/obj/item/airbubble,
-/obj/item/roller{
-	pixel_x = 0;
-	pixel_y = 8
-	},
-/obj/item/roller{
-	pixel_x = 0;
-	pixel_y = 8
-	},
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/firstaid/o2{
-	pixel_x = 0;
-	pixel_y = 2
-	},
-/obj/item/storage/briefcase/inflatable,
-/obj/structure/closet/crate/internals{
-	name = "emergency equipment"
-	},
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/storage/firstaid/regular,
-/turf/simulated/floor/shuttle/red,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "sev" = (
 /obj/machinery/computer/operating,
@@ -29622,8 +29464,16 @@
 	name = "KEEP CLEAR: DOCKING AREA";
 	pixel_y = 0
 	},
+/turf/unsimulated/floor/plating,
+/area/centcom/distress_prep)
+"smm" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/structure/closet/crate/freezer/rations,
 /turf/unsimulated/floor{
-	name = "plating"
+	icon_state = "floor"
 	},
 /area/centcom/distress_prep)
 "smH" = (
@@ -29643,9 +29493,7 @@
 	id = "tcflcheckpoint";
 	name = "Security Checkpoint"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "smI" = (
 /obj/machinery/light{
@@ -29713,12 +29561,6 @@
 	dir = 8
 	},
 /area/centcom/legion/hangar5)
-"srl" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
-/area/centcom/evac)
 "srN" = (
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
@@ -30114,9 +29956,7 @@
 	pixel_x = 1;
 	pixel_y = 3
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "thO" = (
 /obj/effect/decal/fake_object{
@@ -30292,9 +30132,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "tFU" = (
 /obj/machinery/door/airlock/centcom{
@@ -30547,9 +30385,7 @@
 	icon_state = "burst_r";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "ubz" = (
 /obj/machinery/door/airlock/centcom{
@@ -30613,9 +30449,7 @@
 	pixel_x = 0;
 	pixel_y = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "uqU" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -30848,9 +30682,7 @@
 	pixel_x = -4;
 	pixel_y = 6
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "uVX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -30860,9 +30692,7 @@
 "uWY" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "uXC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -30931,9 +30761,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/watertank,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "vdM" = (
 /obj/machinery/light{
@@ -31091,9 +30919,7 @@
 /obj/item/ladder_mobile{
 	pixel_y = 6
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "vre" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -31106,9 +30932,7 @@
 "vsg" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/heavy_vehicle/premade/light/legion,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "vwU" = (
 /obj/structure/table/wood,
@@ -31194,9 +31018,7 @@
 	id = "tcfl_jotun";
 	name = "Superheavy Support Garage"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "vDz" = (
 /obj/structure/table/rack,
@@ -31452,6 +31274,16 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"vWw" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/obj/machinery/mech_recharger,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/distress_prep)
 "vWz" = (
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
@@ -31609,9 +31441,7 @@
 	},
 /area/centcom/legion)
 "wne" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "wnD" = (
 /obj/effect/floor_decal/corner/blue{
@@ -31760,9 +31590,7 @@
 /area/shuttle/distress/transit)
 "wyM" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "wyR" = (
 /obj/structure/table/rack{
@@ -31834,9 +31662,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "wGd" = (
 /obj/machinery/light{
@@ -31921,19 +31747,6 @@
 /area/syndicate_mothership{
 	name = "\improper Ninja Base"
 	})
-"wRE" = (
-/obj/structure/table/rack,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1";
-	name = "adjusted light fixture";
-	pixel_y = 16
-	},
-/obj/item/clothing/shoes/magboots,
-/turf/unsimulated/floor{
-	icon_state = "platebot"
-	},
-/area/centcom/distress_prep)
 "wSA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
@@ -31948,9 +31761,7 @@
 	icon_state = "cart";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "wUH" = (
 /obj/effect/decal/fake_object{
@@ -31963,12 +31774,10 @@
 	pixel_x = 1;
 	pixel_y = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "wVd" = (
-/turf/simulated/floor/shuttle/red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "wWR" = (
 /obj/machinery/light{
@@ -32032,9 +31841,7 @@
 /area/centcom/legion/hangar5)
 "xbU" = (
 /obj/structure/closet/crate/secure/legion,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "xcr" = (
 /obj/machinery/light{
@@ -32045,13 +31852,6 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/legion/hangar5)
-"xcu" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/turf/unsimulated/floor{
-	icon_state = "platebot"
-	},
-/area/centcom/distress_prep)
 "xgn" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -32103,9 +31903,7 @@
 "xia" = (
 /obj/effect/decal/cleanable/dirt,
 /mob/living/heavy_vehicle/premade/combatripley,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "xii" = (
 /turf/unsimulated/wall/fakepdoor,
@@ -32339,9 +32137,7 @@
 	icon_state = "warning";
 	dir = 5
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "xEw" = (
 /obj/item/device/flashlight/lamp,
@@ -32380,9 +32176,7 @@
 "xFQ" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "xFV" = (
 /obj/structure/table/wood,
@@ -32420,9 +32214,7 @@
 	name = "Garage"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "xLv" = (
 /turf/unsimulated/mineral/asteroid{
@@ -46751,7 +46543,7 @@ aaM
 aaM
 aaM
 ahV
-amY
+alb
 aiw
 ajb
 ajh
@@ -47793,7 +47585,7 @@ aaM
 aaM
 aaM
 aaM
-amY
+alb
 ait
 aaM
 aaM
@@ -51631,9 +51423,9 @@ aaM
 aaM
 aaM
 aaM
-amo
+ako
 aiH
-amT
+akI
 aaM
 aaM
 aaM
@@ -63697,7 +63489,7 @@ aCq
 aPt
 aPx
 aPx
-aDb
+aCm
 aPx
 aPx
 aPx
@@ -64725,7 +64517,7 @@ aCq
 aPx
 aPx
 aNl
-aQw
+aCm
 aPx
 aPx
 aPx
@@ -64979,16 +64771,16 @@ aOg
 aLT
 aLP
 aCq
-aDb
+aCm
 aPK
-aDb
+aCm
 aCq
-aDb
-aDb
-aDb
-aDb
-aDb
-aDb
+aCm
+aCm
+aCm
+aCm
+aCm
+aCm
 aCq
 aaM
 aaM
@@ -65472,7 +65264,7 @@ aGo
 aEP
 aEP
 aEP
-aHV
+aCm
 aIt
 aGI
 aJg
@@ -65953,9 +65745,9 @@ avf
 ayc
 awS
 awS
-azi
+axZ
 azF
-azi
+axZ
 awS
 awS
 awS
@@ -66243,7 +66035,7 @@ aEP
 aGD
 aHd
 aEP
-aDb
+aCm
 aCC
 aIM
 aCM
@@ -66255,23 +66047,23 @@ aLu
 aCq
 aCq
 aMo
-aDb
-aDb
-aDb
-aDb
-aDb
-aDb
+aCm
+aCm
+aCm
+aCm
+aCm
+aCm
 aMo
 aCq
 aCq
 aCq
 aMo
-aDb
-aDb
-aDb
-aDb
-aDb
-aDb
+aCm
+aCm
+aCm
+aCm
+aCm
+aCm
 aMo
 aCq
 aCq
@@ -66500,7 +66292,7 @@ aEP
 aFL
 aFL
 aEP
-aDb
+aCm
 aIv
 aCo
 aCo
@@ -67014,7 +66806,7 @@ aGp
 aGp
 aGp
 aGp
-aDb
+aCm
 aIv
 aCo
 aCo
@@ -67266,12 +67058,12 @@ aDM
 aDM
 aEP
 aEP
-azL
+aho
 aGq
 aGE
 aGF
 aGF
-aDb
+aCm
 aCF
 aIN
 aCN
@@ -67283,23 +67075,23 @@ aLw
 aCq
 aCq
 aMo
-aDb
-aDb
-aDb
-aDb
-aDb
-aDb
+aCm
+aCm
+aCm
+aCm
+aCm
+aCm
 aMo
 aCq
 aCq
 aCq
 aMo
-aDb
-aDb
-aDb
-aDb
-aDb
-aDb
+aCm
+aCm
+aCm
+aCm
+aCm
+aCm
 aMo
 aCq
 aCq
@@ -67523,7 +67315,7 @@ aFi
 aFo
 aEP
 aEP
-azL
+aho
 aGq
 aGF
 aGF
@@ -67780,7 +67572,7 @@ aFj
 aFp
 aEP
 aEP
-azL
+aho
 aGq
 aGF
 aGF
@@ -68037,7 +67829,7 @@ aFk
 aFp
 aEP
 aEP
-azL
+aho
 aGq
 aGF
 aGF
@@ -68294,7 +68086,7 @@ aEP
 aEP
 aFy
 aEP
-azL
+aho
 aGq
 aGF
 aGF
@@ -68551,7 +68343,7 @@ aEP
 aEP
 aEP
 aEP
-azL
+aho
 aGq
 aGF
 aGF
@@ -69059,7 +68851,7 @@ aDZ
 yhy
 aEo
 mud
-aDb
+aCm
 aCo
 aCo
 aCo
@@ -69312,11 +69104,11 @@ aDo
 aDo
 aCq
 aCq
-aDb
-aDb
-aDb
-aDb
-aDb
+aCm
+aCm
+aCm
+aCm
+aCm
 aCo
 aCo
 aCo
@@ -69564,10 +69356,10 @@ aAe
 auT
 aCC
 aCM
-aDb
+aCm
 aCM
 aDw
-aDb
+aCm
 aDN
 aEa
 aEa
@@ -70078,7 +69870,7 @@ aAe
 aCr
 aCo
 aCo
-aDb
+aCm
 aDp
 aDx
 aDH
@@ -70592,10 +70384,10 @@ aAe
 auT
 aCF
 aCN
-aDb
+aCm
 aDq
 aDz
-aDb
+aCm
 aDP
 qMW
 aCq
@@ -71385,9 +71177,9 @@ aWo
 aCq
 aCq
 aCq
-aDb
-aDb
-aDb
+aCm
+aCm
+aCm
 aCq
 aCq
 aHK
@@ -72638,7 +72430,7 @@ auT
 awj
 awj
 awj
-aAr
+awh
 aaM
 ait
 ait
@@ -72895,7 +72687,7 @@ auT
 awj
 awj
 awj
-aAr
+awh
 aaM
 ait
 aaM
@@ -72908,7 +72700,7 @@ wne
 aDe
 wne
 wne
-srl
+mbM
 mak
 mak
 nhD
@@ -73152,7 +72944,7 @@ auT
 azw
 awi
 awj
-aAr
+awh
 aaM
 ait
 aaM
@@ -73165,12 +72957,12 @@ wne
 wne
 wne
 wne
-srl
+mbM
 etF
 etF
 etF
 etF
-srl
+mbM
 etF
 etF
 etF
@@ -73180,7 +72972,7 @@ etF
 etF
 rlk
 bmH
-srl
+mbM
 wne
 wne
 wne
@@ -73409,7 +73201,7 @@ auT
 awj
 awj
 awj
-aAr
+awh
 ait
 ait
 ait
@@ -73422,12 +73214,12 @@ wne
 wne
 wne
 wne
-srl
+mbM
 etF
 etF
 etF
 etF
-srl
+mbM
 aWb
 aWh
 etF
@@ -73435,9 +73227,9 @@ etF
 etF
 etF
 aWb
-srl
+mbM
 bmH
-srl
+mbM
 wne
 wne
 wne
@@ -73666,7 +73458,7 @@ auT
 awj
 awj
 awj
-aAr
+awh
 aaM
 ait
 aaM
@@ -73679,12 +73471,12 @@ wne
 wne
 wne
 wne
-srl
-srl
-srl
-srl
+mbM
+mbM
+mbM
+mbM
 aEU
-srl
+mbM
 ifh
 ifh
 aWi
@@ -73692,9 +73484,9 @@ aWi
 aWi
 ifh
 ifh
-srl
+mbM
 aEU
-srl
+mbM
 wne
 aCP
 aCP
@@ -74946,17 +74738,17 @@ awl
 axe
 axA
 ayk
-ava
+ahd
 awl
 axe
 axA
 ayk
-ava
+ahd
 awl
 axe
 axA
 aBp
-awe
+ahk
 auT
 ifh
 aCG
@@ -75715,18 +75507,18 @@ ait
 auT
 awo
 axh
-apk
+acX
 ayl
 ayE
 awo
 axh
-avb
+ahe
 ayl
 ayE
 awo
 axh
-avg
-avD
+ahf
+ahg
 aBT
 auT
 ifh
@@ -75972,18 +75764,18 @@ aaM
 auT
 awp
 axi
-ars
+agZ
 ayl
 ayE
 awp
 axi
-ars
+agZ
 ayl
 ayE
 awp
 axi
-ars
-avE
+agZ
+ahi
 aBT
 auT
 ifh
@@ -76229,18 +76021,18 @@ ait
 auT
 awq
 axj
-auY
+ahc
 ayl
 ayE
 awq
 axj
-auY
+ahc
 ayl
 ayE
 awq
 axj
-auY
-avN
+ahc
+ahj
 aBT
 auT
 ifh
@@ -80155,12 +79947,12 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+hcI
+hcI
+hcI
+hcI
+hcI
+hcI
 aaM
 jMp
 iMV
@@ -80412,12 +80204,12 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+hcI
+ahp
+dBu
+lfp
+akE
+hcI
 aaM
 hcI
 obp
@@ -80669,11 +80461,11 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+hcI
+ahq
+dBu
+dBu
+qwV
 hcI
 hcI
 hcI
@@ -80927,10 +80719,10 @@ hcI
 hcI
 hcI
 hcI
-hcI
-hcI
-hcI
-hcI
+ahr
+dBu
+dBu
+ala
 hcI
 hcI
 hcI
@@ -81184,10 +80976,10 @@ pMl
 pMl
 hcI
 hcI
-xcu
-xcu
-wRE
-xcu
+ahs
+dBu
+dBu
+ala
 hcI
 hcI
 hcI
@@ -81441,19 +81233,19 @@ wOb
 wOb
 rQs
 hcI
-jgo
-dBu
-dBu
-dBu
 bjQ
+dBu
+dBu
+dBu
+jgo
 eLM
-pBa
+vWw
 iKp
 vQA
 iMV
 wnD
 iKp
-nFs
+smm
 eLM
 nFs
 nFs
@@ -81967,7 +81759,7 @@ vpD
 gGc
 vpD
 vpD
-vpD
+cRb
 eLM
 oOS
 oOS
@@ -82472,7 +82264,7 @@ tYm
 wOb
 wOb
 wOb
-nCx
+nLZ
 hcI
 hcI
 hcI
@@ -83764,7 +83556,7 @@ xkE
 nzS
 lkY
 wVd
-wVd
+lwA
 xkE
 aaM
 aaM

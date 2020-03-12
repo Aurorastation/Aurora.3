@@ -319,6 +319,10 @@
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = 2.0
 	icon = 'icons/obj/clothing/gloves.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_gloves.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_gloves.dmi'
+		)
 	siemens_coefficient = 0.75
 	var/wired = 0
 	var/obj/item/cell/cell = 0

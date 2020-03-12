@@ -426,7 +426,11 @@
 		/obj/item/clothing/suit/space/void/hos = /obj/item/clothing/head/helmet/space/void/hos,
 		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
 		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol,
+		/obj/item/clothing/suit/space/void/hephaestus = /obj/item/clothing/head/helmet/space/void/hephaestus,
+		/obj/item/clothing/suit/space/void/zenghu = /obj/item/clothing/head/helmet/space/void/zenghu,
+		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
+		/obj/item/clothing/suit/space/void/necropolis = /obj/item/clothing/head/helmet/space/void/necropolis
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
@@ -442,7 +446,11 @@
 		/obj/item/clothing/suit/space/void/hos = 0.3,
 		/obj/item/clothing/suit/space/void/lancer = 0.3,
 		/obj/item/clothing/suit/space/void/sci = 2,
-		/obj/item/clothing/suit/space/void/sol = 0.5
+		/obj/item/clothing/suit/space/void/sol = 0.5,
+		/obj/item/clothing/suit/space/void/necropolis = 0.5,
+		/obj/item/clothing/suit/space/void/einstein = 0.5,
+		/obj/item/clothing/suit/space/void/hephaestus = 0.5,
+		/obj/item/clothing/suit/space/void/zenghu = 0.5
 	)
 	has_postspawn = TRUE
 
@@ -575,7 +583,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/melonliquor,
 		/obj/item/reagent_containers/food/drinks/bottle/pwine,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy,
-		/obj/item/reagent_containers/food/drinks/bottle/guinnes,
+		/obj/item/reagent_containers/food/drinks/bottle/guinness,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette,
 		/obj/item/reagent_containers/food/drinks/bottle/cremewhite,
@@ -634,7 +642,7 @@
 
 /obj/random/spacecash
 	name = "random credit chips"
-	desc = "This is a random credit ships."
+	desc = "This is a random credit chip."
 	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	problist = list(
@@ -673,7 +681,7 @@
 
 /obj/random/colored_jumpsuit
 	name = "random colored jumpsuit"
-	desc = "This is a random colowerd jumpsuit."
+	desc = "This is a random colored jumpsuit."
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	icon_state = "black"
 	spawnlist = list(
@@ -880,7 +888,8 @@
 		/obj/random/technology_scanner = 1,
 		/obj/random/tool = 1,
 		/obj/random/toolbox = 1,
-		/obj/random_produce = 0.25
+		/obj/random_produce = 0.25,
+		/obj/random/watches = 1
 	)
 
 
@@ -936,10 +945,20 @@
 		/obj/item/clothing/gloves/fyellow = 1.2,
 		/obj/item/clothing/gloves/latex = 0.5,
 		/obj/item/clothing/gloves/latex/nitrile = 0.4,
-		/obj/item/clothing/gloves/watch = 0.3,
 		/obj/item/clothing/gloves/yellow = 0.9
 	)
 
+/obj/random/watches
+	name = "random watches"
+	desc = "Random watches, probably able to tell the time."
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "watch"
+	problist = list(
+		/obj/item/clothing/gloves/watch = 1,
+		/obj/item/clothing/gloves/watch/silver = 0.7,
+		/obj/item/clothing/gloves/watch/gold = 0.5,
+		/obj/item/clothing/gloves/watch/spy = 0.3,
+	)
 
 /obj/random/hoodie
 	name = "random winter coat"

@@ -238,7 +238,7 @@
 /obj/item/clothing/gloves/chameleon
 	name = "black gloves"
 	icon_state = "black"
-	item_state = "bgloves"
+	item_state = "black"
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_ILLEGAL = 3)
 	var/global/list/clothing_choices

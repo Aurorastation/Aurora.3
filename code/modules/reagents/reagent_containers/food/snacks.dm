@@ -7,9 +7,11 @@
 	desc = "Yummy!"
 	icon = 'icons/obj/food.dmi'
 	icon_state = null
+	center_of_mass = list("x"=16, "y"=16)
+	w_class = 2
+	is_liquid = FALSE
 	var/bitesize = 1
 	var/bitecount = 0
-	var/trash = null
 	var/slice_path
 	var/slices_num
 	var/dried_type = null
@@ -17,8 +19,6 @@
 	var/nutriment_amt = 0
 	var/nutriment_type = NUTRIMENT_GOOD
 	var/list/nutriment_desc = list("food" = 1)
-	center_of_mass = list("x"=16, "y"=16)
-	w_class = 2
 	var/datum/reagent/nutriment/coating/coating = null
 	var/icon/flat_icon = null //Used to cache a flat icon generated from dipping in batter. This is used again to make the cooked-batter-overlay
 	var/do_coating_prefix = 1
@@ -40,20 +40,13 @@
 /obj/item/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
 	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
 
-/obj/item/reagent_containers/food/snacks/proc/on_consume(var/mob/eater, var/mob/feeder = null)
-	if(!reagents.total_volume)
-		eater.visible_message(span("notice", "[eater] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
-		if(!feeder)
-			feeder = eater
-		feeder.drop_from_inventory(src)	//so icons update :[ //what the fuck is this????
-		if(trash)
-			if(ispath(trash,/obj/item))
-				var/obj/item/TrashItem = new trash(feeder)
-				feeder.put_in_hands(TrashItem)
-			else if(istype(trash,/obj/item))
-				feeder.put_in_hands(trash)
+/obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
+	if(!reagents.total_volume && !trash)
+		target.visible_message(SPAN_NOTICE("[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
+					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 		qdel(src)
-	return
+	else
+		..()
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
@@ -63,11 +56,6 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(!istype(target))
-		return
-
-	if(!reagents.total_volume)
-		to_chat(user,span("warning","There is none of \the [src] left to eat!"))
-		qdel(src)
 		return
 
 	if (isanimal(target))
@@ -147,12 +135,9 @@
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 
-	if(is_liquid)
-		playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
-	else
-		playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)
+	feed_sound(target)
 	bitecount++
-	on_consume(target,user)
+	on_consume(user, target)
 
 	return 1
 
@@ -230,11 +215,8 @@
 					U.is_liquid = TRUE
 				if (reagents.total_volume <= 0)
 					if(trash)
-						if(ispath(trash,/obj/item))
-							var/obj/item/TrashItem = new trash(user)
-							user.put_in_hands(TrashItem)
-						else if(istype(trash,/obj/item))
-							user.put_in_hands(trash)
+						var/obj/item/TrashItem = new trash(user)
+						user.put_in_hands(TrashItem)
 					qdel(src)
 				return
 
@@ -529,7 +511,6 @@
 	. = ..()
 	reagents.add_reagent("sugar", 3)
 
-
 /obj/item/reagent_containers/food/snacks/candy/koko
 	name = "\improper koko bar"
 	desc = "A sweet and gritty candy bar cultivated exclusively on the Compact ruled world of Ha'zana. A good pick-me-up for Unathi, but has no effect on other species."
@@ -547,6 +528,7 @@
 
 /obj/item/reagent_containers/food/snacks/candy/donor
 	name = "donor candy"
+	icon_state = "candy"
 	desc = "A little treat for blood donors. Made with real sugar!"
 	trash = /obj/item/trash/candy
 	nutriment_desc = list("candy" = 10)
@@ -5516,7 +5498,6 @@
 	description_fluff = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
 	It is known for its hard crust, bland taste and for being long lasting. The hard bread was usually prepared for long journeys, hard winters or military campaigns, \
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
-
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD
