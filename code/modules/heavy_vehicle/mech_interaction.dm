@@ -511,4 +511,4 @@
 	if(LAZYLEN(pilots))
 		if(body)
 			if(body.smash(AM))
-				setClickCooldown(5)
+				setMoveCooldown(10)
