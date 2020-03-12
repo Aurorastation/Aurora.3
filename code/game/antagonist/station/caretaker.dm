@@ -1,7 +1,7 @@
 /datum/antagonist/caretaker
 	id = MODE_CARETAKER
-	role_text = "Caretaker"
-	role_text_plural = "Caretakers"
+	role_text = "Egg Caretaker"
+	role_text_plural = "Egg Caretakers"
 	bantype = "caretaker"
 	feedback_tag = "caretkr_objective"
 	antag_indicator = "caretkr"

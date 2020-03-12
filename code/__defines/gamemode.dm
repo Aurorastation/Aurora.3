@@ -55,6 +55,7 @@
 #define MODE_VAMPIRE "vampire"
 #define MODE_THRALL "thrall"
 #define MODE_CARETAKER "caretaker"
+#define MODE_EGG "egg"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 25
 

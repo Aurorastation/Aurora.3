@@ -1,3 +1,5 @@
+var/global/list/global_eggs = list()
+
 /obj/item/caretaker_egg
 	name = "mysterious egg"
 	desc = "A mysterious egg of unknown origin."
@@ -8,22 +10,22 @@
 	throw_range = 3
 	slot_flags = SLOT_BELT
 	contained_sprite = TRUE
-	var/mob/abstract/egg/player // The player who will ultimately gain control of the hatchling
-	var/mob/mob_type = /mob/living/carbon/human/stok // The mob to be spawned when the hatch time is reached
-	var/hatch_time = 5 MINUTES
+	var/mob/living/egg/player // The player who will ultimately gain control of the hatchling
+	var/mob_type = /mob/living/carbon/human/stok // The mob to be spawned when the hatch time is reached
+	var/hatch_time = 1500 // 2.5 minutes
 	var/jittering = FALSE
 
 /obj/item/caretaker_egg/Initialize()
 	. = ..()
-	player = new /mob/abstract/egg(src)
-	player.my_egg = src
+	global_eggs += src
 
-	addtimer(CALLBACK(src, .proc/jitter_process), (hatch_time - 30 SECONDS))
+	addtimer(CALLBACK(src, .proc/jitter_process), (hatch_time - 300)) // start jittering thirty seconds before hatching
 	addtimer(CALLBACK(src, .proc/hatch), hatch_time)
 
 /obj/item/caretaker_egg/Destroy()
 	player?.ghostize(TRUE)
 	jittering = FALSE
+	global_eggs -= src
 	return ..()
 
 // this process won't end because we end it when hatching
@@ -45,5 +47,9 @@
 	var/mob/hatched_mob = new mob_type(get_turf(src))
 	if(player)
 		hatched_mob.ckey = player.ckey
-		hatched_mob.languages = player.languages
+		for(var/language in player.languages)
+			hatched_mob.add_language(language)
+		hatched_mob.name = player.name
+		hatched_mob.real_name = hatched_mob.name
+		player = null // so it doesn't get ghosted when deleted
 	qdel(src)
