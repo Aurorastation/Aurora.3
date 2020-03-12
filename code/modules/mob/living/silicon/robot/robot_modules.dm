@@ -194,9 +194,8 @@ var/global/list/robot_modules = list(
 			"Heph-Droid" = "droidrecolormedi",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
-			"Arachnotronic" = "spidermedi",
+			"Arachnotronic" = "arachnotronicmedi",
 			"TC-Drone" = "dronerecolormedi",
-			"Repo-Icarus-Drone" = "repodronemedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
 			)
@@ -266,9 +265,8 @@ var/global/list/robot_modules = list(
 			"Heph-Droid" = "droidrecolormedi",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
-			"Arachnotronic" = "spidermedi",
+			"Arachnotronic" = "arachnotronicmedi",
 			"TC-Drone" = "dronerecolormedi",
-			"Repo-Icarus-Drone" = "repodronemedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
 			)
@@ -340,9 +338,8 @@ var/global/list/robot_modules = list(
 			"Heph-Droid" = "droidrecolorengi",
 			"HD-MAD" = "mcspizzytronengi",
 			"SD-MAD" = "floatspizzytronengi",
-			"Arachnotronic" = "spiderengi",
+			"Arachnotronic" = "arachnotronicengi",
 			"TC-Drone" = "dronerecolorengi",
-			"Repo-Icarus-Drone" = "repodroneengi",
 			"Unbranded-MAD" = "offfloatspizzytronengi",
 			"Unbranded-Android" = "droid",
 			)
@@ -516,9 +513,8 @@ var/global/list/robot_modules = list(
 			"Heph-Droid" = "droidrecolorjani",
 			"HD-MAD" = "mcspizzytronjani",
 			"SD-MAD" = "floatspizzytronjani",
-			"Arachnotronic" = "spiderjani",
+			"Arachnotronic" = "arachnotronicjani",
 			"TC-Drone" = "dronerecolorjani",
-			"Repo-Icarus-Drone" = "repodronejani",
 			"Unbranded-MAD" = "offfloatspizzytronjani",
 			"Unbranded-Android" = "droid",
 			)
@@ -576,9 +572,8 @@ var/global/list/robot_modules = list(
 			"Heph-Droid" = "droidrecolorserv",
 			"HD-MAD" = "mcspizzytronserv",
 			"SD-MAD" = "floatspizzytronserv",
-			"Arachnotronic" = "spidersci",
+			"Arachnotronic" = "arachnotronicserv",
 			"TC-Drone" = "dronerecolorserv",
-			"Repo-Icarus-Drone" = "repodroneserv",
 			"Unbranded-MAD" = "offfloatspizzytronserv",
 			"Unbranded-Android" = "droid",
 			  	)
@@ -648,9 +643,8 @@ var/global/list/robot_modules = list(
 			"Heph-Droid" = "droidrecolormine",
 			"HD-MAD" = "mcspizzytronmine",
 			"SD-MAD" = "floatspizzytronmine",
-			"Arachnotronic" = "spidermine",
+			"Arachnotronic" = "arachnotronicmine",
 			"TC-Drone" = "dronerecolormine",
-			"Repo-Icarus-Drone" = "repodronemine",
 			"Unbranded-MAD" = "offfloatspizzytronmine",
 			"Unbranded-Android" = "droid",
 			)
@@ -686,9 +680,8 @@ var/global/list/robot_modules = list(
 			"Heph-Droid" = "droidrecolorsci",
 			"HD-MAD" = "mcspizzytronsci",
 			"SD-MAD" = "floatspizzytronsci",
-			"Arachnotronic" = "spidersci",
+			"Arachnotronic" = "arachnotronicsci",
 			"TC-Drone" = "dronerecolorsci",
-			"Repo-Icarus-Drone" = "repodronesci",
 			"Unbranded-MAD" = "offfloatspizzytronsci",
 			"Unbranded-Android" = "droid",
 			)
@@ -749,7 +742,7 @@ var/global/list/robot_modules = list(
 					"HD-MAD" = "mcspizzytronsyndi",
 					"Industrial" = "heavysyndi",
 					"Heph-Android" = "droid",
-					"Arachnotronic" = "spidersyndi",
+					"Arachnotronic" = "arachnotronicsyndi",
 					"Toileto-tron" = "syndi-medi",
 					)
 

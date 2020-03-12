@@ -138,6 +138,11 @@
 	icontype = "Basic"
 	updatename(mod_type)
 	updateicon()
+	if(mmi && mmi.brainobj)
+		mmi.brainmob.name = src.name
+		mmi.brainmob.real_name = src.name
+		mmi.name = "[initial(mmi.name)]: [src.name]"
+		mmi.brainobj.lobotomized = 1
 
 	if(mmi?.brainobj)
 		mmi.brainobj.lobotomized = TRUE
@@ -346,6 +351,10 @@
 
 	real_name = changed_name
 	name = real_name
+	if(mmi)
+		mmi.brainmob.name = src.name
+		mmi.brainmob.real_name = src.name
+		mmi.name = "[initial(mmi.name)]: [src.name]"
 
 	// if we've changed our name, we also need to update the display name for our PDA
 	setup_PDA()
