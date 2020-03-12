@@ -1,9 +1,9 @@
 
-#define evolve_nutrition 4000 //when a nymph gathers this much nutrition, it can evolve into a gestalt
+#define evolve_nutrition 5000 //when a nymph gathers this much nutrition, it can evolve into a gestalt
 
 //Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 /mob/living/carbon/alien/diona
-	max_nutrition = 6000
+	max_nutrition = 5000
 	language = null
 	mob_size = 4
 	density = 0
@@ -22,7 +22,7 @@
 	holder_type = /obj/item/holder/diona
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
-	maxHealth = 85
+	maxHealth = 33.3
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
