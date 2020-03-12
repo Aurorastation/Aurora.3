@@ -42,8 +42,8 @@
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/eridani,
 		"Warden" = /datum/outfit/job/warden/eridani,
-		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
-		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
+		"Crime Scene Investigator" = /datum/outfit/job/detective/eridani,
+		"Detective" = /datum/outfit/job/detective/eridani,
 		"Paramedic" = /datum/outfit/job/paramedic/eridani,
 		"Emergency Medical Technician" = /datum/outfit/job/paramedic/eridani,
 		"Corporate Liaison" = /datum/outfit/job/representative/eridani
