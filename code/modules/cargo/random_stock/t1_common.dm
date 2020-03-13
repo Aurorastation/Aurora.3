@@ -388,8 +388,8 @@ STOCK_ITEM_COMMON(booze, 3.7)
 		else
 			new /obj/structure/reagent_dispensers/keg/xuizikeg(T)
 	else
-		var/list/drinks = typesof(/obj/item/reagent_containers/food/drinks/bottle)
-		drinks -= /obj/item/reagent_containers/food/drinks/bottle
+		var/list/drinks = subtypesof(/obj/item/reagent_containers/food/drinks/bottle)
+		drinks -= /obj/item/reagent_containers/food/drinks/bottle/carton
 
 		for (var/i in 1 to rand(1, 3))
 			var/type = pick(drinks)
