@@ -47,7 +47,7 @@
 		)
 
 	var/obj/item/pai_cable/cable		// The cable we produce and use when door or camera jacking
-	idcard_type = /obj/item/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
+	id_card_type = /obj/item/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
 
 	var/master				// Name of the one who commands us
 	var/master_dna			// DNA string for owner verification
@@ -163,7 +163,7 @@
 		return
 /mob/living/silicon/pai/init_id()
 	. = ..()
-	idcard.registered_name = ""
+	id_card.registered_name = ""
 
 
 /mob/living/silicon/pai/Login()

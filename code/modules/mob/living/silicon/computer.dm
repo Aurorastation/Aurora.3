@@ -1,19 +1,5 @@
-/mob/living/silicon
-	var/register_alarms = 1
-	var/datum/nano_module/alarm_monitor/all/alarm_monitor
-	var/datum/nano_module/law_manager/law_manager
-	var/datum/nano_module/rcon/rcon
-	var/obj/item/modular_computer/silicon/computer
-
 /mob/living/silicon/ai
 	var/datum/nano_module/computer_ntnetmonitor/ntnet_monitor
-
-/mob/living/silicon
-	var/list/silicon_subsystems = list(
-		/mob/living/silicon/proc/subsystem_alarm_monitor,
-		/mob/living/silicon/proc/subsystem_law_manager,
-		/mob/living/silicon/proc/computer_interact
-	)
 
 /mob/living/silicon/ai
 	silicon_subsystems = list(
@@ -26,13 +12,6 @@
 /mob/living/silicon/robot/syndicate
 	register_alarms = 0
 	silicon_subsystems = list(/mob/living/silicon/proc/subsystem_law_manager)
-
-/mob/living/silicon/Destroy()
-	QDEL_NULL(alarm_monitor)
-	QDEL_NULL(law_manager)
-	QDEL_NULL(computer)
-
-	return ..()
 
 /mob/living/silicon/ai/Destroy()
 	QDEL_NULL(ntnet_monitor)

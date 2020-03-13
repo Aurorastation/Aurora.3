@@ -29,6 +29,6 @@
 	to_chat(borg, "Connection to station AI successful. Synchronizing laws...") //Fluff.)
 	sleep(5)
 	to_chat(borg, "<span class='danger'>You have been bound to an AI, Laws synchronized!</span>") //to provide a noticable chat notification.)
-	borg.lawupdate = 1 //Required for sync() to function.
+	borg.law_update = TRUE //Required for sync() to function.
 	borg.sync()
 	borg.show_laws(0) //This should display updated laws to the borg.
