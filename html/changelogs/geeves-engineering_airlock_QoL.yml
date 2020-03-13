@@ -6,3 +6,4 @@ changes:
   - rscadd: "Clicking an unlocked airlock electronic with another unlocked airlock electronic will now copy the configuration from the one in your active hand to the clicked one."
   - rscadd: "Clicking an airlock electronic with an ID or PDA with an ID in it will now toggle its lock."
   - tweak: "Airlock eletronics are now one size smaller, meaning you can jam more of them into a pack."
+  - rscdel: "Having brain damage no longer prevents you from operating airlock electronics."
