@@ -735,7 +735,7 @@
 	if(emagged)
 		to_chat(user, SPAN_WARNING("You start sliding your cryptographic device into the charging slot. This will take a few seconds..."))
 		if(do_after(user, 60))
-			to_chat(user, SPAN_NOTICE("You hack the charging slot. The next IPC that charges from this IPC will be hacked and slaved to you."))
+			to_chat(user, SPAN_NOTICE("You hack the charging slot. The next IPC that charges from this APC will be hacked and slaved to you."))
 			infected = TRUE
 			hacker = user
 	if(!(emagged || hacker))		// trying to unlock with an emag card
