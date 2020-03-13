@@ -168,19 +168,19 @@ obj/structure/windoor_assembly/Destroy()
 			//Adding airlock electronics for access. Step 6 complete.
 			else if(istype(W, /obj/item/airlock_electronics) && W:icon_state != "door_electronics_smoked")
 				var/obj/item/airlock_electronics/EL = W
-				if(!EL.inuse)
+				if(!EL.in_use)
 					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
-					EL.inuse = 1
+					EL.in_use = 1
 					if(do_after(user, 40))
-						EL.inuse = 0
+						EL.in_use = 0
 						if(!src) return
 						user.drop_from_inventory(EL,src)
 						to_chat(user, "<span class='notice'>You've installed the airlock electronics!</span>")
 						src.name = "Near finished Windoor Assembly"
 						src.electronics = EL
 					else
-						EL.inuse = 0
+						EL.in_use = 0
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(W.isscrewdriver() && src.electronics)

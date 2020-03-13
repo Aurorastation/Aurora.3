@@ -237,12 +237,12 @@
 
 	else if(istype(W, /obj/item/airlock_electronics) && state == 1)
 		var/obj/item/airlock_electronics/EL = W
-		if(!EL.inuse)
+		if(!EL.in_use)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
-			EL.inuse = 1
+			EL.in_use = 1
 			if(do_after(user, 40/W.toolspeed))
-				EL.inuse = 0
+				EL.in_use = 0
 				if(!src) return
 				user.drop_from_inventory(EL,src)
 				to_chat(user, "<span class='notice'>You installed the airlock electronics!</span>")
@@ -250,7 +250,7 @@
 				src.name = "Near finished Airlock Assembly"
 				src.electronics = EL
 			else
-				EL.inuse = 0
+				EL.in_use = 0
 
 	else if(W.iscrowbar() && state == 2 )
 		//This should never happen, but just in case I guess
