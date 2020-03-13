@@ -122,13 +122,20 @@
 			locked = !locked
 			last_configurator = I.registered_name
 			to_chat(user, SPAN_NOTICE("You swipe your ID over \the [src], [locked ? "locking" : "unlocking"] it."))
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
 	else if(istype(W, /obj/item/device/pda))
 		var/obj/item/device/pda/P = W
 		var/obj/item/card/id/I = P.id
-		if(I && src.check_access(I))
+		if(!I)
+			to_chat(user, SPAN_WARNING("Your PDA doesn't have an ID in it!"))
+			return
+		if(check_access(I))
 			locked = !locked
 			last_configurator = I.registered_name
 			to_chat(user, SPAN_NOTICE("You swipe your PDA over \the [src], [locked ? "locking" : "unlocking"] it."))
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
 	else
 		..()
 
