@@ -3,25 +3,46 @@
 	min_power = 50
 	special_flags = NO_THOUGHT | NO_EMOTE
 
-/datum/hallucination/mindread/can_affect(mob/living/carbon/C)	//Don't give it to people who already have psi powers
-	if(C.psi)
+/datum/hallucination/mindread/can_affect(mob/living/carbon/C)
+	if(C.psi)			//Don't give it to people who already have psi powers
+		return FALSE
+	if(locate(/datum/hallucination/telepathy) in C.hallucinations)
 		return FALSE
 	return ..()
 
-/datum/hallucination/mindread/start()
+/datum/hallucination/mindread/activate()
+	..()
+	addtimer(CALLBACK(src, .proc/mind_give), rand(30, 50))
+
+/datum/hallucination/mindread/start()	//set duration, foreshadow powers
 	duration = rand(2, 4) MINUTES
+	switch(rand(1, 3))
+		if(1)
+			sound_to(holder, 'sound/misc/announcements/notice.ogg')
+			to_chat(holder, "<h2 class='alert'>Ion Storm?</h2>")
+			to_chat(holder, SPAN_ALERT("It has come to our attention that the station has passed through an unusual ion storm. Several crewmembers are exhibiting unusual abilities."))
+		if(2)
+			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
+			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
+			flick("e_flash", holder.flash)
+		if(3)
+			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
+			holder.emote("me",1,"winces.")
+			holder.eye_blurry += 9
+
+/datum/hallucination/mindread/proc/mind_give()	//grant powers
 	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
-	holder.verbs += /mob/living/carbon/human/verb/fakemindread
+	holder.verbs += /mob/living/carbon/proc/fakemindread
 
 /datum/hallucination/mindread/end()
 	if(holder)
-		holder.verbs -= /mob/living/carbon/human/verb/fakemindread
+		holder.verbs -= /mob/living/carbon/proc/fakemindread
 		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 		holder.drowsyness += 12
 	..()
 
-/mob/living/carbon/human/verb/fakemindread()
+/mob/living/carbon/proc/fakemindread()
 	set name = "Read Mind"
 	set category = "Abilities"
 
@@ -64,27 +85,47 @@
 	allow_duplicates = FALSE
 	special_flags = NO_THOUGHT | NO_EMOTE
 
-/datum/hallucination/telepathy/can_affect(mob/living/carbon/C)	//Don't give it to people who already have psi powers
-	if(C.psi)
+/datum/hallucination/telepathy/can_affect(mob/living/carbon/C)
+	if(C.psi)			//Don't give it to people who already have psi powers
+		return FALSE
+	if(locate(/datum/hallucination/mindread) in C.hallucinations)
 		return FALSE
 	return ..()
 
+/datum/hallucination/telepathy/activate()
+	..()
+	addtimer(CALLBACK(src, .proc/tele_give), rand(30, 50))
 
 /datum/hallucination/telepathy/start()
 	duration = rand(2, 4) MINUTES
+	switch(rand(1, 3))
+		if(1)
+			sound_to(holder, 'sound/misc/announcements/notice.ogg')
+			to_chat(holder, "<h2 class='alert'>Ion Storm?</h2>")
+			to_chat(holder, SPAN_ALERT("It has come to our attention that the station has passed through an unusual ion storm. Several crewmembers are exhibiting unusual abilities."))
+		if(2)
+			sound_to(holder, 'sound/hallucinations/behind_you1.ogg')
+			to_chat(holder, SPAN_GOOD("You hear a whispering in your mind. A promise of [pick("power", "enlightenment", "sight beyond sight", "knowledge terrible but true")]. Your vision goes white for a moment; when it returns, you feel... different."))
+			flick("e_flash", holder.flash)
+		if(3)
+			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
+			holder.emote("me",1,"winces.")
+			holder.eye_blurry += 9
+
+/datum/hallucination/telepathy/proc/tele_give()	//grant powers
 	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
-	holder.verbs += /mob/living/carbon/human/verb/faketelepathy
+	holder.verbs += /mob/living/carbon/proc/faketelepathy
 
 /datum/hallucination/telepathy/end()
 	if(holder)
-		holder.verbs -= /mob/living/carbon/human/verb/faketelepathy
+		holder.verbs -= /mob/living/carbon/proc/faketelepathy
 		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 		holder.drowsyness += 12
 	..()
 
 
-/mob/living/carbon/human/verb/faketelepathy()
+/mob/living/carbon/proc/faketelepathy()
 	set name = "Send Telepathic Message"
 	set category = "Abilities"
 
