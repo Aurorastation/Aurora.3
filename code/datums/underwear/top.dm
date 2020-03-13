@@ -24,29 +24,6 @@
 	icon_state = "bra_bralette"
 	has_color = TRUE
 
-/datum/category_item/underwear/top/bra_lacy
-	name = "Bra, Lacy"
-	icon_state = "bra_lacy"
-
-/datum/category_item/underwear/top/bra_lacy_alt
-	name = "Bra, Lacy Alt"
-	icon_state = "bra_lacy_alt"
-	has_color = TRUE
-
-/datum/category_item/underwear/top/bra_lacy_alt_stripe
-	name = "Bra, Lacy Alt Stripe"
-	icon_state = "bra_lacy_alt_stripe"
-
-/datum/category_item/underwear/top/bra_lingerie
-	name = "Bra, Lingerie"
-	icon_state = "bra_lingerie"
-	has_color = TRUE
-
-/datum/category_item/underwear/top/bra_lingerie_alt
-	name = "Bra, Lingerie Alt"
-	icon_state = "bra_lingerie_alt"
-	has_color = TRUE
-
 /datum/category_item/underwear/top/bra_striped
 	name = "Bra, Striped"
 	icon_state = "bra_striped"
