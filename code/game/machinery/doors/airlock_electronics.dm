@@ -13,7 +13,7 @@
 	var/one_access = FALSE //if set to TRUE, door would receive req_one_access instead of req_access
 	var/last_configurator
 	var/locked = TRUE
-	var/in_use = FALSE // no double-spending
+	var/is_installed = FALSE // no double-spending
 
 /obj/item/airlock_electronics/attack_self(mob/user)
 	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
