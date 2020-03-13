@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Debuggers can now fix software errors in vending machines, shooting their inventory and advertising aggressively."
+  - tweak: "The time it takes for the debugger to fix APCs have been reduced by half."

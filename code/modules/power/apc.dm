@@ -661,25 +661,25 @@
 	else if (istype(W, /obj/item/device/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, "<span class='warning'>There is a software error with the device. Attempting to fix...</span>")
-			if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+			if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
 				to_chat(user, "<span class='notice'>Problem diagnosed, searching for solution...</span>")
-				if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
+				if(do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 					to_chat(user, "<span class='notice'>Solution found. Applying fixes...</span>")
-					if(do_after(user, 60/W.toolspeed SECONDS, act_target = src))
+					if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
 						if(prob(15))
 							to_chat(user, "<span class='warning'>Error while applying fixes. Please try again.</span>")
 							return
 					to_chat(user, "<span class='notice'>Applied default software. Restarting APC...</span>")
-					if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+					if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
 						to_chat(user, "<span class='notice'>APC Reset. Fixes applied.</span>")
 						if(hacker)
 							hacker.hacked_apcs -= src
 							hacker = null
 							update_icon()
 						if(emagged)
-							emagged = 0
+							emagged = FALSE
 						if(infected)
-							infected = 0
+							infected = FALSE
 			else
 				to_chat(user, "<span class='notice'>There has been a connection issue.</span>")
 				return

@@ -184,7 +184,16 @@
 		to_chat(user, "You short out the product lock on \the [src]")
 		return 1
 
-/obj/machinery/vending/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/vending/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/device/debugger))
+		if(shoot_inventory || !shut_up)
+			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software Error Detected. Rectifying.\""))
+			if(do_after(user, 100 / W.toolspeed, act_target = src))
+				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
+				shoot_inventory = FALSE
+				shut_up = TRUE
+		else
+			to_chat(user, SPAN_NOTICE("\The [W] reads, \"All systems nominal.\"."))
 
 	var/obj/item/card/id/I = W.GetID()
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
