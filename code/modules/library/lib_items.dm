@@ -129,8 +129,9 @@
 		B.title = title
 		B.author = author
 		B.dat = content
-		B.icon_state = "book[rand(1,16)]"
-		B.item_state = B.icon_state
+		var/randbook = "book[rand(1,16)]"
+		B.icon_state = randbook
+		B.item_state = randbook
 
 	update_icon()
 
