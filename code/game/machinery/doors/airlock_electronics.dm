@@ -54,7 +54,7 @@
 
 /obj/item/airlock_electronics/Topic(href, href_list)
 	..()
-	if(usr.stat || usr.restrained() || (!ishuman(usr) && !istype(usr,/mob/living/silicon)))
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 	if(href_list["close"])
 		usr << browse(null, "window=airlock")
