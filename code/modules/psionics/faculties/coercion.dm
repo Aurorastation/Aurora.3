@@ -58,8 +58,13 @@
 		return
 
 	if(target.stat == DEAD || (target.status_flags & FAKEDEATH) || !target.client)
-		to_chat(user, span("warning", "\The [target] is in no state for a mind-ream."))
+		to_chat(user, span("warning", "\The [target] is in no state for a mind-read."))
 		return TRUE
+
+	for (var/obj/item/implant/mindshield/I in target)
+		if (I.implanted)
+			to_chat(user, span("warning", "\The [target]'s mind is protected from the mind-read."))
+			return TRUE
 
 	user.visible_message(span("warning", "\The [user] touches \the [target]'s temple..."))
 	var/question =  input(user, "Say something?", "Read Mind", "Penny for your thoughts?") as null|text
@@ -146,6 +151,11 @@
 		if(!target.mind || !target.key)
 			to_chat(user, "<span class='warning'>\The [target] is mindless!</span>")
 			return TRUE
+		for (var/obj/item/implant/mindshield/I in target)
+			if (I.implanted)
+				to_chat(user, span("warning", "\The [target]'s mind is protected from the mindslaving."))
+				return TRUE
+
 		user.visible_message("<span class='danger'><i>\The [user] seizes the head of \the [target] in both hands...</i></span>")
 		to_chat(user, "<span class='warning'>You plunge your mentality into that of \the [target]...</span>")
 		to_chat(target, "<span class='danger'>Your mind is invaded by the presence of \the [user]! They are trying to make you a slave!</span>")
@@ -250,6 +260,11 @@
 		if (isvaurca(target))
 			to_chat (user, "<span class='cult'>You feel your thoughts pass right through a mind empty of psychic energy.</span>")
 			return
+
+		for (var/obj/item/implant/mindshield/I in target)
+			if (I.implanted)
+				to_chat(user, span("warning", "\The [target]'s mind rejects your attempt to communicate."))
+				return TRUE
 
 		log_say("[key_name(user)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 

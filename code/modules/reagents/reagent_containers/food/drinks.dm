@@ -50,7 +50,6 @@
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
 		return 1
-	on_consume(target,user)
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
@@ -301,6 +300,14 @@
 	amount_per_transfer_from_this = 10
 	volume = 120
 	center_of_mass = list("x"=16, "y"=8)
+	var/last_shake = 0
+
+/obj/item/reagent_containers/food/drinks/shaker/attack_self(mob/user)
+	if(last_shake <= world.time - 10) //Spam limiter.
+		last_shake = world.time
+		playsound(src.loc, 'sound/items/soda_shaking.ogg', 50, 1)
+	src.add_fingerprint(user)
+	return
 
 /obj/item/reagent_containers/food/drinks/teapot
 	name = "teapot"

@@ -1,28 +1,29 @@
 //syndicate cyborgs, they aren't fully linked to the station, also are more combat oriented, for now only the regular assault module - alberyk
 
 /mob/living/silicon/robot/syndicate
-	lawupdate = 0
-	scrambledcodes = 1
-	modtype = "Syndicate"
-	icon = 'icons/mob/robots.dmi'
-	icon_state = "syndie_bloodhound"
-	lawchannel = "State"
-	lawpreset = /datum/ai_laws/syndicate_override
-	idcard_type = /obj/item/card/id/syndicate
-	spawn_module = /obj/item/robot_module/syndicate
-	key_type = /obj/item/device/encryptionkey/syndicate
-	spawn_sound = 'sound/mecha/nominalsyndi.ogg'
-	pitch_toggle = 0
-	cell_type = /obj/item/cell/super
-	req_access = list(access_syndicate)
-	faction = "syndicate"
-	braintype = "Cyborg"
-	no_pda = TRUE
+	// Laws and Interaction
+	law_channel = "State"
+	law_preset = /datum/ai_laws/syndicate_override
+	law_update = FALSE
+	scrambled_codes = TRUE
 
-/mob/living/silicon/robot/syndicate/init()
-	..()
-	if(!jetpack)
-		jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
+	// Modules
+	mod_type = "Syndicate"
+	spawn_module = /obj/item/robot_module/syndicate
+	cell_type = /obj/item/cell/super
+	has_pda = FALSE
+	has_jetpack = TRUE
+
+	// Look and feel
+	icon_state = "syndie_bloodhound"
+	spawn_sound = 'sound/mecha/nominalsyndi.ogg'
+	pitch_toggle = FALSE
+	braintype = "Cyborg"
+
+	// ID and Access
+	req_access = list(access_syndicate)
+	id_card_type = /obj/item/card/id/syndicate
+	key_type = /obj/item/device/encryptionkey/syndicate
 
 /mob/living/silicon/robot/syndicate/Initialize()
 	. = ..()
@@ -35,7 +36,7 @@
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
-		if(wiresexposed)
+		if(wires_exposed)
 			add_overlay("[panelprefix]-openpanel +w")
 		else if(cell)
 			add_overlay("[panelprefix]-openpanel +c")
@@ -45,7 +46,7 @@
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
 		add_overlay("[icon_state]-shield")
 
-	if(modtype == "Combat")
+	if(mod_type == "Combat")
 		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
 			icon_state = "[icon_state]-roll"
 		else

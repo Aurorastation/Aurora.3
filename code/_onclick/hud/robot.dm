@@ -203,12 +203,12 @@ var/obj/screen/robot_inventory
 			if(r.module.emag in r.module.modules)
 				r.module.modules -= r.module.emag
 
-		if(r.malfAImodule)
-			if(!((r.module.malfAImodule in r.module.modules) && r.module.malfAImodule == null))
-				r.module.modules += r.module.malfAImodule
+		if(r.malf_AI_module)
+			if(!((r.module.malf_AI_module in r.module.modules) && r.module.malf_AI_module == null))
+				r.module.modules += r.module.malf_AI_module
 		else
-			if(r.module.malfAImodule in r.module.modules)
-				r.module.modules -= r.module.malfAImodule
+			if(r.module.malf_AI_module in r.module.modules)
+				r.module.modules -= r.module.malf_AI_module
 
 		for(var/atom/movable/A in r.module.modules)
 			if( (A != r.module_state_1) && (A != r.module_state_2) && (A != r.module_state_3) )
