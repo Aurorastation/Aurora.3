@@ -93,7 +93,7 @@
 			to_chat(target, "You have had your module reset.")
 			log_ability_use(user, "reset cyborg", target)
 			target.uneq_all()
-			target.modtype = initial(target.modtype)
+			target.mod_type = initial(target.mod_type)
 			target.hands.icon_state = initial(target.hands.icon_state)
 			target.module.Reset(target)
 			qdel(target.module)
@@ -164,7 +164,7 @@
 	if(target && target.connected_ai && (target.connected_ai != user))
 		to_chat(user, "This cyborg is not connected to you.")
 		return
-	if(target.overclockavailable == 1)
+	if(target.overclock_available == 1)
 		to_chat(user, "This cyborg is already overclocked!")
 		return
 
@@ -176,7 +176,7 @@
 				continue
 			if(R.connected_ai != user)						// No robots linked to other AIs
 				continue
-			if(R.overclockavailable == 1)					// If they already have it don't add them.
+			if(R.overclock_available == 1)					// If they already have it don't add them.
 				continue
 			robots += R
 			robot_names += R.name
@@ -201,7 +201,7 @@
 			to_chat(user, "Hack failed!")
 			return
 		if(target)
-			target.overclockavailable = 1
+			target.overclock_available = 1
 			target.toggle_overclock()
 			to_chat(target, "Overclocking mode available for activation.")
 			to_chat(user, "[target] can now activate overclock mode.")
@@ -255,7 +255,7 @@
 		to_chat(target, "SYSTEM LOG: Operation keycodes reset. New master AI: [user.name].")
 		target.connected_ai = user
 		user.connected_robots += target
-		target.lawupdate = 1
+		target.law_update = 1
 		target.sync()
 		target.show_laws()
 	to_chat(user, "All unslaved borgs have been slaved to you. Now hacking unslaved AI's.")
@@ -318,13 +318,13 @@
 		var/mob/living/silicon/robot/target = A
 		to_chat(target, "Command ping received, operating parameters being upgraded...")
 		//give them the overclock if they don't have it
-		if(!target.overclockavailable)
-			target.overclockavailable = 1
+		if(!target.overclock_available)
+			target.overclock_available = 1
 			to_chat(target, "Overclocking is now available.")
 		//remove their lockdown if they are lockdowned
-		if(target.lockcharge)
+		if(target.lock_charge)
 			target.SetLockdown(0)
-			if(target.lockcharge)
+			if(target.lock_charge)
 				to_chat(target, "Lockdown wire cut, unable to remove lockdown.")
 			else
 				to_chat(target, "Lockdown removed.")
@@ -339,8 +339,8 @@
 			to_chat(target, "Self-destruct time tripled.")
 		sleep(100) // 10 second delay for balance
 		//Remove them from the robotics computer
-		if(!target.scrambledcodes)
-			target.scrambledcodes = 1
+		if(!target.scrambled_codes)
+			target.scrambled_codes = 1
 			to_chat(target, "Entry from robotics log erased.")
 		sleep(100) // 10 second delay for balance
 		//Reduce their EMP damage
@@ -350,7 +350,7 @@
 		//Remove weapon lock and set the time for it back to default
 		if(target.weapon_lock)
 			target.weapon_lock = 0
-			target.weaponlock_time = 120
+			target.weapon_lock_time = 120
 			to_chat(target, "Weapon lock removed.")
 		sleep(1200) // 120 second balance sleep
 	to_chat(user, "All slaved borgs have been upgraded, now hacking NTNet.")
@@ -381,7 +381,7 @@
 		return
 	for(var/B in get_linked_cyborgs(src))
 		var/mob/living/silicon/robot/target = B
-		target.malfAImodule = 1
+		target.malf_AI_module = 1
 	to_chat(user, "The robotic transformation machine can now be built. To build get a robot to activate the construction module and use the RTF tool. Be careful, it needs to have empty space to the east and west of it and only one can be built!")
 	sleep(300) //Allows the AI to reset its borgs into combat units
 	to_chat(user, "Bypassing crisis module safeties.")

@@ -195,9 +195,9 @@
 	if(!istype(transfer) || locate(/mob/living/silicon/ai) in src)
 		return
 
-	transfer.aiRestorePowerRoutine = 0
+	transfer.ai_restore_power_routine = 0
 	transfer.control_disabled = 0
-	transfer.aiRadio.disabledAi = 0
+	transfer.ai_radio.disabledAi = 0
 	transfer.forceMove(get_turf(src))
 	transfer.create_eyeobj()
 	transfer.cancel_camera()

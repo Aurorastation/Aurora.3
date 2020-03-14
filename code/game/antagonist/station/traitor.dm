@@ -89,8 +89,8 @@ var/datum/antagonist/traitor/traitors
 		add_law_zero(traitor_mob)
 		if(isrobot(traitor_mob))
 			var/mob/living/silicon/robot/R = traitor_mob
-			R.overclockavailable = 1
-			R.emagged = 1		
+			R.overclock_available = TRUE
+			R.emagged = TRUE
 			R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
 			R.verbs += /mob/living/silicon/robot/proc/toggle_overclock
 		return 1
