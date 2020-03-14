@@ -1,8 +1,8 @@
 /obj/item/clothing/shoes/syndigaloshes
-	desc = "A pair of brown shoes. They seem to have extra grip."
-	name = "brown shoes"
-	icon_state = "brown"
-	item_state = "brown"
+	name = "black oxford shoes"
+	desc = "The height of fashion, and they're pre-polished!"
+	icon_state = "oxford_black"
+	item_state = "oxford_black"
 	permeability_coefficient = 0.05
 	item_flags = NOSLIP
 	origin_tech = list(TECH_ILLEGAL = 3)
@@ -16,35 +16,31 @@
 	icon_state = "white"
 	item_state = "white"
 
-/obj/item/clothing/shoes/swat
-	name = "\improper SWAT shoes"
-	desc = "When you want to turn up the heat."
-	icon_state = "swat"
-	item_state = "swat"
+obj/item/clothing/shoes/tactical
+	name = "tactical boots"
+	desc = "A pair of tactical boots."
+	icon_state = "jackboot"
+	item_state = "jackboot"
 	force = 5
 	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
 	item_flags = NOSLIP
 	siemens_coefficient = 0.5
 	can_hold_knife = 1
 
+/obj/item/clothing/shoes/tactical/syndie
+name = "tactical boots"
+	desc = "A pair of tactical boots with dark greenish-brown accents."
+	icon_state = "tacboot_syndie"
+	item_state = "tacboot_syndie"
+
+/obj/item/clothing/shoes/tactical/nt
+	name = "\improper NT tactical boots"
+	desc = "A pair of tactical boots with dark dark blue accents."
+	icon_state = "tacboot_nt"
+	item_state = "tacboot_nt"
+
 /obj/item/clothing/shoes/swat/ert
 	species_restricted = null
-
-/obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
-	name = "combat boots"
-	desc = "When you REALLY want to turn up the heat."
-	icon_state = "jungle"
-	item_state = "jungle"
-	force = 5
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
-	item_flags = NOSLIP
-	siemens_coefficient = 0.35
-	can_hold_knife = 1
-
-	cold_protection = FEET
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = FEET
-	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
 
 /obj/item/clothing/shoes/sandal
 	desc = "A pair of rather plain, wooden sandals."
@@ -54,10 +50,10 @@
 	body_parts_covered = 0
 
 /obj/item/clothing/shoes/sandal/marisa
-	desc = "A pair of magic, black shoes."
-	name = "magic shoes"
-	icon_state = "black"
-	item_state = "black"
+	name = "enchanted black shoes"
+	desc = "A pair of shoes with odd sigils and runes on the soles."
+	icon_state = "oxford_black"
+	item_state = "oxford_black"
 	body_parts_covered = FEET
 
 /obj/item/clothing/shoes/sandal/flipflop

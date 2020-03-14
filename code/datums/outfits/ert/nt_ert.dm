@@ -5,7 +5,7 @@
 	suit = null
 	suit_store = null
 	belt = /obj/item/storage/belt/military
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/tactical
 	accessory = /obj/item/clothing/accessory/storage/black_vest
 	gloves = null
 	id = /obj/item/card/id/ert

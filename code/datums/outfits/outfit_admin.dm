@@ -171,7 +171,7 @@
 
 	uniform = /obj/item/clothing/under/ccpolice
 	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/tactical
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
@@ -216,7 +216,7 @@
 
 	uniform = /obj/item/clothing/under/rank/centcom_commander
 	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/commander
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/tactical
 	gloves = /obj/item/clothing/gloves/white
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
@@ -278,7 +278,7 @@
 
 	uniform = /obj/item/clothing/under/ccpolice
 	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/tactical/nt
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
@@ -320,7 +320,7 @@
 
 	uniform = /obj/item/clothing/under/syndicate/combat
 	suit = /obj/item/clothing/suit/armor/swat/officer
-	shoes = /obj/item/clothing/shoes/combat
+	shoes = /obj/item/clothing/shoes/tactical
 	gloves = /obj/item/clothing/gloves/combat
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/eyepatch/hud/thermal

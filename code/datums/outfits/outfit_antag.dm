@@ -13,7 +13,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/syndie
 	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/combat
-	shoes = /obj/item/clothing/shoes/combat
+	shoes = /obj/item/clothing/shoes/tactical/syndie
 	l_ear = /obj/item/device/radio/headset/syndicate/alt
 	id = /obj/item/card/id/syndicate
 	r_pocket = /obj/item/device/radio/uplink
@@ -95,7 +95,7 @@
 /datum/outfit/admin/syndicate/spy
 	name = "Syndicate Spy"
 	uniform = /obj/item/clothing/under/suit_jacket/really_black
-	shoes = /obj/item/clothing/shoes/black/noslip
+	shoes = /obj/item/clothing/shoes/tactical/syndie
 	uplink_uses = 40
 	id_access = "Syndicate Agent"
 
@@ -112,7 +112,7 @@
 	uniform = /obj/item/clothing/under/syndicate/ninja
 	back = null
 	belt = /obj/item/storage/belt/ninja
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = obj/item/clothing/shoes/tactical
 	gloves = /obj/item/clothing/ring/ninja
 	mask = /obj/item/clothing/mask/balaclava
 	l_ear = /obj/item/device/radio/headset/ninja
@@ -150,7 +150,7 @@
 	uniform = /obj/item/clothing/under/syndicate
 	belt = /obj/item/storage/belt/military
 	gloves = /obj/item/clothing/gloves/swat
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/tactical/syndie
 
 	backpack_contents = list(
 		/obj/item/storage/box/engineer = 1,
