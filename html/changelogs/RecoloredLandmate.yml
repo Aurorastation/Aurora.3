@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Recolored and added lots of Landmate and Treadmate 'borg sprites, cleaned up the names some."
-  - tweak: "Recolored some basic 'borg sprites."
+  - bugfix: "Altered the misaligned TC-Drone overlays to where they're properly floating with the 'borg sprite now."
+  - bugfix: "Added Fren overlay changes and animations at the request of their player."
