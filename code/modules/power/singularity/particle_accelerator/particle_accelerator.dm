@@ -64,6 +64,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	anchored = FALSE
 	density = TRUE
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/obj/machinery/particle_accelerator/control_box/master
 	var/construction_state = 0
 	var/reference
@@ -81,36 +82,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	desc = "This is where Alpha particles are generated from \[REDACTED\]."
 	icon_state = "end_cap"
 	reference = "end_cap"
-
-/obj/structure/particle_accelerator/verb/rotate()
-	set name = "Rotate Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(use_check_and_message(usr))
-		to_chat(usr, SPAN_WARNING("You are in no state to do this!"))
-		return FALSE
-	if(anchored)
-		to_chat(usr, SPAN_WARNING("It is fastened to the floor!"))
-		return FALSE
-
-	set_dir(turn(dir, 270))
-	return TRUE
-
-/obj/structure/particle_accelerator/verb/rotateccw()
-	set name = "Rotate Counter Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(use_check_and_message(usr))
-		to_chat(usr, SPAN_WARNING("You are in no state to do this!"))
-		return FALSE
-	if(anchored)
-		to_chat(usr, SPAN_WARNING("It is fastened to the floor!"))
-		return FALSE
-
-	set_dir(turn(dir, 90))
-	return TRUE
 
 /obj/structure/particle_accelerator/examine(mob/user)
 	switch(construction_state)
@@ -264,36 +235,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	var/reference
 	var/powered
 	var/strength = 0
-
-/obj/machinery/particle_accelerator/verb/rotate()
-	set name = "Rotate Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(use_check_and_message(usr))
-		to_chat(usr, SPAN_WARNING("You are in no state to do this!"))
-		return FALSE
-	if(anchored)
-		to_chat(usr, SPAN_WARNING("It is fastened to the floor!"))
-		return FALSE
-
-	set_dir(turn(dir, 270))
-	return TRUE
-
-/obj/machinery/particle_accelerator/verb/rotateccw()
-	set name = "Rotate Counter-Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(use_check_and_message(usr))
-		to_chat(usr, SPAN_WARNING("You are in no state to do this!"))
-		return FALSE
-	if(anchored)
-		to_chat(usr, SPAN_WARNING("It is fastened to the floor!"))
-		return FALSE
-
-	set_dir(turn(dir, 90))
-	return TRUE
 
 /obj/machinery/particle_accelerator/update_icon()
 	return

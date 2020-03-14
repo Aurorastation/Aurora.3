@@ -1,0 +1,1 @@
+#define OBJ_FLAG_ROTATABLE       (1<<1) //Can this object be rotated?
