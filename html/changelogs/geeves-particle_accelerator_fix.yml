@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Particle accelerator parts can now be altered with the powered drill."
-  - backend: "Tweaked some particle accelerator backend stuff, no gameplay changes, though text and descriptions might look prettier now."
