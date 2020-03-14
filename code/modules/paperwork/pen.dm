@@ -187,6 +187,19 @@
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	pen_reagents = list("chloralhydrate" = 22)
 
+/obj/item/pen/reagent/cane
+	name = "cane"
+	desc = "A cane used by a true gentlemen. Or a clown."
+	icon = 'icons/obj/weapons.dmi'
+	icon_state = "cane"
+	item_state = "stick"
+	flags = CONDUCT
+	force = 10
+	throwforce = 7.0
+	w_class = 4
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	pen_reagents = list("cyanide" = 22)
+
 
 /*
  * Parapens

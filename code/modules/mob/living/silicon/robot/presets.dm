@@ -16,21 +16,6 @@
 	scrambled_codes = TRUE
 	law_update = FALSE
 
-/mob/living/silicon/robot/scrambled/pra
-	modtype = "Republican Defensive"
-	cell_type = /obj/item/cell/super
-	spawn_module =/obj/item/robot_module/pra
-	braintype = "Robot"
-
-/mob/living/silicon/robot/scrambled/pra/updateicon()
-	cut_overlays()
-
-	if(stat == CONSCIOUS)
-		add_overlay("eyes-[module_sprites[icontype]]")
-		icon_state = "republicon"
-	else
-		icon_state = "republicon_dead"
-
 /mob/living/silicon/robot/bluespace
 	mod_type = "Bluespace"
 	spawn_module = /obj/item/robot_module/bluespace
