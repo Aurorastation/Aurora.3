@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - bugfix: "Altered the misaligned TC-Drone overlays to where they're properly floating with the 'borg sprite now."
   - bugfix: "Added Fren overlay changes and animations at the request of their player."
+  - bugfix: "FIxed the Maint. Drone movestate, it was one pixel forward so didn't sync up right with the overlay when it moved."
