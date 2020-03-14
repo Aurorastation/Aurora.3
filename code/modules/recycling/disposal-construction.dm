@@ -127,7 +127,7 @@
 		if(10)
 			ptype = 9
 
-		update()
+	update()
 
 	// returns the type path of disposalpipe corresponding to this item dtype
 /obj/structure/disposalconstruct/proc/dpipetype()

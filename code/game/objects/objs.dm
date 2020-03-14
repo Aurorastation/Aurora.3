@@ -1,12 +1,13 @@
 /obj
 	animate_movement = 2
 
-	//Used to store information about the contents of the object.
-	var/list/matter
+	
+	var/list/matter //Used to store information about the contents of the object.
 	var/w_class // Size of the object.
 	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
 	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
 	
+	var/obj_flags //Special flags such as whether or not this object can be rotated.
 	var/throwforce = 1
 	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
 	var/sharp = 0		// whether this object cuts

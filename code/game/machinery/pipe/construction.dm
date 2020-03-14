@@ -65,7 +65,7 @@ Buildable meters
 	randpixel = 5
 	w_class = 3
 	level = 2
-	obj_flags = OBJ_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 /obj/item/pipe/New(var/loc, var/pipe_type as num, var/dir as num, var/obj/machinery/atmospherics/make_from = null)
 	..()

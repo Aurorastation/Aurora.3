@@ -264,59 +264,28 @@ obj/structure/windoor_assembly/Destroy()
 
 //Rotates the windoor assembly clockwise
 //These directions are fucked up, apparently dm rotates anticlockwise by default
-/obj/structure/windoor_assembly/verb/rotate()
-	set name = "Rotate Windoor Clockwise"
-	set category = "Object"
-	set src in oview(1)
+/obj/structure/windoor_assembly/rotate(var/mob/user)
+	if(use_check_and_message(user))
+		to_chat(user, SPAN_WARNING("You can't do that right now!"))
+		return
 
-	var/targetdir = turn(src.dir, 270)
+	if(anchored)
+		to_chat(user, SPAN_WARNING("\The [src] is bolted to the floor!"))
+		return FALSE
 
+	var/targetdir = turn(dir, 270)
 	for(var/obj/obstacle in get_turf(src))
 		if (obstacle == src)
 			continue
 
 		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
-			to_chat(usr, span("danger", "You can't turn the windoor assembly that way, there's already something there!"))
+			to_chat(usr, SPAN_WARNING("You can't turn the windoor assembly that way, there's already something there!"))
 			return
 
-	if (src.anchored)
-		to_chat(usr, "It is fastened to the floor; therefore, you can't rotate it!")
-		return 0
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1) //Compel updates before
 
-	src.set_dir(targetdir)
-
-	if(src.state != "01")
-		update_nearby_tiles(need_rebuild=1)
-
-	update_icon()
-	return
-
-
-//Rotates the windoor assembly anticlockwise
-/obj/structure/windoor_assembly/verb/revrotate()
-	set name = "Rotate Windoor Anticlockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	var/targetdir = turn(src.dir, 90)
-
-	for(var/obj/obstacle in get_turf(src))
-		if (obstacle == src)
-			continue
-
-		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
-			to_chat(usr, span("danger", "You can't turn the windoor assembly that way, there's already something there!"))
-			return
-
-	if (src.anchored)
-		to_chat(usr, "It is fastened to the floor; therefore, you can't rotate it!")
-		return 0
-	if(src.state != "01")
-		update_nearby_tiles(need_rebuild=1) //Compel updates before
-
-	src.set_dir(targetdir)
+	set_dir(targetdir)
 
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1)

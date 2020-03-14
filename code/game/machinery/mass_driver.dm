@@ -9,6 +9,7 @@
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 50
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/power = 1.0
 	var/code = 1.0
@@ -67,17 +68,6 @@
 				"You unsecure the external reinforcing bolts from the floor.", \
 				"You hear a ratchet")
 			src.anchored = 0
-
-/obj/machinery/mass_driver/verb/rotate()
-	set name = "Rotate"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 90))
-	return 1
 
 /obj/item/mass_driver_diy
 	name = "Mass Driver Kit"
