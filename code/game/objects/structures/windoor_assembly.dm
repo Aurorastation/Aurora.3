@@ -266,7 +266,6 @@ obj/structure/windoor_assembly/Destroy()
 //These directions are fucked up, apparently dm rotates anticlockwise by default
 /obj/structure/windoor_assembly/rotate(var/mob/user)
 	if(use_check_and_message(user))
-		to_chat(user, SPAN_WARNING("You can't do that right now!"))
 		return
 
 	if(anchored)

@@ -227,7 +227,6 @@
 
 /obj/proc/rotate(var/mob/user)
 	if(use_check_and_message(user))
-		to_chat(user, SPAN_WARNING("You can't do that right now!"))
 		return
 	
 	if(anchored)
