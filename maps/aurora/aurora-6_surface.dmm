@@ -7600,7 +7600,7 @@
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "nI" = (
 /obj/structure/window/reinforced{
@@ -8043,11 +8043,11 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "oz" = (
 /obj/machinery/vending/coffee,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "oA" = (
 /obj/machinery/vending/cola,
@@ -8055,16 +8055,16 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "oB" = (
 /obj/machinery/vending/snack,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "oC" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "oD" = (
 /obj/machinery/door/firedoor,
@@ -8159,15 +8159,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "oO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "oP" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "oR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -8330,7 +8330,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "ph" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8813,7 +8813,7 @@
 /area/hallway/secondary/entry/departure_lounge)
 "pW" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "pX" = (
 /obj/structure/table/wood,
@@ -8930,7 +8930,7 @@
 /obj/machinery/atm{
 	pixel_y = -32
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "qi" = (
 /obj/structure/bed/chair/comfy/beige{
@@ -10673,7 +10673,7 @@
 "tz" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "tA" = (
 /obj/machinery/vending/hydroseeds,
@@ -10681,11 +10681,11 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "tB" = (
 /obj/machinery/vending/hydronutrients,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "tC" = (
 /obj/machinery/smartfridge/drying_rack,
@@ -10695,7 +10695,7 @@
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Public Garden"
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "tD" = (
 /obj/structure/table/standard{
@@ -10704,10 +10704,10 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 12
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "tE" = (
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "tF" = (
 /obj/structure/sink{
@@ -10720,7 +10720,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "tG" = (
 /obj/structure/window/reinforced{
@@ -11026,31 +11026,31 @@
 /area/hydroponics/garden)
 "um" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "un" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "uo" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "up" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "uq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "ur" = (
 /obj/machinery/door/airlock/glass{
@@ -11060,7 +11060,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "us" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -11324,17 +11324,17 @@
 	icon_state = "spline_fancy";
 	dir = 8
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "uU" = (
 /obj/structure/flora/ausbushes/sparsegrass,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "uV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "uW" = (
 /obj/structure/window/reinforced{
@@ -11721,7 +11721,7 @@
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "vK" = (
 /obj/machinery/light{
@@ -11732,7 +11732,7 @@
 	pixel_x = 25;
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "vL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12135,7 +12135,7 @@
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
 "wy" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "wz" = (
 /obj/structure/window/reinforced{
@@ -12199,7 +12199,7 @@
 "wG" = (
 /obj/structure/punching_bag,
 /obj/effect/floor_decal/corner/red/full,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "wH" = (
 /turf/simulated/floor/tiled/dark{
@@ -12270,7 +12270,7 @@
 "wQ" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "wR" = (
 /obj/structure/flora/ausbushes/lavendergrass,
@@ -12623,7 +12623,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "xy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12638,7 +12638,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "xz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -12649,7 +12649,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "xA" = (
 /obj/structure/cable/green{
@@ -12657,7 +12657,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "xB" = (
 /obj/machinery/hologram/holopad,
@@ -12666,7 +12666,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/hydroponics/garden)
 "xC" = (
 /obj/structure/cable/yellow{
@@ -12778,7 +12778,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "xM" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -13074,7 +13074,7 @@
 	icon_state = "spline_fancy";
 	dir = 1
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "ys" = (
 /obj/effect/decal/cleanable/dirt,
@@ -13110,7 +13110,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Fitness Center"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "yx" = (
 /obj/machinery/camera/network/civilian_surface{
@@ -13119,7 +13119,7 @@
 	pixel_x = 18;
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "yy" = (
 /obj/structure/cable/green{
@@ -13133,7 +13133,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "yz" = (
 /obj/structure/cable/green{
@@ -13148,7 +13148,7 @@
 	icon_state = "map-supply";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "yA" = (
 /obj/machinery/door/firedoor,
@@ -13530,7 +13530,7 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "zf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -13554,7 +13554,7 @@
 	dir = 1
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "zi" = (
 /obj/structure/cable/green{
@@ -14876,7 +14876,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Bw" = (
 /turf/simulated/floor/plating,
@@ -15359,7 +15359,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "Cv" = (
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Cw" = (
 /obj/structure/closet/secure_closet/personal,
@@ -15550,7 +15550,7 @@
 "CP" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "CQ" = (
 /obj/structure/cable/green{
@@ -16763,7 +16763,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Fq" = (
-/turf/simulated/floor/lino,
+/turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
 "Fr" = (
 /obj/structure/cable/yellow{
@@ -18266,7 +18266,7 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "HO" = (
 /obj/structure/cable/green{
@@ -18279,7 +18279,7 @@
 	pixel_x = 0;
 	pixel_y = 24
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "HP" = (
 /obj/structure/cable/green{
@@ -18388,7 +18388,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Ia" = (
 /obj/structure/cable{
@@ -18515,7 +18515,7 @@
 	icon_state = "corner_white_full";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Ir" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -18574,7 +18574,7 @@
 	pixel_x = -26;
 	pixel_y = -24
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Iy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -18772,7 +18772,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "IR" = (
 /obj/structure/closet/emcloset,
@@ -20470,7 +20470,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "LW" = (
 /obj/machinery/door/firedoor{
@@ -20683,7 +20683,7 @@
 	icon_state = "spline_fancy";
 	dir = 10
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "Mt" = (
 /obj/effect/floor_decal/corner/blue{
@@ -20891,7 +20891,7 @@
 	icon_state = "spline_fancy";
 	dir = 6
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "MP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -21129,7 +21129,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Np" = (
 /obj/structure/cable/green{
@@ -22087,7 +22087,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Pv" = (
 /obj/structure/table/standard,
@@ -22319,7 +22319,7 @@
 /area/solar/starboard)
 "PV" = (
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "PW" = (
 /obj/effect/floor_decal/corner/mauve,
@@ -22702,7 +22702,7 @@
 	icon_state = "spline_fancy";
 	dir = 4
 	},
-/turf/simulated/floor/grass,
+/turf/simulated/floor/grass/alt,
 /area/hydroponics/garden)
 "QO" = (
 /obj/structure/table/rack,
@@ -22859,7 +22859,7 @@
 	dir = 8
 	},
 /obj/structure/weightlifter,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Ri" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -23060,7 +23060,7 @@
 /obj/item/device/radio/intercom{
 	pixel_y = 24
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "RC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -23405,7 +23405,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "So" = (
 /obj/structure/sign/directions/cryo{
@@ -23925,7 +23925,7 @@
 	dir = 1;
 	pixel_y = -22
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Tp" = (
 /obj/structure/shuttle/engine/heater,
@@ -24128,7 +24128,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "TN" = (
 /obj/structure/cable{
@@ -24226,7 +24226,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "TX" = (
 /turf/simulated/floor/plating,
@@ -24551,7 +24551,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "UL" = (
 /obj/machinery/door/firedoor{
@@ -25546,7 +25546,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "WR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -26452,7 +26452,7 @@
 /obj/machinery/atm{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "YE" = (
 /obj/machinery/door/firedoor,
@@ -26877,7 +26877,7 @@
 /obj/machinery/alarm{
 	pixel_y = 26
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/crew_quarters/fitness)
 "Zz" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{

@@ -206,6 +206,33 @@
 /obj/effect/floor_decal/corner/grey/full
 	icon_state = "corner_white_full"
 
+//Thick Corner// - Works better with some kinds of floors
+/obj/effect/floor_decal/corner_thick
+	icon_state = "thick_corner"
+
+/obj/effect/floor_decal/corner_thick/black
+	name = "black corner"
+	color = "#333333"
+
+/obj/effect/floor_decal/corner_thick/black/diagonal
+	icon_state = "thick_corner_diagonal"
+
+/obj/effect/floor_decal/corner_thick/black/full
+	icon_state = "thick_corner_full"
+
+/obj/effect/floor_decal/corner_thick/mauve
+	name = "mauve corner"
+	color = COLOR_PALE_PURPLE_GRAY
+
+/obj/effect/floor_decal/corner_thick/mauve/diagonal
+	icon_state = "thick_corner_diagonal"
+
+/obj/effect/floor_decal/corner_thick/mauve/full
+	icon_state = "thick_corner_full"
+
+
+
+
 /obj/effect/floor_decal/spline/plain
 	name = "spline - plain"
 	icon_state = "spline_plain"
