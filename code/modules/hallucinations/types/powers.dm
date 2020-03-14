@@ -51,19 +51,18 @@
 			H.end()
 		return
 
-	if(stat)
+	if(use_check_and_message())
 		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 
 	var/list/creatures = list()
 	for(var/mob/living/C in oview(usr))
 		creatures += C
-	creatures -= usr
 	if(!creatures.len)
 		return
 
 	var/mob/target = input("Whose mind do you wish to probe?") as null|anything in creatures
-	if(isnull(target))
+	if(!target)
 		return
 	if(target.stat)
 		to_chat(usr, SPAN_WARNING("\The [target]'s mind is not in any state to be probed!"))
@@ -72,9 +71,8 @@
 	to_chat(usr, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking a prominent thought.</b>"))
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
-		to_chat(usr, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"))
-		for(var/mob/living/carbon/human/M in oviewers(src))
-			to_chat(M, "<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].")
+		usr.visible_message("<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].",
+						SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"))
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your energy!"))
 
@@ -134,18 +132,17 @@
 			H.end()
 		return
 
-	if(stat)
+	if(use_check_and_message())
 		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 
 	var/list/creatures = list()
 	for(var/mob/living/C in oview(usr))
 		creatures += C
-	creatures -= usr
 	if(!creatures.len)
 		return
 	var/mob/target = input("Who do you wish to send a message to?") as null|anything in creatures
-	if(isnull(target))
+	if(!target)
 		return
 	if(target.stat)
 		to_chat(usr, SPAN_WARNING("\The [target]'s mind is not in any state to receive messages!"))
@@ -158,8 +155,7 @@
 	to_chat(usr, SPAN_NOTICE("<b>You focus your mental energy and begin projecting your message into the mind of \the [target]...</b>"))
 
 	if(do_after(usr, 30))
-		to_chat(usr, SPAN_NOTICE("<b>You feel your message enter \the [target]'s mind!</b>"))
-		for(var/mob/living/carbon/human/M in oviewers(src))
-			to_chat(M,"<span class='game say'><span class='name'>[usr]</span> [usr.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+		usr.visible_message("<span class='game say'><span class='name'>[usr]</span> [usr.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>",
+					SPAN_NOTICE("<b>You feel your message enter \the [target]'s mind!</b>"))
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your efforts!"))
