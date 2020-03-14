@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - imageadd: "Various difficult to click sprites, metal rods, IV drips, syringes and medical tape splints have been given one pixel invisible outlines to make them easier to click."
