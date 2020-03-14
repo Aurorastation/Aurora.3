@@ -639,7 +639,7 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "powerdrillyellow"
 	var/drillcolor = null
-	force = 10
+	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
 	toolspeed = 3
