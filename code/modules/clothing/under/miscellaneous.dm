@@ -3,32 +3,29 @@
 	desc = "Slightly old-fashioned sleepwear."
 	icon_state = "red_pyjamas"
 	worn_state = "red_pyjamas"
-	item_state = "w_suit"
 
-/obj/item/clothing/under/gearharness
-	name = "gear harness"
-	desc = "Tight fitting gear harness."
-	icon_state = "harness"
-	worn_state = "harness"
-	item_state = "w_suit"
-	body_parts_covered = 0
-	species_restricted = null
-	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
-		)
 
 /obj/item/clothing/under/pj/blue
 	name = "blue pyjamas"
 	desc = "Slightly old-fashioned sleepwear."
 	icon_state = "blue_pyjamas"
 	worn_state = "blue_pyjamas"
-	item_state = "w_suit"
+
+/obj/item/clothing/under/gearharness
+	name = "gear harness"
+	desc = "Tight fitting gear harness."
+	icon_state = "harness"
+	worn_state = "harness"
+	body_parts_covered = 0
+	species_restricted = null
+	sprite_sheets = list(
+		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
+		)
 
 /obj/item/clothing/under/captain_fly
 	name = "rogue's uniform"
 	desc = "For the man who doesn't care because he's still free."
 	icon_state = "captain_fly"
-	item_state = "r_suit"
 	worn_state = "captain_fly"
 
 /obj/item/clothing/under/scratch
@@ -52,13 +49,6 @@
 	item_state = "waiter"
 	worn_state = "waiter"
 
-/obj/item/clothing/under/rank/mailman
-	name = "mailman's jumpsuit"
-	desc = "<i>'Special delivery!'</i>"
-	icon_state = "mailman"
-	item_state = "b_suit"
-	worn_state = "mailman"
-
 /obj/item/clothing/under/sexyclown
 	name = "sexy-clown suit"
 	desc = "It makes you look HONKable!"
@@ -79,7 +69,6 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
 	icon_state = "officer"
-	item_state = "lawyer_black"
 	worn_state = "officer"
 	displays_id = 0
 
@@ -87,7 +76,6 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral.\""
 	icon_state = "officer"
-	item_state = "lawyer_black"
 	worn_state = "officer"
 	displays_id = 0
 
@@ -95,7 +83,6 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral-Executive.\""
 	icon_state = "centcom"
-	item_state = "lawyer_black"
 	worn_state = "centcom"
 	displays_id = 0
 
@@ -247,16 +234,9 @@
 
 /obj/item/clothing/under/soviet
 	name = "soviet uniform"
-	desc = "A well-pressed uniform of the Soviet Union's navy."
+	desc = "A duty uniform of the Soviet Union's navy. It looks fairly old."
 	icon_state = "soviet"
 	worn_state = "soviet"
-
-/obj/item/clothing/under/redcoat
-	name = "redcoat uniform"
-	desc = "Looks old."
-	icon_state = "redcoat"
-	item_state = "r_suit"
-	worn_state = "redcoat"
 
 /obj/item/clothing/under/kilt
 	name = "kilt"
@@ -683,7 +663,7 @@
 
 /obj/item/clothing/under/legion/sentinel
 	name = "Tau Ceti Foreign Legion sentinel uniform."
-	desc = "A blue uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
+	desc = "A blue uniform with black trimming, indicating that the wearer is a sentinel of the TCFL."
 	worn_state = "taucetilegion_sentinel"
 
 /obj/item/clothing/under/legion/legate
@@ -694,7 +674,7 @@
 
 /obj/item/clothing/under/legion/pilot
 	name = "Tau Ceti Foreign Legion flightsuit"
-	desc = "The uniform worn by Tau Ceti Foreign Legion pilots."
+	desc = "A dashy green uniform worn by pilot officers of the Tau Ceti Foreign Legion."
 	icon_state = "taucetilegion_pilot"
 	worn_state = "taucetilegion_pilot"
 
@@ -793,3 +773,9 @@
 	desc = "An NT security uniform from bygone years. It looks well-kept."
 	icon_state = "retro_officer"
 	worn_state = "retro_officer"
+
+/obj/item/clothing/under/drab
+	name = "drab utility uniform"
+	desc = "A khaki and greenish-brown jumpsuit worn for utility work."
+	icon_state = "tactical_drab"
+	worn_state = "tactical_drab"
