@@ -6,20 +6,20 @@
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	icon_state = "control_box"
 	reference = "control_box"
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	use_power = 0
 	idle_power_usage = 500
 	active_power_usage = 70000 //70 kW per unit of strength
 	construction_state = 0
-	active = 0
-	dir = 1
+	active = FALSE
+	dir = NORTH
 	var/strength_upper_limit = 2
-	var/interface_control = 1
+	var/interface_control = TRUE
 	var/list/obj/structure/particle_accelerator/connected_parts
 	var/assembled = 0
-	var/parts = null
-	var/datum/wires/particle_acc/control_box/wires = null
+	var/parts
+	var/datum/wires/particle_acc/control_box/wires
 
 /obj/machinery/particle_accelerator/control_box/Initialize()
 	wires = new(src)
@@ -87,7 +87,7 @@
 		usr << browse(null, "window=pacontrol")
 		return
 
-	if( href_list["close"] )
+	if(href_list["close"])
 		usr << browse(null, "window=pacontrol")
 		usr.unset_machine()
 		return
@@ -142,7 +142,7 @@
 /obj/machinery/particle_accelerator/control_box/power_change()
 	..()
 	if(stat & NOPOWER)
-		active = 0
+		active = FALSE
 		update_use_power(0)
 	else if(!stat && construction_state == 3)
 		update_use_power(1)
@@ -152,7 +152,7 @@
 /obj/machinery/particle_accelerator/control_box/machinery_process()
 	if(src.active)
 		//a part is missing!
-		if( length(connected_parts) < 6 )
+		if(length(connected_parts) < 6)
 			investigate_log("lost a connected part; It <font color='red'>powered down</font>.","singulo")
 			src.toggle_power()
 			return
