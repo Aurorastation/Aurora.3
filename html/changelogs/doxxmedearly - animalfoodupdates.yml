@@ -1,9 +1,0 @@
-# Your name.  
-author: Doxxmedearly
-
-# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
-delete-after: True
-
-# Any changes you've made.  See valid prefix list above.
-changes: 
-  - bugfix: "Animals eating food in their tile will no longer produce random trash items, and will be deleted properly when finished."
