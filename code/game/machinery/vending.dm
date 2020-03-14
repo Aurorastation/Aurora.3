@@ -186,12 +186,19 @@
 
 /obj/machinery/vending/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/device/debugger))
-		if(shoot_inventory || !shut_up)
-			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software Error Detected. Rectifying.\""))
+		if(!shut_up)
+			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
+			if(do_after(user, 100 / W.toolspeed, act_target = src))
+				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
+				shut_up = TRUE
+		if(shoot_inventory)
+			if(wires.IsIndexCut(VENDING_WIRE_THROW))
+				to_chat(user, SPAN_WARNING("\The [W] reads, \"Hardware error detected. Manual repair required.\"."))
+				return
+			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
 			if(do_after(user, 100 / W.toolspeed, act_target = src))
 				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
 				shoot_inventory = FALSE
-				shut_up = TRUE
 		else
 			to_chat(user, SPAN_NOTICE("\The [W] reads, \"All systems nominal.\"."))
 
