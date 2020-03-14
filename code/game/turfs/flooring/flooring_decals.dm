@@ -206,31 +206,161 @@
 /obj/effect/floor_decal/corner/grey/full
 	icon_state = "corner_white_full"
 
-//Thick Corner// - Works better with some kinds of floors
-/obj/effect/floor_decal/corner_thick
-	icon_state = "thick_corner"
 
-/obj/effect/floor_decal/corner_thick/black
+//Wide Corners// - Works better with some kinds of floors when you want the line of corner decals to connect
+
+/obj/effect/floor_decal/corner_wide
+	icon_state = "wide_corner"
+
+/obj/effect/floor_decal/corner_wide/black
 	name = "black corner"
 	color = "#333333"
 
-/obj/effect/floor_decal/corner_thick/black/diagonal
-	icon_state = "thick_corner_diagonal"
+/obj/effect/floor_decal/corner_wide/black/diagonal
+	icon_state = "wide_corner_diagonal"
 
-/obj/effect/floor_decal/corner_thick/black/full
-	icon_state = "thick_corner_full"
+/obj/effect/floor_decal/corner_wide/black/full
+	icon_state = "wide_corner_full"
 
-/obj/effect/floor_decal/corner_thick/mauve
+/obj/effect/floor_decal/corner_wide/blue
+	name = "blue corner"
+	color = COLOR_BLUE_GRAY
+
+/obj/effect/floor_decal/corner_wide/blue/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/blue/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/paleblue
+	name = "pale blue corner"
+	color = COLOR_PALE_BLUE_GRAY
+
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/paleblue/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/green
+	name = "green corner"
+	color = COLOR_GREEN_GRAY
+
+/obj/effect/floor_decal/corner_wide/green/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/green/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/lime
+	name = "lime corner"
+	color = COLOR_PALE_GREEN_GRAY
+
+/obj/effect/floor_decal/corner_wide/lime/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/lime/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/yellow
+	name = "yellow corner"
+	color = COLOR_BROWN
+
+/obj/effect/floor_decal/corner_wide/yellow/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/yellow/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/beige
+	name = "beige corner"
+	color = COLOR_BEIGE
+
+/obj/effect/floor_decal/corner_wide/beige/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/beige/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/red
+	name = "red corner"
+	color = COLOR_RED_GRAY
+
+/obj/effect/floor_decal/corner_wide/red/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/red/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/pink
+	name = "pink corner"
+	color = COLOR_PALE_RED_GRAY
+
+/obj/effect/floor_decal/corner_wide/pink/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/pink/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/purple
+	name = "purple corner"
+	color = COLOR_PURPLE_GRAY
+
+/obj/effect/floor_decal/corner_wide/purple/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/purple/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/mauve
 	name = "mauve corner"
 	color = COLOR_PALE_PURPLE_GRAY
 
-/obj/effect/floor_decal/corner_thick/mauve/diagonal
-	icon_state = "thick_corner_diagonal"
+/obj/effect/floor_decal/corner_wide/mauve/diagonal
+	icon_state = "wide_corner_diagonal"
 
-/obj/effect/floor_decal/corner_thick/mauve/full
-	icon_state = "thick_corner_full"
+/obj/effect/floor_decal/corner_wide/mauve/full
+	icon_state = "wide_corner_full"
 
+/obj/effect/floor_decal/corner_wide/orange
+	name = "orange corner"
+	color = COLOR_DARK_ORANGE
 
+/obj/effect/floor_decal/corner_wide/orange/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/orange/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/brown
+	name = "brown corner"
+	color = COLOR_DARK_BROWN
+
+/obj/effect/floor_decal/corner_wide/brown/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/brown/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/white
+	name = "white corner"
+	icon_state = "wide_corner"
+
+/obj/effect/floor_decal/corner_wide/white/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/white/full
+	icon_state = "wide_corner_full"
+
+/obj/effect/floor_decal/corner_wide/grey
+	name = "grey corner"
+	color = "#8D8C8C"
+
+/obj/effect/floor_decal/corner_wide/grey/diagonal
+	icon_state = "wide_corner_diagonal"
+
+/obj/effect/floor_decal/corner_wide/grey/full
+	icon_state = "wide_corner_full"
 
 
 /obj/effect/floor_decal/spline/plain
