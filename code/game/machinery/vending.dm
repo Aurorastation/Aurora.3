@@ -189,7 +189,7 @@
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
 			if(do_after(user, 100 / W.toolspeed, act_target = src))
-				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. [shoot_inventory ? "Additional errors present, standby." : "Have a NanoTrasen day!"]\"."))
+				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied.\"."))
 				shut_up = TRUE
 		if(shoot_inventory)
 			if(wires.IsIndexCut(VENDING_WIRE_THROW))
