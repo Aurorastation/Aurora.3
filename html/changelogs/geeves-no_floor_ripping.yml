@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "You can no longer rip up floor tiles and such when on floor intent. Beating people with tools is now sadly less humorous."
