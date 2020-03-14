@@ -328,8 +328,8 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			return
 		if(2.0)
 			if(prob(50))
-			qdel(src)
-			return
+				qdel(src)
+				return
 		if(3.0)
 			if(prob(25))
 				qdel(src)
