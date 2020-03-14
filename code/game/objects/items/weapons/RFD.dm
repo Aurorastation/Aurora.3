@@ -413,3 +413,127 @@ RFD Mining-Class
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
 			R.cell.use(used_energy)
+
+
+/*
+RFD Piping-Class
+*/
+
+/obj/item/rfd/piping
+	name = "\improper Rapid-Fabrication-Device P-Class"
+	desc = "A RFD, modified to construct pipes and piping accessories."
+	modes = list("Standard Pipes", "Supply Pipes", "Scrubber Pipes", "Devices")
+	var/selected_mode = "Standard Pipes"
+	var/pipe_examine = "Pipe" // used in the examine proc to see what you're putting down at a glance
+	var/selected_pipe = 0 // default is standard pipe, used for the new pipe creation
+	var/build_cost = 1 // this RFD only uses 1 unit of power per pipe, but can be modified if need be in future
+	var/build_delay = 10
+
+	var/list/standard_pipes = list("Pipe" = 0,
+								"Bent Pipe" = 1,
+								"Manifold" = 5,
+								"Manual Valve" = 8,
+								"4-Way Manifold" = 19,
+								"Manual T-Valve" = 18,
+								"Upward Pipe" = 21,
+								"Downward Pipe" = 22)
+
+	var/list/supply_pipes = list("Pipe" = 29,
+								"Bent Pipe" = 30,
+								"Manifold" = 33,
+								"4-Way Manifold" = 35,
+								"Upward Pipe" = 37,
+								"Downward Pipe" = 39)
+
+	var/list/scrubber_pipes = list("Pipe" = 31,
+								"Bent Pipe" = 32,
+								"Manifold" = 34,
+								"4-Way Manifold" = 36,
+								"Upward Pipe" = 38,
+								"Downward Pipe" = 40)
+
+	var/list/devices = list("Universal Pipe Adapter" = 28,
+							"Connector" = 4,
+							"Unary Vent" = 7,
+							"Scrubber" = 10,
+							"Gas Pump" = 9,
+							"Pressure Regulator" = 15,
+							"High Power Gas Pump" = 16,
+							"Gas Filter" = 13,
+							"Omni Gas Filter" = 27)
+
+/obj/item/rfd/piping/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>"))
+	to_chat(user, SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>"))
+
+/obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
+	if(!proximity)
+		return
+	if(istype(get_area(A), /area/shuttle) || istype(get_area(A), /turf/space/transit))
+		return FALSE
+	var/turf/T = get_turf(A)
+	if(isNotStationLevel(T.z))
+		return FALSE
+	return do_pipe(T, user)
+
+/obj/item/rfd/piping/proc/do_pipe(var/turf/T, var/mob/user)
+	if(working)
+		return FALSE
+
+	if(!useResource(build_cost, user))
+		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
+		flick("[icon_state]-empty", src)
+		return FALSE
+
+	playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
+
+	working = TRUE
+	to_chat(user, SPAN_NOTICE("You start laying down your pipe..."))
+
+	if(build_delay && !do_after(user, build_delay))
+		working = FALSE
+		return FALSE
+
+	working = FALSE
+	if(build_delay && !can_use(user, T))
+		return FALSE
+
+	new /obj/item/pipe(T, selected_pipe, NORTH)
+
+	playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
+	return TRUE
+
+/obj/item/rfd/piping/attack_self(mob/user)
+	playsound(get_turf(src), 'sound/effects/pop.ogg', 50, FALSE)
+	switch(alert("Which configuration would you like to edit?", "RFD-P", "Pipe Category", "Chosen Pipe", "Cancel"))
+		if("Cancel")
+			return
+		if("Pipe Category")
+			selected_mode = input(user, "Choose the category you want to change to.", "Pipe Categories") in modes
+			switch(selected_mode)
+				if("Standard Pipes")
+					pipe_examine = "Pipe"
+					selected_pipe = 0
+				if("Supply Pipes")
+					pipe_examine = "Pipe"
+					selected_pipe = 29
+				if("Scrubber Pipes")
+					pipe_examine = "Pipe"
+					selected_pipe = 31
+				if("Devices")
+					pipe_examine = "Universal Pipe Adapter"
+					selected_pipe = 28
+		if("Chosen Pipe")
+			var/list/pipe_selection
+			switch(selected_mode)
+				if("Standard Pipes")
+					pipe_selection = standard_pipes
+				if("Supply Pipes")
+					pipe_selection = supply_pipes
+				if("Scrubber Pipes")
+					pipe_selection = scrubber_pipes
+				if("Devices")
+					pipe_selection = devices
+			pipe_examine = input(user, "Choose the pipe you want to deploy.", "Pipe Selection") in pipe_selection
+			selected_pipe = pipe_selection[pipe_examine]

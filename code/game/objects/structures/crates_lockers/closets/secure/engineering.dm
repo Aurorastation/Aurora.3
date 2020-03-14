@@ -164,3 +164,4 @@
 	new /obj/item/cartridge/atmos(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
+	new /obj/item/rfd/piping(src)
