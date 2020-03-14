@@ -815,9 +815,12 @@ proc/get_mob_with_client_list()
 var/global/list/common_tools = list(
 /obj/item/stack/cable_coil,
 /obj/item/wrench,
+/obj/item/pipewrench,
 /obj/item/weldingtool,
 /obj/item/screwdriver,
 /obj/item/wirecutters,
+/obj/item/powerdrill,
+/obj/item/combitool,
 /obj/item/device/multitool,
 /obj/item/crowbar)
 
