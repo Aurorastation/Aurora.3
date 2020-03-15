@@ -64,7 +64,6 @@ for reference:
 	density = 1.0
 	var/health = 100
 	var/maxhealth = 100
-	var/material/material
 
 /obj/structure/barricade/New(var/newloc, var/material_name)
 	..(newloc)

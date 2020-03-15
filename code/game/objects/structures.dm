@@ -7,6 +7,7 @@
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
+	var/material/material
 
 /obj/structure/Destroy()
 	if(parts)
