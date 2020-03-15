@@ -108,7 +108,7 @@
 
 /obj/effect/floor_decal/corner/yellow
 	name = "yellow corner"
-	color = COLOR_BROWN
+	color = COLOR_YELLOW_ALT
 
 /obj/effect/floor_decal/corner/yellow/diagonal
 	icon_state = "corner_white_diagonal"
@@ -178,7 +178,7 @@
 
 /obj/effect/floor_decal/corner/brown
 	name = "brown corner"
-	color = COLOR_DARK_BROWN
+	color = COLOR_BROWN
 
 /obj/effect/floor_decal/corner/brown/diagonal
 	icon_state = "corner_white_diagonal"
@@ -264,7 +264,7 @@
 
 /obj/effect/floor_decal/corner_wide/yellow
 	name = "yellow corner"
-	color = COLOR_BROWN
+	color = COLOR_YELLOW_ALT
 
 /obj/effect/floor_decal/corner_wide/yellow/diagonal
 	icon_state = "wide_corner_diagonal"
@@ -334,7 +334,7 @@
 
 /obj/effect/floor_decal/corner_wide/brown
 	name = "brown corner"
-	color = COLOR_DARK_BROWN
+	color = COLOR_BROWN
 
 /obj/effect/floor_decal/corner_wide/brown/diagonal
 	icon_state = "wide_corner_diagonal"

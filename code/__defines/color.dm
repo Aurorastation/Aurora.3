@@ -26,6 +26,7 @@
 #define COLOR_YELLOW_GRAY      "#c9a344"
 #define COLOR_PALE_YELLOW      "#c1bb7a"
 #define COLOR_WARM_YELLOW      "#b3863c"
+#define COLOR_YELLOW_ALT       "#e5b934"
 #define COLOR_GRAY             "#808080"
 #define COLOR_RED_GRAY         "#aa5f61"
 #define COLOR_BROWN            "#b19664"
