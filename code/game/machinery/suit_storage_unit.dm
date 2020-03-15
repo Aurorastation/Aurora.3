@@ -8,23 +8,24 @@
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
 	icon = 'icons/obj/suit_storage.dmi'
 	icon_state = "base"
-	anchored = 1
-	density = 1
-	var/mob/living/carbon/human/OCCUPANT = null
-	var/obj/item/clothing/suit/space/SUIT = null
-	var/SUIT_TYPE = null
-	var/obj/item/clothing/head/helmet/space/HELMET = null
-	var/HELMET_TYPE = null
-	var/obj/item/clothing/mask/MASK = null  //All the stuff that's gonna be stored insiiiiiiiiiiiiiiiiiiide, nyoro~n
-	var/MASK_TYPE = null //Erro's idea on standarising SSUs whle keeping creation of other SSU types easy: Make a child SSU, name it something then set the TYPE vars to your desired suit output. New() should take it from there by itself.
-	var/isopen = 0
-	var/islocked = 0
-	var/isUV = 0
-	var/ispowered = 1 //starts powered
-	var/isbroken = 0
-	var/issuperUV = 0
-	var/panelopen = 0
-	var/safetieson = 1
+	anchored = TRUE
+	density = TRUE
+	layer = OBJ_LAYER - 0.01
+	var/mob/living/carbon/human/OCCUPANT
+	var/obj/item/clothing/suit/space/SUIT
+	var/SUIT_TYPE
+	var/obj/item/clothing/head/helmet/space/HELMET
+	var/HELMET_TYPE
+	var/obj/item/clothing/mask/MASK //All the stuff that's gonna be stored insiiiiiiiiiiiiiiiiiiide, nyoro~n
+	var/MASK_TYPE //Erro's idea on standarising SSUs whle keeping creation of other SSU types easy: Make a child SSU, name it something then set the TYPE vars to your desired suit output. New() should take it from there by itself.
+	var/isopen = FALSE
+	var/islocked = FALSE
+	var/isUV = FALSE
+	var/ispowered = TRUE //starts powered
+	var/isbroken = FALSE
+	var/issuperUV = FALSE
+	var/panelopen = FALSE
+	var/safetieson = TRUE
 	var/cycletime_left = 0
 
 //The units themselves/////////////////
