@@ -141,7 +141,7 @@
 			update_material()
 		return 1
 
-	if(!carpeted && !reinforced && !material && (W.iswrench() || istype(W, /obj/item/gun/energy/plasmacutter))
+	if(!carpeted && !reinforced && !material && (W.iswrench() || istype(W, /obj/item/gun/energy/plasmacutter)))
 		dismantle(W, user)
 		return 1
 
