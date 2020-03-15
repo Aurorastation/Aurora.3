@@ -197,7 +197,7 @@
 				return
 			dismantle_sound = "zapping and melting"
 			dismantle_verb = "slicing"
-			cut_delay * 0.8
+			cut_delay *= 0.8
 		else if(istype(W,/obj/item/melee/energy))
 			var/obj/item/melee/energy/WT = W
 			if(WT.active)
