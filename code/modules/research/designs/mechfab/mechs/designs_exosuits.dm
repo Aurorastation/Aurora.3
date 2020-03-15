@@ -290,7 +290,7 @@
 	name = "RFD-C"
 	id = "mech_rcd"
 	time = 90
-	materials = list(DEFAULT_WALL_MATERIAL = 30000, "phoron" = 25000, "steel" = 15000, "gold" = 15000)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, "phoron" = 25000, MATERIAL_STEEL = 15000, "gold" = 15000)
 	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4, TECH_ENGINEERING = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/rfd
 

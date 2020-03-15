@@ -19,7 +19,7 @@
 
 	if(!default_type)
 		default_type = DEFAULT_WALL_MATERIAL
-	material = get_material_by_name("[default_type]")
+	material = SSmaterials.get_material_by_name("[default_type]")
 	if(!material)
 		qdel(src)
 		return
@@ -120,10 +120,10 @@
 	drop_sound = 'sound/items/drop/glass.ogg'
 
 /obj/item/stack/material/plastic
-	name = "plastic"
+	name MATERIAL_PLASTIC
 	icon_state = "sheet-plastic"
 	item_state = "sheet-plastic"
-	default_type = "plastic"
+	default_type MATERIAL_PLASTIC
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/card.ogg'
 

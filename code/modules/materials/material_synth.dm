@@ -14,7 +14,7 @@
 
 /obj/item/stack/material/cyborg/plastic
 	icon_state = "sheet-plastic"
-	default_type = "plastic"
+	default_type MATERIAL_PLASTIC
 
 /obj/item/stack/material/cyborg/steel
 	icon_state = "sheet-metal"

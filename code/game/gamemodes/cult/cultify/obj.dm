@@ -132,8 +132,8 @@
 /obj/structure/table/cultify()
 	if(material == "cult" || reinforced == "cult")
 		return
-	material = get_material_by_name("cult")
-	reinforced = get_material_by_name("cult")
+	material = SSmaterials.get_material_by_name("cult")
+	reinforced = SSmaterials.get_material_by_name("cult")
 	update_desc()
 	update_connections(1)
 	update_icon()

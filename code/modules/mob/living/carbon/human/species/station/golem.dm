@@ -716,7 +716,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+80
 	heat_level_3 = T0C+100
 
-	golem_designation = "plastic"
+	golem_designation MATERIAL_PLASTIC
 
 /datum/species/golem/plastic/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(171,171,171)

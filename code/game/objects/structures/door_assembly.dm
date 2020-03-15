@@ -292,7 +292,7 @@
 						user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))
-								to_chat(user, "<span class='notice'>You installed [material_display_name(material_name)] plating into the airlock assembly.</span>")
+								to_chat(user, "<span class='notice'>You installed [SSmaterials.material_display_name(material_name)] plating into the airlock assembly.</span>")
 								glass = material_name
 
 	else if(W.isscrewdriver() && state == 2 )

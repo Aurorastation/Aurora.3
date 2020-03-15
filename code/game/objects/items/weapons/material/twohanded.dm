@@ -307,7 +307,6 @@
 	icon_state = "headspear"
 	density = 0
 	anchored = 1
-	var/material = "glass"
 
 /obj/structure/headspear/attack_hand(mob/living/user)
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
