@@ -9,12 +9,14 @@
 */
 
 /mob/living/proc/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/sharp = 0, var/edge = 0, var/damage_flags)
-	if(!damage || (blocked >= 100))	return 0
+	if(!damage || (blocked >= 100))
+		return 0
 	switch(damagetype)
 		if(BRUTE)
 			adjustBruteLoss(damage * BLOCKED_MULT(blocked))
 		if(BURN)
-			if(COLD_RESISTANCE in mutations)	damage = 0
+			if(COLD_RESISTANCE in mutations)
+				damage = 0
 			adjustFireLoss(damage * BLOCKED_MULT(blocked))
 		if(TOX)
 			adjustToxLoss(damage * BLOCKED_MULT(blocked))
