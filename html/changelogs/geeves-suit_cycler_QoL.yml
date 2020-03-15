@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - tweak: "Suit cyclers got their layers altered so that ejected suits appear above them."
+  - tweak: "Structures and machinery got their layers altered so that objects appear above them."
