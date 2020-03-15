@@ -599,7 +599,7 @@
 	set_trait(TRAIT_PLANT_ICON,"mushroom7")
 
 /datum/seed/mushroom/plastic
-	name MATERIAL_PLASTIC
+	name = "plastic"
 	seed_name = "plastellium"
 	display_name = "plastellium"
 	mutants = null

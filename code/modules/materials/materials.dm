@@ -579,7 +579,7 @@
 
 /material/plastic/holographic
 	name = MATERIAL_PLASTIC_HOLO
-	display_name MATERIAL_PLASTIC
+	display_name = "plastic"
 	stack_type = null
 	shard_type = SHARD_NONE
 
