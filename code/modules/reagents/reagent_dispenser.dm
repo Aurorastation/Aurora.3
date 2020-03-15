@@ -155,7 +155,7 @@
 /obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W, mob/user)
 	src.add_fingerprint(user)
 	if(istype(W, /obj/item/wirecutters/bomb) && rig)
-		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src].") \
+		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
 							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
 		rig.forceMove(get_turf(user))
 		rig = null
