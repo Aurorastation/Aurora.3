@@ -5,7 +5,7 @@
 	icon_state = "dropper0"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1,2,3,4,5)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	volume = 5
 	drop_sound = 'sound/items/drop/glass.ogg'
@@ -80,16 +80,15 @@
 
 		var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
 		to_chat(user, "<span class='notice'>You fill the dropper with [trans] units of the solution.</span>")
-		return
 
-	on_reagent_change()
-		update_icon()
-
+/obj/item/reagent_containers/dropper/on_reagent_change()
 	update_icon()
-		if(reagents.total_volume)
-			icon_state = "dropper1"
-		else
-			icon_state = "dropper0"
+
+/obj/item/reagent_containers/dropper/update_icon()
+	if(reagents.total_volume)
+		icon_state = "dropper1"
+	else
+		icon_state = "dropper0"
 
 /obj/item/reagent_containers/dropper/AltClick(mob/user)
 	var/N = input("Amount per transfer from this:", "[src]") as null|anything in possible_transfer_amounts
