@@ -118,10 +118,10 @@ Pins Below.
 		return 0
 
 /obj/item/device/firing_pin/implant/loyalty
-	name = "loyalty firing pin"
-	desc = "This implant-locked firing pin authorizes the weapon for only loyalty-implanted users."
+	name = "mind shield firing pin"
+	desc = "This implant-locked firing pin authorizes the weapon for only mind shielded users."
 	icon_state = "firing_pin_loyalty"
-	req_implant = /obj/item/implant/loyalty
+	req_implant = /obj/item/implant/mindshield
 
 // Honk pin, clown joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.

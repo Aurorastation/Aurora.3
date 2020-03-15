@@ -376,9 +376,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 	var/select = null
 	var/list/borgs = list()
 	for (var/mob/living/silicon/robot/A in player_list)
-		if (A.stat == 2 || A.connected_ai || A.scrambledcodes || istype(A,/mob/living/silicon/robot/drone))
+		if (A.stat == 2 || A.connected_ai || A.scrambled_codes || istype(A,/mob/living/silicon/robot/drone))
 			continue
-		var/name = "[A.real_name] ([A.modtype] [A.braintype])"
+		var/name = "[A.real_name] ([A.mod_type] [A.braintype])"
 		borgs[name] = A
 
 	if (borgs.len)
@@ -815,9 +815,12 @@ proc/get_mob_with_client_list()
 var/global/list/common_tools = list(
 /obj/item/stack/cable_coil,
 /obj/item/wrench,
+/obj/item/pipewrench,
 /obj/item/weldingtool,
 /obj/item/screwdriver,
 /obj/item/wirecutters,
+/obj/item/powerdrill,
+/obj/item/combitool,
 /obj/item/device/multitool,
 /obj/item/crowbar)
 

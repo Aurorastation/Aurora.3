@@ -285,16 +285,19 @@
 			if (!stat || prob(0.5))
 				wake_up()
 
-	//Eating in tile
-	for(var/obj/item/reagent_containers/food/snacks/S in src.loc)
-		if(can_eat() && (nutrition < max_nutrition * 0.3)) //Only when sufficiently hungry
-			UnarmedAttack(S)
-		else
-			break
+	if(nutrition < max_nutrition / 3 && isturf(loc))	//If we're hungry enough (and not being held/in a bag), we'll check our tile for food.
+		handle_eating()
 
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
 		purge -= 1
+
+/mob/living/simple_animal/proc/handle_eating()
+	var/list/food_choices = list()
+	for(var/obj/item/reagent_containers/food/snacks/S in get_turf(src))
+		food_choices += S
+	if(food_choices.len) //Only when sufficiently hungry
+		UnarmedAttack(pick(food_choices))
 
 //Simple reagent processing for simple animals
 //This allows animals to digest food, and only food

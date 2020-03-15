@@ -7,7 +7,7 @@
 	health = 45
 	pass_flags = PASSTABLE
 	req_access = list(access_mining, access_robotics)
-	idcard_type = /obj/item/card/id/minedrone
+	id_card_type = /obj/item/card/id/minedrone
 	speed = -1
 	var/health_upgrade
 	var/ranged_upgrade
@@ -48,7 +48,7 @@
 	name = real_name
 
 /mob/living/silicon/robot/drone/mining/init()
-	aiCamera = new /obj/item/device/camera/siliconcam/drone_camera(src)
+	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
 	if(!laws)
 		laws = new law_type
 	if(!module)
@@ -89,7 +89,7 @@
 
 /mob/living/silicon/robot/drone/mining/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lockcharge || scrambledcodes || emagged)
+	if(lock_charge || scrambled_codes || emagged)
 		return
 	//Check if they are not on a station level -> abort
 	var/turf/T = get_turf(src)
@@ -116,7 +116,7 @@
 	if(M.melee_upgrade)
 		to_chat(user, span("warning", "[src] already has a drill upgrade installed!"))
 		return
-	M.modtype = initial(M.modtype)
+	M.mod_type = initial(M.mod_type)
 	M.uneq_all()
 	qdel(M.module)
 	M.module = null
@@ -154,7 +154,7 @@
 	if(M.ranged_upgrade)
 		to_chat(user, "[src] already has a KA upgrade installed!")
 		return
-	M.modtype = initial(M.modtype)
+	M.mod_type = initial(M.mod_type)
 	M.uneq_all()
 	qdel(M.module)
 	M.module = null
