@@ -142,7 +142,7 @@ for reference:
 		return 0
 
 /obj/structure/barricade/steel/New(var/newloc)
-	.=..(newloc,"steel")
+	.=..(newloc, MATERIAL_STEEL)
 
 //Actual Deployable machinery stuff
 /obj/machinery/deployable

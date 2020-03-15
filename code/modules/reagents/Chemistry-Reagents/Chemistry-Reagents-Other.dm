@@ -198,7 +198,7 @@
 	fallback_specific_heat = 0.241
 
 /datum/reagent/uranium
-	name ="Uranium"
+	name = "Uranium"
 	id = "uranium"
 	description = "A silvery-white metallic chemical element in the actinide series, weakly radioactive."
 	reagent_state = SOLID

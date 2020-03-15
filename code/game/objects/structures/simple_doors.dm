@@ -221,32 +221,32 @@
 		L.apply_effect(round(material.radioactivity/3),IRRADIATE,0)
 
 /obj/structure/simple_door/iron/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "iron", complexity)
+	..(newloc, MATERIAL_IRON, complexity)
 
 /obj/structure/simple_door/silver/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "silver", complexity)
+	..(newloc, MATERIAL_SILVER, complexity)
 
 /obj/structure/simple_door/gold/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "gold", complexity)
+	..(newloc, MATERIAL_GOLD, complexity)
 
 /obj/structure/simple_door/uranium/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "uranium", complexity)
+	..(newloc, MATERIAL_URANIUM, complexity)
 
 /obj/structure/simple_door/sandstone/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "sandstone", complexity)
+	..(newloc, MATERIAL_SANDSTONE, complexity)
 
 /obj/structure/simple_door/phoron/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "phoron", complexity)
+	..(newloc, MATERIAL_PHORON, complexity)
 
 /obj/structure/simple_door/diamond/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "diamond", complexity)
+	..(newloc, MATERIAL_DIAMOND, complexity)
 
 /obj/structure/simple_door/wood/New(var/newloc,var/material_name)
-	..(newloc, "wood")
+	..(newloc, MATERIAL_WOOD)
 
 /obj/structure/simple_door/resin/New(var/newloc,var/material_name)
-	..(newloc, "resin")
+	..(newloc, MATERIAL_RESIN)
 
 /obj/structure/simple_door/cult/New(var/newloc, var/material_name)
-	..(newloc, "cult")
+	..(newloc, MATERIAL_CULT)
 	color = COLOR_CULT_DOOR // looks better than the standard cult colours

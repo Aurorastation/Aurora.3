@@ -5,7 +5,7 @@
 /datum/design/circuit
 	build_type = IMPRINTER
 	req_tech = list(TECH_DATA = 2)
-	materials = list("glass" = 2000)
+	materials = list(MATERIAL_GLASS = 2000)
 	chemicals = list("sacid" = 20)
 
 /datum/design/circuit/AssembleDesignName()
@@ -406,7 +406,7 @@
 
 /datum/design/circuit/shield
 	req_tech = list(TECH_BLUESPACE = 4, TECH_PHORON = 3)
-	materials = list("glass" = 2000, "gold" = 1000)
+	materials = list(MATERIAL_GLASS = 2000, MATERIAL_GOLD = 1000)
 
 /datum/design/circuit/shield/AssembleDesignName()
 	name = "Shield generator circuit design ([name])"

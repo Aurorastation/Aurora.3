@@ -88,10 +88,10 @@
 	return ..()
 
 /obj/item/material/ashtray/plastic/New(var/newloc)
-	..(newloc, "plastic")
+	..(newloc, MATERIAL_PLASTIC)
 
 /obj/item/material/ashtray/bronze/New(var/newloc)
-	..(newloc, "bronze")
+	..(newloc, MATERIAL_BRONZE)
 
 /obj/item/material/ashtray/glass/New(var/newloc)
-	..(newloc, "glass")
+	..(newloc, MATERIAL_GLASS)

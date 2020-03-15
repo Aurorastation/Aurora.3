@@ -32,7 +32,7 @@
 /obj/item/ammo_magazine/c38/emp
 	name = "speed loader (.38 haywire)"
 	ammo_type = /obj/item/ammo_casing/c38/emp
-	matter = list(DEFAULT_WALL_MATERIAL = 360, "uranium" = 600)
+	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
 /obj/item/ammo_magazine/c45
 	name = "ammunition Box (.45)"
@@ -399,7 +399,7 @@
 	name = "magazine (stun shells)"
 	icon_state = "csms"
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
-	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
+	matter = list(DEFAULT_WALL_MATERIAL = 2880, MATERIAL_GLASS = 5760)
 
 /obj/item/ammo_magazine/minigun
 	name = "minigun magazine box (7.62mm)"

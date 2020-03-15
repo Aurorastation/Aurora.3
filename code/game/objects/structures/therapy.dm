@@ -79,7 +79,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
-	matter = list("glass" = 150, "gold" = 50)
+	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	w_class = 1
 	var/closed = FALSE
 
@@ -125,7 +125,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
-	matter = list("glass" = 150, "gold" = 50)
+	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	w_class = 1
 	var/datum/weakref/thrall = null
 	var/time_counter = 0

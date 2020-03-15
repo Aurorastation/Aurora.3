@@ -9,35 +9,35 @@
 	desc = "A hand-held environmental scanner which reports current gas levels."
 	id = "analyzer"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	materials = list(DEFAULT_WALL_MATERIAL = 30,MATERIAL_GLASS = 20)
 	build_path = /obj/item/device/analyzer
 	sort_string = "KCAAC"
 
 /datum/design/item/weapon/mining/jackhammer
 	id = "jackhammer"
 	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 500, "silver" = 500)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 500, MATERIAL_SILVER = 500)
 	build_path = /obj/item/pickaxe/jackhammer
 	sort_string = "KAAAA"
 
 /datum/design/item/weapon/mining/drill
 	id = "drill"
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 6000, "glass" = 1000) //expensive, but no need for miners.
+	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 1000) //expensive, but no need for miners.
 	build_path = /obj/item/pickaxe/drill
 	sort_string = "KAAAB"
 
 /datum/design/item/weapon/mining/plasmacutter
 	id = "plasmacutter"
 	req_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500, "glass" = 500, "gold" = 500, "phoron" = 500)
+	materials = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 500, MATERIAL_GOLD = 500, MATERIAL_PHORON = 500)
 	build_path = /obj/item/gun/energy/plasmacutter
 	sort_string = "KAAAC"
 
 /datum/design/item/weapon/mining/pick_diamond
 	id = "pick_diamond"
 	req_tech = list(TECH_MATERIAL = 6)
-	materials = list("diamond" = 3000)
+	materials = list(MATERIAL_DIAMOND = 3000)
 	build_path = /obj/item/pickaxe/diamond
 	sort_string = "KAAAD"
 
@@ -56,7 +56,7 @@ datum/design/circuit/telepad
 /datum/design/item/weapon/mining/drill_diamond
 	id = "drill_diamond"
 	req_tech = list(TECH_MATERIAL = 6, TECH_POWER = 4, TECH_ENGINEERING = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 1000, "diamond" = 2000)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000, MATERIAL_DIAMOND = 2000)
 	build_path = /obj/item/pickaxe/diamonddrill
 	sort_string = "KAAAE"
 

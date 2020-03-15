@@ -17,11 +17,11 @@
 
 	var/ore_types = list(
 		"iron" = /obj/item/ore/iron,
-		"uranium" = /obj/item/ore/uranium,
-		"gold" = /obj/item/ore/gold,
-		"silver" = /obj/item/ore/silver,
-		"diamond" = /obj/item/ore/diamond,
-		"phoron" = /obj/item/ore/phoron,
+		MATERIAL_URANIUM = /obj/item/ore/uranium,
+		MATERIAL_GOLD = /obj/item/ore/gold,
+		MATERIAL_SILVER = /obj/item/ore/silver,
+		MATERIAL_DIAMOND = /obj/item/ore/diamond,
+		MATERIAL_PHORON = /obj/item/ore/phoron,
 		"osmium" = /obj/item/ore/osmium,
 		"hydrogen" = /obj/item/ore/hydrogen,
 		"silicates" = /obj/item/ore/glass,

@@ -6,7 +6,7 @@
 	desc = "A small, open-topped glass container for delicate research samples. It sports a re-useable strip for labelling with a pen."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "solution_tray"
-	matter = list("glass" = 5)
+	matter = list(MATERIAL_GLASS = 5)
 	w_class = 2.0
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = list(1, 2)

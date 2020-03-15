@@ -35,10 +35,10 @@
 	update_icon()
 
 /obj/item/stool/padded/New(var/newloc, var/new_material)
-	..(newloc, "steel", "carpet")
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
 /obj/item/stool/wood/New(var/newloc, var/new_material)
-	..(newloc, "wood")
+	..(newloc, MATERIAL_WOOD)
 
 /obj/item/stool/hover
 	name = "hoverstool"
@@ -47,7 +47,7 @@
 	item_state_slots = null
 
 /obj/item/stool/hover/New(var/newloc, var/new_material)
-	..(newloc, "skrell")
+	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 
 /obj/item/stool/hover/Initialize()
 	.=..()

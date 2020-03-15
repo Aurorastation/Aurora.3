@@ -11,7 +11,7 @@
 	item_state = "analyzer"
 	var/form_title
 	var/last_data
-	matter = list(DEFAULT_WALL_MATERIAL = 80,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 80,MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 
 /obj/item/device/analyzer/plant_analyzer/proc/print_report_verb()
