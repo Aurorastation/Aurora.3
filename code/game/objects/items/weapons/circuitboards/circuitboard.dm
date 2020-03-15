@@ -26,8 +26,7 @@
 	..()
 	if(build_path)
 		var/obj/machine = new build_path // instantiate to get the name and desc
-		to_chat(user, SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>."))
-		to_chat(user, SPAN_NOTICE(" - [machine.desc]"))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>: [machine.desc]")))
 	if(board_type == BOARD_COMPUTER) // does not have build components, only goes into a frame
 		to_chat(user, SPAN_NOTICE("This board is used inside a <b>computer frame</b>."))
 	else if(req_components)
