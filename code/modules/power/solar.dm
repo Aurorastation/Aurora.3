@@ -529,10 +529,13 @@
 
 /obj/machinery/power/solar_control/autostart/Initialize()
 	. = ..()
-	src.search_for_connected()
+	addtimer(CALLBACK(src, .proc/do_solars), 1800)
+
+/obj/machinery/power/solar_control/autostart/proc/do_solars()
+	search_for_connected()
 	if(connected_tracker && track == 2)
 		connected_tracker.set_angle(sun.angle)
-	src.set_panels(cdir)
+	set_panels(cdir)
 
 //
 // MISC
