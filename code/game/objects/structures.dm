@@ -1,6 +1,7 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
 	w_class = 10
+	layer = OBJ_LAYER - 0.01
 
 	var/climbable
 	var/breakable

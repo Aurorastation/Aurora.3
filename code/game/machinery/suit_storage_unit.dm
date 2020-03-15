@@ -10,7 +10,6 @@
 	icon_state = "base"
 	anchored = TRUE
 	density = TRUE
-	layer = OBJ_LAYER - 0.01
 	var/mob/living/carbon/human/OCCUPANT
 	var/obj/item/clothing/suit/space/SUIT
 	var/SUIT_TYPE
@@ -557,7 +556,6 @@
 	desc = "An industrial machine for painting and refitting voidsuits."
 	anchored = TRUE
 	density = TRUE
-	layer = OBJ_LAYER - 0.01
 
 	icon = 'icons/obj/suit_storage.dmi'
 	icon_state = "base"
