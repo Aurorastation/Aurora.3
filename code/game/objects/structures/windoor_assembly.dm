@@ -13,6 +13,7 @@ obj/structure/windoor_assembly
 	name = "windoor assembly"
 	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "l_windoor_assembly01"
+	obj_flags = OBJ_FLAG_ROTATABLE
 	anchored = 0
 	density = 0
 	dir = NORTH
@@ -26,7 +27,7 @@ obj/structure/windoor_assembly
 	var/secure = ""		//Whether or not this creates a secure windoor
 	var/state = "01"	//How far the door assembly has progressed in terms of sprites
 
-obj/structure/windoor_assembly/New(Loc, start_dir=NORTH, constructed=0)
+/obj/structure/windoor_assembly/New(Loc, start_dir=NORTH, constructed=0)
 	..()
 	if(constructed)
 		state = "01"
@@ -261,9 +262,6 @@ obj/structure/windoor_assembly/Destroy()
 	//Update to reflect changes(if applicable)
 	update_icon()
 
-
-//Rotates the windoor assembly clockwise
-//These directions are fucked up, apparently dm rotates anticlockwise by default
 /obj/structure/windoor_assembly/rotate(var/mob/user)
 	if(use_check_and_message(user))
 		return
