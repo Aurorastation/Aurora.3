@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added the ability to defuse various bombs with wirecutter-like tools, as well as implementing a specialized bomb-defusal tool, which is not absolutely guaranteed to work."
