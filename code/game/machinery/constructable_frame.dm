@@ -59,7 +59,7 @@
 						playsound(src.loc, 'sound/items/poster_being_created.ogg', 75, 1)
 						state = 2
 				else
-					if(P.iswirecutter())
+					if(P.iswirecutter() || istype(P, /obj/item/gun/energy/plasmacutter))
 						playsound(src.loc, 'sound/items/poster_ripped.ogg', 75, 1)
 						to_chat(user, span("notice", "You decide to scrap the blueprint."))
 						new /obj/item/stack/material/steel(src.loc, 2)
@@ -80,8 +80,17 @@
 				else
 					if(P.iswrench())
 						playsound(src.loc, P.usesound, 75, 1)
-						to_chat(user, "<span class='notice'>You dismantle the blueprint</span>")
+						to_chat(user, SPAN_NOTICE("You dismantle the blueprint."))
 						new /obj/item/stack/material/steel(src.loc, 2)
+						qdel(src)
+					else if(istype(P, /obj/item/gun/energy/plasmacutter))
+						var/obj/item/gun/energy/plasmacutter/PC = P
+						if(!PC.power_supply)
+							to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+							return
+						playsound(get_turf(src), PC.fire_sound, 75, TRUE)
+						to_chat(user, SPAN_NOTICE("You dismantle the blueprint."))
+						new /obj/item/stack/material/steel(get_turf(src), 2)
 						qdel(src)
 			if(3)
 				if(istype(P, /obj/item/circuitboard))

@@ -130,7 +130,7 @@
 		else
 			to_chat(user, "<span class='warning'>You don't have enough carpet!</span>")
 
-	if(!reinforced && !carpeted && material && W.iswrench())
+	if(!reinforced && !carpeted && material && (W.iswrench() || istype(W, /obj/item/gun/energy/plasmacutter)))
 		remove_material(W, user)
 		if(!material)
 			update_connections(1)
@@ -141,7 +141,7 @@
 			update_material()
 		return 1
 
-	if(!carpeted && !reinforced && !material && W.iswrench())
+	if(!carpeted && !reinforced && !material && (W.iswrench() || istype(W, /obj/item/gun/energy/plasmacutter))
 		dismantle(W, user)
 		return 1
 
