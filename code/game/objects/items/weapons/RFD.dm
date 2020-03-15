@@ -464,6 +464,7 @@ RFD Piping-Class
 
 /obj/item/rfd/piping/examine(mob/user)
 	. = ..()
+	to_chat(user, FONT_SMALL(SPAN_NOTICE("Change pipe category by Alt clicking, change pipe selection by using in-hand.")))
 	to_chat(user, SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>"))
 	to_chat(user, SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>"))
 
@@ -506,34 +507,31 @@ RFD Piping-Class
 
 /obj/item/rfd/piping/attack_self(mob/user)
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 50, FALSE)
-	switch(alert("Which configuration would you like to edit?", "RFD-P", "Pipe Category", "Chosen Pipe", "Cancel"))
-		if("Cancel")
-			return
-		if("Pipe Category")
-			selected_mode = input(user, "Choose the category you want to change to.", "Pipe Categories") in modes
-			switch(selected_mode)
-				if("Standard Pipes")
-					pipe_examine = "Pipe"
-					selected_pipe = 0
-				if("Supply Pipes")
-					pipe_examine = "Pipe"
-					selected_pipe = 29
-				if("Scrubber Pipes")
-					pipe_examine = "Pipe"
-					selected_pipe = 31
-				if("Devices")
-					pipe_examine = "Universal Pipe Adapter"
-					selected_pipe = 28
-		if("Chosen Pipe")
-			var/list/pipe_selection
-			switch(selected_mode)
-				if("Standard Pipes")
-					pipe_selection = standard_pipes
-				if("Supply Pipes")
-					pipe_selection = supply_pipes
-				if("Scrubber Pipes")
-					pipe_selection = scrubber_pipes
-				if("Devices")
-					pipe_selection = devices
-			pipe_examine = input(user, "Choose the pipe you want to deploy.", "Pipe Selection") in pipe_selection
-			selected_pipe = pipe_selection[pipe_examine]
+	var/list/pipe_selection
+	switch(selected_mode)
+		if("Standard Pipes")
+			pipe_selection = standard_pipes
+		if("Supply Pipes")
+			pipe_selection = supply_pipes
+		if("Scrubber Pipes")
+			pipe_selection = scrubber_pipes
+		if("Devices")
+			pipe_selection = devices
+	pipe_examine = input(user, "Choose the pipe you want to deploy.", "Pipe Selection") in pipe_selection
+	selected_pipe = pipe_selection[pipe_examine]
+
+/obj/item/rfd/piping/AltClick(mob/user)
+	selected_mode = input(user, "Choose the category you want to change to.", "Pipe Categories") in modes
+	switch(selected_mode)
+		if("Standard Pipes")
+			pipe_examine = "Pipe"
+			selected_pipe = 0
+		if("Supply Pipes")
+			pipe_examine = "Pipe"
+			selected_pipe = 29
+		if("Scrubber Pipes")
+			pipe_examine = "Pipe"
+			selected_pipe = 31
+		if("Devices")
+			pipe_examine = "Universal Pipe Adapter"
+			selected_pipe = 28
