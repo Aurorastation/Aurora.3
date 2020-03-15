@@ -419,16 +419,23 @@ RFD Mining-Class
 RFD Piping-Class
 */
 
+#define STANDARD_PIPE "Standard Pipes"
+#define SUPPLY_PIPE "Supply Pipes"
+#define SCRUBBER_PIPE "Scrubber Pipes"
+#define DEVICES "Devices"
+
 /obj/item/rfd/piping
 	name = "\improper Rapid-Fabrication-Device P-Class"
 	desc = "A RFD, modified to construct pipes and piping accessories."
-	modes = list("Standard Pipes", "Supply Pipes", "Scrubber Pipes", "Devices")
-	var/selected_mode = "Standard Pipes"
+	modes = list(STANDARD_PIPE, SUPPLY_PIPE, SCRUBBER_PIPE, DEVICES)
+	var/selected_mode = STANDARD_PIPE
 	var/pipe_examine = "Pipe" // used in the examine proc to see what you're putting down at a glance
 	var/selected_pipe = 0 // default is standard pipe, used for the new pipe creation
 	var/build_cost = 1 // this RFD only uses 1 unit of power per pipe, but can be modified if need be in future
 	var/build_delay = 10
 
+	// The numbers below refer to the numberized designator for each pipe, which is used in obj/item/pipe's new
+	// Take a look at code\game\machinery\pipe\construction.dm line 69 for more information. - Geeves
 	var/list/standard_pipes = list("Pipe" = 0,
 								"Bent Pipe" = 1,
 								"Manifold" = 5,
@@ -471,10 +478,12 @@ RFD Piping-Class
 /obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
-	if(istype(get_area(A), /area/shuttle) || istype(get_area(A), /turf/space/transit))
+	if(istype(get_area(A), /area/shuttle) || istype(get_area(A), /turf/space))
+		to_chat(user, SPAN_WARNING("You can't lay pipe here!"))
 		return FALSE
 	var/turf/T = get_turf(A)
 	if(isNotStationLevel(T.z))
+		to_chat(user, SPAN_WARNING("You can't lay your pipe on this level!"))
 		return FALSE
 	return do_pipe(T, user)
 
@@ -509,13 +518,13 @@ RFD Piping-Class
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 50, FALSE)
 	var/list/pipe_selection
 	switch(selected_mode)
-		if("Standard Pipes")
+		if(STANDARD_PIPE)
 			pipe_selection = standard_pipes
-		if("Supply Pipes")
+		if(SUPPLY_PIPE)
 			pipe_selection = supply_pipes
-		if("Scrubber Pipes")
+		if(SCRUBBER_PIPE)
 			pipe_selection = scrubber_pipes
-		if("Devices")
+		if(DEVICES)
 			pipe_selection = devices
 	pipe_examine = input(user, "Choose the pipe you want to deploy.", "Pipe Selection") in pipe_selection
 	selected_pipe = pipe_selection[pipe_examine]
@@ -523,15 +532,20 @@ RFD Piping-Class
 /obj/item/rfd/piping/AltClick(mob/user)
 	selected_mode = input(user, "Choose the category you want to change to.", "Pipe Categories") in modes
 	switch(selected_mode)
-		if("Standard Pipes")
+		if(STANDARD_PIPE)
 			pipe_examine = "Pipe"
 			selected_pipe = 0
-		if("Supply Pipes")
+		if(SUPPLY_PIPE)
 			pipe_examine = "Pipe"
 			selected_pipe = 29
-		if("Scrubber Pipes")
+		if(SCRUBBER_PIPE)
 			pipe_examine = "Pipe"
 			selected_pipe = 31
-		if("Devices")
+		if(DEVICES)
 			pipe_examine = "Universal Pipe Adapter"
 			selected_pipe = 28
+
+#undef STANDARD_PIPE
+#undef SUPPLY_PIPE
+#undef SCRUBBER_PIPE
+#undef DEVICES
