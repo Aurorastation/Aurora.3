@@ -28,6 +28,9 @@
 		opened = !opened
 	update_icon()
 
+/obj/structure/extinguisher_cabinet/AltClick(mob/user)
+	opened = !opened
+	update_icon()
 
 /obj/structure/extinguisher_cabinet/attack_hand(mob/user)
 	if(isrobot(user))
