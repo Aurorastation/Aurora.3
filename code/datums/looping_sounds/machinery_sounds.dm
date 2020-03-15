@@ -32,7 +32,7 @@
 	mid_sounds = list('sound/machines/fryer/deep_fryer_1.ogg' = 1, 'sound/machines/fryer/deep_fryer_2.ogg' = 1)
 	mid_length = 2
 	end_sound = 'sound/machines/fryer/deep_fryer_emerge.ogg'
-	volume = 7.5
+	volume = 5
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,4 +42,4 @@
 	mid_sounds = list('sound/machines/microwave/microwave-mid1.ogg'=10, 'sound/machines/microwave/microwave-mid2.ogg'=1)
 	mid_length = 10
 	end_sound = 'sound/machines/microwave/microwave-end.ogg'
-	volume = 45
+	volume = 30
