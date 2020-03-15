@@ -1,10 +1,10 @@
 /datum/hallucination/mindread
 	allow_duplicates = FALSE
-	min_power = 50
+	min_power = HAL_POWER_MED
 	special_flags = NO_THOUGHT | NO_EMOTE
 
 /datum/hallucination/mindread/can_affect(mob/living/carbon/C)
-	if(C.psi)			//Don't give it to people who already have psi powers
+	if(C.psi)	//Don't give it to people who already have psi powers
 		return FALSE
 	if(locate(/datum/hallucination/telepathy) in C.hallucinations)
 		return FALSE
@@ -14,7 +14,8 @@
 	..()
 	addtimer(CALLBACK(src, .proc/mind_give), rand(30, 50))
 
-/datum/hallucination/mindread/start()	//set duration, foreshadow powers
+//set duration, foreshadow powers
+/datum/hallucination/mindread/start()
 	duration = rand(2, 4) MINUTES
 	switch(rand(1, 3))
 		if(1)
@@ -30,7 +31,8 @@
 			holder.emote("me",1,"winces.")
 			holder.eye_blurry += 9
 
-/datum/hallucination/mindread/proc/mind_give()	//grant powers
+//grant powers
+/datum/hallucination/mindread/proc/mind_give()
 	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
 	holder.verbs += /mob/living/carbon/proc/fakemindread
@@ -79,12 +81,12 @@
 
 //Fake telepathy, inspired by and mostly ported from Bay's
 /datum/hallucination/telepathy
-	min_power = 75
+	min_power = HAL_POWER_HIGH
 	allow_duplicates = FALSE
 	special_flags = NO_THOUGHT | NO_EMOTE
 
 /datum/hallucination/telepathy/can_affect(mob/living/carbon/C)
-	if(C.psi)			//Don't give it to people who already have psi powers
+	if(C.psi)	//Don't give it to people who already have psi powers
 		return FALSE
 	if(locate(/datum/hallucination/mindread) in C.hallucinations)
 		return FALSE
@@ -110,7 +112,8 @@
 			holder.emote("me",1,"winces.")
 			holder.eye_blurry += 9
 
-/datum/hallucination/telepathy/proc/tele_give()	//grant powers
+//grant powers
+/datum/hallucination/telepathy/proc/tele_give()
 	to_chat(holder, SPAN_NOTICE(FONT_LARGE("<B>You have developed a psionic gift!</B>")))
 	to_chat(holder, SPAN_NOTICE("You can feel your mind surging with power! Check the abilities tab to use your new power!"))
 	holder.verbs += /mob/living/carbon/proc/faketelepathy

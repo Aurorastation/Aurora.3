@@ -1,12 +1,12 @@
-/datum/hallucination/announcement		//fake AI announcements, complete with sound. Text is weirder than normal, but easy to glaze over.
-	min_power = 30
-	duration = 1200				//this duration length + not allowing duplicates prevents spamming announcements on every valid handle_hallucination() which can get VERY annoying if rng decides to give you 3 in a row
+/datum/hallucination/announcement	//fake AI announcements, complete with sound. Text is weirder than normal, but easy to glaze over.
+	min_power = HAL_POWER_LOW
+	duration = 1200		//this duration length + not allowing duplicates prevents spamming announcements on every valid handle_hallucination() which can get VERY annoying if rng decides to give you 3 in a row
 	allow_duplicates = FALSE
 
 /datum/hallucination/announcement/start()
 	var/list/hal_sender = SShallucinations.message_sender
 	for(var/mob/living/carbon/human/H in living_mob_list)
-		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))		//We're not going to add ninjas, mercs, borers, etc to prevent meta.
+		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//We're not going to add ninjas, mercs, borers, etc to prevent meta.
 			hal_sender += H
 	switch(rand(1,15))
 		if(1)
@@ -71,10 +71,11 @@
 			to_chat(holder, SPAN_ALERT(pick(body)))
 			to_chat(holder, SPAN_ALERT("-[pick(hal_sender)]"))
 
-/datum/hallucination/announcement/proc/delam_call()	//for REALLY selling that fake delamination
+//for REALLY selling that fake delamination
+/datum/hallucination/announcement/proc/delam_call()
 	var/list/people = list()
 	for(var/mob/living/carbon/human/M in living_mob_list)
-		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE))		//Antag check prevents meta
+		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE))	//Antag check prevents meta
 			people += M
 	people -= holder
 	if(!people.len)
@@ -83,9 +84,9 @@
 	to_chat(holder, "<font color='#008000'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</font>")
 
 
-/datum/hallucination/pda				//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.
+/datum/hallucination/pda	//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.
 	min_power = 20
-	duration = 900					//this duration length + not allowing duplicates prevents spamming messages on every valid handle_hallucination() which can get VERY annoying if rng decides to give you 3 in a row
+	duration = 900		//this duration length + not allowing duplicates prevents spamming messages on every valid handle_hallucination() which can get VERY annoying if rng decides to give you 3 in a row
 	allow_duplicates = FALSE
 
 /datum/hallucination/pda/start()
@@ -100,7 +101,7 @@
 	to_chat(holder, "<b>Message from [pick(sender)] to [holder.name] ([hall_job]),</b> \"[pick(SShallucinations.hallucinated_phrases)]\" (<FONT color = blue><u>reply</u></FONT>)")
 	sound_to(holder, 'sound/machines/twobeep.ogg')
 
-
+//hallucinate someone else doing something.
 /datum/hallucination/paranoia
 	var/list/hal_target = list()	//The potential mob you're going to imagine doing this
 
@@ -113,13 +114,13 @@
 	if(hal_target.len)
 		return TRUE
 
-/datum/hallucination/paranoia/start()		//hallucinate someone else doing something. Yes, it's intentional that it's any living mob, not just other characters.
+/datum/hallucination/paranoia/start()
 	var/firstname = copytext(holder.real_name, 1, findtext(holder.real_name, " "))
 	var/t = pick(SShallucinations.hallucinated_actions)
-	t = replace_characters(t, list("you" = "[firstname]"))		//the list contains items that say "you." This replaces "you" with the hallucinator's first name to sell the fact that the person is doing the emote.
+	t = replace_characters(t, list("you" = "[firstname]"))	//the list contains items that say "you." This replaces "you" with the hallucinator's first name to sell the fact that the person is doing the emote.
 	to_chat(holder, "<b>[pick(hal_target)]</b> [t]")
 
-/datum/hallucination/paranoia/second		//Just so we get another chance at picking this.
+/datum/hallucination/paranoia/second	//Just so we get another chance at picking this.
 
 /datum/hallucination/skitter
 	max_power = 60
@@ -135,7 +136,7 @@
 /datum/hallucination/prick/start()
 	to_chat(holder,SPAN_NOTICE("You feel a tiny prick!"))
 
-/datum/hallucination/prick/end()		//chance to feel another effect after duration time
+/datum/hallucination/prick/end()	//chance to feel another effect after duration time
 	switch(rand(1,6))
 		if(1)
 			holder.druggy += min(holder.hallucination, 15)
@@ -145,8 +146,9 @@
 			to_chat(holder,SPAN_GOOD("You feel good."))
 	..()
 
-/datum/hallucination/prick/by_person	//the prick feeling but you actually imagine someone injecting you
-	min_power = 30
+//the prick feeling but you actually imagine someone injecting you
+/datum/hallucination/prick/by_person
+	min_power = HAL_POWER_LOW
 	max_power = INFINITY
 	duration = 20
 	var/injector
@@ -192,8 +194,8 @@
 		to_chat(holder, SPAN_WARNING(pick("You see something moving under your skin!", "Whatever it is, it's definitely alive!", "If you don't get it out soon...", "It's moving towards your mouth!")))
 	..()
 
-
-/datum/hallucination/pain				//Pain. Picks a random type of pain, and severity is based on their level of hallucination.
+//Pain. Picks a random type of pain, and severity is based on their level of hallucination.
+/datum/hallucination/pain
 	special_flags = NO_EMOTE
 
 /datum/hallucination/pain/start()
@@ -246,10 +248,10 @@
 		var/obj/item/organ/external/O = pick(H.organs)
 		O.add_pain(min(holder.hallucination / 3, 25))	//always cause fake pain
 	else
-		holder.adjustHalLoss(min(holder.hallucination / 3, 25))		//always cause fake pain
+		holder.adjustHalLoss(min(holder.hallucination / 3, 25))	//always cause fake pain
 
-
-/datum/hallucination/friendly			//sort of like the vampire friend messages.
+//sort of like the vampire friend messages.
+/datum/hallucination/friendly
 	max_power = 45
 	special_flags = NO_THOUGHT
 
@@ -272,7 +274,7 @@
 
 
 /datum/hallucination/rage
-	min_power = 50
+	min_power = HAL_POWER_MED
 	allow_duplicates = FALSE
 
 /datum/hallucination/rage/can_affect(mob/living/carbon/C)
@@ -280,11 +282,12 @@
 		return FALSE
 	if(C.disabilities & PACIFIST)
 		return FALSE
-	if(locate(/datum/hallucination/passive) in C.hallucinations)		//Kinda silly to be passive AND mad
+	if(locate(/datum/hallucination/passive) in C.hallucinations)	//Kinda silly to be passive AND mad
 		return FALSE
 	return ..()
 
-/datum/hallucination/rage/start()		//We don't want ALL the effects of berserk. You're not going to hallucinate the ability to tear down walls
+//We don't want ALL the effects of berserk. You're not going to hallucinate the ability to tear down walls
+/datum/hallucination/rage/start()
 	duration = rand(150, 300)
 	to_chat(holder, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
 	holder.a_intent_change(I_HURT)
@@ -322,7 +325,7 @@
 		return FALSE
 	if(C.disabilities & PACIFIST)
 		return FALSE
-	if(locate(/datum/hallucination/rage) in C.hallucinations)		//Kinda silly to be passive AND mad
+	if(locate(/datum/hallucination/rage) in C.hallucinations)	//Kinda silly to be passive AND mad
 		return FALSE
 	return ..()
 
@@ -345,13 +348,13 @@
 	to_chat(holder, SPAN_GOOD(feeling))
 
 /datum/hallucination/colorblind
-	min_power = 30
+	min_power = HAL_POWER_LOW
 	duration = 100
 	allow_duplicates = FALSE
 	var/colorblindness
 
 /datum/hallucination/colorblind/can_affect(mob/living/carbon/C)
-	if(C.client.color)		//if they're already colorblind, we bail.
+	if(C.client.color)	//if they're already colorblind, we bail.
 		return FALSE
 	return ..()
 
@@ -384,9 +387,9 @@
 				holder.remove_client_color(/datum/client_color/monochrome)
 	..()
 
-
-/datum/hallucination/fakeattack			//imagining someone hits you.
-	min_power = 30
+//imagining someone hits you.
+/datum/hallucination/fakeattack
+	min_power = HAL_POWER_LOW
 	var/list/attacker_candidates = list()
 
 /datum/hallucination/fakeattack/can_affect(mob/living/carbon/C)
@@ -433,7 +436,8 @@
 		if(!M.stat)
 			return TRUE
 
-/datum/hallucination/talking/activate()		//Unique since we are not adding the end() callback in activate(); we're handling it in start() since it can loop
+//Unique activate() since we are not adding the end() callback here; we're handling it in start() since it can loop
+/datum/hallucination/talking/activate()
 	if(!holder || !holder.client)
 		return
 	holder.hallucinations += src
@@ -442,7 +446,6 @@
 	start()
 
 ////Talking about you. Most of it from Bay//////
-
 /datum/hallucination/talking/start()
 	if(!can_affect(holder) || !holder || !repeats)	//sanity check
 		end()
@@ -450,17 +453,17 @@
 	var/list/candidates = list()
 	for(var/mob/living/M in oview(holder))
 		if(!M.stat)
-			if(holder.hallucination >= 75)		//If you're super fucked up you'll imagine more than just humans talking about you
+			if(holder.hallucination >= 75)	//If you're super fucked up you'll imagine more than just humans talking about you
 				candidates += M
 			else
-				if(ishuman(M))			//If not, it's only humans
+				if(ishuman(M))
 					candidates += M
 
 	if(!candidates.len)	//No candidates, no effect.
 		end()
 
 	var/mob/living/talker = pick(candidates)	//Who is talking to us?
-	var/message						//What will they say?
+	var/message		//What will they say?
 
 	//Name selection. This gives us variety. Sometimes it will be your last name, sometimes your first.
 	var/list/names = list()
@@ -475,10 +478,10 @@
 
 	switch(rand(1,8))	//Deciding how we're going to manifest this hallucinated conversation.
 
-		if(1)		//Nonverbal gesture.
+		if(1)	//Nonverbal gesture.
 			to_chat(holder,"<B>[talker]</B> [pick("points", "looks", "stares", "smirks")] at [pick(names)] and says something softly.")
+
 		if(2 to 3)	//Talking prompts imported from Bay. Less variation in these phrases, so we have less chance to pick them. Mitigates some repetition.
-			
 			//message prep
 			var/add = prob(20) ? ", [pick(names)]" : ""		//Accompanies phrases list. 20% chance to add the first or last name to the phrase for variation
 			var/list/phrases = list("Get out[add]!","Go away[add].","What are you doing[add]?","Where's your ID[add]?", "You know I love you[add].", "You do great work[add]!")		//this is the phrase. [add] is chosen in the previous line.
@@ -487,7 +490,7 @@
 
 			message = pick(phrases)
 			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
-		else		//More varied messages using text list and different speech prefixes
+		else	//More varied messages using text list and different speech prefixes
 			
 			//message prep
 			var/speak_prefix = pick("Hey", "Uh", "Um", "Oh", "Ah", "")		//For variety, we have a different greeting. This one has a chance of picking a starter....
@@ -497,13 +500,13 @@
 			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
 	repeats -= 1
-	if(repeats)		//And we do it all over again, one or two more times.
+	if(repeats)	//And we do it all over again, one or two more times.
 		addtimer(CALLBACK(src, .proc/start), rand(50, 100))
 	else
 		end()
 
-
-/datum/hallucination/whisper			//Thinking people are whispering messages to you.
+//Thinking people are whispering messages to you.
+/datum/hallucination/whisper
 	special_flags = HEARING_DEPENDENT
 
 /datum/hallucination/whisper/can_affect(mob/living/carbon/C)
@@ -525,9 +528,9 @@
 		else
 			to_chat(holder, "<B>[whisperer]</B> [pick("gently nudges", "pokes at", "taps", "looks at", "pats")] [holder], trying to get their attention.")
 
-
-/datum/hallucination/whisper/no_entity		//whispers that don't depend on a person's proximity
-	min_power = 30
+//whispers that don't depend on a person's proximity
+/datum/hallucination/whisper/no_entity
+	min_power = HAL_POWER_LOW
 
 /datum/hallucination/whisper/no_entity/can_affect(mob/living/carbon/C)
 	return ..()

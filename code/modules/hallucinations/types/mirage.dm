@@ -1,5 +1,5 @@
 /datum/hallucination/mirage
-	max_power = 30
+	max_power = HAL_POWER_LOW
 	duration = 120
 	var/number = 3
 	var/list/mirages = list()
@@ -32,7 +32,7 @@
 
 
 /datum/hallucination/mirage/bleeding
-	min_power = 30
+	min_power = HAL_POWER_LOW
 	max_power = INFINITY
 	duration = 350
 	allow_duplicates = FALSE
@@ -77,7 +77,7 @@
 
 
 /datum/hallucination/mirage/horror
-	min_power = 70
+	min_power = HAL_POWER_HIGH
 	max_power = INFINITY
 	number = 1
 
@@ -97,12 +97,12 @@
 
 
 /datum/hallucination/mirage/carnage
-	min_power = 35
+	min_power = HAL_POWER_LOW
 	max_power = INFINITY
 	number = 10
 
 /datum/hallucination/mirage/carnage/start()
-	if(holder.hallucination >= 100)				//Heavily hallucinating will increase the amount of horrific carnage we witness
+	if(holder.hallucination >= HAL_POWER_HIGH)	//Heavily hallucinating will increase the amount of horrific carnage we witness
 		number = 20
 	..()
 
@@ -163,7 +163,7 @@
 
 
 /datum/hallucination/mirage/eyes
-	min_power = 50
+	min_power = HAL_POWER_MED
 	max_power = INFINITY
 	number = 6
 
@@ -179,7 +179,7 @@
 
 
 /datum/hallucination/mirage/narsie
-	min_power = 5000					//this level of hallucination is only possible on the 2 last stages of your mind breaking during cult conversions. Or admin fuckery
+	min_power = 5000	//this level of hallucination is only possible on the 2 last stages of your mind breaking during cult conversions. Or admin fuckery
 	max_power = INFINITY
 	number = 1
 	duration = 30

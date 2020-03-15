@@ -15,7 +15,7 @@
 
 /datum/hallucination/sound/echo
 	duration = 50	//This delays end() by 5 seconds, where we have a chance of playing another sound from this list.
-	max_power = 65
+	max_power = HAL_POWER_HIGH
 	sounds = list('sound/machines/airlock.ogg',
 			'sound/voice/shriek1.ogg',
 			'sound/misc/nymphchirp.ogg',
@@ -44,9 +44,9 @@
 	..()
 
 /datum/hallucination/sound/creepy
-	min_power = 45
+	min_power = HAL_POWER_MED
 	max_power = INFINITY
-	special_flags = null		//These are spooky enough to happen even when deaf
+	special_flags = null	//These are spooky enough to happen even when deaf
 	sounds = list('sound/effects/ghost.ogg',
 				'sound/effects/ghost2.ogg',
 				'sound/effects/screech.ogg',
