@@ -4,12 +4,10 @@
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "landmine"
 	throwforce = 0
-	w_class = 3
-	var/deployed = 0
+	var/deployed = FALSE
 
 /obj/item/landmine/update_icon()
 	..()
-
 	if(!deployed)
 		icon_state = "[icon_state]"
 	else
@@ -23,11 +21,11 @@
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
-	layer = TURF_LAYER+0.2
+	layer = TURF_LAYER + 0.2
 	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
 
 
-/obj/item/landmine/attack_self(mob/user as mob)
+/obj/item/landmine/attack_self(mob/user)
 	..()
 	if(!deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
@@ -41,10 +39,10 @@
 				"<span class='danger'>You have deployed \the [src]!</span>"
 				)
 
-			deployed = 1
+			deployed = TRUE
 			user.drop_from_inventory(src)
 			update_icon()
-			anchored = 1
+			anchored = TRUE
 
 /obj/item/landmine/proc/trigger(mob/living/L)
 	spark(src, 3, alldirs)
@@ -77,9 +75,21 @@
 	else
 		..()
 
-/obj/item/landmine/attackby(var/obj/item/I, var/mob/user)
+/obj/item/landmine/attackby(obj/item/I, mob/user)
 	..()
-	if(I.force > 10 && deployed)
+	if(deployed && istype(I, /obj/item/wirecutters))
+		var/obj/item/wirecutters/W = I
+		user.visible_message(SPAN_WARNING("\The [user] starts defusing \the [src] with \the [W]." \
+							SPAN_NOTICE("You start defusing \the [src] with \the [W].")))
+		if(do_after(user, 150, TRUE, src))
+			if(prob(W.bomb_defusal_chance))
+				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], preparing it to be used again, if need be."))
+				anchored = FALSE
+				deployed = FALSE
+				return
+		to_chat(user, SPAN_DANGER("You slip, snipping the wrong wire!"))
+		trigger(user)
+	else if(I.force > 10 && deployed)
 		trigger(user)
 
 /obj/item/landmine/bullet_act()

@@ -119,6 +119,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 	attack_verb = list("pinched", "nipped")
+	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
 	sharp = 1
 	edge = 1
 	drop_sound = 'sound/items/drop/knife.ogg'
@@ -144,6 +145,14 @@
 
 /obj/item/wirecutters/iswirecutter()
 	return TRUE
+
+/obj/item/wirecutters/bomb
+	name = "bomb defusal wirecutters"
+	desc = "A tool used to delicately sever the wires used in bomb fuses."
+	icon = 'icons/obj/tools.dmi'
+	icon_state = "cutters"
+	toolspeed = 0.6
+	bomb_defusal_chance = 90 // 90% chance, because the thrill of dying must be kept at all times, duh
 
 /*
  * Welding Tool

@@ -3,6 +3,8 @@
 /obj/item/wirecutters/clippers
 	name = "plant clippers"
 	desc = "A tool used to take samples from plants."
+	toolspeed = 0.7
+	bomb_defusal_chance = 40 // 40% chance to successfully defuse a bomb, higher than standard because plant clippers are smaller
 
 /obj/item/device/analyzer/plant_analyzer
 	name = "plant analyzer"

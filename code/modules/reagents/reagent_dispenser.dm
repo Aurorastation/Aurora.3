@@ -152,8 +152,14 @@
 			rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W, mob/user)
 	src.add_fingerprint(user)
+	if(istype(W, /obj/item/wirecutters/bomb) && rig)
+		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src].") \
+							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
+		rig.forceMove(get_turf(user))
+		rig = null
+		overlays = new/list()
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
 			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
