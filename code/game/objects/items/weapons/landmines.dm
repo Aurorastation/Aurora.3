@@ -79,15 +79,15 @@
 	..()
 	if(deployed && istype(I, /obj/item/wirecutters))
 		var/obj/item/wirecutters/W = I
-		user.visible_message(SPAN_WARNING("\The [user] starts defusing \the [src] with \the [W]." \
-							SPAN_NOTICE("You start defusing \the [src] with \the [W].")))
+		user.visible_message(SPAN_WARNING("\The [user] starts snipping some wires in \the [src] with \the [W]..." \
+							SPAN_NOTICE("You start snipping some wires in \the [src] with \the [W]...")))
 		if(do_after(user, 150, TRUE, src))
 			if(prob(W.bomb_defusal_chance))
 				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], preparing it to be used again, if need be."))
 				anchored = FALSE
 				deployed = FALSE
 				return
-		to_chat(user, SPAN_DANGER("You slip, snipping the wrong wire!"))
+		to_chat(user, FONT_LARGE(SPAN_DANGER("You slip, snipping the wrong wire!")))
 		trigger(user)
 	else if(I.force > 10 && deployed)
 		trigger(user)
