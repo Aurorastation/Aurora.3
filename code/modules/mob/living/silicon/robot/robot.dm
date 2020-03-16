@@ -389,7 +389,7 @@
 		if(newname)
 			custom_name = newname
 
-			updatename()
+		updatename()
 		updateicon()
 		SSrecords.reset_manifest()
 
