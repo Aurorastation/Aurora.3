@@ -27,7 +27,6 @@ var/datum/controller/subsystem/materials/SSmaterials
 		if(material.name)
 			materials += material
 			materials_by_name[lowertext(material.name)] = material
-	. = ..()
 
 /datum/controller/subsystem/materials/proc/get_material_by_name(var/M)
 	if(!materials_by_name)
