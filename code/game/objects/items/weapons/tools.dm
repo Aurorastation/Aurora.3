@@ -149,10 +149,14 @@
 /obj/item/wirecutters/bomb
 	name = "bomb defusal wirecutters"
 	desc = "A tool used to delicately sever the wires used in bomb fuses."
-	icon = 'icons/obj/tools.dmi'
-	icon_state = "cutters"
+	icon_state = "mini_wirecutter"
 	toolspeed = 0.6
 	bomb_defusal_chance = 90 // 90% chance, because the thrill of dying must be kept at all times, duh
+
+/obj/item/wirecutters/bomb/Initialize()
+	. = ..()
+	if(prob(50))
+		icon_state = "[initial(icon_state)]-yellow"
 
 /*
  * Welding Tool
