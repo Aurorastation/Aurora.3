@@ -49,8 +49,12 @@
 /obj/item/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
-		return 1
-	return ..()
+		return TRUE
+	if(!..())
+		return FALSE
+	else
+		on_consume(user, target)
+		return TRUE
 
 /obj/item/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
