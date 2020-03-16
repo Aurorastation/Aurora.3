@@ -102,27 +102,27 @@
 /obj/item/surgery/scalpel/laser1
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks basic and could be improved."
-	icon_state = "scalpel_laser1_on"
+	icon_state = "scalpel_laser1"
 	damtype = "fire"
 
 /obj/item/surgery/scalpel/laser2
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks somewhat advanced."
-	icon_state = "scalpel_laser2_on"
+	icon_state = "scalpel_laser2"
 	damtype = "fire"
 	force = 12.0
 
 /obj/item/surgery/scalpel/laser3
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks to be the pinnacle of precision energy cutlery!"
-	icon_state = "scalpel_laser3_on"
+	icon_state = "scalpel_laser3"
 	damtype = "fire"
 	force = 15.0
 
 /obj/item/surgery/scalpel/manager
 	name = "incision management system"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
-	icon_state = "scalpel_manager_on"
+	icon_state = "scalpel_manager"
 	force = 7.5
 
 /*
