@@ -918,7 +918,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/extraction_point/Destroy()
 	total_extraction_beacons -= src
-	..()
+	. = ..()
 
 /**********************Resonator**********************/
 

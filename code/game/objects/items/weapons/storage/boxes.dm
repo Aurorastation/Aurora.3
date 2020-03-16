@@ -265,7 +265,7 @@
 
 /obj/item/storage/box/loyaltypins
 	name = "box of firing pins"
-	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. Often used in ERTs."
+	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
 	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
 
 /obj/item/storage/box/loyaltypins/fill()

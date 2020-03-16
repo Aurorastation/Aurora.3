@@ -70,7 +70,7 @@
 	name = "implanter-loyalty"
 
 /obj/item/implanter/loyalty/New()
-	src.imp = new /obj/item/implant/loyalty( src )
+	src.imp = new /obj/item/implant/mindshield( src )
 	..()
 	update()
 	return

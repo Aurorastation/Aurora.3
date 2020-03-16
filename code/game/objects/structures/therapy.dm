@@ -173,7 +173,9 @@
 		STOP_PROCESSING(SSfast_process, src)
 
 /obj/item/mesmetron/attack_self(mob/user as mob)
-	if(!closed || !thrall || !thrall.resolve())
+	if(closed)
+		return
+	if(!thrall || !thrall.resolve())
 		thrall = null
 		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		return

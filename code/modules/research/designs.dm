@@ -163,14 +163,6 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/implantcase/freedom
 	sort_string = "MFAAB"
 
-/datum/design/item/implant/loyalty
-	name = "loyalty"
-	id = "implant_loyal"
-	req_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
-	build_path = /obj/item/implantcase/loyalty
-	sort_string = "MFAAC"
-
 /datum/design/item/advanced_light_replacer
 	name = "Advanced Light Replacer"
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs."

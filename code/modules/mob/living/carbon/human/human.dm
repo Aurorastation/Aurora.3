@@ -293,11 +293,11 @@
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
 
-	var/obj/item/implant/loyalty/L
+	var/obj/item/implant/mindshield/L
 	if(isipc(M))
-		L = new/obj/item/implant/loyalty/ipc(M)
+		L = new/obj/item/implant/mindshield/ipc(M)
 	else
-		L = new/obj/item/implant/loyalty(M)
+		L = new/obj/item/implant/mindshield(M)
 	L.imp_in = M
 	L.implanted = 1
 	var/obj/item/organ/external/affected = M.organs_by_name[BP_HEAD]
@@ -307,7 +307,7 @@
 
 /mob/living/carbon/human/proc/is_loyalty_implanted(mob/living/carbon/human/M)
 	for(var/L in M.contents)
-		if(istype(L, /obj/item/implant/loyalty))
+		if(istype(L, /obj/item/implant/mindshield))
 			for(var/obj/item/organ/external/O in M.organs)
 				if(L in O.implants)
 					return 1
@@ -707,7 +707,7 @@
 					R.security.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 				if(istype(usr,/mob/living/silicon/robot))
 					var/mob/living/silicon/robot/U = usr
-					R.security.comments += text("Made by [U.name] ([U.modtype] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+					R.security.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 
 	if (href_list["medical"])
 		if(hasHUD(usr,"medical"))
@@ -818,7 +818,7 @@
 					R.medical.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
-					R.medical.comments += text("Made by [U.name] ([U.modtype] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+					R.medical.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 
 	if (href_list["lookitem"])
 		var/obj/item/I = locate(href_list["lookitem"])

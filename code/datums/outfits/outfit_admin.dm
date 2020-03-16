@@ -187,7 +187,7 @@
 	)
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -229,7 +229,7 @@
 	)
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/tcfl_legate
@@ -301,7 +301,7 @@
 	)
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -330,7 +330,7 @@
 	r_pocket = /obj/item/flame/lighter/zippo
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 	id_access = "Death Commando"

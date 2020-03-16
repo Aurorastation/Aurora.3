@@ -35,15 +35,13 @@
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
-	var/spam_flag = 0
+	var/last_honk = 0
 
 /obj/item/bikehorn/attack_self(mob/user as mob)
-	if (spam_flag == 0)
-		spam_flag = 1
+	if(last_honk <= world.time - 20) //Spam limiter.
+		last_honk = world.time
 		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 		src.add_fingerprint(user)
-		spawn(20)
-			spam_flag = 0
 	return
 
 /obj/item/cane
