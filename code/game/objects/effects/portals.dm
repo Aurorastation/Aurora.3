@@ -113,6 +113,12 @@
 				"/obj/item/stack/material/phoron" = 10
 					   )
 
+/obj/effect/portal/spawner/monkey_cube
+	num_of_spawns = 1
+	spawn_things = list(
+					"/obj/item/reagent_containers/food/snacks/monkeycube" = 4
+						)
+
 /obj/effect/portal/spawner/cow // debug but funny so im keeping it
 	num_of_spawns = 1
 	spawn_things = list(
