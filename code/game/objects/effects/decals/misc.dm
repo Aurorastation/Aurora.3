@@ -62,3 +62,14 @@
 /obj/effect/decal/fake_object/spacestuff/nebula
 	icon = 'icons/obj/nebula.dmi'
 	icon_state = "nebula"
+
+
+/obj/effect/decal/fake_object/tank
+	name = "adhomian light tank wreckage"
+	desc = "Remains of some unfortunate armored vehicle. Completely unrepairable."
+	icon = 'icons/mecha/mecha_64x64.dmi'
+	icon_state = "tank-broken"
+	anchored = TRUE
+	density = TRUE
+	pixel_x = -16
+	layer = ABOVE_MOB_LAYER
