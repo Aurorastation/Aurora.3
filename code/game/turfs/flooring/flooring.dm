@@ -140,6 +140,33 @@ var/list/flooring_types
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_steel
 
+/decl/flooring/tiling/old
+	name = "old floor"
+	desc = "An old and scuffed floor tile, harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_steel"
+	has_damage_range = 4
+	flags = TURF_IS_FRAGILE | TURF_CAN_BREAK | TURF_CAN_BURN
+	build_type = null
+
+/decl/flooring/tiling/old_dark
+	name = "old dark floor"
+	desc = "An old and scuffed floor tile, harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_dark"
+	has_damage_range = null
+	flags = TURF_IS_FRAGILE
+	build_type = null
+
+/decl/flooring/tiling/old_white
+	name = "old sterile floor"
+	desc = "An old, scuffed and supposedly once sterile floor tile harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_white"
+	has_damage_range = null
+	flags = TURF_IS_FRAGILE
+	build_type = null
+
 /decl/flooring/tiling/white
 	name = "floor"
 	desc = "How sterile."
