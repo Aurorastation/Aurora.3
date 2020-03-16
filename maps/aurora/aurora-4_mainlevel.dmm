@@ -64751,7 +64751,7 @@
 /area/maintenance/vault)
 "hKS" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/old,
 /area/maintenance/library)
 "hLy" = (
 /obj/effect/decal/cleanable/dirt,

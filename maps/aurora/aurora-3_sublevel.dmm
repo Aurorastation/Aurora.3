@@ -24728,20 +24728,19 @@
 /turf/simulated/wall/r_wall,
 /area/maintenance/disposal)
 "aZW" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "aZX" = (
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "aZY" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/obj/structure/closet,
+/obj/random/loot,
+/turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "baa" = (
 /turf/simulated/wall,
@@ -25394,14 +25393,16 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
 "bbZ" = (
-/obj/structure/ladder/up,
-/turf/simulated/floor/plating,
+/obj/structure/ladder/up{
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bca" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bcb" = (
 /obj/item/device/radio/intercom{
@@ -25409,7 +25410,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = -27
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bcd" = (
 /obj/item/modular_computer/telescreen/preset/trashcompactor{
@@ -25419,7 +25420,7 @@
 	c_tag = "Cargo - Disposals, Lower";
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/maintenance/disposal)
 "bce" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -29561,6 +29562,10 @@
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
+"eNt" = (
+/obj/item/stool/padded,
+/turf/simulated/floor/tiled,
+/area/maintenance/disposal)
 "eSg" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/camera/network/research_outpost{
@@ -30533,6 +30538,11 @@
 /obj/machinery/power/grounding_rod,
 /turf/simulated/floor/plating,
 /area/engineering/storage_tesla)
+"hbJ" = (
+/obj/structure/table/steel,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/maintenance/disposal)
 "heM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/chair/remote/robot/bunker{
@@ -31037,6 +31047,11 @@
 /obj/machinery/power/port_gen/pacman,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/backup_SMES)
+"igM" = (
+/obj/structure/table/steel,
+/obj/random/tool,
+/turf/simulated/floor/tiled,
+/area/maintenance/disposal)
 "ipg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/hologram/holopad,
@@ -31059,6 +31074,12 @@
 /obj/machinery/power/emitter,
 /turf/simulated/floor/plating,
 /area/engineering/storage_tesla)
+"isy" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/maintenance/disposal)
 "iwx" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -66965,7 +66986,7 @@ aaa
 aaa
 aZV
 aZW
-bca
+aZW
 aZW
 bcb
 bca
@@ -67478,7 +67499,7 @@ aaa
 aaa
 aaa
 aZV
-aZW
+isy
 aZW
 bab
 bae
@@ -67736,7 +67757,7 @@ aaa
 aaa
 aZV
 aZY
-aZW
+eNt
 bab
 baf
 bae
@@ -67992,8 +68013,8 @@ aaa
 aaa
 aaa
 aZV
-aZW
-aZW
+hbJ
+igM
 bab
 bae
 baf
