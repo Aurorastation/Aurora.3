@@ -107,8 +107,6 @@
 	var/list/impact_sounds = LAZYACCESS(P.impact_sounds, get_bullet_impact_effect_type(def_zone))
 	if(length(impact_sounds))
 		playsound(src, pick(impact_sounds), 75)
-	if(P.hit_effect)
-		new P.hit_effect(loc)
 
 /mob/living/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_MEAT

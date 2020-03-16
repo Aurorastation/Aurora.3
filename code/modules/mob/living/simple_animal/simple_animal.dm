@@ -731,7 +731,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				B.basecolor = blood_type
-				var/scale = min(1, round(mob_size / MOB_MEDIUM, 0.1))
+				var/scale = min(1, round(mob_size / MOB_TINY, 0.1))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
