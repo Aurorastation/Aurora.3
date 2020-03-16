@@ -1277,7 +1277,7 @@
 
 /datum/chemical_reaction/slime/monkey/on_reaction(var/datum/reagents/holder)
 	for(var/i = 1, i <= 3, i++)
-		var /obj/item/reagent_containers/food/snacks/monkeycube/M = new /obj/item/reagent_containers/food/snacks/monkeycube
+		var/obj/item/reagent_containers/food/snacks/monkeycube/M = new /obj/item/reagent_containers/food/snacks/monkeycube
 		M.forceMove(get_turf(holder.my_atom))
 	..()
 
@@ -1300,12 +1300,7 @@
 	required = /obj/item/slime_extract/metal
 
 /datum/chemical_reaction/slime/metal/on_reaction(var/datum/reagents/holder)
-	var/obj/item/stack/material/steel/M = new /obj/item/stack/material/steel
-	M.amount = 15
-	M.forceMove(get_turf(holder.my_atom))
-	var/obj/item/stack/material/plasteel/P = new /obj/item/stack/material/plasteel
-	P.amount = 5
-	P.forceMove(get_turf(holder.my_atom))
+	new /obj/effect/portal/spawner/metal(get_turf(holder.my_atom))
 	..()
 
 //Gold - added back in
@@ -1560,9 +1555,7 @@
 
 /datum/chemical_reaction/slime/plasma/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/stack/material/phoron/P = new /obj/item/stack/material/phoron
-	P.amount = 10
-	P.forceMove(get_turf(holder.my_atom))
+	new /obj/effect/portal/spawner/phoron(get_turf(holder.my_atom))
 
 //Red
 /datum/chemical_reaction/slime/glycerol

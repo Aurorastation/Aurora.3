@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Tweaked how xenobio spawns in steel, plasteel and phoron, when using slime extracts. They will make more of each now."
+  - rscadd: "Slime core batteries now regain 10% of their charge every minute."
