@@ -1,11 +1,15 @@
-/var/datum/controller/subsystem/materials/SSmaterials
+var/datum/controller/subsystem/materials/SSmaterials
 
 /datum/controller/subsystem/materials
 	name = "Materials"
+	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	var/list/materials
 	var/list/materials_by_name
+
+/datum/controller/subsystem/materials/New()
+	NEW_SS_GLOBAL(SSmaterials)
 
 /datum/controller/subsystem/materials/Initialize()
 	create_material_lists()
