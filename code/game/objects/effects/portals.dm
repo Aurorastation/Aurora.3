@@ -107,6 +107,14 @@
 				"/obj/item/stack/material/plasteel" = 5
 					   )
 
+/obj/effect/portal/spawner/rare_metal
+	num_of_spawns = 4
+	spawn_things = list(
+				"/obj/item/stack/material/gold" = 2,
+				"/obj/item/stack/material/silver" = 2,
+				"/obj/item/stack/material/uranium" = 2
+					   )
+
 /obj/effect/portal/spawner/phoron
 	num_of_spawns = 3
 	spawn_things = list(

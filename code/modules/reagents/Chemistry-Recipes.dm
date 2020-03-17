@@ -1366,6 +1366,18 @@
 				step(C, pick(NORTH,SOUTH,EAST,WEST))
 	..()
 
+/datum/chemical_reaction/slime/rare_metal
+	name = "Slime Rare Metal"
+	id = "rm_metal"
+	result = null
+	required_reagents = list("phoron" = 1)
+	result_amount = 1
+	required = /obj/item/slime_extract/gold
+
+/datum/chemical_reaction/slime/rare_metal/on_reaction(var/datum/reagents/holder)
+	new /obj/effect/portal/spawner/rare_metal(get_turf(holder.my_atom))
+	..()
+
 //Silver
 /datum/chemical_reaction/slime/bork
 	name = "Slime Bork"
