@@ -80,7 +80,7 @@
 	desc = "A compact gas thruster system for a hardsuit."
 	id = "jet_module"
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 3, TECH_POWER = 2)
-	materials = list(MATERIAL_GLASS = 4250, DEFAULT_WALL_MATERIAL = 15000, MATERIAL_SILVER = 4250,MATERIAL_URANIUM = 5250)
+	materials = list(MATERIAL_GLASS = 4250, DEFAULT_WALL_MATERIAL = 15000, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	build_path = /obj/item/rig_module/maneuvering_jets
 
 /datum/design/hardsuitmodules/drill_module

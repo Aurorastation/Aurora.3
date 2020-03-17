@@ -449,7 +449,7 @@ other types of metals and chemistry for reagents).
 	desc = "A hand-held plant scanner for hydroponicists and xenobotanists."
 	id = "plant_analyzer"
 	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 80,MATERIAL_GLASS = 20)
+	materials = list(DEFAULT_WALL_MATERIAL = 80, MATERIAL_GLASS = 20)
 	build_path = /obj/item/device/analyzer/plant_analyzer
 	sort_string = "VCBAB"
 

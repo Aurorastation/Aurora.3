@@ -157,7 +157,7 @@
 	name = "mounted energy gun"
 	desc = "A forearm-mounted energy projector."
 	icon_state = "egun"
-	construction_cost= list(DEFAULT_WALL_MATERIAL=7000, MATERIAL_GLASS = 2250,MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
+	construction_cost= list(DEFAULT_WALL_MATERIAL=7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
 	construction_time = 300
 
 	interface_name = "mounted energy gun"

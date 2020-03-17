@@ -177,10 +177,10 @@
 	base_icon = "psychbed"
 
 /obj/structure/bed/psych/New(var/newloc)
-	..(newloc,MATERIAL_WOOD,MATERIAL_LEATHER)
+	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 
 /obj/structure/bed/padded/New(var/newloc)
-	..(newloc,MATERIAL_PLASTIC,MATERIAL_COTTON)
+	..(newloc, MATERIAL_PLASTIC, MATERIAL_COTTON)
 
 /obj/structure/bed/aqua
 	name = "aquabed"

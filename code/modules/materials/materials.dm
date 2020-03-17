@@ -287,6 +287,17 @@
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	golem = "Bronze Golem"
 
+/material/osmium
+	name = MATERIAL_OSMIUM
+	lore_text = "An extremely hard form of platinum."
+	wall_name = "bulkhead"
+	stack_type = /obj/item/stack/material/osmium
+	icon_colour = "#9999ff"
+	stack_origin_tech = list(TECH_MATERIAL = 5)
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
+	value = 30
+
 /material/silver
 	name = MATERIAL_SILVER
 	stack_type = /obj/item/stack/material/silver
@@ -512,7 +523,7 @@
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
-	composite_material = list(DEFAULT_WALL_MATERIAL = 1875,MATERIAL_GLASS = 3750)
+	composite_material = list(DEFAULT_WALL_MATERIAL = 1875, MATERIAL_GLASS = 3750)
 	window_options = list()
 	created_window = null
 	wire_product = null
@@ -531,7 +542,7 @@
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
-	composite_material = list(DEFAULT_WALL_MATERIAL = 1875,MATERIAL_GLASS = 3750)
+	composite_material = list(DEFAULT_WALL_MATERIAL = 1875, MATERIAL_GLASS = 3750)
 	window_options = list("One Direction" = 1, "Full Window" = 4, "Windoor" = 5)
 	created_window = /obj/structure/window/reinforced
 	wire_product = null

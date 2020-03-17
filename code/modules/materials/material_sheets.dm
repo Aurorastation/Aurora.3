@@ -133,6 +133,11 @@
 	default_type = MATERIAL_GOLD
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/osmium
+	name = "osmium"
+	icon_state = "sheet-silver"
+	default_type = MATERIAL_OSMIUM
+
 /obj/item/stack/material/silver
 	name = "silver"
 	icon_state = "sheet-silver"

@@ -126,7 +126,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_bcircuit"
 	force = 6.0
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5,MATERIAL_GLASS = 937.5)
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5, MATERIAL_GLASS = 937.5)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -138,7 +138,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_gcircuit"
 	force = 6.0
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5,MATERIAL_GLASS = 937.5)
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5, MATERIAL_GLASS = 937.5)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20

@@ -117,7 +117,7 @@
 	item_state = "rfdammo"
 	w_class = 2
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30000,MATERIAL_GLASS = 15000)
+	matter = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 15000)
 
 /*
 RFD Construction-Class

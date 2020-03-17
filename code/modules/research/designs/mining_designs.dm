@@ -9,7 +9,7 @@
 	desc = "A hand-held environmental scanner which reports current gas levels."
 	id = "analyzer"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 30,MATERIAL_GLASS = 20)
+	materials = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 	build_path = /obj/item/device/analyzer
 	sort_string = "KCAAC"
 

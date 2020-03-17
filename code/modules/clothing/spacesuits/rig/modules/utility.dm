@@ -119,7 +119,7 @@
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	usable = 1
 	engage_string = "Configure RFD-C"
-	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500,MATERIAL_SILVER =10000,MATERIAL_GOLD =10000)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500, MATERIAL_SILVER =10000, MATERIAL_GOLD =10000)
 	construction_time = 1000
 
 	device_type = /obj/item/rfd/construction/mounted
@@ -162,7 +162,7 @@
 	toggleable = 0
 	disruptive = 0
 	confined_use = 1
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,MATERIAL_GLASS =9250,MATERIAL_GOLD =2500,MATERIAL_SILVER =4250,"phoron"=5500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
 	construction_time = 400
 
 	engage_string = "Inject"
@@ -350,7 +350,7 @@
 	usable = 0
 	selectable = 1
 	disruptive = 1
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,MATERIAL_GLASS =9250,MATERIAL_GOLD =2500,MATERIAL_SILVER =4250,"phoron"=5500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
 	construction_time = 400
 
 	interface_name = "mounted chem injector"

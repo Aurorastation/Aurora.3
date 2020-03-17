@@ -22,7 +22,7 @@
 		MATERIAL_SILVER = /obj/item/ore/silver,
 		MATERIAL_DIAMOND = /obj/item/ore/diamond,
 		MATERIAL_PHORON = /obj/item/ore/phoron,
-		"osmium" = /obj/item/ore/osmium,
+		MATERIAL_OSMIUM /obj/item/ore/osmium,
 		"hydrogen" = /obj/item/ore/hydrogen,
 		"silicates" = /obj/item/ore/glass,
 		"carbonaceous rock" = /obj/item/ore/coal
