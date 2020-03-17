@@ -29,7 +29,10 @@
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
 			holder.emote("me",1,"winces.")
-			holder.eye_blurry += 9
+			if(ishuman(holder))
+				var/mob/living/carbon/human/H = holder
+				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)
+				O.add_pain(25)
 
 //grant powers
 /datum/hallucination/mindread/proc/mind_give()
@@ -41,7 +44,6 @@
 	if(holder)
 		holder.verbs -= /mob/living/carbon/proc/fakemindread
 		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
-		holder.drowsyness += 12
 	..()
 
 /mob/living/carbon/proc/fakemindread()
@@ -53,7 +55,7 @@
 			H.end()
 		return
 
-	if(use_check_and_message())
+	if(use_check_and_message(usr))
 		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 
@@ -110,7 +112,10 @@
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
 			holder.emote("me",1,"winces.")
-			holder.eye_blurry += 9
+			if(ishuman(holder))
+				var/mob/living/carbon/human/H = holder
+				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)
+				O.add_pain(25)
 
 //grant powers
 /datum/hallucination/telepathy/proc/tele_give()
@@ -122,7 +127,6 @@
 	if(holder)
 		holder.verbs -= /mob/living/carbon/proc/faketelepathy
 		to_chat(holder, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
-		holder.drowsyness += 12
 	..()
 
 
@@ -135,7 +139,7 @@
 			H.end()
 		return
 
-	if(use_check_and_message())
+	if(use_check_and_message(usr))
 		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 

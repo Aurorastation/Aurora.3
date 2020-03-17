@@ -12,7 +12,7 @@
 		if(1)
 			sound_to(holder, 'sound/AI/radiation.ogg')
 			to_chat(holder, "<h2 class='alert'>Anomaly Break</h2>")
-			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(SShallucinations.hallucinated_phrases)] Please become one of the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
+			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(SShallucinations.hallucinated_phrases)] Please cower among the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
 
 		if(2)
 			sound_to(holder, 'sound/AI/strangeobject.ogg')
@@ -133,6 +133,13 @@
 	duration = 40
 	max_power = 35
 
+/datum/hallucination/prick/can_affect(mob/living/carbon/C)
+	if(!..())
+		return FALSE
+	for(var/mob/living/M in oview(C, 1))
+		if(!M.stat)
+			return TRUE
+
 /datum/hallucination/prick/start()
 	to_chat(holder,SPAN_NOTICE("You feel a tiny prick!"))
 
@@ -154,15 +161,6 @@
 	var/injector
 	var/needle
 	var/list/prick_candidates = list()
-
-/datum/hallucination/prick/by_person/can_affect(mob/living/carbon/C)
-	if(!..())
-		return FALSE
-	for(var/mob/living/M in oview(C, 1))
-		if(!M.stat)
-			prick_candidates += M
-	if(prick_candidates.len)
-		return TRUE
 
 /datum/hallucination/prick/by_person/start()
 	injector = pick(prick_candidates)
@@ -200,55 +198,53 @@
 
 /datum/hallucination/pain/start()
 	var/pain_type = rand(1,5)
+	var/obj/item/organ/external/O
+	if(ishuman(holder))
+		var/mob/living/carbon/human/H = holder
+		O = pick(H.organs)
+		O.add_pain(min(holder.hallucination / 3, 25))	//always cause fake pain
+	else
+		O = BP_CHEST
+		holder.adjustHalLoss(min(holder.hallucination / 3, 25))	//always cause fake pain
 	switch(pain_type)
 		if(1)
 			to_chat(holder,SPAN_DANGER("You feel a sharp pain in your head!"))
 		if(2)
 			switch(holder.hallucination)
 				if(1 to 15)
-					to_chat(holder, SPAN_WARNING("You feel a light pain in your head."))
-				if(16 to 40)
-					to_chat(holder, SPAN_DANGER("You feel a throbbing pain in your head!"))
-				if(41 to INFINITY)
-					to_chat(holder, SPAN_DANGER("You feel an excruciating pain in your head!"))
+					to_chat(holder, SPAN_WARNING("You feel a light pain in your [O.name]."))
+				if(16 to 49)
+					to_chat(holder, SPAN_DANGER("You feel a throbbing pain in your [O.name]!"))
+				if(HAL_POWER_MED to INFINITY)
+					to_chat(holder, SPAN_DANGER("You feel an excruciating pain in your [O.name]!"))
 					holder.emote("me",1,"winces.")
-					holder.eye_blurry += 9
 		if(3)
 			switch(holder.hallucination)
 				if(1 to 15)
 					to_chat(holder, SPAN_WARNING("The muscles in your body hurt a little."))
-				if(16 to 40)
+				if(16 to 49)
 					to_chat(holder, SPAN_DANGER("The muscles in your body cramp up painfully."))
-				if(41 to INFINITY)
-					to_chat(holder, SPAN_DANGER("There's pain all over your body."))
+				if(HAL_POWER_MED to INFINITY)
+					to_chat(holder, SPAN_DANGER("There's pain all over your body!"))
 					holder.emote("me",1,"flinches as all the muscles in their body cramp up.")
-					holder.eye_blurry += 9
 		if(4)
 			switch(holder.hallucination)
 				if(1 to 15)
-					to_chat(holder, SPAN_WARNING("You feel a slight itch."))
-				if(16 to 40)
-					to_chat(holder, SPAN_DANGER("You want to scratch your itch badly!"))
-				if(41 to INFINITY)
-					to_chat(holder, SPAN_DANGER("This itch makes it really hard to concentrate!"))
+					to_chat(holder, SPAN_WARNING("Your [O.name] feels itchy."))
+				if(16 to 49)
+					to_chat(holder, SPAN_DANGER("You want to scratch the itch on your [O.name] badly!"))
+				if(HAL_POWER_MED to INFINITY)
+					to_chat(holder, SPAN_DANGER("You can't focus on anything but scratching the itch on your [O.name]!"))
 					holder.emote("me",1,"shivers slightly.")
-					holder.eye_blurry += 9
 		if(5)
 			switch(holder.hallucination)
 				if(1 to 15)
 					to_chat(holder, SPAN_WARNING("You feel a little too warm."))
-				if(16 to 40)
-					to_chat(holder, SPAN_DANGER("You feel a horrible burning sensation!"))
-				if(41 to INFINITY)
-					to_chat(holder, SPAN_DANGER("It feels like you're being burnt to the bone!"))
+				if(16 to 49)
+					to_chat(holder, SPAN_DANGER("You feel a horrible burning sensation on your [O.name]!"))
+				if(HAL_POWER_MED to INFINITY)
+					to_chat(holder, SPAN_DANGER("It feels like your [O.name] is being burnt to the bone!"))
 					holder.emote("me",1,"flinches.")
-					holder.eye_blurry += 9
-	if(ishuman(holder))
-		var/mob/living/carbon/human/H = holder
-		var/obj/item/organ/external/O = pick(H.organs)
-		O.add_pain(min(holder.hallucination / 3, 25))	//always cause fake pain
-	else
-		holder.adjustHalLoss(min(holder.hallucination / 3, 25))	//always cause fake pain
 
 //sort of like the vampire friend messages.
 /datum/hallucination/friendly
@@ -272,49 +268,6 @@
 			"[pal] might as well be family to you.")
 		to_chat(holder, "<font color='green'><i>[pick(halpal_emotes)]</i></font>")
 
-
-/datum/hallucination/rage
-	min_power = HAL_POWER_MED
-	allow_duplicates = FALSE
-
-/datum/hallucination/rage/can_affect(mob/living/carbon/C)
-	if(C.is_berserk())
-		return FALSE
-	if(C.disabilities & PACIFIST)
-		return FALSE
-	if(locate(/datum/hallucination/passive) in C.hallucinations)	//Kinda silly to be passive AND mad
-		return FALSE
-	return ..()
-
-//We don't want ALL the effects of berserk. You're not going to hallucinate the ability to tear down walls
-/datum/hallucination/rage/start()
-	duration = rand(150, 300)
-	to_chat(holder, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
-	holder.a_intent_change(I_HURT)
-	if(holder.hallucination >= 100)
-		holder.add_client_color(/datum/client_color/berserk)
-	if(prob(holder.hallucination))
-		addtimer(CALLBACK(src, .proc/fury), rand(40, 60))
-	sound_to(holder, pick('sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg', 'sound/effects/creatures/bear_quiet_2.ogg', 'sound/effects/creatures/bear_quiet_4.ogg', 'sound/effects/creatures/monstergrowl.ogg', 'sound/effects/greaterling.ogg'))
-
-/datum/hallucination/rage/end()
-	to_chat(holder, SPAN_DANGER("Your thoughts clear as you feel your rage slip away."))
-	if(holder)
-		holder.remove_client_color(/datum/client_color/berserk)
-	..()
-
-/datum/hallucination/rage/proc/fury()
-	var/list/rage_targets = list()
-	for(var/mob/living/L in oview(holder))
-		rage_targets += L
-	if(rage_targets.len)
-		var/rage_pick = pick(rage_targets)
-		to_chat(holder, SPAN_DANGER(pick("You need to hit [rage_pick], NOW!", "[rage_pick] needs a good punch!", "Someone needs to shut [rage_pick] up!", "[rage_pick] is really irritating you!", "[rage_pick] is trying to ruin you!", "You know you'll feel better if you just get a good hit on [rage_pick]!", "You can't calm down with [rage_pick] standing there!")))
-	else
-		to_chat(holder, SPAN_DANGER("You need to hit something, NOW!"))
-	holder.emote("me",1,"growls angrily.")
-
-
 /datum/hallucination/passive
 	duration = 600	//minute fallback
 	allow_duplicates = FALSE
@@ -324,8 +277,6 @@
 	if(C.is_berserk())
 		return FALSE
 	if(C.disabilities & PACIFIST)
-		return FALSE
-	if(locate(/datum/hallucination/rage) in C.hallucinations)	//Kinda silly to be passive AND mad
 		return FALSE
 	return ..()
 

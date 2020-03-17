@@ -25,11 +25,11 @@
 	if(!client || stat || world.time < next_hallucination)
 		return
 
-	var/hall_delay = rand(160,250)	//Time between hallucinations, modified by switch below.
-	switch(hallucination)	//26-74 are intentionally left off, as they do not modify the delay. This is a pretty common range for hallucinations.
+	var/hall_delay = rand(180,250)	//Time between hallucinations, modified by switch below.
+	switch(hallucination)	//26-149 are intentionally left off, as they do not modify the delay. This is a pretty common range for hallucinations.
 		if(1 to 25)		//Winding down, less frequent.
 			hall_delay *= 2
-		if(75 to 399)		//Yo mind really fucked, more frequent.
+		if(150 to 399)		//Yo mind really fucked, more frequent.
 			hall_delay *= 0.75
 		if(400 to INFINITY)		//This should only be possible in cult conversions. Very low delay to represent your flayed mind.
 			hall_delay *= 0.25

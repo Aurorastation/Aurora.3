@@ -37,7 +37,7 @@
 	duration = 350
 	allow_duplicates = FALSE
 	number = 4
-	var/part = "chest"
+	var/obj/item/organ/external/part = "chest"
 
 /datum/hallucination/mirage/bleeding/start()
 	number = min(round(holder.hallucination/10), 7)	//cap at 7 times for duration's sake
@@ -46,7 +46,7 @@
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
 		part = pick(H.organs)
-	to_chat(holder, SPAN_DANGER("The flesh on your [part] splits open. It doesn't hurt, but the blood won't stop coming..."))
+	to_chat(holder, SPAN_DANGER("The flesh on your [part.name] splits open. It doesn't hurt, but the blood won't stop coming..."))
 
 
 /datum/hallucination/mirage/bleeding/generate_mirage()
@@ -66,12 +66,12 @@
 	thing.loc = get_turf(holder)
 	holder.client.images += thing	//one at a time
 	if(prob(20))
-		var/list/message_picks = list("It won't stop, it won't stop...!", "You're feeling lightheaded...", "Your [part] won't stop gushing blood!", "The blood is everywhere!", "Everything around you is soaked with your blood...!")
+		var/list/message_picks = list("It won't stop, it won't stop...!", "You're feeling lightheaded...", "Your [part.name] won't stop gushing blood!", "The blood is everywhere!", "Everything around you is soaked with your blood...!")
 		to_chat(holder, SPAN_DANGER(pick(message_picks)))
 
 
 /datum/hallucination/mirage/bleeding/end()
-	to_chat(holder, SPAN_WARNING("The flesh on your [part] suddenly appears whole again. You can't see the blood anymore, but the scent of it lingers heavily in the air."))
+	to_chat(holder, SPAN_WARNING("The flesh on your [part.name] suddenly appears whole again. You can't see the blood anymore, but the scent of it lingers heavily in the air."))
 	..()
 
 
@@ -119,7 +119,6 @@
 		I.pixel_x = rand(-10,10)
 		I.pixel_y = rand(-10,10)
 		return I
-
 
 
 /datum/hallucination/mirage/anomaly

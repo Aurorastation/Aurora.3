@@ -89,7 +89,7 @@
 				var/mob/living/carbon/human/H = holder
 				var/obj/item/organ/external/O = pick(H.organs)
 				O.add_pain(15)
-				to_chat(holder, SPAN_DANGER("You feel a sharp pain in your [O]!")) //phantom pain reaction to audio
+				to_chat(holder, SPAN_DANGER("You feel a sharp pain in your [O.name]!")) //phantom pain reaction to audio
 			else
 				holder.adjustHalLoss(15)
 				to_chat(holder, SPAN_DANGER("You feel a sharp pain in your chest!"))
