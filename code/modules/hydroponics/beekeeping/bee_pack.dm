@@ -1,6 +1,6 @@
 /obj/item/bee_pack
 	name = "bee pack"
-	desc = "Contains a queen bee and some worker bees. Everything you'll need to start a hive!"
+	desc = "A stasis pack for moving bees. Contains a queen bee and some worker bees. Everything you'll need to start a hive!"
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "beepack"
 	var/full = TRUE
