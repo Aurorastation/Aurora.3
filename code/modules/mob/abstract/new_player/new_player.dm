@@ -187,6 +187,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["manifest"])
 		ViewManifest()
 
+	if(href_list["ghostspawner"])
+		if(!ROUND_IS_STARTED)
+			to_chat(usr, SPAN_WARNING("The round hasn't started yet!"))
+			return
+		SSghostroles.vui_interact(src)
+
 	if(href_list["SelectedJob"])
 
 		if(!config.enter_allowed)
@@ -383,6 +389,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/dat = "<center>"
 	dat += "<b>Welcome, [name].<br></b>"
 	dat += "Round Duration: [get_round_duration_formatted()]<br>"
+	dat += "Alert Level: [capitalize(get_security_level())]<br>"
 
 	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
 		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
@@ -392,6 +399,20 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
 			else						// Crew transfer initiated
 				dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
+
+	var/list/ghost_role_names = list()
+	for(var/ghost_role in SSghostroles.spawners)
+		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
+		if(!G.show_on_job_select)
+			continue
+		if(G.enabled)
+			ghost_role_names += G.name
+
+	if(length(ghost_role_names))
+		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>The following unique ghost roles are available:</b></font><br>"
+		for(var/role_name in ghost_role_names)
+			dat += "<font color='[COLOR_BRIGHT_GREEN]'> - <b>[role_name]</b></font><br>"
+		dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A><br>"
 
 	dat += "Choose from the following open/valid positions:<br>"
 	for(var/datum/job/job in SSjobs.occupations)
