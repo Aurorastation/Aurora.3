@@ -9,16 +9,18 @@
 	. = ..()
 	add_overlay("beepack-full")
 
+/obj/item/bee_pack/update_icon()
+	cut_overlays()
+	add_overlay("beepack-[full ? "full" : "empty"]")
+
 /obj/item/bee_pack/proc/empty()
 	name = "empty bee pack"
 	desc = "A stasis pack for moving bees. It's empty."
 	full = FALSE
-	cut_overlays()
-	add_overlay("beepack-empty")
+	update_icon()
 
 /obj/item/bee_pack/proc/fill()
 	name = initial(name)
 	desc = initial(desc)
 	full = TRUE
-	cut_overlays()
-	add_overlay("beepack-full")
+	update_icon()
