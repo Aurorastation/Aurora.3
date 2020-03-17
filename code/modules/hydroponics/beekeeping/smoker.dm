@@ -59,7 +59,7 @@
 		return TRUE
 	else
 		if(M)
-			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough fuel to do this!"))
+			to_chat(M, SPAN_WARNING("\The [src] doesn't have enough fuel to do this!"))
 		return FALSE
 
 /obj/item/bee_smoker/proc/smoke_at(var/atom/A)

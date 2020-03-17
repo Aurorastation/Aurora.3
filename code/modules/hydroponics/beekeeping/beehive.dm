@@ -36,7 +36,7 @@
 	..()
 	to_chat(user, SPAN_NOTICE("\The [src] is holding <b>[frames]/[maxFrames]</b> frames."))
 	if(user.Adjacent(src))
-		if(beecount)
+		if(bee_count)
 			if(closed)
 				to_chat(user, FONT_SMALL(SPAN_NOTICE("You can hear buzzing from within \the [src].")))
 			else
@@ -179,7 +179,7 @@
 	severity = Clamp(severity, 0, 1)
 	var/bees_to_release = bee_count * severity
 	bees_to_release = round(bees_to_release, 1)
-	bee_count -= beestorelease
+	bee_count -= bees_to_release
 
 	var/list/spawn_turfs = list(get_turf(src))
 	for(var/T in orange(1, src))
@@ -192,15 +192,15 @@
 			B.feral = angry
 			B.strength = swarmsize
 			B.update_icons()
-			beestorelease -= swarmsize
+			bees_to_release -= swarmsize
 
 		//what's left over
 		var/mob/living/simple_animal/bee/B = new(pick(spawn_turfs), src)
-		B.strength = beestorelease
+		B.strength = bees_to_release
 		B.icon_state = "bees[B.strength]"
 		B.feral = angry
 		B.update_icons()
-		beestorelease = 0
+		bees_to_release = 0
 
 /obj/item/beehive_assembly
 	name = "beehive assembly"
