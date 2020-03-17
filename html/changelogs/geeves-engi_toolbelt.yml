@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Engineering Apprentices now spawn with toolbelts. Atmos Techs now spawn with a pipe wrench and analyzer."
+  - rscdel: "Screwdrivers and wrenches no longer spawn in engineer belts, they spawn with the impact wrench."
+  - tweak: "The Chief Engineer now starts with an industrial tier welding tool."
