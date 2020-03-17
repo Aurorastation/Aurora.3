@@ -1100,24 +1100,14 @@ var/list/total_extraction_beacons = list()
 	desc = "A finely chiselled sculpting block, it is ready to be your canvas."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "sculpting_block"
-	density = 1
-	opacity = 1
+	density = TRUE
+	opacity = TRUE
 	anchored = 0
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/sculpted = 0
 	var/mob/living/T
 	var/times_carved = 0
 	var/last_struck = 0
-
-/obj/structure/sculpting_block/verb/rotate()
-	set name = "Rotate"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 90))
-	return 1
 
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 

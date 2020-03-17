@@ -40,6 +40,7 @@
 #include "code\__defines\misc.dm"
 #include "code\__defines\mobs.dm"
 #include "code\__defines\modular_guns.dm"
+#include "code\__defines\obj.dm"
 #include "code\__defines\psi.dm"
 #include "code\__defines\qdel.dm"
 #include "code\__defines\radio.dm"
