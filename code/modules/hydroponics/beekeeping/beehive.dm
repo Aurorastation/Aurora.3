@@ -68,7 +68,7 @@
 			to_chat(user, SPAN_WARNING("You need to open \the [src] with a crowbar before inserting \the [I]."))
 			return
 		if(frames >= maxFrames)
-			to_chat(user, SPAN_WARNING("\The [src] is already full of frames."))
+			to_chat(user, SPAN_WARNING("\The [src] cannot fit more frames."))
 			return
 		var/obj/item/honey_frame/H = I
 		if(H.honey)
