@@ -516,7 +516,7 @@ RFD Piping-Class
 
 /obj/item/rfd/piping/attack_self(mob/user)
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 50, FALSE)
-	var/list/pipe_selection
+	var/list/pipe_selection = list()
 	switch(selected_mode)
 		if(STANDARD_PIPE)
 			pipe_selection = standard_pipes
