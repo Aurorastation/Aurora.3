@@ -52,27 +52,27 @@
               <tr><td> Stun: </td> <td class = "right"> {{secondary_stun}} </td> </tr>
             </table>
         </div>
-        <div v-if="gun_mods">
-          <br><b>Modular gun information: </b><br>
-          <table class="modular">
-            <tr>
-                <th> Name </th>
-                <th> Reliability </th>
-                <th> Damage modifier </th>
-                <th> Fire delay modifier </th>
-                <th> Number of shots modifier </th>
-                <th> Burst modifier </th>
-                <th> Accuracy modifier </th>
-                <th> Repair tool </th>
-            </tr>
-            <tr v-for="(mod_info, mod_index) in gun_mods" :key="mod_index">
-              <td>{{mod_index}}</td>
-              <td v-for="(info, index) in mod_info" :key="index">
-                {{mod_info[index]}}
-              </td>
-            </tr>
-          </table>
-        </div>
+    </div>
+    <div v-if="gun_mods">
+      <br><b>Modular gun information: </b><br>
+      <table class="modular">
+        <tr>
+            <th> Name </th>
+            <th> Reliability </th>
+            <th> Damage modifier </th>
+            <th> Fire delay modifier </th>
+            <th> Number of shots modifier </th>
+            <th> Burst modifier </th>
+            <th> Accuracy modifier </th>
+            <th> Repair tool </th>
+        </tr>
+        <tr v-for="(mod_info, mod_index) in gun_mods" :key="mod_index">
+          <td>{{mod_index}}</td>
+          <td v-for="(info, index) in mod_info" :key="index">
+            {{mod_info[index]}}
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>

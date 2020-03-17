@@ -53,10 +53,17 @@
 		if(process)
 			to_chat(user, span("warning", "\The [src] is busy installing component!"))
 			return
-		assembly.attackby(I, user)
-		playsound(loc, 'sound/machines/weapns_analyzer.ogg', 75, 1)
+		var/success = assembly.attackby(I, user)
+		if(!success)
+			return
+		message_admins("success: [success]")
+		if(success == 2)
+			playsound(loc, 'sound/machines/weapons_analyzer_finish.ogg', 75, 1)
+			addtimer(CALLBACK(src, .proc/reset), 32)
+		else
+			playsound(loc, 'sound/machines/weapons_analyzer.ogg', 75, 1)
+			addtimer(CALLBACK(src, .proc/reset), 15)
 		process = TRUE
-		addtimer(CALLBACK(src, .proc/reset), 65)
 		update_icon()
 	else if(I)
 		item = I
@@ -139,7 +146,7 @@
 		gun_overlay.pixel_y += 8
 		add_overlay(gun_overlay)
 
-#define UIDEBUG
+// #define UIDEBUG
 
 /obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
@@ -170,6 +177,19 @@
 			data["shield_power"] = E_item.shield_power
 	else if(assembly)
 		data["name"] = assembly.name
+		var/list/mods = list()
+		data["gun_mods"] = mods
+		for(var/i in list(assembly.capacitor, assembly.focusing_lens, assembly.modulator) + assembly.gun_mods)
+			var/obj/item/laser_components/l_component = i
+			if(!l_component)
+				continue
+
+			var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
+			mods[initial(l_component.name)] = list(
+				"reliability" = initial(l_component.reliability), "damage modifier" = initial(l_component.damage), "fire delay modifier" = initial(l_component.fire_delay),
+					"shots modifier" = initial(l_component.shots), "burst modifier" = initial(l_component.burst), "accuracy modifier" = initial(l_component.accuracy), "repair tool" = l_repair_name
+				)
+		data["gun_mods"] = mods
 
 	else if(gun)
 		data["name"] = gun.name
@@ -232,9 +252,13 @@
 
 /obj/machinery/weapons_analyzer/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	var/height = gun ? 600 : 300
+	var/height = (gun || assembly) ? 600: 300
+	var/width = 300
+	if(istype(gun, /obj/item/gun/energy/laser/prototype))
+		width = 600
+
 	if (!ui)
-		ui = new(user, src, "wanalyzer-analyzer", 300, height, capitalize(name))
+		ui = new(user, src, "wanalyzer-analyzer", width, height, capitalize(name))
 
 	var/icon/Icon_used
 	if(gun)

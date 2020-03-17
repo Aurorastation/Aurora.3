@@ -161,6 +161,7 @@
 
 /obj/item/device/laser_assembly/attackby(var/obj/item/D as obj, var/mob/user as mob)
 	var/obj/item/laser_components/A = D
+	var/success = FALSE
 	if(!istype(A))
 		return ..()
 	if(!ready_to_craft)
@@ -173,25 +174,36 @@
 			var/obj/item/laser_components/modifier/M = v
 			if(M.type == m.type)
 				to_chat(user, span("warning", "\The [name] already has [m]."))
-				return
+				return FALSE
 		gun_mods += A
 		user.drop_from_inventory(A,src)
+		success = TRUE
+
 	else if(islasercapacitor(A) && stage == 1)
 		capacitor = A
 		user.drop_from_inventory(A,src)
 		stage = 2
+		success = TRUE
+
 	else if(isfocusinglens(A) && stage == 2)
 		focusing_lens = A
 		user.drop_from_inventory(A,src)
 		stage = 3
+		success = TRUE
+
 	else if(ismodulator(A) && stage == 3)
 		modulator = A
 		user.drop_from_inventory(A,src)
+		success = TRUE
+
 	else
 		return ..()
 	to_chat(user, "<span class='notice'>You insert \the [A] into the assembly.</span>")
 	update_icon()
-	check_completion()
+	if(check_completion())
+		success = 2 // meaning complete
+
+	return success
 
 /obj/item/device/laser_assembly/update_icon()
 	..()
@@ -205,13 +217,13 @@
 
 /obj/item/device/laser_assembly/proc/check_completion()
 	if(capacitor && focusing_lens && modulator)
-		finish()
+		return finish()
 
 /obj/item/device/laser_assembly/proc/finish()
 
 	var/obj/machinery/weapons_analyzer/an = analyzer.resolve()
 	if(!an)
-		return
+		return FALSE
 
 	var/obj/item/gun/energy/laser/prototype/A = new /obj/item/gun/energy/laser/prototype
 	A.icon_state = icon_state
@@ -230,7 +242,8 @@
 			mod.forceMove(A)
 			if(mod.gun_overlay)
 				A.underlays += mod.gun_overlay
-	A.forceMove(get_turf(src))
+	A.forceMove(an)
+	an.gun = A
 	A.updatetype()
 	A.pin = null
 	gun_mods = null
@@ -238,3 +251,4 @@
 	capacitor = null
 	an.assembly = null
 	qdel(src)
+	return TRUE
