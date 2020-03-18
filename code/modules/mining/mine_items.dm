@@ -493,7 +493,7 @@
 		var/obj/item/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the track."))
-		new /obj/item/stack/rods(get_turf(src))
+			new /obj/item/stack/rods(get_turf(src))
 		qdel(src)
 	return
 
