@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Increased the damage tools do so they aren't on the same level as punching."
