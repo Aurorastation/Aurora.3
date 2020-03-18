@@ -6,6 +6,7 @@
 	base_icon = "chair"
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
 /obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
@@ -69,25 +70,6 @@
 	. = ..()
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
-
-/obj/structure/bed/chair/verb/rotate()
-	set name = "Rotate Chair"
-	set category = "Object"
-	set src in oview(1)
-
-	if(config.ghost_interaction)
-		src.set_dir(turn(src.dir, 90))
-		return
-	else
-		if(israt(usr))
-			return
-		if(!usr || !isturf(usr.loc))
-			return
-		if(usr.stat || usr.restrained())
-			return
-
-		src.set_dir(turn(src.dir, 90))
-		return
 
 // Leaving this in for the sake of compilation.
 /obj/structure/bed/chair/comfy

@@ -8,8 +8,8 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500, "waste" = 100)
 
 	wires = WIRE_PULSE
-
 	secured = 0
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/on = 0
 	var/visible = 0
@@ -141,16 +141,6 @@
 			attack_self(usr)
 
 		return
-
-
-	verb/rotate()//This could likely be better
-		set name = "Rotate Infrared Laser"
-		set category = "Object"
-		set src in usr
-
-		set_dir(turn(dir, 90))
-		return
-
 
 
 /***************************IBeam*********************************/

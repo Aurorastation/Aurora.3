@@ -503,6 +503,11 @@
 			user.visible_message(span("warning", "*click click*"))
 			mouthshoot = FALSE
 			return
+		if(safety() && user.a_intent != I_HURT)
+			user.visible_message(SPAN_WARNING("The safety was on. How anticlimatic!"))
+			handle_click_empty(user)
+			mouthshoot = FALSE
+			return
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else

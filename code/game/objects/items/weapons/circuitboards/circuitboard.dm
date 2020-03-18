@@ -6,23 +6,35 @@
 
 /obj/item/circuitboard
 	name = "circuit board"
-	desc = "Looks like a circuit. Probably is."
+	desc = "A circuitboard, an electronic device which forms the backbone of most modern machinery."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "id_mod"
 	item_state = "electronic"
 	origin_tech = list(TECH_DATA = 2)
-	density = 0
-	anchored = 0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
-	force = 5.0
-	throwforce = 5.0
+	force = 5
+	throwforce = 5
 	throw_speed = 3
 	throw_range = 15
-	var/build_path = null
+	var/build_path
 	var/board_type = "computer"
-	var/list/req_components = null
+	var/list/req_components
 	var/contain_parts = 1
+
+/obj/item/circuitboard/examine(mob/user)
+	..()
+	if(build_path)
+		var/obj/machine = new build_path // instantiate to get the name and desc
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("This circuitboard will build a <b>[capitalize_first_letters(machine.name)]</b>: [machine.desc]")))
+	if(board_type == BOARD_COMPUTER) // does not have build components, only goes into a frame
+		to_chat(user, SPAN_NOTICE("This board is used inside a <b>computer frame</b>."))
+	else if(req_components)
+		to_chat(user, SPAN_NOTICE("To build this machine, you will require:"))
+		for(var/I in req_components)
+			if(req_components[I] > 0)
+				var/obj/component = new I // instantiate to get the name
+				to_chat(user, SPAN_NOTICE("- [num2text(req_components[I])] <b>[capitalize_first_letters(component.name)]</b>"))
 
 //Called when the circuitboard is used to contruct a new machine.
 /obj/item/circuitboard/proc/construct(var/obj/machinery/M)

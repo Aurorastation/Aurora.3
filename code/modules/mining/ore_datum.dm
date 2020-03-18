@@ -7,7 +7,7 @@ var/global/list/ore_data = list()
 	var/smelts_to
 	var/compresses_to
 	var/result_amount     // How much ore?
-	var/spread = 1	      // Does this type of deposit spread?
+	var/spread = TRUE     // Does this type of deposit spread?
 	var/spread_chance     // Chance of spreading in any direction
 	var/ore	              // Path to the ore produced when tile is mined.
 	var/scan_icon         // Overlay for ore scanners.
@@ -127,7 +127,7 @@ var/global/list/ore_data = list()
 	display_name = "raw platinum"
 	smelts_to = "platinum"
 	compresses_to = "osmium"
-	alloy = 1
+	alloy = TRUE
 	result_amount = 5
 	spread_chance = 15
 	ore = /obj/item/ore/osmium
