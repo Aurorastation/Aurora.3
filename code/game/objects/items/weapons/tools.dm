@@ -167,7 +167,7 @@
 	w_class = ITEMSIZE_SMALL
 
 	//Cost to make in the autolathe
-	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 30)
+	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
 
 	//R&D tech level
 	origin_tech = list(TECH_ENGINEERING = 1)
@@ -184,7 +184,7 @@
 	name = "industrial welding tool"
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
 	max_fuel = 40
-	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
+	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 60)
 	base_iconstate = "ind_welder"
 	origin_tech = list(TECH_ENGINEERING = 2)
 
@@ -193,7 +193,7 @@
 	name = "advanced welding tool"
 	desc = "A rare and powerful welding tool with a super-extended fuel tank."
 	max_fuel = 80
-	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
+	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
 	base_iconstate = "adv_welder"
 	origin_tech = list(TECH_ENGINEERING = 3)
 
@@ -202,7 +202,7 @@
 	name = "experimental welding tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
 	max_fuel = 40
-	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
+	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
 	base_iconstate = "exp_welder"
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 	base_itemstate = "exp_welder"

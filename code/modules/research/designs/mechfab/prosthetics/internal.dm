@@ -1,7 +1,7 @@
 /datum/design/item/mechfab/prosthetic/internal
 	category = "Prosthetic (Internal)"
 	time = 20
-	materials = list(DEFAULT_WALL_MATERIAL = 9000, "glass" = 3000)
+	materials = list(DEFAULT_WALL_MATERIAL = 9000, MATERIAL_GLASS = 3000)
 
 //make sure the printed organ is actually robotic
 /datum/design/item/mechfab/prosthetic/internal/Fabricate()

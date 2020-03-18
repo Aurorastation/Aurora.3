@@ -27,7 +27,7 @@
 	add_parts()
 	do_decals()
 	if(!material)
-		material = get_material_by_name("steel")
+		material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
 	update_icon()
 	. = ..()
 	spawn_mech_equipment()

@@ -27,7 +27,7 @@ var/global/list/ore_data = list()
 /ore/uranium
 	name = ORE_URANIUM
 	display_name = "pitchblende"
-	smelts_to = "uranium"
+	smelts_to = MATERIAL_URANIUM
 	result_amount = 5
 	spread_chance = 15
 	ore = /obj/item/ore/uranium
@@ -42,8 +42,8 @@ var/global/list/ore_data = list()
 /ore/hematite
 	name = ORE_IRON
 	display_name = "hematite"
-	smelts_to = "iron"
-	alloy = TRUE
+	smelts_to = MATERIAL_IRON
+	alloy = 1
 	result_amount = 5
 	spread_chance = 30
 	ore = /obj/item/ore/iron
@@ -53,8 +53,8 @@ var/global/list/ore_data = list()
 /ore/coal
 	name = ORE_COAL
 	display_name = "raw carbon"
-	smelts_to = "plastic"
-	alloy = TRUE
+	smelts_to = MATERIAL_PLASTIC
+	alloy = 1
 	result_amount = 5
 	spread_chance = 35
 	ore = /obj/item/ore/coal
@@ -63,7 +63,7 @@ var/global/list/ore_data = list()
 
 /ore/glass
 	name = ORE_SAND
-	display_name = "sand"
+	display_name = MATERIAL_GLASS
 	smelts_to = "glass"
 	compresses_to = "sandstone"
 	worth = 1
@@ -71,7 +71,7 @@ var/global/list/ore_data = list()
 /ore/phoron
 	name = ORE_PHORON
 	display_name = "phoron crystals"
-	compresses_to = "phoron"
+	compresses_to = MATERIAL_PHORON
 	result_amount = 5
 	spread_chance = 25
 	ore = /obj/item/ore/phoron
@@ -88,7 +88,7 @@ var/global/list/ore_data = list()
 /ore/silver
 	name = ORE_SILVER
 	display_name = "native silver"
-	smelts_to = "silver"
+	smelts_to = MATERIAL_SILVER
 	result_amount = 5
 	spread_chance = 15
 	ore = /obj/item/ore/silver
@@ -96,8 +96,8 @@ var/global/list/ore_data = list()
 	worth = 20
 
 /ore/gold
-	smelts_to = ORE_GOLD
 	name = "gold"
+	smelts_to = MATERIAL_GOLD
 	display_name = "native gold"
 	result_amount = 5
 	spread_chance = 10
@@ -112,7 +112,7 @@ var/global/list/ore_data = list()
 	worth = 30
 
 /ore/diamond
-	name = ORE_DIAMOND
+	name = "diamond"
 	display_name = "diamond"
 	compresses_to = "diamond"
 	result_amount = 5
@@ -135,7 +135,7 @@ var/global/list/ore_data = list()
 	worth = 15
 
 /ore/hydrogen
-	name = ORE_HYDROGEN
+	name = "hydrogen"
 	display_name = "metallic hydrogen"
 	smelts_to = "tritium"
 	compresses_to = "mhydrogen"

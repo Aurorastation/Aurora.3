@@ -3,7 +3,7 @@
 ////////////////////////////////////////
 /datum/design/aimodule
 	build_type = IMPRINTER
-	materials = list("glass" = 2000, "gold" = 100)
+	materials = list(MATERIAL_GLASS = 2000, MATERIAL_GOLD = 100)
 
 /datum/design/aimodule/AssembleDesignName()
 	name = "AI module design ([name])"
@@ -114,7 +114,7 @@
 	name = "'pAI', personal artificial intelligence device"
 	id = "paicard"
 	req_tech = list(TECH_DATA = 2)
-	materials = list("glass" = 500, DEFAULT_WALL_MATERIAL = 500)
+	materials = list(MATERIAL_GLASS = 500, DEFAULT_WALL_MATERIAL = 500)
 	build_path = /obj/item/device/paicard
 	sort_string = "VABAI"
 
@@ -123,6 +123,6 @@
 	desc = "Allows for the construction of an intelliCard."
 	id = "intellicard"
 	req_tech = list(TECH_DATA = 4, TECH_MATERIAL = 4)
-	materials = list("glass" = 1000, "gold" = 200)
+	materials = list(MATERIAL_GLASS = 1000, MATERIAL_GOLD = 200)
 	build_path = /obj/item/aicard
 	sort_string = "VACAA"

@@ -25,9 +25,9 @@
 	..(newloc)
 	if(!new_material)
 		new_material = DEFAULT_WALL_MATERIAL
-	material = get_material_by_name(new_material)
+	material = SSmaterials.get_material_by_name(new_material)
 	if(new_padding_material)
-		padding_material = get_material_by_name(new_padding_material)
+		padding_material = SSmaterials.get_material_by_name(new_padding_material)
 	if(!istype(material))
 		qdel(src)
 		return
@@ -35,10 +35,10 @@
 	update_icon()
 
 /obj/item/stool/padded/New(var/newloc, var/new_material)
-	..(newloc, "steel", "carpet")
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
 
 /obj/item/stool/wood/New(var/newloc, var/new_material)
-	..(newloc, "wood")
+	..(newloc, MATERIAL_WOOD)
 
 /obj/item/stool/hover
 	name = "hoverstool"
@@ -47,7 +47,7 @@
 	item_state_slots = null
 
 /obj/item/stool/hover/New(var/newloc, var/new_material)
-	..(newloc, "skrell")
+	..(newloc, MATERIAL_SHUTTLE_SKRELL)
 
 /obj/item/stool/hover/Initialize()
 	.=..()
@@ -85,7 +85,7 @@
 		desc = "A stool. Apply butt with care. It's made of [material.use_name]."
 
 /obj/item/stool/proc/add_padding(var/padding_type)
-	padding_material = get_material_by_name(padding_type)
+	padding_material = SSmaterials.get_material_by_name(padding_type)
 	update_icon()
 
 /obj/item/stool/proc/remove_padding()

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "starscope"
 	w_class = 1
-	matter = list("glass" = 200)
+	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	var/list/constellations = list("Island", "Hatching Egg", "Star Chanter", "Jiu'x'klua", "Stormcloud", "Gnarled Tree", "Poet", "Bloated Toad", "Qu'Poxiii", "Fisher")
 	var/selected_constellation
@@ -76,7 +76,7 @@
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "projector"
 	w_class = 1
-	matter = list("glass" = 200)
+	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	var/list/worlds_selection = list("Xrim", "Kal'lo", "Nralakk")
 	var/selected_world
