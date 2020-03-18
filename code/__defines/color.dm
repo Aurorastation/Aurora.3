@@ -81,6 +81,7 @@
 #define COLOR_HOT_PINK         "#ff6088"
 #define COLOR_DIAMOND          "#d8d4ea"
 #define COLOR_TCFL             "#849bc1"
+#define COLOR_IAC              "#96bcde"
 #define COLOR_RIPLEY           "#ffbc37"
 #define COLOR_CULT             "#402821"
 #define COLOR_CULT_REINFORCED  "#8f3329"

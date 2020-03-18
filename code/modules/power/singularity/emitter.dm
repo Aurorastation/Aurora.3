@@ -5,9 +5,10 @@
 	desc = "It is a heavy duty industrial laser."
 	icon = 'icons/obj/singularity.dmi'
 	icon_state = "emitter"
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	req_access = list(access_engine_equip)
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/id = null
 
 	use_power = 0	//uses powernet power, not APC power
@@ -32,17 +33,6 @@
 /obj/machinery/power/emitter/Destroy()
 	QDEL_NULL(spark_system)
 	return ..()
-
-/obj/machinery/power/emitter/verb/rotate()
-	set name = "Rotate"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 90))
-	return 1
 
 /obj/machinery/power/emitter/Initialize()
 	. = ..()

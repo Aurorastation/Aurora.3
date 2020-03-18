@@ -232,6 +232,9 @@
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
 		adjustCloneLoss(0.1)
+		if(stat != DEAD)
+			blinded = TRUE
+			stat = UNCONSCIOUS
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
 	if(in_stasis)
@@ -756,8 +759,8 @@
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
-		if(paralysis || sleeping)
-			blinded = 1
+		if(paralysis || sleeping || in_stasis)
+			blinded = TRUE
 			stat = UNCONSCIOUS
 
 			adjustHalLoss(-3)
@@ -783,7 +786,7 @@
 
 
 		//CONSCIOUS
-		else
+		else if(!in_stasis)
 			stat = CONSCIOUS
 			willfully_sleeping = FALSE
 
@@ -1120,7 +1123,7 @@
 		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
-		if(shock_stage == 60) 
+		if(shock_stage == 60)
 			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
@@ -1252,7 +1255,7 @@
 			if(I.implanted)
 				if(istype(I,/obj/item/implant/tracking))
 					holder1.icon_state = "hud_imp_tracking"
-				if(istype(I,/obj/item/implant/loyalty))
+				if(istype(I,/obj/item/implant/mindshield))
 					holder2.icon_state = "hud_imp_loyal"
 				if(istype(I,/obj/item/implant/chem))
 					holder3.icon_state = "hud_imp_chem"

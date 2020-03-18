@@ -8336,9 +8336,7 @@
 	id_tag = "admin_shuttle_bay_door";
 	locked = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "ayv" = (
 /turf/unsimulated/floor{
@@ -9016,9 +9014,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "aAC" = (
 /obj/machinery/telecomms/receiver/preset_cent,
@@ -10420,9 +10416,7 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_r"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aFv" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -11040,9 +11034,7 @@
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "aHr" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aHu" = (
 /obj/structure/shuttle/engine/heater,
@@ -11170,9 +11162,7 @@
 	pixel_y = 25;
 	tag_door = "centcom_shuttle_bay_door"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aHQ" = (
 /obj/structure/sink{
@@ -11299,9 +11289,7 @@
 /area/centcom/holding)
 "aIi" = (
 /obj/machinery/light,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aIk" = (
 /obj/structure/sign/securearea{
@@ -12402,9 +12390,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aLA" = (
 /obj/structure/table/standard,
@@ -12888,9 +12874,7 @@
 /area/centcom/control)
 "aMH" = (
 /obj/machinery/light/spot,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "aMI" = (
 /obj/structure/sign/directions/medical{
@@ -12956,9 +12940,7 @@
 /area/merchant_station)
 "aMO" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/living)
 "aMP" = (
 /obj/machinery/vending/wallmed1{
@@ -13118,9 +13100,7 @@
 	name = "Arrivals Airlock";
 	req_access = list(13)
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNg" = (
 /obj/machinery/door/airlock/centcom{
@@ -13161,9 +13141,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNk" = (
 /obj/structure/banner,
@@ -13221,9 +13199,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNt" = (
 /obj/machinery/light{
@@ -13287,9 +13263,7 @@
 	pixel_y = 0;
 	tag_door = "admin_shuttle_bay_door"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "aNB" = (
 /obj/machinery/autolathe{
@@ -13898,9 +13872,7 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aOT" = (
 /turf/unsimulated/floor{
@@ -14164,9 +14136,7 @@
 	},
 /area/centcom/control)
 "aPx" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "aPy" = (
 /obj/machinery/light{
@@ -14293,9 +14263,7 @@
 /obj/effect/landmark{
 	name = "Marauder Exit"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "aPM" = (
 /turf/unsimulated/floor{
@@ -14345,9 +14313,7 @@
 /area/centcom/spawning)
 "aPT" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aPU" = (
 /obj/machinery/computer/rdservercontrol{
@@ -14595,9 +14561,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aQw" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "aQx" = (
 /obj/structure/table/wood,
@@ -14647,14 +14611,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aQC" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aQD" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
@@ -14899,9 +14859,7 @@
 /turf/simulated/floor/plating,
 /area/supply/dock)
 "aRf" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aRg" = (
 /obj/machinery/telecomms/bus/preset_cent,
@@ -15044,9 +15002,7 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "aRx" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -15100,9 +15056,7 @@
 	req_access = list(101);
 	shuttle_tag = "Centcom"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "aRF" = (
 /turf/unsimulated/floor{
@@ -15118,9 +15072,7 @@
 /area/centcom/spawning)
 "aRH" = (
 /obj/machinery/light/spot,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aRI" = (
 /obj/structure/bed/chair{
@@ -15275,9 +15227,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aRX" = (
 /obj/structure/window/reinforced{
@@ -15461,9 +15411,7 @@
 	},
 /area/centcom/living)
 "aSs" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "aSt" = (
 /obj/structure/bed/chair/comfy/blue{
@@ -15784,9 +15732,7 @@
 	name = "Launch Bay #1";
 	p_open = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "aTe" = (
 /obj/structure/closet/emcloset,
@@ -15869,9 +15815,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom)
 "aTl" = (
 /obj/machinery/door/airlock/glass_medical{
@@ -15918,9 +15862,7 @@
 	name = "Launch Bay #0";
 	p_open = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "aTq" = (
 /obj/effect/decal/cleanable/greenglow,
@@ -16474,9 +16416,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "aUC" = (
 /obj/machinery/telecomms/server/presets/centcomm,
@@ -16513,9 +16453,7 @@
 /area/merchant_ship/start)
 "aUH" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aUI" = (
 /obj/structure/holostool,
@@ -16837,18 +16775,14 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aVt" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "aVu" = (
 /obj/structure/shuttle/engine/propulsion{
@@ -17281,9 +17215,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aWm" = (
 /obj/machinery/porta_turret,
@@ -17604,9 +17536,7 @@
 	name = "Launch Bay #3";
 	p_open = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "aWV" = (
 /obj/item/modular_computer/console/preset/command,
@@ -17708,9 +17638,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aXj" = (
 /turf/unsimulated/floor{
@@ -17774,9 +17702,7 @@
 /area/centcom/living)
 "aXs" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "aXt" = (
 /obj/machinery/door/airlock/glass_security{
@@ -17826,9 +17752,7 @@
 	name = "Launch Bay #2";
 	p_open = 0
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "aXA" = (
 /turf/unsimulated/floor{
@@ -17931,9 +17855,7 @@
 /area/centcom/spawning)
 "aXP" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/control)
 "aXQ" = (
 /obj/structure/artilleryplaceholder{
@@ -18739,9 +18661,7 @@
 	icon_state = "heater";
 	dir = 8
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aZG" = (
 /turf/unsimulated/floor{
@@ -19547,9 +19467,7 @@
 /obj/effect/landmark{
 	name = "tdome1"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome)
 "eqT" = (
 /obj/machinery/light{
@@ -20366,9 +20284,7 @@
 "hnE" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /obj/machinery/status_display/arrivals_display,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "hnK" = (
 /obj/structure/window/reinforced{
@@ -21063,9 +20979,7 @@
 /obj/effect/landmark{
 	name = "tdome2"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome2)
 "kGz" = (
 /turf/unsimulated/floor{
@@ -21184,9 +21098,7 @@
 /obj/effect/landmark{
 	name = "tdome2"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome)
 "ljh" = (
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -21360,9 +21272,7 @@
 /area/centcom/spawning)
 "mrs" = (
 /obj/structure/shuttle/engine/propulsion,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "mrD" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
@@ -21405,9 +21315,7 @@
 	c_tag = "Thunderdome - Red Team";
 	invisibility = 101
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome2)
 "mIn" = (
 /obj/structure/table/rack,
@@ -21909,9 +21817,7 @@
 /obj/effect/landmark{
 	name = "tdome2"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome2)
 "pyq" = (
 /obj/structure/shuttle/engine/heater,
@@ -21923,9 +21829,7 @@
 	icon_state = "rwindow";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "pCY" = (
 /turf/unsimulated/floor{
@@ -22118,9 +22022,7 @@
 	c_tag = "Green Team";
 	invisibility = 101
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome1)
 "qpo" = (
 /obj/structure/cryofeed{
@@ -22472,9 +22374,7 @@
 	},
 /area/tdome/tdomeobserve)
 "rRd" = (
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/space)
 "rZL" = (
 /obj/machinery/computer/cryopod{
@@ -22528,9 +22428,7 @@
 /obj/effect/landmark{
 	name = "tdome1"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome1)
 "shc" = (
 /turf/unsimulated/wall/fakeglass{
@@ -22625,15 +22523,11 @@
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "propulsion_l"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "sSH" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/ferry)
 "sWB" = (
 /obj/machinery/shieldwallgen,
@@ -22665,9 +22559,7 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/space)
 "tcD" = (
 /obj/item/modular_computer/console/preset/security,
@@ -23088,9 +22980,7 @@
 	name = "Arrivals Airlock";
 	req_access = list(13)
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "uPK" = (
 /obj/structure/flora/pottedplant/random{
@@ -23179,9 +23069,7 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "vaK" = (
 /obj/machinery/light/small{
@@ -23236,9 +23124,7 @@
 /obj/effect/landmark{
 	name = "tdome1"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome/tdome1)
 "vqF" = (
 /obj/structure/table/standard,
@@ -23488,9 +23374,7 @@
 /obj/effect/landmark{
 	name = "tdome1"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome)
 "wMr" = (
 /turf/unsimulated/wall/riveted,
@@ -23546,9 +23430,7 @@
 /area/centcom/spawning)
 "xaM" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome)
 "xcE" = (
 /obj/machinery/door/airlock/centcom{
@@ -23715,9 +23597,7 @@
 /obj/effect/landmark{
 	name = "tdome2"
 	},
-/turf/unsimulated/floor{
-	name = "plating"
-	},
+/turf/unsimulated/floor/plating,
 /area/tdome)
 "xNc" = (
 /obj/structure/window/reinforced{

@@ -388,41 +388,26 @@
 	if(!isanimal(user) && !isalien(user))
 		return
 
-	var/amount_eaten = bitesize
 	var/m_bitesize = bitesize
-
-	if (isanimal(user))
+	if(isanimal(user))
 		var/mob/living/simple_animal/SA = user
-		m_bitesize = bitesize * SA.bite_factor//Modified bitesize based on creature size
-		amount_eaten = m_bitesize
-		if (!SA.can_eat())
+		m_bitesize = bitesize * SA.bite_factor	//Modified bitesize based on creature size
+		if(!SA.can_eat())
 			to_chat(user, span("danger", "You're too full to eat anymore!"))
 			return
 
 	if(reagents && user.reagents)
 		m_bitesize = min(m_bitesize, reagents.total_volume)
-		//If the creature can't even stomach half a bite, then it eats nothing
-		if (((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5))
-			amount_eaten = 0
-		else
-			amount_eaten = reagents.trans_to_mob(user, m_bitesize, CHEM_INGEST)
-	if (amount_eaten)
-		bitecount++
-		if (amount_eaten < m_bitesize)
-			user.visible_message(span("notice", "<b>[user]</b> reluctantly nibbles a tiny part of \the [src]."),span("notice", "You reluctantly nibble a tiny part of \the [src]. <b>You can't stomach much more!</b>."))
-		animate_shake()
-		var/toplay = pick(list('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'))
-		playsound(loc, toplay, 30, 1)
-	else
-		to_chat(user, span("danger", "You're too full to eat anymore!"))
+		if(((user.reagents.maximum_volume - user.reagents.total_volume) < m_bitesize * 0.5)) //If the creature can't even stomach half a bite, then it eats nothing
+			to_chat(user, span("danger", "You're too full to eat anymore!"))
+			return
 
-	spawn(5)
-		if(!src && !user.client)
-			user.custom_emote(1,"[pick("burps", "cries for more", "burps twice", "looks at the area where the food was")]")
-			qdel(src)
+	reagents.trans_to_mob(user, m_bitesize, CHEM_INGEST)
+	bitecount++
+	animate_shake()
+	playsound(loc, pick('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'), 30, 1)
 
-	if (reagents)
-		on_consume(user)
+	on_consume(user, user) //mob is both user and target for on_consume since it is feeding itself in this instance
 
 /obj/item/reagent_containers/food/snacks/on_reagent_change()
 	update_icon()
@@ -4926,7 +4911,7 @@
 	trash = /obj/item/trash/plate
 
 /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll
-	name = "ouere carp log"
+	name = "ouerean carp log"
 	desc = "A giant carp roll wrapped in special grass that combines unathi and human cooking techniques. Can be sliced into proper serving sizes."
 	icon_state = "sushi_roll"
 	slice_path = /obj/item/reagent_containers/food/snacks/sushi_serve
@@ -4937,7 +4922,7 @@
 	reagents.add_reagent("seafood", 6)
 
 /obj/item/reagent_containers/food/snacks/sushi_serve
-	name = "ouere carp cake"
+	name = "ouerean carp cake"
 	desc = "A serving of carp roll wrapped in special grass that combines unathi and human cooking techniques."
 	icon_state = "sushi_serve"
 

@@ -94,17 +94,17 @@
 		if(target.emagged)
 			return
 
-		var/choice = input("Really [target.lockcharge ? "unlock" : "lockdown"] [target.name] ?") in list ("Yes", "No")
+		var/choice = input("Really [target.lock_charge ? "unlock" : "lockdown"] [target.name] ?") in list ("Yes", "No")
 		if(choice != "Yes")
 			return
 
 		if(!target || !istype(target))
 			return
 
-		target.SetLockdown(!target.lockcharge) // Toggle.
-		message_admins("[key_name_admin(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!")
-		log_game("[key_name(usr)] [target.lockcharge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
-		to_chat(target, (target.lockcharge ? "You have been locked down!" : "Your lockdown has been lifted!"))
+		target.SetLockdown(!target.lock_charge) // Toggle.
+		message_admins("[key_name_admin(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!")
+		log_game("[key_name(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
+		to_chat(target, (target.lock_charge ? "You have been locked down!" : "Your lockdown has been lifted!"))
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
 	else if (href_list["hack"])
@@ -158,7 +158,7 @@
 			if(istype(R, /mob/living/silicon/robot/drone))
 				continue
 			// Ignore antagonistic cyborgs
-			if(R.scrambledcodes)
+			if(R.scrambled_codes)
 				continue
 			if(R.emagged)
 				continue
@@ -178,14 +178,14 @@
 		if(istype(R, /mob/living/silicon/robot/drone))
 			continue
 		// Ignore antagonistic cyborgs
-		if(R.scrambledcodes)
+		if(R.scrambled_codes)
 			continue
 
 		var/list/robot = list()
 		robot["name"] = R.name
 		if(R.stat)
 			robot["status"] = "Not Responding"
-		else if (R.lockcharge) // changed this from !R.canmove to R.lockcharge because of issues with lockdown and chairs
+		else if (R.lock_charge) // changed this from !R.canmove to R.lock_charge because of issues with lockdown and chairs
 			robot["status"] = "Lockdown"
 		else
 			robot["status"] = "Operational"

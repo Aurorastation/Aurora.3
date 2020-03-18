@@ -910,7 +910,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/extraction_point/Destroy()
 	total_extraction_beacons -= src
-	..()
+	. = ..()
 
 /**********************Resonator**********************/
 
@@ -1096,26 +1096,17 @@ var/list/total_extraction_beacons = list()
 	density = TRUE
 	opacity = TRUE
 	anchored = FALSE
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/sculpted = FALSE
 	var/mob/living/T
 	var/times_carved = 0
 	var/last_struck = 0
 
-/obj/structure/sculpting_block/verb/rotate()
-	set name = "Rotate"
-	set category = "Object"
-	set src in oview(1)
+/obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
-	if(src.anchored)
-		to_chat(usr, SPAN_WARNING("It is fastened to the floor!"))
-		return FALSE
-	src.set_dir(turn(src.dir, 90))
-	return TRUE
-
-/obj/structure/sculpting_block/attackby(obj/item/C, mob/user)
-	if(C.iswrench())
-		playsound(get_turf(src), C.usesound, 100, TRUE)
-		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the [name]."))
+	if (C.iswrench())
+		playsound(src.loc, C.usesound, 100, 1)
+		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>")
 		anchored = !anchored
 
 	if(istype(C, /obj/item/autochisel))

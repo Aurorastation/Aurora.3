@@ -37,7 +37,7 @@
 
 	if(href_list["law_channel"])
 		if(href_list["law_channel"] in owner.law_channels())
-			owner.lawchannel = href_list["law_channel"]
+			owner.law_channel = href_list["law_channel"]
 		return 1
 
 	if(href_list["state_law"])
@@ -172,7 +172,7 @@
 	var/channels[0]
 	for (var/ch_name in owner.law_channels())
 		channels[++channels.len] = list("channel" = ch_name)
-	data["channel"] = owner.lawchannel
+	data["channel"] = owner.law_channel
 	data["channels"] = channels
 	data["law_sets"] = package_multiple_laws(data["isAdmin"] ? admin_laws : player_laws)
 
@@ -209,7 +209,7 @@
 	return 0
 
 /mob/living/silicon/robot/is_slaved()
-	return lawupdate && connected_ai ? sanitize(connected_ai.name) : null
+	return law_update && connected_ai ? sanitize(connected_ai.name) : null
 
 /datum/nano_module/law_manager/proc/sync_laws(var/mob/living/silicon/ai/AI)
 	if(!AI)

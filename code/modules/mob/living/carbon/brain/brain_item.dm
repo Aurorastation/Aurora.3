@@ -28,6 +28,11 @@
 	name = "chelm"
 	desc = "A tightly furled roll of paper, covered with indecipherable runes."
 	robotic = 2
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "scroll"
+	item_state = "scroll"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
+		)
 	can_lobotomize = 0

@@ -72,7 +72,7 @@
 		return 1
 
 /obj/item/storage/lockbox/loyalty
-	name = "lockbox of loyalty implants"
+	name = "lockbox of mind shield implants"
 	req_access = list(access_security)
 	starts_with = list(
 		/obj/item/implantcase/loyalty = 3,

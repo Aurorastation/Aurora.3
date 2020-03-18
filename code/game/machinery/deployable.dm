@@ -334,3 +334,13 @@ for reference:
 	w_class = 4
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
+
+/obj/item/deployable_kit/iv_drip
+	name = "IV drip assembly kit"
+	desc = "A quick assembly kit to put together an IV drip."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "inf_box"
+	item_state = "syringe_kit"
+	w_class = 3
+	kit_product = /obj/machinery/iv_drip
+	assembly_time = 4 SECONDS
