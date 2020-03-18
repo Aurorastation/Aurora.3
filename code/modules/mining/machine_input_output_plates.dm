@@ -18,6 +18,6 @@
 	density = FALSE
 	anchored = TRUE
 
-/obj/machinery/mineral/input/Initialize()
+/obj/machinery/mineral/output/Initialize()
 	. = ..()
 	icon_state = "blank"
