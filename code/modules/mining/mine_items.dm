@@ -85,7 +85,7 @@
 	update_icon()
 
 /obj/item/pickaxe/proc/wield()
-	wielded = FALSE
+	wielded = TRUE
 	force = force_wielded
 	digspeed = digspeed_wielded
 	update_icon()
