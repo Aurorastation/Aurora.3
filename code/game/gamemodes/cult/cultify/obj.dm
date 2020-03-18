@@ -130,7 +130,7 @@
 	..()
 
 /obj/structure/table/cultify()
-	if(material == "cult" || reinforced == "cult")
+	if(material == SSmaterials.get_material_by_name(MATERIAL_CULT) || reinforced == SSmaterials.get_material_by_name(MATERIAL_CULT))
 		return
 	material = SSmaterials.get_material_by_name(MATERIAL_CULT)
 	reinforced = SSmaterials.get_material_by_name(MATERIAL_CULT)

@@ -62,9 +62,6 @@
 	if(lock)
 		to_chat(user, "<span class='notice'>It appears to have a lock.</span>")
 
-/obj/structure/simple_door/get_material()
-	return material
-
 /obj/structure/simple_door/CollidedWith(atom/user)
 	..()
 	if(!state)
