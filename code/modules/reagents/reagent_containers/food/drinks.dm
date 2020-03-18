@@ -1,3 +1,8 @@
+//drink_flags defines
+#define NO_EMPTY_ICON 1		//does NOT have an iconstate_empty icon. If adding empty icons for a drink, make sure it does not have this flag
+#define UNIQUE_EMPTY_ICON 2	//Uses the empty_icon_state listed. Should really only be used when one trash state applies to multiple drinks. Remove if one is added
+#define IS_GLASS 4		//Container is glass. Affects shattering, unacidable, etc. 
+
 ////////////////////////////////////////////////////////////////////////////////
 /// Drinks.
 ////////////////////////////////////////////////////////////////////////////////
@@ -11,9 +16,27 @@
 	amount_per_transfer_from_this = 5
 	volume = 50
 	var/shaken = 0
+	var/drink_flags = NO_EMPTY_ICON
+	var/empty_icon_state = null
+
+/obj/item/reagent_containers/food/drinks/Initialize()
+	. = ..()
+	if(drink_flags & IS_GLASS)
+		unacidable = TRUE
 
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
-	return
+	update_icon()
+
+/obj/item/reagent_containers/food/drinks/update_icon()
+	if(!reagents.total_volume)
+		if(drink_flags & UNIQUE_EMPTY_ICON)
+			icon_state = empty_icon_state
+			return
+		if(!(drink_flags & NO_EMPTY_ICON))
+			icon_state = "[initial(icon_state)]_empty"
+			return
+	else
+		icon_state = initial(icon_state)	//Necessary for refilling empty drinks
 
 /obj/item/reagent_containers/food/drinks/attack_self(mob/user as mob)
 	if(!is_open_container())
@@ -129,6 +152,7 @@
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
+	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
@@ -141,6 +165,8 @@
 	icon_state = "psl_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
+	drink_flags = UNIQUE_EMPTY_ICON
+	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
@@ -153,6 +179,7 @@
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
+	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
@@ -165,6 +192,8 @@
 	icon_state = "greentea_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
+	drink_flags = UNIQUE_EMPTY_ICON
+	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
@@ -177,6 +206,8 @@
 	icon_state = "soy_latte_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
+	drink_flags = UNIQUE_EMPTY_ICON
+	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
@@ -184,11 +215,13 @@
 		reagents.add_reagent("ciderhot", 30)
 
 /obj/item/reagent_containers/food/drinks/chaitea
-	name = "chai Tea"
+	name = "chai tea"
 	desc = "The name is redundant but the flavor is delicious!"
 	icon_state = "chai_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
+	drink_flags = UNIQUE_EMPTY_ICON
+	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 	Initialize()
@@ -201,6 +234,7 @@
 	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
+	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=10)
 	Initialize()
@@ -210,9 +244,10 @@
 /obj/item/reagent_containers/food/drinks/h_chocolate
 	name = "dutch hot coco"
 	desc = "Made in Space South America."
-	icon_state = "hot_coco"
+	icon_state = "coffee_vended"
 	item_state = "coffee"
 	trash = /obj/item/trash/coffee
+	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=13)
 	Initialize()
@@ -225,6 +260,7 @@
 	icon_state = "ramen"
 	item_state = "coffee"
 	trash = /obj/item/trash/ramen
+	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	Initialize()
@@ -288,6 +324,72 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
+//////////////////////////JUICES AND STUFF ///////////////////////
+
+/obj/item/reagent_containers/food/drinks/carton
+	name = "carton"
+	desc = "An abstract way to organize bottles that are really cartons. Finally!"
+	item_state = "carton"
+	volume = 100
+	center_of_mass = list("x"=16, "y"=6)
+	drop_sound = 'sound/items/drop/box.ogg'
+
+/obj/item/reagent_containers/food/drinks/carton/orangejuice
+	name = "orange juice"
+	desc = "Full of vitamins and deliciousness!"
+	icon_state = "orangejuice"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("orangejuice", 100)
+
+/obj/item/reagent_containers/food/drinks/carton/cream
+	name = "milk cream"
+	desc = "It's cream. Made from milk. What else did you think you'd find in there?"
+	icon_state = "cream"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("cream", 100)
+
+/obj/item/reagent_containers/food/drinks/carton/tomatojuice
+	name = "tomato juice"
+	desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
+	icon_state = "tomatojuice"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("tomatojuice", 100)
+
+/obj/item/reagent_containers/food/drinks/carton/limejuice
+	name = "lime juice"
+	desc = "Sweet-sour goodness."
+	icon_state = "limejuice"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("limejuice", 100)
+
+/obj/item/reagent_containers/food/drinks/carton/lemonjuice
+	name = "lemon juice"
+	desc = "This juice is VERY sour."
+	icon_state = "lemoncarton"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("lemonjuice", 100)
+
+/obj/item/reagent_containers/food/drinks/carton/dynjuice
+	name = "dyn juice"
+	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
+	icon_state = "dyncarton"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("dynjuice", 100)
+
+/obj/item/reagent_containers/food/drinks/carton/applejuice
+	name = "apple juice"
+	desc = "Juice from an apple. Yes."
+	icon_state = "applejuice"
+	Initialize()
+		. = ..()
+		reagents.add_reagent("applejuice", 100)
+
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
 //	itself), in Chemistry-Recipes.dm (for the reaction that changes the components into the drink), and here (for the drinking glass
@@ -297,6 +399,7 @@
 	name = "shaker"
 	desc = "A metal shaker to mix drinks in."
 	icon_state = "shaker"
+	unacidable = TRUE
 	amount_per_transfer_from_this = 10
 	volume = 120
 	center_of_mass = list("x"=16, "y"=8)
@@ -314,6 +417,7 @@
 	desc = "An elegant teapot. It simply oozes class."
 	icon_state = "teapot"
 	item_state = "teapot"
+	unacidable = TRUE
 	amount_per_transfer_from_this = 10
 	volume = 120
 	center_of_mass = list("x"=17, "y"=7)

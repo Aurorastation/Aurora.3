@@ -2,9 +2,6 @@
 //Functionally identical to regular drinks. The only difference is that the default bottle size is 100. - Darem
 //Bottles now weaken and break when smashed on people's heads. - Giacom
 
-#define NO_EMPTY_ICON 1			//If icon does not have iconnamestate_empty as an empty state, use this flag to prevent it going invisible.  See update_icon(). Remove this flag if you add empty states
-#define BOTTLE_IS_GLASS 2		//Whether the 'bottle' is made of glass or not so that milk cartons dont shatter when someone gets hit by it
-
 /obj/item/reagent_containers/food/drinks/bottle
 	name = "empty bottle"
 	desc = "A sad empty bottle."
@@ -19,12 +16,7 @@
 
 	var/obj/item/reagent_containers/glass/rag/rag = null
 	var/rag_underlay = "rag"
-	var/bottle_flags = BOTTLE_IS_GLASS
-
-/obj/item/reagent_containers/food/drinks/bottle/Initialize()
-	. = ..()
-	if(bottle_flags & BOTTLE_IS_GLASS)
-		unacidable = 1
+	drink_flags = IS_GLASS
 
 /obj/item/reagent_containers/food/drinks/bottle/Destroy()
 	if(rag)
@@ -32,16 +24,12 @@
 	rag = null
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/bottle/on_reagent_change()
-	update_icon()
-
-
 //when thrown on impact, bottles smash and spill their contents
 /obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, var/speed)
 	..()
 
 	var/mob/M = thrower
-	if((bottle_flags & BOTTLE_IS_GLASS) && istype(M) && M.a_intent == I_HURT)
+	if((drink_flags & IS_GLASS) && istype(M) && M.a_intent == I_HURT)
 		var/throw_dist = get_dist(throw_source, loc)
 		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
@@ -50,7 +38,7 @@
 			src.smash(loc, hit_atom)
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/smash_check(var/distance)
-	if(!(bottle_flags & BOTTLE_IS_GLASS) || !smash_duration)
+	if(!(drink_flags & IS_GLASS) || !smash_duration)
 		return 0
 
 	var/list/chance_table = list(90, 90, 85, 85, 60, 35, 15) //starting from distance 0
@@ -102,7 +90,7 @@
 		..()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/insert_rag(obj/item/reagent_containers/glass/rag/R, mob/user)
-	if(!(bottle_flags & BOTTLE_IS_GLASS) || rag) 
+	if(!(drink_flags & IS_GLASS) || rag) 
 		return
 	if(user.unEquip(R))
 		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
@@ -131,10 +119,7 @@
 		set_light(2)
 	else
 		set_light(0)
-		if(!reagents.total_volume && !(bottle_flags & NO_EMPTY_ICON))
-			icon_state = "[initial(icon_state)]_empty"
-		else
-			icon_state = "[initial(icon_state)]"
+		..()
 
 /obj/item/reagent_containers/food/drinks/bottle/attack(mob/living/target, mob/living/user, var/hit_zone)
 	var/blocked = ..()
@@ -381,7 +366,8 @@
 	desc = "A bottle of 46 proof Emeraldine Melon Liquor. Sweet and light."
 	icon_state = "alco-green" //Placeholder.
 	center_of_mass = list("x"=16, "y"=6)
-	bottle_flags = BOTTLE_IS_GLASS | NO_EMPTY_ICON
+	drink_flags = IS_GLASS | UNIQUE_EMPTY_ICON
+	empty_icon_state = "alco-clear"
 	Initialize()
 		. = ..()
 		reagents.add_reagent("melonliquor", 100)
@@ -390,7 +376,8 @@
 	name = "Miss blue curacao"
 	desc = "A fruity, exceptionally azure drink. Does not allow the imbiber to use the fifth magic."
 	icon_state = "alco-blue" //Placeholder.
-	bottle_flags = BOTTLE_IS_GLASS | NO_EMPTY_ICON
+	drink_flags = IS_GLASS | UNIQUE_EMPTY_ICON
+	empty_icon_state = "alco-clear"
 	center_of_mass = list("x"=16, "y"=6)
 	Initialize()
 		. = ..()
@@ -400,7 +387,7 @@
 	name = "Briar Rose grenadine syrup"
 	desc = "Sweet and tangy, a bar syrup used to add color or flavor to drinks."
 	icon_state = "grenadinebottle"
-	bottle_flags = BOTTLE_IS_GLASS | NO_EMPTY_ICON
+	drink_flags = IS_GLASS | NO_EMPTY_ICON
 	center_of_mass = list("x"=16, "y"=6)
 	Initialize()
 		. = ..()
@@ -411,7 +398,7 @@
 	desc = "Cola. in space"
 	icon_state = "colabottle"
 	center_of_mass = list("x"=16, "y"=6)
-	bottle_flags = NO_EMPTY_ICON
+	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		. = ..()
@@ -422,7 +409,7 @@
 	desc = "Tastes like a hull breach in your mouth."
 	icon_state = "space-up_bottle"
 	center_of_mass = list("x"=16, "y"=6)
-	bottle_flags = NO_EMPTY_ICON
+	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		..()
@@ -433,7 +420,7 @@
 	desc = "Blows right through you like a space wind."
 	icon_state = "space_mountain_wind_bottle"
 	center_of_mass = list("x"=16, "y"=6)
-	bottle_flags = NO_EMPTY_ICON
+	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	Initialize()
 		. = ..()
@@ -447,72 +434,6 @@
 	Initialize()
 		. = ..()
 		reagents.add_reagent("pwine", 100)
-
-//////////////////////////JUICES AND STUFF ///////////////////////
-
-/obj/item/reagent_containers/food/drinks/bottle/carton
-	name = "carton"
-	desc = "An abstract way to organize bottles that are really cartons. Finally!"
-	bottle_flags = NO_EMPTY_ICON
-	item_state = "carton"
-	center_of_mass = list("x"=16, "y"=6)
-	drop_sound = 'sound/items/drop/box.ogg'
-
-/obj/item/reagent_containers/food/drinks/bottle/carton/orangejuice
-	name = "orange juice"
-	desc = "Full of vitamins and deliciousness!"
-	icon_state = "orangejuice"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("orangejuice", 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/carton/cream
-	name = "milk cream"
-	desc = "It's cream. Made from milk. What else did you think you'd find in there?"
-	icon_state = "cream"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("cream", 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/carton/tomatojuice
-	name = "tomato juice"
-	desc = "Well, at least it LOOKS like tomato juice. You can't tell with all that redness."
-	icon_state = "tomatojuice"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("tomatojuice", 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/carton/limejuice
-	name = "lime juice"
-	desc = "Sweet-sour goodness."
-	icon_state = "limejuice"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("limejuice", 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/carton/lemonjuice
-	name = "lemon juice"
-	desc = "This juice is VERY sour."
-	icon_state = "lemoncarton"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("lemonjuice", 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/carton/dynjuice
-	name = "dyn juice"
-	desc = "Juice from a Skrell medicinal herb. It's supposed to be diluted."
-	icon_state = "dyncarton"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("dynjuice", 100)
-
-/obj/item/reagent_containers/food/drinks/bottle/carton/applejuice
-	name = "apple juice"
-	desc = "Juice from an apple. Yes."
-	icon_state = "applejuice"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("applejuice", 100)
 
 //Small bottles
 /obj/item/reagent_containers/food/drinks/bottle/small

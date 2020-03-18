@@ -1,0 +1,12 @@
+# Your name.  
+author: Doxxmedearly
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+changes: 
+  - tweak: "Reorganized the booze-o-mat. It should be less of a hunt to find things now."
+  - tweak: "Hot coco now vends in a disposable cup instead of a ceramic mug."
+  - bugfix: "Fixes empty icons for vended coffee/ramen not showing up."
+  - rscadd: "Organizes drink code a bit to make it easier to add empty/trash sprites for drinks in the future."
