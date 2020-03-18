@@ -19,7 +19,7 @@
 
 	if(!default_type)
 		default_type = DEFAULT_WALL_MATERIAL
-	material = SSmaterials.get_material_by_name("[default_type]")
+	material = SSmaterials.get_material_by_name(default_type)
 	if(!material)
 		qdel(src)
 		return
