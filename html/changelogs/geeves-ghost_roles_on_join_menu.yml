@@ -5,3 +5,4 @@ delete-after: True
 changes: 
   - rscadd: "Added available unique ghost spawner roles to the late join menu."
   - rscadd: "Added station alert level to the late join menu."
+  - rscadd: "Added selected character name to the default join menu."

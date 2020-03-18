@@ -27,7 +27,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_player_panel_proc()
 
 /mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B>New Player Options</B>"
+	var/output = "<div align='center'><B>New Player Options</B><br>"
+	var/character_name = client.prefs.real_name
+	if(character_name)
+		output += "<b>Selected Character: [character_name]</b>"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
@@ -400,19 +403,19 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			else						// Crew transfer initiated
 				dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
 
-	var/list/ghost_role_names = list()
+	var/unique_role_available = FALSE
 	for(var/ghost_role in SSghostroles.spawners)
 		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
 		if(!G.show_on_job_select)
 			continue
-		if(G.enabled)
-			ghost_role_names += G.name
+		if(!G.enabled)
+			continue
+		unique_role_available = TRUE
+		break
 
-	if(length(ghost_role_names))
-		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>The following unique ghost roles are available:</b></font><br>"
-		for(var/role_name in ghost_role_names)
-			dat += "<font color='[COLOR_BRIGHT_GREEN]'> - <b>[role_name]</b></font><br>"
-		dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A><br>"
+	if(unique_role_available)
+		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>A unique ghost role is available:</b></font><br>"
+	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A><br>"
 
 	dat += "Choose from the following open/valid positions:<br>"
 	for(var/datum/job/job in SSjobs.occupations)
