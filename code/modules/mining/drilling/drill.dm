@@ -17,7 +17,7 @@
 	var/list/resource_field = list()
 
 	var/ore_types = list(
-		"iron" = /obj/item/ore/iron,
+		MATERIAL_IRON = /obj/item/ore/iron,
 		MATERIAL_URANIUM = /obj/item/ore/uranium,
 		MATERIAL_GOLD = /obj/item/ore/gold,
 		MATERIAL_SILVER = /obj/item/ore/silver,
