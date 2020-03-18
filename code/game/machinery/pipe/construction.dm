@@ -308,6 +308,9 @@ Buildable meters
 	)
 	icon_state = islist[pipe_type + 1]
 
+/obj/item/pipe/attack_self(mob/user)
+	rotate(user)
+
 //called when a turf is attacked with a pipe item
 /obj/item/pipe/afterattack(turf/simulated/floor/target, mob/user, proximity)
 	if(!proximity) return
