@@ -5,6 +5,7 @@
 	icon_state = "landmine"
 	throwforce = 0
 	var/deployed = FALSE
+	var/deactivated = FALSE // add wire to re-activate
 
 /obj/item/landmine/update_icon()
 	..()
@@ -27,6 +28,9 @@
 
 /obj/item/landmine/attack_self(mob/user)
 	..()
+	if(deactivated)
+		to_chat(user, SPAN_WARNING("\The [src] is deactivated and needs specific rewiring!"))
+		return
 	if(!deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
 			"<span class='danger'>[user] starts to deploy \the [src].</span>",
@@ -77,15 +81,28 @@
 
 /obj/item/landmine/attackby(obj/item/I, mob/user)
 	..()
-	if(deployed && istype(I, /obj/item/wirecutters))
+	if(deactivated && istype(I, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = I
+		if(C.use(1))
+			to_chat(user, SPAN_NOTICE("You start carefully start rewiring \the [src]."))
+			if(do_after(user, 100, TRUE, src))
+				to_chat(user, SPAN_NOTICE("You successfully rewire \the [src], priming it for use."))
+				deactivated = FALSE
+			return
+		else
+			to_chat(user, SPAN_WARNING("There's not enough cable to finish the task."))
+			return
+	else if(deployed && istype(I, /obj/item/wirecutters))
 		var/obj/item/wirecutters/W = I
 		user.visible_message(SPAN_WARNING("\The [user] starts snipping some wires in \the [src] with \the [W]..."), \
 							SPAN_NOTICE("You start snipping some wires in \the [src] with \the [W]..."))
 		if(do_after(user, 150, TRUE, src))
 			if(prob(W.bomb_defusal_chance))
-				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], preparing it to be used again, if need be."))
+				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], though it's missing some essential wiring now."))
+				deactivated = TRUE
 				anchored = FALSE
 				deployed = FALSE
+				update_icon()
 				return
 		to_chat(user, FONT_LARGE(SPAN_DANGER("You slip, snipping the wrong wire!")))
 		trigger(user)
