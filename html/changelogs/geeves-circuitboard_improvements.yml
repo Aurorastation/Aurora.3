@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added extended descriptions to circuitboards which makes it easier to understand what the hell they do."
