@@ -235,10 +235,10 @@
 		/obj/item/surgery/FixOVein = "tray_fixovein",
 		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
 	)
-	for (var/obj/item/surgery/S in contents)
-		if (types_and_overlays[S.type])
-			add_overlay(types_and_overlays[S.type])
-			types_and_overlays -= S.type
+	for (var/obj/item/I in contents)
+		if (types_and_overlays[I.type])
+			add_overlay(types_and_overlays[I.type])
+			types_and_overlays -= I.type
 
 /obj/item/storage/fancy/tray/fill()
 	. = ..()

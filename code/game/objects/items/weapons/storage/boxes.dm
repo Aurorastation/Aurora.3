@@ -584,6 +584,10 @@
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
 	icon = 'icons/obj/storage.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = 3
@@ -594,9 +598,8 @@
 	/obj/item/storage/box/freezer/organcooler
 	name = "organ cooler"
 	desc = "A sealed, cooled container to keep organs from decaying."
-	icon = 'icons/obj/storage.dmi'
 	icon_state = "organcooler"
-	item_state = "firstaid-advanced"
+	item_state = "advfirstaid"
 	max_w_class = ITEMSIZE_NORMAL
 	foldable = FALSE
 	w_class = ITEMSIZE_LARGE
