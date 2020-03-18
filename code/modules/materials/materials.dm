@@ -289,8 +289,6 @@
 
 /material/osmium
 	name = MATERIAL_OSMIUM
-	lore_text = "An extremely hard form of platinum."
-	wall_name = "bulkhead"
 	stack_type = /obj/item/stack/material/osmium
 	icon_colour = "#9999ff"
 	stack_origin_tech = list(TECH_MATERIAL = 5)
