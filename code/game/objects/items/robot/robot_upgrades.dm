@@ -130,7 +130,6 @@
 /obj/item/borg/upgrade/combat
 	name = "combat cyborg module"
 	desc = "Unlocks the combat cyborg module"
-//	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =15000, MATERIAL_GOLD = 5000, MATERIAL_DIAMOND = 1000)
 	icon_state = "cyborg_upgrade3"
 	require_module = 0
 

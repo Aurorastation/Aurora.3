@@ -64,7 +64,7 @@
 	suit_overlay_active = "mounted-drill"
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
-	construction_cost = list(MATERIAL_GLASS = 2250, DEFAULT_WALL_MATERIAL = 55000, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 55000, MATERIAL_GLASS = 2250, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
 	construction_time = 350
 
 	device_type = /obj/item/pickaxe/diamonddrill
@@ -431,7 +431,7 @@
 	toggleable = 1
 	selectable = 0
 	disruptive = 0
-	construction_cost = list(MATERIAL_GLASS = 4250, DEFAULT_WALL_MATERIAL = 15000, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	construction_time = 300
 
 	suit_overlay_active = "maneuvering_active"
@@ -813,4 +813,3 @@ var/global/list/lattice_users = list()
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
 	lattice_users.Remove(H)
-

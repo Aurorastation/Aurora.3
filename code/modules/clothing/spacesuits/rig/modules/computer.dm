@@ -36,7 +36,7 @@
 	activates_on_touch = 1
 	confined_use = 1
 
-	construction_cost = list(MATERIAL_GLASS = 7500, DEFAULT_WALL_MATERIAL = 5000)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 7500)
 	construction_time = 300
 
 	engage_string = "Eject AI"

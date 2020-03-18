@@ -44,7 +44,7 @@ var/global/list/default_medbay_channels = list(
 	throw_speed = 2
 	throw_range = 9
 	w_class = 2
-	matter = list(MATERIAL_GLASS = 25,DEFAULT_WALL_MATERIAL = 75)
+	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
 
