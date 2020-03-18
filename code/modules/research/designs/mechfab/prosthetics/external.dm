@@ -65,7 +65,7 @@
 
 /datum/design/item/mechfab/prosthetic/r_foot
 	name = "Prosthetic right foot"
-	id = "prosthetic_r_hand"
+	id = "prosthetic_r_foot"
 	build_path = /obj/item/organ/external/foot/right/industrial
 	time = 20
 	materials = list(DEFAULT_WALL_MATERIAL = 8000)

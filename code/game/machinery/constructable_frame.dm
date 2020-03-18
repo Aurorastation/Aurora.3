@@ -10,6 +10,7 @@
 	density = 0
 	anchored = 0
 	use_power = 0
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/obj/item/circuitboard/circuit = null
 	var/list/components = null
 	var/list/req_components = null
@@ -17,26 +18,6 @@
 	var/state = 1
 	var/pitch_toggle = 1
 
-/obj/machinery/constructable_frame/verb/rotate_clockwise()
-	set category = "Object"
-	set name = "Rotate Clockwise"
-	set src in view(1)
-
-	if(use_check(usr) || anchored)
-		return
-
-	src.set_dir(turn(src.dir, -90))
-
-
-/obj/machinery/constructable_frame/verb/rotate_counterclockwise()
-	set category = "Object"
-	set name = "Rotate Counter-Clockwise"
-	set src in view(1)
-
-	if(use_check(usr) || anchored)
-		return
-
-	src.set_dir(turn(src.dir, 90))
 
 /obj/machinery/constructable_frame/proc/update_desc()
 	var/D

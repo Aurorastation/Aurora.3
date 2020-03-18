@@ -10,6 +10,7 @@
 #define SPAN_ALIEN(X) "<span class='alium'>[X]</span>"
 #define SPAN_ITALIC(X) "<span class='italic'>[X]</span>"
 #define SPAN_BOLD(X) "<span class='bold'>[X]</span>"
+#define SPAN_SUBTLE(X) "<span class='subtle'>[X]</span>"
 
 #define FONT_SMALL(X) "<font size='1'>[X]</font>"
 #define FONT_NORMAL(X) "<font size='2'>[X]</font>"

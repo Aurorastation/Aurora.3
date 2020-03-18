@@ -9,6 +9,7 @@
 	name = "mining drill head"
 	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
 	icon_state = "mining_drill"
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/braces_needed = 2
 	var/list/supports = list()
 	var/supported = FALSE
@@ -459,17 +460,3 @@
 	connected.supports -= src
 	connected.check_supports()
 	connected = null
-
-/obj/machinery/mining/brace/verb/rotate()
-	set name = "Rotate"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.stat) return
-
-	if (src.anchored)
-		to_chat(usr, "It is anchored in place!")
-		return FALSE
-
-	src.set_dir(turn(src.dir, 90))
-	return TRUE
