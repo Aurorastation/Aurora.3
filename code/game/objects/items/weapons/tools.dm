@@ -22,9 +22,9 @@
 	icon_state = "wrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
-	throwforce = 7.0
-	w_class = 2.0
+	force = 8
+	throwforce = 7
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
@@ -45,9 +45,9 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	center_of_mass = list("x" = 13,"y" = 7)
-	force = 5.0
-	w_class = 1.0
-	throwforce = 5.0
+	force = 8
+	w_class = ITEMSIZE_TINY
+	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
@@ -112,16 +112,16 @@
 	flags = CONDUCT
 	center_of_mass = list("x" = 18,"y" = 10)
 	slot_flags = SLOT_BELT
-	force = 6.0
+	force = 6
 	throw_speed = 2
 	throw_range = 9
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 	attack_verb = list("pinched", "nipped")
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
-	sharp = 1
-	edge = 1
+	sharp = TRUE
+	edge = TRUE
 	drop_sound = 'sound/items/drop/knife.ogg'
 
 /obj/item/wirecutters/New()
@@ -130,13 +130,13 @@
 		item_state = "cutters_yellow"
 	..()
 
-/obj/item/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob, var/target_zone)
+/obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
-		usr.visible_message("\The [usr] cuts \the [C]'s restraints with \the [src]!",\
-		"You cut \the [C]'s restraints with \the [src]!",\
-		"You hear cable being cut.")
+		user.visible_message(SPAN_NOTICE("\The [user] cuts \the [C]'s restraints with \the [src]!"),\
+		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
+		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
-		if(C.buckled && C.buckled.buckle_require_restraints)
+		if(C.buckled?.buckle_require_restraints)
 			C.buckled.unbuckle_mob()
 		C.update_inv_handcuffed()
 		return
@@ -173,11 +173,11 @@
 	drop_sound = 'sound/items/drop/scrap.ogg'
 
 	//Amount of OUCH when it's thrown
-	force = 3.0
-	throwforce = 5.0
+	force = 3
+	throwforce = 5
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 	//Cost to make in the autolathe
 	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 30)
@@ -206,7 +206,6 @@
 	name = "advanced welding tool"
 	desc = "A rare and powerful welding tool with a super-extended fuel tank."
 	max_fuel = 80
-	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
 	base_iconstate = "adv_welder"
 	origin_tech = list(TECH_ENGINEERING = 3)
@@ -216,7 +215,6 @@
 	name = "experimental welding tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
 	max_fuel = 40
-	w_class = 2.0
 	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
 	base_iconstate = "exp_welder"
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
@@ -555,8 +553,8 @@
 	icon_state = "crowbar"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
-	throwforce = 7.0
+	force = 8
+	throwforce = 7
 	item_state = "crowbar"
 	w_class = 2.0
 	origin_tech = list(TECH_ENGINEERING = 1)
@@ -581,9 +579,9 @@
 	icon_state = "pipewrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
-	throwforce = 7.0
-	w_class = 2.0
+	force = 8
+	throwforce = 7
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
@@ -600,7 +598,7 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "combitool"
 	force = 3
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 	var/list/tools = list(
 		"crowbar",
@@ -658,8 +656,9 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "powerdrillyellow"
 	var/drillcolor = null
-	force = 3
-	w_class = 2
+	force = 8
+	attack_verb = list("gored", "drilled", "screwed", "punctured")
+	w_class = ITEMSIZE_SMALL
 	toolspeed = 3
 	usesound = 'sound/items/drill_use.ogg'
 
