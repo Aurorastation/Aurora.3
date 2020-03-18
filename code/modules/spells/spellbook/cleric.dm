@@ -9,28 +9,27 @@
 	title = "Cleric's Tome of Healing"
 	title_desc = "Buy spells using your available spell slots. Artefacts may also be bought however their cost is permanent."
 	book_flags = CAN_MAKE_CONTRACTS
-	max_uses = 8
+	max_uses = 12
 
-	spells = list(/spell/targeted/heal_target = 						1,
-				/spell/targeted/heal_target/major = 				1,
-				/spell/targeted/heal_target/area = 				1,
-				/spell/targeted/heal_target/sacrifice = 			1,
+	spells = list(/spell/targeted/heal_target =						1,
+				/spell/targeted/heal_target/major =					1,
+				/spell/targeted/heal_target/area =					1,
+				/spell/targeted/heal_target/sacrifice =				1,
 				/spell/targeted/resurrection =						2,
-				/spell/targeted/mend = 							1,
-				/spell/targeted/genetic/blind = 				1,
-				/spell/targeted/shapeshift/baleful_polymorph = 			1,
-				/spell/targeted/flesh_to_stone =                        1,
-				/spell/targeted/projectile/dumbfire/stuncuff = 			1,
-				/spell/targeted/ethereal_jaunt = 				2,
-				/spell/aoe_turf/knock = 					1,
-				/spell/targeted/equip_item/holy_relic = 			1,
+				/spell/targeted/mend =								1,
+				/spell/targeted/genetic/blind =						1,
+				/spell/targeted/shapeshift/baleful_polymorph =		1,
+				/spell/targeted/flesh_to_stone =					1,
+				/spell/targeted/projectile/dumbfire/stuncuff =		1,
+				/spell/aoe_turf/knock =								1,
+				/spell/targeted/equip_item/holy_relic =				1,
 				/spell/aoe_turf/conjure/grove/sanctuary = 			1,
-				/spell/targeted/projectile/dumbfire/fireball = 			2,
-				/spell/aoe_turf/conjure/forcewall = 				1,
-				/spell/targeted/subjugation = 						1,
-				/spell/targeted/mindcontrol =                       2,
-				/obj/item/gun/energy/staff/focus = 			2,
-				/obj/item/storage/belt/wands/full = 			2,
-				/obj/item/contract/apprentice = 				1,
-				/obj/item/poppet =									1
+				/spell/targeted/projectile/dumbfire/fireball =		2,
+				/spell/aoe_turf/conjure/forcewall =					1,
+				/spell/targeted/subjugation =						1,
+				/spell/targeted/mindcontrol =						2,
+				/obj/item/gun/energy/staff/focus =					2,
+				/obj/item/storage/belt/wands/full =					2,
+				/obj/item/poppet =									1,
+				/obj/item/contract/apprentice =						1
 				)

@@ -16,12 +16,17 @@
 	title = "Book of Spells and Education"
 	title_desc = "Buy spells using your available spell slots. Artefacts may also be bought however their cost is permanent."
 	book_flags = 0
-	max_uses = 3
+	max_uses = 8
 
-	spells = list(/spell/aoe_turf/knock = 						1,
-				/spell/targeted/ethereal_jaunt = 			1,
-				/spell/targeted/projectile/magic_missile = 		1,
-				/obj/item/gun/energy/staff/focus = 		1,
-				/obj/item/storage/belt/wands/full = 		2,
-				/obj/item/contract/wizard/xray = 		1
+	spells = list(/spell/targeted/mend =						1,
+				/spell/aoe_turf/knock =							1,
+				/spell/targeted/projectile/magic_missile =		1,
+				/spell/aoe_turf/conjure/forcewall =				1,
+				/spell/shadow_shroud =							1,
+				/spell/targeted/raise_dead =					2,
+				/obj/structure/closet/wizard/armor =			1,
+				/obj/item/gun/energy/staff/focus =				1,
+				/obj/item/storage/belt/wands/full =				2,
+				/obj/item/monster_manual =						2,
+				/obj/item/contract/wizard/xray =				1
 					)
