@@ -381,7 +381,7 @@
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 8
-	matter = list("metal" = 2880)
+	matter = list(MATERIAL_STEEL = 2880)
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/assault_shotgun/shells
