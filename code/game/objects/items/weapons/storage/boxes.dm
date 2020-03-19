@@ -609,7 +609,6 @@
 		/obj/item/reagent_containers/glass,
 		/obj/item/gun
 	)
-	use_to_pickup = FALSE
 	storage_slots = 2
 
 /obj/item/storage/box/kitchen
