@@ -294,13 +294,13 @@
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/dpra/centcom
-	name = "\improper Administration Shuttle"
+	name = "\improper DPRA Shuttle"
 	icon_state = "shuttlered"
 	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
 
 /area/shuttle/dpra/station
-	name = "\improper Administration Shuttle"
+	name = "\improper Drop Shuttle"
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/reinforced
 	station_area = 1
@@ -309,13 +309,28 @@
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/nka/centcom
-	name = "\improper Administration Shuttle"
+	name = "\improper NKA Shuttle"
 	icon_state = "shuttlered"
 	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
 
 /area/shuttle/nka/station
-	name = "\improper Administration Shuttle"
+	name = "\improper Drop Shuttle"
+	icon_state = "shuttlered2"
+	base_turf = /turf/simulated/floor/reinforced
+	station_area = 1
+
+/area/shuttle/pra
+	flags = RAD_SHIELDED | SPAWN_ROOF
+
+/area/shuttle/pra/centcom
+	name = "\improper PRA Shuttle"
+	icon_state = "shuttlered"
+	base_turf = /turf/unsimulated/floor/plating
+	centcomm_area = 1
+
+/area/shuttle/pra/station
+	name = "\improper Drop Shuttle"
 	icon_state = "shuttlered2"
 	base_turf = /turf/simulated/floor/reinforced
 	station_area = 1

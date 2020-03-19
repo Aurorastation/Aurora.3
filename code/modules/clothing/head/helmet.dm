@@ -243,6 +243,9 @@
 /obj/item/clothing/head/helmet/tank/legion
 	color = "#5674a6"
 
+/obj/item/clothing/head/helmet/tank/grey
+	color = COLOR_DARK_GUNMETAL
+
 //Non-hardsuit ERT helmets.
 /obj/item/clothing/head/helmet/ert
 	name = "emergency response team helmet"

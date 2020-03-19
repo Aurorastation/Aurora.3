@@ -42,3 +42,8 @@
 	name = "shuttle control console"
 	req_access = list(access_cent_general)
 	shuttle_tag = "Nka"
+
+/obj/machinery/computer/shuttle_control/pra
+	name = "shuttle control console"
+	req_access = list(access_cent_general)
+	shuttle_tag = "Pra"

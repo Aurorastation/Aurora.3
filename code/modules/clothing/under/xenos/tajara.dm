@@ -136,17 +136,24 @@
 	workers and their Republic."
 
 /obj/item/clothing/under/tajaran/pra_uniform
-	name = "republican army uniform"
-	desc = "A military uniform used by the forces of Grand People's Army."
+	name = "adhomian army uniform"
+	desc = "A military uniform used by adhomian forces."
 	icon_state = "prauniform"
 	item_state = "prauniform"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/tajaran/nka_uniform
-	name = "imperial adhomian army uniform"
-	desc = "A military uniform used by the forces of New Kingdom's army."
+	name = "adhomian uniform"
+	desc = "A military uniform used by adhomian forces."
 	icon_state = "nka_uniform"
 	item_state = "nka_uniform"
+	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
+
+/obj/item/clothing/under/tajaran/dpra_uniform
+	name = "adhomian uniform"
+	desc = "A military uniform used by adhomian forces."
+	icon_state = "greycamo"
+	item_state = "greycamo"
 	starting_accessories = list(/obj/item/clothing/accessory/storage/bayonet)
 
 /obj/item/clothing/under/tajaran/consular
