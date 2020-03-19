@@ -747,7 +747,6 @@
 	SearchVar(swapmaps_initialized)
 	SearchVar(swapmaps_loaded)
 	SearchVar(swapmaps_byname)
-	SearchVar(name_to_material)
 	SearchVar(minevendor_list)
 	SearchVar(total_extraction_beacons)
 	SearchVar(ore_data)

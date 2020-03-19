@@ -11,7 +11,7 @@
 	uv_intensity = 50
 	light_wedge = LIGHT_WIDE
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
@@ -126,7 +126,7 @@
 	brightness_on = 4
 	w_class = 3
 	uv_intensity = 60
-	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
+	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
 
 /obj/item/device/flashlight/maglight
@@ -139,7 +139,7 @@
 	w_class = 3
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
+	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	light_wedge = LIGHT_NARROW
 

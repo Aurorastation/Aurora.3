@@ -136,13 +136,15 @@
 			playsound(src.loc, W.usesound, 100, 1)
 			to_chat(user, "<span class='notice'>Now unsecuring support struts...</span>")
 			if(do_after(user,40/W.toolspeed))
-				if(!src) return
+				if(!src)
+					return
 				to_chat(user, "<span class='notice'>You unsecured the support struts!</span>")
 				state = 1
 		else if(anchored && !reinf_material)
 			playsound(src.loc, W.usesound, 100, 1)
 			reinforcing = !reinforcing
 			to_chat(user, "<span class='notice'>\The [src] can now be [reinforcing? "reinforced" : "constructed"]!</span>")
+			return
 
 	else if(W.iswirecutter() && state == 1)
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
@@ -198,7 +200,7 @@
 		to_chat(user, "<span class='notice'>There isn't enough material here to construct a wall.</span>")
 		return 0
 
-	var/material/M = name_to_material[S.default_type]
+	var/material/M = SSmaterials.get_material_by_name(S.default_type)
 	if(!istype(M))
 		return 0
 
@@ -239,7 +241,7 @@
 		to_chat(user, "<span class='notice'>There isn't enough material here to reinforce the girder.</span>")
 		return 0
 
-	var/material/M = name_to_material[S.default_type]
+	var/material/M = SSmaterials.get_material_by_name(S.default_type)
 	if(!istype(M) || M.integrity < 50)
 		to_chat(user, "You cannot reinforce \the [src] with that; it is too soft.")
 		return 0

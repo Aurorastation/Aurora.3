@@ -4912,7 +4912,7 @@
 	trash = /obj/item/trash/plate
 
 /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll
-	name = "ouere carp log"
+	name = "ouerean carp log"
 	desc = "A giant carp roll wrapped in special grass that combines unathi and human cooking techniques. Can be sliced into proper serving sizes."
 	icon_state = "sushi_roll"
 	slice_path = /obj/item/reagent_containers/food/snacks/sushi_serve
@@ -4923,7 +4923,7 @@
 	reagents.add_reagent("seafood", 6)
 
 /obj/item/reagent_containers/food/snacks/sushi_serve
-	name = "ouere carp cake"
+	name = "ouerean carp cake"
 	desc = "A serving of carp roll wrapped in special grass that combines unathi and human cooking techniques."
 	icon_state = "sushi_serve"
 
