@@ -1,7 +1,7 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
 	flag = CHIEF
-	head_position = 1
+	head_position = TRUE
 	department = "Engineering"
 	department_flag = ENGSEC
 	faction = "Station"
@@ -40,6 +40,7 @@
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/heads/ce
+	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -47,9 +48,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
-		/obj/item/weldingtool = 1,
+		/obj/item/weldingtool/largetank = 1, // industrial welding tool
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
@@ -103,8 +102,6 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
@@ -147,12 +144,12 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
+		/obj/item/device/analyzer = 1,
+		/obj/item/pipewrench = 1,
 		/obj/item/powerdrill = 1
 	)
 
@@ -176,7 +173,16 @@
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
+	belt = /obj/item/storage/belt/utility
 	l_ear = /obj/item/device/radio/headset/headset_eng
+
+	belt_contents = list(
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1
+	)
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng

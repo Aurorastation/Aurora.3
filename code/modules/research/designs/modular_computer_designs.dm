@@ -8,7 +8,7 @@
 	id = "hdd_basic"
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 400, "glass" = 100)
+	materials = list(DEFAULT_WALL_MATERIAL = 400, MATERIAL_GLASS = 100)
 	build_path = /obj/item/computer_hardware/hard_drive/
 	sort_string = "VBAAA"
 
@@ -17,7 +17,7 @@
 	id = "hdd_advanced"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 800, "glass" = 200)
+	materials = list(DEFAULT_WALL_MATERIAL = 800, MATERIAL_GLASS = 200)
 	build_path = /obj/item/computer_hardware/hard_drive/advanced
 	sort_string = "VBAAB"
 
@@ -26,7 +26,7 @@
 	id = "hdd_super"
 	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 1600, "glass" = 400)
+	materials = list(DEFAULT_WALL_MATERIAL = 1600, MATERIAL_GLASS = 400)
 	build_path = /obj/item/computer_hardware/hard_drive/super
 	sort_string = "VBAAC"
 
@@ -35,7 +35,7 @@
 	id = "hdd_cluster"
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
 	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 3200, "glass" = 800)
+	materials = list(DEFAULT_WALL_MATERIAL = 3200, MATERIAL_GLASS = 800)
 	build_path = /obj/item/computer_hardware/hard_drive/cluster
 	sort_string = "VBAAD"
 
@@ -44,7 +44,7 @@
 	id = "hdd_small"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 800, "glass" = 200)
+	materials = list(DEFAULT_WALL_MATERIAL = 800, MATERIAL_GLASS = 200)
 	build_path = /obj/item/computer_hardware/hard_drive/small
 	sort_string = "VBAAE"
 
@@ -53,7 +53,7 @@
 	id = "hdd_micro"
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 400, "glass" = 100)
+	materials = list(DEFAULT_WALL_MATERIAL = 400, MATERIAL_GLASS = 100)
 	build_path = /obj/item/computer_hardware/hard_drive/micro
 	sort_string = "VBAAF"
 
@@ -63,7 +63,7 @@
 	id = "netcard_basic"
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 1)
 	build_type = IMPRINTER
-	materials = list(DEFAULT_WALL_MATERIAL = 250, "glass" = 100)
+	materials = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 100)
 	chemicals = list("sacid" = 20)
 	build_path = /obj/item/computer_hardware/network_card
 	sort_string = "VBAAG"
@@ -73,7 +73,7 @@
 	id = "netcard_advanced"
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 2)
 	build_type = IMPRINTER
-	materials = list(DEFAULT_WALL_MATERIAL = 500, "glass" = 200)
+	materials = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
 	chemicals = list("sacid" = 20)
 	build_path = /obj/item/computer_hardware/network_card/advanced
 	sort_string = "VBAAH"
@@ -83,7 +83,7 @@
 	id = "netcard_wired"
 	req_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 3)
 	build_type = IMPRINTER
-	materials = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 400)
+	materials = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 400)
 	chemicals = list("sacid" = 20)
 	build_path = /obj/item/computer_hardware/network_card/wired
 	sort_string = "VBAAI"
@@ -94,7 +94,7 @@
 	id = "portadrive_basic"
 	req_tech = list(TECH_DATA = 1)
 	build_type = IMPRINTER
-	materials = list("glass" = 800)
+	materials = list(MATERIAL_GLASS = 800)
 	chemicals = list("sacid" = 20)
 	build_path = /obj/item/computer_hardware/hard_drive/portable
 	sort_string = "VBAAJ"
@@ -104,7 +104,7 @@
 	id = "portadrive_advanced"
 	req_tech = list(TECH_DATA = 2)
 	build_type = IMPRINTER
-	materials = list("glass" = 1600)
+	materials = list(MATERIAL_GLASS = 1600)
 	chemicals = list("sacid" = 20)
 	build_path = /obj/item/computer_hardware/hard_drive/portable/advanced
 	sort_string = "VBAAK"
@@ -114,7 +114,7 @@
 	id = "portadrive_super"
 	req_tech = list(TECH_DATA = 4)
 	build_type = IMPRINTER
-	materials = list("glass" = 3200)
+	materials = list(MATERIAL_GLASS = 3200)
 	chemicals = list("sacid" = 20)
 	build_path = /obj/item/computer_hardware/hard_drive/portable/super
 	sort_string = "VBAAL"

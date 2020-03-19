@@ -70,7 +70,7 @@ other types of metals and chemistry for reagents).
 	desc = "Produce additional disks for storing device designs."
 	id = "design_disk"
 	req_tech = list(TECH_DATA = 1)
-	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	materials = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	build_path = /obj/item/disk/design_disk
 	sort_string = "GAAAA"
 
@@ -79,7 +79,7 @@ other types of metals and chemistry for reagents).
 	desc = "Produce additional disks for storing technology data."
 	id = "tech_disk"
 	req_tech = list(TECH_DATA = 1)
-	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	materials = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	build_path = /obj/item/disk/tech_disk
 	sort_string = "GAAAB"
 
@@ -88,12 +88,12 @@ other types of metals and chemistry for reagents).
 	desc = "Produce additional disks for storing flora data."
 	id = "flora_disk"
 	req_tech = list(TECH_DATA = 1)
-	materials = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	materials = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	build_path = /obj/item/disk/botany
 	sort_string = "GAAAC"
 
 /datum/design/item/hud
-	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 /datum/design/item/hud/AssembleDesignName()
 	..()
@@ -121,7 +121,7 @@ other types of metals and chemistry for reagents).
 	desc = "Using the meson-scanning technology those glasses allow you to see through walls, floor or anything else."
 	id = "mesons"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 	build_path = /obj/item/clothing/glasses/meson
 	sort_string = "GAAAC"
 
@@ -131,7 +131,7 @@ other types of metals and chemistry for reagents).
 	desc = "An advanced drill designed to be faster than other drills."
 	id = "powerdrill"
 	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 60, "glass" = 50)
+	materials = list(DEFAULT_WALL_MATERIAL = 60, MATERIAL_GLASS = 50)
 	build_path = /obj/item/powerdrill
 	sort_string = "GAAAD"
 
@@ -140,10 +140,10 @@ other types of metals and chemistry for reagents).
 ///////////////////////////////////
 /datum/design/circuit/shield
 	req_tech = list(TECH_BLUESPACE = 4, TECH_PHORON = 3)
-	materials = list("glass" = 2000, "sacid" = 20, "phoron" = 10000, "diamond" = 5000, "gold" = 10000)
+	materials = list(MATERIAL_GLASS = 2000, "sacid" = 20, MATERIAL_PHORON = 10000, MATERIAL_DIAMOND = 5000, MATERIAL_GOLD = 10000)
 
 /datum/design/item/implant
-	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 /datum/design/item/implant/AssembleDesignName()
 	..()
@@ -177,7 +177,7 @@ other types of metals and chemistry for reagents).
 	desc = "The most advanced tool in a custodian's arsenal, complete with a condenser for self-wetting! Just think of all the viscera you will clean up with this!"
 	id = "advmop"
 	build_type = PROTOLATHE
-	materials = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 200)
+	materials = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 200)
 	build_path = /obj/item/mop/advanced
 	sort_string = "VAAAI"
 
@@ -186,7 +186,7 @@ other types of metals and chemistry for reagents).
 	desc = "An advanced trash bag with bluespace properties; capable of holding a plethora of garbage."
 	id = "blutrash"
 	build_type = PROTOLATHE
-	materials = list("gold" = 1500, "uranium" = 250, "phoron" = 1500)
+	materials = list(MATERIAL_GOLD = 1500, MATERIAL_URANIUM = 250, MATERIAL_PHORON = 1500)
 	build_path = /obj/item/storage/bag/trash/bluespace
 	sort_string = "VAAAJ"
 
@@ -204,7 +204,7 @@ other types of metals and chemistry for reagents).
 	id = "mmi"
 	req_tech = list(TECH_DATA = 2, TECH_BIO = 3)
 	build_type = PROTOLATHE | MECHFAB
-	materials = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 500)
+	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
 	build_path = /obj/item/device/mmi
 	category = "Misc"
 	sort_string = "VACBA"
@@ -214,7 +214,7 @@ other types of metals and chemistry for reagents).
 	id = "mmi_radio"
 	req_tech = list(TECH_DATA = 2, TECH_BIO = 4)
 	build_type = PROTOLATHE | MECHFAB
-	materials = list(DEFAULT_WALL_MATERIAL = 1200, "glass" = 500)
+	materials = list(DEFAULT_WALL_MATERIAL = 1200, MATERIAL_GLASS = 500)
 	build_path = /obj/item/device/mmi/radio_enabled
 	category = "Misc"
 	sort_string = "VACBB"
@@ -223,7 +223,7 @@ other types of metals and chemistry for reagents).
 	name = "Bluespace tracking beacon design"
 	id = "beacon"
 	req_tech = list(TECH_BLUESPACE = 1)
-	materials = list (DEFAULT_WALL_MATERIAL = 20, "glass" = 10)
+	materials = list (DEFAULT_WALL_MATERIAL = 20, MATERIAL_GLASS = 10)
 	build_path = /obj/item/device/radio/beacon
 	sort_string = "VADAA"
 
@@ -232,7 +232,7 @@ other types of metals and chemistry for reagents).
 	desc = "Using localized pockets of bluespace this bag prototype offers incredible storage capacity with the contents weighting nothing. It's a shame the bag itself is pretty heavy."
 	id = "bag_holding"
 	req_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 6)
-	materials = list("gold" = 3000, "diamond" = 1500, "uranium" = 250)
+	materials = list(MATERIAL_GOLD = 3000, MATERIAL_DIAMOND = 1500, MATERIAL_URANIUM = 250)
 	build_path = /obj/item/storage/backpack/holding
 	sort_string = "VAEAA"
 
@@ -241,7 +241,7 @@ other types of metals and chemistry for reagents).
 	desc = "An artificially made bluespace crystal."
 	id = "bluespace_crystal"
 	req_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 6)
-	materials = list("gold" = 1500, "diamond" = 1500, "phoron" = 1500)
+	materials = list(MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 1500, MATERIAL_PHORON = 1500)
 	build_path = /obj/item/bluespace_crystal/artificial
 	sort_string = "VAFAA"
 
@@ -250,7 +250,7 @@ other types of metals and chemistry for reagents).
 	desc = "Allows for deciphering the binary channel on-the-fly."
 	id = "binaryencrypt"
 	req_tech = list(TECH_ILLEGAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 300, "glass" = 300)
+	materials = list(DEFAULT_WALL_MATERIAL = 300, MATERIAL_GLASS = 300)
 	build_path = /obj/item/device/encryptionkey/binary
 	sort_string = "VASAA"
 
@@ -259,14 +259,14 @@ other types of metals and chemistry for reagents).
 	desc = "Cheaper than whiny non-digital assistants."
 	id = "pda"
 	req_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 	build_path = /obj/item/device/pda
 	sort_string = "VAAAA"
 
 // Cartridges
 /datum/design/item/pda_cartridge
 	req_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 /datum/design/item/pda_cartridge/AssembleDesignName()
 	..()
@@ -352,7 +352,7 @@ other types of metals and chemistry for reagents).
 	name = "Custom wirer tool"
 	id = "wirer"
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	build_path = /obj/item/device/integrated_electronics/wirer
 	sort_string = "VBVAA"
 
@@ -360,7 +360,7 @@ other types of metals and chemistry for reagents).
 	name = "Custom circuit debugger tool"
 	id = "debugger"
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	build_path = /obj/item/device/integrated_electronics/debugger
 	sort_string = "VBVAB"
 
@@ -440,7 +440,7 @@ other types of metals and chemistry for reagents).
 	name = "Pin extraction device"
 	id = "pin_extractor"
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 4, TECH_ILLEGAL = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	build_path = /obj/item/device/pin_extractor
 	sort_string = "VCBAA"
 
@@ -449,7 +449,7 @@ other types of metals and chemistry for reagents).
 	desc = "A hand-held plant scanner for hydroponicists and xenobotanists."
 	id = "plant_analyzer"
 	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 80,"glass" = 20)
+	materials = list(DEFAULT_WALL_MATERIAL = 80, MATERIAL_GLASS = 20)
 	build_path = /obj/item/device/analyzer/plant_analyzer
 	sort_string = "VCBAB"
 
@@ -457,6 +457,6 @@ other types of metals and chemistry for reagents).
 	name = "implanter"
 	desc = "A specialized syringe for inserting implants to subjects."
 	req_tech = list(TECH_BIO = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
+	materials = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	build_path = /obj/item/implanter
 	sort_string = "VCBAC"
