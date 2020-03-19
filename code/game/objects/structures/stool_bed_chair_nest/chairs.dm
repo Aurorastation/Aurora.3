@@ -77,31 +77,31 @@
 	icon_state = "comfychair_preview"
 
 /obj/structure/bed/chair/comfy/brown/Initialize(mapload,var/newmaterial)
-	. = ..(mapload,"steel","leather")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_LEATHER)
 
 /obj/structure/bed/chair/comfy/red/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","carpet")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CARPET)
 
 /obj/structure/bed/chair/comfy/teal/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","teal")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
 
 /obj/structure/bed/chair/comfy/black/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","black")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
 
 /obj/structure/bed/chair/comfy/green/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","green")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
 
 /obj/structure/bed/chair/comfy/purp/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","purple")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
 
 /obj/structure/bed/chair/comfy/blue/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","blue")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
 
 /obj/structure/bed/chair/comfy/beige/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","beige")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
 
 /obj/structure/bed/chair/comfy/lime/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","lime")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 /obj/structure/bed/chair/office
 	anchored = 0
