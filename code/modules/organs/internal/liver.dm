@@ -63,7 +63,7 @@
 		filter_strength *= 1.1
 
 	if (owner.intoxication > 0)
-		owner.intoxication -= min(owner.intoxication, filter_strength*1.5)
+		owner.intoxication -= min(owner.intoxication, filter_strength)
 		if(!owner.intoxication)
 			owner.handle_intoxication()
 
