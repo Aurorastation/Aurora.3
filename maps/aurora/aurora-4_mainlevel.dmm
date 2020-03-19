@@ -1985,6 +1985,10 @@
 	icon_state = "wide_corner";
 	dir = 5
 	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -20;
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "adH" = (
@@ -2422,9 +2426,6 @@
 	},
 /area/server)
 "aes" = (
-/obj/effect/landmark{
-	name = "blobstart"
-	},
 /turf/simulated/floor/bluegrid{
 	name = "Server Base";
 	nitrogen = 500;
@@ -3987,12 +3988,6 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "ahh" = (
-/obj/machinery/alarm{
-	dir = 4;
-	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
-	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Corridor Camera 2";
 	dir = 4;
@@ -6339,6 +6334,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "alq" = (
@@ -7037,6 +7033,7 @@
 	name = "Research Conference Room";
 	sortType = "Research Conference Room"
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "amD" = (
@@ -7083,6 +7080,7 @@
 	name = "Conference Room and Lift";
 	req_access = list(47)
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/research)
 "amH" = (
@@ -19479,11 +19477,12 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "aGH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	icon_state = "intact";
 	dir = 4
 	},
 /turf/simulated/floor/bluegrid{
@@ -19506,13 +19505,12 @@
 	dir = 10;
 	icon_state = "intact"
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/firealarm/north,
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/server)
@@ -19653,21 +19651,22 @@
 /turf/simulated/floor/tiled,
 /area/teleporter)
 "aGY" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -12;
-	pixel_y = 28
-	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	icon_state = "wide_corner";
 	dir = 5
 	},
-/obj/structure/flora/pottedplant/random{
-	pixel_y = 4
+/obj/structure/flora/pottedplant/random,
+/obj/structure/sign/poster{
+	icon_state = "tcflposter2";
+	pixel_x = 0;
+	pixel_y = 32;
+	poster_type = "/datum/poster/bay_68"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
 "aGZ" = (
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 4
 	},
 /turf/simulated/floor/bluegrid{
@@ -22511,6 +22510,7 @@
 	icon_state = "warning";
 	dir = 8
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet/rubber,
 /area/server)
 "aLL" = (
@@ -22522,7 +22522,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/flora/pottedplant{
-	desc = "A tag with the name 'Harvey' has been taped to the rim of this plant pot.";
+	desc = "A tag with the name 'Harvey' has been taped to the rim of this fern's plant pot.";
 	icon_state = "plant-35";
 	name = "Harvey"
 	},
@@ -24750,17 +24750,17 @@
 /turf/simulated/floor/tiled,
 /area/security/brig)
 "aPs" = (
-/obj/machinery/door/airlock/command{
-	name = "Server Room";
-	req_access = list(30)
-	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/command{
+	name = "Server Room";
+	req_access = list(30)
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/server)
 "aPt" = (
 /obj/structure/cable{
@@ -50645,6 +50645,7 @@
 	req_access = null;
 	req_one_access = list(7,29)
 	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
 "bIN" = (
@@ -64822,6 +64823,12 @@
 /obj/structure/closet/crate/autakh,
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
+"hPw" = (
+/obj/machinery/alarm{
+	pixel_y = 23
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/research)
 "hPx" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -66637,6 +66644,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/engineering)
+"mVr" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/research)
 "mWu" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -91300,7 +91317,7 @@ ajz
 bET
 bFW
 bGV
-bEe
+alc
 bIK
 bJx
 bJx
@@ -93341,9 +93358,9 @@ bnH
 bpd
 bqp
 bbu
-bsC
+hPw
 btK
-buR
+mVr
 bsC
 bsC
 bsC
