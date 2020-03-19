@@ -199,3 +199,27 @@
 
 	shuttles["Distress"] = distress
 	START_PROCESSING(shuttle_controller, distress)
+
+	// dpra Shuttle
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 5	//want some warmup time so people can cancel.
+	shuttle.area_offsite = locate(/area/shuttle/dpra/centcom)
+	shuttle.area_station = locate(/area/shuttle/dpra/station)
+	shuttle.docking_controller_tag = "dpra_shuttle"
+	shuttle.dock_target_station = "dpra_shuttle"
+	shuttle.dock_target_offsite = "dpra_shuttle"
+	shuttles["Dpra"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)
+
+	// nka Shuttle
+	shuttle = new()
+	shuttle.location = 1
+	shuttle.warmup_time = 5	//want some warmup time so people can cancel.
+	shuttle.area_offsite = locate(/area/shuttle/nka/centcom)
+	shuttle.area_station = locate(/area/shuttle/nka/station)
+	shuttle.docking_controller_tag = "nka_shuttle"
+	shuttle.dock_target_station = "nka_shuttle"
+	shuttle.dock_target_offsite = "nka_shuttle"
+	shuttles["Nka"] = shuttle
+	START_PROCESSING(shuttle_controller, shuttle)

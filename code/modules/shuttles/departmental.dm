@@ -32,3 +32,13 @@
 	name = "merchant shuttle control console"
 	req_access = list(access_merchant)
 	shuttle_tag = "Merchant"
+
+/obj/machinery/computer/shuttle_control/dpra
+	name = "shuttle control console"
+	req_access = list(access_cent_general)
+	shuttle_tag = "Dpra"
+
+/obj/machinery/computer/shuttle_control/nka
+	name = "shuttle control console"
+	req_access = list(access_cent_general)
+	shuttle_tag = "Nka"

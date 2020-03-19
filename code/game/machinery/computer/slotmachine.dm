@@ -297,9 +297,6 @@
 
 	return amount
 
-/obj/machinery/computer/slot_machine/casino
-	specialcoin = /obj/item/coin/casino
-
 #undef SEVEN
 #undef SPIN_TIME
 #undef JACKPOT

@@ -203,7 +203,7 @@
 /area/shuttle/administration/station
 	name = "\improper Administration Shuttle"
 	icon_state = "shuttlered2"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_turf = /turf/simulated/floor/reinforced
 	station_area = 1
 
 /area/shuttle/research
@@ -288,4 +288,34 @@
 /area/shuttle/merchant/station
 	name = "\improper Merchant Docking Port"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
+	station_area = 1
+
+/area/shuttle/dpra
+	flags = RAD_SHIELDED | SPAWN_ROOF
+
+/area/shuttle/dpra/centcom
+	name = "\improper Administration Shuttle"
+	icon_state = "shuttlered"
+	base_turf = /turf/unsimulated/floor/plating
+	centcomm_area = 1
+
+/area/shuttle/dpra/station
+	name = "\improper Administration Shuttle"
+	icon_state = "shuttlered2"
+	base_turf = /turf/simulated/floor/reinforced
+	station_area = 1
+
+/area/shuttle/nka
+	flags = RAD_SHIELDED | SPAWN_ROOF
+
+/area/shuttle/nka/centcom
+	name = "\improper Administration Shuttle"
+	icon_state = "shuttlered"
+	base_turf = /turf/unsimulated/floor/plating
+	centcomm_area = 1
+
+/area/shuttle/nka/station
+	name = "\improper Administration Shuttle"
+	icon_state = "shuttlered2"
+	base_turf = /turf/simulated/floor/reinforced
 	station_area = 1

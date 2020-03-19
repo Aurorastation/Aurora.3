@@ -73,3 +73,6 @@
 	density = TRUE
 	pixel_x = -16
 	layer = ABOVE_MOB_LAYER
+
+/obj/effect/decal/fake_object/tank/ex_act(severity)
+	return

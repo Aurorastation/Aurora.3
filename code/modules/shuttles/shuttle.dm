@@ -117,6 +117,9 @@
 	for(var/mob/living/simple_animal/pest in destination)
 		pest.gib()
 
+	for(var/obj/stuffonway in destination)
+		qdel(stuffonway)
+
 	origin.move_contents_to(destination)
 
 	for(var/mob/M in destination)
@@ -138,7 +141,7 @@
 			buckled_effect(M)
 		else // If they have neither of the former, then it'll always be loose (at the time of writing this, oh god)
 			loose_effect(M)
-	
+
 
 /datum/shuttle/proc/magboot_effect(mob/M)
 	to_chat(M, span("warning","You manage to maintain your footing with the magboots!"))
