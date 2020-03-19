@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Reduced long-range artifact effect max range from 200 tiles, to 20."
