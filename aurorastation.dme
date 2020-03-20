@@ -28,6 +28,7 @@
 #include "code\__defines\dna.dm"
 #include "code\__defines\dview.dm"
 #include "code\__defines\gamemode.dm"
+#include "code\__defines\guns.dm"
 #include "code\__defines\hydroponics.dm"
 #include "code\__defines\items_clothing.dm"
 #include "code\__defines\lighting.dm"
