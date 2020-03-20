@@ -1,7 +1,7 @@
 /obj/item/organ/internal/augment
 	name = "augment"
 	icon_state = "innards-prosthetic"
-	parent_organ = BP_GROIN
+	parent_organ = BP_CHEST
 	organ_tag = "augment"
 	robotic = 2
 	emp_coeff = 2
@@ -116,7 +116,7 @@
 	. = ..()
 	if(augment_type)
 		augment = new augment_type(src)
-		augment.canremove = 0
+		augment.canremove = FALSE
 
 /obj/item/organ/internal/augment/tool/attack_self(var/mob/user)
 	. = ..()
@@ -132,7 +132,7 @@
 				owner.last_special = world.time + cooldown
 				owner.put_in_active_hand(augment)
 				owner.visible_message("<span class='notice'>\The [augment] slides out of \the [owner]'s [src.loc].</span>","<span class='notice'>You deploy \the [augment]!</span>")
-				deployed = 1
+				deployed = TRUE
 
 			else
 				if(!owner.equip_to_slot_if_possible(augment, deployment_location))
@@ -141,15 +141,53 @@
 
 				owner.last_special = world.time + cooldown
 				owner.visible_message("<span class='notice'>\The [augment] slides out of \the [owner]'s [src.loc].</span>","<span class='notice'>You deploy \the [augment]!</span>")
-				deployed = 1
+				deployed = TRUE
 
 		else
 			owner.last_special = world.time + cooldown
 			augment.forceMove(src)
 			owner.visible_message("<span class='notice'>\The [augment] slides into \the [owner]'s [src.loc].</span>","<span class='notice'>You retract \the [augment]!</span>")
-			deployed = 0
+			deployed = FALSE
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
 	action_button_name = "Deploy Combitool"
+	parent_organ = BP_CHEST
 	augment_type = /obj/item/combitool/robotic
+
+/obj/item/organ/internal/augment/tesla
+	name = "tesla spine"
+	icon_state = "tesla_spine"
+	parent_organ = BP_CHEST
+	organ_tag = "tesla_spine"
+	var/max_charges = 1
+	var/actual_charges = 0
+	var/recharge_time = 2 //this is in minutes
+
+/obj/item/organ/internal/augment/tesla/proc/check_shock()
+	if(is_broken())
+		return FALSE
+	if(is_bruised())
+		if(prob(50))
+			return FALSE
+	if(actual_charges >= max_charges)
+		return FALSE
+	else
+		do_tesla_act()
+		return TRUE
+
+/obj/item/organ/internal/augment/tesla/proc/do_tesla_act()
+	if(owner)
+		to_chat(owner, "<span class='danger'>You feel your \the [src] surge with energy!</span>")
+		spark(get_turf(owner), 3)
+		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+		if(is_bruised())
+			if(prob(50))
+				owner.electrocute_act(40, owner)
+
+/obj/item/organ/internal/augment/tesla/proc/disarm()
+	if(actual_charges <= 0)
+		return
+	actual_charges = min(actual_charges-1,max_charges)
+	if(actual_charges > 0)
+		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)

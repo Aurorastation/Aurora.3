@@ -463,6 +463,12 @@
 	if (shock_damage<1)
 		return 0
 
+	var/obj/item/organ/internal/augment/tesla/T = src.internal_organs_by_name["tesla_spine"]
+	if(T)
+		if(T.check_shock())
+			T.actual_charges = min(T.actual_charges+1, T.max_charges)
+			return
+
 	if(!def_zone)
 		//The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
 		switch ((h_style == "Floorlength Braid" || h_style == "Very Long Hair") ? rand(1, 7) : rand(1, 6))

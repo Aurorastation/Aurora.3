@@ -13,3 +13,10 @@
 	path = /obj/item/organ/internal/augment/timepiece
 	cost = 1
 
+
+/datum/gear/augment/telsa_spine
+	display_name = "tesla spine"
+	description = "An augment that allows the user to consult the time anywhere."
+	path = /obj/item/organ/internal/augment/tesla
+	cost = 5
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")

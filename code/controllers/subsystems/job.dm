@@ -899,17 +899,10 @@
 			if(!G.augment)
 				continue
 
-			var/metadata
-			var/list/gear_test = prefs.gear[G.display_name]
-			if(gear_test?.len)
-				metadata = gear_test
-			else
-				metadata = list()
-
-			var/obj/item/organ/A = G.spawn_item(H, metadata)
-			A.replaced(H, A.parent_organ)
+			var/obj/item/organ/A = new G.path (H)
+			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+			A.replaced(H, affected)
 			H.update_body()
-			to_world("<font size='15' color='red'><b>[A]</b></font>")
 
 	Debug("EC/([H]): Complete.")
 	return TRUE

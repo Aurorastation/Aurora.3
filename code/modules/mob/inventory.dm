@@ -323,7 +323,13 @@ var/list/slot_equipment_priority = list( \
 
 	var/atom/movable/item = src.get_active_hand()
 
-	if(!item) return
+	if(!item)
+		return
+
+	if (istype(item, /obj/item))
+		var/obj/item/F = item
+		if(!F.canremove)
+			return
 
 	if (istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
