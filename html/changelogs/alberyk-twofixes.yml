@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed species temperature discomfort messages not working."
-  - bugfix: "Fixed the spicy Ras'val clams spawning with a broken reagent, also changed the recipe to match it now; it should use capsaicin instead of black pepper."
