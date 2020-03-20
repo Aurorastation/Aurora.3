@@ -155,10 +155,20 @@
 	parent_organ = BP_CHEST
 	augment_type = /obj/item/combitool/robotic
 
+/obj/item/organ/internal/augment/health_scanner
+	name = "integrated health scanner"
+	icon_state = "health_scanner"
+	organ_tag = "health_scanner"
+
+/obj/item/organ/internal/augment/health_scanner/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+		health_scan_mob(owner, owner)
+
 /obj/item/organ/internal/augment/tesla
 	name = "tesla spine"
 	icon_state = "tesla_spine"
-	parent_organ = BP_CHEST
 	organ_tag = "tesla_spine"
 	var/max_charges = 1
 	var/actual_charges = 0
