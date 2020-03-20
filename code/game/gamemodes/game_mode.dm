@@ -260,34 +260,7 @@ var/global/list/additional_antag_types = list()
 		return
 
 	var/list/reasons = list(
-		"political instability",
-		"quantum fluctuations",
-		"hostile raiders",
-		"derelict station debris",
-		"REDACTED",
-		"ancient alien artillery",
-		"solar magnetic storms",
-		"sentient time-travelling killbots",
-		"gravitational anomalies",
-		"wormholes to another dimension",
-		"a telescience mishap",
-		"radiation flares",
-		"supermatter dust",
-		"leaks into a negative reality",
-		"antiparticle clouds",
-		"residual bluespace energy",
-		"suspected criminal operatives",
-		"malfunctioning von Neumann probe swarms",
-		"shadowy interlopers",
-		"a stranded Vox arkship",
-		"haywire IPC constructs",
-		"rogue Unathi exiles",
-		"artifacts of eldritch horror",
-		"a brain slug infestation",
-		"killer bugs that lay eggs in the husks of the living",
-		"a deserted transport carrying xenomorph specimens",
-		"an emissary for the gestalt requesting a security detail",
-		"classified security operations"
+		"armed groups"
 		)
 	command_announcement.Announce("The presence of [pick(reasons)] in the region is tying up all available local emergency resources; emergency response teams cannot be called at this time, and post-evacuation recovery efforts will be substantially delayed.","Emergency Transmission")
 

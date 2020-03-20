@@ -511,4 +511,6 @@
 	if(LAZYLEN(pilots))
 		if(body)
 			if(body.smash(AM))
-				setMoveCooldown(10)
+				for(var/thing in pilots)
+					var/mob/pilot = thing
+					pilot.setMoveCooldown(10)

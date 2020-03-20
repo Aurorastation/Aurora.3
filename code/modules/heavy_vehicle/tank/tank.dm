@@ -2,11 +2,13 @@
 	name = "tank hull"
 	icon_state = "pra_hull"
 	mech_health = 1000
+	max_damage = 190
+	pilot_coverage = 100
 	has_hardpoints = list(HARDPOINT_BACK)
 
 /obj/item/mech_component/chassis/tank/prebuild()
 	. = ..()
-	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/tank(src)
 	cell = new /obj/item/cell/tank(src)
 
 /obj/item/mech_component/chassis/tank/emp_act(var/severity)
@@ -22,6 +24,13 @@
 			H.apply_damage(30, BRUTE)
 			H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 			H.apply_effect(4, WEAKEN)
+			return TRUE
+
+		if(istype(AM, /mob/living/heavy_vehicle))
+			var/mob/living/heavy_vehicle/T = AM
+			src.visible_message("<span class='danger'>\The [src] rams into \the [T]!</span>")
+			playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
+			T.apply_damage(30, BRUTE)
 			return TRUE
 
 		if(isanimal(AM))
@@ -45,13 +54,13 @@
 			return TRUE
 
 	else
-		AM.ex_act(1)
+		AM.ex_act(2)
 	return TRUE
 
 /obj/item/mech_component/sensors/tank
 	name = "turret"
 	icon_state = "pra_turret"
-	max_damage = 300
+	max_damage = 170
 
 /obj/item/mech_component/sensors/tank/prebuild()
 	..()
@@ -65,7 +74,9 @@
 /obj/item/mech_component/propulsion/tracks/tank
 	trample_damage = 45
 	icon_state = "treads"
-	max_damage = 450
+	max_damage = 130
+	move_delay = 3 //Its fast
+	turn_delay = 5
 
 /obj/item/mech_component/propulsion/tracks/tank/emp_act(var/severity)
 	return
@@ -74,6 +85,7 @@
 	name = "weapon mount"
 	icon_state = "weaponmount"
 	has_hardpoints = list(HARDPOINT_CANNON, HARDPOINT_MG)
+	max_damage = 120
 
 /obj/item/mech_component/manipulators/tank/emp_act(var/severity)
 	return
@@ -108,7 +120,7 @@
 	name = "tankgun"
 	desc = "A weapon designated for tanks, fires big bullets."
 	fire_sound = 'sound/effects/Explosion1.ogg'
-	max_shots = 2
+	max_shots = 3
 	projectile_type = /obj/item/projectile/bullet/cannon
 	recharge_time = 20
 
