@@ -17,7 +17,6 @@
 	var/can_plate = 1
 
 	var/manipulating = 0
-	var/material/material = null
 	var/material/reinforced = null
 
 	// Gambling tables. I'd prefer reinforced with carpet/felt/cloth/whatever, but AFAIK it's either harder or impossible to get /obj/item/stack/material of those.
@@ -302,7 +301,7 @@
 	if(full_return || prob(20))
 		new /obj/item/stack/material/steel(src.loc)
 	else
-		var/material/M = get_material_by_name(DEFAULT_WALL_MATERIAL)
+		var/material/M = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 		S = M.place_shard(loc)
 		if(S) shards += S
 	qdel(src)

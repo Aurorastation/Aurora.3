@@ -7,7 +7,7 @@
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	amount = 10
 
-	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
+	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
 
 /obj/item/stack/nanopaste/update_icon()
 	var/amount = round(get_amount() / 2)

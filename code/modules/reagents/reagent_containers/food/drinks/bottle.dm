@@ -15,7 +15,7 @@
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 5
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
-	matter = list("glass" = 800)
+	matter = list(MATERIAL_GLASS = 800)
 
 	var/obj/item/reagent_containers/glass/rag/rag = null
 	var/rag_underlay = "rag"

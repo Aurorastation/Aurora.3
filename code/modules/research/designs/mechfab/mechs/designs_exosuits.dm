@@ -67,7 +67,7 @@
 	build_path = /obj/item/robot_parts/robot_component/armor/mech/em
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 12500, "silver" = 1000)
+	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_SILVER = 1000)
 
 /datum/design/item/mechfab/exosuit/combat_armour
 	name = "combat exosuit armor"
@@ -75,7 +75,7 @@
 	build_path = /obj/item/robot_parts/robot_component/armor/mech/combat
 	time = 50
 	req_tech = list(TECH_MATERIAL = 4, TECH_COMBAT = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 20000, "diamond" = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_DIAMOND = 5000)
 
 /datum/design/item/mechfab/exosuit/control_module
 	name = "exosuit control module"
@@ -188,7 +188,7 @@
 	name = "heavy exosuit chassis"
 	id = "heavy_body"
 	time = 75
-	materials = list(DEFAULT_WALL_MATERIAL = 70000, "uranium" = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 70000, MATERIAL_URANIUM = 10000)
 	build_path = /obj/item/mech_component/chassis/heavy
 
 /datum/design/item/mechfab/exosuit/heavy_arms
@@ -268,7 +268,7 @@
 /datum/design/item/mechfab/exosuit/plasma
 	name = "mounted plasma cutter"
 	id = "mech_plasma"
-	materials = list(DEFAULT_WALL_MATERIAL = 2000, "glass" = 1000, "gold" = 1000, "phoron" = 1000)
+	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 1000, MATERIAL_GOLD = 1000, MATERIAL_PHORON = 1000)
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	build_path = /obj/item/mecha_equipment/mounted_system/plasmacutter
 
@@ -290,21 +290,21 @@
 	name = "RFD-C"
 	id = "mech_rcd"
 	time = 90
-	materials = list(DEFAULT_WALL_MATERIAL = 30000, "phoron" = 25000, "steel" = 15000, "gold" = 15000)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_PHORON = 25000, DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GOLD = 15000)
 	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 3, TECH_MAGNET = 4, TECH_POWER = 4, TECH_ENGINEERING = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/rfd
 
 /datum/design/item/mechfab/exosuit/floodlight
 	name = "floodlight"
 	id = "mech_floodlight"
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 5000)
 	req_tech = list(TECH_ENGINEERING = 1)
 	build_path = /obj/item/mecha_equipment/light
 
 /datum/design/item/mechfab/exosuit/sleeper
 	name = "mounted sleeper"
 	id   = "mech_sleeper"
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 10000)
 	build_path = /obj/item/mecha_equipment/sleeper
 
 /datum/design/item/mechfab/exosuit/extinguisher
@@ -318,27 +318,27 @@
 	id = "xray_gun"
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4, TECH_MATERIAL = 5, TECH_ILLEGAL = 3)
 	build_path = /obj/item/mecha_equipment/mounted_system/xray
-	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000, "phoron" = 6000)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000)
 
 /datum/design/item/mechfab/exosuit/flashbang
 	name = "flashbang launcher"
 	id = "flashbang_launcher"
 	req_tech = list(TECH_COMBAT = 3)
 	build_path = /obj/item/mecha_equipment/mounted_system/grenadeflash
-	materials = list(DEFAULT_WALL_MATERIAL = 20000, "gold" = 6000, "phoron" = 6000)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GOLD = 6000, MATERIAL_PHORON = 6000)
 
 /datum/design/item/mechfab/exosuit/crisisdrone
 	name = "crisis drone"
 	id = "crisis_drone"
 	build_path = /obj/item/mecha_equipment/crisis_drone
 	req_tech = list(TECH_MAGNET = 3, TECH_DATA = 3, TECH_BIO = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 10000, "gold" = 1000, "silver" = 2000, "glass" = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GOLD = 1000, MATERIAL_SILVER = 2000, MATERIAL_GLASS = 5000)
 
 /datum/design/item/mechfab/exosuit/analyzer
 	name = "mounted health analyzer"
 	id   = "mech_analyzer"
 	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 5000)
 	build_path = /obj/item/mecha_equipment/mounted_system/medanalyzer
 
 /datum/design/item/mechfab/exosuit/flaregun

@@ -3,7 +3,7 @@
 	if(!C || !user)
 		return 0
 
-	if(flooring)
+	if(flooring && user.a_intent != I_HURT)
 		if(C.iscrowbar())
 			if(broken || burnt)
 				to_chat(user, "<span class='notice'>You remove the broken [flooring.descriptor].</span>")

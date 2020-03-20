@@ -267,7 +267,7 @@
 /obj/item/book/manual/medical_cloning
 	name = "Cloning Techniques of the 26th Century"
 	icon_state = "bookCloning"
-	icon_state = "bookCloning"
+	item_state = "book9"
 	author = "Medical Journal, volume 3"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Cloning Techniques of the 26th Century"
 

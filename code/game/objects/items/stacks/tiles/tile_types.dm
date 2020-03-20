@@ -101,7 +101,7 @@
 	throw_range = 20
 	flags = 0
 	drop_sound = 'sound/items/drop/clothing.ogg'
-	matter = list("plastic" = 937.5)
+	matter = list(MATERIAL_PLASTIC = 937.5)
 
 /obj/item/stack/tile/lino_grey
 	name = "linoleum"
@@ -114,7 +114,7 @@
 	throw_range = 20
 	flags = 0
 	drop_sound = 'sound/items/drop/clothing.ogg'
-	matter = list("plastic" = 937.5)
+	matter = list(MATERIAL_PLASTIC = 937.5)
 
 /*
  * Circuits
@@ -126,7 +126,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_bcircuit"
 	force = 6.0
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5,"glass" = 937.5)
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5, MATERIAL_GLASS = 937.5)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -138,7 +138,7 @@
 	desc = "An advanced tile covered in various circuitry and wiring."
 	icon_state = "tile_gcircuit"
 	force = 6.0
-	matter = list(DEFAULT_WALL_MATERIAL = 937.5,"glass" = 937.5)
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5, MATERIAL_GLASS = 937.5)
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -170,13 +170,13 @@
 	name = "steel floor tile"
 	singular_name = "steel floor tile"
 	icon_state = "tile_steel"
-	matter = list("plasteel" = 937.5)
+	matter = list(MATERIAL_PLASTEEL = 937.5)
 
 /obj/item/stack/tile/floor_white
 	name = "white floor tile"
 	singular_name = "white floor tile"
 	icon_state = "tile_white"
-	matter = list("plastic" = 937.5)
+	matter = list(MATERIAL_PLASTIC = 937.5)
 
 /obj/item/stack/tile/floor_yellow
 	name = "yellow floor tile"
@@ -188,43 +188,43 @@
 	name = "dark floor tile"
 	singular_name = "dark floor tile"
 	icon_state = "fr_tile"
-	matter = list("plasteel" = 937.5)
+	matter = list(MATERIAL_PLASTEEL = 937.5)
 
 /obj/item/stack/tile/floor_freezer
 	name = "freezer floor tile"
 	singular_name = "freezer floor tile"
 	icon_state = "tile_freezer"
-	matter = list("plastic" = 937.5)
+	matter = list(MATERIAL_PLASTIC = 937.5)
 
 /obj/item/stack/tile/silver
 	name = "silver floor tile"
 	singular_name = "silver floor tile"
 	icon_state = "tile_silver"
-	matter = list("silver" = 937.5)
+	matter = list(MATERIAL_SILVER = 937.5)
 
 /obj/item/stack/tile/gold
 	name = "golden floor tile"
 	singular_name = "golden floor tile"
 	icon_state = "tile_gold"
-	matter = list("gold" = 937.5)
+	matter = list(MATERIAL_GOLD = 937.5)
 
 /obj/item/stack/tile/uranium
 	name = "uranium floor tile"
 	singular_name = "uranium floor tile"
 	icon_state = "tile_uranium"
-	matter = list("uranium" = 937.5)
+	matter = list(MATERIAL_URANIUM = 937.5)
 
 /obj/item/stack/tile/phoron
 	name = "phoron floor tile"
 	singular_name = "phoron floor tile"
 	icon_state = "tile_plasma"
-	matter = list("phoron" = 937.5)
+	matter = list(MATERIAL_PHORON = 937.5)
 
 /obj/item/stack/tile/diamond
 	name = "diamond floor tile"
 	singular_name = "diamond floor tile"
 	icon_state = "tile_diamond"
-	matter = list("diamond" = 937.5)
+	matter = list(MATERIAL_DIAMOND = 937.5)
 
 /*
  * Cyborg modules
