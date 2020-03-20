@@ -735,23 +735,8 @@
 			silent = 0
 			return 1
 
-		if(hallucination)
-			//Machines do not hallucinate.
-			if(hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
-				if(prob(3))
-					fake_attack(src)
-				if(!handling_hal)
-					spawn handle_hallucinations() //The not boring kind!
-
-			if(hallucination<=2)
-				hallucination = 0
-				adjustHalLoss(0)
-			else
-				hallucination -= 2
-
-		else
-			for(var/atom/a in hallucinations)
-				qdel(a)
+		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
+			handle_hallucinations() 
 
 		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
@@ -777,7 +762,7 @@
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
-			if(prob(2) && health && !hal_crit && !failed_last_breath && !isSynthetic())
+			if(prob(2) && health && !failed_last_breath && !isSynthetic())
 				if(!paralysis)
 					emote("snore")
 				else
@@ -986,12 +971,12 @@
 				pressure.icon_state = new_pressure
 
 		if(toxin)
-			var/new_tox = (hal_screwyhud == 4 || phoron_alert) ? "tox1" : "tox0"
+			var/new_tox = (phoron_alert) ? "tox1" : "tox0"
 			if (toxin.icon_state != new_tox)
 				toxin.icon_state = new_tox
 
 		if(oxygen)
-			var/new_oxy = (hal_screwyhud == 3 || oxygen_alert) ? "oxy1" : "oxy0"
+			var/new_oxy = (oxygen_alert) ? "oxy1" : "oxy0"
 			if (oxygen.icon_state != new_oxy)
 				oxygen.icon_state = new_oxy
 
