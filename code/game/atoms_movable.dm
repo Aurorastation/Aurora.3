@@ -296,3 +296,6 @@
 
 /atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
 	return FALSE
+
+/atom/movable/proc/get_bullet_impact_effect_type()
+	return BULLET_IMPACT_NONE
