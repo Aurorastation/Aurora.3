@@ -2,11 +2,15 @@
 	station_area = 1
 
 /area/assembly/chargebay
-	name = "\improper Robotics Charging Bay"
+	name = "\improper Mech Bay"
 	icon_state = "mechbay"
 
 /area/assembly/robotics
 	name = "\improper Robotics Lab"
+	icon_state = "robotics"
+
+/area/assembly/robotics/workshop
+	name = "\improper Robotics Workshop"
 	icon_state = "robotics"
 
 /area/assembly/robotics_cyborgification

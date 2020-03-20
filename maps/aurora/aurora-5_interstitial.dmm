@@ -10003,9 +10003,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
-"Ie" = (
-/turf/simulated/open/airless,
-/area/mine/unexplored)
 "Im" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -34538,8 +34535,8 @@ aa
 aa
 aa
 mi
-Ie
-Ie
+aB
+aB
 IC
 aa
 aa
@@ -34795,8 +34792,8 @@ aa
 aa
 aa
 mi
-Ie
-Ie
+aB
+aB
 IC
 aa
 aa
