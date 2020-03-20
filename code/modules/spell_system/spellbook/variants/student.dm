@@ -23,7 +23,6 @@
 				/spell/targeted/projectile/magic_missile =		1,
 				/spell/aoe_turf/conjure/forcewall =				1,
 				/spell/shadow_shroud =							1,
-				/spell/targeted/raise_dead =					2,
 				/obj/structure/closet/wizard/armor =			1,
 				/obj/item/gun/energy/staff/focus =				1,
 				/obj/item/storage/belt/wands/full =				2,
