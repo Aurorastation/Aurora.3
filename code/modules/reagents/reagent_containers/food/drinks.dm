@@ -1,14 +1,15 @@
 //drink_flags defines
 #define NO_EMPTY_ICON 1		//does NOT have an iconstate_empty icon. If adding empty icons for a drink, make sure it does not have this flag
 #define UNIQUE_EMPTY_ICON 2	//Uses the empty_icon_state listed. Should really only be used when one trash state applies to multiple drinks. Remove if one is added
-#define IS_GLASS 4		//Container is glass. Affects shattering, unacidable, etc. 
+#define IS_GLASS 4		//Container is glass. Affects shattering, unacidable, etc.
 
 /*
 Standards for trash/empty states under the /drinks path:
-Trash/Empty states in drinks.dmi should be the icon_state name followed by _empty (ex: whiskeybottle_empty) and the NO_EMPTY_ICON flag should be removed.
-If your trash state applies to multiple drinks, to avoid duplicating sprites, use UNIQUE_EMPTY_ICON and set the empty_icon_state var to that icon state
+Adding Empty States: Trash/Empty states should be placed in the drinks_empty.dmi and should be the drink's icon_state name followed by _empty (ex: whiskeybottle_empty) and the NO_EMPTY_ICON flag should be removed.
+If your trash state applies to multiple drinks, to avoid duplicating sprites, use UNIQUE_EMPTY_ICON and set the empty_icon_state var to that icon state. These will still need to be placed in drinks_empty.dmi
 If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_ICON, else it will turn invisible when empty.
 */
+
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Drinks.
@@ -24,7 +25,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	volume = 50
 	var/shaken = 0
 	var/drink_flags = NO_EMPTY_ICON
-	var/empty_icon_state = null
+	var/empty_icon_state = null	//This icon_state should be the one set in drinks_empty.dmi and ONLY if it's a UNIQUE_EMPTY_ICON
 
 /obj/item/reagent_containers/food/drinks/Initialize()
 	. = ..()
@@ -37,13 +38,16 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/update_icon()
 	if(!reagents.total_volume)
 		if(drink_flags & UNIQUE_EMPTY_ICON)
+			icon = 'icons/obj/drinks_empty.dmi'
 			icon_state = empty_icon_state
 			return
 		if(!(drink_flags & NO_EMPTY_ICON))
+			icon = 'icons/obj/drinks_empty.dmi'
 			icon_state = "[initial(icon_state)]_empty"
 			return
 	else
-		icon_state = initial(icon_state)	//Necessary for refilling empty drinks
+		icon = initial(icon)	//Necessary for refilling empty drinks
+		icon_state = initial(icon_state)
 
 /obj/item/reagent_containers/food/drinks/attack_self(mob/user as mob)
 	if(!is_open_container())

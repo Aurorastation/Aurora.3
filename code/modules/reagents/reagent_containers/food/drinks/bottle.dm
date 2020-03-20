@@ -56,7 +56,7 @@
 	var/obj/item/broken_bottle/B = new /obj/item/broken_bottle(newloc)
 	if(prob(33))
 		new/obj/item/material/shard(newloc) // Create a glass shard at the target's location!
-	B.icon_state = src.icon_state
+	B.icon_state = initial(icon_state)
 
 	var/icon/I = new('icons/obj/drinks.dmi', src.icon_state)
 	I.Blend(B.broken_outline, ICON_OVERLAY, rand(5), 1)
@@ -90,7 +90,7 @@
 		..()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/insert_rag(obj/item/reagent_containers/glass/rag/R, mob/user)
-	if(!(drink_flags & IS_GLASS) || rag) 
+	if(!(drink_flags & IS_GLASS) || rag)
 		return
 	if(user.unEquip(R))
 		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
@@ -367,7 +367,7 @@
 	icon_state = "alco-green" //Placeholder.
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = IS_GLASS | UNIQUE_EMPTY_ICON
-	empty_icon_state = "alco-clear"
+	empty_icon_state = "alco-blue_empty"
 	Initialize()
 		. = ..()
 		reagents.add_reagent("melonliquor", 100)
@@ -376,7 +376,6 @@
 	name = "Miss blue curacao"
 	desc = "A fruity, exceptionally azure drink. Does not allow the imbiber to use the fifth magic."
 	icon_state = "alco-blue" //Placeholder.
-	drink_flags = IS_GLASS | UNIQUE_EMPTY_ICON
 	empty_icon_state = "alco-clear"
 	center_of_mass = list("x"=16, "y"=6)
 	Initialize()
