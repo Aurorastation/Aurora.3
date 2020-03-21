@@ -16,6 +16,8 @@
 	. = ..()
 	install_system(new /obj/item/mecha_equipment/mounted_system/tankcannon(src), HARDPOINT_CANNON)
 	install_system(new /obj/item/mecha_equipment/mounted_system/taser/smg/heavyy(src), HARDPOINT_MG)
+	legs.color = null
+	update_icon()
 
 /mob/living/heavy_vehicle/premade/dpratank
 	name = "Yve’kha MK.III light tank"
@@ -54,4 +56,5 @@
 	. = ..()
 	install_system(new /obj/item/mecha_equipment/mounted_system/tankcannon(src), HARDPOINT_CANNON)
 	install_system(new /obj/item/mecha_equipment/mounted_system/taser/smg/heavyy(src), HARDPOINT_MG)
-
+	legs.color = null
+	update_icon()
