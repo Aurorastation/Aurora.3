@@ -137,17 +137,17 @@
 /obj/item/organ/external/attackby(obj/item/W as obj, mob/user as mob)
 	switch(stage)
 		if(0)
-			if(istype(W,/obj/item/scalpel))
+			if(istype(W,/obj/item/surgery/scalpel))
 				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
 				stage++
 				return
 		if(1)
-			if(istype(W,/obj/item/retractor))
+			if(istype(W,/obj/item/surgery/retractor))
 				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
 				stage++
 				return
 		if(2)
-			if(istype(W,/obj/item/hemostat))
+			if(istype(W,/obj/item/surgery/hemostat))
 				if(contents.len)
 					var/obj/item/removing = pick(contents)
 					removing.forceMove(get_turf(user.loc))

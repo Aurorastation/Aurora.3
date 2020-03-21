@@ -6412,8 +6412,8 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/bonesetter,
-/obj/item/bonegel,
+/obj/item/surgery/bonesetter,
+/obj/item/surgery/bonegel,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
@@ -6527,8 +6527,8 @@
 /area/supply/dock)
 "arN" = (
 /obj/structure/table/standard,
-/obj/item/scalpel,
-/obj/item/circular_saw{
+/obj/item/surgery/scalpel,
+/obj/item/surgery/circular_saw{
 	pixel_y = 8
 	},
 /obj/machinery/light/small{
@@ -6550,7 +6550,7 @@
 /obj/item/reagent_containers/syringe,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/gloves/latex,
-/obj/item/surgicaldrill,
+/obj/item/surgery/surgicaldrill,
 /obj/structure/closet/secure_closet/medical_wall{
 	pixel_x = 32;
 	pixel_y = 0;
@@ -6623,9 +6623,9 @@
 /area/supply/dock)
 "asa" = (
 /obj/structure/table/standard,
-/obj/item/cautery,
-/obj/item/hemostat,
-/obj/item/FixOVein,
+/obj/item/surgery/cautery,
+/obj/item/surgery/hemostat,
+/obj/item/surgery/FixOVein,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
@@ -6639,7 +6639,7 @@
 "asc" = (
 /obj/structure/table/standard,
 /obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/retractor,
+/obj/item/surgery/retractor,
 /obj/item/device/radio/intercom{
 	desc = "Talk through this. Evilly";
 	frequency = 1213;
@@ -8226,25 +8226,25 @@
 /area/centcom/specops)
 "ayi" = (
 /obj/structure/closet/crate/medical,
-/obj/item/circular_saw,
-/obj/item/surgicaldrill,
-/obj/item/bonegel{
+/obj/item/surgery/circular_saw,
+/obj/item/surgery/surgicaldrill,
+/obj/item/surgery/bonegel{
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/item/bonesetter,
-/obj/item/scalpel,
-/obj/item/retractor{
+/obj/item/surgery/bonesetter,
+/obj/item/surgery/scalpel,
+/obj/item/surgery/retractor{
 	pixel_x = 0;
 	pixel_y = 6
 	},
-/obj/item/hemostat{
+/obj/item/surgery/hemostat{
 	pixel_y = 4
 	},
-/obj/item/cautery{
+/obj/item/surgery/cautery{
 	pixel_y = 4
 	},
-/obj/item/FixOVein{
+/obj/item/surgery/FixOVein{
 	pixel_x = -6;
 	pixel_y = 1
 	},
@@ -11091,11 +11091,11 @@
 /area/skipjack_station/start)
 "aHG" = (
 /obj/structure/table/standard,
-/obj/item/circular_saw{
+/obj/item/surgery/circular_saw{
 	pixel_y = 8
 	},
-/obj/item/hemostat,
-/obj/item/scalpel,
+/obj/item/surgery/hemostat,
+/obj/item/surgery/scalpel,
 /obj/item/stack/medical/advanced/bruise_pack,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
@@ -11144,8 +11144,8 @@
 /area/skipjack_station/start)
 "aHO" = (
 /obj/structure/table/standard,
-/obj/item/cautery,
-/obj/item/retractor,
+/obj/item/surgery/cautery,
+/obj/item/surgery/retractor,
 /obj/item/reagent_containers/glass/bottle/stoxin,
 /obj/item/reagent_containers/glass/bottle/stoxin,
 /obj/item/reagent_containers/syringe,
@@ -11175,9 +11175,9 @@
 /area/skipjack_station/start)
 "aHR" = (
 /obj/structure/table/standard,
-/obj/item/bonesetter,
-/obj/item/bonegel,
-/obj/item/FixOVein,
+/obj/item/surgery/bonesetter,
+/obj/item/surgery/bonegel,
+/obj/item/surgery/FixOVein,
 /obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle{
@@ -12394,10 +12394,10 @@
 /area/centcom/ferry)
 "aLA" = (
 /obj/structure/table/standard,
-/obj/item/cautery{
+/obj/item/surgery/cautery{
 	pixel_y = 4
 	},
-/obj/item/hemostat{
+/obj/item/surgery/hemostat{
 	pixel_y = 4
 	},
 /turf/unsimulated/floor{
@@ -12814,7 +12814,7 @@
 /area/centcom/spawning)
 "aMz" = (
 /obj/structure/table/standard,
-/obj/item/FixOVein{
+/obj/item/surgery/FixOVein{
 	pixel_x = -6;
 	pixel_y = 1
 	},
@@ -14160,8 +14160,8 @@
 /area/centcom/holding)
 "aPA" = (
 /obj/structure/table/standard,
-/obj/item/surgicaldrill,
-/obj/item/circular_saw,
+/obj/item/surgery/surgicaldrill,
+/obj/item/surgery/circular_saw,
 /turf/unsimulated/floor{
 	icon_state = "whitecorner";
 	dir = 8
@@ -15505,11 +15505,11 @@
 /area/shuttle/administration/centcom)
 "aSC" = (
 /obj/structure/table/standard,
-/obj/item/retractor{
+/obj/item/surgery/retractor{
 	pixel_x = 0;
 	pixel_y = 6
 	},
-/obj/item/scalpel,
+/obj/item/surgery/scalpel,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1";
@@ -18224,8 +18224,8 @@
 /area/centcom/specops)
 "aYH" = (
 /obj/structure/table/standard,
-/obj/item/bonesetter,
-/obj/item/bonegel{
+/obj/item/surgery/bonesetter,
+/obj/item/surgery/bonegel{
 	pixel_x = 4;
 	pixel_y = 3
 	},

@@ -891,12 +891,12 @@ proc/is_hot(obj/item/W as obj)
 
 /proc/is_surgery_tool(obj/item/W as obj)
 	return (	\
-	istype(W, /obj/item/scalpel)			||	\
-	istype(W, /obj/item/hemostat)		||	\
-	istype(W, /obj/item/retractor)		||	\
-	istype(W, /obj/item/cautery)			||	\
-	istype(W, /obj/item/bonegel)			||	\
-	istype(W, /obj/item/bonesetter)
+	istype(W, /obj/item/surgery/scalpel)			||	\
+	istype(W, /obj/item/surgery/hemostat)		||	\
+	istype(W, /obj/item/surgery/retractor)		||	\
+	istype(W, /obj/item/surgery/cautery)			||	\
+	istype(W, /obj/item/surgery/bonegel)			||	\
+	istype(W, /obj/item/surgery/bonesetter)
 	)
 
 /proc/is_borg_item(obj/item/W as obj)

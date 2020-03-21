@@ -462,7 +462,7 @@
 	if (O.is_open_container())
 		return 0
 
-	if(O.iswirecutter() || istype(O, /obj/item/scalpel))
+	if(O.iswirecutter() || istype(O, /obj/item/surgery/scalpel))
 
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")

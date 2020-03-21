@@ -647,6 +647,10 @@
 	description_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
 	description_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
 	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "caution"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	force = 1
