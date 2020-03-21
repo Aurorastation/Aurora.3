@@ -11,7 +11,7 @@
 		return ..()
 
 	var/static/list/barrel_cutting_tools = typecacheof(list(
-		/obj/item/circular_saw,
+		/obj/item/surgery/circular_saw,
 		/obj/item/melee/energy,
 		/obj/item/gun/energy/plasmacutter	// does this even work?
 	))

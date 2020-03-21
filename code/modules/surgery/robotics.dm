@@ -56,7 +56,7 @@
 
 /datum/surgery_step/robotics/open_hatch
 	allowed_tools = list(
-		/obj/item/retractor = 100,
+		/obj/item/surgery/retractor = 100,
 		/obj/item/crowbar = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
@@ -88,7 +88,7 @@
 
 /datum/surgery_step/robotics/close_hatch
 	allowed_tools = list(
-		/obj/item/retractor = 100,
+		/obj/item/surgery/retractor = 100,
 		/obj/item/crowbar = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
@@ -198,7 +198,7 @@
 /datum/surgery_step/robotics/fix_organ_robotic //For artificial organs
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
-	/obj/item/bonegel = 30,
+	/obj/item/surgery/bonegel = 30,
 	/obj/item/screwdriver = 70
 	)
 
