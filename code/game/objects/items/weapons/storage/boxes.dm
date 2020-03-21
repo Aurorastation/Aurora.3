@@ -25,7 +25,7 @@
 	name = "box"
 	desc = "It's just an ordinary box."
 	icon_state = "box"
-	item_state = "syringe_kit"
+	item_state = "box"
 	center_of_mass = list("x" = 13,"y" = 10)
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
@@ -360,7 +360,7 @@
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."
 	icon_state = "implant"
-	item_state = "syringe_kit"
+	item_state = "box"
 	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6)
 
 /obj/item/storage/box/condimentbottles
@@ -501,7 +501,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "light"
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
-	item_state = "syringe_kit"
+	item_state = "box"
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
 
 /obj/item/storage/box/lights/Initialize()	// TODO-STORAGE: Initialize()?
@@ -584,6 +584,10 @@
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
 	icon = 'icons/obj/storage.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = 3
@@ -594,9 +598,8 @@
 	/obj/item/storage/box/freezer/organcooler
 	name = "organ cooler"
 	desc = "A sealed, cooled container to keep organs from decaying."
-	icon = 'icons/obj/storage.dmi'
 	icon_state = "organcooler"
-	item_state = "firstaid-advanced"
+	item_state = "advfirstaid"
 	max_w_class = ITEMSIZE_NORMAL
 	foldable = FALSE
 	w_class = ITEMSIZE_LARGE
@@ -606,7 +609,6 @@
 		/obj/item/reagent_containers/glass,
 		/obj/item/gun
 	)
-	use_to_pickup = FALSE
 	storage_slots = 2
 
 /obj/item/storage/box/kitchen

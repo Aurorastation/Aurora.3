@@ -1,6 +1,10 @@
 /obj/item/implanter
 	name = "implanter"
 	icon = 'icons/obj/items.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	icon_state = "implanter0"
 	item_state = "syringe_0"
 	throw_speed = 1
