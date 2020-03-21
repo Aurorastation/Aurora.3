@@ -190,6 +190,14 @@
 			dismantle_verb = "cutting"
 			dismantle_sound = 'sound/items/Welder.ogg'
 			cut_delay *= 0.7
+		else if(istype(W, /obj/item/gun/energy/plasmacutter))
+			var/obj/item/gun/energy/plasmacutter/PC = W
+			if(!PC.power_supply)
+				to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+				return
+			dismantle_sound = "zapping and melting"
+			dismantle_verb = "slicing"
+			cut_delay *= 0.8
 		else if(istype(W,/obj/item/melee/energy))
 			var/obj/item/melee/energy/WT = W
 			if(WT.active)

@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Plasma cutters can now have their power cells removed with screwdrivers, and replaced by using the power cells on them."
+  - tweak: "Plasma cutters now do 20 damage, up from 15."
+  - rscadd: "More things can now be disassembled with the plasma cutter. Non-reinforced walls, non-reinforced tables, grills, machine frames."
