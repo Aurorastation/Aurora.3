@@ -237,14 +237,6 @@
 	explosion(A, -1, 0, 2)
 	..()
 
-/obj/item/projectile/bullet/cannon/on_hit(var/atom/target, var/blocked = 0)
-	explosion(target, -1, 0, 2)
-	sleep(0)
-	var/obj/T = target
-	var/throwdir = get_dir(firer,target)
-	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
-	return 1
-
 //magic
 
 /obj/item/projectile/magic
