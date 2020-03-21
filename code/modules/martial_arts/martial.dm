@@ -174,7 +174,12 @@
 	name = "SolCom manual"
 	desc = "A manual designated to teach the user about the martial art of solarian combat, a style based on traditional human martial arts."
 	icon = 'icons/obj/library.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
+		)
 	icon_state ="cqcmanual"
+	item_state ="book1"
 	var/martial_art = /datum/martial_art/sol_combat
 
 /obj/item/martial_manual/attack_self(mob/user as mob)

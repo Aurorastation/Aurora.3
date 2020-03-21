@@ -165,7 +165,7 @@
 
 /obj/item/clothing/suit/bomb_suit/security
 	icon_state = "bombsuitsec"
-	allowed = list(/obj/item/gun/energy,/obj/item/melee/baton,/obj/item/handcuffs)
+	allowed = list(/obj/item/gun/energy, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/wirecutters/bomb)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 
 /*

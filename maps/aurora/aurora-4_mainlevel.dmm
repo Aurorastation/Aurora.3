@@ -5814,10 +5814,6 @@
 	pixel_y = 4
 	},
 /obj/item/storage/box/trackimp,
-/obj/item/storage/lockbox/loyalty{
-	pixel_x = 4;
-	pixel_y = -4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "alG" = (

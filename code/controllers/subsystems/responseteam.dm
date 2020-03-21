@@ -35,21 +35,11 @@
 	..(out)
 
 /datum/controller/subsystem/responseteam/proc/pick_random_team()
-	var/datum/responseteam/result
-	var/probability = rand(1, 100)
-	var/tally = 0
-	for(var/datum/responseteam/ert in available_teams) //We need a loop to keep going through each candidate to be sure we find a good result.
-		if((ert.chance + tally) <= probability) //Check every available ERT's chance. Keep going until we add enough to the tally so that we have a certain result.
-			tally += ert.chance
-			continue
-		result = ert
-		break
+	var/list/datum/responseteam/possible_teams = list()
+	for(var/datum/responseteam/ert in available_teams)
+		possible_teams[ert] = ert.chance
 
-	if(!result)
-		log_debug("SSresponseteam: We didn't find an ERT pick result!")
-		return pick(available_teams)
-	else
-		return result
+	return pickweight(possible_teams)
 
 
 /datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice = null)

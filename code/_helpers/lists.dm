@@ -684,3 +684,9 @@ proc/dd_sortedTextList(list/incoming)
 			max = mid
 		else
 			min = mid+1
+
+/proc/filter_list(var/list/L, var/type)
+	. = list()
+	for(var/entry in L)
+		if(istype(entry, type))
+			. += entry

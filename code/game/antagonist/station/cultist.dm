@@ -17,7 +17,7 @@ var/datum/antagonist/cultist/cult
 	role_text = "Cultist"
 	role_text_plural = "Cultists"
 	bantype = "cultist"
-	restricted_jobs = list("Chaplain","AI", "Cyborg", "Internal Affairs Agent", "Head of Security", "Captain")
+	restricted_jobs = list("Chaplain","AI", "Cyborg", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	feedback_tag = "cult_objective"
 	antag_indicator = "cult"
@@ -102,7 +102,7 @@ var/datum/antagonist/cultist/cult
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
 		return FALSE
-	for(var/obj/item/implant/loyalty/L in player.current)
+	for(var/obj/item/implant/mindshield/L in player.current)
 		if(L?.imp_in == player.current)
 			return FALSE
 	return TRUE
