@@ -698,7 +698,7 @@
 	name = "produce box"
 	desc = "A large box of random, leftover produce."
 	icon_state = "largebox"
-	starts_with = list(/obj/random_produce = 12)
+	starts_with = list(/obj/random_produce/box = 15)
 
 /obj/item/storage/box/produce/fill()
 	. = ..()
