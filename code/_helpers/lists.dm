@@ -397,7 +397,7 @@
 	return sorted_text
 
 
-proc/dd_sortedTextList(list/incoming)
+/proc/dd_sortedTextList(list/incoming)
 	var/case_sensitive = 1
 	return dd_sortedtextlist(incoming, case_sensitive)
 
