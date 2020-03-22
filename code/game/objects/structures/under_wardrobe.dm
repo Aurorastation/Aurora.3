@@ -22,7 +22,7 @@
 	dat += "<b>Underwear:</b><br>"
 	for(var/datum/category_group/underwear/UWC in global_underwear.categories)
 		var/datum/category_item/underwear/UWI = H.all_underwear[UWC.name]
-		var/item_name = UWI ? UWI.name : "None"
+		var/item_name = UWI?.name || "None"
 		dat += "[UWC.name]: <a href='?src=\ref[src];change_underwear=[UWC.name]'>[item_name]</a>"
 		if(UWI)
 			for(var/datum/gear_tweak/gt in UWI.tweaks)
