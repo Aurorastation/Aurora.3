@@ -75,5 +75,5 @@
 	category = null
 	return ..()
 
-datum/category_item/dd_SortValue()
+/datum/category_item/dd_SortValue()
 	return name
