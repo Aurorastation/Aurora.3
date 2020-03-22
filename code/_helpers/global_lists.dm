@@ -58,7 +58,7 @@ var/global/list/body_marking_styles_list = list()
 var/global/list/chargen_disabilities_list = list()
 var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER)
 
-var/datum/category_collection/underwear/global_underwear = new()
+var/global/list/datum/category_collection/underwear/global_underwear = list()
 
 	//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
