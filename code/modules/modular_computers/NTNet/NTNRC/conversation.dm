@@ -1,5 +1,4 @@
 var/global/ntnrc_uid = 0
-
 /datum/ntnet_conversation/
 	var/id = null
 	var/title = "Untitled Conversation"
@@ -8,11 +7,15 @@ var/global/ntnrc_uid = 0
 	var/list/clients = list()
 	var/password
 
-/datum/ntnet_conversation/New()
+/datum/ntnet_conversation/New(var/name, var/no_operator)
 	id = ntnrc_uid
 	ntnrc_uid++
+	if(name)
+		title = name
 	if(ntnet_global)
 		ntnet_global.chat_channels.Add(src)
+	if(no_operator)
+		operator = "NanoTrasen Information Technology Division" // assign a fake operator
 	..()
 
 /datum/ntnet_conversation/proc/add_message(var/message, var/username, var/mob/user)
@@ -38,7 +41,6 @@ var/global/ntnrc_uid = 0
 	if(!istype(C))
 		return
 	clients.Add(C)
-	add_status_message("[C.username] has joined the channel.")
 	// No operator, so we assume the channel was empty. Assign this user as operator.
 	if(!operator)
 		changeop(C)
@@ -47,7 +49,6 @@ var/global/ntnrc_uid = 0
 	if(!istype(C) || !(C in clients))
 		return
 	clients.Remove(C)
-	add_status_message("[C.username] has left the channel.")
 
 	// Channel operator left, pick new operator
 	if(C == operator)

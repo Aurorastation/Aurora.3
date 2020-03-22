@@ -142,7 +142,7 @@
 	rig.dnaLock = H.dna
 	H.equip_to_slot_or_del(rig, slot_l_hand)
 
-	H.equip_to_slot_or_del(new /obj/item/device/ninja_uplink(H, H.mind), slot_l_store)
+	H.equip_to_slot_or_del(new /obj/item/device/special_uplink/ninja(H, H.mind), slot_l_store)
 
 /datum/outfit/admin/syndicate/mercenary
 	name = "Mercenary"

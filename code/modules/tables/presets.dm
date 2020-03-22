@@ -4,9 +4,9 @@
 
 /obj/structure/table/Initialize()
 	if(table_mat)
-		material = get_material_by_name(table_mat)
+		material = SSmaterials.get_material_by_name(table_mat)
 	if(table_reinf)
-		reinforced = get_material_by_name(table_reinf)
+		reinforced = SSmaterials.get_material_by_name(table_reinf)
 	. = ..()
 
 /obj/structure/table/standard
@@ -45,6 +45,10 @@
 	icon_state = "plain_preview"
 	table_mat = "glass"
 	alpha = 77 // 0.3 * 255
+
+/obj/structure/table/skrell
+	icon_state = "skrell_preview"
+	table_mat = "skrell"
 
 /obj/structure/table/holotable
 	icon_state = "holo_preview"

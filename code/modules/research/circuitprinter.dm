@@ -9,7 +9,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	icon_state = "circuit_imprinter"
 	flags = OPENCONTAINER
 
-	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, "glass" = 0, "gold" = 0, "silver" = 0, "phoron" = 0, "uranium" = 0, "diamond" = 0)
+	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
 	var/list/datum/design/queue = list()
 	var/progress = 0
 
@@ -137,6 +137,9 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/obj/item/stack/material/stack = O
 	var/amount = round(input("How many sheets do you want to add?") as num)
 	if(!O)
+		return
+	if(!Adjacent(user))
+		to_chat(user, "<span class='notice'>\The [src] is too far away for you to insert this.</span>")
 		return
 	if(amount <= 0)//No negative numbers
 		return

@@ -106,7 +106,7 @@ datum/preferences
 	var/list/organ_data = list()
 	var/list/rlimb_data = list()
 	var/list/body_markings = list() // "name" = "#rgbcolor"
-	var/list/player_alt_titles = new()		// the default name of a job like "Medical Doctor"
+	var/list/player_alt_titles = new()		// the default name of a job like "Physician"
 
 	var/list/flavor_texts = list()
 	var/list/flavour_texts_robot = list()

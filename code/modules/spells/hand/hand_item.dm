@@ -8,7 +8,7 @@ Basically: I can use it to target things where I click. I can then pass these ta
 	flags = 0
 	abstract = 1
 	w_class = 5.0
-	icon_state = "spell"
+	icon_state = "grabbed1"
 	var/next_spell_time = 0
 	var/spell/hand/hand_spell
 	var/casts = 0

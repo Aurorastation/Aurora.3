@@ -3,6 +3,7 @@
 	name = "laptop computer"
 	desc = "A portable computer."
 	hardware_flag = PROGRAM_LAPTOP
+	can_reset = TRUE
 	icon_state_unpowered = "laptop-open"
 	icon = 'icons/obj/modular_laptop.dmi'
 	icon_state = "laptop-open"

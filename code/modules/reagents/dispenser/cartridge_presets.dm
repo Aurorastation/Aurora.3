@@ -64,6 +64,7 @@
 	watermelon	spawn_reagent = "watermelonjuice"
 	apple   	spawn_reagent = "applejuice"
 	banana  	spawn_reagent = "banana"
+	root_beer	spawn_reagent = "root_beer"
 
 	// Bar, coffee and tea
 	coffee		spawn_reagent = "coffee"
@@ -74,6 +75,7 @@
 	greentea	spawn_reagent = "greentea"
 	chaitea		spawn_reagent = "chaitea"
 	ciderhot	spawn_reagent = "ciderhot"
+	hot_coco	spawn_reagent = "hot_coco"
 
 	// ERT
 	inaprov		spawn_reagent = "inaprovaline"

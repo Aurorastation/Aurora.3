@@ -56,6 +56,7 @@
 #define LANGUAGE_VOX "Vox-pidgin"
 #define LANGUAGE_CHANGELING "Changeling"
 #define LANGUAGE_BORER "Cortical Link"
+#define LANGUAGE_BORER_HIVEMIND "Cortical Hivemind"
 #define LANGUAGE_CULT "Cult"		// NOT CULTISTS!
 #define LANGUAGE_OCCULT "Occult"
 #define LANGUAGE_TERMINATOR "Hephaestus Darkcomms"	// HKs.

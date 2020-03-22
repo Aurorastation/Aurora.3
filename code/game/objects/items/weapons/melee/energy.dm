@@ -352,13 +352,16 @@
 	shield_power = 150
 	can_block_bullets = 1
 	active = 1
+	var/datum/effect_system/sparks/spark_system
 
 /obj/item/melee/energy/blade/Initialize()
 	. = ..()
+	spark_system = bind_spark(src, 3)
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/melee/energy/blade/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(spark_system)
 	return ..()
 
 /obj/item/melee/energy/blade/deactivate(mob/living/user)

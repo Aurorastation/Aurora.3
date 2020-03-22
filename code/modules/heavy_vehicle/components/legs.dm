@@ -9,6 +9,7 @@
 	var/mech_turn_sound = 'sound/mecha/mechturn.ogg'
 	var/mech_step_sound = 'sound/mecha/mechstep.ogg'
 	var/trample_damage = 5
+	var/hover = FALSE // Can this leg allow you to easily travel z-levels?
 
 /obj/item/mech_component/propulsion/Destroy()
 	QDEL_NULL(motivator)

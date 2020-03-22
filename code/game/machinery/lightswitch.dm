@@ -10,6 +10,7 @@
 	var/on = 1
 	var/area/area = null
 	var/otherarea = null
+	power_channel = LIGHT
 	//	luminosity = 1
 
 /obj/machinery/light_switch/Initialize()
@@ -57,12 +58,8 @@
 		L.update()
 
 /obj/machinery/light_switch/power_change()
-
 	if(!otherarea)
-		if(powered(LIGHT))
-			stat &= ~NOPOWER
-		else
-			stat |= NOPOWER
+		..()
 
 		update_icon()
 

@@ -101,6 +101,6 @@
 /obj/item/martial_manual/unathi
 	name = "kis khan scroll"
 	desc = "A parched scroll.It seems to be drawings of some sort of martial art involving tails."
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "scroll2"
+	icon_state = "scroll"
+	item_state = "scroll"
 	martial_art = /datum/martial_art/kis_khan

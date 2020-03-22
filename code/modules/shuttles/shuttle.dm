@@ -90,6 +90,9 @@
 	if(origin == destination)
 		return
 
+	if(!origin.contents.len || !destination.contents.len)
+		return
+
 	if (docking_controller && !docking_controller.undocked())
 		docking_controller.force_undock()
 

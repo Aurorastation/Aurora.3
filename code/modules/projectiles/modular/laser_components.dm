@@ -2,21 +2,21 @@
 
 /obj/item/device/laser_assembly/medium
 	name = "laser assembly (medium)"
-	icon_state = "medium"
+	base_icon_state = "medium"
 	w_class = 3
 	size = CHASSIS_MEDIUM
 	modifier_cap = 4
 
 /obj/item/device/laser_assembly/large
 	name = "laser assembly (large)"
-	icon_state = "large"
+	base_icon_state = "large"
 	w_class = 4
 	size = CHASSIS_LARGE
 	modifier_cap = 5
 
 /obj/item/device/laser_assembly/admin
 	name = "laser assembly (obscene)"
-	icon_state = "large"
+	base_icon_state = "large"
 	w_class = 4
 	size = CHASSIS_LARGE
 	modifier_cap = 25

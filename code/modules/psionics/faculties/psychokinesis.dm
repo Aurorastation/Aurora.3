@@ -37,11 +37,11 @@
 	cost =            5
 	cooldown =        10
 	min_rank =        PSI_RANK_MASTER
-	use_description = "Click on or otherwise activate an empty hand while on help intent to manifest a psychokinetic tool. Use it in-hand to switch between tool types."
+	use_description = "Click on or otherwise activate an empty hand while on grab intent to manifest a psychokinetic tool. Use it in-hand to switch between tool types."
 	admin_log = FALSE
 
 /datum/psionic_power/psychokinesis/tinker/invoke(var/mob/living/user, var/mob/living/target)
-	if((target && user != target) || user.a_intent != I_HELP)
+	if((target && user != target) || user.a_intent != I_GRAB)
 		return FALSE
 	. = ..()
 	if(.)

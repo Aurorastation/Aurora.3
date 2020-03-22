@@ -4,7 +4,7 @@
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "jar_lid"
 	w_class = 2
-	matter = list("glass" = 200)
+	matter = list(MATERIAL_GLASS = 200)
 	flags = NOBLUDGEON
 	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/rat)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling

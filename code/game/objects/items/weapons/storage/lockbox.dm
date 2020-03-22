@@ -35,7 +35,8 @@
 				to_chat(user, "<span class='warning'>Access Denied</span>")
 		else if(istype(W, /obj/item/melee/energy/blade))
 			if(emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
-				W:spark_system.queue()
+				var/obj/item/melee/energy/blade/blade = W
+				blade.spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
 		if(!locked)
@@ -71,7 +72,7 @@
 		return 1
 
 /obj/item/storage/lockbox/loyalty
-	name = "lockbox of loyalty implants"
+	name = "lockbox of mind shield implants"
 	req_access = list(access_security)
 	starts_with = list(
 		/obj/item/implantcase/loyalty = 3,
@@ -94,7 +95,7 @@
 	name = "medal box"
 	desc = "A locked box used to store medals."
 	icon_state = "medalbox+l"
-	item_state = "syringe_kit"
+	item_state = "box"
 	w_class = 3
 	max_w_class = 2
 	req_access = list(access_captain)

@@ -10,6 +10,11 @@ var/obj/screen/robot_inventory
 
 	var/obj/screen/using
 
+	if(!isrobot(mymob))
+		return
+
+	var/mob/living/silicon/robot/r = mymob
+
 //Radio
 	using = new /obj/screen()
 	using.name = "radio"
@@ -24,15 +29,15 @@ var/obj/screen/robot_inventory
 
 	using = new /obj/screen/module/one()
 	src.adding += using
-	mymob:inv1 = using
+	r.inv1 = using
 
 	using = new /obj/screen/module/two()
 	src.adding += using
-	mymob:inv2 = using
+	r.inv2 = using
 
 	using = new /obj/screen/module/three()
 	src.adding += using
-	mymob:inv3 = using
+	r.inv3 = using
 
 //End of module select
 
@@ -48,11 +53,11 @@ var/obj/screen/robot_inventory
 	action_intent = using
 
 //Cell
-	mymob:cells = new /obj/screen()
-	mymob:cells.icon = 'icons/mob/screen/robot.dmi'
-	mymob:cells.icon_state = "charge-empty"
-	mymob:cells.name = "cell"
-	mymob:cells.screen_loc = ui_toxin
+	r.cells = new /obj/screen()
+	r.cells.icon = 'icons/mob/screen/robot.dmi'
+	r.cells.icon_state = "charge-empty"
+	r.cells.name = "cell"
+	r.cells.screen_loc = ui_toxin
 
 //Health
 	mymob.healths = new /obj/screen()
@@ -92,23 +97,6 @@ var/obj/screen/robot_inventory
 	robot_inventory.screen_loc = ui_borg_inventory
 
 //Temp
-	mymob.bodytemp = new /obj/screen()
-	mymob.bodytemp.icon_state = "temp0"
-	mymob.bodytemp.name = "body temperature"
-	mymob.bodytemp.screen_loc = ui_temp
-
-
-	mymob.oxygen = new /obj/screen()
-	mymob.oxygen.icon = 'icons/mob/screen/robot.dmi'
-	mymob.oxygen.icon_state = "oxy0"
-	mymob.oxygen.name = "oxygen"
-	mymob.oxygen.screen_loc = ui_oxygen
-
-	mymob.fire = new /obj/screen()
-	mymob.fire.icon = 'icons/mob/screen/robot.dmi'
-	mymob.fire.icon_state = "fire0"
-	mymob.fire.name = "fire"
-	mymob.fire.screen_loc = ui_fire
 
 	mymob.pullin = new /obj/screen()
 	mymob.pullin.icon = 'icons/mob/screen/robot.dmi'
@@ -136,6 +124,11 @@ var/obj/screen/robot_inventory
 	mymob.zone_sel.cut_overlays()
 	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
+	// Computer device hud
+
+	r.computer.screen_loc = ui_oxygen
+	r.computer.layer = SCREEN_LAYER
+
 
 	//Handle the gun settings buttons
 	mymob.gun_setting_icon = new /obj/screen/gun/mode(null)
@@ -145,7 +138,18 @@ var/obj/screen/robot_inventory
 
 	mymob.client.screen = null
 
-	mymob.client.screen += list( mymob.throw_icon, mymob.zone_sel, mymob.oxygen, mymob.fire, mymob.hands, mymob.healths, mymob:cells, mymob.pullin, mymob.blind, mymob.flash, robot_inventory, mymob.gun_setting_icon)
+	mymob.client.screen += list(
+		mymob.throw_icon,
+		mymob.zone_sel,
+		mymob.hands,
+		mymob.healths,
+		r.cells,
+		mymob.pullin,
+		mymob.blind,
+		mymob.flash,
+		robot_inventory,
+		mymob.gun_setting_icon,
+		r.computer)
 	mymob.client.screen += src.adding + src.other
 
 	return
@@ -199,12 +203,12 @@ var/obj/screen/robot_inventory
 			if(r.module.emag in r.module.modules)
 				r.module.modules -= r.module.emag
 
-		if(r.malfAImodule)
-			if(!((r.module.malfAImodule in r.module.modules) && r.module.malfAImodule == null))
-				r.module.modules += r.module.malfAImodule
+		if(r.malf_AI_module)
+			if(!((r.module.malf_AI_module in r.module.modules) && r.module.malf_AI_module == null))
+				r.module.modules += r.module.malf_AI_module
 		else
-			if(r.module.malfAImodule in r.module.modules)
-				r.module.modules -= r.module.malfAImodule
+			if(r.module.malf_AI_module in r.module.modules)
+				r.module.modules -= r.module.malf_AI_module
 
 		for(var/atom/movable/A in r.module.modules)
 			if( (A != r.module_state_1) && (A != r.module_state_2) && (A != r.module_state_3) )

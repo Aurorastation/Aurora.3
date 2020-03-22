@@ -16,6 +16,8 @@
 				<span style="font-weight: bold;color: #336699">SPINNING UP</span>
 			{{else data.shuttle_state == "in_transit"}}
 				<span style="font-weight: bold;color: #336699">ENGAGED</span>
+			{{else data.shuttle_state == "halt"}}
+				<span class="bad">NO DESTINATION</span>
 			{{else}}
 				<span class="bad">ERROR</span>
 			{{/if}}

@@ -48,8 +48,8 @@
 	SSmachinery.setup_template_powernets(cables)
 
 /datum/map_template/proc/load_new_z()
-	var/x = round(world.maxx/2)
-	var/y = round(world.maxy/2)
+	var/x = round(world.maxx / 2)
+	var/y = round(world.maxy / 2)
 
 	var/list/bounds = maploader.load_map(file(mappath), x, y, no_changeturf = TRUE)
 	if(!bounds)
@@ -60,32 +60,32 @@
 
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
-	log_game("Z-level [name] loaded at at [x],[y],[world.maxz]")
+	log_game("Z-level [name] loaded at [x], [y], [world.maxz]")
 
 /datum/map_template/proc/load(turf/T, centered = FALSE)
 	if(centered)
-		T = locate(T.x - round(width/2) , T.y - round(height/2) , T.z)
+		T = locate(T.x - round(width / 2) , T.y - round(height / 2) , T.z)
 	if(!T)
 		return
-	if(T.x+width > world.maxx)
+	if(T.x + width > world.maxx)
 		return
-	if(T.y+height > world.maxy)
+	if(T.y + height > world.maxy)
 		return
 
-	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
+	var/list/bounds = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE, no_changeturf = FALSE)
 	if(!bounds)
 		return
 
 	//initialize things that are normally initialized after map load
 	initTemplateBounds(bounds)
 
-	log_game("[name] loaded at at [T.x],[T.y],[T.z]")
+	log_game("[name] loaded at [T.x], [T.y], [T.z]")
 	return TRUE
 
 /datum/map_template/proc/get_affected_turfs(turf/T, centered = FALSE)
 	var/turf/placement = T
 	if(centered)
-		var/turf/corner = locate(placement.x - round(width/2), placement.y - round(height/2), placement.z)
+		var/turf/corner = locate(placement.x - round(width / 2), placement.y - round(height / 2), placement.z)
 		if(corner)
 			placement = corner
-	return block(placement, locate(placement.x+width-1, placement.y+height-1, placement.z))
+	return block(placement, locate(placement.x + width-1, placement.y + height-1, placement.z))

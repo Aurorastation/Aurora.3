@@ -80,6 +80,8 @@
 
 
 /obj/item/cell/examine(mob/user)
+	. = ..()
+
 	if(get_dist(src, user) > 1)
 		return
 

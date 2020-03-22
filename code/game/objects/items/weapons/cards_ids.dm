@@ -467,6 +467,15 @@ var/const/NO_EMAG_ACT = -50
 	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
 	..()
 
+/obj/item/card/id/distress/iac
+	name = "\improper Interstellar Aid Corps ID"
+	assignment = "Interstellar Aid Corps Responder"
+	icon_state = "centcom"
+
+/obj/item/card/id/distress/iac/New()
+	access = get_distress_access()
+	..()
+
 /obj/item/card/id/all_access
 	name = "\improper Administrator's spare ID"
 	desc = "The spare ID of the Lord of Lords himself."

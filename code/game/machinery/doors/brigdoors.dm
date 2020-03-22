@@ -74,7 +74,7 @@
 			src.releasetime = 0
 
 		if(world.timeofday > src.releasetime)
-			if( src.timer_end() )// open doors, reset timer, clear status screen
+			if(src.timer_end(broadcast = TRUE))// open doors, reset timer, clear status screen
 				var/message = "Criminal sentence complete. The criminal is free to go."
 				ping( "\The [src] pings, \"[message]\"" )
 
@@ -116,8 +116,9 @@
 
 
 // Opens and unlocks doors, power check
-/obj/machinery/door_timer/proc/timer_end(var/early=0)
-	if(stat & (NOPOWER|BROKEN))	return 0
+/obj/machinery/door_timer/proc/timer_end(var/early = 0, var/broadcast)
+	if(stat & (NOPOWER|BROKEN))
+		return 0
 
 	timing = 0
 
@@ -126,15 +127,21 @@
 	timeset( 0 )
 
 	for(var/obj/machinery/door/window/brigdoor/door in targets)
-		if(!door.density)	continue
+		if(!door.density)
+			continue
 		spawn(0)
 			door.open()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
-		if(C.broken)	continue
-		if(C.opened)	continue
+		if(C.broken)
+			continue
+		if(C.opened)
+			continue
 		C.locked = 0
 		C.icon_state = C.icon_closed
+
+	if(broadcast)
+		broadcast_security_hud_message("The timer for [id] has expired.", src)
 
 	if(istype(incident))
 		var/datum/record/general/R = SSrecords.find_record("name", incident.criminal.name)

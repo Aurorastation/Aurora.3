@@ -37,10 +37,10 @@
 
 /datum/uplink_item/item/stealthy_weapons/concealed_cane
 	name = "Concealed Cane Sword"
-	item_cost = 9
+	item_cost = 7
 	path = /obj/item/cane/concealed
 
 /datum/uplink_item/item/stealthy_weapons/sleepy_ring
 	name = "Sleepy Ring"
-	item_cost = 7
+	item_cost = 6
 	path = /obj/item/clothing/ring/reagent/sleepy

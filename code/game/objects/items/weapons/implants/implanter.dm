@@ -1,12 +1,16 @@
 /obj/item/implanter
 	name = "implanter"
 	icon = 'icons/obj/items.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	icon_state = "implanter0"
 	item_state = "syringe_0"
 	throw_speed = 1
 	throw_range = 5
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
+	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
 /obj/item/implanter/attack_self(var/mob/user)
@@ -66,7 +70,7 @@
 	name = "implanter-loyalty"
 
 /obj/item/implanter/loyalty/New()
-	src.imp = new /obj/item/implant/loyalty( src )
+	src.imp = new /obj/item/implant/mindshield( src )
 	..()
 	update()
 	return

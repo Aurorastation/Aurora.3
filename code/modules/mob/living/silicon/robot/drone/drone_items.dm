@@ -1,24 +1,23 @@
 
 //TODO: Matter decompiler.
 /obj/item/matter_decompiler
-
 	name = "matter decompiler"
 	desc = "Eating trash, bits of glass, or other debris will replenish your stores."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "decompiler"
 
 	//Metal, glass, wood, plastic.
-	var/datum/matter_synth/metal = null
-	var/datum/matter_synth/glass = null
-	var/datum/matter_synth/wood = null
-	var/datum/matter_synth/plastic = null
+	var/datum/matter_synth/metal
+	var/datum/matter_synth/glass
+	var/datum/matter_synth/wood
+	var/datum/matter_synth/plastic
 
-/obj/item/matter_decompiler/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/matter_decompiler/attack(mob/living/carbon/M, mob/living/carbon/user)
 	return
 
 /obj/item/matter_decompiler/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, proximity, params)
-
-	if(!proximity) return //Not adjacent.
+	if(!proximity)
+		return //Not adjacent.
 
 	//We only want to deal with using this on turfs. Specific items aren't important.
 	var/turf/T = get_turf(target)
@@ -30,23 +29,22 @@
 
 	for(var/mob/M in T)
 		if(istype(M,/mob/living/silicon/robot/drone) && !M.client)
-
 			var/mob/living/silicon/robot/D = src.loc
-
 			if(!istype(D))
 				return
 
-			to_chat(D, "<span class='danger'>You begin decompiling [M].</span>")
+			to_chat(D, SPAN_NOTICE("You begin decompiling [M]."))
 
 			if(!do_after(D,50))
-				to_chat(D, "<span class='danger'>You need to remain still while decompiling such a large object.</span>")
+				to_chat(D, SPAN_WARNING("You need to remain still while decompiling such a large object."))
 				return
 
-			if(!M || !D) return
+			if(!M || !D)
+				return
 
-			to_chat(D, "<span class='danger'>You carefully and thoroughly decompile [M], storing as much of its resources as you can within yourself.</span>")
+			to_chat(D, SPAN_NOTICE("You carefully and thoroughly decompile \the [M], storing as much of its resources as you can within yourself."))
 			qdel(M)
-			new/obj/effect/decal/cleanable/blood/oil(get_turf(src))
+			new /obj/effect/decal/cleanable/blood/oil(get_turf(src))
 
 			if(metal)
 				metal.add_charge(15000)
@@ -57,10 +55,9 @@
 			if(plastic)
 				plastic.add_charge(1000)
 
-
 		else if(istype(M,/mob/living/simple_animal) && M.mob_size <= 3 && !istype(M, /mob/living/simple_animal/cat)) //includes things like rats, lizards, tindalos while excluding bigger things and station pets.
-			src.loc.visible_message("<span class='danger'>[src.loc] sucks [M] into its decompiler. There's a horrible crunching noise.</span>","<span class='danger'>It's a bit of a struggle, but you manage to suck [M] into your decompiler. It makes a series of visceral crunching noises.</span>")
-			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
+			src.loc.visible_message(SPAN_DANGER("\The [src.loc] sucks \the [M] into its decompiler. There's a horrible crunching noise."), SPAN_NOTICE("It's a bit of a struggle, but you manage to suck \the [M] into your decompiler. It makes a series of visceral crunching noises."))
+			new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			playsound(src.loc, 'sound/effects/squelch1.ogg')
 			qdel(M)
 			if(wood)
@@ -73,18 +70,18 @@
 
 	for(var/obj/W in T)
 		//Different classes of items give different commodities.
-		if(istype(W,/obj/item/trash/cigbutt))
+		if(istype(W, /obj/item/trash/cigbutt))
 			if(plastic)
 				plastic.add_charge(500)
 		else if (istype(W, /obj/item/flame/match))
 			if (wood)
 				wood.add_charge(100)
-		else if(istype(W,/obj/effect/spider/spiderling))
+		else if(istype(W, /obj/effect/spider/spiderling))
 			if(wood)
 				wood.add_charge(2000)
 			if(plastic)
 				plastic.add_charge(2000)
-		else if(istype(W,/obj/item/light))
+		else if(istype(W, /obj/item/light))
 			var/obj/item/light/L = W
 			if(L.status >= 2) //In before someone changes the inexplicably local defines. ~ Z
 				if(metal)
@@ -93,60 +90,56 @@
 					glass.add_charge(250)
 			else
 				continue
-		else if(istype(W,/obj/effect/decal/remains/robot))
+		else if(istype(W, /obj/effect/decal/remains/robot))
 			if(metal)
 				metal.add_charge(2000)
 			if(plastic)
 				plastic.add_charge(2000)
 			if(glass)
 				glass.add_charge(1000)
-		else if(istype(W,/obj/item/trash))
+		else if(istype(W, /obj/item/trash))
 			if(metal)
 				metal.add_charge(1000)
 			if(plastic)
 				plastic.add_charge(3000)
-		else if(istype(W,/obj/effect/decal/cleanable/blood/gibs/robot))
+		else if(istype(W, /obj/effect/decal/cleanable/blood/gibs/robot))
 			if(metal)
 				metal.add_charge(2000)
 			if(glass)
 				glass.add_charge(2000)
-		else if(istype(W,/obj/item/ammo_casing))
+		else if(istype(W, /obj/item/ammo_casing))
 			if(metal)
 				metal.add_charge(1000)
-		else if(istype(W,/obj/item/material/shard/shrapnel))
+		else if(istype(W, /obj/item/material/shard/shrapnel))
 			if(metal)
 				metal.add_charge(1000)
-		else if(istype(W,/obj/item/material/shard))
+		else if(istype(W, /obj/item/material/shard))
 			if(glass)
 				glass.add_charge(1000)
-		else if(istype(W,/obj/item/reagent_containers/food/snacks/grown))
+		else if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
 			if(wood)
 				wood.add_charge(4000)
-		else if(istype(W,/obj/item/pipe))
+		else if(istype(W, /obj/item/pipe))
 			// This allows drones and engiborgs to clear pipe assemblies from floors.
-		else if(istype(W,/obj/item/broken_bottle))
+		else if(istype(W, /obj/item/broken_bottle))
 			if(glass)
 				glass.add_charge(2000)
 		else
 			continue
 
 		qdel(W)
-		grabbed_something = 1
+		grabbed_something = TRUE
 
 	if(grabbed_something)
-		to_chat(user, "<span class='notice'>You deploy your decompiler and clear out the contents of \the [T].</span>")
+		to_chat(user, SPAN_NOTICE("You deploy your decompiler and clear out the contents of \the [T]."))
 	else
-		to_chat(user, "<span class='danger'>Nothing on \the [T] is useful to you.</span>")
+		to_chat(user, SPAN_WARNING("Nothing on \the [T] is useful to you."))
 	return
 
-
-
-
-//PRETTIER TOOL LIST.
+//PRETTIER TOOL LIST. // bullshit
 /mob/living/silicon/robot/drone/installed_modules()
-
 	if(weapon_lock)
-		to_chat(src, "<span class='danger'>Weapon lock active, unable to use modules! Count:[weaponlock_time]</span>")
+		to_chat(src, SPAN_WARNING("Weapon lock active, unable to use modules! Count:[weapon_lock_time]"))
 		return
 
 	if(!module)
@@ -166,11 +159,9 @@
 	var/tools = "<B>Tools and devices</B><BR>"
 	var/resources = "<BR><B>Resources</B><BR>"
 
-	for (var/O in module.modules)
-
+	for(var/O in module.modules)
 		var/module_string = ""
-
-		if (!O)
+		if(!O)
 			module_string += text("<B>Resource depleted</B><BR>")
 		else if(activated(O))
 			module_string += text("[O]: <B>Activated</B><BR>")
@@ -178,15 +169,15 @@
 			module_string += text("[O]: <A HREF=?src=\ref[src];act=\ref[O]>Activate</A><BR>")
 
 		var/obj/item/I = O
-		if((istype(I,/obj/item) || istype(I,/obj/item/device)) && !(I.iscoil()))
+		if((istype(I, /obj/item) || istype(I, /obj/item/device)) && !(I.iscoil()))
 			tools += module_string
 		else
 			resources += module_string
 
 	dat += tools
 
-	if (emagged)
-		if (!module.emag)
+	if(emagged)
+		if(!module.emag)
 			dat += text("<B>Resource depleted</B><BR>")
 		else if(activated(module.emag))
 			dat += text("[module.emag]: <B>Activated</B><BR>")

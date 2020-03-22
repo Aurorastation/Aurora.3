@@ -12,6 +12,8 @@ var/datum/antagonist/highlander/highlanders
 	initial_spawn_req = 3
 	initial_spawn_target = 5
 
+	bantype = "highlander"
+
 /datum/antagonist/highlander/New()
 	..()
 	highlanders = src

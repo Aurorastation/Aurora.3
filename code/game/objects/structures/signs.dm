@@ -194,7 +194,7 @@
 /obj/structure/sign/directions
 	name = "direction sign"
 	desc = "A direction sign, claiming to know the way."
-	icon_state = "direction"
+	icon_state = null
 
 /obj/structure/sign/directions/science
 	name = "\improper Science department"

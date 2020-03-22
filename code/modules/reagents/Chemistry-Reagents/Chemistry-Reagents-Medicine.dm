@@ -153,7 +153,7 @@
 
 	if(remove_generic)
 		M.drowsyness = max(0, M.drowsyness - 6 * removed)
-		M.hallucination += (-9 * removed)
+		M.hallucination -= (9 * removed)
 		M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
 
 	var/removing = (4 * removed)
@@ -1547,6 +1547,6 @@
 	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
 	reagent_state = LIQUID
 	color = "#AA8866"
-	metabolism = 0.5 * REM
+	metabolism = 0.2 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1

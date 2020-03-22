@@ -19,6 +19,7 @@ datum/track/New(var/title_name, var/audio)
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
+	clicksound = 'sound/machines/buttonbeep.ogg'
 
 	var/playing = 0
 
@@ -45,9 +46,8 @@ datum/track/New(var/title_name, var/audio)
 	return ..()
 
 /obj/machinery/media/jukebox/power_change()
-	if(!powered(power_channel) || !anchored)
-		stat |= NOPOWER
-	else
+	..()
+	if(!anchored)
 		stat &= ~NOPOWER
 
 	if(stat & (NOPOWER|BROKEN) && playing)
@@ -165,7 +165,8 @@ datum/track/New(var/title_name, var/audio)
 	qdel(src)
 
 /obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
 
 	if(W.iswrench())
 		if(playing)

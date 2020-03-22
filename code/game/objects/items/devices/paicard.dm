@@ -55,16 +55,16 @@
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
-	pai.idcard.access.Cut()
-	pai.idcard.access = card.access.Copy()
-	pai.idcard.registered_name = card.registered_name
+	pai.id_card.access.Cut()
+	pai.id_card.access = card.access.Copy()
+	pai.id_card.registered_name = card.registered_name
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-	to_chat(user, "<span class='notice'>ID Registration for [pai.idcard.registered_name] is a success. PAI access updated!</span>")
+	to_chat(user, "<span class='notice'>ID Registration for [pai.id_card.registered_name] is a success. PAI access updated!</span>")
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
-	if (pai.idcard.registered_name)
-		return "<span class='notice'>Identity of owner: [pai.idcard.registered_name] registered.</span>"
+	if (pai.id_card.registered_name)
+		return "<span class='notice'>Identity of owner: [pai.id_card.registered_name] registered.</span>"
 	else
 		return "<span class='warning'>No ID card registered! Please scan your ID to share access.</span>"
 

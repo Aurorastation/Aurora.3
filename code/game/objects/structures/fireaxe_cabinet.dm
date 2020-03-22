@@ -13,7 +13,7 @@
 
 /obj/structure/fireaxecabinet/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
 	user.do_attack_animation(src)
-	playsound(user, 'sound/effects/Glasshit.ogg', 50, 1)
+	playsound(user, 'sound/effects/glass_hit.ogg', 50, 1)
 	visible_message("<span class='danger'>[user] [attack_verb] \the [src]!</span>")
 	if(damage_threshold > damage)
 		to_chat(user, "<span class='danger'>Your strike is deflected by the reinforced glass!</span>")
@@ -23,7 +23,7 @@
 	shattered = 1
 	unlocked = 1
 	open = 1
-	playsound(user, 'sound/effects/Glassbr3.ogg', 100, 1)
+	playsound(user, "shatter", 100, 1)
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()

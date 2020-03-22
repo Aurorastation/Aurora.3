@@ -1,7 +1,4 @@
 /obj/item/ammo_magazine/a357
-	//name = "ammo box (.357)"
-	//desc = "A box of .357 ammo"
-	//icon_state = "357"
 	name = "speed loader (.357)"
 	icon_state = "T38"
 	caliber = "357"
@@ -35,7 +32,7 @@
 /obj/item/ammo_magazine/c38/emp
 	name = "speed loader (.38 haywire)"
 	ammo_type = /obj/item/ammo_casing/c38/emp
-	matter = list(DEFAULT_WALL_MATERIAL = 360, "uranium" = 600)
+	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
 /obj/item/ammo_magazine/c45
 	name = "ammunition Box (.45)"
@@ -48,7 +45,7 @@
 
 /obj/item/ammo_magazine/c45x
 	name = "magazine (.45)"
-	icon_state = "45x"
+	icon_state = "45x-16"
 	origin_tech = list(TECH_COMBAT = 3)
 	mag_type = MAGAZINE
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
@@ -59,7 +56,7 @@
 
 /obj/item/ammo_magazine/c45m
 	name = "magazine (.45)"
-	icon_state = "45"
+	icon_state = "45-10"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
@@ -72,6 +69,7 @@
 
 /obj/item/ammo_magazine/c45m/rubber
 	name = "magazine (.45 rubber)"
+	icon_state = "r45"
 	ammo_type = /obj/item/ammo_casing/c45/rubber
 
 /obj/item/ammo_magazine/c45m/practice
@@ -235,7 +233,7 @@
 
 /obj/item/ammo_magazine/trodpack
 	name = "tungsten rod pack"
-	icon_state = "trodpack"
+	icon_state = "trodpack-2"
 	mag_type = MAGAZINE
 	caliber = "trod"
 	ammo_type = /obj/item/ammo_casing/trod
@@ -300,7 +298,7 @@
 /obj/item/ammo_magazine/c45uzi/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/tommymag
+/obj/item/ammo_magazine/submachinemag
 	name = "magazine (.45)"
 	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
@@ -309,10 +307,10 @@
 	caliber = ".45"
 	max_ammo = 20
 
-/obj/item/ammo_magazine/tommymag/empty
+/obj/item/ammo_magazine/submachinemag/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/tommydrum
+/obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
 	w_class = 3 // Bulky ammo doesn't fit in your pockets!
@@ -383,7 +381,7 @@
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 8
-	matter = list("metal" = 2880)
+	matter = list(MATERIAL_STEEL = 2880)
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/assault_shotgun/shells
@@ -401,7 +399,7 @@
 	name = "magazine (stun shells)"
 	icon_state = "csms"
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
-	matter = list(DEFAULT_WALL_MATERIAL = 2880, "glass" = 5760)
+	matter = list(DEFAULT_WALL_MATERIAL = 2880, MATERIAL_GLASS = 5760)
 
 /obj/item/ammo_magazine/minigun
 	name = "minigun magazine box (7.62mm)"

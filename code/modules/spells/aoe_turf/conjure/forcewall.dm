@@ -49,7 +49,7 @@
 		qdel(src)
 
 /obj/effect/forcefield/mime
-	icon_state = "empty"
+	icon_state = null
 	name = "invisible wall"
 	desc = "You have a bad feeling about this."
 

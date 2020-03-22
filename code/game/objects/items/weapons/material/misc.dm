@@ -6,13 +6,34 @@
 	icon_state = "harpoon"
 	item_state = "harpoon"
 	force_divisor = 0.3 // 18 with hardness 60 (steel)
+	thrown_force_divisor = 0.85
 	attack_verb = list("jabbed","stabbed","ripped")
+
+/obj/item/material/harpoon/proc/prime()
+	return
+
+/obj/item/material/harpoon/explosive
+	name = "explosive harpoon"
+
+/obj/item/material/harpoon/explosive/prime()
+	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, 1)
+	addtimer(CALLBACK(src, .proc/detonate), 3 SECONDS)
+	return
+
+/obj/item/material/harpoon/explosive/proc/detonate()
+	explosion(get_turf(src), -1, -1, 2)
+	qdel(src)
 
 /obj/item/material/hatchet
 	name = "hatchet"
 	desc = "A very sharp axe blade upon a short fibremetal handle. It has a long history of chopping things, but now it is used for chopping wood."
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	icon_state = "hatchet"
+	item_state = "hatchet"
 	force_divisor = 0.2 // 12 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
 	w_class = 2
@@ -52,6 +73,10 @@
 	name = "mini hoe"
 	desc = "It's used for removing weeds or scratching your back."
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	icon_state = "hoe"
 	item_state = "hoe"
 	force_divisor = 0.25 // 5 with weight 20 (steel)

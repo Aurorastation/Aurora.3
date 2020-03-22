@@ -19131,7 +19131,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
@@ -19955,7 +19955,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/reception)
@@ -36241,7 +36241,7 @@
 "bpd" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
-/obj/item/scalpel,
+/obj/item/surgery/scalpel,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 9
@@ -37223,7 +37223,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/exam_room)
@@ -56261,7 +56261,7 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/stool/padded,
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
@@ -59458,7 +59458,7 @@
 	},
 /obj/machinery/hologram/holopad,
 /obj/effect/landmark/start{
-	name = "Medical Doctor"
+	name = "Physician"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
@@ -70182,8 +70182,8 @@
 /area/rnd/xenobiology)
 "cxA" = (
 /obj/structure/table/standard,
-/obj/item/circular_saw,
-/obj/item/scalpel{
+/obj/item/surgery/circular_saw,
+/obj/item/surgery/scalpel{
 	pixel_y = 12
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -79399,7 +79399,7 @@
 "rGs" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
-/obj/item/scalpel{
+/obj/item/surgery/scalpel{
 	desc = "Cut, cut, and once more cut. This one is extra shiny!";
 	name = "shiny scalpel"
 	},
@@ -80126,9 +80126,9 @@
 /area/lawoffice)
 "wnI" = (
 /obj/structure/table/standard,
-/obj/item/hemostat,
-/obj/item/retractor,
-/obj/item/circular_saw,
+/obj/item/surgery/hemostat,
+/obj/item/surgery/retractor,
+/obj/item/surgery/circular_saw,
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 0

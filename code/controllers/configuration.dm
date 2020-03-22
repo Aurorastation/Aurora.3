@@ -251,8 +251,7 @@ var/list/gamemode_cache = list()
 
 	//UDP GELF Logging
 	var/log_gelf_enabled = 0
-	var/log_gelf_ip = ""
-	var/log_gelf_port = ""
+	var/log_gelf_addr = ""
 
 	//IP Intel vars
 	var/ipintel_email
@@ -296,6 +295,12 @@ var/list/gamemode_cache = list()
 
 	// Is external Auth enabled
 	var/external_auth = FALSE
+
+	// fail2topic settings
+	var/fail2topic_rate_limit = 5 SECONDS
+	var/fail2topic_max_fails = 5
+	var/fail2topic_rule_name = "_DD_Fail2topic"
+	var/fail2topic_enabled = FALSE
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -470,9 +475,6 @@ var/list/gamemode_cache = list()
 
 				if ("allow_ai")
 					config.allow_ai = 1
-
-//				if ("authentication")
-//					config.enable_authentication = 1
 
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
@@ -831,11 +833,8 @@ var/list/gamemode_cache = list()
 				if("log_gelf_enabled")
 					config.log_gelf_enabled = text2num(value)
 
-				if("log_gelf_ip")
-					config.log_gelf_ip = value
-
-				if("log_gelf_port")
-					config.log_gelf_port = value
+				if("log_gelf_addr")
+					config.log_gelf_addr = value
 
 				if("ipintel_email")
 					if (value != "ch@nge.me")
@@ -905,6 +904,15 @@ var/list/gamemode_cache = list()
 
 				if ("external_auth")
 					external_auth = TRUE
+
+				if ("fail2topic_rate_limit")
+					fail2topic_rate_limit = text2num(value) SECONDS
+				if ("fail2topic_max_fails")
+					fail2topic_max_fails = text2num(value)
+				if ("fail2topic_rule_name")
+					fail2topic_rule_name = value
+				if ("fail2topic_enabled")
+					fail2topic_enabled = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

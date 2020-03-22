@@ -236,7 +236,7 @@
 	desc = "Used to set the destination of properly wrapped packages."
 	icon_state = "dest_tagger"
 	var/currTag = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 250, "glass" = 140)
+	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = 2
 	item_state = "electronic"
 	flags = CONDUCT
@@ -274,7 +274,7 @@
 	openwindow(usr)
 
 /obj/machinery/disposal/deliveryChute
-	name = "Delivery chute"
+	name = "delivery chute"
 	desc = "A chute for big and small packages alike!"
 	density = 1
 	icon_state = "intake"
@@ -338,6 +338,10 @@
 /obj/machinery/disposal/deliveryChute/attackby(var/obj/item/I, var/mob/user)
 	if(!I || !user)
 		return
+
+	if(istype(I, /obj/item/holder))
+		user.drop_item(I)
+		CollidedWith(I)
 
 	if(I.isscrewdriver())
 		if(c_mode==0)

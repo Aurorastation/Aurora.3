@@ -1,6 +1,7 @@
 /obj/item/gun/projectile/cannon
 	name = "hand cannon"
 	desc = "An amalgamation of ancient and modern tajaran technology. This old naval cannon was turned into a portable firearm."
+	icon = 'icons/obj/guns/cannon.dmi'
 	icon_state = "cannon"
 	item_state = "cannon"
 	caliber = "cannon"
@@ -38,6 +39,7 @@
 /obj/item/gun/projectile/nuke
 	name = "nuclear launcher"
 	desc = "A launcher weapon designated to fire miniaturized nuclear warheads."
+	icon = 'icons/obj/guns/blockbuster.dmi' // hoh
 	icon_state = "blockbuster"
 	item_state = "blockbuster"
 	caliber = "nuke"

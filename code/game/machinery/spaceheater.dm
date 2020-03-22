@@ -11,7 +11,7 @@
 	var/heating_power = 42000
 	emagged = FALSE
 	has_special_power_checks = TRUE
-
+	clicksound = "switch"
 
 /obj/machinery/space_heater/Initialize()
 	. = ..()

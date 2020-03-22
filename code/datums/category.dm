@@ -56,7 +56,7 @@
 *****************/
 /datum/category_item
 	var/name = ""
-	var/list/datum/category_group/category		// The group this item belongs to
+	var/datum/category_group/category		// The group this item belongs to
 
 /datum/category_item/New(var/datum/category_group/cg)
 	..()

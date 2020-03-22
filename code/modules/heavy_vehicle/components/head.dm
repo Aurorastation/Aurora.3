@@ -28,9 +28,6 @@
 	if(!software)
 		to_chat(user, "<span class='warning'>It is missing a software control module.</span>")
 
-/obj/item/mech_component/sensors/prebuild()
-	radio = new(src)
-	camera = new(src)
 
 /obj/item/mech_component/sensors/prebuild()
 	radio = new(src)

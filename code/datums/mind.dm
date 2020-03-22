@@ -259,7 +259,7 @@
 				var/mob/def_target = null
 				var/objective_list[] = list(/datum/objective/assassinate, /datum/objective/protect, /datum/objective/debrain)
 				if (objective&&(objective.type in objective_list) && objective:target)
-					def_target = objective:target.current
+					def_target = objective.target.current
 
 				var/new_target = input("Select target:", "Objective target", def_target) as null|anything in possible_targets
 				if (!new_target) return
@@ -361,7 +361,7 @@
 
 		switch(href_list["implant"])
 			if("remove")
-				for(var/obj/item/implant/loyalty/I in H.contents)
+				for(var/obj/item/implant/mindshield/I in H.contents)
 					for(var/obj/item/organ/external/organs in H.organs)
 						if(I in organs.implants)
 							qdel(I)
@@ -533,6 +533,9 @@
 /mob/living/carbon/slime/mind_initialize()
 	..()
 	mind.assigned_role = "slime"
+
+/mob/living/carbon/alien/larva
+	icon_state = "larva0"
 
 /mob/living/carbon/alien/larva/mind_initialize()
 	..()

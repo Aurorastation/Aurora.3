@@ -4,20 +4,20 @@
 	name = "ore redemption console"
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "console"
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
 
-	var/obj/machinery/mineral/processing_unit/machine = null
-	var/show_all_ores = 0
+	var/obj/machinery/mineral/processing_unit/machine
+	var/show_all_ores = FALSE
 	var/points = 0
 	var/obj/item/card/id/inserted_id
 
-	var/ore/list/input_mats = list()
-	var/material/list/output_mats = list()
-	var/datum/alloy/list/alloy_mats = list()
+	var/list/ore/input_mats = list()
+	var/list/material/output_mats = list()
+	var/list/datum/alloy/alloy_mats = list()
 	var/waste = 0
 	var/idx = 0
 
@@ -26,13 +26,13 @@
 		var/area/A = get_area(src)
 		var/best_distance = INFINITY
 		for(var/obj/machinery/mineral/processing_unit/checked_machine in SSmachinery.all_machines)
-			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine,src) < best_distance)
+			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine, src) < best_distance)
 				machine = checked_machine
-				best_distance = get_dist_euclidian(checked_machine,src)
-		if (machine)
+				best_distance = get_dist_euclidian(checked_machine, src)
+		if(machine)
 			machine.console = src
 		else
-			to_chat(user, "<span class='warning'>ERROR: Linked machine not found!</span>")
+			to_chat(user, SPAN_WARNING("ERROR: Linked machine not found!"))
 
 	return machine
 
@@ -44,14 +44,13 @@
 	if(istype(I,/obj/item/card/id))
 		var/obj/item/card/id/C = user.get_active_hand()
 		if(istype(C) && !istype(inserted_id))
-			user.drop_from_inventory(C,src)
+			user.drop_from_inventory(C, src)
 			inserted_id = C
 			interact(user)
 	else
 		..()
 
 /obj/machinery/mineral/processing_unit_console/interact(mob/user)
-
 	if(..())
 		return
 
@@ -59,7 +58,7 @@
 		return
 
 	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	user.set_machine(src)
@@ -79,9 +78,11 @@
 
 	for(var/ore in machine.ores_processing)
 
-		if(!machine.ores_stored[ore] && !show_all_ores) continue
+		if(!machine.ores_stored[ore] && !show_all_ores)
+			continue
 		var/ore/O = ore_data[ore]
-		if(!O) continue
+		if(!O)
+			continue
 		dat += "<tr><td width = 40><b>[capitalize(O.display_name)]</b></td><td width = 30>[machine.ores_stored[ore]]</td><td width = 100>"
 		if(machine.ores_processing[ore])
 			switch(machine.ores_processing[ore])
@@ -106,7 +107,7 @@
 
 /obj/machinery/mineral/processing_unit_console/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
 
@@ -122,35 +123,40 @@
 					if(points >= 0)
 						inserted_id.mining_points += points
 						if(points != 0)
-							ping( "\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"" )
+							ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
 						points = 0
 					else
-						to_chat(usr, "<span class='warning'>[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared.</span>")
+						to_chat(usr, SPAN_WARNING("[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared."))
 				else
-					to_chat(usr, "<span class='warning'>Required access not found.</span>")
+					to_chat(usr, SPAN_WARNING("Required access not found."))
 			if(href_list["choice"] == "print_report")
 				if(access_mining_station in inserted_id.access)
 					print_report(usr)
 				else
-					to_chat(usr, "<span class='warning'>Required access not found.</span>")
+					to_chat(usr, SPAN_WARNING("Required access not found."))
 
 		else if(href_list["choice"] == "insert")
 			var/obj/item/card/id/I = usr.get_active_hand()
 			if(istype(I))
 				usr.drop_from_inventory(I,src)
 				inserted_id = I
-			else to_chat(usr, "<span class='warning'>No valid ID.</span>")
+			else
+				to_chat(usr, SPAN_WARNING("No valid ID."))
 
 	if(href_list["toggle_smelting"])
-
 		var/choice = input("What setting do you wish to use for processing [href_list["toggle_smelting"]]?") as null|anything in list("Smelting","Compressing","Alloying","Nothing")
-		if(!choice) return
+		if(!choice)
+			return
 
 		switch(choice)
-			if("Nothing") choice = 0
-			if("Smelting") choice = 1
-			if("Compressing") choice = 2
-			if("Alloying") choice = 3
+			if("Nothing")
+				choice = 0
+			if("Smelting")
+				choice = 1
+			if("Compressing")
+				choice = 2
+			if("Alloying")
+				choice = 3
 
 		machine.ores_processing[href_list["toggle_smelting"]] = choice
 
@@ -163,7 +169,6 @@
 			machine.icon_state = "furnace-off"
 
 	if(href_list["toggle_ores"])
-
 		show_all_ores = !show_all_ores
 
 	src.updateUsrDialog()
@@ -248,9 +253,9 @@
 	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
-
-	playsound(loc, "sound/bureaucracy/print.ogg", 75, 1)
-	user.visible_message("\The [src] spits out a piece of paper.")
+	
+	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
+	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
 
 	// reset
 	output_mats = list()
@@ -267,15 +272,15 @@
 
 
 /obj/machinery/mineral/processing_unit
-	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is //i'm gay
+	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is //i'm gay // based and redpilled
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "furnace-off"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	light_range = 3
-	var/obj/machinery/mineral/input = null
-	var/obj/machinery/mineral/output = null
-	var/obj/machinery/mineral/processing_unit_console/console = null
+	var/obj/machinery/mineral/input
+	var/obj/machinery/mineral/output
+	var/obj/machinery/mineral/processing_unit_console/console
 	var/sheets_per_tick = 20
 	var/list/ores_processing[0]
 	var/list/ores_stored[0]
@@ -299,32 +304,36 @@
 	// initialize static alloy_data list
 	if(!alloy_data)
 		alloy_data = list()
-		for(var/alloytype in typesof(/datum/alloy)-/datum/alloy)
+		for(var/alloytype in subtypesof(/datum/alloy))
 			alloy_data += new alloytype()
 
-	for (var/O in ore_data)
+	for(var/O in ore_data)
 		ores_processing[O] = 0
 		ores_stored[O] = 0
 
 	//Locate our output and input machinery.
-	for (var/dir in cardinal)
+	for(var/dir in cardinal)
 		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
-		if(src.input) break
-	for (var/dir in cardinal)
+		if(src.input)
+			break
+	for(var/dir in cardinal)
 		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
-		if(src.output) break
+		if(src.output)
+			break
 
 /obj/machinery/mineral/processing_unit/machinery_process()
 	..()
 
-	if (!src.output || !src.input) return
+	if(!src.output || !src.input)
+		return
 
 	var/list/tick_alloys = list()
 
 	//Grab some more ore to process this tick.
-	for(var/i = 0,i<sheets_per_tick,i++)
-		var/obj/item/ore/O = locate() in input.loc
-		if(!O) break
+	for(var/i = 0, i < sheets_per_tick, i++)
+		var/obj/item/ore/O = locate() in get_turf(input)
+		if(!O)
+			break
 		if(!isnull(ores_stored[O.material]))
 			ores_stored[O.material]++
 
@@ -338,19 +347,16 @@
 	//Process our stored ores and spit out sheets.
 	var/sheets = 0
 	for(var/metal in ores_stored)
-
-		if(sheets >= sheets_per_tick) break
+		if(sheets >= sheets_per_tick)
+			break
 
 		if(ores_stored[metal] > 0 && ores_processing[metal] != 0)
-
 			var/ore/O = ore_data[metal]
-
-			if(!O) continue
+			if(!O)
+				continue
 
 			if(ores_processing[metal] == 3 && O.alloy) //Alloying.
-
 				for(var/datum/alloy/A in alloy_data)
-
 					if(A.metaltag in tick_alloys)
 						continue
 
@@ -359,12 +365,12 @@
 
 					if(!isnull(A.requires[metal]) && ores_stored[metal] >= A.requires[metal]) //We have enough of our first metal, we're off to a good start.
 
-						enough_metal = 1
+						enough_metal = TRUE
 
 						for(var/needs_metal in A.requires)
 							//Check if we're alloying the needed metal and have it stored.
 							if(ores_processing[needs_metal] != 3 || ores_stored[needs_metal] < A.requires[needs_metal])
-								enough_metal = 0
+								enough_metal = FALSE
 								break
 
 					if(!enough_metal)
@@ -378,63 +384,62 @@
 							use_power(100)
 							ores_stored[needs_metal] -= A.requires[needs_metal]
 							total += A.requires[needs_metal]
-							total = max(1,round(total*A.product_mod)) //Always get at least one sheet.
-							sheets += total-1
+							total = max(1, round(total * A.product_mod)) //Always get at least one sheet.
+							sheets += total - 1
 
-						for(var/i=0,i<total,i++)
+						for(var/i = 0, i < total, i++)
 							console.alloy_mats[A]++
-							new A.product(output.loc)
+							new A.product(get_turf(output))
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
+				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
+				if(can_make % 2 > 0)
+					can_make--
 
-				var/can_make = Clamp(ores_stored[metal],0,sheets_per_tick-sheets)
-				if(can_make%2>0) can_make--
-
-				var/material/M = get_material_by_name(O.compresses_to)
+				var/material/M = SSmaterials.get_material_by_name(O.compresses_to)
 
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)
 					continue
 
-				for(var/i=0,i<can_make,i+=2)
+				for(var/i = 0, i < can_make, i += 2)
 					if(console)
-						console.points += O.worth*2
+						console.points += O.worth * 2
 					use_power(100)
-					ores_stored[metal]-=2
-					sheets+=2
+					ores_stored[metal] -= 2
+					sheets += 2
 					console.output_mats[M]++
-					new M.stack_type(output.loc)
+					new M.stack_type(get_turf(output))
 
 			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
+				var/can_make = Clamp(ores_stored[metal], 0, sheets_per_tick - sheets)
 
-				var/can_make = Clamp(ores_stored[metal],0,sheets_per_tick-sheets)
-
-				var/material/M = get_material_by_name(O.smelts_to)
+				var/material/M = SSmaterials.get_material_by_name(O.smelts_to)
 				if(!istype(M) || !can_make || ores_stored[metal] < 1)
 					continue
 
-				for(var/i=0,i<can_make,i++)
+				for(var/i = 0, i < can_make, i++)
 					if(console)
 						console.points += O.worth
 					use_power(100)
 					ores_stored[metal]--
 					sheets++
 					console.output_mats[M]++
-					new M.stack_type(output.loc)
+					new M.stack_type(get_turf(output))
 			else
 				if(console)
-					console.points -= O.worth*3 //reee wasting our materials!
+					console.points -= O.worth * 3 //reee wasting our materials!
 				use_power(500)
 				ores_stored[metal]--
 				sheets++
 				console.input_mats[O]++
 				console.waste++
-				new /obj/item/ore/slag(output.loc)
+				new /obj/item/ore/slag(get_turf(output))
 		else
 			continue
 
 	console.updateUsrDialog()
 
-/obj/machinery/mineral/processing_unit/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/mineral/processing_unit/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))
 		return
 	else if(default_part_replacement(user, W))

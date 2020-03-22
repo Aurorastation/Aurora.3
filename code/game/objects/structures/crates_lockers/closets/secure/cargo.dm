@@ -14,6 +14,7 @@
 	new /obj/item/clothing/under/rank/cargotech/alt(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
+	new /obj/item/device/radio/headset/headset_cargo/alt(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/head/soft(src)
 	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
@@ -43,7 +44,7 @@
 	new /obj/item/clothing/head/soft(src)
 	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
-	new /obj/item/device/drill_dropper(src)
+	new /obj/item/device/orbital_dropper/drill(src)
 
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant locker"

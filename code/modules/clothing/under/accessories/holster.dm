@@ -157,7 +157,7 @@
 
 /obj/item/clothing/accessory/holster/hip/brown
 	name = "brown hip holster"
-	icon_state = "holster__brown_hip"
+	icon_state = "holster_brown_hip"
 
 /obj/item/clothing/accessory/holster/thigh/brown
 	name = "brown thigh holster"

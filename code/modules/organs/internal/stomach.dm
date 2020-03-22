@@ -7,12 +7,15 @@
 	dead_icon = "stomach"
 	organ_tag = BP_STOMACH
 	parent_organ = BP_GROIN
-	var/stomach_capacity
 	var/datum/reagents/metabolism/ingested
 	var/next_cramp = 0
+	var/should_process_alcohol = TRUE
 
 /obj/item/organ/internal/stomach/Destroy()
 	QDEL_NULL(ingested)
+	for(var/mob/M in contents)
+		if(M.stat != DEAD)
+			M.forceMove(owner.loc)
 	. = ..()
 
 /obj/item/organ/internal/stomach/Initialize()
@@ -50,6 +53,8 @@
 
 /obj/item/organ/internal/stomach/proc/is_full(var/atom/movable/food)
 	var/total = Floor(ingested.total_volume / 10)
+	if(species.gluttonous & GLUT_MESSY)
+		return FALSE //Don't need to check if the stomach is full if we're not using the contents.
 	for(var/a in contents + food)
 		if(ismob(a))
 			var/mob/M = a
@@ -68,7 +73,7 @@
 		var/mob/living/L = food
 		if((species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_TINY) && !ishuman(food)) // Anything MOB_TINY or smaller
 			return DEVOUR_SLOW
-		else if((species.gluttonous & GLUT_SMALLER) && owner.mob_size > L.mob_size) // Anything we're larger than
+		else if((species.gluttonous & (GLUT_SMALLER|GLUT_MESSY)) && owner.mob_size > L.mob_size) // Anything we're larger than
 			return DEVOUR_SLOW
 		else if(species.gluttonous & GLUT_ANYTHING) // Eat anything ever
 			return DEVOUR_FAST
@@ -104,8 +109,7 @@
 		if(functioning)
 			for(var/mob/living/M in contents)
 				if(M.stat == DEAD)
-					qdel(M)
-					continue
+					addtimer(CALLBACK(src, .proc/digest_mob, M), 30 SECONDS, TIMER_UNIQUE)
 
 				M.adjustBruteLoss(3)
 				M.adjustFireLoss(3)
@@ -119,15 +123,21 @@
 			next_cramp = world.time + rand(200,800)
 			owner.custom_pain("Your stomach cramps agonizingly!",1)
 
-		var/alcohol_volume = ingested.get_reagent_amount(/datum/reagent/alcohol/ethanol)
-		
-		// Alcohol counts as double volume for the purposes of vomit probability
-		var/effective_volume = ingested.total_volume + alcohol_volume
-		
-		// Just over the limit, the probability will be low. It rises a lot such that at double ingested it's 64% chance.
-		var/vomit_probability = (effective_volume / STOMACH_VOLUME) ** 6
-		if(prob(vomit_probability))
-			owner.vomit()
+		if(should_process_alcohol)
+
+			var/alcohol_volume = ingested.get_reagent_amount(/datum/reagent/alcohol/ethanol)
+
+			// Alcohol counts as double volume for the purposes of vomit probability
+			var/effective_volume = ingested.total_volume + alcohol_volume
+
+			// Just over the limit, the probability will be low. It rises a lot such that at double ingested it's 64% chance.
+			var/vomit_probability = (effective_volume / STOMACH_VOLUME) ** 6
+			if(prob(vomit_probability))
+				owner.vomit()
+
+/obj/item/organ/internal/stomach/proc/digest_mob(mob/M)
+	if(!QDELETED(M))
+		qdel(M)
 
 #undef STOMACH_VOLUME
 #undef PUKE_ACTION_NAME

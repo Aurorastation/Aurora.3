@@ -1,5 +1,4 @@
 /mob/living/heavy_vehicle/proc/dismantle()
-
 	playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 	var/obj/structure/heavy_vehicle_frame/frame = new(get_turf(src))
 	for(var/hardpoint in hardpoints)
@@ -60,7 +59,6 @@
 			pilot.client.screen -= module_to_forget
 
 /mob/living/heavy_vehicle/proc/install_system(var/obj/item/system, var/system_hardpoint, var/mob/user)
-
 	if(hardpoints_locked || hardpoints[system_hardpoint])
 		return 0
 
@@ -93,7 +91,6 @@
 		destroyed_event.register(system, src, .proc/forget_module)
 
 
-
 	system.forceMove(src)
 	hardpoints[system_hardpoint] = system
 
@@ -109,9 +106,7 @@
 
 	return 1
 
-
 /mob/living/heavy_vehicle/proc/remove_system(var/system_hardpoint, var/mob/user, var/force)
-
 	if((hardpoints_locked && !force) || !hardpoints[system_hardpoint])
 		return 0
 

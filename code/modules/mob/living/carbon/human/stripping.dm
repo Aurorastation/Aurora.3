@@ -1,16 +1,28 @@
-/mob/living/carbon/human/proc/handle_strip(var/slot_to_strip,var/mob/living/user)
-
+/mob/living/carbon/human/proc/handle_strip(var/slot_to_strip, var/mob/living/user)
 	if(!slot_to_strip || !istype(user) || ispAI(user) || (isanimal(user) && !istype(user, /mob/living/simple_animal/hostile) ) )
-		return 0
+		return FALSE
 
-	if(user.incapacitated()  || !user.Adjacent(src))
+	if(user.incapacitated() || !user.Adjacent(src))
 		user << browse(null, text("window=mob[src.name]"))
-		return 0
+		return FALSE
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))
 
 	switch(slot_to_strip)
 		// Handle things that are part of this interface but not removing/replacing a given item.
+		if("mask")
+			visible_message(span("warning", "\The [user] is trying to adjust \the [src]'s mask!"))
+			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+				var/obj/item/clothing/mask/M = wear_mask
+				M.adjust_mask(user, FALSE)
+			return TRUE
+		if("tank")
+			visible_message(span("warning", "\The [user] is taking a look at \the [src]'s air tank."))
+			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+				var/obj/item/tank/T = internal
+				to_chat(user, span("notice", "\The [T] has [T.air_contents.return_pressure()] kPA left."))
+				to_chat(user, span("notice", "The [T] is set to release [T.distribute_pressure] kPA."))
+			return TRUE
 		if("pockets")
 			visible_message("<span class='danger'>\The [user] is trying to empty \the [src]'s pockets!</span>")
 			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))

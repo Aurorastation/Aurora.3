@@ -1,5 +1,5 @@
 /obj/item/slime_extract/Value(var/base)
-	return base * Uses
+	return base * uses
 
 /obj/item/ammo_casing/Value()
 	if(!BB)
@@ -23,7 +23,7 @@
 	return material.value * amount
 
 /obj/item/ore/Value()
-	var/material/mat = get_material_by_name(material)
+	var/material/mat = SSmaterials.get_material_by_name(material)
 	if(mat)
 		return mat.value
 	return 0
