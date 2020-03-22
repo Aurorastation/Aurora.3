@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The Kataphracts now spawn with a custom supply area in their preparation area."
+  - rscadd: "Added the Hegemony Slugger, a large rifle that only humanoid mobs of Unathi size and larger can safely operate."
