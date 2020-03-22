@@ -1,6 +1,8 @@
 
 /**********************Ore box**************************/
 
+var/global/list/bluespace_ore_boxes = list()
+
 /obj/structure/ore_box
 	name = "ore box"
 	desc = "A heavy box used for storing ore."
@@ -8,6 +10,7 @@
 	icon_state = "orebox0"
 	density = TRUE
 	var/last_update = 0
+	var/obj/item/warp_core/warp_core // to set up the bluespace network
 	var/list/stored_ore = list()
 
 /obj/structure/ore_box/attackby(obj/item/W, mob/user)
@@ -23,9 +26,27 @@
 
 		S.post_remove_from_storage_deferred(loc, user)
 		to_chat(user, span("notice", "You empty the satchel into the box."))
+	if(istype(W, /obj/item/warp_core))
+		if(warp_core)
+			to_chat(user, SPAN_WARNING("\The [src] already has a warp core attached!"))
+			return
+		user.drop_from_inventory(W, src)
+		warp_core = W
+		bluespace_ore_boxes += src
+		to_chat(user, SPAN_NOTICE("You carefully attach \the [W] to \the [src], connecting it to the bluespace network."))
 
 	update_ore_count()
 	return
+
+/obj/structure/ore_box/attack_hand(mob/user)
+	if(warp_core)
+		warp_core.forceMove(get_turf(user))
+		user.put_in_hands(warp_core)
+		bluespace_ore_boxes -= src
+		to_chat(user, SPAN_NOTICE("You detach \the [warp_core] from \the [src], disconnecting it from the bluespace network."))
+		warp_core = null
+	else
+		..()
 
 /obj/structure/ore_box/proc/update_ore_count()
 	stored_ore = list()
@@ -44,6 +65,9 @@
 		return
 
 	add_fingerprint(user)
+
+	if(warp_core)
+		to_chat(user, SPAN_NOTICE("It has a <b>[warp_core]</b> attached to it."))
 
 	if(!length(contents))
 		to_chat(user, SPAN_NOTICE("It is empty."))
