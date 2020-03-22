@@ -159,7 +159,7 @@ Implant Specifics:<BR>"}
 
 /obj/item/implant/explosive/Initialize()
 	. = ..()
-	fallback_phrase = "[pick("Alpha, Omega, Delta, Theta")] [rand(100, 999)]"
+	fallback_phrase = "[pick("Alpha", "Omega", "Delta", "Theta")] [rand(100, 999)]"
 
 /obj/item/implant/explosive/get_data()
 	. = {"
