@@ -180,7 +180,7 @@ Implant Specifics:<BR>"}
 			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
 			return // It's full.
 		if(!phrase)
-			var/choice = alert("Implant settings have not been changed. Continue?", "Ready for Implantation", "Yes", "Cancel")
+			var/choice = alert("Implant settings have not been changed. Continue?", "Ready for Implantation?", "Yes", "Cancel")
 			if(choice == "Cancel")
 				return
 			else
@@ -205,12 +205,12 @@ Implant Specifics:<BR>"}
 	if(malfunction == MALFUNCTION_PERMANENT)
 		return
 
-	var/turf/F = get_turf(imp_in)	
 	if(!imp_in)
 		small_countdown()
-	else
-		message_admins("Explosive implant triggered in [imp_in] ([imp_in.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[imp_in.x];Y=[imp_in.y];Z=[imp_in.z]'>JMP</a>) ")
-		log_game("Explosive implant triggered in [imp_in] ([imp_in.key]).")
+		return
+
+	message_admins("Explosive implant triggered in [imp_in] ([imp_in.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[imp_in.x];Y=[imp_in.y];Z=[imp_in.z]'>JMP</a>) ")
+	log_game("Explosive implant triggered in [imp_in] ([imp_in.key]).")
 	if(ishuman(imp_in))
 		var/mob/living/carbon/human/T = imp_in
 		if(elevel == "Localized Limb" && part)
@@ -225,7 +225,8 @@ Implant Specifics:<BR>"}
 	else if(ismob(imp_in))
 		var/mob/M = imp_in
 		M.gib()
-
+		
+	var/turf/F = get_turf(imp_in)	
 	if(F)
 		F.hotspot_expose(3500,125)
 	qdel(src)

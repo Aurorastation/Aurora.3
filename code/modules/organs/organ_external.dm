@@ -832,7 +832,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	victim.updatehealth()
 	victim.UpdateDamageIcon()
 	victim.regenerate_icons()
-	victim.update_body(1)
 	dir = 2
 
 //Handles dismemberment
