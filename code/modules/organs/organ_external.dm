@@ -829,7 +829,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 ****************************************************/
 
 /obj/item/organ/external/proc/post_droplimb(mob/living/carbon/human/victim)
-	to_world("Post_droplimb called.")
 	victim.updatehealth()
 	victim.UpdateDamageIcon()
 	victim.regenerate_icons()
