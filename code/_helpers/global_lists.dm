@@ -46,7 +46,7 @@ var/global/list/poster_designs = list()
 var/list/obj/item/device/uplink/world_uplinks = list()
 
 //Preferences stuff
-	//Hairstyles
+//Hairstyles
 var/global/list/hair_styles_list = list()			//stores /datum/sprite_accessory/hair indexed by name
 var/global/list/hair_styles_male_list = list()
 var/global/list/hair_styles_female_list = list()
@@ -58,9 +58,7 @@ var/global/list/body_marking_styles_list = list()
 var/global/list/chargen_disabilities_list = list()
 var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER)
 
-var/datum/category_collection/underwear/global_underwear = new()
-
-	//Backpacks
+//Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
 var/global/list/backbagstyles = list("Job-specific", "Grey")
 var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/merchant)
