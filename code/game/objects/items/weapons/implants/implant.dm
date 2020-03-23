@@ -159,7 +159,7 @@ Implant Specifics:<BR>"}
 
 /obj/item/implant/explosive/Initialize()
 	. = ..()
-	fallback_phrase = "[pick("Alpha", "Omega", "Delta", "Theta")] [rand(100, 999)]"
+	fallback_phrase = pick(adjectives)
 
 /obj/item/implant/explosive/get_data()
 	. = {"
@@ -180,11 +180,12 @@ Implant Specifics:<BR>"}
 			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
 			return // It's full.
 		if(!phrase)
-			var/choice = alert("Implant settings have not been changed. Continue?", "Ready for Implantation?", "Yes", "Cancel")
+			var/choice = alert("\The [src]'s default phrase has not been changed. Continue?", "Ready for Implantation?", "Yes", "Cancel")
 			if(choice == "Cancel")
 				return
 			else
 				phrase = fallback_phrase
+		to_chat(user, "<B>You load \the [src] into \the [I]. The current setting is \"[elevel]\" and the current phrase is \"[phrase]\".</B>")
 		user.drop_from_inventory(src)
 		forceMove(implanter)
 		implanter.imp = src
@@ -231,59 +232,6 @@ Implant Specifics:<BR>"}
 		F.hotspot_expose(3500,125)
 	qdel(src)
 
-
-/proc/explosion_spread(turf/epicenter, power, adminlog = 1, z_transfer = UP|DOWN)
-	var/datum/explosiondata/data = new
-	data.epicenter = epicenter
-	data.rec_pow = power
-	data.spreading = TRUE
-	data.adminlog = adminlog
-	data.z_transfer = z_transfer
-	SSexplosives.queue(data)
-
-/obj/item/implant/explosive/implanted(mob/source)
-	if(!phrase)
-		phrase = fallback_phrase
-	usr.mind.store_memory("Explosive implant in [source] can be activated by saying something containing the phrase ''[src.phrase]'', <B>say [src.phrase]</B> to attempt to activate.", 0, 0)
-	to_chat(usr, "The implanted explosive implant in [source] can be activated by saying something containing the phrase ''[src.phrase]'', <B>say [src.phrase]</B> to attempt to activate.")
-	return TRUE
-
-/obj/item/implant/explosive/attack_self(mob/user)
-	elevel = alert("What sort of explosion would you prefer?", "Implant Intent", "Localized Limb", "Destroy Body", "Full Explosion")
-	phrase = input("Choose activation phrase:") as text
-	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
-	phrase = replace_characters(phrase, replacechars)
-	if(!phrase)
-		phrase = fallback_phrase
-	user.mind.store_memory("\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
-	to_chat(user, "\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
-	setup_done = TRUE
-
-/obj/item/implant/explosive/emp_act(severity)
-	if(malfunction)
-		return
-	malfunction = MALFUNCTION_TEMPORARY
-	switch (severity)
-		if(2.0)	//Weak EMP will make implant tear limbs off.
-			if (prob(50))
-				small_countdown()
-		if(1.0)	//strong EMP will melt implant either making it go off, or disarming it
-			if(prob(70))
-				if(prob(50))
-					small_countdown()
-				else
-					if(prob(50))
-						activate()	//50% chance of bye bye
-					else
-						meltdown()	//50% chance of implant disarming
-	addtimer(CALLBACK(src, .proc/self_correct), 20)
-
-/obj/item/implant/explosive/proc/self_correct()
-	malfunction--
-
-/obj/item/implant/explosive/islegal()
-	return FALSE
-
 /obj/item/implant/explosive/proc/small_countdown()
 	if(!imp_in)
 		visible_message(SPAN_WARNING("Something begins beeping..."))
@@ -305,7 +253,7 @@ Implant Specifics:<BR>"}
 				istype(part,/obj/item/organ/external/head))
 			part.createwound(BRUISE, 60)
 			imp_in.visible_message(SPAN_WARNING("[imp_in]'s [part.name] bursts open with a horrible ripping noise!"),
-									SPAN_DANGER("Your [part.name] burst open with a horrible ripping noise!"),
+									SPAN_DANGER("Your [part.name] bursts open with a horrible ripping noise!"),
 									SPAN_WARNING("You hear a horrible ripping noise."))
 		else
 			part.droplimb(0,DROPLIMB_BLUNT)
@@ -314,6 +262,58 @@ Implant Specifics:<BR>"}
 		var/mob/M = imp_in
 		M.gib()	//Simple mobs just get got
 	qdel(src)
+
+/proc/explosion_spread(turf/epicenter, power, adminlog = 1, z_transfer = UP|DOWN)
+	var/datum/explosiondata/data = new
+	data.epicenter = epicenter
+	data.rec_pow = power
+	data.spreading = TRUE
+	data.adminlog = adminlog
+	data.z_transfer = z_transfer
+	SSexplosives.queue(data)
+
+/obj/item/implant/explosive/implanted(mob/source)
+	if(!phrase)
+		phrase = fallback_phrase
+	usr.mind.store_memory("\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
+	to_chat(usr, "The implanted explosive implant in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
+	return TRUE
+
+/obj/item/implant/explosive/attack_self(mob/user)
+	elevel = alert("What sort of explosion would you prefer?", "Implant Intent", "Localized Limb", "Destroy Body", "Full Explosion")
+	phrase = input("Choose activation phrase:") as text
+	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
+	phrase = replace_characters(phrase, replacechars)
+	if(!phrase)
+		phrase = fallback_phrase
+	user.mind.store_memory("\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
+	to_chat(user, "\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
+	setup_done = TRUE
+
+/obj/item/implant/explosive/emp_act(severity)
+	if(malfunction)
+		return
+	malfunction = MALFUNCTION_TEMPORARY
+	switch (severity)
+		if(2.0)	//Weak EMP will make implant tear limbs off.
+			if(prob(50))
+				small_countdown()
+		if(1.0)	//strong EMP will melt implant either making it go off, or disarming it
+			if(prob(70))
+				if(prob(50))
+					small_countdown()
+				else
+					if(prob(50))
+						activate()	//50% chance of bye bye
+					else
+						meltdown()	//50% chance of implant disarming
+	addtimer(CALLBACK(src, .proc/self_correct), 20)
+
+/obj/item/implant/explosive/proc/self_correct()
+	malfunction--
+
+/obj/item/implant/explosive/islegal()
+	return FALSE
 
 /obj/item/implant/explosive/New()
 	..()
