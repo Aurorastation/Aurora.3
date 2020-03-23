@@ -110,7 +110,7 @@ research holder datum.
 		return
 	for(var/i = 1 to known_designs.len)
 		var/datum/design/A = known_designs[i]
-		if(A.type == D.type) // We are guaranteed to reach this if the ids are the same, because sort_string will also be the same
+		if("[A.type]" == "[D.type]") // We are guaranteed to reach this if the ids are the same, because sort_string will also be the same
 			return
 		if(A.design_order > D.design_order)
 			known_designs.Insert(i, D)

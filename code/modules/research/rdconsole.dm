@@ -223,7 +223,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["copy_design"]) //Copy design data from the research holder to the design disk.
 		for(var/datum/design/D in files.known_designs)
-			if(href_list["copy_design_ID"] == D.type)
+			if("[D.type]" == href_list["copy_design_ID"])
 				d_disk.blueprint = D
 				break
 		screen = 1.4
@@ -308,7 +308,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(linked_lathe)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if(D.type == href_list["build"])
+				if("[D.type]" == href_list["build"])
 					being_built = D
 					break
 			if(being_built)
@@ -321,7 +321,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(linked_imprinter)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if(D.type == href_list["imprint"])
+				if("[D.type]" == text2path(href_list["imprint"]))
 					being_built = D
 					break
 			if(being_built)
