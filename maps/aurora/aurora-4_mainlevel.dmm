@@ -52359,7 +52359,7 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/old,
 /area/maintenance/bar)
 "bOv" = (
 /obj/structure/closet/crate,
@@ -53931,6 +53931,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/effect/floor_decal/spline/plain/corner{
+	icon_state = "spline_plain_corner";
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "bSJ" = (
@@ -54735,10 +54739,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/chapel/main)
-"bUv" = (
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet,
-/area/chapel/main)
 "bUw" = (
 /obj/structure/table/wood,
 /obj/item/storage/bible,
@@ -54766,9 +54766,6 @@
 /area/chapel/main)
 "bUy" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
-	name = "Chapel"
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -54780,7 +54777,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/door/airlock/glass{
+	name = "Chapel"
+	},
+/turf/simulated/floor/tiled,
 /area/chapel/main)
 "bUz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -55417,6 +55417,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/effect/floor_decal/spline/plain/corner{
+	icon_state = "spline_plain_corner";
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "bVS" = (
@@ -59755,11 +59759,11 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ceB" = (
+/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Mining Processing Hatch";
 	req_access = list(48)
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "ceC" = (
@@ -63592,7 +63596,7 @@
 /area/hallway/primary/starboard)
 "gfU" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/old,
 /area/maintenance/bar)
 "gjM" = (
 /obj/structure/bed/chair/wood,
@@ -69262,6 +69266,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics)
+"ttC" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8;
+	icon_state = "spline_plain"
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/wood,
+/area/chapel/main)
 "tuN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -97156,7 +97168,7 @@ bSi
 bSG
 bTQ
 bTQ
-bUv
+bTQ
 bTQ
 bTQ
 bVP
@@ -97670,7 +97682,7 @@ bSi
 bSI
 bTh
 bTS
-bTS
+ttC
 bTS
 bVs
 bVR

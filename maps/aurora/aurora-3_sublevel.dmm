@@ -3560,6 +3560,10 @@
 /obj/structure/sign/vacuum{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "ahs" = (
@@ -3817,11 +3821,6 @@
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
@@ -19846,23 +19845,6 @@
 /obj/structure/flora/ausbushes/grassybush,
 /turf/simulated/floor/grass/alt,
 /area/medical/patient_wing_hallway)
-"aLw" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_x = 0;
-	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	icon_state = "wide_corner";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/engineering/hallway)
 "aLy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -29483,6 +29465,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
+"eiI" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner_wide/yellow{
+	icon_state = "wide_corner";
+	dir = 5
+	},
+/obj/machinery/alarm{
+	pixel_y = 22
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "eiL" = (
 /obj/structure/table/steel,
 /obj/random/loot,
@@ -34081,6 +34074,23 @@
 	dir = 8
 	},
 /area/outpost/research/hallway)
+"oXU" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	icon_state = "wide_corner";
+	dir = 5
+	},
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "oZc" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -36845,6 +36855,31 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/storage_sublevel)
+"vhT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/hallway)
 "vjP" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/door/firedoor,
@@ -52778,8 +52813,8 @@ aeH
 fvN
 agu
 owL
-wVU
-ahK
+oXU
+vhT
 ain
 dbr
 ajv
@@ -53035,7 +53070,7 @@ afq
 oFA
 wdi
 owL
-gDm
+eiI
 tZw
 ain
 vly
@@ -54577,7 +54612,7 @@ aft
 agb
 agb
 hsj
-aLw
+wVU
 ahO
 ais
 aiR
