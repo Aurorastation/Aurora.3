@@ -291,7 +291,7 @@
 		mymob.nutrition_icon.name = "nutrition"
 		mymob.nutrition_icon.screen_loc = ui_nutrition
 		hud_elements |= mymob.nutrition_icon
-		
+
 	if(hud_data.has_hydration)
 		mymob.hydration_icon = new /obj/screen()
 		mymob.hydration_icon.icon = ui_style
@@ -393,7 +393,5 @@
 	f_style = "Shaved"
 	if(dna.species == "Human") //no more xenos losing ears/tentacles
 		h_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
-	undershirt = null
-	underwear = null
-	socks = null
+	all_underwear.Cut()
 	regenerate_icons()
