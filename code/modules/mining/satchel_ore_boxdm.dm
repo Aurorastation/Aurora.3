@@ -1,11 +1,10 @@
 
 /**********************Ore box**************************/
 
-var/global/list/bluespace_ore_boxes = list()
-
 /obj/structure/ore_box
 	name = "ore box"
 	desc = "A heavy box used for storing ore."
+	description_info = "You can attach a warp extraction beacon signaller to this, then click on it with an ore satchel that has a warp extraction pack attached, to link them."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "orebox0"
 	density = TRUE
@@ -15,15 +14,22 @@ var/global/list/bluespace_ore_boxes = list()
 
 /obj/structure/ore_box/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/ore))
-		user.remove_from_mob(W)
-		src.contents += W
+		user.drop_from_inventory(W, src)
+	if(istype(W, /obj/item/storage/bag/ore))
+		var/obj/item/storage/bag/ore/satchel = W
+		if(satchel.linked_beacon)
+			if(!warp_core)
+				to_chat(user, SPAN_WARNING("\The [src] doesn't have a warp beacon!"))
+				return
+			satchel.linked_box = src
+			to_chat(user, SPAN_NOTICE("You link \the [satchel] to \the [src]."))
+			return
 	if(istype(W, /obj/item/storage))
 		var/obj/item/storage/S = W
 		S.hide_from(user)
 		for(var/obj/item/ore/O in S.contents)
 			S.remove_from_storage_deferred(O, src, user) //This will move the item to this item's contents
 			CHECK_TICK
-
 		S.post_remove_from_storage_deferred(loc, user)
 		to_chat(user, span("notice", "You empty the satchel into the box."))
 	if(istype(W, /obj/item/warp_core))
@@ -32,7 +38,6 @@ var/global/list/bluespace_ore_boxes = list()
 			return
 		user.drop_from_inventory(W, src)
 		warp_core = W
-		bluespace_ore_boxes += src
 		to_chat(user, SPAN_NOTICE("You carefully attach \the [W] to \the [src], connecting it to the bluespace network."))
 
 	update_ore_count()
@@ -42,7 +47,6 @@ var/global/list/bluespace_ore_boxes = list()
 	if(warp_core)
 		warp_core.forceMove(get_turf(user))
 		user.put_in_hands(warp_core)
-		bluespace_ore_boxes -= src
 		to_chat(user, SPAN_NOTICE("You detach \the [warp_core] from \the [src], disconnecting it from the bluespace network."))
 		warp_core = null
 	else
@@ -67,7 +71,7 @@ var/global/list/bluespace_ore_boxes = list()
 	add_fingerprint(user)
 
 	if(warp_core)
-		to_chat(user, SPAN_NOTICE("It has a <b>[warp_core]</b> attached to it."))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a <b>warp extraction beacon signaller</b> attached to it.")))
 
 	if(!length(contents))
 		to_chat(user, SPAN_NOTICE("It is empty."))
