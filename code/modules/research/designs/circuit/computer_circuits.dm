@@ -1,7 +1,9 @@
+/datum/design/circuit/computer
+	design_order = 1
+
 /datum/design/circuit/computer/AssembleDesignName()
 	..()
 	name = "Computer Circuit Design ([item_name])"
-	design_order = 1
 
 /datum/design/circuit/computer/seccamera
 	name = "Security Camera Monitor"

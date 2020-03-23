@@ -1,7 +1,9 @@
+/datum/design/circuit/hardsuit
+	design_order = 2
+
 /datum/design/circuit/hardsuit/AssembleDesignName()
 	..()
 	name = "Hardsuit Circuit Design ([item_name])"
-	design_order = 2
 
 /datum/design/circuit/hardsuit/industrial
 	name = "Industrial Suit Central Circuit Board"
