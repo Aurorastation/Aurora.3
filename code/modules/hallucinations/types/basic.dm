@@ -159,17 +159,19 @@
 	max_power = INFINITY
 	duration = 20
 	var/injector
-	var/needle
-	var/list/prick_candidates = list()
+	var/needle = "syringe"
 
 /datum/hallucination/prick/by_person/start()
+	var/list/prick_candidates = list()
+	for(var/mob/living/M in oview(holder, 1))
+		if(!M.stat)
+			prick_candidates += M
 	injector = pick(prick_candidates)
 	needle = pick("syringe", "hypospray", "pen")
 	to_chat(holder, SPAN_WARNING("\The [injector] is trying to inject \the [holder] with \the [needle]!"))
 
 /datum/hallucination/prick/by_person/end()
 	to_chat(holder,SPAN_NOTICE("\The [injector] injects \the [holder] with \the [needle]!"))
-	to_chat(holder,SPAN_NOTICE("You feel a tiny prick!"))
 	..()
 
 
