@@ -23,8 +23,8 @@ var/datum/antagonist/renegade/renegades
 /datum/antagonist/renegade/can_become_antag(var/datum/mind/player, var/ignore_role)
 	if(..())
 		if(player.current && ishuman(player.current))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /datum/antagonist/renegade/create_objectives(var/datum/mind/player)
 	if(!..())
