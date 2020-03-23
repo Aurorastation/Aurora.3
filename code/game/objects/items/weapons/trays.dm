@@ -198,9 +198,9 @@
 		else if (addedSomething)
 			user.visible_message(SPAN_NOTICE("\The [user] loads [addedSomething] items onto their service tray."))
 		else
-			to_chat(user, SPAN_WARNING("The tray is full or there's nothing valid here."))
+			to_chat(user, SPAN_WARNING("The tray is full or there's nothing to load here."))
 			return TRUE
-		return FALSE //This prevents the alt-click from doing any farther actions
+		return FALSE //This prevents the alt-click from doing any further actions
 	return TRUE
 
 /obj/item/tray/AltClick(var/mob/user)
@@ -223,6 +223,7 @@
 				else
 					if(messages)
 						to_chat(user, SPAN_WARNING("\The [src] can't take hold that much weight."))
+					break
 		if(!match && messages)
 			to_chat(user, SPAN_WARNING("That item isn't suitable for a tray."))
 	return FALSE
@@ -243,8 +244,8 @@
 	set category = "Object"
 	set src in view(1)
 
-	if(!istype(loc, /turf))//check that we're not being held by a mob
-		to_chat(usr, SPAN_WARNING("Place the tray down first!"))
+	if(!isturf(loc))//check that we're not being held by a mob
+		to_chat(usr, SPAN_WARNING("Place \the [src] down first!"))
 		return
 	else
 		var/turf/dropspot = get_turf(src)
@@ -253,11 +254,11 @@
 			carrying -= I
 		cut_overlays()
 		current_weight = 0
-		usr.visible_message(SPAN_NOTICE("[usr] unloads the tray."), SPAN_NOTICE("You unload the tray."))
+		usr.visible_message(SPAN_NOTICE("[usr] unloads \the [src]."), SPAN_NOTICE("You unload \the [src]."))
 
 /obj/item/tray/proc/unload_at_loc(var/turf/dropspot = null, var/mob/user)
-	if(!istype(loc, /turf) && !dropspot)//check that we're not being held by a mob
-		to_chat(user, SPAN_WARNING("Place the tray down first!"))
+	if(!isturf(loc) && !dropspot)//check that we're not being held by a mob
+		to_chat(user, SPAN_WARNING("Place \the [src] down first!"))
 		return
 	else
 		if(!dropspot)
@@ -269,7 +270,7 @@
 
 		cut_overlays()
 		current_weight = 0
-		user.visible_message(SPAN_NOTICE("\The [user] unloads the tray."), SPAN_NOTICE("You unload the tray."))
+		user.visible_message(SPAN_NOTICE("\The [user] unloads \the [src]."), SPAN_NOTICE("You unload \the [src]."))
 
 
 /obj/item/tray/proc/spill(var/mob/user = null, var/turf/dropspot = null)
@@ -288,7 +289,7 @@
 			spawn()
 				for(var/i = 1, i <= rand(1,2), i++)
 					if(I)
-						step(I, pick(NORTH, SOUTH, EAST, WEST))
+						step(I, pick(cardinal))
 						sleep(rand(2, 4))
 		if(user)
 			user.visible_message(SPAN_WARNING("\The [user] spills the contents of their tray all over the floor."))
