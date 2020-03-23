@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - tweak: "Antag drafting from voters is now limited to just the bare minimum required to boot the round. Previous iteration could over-saturate the pool, making most of the antags be voters and not those who had the round enabled."
