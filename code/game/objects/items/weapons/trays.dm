@@ -193,10 +193,8 @@
 		for(var/obj/item/I in tile)
 			if(attempt_load_item(I, usr, 0))
 				addedSomething++
-		if(addedSomething == 1)
-			user.visible_message(SPAN_NOTICE("\The [user] loads an item onto their service tray."))
-		else if (addedSomething)
-			user.visible_message(SPAN_NOTICE("\The [user] loads [addedSomething] items onto their service tray."))
+		if(addedSomething)
+			user.visible_message(SPAN_NOTICE("\The [user] loads [addedsomething > 1 ? "some things" : I.name] onto their service tray."))
 		else
 			to_chat(user, SPAN_WARNING("The tray is full or there's nothing valid here."))
 			return TRUE
