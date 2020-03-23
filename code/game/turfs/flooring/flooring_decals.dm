@@ -168,7 +168,7 @@
 
 /obj/effect/floor_decal/corner/orange
 	name = "orange corner"
-	color = COLOR_DARK_ORANGE
+	color = COLOR_ORANGE
 
 /obj/effect/floor_decal/corner/orange/diagonal
 	icon_state = "corner_white_diagonal"
@@ -324,7 +324,7 @@
 
 /obj/effect/floor_decal/corner_wide/orange
 	name = "orange corner"
-	color = COLOR_DARK_ORANGE
+	color = COLOR_ORANGE
 
 /obj/effect/floor_decal/corner_wide/orange/diagonal
 	icon_state = "wide_corner_diagonal"
@@ -578,3 +578,6 @@
 
 /obj/effect/floor_decal/sign/c2
 	icon_state = "white_c2"
+
+/obj/effect/floor_decal/sign/srg
+	icon_state = "white_srg"
