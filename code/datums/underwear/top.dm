@@ -34,6 +34,11 @@
 	icon_state = "sports_bra"
 	has_color = TRUE
 
+/datum/category_item/underwear/top/halterneck_bra
+	name = "Halterneck bra"
+	icon_state = "halterneck_bra"
+	has_color = TRUE
+
 /datum/category_item/underwear/top/binder
 	name = "Binder"
 	icon_state = "binder"
@@ -51,3 +56,19 @@
 	name = "Swimming Top"
 	icon_state = "swimtop"
 	has_color = TRUE
+
+/datum/category_item/underwear/top/fishnet_base
+	name = "Fishnet top"
+	icon_state = "fishnet_body"
+
+/datum/category_item/underwear/top/fishnet_sleeves
+	name = "Fishnet with sleeves"
+	icon_state = "fishnet_sleeves"
+
+/datum/category_item/underwear/top/fishnet_gloves
+	name = "Fishnet with gloves"
+	icon_state = "fishnet_gloves"
+
+/datum/category_item/underwear/top/fishnet_simple
+	name = "Fishnet, simple"
+	icon_state = "fishnet_simple"

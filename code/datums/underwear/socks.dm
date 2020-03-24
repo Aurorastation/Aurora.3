@@ -183,3 +183,7 @@
 /datum/category_item/underwear/socks/stockings_yellow
 	name = "Stockings, Yellow"
 	icon_state = "stockings_yellow"
+
+/datum/category_item/underwear/socks/fishnet
+	name = "Fishnets"
+	icon_state = "fishnet"
