@@ -190,7 +190,7 @@
 		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!</span>", "<span class='danger'><font size='2'>You're hit by \the [src] in the [parse_zone(def_zone)]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	//admin logs
-	if(!no_attack_log && (!human_attack_log_override || (human_attack_log_override && ishuman(target_mob))))
+	if(!no_attack_log || (human_attack_log_override && ishuman(target_mob)))
 		if(istype(firer, /mob))
 
 			var/attacker_message = "shot with \a [src.type]"
