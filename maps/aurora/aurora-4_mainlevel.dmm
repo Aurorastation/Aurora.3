@@ -37095,16 +37095,13 @@
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bmv" = (
-/obj/machinery/door/blast/shutters{
-	density = 1;
-	dir = 4;
-	icon_state = "shutter1";
-	id = "MechBayShutter";
-	name = "Mech Bay Shutters";
-	opacity = 1
-	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "MechBayShutter";
+	name = "Mech Bay Shutters"
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bmw" = (
@@ -37861,11 +37858,6 @@
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics)
 "bnG" = (
-/obj/machinery/door/window{
-	dir = 4;
-	name = "Components Manufacture";
-	req_access = list(29)
-	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -37936,10 +37928,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/structure/closet/crate/autakh,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bnL" = (
@@ -38058,19 +38050,6 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled,
-/area/assembly/chargebay)
-"bnS" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/blast/shutters{
-	density = 1;
-	dir = 4;
-	icon_state = "shutter1";
-	id = "MechBayShutter";
-	name = "Mech Bay Shutters";
-	opacity = 1
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
@@ -64880,10 +64859,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"hPs" = (
-/obj/structure/closet/crate/autakh,
-/turf/simulated/floor/tiled/dark,
-/area/assembly/chargebay)
 "hPx" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -95497,7 +95472,7 @@ tPt
 bfX
 vgB
 biD
-hPs
+iFV
 biD
 bmr
 bnP
@@ -97042,7 +97017,7 @@ biI
 bjW
 vgB
 bmv
-bnS
+bmv
 vgB
 vgB
 vgB
