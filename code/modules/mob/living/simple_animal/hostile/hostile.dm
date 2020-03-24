@@ -67,7 +67,7 @@
 	if(!isnull(T))
 		stance = HOSTILE_STANCE_ATTACK
 	if(isliving(T))
-		custom_emote(1, "[attack_emote] [T]")
+		custom_emote(1, "[attack_emote] [T].")
 		if(istype(T, /mob/living/simple_animal/hostile/))
 			var/mob/living/simple_animal/hostile/H = T
 			H.being_targeted(src)

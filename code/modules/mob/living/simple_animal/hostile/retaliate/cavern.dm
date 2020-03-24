@@ -55,6 +55,8 @@
 	damage_type = BURN
 	check_armour = "energy"
 	damage = 5
+	no_attack_log = TRUE
+	human_attack_log_override = TRUE
 
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun

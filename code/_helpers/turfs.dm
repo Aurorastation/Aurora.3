@@ -25,7 +25,7 @@
 			return 0
 	return 1
 
-/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range)
+/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density = FALSE)
 	origin = get_turf(origin)
 	if(!origin)
 		return
@@ -36,6 +36,8 @@
 				continue
 			if(T.y >= world.maxy-TRANSITIONEDGE || T.y <= TRANSITIONEDGE)
 				continue
+		if(check_density && !turf_clear(T))
+			continue
 		if(!inner_range || get_dist(origin, T) >= inner_range)
 			turfs += T
 	if(turfs.len)

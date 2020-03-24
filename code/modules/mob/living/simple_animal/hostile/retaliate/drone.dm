@@ -62,6 +62,14 @@
 	ion_trail = new(src)
 	ion_trail.start()
 
+/mob/living/simple_animal/hostile/retaliate/malf_drone/examine(mob/user)
+	..()
+	to_chat(user, SPAN_WARNING("This one seems to be malfunctioning."))
+	if(hostile_drone)
+		to_chat(user, SPAN_WARNING("It's completely lit up, with targetting vanes in place."))
+	else
+		to_chat(user, SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted."))
+
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
@@ -275,6 +283,10 @@
 
 /obj/item/projectile/beam/drone
 	damage = 15
+	no_attack_log = TRUE
+	human_attack_log_override = TRUE
 
 /obj/item/projectile/beam/pulse/drone
 	damage = 10
+	no_attack_log = TRUE
+	human_attack_log_override = TRUE

@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The NMV Icarus will now dispatch combat drones to assist with medium to large carp migrations."
+  - tweak: "Interacting with simple mobs now have full stops in the chat menu."
+  - tweak: "For the admins, combat drones and cavern dwellers fighting eachother will no longer make admin messages, unless a human player is hit. In that case, laugh at them."
+  - rscadd: "Malfunctioning Icarus drones now have extended descriptions that tell you a little about what they're doing."

@@ -97,6 +97,8 @@
 	var/impact_type
 	var/hit_effect
 
+	var/human_attack_log_override = FALSE // overrides no_attack_log if the person who got shot is a human type
+
 /obj/item/projectile/CanPass()
 	return TRUE
 
@@ -188,7 +190,7 @@
 		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \the [src] in the [parse_zone(def_zone)]!</span>", "<span class='danger'><font size='2'>You're hit by \the [src] in the [parse_zone(def_zone)]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	//admin logs
-	if(!no_attack_log)
+	if(!no_attack_log && (!human_attack_log_override || (human_attack_log_override && ishuman(target_mob))))
 		if(istype(firer, /mob))
 
 			var/attacker_message = "shot with \a [src.type]"

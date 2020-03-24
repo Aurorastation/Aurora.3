@@ -373,11 +373,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<span class='notice'>[M] [response_help] \the [src]</span>")
+				M.visible_message(SPAN_NOTICE("[M] [response_help] \the [src]."))
 				poke()
 
 		if(I_DISARM)
-			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src]</span>")
+			M.visible_message(SPAN_NOTICE("[M] [response_disarm] \the [src]."))
 			M.do_attack_animation(src)
 			poke(1)
 			//TODO: Push the mob away or something
@@ -399,13 +399,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			G.affecting = src
 			LAssailant = WEAKREF(M)
 
-			M.visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+			M.visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"))
 			M.do_attack_animation(src)
 			poke(1)
 
 		if(I_HURT)
 			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message("<span class='warning'>[M] [response_harm] \the [src]</span>")
+			M.visible_message(SPAN_WARNING("[M] [response_harm] \the [src]!"))
 			M.do_attack_animation(src)
 			poke(1)
 
