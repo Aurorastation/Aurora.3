@@ -3,9 +3,9 @@
         <div align="center">
             <table border="1" style="undefined;table-layout: fixed; width: 90%">
             <colgroup>
+                <col style='width: 35%'>
                 <col style='width: 30%'>
-                <col style='width: 40%'>
-                <col style='width: 30%'>
+                <col style='width: 35%'>
             </colgroup>
             <tr>
                 <td colspan="3">
@@ -21,14 +21,14 @@
                 <td align='center' rowspan=this.get_height(column) v-for="column in 3" :key="column">
                     <!-- INPUTS -->
                     <div v-if="column == 1 && row <= inputs.length">
-                        <vui-button :params="{act: 'wire', pin: inputs[row - 1].ref}">{{inputs[row - 1].pin_type}} {{inputs[row - 1].name}}</vui-button>
-                        <vui-button :params="{act: 'data', pin: inputs[row - 1].ref}">{{inputs[row - 1].data}}</vui-button>
+                        <vui-button :params="{act: 'wire', pin: inputs[row - 1].ref}"><b>{{inputs[row - 1].pin_type}} {{inputs[row - 1].name}}</b></vui-button>
+                        <vui-button :params="{act: 'data', pin: inputs[row - 1].ref}"><b>{{inputs[row - 1].data}}</b></vui-button>
                         <br>
                         <span v-if="inputs[row - 1].linked">
                             <span v-for="linked in inputs[row - 1].linked" :key="linked">
-                                <vui-button :params="{act: 'unwire', pin: inputs[row - 1].ref, link: linked.ref}"><b>{{linked.name}}</b></vui-button>
+                                <vui-button :params="{act: 'unwire', pin: inputs[row - 1].ref, link: linked.ref}">{{linked.name}}</vui-button>
                                 <!-- TODO: Porting the old code directly, hence the unsafe-params, change later -->
-                                @ <vui-button :unsafe-params="{src: linked.holder, examine: 1}"><b>{{linked.holder_name}}</b></vui-button>
+                                @ <vui-button :unsafe-params="{src: linked.holder, examine: 1}">{{linked.holder_name}}</vui-button>
                                 <br>
                             </span>
                         </span>
@@ -41,14 +41,14 @@
                     </div>
                     <!-- OUTPUTS -->
                     <div v-else-if="column == 3 && row <= outputs.length">
-                        <vui-button :params="{act: 'wire', pin: outputs[row - 1].ref}">{{outputs[row - 1].pin_type}} {{outputs[row - 1].name}}</vui-button>
-                        <vui-button :params="{act: 'data', pin: outputs[row - 1].ref}">{{outputs[row - 1].data}}</vui-button>
+                        <vui-button :params="{act: 'wire', pin: outputs[row - 1].ref}"><b>{{outputs[row - 1].pin_type}} {{outputs[row - 1].name}}</b></vui-button>
+                        <vui-button :params="{act: 'data', pin: outputs[row - 1].ref}"><b>{{outputs[row - 1].data}}</b></vui-button>
                         <br>
                         <span v-if="outputs[row - 1].linked">
                             <span v-for="linked in outputs[row - 1].linked" :key="linked">
-                                <vui-button :params="{act: 'unwire', pin: outputs[row - 1].ref, link: linked.ref}"><b>{{linked.name}}</b></vui-button>
+                                <vui-button :params="{act: 'unwire', pin: outputs[row - 1].ref, link: linked.ref}">{{linked.name}}</vui-button>
                                 <!-- Porting the old code directly, hence the unsafe-params, change later -->
-                                @ <vui-button :unsafe-params="{src: linked.holder, examine: 1}"><b>{{linked.holder_name}}</b></vui-button>
+                                @ <vui-button :unsafe-params="{src: linked.holder, examine: 1}">{{linked.holder_name}}</vui-button>
                                 <br>
                             </span>
                         </span>
@@ -57,14 +57,14 @@
             </tr>
             <tr>
                 <td colspan='3' align='center' v-for="activator in activators" :key="activator">
-                    <vui-button :params="{act: 'wire', pin: activator.ref}"><font color='CC0000'>{{activator.name}}</font></vui-button>
-                    <vui-button :params="{act: 'data', pin: activator.ref}"><font color='CC0000'>{{activator.data}}</font></vui-button>
+                    <vui-button :params="{act: 'wire', pin: activator.ref}"><font color='FFFF00'><b>{{activator.name}}</b></font></vui-button>
+                    <vui-button :params="{act: 'data', pin: activator.ref}"><font color='FFFF00'><b>{{activator.data}}</b></font></vui-button>
                     <br>
                     <span v-if="activator.linked">
                         <span v-for="linked in activator.linked" :key="linked">
-                            <vui-button :params="{act: 'unwire', pin: activator.ref, link: linked.ref}"><font color='CC0000'><b>{{linked.name}}</b></font></vui-button>
+                            <vui-button :params="{act: 'unwire', pin: activator.ref, link: linked.ref}"><font color='FFFF00'>{{linked.name}}</font></vui-button>
                             <!-- Porting the old code directly, hence the unsafe-params, change later -->
-                            @ <vui-button :unsafe-params="{src: linked.holder, examine: 1}"><font color='CC0000'><b>{{linked.holder_name}}</b></font></vui-button>
+                            @ <vui-button :unsafe-params="{src: linked.holder, examine: 1}"><font color='FFFF00'>{{linked.holder_name}}</font></vui-button>
                             <br>
                         </span>
                     </span>
