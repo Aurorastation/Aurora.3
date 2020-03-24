@@ -28,6 +28,14 @@
 	var/explode_chance = 1
 	var/disabled = FALSE
 	var/exploding = FALSE
+	var/list/valid_living_targets = list(
+						/mob/living/simple_animal/hostile/hivebot,
+						/mob/living/simple_animal/hostile/carp,
+						/mob/living/simple_animal/hostile/retaliate/cavern_dweller,
+						/mob/living/simple_animal/hostile/giant_spider,
+						/mob/living/simple_animal/hostile/spider_queen,
+						/mob/living/simple_animal/hostile/retaliate/malf_drone
+										)
 
 	//Drones aren't affected by atmos.
 	min_oxy = 0
@@ -244,23 +252,6 @@
 			C.origin_tech = list(TECH_COMBAT = rand(3, 6))
 
 	return ..()
-
-/mob/living/simple_animal/hostile/retaliate/icarus_drone/validator_living(var/mob/living/L, var/atom/current)
-	if(L.health <= 0)
-		return FALSE
-	if(istype(L, /mob/living/simple_animal/hostile/hivebot))
-		return TRUE
-	if(istype(L, /mob/living/simple_animal/hostile/carp))
-		return TRUE
-	if(istype(L, /mob/living/simple_animal/hostile/retaliate/cavern_dweller))
-		return TRUE
-	if(istype(L, /mob/living/simple_animal/hostile/giant_spider))
-		return TRUE
-	if(istype(L, /mob/living/simple_animal/hostile/spider_queen))
-		return TRUE
-	if(istype(L, /mob/living/simple_animal/hostile/retaliate/malf_drone))
-		return TRUE
-	return FALSE
 
 /mob/living/simple_animal/hostile/retaliate/icarus_drone/validator_bot(var/obj/machinery/bot/B, var/atom/current)
 	return FALSE

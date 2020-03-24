@@ -26,6 +26,9 @@
 	var/list/target_type_validator_map = list()
 	var/attack_emote = "stares menacingly at"
 
+	// Specific targets
+	var/list/valid_living_targets = list()
+
 	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
 
 /mob/living/simple_animal/hostile/Initialize()
@@ -350,22 +353,30 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 //////////////////////////////
 
 /mob/living/simple_animal/hostile/proc/validator_living(var/mob/living/L, var/atom/current)
-	if(ismech(L))
-		var/mob/living/heavy_vehicle/M = L
-		if(!M.pilots?.len)
-			return FALSE
-
+	if(L.health <= 0 || L.stat == DEAD)
+		return FALSE
 	if((L.faction == src.faction) && !attack_same)
 		return FALSE
 	if(L in friends)
 		return FALSE
-	if(!L.stat)
-		var/current_health = INFINITY
-		if (isliving(current))
-			var/mob/living/M = current
-			current_health = M.health
-		if(L.health < current_health)
+
+	if(length(valid_living_targets)) // it has a specific list of targets
+		if(is_type_in_list(L, valid_living_targets))
 			return TRUE
+		return FALSE
+	else
+		if(ismech(L))
+			var/mob/living/heavy_vehicle/M = L
+			if(!M.pilots?.len)
+				return FALSE
+
+		if(!L.stat)
+			var/current_health = INFINITY
+			if(isliving(current))
+				var/mob/living/M = current
+				current_health = M.health
+			if(L.health < current_health)
+				return TRUE
 	return FALSE
 
 /mob/living/simple_animal/hostile/proc/validator_bot(var/obj/machinery/bot/B, var/atom/current)
