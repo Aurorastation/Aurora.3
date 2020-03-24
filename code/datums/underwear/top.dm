@@ -55,7 +55,7 @@
 	has_color = TRUE
 
 /datum/category_item/underwear/top/halterneck_bra
-	name = "Halterneck bra"
+	name = "Halterneck top"
 	icon_state = "halterneck_bra"
 	has_color = TRUE
 
