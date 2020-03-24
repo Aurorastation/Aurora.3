@@ -150,6 +150,12 @@
 	else if(adj)
 		setClickCooldown(arms ? arms.action_delay : 15)
 		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
+		if(ismob(A))
+			var/mob/target = A
+			user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			src.attack_log += "\[[time_stamp()]\]<font color='red'> [user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
 
@@ -497,4 +503,4 @@
 	if(lockdown)
 		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!</span>")
 	else
-		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")		
+		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")

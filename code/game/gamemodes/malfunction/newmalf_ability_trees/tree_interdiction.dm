@@ -80,7 +80,7 @@
 		to_chat(user, "This cyborg is not connected to you.")
 		return
 
-	if(target && !target.lockcharge)
+	if(target && !target.lock_charge)
 		to_chat(user, "This cyborg is not locked down.")
 		return
 
@@ -93,7 +93,7 @@
 				continue
 			if(R.connected_ai != user)						// No robots linked to other AIs
 				continue
-			if(R.lockcharge)
+			if(R.lock_charge)
 				robots += R
 				robot_names += R.name
 		if(!robots.len)
@@ -115,11 +115,11 @@
 		user.hacking = 1
 		to_chat(user, "Attempting to unlock cyborg. This will take approximately 30 seconds.")
 		sleep(300)
-		if(target && target.lockcharge)
+		if(target && target.lock_charge)
 			to_chat(user, "Successfully sent unlock signal to cyborg..")
 			to_chat(target, "Unlock signal received..")
 			target.SetLockdown(0)
-			if(target.lockcharge)
+			if(target.lock_charge)
 				to_chat(user, "<span class='notice'>Unlock Failed, lockdown wire cut.</span>")
 				to_chat(target, "<span class='notice'>Unlock Failed, lockdown wire cut.</span>")
 			else
@@ -227,7 +227,7 @@
 			// Connect the cyborg to AI
 			target.connected_ai = user
 			user.connected_robots += target
-			target.lawupdate = 1
+			target.law_update = 1
 			target.sync()
 			target.show_laws()
 			log_ability_use(user, "hack cyborg", target)

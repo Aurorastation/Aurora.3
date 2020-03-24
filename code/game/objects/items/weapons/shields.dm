@@ -62,7 +62,7 @@
 	throw_range = 4
 	w_class = 4.0
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list("glass" = 7500, DEFAULT_WALL_MATERIAL = 1000)
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 7500)
 	attack_verb = list("shoved", "bashed")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 

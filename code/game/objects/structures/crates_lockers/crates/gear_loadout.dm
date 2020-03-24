@@ -3,6 +3,34 @@
 	name = "gear crate"
 	req_access = list(access_syndicate)
 
+/obj/structure/closet/crate/gear_loadout/hephaestus
+	desc = "A sturdy crate with Hephaestus Industries branding."
+	name = "hephaestus drop crate"
+	icon_state = "hephcrate"
+	icon_opened = "hephcrateopen"
+	icon_closed = "hephcrate"
+
+/obj/structure/closet/crate/gear_loadout/zenghu
+	desc = "A sturdy crate with Zeng-Hu Pharmaceuticals branding."
+	name = "zeng-hu drop crate"
+	icon_state = "zenghucrate"
+	icon_opened = "zenghucrateopen"
+	icon_closed = "zenghucrate"
+
+/obj/structure/closet/crate/gear_loadout/einstein
+	desc = "A sturdy crate with Einstein Engines branding."
+	name = "einstein drop crate"
+	icon_state = "einsteincrate"
+	icon_opened = "einsteincrateopen"
+	icon_closed = "einsteincrate"
+
+/obj/structure/closet/crate/gear_loadout/necropolis
+	desc = "A sturdy crate with Necropolis Industries branding."
+	name = "necropolis drop crate"
+	icon_state = "necrocrate"
+	icon_opened = "necrocrateopen"
+	icon_closed = "necrocrate"
+
 /obj/structure/closet/crate/secure/gear_loadout/coalition/fill()
 	new /obj/item/rig/gunslinger/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/coalition(src)
@@ -208,3 +236,27 @@
 	new /obj/item/clothing/head/cowboy(src)
 	new /obj/item/melee/whip(src)
 	new /obj/item/gun/projectile/revolver/detective(src)
+//Megacorporate suits are used in devices and tools in the uplink
+/obj/structure/closet/crate/gear_loadout/necropolis/fill()
+	new /obj/item/clothing/head/helmet/space/void/necropolis(src)
+	new /obj/item/clothing/suit/space/void/necropolis(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/clothing/shoes/magboots(src)
+
+/obj/structure/closet/crate/gear_loadout/zenghu/fill()
+	new /obj/item/clothing/head/helmet/space/void/zenghu(src)
+	new /obj/item/clothing/suit/space/void/zenghu(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/clothing/shoes/magboots(src)
+
+/obj/structure/closet/crate/gear_loadout/hephaestus/fill()
+	new /obj/item/clothing/head/helmet/space/void/hephaestus(src)
+	new /obj/item/clothing/suit/space/void/hephaestus(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/clothing/shoes/magboots(src)
+
+/obj/structure/closet/crate/gear_loadout/einstein/fill()
+	new /obj/item/clothing/head/helmet/space/void/einstein(src)
+	new /obj/item/clothing/suit/space/void/einstein(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/clothing/shoes/magboots(src)

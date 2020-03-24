@@ -20,8 +20,6 @@
 Color adjustment
 */
 
-var/datum/gear_tweak/color/gear_tweak_free_color_choice = new()
-
 /datum/gear_tweak/color
 	var/list/valid_colors
 
@@ -38,16 +36,15 @@ var/datum/gear_tweak/color/gear_tweak_free_color_choice = new()
 /datum/gear_tweak/color/get_random()
 	return valid_colors ? pick(valid_colors) : COLOR_GRAY
 
-/datum/gear_tweak/color/get_metadata(var/user, var/metadata)
+/datum/gear_tweak/color/get_metadata(var/user, var/metadata, var/title = "Character Preference")
 	if(valid_colors)
-		return input(user, "Choose an item color.", "Character Preference", metadata) as null|anything in valid_colors
-	return input(user, "Choose an item color.", "Global Preference", metadata) as color|null
+		return input(user, "Choose a color.", title, metadata) as null|anything in valid_colors
+	return input(user, "Choose a color.", title, metadata) as color|null
 
 /datum/gear_tweak/color/tweak_item(var/obj/item/I, var/metadata)
 	if(valid_colors && !(metadata in valid_colors))
 		return
-	I.color = metadata
-	I.update_icon()
+	I.color = sanitize_hexcolor(metadata, I.color)
 
 /*
 Path adjustment

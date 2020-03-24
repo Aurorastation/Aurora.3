@@ -19,4 +19,12 @@
 /spell/aoe_turf/cultify_area/cast(list/targets, mob/user)
 	for(var/turf/target in targets)
 		target.cultify()
+		for(var/obj/machinery/door/door in target)
+			door.cultify()
+		for(var/obj/structure/simple_door/s_door in target)
+			s_door.cultify()
+		for(var/obj/structure/table/table in target)
+			table.cultify()
+		for(var/obj/structure/grille/grille in target)
+			grille.cultify()
 	return

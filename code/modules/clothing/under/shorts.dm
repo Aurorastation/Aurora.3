@@ -82,13 +82,11 @@
 
 /obj/item/clothing/under/shorts/jeans/grey
 	name = "grey jeans shorts"
-	icon_state = "greypants_shorts"
-	item_state = "greypants_shorts"
+	icon_state = "greyshorts"
+	item_state = "greyshorts"
 
 /obj/item/clothing/under/shorts/jeans/grey/female
 	name = "grey jeans short shorts"
-	icon_state = "grey_shorts_f"
-	item_state = "grey_shorts_f"
 
 /obj/item/clothing/under/shorts/khaki
 	name = "khaki shorts"
@@ -218,7 +216,7 @@
 	desc = "A pair of striped pants. Typically seen among privateers."
 	icon_state = "stripedpants"
 	item_state = "stripedpants"
-	
+
 /obj/item/clothing/under/pants/tacticool
 	name = "tacticool pants"
 	desc = "A pair of rugged camo pants. Pairs well with canned rations and an SKS."

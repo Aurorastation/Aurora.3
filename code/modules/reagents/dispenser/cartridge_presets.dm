@@ -64,6 +64,7 @@
 	watermelon	spawn_reagent = "watermelonjuice"
 	apple   	spawn_reagent = "applejuice"
 	banana  	spawn_reagent = "banana"
+	root_beer	spawn_reagent = "root_beer"
 
 	// Bar, coffee and tea
 	coffee		spawn_reagent = "coffee"

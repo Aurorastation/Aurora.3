@@ -91,7 +91,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 		if (wear_suit.flags_inv & HIDEJUMPSUIT)
 			update_uniform = 1
 		if(s_store)
-			drop_from_inventory(s_store)
+			if(!(isvaurca(src) && s_store.w_class <= ITEMSIZE_SMALL))
+				drop_from_inventory(s_store)
 		wear_suit = null
 		update_inv_wear_suit()
 		if (update_uniform)

@@ -477,7 +477,7 @@
 /datum/reagent/alcohol/ethanol/brandy
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/guinnes
+/datum/reagent/alcohol/ethanol/guinness
 	value = 0.1
 
 /datum/reagent/alcohol/ethanol/drambuie

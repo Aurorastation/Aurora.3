@@ -4,9 +4,9 @@
 	name = "stacking machine console"
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "console"
-	density = 0
-	anchored = 1
-	var/obj/machinery/mineral/stacking_machine/machine = null
+	density = FALSE
+	anchored = TRUE
+	var/obj/machinery/mineral/stacking_machine/machine
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
@@ -19,10 +19,10 @@
 			if(A == get_area(checked_machine) && get_dist_euclidian(checked_machine,src) < best_distance)
 				machine = checked_machine
 				best_distance = get_dist_euclidian(checked_machine,src)
-		if (machine)
+		if(machine)
 			machine.console = src
 		else
-			to_chat(user, "<span class='warning'>ERROR: Linked machine not found!</span>")
+			to_chat(user, SPAN_WARNING("ERROR: Linked machine not found!"))
 
 	return machine
 
@@ -31,7 +31,6 @@
 	ui_interact(user)
 
 /obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = default_state)
-
 	if(!setup_machine(user))
 		return
 
@@ -39,8 +38,8 @@
 		"stack_amt" = machine.stack_amt,
 		"contents" = list()
 	)
-	for (var/stacktype in machine.stack_storage)
-		if (machine.stack_storage[stacktype] > 0)
+	for(var/stacktype in machine.stack_storage)
+		if(machine.stack_storage[stacktype] > 0)
 			data["contents"] += list(list(
 				"path" = stacktype,
 				"name" = machine.stack_paths[stacktype],
@@ -48,7 +47,7 @@
 			))
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
+	if(!ui)
 		ui = new(user, src, ui_key, "stacking_machine.tmpl", "Stacking Machine", 500, 400, state = state)
 		ui.set_initial_data(data)
 		ui.open()
@@ -67,7 +66,7 @@
 
 	if(href_list["release_stack"])
 		var/stacktype = text2path(href_list["release_stack"])
-		if (!stacktype || !machine.stack_paths[stacktype])
+		if(!stacktype || !machine.stack_paths[stacktype])
 			return
 
 		if(machine.stack_storage[stacktype] > 0)
@@ -85,14 +84,14 @@
 	name = "stacking machine"
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "stacker"
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	var/obj/machinery/mineral/stacking_unit_console/console
-	var/obj/machinery/mineral/input = null
-	var/obj/machinery/mineral/output = null
+	var/obj/machinery/mineral/input
+	var/obj/machinery/mineral/output
 	var/list/stack_storage = list()
 	var/list/stack_paths = list()
-	var/stack_amt = 50; // Amount to stack before releassing
+	var/stack_amt = 50 // Amount to stack before releasing
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
@@ -105,12 +104,12 @@
 		stack_storage[stacktype] = 0
 		stack_paths[stacktype] = capitalize(initial(S.name))
 
-	for (var/dir in cardinal)
+	for(var/dir in cardinal)
 		input = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(input)
 			break
 
-	for (var/dir in cardinal)
+	for(var/dir in cardinal)
 		output = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(output)
 			break
@@ -120,16 +119,17 @@
 	if(!console)
 		return
 
-	if (output && input)
+	if(output && input)
 		var/turf/T = get_turf(input)
 		for(var/obj/item/O in T)
-			if(!O) return
+			if(!O)
+				return
 			var/obj/item/stack/S = O
 			if(istype(S) && stack_storage[S.type] != null)
 				stack_storage[S.type] += S.amount
 				qdel(S)
 			else
-				O.forceMove(output.loc)
+				O.forceMove(get_turf(output))
 
 	//Output amounts that are past stack_amt.
 	for(var/sheet in stack_storage)

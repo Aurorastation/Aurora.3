@@ -36,6 +36,7 @@
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
+	flags_inv = HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL
 
 /obj/item/clothing/suit/space/cult/cultify()
 	return

@@ -202,6 +202,7 @@
 	var/shirts = list()
 	shirts["cyan silversun shirt"] = /obj/item/clothing/accessory/silversun
 	shirts["red silversun shirt"] = /obj/item/clothing/accessory/silversun/red
+	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
 	gear_tweaks += new/datum/gear_tweak/path(shirts)
 
 /datum/gear/accessory/scarf

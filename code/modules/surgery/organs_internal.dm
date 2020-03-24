@@ -99,7 +99,7 @@
 /datum/surgery_step/internal/detach_organ
 	priority = 1
 	allowed_tools = list(
-	/obj/item/scalpel = 100,
+	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -157,7 +157,7 @@
 
 /datum/surgery_step/internal/remove_organ
 	allowed_tools = list(
-	/obj/item/hemostat = 100,	\
+	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/wirecutters = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
@@ -294,7 +294,7 @@
 
 /datum/surgery_step/internal/attach_organ
 	allowed_tools = list(
-	/obj/item/FixOVein = 100, \
+	/obj/item/surgery/FixOVein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 
@@ -342,8 +342,8 @@
 
 /datum/surgery_step/internal/lobotomize
 	allowed_tools = list(
-	/obj/item/scalpel/manager = 95,
-	/obj/item/surgicaldrill = 75,
+	/obj/item/surgery/scalpel/manager = 95,
+	/obj/item/surgery/surgicaldrill = 75,
 	/obj/item/pickaxe/ = 5
 	)
 

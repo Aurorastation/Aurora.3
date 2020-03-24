@@ -1,7 +1,6 @@
 /*********************MANUALS (BOOKS)***********************/
 
 /obj/item/book/manual
-	icon = 'icons/obj/library.dmi'
 	due_date = 0 // Game time in 1/10th seconds
 	unique = 1   // 0 - Normal book, 1 - Should not be treated as normal book, unable to be copied, unable to be modified
 
@@ -24,14 +23,24 @@
 
 /obj/item/book/manual/wiki/engineering_construction
 	name = "Station Repairs and Construction"
-	icon_state ="bookEngineering"
+	icon_state = "bookEngineering"
+	item_state = "book6"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Station Repairs and Construction"
 	sub_page = "Guide_to_construction"
 
+/obj/item/book/manual/wiki/engineering_guide
+	name = "Engineering Textbook"
+	icon_state = "bookEngineering2"
+	item_state = "book6"
+	author = "Engineering Encyclopedia"
+	title = "Engineering Textbook"
+	sub_page = "Guide_to_Engineering"
+
 /obj/item/book/manual/engineering_particle_accelerator
 	name = "Particle Accelerator User's Guide"
-	icon_state ="bookParticleAccelerator"
+	icon_state = "bookParticleAccelerator"
+	item_state = "book2"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Particle Accelerator User's Guide"
 
@@ -79,6 +88,7 @@
 /obj/item/book/manual/supermatter_engine
 	name = "Supermatter Engine Operating Manual"
 	icon_state = "bookSupermatter"
+	item_state = "book1"
 	author = "Engineering Encyclopedia"
 	title = "Supermatter Engine Operating Manual"
 
@@ -197,6 +207,7 @@
 /obj/item/book/manual/wiki/engineering_hacking
 	name = "Hacking"
 	icon_state ="bookHacking"
+	item_state = "book3"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Hacking"
 	sub_page = "Hacking"
@@ -204,6 +215,7 @@
 /obj/item/book/manual/engineering_singularity_safety
 	name = "Singularity Safety in Special Circumstances"
 	icon_state ="bookEngineeringSingularitySafety"
+	item_state = "book1"
 	author = "Engineering Encyclopedia"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Singularity Safety in Special Circumstances"
 
@@ -254,7 +266,8 @@
 
 /obj/item/book/manual/medical_cloning
 	name = "Cloning Techniques of the 26th Century"
-	icon_state ="bookCloning"
+	icon_state = "bookCloning"
+	item_state = "book9"
 	author = "Medical Journal, volume 3"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Cloning Techniques of the 26th Century"
 
@@ -347,7 +360,8 @@
 
 /obj/item/book/manual/ripley_build_and_repair
 	name = "APLU \"Ripley\" Construction and Operation Manual"
-	icon_state ="book"
+	icon_state = "book"
+	item_state = "book"
 	author = "Randall Varn, Einstein Engines Senior Mechanic"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "APLU \"Ripley\" Construction and Operation Manual"
 
@@ -425,6 +439,7 @@
 /obj/item/book/manual/research_and_development
 	name = "Research and Development 101"
 	icon_state = "rdbook"
+	item_state = "book11"
 	author = "Dr. L. Ight"
 	title = "Research and Development 101"
 
@@ -494,6 +509,7 @@
 /obj/item/book/manual/robotics_cyborgs
 	name = "Cyborgs for Dummies"
 	icon_state = "borgbook"
+	item_state = "book2"
 	author = "XISC"
 	title = "Cyborgs for Dummies"
 
@@ -699,6 +715,7 @@
 	name = "Corporate Regulations"
 	desc = "A set of corporate guidelines for keeping law and order on privately-owned space stations."
 	icon_state = "bookSpaceLaw"
+	item_state = "book14"
 	author = "The Company"
 	title = "Corporate Regulations"
 	sub_page = "Corporate_Regulations"
@@ -707,6 +724,7 @@
 	name = "Station Procedure"
 	desc = "A set of uniform procedures followed on all NanoTrasen installations."
 	icon_state = "corporate-procedure"
+	item_state = "book4"
 	title = "The Company"
 	title = "Station Procedure"
 	sub_page = "Guide_to_Station_Procedure"
@@ -715,6 +733,7 @@
 	name = "Medical Diagnostics Manual"
 	desc = "First, do no harm. A detailed medical practitioner's guide."
 	icon_state = "bookMedical"
+	item_state = "book12"
 	author = "Medical Department"
 	title = "Medical Diagnostics Manual"
 
@@ -758,17 +777,10 @@
 
 		"}
 
-
-/obj/item/book/manual/wiki/engineering_guide
-	name = "Engineering Textbook"
-	icon_state ="bookEngineering2"
-	author = "Engineering Encyclopedia"
-	title = "Engineering Textbook"
-	sub_page = "Guide_to_Engineering"
-
 /obj/item/book/manual/chef_recipes
 	name = "Chef Recipes"
 	icon_state = "cooked_book"
+	item_state = "book16"
 	author = "Victoria Ponsonby"
 	title = "Chef Recipes"
 
@@ -799,25 +811,25 @@
 				Put some dough and an egg into the microwave and then wait.
 
 				<h3>Waffles:</h3>
-				Add two lumps of dough and 10 units of sugar to the microwave and then wait.
+				Add four lumps of dough and 10 units of sugar to the microwave and then wait.
 
 				<h3>Popcorn:</h3>
-				Add 1 corn to the microwave and wait.
+				Add a cob of corn to the microwave and wait.
 
 				<h3>Meat Steak:</h3>
 				Put a slice of meat, 1 unit of salt, and 1 unit of pepper into the microwave and wait.
 
 				<h3>Meat Pie:</h3>
-				Put a flattened piece of dough and some meat into the microwave and wait.
+				Put a flattened piece of dough and some meat into the oven and wait.
 
 				<h3>Boiled Spaghetti:</h3>
-				Put the spaghetti (processed flour) and 5 units of water into the microwave and wait.
+				Put the spaghetti (sliced dough) and 5 units of water into the microwave and wait.
 
 				<h3>Donuts:</h3>
-				Add some dough and 5 units of sugar to the microwave and wait.
+				Add a lump of dough and 10 units of sugar to a fryer basket, then deep fry it.
 
 				<h3>Fries:</h3>
-				Add one potato to the processor, then bake them in the microwave.
+				Slice one potato with a knife, add to a fryer basket, then deep fry it.
 
 
 				</body>
@@ -828,6 +840,7 @@
 /obj/item/book/manual/barman_recipes
 	name = "Barman Recipes"
 	icon_state = "barbook"
+	item_state = "book10"
 	author = "Sir John Rose"
 	title = "Barman Recipes"
 
@@ -883,6 +896,7 @@
 /obj/item/book/manual/detective
 	name = "The Film Noir: Proper Procedures for Investigations"
 	icon_state ="bookDetective"
+	item_state = "book3"
 	author = "The Company"
 	title = "The Film Noir: Proper Procedures for Investigations"
 
@@ -926,6 +940,7 @@
 /obj/item/book/manual/nuclear
 	name = "Fission Mailed: Nuclear Sabotage 101"
 	icon_state ="bookNuclear"
+	item_state ="book7"
 	author = "Syndicate"
 	title = "Fission Mailed: Nuclear Sabotage 101"
 
@@ -977,6 +992,7 @@
 /obj/item/book/manual/atmospipes
 	name = "Pipes and You: Getting To Know Your Scary Tools"
 	icon_state = "pipingbook"
+	item_state = "book6"
 	author = "Maria Crash, Senior Atmospherics Technician"
 	title = "Pipes and You: Getting To Know Your Scary Tools"
 	dat = {"<html>
@@ -1085,6 +1101,7 @@
 /obj/item/book/manual/evaguide
 	name = "EVA Gear and You: Not Spending All Day Inside"
 	icon_state = "evabook"
+	item_state = "book10"
 	author = "Maria Crash, Senior Atmospherics Technician"
 	title = "EVA Gear and You: Not Spending All Day Inside"
 	dat = {"<html>
@@ -1172,6 +1189,7 @@
 /obj/item/book/manual/gravitygenerator
 	name = "Gravity Generator Operation Manual"
 	icon_state ="bookEngineering2"
+	item_state = "book7"
 	author = "Gravity Generator CO."
 	title = "Gravity Generator Operation Manual"
 
@@ -1288,6 +1306,7 @@
 	name = "Sigmund Freud for Dummies"
 	desc = "The number one must-have manual for teaching you how to love your mother!"
 	icon_state = "bookMedical"
+	item_state = "book7"
 	author = "NTCC Odin Psychiatry Wing"
 	title = "Sigmund Freud for Dummies"
 
@@ -1377,7 +1396,8 @@
 
 /obj/item/book/manual/ka_custom
 	name = "Guide to Custom Kinetic Accelerators"
-	icon_state ="rulebook"
+	icon_state = "rulebook"
+	item_state = "book1"
 	author = "Quartermaster Burgs"
 	title = "Guide to Custom Kinetic Accelerators"
 	dat = {"<html>
@@ -1427,6 +1447,7 @@
 /obj/item/book/manual/wiki/battlemonsters
 	name = "\improper Guide to Battlemonsters"
 	icon_state ="battlemonsters"
+	item_state = "book5"
 	author = "Macro Toy Company"		 // Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
 	title = "Guide to Battlemonsters"
 	sub_page = "Guide_to_Battlemonsters"
@@ -1434,7 +1455,8 @@
 /obj/item/book/manual/pra_manifesto
 	name = "hadiist manifesto"
 	desc = "A compact red book with the ideas and guidance of Hadii for the Tajaran society."
-	icon_state ="hadii-manifesto"
+	icon_state = "hadii-manifesto"
+	item_state = "book4"
 	title = "hadiist manifesto"
 	author = "Al'Mari Hadii"
 	w_class = 2.0
@@ -1473,7 +1495,8 @@
 /obj/item/book/manual/dominia_honor
 	name = "dominian honor codex"
 	desc = "A codex describing the main tenets of dominian honor."
-	icon_state ="rulebook"
+	icon_state = "rulebook"
+	item_state = "book1"
 	title = "dominian honor codex"
 	author = "Zalze Han'San"
 	w_class = 2.0
@@ -1573,7 +1596,8 @@
 /obj/item/book/manual/tcfl_pamphlet
 	name = "tau ceti foreign legion pamphlet"
 	desc = "A simple pamphlet containing information about the Tau Ceti Foreign Legion."
-	icon_state ="tcfl_book"
+	icon_state = "tcfl_book"
+	item_state = "book13"
 	title = "Tau Ceti foreign legion pamphlet"
 	author = "Tau Ceti foreign legion recruitment center"
 	w_class = 2.0

@@ -2,6 +2,8 @@
 	name = "laser prototype"
 	desc = "A custom prototype laser weapon."
 	icon = 'icons/obj/guns/modular_laser.dmi'
+	icon_state = "large_3"
+	item_state = "large_3"
 	contained_sprite = TRUE
 	has_icon_ratio = FALSE
 	has_item_ratio = FALSE

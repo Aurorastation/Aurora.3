@@ -13,6 +13,7 @@ obj/structure/windoor_assembly
 	name = "windoor assembly"
 	icon = 'icons/obj/doors/windoor.dmi'
 	icon_state = "l_windoor_assembly01"
+	obj_flags = OBJ_FLAG_ROTATABLE
 	anchored = 0
 	density = 0
 	dir = NORTH
@@ -26,7 +27,7 @@ obj/structure/windoor_assembly
 	var/secure = ""		//Whether or not this creates a secure windoor
 	var/state = "01"	//How far the door assembly has progressed in terms of sprites
 
-obj/structure/windoor_assembly/New(Loc, start_dir=NORTH, constructed=0)
+/obj/structure/windoor_assembly/New(Loc, start_dir=NORTH, constructed=0)
 	..()
 	if(constructed)
 		state = "01"
@@ -168,19 +169,19 @@ obj/structure/windoor_assembly/Destroy()
 			//Adding airlock electronics for access. Step 6 complete.
 			else if(istype(W, /obj/item/airlock_electronics) && W:icon_state != "door_electronics_smoked")
 				var/obj/item/airlock_electronics/EL = W
-				if(!EL.inuse)
+				if(!EL.is_installed)
 					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
-					EL.inuse = 1
+					EL.is_installed = 1
 					if(do_after(user, 40))
-						EL.inuse = 0
+						EL.is_installed = 0
 						if(!src) return
 						user.drop_from_inventory(EL,src)
 						to_chat(user, "<span class='notice'>You've installed the airlock electronics!</span>")
 						src.name = "Near finished Windoor Assembly"
 						src.electronics = EL
 					else
-						EL.inuse = 0
+						EL.is_installed = 0
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
 			else if(W.isscrewdriver() && src.electronics)
@@ -261,62 +262,27 @@ obj/structure/windoor_assembly/Destroy()
 	//Update to reflect changes(if applicable)
 	update_icon()
 
+/obj/structure/windoor_assembly/rotate(var/mob/user)
+	if(use_check_and_message(user))
+		return
 
-//Rotates the windoor assembly clockwise
-//These directions are fucked up, apparently dm rotates anticlockwise by default
-/obj/structure/windoor_assembly/verb/rotate()
-	set name = "Rotate Windoor Clockwise"
-	set category = "Object"
-	set src in oview(1)
+	if(anchored)
+		to_chat(user, SPAN_WARNING("\The [src] is bolted to the floor!"))
+		return FALSE
 
-	var/targetdir = turn(src.dir, 270)
-
+	var/targetdir = turn(dir, 270)
 	for(var/obj/obstacle in get_turf(src))
 		if (obstacle == src)
 			continue
 
 		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
-			to_chat(usr, span("danger", "You can't turn the windoor assembly that way, there's already something there!"))
+			to_chat(usr, SPAN_WARNING("You can't turn the windoor assembly that way, there's already something there!"))
 			return
 
-	if (src.anchored)
-		to_chat(usr, "It is fastened to the floor; therefore, you can't rotate it!")
-		return 0
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1) //Compel updates before
 
-	src.set_dir(targetdir)
-
-	if(src.state != "01")
-		update_nearby_tiles(need_rebuild=1)
-
-	update_icon()
-	return
-
-
-//Rotates the windoor assembly anticlockwise
-/obj/structure/windoor_assembly/verb/revrotate()
-	set name = "Rotate Windoor Anticlockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	var/targetdir = turn(src.dir, 90)
-
-	for(var/obj/obstacle in get_turf(src))
-		if (obstacle == src)
-			continue
-
-		if((obstacle.flags & ON_BORDER) && obstacle.dir == targetdir)
-			to_chat(usr, span("danger", "You can't turn the windoor assembly that way, there's already something there!"))
-			return
-
-	if (src.anchored)
-		to_chat(usr, "It is fastened to the floor; therefore, you can't rotate it!")
-		return 0
-	if(src.state != "01")
-		update_nearby_tiles(need_rebuild=1) //Compel updates before
-
-	src.set_dir(targetdir)
+	set_dir(targetdir)
 
 	if(src.state != "01")
 		update_nearby_tiles(need_rebuild=1)

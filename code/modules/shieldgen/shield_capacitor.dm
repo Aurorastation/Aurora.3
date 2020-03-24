@@ -7,6 +7,7 @@
 	desc = "Machine that charges a shield generator."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "capacitor"
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/active = 0
 	density = 1
 	var/stored_charge = 0	//not to be confused with power cell charge, this is in Joules
@@ -147,26 +148,3 @@
 		icon_state = "broke"
 	else
 		..()
-
-/obj/machinery/shield_capacitor/verb/rotate()
-	set name = "Rotate capacitor clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored)
-		to_chat(usr, "It is fastened to the floor!")
-		return
-	if(config.ghost_interaction)
-		src.set_dir(turn(src.dir, -90))
-		return
-	else
-		if(istype(usr,/mob/living/simple_animal/rat))
-			return
-		if(!usr || !isturf(usr.loc))
-			return
-		if(usr.stat || usr.restrained())
-			return
-
-		src.set_dir(turn(src.dir, -90))
-		return
-	return

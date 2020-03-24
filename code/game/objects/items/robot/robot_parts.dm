@@ -89,6 +89,14 @@
 	. = ..()
 	src.updateicon()
 
+/obj/item/robot_parts/robot_suit/equipped/Initialize()
+	. = ..()
+	l_leg = new /obj/item/robot_parts/l_leg(src)
+	r_leg = new /obj/item/robot_parts/r_leg(src)
+	l_arm = new /obj/item/robot_parts/l_arm(src)
+	r_arm = new /obj/item/robot_parts/r_arm(src)
+	updateicon()
+
 /obj/item/robot_parts/robot_suit/proc/updateicon()
 	cut_overlays()
 	if(src.l_arm)

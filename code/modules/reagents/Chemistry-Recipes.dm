@@ -1884,7 +1884,7 @@
 	name = "Goldschlager"
 	id = "goldschlager"
 	result = "goldschlager"
-	required_reagents = list("vodka" = 10, "gold" = 1)
+	required_reagents = list("vodka" = 10, MATERIAL_GOLD = 1)
 	mix_message = null
 	reaction_sound = 'sound/effects/pour.ogg'
 	result_amount = 10
@@ -1893,7 +1893,7 @@
 	name = "Patron"
 	id = "patron"
 	result = "patron"
-	required_reagents = list("tequilla" = 10, "silver" = 1)
+	required_reagents = list("tequilla" = 10, MATERIAL_SILVER = 1)
 	result_amount = 10
 
 /datum/chemical_reaction/drink/bilk
@@ -3386,7 +3386,7 @@
 	name = "Transmutation: Gold"
 	id = "transmutation_gold"
 	result = null
-	required_reagents = list("aluminum" = 5, "silver" = 5)
+	required_reagents = list("aluminum" = 5, MATERIAL_SILVER = 5)
 	catalysts = list("philosopher_stone" = 1)
 	result_amount = 1
 
@@ -3400,7 +3400,7 @@
 	name = "Transmutation: Diamond"
 	id = "transmutation_diamond"
 	result = null
-	required_reagents = list("carbon" = 5, "gold" = 5)
+	required_reagents = list("carbon" = 5, MATERIAL_GOLD = 5)
 	catalysts = list("philosopher_stone" = 1)
 	result_amount = 1
 

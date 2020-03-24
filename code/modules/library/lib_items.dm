@@ -129,7 +129,9 @@
 		B.title = title
 		B.author = author
 		B.dat = content
-		B.icon_state = "book[rand(1,7)]"
+		var/randbook = "book[rand(1,16)]"
+		B.icon_state = randbook
+		B.item_state = randbook
 
 	update_icon()
 
@@ -189,7 +191,11 @@
 /obj/item/book
 	name = "book"
 	icon = 'icons/obj/library.dmi'
-	icon_state ="book"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
+		)
+	icon_state = "book"
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)

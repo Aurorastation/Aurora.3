@@ -5,7 +5,7 @@
 
 /obj/item/device/electronic_assembly/clothing
 	name = "electronic clothing"
-	icon_state = "circuitry" // Needs to match the clothing's base icon_state.
+	var/clothing_icon_state = "circuitry" // Needs to match the clothing's base icon_state.
 	desc = "It's a case, for building machines attached to clothing."
 	w_class = ITEMSIZE_SMALL
 	max_components = IC_COMPONENTS_BASE
@@ -70,9 +70,12 @@
 		visible_message("<span class='warning'>The malformed device crumples on the floor!</span>")
 		qdel(src)			// EMERGENCY DELETION!
 
+/obj/item/device/electronic_assembly/clothing/get_assembly_holder()
+	return clothing
+
 /obj/item/device/electronic_assembly/clothing/update_icon()
 	..()
-	clothing.icon_state = icon_state
+	clothing.icon_state = clothing_icon_state
 	// We don't need to update the mob sprite since it won't (and shouldn't) actually get changed.
 
 // This is 'small' relative to the size of regular clothing assemblies.

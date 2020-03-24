@@ -2,8 +2,8 @@
 	name = "laser carbine"
 	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
 	icon = 'icons/obj/guns/laserrifle.dmi'
-	icon_state = "laserrifle"
-	item_state = "laserrifle"
+	icon_state = "laserrifle100"
+	item_state = "laserrifle100"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
@@ -16,6 +16,8 @@
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "laser"
+
+	modifystate = "laserrifle"
 
 /obj/item/gun/energy/laser/mounted
 	name = "mounted laser carbine"
@@ -48,6 +50,8 @@ obj/item/gun/energy/retro
 	turret_is_lethal = 1
 	turret_sprite_set = "retro"
 
+	modifystate = "retro"
+
 /obj/item/gun/energy/captain
 	name = "antique laser gun"
 	icon = 'icons/obj/guns/caplaser.dmi'
@@ -72,8 +76,8 @@ obj/item/gun/energy/retro
 	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
 	description_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
-	icon_state = "lasercannon"
-	item_state = "lasercannon"
+	icon_state = "lasercannon100"
+	item_state = "lasercannon100"
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	slot_flags = SLOT_BELT|SLOT_BACK
@@ -84,6 +88,8 @@ obj/item/gun/energy/retro
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "cannon"
+
+	modifystate = "lasercannon"
 
 /obj/item/gun/energy/lasercannon/mounted
 	name = "mounted laser cannon"
@@ -164,8 +170,8 @@ obj/item/gun/energy/retro
 	desc = "A Nanotrasen designed laser weapon, designed to split a single beam four times."
 	description_fluff = "The NT QB-2 is a laser weapon developed and produced by Nanotrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
 	icon = 'icons/obj/guns/ecarbine.dmi' // using this as placeholder until proper sprites are made
-	icon_state = "energykill"
-	item_state = "energykill"
+	icon_state = "energykill100"
+	item_state = "energykill100"
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
@@ -184,6 +190,8 @@ obj/item/gun/energy/retro
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "laser"
+
+	modifystate = "energykill"
 
 ////////Laser Tag////////////////////
 

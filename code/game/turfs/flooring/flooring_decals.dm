@@ -369,14 +369,6 @@
 	name = "L14"
 	icon_state = "L14"
 
-/obj/effect/floor_decal/ss13/l15
-	name = "L15"
-	icon_state = "L15"
-
-/obj/effect/floor_decal/ss13/l16
-	name = "L16"
-	icon_state = "L16"
-
 // Medbay floor signs
 
 /obj/effect/floor_decal/sign

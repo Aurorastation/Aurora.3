@@ -294,13 +294,13 @@
 
 /datum/gear/suit/varsity
 	display_name = "varsity jacket selection"
-	path = /obj/item/clothing/suit/varsity
+	path = /obj/item/clothing/suit/storage/toggle/varsity
 
 /datum/gear/suit/varsity/New()
 	..()
 	var/list/varsities = list()
-	for(var/varsity_style in typesof(/obj/item/clothing/suit/varsity))
-		var/obj/item/clothing/suit/varsity/varsity = varsity_style
+	for(var/varsity_style in typesof(/obj/item/clothing/suit/storage/toggle/varsity))
+		var/obj/item/clothing/suit/storage/toggle/varsity/varsity = varsity_style
 		varsities[initial(varsity.name)] = varsity
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(varsities))
 

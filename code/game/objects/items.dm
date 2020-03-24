@@ -371,6 +371,8 @@ var/list/global/slot_flags_enumeration = list(
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
 		if(slot_s_store)
+			if(isvaurca(H) && src.w_class <= ITEMSIZE_SMALL)
+				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")

@@ -410,7 +410,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if(can_start & GAME_FAILURE_NO_PLAYERS)
 		var/list/voted_not_ready = list()
-		for(var/mob/abstract/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in SSvote.round_voters)
 			if((player.client)&&(!player.ready))
 				voted_not_ready += player.ckey
 		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")

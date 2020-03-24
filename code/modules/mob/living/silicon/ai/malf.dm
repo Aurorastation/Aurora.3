@@ -50,7 +50,7 @@
 				errored = 0
 		return
 	recalc_cpu()
-	if(APU_power || aiRestorePowerRoutine != 0)
+	if(APU_power || ai_restore_power_routine != 0)
 		research.process(1)
 	else
 		research.process(0)

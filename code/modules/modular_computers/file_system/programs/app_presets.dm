@@ -51,6 +51,7 @@
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
+		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/game/sudoku(),
 		new /datum/computer_file/program/power_monitor(),
 		new /datum/computer_file/program/alarm_monitor(),
@@ -89,6 +90,7 @@
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
+		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/suit_sensors(),
 		new /datum/computer_file/program/records/employment(),
 		new /datum/computer_file/program/records/medical()
@@ -122,6 +124,7 @@
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
+		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/ntnetmonitor(),
 		new /datum/computer_file/program/aidiag(),
 		new /datum/computer_file/program/records/employment()
@@ -140,7 +143,7 @@
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/card_mod(),
-		new /datum/computer_file/program/comm(TRUE),
+		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/records/employment()
 	)
 	return _prg_list
@@ -158,6 +161,7 @@
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/civilian/cargocontrol(),
 		new /datum/computer_file/program/card_mod(),
+		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/records/employment(),
 		new /datum/computer_file/program/records/security()
 	)
@@ -174,7 +178,7 @@
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/card_mod(),
-		new /datum/computer_file/program/comm(TRUE),
+		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/camera_monitor(),
 		new /datum/computer_file/program/digitalwarrant(),
 		new /datum/computer_file/program/penal_mechs(),
@@ -236,6 +240,7 @@
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
+		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/camera_monitor(),
 		new /datum/computer_file/program/digitalwarrant(),
 		new /datum/computer_file/program/penal_mechs(),
@@ -347,7 +352,7 @@
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/ntnetdownload(),
 		new /datum/computer_file/program/camera_monitor/hacked(),
-		new /datum/computer_file/program/comm(TRUE),
+		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/suit_sensors(),
 		new /datum/computer_file/program/alarm_monitor(),
 		new /datum/computer_file/program/lighting_control(),

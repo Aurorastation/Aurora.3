@@ -1,3 +1,21 @@
+var/global/list/golem_types = list("Coal Golem",
+								   "Iron Golem",
+								   "Bronze Golem",
+								   "Steel Golem",
+								   "Plasteel Golem",
+								   "Titanium Golem",
+								   "Cloth Golem",
+								   "Cardboard Golem",
+								   "Glass Golem",
+								   "Phoron Golem",
+								   "Metallic Hydrogen Golem",
+								   "Wood Golem",
+								   "Diamond Golem",
+								   "Sand Golem",
+								   "Uranium Golem",
+								   "Homunculus",
+								   "Adamantine Golem")
+
 /datum/species/golem
 	name = "Coal Golem"
 	name_plural = "coal golems"
@@ -698,7 +716,7 @@
 	heat_level_2 = T0C+80
 	heat_level_3 = T0C+100
 
-	golem_designation = "plastic"
+	golem_designation = MATERIAL_PLASTIC
 
 /datum/species/golem/plastic/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(171,171,171)

@@ -15,8 +15,13 @@
 	spawn_loc = a.random_space()
 	location_name = a.name
 
-	new /obj/structure/closet/crate/loot(spawn_loc, rarity, quantity)
-	log_and_message_admins("Unusual container spawned at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
+	if(prob(80))
+		new /obj/structure/closet/crate/loot(spawn_loc, rarity, quantity)
+		log_and_message_admins("Unusual container spawned at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
+	else
+		var/obj/effect/golemrune/rune = new /obj/effect/golemrune(spawn_loc)
+		rune.golem_type = pick(golem_types)
+		log_and_message_admins("Bluespace Golem rune ([rune.golem_type]) spawned at (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[spawn_loc.x];Y=[spawn_loc.y];Z=[spawn_loc.z]'>JMP</a>)")
 
 	spark(spawn_loc, 10, alldirs)
 
