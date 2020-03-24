@@ -47,7 +47,12 @@
 
 			to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s [selected_io.name] to \the [io.holder]'s [io.name].</span>")
 			update_icon()
-			selected_io.holder.interact(user) // This is to update the UI.
+			selected_io.holder.try_update_ui(null, user) // This is to update the UI.
+			io.holder.try_update_ui(null, user)
+			// There are 2 ways to wire a pin:
+			// 1. By clicking on both circuits in different window
+			// 2. By clicking on the other circuit in the same window
+			// In case 2, if we have both windows open, we should update the inactive window for full reactivity.
 			unselect_io(selected_io)
 
 		if(UNWIRE)
@@ -70,7 +75,12 @@
 				selected_io.disconnect_pin(io)
 				to_chat(user, "<span class='notice'>You disconnect \the [selected_io.holder]'s [selected_io.name] from \
 				\the [io.holder]'s [io.name].</span>")
-				selected_io.holder.interact(user) // This is to update the UI.
+				selected_io.holder.try_update_ui(null, user) // This is to update the UI.
+				io.holder.try_update_ui(null, user)
+				// There are 2 ways to unwire a pin:
+				// 1. By clicking on both circuits in different window
+				// 2. By clicking on the other circuit in the same window
+				// In case 2, if we have both windows open, we should update the inactive window for full reactivity.
 				unselect_io(selected_io)
 				update_icon()
 			else

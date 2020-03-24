@@ -119,123 +119,111 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		to_chat(M, "<span class='notice'>The circuit '[name]' is now labeled '[input]'.</span>")
 		displayed_name = input
 
+/obj/item/integrated_circuit/ui_host()
+	if(assembly)
+		return assembly.resolve_ui_host()
+	return ..()
+
 /obj/item/integrated_circuit/interact(mob/user)
 	. = ..()
 	if(!check_interactivity(user))
 		return
 
-	var/window_height = 350
-	var/window_width = 655
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "circuits-circuit", 655, 350, src.displayed_name)
 
-	var/table_edge_width = "30%"
-	var/table_middle_width = "40%"
-	var/list/HTML = list()
-	HTML += "<html><head><title>[src.displayed_name]</title></head><body>"
-	HTML += "<div align='center'>"
-	HTML += "<table border='1' style='undefined;table-layout: fixed; width: 80%'>"
+	ui.open()
 
-	if(assembly)
-		HTML += "<a href='?src=\ref[src];return=1'>\[Return to Assembly\]</a><br>"
-
-	HTML += "<a href='?src=\ref[src];refresh=1'>\[Refresh\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];rename=1'>\[Rename\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];scan=1'>\[Copy Ref\]</a>"
-	if(assembly && removable)
-		HTML += "  |  <a href='?src=\ref[assembly];component=\ref[src];remove=1'>\[Remove\]</a>"
-	HTML += "<br>"
-
-	HTML += "<colgroup>"
-	HTML += "<col style='width: [table_edge_width]'>"
-	HTML += "<col style='width: [table_middle_width]'>"
-	HTML += "<col style='width: [table_edge_width]'>"
-	HTML += "</colgroup>"
-
-	var/column_width = 3
-	var/row_height = max(LAZYLEN(inputs), LAZYLEN(outputs), 1)
-
-	for(var/i = 1 to row_height)
-		HTML += "<tr>"
-		for(var/j = 1 to column_width)
-			var/datum/integrated_io/io = null
-			var/words = list()
-			var/height = 1
-			switch(j)
-				if(1)
-					io = get_pin_ref(IC_INPUT, i)
-					if(io)
-						words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'>[io.display_pin_type()] [io.name]</a> \
-						<a href='?src=\ref[src];act=data;pin=\ref[io]'>[io.display_data(io.data)]</a></b><br>"
-						if(io.linked.len)
-							for(var/k in 1 to io.linked.len)
-								var/datum/integrated_io/linked = io.linked[k]
-								words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[linked]</a> \
-								@ <a href='?src=\ref[linked.holder]'>[linked.holder.displayed_name]</a><br>"
-
-						if(LAZYLEN(outputs) > LAZYLEN(inputs))
-							height = 1
-				if(2)
-					if(i == 1)
-						words += "[src.displayed_name]<br>[src.name != src.displayed_name ? "([src.name])":""]<hr>[src.desc]"
-						height = row_height
-					else
-						continue
-				if(3)
-					io = get_pin_ref(IC_OUTPUT, i)
-					if(io)
-						words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'>[io.display_pin_type()] [io.name]</a> \
-						<a href='?src=\ref[src];act=data;pin=\ref[io]'>[io.display_data(io.data)]</a></b><br>"
-						if(io.linked.len)
-							for(var/k in 1 to io.linked.len)
-								var/datum/integrated_io/linked = io.linked[k]
-								words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[linked]</a> \
-								@ <a href='?src=\ref[linked.holder]'>[linked.holder.displayed_name]</a><br>"
-
-						if(LAZYLEN(inputs) > LAZYLEN(outputs))
-							height = 1
-			HTML += "<td align='center' rowspan='[height]'>[jointext(words, null)]</td>"
-		HTML += "</tr>"
-
-	for(var/i in 1 to LAZYLEN(activators))
-		var/datum/integrated_io/io = activators[i]
-		var/words = list()
-
-		words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'><font color='FF0000'>[io]</font></a> "
-		words += "<a href='?src=\ref[src];act=data;pin=\ref[io]'><font color='FF0000'>[io.data?"\<PULSE OUT\>":"\<PULSE IN\>"]</font></a></b><br>"
-		if(io.linked.len)
-			for(var/k in 1 to io.linked.len)
-				var/datum/integrated_io/linked = io.linked[k]
-				words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'><font color='FF0000'>[linked]</font></a> \
-				@ <a href='?src=\ref[linked.holder]'><font color='FF0000'>[linked.holder.displayed_name]</font></a><br>"
-
-		HTML += "<tr>"
-		HTML += "<td colspan='3' align='center'>[jointext(words, null)]</td>"
-		HTML += "</tr>"
-
-	HTML += "</table>"
-	HTML += "</div>"
-
-	HTML += "<br><font color='0000AA'>Complexity: [complexity]</font>"
-	HTML += "<br><font color='0000AA'>Cooldown per use: [cooldown_per_use/10] sec</font>"
-	if(ext_cooldown)
-		HTML += "<br><font color='0000AA'>External manipulation cooldown: [ext_cooldown/10] sec</font>"
-	if(power_draw_idle)
-		HTML += "<br><font color='0000AA'>Power Draw: [power_draw_idle] W (Idle)</font>"
-	if(power_draw_per_use)
-		HTML += "<br><font color='0000AA'>Power Draw: [power_draw_per_use] W (Active)</font>" // Borgcode says that powercells' checked_use() takes joules as input.
-	HTML += "<br><font color='0000AA'>[extended_desc]</font>"
-
-	HTML += "</body></html>"
-	var/HTML_merged = jointext(HTML, null)
-	if(assembly)
-		show_browser(user, HTML_merged, "window=assembly-\ref[assembly];size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
+/obj/item/integrated_circuit/proc/set_ui_pininfo(type)
+	var/list/pins = null
+	if(type == IC_OUTPUT)
+		pins = outputs
+	else if(type == IC_INPUT)
+		pins = inputs
+	else if(type == IC_ACTIVATOR)
+		pins = activators
 	else
-		show_browser(user, HTML_merged, "window=circuit-\ref[src];size=[window_width]x[window_height];border=1;can_resize=1;can_close=1;can_minimize=1")
+		return null
+	
+	var/list/result = list()
+	result.Cut()
+	for (var/i = 1 to LAZYLEN(pins))
+		var/datum/integrated_io/io = get_pin_ref(type, i)
+		var/list/pin_info = list("ref" = "\ref[io]", 
+			"pin_type" = html_decode(io.display_pin_type()), 
+			"name" = io.name, 
+			"data" = html_decode(io.display_data(io.data)))
 
-	onclose(user, "assembly-\ref[src.assembly]")
+		if(LAZYLEN(io.linked))
+			LAZYINITLIST(pin_info["linked"])
+			for(var/k = 1 to LAZYLEN(io.linked))
+				var/datum/integrated_io/linked = io.linked[k]
+				// If an argument to Add is a list, then it adds the list's contents
+				// Which means we need to put list into a list 
+ 				pin_info["linked"].Add(list(list("ref" = "\ref[linked]", 
+					"name" = linked.name, 
+					"holder" = "\ref[linked.holder]", 
+					"holder_name" = linked.holder.displayed_name)))
+					
+		// In our case, we have a list that contains lists, so can't use VUEUI_SET_CHECK_LIST
+		result.Add(list(pin_info))
+
+	return result
+
+/obj/item/integrated_circuit/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		. = data = list()
+
+	LAZYINITLIST(data["inputs"])
+	LAZYINITLIST(data["outputs"])
+	LAZYINITLIST(data["activators"])
+
+	// TODO: Find a way to properly invalidate to update data
+	// Array length doesn't change, but linking circuits requires a refresh
+	data["inputs"].Cut()
+	data["inputs"].Add(set_ui_pininfo(IC_INPUT))
+
+	data["outputs"].Cut()
+	data["outputs"].Add(set_ui_pininfo(IC_OUTPUT))
+
+	data["activators"].Cut()
+	data["activators"].Add(set_ui_pininfo(IC_ACTIVATOR))
+
+	// These variables can change
+	VUEUI_SET_CHECK(data["size"], size, ., data)
+	VUEUI_SET_CHECK(data["displayed_name"], displayed_name, ., data)
+	VUEUI_SET_CHECK(data["ext_cooldown"], ext_cooldown, ., data)
+	VUEUI_SET_CHECK(data["power_draw_idle"], power_draw_idle, ., data)
+	VUEUI_SET_CHECK(data["power_draw_per_use"], power_draw_per_use, ., data)
+	VUEUI_SET_CHECK(data["cooldown_per_use"], cooldown_per_use, ., data)
+	// These ones shouldn't
+	VUEUI_SET_CHECK_IFNOTSET(data["complexity"], complexity, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["extended_desc"], extended_desc, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["name"], name, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["desc"], desc, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["removable"], removable, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["component"], "\ref[src]", ., data)
+	// Pretty sure this is needed, since one can't use functions for ranges in v-for
+	VUEUI_SET_CHECK_IFNOTSET(data["info_size"], max(LAZYLEN(inputs), LAZYLEN(outputs), 1), ., data)
+	if(assembly)
+		VUEUI_SET_CHECK(data["assembly"], "\ref[assembly]", ., data)
+
+/obj/item/integrated_circuit/proc/try_update_ui(var/datum/vueui/ui, user)
+	if(!istype(ui))
+		// UI was updated externally, for example, after sending data for the input circuits
+		ui = SSvueui.get_open_ui(user, src)
+
+	// NOTE: Statement above is not guaranteed to actually return valid UI
+	if(istype(ui))
+		// Constant updates for better experience.
+		ui.check_for_change(TRUE)
 
 /obj/item/integrated_circuit/Topic(href, href_list, state = interactive_state)
 	if(..())
 		return 1
+
+	var/datum/vueui/ui = href_list["vueui"]
 
 	. = IC_TOPIC_HANDLED
 	var/obj/held_item = usr.get_active_hand()
@@ -279,21 +267,15 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		. = IC_TOPIC_REFRESH
 
 	else if(href_list["remove"] && assembly)
-		if(held_item.isscrewdriver())
-			disconnect_all()
-			dropInto(loc)
-			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
-			to_chat(usr, "<span class='notice'>You pop \the [src] out of the case, and slide it out.</span>")
-		else
-			to_chat(usr, "<span class='warning'>You need a screwdriver to remove components.</span>")
-		interact_with_assembly(usr)
+		assembly.try_remove_component(src, usr)
 		. = IC_TOPIC_REFRESH
 
 	else
 		. = OnICTopic(href_list, usr)
 
 	if(. == IC_TOPIC_REFRESH)
-		interact_with_assembly(usr)
+		try_update_ui(ui, usr)
+		internal_examine(usr)
 
 /obj/item/integrated_circuit/proc/interact_with_assembly(var/mob/user)
 	if(assembly)

@@ -85,7 +85,9 @@ D [1]/  ||
 	return "([input])" // Nothing special needed for numbers or other stuff.
 
 /datum/integrated_io/activate/display_data()
-	return "(\[pulse\])"
+	if(data)
+		return "\<PULSE OUT\>"
+	return "\<PULSE IN\>"
 
 /datum/integrated_io/proc/display_pin_type()
 	return IC_FORMAT_ANY

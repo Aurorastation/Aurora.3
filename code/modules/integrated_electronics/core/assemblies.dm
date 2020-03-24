@@ -346,8 +346,9 @@
 	for(var/I in assembly_components)
 		var/obj/item/integrated_circuit/IC = I
 		IC.external_examine(user)
-		if(opened)
-			IC.internal_examine(user)
+		// This gets really annoying on more complex assemblies
+		//if(opened)
+		//	IC.internal_examine(user)
 	if(opened)
 		interact(user)
 
