@@ -28,7 +28,7 @@
 	var/explode_chance = 1
 	var/disabled = FALSE
 	var/exploding = FALSE
-	var/list/valid_living_targets = list(
+	valid_living_targets = list(
 						/mob/living/simple_animal/hostile/hivebot,
 						/mob/living/simple_animal/hostile/carp,
 						/mob/living/simple_animal/hostile/retaliate/cavern_dweller,
