@@ -187,3 +187,7 @@
 /datum/category_item/underwear/socks/fishnet
 	name = "Fishnets"
 	icon_state = "fishnet"
+
+/datum/category_item/underwear/socks/fishnet_nosock
+	name = "Fishnets, Short"
+	icon_state = "fishnet_nosock"
