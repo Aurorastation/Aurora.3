@@ -245,7 +245,7 @@ Implant Specifics:<BR>"}
 
 /obj/item/implant/explosive/proc/small_boom()
 	if(!imp_in)
-		explosion(get_turf(src), -1, -1, 1, 3)
+		explosion(get_turf(src), -1, 0, 2, 4)
 	if(ishuman(imp_in) && part)
 		//No tearing off these parts since it's pretty much killing. Mangle them. 
 		if(istype(part,/obj/item/organ/external/chest) ||	\
