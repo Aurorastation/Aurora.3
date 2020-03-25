@@ -13,6 +13,10 @@
 	w_class = 3
 	max_amount = 60
 	icon = 'icons/obj/stacks/tiles.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_tiles.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_tiles.dmi',
+		)
 	randpixel = 7
 	drop_sound = 'sound/items/drop/axe.ogg'
 
