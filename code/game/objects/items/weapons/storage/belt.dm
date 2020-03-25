@@ -55,7 +55,8 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/pipewrench,
 		/obj/item/powerdrill,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/device/debugger
 		)
 
 
