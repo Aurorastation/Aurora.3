@@ -5,9 +5,7 @@
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
-	w_class = 3
 	max_storage_space = 100
-	max_w_class = 3
 	can_hold = list(/obj/item/ore)
 	var/obj/structure/ore_box/linked_box
 	var/linked_beacon = FALSE // can't hold an actual beacon beclause storage code a shit
@@ -21,6 +19,11 @@
 /obj/item/storage/bag/ore/drone
 	// this used to be 400. The inventory system FUCKING DIED at this.
 	max_storage_space = 200
+
+/obj/item/storage/bag/ore/Destroy()
+	linked_box = null
+	linked_beacon = FALSE
+	return ..()
 
 /obj/item/storage/bag/ore/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/extraction_pack))
@@ -47,25 +50,25 @@
 
 // called when you click on a turf to pick up ores
 /obj/item/storage/bag/ore/handle_storage_deferred(mob/user)
-	if(linked_box)
-		if(!linked_box.warp_core)
-			to_chat(user, SPAN_WARNING("\The [linked_box] lost its warp beacon!"))
-			linked_box = null
-			..()
-			return
-		for(var/obj/ore in contents)
-			remove_from_storage_deferred(ore, get_turf(src))
-			ore.forceMove(linked_box)
+	if(check_linked_box(user))
+		move_ore_to_ore_box()
 	..()
 
 // called when you attack the bag with the ore to put one in
-/obj/item/storage/bag/ore/handle_item_insertion(obj/item/W as obj, prevent_warning = 0, mob/user = usr)
+/obj/item/storage/bag/ore/handle_item_insertion(obj/item/W, prevent_warning = FALSE, mob/user = usr)
 	..()
+	if(check_linked_box(user))
+		move_ore_to_ore_box()
+
+/obj/item/storage/bag/ore/proc/check_linked_box(var/mob/user)
 	if(linked_box)
 		if(!linked_box.warp_core)
 			to_chat(user, SPAN_WARNING("\The [linked_box] lost its warp beacon!"))
 			linked_box = null
-			return
-		for(var/obj/ore in contents)
-			remove_from_storage_deferred(ore, get_turf(src))
-			ore.forceMove(linked_box)
+			return FALSE
+		return TRUE
+
+/obj/item/storage/bag/ore/proc/move_ore_to_ore_box()
+	for(var/obj/ore in contents)
+		remove_from_storage_deferred(ore, get_turf(src))
+		ore.forceMove(linked_box)
