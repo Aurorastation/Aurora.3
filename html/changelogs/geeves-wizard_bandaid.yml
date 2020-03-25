@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscdel: "Removed Spatial as a possible Wizard Spellbook."
-  - tweak: "Gave wizards and apprentices more spell points across the board in return for losing all teleportation abilities."
-  - rscadd: "Wizard apprentices gain mend, forcewall, shadow shroud, wizard voidsuit, monster manual, raise dead. Wizards should try to get apprentices where possible."
