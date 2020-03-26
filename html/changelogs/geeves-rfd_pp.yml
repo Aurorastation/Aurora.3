@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Implements a Piping Rapid Fabrication Device, otherwise known as the RFD-P."
-  - rscadd: "Alt-clicking changes what types of pipes you can select, clicking on it in-hand or pressing Z while it's in your active hand will let you choose a specific pipe."
