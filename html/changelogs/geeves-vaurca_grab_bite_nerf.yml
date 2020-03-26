@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - tweak: "Vaurca warriors now need a choking grip to mandible bite someone. Doing the attack drops the grab, preventing a headbutt. The hard cooldown has increased to five seconds."
+  - bugfix: "Vaurca warriors can no longer do the mandible bite through face-covering helmets and masks."

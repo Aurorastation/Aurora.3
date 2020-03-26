@@ -343,6 +343,14 @@ mob/living/carbon/human/proc/change_monitor()
 	if(use_check_and_message(usr))
 		return
 
+	if(wear_mask?.flags_inv & HIDEFACE)
+		to_chat(src, SPAN_WARNING("You have a mask covering your mandibles!"))
+		return
+
+	if(head?.flags_inv & HIDEFACE)
+		to_chat(src, SPAN_WARNING("You have something on your head covering your mandibles!"))
+		return
+
 	var/obj/item/grab/G = locate() in src
 	if(!G || !istype(G))
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
