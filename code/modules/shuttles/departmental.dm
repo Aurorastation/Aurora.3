@@ -7,7 +7,6 @@
 /obj/machinery/computer/shuttle_control/engineering
 	name = "engineering shuttle control console"
 	shuttle_tag = "Engineering"
-	//req_one_access = list(access_engine_equip,access_atmospherics)
 	circuit = /obj/item/circuitboard/engineering_shuttle
 
 /obj/machinery/computer/shuttle_control/research
@@ -15,6 +14,8 @@
 	shuttle_tag = "Research"
 	req_access = list(access_research)
 	circuit = /obj/item/circuitboard/research_shuttle
+
+//TODOMATT: Change (fix?) research shuttle handling
 
 /datum/shuttle/ferry/research
 	var/triggered_away_sites = FALSE

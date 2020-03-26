@@ -32,7 +32,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	if (!resumed)
 		working_shuttles = process_shuttles.Copy()
 
-	while (working_shuttles.len)
+	while(working_shuttles.len)
 		var/datum/shuttle/shuttle = working_shuttles[working_shuttles.len]
 		working_shuttles.len--
 		if(shuttle.process_state && (shuttle.Process(wait, times_fired, src) == PROCESS_KILL))
