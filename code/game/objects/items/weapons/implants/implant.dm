@@ -27,7 +27,7 @@
 	// What does the implant do upon injection?
 	// return 0 if the implant fails (ex. Revhead and loyalty implant.)
 	// return 1 if the implant succeeds (ex. Nonrevhead and loyalty implant.)
-/obj/item/implant/proc/implanted(var/mob/source)
+/obj/item/implant/proc/implanted(var/mob/source, mob/user)
 	return 1
 
 /obj/item/implant/proc/get_data()
@@ -271,11 +271,12 @@ Implant Specifics:<BR>"}
 	data.z_transfer = z_transfer
 	SSexplosives.queue(data)
 
-/obj/item/implant/explosive/implanted(mob/source)
+/obj/item/implant/explosive/implanted(mob/source, mob/user)
 	if(!phrase)
 		phrase = fallback_phrase
-	usr.mind.store_memory("\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
-	to_chat(usr, "The implanted explosive implant in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
+	if(user.mind)
+		user.mind.store_memory("\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
+	to_chat(usr, "\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
 	return TRUE
 
 /obj/item/implant/explosive/attack_self(mob/user)
