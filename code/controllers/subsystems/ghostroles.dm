@@ -137,7 +137,7 @@
 		if(cant_spawn)
 			to_chat(usr, "Unable to spawn: [cant_spawn]")
 			return
-		if(istype(usr, /mob/abstract/new_player))
+		if(isnewplayer(usr))
 			var/mob/abstract/new_player/N = usr
 			N.close_spawn_windows()
 		if(!S.pre_spawn(usr))
