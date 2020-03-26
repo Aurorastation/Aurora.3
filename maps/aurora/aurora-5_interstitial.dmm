@@ -20,7 +20,7 @@
 /area/maintenance/telecoms_ladder)
 "ag" = (
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
@@ -529,7 +529,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24;
+	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/light{
@@ -627,8 +627,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 8;
-	pixel_x = 25;
-	pixel_y = 0
+	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -1132,7 +1131,7 @@
 /area/turbolift/cargo_mid)
 "cq" = (
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/hoist_kit{
@@ -1555,7 +1554,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
@@ -1700,8 +1699,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/security/range)
@@ -1881,7 +1879,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
 /area/security/range)
@@ -1949,7 +1947,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
@@ -2186,8 +2184,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Gymnasium";
@@ -2439,8 +2436,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /turf/simulated/floor/lino/grey,
 /area/security/detectives_office)
@@ -3041,7 +3037,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3375,8 +3371,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -3411,7 +3406,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -25
+	pixel_y = -28
 	},
 /obj/machinery/light_switch{
 	pixel_x = -24;
@@ -3499,8 +3494,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/training)
@@ -4290,7 +4284,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/motion{
@@ -4482,7 +4476,7 @@
 "iR" = (
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -4913,7 +4907,7 @@
 /area/medical/psych)
 "jH" = (
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /obj/item/modular_computer/console/preset/medical,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -5377,7 +5371,7 @@
 "kr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner_wide/green/full{
@@ -5450,7 +5444,7 @@
 "ky" = (
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5975,7 +5969,7 @@
 	dir = 1
 	},
 /obj/machinery/alarm{
-	pixel_y = 32
+	pixel_y = 28
 	},
 /obj/structure/table/wood,
 /obj/item/book/manual/psych,
@@ -6274,7 +6268,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
@@ -6415,7 +6409,7 @@
 "mv" = (
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	icon_state = "wide_corner";
@@ -6744,7 +6738,7 @@
 	pixel_y = 3
 	},
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/medical/virology)
@@ -7217,7 +7211,7 @@
 /area/medical/virology)
 "qV" = (
 /obj/machinery/alarm/cold{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder{
@@ -7249,7 +7243,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -24;
+	pixel_y = -28;
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/plating,
@@ -7275,8 +7269,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /obj/structure/disposalpipe/up{
 	icon_state = "pipe-u";
@@ -7552,7 +7545,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -25
+	pixel_y = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
@@ -7806,8 +7799,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/cold{
-	pixel_x = 0;
-	pixel_y = 22
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -8212,7 +8204,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /obj/structure/closet/wardrobe/virology_white,
 /obj/machinery/ringer{
@@ -8532,8 +8524,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled,
@@ -9544,7 +9535,7 @@
 /area/hallway/secondary/entry/stairs)
 "FF" = (
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/pink/full{
 	icon_state = "corner_white_full";
@@ -9642,7 +9633,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /obj/effect/floor_decal/corner_wide/green{
 	icon_state = "wide_corner";
@@ -9919,7 +9910,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -24;
+	pixel_y = -28;
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/plating,
@@ -10439,7 +10430,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24;
+	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled,
@@ -10718,7 +10709,7 @@
 /obj/item/clothing/head/hardhat/red,
 /obj/item/clothing/glasses/meson,
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
@@ -11197,7 +11188,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24;
+	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled,
@@ -11443,7 +11434,7 @@
 /obj/item/storage/briefcase/crimekit,
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -25
+	pixel_y = -28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -11523,7 +11514,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/medical/upperlevel)
@@ -11662,7 +11653,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -24;
+	pixel_y = -28;
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/tiled,
@@ -11679,7 +11670,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
@@ -11931,7 +11922,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -12588,8 +12579,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -12828,7 +12818,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner_wide/green/full{
 	icon_state = "wide_corner_full";
@@ -12896,7 +12886,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24;
+	pixel_x = 28;
 	req_one_access = list(24,11,55)
 	},
 /turf/simulated/floor/plating,
@@ -12937,7 +12927,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -24;
+	pixel_y = -28;
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -13046,7 +13036,7 @@
 	},
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -25
+	pixel_y = -28
 	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Access Stairwell";
@@ -13120,7 +13110,7 @@
 /area/medical/virologyaccess)
 "WO" = (
 /obj/machinery/alarm{
-	pixel_y = 23
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
@@ -13439,7 +13429,7 @@
 /area/maintenance/medbay_interstitial)
 "YW" = (
 /obj/machinery/alarm{
-	pixel_y = 24
+	pixel_y = 28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
@@ -13595,7 +13585,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)

@@ -127,7 +127,7 @@
 	icon_state = "toxmix"
 
 /area/rnd/misc_lab
-	name = "\improper Research - Miscellaneous Research"
+	name = "\improper Research - Circuitry Lab"
 	icon_state = "toxmisc"
 
 /area/rnd/eva

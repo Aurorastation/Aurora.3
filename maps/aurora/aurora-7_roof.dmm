@@ -161,7 +161,7 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /obj/structure/dispenser/oxygen,
 /obj/machinery/light{
@@ -676,8 +676,7 @@
 "bD" = (
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -23;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -1097,7 +1096,7 @@
 "cv" = (
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -2093,7 +2092,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -28
 	},
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecoms - Aft Solar Maintenance";
@@ -3271,7 +3270,7 @@
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
@@ -3298,8 +3297,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner_wide/red{
 	icon_state = "wide_corner";
@@ -3933,8 +3931,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
