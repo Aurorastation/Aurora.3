@@ -27,15 +27,16 @@
 	return ..()
 
 /obj/item/melee/arm_blade/dropped(var/mob/living/user)
-	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
-	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	visible_message(SPAN_DANGER("With a sickening crunch, [user] reforms their arm blade into an arm!"),
+					SPAN_NOTICE("We meld our weapon back into our form."),
+					SPAN_WARNING("You hear organic matter ripping and tearing!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
 /obj/item/melee/arm_blade/process()
 	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
 		// Tidy up a bit.
-		if(istype(loc,/mob/living))
+		if(isliving(loc))
 			var/mob/living/carbon/human/host = loc
 			if(istype(host))
 				for(var/obj/item/organ/external/organ in host.organs)
@@ -48,7 +49,8 @@
 		QDEL_IN(src, 1)
 
 /obj/item/melee/arm_blade/iscrowbar()
-	if(creator.a_intent == I_HELP) return TRUE
+	if(creator.a_intent == I_HELP) 
+		return TRUE
 	return FALSE
 
 /obj/item/melee/arm_blade/resolve_attackby(atom/A, mob/living/user, var/click_parameters)
@@ -83,8 +85,9 @@
 	return ..()
 
 /obj/item/shield/riot/changeling/dropped(var/mob/living/user)
-	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
-	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	visible_message(SPAN_DANGER("With a sickening crunch, [user] reforms their [name] into an arm!"),
+					SPAN_NOTICE("We meld our shield back into our form."),
+					SPAN_WARNING("You hear flesh ripping and tearing!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 

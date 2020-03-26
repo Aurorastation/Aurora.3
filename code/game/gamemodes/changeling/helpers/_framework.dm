@@ -1,8 +1,14 @@
+// Ling power, based on total genomes absorbed. Affects various status and life handling.
+#define LING_POWER_LOW 1
+#define LING_POWER_MED 2
+#define LING_POWER_HIGH 3
+
 var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","Epsilon","Zeta","Eta","Theta","Iota","Kappa","Lambda","Mu","Nu","Xi","Omicron","Pi","Rho","Sigma","Tau","Upsilon","Phi","Chi","Psi","Omega")
 
 /datum/changeling //stores changeling powers, changeling recharge thingie, changeling absorbed DNA and changeling ID (for changeling hivemind)
 	var/list/datum/absorbed_dna/absorbed_dna = list()
 	var/list/absorbed_languages = list()
+	var/list/mob/abstract/hivemind/hivemind = list()
 	var/absorbedcount = 0
 	var/chem_charges = 20
 	var/chem_recharge_rate = 0.5
@@ -12,9 +18,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/geneticdamage = 0
 	var/isabsorbing = 0
 	var/geneticpoints = 5
+	var/total_absorbed_genpoints = 0	//How many points have we earned? Determines ling power level.
 	var/purchasedpowers = list()
 	var/mimicing = ""
 	var/justate
+	var/ling_level = LING_POWER_LOW
 
 /datum/changeling/New(var/gender=FEMALE)
 	..()
@@ -37,7 +45,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 /mob/proc/absorbDNA(var/datum/absorbed_dna/newDNA)
 	var/datum/changeling/changeling = null
-	if(src.mind && src.mind.changeling)
+	if(mind?.changeling)
 		changeling = src.mind.changeling
 	if(!changeling)
 		return
@@ -101,7 +109,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 //Helper proc. Does all the checks and stuff for us to avoid copypasta
 /mob/proc/changeling_power(var/required_chems=0, var/required_dna=0, var/max_genetic_damage=100, var/max_stat=0)
 
-	if(!src.mind)
+	if(!mind)
 		return
 	if(!iscarbon(src))
 		return
@@ -110,17 +118,17 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!changeling)
 		to_chat(world.log, "[src] has the changeling_transform() verb but is not a changeling.")
 		return
-	if(src.stat > max_stat)
-		to_chat(src, "<span class='warning'>We are incapacitated.</span>")
+	if(stat > max_stat)
+		to_chat(src, SPAN_WARNING("We are incapacitated."))
 		return
 	if(changeling.absorbed_dna.len < required_dna)
-		to_chat(src, "<span class='warning'>We require at least [required_dna] samples of compatible DNA.</span>")
+		to_chat(src, SPAN_WARNING("We require at least [required_dna] samples of compatible DNA."))
 		return
 	if(changeling.chem_charges < required_chems)
-		to_chat(src, "<span class='warning'>We require at least [required_chems] units of chemicals to do that!</span>")
+		to_chat(src, SPAN_WARNING("We require at least [required_chems] units of chemicals to do that!"))
 		return
 	if(changeling.geneticdamage > max_genetic_damage)
-		to_chat(src, "<span class='warning'>Our genomes are still reassembling. We need time to recover first.</span>")
+		to_chat(src, SPAN_WARNING("Our genomes are still reassembling. We need time to recover first."))
 		return
 	return changeling
 
@@ -130,7 +138,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	for(var/language in updated_languages)
 		languages += language
 	//This isn't strictly necessary but just to be safe...
-	add_language("Changeling")
+	add_language(LANGUAGE_CHANGELING)
 	return
 
 //DNA related datums
@@ -150,14 +158,23 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 //Helper for stingcode
 
-/mob/proc/sting_can_reach(mob/M as mob, sting_range = 1)
-	if(M.loc == src.loc)
+/mob/proc/sting_can_reach(mob/M, sting_range = 1)
+	if(get_turf(M) == get_turf(src))
 		return TRUE //target and source are in the same thing
 	if(!isturf(src.loc) || !isturf(M.loc))
-		to_chat(src, "<span class='warning'>We cannot reach \the [M] with a sting!</span>")
+		to_chat(src, SPAN_WARNING("We cannot reach \the [M] with our sting!"))
 		return FALSE //One is inside, the other is outside something.
 	// Maximum queued turfs set to 25; I don't *think* anything raises sting_range above 2, but if it does the 25 may need raising
 	if(!AStar(src.loc, M.loc, /turf/proc/AdjacentTurfs, /turf/proc/Distance, max_nodes=25, max_node_depth=sting_range)) //If we can't find a path, fail
-		to_chat(src, "<span class='warning'>We cannot find a path to sting \the [M] by!</span>")
+		to_chat(src, SPAN_WARNING("We cannot find a path to sting \the [M] by!"))
 		return FALSE
 	return TRUE
+
+/datum/changeling/proc/update_ling_power()
+	switch(total_absorbed_genpoints)
+		if(0 to 2)
+			ling_level = LING_POWER_LOW
+		if(3 to 8)
+			ling_level = LING_POWER_MED
+		else
+			ling_level = LING_POWER_HIGH

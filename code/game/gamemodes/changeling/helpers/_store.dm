@@ -66,6 +66,19 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 0
 	verbpath = /mob/proc/changeling_hivedownload
 
+/datum/power/changeling/hivemind_commune
+	name = "Hivemind Commune"
+	desc = "We can speak with the members of our Hivemind, without it being apparent to the people in our view."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_hivemind_commune
+
+/datum/power/changeling/hivemind_eject
+	name = "Hivemind Eject"
+	desc = "We can eject a pesky hivemind from ourselves, if it complains a lot. This won't free up space, but will prevent them from screaming at us."
+	helptext = "Ghosts the chosen hivemind. Use it on salty people spamming you to send them to deadchat."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_eject_hivemind
+
 //Stings and sting accessorries
 //Rest in pieces, unfat sting. - Geeves
 
@@ -191,7 +204,7 @@ var/list/datum/power/changeling/powerinstances = list()
 //I'm too afraid to touch this, you win this time, oldcode - Geeves
 /datum/changeling/proc/EvolutionMenu()//The new one
 	set category = "Changeling"
-	set desc = "Buy new abilities with the genomes we obtained."
+	set desc = "Evolve new abilities with the genomes we obtained."
 
 	if(!usr || !usr.mind || !usr.mind.changeling)
 		return
@@ -486,10 +499,10 @@ var/list/datum/power/changeling/powerinstances = list()
 		to_chat(M.current, "This is awkward. Changeling power purchase failed, please report this bug to a coder!")
 		return
 	if(power in purchasedpowers)
-		to_chat(M.current, "We have already evolved this ability!")
+		to_chat(M.current, SPAN_NOTICE("We have already evolved this ability!"))
 		return
 	if(geneticpoints < power.genomecost)
-		to_chat(M.current, "We cannot evolve this. We must acquire more DNA.")
+		to_chat(M.current, SPAN_NOTICE("We cannot evolve this. We must acquire more DNA."))
 		return
 
 	geneticpoints -= power.genomecost

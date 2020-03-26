@@ -236,7 +236,7 @@
 			stat = UNCONSCIOUS
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
-	if(in_stasis)
+	if(in_stasis || mind.changeling)
 		return
 
 	if(getFireLoss())

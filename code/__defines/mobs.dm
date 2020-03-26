@@ -261,7 +261,6 @@
 #define GLUT_ITEM_ANYTHING 64    // Eat any item
 #define GLUT_PROJECTILE_VOMIT 128 // When vomitting, does it fly out?
 
-
 // Devour speeds, returned by can_devour()
 #define DEVOUR_SLOW 1
 #define DEVOUR_FAST 2
