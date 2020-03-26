@@ -17,10 +17,10 @@
 
 //TODOMATT: Change (fix?) research shuttle handling
 
-/datum/shuttle/ferry/research
+/datum/shuttle/autodock/ferry/research
 	var/triggered_away_sites = FALSE
 
-/datum/shuttle/ferry/research/launch()
+/datum/shuttle/autodock/ferry/research/launch()
 	. = ..()
 	if(!triggered_away_sites)
 		for(var/s in SSghostroles.spawners)

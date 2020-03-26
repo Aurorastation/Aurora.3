@@ -1,14 +1,14 @@
-/datum/shuttle/ferry/emergency
+/datum/shuttle/autodock/ferry/emergency
 	//pass
 
-/datum/shuttle/ferry/emergency/arrived()
+/datum/shuttle/autodock/ferry/emergency/arrived()
 	if (istype(in_use, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = in_use
 		C.reset_authorization()
 
 	emergency_shuttle.shuttle_arrived()
 
-/datum/shuttle/ferry/emergency/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
+/datum/shuttle/autodock/ferry/emergency/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if (!location)
 		travel_time = SHUTTLE_TRANSIT_DURATION_RETURN
 	else
@@ -20,7 +20,7 @@
 
 	..()
 
-/datum/shuttle/ferry/emergency/move(var/area/origin,var/area/destination)
+/datum/shuttle/autodock/ferry/emergency/move(var/area/origin,var/area/destination)
 	..(origin, destination)
 
 	if (origin == area_station)	//leaving the station
@@ -35,14 +35,14 @@
 		else
 			priority_announcement.Announce(replacemany(current_map.shuttle_leaving_dock, replacements))
 
-/datum/shuttle/ferry/emergency/can_launch(var/user)
+/datum/shuttle/autodock/ferry/emergency/can_launch(var/user)
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
 		if (!C.has_authorization())
 			return 0
 	return ..()
 
-/datum/shuttle/ferry/emergency/can_force(var/user)
+/datum/shuttle/autodock/ferry/emergency/can_force(var/user)
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
 
@@ -52,7 +52,7 @@
 			return 0
 	return ..()
 
-/datum/shuttle/ferry/emergency/can_cancel(var/user)
+/datum/shuttle/autodock/ferry/emergency/can_cancel(var/user)
 	//If we try to cancel it via the shuttle computer
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
@@ -66,7 +66,7 @@
 
 	return ..()
 
-/datum/shuttle/ferry/emergency/launch(var/user)
+/datum/shuttle/autodock/ferry/emergency/launch(var/user)
 	if (!can_launch(user)) return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
@@ -80,7 +80,7 @@
 
 	..(user)
 
-/datum/shuttle/ferry/emergency/force_launch(var/user)
+/datum/shuttle/autodock/ferry/emergency/force_launch(var/user)
 	if (!can_force(user)) return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
@@ -94,7 +94,7 @@
 
 	..(user)
 
-/datum/shuttle/ferry/emergency/cancel_launch(var/user)
+/datum/shuttle/autodock/ferry/emergency/cancel_launch(var/user)
 	if (!can_cancel(user)) return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
@@ -177,7 +177,7 @@
 
 /obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
-	var/datum/shuttle/ferry/emergency/shuttle = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/ferry/emergency/shuttle = shuttle_controller.shuttles[shuttle_tag]
 	if (!istype(shuttle))
 		return
 

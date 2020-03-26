@@ -1,5 +1,5 @@
 //Shuttle controller computer for shuttles going between sectors
-/datum/shuttle/ferry/var/range = 0	//how many overmap tiles can shuttle go, for picking destinatiosn and returning.
+/datum/shuttle/autodock/ferry/var/range = 0	//how many overmap tiles can shuttle go, for picking destinatiosn and returning.
 /obj/machinery/computer/shuttle_control/explore
 	name = "exploration shuttle console"
 	shuttle_tag = "Exploration"
@@ -13,7 +13,7 @@
 	home = map_sectors["[z]"]
 	shuttle_tag = "[shuttle_tag]-[z]"
 	if(!shuttle_controller.shuttles[shuttle_tag])
-		var/datum/shuttle/ferry/shuttle = new()
+		var/datum/shuttle/autodock/ferry/shuttle = new()
 		shuttle.warmup_time = 10
 		shuttle.area_station = locate(landing_type)
 		shuttle.area_offsite = shuttle.area_station
@@ -25,7 +25,7 @@
 /obj/machinery/computer/shuttle_control/explore/proc/update_destination(var/obj/effect/map/D)
 	destination = D
 	if(destination && shuttle_controller.shuttles[shuttle_tag])
-		var/datum/shuttle/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
+		var/datum/shuttle/autodock/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
 		shuttle.area_offsite = destination.shuttle_landing
 		testing("Shuttle controller [shuttle_tag] now sends shuttle to [destination]")
 		shuttle_controller.shuttles[shuttle_tag] = shuttle
@@ -33,7 +33,7 @@
 //Gets all sectors with landing zones in shuttle's range
 /obj/machinery/computer/shuttle_control/explore/proc/get_possible_destinations()
 	var/list/res = list()
-	var/datum/shuttle/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
 	for (var/obj/effect/map/S in orange(shuttle.range, home))
 		if(S.shuttle_landing)
 			res += S
@@ -41,12 +41,12 @@
 
 //Checks if current destination is still reachable
 /obj/machinery/computer/shuttle_control/explore/proc/check_destination()
-	var/datum/shuttle/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
 	return shuttle && destination && get_dist(home, destination) <= shuttle.range
 
 /obj/machinery/computer/shuttle_control/explore/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
-	var/datum/shuttle/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
 	if (!istype(shuttle))
 		return
 
@@ -119,7 +119,7 @@
 	usr.set_machine(src)
 	src.add_fingerprint(usr)
 
-	var/datum/shuttle/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/ferry/shuttle = shuttle_controller.shuttles[shuttle_tag]
 	if (!istype(shuttle))
 		return
 

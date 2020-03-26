@@ -1,6 +1,6 @@
-/datum/shuttle/ferry/arrival
+/datum/shuttle/autodock/ferry/arrival
 
-/datum/shuttle/ferry/arrival/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
+/datum/shuttle/autodock/ferry/arrival/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
 	if(isnull(location))
 		return
 
@@ -65,11 +65,11 @@
 		move(interim, destination, direction)
 		moving_status = SHUTTLE_IDLE
 
-/datum/shuttle/ferry/arrival/arrived()
+/datum/shuttle/autodock/ferry/arrival/arrived()
 	SSarrivals.shuttle_arrived()
 
-/datum/shuttle/ferry/arrival/proc/forbidden_atoms_check()
+/datum/shuttle/autodock/ferry/arrival/proc/forbidden_atoms_check()
 	return SSarrivals.forbidden_atoms_check(get_location_area())
 
-/datum/shuttle/ferry/arrival/proc/at_station()
+/datum/shuttle/autodock/ferry/arrival/proc/at_station()
 	return (!location)

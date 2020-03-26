@@ -83,7 +83,7 @@
 		data["have_printer"] = 0
 
 	//Shuttle Stuff
-	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
+	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 	if(shuttle)
 		data["shuttle_available"] = 1
 		data["shuttle_has_arrive_time"] = shuttle.has_arrive_time()
@@ -108,7 +108,7 @@
 		ui.set_auto_update(1)
 
 /datum/nano_module/program/civilian/cargocontrol/Topic(href, href_list)
-	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
+	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 	var/obj/item/modular_computer/console = host
 	if (!shuttle)
 		world.log <<  "## ERROR: Eek. The supply/shuttle datum is missing somehow."

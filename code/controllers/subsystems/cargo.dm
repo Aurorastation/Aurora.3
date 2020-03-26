@@ -37,7 +37,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	//shuttle movement
 	var/movetime = 1200
 	var/min_movetime = 1200
-	var/datum/shuttle/ferry/supply/shuttle
+	var/datum/shuttle/autodock/ferry/supply/shuttle
 
 	//Item vars
 	var/last_item_id = 0 //The ID of the last item that has been added

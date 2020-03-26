@@ -18,7 +18,7 @@
 	if (!shuttle_tag)
 		return
 
-	var/datum/shuttle/ferry/S = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/ferry/S = shuttle_controller.shuttles[shuttle_tag]
 	if (S.can_force())
 		S.force_launch(user)
 		log_and_message_admins("forced the [shuttle_tag] shuttle", user)

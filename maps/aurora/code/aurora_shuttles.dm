@@ -1,8 +1,8 @@
 /datum/map/aurora/setup_shuttles()
-	var/datum/shuttle/ferry/shuttle
+	var/datum/shuttle/autodock/ferry/shuttle
 	var/list/shuttles = shuttle_controller.shuttles
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod1/station)
@@ -16,7 +16,7 @@
 	shuttles["Escape Pod 1"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod2/station)
@@ -30,7 +30,7 @@
 	shuttles["Escape Pod 2"] = shuttle
 	START_PROCESSING(shuttle_controller, shuttle)
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod3/station)
@@ -79,7 +79,7 @@
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	// CCIA Shuttle
-	var/datum/shuttle/ferry/autoreturn/A = new()
+	var/datum/shuttle/autodock/ferry/autoreturn/A = new()
 	A.location = 1
 	A.warmup_time = 10
 	A.area_offsite = locate(/area/shuttle/transport1/centcom)
@@ -91,7 +91,7 @@
 	START_PROCESSING(shuttle_controller, A)
 
 	// ERT Shuttle
-	var/datum/shuttle/ferry/multidock/specops/ERT = new()
+	var/datum/shuttle/autodock/ferry/multidock/specops/ERT = new()
 	ERT.location = 0
 	ERT.warmup_time = 10
 	ERT.area_offsite = locate(/area/shuttle/specops/station)	//centcom is the home station, the Exodus is offsite
@@ -152,7 +152,7 @@
 
 	// Tau Ceti Foreign Legion
 
-	var/datum/shuttle/ferry/legion/legion = new()
+	var/datum/shuttle/autodock/ferry/legion/legion = new()
 	legion = new()
 	legion.location = 1
 	legion.warmup_time = 10
@@ -168,7 +168,7 @@
 	START_PROCESSING(shuttle_controller, legion)
 
 	//Away Site shuttle.
-	var/datum/shuttle/ferry/research/research = new()
+	var/datum/shuttle/autodock/ferry/research/research = new()
 	research.location = 0
 	research.warmup_time = 10
 	research.area_station = locate(/area/shuttle/research/station)
@@ -183,7 +183,7 @@
 
 	// Distress Team Shuttle
 
-	var/datum/shuttle/ferry/multidock/distress = new()
+	var/datum/shuttle/autodock/ferry/multidock/distress = new()
 	distress.location = 1
 	distress.warmup_time = 10
 	distress.area_offsite = locate(/area/shuttle/distress/centcom)

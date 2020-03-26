@@ -5,7 +5,7 @@
 	flags = SS_NO_INIT | SS_BACKGROUND | SS_NO_TICK_CHECK
 	priority = SS_PRIORITY_ARRIVALS
 
-	var/datum/shuttle/ferry/arrival/shuttle
+	var/datum/shuttle/autodock/ferry/arrival/shuttle
 
 	var/launch_time			//the time at which the shuttle will be launched
 	var/wait_for_launch = 0	//if the shuttle is waiting to launch

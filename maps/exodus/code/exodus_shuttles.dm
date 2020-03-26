@@ -1,8 +1,8 @@
 /datum/map/exodus/setup_shuttles()
-	var/datum/shuttle/ferry/shuttle
+	var/datum/shuttle/autodock/ferry/shuttle
 	var/list/shuttles = shuttle_controller.shuttles
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod1/station)
@@ -16,7 +16,7 @@
 	START_PROCESSING(shuttle_controller, shuttle)
 	shuttles["Escape Pod 1"] = shuttle
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod2/station)
@@ -30,7 +30,7 @@
 	START_PROCESSING(shuttle_controller, shuttle)
 	shuttles["Escape Pod 2"] = shuttle
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod3/station)
@@ -46,7 +46,7 @@
 
 	//There is no pod 4, apparently.
 
-	shuttle = new/datum/shuttle/ferry/escape_pod()
+	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
 	shuttle.location = 0
 	shuttle.warmup_time = 0
 	shuttle.area_station = locate(/area/shuttle/escape_pod5/station)
@@ -129,7 +129,7 @@
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	// ERT Shuttle
-	var/datum/shuttle/ferry/multidock/specops/ERT = new()
+	var/datum/shuttle/autodock/ferry/multidock/specops/ERT = new()
 	ERT.location = 0
 	ERT.warmup_time = 10
 	ERT.area_offsite = locate(/area/shuttle/specops/station)	//centcom is the home station, the Exodus is offsite

@@ -1,7 +1,7 @@
-/datum/shuttle/ferry/escape_pod
+/datum/shuttle/autodock/ferry/escape_pod
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
 
-/datum/shuttle/ferry/escape_pod/init_docking_controllers()
+/datum/shuttle/autodock/ferry/escape_pod/init_docking_controllers()
 	..()
 	arming_controller = locate(dock_target_station)
 	if(!istype(arming_controller))
@@ -14,26 +14,26 @@
 		else
 			controller_master.pod = src
 
-/datum/shuttle/ferry/escape_pod/can_launch()
+/datum/shuttle/autodock/ferry/escape_pod/can_launch()
 	if(arming_controller && !arming_controller.armed)	//must be armed
 		return 0
 	if(location)
 		return 0	//it's a one-way trip.
 	return ..()
 
-/datum/shuttle/ferry/escape_pod/can_force()
+/datum/shuttle/autodock/ferry/escape_pod/can_force()
 	if (arming_controller.eject_time && world.time < arming_controller.eject_time + 50)
 		return 0	//dont allow force launching until 5 seconds after the arming controller has reached it's countdown
 	return ..()
 
-/datum/shuttle/ferry/escape_pod/can_cancel()
+/datum/shuttle/autodock/ferry/escape_pod/can_cancel()
 	return 0
 
 
 //This controller goes on the escape pod itself
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod
 	name = "escape pod controller"
-	var/datum/shuttle/ferry/escape_pod/pod
+	var/datum/shuttle/autodock/ferry/escape_pod/pod
 
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]

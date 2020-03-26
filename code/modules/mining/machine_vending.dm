@@ -157,7 +157,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 			if(prize.cost > inserted_id.mining_points)
 			else
 				if(prize.shuttle)
-					var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
+					var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 					if(shuttle)
 						var/area/area_shuttle = shuttle.get_location_area()
 						if(!area_shuttle)

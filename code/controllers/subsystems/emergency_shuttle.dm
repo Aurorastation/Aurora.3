@@ -4,7 +4,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	name = "Emergency Shuttle"
 	flags = SS_NO_TICK_CHECK | SS_NO_INIT
 
-	var/datum/shuttle/ferry/emergency/shuttle
+	var/datum/shuttle/autodock/ferry/emergency/shuttle
 	var/list/escape_pods
 
 	var/launch_time			//the time at which the shuttle will be launched
@@ -43,7 +43,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 			if (!shuttle.location)	//leaving from the station
 				//launch the pods!
-				for (var/datum/shuttle/ferry/escape_pod/pod in escape_pods)
+				for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
 					if (!pod.arming_controller || pod.arming_controller.armed)
 						pod.launch(src)
 
@@ -75,7 +75,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 		//arm the escape pods
 		if (evac)
-			for (var/datum/shuttle/ferry/escape_pod/pod in escape_pods)
+			for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
 				if (pod.arming_controller)
 					pod.arming_controller.arm()	
 

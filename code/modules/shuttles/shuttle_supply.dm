@@ -1,9 +1,9 @@
-/datum/shuttle/ferry/supply
+/datum/shuttle/autodock/ferry/supply
 	var/away_location = 1	//the location to hide at while pretending to be in-transit
 	var/late_chance = 80
 	var/max_late_time = 300
 
-/datum/shuttle/ferry/supply/short_jump(var/area/origin,var/area/destination)
+/datum/shuttle/autodock/ferry/supply/short_jump(var/area/origin,var/area/destination)
 	if(moving_status != SHUTTLE_IDLE)
 		return
 	
@@ -56,20 +56,20 @@
 			SScargo.sell()
 
 // returns 1 if the supply shuttle should be prevented from moving because it contains forbidden atoms
-/datum/shuttle/ferry/supply/proc/forbidden_atoms_check()
+/datum/shuttle/autodock/ferry/supply/proc/forbidden_atoms_check()
 	if (!at_station())
 		return 0	//if badmins want to send mobs or a nuke on the supply shuttle from centcom we don't care
 	
 	return SScargo.forbidden_atoms_check(get_location_area())
 
-/datum/shuttle/ferry/supply/proc/at_station()
+/datum/shuttle/autodock/ferry/supply/proc/at_station()
 	return (!location)
 
 //returns 1 if the shuttle is idle and we can still mess with the cargo shopping list
-/datum/shuttle/ferry/supply/proc/idle()
+/datum/shuttle/autodock/ferry/supply/proc/idle()
 	return (moving_status == SHUTTLE_IDLE)
 
 //returns the ETA in minutes
-/datum/shuttle/ferry/supply/proc/eta_minutes()
+/datum/shuttle/autodock/ferry/supply/proc/eta_minutes()
 	var/ticksleft = arrive_time - world.time
 	return round(ticksleft/600,1)
