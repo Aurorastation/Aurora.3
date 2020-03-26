@@ -425,6 +425,11 @@
 /datum/species/proc/can_understand(var/mob/other)
 	return
 
+/datum/species/proc/adjustBruteLoss(var/mob/living/carbon/C, var/amount)
+	return 1
+/datum/species/proc/adjustBurnLoss(var/mob/living/carbon/C, var/amount)
+	return 1
+
 // Called when using the shredding behavior.
 /datum/species/proc/can_shred(var/mob/living/carbon/human/H, var/ignore_intent)
 

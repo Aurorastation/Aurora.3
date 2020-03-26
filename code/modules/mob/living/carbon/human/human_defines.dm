@@ -112,3 +112,5 @@
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
 	var/datum/martial_art/martial_art = null
+
+	var/datum/skrellstate/ST = null

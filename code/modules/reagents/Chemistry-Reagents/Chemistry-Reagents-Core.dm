@@ -233,6 +233,10 @@
 
 	if(istype(M) && !istype(M, /mob/abstract))
 		M.color = initial(M.color)
+		if(istype(M, /mob/living/carbon/human))
+			var/mob/living/carbon/human/H = M
+			if(istype(H.ST))
+				H.ST.moisture = min(3600, H.ST.moisture + amount * 10)
 
 /datum/reagent/water/affect_touch(var/mob/living/carbon/slime/S, var/alien, var/removed)
 	if(istype(S))

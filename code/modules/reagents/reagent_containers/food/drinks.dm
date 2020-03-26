@@ -71,7 +71,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
 	playsound(loc,'sound/items/soda_burst.ogg', rand(20,50), 1)
-	reagents.clear_reagents()
+	reagents.splash(user, reagents.total_volume) // Cover the target in whatever's stored.
 	flags |= OPENCONTAINER
 	shaken = 0
 

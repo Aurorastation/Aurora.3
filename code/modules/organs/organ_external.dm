@@ -247,7 +247,9 @@
 		return 0
 
 	brute *= brute_mod
+	brute *= (owner.species ? owner.species.adjustBruteLoss(owner, brute) : 1)
 	burn *= burn_mod
+	burn *= (owner.species ? owner.species.adjustBurnLoss(owner, burn) : 1)
 
 	var/laser = (damage_flags & DAM_LASER)
 
