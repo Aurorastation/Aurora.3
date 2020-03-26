@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - backend: "Added a framework to easily attach signalers to any type of machinery, codewise."
+  - rscadd: "You can now place a signaler on an emitter to remotely activate it. It follows the same activation rules as a standard user."
+  - rscadd: "EMPing an emitter now causes it to toggle its state, if it's ready to fire."
+  - rscadd: "Emagging an emitter now doubles the amount of burst shots it takes and halves the minimum and maximum times between bursts."
+  - tweak: "Tweak the message signalers vocalize when they receive a message. Tweak the look and feel of emitters, try examining them sometime."
