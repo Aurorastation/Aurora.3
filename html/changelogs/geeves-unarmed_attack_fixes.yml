@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "It is now impossible to attack people with unarmed attacks while incapacitated."
