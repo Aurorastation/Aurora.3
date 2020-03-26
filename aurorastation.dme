@@ -2515,6 +2515,7 @@
 #include "code\modules\shuttles\landmarks.dm"
 #include "code\modules\shuttles\shuttle.dm"
 #include "code\modules\shuttles\shuttle_arrival.dm"
+#include "code\modules\shuttles\shuttle_autodock.dm"
 #include "code\modules\shuttles\shuttle_autoreturn.dm"
 #include "code\modules\shuttles\shuttle_console.dm"
 #include "code\modules\shuttles\shuttle_emergency.dm"
