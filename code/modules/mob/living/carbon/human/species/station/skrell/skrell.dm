@@ -63,30 +63,30 @@
 
 /datum/species/skrell/handle_environment_special(var/mob/living/carbon/human/H)
 	var/old_moisture = H.ST.moisture
-	H.ST.moisture = max(0, H.ST.moisture - rand(-0.8, 1.3))			// Reduce moisture a little.
-	if(H.fire_stacks && H.ST.moisture > 1800)						// Flaming moist skrell can reduce their flame
+	H.ST.moisture = max(MOISTURE_NONE, H.ST.moisture - rand(8, 13)/10)			// Reduce moisture a little.
+	if(H.fire_stacks && H.ST.moisture > MOISTURE_NORMAL)			// Flaming moist skrell can reduce their flame
 		H.fire_stacks--
 		H.ST.moisture -= rand(150, 350)								// Lost a lot of moisture
-	var/pain_limit = (1800-H.ST.moisture) * (40 / 1800)				// The max halloss damage to do based on current moisture. At 0, this is 30. At 1800 or higher, this is 0.
+	var/pain_limit = (MOISTURE_NORMAL-H.ST.moisture) * (40 / MOISTURE_NORMAL)	// The max halloss damage to do based on current moisture. At 0, this is 30. At 1800 or higher, this is 0.
 	
 	// Add more pain damage if they need it.
-	var setPain = max(H.getHalLoss(), pain_limit)
+	var/setPain = max(H.getHalLoss(), pain_limit)
 	H.adjustHalLoss(setPain - H.getHalLoss())
 	
 	// Skrell hydration is directly tied to their moisture.
-	H.hydration = (H.ST.moisture / 3600) * H.max_hydration
+	H.hydration = (H.ST.moisture / MOISTURE_MAX) * H.max_hydration
 
-	if(H.ST.moisture <= 1800 && old_moisture > 1800)
-		H << "<span class='warning'>You are drying out. You should consider moisturizing.</span>"
-	else if(H.ST.moisture <= 900 && old_moisture > 900)
-		H << "<span class='warning'>You are really dry! Your skin feels uncomfortable and flakey!</span>"
-	else if(H.ST.moisture == 0 && old_moisture > 0)
-		H << "<span class='danger'>You are completely dry, this is really painful!</span>"
+	if(H.ST.moisture <= MOISTURE_NORMAL && old_moisture > MOISTURE_NORMAL)
+		to_chat(H, SPAN_WARNING("You are drying out. You should consider moisturizing."))
+	else if(H.ST.moisture <= MOISTURE_LOW && old_moisture > MOISTURE_LOW)
+		to_chat(H, SPAN_WARNING("You are really dry! Your skin feels uncomfortable and flakey!"))
+	else if(H.ST.moisture == MOISTURE_NONE && old_moisture > MOISTURE_NONE)
+		to_chat(H, SPAN_DANGER("You are completely dry, this is really painful!"))
 
 /datum/species/skrell/adjustBurnLoss(var/mob/living/carbon/C, var/amount)
 	if(istype(C,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = C
-		. = (1 - (H.ST.moisture / 3600))*0.6 + 0.7 // At 0 moisture, this is 1.3 At 3600 moisture, this is 0.7. Average of 1.0
+		. = (1 - (H.ST.moisture / MOISTURE_MAX))*0.6 + 0.7 // At 0 moisture, this is 1.3 At 3600 moisture, this is 0.7. Average of 1.0
 		H.ST.moisture = max(0, H.ST.moisture - amount * 30) // Lose 30 * damage in moisture. 100 damage will almost instantly 0 the wettest of skrell
 	else
 		return 1

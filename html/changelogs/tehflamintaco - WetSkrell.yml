@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Skrell now must stay wet."
+  - rscadd: "Skrell now must stay wet. This can be achieved by covering yourself in water, through either showers, water bottles, or the pool. Failing to stay wet will cause skrell to feel pain and slow down, but staying wet reduces burn damage."

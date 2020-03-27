@@ -1,2 +1,2 @@
 /datum/skrellstate
-    var/moisture = 3600
+    var/moisture = MOISTURE_MAX

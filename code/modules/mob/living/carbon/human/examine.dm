@@ -223,6 +223,11 @@
 			if(o.applied_pressure == src)
 				msg += "<span class='warning'>[T.He] [T.is] applying pressure to [T.his] [o.name]!</span>\n"
 
+	//moisture
+	if(istype(ST))
+		if(ST.moisture < MOISTURE_LOW)
+			msg += "<span class='warning'>[T.He] looks dried out!</span>\n"
+
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] small halfling!\n"
 

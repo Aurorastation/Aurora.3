@@ -323,3 +323,9 @@
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
+
+// Moisture levels, for Skrell
+#define MOISTURE_MAX 3600
+#define MOISTURE_NORMAL 1800
+#define MOISTURE_LOW 900
+#define MOISTURE_NONE 0
