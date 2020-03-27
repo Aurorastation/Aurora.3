@@ -1,17 +1,14 @@
 /datum/shuttle/autodock/ferry/arrival
 
-/datum/shuttle/autodock/ferry/arrival/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
+/datum/shuttle/autodock/ferry/arrival/long_jump(var/area/destination, var/area/interim, var/travel_time)
 	if(isnull(location))
 		return
 
 	if(!destination)
 		destination = get_location_area(!location)
-	if(!departing)
-		departing = get_location_area(location)
 
-	direction = !location
-
-	if(moving_status != SHUTTLE_IDLE) return
+	if(moving_status != SHUTTLE_IDLE)
+		return
 
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
@@ -56,20 +53,22 @@
 		SSarrivals.failreturnnumber = 0
 		arrive_time = world.time + travel_time*10
 		moving_status = SHUTTLE_INTRANSIT
-		move(departing, interim, direction)
+		attempt_move(interim)
 
 
 		while (world.time < arrive_time)
 			sleep(5)
 
-		move(interim, destination, direction)
+		attempt_move(destination)
 		moving_status = SHUTTLE_IDLE
 
 /datum/shuttle/autodock/ferry/arrival/arrived()
 	SSarrivals.shuttle_arrived()
 
 /datum/shuttle/autodock/ferry/arrival/proc/forbidden_atoms_check()
-	return SSarrivals.forbidden_atoms_check(get_location_area())
+	for(var/area/subarea in shuttle_area)
+		if(SSarrivals.forbidden_atoms_check(subarea))
+			return TRUE
 
 /datum/shuttle/autodock/ferry/arrival/proc/at_station()
 	return (!location)

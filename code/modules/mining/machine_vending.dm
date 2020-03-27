@@ -159,25 +159,22 @@ var/global/list/minevendor_list = list( //keep in order of price
 				if(prize.shuttle)
 					var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 					if(shuttle)
-						var/area/area_shuttle = shuttle.get_location_area()
-						if(!area_shuttle)
+						if(!shuttle.shuttle_area) //This really should never happen, but, oh well.
 							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE} Order failed! Please try again."))
 							return
-
-
 						var/list/clear_turfs = list()
-
-						for(var/turf/T in area_shuttle)
-							if(T.density)
-								continue
-							var/contcount
-							for(var/atom/A in T.contents)
-								if(!A.simulated)
+						for(var/area/subarea in shuttle.shuttle_area)
+							for(var/turf/T in subarea)
+								if(T.density)
 									continue
-								contcount++
-							if(contcount)
-								continue
-							clear_turfs += T
+								var/contcount
+								for(var/atom/A in T.contents)
+									if(!A.simulated)
+										continue
+									contcount++
+								if(contcount)
+									continue
+								clear_turfs += T
 
 						if(!length(clear_turfs))
 							to_chat(usr, SPAN_DANGER("{ERR Code: NO_SHUTTLE_SPACE} Order failed! Please try again."))

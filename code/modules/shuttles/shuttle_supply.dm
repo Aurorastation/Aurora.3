@@ -3,17 +3,12 @@
 	var/late_chance = 80
 	var/max_late_time = 300
 
-/datum/shuttle/autodock/ferry/supply/short_jump(var/area/origin,var/area/destination)
+/datum/shuttle/autodock/ferry/supply/short_jump(var/area/destination)
 	if(moving_status != SHUTTLE_IDLE)
 		return
 	
 	if(isnull(location))
 		return
-
-	if(!destination)
-		destination = get_location_area(!location)
-	if(!origin)
-		origin = get_location_area(location)
 
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
@@ -29,6 +24,10 @@
 		if (!at_station())	//at centcom
 			if(!SScargo.buy()) //Check if the shuttle can be sent
 				moving_status = SHUTTLE_IDLE //Dont move the shuttle
+
+		//We pretend it's a long_jump by making the shuttle stay at centcom for the "in-transit" period.
+		var/obj/effect/shuttle_landmark/away_waypoint = get_location_waypoint(away_location)
+		moving_status = SHUTTLE_INTRANSIT
 		
 		//If we are at the away_landmark then we are just pretending to move, otherwise actually do the move
 		if (next_location == away_waypoint)
