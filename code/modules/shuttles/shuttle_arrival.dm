@@ -5,7 +5,7 @@
 		return
 
 	if(!destination)
-		destination = get_location_area(!location)
+		destination = !location
 
 	if(moving_status != SHUTTLE_IDLE)
 		return
@@ -23,7 +23,9 @@
 			SSarrivals.set_launch_countdown(60)
 			SSarrivals.failreturnnumber++
 			if(SSarrivals.failreturnnumber >= 2) // get off my shuttle fool
-				var/list/mobstoyellat = mobs_in_area(get_location_area(location))
+				var/list/mobstoyellat
+				for(var/area/subarea in shuttle_area)
+					mobs_in_area(subarea)
 				if (!mobstoyellat || !mobstoyellat.len)
 					return
 				for(var/mob/living/A in mobstoyellat)

@@ -48,7 +48,7 @@
 		moving_status = SHUTTLE_IDLE
 
 		if (!at_station())	//at centcom
-			SSsupply.sell()
+			SScargo.sell()
 
 // returns 1 if the supply shuttle should be prevented from moving because it contains forbidden atoms
 /datum/shuttle/autodock/ferry/supply/proc/forbidden_atoms_check()

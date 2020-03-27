@@ -9,14 +9,14 @@
 	var/arming_controller_tag = arming_controller
 	arming_controller = SSshuttle.docking_registry[arming_controller_tag]
 	if(!istype(arming_controller))
-		to_world("<span class='danger'>warning: escape pod with station dock tag [dock_target_station] could not find its dock target!</span>")
+		CRASH("Could not find arming controller for escape pod \"[name]\", tag was '[arming_controller_tag]'.")
 
 	if(docking_controller)
 		var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/controller_master = docking_controller.master
 		if(!istype(controller_master))
-			to_world("<span class='danger'>warning: escape pod with docking tag [docking_controller_tag] could not find its controller master!</span>")
-		else
-			controller_master.pod = src
+			CRASH("Escape pod \"[name]\" could not find it's controller master!")
+
+		controller_master.pod = src
 
 /datum/shuttle/autodock/ferry/escape_pod/can_launch()
 	if(arming_controller && !arming_controller.armed)	//must be armed

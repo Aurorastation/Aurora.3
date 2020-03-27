@@ -32,7 +32,6 @@
 	var/announcer
 	var/arrival_message
 	var/departure_message
-	var/return_warning
 
 	category = /datum/shuttle/autodock/multi/antag
 
