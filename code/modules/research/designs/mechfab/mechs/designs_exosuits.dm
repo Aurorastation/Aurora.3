@@ -42,7 +42,7 @@
 	name = "exosuit frame"
 	id = "mech_frame"
 	build_path = /obj/structure/heavy_vehicle_frame
-	time = 70
+	time = 50
 	materials = list(DEFAULT_WALL_MATERIAL = 15000)
 	category = "Exosuits"
 
@@ -155,7 +155,7 @@
 /datum/design/item/mechfab/exosuit/light_torso
 	name = "light exosuit chassis"
 	id = "light_body"
-	time = 40
+	time = 30
 	materials = list(DEFAULT_WALL_MATERIAL = 25000)
 	build_path = /obj/item/mech_component/chassis/light
 	req_tech = list(TECH_MATERIAL = 1)
