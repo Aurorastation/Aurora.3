@@ -2182,7 +2182,6 @@
 #include "code\modules\overmap\sectors.dm"
 #include "code\modules\overmap\ships\ship.dm"
 #include "code\modules\overmap\ships\computers\engine_control.dm"
-#include "code\modules\overmap\ships\computers\helm.dm"
 #include "code\modules\overmap\ships\computers\shuttle.dm"
 #include "code\modules\overmap\ships\engines\engine.dm"
 #include "code\modules\overmap\ships\engines\thermal.dm"
