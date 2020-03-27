@@ -40,8 +40,8 @@ var/list/flooring_types
 	var/footstep_sound = "tiles"
 
 /decl/flooring/grass
-	name = "grass"
-	desc = "Do they smoke grass out in space, Bowie? Or do they smoke AstroTurf?"
+	name = "synthethic grass"
+	desc = "A patch of synthethic grass."
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_base = "grass"
 	has_base_range = 3
@@ -55,8 +55,8 @@ var/list/flooring_types
 	desc = "A soft patch of grass"
 	icon = 'icons/turf/total_floors.dmi'
 	icon_base = "grass_alt"
-	flags = TURF_ACID_IMMUNE
-	build_type = null
+	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL
+	build_type = /obj/item/stack/tile/grass_alt
 	has_base_range = 0
 
 /decl/flooring/asteroid

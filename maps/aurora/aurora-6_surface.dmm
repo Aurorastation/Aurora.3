@@ -11653,12 +11653,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 1
+/obj/effect/floor_decal/corner/paleblue/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 8
 	},
-/obj/effect/floor_decal/corner_wide/paleblue,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "vu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -11942,8 +11941,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "wa" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/paleblue/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "wb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
@@ -12009,14 +12011,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner_wide/paleblue/full{
-	icon_state = "wide_corner_full";
-	dir = 4
+/obj/effect/floor_decal/corner/paleblue/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "wi" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -12034,7 +12035,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/paleblue/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "wj" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -12364,13 +12369,6 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/hallway/secondary/entry/fore)
-"wS" = (
-/obj/effect/floor_decal/corner_wide/paleblue/full{
-	icon_state = "wide_corner_full";
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/bridge/levela)
 "wT" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -12411,11 +12409,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/floor_decal/corner_wide/paleblue/full{
-	icon_state = "wide_corner_full";
-	dir = 1
+/obj/effect/floor_decal/corner/paleblue/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "xb" = (
 /obj/effect/floor_decal/corner/paleblue/full,
@@ -12954,27 +12952,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/bridge/levela)
-"xX" = (
-/obj/effect/floor_decal/corner/paleblue{
-	icon_state = "corner_white";
-	dir = 1
-	},
-/obj/effect/floor_decal/corner_wide/paleblue,
-/turf/simulated/floor/tiled/white,
-/area/bridge/levela)
-"xZ" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/white,
 /area/bridge/levela)
 "ya" = (
 /obj/machinery/power/apc{
@@ -14587,7 +14564,7 @@
 	name = "Mission Paper"
 	},
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "AI" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -21028,7 +21005,7 @@
 /area/crew_quarters/toilet)
 "MM" = (
 /obj/machinery/computer/shuttle_control/research,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "MN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -21783,7 +21760,7 @@
 "Or" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "Ot" = (
 /obj/structure/grille,
@@ -22093,7 +22070,7 @@
 /area/shuttle/research/station)
 "Pb" = (
 /obj/structure/bed/chair/office/bridge/pilot,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "Pc" = (
 /obj/machinery/alarm{
@@ -22277,7 +22254,7 @@
 /obj/machinery/door/airlock/glass{
 	name = "Cockpit"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "Px" = (
 /turf/simulated/wall,
@@ -22561,7 +22538,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "Qg" = (
 /obj/machinery/door/firedoor,
@@ -24375,7 +24352,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "TR" = (
 /obj/effect/floor_decal/corner/blue{
@@ -24805,7 +24782,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "UQ" = (
 /obj/structure/table/rack,
@@ -25263,8 +25240,11 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
-/obj/effect/floor_decal/corner_wide/paleblue/full,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/paleblue/diagonal{
+	icon_state = "corner_white_diagonal";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "VP" = (
 /obj/machinery/door/airlock/maintenance{
@@ -25981,6 +25961,9 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"Xo" = (
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/research/station)
 "Xp" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	icon_state = "warning_dust";
@@ -70409,7 +70392,7 @@ aa
 Qn
 MM
 Pb
-XU
+Xo
 Pw
 XU
 XU
@@ -72480,7 +72463,7 @@ eE
 Zd
 uB
 wa
-xX
+wa
 wa
 wa
 yF
@@ -72739,7 +72722,7 @@ vi
 vt
 wh
 wZ
-xZ
+wZ
 yG
 rV
 zK
@@ -72995,7 +72978,7 @@ Th
 vk
 wa
 VO
-wS
+wa
 wa
 ye
 rV
@@ -77628,9 +77611,9 @@ rV
 ag
 aw
 aw
-zR
-zR
-zR
+aw
+aw
+aw
 aa
 aa
 aa
@@ -77884,11 +77867,11 @@ xf
 rV
 ag
 aa
+aw
 zR
 zR
 zR
-zR
-zR
+aw
 aa
 aa
 aa
@@ -78141,11 +78124,11 @@ xg
 yf
 aa
 aa
+aw
 zR
 zR
 zR
-zR
-zR
+aw
 aa
 aa
 aa

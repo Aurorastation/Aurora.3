@@ -1158,6 +1158,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "acG" = (
@@ -1401,6 +1404,10 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	icon_state = "wide_corner_light";
 	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -4474,6 +4481,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
@@ -28603,6 +28611,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "ciz" = (
@@ -33955,6 +33964,17 @@
 /obj/effect/floor_decal/corner_wide/lime/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
+"oAL" = (
+/obj/effect/floor_decal/corner_wide/yellow{
+	icon_state = "wide_corner_light";
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "oFa" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "research_sensor";
@@ -34435,6 +34455,22 @@
 	},
 /turf/simulated/floor/tiled,
 /area/medical/quarantineaccess)
+"pXw" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/yellow{
+	icon_state = "wide_corner_light";
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "qah" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/small/emergency{
@@ -34588,6 +34624,10 @@
 /area/mine/unexplored)
 "qki" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
 "qkl" = (
@@ -34801,6 +34841,17 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"qHY" = (
+/obj/effect/floor_decal/corner_wide/yellow/full{
+	icon_state = "wide_corner_full_light";
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/engineering/hallway)
 "qId" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -36220,7 +36271,6 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "tWX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -36864,6 +36914,23 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/medical/quarantine)
+"vnA" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
 "vou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -38325,6 +38392,10 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	icon_state = "wide_corner_light";
 	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -50878,7 +50949,7 @@ abJ
 eda
 chg
 acF
-chg
+vnA
 aeC
 abJ
 qan
@@ -51390,9 +51461,9 @@ scg
 sAb
 oub
 ahf
-ahg
+oAL
 adi
-adW
+pXw
 adW
 afm
 afS
@@ -56039,7 +56110,7 @@ alJ
 alJ
 alZ
 agQ
-ahf
+qHY
 xXX
 qki
 agQ
