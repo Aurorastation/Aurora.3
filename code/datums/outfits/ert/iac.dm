@@ -22,7 +22,9 @@
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/storage/box/gloves = 1,
 		/obj/item/storage/box/syringes = 1,
-		/obj/item/device/flashlight/pen = 1
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/clothing/accessory/holster/armpit = 1
 	)
 
 	belt_contents = list(
@@ -93,5 +95,7 @@
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/storage/firstaid/adv = 2,
 		/obj/item/storage/firstaid/o2 = 1,
-		/obj/item/storage/box/syringes = 1
+		/obj/item/storage/box/syringes = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/clothing/accessory/holster/armpit = 1
 	)
