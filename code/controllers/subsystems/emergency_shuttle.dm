@@ -186,6 +186,8 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 //returns 1 if the shuttle is docked at the station and waiting to leave
 /datum/controller/subsystem/emergency_shuttle/proc/waiting_to_leave()
+	if(!shuttle)
+		return
 	if (shuttle.location)
 		return 0	//not at station
 	return (wait_for_launch || shuttle.moving_status != SHUTTLE_INTRANSIT)

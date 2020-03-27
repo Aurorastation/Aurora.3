@@ -3,6 +3,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 /datum/controller/subsystem/processing/shuttle
 	name = "Shuttle"
 	wait = 2 SECONDS
+	flags = 0
 	priority = SS_PRIORITY_SHUTTLE
 	init_order = SS_INIT_SHUTTLE                 //Should be initialized after all maploading is over and atoms are initialized, to ensure that landmarks have been initialized.
 
@@ -13,7 +14,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	var/list/docking_registry = list()           //Docking controller tag -> docking controller program, mostly for init purposes.
 	var/list/shuttle_areas = list()              //All the areas of all shuttles.
 
-	var/list/shuttles_to_initialize              //A queue for shuttles to initialize at the appropriate time.
+	var/list/shuttles_to_initialize = list()     //A queue for shuttles to initialize at the appropriate time.
 	var/block_queue = TRUE
 
 	var/tmp/list/working_shuttles
@@ -22,8 +23,10 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	NEW_SS_GLOBAL(shuttle_controller)
 
 /datum/controller/subsystem/processing/shuttle/Initialize()
+	log_ss("Shuttle", "SSShuttle initializing.")
 	last_landmark_registration_time = world.time
 	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.
+		log_ss("Shuttle", "Shuttle type: [shuttle_type]") //TODOMATT
 		var/datum/shuttle/shuttle = shuttle_type
 		if(!initial(shuttle.defer_initialisation))
 			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)
@@ -52,6 +55,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 /datum/controller/subsystem/processing/shuttle/proc/initialize_shuttles()
 	var/list/shuttles_made = list()
 	for(var/shuttle_type in shuttles_to_initialize)
+		log_ss("Shuttle", "Initializing [shuttle_type]") //TODOMATT
 		var/shuttle = initialize_shuttle(shuttle_type)
 		if(shuttle)
 			shuttles_made += shuttle
