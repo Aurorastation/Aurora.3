@@ -40,7 +40,7 @@ var/list/flooring_types
 	var/footstep_sound = "tiles"
 
 /decl/flooring/grass
-	name = "synthethic grass"
+	name = "synthetic grass"
 	desc = "A patch of synthetic grass."
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_base = "grass"
