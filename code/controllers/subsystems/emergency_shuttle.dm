@@ -33,6 +33,8 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	NEW_SS_GLOBAL(emergency_shuttle)
 
 /datum/controller/subsystem/emergency_shuttle/fire()
+	if(!shuttle)
+		return
 	if (wait_for_launch)
 		if (evac && auto_recall && world.time >= auto_recall_time)
 			recall()
@@ -210,6 +212,8 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	return (launch_time - world.time)/10
 
 /datum/controller/subsystem/emergency_shuttle/proc/has_eta()
+	if(!shuttle)
+		return
 	return (wait_for_launch || shuttle.moving_status != SHUTTLE_IDLE)
 
 //returns 1 if the shuttle has gone to the station and come back at least once,

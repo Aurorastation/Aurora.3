@@ -46,6 +46,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Merchant Shuttle"
 	location = 1
 	warmup_time = 5
+	shuttle_area = /area/shuttle/merchant/start
 	move_time = 20
 	dock_target = "merchant_shuttle"
 
@@ -124,6 +125,7 @@ CREATE_ESCAPE_POD(3)
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
 	warmup_time = 15
+	shuttle_area = /area/skipjack_station/start
 
 	announcer = "NDV Icarus"
 	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
@@ -137,6 +139,7 @@ CREATE_ESCAPE_POD(3)
 	current_location = "nav_merc_start"
 	dock_target = "merc_shuttle"
 	warmup_time = 15
+	shuttle_area = /area/syndicate_station/start
 	destination_tags = list(
 		"nav_merc_dock",
 		"nav_merc_start" //add as needed
@@ -163,10 +166,11 @@ CREATE_ESCAPE_POD(3)
 
 // Tau Ceti Foreign Legion
 /datum/shuttle/autodock/ferry/legion
-	name = "Legion Pod"
+	name = "Legion Shuttle"
 	location = 1
 	warmup_time = 10
 	move_time = 75
+	shuttle_area = /area/shuttle/legion/centcom
 	dock_target = "legion_shuttle"
 	waypoint_offsite = "nav_legion_start"
 	landmark_transition = "nav_legion_interim"
