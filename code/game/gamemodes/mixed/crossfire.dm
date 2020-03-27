@@ -11,9 +11,12 @@
 	antag_tags = list(MODE_RAIDER, MODE_MERCENARY)
 	require_all_templates = 1
 
+//TODOMATT
+/*
 /datum/game_mode/crossfire/check_finished()
-	var/datum/shuttle/multi_shuttle/mercs = shuttle_controller.shuttles["Mercenary"]
-	var/datum/shuttle/multi_shuttle/skipjack = shuttle_controller.shuttles["Skipjack"]
-	if (mercs && mercs.returned_home && skipjack && skipjack.returned_home)
+	var/datum/shuttle/autodock/multi/antag/mercs = shuttle_controller.shuttles["Mercenary"]
+	var/datum/shuttle/autodock/multi/antag/skipjack = shuttle_controller.shuttles["Skipjack"]
+	if (mercs && mercs.return_warning && skipjack && skipjack.return_warning)
 		return 1
 	return ..()
+*/

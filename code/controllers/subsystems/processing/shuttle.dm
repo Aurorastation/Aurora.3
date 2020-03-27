@@ -48,7 +48,6 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	if(block_queue)
 		return
 	initialize_shuttles()
-	initialize_sectors()
 
 /datum/controller/subsystem/processing/shuttle/proc/initialize_shuttles()
 	var/list/shuttles_made = list()

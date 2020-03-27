@@ -105,7 +105,7 @@
 	START_PROCESSING(shuttle_controller, ERT)
 
 	//Skipjack.
-	var/datum/shuttle/multi_shuttle/VS = new/datum/shuttle/multi_shuttle()
+	var/datum/shuttle/autodock/multi/antag/VS = new/datum/shuttle/autodock/multi/antag()
 	VS.origin = locate(/area/skipjack_station/start)
 
 	VS.destinations = list(
@@ -124,7 +124,7 @@
 	shuttles["Skipjack"] = VS
 
 	//Nuke Ops shuttle.
-	var/datum/shuttle/multi_shuttle/MS = new/datum/shuttle/multi_shuttle()
+	var/datum/shuttle/autodock/multi/antag/MS = new/datum/shuttle/autodock/multi/antag()
 	MS.origin = locate(/area/syndicate_station/start)
 	MS.start_location = "Mercenary Base"
 

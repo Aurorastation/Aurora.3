@@ -7,35 +7,7 @@
 	to_chat(user, "<span class='warning'>Access Denied.</span>")
 	return 1
 
-//for shuttles that may use a different docking port at each location
-/datum/shuttle/autodock/ferry/multidock
-	var/docking_controller_tag_station
-	var/docking_controller_tag_offsite
-	var/datum/computer/file/embedded_program/docking/docking_controller_station
-	var/datum/computer/file/embedded_program/docking/docking_controller_offsite
-
-/datum/shuttle/autodock/ferry/multidock/init_docking_controllers()
-	if(docking_controller_tag_station)
-		docking_controller_station = locate(docking_controller_tag_station)
-		if(!istype(docking_controller_station))
-			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_station] could not find it's controller!</span>")
-	if(docking_controller_tag_offsite)
-		docking_controller_offsite = locate(docking_controller_tag_offsite)
-		if(!istype(docking_controller_offsite))
-			to_world("<span class='danger'>warning: shuttle with docking tag [docking_controller_offsite] could not find it's controller!</span>")
-	if (!location)
-		docking_controller = docking_controller_station
-	else
-		docking_controller = docking_controller_offsite
-
-/datum/shuttle/autodock/ferry/multidock/move(var/area/origin,var/area/destination)
-	..(origin, destination)
-	if (!location)
-		docking_controller = docking_controller_station
-	else
-		docking_controller = docking_controller_offsite
-
-/datum/shuttle/autodock/ferry/multidock/specops
+/datum/shuttle/autodock/ferry/specops
 	var/specops_return_delay = 6000		//After moving, the amount of time that must pass before the shuttle may move again
 	var/specops_countdown_time = 600	//Length of the countdown when moving the shuttle
 
@@ -43,6 +15,7 @@
 	var/reset_time = 0	//the world.time at which the shuttle will be ready to move again.
 	var/launch_prep = 0
 	var/cancel_countdown = 0
+	category = /datum/shuttle/autodock/ferry/specops
 
 /datum/shuttle/autodock/ferry/multidock/specops/New()
 	..()
@@ -52,7 +25,6 @@
 /datum/shuttle/autodock/ferry/multidock/specops/proc/radio_announce(var/message)
 	if(announcer)
 		announcer.autosay(message, "Bubble", "Response Team")
-
 
 /datum/shuttle/autodock/ferry/multidock/specops/launch(var/user)
 	if (!can_launch())
@@ -86,17 +58,17 @@
 	radio_announce("ALERT: INITIATING LAUNCH SEQUENCE")
 	..(user)
 
-/datum/shuttle/autodock/ferry/multidock/specops/move(var/area/origin,var/area/destination)
-	..(origin, destination)
+/datum/shuttle/autodock/ferry/multidock/specops/shuttle_moved()
+	. = ..()
 
 	spawn(20)
 		if (!location)	//just arrived home
-			for(var/turf/T in get_area_turfs(destination))
+			for(var/turf/T in get_area_turfs(shuttle_area))
 				var/mob/M = locate(/mob) in T
 				to_chat(M, "<span class='danger'>You have arrived at [current_map.boss_name]. Operation has ended!</span>")
 		else	//just left for the station
 			launch_mauraders()
-			for(var/turf/T in get_area_turfs(destination))
+			for(var/turf/T in get_area_turfs(shuttle_area))
 				var/mob/M = locate(/mob) in T
 				to_chat(M, "<span class='danger'>You have arrived at [current_map.station_name]. Commence operation!</span>")
 
@@ -114,8 +86,6 @@
 		C.visible_message("<span class='warning'>Launch sequence aborted.</span>")
 
 	..()
-
-
 
 /datum/shuttle/autodock/ferry/multidock/specops/can_launch()
 	if(launch_prep)

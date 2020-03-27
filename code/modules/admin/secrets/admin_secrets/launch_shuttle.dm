@@ -11,7 +11,7 @@
 		return
 	var/list/valid_shuttles = list()
 	for (var/shuttle_tag in shuttle_controller.shuttles)
-		if (istype(shuttle_controller.shuttles[shuttle_tag], /datum/shuttle/ferry))
+		if (istype(shuttle_controller.shuttles[shuttle_tag], /datum/shuttle/autodock/ferry))
 			valid_shuttles += shuttle_tag
 
 	var/shuttle_tag = input(user, "Which shuttle do you want to launch?") as null|anything in valid_shuttles
