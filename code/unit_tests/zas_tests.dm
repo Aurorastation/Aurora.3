@@ -180,7 +180,7 @@ datum/unit_test/zas_area_test/
 	if(!shuttle)
 		fail("This map has no supply shuttle.")
 		return 1
-	if(Shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
+	if(shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
 		fail("Shuttle Did not Move")
 		return 1
 

@@ -1,16 +1,20 @@
 /datum/shuttle/autodock/ferry/escape_pod
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
+	category = /datum/shuttle/autodock/ferry/escape_pod
+	move_time = 100
 
-/datum/shuttle/autodock/ferry/escape_pod/init_docking_controllers()
+
+/datum/shuttle/autodock/ferry/escape_pod/New()
 	..()
-	arming_controller = locate(dock_target_station)
+	var/arming_controller_tag = arming_controller
+	arming_controller = SSshuttle.docking_registry[arming_controller_tag]
 	if(!istype(arming_controller))
-		to_world("<span class='danger'>warning: escape pod with station dock tag [dock_target_station] could not find it's dock target!</span>")
+		to_world("<span class='danger'>warning: escape pod with station dock tag [dock_target_station] could not find its dock target!</span>")
 
 	if(docking_controller)
 		var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/controller_master = docking_controller.master
 		if(!istype(controller_master))
-			to_world("<span class='danger'>warning: escape pod with docking tag [docking_controller_tag] could not find it's controller master!</span>")
+			to_world("<span class='danger'>warning: escape pod with docking tag [docking_controller_tag] could not find its controller master!</span>")
 		else
 			controller_master.pod = src
 
@@ -28,7 +32,6 @@
 
 /datum/shuttle/autodock/ferry/escape_pod/can_cancel()
 	return 0
-
 
 //This controller goes on the escape pod itself
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod

@@ -38,7 +38,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	while(working_shuttles.len)
 		var/datum/shuttle/shuttle = working_shuttles[working_shuttles.len]
 		working_shuttles.len--
-		if(shuttle.process_state && (shuttle.Process(wait, times_fired, src) == PROCESS_KILL))
+		if(shuttle.process_state && (shuttle.process(wait, times_fired, src) == PROCESS_KILL))
 			process_shuttles -= shuttle
 
 		if(TICK_CHECK)
