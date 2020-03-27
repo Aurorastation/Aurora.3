@@ -690,3 +690,9 @@
 	for(var/entry in L)
 		if(istype(entry, type))
 			. += entry
+
+// Return a list of the values in an assoc list (including null)
+/proc/list_values(var/list/L)
+	. = list()
+	for(var/e in L)
+		. += L[e]

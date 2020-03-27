@@ -44,17 +44,17 @@
 	if(initial_location)
 		current_location = initial_location
 	else
-		current_location = SSshuttle.get_landmark(current_location)
+		current_location = shuttle_controller.get_landmark(current_location)
 	if(!istype(current_location))
 		CRASH("Shuttle \"[name]\" could not find its starting location.")
 
-	if(src.name in SSshuttle.shuttles)
+	if(src.name in shuttle_controller.shuttles)
 		CRASH("A shuttle with the name '[name]' is already defined.")
-	SSshuttle.shuttles[src.name] = src
+	shuttle_controller.shuttles[src.name] = src
 	if(logging_home_tag)
 		new /datum/shuttle_log(src)
 	if(flags & SHUTTLE_FLAGS_PROCESS)
-		SSshuttle.process_shuttles += src
+		shuttle_controller.process_shuttles += src
 	if(flags & SHUTTLE_FLAGS_SUPPLY)
 		if(SScargo.shuttle)
 			CRASH("A supply shuttle is already defined.")
@@ -63,9 +63,9 @@
 /datum/shuttle/Destroy()
 	current_location = null
 
-	SSshuttle.shuttles -= src.name
-	SSshuttle.process_shuttles -= src
-	SSshuttle.shuttle_logs -= src
+	shuttle_controller.shuttles -= src.name
+	shuttle_controller.process_shuttles -= src
+	shuttle_controller.shuttle_logs -= src
 	if(SScargo.shuttle == src)
 		SScargo.shuttle = null
 
@@ -201,7 +201,7 @@
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
 	if(logging_home_tag)
-		var/datum/shuttle_log/s_log = SSshuttle.shuttle_logs[src]
+		var/datum/shuttle_log/s_log = shuttle_controller.shuttle_logs[src]
 		s_log.handle_move(current_location, destination)
 
 	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf)

@@ -18,6 +18,9 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 
 	var/tmp/list/working_shuttles
 
+/datum/controller/subsystem/processing/shuttle/New()
+	NEW_SS_GLOBAL(shuttle_controller)
+
 /datum/controller/subsystem/shuttle/Initialize()
 	last_landmark_registration_time = world.time
 	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.

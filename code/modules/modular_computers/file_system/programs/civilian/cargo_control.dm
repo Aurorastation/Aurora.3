@@ -92,8 +92,8 @@
 		data["shuttle_can_cancel"] = shuttle.can_cancel()
 		data["shuttle_can_force"] = shuttle.can_force()
 		data["shuttle_at_station"] = shuttle.at_station()
-		if(shuttle.docking_controller)
-			data["shuttle_docking_status"] = shuttle.docking_controller.get_docking_status()
+		if(shuttle.active_docking_controller)
+			data["shuttle_docking_status"] = shuttle.active_docking_controller.get_docking_status()
 		else
 			data["shuttle_docking_status"] = "error"
 	else
