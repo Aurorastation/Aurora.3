@@ -108,13 +108,14 @@
 
 /obj/effect/floor_decal/corner/yellow
 	name = "yellow corner"
+	icon_state = "corner_light"
 	color = COLOR_YELLOW_ALT
 
 /obj/effect/floor_decal/corner/yellow/diagonal
-	icon_state = "corner_white_diagonal"
+	icon_state = "corner_light_diagonal"
 
 /obj/effect/floor_decal/corner/yellow/full
-	icon_state = "corner_white_full"
+	icon_state = "corner_light_full"
 
 /obj/effect/floor_decal/corner/beige
 	name = "beige corner"
@@ -264,13 +265,14 @@
 
 /obj/effect/floor_decal/corner_wide/yellow
 	name = "yellow corner"
+	icon_state = "wide_corner_light"
 	color = COLOR_YELLOW_ALT
 
 /obj/effect/floor_decal/corner_wide/yellow/diagonal
-	icon_state = "wide_corner_diagonal"
+	icon_state = "wide_corner_diagonal_light"
 
 /obj/effect/floor_decal/corner_wide/yellow/full
-	icon_state = "wide_corner_full"
+	icon_state = "wide_corner_full_light"
 
 /obj/effect/floor_decal/corner_wide/beige
 	name = "beige corner"
