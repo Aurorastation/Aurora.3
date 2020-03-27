@@ -124,7 +124,7 @@
 	anchored = 1
 
 	var/obj/effect/shuttle_landmark/automatic/mark = new(T)
-	name = "beacon signal ([T.x],[T.y])")
+	name = "beacon signal ([T.x],[T.y])"
 	T.hotspot_expose(1500, 5)
 	update_icon()
 

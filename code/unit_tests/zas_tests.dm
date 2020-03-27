@@ -158,11 +158,11 @@ datum/unit_test/zas_area_test/
 
 /datum/unit_test/zas_supply_shuttle_moved/start_test()
 	if(!shuttle)
-		skip("This map has no supply shuttle.")
+		fail("This map has no supply shuttle.")
 		return 1
 
 	if(!shuttle_controller.shuttles.len)
-		skip("No shuttles have been setup for this map.")
+		fail("No shuttles have been setup for this map.")
 		return 1
 
 	shuttle = shuttle_controller.shuttles["Supply"]
@@ -172,13 +172,13 @@ datum/unit_test/zas_area_test/
 		fail("Unable to locate the supply shuttle")
 
 	// Initiate the Move.
-	Shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location))
+	shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location))
 
 	return 1
 
 /datum/unit_test/zas_supply_shuttle_moved/check_result()
 	if(!shuttle)
-		skip("This map has no supply shuttle.")
+		fail("This map has no supply shuttle.")
 		return 1
 	if(Shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
 		fail("Shuttle Did not Move")
@@ -202,7 +202,6 @@ datum/unit_test/zas_area_test/
 
 		switch(test["result"])
 			if(SUCCESS) pass(test["msg"])
-			if(SKIP)    skip(test["msg"])
 			else        fail(test["msg"])
 	return 1
 
