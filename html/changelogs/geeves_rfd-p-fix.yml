@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "RFD-P will no longer use up their resource if put into a storage container."
