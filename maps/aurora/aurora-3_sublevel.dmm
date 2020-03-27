@@ -33252,6 +33252,19 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
+"nep" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor{
+	icon_state = "plating"
+	},
+/area/outpost/engineering/hallway)
 "neQ" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -51711,7 +51724,7 @@ acH
 adh
 adX
 jKS
-afn
+nep
 afn
 fig
 agL
