@@ -5,7 +5,6 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 	flags = SS_NO_TICK_CHECK | SS_NO_INIT
 
 	var/datum/shuttle/autodock/ferry/emergency/shuttle
-	var/list/escape_pods
 
 	var/launch_time			//the time at which the shuttle will be launched
 	var/force_time			//the time at which the shuttle will be forced
@@ -22,7 +21,6 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 /datum/controller/subsystem/emergency_shuttle/Recover()
 	// Just copy all the stuff over.
 	src.shuttle = emergency_shuttle.shuttle
-	src.escape_pods = emergency_shuttle.escape_pods
 	src.launch_time = emergency_shuttle.launch_time
 	src.auto_recall = emergency_shuttle.auto_recall
 	src.auto_recall_time = emergency_shuttle.auto_recall_time

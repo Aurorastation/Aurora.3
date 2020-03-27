@@ -1,7 +1,6 @@
 /obj/machinery/computer/shuttle_control/mining
 	name = "mining shuttle control console"
 	shuttle_tag = "Mining"
-	//req_access = list(access_mining)
 	circuit = /obj/item/circuitboard/mining_shuttle
 
 /obj/machinery/computer/shuttle_control/engineering
@@ -15,12 +14,10 @@
 	req_access = list(access_research)
 	circuit = /obj/item/circuitboard/research_shuttle
 
-//TODOMATT: Change (fix?) research shuttle handling
-
 /datum/shuttle/autodock/ferry/research
 	var/triggered_away_sites = FALSE
 
-/datum/shuttle/autodock/ferry/research/launch()
+/datum/shuttle/autodock/ferry/research/shuttle_moved()
 	. = ..()
 	if(!triggered_away_sites)
 		for(var/s in SSghostroles.spawners)

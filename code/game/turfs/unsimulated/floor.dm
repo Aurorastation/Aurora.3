@@ -45,3 +45,6 @@
 
 /turf/unsimulated/chasm_mask/New()
 	return
+
+/turf/unsimulated/floor/shuttle_ceiling
+	icon_state = "reinforced"

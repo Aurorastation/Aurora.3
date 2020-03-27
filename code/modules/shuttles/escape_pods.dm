@@ -1,8 +1,9 @@
+var/list/escape_pods = list()
+
 /datum/shuttle/autodock/ferry/escape_pod
 	var/datum/computer/file/embedded_program/docking/simple/escape_pod/arming_controller
 	category = /datum/shuttle/autodock/ferry/escape_pod
 	move_time = 100
-
 
 /datum/shuttle/autodock/ferry/escape_pod/New()
 	..()
@@ -10,6 +11,8 @@
 	arming_controller = shuttle_controller.docking_registry[arming_controller_tag]
 	if(!istype(arming_controller))
 		CRASH("Could not find arming controller for escape pod \"[name]\", tag was '[arming_controller_tag]'.")
+
+	escape_pods += src
 
 	if(arming_controller)
 		var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/controller_master = arming_controller.master

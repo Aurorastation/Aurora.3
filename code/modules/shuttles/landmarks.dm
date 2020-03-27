@@ -20,15 +20,15 @@
 	//Will also leave this type of turf behind if set.
 	var/turf/base_turf
 	//Name of the shuttle, null for generic waypoint
-	var/shuttle_restricted 
-	var/flags = 0
+	var/shuttle_restricted
+	var/landmark_flags = 0
 
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
 	if(docking_controller)
 		. = INITIALIZE_HINT_LATELOAD
 
-	if(flags & SLANDMARK_FLAG_AUTOSET)
+	if(landmark_flags & SLANDMARK_FLAG_AUTOSET)
 		base_area = get_area(src)
 		var/turf/T = get_turf(src)
 		if(T)
@@ -53,7 +53,7 @@
 	for(var/area/A in shuttle.shuttle_area)
 		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
 		if(check_collision(base_area, list_values(translation)))
-			return FALSE		
+			return FALSE
 	var/conn = GetConnectedZlevels(z)
 	for(var/w in (z - shuttle.multiz) to z)
 		if(!(w in conn))
@@ -124,11 +124,11 @@
 	anchored = 1
 
 	var/obj/effect/shuttle_landmark/automatic/mark = new(T)
-	name = "beacon signal ([T.x],[T.y])"
+	mark.name = "beacon signal ([T.x],[T.y])"
 	T.hotspot_expose(1500, 5)
 	update_icon()
 
-/obj/item/device/spaceflare/on_update_icon()
+/obj/item/device/spaceflare/update_icon()
 	if(active)
 		icon_state = "bluflare_on"
 		set_light(0.3, 0.1, 6, 2, "85d1ff")

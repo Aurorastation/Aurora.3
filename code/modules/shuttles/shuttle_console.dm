@@ -9,9 +9,11 @@
 
 	var/ui_template = "shuttle_control_console.tmpl"
 
-/obj/machinery/computer/shuttle_control/interface_interact(mob/user)
+/obj/machinery/computer/shuttle_control/attack_hand(mob/user)
 	ui_interact(user)
-	return TRUE
+
+/obj/machinery/computer/shuttle_control/attack_ai(mob/user)
+	ui_interact(user)
 
 /obj/machinery/computer/shuttle_control/proc/get_ui_data(var/datum/shuttle/autodock/shuttle)
 	var/shuttle_state
@@ -95,7 +97,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/shuttle_control/OnTopic(user, href_list)
+/obj/machinery/computer/shuttle_control/Topic(user, href_list)
 	return handle_topic_href(shuttle_controller.shuttles[shuttle_tag], href_list, user)
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)

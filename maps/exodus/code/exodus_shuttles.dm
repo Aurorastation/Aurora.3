@@ -60,14 +60,6 @@
 	START_PROCESSING(shuttle_controller, shuttle)
 	shuttles["Escape Pod 5"] = shuttle
 
-	//give the emergency shuttle controller it's shuttles
-	emergency_shuttle.escape_pods = list(
-		shuttles["Escape Pod 1"],
-		shuttles["Escape Pod 2"],
-		shuttles["Escape Pod 3"],
-		shuttles["Escape Pod 5"]
-	)
-
 	// Admin shuttles.
 	shuttle = new()
 	shuttle.location = 1

@@ -1,201 +1,234 @@
-/datum/map/aurora/setup_shuttles()
-	var/datum/shuttle/autodock/ferry/shuttle
-	var/list/shuttles = shuttle_controller.shuttles
+//Pods. Credit to Chinsky for this macro that saved me from hell.
 
-	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod1/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod1/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod1/transit)
-	shuttle.docking_controller_tag = "escape_pod_1"
-	shuttle.dock_target_station = "escape_pod_1_berth"
-	//shuttle.dock_target_offsite = "escape_pod_1_recovery"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 1"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+/datum/shuttle/autodock/ferry/escape_pod/pod
+	category = /datum/shuttle/autodock/ferry/escape_pod/pod
+	sound_takeoff = 'sound/effects/rocket.ogg'
+	sound_landing = 'sound/effects/rocket_backwards.ogg'
+	warmup_time = 10
 
-	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod2/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod2/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod2/transit)
-	shuttle.docking_controller_tag = "escape_pod_2"
-	shuttle.dock_target_station = "escape_pod_2_berth"
-	//shuttle.dock_target_offsite = "escape_pod_2_recovery"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 2"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+/obj/effect/shuttle_landmark/escape_pod/start
+	name = "Docked"
+	base_turf = /turf/simulated/floor/reinforced/airless
 
-	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
-	shuttle.location = 0
-	shuttle.warmup_time = 0
-	shuttle.area_station = locate(/area/shuttle/escape_pod3/station)
-	shuttle.area_offsite = locate(/area/shuttle/escape_pod3/centcom)
-	shuttle.area_transition = locate(/area/shuttle/escape_pod3/transit)
-	shuttle.docking_controller_tag = "escape_pod_3"
-	shuttle.dock_target_station = "escape_pod_3_berth"
-	//shuttle.dock_target_offsite = "escape_pod_3_recovery"
-	shuttle.transit_direction = EAST
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	shuttles["Escape Pod 3"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+/obj/effect/shuttle_landmark/escape_pod/transit
+	name = "In transit"
 
-	//give the emergency shuttle controller it's shuttles
-	emergency_shuttle.escape_pods = list(
-		shuttles["Escape Pod 1"],
-		shuttles["Escape Pod 2"],
-		shuttles["Escape Pod 3"]
-	)
+/obj/effect/shuttle_landmark/escape_pod/out
+	name = "Escaped"
 
-	// Merchant Shuttle
-	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 5
-	shuttle.area_offsite = locate(/area/shuttle/merchant/start)
-	shuttle.area_station = locate(/area/shuttle/merchant/station)
-	shuttle.docking_controller_tag = "merchant_shuttle"
-	shuttle.dock_target_station = "merchant_shuttle_dock"
-	shuttle.dock_target_offsite = "merchant_station"
-	shuttle.area_transition = locate(/area/shuttle/merchant/transit)
-	shuttle.transit_direction = EAST
-	shuttle.move_time = 20
-	shuttles["Merchant"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+#define CREATE_ESCAPE_POD(NUMBER) \
+/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
+	name = "Escape Pod " + #NUMBER; \
+	location = 0; \
+	dock_target = "escape_pod_" + #NUMBER; \
+	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \
+	waypoint_station = "escape_pod_"+ #NUMBER +"_start"; \
+	landmark_transition = "escape_pod_"+ #NUMBER +"_interim"; \
+	waypoint_offsite = "escape_pod_"+ #NUMBER +"_out"; \
+} \
+/obj/effect/shuttle_landmark/escape_pod/start/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_start"; \
+	docking_controller = "escape_pod_"+ #NUMBER +"_berth"; \
+} \
+/obj/effect/shuttle_landmark/escape_pod/out/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_interim"; \
+} \
+/obj/effect/shuttle_landmark/escape_pod/transit/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
+}
 
-	// Admin Shuttle
-	shuttle = new()
-	shuttle.location = 1
-	shuttle.warmup_time = 10	//want some warmup time so people can cancel.
-	shuttle.area_offsite = locate(/area/shuttle/administration/centcom)
-	shuttle.area_station = locate(/area/shuttle/administration/station)
-	shuttle.docking_controller_tag = "admin_shuttle"
-	shuttle.dock_target_station = "admin_shuttle_dock_airlock"
-	shuttle.dock_target_offsite = "admin_shuttle_bay"
-	shuttles["Administration"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+CREATE_ESCAPE_POD(1)
+CREATE_ESCAPE_POD(2)
+CREATE_ESCAPE_POD(3)
 
-	// CCIA Shuttle
-	var/datum/shuttle/autodock/ferry/autoreturn/A = new()
-	A.location = 1
-	A.warmup_time = 10
-	A.area_offsite = locate(/area/shuttle/transport1/centcom)
-	A.area_station = locate(/area/shuttle/transport1/station)
-	A.docking_controller_tag = "centcom_shuttle"
-	A.dock_target_station = "centcom_shuttle_dock_airlock"
-	A.dock_target_offsite = "centcom_shuttle_bay"
-	shuttles["Centcom"] = A
-	START_PROCESSING(shuttle_controller, A)
+// Merchant Shuttle
+/datum/shuttle/autodock/ferry/merchant
+	name = "Merchant Shuttle"
+	location = 1
+	warmup_time = 5
+	move_time = 20
+	dock_target = "merchant_shuttle"
 
-	// ERT Shuttle
-	var/datum/shuttle/autodock/ferry/specops/ERT = new()
-	ERT.location = 0
-	ERT.warmup_time = 10
-	ERT.area_offsite = locate(/area/shuttle/specops/station)	//centcom is the home station, the Exodus is offsite
-	ERT.area_station = locate(/area/shuttle/specops/centcom)
-	ERT.docking_controller_tag = "specops_shuttle_port"
-	ERT.docking_controller_tag_station = "specops_shuttle_port"
-	ERT.docking_controller_tag_offsite = "specops_shuttle_fore"
-	ERT.dock_target_station = "specops_centcom_dock"
-	ERT.dock_target_offsite = "specops_dock_airlock"
-	shuttles["Special Operations"] = ERT
-	START_PROCESSING(shuttle_controller, ERT)
+/obj/effect/shuttle_landmark/merchant/start
+	name = "Merchant Shuttle Base"
+	landmark_tag = "nav_merchant_start"
+	docking_controller = "merchant_station"
 
-	//Skipjack.
-	var/datum/shuttle/autodock/multi/antag/VS = new/datum/shuttle/autodock/multi/antag()
-	VS.origin = locate(/area/skipjack_station/start)
+/obj/effect/shuttle_landmark/merchant/interim
+	name = "In Transit"
+	landmark_tag = "nav_merchant_interim"
 
-	VS.destinations = list(
-		"Surface of the station" = locate(/area/skipjack_station/surface),
-		"Under the station" = locate(/area/skipjack_station/under),
-		"Above the station" = locate(/area/skipjack_station/above),
-		"Mining caverns" = locate(/area/skipjack_station/cavern)
-	)
+/obj/effect/shuttle_landmark/merchant/dock
+	name = "Merchant Shuttle Dock"
+	landmark_tag = "nav_merchant_dock"
+	docking_controller = "merchant_shuttle_dock"
 
-	VS.announcer = "NDV Icarus"
-	VS.arrival_message = "Attention, [station_short], we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
-	VS.departure_message = "Your guests are pulling away, [station_short] - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
-	VS.interim = locate(/area/skipjack_station/transit)
+// Admin Shuttle
+/datum/shuttle/autodock/ferry/admin
+	name = "Crescent Shuttle"
+	location = 1
+	warmup_time = 10	//want some warmup time so people can cancel.
+	dock_target = "admin_shuttle"
+	waypoint_station = "nav_admin_dock"
+	waypoint_offsite = "nav_admin_start"
 
-	VS.warmup_time = 0
-	shuttles["Skipjack"] = VS
+/obj/effect/shuttle_landmark/admin/start
+	name = "Crescent Shuttle Base"
+	landmark_tag = "nav_admin_start"
+	docking_controller = "admin_shuttle_bay"
 
-	//Nuke Ops shuttle.
-	var/datum/shuttle/autodock/multi/antag/MS = new/datum/shuttle/autodock/multi/antag()
-	MS.origin = locate(/area/syndicate_station/start)
-	MS.start_location = "Mercenary Base"
+/obj/effect/shuttle_landmark/admin/dock
+	name = "Crescent Shuttle Dock"
+	landmark_tag = "nav_admin_dock"
+	docking_controller = "admin_shuttle_dock_airlock"
 
-	MS.destinations = list(
-		"Surface of the station" = locate(/area/syndicate_station/surface),
-		"Above the station" = locate(/area/syndicate_station/above),
-		"Under the station" = locate(/area/syndicate_station/under),
-		"Mining caverns" = locate(/area/syndicate_station/caverns),
-		"Arrivals dock" = locate(/area/syndicate_station/arrivals_dock)
-	)
+// CCIA Shuttle
+/datum/shuttle/autodock/ferry/autoreturn/ccia
+	name = "Agent Shuttle"
+	location = 1
+	warmup_time = 10
+	dock_target = "centcom_shuttle"
+	waypoint_station = "nav_ccia_dock"
+	waypoint_offsite = "nav_ccia_start"
 
-	MS.docking_controller_tag = "merc_shuttle"
-	MS.destination_dock_targets = list(
-		"Mercenary Base" = "merc_base",
-		"Arrivals dock" = "nuke_shuttle_dock_airlock"
-	)
+/obj/effect/shuttle_landmark/ccia/start
+	name = "Agent Shuttle Base"
+	landmark_tag = "nav_ccia_start"
+	docking_controller = "centcom_shuttle_bay"
 
-	MS.announcer = "NDV Icarus"
-	MS.arrival_message = "Attention, [station_short], you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
-	MS.departure_message = "Your visitors are on their way out of the system, [station_short], burning delta-v like it's nothing. Good riddance."
-	MS.interim = locate(/area/syndicate_station/transit)
+/obj/effect/shuttle_landmark/ccia/dock
+	name = "Agent Shuttle Dock"
+	landmark_tag = "nav_ccia_dock"
+	docking_controller = "centcom_shuttle_dock_airlock"
 
-	MS.warmup_time = 0
-	shuttles["Mercenary"] = MS
+// ERT Shuttle (the NT one)
+/datum/shuttle/autodock/ferry/specops/ert
+	name = "Phoenix Shuttle"
+	location = 0
+	warmup_time = 10
+	dock_target = "specops_shuttle_port"
+	waypoint_station = "nav_ert_dock"
+	waypoint_offsite = "specops_centcom_dock"
 
-	// Tau Ceti Foreign Legion
+/obj/effect/shuttle_landmark/ert/start
+	name = "Phoenix Base"
+	landmark_tag = "nav_ert_start"
+	docking_controller = "specops_centcom_dock"
 
-	var/datum/shuttle/autodock/ferry/legion/legion = new()
-	legion = new()
-	legion.location = 1
-	legion.warmup_time = 10
-	legion.area_offsite = locate(/area/shuttle/legion/centcom)
-	legion.area_station = locate(/area/shuttle/legion/station)
-	legion.area_transition = locate(/area/shuttle/legion/transit)
-	legion.transit_direction = EAST
-	legion.move_time = 75
-	legion.docking_controller_tag = "legion_shuttle"
-	legion.dock_target_station = "legion_shuttle_dock"
-	legion.dock_target_offsite = "legion_hangar"
-	shuttles["Tau Ceti Foreign Legion"] = legion
-	START_PROCESSING(shuttle_controller, legion)
+/obj/effect/shuttle_landmark/ert/dock
+	name = "ERT Dock"
+	landmark_tag = "nav_ert_dock"
+	docking_controller = "specops_dock_airlock"
 
-	//Away Site shuttle.
-	var/datum/shuttle/autodock/ferry/research/research = new()
-	research.location = 0
-	research.warmup_time = 10
-	research.area_station = locate(/area/shuttle/research/station)
-	research.area_offsite = locate(/area/shuttle/research/away)
-	research.area_transition = locate(/area/shuttle/research/transit)
-	research.transit_direction = NORTH
-	research.move_time = 85
-	research.docking_controller_tag = "science_shuttle"
-	research.dock_target_station = "science_bridge"
-	shuttles["Research"] = research
-	START_PROCESSING(shuttle_controller, research)
+//Skipjack.
+/datum/shuttle/autodock/multi/antag/skipjack
+	name = "Skipjack"
+	warmup_time = 15
+
+	announcer = "NDV Icarus"
+	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
+	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
+
+//TODOMATT: Shuttle landmarks for merc/heist/maybe ninja
+
+//Nuke Ops shuttle.
+/datum/shuttle/autodock/multi/antag/merc
+	name = "Mercenary Shuttle"
+	current_location = "nav_merc_start"
+	dock_target = "merc_shuttle"
+	warmup_time = 15
+	destination_tags = list(
+		"nav_merc_dock",
+		"nav_merc_start" //add as needed
+		)
+
+	landmark_transition = "nav_merc_interim"
+	announcer = "NDV Icarus"
+	arrival_message = "Attention, you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
+	departure_message = "Attention, your visitors are on their way out of the system, burning delta-v like it's nothing. Good riddance."
+
+/obj/effect/shuttle_landmark/merc/start
+	name = "Mercenary Base"
+	landmark_tag = "nav_merc_start"
+	docking_controller = "merc_shuttle"
+
+/obj/effect/shuttle_landmark/merc/interim
+	name = "In Transit"
+	landmark_tag = "nav_merc_interim"
+
+/obj/effect/shuttle_landmark/merc/dock
+	name = "Station Dock"
+	landmark_tag = "nav_merc_dock"
+	docking_controller = "nuke_shuttle_dock_airlock"
+
+// Tau Ceti Foreign Legion
+/datum/shuttle/autodock/ferry/legion
+	name = "Legion Pod"
+	location = 1
+	warmup_time = 10
+	move_time = 75
+	dock_target = "legion_shuttle"
+	waypoint_offsite = "nav_legion_start"
+	landmark_transition = "nav_legion_interim"
+	waypoint_station = "nav_legion_dock"
+
+/obj/effect/shuttle_landmark/legion/start
+	name = "Legion Base"
+	landmark_tag = "nav_legion_start"
+	docking_controller = "legion_shuttle"
+
+/obj/effect/shuttle_landmark/legion/interim
+	name = "In Transit"
+	landmark_tag = "nav_legion_interim"
+
+/obj/effect/shuttle_landmark/legion/dock
+	name = "Legion Dock"
+	landmark_tag = "nav_legion_dock"
+
+
+/datum/shuttle/autodock/ferry/research
+	name = "Research Shuttle"
+	location = 0
+	warmup_time = 10
+	move_time = 85
+	waypoint_station = "nav_research_dock"
+	landmark_transition = "nav_research_interim"
+	waypoint_offsite = "nav_research_away"
+
+/obj/effect/shuttle_landmark/research/start
+	name = "Research Dock"
+	landmark_tag = "nav_research_dock"
+	docking_controller = "legion_shuttle"
+
+/obj/effect/shuttle_landmark/research/interim
+	name = "In Transit"
+	landmark_tag = "nav_research_interim"
+
+/obj/effect/shuttle_landmark/research/dock
+	name = "Away Site"
+	landmark_tag = "nav_research_away"
 
 	// Distress Team Shuttle
 
-	var/datum/shuttle/autodock/ferry/distress = new()
-	distress.location = 1
-	distress.warmup_time = 10
-	distress.area_offsite = locate(/area/shuttle/distress/centcom)
-	distress.area_station = locate(/area/shuttle/distress/station)
-	distress.area_transition = locate(/area/shuttle/distress/transit)
-	distress.transit_direction = EAST
-	distress.move_time = 45
-	distress.docking_controller_tag = "distress_shuttle_aft"
-	distress.docking_controller_tag_station = "distress_shuttle_fore"
-	distress.docking_controller_tag_offsite = "distress_shuttle_aft"
-	distress.dock_target_station = "distress_shuttle_dock"
-	distress.dock_target_offsite = "distress_shuttle_origin"
+/datum/shuttle/autodock/ferry/distress
+	name = "Distress Shuttle"
+	location = 1
+	warmup_time = 10
+	move_time = 45
+	waypoint_offsite = "nav_distress_away"
+	landmark_transition = "nav_distress_interim"
+	waypoint_station = "nav_distress_dock"
 
-	shuttles["Distress"] = distress
-	START_PROCESSING(shuttle_controller, distress)
+/obj/effect/shuttle_landmark/distress/start
+	name = "Distress Base"
+	landmark_tag = "nav_distress_away"
+	docking_controller = "distress_shuttle_aft"
+
+/obj/effect/shuttle_landmark/distress/interim
+	name = "In Transit"
+	landmark_tag = "nav_distress_interim"
+
+/obj/effect/shuttle_landmark/distress/dock
+	name = "Distress Dock"
+	landmark_tag = "nav_distress_dock"
+	docking_controller = "distress_shuttle_fore"
