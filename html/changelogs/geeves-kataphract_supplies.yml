@@ -5,3 +5,4 @@ delete-after: True
 changes: 
   - rscadd: "The Kataphracts now spawn with a custom supply area in their preparation area."
   - rscadd: "Added the Hegemony Slugger, a large rifle that only humanoid mobs of Unathi size and larger can safely operate."
+  - tweak: "Increased industrial IPC mob size to be able to fire this rifle, which has minor side effects like better headbutts."

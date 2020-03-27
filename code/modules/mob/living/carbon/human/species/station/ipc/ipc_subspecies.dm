@@ -113,6 +113,7 @@
 	name_plural = "Industrials"
 	bald = 1
 	bodytype = "Heavy Machine"
+	mob_size = 12
 
 	unarmed_types = list(/datum/unarmed_attack/industrial)
 
