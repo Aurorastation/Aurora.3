@@ -14,7 +14,7 @@
 		slot_l_hand_str = "stool",
 		slot_r_hand_str = "stool"
 	)
-	var/base_icon = "stool_base"
+	var/base_icon = "stool"
 	var/material/material
 	var/material/padding_material
 
@@ -40,6 +40,17 @@
 /obj/item/stool/wood/New(var/newloc, var/new_material)
 	..(newloc, MATERIAL_WOOD)
 
+/obj/item/stool/bar
+	name = "bar stool"
+	base_icon = "bar_stool"
+	icon_state = "bar_stool_preview"
+
+/obj/item/stool/bar/padded
+	icon_state = "bar_stool_padded_preview"
+
+/obj/item/stool/bar/padded/New(var/newloc, var/new_material)
+	..(newloc, MATERIAL_STEEL, MATERIAL_CARPET)
+
 /obj/item/stool/hover
 	name = "hoverstool"
 	desc = "Apply butt. Now as comfortable as a cloud."
@@ -62,7 +73,7 @@
 	cut_overlays()
 	var/list/stool_cache = SSicon_cache.stool_cache
 	// Base icon.
-	var/cache_key = "stool-[material.name]"
+	var/cache_key = "[initial(name)]-[material.name]"
 	if(!stool_cache[cache_key])
 		var/image/I = image(icon, base_icon)
 		I.color = material.icon_colour
@@ -70,9 +81,9 @@
 	add_overlay(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
-		var/padding_cache_key = "stool-padding-[padding_material.name]"
+		var/padding_cache_key = "[initial(name)]-padding-[padding_material.name]"
 		if(!stool_cache[padding_cache_key])
-			var/image/I = image(icon, "stool_padding")
+			var/image/I = image(icon, "[base_icon]_padding")
 			I.color = padding_material.icon_colour
 			stool_cache[padding_cache_key] = I
 		add_overlay(stool_cache[padding_cache_key])

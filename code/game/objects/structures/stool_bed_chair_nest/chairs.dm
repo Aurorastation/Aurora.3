@@ -204,6 +204,12 @@
 	add_overlay(I)
 
 // Chair types
+/obj/structure/bed/chair/plastic
+	color = "#CCCCCC"
+
+/obj/structure/bed/chair/plastic/Initialize(mapload)
+	. = ..(mapload, MATERIAL_PLASTIC)
+
 /obj/structure/bed/chair/wood
 	name = "wooden chair"
 	desc = "Old is never too old to not be in fashion."
