@@ -87,15 +87,18 @@
 		return 0
 	return 1
 
-/obj/structure/proc/turf_is_crowded()
+/obj/structure/proc/turf_is_crowded(var/exclude_self = FALSE)
 	var/turf/T = get_turf(src)
 	if(!T || !istype(T))
 		return 0
 	for(var/obj/O in T.contents)
 		if(istype(O,/obj/structure))
 			var/obj/structure/S = O
-			if(S.climbable) continue
+			if(S.climbable)
+				continue
 		if(O && O.density && !(O.flags & ON_BORDER)) //ON_BORDER structures are handled by the Adjacent() check.
+			if(exclude_self && O == src)
+				continue
 			return O
 	return 0
 
