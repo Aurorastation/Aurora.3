@@ -43,7 +43,7 @@
 	if(!docking_controller)
 		return
 	var/docking_tag = docking_controller
-	docking_controller = SSshuttle.docking_registry[docking_tag]
+	docking_controller = shuttle_controller.docking_registry[docking_tag]
 	if(!istype(docking_controller))
 		log_error("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 

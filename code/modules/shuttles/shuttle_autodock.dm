@@ -45,7 +45,7 @@
 		current_dock_target = location.special_dock_targets[name]
 	else
 		current_dock_target = dock_target
-	shuttle_docking_controller = SSshuttle.docking_registry[current_dock_target]
+	shuttle_docking_controller = shuttle_controller.docking_registry[current_dock_target]
 
 /datum/shuttle/autodock/proc/get_docking_target(var/obj/effect/shuttle_landmark/location)
 	if(location && location.special_dock_targets)

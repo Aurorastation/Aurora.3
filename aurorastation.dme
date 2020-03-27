@@ -2526,6 +2526,7 @@
 #include "code\modules\shuttles\shuttle_ferry.dm"
 #include "code\modules\shuttles\shuttle_specops.dm"
 #include "code\modules\shuttles\shuttle_supply.dm"
+#include "code\modules\shuttles\shuttles_multi.dm"
 #include "code\modules\spell_system\artifacts\armor\bone_armor.dm"
 #include "code\modules\spell_system\artifacts\armor\wizard_voidsuit.dm"
 #include "code\modules\spell_system\artifacts\items\bone_spear.dm"
