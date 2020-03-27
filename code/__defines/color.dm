@@ -1,6 +1,7 @@
 #define COLOR_BLACK            "#000000"
 #define COLOR_NAVY_BLUE        "#000080"
 #define COLOR_GREEN            "#008000"
+#define COLOR_BRIGHT_GREEN     "#13cf13"
 #define COLOR_DARK_GRAY        "#404040"
 #define COLOR_MAROON           "#800000"
 #define COLOR_PURPLE           "#800080"
