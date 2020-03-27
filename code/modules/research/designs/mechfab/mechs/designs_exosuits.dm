@@ -43,7 +43,7 @@
 	id = "mech_frame"
 	build_path = /obj/structure/heavy_vehicle_frame
 	time = 70
-	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000)
 	category = "Exosuits"
 
 /datum/design/item/mechfab/exosuit/basic_armour
@@ -51,7 +51,7 @@
 	id = "mech_armour_basic"
 	build_path = /obj/item/robot_parts/robot_component/armor/mech
 	time = 30
-	materials = list(DEFAULT_WALL_MATERIAL = 7500)
+	materials = list(DEFAULT_WALL_MATERIAL = 6000)
 
 /datum/design/item/mechfab/exosuit/radproof_armour
 	name = "radiation-proof exosuit armour"
@@ -121,34 +121,34 @@
 	id = "ripley_head"
 	build_path = /obj/item/mech_component/sensors/ripley
 	time = 15
-	materials = list(DEFAULT_WALL_MATERIAL = 5000)
+	materials = list(DEFAULT_WALL_MATERIAL = 3500)
 
 /datum/design/item/mechfab/exosuit/ripley_torso
 	name = "power loader chassis"
 	id = "ripley_body"
 	build_path = /obj/item/mech_component/chassis/ripley
-	time = 50
-	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 15000)
 
 /datum/design/item/mechfab/exosuit/ripley_arms
 	name = "power loader manipulators"
 	id = "ripley_arms"
 	build_path = /obj/item/mech_component/manipulators/ripley
-	time = 30
-	materials = list(DEFAULT_WALL_MATERIAL = 6000)
+	time = 25
+	materials = list(DEFAULT_WALL_MATERIAL = 4500)
 
 /datum/design/item/mechfab/exosuit/ripley_legs
 	name = "power loader motivators"
 	id = "ripley_legs"
 	build_path = /obj/item/mech_component/propulsion/ripley
-	time = 30
-	materials = list(DEFAULT_WALL_MATERIAL = 6000)
+	time = 25
+	materials = list(DEFAULT_WALL_MATERIAL = 4500)
 
 /datum/design/item/mechfab/exosuit/light_head
 	name = "light exosuit sensors"
 	id = "light_head"
 	time = 20
-	materials = list(DEFAULT_WALL_MATERIAL = 8000)
+	materials = list(DEFAULT_WALL_MATERIAL = 6500)
 	build_path = /obj/item/mech_component/sensors/light
 	req_tech = list(TECH_MATERIAL = 1)
 
@@ -156,7 +156,7 @@
 	name = "light exosuit chassis"
 	id = "light_body"
 	time = 40
-	materials = list(DEFAULT_WALL_MATERIAL = 30000)
+	materials = list(DEFAULT_WALL_MATERIAL = 25000)
 	build_path = /obj/item/mech_component/chassis/light
 	req_tech = list(TECH_MATERIAL = 1)
 
@@ -180,7 +180,7 @@
 	name = "heavy exosuit sensors"
 	id = "heavy_head"
 	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 16000)
+	materials = list(DEFAULT_WALL_MATERIAL = 12000)
 	build_path = /obj/item/mech_component/sensors/heavy
 	req_tech = list(TECH_COMBAT = 2)
 
