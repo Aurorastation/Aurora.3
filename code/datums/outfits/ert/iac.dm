@@ -75,7 +75,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 2,
+		/obj/item/ammo_magazine/c45x = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/melee/baton/loaded = 1,
