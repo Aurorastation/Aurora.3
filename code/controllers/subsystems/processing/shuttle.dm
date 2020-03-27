@@ -10,6 +10,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	var/list/process_shuttles = list()           //simple list of shuttles, for processing
 	var/list/registered_shuttle_landmarks = list()
 	var/last_landmark_registration_time
+	var/list/docking_registry = list()           //Docking controller tag -> docking controller program, mostly for init purposes.
 	var/list/shuttle_areas = list()              //All the areas of all shuttles.
 
 	var/list/shuttles_to_initialize              //A queue for shuttles to initialize at the appropriate time.
