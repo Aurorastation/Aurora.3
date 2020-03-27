@@ -7,14 +7,14 @@
 /datum/shuttle/autodock/ferry/escape_pod/New()
 	..()
 	var/arming_controller_tag = arming_controller
-	arming_controller = SSshuttle.docking_registry[arming_controller_tag]
+	arming_controller = shuttle_controller.docking_registry[arming_controller_tag]
 	if(!istype(arming_controller))
 		CRASH("Could not find arming controller for escape pod \"[name]\", tag was '[arming_controller_tag]'.")
 
-	if(docking_controller)
-		var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/controller_master = docking_controller.master
+	if(arming_controller)
+		var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/controller_master = arming_controller.master
 		if(!istype(controller_master))
-			CRASH("Escape pod \"[name]\" could not find it's controller master!")
+			CRASH("Escape pod \"[name]\" could not find its controller master!")
 
 		controller_master.pod = src
 
