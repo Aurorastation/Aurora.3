@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Robotics R%D consoles can no longer interact with protolathe and destructive analyzer."
+  - tweak: "Robot parts and some basic mech stuff had their time and price reduced."
