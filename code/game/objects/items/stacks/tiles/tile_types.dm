@@ -24,7 +24,7 @@
  * Grass
  */
 /obj/item/stack/tile/grass
-	name = "synthehic grass tile"
+	name = "synthetic grass tile"
 	singular_name = "synthehic grass tile"
 	desc = "A patch of grass like they often use on golf courses."
 	icon_state = "tile_grass"
