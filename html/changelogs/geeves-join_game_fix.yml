@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Invisible admin/CCIA only ghostroles no longer cause the Unique Ghost Role is available prompt."
