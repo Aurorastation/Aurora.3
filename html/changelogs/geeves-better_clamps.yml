@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Mech cargo clamps can now hold up to five items, instead of just one."
