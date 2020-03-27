@@ -2786,17 +2786,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
-"afT" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/obj/effect/floor_decal/corner_wide/yellow{
-	icon_state = "wide_corner_light";
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/outpost/engineering/hallway)
 "afU" = (
 /obj/machinery/camera/network/research_outpost{
 	c_tag = "Research Sublevel - Supply Closet";
@@ -53011,7 +53000,7 @@ afq
 oFA
 wdi
 owL
-afT
+gDm
 tZw
 ain
 vly

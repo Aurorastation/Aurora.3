@@ -21195,10 +21195,15 @@
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aJk" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -28;
-	req_one_access = list(24,11,55)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
@@ -27502,6 +27507,11 @@
 	icon_state = "corner_white";
 	dir = 6
 	},
+/obj/machinery/light{
+	dir = 2;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
 "aTD" = (
@@ -30892,6 +30902,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "aZi" = (
@@ -33293,8 +33308,8 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/corner_wide/pink{
+	icon_state = "wide_corner";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -33304,8 +33319,8 @@
 	icon_state = "rwindow";
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/corner_wide/pink{
+	icon_state = "wide_corner";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -34228,7 +34243,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "beZ" = (
-/obj/effect/floor_decal/corner/red{
+/obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -35018,7 +35033,7 @@
 /area/medical/pharmacy)
 "bgn" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner/red{
+/obj/effect/floor_decal/corner/pink{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -62416,7 +62431,7 @@
 /obj/machinery/disposal{
 	name = "MediExpress - Quarantine"
 	},
-/obj/effect/floor_decal/corner_wide/red/full{
+/obj/effect/floor_decal/corner_wide/pink/full{
 	icon_state = "wide_corner_full";
 	dir = 6
 	},
@@ -63052,6 +63067,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "fbb" = (
@@ -64145,14 +64165,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"hvc" = (
-/obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/port)
 "hwc" = (
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -65461,7 +65473,9 @@
 "lbN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm{
-	pixel_y = 28
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -28
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -67242,6 +67256,9 @@
 /area/outpost/mining_main/eva)
 "oUb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "oUD" = (
@@ -67695,7 +67712,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "pIA" = (
-/obj/effect/floor_decal/corner/red,
+/obj/effect/floor_decal/corner/pink,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "pIK" = (
@@ -93662,7 +93679,7 @@ aFR
 aEa
 aWq
 aYc
-aWs
+aZf
 fij
 aKT
 aKT
@@ -93919,7 +93936,7 @@ aHT
 aEa
 aWr
 aYc
-aWs
+aZg
 aVq
 lbN
 uho
@@ -94690,7 +94707,7 @@ aTD
 aVn
 aWt
 aYd
-hvc
+aZg
 aVq
 nxq
 bcY
@@ -95204,7 +95221,7 @@ aTF
 aVp
 aWs
 aYc
-aZf
+aZg
 aVq
 tKw
 bcY
