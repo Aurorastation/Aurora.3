@@ -1627,6 +1627,7 @@
 #include "code\modules\hydroponics\seed_mobs.dm"
 #include "code\modules\hydroponics\seed_packets.dm"
 #include "code\modules\hydroponics\seed_storage.dm"
+#include "code\modules\hydroponics\beekeeping\bee_pack.dm"
 #include "code\modules\hydroponics\beekeeping\beehive.dm"
 #include "code\modules\hydroponics\beekeeping\honey_frame.dm"
 #include "code\modules\hydroponics\beekeeping\net.dm"

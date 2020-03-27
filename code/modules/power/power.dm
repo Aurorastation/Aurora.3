@@ -98,15 +98,6 @@
 	else
 		stat |= NOPOWER
 
-/obj/machinery/proc/get_power_usage()
-	switch(use_power)
-		if(POWER_USE_IDLE)
-			return idle_power_usage
-		if(POWER_USE_ACTIVE)
-			return active_power_usage
-		else
-			return 0
-
 // connect the machine to a powernet if a node cable is present on the turf
 /obj/machinery/power/proc/connect_to_network()
 	var/turf/T = src.loc
