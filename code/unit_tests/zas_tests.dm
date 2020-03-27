@@ -148,36 +148,43 @@ datum/unit_test/zas_area_test/
 
 // Here we move a shuttle then test it's area once the shuttle has arrived.
 
-datum/unit_test/zas_supply_shuttle_moved
+/datum/unit_test/zas_supply_shuttle_moved
 	name = "ZAS: Supply Shuttle (When Moved)"
 	async = TRUE				// We're moving the shuttle using built in procs.
 
-	var/datum/shuttle/autodock/ferry/supply/Shuttle = null
+	var/datum/shuttle/autodock/ferry/supply/shuttle = null
 
 	var/testtime = 0	//Used as a timer.
 
-datum/unit_test/zas_supply_shuttle_moved/start_test()
+/datum/unit_test/zas_supply_shuttle_moved/start_test()
+	if(!shuttle)
+		skip("This map has no supply shuttle.")
+		return 1
 
-	if(!shuttle_controller || !shuttle_controller.shuttles.len)
-		fail("Shuttle Controller not setup at time of test.")
+	if(!shuttle_controller.shuttles.len)
+		skip("No shuttles have been setup for this map.")
+		return 1
 
-	Shuttle = shuttle_controller.shuttles["Supply"]
+	shuttle = shuttle_controller.shuttles["Supply"]
 	SScargo.movetime = 5 // Speed up the shuttle movement.
 
-	if(isnull(Shuttle))
+	if(isnull(shuttle))
 		fail("Unable to locate the supply shuttle")
 
 	// Initiate the Move.
-	Shuttle.short_jump(Shuttle.area_offsite, Shuttle.area_station)
+	Shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location))
 
 	return 1
 
-datum/unit_test/zas_supply_shuttle_moved/check_result()
-	if(Shuttle.moving_status == SHUTTLE_IDLE && !Shuttle.at_station())
+/datum/unit_test/zas_supply_shuttle_moved/check_result()
+	if(!shuttle)
+		skip("This map has no supply shuttle.")
+		return 1
+	if(Shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
 		fail("Shuttle Did not Move")
 		return 1
 
-	if(!Shuttle.at_station())
+	if(!shuttle.at_station())
 		return 0
 
 	if(!testtime)
@@ -187,15 +194,16 @@ datum/unit_test/zas_supply_shuttle_moved/check_result()
 		return 0
 
 
-	var/list/test = test_air_in_area(/area/supply/station)
-	if(isnull(test))
-		fail("Check Runtimed")
-		return 1
+	for(var/area/A in shuttle.shuttle_area)
+		var/list/test = test_air_in_area(A.type)
+		if(isnull(test))
+			fail("Check Runtimed")
+			return 1
 
-	if(test["result"] == SUCCESS)
-		pass(test["msg"])
-	else
-		fail(test["msg"])
+		switch(test["result"])
+			if(SUCCESS) pass(test["msg"])
+			if(SKIP)    skip(test["msg"])
+			else        fail(test["msg"])
 	return 1
 
 #undef UT_NORMAL

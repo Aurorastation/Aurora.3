@@ -129,7 +129,7 @@
 	START_PROCESSING(shuttle_controller, shuttle)
 
 	// ERT Shuttle
-	var/datum/shuttle/autodock/ferry/multidock/specops/ERT = new()
+	var/datum/shuttle/autodock/ferry/specops/ERT = new()
 	ERT.location = 0
 	ERT.warmup_time = 10
 	ERT.area_offsite = locate(/area/shuttle/specops/station)	//centcom is the home station, the Exodus is offsite
