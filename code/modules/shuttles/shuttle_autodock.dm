@@ -20,6 +20,7 @@
 	..(_name, start_waypoint)
 
 	//Initial dock
+	update_docking_target(current_location)
 	active_docking_controller = current_location.docking_controller
 	current_dock_target = get_docking_target(current_location)
 	dock()
@@ -38,6 +39,13 @@
 /datum/shuttle/autodock/shuttle_moved()
 	force_undock() //bye!
 	..()
+
+/datum/shuttle/autodock/proc/update_docking_target(var/obj/effect/shuttle_landmark/location)
+	if(location && location.special_dock_targets && location.special_dock_targets[name])
+		current_dock_target = location.special_dock_targets[name]
+	else
+		current_dock_target = dock_target
+	shuttle_docking_controller = SSshuttle.docking_registry[current_dock_target]
 
 /datum/shuttle/autodock/proc/get_docking_target(var/obj/effect/shuttle_landmark/location)
 	if(location && location.special_dock_targets)
@@ -103,13 +111,13 @@
 
 //not to be confused with the arrived() proc
 /datum/shuttle/autodock/proc/process_arrived()
+	update_docking_target(next_location)
 	active_docking_controller = next_location.docking_controller
 	current_dock_target = get_docking_target(next_location)
 	dock()
 
 	next_location = null
 	in_use = null	//release lock
-
 
 /datum/shuttle/autodock/proc/process_launch()
 	if (move_time && landmark_transition)

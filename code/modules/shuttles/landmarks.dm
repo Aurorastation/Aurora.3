@@ -9,6 +9,8 @@
 	invisibility = 101
 
 	var/landmark_tag
+	//ID of the controller on the dock side
+	var/datum/computer/file/embedded_program/docking/docking_controller
 	//ID of controller used for this landmark for shuttles with multiple ones.
 	var/list/special_dock_targets
 
@@ -23,6 +25,8 @@
 
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
+	if(docking_controller)
+		. = INITIALIZE_HINT_LATELOAD
 
 	if(flags & SLANDMARK_FLAG_AUTOSET)
 		base_area = get_area(src)
@@ -34,6 +38,14 @@
 
 	name = name + " ([x],[y])"
 	shuttle_controller.register_landmark(landmark_tag, src)
+
+/obj/effect/shuttle_landmark/LateInitialize()
+	if(!docking_controller)
+		return
+	var/docking_tag = docking_controller
+	docking_controller = SSshuttle.docking_registry[docking_tag]
+	if(!istype(docking_controller))
+		log_error("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 
 /obj/effect/shuttle_landmark/proc/is_valid(var/datum/shuttle/shuttle)
 	if(shuttle.current_location == src)
@@ -71,7 +83,7 @@
 	flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/automatic/Initialize()
-	landmark_tag += "-[x]-[y]-[z]-[random_id("landmarks",1,9999)]"
+	landmark_tag += "-[x]-[y]-[z]"
 	return ..()
 
 //Subtype that calls explosion on init to clear space for shuttles

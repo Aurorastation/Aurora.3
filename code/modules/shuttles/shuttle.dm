@@ -51,8 +51,6 @@
 	if(src.name in shuttle_controller.shuttles)
 		CRASH("A shuttle with the name '[name]' is already defined.")
 	shuttle_controller.shuttles[src.name] = src
-	if(logging_home_tag)
-		new /datum/shuttle_log(src)
 	if(flags & SHUTTLE_FLAGS_PROCESS)
 		shuttle_controller.process_shuttles += src
 	if(flags & SHUTTLE_FLAGS_SUPPLY)
@@ -65,7 +63,6 @@
 
 	shuttle_controller.shuttles -= src.name
 	shuttle_controller.process_shuttles -= src
-	shuttle_controller.shuttle_logs -= src
 	if(SScargo.shuttle == src)
 		SScargo.shuttle = null
 
@@ -200,9 +197,6 @@
 
 		for(var/obj/structure/cable/C in A)
 			powernets |= C.powernet
-	if(logging_home_tag)
-		var/datum/shuttle_log/s_log = shuttle_controller.shuttle_logs[src]
-		s_log.handle_move(current_location, destination)
 
 	translate_turfs(turf_translation, current_location.base_area, current_location.base_turf)
 	current_location = destination
