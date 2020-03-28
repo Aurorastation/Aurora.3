@@ -10,8 +10,7 @@
 		)
 
 /obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/datum/shuttle/autodock/multi/shuttle, var/list/href_list)
-	if((. = ..()) != null)
-		return
+	..()
 
 	if(href_list["pick"])
 		var/dest_key = input("Choose shuttle destination", "Shuttle Destination") as null|anything in shuttle.get_destinations()
@@ -30,8 +29,7 @@
 		)
 
 /obj/machinery/computer/shuttle_control/multi/antag/handle_topic_href(var/datum/shuttle/autodock/multi/antag/shuttle, var/list/href_list)
-	if((. = ..()) != null)
-		return
+	..()
 
 	if(href_list["toggle_cloaked"])
 		shuttle.cloaked = !shuttle.cloaked

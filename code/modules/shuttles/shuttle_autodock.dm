@@ -14,12 +14,14 @@
 	var/move_time = 240		//the time spent in the transition area
 
 	category = /datum/shuttle/autodock
+	flags = SHUTTLE_FLAGS_PROCESS | SHUTTLE_FLAGS_ZERO_G
 
 /datum/shuttle/autodock/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 
 	//Initial dock
 	update_docking_target(current_location)
+	log_ss("Shuttle", "Docking Target for ship [name]: [active_docking_controller]")
 	active_docking_controller = current_location.docking_controller
 	current_dock_target = get_docking_target(current_location)
 	dock()
@@ -49,6 +51,7 @@
 /datum/shuttle/autodock/proc/get_docking_target(var/obj/effect/shuttle_landmark/location)
 	if(location && location.special_dock_targets)
 		if(location.special_dock_targets[name])
+			log_ss("Shuttle", "Docking target: [location.special_dock_targets[name]]")
 			return location.special_dock_targets[name]
 	return dock_target
 /*
@@ -56,11 +59,13 @@
 */
 /datum/shuttle/autodock/proc/dock()
 	if(active_docking_controller)
+		log_ss("Shuttle", "[active_docking_controller] docking...")
 		active_docking_controller.initiate_docking(current_dock_target)
 		last_dock_attempt_time = world.time
 
 /datum/shuttle/autodock/proc/undock()
 	if(active_docking_controller)
+		world << "Undocking..." //TODOMATT
 		active_docking_controller.initiate_undocking()
 
 /datum/shuttle/autodock/proc/force_undock()
@@ -141,8 +146,10 @@
 */
 /datum/shuttle/autodock/proc/launch(var/user)
 	if(!can_launch())
+		world << "Cannot launch." //TODOMATT
 		return
 
+	world << "Launching..." //TODOMATT
 	in_use = user	//obtain an exclusive lock on the shuttle
 
 	process_state = WAIT_LAUNCH

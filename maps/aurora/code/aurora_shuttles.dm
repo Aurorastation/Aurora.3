@@ -161,7 +161,7 @@ CREATE_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/merc/start
 	name = "Mercenary Base"
 	landmark_tag = "nav_merc_start"
-	docking_controller = "merc_shuttle"
+	docking_controller = "merc_base"
 
 /obj/effect/shuttle_landmark/merc/interim
 	name = "In Transit"
@@ -171,6 +171,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Station Dock"
 	landmark_tag = "nav_merc_dock"
 	docking_controller = "nuke_shuttle_dock_airlock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // Tau Ceti Foreign Legion
 /datum/shuttle/autodock/ferry/legion
