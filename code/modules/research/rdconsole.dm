@@ -321,7 +321,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(linked_imprinter)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if("[D.type]" == text2path(href_list["imprint"]))
+				if("[D.type]" == href_list["imprint"])
 					being_built = D
 					break
 			if(being_built)
