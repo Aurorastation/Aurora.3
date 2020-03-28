@@ -28,7 +28,7 @@
 
 	//Optional transition area
 	if(landmark_transition)
-		landmark_transition = locate(landmark_transition)
+		landmark_transition = shuttle_controller.get_landmark(landmark_transition)
 
 /datum/shuttle/autodock/Destroy()
 	next_location = null

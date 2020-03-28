@@ -180,7 +180,7 @@ CREATE_ESCAPE_POD(3)
 	warmup_time = 10
 	move_time = 75
 	shuttle_area = /area/shuttle/legion/centcom
-	dock_target = "legion_shuttle"
+	dock_target = "legion_shuttle_aft_airlock"
 	waypoint_offsite = "nav_legion_start"
 	landmark_transition = "nav_legion_interim"
 	waypoint_station = "nav_legion_dock"
@@ -197,7 +197,8 @@ CREATE_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/legion/dock
 	name = "Legion Dock"
 	landmark_tag = "nav_legion_dock"
-
+	docking_controller = "distress_shuttle_dock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /datum/shuttle/autodock/ferry/research
 	name = "Research Shuttle"

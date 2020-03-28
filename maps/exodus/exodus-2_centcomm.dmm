@@ -4331,7 +4331,7 @@
 	},
 /area/syndicate_station/start)
 "amE" = (
-/obj/machinery/computer/shuttle_control/multi/syndicate,
+/obj/machinery/computer/shuttle_control/multi/antag/syndicate,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},

@@ -216,7 +216,7 @@
 /obj/machinery/computer/shuttle_control/legion
 	name = "dropship control console"
 	req_access = list(access_legion)
-	shuttle_tag = "Tau Ceti Foreign Legion"
+	shuttle_tag = "Legion Shuttle"
 
 /datum/shuttle/autodock/ferry/legion
 	var/dropship_return_delay = 6600

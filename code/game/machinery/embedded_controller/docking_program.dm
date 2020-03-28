@@ -199,7 +199,6 @@
 
 /datum/computer/file/embedded_program/docking/proc/initiate_undocking()
 	if (dock_state != STATE_DOCKED || control_mode != MODE_CLIENT)		//must be docked and must be client to start undocking
-		world << "Cannot undock!" //TODOMATT
 		return
 
 	dock_state = STATE_UNDOCKING
