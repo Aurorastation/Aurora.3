@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - imageadd: "Reverted the TacShield sprite to the old sprite."
