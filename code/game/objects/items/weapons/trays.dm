@@ -127,7 +127,7 @@
 			return
 
 /obj/item/tray/attackby(obj/item/W, mob/user)
-	if(istype(user,/mob/living/silicon/robot)) //safety to stop robots losing their items
+	if(isrobot(user)) //safety to stop robots losing their items
 		return
 	if(istype(W, /obj/item/tray)) //safety to prevent tray stacking
 		return
