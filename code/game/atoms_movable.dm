@@ -60,7 +60,7 @@
 
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
-	if(istype(hit_atom,/mob/living))
+	if(isliving(hit_atom))
 		var/mob/living/M = hit_atom
 		M.hitby(src,speed)
 
@@ -71,23 +71,26 @@
 		O.hitby(src,speed)
 
 	else if(isturf(hit_atom))
-		src.throwing = 0
+		throwing = 0
 		var/turf/T = hit_atom
 		if(T.density)
 			spawn(2)
 				step(src, turn(src.last_move, 180))
-			if(istype(src,/mob/living))
+			if(isliving(src))
 				var/mob/living/M = src
 				M.turf_collision(T, speed)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
 /atom/movable/proc/hit_check(var/speed)
-	if(src.throwing)
+	if(throwing)
 		for(var/atom/A in get_turf(src))
-			if(A == src) continue
-			if(istype(A,/mob/living))
-				if(A:lying) continue
-				src.throw_impact(A,speed)
+			if(A == src)
+				continue
+			if(isliving(A))
+				var/mob/living/M = A
+				if(M.lying)
+					continue
+				throw_impact(A, speed)
 			if(isobj(A))
 				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
 					src.throw_impact(A,speed)

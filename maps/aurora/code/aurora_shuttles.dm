@@ -99,6 +99,7 @@ CREATE_ESCAPE_POD(3)
 	dock_target = "centcom_shuttle"
 	waypoint_station = "nav_ccia_dock"
 	waypoint_offsite = "nav_ccia_start"
+	category = /datum/shuttle/autodock/ferry/autoreturn
 
 /obj/effect/shuttle_landmark/ccia/start
 	name = "Agent Shuttle Base"
@@ -132,7 +133,7 @@ CREATE_ESCAPE_POD(3)
 //Skipjack.
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
-	warmup_time = 15
+	warmup_time = 10
 	shuttle_area = /area/skipjack_station/start
 
 	announcer = "NDV Icarus"
@@ -146,7 +147,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Mercenary Shuttle"
 	current_location = "nav_merc_start"
 	dock_target = "merc_shuttle"
-	warmup_time = 15
+	warmup_time = 10
 	shuttle_area = /area/syndicate_station/start
 	destination_tags = list(
 		"nav_merc_dock",
