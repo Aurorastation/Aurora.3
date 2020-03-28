@@ -267,7 +267,7 @@
 			update_icon()
 		return
 
-	if(W.force && (W.damtype == "fire" || W.damtype == "brute"))
+	if(W.force && (W.damtype == BURN || W.damtype == BRUTE))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		visible_message(SPAN_WARNING("\The [src] has been [LAZYLEN(W.attack_verb) ? pick(W.attack_verb) : "attacked"] with \the [W] by \the [user]!"))
 		take_damage(W.force)
