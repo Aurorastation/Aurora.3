@@ -24,10 +24,23 @@
  * Grass
  */
 /obj/item/stack/tile/grass
-	name = "grass tile"
-	singular_name = "grass floor tile"
+	name = "synthetic grass tile"
+	singular_name = "synthetic grass tile"
 	desc = "A patch of grass like they often use on golf courses."
 	icon_state = "tile_grass"
+	force = 1.0
+	throwforce = 1.0
+	throw_speed = 5
+	throw_range = 20
+	flags = 0
+	origin_tech = list(TECH_BIO = 1)
+	drop_sound = 'sound/items/drop/herb.ogg'
+
+/obj/item/stack/tile/grass_alt
+	name = "grass tile"
+	singular_name = "grass floor tile"
+	desc = "A soft patch of grass."
+	icon_state = "tile_grass_alt"
 	force = 1.0
 	throwforce = 1.0
 	throw_speed = 5

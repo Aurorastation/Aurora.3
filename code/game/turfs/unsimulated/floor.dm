@@ -1,7 +1,7 @@
 /turf/unsimulated/floor
 	name = "floor"
 	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "floor3"
+	icon_state = "new_steel"
 
 /turf/unsimulated/floor/plating
 	name = "plating"

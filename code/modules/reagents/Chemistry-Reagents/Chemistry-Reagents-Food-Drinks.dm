@@ -31,7 +31,7 @@
 
 /datum/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
-	if((alien != IS_VAURCA) || !(istype(P) && P.stage >= 3))
+	if((alien != IS_VAURCA) && !(istype(P) && P.stage >= 3))
 		H.adjustToxLoss(1 * removed)
 		switch(kois_type)
 			if(1) //Normal
