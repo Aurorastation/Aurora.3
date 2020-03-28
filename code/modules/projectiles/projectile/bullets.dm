@@ -216,8 +216,7 @@
 	stun = 3
 	weaken = 3
 	penetrating = 5
-	armor_penetration = 20
-	hitscan = TRUE
+	armor_penetration = 15
 	maiming = TRUE
 	maim_rate = 3
 	maim_type = DROPLIMB_BLUNT
