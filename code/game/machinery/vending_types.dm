@@ -376,8 +376,8 @@
 	req_access = list(access_medical_equip)
 	vend_id = "meds"
 	products = list(
-		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = 4,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 6,
+		/obj/item/reagent_containers/glass/bottle/norepinephrine = 6,
 		/obj/item/reagent_containers/glass/bottle/stoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
@@ -386,8 +386,8 @@
 		/obj/item/device/breath_analyzer = 2,
 		/obj/item/reagent_containers/glass/beaker = 4,
 		/obj/item/reagent_containers/dropper = 2,
-		/obj/item/stack/medical/advanced/bruise_pack = 3,
-		/obj/item/stack/medical/advanced/ointment = 3,
+		/obj/item/stack/medical/advanced/bruise_pack = 5,
+		/obj/item/stack/medical/advanced/ointment = 5,
 		/obj/item/stack/medical/splint = 2,
 		/obj/item/reagent_containers/pill/antitox = 6,
 		/obj/item/reagent_containers/pill/antihistamine = 6,
