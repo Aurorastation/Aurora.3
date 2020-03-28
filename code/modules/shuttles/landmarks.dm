@@ -37,6 +37,7 @@
 		base_area = locate(base_area || world.area)
 
 	name = name + " ([x],[y])"
+	log_ss("Landmarks", "Registering landmark: [src]")
 	shuttle_controller.register_landmark(landmark_tag, src)
 
 /obj/effect/shuttle_landmark/LateInitialize()

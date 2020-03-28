@@ -15,7 +15,7 @@
 
 	if(href_list["pick"])
 		var/dest_key = input("Choose shuttle destination", "Shuttle Destination") as null|anything in shuttle.get_destinations()
-		if(dest_key && use_check(usr))
+		if(dest_key && !use_check(usr))
 			shuttle.set_destination(dest_key, usr)
 		return TOPIC_REFRESH
 

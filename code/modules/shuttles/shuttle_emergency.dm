@@ -1,6 +1,13 @@
 /datum/shuttle/autodock/ferry/emergency
 	//pass
 
+/datum/shuttle/autodock/ferry/emergency/New()
+	..()
+	if(emergency_shuttle.shuttle)
+		CRASH("An emergency shuttle has already been created.")
+		return
+	emergency_shuttle.shuttle = src
+
 /datum/shuttle/autodock/ferry/emergency/arrived()
 	. = ..()
 	if (istype(in_use, /obj/machinery/computer/shuttle_control/emergency))
@@ -105,8 +112,6 @@
 		message_admins("[key_name_admin(usr)] has overridden the shuttle autopilot and cancelled launch sequence")
 
 	..(user)
-
-
 
 /obj/machinery/computer/shuttle_control/emergency
 	shuttle_tag = "Escape"

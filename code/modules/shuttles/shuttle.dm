@@ -42,8 +42,10 @@
 	shuttle_area = areas
 
 	if(initial_location)
+		log_ss("Shuttles", "Getting landmark [initial_location]...")
 		current_location = initial_location
 	else
+		log_ss("Shuttles", "Getting landmark [current_location]...")
 		current_location = shuttle_controller.get_landmark(current_location)
 	if(!istype(current_location))
 		CRASH("Shuttle \"[name]\" could not find its starting location.")

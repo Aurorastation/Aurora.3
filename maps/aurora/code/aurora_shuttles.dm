@@ -41,6 +41,14 @@ CREATE_ESCAPE_POD(1)
 CREATE_ESCAPE_POD(2)
 CREATE_ESCAPE_POD(3)
 
+/datum/shuttle/autodock/ferry/emergency
+	name = "Escape"
+	location = 1
+	warmup_time = 25
+	shuttle_area = /area/shuttle/escape/centcom
+	move_time = 20
+	dock_target = "centcom_dock"
+
 // Merchant Shuttle
 /datum/shuttle/autodock/ferry/merchant
 	name = "Merchant Shuttle"
