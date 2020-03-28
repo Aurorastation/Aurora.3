@@ -236,7 +236,7 @@
 			stat = UNCONSCIOUS
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
-	if(in_stasis || mind.changeling)
+	if(in_stasis || mind?.changeling)
 		return
 
 	if(getFireLoss())
@@ -1063,7 +1063,7 @@
 
 	if(is_asystole())
 		shock_stage = max(shock_stage + 1, 61)
-	if(mind.changeling)
+	if(mind?.changeling)
 		shock_stage = min(shock_stage + 1, 30 - (get_ling_level() * 10))
 
 	var/traumatic_shock = get_shock()
