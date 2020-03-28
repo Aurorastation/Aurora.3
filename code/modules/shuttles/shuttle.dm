@@ -153,7 +153,7 @@
 /datum/shuttle/proc/shuttle_moved(var/obj/effect/shuttle_landmark/destination, var/list/turf_translation)
 
 //	log_debug("move_shuttle() called for [shuttle_tag] leaving [origin] en route to [destination].")
-//	log_degug("area_coming_from: [origin]")
+//	log_debug("area_coming_from: [origin]")
 //	log_debug("destination: [destination]")
 	if((flags & SHUTTLE_FLAGS_ZERO_G))
 		var/new_grav = 1
