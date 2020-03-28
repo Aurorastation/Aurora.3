@@ -421,13 +421,15 @@
 	return metabolism
 
 /mob/living/carbon/proc/can_feel_pain()
-	if (species && (species.flags & NO_PAIN))
+	if(species && (species.flags & NO_PAIN))
 		return FALSE
-	if (is_berserk())
+	if(is_berserk())
 		return FALSE
 	if (HULK in mutations)
 		return FALSE
 	if (analgesic > 100)
+		return FALSE
+	if(get_ling_level(LING_LEVEL_HIGH))
 		return FALSE
 
 	return TRUE

@@ -744,7 +744,10 @@
 				animate_tail_reset()
 
 		if(paralysis)
-			AdjustParalysis(-1)
+			if(mind.changeling)
+				get_ling_level(LING_LEVEL_HIGH) ? AdjustParalysis(paralysis) : AdjustParalysis(-2)
+			else
+				AdjustParalysis(-1)
 
 		else if(sleeping)
 			speech_problem_flag = 1
@@ -797,13 +800,13 @@
 		//Other
 		handle_statuses()
 
-		if (drowsyness)
-			if (drowsyness < 0)
+		if(drowsyness)
+			if(drowsyness < 0 || get_ling_level(LING_LEVEL_HIGH))
 				drowsyness = 0
 			else
 				drowsyness--
 				eye_blurry = max(2, eye_blurry)
-				if (prob(5))
+				if(prob(5) && !mind.changeling)
 					sleeping += 1
 					Paralyse(5)
 
@@ -1060,6 +1063,8 @@
 
 	if(is_asystole())
 		shock_stage = max(shock_stage + 1, 61)
+	if(mind.changeling)
+		shock_stage = min(shock_stage + 1, 30 - (get_ling_level() * 10))
 
 	var/traumatic_shock = get_shock()
 	if(traumatic_shock >= max(30, 0.8*shock_stage))

@@ -1118,12 +1118,12 @@
 
 /mob/living/proc/handle_stunned()
 	if(stunned)
-		AdjustStunned(-1)
+		mind.changeling ? AdjustStunned(-2) : AdjustStunned(-1)
 	return stunned
 
 /mob/living/proc/handle_weakened()
 	if(weakened)
-		weakened = max(weakened-1,0)	//before you get mad Rockdtben: I done this so update_canmove isn't called multiple times
+		weakened = mind.changeling ? max(weakened - get_ling_level(), 0) : max(weakened-1,0)	//before you get mad Rockdtben: I done this so update_canmove isn't called multiple times
 	return weakened
 
 /mob/living/proc/handle_stuttering()
