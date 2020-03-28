@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a box in the Autolathe Engineering section that can hold the stock parts that goes into machinery."
