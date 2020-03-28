@@ -187,7 +187,7 @@
 
 /obj/structure/sign/patients_only
 	name = "\improper PATIENTS ONLY"
-	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the ISD.'"
+	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the security department.'"
 	icon_state = "patients_only"
 
 //Location and direction signs
