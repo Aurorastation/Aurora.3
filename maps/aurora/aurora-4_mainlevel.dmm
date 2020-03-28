@@ -34970,7 +34970,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "bgj" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/requests_console{
 	department = "Medical Bay";
@@ -34982,7 +34981,8 @@
 /obj/item/device/destTagger,
 /obj/item/hand_labeler,
 /obj/item/stack/wrapping_paper,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bgk" = (
 /obj/structure/table/standard,
@@ -35825,16 +35825,15 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
 /obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bhE" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Lobby 3";
@@ -35845,7 +35844,8 @@
 	pixel_x = 0;
 	pixel_y = 28
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bhF" = (
 /obj/machinery/door/airlock/glass_medical{
@@ -37898,15 +37898,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bkZ" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/device/radio/intercom{
 	pixel_y = 27
 	},
 /obj/machinery/papershredder,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "blb" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/ringer{
 	department = "Medbay";
 	id = "medbay_ringer";
@@ -37920,7 +37919,8 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bld" = (
 /obj/structure/grille,
@@ -38659,7 +38659,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bmB" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -38670,27 +38669,28 @@
 /obj/item/roller{
 	pixel_y = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bmC" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/bed/chair/office/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bmD" = (
-/obj/effect/floor_decal/corner/white/diagonal,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bmE" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bmF" = (
 /obj/effect/floor_decal/corner/white/diagonal,
@@ -39509,27 +39509,26 @@
 	name = "Reception Desk";
 	req_access = list(66)
 	},
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "boa" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bob" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -39537,14 +39536,15 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "boc" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bod" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -40395,7 +40395,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bpt" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -40412,23 +40411,23 @@
 	pixel_x = 8;
 	pixel_y = -2
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bpu" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/bed/chair/office/light,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bpv" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bpw" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/button/remote/blast_door{
 	id = "entrance_shutters";
 	name = "Entrance Shutters Control";
@@ -40443,7 +40442,8 @@
 	pixel_y = 6;
 	req_access = list(66)
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bpx" = (
 /obj/machinery/light{
@@ -41070,10 +41070,10 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bqC" = (
 /obj/machinery/door/window{
@@ -41083,23 +41083,22 @@
 	name = "Reception Desk";
 	req_access = list(66)
 	},
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/item/paper_bin{
 	pixel_x = -1;
 	pixel_y = 7
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bqD" = (
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/window/reinforced,
 /obj/item/modular_computer/console/preset/medical,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bqE" = (
 /obj/structure/window/reinforced,
-/obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 4;
@@ -41107,7 +41106,8 @@
 	pixel_x = 0
 	},
 /obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bqF" = (
 /obj/structure/sign/nosmoking_1{
@@ -68037,6 +68037,13 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"qBC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/medical/reception)
 "qCl" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/phoronreinforced{
@@ -103969,7 +103976,7 @@ bkd
 bdw
 bkb
 bhE
-bmF
+qBC
 bmD
 bpw
 bqE
