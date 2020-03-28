@@ -98,7 +98,7 @@
 		playsound(M, pick('sound/items/trayhit1.ogg', 'sound/items/trayhit2.ogg'), 50, 1)
 		visible_message(SPAN_DANGER("\The [user] slams \the [M] with the tray!"))
 		if(prob(10))
-			if(!istype(M,/mob/living/silicon))
+			if(!issilicon(M))
 				M.Stun(rand(1,3))
 			M.take_organ_damage(3)
 			return
