@@ -360,7 +360,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_WARNING("You must have an strangling grip to bite someone!"))
 		return
 
-	if(istype(G.affecting, /mob/living/carbon/human))
+	if(ishuman(G.affecting))
 		var/mob/living/carbon/human/H = G.affecting
 		var/hit_zone = zone_sel.selecting
 		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
