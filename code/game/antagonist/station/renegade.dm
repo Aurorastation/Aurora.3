@@ -1,6 +1,7 @@
 var/datum/antagonist/renegade/renegades
 
 /datum/antagonist/renegade
+	restricted_jobs = list("Head of Security", "Captain", "AI", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
 	role_text = "Renegade"
 	role_text_plural = "Renegades"
 	welcome_text = "You're extremely paranoid today. For your entire life, you've theorized about a shadow corporation out for your blood and yours only. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can prepare to murder someone and kill, but you shouldn't actively seek conflict."
@@ -41,6 +42,7 @@ var/datum/antagonist/renegade/renegades
 	if(!player.back)
 		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
 	player.equip_to_slot_or_del(new /obj/item/storage/box/syndie_kit/random_weapon/concealable(player), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/renegade(player), slot_in_backpack)
 
 /proc/rightandwrong()
 	to_chat(usr, "<B>You summoned guns!</B>")
