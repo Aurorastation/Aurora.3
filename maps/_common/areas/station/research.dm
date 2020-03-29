@@ -30,6 +30,9 @@
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
+/area/rnd/breakroom
+	name = "\improper Research - Break Room"
+
 /area/rnd/research
 	name = "\improper Research and Development"
 	icon_state = "research"
