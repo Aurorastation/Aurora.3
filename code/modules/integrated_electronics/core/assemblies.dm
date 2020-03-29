@@ -171,85 +171,65 @@
 		..()
 
 /obj/item/device/electronic_assembly/interact(mob/user)
+	. = ..()
 	if(!check_interactivity(user))
 		return
 
-	if(opened)
-		open_interact(user)
-	closed_interact(user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "circuits-assembly", 655, 350, name)
 
-/obj/item/device/electronic_assembly/proc/closed_interact(mob/user)
-	var/HTML = list()
-	HTML += "<html><head><title>[src.name]</title></head><body>"
-	HTML += "<br><a href='?src=\ref[src];refresh=1'>\[Refresh\]</a>"
-	HTML += "<br><br>"
+	ui.open()
 
-	var/listed_components = FALSE
-	for(var/obj/item/integrated_circuit/circuit in assembly_components)
-		var/list/topic_data = circuit.get_topic_data(user)
-		if(topic_data)
-			listed_components = TRUE
-			HTML += "<b>[circuit.displayed_name]: </b>"
-			if(topic_data.len != 1)
-				HTML += "<br>"
-			for(var/entry in topic_data)
-				var/href = topic_data[entry]
-				if(href)
-					HTML += "<a href=?src=\ref[circuit];[href]>[entry]</a>"
-				else
-					HTML += entry
-				HTML += "<br>"
-			HTML += "<br>"
-	HTML += "</body></html>"
+/obj/item/device/electronic_assembly/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	if(!data)
+		. = data = list()
+		
+	VUEUI_SET_CHECK(data["name"], name, ., data)
+	VUEUI_SET_CHECK(data["size"], return_total_size(), ., data)
+	VUEUI_SET_CHECK(data["complexity"], return_total_complexity(), ., data)
 
-	if(listed_components)
-		show_browser(user, jointext(HTML,null), "window=closed-assembly-\ref[src];size=600x350;border=1;can_resize=1;can_close=1;can_minimize=1")
-
-
-/obj/item/device/electronic_assembly/proc/open_interact(mob/user)
-	. = ..()
-
-	var/total_part_size = return_total_size()
-	var/total_complexity = return_total_complexity()
-	var/list/HTML = list()
-
-	HTML += "<html><head><title>[name]</title></head><body>"
-
-	HTML += "<a href='?src=\ref[src]'>\[Refresh\]</a>  |  <a href='?src=\ref[src];rename=1'>\[Rename\]</a><br>"
-	HTML += "[total_part_size]/[max_components] space taken up in the assembly.<br>"
-	HTML += "[total_complexity]/[max_complexity] complexity in the assembly.<br>"
+	VUEUI_SET_CHECK(data["battery"], battery != null, ., data)
 	if(battery)
-		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=\ref[src];remove_cell=1'>\[Remove\]</a>"
-	else
-		HTML += "<span class='danger'>No power cell detected!</span>"
+		VUEUI_SET_CHECK(data["battery_charge"], round(battery.charge, 0.1), ., data)
+		VUEUI_SET_CHECK(data["battery_maxcharge"], battery.maxcharge, ., data)
+		VUEUI_SET_CHECK(data["battery_percent"], round(battery.percent(), 0.1), ., data)
 
-	if(length(assembly_components))
-		HTML += "<br><br>"
-		HTML += "Components:<br>"
+	VUEUI_SET_CHECK_IFNOTSET(data["max_components"], max_components, ., data)
+	VUEUI_SET_CHECK_IFNOTSET(data["max_complexity"], max_complexity, ., data)
 
+	LAZYINITLIST(data["components"])
+
+	if(interact_page != data["cur_page"] || LAZYLEN(assembly_components) != LAZYLEN(data["components"]))
+		data["components"].Cut()
 		var/start_index = ((components_per_page * interact_page) + 1)
+		var/list/components_to_show = list()
+
 		for(var/i = start_index to min(length(assembly_components), start_index + (components_per_page - 1)))
 			var/obj/item/integrated_circuit/circuit = assembly_components[i]
-			HTML += "\[ <a href='?src=\ref[src];component=\ref[circuit];set_slot=1'>[i]</a> \] | "
-			HTML += "<a href='?src=\ref[circuit];component=\ref[circuit];rename=1'>\[R\]</a> | "
-			if(circuit.removable)
-				HTML += "<a href='?src=\ref[src];component=\ref[circuit];remove=1'>\[-\]</a> | "
-			else
-				HTML += "\[-\] | "
-			HTML += "<a href='?src=\ref[circuit];examine=1'>[circuit.displayed_name]</a>"
-			HTML += "<br>"
+			// Add adds the contents of a list, so we need to wrap a list in another
+			components_to_show.Add(list(list("component" = "\ref[circuit]", 
+										"name" = circuit.displayed_name,
+										"index" = i,
+										"removable" = circuit.removable)))
 
-		if(length(assembly_components) > components_per_page)
-			HTML += "<br>\["
-			for(var/i = 1 to Ceiling(length(assembly_components)/components_per_page))
-				if((i-1) == interact_page)
-					HTML += " [i]"
-				else
-					HTML += " <a href='?src=\ref[src];select_page=[i-1]'>[i]</a>"
-			HTML += " \]"
+		VUEUI_SET_CHECK(data["components"], components_to_show, ., data)
 
-	HTML += "</body></html>"
-	show_browser(user, jointext(HTML, null), "window=assembly-\ref[src];size=655x350;border=1;can_resize=1;can_close=1;can_minimize=1")
+		VUEUI_SET_CHECK(data["page_num"], Ceiling(length(assembly_components)/components_per_page), ., data)
+		VUEUI_SET_CHECK(data["cur_page"], interact_page, ., data)
+
+/obj/item/device/electronic_assembly/proc/update_interact_page(page)
+	interact_page = Clamp(page, 0, Ceiling(length(assembly_components)/components_per_page) - 1)
+
+/obj/item/device/electronic_assembly/proc/try_update_ui(datum/vueui/ui, user)
+	if(!istype(ui))
+		// UI was updated externally, for example, after attaching a new component
+		ui = SSvueui.get_open_ui(user, src)
+
+	// NOTE: Statement above is not guaranteed to actually return valid UI
+	if(istype(ui))
+		// Constant updates for better experience.
+		ui.check_for_change(TRUE)
 
 /obj/item/device/electronic_assembly/Topic(href, href_list, state = interactive_state)
 	if(href_list["ghostscan"])
@@ -267,11 +247,17 @@
 	if(!check_interactivity(usr))
 		return TOPIC_NOACTION
 
+	. = TOPIC_HANDLED
+
+	// VueUI seems to be unable to send json with a parameter of 0 within it
+	// So we have to send 1-based indices and subtract 1 here
 	if(href_list["select_page"])
-		interact_page = text2num(href_list["select_page"])
+		update_interact_page(text2num(href_list["select_page"]) - 1)
+		. = TOPIC_REFRESH
 
 	if(href_list["rename"])
 		rename(usr)
+		. = TOPIC_REFRESH
 
 	if(href_list["remove_cell"])
 		if(!battery)
@@ -281,6 +267,7 @@
 			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)
 			to_chat(usr, "<span class='notice'>You pull \the [battery] out of \the [src]'s power supplier.</span>")
 			battery = null
+		. = TOPIC_REFRESH
 
 	if(href_list["component"])
 		var/obj/item/integrated_circuit/component = locate(href_list["component"]) in assembly_components
@@ -295,21 +282,22 @@
 
 			if(href_list["remove"])
 				try_remove_component(component, usr)
+				. = TOPIC_REFRESH
 
-			else
-				// Adjust the position
-				if(href_list["set_slot"])
-					var/selected_slot = input("Select a new slot", "Select slot", current_pos) as null|num
-					if(!check_interactivity(usr))
-						return TOPIC_NOACTION
-					if(selected_slot < 1 || selected_slot > length(assembly_components))
-						return TOPIC_NOACTION
+			else if(href_list["set_slot"])
+				var/selected_slot = input("Select a new slot", "Select slot", current_pos) as null|num
+				if(!check_interactivity(usr))
+					return TOPIC_NOACTION
+				if(selected_slot < 1 || selected_slot > length(assembly_components))
+					return TOPIC_NOACTION
 
-					assembly_components.Remove(component)
-					assembly_components.Insert(selected_slot, component)
+				assembly_components.Remove(component)
+				assembly_components.Insert(selected_slot, component)
+				. = TOPIC_REFRESH
 
-
-	interact(usr) // To refresh the UI.
+	if (. == TOPIC_REFRESH)
+		var/datum/vueui/ui = href_list["vueui"]
+		try_update_ui(ui, usr)
 
 /obj/item/device/electronic_assembly/proc/rename()
 	var/mob/M = usr
@@ -322,6 +310,10 @@
 	if(!QDELETED(src) && input)
 		to_chat(M, "<span class='notice'>The machine now has a label reading '[input]'.</span>")
 		name = input
+		var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
+		if(ui)
+			ui.title = name
+			try_update_ui(null, usr)
 
 /obj/item/device/electronic_assembly/proc/add_allowed_scanner(ckey)
 	ckeys_allowed_to_scan[ckey] = TRUE
@@ -411,6 +403,8 @@
 	component.forceMove(get_object())
 	component.assembly = src
 	assembly_components |= component
+	// Put here just in case something somehow adds a component forcefully
+	try_update_ui(null, usr)
 
 
 /obj/item/device/electronic_assembly/proc/try_remove_component(obj/item/integrated_circuit/IC, mob/user, silent)
@@ -432,7 +426,7 @@
 	add_allowed_scanner(user.ckey)
 
 	// Make sure we're not on an invalid page
-	interact_page = Clamp(interact_page, 0, Ceiling(length(assembly_components)/components_per_page)-1)
+	update_interact_page(interact_page)
 
 	return TRUE
 
@@ -534,7 +528,34 @@
 				S.attackby_react(I,user,user.a_intent)
 
 /obj/item/device/electronic_assembly/attack_self(mob/user)
-	interact(user)
+	if(!check_interactivity(user))
+		return
+	if(opened)
+		interact(user)
+
+	var/list/input_selection = list()
+	var/list/available_inputs = list()
+	for(var/obj/item/integrated_circuit/input/input in assembly_components)
+		if(input.ask_input)
+			available_inputs.Add(input)
+			var/i = 0
+			for(var/obj/item/integrated_circuit/s in available_inputs)
+				if(s.name == input.name && s.displayed_name == input.displayed_name && s != input)
+					i++
+			var/disp_name= "[input.displayed_name] \[[input.name]\]"
+			if(i)
+				disp_name += " ([i+1])"
+			input_selection.Add(disp_name)
+
+	var/obj/item/integrated_circuit/input/choice
+	if(available_inputs)
+		var/selection = input(user, "What do you want to interact with?", "Interaction") as null|anything in input_selection
+		if(selection)
+			var/index = input_selection.Find(selection)
+			choice = available_inputs[index]
+
+	if(choice)
+		choice.ask_for_input(user)
 
 /obj/item/device/electronic_assembly/bullet_act(var/obj/item/projectile/P)
 	take_damage(P.damage)

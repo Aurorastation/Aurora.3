@@ -1,6 +1,10 @@
 /obj/item/integrated_circuit/input
 	category_text = "Input"
 	power_draw_per_use = 5
+	var/ask_input = FALSE
+
+/obj/item/integrated_circuit/input/proc/ask_for_input(mob/user)
+	return
 
 /obj/item/integrated_circuit/input/external_examine(mob/user)
 	var/initial_name = initial(name)
@@ -21,15 +25,12 @@
 	outputs = list()
 	activators = list("on pressed" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	ask_input = TRUE
 
-/obj/item/integrated_circuit/input/button/get_topic_data(mob/user)
-	return list("Press" = "press=1")
+/obj/item/integrated_circuit/input/button/ask_for_input(mob/user) //Bit misleading name for this specific use.
+	to_chat(user, "<span class='notice'>You press the button labeled '[src.name]'.</span>")
+	activate_pin(1)
 
-/obj/item/integrated_circuit/input/button/OnICTopic(href_list, user)
-	if(href_list["press"])
-		to_chat(user, "<span class='notice'>You press the button labeled '[src.displayed_name]'.</span>")
-		activate_pin(1)
-		return IC_TOPIC_REFRESH
 
 /obj/item/integrated_circuit/input/toggle_button
 	name = "toggle button"
@@ -40,20 +41,17 @@
 	outputs = list("on" = IC_PINTYPE_BOOLEAN)
 	activators = list("on toggle" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+	ask_input = TRUE
 
 /obj/item/integrated_circuit/input/toggle_button/emp_act()
 	return // This is a mainly physical thing, not affected by electricity
 
-/obj/item/integrated_circuit/input/toggle_button/get_topic_data(mob/user)
-	return list("Toggle [get_pin_data(IC_OUTPUT, 1) ? "Off" : "On"]" = "toggle=1")
+/obj/item/integrated_circuit/input/toggle_button/ask_for_input(mob/user) // Ditto.
+	set_pin_data(IC_OUTPUT, 1, !get_pin_data(IC_OUTPUT, 1))
+	push_data()
+	activate_pin(1)
+	to_chat(user, "<span class='notice'>You toggle the button labeled '[src.name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"].</span>")
 
-/obj/item/integrated_circuit/input/toggle_button/OnICTopic(href_list, user)
-	if(href_list["toggle"])
-		set_pin_data(IC_OUTPUT, 1, !get_pin_data(IC_OUTPUT, 1))
-		push_data()
-		activate_pin(1)
-		to_chat(user, "<span class='notice'>You toggle the button labeled '[src.name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"].</span>")
-		return IC_TOPIC_REFRESH
 
 /obj/item/integrated_circuit/input/numberpad
 	name = "number pad"
@@ -65,18 +63,14 @@
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
+	ask_input = TRUE
 
-/obj/item/integrated_circuit/input/numberpad/get_topic_data(mob/user)
-	return list("Enter Number" = "enter_number=1")
-
-/obj/item/integrated_circuit/input/numberpad/OnICTopic(href_list, user)
-	if(href_list["enter_number"])
-		var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
-		if(isnum(new_input) && assembly.check_interactivity(user))
-			set_pin_data(IC_OUTPUT, 1, new_input)
-			push_data()
-			activate_pin(1)
-		return IC_TOPIC_REFRESH
+/obj/item/integrated_circuit/input/numberpad/ask_for_input(mob/user)
+	var/new_input = input(user, "Enter a number, please.","Number pad") as null|num
+	if(isnum(new_input) && assembly.check_interactivity(user))
+		set_pin_data(IC_OUTPUT, 1, new_input)
+		push_data()
+		activate_pin(1)
 
 /obj/item/integrated_circuit/input/textpad
 	name = "text pad"
@@ -88,18 +82,14 @@
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
+	ask_input = TRUE
 
-/obj/item/integrated_circuit/input/textpad/get_topic_data(mob/user)
-	return list("Enter Words" = "enter_words=1")
-
-/obj/item/integrated_circuit/input/textpad/OnICTopic(href_list, user)
-	if(href_list["enter_words"])
-		var/new_input = input(user, "Enter some words, please.","Number pad") as null|text
-		if(istext(new_input) && assembly.check_interactivity(user))
-			set_pin_data(IC_OUTPUT, 1, new_input)
-			push_data()
-			activate_pin(1)
-			return IC_TOPIC_REFRESH
+/obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
+	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
+	if(istext(new_input) && assembly.check_interactivity(user))
+		set_pin_data(IC_OUTPUT, 1, new_input)
+		push_data()
+		activate_pin(1)
 
 /obj/item/integrated_circuit/input/colorpad
 	name = "color pad"
@@ -111,18 +101,14 @@
 	activators = list("on entered" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 4
+	ask_input = TRUE
 
-/obj/item/integrated_circuit/input/colorpad/get_topic_data(mob/user)
-	return list("Enter Color" = "enter_color=1")
-
-/obj/item/integrated_circuit/input/colorpad/OnICTopic(href_list, user)
-	if(href_list["enter_color"])
-		var/new_color = input(user, "Enter a color, please.", "Color", "#ffffff") as color|null
-		if(new_color)
-			set_pin_data(IC_OUTPUT, 1, new_color)
-			push_data()
-			activate_pin(1)
-			return IC_TOPIC_REFRESH
+/obj/item/integrated_circuit/input/colorpad/ask_for_input(mob/user)
+	var/new_color = input(user, "Enter a color, please.", "Color pad", get_pin_data(IC_OUTPUT, 1)) as color|null
+	if(new_color && assembly.check_interactivity(user))
+		set_pin_data(IC_OUTPUT, 1, new_color)
+		push_data()
+		activate_pin(1)
 
 /obj/item/integrated_circuit/input/med_scanner
 	name = "integrated medical analyser"
@@ -214,11 +200,6 @@
 	push_data()
 	activate_pin(2)
 
-//please delete at a later date after people stop using the old named circuit
-/obj/item/integrated_circuit/input/adv_med_scanner/old
-	name = "integrated advanced medical analyser"
-	spawn_flags = 0
-
 /obj/item/integrated_circuit/input/slime_scanner
 	name = "slime scanner"
 	desc = "A very small version of the xenobio analyser. This allows the machine to know every needed properties of slime. Output mutation list is non-associative."
@@ -260,8 +241,6 @@
 
 	push_data()
 	activate_pin(2)
-
-
 
 /obj/item/integrated_circuit/input/plant_scanner
 	name = "integrated plant analyzer"

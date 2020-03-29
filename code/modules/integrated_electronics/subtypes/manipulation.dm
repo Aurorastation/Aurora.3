@@ -620,7 +620,7 @@
 	set src = usr.loc
 
 	var/obj/item/device/electronic_assembly/assembly = get_object()
-	assembly.closed_interact(usr)
+	assembly.attack_self(usr)
 
 /obj/item/integrated_circuit/manipulation/ai/relaymove(var/mob/user, var/direction)
 	switch(direction)

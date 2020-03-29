@@ -58,12 +58,6 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/proc/sense(var/atom/movable/A,mob/user,prox)
 	return
 
-/obj/item/integrated_circuit/proc/OnICTopic(href_list, user)
-	return
-
-/obj/item/integrated_circuit/proc/get_topic_data(var/mob/user)
-	return
-
 /obj/item/integrated_circuit/proc/check_interactivity(mob/user)
 	if(assembly)
 		return assembly.check_interactivity(user)
@@ -225,7 +219,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 	var/datum/vueui/ui = href_list["vueui"]
 
-	. = IC_TOPIC_HANDLED
+	. = TOPIC_HANDLED
 	var/obj/held_item = usr.get_active_hand()
 	if(href_list["pin"] && assembly)
 		var/datum/integrated_io/pin = locate(href_list["pin"]) in inputs + outputs + activators
@@ -237,7 +231,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 			if(istype(held_item, /obj/item/device/integrated_electronics))
 				pin.handle_wire(linked, held_item, href_list["act"], usr)
-				. = IC_TOPIC_REFRESH
+				. = TOPIC_REFRESH
 			else
 				to_chat(usr, "<span class='warning'>You can't do a whole lot without the proper tools.</span>")
 				success = FALSE
@@ -249,7 +243,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			var/obj/item/device/integrated_electronics/debugger/D = held_item
 			if(D.accepting_refs)
 				D.afterattack(src, usr, TRUE)
-				. = IC_TOPIC_REFRESH
+				. = TOPIC_REFRESH
 			else
 				to_chat(usr, "<span class='warning'>The debugger's 'ref scanner' needs to be on.</span>")
 		else
@@ -264,16 +258,17 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 	else if(href_list["rename"])
 		rename_component(usr)
-		. = IC_TOPIC_REFRESH
+		// We might be renaming from an assembly, update it's UI
+		// TODO: Move the update on rename part to the asssembly itself
+		if(assembly)
+			assembly.try_update_ui(null, usr)
+		. = TOPIC_REFRESH
 
 	else if(href_list["remove"] && assembly)
 		assembly.try_remove_component(src, usr)
-		. = IC_TOPIC_REFRESH
+		. = TOPIC_REFRESH
 
-	else
-		. = OnICTopic(href_list, usr)
-
-	if(. == IC_TOPIC_REFRESH)
+	if(. == TOPIC_REFRESH)
 		try_update_ui(ui, usr)
 		internal_examine(usr)
 
