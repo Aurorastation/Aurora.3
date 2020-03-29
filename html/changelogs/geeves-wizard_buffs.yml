@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Apprentice scrolls no longer spawn wizard garb, instead giving them the no clothes spell. Enjoy."
-  - rscadd: "Apprentices now get a Return to Master spell."
-  - rscadd: "Return to Master has been given more smokey flair."
-  - rscadd: "Apprentices now get Disable Tech, Entangle, Knock."
