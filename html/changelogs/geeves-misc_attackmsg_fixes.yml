@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "You can now put flags on windows without bashing them."
-  - bugfix: "Compartmental circuit kits no longer display pickup error messages when you put it back in the big box."
