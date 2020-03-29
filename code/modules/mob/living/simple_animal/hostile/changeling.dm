@@ -66,10 +66,10 @@
 	..()
 	if(!gibbed)
 		visible_message("<b>[src]</b> lets out a waning scream as it falls, twitching, to the floor!")
-		playsound(loc, 'sound/effects/creepyshriek.ogg', 30, 1)
+		playsound(get_turf(src), 'sound/effects/creepyshriek.ogg', 30, 1)
 		if(occupant)
 			qdel(occupant)
-		gibs(src.loc)
+		gibs(get_turf(src))
 		qdel(src)
 		return
 
@@ -84,44 +84,44 @@
 	if(target.isSynthetic())
 		return
 
-	if(src.is_devouring)
-		to_chat(src, "<span class='warning'>We are already feasting on something!</span>")
+	if(is_devouring)
+		to_chat(src, SPAN_WARNING("We are already feasting on something!"))
 		return 0
 
 	if(!health)
-		to_chat(src, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
+		to_chat(src, SPAN_NOTICE("We are dead, we cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
+		to_chat(src, SPAN_WARNING("We must wait a little while before we can use this ability again!"))
 		return
 
-	src.visible_message("<span class='warning'>[src] begins ripping apart and feasting on [target]!</span>")
-	src.is_devouring = TRUE
+	visible_message(SPAN_WARNING("[src] begins ripping apart and feasting on [target]!"))
+	is_devouring = TRUE
 
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
-		src.is_devouring = FALSE
+		to_chat(src, SPAN_WARNING("You need to wait longer to devour \the [target]!"))
+		is_devouring = FALSE
 		return 0
 
-	src.visible_message("<span class='warning'>[src] tears a chunk from \the [target]'s flesh!</span>")
+	visible_message(SPAN_WARNING("[src] tears a chunk from \the [target]'s flesh!"))
 
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
-		src.is_devouring = FALSE
+		to_chat(src, SPAN_WARNING("You need to wait longer to devour \the [target]!"))
+		is_devouring = FALSE
 		return 0
 
-	src.visible_message("<span class='warning'>[target] is completely devoured by [src]!</span>", \
-						"<span class='danger'>You completely devour \the [target]!</span>")
+	visible_message(SPAN_WARNING("[target] is completely devoured by [src]!"), \
+						SPAN_DANGER("You completely devour \the [target]!"))
 	target.gib()
 	rejuvenate()
 	updatehealth()
 	last_special = world.time + 100
-	src.is_devouring = FALSE
+	is_devouring = FALSE
 	return
 
 /mob/living/simple_animal/hostile/true_changeling/verb/dart(mob/living/target as mob in oview())
@@ -130,7 +130,7 @@
 	set category = "Changeling"
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("We are dead, we cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
@@ -138,7 +138,7 @@
 
 	last_special = world.time + 30
 
-	visible_message("<span class='warning'>\The [src]'s skin bulges and tears, launching a bone-dart at [target]!</span>")
+	visible_message(SPAN_WARNING("\The [src]'s skin bulges and tears, launching a bone-dart at [target]!"))
 
 	playsound(src.loc, 'sound/weapons/bloodyslice.ogg', 50, 1)
 	var/obj/item/bone_dart/A = new /obj/item/bone_dart(usr.loc)
@@ -196,6 +196,26 @@
 	..()
 	mind.assigned_role = "Changeling"
 
+//recovers from statuses slightly faster. Mobile form should be harder to lock down.
+/mob/living/simple_animal/hostile/lesser_changeling/handle_status_effects()
+	if(paralysis)
+		paralysis = max(paralysis - 2,0)
+	if(stunned)
+		stunned = max(stunned - 2,0)
+		if(!stunned)
+			update_icons()
+	if(weakened)
+		weakened = max(weakened - 2,0)
+		if(!weakened)
+			update_icons()
+	if(confused)
+		confused = max(confused - 2, 0)
+
+/mob/living/simple_animal/hostile/lesser_changeling/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon=null)
+	if(prob((30 - stun_amount) - agony_amount))
+		return	//chance to ignore smaller stuns.
+	..()
+
 /mob/living/simple_animal/hostile/lesser_changeling/death(gibbed)
 	..()
 	if(!gibbed)
@@ -205,8 +225,8 @@
 			if(mind)
 				mind.transfer_to(occupant)
 
-		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
-		gibs(src.loc)
+		visible_message(SPAN_WARNING("\The [src] explodes into a shower of gore!"))
+		gibs(get_turf(src))
 		qdel(src)
 		return
 
@@ -216,7 +236,7 @@
 	set category = "Changeling"
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("We are dead, we cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
@@ -232,6 +252,6 @@
 		occupant.status_flags &= ~GODMODE
 		if(mind)
 			mind.transfer_to(occupant)
-		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
-		gibs(src.loc)
+		visible_message(SPAN_WARNING("\The [src] explodes into a shower of gore!"))
+		gibs(get_turf(src))
 		qdel(src)

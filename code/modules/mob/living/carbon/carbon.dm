@@ -429,8 +429,6 @@
 		return FALSE
 	if (analgesic > 100)
 		return FALSE
-	if(get_ling_level(LING_LEVEL_HIGH))
-		return FALSE
 
 	return TRUE
 

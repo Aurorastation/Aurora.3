@@ -1365,6 +1365,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(amount <= 0)
 			return
 	pain = max(0, min(max_damage, pain + amount))
+	if(owner.mind?.changeling)
+		pain *= (0.75 / owner.get_ling_level())
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	return pain-last_pain

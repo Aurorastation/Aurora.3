@@ -101,7 +101,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages)
 		absorbDNA(newDNA)
 
-	H.adjust_species()
+	//H.adjust_species()
 
 	return TRUE
 
@@ -174,7 +174,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		to_chat(src, FONT_LARGE(SPAN_NOTICE(message)))
 
 //Making you better than others of your species
-/mob/living/carbon/human/proc/adjust_species()
+/*/mob/living/carbon/human/proc/adjust_species()
 	if(!species)
 		return FALSE
 	if(!(mind?.changeling))
@@ -194,7 +194,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(!mind.changeling.ling_level) //If somehow your level went away?
 		mind.changeling.ling_level = LING_LEVEL_LOW
 
-	return TRUE
+	return TRUE*/
 
 //DNA related datums
 

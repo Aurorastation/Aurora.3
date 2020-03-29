@@ -800,6 +800,10 @@
 		//Other
 		handle_statuses()
 
+		//Lings recover pain faster
+		if(mind?.changeling)
+			adjustHalLoss(-get_ling_level())
+
 		if(drowsyness)
 			if(drowsyness < 0 || get_ling_level(LING_LEVEL_HIGH))
 				drowsyness = 0
@@ -1064,7 +1068,7 @@
 	if(is_asystole())
 		shock_stage = max(shock_stage + 1, 61)
 	if(mind?.changeling)
-		shock_stage = min(shock_stage + 1, 30 - (get_ling_level() * 10))
+		shock_stage = min(shock_stage + 1, 40 - (get_ling_level() * 10))
 
 	var/traumatic_shock = get_shock()
 	if(traumatic_shock >= max(30, 0.8*shock_stage))
