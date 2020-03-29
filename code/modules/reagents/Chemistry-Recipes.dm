@@ -616,6 +616,13 @@
 	required_reagents = list("calomel" = 1, "lexorin" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/pulmodemcina
+	name = "Pulmodemcina"
+	id = "pulmodemcina"
+	result = "pulmodemcina"
+	required_reagents = list("coughsyrup" = 1, "copper" = 1, "arithrazine" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/saline
 	name = "Saline"
 	id = "saline"
@@ -635,13 +642,6 @@
 	id = "atropine"
 	result = "atropine"
 	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
-	result_amount = 2
-
-/datum/chemical_reaction/inaprovaline
-	name = "Inaprovaline"
-	id = "inaprovaline"
-	result = "inaprovaline"
-	required_reagents = list("atropine" = 1, "phoron" = 0.1, "adrenaline" = 1 )
 	result_amount = 2
 
 /datum/chemical_reaction/coughsyrup

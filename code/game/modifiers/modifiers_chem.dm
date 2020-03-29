@@ -31,11 +31,11 @@
 
 
 
-//Adrenaline, granted by synaptizine and inaprovaline, with different strengths for each
+//Adrenaline, granted by synaptizine and norepinephrine, with different strengths for each
 //Allows the body to endure more, increasing speed a little, stamina a lot, stamina regen a lot,
 //and reducing sprint costs
-//Synaptizine applies it at strength 1, inaprovaline applies it at strength 0.6
-//Is applied using strengthen override mode, so synaptizine will replace inaprovaline if both are present
+//Synaptizine applies it at strength 1, norepinephrine applies it at strength 0.6
+//Is applied using strengthen override mode, so synaptizine will replace norepinephrine if both are present
 /datum/modifier/adrenaline
 	var/speed_added = 0
 	var/stamina_added = 0

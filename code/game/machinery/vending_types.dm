@@ -399,9 +399,6 @@
 		/obj/item/reagent_containers/pill/tox = 3,
 		/obj/item/reagent_containers/pill/stox = 4
 	)
-	premium = list(
-		/obj/item/reagent_containers/glass/bottle/inaprovaline = 2
-	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
