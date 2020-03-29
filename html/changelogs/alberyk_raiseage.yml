@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Increased the scientist job minimum age to 30 years old."
+  - tweak: "Increased the research director job minimum age to 30 years old."
