@@ -67,10 +67,17 @@
 	if(T.is_client_active())
 		changeling.chem_charges += 50	
 		changeling.geneticpoints += 5
+		changeling.total_absorbed_genpoints += 5
 	else
-		to_chat(src, SPAN_NOTICE("These genes are stale from inactivity... Disgusting."))
-		changeling.chem_charges += 25	
-		changeling.geneticpoints += 2
+		if(changeling.inactives_absorbed >= 3)
+			to_chat(src, SPAN_WARNING("We can evolve no further with these stale genes. We require fresh samples."))
+			changeling.chem_charges += 10
+		else
+			to_chat(src, SPAN_NOTICE("These genes are stale from inactivity... Disgusting."))
+			changeling.chem_charges += 25	
+			changeling.geneticpoints += 2
+			changeling.total_absorbed_genpoints += 2
+		changeling.inactives_absorbed++
 
 	changeling.update_ling_power()
 

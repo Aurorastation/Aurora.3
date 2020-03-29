@@ -1,0 +1,20 @@
+# Your name.  
+author: Doxxmedearly, Hivemind by Geeves
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "When lings suck people dry, those people are added to the ling's internal hivemind, where they can communicate with eachother."
+  - rscadd: "The hiveminded person can ghost, which will tell the ling and the others in the hivemind that they have left."
+  - rscadd: "The ling can eject people out of their hivemind. This has no benefit to the ling, unless the person was salty. This ability does not make salt okay."
+  - rscadd: "Lings become hardier as they acquire more genomes. The more you absorb, the more resistant to pain, stuns, weakness, etc. you become. Evolving abilites by spending genomes does not decrease this."
+  - rscadd: "Lings earn less genes and chemicals from absorbing non-player or old corpses. There's also a limit to prevent someone siphoning a dozen protohumans instead of interacting with the crew."
+  - tweak: "Hallucination sting is a little less potent, but still very strong. There's a cap to prevent stacking a ton of stings on one person in a short window. Just because hallucinations aren't LRP anymore doesn't mean you should be."
+  - tweak: "Lesser lings are a bit better at shaking off stuns, weakness, and pain."
+  - tweak: "Ling adrenaline sacs cost lowered from 30 chems to 20."
