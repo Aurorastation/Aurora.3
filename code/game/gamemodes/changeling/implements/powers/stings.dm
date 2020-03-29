@@ -162,17 +162,17 @@
 	if(!chosen_dna)
 		return
 
-	var/mob/living/carbon/T = changeling_sting(40,/mob/proc/changeling_transformation_sting,stealthy = 1)
+	var/mob/living/carbon/T = changeling_sting(40,/mob/proc/changeling_transformation_sting,stealthy = TRUE)
 	if(!T)
 		return FALSE
 	if((HUSK in T.mutations) || (!ishuman(T) && !issmall(T)))
-		to_chat(src, "<span class='warning'>Our sting appears ineffective against its DNA.</span>")
+		to_chat(src, SPAN_WARNING("Our sting appears ineffective against its DNA."))
 		return FALSE
 	if(islesserform(T))
-		to_chat(src, "<span class='warning'>Our sting appears ineffective against this creature.</span>")
+		to_chat(src, SPAN_WARNING("Our sting appears ineffective against this creature."))
 		return FALSE
 	if(T.stat != DEAD)
-		to_chat(src, "<span class='warning'>Our sting can only be used against dead targets.</span>")
+		to_chat(src, SPAN_WARNING("Our sting can only be used against dead targets."))
 		return FALSE
 
 	T.handle_changeling_transform(chosen_dna)

@@ -60,7 +60,7 @@
 			return
 
 	visible_message(SPAN_DANGER("[src] sucks the fluids from [T]!"),
-			SPAN_NOTICE("We have absorbed [T]! What an exquisite feast..."))
+				SPAN_NOTICE("We have absorbed [T]! What an exquisite feast..."))
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	//Succ points and chems. You get less if it's not a player. Using is_client_active to prevent rageghosting screwing you.
@@ -91,7 +91,7 @@
 	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
 	absorbDNA(newDNA)
 
-	if(T.mind && T.mind.changeling)
+	if(T.mind?.changeling)
 		if(T.mind.changeling.absorbed_dna)
 			for(var/datum/absorbed_dna/dna_data in T.mind.changeling.absorbed_dna)	//steal all their loot
 				if(changeling.GetDNA(dna_data.name))

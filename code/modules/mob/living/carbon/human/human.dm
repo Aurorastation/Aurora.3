@@ -1395,7 +1395,7 @@
 		usr.visible_message(span("notice", "[usr] begins counting their pulse."),\
 		"You begin counting your pulse.")
 
-	if(pulse())
+	if(pulse() && !(status_flags & FAKEDEATH))
 		to_chat(usr, span("notice", "[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
 		to_chat(usr, span("warning", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)

@@ -18,3 +18,4 @@ changes:
   - tweak: "Hallucination sting is a little less potent, but still very strong. There's a cap to prevent stacking a ton of stings on one person in a short window. Just because hallucinations aren't LRP anymore doesn't mean you should be."
   - tweak: "Lesser lings are a bit better at shaking off stuns, weakness, and pain."
   - tweak: "Ling adrenaline sacs cost lowered from 30 chems to 20."
+  - bugfix: "You no longer find a pulse on a changeling who is faking death. This affects manually checking, scanners, and HUDs."

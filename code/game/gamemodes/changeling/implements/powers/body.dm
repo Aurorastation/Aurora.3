@@ -8,7 +8,7 @@
 		return
 
 	if(!ishuman(src))
-		to_chat(src, "<span class='warning'>We cannot perform this ability as this form!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability as this form!"))
 		return
 
 	var/list/names = list()
@@ -38,7 +38,7 @@
 
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
 	if(ishuman(src))
-		src.visible_message("<span class='warning'>[src] transforms!</span>")
+		src.visible_message(SPAN_WARNING("[src] transforms!"))
 		var/mob/living/carbon/human/H = src
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
@@ -60,13 +60,13 @@
 		return
 
 	if(src.has_brain_worms()) //why the fuck does brain worms prevent you from turning into a monkey
-		to_chat(src, "<span class='warning'>We cannot perform this ability at the present time!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability at the present time!"))
 		return
 
 	var/mob/living/carbon/human/H = src
 
 	if(!istype(H) || !H.species.primitive_form)
-		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability in this form!"))
 		return
 
 	if(H.handcuffed)
@@ -75,9 +75,9 @@
 		qdel(cuffs)
 
 	changeling.chem_charges--
-	H.visible_message("<span class='warning'>[H] transforms!</span>")
+	H.visible_message(SPAN_WARNING("[H] transforms!"))
 	changeling.geneticdamage = 30
-	to_chat(H, "<span class='warning'>Our genes cry out!</span>")
+	to_chat(H, SPAN_WARNING("Our genes cry out!"))
 
 	var/mob/living/simple_animal/hostile/lesser_changeling/ling = new (get_turf(H))
 
@@ -130,7 +130,7 @@
 
 	changeling.chem_charges--
 	C.remove_changeling_powers()
-	C.visible_message("<span class='warning'>[C] transforms!</span>")
+	C.visible_message(SPAN_WARNING("[C] transforms!"))
 	C.dna = chosen_dna.Clone()
 
 	var/list/implants = list()
@@ -199,7 +199,7 @@
 	var/mob/living/carbon/C = src
 	if(!C.stat && alert("Are we sure we wish to fake our death?", , "Yes", "No") == "No") //Confirmation for living changelings if they want to fake their death
 		return
-	to_chat(C, "<span class='notice'>We will attempt to regenerate our form.</span>")
+	to_chat(C, SPAN_NOTICE("We will attempt to regenerate our form."))
 
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
@@ -208,16 +208,19 @@
 	C.emote("gasp")
 	C.tod = worldtime2text()
 
-	spawn(1000)
-		if(changeling_power(20,1,100,DEAD))
-			// charge the changeling chemical cost for stasis
-			changeling.chem_charges -= 20
-
-			to_chat(C, "<span class='notice'><font size='5'>We are ready to rise. Use the <b>Revive</b> verb when you are ready.</font></span>")
-			C.verbs += /mob/proc/changeling_revive
-
+	addtimer(CALLBACK(src, .proc/add_revive, C), 1000)
 	feedback_add_details("changeling_powers", "FD")
 	return TRUE
+
+/mob/proc/add_revive(var/mob/living/carbon/C)
+	if(!(C.mind?.changeling))
+		log_debug("Attempted to add the changeling revive verb to [C] but they are not a changeling!")
+		return
+	if(C.changeling_power(20,1,100,DEAD))
+		//charge the changeling chemical cost for stasis
+		C.mind.changeling.chem_charges -= 20
+		to_chat(C, SPAN_NOTICE(FONT_GIANT("We are ready to rise. Use the <b>Revive</b> verb when you are ready.")))
+		C.verbs += /mob/proc/changeling_revive
 
 /mob/proc/changeling_revive()
 	set category = "Changeling"
@@ -228,9 +231,6 @@
 	C.revive(FALSE)
 	// remove our fake death flag
 	C.status_flags &= ~(FAKEDEATH)
-	// let us move again
-	C.update_canmove()
-	// re-add out changeling powers
 	C.make_changeling()
 	// sending display messages
 	to_chat(C, SPAN_NOTICE("We have regenerated fully."))
