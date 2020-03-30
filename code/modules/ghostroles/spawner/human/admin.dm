@@ -59,7 +59,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/cciaa
-	possible_species = list("Human")
+	possible_species = list("Human","Skrell")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 

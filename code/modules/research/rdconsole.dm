@@ -223,7 +223,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["copy_design"]) //Copy design data from the research holder to the design disk.
 		for(var/datum/design/D in files.known_designs)
-			if(href_list["copy_design_ID"] == D.id)
+			if("[D.type]" == href_list["copy_design_ID"])
 				d_disk.blueprint = D
 				break
 		screen = 1.4
@@ -308,7 +308,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(linked_lathe)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if(D.id == href_list["build"])
+				if("[D.type]" == href_list["build"])
 					being_built = D
 					break
 			if(being_built)
@@ -321,7 +321,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(linked_imprinter)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if(D.id == href_list["imprint"])
+				if("[D.type]" == href_list["imprint"])
 					being_built = D
 					break
 			if(being_built)
@@ -574,7 +574,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			for(var/datum/design/D in files.known_designs)
 				if(D.build_path)
 					dat += "<LI>[D.name] "
-					dat += "<A href='?src=\ref[src];copy_design=1;copy_design_ID=[D.id]'>\[copy to disk\]</A>"
+					dat += "<A href='?src=\ref[src];copy_design=1;copy_design_ID=[D.type]'>\[copy to disk\]</A>"
 			dat += "</UL>"
 
 		if(1.6) //R&D console settings
@@ -662,7 +662,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(temp_dat)
 					temp_dat = " \[[copytext(temp_dat, 3)]\]"
 				if(linked_lathe.canBuild(D))
-					dat += "<LI><B><A href='?src=\ref[src];build=[D.id]'>[D.name]</A></B>[temp_dat]"
+					dat += "<LI><B><A href='?src=\ref[src];build=[D.type]'>[D.name]</A></B>[temp_dat]"
 				else
 					dat += "<LI><B>[D.name]</B>[temp_dat]"
 			dat += "</UL>"
@@ -738,7 +738,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(temp_dat)
 					temp_dat = " \[[copytext(temp_dat,3)]\]"
 				if(linked_imprinter.canBuild(D))
-					dat += "<LI><B><A href='?src=\ref[src];imprint=[D.id]'>[D.name]</A></B>[temp_dat]"
+					dat += "<LI><B><A href='?src=\ref[src];imprint=[D.type]'>[D.name]</A></B>[temp_dat]"
 				else
 					dat += "<LI><B>[D.name]</B>[temp_dat]"
 			dat += "</UL>"

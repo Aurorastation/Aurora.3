@@ -153,7 +153,7 @@
 
 	if(remove_generic)
 		M.drowsyness = max(0, M.drowsyness - 6 * removed)
-		M.hallucination += (-9 * removed)
+		M.hallucination -= (9 * removed)
 		M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
 
 	var/removing = (4 * removed)
@@ -254,7 +254,6 @@
 		M.adjustCloneLoss(-10 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
-		M.adjustToxLoss(-10 * removed)
 
 /datum/reagent/clonexadone
 	name = "Clonexadone"
@@ -272,7 +271,6 @@
 		M.adjustCloneLoss(-30 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
-		M.adjustToxLoss(-30 * removed)
 
 /* Painkillers */
 

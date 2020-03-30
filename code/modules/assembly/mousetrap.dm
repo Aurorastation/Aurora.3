@@ -1,9 +1,13 @@
 /obj/item/device/assembly/mousetrap
 	name = "mousetrap"
 	desc = "A handy little spring-loaded trap for catching pesty rodents."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "mousetrap"
 	origin_tech = list(TECH_COMBAT = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 100, "waste" = 10)
+	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	var/armed = 0
 
 

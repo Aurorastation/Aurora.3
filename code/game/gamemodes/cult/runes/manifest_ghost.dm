@@ -32,7 +32,7 @@
 			chose_name = TRUE
 			break
 	apparition.universal_speak = TRUE
-	apparition.underwear = null
+	apparition.all_underwear.Cut()
 	apparition.key = ghost.key
 	cult.add_antagonist(apparition.mind)
 	playsound(loc, 'sound/magic/exit_blood.ogg', 100, 1)

@@ -1,7 +1,7 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
 	flag = CHIEF
-	head_position = 1
+	head_position = TRUE
 	department = "Engineering"
 	department_flag = ENGSEC
 	faction = "Station"
@@ -19,11 +19,11 @@
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_rnd_console, access_treatment_areas)
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload)
 	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_rnd_console, access_treatment_areas)
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
@@ -40,6 +40,7 @@
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/heads/ce
+	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -47,9 +48,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
-		/obj/item/weldingtool = 1,
+		/obj/item/weldingtool/largetank = 1, // industrial welding tool
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
@@ -103,8 +102,6 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
@@ -127,7 +124,7 @@
 	minimum_character_age = 25
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics, access_external_airlocks)
-	minimal_access = list(access_eva, access_engine, access_engine_equip, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
+	minimal_access = list(access_eva, access_engine, access_atmospherics, access_maint_tunnels, access_emergency_storage, access_construction, access_external_airlocks)
 	outfit = /datum/outfit/job/atmos
 
 /datum/outfit/job/atmos
@@ -147,12 +144,12 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
+		/obj/item/device/analyzer = 1,
+		/obj/item/pipewrench = 1,
 		/obj/item/powerdrill = 1
 	)
 
@@ -176,7 +173,16 @@
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
+	belt = /obj/item/storage/belt/utility
 	l_ear = /obj/item/device/radio/headset/headset_eng
+
+	belt_contents = list(
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1
+	)
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng

@@ -254,3 +254,6 @@
 	name = "asteroid spawn"
 	icon = 'icons/1024x1024.dmi'
 	icon_state = "yellow"
+
+/obj/effect/landmark/distress_team_equipment
+	name = "distress equipment"

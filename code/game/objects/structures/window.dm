@@ -4,10 +4,10 @@
 	icon = 'icons/obj/structures.dmi'
 	density = 1
 	w_class = 3
-
 	layer = 3.2//Just above doors
 	anchored = 1.0
 	flags = ON_BORDER
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/maxhealth = 14.0
 	var/maximal_heat = T0C + 100 		// Maximal heat before this window begins taking damage from fire
 	var/damage_per_fire_tick = 2.0 		// Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
@@ -214,9 +214,10 @@
 	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
-/obj/structure/window/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
+/obj/structure/window/attackby(obj/item/W, mob/user)
+	if(!istype(W) || istype(W, /obj/item/flag))
+		return
+	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, BRUTE)
@@ -298,44 +299,6 @@
 /obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
 	if(reinf) damage *= 0.5
 	take_damage(damage)
-	return
-
-
-/obj/structure/window/verb/rotate()
-	set name = "Rotate Window Counter-Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return 0
-
-	if(anchored)
-		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
-		return 0
-
-	update_nearby_tiles(need_rebuild=1) //Compel updates before
-	set_dir(turn(dir, 90))
-	updateSilicate()
-	update_nearby_tiles(need_rebuild=1)
-	return
-
-
-/obj/structure/window/verb/revrotate()
-	set name = "Rotate Window Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return 0
-
-	if(anchored)
-		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
-		return 0
-
-	update_nearby_tiles(need_rebuild=1) //Compel updates before
-	set_dir(turn(dir, 270))
-	updateSilicate()
-	update_nearby_tiles(need_rebuild=1)
 	return
 
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)

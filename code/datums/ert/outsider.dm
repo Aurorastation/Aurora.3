@@ -12,6 +12,7 @@
 	name = "Interstellar Aid Corps"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/iac
+	equipment_map = /datum/map_template/distress_iac
 
 /datum/responseteam/syndicate
 	name = "Syndicate Commandos"

@@ -132,6 +132,9 @@
 	var/sql_role = SQL_CHARACTER
 	var/modified = 0
 
+/datum/category_group/player_setup_category/dd_SortValue()
+	return sort_order
+
 /datum/category_group/player_setup_category/proc/sanitize_setup(sql_load = FALSE)
 	for(var/datum/category_item/player_setup_item/PI in items)
 		PI.sanitize_preferences(sql_load)
@@ -219,6 +222,9 @@
 /datum/category_item/player_setup_item/Destroy()
 	pref = null
 	return ..()
+
+/datum/category_item/player_setup_item/dd_SortValue()
+	return sort_order
 
 /datum/category_item/player_setup_item/proc/to_client_chat(str)
 	if (pref && pref.client)

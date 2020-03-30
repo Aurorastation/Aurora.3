@@ -331,7 +331,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
@@ -365,7 +365,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -426,7 +426,7 @@ BREATH ANALYZER
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -474,7 +474,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 /obj/item/device/slime_scanner/attack(mob/living/M, mob/living/user)
 	if(!isslime(M))
@@ -516,7 +516,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 25, "glass" = 25)
+	matter = list(DEFAULT_WALL_MATERIAL = 25, MATERIAL_GLASS = 25)
 
 /obj/item/device/price_scanner/afterattack(atom/movable/target, mob/user as mob, proximity)
 	if(!proximity)
@@ -537,7 +537,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
 /obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)

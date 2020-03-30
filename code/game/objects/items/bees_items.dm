@@ -48,6 +48,7 @@
 /obj/item/book/manual/hydroponics_beekeeping
 	name = "The Ins and Outs of Apiculture - A Precise Art"
 	icon_state ="bookbee"
+	icon_state ="book8"
 	author = "Beekeeper Dave"
 	title = "The Ins and Outs of Apiculture - A Precise Art"
 	dat = {"<html>

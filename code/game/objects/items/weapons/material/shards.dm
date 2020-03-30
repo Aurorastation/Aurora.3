@@ -93,13 +93,13 @@
 
 // Preset types - left here for the code that uses them
 /obj/item/material/shard/shrapnel/New(loc)
-	..(loc, "steel")
+	..(loc, MATERIAL_STEEL)
 
 /obj/item/material/shard/shrapnel/flechette/New(loc)
-	..(loc, "titanium")
+	..(loc, MATERIAL_TITANIUM)
 
 /obj/item/material/shard/phoron/New(loc)
-	..(loc, "borosilicate glass")
+	..(loc, MATERIAL_GLASS_PHORON)
 
 /obj/item/material/shard/wood/New(loc)
-	..(loc, "wood")
+	..(loc, MATERIAL_WOOD)

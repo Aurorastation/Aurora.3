@@ -25,7 +25,7 @@
 	<li><b>Personal Security Professional</b>: Excellent customer service and client
 	care is why Necropolis wins security contracts and you know this. A cut above
 	the rest, you are clear, calm, concise and polite when working. As a security
-	force you were voted the top firm to employ and as such, NT ISD should really
+	force you were voted the top firm to employ and as such, NanoTrasen Security should really
 	be referring to your better judgement with security issues as far as you're
 	concerned. All crew are your customers and as such deserve a top notch customer
 	experience.</li>

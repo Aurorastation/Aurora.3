@@ -1379,7 +1379,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A kit containing a change of casual clothes, packaged for easy transport. This one advertises some sort of cartoon featuring slimes. It is labeled \"J. Beal.\""
 	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
 	icon_state = "jennifer_wardrobe_box"
-	item_state = "syringe_kit"
+	item_state = "box"
 
 /obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
@@ -1829,7 +1829,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
+/obj/item/surgery/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
 	name = "laser retractor"
 	desc = "The fabled laser retractor. It's a horrible amalgamation of a laser pointer, a retractor, and lots of tape."
 	icon = 'icons/obj/custom_items/tristen_retractor.dmi'

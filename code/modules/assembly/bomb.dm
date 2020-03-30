@@ -26,15 +26,14 @@
 	if(istype(W, /obj/item/device/analyzer))
 		bombtank.attackby(W, user)
 		return
-	if(W.iswrench() && !status)	//This is basically bomb assembly code inverted. apparently it works.
+	if(!status && (W.iswrench() || istype(W, /obj/item/wirecutters/bomb)))	//This is basically bomb assembly code inverted. apparently it works.
+		to_chat(user, SPAN_NOTICE("You disassemble \the [src]."))
 
-		to_chat(user, "<span class='notice'>You disassemble [src].</span>")
-
-		bombassembly.forceMove(user.loc)
+		bombassembly.forceMove(get_turf(user))
 		bombassembly.master = null
 		bombassembly = null
 
-		bombtank.forceMove(user.loc)
+		bombtank.forceMove(get_turf(user))
 		bombtank.master = null
 		bombtank = null
 
