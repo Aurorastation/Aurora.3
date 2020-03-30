@@ -213,7 +213,6 @@
 /obj/item/projectile/bullet/rifle/slugger
 	name = "slugger round"
 	damage = 80
-	stun = 3
 	weaken = 3
 	penetrating = 5
 	armor_penetration = 15
