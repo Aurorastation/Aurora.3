@@ -3,7 +3,7 @@ author: Doxxmedearly
 delete-after: True
 
 changes: 
-  - rscadd: "Added Pulmodemcina, a medication that is targeted to fix lung damage, which should decrease reliance on peridaxon. Make it by using a 1:1:1 ratio of cough syrup, copper, and arithrazine. Overdoses above 15u, causing a dangerous drop in a person's pulse."
+  - rscadd: "Added Pneumalin, a medication that is targeted to fix lung damage, which should decrease reliance on peridaxon. Make it by using a 1:1:1 ratio of cough syrup, copper, and pulmodeiectionem. Overdoses above 15u, causing a dangerous drop in a person's pulse."
   - rscdel: "Removed inaprovaline. Replaced all bottles and syringes with norepinephrine. Itching and cramps are now relieved by norepinephrine."
   - tweak: "Dylovene is now less effective at treating hallucinations. Use synaptizine."
   - tweak: "Adipemcina no longer relies on or affects a person's nutrition level to function. It also metabolizes a little faster."

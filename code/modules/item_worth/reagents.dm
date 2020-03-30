@@ -546,7 +546,7 @@
 /datum/reagent/ryetalyn
 	value = 3.6
 
-/datum/reagent/pulmodemcina
+/datum/reagent/pneumalin
 	value = 3.2
 
 /datum/reagent/hyperzine

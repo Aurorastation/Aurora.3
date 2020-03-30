@@ -1302,9 +1302,9 @@
 				H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
 	. = ..()
 
-/datum/reagent/pulmodemcina
-	name = "Pulmodemcina"
-	id = "pulmodemcina"
+/datum/reagent/pneumalin
+	name = "Pneumalin"
+	id = "pneumalin"
 	description = "A chemical that, when inhaled, restores tearing and bruising of the lungs. Overdosing can lower a patient's pulse to dangerous levels."
 	color = "#8154b4"
 	overdose = 15
@@ -1312,13 +1312,13 @@
 	taste_description = "fine dust"
 	reagent_state = SOLID
 
-/datum/reagent/pulmodemcina/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+/datum/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
 	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
 	H.add_chemical_effect(CE_PULSE, -1)
 	. = ..()
 
-/datum/reagent/pulmodemcina/overdose(var/mob/living/carbon/human/H, var/alien, var/removed)
+/datum/reagent/pneumalin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed)
 	H.add_chemical_effect(CE_PULSE, -dose * 0.33)
 
 /datum/reagent/rezadone

@@ -110,4 +110,4 @@
 	chloral		spawn_reagent = "chloralhydrate"
 	cryoxadone	spawn_reagent = "cryoxadone"
 	clonexadone	spawn_reagent = "clonexadone"
-	pulmodemcina	spawn_reagent = "pulmodemcina"
+	pneumalin	spawn_reagent = "pneumalin"

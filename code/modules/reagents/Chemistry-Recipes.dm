@@ -616,11 +616,11 @@
 	required_reagents = list("calomel" = 1, "lexorin" = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/pulmodemcina
-	name = "Pulmodemcina"
-	id = "pulmodemcina"
-	result = "pulmodemcina"
-	required_reagents = list("coughsyrup" = 1, "copper" = 1, "arithrazine" = 1)
+/datum/chemical_reaction/pneumalin
+	name = "Pneumalin"
+	id = "pneumalin"
+	result = "pneumalin"
+	required_reagents = list("coughsyrup" = 1, "copper" = 1, "pulmodeiectionem" = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/saline
