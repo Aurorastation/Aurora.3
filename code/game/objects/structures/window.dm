@@ -214,9 +214,10 @@
 	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
-/obj/structure/window/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
+/obj/structure/window/attackby(obj/item/W, mob/user)
+	if(!istype(W) || istype(W, /obj/item/flag))
+		return
+	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, BRUTE)

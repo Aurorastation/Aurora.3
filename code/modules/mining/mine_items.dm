@@ -851,8 +851,10 @@ var/list/total_extraction_beacons = list()
 		beacon = A
 
 /obj/item/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user)
+	if(istype(A, /obj/item/storage/bag/ore))
+		return
 	if(!beacon)
-		to_chat(user, "\The [src] is not linked to a beacon, and cannot be used.")
+		to_chat(user, SPAN_WARNING("\The [src] is not linked to a beacon, and cannot be used."))
 		return
 	if(!istype(A))
 		return
@@ -885,6 +887,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/warp_core
 	name = "warp extraction beacon signaller"
 	desc = "Emits a signal which Warp-Item recovery devices can lock onto. Activate in hand to create a beacon."
+	description_info = "You can activate this item in-hand to create a static beacon, or you can click on an ore box with it to allow the ore box to be linked to warp packed mining satchels."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "subspace_amplifier"
 	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)
