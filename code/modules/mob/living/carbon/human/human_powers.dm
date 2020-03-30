@@ -356,8 +356,8 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(G.state < GRAB_KILL)
-		to_chat(src, SPAN_WARNING("You must have an strangling grip to bite someone!"))
+	if(G.state < GRAB_NECK)
+		to_chat(src, SPAN_WARNING("You must have a neck grip to bite someone!"))
 		return
 
 	if(ishuman(G.affecting))
