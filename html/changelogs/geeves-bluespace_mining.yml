@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Bluespace mining is now possible, to do so, attach a warp extraction pack to a mining satchel, then a warp extraction beacon signaller to an ore box. Link them by clicking on the ore box with the satchel."
+  - rscadd: "You can attach a linked mining satchel to a mining drill to teleport mined ores to the connected ore box."
+  - rscadd: "Mining satchel beacons can be removed with a screwdriver, mining drill satchels by wrench, and ore box beacons by hand."

@@ -8,6 +8,7 @@
 /obj/machinery/mining/drill
 	name = "mining drill head"
 	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
+	description_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
 	icon_state = "mining_drill"
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/braces_needed = 2
@@ -34,6 +35,7 @@
 	var/capacity
 	var/charge_use
 	var/obj/item/cell/cell
+	var/obj/item/storage/bag/ore/attached_satchel
 
 	//Flags
 	var/need_update_field = FALSE
@@ -54,6 +56,7 @@
 	spark_system = bind_spark(src, 3)
 
 /obj/machinery/mining/drill/Destroy()
+	QDEL_NULL(attached_satchel)
 	QDEL_NULL(spark_system)
 	return ..()
 
@@ -84,6 +87,10 @@
 		var/turf/unsimulated/floor/asteroid/T = get_turf(src)
 		if(!T.dug)
 			T.gets_dug()
+			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
+				ore.forceMove(src)
+				if(attached_satchel?.linked_box)
+					attached_satchel.insert_into_storage(ore)
 	else if(istype(get_turf(src), /turf/simulated/floor))
 		var/turf/simulated/floor/T = get_turf(src)
 		T.ex_act(2.0)
@@ -98,7 +105,7 @@
 			resource_field -= harvesting
 			harvesting = pick(resource_field)
 
-		if(!harvesting) 
+		if(!harvesting)
 			return
 
 		var/total_harvest = harvest_speed //Ore harvest-per-tick.
@@ -132,7 +139,9 @@
 
 				for(var/i = 1, i <= create_ore, i++)
 					var/oretype = ore_types[ore]
-					new oretype(src)
+					var/obj/stored_ore = new oretype(src)
+					if(attached_satchel?.linked_box)
+						attached_satchel.insert_into_storage(stored_ore)
 
 		if(!found_resource)
 			harvesting.has_resources = FALSE
@@ -152,6 +161,8 @@
 	if(panel_open)
 		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
 	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%")
+	if(attached_satchel && user.Adjacent(src))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
 	return
 
 
@@ -169,6 +180,32 @@
 				return
 	if(active) 
 		return ..()
+
+	if(istype(O, /obj/item/storage/bag/ore))
+		var/obj/item/storage/bag/ore/S = O
+		if(attached_satchel)
+			to_chat(user, SPAN_WARNING("\The [src] already has a satchel attached to it!"))
+			return
+		if(!S.linked_beacon)
+			to_chat(user, SPAN_WARNING("\The [S] doesn't have an extraction pack in it!"))
+			return
+		if(!S.linked_box)
+			to_chat(user, SPAN_WARNING("\The [S] doesn't have a linked ore box!"))
+			return
+		user.drop_from_inventory(S, src)
+		attached_satchel = S
+		to_chat(user, SPAN_NOTICE("You attach \the [S] to \the [src]."))
+		return
+
+	if(O.iswrench())
+		if(!attached_satchel)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
+			return
+		attached_satchel.forceMove(get_turf(user))
+		user.put_in_hands(attached_satchel)
+		to_chat(user, SPAN_NOTICE("You detach \the [attached_satchel]."))
+		attached_satchel = null
+		return
 
 	if(O.iscrowbar())
 		if (panel_open)
@@ -340,17 +377,18 @@
 	set category = "Object"
 	set src in oview(1)
 
-	if(usr.stat) return
+	if(use_check_and_message(usr))
+		return
 
 	var/obj/structure/ore_box/B = locate() in orange(1)
 	if(B)
 		for(var/obj/item/ore/O in contents)
 			O.forceMove(B)
-		to_chat(usr, "<span class='notice'>You unload the drill's storage cache into the ore box.</span>")
+		to_chat(usr, SPAN_NOTICE("You unload \the [src]'s storage cache into the ore box."))
 	else
 		for(var/obj/item/ore/O in contents)
-			O.forceMove(src.loc)
-		to_chat(usr, "<span class='notice'>You spill the content's of the drill's storage box all over the ground. Idiot.</span>")
+			O.forceMove(get_turf(src))
+		to_chat(usr, SPAN_NOTICE("You spill the contents of \the [src]'s storage box all over the ground"))
 
 
 /obj/machinery/mining/brace
