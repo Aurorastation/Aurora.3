@@ -8,6 +8,6 @@ changes:
   - tweak: "Dylovene is now less effective at treating hallucinations. Use synaptizine."
   - tweak: "Adipemcina no longer relies on or affects a person's nutrition level to function. It also metabolizes a little faster."
   - tweak: "Removed adrenaline effects from norepinephrine."
-  - tweak: "Kelotane no longer processes if dermaline is in a person's system."
+  - tweak: "Kelotane will no longer heal burns if dermaline is present in a person's system. It will metabolize with no effect until the dermaline is gone."
   - bugfix: "Dermaline now recovers the proper amount of burn damage, instead of being equivalent to kelotane."
   - bugfix: "Deltamivir will no longer cause organ-boiling fevers at 20u dosage. It will still cause a slight fever, so keep that in mind!"
