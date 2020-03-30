@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Mechfabs can now properly print prosthetics with manufacturers."
