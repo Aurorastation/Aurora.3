@@ -56,7 +56,7 @@
 	taste_description = "bitterness"
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!(locate(/datum/reagent/dermaline) in M.reagents.reagent_list)
+	if(!(locate(/datum/reagent/dermaline) in M.reagents.reagent_list))
 		M.heal_organ_damage(0, 6 * removed)
 
 /datum/reagent/dermaline
@@ -544,7 +544,7 @@
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/deltamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_FEVER, dose/10)
+	M.add_chemical_effect(CE_FEVER, dose/12)
 
 /datum/reagent/thetamycin
 	name = "Thetamycin"
@@ -1319,7 +1319,7 @@
 	. = ..()
 
 /datum/reagent/pulmodemcina/overdose(var/mob/living/carbon/human/H, var/alien, var/removed)
-	H.add_chemical_effect(CE_PULSE, -dose * 0.25)	//Dose of 20 would reduce pulse by 4
+	H.add_chemical_effect(CE_PULSE, -dose * 0.33)
 
 /datum/reagent/rezadone
 	name = "Rezadone"
@@ -1399,7 +1399,6 @@
 	description = "Adipemcina is a heart medication used for treating high blood pressure, heart failure, and diabetes. Causes vomiting and liver damage when overdosed."
 	reagent_state = LIQUID
 	color = "#008000"
-	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
