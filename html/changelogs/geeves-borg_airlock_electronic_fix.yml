@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Borgs can now work with airlock electronics again."
