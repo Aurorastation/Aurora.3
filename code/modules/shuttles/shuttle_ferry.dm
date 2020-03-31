@@ -32,7 +32,7 @@
 	direction = !location
 	..()
 
-/datum/shuttle/autodock/ferry/long_jump(var/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
+/datum/shuttle/autodock/ferry/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
 	direction = !location
 	..()
 

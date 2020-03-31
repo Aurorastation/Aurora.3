@@ -1,5 +1,6 @@
 /datum/shuttle/autodock/ferry/autoreturn
 	var/auto_return_time = 60 //Time after which the shuttle should return in seconds
+	category = /datum/shuttle/autodock/ferry/autoreturn
 
 /datum/shuttle/autodock/ferry/autoreturn/arrived()
 	addtimer(CALLBACK(src, .proc/announce_return), 20)

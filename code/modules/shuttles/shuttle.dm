@@ -92,7 +92,8 @@
 
 /datum/shuttle/proc/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
 	world << "Long Jump: [destination] Interim: [interim] Travel time: [travel_time]..." //TODOMATT
-	if(moving_status != SHUTTLE_IDLE) return
+	if(moving_status != SHUTTLE_IDLE)
+		return
 
 	var/obj/effect/shuttle_landmark/start_location = current_location
 

@@ -125,9 +125,10 @@
 
 /datum/shuttle/autodock/proc/process_launch()
 	if (move_time && landmark_transition)
-		return long_jump(next_location, landmark_transition, move_time)
+		. = long_jump(next_location, landmark_transition, move_time)
 	else
-		return short_jump(next_location)
+		. = short_jump(next_location)
+	process_state = WAIT_ARRIVE
 
 /*
 	Guards

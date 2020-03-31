@@ -16,12 +16,12 @@
 
 	emergency_shuttle.shuttle_arrived()
 
-/datum/shuttle/autodock/ferry/emergency/long_jump(var/destination, var/interim, var/travel_time, var/direction)
+/datum/shuttle/autodock/ferry/emergency/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
 	var/time_to_go = SHUTTLE_TRANSIT_DURATION
 	if(next_location == waypoint_station)
 		time_to_go = SHUTTLE_TRANSIT_DURATION_RETURN
 
-	..(destination, interim, time_to_go, direction)
+	..(destination, interim, time_to_go)
 	emergency_shuttle.launch_time = world.time
 
 /datum/shuttle/autodock/ferry/emergency/shuttle_moved()
@@ -115,7 +115,7 @@
 	..(user)
 
 /obj/machinery/computer/shuttle_control/emergency
-	shuttle_tag = "Escape"
+	shuttle_tag = "Escape Shuttle"
 	var/debug = 0
 	var/req_authorizations = 2
 	var/list/authorized = list()

@@ -47,7 +47,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Escape Shuttle"
 	location = 1
 	move_time = 20
-	warmup_time = 25
+	warmup_time = 10
 	shuttle_area = /area/shuttle/escape/centcom
 	dock_target = "escape_shuttle"
 	waypoint_station = "nav_emergency_dock"

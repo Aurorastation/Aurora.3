@@ -15,11 +15,9 @@ var/list/escape_pods = list()
 	escape_pods += src
 
 	if(arming_controller)
-		var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/controller_master = arming_controller.master
+		var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/controller_master = arming_controller.docking_program
 		if(!istype(controller_master))
 			CRASH("Escape pod \"[name]\" could not find its controller master!")
-
-		controller_master.pod = src
 
 /datum/shuttle/autodock/ferry/escape_pod/can_launch()
 	if(arming_controller && !arming_controller.armed)	//must be armed
