@@ -15,6 +15,7 @@
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	announce_ghost_joinleave(ghostize(1, 0))
+	world << "[src] has ghosted"
 	changeling_mob.mind.changeling.hivemind -= src
 	to_chat(changeling_mob, SPAN_NOTICE("[src] has left our hivemind to join the living dead."))
 	for(var/mob/abstract/hivemind/H in changeling_mob.mind.changeling.hivemind) // tell the others in the hivemind

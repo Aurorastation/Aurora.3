@@ -800,10 +800,6 @@
 		//Other
 		handle_statuses()
 
-		//Lings recover pain faster
-		if(mind?.changeling)
-			adjustHalLoss(-get_ling_level())
-
 		if(drowsyness)
 			if(drowsyness < 0 || get_ling_level(LING_LEVEL_HIGH))
 				drowsyness = 0

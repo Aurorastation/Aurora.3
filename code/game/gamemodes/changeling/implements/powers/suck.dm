@@ -24,7 +24,7 @@
 		to_chat(src, SPAN_WARNING("This creature's DNA is ruined beyond useability!"))
 		return
 	if(G.state != GRAB_KILL)
-		to_chat(src, SPAN_WARNING("We must have a tighter grip to absorb this creature."))
+		to_chat(src, SPAN_WARNING("We must have a tighter grip to absorb this creature. It must struggle for breath under our grip to ensure a successful feast."))
 		return
 	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
 		if(D.dna == T.dna)
@@ -64,7 +64,7 @@
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	//Succ points and chems. You get less if it's not a player. Using is_client_active to prevent rageghosting screwing you.
-	if(T.is_client_active())
+	if(T.is_client_active(10))
 		changeling.chem_charges += 50	
 		changeling.geneticpoints += 5
 		changeling.total_absorbed_genpoints += 5
@@ -115,7 +115,9 @@
 		changeling.geneticpoints += T.mind.changeling.geneticpoints
 		T.mind.changeling.chem_charges = 0
 		T.mind.changeling.geneticpoints = 0
+		T.mind.changeling.total_absorbed_genpoints = 0
 		T.mind.changeling.absorbedcount = 0
+		T.mind.changeling.update_ling_power()
 
 	changeling.absorbedcount++
 	changeling.isabsorbing = FALSE

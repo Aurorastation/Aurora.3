@@ -4,9 +4,11 @@
 	set name = "Hivemind Eject"
 	set desc = "Ejects a member of our internal hivemind."
 
-	var/chosen_player = input("Choose a hivemind member to eject.") as null|anything in mind.changeling.hivemind
+	var/chosen_player = input(src, "Choose a hivemind member to eject.", "Eject") in mind.changeling.hivemind
 	if(!chosen_player || chosen_player == "None")
+		world << "Eject found no input"
 		return
+	world << "Attempting to eject [chosen_player]"
 	var/mob/abstract/hivemind/chosen_hivemind = chosen_player
 	chosen_hivemind.ghost() // bye
 	return TRUE

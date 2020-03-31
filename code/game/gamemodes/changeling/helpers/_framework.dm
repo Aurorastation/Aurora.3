@@ -24,6 +24,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/justate						//Processing genes
 	var/ling_level = LING_LEVEL_LOW	//Ling level, affects resistances to stuns, etc.
 	var/inactives_absorbed			//Limiter on the number of non-players we can absorb
+	var/in_stasis = FALSE		//Are we in regenerative stasis
 
 /datum/changeling/New(var/gender=FEMALE)
 	..()
@@ -66,6 +67,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 //Restores our verbs. It will only restore verbs allowed during lesser (monkey) form if we are not human
 /mob/proc/make_changeling()
+	world << "Make changeling called"
 
 	if(!mind)
 		return
@@ -86,6 +88,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(!P.genomecost) // Is it free?
 			if(!(P in mind.changeling.purchasedpowers)) // Do we not have it already?
 				mind.changeling.purchasePower(mind, P.name, 0) // Purchase it. Don't remake our verbs, we're doing it after this.
+				world << "Purchased free power [P.name]"
 
 	for(var/datum/power/changeling/P in mind.changeling.purchasedpowers)
 		if(P.isVerb)
@@ -93,6 +96,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 				continue
 			if(!(P in src.verbs))
 				src.verbs += P.verbpath
+				world << "[P.verbpath] added"
 
 	for(var/language in languages)
 		mind.changeling.absorbed_languages |= language
@@ -116,16 +120,19 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 
 //Helper proc. Does all the checks and stuff for us to avoid copypasta
-/mob/proc/changeling_power(var/required_chems=0, var/required_dna=0, var/max_genetic_damage=100, var/max_stat=0)
+/mob/proc/changeling_power(var/required_chems=0, var/required_dna=0, var/max_genetic_damage=100, var/max_stat=0, var/allow_in_stasis = FALSE)
 
 	if(!mind)
 		return
 	if(!iscarbon(src))
 		return
 
-	var/datum/changeling/changeling = src.mind.changeling
+	var/datum/changeling/changeling = mind.changeling
 	if(!changeling)
 		to_chat(world.log, "[src] has the changeling_transform() verb but is not a changeling.")
+		return
+	if(changeling.in_stasis && !allow_in_stasis)
+		to_chat(src, SPAN_WARNING("We cannot do this until we exit our stasis."))
 		return
 	if(stat > max_stat)
 		to_chat(src, SPAN_WARNING("We are incapacitated."))
@@ -155,9 +162,11 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(!min_level)
 			return mind.changeling.ling_level
 		else
+			world << "Returning [mind.changeling.ling_level] >= [min_level]"
 			return mind.changeling.ling_level >= min_level
 
 /datum/changeling/proc/update_ling_power()
+	world << "Update Ling Power called. [total_absorbed_genpoints]"
 	var/message
 	var/current_level = ling_level
 	var/list/message_picks_med = list("Even in this form, our power grows...", "Yes, these genes make us stronger...", "Our evolution continues, but we may yet grow stronger.", "Good... this is just what we needed to grow.")

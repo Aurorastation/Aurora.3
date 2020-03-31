@@ -28,26 +28,27 @@
 
 	changeling.chem_charges -= required_chems
 	changeling.sting_range = 1
-	src.verbs -= verb_path
+	verbs -= verb_path
 	ADD_VERB_IN(src, 10, verb_path)
 
 	if(stealthy)
-		to_chat(src, "<span class='notice'>We stealthily sting [T].</span>")
-		to_chat(T, "<span class='warning'>You feel a tiny prick.</span>")
+		to_chat(src, SPAN_NOTICE("We stealthily sting [T]."))
+		to_chat(T, SPAN_WARNING("You feel a tiny prick."))
 	else
-		src.visible_message(pick("<span class='danger'>[src]'s eyes balloon and burst out in a welter of blood, burrowing into [T]!</span>",
-								"<span class='danger'>[src]'s arm rapidly shifts into a giant scorpion-stinger and stabs into [T]!</span>",
-								"<span class='danger'>[src]'s throat lengthens and twists before vomiting a chunky red spew all over [T]!</span>",
-								"<span class='danger'>[src]'s tongue stretches an impossible length and stabs into [T]!</span>",
-								"<span class='danger'>[src] sneezes a cloud of shrieking spiders at [T]!</span>",
-								"<span class='danger'>[src] erupts a grotesque tail and impales [T]!</span>",
-								"<span class='danger'>[src]'s chin skin bulges and tears, launching a bone-dart at [T]!</span>"))
+		src.visible_message(pick(SPAN_DANGER("[src]'s eyes balloon and burst out in a welter of blood, burrowing into [T]!"),
+								SPAN_DANGER("[src]'s arm rapidly shifts into a giant scorpion-stinger and stabs into [T]!"),
+								SPAN_DANGER("[src]'s throat lengthens and twists before vomiting a chunky red spew all over [T]!"),
+								SPAN_DANGER("[src]'s tongue stretches an impossible length and stabs into [T]!"),
+								SPAN_DANGER("[src] sneezes a cloud of shrieking spiders at [T]!"),
+								SPAN_DANGER("[src] erupts a grotesque tail and impales [T]!"),
+								SPAN_DANGER("[src]'s chin skin bulges and tears, launching a bone-dart at [T]!")))
 
 	if(!T.mind || !T.mind.changeling)
 		return T	//T will be affected by the sting
 	return
 
 /mob/proc/apply_sting_effects(var/mob/living/carbon/target, var/type, var/strength)
+	world << "Apply sting effect called with [type]."
 	if(!target)
 		return FALSE
 	switch(type)
@@ -75,6 +76,7 @@
 
 
 /mob/proc/remove_sting_effects(var/mob/living/carbon/target, var/type)
+	world << "Remove sting effects called with [type]"
 	switch(type)
 		if(STING_DEAF)
 			sdisabilities &= ~DEAF
@@ -165,7 +167,7 @@
 	var/mob/living/carbon/T = changeling_sting(40,/mob/proc/changeling_transformation_sting,stealthy = TRUE)
 	if(!T)
 		return FALSE
-	if((HUSK in T.mutations) || (!ishuman(T) && !issmall(T)))
+	if((HUSK in T.mutations) || !ishuman(T) || isMonkey(T))
 		to_chat(src, SPAN_WARNING("Our sting appears ineffective against its DNA."))
 		return FALSE
 	if(islesserform(T))
@@ -175,6 +177,7 @@
 		to_chat(src, SPAN_WARNING("Our sting can only be used against dead targets."))
 		return FALSE
 
+	T.visible_message(SPAN_WARNING("[T]'s skin shifts like dough being kneaded, and soon their appearance is... different."))
 	T.handle_changeling_transform(chosen_dna)
 
 	feedback_add_details("changeling_powers", "TS")
@@ -188,12 +191,14 @@
 	var/mob/living/carbon/T = changeling_sting(40, /mob/proc/changeling_death_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	to_chat(T, "<span class='danger'>You feel a small prick and your chest becomes tight.</span>")
-	T.silent = 10
+	to_chat(T, SPAN_DANGER("You feel a small prick and your chest becomes tight."))
+	T.silent += 15
 	T.Paralyse(10)
 	T.make_jittery(1000)
+	T.make_dizzy(150)
+	T.eye_blind += 10
 	if(T.reagents)
-		T.reagents.add_reagent("cyanide", 5)
+		T.reagents.add_reagent("cyanide", 3)
 	feedback_add_details("changeling_powers", "DTHS")
 	return TRUE
 

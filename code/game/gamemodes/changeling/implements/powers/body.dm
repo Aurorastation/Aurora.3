@@ -190,9 +190,9 @@
 //Fake our own death and fully heal. You will appear to be dead but regenerate fully after a short delay.
 /mob/proc/changeling_fakedeath()
 	set category = "Changeling"
-	set name = "Regenerative Stasis (20)"
+	set name = "Regenerative Stasis (30)"
 
-	var/datum/changeling/changeling = changeling_power(20,1,100,DEAD)
+	var/datum/changeling/changeling = changeling_power(30,1,100,DEAD)
 	if(!changeling)
 		return
 
@@ -203,35 +203,44 @@
 
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
-	C.remove_changeling_powers()
+	C.mind.changeling.in_stasis = TRUE
 
 	C.emote("gasp")
 	C.tod = worldtime2text()
+	C.verbs += /mob/proc/changeling_revive
 
-	addtimer(CALLBACK(src, .proc/add_revive, C), 1000)
+	addtimer(CALLBACK(src, .proc/allow_revive, C), 3 MINUTES)
 	feedback_add_details("changeling_powers", "FD")
 	return TRUE
 
-/mob/proc/add_revive(var/mob/living/carbon/C)
+/mob/proc/allow_revive(var/mob/living/carbon/C)
 	if(!(C.mind?.changeling))
-		log_debug("Attempted to add the changeling revive verb to [C] but they are not a changeling!")
+		log_debug("Attempted to allow [C] to revive as a changeling, but they are not a changeling!")
 		return
-	if(C.changeling_power(20,1,100,DEAD))
-		//charge the changeling chemical cost for stasis
-		C.mind.changeling.chem_charges -= 20
-		to_chat(C, SPAN_NOTICE(FONT_GIANT("We are ready to rise. Use the <b>Revive</b> verb when you are ready.")))
-		C.verbs += /mob/proc/changeling_revive
+	to_chat(C, SPAN_NOTICE(FONT_GIANT("We are ready to rise. Use the <b>Revive</b> verb when you are ready.")))
+	C.mind.changeling.in_stasis = FALSE
 
 /mob/proc/changeling_revive()
 	set category = "Changeling"
 	set name = "Revive"
 
 	var/mob/living/carbon/C = src
+	if(!(C.mind?.changeling))
+		log_debug("[C] attempted to revive as a changeling, but they are not a changeling!")
+		return
+	if(C.mind.changeling.in_stasis == TRUE)
+		to_chat(C, SPAN_WARNING("We are not ready to awaken from our stasis. We must bide our time."))
+		return
+	if(C.changeling_power(30,1,100,DEAD, allow_in_stasis = TRUE))
+		//charge the changeling chemical cost for stasis
+		C.mind.changeling.chem_charges -= 30
+	else
+		to_chat(C, SPAN_WARNING("We have not generated enough chemicals to awaken from our stasis. We must bide our time."))
+
 	// restore us to health
 	C.revive(FALSE)
 	// remove our fake death flag
 	C.status_flags &= ~(FAKEDEATH)
-	C.make_changeling()
 	// sending display messages
 	to_chat(C, SPAN_NOTICE("We have regenerated fully."))
 	C.verbs -= /mob/proc/changeling_revive

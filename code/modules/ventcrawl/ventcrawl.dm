@@ -37,7 +37,7 @@ var/global/list/can_enter_vent_with = list(
 	return TRUE
 
 /mob/living/proc/is_allowed_vent_crawl_item(var/obj/item/carried_item)
-	if(is_type_in_list(carried_item, can_enter_vent_with))
+	if(is_type_in_list(carried_item, can_enter_vent_with) || (locate(carried_item) in embedded))
 		return !get_inventory_slot(carried_item)
 
 /mob/living/carbon/is_allowed_vent_crawl_item(var/obj/item/carried_item)
