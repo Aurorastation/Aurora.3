@@ -1,4 +1,6 @@
-/datum/shuttle/autodock/ferry/arrival
+/datum/shuttle/autodock/ferry/arrival/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
+	..(_name, start_waypoint)
+	SSarrivals.shuttle = src
 
 /datum/shuttle/autodock/ferry/arrival/long_jump(var/area/destination, var/area/interim, var/travel_time)
 	if(isnull(location))

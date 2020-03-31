@@ -67,6 +67,7 @@
 	return FALSE
 
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
+	return
 
 /proc/check_collision(area/target_area, list/target_turfs)
 	for(var/target_turf in target_turfs)

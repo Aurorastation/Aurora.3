@@ -36,6 +36,7 @@
 			priority_announcement.Announce(replacemany(current_map.emergency_shuttle_leaving_dock, replacements))
 		else
 			priority_announcement.Announce(replacemany(current_map.shuttle_leaving_dock, replacements))
+	..()
 
 /datum/shuttle/autodock/ferry/emergency/can_launch(var/user)
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))

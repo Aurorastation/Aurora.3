@@ -41,15 +41,85 @@ CREATE_ESCAPE_POD(1)
 CREATE_ESCAPE_POD(2)
 CREATE_ESCAPE_POD(3)
 
+//-// Transfer Shuttle //-//
+
 /datum/shuttle/autodock/ferry/emergency
-	name = "Escape"
+	name = "Escape Shuttle"
 	location = 1
+	move_time = 20
 	warmup_time = 25
 	shuttle_area = /area/shuttle/escape/centcom
-	move_time = 20
-	dock_target = "centcom_dock"
+	dock_target = "escape_shuttle"
+	waypoint_station = "nav_emergency_dock"
+	landmark_transition = "nav_emergency_interim"
+	waypoint_offsite = "nav_emergency_start"
+
+/obj/effect/shuttle_landmark/emergency/start
+	name = "Escape Shuttle Centcom Dock"
+	landmark_tag = "nav_emergency_start"
+	docking_controller = "centcom_dock"
+
+/obj/effect/shuttle_landmark/emergency/interim
+	name = "In Transit"
+	landmark_tag = "nav_emergency_interim"
+
+/obj/effect/shuttle_landmark/emergency/dock
+	name = "Escape Shuttle Dock"
+	landmark_tag = "nav_emergency_dock"
+	docking_controller = "escape_dock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+//-// Arrival Shuttle //-//
+
+/datum/shuttle/autodock/ferry/arrival
+	name = "Arrival Shuttle"
+	location = 1
+	warmup_time = 10
+	shuttle_area = /area/shuttle/arrival/centcom
+	move_time = 60
+	dock_target = "arrival_shuttle"
+	waypoint_station = "nav_arrival_dock"
+	landmark_transition = "nav_arrival_interim"
+	waypoint_offsite = "nav_arrival_start"
+
+/obj/effect/shuttle_landmark/arrival/start
+	name = "Arrival Shuttle Centcom Dock"
+	landmark_tag = "nav_arrival_start"
+	docking_controller = "centcom_setup"
+
+/obj/effect/shuttle_landmark/arrival/interim
+	name = "In Transit"
+	landmark_tag = "nav_arrival_interim"
+
+/obj/effect/shuttle_landmark/arrival/dock
+	name = "Arrival Shuttle Dock"
+	landmark_tag = "nav_arrival_dock"
+	docking_controller = "arrival_dock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+//-// Supply Shuttle //-//
+
+/datum/shuttle/autodock/ferry/supply
+	name = "Supply Shuttle"
+	location = 1
+	shuttle_area = /area/supply/dock
+	dock_target = "supply_shuttle"
+	waypoint_station = "nav_supply_dock"
+	waypoint_offsite = "nav_supply_start"
+
+/obj/effect/shuttle_landmark/supply/start
+	name = "Supply Centcom Dock"
+	landmark_tag = "nav_supply_start"
+
+/obj/effect/shuttle_landmark/supply/dock
+	name = "Supply Shuttle Dock"
+	landmark_tag = "nav_supply_dock"
+	docking_controller = "cargo_bay"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
 
 // Merchant Shuttle
+
 /datum/shuttle/autodock/ferry/merchant
 	name = "Merchant Shuttle"
 	location = 1
@@ -57,6 +127,9 @@ CREATE_ESCAPE_POD(3)
 	shuttle_area = /area/shuttle/merchant/start
 	move_time = 20
 	dock_target = "merchant_shuttle"
+	waypoint_station = "nav_merchant_dock"
+	landmark_transition = "nav_merchant_interim"
+	waypoint_offsite = "nav_merchant_start"
 
 /obj/effect/shuttle_landmark/merchant/start
 	name = "Merchant Shuttle Base"
@@ -71,12 +144,14 @@ CREATE_ESCAPE_POD(3)
 	name = "Merchant Shuttle Dock"
 	landmark_tag = "nav_merchant_dock"
 	docking_controller = "merchant_shuttle_dock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // Admin Shuttle
 /datum/shuttle/autodock/ferry/admin
 	name = "Crescent Shuttle"
 	location = 1
 	warmup_time = 10	//want some warmup time so people can cancel.
+	shuttle_area = /area/shuttle/administration/centcom
 	dock_target = "admin_shuttle"
 	waypoint_station = "nav_admin_dock"
 	waypoint_offsite = "nav_admin_start"
@@ -90,12 +165,14 @@ CREATE_ESCAPE_POD(3)
 	name = "Crescent Shuttle Dock"
 	landmark_tag = "nav_admin_dock"
 	docking_controller = "admin_shuttle_dock_airlock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // CCIA Shuttle
 /datum/shuttle/autodock/ferry/autoreturn/ccia
 	name = "Agent Shuttle"
 	location = 1
 	warmup_time = 10
+	shuttle_area = /area/shuttle/transport1/centcom
 	dock_target = "centcom_shuttle"
 	waypoint_station = "nav_ccia_dock"
 	waypoint_offsite = "nav_ccia_start"
@@ -110,15 +187,17 @@ CREATE_ESCAPE_POD(3)
 	name = "Agent Shuttle Dock"
 	landmark_tag = "nav_ccia_dock"
 	docking_controller = "centcom_shuttle_dock_airlock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // ERT Shuttle (the NT one)
 /datum/shuttle/autodock/ferry/specops/ert
 	name = "Phoenix Shuttle"
-	location = 0
+	location = 1
 	warmup_time = 10
+	shuttle_area = /area/shuttle/specops/centcom
 	dock_target = "specops_shuttle_port"
 	waypoint_station = "nav_ert_dock"
-	waypoint_offsite = "specops_centcom_dock"
+	waypoint_offsite = "nav_ert_start"
 
 /obj/effect/shuttle_landmark/ert/start
 	name = "Phoenix Base"
@@ -129,6 +208,8 @@ CREATE_ESCAPE_POD(3)
 	name = "ERT Dock"
 	landmark_tag = "nav_ert_dock"
 	docking_controller = "specops_dock_airlock"
+	special_dock_targets = list("Phoenix Shuttle" = "specops_shuttle_fore")
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //Skipjack.
 /datum/shuttle/autodock/multi/antag/skipjack
@@ -181,7 +262,7 @@ CREATE_ESCAPE_POD(3)
 	warmup_time = 10
 	move_time = 75
 	shuttle_area = /area/shuttle/legion/centcom
-	dock_target = "legion_shuttle_aft_airlock"
+	dock_target = "legion_shuttle"
 	waypoint_offsite = "nav_legion_start"
 	landmark_transition = "nav_legion_interim"
 	waypoint_station = "nav_legion_dock"
@@ -189,7 +270,7 @@ CREATE_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/legion/start
 	name = "Legion Base"
 	landmark_tag = "nav_legion_start"
-	docking_controller = "legion_shuttle"
+	docking_controller = "legion_hangar"
 
 /obj/effect/shuttle_landmark/legion/interim
 	name = "In Transit"
@@ -198,7 +279,7 @@ CREATE_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/legion/dock
 	name = "Legion Dock"
 	landmark_tag = "nav_legion_dock"
-	docking_controller = "distress_shuttle_dock"
+	docking_controller = "legion_shuttle_dock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /datum/shuttle/autodock/ferry/research
@@ -230,6 +311,8 @@ CREATE_ESCAPE_POD(3)
 	location = 1
 	warmup_time = 10
 	move_time = 45
+	dock_target = "distress_shuttle_aft"
+	shuttle_area = /area/shuttle/distress/centcom
 	waypoint_offsite = "nav_distress_away"
 	landmark_transition = "nav_distress_interim"
 	waypoint_station = "nav_distress_dock"
@@ -237,7 +320,7 @@ CREATE_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/distress/start
 	name = "Distress Base"
 	landmark_tag = "nav_distress_away"
-	docking_controller = "distress_shuttle_aft"
+	docking_controller = "distress_shuttle_origin"
 
 /obj/effect/shuttle_landmark/distress/interim
 	name = "In Transit"
@@ -246,4 +329,6 @@ CREATE_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/distress/dock
 	name = "Distress Dock"
 	landmark_tag = "nav_distress_dock"
-	docking_controller = "distress_shuttle_fore"
+	docking_controller = "distress_shuttle_dock"
+	special_dock_targets = list("Distress Shuttle" = "distress_shuttle_fore")
+	landmark_flags = SLANDMARK_FLAG_AUTOSET

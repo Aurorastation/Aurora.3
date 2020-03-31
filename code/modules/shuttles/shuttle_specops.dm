@@ -1,6 +1,6 @@
 /obj/machinery/computer/shuttle_control/specops
 	name = "special operations shuttle console"
-	shuttle_tag = "Special Operations"
+	shuttle_tag = "Phoenix Shuttle"
 	req_access = list(access_cent_specops)
 
 /obj/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
@@ -237,4 +237,4 @@
 /obj/machinery/computer/shuttle_control/distress
 	name = "shuttle control computer"
 	req_access = list(access_distress)
-	shuttle_tag = "Distress"
+	shuttle_tag = "Distress Shuttle"
