@@ -8,9 +8,9 @@
 		for(var/model_path in subtypesof(build_path))
 			var/obj/item/organ/external/E = new model_path
 			if(E.robotize_type == mechfab.manufacturer)
-				return E.forceMove(newloc)
-			else
 				qdel(E)
+				return new model_path(newloc)
+			qdel(E)
 		return new build_path(newloc) // We didn't find our manufacturer in the list, so return an unbranded one
 	return ..()
 

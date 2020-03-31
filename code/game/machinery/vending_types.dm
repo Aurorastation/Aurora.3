@@ -378,7 +378,6 @@
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/norepinephrine = 4,
-		/obj/item/reagent_containers/glass/bottle/stoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
 		/obj/item/reagent_containers/syringe = 12,
