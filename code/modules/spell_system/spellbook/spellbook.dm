@@ -39,7 +39,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	name = spellbook.name
 	desc = spellbook.desc
 
-/obj/item/spellbook/attack_self(mob/user as mob)
+/obj/item/spellbook/attack_self(mob/user)
 	if(!user)
 		return
 	if(!(user.faction == "Space Wizard"))
@@ -65,7 +65,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	else
 		interact(user)
 
-/obj/item/spellbook/interact(mob/user as mob)
+/obj/item/spellbook/interact(mob/user)
 	var/dat = null
 	if(temp)
 		dat = "[temp]<br><a href='byond://?src=\ref[src];temp=1'>Return</a>"

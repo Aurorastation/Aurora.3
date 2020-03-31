@@ -70,7 +70,7 @@
 		if(2)
 			to_chat(usr, "It is almost completely destroyed.")
 
-/obj/item/rig_module/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/rig_module/attackby(obj/item/W, mob/user)
 
 	if(istype(W,/obj/item/stack/nanopaste))
 

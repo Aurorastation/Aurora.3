@@ -206,7 +206,7 @@
 	return
 
 // attempt to move while inside
-/obj/machinery/disposal/relaymove(mob/user as mob)
+/obj/machinery/disposal/relaymove(mob/user)
 	if(user.stat || src.flushing)
 		return
 	if(user.loc == src)
@@ -224,11 +224,11 @@
 	return
 
 // ai as human but can't flush
-/obj/machinery/disposal/attack_ai(mob/user as mob)
+/obj/machinery/disposal/attack_ai(mob/user)
 	interact(user, 1)
 
 // human interact with machine
-/obj/machinery/disposal/attack_hand(mob/user as mob)
+/obj/machinery/disposal/attack_hand(mob/user)
 
 	if(stat & BROKEN)
 		return
@@ -619,7 +619,7 @@
 
 
 	// called when player tries to move while in a pipe
-/obj/disposalholder/relaymove(mob/user as mob)
+/obj/disposalholder/relaymove(mob/user)
 	if(!istype(user,/mob/living))
 		return
 

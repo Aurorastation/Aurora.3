@@ -11,7 +11,7 @@
 	if(src.reload<180)
 		src.reload++
 
-/obj/machinery/computer/artillerycontrol/attack_hand(mob/user as mob)
+/obj/machinery/computer/artillerycontrol/attack_hand(mob/user)
 	user.set_machine(src)
 	var/dat = "<B>Bluespace Artillery Control:</B><BR>"
 	dat += "Locked on<BR>"

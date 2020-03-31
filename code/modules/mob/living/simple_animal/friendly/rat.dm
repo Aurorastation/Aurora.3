@@ -136,7 +136,7 @@
 	squeak_soft(0)
 
 
-/mob/living/simple_animal/rat/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/rat/attack_hand(mob/living/carbon/human/M)
 	if (src.stat == DEAD)//If the mouse is dead, we don't pet it, we just pickup the corpse on click
 		get_scooped(M, usr)
 		return

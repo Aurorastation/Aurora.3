@@ -51,7 +51,7 @@
 	if(..(user, 1))
 		to_chat(user, "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!")
 
-/obj/item/stack/wrapping_paper/attack(mob/target as mob, mob/user as mob)
+/obj/item/stack/wrapping_paper/attack(mob/target as mob, mob/user)
 	if (!istype(target, /mob/living/carbon/human)) return
 	var/mob/living/carbon/human/H = target
 
@@ -85,7 +85,7 @@
 	var/wrapping_tag = "Sorting Office"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 
-/obj/item/stack/packageWrap/afterattack(var/obj/target as obj, mob/user as mob, proximity)
+/obj/item/stack/packageWrap/afterattack(var/obj/target, mob/user, proximity)
 	if(!proximity) return
 	if(!istype(target))	//this really shouldn't be necessary (but it is).	-Pete
 		return

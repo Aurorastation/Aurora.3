@@ -22,10 +22,10 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/glass.ogg'
 
-/obj/item/stack/material/glass/attack_self(mob/user as mob)
+/obj/item/stack/material/glass/attack_self(mob/user)
 	construct_window(user)
 
-/obj/item/stack/material/glass/proc/construct_window(mob/user as mob)
+/obj/item/stack/material/glass/proc/construct_window(mob/user)
 	if(!user || !src)	return 0
 	if(!istype(user.loc,/turf)) return 0
 	if(!user.IsAdvancedToolUser())
@@ -121,7 +121,7 @@
 	default_type = "wired glass"
 	construction_options = list()
 
-/obj/item/stack/material/glass/wired/attackby(var/obj/O, mob/user as mob)
+/obj/item/stack/material/glass/wired/attackby(var/obj/O, mob/user)
 	if(istype(O, /obj/item/stack/material/steel))
 		var/obj/item/stack/material/steel/M = O
 		if (M.use(1))

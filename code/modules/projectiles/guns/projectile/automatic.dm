@@ -293,13 +293,13 @@
 		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	update_icon()
 
-/obj/item/gun/projectile/automatic/rifle/l6_saw/attack_self(mob/user as mob)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/attack_self(mob/user)
 	if(cover_open)
 		toggle_cover(user) //close the cover
 	else
 		return ..() //once closed, behave like normal
 
-/obj/item/gun/projectile/automatic/rifle/l6_saw/attack_hand(mob/user as mob)
+/obj/item/gun/projectile/automatic/rifle/l6_saw/attack_hand(mob/user)
 	if(!cover_open && user.get_inactive_hand() == src)
 		toggle_cover(user) //open the cover
 	else

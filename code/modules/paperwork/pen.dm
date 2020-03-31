@@ -94,7 +94,7 @@
 
 	to_chat(user, "<span class='notice'>Changed color to '[colour].'</span>")
 
-/obj/item/pen/attack(mob/M as mob, mob/user as mob, var/target_zone)
+/obj/item/pen/attack(mob/M as mob, mob/user, var/target_zone)
 	if(!ismob(M))
 		return
 	to_chat(user, "<span class='warning'>You stab [M] with \the [src].</span>")
@@ -165,7 +165,7 @@
 	for (var/i in pen_reagents)
 		reagents.add_reagent(i, pen_reagents[i])
 
-/obj/item/pen/reagent/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/pen/reagent/attack(mob/living/M as mob, mob/user)
 
 	if(!istype(M))
 		return
@@ -225,7 +225,7 @@
 /obj/item/pen/chameleon
 	var/signature = ""
 
-/obj/item/pen/chameleon/attack_self(mob/user as mob)
+/obj/item/pen/chameleon/attack_self(mob/user)
 	signature = sanitize(input("Enter new signature. Leave blank for 'Anonymous'", "New Signature", signature))
 
 /obj/item/pen/proc/get_signature(var/mob/user)

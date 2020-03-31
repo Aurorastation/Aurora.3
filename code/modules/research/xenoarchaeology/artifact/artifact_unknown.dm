@@ -183,7 +183,7 @@
 		if(secondary_effect?.trigger == TRIGGER_NITRO && secondary_effect.activated)
 			secondary_effect.ToggleActivate()
 
-/obj/machinery/artifact/attack_hand(var/mob/user as mob)
+/obj/machinery/artifact/attack_hand(var/mob/user)
 	if (get_dist(user, src) > 1)
 		to_chat(user, "<span class='warning'>You can't reach [src] from here.</span>")
 		return
@@ -209,7 +209,7 @@
 	if(secondary_effect?.effect == EFFECT_TOUCH && secondary_effect.activated)
 		secondary_effect.DoEffectTouch(user)
 
-/obj/machinery/artifact/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/artifact/attackby(obj/item/W, mob/living/user)
 
 	if (istype(W, /obj/item/reagent_containers/))
 		if(W.reagents.has_reagent("hydrazine", 1) || W.reagents.has_reagent("water", 1))

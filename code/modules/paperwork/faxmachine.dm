@@ -60,13 +60,13 @@ var/list/admin_departments
 	if(!(newdata["destination"] in (alldepartments + admin_departments + broadcast_departments)))
 		newdata["destination"] = "[current_map.boss_name]"
 
-/obj/machinery/photocopier/faxmachine/ui_interact(mob/user as mob)
+/obj/machinery/photocopier/faxmachine/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new(user, src, "paperwork-fax", 450, 350, capitalize(src.name))
 	ui.open()
 
-/obj/machinery/photocopier/faxmachine/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/photocopier/faxmachine/attackby(obj/item/O, mob/user)
 	. = ..()
 	SSvueui.check_uis_for_change(src)
 

@@ -65,7 +65,7 @@
 	new /obj/item/material/shard(loc, "glass")
 	qdel(src)
 
-/obj/item/reagent_containers/glass/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/glass/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
 			return ..()
@@ -242,7 +242,7 @@
 	no_shatter = TRUE
 	fragile = 0
 
-/obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
+/obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user)
 	if(isprox(D))
 		to_chat(user, "You add [D] to [src].")
 		qdel(D)
@@ -291,7 +291,7 @@
 	carving_weapon = /obj/item/material/hatchet
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood
 
-/obj/item/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
+/obj/item/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user)
 	if(isprox(D))
 		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return

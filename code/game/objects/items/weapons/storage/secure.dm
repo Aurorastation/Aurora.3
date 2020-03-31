@@ -32,7 +32,7 @@
 		if(..(user, 1))
 			to_chat(user, text("The service panel is [src.open ? "open" : "closed"]."))
 
-	attackby(obj/item/W as obj, mob/user as mob)
+	attackby(obj/item/W, mob/user)
 		if(locked)
 			if (istype(W, /obj/item/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
 				var/obj/item/melee/energy/blade/blade = W
@@ -77,7 +77,7 @@
 		..()
 
 
-	attack_self(mob/user as mob)
+	attack_self(mob/user)
 		user.set_machine(src)
 		var/dat = text("<TT><B>[]</B><BR>\n\nLock Status: []",src, (src.locked ? "LOCKED" : "UNLOCKED"))
 		var/message = "Code"
@@ -152,7 +152,7 @@
 	throw_range = 4
 	w_class = 4.0
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		if ((src.loc == user) && (src.locked == 1))
 			to_chat(usr, "<span class='warning'>[src] is locked and cannot be opened!</span>")
 		else if ((src.loc == user) && (!src.locked))
@@ -184,7 +184,7 @@
 	cant_hold = list(/obj/item/storage/secure/briefcase)
 	starts_with = list(/obj/item/paper = 1, /obj/item/pen = 1)
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		return attack_self(user)
 
 /*obj/item/storage/secure/safe/HoS/New()

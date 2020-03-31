@@ -22,7 +22,7 @@ var/prison_shuttle_timeleft = 0
 	var/allowedtocall = 0
 	var/prison_break = 0
 
-	attack_ai(var/mob/user as mob)
+	attack_ai(var/mob/user)
 		return src.attack_hand(user)
 
 	attackby(I as obj, user as mob)
@@ -51,7 +51,7 @@ var/prison_shuttle_timeleft = 0
 			return src.attack_hand(user)
 
 
-	attack_hand(var/mob/user as mob)
+	attack_hand(var/mob/user)
 		if(!src.allowed(user) && (!hacked))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return

@@ -80,7 +80,7 @@
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
-/obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
+/obj/item/clothing/head/helmet/riot/attack_self(mob/user)
 	if (use_check_and_message(user))
 		return
 
@@ -135,7 +135,7 @@
 	flags_inv = HIDEEARS
 	action_button_name = "Toggle Visor"
 
-/obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user as mob)
+/obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user)
 	if (use_check_and_message(user))
 		return
 

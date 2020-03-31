@@ -83,7 +83,7 @@ var/global/list/default_medbay_channels = list(
 	for (var/ch_name in channels)
 		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
 
-/obj/item/device/radio/attack_self(mob/user as mob)
+/obj/item/device/radio/attack_self(mob/user)
 	user.set_machine(src)
 	interact(user)
 
@@ -537,7 +537,7 @@ var/global/list/default_medbay_channels = list(
 			user.show_message("<span class='notice'>\The [src] can not be modified or attached!</span>")
 	return
 
-/obj/item/device/radio/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/radio/attackby(obj/item/W, mob/user)
 	..()
 	user.set_machine(src)
 	if (!( W.isscrewdriver() ))
@@ -591,7 +591,7 @@ var/global/list/default_medbay_channels = list(
 		var/datum/robot_component/C = R.components["radio"]
 		R.cell_use_power(C.active_usage)
 
-/obj/item/device/radio/borg/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/radio/borg/attackby(obj/item/W, mob/user)
 //	..()
 	user.set_machine(src)
 	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))
@@ -695,7 +695,7 @@ var/global/list/default_medbay_channels = list(
 	if(.)
 		SSnanoui.update_uis(src)
 
-/obj/item/device/radio/borg/interact(mob/user as mob)
+/obj/item/device/radio/borg/interact(mob/user)
 	if(!on)
 		return
 

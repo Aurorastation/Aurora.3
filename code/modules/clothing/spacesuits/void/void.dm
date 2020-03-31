@@ -214,7 +214,7 @@
 /obj/item/clothing/suit/space/void/attack_self()
 	toggle_helmet()
 
-/obj/item/clothing/suit/space/void/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/space/void/attackby(obj/item/W, mob/user)
 
 	if(!istype(user,/mob/living)) return
 

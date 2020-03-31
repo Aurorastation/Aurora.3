@@ -29,7 +29,7 @@
 		pai.death(0)
 	return ..()
 
-/obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
+/obj/item/device/paicard/attackby(obj/item/C, mob/user)
 	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
 

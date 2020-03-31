@@ -71,7 +71,7 @@
 				descriptive = "cold"
 		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
-/obj/item/tank/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tank/attackby(obj/item/W, mob/user)
 	..()
 	if (istype(src.loc, /obj/item/assembly))
 		icon = src.loc
@@ -87,7 +87,7 @@
 	if(istype(W, /obj/item/device/assembly_holder))
 		bomb_assemble(W,user)
 
-/obj/item/tank/attack_self(mob/user as mob)
+/obj/item/tank/attack_self(mob/user)
 	if (!(src.air_contents))
 		return
 

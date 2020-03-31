@@ -265,7 +265,7 @@ RFD Service-Class
 	modes = list("Cigarette", "Drinking Glass","Paper","Pen","Dice Pack")
 	number_of_modes = 5
 
-/obj/item/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
+/obj/item/rfd/service/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(istype(user,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 0)
@@ -323,7 +323,7 @@ RFD Mining-Class
 	name = "\improper Rapid-Fabrication-Device M-Class"
 	desc = "A RFD, modified to deploy mine tracks."
 
-/obj/item/rfd/mining/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity)
 
 	if(!proximity) return
 
@@ -382,7 +382,7 @@ RFD Mining-Class
 		else
 			to_chat(user, "It is ready to deploy a transformer machine.")
 
-/obj/item/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/rfd/transformer/afterattack(atom/A, mob/user, proximity)
 
 	if(!proximity) return
 

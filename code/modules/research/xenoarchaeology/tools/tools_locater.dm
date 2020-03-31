@@ -58,10 +58,10 @@
 		else
 			icon_state = "pinoff"
 
-/obj/item/device/beacon_locator/attack_self(var/mob/user as mob)
+/obj/item/device/beacon_locator/attack_self(var/mob/user)
 	return src.interact(user)
 
-/obj/item/device/beacon_locator/interact(var/mob/user as mob)
+/obj/item/device/beacon_locator/interact(var/mob/user)
 	var/dat = "<b>Radio frequency tracker</b><br>"
 	dat += {"
 				<A href='byond://?src=\ref[src];reset_tracking=1'>Reset tracker</A><BR>

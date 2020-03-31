@@ -93,11 +93,11 @@
 	QDEL_NULL(power_interface)
 	return ..()
 
-/obj/item/device/radio/intercom/attack_ai(mob/user as mob)
+/obj/item/device/radio/intercom/attack_ai(mob/user)
 	src.add_fingerprint(user)
 	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 
-/obj/item/device/radio/intercom/attack_hand(mob/user as mob)
+/obj/item/device/radio/intercom/attack_hand(mob/user)
 	src.add_fingerprint(user)
 	INVOKE_ASYNC(src, /obj/item/.proc/attack_self, user)
 

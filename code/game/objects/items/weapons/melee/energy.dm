@@ -40,7 +40,7 @@
 	if(!istype(loc,/mob))
 		deactivate(user)
 
-/obj/item/melee/energy/attack_self(mob/living/user as mob)
+/obj/item/melee/energy/attack_self(mob/living/user)
 	if (active)
 		if ((user.is_clumsy()) && prob(50))
 			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
@@ -152,7 +152,7 @@
 	icon_state = initial(icon_state)
 	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
 
-/obj/item/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user)
 	user.setClickCooldown(16)
 	..()
 
@@ -321,7 +321,7 @@
 	..()
 	icon_state = "powerswordon"
 
-/obj/item/melee/energy/sword/powersword/attack_self(mob/living/user as mob)
+/obj/item/melee/energy/sword/powersword/attack_self(mob/living/user)
 	..()
 	if(prob(30))
 		user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\

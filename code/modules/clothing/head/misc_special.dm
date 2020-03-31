@@ -100,7 +100,7 @@
 	if (istype(location, /turf))
 		location.hotspot_expose(700, 1)
 
-/obj/item/clothing/head/cakehat/attack_self(mob/user as mob)
+/obj/item/clothing/head/cakehat/attack_self(mob/user)
 	src.onfire = !( src.onfire )
 	if (src.onfire)
 		src.force = 3
@@ -131,7 +131,7 @@
 	desc = "Perfect for winter in Siberia, da?"
 	icon_state = "greyushanka"
 
-/obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
+/obj/item/clothing/head/ushanka/attack_self(mob/user)
 	src.earsup = !src.earsup
 	if(src.earsup)
 		icon_state = "[icon_state]_up"
@@ -156,7 +156,7 @@
 	throwforce = 1
 	throw_speed = 0.5
 
-/obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
+/obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user)
 	if(istype(O, /obj/item/flame/candle))
 		var/obj/item/flame/candle/c = O
 		var/candle_wax = c.wax
@@ -187,7 +187,7 @@
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
 
-/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/W, mob/user)
 	..()
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
@@ -230,7 +230,7 @@
 		var/turf/T = loc
 		T.hotspot_expose(700, 5)
 
-/obj/item/clothing/head/pumpkin/lantern/attack_self(mob/user as mob)
+/obj/item/clothing/head/pumpkin/lantern/attack_self(mob/user)
 	if(lit)
 		lit = 0
 		to_chat(user, span("notice", "You snuff out the flame."))

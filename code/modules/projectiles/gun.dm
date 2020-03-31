@@ -624,7 +624,7 @@
 /obj/item/gun/proc/can_wield()
 	return FALSE
 
-/obj/item/gun/proc/toggle_wield(mob/user as mob)
+/obj/item/gun/proc/toggle_wield(mob/user)
 	if(!is_wieldable)
 		return
 	if(!istype(user.get_active_hand(), /obj/item/gun))

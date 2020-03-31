@@ -15,7 +15,7 @@
 
 //////////////////////////////Capturing////////////////////////////////////////////////////////
 
-/obj/item/device/soulstone/attack(mob/living/carbon/human/M as mob, mob/user as mob)
+/obj/item/device/soulstone/attack(mob/living/carbon/human/M as mob, mob/user)
 	if(!istype(M, /mob/living/carbon/human))//If target is not a human.
 		return ..()
 	if(istype(M, /mob/living/carbon/human/apparition))
@@ -93,7 +93,7 @@
 	icon_state = "construct-cult"
 	desc = "This eerie contraption looks like it would come alive if supplied with a missing ingredient."
 
-/obj/structure/constructshell/attackby(obj/item/O as obj, mob/user as mob)
+/obj/structure/constructshell/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/device/soulstone))
 		var/obj/item/device/soulstone/S = O;
 		S.transfer_soul("CONSTRUCT",src,user)
@@ -213,7 +213,7 @@
 			to_chat(Z, "<B>You are still bound to serve your creator, follow their orders and help them complete their goals at all costs.</B>")
 			Z.cancel_camera()
 			qdel(src)
-/obj/item/device/soulstone/proc/transfer_soul(var/choice as text, var/target, var/mob/U as mob)
+/obj/item/device/soulstone/proc/transfer_soul(var/choice as text, var/target, var/mob/U)
 	switch(choice)
 		if("VICTIM")
 			transfer_human(target,U)

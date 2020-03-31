@@ -37,7 +37,7 @@
 	attack_verb = list("HONKED")
 	var/last_honk = 0
 
-/obj/item/bikehorn/attack_self(mob/user as mob)
+/obj/item/bikehorn/attack_self(mob/user)
 	if(last_honk <= world.time - 20) //Spam limiter.
 		last_honk = world.time
 		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
@@ -411,7 +411,7 @@
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/camera_bug/attack_self(mob/usr as mob)
+/obj/item/camera_bug/attack_self(mob/usr)
 	var/list/cameras = new/list()
 	for (var/obj/machinery/camera/C in cameranet.cameras)
 		if (C.bugged && C.status)
@@ -463,7 +463,7 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralbroke"
 
-/obj/item/neuralbroke/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/neuralbroke/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
 		playsound(src.loc, W.usesound, 50, 1)

@@ -17,7 +17,7 @@
 	else
 		spirit_board_pick_letter(user)
 
-/obj/item/spirit_board/MouseDrop(mob/user as mob)
+/obj/item/spirit_board/MouseDrop(mob/user)
 	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(usr))
 			forceMove(get_turf(usr))

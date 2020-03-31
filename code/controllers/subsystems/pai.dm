@@ -91,7 +91,7 @@
 				p.alertUpdate()
 		ui.close()
 
-/datum/controller/subsystem/pai/proc/revokeCandidancy(mob/M as mob)
+/datum/controller/subsystem/pai/proc/revokeCandidancy(mob/M)
 	var/datum/paiCandidate/candidate
 	if(!istype(M))
 		return FALSE
@@ -107,7 +107,7 @@
 	return TRUE
 	
 
-/datum/controller/subsystem/pai/proc/recruitWindow(mob/M as mob)
+/datum/controller/subsystem/pai/proc/recruitWindow(mob/M)
 	var/datum/paiCandidate/candidate
 	for(var/datum/paiCandidate/c in pai_candidates)
 		if(!istype(c) || !istype(M))

@@ -355,7 +355,7 @@
 		icon_state = "biogen-work"
 	return
 
-/obj/machinery/biogenerator/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/biogenerator/attackby(var/obj/item/O, var/mob/user)
 	if(default_deconstruction_screwdriver(user, O))
 		return
 	if(default_deconstruction_crowbar(user, O))
@@ -408,7 +408,7 @@
 	update_icon()
 	return
 
-/obj/machinery/biogenerator/interact(mob/user as mob)
+/obj/machinery/biogenerator/interact(mob/user)
 	if(stat & BROKEN)
 		return
 	user.set_machine(src)
@@ -473,7 +473,7 @@
 	onclose(user, "biogenerator")
 	return
 
-/obj/machinery/biogenerator/attack_hand(mob/user as mob)
+/obj/machinery/biogenerator/attack_hand(mob/user)
 	interact(user)
 
 /obj/machinery/biogenerator/proc/activate()

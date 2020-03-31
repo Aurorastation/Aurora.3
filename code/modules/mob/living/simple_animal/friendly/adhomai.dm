@@ -15,7 +15,7 @@
 	canbrush = TRUE
 	var/eggsleft = 0
 
-/mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/ice_tunneler/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
 		var/obj/item/reagent_containers/food/snacks/grown/G = O
 		if(G.seed && G.seed.kitchen_tag == "nfrihi")

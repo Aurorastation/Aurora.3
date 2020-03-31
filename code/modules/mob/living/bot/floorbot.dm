@@ -301,7 +301,7 @@
 
 /* Assembly */
 
-/obj/item/storage/toolbox/mechanical/attackby(var/obj/item/stack/tile/floor/T, mob/user as mob)
+/obj/item/storage/toolbox/mechanical/attackby(var/obj/item/stack/tile/floor/T, mob/user)
 	if(!istype(T, /obj/item/stack/tile/floor))
 		..()
 		return
@@ -331,7 +331,7 @@
 	w_class = 3.0
 	var/created_name = "Floorbot"
 
-/obj/item/toolbox_tiles/attackby(var/obj/item/W, mob/user as mob)
+/obj/item/toolbox_tiles/attackby(var/obj/item/W, mob/user)
 	..()
 	if(isprox(W))
 		qdel(W)
@@ -361,7 +361,7 @@
 	w_class = 3.0
 	var/created_name = "Floorbot"
 
-/obj/item/toolbox_tiles_sensor/attackby(var/obj/item/W, mob/user as mob)
+/obj/item/toolbox_tiles_sensor/attackby(var/obj/item/W, mob/user)
 	..()
 	if(istype(W, /obj/item/robot_parts/l_arm) || istype(W, /obj/item/robot_parts/r_arm))
 		qdel(W)

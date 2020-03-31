@@ -47,7 +47,7 @@
 //		src.sd_SetLuminosity(0)
 
 //Don't want to render prison breaks impossible
-/obj/machinery/flasher/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/flasher/attackby(obj/item/W, mob/user)
 	if (W.iswirecutter())
 		add_fingerprint(user)
 		src.disable = !src.disable
@@ -115,7 +115,7 @@
 	if (src.anchored)
 		src.flash()
 
-/obj/machinery/flasher/portable/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/flasher/portable/attackby(obj/item/W, mob/user)
 	if (W.iswrench())
 		add_fingerprint(user)
 		src.anchored = !src.anchored
@@ -132,7 +132,7 @@
 	name = "flasher button"
 	desc = "A remote control switch for a mounted flasher."
 
-/obj/machinery/button/flasher/attack_hand(mob/user as mob)
+/obj/machinery/button/flasher/attack_hand(mob/user)
 
 	if(..())
 		return

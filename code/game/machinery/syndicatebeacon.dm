@@ -19,7 +19,7 @@
 	var/selfdestructing = 0
 	var/charges = 1
 
-/obj/machinery/syndicate_beacon/attack_hand(var/mob/user as mob)
+/obj/machinery/syndicate_beacon/attack_hand(var/mob/user)
 	usr.set_machine(src)
 	var/dat = "<font color=#005500><i>Scanning [pick("retina pattern", "voice print", "fingerprints", "dna sequence")]...<br>Identity confirmed,<br></i></font>"
 	if(istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon/ai))
@@ -117,11 +117,11 @@
 		to_chat(user, "<span class='notice'>You deactivate the beacon.</span>")
 
 
-/obj/machinery/power/singularity_beacon/attack_ai(mob/user as mob)
+/obj/machinery/power/singularity_beacon/attack_ai(mob/user)
 	return
 
 
-/obj/machinery/power/singularity_beacon/attack_hand(var/mob/user as mob)
+/obj/machinery/power/singularity_beacon/attack_hand(var/mob/user)
 	if(anchored)
 		return active ? Deactivate(user) : Activate(user)
 	else
@@ -129,7 +129,7 @@
 		return
 
 
-/obj/machinery/power/singularity_beacon/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/power/singularity_beacon/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if(active)
 			to_chat(user, "<span class='danger'>You need to deactivate the beacon first!</span>")

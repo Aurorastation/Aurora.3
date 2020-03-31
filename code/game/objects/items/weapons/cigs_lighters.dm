@@ -65,7 +65,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		location.hotspot_expose(700, 5)
 		return
 
-/obj/item/flame/match/dropped(mob/user as mob)
+/obj/item/flame/match/dropped(mob/user)
 	//If dropped, put ourselves out
 	//not before lighting up the turf we land on, though.
 	if(lit)
@@ -202,7 +202,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.update_inv_r_hand(1)
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/mask/smokable/attackby(obj/item/W, mob/user)
 	..()
 	if(isflamesource(W))
 		var/text = matchmes
@@ -247,7 +247,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent("nicotine",5) // 2/3 ratio, Adds 0.03 units per second
 
 
-/obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W, mob/user)
 	..()
 
 	if(istype(W, /obj/item/melee/energy/sword))
@@ -271,7 +271,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			return 1
 	return ..()
 
-/obj/item/clothing/mask/smokable/cigarette/afterattack(obj/item/reagent_containers/glass/glass, mob/user as mob, proximity)
+/obj/item/clothing/mask/smokable/cigarette/afterattack(obj/item/reagent_containers/glass/glass, mob/user, proximity)
 	..()
 	if(!proximity || lit)
 		return
@@ -286,7 +286,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			else
 				to_chat(user, span("notice", "[src] is full."))
 
-/obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
+/obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user)
 	if(lit == 1)
 		user.visible_message(span("notice", "[user] calmly drops and treads on the lit [src], putting it out instantly."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
@@ -436,7 +436,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/trash/cigbutt/cigarbutt/alt
 	icon_state = "cigar2butt"
 
-/obj/item/clothing/mask/smokable/cigarette/cigar/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/mask/smokable/cigarette/cigar/attackby(obj/item/W, mob/user)
 	..()
 	user.update_inv_wear_mask(0)
 	user.update_inv_l_hand(0)
@@ -501,7 +501,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.update_inv_l_hand(0)
 			M.update_inv_r_hand(1)
 
-/obj/item/clothing/mask/smokable/pipe/attack_self(mob/user as mob)
+/obj/item/clothing/mask/smokable/pipe/attack_self(mob/user)
 	if(lit == 1)
 		user.visible_message(span("notice", "[user] puts out [src]."), span("notice", "You put out [src]."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
@@ -517,7 +517,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		reagents.clear_reagents()
 		name = "empty [initial(name)]"
 
-/obj/item/clothing/mask/smokable/pipe/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/mask/smokable/pipe/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/melee/energy/sword))
 		return
 
@@ -650,7 +650,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	return
 
 
-/obj/item/flame/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/flame/lighter/attack(mob/living/carbon/M as mob, mob/living/carbon/user)
 	if(!istype(M, /mob))
 		return
 
@@ -669,7 +669,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		..()
 
-/obj/item/flame/lighter/throw_impact(mob/living/carbon/M as mob)
+/obj/item/flame/lighter/throw_impact(mob/living/carbon/M)
 	. = ..()
 	if(istype(M) && lit && M.IgniteMob())
 		M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
@@ -731,7 +731,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigpaper_generic"
 	w_class = 1.0
 
-/obj/item/paper/cig/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/paper/cig/attackby(obj/item/P, mob/user)
 	if(istype(P, /obj/item/flame) || P.iswelder())
 		..()
 	if(P.ispen())
@@ -750,13 +750,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigfilter"
 	w_class = 1.0
 
-/obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/paper/cig/filter/attackby(obj/item/P, mob/user)
 	if(istype(P, /obj/item/flame) || P.iswelder())
 		..()
 	else
 		return //no writing on filters now
 
-/obj/item/paper/cig/attack_self(mob/living/user as mob)
+/obj/item/paper/cig/attack_self(mob/living/user)
 	if(user.a_intent == I_HURT)
 		..()
 		return

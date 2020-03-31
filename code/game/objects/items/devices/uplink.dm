@@ -41,7 +41,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
  2. Code in the triggers. Use check_trigger for this, I recommend closing the item's menu with "user << browse(null, "window=windowname") if it returns true.)
  The var/value is the value that will be compared with the var/target. If they are equal it will activate the menu.
 
- 3. If you want the menu to stay until the users locks his uplink, add an active_uplink_check(mob/user as mob) in your interact/attack_hand proc.
+ 3. If you want the menu to stay until the users locks his uplink, add an active_uplink_check(mob/user) in your interact/attack_hand proc.
  Then check if it's true, if true return. This will stop the normal menu appearing and will instead show the uplink menu.
 */
 
@@ -67,7 +67,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	active = !active
 
 // Directly trigger the uplink. Turn on if it isn't already.
-/obj/item/device/uplink/hidden/proc/trigger(mob/user as mob)
+/obj/item/device/uplink/hidden/proc/trigger(mob/user)
 	if(!active)
 		toggle()
 	interact(user)
@@ -75,7 +75,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // Checks to see if the value meets the target. Like a frequency being a traitor_frequency, in order to unlock a headset.
 // If true, it accesses trigger() and returns 1. If it fails, it returns false. Use this to see if you need to close the
 // current item's menu.
-/obj/item/device/uplink/hidden/proc/check_trigger(mob/user as mob, var/value, var/target)
+/obj/item/device/uplink/hidden/proc/check_trigger(mob/user, var/value, var/target)
 	if(value == target)
 		trigger(user)
 		return 1
@@ -303,7 +303,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 // You place this in your uplinkable item to check if an uplink is active or not.
 // If it is, it will display the uplink menu and return 1, else it'll return false.
 // If it returns true, I recommend closing the item's normal menu with "user << browse(null, "window=name")")
-/obj/item/proc/active_uplink_check(mob/user as mob)
+/obj/item/proc/active_uplink_check(mob/user)
 	// Activates the uplink if it's active
 	if(src.hidden_uplink)
 		if(src.hidden_uplink.active)
@@ -321,14 +321,14 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	hidden_uplink = new(src, mind)
 	icon_state = "radio"
 
-/obj/item/device/radio/uplink/attack_self(mob/user as mob)
+/obj/item/device/radio/uplink/attack_self(mob/user)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 
 /obj/item/device/multitool/uplink/New(var/loc, var/mind)
 	hidden_uplink = new(src, mind)
 
-/obj/item/device/multitool/uplink/attack_self(mob/user as mob)
+/obj/item/device/multitool/uplink/attack_self(mob/user)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 
@@ -358,7 +358,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	hidden_uplink.uses = 0
 	hidden_uplink.nanoui_menu = 3
 
-/obj/item/device/contract_uplink/attack_self(mob/user as mob)
+/obj/item/device/contract_uplink/attack_self(mob/user)
 	if (hidden_uplink)
 		hidden_uplink.trigger(user)
 
@@ -371,7 +371,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	description_antag = "This device allows you to create a single central command report. It has only one use."
 	w_class = 2
 
-/obj/item/device/announcer/attack_self(mob/user as mob)
+/obj/item/device/announcer/attack_self(mob/user)
 	if(!player_is_antag(user.mind))
 		return
 
@@ -406,7 +406,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 		hidden_uplink.uses = starting_telecrystals
 	hidden_uplink.nanoui_menu = 1
 
-/obj/item/device/special_uplink/attack_self(mob/user as mob)
+/obj/item/device/special_uplink/attack_self(mob/user)
 	if(hidden_uplink)
 		hidden_uplink.trigger(user)
 

@@ -272,7 +272,7 @@
 		detach(0)
 	last_process_time = world.time
 
-/obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
+/obj/item/device/magnetic_lock/proc/check_target(var/obj/machinery/door/airlock/newtarget, var/mob/user)
 	if (status == STATUS_BROKEN)
 		to_chat(user, span("danger", "[src] is damaged beyond repair! It cannot be used!"))
 		return 0
@@ -295,7 +295,7 @@
 
 	return 1
 
-/obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
+/obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user)
 	if (!check_target(newtarget, user)) return
 
 	user.visible_message("<span class='notice'>[user] starts mounting [src] onto [newtarget].</span>", "<span class='notice'>You begin mounting [src] onto [newtarget].</span>")
@@ -377,7 +377,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 		last_process_time = 0
 
-/obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget as obj)
+/obj/item/device/magnetic_lock/proc/attach(var/obj/machinery/door/airlock/newtarget)
 	layer = LAYER_ATTACHED
 
 	newtarget.bracer = src
@@ -472,7 +472,7 @@
 				add_overlay("overlay_keypad")
 
 
-/obj/item/device/magnetic_lock/keypad/attack_self(mob/user as mob)
+/obj/item/device/magnetic_lock/keypad/attack_self(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
 		if(locked)

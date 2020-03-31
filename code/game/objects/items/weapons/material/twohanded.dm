@@ -66,7 +66,7 @@
 
 	return ..()
 
-/obj/item/material/twohanded/dropped(mob/user as mob)
+/obj/item/material/twohanded/dropped(mob/user)
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/material/twohanded/O = user.get_inactive_hand()
@@ -90,7 +90,7 @@
 	..()
 	unwield()
 
-/obj/item/material/twohanded/attack_self(mob/user as mob)
+/obj/item/material/twohanded/attack_self(mob/user)
 
 	..()
 
@@ -433,13 +433,13 @@
 	if(..(user, 1))
 		to_chat(user, "A heavy-duty chainsaw meant for cutting wood. Contains [round(reagents.get_reagent_amount(fuel_type))] unit\s of fuel.")
 
-/obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/material/twohanded/chainsaw/attack(mob/M as mob, mob/living/user)
 	. = ..()
 	if(powered)
 		playsound(loc, "sound/weapons/saw/chainsword.ogg", 25, 0, 30)
 		RemoveFuel(3)
 
-/obj/item/material/twohanded/chainsaw/afterattack(obj/O as obj, mob/user as mob, proximity)
+/obj/item/material/twohanded/chainsaw/afterattack(obj/O, mob/user, proximity)
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !powered)
 		O.reagents.trans_to_obj(src, max_fuel)
@@ -460,7 +460,7 @@
 
 	. = ..()
 
-/obj/item/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H as mob) //Shamefully copied from the welder. Damage values multiplied by 0.1
+/obj/item/material/twohanded/chainsaw/proc/eyecheck(var/multiplier, mob/living/carbon/human/H) //Shamefully copied from the welder. Damage values multiplied by 0.1
 
 	if (!istype(H) || H.status_flags & GODMODE)
 		return
@@ -474,7 +474,7 @@
 	if(eye_damage > 0)
 		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
 
-/obj/item/material/twohanded/chainsaw/AltClick(mob/user as mob)
+/obj/item/material/twohanded/chainsaw/AltClick(mob/user)
 
 	if(powered)
 		PowerDown(user)

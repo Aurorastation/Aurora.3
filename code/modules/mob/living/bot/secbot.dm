@@ -519,7 +519,7 @@
 			secbot.next_destination = signal.data["next_patrol"]
 			secbot.closest_dist = dist
 
-/mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/bot/secbot/attack_hand(mob/living/carbon/human/M)
 	..()
 
 	if(M.a_intent == I_HURT ) //assume he wants to hurt us.
@@ -642,7 +642,7 @@
 
 //Secbot Construction
 
-/obj/item/clothing/head/helmet/attackby(var/obj/item/device/assembly/signaler/S, mob/user as mob)
+/obj/item/clothing/head/helmet/attackby(var/obj/item/device/assembly/signaler/S, mob/user)
 	..()
 	if(!issignaler(S))
 		..()

@@ -69,7 +69,7 @@
 			return ..(freq, level)
 	return -1
 
-/obj/item/device/radio/headset/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/radio/headset/attackby(obj/item/W, mob/user)
 //	..()
 	user.set_machine(src)
 	if (!( W.isscrewdriver() || (istype(W, /obj/item/device/encryptionkey/ ))))

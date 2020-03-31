@@ -104,7 +104,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/attack_hand(mob/user as mob)
+/obj/machinery/suit_storage_unit/attack_hand(mob/user)
 	var/dat
 	if(..())
 		return
@@ -215,7 +215,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/proc/toggleUV(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/toggleUV(mob/user)
 //	var/protected = 0
 //	var/mob/living/carbon/human/H = user
 	if(!src.panelopen)
@@ -241,7 +241,7 @@
 		return
 
 
-/obj/machinery/suit_storage_unit/proc/togglesafeties(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/togglesafeties(mob/user)
 //	var/protected = 0
 //	var/mob/living/carbon/human/H = user
 	if(!src.panelopen) //Needed check due to bugs
@@ -262,7 +262,7 @@
 		src.safetieson = !src.safetieson
 
 
-/obj/machinery/suit_storage_unit/proc/dispense_helmet(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/dispense_helmet(mob/user)
 	if(!src.HELMET)
 		return //Do I even need this sanity check? Nyoro~n
 	else
@@ -271,7 +271,7 @@
 		return
 
 
-/obj/machinery/suit_storage_unit/proc/dispense_suit(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/dispense_suit(mob/user)
 	if(!src.SUIT)
 		return
 	else
@@ -280,7 +280,7 @@
 		return
 
 
-/obj/machinery/suit_storage_unit/proc/dispense_mask(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/dispense_mask(mob/user)
 	if(!src.MASK)
 		return
 	else
@@ -305,7 +305,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/proc/toggle_open(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/toggle_open(mob/user)
 	if(src.islocked || src.isUV)
 		to_chat(user, "<font color='red'>Unable to open unit.</font>")
 		return
@@ -316,7 +316,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/proc/toggle_lock(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/toggle_lock(mob/user)
 	if(src.OCCUPANT && src.safetieson)
 		to_chat(user, "<font color='red'>The Unit's safety protocols disallow locking when a biological form is detected inside its compartments.</font>")
 		return
@@ -326,7 +326,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/proc/start_UV(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/start_UV(mob/user)
 	if(src.isUV || src.isopen) //I'm bored of all these sanity checks
 		return
 	if(src.OCCUPANT && src.safetieson)
@@ -389,7 +389,7 @@
 		src.cycletime_left--
 	return src.cycletime_left
 
-/obj/machinery/suit_storage_unit/proc/eject_occupant(mob/user as mob)
+/obj/machinery/suit_storage_unit/proc/eject_occupant(mob/user)
 	if (src.islocked)
 		return
 
@@ -460,7 +460,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/suit_storage_unit/attackby(obj/item/I, mob/user)
 	if(!src.ispowered)
 		return
 	if(I.isscrewdriver())
@@ -543,7 +543,7 @@
 	return
 
 
-/obj/machinery/suit_storage_unit/attack_ai(mob/user as mob)
+/obj/machinery/suit_storage_unit/attack_ai(mob/user)
 	return src.attack_hand(user)
 
 //////////////////////////////REMINDER: Make it lock once you place some fucker inside.
@@ -692,10 +692,10 @@
 	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
 	can_repair = TRUE
 
-/obj/machinery/suit_cycler/attack_ai(mob/user as mob)
+/obj/machinery/suit_cycler/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/suit_cycler/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/suit_cycler/attackby(obj/item/I, mob/user)
 
 	if(electrified != 0)
 		if(src.shock(user, 100))
@@ -806,7 +806,7 @@
 	src.updateUsrDialog()
 	return 1
 
-/obj/machinery/suit_cycler/attack_hand(mob/user as mob)
+/obj/machinery/suit_cycler/attack_hand(mob/user)
 
 	add_fingerprint(user)
 
@@ -1002,7 +1002,7 @@
 
 	eject_occupant(usr)
 
-/obj/machinery/suit_cycler/proc/eject_occupant(mob/user as mob)
+/obj/machinery/suit_cycler/proc/eject_occupant(mob/user)
 
 	if(locked || active)
 		to_chat(user, "<span class='warning'>The cycler is locked.</span>")

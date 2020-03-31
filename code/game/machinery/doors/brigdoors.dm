@@ -180,13 +180,13 @@
 	return
 
 //Allows AIs to use door_timer, see human attack_hand function below
-/obj/machinery/door_timer/attack_ai(var/mob/user as mob)
+/obj/machinery/door_timer/attack_ai(var/mob/user)
 	return src.attack_hand(user)
 
 // Allows humans to use door_timer
 // Opens dialog window when someone clicks on door timer
 // Flasher activation limited to 150 seconds
-/obj/machinery/door_timer/attack_hand(var/mob/user as mob)
+/obj/machinery/door_timer/attack_hand(var/mob/user)
 	if(..())
 		return
 
@@ -208,7 +208,7 @@
 
 	return
 
-/obj/machinery/door_timer/proc/menu_timer( var/mob/user as mob )
+/obj/machinery/door_timer/proc/menu_timer( var/mob/user )
 	// Used for the 'time left' display
 	var/second = round(timeleft() % 60)
 	var/minute = round((timeleft() - second) / 60)
@@ -268,7 +268,7 @@
 
 	return .
 
-/obj/machinery/door_timer/attackby(obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/door_timer/attackby(obj/item/O, var/mob/user)
 	if( istype( O, /obj/item/paper/incident ))
 		if( !incident )
 			if( import( O, user ))

@@ -230,7 +230,7 @@
 	while(repeat > 0)
 	playing = 0
 
-/obj/item/device/violin/attack_self(mob/user as mob)
+/obj/item/device/violin/attack_self(mob/user)
 	if(!isliving(user) || user.stat || user.restrained() || user.lying)	return
 	user.set_machine(src)
 
@@ -387,7 +387,7 @@
 			attack_self(M)
 	return
 
-/obj/item/device/violin/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+/obj/item/device/violin/attack(mob/living/carbon/M as mob, mob/living/carbon/user)
 	..()
 	user.visible_message("<span class='danger'>\The [user] shatters \the [src] into pieces!</span>")
 	playsound(loc, 'sound/effects/kabong.ogg', 50, 1)

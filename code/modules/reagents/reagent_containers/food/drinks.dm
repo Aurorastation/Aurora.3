@@ -49,7 +49,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		icon = initial(icon)	//Necessary for refilling empty drinks
 		icon_state = initial(icon_state)
 
-/obj/item/reagent_containers/food/drinks/attack_self(mob/user as mob)
+/obj/item/reagent_containers/food/drinks/attack_self(mob/user)
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
 			shaken = 1
@@ -63,19 +63,19 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 					return
 		open(user)
 
-/obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
+/obj/item/reagent_containers/food/drinks/proc/open(mob/user)
 	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
 	user.visible_message("[user] opens the [src].", "You open \the [src] with an audible pop!", "You can hear a pop,")
 	flags |= OPENCONTAINER
 
-/obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
+/obj/item/reagent_containers/food/drinks/proc/boom(mob/user)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
 	playsound(loc,'sound/items/soda_burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
 	flags |= OPENCONTAINER
 	shaken = 0
 
-/obj/item/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/food/drinks/attack(mob/M as mob, mob/user, def_zone)
 	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
 		return ..()
 	return 0

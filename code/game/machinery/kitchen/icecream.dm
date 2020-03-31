@@ -71,11 +71,11 @@
 	reagents.add_reagent("sugar", 5)
 	reagents.add_reagent("ice", 5)
 
-/obj/machinery/icecream_vat/attack_hand(mob/user as mob)
+/obj/machinery/icecream_vat/attack_hand(mob/user)
 	user.set_machine(src)
 	interact(user)
 
-/obj/machinery/icecream_vat/interact(mob/user as mob)
+/obj/machinery/icecream_vat/interact(mob/user)
 	var/dat
 	dat += "<b>ICECREAM</b><br><div class='statusDisplay'>"
 	dat += "<b>Dispensing: [flavour_name] icecream </b> <br><br>"
@@ -99,7 +99,7 @@
 	popup.set_content(dat)
 	popup.open()
 
-/obj/machinery/icecream_vat/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/icecream_vat/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers/food/snacks/icecream))
 		var/obj/item/reagent_containers/food/snacks/icecream/I = O
 		if(!I.ice_creamed)

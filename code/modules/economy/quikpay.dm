@@ -124,7 +124,7 @@
 // VUEUI Below <3
 
 
-/obj/item/device/nanoquikpay/attack_self(mob/user as mob)
+/obj/item/device/nanoquikpay/attack_self(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
 	if (!ui)
 		ui = new(usr, src, "quikpay-main", 400, 400, "NT Quik-Pay")

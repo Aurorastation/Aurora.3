@@ -18,7 +18,7 @@
 	volume = 300
 	drop_sound = 'sound/items/drop/gascan.ogg'
 
-/obj/item/reagent_containers/extinguisher_refill/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/reagent_containers/extinguisher_refill/attackby(var/obj/O, var/mob/user)
 
 	if(istype(O,/obj/item/extinguisher))
 		var/obj/item/extinguisher/E = O
@@ -36,7 +36,7 @@
 
 	. = ..()
 
-/obj/item/reagent_containers/extinguisher_refill/attack_self(mob/user as mob) //Copied from inhalers.
+/obj/item/reagent_containers/extinguisher_refill/attack_self(mob/user) //Copied from inhalers.
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
@@ -131,14 +131,14 @@
 		to_chat(user,"The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/extinguisher/attack_self(mob/user as mob)
+/obj/item/extinguisher/attack_self(mob/user)
 	safety = !safety
 	src.icon_state = "[sprite_name][!safety]"
 	src.desc = "The safety is [safety ? "on" : "off"]."
 	to_chat(user, "The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/extinguisher/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/extinguisher/attackby(var/obj/O, var/mob/user)
 
 	if(istype(O,/obj/item/reagent_containers/extinguisher_refill))
 		var/obj/item/reagent_containers/extinguisher_refill/ER = O

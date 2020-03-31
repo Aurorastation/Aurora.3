@@ -151,7 +151,7 @@
 
 /obj/item/tray/var/cooldown = 0	//shield bash cooldown. based on world.time
 
-/obj/item/tray/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tray/attackby(obj/item/W, mob/user)
 	if (istype(user,/mob/living/silicon/robot))//safety to stop robots losing their items
 		return
 
@@ -178,7 +178,7 @@
 */
 
 //Clicking an item individually loads it. clicking a table places the tray on it safely
-/obj/item/tray/afterattack(atom/target, mob/user as mob, proximity)
+/obj/item/tray/afterattack(atom/target, mob/user, proximity)
 	if (proximity)
 		if (istype(target, /obj/item))
 			var/obj/item/I = target

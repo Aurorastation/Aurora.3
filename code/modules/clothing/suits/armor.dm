@@ -28,21 +28,21 @@
 		QDEL_NULL(pockets)
 	return ..()
 
-/obj/item/clothing/suit/armor/attack_hand(mob/user as mob)
+/obj/item/clothing/suit/armor/attack_hand(mob/user)
 	if (pockets)
 		if (pockets.handle_attack_hand(user))
 			..(user)
 	else
 		..(user)
 
-/obj/item/clothing/suit/armor/MouseDrop(obj/over_object as obj)
+/obj/item/clothing/suit/armor/MouseDrop(obj/over_object)
 	if (pockets)
 		if (pockets.handle_mousedrop(usr, over_object))
 			..(over_object)
 	else
 		..(over_object)
 
-/obj/item/clothing/suit/armor/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/armor/attackby(obj/item/W, mob/user)
 	..()
 	if (pockets)
 		pockets.attackby(W, user)
@@ -239,7 +239,7 @@
 		return PROJECTILE_FORCE_MISS
 	return 0
 
-/obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
+/obj/item/clothing/suit/armor/reactive/attack_self(mob/user)
 	src.active = !( src.active )
 	if (src.active)
 		to_chat(user, "<span class='notice'>The reactive armor is now active.</span>")
@@ -278,11 +278,11 @@
 	QDEL_NULL(pockets)	//Tactical armour has internal holster instead of pockets, so we null this out
 	cut_overlays()	// Remove the holster's overlay.
 
-/obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/armor/tactical/attackby(obj/item/W, mob/user)
 	..()
 	holster.attackby(W, user)
 
-/obj/item/clothing/suit/armor/tactical/attack_hand(mob/user as mob)
+/obj/item/clothing/suit/armor/tactical/attack_hand(mob/user)
 	if (loc == user)//If we're wearing the suit and we click it with an empty hand
 		holster.attack_hand(user)//Remove the weapon in the holster
 	else

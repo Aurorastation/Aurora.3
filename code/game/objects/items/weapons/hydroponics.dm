@@ -14,7 +14,7 @@
 	w_class = 1
 	var/list/item_quants = list()
 
-/obj/item/seedbag/attack_self(mob/user as mob)
+/obj/item/seedbag/attack_self(mob/user)
 	user.machine = src
 	interact(user)
 
@@ -29,7 +29,7 @@
 		if(0)
 			to_chat(usr, "The bag now picks up one seed pouch at a time.")
 
-/obj/item/seeds/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/item/seeds/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if (istype(O, /obj/item/seedbag))
 		var/obj/item/seedbag/S = O
@@ -58,7 +58,7 @@
 		S.updateUsrDialog()
 	return
 
-/obj/item/seedbag/interact(mob/user as mob)
+/obj/item/seedbag/interact(mob/user)
 
 	var/dat = "<TT><b>Select an item:</b><br>"
 

@@ -678,7 +678,7 @@ proc/GaussRandRound(var/sigma,var/roundto)
 	if (progbar)
 		qdel(progbar)
 
-/proc/do_after(mob/user as mob, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
+/proc/do_after(mob/user, delay as num, needhand = TRUE, atom/movable/act_target = null, use_user_turf = FALSE, display_progress = TRUE, datum/callback/extra_checks)
 	if(!user || isnull(user))
 		return 0
 
@@ -829,7 +829,7 @@ var/global/list/common_tools = list(
 		return 1
 	return 0
 
-proc/is_hot(obj/item/W as obj)
+proc/is_hot(obj/item/W)
 	switch(W.type)
 		if(/obj/item/weldingtool)
 			var/obj/item/weldingtool/WT = W
@@ -875,7 +875,7 @@ proc/is_hot(obj/item/W as obj)
 	return 0
 
 //Returns 1 if the given item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
-/proc/can_puncture(obj/item/W as obj)		// For the record, WHAT THE HELL IS THIS METHOD OF DOING IT?
+/proc/can_puncture(obj/item/W)		// For the record, WHAT THE HELL IS THIS METHOD OF DOING IT?
 	if(!W) return 0
 	if(W.sharp) return 1
 	return ( \
@@ -889,7 +889,7 @@ proc/is_hot(obj/item/W as obj)
 		istype(W, /obj/item/shovel) \
 	)
 
-/proc/is_surgery_tool(obj/item/W as obj)
+/proc/is_surgery_tool(obj/item/W)
 	return (	\
 	istype(W, /obj/item/surgery/scalpel)			||	\
 	istype(W, /obj/item/surgery/hemostat)		||	\
@@ -899,7 +899,7 @@ proc/is_hot(obj/item/W as obj)
 	istype(W, /obj/item/surgery/bonesetter)
 	)
 
-/proc/is_borg_item(obj/item/W as obj)
+/proc/is_borg_item(obj/item/W)
 	return W && W.loc && isrobot(W.loc)
 
 //check if mob is lying down on something we can operate him on.

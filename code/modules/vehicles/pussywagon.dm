@@ -24,7 +24,7 @@
 	update_icon()
 	turn_off()	//so engine verbs are correctly set
 
-/obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/engine/pussywagon/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/key/janicart))
 		if(!key)
 			user.drop_from_inventory(W,src)
@@ -133,7 +133,7 @@
 	var/hoover = 0
 
 
-/obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/trolley/pussywagon/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/reagent_containers) && open)
 		if(!bucket)
 			user.drop_from_inventory(W,src)

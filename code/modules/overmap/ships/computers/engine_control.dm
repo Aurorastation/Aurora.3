@@ -22,7 +22,7 @@
 		if (E.zlevel == z && !(E in engines))
 			engines += E
 
-/obj/machinery/computer/engines/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/engines/attack_hand(var/mob/user)
 	if(..())
 		user.unset_machine()
 		return

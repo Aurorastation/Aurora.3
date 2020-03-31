@@ -108,7 +108,7 @@ var/list/holder_mob_icon_cache = list()
 
 	qdel(src)
 
-/obj/item/holder/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/holder/attackby(obj/item/W, mob/user)
 	for(var/mob/M in src.contents)
 		M.attackby(W,user)
 
@@ -142,7 +142,7 @@ var/list/holder_mob_icon_cache = list()
 
 	report_onmob_location(1, slotnumber, contained)
 
-/obj/item/holder/attack_self(mob/M as mob)
+/obj/item/holder/attack_self(mob/M)
 
 	if (contained && !(contained.stat & DEAD))
 		if (istype(M,/mob/living/carbon/human))

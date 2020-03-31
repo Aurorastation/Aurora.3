@@ -31,7 +31,7 @@
 		src.icon_state = "implanter0"
 	return
 
-/obj/item/implanter/attack(mob/M as mob, mob/user as mob, var/target_zone)
+/obj/item/implanter/attack(mob/M as mob, mob/user, var/target_zone)
 	if (!istype(M, /mob/living/carbon))
 		return
 	if (user && src.imp)
@@ -114,7 +114,7 @@
 		icon_state = "cimplanter0"
 	return
 
-/obj/item/implanter/compressed/attack(mob/M as mob, mob/user as mob)
+/obj/item/implanter/compressed/attack(mob/M as mob, mob/user)
 	var/obj/item/implant/compressed/c = imp
 	if (!c)	return
 	if (c.scanned == null)
@@ -122,7 +122,7 @@
 		return
 	..()
 
-/obj/item/implanter/compressed/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/implanter/compressed/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(A,/obj/item) && imp)
@@ -170,7 +170,7 @@
 		icon_state = "cimplanter0"
 	return
 
-/obj/item/implanter/ipc_tag/attack(mob/M as mob, mob/user as mob)
+/obj/item/implanter/ipc_tag/attack(mob/M as mob, mob/user)
 	if (!ishuman(M))
 		return
 
@@ -205,7 +205,7 @@
 	var/datum/species/machine/machine = H.species
 	machine.update_tag(H, H.client)
 
-/obj/item/implanter/ipc_tag/attackby(var/obj/item/organ/internal/ipc_tag/new_tag, mob/user as mob)
+/obj/item/implanter/ipc_tag/attackby(var/obj/item/organ/internal/ipc_tag/new_tag, mob/user)
 	..()
 
 	if (!istype(new_tag))

@@ -168,7 +168,7 @@
 /turf/simulated/open/update_icon(mapload)
 	update_mimic(!mapload)
 
-/turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
+/turf/simulated/open/attackby(obj/item/C, mob/user)
 	if (istype(C, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)

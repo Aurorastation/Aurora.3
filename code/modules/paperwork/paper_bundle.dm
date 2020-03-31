@@ -15,7 +15,7 @@
 	var/amount = 0 // How many sheet
 	drop_sound = 'sound/items/drop/paper.ogg'
 
-/obj/item/paper_bundle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/paper_bundle/attackby(obj/item/W, mob/user)
 	..()
 
 	if (istype(W, /obj/item/paper/carbon))
@@ -96,7 +96,7 @@
 		to_chat(user, "<span class='notice'>It is too far away.</span>")
 	return
 
-/obj/item/paper_bundle/proc/show_content(mob/user as mob)
+/obj/item/paper_bundle/proc/show_content(mob/user)
 	var/dat
 	var/obj/item/W = pages[page]
 
@@ -128,7 +128,7 @@
 		to_chat(user, browse_rsc(P.img, "tmp_photo.png"))
 		user << browse(dat + "<html><head><title>[P.name]</title></head>" + "<body style='overflow:hidden'>" + "<div> <img src='tmp_photo.png' width = '180'" + "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" + "</body></html>", "window=[name]")
 
-/obj/item/paper_bundle/attack_self(mob/user as mob)
+/obj/item/paper_bundle/attack_self(mob/user)
 	src.show_content(user)
 	add_fingerprint(usr)
 	update_icon()

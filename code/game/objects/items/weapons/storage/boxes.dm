@@ -84,7 +84,7 @@
 			to_chat(user, span("danger", "It is full of tears and holes."))
 
 // BubbleWrap - A box can be folded up to make card
-/obj/item/storage/box/attack_self(mob/user as mob)
+/obj/item/storage/box/attack_self(mob/user)
 	if(..()) return
 
 	//try to fold it.
@@ -108,7 +108,7 @@
 	new src.foldable(get_turf(src))
 	qdel(src)
 
-/obj/item/storage/backpack/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/backpack/attackby(obj/item/W, mob/user)
 	if (src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	..()
@@ -474,7 +474,7 @@
 	can_hold = list(/obj/item/flame/match)
 	starts_with = list(/obj/item/flame/match = 10)
 
-/obj/item/storage/box/matches/attackby(obj/item/flame/match/W as obj, mob/user as mob)
+/obj/item/storage/box/matches/attackby(obj/item/flame/match/W, mob/user)
 	if(istype(W) && !W.lit && !W.burnt)
 		if(prob(25))
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)

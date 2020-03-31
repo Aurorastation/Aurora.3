@@ -10,7 +10,7 @@
 	force = 10
 	hitsound = 'sound/items/welder2.ogg'
 
-/obj/item/scrying/attack_self(mob/living/user as mob)
+/obj/item/scrying/attack_self(mob/living/user)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			//Save the users active hand

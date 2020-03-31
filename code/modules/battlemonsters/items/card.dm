@@ -32,7 +32,7 @@
 		)
 	..(A, user, click_parameters)
 
-/obj/item/battle_monsters/card/attack_self(mob/user as mob)
+/obj/item/battle_monsters/card/attack_self(mob/user)
 	flip_card(user)
 
 /obj/item/battle_monsters/card/proc/make_deck(var/mob/user,var/obj/item/battle_monsters/card/adding_card)

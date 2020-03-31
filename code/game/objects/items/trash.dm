@@ -8,7 +8,7 @@
 	desc = "General waste material, refuse or litter. Dispose responsibly."
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 
-/obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/trash/attack(mob/M as mob, mob/living/user)
 	return
 
 /obj/item/trash/koisbar

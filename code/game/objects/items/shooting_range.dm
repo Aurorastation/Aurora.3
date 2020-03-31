@@ -32,7 +32,7 @@
 
 
 
-	attackby(obj/item/W as obj, mob/user as mob)
+	attackby(obj/item/W, mob/user)
 		if (W.iswelder())
 			var/obj/item/weldingtool/WT = W
 			if(WT.remove_fuel(0, user))
@@ -41,7 +41,7 @@
 				return
 
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		// taking pinned targets off!
 		var/obj/structure/target_stake/stake
 		for(var/obj/structure/target_stake/T in view(3,src))

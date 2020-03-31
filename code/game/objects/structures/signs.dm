@@ -20,7 +20,7 @@
 		else
 	return
 
-/obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
+/obj/structure/sign/attackby(obj/item/tool, mob/user)	//deconstruction
 	if(tool.isscrewdriver() && !istype(src, /obj/structure/sign/double))
 		to_chat(user, "You unfasten the sign with your [tool].")
 		unfasten()
@@ -43,7 +43,7 @@
 	w_class = 5		//big
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
+/obj/item/sign/attackby(obj/item/tool, mob/user)	//construction
 	if(tool.isscrewdriver() && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
 		if(direction == "Cancel") return
@@ -668,7 +668,7 @@
 	qdel(src)
 
 
-/obj/structure/sign/flag/attack_hand(mob/user as mob)
+/obj/structure/sign/flag/attack_hand(mob/user)
 
 	if(alert("Do you want to rip \the [src] from its place?","You think...","Yes","No") == "Yes")
 
@@ -682,7 +682,7 @@
 		desc = "You can't make out anything from the flag's original print. It's ruined."
 		add_fingerprint(user)
 
-/obj/structure/sign/flag/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
 	..()
 
 	if(istype(W, /obj/item/flame/lighter))

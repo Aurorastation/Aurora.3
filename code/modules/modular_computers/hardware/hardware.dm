@@ -13,7 +13,7 @@
 	var/damage_failure = 50			// "Failure" threshold. When damage exceeds this value the hardware piece will not work at all.
 	var/malfunction_probability = 10// Chance of malfunction when the component is damaged
 
-/obj/item/computer_hardware/attackby(var/obj/item/W as obj, var/mob/living/user as mob)
+/obj/item/computer_hardware/attackby(var/obj/item/W, var/mob/living/user)
 	// Multitool. Runs diagnostics
 	if(W.ismultitool())
 		to_chat(user, "***** DIAGNOSTICS REPORT *****")

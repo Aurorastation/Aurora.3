@@ -169,8 +169,8 @@
 	add_fingerprint(usr)
 	return 1 // update UIs attached to this object
 
-/obj/machinery/chemical_dispenser/attack_ai(mob/user as mob)
+/obj/machinery/chemical_dispenser/attack_ai(mob/user)
 	ui_interact(user)
 
-/obj/machinery/chemical_dispenser/attack_hand(mob/user as mob)
+/obj/machinery/chemical_dispenser/attack_hand(mob/user)
 	ui_interact(user)

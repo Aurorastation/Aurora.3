@@ -16,7 +16,7 @@
 		item_name = initial(S.name)
 	name = "[item_name] contract"
 
-/obj/item/contract/boon/contract_effect(mob/user as mob)
+/obj/item/contract/boon/contract_effect(mob/user)
 	..()
 	if(ispath(path,/spell))
 		user.add_spell(new path)

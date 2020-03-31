@@ -4,14 +4,14 @@
 	var/facedown = TRUE
 	var/rotated = FALSE
 
-/obj/item/battle_monsters/dropped(mob/user as mob)
+/obj/item/battle_monsters/dropped(mob/user)
 	set_dir(user.dir)
 	if(rotated)
 		set_dir(turn(dir,90))
 	update_icon()
 	. = ..()
 
-/obj/item/battle_monsters/pickup(mob/user as mob)
+/obj/item/battle_monsters/pickup(mob/user)
 	set_dir(NORTH)
 	if(rotated)
 		set_dir(turn(dir,90))

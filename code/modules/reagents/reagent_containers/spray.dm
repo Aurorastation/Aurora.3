@@ -35,7 +35,7 @@
 	to_chat(usr, "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>")
 
 
-/obj/item/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+/obj/item/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user, proximity)
 
 	if(istype(A, /obj/item/reagent_containers))
 		. = ..()
@@ -80,7 +80,7 @@
 		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
 	return
 
-/obj/item/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
+/obj/item/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user, proximity)
 	if(istype(A, /obj) && A.loc == user)
 		return
 	if (A.density && proximity)
@@ -256,7 +256,7 @@
 	. = ..()
 	reagents.add_reagent("plantbgone", 100)
 
-/obj/item/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+/obj/item/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user, proximity)
 	if(!proximity) return
 
 	if(istype(A, /obj/effect/blob)) // blob damage in blob code

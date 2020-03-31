@@ -48,7 +48,7 @@
 				req_access += pick(get_all_station_access())
 	..()
 
-/obj/structure/closet/secure_closet/proc/togglelock(mob/user as mob)
+/obj/structure/closet/secure_closet/proc/togglelock(mob/user)
 	if(opened)
 		to_chat(user,  "<span class='notice'>Close the locker first.</span>")
 		return
@@ -78,7 +78,7 @@
 /obj/structure/closet/secure_closet/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && !opened && !broken)
 
-/obj/structure/closet/secure_closet/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/closet/secure_closet/attackby(obj/item/W, mob/user)
 	if(opened)
 		if(istype(W, /obj/item/grab))
 			var/obj/item/grab/G = W
@@ -212,7 +212,7 @@
 			visible_message("<span class='warning'>\The [src] sparks and breaks open!</span>", "You hear a faint electrical spark.")
 		return 1
 
-/obj/structure/closet/secure_closet/attack_hand(mob/user as mob)
+/obj/structure/closet/secure_closet/attack_hand(mob/user)
 	add_fingerprint(user)
 	if(locked)
 		togglelock(user)

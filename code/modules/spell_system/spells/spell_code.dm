@@ -342,7 +342,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	return temp
 
-/spell/proc/spell_do_after(var/mob/user as mob, delay as num, var/numticks = 5)
+/spell/proc/spell_do_after(var/mob/user, delay as num, var/numticks = 5)
 	if(!user || isnull(user))
 		return 0
 	if(numticks == 0)

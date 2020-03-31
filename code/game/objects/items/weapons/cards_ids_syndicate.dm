@@ -5,7 +5,7 @@
 	var/electronic_warfare = 1
 	var/mob/registered_user = null
 
-/obj/item/card/id/syndicate/New(mob/user as mob)
+/obj/item/card/id/syndicate/New(mob/user)
 	..()
 	access = syndicate_access.Copy()
 
@@ -16,7 +16,7 @@
 /obj/item/card/id/syndicate/prevent_tracking()
 	return electronic_warfare
 
-/obj/item/card/id/syndicate/afterattack(var/obj/item/O as obj, mob/user as mob, proximity)
+/obj/item/card/id/syndicate/afterattack(var/obj/item/O, mob/user, proximity)
 	if(!proximity) return
 	if(istype(O, /obj/item/card/id))
 		var/obj/item/card/id/I = O
@@ -24,7 +24,7 @@
 		if(player_is_antag(user.mind))
 			to_chat(user, "<span class='notice'>The microscanner activates as you pass it over the ID, copying its access.</span>")
 
-/obj/item/card/id/syndicate/attack_self(mob/user as mob)
+/obj/item/card/id/syndicate/attack_self(mob/user)
 	// We use the fact that registered_name is not unset should the owner be vaporized, to ensure the id doesn't magically become unlocked.
 	if(!registered_user && register_user(user))
 		to_chat(user, "<span class='notice'>The microscanner marks you as its owner, preventing others from accessing its internals.</span>")

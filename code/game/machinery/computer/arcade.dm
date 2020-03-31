@@ -23,7 +23,7 @@
 		var/atom/movable/chosen_prize = pick(contents)
 		chosen_prize.forceMove(src.loc)
 
-/obj/machinery/computer/arcade/attack_ai(mob/user as mob)
+/obj/machinery/computer/arcade/attack_ai(mob/user)
 	return src.attack_hand(user)
 
 /obj/machinery/computer/arcade/emp_act(severity)
@@ -75,7 +75,7 @@
 	src.name = (name_action + name_part1 + name_part2)
 
 
-/obj/machinery/computer/arcade/battle/attack_hand(mob/user as mob)
+/obj/machinery/computer/arcade/battle/attack_hand(mob/user)
 	if(..())
 		return
 	user.set_machine(src)

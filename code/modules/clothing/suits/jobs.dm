@@ -172,7 +172,7 @@ obj/item/clothing/suit/apron/overalls/blue
 		icon_closed = "suit_detective_[color]"
 	. = ..()
 
-/obj/item/clothing/suit/storage/toggle/det_trench/technicolor/attackby(obj/item/O as obj, mob/user as mob)
+/obj/item/clothing/suit/storage/toggle/det_trench/technicolor/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/reagent_containers/glass/paint))
 		var/obj/item/reagent_containers/glass/paint/P = O
 		suit_color = P.paint_type

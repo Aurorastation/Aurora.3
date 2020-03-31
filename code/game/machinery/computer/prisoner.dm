@@ -15,10 +15,10 @@
 	var/screen = 0 // 0 - No Access Denied, 1 - Access allowed
 
 
-	attack_ai(var/mob/user as mob)
+	attack_ai(var/mob/user)
 		return src.attack_hand(user)
 
-	attack_hand(var/mob/user as mob)
+	attack_hand(var/mob/user)
 		if(..())
 			return
 		user.set_machine(src)

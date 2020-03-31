@@ -143,7 +143,7 @@
 	healthcheck()
 	return
 
-/obj/effect/energy_net/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/energy_net/attackby(obj/item/W, mob/user)
 	health -= W.force
 	healthcheck()
 	..()
@@ -191,7 +191,7 @@
 	throw_range = 15
 	attack_verb = list("banned")
 
-/obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
+/obj/item/banhammer/attack(mob/M as mob, mob/user)
 	to_chat(M, "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>")
 	to_chat(user, "<font color='red'> You have <b>BANNED</b> [M]</font>")
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

@@ -68,14 +68,14 @@
 		return TryToSwitchState(user)
 	return
 
-/obj/structure/simple_door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
+/obj/structure/simple_door/attack_ai(mob/user) //those aren't machinery, they're just big fucking slabs of a mineral
 	if(isAI(user)) //so the AI can't open it
 		return
 	else if(isrobot(user)) //but cyborgs can
 		if(get_dist(user,src) <= 1) //not remotely though
 			return TryToSwitchState(user)
 
-/obj/structure/simple_door/attack_hand(mob/user as mob)
+/obj/structure/simple_door/attack_hand(mob/user)
 	return TryToSwitchState(user)
 
 /obj/structure/simple_door/attack_generic(mob/user)
@@ -147,7 +147,7 @@
 	else
 		icon_state = material.door_icon_base
 
-/obj/structure/simple_door/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/simple_door/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/key) && lock)
 		var/obj/item/key/K = W
 		if(!lock.toggle(W))

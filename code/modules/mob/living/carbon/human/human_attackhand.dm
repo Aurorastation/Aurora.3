@@ -16,7 +16,7 @@
 			return u_attack
 	return null
 
-/mob/living/carbon/human/attack_hand(mob/living/carbon/M as mob)
+/mob/living/carbon/human/attack_hand(mob/living/carbon/M)
 
 	var/mob/living/carbon/human/H = M
 	if(!M.can_use_hand())

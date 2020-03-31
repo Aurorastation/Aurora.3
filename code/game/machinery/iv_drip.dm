@@ -52,7 +52,7 @@
 		src.update_icon()
 
 
-/obj/machinery/iv_drip/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/iv_drip/attackby(obj/item/W, mob/user)
 
 	if (istype(W, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
@@ -130,7 +130,7 @@
 				beaker.reagents.handle_reactions()
 				update_icon()
 
-/obj/machinery/iv_drip/attack_hand(mob/user as mob)
+/obj/machinery/iv_drip/attack_hand(mob/user)
 	if (isAI(user))
 		return
 	if(src.beaker)

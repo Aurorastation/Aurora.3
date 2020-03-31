@@ -49,7 +49,7 @@ var/global/list/teleportbeacons = list()
 	desc = "A label on it reads: <i>Activate to have a singularity beacon teleported to your location</i>."
 	origin_tech = list(TECH_BLUESPACE = 1, TECH_ILLEGAL = 7)
 
-/obj/item/device/radio/beacon/syndicate/attack_self(mob/user as mob)
+/obj/item/device/radio/beacon/syndicate/attack_self(mob/user)
 	if(user)
 		to_chat(user, "<span class='notice'>Locked In</span>")
 		new /obj/machinery/power/singularity_beacon/syndicate( user.loc )

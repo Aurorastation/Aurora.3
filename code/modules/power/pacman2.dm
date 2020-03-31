@@ -66,7 +66,7 @@
 		overheat()
 			explosion(get_turf(src), 2, 5, 2, -1)
 
-	attackby(var/obj/item/O as obj, var/mob/user as mob)
+	attackby(var/obj/item/O, var/mob/user)
 		if(istype(O, /obj/item/tank/phoron))
 			if(P)
 				to_chat(user, "<span class='warning'>The generator already has a phoron tank loaded!</span>")
@@ -98,17 +98,17 @@
 				new_frame.icon_state = "box_1"
 				qdel(src)
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		..()
 		if (!anchored)
 			return
 
 		interact(user)
 
-	attack_ai(mob/user as mob)
+	attack_ai(mob/user)
 		interact(user)
 
-	attack_paw(mob/user as mob)
+	attack_paw(mob/user)
 		interact(user)
 
 	proc

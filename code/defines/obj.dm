@@ -4,10 +4,10 @@
 	anchored = 1
 	density = 1
 
-	attackby(obj/item/W as obj, mob/user as mob)
+	attackby(obj/item/W, mob/user)
 		return attack_hand(user)
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		switch(alert("Travel back to ss13?",,"Yes","No"))
 			if("Yes")
 				if(user.z != src.z)	return
@@ -79,7 +79,7 @@
 	flags = CONDUCT
 	drop_sound = 'sound/items/drop/rubber.ogg'
 
-	afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
+	afterattack(atom/target as mob|obj|turf|area, mob/user)
 		user.drop_item()
 		src.throw_at(target, throw_range, throw_speed, user)
 

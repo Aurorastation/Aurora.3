@@ -33,7 +33,7 @@
 		else
 			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
+/obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
@@ -95,7 +95,7 @@
 	if(stored_cartridge)
 		add_overlay(stored_cartridge.icon_state)
 
-/obj/item/personal_inhaler/attack_self(mob/user as mob)
+/obj/item/personal_inhaler/attack_self(mob/user)
 	if(stored_cartridge)
 		user.put_in_hands(stored_cartridge)
 		to_chat(user,"<span class='warning'>You remove \the [stored_cartridge] from \the [src].</span>")
@@ -103,7 +103,7 @@
 		stored_cartridge = null
 	update_icon()
 
-/obj/item/personal_inhaler/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/personal_inhaler/attack(mob/living/M as mob, mob/user)
 
 	var/mob/living/carbon/human/H = M
 
@@ -163,7 +163,7 @@
 
 	return
 
-/obj/item/personal_inhaler/attackby(var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge as obj, var/mob/user as mob)
+/obj/item/personal_inhaler/attackby(var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge, var/mob/user)
 	if(istype(cartridge))
 		if(src.stored_cartridge)
 			to_chat(user,"<span class='notice'>\The [src] already has a cartridge.</span>")

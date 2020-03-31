@@ -23,7 +23,7 @@
 	icon_state = "candle[i][lit ? "_lit" : ""]"
 
 
-/obj/item/flame/candle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/flame/candle/attackby(obj/item/W, mob/user)
 	..()
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
@@ -66,7 +66,7 @@
 		var/turf/T = loc
 		T.hotspot_expose(700, 5)
 
-/obj/item/flame/candle/attack_self(mob/user as mob)
+/obj/item/flame/candle/attack_self(mob/user)
 	if(lit)
 		lit = 0
 		to_chat(user, span("notice", "You snuff out the flame."))

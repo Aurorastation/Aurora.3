@@ -77,7 +77,7 @@
 		to_chat(user, "<span class='warning'>There are teeth marks on it.</span>")
 	return
 
-/obj/item/reagent_containers/blood/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/reagent_containers/blood/attackby(obj/item/P, mob/user)
 	..()
 	if (P.ispen())
 		if (reagents.get_reagent_amount("blood") && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
@@ -186,6 +186,6 @@
 	icon_state = "ripped"
 	volume = 0
 
-/obj/item/reagent_containers/blood/ripped/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/reagent_containers/blood/ripped/attackby(obj/item/P, mob/user)
 	to_chat(user, "<span class='warning'>You can't do anything further with this.</span>")
 	return

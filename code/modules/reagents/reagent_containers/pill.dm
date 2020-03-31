@@ -18,7 +18,7 @@
 		if(!icon_state)
 			icon_state = "pill[rand(1, 20)]"
 
-	attack(mob/M as mob, mob/user as mob, def_zone)
+	attack(mob/M as mob, mob/user, def_zone)
 		//TODO: replace with standard_feed_mob() call.
 
 		if(M == user)

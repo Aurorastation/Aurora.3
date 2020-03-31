@@ -125,7 +125,7 @@
 			throw_things(user)
 	LAZYREMOVE(climbers, user)
 
-/obj/structure/table/MouseDrop_T(obj/O as obj, mob/user as mob)
+/obj/structure/table/MouseDrop_T(obj/O as obj, mob/user)
 
 	if ((!( istype(O, /obj/item) ) || user.get_active_hand() != O))
 		return ..()
@@ -136,7 +136,7 @@
 		step(O, get_dir(O, src))
 	return
 
-/obj/structure/table/attackby(obj/item/W as obj, mob/user as mob, var/click_parameters)
+/obj/structure/table/attackby(obj/item/W, mob/user, var/click_parameters)
 	if (!W) return
 
 	// Handle harm intent grabbing/tabling.

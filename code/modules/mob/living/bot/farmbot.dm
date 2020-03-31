@@ -39,7 +39,7 @@
 	QDEL_NULL(tank)
 	return ..()
 
-/mob/living/bot/farmbot/attack_hand(var/mob/user as mob)
+/mob/living/bot/farmbot/attack_hand(var/mob/user)
 	. = ..()
 	if(.)
 		return
@@ -331,7 +331,7 @@
 	var/created_name = "Farmbot"
 	w_class = 3.0
 
-/obj/structure/reagent_dispensers/watertank/attackby(var/obj/item/robot_parts/S, mob/user as mob)
+/obj/structure/reagent_dispensers/watertank/attackby(var/obj/item/robot_parts/S, mob/user)
 	if ((!istype(S, /obj/item/robot_parts/l_arm)) && (!istype(S, /obj/item/robot_parts/r_arm)))
 		..()
 		return
@@ -342,7 +342,7 @@
 	loc = A //Place the water tank into the assembly, it will be needed for the finished bot
 	qdel(S)
 
-/obj/item/farmbot_arm_assembly/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/farmbot_arm_assembly/attackby(obj/item/W, mob/user)
 	..()
 	if((istype(W, /obj/item/device/analyzer/plant_analyzer)) && (build_step == 0))
 		build_step++
@@ -390,5 +390,5 @@
 
 		created_name = t
 
-/obj/item/farmbot_arm_assembly/attack_hand(mob/user as mob)
+/obj/item/farmbot_arm_assembly/attack_hand(mob/user)
 	return //it's a converted watertank, no you cannot pick it up and put it in your backpack

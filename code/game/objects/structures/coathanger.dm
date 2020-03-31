@@ -7,7 +7,7 @@
 	var/list/allowed = list(/obj/item/clothing/suit/storage/toggle/labcoat, /obj/item/clothing/suit/storage/toggle/det_trench,
 							/obj/item/clothing/suit/storage/forensics, /obj/item/clothing/suit/storage/toggle/trench)
 
-/obj/structure/coatrack/attack_hand(mob/user as mob)
+/obj/structure/coatrack/attack_hand(mob/user)
 	if (!ishuman(user))
 		return
 	if(user.incapacitated())
@@ -21,7 +21,7 @@
 		coat = null
 		update_icon()
 
-/obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/coatrack/attackby(obj/item/W, mob/user)
 	var/can_hang = 0
 	if(is_type_in_list(W, allowed))
 		can_hang = 1

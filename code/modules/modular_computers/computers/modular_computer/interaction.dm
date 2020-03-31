@@ -123,7 +123,7 @@
 	else if(!enabled && screen_on)
 		turn_on(user)
 
-/obj/item/modular_computer/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/item/modular_computer/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/card/tech_support))
 		if(!can_reset)
 			to_chat(user, span("notice", "You cannot reset this type of device."))

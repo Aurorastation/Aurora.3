@@ -123,7 +123,7 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-/obj/item/vaurca/box/attack_self(mob/user as mob)
+/obj/item/vaurca/box/attack_self(mob/user)
 
 	if(isvaurca(user))
 		to_chat(user, "<span class='notice'>You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious.</span>")
@@ -347,7 +347,7 @@
 	base_block_chance = 60
 	shield_power = 150
 
-/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/melee/energy/vaurca_zweihander/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user)
 	user.setClickCooldown(16)
 	..()
 
@@ -416,10 +416,10 @@
 	tension = 1
 	..()
 
-/obj/item/gun/launcher/crossbow/vaurca/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/vaurca/attack_self(mob/living/user)
 	pump(user)
 
-/obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
+/obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M)
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 
 	if(bolt)

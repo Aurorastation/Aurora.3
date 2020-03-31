@@ -129,7 +129,7 @@
 			add_overlay("papershredder5")
 	update_icon()
 
-/obj/item/shreddedp/attackby(var/obj/item/W as obj, var/mob/user)
+/obj/item/shreddedp/attackby(var/obj/item/W, var/mob/user)
 	if(istype(W, /obj/item/flame/lighter))
 		burnpaper(W, user)
 	else

@@ -12,7 +12,7 @@
 	else
 		icon_state = icon_opened
 
-/obj/structure/closet/cabinet/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/closet/cabinet/attackby(obj/item/W, mob/user)
 	if(opened)
 		if(istype(W, /obj/item/grab))
 			var/obj/item/grab/G = W

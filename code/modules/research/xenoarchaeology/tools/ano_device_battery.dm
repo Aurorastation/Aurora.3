@@ -37,7 +37,7 @@
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/anodevice/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/item/anodevice/attackby(var/obj/I, var/mob/user)
 	if(istype(I, /obj/item/anobattery))
 		if(!inserted_battery)
 			to_chat(user, "<span class='notice'>You insert the battery.</span>")
@@ -47,7 +47,7 @@
 	else
 		return ..()
 
-/obj/item/anodevice/attack_self(var/mob/user as mob)
+/obj/item/anodevice/attack_self(var/mob/user)
 	return src.interact(user)
 
 /obj/item/anodevice/interact(var/mob/user)

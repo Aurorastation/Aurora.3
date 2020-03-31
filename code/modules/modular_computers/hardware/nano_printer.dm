@@ -32,7 +32,7 @@
 	stored_paper--
 	return P
 
-/obj/item/computer_hardware/nano_printer/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/computer_hardware/nano_printer/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/paper))
 		if(stored_paper >= max_paper)
 			to_chat(user, "You try to add \the [W] into [src], but it's paper bin is full")

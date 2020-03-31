@@ -466,7 +466,7 @@ var/list/ai_verbs_default = list(
 		emergency_message_cooldown = 0
 
 
-/mob/living/silicon/ai/check_eye(var/mob/user as mob)
+/mob/living/silicon/ai/check_eye(var/mob/user)
 	if (!camera)
 		return -1
 	return 0
@@ -726,7 +726,7 @@ var/list/ai_verbs_default = list(
 		camera_light_on = world.timeofday + 1 * 20 // Update the light every 2 seconds.
 
 
-/mob/living/silicon/ai/attackby(obj/item/W as obj, mob/user as mob)
+/mob/living/silicon/ai/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/aicard))
 
 		var/obj/item/aicard/card = W

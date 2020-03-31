@@ -85,7 +85,7 @@
 		"Vox Armalis" = 'icons/mob/species/armalis/held.dmi'
 		)
 
-/obj/item/gun/energy/noisecannon/attack_hand(mob/user as mob)
+/obj/item/gun/energy/noisecannon/attack_hand(mob/user)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(istype(H))

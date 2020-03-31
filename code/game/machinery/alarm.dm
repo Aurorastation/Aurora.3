@@ -748,7 +748,7 @@
 			apply_mode()
 			return 1
 
-/obj/machinery/alarm/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/alarm/attackby(obj/item/W, mob/user)
 	if(!istype(W, /obj/item/forensics))
 		src.add_fingerprint(user)
 

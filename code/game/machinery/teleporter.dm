@@ -31,7 +31,7 @@
 		hub.com = src
 		hub.set_dir(dir)
 
-/obj/machinery/computer/teleporter/attackby(I as obj, mob/living/user as mob)
+/obj/machinery/computer/teleporter/attackby(var/obj/I, mob/living/user)
 	if(istype(I, /obj/item/card/data/))
 		var/obj/item/card/data/C = I
 		if(stat & (NOPOWER|BROKEN) & (C.function != "teleporter"))

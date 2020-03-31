@@ -31,7 +31,7 @@
 	var/mob/living/carbon/brain/brainmob = null//The current occupant.
 	var/obj/item/organ/internal/brain/brainobj = null	//The current brain organ.
 
-	attackby(var/obj/item/O as obj, var/mob/user as mob)
+	attackby(var/obj/item/O, var/mob/user)
 		if(istype(O,/obj/item/organ/internal/brain) && !brainmob) //Time to stick a brain in it --NEO
 			var/obj/item/organ/internal/brain/B = O
 			if(!B.can_lobotomize)
@@ -83,7 +83,7 @@
 		..()
 
 	//TODO: ORGAN REMOVAL UPDATE. Make the brain remain in the MMI so it doesn't lose organ data.
-	attack_self(mob/user as mob)
+	attack_self(mob/user)
 		if(!brainmob)
 			to_chat(user, "<span class='warning'>You upend the MMI, but there's nothing in it.</span>")
 		else if(locked)

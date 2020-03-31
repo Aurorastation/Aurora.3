@@ -11,7 +11,7 @@
 	fire_sound_text = "a launcher firing"
 
 //This normally uses a proc on projectiles and our ammo is not strictly speaking a projectile.
-/obj/item/gun/launcher/can_hit(var/mob/living/target as mob, var/mob/living/user as mob)
+/obj/item/gun/launcher/can_hit(var/mob/living/target as mob, var/mob/living/user)
 	return 1
 
 //Override this to avoid a runtime with suicide handling.

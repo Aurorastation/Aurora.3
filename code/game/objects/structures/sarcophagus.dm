@@ -37,7 +37,7 @@
 				open()
 	return
 
-/obj/structure/sarcophagus/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/sarcophagus/attackby(obj/item/I, mob/user)
 	if(open)
 		return
 	if(istype(I, /obj/item/sarcophagus_key))

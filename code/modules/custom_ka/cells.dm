@@ -1,4 +1,4 @@
-/obj/item/custom_ka_upgrade/cells/attack_self(mob/user as mob)
+/obj/item/custom_ka_upgrade/cells/attack_self(mob/user)
 
 	if(is_pumping)
 		return
@@ -203,7 +203,7 @@
 	var/type_to_take = "phoron"
 	var/charge_per_sheet = 100
 
-/obj/item/custom_ka_upgrade/cells/loader/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/custom_ka_upgrade/cells/loader/attackby(var/obj/item/I, var/mob/user)
 
 	var/obj/item/stack/material/the_sheet = I
 

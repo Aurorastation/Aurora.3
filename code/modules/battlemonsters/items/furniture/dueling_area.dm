@@ -23,7 +23,7 @@
 #define CELLS 8
 #define CELLSIZE (world.icon_size/CELLS)
 
-/obj/structure/dueling_table/attackby(obj/item/W as obj, mob/user as mob, var/click_parameters)
+/obj/structure/dueling_table/attackby(obj/item/W, mob/user, var/click_parameters)
 	if(user.unEquip(W, 0, src.loc))
 		if(!W.center_of_mass)
 			W.randpixel_xy()

@@ -250,7 +250,7 @@
 	spawn(5)
 		teleport()//Bluespace bears teleport away to rest
 
-/mob/living/simple_animal/hostile/bear/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/hostile/bear/attackby(var/obj/item/O, var/mob/user)
 	var/healthbefore = health
 	..()
 	spawn(1)
@@ -260,7 +260,7 @@
 			instant_aggro(1)
 
 
-/mob/living/simple_animal/hostile/bear/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/hostile/bear/attack_hand(mob/living/carbon/human/M)
 	var/healthbefore = health
 	..()
 	spawn(1)

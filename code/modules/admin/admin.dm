@@ -950,7 +950,7 @@ proc/admin_notice(var/message, var/rights)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
 
-/proc/is_special_character(mob/M as mob) // returns 1 for specail characters and 2 for heroes of gamemode
+/proc/is_special_character(mob/M) // returns 1 for specail characters and 2 for heroes of gamemode
 	if(!SSticker.mode)
 		return 0
 	if (!istype(M))
@@ -1224,7 +1224,7 @@ proc/admin_notice(var/message, var/rights)
 
 	return
 
-/client/proc/update_mob_sprite(mob/living/carbon/human/H as mob)
+/client/proc/update_mob_sprite(mob/living/carbon/human/H)
 	set category = "Admin"
 	set name = "Update Mob Sprite"
 	set desc = "Should fix any mob sprite update errors."
@@ -1345,7 +1345,7 @@ proc/admin_notice(var/message, var/rights)
 	log_and_message_admins("attempting to force mode autospawn.")
 	SSticker.mode.process_autoantag()
 
-/datum/admins/proc/paralyze_mob(mob/living/H as mob)
+/datum/admins/proc/paralyze_mob(mob/living/H)
 	set category = "Admin"
 	set name = "Toggle Wind"
 	set desc = "Paralyzes a player. Or unparalyses them."

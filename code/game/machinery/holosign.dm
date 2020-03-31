@@ -60,7 +60,7 @@
 /obj/machinery/button/holosign/update_icon()
 	return
 
-/obj/machinery/button/holosign/attack_hand(mob/user as mob)
+/obj/machinery/button/holosign/attack_hand(mob/user)
 	if(..())
 		return
 	add_fingerprint(user)

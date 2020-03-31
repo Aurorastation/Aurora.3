@@ -13,7 +13,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
 	w_class = 2
 
-/obj/item/clothing/accessory/fluff/antique_pocket_watch/attack_self(mob/user as mob)
+/obj/item/clothing/accessory/fluff/antique_pocket_watch/attack_self(mob/user)
 	switch(icon_state)
 		if("pocket_watch_open")
 			icon_state = "pocket_watch_close"
@@ -70,13 +70,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	QDEL_NULL(chip)
 	return ..()
 
-/obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
+/obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user)
 	if(chip)
 		user.put_in_hands(chip)
 		to_chat(user, "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of \the [src].</span>")
 		chip = null
 
-/obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/disk/fluff/nebula_chip) && !chip)
 		//user.u_equip(W)
 		user.drop_from_inventory(W,src)
@@ -117,7 +117,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "kiara_altar1"
 	w_class = 2
 
-/obj/item/fluff/kiara_altar/attack_self(mob/user as mob)
+/obj/item/fluff/kiara_altar/attack_self(mob/user)
 	if(src.icon_state == "kiara_altar1")
 		src.icon_state = "kiara_altar2"
 		to_chat(user, "<span class='notice'>You open \the [src], revealing its contents.</span>")
@@ -166,7 +166,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "usiki_cane"
 	contained_sprite = TRUE
 
-/obj/item/cane/fluff/usiki_cane/attack_self(mob/user as mob)
+/obj/item/cane/fluff/usiki_cane/attack_self(mob/user)
 	if(all_languages[LANGUAGE_UNATHI] in user.languages)
 		to_chat(user, "<span class='notice'>This cane has the words \"A new and better life\" carved into one side in basic, and on the other side in Sinta'Unathi.</span>")
 	else
@@ -271,7 +271,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	return
 
-/obj/item/implanter/fluff/attack(mob/M as mob, mob/user as mob, var/target_zone)
+/obj/item/implanter/fluff/attack(mob/M as mob, mob/user, var/target_zone)
 	if (!M.ckey || M.ckey != allowed_ckey)
 		return
 
@@ -460,7 +460,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "laikov_broach"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/fluff/laikov_broach/attack_self(mob/user as mob)
+/obj/item/clothing/accessory/fluff/laikov_broach/attack_self(mob/user)
 	if(isliving(user))
 		user.visible_message("<span class='notice'>[user] displays their [src.name]. It glitters in many colors.</span>")
 
@@ -481,7 +481,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "heart monitor"
 	desc = "A small machine to watch upon broken hearts."
 
-/obj/item/implant/fluff/ziva_implant/implanted(mob/living/carbon/human/M as mob)
+/obj/item/implant/fluff/ziva_implant/implanted(mob/living/carbon/human/M)
 	if (M.ckey == "sierrakomodo") //just to be sure
 		M.verbs += /mob/living/carbon/human/proc/heart_attack
 	else
@@ -873,7 +873,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "zhilin_book"
 	w_class = 3
 
-/obj/item/fluff/zhilin_book/attack_self(mob/user as mob)
+/obj/item/fluff/zhilin_book/attack_self(mob/user)
 	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>",
 						"<span class='notice'>You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users.</span>",
 						"<span class='notice'>You hear pages being flipped.</span>")
@@ -1381,7 +1381,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "jennifer_wardrobe_box"
 	item_state = "box"
 
-/obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
+/obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
@@ -1626,7 +1626,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 	var/picture = null
 
-/obj/item/fluff/raymond_tablet/attack_self(mob/user as mob)
+/obj/item/fluff/raymond_tablet/attack_self(mob/user)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
@@ -1866,7 +1866,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	else
 		icon_state = "amy_player_off"
 
-/obj/item/fluff/amy_player/attack_self(mob/user as mob)
+/obj/item/fluff/amy_player/attack_self(mob/user)
 	if(broken)
 		to_chat(user, "<span class='warning'>The screen flickers and blinks with errors.</span>")
 		return
@@ -2109,7 +2109,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			to_chat(user, "<span class='notice'>You place \the [O] in \the [src]</span>")
 			update_icon()
 
-/obj/item/fluff/fernando_knittingneedles/attack_self(mob/user as mob)
+/obj/item/fluff/fernando_knittingneedles/attack_self(mob/user)
 	if(!ball) //if there is no yarn ball, nothing happens
 		to_chat(user, "<span class='warning'>You need a yarn ball to stitch.</span>")
 		return
@@ -2203,7 +2203,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 	var/flipped = FALSE
 
-/obj/item/fluff/halstere_card/attack_self(mob/user as mob)
+/obj/item/fluff/halstere_card/attack_self(mob/user)
 	flipped = !flipped
 	queue_icon_update()
 
@@ -2241,7 +2241,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	max_storage_space = 16
 	var/used = FALSE
 
-/obj/item/storage/fluff/sovno_carrier/open(mob/user as mob)
+/obj/item/storage/fluff/sovno_carrier/open(mob/user)
 	if(!used)
 		deploy_cats(user)
 	else
@@ -2251,7 +2251,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!used)
 		deploy_cats(user)
 
-/obj/item/storage/fluff/sovno_carrier/proc/deploy_cats(mob/user as mob)
+/obj/item/storage/fluff/sovno_carrier/proc/deploy_cats(mob/user)
 	used = TRUE
 	to_chat(user, "<span class='notice'>You open \the [src]'s hatch.</span>")
 	new /mob/living/simple_animal/cat/fluff/jonesy(user.loc)
@@ -3005,7 +3005,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	attack_verb = list("battered","whacked")
 	var/deployed = FALSE
 
-/obj/item/fluff/muhawir_bedroll/attack_self(mob/user as mob)
+/obj/item/fluff/muhawir_bedroll/attack_self(mob/user)
 	if(!deployed)
 		to_chat(user, "<span class='notice'>You open the bedroll, extending it.</span>")
 		name = "open bedroll"
@@ -3015,7 +3015,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		deployed = TRUE
 	return
 
-/obj/item/fluff/muhawir_bedroll/attack_hand(mob/user as mob)
+/obj/item/fluff/muhawir_bedroll/attack_hand(mob/user)
 	if(deployed)
 		to_chat(user, "<span class='notice'>You pick up and fold \the [src].</span>")
 		name = initial(name)
@@ -3041,7 +3041,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3.0
 	attack_verb = list("battered","whacked")
 
-/obj/item/fluff/muhawir_tent/attackby(var/obj/item/W, mob/user as mob)
+/obj/item/fluff/muhawir_tent/attackby(var/obj/item/W, mob/user)
 	if(istype(W, /obj/item/fluff/muhawir_tenttools))
 		user.visible_message("<span class='warning'>[user] unrolls the tent .</span>",
 			"<span class='notice'>You unroll the tent.</span>")
@@ -3074,7 +3074,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	storage_capacity = 15
 	var/has_bedroll = FALSE
 
-/obj/structure/closet/fluff/muhawir_tent/attackby(W as obj, mob/user as mob)
+/obj/structure/closet/fluff/muhawir_tent/attackby(W as obj, mob/user)
 	if(istype(W, /obj/item/fluff/muhawir_bedroll))
 		user.visible_message(
 		"<span class='warning'>[user] lays down the bedroll inside \the [src].</span>",
@@ -3273,7 +3273,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	w_class = 4
 
-/obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user, proximity)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!proximity)
 		return

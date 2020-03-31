@@ -36,7 +36,7 @@
 		buckled_mob = null
 	return
 
-/obj/effect/plant/proc/manual_unbuckle(mob/user as mob)
+/obj/effect/plant/proc/manual_unbuckle(mob/user)
 	if(buckled_mob)
 		if(prob(seed ? min(max(0,100 - seed.get_trait(TRAIT_POTENCY)/2),100) : 50))
 			if(buckled_mob.buckled == src)

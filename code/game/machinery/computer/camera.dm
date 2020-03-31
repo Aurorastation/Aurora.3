@@ -19,10 +19,10 @@
 	if(network.len)
 		current_network = network[1]
 
-/obj/machinery/computer/security/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/security/attack_ai(var/mob/user)
 	return attack_hand(user)
 
-/obj/machinery/computer/security/check_eye(var/mob/user as mob)
+/obj/machinery/computer/security/check_eye(var/mob/user)
 	if (user.stat || ((get_dist(user, src) > 1 || !( user.canmove ) || user.blinded) && !istype(user, /mob/living/silicon))) //user can't see - not sure why canmove is here.
 		return -1
 	if(!current_camera)
@@ -96,7 +96,7 @@
 	else
 		. = ..()
 
-/obj/machinery/computer/security/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/security/attack_hand(var/mob/user)
 	if (src.z > 6)
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!")
 		return

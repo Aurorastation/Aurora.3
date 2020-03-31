@@ -116,7 +116,7 @@
 		return 0
 	return cell.percent()
 
-/obj/machinery/recharge_station/relaymove(mob/user as mob)
+/obj/machinery/recharge_station/relaymove(mob/user)
 	if(user.stat)
 		return
 	go_out()
@@ -130,7 +130,7 @@
 		cell.emp_act(severity)
 	..(severity)
 
-/obj/machinery/recharge_station/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/recharge_station/attackby(var/obj/item/O, var/mob/user)
 	if(!occupant)
 		if(default_deconstruction_screwdriver(user, O))
 			return

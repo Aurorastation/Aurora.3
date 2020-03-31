@@ -112,13 +112,13 @@
 		ailock = 0
 		return 1
 
-/obj/machinery/turretid/attack_ai(mob/user as mob)
+/obj/machinery/turretid/attack_ai(mob/user)
 	if(isLocked(user))
 		return
 
 	ui_interact(user)
 
-/obj/machinery/turretid/attack_hand(mob/user as mob)
+/obj/machinery/turretid/attack_hand(mob/user)
 	if(isLocked(user))
 		return
 

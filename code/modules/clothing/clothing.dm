@@ -259,7 +259,7 @@
 	throwforce = 2
 	slot_flags = SLOT_EARS
 
-/obj/item/clothing/ears/attack_hand(mob/user as mob)
+/obj/item/clothing/ears/attack_hand(mob/user)
 	if (!user) return
 
 	if (src.loc != user || !istype(user,/mob/living/carbon/human))
@@ -868,7 +868,7 @@
 		if(3)
 			to_chat(user, "Its vital tracker and tracking beacon appear to be enabled.")
 
-/obj/item/clothing/under/proc/set_sensors(mob/usr as mob)
+/obj/item/clothing/under/proc/set_sensors(mob/usr)
 	var/mob/M = usr
 	if(M.stat || M.paralysis || M.stunned || M.weakened || M.restrained())
 		to_chat(usr, "You cannot reach your suit sensors like this...")

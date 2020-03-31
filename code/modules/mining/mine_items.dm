@@ -1109,7 +1109,7 @@ var/list/total_extraction_beacons = list()
 	var/times_carved = 0
 	var/last_struck = 0
 
-/obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
+/obj/structure/sculpting_block/attackby(obj/item/C, mob/user)
 
 	if (C.iswrench())
 		playsound(src.loc, C.usesound, 100, 1)
@@ -1199,7 +1199,7 @@ var/list/total_extraction_beacons = list()
 	var/list/hit_sounds = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg',\
 	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
 
-/obj/structure/punching_bag/attack_hand(mob/user as mob)
+/obj/structure/punching_bag/attack_hand(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
 	playsound(get_turf(src), pick(src.hit_sounds), 25, 1, -1)

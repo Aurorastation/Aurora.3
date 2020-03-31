@@ -15,7 +15,7 @@
 
 	hud_state = "wiz_lich"
 
-/spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user as mob)
+/spell/targeted/lichdom/cast(mob/target,var/mob/living/carbon/human/user)
 	..()
 	if(isundead(user))
 		to_chat(user, "You have no soul or life to offer.")

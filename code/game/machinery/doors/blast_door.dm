@@ -115,7 +115,7 @@
 // Parameters: 2 (C - Item this object was clicked with, user - Mob which clicked this object)
 // Description: If we are clicked with crowbar or wielded fire axe, try to manually open the door.
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
-/obj/machinery/door/blast/attackby(obj/item/C as obj, mob/user as mob)
+/obj/machinery/door/blast/attackby(obj/item/C, mob/user)
 	if(!istype(C, /obj/item/forensics))
 		src.add_fingerprint(user)
 	if((istype(C, /obj/item/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/melee/hammer)))
@@ -193,7 +193,7 @@
 		INVOKE_ASYNC(src, /obj/machinery/door/blast/.proc/force_open)
 		securitylock = FALSE
 
-/obj/machinery/door/blast/attack_hand(mob/user as mob)
+/obj/machinery/door/blast/attack_hand(mob/user)
 	return
 
 // SUBTYPE: Regular
@@ -243,7 +243,7 @@
 	density = 0
 	opacity = 0
 
-/obj/machinery/door/blast/odin/attackby(obj/item/C as obj, mob/user as mob)
+/obj/machinery/door/blast/odin/attackby(obj/item/C, mob/user)
 	return
 
 /obj/machinery/door/blast/odin/ex_act(var/severity)

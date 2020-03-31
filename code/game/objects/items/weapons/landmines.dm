@@ -68,7 +68,7 @@
 				trigger(L)
 	..()
 
-/obj/item/landmine/attack_hand(mob/user as mob)
+/obj/item/landmine/attack_hand(mob/user)
 	if(deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
 				"<span class='danger'>[user] triggers \the [src].</span>",

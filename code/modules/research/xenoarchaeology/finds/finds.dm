@@ -45,7 +45,7 @@
 	if(severity && prob(30))
 		src.visible_message("The [src] crumbles away, leaving some dust and gravel behind.")*/
 
-/obj/item/ore/strangerock/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/ore/strangerock/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/weldingtool/))
 		var/obj/item/weldingtool/w = W
 		if(w.isOn())

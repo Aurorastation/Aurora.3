@@ -40,7 +40,7 @@
 	else
 		icon_state = "bell_standby"
 
-/obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)
+/obj/machinery/ringer/attackby(obj/item/C, mob/living/user)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
 		return
 
@@ -61,7 +61,7 @@
 	else
 		..()
 
-/obj/machinery/ringer/attack_hand(mob/user as mob)
+/obj/machinery/ringer/attack_hand(mob/user)
 	if(..())
 		return
 

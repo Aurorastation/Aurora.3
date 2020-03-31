@@ -218,7 +218,7 @@
 		return 0
 	return 1
 
-/turf/simulated/wall/proc/thermitemelt(mob/user as mob)
+/turf/simulated/wall/proc/thermitemelt(mob/user)
 	if(!can_melt())
 		return
 	var/obj/effect/overlay/O = new/obj/effect/overlay( src )

@@ -37,7 +37,7 @@
 	else
 		desc = "An ashtray made of [material.display_name]."
 
-/obj/item/material/ashtray/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/material/ashtray/attackby(obj/item/W, mob/user)
 	if (health <= 0)
 		return
 	if (istype(W,/obj/item/trash/cigbutt) || istype(W,/obj/item/clothing/mask/smokable/cigarette) || istype(W, /obj/item/flame/match))

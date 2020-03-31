@@ -96,12 +96,12 @@
 	for (var/obj/item/I in contents)
 		force += I.w_class*1.5
 
-/obj/item/storage/toolbox/handle_item_insertion(obj/item/W as obj, prevent_warning = 0)
+/obj/item/storage/toolbox/handle_item_insertion(obj/item/W, prevent_warning = 0)
 	if (..(W, prevent_warning))
 		update_force()
 
 
-/obj/item/storage/toolbox/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/storage/toolbox/attack(mob/living/M as mob, mob/user, var/target_zone)
 	update_force()
 	if (..())
 		if (contents.len)

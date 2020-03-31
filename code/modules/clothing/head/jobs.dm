@@ -201,7 +201,7 @@
 		item_state = "hat_detective_[color]"
 	. = ..()
 
-/obj/item/clothing/head/det/technicolor/attackby(obj/item/O as obj, mob/user as mob)
+/obj/item/clothing/head/det/technicolor/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/reagent_containers/glass/paint))
 		var/obj/item/reagent_containers/glass/paint/P = O
 		hat_color = P.paint_type

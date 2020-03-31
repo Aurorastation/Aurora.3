@@ -58,7 +58,7 @@
 	pulse(0)
 
 
-/obj/item/device/assembly/mousetrap/attack_self(mob/living/user as mob)
+/obj/item/device/assembly/mousetrap/attack_self(mob/living/user)
 	if(!armed)
 		to_chat(user, "<span class='notice'>You arm [src].</span>")
 	else
@@ -76,7 +76,7 @@
 	playsound(user.loc, 'sound/weapons/handcuffs.ogg', 30, 1, -3)
 
 
-/obj/item/device/assembly/mousetrap/attack_hand(mob/living/user as mob)
+/obj/item/device/assembly/mousetrap/attack_hand(mob/living/user)
 	if(armed)
 		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
 			var/which_hand = BP_L_HAND
@@ -102,7 +102,7 @@
 	..()
 
 
-/obj/item/device/assembly/mousetrap/on_found(mob/finder as mob)
+/obj/item/device/assembly/mousetrap/on_found(mob/finder)
 	if(armed)
 		finder.visible_message("<span class='warning'>[finder] accidentally sets off [src], breaking their fingers.</span>", \
 							   "<span class='warning'>You accidentally trigger [src]!</span>")

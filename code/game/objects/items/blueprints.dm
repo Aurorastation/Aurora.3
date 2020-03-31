@@ -19,7 +19,7 @@
 	var/const/ROOM_ERR_SPACE = -1
 	var/const/ROOM_ERR_TOOLARGE = -2
 
-/obj/item/blueprints/attack_self(mob/user as mob)
+/obj/item/blueprints/attack_self(mob/user)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 	add_fingerprint(user)

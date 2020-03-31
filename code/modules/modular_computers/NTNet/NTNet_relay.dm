@@ -127,7 +127,7 @@
 		D.error = "Connection to quantum relay severed"
 	return ..()
 
-/obj/machinery/ntnet_relay/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/ntnet_relay/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		playsound(src.loc, W.usesound, 50, 1)
 		panel_open = !panel_open

@@ -16,10 +16,10 @@
 	. = ..()
 	scan()
 
-/obj/item/device/ano_scanner/attack_self(var/mob/user as mob)
+/obj/item/device/ano_scanner/attack_self(var/mob/user)
 	return src.interact(user)
 
-/obj/item/device/ano_scanner/interact(var/mob/user as mob)
+/obj/item/device/ano_scanner/interact(var/mob/user)
 	if(world.time - last_scan_time >= scan_delay)
 		spawn(0)
 			scan()

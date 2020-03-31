@@ -35,7 +35,7 @@
 			"There is no escape..."
 			)
 
-/obj/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user as mob)
+/obj/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user)
 
 	if(!active)
 		src.visible_message("<span class='warning'>[user] switches \the [src] on.</span>")

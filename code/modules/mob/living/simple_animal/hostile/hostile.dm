@@ -108,7 +108,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		target_mob = user
 		stance = HOSTILE_STANCE_ATTACK
 
-/mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M)
 	..()
 	if(target_mob != M)
 		target_mob = M

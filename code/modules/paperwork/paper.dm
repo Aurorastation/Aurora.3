@@ -123,7 +123,7 @@
 		name = n_name
 		add_fingerprint(usr)
 
-/obj/item/paper/attack_self(mob/living/user as mob)
+/obj/item/paper/attack_self(mob/living/user)
 	if(user.a_intent == I_HURT)
 		if(icon_state == "scrap")
 			user.show_message(span("warning", "\The [src] is already crumpled."))
@@ -243,7 +243,7 @@
 	updateinfolinks()
 	update_icon()
 
-/obj/item/paper/proc/get_signature(var/obj/item/pen/P, mob/user as mob)
+/obj/item/paper/proc/get_signature(var/obj/item/pen/P, mob/user)
 	if(P && P.ispen())
 		return P.get_signature(user)
 
@@ -425,7 +425,7 @@
 			c.update_icon()
 
 
-/obj/item/paper/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/paper/attackby(obj/item/P, mob/user)
 	..()
 	var/clown = 0
 	if(user.mind && (user.mind.assigned_role == "Clown"))

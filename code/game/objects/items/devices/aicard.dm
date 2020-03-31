@@ -23,7 +23,7 @@
 		message += span("warning", "inactive.")
 	to_chat(user, message)
 
-/obj/item/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob, var/target_zone)
+/obj/item/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user, var/target_zone)
 	if (!istype (M, /mob/living/silicon/decoy))
 		return ..()
 	else

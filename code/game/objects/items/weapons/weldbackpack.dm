@@ -14,7 +14,7 @@
 	R.my_atom = src
 	R.add_reagent("fuel", max_fuel)
 
-/obj/item/weldpack/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/weldpack/attackby(obj/item/W, mob/user)
 	if(W.iswelder())
 		var/obj/item/weldingtool/T = W
 		if(T.welding & prob(50))
@@ -35,7 +35,7 @@
 	to_chat(user, "<span class='warning'>The tank scoffs at your insolence. It only provides services to welders.</span>")
 	return
 
-/obj/item/weldpack/afterattack(obj/O as obj, mob/user as mob, proximity)
+/obj/item/weldpack/afterattack(obj/O, mob/user, proximity)
 	if(!proximity) // this replaces and improves the get_dist(src,O) <= 1 checks used previously
 		return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && src.reagents.total_volume < max_fuel)

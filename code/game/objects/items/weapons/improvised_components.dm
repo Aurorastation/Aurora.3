@@ -6,7 +6,7 @@
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 
-/obj/item/material/butterflyconstruction/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/material/butterflyconstruction/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		to_chat(user, "You finish the concealed blade weapon.")
 		new /obj/item/material/knife/butterfly(user.loc, material.name)
@@ -29,7 +29,7 @@
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 
-/obj/item/material/butterflyhandle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/material/butterflyhandle/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/material/butterflyblade))
 		var/obj/item/material/butterflyblade/B = W
 		to_chat(user, "You attach the two concealed blade parts.")
@@ -52,7 +52,7 @@
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 
-/obj/item/material/wirerod/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/material/wirerod/attackby(var/obj/item/I, mob/user)
 	..()
 	var/obj/item/finished
 	if(istype(I, /obj/item/material/shard) || istype(I, /obj/item/material/spearhead))
@@ -85,7 +85,7 @@
 	thrown_force_divisor = 0.1
 	default_material = "wood"
 
-/obj/item/material/shaft/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/material/shaft/attackby(var/obj/item/I, mob/user)
 	..()
 	var/obj/item/finished
 	if(istype(I, /obj/item/material/spearhead))
@@ -124,7 +124,7 @@
 	thrown_force_divisor = 0.1
 	default_material = "wood"
 
-/obj/item/material/woodenshield/attackby(var/obj/item/I, mob/user as mob)
+/obj/item/material/woodenshield/attackby(var/obj/item/I, mob/user)
 	..()
 	var/obj/item/finished
 	if(istype(I, /obj/item/material/shieldbits))
@@ -156,7 +156,7 @@
 	item_state = "woodcirclet"
 	w_class = ITEMSIZE_SMALL
 
-/obj/item/woodcirclet/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/woodcirclet/attackby(obj/item/W, mob/user)
 	var/obj/item/complete = null
 	if(istype(W, /obj/item/seeds))	// Only allow seeds, since we rely on their structure
 		var/obj/item/seeds/S = W

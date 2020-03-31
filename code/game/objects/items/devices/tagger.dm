@@ -23,7 +23,7 @@
 /obj/item/device/animaltagger/attack()
 	return
 
-/obj/item/device/animaltagger/afterattack(atom/A as mob|obj, mob/user as mob)
+/obj/item/device/animaltagger/afterattack(atom/A as mob|obj, mob/user)
 
 	if(isanimal(A))
 		A.name = animaltag
@@ -33,7 +33,7 @@
 		to_chat(user, "<span class='notice'>You can't tag non animals.</span>")
 		return
 
-/obj/item/device/animaltagger/attack_self(mob/user as mob)
+/obj/item/device/animaltagger/attack_self(mob/user)
 
 	var/inputtag = sanitizeSafe(input(user,"Label text?","Set label",""), MAX_NAME_LEN)
 	if(!inputtag || !length(inputtag))

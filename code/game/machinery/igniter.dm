@@ -27,10 +27,10 @@
 	wifi_receiver = null
 	return ..()
 
-/obj/machinery/igniter/attack_ai(mob/user as mob)
+/obj/machinery/igniter/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/igniter/attack_hand(mob/user as mob)
+/obj/machinery/igniter/attack_hand(mob/user)
 	if(..())
 		return
 	add_fingerprint(user)
@@ -98,7 +98,7 @@
 	..()
 	update_icon()
 
-/obj/machinery/sparker/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/sparker/attackby(obj/item/W, mob/user)
 	if (W.isscrewdriver())
 		add_fingerprint(user)
 		disable = !disable
@@ -142,7 +142,7 @@
 	name = "ignition switch"
 	desc = "A remote control switch for a mounted igniter."
 
-/obj/machinery/button/ignition/attack_hand(mob/user as mob)
+/obj/machinery/button/ignition/attack_hand(mob/user)
 
 	if(..())
 		return

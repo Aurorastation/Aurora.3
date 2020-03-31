@@ -55,7 +55,7 @@ var/list/tape_roll_applications = list()
 	req_one_access = list(access_engine,access_atmospherics)
 	icon_base = "engineering"
 
-/obj/item/taperoll/attack_self(mob/user as mob)
+/obj/item/taperoll/attack_self(mob/user)
 	if(icon_state == "[icon_base]_start")
 		start = get_turf(src)
 		to_chat(usr, span("notice", "You place the first end of the [src]."))
@@ -108,7 +108,7 @@ var/list/tape_roll_applications = list()
 			cur = get_step_towards(cur,end)
 		to_chat(usr, span("notice", "You finish placing the [src]."))	//Git Test)
 
-/obj/item/taperoll/afterattack(var/atom/A, mob/user as mob, proximity)
+/obj/item/taperoll/afterattack(var/atom/A, mob/user, proximity)
 	if(!proximity)
 		return
 
@@ -152,10 +152,10 @@ var/list/tape_roll_applications = list()
 			crumple()
 	return ..(mover)
 
-/obj/item/tape/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tape/attackby(obj/item/W, mob/user)
 	breaktape(W, user)
 
-/obj/item/tape/attack_hand(mob/user as mob)
+/obj/item/tape/attack_hand(mob/user)
 	if (user.a_intent == I_HELP && src.allowed(user))
 		user.show_viewers(span("notice", "[user] lifts [src], allowing passage."))
 		crumple()
@@ -167,7 +167,7 @@ var/list/tape_roll_applications = list()
 
 
 
-/obj/item/tape/proc/breaktape(obj/item/W as obj, mob/user as mob)
+/obj/item/tape/proc/breaktape(obj/item/W, mob/user)
 	if(user.a_intent == I_HELP && ((!can_puncture(W) && src.allowed(user))))
 		to_chat(user, "You can't break the [src] with that!")
 		return

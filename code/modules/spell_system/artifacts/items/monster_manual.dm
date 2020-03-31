@@ -23,7 +23,7 @@
 									"The more carnivorous and knowledge hungry cousin of the space carp. Keep away from books."
 									)
 
-/obj/item/monster_manual/attack_self(mob/living/user as mob)
+/obj/item/monster_manual/attack_self(mob/living/user)
 	if(!user)
 		return
 	if(!user.is_wizard())
@@ -35,7 +35,7 @@
 		user.set_machine(src)
 		interact(user)
 
-/obj/item/monster_manual/interact(mob/user as mob)
+/obj/item/monster_manual/interact(mob/user)
 	var/dat
 	if(temp)
 		dat = "[temp]<br><a href='byond://?src=\ref[src];temp=1'>Return</a>"

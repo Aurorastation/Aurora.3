@@ -372,7 +372,7 @@
 
 	action_button_name = "Wield thermal lance"
 
-/obj/item/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/gun/energy/vaurca/typec/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user)
 	user.setClickCooldown(16)
 	..()
 
@@ -404,7 +404,7 @@
 
 	return ..()
 
-/obj/item/gun/energy/vaurca/typec/attack_hand(mob/user as mob)
+/obj/item/gun/energy/vaurca/typec/attack_hand(mob/user)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(H.mob_size >= 30)

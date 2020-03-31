@@ -440,7 +440,7 @@
 	if(mounted)
 		mounted.unload_ammo(usr)
 
-/obj/item/clothing/gloves/ballistic/attack_self(mob/user as mob)
+/obj/item/clothing/gloves/ballistic/attack_self(mob/user)
 	unload_shells()
 
 /obj/item/clothing/gloves/ballistic/double

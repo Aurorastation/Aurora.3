@@ -46,7 +46,7 @@
 	locked = 0
 	return 1
 
-/obj/item/circuitboard/security/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/circuitboard/security/attackby(obj/item/I, mob/user)
 	if(istype(I,/obj/item/card/id))
 		if(emagged)
 			to_chat(user, "<span class='warning'>Circuit lock does not respond.</span>")

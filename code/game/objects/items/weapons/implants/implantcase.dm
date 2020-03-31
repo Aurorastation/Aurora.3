@@ -18,7 +18,7 @@
 		src.icon_state = "implantcase-0"
 	return
 
-/obj/item/implantcase/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/implantcase/attackby(obj/item/I, mob/user)
 	..()
 	if (I.ispen())
 		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text

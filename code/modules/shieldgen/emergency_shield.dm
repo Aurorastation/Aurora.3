@@ -43,7 +43,7 @@
 	if(!height || air_group) return FALSE
 	else return ..()
 
-/obj/machinery/shield/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/shield/attackby(obj/item/W, mob/user)
 	if(!istype(W)) return
 
 	//Calculate damage
@@ -241,7 +241,7 @@
 				malfunction = TRUE
 	checkhp()
 
-/obj/machinery/shieldgen/attack_hand(mob/user as mob)
+/obj/machinery/shieldgen/attack_hand(mob/user)
 	if(locked)
 		to_chat(user, "The machine is locked, you are unable to use it.")
 		return
@@ -270,7 +270,7 @@
 		update_icon()
 		return 1
 
-/obj/machinery/shieldgen/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/shieldgen/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		playsound(src.loc, W.usesound, 100, 1)
 		if(is_open)

@@ -93,7 +93,7 @@
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
 
-/mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M)
 	..()
 
 	switch(M.a_intent)
@@ -192,7 +192,7 @@
 	if (src.client.statpanel == "Status")
 		show_silenced()
 
-/mob/living/silicon/pai/check_eye(var/mob/user as mob)
+/mob/living/silicon/pai/check_eye(var/mob/user)
 	if (!src.current)
 		return -1
 	return 0
@@ -431,7 +431,7 @@
 	canmove = !resting
 
 //Overriding this will stop a number of headaches down the track.
-/mob/living/silicon/pai/attackby(obj/item/W as obj, mob/user as mob)
+/mob/living/silicon/pai/attackby(obj/item/W, mob/user)
 	if(W.force)
 		visible_message("<span class='danger'>[user.name] attacks [src] with [W]!</span>")
 		src.adjustBruteLoss(W.force)
@@ -441,7 +441,7 @@
 
 	return
 
-/mob/living/silicon/pai/AltClick(mob/user as mob)
+/mob/living/silicon/pai/AltClick(mob/user)
 	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
 	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
 	close_up()

@@ -80,7 +80,7 @@
 		visible_message(span("danger", "\The [M] bursts out of \the [src]!"))
 	..()
 
-/mob/living/carbon/attack_hand(mob/M as mob)
+/mob/living/carbon/attack_hand(mob/M)
 	if(!istype(M, /mob/living/carbon))
 		return
 	if(!M.can_use_hand())
@@ -351,7 +351,7 @@
 		return 1
 	return
 
-/mob/living/carbon/u_equip(obj/item/W as obj)
+/mob/living/carbon/u_equip(obj/item/W)
 	if(!W)	return 0
 
 	else if (W == handcuffed)

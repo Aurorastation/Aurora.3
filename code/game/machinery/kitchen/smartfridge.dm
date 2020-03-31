@@ -106,7 +106,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/smartfridge/proc/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/proc/accept_check(var/obj/item/O)
 	if(istype(O,/obj/item/reagent_containers/food/snacks/grown/) || istype(O,/obj/item/seeds/))
 		return 1
 	return 0
@@ -118,7 +118,7 @@
 	icon_on = "smartfridge_food"
 	icon_off = "smartfridge_food-off"
 
-/obj/machinery/smartfridge/foodheater/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/foodheater/accept_check(var/obj/item/O)
 	if(istype(O,/obj/item/reagent_containers/food/snacks))
 		return 1
 	return 0
@@ -131,7 +131,7 @@
 	icon_on = "nutrimat"
 	icon_off = "nutrimat-off"
 
-/obj/machinery/smartfridge/seeds/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/seeds/accept_check(var/obj/item/O)
 	if(istype(O,/obj/item/seeds/))
 		return 1
 	return 0
@@ -145,7 +145,7 @@
 	. = ..()
 	new/obj/item/storage/bag/slimes(src)
 
-/obj/machinery/smartfridge/secure/extract/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/secure/extract/accept_check(var/obj/item/O)
 	if(istype(O,/obj/item/slime_extract))
 		return 1
 	return 0
@@ -157,7 +157,7 @@
 	icon_on = "smartfridge_chem"
 	req_one_access = list(access_medical,access_pharmacy)
 
-/obj/machinery/smartfridge/secure/medbay/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/secure/medbay/accept_check(var/obj/item/O)
 	if(istype(O,/obj/item/reagent_containers/glass/))
 		return 1
 	if(istype(O,/obj/item/storage/pill_bottle/))
@@ -185,7 +185,7 @@
 	icon_on = "smartfridge_virology"
 	icon_off = "smartfridge_virology-off"
 
-/obj/machinery/smartfridge/secure/virology/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/secure/virology/accept_check(var/obj/item/O)
 	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial/))
 		return 1
 	if(istype(O,/obj/item/virusdish/))
@@ -196,7 +196,7 @@
 	name = "\improper Smart Chemical Storage"
 	desc = "A refrigerated storage unit for medicine and chemical storage."
 
-/obj/machinery/smartfridge/chemistry/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/chemistry/accept_check(var/obj/item/O)
 	if(istype(O,/obj/item/storage/pill_bottle) || istype(O,/obj/item/reagent_containers))
 		return 1
 	return 0
@@ -211,7 +211,7 @@
 	desc = "A refrigerated storage unit for tasty tasty alcohol."
 	cooling = TRUE
 
-/obj/machinery/smartfridge/drinks/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/drinks/accept_check(var/obj/item/O)
 	if(istype(O,/obj/item/reagent_containers/glass) || istype(O,/obj/item/reagent_containers/food/drinks) || istype(O,/obj/item/reagent_containers/food/condiment))
 		return 1
 
@@ -219,7 +219,7 @@
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
 
-/obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O as obj)
+/obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O)
 	if(istype(O, /obj/item/reagent_containers/food/snacks/))
 		var/obj/item/reagent_containers/food/snacks/S = O
 		if (S.dried_type)
@@ -299,7 +299,7 @@
 *   Item Adding
 ********************/
 
-/obj/machinery/smartfridge/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/smartfridge/attackby(var/obj/item/O, var/mob/user)
 	if(O.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message("[user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].", "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
@@ -400,10 +400,10 @@
 		to_chat(user, "You short out the product lock on [src].")
 		return 1
 
-/obj/machinery/smartfridge/attack_ai(mob/user as mob)
+/obj/machinery/smartfridge/attack_ai(mob/user)
 	attack_hand(user)
 
-/obj/machinery/smartfridge/attack_hand(mob/user as mob)
+/obj/machinery/smartfridge/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	wires.Interact(user)

@@ -19,7 +19,7 @@
 			pinned_target = null
 			density = 1
 
-	attackby(obj/item/W as obj, mob/user as mob)
+	attackby(obj/item/W, mob/user)
 		// Putting objects on the stake. Most importantly, targets
 		if(pinned_target)
 			return // get rid of that pinned target first!
@@ -34,7 +34,7 @@
 			to_chat(user, "You slide the target into the stake.")
 		return
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		// taking pinned targets off!
 		if(pinned_target)
 			density = 1

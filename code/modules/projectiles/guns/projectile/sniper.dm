@@ -37,7 +37,7 @@
 		item_state = "heavysniper"
 	update_held_icon()
 
-/obj/item/gun/projectile/heavysniper/attack_self(mob/user as mob)
+/obj/item/gun/projectile/heavysniper/attack_self(mob/user)
 	bolt_open = !bolt_open
 	if(bolt_open)
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)

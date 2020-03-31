@@ -32,7 +32,7 @@
 		to_chat(user, span("notice", "It contains [reagents.total_volume]u of reagents."))
 
 
-/obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
 	for (var/possible_type in insertable)
 		if (istype(I, possible_type))
 			if (!can_fit(I))

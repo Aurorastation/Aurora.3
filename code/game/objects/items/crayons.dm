@@ -49,7 +49,7 @@
 	dust = "crayon_dust_grey"
 	chem_volume = 15
 
-/obj/item/pen/crayon/mime/attack_self(mob/living/user as mob) //inversion
+/obj/item/pen/crayon/mime/attack_self(mob/living/user) //inversion
 	if(colour != "#FFFFFF" && shadeColour != "#000000")
 		colour = "#FFFFFF"
 		shadeColour = "#000000"
@@ -68,12 +68,12 @@
 	dust = "crayon_dust_brown"
 	chem_volume = 20
 
-/obj/item/pen/crayon/rainbow/attack_self(mob/living/user as mob)
+/obj/item/pen/crayon/rainbow/attack_self(mob/living/user)
 	colour = input(user, "Please select the main colour.", "Crayon colour") as color
 	shadeColour = input(user, "Please select the shade colour.", "Crayon colour") as color
 	return
 
-/obj/item/pen/crayon/afterattack(atom/target, mob/user as mob, proximity)
+/obj/item/pen/crayon/afterattack(atom/target, mob/user, proximity)
 	if(!proximity) return
 	if(istype(target,/turf/simulated/floor))
 		var/originaloc = user.loc

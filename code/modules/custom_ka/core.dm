@@ -376,7 +376,7 @@
 	accuracy = round(recoil_increase*0.25)
 	accuracy_wielded = accuracy * 0.5
 
-/obj/item/gun/custom_ka/attack_self(mob/user as mob)
+/obj/item/gun/custom_ka/attack_self(mob/user)
 	. = ..()
 
 	if(!wielded)
@@ -390,7 +390,7 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.attack_self(user)
 
-/obj/item/gun/custom_ka/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/gun/custom_ka/attackby(var/obj/item/I, var/mob/user)
 
 	. = ..()
 

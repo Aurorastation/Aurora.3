@@ -36,7 +36,7 @@ LINEN BINS
 		add_fingerprint(user)
 		return
 
-/obj/item/bedsheet/attack_hand(mob/user as mob)
+/obj/item/bedsheet/attack_hand(mob/user)
 	if(fold || inside_storage_item)
 		if(inside_storage_item)
 			inside_storage_item = FALSE
@@ -48,15 +48,15 @@ LINEN BINS
 		..()
 	add_fingerprint(user)
 
-/obj/item/bedsheet/on_enter_storage(obj/item/storage/S as obj)
+/obj/item/bedsheet/on_enter_storage(obj/item/storage/S)
 	inside_storage_item = TRUE
 	return
 
-/obj/item/bedsheet/on_exit_storage(obj/item/storage/S as obj)
+/obj/item/bedsheet/on_exit_storage(obj/item/storage/S)
 	inside_storage_item = FALSE
 	return
 
-/obj/item/bedsheet/AltClick(mob/user as mob)
+/obj/item/bedsheet/AltClick(mob/user)
 	if(!istype(loc,/mob))
 		toggle_fold(user)
 	else
@@ -64,7 +64,7 @@ LINEN BINS
 		..()
 	add_fingerprint(user)
 
-/obj/item/bedsheet/MouseDrop(mob/user as mob)
+/obj/item/bedsheet/MouseDrop(mob/user)
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if( !user.get_active_hand() )		//if active hand is empty
@@ -397,7 +397,7 @@ LINEN BINS
 		else				icon_state = "linenbin-full"
 
 
-/obj/structure/bedsheetbin/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/bedsheetbin/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/bedsheet))
 		user.drop_from_inventory(I,src)
 		sheets.Add(I)
@@ -408,7 +408,7 @@ LINEN BINS
 		hidden = I
 		to_chat(user, "<span class='notice'>You hide [I] among the sheets.</span>")
 
-/obj/structure/bedsheetbin/attack_hand(mob/user as mob)
+/obj/structure/bedsheetbin/attack_hand(mob/user)
 	if(amount >= 1)
 		amount--
 

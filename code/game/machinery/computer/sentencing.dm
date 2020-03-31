@@ -20,14 +20,14 @@
 	if( console_tag )
 		tag = console_tag
 
-/obj/machinery/computer/sentencing/attack_hand(mob/user as mob)
+/obj/machinery/computer/sentencing/attack_hand(mob/user)
 	if(..())
 		return
 	if(stat & (NOPOWER|BROKEN))
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
+/obj/machinery/computer/sentencing/attackby(obj/item/O, user as mob)
 	if( istype( O, /obj/item/paper/incident ) && menu_screen == "import_incident" )
 		usr.drop_from_inventory(O,src)
 
@@ -51,7 +51,7 @@
 
 	return incident
 
-/obj/machinery/computer/sentencing/ui_interact( mob/user as mob )
+/obj/machinery/computer/sentencing/ui_interact( mob/user )
 	. = ""
 
 	switch( menu_screen )

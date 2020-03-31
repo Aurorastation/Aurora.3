@@ -125,7 +125,7 @@
 				user.visible_message("\The [user] finishes wiping off \the [A]!")
 			A.clean_blood()
 
-/obj/item/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
+/obj/item/reagent_containers/glass/rag/attack(atom/target|turf|area, mob/user , flag)
 	if(isliving(target))
 		var/mob/living/M = target
 		if(on_fire)
@@ -179,7 +179,7 @@
 
 	return ..()
 
-/obj/item/reagent_containers/glass/rag/afterattack(atom/A as obj|turf|area, mob/user as mob, proximity)
+/obj/item/reagent_containers/glass/rag/afterattack(atom/A|turf|area, mob/user, proximity)
 	if(!proximity)
 		return
 

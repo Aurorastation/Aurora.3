@@ -76,7 +76,7 @@
 		return 0
 	return ..()
 
-/obj/item/gun/projectile/contender/attack_self(mob/user as mob)
+/obj/item/gun/projectile/contender/attack_self(mob/user)
 	if(chambered)
 		chambered.forceMove(get_turf(src))
 		chambered = null
@@ -137,7 +137,7 @@
 	var/open_bolt = 0
 	var/obj/item/ammo_magazine/boltaction/vintage/has_clip
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attack_self(mob/living/user as mob)
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attack_self(mob/living/user)
 	if(wielded)
 		if(world.time >= recentpump + 10)
 			pump(user)
@@ -161,7 +161,7 @@
 		else
 			to_chat(user, "<span class='warning'>There is no clip in \the [src.name]!</span>")
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M)
 	if(!wielded)
 		to_chat(M, "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>")
 		return
@@ -191,7 +191,7 @@
 
 	update_icon()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
 			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")

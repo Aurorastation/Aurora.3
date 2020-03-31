@@ -120,7 +120,7 @@
 				return 1
 	return 0
 
-/obj/item/robot_parts/robot_suit/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/robot_parts/robot_suit/attackby(obj/item/W, mob/user)
 	..()
 	if(istype(W, /obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL && !l_arm && !r_arm && !l_leg && !r_leg && !chest && !head)
 		var/obj/item/stack/material/M = W
@@ -274,7 +274,7 @@
 
 	return
 
-/obj/item/robot_parts/chest/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/robot_parts/chest/attackby(obj/item/W, mob/user)
 	..()
 	if(istype(W, /obj/item/cell))
 		if(src.cell)
@@ -295,7 +295,7 @@
 			to_chat(user, "<span class='notice'>You insert the wire!</span>")
 	return
 
-/obj/item/robot_parts/head/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/robot_parts/head/attackby(obj/item/W, mob/user)
 	..()
 	if(W.ismultitool())
 		if(law_manager)
@@ -327,7 +327,7 @@
 		return
 	return
 
-/obj/item/robot_parts/head/proc/add_flashes(obj/item/W as obj, mob/user as mob) //Made into a seperate proc to avoid copypasta
+/obj/item/robot_parts/head/proc/add_flashes(obj/item/W, mob/user) //Made into a seperate proc to avoid copypasta
 	if(src.flash1 && src.flash2)
 		to_chat(user, "<span class='notice'>You have already inserted the eyes!</span>")
 		return

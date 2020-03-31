@@ -74,7 +74,7 @@
 	else
 		return 0
 
-/obj/vehicle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/hand_labeler))
 		return
 	if(W.isscrewdriver())
@@ -161,7 +161,7 @@
 	if(was_on)
 		turn_on()
 
-/obj/vehicle/attack_ai(mob/user as mob)
+/obj/vehicle/attack_ai(mob/user)
 	return
 
 // For downstream compatibility (in particular Paradise)
@@ -186,7 +186,7 @@
 	set_light(0)
 	update_icon()
 
-/obj/vehicle/emag_act(var/remaining_charges, mob/user as mob)
+/obj/vehicle/emag_act(var/remaining_charges, mob/user)
 	if(!emagged)
 		emagged = 1
 		if(locked)

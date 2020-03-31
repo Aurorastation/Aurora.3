@@ -38,7 +38,7 @@
 		qdel(src)
 		return
 
-/obj/item/phylactery/pickup(mob/living/user as mob)
+/obj/item/phylactery/pickup(mob/living/user)
 	..()
 	if(!user.is_wizard() && src.lich)
 		to_chat(user, "<span class='warning'>As you pick up \the [src], you feel a wave of dread wash over you.</span>")

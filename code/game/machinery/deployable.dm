@@ -79,7 +79,7 @@ for reference:
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/barricade/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/barricade/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/stack))
 		var/obj/item/stack/D = W
 		if(D.get_material_name() != material.name)
@@ -165,7 +165,7 @@ for reference:
 
 		src.icon_state = "[initial(icon_state)][src.locked]"
 
-	attackby(obj/item/W as obj, mob/user as mob)
+	attackby(obj/item/W, mob/user)
 		if (istype(W, /obj/item/card/id/))
 			if (src.allowed(user))
 				if	(src.emagged < 2.0)

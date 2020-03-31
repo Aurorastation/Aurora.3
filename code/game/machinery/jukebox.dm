@@ -147,10 +147,10 @@ datum/track/New(var/title_name, var/audio)
 		// open the new ui window
 		ui.open()
 
-/obj/machinery/media/jukebox/attack_ai(mob/user as mob)
+/obj/machinery/media/jukebox/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/media/jukebox/attack_hand(var/mob/user as mob)
+/obj/machinery/media/jukebox/attack_hand(var/mob/user)
 	interact(user)
 
 /obj/machinery/media/jukebox/proc/explode()
@@ -164,7 +164,7 @@ datum/track/New(var/title_name, var/audio)
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)
 
-/obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/media/jukebox/attackby(obj/item/W, mob/user)
 	if(!istype(W, /obj/item/forensics))
 		src.add_fingerprint(user)
 

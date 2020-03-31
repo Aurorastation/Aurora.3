@@ -7,7 +7,7 @@
 	var/machine_dir = SOUTH
 	var/init_dirs = SOUTH
 
-/obj/item/circuitboard/unary_atmos/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/circuitboard/unary_atmos/attackby(obj/item/I, mob/user)
 	if(I.isscrewdriver())
 		machine_dir = turn(machine_dir, 90)
 		init_dirs = machine_dir

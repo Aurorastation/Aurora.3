@@ -1,7 +1,7 @@
 /obj/item/spellbook/student
 	spellbook_type = /datum/spellbook/student
 
-/obj/item/spellbook/student/attack_self(mob/living/user as mob)
+/obj/item/spellbook/student/attack_self(mob/living/user)
 	if(user.is_wizard(TRUE))
 		to_chat(user, "<span class='warning'>This books is written for students, not for a true wizard like yourself!</span>")
 		return

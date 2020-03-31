@@ -26,7 +26,7 @@
 			I.forceMove(src)
 	update_icon()
 
-/obj/structure/bookcase/attackby(obj/O as obj, mob/user as mob)
+/obj/structure/bookcase/attackby(obj/O as obj, mob/user)
 	if(istype(O, /obj/item/book))
 		user.drop_from_inventory(O,src)
 		update_icon()
@@ -53,7 +53,7 @@
 	else
 		..()
 
-/obj/structure/bookcase/attack_hand(var/mob/user as mob)
+/obj/structure/bookcase/attack_hand(var/mob/user)
 	if(contents.len)
 		var/obj/item/book/choice = input("Which book would you like to remove from the shelf?") as null|obj in contents
 		if(choice)
@@ -209,7 +209,7 @@
 	var/obj/item/store	//What's in the book?
 	drop_sound = 'sound/bureaucracy/bookclose.ogg'
 
-/obj/item/book/attack_self(var/mob/user as mob)
+/obj/item/book/attack_self(var/mob/user)
 	if(carved)
 		if(store)
 			to_chat(user, "<span class='notice'>[store] falls out of [title]!</span>")
@@ -227,7 +227,7 @@
 	else
 		to_chat(user, "This book is completely blank!")
 
-/obj/item/book/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/book/attackby(obj/item/W, mob/user)
 	if(carved)
 		if(!store)
 			if(W.w_class < 3)
@@ -334,7 +334,7 @@
 	var/obj/item/book/book	 //  Currently scanned book
 	var/mode = 0 					// 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory
 
-	attack_self(mob/user as mob)
+	attack_self(mob/user)
 		mode += 1
 		if(mode > 3)
 			mode = 0

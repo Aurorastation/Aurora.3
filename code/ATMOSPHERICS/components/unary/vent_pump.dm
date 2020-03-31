@@ -382,7 +382,7 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/W, var/mob/user)
 	if (!W.iswrench())
 		return ..()
 	if (!(stat & NOPOWER) && use_power)

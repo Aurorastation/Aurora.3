@@ -33,7 +33,7 @@
 	src.icon_state = "orange1"
 	src.item_state = "orange1"
 
-/obj/item/clothing/shoes/orange/proc/remove_cuffs(mob/user as mob)
+/obj/item/clothing/shoes/orange/proc/remove_cuffs(mob/user)
 	if (!src.chained) return
 
 	user.put_in_hands(src.chained)
@@ -44,11 +44,11 @@
 	src.item_state = "orange"
 	src.chained = null
 
-/obj/item/clothing/shoes/orange/attack_self(mob/user as mob)
+/obj/item/clothing/shoes/orange/attack_self(mob/user)
 	..()
 	remove_cuffs(user)
 
-/obj/item/clothing/shoes/orange/attackby(H as obj, mob/user as mob)
+/obj/item/clothing/shoes/orange/attackby(H, mob/user)
 	..()
 	if (istype(H, /obj/item/handcuffs))
 		attach_cuffs(H, user)

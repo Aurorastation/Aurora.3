@@ -125,7 +125,7 @@
 	desc = "[initial(desc)] [design.desc]"
 	icon_state = design.icon_state // poster[serial_number]
 
-/obj/structure/sign/poster/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/sign/poster/attackby(obj/item/W, mob/user)
 	if(W.iswirecutter())
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
@@ -137,7 +137,7 @@
 		return
 
 
-/obj/structure/sign/poster/attack_hand(mob/user as mob)
+/obj/structure/sign/poster/attack_hand(mob/user)
 	if(ruined)
 		return
 	if(user.a_intent == I_HELP)

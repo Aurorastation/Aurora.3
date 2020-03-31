@@ -4,7 +4,7 @@
 	icon = 'icons/obj/stacks.dmi'
 	icon_state = "sheet-cloth"
 
-/obj/item/shoe_cover/afterattack(var/obj/A as obj, mob/user as mob, proximity)
+/obj/item/shoe_cover/afterattack(var/obj/A, mob/user, proximity)
 	if(!proximity)
 		return
 

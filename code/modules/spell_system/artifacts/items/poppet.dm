@@ -35,7 +35,7 @@
 				to_chat(H, "<span class='cult'>You feel a strange presence looming over you.</span>")
 
 
-/obj/item/poppet/attack_self(mob/user as mob)
+/obj/item/poppet/attack_self(mob/user)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting
@@ -73,7 +73,7 @@
 
 		cooldown = world.time + cooldown_time
 
-/obj/item/poppet/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/poppet/attackby(obj/item/W, mob/user)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting

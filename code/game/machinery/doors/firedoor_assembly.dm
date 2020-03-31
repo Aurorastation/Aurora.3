@@ -14,7 +14,7 @@ obj/structure/firedoor_assembly/update_icon()
 	else
 		icon_state = "door_construction"
 
-obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
+obj/structure/firedoor_assembly/attackby(var/obj/item/C, mob/user)
 	if(C.iscoil() && !wired && anchored)
 		var/obj/item/stack/cable_coil/cable = C
 		if (cable.get_amount() < 1)

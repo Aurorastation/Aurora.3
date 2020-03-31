@@ -10,7 +10,7 @@
 	var/obj/item/circuitboard/circuit = null
 //	weight = 1.0E8
 
-/obj/structure/computerframe/attackby(obj/item/P as obj, mob/user as mob)
+/obj/structure/computerframe/attackby(obj/item/P, mob/user)
 	switch(state)
 		if(0)
 			if(P.iswrench())

@@ -24,7 +24,7 @@
 		return
 	to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
 
-/obj/item/gun/launcher/rocket/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/gun/launcher/rocket/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/ammo_casing/rocket))
 		if(rockets.len < max_rockets)
 			user.drop_from_inventory(I,src)

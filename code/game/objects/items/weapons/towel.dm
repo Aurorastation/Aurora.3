@@ -10,10 +10,10 @@
 	hitsound = 'sound/weapons/towelwhip.ogg'
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
-/obj/item/towel/attack_self(mob/living/user as mob)
+/obj/item/towel/attack_self(mob/living/user)
 	attack(user,user)
 
-/obj/item/towel/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/towel/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user)
 	if(istype(M) && user.a_intent == I_HELP)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(user.on_fire)
@@ -49,7 +49,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "towel_flat"
 
-/obj/item/towel_flat/attack_hand(mob/user as mob)
+/obj/item/towel_flat/attack_hand(mob/user)
 	to_chat(user, "<span class='notice'>You pick up and fold \the [src].</span>")
 	var/obj/item/towel/T = new /obj/item/towel(user)
 	T.color = src.color

@@ -54,7 +54,7 @@
 			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
 	return
 
-/obj/machinery/bot/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/bot/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if(!locked)
 			open = !open
@@ -128,7 +128,7 @@
 	if (was_on)
 		turn_on()
 
-/obj/machinery/bot/attack_ai(mob/user as mob)
+/obj/machinery/bot/attack_ai(mob/user)
 	src.attack_hand(user)
 
 /obj/machinery/bot/attack_hand(var/mob/living/carbon/human/user)

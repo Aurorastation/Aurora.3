@@ -19,7 +19,7 @@
 	set waitfor = FALSE
 	src.teleport(AM)
 
-/obj/effect/portal/attack_hand(mob/user as mob)
+/obj/effect/portal/attack_hand(mob/user)
 	set waitfor = FALSE
 	src.teleport(user)
 

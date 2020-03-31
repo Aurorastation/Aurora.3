@@ -153,7 +153,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 				descriptive = "cold"
 		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
 
-/obj/item/organ/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/organ/vaurca/preserve/attackby(obj/item/W, mob/user)
 	..()
 	var/obj/icon = src
 
@@ -178,7 +178,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		LB.blow(src)
 		src.add_fingerprint(user)
 
-/obj/item/organ/vaurca/preserve/attack_self(mob/user as mob)
+/obj/item/organ/vaurca/preserve/attack_self(mob/user)
 	if (!(src.air_contents))
 		return
 

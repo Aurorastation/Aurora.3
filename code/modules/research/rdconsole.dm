@@ -142,7 +142,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		linked_imprinter.linked_console = null
 	return ..()
 
-/obj/machinery/computer/rdconsole/attackby(var/obj/item/D as obj, var/mob/user as mob)
+/obj/machinery/computer/rdconsole/attackby(var/obj/item/D, var/mob/user)
 	//Loading a disk into it.
 	if(istype(D, /obj/item/disk))
 		if(t_disk || d_disk)
@@ -450,7 +450,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	dat += "</UL>"
 	return dat
 
-/obj/machinery/computer/rdconsole/attack_hand(mob/user as mob)
+/obj/machinery/computer/rdconsole/attack_hand(mob/user)
 	if(stat & (BROKEN|NOPOWER))
 		return
 

@@ -22,7 +22,7 @@
 	else
 		icon_state = "[initial(icon_state)]-empty"
 
-/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user, var/target_zone)
 	if (!istype(M) || !istype(user))
 		return 0
 	if (!can_use(1, user))
@@ -84,7 +84,7 @@
 	var/used = FALSE
 	construction_cost = null
 
-/obj/item/stack/nanopaste/surge/attack(mob/living/carbon/human/M as mob, mob/user as mob, var/target_zone)
+/obj/item/stack/nanopaste/surge/attack(mob/living/carbon/human/M as mob, mob/user, var/target_zone)
 	if (!istype(M) || !istype(user))
 		return 0
 

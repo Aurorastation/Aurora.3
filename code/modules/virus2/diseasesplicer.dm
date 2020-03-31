@@ -11,7 +11,7 @@
 	var/splicing = 0
 	var/scanning = 0
 
-/obj/machinery/computer/diseasesplicer/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/machinery/computer/diseasesplicer/attackby(var/obj/I as obj, var/mob/user)
 	if(I.isscrewdriver())
 		return ..(I,user)
 
@@ -32,10 +32,10 @@
 
 	src.attack_hand(user)
 
-/obj/machinery/computer/diseasesplicer/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/diseasesplicer/attack_ai(var/mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/diseasesplicer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/diseasesplicer/attack_hand(var/mob/user)
 	if(..()) return
 	ui_interact(user)
 

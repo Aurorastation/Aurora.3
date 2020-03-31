@@ -226,7 +226,7 @@
 			if(P.id == id)
 				doors += P
 
-/obj/machinery/computer/turbine_computer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/turbine_computer/attack_hand(var/mob/user)
 	user.machine = src
 	var/dat
 	if(src.compressor)

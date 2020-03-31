@@ -242,10 +242,10 @@
 					magnets += M
 
 
-	attack_ai(mob/user as mob)
+	attack_ai(mob/user)
 		return src.attack_hand(user)
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		if(stat & (BROKEN|NOPOWER))
 			return
 		user.set_machine(src)

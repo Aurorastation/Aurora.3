@@ -17,7 +17,7 @@
 	var/low = 0
 	var/high = 1
 
-/obj/item/device/light_meter/attack_self(mob/user as mob)
+/obj/item/device/light_meter/attack_self(mob/user)
 	var/turf/T = get_turf(user.loc)
 	if (!T)
 		to_chat(user, span("alert", "Unable to read light levels."))

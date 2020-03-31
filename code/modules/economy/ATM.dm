@@ -83,7 +83,7 @@ log transactions
 	to_chat(user, "<span class='warning'>\icon[src] The [src] beeps: \"[response]\"</span>")
 	return 1
 
-/obj/machinery/atm/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/atm/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/card))
 		if(emagged)
 			//prevent inserting id into an emagged ATM
@@ -125,7 +125,7 @@ log transactions
 	else
 		..()
 
-/obj/machinery/atm/attack_hand(mob/user as mob)
+/obj/machinery/atm/attack_hand(mob/user)
 	if(istype(user, /mob/living/silicon))
 		to_chat(user, "<span class='warning'>\icon[src] Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per system banking regulation #1005.</span>")
 		return
@@ -446,7 +446,7 @@ log transactions
 	src.attack_hand(usr)
 
 //stolen wholesale and then edited a bit from newscasters, which are awesome and by Agouri
-/obj/machinery/atm/proc/scan_user(mob/living/carbon/human/human_user as mob)
+/obj/machinery/atm/proc/scan_user(mob/living/carbon/human/human_user)
 	if(!authenticated_account)
 		if(human_user.wear_id)
 			var/obj/item/card/id/I
@@ -489,7 +489,7 @@ log transactions
 	release_held_id(user)
 
 // put the currently held id on the ground or in the hand of the user
-/obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user as mob)
+/obj/machinery/atm/proc/release_held_id(mob/living/carbon/human/human_user)
 
 	if (!ishuman(human_user))
 		return
@@ -507,7 +507,7 @@ log transactions
 	held_card = null
 
 
-/obj/machinery/atm/proc/spawn_ewallet(var/sum, loc, mob/living/carbon/human/human_user as mob)
+/obj/machinery/atm/proc/spawn_ewallet(var/sum, loc, mob/living/carbon/human/human_user)
 	var/obj/item/spacecash/ewallet/E = new /obj/item/spacecash/ewallet(loc)
 	if(ishuman(human_user) && !human_user.get_active_hand())
 		human_user.put_in_hands(E)

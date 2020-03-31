@@ -118,7 +118,7 @@
 		return FALSE
 	. = ..()
 
-/obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user as mob)
+/obj/item/reagent_containers/hypospray/autoinjector/attack_self(mob/user)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,span("notice", "With a quick twist of \the [src]'s lid, you secure the reagents inside."))

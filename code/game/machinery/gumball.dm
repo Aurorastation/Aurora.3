@@ -59,7 +59,7 @@
 		on = 1
 
 
-/obj/machinery/gumballmachine/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/gumballmachine/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/spacecash))
 		var/obj/item/spacecash/C = W
 		if(!on)

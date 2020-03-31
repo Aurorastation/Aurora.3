@@ -12,7 +12,7 @@
 	w_class = 1.0
 	var/uses = 1
 
-/obj/item/antag_spawner/proc/equip_antag(mob/target as mob)
+/obj/item/antag_spawner/proc/equip_antag(mob/target)
 	return
 
 /obj/item/antag_spawner/borg_tele

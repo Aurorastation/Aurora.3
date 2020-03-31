@@ -443,7 +443,7 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O, var/mob/user)
 
 	//A special case for if the container has only water, for manual watering with buckets
 	if (istype(O,/obj/item/reagent_containers))
@@ -594,7 +594,7 @@
 	else if(harvest)
 		harvest(user)
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_hand(mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attack_hand(mob/user)
 
 	if(istype(usr,/mob/living/silicon))
 		return

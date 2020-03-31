@@ -52,7 +52,7 @@
 	QDEL_NULL(closer)
 	return ..()
 
-/obj/item/storage/MouseDrop(obj/over_object as obj)
+/obj/item/storage/MouseDrop(obj/over_object)
 
 	if(!canremove)
 		return
@@ -97,7 +97,7 @@
 		if (istype(G.gift, /obj/item/storage))
 			. += G.gift:return_inv()
 
-/obj/item/storage/proc/show_to(mob/user as mob)
+/obj/item/storage/proc/show_to(mob/user)
 	if(user.s_active != src)
 		for(var/obj/item/I in src)
 			if(I.on_found(user))
@@ -122,7 +122,7 @@
 	LAZYADD(is_seeing, user)
 	return
 
-/obj/item/storage/proc/hide_from(mob/user as mob)
+/obj/item/storage/proc/hide_from(mob/user)
 
 	if(!user.client)
 		return
@@ -137,7 +137,7 @@
 
 	LAZYREMOVE(is_seeing, user)
 
-/obj/item/storage/proc/open(mob/user as mob)
+/obj/item/storage/proc/open(mob/user)
 	if (use_sound)
 		playsound(src.loc, src.use_sound, 50, 0, -5)
 
@@ -146,7 +146,7 @@
 		user.s_active.close(user)
 	show_to(user)
 
-/obj/item/storage/proc/close(mob/user as mob)
+/obj/item/storage/proc/close(mob/user)
 	hide_from(user)
 	user.s_active = null
 	return
@@ -258,14 +258,14 @@
 	var/obj/item/sample_object
 	var/number
 
-/datum/numbered_display/New(obj/item/sample as obj)
+/datum/numbered_display/New(obj/item/sample)
 	if(!istype(sample))
 		qdel(src)
 	sample_object = sample
 	number = 1
 
 //This proc determins the size of the inventory to be displayed. Please touch it only if you know what you're doing.
-/obj/item/storage/proc/orient2hud(mob/user as mob, defer_overlays = FALSE)
+/obj/item/storage/proc/orient2hud(mob/user, defer_overlays = FALSE)
 
 	var/adjusted_contents = contents.len
 
@@ -297,7 +297,7 @@
 
 //This proc return 1 if the item can be picked up and 0 if it can't.
 //Set the stop_messages to stop it from printing messages
-/obj/item/storage/proc/can_be_inserted(obj/item/W as obj, stop_messages = 0)
+/obj/item/storage/proc/can_be_inserted(obj/item/W, stop_messages = 0)
 	if(!istype(W)) return //Not an item
 
 	if(usr && usr.isEquipped(W) && !usr.canUnEquip(W))
@@ -356,7 +356,7 @@
 //This proc handles items being inserted. It does not perform any checks of whether an item can or can't be inserted. That's done by can_be_inserted()
 //The stop_warning parameter will stop the insertion message from being displayed. It is intended for cases where you are inserting multiple items at once,
 //such as when picking up all the items on a tile with one click.
-/obj/item/storage/proc/handle_item_insertion(obj/item/W as obj, prevent_warning = 0, mob/user = usr)
+/obj/item/storage/proc/handle_item_insertion(obj/item/W, prevent_warning = 0, mob/user = usr)
 	if(!istype(W)) return 0
 	if(user)
 		user.prepare_for_slotmove(W)
@@ -404,7 +404,7 @@
 	queue_icon_update()
 
 //Call this proc to handle the removal of an item from the storage item. The item will be moved to the atom sent as new_target
-/obj/item/storage/proc/remove_from_storage(obj/item/W as obj, atom/new_location)
+/obj/item/storage/proc/remove_from_storage(obj/item/W, atom/new_location)
 	if(!istype(W)) return 0
 
 	if(istype(src, /obj/item/storage/fancy))
@@ -479,14 +479,14 @@
 
 //This proc is called when you want to place an item into the storage item.
 //Its a safe proc for adding things to the storage that does the necessary checks. Object will not be moved if it fails
-/obj/item/storage/proc/insert_into_storage(obj/item/W as obj, var/prevent_messages = 1)
+/obj/item/storage/proc/insert_into_storage(obj/item/W, var/prevent_messages = 1)
 	if(!can_be_inserted(W, prevent_messages))
 		return
 
 	return handle_item_insertion(W, prevent_messages)
 
 
-/obj/item/storage/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/attackby(obj/item/W, mob/user)
 	..()
 
 	if(!dropsafety(W))
@@ -520,10 +520,10 @@
 	W.add_fingerprint(user)
 	return handle_item_insertion(W)
 
-/obj/item/storage/dropped(mob/user as mob)
+/obj/item/storage/dropped(mob/user)
 	return
 
-/obj/item/storage/attack_hand(mob/user as mob)
+/obj/item/storage/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.l_store == src && !H.get_active_hand())	//Prevents opening if it's in a pocket.
@@ -651,7 +651,7 @@
 			O.emp_act(severity)
 	..()
 
-/obj/item/storage/attack_self(mob/user as mob)
+/obj/item/storage/attack_self(mob/user)
 	//Clicking on itself will empty it, if it has the verb to do that.
 	if(user.get_active_hand() == src)
 		if(src.verbs.Find(/obj/item/storage/verb/quick_empty))

@@ -124,7 +124,7 @@
 	message_enabled = 0
 	message_disable = 0
 
-/obj/item/gun/energy/lawgiver/attack_self(mob/living/carbon/user as mob) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
+/obj/item/gun/energy/lawgiver/attack_self(mob/living/carbon/user) //can probably remove this in favor of the DNA locked firing pins. not touching that now though. edit: lol nevermind snowflake code of the year
 	if(dna != null)
 		return
 	else
@@ -155,12 +155,12 @@
 		return 0
 	..()
 
-/obj/item/gun/energy/lawgiver/proc/Emag(mob/user as mob)
+/obj/item/gun/energy/lawgiver/proc/Emag(mob/user)
 	to_chat(usr, "<span class='warning'>You short out [src]'s id check</span>")
 	emagged = 1
 	return 1
 
-/obj/item/gun/energy/lawgiver/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gun/energy/lawgiver/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/card/emag) && !emagged)
 		Emag(user)
 	else

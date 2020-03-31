@@ -26,7 +26,7 @@
 	return
 
 
-/obj/machinery/computer/aiupload/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/computer/aiupload/attackby(obj/item/O, mob/user)
 	if(isNotStationLevel(src.z))
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
 		return
@@ -37,7 +37,7 @@
 		..()
 
 
-/obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/aiupload/attack_hand(var/mob/user)
 	if(src.stat & NOPOWER)
 		to_chat(user, "The upload computer has no power!")
 		return
@@ -67,7 +67,7 @@
 	var/mob/living/silicon/robot/current = null
 
 
-/obj/machinery/computer/borgupload/attackby(obj/item/aiModule/module as obj, mob/user as mob)
+/obj/machinery/computer/borgupload/attackby(obj/item/aiModule/module, mob/user)
 	if(isNotStationLevel(src.z))
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
 		return
@@ -77,7 +77,7 @@
 		return ..()
 
 
-/obj/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/borgupload/attack_hand(var/mob/user)
 	if(src.stat & NOPOWER)
 		to_chat(user, "The upload computer has no power!")
 		return

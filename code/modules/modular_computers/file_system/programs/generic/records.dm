@@ -81,7 +81,7 @@
 	. = ..()
 	listener = new(src)
 
-/datum/computer_file/program/records/ui_interact(mob/user as mob)
+/datum/computer_file/program/records/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "records-main", 450, 520, filedesc)

@@ -10,7 +10,7 @@
 	density = 1
 	layer = 3.1		//to go over ores
 
-/obj/machinery/giga_drill/attack_hand(mob/user as mob)
+/obj/machinery/giga_drill/attack_hand(mob/user)
 	if(active)
 		active = 0
 		icon_state = "gigadrill"

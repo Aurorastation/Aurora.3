@@ -55,7 +55,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/machinery/bodyscanner/relaymove(mob/user as mob)
+/obj/machinery/bodyscanner/relaymove(mob/user)
 	if (user.stat)
 		return
 	go_out()
@@ -143,7 +143,7 @@
 	qdel(G)
 	return
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user)
 	if(!istype(user))
 		return
 	if(!ismob(O))

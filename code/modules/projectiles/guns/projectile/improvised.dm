@@ -32,7 +32,7 @@
 	return ..()
 
 
-/obj/item/gun/projectile/shotgun/improvised/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/gun/projectile/shotgun/improvised/attackby(var/obj/item/A, mob/user)
 	if(istype(A, /obj/item/surgery/circular_saw) || istype(A, /obj/item/melee/energy) || istype(A, /obj/item/gun/energy/plasmacutter) && w_class != 3)
 		to_chat(user, "<span class='notice'>You begin to shorten the barrel of \the [src].</span>")
 		if(loaded.len)
@@ -97,7 +97,7 @@
 		if(2) to_chat(user, "It has a stock installed.")
 		if(3) to_chat(user, "Its pieces are held together by tape roll.")
 
-/obj/item/receivergun/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/receivergun/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/pipe))
 		if(buildstate == 0)
 			qdel(W)
@@ -172,7 +172,7 @@
 		if(2) to_chat(user, "It has a receiver installed.")
 		if(3) to_chat(user, "It has a pipe installed.")
 
-/obj/item/stock/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stock/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/material/hatchet))
 		if(buildstate == 0)
 			to_chat(user, "<span class='notice'>You carve the rifle stock.</span>")

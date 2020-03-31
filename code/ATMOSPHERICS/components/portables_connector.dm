@@ -130,7 +130,7 @@
 	return null
 
 
-/obj/machinery/atmospherics/portables_connector/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/portables_connector/attackby(var/obj/item/W, var/mob/user)
 	if (!W.iswrench())
 		return ..()
 	if (connected_device)

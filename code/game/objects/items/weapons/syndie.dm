@@ -60,7 +60,7 @@
 	var/obj/item/syndie/c4explosive/bomb
 	var/pr_open = 0  /*Is the "What do you want to do?" prompt open?*/
 
-/obj/item/syndie/c4detonator/attack_self(mob/user as mob)
+/obj/item/syndie/c4detonator/attack_self(mob/user)
 	switch(src.icon_state)
 		if("c-4detonator_0")
 			src.icon_state = "c-4detonator_1"

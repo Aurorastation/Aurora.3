@@ -22,7 +22,7 @@
 	..()
 	visible_message("<span class='notice'>\The [src] lands on \the [pick_constellation()].</span>")
 
-/obj/item/stellascope/attack_self(mob/user as mob)
+/obj/item/stellascope/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
@@ -54,17 +54,17 @@
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
 
-/obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/temp_visual/constellation/attackby(obj/item/W, mob/user)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
 	qdel(src)
 	return
 
-/obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/temp_visual/constellation/attackby(obj/item/W, mob/user)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
 	qdel(src)
 	return
 
-/obj/effect/temp_visual/constellation/attack_hand(mob/user as mob)
+/obj/effect/temp_visual/constellation/attack_hand(mob/user)
 	if(user.a_intent == I_HURT)
 		visible_message("<span class='notice'>\The [src] vanishes!</span>")
 		qdel(src)
@@ -91,7 +91,7 @@
 	if(selected_world && working)
 		to_chat(user, "\The [src] displays the world of [selected_world].")
 
-/obj/item/skrell_projector/attack_self(mob/user as mob)
+/obj/item/skrell_projector/attack_self(mob/user)
 	working = !working
 
 	if(working)

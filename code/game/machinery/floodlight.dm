@@ -62,7 +62,7 @@
 	if(loud)
 		visible_message("\The [src] shuts down.")
 
-/obj/machinery/floodlight/attack_ai(mob/user as mob)
+/obj/machinery/floodlight/attack_ai(mob/user)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user))
 		return attack_hand(user)
 
@@ -73,7 +73,7 @@
 			to_chat(user, "You try to turn on \the [src] but it does not work.")
 
 
-/obj/machinery/floodlight/attack_hand(mob/user as mob)
+/obj/machinery/floodlight/attack_hand(mob/user)
 	if(open && cell)
 		if(ishuman(user))
 			if(!user.get_active_hand())
@@ -101,7 +101,7 @@
 	update_icon()
 
 
-/obj/machinery/floodlight/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/floodlight/attackby(obj/item/W, mob/user)
 	if (W.isscrewdriver())
 		if (!open)
 			if(unlocked)

@@ -200,7 +200,7 @@
 			friends -= user
 
 
-/mob/living/simple_animal/hostile/commanded/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/simple_animal/hostile/commanded/attack_hand(mob/living/carbon/human/M)
 	..()
 
 	// We forgive our master

@@ -36,7 +36,7 @@
 		add_overlay("folder_paper")
 	return
 
-/obj/item/folder/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/folder/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo) || istype(W, /obj/item/paper_bundle) || istype(W, /obj/item/sample/print))
 		user.drop_from_inventory(W,src)
 		to_chat(user, "<span class='notice'>You put the [W] into \the [src].</span>")
@@ -47,7 +47,7 @@
 			name = "folder[(n_name ? text("- '[n_name]'") : null)]"
 	return
 
-/obj/item/folder/attack_self(mob/user as mob)
+/obj/item/folder/attack_self(mob/user)
 	var/dat = "<title>[name]</title>"
 
 	for(var/obj/item/paper/P in src)

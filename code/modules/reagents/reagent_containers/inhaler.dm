@@ -87,13 +87,13 @@
 
 	return TRUE
 
-/obj/item/reagent_containers/inhaler/attack(mob/M as mob, mob/user as mob)
+/obj/item/reagent_containers/inhaler/attack(mob/M as mob, mob/user)
 	if(is_open_container())
 		to_chat(user,"<span class='notice'>You must secure the reagents inside \the [src] before using it!</span>")
 		return FALSE
 	. = ..()
 
-/obj/item/reagent_containers/inhaler/attack_self(mob/user as mob)
+/obj/item/reagent_containers/inhaler/attack_self(mob/user)
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")

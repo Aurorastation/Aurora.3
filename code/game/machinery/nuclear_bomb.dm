@@ -43,7 +43,7 @@ var/bomb_set
 		SSnanoui.update_uis(src)
 	return
 
-/obj/machinery/nuclearbomb/attackby(obj/item/O as obj, mob/user as mob, params)
+/obj/machinery/nuclearbomb/attackby(obj/item/O, mob/user, params)
 	if (O.isscrewdriver())
 		src.add_fingerprint(user)
 		if (src.auth)
@@ -147,10 +147,10 @@ var/bomb_set
 				return
 	..()
 
-/obj/machinery/nuclearbomb/attack_ghost(mob/user as mob)
+/obj/machinery/nuclearbomb/attack_ghost(mob/user)
 	attack_hand(user)
 
-/obj/machinery/nuclearbomb/attack_hand(mob/user as mob)
+/obj/machinery/nuclearbomb/attack_hand(mob/user)
 	if (extended)
 		if (panel_open)
 			wires.Interact(user)

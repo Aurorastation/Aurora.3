@@ -63,10 +63,10 @@
 		else
 			to_chat(user, "There is enough charge for [get_amount()].")
 
-/obj/item/stack/attack_self(mob/user as mob)
+/obj/item/stack/attack_self(mob/user)
 	list_recipes(user)
 
-/obj/item/stack/proc/list_recipes(mob/user as mob, recipes_sublist)
+/obj/item/stack/proc/list_recipes(mob/user, recipes_sublist)
 	if (!recipes)
 		return
 	if (!src || get_amount() <= 0)
@@ -308,7 +308,7 @@
 		return
 	return max_amount
 
-/obj/item/stack/proc/add_to_stacks(mob/user as mob)
+/obj/item/stack/proc/add_to_stacks(mob/user)
 	for (var/obj/item/stack/item in user.loc)
 		if (item==src)
 			continue
@@ -318,7 +318,7 @@
 		if(!amount)
 			break
 
-/obj/item/stack/attack_hand(mob/user as mob)
+/obj/item/stack/attack_hand(mob/user)
 	if (user.get_inactive_hand() == src)
 		var/obj/item/stack/F = src.split(1)
 		if (F)
@@ -334,7 +334,7 @@
 		..()
 	return
 
-/obj/item/stack/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stack/attackby(obj/item/W, mob/user)
 	if (istype(W, /obj/item/stack))
 		var/obj/item/stack/S = W
 		if (user.get_inactive_hand()==src)

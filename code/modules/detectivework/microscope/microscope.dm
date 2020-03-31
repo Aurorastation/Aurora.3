@@ -10,7 +10,7 @@
 	var/obj/item/sample = null
 	var/report_num = 0
 
-/obj/machinery/microscope/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/microscope/attackby(obj/item/W, mob/user)
 
 	if(sample)
 		to_chat(user, "<span class='warning'>There is already a slide in the microscope.</span>")

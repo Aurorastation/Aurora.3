@@ -25,7 +25,7 @@
 		icon_state = "gift[pick(1, 2, 3)]"
 	return
 
-/obj/item/gift/attack_self(mob/user as mob)
+/obj/item/gift/attack_self(mob/user)
 	user.drop_item()
 	playsound(src.loc, 'sound/items/package_unwrap.ogg', 50,1)
 	if(src.gift)
@@ -40,12 +40,12 @@
 	qdel(src)
 	return
 
-/obj/effect/spresent/relaymove(mob/user as mob)
+/obj/effect/spresent/relaymove(mob/user)
 	if (user.stat)
 		return
 	to_chat(user, "<span class='warning'>You can't move.</span>")
 
-/obj/effect/spresent/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/spresent/attackby(obj/item/W, mob/user)
 	..()
 
 	if (!W.iswirecutter())
@@ -62,7 +62,7 @@
 
 	qdel(src)
 
-/obj/item/a_gift/attack_self(mob/M as mob)
+/obj/item/a_gift/attack_self(mob/M)
 	var/gift_type = pick(
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,

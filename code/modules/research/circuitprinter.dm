@@ -104,7 +104,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
-/obj/machinery/r_n_d/circuit_imprinter/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/r_n_d/circuit_imprinter/attackby(var/obj/item/O, var/mob/user)
 	if(busy)
 		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return 1

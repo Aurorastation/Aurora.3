@@ -8,7 +8,7 @@
 	waterlevel = 0
 	nutrilevel = 0 // So they don't spawn with water or nutrient when built. Soil's hard mode, baby.
 	maxWeedLevel = 10 // Retains the ability for soil to grow weeds, as it should.
-/obj/machinery/portable_atmospherics/hydroponics/soil/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/soil/attackby(var/obj/item/O, var/mob/user)
 	//A special case for if the container has only water, for manual watering with buckets
 	if (istype(O,/obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RC = O

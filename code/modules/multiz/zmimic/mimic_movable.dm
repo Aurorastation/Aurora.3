@@ -152,10 +152,10 @@
 /atom/movable/openspace/overlay/attackby(obj/item/W, mob/user)
 	to_chat(user, span("notice", "\The [src] is too far away."))
 
-/atom/movable/openspace/overlay/attack_hand(mob/user as mob)
+/atom/movable/openspace/overlay/attack_hand(mob/user)
 	to_chat(user, span("notice", "You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/overlay/attack_generic(mob/user as mob)
+/atom/movable/openspace/overlay/attack_generic(mob/user)
 	to_chat(user, span("notice", "You cannot reach \the [src] from here."))
 
 /atom/movable/openspace/overlay/examine(mob/examiner)
@@ -182,10 +182,10 @@
 /atom/movable/openspace/turf_overlay/attackby(obj/item/W, mob/user)
 	loc.attackby(W, user)
 
-/atom/movable/openspace/turf_overlay/attack_hand(mob/user as mob)
+/atom/movable/openspace/turf_overlay/attack_hand(mob/user)
 	loc.attack_hand(user)
 
-/atom/movable/openspace/turf_overlay/attack_generic(mob/user as mob)
+/atom/movable/openspace/turf_overlay/attack_generic(mob/user)
 	loc.attack_generic(user)
 
 /atom/movable/openspace/turf_overlay/examine(mob/examiner)

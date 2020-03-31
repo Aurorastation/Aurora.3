@@ -167,10 +167,10 @@
 
 	return 1
 
-/obj/machinery/atmospherics/tvalve/attack_ai(mob/user as mob)
+/obj/machinery/atmospherics/tvalve/attack_ai(mob/user)
 	return
 
-/obj/machinery/atmospherics/tvalve/attack_hand(mob/user as mob)
+/obj/machinery/atmospherics/tvalve/attack_hand(mob/user)
 	src.add_fingerprint(usr)
 	update_icon(1)
 	sleep(10)
@@ -296,10 +296,10 @@
 	if(!powered())
 		icon_state = "tvalvenopower"
 
-/obj/machinery/atmospherics/tvalve/digital/attack_ai(mob/user as mob)
+/obj/machinery/atmospherics/tvalve/digital/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/atmospherics/tvalve/digital/attack_hand(mob/user as mob)
+/obj/machinery/atmospherics/tvalve/digital/attack_hand(mob/user)
 	if(!powered())
 		return
 	if(!src.allowed(user))
@@ -341,7 +341,7 @@
 			else
 				go_to_side()
 
-/obj/machinery/atmospherics/tvalve/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/atmospherics/tvalve/attackby(var/obj/item/W, var/mob/user)
 	if (!W.iswrench())
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
@@ -436,10 +436,10 @@
 	if(!powered())
 		icon_state = "tvalvemnopower"
 
-/obj/machinery/atmospherics/tvalve/mirrored/digital/attack_ai(mob/user as mob)
+/obj/machinery/atmospherics/tvalve/mirrored/digital/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/atmospherics/tvalve/mirrored/digital/attack_hand(mob/user as mob)
+/obj/machinery/atmospherics/tvalve/mirrored/digital/attack_hand(mob/user)
 	if(!powered())
 		return
 	if(!src.allowed(user))

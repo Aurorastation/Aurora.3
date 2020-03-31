@@ -290,7 +290,7 @@ BLIND     // can't see anything
 	prescription = 1
 	body_parts_covered = 0
 
-/obj/item/clothing/glasses/regular/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/glasses/regular/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/clothing/glasses/hud/health))
 		user.drop_item(W)
 		qdel(W)

@@ -114,7 +114,7 @@
 	src.view_range = num
 	cameranet.update_visibility(src, 0)
 
-/obj/machinery/camera/attack_hand(mob/living/carbon/human/user as mob)
+/obj/machinery/camera/attack_hand(mob/living/carbon/human/user)
 	if(!istype(user))
 		return
 
@@ -127,7 +127,7 @@
 		add_hiddenprint(user)
 		destroy()
 
-/obj/machinery/camera/attackby(obj/W as obj, mob/living/user as mob)
+/obj/machinery/camera/attackby(obj/W as obj, mob/living/user)
 	update_coverage()
 	// DECONSTRUCTION
 	if(W.isscrewdriver())
@@ -383,7 +383,7 @@
 	busy = 0
 	return 0
 
-/obj/machinery/camera/interact(mob/living/user as mob)
+/obj/machinery/camera/interact(mob/living/user)
 	if(!panel_open || istype(user, /mob/living/silicon/ai))
 		return
 

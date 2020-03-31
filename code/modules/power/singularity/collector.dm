@@ -40,7 +40,7 @@ var/global/list/rad_collectors = list()
 	return
 
 
-/obj/machinery/power/rad_collector/attack_hand(mob/user as mob)
+/obj/machinery/power/rad_collector/attack_hand(mob/user)
 	if(anchored)
 		if(!src.locked)
 			toggle_power()

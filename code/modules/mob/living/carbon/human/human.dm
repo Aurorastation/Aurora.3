@@ -328,7 +328,7 @@
 /mob/living/carbon/human/var/temperature_resistance = T0C+75
 
 
-/mob/living/carbon/human/show_inv(mob/user as mob)
+/mob/living/carbon/human/show_inv(mob/user)
 	if(user.incapacitated() || !user.Adjacent(src))
 		return
 
@@ -1307,7 +1307,7 @@
 		L.bruise()
 
 //returns 1 if made bloody, returns 0 otherwise
-/mob/living/carbon/human/add_blood(mob/living/carbon/human/M as mob)
+/mob/living/carbon/human/add_blood(mob/living/carbon/human/M)
 	if (!..())
 		return 0
 	//if this blood isn't already in the list, add it

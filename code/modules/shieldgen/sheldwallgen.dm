@@ -26,7 +26,7 @@
 		var/max_stored_power = 50000 //50 kW
 		use_power = 0	//Draws directly from power net. Does not use APC power.
 
-/obj/machinery/shieldwallgen/attack_hand(mob/user as mob)
+/obj/machinery/shieldwallgen/attack_hand(mob/user)
 	if(state != 1)
 		to_chat(user, "<span class='warning'>The shield generator needs to be firmly secured to the floor first.</span>")
 		return 1
@@ -258,7 +258,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/shieldwall/attack_hand(mob/user as mob)
+/obj/shieldwall/attack_hand(mob/user)
 	return
 
 /obj/shieldwall/process()

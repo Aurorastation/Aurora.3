@@ -52,7 +52,7 @@
 	SScalamity.singularities -= src
 	return ..()
 
-/obj/singularity/attack_hand(mob/user as mob)
+/obj/singularity/attack_hand(mob/user)
 	consume(user)
 	return 1
 

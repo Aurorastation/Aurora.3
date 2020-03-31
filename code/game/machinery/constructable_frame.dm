@@ -30,7 +30,7 @@
 	desc = D
 
 /obj/machinery/constructable_frame/machine_frame
-	attackby(obj/item/P as obj, mob/user as mob)
+	attackby(obj/item/P, mob/user)
 		switch(state)
 			if(1)
 				if(P.ismultitool())
@@ -201,7 +201,7 @@
 	anchored = 1
 	density = 1
 
-/obj/machinery/constructable_frame/temp_deco/attackby(obj/item/P as obj, mob/user as mob)
+/obj/machinery/constructable_frame/temp_deco/attackby(obj/item/P, mob/user)
 	if(P.iswrench())
 		playsound(src.loc, P.usesound, 75, 1)
 		to_chat(user, "<span class='notice'>You dismantle [src]</span>")

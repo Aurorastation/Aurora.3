@@ -97,14 +97,14 @@
 *   Item Adding
 ********************/
 
-/obj/machinery/microwave/proc/add_item(var/obj/item/I as obj, var/mob/user as mob)
+/obj/machinery/microwave/proc/add_item(var/obj/item/I, var/mob/user)
 	user.drop_from_inventory(I, src)
 	user.visible_message( \
 		"<span class='notice'>\The [user] has added one of [I] to \the [src].</span>", \
 		"<span class='notice'>You add one of [I] to \the [src].</span>")
 	SSvueui.check_uis_for_change(src)
 
-/obj/machinery/microwave/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/microwave/attackby(var/obj/item/O, var/mob/user)
 	if(broken > 0)
 		if(broken == 2 && O.isscrewdriver()) // If it's broken and they're using a screwdriver
 			user.visible_message( \
@@ -211,11 +211,11 @@
 	if(!operating)
 		cook()
 
-/obj/machinery/microwave/attack_ai(mob/user as mob)
+/obj/machinery/microwave/attack_ai(mob/user)
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user))
 		attack_hand(user)
 
-/obj/machinery/microwave/attack_hand(mob/user as mob)
+/obj/machinery/microwave/attack_hand(mob/user)
 	user.set_machine(src)
 	if(broken > 0)
 		to_chat(user, "<span class='warning'>\The [name] is broken! You'll need to fix it before using it.</span>")

@@ -182,7 +182,7 @@
 	item_state ="book1"
 	var/martial_art = /datum/martial_art/sol_combat
 
-/obj/item/martial_manual/attack_self(mob/user as mob)
+/obj/item/martial_manual/attack_self(mob/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user

@@ -65,7 +65,7 @@
 	qdel(src)
 	user.put_in_hands(chosenitem)
 
-/obj/item/nullrod/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/nullrod/attack(mob/M as mob, mob/living/user)
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -122,7 +122,7 @@
 	else
 		return ..()
 
-/obj/item/nullrod/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/nullrod/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
 	if(istype(A, /turf/simulated/floor) && (cooldown + 5 SECONDS < world.time))

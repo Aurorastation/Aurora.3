@@ -22,7 +22,7 @@
 	icon_screen = "atmoslaptop"
 	density = 0
 
-/obj/machinery/computer/atmoscontrol/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/atmoscontrol/attack_ai(var/mob/user)
 	ui_interact(user)
 
 /obj/machinery/computer/atmoscontrol/attack_hand(mob/user)

@@ -151,7 +151,7 @@
 			L.tracking_cancelled()
 	current_camera = null
 
-/datum/nano_module/camera_monitor/check_eye(var/mob/user as mob)
+/datum/nano_module/camera_monitor/check_eye(var/mob/user)
 	if(!current_camera)
 		return 0
 	var/viewflag = current_camera.check_eye(user)

@@ -27,7 +27,7 @@
 		spark(src, 4, cardinal)
 	return 1
 
-/obj/item/device/assembly/igniter/attack_self(mob/user as mob)
+/obj/item/device/assembly/igniter/attack_self(mob/user)
 	activate()
 	add_fingerprint(user)
 	return

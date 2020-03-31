@@ -19,5 +19,5 @@
 	to_chat(brainmob, "<span class='notify'>You feel slightly disoriented. That's normal when you're little more than a complex circuit.</span>")
 	return
 
-/obj/item/device/mmi/digital/robot/attack_self(mob/user as mob)
+/obj/item/device/mmi/digital/robot/attack_self(mob/user)
 	return

@@ -27,7 +27,7 @@
 
 	. = ..()
 
-/obj/structure/bed/chair/e_chair/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/bed/chair/e_chair/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		var/obj/structure/bed/chair/C = new /obj/structure/bed/chair(loc)
 		playsound(loc, W.usesound, 50, 1)
@@ -172,7 +172,7 @@
 	else
 		STOP_PROCESSING(SSfast_process, src)
 
-/obj/item/mesmetron/attack_self(mob/user as mob)
+/obj/item/mesmetron/attack_self(mob/user)
 	if(closed)
 		return
 	if(!thrall || !thrall.resolve())
@@ -250,7 +250,7 @@
 	. = ..()
 	START_PROCESSING(SSfast_process, src)
 
-/obj/structure/metronome/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/metronome/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
 		if(anchored)
@@ -319,7 +319,7 @@
 
 	return ..()
 
-/obj/machinery/chakrapod/relaymove(mob/user as mob)
+/obj/machinery/chakrapod/relaymove(mob/user)
 	if (user.stat)
 		return
 	src.go_out()

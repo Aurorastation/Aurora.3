@@ -13,7 +13,7 @@
 
 	hud_state = "wiz_lich"
 
-/spell/targeted/dark_resurrection/cast(mob/target,var/mob/living/carbon/human/user as mob)
+/spell/targeted/dark_resurrection/cast(mob/target,var/mob/living/carbon/human/user)
 	..()
 	if(user.stat != DEAD)
 		to_chat(user, "<span class='notice'>You're not dead yet!</span>")
@@ -42,7 +42,7 @@
 		user.dust()
 		return 0
 
-/spell/targeted/dark_resurrection/proc/post_dark_resurrection(var/mob/living/carbon/human/user as mob)
+/spell/targeted/dark_resurrection/proc/post_dark_resurrection(var/mob/living/carbon/human/user)
 	user.revive()
 	to_chat(user, "<span class='danger'>You have returned to life!</span>")
 	user.visible_message("<span class='cult'>[user] rises up from the dead!</span>")

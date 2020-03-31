@@ -68,7 +68,7 @@
 	else
 		return buf.dna.SetUIValue(real_block,val)
 
-/obj/item/dnainjector/proc/inject(mob/M as mob, mob/user as mob)
+/obj/item/dnainjector/proc/inject(mob/M as mob, mob/user)
 	if(istype(M,/mob/living))
 		var/mob/living/L = M
 		L.apply_effect(rand(5,20), IRRADIATE, blocked = 0)
@@ -102,7 +102,7 @@
 		qdel(src)
 	return uses
 
-/obj/item/dnainjector/attack(mob/M as mob, mob/user as mob)
+/obj/item/dnainjector/attack(mob/M as mob, mob/user)
 	if (!istype(M, /mob))
 		return
 	if (!usr.IsAdvancedToolUser())

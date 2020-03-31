@@ -61,7 +61,7 @@
 		connected.release_pod(src)
 	return ..()
 
-/obj/machinery/clonepod/attack_ai(mob/user as mob)
+/obj/machinery/clonepod/attack_ai(mob/user)
 
 	add_hiddenprint(user)
 	return attack_hand(user)
@@ -212,7 +212,7 @@
 	return
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/clonepod/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/clonepod/attackby(obj/item/W, mob/user)
 	if(isnull(occupant))
 		if(default_deconstruction_screwdriver(user, W))
 			return
@@ -332,7 +332,7 @@
 			qdel(occupant)
 	return
 
-/obj/machinery/clonepod/relaymove(mob/user as mob)
+/obj/machinery/clonepod/relaymove(mob/user)
 	if(user.stat)
 		return
 	go_out()
@@ -444,7 +444,7 @@
 	var/diskcolor = pick(0,1,2)
 	icon_state = "datadisk[diskcolor]"
 
-/obj/item/disk/data/attack_self(mob/user as mob)
+/obj/item/disk/data/attack_self(mob/user)
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 

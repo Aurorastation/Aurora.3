@@ -86,7 +86,7 @@
 	QDEL_NULL(pstn)
 	return ..()
 
-/obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/crusher_base/attackby(var/obj/item/O, var/mob/user)
 	if(status != "idle" && prob(40) && ishuman(user))
 		var/mob/living/carbon/human/M = user
 		M.apply_damage(45, BRUTE, user.get_active_hand())

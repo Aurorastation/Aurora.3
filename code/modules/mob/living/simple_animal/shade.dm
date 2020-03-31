@@ -40,7 +40,7 @@
 	new residue(loc)
 	qdel(src)
 
-/mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
+/mob/living/simple_animal/shade/attackby(var/obj/item/O, var/mob/user)  //Marker -Agouri
 	if(istype(O, /obj/item/device/soulstone))
 		var/obj/item/device/soulstone/S = O;
 		S.transfer_soul("SHADE", src, user)

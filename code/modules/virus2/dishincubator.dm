@@ -14,7 +14,7 @@
 	var/foodsupply = 0
 	var/toxins = 0
 
-/obj/machinery/disease2/incubator/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/machinery/disease2/incubator/attackby(var/obj/O as obj, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers/glass) || istype(O,/obj/item/reagent_containers/syringe))
 
 		if(beaker)
@@ -44,7 +44,7 @@
 
 		src.attack_hand(user)
 
-/obj/machinery/disease2/incubator/attack_hand(mob/user as mob)
+/obj/machinery/disease2/incubator/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN)) return
 	ui_interact(user)
 

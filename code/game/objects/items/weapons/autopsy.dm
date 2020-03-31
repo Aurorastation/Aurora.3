@@ -162,7 +162,7 @@
 
 	usr.put_in_hands(P)
 
-/obj/item/autopsy_scanner/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
+/obj/item/autopsy_scanner/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user)
 	if(!istype(M))
 		return
 

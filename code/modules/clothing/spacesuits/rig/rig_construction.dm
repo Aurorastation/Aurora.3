@@ -13,7 +13,7 @@
 	var/datum/construction/reversible/rig_assembly/construct
 	flags = CONDUCT
 
-/obj/item/rig_assembly/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/rig_assembly/attackby(obj/item/W, mob/user)
 	if(!construct || !construct.action(W, user))
 		..()
 	return
@@ -136,7 +136,7 @@
 	var/obj/item/circuitboard/rig_assembly/board_type = null
 	var/obj/item/circuitboard/rig_assembly/target_board_type = null
 
-/datum/construction/reversible/rig_assembly/custom_action(index as num, diff as num, atom/used_atom, mob/user as mob)
+/datum/construction/reversible/rig_assembly/custom_action(index as num, diff as num, atom/used_atom, mob/user)
 	var/obj/item/I = used_atom
 	if(I.iswelder())
 		var/obj/item/weldingtool/W = I
@@ -200,7 +200,7 @@
 						"desc"="The wiring is removed"),
 				)
 
-/datum/construction/reversible/rig_assembly/civilian/action(atom/used_atom,mob/user as mob)
+/datum/construction/reversible/rig_assembly/civilian/action(atom/used_atom,mob/user)
 	return check_step(used_atom,user)
 
 /datum/construction/reversible/rig_assembly/civilian/custom_action(index, diff, atom/used_atom, mob/user)
@@ -321,7 +321,7 @@
 						"desc"="The wiring is removed"),
 				)
 
-/datum/construction/reversible/rig_assembly/combat/action(atom/used_atom,mob/user as mob)
+/datum/construction/reversible/rig_assembly/combat/action(atom/used_atom,mob/user)
 	return check_step(used_atom,user)
 
 /datum/construction/reversible/rig_assembly/combat/custom_action(index, diff, atom/used_atom, mob/user)

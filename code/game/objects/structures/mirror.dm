@@ -9,7 +9,7 @@
 	var/shattered = 0
 	var/list/ui_users = list()
 
-/obj/structure/mirror/attack_hand(mob/user as mob)
+/obj/structure/mirror/attack_hand(mob/user)
 
 	if(shattered)	return
 
@@ -41,7 +41,7 @@
 			playsound(src, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
 	..()
 
-/obj/structure/mirror/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/mirror/attackby(obj/item/I, mob/user)
 	if(shattered)
 		playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg', 70, 1)
 		return
@@ -109,7 +109,7 @@
 	icon_state = "mirror"
 	var/list/ui_users = list()
 
-/obj/item/mirror/attack_self(mob/user as mob)
+/obj/item/mirror/attack_self(mob/user)
 
 	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
 		to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")

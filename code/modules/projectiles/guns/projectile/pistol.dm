@@ -255,7 +255,7 @@
 	name = "9mm signal pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 
-/obj/item/gun/projectile/pistol/attack_hand(mob/user as mob)
+/obj/item/gun/projectile/pistol/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
 		if(silenced && can_silence)
 			if(user.l_hand != src && user.r_hand != src)
@@ -269,7 +269,7 @@
 			return
 	..()
 
-/obj/item/gun/projectile/pistol/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/gun/projectile/pistol/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/silencer) && can_silence)
 		if(user.l_hand != src && user.r_hand != src)	//if we're not in his hands
 			to_chat(user, "<span class='notice'>You'll need [src] in your hands to do that.</span>")

@@ -85,7 +85,7 @@
 	to_chat(usr, span("notice", "You toggle the thrusters [on? "on":"off"]."))
 	to_chat(usr, span("notice", "You toggle the stabilization [stabilization_on? "on":"off"]."))
 
-/obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
+/obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user)
 	if(!(src.on))
 		return 0
 
@@ -184,7 +184,7 @@
 	to_chat(usr, "It's a jetpack. If you can see this, report it on the bug tracker.")
 	return 0
 
-/obj/item/tank/jetpack/rig/allow_thrust(num, mob/living/user as mob)
+/obj/item/tank/jetpack/rig/allow_thrust(num, mob/living/user)
 
 	if(!(src.on))
 		return 0

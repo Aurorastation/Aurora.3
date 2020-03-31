@@ -25,7 +25,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 
 //revolves the magazine, allowing players to choose between multiple grenade types
-/obj/item/gun/launcher/grenade/proc/pump(mob/M as mob)
+/obj/item/gun/launcher/grenade/proc/pump(mob/M)
 	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
 
 	var/obj/item/grenade/next

@@ -71,7 +71,7 @@
 			src.alarm()			// added check of detector status here
 	return
 
-/obj/machinery/firealarm/attack_ai(mob/user as mob)
+/obj/machinery/firealarm/attack_ai(mob/user)
 	return src.attack_hand(user)
 
 /obj/machinery/firealarm/bullet_act()
@@ -82,7 +82,7 @@
 		alarm(rand(30/severity, 60/severity))
 	..()
 
-/obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/firealarm/attackby(obj/item/W, mob/user)
 	if(!istype(W, /obj/item/forensics))
 		src.add_fingerprint(user)
 	else
@@ -192,7 +192,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/firealarm/attack_hand(mob/user as mob)
+/obj/machinery/firealarm/attack_hand(mob/user)
 	if (buildstage != 2 || stat & (NOPOWER|BROKEN))
 		return
 

@@ -8,7 +8,7 @@
 	w_class = 2
 	action_button_name = "Toggle Face Concealing"
 
-/obj/item/clothing/mask/balaclava/attack_self(mob/user as mob)
+/obj/item/clothing/mask/balaclava/attack_self(mob/user)
 	if (use_check_and_message(user))
 		return
 

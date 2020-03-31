@@ -39,7 +39,7 @@
 /obj/vehicle/droppod/Move()
 	return
 
-/obj/vehicle/droppod/attackby(obj/item/I as obj, mob/user as mob)
+/obj/vehicle/droppod/attackby(obj/item/I, mob/user)
 	if(I.iswelder() && status == USED && !humanload && !passenger)
 		var/obj/item/weldingtool/W = I
 		if(W.welding)
@@ -139,7 +139,7 @@
 	icon_state = "[initial(icon_state)]_open"
 	return 1
 
-/obj/vehicle/droppod/attack_hand(mob/user as mob)
+/obj/vehicle/droppod/attack_hand(mob/user)
 	..()
 	if(user == humanload || user == passenger)
 		if(status != USED)

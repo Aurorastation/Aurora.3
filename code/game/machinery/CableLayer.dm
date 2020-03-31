@@ -18,7 +18,7 @@
 	..()
 	layCable(new_turf,M_Dir)
 
-/obj/machinery/cablelayer/attack_hand(mob/user as mob)
+/obj/machinery/cablelayer/attack_hand(mob/user)
 	if(!cable&&!on)
 		to_chat(user, "<span class='warning'>\The [src] doesn't have any cable loaded.</span>")
 		return
@@ -26,7 +26,7 @@
 	user.visible_message("\The [user] [!on?"dea":"a"]ctivates \the [src].", "You switch [src] [on? "on" : "off"]")
 	return
 
-/obj/machinery/cablelayer/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/cablelayer/attackby(var/obj/item/O, var/mob/user)
 	if(O.iscoil())
 
 		var/result = load_cable(O)

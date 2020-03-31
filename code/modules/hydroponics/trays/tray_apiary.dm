@@ -41,7 +41,7 @@
 		..()
 		return
 
-/obj/machinery/apiary/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/apiary/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/queen_bee))
 		if(health > 0)
 			to_chat(user, "<span class='warning'>There is already a queen in there.</span>")

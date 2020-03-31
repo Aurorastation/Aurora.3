@@ -133,7 +133,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
 
-/obj/item/card/id/proc/show(mob/user as mob)
+/obj/item/card/id/proc/show(mob/user)
 	if(front && side)
 		to_chat(user, browse_rsc(front, "front.png"))
 		to_chat(user, browse_rsc(side, "side.png"))
@@ -189,7 +189,7 @@ var/const/NO_EMAG_ACT = -50
 	dat += "</tr></table>"
 	return dat
 
-/obj/item/card/id/attack_self(mob/user as mob)
+/obj/item/card/id/attack_self(mob/user)
 	if (dna_hash == "\[UNSET\]" && ishuman(user))
 		var/response = alert(user, "This ID card has not been imprinted with biometric data. Would you like to imprint yours now?", "Biometric Imprinting", "Yes", "No")
 		if (response == "Yes")

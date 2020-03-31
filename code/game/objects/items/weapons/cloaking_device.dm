@@ -52,7 +52,7 @@
 
 	//If M contains the owner then the item hasn't actually been dropped, its just the quirk mentioned above
 
-/obj/item/cloaking_device/attack_self(mob/user as mob)
+/obj/item/cloaking_device/attack_self(mob/user)
 	if (istype(loc, /mob) && loc == user)//safety check incase of shenanigans
 		register_owner(user)
 		if (active)
@@ -122,7 +122,7 @@
 		modifier = null
 
 
-/obj/item/cloaking_device/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/cloaking_device/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/cell))
 		if(!cell)
 			user.drop_from_inventory(W,src)

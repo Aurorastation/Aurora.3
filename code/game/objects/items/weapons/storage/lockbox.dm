@@ -16,7 +16,7 @@
 	var/icon_broken = "lockbox+b"
 
 
-	attackby(obj/item/W as obj, mob/user as mob)
+	attackby(obj/item/W, mob/user)
 		if (istype(W, /obj/item/card/id))
 			if(src.broken)
 				to_chat(user, "<span class='warning'>It appears to be broken.</span>")
@@ -46,7 +46,7 @@
 		return
 
 
-	show_to(mob/user as mob)
+	show_to(mob/user)
 		if(locked)
 			to_chat(user, "<span class='warning'>It's locked!</span>")
 		else

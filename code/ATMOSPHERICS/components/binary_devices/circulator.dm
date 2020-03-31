@@ -86,7 +86,7 @@
 
 	return 1
 
-/obj/machinery/atmospherics/binary/circulator/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/atmospherics/binary/circulator/attackby(obj/item/W, mob/user)
 	if (W.iswrench())
 		playsound(src.loc, W.usesound, 75, 1)
 		anchored = !anchored

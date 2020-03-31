@@ -13,10 +13,10 @@
 	anchored = 1
 	mouse_opacity = 0
 	
-/obj/machinery/abstract/attack_ai(mob/user as mob)
+/obj/machinery/abstract/attack_ai(mob/user)
 	return
 
-/obj/machinery/abstract/attack_hand(mob/user as mob)
+/obj/machinery/abstract/attack_hand(mob/user)
 	return
 
 /obj/machinery/abstract/emp_act(severity)

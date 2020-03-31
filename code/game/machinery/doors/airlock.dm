@@ -461,7 +461,7 @@ About the new airlock wires panel:
 
 
 
-/obj/machinery/door/airlock/bumpopen(mob/living/user as mob) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
+/obj/machinery/door/airlock/bumpopen(mob/living/user) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
 	if(!issilicon(user))
 		if(src.isElectrified())
 			if(!src.justzap)
@@ -697,7 +697,7 @@ About the new airlock wires panel:
 				flick("door_deny", src)
 				playsound(src.loc, 'sound/machines/hydraulic_short.ogg', 50, 0)
 
-/obj/machinery/door/airlock/attack_ai(mob/user as mob)
+/obj/machinery/door/airlock/attack_ai(mob/user)
 	ui_interact(user)
 
 /obj/machinery/door/airlock/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
@@ -725,7 +725,7 @@ About the new airlock wires panel:
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/door/airlock/proc/hack(mob/user as mob)
+/obj/machinery/door/airlock/proc/hack(mob/user)
 	if(src.aiHacking==0)
 		src.aiHacking=1
 		spawn(20)
@@ -781,7 +781,7 @@ About the new airlock wires panel:
 				spark(src, 5, alldirs)
 	return ..()
 
-/obj/machinery/door/airlock/attack_hand(mob/user as mob)
+/obj/machinery/door/airlock/attack_hand(mob/user)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 100))
@@ -1013,7 +1013,7 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && density && hashatch)
 
-/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user as mob)
+/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user)
 	if(!istype(usr, /mob/living/silicon))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
@@ -1185,7 +1185,7 @@ About the new airlock wires panel:
 		..()
 	return
 
-/obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user as mob)
+/obj/machinery/door/airlock/phoron/attackby(C as obj, mob/user)
 	if(C)
 		ignite(is_hot(C))
 	..()

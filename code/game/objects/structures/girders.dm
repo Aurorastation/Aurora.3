@@ -65,7 +65,7 @@
 	if(reinf_material)
 		reinforce_girder()
 
-/obj/structure/girder/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/girder/attackby(obj/item/W, mob/user)
 	if(W.iswrench() && state == 0)
 		if(anchored && !reinf_material)
 			playsound(src.loc, W.usesound, 100, 1)
@@ -267,7 +267,7 @@
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
-/obj/structure/girder/attack_hand(mob/user as mob)
+/obj/structure/girder/attack_hand(mob/user)
 	if (HULK in user.mutations)
 		visible_message("<span class='danger'>[user] smashes [src] apart!</span>")
 		dismantle()
@@ -318,7 +318,7 @@
 	new /obj/effect/decal/remains/human(get_turf(src))
 	qdel(src)
 
-/obj/structure/girder/cult/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/girder/cult/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")

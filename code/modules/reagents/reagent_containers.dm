@@ -53,10 +53,10 @@
 		src.verbs -= /obj/item/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
 
-/obj/item/reagent_containers/attack_self(mob/user as mob)
+/obj/item/reagent_containers/attack_self(mob/user)
 	return
 
-/obj/item/reagent_containers/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/attack(mob/M as mob, mob/user, def_zone)
 	if(can_operate(M) && do_surgery(M, user, src))
 		return
 

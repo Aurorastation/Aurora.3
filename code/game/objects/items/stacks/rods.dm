@@ -53,7 +53,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	else
 		icon_state = "rods"
 
-/obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stack/rods/attackby(obj/item/W, mob/user)
 	..()
 	if (W.iswelder())
 		var/obj/item/weldingtool/WT = W

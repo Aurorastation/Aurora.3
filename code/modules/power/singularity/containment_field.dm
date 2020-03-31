@@ -22,7 +22,7 @@
 		FG2.cleanup()
 	return ..()
 
-/obj/machinery/containment_field/attack_hand(mob/user as mob)
+/obj/machinery/containment_field/attack_hand(mob/user)
 	if(get_dist(src, user) > 1)
 		return 0
 	else
@@ -44,7 +44,7 @@
 
 
 
-/obj/machinery/containment_field/shock(mob/living/user as mob)
+/obj/machinery/containment_field/shock(mob/living/user)
 	if(hasShocked)
 		return 0
 	if(!FG1 || !FG2)

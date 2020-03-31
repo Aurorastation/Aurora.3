@@ -282,7 +282,7 @@
 	else
 		to_chat(user, "This one seems particularly lifeless. Perhaps it will regain some of its luster later..")
 
-/obj/item/organ/internal/brain/proc/lobotomize(mob/user as mob)
+/obj/item/organ/internal/brain/proc/lobotomize(mob/user)
 	lobotomized = 1
 
 	if(owner)
@@ -295,7 +295,7 @@
 
 	return
 
-/obj/item/organ/internal/brain/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/organ/internal/brain/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/surgery/surgicaldrill))
 		if(!can_lobotomize)
 			return

@@ -81,10 +81,10 @@
 /atom/movable/openspace/turf_overlay/attackby(obj/item/W, mob/user)
 	loc.attackby(W, user)
 
-/atom/movable/openspace/turf_overlay/attack_hand(mob/user as mob)
+/atom/movable/openspace/turf_overlay/attack_hand(mob/user)
 	loc.attack_hand(user)
 
-/atom/movable/openspace/turf_overlay/attack_generic(mob/user as mob)
+/atom/movable/openspace/turf_overlay/attack_generic(mob/user)
 	loc.attack_generic(user)
 
 /atom/movable/openspace/turf_overlay/examine(mob/examiner)

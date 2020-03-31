@@ -244,15 +244,15 @@
 	. = ..()
 	update_icon()
 
-/obj/item/storage/fancy/tray/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/fancy/tray/attackby(obj/item/W, mob/user)
 	..()
 	update_icon()
 
-/obj/item/storage/fancy/tray/attack_hand(mob/user as mob)
+/obj/item/storage/fancy/tray/attack_hand(mob/user)
 	if(ishuman(user))
 		src.open(user)
 
-/obj/item/storage/fancy/tray/MouseDrop(mob/user as mob)
+/obj/item/storage/fancy/tray/MouseDrop(mob/user)
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(user) && !user.get_active_hand())
 			var/mob/living/carbon/human/H = user
@@ -272,7 +272,7 @@
 
 	return
 
-/obj/item/storage/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/storage/fancy/tray/attack(mob/living/M as mob, mob/user, var/target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(M))
 		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again

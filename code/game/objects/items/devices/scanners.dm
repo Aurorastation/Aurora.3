@@ -22,7 +22,7 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1
 
-/obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user)
 	health_scan_mob(M, user, mode)
 	src.add_fingerprint(user)
 	return
@@ -342,7 +342,7 @@ BREATH ANALYZER
 
 	return atmosanalyzer_scan(src, air, user)
 
-/obj/item/device/analyzer/attack_self(mob/user as mob)
+/obj/item/device/analyzer/attack_self(mob/user)
 
 	if (user.stat)
 		return
@@ -383,7 +383,7 @@ BREATH ANALYZER
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mass_spectrometer/attack_self(mob/user as mob)
+/obj/item/device/mass_spectrometer/attack_self(mob/user)
 	if (user.stat)
 		return
 	if (!user.IsAdvancedToolUser())
@@ -432,7 +432,7 @@ BREATH ANALYZER
 	var/details = 0
 	var/recent_fail = 0
 
-/obj/item/device/reagent_scanner/afterattack(obj/O, mob/user as mob, proximity)
+/obj/item/device/reagent_scanner/afterattack(obj/O, mob/user, proximity)
 	if(!proximity)
 		return
 	if (user.stat)
@@ -518,7 +518,7 @@ BREATH ANALYZER
 	throw_range = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 25, MATERIAL_GLASS = 25)
 
-/obj/item/device/price_scanner/afterattack(atom/movable/target, mob/user as mob, proximity)
+/obj/item/device/price_scanner/afterattack(atom/movable/target, mob/user, proximity)
 	if(!proximity)
 		return
 
@@ -540,7 +540,7 @@ BREATH ANALYZER
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
-/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
+/obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user)
 
 	if (!istype(H))
 		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")

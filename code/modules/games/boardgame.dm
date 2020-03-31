@@ -9,7 +9,7 @@
 	var/board = list()
 	var/selected = -1
 
-/obj/item/board/MouseDrop(mob/user as mob)
+/obj/item/board/MouseDrop(mob/user)
 	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(usr))
 			forceMove(get_turf(usr))
@@ -22,7 +22,7 @@
 		return
 	..()
 
-/obj/item/board/attack_hand(mob/living/carbon/human/M as mob)
+/obj/item/board/attack_hand(mob/living/carbon/human/M)
 	if(!isturf(loc)) //so if you want to play the game, you need to put it down somewhere
 		..()
 	if(M.machine == src)
@@ -43,7 +43,7 @@
 		interact(user)
 	..()
 
-/obj/item/board/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/board/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/storage/box))
 		var/obj/item/storage/box/h = I
 		for(var/obj/item/checker/c in h.contents)
@@ -51,7 +51,7 @@
 	else if(!addPiece(I,user))
 		..()
 
-/obj/item/board/proc/addPiece(obj/item/I as obj, mob/user as mob, var/tile = 0)
+/obj/item/board/proc/addPiece(obj/item/I, mob/user, var/tile = 0)
 	if(I.w_class != 1) //only small stuff
 		user.show_message("<span class='warning'>\The [I] is too big to be used as a board piece.</span>")
 		return 0
@@ -85,7 +85,7 @@
 	return 1
 
 
-/obj/item/board/interact(mob/user as mob)
+/obj/item/board/interact(mob/user)
 	if(user.is_physically_disabled() || (!isAI(user) && !user.Adjacent(src))) //can't see if you arent conscious. If you are not an AI you can't see it unless you are next to it, either.
 		user << browse(null, "window=boardgame")
 		user.unset_machine()
@@ -256,7 +256,7 @@
 /obj/item/checker/king/red
 	piece_color ="red"
 
-/obj/item/checker/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/checker/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/storage/box/chess))
 		var/obj/item/storage/box/chess/b = I
 		var/turf/T = get_turf(src)

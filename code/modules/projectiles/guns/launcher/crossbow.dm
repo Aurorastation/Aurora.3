@@ -84,7 +84,7 @@
 	update_icon()
 	..()
 
-/obj/item/gun/launcher/crossbow/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/attack_self(mob/living/user)
 	if(tension)
 		if(bolt)
 			user.visible_message("[user] relaxes the tension on [src]'s string and removes [bolt].","You relax the tension on [src]'s string and remove [bolt].")
@@ -99,7 +99,7 @@
 	else
 		draw(user)
 
-/obj/item/gun/launcher/crossbow/proc/draw(var/mob/user as mob)
+/obj/item/gun/launcher/crossbow/proc/draw(var/mob/user)
 
 	if(!bolt)
 		to_chat(user, "You don't have anything nocked to [src].")
@@ -133,13 +133,13 @@
 
 		user.visible_message("[usr] draws back the string of [src]!","<span class='notice'>You continue drawing back the string of [src]!</span>")
 
-/obj/item/gun/launcher/crossbow/proc/increase_tension(var/mob/user as mob)
+/obj/item/gun/launcher/crossbow/proc/increase_tension(var/mob/user)
 
 	if(!bolt || !tension || current_user != user) //Arrow has been fired, bow has been relaxed or user has changed.
 		return
 
 
-/obj/item/gun/launcher/crossbow/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gun/launcher/crossbow/attackby(obj/item/W, mob/user)
 	if(!bolt)
 		if (istype(W,/obj/item/arrow))
 			user.drop_from_inventory(W, src)
@@ -226,7 +226,7 @@
 		if(4) to_chat(user, "It has a steel backbone, plastic limbs and a cell mount installed.")
 		if(5) to_chat(user, "It has a steel cable loosely strung across the limbs.")
 
-/obj/item/crossbowframe/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/crossbowframe/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/stack/rods))
 		if(buildstate == 0)
 			var/obj/item/stack/rods/R = W
@@ -314,7 +314,7 @@
 		to_chat(user, "<span class='warning'>The \'Low Ammo\' light on the device blinks yellow.</span>")
 		flick("[icon_state]-empty", src)
 
-/obj/item/gun/launcher/crossbow/RFD/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/RFD/attack_self(mob/living/user)
 	if(tension)
 		user.visible_message("[user] relaxes the tension on [src]'s string.","You relax the tension on [src]'s string.")
 		tension = 0
@@ -323,7 +323,7 @@
 		genBolt(user)
 		draw(user)
 
-/obj/item/gun/launcher/crossbow/RFD/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gun/launcher/crossbow/RFD/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > max_stored_matter)
 			to_chat(user, "<span class='notice'>The RFD can't hold that many additional matter-units.</span>")

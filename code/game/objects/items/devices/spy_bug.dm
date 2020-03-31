@@ -38,7 +38,7 @@
 /obj/item/device/spy_bug/attack_self(mob/user)
 	radio.attack_self(user)
 
-/obj/item/device/spy_bug/attackby(obj/W as obj, mob/living/user as mob)
+/obj/item/device/spy_bug/attackby(obj/W, mob/living/user)
 	if(istype(W, /obj/item/device/spy_monitor))
 		var/obj/item/device/spy_monitor/SM = W
 		SM.pair(src, user)
@@ -85,7 +85,7 @@
 	radio.attack_self(user)
 	view_cameras(user)
 
-/obj/item/device/spy_monitor/attackby(obj/W as obj, mob/living/user as mob)
+/obj/item/device/spy_monitor/attackby(obj/W, mob/living/user)
 	if(istype(W, /obj/item/device/spy_bug))
 		pair(W, user)
 	else
@@ -152,7 +152,7 @@
 	name = "DV-136ZB #[rand(1000,9999)]"
 	c_tag = name
 
-/obj/machinery/camera/spy/check_eye(var/mob/user as mob)
+/obj/machinery/camera/spy/check_eye(var/mob/user)
 	return 0
 
 /obj/item/device/radio/spy

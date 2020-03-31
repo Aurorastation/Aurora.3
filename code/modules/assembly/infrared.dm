@@ -105,7 +105,7 @@
 		return
 
 
-	interact(mob/user as mob)//TODO: change this this to the wire control panel
+	interact(mob/user)//TODO: change this this to the wire control panel
 		if(!secured)	return
 		user.set_machine(src)
 		var/dat = text("<TT><B>Infrared Laser</B>\n<B>Status</B>: []<BR>\n<B>Visibility</B>: []<BR>\n</TT>", (on ? text("<A href='?src=\ref[];state=0'>On</A>", src) : text("<A href='?src=\ref[];state=1'>Off</A>", src)), (src.visible ? text("<A href='?src=\ref[];visible=0'>Visible</A>", src) : text("<A href='?src=\ref[];visible=1'>Invisible</A>", src)))

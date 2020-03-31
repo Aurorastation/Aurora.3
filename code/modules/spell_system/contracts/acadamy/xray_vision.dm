@@ -3,7 +3,7 @@
 	desc = "This contract is almost see-through..."
 	color = "#339900"
 
-/obj/item/contract/wizard/xray/contract_effect(mob/user as mob)
+/obj/item/contract/wizard/xray/contract_effect(mob/user)
 	..()
 	if (!(XRAY in user.mutations))
 		user.mutations.Add(XRAY)

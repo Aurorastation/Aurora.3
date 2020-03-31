@@ -56,14 +56,14 @@
 
 	src.updateUsrDialog()
 
-/obj/machinery/computer/am_engine/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/am_engine/attack_ai(var/mob/user)
 	src.add_hiddenprint(user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/am_engine/attack_paw(var/mob/user as mob)
+/obj/machinery/computer/am_engine/attack_paw(var/mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/am_engine/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/am_engine/attack_hand(var/mob/user)
 	if(..())
 		return
 	user.machine = src

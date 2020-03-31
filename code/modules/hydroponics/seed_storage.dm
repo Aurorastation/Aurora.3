@@ -143,7 +143,7 @@
 		/obj/item/seeds/dynseed = 3
 	)
 
-/obj/machinery/seed_storage/attack_hand(mob/user as mob)
+/obj/machinery/seed_storage/attack_hand(mob/user)
 	user.set_machine(src)
 	interact(user)
 
@@ -157,7 +157,7 @@
 			var/O = new typepath
 			add(O)
 
-/obj/machinery/seed_storage/interact(mob/user as mob)
+/obj/machinery/seed_storage/interact(mob/user)
 	if (..())
 		return
 
@@ -297,7 +297,7 @@
 			break
 	updateUsrDialog()
 
-/obj/machinery/seed_storage/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/seed_storage/attackby(var/obj/item/O, var/mob/user)
 	if (istype(O, /obj/item/seeds))
 		add(O)
 		user.visible_message("[user] puts \the [O.name] into \the [src].", "You put \the [O] into \the [src].")
@@ -318,7 +318,7 @@
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
-/obj/machinery/seed_storage/proc/add(var/obj/item/seeds/O as obj)
+/obj/machinery/seed_storage/proc/add(var/obj/item/seeds/O)
 	if (istype(O.loc, /mob))
 		var/mob/user = O.loc
 		user.remove_from_mob(O)

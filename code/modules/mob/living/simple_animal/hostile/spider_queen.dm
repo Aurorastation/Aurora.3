@@ -77,7 +77,7 @@
 
 	hud_state = "spider_climb"
 
-/spell/targeted/ceiling_climb/cast(mob/target,var/mob/living/user as mob)
+/spell/targeted/ceiling_climb/cast(mob/target,var/mob/living/user)
 	..()
 	if(istype(user, /mob/living/simple_animal/hostile/spider_queen))
 		var/mob/living/simple_animal/hostile/spider_queen/M = user

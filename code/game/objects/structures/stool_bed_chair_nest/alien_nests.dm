@@ -11,7 +11,7 @@
 /obj/structure/bed/nest/update_icon()
 	return
 
-/obj/structure/bed/nest/user_unbuckle_mob(mob/user as mob)
+/obj/structure/bed/nest/user_unbuckle_mob(mob/user)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			if(buckled_mob != user)
@@ -39,7 +39,7 @@
 			src.add_fingerprint(user)
 	return
 
-/obj/structure/bed/nest/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/bed/nest/attackby(obj/item/W, mob/user)
 	var/aforce = W.force
 	health = max(0, health - aforce)
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)

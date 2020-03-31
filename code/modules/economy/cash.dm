@@ -17,7 +17,7 @@
 	var/worth = 0
 	drop_sound = 'sound/items/drop/paper.ogg'
 
-/obj/item/spacecash/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/spacecash/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/spacecash))
 		if(istype(W, /obj/item/spacecash/ewallet)) return 0
 
@@ -74,7 +74,7 @@
 	compile_overlays()	// The delay looks weird, so we force an update immediately.
 	src.desc = "They are worth [worth] credits."
 
-/obj/item/spacecash/bundle/attack_self(mob/user as mob)
+/obj/item/spacecash/bundle/attack_self(mob/user)
 	var/amount = input(user, "How many credits do you want to take? (0 to [src.worth])", "Take Money", 20) as num
 
 	if(QDELETED(src))
@@ -152,7 +152,7 @@
 	desc = "It's worth 1000 credits."
 	worth = 1000
 
-proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user as mob)
+proc/spawn_money(var/sum, spawnloc, mob/living/carbon/human/human_user)
 	if(sum in list(1000,500,200,100,50,20,10,1))
 		var/cash_type = text2path("/obj/item/spacecash/c[sum]")
 		var/obj/cash = new cash_type (usr.loc)

@@ -19,7 +19,7 @@
 
 	var/temp = ""				// temporary feedback messages
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		if(stat & (BROKEN|NOPOWER))
 			return
 		user.set_machine(src)
@@ -123,7 +123,7 @@
 		updateUsrDialog()
 		return
 
-	attackby(var/obj/item/D as obj, var/mob/user as mob)
+	attackby(var/obj/item/D, var/mob/user)
 		if(D.isscrewdriver())
 			playsound(src.loc, D.usesound, 50, 1)
 			if(do_after(user, 20/D.toolspeed))

@@ -25,7 +25,7 @@ Contains:
 	var/heal_burn = 0
 	var/apply_sounds
 
-/obj/item/stack/medical/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/stack/medical/attack(mob/living/M as mob, mob/user)
 	if (!istype(M) || istype(M, /mob/living/silicon) || istype(M, /mob/living/simple_animal/spiderbot))
 		to_chat(user, "<span class='warning'>\The [src] cannot be applied to [M]!</span>")
 		return 1
@@ -85,7 +85,7 @@ Contains:
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg')
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
-/obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user)
 	if(..())
 		return 1
 
@@ -153,7 +153,7 @@ Contains:
 	apply_sounds = list('sound/items/ointment.ogg')
 	drop_sound = 'sound/items/drop/herb.ogg'
 
-/obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user)
 	if(..())
 		return 1
 
@@ -197,7 +197,7 @@ Contains:
 	origin_tech = list(TECH_BIO = 1)
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg','sound/items/tape.ogg')
 
-/obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M as mob, mob/user)
 	if(..())
 		return 1
 
@@ -264,7 +264,7 @@ Contains:
 	origin_tech = list(TECH_BIO = 1)
 	apply_sounds = list('sound/items/ointment.ogg')
 
-/obj/item/stack/medical/advanced/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/advanced/ointment/attack(mob/living/carbon/M as mob, mob/user)
 	if(..())
 		return 1
 
@@ -307,7 +307,7 @@ Contains:
 	var/open = 0
 	var/used = 0
 
-/obj/item/stack/medical/advanced/bruise_pack/spaceklot/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/advanced/bruise_pack/spaceklot/attack(mob/living/carbon/M as mob, mob/user)
 	if(..())
 		return 1
 	if(used)
@@ -354,7 +354,7 @@ Contains:
 	drop_sound = 'sound/items/drop/hat.ogg'
 	var/list/splintable_organs = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_R_FOOT, BP_L_FOOT)
 
-/obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user)
 	if(..())
 		return 1
 

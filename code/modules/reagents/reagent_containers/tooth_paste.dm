@@ -22,7 +22,7 @@
 		if(10 to 50) 		icon_state = "toothpaste_half"
 		if(51 to INFINITY)	icon_state = "toothpaste"
 
-/obj/item/reagent_containers/toothpaste/attack_self(mob/user as mob)
+/obj/item/reagent_containers/toothpaste/attack_self(mob/user)
 	return
 
 /obj/item/reagent_containers/toothbrush
@@ -44,7 +44,7 @@
 	if(reagents.has_reagent("toothpaste"))
 		add_overlay("toothpaste_overlay")
 
-/obj/item/reagent_containers/toothbrush/attack_self(mob/user as mob)
+/obj/item/reagent_containers/toothbrush/attack_self(mob/user)
 	if(!reagents.total_volume)
 		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 	else
@@ -64,7 +64,7 @@
 	if(!trans_dest && !user.loc)
 		return
 
-/obj/item/reagent_containers/toothbrush/attack(atom/target as obj|turf|area, mob/user as mob , flag)
+/obj/item/reagent_containers/toothbrush/attack(atom/target|turf|area, mob/user , flag)
 	if(isliving(target))
 		var/mob/living/M = target
 		if(ishuman(M))
@@ -86,7 +86,7 @@
 
 	return ..()
 
-/obj/item/reagent_containers/toothbrush/afterattack(atom/A as obj|turf|area, mob/user as mob, proximity)
+/obj/item/reagent_containers/toothbrush/afterattack(atom/A|turf|area, mob/user, proximity)
 	if(!proximity)
 		return
 

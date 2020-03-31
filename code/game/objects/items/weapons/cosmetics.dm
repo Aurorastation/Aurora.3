@@ -34,7 +34,7 @@
 	name = "[colour] lipstick"
 
 
-/obj/item/lipstick/attack_self(mob/user as mob)
+/obj/item/lipstick/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>You twist \the [src] [open ? "closed" : "open"].</span>")
 	open = !open
 	if(open)
@@ -42,7 +42,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/lipstick/attack(mob/M as mob, mob/user as mob)
+/obj/item/lipstick/attack(mob/M as mob, mob/user)
 	if(!open)	return
 
 	if(!istype(M, /mob))	return

@@ -48,7 +48,7 @@
 		updateUsrDialog()
 		return
 
-/obj/machinery/chem_heater/interact(mob/user as mob)
+/obj/machinery/chem_heater/interact(mob/user)
 	if(stat & BROKEN)
 		return
 	user.set_machine(src)

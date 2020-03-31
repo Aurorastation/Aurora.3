@@ -73,7 +73,7 @@
 	..()
 	to_chat(user, "<span class='info'>A magnetic storage ring containing [fuel]kg of [content ? content : "nothing"].</span>")
 
-/obj/item/fuel/proc/injest(mob/M as mob)
+/obj/item/fuel/proc/injest(mob/M)
 	switch(content)
 		if("Anti-Hydrogen")
 			to_chat(mob, span("notice", "That was not a very bright idea."))
@@ -83,7 +83,7 @@
 	qdel(src)
 	return
 
-/obj/item/fuel/attack(mob/M as mob, mob/user as mob)
+/obj/item/fuel/attack(mob/M as mob, mob/user)
 	if (user != M)
 		//If you come from the distant future and happen to find this unincluded and derelict file, you may be wondering what this is. In truth, it's better that you don't know.
 		var/obj/effect/equip_e/human/O = new /obj/effect/equip_e/human(  )

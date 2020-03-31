@@ -112,7 +112,7 @@
 			special_assembly.Crossed(AM)
 
 
-	on_found(mob/finder as mob)
+	on_found(mob/finder)
 		if(a_left)
 			a_left.on_found(finder)
 		if(a_right)
@@ -143,7 +143,7 @@
 		return
 
 
-	attackby(obj/item/W as obj, mob/user as mob)
+	attackby(obj/item/W, mob/user)
 		if(W.isscrewdriver())
 			if(!a_left || !a_right)
 				to_chat(user, "<span class='danger'>BUG:Assembly part missing, please report this!</span>")
@@ -164,7 +164,7 @@
 		return
 
 
-	attack_self(mob/user as mob)
+	attack_self(mob/user)
 		src.add_fingerprint(user)
 		if(src.secured)
 			if(!a_left || !a_right)

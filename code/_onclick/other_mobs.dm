@@ -1,5 +1,5 @@
 // Generic damage proc (slimes and monkeys).
-/atom/proc/attack_generic(mob/user as mob)
+/atom/proc/attack_generic(mob/user)
 	return 0
 
 /*
@@ -26,7 +26,7 @@
 
 	A.attack_hand(src)
 
-/atom/proc/attack_hand(mob/user as mob)
+/atom/proc/attack_hand(mob/user)
 	return
 
 /mob/proc/attack_empty_hand(var/bp_hand)

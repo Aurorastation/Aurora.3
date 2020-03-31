@@ -52,7 +52,7 @@
 		P.card_icon = "joker"
 		cards += P
 
-/obj/item/deck/attackby(obj/O as obj, mob/user as mob)
+/obj/item/deck/attackby(obj/O, mob/user)
 	if(istype(O,/obj/item/hand))
 		var/obj/item/hand/H = O
 		for(var/datum/playingcard/P in H.cards)
@@ -135,7 +135,7 @@
 		user.visible_message("\The [user] deals a card to \the [target].")
 	H.throw_at(get_step(target,target.dir),10,1,H)
 
-/obj/item/hand/attackby(obj/O as obj, mob/user as mob)
+/obj/item/hand/attackby(obj/O, mob/user)
 	if(istype(O,/obj/item/hand))
 		var/obj/item/hand/H = O
 		for(var/datum/playingcard/P in cards)
@@ -146,7 +146,7 @@
 		return
 	..()
 
-/obj/item/deck/attack_self(var/mob/user as mob)
+/obj/item/deck/attack_self(var/mob/user)
 
 	var/list/newcards = list()
 	while(cards.len)
@@ -179,7 +179,7 @@
 	var/list/cards = list()
 
 
-/obj/item/pack/attack_self(var/mob/user as mob)
+/obj/item/pack/attack_self(var/mob/user)
 	user.visible_message("[user] rips open \the [src]!")
 	var/obj/item/hand/H = new()
 
@@ -229,7 +229,7 @@
 	if(!cards.len)
 		qdel(src)
 
-/obj/item/hand/attack_self(var/mob/user as mob)
+/obj/item/hand/attack_self(var/mob/user)
 	concealed = !concealed
 	update_icon()
 	user.visible_message("\The [user] [concealed ? "conceals" : "reveals"] their hand.")
@@ -295,12 +295,12 @@
 		add_overlay(I)
 		i++
 
-/obj/item/hand/dropped(mob/user as mob)
+/obj/item/hand/dropped(mob/user)
 	if(locate(/obj/structure/table, loc))
 		src.update_icon(user.dir)
 	else
 		update_icon()
 
-/obj/item/hand/pickup(mob/user as mob)
+/obj/item/hand/pickup(mob/user)
 	..()
 	src.update_icon()

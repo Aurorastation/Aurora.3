@@ -125,10 +125,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			return
 	return
 
-/obj/machinery/newscaster/attack_ai(mob/user as mob)
+/obj/machinery/newscaster/attack_ai(mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/newscaster/attack_hand(mob/user as mob)            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
+/obj/machinery/newscaster/attack_hand(mob/user)            //########### THE MAIN BEEF IS HERE! And in the proc below this...############
 
 	if(!src.ispowered || src.isbroken)
 		return
@@ -710,7 +710,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 
 
-/obj/machinery/newscaster/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/newscaster/attackby(obj/item/I, mob/user)
 	if (src.isbroken)
 		playsound(src.loc, 'sound/effects/hit_on_shattered_glass.ogg', 100, 1)
 		for (var/mob/O in hearers(5, src.loc))
@@ -738,7 +738,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 			to_chat(user, "<span class='notice'>This does nothing.</span>")
 	src.update_icon()
 
-/obj/machinery/newscaster/attack_ai(mob/user as mob)
+/obj/machinery/newscaster/attack_ai(mob/user)
 	return src.attack_hand(user) //or maybe it'll have some special functions? No idea.
 
 /datum/news_photo
@@ -749,7 +749,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	is_synth = synth
 	photo = p
 
-/obj/machinery/newscaster/proc/AttachPhoto(mob/user as mob)
+/obj/machinery/newscaster/proc/AttachPhoto(mob/user)
 	if(photo_data)
 		if(!photo_data.is_synth)
 			photo_data.photo.forceMove(src.loc)
@@ -802,7 +802,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble_page = null
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 
-obj/item/newspaper/attack_self(mob/user as mob)
+obj/item/newspaper/attack_self(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/dat
@@ -915,7 +915,7 @@ obj/item/newspaper/Topic(href, href_list)
 			src.attack_self(src.loc)
 
 
-obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
+obj/item/newspaper/attackby(obj/item/W, mob/user)
 	if(W.ispen())
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<FONT COLOR='blue'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</FONT>")
@@ -935,7 +935,7 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 ////////////////////////////////////helper procs
 
 
-/obj/machinery/newscaster/proc/scan_user(mob/living/user as mob)
+/obj/machinery/newscaster/proc/scan_user(mob/living/user)
 	if(istype(user,/mob/living/carbon/human))                       //User is a human
 		var/mob/living/carbon/human/human_user = user
 		if(human_user.wear_id)                                      //Newscaster scans you

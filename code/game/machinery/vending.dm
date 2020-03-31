@@ -457,10 +457,10 @@
 	T.time = worldtime2text()
 	SSeconomy.add_transaction_log(vendor_account,T)
 
-/obj/machinery/vending/attack_ai(mob/user as mob)
+/obj/machinery/vending/attack_ai(mob/user)
 	return attack_hand(user)
 
-/obj/machinery/vending/attack_hand(mob/user as mob)
+/obj/machinery/vending/attack_hand(mob/user)
 	if(stat & (BROKEN|NOPOWER))
 		return
 

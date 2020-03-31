@@ -8,7 +8,7 @@
 
 	var/obj/item/reagent_containers/container = null
 
-/obj/machinery/computer/curer/attackby(var/obj/I as obj, var/mob/user as mob)
+/obj/machinery/computer/curer/attackby(var/obj/I as obj, var/mob/user)
 	if(istype(I,/obj/item/reagent_containers))
 		var/mob/living/carbon/C = user
 		if(!container)
@@ -33,10 +33,10 @@
 	..()
 	return
 
-/obj/machinery/computer/curer/attack_ai(var/mob/user as mob)
+/obj/machinery/computer/curer/attack_ai(var/mob/user)
 	return src.attack_hand(user)
 
-/obj/machinery/computer/curer/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/curer/attack_hand(var/mob/user)
 	if(..())
 		return
 	user.machine = src

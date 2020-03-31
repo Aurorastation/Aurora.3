@@ -116,7 +116,7 @@
 
 	last_process_time = world.time
 
-/obj/machinery/replicator/attack_hand(mob/user as mob)
+/obj/machinery/replicator/attack_hand(mob/user)
 	interact(user)
 
 /obj/machinery/replicator/interact(mob/user)
@@ -127,7 +127,7 @@
 
 	user << browse(dat, "window=alien_replicator")
 
-/obj/machinery/replicator/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/replicator/attackby(obj/item/W, mob/living/user)
 	user.drop_from_inventory(W,src)
 	stored_materials.Add(W)
 	src.visible_message("<span class='notice'>[user] inserts [W] into [src].</span>")

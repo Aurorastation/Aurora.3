@@ -17,13 +17,13 @@
 	idle_power_usage = 2
 	active_power_usage = 4
 
-/obj/machinery/button/remote/attack_ai(mob/user as mob)
+/obj/machinery/button/remote/attack_ai(mob/user)
 	if(wires & 2)
 		return src.attack_hand(user)
 	else
 		to_chat(user, "Error, no route to host.")
 
-/obj/machinery/button/remote/attackby(obj/item/W, mob/user as mob)
+/obj/machinery/button/remote/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/forensics))
 		return
 	return src.attack_hand(user)
@@ -35,7 +35,7 @@
 		playsound(src.loc, "sparks", 100, 1)
 		return 1
 
-/obj/machinery/button/remote/attack_hand(mob/user as mob)
+/obj/machinery/button/remote/attack_hand(mob/user)
 	if(..())
 		return
 
@@ -163,7 +163,7 @@
 	name = "remote emitter control"
 	desc = "It controls emitters, remotely."
 
-/obj/machinery/button/remote/emitter/trigger(mob/user as mob)
+/obj/machinery/button/remote/emitter/trigger(mob/user)
 	for(var/obj/machinery/power/emitter/E in SSmachinery.all_machines)
 		if(E.id == src.id)
 			spawn(0)
@@ -179,7 +179,7 @@
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
 
-/obj/machinery/button/remote/driver/trigger(mob/user as mob)
+/obj/machinery/button/remote/driver/trigger(mob/user)
 	active = 1
 	update_icon()
 

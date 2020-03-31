@@ -42,7 +42,7 @@
 	else
 		to_chat(user, "This casing doesn't support a backup power cell.")
 
-/obj/machinery/light_construct/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/light_construct/attackby(obj/item/W, mob/user)
 	add_fingerprint(user)
 	if (W.iswrench())
 		if (src.stage == 1)

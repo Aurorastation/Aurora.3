@@ -5,7 +5,7 @@
 	desc = "An engagement ring. It certainly looks expensive."
 	icon_state = "diamond"
 
-/obj/item/clothing/ring/engagement/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/clothing/ring/engagement/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
 	if(ishuman(A) && user != A)

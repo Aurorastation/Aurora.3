@@ -374,7 +374,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	HTML +="</body></html>"
 	usr << browse(HTML, "window=log;size=400x444;border=1;can_resize=1;can_close=1;can_minimize=0")
 
-/obj/item/device/pda/ai/attack_self(mob/user as mob)
+/obj/item/device/pda/ai/attack_self(mob/user)
 	if ((honkamt > 0) && (prob(60)))//For clown virus.
 		honkamt--
 		playsound(loc, 'sound/items/bikehorn.ogg', 30, 1)
@@ -422,7 +422,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/CtrlShiftClick(mob/user)
 	remove_pen(user)
 
-/obj/item/device/pda/MouseDrop(obj/over_object as obj, src_location, over_location)
+/obj/item/device/pda/MouseDrop(obj/over_object, src_location, over_location)
 	var/mob/M = usr
 	if((!istype(over_object, /obj/screen)) && !use_check(M))
 		return attack_self(M)
@@ -643,7 +643,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	ui.set_auto_update(auto_update)
 
 //NOTE: graphic resources are loaded on client login
-/obj/item/device/pda/attack_self(mob/user as mob)
+/obj/item/device/pda/attack_self(mob/user)
 
 	user.set_machine(src)
 
@@ -1324,7 +1324,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				playsound(loc, 'sound/machines/click.ogg', 50, 1)
 				cartridge = null
 
-/obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
+/obj/item/device/pda/proc/id_check(mob/user, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
 	if(choice == 1)
 		if (id)
 			remove_id()
@@ -1346,7 +1346,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	return 0
 
 // access to status display signals
-/obj/item/device/pda/attackby(obj/item/C as obj, mob/user as mob)
+/obj/item/device/pda/attackby(obj/item/C, mob/user)
 	..()
 	if(istype(C, /obj/item/cartridge) && !cartridge)
 		cartridge = C
@@ -1401,7 +1401,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/attack(mob/living/C, mob/living/user)
 	health_scan_mob(C, user, TRUE)
 
-/obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
+/obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user, proximity)
 	if(!proximity) return
 	switch(scanmode)
 

@@ -24,7 +24,7 @@
 		return
 
 
-	attack_hand(mob/user as mob)
+	attack_hand(mob/user)
 		if ((src.case && (user.l_hand == src || user.r_hand == src)))
 			user.put_in_active_hand(case)
 
@@ -38,7 +38,7 @@
 		return
 
 
-	attackby(obj/item/implantcase/C as obj, mob/user as mob)
+	attackby(obj/item/implantcase/C, mob/user)
 		..()
 		if(istype(C, /obj/item/implantcase))
 			if(!( src.case ))
@@ -50,7 +50,7 @@
 		return
 
 
-	attack_self(mob/user as mob)
+	attack_self(mob/user)
 		user.set_machine(src)
 		var/dat = "<B>Implant Mini-Computer:</B><HR>"
 		if (src.case)

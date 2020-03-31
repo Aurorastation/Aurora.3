@@ -45,7 +45,7 @@
 	update_icon()
 	return
 
-/obj/machinery/case_button/attack_hand(mob/user as mob)
+/obj/machinery/case_button/attack_hand(mob/user)
 	if(!covered)
 		//Spam Check
 		if((last_toggle_time + timeout) > world.time)

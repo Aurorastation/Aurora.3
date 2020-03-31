@@ -99,7 +99,7 @@
 		return 0
 	return 1
 
-/obj/structure/closet/airbubble/can_close(mob/user as mob)
+/obj/structure/closet/airbubble/can_close(mob/user)
 	if(zipped)
 		return 0
 	var/turf/T = get_turf(src)
@@ -140,14 +140,14 @@
 		queue_smooth_neighbors(src)
 	return ..()
 
-/obj/structure/closet/airbubble/toggle(mob/user as mob)
+/obj/structure/closet/airbubble/toggle(mob/user)
 	if(!(opened ? close(user) : open(user)))
 		to_chat(user, "<span class='notice'>It won't budge!</span>")
 		return
 	update_icon()
 	return 1
 
-/obj/structure/closet/airbubble/open(mob/user as mob)
+/obj/structure/closet/airbubble/open(mob/user)
 	if(opened)
 		return 0
 
@@ -162,7 +162,7 @@
 	density = 0
 	return 1
 
-/obj/structure/closet/airbubble/close(mob/user as mob)
+/obj/structure/closet/airbubble/close(mob/user)
 	if(!opened)
 		return 0
 	if(!can_close(user))
@@ -392,7 +392,7 @@
 		to_chat(usr, "<span class='warning'>[src] has no power cell.</span>")
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
-/obj/structure/closet/airbubble/attackby(obj/W, mob/user as mob)
+/obj/structure/closet/airbubble/attackby(obj/W, mob/user)
 	if(istype(W, /obj/item/tank))
 		if(!isnull(use_internal_tank))
 			user.visible_message(

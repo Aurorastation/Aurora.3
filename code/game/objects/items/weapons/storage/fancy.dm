@@ -26,7 +26,7 @@
 	src.icon_state = "[src.icon_type]box[total_contents]"
 	return
 
-/obj/item/storage/fancy/examine(mob/user as mob)
+/obj/item/storage/fancy/examine(mob/user)
 	if(!..(user, 1))
 		return
 
@@ -136,7 +136,7 @@
 	for(var/obj/item/pen/crayon/crayon in contents)
 		add_overlay("[crayon.colourName]")
 
-/obj/item/storage/fancy/crayons/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/fancy/crayons/attackby(obj/item/W, mob/user)
 	if(istype(W,/obj/item/pen/crayon))
 		switch(W:colourName)
 			if("mime")
@@ -182,7 +182,7 @@
 /obj/item/storage/fancy/cigarettes/update_icon()
 	icon_state = "[initial(icon_state)][contents.len]"
 
-/obj/item/storage/fancy/cigarettes/remove_from_storage(obj/item/W as obj, atom/new_location)
+/obj/item/storage/fancy/cigarettes/remove_from_storage(obj/item/W, atom/new_location)
 		var/obj/item/clothing/mask/smokable/cigarette/C = W
 		if(!istype(C)) return // what
 		reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
@@ -270,7 +270,7 @@
 	icon_state = "[initial(icon_state)][contents.len]"
 	return
 
-/obj/item/storage/fancy/cigar/remove_from_storage(obj/item/W as obj, atom/new_location)
+/obj/item/storage/fancy/cigar/remove_from_storage(obj/item/W, atom/new_location)
 		var/obj/item/clothing/mask/smokable/cigarette/cigar/C = W
 		if(!istype(C)) return
 		reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
@@ -363,7 +363,7 @@
 	else
 		add_overlay("ledb")
 
-/obj/item/storage/lockbox/vials/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/lockbox/vials/attackby(obj/item/W, mob/user)
 	..()
 	update_icon()
 
