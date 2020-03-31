@@ -74,8 +74,6 @@
 /datum/computer/file/embedded_program/docking/New()
 	..()
 	if(id_tag)
-		if(shuttle_controller.docking_registry[id_tag])
-			crash_with("Docking controller tag [id_tag] had multiple associated programs.")
 		shuttle_controller.docking_registry[id_tag] = src
 
 /datum/computer/file/embedded_program/docking/Destroy()

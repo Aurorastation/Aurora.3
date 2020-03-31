@@ -13,11 +13,12 @@ var/list/escape_pods = list()
 		CRASH("Could not find arming controller for escape pod \"[name]\", tag was '[arming_controller_tag]'.")
 
 	escape_pods += src
-
-	if(arming_controller)
-		var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth/controller_master = arming_controller
-		if(!istype(controller_master))
-			CRASH("Escape pod \"[name]\" could not find its controller master!")
+	if(dock_target)
+		var/datum/computer/file/embedded_program/docking/simple/own_target = shuttle_controller.docking_registry[dock_target]
+		if(own_target)
+			var/obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod/own_target_master = own_target.master
+			if(own_target_master)
+				own_target_master.pod = src
 
 /datum/shuttle/autodock/ferry/escape_pod/can_launch()
 	if(arming_controller && !arming_controller.armed)	//must be armed
