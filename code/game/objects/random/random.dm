@@ -1370,6 +1370,7 @@
 		/obj/structure/largecrate/animal/adhomai = 0.5,
 		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
 		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
+		/obj/structure/largecrate/animal/adhomai/schlorrgo = 0.2,
 		/obj/structure/largecrate/animal/hakhma = 0.5
 	)
 

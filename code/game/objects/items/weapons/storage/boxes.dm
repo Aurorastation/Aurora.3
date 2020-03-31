@@ -815,3 +815,18 @@
 	name = "box"
 	description_antag = "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
+
+/obj/item/storage/box/dynamite
+	name = "wooden crate"
+	desc = "An ordinary wooden crate."
+	icon_state = "dynamite"
+	foldable = null
+	use_sound = 'sound/effects/doorcreaky.ogg'
+	drop_sound = 'sound/items/drop/wooden.ogg'
+	chewable = FALSE
+	w_class = 4
+	starts_with = list(/obj/item/grenade/dynamite = 6)
+
+/obj/item/storage/box/dynamite
+	..()
+	spill()
