@@ -58,7 +58,7 @@
 
 /obj/item/device/encryptionkey/headset_eng/sec
 	name = "engineering security radio encryption key"
-	channels = list("Engineering" = 1, "Security" = 1)
+	channels = list("Engineering" = 1) //TODO-DEPSEC: Update to enable sec above green.
 
 /obj/item/device/encryptionkey/headset_rob
 	name = "robotics radio encryption key"
@@ -72,7 +72,7 @@
 
 /obj/item/device/encryptionkey/headset_med/sec
 	name = "medical security radio encryption key"
-	channels = list("Medical" = 1, "Security" = 1)
+	channels = list("Medical" = 1) //TODO-DEPSEC: Update to enable sec above green.
 
 /obj/item/device/encryptionkey/headset_sci
 	name = "science radio encryption key"
@@ -82,7 +82,7 @@
 
 /obj/item/device/encryptionkey/headset_sci/sec
 	name = "science security radio encryption key"
-	channels = list("Science" = 1, "Security" = 1)
+	channels = list("Science" = 1) //TODO-DEPSEC: Update to enable sec above green.
 
 /obj/item/device/encryptionkey/headset_medsci
 	name = "medical research radio encryption key"
@@ -137,7 +137,7 @@
 
 /obj/item/device/encryptionkey/headset_cargo/sec
 	name = "supply security radio encryption key"
-	channels = list("Supply" = 1, "Security" = 1)
+	channels = list("Supply" = 1) //TODO-DEPSEC: Update to enable sec above green.
 
 /obj/item/device/encryptionkey/headset_service
 	name = "service radio encryption key"

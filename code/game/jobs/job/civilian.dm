@@ -212,7 +212,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the quartermaster, head of personnel, and head of security"
+	supervisors = "the quartermaster and head of personnel"
 	selection_color = "#C0C0C0"
 	economic_modifier = 4
 

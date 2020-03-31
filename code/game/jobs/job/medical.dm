@@ -312,7 +312,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the chief medical officer and head of security"
+	supervisors = "the chief medical officer"
 	selection_color = "#ed66b1"
 	economic_modifier = 4
 
