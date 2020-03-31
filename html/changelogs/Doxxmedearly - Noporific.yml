@@ -1,0 +1,7 @@
+author: Doxxmedearly
+
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+changes: 
+  - rscdel: "Removed soporific from Nanomed vending machines."
