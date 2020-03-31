@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Janitorial Cyborgs can no longer delete holograms by running them over. That's fucking funny."
