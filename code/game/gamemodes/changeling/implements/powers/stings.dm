@@ -177,7 +177,7 @@
 		to_chat(src, SPAN_WARNING("Our sting can only be used against dead targets."))
 		return FALSE
 
-	T.visible_message(SPAN_WARNING("[T]'s skin shifts like dough being kneaded, and soon their appearance is... different."))
+	T.visible_message(SPAN_WARNING("[T]'s skin shifts like dough being kneaded, folded, and melted. Soon their appearance is... different."))
 	T.handle_changeling_transform(chosen_dna)
 
 	feedback_add_details("changeling_powers", "TS")
