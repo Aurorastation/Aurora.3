@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Powered crossbows now have the correct sprite."
+  - bugfix: "Powered crossbow no longer enable the user to create infinite metal by superheating, breaking, and weldering its ammunition."
