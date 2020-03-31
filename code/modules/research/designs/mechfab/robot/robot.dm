@@ -15,47 +15,47 @@
 /datum/design/item/mechfab/robot/exoskeleton
 	name = "Robot Exoskeleton"
 	build_path = /obj/item/robot_parts/robot_suit
-	time = 50
-	materials = list(DEFAULT_WALL_MATERIAL = 50000)
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 35000)
 
 /datum/design/item/mechfab/robot/torso
 	name = "Robot Torso"
 	build_path = /obj/item/robot_parts/chest
-	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 40000)
+	time = 25
+	materials = list(DEFAULT_WALL_MATERIAL = 25000)
 
 /datum/design/item/mechfab/robot/head
 	name = "Robot Head"
 	build_path = /obj/item/robot_parts/head
-	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 25000)
+	time = 25
+	materials = list(DEFAULT_WALL_MATERIAL = 15000)
 
 /datum/design/item/mechfab/robot/l_arm
 	name = "Robot Left Arm"
 	build_path = /obj/item/robot_parts/l_arm
-	time = 20
-	materials = list(DEFAULT_WALL_MATERIAL = 18000)
+	time = 10
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 
 /datum/design/item/mechfab/robot/r_arm
 	name = "Robot Right Arm"
 	build_path = /obj/item/robot_parts/r_arm
-	time = 20
-	materials = list(DEFAULT_WALL_MATERIAL = 18000)
+	time = 10
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 
 /datum/design/item/mechfab/robot/l_leg
 	name = "Robot Left Leg"
 	build_path = /obj/item/robot_parts/l_leg
-	time = 20
-	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	time = 10
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 
 /datum/design/item/mechfab/robot/r_leg
 	name = "Robot Right Leg"
 	build_path = /obj/item/robot_parts/r_leg
-	time = 20
-	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	time = 10
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 
 /datum/design/item/mechfab/robot/component
-	time = 20
+	time = 10
 	materials = list(DEFAULT_WALL_MATERIAL = 5000)
 
 /datum/design/item/mechfab/robot/component/synthetic_flash

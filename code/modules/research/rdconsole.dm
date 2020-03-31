@@ -41,11 +41,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/obj/machinery/r_n_d/protolathe/linked_lathe = null				//Linked Protolathe
 	var/obj/machinery/r_n_d/circuit_imprinter/linked_imprinter = null	//Linked Circuit Imprinter
 
+	var/allow_analyzer = TRUE
+	var/allow_lathe = TRUE
+	var/allow_imprinter = TRUE
+
 	var/screen = 1.0	//Which screen is currently showing.
 	var/id = 0			//ID of the computer (for server restrictions).
 	var/sync = 1		//If sync = 0, it doesn't show up on Server Control Console
 
-	req_access = list(access_research)	//Data and setting manipulation requires scientist access.
+	req_access = list(access_tox)	//Data and setting manipulation requires scientist access.
 
 /obj/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
 	var/return_name = ID
@@ -74,15 +78,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	for(var/obj/machinery/r_n_d/D in range(3, src))
 		if(D.linked_console != null || D.panel_open)
 			continue
-		if(istype(D, /obj/machinery/r_n_d/destructive_analyzer))
+		if(istype(D, /obj/machinery/r_n_d/destructive_analyzer) && allow_analyzer)
 			if(linked_destroy == null)
 				linked_destroy = D
 				D.linked_console = src
-		else if(istype(D, /obj/machinery/r_n_d/protolathe))
+		else if(istype(D, /obj/machinery/r_n_d/protolathe) && allow_lathe)
 			if(linked_lathe == null)
 				linked_lathe = D
 				D.linked_console = src
-		else if(istype(D, /obj/machinery/r_n_d/circuit_imprinter))
+		else if(istype(D, /obj/machinery/r_n_d/circuit_imprinter) && allow_imprinter)
 			if(linked_imprinter == null)
 				linked_imprinter = D
 				D.linked_console = src
@@ -598,19 +602,25 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];find_device=1'>Re-sync with Nearby Devices</A><HR>"
 			dat += "Linked Devices:"
 			dat += "<UL>"
-			if(linked_destroy)
-				dat += "<LI>Destructive Analyzer <A href='?src=\ref[src];disconnect=destroy'>(Disconnect)</A>"
-			else
-				dat += "<LI>(No Destructive Analyzer Linked)"
-			if(linked_lathe)
-				dat += "<LI>Protolathe <A href='?src=\ref[src];disconnect=lathe'>(Disconnect)</A>"
-			else
-				dat += "<LI>(No Protolathe Linked)"
-			if(linked_imprinter)
-				dat += "<LI>Circuit Imprinter <A href='?src=\ref[src];disconnect=imprinter'>(Disconnect)</A>"
-			else
-				dat += "<LI>(No Circuit Imprinter Linked)"
-			dat += "</UL>"
+
+			if(allow_analyzer)
+				if(linked_destroy)
+					dat += "<LI>Destructive Analyzer <A href='?src=\ref[src];disconnect=destroy'>(Disconnect)</A>"
+				else
+					dat += "<LI>(No Destructive Analyzer Linked)"
+
+			if(allow_lathe)
+				if(linked_lathe)
+					dat += "<LI>Protolathe <A href='?src=\ref[src];disconnect=lathe'>(Disconnect)</A>"
+				else
+					dat += "<LI>(No Protolathe Linked)"
+
+			if(allow_imprinter)
+				if(linked_imprinter)
+					dat += "<LI>Circuit Imprinter <A href='?src=\ref[src];disconnect=imprinter'>(Disconnect)</A>"
+				else
+					dat += "<LI>(No Circuit Imprinter Linked)"
+				dat += "</UL>"
 
 		////////////////////DESTRUCTIVE ANALYZER SCREENS////////////////////////////
 		if(2.0)
@@ -800,8 +810,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	name = "Robotics R&D Console"
 	id = 2
 	req_access = list(access_robotics)
+	allow_analyzer = FALSE
+	allow_lathe = FALSE
 
 /obj/machinery/computer/rdconsole/core
 	name = "Core R&D Console"
 	id = 1
-	req_access = list(access_tox) //so scientists and lab assistants can use it
