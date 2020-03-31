@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Reveal runes now reveal runes. Joy."
+  - rscadd: "Added an examine to runes that tells you whether you can talismanify them or not, if you're a cultist."

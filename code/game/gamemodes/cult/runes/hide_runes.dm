@@ -4,8 +4,9 @@
 /obj/effect/rune/hiderunes/do_rune_action(mob/living/user, obj/O = src)
 	var/rune_found
 	for(var/obj/effect/rune/R in orange(4, get_turf(O)))
-		if(R != O)
-			R.invisibility=INVISIBILITY_OBSERVER
+		if(R == O)
+			continue
+		R.invisibility = INVISIBILITY_OBSERVER
 		rune_found = TRUE
 	if(rune_found)
 		if(istype(O,/obj/effect/rune))
