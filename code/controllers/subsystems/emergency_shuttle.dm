@@ -77,7 +77,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 		if (evac)
 			for (var/datum/shuttle/autodock/ferry/escape_pod/pod in escape_pods)
 				if (pod.arming_controller)
-					pod.arming_controller.arm()	
+					pod.arming_controller.arm()
 
 //begins the launch countdown and sets the amount of time left until launch
 /datum/controller/subsystem/emergency_shuttle/proc/set_launch_countdown(var/seconds)

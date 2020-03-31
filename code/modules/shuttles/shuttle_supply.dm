@@ -3,24 +3,28 @@
 	var/late_chance = 80
 	var/max_late_time = 300
 
+/datum/shuttle/autodock/ferry/supply/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
+	..(_name, start_waypoint)
+	SScargo.shuttle = src
+
 /datum/shuttle/autodock/ferry/supply/short_jump(var/area/destination)
 	if(moving_status != SHUTTLE_IDLE)
 		return
-	
+
 	if(isnull(location))
 		return
 
 	//it would be cool to play a sound here
 	moving_status = SHUTTLE_WARMUP
 	spawn(warmup_time*10)
-		if (moving_status == SHUTTLE_IDLE) 
+		if (moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
-		
+
 		if (at_station() && forbidden_atoms_check())
 			//cancel the launch because of forbidden atoms. announce over supply channel?
 			moving_status = SHUTTLE_IDLE
 			return
-		
+
 		if (!at_station())	//at centcom
 			if(!SScargo.buy()) //Check if the shuttle can be sent
 				moving_status = SHUTTLE_IDLE //Dont move the shuttle
@@ -28,7 +32,7 @@
 		//We pretend it's a long_jump by making the shuttle stay at centcom for the "in-transit" period.
 		var/obj/effect/shuttle_landmark/away_waypoint = get_location_waypoint(away_location)
 		moving_status = SHUTTLE_INTRANSIT
-		
+
 		//If we are at the away_landmark then we are just pretending to move, otherwise actually do the move
 		if (next_location == away_waypoint)
 			attempt_move(away_waypoint)
