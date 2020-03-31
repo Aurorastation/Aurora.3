@@ -74,6 +74,29 @@
 	else
 		new /obj/item/stack/cable_coil(src,30,color)
 
+/obj/item/storage/toolbox/drill
+	name = "drilling kit"
+	icon_state = "blue" //can add a custom one if we desire, no need for it tho
+	item_state = "toolbox_blue" //ditto
+	starts_with = list(
+		/obj/item/crowbar = 1,
+		/obj/item/powerdrill = 1,
+		/obj/item/mining_scanner = 1,
+		/obj/item/cell/high = 1,
+		/obj/item/device/orbital_dropper/drill = 1
+	)
+
+/obj/item/storage/toolbox/ka
+	name = "kinetic accelerator kit"
+	icon_state = "blue" //can add a custom one if we desire, no need for it tho
+	item_state = "toolbox_blue" //ditto
+	starts_with = list(
+		/obj/item/crowbar = 1,
+		/obj/item/wrench = 1,
+		/obj/item/custom_ka_upgrade/upgrade_chips/damage = 1,
+		/obj/item/custom_ka_upgrade/cells/cell02 = 1
+	)
+
 /obj/item/storage/toolbox/syndicate
 	name = "suspicious looking toolbox"
 	icon_state = "syndicate"

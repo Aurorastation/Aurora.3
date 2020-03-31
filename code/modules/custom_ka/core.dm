@@ -512,6 +512,7 @@
 	cell_increase = 0
 	capacity_increase = 0
 	mod_limit_increase = 0
+	var/last_pump = 0 // Set to world.time to determine last pump; prevents to_chat spam
 	var/stored_charge = 0
 	var/pump_restore = 0
 	var/pump_delay = 0

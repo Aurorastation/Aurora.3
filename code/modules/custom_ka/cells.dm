@@ -1,20 +1,21 @@
-/obj/item/custom_ka_upgrade/cells/attack_self(mob/user as mob)
-
+/obj/item/custom_ka_upgrade/cells/attack_self(mob/user)
 	if(is_pumping)
 		return
 
 	if(pump_restore)
 		is_pumping = TRUE
 		if(stored_charge >= cell_increase)
-			to_chat(user,"The pump on the [src] refuses to move.")
+			to_chat(user, SPAN_WARNING("The pump on \the [src] refuses to move."))
 		else
-			if(!pump_delay || do_after(user,pump_delay,use_user_turf = -1))
-				if(isturf(src.loc))
-					to_chat(user,"You pump \the [src].")
-				else
-					to_chat(user,"You pump \the [src.loc].")
-				stored_charge = min(stored_charge + pump_restore,cell_increase)
-				playsound(src,'sound/weapons/kinetic_reload.ogg', 50, 0)
+			if(!pump_delay || do_after(user, pump_delay, use_user_turf = -1))
+				if(last_pump < world.time)
+					if(isturf(src.loc))
+						to_chat(user, SPAN_NOTICE("You pump \the [src]."))
+					else
+						to_chat(user, SPAN_NOTICE("You pump \the [src.loc]."))
+					last_pump = world.time + 100 // every ten seconds
+				stored_charge = min(stored_charge + pump_restore, cell_increase)
+				playsound(src, 'sound/weapons/kinetic_reload.ogg', 50, FALSE)
 
 		is_pumping = FALSE
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

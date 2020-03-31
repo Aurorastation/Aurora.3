@@ -1,3 +1,7 @@
+#define DRILL_LIGHT_IDLE 0
+#define DRILL_LIGHT_WARNING 1
+#define DRILL_LIGHT_ACTIVE 2
+
 /obj/machinery/mining
 	icon = 'icons/obj/mining_drill.dmi'
 	anchored = FALSE
@@ -10,7 +14,6 @@
 	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
 	description_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
 	icon_state = "mining_drill"
-	obj_flags = OBJ_FLAG_ROTATABLE
 	var/braces_needed = 2
 	var/list/supports = list()
 	var/supported = FALSE
@@ -165,6 +168,14 @@
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
 	return
 
+/obj/machinery/mining/drill/proc/activate_light(var/lights = DRILL_LIGHT_IDLE)
+	switch(lights)
+		if(DRILL_LIGHT_IDLE)
+			set_light(2, 0.75, LIGHT_COLOR_TUNGSTEN)
+		if(DRILL_LIGHT_WARNING)
+			set_light(3, 1, LIGHT_COLOR_EMERGENCY)
+		if(DRILL_LIGHT_ACTIVE)
+			set_light(4, 1, LIGHT_COLOR_LAVA)
 
 /obj/machinery/mining/drill/attack_ai(mob/user)
 	return src.attack_hand(user)
@@ -297,12 +308,16 @@
 /obj/machinery/mining/drill/update_icon()
 	if(need_player_check)
 		icon_state = "mining_drill_error"
+		activate_light(DRILL_LIGHT_WARNING)
 	else if(active)
 		icon_state = "mining_drill_active"
+		activate_light(DRILL_LIGHT_ACTIVE)
 	else if(supported)
 		icon_state = "mining_drill_braced"
+		activate_light(DRILL_LIGHT_IDLE)
 	else
 		icon_state = "mining_drill"
+		activate_light(DRILL_LIGHT_IDLE)
 	return
 
 /obj/machinery/mining/drill/RefreshParts()
@@ -395,6 +410,7 @@
 	name = "mining drill brace"
 	desc = "A machinery brace for an industrial drill. It looks easily two feet thick."
 	icon_state = "mining_brace"
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/obj/machinery/mining/drill/connected
 
 	component_types = list(
