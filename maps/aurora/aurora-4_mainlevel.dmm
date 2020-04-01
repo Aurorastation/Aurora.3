@@ -4213,14 +4213,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"amK" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/device/radio/intercom{
-	pixel_y = -32
-	},
-/obj/item/modular_computer/console/preset/security/hos,
-/turf/simulated/floor/carpet,
-/area/maintenance/engineering)
 "amL" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -21895,35 +21887,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/bridge/minibar)
-"aTK" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/wall/r_wall,
-/area/maintenance/engineering)
-"aTL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "HoS Windows"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "HoS Windows"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/engineering)
 "aTM" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -58324,6 +58287,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/main/engineering)
+"gDf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/device/radio/intercom{
+	pixel_y = -32
+	},
+/obj/item/modular_computer/console/preset/security/hos,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
 "gEk" = (
 /obj/structure/morgue{
 	pixel_y = -1
@@ -59206,6 +59177,19 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"hXr" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Head of Security's Desk";
+	departmentType = 5;
+	name = "Head of Security RC";
+	pixel_x = 0;
+	pixel_y = -30
+	},
+/obj/item/modular_computer/console/preset/security,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
 "hYa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -60017,19 +60001,6 @@
 "jPX" = (
 /turf/simulated/wall,
 /area/crew_quarters/kitchen/freezer)
-"jSu" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Head of Security's Desk";
-	departmentType = 5;
-	name = "Head of Security RC";
-	pixel_x = 0;
-	pixel_y = -30
-	},
-/obj/item/modular_computer/console/preset/security,
-/turf/simulated/floor/carpet,
-/area/maintenance/engineering)
 "jSO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector,
@@ -62041,27 +62012,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/security/detectives_office)
-"naW" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/commanded/dog/columbo,
-/obj/structure/window/reinforced{
-	dir = 8;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/obj/machinery/door/window/brigdoor/northleft{
-	req_access = list(58)
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/carpet,
-/area/maintenance/engineering)
 "naY" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -64881,6 +64831,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"rxA" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/r_wall,
+/area/crew_quarters/heads/hos)
 "rxS" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -65081,6 +65035,31 @@
 /obj/item/hoist_kit,
 /turf/simulated/open,
 /area/maintenance/security_starboard)
+"rWf" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "HoS Windows"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "HoS Windows"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "HoS Windows"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "HoS Windows"
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/heads/hos)
 "rWE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/effect/decal/cleanable/dirt,
@@ -68466,6 +68445,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
+"xxW" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/commanded/dog/columbo,
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/obj/machinery/door/window/brigdoor/northleft{
+	req_access = list(58)
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hos)
 "xyO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -68520,20 +68520,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
-"xDX" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "Security Lockdown";
-	name = "Security Blast Door";
-	opacity = 0
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "xGz" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
@@ -93987,8 +93973,8 @@ aIa
 aIa
 aIa
 aIa
-aTK
-fij
+rxA
+aIa
 aWs
 sSo
 aZg
@@ -94244,8 +94230,8 @@ aNe
 aOR
 aQB
 csv
-amK
-fij
+gDf
+aIa
 aWz
 aYi
 aZk
@@ -94501,8 +94487,8 @@ aNj
 aNj
 aLr
 mOz
-jSu
-fij
+hXr
+aIa
 aWA
 aYj
 aZm
@@ -94758,8 +94744,8 @@ aNg
 aOS
 aQD
 jpW
-naW
-fij
+xxW
+aIa
 pxH
 aYi
 aZk
@@ -95015,8 +95001,8 @@ sMU
 sMU
 sMU
 aIa
-aTL
-baI
+rWf
+aIa
 umg
 aYl
 tGp
@@ -95273,7 +95259,7 @@ uWH
 aQF
 hEw
 lOg
-xDX
+qyY
 aZs
 aYl
 tGp
@@ -95530,7 +95516,7 @@ qpK
 aQG
 oeh
 dJS
-xDX
+qyY
 aZs
 aYm
 uAk
