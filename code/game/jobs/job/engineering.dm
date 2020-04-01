@@ -204,7 +204,7 @@
 	minimum_character_age = 18
 
 	access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_construction)
-	minimal_access = list(access_security, access_brig, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_construction)
+	minimal_access = list(access_security, access_sec_doors, access_eva, access_external_airlocks, access_weapons, access_engine, access_construction)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/officer/eng
 

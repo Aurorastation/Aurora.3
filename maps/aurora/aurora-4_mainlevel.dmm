@@ -25236,75 +25236,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
-"aZo" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/sign/double/map/right{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"aZp" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/navbeacon{
-	codes_txt = "patrol;next_patrol=CP2";
-	location = "CP1"
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/sign/directions/cryo{
-	pixel_y = 28
-	},
-/obj/structure/sign/directions/evac{
-	pixel_y = 36
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"aZq" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/structure/sign/directions/medical{
-	dir = 4;
-	icon_state = "direction_med";
-	pixel_x = 0;
-	pixel_y = 32
-	},
-/obj/structure/sign/directions/com{
-	dir = 4;
-	icon_state = "direction_com";
-	pixel_y = 40
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
-"aZr" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10;
-	icon_state = "corner_white"
-	},
-/obj/structure/sign/directions/security{
-	dir = 1;
-	icon_state = "direction_sec";
-	pixel_x = 0;
-	pixel_y = 40
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "aZs" = (
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
@@ -56645,6 +56576,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"cKB" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/directions/medical{
+	dir = 4;
+	icon_state = "direction_med";
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/obj/structure/sign/directions/com{
+	dir = 4;
+	icon_state = "direction_com";
+	pixel_y = 40
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "cKO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
@@ -57127,6 +57075,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"dHw" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2";
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/navbeacon{
+	codes_txt = "patrol;next_patrol=CP2";
+	location = "CP1"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "dJe" = (
 /turf/simulated/floor/plating,
 /area/medical/cryo)
@@ -58598,6 +58566,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/vault)
+"gKk" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "gKs" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
@@ -60315,26 +60291,6 @@
 	},
 /turf/simulated/floor/tiled/old,
 /area/maintenance/cargo)
-"jYJ" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/sign/directions/civ{
-	pixel_y = 24
-	},
-/obj/structure/sign/directions/science{
-	pixel_y = 32
-	},
-/obj/structure/sign/directions/engineering{
-	dir = 8;
-	icon_state = "direction_eng";
-	pixel_x = 0;
-	pixel_y = 40
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "kaa" = (
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -63195,6 +63151,18 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
 /area/maintenance/cargo)
+"oBI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/directions/cryo{
+	pixel_y = 28
+	},
+/obj/structure/sign/directions/evac{
+	pixel_y = 36
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "oCT" = (
 /obj/structure/disposalpipe/junction{
 	dir = 8;
@@ -63761,12 +63729,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
-"poJ" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "ppp" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -65533,24 +65495,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
-"sty" = (
-/obj/machinery/door/firedoor{
-	enable_smart_generation = 0
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10;
-	icon_state = "corner_white"
-	},
-/obj/structure/sign/double/map/left{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/primary/port)
 "stM" = (
 /obj/random/loot,
 /turf/simulated/floor/plating,
@@ -65896,6 +65840,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"tfn" = (
+/obj/machinery/door/firedoor{
+	enable_smart_generation = 0
+	},
+/obj/structure/sign/directions/civ{
+	pixel_y = 24
+	},
+/obj/structure/sign/directions/science{
+	pixel_y = 32
+	},
+/obj/structure/sign/directions/engineering{
+	dir = 8;
+	icon_state = "direction_eng";
+	pixel_x = 0;
+	pixel_y = 40
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/port)
 "tfC" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/bed/chair/office/dark{
@@ -68199,6 +68161,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
+"wVA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "wXN" = (
 /turf/simulated/floor/carpet,
 /area/security/detectives_office)
@@ -94777,9 +94747,9 @@ aQD
 jpW
 naW
 fij
-aWz
+tfn
 aYi
-sty
+aZk
 wDp
 aaE
 bdf
@@ -95034,9 +95004,9 @@ sMU
 aIa
 aTL
 baI
-poJ
+oBI
 aYl
-aZo
+wVA
 wDp
 seD
 bdg
@@ -95293,7 +95263,7 @@ lOg
 xDX
 aZs
 aYl
-jYJ
+wVA
 baF
 aZs
 bdh
@@ -95550,7 +95520,7 @@ dJS
 xDX
 aZs
 aYm
-aZp
+dHw
 baG
 bbF
 bdi
@@ -95807,7 +95777,7 @@ dJS
 qyY
 aZs
 aYl
-aZq
+gKk
 baH
 bbG
 bdj
@@ -96062,9 +96032,9 @@ vVP
 aIi
 aTM
 aIi
-poJ
+cKB
 aYl
-aZr
+ebD
 aVs
 bbH
 bdk
