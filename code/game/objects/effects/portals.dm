@@ -90,13 +90,15 @@
 			if(istype(spawned_thing, /obj/item/stack))
 				var/obj/item/stack/stack = spawned_thing
 				stack.amount = spawn_things[thing]
+				stack.throw_at(get_random_turf_in_range(get_turf(src), 1), 2)
 			else
 				for(var/i = 1; i < spawn_things[thing]; i++)
-					new spawn_path(get_turf(src))
+					var/atom/movable/A = new spawn_path(get_turf(src))
+					A.throw_at(get_random_turf_in_range(get_turf(src), 1), 2)
 
 		next_spawn = world.time + 30 SECONDS
 		num_of_spawns--
-	if(!num_of_spawns)
+	if(num_of_spawns <= 0)
 		visible_message(SPAN_WARNING("\The [src] collapses in on itself!"))
 		qdel(src)
 
