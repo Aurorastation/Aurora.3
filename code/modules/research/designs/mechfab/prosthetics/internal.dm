@@ -28,3 +28,7 @@
 /datum/design/item/mechfab/prosthetic/internal/liver
 	name = "Prosthetic Liver"
 	build_path = /obj/item/organ/internal/liver
+
+/datum/design/item/mechfab/prosthetic/internal/stomach
+	name = "Prosthetic Stomach"
+	build_path = /obj/item/organ/internal/stomach
