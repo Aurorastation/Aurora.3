@@ -1507,7 +1507,7 @@
 
 /datum/chemical_reaction/slime/overload/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/empulse, get_turf(holder.my_atom), 3, 7), 50)
+	addtimer(CALLBACK(GLOBAL_PROC, proc/empulse, get_turf(holder.my_atom), 3, 7), 50)
 
 /datum/chemical_reaction/slime/cell
 	name = "Slime Powercell"
