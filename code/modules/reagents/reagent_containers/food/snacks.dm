@@ -5496,7 +5496,7 @@
 
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy
 	name = "plate of sugar tree candy"
-	desc = "A plate full of adhomian candy."
+	desc = "A plate full of adhomian candy made from sugar tree, a plant native to Adhomai."
 	icon_state = "cubes26"
 	trash = /obj/item/trash/candybowl
 	vendingobject = /obj/item/reagent_containers/food/snacks/tajcandy
@@ -5524,7 +5524,7 @@
 
 /obj/item/reagent_containers/food/snacks/tajcandy
 	name = "sugar tree candy"
-	desc = "An adhomian candy made from the Nm'shaan plant."
+	desc = "An adhomian candy made from the sugar tree fruit."
 	icon_state = "tajcandy"
 	nutriment_desc = list("candy" = 3)
 	nutriment_amt = 1
