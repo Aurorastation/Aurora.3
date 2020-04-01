@@ -4,7 +4,8 @@
 	set name = "Hivemind Eject"
 	set desc = "Ejects a member of our internal hivemind."
 
-	var/chosen_player = input(src, "Choose a hivemind member to eject.", "Eject") in mind.changeling.hivemind
+	var/list/hivemind_choices = mind.changeling.hivemind
+	var/chosen_player = input(src, "Choose a hivemind member to eject.", "Eject") in hivemind_choices
 	if(!chosen_player || chosen_player == "None")
 		world << "Eject found no input"
 		return

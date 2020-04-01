@@ -79,6 +79,7 @@
 		handle_organs()
 
 	handle_hud_list()
+	handle_organs() //Force organ/pulse updates after death flag.
 
 /mob/living/carbon/human/proc/ChangeToHusk()
 	if(HUSK in mutations)

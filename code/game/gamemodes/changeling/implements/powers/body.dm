@@ -204,6 +204,7 @@
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
 	C.mind.changeling.in_stasis = TRUE
+	C.mind.changeling.can_exit_stasis = FALSE
 
 	C.emote("gasp")
 	C.tod = worldtime2text()
@@ -218,7 +219,7 @@
 		log_debug("Attempted to allow [C] to revive as a changeling, but they are not a changeling!")
 		return
 	to_chat(C, SPAN_NOTICE(FONT_GIANT("We are ready to rise. Use the <b>Revive</b> verb when you are ready.")))
-	C.mind.changeling.in_stasis = FALSE
+	C.mind.changeling.can_exit_stasis = TRUE
 
 /mob/proc/changeling_revive()
 	set category = "Changeling"
@@ -228,7 +229,7 @@
 	if(!(C.mind?.changeling))
 		log_debug("[C] attempted to revive as a changeling, but they are not a changeling!")
 		return
-	if(C.mind.changeling.in_stasis == TRUE)
+	if(!C.mind.changeling.can_exit_stasis)
 		to_chat(C, SPAN_WARNING("We are not ready to awaken from our stasis. We must bide our time."))
 		return
 	if(C.changeling_power(30,1,100,DEAD, allow_in_stasis = TRUE))
@@ -236,7 +237,8 @@
 		C.mind.changeling.chem_charges -= 30
 	else
 		to_chat(C, SPAN_WARNING("We have not generated enough chemicals to awaken from our stasis. We must bide our time."))
-
+		return
+	C.mind.changeling.in_stasis = FALSE
 	// restore us to health
 	C.revive(FALSE)
 	// remove our fake death flag

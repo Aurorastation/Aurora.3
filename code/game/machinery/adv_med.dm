@@ -402,8 +402,12 @@
 
 		if(pulse_result == ">250")
 			pulse_result = -3
-		var/real_stat = (occupant.status_flags & FAKEDEATH) ? "DEAD" : occupant.stat
-		VUEUI_SET_CHECK(data["stat"], real_stat, ., data)
+
+		var/provided_stat = occupant.stat
+		if(occupant.status_flags & FAKEDEATH)
+			provided_stat = DEAD
+
+		VUEUI_SET_CHECK(data["stat"], provided_stat, ., data)
 		VUEUI_SET_CHECK(data["name"], occupant.name, ., data)
 		VUEUI_SET_CHECK(data["species"], occupant.get_species(), ., data)
 		VUEUI_SET_CHECK(data["brain_activity"], brain_result, ., data)

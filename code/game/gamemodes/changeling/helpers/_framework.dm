@@ -20,11 +20,12 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/geneticpoints = 6
 	var/total_absorbed_genpoints 	//How many points have we earned? Determines ling power level.
 	var/purchasedpowers = list()	//All powers we've bought
-	var/mimicing = ""				//Who are we mimicing?
-	var/justate						//Processing genes
+	var/mimicing = ""	//Who are we mimicing?
+	var/justate		//Processing genes
 	var/ling_level = LING_LEVEL_LOW	//Ling level, affects resistances to stuns, etc.
-	var/inactives_absorbed			//Limiter on the number of non-players we can absorb
-	var/in_stasis = FALSE		//Are we in regenerative stasis
+	var/inactives_absorbed	//Limiter on the number of non-players we can absorb
+	var/in_stasis = FALSE	//Are we in regenerative stasis
+	var/can_exit_stasis = FALSE	//Set to true when we can revive from stasis.
 
 /datum/changeling/New(var/gender=FEMALE)
 	..()
