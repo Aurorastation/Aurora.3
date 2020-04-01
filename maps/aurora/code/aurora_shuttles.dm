@@ -32,10 +32,10 @@
 	docking_controller = "escape_pod_"+ #NUMBER +"_berth"; \
 } \
 /obj/effect/shuttle_landmark/escape_pod/out/pod##NUMBER { \
-	landmark_tag = "escape_pod_"+ #NUMBER +"_interim"; \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
 } \
 /obj/effect/shuttle_landmark/escape_pod/transit/pod##NUMBER { \
-	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_interim"; \
 }
 
 CREATE_ESCAPE_POD(1)
@@ -59,6 +59,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Escape Shuttle Centcom Dock"
 	landmark_tag = "nav_emergency_start"
 	docking_controller = "centcom_dock"
+	base_turf = /turf/unsimulated/floor/plating
 
 /obj/effect/shuttle_landmark/emergency/interim
 	name = "In Transit"
@@ -87,6 +88,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Arrival Shuttle Centcom Dock"
 	landmark_tag = "nav_arrival_start"
 	docking_controller = "centcom_setup"
+	base_turf = /turf/unsimulated/floor/plating
 
 /obj/effect/shuttle_landmark/arrival/interim
 	name = "In Transit"
@@ -111,6 +113,7 @@ CREATE_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/supply/start
 	name = "Supply Centcom Dock"
 	landmark_tag = "nav_supply_start"
+	base_turf = /turf/unsimulated/floor/plating
 
 /obj/effect/shuttle_landmark/supply/dock
 	name = "Supply Shuttle Dock"
@@ -124,7 +127,7 @@ CREATE_ESCAPE_POD(3)
 /datum/shuttle/autodock/ferry/merchant
 	name = "Merchant Shuttle"
 	location = 1
-	warmup_time = 5
+	warmup_time = 10
 	shuttle_area = /area/shuttle/merchant/start
 	move_time = 20
 	dock_target = "merchant_shuttle"
@@ -161,6 +164,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Crescent Shuttle Base"
 	landmark_tag = "nav_admin_start"
 	docking_controller = "admin_shuttle_bay"
+	base_turf = /turf/unsimulated/floor/plating
 
 /obj/effect/shuttle_landmark/admin/dock
 	name = "Crescent Shuttle Dock"
@@ -183,6 +187,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Agent Shuttle Base"
 	landmark_tag = "nav_ccia_start"
 	docking_controller = "centcom_shuttle_bay"
+	base_turf = /turf/unsimulated/floor/plating
 
 /obj/effect/shuttle_landmark/ccia/dock
 	name = "Agent Shuttle Dock"
@@ -204,6 +209,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Phoenix Base"
 	landmark_tag = "nav_ert_start"
 	docking_controller = "specops_centcom_dock"
+	base_turf = /turf/unsimulated/floor/plating
 
 /obj/effect/shuttle_landmark/ert/dock
 	name = "ERT Dock"
@@ -215,25 +221,74 @@ CREATE_ESCAPE_POD(3)
 //Skipjack.
 /datum/shuttle/autodock/multi/antag/skipjack
 	name = "Skipjack"
+	current_location = "nav_skipjack_start"
+	landmark_transition = "nav_skipjack_interim"
 	warmup_time = 10
+	move_time = 75
 	shuttle_area = /area/skipjack_station/start
+	destination_tags = list(
+		"nav_skipjack_start",
+		"nav_skipjack_surface",
+		"nav_skipjack_above",
+		"nav_skipjack_under",
+		"nav_skipjack_caverns",
+		"nav_skipjack_pool"
+		)
 
+	landmark_transition = "nav_skipjack_interim"
 	announcer = "NDV Icarus"
 	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
 	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 
-//TODOMATT: Shuttle landmarks for merc/heist/maybe ninja
+/obj/effect/shuttle_landmark/skipjack/start
+	name = "Pirate Hideout"
+	landmark_tag = "nav_skipjack_start"
+
+/obj/effect/shuttle_landmark/skipjack/interim
+	name = "In Transit"
+	landmark_tag = "nav_skipjack_interim"
+
+/obj/effect/shuttle_landmark/skipjack/surface
+	name = "Surface Aft of Cargo"
+	landmark_tag = "nav_skipjack_surface"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/skipjack/above
+	name = "Above the station by Telecomms"
+	landmark_tag = "nav_skipjack_above"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/skipjack/under
+	name = "Under the Station"
+	landmark_tag = "nav_skipjack_under"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/skipjack/caverns
+	name = "Caverns by Mining"
+	landmark_tag = "nav_skipjack_caverns"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/skipjack/pool
+	name = "Above the Pool"
+	landmark_tag = "nav_skipjack_pool"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //Nuke Ops shuttle.
 /datum/shuttle/autodock/multi/antag/merc
 	name = "Mercenary Shuttle"
 	current_location = "nav_merc_start"
+	landmark_transition = "nav_merc_interim"
 	dock_target = "merc_shuttle"
 	warmup_time = 10
+	move_time = 75
 	shuttle_area = /area/syndicate_station/start
 	destination_tags = list(
 		"nav_merc_dock",
-		"nav_merc_start" //add as needed
+		"nav_merc_start",
+		"nav_merc_surface",
+		"nav_merc_above",
+		"nav_merc_under",
+		"nav_merc_caverns"
 		)
 
 	landmark_transition = "nav_merc_interim"
@@ -256,6 +311,26 @@ CREATE_ESCAPE_POD(3)
 	docking_controller = "nuke_shuttle_dock_airlock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
+/obj/effect/shuttle_landmark/merc/surface
+	name = "Surface by Command"
+	landmark_tag = "nav_merc_surface"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/merc/above
+	name = "Above the Station"
+	landmark_tag = "nav_merc_above"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/merc/under
+	name = "Under the Station"
+	landmark_tag = "nav_merc_under"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/merc/caverns
+	name = "Caverns Fore of the Station"
+	landmark_tag = "nav_merc_caverns"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
 // Tau Ceti Foreign Legion
 /datum/shuttle/autodock/ferry/legion
 	name = "Legion Shuttle"
@@ -272,6 +347,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Legion Base"
 	landmark_tag = "nav_legion_start"
 	docking_controller = "legion_hangar"
+	base_turf = /turf/unsimulated/floor/plating
 
 /obj/effect/shuttle_landmark/legion/interim
 	name = "In Transit"
@@ -288,6 +364,8 @@ CREATE_ESCAPE_POD(3)
 	location = 0
 	warmup_time = 10
 	move_time = 85
+	shuttle_area = /area/shuttle/research/station
+	dock_target = "science_shuttle"
 	waypoint_station = "nav_research_dock"
 	landmark_transition = "nav_research_interim"
 	waypoint_offsite = "nav_research_away"
@@ -295,7 +373,7 @@ CREATE_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/research/start
 	name = "Research Dock"
 	landmark_tag = "nav_research_dock"
-	docking_controller = "legion_shuttle"
+	docking_controller = "science_bridge"
 
 /obj/effect/shuttle_landmark/research/interim
 	name = "In Transit"
@@ -305,7 +383,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Away Site"
 	landmark_tag = "nav_research_away"
 
-	// Distress Team Shuttle
+// Distress Team Shuttle
 
 /datum/shuttle/autodock/ferry/distress
 	name = "Distress Shuttle"
