@@ -8,7 +8,7 @@
 /obj/item/grenade/dynamite/attack_self(mob/user)
 	return
 
-/obj/item/grenade/dynamite/attackby(obj/item/W as obj, mob/user)
+/obj/item/grenade/dynamite/attackby(obj/item/W, mob/user)
 	..()
 	if(active)
 		return
