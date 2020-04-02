@@ -356,8 +356,8 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(G.state < GRAB_NECK)
-		to_chat(src, SPAN_WARNING("You must have a neck grip to bite someone!"))
+	if(G.state < GRAB_KILL)
+		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
 		return
 
 	if(ishuman(G.affecting))
@@ -379,9 +379,8 @@ mob/living/carbon/human/proc/change_monitor()
 		M.apply_damage(25, BRUTE, sharp = TRUE, edge = TRUE)
 		visible_message(SPAN_WARNING("<b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
-	qdel(G)
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
-	last_special = world.time + 50
+	last_special = world.time + 100
 
 /mob/living/carbon/human/proc/detonate_flechettes()
 	set category = "Military Frame"
