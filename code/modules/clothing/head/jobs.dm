@@ -109,12 +109,12 @@
 
 /obj/item/clothing/head/beret/zeng
 	name = "zeng-hu beret"
-	desc = "A beret with the Zeng-Hu insignia emblazoned on it."
+	desc = "A purple beret with the Zeng-Hu insignia emblazoned on it."
 	icon_state = "zengberet"
 
 /obj/item/clothing/head/beret/zeng/alt
 	name = "zeng-hu beret"
-	desc = "A beret with the Zeng-Hu insignia emblazoned on it."
+	desc = "A white beret with the Zeng-Hu insignia emblazoned on it."
 	icon_state = "zengaltberet"	
 
 /obj/item/clothing/head/beret/purple
