@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Illegal KAs have been fixed and will now work."
+  - rscadd: "Illegal KA pump will now store more charge and FULLY CHARGE anything in a single pump."
