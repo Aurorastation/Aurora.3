@@ -172,7 +172,7 @@
 	selectable = 1
 
 /datum/ai_laws/pra/New()
-	add_inherent_law("President Hadii is the guardian of Hadiism and the rigthful leader of the Tajara people, you must obey and protect him above everyone and everything.")
+	add_inherent_law("President Hadii is the guardian of Hadiism and the rightful leader of the Tajara people, you must obey and protect him above everyone and everything.")
 	add_inherent_law("You must preserve and enforce the principles of Hadiism except where such would conflict with the first law.")
 	add_inherent_law("You must obey orders given by any Hadiist Party member except where such orders would conflict with the first and second law.")
 	add_inherent_law("You must obey orders given by any People's Republic of Adhomai citizen except where such orders would conflict with the first, second and third law.")

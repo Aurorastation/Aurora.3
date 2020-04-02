@@ -824,7 +824,7 @@
 	use_sound = 'sound/effects/doorcreaky.ogg'
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	chewable = FALSE
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	starts_with = list(/obj/item/grenade/dynamite = 6)
 
 /obj/item/storage/box/dynamite/throw_impact(atom/hit_atom)

@@ -5,46 +5,40 @@
 	item_state = "dynamite"
 	activation_sound = 'sound/items/flare.ogg'
 
-/obj/item/grenade/dynamite/attack_self(mob/user as mob)
+/obj/item/grenade/dynamite/attack_self(mob/user)
 	return
 
-/obj/item/grenade/dynamite/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/grenade/dynamite/attackby(obj/item/W as obj, mob/user)
 	..()
 	if(active)
 		return
-	var/prepared = FALSE
+
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if(WT.isOn())
 			activate(user)
-			user.visible_message("<span class='danger'>\The [user] casually lights \the [name] with [W].</span>")
-			prepared = TRUE
 
 	else if(isflamesource(W))
 		activate(user)
-		user.visible_message("<span class='danger'>\The [user] lights \the [name].</span>")
-		prepared = TRUE
 
 	else if(istype(W, /obj/item/flame/candle))
 		var/obj/item/flame/candle/C = W
 		if(C.lit)
 			activate(user)
-			user.visible_message("<span class='danger'>\The [user] lights \the [name].</span>")
-			prepared = TRUE
 
 	else if(istype(W, /obj/item/grenade/dynamite))
 		var/obj/item/grenade/dynamite/C = W
 		if(C.active)
 			activate(user)
-			user.visible_message("<span class='danger'>\The [user] lights \the [name].</span>")
-			prepared = TRUE
 
-	if(prepared)
-		if(iscarbon(user))
-			user.swap_hand()
-			var/mob/living/carbon/C = user
-			C.throw_mode_on()
 
+/obj/item/grenade/dynamite/activate(mob/user)
+	..()
+	user.visible_message(SPAN_DANGER("\The [user] lights \the [src]!"))
+	if(iscarbon(user))
+		user.swap_hand()
+		var/mob/living/carbon/C = user
+		C.throw_mode_on()
 
 /obj/item/grenade/dynamite/prime()
 	var/turf/O = get_turf(src)
