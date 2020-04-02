@@ -1221,7 +1221,7 @@
 /mob/living/carbon/human/succumb()
 	set hidden = TRUE
 
-	if(shock_stage > 50 && (getBruteLoss() > 40 || getFireLoss() > 40 || getOxyLoss() > 40 || getToxLoss() > 40))
+	if(shock_stage > 50 && (maxHealth / 1.5) < get_total_health())
 		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
 		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
