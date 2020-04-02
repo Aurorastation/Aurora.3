@@ -3328,3 +3328,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 10
 	nano_printer.stored_paper = 5
+
+
+/obj/item/clothing/accessory/poncho/fluff/ozuha_cape //Victory Cape - Skavoss Ozuha - dronzthewolf
+	name = "victory cape"
+	desc = "A finely crafted cape that combines Ozuha clan colors and Izweski nation colors, with inscriptions on the decorative brass paldrons reading something in Sinta'Unathi."
+	icon = 'icons/obj/custom_items/ozuha_cape.dmi'
+	icon_state = "ozuha_cape"
+	item_state = "ozuha_cape"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+
+/obj/item/clothing/suit/storage/fluff/ulmari_coat //Aut'akh Medical Coat - Optikam Ulmari - soultheif96
+	name = "aut'akh medical coat"
+	desc = "A custom-made tailored coat for use in a laboratory/medical setting."
+	icon = 'icons/obj/custom_items/ulmari_coat.dmi'
+	icon_state = "ulmari_coat"
+	item_state = "ulmari_coat"
+	contained_sprite = TRUE

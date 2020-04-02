@@ -15,9 +15,15 @@
 	hud_state = "wiz_tele"
 
 
-/spell/contract/return_master/cast(mob/target,mob/user)
+/spell/contract/return_master/cast(mob/target, mob/user)
 	target = ..(target,user)
 	if(!target)
 		return
 
+	to_chat(user, SPAN_WARNING("\The [user] teleported to you!"))
 	user.forceMove(get_turf(target))
+	user.visible_message(SPAN_WARNING("\The [user] appears out of thin air!"))
+	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread
+	smoke.set_up(5, 0, get_turf(user))
+	smoke.attach(user)
+	smoke.start()

@@ -30,7 +30,7 @@
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/reagent_containers/syringe = 1,
-		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1
+		/obj/item/reagent_containers/glass/bottle/norepinephrine = 1
 	)
 
 /datum/outfit/admin/ert/iac/get_id_access()

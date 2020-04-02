@@ -272,6 +272,20 @@
 	uniform["officer uniform, blue"] = /obj/item/clothing/under/rank/security/blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
+/datum/gear/uniform/detective
+	display_name = "uniforms, (Investigations)"
+	description = "A selection of Investigations staff uniforms."
+	path = /obj/item/clothing/under/det
+	allowed_roles = list("Detective", "Forensic Technician")
+
+/datum/gear/uniform/detective/New()
+	..()
+	var/uniform = list()
+	uniform["investigator uniform, tan"] = /obj/item/clothing/under/det
+	uniform["investigator uniform, grey"] = /obj/item/clothing/under/det/forensics
+	uniform["investigator uniform, black"] = /obj/item/clothing/under/det/black
+	uniform["investigator uniform, brown"] = /obj/item/clothing/under/det/classic
+	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/warden
 	display_name = "uniforms, (Warden)"

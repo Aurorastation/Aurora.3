@@ -346,8 +346,11 @@
 /obj/item/storage/bag/circuits/mini
 	name = "circuit box"
 	desc = "Used to partition categories of circuits, for a neater workspace."
-	w_class = 2
-	display_contents_with_number = 1
+	w_class = ITEMSIZE_SMALL
+	display_contents_with_number = TRUE
+	pickup_blacklist = list(
+						/obj/item/storage/bag/circuits
+							)
 	can_hold = list(/obj/item/integrated_circuit)
 	var/spawn_flags_to_use = IC_SPAWN_DEFAULT
 	var/list/spawn_types = list()

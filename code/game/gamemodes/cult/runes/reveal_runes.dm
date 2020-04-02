@@ -15,10 +15,10 @@
 		rad = 2
 		reveal = TRUE
 	if(reveal)
-		for(var/obj/effect/rune/R in orange(rad, src))
+		for(var/obj/effect/rune/R in orange(rad, get_turf(src)))
 			if(R == src)
 				continue
-			R.visible = 15
+			R.invisibility = 0
 			did_reveal = TRUE
 	if(did_reveal)
 		if(istype(O, /obj/item/nullrod))
