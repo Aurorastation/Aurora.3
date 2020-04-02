@@ -4,6 +4,7 @@
 	icon_state = "mecha_clamp"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
+	w_class = ITEMSIZE_HUGE
 	var/carrying_capacity = 5
 	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
@@ -71,15 +72,31 @@
 /obj/item/mecha_equipment/clamp/attack_self(var/mob/user)
 	. = ..()
 	if(.)
-		if(!length(carrying))
-			to_chat(user, SPAN_WARNING("You are not carrying anything in \the [src]."))
-		else
-			var/obj/chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
-			if(!chosen_obj)
-				return
-			owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))
-			chosen_obj.forceMove(get_turf(src))
-			carrying -= chosen_obj
+		drop_carrying(user, TRUE)
+
+/obj/item/mecha_equipment/clamp/CtrlClick(mob/user)
+	if(owner)
+		drop_carrying(user, FALSE)
+	else
+		..()
+
+/obj/item/mecha_equipment/clamp/proc/drop_carrying(var/mob/user, var/choose_object)
+	if(!length(carrying))
+		to_chat(user, SPAN_WARNING("You are not carrying anything in \the [src]."))
+		return
+	var/obj/chosen_obj = carrying[1]
+	if(choose_object)
+		chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
+	if(!chosen_obj)
+		return
+	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))
+	chosen_obj.forceMove(get_turf(src))
+	carrying -= chosen_obj
+
+/obj/item/mecha_equipment/clamp/get_hardpoint_status_value()
+	if(length(carrying))
+		return length(carrying)/carrying_capacity
+	return null
 
 /obj/item/mecha_equipment/clamp/get_hardpoint_maptext()
 	if(length(carrying) == 1)

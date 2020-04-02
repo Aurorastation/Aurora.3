@@ -3,4 +3,5 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - tweak: "Mech cargo clamps can now hold up to five items, instead of just one."
+  - tweak: "Mech cargo clamps can now hold up to five items, instead of just one. Alt click to put down something specific, Crtl click to put down the first item in the list of carried stuff."
+  - bugfix: "Clamps no longer go into storage bags when clicking on them."

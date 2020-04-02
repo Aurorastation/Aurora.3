@@ -46,9 +46,14 @@
 			if(selected_system == A)
 				selected_system.attack_self(user)
 				setClickCooldown(5)
-				return
-			else
-				return
+			return
+	
+	if(modifiers["ctrl"])
+		if(selected_system)
+			if(selected_system == A)
+				selected_system.CtrlClick(user)
+				setClickCooldown(5)
+			return
 
 	if(!(user in pilots) && user != src)
 		return
