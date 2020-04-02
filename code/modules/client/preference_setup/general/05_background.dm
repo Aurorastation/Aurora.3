@@ -8,7 +8,7 @@
 	S["gen_record"]          >> pref.gen_record
 	S["citizenship"]         >> pref.citizenship
 	S["religion"]            >> pref.religion
-	S["nanotrasen_relation"] >> pref.nanotrasen_relation
+	S["economic_status"]	 >> pref.economic_status
 
 /datum/category_item/player_setup_item/general/background/save_character(var/savefile/S)
 	S["med_record"]          << pref.med_record
@@ -16,7 +16,7 @@
 	S["gen_record"]          << pref.gen_record
 	S["citizenship"]         << pref.citizenship
 	S["religion"]            << pref.religion
-	S["nanotrasen_relation"] << pref.nanotrasen_relation
+	S["economic_status"] 	 << pref.economic_status
 
 /datum/category_item/player_setup_item/general/background/gather_load_query()
 	return list(
@@ -31,7 +31,7 @@
 		),
 		"ss13_characters" = list(
 			"vars" = list(
-				"nt_relation" = "nanotrasen_relation",
+				"eco_stat" = "economic_status",
 				"citizenship",
 				"religion"
 			),
@@ -54,7 +54,7 @@
 			"char_id" = 1
 		),
 		"ss13_characters" = list(
-			"nt_relation",
+			"eco_stat",
 			"citizenship",
 			"religion","id" = 1,
 			"ckey" = 1
@@ -67,7 +67,7 @@
 		"records_medical" = pref.med_record,
 		"records_security" = pref.sec_record,
 		"char_id" = pref.current_character,
-		"nt_relation" = pref.nanotrasen_relation,
+		"eco_stat" = pref.economic_status,
 		"citizenship" = pref.citizenship,
 		"religion" = pref.religion,
 		"id" = pref.current_character,
@@ -87,12 +87,12 @@
 	if(!(pref.religion in S.allowed_religions))
 		pref.religion	= RELIGION_NONE
 
-	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, ECONOMIC_STATUS, initial(pref.nanotrasen_relation))
+	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_STATUS, initial(pref.economic_status))
 
 /datum/category_item/player_setup_item/general/background/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Background Information</b><br>",
-		"Economic Status: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
+		"Economic Status: <a href='?src=\ref[src];eco_stat=1'>[pref.economic_status]</a><br/>",
 		"Citizenship: <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>",
 		"Religion: <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>",
 		"<br/><b>Records</b>:<br/>"
@@ -112,10 +112,10 @@
 
 /datum/category_item/player_setup_item/general/background/OnTopic(var/href,var/list/href_list, var/mob/user)
 	var/datum/species/S = all_species[pref.species]
-	if(href_list["nt_relation"])
-		var/new_relation = input(user, "Choose your economic status. This will effect the amount of money you start with.", "Character Preference", pref.nanotrasen_relation)  as null|anything in ECONOMIC_STATUS
+	if(href_list["eco_stat"])
+		var/new_relation = input(user, "Choose your economic status. This will effect the amount of money you start with.", "Character Preference", pref.economic_status)  as null|anything in ECONOMIC_STATUS
 		if(new_relation && CanUseTopic(user))
-			pref.nanotrasen_relation = new_relation
+			pref.economic_status = new_relation
 			return TOPIC_REFRESH
 
 	else if(href_list["citizenship"])

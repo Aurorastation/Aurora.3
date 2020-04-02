@@ -78,7 +78,7 @@
 
 	var/loyalty = 1
 	if(H.client)
-		switch(H.client.prefs.nanotrasen_relation)
+		switch(H.client.prefs.economic_status)
 			if(ECONOMIC_WEALTHY)        loyalty = 1.30
 			if(ECONOMIC_WELLOFF) loyalty = 1.15
 			if(ECONOMIC_AVERAGE)      loyalty = 1
@@ -142,7 +142,7 @@
 
 	var/loyalty = 1
 	if(H.client)
-		switch(H.client.prefs.nanotrasen_relation)
+		switch(H.client.prefs.economic_status)
 			if(ECONOMIC_WEALTHY)        loyalty = 3
 			if(ECONOMIC_WELLOFF) loyalty = 2
 			if(ECONOMIC_AVERAGE)      loyalty = 1
