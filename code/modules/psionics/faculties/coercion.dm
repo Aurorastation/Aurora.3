@@ -20,10 +20,10 @@
 	use_ranged =     TRUE
 	use_melee =      TRUE
 	min_rank =       PSI_RANK_GRANDMASTER
-	use_description = "Target the eyes or mouth on disarm intent and click anywhere to use a radial attack that blinds, deafens and disorients everyone near you."
+	use_description = "Target the eyes on disarm intent and click anywhere to use a radial attack that blinds, deafens and disorients everyone near you."
 
 /datum/psionic_power/coercion/blindstrike/invoke(var/mob/living/user, var/mob/living/target)
-	if(user.zone_sel.selecting != "mouth" && user.zone_sel.selecting != BP_EYES)
+	if(user.zone_sel.selecting != BP_EYES)
 		return FALSE
 	. = ..()
 	if(.)
@@ -300,7 +300,7 @@
 	use_manifest =      TRUE
 	min_rank =          PSI_RANK_OPERANT
 	use_sound =         null
-	use_description =   "Activate an empty hand on disarm intent to detect nearby psionic signatures."
+	use_description =   "Activate an empty hand on help intent to detect nearby psionic signatures."
 	admin_log = FALSE
 
 /datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
