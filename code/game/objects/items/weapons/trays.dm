@@ -305,7 +305,7 @@
 
 /obj/item/tray/dropped(mob/user)
 	spawn(1)//A hack to avoid race conditions. Dropped procs too quickly
-		if(istype(src.loc, /mob))
+		if(ismob(loc))
 			//If this is true, then the tray has just switched hands and is still held by a mob
 			return
 
