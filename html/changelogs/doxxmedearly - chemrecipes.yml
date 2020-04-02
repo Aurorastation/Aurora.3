@@ -1,0 +1,11 @@
+# Your name.  
+author: Doxxmedearly
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+changes: 
+  - tweak: "The recipe for Lexorin is now a bit more sane. It is now made with a 1:1:1 ratio of tungsten, hydrazine, and ammonia, with 5u of phoron as a catalyst."
+  - rscadd: "Alkysine and Imidazoline overdoses now cause minor hallucinations."
+  - rscadd: "Dexalin and Dexalin+ now cause brain and eye damage if overdosed."

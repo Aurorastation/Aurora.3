@@ -570,7 +570,8 @@
 	name = "Lexorin"
 	id = "lexorin"
 	result = "lexorin"
-	required_reagents = list("phoron" = 1, "hydrazine" = 1, "ammonia" = 1)
+	required_reagents = list("tungsten" = 1, "hydrazine" = 1, "ammonia" = 1)
+	catalysts = list("phoron" = 5)
 	result_amount = 3
 
 /datum/chemical_reaction/calomel
