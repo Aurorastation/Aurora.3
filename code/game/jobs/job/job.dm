@@ -76,14 +76,14 @@
 	if(!account_allowed || (H.mind && H.mind.initial_account))
 		return
 
-	var/loyalty = 1
+	var/bank_acc = 1
 	if(H.client)
 		switch(H.client.prefs.economic_status)
-			if(ECONOMIC_WEALTHY)        loyalty = 1.30
-			if(ECONOMIC_WELLOFF) loyalty = 1.15
-			if(ECONOMIC_AVERAGE)      loyalty = 1
-			if(ECONOMIC_UNDERPAID)    loyalty = 0.85
-			if(ECONOMIC_POOR)      loyalty = 0.70
+			if(ECONOMIC_WEALTHY)        bank_acc = 1.30
+			if(ECONOMIC_WELLOFF) 		bank_acc = 1.15
+			if(ECONOMIC_AVERAGE)        bank_acc = 1
+			if(ECONOMIC_UNDERPAID)    	bank_acc = 0.85
+			if(ECONOMIC_POOR)      		bank_acc = 0.70
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
@@ -91,7 +91,7 @@
 		var/datum/species/human_species = global.all_species["Human"]
 		species_modifier = human_species.economic_modifier
 
-	var/money_amount = (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier
+	var/money_amount = (rand(5,50) + rand(5, 50)) * bank_acc * economic_modifier * species_modifier
 	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null)
 	if(H.mind)
 		var/remembered_info = ""
@@ -140,19 +140,19 @@
 
 	H.species.before_equip(H, FALSE, src)
 
-	var/loyalty = 1
+	var/bank_acc = 1
 	if(H.client)
 		switch(H.client.prefs.economic_status)
-			if(ECONOMIC_WEALTHY)        loyalty = 3
-			if(ECONOMIC_WELLOFF) loyalty = 2
-			if(ECONOMIC_AVERAGE)      loyalty = 1
-			if(ECONOMIC_UNDERPAID)    loyalty = -2
-			if(ECONOMIC_POOR)      loyalty = -3
+			if(ECONOMIC_WEALTHY)        bank_acc = 3
+			if(ECONOMIC_WELLOFF) 		bank_acc = 2
+			if(ECONOMIC_AVERAGE)      	bank_acc = 1
+			if(ECONOMIC_UNDERPAID)    	bank_acc = -2
+			if(ECONOMIC_POOR)      		bank_acc = -3
 
 	//give them an account in the station database
 	var/species_modifier = min((H.species ? H.species.economic_modifier : 0) - 9, 0)
 
-	var/wealth = (loyalty + economic_modifier + species_modifier)
+	var/wealth = (bank_acc + economic_modifier + species_modifier)
 
 	switch(wealth)
 		if(-INFINITY to 2)
