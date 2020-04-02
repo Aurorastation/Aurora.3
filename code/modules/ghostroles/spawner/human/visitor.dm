@@ -1,7 +1,7 @@
-/datum/ghostspawner/human/visitorerror
-	short_name = "visitorerror"
+/datum/ghostspawner/human/visitor
+	short_name = "visitor"
 	name = "Visitor"
-	desc = "You are a Visitor, but noone told them."
+	desc = "You are a random visitor that boarded the NSS Aurora, visiting for any reason you can think of. You do not have any records, as you are not a Nanotrasen employee."
 	tags = list("External")
 
 	enabled = FALSE
@@ -11,8 +11,8 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/random/visitor
-	possible_species = list("Human","Skrell","Tajara","Unathi")
-	possible_genders = list(MALE,FEMALE)
+	possible_species = list("Human", "Skrell", "Tajara", "Unathi")
+	possible_genders = list(MALE, FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Visitor"
@@ -23,5 +23,5 @@
 
 	enable_chance = 10
 
-/datum/ghostspawner/human/visitorerror/select_spawnpoint(var/use=TRUE)
+/datum/ghostspawner/human/visitor/select_spawnpoint(var/use = TRUE)
 	return pick(latejoin)
