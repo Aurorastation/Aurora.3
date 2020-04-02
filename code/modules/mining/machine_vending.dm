@@ -53,9 +53,9 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment("Ore Summoner",				/obj/item/oreportal,										35,					800),
 	new /datum/data/mining_equipment("Lazarus Injector",			/obj/item/lazarus_injector,									25,					1000),
 	new /datum/data/mining_equipment("Industrial Drill Head",		/obj/machinery/mining/drill,								-1,					1000,	1),
-	new /datum/data/mining_equipment("Orbital Drill Dropper",		/obj/item/device/orbital_dropper/drill,						10,					1250),
 	new /datum/data/mining_equipment("Super Resonator",				/obj/item/resonator/upgraded,								10,					1250),
 	new /datum/data/mining_equipment("Diamond Pickaxe",				/obj/item/pickaxe/diamond,									10,					1500),
+	new /datum/data/mining_equipment("Orbital Drill Dropper",		/obj/item/device/orbital_dropper/drill,						10,					3250),
 	new /datum/data/mining_equipment("Thermal Drill",				/obj/item/gun/energy/vaurca/thermaldrill,					5,					3750)
 	)
 
