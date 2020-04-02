@@ -87,12 +87,12 @@
 	if(!(pref.religion in S.allowed_religions))
 		pref.religion	= RELIGION_NONE
 
-	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, COMPANY_ALIGNMENTS, initial(pref.nanotrasen_relation))
+	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, ECONOMIC_STATUS, initial(pref.nanotrasen_relation))
 
 /datum/category_item/player_setup_item/general/background/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Background Information</b><br>",
-		"[current_map.company_name] Relation: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
+		"Economic Status: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
 		"Citizenship: <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>",
 		"Religion: <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>",
 		"<br/><b>Records</b>:<br/>"
@@ -113,7 +113,7 @@
 /datum/category_item/player_setup_item/general/background/OnTopic(var/href,var/list/href_list, var/mob/user)
 	var/datum/species/S = all_species[pref.species]
 	if(href_list["nt_relation"])
-		var/new_relation = input(user, "Choose your relation to NT. Note that this represents what others can find out about your character by researching your background, not what your character actually thinks.", "Character Preference", pref.nanotrasen_relation)  as null|anything in COMPANY_ALIGNMENTS
+		var/new_relation = input(user, "Choose your economic status. This will effect the amount of money you start with.", "Character Preference", pref.nanotrasen_relation)  as null|anything in ECONOMIC_STATUS
 		if(new_relation && CanUseTopic(user))
 			pref.nanotrasen_relation = new_relation
 			return TOPIC_REFRESH

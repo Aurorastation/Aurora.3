@@ -79,11 +79,11 @@
 	var/loyalty = 1
 	if(H.client)
 		switch(H.client.prefs.nanotrasen_relation)
-			if(COMPANY_LOYAL)        loyalty = 1.30
-			if(COMPANY_SUPPORTATIVE) loyalty = 1.15
-			if(COMPANY_NEUTRAL)      loyalty = 1
-			if(COMPANY_SKEPTICAL)    loyalty = 0.85
-			if(COMPANY_OPPOSED)      loyalty = 0.70
+			if(ECONOMIC_WEALTHY)        loyalty = 1.30
+			if(ECONOMIC_WELLOFF) loyalty = 1.15
+			if(ECONOMIC_AVERAGE)      loyalty = 1
+			if(ECONOMIC_UNDERPAID)    loyalty = 0.85
+			if(ECONOMIC_POOR)      loyalty = 0.70
 
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
@@ -143,11 +143,11 @@
 	var/loyalty = 1
 	if(H.client)
 		switch(H.client.prefs.nanotrasen_relation)
-			if(COMPANY_LOYAL)        loyalty = 3
-			if(COMPANY_SUPPORTATIVE) loyalty = 2
-			if(COMPANY_NEUTRAL)      loyalty = 1
-			if(COMPANY_SKEPTICAL)    loyalty = -2
-			if(COMPANY_OPPOSED)      loyalty = -3
+			if(ECONOMIC_WEALTHY)        loyalty = 3
+			if(ECONOMIC_WELLOFF) loyalty = 2
+			if(ECONOMIC_AVERAGE)      loyalty = 1
+			if(ECONOMIC_UNDERPAID)    loyalty = -2
+			if(ECONOMIC_POOR)      loyalty = -3
 
 	//give them an account in the station database
 	var/species_modifier = min((H.species ? H.species.economic_modifier : 0) - 9, 0)

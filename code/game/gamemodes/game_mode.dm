@@ -459,7 +459,7 @@ var/global/list/additional_antag_types = list()
 		else if(man.mind.assigned_job)
 			var/datum/job/job = man.mind.assigned_job
 			var/evil = 0
-			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED || man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL)
+			if(man.client.prefs.nanotrasen_relation == ECONOMIC_POOR || man.client.prefs.nanotrasen_relation == ECONOMIC_UNDERPAID)
 				evil = 1
 			switch(job.department)
 				if("Civilian" || "Cargo")
@@ -483,9 +483,9 @@ var/global/list/additional_antag_types = list()
 					if(evil)
 						sci_suspect += 1
 
-		else if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED && prob(25))
+		else if(man.client.prefs.nanotrasen_relation == ECONOMIC_POOR && prob(25))
 			suspects += man
-		else if(man.client.prefs.nanotrasen_relation == COMPANY_LOYAL || man.client.prefs.nanotrasen_relation == COMPANY_SUPPORTATIVE)
+		else if(man.client.prefs.nanotrasen_relation == ECONOMIC_WEALTHY || man.client.prefs.nanotrasen_relation == ECONOMIC_WELLOFF)
 			loyal_crew += 1
 			if(prob(25))
 				loyalists += man
@@ -712,9 +712,9 @@ proc/get_nt_opposed()
 	var/list/dudes = list()
 	for(var/mob/living/carbon/human/man in player_list)
 		if(man.client)
-			if(man.client.prefs.nanotrasen_relation == COMPANY_OPPOSED)
+			if(man.client.prefs.nanotrasen_relation == ECONOMIC_POOR)
 				dudes += man
-			else if(man.client.prefs.nanotrasen_relation == COMPANY_SKEPTICAL && prob(50))
+			else if(man.client.prefs.nanotrasen_relation == ECONOMIC_UNDERPAID && prob(50))
 				dudes += man
 	if(dudes.len == 0) return null
 	return pick(dudes)

@@ -166,14 +166,14 @@
 #define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
 #define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
 
-// NT's alignment towards the character
-#define COMPANY_LOYAL 			"Loyal"
-#define COMPANY_SUPPORTATIVE	"Supportive"
-#define COMPANY_NEUTRAL 		"Neutral"
-#define COMPANY_SKEPTICAL		"Skeptical"
-#define COMPANY_OPPOSED			"Opposed"
+// How wealthy a character is
+#define ECONOMIC_WEALTHY 		"Wealthy"
+#define ECONOMIC_WELLOFF	    "Well-off"
+#define ECONOMIC_AVERAGE 		"Average"
+#define ECONOMIC_UNDERPAID		"Underpaid"
+#define ECONOMIC_POOR			"Poor"
 
-#define COMPANY_ALIGNMENTS		list(COMPANY_LOYAL,COMPANY_SUPPORTATIVE,COMPANY_NEUTRAL,COMPANY_SKEPTICAL,COMPANY_OPPOSED)
+#define ECONOMIC_STATUS		list(ECONOMIC_WEALTHY,ECONOMIC_WELLOFF,ECONOMIC_AVERAGE,ECONOMIC_UNDERPAID,ECONOMIC_POOR)
 
 // Defines the argument used for get_mobs_and_objs_in_view_fast
 #define GHOSTS_ALL_HEAR 1
