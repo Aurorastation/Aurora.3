@@ -18,51 +18,43 @@
 	max_w_class = ITEMSIZE_SMALL
 	max_storage_space = 60
 	matter = list(DEFAULT_WALL_MATERIAL = 750)
-	var/list/spawn_items = list()
-
-/obj/item/storage/bag/stockparts_box/fill()
-	for(var/spawn_thing in spawn_items)
-		while(spawn_items[spawn_thing])
-			var/spawn_path = text2path(spawn_thing)
-			new spawn_path(src)
-			spawn_items[spawn_thing]--
 
 /obj/item/storage/bag/stockparts_box/basic
 	name = "basic stock parts box"
-	spawn_items = list(
-					"/obj/item/stock_parts/console_screen" = 5,
-					"/obj/item/stock_parts/capacitor" = 3,
-					"/obj/item/stock_parts/scanning_module" = 3,
-					"/obj/item/stock_parts/manipulator" = 3,
-					"/obj/item/stock_parts/micro_laser" = 3,
-					"/obj/item/stock_parts/matter_bin" = 3
+	starts_with = list(
+					/obj/item/stock_parts/console_screen = 5,
+					/obj/item/stock_parts/capacitor = 3,
+					/obj/item/stock_parts/scanning_module = 3,
+					/obj/item/stock_parts/manipulator = 3,
+					/obj/item/stock_parts/micro_laser = 3,
+					/obj/item/stock_parts/matter_bin = 3
 					)
 
 /obj/item/storage/bag/stockparts_box/advanced
 	name = "advanced stock parts box"
-	spawn_items = list(
-					"/obj/item/stock_parts/console_screen" = 5,
-					"/obj/item/stock_parts/capacitor/adv" = 3,
-					"/obj/item/stock_parts/scanning_module/adv" = 3,
-					"/obj/item/stock_parts/manipulator/nano" = 3,
-					"/obj/item/stock_parts/micro_laser/high" = 3,
-					"/obj/item/stock_parts/matter_bin/adv" = 3
+	starts_with = list(
+					/obj/item/stock_parts/console_screen = 5,
+					/obj/item/stock_parts/capacitor/adv = 3,
+					/obj/item/stock_parts/scanning_module/adv = 3,
+					/obj/item/stock_parts/manipulator/nano = 3,
+					/obj/item/stock_parts/micro_laser/high = 3,
+					S/obj/item/stock_parts/matter_bin/adv = 3
 					)
 
 /obj/item/storage/bag/stockparts_box/super
 	name = "super stock parts box"
-	spawn_items = list(
-					"/obj/item/stock_parts/console_screen" = 5,
-					"/obj/item/stock_parts/capacitor/super" = 3,
-					"/obj/item/stock_parts/scanning_module/phasic" = 3,
-					"/obj/item/stock_parts/manipulator/pico" = 3,
-					"/obj/item/stock_parts/micro_laser/ultra" = 3,
-					"/obj/item/stock_parts/matter_bin/super" = 3
+	starts_with = list(
+					/obj/item/stock_parts/console_screen = 5,
+					/obj/item/stock_parts/capacitor/super = 3,
+					/obj/item/stock_parts/scanning_module/phasic = 3,
+					/obj/item/stock_parts/manipulator/pico = 3,
+					/obj/item/stock_parts/micro_laser/ultra = 3,
+					/obj/item/stock_parts/matter_bin/super = 3
 					)
 
 /obj/item/storage/bag/stockparts_box/telecomms
 	name = "telecommunications stock parts box"
-	spawn_items = list(
+	starts_with = list(
 					"/obj/item/stock_parts/console_screen" = 2,
 					"/obj/item/stock_parts/subspace/ansible" = 5,
 					"/obj/item/stock_parts/subspace/filter" = 5,
