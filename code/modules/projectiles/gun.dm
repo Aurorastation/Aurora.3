@@ -50,8 +50,8 @@
 
 	var/burst = 1
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
-	var/burst_delay = 2	//delay between shots, if firing in bursts
-	var/move_delay = 1
+	var/burst_delay = 1	//delay between shots, if firing in bursts
+	var/move_delay = 0
 	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	var/fire_sound_text = "gunshot"
 	var/recoil = 0		//screen shake
@@ -91,7 +91,7 @@
 	var/tmp/lock_time = -100
 	var/safety_state = TRUE
 	var/has_safety = TRUE
-	var/safety_icon	= "safety"   //overlay to apply to gun based on safety state, if any
+	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
 
@@ -123,13 +123,11 @@
 		I.pixel_y = knife_y_offset
 		underlays += I
 
-	if(has_safety && safety_icon)
-		for(var/I in overlays)
-			var/image/gun_overlay = I
-			if(gun_overlay.icon == gun_gui_icons && dd_hasprefix(gun_overlay.icon_state, "[safety_icon]"))
-				overlays -= gun_overlay
+	if(has_safety)
+		cut_overlay(safety_overlay, TRUE)
 		if(!isturf(loc)) // In a mob, holster or bag or something
-			overlays += image(gun_gui_icons,"[safety_icon][safety()]")
+			safety_overlay = image(gun_gui_icons,"[safety()]")
+			add_overlay(safety_overlay, TRUE)
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -411,9 +409,15 @@
 			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
 
 	if(recoil)
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/shake_camera, user, recoil+1, recoil), 0, TIMER_UNIQUE)
-	update_icon()
+		shake_camera(user, recoil + 1, recoil)
 
+	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+		var/mob/living/carbon/human/H = user
+		if(istype(H.back,/obj/item/rig))
+			var/obj/item/rig/R = H.back
+			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
+				S.deactivate()
+	update_icon()
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
 	var/obj/item/projectile/P = projectile
@@ -496,6 +500,11 @@
 			return
 		if (!pin.pin_auth() && needspin)
 			user.visible_message(span("warning", "*click click*"))
+			mouthshoot = FALSE
+			return
+		if(safety() && user.a_intent != I_HURT)
+			user.visible_message(SPAN_WARNING("The safety was on. How anticlimatic!"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if(silenced)

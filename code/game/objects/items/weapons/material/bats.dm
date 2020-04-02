@@ -14,16 +14,16 @@
 
 //Predefined materials go here.
 /obj/item/material/twohanded/baseballbat/metal/New(var/newloc)
-	..(newloc,"steel")
+	..(newloc, MATERIAL_STEEL)
 
 /obj/item/material/twohanded/baseballbat/uranium/New(var/newloc)
-	..(newloc,"uranium")
+	..(newloc, MATERIAL_URANIUM)
 
 /obj/item/material/twohanded/baseballbat/gold/New(var/newloc)
-	..(newloc,"gold")
+	..(newloc, MATERIAL_GOLD)
 
 /obj/item/material/twohanded/baseballbat/platinum/New(var/newloc)
-	..(newloc,"platinum")
+	..(newloc, MATERIAL_PLATINUM)
 
 /obj/item/material/twohanded/baseballbat/diamond/New(var/newloc)
-	..(newloc,"diamond")
+	..(newloc, MATERIAL_DIAMOND)

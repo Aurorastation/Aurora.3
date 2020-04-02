@@ -8,6 +8,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
+	magazine_type = /obj/item/ammo_magazine/boltaction
 	max_shells = 5
 
 	pump_fail_msg = "<span class='warning'>You cannot work the rifle's bolt without gripping it with both hands!</span>"
@@ -62,6 +63,7 @@
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/a556
+	magazine_type = /obj/item/ammo_magazine/a556
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	load_method = SINGLE_CASING
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
@@ -130,6 +132,7 @@
 	handle_casings = HOLD_CASINGS
 	caliber = "vintage"
 	ammo_type = /obj/item/ammo_casing/vintage
+	magazine_type = /obj/item/ammo_magazine/boltaction/vintage
 	can_bayonet = TRUE
 	var/open_bolt = 0
 	var/obj/item/ammo_magazine/boltaction/vintage/has_clip

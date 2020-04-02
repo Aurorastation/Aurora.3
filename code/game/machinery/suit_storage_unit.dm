@@ -8,23 +8,23 @@
 	desc = "An industrial U-Stor-It Storage unit designed to accomodate all kinds of space suits. Its on-board equipment also allows the user to decontaminate the contents through a UV-ray purging cycle. There's a warning label dangling from the control pad, reading \"STRICTLY NO BIOLOGICALS IN THE CONFINES OF THE UNIT\"."
 	icon = 'icons/obj/suit_storage.dmi'
 	icon_state = "base"
-	anchored = 1
-	density = 1
-	var/mob/living/carbon/human/OCCUPANT = null
-	var/obj/item/clothing/suit/space/SUIT = null
-	var/SUIT_TYPE = null
-	var/obj/item/clothing/head/helmet/space/HELMET = null
-	var/HELMET_TYPE = null
-	var/obj/item/clothing/mask/MASK = null  //All the stuff that's gonna be stored insiiiiiiiiiiiiiiiiiiide, nyoro~n
-	var/MASK_TYPE = null //Erro's idea on standarising SSUs whle keeping creation of other SSU types easy: Make a child SSU, name it something then set the TYPE vars to your desired suit output. New() should take it from there by itself.
-	var/isopen = 0
-	var/islocked = 0
-	var/isUV = 0
-	var/ispowered = 1 //starts powered
-	var/isbroken = 0
-	var/issuperUV = 0
-	var/panelopen = 0
-	var/safetieson = 1
+	anchored = TRUE
+	density = TRUE
+	var/mob/living/carbon/human/OCCUPANT
+	var/obj/item/clothing/suit/space/SUIT
+	var/SUIT_TYPE
+	var/obj/item/clothing/head/helmet/space/HELMET
+	var/HELMET_TYPE
+	var/obj/item/clothing/mask/MASK //All the stuff that's gonna be stored insiiiiiiiiiiiiiiiiiiide, nyoro~n
+	var/MASK_TYPE //Erro's idea on standarising SSUs whle keeping creation of other SSU types easy: Make a child SSU, name it something then set the TYPE vars to your desired suit output. New() should take it from there by itself.
+	var/isopen = FALSE
+	var/islocked = FALSE
+	var/isUV = FALSE
+	var/ispowered = TRUE //starts powered
+	var/isbroken = FALSE
+	var/issuperUV = FALSE
+	var/panelopen = FALSE
+	var/safetieson = TRUE
 	var/cycletime_left = 0
 
 //The units themselves/////////////////
@@ -384,35 +384,10 @@
 	src.updateUsrDialog()
 	return
 
-/*	spawn(200) //Let's clean dat shit after 20 secs  //Eh, this doesn't work
-		if(src.HELMET)
-			HELMET.clean_blood()
-		if(src.SUIT)
-			SUIT.clean_blood()
-		if(src.MASK)
-			MASK.clean_blood()
-		src.isUV = 0 //Cycle ends
-		src.update_icon()
-		src.updateUsrDialog()
-
-	var/i
-	for(i=0,i<4,i++) //Gradually give the guy inside some damaged based on the intensity
-		spawn(50)
-			if(src.OCCUPANT)
-				if(src.issuperUV)
-					OCCUPANT.take_organ_damage(0,40)
-					to_chat(user, "Test. You gave him 40 damage")
-				else
-					OCCUPANT.take_organ_damage(0,8)
-					to_chat(user, "Test. You gave him 8 damage")
-	return*/
-
-
 /obj/machinery/suit_storage_unit/proc/cycletimeleft()
 	if(src.cycletime_left >= 1)
 		src.cycletime_left--
 	return src.cycletime_left
-
 
 /obj/machinery/suit_storage_unit/proc/eject_occupant(mob/user as mob)
 	if (src.islocked)
@@ -420,8 +395,6 @@
 
 	if (!src.OCCUPANT)
 		return
-//	for(var/obj/O in src)
-//		O.forceMove(src.loc
 
 	if (src.OCCUPANT.client)
 		if(user != OCCUPANT)
@@ -475,13 +448,9 @@
 		usr.client.perspective = EYE_PERSPECTIVE
 		usr.client.eye = src
 		usr.forceMove(src)
-//		usr.metabslow = 1
 		src.OCCUPANT = usr
 		src.isopen = 0 //Close the thing after the guy gets inside
 		src.update_icon()
-
-//		for(var/obj/O in src)
-//			qdel(O)
 
 		src.add_fingerprint(usr)
 		src.updateUsrDialog()
@@ -524,9 +493,6 @@
 			M.forceMove(src)
 			src.OCCUPANT = M
 			src.isopen = 0 //close ittt
-
-			//for(var/obj/O in src)
-			//	O.forceMove(src.loc
 			src.add_fingerprint(user)
 			qdel(G)
 			src.updateUsrDialog()
@@ -586,39 +552,38 @@
 //Suit painter for Bay's special snowflake aliums.
 
 /obj/machinery/suit_cycler
-
 	name = "suit cycler"
 	desc = "An industrial machine for painting and refitting voidsuits."
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 
 	icon = 'icons/obj/suit_storage.dmi'
 	icon_state = "base"
 
 	req_access = list(access_captain,access_heads)
 
-	var/active = 0          // PLEASE HOLD.
-	var/safeties = 1        // The cycler won't start with a living thing inside it unless safeties are off.
+	var/active = FALSE          // PLEASE HOLD.
+	var/safeties = TRUE        // The cycler won't start with a living thing inside it unless safeties are off.
 	var/irradiating = 0     // If this is > 0, the cycler is decontaminating whatever is inside it.
 	var/radiation_level = 2 // 1 is removing germs, 2 is removing blood, 3 is removing phoron.
 	var/model_text = ""     // Some flavour text for the topic box.
-	var/locked = 1          // If locked, nothing can be taken from or added to the cycler.
+	var/locked = TRUE          // If locked, nothing can be taken from or added to the cycler.
 	var/can_repair          // If set, the cycler can repair voidsuits.
-	var/electrified = 0
+	var/electrified = FALSE
 
 	//Departments that the cycler can paint suits to look like.
-	var/list/departments = list("Engineering","Mining","Medical","Security","Atmos")
+	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
 	//Species that the suits can be configured to fit.
-	var/list/species = list("Human","Skrell","Unathi","Tajara", "Vaurca", "Machine")
+	var/list/species = list("Human", "Skrell", "Unathi", "Tajara", "Vaurca", "Machine")
 
 	var/target_department
 	var/target_species
 
-	var/mob/living/carbon/human/occupant = null
-	var/obj/item/clothing/suit/space/void/suit = null
-	var/obj/item/clothing/head/helmet/space/helmet = null
+	var/mob/living/carbon/human/occupant
+	var/obj/item/clothing/suit/space/void/suit
+	var/obj/item/clothing/head/helmet/space/helmet
 
-	var/datum/wires/suit_storage_unit/wires = null
+	var/datum/wires/suit_storage_unit/wires
 
 /obj/machinery/suit_cycler/Initialize()
 	. = ..()
@@ -631,8 +596,7 @@
 		qdel(src)
 
 /obj/machinery/suit_cycler/Destroy()
-	qdel(wires)
-	wires = null
+	QDEL_NULL(wires)
 	return ..()
 
 /obj/machinery/suit_cycler/update_icon()
@@ -658,75 +622,75 @@
 		add_overlay("closed")
 
 /obj/machinery/suit_cycler/engineering
-	name = "Engineering suit cycler"
+	name = "engineering suit cycler"
 	model_text = "Engineering"
 	req_access = list(access_construction)
-	departments = list("Engineering","Atmos")
+	departments = list("Engineering", "Atmos")
 
 /obj/machinery/suit_cycler/mining
-	name = "Mining suit cycler"
+	name = "mining suit cycler"
 	model_text = "Mining"
 	req_access = list(access_mining)
 	departments = list("Mining")
 
 /obj/machinery/suit_cycler/security
-	name = "Security suit cycler"
+	name = "security suit cycler"
 	model_text = "Security"
 	req_access = list(access_security)
 	departments = list("Security")
 
 /obj/machinery/suit_cycler/medical
-	name = "Medical suit cycler"
+	name = "medical suit cycler"
 	model_text = "Medical"
 	req_access = list(access_medical)
 	departments = list("Medical")
 
 /obj/machinery/suit_cycler/syndicate
-	name = "Nonstandard suit cycler"
+	name = "non-standard suit cycler"
 	model_text = "Nonstandard"
 	req_access = list(access_syndicate)
 	departments = list("Mercenary")
-	can_repair = 1
+	can_repair = TRUE
 
 /obj/machinery/suit_cycler/wizard
-	name = "Magic suit cycler"
+	name = "magic suit cycler"
 	model_text = "Wizardry"
 	req_access = null
 	departments = list("Wizardry")
-	species = list("Human","Tajara","Skrell","Unathi", "Machine")
-	can_repair = 1
+	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	can_repair = TRUE
 
 /obj/machinery/suit_cycler/hos
-	name = "Head of Security suit cycler"
+	name = "head of security suit cycler"
 	model_text = "Head of Security"
 	req_access = list(access_hos)
-	departments = list("Head of Security")
-	species = list("Human","Tajara","Skrell","Unathi", "Machine")
-	can_repair = 1
+	departments = list("Head of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
+	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	can_repair = TRUE
 
 /obj/machinery/suit_cycler/captain
-	name = "Captain suit cycler"
+	name = "captain suit cycler"
 	model_text = "Captain"
 	req_access = list(access_captain)
 	departments = list("Captain")
-	species = list("Human","Tajara","Skrell","Unathi", "Machine")
-	can_repair = 1
+	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	can_repair = TRUE
 
 /obj/machinery/suit_cycler/science
-	name = "Research suit cycler"
+	name = "research suit cycler"
 	model_text = "Research"
 	req_access = list(access_research)
 	departments = list("Research")
-	species = list("Human","Tajara","Skrell","Unathi", "Machine")
-	can_repair = 1
+	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	can_repair = TRUE
 
 /obj/machinery/suit_cycler/freelancer
-	name = "Freelancers suit cycler"
+	name = "freelancers suit cycler"
 	model_text = "Freelancers"
 	req_access = list(access_distress)
 	departments = list("Freelancers")
-	species = list("Human","Tajara","Skrell","Unathi", "Machine")
-	can_repair = 1
+	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	can_repair = TRUE
 
 /obj/machinery/suit_cycler/attack_ai(mob/user as mob)
 	return src.attack_hand(user)

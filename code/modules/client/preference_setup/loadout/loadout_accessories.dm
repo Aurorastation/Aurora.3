@@ -29,6 +29,7 @@
 	..()
 	var/armbands = list()
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
+	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
 	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
@@ -202,6 +203,7 @@
 	var/shirts = list()
 	shirts["cyan silversun shirt"] = /obj/item/clothing/accessory/silversun
 	shirts["red silversun shirt"] = /obj/item/clothing/accessory/silversun/red
+	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
 	gear_tweaks += new/datum/gear_tweak/path(shirts)
 
 /datum/gear/accessory/scarf

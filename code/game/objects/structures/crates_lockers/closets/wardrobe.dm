@@ -399,6 +399,8 @@
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/purple(src)
 	new /obj/item/clothing/shoes/red(src)
+	new /obj/item/clothing/accessory/silversun/random(src)
+	new /obj/item/clothing/accessory/silversun/random(src)
 	return
 
 /obj/structure/closet/wardrobe/tactical

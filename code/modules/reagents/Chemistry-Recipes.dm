@@ -616,6 +616,13 @@
 	required_reagents = list("calomel" = 1, "lexorin" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/pneumalin
+	name = "Pneumalin"
+	id = "pneumalin"
+	result = "pneumalin"
+	required_reagents = list("coughsyrup" = 1, "copper" = 1, "pulmodeiectionem" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/saline
 	name = "Saline"
 	id = "saline"
@@ -635,13 +642,6 @@
 	id = "atropine"
 	result = "atropine"
 	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
-	result_amount = 2
-
-/datum/chemical_reaction/inaprovaline
-	name = "Inaprovaline"
-	id = "inaprovaline"
-	result = "inaprovaline"
-	required_reagents = list("atropine" = 1, "phoron" = 0.1, "adrenaline" = 1 )
 	result_amount = 2
 
 /datum/chemical_reaction/coughsyrup
@@ -1884,7 +1884,7 @@
 	name = "Goldschlager"
 	id = "goldschlager"
 	result = "goldschlager"
-	required_reagents = list("vodka" = 10, "gold" = 1)
+	required_reagents = list("vodka" = 10, MATERIAL_GOLD = 1)
 	mix_message = null
 	reaction_sound = 'sound/effects/pour.ogg'
 	result_amount = 10
@@ -1893,7 +1893,7 @@
 	name = "Patron"
 	id = "patron"
 	result = "patron"
-	required_reagents = list("tequilla" = 10, "silver" = 1)
+	required_reagents = list("tequilla" = 10, MATERIAL_SILVER = 1)
 	result_amount = 10
 
 /datum/chemical_reaction/drink/bilk
@@ -3386,7 +3386,7 @@
 	name = "Transmutation: Gold"
 	id = "transmutation_gold"
 	result = null
-	required_reagents = list("aluminum" = 5, "silver" = 5)
+	required_reagents = list("aluminum" = 5, MATERIAL_SILVER = 5)
 	catalysts = list("philosopher_stone" = 1)
 	result_amount = 1
 
@@ -3400,7 +3400,7 @@
 	name = "Transmutation: Diamond"
 	id = "transmutation_diamond"
 	result = null
-	required_reagents = list("carbon" = 5, "gold" = 5)
+	required_reagents = list("carbon" = 5, MATERIAL_GOLD = 5)
 	catalysts = list("philosopher_stone" = 1)
 	result_amount = 1
 

@@ -40,6 +40,7 @@
 				)
 		playsound(user.loc, 'sound/items/crank.ogg', 60, 1)
 		is_charging = TRUE
+		flick("crank", src)
 		if(do_after(user,20))
 			to_chat(user, "<span class='notice'>You finish charging \the [src].</span>")
 			power_supply.give(charge_cost)

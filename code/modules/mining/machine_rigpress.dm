@@ -3,8 +3,8 @@
 	desc = "This machine converts certain items permanently into hardsuit modules."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "coinpress0"
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
@@ -45,20 +45,20 @@
 			..()
 			return
 
-		to_chat(user, "<span class='notice'>You start feeding [W] into \the [src]</span>")
-		if(do_after(user,30))
-			src.visible_message("<span class='notice'>\The [src] begins to print out a modsuit.</span>")
-			pressing = 1
+		to_chat(user, SPAN_NOTICE("You start feeding [W] into \the [src]"))
+		if(do_after(user, 30))
+			src.visible_message(SPAN_NOTICE("\The [src] begins to print out a modsuit."))
+			pressing = TRUE
 			update_icon()
 			use_power(500)
 			qdel(W)
 			spawn(300)
-				ping( "\The [src] pings, \"Module successfuly produced!\"" )
+				ping("\The [src] pings, \"Module successfuly produced!\"")
 
-				new outcome_path(src.loc)
+				new outcome_path(get_turf(src))
 
 				use_power(500)
-				pressing = 0
+				pressing = FALSE
 				update_icon()
 
 	else

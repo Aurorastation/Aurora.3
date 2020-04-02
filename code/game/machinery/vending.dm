@@ -184,7 +184,23 @@
 		to_chat(user, "You short out the product lock on \the [src]")
 		return 1
 
-/obj/machinery/vending/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/vending/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/device/debugger))
+		if(!shut_up)
+			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
+			if(do_after(user, 100 / W.toolspeed, act_target = src))
+				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied.\"."))
+				shut_up = TRUE
+		if(shoot_inventory)
+			if(wires.IsIndexCut(VENDING_WIRE_THROW))
+				to_chat(user, SPAN_WARNING("\The [W] reads, \"Hardware error detected. Manual repair required.\"."))
+				return
+			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
+			if(do_after(user, 100 / W.toolspeed, act_target = src))
+				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
+				shoot_inventory = FALSE
+		else
+			to_chat(user, SPAN_NOTICE("\The [W] reads, \"All systems nominal.\"."))
 
 	var/obj/item/card/id/I = W.GetID()
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
@@ -607,8 +623,8 @@
 	use_power(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
+	playsound(src.loc, "sound/[vending_sound]", 100, 1)
 	spawn(src.vend_delay)
-		playsound(src.loc, "sound/[vending_sound]", 100, 1)
 		var/obj/vended = new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0

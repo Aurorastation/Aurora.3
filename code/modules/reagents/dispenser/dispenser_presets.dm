@@ -26,7 +26,7 @@
 /obj/machinery/chemical_dispenser/ert
 	name = "medicine dispenser"
 	spawn_cartridges = list(
-			/obj/item/reagent_containers/chem_disp_cartridge/inaprov,
+			/obj/item/reagent_containers/chem_disp_cartridge/norepi,
 			/obj/item/reagent_containers/chem_disp_cartridge/ryetalyn,
 			/obj/item/reagent_containers/chem_disp_cartridge/paracetamol,
 			/obj/item/reagent_containers/chem_disp_cartridge/tramadol,
@@ -94,7 +94,8 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/apple,
 			/obj/item/reagent_containers/chem_disp_cartridge/watermelon,
 			/obj/item/reagent_containers/chem_disp_cartridge/clean_kois,
-			/obj/item/reagent_containers/chem_disp_cartridge/banana
+			/obj/item/reagent_containers/chem_disp_cartridge/banana,
+			/obj/item/reagent_containers/chem_disp_cartridge/root_beer
 		)
 
 /obj/machinery/chemical_dispenser/bar_alc

@@ -248,6 +248,18 @@
 	if (amount_grown > -1)
 		amount_grown += (rand(0, 1) * growth_rate)
 
+/obj/effect/spider/spiderling/attack_hand(mob/living/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src)
+	if(prob(20))
+		visible_message(SPAN_WARNING("\The [user] tries to stomp on \the [src], but misses!"))
+		var/list/nearby = oview(2, src)
+		if(length(nearby))
+			walk_to(src, pick(nearby), 2)
+			return
+	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
+	die()
+
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point
  * of the first spiderling reaching 80% of more amount grown. This stops them from growing

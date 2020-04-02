@@ -1,11 +1,11 @@
 /turf/simulated/floor/beach
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
+	icon_state = "sand"
 	footstep_sound = "sand"
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
-	icon_state = "sand"
 
 /turf/simulated/floor/beach/sand/alt
 	icon = 'icons/turf/total_floors.dmi'

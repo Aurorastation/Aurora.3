@@ -2,7 +2,7 @@
 	desc = "These gloves will protect the wearer from electric shock."
 	name = "insulated gloves"
 	icon_state = "yellow"
-	item_state = "ygloves"
+	item_state = "yellow"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	drop_sound = 'sound/items/drop/rubber.ogg'
@@ -11,7 +11,7 @@
 	desc = "These gloves are cheap copies of the coveted gloves, no way this can end badly."
 	name = "budget insulated gloves"
 	icon_state = "yellow"
-	item_state = "ygloves"
+	item_state = "yellow"
 	siemens_coefficient = 1			//Set to a default of 1, gets overridden in New()
 	permeability_coefficient = 0.05
 	drop_sound = 'sound/items/drop/rubber.ogg'
@@ -24,7 +24,7 @@
 	desc = "These work gloves are thick and fire-resistant."
 	name = "black gloves"
 	icon_state = "black"
-	item_state = "bgloves"
+	item_state = "black"
 	siemens_coefficient = 0.50
 	permeability_coefficient = 0.05
 
@@ -37,67 +37,67 @@
 	name = "orange gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "orange"
-	item_state = "orangegloves"
+	item_state = "orange"
 
 /obj/item/clothing/gloves/red
 	name = "red gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "red"
-	item_state = "redgloves"
+	item_state = "red"
 
 /obj/item/clothing/gloves/rainbow
 	name = "rainbow gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "rainbow"
-	item_state = "rainbowgloves"
+	item_state = "rainbow"
 
 /obj/item/clothing/gloves/blue
 	name = "blue gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "blue"
-	item_state = "bluegloves"
+	item_state = "blue"
 
 /obj/item/clothing/gloves/purple
 	name = "purple gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "purple"
-	item_state = "purplegloves"
+	item_state = "purple"
 
 /obj/item/clothing/gloves/green
 	name = "green gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "green"
-	item_state = "greengloves"
+	item_state = "green"
 
 /obj/item/clothing/gloves/grey
 	name = "grey gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "gray"
-	item_state = "graygloves"
+	item_state = "gray"
 
 /obj/item/clothing/gloves/light_brown
 	name = "light brown gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "lightbrown"
-	item_state = "lightbrowngloves"
+	item_state = "lightbrown"
 
 /obj/item/clothing/gloves/brown
 	name = "brown gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "brown"
-	item_state = "browngloves"
+	item_state = "brown"
 
 /obj/item/clothing/gloves/white
 	name = "white gloves"
 	desc = "These look pretty fancy."
 	icon_state = "latex"
-	item_state = "lgloves"
+	item_state = "latex"
 
 /obj/item/clothing/gloves/yellow/specialu
 	desc = "These gloves will protect the wearer from electric shock. Made special for Unathi use."
 	name = "unathi electrical gloves"
 	icon_state = "yellow"
-	item_state = "ygloves"
+	item_state = "yellow"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	species_restricted = list("Unathi")
@@ -153,7 +153,7 @@
 	name = "black leather gloves"
 	desc = "A pair of tight-fitting synthleather gloves."
 	icon_state = "black_leather"
-	item_state = "black_leather_gloves"
+	item_state = "black_leather"
 
 /obj/item/clothing/gloves/fingerless
 	desc = "A pair of gloves that don't actually cover the fingers."

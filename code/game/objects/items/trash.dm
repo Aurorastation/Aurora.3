@@ -158,3 +158,13 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "stew_empty"
 	drop_sound = 'sound/items/drop/shovel.ogg'
+
+/obj/item/trash/coffee
+	name = "empty cup"
+	icon_state = "coffee_vended"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+
+/obj/item/trash/ramen
+	name = "cup ramen"
+	icon_state = "ramen"
+	drop_sound = 'sound/items/drop/papercup.ogg'

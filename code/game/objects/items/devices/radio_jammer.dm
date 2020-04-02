@@ -71,8 +71,8 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	var/last_updated = null
 	radius = 5
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
+	icon_state = "improvised_jammer_inactive"
 	icon_state_active = "improvised_jammer_active"
-	icon_state_inactive = "improvised_jammer_inactive"
 
 
 /obj/item/device/radiojammer/improvised/New(var/obj/item/device/assembly_holder/incoming_holder, var/obj/item/cell/incoming_cell, var/mob/user)
@@ -125,5 +125,5 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 		last_updated = world.time
 	else
 		active_radio_jammers -= src
-		icon_state = icon_state_inactive
+		icon_state = initial(icon_state)
 		STOP_PROCESSING(SSprocessing, src)

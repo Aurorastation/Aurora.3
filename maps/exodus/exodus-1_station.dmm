@@ -1432,12 +1432,12 @@
 /area/security/main)
 "acH" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/syringe/inaprovaline,
-/obj/item/reagent_containers/syringe/inaprovaline{
+/obj/item/reagent_containers/syringe/norepinephrine,
+/obj/item/reagent_containers/syringe/norepinephrine{
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/syringe/inaprovaline{
+/obj/item/reagent_containers/syringe/norepinephrine{
 	pixel_y = 10
 	},
 /obj/structure/cable/green{
@@ -36241,7 +36241,7 @@
 "bpd" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
-/obj/item/scalpel,
+/obj/item/surgery/scalpel,
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 9
@@ -41824,7 +41824,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
+/obj/item/reagent_containers/glass/bottle/norepinephrine{
 	pixel_x = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -44681,7 +44681,7 @@
 /obj/item/storage/pill_bottle/tramadol,
 /obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/inaprovaline,
+/obj/item/reagent_containers/syringe/norepinephrine,
 /turf/simulated/wall,
 /area/medical/sleeper)
 "bDG" = (
@@ -70182,8 +70182,8 @@
 /area/rnd/xenobiology)
 "cxA" = (
 /obj/structure/table/standard,
-/obj/item/circular_saw,
-/obj/item/scalpel{
+/obj/item/surgery/circular_saw,
+/obj/item/surgery/scalpel{
 	pixel_y = 12
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -79399,7 +79399,7 @@
 "rGs" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
-/obj/item/scalpel{
+/obj/item/surgery/scalpel{
 	desc = "Cut, cut, and once more cut. This one is extra shiny!";
 	name = "shiny scalpel"
 	},
@@ -80126,9 +80126,9 @@
 /area/lawoffice)
 "wnI" = (
 /obj/structure/table/standard,
-/obj/item/hemostat,
-/obj/item/retractor,
-/obj/item/circular_saw,
+/obj/item/surgery/hemostat,
+/obj/item/surgery/retractor,
+/obj/item/surgery/circular_saw,
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 0

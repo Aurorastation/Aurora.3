@@ -89,7 +89,7 @@
 							/obj/item/personal_inhaler/combat = 1,
 							/obj/item/reagent_containers/personal_inhaler_cartridge/large = 2,
 							/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-							/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+							/obj/item/reagent_containers/glass/bottle/norepinephrine = 1,
 							/obj/item/reagent_containers/glass/bottle/deltamivir = 1,
 							/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 
@@ -187,7 +187,7 @@
 	)
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -229,7 +229,7 @@
 	)
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/tcfl_legate
@@ -301,7 +301,7 @@
 	)
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 /datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -330,7 +330,7 @@
 	r_pocket = /obj/item/flame/lighter/zippo
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 	id_access = "Death Commando"
@@ -437,7 +437,7 @@
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/thermal/plain/monocle
 	l_pocket = /obj/item/material/knife
-	r_pocket = /obj/item/scalpel
+	r_pocket = /obj/item/surgery/scalpel
 	r_hand = /obj/item/material/twohanded/fireaxe
 	id = null
 

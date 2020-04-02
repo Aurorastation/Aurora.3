@@ -308,20 +308,18 @@ There are several things that need to be remembered:
 		update_icons()
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
-	var/list/ovr
+	overlays_raw[UNDERWEAR_LAYER] = list()
 
-	if(underwear && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[underwear]"))
+	if(species.appearance_flags & HAS_UNDERWEAR)
+		for(var/category in all_underwear)
+			if(hide_underwear[category])
+				continue
+			if(category == "Underwear, top" && hide_underwear["Undershirt"] == FALSE && !istype(all_underwear["Undershirt"], /datum/category_item/underwear/undershirt/none))
+				continue //This piece of "code" is here to prevent tops from showing up over undershirts.
+			var/datum/category_item/underwear/UWI = all_underwear[category]
+			overlays_raw[UNDERWEAR_LAYER] += UWI.generate_image(all_underwear_metadata[category])
 
-	if(undershirt && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[undershirt]"))
-
-	if(socks && (species.appearance_flags & HAS_SOCKS))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[socks]"))
-
-	overlays_raw[UNDERWEAR_LAYER] = ovr
-
-	if (update_icons)
+	if(update_icons)
 		update_icons()
 
 // This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
@@ -1424,3 +1422,4 @@ There are several things that need to be remembered:
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
 #undef GET_TAIL_LAYER
+

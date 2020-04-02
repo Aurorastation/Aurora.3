@@ -61,7 +61,7 @@
 /turf/template_noop,
 /area/derelict/ship)
 "at" = (
-/obj/item/scalpel,
+/obj/item/surgery/scalpel,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},

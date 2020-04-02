@@ -62,15 +62,14 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	name = "Particle Accelerator"
 	desc = "Part of a Particle Accelerator."
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
-	icon_state = "none"
-	anchored = 0
-	density = 1
-	var/obj/machinery/particle_accelerator/control_box/master = null
+	anchored = FALSE
+	density = TRUE
+	obj_flags = OBJ_FLAG_ROTATABLE
+	var/obj/machinery/particle_accelerator/control_box/master
 	var/construction_state = 0
-	var/reference = null
+	var/reference
 	var/powered = 0
-	var/strength = null
-	var/desc_holder = null
+	var/strength
 
 /obj/structure/particle_accelerator/Destroy()
 	construction_state = 0
@@ -80,51 +79,28 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 /obj/structure/particle_accelerator/end_cap
 	name = "Alpha Particle Generation Array"
-	desc_holder = "This is where Alpha particles are generated from \[REDACTED\]"
+	desc = "This is where Alpha particles are generated from \[REDACTED\]."
 	icon_state = "end_cap"
 	reference = "end_cap"
 
-/obj/structure/particle_accelerator/verb/rotate()
-	set name = "Rotate Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 270))
-	return 1
-
-/obj/structure/particle_accelerator/verb/rotateccw()
-	set name = "Rotate Counter Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 90))
-	return 1
-
 /obj/structure/particle_accelerator/examine(mob/user)
-	switch(src.construction_state)
+	switch(construction_state)
 		if(0)
-			src.desc = text("A [name], looks like it's not attached to the flooring")
+			desc = "[initial(desc)] Looks like it's not attached to the flooring."
 		if(1)
-			src.desc = text("A [name], it is missing some cables")
+			desc = "[initial(desc)] It's missing some cables."
 		if(2)
-			src.desc = text("A [name], the panel is open")
+			desc = "[initial(desc)] The panel is open."
 		if(3)
-			src.desc = text("The [name] is assembled")
+			desc = "[initial(desc)] It seems completely assembled."
 			if(powered)
-				src.desc = src.desc_holder
+				desc = initial(desc)
 	..()
 	return
 
-
 /obj/structure/particle_accelerator/attackby(obj/item/W, mob/user)
 	if(istool(W))
-		if(src.process_tool_hit(W,user))
+		if(process_tool_hit(W, user))
 			return
 	..()
 	return
@@ -142,11 +118,11 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			qdel(src)
 			return
 		if(2.0)
-			if (prob(50))
+			if(prob(50))
 				qdel(src)
 				return
 		if(3.0)
-			if (prob(25))
+			if(prob(25))
 				qdel(src)
 				return
 		else
@@ -154,7 +130,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 
 /obj/structure/particle_accelerator/update_icon()
 	switch(construction_state)
-		if(0,1)
+		if(0, 1)
 			icon_state="[reference]"
 		if(2)
 			icon_state="[reference]w"
@@ -168,145 +144,120 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/structure/particle_accelerator/proc/update_state()
 	if(master)
 		master.update_state()
-		return 0
+		return FALSE
 
 
 /obj/structure/particle_accelerator/proc/report_ready(var/obj/O)
 	if(O && (O == master))
 		if(construction_state >= 3)
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 
 /obj/structure/particle_accelerator/proc/report_master()
 	if(master)
 		return master
-	return 0
+	return FALSE
 
 
 /obj/structure/particle_accelerator/proc/connect_master(var/obj/O)
-	if(O && istype(O,/obj/machinery/particle_accelerator/control_box))
+	if(istype(O, /obj/machinery/particle_accelerator/control_box))
 		if(O.dir == src.dir)
 			master = O
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 
 /obj/structure/particle_accelerator/proc/process_tool_hit(var/obj/O, var/mob/user)
-	if(!(O) || !(user))
-		return 0
+	if(!O || !user)
+		return FALSE
 	if(!ismob(user) || !isobj(O))
-		return 0
-	var/temp_state = src.construction_state
+		return FALSE
+	var/temp_state = construction_state
 
-	switch(src.construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps
+	switch(construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps
 		if(0)
 			if(O.iswrench())
-				playsound(src.loc, O.usesound, 75, 1)
-				src.anchored = 1
-				user.visible_message("[user.name] secures the [src.name] to the floor.", \
-					"You secure the external bolts.")
+				playsound(get_turf(src), O.usesound, 75, TRUE)
+				anchored = TRUE
+				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+					SPAN_NOTICE("You secure the external bolts."))
 				temp_state++
 		if(1)
 			if(O.iswrench())
-				playsound(src.loc, O.usesound, 75, 1)
-				src.anchored = 0
-				user.visible_message("[user.name] detaches the [src.name] from the floor.", \
-					"You remove the external bolts.")
+				playsound(get_turf(src), O.usesound, 75, TRUE)
+				anchored = FALSE
+				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
+					SPAN_NOTICE("You remove the external bolts."))
 				temp_state--
 			else if(O.iscoil())
-				if(O:use(1,user))
-					user.visible_message("[user.name] adds wires to the [src.name].", \
-						"You add some wires.")
+				var/obj/item/stack/cable_coil/C = O
+				if(C.use(1))
+					user.visible_message(SPAN_NOTICE("\The [user] adds wires to \the [src]."), \
+						SPAN_NOTICE("You add some wires."))
 					temp_state++
 		if(2)
 			if(O.iswirecutter())//TODO:Shock user if its on?
-				user.visible_message("[user.name] removes some wires from the [src.name].", \
-					"You remove some wires.")
+				user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
+					SPAN_NOTICE("You remove some wires."))
 				temp_state--
 			else if(O.isscrewdriver())
-				user.visible_message("[user.name] closes the [src.name]'s access panel.", \
-					"You close the access panel.")
+				user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]'s access panel."), \
+					SPAN_NOTICE("You close the access panel."))
 				temp_state++
 		if(3)
 			if(O.isscrewdriver())
-				user.visible_message("[user.name] opens the [src.name]'s access panel.", \
-					"You open the access panel.")
+				user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s access panel."), \
+					SPAN_NOTICE("You open the access panel."))
 				temp_state--
-	if(temp_state == src.construction_state)//Nothing changed
-		return 0
+	if(temp_state == construction_state)//Nothing changed
+		return FALSE
 	else
-		src.construction_state = temp_state
-		if(src.construction_state < 3)//Was taken apart, update state
+		construction_state = temp_state
+		if(construction_state < 3)//Was taken apart, update state
 			update_state()
 		update_icon()
-		return 1
-	return 0
-
+		return TRUE
+	return FALSE
 
 
 /obj/machinery/particle_accelerator
 	name = "Particle Accelerator"
 	desc = "Part of a Particle Accelerator."
 	icon = 'icons/obj/machines/particle_accelerator2.dmi'
-	icon_state = "none"
-	anchored = 0
-	density = 1
+	anchored = FALSE
+	density = TRUE
 	use_power = 0
 	idle_power_usage = 0
 	active_power_usage = 0
 	var/construction_state = 0
-	var/active = 0
-	var/reference = null
-	var/powered = null
+	var/active = FALSE
+	var/reference
+	var/powered
 	var/strength = 0
-	var/desc_holder = null
-
-
-/obj/machinery/particle_accelerator/verb/rotate()
-	set name = "Rotate Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 270))
-	return 1
-
-/obj/machinery/particle_accelerator/verb/rotateccw()
-	set name = "Rotate Counter-Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 90))
-	return 1
 
 /obj/machinery/particle_accelerator/update_icon()
 	return
 
 /obj/machinery/particle_accelerator/examine(mob/user)
-	switch(src.construction_state)
+	switch(construction_state)
 		if(0)
-			src.desc = text("A [name], looks like it's not attached to the flooring")
+			desc = "[initial(desc)] Looks like it's not attached to the flooring."
 		if(1)
-			src.desc = text("A [name], it is missing some cables")
+			desc = "[initial(desc)] It's missing some cables."
 		if(2)
-			src.desc = text("A [name], the panel is open")
+			desc = "[initial(desc)] The panel is open."
 		if(3)
-			src.desc = text("The [name] is assembled")
+			desc = "[initial(desc)] It seems completely assembled."
 			if(powered)
-				src.desc = src.desc_holder
+				desc = initial(desc)
 	..()
 	return
 
 
 /obj/machinery/particle_accelerator/attackby(obj/item/W, mob/user)
 	if(istool(W))
-		if(src.process_tool_hit(W,user))
+		if(process_tool_hit(W,user))
 			return
 	..()
 	return
@@ -317,72 +268,71 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			qdel(src)
 			return
 		if(2.0)
-			if (prob(50))
+			if(prob(50))
 				qdel(src)
 				return
 		if(3.0)
-			if (prob(25))
+			if(prob(25))
 				qdel(src)
-				return
+			return
 		else
 	return
 
-
 /obj/machinery/particle_accelerator/proc/update_state()
-	return 0
-
+	return FALSE
 
 /obj/machinery/particle_accelerator/proc/process_tool_hit(var/obj/O, var/mob/user)
-	if(!(O) || !(user))
-		return 0
+	if(!O || !user)
+		return FALSE
 	if(!ismob(user) || !isobj(O))
-		return 0
-	var/temp_state = src.construction_state
-	switch(src.construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps
+		return FALSE
+	var/temp_state = construction_state
+	switch(construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps
 		if(0)
 			if(O.iswrench())
-				playsound(src.loc, O.usesound, 75, 1)
-				src.anchored = 1
-				user.visible_message("[user.name] secures the [src.name] to the floor.", \
-					"You secure the external bolts.")
+				playsound(get_turf(src), O.usesound, 75, TRUE)
+				anchored = TRUE
+				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+					SPAN_NOTICE("You secure the external bolts."))
 				temp_state++
 		if(1)
 			if(O.iswrench())
-				playsound(src.loc, O.usesound, 75, 1)
-				src.anchored = 0
-				user.visible_message("[user.name] detaches the [src.name] from the floor.", \
-					"You remove the external bolts.")
+				playsound(get_turf(src), O.usesound, 75, TRUE)
+				anchored = FALSE
+				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
+					SPAN_NOTICE("You remove the external bolts."))
 				temp_state--
 			else if(O.iscoil())
-				if(O:use(1))
-					user.visible_message("[user.name] adds wires to the [src.name].", \
-						"You add some wires.")
+				var/obj/item/stack/cable_coil/C = O
+				if(C.use(1))
+					user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
+						SPAN_NOTICE("You remove some wires."))
 					temp_state++
 		if(2)
 			if(O.iswirecutter())//TODO:Shock user if its on?
-				user.visible_message("[user.name] removes some wires from the [src.name].", \
-					"You remove some wires.")
+				user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
+					SPAN_NOTICE("You remove some wires."))
 				temp_state--
 			else if(O.isscrewdriver())
-				user.visible_message("[user.name] closes the [src.name]'s access panel.", \
-					"You close the access panel.")
+				user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]'s access panel."), \
+					SPAN_NOTICE("You close the access panel."))
 				temp_state++
 		if(3)
 			if(O.isscrewdriver())
-				user.visible_message("[user.name] opens the [src.name]'s access panel.", \
-					"You open the access panel.")
+				user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s access panel."), \
+					SPAN_NOTICE("You open the access panel."))
 				temp_state--
-				active = 0
-	if(temp_state == src.construction_state)//Nothing changed
-		return 0
+				active = FALSE
+	if(temp_state == construction_state)//Nothing changed
+		return FALSE
 	else
-		if(src.construction_state < 3)//Was taken apart, update state
+		if(construction_state < 3)//Was taken apart, update state
 			update_state()
 			if(use_power)
 				use_power = 0
-		src.construction_state = temp_state
-		if(src.construction_state >= 3)
+		construction_state = temp_state
+		if(construction_state >= 3)
 			use_power = 1
 		update_icon()
-		return 1
-	return 0
+		return TRUE
+	return FALSE

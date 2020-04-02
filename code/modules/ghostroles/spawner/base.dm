@@ -2,6 +2,7 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
+	var/show_on_job_select = TRUE
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
@@ -66,7 +67,7 @@
 	var/cant_see = cant_see(user)
 	if(cant_see) //If we cant see it, we cant spawn it
 		return cant_see
-	if(!istype(user, /mob/abstract/observer))
+	if(!(istype(user, /mob/abstract/observer) || isnewplayer(user)))
 		return "You are not a ghost."
 	if(!enabled) //If the spawner id disabled, we cant spawn in
 		return "This spawner is not enabled."
