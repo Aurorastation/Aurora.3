@@ -398,7 +398,7 @@ AI MODULES
 
 /******************** PRA ********************/
 
-/obj/item/aiModule/hadiist // -- TLE
+/obj/item/aiModule/hadiist
 	name = "\improper 'Hadiist' core AI module"
 	desc = "An 'Hadiist' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 4)
