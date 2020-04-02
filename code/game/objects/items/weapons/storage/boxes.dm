@@ -827,6 +827,6 @@
 	w_class = 4
 	starts_with = list(/obj/item/grenade/dynamite = 6)
 
-/obj/item/storage/box/dynamite
+/obj/item/storage/box/dynamite/throw_impact(atom/hit_atom)
 	..()
 	spill()
