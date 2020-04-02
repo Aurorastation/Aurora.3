@@ -136,7 +136,7 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
-			E.damage += removed * (strength / 12)
+			E.take_damage(removed * (strength / 12))
 
 /datum/reagent/dexalin/plus
 	name = "Dexalin Plus"
