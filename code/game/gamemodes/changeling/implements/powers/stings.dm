@@ -3,6 +3,7 @@
 #define STING_SILENT "silent"
 #define STING_BLIND "blind"
 #define STING_PARALYZE "paralyze"
+#define STING_DEATH "death"
 
 /mob/proc/changeling_sting(var/required_chems = 0, var/verb_path, var/stealthy = FALSE)
 	var/datum/changeling/changeling = changeling_power(required_chems)
@@ -39,7 +40,6 @@
 								SPAN_DANGER("[src]'s arm rapidly shifts into a giant scorpion-stinger and stabs into [T]!"),
 								SPAN_DANGER("[src]'s throat lengthens and twists before vomiting a chunky red spew all over [T]!"),
 								SPAN_DANGER("[src]'s tongue stretches an impossible length and stabs into [T]!"),
-								SPAN_DANGER("[src] sneezes a cloud of shrieking spiders at [T]!"),
 								SPAN_DANGER("[src] erupts a grotesque tail and impales [T]!"),
 								SPAN_DANGER("[src]'s chin skin bulges and tears, launching a bone-dart at [T]!")))
 
@@ -70,6 +70,15 @@
 		if(STING_PARALYZE)
 			to_chat(target, SPAN_DANGER("Your muscles begin to painfully tighten."))
 			target.Weaken(strength)
+		if(STING_DEATH)
+			to_chat(target, SPAN_DANGER("You feel a small prick and your chest becomes tight."))
+			target.silent += 15
+			target.Paralyse(10)
+			target.make_jittery(1000)
+			target.make_dizzy(150)
+			target.eye_blind += 10
+			if(target.reagents)
+				target.reagents.add_reagent("cyanide", strength)
 		else
 			return FALSE
 	return TRUE
@@ -191,14 +200,7 @@
 	var/mob/living/carbon/T = changeling_sting(40, /mob/proc/changeling_death_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	to_chat(T, SPAN_DANGER("You feel a small prick and your chest becomes tight."))
-	T.silent += 15
-	T.Paralyse(10)
-	T.make_jittery(1000)
-	T.make_dizzy(150)
-	T.eye_blind += 10
-	if(T.reagents)
-		T.reagents.add_reagent("cyanide", 3)
+	apply_sting_effects(T, DEATH, 3)
 	feedback_add_details("changeling_powers", "DTHS")
 	return TRUE
 
@@ -233,7 +235,7 @@
 	if(!changeling)
 		return FALSE
 	changeling.chem_charges -= 10
-	to_chat(src, "<span class='notice'>Your throat adjusts to launch the sting.</span>")
+	to_chat(src, SPAN_NOTICE("Your throat adjusts to launch the sting."))
 	changeling.sting_range = 2
 	src.verbs -= /mob/proc/changeling_boost_range
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_boost_range)

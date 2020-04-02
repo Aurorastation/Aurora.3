@@ -22,14 +22,14 @@
 		to_chat(H, SPAN_NOTICE("[src] has left our hivemind to join the living dead."))
 
 /mob/abstract/hivemind/proc/add_to_hivemind(var/mob/original_body, var/mob/living/carbon/human/ling)
-	src.name = original_body.real_name
-	src.languages = original_body.languages
+	name = original_body.real_name
+	languages = original_body.languages
 	for(var/language in ling.languages)
 		add_language(language)
-	src.remove_language(LANGUAGE_CHANGELING) // no actual changeling speak for you, buddy
+	remove_language(LANGUAGE_CHANGELING) // no actual changeling speak for you, buddy
 	if(original_body.ckey)
-		src.ckey = original_body.ckey
-		src.changeling_mob = ling
+		ckey = original_body.ckey
+		changeling_mob = ling
 	if(changeling_mob)
 		changeling_mob.mind.changeling.hivemind |= src
 		introduction(changeling_mob)
