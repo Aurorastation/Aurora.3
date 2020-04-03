@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Modular Laser Prototypes now correctly get their attachment sprites on the in-hand sprite."
