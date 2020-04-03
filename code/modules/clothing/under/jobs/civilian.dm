@@ -229,7 +229,7 @@
 	icon_state = "zeng_research"
 	worn_state = "zeng_research"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 10, rad = 0)	
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 10, rad = 0)	
 
 /obj/item/clothing/under/rank/zeng/alt
 	icon_state = "zeng_research_alt"
