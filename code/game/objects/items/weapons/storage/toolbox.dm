@@ -76,8 +76,10 @@
 
 /obj/item/storage/toolbox/drill
 	name = "drilling kit"
-	icon_state = "blue" //can add a custom one if we desire, no need for it tho
-	item_state = "toolbox_blue" //ditto
+	icon = 'icons/obj/toolbox/mining.dmi'
+	icon_state = "miningbox"
+	item_state = "miningbox"
+	contained_sprite = TRUE
 	starts_with = list(
 		/obj/item/crowbar = 1,
 		/obj/item/powerdrill = 1,
@@ -88,8 +90,10 @@
 
 /obj/item/storage/toolbox/ka
 	name = "kinetic accelerator kit"
-	icon_state = "blue" //can add a custom one if we desire, no need for it tho
-	item_state = "toolbox_blue" //ditto
+	icon = 'icons/obj/toolbox/mining.dmi'
+	icon_state = "miningbox"
+	item_state = "miningbox"
+	contained_sprite = TRUE
 	starts_with = list(
 		/obj/item/crowbar = 1,
 		/obj/item/wrench = 1,
