@@ -1,0 +1,13 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added the Drill Technician alt-title to Shaft Miner. They come equipped with a kit to set up a barebones drill mining operation."
+  - rscadd: "Shaft Miners now come with a KA kit that allows them to give slight upgrades to their roundstart Kinetic Accelerator."
+  - tweak: "Pumping a kinetic accelerator no longer spams your log, only giving a message every ten seconds since the last one. Sound and charge amount remains the same."
+  - bugfix: "Fixed being unable to rotate mining braces. Fixed the message saying that you can rotate drill heads."
+  - rscadd: "Large mining drills now have lights attached to them, which differ in colour and brightness depending on current activity."
+  - rscadd: "Added the Orbital Drill Dropper to the mining vendor, for 3250 mining points a pop."
+  - tweak: "Mining light beacons now come in stacks of 25 instead of stacks of 5. This'll make them slightly more useful for showing a taken path."
+  - bugfix: "Ore satchels no longer show that they have a warp pack installed on examine, if they do not have one installed."
