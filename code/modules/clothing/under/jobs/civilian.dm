@@ -181,7 +181,7 @@
 	icon_state = "heph_research"
 	worn_state = "heph_research"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 10)	
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 10)	
 
 /obj/item/clothing/under/rank/necropolis
 	name = "Necropolis Industries uniform"
