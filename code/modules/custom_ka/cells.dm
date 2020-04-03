@@ -149,17 +149,17 @@
 	//Pump Action
 	name = "pump action KA cell"
 	build_name = "pump-action"
-	desc = "A clusterfuck of circuitry and battery parts all snuggly fit inside a solid, static plastisteel frame. A single pump is enough for any shot of any weapon."
+	desc = "A clusterfuck of circuitry and battery parts all snuggly fit inside a solid, static plastisteel frame. A single pump is enough to fully charge any set-up."
 	icon_state = "cell_illegal"
 	firedelay_increase = 0
 	recoil_increase = 0
 	cost_increase = -100
-	stored_charge = 1
-	cell_increase = 1
+	stored_charge = 5
+	cell_increase = 5
 	capacity_increase = 0
 	mod_limit_increase = 0
 
-	pump_restore = 1
+	pump_restore = 30
 	pump_delay = 0.3 SECONDS
 
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3,TECH_MAGNET = 3,TECH_POWER = 3, TECH_ILLEGAL = 4)
