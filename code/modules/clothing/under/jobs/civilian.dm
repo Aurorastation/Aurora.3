@@ -166,7 +166,7 @@
 	desc = "A uniform worn by Hephaestus Industries engineers."
 	icon_state = "heph_engineer"
 	worn_state = "heph_engineer"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 10)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
 	siemens_coefficient = 0.75	
 
 /obj/item/clothing/under/rank/hephaestus/tech
