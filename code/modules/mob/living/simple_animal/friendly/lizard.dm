@@ -1,5 +1,5 @@
 /mob/living/simple_animal/lizard
-	name = "Lizard"
+	name = "lizard"
 	desc = "It's a hissy little lizard. Is it related to Unathi?"
 	icon_state = "lizard"
 	icon_living = "lizard"

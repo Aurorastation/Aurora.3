@@ -1,12 +1,10 @@
-////////////////////////////////////////
-//////////////////Power/////////////////
-////////////////////////////////////////
-
 /datum/design/item/powercell
 	build_type = PROTOLATHE | MECHFAB
+	category = "Misc" // For the mechfab
+	design_order = 7
 
 /datum/design/item/powercell/AssembleDesignName()
-	name = "Power cell model ([item_name])"
+	name = "Power Cell Design ([item_name])"
 
 /datum/design/item/powercell/AssembleDesignDesc()
 	if(build_path)
@@ -19,49 +17,31 @@
 	return C
 
 /datum/design/item/powercell/basic
-	name = "basic"
-	build_type = PROTOLATHE | MECHFAB
-	id = "basic_cell"
+	name = "Basic"
 	req_tech = list(TECH_POWER = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 	build_path = /obj/item/cell
-	category = "Misc"
-	sort_string = "DAAAA"
 
 /datum/design/item/powercell/high
-	name = "high-capacity"
-	build_type = PROTOLATHE | MECHFAB
-	id = "high_cell"
+	name = "High-Capacity"
 	req_tech = list(TECH_POWER = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 60)
 	build_path = /obj/item/cell/high
-	category = "Misc"
-	sort_string = "DAAAB"
 
 /datum/design/item/powercell/super
-	name = "super-capacity"
-	id = "super_cell"
+	name = "Super-Capacity"
 	req_tech = list(TECH_POWER = 3, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
 	build_path = /obj/item/cell/super
-	category = "Misc"
-	sort_string = "DAAAC"
 
 /datum/design/item/powercell/hyper
-	name = "hyper-capacity"
-	id = "hyper_cell"
+	name = "Hyper-Capacity"
 	req_tech = list(TECH_POWER = 5, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 400, MATERIAL_GOLD = 150, MATERIAL_SILVER = 150, MATERIAL_GLASS = 70)
 	build_path = /obj/item/cell/hyper
-	category = "Misc"
-	sort_string = "DAAAD"
 
 /datum/design/item/powercell/device
-	name = "device"
-	build_type = PROTOLATHE | MECHFAB
-	id = "device_cell"
+	name = "Device"
 	req_tech = list(TECH_POWER = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 	build_path = /obj/item/cell/device
-	category = "Misc"
-	sort_string = "DAAAE"

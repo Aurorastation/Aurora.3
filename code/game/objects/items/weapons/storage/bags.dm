@@ -116,26 +116,6 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 
 // -----------------------------
-//        Mining Satchel
-// -----------------------------
-
-/obj/item/storage/bag/ore
-	name = "mining satchel"
-	desc = "This little bugger can be used to store and transport ores."
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "satchel"
-	slot_flags = SLOT_BELT | SLOT_POCKET
-	w_class = 3
-	max_storage_space = 100
-	max_w_class = 3
-	can_hold = list(/obj/item/ore)
-
-/obj/item/storage/bag/ore/drone
-	// this used to be 400. The inventory system FUCKING DIED at this.
-	max_storage_space = 200
-
-
-// -----------------------------
 //          Plant bag
 // -----------------------------
 

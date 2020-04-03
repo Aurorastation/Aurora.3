@@ -237,7 +237,9 @@
 		/obj/item/device/multitool/hacktool,
 		/obj/item/reagent_containers/hypospray/combat,
 		/obj/item/stack/telecrystal,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/shield/riot/tact,
+		/obj/item/material/knife/tacknife
 		)
 
 /obj/item/storage/belt/military/syndicate

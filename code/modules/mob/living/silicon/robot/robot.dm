@@ -974,8 +974,13 @@
 					S.color = null
 				for(var/A in tile)
 					if(istype(A, /obj/effect))
-						if(istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay))
+						if(istype(A, /obj/effect/decal/cleanable))
 							qdel(A)
+						if(istype(A, /obj/effect/overlay))
+							var/obj/effect/overlay/O = A
+							if(O.no_clean)
+								continue
+							qdel(O)
 					else if(istype(A, /obj/item))
 						var/obj/item/cleaned_item = A
 						cleaned_item.clean_blood()

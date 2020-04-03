@@ -410,6 +410,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			continue
 		if(!G.enabled)
 			continue
+		if(!isnull(G.req_perms))
+			continue
 		unique_role_available = TRUE
 		break
 

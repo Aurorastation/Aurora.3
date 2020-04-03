@@ -2,11 +2,15 @@
 	station_area = 1
 
 /area/assembly/chargebay
-	name = "\improper Robotics Charging Bay"
+	name = "\improper Mech Bay"
 	icon_state = "mechbay"
 
 /area/assembly/robotics
 	name = "\improper Robotics Lab"
+	icon_state = "robotics"
+
+/area/assembly/robotics/workshop
+	name = "\improper Robotics Workshop"
 	icon_state = "robotics"
 
 /area/assembly/robotics_cyborgification
@@ -123,7 +127,7 @@
 	icon_state = "toxmix"
 
 /area/rnd/misc_lab
-	name = "\improper Research - Miscellaneous Research"
+	name = "\improper Research - Circuitry Lab"
 	icon_state = "toxmisc"
 
 /area/rnd/eva
