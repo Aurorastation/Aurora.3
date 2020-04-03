@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed an Ore Generation bug that caused the least common ore in the ground to be the most common, and vice versa."

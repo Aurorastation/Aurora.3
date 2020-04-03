@@ -55,7 +55,7 @@
 			var/tmp_cell
 			TRANSLATE_AND_VERIFY_COORD(x, y)
 			
-			if(tmp_cell < rare_val)      // Surface metals.
+			if(tmp_cell > rare_val)      // Surface metals.
 				T.resources["iron"] =     rand(RESOURCE_HIGH_MIN, RESOURCE_HIGH_MAX)
 				T.resources["gold"] =     rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources["silver"] =   rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
@@ -64,7 +64,7 @@
 				T.resources["phoron"] =   0
 				T.resources["osmium"] =   0
 				T.resources["hydrogen"] = 0
-			else if(tmp_cell < deep_val) // Rare metals.
+			else if(tmp_cell > deep_val) // Rare metals.
 				T.resources["gold"] =     rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources["silver"] =   rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
 				T.resources["uranium"] =  rand(RESOURCE_MID_MIN,  RESOURCE_MID_MAX)
