@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Alt clicking a rotatable item doesn't open the turf menu anymore."
