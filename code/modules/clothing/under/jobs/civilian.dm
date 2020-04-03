@@ -195,7 +195,7 @@
 	icon_state = "necro_research"
 	worn_state = "necro_research"
 	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)	
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0)	
 
 /obj/item/clothing/under/rank/necropolis/research/alt
 	icon_state = "necro_research_alt"
