@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Ladders can now be used to grip to prevent floating away, when there isn't gravity or when in space."
-  - rscadd: "Mobile ladders can now be alt-clicked to be taken down. Mobile ladders now go into your hands when successfully folded."

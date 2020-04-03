@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Psi Ping's description has been fixed to say help intent instead of disarm intent."
-  - bugfix: "Blindstrike and commune no longer overlap."
