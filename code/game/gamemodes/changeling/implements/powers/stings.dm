@@ -200,7 +200,7 @@
 	var/mob/living/carbon/T = changeling_sting(40, /mob/proc/changeling_death_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	apply_sting_effects(T, DEATH, 3)
+	apply_sting_effects(T, STING_DEATH, 3)
 	feedback_add_details("changeling_powers", "DTHS")
 	return TRUE
 

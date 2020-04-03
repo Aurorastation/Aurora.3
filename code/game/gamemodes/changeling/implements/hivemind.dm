@@ -31,7 +31,7 @@
 		ckey = original_body.ckey
 		changeling_mob = ling
 	if(changeling_mob)
-		changeling_mob.mind.changeling.hivemind |= src
+		changeling_mob.mind.changeling.hivemind["[name]"] = src
 		introduction(changeling_mob)
 
 /mob/abstract/hivemind/proc/introduction(var/mob/living/carbon/human/ling)
