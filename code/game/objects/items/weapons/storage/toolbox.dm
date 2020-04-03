@@ -76,6 +76,7 @@
 
 /obj/item/storage/toolbox/drill
 	name = "drilling kit"
+	desc = "A kit supplied to drill technicians, containing the tools required to set up a basic asteroid drilling operation."
 	icon = 'icons/obj/toolbox/mining.dmi'
 	icon_state = "miningbox"
 	item_state = "miningbox"
@@ -90,6 +91,7 @@
 
 /obj/item/storage/toolbox/ka
 	name = "kinetic accelerator kit"
+	desc = "A kit supplied to shaft miners, containing a few upgrades to standard issue kinetic accelerators."
 	icon = 'icons/obj/toolbox/mining.dmi'
 	icon_state = "miningbox"
 	item_state = "miningbox"
