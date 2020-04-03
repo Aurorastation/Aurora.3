@@ -4,8 +4,8 @@
 	icon_screen = "explosive"
 	light_color = LIGHT_COLOR_ORANGE
 
-	var/shuttle_tag  // Used to coordinate data in shuttle controller.
-	var/hacked = 0   // Has been emagged, no access restrictions.
+	var/shuttle_tag      // Used to coordinate data in shuttle controller.
+	var/hacked = FALSE   // Has been emagged, no access restrictions.
 
 	var/ui_template = "shuttle_control_console.tmpl"
 
@@ -14,6 +14,10 @@
 
 /obj/machinery/computer/shuttle_control/attack_ai(mob/user)
 	ui_interact(user)
+
+/obj/machinery/computer/shuttle_control/attack_ghost(var/mob/abstract/observer/user)
+	if(check_rights(R_ADMIN, 0, user))
+		ui_interact(user)
 
 /obj/machinery/computer/shuttle_control/proc/get_ui_data(var/datum/shuttle/autodock/shuttle)
 	var/shuttle_state
@@ -85,7 +89,7 @@
 		return TOPIC_REFRESH
 
 /obj/machinery/computer/shuttle_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	var/datum/shuttle/autodock/shuttle = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if (!istype(shuttle))
 		to_chat(user,"<span class='warning'>Unable to establish link with the shuttle.</span>")
 		return
@@ -102,14 +106,14 @@
 /obj/machinery/computer/shuttle_control/Topic(user, href_list)
 	..()
 
-	handle_topic_href(shuttle_controller.shuttles[shuttle_tag], href_list, user)
+	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, user)
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
 	if(!hacked)
 		req_access = list()
-		hacked = 1
+		hacked = TRUE
 		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
-		return 1
+		return TRUE
 
 /obj/machinery/computer/shuttle_control/bullet_act(var/obj/item/projectile/Proj)
 	visible_message("\The [Proj] ricochets off \the [src]!")

@@ -1,4 +1,4 @@
-var/datum/controller/subsystem/processing/shuttle/shuttle_controller
+var/datum/controller/subsystem/processing/shuttle/SSshuttle
 
 /datum/controller/subsystem/processing/shuttle
 	name = "Shuttle"
@@ -20,7 +20,7 @@ var/datum/controller/subsystem/processing/shuttle/shuttle_controller
 	var/tmp/list/working_shuttles
 
 /datum/controller/subsystem/processing/shuttle/New()
-	NEW_SS_GLOBAL(shuttle_controller)
+	NEW_SS_GLOBAL(SSshuttle)
 
 /datum/controller/subsystem/processing/shuttle/Initialize()
 	log_ss("Shuttle", "SSShuttle initializing.")

@@ -181,7 +181,7 @@
 		Tloc.Entered(src)
 
 /atom/movable/proc/throw_at_random(var/include_own_turf, var/maxrange, var/speed)
-	var/list/turfs = trange(maxrange, src)
+	var/list/turfs = RANGE_TURFS(maxrange, src)
 	if(!maxrange)
 		maxrange = 1
 

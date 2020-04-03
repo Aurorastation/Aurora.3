@@ -378,7 +378,7 @@
 	SearchVar(SSnanoui)
 	SearchVar(SSpipenet)
 	SearchVar(SSprocessing)
-	SearchVar(shuttle_controller)
+	SearchVar(SSshuttle)
 	SearchVar(base_law_type)
 	SearchVar(discord_bot)
 	SearchVar(diseases)

@@ -21,8 +21,8 @@
 		// Timing.
 		if (world.time >= launch_time)	//time to launch the shuttle
 			stop_launch_countdown()
-			shuttle.launch(src)
-			for (var/thing in current_mobs)
+			shuttle.try_jump()
+			for(var/thing in current_mobs)
 				var/mob/living/carbon/human/M = locate(thing)
 				if (istype(M) && M.centcomm_despawn_timer)
 					deltimer(M.centcomm_despawn_timer)
@@ -37,7 +37,6 @@
 /datum/controller/subsystem/arrivals/proc/on_hotzone_enter(mob/living/M)
 	if (!shuttle.location)
 		return
-
 
 	if (istype(M))
 		current_mobs += SOFTREF(M)

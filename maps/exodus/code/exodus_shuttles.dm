@@ -1,6 +1,6 @@
 /datum/map/exodus/setup_shuttles()
 	var/datum/shuttle/autodock/ferry/shuttle
-	var/list/shuttles = shuttle_controller.shuttles
+	var/list/shuttles = SSshuttle.shuttles
 
 	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
 	shuttle.location = 0
@@ -13,7 +13,7 @@
 	shuttle.dock_target_offsite = "escape_pod_1_recovery"
 	shuttle.transit_direction = NORTH
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 	shuttles["Escape Pod 1"] = shuttle
 
 	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
@@ -27,7 +27,7 @@
 	shuttle.dock_target_offsite = "escape_pod_2_recovery"
 	shuttle.transit_direction = NORTH
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 	shuttles["Escape Pod 2"] = shuttle
 
 	shuttle = new/datum/shuttle/autodock/ferry/escape_pod()
@@ -41,7 +41,7 @@
 	shuttle.dock_target_offsite = "escape_pod_3_recovery"
 	shuttle.transit_direction = EAST
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 	shuttles["Escape Pod 3"] = shuttle
 
 	//There is no pod 4, apparently.
@@ -57,7 +57,7 @@
 	shuttle.dock_target_offsite = "escape_pod_5_recovery"
 	shuttle.transit_direction = EAST //should this be WEST? I have no idea.
 	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN + rand(-30, 60)	//randomize this so it seems like the pods are being picked up one by one
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 	shuttles["Escape Pod 5"] = shuttle
 
 	// Admin shuttles.
@@ -70,7 +70,7 @@
 	shuttle.dock_target_station = "centcom_shuttle_dock_airlock"
 	shuttle.dock_target_offsite = "centcom_shuttle_bay"
 	shuttles["Centcom"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 
 	shuttle = new()
 	shuttle.location = 1
@@ -81,13 +81,13 @@
 	shuttle.dock_target_station = "admin_shuttle_dock_airlock"
 	shuttle.dock_target_offsite = "admin_shuttle_bay"
 	shuttles["Administration"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 
 	shuttle = new()
 	shuttle.area_offsite = locate(/area/shuttle/alien/base)
 	shuttle.area_station = locate(/area/shuttle/alien/mine)
 	shuttles["Alien"] = shuttle
-	//START_PROCESSING(shuttle_controller, shuttle)	//don't need to process this. It can only be moved using admin magic anyways.
+	//START_PROCESSING(SSshuttle, shuttle)	//don't need to process this. It can only be moved using admin magic anyways.
 
 	// Public shuttles
 	shuttle = new()
@@ -98,7 +98,7 @@
 	shuttle.dock_target_station = "engineering_dock_airlock"
 	shuttle.dock_target_offsite = "edock_airlock"
 	shuttles["Engineering"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 
 	shuttle = new()
 	shuttle.warmup_time = 10
@@ -108,7 +108,7 @@
 	shuttle.dock_target_station = "mining_dock_airlock"
 	shuttle.dock_target_offsite = "mining_outpost_airlock"
 	shuttles["Mining"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 
 	shuttle = new()
 	shuttle.warmup_time = 10
@@ -118,7 +118,7 @@
 	shuttle.dock_target_station = "research_dock_airlock"
 	shuttle.dock_target_offsite = "research_outpost_dock"
 	shuttles["Research"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 
 	// ERT Shuttle
 	var/datum/shuttle/autodock/ferry/specops/ERT = new()
@@ -132,7 +132,7 @@
 	ERT.dock_target_station = "specops_centcom_dock"
 	ERT.dock_target_offsite = "specops_dock_airlock"
 	shuttles["Special Operations"] = ERT
-	START_PROCESSING(shuttle_controller, ERT)
+	START_PROCESSING(SSshuttle, ERT)
 
 	//Skipjack.
 	var/datum/shuttle/autodock/multi/VS = new/datum/shuttle/autodock/multi()
@@ -193,7 +193,7 @@
 	shuttle.area_offsite = locate(/area/shuttle/legion/centcom)
 	shuttle.area_station = locate(/area/shuttle/legion/station)
 	shuttles["Tau Ceti Foreign Legion"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)
 	
 	// Merchant Shuttle
 
@@ -206,4 +206,4 @@
 	shuttle.dock_target_station = "merchant_shuttle_dock"
 	shuttle.dock_target_offsite = "merchant_station"
 	shuttles["Merchant"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+	START_PROCESSING(SSshuttle, shuttle)

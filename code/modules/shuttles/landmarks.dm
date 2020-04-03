@@ -38,13 +38,13 @@
 
 	name = name + " ([x],[y])"
 	log_ss("Landmarks", "Registering landmark: [src]")
-	shuttle_controller.register_landmark(landmark_tag, src)
+	SSshuttle.register_landmark(landmark_tag, src)
 
 /obj/effect/shuttle_landmark/LateInitialize()
 	if(!docking_controller)
 		return
 	var/docking_tag = docking_controller
-	docking_controller = shuttle_controller.docking_registry[docking_tag]
+	docking_controller = SSshuttle.docking_registry[docking_tag]
 	if(!istype(docking_controller))
 		log_debug("Could not find docking controller for shuttle waypoint '[name]', docking tag was '[docking_tag]'.")
 

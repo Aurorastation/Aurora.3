@@ -28,7 +28,7 @@
 
 	//Optional transition area
 	if(landmark_transition)
-		landmark_transition = shuttle_controller.get_landmark(landmark_transition)
+		landmark_transition = SSshuttle.get_landmark(landmark_transition)
 
 /datum/shuttle/autodock/Destroy()
 	next_location = null
@@ -46,7 +46,7 @@
 		current_dock_target = location.special_dock_targets[name]
 	else
 		current_dock_target = dock_target
-	active_docking_controller = shuttle_controller.docking_registry[current_dock_target]
+	active_docking_controller = SSshuttle.docking_registry[current_dock_target]
 
 /datum/shuttle/autodock/proc/get_docking_target(var/obj/effect/shuttle_landmark/location)
 	if(location && location.special_dock_targets)
@@ -150,7 +150,6 @@
 		world << "Cannot launch." //TODOMATT
 		return
 
-	world << "Launching..." //TODOMATT
 	in_use = user	//obtain an exclusive lock on the shuttle
 
 	process_state = WAIT_LAUNCH

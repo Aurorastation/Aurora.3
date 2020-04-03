@@ -14,5 +14,4 @@
 					to_chat(M, SPAN_NOTICE("You have arrived at the [current_map.station_name]! The shuttle will return in [auto_return_time] seconds. Enjoy your stay!"))
 
 /datum/shuttle/autodock/ferry/autoreturn/proc/do_return()
-	if(!location)
-		process_launch()
+	launch(src)

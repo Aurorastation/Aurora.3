@@ -73,7 +73,7 @@ CREATE_ESCAPE_POD(3)
 
 //-// Arrival Shuttle //-//
 
-/datum/shuttle/autodock/ferry/arrival
+/datum/shuttle/autodock/ferry/arrival/aurora
 	name = "Arrival Shuttle"
 	location = 1
 	warmup_time = 10

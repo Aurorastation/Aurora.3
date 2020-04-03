@@ -74,10 +74,10 @@
 /datum/computer/file/embedded_program/docking/New()
 	..()
 	if(id_tag)
-		shuttle_controller.docking_registry[id_tag] = src
+		SSshuttle.docking_registry[id_tag] = src
 
 /datum/computer/file/embedded_program/docking/Destroy()
-	shuttle_controller.docking_registry -= id_tag
+	SSshuttle.docking_registry -= id_tag
 	return ..()
 
 /datum/computer/file/embedded_program/docking/receive_signal(datum/signal/signal, receive_method, receive_param)

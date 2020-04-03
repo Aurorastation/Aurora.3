@@ -10,7 +10,7 @@
 	next_location = destinations_cache[destination_key]
 
 /datum/shuttle/autodock/multi/proc/get_destinations()
-	if (last_cache_rebuild_time < shuttle_controller.last_landmark_registration_time)
+	if (last_cache_rebuild_time < SSshuttle.last_landmark_registration_time)
 		build_destinations_cache()
 	return destinations_cache
 
@@ -18,7 +18,7 @@
 	last_cache_rebuild_time = world.time
 	destinations_cache.Cut()
 	for(var/destination_tag in destination_tags)
-		var/obj/effect/shuttle_landmark/landmark = shuttle_controller.get_landmark(destination_tag)
+		var/obj/effect/shuttle_landmark/landmark = SSshuttle.get_landmark(destination_tag)
 		if(istype(landmark))
 			destinations_cache["[landmark.name]"] = landmark
 
@@ -29,6 +29,7 @@
 	var/obj/effect/shuttle_landmark/home_waypoint
 
 	var/cloaked = TRUE
+	var/returned = FALSE
 	var/announcer
 	var/arrival_message
 	var/departure_message
@@ -38,16 +39,22 @@
 /datum/shuttle/autodock/multi/antag/New()
 	..()
 	if(home_waypoint)
-		home_waypoint = shuttle_controller.get_landmark(home_waypoint)
+		home_waypoint = SSshuttle.get_landmark(home_waypoint)
 	else
 		home_waypoint = current_location
 
 /datum/shuttle/autodock/multi/antag/shuttle_moved()
 	if(current_location == home_waypoint)
+		returned = TRUE
 		announce_arrival()
 	else if(next_location == home_waypoint)
 		announce_departure()
 	..()
+
+/datum/shuttle/autodock/multi/antag/launch(var/user)
+	if(returned)
+		return //Nada, can't go back.
+	..(user)
 
 /datum/shuttle/autodock/multi/antag/proc/announce_departure()
 	if(cloaked || isnull(departure_message))

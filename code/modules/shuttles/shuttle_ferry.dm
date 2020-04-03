@@ -11,9 +11,9 @@
 
 /datum/shuttle/autodock/ferry/New(_name)
 	if(waypoint_station)
-		waypoint_station = shuttle_controller.get_landmark(waypoint_station)
+		waypoint_station = SSshuttle.get_landmark(waypoint_station)
 	if(waypoint_offsite)
-		waypoint_offsite = shuttle_controller.get_landmark(waypoint_offsite)
+		waypoint_offsite = SSshuttle.get_landmark(waypoint_offsite)
 
 	..(_name, get_location_waypoint(location))
 

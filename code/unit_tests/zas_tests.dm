@@ -161,11 +161,11 @@ datum/unit_test/zas_area_test/
 		fail("This map has no supply shuttle.")
 		return 1
 
-	if(!shuttle_controller.shuttles.len)
+	if(!SSshuttle.shuttles.len)
 		fail("No shuttles have been setup for this map.")
 		return 1
 
-	shuttle = shuttle_controller.shuttles["Supply"]
+	shuttle = SSshuttle.shuttles["Supply"]
 	SScargo.movetime = 5 // Speed up the shuttle movement.
 
 	if(isnull(shuttle))
