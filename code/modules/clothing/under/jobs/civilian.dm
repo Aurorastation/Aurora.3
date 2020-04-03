@@ -220,7 +220,7 @@
 	desc = "A uniform worn by Einstein Engines Incorporated employees and contractors."
 	icon_state = "einstein_engine"
 	worn_state = "einstein_engine"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 10)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
 	siemens_coefficient = 0.75	
 
 /obj/item/clothing/under/rank/zeng
