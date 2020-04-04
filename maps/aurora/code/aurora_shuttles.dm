@@ -375,7 +375,7 @@ AURORA_ESCAPE_POD(3)
 	docking_controller = "legion_shuttle_dock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-/datum/shuttle/autodock/ferry/research
+/datum/shuttle/autodock/ferry/research/aurora
 	name = "Research Shuttle"
 	location = 0
 	warmup_time = 10
