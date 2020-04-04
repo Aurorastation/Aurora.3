@@ -447,7 +447,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(O, brush) && canbrush) //Brushing animals
 		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
-			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"] happily.")) //purring
+			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
 		return
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
