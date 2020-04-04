@@ -78,7 +78,6 @@
 	hot_coco	spawn_reagent = "hot_coco"
 
 	// ERT
-	inaprov		spawn_reagent = "inaprovaline"
 	norepi		spawn_reagent = "norepinephrine"
 	ryetalyn	spawn_reagent = "ryetalyn"
 	paracetamol	spawn_reagent = "paracetamol"
@@ -111,3 +110,4 @@
 	chloral		spawn_reagent = "chloralhydrate"
 	cryoxadone	spawn_reagent = "cryoxadone"
 	clonexadone	spawn_reagent = "clonexadone"
+	pneumalin	spawn_reagent = "pneumalin"

@@ -435,15 +435,6 @@
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
 
-/obj/item/clothing/suit/storage/toggle/trench/green
-	name = "green trenchcoat"
-	desc = "A comfy looking green trenchcoat with fur."
-	icon_state = "greentrench"
-	item_state = "greentrench"
-	icon_open = "greentrench_open"
-	icon_closed = "greentrench"
-	body_parts_covered = UPPER_TORSO|ARMS
-
 /obj/item/clothing/suit/storage/toggle/greengov
 	name = "green formal jacket"
 	desc = "A sleek proper formal jacket with gold buttons."
@@ -647,6 +638,10 @@
 	description_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
 	description_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
 	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "caution"
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	force = 1

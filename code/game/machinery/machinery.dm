@@ -97,6 +97,7 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = 10
+	layer = OBJ_LAYER - 0.01
 
 	var/stat = 0
 	var/emagged = 0
@@ -130,6 +131,7 @@ Class Procs:
 	var/has_special_power_checks = FALSE	// If true, call auto_use_power instead of doing it all in SSmachinery.
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
+	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE)
 	. = ..()
@@ -442,3 +444,6 @@ Class Procs:
 			if(H.can_feel_pain())
 				H.emote("scream")
 				H.apply_damage(45, PAIN)
+
+/obj/machinery/proc/do_signaler() // override this to customize effects
+	return

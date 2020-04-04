@@ -4,7 +4,7 @@
 	icon_state = "door_electronics"
 	w_class = ITEMSIZE_TINY
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 	req_access = list(access_engine)
 
@@ -54,7 +54,7 @@
 
 /obj/item/airlock_electronics/Topic(href, href_list)
 	..()
-	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
+	if(use_check_and_message(usr))
 		return
 	if(href_list["close"])
 		usr << browse(null, "window=airlock")

@@ -5156,7 +5156,7 @@
 /obj/item/reagent_containers/food/snacks/spicy_clams/Initialize()
 	. = ..()
 	reagents.add_reagent("seafood", 4)
-	reagents.add_reagent("pepper", 1)
+	reagents.add_reagent("capsaicin", 1)
 
 /obj/item/reagent_containers/food/snacks/tajaran_bread
 	name = "adhomian bread"

@@ -97,7 +97,7 @@
 
 /obj/item/storage/box/syndie_kit/imp_explosive
 	name = "box (E)"
-	starts_with = list(/obj/item/implanter/explosive = 1)
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive = 1)
 
 /obj/item/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"

@@ -11,55 +11,84 @@
 	icon_state = "cabinet_closed"
 	density = 1
 
-/obj/structure/undies_wardrobe/attack_hand(mob/user as mob)
-	src.add_fingerprint(user)
-	var/mob/living/carbon/human/H = user
-	if(!ishuman(user) || (H.species && !(H.species.appearance_flags & HAS_UNDERWEAR)) && !(H.species.appearance_flags & HAS_SOCKS))
+/obj/structure/undies_wardrobe/attack_hand(var/mob/user)
+	if(!human_who_can_use_underwear(user))
 		to_chat(user, "<span class='warning'>Sadly there's nothing in here for you to wear.</span>")
-		return 0
+		return
+	interact(user)
 
+/obj/structure/undies_wardrobe/interact(var/mob/living/carbon/human/H)
+	var/dat = list()
+	dat += "<b>Underwear:</b><br>"
+	for(var/datum/category_group/underwear/UWC in global_underwear.categories)
+		var/datum/category_item/underwear/UWI = H.all_underwear[UWC.name]
+		var/item_name = UWI?.name || "None"
+		dat += "[UWC.name]: <a href='?src=\ref[src];change_underwear=[UWC.name]'>[item_name]</a>"
+		if(UWI)
+			for(var/datum/gear_tweak/gt in UWI.tweaks)
+				dat += " <a href='?src=\ref[src];underwear=[UWC.name];tweak=\ref[gt]'>[gt.get_contents(get_metadata(H, UWC.name, gt))]</a>"
+		dat += " <a href='?src=\ref[src];remove_underwear=[UWC.name]'>(Remove)</a><br>"
 
-	var/list/selection_types = list()
-	if (H.species.appearance_flags & HAS_UNDERWEAR)
-		selection_types += list(M_UNDER, F_UNDER, U_SHIRT)
-	if (H.species.appearance_flags & HAS_SOCKS)
-		selection_types += list(M_SOCKS, F_SOCKS)
+	dat = jointext(dat, null)
+	show_browser(H, dat, "window=wardrobe;size=400x200")
 
-	var/utype = input("Which section do you want to pick from?") as null|anything in selection_types
-	var/list/selection
-	switch(utype)
-		if(M_UNDER)
-			selection = underwear_m
-		if(F_UNDER)
-			selection = underwear_f
-		if(U_SHIRT)
-			selection = undershirt_t
-		if(M_SOCKS)
-			selection = socks_m
-		if(F_SOCKS)
-			selection = socks_f
-	var/pick = input("Select the style") as null|anything in selection
-	if(pick)
-		if(get_dist(src,user) > 1)
+/obj/structure/undies_wardrobe/proc/get_metadata(var/mob/living/carbon/human/H, var/underwear_category, var/datum/gear_tweak/gt)
+	var/metadata = H.all_underwear_metadata[underwear_category]
+	if(!metadata)
+		metadata = list()
+		H.all_underwear_metadata[underwear_category] = metadata
+
+	var/tweak_data = metadata["[gt]"]
+	if(!tweak_data)
+		tweak_data = gt.get_default()
+		metadata["[gt]"] = tweak_data
+	return tweak_data
+
+/obj/structure/undies_wardrobe/proc/set_metadata(var/mob/living/carbon/human/H, var/underwear_category, var/datum/gear_tweak/gt, var/new_metadata)
+	var/list/metadata = H.all_underwear_metadata[underwear_category]
+	metadata["[gt]"] = new_metadata
+
+/obj/structure/undies_wardrobe/proc/human_who_can_use_underwear(var/mob/living/carbon/human/H)
+	if(!istype(H) || !H.species || !(H.species.appearance_flags & HAS_UNDERWEAR))
+		return FALSE
+	return TRUE
+
+/obj/structure/undies_wardrobe/CanUseTopic(var/user)
+	if(!human_who_can_use_underwear(user))
+		return STATUS_CLOSE
+
+	return ..()
+
+/obj/structure/undies_wardrobe/Topic(href, href_list, state)
+	if(..())
+		return TRUE
+
+	var/mob/living/carbon/human/H = usr
+	if(href_list["remove_underwear"])
+		if(href_list["remove_underwear"] in H.all_underwear)
+			H.all_underwear -= href_list["remove_underwear"]
+			. = TRUE
+	else if(href_list["change_underwear"])
+		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
+		if(!UWC)
 			return
-		switch (utype)
-			if(U_SHIRT)
-				H.undershirt = undershirt_t[pick]
-			if(F_SOCKS)
-				H.socks = selection[pick]
-			if(M_SOCKS)
-				H.socks = selection[pick]
-			if(M_UNDER)
-				H.underwear = selection[pick]
-			if(F_UNDER)
-				H.underwear = selection[pick]
-
+		var/datum/category_item/underwear/selected_underwear = input(H, "Choose underwear:", "Choose underwear", H.all_underwear[UWC.name]) as null|anything in UWC.items
+		if(selected_underwear && CanUseTopic(H, default_state))
+			H.all_underwear[UWC.name] = selected_underwear
+			H.hide_underwear[UWC.name] = FALSE
+			. = TRUE
+	else if(href_list["underwear"] && href_list["tweak"])
+		var/underwear = href_list["underwear"]
+		if(!(underwear in H.all_underwear))
+			return
+		var/datum/gear_tweak/gt = locate(href_list["tweak"])
+		if(!gt)
+			return
+		var/new_metadata = gt.get_metadata(usr, get_metadata(H, underwear, gt), "Wardrobe Underwear Selection")
+		if(new_metadata)
+			set_metadata(H, underwear, gt, new_metadata)
+			H.hide_underwear[underwear] = FALSE
+			. = TRUE
+	if(.)
 		H.update_underwear(TRUE)
-
-	return 1
-
-#undef M_UNDER
-#undef F_UNDER
-#undef M_SOCKS
-#undef F_SOCKS
-#undef U_SHIRT
+		interact(H)

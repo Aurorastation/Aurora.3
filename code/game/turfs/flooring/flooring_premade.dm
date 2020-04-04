@@ -129,10 +129,33 @@
 	nitrogen = 0
 	roof_type = null
 
+/turf/simulated/floor/tiled/old
+	name = "old floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_steel"
+	initial_flooring = /decl/flooring/tiling/old
+
+/turf/simulated/floor/tiled/old_dark
+	name = "old dark floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_dark"
+	initial_flooring = /decl/flooring/tiling/old_dark
+
+/turf/simulated/floor/tiled/old_white
+	name = "old sterile floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_white"
+	initial_flooring = /decl/flooring/tiling/old_white
+
 /turf/simulated/floor/tiled/asteroid
 	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "asteroid"
+	icon_state = "asteroidfloor"
 	initial_flooring = /decl/flooring/tiling/asteroid
+
+/turf/simulated/floor/tiled/asteroid/airless
+	oxygen = 0
+	nitrogen = 0
+	roof_type = null
 
 /turf/simulated/floor/plating/asteroid
 	icon = 'icons/turf/total_floors.dmi'

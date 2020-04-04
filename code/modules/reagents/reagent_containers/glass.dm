@@ -96,7 +96,7 @@
 	icon_state = "beaker"
 	item_state = "beaker"
 	center_of_mass = list("x" = 15,"y" = 11)
-	matter = list("glass" = 500)
+	matter = list(MATERIAL_GLASS = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	fragile = 4
 
@@ -149,7 +149,7 @@
 	desc = "A large beaker."
 	icon_state = "beakerlarge"
 	center_of_mass = list("x" = 16,"y" = 11)
-	matter = list("glass" = 5000)
+	matter = list(MATERIAL_GLASS = 5000)
 	volume = 120
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
@@ -175,7 +175,7 @@
 	desc = "A cryostasis beaker that allows for chemical storage without reactions."
 	icon_state = "beakernoreact"
 	center_of_mass = list("x" = 16,"y" = 13)
-	matter = list("glass" = 500)
+	matter = list(MATERIAL_GLASS = 500)
 	volume = 60
 	amount_per_transfer_from_this = 10
 	flags = OPENCONTAINER | NOREACT
@@ -186,7 +186,7 @@
 	desc = "A bluespace beaker, powered by experimental bluespace technology."
 	icon_state = "beakerbluespace"
 	center_of_mass = list("x" = 16,"y" = 11)
-	matter = list("glass" = 5000)
+	matter = list(MATERIAL_GLASS = 5000)
 	volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
@@ -198,7 +198,7 @@
 	desc = "A small glass vial."
 	icon_state = "vial"
 	center_of_mass = list("x" = 15,"y" = 9)
-	matter = list("glass" = 250)
+	matter = list(MATERIAL_GLASS = 250)
 	volume = 30
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25)
@@ -221,6 +221,10 @@
 	desc = "A blue plastic bucket."
 	name = "bucket"
 	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "bucket"
 	item_state = "bucket"
 	center_of_mass = list("x" = 16,"y" = 10)

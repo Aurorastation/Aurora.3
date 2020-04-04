@@ -8,7 +8,8 @@
 	volume = 30
 	unacidable = 1 //glass
 	center_of_mass = list("x"=16, "y"=10)
-	matter = list("glass" = 300)
+	matter = list(MATERIAL_GLASS = 300)
+	drink_flags = NO_EMPTY_ICON	//This should not be removed unless a total overhaul of drink reagent sprites is done.
 
 	on_reagent_change()
 		/*if(reagents.reagent_list.len > 1 )

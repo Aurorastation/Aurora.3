@@ -481,24 +481,25 @@
 
 
 /mob/proc/Check_Dense_Object() //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
-
 	var/shoegrip = Check_Shoegrip()
 
 	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //we only care for non-space turfs
 		if(T.density)	//walls work
-			return 1
+			return TRUE
 		else
 			var/area/A = T.loc
 			if(A.has_gravity() || shoegrip)
-				return 1
+				return TRUE
 
 	for(var/obj/O in orange(1, src))
 		if(istype(O, /obj/structure/lattice))
-			return 1
+			return TRUE
+		if(istype(O, /obj/structure/ladder))
+			return TRUE
 		if(O && O.density && O.anchored)
-			return 1
+			return TRUE
 
-	return 0
+	return FALSE
 
 /mob/proc/Check_Shoegrip()
 	return 0

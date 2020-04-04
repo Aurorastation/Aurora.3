@@ -3,11 +3,15 @@
 	singular_name = "nanite swarm"
 	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 	icon = 'icons/obj/stacks/nanopaste.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_nanopaste.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_nanopaste.dmi',
+		)
 	icon_state = "tube"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	amount = 10
 
-	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
+	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
 
 /obj/item/stack/nanopaste/update_icon()
 	var/amount = round(get_amount() / 2)

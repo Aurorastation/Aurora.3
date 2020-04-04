@@ -6,7 +6,7 @@
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 /obj/item/clothing/gloves/boxing/attackby(obj/item/W, mob/user)
-	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
 		to_chat(user, "<span class='notice'>That won't work.</span>")	//Nope)
 		return
 	..()

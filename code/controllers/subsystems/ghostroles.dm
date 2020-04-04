@@ -137,6 +137,9 @@
 		if(cant_spawn)
 			to_chat(usr, "Unable to spawn: [cant_spawn]")
 			return
+		if(isnewplayer(usr))
+			var/mob/abstract/new_player/N = usr
+			N.close_spawn_windows()
 		if(!S.pre_spawn(usr))
 			to_chat(usr, "Unable to spawn: pre_spawn failed. Report this on GitHub")
 			return

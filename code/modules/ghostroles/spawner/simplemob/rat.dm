@@ -3,6 +3,7 @@
 	name = "Rat"
 	desc = "Join as a Rat on the aurora, a common nuisance to the crew."
 	welcome_message = "You are now a rat. Though you may interact with players, do not give any hints away that you are more than a simple rodent. Find food, avoid cats, and try to survive!"
+	show_on_job_select = FALSE
 	tags = list("Simple Mobs")
 
 	respawn_flag = ANIMAL //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
