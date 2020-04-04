@@ -26,6 +26,8 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 	last_landmark_registration_time = world.time
 	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.
 		var/datum/shuttle/shuttle = shuttle_type
+		if(!(shuttle in current_map.map_shuttles))
+			continue
 		if(!initial(shuttle.defer_initialisation))
 			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)
 	block_queue = FALSE
@@ -72,8 +74,5 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 	var/datum/shuttle/shuttle = shuttle_type
 	if(initial(shuttle.category) != shuttle_type)
 		shuttle = new shuttle()
-		if(!(current_map.path in shuttle.valid_maps))
-			qdel(shuttle)
-			return
 		shuttle_areas |= shuttle.shuttle_area
 		return shuttle

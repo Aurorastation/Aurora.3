@@ -1,4 +1,5 @@
 /datum/shuttle/autodock/ferry/supply
+	category = /datum/shuttle/autodock/ferry/supply
 	var/away_location = 1	//the location to hide at while pretending to be in-transit
 	var/late_chance = 80
 	var/max_late_time = 300
