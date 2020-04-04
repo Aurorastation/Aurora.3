@@ -21,7 +21,6 @@
 
 	//Initial dock
 	update_docking_target(current_location)
-	log_ss("Shuttle", "Docking Target for ship [name]: [active_docking_controller]")
 	active_docking_controller = current_location.docking_controller
 	current_dock_target = get_docking_target(current_location)
 	dock()
@@ -51,7 +50,6 @@
 /datum/shuttle/autodock/proc/get_docking_target(var/obj/effect/shuttle_landmark/location)
 	if(location && location.special_dock_targets)
 		if(location.special_dock_targets[name])
-			log_ss("Shuttle", "Docking target: [location.special_dock_targets[name]]")
 			return location.special_dock_targets[name]
 	return dock_target
 /*
@@ -59,7 +57,6 @@
 */
 /datum/shuttle/autodock/proc/dock()
 	if(active_docking_controller)
-		log_ss("Shuttle", "[active_docking_controller] docking...")
 		active_docking_controller.initiate_docking(current_dock_target)
 		last_dock_attempt_time = world.time
 
