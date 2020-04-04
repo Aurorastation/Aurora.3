@@ -16,9 +16,9 @@
 
 	announce_ghost_joinleave(ghostize(1, 0))
 	world << "[src] has ghosted"
-	changeling_mob.mind.changeling.hivemind -= src
+	changeling_mob.mind.changeling.hivemind_members -= src
 	to_chat(changeling_mob, SPAN_NOTICE("[src] has left our hivemind to join the living dead."))
-	for(var/mob/abstract/hivemind/H in changeling_mob.mind.changeling.hivemind) // tell the others in the hivemind
+	for(var/mob/abstract/hivemind/H in changeling_mob.mind.changeling.hivemind_members["member"]) // tell the others in the hivemind
 		to_chat(H, SPAN_NOTICE("[src] has left our hivemind to join the living dead."))
 
 /mob/abstract/hivemind/proc/add_to_hivemind(var/mob/original_body, var/mob/living/carbon/human/ling)
@@ -31,7 +31,8 @@
 		ckey = original_body.ckey
 		changeling_mob = ling
 	if(changeling_mob)
-		changeling_mob.mind.changeling.hivemind["[name]"] = src
+		var/list/member = list("member" = src)
+		changeling_mob.mind.changeling.hivemind_members += member
 		introduction(changeling_mob)
 
 /mob/abstract/hivemind/proc/introduction(var/mob/living/carbon/human/ling)
@@ -54,7 +55,7 @@
 		return
 
 	to_chat(changeling_mob, message_process(message)) // tell the changeling
-	for(var/H in changeling_mob.mind.changeling.hivemind) // tell the others in the hivemind
+	for(var/H in changeling_mob.mind.changeling.hivemind_members["member"]) // tell the others in the hivemind
 		to_chat(H, message_process(message))
 
 /mob/abstract/hivemind/proc/message_process(var/message)

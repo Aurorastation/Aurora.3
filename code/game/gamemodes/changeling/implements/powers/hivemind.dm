@@ -4,10 +4,7 @@
 	set name = "Hivemind Eject"
 	set desc = "Ejects a member of our internal hivemind."
 
-	var/list/hivemind_choices = list()
-	for(var/mob/abstract/hivemind/H in mind.changeling.hivemind)
-		hivemind_choices += H.name
-	var/chosen_player = input(src, "Choose a hivemind member to eject.", "Eject") in hivemind_choices
+	var/chosen_player = input(src, "Choose a hivemind member to eject.", "Eject") in mind.changeling.hivemind_members["member"]
 	if(!chosen_player || chosen_player == "None")
 		world << "Eject found no input"
 		return
@@ -26,7 +23,7 @@
 		return
 
 	to_chat(src, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>") // tell the changeling
-	for(var/H in src.mind.changeling.hivemind) // tell the other hiveminds
+	for(var/H in src.mind.changeling.hivemind_members["member"]) // tell the other hiveminds
 		to_chat(H, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>")
 
 	return TRUE
