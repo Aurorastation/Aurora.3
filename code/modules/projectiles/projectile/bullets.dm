@@ -157,7 +157,7 @@
 
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
-	damage = 45
+	damage = 60
 
 /obj/item/projectile/bullet/shotgun/haywire
 	name = "haywire slug"
