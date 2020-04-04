@@ -478,6 +478,11 @@
 		playsound(get_turf(src), W.usesound, 100, 1)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the brace."))
 
+		for(var/angle in cardinal) // make it face any drill in cardinal direction from it
+			if(locate(/obj/machinery/mining/drill) in get_step(src, angle))
+				src.dir = angle
+				break
+
 		anchored = !anchored
 		if(anchored)
 			connect()
