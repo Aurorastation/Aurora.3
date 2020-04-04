@@ -14,28 +14,6 @@
 /obj/effect/shuttle_landmark/escape_pod/out
 	name = "Escaped"
 
-#define CREATE_ESCAPE_POD(NUMBER) \
-/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
-	name = "Escape Pod " + #NUMBER; \
-	shuttle_area = /area/shuttle/escape_pod##NUMBER/station; \
-	location = 0; \
-	dock_target = "escape_pod_" + #NUMBER; \
-	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \
-	waypoint_station = "escape_pod_"+ #NUMBER +"_start"; \
-	landmark_transition = "escape_pod_"+ #NUMBER +"_interim"; \
-	waypoint_offsite = "escape_pod_"+ #NUMBER +"_out"; \
-} \
-/obj/effect/shuttle_landmark/escape_pod/start/pod##NUMBER { \
-	landmark_tag = "escape_pod_"+ #NUMBER +"_start"; \
-	docking_controller = "escape_pod_"+ #NUMBER +"_berth"; \
-} \
-/obj/effect/shuttle_landmark/escape_pod/out/pod##NUMBER { \
-	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
-} \
-/obj/effect/shuttle_landmark/escape_pod/transit/pod##NUMBER { \
-	landmark_tag = "escape_pod_"+ #NUMBER +"_interim"; \
-}
-
 CREATE_ESCAPE_POD(1)
 CREATE_ESCAPE_POD(2)
 CREATE_ESCAPE_POD(3)
