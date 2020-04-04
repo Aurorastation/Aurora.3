@@ -73,7 +73,7 @@
 
 	moving_status = SHUTTLE_WARMUP
 	if(sound_takeoff)
-		playsound(current_location, sound_takeoff, 100, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return FALSE	//someone cancelled the launch

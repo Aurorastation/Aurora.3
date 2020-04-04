@@ -157,21 +157,19 @@ datum/unit_test/zas_area_test/
 	var/testtime = 0	//Used as a timer.
 
 /datum/unit_test/zas_supply_shuttle_moved/start_test()
-	if(!shuttle)
-		fail("This map has no supply shuttle.")
+	if(!SSshuttle)
+		fail("Shuttle Controller not setup at time of test.")
 		return 1
-
 	if(!SSshuttle.shuttles.len)
-		fail("No shuttles have been setup for this map.")
+		skip("No shuttles have been setup for this map.")
 		return 1
 
-	shuttle = SSshuttle.shuttles["Supply"]
-	SScargo.movetime = 5 // Speed up the shuttle movement.
-
+	shuttle = SSsupply.shuttle
 	if(isnull(shuttle))
-		fail("Unable to locate the supply shuttle")
+		return 1
 
 	// Initiate the Move.
+	SSsupply.movetime = 5 // Speed up the shuttle movement.
 	shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location))
 
 	return 1
