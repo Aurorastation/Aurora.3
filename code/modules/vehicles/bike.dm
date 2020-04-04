@@ -178,7 +178,7 @@
 				if(V.buckled_mob)
 					if(ishuman(V.buckled_mob))
 						var/mob/living/carbon/human/I = V.buckled_mob
-						I.visible_message(SPAN_DANGER ("\The [I] falls off from \the [V]"))
+						I.visible_message(SPAN_DANGER("\The [I] falls off from \the [V]"))
 						V.unload(I)
 						I.throw_at(get_edge_target_turf(V.loc, V.loc.dir), 5, 1)
 						I.apply_effect(2, WEAKEN)
