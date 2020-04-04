@@ -196,7 +196,7 @@
 				buckled_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
 				buckled_mob.attack_log += text("\[[time_stamp()]\] <font color='red'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</font>")
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
-				src.visible_message(SPAN_DANGER ("\The [src] smashes into \the [H]!"))
+				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
 				H.apply_damage(20, BRUTE)
 				H.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
