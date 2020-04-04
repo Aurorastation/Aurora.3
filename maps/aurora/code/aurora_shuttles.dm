@@ -155,6 +155,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Crescent Shuttle"
 	location = 1
 	warmup_time = 10	//want some warmup time so people can cancel.
+	ceiling_type = /turf/simulated/shuttle_roof/dark
 	shuttle_area = /area/shuttle/administration/centcom
 	dock_target = "admin_shuttle"
 	waypoint_station = "nav_admin_dock"
@@ -200,6 +201,7 @@ CREATE_ESCAPE_POD(3)
 	name = "Phoenix Shuttle"
 	location = 1
 	warmup_time = 10
+	ceiling_type = /turf/simulated/shuttle_roof/dark
 	shuttle_area = /area/shuttle/specops/centcom
 	dock_target = "specops_shuttle_port"
 	waypoint_station = "nav_ert_dock"
@@ -225,6 +227,7 @@ CREATE_ESCAPE_POD(3)
 	landmark_transition = "nav_skipjack_interim"
 	warmup_time = 10
 	move_time = 75
+	ceiling_type = /turf/simulated/shuttle_roof/dark
 	shuttle_area = /area/skipjack_station/start
 	destination_tags = list(
 		"nav_skipjack_start",
@@ -281,6 +284,7 @@ CREATE_ESCAPE_POD(3)
 	dock_target = "merc_shuttle"
 	warmup_time = 10
 	move_time = 75
+	ceiling_type = /turf/simulated/shuttle_roof/dark
 	shuttle_area = /area/syndicate_station/start
 	destination_tags = list(
 		"nav_merc_dock",
@@ -337,6 +341,7 @@ CREATE_ESCAPE_POD(3)
 	location = 1
 	warmup_time = 10
 	move_time = 75
+	ceiling_type = /turf/simulated/shuttle_roof/legion
 	shuttle_area = /area/shuttle/legion/centcom
 	dock_target = "legion_shuttle"
 	waypoint_offsite = "nav_legion_start"
@@ -391,6 +396,7 @@ CREATE_ESCAPE_POD(3)
 	warmup_time = 10
 	move_time = 45
 	dock_target = "distress_shuttle_aft"
+	ceiling_type = /turf/simulated/shuttle_roof/dark
 	shuttle_area = /area/shuttle/distress/centcom
 	waypoint_offsite = "nav_distress_away"
 	landmark_transition = "nav_distress_interim"
