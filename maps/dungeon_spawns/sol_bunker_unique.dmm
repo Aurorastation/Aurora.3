@@ -1228,6 +1228,7 @@
 	req_access = list(150)
 	},
 /obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/haywireshells,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)

@@ -229,7 +229,7 @@
 	name = "box of haywire shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "empshot_box"
-	starts_with = list(/obj/item/ammo_casing/shotgun/emp = 8)
+	starts_with = list(/obj/item/ammo_casing/shotgun/haywire = 8)
 
 /obj/item/storage/box/incendiaryshells
 	name = "box of incendiary shells"

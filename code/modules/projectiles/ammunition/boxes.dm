@@ -29,9 +29,9 @@
 	name = "speed loader (.38 rubber)"
 	ammo_type = /obj/item/ammo_casing/c38/rubber
 
-/obj/item/ammo_magazine/c38/emp
+/obj/item/ammo_magazine/c38/haywire
 	name = "speed loader (.38 haywire)"
-	ammo_type = /obj/item/ammo_casing/c38/emp
+	ammo_type = /obj/item/ammo_casing/c38/haywire
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
 /obj/item/ammo_magazine/c45
@@ -79,6 +79,12 @@
 /obj/item/ammo_magazine/c45m/flash
 	name = "magazine (.45 flash)"
 	ammo_type = /obj/item/ammo_casing/c45/flash
+
+/obj/item/ammo_magazine/c45m/haywire
+	name = "magazine (.45 haywire)"
+	icon_state = "h45"
+	ammo_type = /obj/item/ammo_casing/c45/haywire
+	matter = list(DEFAULT_WALL_MATERIAL = 380, MATERIAL_URANIUM = 630)
 
 /obj/item/ammo_magazine/mc10mm
 	name = "magazine (10mm)"
@@ -204,6 +210,13 @@
 	icon_state = "5.56AP"
 	origin_tech = list(TECH_COMBAT = 3)
 	ammo_type = /obj/item/ammo_casing/a556/ap
+
+/obj/item/ammo_magazine/a556/haywire
+	name = "magazine (5.56mm haywire)"
+	icon_state = "5.56EMP"
+	origin_tech = list(TECH_COMBAT = 4)
+	ammo_type = /obj/item/ammo_casing/a556/haywire
+	matter = list(DEFAULT_WALL_MATERIAL = 1700, MATERIAL_URANIUM = 700)
 
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
@@ -418,11 +431,10 @@
 	max_ammo = 7
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/gauss/emp
-	name = "ion slug box"
+/obj/item/ammo_magazine/gauss/haywire
+	name = "haywire slug box"
 	icon_state = "empslugbox"
-	ammo_type = /obj/item/ammo_casing/gauss/emp
-
+	ammo_type = /obj/item/ammo_casing/gauss/haywire
 
 /obj/item/ammo_magazine/plasma
 	name = "heavy duty plasma cell"

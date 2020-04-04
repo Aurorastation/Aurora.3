@@ -528,6 +528,11 @@
 	return FALSE
 
 /mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
+	if(Proj.special_damage == "machine")
+		var/datum/robot_component/surge/C = components["surge"]
+		if(C?.installed && C.surge_left >= 0.25)
+			Proj.damage /= max(1.25, C.surge_left)
+			C.surge_left = min(0, C.surge_left - 0.25)
 	..(Proj)
 	if(prob(75) && Proj.damage > 0)
 		spark_system.queue()

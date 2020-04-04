@@ -141,11 +141,29 @@
 	agony = 40
 	embed = 0
 
+/obj/item/projectile/bullet/pistol/haywire
+	name = "haywire bullet"
+	damage = 5	//damage is multiplied by 5 for synthetic targets/prosthetic organs/machinery structures. Also moved to burn damage.
+	embed = FALSE
+	special_damage = DAMAGE_MACHINE
+
+/obj/item/projectile/bullet/pistol/haywire/medium
+	damage = 6	//30 to synths
+
+/obj/item/projectile/bullet/pistol/haywire/strong
+	damage = 13	//65 to synths
+
 /* shotgun projectiles */
 
 /obj/item/projectile/bullet/shotgun
 	name = "slug"
-	damage = 60
+	damage = 45
+
+/obj/item/projectile/bullet/shotgun/haywire
+	name = "haywire slug"
+	damage = 10	//50 to synths
+	special_damage = DAMAGE_MACHINE
+	embed = FALSE
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
@@ -173,6 +191,12 @@
 	range_step = 1
 	spread_step = 10
 
+/obj/item/projectile/bullet/pellet/shotgun/haywire
+	name = "haywire shrapnel"
+	damage = 3	//15 to synths per pellet
+	embed = FALSE
+	special_damage = DAMAGE_MACHINE
+
 /obj/item/projectile/bullet/pellet/shotgun/canister
 	pellets = 15
 	range_step = 3
@@ -193,6 +217,11 @@
 /obj/item/projectile/bullet/rifle/a556/ap
 	damage = 25
 	armor_penetration = 25
+
+/obj/item/projectile/bullet/rifle/a556/haywire
+	damage = 8	//40 to synths
+	embed = FALSE
+	special_damage = DAMAGE_MACHINE
 
 /obj/item/projectile/bullet/rifle/a145
 	damage = 80

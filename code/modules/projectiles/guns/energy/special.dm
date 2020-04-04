@@ -13,8 +13,8 @@
 	force = 10
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
-	charge_cost = 300
-	max_shots = 10
+	charge_cost = 400
+	max_shots = 5
 	secondary_projectile_type = /obj/item/projectile/ion
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_turret = 1
@@ -22,8 +22,8 @@
 	turret_sprite_set = "ion"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 300),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
+		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 400),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 1750)
 		)
 
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)

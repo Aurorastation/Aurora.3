@@ -9851,8 +9851,9 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/haywire,
+/obj/item/ammo_magazine/c45m/haywire,
+/obj/item/ammo_magazine/c45m/haywire,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "arG" = (
@@ -9862,6 +9863,7 @@
 /obj/effect/decal/warning_stripes,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/storage/box/stunshells,
+/obj/item/storage/box/haywireshells,
 /obj/item/storage/box/flashshells{
 	pixel_x = -2;
 	pixel_y = 2

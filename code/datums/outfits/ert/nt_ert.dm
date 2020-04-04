@@ -16,7 +16,8 @@
 	belt_contents = list(
 		/obj/item/handcuffs = 2,
 		/obj/item/shield/riot/tact = 1,
-		/obj/item/ammo_magazine/a556 = 2,
+		/obj/item/ammo_magazine/a556 = 1,
+		/obj/item/ammo_magazine/a556/haywire = 1,
 		/obj/item/ammo_magazine/a556/ap = 1
 	)
 
@@ -53,6 +54,7 @@
 	belt_contents = list(
 		/obj/item/handcuffs = 1,
 		/obj/item/shield/riot/tact = 1,
-		/obj/item/ammo_magazine/a556 = 2,
+		/obj/item/ammo_magazine/a556 = 1,
+		/obj/item/ammo_magazine/a556/haywire = 1,
 		/obj/item/ammo_magazine/a556/ap = 2
 	)

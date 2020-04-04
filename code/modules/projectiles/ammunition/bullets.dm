@@ -29,9 +29,9 @@
 	icon_state = "r-casing"
 	spent_icon = "r-casing-spent"
 
-/obj/item/ammo_casing/c38/emp
+/obj/item/ammo_casing/c38/haywire
 	name = ".38 haywire round"
-	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
+	desc = "A .38 bullet casing designed to fry wires and circuitry."
 	projectile_type = /obj/item/projectile/ion/small
 	icon_state = "empcasing"
 	matter = list(DEFAULT_WALL_MATERIAL = 130, MATERIAL_URANIUM = 100)
@@ -89,6 +89,12 @@
 	desc = "A .45 flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
+/obj/item/ammo_casing/c45/haywire
+	desc = "A .45 haywire shell casing."
+	projectile_type = /obj/item/projectile/bullet/pistol/haywire/medium
+	icon_state = "empcasing"
+	matter = list(DEFAULT_WALL_MATERIAL = 140, MATERIAL_URANIUM = 120)
+
 /obj/item/ammo_casing/a12mm
 	desc = "A 12mm bullet casing."
 	caliber = "12mm"
@@ -110,6 +116,14 @@
 	spent_icon = "gshell-spent"
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
+
+/obj/item/ammo_casing/shotgun/pellet/haywire
+	name = "haywire shell"
+	desc = "A 12 gauge haywire shell."
+	icon_state = "empshell"
+	spent_icon = "empshell-spent"
+	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/haywire
+	matter = list(DEFAULT_WALL_MATERIAL = 300, MATERIAL_URANIUM = 240)
 
 /obj/item/ammo_casing/shotgun/blank
 	name = "shotgun shell"
@@ -166,12 +180,12 @@
 	projectile_type = /obj/item/projectile/bullet/shotgun/incendiary
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
 
-/obj/item/ammo_casing/shotgun/emp
+/obj/item/ammo_casing/shotgun/haywire
 	name = "haywire slug"
-	desc = "A 12-gauge shotgun slug fitted with a single-use ion pulse generator."
+	desc = "A 12-gauge shotgun slug designed to fry wires and circuitry."
 	icon_state = "empshell"
 	spent_icon = "empshell-spent"
-	projectile_type  = /obj/item/projectile/ion
+	projectile_type  = /obj/item/projectile/bullet/shotgun/haywire
 	matter = list(DEFAULT_WALL_MATERIAL = 260, MATERIAL_URANIUM = 200)
 
 /obj/item/ammo_casing/tranq
@@ -216,6 +230,12 @@
 /obj/item/ammo_casing/a556/practice
 	desc = "A 5.56mm practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
+
+/obj/item/ammo_casing/a556/haywire
+	desc = "A 5.56mm haywire bullet casing."
+	projectile_type = /obj/item/projectile/bullet/rifle/a556/haywire
+	icon_state = "rifle-emp-casing"
+	matter = list(DEFAULT_WALL_MATERIAL = 160, MATERIAL_URANIUM = 140)
 
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"
@@ -273,11 +293,11 @@
 	icon_state = "tungstenslug"
 	projectile_type = /obj/item/projectile/bullet/gauss
 
-/obj/item/ammo_casing/gauss/emp
-	name = "ion slug"
-	desc = "A heavy ion gauss slug."
+/obj/item/ammo_casing/gauss/haywire
+	name = "haywire slug"
+	desc = "A heavy haywire gauss slug."
 	icon_state = "empslug"
-	projectile_type = /obj/item/projectile/ion/gauss
+	projectile_type = /obj/item/projectile/bullet/gauss/haywire
 
 /obj/item/ammo_casing/plasma_slug
 	name = "plasma slug"

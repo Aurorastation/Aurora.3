@@ -829,7 +829,9 @@
 	products = list(
 		/obj/item/storage/box/shotgunammo = 2,
 		/obj/item/storage/box/shotgunshells = 2,
+		/obj/item/storage/box/haywireshells = 2,
 		/obj/item/ammo_magazine/c45m = 6,
+		/obj/item/ammo_magazine/c45m/haywire = 3,
 		/obj/item/grenade/chem_grenade/teargas = 6,
 		/obj/item/ammo_magazine/mc9mmt = 2,
 		/obj/item/clothing/mask/gas/tactical = 4,
@@ -853,6 +855,7 @@
 	products = list(
 		/obj/item/storage/box/shotgunammo = 2,
 		/obj/item/storage/box/shotgunshells = 2,
+		/obj/item/storage/box/haywireshells = 2,
 		/obj/item/grenade/chem_grenade/gas = 6,
 		/obj/item/clothing/mask/gas/tactical = 8,
 		/obj/item/shield/riot/tact = 4,
@@ -861,8 +864,10 @@
 		/obj/item/ammo_magazine/mc9mmt/rubber = 4,
 		/obj/item/gun/projectile/automatic/x9 = 2,
 		/obj/item/ammo_magazine/c45x = 6,
+		/obj/item/ammo_magazine/c45m/haywire = 6,
 		/obj/item/ammo_magazine/a556 = 12,
 		/obj/item/ammo_magazine/a556/ap = 4,
+		/obj/item/ammo_magazine/a556/haywire = 4,
 		/obj/item/material/knife/tacknife = 4,
 		/obj/item/device/firing_pin = 12
 	)

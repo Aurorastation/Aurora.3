@@ -248,9 +248,11 @@
 		/obj/item/storage/box/shotgunammo = 2,
 		/obj/item/storage/box/shotgunshells = 4,
 		/obj/item/storage/box/stunshells = 1,
+		/obj/item/storage/box/haywireshells = 1,		
 		/obj/item/ammo_magazine/c45m = 2,
 		/obj/item/ammo_magazine/c45m/rubber = 4,
 		/obj/item/ammo_magazine/c45m/flash = 4,
+		/obj/item/ammo_magazine/c45m/haywire = 2,
 		/obj/item/ammo_magazine/mc9mmt = 2,
 		/obj/item/ammo_magazine/mc9mmt/rubber = 6
 	)
@@ -1048,6 +1050,7 @@
 		/obj/item/ammo_casing/c45/rubber = 0.5,
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
+		/obj/item/ammo_casing/c45/haywire = 0.25,
 		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
 		/obj/random/document/junk = 0.5,
 		/obj/item/flame/lighter/random = 0.25,

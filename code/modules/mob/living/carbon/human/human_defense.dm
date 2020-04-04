@@ -40,6 +40,15 @@ emp_act
 	var/list/clothing = get_clothing_list_organ(organ)
 	for(var/obj/item/clothing/C in clothing)
 		C.clothing_impact(P, P.damage)
+		if(P.special_damage == "machine")
+			C.emp_act(3)
+
+	//Surge check for haywire bullets
+	if(isipc(src) && P.special_damage == "machine")
+		var/obj/item/organ/internal/surge/SU = internal_organs_by_name["surge"]
+		if(SU?.surge_left >= 0.25)
+			P.damage /= max(1.25, SU.surge_left)
+			SU.surge_left = min(0, SU.surge_left - 0.25)
 
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())

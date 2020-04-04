@@ -8224,6 +8224,8 @@
 /obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556/haywire,
+/obj/item/ammo_magazine/a556/haywire,
 /obj/item/gun/projectile/automatic/rifle/z8,
 /obj/item/gun/projectile/automatic/rifle/z8,
 /turf/unsimulated/floor{
@@ -25054,8 +25056,8 @@
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
-/obj/item/ammo_magazine/gauss/emp,
-/obj/item/ammo_magazine/gauss/emp,
+/obj/item/ammo_magazine/gauss/haywire,
+/obj/item/ammo_magazine/gauss/haywire,
 /obj/item/gun/energy/blaster/rifle,
 /obj/item/gun/projectile/gauss,
 /turf/unsimulated/floor{
@@ -31180,27 +31182,27 @@
 	pixel_x = -10;
 	pixel_y = 4
 	},
-/obj/item/ammo_magazine/gauss/emp{
+/obj/item/ammo_magazine/gauss/haywire{
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/item/ammo_magazine/gauss/emp{
+/obj/item/ammo_magazine/gauss/haywire{
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/item/ammo_magazine/gauss/emp{
+/obj/item/ammo_magazine/gauss/haywire{
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/item/ammo_magazine/gauss/emp{
+/obj/item/ammo_magazine/gauss/haywire{
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/item/ammo_magazine/gauss/emp{
+/obj/item/ammo_magazine/gauss/haywire{
 	pixel_x = 5;
 	pixel_y = 4
 	},
-/obj/item/ammo_magazine/gauss/emp{
+/obj/item/ammo_magazine/gauss/haywire{
 	pixel_x = 5;
 	pixel_y = 4
 	},

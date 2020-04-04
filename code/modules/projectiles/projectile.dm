@@ -1,5 +1,7 @@
 #define MUZZLE_EFFECT_PIXEL_INCREMENT 16	//How many pixels to move the muzzle flash up so your character doesn't look like they're shitting out lasers.
 
+#define DAMAGE_MACHINE "machine"
+
 /obj/item/projectile
 	name = "projectile"
 	icon = 'icons/obj/projectiles.dmi'
@@ -33,6 +35,7 @@
 	var/nodamage = FALSE		//Determines if the projectile will skip any damage inflictions
 	var/check_armour = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
 	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
+	var/special_damage = null //use damage defines above. Runs during on_hit and get_structure_damage, used to adjust projectile based on target type, etc.
 
 	var/stun = 0
 	var/weaken = 0
@@ -100,6 +103,32 @@
 /obj/item/projectile/CanPass()
 	return TRUE
 
+/obj/item/projectile/proc/special_damage_adj(var/atom/target, var/def_zone)
+	var/list/adjusted = list()
+	switch(special_damage)
+		if(DAMAGE_MACHINE)
+			if(ishuman(target))
+				var/mob/living/carbon/human/H = target
+				if(isipc(H))
+					damage *= 5
+					damage_type = BURN
+				else
+					var/obj/item/organ/external/affected = H.get_organ(def_zone)
+					if(BP_IS_ROBOTIC(affected))
+						damage *= 5
+						damage_type = BURN
+			else if(isliving(target))
+				var/mob/living/L = target
+				if(L.isSynthetic() || ismech(L))
+					damage *= 5
+					damage_type = BURN
+					world << "[target] is synthetic or mech" 
+			if(ismachinery(target))
+				damage *= 5
+				damage_type = BURN
+			adjusted = list("damage" = damage, "damage_type" = damage_type)
+			return adjusted
+
 //TODO: make it so this is called more reliably, instead of sometimes by bullet_act() and sometimes not
 /obj/item/projectile/proc/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if(blocked >= 100)	//Full block
@@ -135,6 +164,12 @@
 	return TRUE
 
 /obj/item/projectile/proc/get_structure_damage()
+	world << "Running get_structure_damage"
+	if(special_damage)
+		var/list/adj_dam = special_damage_adj()
+		damage = adj_dam["damage"]
+		damage_type = adj_dam["damage_type"]
+		world << "[damage] damage and [damage_type] type for structure."
 	if(damage_type == BRUTE || damage_type == BURN)
 		return damage
 	return FALSE
@@ -174,6 +209,10 @@
 	var/result = PROJECTILE_FORCE_MISS
 	if(hit_zone)
 		def_zone = hit_zone //set def_zone, so if the projectile ends up hitting someone else later (to be implemented), it is more likely to hit the same part
+		if(special_damage) //Adjust the damage before we apply bullet_act(), if needed
+			var/list/adjusted_dam = special_damage_adj(target_mob, def_zone)
+			damage = adjusted_dam["damage"]
+			damage_type = adjusted_dam["damage_type"]
 		result = target_mob.bullet_act(src, def_zone)
 
 	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.

@@ -53,11 +53,11 @@
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
-	new /obj/item/ammo_magazine/gauss/emp(src)
+	new /obj/item/ammo_magazine/gauss/haywire(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
-	new /obj/item/ammo_magazine/gauss/emp(src)
+	new /obj/item/ammo_magazine/gauss/haywire(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/coalition_single/fill()
 	new /obj/item/clothing/head/helmet/space/void/coalition(src)
@@ -66,7 +66,7 @@
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
 	new /obj/item/ammo_magazine/gauss(src)
-	new /obj/item/ammo_magazine/gauss/emp(src)
+	new /obj/item/ammo_magazine/gauss/haywire(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/eridani/fill()
 	new /obj/item/rig/strike/equipped(src)

@@ -6844,6 +6844,8 @@
 /obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556,
 /obj/item/ammo_magazine/a556,
+/obj/item/ammo_magazine/a556/haywire,
+/obj/item/ammo_magazine/a556/haywire,
 /obj/item/gun/projectile/automatic/rifle/z8,
 /obj/item/gun/projectile/automatic/rifle/z8,
 /turf/unsimulated/floor{
@@ -19910,8 +19912,8 @@
 /area/centcom/legion)
 "ggL" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/gauss/emp,
-/obj/item/ammo_magazine/gauss/emp,
+/obj/item/ammo_magazine/gauss/haywire,
+/obj/item/ammo_magazine/gauss/haywire,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
@@ -21473,8 +21475,8 @@
 /area/shuttle/legion/centcom)
 "nRS" = (
 /obj/structure/table/rack,
-/obj/item/ammo_magazine/gauss/emp,
-/obj/item/ammo_magazine/gauss/emp,
+/obj/item/ammo_magazine/gauss/haywire,
+/obj/item/ammo_magazine/gauss/haywire,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,
 /obj/item/ammo_magazine/gauss,

@@ -31,6 +31,18 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/ammo_casing/shotgun/stunshell
 
+/datum/design/item/weapon/haywireshell
+	desc = "A circuit-frying shell for a shotgun."
+	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_URANIUM = 500)
+	build_path = /obj/item/ammo_casing/shotgun/pellet/haywire
+
+/datum/design/item/weapon/haywireslug
+	desc = "A circuit-frying slug for a shotgun."
+	req_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 4400, MATERIAL_URANIUM = 600)
+	build_path = /obj/item/ammo_casing/shotgun/haywire
+
 /datum/design/item/weapon/chemsprayer
 	desc = "An advanced chem spraying device."
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_BIO = 2)

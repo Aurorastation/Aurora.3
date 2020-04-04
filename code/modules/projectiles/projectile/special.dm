@@ -29,7 +29,7 @@
 				return 1
 			else
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
-		H.Weaken(5)
+		H.Weaken(rand(2, 5))
 		to_chat(H, "<span class='danger'>ERROR: detected low setting EMP, acutators experience temporary power loss. Attempting to restore power.</span>")
 	else if (isrobot(A))
 		var/mob/living/silicon/robot/R = A
@@ -48,7 +48,7 @@
 			else
 				to_chat(src, "<span class='notice'>Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement</span>")
 
-		R.emp_act(2) // Borgs emp_act is 1-2
+		R.emp_act(3) // Borgs emp_act is 1-2
 	else
 		A.emp_act(3) // Deals less EMP damage then lethal setting, and not areal pulse
 	return 1
@@ -61,9 +61,11 @@
 	name = "heavy ion pulse"
 	pulse_range = 5
 
-/obj/item/projectile/ion/gauss
-	name = "ion slug"
-	icon_state = "heavygauss"
+/obj/item/projectile/bullet/gauss/haywire
+	name = "haywire slug"
+	damage = 11	//55 to synths
+	special_damage = DAMAGE_MACHINE
+	embed = FALSE
 
 /obj/item/projectile/bullet/gyro
 	name ="explosive bolt"

@@ -109,7 +109,7 @@
 	..()
 
 /obj/item/gun/projectile/revolver/deckard/emp
-	ammo_type = /obj/item/ammo_casing/c38/emp
+	ammo_type = /obj/item/ammo_casing/c38/haywire
 
 /obj/item/gun/projectile/revolver/derringer
 	name = "derringer"
