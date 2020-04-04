@@ -53,12 +53,10 @@
 	for(var/area/A in shuttle.shuttle_area)
 		var/list/translation = get_turf_translation(get_turf(shuttle.current_location), get_turf(src), A.contents)
 		if(check_collision(base_area, list_values(translation)))
-			world << "Collision!"
 			return FALSE
 	var/conn = GetConnectedZlevels(z)
 	for(var/w in (z - shuttle.multiz) to z)
 		if(!(w in conn))
-			world << "Z-level problem!"
 			return FALSE
 	return TRUE
 
@@ -74,13 +72,8 @@
 		if(!target)
 			return TRUE //collides with edge of map
 		if(target.loc != target_area)
-			world << "Target: [target]"
-			world << "[target.loc] != [target_area]"
-			world << "Area collision!" //TODOMATT
-			world << "C: [target.x] [target.y] [target.z]"
 			return TRUE //collides with another area
 		if(target.density)
-			world << "Dense turf!" //TODOMATT
 			return TRUE //dense turf
 	return FALSE
 

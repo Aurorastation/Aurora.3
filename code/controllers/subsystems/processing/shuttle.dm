@@ -5,7 +5,7 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 	wait = 2 SECONDS
 	flags = 0
 	priority = SS_PRIORITY_SHUTTLE
-	init_order = SS_INIT_SHUTTLE                 //Should be initialized after all maploading is over and atoms are initialized, to ensure that landmarks have been initialized.
+	init_order = SS_INIT_MISC                    //Should be initialized after all maploading is over and atoms are initialized, to ensure that landmarks have been initialized.
 
 	var/list/shuttles = list()                   //maps shuttle tags to shuttle datums, so that they can be looked up.
 	var/list/process_shuttles = list()           //simple list of shuttles, for processing
@@ -23,10 +23,8 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 	NEW_SS_GLOBAL(SSshuttle)
 
 /datum/controller/subsystem/processing/shuttle/Initialize()
-	log_ss("Shuttle", "SSShuttle initializing.")
 	last_landmark_registration_time = world.time
 	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.
-		log_ss("Shuttle", "Shuttle type: [shuttle_type]") //TODOMATT
 		var/datum/shuttle/shuttle = shuttle_type
 		if(!initial(shuttle.defer_initialisation))
 			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)
@@ -55,7 +53,6 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 /datum/controller/subsystem/processing/shuttle/proc/initialize_shuttles()
 	var/list/shuttles_made = list()
 	for(var/shuttle_type in shuttles_to_initialize)
-		log_ss("Shuttle", "Initializing [shuttle_type]") //TODOMATT
 		var/shuttle = initialize_shuttle(shuttle_type)
 		if(shuttle)
 			shuttles_made += shuttle

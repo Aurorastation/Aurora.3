@@ -65,7 +65,6 @@
 
 /datum/shuttle/autodock/proc/undock()
 	if(active_docking_controller)
-		world << "Undocking..." //TODOMATT
 		active_docking_controller.initiate_undocking()
 
 /datum/shuttle/autodock/proc/force_undock()
@@ -147,7 +146,6 @@
 */
 /datum/shuttle/autodock/proc/launch(var/user)
 	if(!can_launch())
-		world << "Cannot launch." //TODOMATT
 		return
 
 	in_use = user	//obtain an exclusive lock on the shuttle

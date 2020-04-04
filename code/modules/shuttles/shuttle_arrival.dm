@@ -12,7 +12,7 @@
 
 		if(at_station() && forbidden_atoms_check())
 			//cancel the launch because of forbidden atoms
-			global_announcer.autosay("Unacceptable items or lifeforms detected aboard the arrivals shuttle. Launch attempt aborted. Reattempting launch in T minus one minute.", "Arrivals Shuttle Oversight")
+			global_announcer.autosay("Unacceptable items or lifeforms detected aboard the arrivals shuttle. Launch attempt aborted. Reattempting launch in one minute.", "Arrivals Shuttle Oversight")
 			SSarrivals.set_launch_countdown(60)
 			SSarrivals.failreturnnumber++
 			if(SSarrivals.failreturnnumber >= 2) // get off my shuttle fool

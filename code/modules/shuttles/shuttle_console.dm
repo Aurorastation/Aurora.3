@@ -68,14 +68,12 @@
 
 /obj/machinery/computer/shuttle_control/proc/handle_topic_href(var/datum/shuttle/autodock/shuttle, var/list/href_list, var/user)
 	if(!istype(shuttle))
-		world << "No shuttle" //TODOMATT
 		return TOPIC_NOACTION
 
 	if(href_list["move"])
 		if(can_move(shuttle, user))
 			shuttle.launch(src)
 			return TOPIC_REFRESH
-		world << "Cannot move" //TODOMATT
 		return TOPIC_HANDLED
 
 	if(href_list["force"])

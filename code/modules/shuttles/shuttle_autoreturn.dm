@@ -3,8 +3,9 @@
 	category = /datum/shuttle/autodock/ferry/autoreturn
 
 /datum/shuttle/autodock/ferry/autoreturn/arrived()
-	addtimer(CALLBACK(src, .proc/announce_return), 20)
-	addtimer(CALLBACK(src, .proc/do_return), auto_return_time*10)
+	if(waypoint_station == current_location)
+		addtimer(CALLBACK(src, .proc/announce_return), 20)
+		addtimer(CALLBACK(src, .proc/do_return), auto_return_time*10)
 
 /datum/shuttle/autodock/ferry/autoreturn/proc/announce_return()
 	if(!location)
