@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Vaurca warriors now need a strangling grip to mandible bite someone. The hard cooldown has increased to ten seconds."
-  - bugfix: "Vaurca warriors can no longer do the mandible bite through face-covering helmets and masks."
