@@ -1,0 +1,14 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes: 
+  - tweak: "Haywire ammunition no longer causes small EMPs. It now does higher damage to synthetics, prosthetics, and machinery, and strikes them as burn damage. For non-synths, they're very weak, and strike as brute."
+  - rscadd: "Haywire ammunition damage is mitigated if you have a surge prevention module, but will also drain its uses. Damage reduction scales with the strength of your surge module."
+  - rscadd: "Adds haywire ammunition for .45, 5.56mm, and shotgun shells."
+  - rscadd: "Added additional haywire ammunition to the armory less-than-lethal locker (.45s and shotguns). Removed a few rubber clips."
+  - rscadd: "Added haywire ammunition to advanced combat vendors and some response teams."
+  - rscadd: "Haywire shotgun shells and slugs can be produced in the protolathe."
+  - tweak: "Regular shotgun slugs do less damage. Non-validhunters, rejoice."
+  - tweak: "The ion rifle's lethal mode (AoE) uses almost all of its charge. Stun mode has been weakened slightly and can only be used five times between charges, down from ten."
+  - imageadd: "New sprites added for some haywire ammo clips and magazines."
