@@ -206,7 +206,7 @@
 
 			else
 				var/mob/living/L = AM
-				src.visible_message(SPAN_DANGER ("\The [src] smashes into \the [L]!"))
+				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [L]!"))
 				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
 				L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)
 				L.apply_damage(20, BRUTE)
