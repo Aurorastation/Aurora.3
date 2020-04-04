@@ -105,14 +105,14 @@ AURORA_ESCAPE_POD(3)
 
 //-// Supply Shuttle //-//
 
-/datum/shuttle/autodock/ferry/supply
+/datum/shuttle/autodock/ferry/supply/aurora
 	name = "Supply Shuttle"
 	location = 1
 	shuttle_area = /area/supply/dock
 	dock_target = "supply_shuttle"
 	waypoint_station = "nav_supply_dock"
 	waypoint_offsite = "nav_supply_start"
-	valid_maps = list("aurora", "exodus")
+	valid_maps = list("aurora")
 
 /obj/effect/shuttle_landmark/supply/start
 	name = "Supply Centcom Dock"
