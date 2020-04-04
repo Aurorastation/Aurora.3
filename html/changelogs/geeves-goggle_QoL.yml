@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Goggle overlays like mesons, thermal and science have been made less extreme."
+  - bugfix: "Goggle overlays are now always on-screen, instead of only being a 15x15 block around the player."
