@@ -30,9 +30,6 @@
 
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
-	if(!(current_map.path in valid_maps))
-		qdel(src)
-		return FALSE //Don't initialize a shuttle if its map isn't loaded.
 	if(_name)
 		src.name = _name
 
