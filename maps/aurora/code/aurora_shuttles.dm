@@ -26,7 +26,7 @@
 	waypoint_station = "escape_pod_"+ #NUMBER +"_start"; \
 	landmark_transition = "escape_pod_"+ #NUMBER +"_interim"; \
 	waypoint_offsite = "escape_pod_"+ #NUMBER +"_out"; \
-	valid_maps = list("aurora", "exodus")
+	valid_maps = list("aurora", "exodus"); \
 } \
 /obj/effect/shuttle_landmark/escape_pod/start/pod##NUMBER { \
 	landmark_tag = "escape_pod_"+ #NUMBER +"_start"; \
