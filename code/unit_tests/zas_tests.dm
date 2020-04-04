@@ -158,11 +158,15 @@ datum/unit_test/zas_area_test/
 
 /datum/unit_test/zas_supply_shuttle_moved/start_test()
 	if(!SSshuttle)
-		fail("Shuttle Controller not setup at time of test.")
+		fail("The shuttle controller is not setup at time of test.")
 		return 1
 	if(!SSshuttle.shuttles.len)
-		fail("No shuttles have been setup for this map.")
-		return 1
+		if(length(current_map.map_shuttles))
+			fail("This map should have shuttles, but it doesn't!")
+			return 1
+		else
+			pass("This map is not supposed to have any shuttles.")
+			return 1
 
 	shuttle = SScargo.shuttle
 	if(isnull(shuttle))
