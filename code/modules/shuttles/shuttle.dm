@@ -32,7 +32,7 @@
 	..()
 	if(!(current_map.path in valid_maps))
 		qdel(src)
-		return //Don't initialize a shuttle if its map isn't loaded.
+		return FALSE //Don't initialize a shuttle if its map isn't loaded.
 	if(_name)
 		src.name = _name
 

@@ -14,10 +14,32 @@
 /obj/effect/shuttle_landmark/escape_pod/out
 	name = "Escaped"
 
-CREATE_ESCAPE_POD(1)
-CREATE_ESCAPE_POD(2)
-CREATE_ESCAPE_POD(3)
-CREATE_ESCAPE_POD(5)
+#define EXODUS_ESCAPE_POD(NUMBER) \
+/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
+	name = "Escape Pod " + #NUMBER; \
+	shuttle_area = /area/shuttle/escape_pod##NUMBER/station; \
+	location = 0; \
+	dock_target = "escape_pod_" + #NUMBER; \
+	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \
+	waypoint_station = "escape_pod_"+ #NUMBER +"_start"; \
+	landmark_transition = "escape_pod_"+ #NUMBER +"_interim"; \
+	waypoint_offsite = "escape_pod_"+ #NUMBER +"_out"; \
+	valid_maps = list("exodus"); \
+} \
+/obj/effect/shuttle_landmark/escape_pod/start/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_start"; \
+	docking_controller = "escape_pod_"+ #NUMBER +"_berth"; \
+} \
+/obj/effect/shuttle_landmark/escape_pod/out/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
+} \
+/obj/effect/shuttle_landmark/escape_pod/transit/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_interim"; \
+}
+
+EXODUS_ESCAPE_POD(1)
+EXODUS_ESCAPE_POD(2)
+EXODUS_ESCAPE_POD(3)
 
 //-// Transfer Shuttle //-//
 
@@ -209,7 +231,7 @@ CREATE_ESCAPE_POD(5)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //Skipjack.
-/datum/shuttle/autodock/multi/antag/skipjack/exodus
+/datum/shuttle/autodock/multi/antag/skipjack_exodus
 	name = "Skipjack"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_interim"

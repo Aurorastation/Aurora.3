@@ -17,7 +17,10 @@
 	flags = SHUTTLE_FLAGS_PROCESS | SHUTTLE_FLAGS_ZERO_G
 
 /datum/shuttle/autodock/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
-	..(_name, start_waypoint)
+	. = ..(_name, start_waypoint)
+
+	if(!.)
+		return FALSE
 
 	//Initial dock
 	update_docking_target(current_location)

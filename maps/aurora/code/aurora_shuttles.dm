@@ -16,7 +16,7 @@
 /obj/effect/shuttle_landmark/escape_pod/out
 	name = "Escaped"
 
-#define CREATE_ESCAPE_POD(NUMBER) \
+#define AURORA_ESCAPE_POD(NUMBER) \
 /datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
 	name = "Escape Pod " + #NUMBER; \
 	shuttle_area = /area/shuttle/escape_pod##NUMBER/station; \
@@ -26,7 +26,7 @@
 	waypoint_station = "escape_pod_"+ #NUMBER +"_start"; \
 	landmark_transition = "escape_pod_"+ #NUMBER +"_interim"; \
 	waypoint_offsite = "escape_pod_"+ #NUMBER +"_out"; \
-	valid_maps = list("aurora", "exodus"); \
+	valid_maps = list("exodus"); \
 } \
 /obj/effect/shuttle_landmark/escape_pod/start/pod##NUMBER { \
 	landmark_tag = "escape_pod_"+ #NUMBER +"_start"; \
@@ -39,9 +39,9 @@
 	landmark_tag = "escape_pod_"+ #NUMBER +"_interim"; \
 }
 
-CREATE_ESCAPE_POD(1)
-CREATE_ESCAPE_POD(2)
-CREATE_ESCAPE_POD(3)
+AURORA_ESCAPE_POD(1)
+AURORA_ESCAPE_POD(2)
+AURORA_ESCAPE_POD(3)
 
 //-// Transfer Shuttle //-//
 
@@ -229,7 +229,7 @@ CREATE_ESCAPE_POD(3)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //Skipjack.
-/datum/shuttle/autodock/multi/antag/skipjack
+/datum/shuttle/autodock/multi/antag/skipjack_aurora
 	name = "Skipjack"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_interim"
