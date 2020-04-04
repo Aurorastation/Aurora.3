@@ -161,7 +161,7 @@
 
 /obj/item/projectile/bullet/shotgun/haywire
 	name = "haywire slug"
-	damage = 10	//50 to synths
+	damage = 11	//55 to synths
 	special_damage = DAMAGE_MACHINE
 	embed = FALSE
 
@@ -354,7 +354,8 @@
 /obj/item/projectile/bullet/gauss
 	name = "slug"
 	icon_state = "heavygauss"
-	damage = 30
+	damage = 40
+	armor_penetration = 5
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
 
