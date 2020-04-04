@@ -55,7 +55,7 @@ CREATE_ESCAPE_POD(3)
 	waypoint_station = "nav_emergency_dock"
 	landmark_transition = "nav_emergency_interim"
 	waypoint_offsite = "nav_emergency_start"
-	valid_maps = list("aurora")
+	valid_maps = list("aurora", "exodus")
 
 /obj/effect/shuttle_landmark/emergency/start
 	name = "Escape Shuttle Centcom Dock"
@@ -112,7 +112,7 @@ CREATE_ESCAPE_POD(3)
 	dock_target = "supply_shuttle"
 	waypoint_station = "nav_supply_dock"
 	waypoint_offsite = "nav_supply_start"
-	valid_maps = list("aurora")
+	valid_maps = list("aurora", "exodus")
 
 /obj/effect/shuttle_landmark/supply/start
 	name = "Supply Centcom Dock"
@@ -138,7 +138,7 @@ CREATE_ESCAPE_POD(3)
 	waypoint_station = "nav_merchant_dock"
 	landmark_transition = "nav_merchant_interim"
 	waypoint_offsite = "nav_merchant_start"
-	valid_maps = list("aurora")
+	valid_maps = list("aurora", "exodus")
 
 /obj/effect/shuttle_landmark/merchant/start
 	name = "Merchant Shuttle Base"
@@ -165,7 +165,7 @@ CREATE_ESCAPE_POD(3)
 	dock_target = "admin_shuttle"
 	waypoint_station = "nav_admin_dock"
 	waypoint_offsite = "nav_admin_start"
-	valid_maps = list("aurora")
+	valid_maps = list("aurora", "exodus")
 
 /obj/effect/shuttle_landmark/admin/start
 	name = "Crescent Shuttle Base"
@@ -189,7 +189,7 @@ CREATE_ESCAPE_POD(3)
 	waypoint_station = "nav_ccia_dock"
 	waypoint_offsite = "nav_ccia_start"
 	category = /datum/shuttle/autodock/ferry/autoreturn
-	valid_maps = list("aurora")
+	valid_maps = list("aurora", "exodus")
 
 /obj/effect/shuttle_landmark/ccia/start
 	name = "Agent Shuttle Base"
@@ -213,7 +213,7 @@ CREATE_ESCAPE_POD(3)
 	dock_target = "specops_shuttle_port"
 	waypoint_station = "nav_ert_dock"
 	waypoint_offsite = "nav_ert_start"
-	valid_maps = list("aurora")
+	valid_maps = list("aurora", "exodus")
 
 /obj/effect/shuttle_landmark/ert/start
 	name = "Phoenix Base"
@@ -250,7 +250,7 @@ CREATE_ESCAPE_POD(3)
 	announcer = "NDV Icarus"
 	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
 	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
-	valid_maps = list("aurora")
+	valid_maps = list("aurora", "exodus")
 
 /obj/effect/shuttle_landmark/skipjack/start
 	name = "Pirate Hideout"
@@ -308,7 +308,7 @@ CREATE_ESCAPE_POD(3)
 	announcer = "NDV Icarus"
 	arrival_message = "Attention, you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
 	departure_message = "Attention, your visitors are on their way out of the system, burning delta-v like it's nothing. Good riddance."
-	valid_maps = list("aurora")
+	valid_maps = list("aurora", "exodus")
 
 /obj/effect/shuttle_landmark/merc/start
 	name = "Mercenary Base"
