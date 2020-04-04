@@ -299,7 +299,10 @@
 		LAZYREMOVE(climbers, user)
 		return
 
-	user.forceMove(get_step(src, get_dir(user, src)))
+	var/climb_dir = get_dir(user, src)
+	if(get_turf(src) == get_turf(user))
+		climb_dir = src.dir
+	user.forceMove(get_step(src, climb_dir))
 	user.visible_message(SPAN_WARNING("\The [user] climbs over \the [src]!"))
 	LAZYREMOVE(climbers, user)
 
