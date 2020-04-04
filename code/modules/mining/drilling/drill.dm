@@ -379,7 +379,7 @@
 		return
 
 	for(var/turf/mine_turf in block(locate(src.x + 2, src.y + 2, src.z), locate(src.x - 2, src.y - 2, src.z)))
-		if(mine_turf)
+		if(mine_turf?.has_resources)
 			resource_field += mine_turf
 
 	if(!length(resource_field))
