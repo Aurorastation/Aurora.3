@@ -9,6 +9,7 @@ changes:
   - rscadd: "Added additional haywire ammunition to the armory less-than-lethal locker (.45s and shotguns). Removed a few rubber clips."
   - rscadd: "Added haywire ammunition to advanced combat vendors and some response teams."
   - rscadd: "Haywire shotgun shells and slugs can be produced in the protolathe."
+  - rscdel: "Removed shotgun slugs from the autolathe."
   - tweak: "Gauss slugs now do more damage and have slight armor penetration."
   - tweak: "The ion rifle's lethal mode (AoE) uses almost all of its charge. Stun mode has been weakened slightly and can only be used five times between charges, down from ten."
   - imageadd: "New sprites added for some haywire ammo clips and magazines."
