@@ -161,15 +161,15 @@ datum/unit_test/zas_area_test/
 		fail("Shuttle Controller not setup at time of test.")
 		return 1
 	if(!SSshuttle.shuttles.len)
-		skip("No shuttles have been setup for this map.")
+		fail("No shuttles have been setup for this map.")
 		return 1
 
-	shuttle = SSsupply.shuttle
+	shuttle = SScargo.shuttle
 	if(isnull(shuttle))
 		return 1
 
 	// Initiate the Move.
-	SSsupply.movetime = 5 // Speed up the shuttle movement.
+	SScargo.movetime = 5 // Speed up the shuttle movement.
 	shuttle.short_jump(shuttle.get_location_waypoint(!shuttle.location))
 
 	return 1
