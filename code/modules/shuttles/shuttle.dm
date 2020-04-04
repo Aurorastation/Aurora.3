@@ -26,8 +26,12 @@
 	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
 	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
 
+	var/list/valid_maps = list() //What maps is this shuttle valid for?
+
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
+	if(!(current_map.path in valid_maps))
+		return //Don't initialize a shuttle if its map isn't loaded.
 	if(_name)
 		src.name = _name
 

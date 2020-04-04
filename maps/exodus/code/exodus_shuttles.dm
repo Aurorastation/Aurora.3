@@ -123,6 +123,7 @@ CREATE_ESCAPE_POD(5)
 	dock_target = "engineering_shuttle"
 	waypoint_station = "nav_engi_start"
 	waypoint_offsite = "nav_engi_dock"
+	valid_maps = list("exodus")
 
 /obj/effect/shuttle_landmark/engi/start
 	name = "Engineering Shuttle Exodus"
@@ -144,6 +145,7 @@ CREATE_ESCAPE_POD(5)
 	dock_target = "mining_shuttle"
 	waypoint_station = "nav_mining_start"
 	waypoint_offsite = "nav_mining_dock"
+	valid_maps = list("exodus")
 
 /obj/effect/shuttle_landmark/mining/start
 	name = "Mining Shuttle Exodus"
@@ -165,6 +167,7 @@ CREATE_ESCAPE_POD(5)
 	dock_target = "research_shuttle"
 	waypoint_station = "nav_research_start"
 	waypoint_offsite = "nav_research_dock"
+	valid_maps = list("exodus")
 
 /obj/effect/shuttle_landmark/research_exodus/start
 	name = "Research Shuttle Exodus"
@@ -201,7 +204,7 @@ CREATE_ESCAPE_POD(5)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //Skipjack.
-/datum/shuttle/autodock/multi/antag/skipjack
+/datum/shuttle/autodock/multi/antag/skipjack/exodus
 	name = "Skipjack"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_interim"
@@ -221,6 +224,7 @@ CREATE_ESCAPE_POD(5)
 	announcer = "NDV Icarus"
 	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
 	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
+	valid_maps = list("exodus")
 
 /obj/effect/shuttle_landmark/skipjack/start
 	name = "Pirate Hideout"
@@ -346,6 +350,7 @@ CREATE_ESCAPE_POD(5)
 	dock_target = "Legion Shuttle"
 	waypoint_station = "nav_legion_dock"
 	waypoint_offsite = "nav_legion_start"
+	valid_maps = list("exodus")
 
 /obj/effect/shuttle_landmark/legion_exodus/start
 	name = "Legion Base"
