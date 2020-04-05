@@ -40,8 +40,8 @@ var/list/flooring_types
 	var/footstep_sound = "tiles"
 
 /decl/flooring/grass
-	name = "grass"
-	desc = "Do they smoke grass out in space, Bowie? Or do they smoke AstroTurf?"
+	name = "synthetic grass"
+	desc = "A patch of synthetic grass."
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_base = "grass"
 	has_base_range = 3
@@ -55,8 +55,8 @@ var/list/flooring_types
 	desc = "A soft patch of grass"
 	icon = 'icons/turf/total_floors.dmi'
 	icon_base = "grass_alt"
-	flags = TURF_ACID_IMMUNE
-	build_type = null
+	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL
+	build_type = /obj/item/stack/tile/grass_alt
 	has_base_range = 0
 
 /decl/flooring/asteroid
@@ -139,6 +139,33 @@ var/list/flooring_types
 	has_damage_range = null
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_steel
+
+/decl/flooring/tiling/old
+	name = "old floor"
+	desc = "An old and scuffed floor tile, harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_steel"
+	has_damage_range = 4
+	flags = TURF_IS_FRAGILE | TURF_CAN_BREAK | TURF_CAN_BURN
+	build_type = null
+
+/decl/flooring/tiling/old_dark
+	name = "old dark floor"
+	desc = "An old and scuffed floor tile, harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_dark"
+	has_damage_range = null
+	flags = TURF_IS_FRAGILE
+	build_type = null
+
+/decl/flooring/tiling/old_white
+	name = "old sterile floor"
+	desc = "An old, scuffed and supposedly once sterile floor tile harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_white"
+	has_damage_range = null
+	flags = TURF_IS_FRAGILE
+	build_type = null
 
 /decl/flooring/tiling/white
 	name = "floor"

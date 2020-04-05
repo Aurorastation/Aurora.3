@@ -1379,7 +1379,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A kit containing a change of casual clothes, packaged for easy transport. This one advertises some sort of cartoon featuring slimes. It is labeled \"J. Beal.\""
 	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
 	icon_state = "jennifer_wardrobe_box"
-	item_state = "syringe_kit"
+	item_state = "box"
 
 /obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
@@ -1829,7 +1829,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
+/obj/item/surgery/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
 	name = "laser retractor"
 	desc = "The fabled laser retractor. It's a horrible amalgamation of a laser pointer, a retractor, and lots of tape."
 	icon = 'icons/obj/custom_items/tristen_retractor.dmi'
@@ -3328,3 +3328,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 10
 	nano_printer.stored_paper = 5
+
+
+/obj/item/clothing/accessory/poncho/fluff/ozuha_cape //Victory Cape - Skavoss Ozuha - dronzthewolf
+	name = "victory cape"
+	desc = "A finely crafted cape that combines Ozuha clan colors and Izweski nation colors, with inscriptions on the decorative brass paldrons reading something in Sinta'Unathi."
+	icon = 'icons/obj/custom_items/ozuha_cape.dmi'
+	icon_state = "ozuha_cape"
+	item_state = "ozuha_cape"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+
+/obj/item/clothing/suit/storage/fluff/ulmari_coat //Aut'akh Medical Coat - Optikam Ulmari - soultheif96
+	name = "aut'akh medical coat"
+	desc = "A custom-made tailored coat for use in a laboratory/medical setting."
+	icon = 'icons/obj/custom_items/ulmari_coat.dmi'
+	icon_state = "ulmari_coat"
+	item_state = "ulmari_coat"
+	contained_sprite = TRUE

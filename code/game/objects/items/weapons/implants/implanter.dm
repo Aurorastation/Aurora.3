@@ -1,6 +1,10 @@
 /obj/item/implanter
 	name = "implanter"
 	icon = 'icons/obj/items.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	icon_state = "implanter0"
 	item_state = "syringe_0"
 	throw_speed = 1
@@ -43,7 +47,7 @@
 
 				admin_attack_log(user, M, "Implanted using \the [src.name] ([src.imp.name])", "Implanted with \the [src.name] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
 
-				if(src.imp.implanted(M))
+				if(src.imp.implanted(M, user))
 					src.imp.forceMove(M)
 					src.imp.imp_in = M
 					src.imp.implanted = 1

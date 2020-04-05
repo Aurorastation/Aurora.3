@@ -595,6 +595,20 @@ var/global/list/additional_antag_types = list()
 				candidates += player.mind
 				players -= player
 
+		// If we don't have enough antags, draft people who voted for the round.
+		if(candidates.len < required_enemies)
+			var/initial_candidates = candidates.len
+
+			for(var/mob/abstract/new_player/player in players)
+				if(player.ckey in SSvote.round_voters)
+					log_debug("[player.key] voted for this round, so we are drafting them.")
+					candidates += player.mind
+					players -= player
+
+					if (candidates.len >= required_enemies)
+						log_debug("Drafted [candidates.len - initial_candidates] new antags from voters.")
+						break
+
 	return candidates		// Returns: The number of people who had the antagonist role set to yes, regardless of recomended_enemies, if that number is greater than required_enemies
 							//			required_enemies if the number of people with that role set to yes is less than recomended_enemies,
 							//			Less if there are not enough valid players in the game entirely to make required_enemies.

@@ -66,14 +66,7 @@
 	desc = "A small bottle. Contains norepinephrine - used to stabilize patients."
 	icon_state = "bottle-4"
 	reagents_to_add = list("norepinephrine" = 60)
-
-/obj/item/reagent_containers/glass/bottle/inaprovaline
-	name = "inaprovaline bottle"
-	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
-	icon_state = "bottle-4"
-	reagents_to_add = list("inaprovaline" = 60)
 	
-
 /obj/item/reagent_containers/glass/bottle/toxin
 	name = "toxin bottle"
 	desc = "A small bottle of toxins. Do not drink, it is poisonous."

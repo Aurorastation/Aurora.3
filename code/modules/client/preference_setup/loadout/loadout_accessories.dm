@@ -29,6 +29,7 @@
 	..()
 	var/armbands = list()
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
+	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
 	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med

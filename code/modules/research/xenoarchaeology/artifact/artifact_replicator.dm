@@ -43,17 +43,17 @@
 	/obj/item/device/radio/beacon,\
 	/obj/item/autopsy_scanner,\
 	/obj/item/bikehorn,\
-	/obj/item/bonesetter,\
+	/obj/item/surgery/bonesetter,\
 	/obj/item/material/hatchet/butch,\
 	/obj/item/clothing/suit/caution,\
 	/obj/item/clothing/head/cone,\
 	/obj/item/crowbar,\
 	/obj/item/clipboard,\
 	/obj/item/cell,\
-	/obj/item/circular_saw,\
+	/obj/item/surgery/circular_saw,\
 	/obj/item/material/hatchet,\
 	/obj/item/handcuffs,\
-	/obj/item/hemostat,\
+	/obj/item/surgery/hemostat,\
 	/obj/item/material/knife,\
 	/obj/item/flame/lighter,\
 	/obj/item/light/bulb,\

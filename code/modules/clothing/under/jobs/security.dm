@@ -54,7 +54,7 @@
  */
 
 /obj/item/clothing/under/det
-	name = "detective's uniform"
+	name = "tan investigator's uniform"
 	desc = "Someone who wears this means business."
 	icon_state = "detective_standard"
 	worn_state = "detective_standard"
@@ -72,7 +72,7 @@
 	worn_state = "detective_classic"
 
 /obj/item/clothing/under/det/forensics
-	name = "forensics technician's uniform"
+	name = "grey investigator's uniform"
 	icon_state = "forensic_standard"
 	worn_state = "forensic_standard"
 

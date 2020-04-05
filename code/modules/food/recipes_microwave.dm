@@ -1116,7 +1116,7 @@
 
 /datum/recipe/spicy_clams
 	fruit = list("chili" = 1, "cabbage" = 1)
-	reagents = list("blackpepper" = 1, "spacespice" = 1)
+	reagents = list("capsaicin" = 1, "spacespice" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/clam,
 		/obj/item/reagent_containers/food/snacks/clam

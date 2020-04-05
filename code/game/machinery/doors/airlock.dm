@@ -472,11 +472,6 @@ About the new airlock wires panel:
 					return
 			else /*if(src.justzap)*/
 				return
-		else if(user.hallucination > 50 && prob(10) && src.operating == 0 && !user.is_diona() && !user.isSynthetic())
-			to_chat(user, span("danger", "You feel a powerful shock course through your body!"))
-			user.adjustHalLoss(10)
-			user.stunned += 10
-			return
 	..(user)
 
 /obj/machinery/door/airlock/proc/isElectrified()
@@ -858,7 +853,7 @@ About the new airlock wires panel:
 		cut_sound = "sparks"
 		cut_delay *= 1
 		cutting = TRUE
-	else if(istype(tool,/obj/item/circular_saw))
+	else if(istype(tool,/obj/item/surgery/circular_saw))
 		cut_verb = "sawing"
 		cut_sound = 'sound/weapons/saw/circsawhit.ogg'
 		cut_delay *= 2

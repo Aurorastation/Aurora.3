@@ -225,11 +225,11 @@
 	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
 	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)
 
-/obj/proc/rotate(var/mob/user)
+/obj/proc/rotate(var/mob/user, var/anchored_ignore = FALSE)
 	if(use_check_and_message(user))
 		return
 	
-	if(anchored)
+	if(anchored && !anchored_ignore)
 		to_chat(user, SPAN_WARNING("\The [src] is bolted down to the floor!"))
 		return
 	
@@ -239,9 +239,13 @@
 /obj/AltClick(var/mob/user)
 	if(obj_flags & OBJ_FLAG_ROTATABLE)
 		rotate(user)
+		return
+	if(obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED)
+		rotate(user, TRUE)
+		return
 	..()
 
 /obj/examine(mob/user)
 	. = ..()
-	if((obj_flags & OBJ_FLAG_ROTATABLE))
+	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))

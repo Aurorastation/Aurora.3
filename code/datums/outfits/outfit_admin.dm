@@ -89,7 +89,7 @@
 							/obj/item/personal_inhaler/combat = 1,
 							/obj/item/reagent_containers/personal_inhaler_cartridge/large = 2,
 							/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-							/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+							/obj/item/reagent_containers/glass/bottle/norepinephrine = 1,
 							/obj/item/reagent_containers/glass/bottle/deltamivir = 1,
 							/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 
@@ -437,7 +437,7 @@
 	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/thermal/plain/monocle
 	l_pocket = /obj/item/material/knife
-	r_pocket = /obj/item/scalpel
+	r_pocket = /obj/item/surgery/scalpel
 	r_hand = /obj/item/material/twohanded/fireaxe
 	id = null
 

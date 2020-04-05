@@ -221,6 +221,10 @@
 	desc = "A blue plastic bucket."
 	name = "bucket"
 	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "bucket"
 	item_state = "bucket"
 	center_of_mass = list("x" = 16,"y" = 10)

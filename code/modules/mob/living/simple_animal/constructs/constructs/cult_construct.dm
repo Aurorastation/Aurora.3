@@ -29,6 +29,7 @@
 	supernatural = TRUE
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_LEVEL_ONE
+	blood_type = "#000000"
 
 	tameable = FALSE
 
@@ -64,6 +65,9 @@
 	..(null, "collapses in a shattered heap.")
 	ghostize()
 	qdel(src)
+
+/mob/living/simple_animal/construct/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL
 
 /mob/living/simple_animal/construct/attack_generic(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
