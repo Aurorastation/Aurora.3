@@ -23,6 +23,12 @@
 	path = /obj/item/ammo_magazine/c45m
 	desc = "Contains seven rounds of .45 bullets."
 
+/datum/uplink_item/item/ammo/fourty_five_haywire
+	name = ".45 Pistol Magazine (Haywire)"
+	item_cost = 2
+	path = /obj/item/ammo_magazine/c45m/haywire
+	desc = "Contains seven rounds of haywire .45 bullets."
+
 /datum/uplink_item/item/ammo/submachinegundrum
 	name = "Submachine Gun Drum Magazine (.45)"
 	item_cost = 6
@@ -45,13 +51,19 @@
 	name = "14.5mm box"
 	item_cost = 8
 	path = /obj/item/storage/box/sniperammo
-	desc = "Contains seven rounds of 14.5mm bullets, for use with the anti-materiel rifle."
+	desc = "Contains seven rounds of 14.5mm bullets, for use with the anti-material rifle."
 
 /datum/uplink_item/item/ammo/shotgun_shells
 	name = "Box of Shells"
 	item_cost = 5
 	path = /obj/item/storage/box/shotgunshells
 	desc = "Contains eight shotgun buckshot shells."
+
+/datum/uplink_item/item/ammo/shotgun_shells_haywire
+	name = "Box of Haywire Shells"
+	item_cost = 5
+	path = /obj/item/storage/box/haywireshells
+	desc = "Contains eight shotgun haywire shells."
 
 /datum/uplink_item/item/ammo/plasma_mag
 	name = "Plasma Shotgun Magazine"
