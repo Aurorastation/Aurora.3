@@ -29451,11 +29451,11 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/glass{
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/highsecurity{
 	name = "Penal Mining Facility";
 	req_access = list(3)
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/airless,
 /area/maintenance/security_starboard)
 "huY" = (
