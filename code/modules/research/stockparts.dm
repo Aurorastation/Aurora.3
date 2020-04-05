@@ -38,7 +38,7 @@
 					/obj/item/stock_parts/scanning_module/adv = 3,
 					/obj/item/stock_parts/manipulator/nano = 3,
 					/obj/item/stock_parts/micro_laser/high = 3,
-					S/obj/item/stock_parts/matter_bin/adv = 3
+					/obj/item/stock_parts/matter_bin/adv = 3
 					)
 
 /obj/item/storage/bag/stockparts_box/super
