@@ -691,6 +691,14 @@
 		if(istype(entry, type))
 			. += entry
 
+/proc/group_by(var/list/group_list, var/key, var/value)
+	var/values = group_list[key]
+	if(!values)
+		values = list()
+		group_list[key] = values
+
+	values += value
+	
 // Return a list of the values in an assoc list (including null)
 /proc/list_values(var/list/L)
 	. = list()
