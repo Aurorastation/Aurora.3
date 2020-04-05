@@ -215,7 +215,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/industrial_xion_remote_warden/Initialize(mapload)
 	. = ..(mapload, "Remote Xion Industrial Frame")
 
-	real_name = "Remote Robot Overseer - [rand(0, 999)]"
+	real_name = "Remote Robot Overseer-[rand(0, 999)]"
 	name = real_name
 	dna.real_name = real_name
 	if(mind)
