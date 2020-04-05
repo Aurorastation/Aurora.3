@@ -45,14 +45,19 @@
 
 /datum/shuttle/autodock/multi/antag/shuttle_moved()
 	if(current_location == home_waypoint)
-		returned = TRUE
 		announce_arrival()
 	else if(next_location == home_waypoint)
 		announce_departure()
 	..()
 
+/datum/shuttle/autodock/multi/antag/arrived()
+	if(current_location == home_waypoint)
+		returned = TRUE
+
 /datum/shuttle/autodock/multi/antag/launch(var/user)
 	if(returned)
+		if(user)
+			to_chat(user, SPAN_WARNING("You don't have enough fuel for another launch!"))
 		return //Nada, can't go back.
 	..(user)
 
