@@ -38,7 +38,7 @@
 	if(Proj.original != src && !prob(cover))
 		return PROJECTILE_CONTINUE //pass through
 
-	var/damage = Proj.get_structure_damage()
+	var/damage = Proj.get_structure_damage(src)
 	if(!damage)
 		return
 

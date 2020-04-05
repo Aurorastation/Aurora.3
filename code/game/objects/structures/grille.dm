@@ -62,7 +62,7 @@
 	if(!Proj)	return
 
 	//Flimsy grilles aren't so great at stopping projectiles. However they can absorb some of the impact
-	var/damage = Proj.get_structure_damage()
+	var/damage = Proj.get_structure_damage(src)
 	var/passthrough = 0
 
 	if(!damage) return

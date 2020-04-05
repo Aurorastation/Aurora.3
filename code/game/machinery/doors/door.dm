@@ -211,7 +211,7 @@
 /obj/machinery/door/bullet_act(var/obj/item/projectile/Proj)
 	..()
 
-	var/damage = Proj.get_structure_damage()
+	var/damage = Proj.get_structure_damage(src)
 
 	// Emitter Blasts - these will eventually completely destroy the door, given enough time.
 	if (damage > 90)

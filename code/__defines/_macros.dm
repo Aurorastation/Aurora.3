@@ -51,6 +51,8 @@
 
 #define ismachinery(A) istype(A, /obj/machinery)
 
+#define isvehicle(A) istype(A, /obj/vehicle)
+
 #define isobserver(A) istype(A, /mob/abstract/observer)
 
 #define isorgan(A) istype(A, /obj/item/organ/external)

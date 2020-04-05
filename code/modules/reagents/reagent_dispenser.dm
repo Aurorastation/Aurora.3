@@ -197,7 +197,7 @@
 			message_admins("[key_name_admin(user)] <font color=#FF0000>reset</font> fuse on fueltank at ([loc.x],[loc.y],[loc.z]).")
 
 /obj/structure/reagent_dispensers/fueltank/bullet_act(var/obj/item/projectile/Proj)
-	if(Proj.get_structure_damage())
+	if(Proj.get_structure_damage(src))
 		if(istype(Proj.firer))
 			log_and_message_admins("shot a welding tank", Proj.firer)
 			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
@@ -365,7 +365,7 @@
 	reagents.add_reagent("cornoil",capacity)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
-	if(Proj.get_structure_damage())
+	if(Proj.get_structure_damage(src))
 		ex_act(2.0)
 
 //Coolant tank
@@ -381,7 +381,7 @@
 	reagents.add_reagent("coolant",1000)
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
-	if(Proj.get_structure_damage())
+	if(Proj.get_structure_damage(src))
 		if (Proj.damage_type != PAIN)
 			explode()
 

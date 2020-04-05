@@ -57,7 +57,7 @@
 	return 0
 
 /obj/structure/inflatable/bullet_act(var/obj/item/projectile/Proj)
-	var/proj_damage = Proj.get_structure_damage()
+	var/proj_damage = Proj.get_structure_damage(src)
 	if(!proj_damage) return
 
 	health -= proj_damage

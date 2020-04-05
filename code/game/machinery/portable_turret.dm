@@ -422,7 +422,7 @@
 		die()	//the death process :(
 
 /obj/machinery/porta_turret/bullet_act(obj/item/projectile/Proj)
-	var/damage = Proj.get_structure_damage()
+	var/damage = Proj.get_structure_damage(src)
 
 	if(!damage)
 		return

@@ -309,7 +309,7 @@
 				// Then bring it inside to explode instantly upon landing on a valid turf.
 
 
-	var/proj_damage = Proj.get_structure_damage()
+	var/proj_damage = Proj.get_structure_damage(src)
 	if(istype(Proj, /obj/item/projectile/beam))
 		power += proj_damage * config_bullet_energy	* CHARGING_FACTOR / POWER_FACTOR
 	else

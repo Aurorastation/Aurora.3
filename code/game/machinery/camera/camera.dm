@@ -90,7 +90,7 @@
 			update_coverage()
 
 /obj/machinery/camera/bullet_act(var/obj/item/projectile/P)
-	take_damage(P.get_structure_damage())
+	take_damage(P.get_structure_damage(src))
 
 /obj/machinery/camera/ex_act(severity)
 	if(src.invuln)

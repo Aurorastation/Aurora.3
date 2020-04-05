@@ -37,7 +37,7 @@
 
 /obj/effect/spider/bullet_act(var/obj/item/projectile/Proj)
 	..()
-	health -= Proj.get_structure_damage()
+	health -= Proj.get_structure_damage(src)
 	healthcheck()
 
 /obj/effect/spider/proc/healthcheck()
