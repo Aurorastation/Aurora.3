@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Cryopod computers now globally track stored crewmembers."
-  - bugfix: "Cryopods now properly store specific items upon its wearer cryoing."
