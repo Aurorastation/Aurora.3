@@ -168,3 +168,8 @@
 	name = "cup ramen"
 	icon_state = "ramen"
 	drop_sound = 'sound/items/drop/papercup.ogg'
+
+/obj/item/trash/candybowl
+	name = "empty candy bowl"
+	icon_state = "candy_bowl"
+	drop_sound = 'sound/items/drop/bottle.ogg'

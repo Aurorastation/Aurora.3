@@ -129,6 +129,15 @@
 	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
 	holder.remove_reagent("lexorin", strength/3 * removed)
 
+//Hyperoxia causes brain and eye damage
+/datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_NEUROTOXIC, removed * (strength / 6))
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
+		if(E && istype(E))
+			E.take_damage(removed * (strength / 12))
+
 /datum/reagent/dexalin/plus
 	name = "Dexalin Plus"
 	id = "dexalinp"
@@ -337,6 +346,10 @@
 	M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 
+/datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.hallucination = max(M.hallucination, 25)
+	..()
+
 /datum/reagent/imidazoline
 	name = "Imidazoline"
 	id = "imidazoline"
@@ -357,6 +370,10 @@
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
+
+/datum/reagent/imidazoline/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.hallucination = max(M.hallucination, 15)
+	..()
 
 /datum/reagent/peridaxon
 	name = "Peridaxon"

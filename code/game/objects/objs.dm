@@ -239,8 +239,10 @@
 /obj/AltClick(var/mob/user)
 	if(obj_flags & OBJ_FLAG_ROTATABLE)
 		rotate(user)
+		return
 	if(obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED)
 		rotate(user, TRUE)
+		return
 	..()
 
 /obj/examine(mob/user)
