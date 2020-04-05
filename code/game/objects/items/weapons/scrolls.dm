@@ -79,7 +79,7 @@
 	smoke.attach(user)
 	smoke.start()
 	var/list/L = list()
-	for(var/turf/T in get_area_turfs(thearea.type))
+	for(var/turf/T in get_area_turfs(thearea))
 		if(!T.density && !T.is_hole)
 			var/clear = 1
 			for(var/obj/O in T)
