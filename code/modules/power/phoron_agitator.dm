@@ -1,8 +1,8 @@
 /obj/machinery/power/phoron_agitator
 	name = "phoron agitator"
 	desc = "A device of incredibly niche design. This agitator disturbs the ashy turf around it, causing phoron crystals to form."
-	icon = 'icons/obj/mining_drill.dmi'
-	icon_state = "mining_drill"
+	icon = 'icons/obj/phoron_agitator.dmi'
+	icon_state = "phoron_agitator"
 	density = TRUE
 	anchored = TRUE
 
@@ -12,6 +12,7 @@
 	var/agitation_range = 4
 	var/agitation_rate = 80
 	var/last_agitation = 0
+	var/active = FALSE
 
 	component_types = list(
 		/obj/item/stack/cable_coil{amount = 5},
@@ -25,7 +26,17 @@
 	. = ..()
 	connect_to_network()
 
+/obj/machinery/power/phoron_agitator/attack_hand(mob/user)
+	toggle_active()
+	visible_message(SPAN_NOTICE("\The [user] turns \the [src] [active ? "on" : "off"]."), SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."))
+
+/obj/machinery/power/phoron_agitator/proc/toggle_active()
+	active = !active
+	icon_state = "[initial(icon_state)][active ? "-active": ""]"
+
 /obj/machinery/power/phoron_agitator/machinery_process()
+	if(!active)
+		return
 	if(stat & (BROKEN) || !powernet)
 		return
 	if(last_agitation + agitation_rate > world.time)
@@ -33,11 +44,15 @@
 	
 	var/actual_load = draw_power(active_power_usage)
 	if(actual_load < active_power_usage)
+		if(active)
+			toggle_active()
 		return
 
 	var/list/turf/grow_turfs = list()
 	for(var/turf/T in range(agitation_range, get_turf(src)))
 		if(get_turf(src) == T)
+			continue
+		if(!istype(T, /turf/unsimulated/floor/asteroid))
 			continue
 		if(locate(/obj/structure/phoron_crystal/dense) in T)
 			continue

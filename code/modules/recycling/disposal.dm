@@ -24,8 +24,12 @@
 	var/flush_every_ticks = 30 //Every 30 ticks it will look whether it is ready to flush
 	var/flush_count = 0 //this var adds 1 once per tick. When it reaches flush_every_ticks it resets and tries to flush.
 	var/last_sound = 0
+	var/uses_air = TRUE
 	active_power_usage = 2200	//the pneumatic pump power. 3 HP ~ 2200W
 	idle_power_usage = 100
+
+/obj/machinery/disposal/airless
+	uses_air = FALSE
 
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.
@@ -101,6 +105,14 @@
 		for(var/obj/item/O in T.contents)
 			T.remove_from_storage(O,src)
 		T.update_icon()
+		update()
+		return
+
+	else if(istype(I, /obj/item/storage/bag/ore))
+		var/obj/item/storage/bag/ore/B = I
+		to_chat(user, SPAN_NOTICE("You empty \the [B] into \the [src]."))
+		for(var/obj/item/O in B.contents)
+			B.remove_from_storage(O, src)
 		update()
 		return
 
@@ -263,14 +275,19 @@
 
 		dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
 
-	if(mode <= 0)
-		dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
-	else if(mode == 1)
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+	if(uses_air)
+		if(mode <= 0)
+			dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
+		else if(mode == 1)
+			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+		else
+			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 	else
 		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 
 	var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
+	if(!uses_air)
+		per = 100
 
 	dat += "Pressure: [round(per, 1)]%<BR></body>"
 
@@ -377,12 +394,12 @@
 
 	src.updateDialog()
 
-	if(flush && air_contents.return_pressure() >= SEND_PRESSURE )	// flush can happen even without power
+	if(flush && (air_contents.return_pressure() >= SEND_PRESSURE || !uses_air))	// flush can happen even without power
 		flush()
 
 	if(mode != 1) //if off or ready, no need to charge
 		update_use_power(1)
-	else if(air_contents.return_pressure() >= SEND_PRESSURE)
+	else if((air_contents.return_pressure() >= SEND_PRESSURE || !uses_air))
 		mode = 2 //if full enough, switch to ready mode
 		update()
 	else

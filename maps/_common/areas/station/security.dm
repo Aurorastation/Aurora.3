@@ -40,8 +40,16 @@
 		temp_timer.releasetime = 1
 	..()
 
+/area/security/prison/remote
+	name = "\improper Security - Remote Prison Wing"
+	icon_state = "sec_prison"
+
 /area/security/warden
 	name = "\improper Security - Warden's Office"
+	icon_state = "Warden"
+
+/area/security/warden/remote
+	name = "\improper Security - Remote Warden's Office"
 	icon_state = "Warden"
 
 /area/security/armoury
@@ -135,4 +143,8 @@
 
 /area/security/vacantoffice2
 	name = "\improper Security - Meeting Room"
+	icon_state = "security"
+
+/area/security/penal_colony
+	name = "\improper Security - Penal Mining Colony"
 	icon_state = "security"

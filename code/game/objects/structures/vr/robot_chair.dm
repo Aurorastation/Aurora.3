@@ -13,3 +13,13 @@
 	name = "bunker robot control centre"
 	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to robots attached to the bunker network."
 	remote_network = "bunkerrobots"
+
+/obj/structure/bed/chair/remote/robot/prison
+	name = "penal robot control centre"
+	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to robots attached to the penal network."
+	remote_network = "prisonrobots"
+
+/obj/structure/bed/chair/remote/robot/warden
+	name = "warden robot control centre"
+	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to robots attached to the warden's network."
+	remote_network = "wardenrobots"
