@@ -76,6 +76,7 @@
 	var/cell_type = /obj/item/cell/high
 	var/has_jetpack = FALSE
 	var/has_pda = TRUE
+	
 
 	// Internal components (non-datum)
 	var/obj/item/cell/cell
@@ -486,6 +487,22 @@
 	var/datum/robot_component/C = components[toggle]
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
+
+/obj/item/robot_module/janitor/verb/toggle_mop()
+	set category = "Robot Commands"
+	set name = "Toggle Mop"
+	set desc = "Toggle the integrated mop."
+	if (!mopping)
+		mopping = 1
+		to_chat(usr, "You enable your integrated mopping system.")
+		src.visible_message("\ [usr]'s integrated mopping system rumbles to life.")
+		playsound(src, 'sound/machines/hydraulic_long.ogg', 100, 1)
+	else 
+		mopping = 0
+		to_chat(usr, "You disable your integrated mopping system.")
+		src.visible_message("\ [usr]'s integrated mopping system putters before turning off.")
+
+
 
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
@@ -960,13 +977,15 @@
 /mob/living/silicon/robot/proc/radio_menu()
 	radio.interact(src) //Just use the radio's Topic() instead of bullshit special-snowflake code
 
+
 /mob/living/silicon/robot/Move(a, b, flag)
 	. = ..()
 
 	if(module)
 		if(module.type == /obj/item/robot_module/janitor)
+			var/obj/item/robot_module/janitor/J = module
 			var/turf/tile = get_turf(src)
-			if(isturf(tile))
+			if(isturf(tile)&& J.mopping == 1)
 				tile.clean_blood()
 				if(istype(tile, /turf/simulated))
 					var/turf/simulated/S = tile
@@ -1001,7 +1020,10 @@
 								cleaned_human.update_inv_shoes(0)
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
-		return
+
+
+
+
 
 /mob/living/silicon/robot/proc/self_destruct(var/anti_theft = FALSE)
 	if(anti_theft)
