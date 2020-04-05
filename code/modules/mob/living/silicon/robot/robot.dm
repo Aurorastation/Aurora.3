@@ -533,6 +533,7 @@
 		if(C?.installed && C.surge_left >= 0.25)
 			Proj.damage /= max(1.25, C.surge_left)
 			C.surge_left = min(0, C.surge_left - 0.25)
+			world << "Surge called. Proj damage now [Proj.damage] and surge left is [C.surge_left]"
 	..(Proj)
 	if(prob(75) && Proj.damage > 0)
 		spark_system.queue()

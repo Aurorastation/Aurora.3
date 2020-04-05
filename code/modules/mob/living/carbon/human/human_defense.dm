@@ -47,6 +47,7 @@ emp_act
 		if(SU?.surge_left >= 0.25)
 			P.damage /= max(1.25, SU.surge_left)
 			SU.surge_left = min(0, SU.surge_left - 0.25)
+			world << "Surge called. Proj damage now [P.damage] and surge left is [SU.surge_left]"
 
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())

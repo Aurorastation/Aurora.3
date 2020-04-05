@@ -36,6 +36,7 @@
 	var/check_armour = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
 	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
 	var/special_damage = null //use damage defines above. Runs during on_hit and get_structure_damage, used to adjust projectile based on target type, etc.
+	var/damage_is_adjusted = FALSE //Sets to true when we run a damage adjustment to prevent doubling up on adjustments for weird circumstances
 
 	var/stun = 0
 	var/weaken = 0
@@ -104,7 +105,11 @@
 	return TRUE
 
 /obj/item/projectile/proc/special_damage_adj(var/atom/target, var/def_zone)
-	var/list/adjusted = list()
+	var/list/adjusted = list("damage", "damage_type")
+	if(damage_is_adjusted)
+		world << "Damage was adjusted already"
+		adjusted = list("damage" = damage, "damage_type" = damage_type)
+		return adjusted
 	switch(special_damage)
 		if(DAMAGE_MACHINE)
 			if(ishuman(target))
@@ -123,11 +128,12 @@
 					damage *= 5
 					damage_type = BURN
 					world << "[target] is synthetic or mech" 
-			if(ismachinery(target) || isvehicle(target))
+			else if(ismachinery(target) || isvehicle(target))
 				damage *= 5
 				damage_type = BURN
 			if(istype(target, /obj/effect/energy_field))
 				damage *= 15 //seems high but energy_field divides get_structure_damage by 10
+			damage_is_adjusted = TRUE
 			adjusted = list("damage" = damage, "damage_type" = damage_type)
 			return adjusted
 

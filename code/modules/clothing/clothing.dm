@@ -164,6 +164,7 @@
 			if(linked_rig)
 				linked_rig.haywire_act(damage)
 			else
+				world << "No linked rig, just EMPing clothes"
 				emp_act(3)
 
 /obj/item/clothing/proc/material_impact(var/obj/source, var/damage)

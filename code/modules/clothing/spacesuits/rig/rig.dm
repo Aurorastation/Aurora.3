@@ -747,11 +747,13 @@
 
 /obj/item/rig/proc/haywire_act(var/damage)
 	world << "Haywire_act called, damage is [damage] before multiplication and probs"
-	if(prob(damage))
+	if(prob(damage * 2))
 		emp_act(3)
 	else
 		//slightly random cell drain, mitigated by emp protection
-		var/modified_damage = (damage * rand(8,10)) / max(1, emp_protection)
+		//This is on the bullet's regular damage, not adjusted, hence the high multiplier
+		var/modified_damage = (damage * rand(80,110)) / max(1, emp_protection)
+		world << "Modified damage is [mofified_damage]"
 		cell.charge = max(0, cell.charge - modified_damage)
 
 /obj/item/rig/proc/shock(mob/user)
