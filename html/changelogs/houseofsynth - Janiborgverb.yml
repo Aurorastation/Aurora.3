@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Custodial borgs no longer passively clean the floor. Instead a Toggle Mop verb has been added to the robot commands tab, allowing you to enable or disable passive cleaning."
+  - tweak: "Adds a verb for custodian borgs in the robot commands tab that allows the player to toggle passive cleaning tiles they walk over."
