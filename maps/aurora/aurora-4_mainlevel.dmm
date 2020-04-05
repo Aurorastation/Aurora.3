@@ -17270,6 +17270,9 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEx" = (
+/obj/structure/bed/chair/remote/robot/warden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEy" = (
@@ -23696,31 +23699,24 @@
 /area/security/prison)
 "aPm" = (
 /obj/structure/window/reinforced,
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
+/obj/structure/bed/chair/remote/robot/prison,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/obj/item/storage/box/donkpockets,
-/turf/simulated/floor/tiled,
-/area/security/prison)
-"aPn" = (
-/obj/structure/window/reinforced,
-/obj/structure/table/standard,
-/obj/machinery/microwave,
-/turf/simulated/floor/tiled,
-/area/security/prison)
-"aPo" = (
-/obj/structure/window/reinforced,
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/brigdoor/northright{
+	req_access = list(2)
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPp" = (
 /obj/machinery/newscaster{
 	pixel_x = 27
 	},
+/obj/structure/table/standard,
+/obj/machinery/microwave,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPq" = (
@@ -24646,6 +24642,10 @@
 	dir = 1;
 	use_power = 1
 	},
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQT" = (
@@ -24686,15 +24686,14 @@
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQX" = (
-/obj/item/toy/prize/deathripley{
-	desc = "This is Johnny 5. Is he alive?";
-	name = "Johnny 5"
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQZ" = (
@@ -61385,6 +61384,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"hPc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/window/reinforced,
+/obj/structure/bed/chair/remote/robot/prison,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/brigdoor/northright{
+	req_access = list(2)
+	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "hPn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -65015,6 +65029,13 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"qzr" = (
+/obj/item/toy/prize/deathripley{
+	desc = "This is Johnny 5. Is he alive?";
+	name = "Johnny 5"
+	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "qBC" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -68274,6 +68295,20 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"xun" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/donkpockets{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/box/donkpockets,
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "xuu" = (
 /obj/item/pipe,
 /turf/simulated/floor/reinforced,
@@ -101892,7 +101927,7 @@ aIA
 aJT
 aLG
 aNz
-aLG
+hPc
 aQS
 azK
 aUe
@@ -102404,9 +102439,9 @@ aEC
 aGz
 aIC
 aJV
+qzr
 azK
-azK
-aPn
+aPm
 aQU
 azK
 aUf
@@ -102662,8 +102697,8 @@ aGA
 aGx
 aJW
 azK
-aGx
-aPo
+azK
+aPm
 aQV
 azK
 aUg
@@ -103176,7 +103211,7 @@ aEC
 aIE
 aJY
 azK
-aEC
+xun
 aPp
 aQX
 azK
