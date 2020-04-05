@@ -281,7 +281,7 @@
 			destinations += T
 	var/area/A = get_area(src)
 	if(!isNotStationLevel(A.z))
-		var/list/area_turfs = get_area_turfs(A, null, 0, FALSE)
+		var/list/area_turfs = get_area_turfs(A)
 		var/list/floor_turfs = list()
 		for(var/turf/simulated/floor/T in (area_turfs))
 			if(turf_clear(T))

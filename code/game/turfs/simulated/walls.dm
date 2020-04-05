@@ -73,9 +73,11 @@
 	take_damage(damage)
 	return
 
-/turf/simulated/wall/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
+/turf/simulated/wall/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
-	if(ismob(AM))
+	if(isliving(AM))
+		var/mob/living/M = AM
+		M.turf_collision(src, speed)
 		return
 
 	var/tforce = AM:throwforce * (speed/THROWFORCE_SPEED_DIVISOR)

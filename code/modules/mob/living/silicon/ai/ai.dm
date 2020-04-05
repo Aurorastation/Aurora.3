@@ -231,7 +231,8 @@ var/list/ai_verbs_default = list(
 		to_chat(src, "<b>These laws may be changed by other players, or by you if you are malfunctioning.</b>")
 
 	job = "AI"
-	setup_icon()
+	if(client)
+		setup_icon()
 	eyeobj.possess(src)
 
 /mob/living/silicon/ai/getFireLoss()
@@ -311,7 +312,8 @@ var/list/ai_verbs_default = list(
 		id_card.assignment = "AI"
 		id_card.update_name()
 
-	setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
+	if(client)
+		setup_icon() //this is because the ai custom name is related to the ai name, so, we just call the setup icon after someone named their ai
 	SSrecords.reset_manifest()
 
 /*

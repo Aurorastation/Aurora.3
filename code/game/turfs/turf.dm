@@ -119,6 +119,9 @@
 /turf/ex_act(severity)
 	return 0
 
+/turf/proc/is_solid_structure()
+	return 1
+
 /turf/proc/is_space()
 	return 0
 
