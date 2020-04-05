@@ -2,17 +2,17 @@
 	name = "Jump a Shuttle"
 
 /datum/admin_secret_item/admin_secret/jump_shuttle/can_execute(var/mob/user)
-	if(!shuttle_controller) return 0
+	if(!SSshuttle) return 0
 	return ..()
 
 /datum/admin_secret_item/admin_secret/jump_shuttle/execute(var/mob/user)
 	. = ..()
 	if(!.)
 		return
-	var/shuttle_tag = input(user, "Which shuttle do you want to jump?") as null|anything in shuttle_controller.shuttles
+	var/shuttle_tag = input(user, "Which shuttle do you want to jump?") as null|anything in SSshuttle.shuttles
 	if (!shuttle_tag) return
 
-	var/datum/shuttle/S = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/S = SSshuttle.shuttles[shuttle_tag]
 
 	var/origin_area = input(user, "Which area is the shuttle at now? (MAKE SURE THIS IS CORRECT OR THINGS WILL BREAK)") as null|area in world
 	if (!origin_area) return

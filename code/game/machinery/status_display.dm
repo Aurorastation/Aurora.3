@@ -177,7 +177,7 @@
 	return "[add_zero(num2text((timeleft / 60) % 60),2)]:[add_zero(num2text(timeleft % 60), 2)]"
 
 /obj/machinery/status_display/proc/get_supply_shuttle_timer()
-	var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
+	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 	if (!shuttle)
 		return "Error"
 
@@ -189,7 +189,7 @@
 	return ""
 
 /obj/machinery/status_display/proc/get_arrivals_shuttle_timer()
-	var/datum/shuttle/ferry/arrival/shuttle = SSarrivals.shuttle
+	var/datum/shuttle/autodock/ferry/arrival/shuttle = SSarrivals.shuttle
 	if (!shuttle)
 		return "Error"
 

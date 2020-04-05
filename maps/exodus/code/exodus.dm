@@ -49,6 +49,24 @@
 	player_levels = list(1, 3, 4, 5, 6)
 	accessible_z_levels = list("1" = 5, "3" = 10, "4" = 15, "5" = 10, "6" = 60)
 
+	map_shuttles = list(
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
+		/datum/shuttle/autodock/ferry/emergency/exodus,
+		/datum/shuttle/autodock/ferry/supply/exodus,
+		/datum/shuttle/autodock/ferry/admin,
+		/datum/shuttle/autodock/ferry/autoreturn/ccia,
+		/datum/shuttle/autodock/ferry/engi,
+		/datum/shuttle/autodock/ferry/mining,
+		/datum/shuttle/autodock/ferry/research_exodus,
+		/datum/shuttle/autodock/ferry/specops/ert_exodus,
+		/datum/shuttle/autodock/multi/antag/skipjack_exodus,
+		/datum/shuttle/autodock/multi/antag/merc_exodus,
+		/datum/shuttle/autodock/ferry/legion_exodus,
+		/datum/shuttle/autodock/ferry/merchant/exodus
+	)
+
 /datum/map/exodus/generate_asteroid()
 	new /datum/random_map/automata/cave_system(null, 13, 32, 5, 217, 223)
 	new /datum/random_map/noise/ore(null, 13, 32, 5, 217, 223)
