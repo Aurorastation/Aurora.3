@@ -49,6 +49,10 @@
 	origin_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 2)
 	material = ORE_PHORON
 
+/obj/item/ore/phoron/impure
+	name = "impure phoron crystals"
+	origin_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 1)
+
 /obj/item/ore/silver
 	name = "native silver ore"
 	icon_state = "ore_silver"
