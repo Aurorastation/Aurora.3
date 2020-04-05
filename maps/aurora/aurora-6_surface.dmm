@@ -18398,18 +18398,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "HN" = (
-/obj/structure/closet/crate/hydroponics,
-/obj/item/material/minihoe,
-/obj/item/material/minihoe,
-/obj/item/material/minihoe,
-/obj/item/material/hatchet,
-/obj/item/material/hatchet,
-/obj/item/material/hatchet,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
-/obj/item/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/spline/fancy/wood{
 	icon_state = "spline_fancy";
+	dir = 4
+	},
+/obj/machinery/chem_master{
+	icon_state = "mixer0";
 	dir = 4
 	},
 /turf/simulated/floor/grass/alt,
@@ -23452,6 +23446,20 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
+"Sa" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/hydroponics/garden)
 "Sb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -54743,7 +54751,7 @@ yq
 sF
 td
 tz
-um
+Sa
 um
 vI
 um

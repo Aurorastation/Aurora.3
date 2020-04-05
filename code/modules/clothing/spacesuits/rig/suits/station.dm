@@ -1,5 +1,8 @@
 /obj/item/clothing/head/helmet/space/rig/industrial
 	camera = /obj/machinery/camera/network/mining
+	light_overlay = "helmet_light_dual"
+	light_color = "#ffcf2f"
+	brightness_on = 6
 
 /obj/item/clothing/head/helmet/space/rig/ce
 	camera = /obj/machinery/camera/network/engineering
@@ -70,6 +73,7 @@
 	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
+	chest_type = /obj/item/clothing/suit/space/rig/industrial
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill)
 
@@ -77,6 +81,9 @@
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
+
+/obj/item/clothing/suit/space/rig/industrial
+	flags_inv = HIDETAIL
 
 /obj/item/rig/industrial/equipped
 

@@ -1028,6 +1028,7 @@
 #include "code\game\objects\structures\musician.dm"
 #include "code\game\objects\structures\noticeboard.dm"
 #include "code\game\objects\structures\plasticflaps.dm"
+#include "code\game\objects\structures\railing.dm"
 #include "code\game\objects\structures\safe.dm"
 #include "code\game\objects\structures\sarcophagus.dm"
 #include "code\game\objects\structures\shotgun_rack.dm"

@@ -18,7 +18,7 @@
 	return
 
 /mob/living/carbon/human/proc/get_total_health()
-	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getFireLoss() - getOxyLoss() - getToxLoss()
+	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss()
 	return amount
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)

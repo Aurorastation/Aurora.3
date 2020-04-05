@@ -23,8 +23,9 @@ var/list/global_huds
 
 /datum/global_hud/proc/setup_overlay(var/icon_state)
 	var/obj/screen/screen = new /obj/screen()
-	screen.screen_loc = "1,1"
-	screen.icon = 'icons/obj/hud_full.dmi'
+	screen.alpha = 25 // Adjust this if you want goggle overlays to be thinner or thicker.
+	screen.screen_loc = "SOUTHWEST to NORTHEAST" // Will tile up to the whole screen, scaling beyond 15x15 if needed.
+	screen.icon = 'icons/obj/hud_tiled.dmi'
 	screen.icon_state = icon_state
 	screen.layer = SCREEN_LAYER
 	screen.mouse_opacity = 0

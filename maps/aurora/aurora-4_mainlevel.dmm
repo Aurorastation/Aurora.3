@@ -44670,7 +44670,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/reagent_containers/hypospray,
 /turf/simulated/floor/tiled,
 /area/medical/emt)
 "bxy" = (
@@ -44722,7 +44721,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/item/reagent_containers/hypospray,
 /turf/simulated/floor/tiled,
 /area/medical/emt)
 "bxA" = (
@@ -47189,6 +47187,8 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/crowbar/red,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
 /turf/simulated/floor/tiled,
 /area/medical/emt)
 "bCC" = (
