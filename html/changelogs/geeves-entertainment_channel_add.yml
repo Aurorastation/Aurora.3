@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Standard Encryption Keys now come with both Common and Entertainment channels in-built."

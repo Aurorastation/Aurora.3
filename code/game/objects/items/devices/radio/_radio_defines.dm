@@ -1,0 +1,16 @@
+#define CHANNEL_COMMON "Common"
+#define CHANNEL_ENTERTAINMENT "Entertainment"
+#define CHANNEL_COMMAND "Command"
+#define CHANNEL_SCIENCE "Science"
+#define CHANNEL_MEDICAL "Medical"
+#define CHANNEL_ENGINEERING "Engineering"
+#define CHANNEL_SECURITY "Security"
+#define CHANNEL_SUPPLY "Supply"
+#define CHANNEL_SERVICE "Service"
+#define CHANNEL_AI_PRIVATE "AI Private"
+
+#define CHANNEL_RESPONSE_TEAM "Response Team"
+
+#define CHANNEL_RAIDER "Raider"
+#define CHANNEL_MERCENARY "Mercenary"
+#define CHANNEL_NINJA "Ninja"
