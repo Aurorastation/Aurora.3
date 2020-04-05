@@ -40,8 +40,6 @@ emp_act
 	var/list/clothing = get_clothing_list_organ(organ)
 	for(var/obj/item/clothing/C in clothing)
 		C.clothing_impact(P, P.damage)
-		if(P.special_damage == "machine")
-			C.emp_act(3)
 
 	//Surge check for haywire bullets
 	if(isipc(src) && P.special_damage == "machine")

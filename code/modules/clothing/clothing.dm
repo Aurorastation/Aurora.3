@@ -6,6 +6,7 @@
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
 	var/gunshot_residue //Used by forensics.
+	var/obj/item/rig/linked_rig //The hardsuit module that this is linked to. Used only for deployed hardsuit gear.
 
 	var/list/accessories
 	var/list/valid_accessory_slots
@@ -157,6 +158,13 @@
 /obj/item/clothing/proc/clothing_impact(var/obj/source, var/damage)
 	if(material && damage)
 		material_impact(source, damage)
+	if(isprojectile(source))
+		var/obj/item/projectile/P = source
+		if(P.special_damage == "machine")
+			if(linked_rig)
+				linked_rig.haywire_act(damage)
+			else
+				emp_act(3)
 
 /obj/item/clothing/proc/material_impact(var/obj/source, var/damage)
 	if(!material || unbreakable)

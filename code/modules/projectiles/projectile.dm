@@ -123,9 +123,11 @@
 					damage *= 5
 					damage_type = BURN
 					world << "[target] is synthetic or mech" 
-			if(ismachinery(target))
+			if(ismachinery(target) || isvehicle(target))
 				damage *= 5
 				damage_type = BURN
+			if(istype(target, /obj/effect/energy_field))
+				damage *= 15 //seems high but energy_field divides get_structure_damage by 10
 			adjusted = list("damage" = damage, "damage_type" = damage_type)
 			return adjusted
 
@@ -163,10 +165,10 @@
 		return FALSE
 	return TRUE
 
-/obj/item/projectile/proc/get_structure_damage()
+/obj/item/projectile/proc/get_structure_damage(var/obj/O)
 	world << "Running get_structure_damage"
 	if(special_damage)
-		var/list/adj_dam = special_damage_adj()
+		var/list/adj_dam = special_damage_adj(O)
 		damage = adj_dam["damage"]
 		damage_type = adj_dam["damage_type"]
 		world << "[damage] damage and [damage_type] type for structure."

@@ -105,7 +105,7 @@
 		return 1
 	return 0
 
-/obj/item/projectile/bullet/pellet/get_structure_damage()
+/obj/item/projectile/bullet/pellet/get_structure_damage(var/obj/O)
 	var/distance = get_dist(loc, starting)
 	return ..() * get_pellets(distance)
 

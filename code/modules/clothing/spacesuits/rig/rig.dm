@@ -159,6 +159,7 @@
 		piece.permeability_coefficient = permeability_coefficient
 		piece.unacidable = unacidable
 		piece.species_restricted = species_restricted
+		piece.linked_rig = src
 		if(islist(armor)) piece.armor = armor.Copy()
 
 	set_vision(!offline)
@@ -743,6 +744,15 @@
 
 	//possibly damage some modules
 	take_hit((100/severity_class), "electrical pulse", 1)
+
+/obj/item/rig/proc/haywire_act(var/damage)
+	world << "Haywire_act called, damage is [damage] before multiplication and probs"
+	if(prob(damage))
+		emp_act(3)
+	else
+		//slightly random cell drain, mitigated by emp protection
+		var/modified_damage = (damage * rand(8,10)) / max(1, emp_protection)
+		cell.charge = max(0, cell.charge - modified_damage)
 
 /obj/item/rig/proc/shock(mob/user)
 	var/touchy = pick(BP_CHEST,BP_HEAD,BP_GROIN)
