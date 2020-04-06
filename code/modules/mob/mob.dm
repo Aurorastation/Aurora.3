@@ -296,8 +296,10 @@
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
+
 	if(!A)
 		return
+
 	if((is_blind(src) || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
@@ -869,6 +871,8 @@
 	else if( lying != lying_prev )
 		update_icon()
 
+	update_vision_cone()
+
 	return canmove
 
 
@@ -1265,6 +1269,9 @@
 	src.in_throw_mode = 1
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
+
+/mob/proc/is_invisible_to(var/mob/viewer)
+	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || (viewer.client && (src in (viewer.client.hidden_mobs || viewer.client.hidden_atoms))))
 
 //Admin helpers
 /mob/proc/wind_mob(var/mob/admin)

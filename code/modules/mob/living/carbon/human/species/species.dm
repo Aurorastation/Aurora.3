@@ -243,6 +243,8 @@
 	var/list/character_color_presets
 	var/bodyfall_sound = "bodyfall" //default, can be used for species specific falling sounds
 
+	var/have_vision_cone = TRUE //Vision cone.
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
