@@ -264,5 +264,5 @@
 
 	can_hold = list(
 		/obj/item/stack/material,
-		/obj/item/stack/tile,
+		/obj/item/stack/tile
 		)
