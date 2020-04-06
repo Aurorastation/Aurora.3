@@ -518,7 +518,7 @@ var/global/list/robot_modules = list(
 			"Unbranded-MAD" = "offfloatspizzytronjani",
 			"Unbranded-Android" = "droid",
 			)
-	var/mopping = 0
+	var/mopping = FALSE
 
 /obj/item/robot_module/janitor/New()
 	..()
