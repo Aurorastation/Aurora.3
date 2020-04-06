@@ -147,6 +147,8 @@
 				affecting.Weaken(4)
 
 	if(state >= GRAB_NECK)
+		affecting.drop_l_hand()
+		affecting.drop_r_hand()
 		affecting.Stun(3)
 		if(isliving(affecting))
 			var/mob/living/L = affecting
