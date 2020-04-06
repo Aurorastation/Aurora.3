@@ -984,7 +984,7 @@
 		if(module.type == /obj/item/robot_module/janitor)
 			var/obj/item/robot_module/janitor/J = module
 			var/turf/tile = get_turf(src)
-			if(isturf(tile)&& J.mopping == 1)
+			if(isturf(tile) && J.mopping)
 				tile.clean_blood()
 				if(istype(tile, /turf/simulated))
 					var/turf/simulated/S = tile
