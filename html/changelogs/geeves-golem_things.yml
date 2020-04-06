@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Golems now use descriptors instead of numbers to form their name."
