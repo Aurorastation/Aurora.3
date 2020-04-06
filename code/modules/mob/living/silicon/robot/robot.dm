@@ -494,7 +494,7 @@
 	set desc = "Toggle the integrated mop."
 	set src in usr
 	if (!mopping)
-		mopping = 1
+		mopping = TRUE
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
 		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
 	else 
