@@ -6,6 +6,7 @@
 	// Speaking
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
+	can_have_vision_cone = TRUE
 	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"

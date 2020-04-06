@@ -220,6 +220,8 @@
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
 
+	var/have_vision_cone = TRUE //Vision cone.
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
