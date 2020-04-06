@@ -251,8 +251,7 @@
 	burn *= burn_mod
 
 	var/laser = (damage_flags & DAM_LASER)
-
-	add_pain(0.7 * burn + 0.6 * brute)
+	var/blunt = !!(brute && !sharp && !edge)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if(owner && (owner.can_feel_pain()))
@@ -261,53 +260,42 @@
 		add_autopsy_data("[used_weapon]", brute + burn)
 
 	var/can_cut = (prob(brute*2) || sharp) && !(status & ORGAN_ROBOT)
+	var/spillover = 0
+	if(!is_damageable(brute + burn))
+		spillover = brute_dam + burn_dam + brute - max_damage
+		if(spillover > 0)
+			brute = max(brute - spillover, 0)
+		else
+			spillover = brute_dam + burn_dam + brute + burn - max_damage
+			if(spillover > 0)
+				burn = max(burn - spillover, 0)
 
-	if(is_damageable(brute + burn) || !config.limbs_can_break)
-		if(brute)
-			if(can_cut)
-				if(sharp && !edge)
-					createwound(PIERCE, brute)
-				else
-					createwound(CUT, brute)
-			else
-				createwound(BRUISE, brute)
-		if(burn)
+	handle_limb_gibbing(used_weapon, brute, burn)
+
+	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
+		fracture()
+
+	if(brute)
+		var/to_create = BRUISE
+		if(can_cut)
+			to_create = CUT
+			//need to check sharp again here so that blunt damage that was strong enough to break skin doesn't give puncture wounds
+			if(sharp && !edge)
+				to_create = PIERCE
+		createwound(to_create, brute)
+
+	if(burn)
+		if(laser)
+			createwound(LASER, burn)
+		else
+			world << "burn"
 			createwound(BURN, burn)
-	else
-		//If we can't inflict the full amount of damage, spread the damage in other ways
-		//How much damage can we actually cause?
-		var/can_inflict = max_damage * config.organ_health_multiplier - (brute_dam + burn_dam)
-		var/spillover = 0
-		if(can_inflict)
-			if(brute > 0)
-				//Inflict all brute damage we can
-				if(can_cut)
-					if(sharp && !edge)
-						createwound(PIERCE, min(brute, can_inflict))
-					else
-						createwound(CUT, min(brute, can_inflict))
-				else
-					createwound(BRUISE, min(brute, can_inflict))
-				var/temp = can_inflict
-				//How much more damage can we inflict
-				can_inflict = max(0, can_inflict - brute)
-				//How much brute damage is left to inflict
-				spillover += max(0, brute - temp)
 
-			if(burn > 0 && can_inflict)
-				//Inflict all burn damage we can
-				if(laser)
-					createwound(LASER, min(burn, can_inflict))
-				else
-					createwound(BURN, min(burn,can_inflict))
-				//How much burn damage is left to inflict
-				spillover += max(0, burn - can_inflict)
+	add_pain(0.8 * burn + 0.6 * brute)
 
-		//If there are still hurties to dispense
-		if(spillover && owner)
-			owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
-
-	handle_limb_gibbing(used_weapon,brute,burn)
+	//If there are still hurties to dispense
+	if (spillover)
+		owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
 
 	// High brute damage or sharp objects may damage internal organs
 	if(length(internal_organs))

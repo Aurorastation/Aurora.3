@@ -165,7 +165,7 @@
 		owner.eye_blurry += damage_secondary
 		owner.confused += damage_secondary * 2
 		owner.Weaken(round(damage_secondary * 3, 1))
-		owner.AdjustOxyLoss(damage)
+		owner.adjustOxyLoss(damage)
 		if(prob(30))
 			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
 
@@ -207,7 +207,7 @@
 
 /obj/item/organ/internal/brain/surgical_fix(mob/user)
 	var/blood_volume = owner.get_blood_oxygenation()
-	if(blood_volume < BLOOD_VOLUME_SURVIVE)
+	if(blood_volume < BLOOD_VOLUME_BAD)
 		to_chat(user, "<span class='danger'>Parts of [src] didn't survive the procedure due to lack of air supply!</span>")
 		set_max_damage(Floor(max_damage - 0.25*damage))
 	heal_damage(damage)

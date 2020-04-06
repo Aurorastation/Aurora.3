@@ -1966,7 +1966,7 @@
 		if(!nervous_system_failure() && active_breaths)
 			visible_message("\The [src] jerks and gasps for breath!")
 		else
-			visible_message("\The [src] twitches a bit as \his heart restarts!")
+			visible_message("\The <b>[src]</b> twitches a bit as \his heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)
