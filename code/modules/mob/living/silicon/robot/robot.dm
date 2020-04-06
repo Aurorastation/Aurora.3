@@ -495,7 +495,7 @@
 	if (!mopping)
 		mopping = 1
 		to_chat(usr, "You enable your integrated mopping system.")
-		src.visible_message("\ [usr]'s integrated mopping system rumbles to life.")
+		src.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
 		playsound(src, 'sound/machines/hydraulic_long.ogg', 100, 1)
 	else 
 		mopping = 0
