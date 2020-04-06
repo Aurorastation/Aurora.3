@@ -501,8 +501,6 @@
 		mopping = FALSE
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
 
-
-
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
 		if(intense_light)
@@ -518,7 +516,6 @@
 	if(jetpack)
 		stat(null, "Internal Atmosphere Info: [jetpack.name]")
 		stat(null, "Tank Pressure: [jetpack.air_contents.return_pressure()]")
-
 
 // this function displays the cyborgs current cell charge in the stat panel
 /mob/living/silicon/robot/proc/show_cell_power()
@@ -1019,10 +1016,6 @@
 								cleaned_human.update_inv_shoes(0)
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
-
-
-
-
 
 /mob/living/silicon/robot/proc/self_destruct(var/anti_theft = FALSE)
 	if(anti_theft)
