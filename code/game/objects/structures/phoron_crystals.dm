@@ -26,21 +26,6 @@
 			state = SPAN_NOTICE("The crystal looks structurally sound.")
 	to_chat(user, state)
 
-/obj/structure/phoron_crystal/bullet_act(obj/item/projectile/Proj)
-	// The only provide partial cover. There's a chance that the projectiles will just pass through. (unless you are trying to shoot the crystals)
-	if(Proj.original != src && !prob(cover))
-		return PROJECTILE_CONTINUE //pass through
-
-	var/damage = Proj.get_structure_damage()
-	if(!damage)
-		return
-
-	if(istype(Proj, /obj/item/projectile/beam))
-		damage *= 0.6 // beams do reduced damage
-
-	take_damage(damage)
-	return ..()
-
 /obj/structure/phoron_crystal/proc/take_damage(var/damage)
 	health -= damage
 	if(health <= 0)

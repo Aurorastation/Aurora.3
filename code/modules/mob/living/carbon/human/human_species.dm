@@ -202,6 +202,9 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	if(mind)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
+	disabilities |= PACIFIST
+
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_penal(src), slot_l_ear)
 
 	remote_network = "prisonrobots"
 	SSvirtualreality.add_robot(src, remote_network)
@@ -229,7 +232,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	equip_to_slot_or_del(ID, slot_wear_id)
 	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
-	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_sec(src), slot_l_ear)
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_warden(src), slot_l_ear)
 
 	remote_network = "wardenrobots"
 	SSvirtualreality.add_robot(src, remote_network)
