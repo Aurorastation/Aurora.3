@@ -500,7 +500,7 @@
 	else 
 		mopping = 0
 		to_chat(usr, "You disable your integrated mopping system.")
-		src.visible_message("\ [usr]'s integrated mopping system putters before turning off.")
+		src.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
 
 
 
