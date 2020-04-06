@@ -80,14 +80,14 @@
 	name = "unathi nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Unathi use."
 	icon_state = "nitrile"
-	item_state = "ngloves"
+	item_state = "nitrile"
 	species_restricted = list("Unathi")
 
 /obj/item/clothing/gloves/latex/nitrile/tajara
 	name = "tajaran nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Tajara use."
 	icon_state = "nitrile"
-	item_state = "ngloves"
+	item_state = "nitrile"
 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/latex/unathi
