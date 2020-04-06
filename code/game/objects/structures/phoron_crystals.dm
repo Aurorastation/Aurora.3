@@ -8,7 +8,6 @@
 	layer = ABOVE_CABLE_LAYER
 	var/state = 0
 	var/health = 100
-	var/cover = 20 //how much cover the crystals provides against projectiles.
 	var/mine_rate = 1 // how fast you can mine it
 
 /obj/structure/phoron_crystal/examine(mob/user)
@@ -123,7 +122,6 @@
 	icon_state = "dense_phoron_crystals"
 	density = TRUE
 	health = 200
-	cover = 60
 	mine_rate = 2
 
 /obj/structure/phoron_crystal/dense/harvest()
