@@ -240,7 +240,8 @@
 ****************************************************/
 
 /obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
-	return (vital || brute_dam + burn_dam + additional_damage < max_damage)
+	//Continued damage to vital organs can kill you, and robot organs don't count towards total damage so no need to cap them.
+	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)
 
 /obj/item/organ/external/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list(), damage_flags, var/silent)
 	if((brute <= 0) && (burn <= 0))
@@ -251,28 +252,16 @@
 
 	var/laser = (damage_flags & DAM_LASER)
 
-	add_pain(0.8*burn + 0.5*brute)
+	add_pain(0.7 * burn + 0.6 * brute)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if(owner && (owner.can_feel_pain()))
-			owner.emote("scream")	//getting hit on broken hand hurts
+			owner.emote(pick("scream", "groan"))	//getting hit on broken hand hurts
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
 
-	// High brute damage or sharp objects may damage internal organs
-	if(length(internal_organs))
-		if(damage_internal_organs(brute, burn, sharp, damage_flags))
-			var/brute_div = 2 //We want melee weapons to not be affected by this.
-			if(damage_flags & DAM_BULLET)
-				brute_div = 1.25
-			brute /= brute_div
-			burn /= 2
-
 	var/can_cut = (prob(brute*2) || sharp) && !(status & ORGAN_ROBOT)
 
-	// If the limbs can break, make sure we don't exceed the maximum damage a limb can take before breaking
-	// Non-vital organs are limited to max_damage. You can't kill someone by bludeonging their arm all the way to 200 -- you can
-	// push them faster into paincrit though, as the additional damage is converted into shock.
 	if(is_damageable(brute + burn) || !config.limbs_can_break)
 		if(brute)
 			if(can_cut)
@@ -294,11 +283,11 @@
 				//Inflict all brute damage we can
 				if(can_cut)
 					if(sharp && !edge)
-						createwound(PIERCE, min(brute,can_inflict))
+						createwound(PIERCE, min(brute, can_inflict))
 					else
-						createwound(CUT, min(brute,can_inflict))
+						createwound(CUT, min(brute, can_inflict))
 				else
-					createwound(BRUISE, min(brute,can_inflict))
+					createwound(BRUISE, min(brute, can_inflict))
 				var/temp = can_inflict
 				//How much more damage can we inflict
 				can_inflict = max(0, can_inflict - brute)
@@ -315,10 +304,19 @@
 				spillover += max(0, burn - can_inflict)
 
 		//If there are still hurties to dispense
-		if (spillover && owner)
+		if(spillover && owner)
 			owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
 
 	handle_limb_gibbing(used_weapon,brute,burn)
+
+	// High brute damage or sharp objects may damage internal organs
+	if(length(internal_organs))
+		if(damage_internal_organs(brute, burn, sharp, damage_flags))
+			var/brute_div = 2 //We want melee weapons to not be affected by this.
+			if(damage_flags & DAM_BULLET)
+				brute_div = 1.25
+			brute /= brute_div
+			burn /= 2
 
 	// sync the organ's damage with its wounds
 	update_damages()
