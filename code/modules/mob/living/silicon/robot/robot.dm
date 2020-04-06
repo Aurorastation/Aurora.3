@@ -492,15 +492,14 @@
 	set category = "Robot Commands"
 	set name = "Toggle Mop"
 	set desc = "Toggle the integrated mop."
+	set src in usr
 	if (!mopping)
 		mopping = 1
-		to_chat(usr, "You enable your integrated mopping system.")
-		src.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
-		playsound(src, 'sound/machines/hydraulic_long.ogg', 100, 1)
+		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
+		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
 	else 
 		mopping = 0
-		to_chat(usr, "You disable your integrated mopping system.")
-		src.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
+		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
 
 
 
