@@ -117,6 +117,11 @@
 	desc = "A white beret with the Zeng-Hu insignia emblazoned on it."
 	icon_state = "zengaltberet"	
 
+/obj/item/clothing/head/beret/heph
+	name = "hephaestus beret"
+	desc = "A green beret with the Hephaestus insignia emblazoned on it."
+	icon_state = "hephberet"
+
 /obj/item/clothing/head/beret/purple
 	name = "purple beret"
 	desc = "A stylish, if purple, beret."
