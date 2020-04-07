@@ -270,7 +270,7 @@
 	// We don't even know if it's a middle click
 	if(!usr.canClick())
 		return TRUE
-	if(use_check_and_message(usr))
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
 		return TRUE
 	switch(name)
 		if(BP_R_HAND)
