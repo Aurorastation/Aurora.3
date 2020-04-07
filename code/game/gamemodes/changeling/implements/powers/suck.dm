@@ -79,7 +79,7 @@
 			changeling.total_absorbed_genpoints += 2
 		changeling.inactives_absorbed++
 
-	changeling.update_ling_power()
+	update_ling_power()
 
 	//Steal all of their languages!
 	for(var/language in T.languages)
@@ -117,7 +117,7 @@
 		T.mind.changeling.geneticpoints = 0
 		T.mind.changeling.total_absorbed_genpoints = 0
 		T.mind.changeling.absorbedcount = 0
-		T.mind.changeling.update_ling_power()
+		T.update_ling_power()
 
 	changeling.absorbedcount++
 	changeling.isabsorbing = FALSE

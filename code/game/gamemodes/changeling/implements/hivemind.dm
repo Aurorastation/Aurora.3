@@ -4,6 +4,8 @@
 	see_invisible = SEE_INVISIBLE_LIVING
 
 	var/mob/living/carbon/human/changeling_mob // the head honcho
+	var/previous_icon
+	var/previous_icon_state
 
 /mob/abstract/hivemind/Destroy()
 	changeling_mob = null
@@ -15,24 +17,28 @@
 	set desc = "Relinquish your life and enter the land of the dead."
 
 	announce_ghost_joinleave(ghostize(1, 0))
+	var/mob/abstract/observer/ghost = ghostize(1, 0) //give ghosted hiveminds an icon
+	ghost.icon = previous_icon
+	ghost.icon_state = previous_icon_state
 	world << "[src] has ghosted"
 	changeling_mob.mind.changeling.hivemind_members -= src
 	to_chat(changeling_mob, SPAN_NOTICE("[src] has left our hivemind to join the living dead."))
-	for(var/mob/abstract/hivemind/H in changeling_mob.mind.changeling.hivemind_members["member"]) // tell the others in the hivemind
+	for(var/H in changeling_mob.mind.changeling.hivemind_members) // tell the others in the hivemind
 		to_chat(H, SPAN_NOTICE("[src] has left our hivemind to join the living dead."))
 
 /mob/abstract/hivemind/proc/add_to_hivemind(var/mob/original_body, var/mob/living/carbon/human/ling)
 	name = original_body.real_name
 	languages = original_body.languages
+	previous_icon = original_body.icon
+	previous_icon_state = original_body.icon_state
 	for(var/language in ling.languages)
 		add_language(language)
 	remove_language(LANGUAGE_CHANGELING) // no actual changeling speak for you, buddy
-	if(original_body.ckey)
-		ckey = original_body.ckey
-		changeling_mob = ling
+	//if(original_body.ckey)
+		//ckey = original_body.ckey
+	changeling_mob = ling
 	if(changeling_mob)
-		var/list/member = list("member" = src)
-		changeling_mob.mind.changeling.hivemind_members += member
+		changeling_mob.mind.changeling.hivemind_members[name] = src
 		introduction(changeling_mob)
 
 /mob/abstract/hivemind/proc/introduction(var/mob/living/carbon/human/ling)
@@ -55,7 +61,7 @@
 		return
 
 	to_chat(changeling_mob, message_process(message)) // tell the changeling
-	for(var/H in changeling_mob.mind.changeling.hivemind_members["member"]) // tell the others in the hivemind
+	for(var/H in changeling_mob.mind.changeling.hivemind_members) // tell the others in the hivemind
 		to_chat(H, message_process(message))
 
 /mob/abstract/hivemind/proc/message_process(var/message)

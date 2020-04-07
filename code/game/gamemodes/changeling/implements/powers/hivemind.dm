@@ -4,13 +4,16 @@
 	set name = "Hivemind Eject"
 	set desc = "Ejects a member of our internal hivemind."
 
-	var/chosen_player = input(src, "Choose a hivemind member to eject.", "Eject") in mind.changeling.hivemind_members["member"]
+	/*var/list/choices_please = list()
+	for(var/H in mind.changeling.hivemind_members)
+		choices_please += H
+		world << "[H] added to choices. list length is [choices_please.len]"*/
+	var/chosen_player = input("Choose a hivemind member to eject.", "Eject") as null|anything in mind.changeling.hivemind_members
 	if(!chosen_player || chosen_player == "None")
-		world << "Eject found no input"
+		world << "Eject found no input. Wow! Very unepic, bro! Not very dab!"
 		return
 	world << "Attempting to eject [chosen_player]"
-	var/mob/abstract/hivemind/chosen_hivemind = chosen_player
-	chosen_hivemind.ghost() // bye
+	mind.changeling.hivemind_members[chosen_player].ghost() // bye
 	return TRUE
 
 /mob/proc/changeling_hivemind_commune()
@@ -23,7 +26,7 @@
 		return
 
 	to_chat(src, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>") // tell the changeling
-	for(var/H in src.mind.changeling.hivemind_members["member"]) // tell the other hiveminds
+	for(var/H in src.mind.changeling.hivemind_members) // tell the other hiveminds
 		to_chat(H, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>")
 
 	return TRUE

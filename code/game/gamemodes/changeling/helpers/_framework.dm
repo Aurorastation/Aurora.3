@@ -166,23 +166,28 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 			world << "Returning [mind.changeling.ling_level] >= [min_level]"
 			return mind.changeling.ling_level >= min_level
 
-/datum/changeling/proc/update_ling_power()
-	world << "Update Ling Power called. [total_absorbed_genpoints]"
+/mob/proc/update_ling_power()
+	world << "Update Ling Power called."
+	var/datum/changeling/changeling
+	if(mind?.changeling)
+		changeling = mind.changeling
+	else
+		return FALSE
 	var/message
-	var/previous_level = ling_level
-	switch(total_absorbed_genpoints)
+	var/previous_level = changeling.ling_level
+	switch(changeling.total_absorbed_genpoints)
 		if(0 to 2)
-			ling_level = LING_LEVEL_LOW
+			changeling.ling_level = LING_LEVEL_LOW
 		if(3 to 9)
-			ling_level = LING_LEVEL_MED
+			changeling.ling_level = LING_LEVEL_MED
 			message = pick("Even in this form, our power grows...", "Yes, these genes make us stronger...", "Our evolution continues, but we may yet grow stronger.", "Good... this is just what we needed to grow.")
 		else
-			ling_level = LING_LEVEL_HIGH
+			changeling.ling_level = LING_LEVEL_HIGH
 			message = pick("Finally, we have maximized the potential of this host's frail form!", "We have reached the apex of this host's strength. We have no equal.", "This host's pathetic form has achieved peak evolution; it is finally worthy of us.")
-	if(message && ling_level > previous_level)
+	if(message && changeling.ling_level > previous_level)
 		to_chat(src, FONT_LARGE(SPAN_NOTICE(message)))
 	else
-		world << "No message? [ling_level] is current level [previous_level] is previous level"
+		world << "No message? [changeling.ling_level] is current level [previous_level] is previous level"
 
 //Making you better than others of your species
 /*/mob/living/carbon/human/proc/adjust_species()
