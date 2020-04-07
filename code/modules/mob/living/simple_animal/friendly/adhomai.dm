@@ -144,6 +144,6 @@
 		..()
 
 /mob/living/simple_animal/schlorrgo/turf_collision(var/turf/T, var/speed = THROWFORCE_SPEED_DIVISOR)
-	visible_message(SPAN_WARNING("[src] bounces off \the [T]!"))
+	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
 	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1) //so it plays sounds on the turf instead, makes for awesome carps to hull collision and such
 	make_noise()
