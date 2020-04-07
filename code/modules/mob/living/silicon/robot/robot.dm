@@ -492,6 +492,7 @@
 	set name = "Toggle Mop"
 	set desc = "Toggle the integrated mop."
 	set src in usr
+
 	if (!mopping)
 		mopping = TRUE
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
