@@ -76,7 +76,6 @@
 	var/cell_type = /obj/item/cell/high
 	var/has_jetpack = FALSE
 	var/has_pda = TRUE
-	
 
 	// Internal components (non-datum)
 	var/obj/item/cell/cell
