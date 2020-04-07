@@ -288,7 +288,6 @@
 		if(laser)
 			createwound(LASER, burn)
 		else
-			world << "burn"
 			createwound(BURN, burn)
 
 	add_pain(0.8 * burn + 0.6 * brute)
