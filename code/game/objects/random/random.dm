@@ -1370,6 +1370,7 @@
 		/obj/structure/largecrate/animal/adhomai = 0.5,
 		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
 		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
+		/obj/structure/largecrate/animal/adhomai/schlorrgo = 0.2,
 		/obj/structure/largecrate/animal/hakhma = 0.5
 	)
 
@@ -1568,3 +1569,14 @@
 			return pick_gun()
 
 	return W
+
+/obj/random/keg
+	name = "random alcohol keg"
+	desc = "Contains a random alcohol keg."
+	icon = 'icons/obj/reagent_dispensers.dmi'
+	icon_state = "beertankTEMP"
+	spawnlist = list(
+		/obj/structure/reagent_dispensers/keg/beerkeg = 2,
+		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
+		/obj/structure/reagent_dispensers/keg/mead = 0.5
+	)

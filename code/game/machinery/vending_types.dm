@@ -548,7 +548,7 @@
 	icon_state = "seeds"
 	vend_id = "seeds"
 	products = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 3,		
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
@@ -587,6 +587,7 @@
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
+		/obj/item/seeds/sugartree = 2,
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
@@ -607,7 +608,7 @@
 		/obj/item/seeds/ambrosiadeusseed = 3
 	)
 	prices = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 70,		
+		/obj/item/seeds/ambrosiavulgarisseed = 70,
 		/obj/item/seeds/appleseed = 50,
 		/obj/item/seeds/bananaseed = 60,
 		/obj/item/seeds/berryseed = 40,
@@ -646,6 +647,7 @@
 		/obj/item/seeds/soyaseed = 40,
 		/obj/item/seeds/sugarcaneseed = 20,
 		/obj/item/seeds/sunflowerseed = 20,
+		/obj/item/seeds/sugartree = 40,
 		/obj/item/seeds/tobaccoseed = 40,
 		/obj/item/seeds/tomatoseed = 30,
 		/obj/item/seeds/towermycelium = 20,
