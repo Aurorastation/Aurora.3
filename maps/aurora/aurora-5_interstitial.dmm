@@ -13389,6 +13389,10 @@
 "YS" = (
 /turf/simulated/wall,
 /area/maintenance/medbay_interstitial)
+"YU" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/lino/grey,
+/area/security/detectives_office)
 "YW" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -48603,7 +48607,7 @@ dW
 eg
 ep
 ev
-fo
+YU
 eQ
 fb
 fl
