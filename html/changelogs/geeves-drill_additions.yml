@@ -1,0 +1,13 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Mining drills now store their error messages, allowing you to examine it when adjacent and read them."
+  - rscadd: "Mining drills now report when their resource fields are depleted."
+  - tweak: "It now takes a while to take the mining satchel out of mining drills, to prevent accidental removal."
+  - tweak: "Mining drills now use much less charge while working."
+  - tweak: "Mining drills now gather resources from a two tile radius around it. It will only make a hole under the drill, however, so keep that in mind."
+  - tweak: "Any ore inside the mining drill will be beamed to a connected crate when a bluespace ore satchel is attached."
+  - rscadd: "Braces will now automatically face their mining drill when attaching or removing them with a wrench. No need to alt click them many times."
+  - tweak: "Upped the gold and silver ore's rate of spawning in asteroid turfs."
