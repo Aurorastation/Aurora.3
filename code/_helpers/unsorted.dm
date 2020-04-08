@@ -1211,7 +1211,7 @@ var/list/wall_items = typecacheof(list(
 
 //Prevents robots dropping their modules.
 /proc/dropsafety(var/atom/movable/A)
-	if (istype(A.loc, /mob/living/silicon))
+	if (issilicon(A.loc))
 		return 0
 
 	else if (istype(A.loc, /obj/item/rig_module))

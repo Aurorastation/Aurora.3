@@ -32,7 +32,7 @@
 	return
 
 /obj/item/implanter/attack(mob/M as mob, mob/user, var/target_zone)
-	if (!istype(M, /mob/living/carbon))
+	if (!iscarbon(M))
 		return
 	if (user && src.imp)
 		M.visible_message("<span class='warning'>[user] is attemping to implant [M].</span>")

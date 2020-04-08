@@ -114,7 +114,7 @@ obj/structure/ex_act(severity)
 
 
 /obj/structure/transit_tube/station/CollidedWith(mob/AM as mob|obj)
-	if(!pod_moving && icon_state == "open" && istype(AM, /mob))
+	if(!pod_moving && icon_state == "open" && ismob(AM))
 		for(var/obj/structure/transit_tube_pod/pod in loc)
 			if(pod.contents.len)
 				to_chat(AM, "<span class='notice'>The pod is already occupied.</span>")
@@ -377,7 +377,7 @@ obj/structure/ex_act(severity)
 //  the station, try to exit. If the direction matches one of the station's
 //  tube directions, launch the pod in that direction.
 /obj/structure/transit_tube_pod/relaymove(mob/mob, direction)
-	if(istype(mob, /mob) && mob.client)
+	if(ismob(mob) && mob.client)
 		// If the pod is not in a tube at all, you can get out at any time.
 		if(!(locate(/obj/structure/transit_tube) in loc))
 			mob.forceMove(loc)

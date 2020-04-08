@@ -252,7 +252,7 @@ datum/objective/block
 
 
 	check_completion()
-		if(!istype(owner.current, /mob/living/silicon))
+		if(!issilicon(owner.current))
 			return 0
 		if(!emergency_shuttle.returned())
 			return 0
@@ -391,7 +391,7 @@ datum/objective/harm
 		if(already_completed)
 			return 1
 
-		if(target && target.current && istype(target.current, /mob/living/carbon/human))
+		if(target && target.current && ishuman(target.current))
 			if(target.current.stat == DEAD)
 				return 0
 
@@ -520,7 +520,7 @@ datum/objective/steal
 
 				for(var/obj/item/aicard/C in all_items) //Check for ai card
 					for(var/mob/living/silicon/ai/M in C)
-						if(istype(M, /mob/living/silicon/ai) && M.stat != 2) //See if any AI's are alive inside that card.
+						if(isAI(M) && M.stat != 2) //See if any AI's are alive inside that card.
 							return 1
 
 				for(var/mob/living/silicon/ai/ai in silicon_mob_list)

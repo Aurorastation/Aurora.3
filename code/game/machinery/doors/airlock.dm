@@ -782,7 +782,7 @@ About the new airlock wires panel:
 	return ..()
 
 /obj/machinery/door/airlock/attack_hand(mob/user)
-	if(!istype(usr, /mob/living/silicon))
+	if(!issilicon(usr))
 		if(src.isElectrified())
 			if(src.shock(user, 100))
 				return
@@ -1014,7 +1014,7 @@ About the new airlock wires panel:
 	return (ChainSawVar.powered && density && hashatch)
 
 /obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user)
-	if(!istype(usr, /mob/living/silicon))
+	if(!issilicon(usr))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
 				return

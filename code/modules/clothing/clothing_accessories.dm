@@ -115,7 +115,7 @@
 	set name = "Remove Accessory"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living)) return
+	if(!isliving(usr)) return
 	if(usr.stat) return
 	if(!LAZYLEN(accessories)) return
 	var/obj/item/clothing/accessory/A

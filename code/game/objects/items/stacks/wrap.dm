@@ -52,7 +52,7 @@
 		to_chat(user, "There [amount == 1 ? "is" : "are"] about [amount] [singular_name]\s of paper left!")
 
 /obj/item/stack/wrapping_paper/attack(mob/target as mob, mob/user)
-	if (!istype(target, /mob/living/carbon/human)) return
+	if (!ishuman(target)) return
 	var/mob/living/carbon/human/H = target
 
 	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket) || H.stat)

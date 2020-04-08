@@ -625,7 +625,7 @@
 	var/obj/item/face_protection = null
 
 	var/list/protection
-	if(istype(M, /mob/living/carbon/human))
+	if(ishuman(M))
 		if(M.isSynthetic())
 			return
 		var/mob/living/carbon/human/H = M

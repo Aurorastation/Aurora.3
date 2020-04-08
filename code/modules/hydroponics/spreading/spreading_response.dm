@@ -70,7 +70,7 @@
 	//grabbing people
 	if(!victim.anchored && Adjacent(victim) && victim.loc != get_turf(src))
 		var/can_grab = 1
-		if(istype(victim, /mob/living/carbon/human))
+		if(ishuman(victim))
 			var/mob/living/carbon/human/H = victim
 			if(H.Check_Shoegrip(FALSE))
 				can_grab = 0

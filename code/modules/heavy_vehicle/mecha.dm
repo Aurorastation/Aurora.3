@@ -111,7 +111,7 @@
 			to_chat(user, "It has <b>no pilot</b>.")
 		else
 			for(var/pilot in pilots)
-				if(istype(pilot, /mob))
+				if(ismob(pilot))
 					var/mob/M = pilot
 					to_chat(user, "It is being <b>piloted</b> by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>.")
 				else

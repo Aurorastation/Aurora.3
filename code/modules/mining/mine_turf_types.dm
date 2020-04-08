@@ -24,7 +24,7 @@
 	return TRUE
 
 /turf/simulated/lava/Entered(atom/movable/AM, atom/oldloc)
-	if(istype(AM, /mob/living))
+	if(isliving(AM))
 		var/mob/living/L = AM
 		if(locate(/obj/structure/lattice/catwalk, src))	//should be safe to walk upon
 			return TRUE
@@ -42,7 +42,7 @@
 	..()
 
 /turf/simulated/lava/Exited(atom/movable/AM, atom/newloc)
-	if(istype(AM, /mob/living))
+	if(isliving(AM))
 		var/mob/living/L = AM
 		if(!istype(newloc, /turf/simulated/lava))
 			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))

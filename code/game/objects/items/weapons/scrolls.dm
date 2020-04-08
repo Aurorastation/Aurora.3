@@ -17,7 +17,7 @@
 
 /obj/item/teleportation_scroll/attack_self(mob/living/user)
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/O = H.internal_organs_by_name[pick(BP_EYES,"appendix",BP_KIDNEYS,BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
 			if(O == null)
@@ -52,7 +52,7 @@
 	if (usr.stat || usr.restrained() || src.loc != usr)
 		return
 	var/mob/living/carbon/human/H = usr
-	if (!( istype(H, /mob/living/carbon/human)))
+	if (!( ishuman(H)))
 		return 1
 	if ((usr == src.loc || (in_range(src, usr) && istype(src.loc, /turf))))
 		usr.set_machine(src)

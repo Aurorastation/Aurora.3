@@ -124,7 +124,7 @@
 	if(!can_wield)
 		return
 
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(issmall(H))
 			to_chat(user, SPAN_WARNING("It's too heavy for you to wield fully."))
@@ -859,7 +859,7 @@ var/list/total_extraction_beacons = list()
 	if(!istype(A))
 		return
 	else
-		if(istype(A, /mob/living))
+		if(isliving(A))
 			to_chat(user, SPAN_WARNING("\The [src] is not safe for use with living creatures, they wouldn't survive the trip back!"))
 			return
 		if(A.loc == user) // no extracting stuff you're holding

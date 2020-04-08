@@ -1,7 +1,7 @@
 /obj/effect/rune/summon_cultist/do_rune_action(mob/living/user)
 	var/list/mob/living/carbon/cultists = list()
 	for(var/datum/mind/H in cult.current_antagonists)
-		if(istype(H.current, /mob/living/carbon))
+		if(iscarbon(H.current))
 			cultists += H.current
 
 	var/list/mob/living/carbon/users = list()

@@ -92,7 +92,7 @@
 		return
 
 	var/turf/location = src.loc
-	if(istype(location, /mob/))
+	if(ismob(location))
 		var/mob/living/carbon/human/M = location
 		if(M.l_hand == src || M.r_hand == src || M.head == src)
 			location = M.loc
@@ -219,7 +219,7 @@
 	if(!wax)
 		new /obj/item/clothing/head/pumpkin(src.loc)
 		new /obj/item/trash/candle(src.loc)
-		if(istype(src.loc, /mob))
+		if(ismob(src.loc))
 			src.dropped()
 		to_chat(user, span("notice", "The candle burns out."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)

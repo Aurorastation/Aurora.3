@@ -712,7 +712,7 @@
 	else
 		product = new /obj/item/reagent_containers/food/snacks/grown(spawning_loc,name)
 	if(get_trait(TRAIT_PRODUCT_COLOUR))
-		if(!istype(product, /mob))
+		if(!ismob(product))
 			product.color = get_trait(TRAIT_PRODUCT_COLOUR)
 			if(istype(product,/obj/item/reagent_containers/food))
 				var/obj/item/reagent_containers/food/food = product

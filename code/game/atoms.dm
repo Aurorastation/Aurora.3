@@ -47,7 +47,7 @@
 //return flags that should be added to the viewer's sight var.
 //Otherwise return a negative number to indicate that the view should be cancelled.
 /atom/proc/check_eye(user as mob)
-	if (istype(user, /mob/living/silicon/ai)) // WHYYYY
+	if (isAI(user)) // WHYYYY
 		return 0
 	return -1
 
@@ -200,7 +200,7 @@
 
 /atom/proc/add_hiddenprint(mob/living/M)
 	if(isnull(M)) return
-	if(!istype(M, /mob)) return
+	if(!ismob(M)) return
 	if(isnull(M.key)) return
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
@@ -224,7 +224,7 @@
 
 /atom/proc/add_fingerprint(mob/living/M, ignoregloves = 0)
 	if(isnull(M)) return
-	if(!istype(M, /mob)) return
+	if(!ismob(M)) return
 	if(isAI(M)) return
 	if(isnull(M.key)) return
 	if (ishuman(M))

@@ -97,9 +97,9 @@
 	reagents.add_reagent("water", 2)
 	clean(src)
 	START_PROCESSING(SSprocessing, src)
-	if(istype(AM, /obj))
+	if(isobj(AM))
 		numobjects += 1
-	else if(istype(AM, /mob/living))
+	else if(isliving(AM))
 		numobjects += 1
 		var/mob/living/L = AM
 		if(!istype(oldloc, /turf/simulated/floor/beach/water))
@@ -112,9 +112,9 @@
 		return
 	reagents.add_reagent("water", 2)
 	clean(src)
-	if(istype(AM, /obj) && numobjects)
+	if(isobj(AM) && numobjects)
 		numobjects -= 1
-	else if(istype(AM, /mob/living))
+	else if(isliving(AM))
 		if(numobjects)
 			numobjects -= 1
 		var/mob/living/L = AM

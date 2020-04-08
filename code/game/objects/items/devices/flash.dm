@@ -189,7 +189,7 @@
 				icon_state = "flashburnt"
 				return
 			times_used++
-			if(istype(loc, /mob/living/carbon))
+			if(iscarbon(loc))
 				var/mob/living/carbon/M = loc
 				var/safety = M.eyecheck(TRUE)
 				if(safety < FLASH_PROTECTION_MODERATE)

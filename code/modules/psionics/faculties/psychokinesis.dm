@@ -72,7 +72,7 @@
 			to_chat(user, "<span class='warning'>Your telekinetic power won't reach that far.</span>")
 			return FALSE
 
-		if(istype(target, /mob) || istype(target, /obj))
+		if(ismob(target) || isobj(target))
 			var/obj/item/psychic_power/telekinesis/tk = new(user)
 			if(tk.set_focus(target))
 				tk.sparkle()

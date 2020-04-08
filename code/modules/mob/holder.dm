@@ -137,7 +137,7 @@ var/list/holder_mob_icon_cache = list()
 
 /obj/item/holder/proc/update_location(var/slotnumber = null)
 	if (!slotnumber)
-		if (istype(loc, /mob))
+		if (ismob(loc))
 			slotnumber = get_equip_slot()
 
 	report_onmob_location(1, slotnumber, contained)

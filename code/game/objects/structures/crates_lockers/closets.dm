@@ -454,7 +454,7 @@
 
 /obj/structure/closet/crush_act()
 	for (var/atom/movable/A in src)
-		if(istype(A, /mob/living))
+		if(isliving(A))
 			var/mob/living/M = A
 			M.gib()
 		else if(A.simulated)

@@ -104,7 +104,7 @@
 
 	close_hatch_in(29)
 
-	if (istype(mover, /mob/living))
+	if (isliving(mover))
 		var/mob/living/S = mover
 		S.under_door()
 

@@ -373,7 +373,7 @@
 	if(air_group || (height==0)) return 1
 	if(istype(mover) && mover.checkpass(PASSTABLE))
 		return 1
-	if(istype(mover, /mob/living) && mover == pulling)
+	if(isliving(mover) && mover == pulling)
 		return 1
 	else
 		if(istype(mover, /obj/item/projectile))

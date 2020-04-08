@@ -15,7 +15,7 @@
 
 /obj/item/modular_computer/silicon/Initialize(mapload)
 	. = ..()
-	if(istype(loc, /mob/living/silicon))
+	if(issilicon(loc))
 		computer_host = loc
 	else
 		return

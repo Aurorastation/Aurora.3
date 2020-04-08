@@ -54,7 +54,7 @@
 		to_chat(usr, SPAN_WARNING("Access denied."))
 		return
 
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if((usr.contents.Find(src) || (in_range(src, usr) && issilicon(src.loc, /turf))) || (istype(usr)))
 		usr.set_machine(src)
 
 	if(href_list["setarea"])

@@ -57,10 +57,10 @@
 	if(!owner)
 		return ..()
 
-	if(istype(owner, /mob/living/carbon))
+	if(iscarbon(owner))
 		if(owner.internal_organs)
 			owner.internal_organs -= src
-		if(istype(owner, /mob/living/carbon/human))
+		if(ishuman(owner))
 			if(owner.internal_organs_by_name)
 				owner.internal_organs_by_name -= src
 			if(owner.organs)

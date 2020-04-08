@@ -63,7 +63,7 @@
 /obj/structure/ore_box/examine(mob/user)
 	..()
 	// Borgs can now check contents too.
-	if((!istype(user, /mob/living/carbon/human)) && (!istype(user, /mob/living/silicon/robot)))
+	if((!ishuman(user)) && (!istype(user, /mob/living/silicon/robot)))
 		return
 	if(!Adjacent(user)) //Can only check the contents of ore boxes if you can physically reach them.
 		return
@@ -91,7 +91,7 @@
 	set category = "Object"
 	set src in view(1)
 
-	if(!istype(usr, /mob/living/carbon/human)) //Only living, intelligent creatures with hands can empty ore boxes.
+	if(!ishuman(usr)) //Only living, intelligent creatures with hands can empty ore boxes.
 		to_chat(usr, SPAN_WARNING("You are physically incapable of emptying \the [src]."))
 		return
 

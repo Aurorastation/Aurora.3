@@ -131,7 +131,7 @@
 			return
 		var/tramount = Clamp(min(transfer_amount, reagents.get_free_space()), 0, reagents.maximum_volume)
 		if(ismob(target))//Blood!
-			if(istype(target, /mob/living/carbon))
+			if(iscarbon(target))
 				var/mob/living/carbon/T = target
 				if(!T.dna)
 					if(T.reagents.trans_to_obj(src, tramount))
@@ -146,7 +146,7 @@
 						activate_pin(3)
 					return
 				var/datum/reagent/B
-				if(istype(T, /mob/living/carbon/human))
+				if(ishuman(T))
 					var/mob/living/carbon/human/H = T
 					if(H.species && !H.has_organ(BP_HEART))
 						H.reagents.trans_to_obj(src, tramount)

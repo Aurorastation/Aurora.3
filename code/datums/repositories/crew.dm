@@ -35,7 +35,7 @@ var/global/datum/repository/crew/crew_repository = new()
 		var/obj/item/clothing/under/C = t
 		var/turf/pos = get_turf(C)
 		if((C) && (C.has_sensor) && (pos) && (pos.z == z_level) && (C.sensor_mode != SUIT_SENSOR_OFF) && !within_jamming_range(C))
-			if(istype(C.loc, /mob/living/carbon/human))
+			if(ishuman(C.loc))
 				var/mob/living/carbon/human/H = C.loc
 				if(H.w_uniform != C)
 					continue

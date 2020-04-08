@@ -277,7 +277,7 @@
 		if(pai.master_dna)
 			return
 		var/mob/M = usr
-		if(!istype(M, /mob/living/carbon))
+		if(!iscarbon(M))
 			to_chat(usr, "<font color=blue>You don't have any DNA, or your DNA is incompatible with this device.</font>")
 		else
 			var/datum/dna/dna = usr.dna
@@ -394,7 +394,7 @@
 		return
 
 	if (!slotnumber)
-		if (istype(loc, /mob))
+		if (ismob(loc))
 			slotnumber = get_equip_slot()
 
 	report_onmob_location(1, slotnumber, pai)

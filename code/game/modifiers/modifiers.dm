@@ -214,19 +214,19 @@ it should be avoided in favour of manual removal where possible
 
 	switch (modifier_type)
 		if (MODIFIER_EQUIPMENT)
-			if (!istype(target, /mob))
+			if (!ismob(target))
 				return invalid_creation("Equipment type requires a mob target")
 
-			if (!source || !istype(source, /obj))
+			if (!source || !isobj(source))
 				return invalid_creation("Equipment type requires an object source")
 
 			//TODO: Port equip slot var
 		if (MODIFIER_ITEM)
-			if (!source || !istype(source, /obj))
+			if (!source || !isobj(source))
 				return invalid_creation("Item type requires a source")
 
 		if (MODIFIER_REAGENT)
-			if (!istype(target, /mob) || !istype(source, /datum/reagent))
+			if (!ismob(target) || !istype(source, /datum/reagent))
 				return invalid_creation("Reagent type requires a mob target and a reagent source")
 
 		if (MODIFIER_AURA)
@@ -323,7 +323,7 @@ it should be avoided in favour of manual removal where possible
 				if (istype(R, ourtype))
 					totaldose += R.dose
 
-			if (istype(target, /mob/living))
+			if (isliving(target))
 				var/mob/living/L = target
 
 				if(ishuman(L))
@@ -333,7 +333,7 @@ it should be avoided in favour of manual removal where possible
 						if(istype(R, ourtype))
 							totaldose += R.dose
 
-				if (istype(target, /mob/living/carbon))
+				if (iscarbon(target))
 					var/mob/living/carbon/C = target
 
 					for (var/datum/reagent/R in C.bloodstr.reagent_list)

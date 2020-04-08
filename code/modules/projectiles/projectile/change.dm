@@ -10,7 +10,7 @@
 	wabbajack(change)
 
 /obj/item/projectile/change/proc/wabbajack(var/mob/M)
-	if(istype(M, /mob/living) && M.stat != DEAD)
+	if(isliving(M) && M.stat != DEAD)
 		if(M.transforming)
 			return
 		if(M.has_brain_worms())

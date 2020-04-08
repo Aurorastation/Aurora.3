@@ -291,7 +291,7 @@
 
 		//First we have to find where the items are being dropped, unless a location has been passed in
 		if (!dropspot)
-			if (istype(src.loc, /mob))//If the tray is still held by a mob
+			if (ismob(src.loc))//If the tray is still held by a mob
 				dropspot = src.loc.loc
 			else
 				dropspot = src.loc
@@ -324,7 +324,7 @@
 
 /obj/item/tray/dropped(mob/user)
 	spawn(1)//A hack to avoid race conditions. Dropped procs too quickly
-		if (istype(src.loc, /mob))
+		if (ismob(src.loc))
 			//If this is true, then the tray has just switched hands and is still held by a mob
 			return
 

@@ -36,7 +36,7 @@
 	if(duration)
 		spawn(duration)
 			for(var/obj/item/to_remove in summoned_items)
-				if(istype(to_remove.loc, /mob))
+				if(ismob(to_remove.loc))
 					var/mob/M = to_remove.loc
 					M.remove_from_mob(to_remove)
 				qdel(to_remove)

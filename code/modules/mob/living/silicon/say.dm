@@ -70,9 +70,9 @@
 /mob/living/silicon/say_understands(var/other, var/datum/language/speaking = null)
 	//These only pertain to common. Languages are handled by mob/say_understands()
 	if(!speaking)
-		if(istype(other, /mob/living/carbon))
+		if(iscarbon(other))
 			return TRUE
-		if(istype(other, /mob/living/silicon))
+		if(issilicon(other))
 			return TRUE
 		if(istype(other, /mob/living/carbon/brain))
 			return TRUE
@@ -104,13 +104,13 @@
 			var/list/hearturfs = list()
 
 			for(var/I in hear)
-				if(istype(I, /mob))
+				if(ismob(I))
 					var/mob/M = I
 					listening += M
 					hearturfs += M.locs[1]
 					for(var/obj/O in M.contents)
 						listening_obj |= O
-				else if(istype(I, /obj))
+				else if(isobj(I))
 					var/obj/O = I
 					hearturfs += O.locs[1]
 					listening_obj |= O

@@ -18,7 +18,7 @@
 			var/obj/structure/largecrate/C = locate() in T
 			for(var/drop_type in supplied_drop_types)
 				var/atom/movable/A = new drop_type(T)
-				if(!istype(A, /mob))
+				if(!ismob(A))
 					if(!C) C = new(T)
 					C.contents |= A
 			return

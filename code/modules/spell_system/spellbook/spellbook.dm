@@ -43,7 +43,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	if(!user)
 		return
 	if(!(user.faction == "Space Wizard"))
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)

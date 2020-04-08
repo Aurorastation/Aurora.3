@@ -23,14 +23,14 @@
 
 /area/shuttle/arrival/centcom/Entered(atom/movable/Obj, atom/oldLoc)
 	. = ..()
-	if (!istype(Obj, /mob/living) || !SSarrivals)
+	if (!isliving(Obj) || !SSarrivals)
 		return
 
 	SSarrivals.on_hotzone_enter(Obj)
 
 /area/shuttle/arrival/centcom/Exited(atom/movable/Obj, atom/newLoc)
 	. = ..()
-	if (!istype(Obj, /mob/living) || !SSarrivals)
+	if (!isliving(Obj) || !SSarrivals)
 		return
 
 	SSarrivals.on_hotzone_exit(Obj)

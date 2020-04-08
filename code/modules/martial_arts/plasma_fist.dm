@@ -41,13 +41,13 @@
 		throwtarget = get_edge_target_turf(A, get_dir(A, get_step_away(AM, A)))
 		distfromcaster = get_dist(A, AM)
 		if(distfromcaster == 0)
-			if(istype(AM, /mob/living))
+			if(isliving(AM))
 				var/mob/living/M = AM
 				M.Weaken(5)
 				M.adjustBruteLoss(5)
 				to_chat(M, "<span class='danger'>You're slammed into the floor by a mystical force!</span>")
 		else
-			if(istype(AM, /mob/living))
+			if(isliving(AM))
 				var/mob/living/M = AM
 				M.Weaken(2)
 				to_chat(M, "<span class='danger'>You're thrown back by a mystical force!</span>")

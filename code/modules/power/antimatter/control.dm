@@ -289,7 +289,7 @@
 
 /obj/machinery/power/am_control_unit/interact(mob/user)
 	if((get_dist(src, user) > 1) || (stat & (BROKEN|NOPOWER)))
-		if(!istype(user, /mob/living/silicon/ai))
+		if(!isAI(user))
 			user.unset_machine()
 			user << browse(null, "window=AMcontrol")
 			return
@@ -316,7 +316,7 @@
 		"stability" = stored_core_stability,
 		"stored_power" = stored_power,
 		"fueljar" = fueljar_data,
-		"siliconUser" = istype(user, /mob/living/silicon)
+		"siliconUser" = issilicon(user)
 	)
 
 	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, ui_key)

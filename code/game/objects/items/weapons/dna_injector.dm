@@ -103,7 +103,7 @@
 	return uses
 
 /obj/item/dnainjector/attack(mob/M as mob, mob/user)
-	if (!istype(M, /mob))
+	if (!ismob(M))
 		return
 	if (!usr.IsAdvancedToolUser())
 		return

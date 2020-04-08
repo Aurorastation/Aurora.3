@@ -45,7 +45,7 @@
 /obj/item/lipstick/attack(mob/M as mob, mob/user)
 	if(!open)	return
 
-	if(!istype(M, /mob))	return
+	if(!ismob(M))	return
 
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M

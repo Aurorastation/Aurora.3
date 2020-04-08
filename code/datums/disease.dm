@@ -55,7 +55,7 @@ var/list/diseases = typesof(/datum/disease) - /datum/disease
 /datum/disease/proc/stage_act()
 
 	// Some species are immune to viruses entirely.
-	if(affected_mob && istype(affected_mob, /mob/living/carbon/human))
+	if(affected_mob && ishuman(affected_mob))
 		var/mob/living/carbon/human/H = affected_mob
 		if(H.species.virus_immune)
 			cure()

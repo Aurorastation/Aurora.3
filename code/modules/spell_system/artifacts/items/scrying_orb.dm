@@ -12,7 +12,7 @@
 
 /obj/item/scrying/attack_self(mob/living/user)
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/E = H.get_eyes(no_synthetic = TRUE)

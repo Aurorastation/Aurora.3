@@ -28,7 +28,7 @@ obj/item/gun/energy/staff/special_check(var/mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/new_mob
 			var/mob/living/carbon/human/H = user
@@ -78,7 +78,7 @@ obj/item/gun/energy/staff/animate/special_check(var/mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_HAND)
@@ -114,7 +114,7 @@ obj/item/gun/energy/staff/focus/special_check(var/mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
@@ -165,7 +165,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			var/obj/P = consume_next_projectile()
 			if(P)
 				if(process_projectile(P, user, user, pick(BP_HEAD, BP_CHEST)))
@@ -229,7 +229,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.IgniteMob(15)
 			H.visible_message("<span class='danger'>\The [src] explodes in a shower of fire!</span>")
@@ -254,7 +254,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.drop_item()
 			H.visible_message("<span class='danger'>\The [H] collapses on the floor, their body shrinking and growing hair!</span>")
@@ -279,7 +279,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || BP_EYES,"appendix",BP_KIDNEYS,BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
 			if(O == null)
@@ -314,7 +314,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] escapes from [H]'s hand, hitting their face and shattering into pieces!</span>")
 			H.apply_damage(35, BRUTE, BP_HEAD, 0, sharp=0, edge=0)
@@ -339,7 +339,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] jumps from [H]'s hand and swifts into a crate!</span>")
 			new /mob/living/simple_animal/hostile/mimic(H.loc)

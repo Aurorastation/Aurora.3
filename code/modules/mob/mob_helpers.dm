@@ -1,7 +1,7 @@
 // fun if you want to typecast humans/monkeys/etc without writing long path-filled lines.
 
 /proc/issmall(A)
-	if(A && istype(A, /mob/living))
+	if(A && isliving(A))
 		var/mob/living/L = A
 		return L.mob_size <= MOB_SMALL
 	return 0
@@ -38,7 +38,7 @@
 
 
 /proc/ishuman_species(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Human"))
+	if(ishuman(A) && (A:get_species() == "Human"))
 		return 1
 	return 0
 
@@ -62,7 +62,7 @@
 	return 0
 
 /proc/istajara(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		switch(A:get_species())
 			if ("Tajara")
 				return 1
@@ -75,7 +75,7 @@
 	return 0
 
 /proc/isskrell(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		switch(A:get_species())
 			if ("Skrell")
 				return 1
@@ -84,7 +84,7 @@
 	return 0
 
 /proc/isvaurca(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		switch(A:get_species())
 			if("Vaurca Worker")
 				return 1
@@ -105,7 +105,7 @@
 		. = H.species && (H.species.flags & IS_MECHANICAL)
 
 /proc/isvox(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		switch(A:get_species())
 			if ("Vox")
 				return 1
@@ -115,7 +115,7 @@
 
 /mob/proc/is_diona()
 	//returns which type of diona we are, or zero
-	if (istype(src, /mob/living/carbon/human))
+	if (ishuman(src))
 		var/mob/living/carbon/human/T = src
 		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
 			return DIONA_WORKER
@@ -125,12 +125,12 @@
 	return 0
 
 /proc/isskeleton(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skeleton"))
+	if(ishuman(A) && (A:get_species() == "Skeleton"))
 		return 1
 	return 0
 
 /proc/isundead(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		switch(A:get_species())
 			if ("Skeleton")
 				return 1
@@ -147,7 +147,7 @@
 	return 0
 
 /proc/islesserform(A)
-	if(istype(A, /mob/living/carbon/human))
+	if(ishuman(A))
 		switch(A:get_species())
 			if ("Monkey")
 				return 1
@@ -162,13 +162,13 @@
 	return 0
 
 proc/isdeaf(A)
-	if(istype(A, /mob))
+	if(ismob(A))
 		var/mob/M = A
 		return (M.sdisabilities & DEAF) || M.ear_deaf
 	return 0
 
 proc/iscuffed(A)
-	if(istype(A, /mob/living/carbon))
+	if(iscarbon(A))
 		var/mob/living/carbon/C = A
 		if(C.handcuffed)
 			return 1
@@ -505,7 +505,7 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 				hud_used.action_intent.icon_state = I_HELP
 
 proc/is_blind(A)
-	if(istype(A, /mob/living/carbon))
+	if(iscarbon(A))
 		var/mob/living/carbon/C = A
 		if(C.sdisabilities & BLIND || C.blinded)
 			return 1
@@ -580,7 +580,7 @@ proc/is_blind(A)
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
 	var/client/C
 	//Accept any type, sort what we want here
-	if(istype(O, /mob))
+	if(ismob(O))
 		var/mob/M = O
 		if(M.client)
 			C = M.client
@@ -729,7 +729,7 @@ proc/is_blind(A)
 	//This function is called by an object which is somewhere on a humanoid mob
 	//It will return the number of the equipment slot its in
 
-	if (!istype(loc, /mob/living/carbon/human))//This function is for finding where we are on a human. not valid otherwise
+	if (!ishuman(loc))//This function is for finding where we are on a human. not valid otherwise
 		return null
 
 	var/mob/living/carbon/human/H = loc
@@ -802,7 +802,7 @@ proc/is_blind(A)
 	if (!reportto)
 		return 0
 
-	if (istype(loc, /mob/living/carbon/human))//This function is for finding where we are on a human. not valid otherwise
+	if (ishuman(loc))//This function is for finding where we are on a human. not valid otherwise
 		H = loc
 
 	else
@@ -938,7 +938,7 @@ proc/is_blind(A)
 		if (istype(a, /turf))
 			return null//We must be on a table or a floor, or maybe in a wall. Either way we're not held.
 
-		if (istype(a, /mob))
+		if (ismob(a))
 			return a
 		//If none of the above are true, we must be inside a box or backpack or something. Keep recursing up.
 

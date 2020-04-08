@@ -17,7 +17,7 @@
 /obj/item/glass_jar/afterattack(var/atom/A, var/mob/user, var/proximity)
 	if(!proximity || contains)
 		return
-	if(istype(A, /mob))
+	if(ismob(A))
 		var/accept = 0
 		for(var/D in accept_mobs)
 			if(istype(A, D))

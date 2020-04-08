@@ -165,7 +165,7 @@
 				if(reagents.has_reagent("blood"))
 					to_chat(user, span("notice", "There is already a blood sample in this syringe."))
 					return
-				if(istype(target, /mob/living/carbon))
+				if(iscarbon(target))
 					if(istype(target, /mob/living/carbon/slime))
 						to_chat(user, span("warning", "You are unable to locate any blood."))
 						return
@@ -179,7 +179,7 @@
 						return
 
 					var/datum/reagent/B
-					if(istype(T, /mob/living/carbon/human))
+					if(ishuman(T))
 						var/mob/living/carbon/human/H = T
 						if(H.species && H.species.flags & NO_BLOOD)
 							H.reagents.trans_to_obj(src, amount)
@@ -331,7 +331,7 @@
 	if(mode == SYRINGE_CAPPED)
 		to_chat(user, span("danger", "You can't stab someone with a capped syringe!"))
 
-	if(istype(target, /mob/living/carbon/human))
+	if(ishuman(target))
 
 		var/mob/living/carbon/human/H = target
 

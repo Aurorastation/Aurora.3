@@ -144,7 +144,7 @@
 	deletepicture(src)
 
 obj/item/device/camera/siliconcam/proc/getsource()
-	if(istype(src.loc, /mob/living/silicon/ai))
+	if(isAI(src.loc))
 		return src
 
 	var/mob/living/silicon/robot/C = usr

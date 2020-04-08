@@ -175,11 +175,11 @@
 
 /datum/trader/proc/hail(var/mob/user)
 	var/specific
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.species)
 			specific = H.species.name
-	else if(istype(user, /mob/living/silicon))
+	else if(issilicon(user))
 		specific = "silicon"
 	if(!speech["hail_[specific]"])
 		specific = "generic"

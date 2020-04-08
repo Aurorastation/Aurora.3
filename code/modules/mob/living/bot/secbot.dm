@@ -276,10 +276,10 @@
 	if(!istype(M))
 		return
 
-	if(istype(M, /mob/living/carbon))
+	if(iscarbon(M))
 		var/mob/living/carbon/C = M
 		var/cuff = 1
-		if(istype(C, /mob/living/carbon/human))
+		if(ishuman(C))
 			var/mob/living/carbon/human/H = C
 			if(istype(H.back, /obj/item/rig) && istype(H.gloves,/obj/item/clothing/gloves/rig))
 				cuff = 0

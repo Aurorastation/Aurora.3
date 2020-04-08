@@ -35,7 +35,7 @@
 
 	bst_cooldown = TRUE
 
-	if(istype(mob, /mob/living))
+	if(isliving(mob))
 		if(!holder.original_mob)
 			holder.original_mob = mob
 

@@ -44,7 +44,7 @@
 	if(is_type_in_list(A,can_be_placed_into))
 		return
 
-	if(istype(A, /mob))
+	if(ismob(A))
 		user.setClickCooldown(25)
 	else
 		user.setClickCooldown(4)
@@ -81,7 +81,7 @@
 	return
 
 /obj/item/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user, proximity)
-	if(istype(A, /obj) && A.loc == user)
+	if(isobj(A) && A.loc == user)
 		return
 	if (A.density && proximity)
 		A.visible_message("[user] sprays [A] with [src].")

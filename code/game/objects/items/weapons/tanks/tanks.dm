@@ -97,9 +97,9 @@
 	var/mob/living/carbon/location = null
 
 	if(istype(loc, /obj/item/rig))		// check for tanks in rigs
-		if(istype(loc.loc, /mob/living/carbon))
+		if(iscarbon(loc.loc))
 			location = loc.loc
-	else if(istype(loc, /mob/living/carbon))
+	else if(iscarbon(loc))
 		location = loc
 
 	var/using_internal
@@ -132,7 +132,7 @@
 		if(mask_check)
 			if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
 				data["maskConnected"] = 1
-			else if(istype(location, /mob/living/carbon/human))
+			else if(ishuman(location))
 				var/mob/living/carbon/human/H = location
 				if(H.head && (H.head.item_flags & AIRTIGHT))
 					data["maskConnected"] = 1

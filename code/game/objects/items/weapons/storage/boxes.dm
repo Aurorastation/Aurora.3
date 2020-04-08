@@ -48,10 +48,10 @@
 /obj/item/storage/box/attack_generic(var/mob/user)
 	if(!chewable)
 		return
-	if (istype(user, /mob/living))
+	if (isliving(user))
 		var/mob/living/L = user
 
-		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
+		if (ishuman(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L))//Monkey-like things do attack_generic, not crew
 			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
 				to_chat(user, span("warning", "There's no food in that box!"))
 				return

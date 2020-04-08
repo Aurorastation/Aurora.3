@@ -62,6 +62,6 @@
 	throw_range = 20
 
 /obj/item/bananapeel/Crossed(AM as mob|obj)
-	if (istype(AM, /mob/living))
+	if (isliving(AM))
 		var/mob/living/M = AM
 		M.slip("the [src.name]",4)

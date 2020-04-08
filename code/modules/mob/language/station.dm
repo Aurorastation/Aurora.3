@@ -194,7 +194,7 @@
 			to_chat(player, msg)
 
 /datum/language/bug/check_special_condition(var/mob/other)
-	if(istype(other, /mob/living/silicon))
+	if(issilicon(other))
 		return 1
 
 	var/mob/living/carbon/human/M = other

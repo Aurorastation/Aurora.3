@@ -59,7 +59,7 @@
 			var/obj/item/I = user.get_active_hand()
 			if(I && I.force)
 				var/d = rand(round(I.force / 4), I.force)
-				if(istype(src, /mob/living/carbon/human))
+				if(ishuman(src))
 					var/mob/living/carbon/human/H = src
 					var/obj/item/organ/external/organ = H.get_organ(BP_CHEST)
 					if (istype(organ))
@@ -81,7 +81,7 @@
 	..()
 
 /mob/living/carbon/attack_hand(mob/M)
-	if(!istype(M, /mob/living/carbon))
+	if(!iscarbon(M))
 		return
 	if(!M.can_use_hand())
 		return
@@ -189,7 +189,7 @@
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
 	if (!is_asystole())
-		if(src == M && istype(src, /mob/living/carbon/human))
+		if(src == M && ishuman(src))
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
 				span("notice", "[src] examines [src.gender==MALE?"himself":"herself"]."), \
@@ -385,7 +385,7 @@
 	if(now_pushing)
 		return
 	. = ..()
-	if(istype(A, /mob/living/carbon) && prob(10))
+	if(iscarbon(A) && prob(10))
 		src.spread_disease_to(A, "Contact")
 
 /mob/living/carbon/cannot_use_vents()

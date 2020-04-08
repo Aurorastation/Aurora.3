@@ -133,7 +133,7 @@
 								break spray_loop
 							var/turf/base = get_turf(target)
 							for (var/atom/A in base) // Stops your blood spray if it meets a person, wall, door or window
-								if (istype(A, /mob/living/carbon/human/))
+								if (ishuman(A))
 									var/mob/living/carbon/human/K = A
 									K.bloody_body()
 									break spray_loop

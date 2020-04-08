@@ -53,7 +53,7 @@
 	//If M contains the owner then the item hasn't actually been dropped, its just the quirk mentioned above
 
 /obj/item/cloaking_device/attack_self(mob/user)
-	if (istype(loc, /mob) && loc == user)//safety check incase of shenanigans
+	if (ismob(loc) && loc == user)//safety check incase of shenanigans
 		register_owner(user)
 		if (active)
 			deactivate()

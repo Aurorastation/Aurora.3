@@ -24,7 +24,7 @@
 	. = ..()
 
 	if(. && !carrying)
-		if(istype(target, /obj))
+		if(isobj(target))
 
 
 			var/obj/O = target

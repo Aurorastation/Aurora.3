@@ -23,9 +23,9 @@
 		return "This subject is too far away..."
 	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content) // don't eat humans while content
 		return "I'm already content..."
-	if(istype(M, /mob/living/carbon) && M.getCloneLoss() >= M.maxHealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
+	if(iscarbon(M) && M.getCloneLoss() >= M.maxHealth * 2 || istype(M, /mob/living/simple_animal) && M.stat == DEAD)
 		return "This subject does not have any edible life energy..."
-	if(istype(M, /mob/living/carbon))
+	if(iscarbon(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H) && (H.species.flags & NO_SCAN))
 			return "This subject has nothing for us to take..."
@@ -49,7 +49,7 @@
 		if(Adjacent(M))
 			UpdateFeed(M)
 
-			if(istype(M, /mob/living/carbon))
+			if(iscarbon(M))
 				victim.adjustCloneLoss(rand(5,6))
 				victim.adjustToxLoss(rand(3,6))
 				victim.adjustBruteLoss(is_adult ? rand(2, 4) : rand(1, 3))
@@ -66,12 +66,12 @@
 				Feedstop()
 				break
 
-			if(prob(15) && M.client && istype(M, /mob/living/carbon))
+			if(prob(15) && M.client && iscarbon(M))
 				var/painMes = pick("You can feel your body becoming weak!", "You feel like you're about to die!", "You feel every part of your body screaming in agony!", "A low, rolling pain passes through your body!", "Your body feels as if it's falling apart!", "You feel extremely weak!", "A sharp, deep pain bathes every inch of your body!")
 				if(ishuman(M))
 					var/mob/living/carbon/human/H = M
 					H.custom_pain(painMes, 100)
-				else if (istype(M, /mob/living/carbon))
+				else if (iscarbon(M))
 					var/mob/living/carbon/C = M
 					if(!(C.species && (C.species.flags & NO_PAIN)))
 						to_chat(M, span("danger", "[painMes]"))

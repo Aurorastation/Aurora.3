@@ -181,7 +181,7 @@
 		return
 	var/turf/T = get_turf(src)
 	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
-	if(istype(loc, /mob/living))
+	if(isliving(loc))
 		var/mob/living/M = loc
 		if(material.shard_type == SHARD_SHARD) // Wearing glass armor is a bad idea.
 			var/obj/item/material/shard/S = material.place_shard(T)
@@ -806,7 +806,7 @@
 
 /obj/item/clothing/under/proc/update_rolldown_status()
 	var/mob/living/carbon/human/H
-	if(istype(src.loc, /mob/living/carbon/human))
+	if(ishuman(src.loc))
 		H = src.loc
 
 	var/icon/under_icon
@@ -829,7 +829,7 @@
 
 /obj/item/clothing/under/proc/update_rollsleeves_status()
 	var/mob/living/carbon/human/H
-	if(istype(src.loc, /mob/living/carbon/human))
+	if(ishuman(src.loc))
 		H = src.loc
 
 	var/icon/under_icon
@@ -897,7 +897,7 @@
 				to_chat(usr, "Your suit will now report your vital lifesigns.")
 			if(3)
 				to_chat(usr, "Your suit will now report your vital lifesigns as well as your coordinate position.")
-	else if (istype(src.loc, /mob))
+	else if (ismob(src.loc))
 		switch(sensor_mode)
 			if(0)
 				for(var/mob/V in viewers(usr, 1))
@@ -922,7 +922,7 @@
 	set name = "Roll Down Jumpsuit"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living)) return
+	if(!isliving(usr)) return
 	if(usr.stat) return
 
 	update_rolldown_status()
@@ -945,7 +945,7 @@
 	set name = "Roll Up Sleeves"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living)) return
+	if(!isliving(usr)) return
 	if(usr.stat) return
 
 	update_rollsleeves_status()
