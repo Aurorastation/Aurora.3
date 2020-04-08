@@ -360,7 +360,7 @@
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/suit/storage/vest/detective(src)
-	new /obj/item/ammo_magazine/c45m(src)
+	new /obj/item/ammo_magazine/c45m/rubber(src)
 	new /obj/item/gun/projectile/sec/detective(src)
 	new /obj/item/taperoll/police(src)
 	//Belts
