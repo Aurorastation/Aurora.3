@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import frontend
-import sys
 import shutil
 from dmm import *
 from collections import defaultdict
@@ -85,17 +84,6 @@ def merge_map(new_map, old_map, delete_unused=False):
     return merged
 
 def main(settings):
-    version = (3, 4)
-    try:
-        with open("../python_version.txt", 'r') as f:
-            version = f.readline().split('.')
-            version = (int(version[0]), int(version[1]))
-    except:
-        pass
-
-    if sys.version_info < version:
-        print("Sorry, this requires python >= {}. Your version is {}!".format(version, tuple(sys.version_info)))
-        exit()
     for fname in frontend.process(settings, "merge", backup=True):
         shutil.copyfile(fname, fname + ".before")
         old_map = DMM.from_file(fname + ".backup")

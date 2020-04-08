@@ -2,21 +2,7 @@
 """
 
 import os
-import sys
 from subprocess import Popen, PIPE
-
-v = (3, 4)
-try:
-    with open("../../python_version.txt", 'r') as f:
-        v = f.readline().split('.')
-        v = (int(v[0]), int(v[1]))
-except:
-    pass
-
-if sys.version_info < v:
-    print("Sorry, this requires python >= {}. Your version is {}!".format(v, tuple(sys.version_info)))
-    exit(1)
-
 _JAVA_PATH = ["java"]
 _DMITOOL_CMD = ["-jar", "dmitool.jar"]
 

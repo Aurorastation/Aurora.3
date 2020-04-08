@@ -7,15 +7,6 @@ from datetime import datetime
 
 tgm_header = "//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE"
 
-try:
-    version = sys.version_info
-    if version.major < 3 or (version.major == 3 and version.minor < 5):
-        print("ERROR: You are running an incompatible version of Python. The current minimum version required is [3.5].\nYour version: {}".format(sys.version))
-        sys.exit()
-except:
-    print("ERROR: Something went wrong, you might be running an incompatible version of Python. The current minimum version required is [3.5].\nYour version: {}".format(sys.version))
-    sys.exit()
-
 import collections
 
 error = {0:"OK", 1:"WARNING: Detected key length difference, not merging.", 2:"WARNING: Detected map size difference, not merging."}
