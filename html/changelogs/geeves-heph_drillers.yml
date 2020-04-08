@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed Hephaestus Drill Technicians getting the wrong equipment."
