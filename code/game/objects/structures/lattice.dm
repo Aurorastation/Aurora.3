@@ -66,6 +66,7 @@
 	icon_state = "catwalk"
 	smooth = TRUE
 	canSmoothWith = null
+	var/return_amount = 3
 
 // Special catwalk that can be placed on regular flooring.
 /obj/structure/lattice/catwalk/indoor
@@ -80,7 +81,9 @@
 		if (do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
 			to_chat(user, "<span class='notice'>You slice apart [src].</span>")
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
-			new /obj/item/stack/rods{amount = 3}(loc)
+			var/obj/item/stack/rods/R = new /obj/item/stack/rods(get_turf(src))
+			R.amount = return_amount
+			R.update_icon()
 			qdel(src)
 
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
@@ -104,6 +107,7 @@
 	desc = "A metal grate."
 	icon = 'icons/obj/grate.dmi'
 	icon_state = "grate_dark"
+	return_amount = 1
 	smooth = null
 	var/base_icon_state = "grate_dark"
 	var/damaged = FALSE
@@ -122,6 +126,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/light
 	icon_state = "grate_light"
 	base_icon_state = "grate_light"
+	return_amount = 1
 
 /obj/structure/lattice/catwalk/indoor/grate/light/old
 	icon_state = "grate_light_old"
