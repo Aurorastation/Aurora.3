@@ -1420,7 +1420,12 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_undercut4"
 		gender = MALE
 		chatname = "unshaved hair"
+
+	undercut5
 		name = "Undercut 5"
+		icon_state = "hair_undercut5"
+		gender = MALE
+		chatname = "unshaved hair"
 
 	unkept
 		name = "Unkept"
