@@ -539,7 +539,7 @@ var/list/diona_banned_languages = list(
 		var/mob/living/carbon/alien/diona/T = src
 		return T.DS
 
-	if (istype(src, /mob/living/carbon/human))
+	if (ishuman(src))
 		var/mob/living/carbon/human/T = src
 		if (istype(T.species, /datum/species/diona))
 			return T.DS

@@ -69,7 +69,7 @@
 	Topic(href, href_list)
 		if(..())
 			return
-		if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+		if((usr.contents.Find(src) || (in_range(src, usr) && issilicon(src.loc, /turf))) || (istype(usr)))
 			usr.set_machine(src)
 
 			if(href_list["inject1"])

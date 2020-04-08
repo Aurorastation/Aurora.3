@@ -84,7 +84,7 @@
 				T.id = min(100, T.id)
 				T.id = max(1, T.id)
 
-			if (istype(src.loc, /mob))
+			if (ismob(src.loc))
 				attack_self(src.loc)
 			else
 				for(var/mob/M in viewers(1, src))

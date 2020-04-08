@@ -770,7 +770,7 @@
 			attack_generic(H, rand(30,50), "slashed")
 			return
 
-	if(opened && !wires_exposed && (!istype(user, /mob/living/silicon)))
+	if(opened && !wires_exposed && (!issilicon(user)))
 		var/datum/robot_component/cell_component = components["power cell"]
 		if(cell)
 			cell.update_icon()
@@ -800,7 +800,7 @@
 		var/mob/living/silicon/robot/R = M
 		if(check_access(R.get_active_hand()) || istype(R.get_active_hand(), /obj/item/card/robot))
 			return TRUE
-	else if(istype(M, /mob/living))
+	else if(isliving(M))
 		var/id = M.GetIdCard()
 		// Check if the ID card the user has (if any) has access
 		if(id)
@@ -984,7 +984,7 @@
 					else if(istype(A, /obj/item))
 						var/obj/item/cleaned_item = A
 						cleaned_item.clean_blood()
-					else if(istype(A, /mob/living/carbon/human))
+					else if(ishuman(A))
 						var/mob/living/carbon/human/cleaned_human = A
 						if(cleaned_human.lying)
 							if(cleaned_human.head)

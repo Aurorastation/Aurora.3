@@ -45,7 +45,7 @@
 	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
-	if(istype(M, /mob/living/carbon/human))
+	if(ishuman(M))
 		log_admin("[key_name(src)] has robotized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
 		spawn(10)
 			M:Robotize()
@@ -97,7 +97,7 @@
 	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
-	if(istype(M, /mob/living/carbon/human))
+	if(ishuman(M))
 		var/mob/living/carbon/human/target = M
 		log_admin("[key_name(src)] is attempting to monkeyize [M.key].")
 		spawn(10)
@@ -112,7 +112,7 @@
 	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
-	if(istype(M, /mob/living/carbon/human))
+	if(ishuman(M))
 		log_admin("[key_name(src)] has made [M.key] a changeling.")
 		spawn(10)
 			M.absorbed_dna[M.real_name] = M.dna.Clone()
@@ -132,7 +132,7 @@
 	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts.")
 		return
-	if(istype(M, /mob/living/carbon/human))
+	if(ishuman(M))
 		log_admin("[key_name(src)] has made [M.key] an abomination.")
 
 	//	spawn(10)
@@ -220,7 +220,7 @@
 	if (!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
-	if (istype(M, /mob/living/carbon/human))
+	if (ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if (H.wear_id)
 			var/obj/item/card/id/id = H.wear_id
@@ -504,7 +504,7 @@
 	if(!ROUND_IS_STARTED)
 		alert("Wait until the game starts")
 		return
-	if(istype(M, /mob/living/carbon))
+	if(iscarbon(M))
 		M.dna.SetSEState(block,!M.dna.GetSEState(block))
 		domutcheck(M,null,MUTCHK_FORCED)
 		M.update_mutations()

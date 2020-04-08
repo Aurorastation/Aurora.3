@@ -344,7 +344,7 @@ var/controlling
 	set name	 = "Hallucinate(300)"
 	set desc     = "Makes your host hallucinate, has a short delay."
 
-	if(!istype(target, /mob/living/carbon/human) || !target.mind)
+	if(!ishuman(target) || !target.mind)
 		to_chat(src, "<span class='warning'>You can't remotely ruin this ones mind.</span>")
 		return
 	if(!(target in view(host)))
@@ -367,7 +367,7 @@ var/controlling
 	set name	 = "Subtle Jump(350)"
 	set desc     = "Move to a closeby human through a whisper."
 
-	if(!istype(target, /mob/living/carbon/human) || !target.mind)
+	if(!ishuman(target) || !target.mind)
 		to_chat(src, "<span class='warning'>You can't jump to this creature.</span>")
 		return
 
@@ -411,7 +411,7 @@ var/controlling
 	set name	 = "Obvious Jump(750)"
 	set desc     = "Move to any mob in view through a shout."
 
-	if(!istype(target, /mob/living/carbon/human) || !target.mind)
+	if(!ishuman(target) || !target.mind)
 		to_chat(src, "<span class='warning'>You can't jump to this creature.</span>")
 		return
 
@@ -455,7 +455,7 @@ var/controlling
 	set name	 = "Attuned Jump(0)"
 	set desc     = "Move to a mob in sight that you have already attuned."
 
-	if(!istype(target, /mob/living/carbon/human) || !target.mind)
+	if(!ishuman(target) || !target.mind)
 		to_chat(src, "<span class='warning'>You can't jump to this creature.</span>")
 		return
 

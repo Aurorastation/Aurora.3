@@ -70,7 +70,7 @@ datum/track/New(var/title_name, var/audio)
 			add_overlay("[state_base]-running")
 
 /obj/machinery/media/jukebox/Topic(href, href_list)
-	if(..() || !(Adjacent(usr) || istype(usr, /mob/living/silicon)))
+	if(..() || !(Adjacent(usr) || issilicon(usr)))
 		return
 
 	if(!anchored)
@@ -93,7 +93,7 @@ datum/track/New(var/title_name, var/audio)
 		if(emagged)
 			playsound(src.loc, 'sound/items/AirHorn.ogg', 100, 1)
 			for(var/mob/living/carbon/M in ohearers(6, src))
-				if(istype(M, /mob/living/carbon/human))
+				if(ishuman(M))
 					var/mob/living/carbon/human/H = M
 					if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
 						continue

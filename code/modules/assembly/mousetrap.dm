@@ -93,7 +93,7 @@
 	if(armed)
 		if(israt(AM))
 			triggered(AM)
-		else if(istype(AM, /mob/living))
+		else if(isliving(AM))
 			var/mob/living/L = AM
 			triggered(L)
 			L.visible_message("<span class='warning'>[L] accidentally steps on [src].</span>", \

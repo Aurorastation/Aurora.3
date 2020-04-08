@@ -191,7 +191,7 @@ var/global/list/narsie_list = list()
 
 /obj/singularity/narsie/proc/new_narsie(const/atom/A)
 	CHECK_TICK
-	if (istype(A, /mob/) && (get_dist(A, src) <= 7))
+	if (ismob(A) && (get_dist(A, src) <= 7))
 		var/mob/M = A
 
 		if(M.status_flags & GODMODE)
@@ -225,7 +225,7 @@ var/global/list/narsie_list = list()
 
 	CHECK_TICK
 
-	if (istype(A, /mob/living/))
+	if (isliving(A))
 		var/mob/living/C2 = A
 
 		if(C2.status_flags & GODMODE)
@@ -259,7 +259,7 @@ var/global/list/narsie_list = list()
 
 	CHECK_TICK
 
-	if (istype(A, /mob/living/))
+	if (isliving(A))
 		var/mob/living/C2 = A
 
 		if(C2.status_flags & GODMODE)

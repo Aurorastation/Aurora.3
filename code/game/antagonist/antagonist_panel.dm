@@ -43,10 +43,10 @@
 			dat += "<tr><td>[N.name], "
 			var/atom/disk_loc = N.loc
 			while(!istype(disk_loc, /turf))
-				if(istype(disk_loc, /mob))
+				if(ismob(disk_loc))
 					var/mob/M = disk_loc
 					dat += "carried by <a href='?src=\ref[caller];adminplayeropts=\ref[M]'>[M.real_name]</a> "
-				if(istype(disk_loc, /obj))
+				if(isobj(disk_loc))
 					var/obj/O = disk_loc
 					dat += "in \a [O.name] "
 				disk_loc = disk_loc.loc

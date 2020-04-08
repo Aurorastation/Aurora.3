@@ -67,14 +67,14 @@
 
 /datum/trader/ship/vox/hail(var/mob/user)
 	var/specific
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.species)
 			if(isvox(H))
 				disposition = 1000
 				hailed_vox = 1
 			specific = H.species.name
-	else if(istype(user, /mob/living/silicon))
+	else if(issilicon(user))
 		specific = "silicon"
 	if(!speech["hail_[specific][hailed_vox]"])
 		specific = "generic"

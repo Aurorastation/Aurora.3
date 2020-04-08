@@ -55,9 +55,9 @@
 	T.lighting_clear_overlay()
 	for(var/atom/movable/A in T)
 		if (A && A.simulated)	// No eating lighting overlays.
-			if(istype(A, /mob/living))
+			if(isliving(A))
 				qdel(A)
-			else if(istype(A, /mob)) // Observers, AI cameras.
+			else if(ismob(A)) // Observers, AI cameras.
 				continue
 			else
 				qdel(A)
@@ -106,7 +106,7 @@
 	if (!AM.simulated)
 		return ..()
 
-	if(istype(AM, /mob/living))
+	if(isliving(AM))
 		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 		"<span class=\"warning\">You hear an unearthly noise as a wave of heat washes over you.</span>")

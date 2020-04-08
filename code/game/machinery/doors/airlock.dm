@@ -781,8 +781,8 @@ About the new airlock wires panel:
 				spark(src, 5, alldirs)
 	return ..()
 
-/obj/machinery/door/airlock/attack_hand(mob/user as mob)
-	if(!istype(usr, /mob/living/silicon))
+/obj/machinery/door/airlock/attack_hand(mob/user)
+	if(!issilicon(usr))
 		if(src.isElectrified())
 			if(src.shock(user, 100))
 				return
@@ -1013,8 +1013,8 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered && density && hashatch)
 
-/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user as mob)
-	if(!istype(usr, /mob/living/silicon))
+/obj/machinery/door/airlock/attackby(var/obj/item/C, mob/user)
+	if(!issilicon(usr))
 		if(src.isElectrified())
 			if(src.shock(user, 75))
 				return

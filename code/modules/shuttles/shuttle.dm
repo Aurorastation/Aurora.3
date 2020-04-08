@@ -185,7 +185,7 @@
 		if(knockdown)
 			for(var/mob/M in A)
 				spawn(0)
-					if(istype(M, /mob/living/carbon))
+					if(iscarbon(M))
 						if(M.buckled)
 							to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
 							shake_camera(M, 3, 1)

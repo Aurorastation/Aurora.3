@@ -233,7 +233,7 @@
 	power_draw_per_use = 20
 
 /obj/item/integrated_circuit/input/local_locator/do_work()
-	if(assembly && istype(assembly.loc, /mob/living))
+	if(assembly && isliving(assembly.loc))
 		set_pin_data(IC_OUTPUT, 1, assembly.loc)
 	else
 		set_pin_data(IC_OUTPUT, 1, null)

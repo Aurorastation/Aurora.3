@@ -136,7 +136,7 @@
 
 /obj/item/gun/energy/lawgiver/Fire(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, params, pointblank=0, reflex = 0)
 	if(src.dna != user.dna.unique_enzymes && !emagged)
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)

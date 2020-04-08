@@ -94,7 +94,7 @@
 
 	..()
 
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(issmall(H))
 			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")

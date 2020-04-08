@@ -432,7 +432,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	desc = "Makes you loyal to the Sol Alliance, or to a certain individual."
 
 /obj/item/implant/mindshield/sol/implanted(mob/M)
-	if(!istype(M, /mob/living/carbon/human))	return 0
+	if(!ishuman(M))	return 0
 	var/mob/living/carbon/human/H = M
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
@@ -612,7 +612,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	<b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
 
 /obj/item/implant/aggression/implanted(mob/M)
-	if(!istype(M, /mob/living/carbon/human))
+	if(!ishuman(M))
 		return FALSE
 
 	var/mob/living/carbon/human/H = M

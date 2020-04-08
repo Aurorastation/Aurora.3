@@ -27,8 +27,8 @@
 /obj/structure/closet/walllocker/emerglocker/attackby(obj/item/W as obj, mob/user as mob)
 	return
 
-/obj/structure/closet/walllocker/emerglocker/attack_hand(mob/user as mob)
-	if (istype(user, /mob/living/silicon/ai))	//Added by Strumpetplaya - AI shouldn't be able to
+/obj/structure/closet/walllocker/emerglocker/attack_hand(mob/user)
+	if (isAI(user))	//Added by Strumpetplaya - AI shouldn't be able to
 		return									//activate emergency lockers.  This fixes that.  (Does this make sense, the AI can't call attack_hand, can it? --Mloc)
 	if(!amount)
 		to_chat(usr, "<spawn class='notice'>It's empty..")

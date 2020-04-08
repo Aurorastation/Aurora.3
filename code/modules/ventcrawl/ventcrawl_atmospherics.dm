@@ -18,7 +18,7 @@
 	. = ..()
 
 /obj/machinery/atmospherics/Entered(atom/movable/Obj)
-	if(istype(Obj, /mob/living))
+	if(isliving(Obj))
 		var/mob/living/L = Obj
 		L.ventcrawl_layer = layer
 	. = ..()

@@ -549,7 +549,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
 
-	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
+	if(ishuman(M) && isvaurca(M))
 		to_chat(M, "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>")
 		to_chat(M, "<span class='notice'> [text]</span>")
 	else
@@ -721,7 +721,7 @@ mob/living/carbon/human/proc/change_monitor()
 				brokesomething++
 				if (!crash_into(A))
 					done = 1
-			if(istype(A, /mob/living) && !A.density)
+			if(isliving(A) && !A.density)
 				brokesomething++
 				crash_into(A)
 
@@ -750,7 +750,7 @@ mob/living/carbon/human/proc/change_monitor()
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
 		return 0
 
-	if (istype(A, /mob/living))
+	if (isliving(A))
 		var/mob/living/M = A
 		attack_log += "\[[time_stamp()]\]<font color='red'> Crashed into [key_name(M)]</font>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [key_name(src)]</font>"

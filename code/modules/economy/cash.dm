@@ -31,7 +31,7 @@
 			bundle = W
 		bundle.worth += src.worth
 		bundle.update_icon()
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			var/mob/living/carbon/human/h_user = user
 			//TODO: Find out a better way to do this
 			h_user.drop_from_inventory(src)

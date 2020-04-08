@@ -394,7 +394,7 @@
 
 /obj/item/projectile/energy/thoughtbubble/on_impact(var/atom/A)
 	..()
-	if(istype(A, /mob/living))
+	if(isliving(A))
 		var/mob/living/L = A
 		if(L.reagents)
 			var/madhouse = pick("psilocybin","mindbreaker","impedrezene","cryptobiolin","stoxin","mutagen")

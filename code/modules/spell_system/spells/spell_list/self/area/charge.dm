@@ -35,7 +35,7 @@
 /spell/aoe_turf/charge/proc/cast_charge(var/atom/target)
 	var/atom/charged_item
 
-	if(istype(target, /mob/living))
+	if(isliving(target))
 		charged_item = mob_charge(target)
 
 	if(istype(target, /obj/item/grab))

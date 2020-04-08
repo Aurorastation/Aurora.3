@@ -61,7 +61,7 @@
 		return
 
 	if(href_list["login"])
-		if(istype(usr, /mob/living/silicon))
+		if(issilicon(usr))
 			locked = FALSE
 			last_configurator = usr.name
 		else

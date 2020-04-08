@@ -68,7 +68,7 @@
 	set category = "Object"
 	set src in usr
 
-	if(!istype(usr, /mob/living))
+	if(!isliving(usr))
 		return
 	if(use_check_and_message(usr))
 		return

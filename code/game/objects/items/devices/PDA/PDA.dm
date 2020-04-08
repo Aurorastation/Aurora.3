@@ -818,7 +818,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if("Message")
 
 			var/obj/item/device/pda/P = locate(href_list["target"])
-			var/tap = istype(U, /mob/living/carbon)
+			var/tap = iscarbon(U)
 			src.create_message(U, P, tap)
 			if(mode == 2)
 				if(href_list["target"] in conversations)            // Need to make sure the message went through, if not welp.
@@ -1493,7 +1493,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	return ..()
 
 /obj/item/device/pda/clown/Crossed(AM as mob|obj) //Clown PDA is slippery.
-	if (istype(AM, /mob/living))
+	if (isliving(AM))
 		var/mob/living/M = AM
 
 		if(M.slip("the PDA",8) && M.real_name != src.owner && istype(src.cartridge, /obj/item/cartridge/clown))

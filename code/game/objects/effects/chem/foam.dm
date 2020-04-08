@@ -77,7 +77,7 @@
 /obj/effect/effect/foam/Crossed(var/atom/movable/AM)
 	if(metal)
 		return
-	if(istype(AM, /mob/living))
+	if(isliving(AM))
 		var/mob/living/M = AM
 		M.slip("the foam", 6)
 

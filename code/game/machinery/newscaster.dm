@@ -136,7 +136,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(!user.IsAdvancedToolUser())
 		return 0
 
-	if(istype(user, /mob/living/carbon/human) || istype(user,/mob/living/silicon) )
+	if(ishuman(user) || istype(user,/mob/living/silicon) )
 		var/mob/living/human_or_robot_user = user
 		var/dat
 		dat = text("<H3>Newscaster Unit #[src.unit_no]</H3>")
@@ -404,7 +404,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 /obj/machinery/newscaster/Topic(href, href_list)
 	if(..())
 		return
-	if ((usr.contents.Find(src) || ((get_dist(src, usr) <= 1) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if ((usr.contents.Find(src) || ((get_dist(src, usr) <= 1) && issilicon(src.loc, /turf))) || (istype(usr)))
 		usr.set_machine(src)
 		if(href_list["set_channel_name"])
 			src.channel_name = sanitizeSafe(input(usr, "Provide a Feed Channel Name", "Network Channel Handler", ""), MAX_LNAME_LEN)
@@ -911,7 +911,7 @@ obj/item/newspaper/Topic(href, href_list)
 			src.curr_page--
 			playsound(src.loc, "pageturn", 50, 1)
 
-		if (istype(src.loc, /mob))
+		if (ismob(src.loc))
 			src.attack_self(src.loc)
 
 

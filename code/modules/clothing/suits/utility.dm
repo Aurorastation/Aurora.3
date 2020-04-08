@@ -142,7 +142,7 @@
 		if (wearer.wear_suit == src)
 			return 1
 
-	if (istype(loc, /mob/living/carbon/human))
+	if (ishuman(loc))
 		wearer = loc
 		if (wearer.wear_suit == src)
 			return 1

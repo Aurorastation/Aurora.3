@@ -33,7 +33,7 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 	if(force_species_check)
 		var/fail = 1
 		for(var/name in virus.affected_species)
-			if(istype(src, /mob/living/carbon))
+			if(iscarbon(src))
 				var/mob/living/carbon/C = src
 				if(C.species.name == name)
 					fail = 0
@@ -83,7 +83,7 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 
 	var/target_zone = pick(head_ch;1,body_ch;2,hands_ch;3,feet_ch;4)//1 - head, 2 - body, 3 - hands, 4- feet
 
-	if(istype(src, /mob/living/carbon/human))
+	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 
 		switch(target_zone)

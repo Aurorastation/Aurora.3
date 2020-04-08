@@ -58,7 +58,7 @@
 	return ..()
 
 /obj/machinery/door/window/CollidedWith(atom/movable/AM as mob|obj)
-	if (istype(AM, /obj))
+	if (isobj(AM))
 		var/mob/living/bot/bot = AM
 		if(istype(bot))
 			if(density && src.check_access(bot.botcard))

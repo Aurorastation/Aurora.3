@@ -271,7 +271,7 @@
 			if(R.module)
 				selected_module = capitalize_first_letters(R.module.name)
 			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online")
-		if(istype(S, /mob/living/silicon/ai))
+		if(isAI(S))
 			var/mob/living/silicon/ai/A = S
 			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online")
 			if(manifest["bot"].len != 1)

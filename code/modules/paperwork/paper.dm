@@ -101,7 +101,7 @@
 
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
-	var/can_read = (istype(user, /mob/living/carbon/human) || isobserver(user) || istype(user, /mob/living/silicon)) || forceshow
+	var/can_read = (ishuman(user) || isobserver(user) || issilicon(user)) || forceshow
 	if(!forceshow && istype(user,/mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI
 		can_read = get_dist(src, AI.camera) < 2
@@ -450,7 +450,7 @@
 			B.name = P.name
 		user.drop_from_inventory(P,B)
 		//TODO: Look into this stuff
-		if (istype(user, /mob/living/carbon/human))
+		if (ishuman(user))
 			var/mob/living/carbon/human/h_user = user
 			if (h_user.r_hand == src)
 				h_user.drop_from_inventory(src)

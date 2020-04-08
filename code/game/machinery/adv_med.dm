@@ -574,7 +574,7 @@
 // These are old procs used for printing.
 
 /obj/machinery/bodyscanner/proc/get_occupant_data()
-	if (!occupant || !istype(occupant, /mob/living/carbon/human))
+	if (!occupant || !ishuman(occupant))
 		return
 	var/mob/living/carbon/human/H = occupant
 

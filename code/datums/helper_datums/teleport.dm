@@ -180,7 +180,7 @@
 
 
 
-			if(istype(teleatom, /obj) && !istype(teleatom, /obj/effect/portal))
+			if(isobj(teleatom) && !istype(teleatom, /obj/effect/portal))
 				valid = 1
 				var/obj/O = teleatom
 				if(newdest)
@@ -192,12 +192,12 @@
 				if(O.opacity)
 					boominess += 10
 
-			if(istype(teleatom, /mob/living))
+			if(isliving(teleatom))
 				valid = 1
 				var/mob/living/L = teleatom
 				boominess += L.mob_size/4
 				if(!L.incorporeal_move)
-					if(istype(L, /mob/living/carbon/human))
+					if(ishuman(L))
 						var/mob/living/carbon/human/H = L
 						if(newdest)
 							var/list/organs_to_gib = list()
@@ -293,7 +293,7 @@
 	var/list/bagholding = teleatom.search_contents_for(/obj/item/storage/backpack/holding)
 	if(bagholding.len)
 		precision = max(rand(1,100)*bagholding.len,100)
-		if(istype(teleatom, /mob/living))
+		if(isliving(teleatom))
 			var/mob/living/MM = teleatom
 			to_chat(MM, "<span class='danger'>The Bluespace interface on your [teleatom] interferes with the teleport!</span>")
 	return 1
@@ -309,7 +309,7 @@
 
 
 	if(!isemptylist(teleatom.search_contents_for(/obj/item/disk/nuclear)))
-		if(istype(teleatom, /mob/living))
+		if(isliving(teleatom))
 			var/mob/living/MM = teleatom
 			MM.visible_message("<span class='danger'>\The [MM] bounces off of the portal!</span>","<span class='warning'>Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through.</span>")
 		else

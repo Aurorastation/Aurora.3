@@ -86,7 +86,7 @@
 			return 1
 	else
 		var/fullness = 0
-		if(!istype(user, /mob/living/carbon))
+		if(!iscarbon(user))
 			fullness = user.max_nutrition > 0 ? (user.nutrition + (user.reagents.get_reagent_amount("nutriment") * 25)) / user.max_nutrition : CREW_NUTRITION_OVEREATEN + 0.01
 		else
 			var/mob/living/carbon/eater = user

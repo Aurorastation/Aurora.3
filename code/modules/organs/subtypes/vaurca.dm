@@ -217,7 +217,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 		if(mask_check)
 			if(location.wear_mask && (location.wear_mask.flags & AIRTIGHT))
 				data["maskConnected"] = 1
-			else if(istype(location, /mob/living/carbon/human))
+			else if(ishuman(location))
 				var/mob/living/carbon/human/H = location
 				if(H.head && (H.head.flags & AIRTIGHT))
 					data["maskConnected"] = 1

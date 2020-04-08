@@ -645,7 +645,7 @@
 	max_storage_space = max(total_storage_space,max_storage_space) //prevents spawned containers from being too small for their contents
 
 /obj/item/storage/emp_act(severity)
-	if(!istype(src.loc, /mob/living))
+	if(!isliving(src.loc))
 		for(var/obj/O in contents)
 			O.emp_act(severity)
 	..()

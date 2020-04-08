@@ -132,7 +132,7 @@
 		devour_add_blood(victim, get_turf(victim), vessel)
 		return 1
 
-	else if (istype(user, /mob/living/carbon/human) && !user.blood_DNA)
+	else if (ishuman(user) && !user.blood_DNA)
 		//if this blood isn't already in the list, add it
 		user.blood_DNA = list(B.data["blood_DNA"])
 		user.blood_color = B.data["blood_color"]

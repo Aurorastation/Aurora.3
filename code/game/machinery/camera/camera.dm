@@ -104,7 +104,7 @@
 
 /obj/machinery/camera/hitby(AM as mob|obj)
 	..()
-	if (istype(AM, /obj))
+	if (isobj(AM))
 		var/obj/O = AM
 		if (O.throwforce >= src.toughness)
 			visible_message("<span class='warning'><B>[src] was hit by [O].</B></span>")
@@ -220,7 +220,7 @@
 
 /obj/machinery/camera/proc/deactivate(user as mob, var/choice = 1)
 	// The only way for AI to reactivate cameras are malf abilities, this gives them different messages.
-	if(istype(user, /mob/living/silicon/ai))
+	if(isAI(user))
 		user = null
 
 	if(choice != 1)
@@ -383,8 +383,8 @@
 	busy = 0
 	return 0
 
-/obj/machinery/camera/interact(mob/living/user as mob)
-	if(!panel_open || istype(user, /mob/living/silicon/ai))
+/obj/machinery/camera/interact(mob/living/user)
+	if(!panel_open || isAI(user))
 		return
 
 	if(stat & BROKEN)

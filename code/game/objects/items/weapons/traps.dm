@@ -324,7 +324,7 @@
 
 /obj/item/trap/animal/bullet_act(var/obj/item/projectile/Proj)
 	for (var/atom/movable/A in src)
-		if(istype(A, /mob/living))
+		if(isliving(A))
 			var/mob/living/M = A
 			M.bullet_act(Proj)
 

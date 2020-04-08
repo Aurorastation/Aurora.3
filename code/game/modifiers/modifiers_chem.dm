@@ -105,7 +105,7 @@
 		L.burn_mod -= added_burn_mod
 
 /datum/modifier/napalm/custom_validity()
-	if(istype(target, /mob/living))
+	if(isliving(target))
 		var/mob/living/L = target
 		if(L.fire_stacks)
 			return 1

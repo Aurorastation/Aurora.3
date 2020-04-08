@@ -533,7 +533,7 @@ BLIND     // can't see anything
 	item_flags = AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/emp_act(severity)
-	if(istype(src.loc, /mob/living/carbon/human))
+	if(ishuman(src.loc))
 		var/mob/living/carbon/human/M = src.loc
 		to_chat(M, "<span class='danger'>\The [src] overloads and blinds you!</span>")
 		if(M.glasses == src)

@@ -54,7 +54,7 @@ default behaviour is:
 			return
 
 		now_pushing = TRUE
-		if (istype(AM, /mob/living))
+		if (isliving(AM))
 			var/mob/living/tmob = AM
 
 			for(var/mob/living/M in range(tmob, 1))
@@ -98,7 +98,7 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
+			if(ishuman(tmob) && (FAT in tmob.mutations))
 				if(prob(40) && !(FAT in src.mutations))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
@@ -203,7 +203,7 @@ default behaviour is:
 
 //sort of a legacy burn method for /electrocute, /shock, and the e_chair
 /mob/living/proc/burn_skin(burn_amount)
-	if(istype(src, /mob/living/carbon/human))
+	if(ishuman(src))
 		if(mShock in src.mutations) //shockproof
 			return 0
 		if (COLD_RESISTANCE in src.mutations) //fireproof
@@ -217,7 +217,7 @@ default behaviour is:
 				H.UpdateDamageIcon()
 		H.updatehealth()
 		return 1
-	else if(istype(src, /mob/living/silicon/ai))
+	else if(isAI(src))
 		return 0
 
 /mob/living/proc/adjustBodyTemp(actual, desired, incrementboost)

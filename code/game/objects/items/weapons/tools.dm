@@ -299,7 +299,7 @@
 	//I'm not sure what this does. I assume it has to do with starting fires...
 	//...but it doesnt check to see if the welder is on or not.
 	var/turf/location = src.loc
-	if(istype(location, /mob/))
+	if(ismob(location))
 		var/mob/M = location
 		if(M.l_hand == src || M.r_hand == src)
 			location = get_turf(M)

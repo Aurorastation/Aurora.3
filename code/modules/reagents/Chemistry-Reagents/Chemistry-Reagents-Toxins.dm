@@ -127,7 +127,7 @@
 		L.adjust_fire_stacks(amount / 5)
 
 /datum/reagent/toxin/phoron/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(istype(M, /mob/living/carbon/human))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
 		if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))

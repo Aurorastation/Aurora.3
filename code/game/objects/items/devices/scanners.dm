@@ -81,7 +81,7 @@ BREATH ANALYZER
 
 	user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
 
-	if(!istype(M, /mob/living/carbon/human))
+	if(!ishuman(M))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
 		return
 

@@ -65,7 +65,7 @@
 		return
 
 	W = W.resolve()
-	if(istype(W, /mob/living/carbon/human))
+	if(ishuman(W))
 		blood_splatter(T, src, 1)
 
 	else if(istype(W, /mob/living/carbon/alien))

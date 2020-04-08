@@ -22,7 +22,7 @@
 /obj/machinery/syndicate_beacon/attack_hand(var/mob/user as mob)
 	usr.set_machine(src)
 	var/dat = "<font color=#005500><i>Scanning [pick("retina pattern", "voice print", "fingerprints", "dna sequence")]...<br>Identity confirmed,<br></i></font>"
-	if(istype(user, /mob/living/carbon/human) || istype(user, /mob/living/silicon/ai))
+	if(ishuman(user) || isAI(user))
 		if(is_special_character(user))
 			dat += "<font color=#07700><i>Operative record found. Greetings, Agent [user.name].</i></font><br>"
 		else if(charges < 1)
@@ -57,7 +57,7 @@
 				src.updateUsrDialog()
 				spawn(rand(50,200)) selfdestruct()
 				return
-		if(istype(M, /mob/living/carbon/human))
+		if(ishuman(M))
 			var/mob/living/carbon/human/N = M
 			to_chat(M, "<B>You have joined the ranks of the Syndicate and become a traitor to the station!</B>")
 			traitors.add_antagonist(N.mind)

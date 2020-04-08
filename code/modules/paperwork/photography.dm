@@ -86,7 +86,7 @@ var/global/photo_count = 0
 
 /obj/item/storage/photo_album/MouseDrop(obj/over_object as obj)
 
-	if((istype(usr, /mob/living/carbon/human)))
+	if((ishuman(usr)))
 		var/mob/M = usr
 		if(!( istype(over_object, /obj/screen) ))
 			return ..()

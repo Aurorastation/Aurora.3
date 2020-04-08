@@ -18,7 +18,7 @@
 	return ..()
 
 /mob/living/carbon/brain/say_understands(var/other)//Goddamn is this hackish, but this say code is so odd
-	if (istype(other, /mob/living/silicon/ai))
+	if (isAI(other))
 		if(!(container && istype(container, /obj/item/device/mmi)))
 			return 0
 		else
@@ -38,7 +38,7 @@
 			return 0
 		else
 			return 1
-	else if (istype(other, /mob/living/carbon/human))
+	else if (ishuman(other))
 		return 1
 	else if (istype(other, /mob/living/carbon/slime))
 		return 1

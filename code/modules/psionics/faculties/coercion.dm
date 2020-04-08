@@ -217,7 +217,7 @@
 		if(coercion_rank >= PSI_RANK_GRANDMASTER)
 			target.AdjustParalysis(-1)
 		target.drowsyness = 0
-		if(istype(target, /mob/living/carbon))
+		if(iscarbon(target))
 			var/mob/living/carbon/M = target
 			M.hallucination = max(M.hallucination, 10)
 		return TRUE

@@ -130,7 +130,7 @@
 			L.pixel_y = initial(user.pixel_y)
 			L.layer = initial(user.layer)
 			user_unbuckle_mob(L, L)
-		else if(istype(a, /obj))
+		else if(isobj(a))
 			var/obj/O = a
 			O.forceMove(src.loc)
 

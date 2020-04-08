@@ -114,7 +114,7 @@
 	for(var/mob/living/mob in living_mob_list)
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
-			if(istype(mob, /mob/living/carbon/human))
+			if(ishuman(mob))
 				//Hilariously enough, running into a closet should make you get hit the hardest.
 				var/mob/living/carbon/human/H = mob
 				H.hallucination += max(50, min(300, DETONATION_HALLUCINATION * sqrt(1 / (get_dist(mob, src) + 1)) ) )
@@ -386,7 +386,7 @@
 		return
 	if(isprojectile(AM))
 		return
-	if(istype(AM, /mob/living))
+	if(isliving(AM))
 		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
