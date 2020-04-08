@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Replaced the Detective's mini .45 that comes stocked with 14 lethal .45 rounds with a stun revolver."
+  - rscadd: "Buffed taser and stun revolver projectiles to have a range of 5, doing more agony as well as a tiny bit of burn damage. It's only effective against unarmored targets."
+  - rscadd: "The stun revolver has been given some more fun features."

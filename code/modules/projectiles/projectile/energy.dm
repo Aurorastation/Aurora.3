@@ -46,10 +46,9 @@
 	icon_state = "spark"
 	damage = 2 //Flavor.
 	damage_type = BURN
-	taser_effect = 1
-	agony = 40
-	eyeblur = 1
-	//Damage will be handled on the MOB side, to prevent window shattering.
+	agony = 35
+	range = 5
+	eyeblur = TRUE
 
 /obj/item/projectile/energy/electrode/stunshot
 	name = "stunshot"

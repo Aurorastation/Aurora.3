@@ -22,6 +22,7 @@
 	name = "stun revolver"
 	desc = "A Hephaestus designed high-tech revolver that fires rechargable stun bolts."
 	description_fluff = "The ST-30 is a highly advanced sidearm produced by Hephaestus Industries. It is designed for self-defense in a less-than-lethal manner. While the weapon design itself is not groundbreaking, it fires high velocity energy bolts with rechargable cartridges, possessing unusual high stopping power."
+	description_antag = "It is possible to emag this revolver, removing the limiter and supercharging its capacitor. This will allow it to fire lethal bolts of energy, as well as slowly recharge on its own."
 	icon = 'icons/obj/guns/stunrevolver.dmi'
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
@@ -30,7 +31,51 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
 	projectile_type = /obj/item/projectile/energy/electrode
 	max_shots = 8
+	var/emagged = FALSE
 
+/obj/item/gun/energy/stunrevolver/verb/rename_gun()
+	set name = "Name Gun"
+	set category = "Object"
+	set desc = "Click to rename your gun. If you're the detective."
+
+	var/mob/M = usr
+	if(!M.mind)
+		return FALSE
+	if(name != initial(name))
+		to_chat(M, SPAN_WARNING("\The [src] has already been renamed!"))
+		return
+
+	var/input = sanitizeSafe(input(M, "What do you want to name the gun?", "Gun Naming"), MAX_NAME_LEN)
+
+	if(src && input && !M.stat && in_range(M, src))
+		name = input
+		to_chat(M, SPAN_NOTICE("You name the gun <b>[input]</b>. Say hello to your new friend."))
+		return TRUE
+
+/obj/item/gun/energy/stunrevolver/verb/spin_cylinder()
+	set name = "Spin Cylinder"
+	set desc = "Fun when you're bored out of your skull."
+	set category = "Object"
+
+	usr.visible_message(SPAN_WARNING("\The [usr] spins the cylinder of \the [src]!"), SPAN_WARNING("You spin the cylinder of \the [src]!"), SPAN_NOTICE("You hear something metallic spin and click."))
+	playsound(get_turf(src), 'sound/weapons/revolver_spin.ogg', 100, TRUE)
+
+/obj/item/gun/energy/stunrevolver/emag_act(remaining_charges, mob/user)
+	if(!remaining_charges)
+		return FALSE
+	if(emagged)
+		to_chat(user, SPAN_WARNING("\The [src] has already been emagged!"))
+		return
+	to_chat(user, SPAN_NOTICE("You short out \the [src]'s limiter, supercharging its power cylinder."))
+	projectile_type = /obj/item/projectile/energy/blaster
+	fire_sound = 'sound/weapons/laserstrong.ogg'
+	power_supply.maxcharge = 10000
+	power_supply.charge = 10000
+	charge_cost = 1000
+	self_recharge = TRUE
+	recharge_time = 5
+	emagged = TRUE
+	return TRUE
 
 /obj/item/gun/energy/crossbow
 	name = "mini energy-crossbow"
