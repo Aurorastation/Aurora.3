@@ -222,6 +222,8 @@
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [attached_satchel]."), SPAN_NOTICE("You start detaching \the [attached_satchel]."))
 		if(do_after(user, 30, TRUE, src))
+			if(!attached_satchel)
+				return
 			attached_satchel.forceMove(get_turf(user))
 			user.put_in_hands(attached_satchel)
 			user.visible_message(SPAN_NOTICE("\The [user] detaches \the [attached_satchel]."), SPAN_NOTICE("You detach \the [attached_satchel]."))
