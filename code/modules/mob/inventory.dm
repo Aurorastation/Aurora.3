@@ -319,16 +319,19 @@ var/list/slot_equipment_priority = list( \
 	src.throw_mode_off()
 	if(stat || !target)
 		return
-	if(target.type == /obj/screen) return
+	if(target.type == /obj/screen)
+		return
 
 	var/atom/movable/item = src.get_active_hand()
 
-	if(!item) return
+	if(!item)
+		return
 
-	if (istype(item, /obj/item/grab))
+	var/can_throw = TRUE
+	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
 		item = G.throw_held() //throw the person instead of the grab
-		if(ismob(item))
+		if(ismob(item) && G.state >= GRAB_NECK)
 			var/turf/start_T = get_turf(loc) //Get the start and target tile for the descriptors
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
@@ -346,8 +349,11 @@ var/list/slot_equipment_priority = list( \
 				msg_admin_attack("[usr.name] ([usr.ckey]) has thrown [M.name] ([M.ckey]) from [start_T_descriptor] with the target [end_T_descriptor] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(M))
 
 			qdel(G)
+		else
+			can_throw = FALSE
 
-	if(!item) return //Grab processing has a chance of returning null
+	if(!item || !can_throw)
+		return //Grab processing has a chance of returning null
 
 
 	src.remove_from_mob(item)

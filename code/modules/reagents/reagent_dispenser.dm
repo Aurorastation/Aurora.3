@@ -352,6 +352,13 @@
 	reagentid = "xuizijuice"
 	filled = TRUE
 
+/obj/structure/reagent_dispensers/keg/mead
+	name = "mead barrel"
+	desc = "A wooden mead barrel."
+	icon_state = "woodkeg"
+	reagentid = "messa_mead"
+	filled = TRUE
+
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
 	name = "cooking oil tank"

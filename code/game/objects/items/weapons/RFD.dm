@@ -4,6 +4,7 @@
 	desc = "A device used for rapid fabrication. The matter decompression matrix is untuned, rendering it useless."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "rfd"
+	item_state = "rfd"
 	opacity = 0
 	density = 0
 	anchored = 0.0
@@ -262,6 +263,8 @@ RFD Service-Class
 /obj/item/rfd/service
 	name = "\improper Rapid-Fabrication-Device S-Class"
 	desc = "A RFD, modified to deploy service items."
+	icon_state = "rfd-s"
+	item_state = "rfd-s"
 	modes = list("Cigarette", "Drinking Glass","Paper","Pen","Dice Pack")
 	number_of_modes = 5
 
@@ -322,6 +325,8 @@ RFD Mining-Class
 /obj/item/rfd/mining
 	name = "\improper Rapid-Fabrication-Device M-Class"
 	desc = "A RFD, modified to deploy mine tracks."
+	icon_state = "rfd-m"
+	item_state = "rfd-m"
 
 /obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity)
 
@@ -426,7 +431,9 @@ RFD Piping-Class
 
 /obj/item/rfd/piping
 	name = "\improper Rapid-Fabrication-Device P-Class"
-	desc = "A RFD, modified to construct pipes and piping accessories."
+	desc = "A heavily modified RFD, modified to construct pipes and piping accessories."
+	icon_state = "rfd-p"
+	item_state = "rfd-p"
 	modes = list(STANDARD_PIPE, SUPPLY_PIPE, SCRUBBER_PIPE, DEVICES)
 	var/selected_mode = STANDARD_PIPE
 	var/pipe_examine = "Pipe" // used in the examine proc to see what you're putting down at a glance

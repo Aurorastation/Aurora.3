@@ -630,3 +630,10 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "fox"
 	item_state = "fox"
 	w_class = 3
+
+/obj/item/holder/schlorrgo
+	name = "schlorrgo"
+	icon = 'icons/mob/npc/livestock.dmi'
+	icon_state = "schlorgo"
+	item_state = "schlorgo"
+	w_class = ITEMSIZE_NORMAL

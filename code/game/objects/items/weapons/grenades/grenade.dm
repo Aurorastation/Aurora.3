@@ -13,6 +13,7 @@
 	var/active = 0
 	var/det_time = 30
 	var/fake = FALSE
+	var/activation_sound = 'sound/weapons/armbomb.ogg'
 
 /obj/item/grenade/proc/clown_check(var/mob/living/user)
 	if((user.is_clumsy()) && prob(50))
@@ -57,7 +58,7 @@
 
 	icon_state = initial(icon_state) + "_active"
 	active = 1
-	playsound(loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
+	playsound(loc, activation_sound, 75, 1, -3)
 
 	spawn(det_time)
 		prime()

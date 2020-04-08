@@ -359,8 +359,8 @@
 	name = "beacons"
 	desc = "A stack of light emitting beacons."
 	singular_name = "flag"
-	amount = 5
-	max_amount = 5
+	amount = 25
+	max_amount = 25
 	w_class = 2
 	icon = 'icons/obj/mining.dmi'
 	var/upright = FALSE

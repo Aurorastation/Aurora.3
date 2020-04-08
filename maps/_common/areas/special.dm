@@ -142,7 +142,7 @@
 	no_light_control = 1
 
 /area/syndicate_station/start
-	name = "\improper Mercenary Forward Operating Base"
+	name = "\improper Mercenary Shuttle"
 	icon_state = "yellow"
 	centcomm_area = 1
 	base_turf = /turf/space

@@ -107,6 +107,18 @@
 	flags = 0
 	drop_sound = 'sound/items/drop/clothing.ogg'
 
+/obj/item/stack/tile/carpet_art
+	name = "adhomian carpet"
+	singular_name = "carpet"
+	desc = "A piece of fancy adhomian carpet. It is the same size as a normal floor tile!"
+	icon_state = "tile_carpet_rubber"
+	force = 1.0
+	throwforce = 1.0
+	throw_speed = 5
+	throw_range = 20
+	flags = 0
+	drop_sound = 'sound/items/drop/clothing.ogg'
+
 /obj/item/stack/tile/lino
 	name = "old linoleum"
 	singular_name = "linoleum"

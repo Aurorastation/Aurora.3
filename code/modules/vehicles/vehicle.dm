@@ -38,6 +38,7 @@
 	var/load_offset_x = 0		//pixel_x offset for item overlay
 	var/load_offset_y = 0		//pixel_y offset for item overlay
 	var/mob_offset_y = 0		//pixel_y offset for mob overlay
+	var/flying = FALSE
 
 //-------------------------------------------
 // Standard procs
@@ -374,3 +375,20 @@
 		new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	spawn(1) healthcheck()
 	return 1
+
+/obj/vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)
+	if (flying)
+		return FALSE
+
+	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
+		return FALSE
+
+	if (!dest.is_hole)
+		return FALSE
+
+	// See if something prevents us from falling.
+	for(var/atom/A in below)
+		if(!A.CanPass(src, dest))
+			return FALSE
+
+	return TRUE

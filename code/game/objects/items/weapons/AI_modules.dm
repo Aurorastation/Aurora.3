@@ -395,3 +395,11 @@ AI MODULES
 	desc = "An 'Antimov' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 4)
 	laws = new/datum/ai_laws/antimov()
+
+/******************** PRA ********************/
+
+/obj/item/aiModule/hadiist
+	name = "\improper 'Hadiist' core AI module"
+	desc = "An 'Hadiist' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = list(TECH_DATA = 4)
+	laws = new/datum/ai_laws/pra()

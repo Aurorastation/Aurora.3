@@ -1218,6 +1218,15 @@
 		remoteview_target = null
 		reset_view(0)
 
+/mob/living/carbon/human/succumb()
+	set hidden = TRUE
+
+	if(shock_stage > 50 && (maxHealth * 0.6) > get_total_health())
+		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
+		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
+	else
+		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
+
 /mob/living/carbon/human/proc/get_visible_gender()
 	if(wear_suit && wear_suit.flags_inv & HIDEJUMPSUIT && ((head && head.flags_inv & HIDEMASK) || wear_mask))
 		return NEUTER

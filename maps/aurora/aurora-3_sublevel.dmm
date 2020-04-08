@@ -13441,6 +13441,18 @@
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
 /obj/item/device/flashlight,
+/obj/item/device/gps{
+	gpstag = "MED2"
+	},
+/obj/item/device/gps{
+	gpstag = "MED3"
+	},
+/obj/item/device/gps{
+	gpstag = "MED4"
+	},
+/obj/item/device/gps{
+	gpstag = "MED5"
+	},
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "avU" = (
@@ -23459,17 +23471,51 @@
 /area/medical/medbay4)
 "aSJ" = (
 /obj/structure/table/rack,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/clothing/accessory/stethoscope,
-/obj/item/clothing/accessory/stethoscope,
-/obj/item/clothing/accessory/stethoscope,
-/obj/item/clothing/accessory/stethoscope,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/storage/belt/medical/emt{
+	pixel_y = 4
+	},
+/obj/item/storage/belt/medical/emt{
+	pixel_y = 4
+	},
+/obj/item/storage/belt/medical/emt{
+	pixel_y = 4
+	},
+/obj/item/storage/belt/medical/emt{
+	pixel_y = 4
+	},
+/obj/item/storage/belt/medical/emt{
+	pixel_y = 4
+	},
+/obj/item/storage/belt/medical/emt{
+	pixel_y = 4
+	},
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)
 "aSK" = (

@@ -178,6 +178,16 @@
 			else
 				do_animate("deny")
 		return
+
+	if(istype(AM, /obj/vehicle))
+		var/obj/vehicle/V = AM
+		if(density)
+			if(V.buckled_mob && (src.allowed(V.buckled_mob)))
+				open()
+			else
+				do_animate("deny")
+		return
+
 	return
 
 
