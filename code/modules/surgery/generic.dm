@@ -11,7 +11,7 @@
 		return 0
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
 		return 0
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)
@@ -24,9 +24,9 @@
 
 /datum/surgery_step/generic/cut_with_laser
 	allowed_tools = list(
-	/obj/item/scalpel/laser3 = 95, \
-	/obj/item/scalpel/laser2 = 85, \
-	/obj/item/scalpel/laser1 = 75
+	/obj/item/surgery/scalpel/laser3 = 95, \
+	/obj/item/surgery/scalpel/laser2 = 85, \
+	/obj/item/surgery/scalpel/laser1 = 75
 	)
 	priority = 2
 	min_duration = 90
@@ -67,7 +67,7 @@
 
 /datum/surgery_step/generic/incision_manager
 	allowed_tools = list(
-	/obj/item/scalpel/manager = 100
+	/obj/item/surgery/scalpel/manager = 100
 	)
 	priority = 2
 	min_duration = 80
@@ -107,7 +107,7 @@
 
 /datum/surgery_step/generic/cut_open
 	allowed_tools = list(
-	/obj/item/scalpel = 100,
+	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -151,7 +151,7 @@
 
 /datum/surgery_step/generic/cut_open_vaurca
 	allowed_tools = list(
-	/obj/item/surgicaldrill = 85,
+	/obj/item/surgery/surgicaldrill = 85,
 	/obj/item/pickaxe/ = 15
 	)
 
@@ -192,7 +192,7 @@
 
 /datum/surgery_step/generic/clamp_bleeders
 	allowed_tools = list(
-	/obj/item/hemostat = 100,	\
+	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
 	/obj/item/device/assembly/mousetrap = 20
 	)
@@ -228,7 +228,7 @@
 
 /datum/surgery_step/generic/retract_skin
 	allowed_tools = list(
-	/obj/item/retractor = 100, 	\
+	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 50
 	)
@@ -283,7 +283,7 @@
 
 /datum/surgery_step/generic/cauterize
 	allowed_tools = list(
-	/obj/item/cautery = 100,
+	/obj/item/surgery/cautery = 100,
 	/obj/item/clothing/mask/smokable/cigarette = 25,
 	/obj/item/flame/lighter = 50,
 	/obj/item/weldingtool = 75
@@ -320,7 +320,7 @@
 
 /datum/surgery_step/generic/amputate
 	allowed_tools = list(
-	/obj/item/circular_saw = 100,
+	/obj/item/surgery/circular_saw = 100,
 	/obj/item/melee/energy = 100,
 	/obj/item/melee/chainsword = 100,
 	/obj/item/material/hatchet = 55
@@ -332,7 +332,7 @@
 /datum/surgery_step/generic/amputate/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
 		return 0
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)
@@ -368,7 +368,7 @@
 	if(istype(tool, /obj/item/melee/chainsword))//Chainswords rip and tear, so the limb removal is not clean
 		clean = 0
 
-	var/var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
+	var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
 	affected.droplimb(clean,DROPLIMB_EDGE)
 
 	if(istype(tool, /obj/item/melee/energy))//Code for energy weapons cauterising the cut

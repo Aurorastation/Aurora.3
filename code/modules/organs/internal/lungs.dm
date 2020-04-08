@@ -51,10 +51,18 @@
 
 	if(is_broken() || (is_bruised() && !rescued) && !owner.is_asystole()) // a thoracostomy can only help with a collapsed lung, not a mangled one
 		if(prob(2))
-			spawn owner.emote("me", 1, "coughs up blood!")
+			owner.visible_message(
+				"<B>\The [owner]</B> coughs up blood!",
+				"<span class='warning'>You cough up blood!</span>",
+				"You hear someone coughing!",
+				)
 			owner.drip(10)
 		if(prob(4))
-			spawn owner.emote("me", 1, "gasps for air!")
+			owner.visible_message(
+				"<B>\The [owner]</B> gasps for air!",
+				"<span class='danger'>You can't breathe!</span>",
+				"You hear someone gasp for air!",
+			)
 			owner.losebreath = 1
 
 	if(is_bruised() && rescued)
@@ -307,9 +315,9 @@
 		owner.bodytemperature += temp_adj
 
 	else if(breath.temperature >= owner.species.heat_discomfort_level)
-		owner.species.get_environment_discomfort(src,"heat")
+		owner.species.get_environment_discomfort(owner,"heat")
 	else if(breath.temperature <= owner.species.cold_discomfort_level)
-		owner.species.get_environment_discomfort(src,"cold")
+		owner.species.get_environment_discomfort(owner,"cold")
 
 /obj/item/organ/internal/lungs/listen()
 	if(owner.failed_last_breath)

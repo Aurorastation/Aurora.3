@@ -153,7 +153,7 @@
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
 	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed * 3.5
+		M.intoxication += (strength / 100) * removed * 3.15
 
 		if (druggy != 0)
 			M.druggy = max(M.druggy, druggy)
@@ -380,10 +380,13 @@
 		if(!message_shown) // Not to spam message
 			to_chat(M, "<span class='notice'>You feel an extreme energy as your body regenerates faster.</span>")
 			message_shown = TRUE
-		return
 	if(M.virus2.len)
 		for(var/ID in M.virus2)
 			var/datum/disease2/disease/V = M.virus2[ID]
+			if(M.is_diona())
+				if(prob(20))
+					V.cure(M)
+				return
 			if(prob(5))
 				M.antibodies |= V.antigen
 				if(prob(50))

@@ -104,7 +104,7 @@
 
 	usable = 0
 
-	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL=1500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
 	interface_name = "meson/material scanner"
@@ -136,7 +136,7 @@
 
 	usable = 0
 
-	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL=1500,"uranium"=5000)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000, MATERIAL_URANIUM = 5000)
 	construction_time = 300
 
 	interface_name = "night vision interface"
@@ -154,7 +154,7 @@
 
 	usable = 0
 
-	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL =1500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
 	interface_name = "security HUD"
@@ -172,7 +172,7 @@
 
 	usable = 0
 
-	construction_cost = list("glass"=5000,DEFAULT_WALL_MATERIAL=1500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
 
 	interface_name = "medical HUD"

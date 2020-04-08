@@ -7,6 +7,7 @@
 	language = LANGUAGE_VOX
 	name_language = LANGUAGE_VOX
 	num_alternate_languages = 1
+	default_genders = list(NEUTER)
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 4
 	blurb = "The Vox are the broken remnants of a once-proud race, now reduced to little more than \
@@ -82,11 +83,6 @@
 		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(H.back), slot_in_backpack)
 		H.internal = H.r_hand
 	H.internals.icon_state = "internal1"
-	H.gender = NEUTER
-
-/datum/species/vox/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.gender = NEUTER
-	return ..()
 
 /datum/species/vox/armalis
 	name = "Vox Armalis"

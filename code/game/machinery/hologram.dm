@@ -254,6 +254,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/proc/create_holo(mob/living/silicon/ai/A, mob/living/carbon/caller_id, turf/T = loc)
 	if(hacked == 0)
 		var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
+		hologram.no_clean = TRUE
 		if(caller_id)
 			var/tempicon = getFlatIcon(caller_id)
 
@@ -277,6 +278,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		return 1
 	else if(hacked == 1)
 		var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
+		hologram.no_clean = TRUE
 		hologram.mouse_opacity = 0//So you can't click on it.
 		hologram.anchored = 1//So space wind cannot drag it.
 		masters[A] = hologram
@@ -400,7 +402,7 @@ Holographic project of everything else.
 	name = "hologram projector"
 	desc = "It makes a hologram appear...with magnets or something..."
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "hologram0"
+	icon_state = "holopad0"
 
 
 #undef RANGE_BASED

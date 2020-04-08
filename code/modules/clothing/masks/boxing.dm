@@ -1,8 +1,8 @@
 /obj/item/clothing/mask/balaclava
 	name = "balaclava"
-	desc = "LOADSAMONEY"
-	icon_state = "balaclava"
-	item_state = "balaclava"
+	desc = "Designed to both hide identities and keep your face comfy and warm."
+	icon_state = "balaclava_black"
+	item_state = "balaclava_black"
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|HEAD
 	w_class = 2
@@ -25,23 +25,35 @@
 
 	update_clothing_icon()
 
-/obj/item/clothing/mask/balaclava/tactical
+/obj/item/clothing/mask/balaclava/white
 	name = "white balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
-	icon_state = "swatclava"
-	item_state = "swatclava"
+	icon_state = "balaclava_white"
+	item_state = "balaclava_white"
 
-/obj/item/clothing/mask/balaclava/military
+/obj/item/clothing/mask/balaclava/grey
+	name = "grey balaclava"
+	desc = "Designed to both hide identities and keep your face comfy and warm."
+	icon_state = "balaclava_grey"
+	item_state = "balaclava_grey"
+
+/obj/item/clothing/mask/balaclava/green
 	name = "green balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
-	icon_state = "milclava"
-	item_state = "milclava"
+	icon_state = "balaclava_green"
+	item_state = "balaclava_green"
 
-/obj/item/clothing/mask/balaclava/iacmask
+/obj/item/clothing/mask/balaclava/red
+	name = "red balaclava"
+	desc = "Designed to both hide identities and keep your face comfy and warm."
+	icon_state = "balaclava_red"
+	item_state = "balaclava_red"
+
+/obj/item/clothing/mask/balaclava/iac
 	name = "IAC balaclava"
 	desc = "Designed to keep the user warm and sterile in hostile enviroments."
-	icon_state = "iacmask"
-	item_state = "iacmask"
+	icon_state = "balaclava_blue"
+	item_state = "balaclava_blue"
 	germ_level = 0
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 

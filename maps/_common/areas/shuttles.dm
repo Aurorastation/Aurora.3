@@ -18,7 +18,7 @@
 
 /area/shuttle/arrival/centcom
 	icon_state = "shuttle2"
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
 
 /area/shuttle/arrival/centcom/Entered(atom/movable/Obj, atom/oldLoc)
@@ -58,7 +58,7 @@
 /area/shuttle/escape/centcom
 	name = "\improper Emergency Shuttle Centcom"
 	icon_state = "shuttle"
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
 
 /area/shuttle/escape/transit // the area to pass through for 3 minute transit
@@ -157,7 +157,7 @@
 /area/shuttle/transport1/centcom
 	icon_state = "shuttle"
 	name = "\improper Transport Shuttle Centcom"
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
 
 /area/shuttle/transport1/station
@@ -169,7 +169,7 @@
 /area/shuttle/specops/centcom
 	name = "\improper Special Ops Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/unsimulated/floor/plating
 	icon_state = "shuttlered"
 	centcomm_area = 1
 
@@ -197,7 +197,7 @@
 /area/shuttle/administration/centcom
 	name = "\improper Administration Shuttle Centcom"
 	icon_state = "shuttlered"
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
 
 /area/shuttle/administration/station
@@ -224,6 +224,11 @@
 	station_area = 0
 	base_turf = /turf/simulated/floor/reinforced
 
+/area/shuttle/research/transit
+	name = "\improper Hyperspace"
+	icon_state = "shuttle"
+	base_turf = /turf/space/transit/north
+
 /area/shuttle/legion
 	name = "\improper Foreign Legion Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
@@ -232,7 +237,7 @@
 	centcomm_area = 1
 
 /area/shuttle/legion/centcom
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/unsimulated/floor/plating
 
 /area/shuttle/legion/station
 	name = "\improper Surface Escape Pods - Docking Port"

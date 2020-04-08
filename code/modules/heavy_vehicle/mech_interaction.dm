@@ -17,7 +17,7 @@
 	else . = ..()
 
 /mob/living/heavy_vehicle/MouseDrop_T(src_object, over_object, src_location, over_location, src_control, over_control, params, var/mob/user)
-	if(!user || incapacitated() || user.incapacitated())
+	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return FALSE
 
 	if(!(user in pilots) && user != src)
@@ -30,7 +30,7 @@
 
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
 
-	if(!user || incapacitated() || user.incapacitated())
+	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return
 
 	if(!loc) return
@@ -70,7 +70,7 @@
 		setClickCooldown(15)
 		return
 
-	if(!get_cell().checked_use(arms.power_use * CELLRATE))
+	if(!(get_cell()?.checked_use(arms.power_use * CELLRATE)))
 		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
 
 	if(user != src)
@@ -150,6 +150,12 @@
 	else if(adj)
 		setClickCooldown(arms ? arms.action_delay : 15)
 		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
+		if(ismob(A))
+			var/mob/target = A
+			user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			src.attack_log += "\[[time_stamp()]\]<font color='red'> [user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
 
@@ -175,7 +181,7 @@
 		selected_system = null
 	selected_hardpoint = null
 
-/mob/living/heavy_vehicle/proc/enter(var/mob/user)
+/mob/living/heavy_vehicle/proc/enter(var/mob/user, var/instant = FALSE)
 	if(!user || user.incapacitated())
 		return
 	if(!user.Adjacent(src))
@@ -189,9 +195,10 @@
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
 		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
 		return
-	to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
-	if(!do_after(user, 30))
-		return
+	if(!instant)
+		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
+		if(!do_after(user, 30))
+			return
 	if(!user || user.incapacitated())
 		return
 	if(hatch_locked)
@@ -257,7 +264,7 @@
 	if(world.time < next_move)
 		return 0
 
-	if(!user || incapacitated() || user.incapacitated())
+	if(!user || incapacitated() || user.incapacitated() || lockdown)
 		return
 
 	if(!legs)
@@ -290,7 +297,7 @@
 			return
 		Move(target_loc, direction)
 	else
-		get_cell().use(legs.power_use * CELLRATE)
+		get_cell()?.use(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_move = world.time + legs.turn_delay
@@ -301,7 +308,7 @@
 	if(..() && !istype(loc, /turf/space))
 		if(legs && legs.mech_step_sound)
 			playsound(src.loc,legs.mech_step_sound,40,1)
-		get_cell().use(legs.power_use * CELLRATE)
+		get_cell()?.use(legs.power_use * CELLRATE)
 	update_icon()
 
 /mob/living/heavy_vehicle/attackby(var/obj/item/thing, var/mob/user)
@@ -470,7 +477,7 @@
 	if(!isliving(H))
 		return
 
-	if(legs)
+	if(legs?.trample_damage)
 		if(ishuman(H))
 			var/mob/living/carbon/human/D = H
 			if(D.lying)
@@ -490,3 +497,10 @@
 					return TRUE
 			L.apply_damage(legs.trample_damage, BRUTE)
 			return TRUE
+
+/mob/living/heavy_vehicle/proc/ToggleLockdown()
+	lockdown = !lockdown
+	if(lockdown)
+		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!</span>")
+	else
+		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")

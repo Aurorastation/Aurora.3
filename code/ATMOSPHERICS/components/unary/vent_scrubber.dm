@@ -259,24 +259,24 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if (W.iswrench())
 		if (!(stat & NOPOWER) && use_power)
-			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], turn it off first.</span>")
+			to_chat(user, span("warning", "You cannot unwrench \the [src], turn it off first."))
 			return 1
 		var/turf/T = src.loc
 		if (node && node.level==1 && isturf(T) && !T.is_plating())
-			to_chat(user, "<span class='warning'>You must remove the plating first.</span>")
+			to_chat(user, span("warning", "You must remove the plating first."))
 			return 1
 		var/datum/gas_mixture/int_air = return_air()
 		var/datum/gas_mixture/env_air = loc.return_air()
 		if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+			to_chat(user, span("warning", "You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
 			return 1
 		playsound(src.loc, W.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+		to_chat(user, span("notice", "You begin to unfasten \the [src]..."))
 		if (do_after(user, 40/W.toolspeed, act_target = src))
 			user.visible_message( \
-				"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-				"<span class='notice'>You have unfastened \the [src].</span>", \
+				span("notice", "\The [user] unfastens \the [src]."), \
+				span("notice", "You have unfastened \the [src]."), \
 				"You hear a ratchet.")
 			new /obj/item/pipe(loc, make_from=src)
 			qdel(src)
@@ -285,24 +285,23 @@
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if (!WT.welding)
-			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+			to_chat(user, span("danger", "\The [WT] must be turned on!"))
 		else if (WT.remove_fuel(0,user))
-			to_chat(user, "<span class='notice'>Now welding \the [src].</span>")
+			to_chat(user, span("notice", "Now welding \the [src]."))
+			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			if(do_after(user, 20/W.toolspeed, act_target = src))
-				if(!src || !WT.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
-				if(!welded)
-					user.visible_message("<span class='danger'>\The [user] welds \the [src] shut.</span>", "<span class='notice'>You weld \the [src] shut.</span>", "You hear welding.")
-					welded = 1
-					update_icon()
-				else
-					user.visible_message("<span class='danger'>[user] unwelds \the [src].</span>", "<span class='notice'>You unweld \the [src].</span>", "You hear welding.")
-					welded = 0
-					update_icon()
+				if(!src || !WT.isOn()) 
+					return
+				welded = !welded
+				update_icon()
+				playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+				user.visible_message(span("notice", "\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
+									 span("notice", "You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+									 "You hear welding.")
 			else
-				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
+				to_chat(user, span("notice", "You fail to complete the welding."))
 		else
-			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+			to_chat(user, span("warning", "You need more welding fuel to complete this task."))
 		return 1
 	return ..()
 

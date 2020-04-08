@@ -12,7 +12,7 @@
 	name = "great worm maw"
 	desc = "Hop in, the gastrointestinal juices are just fine."
 	icon = 'icons/mob/npc/cavern.dmi'
-	icon_state = "blank"
+	icon_state = null
 	mouse_opacity = 0
 	throwforce = 0
 	anchored = 1

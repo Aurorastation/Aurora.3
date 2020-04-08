@@ -79,6 +79,7 @@
 		var/safety = M:eyecheck(TRUE)
 		if(safety <= 0)
 			flick("e_flash", M.flash)
+			M.confused = 10
 			var/mob/living/carbon/human/H = M
 			var/obj/item/organ/internal/eyes/E = H.get_eyes()
 			if(!E)
@@ -143,7 +144,7 @@
 	//It will never break on the first use.
 	switch(times_used)
 		if(0 to 5)
-			if(prob(10*times_used))	//More consequential rolls are made the more you overuse the device.
+			if(prob(5*times_used))	//More consequential rolls are made the more you overuse the device.
 				broken = 1
 				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
 				icon_state = "flashburnt"
@@ -183,7 +184,7 @@
 	flash_recharge()
 	switch(times_used)
 		if(0 to 5)
-			if(prob(20*times_used))
+			if(prob(5*times_used))
 				broken = 1
 				icon_state = "flashburnt"
 				return

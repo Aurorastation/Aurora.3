@@ -38,9 +38,6 @@ datum/preferences
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
-	var/underwear						//underwear type
-	var/undershirt						//undershirt type
-	var/socks						//socks type
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1
 	var/h_style = "Bald"				//Hair type
@@ -106,7 +103,7 @@ datum/preferences
 	var/list/organ_data = list()
 	var/list/rlimb_data = list()
 	var/list/body_markings = list() // "name" = "#rgbcolor"
-	var/list/player_alt_titles = new()		// the default name of a job like "Medical Doctor"
+	var/list/player_alt_titles = new()		// the default name of a job like "Physician"
 
 	var/list/flavor_texts = list()
 	var/list/flavour_texts_robot = list()
@@ -372,11 +369,17 @@ datum/preferences
 
 	character.sync_trait_prefs_to_mob(src)
 
-	character.underwear = underwear
-
-	character.undershirt = undershirt
-
-	character.socks = socks
+	character.all_underwear.Cut()
+	character.all_underwear_metadata.Cut()
+	for(var/underwear_category_name in all_underwear)
+		var/datum/category_group/underwear/underwear_category = global_underwear.categories_by_name[underwear_category_name]
+		if(underwear_category)
+			var/underwear_item_name = all_underwear[underwear_category_name]
+			character.all_underwear[underwear_category_name] = underwear_category.items_by_name[underwear_item_name]
+			if(all_underwear_metadata[underwear_category_name])
+				character.all_underwear_metadata[underwear_category_name] = all_underwear_metadata[underwear_category_name]
+		else
+			all_underwear -= underwear_category_name
 
 	if(backbag > 6 || backbag < 1)
 		backbag = 1 //Same as above

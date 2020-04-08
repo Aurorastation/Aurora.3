@@ -72,11 +72,20 @@
 			to_chat(src, span("warning", "\The [A] blocks you."))
 			return FALSE
 
+	if(buckled && istype(buckled, /obj/vehicle))
+		var/obj/vehicle/car = buckled
+		if(car.flying)
+			buckled.Move(destination)
+			return TRUE
 	// Actually move.
 	Move(destination)
 	return TRUE
 
 /mob/living/carbon/human/zMove(direction)
+	if(istype(loc, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/mech = loc
+		mech.zMove(direction)
+		return
 	. = ..()
 	if(.)
 		for(var/obj/item/grab/G in list(l_hand, r_hand))
@@ -248,6 +257,11 @@
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
 			return TRUE
 
+	if(buckled && istype(buckled, /obj/vehicle))
+		var/obj/vehicle/car = buckled
+		if(car.flying)
+			return TRUE
+
 	return ..()
 
 /mob/living/silicon/robot/CanAvoidGravity()
@@ -315,6 +329,19 @@
 	if((locate(/obj/structure/disposalpipe/up) in below) || (locate(/obj/machinery/atmospherics/pipe/zpipe/up) in below))
 		return FALSE
 
+/mob/living/heavy_vehicle/can_ztravel(var/direction)
+	if(legs)
+		if(legs.hover && legs.motivator.is_functional())
+			if(get_cell().charge < ((legs.power_use * CELLRATE) / 2))
+				return FALSE
+			return TRUE
+	return FALSE
+
+/mob/living/heavy_vehicle/CanAvoidGravity()
+	if(can_ztravel())
+		return TRUE
+	return FALSE
+
 /mob/living/heavy_vehicle/can_fall(turf/below, turf/simulated/open/dest = src.loc)
 	// The var/climbers API is implemented here.
 	if (LAZYLEN(dest.climbers) && (src in dest.climbers))
@@ -326,6 +353,12 @@
 	// See if something prevents us from falling.
 	for(var/atom/A in below)
 		if(!A.CanPass(src, dest))
+			return FALSE
+
+	// Hover thrusters
+	if(legs)
+		if(legs.hover && legs.motivator.is_functional())
+			get_cell().use((legs.power_use * CELLRATE) / 2)
 			return FALSE
 
 	// True otherwise.
@@ -531,7 +564,7 @@
 
 		visible_message(span("warning", "\The [src] falls and lands arms first!"),
 			span("danger", "You brace your fall with your arms, hitting \the [loc] with a loud thud."), "You hear a thud!")
-		
+
 		if(prob(20))
 			var/obj/item/organ/external/l_hand = get_organ("l_hand")
 			var/obj/item/organ/external/r_hand = get_organ("r_hand")
@@ -604,7 +637,7 @@
 	if (stat == DEAD)
 		SSfeedback.IncrementSimpleStat("openturf_human_deaths")
 
-/mob/living/carbon/human/bst/fall_impact()
+/mob/living/carbon/human/bst/fall_impact(var/damage_mod)
 	return FALSE
 
 /mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)

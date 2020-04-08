@@ -76,6 +76,7 @@
 	antenna["antenna, double"] = /obj/item/clothing/head/antenna/double
 	antenna["antenna, left"] = /obj/item/clothing/head/antenna/double/left
 	antenna["antenna, right"] = /obj/item/clothing/head/antenna/double/right
+	antenna["antenna, trinary perfection"] = /obj/item/clothing/head/antenna/trinary_halo
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
 	gear_tweaks += list(gear_tweak_free_color_choice)
 

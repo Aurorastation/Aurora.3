@@ -570,7 +570,8 @@
 	name = "Lexorin"
 	id = "lexorin"
 	result = "lexorin"
-	required_reagents = list("phoron" = 1, "hydrazine" = 1, "ammonia" = 1)
+	required_reagents = list("tungsten" = 1, "hydrazine" = 1, "ammonia" = 1)
+	catalysts = list("phoron" = 5)
 	result_amount = 3
 
 /datum/chemical_reaction/calomel
@@ -616,6 +617,13 @@
 	required_reagents = list("calomel" = 1, "lexorin" = 1)
 	result_amount = 2
 
+/datum/chemical_reaction/pneumalin
+	name = "Pneumalin"
+	id = "pneumalin"
+	result = "pneumalin"
+	required_reagents = list("coughsyrup" = 1, "copper" = 1, "pulmodeiectionem" = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/saline
 	name = "Saline"
 	id = "saline"
@@ -635,13 +643,6 @@
 	id = "atropine"
 	result = "atropine"
 	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
-	result_amount = 2
-
-/datum/chemical_reaction/inaprovaline
-	name = "Inaprovaline"
-	id = "inaprovaline"
-	result = "inaprovaline"
-	required_reagents = list("atropine" = 1, "phoron" = 0.1, "adrenaline" = 1 )
 	result_amount = 2
 
 /datum/chemical_reaction/coughsyrup
@@ -1240,14 +1241,14 @@
 /datum/chemical_reaction/slime/can_happen(var/datum/reagents/holder)
 	if(holder.my_atom && istype(holder.my_atom, required))
 		var/obj/item/slime_extract/T = holder.my_atom
-		if(T.Uses > 0)
+		if(T.uses > 0)
 			return ..()
-	return 0
+	return FALSE
 
 /datum/chemical_reaction/slime/on_reaction(var/datum/reagents/holder)
 	var/obj/item/slime_extract/T = holder.my_atom
-	T.Uses--
-	if(T.Uses <= 0)
+	T.uses--
+	if(T.uses <= 0)
 		T.visible_message("\icon[T]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
 		T.name = "used slime extract"
 		T.desc = "This extract has been used up."
@@ -1262,9 +1263,8 @@
 	required = /obj/item/slime_extract/grey
 
 /datum/chemical_reaction/slime/spawn/on_reaction(var/datum/reagents/holder)
-	holder.my_atom.visible_message("<span class='warning'>Infused with phoron, the core begins to quiver and grow, and soon a new baby slime emerges from it!</span>")
-	var/mob/living/carbon/slime/S = new /mob/living/carbon/slime
-	S.forceMove(get_turf(holder.my_atom))
+	holder.my_atom.visible_message(SPAN_WARNING("Infused with phoron, the core begins to quiver and grow, and soon a new baby slime emerges from it!"))
+	new /mob/living/carbon/slime(get_turf(holder.my_atom))
 	..()
 
 /datum/chemical_reaction/slime/monkey
@@ -1276,9 +1276,7 @@
 	required = /obj/item/slime_extract/grey
 
 /datum/chemical_reaction/slime/monkey/on_reaction(var/datum/reagents/holder)
-	for(var/i = 1, i <= 3, i++)
-		var /obj/item/reagent_containers/food/snacks/monkeycube/M = new /obj/item/reagent_containers/food/snacks/monkeycube
-		M.forceMove(get_turf(holder.my_atom))
+	new /obj/effect/portal/spawner/monkey_cube(get_turf(holder.my_atom))
 	..()
 
 //Green
@@ -1300,12 +1298,7 @@
 	required = /obj/item/slime_extract/metal
 
 /datum/chemical_reaction/slime/metal/on_reaction(var/datum/reagents/holder)
-	var/obj/item/stack/material/steel/M = new /obj/item/stack/material/steel
-	M.amount = 15
-	M.forceMove(get_turf(holder.my_atom))
-	var/obj/item/stack/material/plasteel/P = new /obj/item/stack/material/plasteel
-	P.amount = 5
-	P.forceMove(get_turf(holder.my_atom))
+	new /obj/effect/portal/spawner/metal(get_turf(holder.my_atom))
 	..()
 
 //Gold - added back in
@@ -1372,6 +1365,18 @@
 		if(prob(50))
 			for(var/j = 1, j <= rand(1, 3), j++)
 				step(C, pick(NORTH,SOUTH,EAST,WEST))
+	..()
+
+/datum/chemical_reaction/slime/rare_metal
+	name = "Slime Rare Metal"
+	id = "rm_metal"
+	result = null
+	required_reagents = list("phoron" = 1)
+	result_amount = 1
+	required = /obj/item/slime_extract/gold
+
+/datum/chemical_reaction/slime/rare_metal/on_reaction(var/datum/reagents/holder)
+	new /obj/effect/portal/spawner/rare_metal(get_turf(holder.my_atom))
 	..()
 
 //Silver
@@ -1455,11 +1460,13 @@
 
 /datum/chemical_reaction/slime/freeze/on_reaction(var/datum/reagents/holder)
 	..()
-	sleep(50)
+	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+
+/datum/chemical_reaction/slime/freeze/proc/do_reaction(var/datum/reagents/holder)
 	playsound(get_turf(holder.my_atom), 'sound/effects/phasein.ogg', 100, 1)
-	for(var/mob/living/M in range (get_turf(holder.my_atom), 7))
+	for(var/mob/living/M in range(7, get_turf(holder.my_atom)))
 		M.bodytemperature -= 140
-		to_chat(M, "<span class='warning'>You feel a chill!</span>")
+		to_chat(M, SPAN_WARNING("You feel a cold chill!"))
 
 //Orange
 /datum/chemical_reaction/slime/casp
@@ -1481,12 +1488,13 @@
 
 /datum/chemical_reaction/slime/fire/on_reaction(var/datum/reagents/holder)
 	..()
-	sleep(50)
-	var/turf/location = get_turf(holder.my_atom.loc)
-	for(var/turf/simulated/floor/target_tile in range(0, location))
+	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+
+/datum/chemical_reaction/slime/fire/proc/do_reaction(var/datum/reagents/holder)
+	var/turf/location = get_turf(holder.my_atom)
+	for(var/turf/simulated/floor/target_tile in range(1, location))
 		target_tile.assume_gas("phoron", 25, 1400)
-		spawn (0)
-			target_tile.hotspot_expose(700, 400)
+		target_tile.hotspot_expose(700, 400)
 
 //Yellow
 /datum/chemical_reaction/slime/overload
@@ -1496,10 +1504,11 @@
 	required_reagents = list("blood" = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/yellow
+	mix_message = "The slime extract begins to vibrate violently!"
 
 /datum/chemical_reaction/slime/overload/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	empulse(get_turf(holder.my_atom), 3, 7)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/empulse, get_turf(holder.my_atom), 3, 7), 50)
 
 /datum/chemical_reaction/slime/cell
 	name = "Slime Powercell"
@@ -1508,10 +1517,10 @@
 	required_reagents = list("phoron" = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/yellow
+	mix_message = "A small sparking part of the extract core falls onto the floor."
 
 /datum/chemical_reaction/slime/cell/on_reaction(var/datum/reagents/holder, var/created_volume)
-	var/obj/item/cell/slime/P = new /obj/item/cell/slime
-	P.forceMove(get_turf(holder.my_atom))
+	new /obj/item/cell/slime(get_turf(holder.my_atom))
 
 /datum/chemical_reaction/slime/glow
 	name = "Slime Glow"
@@ -1524,8 +1533,7 @@
 
 /datum/chemical_reaction/slime/glow/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	var/obj/item/device/flashlight/slime/F = new /obj/item/device/flashlight/slime
-	F.forceMove(get_turf(holder.my_atom))
+	new /obj/item/device/flashlight/slime(get_turf(holder.my_atom))
 
 //Purple
 /datum/chemical_reaction/slime/psteroid
@@ -1538,8 +1546,7 @@
 
 /datum/chemical_reaction/slime/psteroid/on_reaction(var/datum/reagents/holder, var/created_volume)
 	..()
-	var/obj/item/slimesteroid/P = new /obj/item/slimesteroid
-	P.forceMove(get_turf(holder.my_atom))
+	new /obj/item/slimesteroid(get_turf(holder.my_atom))
 
 /datum/chemical_reaction/slime/jam
 	name = "Slime Jam"
@@ -1560,9 +1567,7 @@
 
 /datum/chemical_reaction/slime/plasma/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/stack/material/phoron/P = new /obj/item/stack/material/phoron
-	P.amount = 10
-	P.forceMove(get_turf(holder.my_atom))
+	new /obj/effect/portal/spawner/phoron(get_turf(holder.my_atom))
 
 //Red
 /datum/chemical_reaction/slime/glycerol
@@ -1584,8 +1589,8 @@
 /datum/chemical_reaction/slime/bloodlust/on_reaction(var/datum/reagents/holder)
 	..()
 	for(var/mob/living/carbon/slime/slime in viewers(get_turf(holder.my_atom), null))
-		slime.rabid = 1
-		slime.visible_message("<span class='warning'>The [slime] is driven into a frenzy!</span>")
+		slime.rabid = TRUE
+		slime.visible_message(SPAN_WARNING("\icon[slime] \The [slime] is driven into a frenzy!"))
 
 //Pink
 /datum/chemical_reaction/slime/ppotion
@@ -1598,8 +1603,7 @@
 
 /datum/chemical_reaction/slime/ppotion/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/slimepotion/P = new /obj/item/slimepotion
-	P.forceMove(get_turf(holder.my_atom))
+	new /obj/item/slimepotion(get_turf(holder.my_atom))
 
 //Black
 /datum/chemical_reaction/slime/mutate2
@@ -1622,8 +1626,7 @@
 
 /datum/chemical_reaction/slime/explosion/on_reaction(var/datum/reagents/holder)
 	..()
-	sleep(50)
-	explosion(get_turf(holder.my_atom), 1, 3, 6)
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/explosion, get_turf(holder.my_atom), 1, 3, 6), 50)
 
 //Light Pink
 /datum/chemical_reaction/slime/potion2
@@ -1636,8 +1639,7 @@
 
 /datum/chemical_reaction/slime/potion2/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/item/slimepotion2/P = new /obj/item/slimepotion2
-	P.forceMove(get_turf(holder.my_atom))
+	new /obj/item/slimepotion2(get_turf(holder.my_atom))
 
 //Adamantine
 /datum/chemical_reaction/slime/golem
@@ -1647,11 +1649,11 @@
 	required_reagents = list("phoron" = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/adamantine
+	mix_message = "A soft fizzle is heard within the slime extract, and mystic runes suddenly appear on the floor beneath it!"
 
 /datum/chemical_reaction/slime/golem/on_reaction(var/datum/reagents/holder)
 	..()
-	var/obj/effect/golemrune/Z = new /obj/effect/golemrune
-	Z.forceMove(get_turf(holder.my_atom))
+	new /obj/effect/golemrune(get_turf(holder.my_atom))
 
 /datum/chemical_reaction/soap_key
 	name = "Soap Key"
@@ -1884,7 +1886,7 @@
 	name = "Goldschlager"
 	id = "goldschlager"
 	result = "goldschlager"
-	required_reagents = list("vodka" = 10, "gold" = 1)
+	required_reagents = list("vodka" = 10, MATERIAL_GOLD = 1)
 	mix_message = null
 	reaction_sound = 'sound/effects/pour.ogg'
 	result_amount = 10
@@ -1893,7 +1895,7 @@
 	name = "Patron"
 	id = "patron"
 	result = "patron"
-	required_reagents = list("tequilla" = 10, "silver" = 1)
+	required_reagents = list("tequilla" = 10, MATERIAL_SILVER = 1)
 	result_amount = 10
 
 /datum/chemical_reaction/drink/bilk
@@ -3386,7 +3388,7 @@
 	name = "Transmutation: Gold"
 	id = "transmutation_gold"
 	result = null
-	required_reagents = list("aluminum" = 5, "silver" = 5)
+	required_reagents = list("aluminum" = 5, MATERIAL_SILVER = 5)
 	catalysts = list("philosopher_stone" = 1)
 	result_amount = 1
 
@@ -3400,7 +3402,7 @@
 	name = "Transmutation: Diamond"
 	id = "transmutation_diamond"
 	result = null
-	required_reagents = list("carbon" = 5, "gold" = 5)
+	required_reagents = list("carbon" = 5, MATERIAL_GOLD = 5)
 	catalysts = list("philosopher_stone" = 1)
 	result_amount = 1
 

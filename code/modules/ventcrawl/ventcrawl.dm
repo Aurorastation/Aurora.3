@@ -31,10 +31,10 @@ var/global/list/can_enter_vent_with = list(
 		add_ventcrawl(loc)
 
 /mob/living/carbon/slime/can_ventcrawl()
-	if(Victim)
-		to_chat(src, "<span class='warning'>You cannot ventcrawl while feeding.</span>")
-		return 0
-	return 1
+	if(victim)
+		to_chat(src, span("warning", "You cannot ventcrawl while feeding."))
+		return FALSE
+	return TRUE
 
 /mob/living/proc/is_allowed_vent_crawl_item(var/obj/item/carried_item)
 	if(is_type_in_list(carried_item, can_enter_vent_with))

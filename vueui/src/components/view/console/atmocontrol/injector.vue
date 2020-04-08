@@ -13,9 +13,7 @@
         <vui-button v-else :params="{ toggle_automation: 1 }">Disengaged</vui-button>
       </vui-item>
       <vui-item label="Inject:">
-        <template v-if="state.device.automation">
-          Controls Locked Out
-        </template>
+        <template v-if="state.device.automation">Controls Locked Out</template>
         <template v-else>
           <vui-button :params="{ toggle_injector: 1 }" icon="power-off">Toggle Power</vui-button>
           <vui-button :params="{ injection: 1 }">Inject (1 Cycle)</vui-button>

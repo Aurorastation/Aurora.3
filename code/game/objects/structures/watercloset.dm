@@ -20,13 +20,13 @@
 /obj/structure/toilet/attack_hand(mob/living/user as mob)
 	if(swirlie)
 		usr.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		usr.visible_message("<span class='danger'>[user] slams the toilet seat onto [swirlie.name]'s head!</span>", "<span class='notice'>You slam the toilet seat onto [swirlie.name]'s head!</span>", "You hear reverberating porcelain.")
+		usr.visible_message(span("danger", "[user] slams the toilet seat onto [swirlie.name]'s head!"), span("notice", "You slam the toilet seat onto [swirlie.name]'s head!"), "You hear reverberating porcelain.")
 		swirlie.adjustBruteLoss(8)
 		return
 
 	if(cistern && !open)
 		if(!contents.len)
-			to_chat(user, "<span class='notice'>The cistern is empty.</span>")
+			to_chat(user, span("notice", "The cistern is empty."))
 			return
 		else
 			var/obj/item/I = pick(contents)
@@ -34,7 +34,7 @@
 				user.put_in_hands(I)
 			else
 				I.forceMove(get_turf(src))
-			to_chat(user, "<span class='notice'>You find \an [I] in the cistern.</span>")
+			to_chat(user, span("notice", "You find \an [I] in the cistern."))
 			w_items -= I.w_class
 			return
 
@@ -46,10 +46,10 @@
 
 /obj/structure/toilet/attackby(obj/item/I as obj, mob/living/user as mob)
 	if(I.iscrowbar())
-		to_chat(user, "<span class='notice'>You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"].</span>")
+		to_chat(user, span("notice", "You start to [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]."))
 		playsound(loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		if(do_after(user, 30/I.toolspeed))
-			user.visible_message("<span class='notice'>[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!</span>", "<span class='notice'>You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!</span>", "You hear grinding porcelain.")
+			user.visible_message(span("notice", "[user] [cistern ? "replaces the lid on the cistern" : "lifts the lid off the cistern"]!"), span("notice", "You [cistern ? "replace the lid on the cistern" : "lift the lid off the cistern"]!"), "You hear grinding porcelain.")
 			cistern = !cistern
 			update_icon()
 			return
@@ -63,29 +63,29 @@
 
 			if(G.state>1)
 				if(!GM.loc == get_turf(src))
-					to_chat(user, "<span class='notice'>[GM.name] needs to be on the toilet.</span>")
+					to_chat(user, span("notice", "[GM.name] needs to be on the toilet."))
 					return
 				if(open && !swirlie)
-					user.visible_message("<span class='danger'>[user] starts to give [GM.name] a swirlie!</span>", "<span class='notice'>You start to give [GM.name] a swirlie!</span>")
+					user.visible_message(span("danger", "[user] starts to give [GM.name] a swirlie!"), span("notice", "You start to give [GM.name] a swirlie!"))
 					swirlie = GM
 					if(do_after(user, 30, 5, 0))
-						user.visible_message("<span class='danger'>[user] gives [GM.name] a swirlie!</span>", "<span class='notice'>You give [GM.name] a swirlie!</span>", "You hear a toilet flushing.")
+						user.visible_message(span("danger", "[user] gives [GM.name] a swirlie!"), span("notice", "You give [GM.name] a swirlie!"), "You hear a toilet flushing.")
 						if(!GM.internal)
 							GM.adjustOxyLoss(5)
 						SSfeedback.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
-					user.visible_message("<span class='danger'>[user] slams [GM.name] into the [src]!</span>", "<span class='notice'>You slam [GM.name] into the [src]!</span>")
+					user.visible_message(span("danger", "[user] slams [GM.name] into the [src]!"), span("notice", "You slam [GM.name] into the [src]!"))
 					GM.adjustBruteLoss(8)
 			else
-				to_chat(user, "<span class='notice'>You need a tighter grip.</span>")
+				to_chat(user, span("notice", "You need a tighter grip."))
 
 	if(cistern && !istype(user,/mob/living/silicon/robot)) //STOP PUTTING YOUR MODULES IN THE TOILET.
 		if(I.w_class > 3)
-			to_chat(user, "<span class='notice'>\The [I] does not fit.</span>")
+			to_chat(user, span("notice", "\The [I] does not fit."))
 			return
 		if(w_items + I.w_class > 5)
-			to_chat(user, "<span class='notice'>The cistern is full.</span>")
+			to_chat(user, span("notice", "The cistern is full."))
 			return
 		user.drop_from_inventory(I,src)
 		w_items += I.w_class
@@ -116,12 +116,12 @@
 			var/mob/living/GM = G.affecting
 			if(G.state>1)
 				if(!GM.loc == get_turf(src))
-					to_chat(user, "<span class='notice'>[GM.name] needs to be on the urinal.</span>")
+					to_chat(user, span("notice", "[GM.name] needs to be on the urinal."))
 					return
-				user.visible_message("<span class='danger'>[user] slams [GM.name] into the [src]!</span>", "<span class='notice'>You slam [GM.name] into the [src]!</span>")
+				user.visible_message(span("danger", "[user] slams [GM.name] into the [src]!"), span("notice", "You slam [GM.name] into the [src]!"))
 				GM.adjustBruteLoss(8)
 			else
-				to_chat(user, "<span class='notice'>You need a tighter grip.</span>")
+				to_chat(user, span("notice", "You need a tighter grip."))
 
 
 
@@ -174,14 +174,14 @@
 
 /obj/machinery/shower/attackby(obj/item/I as obj, mob/user as mob)
 	if(I.type == /obj/item/device/analyzer)
-		to_chat(user, "<span class='notice'>The water temperature seems to be [watertemp].</span>")
+		to_chat(user, span("notice", "The water temperature seems to be [watertemp]."))
 	if(I.iswrench())
 		var/newtemp = input(user, "What setting would you like to set the temperature valve to?", "Water Temperature Valve") in temperature_settings
-		to_chat(user, "<span class='notice'>You begin to adjust the temperature valve with \the [I].</span>")
+		to_chat(user, span("notice", "You begin to adjust the temperature valve with \the [I]."))
 		playsound(src.loc, I.usesound, 50, 1)
 		if(do_after(user, 50/I.toolspeed))
 			watertemp = newtemp
-			user.visible_message("<span class='notice'>[user] adjusts the shower with \the [I].</span>", "<span class='notice'>You adjust the shower with \the [I].</span>")
+			user.visible_message(span("notice", "[user] adjusts the shower with \the [I]."), span("notice", "You adjust the shower with \the [I]."))
 			add_fingerprint(user)
 
 /obj/machinery/shower/update_icon()	//this is terribly unreadable, but basically it makes the shower mist up
@@ -330,9 +330,11 @@
 				qdel(E)
 
 /obj/machinery/shower/machinery_process()
-	if(!on) return
+	if(!on) 
+		return
 	wash_floor()
-	if(!mobpresent)	return
+	if(!mobpresent)	
+		return
 	for(var/mob/living/L in loc)
 		wash(L) // Why was it not here before?
 		process_heat(L)
@@ -348,7 +350,8 @@
 		is_washing = 0
 
 /obj/machinery/shower/proc/process_heat(mob/living/M)
-	if(!on || !istype(M)) return
+	if(!on || !istype(M)) 
+		return
 
 	var/temperature = temperature_settings[watertemp]
 	var/temp_adj = between(BODYTEMP_COOLING_MAX, temperature - M.bodytemperature, BODYTEMP_HEATING_MAX)
@@ -357,9 +360,9 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(temperature >= H.species.heat_level_1)
-			to_chat(H, "<span class='danger'>The water is searing hot!</span>")
+			to_chat(H, span("danger", "The water is searing hot!"))
 		else if(temperature <= H.species.cold_level_1)
-			to_chat(H, "<span class='warning'>The water is freezing cold!</span>")
+			to_chat(H, span("warning", "The water is freezing cold!"))
 
 /obj/item/bikehorn/rubberducky
 	name = "rubber ducky"
@@ -393,7 +396,7 @@
 		if (user.hand)
 			temp = H.organs_by_name[BP_L_HAND]
 		if(temp && !temp.is_usable())
-			to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+			to_chat(user, span("notice", "You try to move your [temp.name], but cannot!"))
 			return
 
 	if(isrobot(user) || isAI(user))
@@ -403,28 +406,29 @@
 		return
 
 	if(busy)
-		to_chat(user, "<span class='warning'>Someone's already washing here.</span>")
+		to_chat(user, span("warning", "Someone's already washing here."))
 		return
 
-	to_chat(usr, "<span class='notice'>You start washing your hands.</span>")
-	playsound(src.loc, 'sound/effects/sink_fill.ogg', 25, 1)
+	to_chat(usr, span("notice", "You start washing your hands."))
+	playsound(loc, 'sound/effects/sink_long.ogg', 75, 1)
 
 	busy = 1
-	sleep(40)
+	if(!do_after(user, 40, src))
+		busy = 0
+		return TRUE
 	busy = 0
 
-	if(!Adjacent(user)) return		//Person has moved away from the sink
+	if(!Adjacent(user)) 
+		return		//Person has moved away from the sink
 
 	user.clean_blood()
-	if(ishuman(user))
-		user:update_inv_gloves()
-	for(var/mob/V in viewers(src, null))
-		V.show_message("<span class='notice'>[user] washes their hands using \the [src].</span>")
-		playsound(src.loc, 'sound/effects/sink_empty.ogg', 25, 1)
+	user.visible_message( \
+		span("notice", "[user] washes their hands using \the [src]."), \
+		span("notice", "You wash your hands using \the [src]."))
 
 /obj/structure/sink/attackby(obj/item/O as obj, mob/user as mob)
 	if(busy)
-		to_chat(user, "<span class='warning'>Someone's already washing here.</span>")
+		to_chat(user, span("warning", "Someone's already washing here."))
 		return
 
 	// Filling/emptying open reagent containers
@@ -435,28 +439,28 @@
 		if(!usr.Adjacent(src)) return
 		if(RG.loc != usr && !isrobot(user)) return
 		if(busy)
-			to_chat(usr, "<span class='warning'>Someone's already using \the [src].</span>")
+			to_chat(usr, span("warning", "Someone's already using \the [src]."))
 			return
 
 		switch(atype)
 			if ("Fill")
 				if(RG.reagents.total_volume >= RG.volume)
-					to_chat(usr, "<span class='warning'>\The [RG] is already full.</span>")
+					to_chat(usr, span("warning", "\The [RG] is already full."))
 					return
 
 				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
-				to_chat(oviewers(3, usr), "<span class='notice'>[usr] fills \the [RG] using \the [src].</span>")
-				to_chat(usr, "<span class='notice'>You fill \the [RG] using \the [src].</span>")
-				playsound(src.loc, 'sound/effects/sink_fill.ogg', 25, 1)
+				user.visible_message(span("notice", "[user] fills \the [RG] using \the [src]."),
+									 span("notice", "You fill \the [RG] using \the [src]."))
+				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
-					to_chat(usr, "<span class='warning'>\The [RG] is already empty.</span>")
+					to_chat(usr, span("warning", "\The [RG] is already empty."))
 					return
 
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
-				to_chat(oviewers(3, usr), "<span class='notice'>[usr] empties [empty_amount]u of \the [RG] into \the [src].</span>")
-				to_chat(usr, "<span class='notice'>You empty [empty_amount]u of \the [RG] into \the [src].</span>")
-				playsound(src.loc, 'sound/effects/sink_empty.ogg', 25, 1)
+				user.visible_message(span("notice", "[user] empties [empty_amount]u of \the [RG] into \the [src]."),
+									 span("notice", "You empty [empty_amount]u of \the [RG] into \the [src]."))
+				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
 		return
 
 	// Filling/empying Syringes
@@ -465,23 +469,22 @@
 		switch(S.mode)
 			if(0) // draw
 				if(S.reagents.total_volume >= S.volume)
-					to_chat(usr, "<span class='warning'>\The [S] is already full.</span>")
+					to_chat(usr, span("warning", "\The [S] is already full."))
 					return
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent("water", trans)
-				to_chat(oviewers(3, usr), "<span class='notice'>[usr] uses \the [S] to draw water from \the [src].</span>")
-				to_chat(usr, "<span class='notice'>You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>")
+				user.visible_message(span("notice", "[usr] uses \the [S] to draw water from \the [src]."),
+									 span("notice", "You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
 				if(!S.reagents.total_volume)
-					to_chat(usr, "<span class='warning'>\The [S] is already empty.</span>")
+					to_chat(usr, span("warning", "\The [S] is already empty."))
 					return
 
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
-				to_chat(oviewers(3, usr), "<span class='notice'>[usr] empties \the [S] into \the [src].</span>")
-				to_chat(usr, "<span class='notice'>You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units.</span>")
-
+				user.visible_message(span("notice", "[usr] empties \the [S] into \the [src]."),
+									 span("notice", "You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 		return
 
 	else if (istype(O, /obj/item/melee/baton))
@@ -497,14 +500,14 @@
 					R.cell.charge -= 20
 				else
 					B.deductcharge(B.hitcost)
-				user.visible_message("<span class='danger'>[user] was stunned by \the [O]!</span>")
+				user.visible_message(span("danger", "[user] was stunned by \the [O]!"))
 				return 1
 	// Short of a rewrite, this is necessary to stop monkeycubes being washed.
 	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
 	else if(istype(O, /obj/item/mop))
 		O.reagents.add_reagent("water", 5)
-		to_chat(user, "<span class='notice'>You wet \the [O] in \the [src].</span>")
+		to_chat(user, span("notice", "You wet \the [O] in \the [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
 
@@ -514,10 +517,13 @@
 	var/obj/item/I = O
 	if(!I || !istype(I,/obj/item)) return
 
-	to_chat(usr, "<span class='notice'>You start washing \the [I].</span>")
+	to_chat(usr, span("notice", "You start washing \the [I]."))
+	playsound(loc, 'sound/effects/sink_long.ogg', 75, 1)
 
 	busy = 1
-	sleep(40)
+	if(!do_after(user, 40, src))
+		busy = 0
+		return TRUE
 	busy = 0
 
 	if(user.loc != location) return				//User has moved
@@ -526,14 +532,12 @@
 
 	O.clean_blood()
 	user.visible_message( \
-		"<span class='notice'>[user] washes \a [I] using \the [src].</span>", \
-		"<span class='notice'>You wash \a [I] using \the [src].</span>")
-
+		span("notice", "[user] washes \a [I] using \the [src]."), \
+		span("notice", "You wash \a [I] using \the [src]."))
 
 /obj/structure/sink/kitchen
 	name = "kitchen sink"
 	icon_state = "sink_alt"
-
 
 /obj/structure/sink/puddle	//splishy splashy ^_^
 	name = "puddle"

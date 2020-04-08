@@ -3,7 +3,21 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /decl/flooring/carpet
-	footstep_sound = "dirtstep"//It sounds better than squeaky hard-floor audio
+	footstep_sound = "carpet"
+
+/turf/simulated/floor/carpet/blue
+	name = "blue carpet"
+	icon_state = "bcarpet"
+	initial_flooring = /decl/flooring/carpet/blue
+
+/turf/simulated/floor/carpet/rubber
+	name = "rubber carpet"
+	icon_state = "rub_carpet"
+	initial_flooring = /decl/flooring/carpet/rubber
+
+/turf/simulated/floor/carpet/art
+	icon_state = "artcarpet"
+	initial_flooring = /decl/flooring/carpet/art
 
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
@@ -22,18 +36,19 @@
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
+	footstep_sound = "wood"
 
 /turf/simulated/floor/grass
 	name = "grass patch"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
-	footstep_sound = "grassstep"
+	footstep_sound = "grass"
 
-/turf/simulated/floor/carpet/blue
-	name = "blue carpet"
-	icon_state = "bcarpet"
-	initial_flooring = /decl/flooring/carpet/blue
+/turf/simulated/floor/grass/alt
+	icon = 'icons/turf/total_floors.dmi'
+	icon_state = "grass_alt"
+	initial_flooring = /decl/flooring/grass/alt
 
 /turf/simulated/floor/tiled
 	name = "floor"
@@ -46,7 +61,7 @@
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_state = "reinforced"
 	initial_flooring = /decl/flooring/reinforced
-	footstep_sound = "concretestep"
+	footstep_sound = "plating"
 
 /turf/simulated/floor/reinforced/airless
 	oxygen = 0
@@ -109,14 +124,46 @@
 
 /turf/simulated/floor/tiled/steel
 	name = "steel floor"
+	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "steel_dirty"
 	initial_flooring = /decl/flooring/tiling/steel
-
 
 /turf/simulated/floor/tiled/steel/airless
 	oxygen = 0
 	nitrogen = 0
 	roof_type = null
+
+/turf/simulated/floor/tiled/old
+	name = "old floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_steel"
+	initial_flooring = /decl/flooring/tiling/old
+
+/turf/simulated/floor/tiled/old_dark
+	name = "old dark floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_dark"
+	initial_flooring = /decl/flooring/tiling/old_dark
+
+/turf/simulated/floor/tiled/old_white
+	name = "old sterile floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_white"
+	initial_flooring = /decl/flooring/tiling/old_white
+
+/turf/simulated/floor/tiled/asteroid
+	icon = 'icons/turf/total_floors.dmi'
+	icon_state = "asteroidfloor"
+	initial_flooring = /decl/flooring/tiling/asteroid
+
+/turf/simulated/floor/tiled/asteroid/airless
+	oxygen = 0
+	nitrogen = 0
+	roof_type = null
+
+/turf/simulated/floor/plating/asteroid
+	icon = 'icons/turf/total_floors.dmi'
+	icon_state = "asteroidplating"
 
 /turf/simulated/floor/tiled/white
 	name = "white floor"
@@ -152,6 +199,10 @@
 	icon_state = "lino"
 	initial_flooring = /decl/flooring/linoleum
 
+/turf/simulated/floor/lino/grey
+	icon_state = "lino_grey"
+	initial_flooring = /decl/flooring/linoleum/grey
+
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless
 	name = "vacuum floor"
@@ -165,7 +216,7 @@
 	oxygen = 0
 	nitrogen = 0
 	temperature = TCMB
-	footstep_sound = "concretestep"
+	footstep_sound = "plating"
 
 	roof_type = null
 
@@ -212,7 +263,7 @@
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
-	footstep_sound = "gravelstep"
+	footstep_sound = "snow"
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()
@@ -221,7 +272,7 @@
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowplating"
-	footstep_sound = "gravelstep"
+	footstep_sound = "snow"
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
@@ -268,7 +319,6 @@
 	name = "foamed metal"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "metalfoam"
-	footstep_sound = "gravelstep"
 
 /turf/simulated/floor/foamedmetal/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

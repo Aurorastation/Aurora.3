@@ -515,14 +515,6 @@
 	items = list()
 	result = /obj/item/reagent_containers/food/snacks/soup/slime
 
-
-/datum/recipe/boiledslimeextract
-	reagents = list("water" = 5)
-	items = list(
-		/obj/item/slime_extract
-	)
-	result = /obj/item/reagent_containers/food/snacks/boiledslimecore
-
 /datum/recipe/chocolateegg
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg,
@@ -727,7 +719,7 @@
 	reagents = list("water" = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/bearmeat)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
-	result = /obj/item/reagent_containers/food/snacks/bearstew
+	result = /obj/item/reagent_containers/food/snacks/stew/bear
 
 /datum/recipe/bibimbap
 	fruit = list("carrot" = 1, "cabbage" = 1, "mushroom" = 1)
@@ -1120,11 +1112,11 @@
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
 		/obj/item/reagent_containers/food/snacks/meat/adhomai
 	)
-	result = /obj/item/reagent_containers/food/snacks/tajaran_stew
+	result = /obj/item/reagent_containers/food/snacks/stew/tajaran
 
 /datum/recipe/spicy_clams
 	fruit = list("chili" = 1, "cabbage" = 1)
-	reagents = list("blackpepper" = 1, "spacespice" = 1)
+	reagents = list("capsaicin" = 1, "spacespice" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/clam,
 		/obj/item/reagent_containers/food/snacks/clam

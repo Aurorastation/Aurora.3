@@ -83,7 +83,10 @@
 	..()
 
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
+	else
+		return
 
 	if (W.isscrewdriver() && buildstage == 2)
 		if(!wiresexposed)
@@ -204,7 +207,7 @@
 	else if (href_list["state"] == "inactive")
 		src.reset()
 	if (href_list["tmr"] == "set")
-		time = max(0, input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num)
+		time = Clamp(input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num, 0, 600)
 	else if (href_list["tmr"] == "start")
 		src.timing = 1
 	else if (href_list["tmr"] == "stop")
@@ -252,19 +255,19 @@
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
 	dir = NORTH
-	pixel_y = 28
+	pixel_y = 31
 
 /obj/machinery/firealarm/east
 	dir = EAST
-	pixel_x = 28
+	pixel_x = 31
 
 /obj/machinery/firealarm/west
 	dir = WEST
-	pixel_x = -28
+	pixel_x = -31
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -28
+	pixel_y = -31
 
 /*
 FIRE ALARM CIRCUIT
@@ -276,7 +279,7 @@ Just a object used in constructing fire alarms
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 
 /obj/machinery/firealarm/partyalarm

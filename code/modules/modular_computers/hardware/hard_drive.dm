@@ -174,3 +174,15 @@
 			var/datum/computer_file/data/F = SSdocs.create_file(file)
 			store_file(F)
 	. = ..()
+
+/obj/item/computer_hardware/hard_drive/proc/reset_drive()
+	for(var/datum/computer_file/F in stored_files)
+		remove_file(F)
+	install_default_programs()
+
+/obj/item/computer_hardware/hard_drive/attackby(obj/item/W, mob/living/user)
+	if(istype(W, /obj/item/card/tech_support))
+		reset_drive()
+		to_chat(user, span("notice", "Drive successfully reset."))
+	else
+		..()

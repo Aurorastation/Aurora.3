@@ -34,9 +34,9 @@
 	name = "jetpack (empty)"
 	desc = "A tank of compressed gas for use as propulsion in zero-gravity areas. Use with caution."
 	icon_state = "jetpack"
+	item_state = "jetpack"
 	gauge_icon = null
 	w_class = 4.0
-	item_state = "jetpack"
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	var/datum/effect_system/ion_trail/ion_trail
 	var/on = 0.0
@@ -69,6 +69,7 @@
 	set category = "Object"
 
 	on = !on
+	stabilization_on = !stabilization_on
 	if(on)
 		icon_state = "[icon_state]-on"
 		ion_trail.start()
@@ -81,7 +82,8 @@
 		M.update_inv_back()
 		M.update_action_buttons()
 
-	to_chat(usr, "You toggle the thrusters [on? "on":"off"].")
+	to_chat(usr, span("notice", "You toggle the thrusters [on? "on":"off"]."))
+	to_chat(usr, span("notice", "You toggle the stabilization [stabilization_on? "on":"off"]."))
 
 /obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))

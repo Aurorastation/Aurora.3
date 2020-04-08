@@ -5,12 +5,12 @@
 	icon = 'icons/obj/hacktool.dmi'
 	icon_state = "hacktool-g"
 	flags = CONDUCT
-	force = 5.0
-	w_class = 2.0
-	throwforce = 5.0
+	force = 5
+	w_class = ITEMSIZE_SMALL
+	throwforce = 5
 	throw_range = 15
 	throw_speed = 3
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)

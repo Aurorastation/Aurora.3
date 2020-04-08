@@ -3,16 +3,16 @@
 // It allows you to toggle components of your device.
 
 /datum/computer_file/program/computerconfig
-	filename = "compconfig"
-	filedesc = "Computer Configuration Tool"
-	extended_desc = "This program allows configuration of computer's hardware"
+	filename = "hardwareconfig"
+	filedesc = "Hardware Configuration Tool"
+	extended_desc = "This program allows configuration of the computer's hardware."
 	program_icon_state = "generic"
 	color = LIGHT_COLOR_GREEN
-	unsendable = 1
-	undeletable = 1
+	unsendable = TRUE
+	undeletable = TRUE
 	size = 4
-	available_on_ntnet = 0
-	requires_ntnet = 0
+	available_on_ntnet = FALSE
+	requires_ntnet = FALSE
 
 /datum/computer_file/program/computerconfig/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)

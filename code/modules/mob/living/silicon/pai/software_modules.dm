@@ -74,7 +74,7 @@
 				else
 					to_chat(P, "<b>DNA does not match stored Master DNA.</b>")
 			else
-				to_chat(P, "[M] does not seem like \he is going to provide a DNA sample willingly.")
+				to_chat(P, "[M] does not seem like \he [gender_datums[M.gender].is] going to provide a DNA sample willingly.")
 			return 1
 
 /datum/pai_software/radio_config

@@ -11,7 +11,7 @@
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 
-	minimum_character_age = 25
+	minimum_character_age = 30
 
 	access = list(access_lawyer, access_maint_tunnels)
 	minimal_access = list(access_lawyer)
@@ -46,7 +46,7 @@
 	)
 
 	implants = list(
-		/obj/item/implant/loyalty
+		/obj/item/implant/mindshield
 	)
 
 

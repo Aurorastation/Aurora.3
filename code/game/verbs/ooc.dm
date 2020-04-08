@@ -108,12 +108,21 @@
 	var/list/messageturfs = list()//List of turfs we broadcast to.
 	var/list/messagemobs = list()//List of living mobs nearby who can hear it
 
-	for (var/turf in range(world.view, get_turf(source)))
+	for(var/turf in range(world.view, get_turf(source)))
 		messageturfs += turf
+	if(isAI(source))
+		var/mob/living/silicon/ai/AI = source
+		for(var/turf in range(world.view, get_turf(AI.eyeobj)))
+			messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client || istype(M, /mob/abstract/new_player))
+		if(!M.client || istype(M, /mob/abstract/new_player))
 			continue
+		if(isAI(M))
+			var/mob/living/silicon/ai/AI = M
+			if(get_turf(AI.eyeobj) in messageturfs)
+				messagemobs += M
+				continue
 		if(get_turf(M) in messageturfs)
 			messagemobs += M
 

@@ -62,7 +62,7 @@
 	timerid = null
 
 /datum/looping_sound/proc/sound_loop(starttime)
-	if(max_loops && world.time >= starttime + mid_length * max_loops)
+	if(max_loops && (world.time >= starttime + mid_length * max_loops))
 		stop()
 		return
 	if(!chance || prob(chance))

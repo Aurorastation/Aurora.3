@@ -8,61 +8,65 @@
  *		Circular Saw
  *   	Tray
  */
+/obj/item/surgery/
+	name = "surgery tool"
+	desc = "hey, you aren't supposed to have this"
+	icon = 'icons/obj/surgery.dmi'
+	w_class = 2.0
+	drop_sound = 'sound/items/drop/scrap.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 
 /*
  * Retractor
  */
-/obj/item/retractor
+/obj/item/surgery/retractor
 	name = "retractor"
 	desc = "Retracts stuff."
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "retractor"
-	matter = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 5000)
+	item_state = "retractor"
+	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 	flags = CONDUCT
-	w_class = 2.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
-	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /*
  * Hemostat
  */
-/obj/item/hemostat
+/obj/item/surgery/hemostat
 	name = "hemostat"
 	desc = "You think you have seen this before."
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "hemostat"
-	matter = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
+	item_state = "hemostat"
+	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	flags = CONDUCT
-	w_class = 2.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
-	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /*
  * Cautery
  */
-/obj/item/cautery
+/obj/item/surgery/cautery
 	name = "cautery"
 	desc = "This stops bleeding."
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "cautery"
-	matter = list(DEFAULT_WALL_MATERIAL = 5000, "glass" = 2500)
+	item_state = "cautery"
+	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	flags = CONDUCT
-	w_class = 2.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
-	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /*
  * Surgical Drill
  */
-/obj/item/surgicaldrill
+/obj/item/surgery/surgicaldrill
 	name = "surgical drill"
 	desc = "You can drill using this item. You dig?"
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "drill"
+	item_state = "drill"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 15000, "glass" = 10000)
+	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	flags = CONDUCT
 	force = 15.0
 	w_class = 3
@@ -73,11 +77,11 @@
 /*
  * Scalpel
  */
-/obj/item/scalpel
+/obj/item/surgery/scalpel
 	name = "scalpel"
 	desc = "Cut, cut, and once more cut."
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "scalpel"
+	item_state = "scalpel"
 	flags = CONDUCT
 	force = 10.0
 	sharp = 1
@@ -88,47 +92,47 @@
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 10000, "glass" = 5000)
+	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
 
 /*
  * Researchable Scalpels
  */
-/obj/item/scalpel/laser1
+/obj/item/surgery/scalpel/laser1
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks basic and could be improved."
-	icon_state = "scalpel_laser1_on"
+	icon_state = "scalpel_laser1"
 	damtype = "fire"
 
-/obj/item/scalpel/laser2
+/obj/item/surgery/scalpel/laser2
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks somewhat advanced."
-	icon_state = "scalpel_laser2_on"
+	icon_state = "scalpel_laser2"
 	damtype = "fire"
 	force = 12.0
 
-/obj/item/scalpel/laser3
+/obj/item/surgery/scalpel/laser3
 	name = "laser scalpel"
 	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field.  This one looks to be the pinnacle of precision energy cutlery!"
-	icon_state = "scalpel_laser3_on"
+	icon_state = "scalpel_laser3"
 	damtype = "fire"
 	force = 15.0
 
-/obj/item/scalpel/manager
+/obj/item/surgery/scalpel/manager
 	name = "incision management system"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
-	icon_state = "scalpel_manager_on"
+	icon_state = "scalpel_manager"
 	force = 7.5
 
 /*
  * Circular Saw
  */
-/obj/item/circular_saw
+/obj/item/surgery/circular_saw
 	name = "circular saw"
 	desc = "For heavy duty cutting."
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "saw"
+	item_state = "scalpel"
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
@@ -137,44 +141,40 @@
 	throw_speed = 3
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 20000,"glass" = 10000)
+	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	sharp = 1
 	edge = 1
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
 //misc, formerly from code/defines/weapons.dm
-/obj/item/bonegel
+/obj/item/surgery/bonegel
 	name = "bone gel"
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone-gel"
+	item_state = "bone-gel"
 	force = 0
-	w_class = 2.0
 	throwforce = 1.0
 	drop_sound = 'sound/items/drop/bottle.ogg'
 
-/obj/item/FixOVein
+/obj/item/surgery/FixOVein
 	name = "FixOVein"
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "fixovein"
+	item_state = "fixovein"
 	force = 0
 	throwforce = 1.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 3)
-	w_class = 2.0
 	var/usage_amount = 10
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
-/obj/item/bonesetter
+/obj/item/surgery/bonesetter
 	name = "bone setter"
-	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bonesetter"
+	item_state = "bonesetter"
 	force = 8.0
 	throwforce = 9.0
 	throw_speed = 3
 	throw_range = 5
-	w_class = 2.0
 	attack_verb = list("attacked", "hit", "bludgeoned")
-	drop_sound = 'sound/items/drop/scrap.ogg'
 
 /obj/item/storage/fancy/tray
 	name = "surgery tray"
@@ -190,29 +190,29 @@
 	icon_type = "surgery tool"
 	storage_type = "tray"
 	can_hold = list(
-		/obj/item/bonesetter,
-		/obj/item/cautery,
-		/obj/item/circular_saw,
-		/obj/item/hemostat,
-		/obj/item/retractor,
-		/obj/item/scalpel,
-		/obj/item/surgicaldrill,
-		/obj/item/bonegel,
-		/obj/item/FixOVein,
+		/obj/item/surgery/bonesetter,
+		/obj/item/surgery/cautery,
+		/obj/item/surgery/circular_saw,
+		/obj/item/surgery/hemostat,
+		/obj/item/surgery/retractor,
+		/obj/item/surgery/scalpel,
+		/obj/item/surgery/surgicaldrill,
+		/obj/item/surgery/bonegel,
+		/obj/item/surgery/FixOVein,
 		/obj/item/stack/medical/advanced/bruise_pack,
 		/obj/item/stack/nanopaste
 		)
 
 	starts_with = list(
-		/obj/item/bonesetter = 1,
-		/obj/item/cautery = 1,
-		/obj/item/circular_saw = 1,
-		/obj/item/hemostat = 1,
-		/obj/item/retractor = 1,
-		/obj/item/scalpel = 1,
-		/obj/item/surgicaldrill = 1,
-		/obj/item/bonegel = 1,
-		/obj/item/FixOVein = 1,
+		/obj/item/surgery/bonesetter = 1,
+		/obj/item/surgery/cautery = 1,
+		/obj/item/surgery/circular_saw = 1,
+		/obj/item/surgery/hemostat = 1,
+		/obj/item/surgery/retractor = 1,
+		/obj/item/surgery/scalpel = 1,
+		/obj/item/surgery/surgicaldrill = 1,
+		/obj/item/surgery/bonegel = 1,
+		/obj/item/surgery/FixOVein = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 	)
 
@@ -220,15 +220,19 @@
 	cut_overlays()
 
 	var/list/types_and_overlays = list(
-		/obj/item/bonesetter = "tray_bonesetter",
-		/obj/item/cautery = "tray_cautery",
-		/obj/item/circular_saw = "tray_saw",
-		/obj/item/hemostat = "tray_hemostat",
-		/obj/item/retractor = "tray_retractor",
-		/obj/item/scalpel = "tray_scalpel",
-		/obj/item/surgicaldrill = "tray_drill",
-		/obj/item/bonegel = "tray_bone-gel",
-		/obj/item/FixOVein = "tray_fixovein",
+		/obj/item/surgery/bonesetter = "tray_bonesetter",
+		/obj/item/surgery/cautery = "tray_cautery",
+		/obj/item/surgery/circular_saw = "tray_saw",
+		/obj/item/surgery/hemostat = "tray_hemostat",
+		/obj/item/surgery/retractor = "tray_retractor",
+		/obj/item/surgery/scalpel = "tray_scalpel",
+		/obj/item/surgery/scalpel/laser1 = "tray_scalpel_laser1",
+		/obj/item/surgery/scalpel/laser2 = "tray_scalpel_laser2",
+		/obj/item/surgery/scalpel/laser3 = "tray_scalpel_laser3",
+		/obj/item/surgery/scalpel/manager = "tray_scalpel_manager",
+		/obj/item/surgery/surgicaldrill = "tray_drill",
+		/obj/item/surgery/bonegel = "tray_bone-gel",
+		/obj/item/surgery/FixOVein = "tray_fixovein",
 		/obj/item/stack/medical/advanced/bruise_pack = "tray_bruise_pack"
 	)
 	for (var/obj/item/W in contents)

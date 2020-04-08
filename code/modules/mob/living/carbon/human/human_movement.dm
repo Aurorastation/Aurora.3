@@ -58,7 +58,8 @@
 				tally += 1.5
 
 	if (can_feel_pain())
-		if(shock_stage >= 10) tally += 3
+		if(shock_stage >= 10)
+			tally += 3
 
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
@@ -137,24 +138,30 @@
 	. = ..()
 
 	var/turf/T = loc
-	if (!isturf(T))
-		return
+	var/footsound
+	var/top_layer = 0
+	for(var/obj/structure/S in T)
+		if(S.layer > top_layer && S.footstep_sound)
+			top_layer = S.layer
+			footsound = S.footstep_sound
+	if(!footsound)
+		footsound = T.footstep_sound
 
 	if (client)
 		var/turf/B = GetAbove(T)
 		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
-		if ((x == last_x && y == last_y) || !T.footstep_sound)
+		if ((x == last_x && y == last_y) || !footsound)
 			return
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+			playsound(src, footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+				playsound(src, footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

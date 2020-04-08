@@ -1,6 +1,7 @@
 #define COLOR_BLACK            "#000000"
 #define COLOR_NAVY_BLUE        "#000080"
 #define COLOR_GREEN            "#008000"
+#define COLOR_BRIGHT_GREEN     "#13cf13"
 #define COLOR_DARK_GRAY        "#404040"
 #define COLOR_MAROON           "#800000"
 #define COLOR_PURPLE           "#800080"
@@ -26,6 +27,7 @@
 #define COLOR_YELLOW_GRAY      "#c9a344"
 #define COLOR_PALE_YELLOW      "#c1bb7a"
 #define COLOR_WARM_YELLOW      "#b3863c"
+#define COLOR_YELLOW_ENGI      "#efbf2f"
 #define COLOR_GRAY             "#808080"
 #define COLOR_RED_GRAY         "#aa5f61"
 #define COLOR_BROWN            "#b19664"
@@ -80,6 +82,13 @@
 #define COLOR_ASTEROID_ROCK    "#735555"
 #define COLOR_HOT_PINK         "#ff6088"
 #define COLOR_DIAMOND          "#d8d4ea"
+#define COLOR_TCFL             "#849bc1"
+#define COLOR_IAC              "#96bcde"
+#define COLOR_RIPLEY           "#ffbc37"
+#define COLOR_CULT             "#402821"
+#define COLOR_CULT_REINFORCED  "#8f3329"
+#define COLOR_CULT_DOOR        "#402821"
+
 
 //Color defines used by the assembly detailer.
 #define COLOR_ASSEMBLY_BLACK    "#545454"

@@ -97,7 +97,7 @@
 /obj/structure/inflatable/proc/hit(var/damage, var/sound_effect = 1)
 	health = max(0, health - damage)
 	if(sound_effect)
-		playsound(loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(loc, 'sound/effects/glass_hit.ogg', 75, 1)
 	if(health <= 0)
 		deflate(1)
 
@@ -258,7 +258,7 @@
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	item_state = "box"
 	w_class = 3
 	max_storage_space = 28
 	can_hold = list(/obj/item/inflatable)

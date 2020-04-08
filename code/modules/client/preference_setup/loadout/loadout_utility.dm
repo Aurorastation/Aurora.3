@@ -1,16 +1,26 @@
 /datum/gear/utility
-	display_name = "briefcase"
-	path = /obj/item/storage/briefcase
+	display_name = "clipboard"
+	path = /obj/item/clipboard
 	sort_category = "Utility"
+
+/datum/gear/utility/briefcase
+	display_name = "briefcase selection"
+	description = "A selection of briefcases."
+	path = /obj/item/storage/briefcase
+
+/datum/gear/utility/briefcase/New()
+	..()
+	var/briefcases = list()
+	briefcases["brown briefcase"] = /obj/item/storage/briefcase
+	briefcases["black briefcase"] = /obj/item/storage/briefcase/black
+	briefcases["metal briefcase"] = /obj/item/storage/briefcase/aluminium
+	briefcases["NT briefcase"] = /obj/item/storage/briefcase/nt
+	gear_tweaks += new/datum/gear_tweak/path(briefcases)
 
 /datum/gear/utility/secure
 	display_name = "secure briefcase"
 	path = /obj/item/storage/secure/briefcase
 	cost = 2
-
-/datum/gear/utility/clipboard
-	display_name = "clipboard"
-	path = /obj/item/clipboard
 
 /datum/gear/utility/folder
 	display_name = "folders"
@@ -41,13 +51,30 @@
 	fountainpens["white fountain pen"] = /obj/item/pen/fountain/white
 	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
 
+/datum/gear/utility/hearing_aid
+	display_name = "hearing aid selection"
+	path = /obj/item/device/hearing_aid
+	cost = 1
+
+/datum/gear/utility/hearing_aid/New()
+	..()
+	var/hearingaids = list()
+	hearingaids["hearing aid, skrell design"] = /obj/item/device/hearing_aid
+	hearingaids["hearing aid, human design"] = /obj/item/device/hearing_aid/human
+	gear_tweaks += new/datum/gear_tweak/path(hearingaids)
+
 /datum/gear/utility/paicard
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
 
+/datum/gear/utility/laptop
+	display_name = "laptop"
+	path = /obj/item/modular_computer/laptop/preset
+	cost = 3
+
 /datum/gear/utility/wallet
 	display_name = "wallet, orange"
-	path = 	/obj/item/storage/wallet
+	path = /obj/item/storage/wallet
 
 /datum/gear/utility/wallet_colourable
 	display_name = "wallet, colourable"

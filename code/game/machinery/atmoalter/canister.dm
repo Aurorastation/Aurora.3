@@ -263,7 +263,8 @@ update_flag
 	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/device/pda))
 		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
 		src.health -= W.force
-		src.add_fingerprint(user)
+		if(!istype(W, /obj/item/forensics))
+			src.add_fingerprint(user)
 		healthcheck()
 
 	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))

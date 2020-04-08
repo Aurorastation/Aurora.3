@@ -10,6 +10,7 @@
 	var/on = 1
 	var/area/area = null
 	var/otherarea = null
+	power_channel = LIGHT
 	//	luminosity = 1
 
 /obj/machinery/light_switch/Initialize()
@@ -28,7 +29,7 @@
 /obj/machinery/light_switch/update_icon()
 	cut_overlays()
 	if(!(stat & NOPOWER))
-		holographic_overlay(src, icon, "light[on]-overlay")
+		holographic_overlay(src, icon, "light_switch[on]-overlay")
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")
 			set_light(2, 0.3, on ? "#82ff4c" : "#f86060")
 	else if (light_range)
@@ -57,12 +58,8 @@
 		L.update()
 
 /obj/machinery/light_switch/power_change()
-
 	if(!otherarea)
-		if(powered(LIGHT))
-			stat &= ~NOPOWER
-		else
-			stat |= NOPOWER
+		..()
 
 		update_icon()
 

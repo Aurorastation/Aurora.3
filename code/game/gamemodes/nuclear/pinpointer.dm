@@ -46,6 +46,7 @@
 			icon_state = "pinonmedium"
 		if(16 to INFINITY)
 			icon_state = "pinonfar"
+	return TRUE
 
 /obj/item/pinpointer/examine(mob/user)
 	..(user)
@@ -80,6 +81,7 @@
 	else
 		active = 0
 		icon_state = "pinoff"
+		cut_overlays()
 		to_chat(usr, "<span class='notice'>You deactivate the pinpointer</span>")
 
 /obj/item/pinpointer/advpinpointer/process()
@@ -99,6 +101,7 @@
 		icon_state = "pinonnull"
 		return
 	set_dir(get_dir(src,location))
+	set_z_overlays(location)
 	switch(get_dist(src,location))
 		if(0)
 			icon_state = "pinondirect"
@@ -109,6 +112,23 @@
 		if(16 to INFINITY)
 			icon_state = "pinonfar"
 
+/obj/item/pinpointer/advpinpointer/proc/set_z_overlays(var/atom/target)
+	cut_overlays()
+	if(AreConnectedZLevels(src.loc.z, target.z))
+		if(src.loc.z > target.z)
+			add_overlay("pinzdown")
+		else if(src.loc.z < target.z)
+			add_overlay("pinzup")
+	else
+		active = 0
+		if(ismob(loc))
+			var/mob/holder = loc
+			to_chat(holder, "<span class='notice>\The [src] cannot locate chosen target, shutting down.</span>")
+
+/obj/item/pinpointer/advpinpointer/workdisk()
+	if(..())
+		set_z_overlays(the_disk)
+
 /obj/item/pinpointer/advpinpointer/proc/workobj()
 	if(!active)
 		STOP_PROCESSING(SSfast_process, src)
@@ -117,6 +137,7 @@
 		icon_state = "pinonnull"
 		return
 	set_dir(get_dir(src,target))
+	set_z_overlays(target)
 	switch(get_dist(src,target))
 		if(0)
 			icon_state = "pinondirect"
@@ -196,7 +217,7 @@
 
 /obj/item/pinpointer/nukeop
 	var/mode = 0	//Mode 0 locates disk, mode 1 locates the shuttle
-	var/obj/machinery/computer/shuttle_control/multi/syndicate/home = null
+	var/obj/machinery/computer/shuttle_control/multi/antag/syndicate/home = null
 
 /obj/item/pinpointer/nukeop/attack_self(mob/user as mob)
 	if(!active)

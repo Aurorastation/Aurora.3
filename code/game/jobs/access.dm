@@ -84,6 +84,9 @@
 /proc/get_distress_access()
 	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
 
+/proc/get_distress_access_lesser()
+	return list(access_distress, access_external_airlocks)
+
 /var/list/datum/access/priv_all_access_datums
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
@@ -243,7 +246,7 @@ var/obj/item/card/id/all_access/ghost_all_access
 		return wear_id.GetID()
 
 /mob/living/silicon/GetIdCard()
-	return idcard
+	return id_card
 
 proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
 	var/obj/item/card/id/C = M.GetIdCard()

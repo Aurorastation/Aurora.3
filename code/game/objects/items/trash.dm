@@ -152,3 +152,24 @@
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy! miniature cookies"
 	icon_state = "cookiesnack"
+
+/obj/item/trash/stew
+	name = "empty pot"
+	icon = 'icons/obj/food.dmi'
+	icon_state = "stew_empty"
+	drop_sound = 'sound/items/drop/shovel.ogg'
+
+/obj/item/trash/coffee
+	name = "empty cup"
+	icon_state = "coffee_vended"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+
+/obj/item/trash/ramen
+	name = "cup ramen"
+	icon_state = "ramen"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+
+/obj/item/trash/candybowl
+	name = "empty candy bowl"
+	icon_state = "candy_bowl"
+	drop_sound = 'sound/items/drop/bottle.ogg'

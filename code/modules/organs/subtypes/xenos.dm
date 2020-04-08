@@ -55,4 +55,3 @@
 	name = "waste tract"
 	parent_organ = BP_CHEST
 	color = "#0033cc"
-	tolerance = 20

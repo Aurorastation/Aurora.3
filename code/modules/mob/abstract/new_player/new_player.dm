@@ -27,7 +27,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_player_panel_proc()
 
 /mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B>New Player Options</B>"
+	var/output = "<div align='center'><B>New Player Options</B><br>"
+	var/character_name = client.prefs.real_name
+	if(character_name)
+		output += "<b>Selected Character: [character_name]</b>"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
@@ -187,6 +190,12 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["manifest"])
 		ViewManifest()
 
+	if(href_list["ghostspawner"])
+		if(!ROUND_IS_STARTED)
+			to_chat(usr, SPAN_WARNING("The round hasn't started yet!"))
+			return
+		SSghostroles.vui_interact(src)
+
 	if(href_list["SelectedJob"])
 
 		if(!config.enter_allowed)
@@ -336,6 +345,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		empty_playable_ai_cores -= C
 
 		character.forceMove(C.loc)
+		character.eyeobj.forceMove(C.loc)
 
 		AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [character.loc.loc]")
 		SSticker.mode.handle_latejoin(character)
@@ -382,6 +392,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/dat = "<center>"
 	dat += "<b>Welcome, [name].<br></b>"
 	dat += "Round Duration: [get_round_duration_formatted()]<br>"
+	dat += "Alert Level: [capitalize(get_security_level())]<br>"
 
 	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
 		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
@@ -391,6 +402,22 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
 			else						// Crew transfer initiated
 				dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
+
+	var/unique_role_available = FALSE
+	for(var/ghost_role in SSghostroles.spawners)
+		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
+		if(!G.show_on_job_select)
+			continue
+		if(!G.enabled)
+			continue
+		if(!isnull(G.req_perms))
+			continue
+		unique_role_available = TRUE
+		break
+
+	if(unique_role_available)
+		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>A unique ghost role is available:</b></font><br>"
+	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A><br>"
 
 	dat += "Choose from the following open/valid positions:<br>"
 	for(var/datum/job/job in SSjobs.occupations)

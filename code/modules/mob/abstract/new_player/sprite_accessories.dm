@@ -194,13 +194,6 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "messy locks"
 
-	bedhead5
-		name = "Bedhead 5"
-		icon_state = "hair_bedhead5"
-		gender = FEMALE
-		length = 4
-		chatname = "messy locks"
-
 	beehive
 		name = "Beehive"
 		icon_state = "hair_beehive"
@@ -2147,6 +2140,24 @@ Follow by example and make good judgement based on length which list to include 
 			length = 5
 			chatname = "horns"
 
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "unathi_hood"
+			length = 5
+			chatname = "hood"
+
+		una_skewers
+			name = "Unathi Super Long Horns"
+			icon_state = "unathi_skewers"
+			length = 6
+			chatname = "huge horns"
+
+		una_chameleon
+			name = "Unathi Chameleon Horns"
+			icon_state = "unathi_chameleon"
+			length = 3
+			chatname = "small horns"
+
 //skrell tentacles
 
 	skr_tentacle_m
@@ -2565,6 +2576,18 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Unathi Double Horns"
 			icon_state = "facial_dubhorns"
 
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "facial_hood"
+
+		una_skewers
+			name = "Unathi Super Long Horns"
+			icon_state = "facial_skewers"
+
+		una_chameleon
+			name = "Unathi Chameleon Horns"
+			icon_state = "facial_chameleon"
+
 //ipc screens
 
 	ipc_screen_blank
@@ -2845,6 +2868,24 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Scutes"
 		icon_state = "una_scutes"
 		body_parts = list(BP_CHEST)
+		species_allowed = list("Unathi")
+
+	una_maswaist
+		name = "Masculine Waist (For Females)"
+		icon_state = "una_maswaist"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Unathi")
+
+	una_clawshand
+		name = "Claws (Hands)"
+		icon_state = "una_claws"
+		body_parts = list(BP_L_HAND,BP_R_HAND)
+		species_allowed = list("Unathi")
+
+	una_clawsfoot
+		name = "Claws (Feet)"
+		icon_state = "una_claws"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT)
 		species_allowed = list("Unathi")
 
 	spelunker

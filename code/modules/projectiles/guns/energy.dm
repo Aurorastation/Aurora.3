@@ -1,10 +1,15 @@
 /obj/item/gun/energy
 	name = "energy gun"
 	desc = "A basic energy-based gun."
-	icon_state = "energy"
+	icon = 'icons/obj/guns/ecarbine.dmi'
+	icon_state = "energykill100"
+	item_state = "energykill100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	fire_sound_text = "laser blast"
 	update_icon_on_init = TRUE
+
+	var/has_icon_ratio = TRUE // Does this gun use the ratio system to modify its icon_state?
+	var/has_item_ratio = TRUE // Does this gun use the ratio system to paint its item_states?
 
 	var/obj/item/cell/power_supply //What type of power cell this uses
 	var/charge_cost = 200 //How much energy is needed to fire.
@@ -67,10 +72,14 @@
 	addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 
 /obj/item/gun/energy/consume_next_projectile()
-	if(!power_supply) return null
-	if(!ispath(projectile_type)) return null
-	if(!power_supply.checked_use(charge_cost)) return null
-	if (self_recharge) addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+	if(!power_supply)
+		return null
+	if(!ispath(projectile_type))
+		return null
+	if(!power_supply.checked_use(charge_cost))
+		return null
+	if(self_recharge)
+		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	return new projectile_type(src)
 
 /obj/item/gun/energy/proc/get_external_power_supply()
@@ -92,6 +101,8 @@
 
 /obj/item/gun/energy/examine(mob/user)
 	..(user)
+	if(get_dist(src, user) > 1)
+		return
 	var/shots_remaining = round(power_supply.charge / charge_cost)
 	to_chat(user, "Has [shots_remaining] shot\s remaining.")
 	return
@@ -100,6 +111,8 @@
 	..()
 	if(charge_meter && power_supply && power_supply.maxcharge)
 		var/ratio = power_supply.charge / power_supply.maxcharge
+		var/icon_state_ratio = ""
+		var/item_state_ratio = ""
 
 		//make sure that rounding down will not give us the empty state even if we have charge for a shot left.
 		if(power_supply.charge < charge_cost)
@@ -107,8 +120,15 @@
 		else
 			ratio = max(round(ratio, 0.25) * 100, 25)
 
+		if(has_icon_ratio)
+			icon_state_ratio = ratio
+		if(has_item_ratio)
+			item_state_ratio = ratio
+
 		if(modifystate)
-			icon_state = "[modifystate][ratio]"
+			icon_state = "[modifystate][icon_state_ratio]"
+			item_state = "[modifystate][item_state_ratio]"
 		else
-			icon_state = "[initial(icon_state)][ratio]"
+			icon_state = "[initial(icon_state)][icon_state_ratio]"
+			item_state = "[initial(item_state)][item_state_ratio]"
 	update_held_icon()

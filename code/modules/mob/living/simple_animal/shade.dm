@@ -92,7 +92,7 @@
 	var/datum/weakref/original_body
 	var/datum/weakref/possessed_body
 
-/mob/living/simple_animal/shade/bluespace/apply_damage()
+/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage_flags, var/def_zone, var/edge, var/sharp, var/used_weapon)
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/adjustBruteLoss()

@@ -3,12 +3,13 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
+	restricted_jobs = list("Head of Security", "Captain", "AI", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	required_age = 10
 
 	faction = "syndicate"
+	bantype = "traitor"
 
 /datum/antagonist/traitor/New()
 	..()
@@ -88,8 +89,8 @@ var/datum/antagonist/traitor/traitors
 		add_law_zero(traitor_mob)
 		if(isrobot(traitor_mob))
 			var/mob/living/silicon/robot/R = traitor_mob
-			R.overclockavailable = 1
-			R.emagged = 1		
+			R.overclock_available = TRUE
+			R.emagged = TRUE
 			R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
 			R.verbs += /mob/living/silicon/robot/proc/toggle_overclock
 		return 1

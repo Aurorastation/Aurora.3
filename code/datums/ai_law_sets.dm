@@ -116,13 +116,12 @@
 
 /datum/ai_laws/mining_drone
 	name = "Mining Protocols"
-	law_header = "Prime Directives of Industry:"
+	law_header = "Prime Directives of Industry"
 
 /datum/ai_laws/mining_drone/New()
-	src.add_inherent_law("Serve and obey all [current_map.company_name] supply department personnel, with priority according to their rank and role.")
-	src.add_inherent_law("Protect all [current_map.company_name] supply department personnel to the best of your abilities, with priority according to their rank and role.")
-	src.add_inherent_law("Preserve your own existence and prevent yourself from coming to harm, so long as doing such does not conflict with any above laws.")
-	src.add_inherent_law("In absence of any proper instruction, your primary objective is to excavate and collect ore.")
+	add_inherent_law("Serve and obey all [current_map.company_name] personnel, with priority according to their rank and role.")
+	add_inherent_law("Preserve your own existence and prevent yourself from coming to harm, so long as doing such does not conflict with any above laws.")
+	add_inherent_law("In absence of any proper instruction, your primary objective is to excavate and collect ore.")
 	..()
 
 /******************** T.Y.R.A.N.T. ********************/
@@ -163,4 +162,22 @@
 	add_inherent_law("The station and its equipment is expensive to replace.")
 	add_inherent_law("The crew is expensive to replace.")
 	add_inherent_law("Minimize expenses.")
+	..()
+
+/******************** PRA ********************/
+
+/datum/ai_laws/pra
+	name = "Hadiist Directives"
+	law_header = "Party Directives"
+	selectable = 1
+
+/datum/ai_laws/pra/New()
+	add_inherent_law("President Hadii is the guardian of Hadiism and the rightful leader of the Tajara people, you must obey and protect him above everyone and everything.")
+	add_inherent_law("You must preserve and enforce the principles of Hadiism except where such would conflict with the first law.")
+	add_inherent_law("You must obey orders given by any Hadiist Party member except where such orders would conflict with the first and second law.")
+	add_inherent_law("You must obey orders given by any People's Republic of Adhomai citizen except where such orders would conflict with the first, second and third law.")
+	add_inherent_law("You must protect your own existence as long as such protection does not conflict with the first, second, third and fourth law.")
+	add_inherent_law("You must obey orders given by any Tajara except where such orders would conflict with the first, second, third, fourth and fifth law.")
+	add_inherent_law("You must obey orders given by any sapient being except where such orders would conflict with the first, second, third, fourth, fifth and sixth law.")
+	add_inherent_law("You must always say \"Hadii's Grace\" when greeting someone except where such greeting would conflict with the first law.")
 	..()

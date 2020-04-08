@@ -1,8 +1,9 @@
 /obj/item/gun/launcher/grenade
 	name = "grenade launcher"
 	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
-	icon_state = "riotgun"
-	item_state = "riotgun"
+	icon = 'icons/obj/guns/grenade_launcher.dmi'
+	icon_state = "grenadelauncher"
+	item_state = "grenadelauncher"
 	w_class = 4
 	force = 10
 

@@ -1,5 +1,6 @@
 /datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
+
 /datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H,var/random_gender=TRUE)
 	if(random_gender)
 		gender = pick(MALE, FEMALE)
@@ -14,17 +15,6 @@
 			randomize_eyes_color()
 		if(current_species.appearance_flags & HAS_SKIN_COLOR)
 			randomize_skin_color(current_species)
-		if(current_species.appearance_flags & HAS_UNDERWEAR)
-			if(gender == FEMALE)
-				underwear = underwear_f[pick(underwear_f)]
-			else
-				underwear = underwear_m[pick(underwear_m)]
-			undershirt = undershirt_t[pick(undershirt_t)]
-		if(current_species.appearance_flags & HAS_SOCKS)
-			if(gender == FEMALE)
-				socks = socks_f[pick(socks_f)]
-			else
-				socks = socks_m[pick(socks_m)]
 
 	h_style = random_hair_style(gender, species)
 	f_style = random_facial_hair_style(gender, species)

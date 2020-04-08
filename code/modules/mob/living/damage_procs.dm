@@ -9,12 +9,14 @@
 */
 
 /mob/living/proc/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/sharp = 0, var/edge = 0, var/damage_flags)
-	if(!damage || (blocked >= 100))	return 0
+	if(!damage || (blocked >= 100))
+		return 0
 	switch(damagetype)
 		if(BRUTE)
 			adjustBruteLoss(damage * BLOCKED_MULT(blocked))
 		if(BURN)
-			if(COLD_RESISTANCE in mutations)	damage = 0
+			if(COLD_RESISTANCE in mutations)
+				damage = 0
 			adjustFireLoss(damage * BLOCKED_MULT(blocked))
 		if(TOX)
 			adjustToxLoss(damage * BLOCKED_MULT(blocked))
@@ -28,7 +30,6 @@
 	updatehealth()
 	return 1
 
-
 /mob/living/proc/apply_damages(var/brute = 0, var/burn = 0, var/tox = 0, var/oxy = 0, var/clone = 0, var/halloss = 0, var/def_zone = null, var/blocked = 0)
 	if(blocked >= 100)	return 0
 	if(brute)	apply_damage(brute, BRUTE, def_zone, blocked)
@@ -38,8 +39,6 @@
 	if(clone)	apply_damage(clone, CLONE, def_zone, blocked)
 	if(halloss) apply_damage(halloss, PAIN, def_zone, blocked)
 	return 1
-
-
 
 /mob/living/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
 	if(!effect || (blocked >= 100))	return 0

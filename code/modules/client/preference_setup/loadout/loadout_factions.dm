@@ -47,10 +47,28 @@
 	faction = "Eridani Private Military Contractors"
 
 /datum/gear/faction/zenghu_uniform_alt
-	display_name = "zeng-hu black uniform"
+	display_name = "zeng-hu white uniform"
 	path = /obj/item/clothing/under/rank/zeng/alt
 	slot = slot_wear_suit
 	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zenghu_beret
+	display_name = "purple zeng-hu beret"
+	path = /obj/item/clothing/head/beret/zeng
+	slot = slot_head
+	faction = "Zeng-Hu Pharmaceuticals"
+
+/datum/gear/faction/zenghu_beret_alt
+	display_name = "white zeng-hu beret"
+	path = /obj/item/clothing/head/beret/zeng/alt
+	slot = slot_head
+	faction = "Zeng-Hu Pharmaceuticals"		
+
+/datum/gear/faction/zenghu_labcoat
+	display_name = "zeng-hu labcoat"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/zeng
+	slot = slot_wear_suit
+	faction = "Zeng-Hu Pharmaceuticals"	
 
 /datum/gear/faction/necro_patch
 	display_name = "necropolis sleeve patch"
