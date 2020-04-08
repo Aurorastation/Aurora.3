@@ -72,8 +72,6 @@
 	power_supply.maxcharge = 10000
 	power_supply.charge = 10000
 	charge_cost = 1000
-	self_recharge = TRUE
-	recharge_time = 5
 	emagged = TRUE
 	return TRUE
 
