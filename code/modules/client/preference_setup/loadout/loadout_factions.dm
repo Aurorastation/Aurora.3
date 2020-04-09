@@ -40,6 +40,12 @@
 	slot = slot_wear_suit
 	faction = "Necropolis Industries"
 
+/datum/gear/faction/necro_labcoat
+	display_name = "necropolis labcoat"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/necro
+	slot = slot_wear_suit
+	faction = "Necropolis Industries"	
+
 /datum/gear/faction/eridani_beret
 	display_name = "eridani beret"
 	path = /obj/item/clothing/head/beret/sec/eri
@@ -94,3 +100,15 @@
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
 	allowed_roles = list("Security Officer","Detective")
+
+/datum/gear/faction/heph_labcoat
+	display_name = "hephaestus labcoat"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/heph
+	slot = slot_wear_suit
+	faction = "Hephaestus Industries"
+
+/datum/gear/faction/heph_beret
+	display_name = "hephaestus beret"
+	path = /obj/item/clothing/head/beret/heph
+	slot = slot_head
+	faction = "Hephaestus Industries"
