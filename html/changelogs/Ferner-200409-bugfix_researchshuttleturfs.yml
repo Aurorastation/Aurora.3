@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixes the research shuttle not leaving the proper turfs behind."
