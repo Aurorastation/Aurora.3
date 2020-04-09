@@ -153,13 +153,12 @@ Implant Specifics:<BR>"}
 	desc = "A military grade micro bio-explosive. Highly dangerous."
 	var/elevel = "Localized Limb"
 	var/phrase
-	var/fallback_phrase = "supercalifragilisticexpialidocious"
 	var/setup_done = FALSE //Have we set this yet?
 	icon_state = "implant_evil"
 
 /obj/item/implant/explosive/Initialize()
 	. = ..()
-	fallback_phrase = pick(adjectives)
+	phrase = "You are [pick(adjectives)]"
 
 /obj/item/implant/explosive/get_data()
 	. = {"
@@ -179,12 +178,10 @@ Implant Specifics:<BR>"}
 		if(implanter.imp)
 			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
 			return // It's full.
-		if(!phrase)
-			var/choice = alert("\The [src]'s default phrase has not been changed. Continue?", "Ready for Implantation?", "Yes", "Cancel")
+		if(!setup_done)
+			var/choice = alert("\The [src]'s default settings have not been changed. Continue?", "Ready for Implantation?", "Yes", "Cancel")
 			if(choice == "Cancel")
 				return
-			else
-				phrase = fallback_phrase
 		to_chat(user, "<B>You load \the [src] into \the [I]. The current setting is \"[elevel]\" and the current phrase is \"[phrase]\".</B>")
 		user.drop_from_inventory(src)
 		forceMove(implanter)
@@ -272,8 +269,6 @@ Implant Specifics:<BR>"}
 	SSexplosives.queue(data)
 
 /obj/item/implant/explosive/implanted(mob/source, mob/user)
-	if(!phrase)
-		phrase = fallback_phrase
 	if(user.mind)
 		user.mind.store_memory("\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
 	to_chat(usr, "\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
@@ -284,8 +279,6 @@ Implant Specifics:<BR>"}
 	phrase = input("Choose activation phrase:") as text
 	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
 	phrase = replace_characters(phrase, replacechars)
-	if(!phrase)
-		phrase = fallback_phrase
 	user.mind.store_memory("\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
 	to_chat(user, "\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
 	setup_done = TRUE

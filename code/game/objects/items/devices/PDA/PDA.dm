@@ -424,7 +424,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/MouseDrop(obj/over_object as obj, src_location, over_location)
 	var/mob/M = usr
-	if((!istype(over_object, /obj/screen)) && !use_check(M))
+	if(!istype(over_object, /obj/screen) && !use_check(M) && !(over_object == src))
 		return attack_self(M)
 
 /obj/item/device/pda/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
