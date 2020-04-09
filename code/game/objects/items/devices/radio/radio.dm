@@ -305,7 +305,7 @@ var/global/list/default_medbay_channels = list(
 		set_frequency(frequency)
 
 	if(loc == M)
-		playsound(loc, 'sound/effects/walkietalkie.ogg', 10, 0, -1)
+		playsound(loc, 'sound/effects/walkietalkie.ogg', 5, 0, -1, required_asfx_toggles = ASFX_RADIO)
 
 	/* Quick introduction:
 		This new radio system uses a very robust FTL signaling technology unoriginally

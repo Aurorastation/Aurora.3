@@ -68,8 +68,9 @@
 #define ASFX_VOX		8
 #define ASFX_DROPSOUND	16
 #define ASFX_ARCADE		32
+#define ASFX_RADIO		64
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE|ASFX_RADIO)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.
