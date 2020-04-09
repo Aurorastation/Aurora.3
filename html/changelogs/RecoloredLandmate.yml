@@ -38,6 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Altered the misaligned TC-Drone overlays to where they're properly floating with the 'borg sprite now."
-  - bugfix: "Added Fren overlay changes and animations at the request of their player."
-  - bugfix: "FIxed the Maint. Drone movestate, it was one pixel forward so didn't sync up right with the overlay when it moved.."
+  - rscadd: "Added a new animation for the module and sprite selection process, it's a repurpose of the telepad spark animation."
+  - tweak: "Lowered the sprite selection tries to 6 from 11, 11 is overkill.
