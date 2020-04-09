@@ -14,7 +14,7 @@
 	possible_transfer_amounts = list(1,5,10)
 	center_of_mass = list("x"=16, "y"=6)
 	volume = 50
-	var/next_shake = TRUE
+	var/next_shake
 
 /obj/item/reagent_containers/food/condiment/proc/shake(var/mob/user)
 	if(world.time >= next_shake)
