@@ -581,3 +581,6 @@
 
 /datum/species/proc/can_commune()
 	return FALSE
+
+/datum/species/proc/handle_despawn()
+	return

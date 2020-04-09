@@ -246,7 +246,7 @@ var/obj/item/card/id/all_access/ghost_all_access
 		return wear_id.GetID()
 
 /mob/living/silicon/GetIdCard()
-	return idcard
+	return id_card
 
 proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
 	var/obj/item/card/id/C = M.GetIdCard()

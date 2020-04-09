@@ -5,6 +5,20 @@
 	initial_flooring = /decl/flooring/carpet
 	footstep_sound = "carpet"
 
+/turf/simulated/floor/carpet/blue
+	name = "blue carpet"
+	icon_state = "bcarpet"
+	initial_flooring = /decl/flooring/carpet/blue
+
+/turf/simulated/floor/carpet/rubber
+	name = "rubber carpet"
+	icon_state = "rub_carpet"
+	initial_flooring = /decl/flooring/carpet/rubber
+
+/turf/simulated/floor/carpet/art
+	icon_state = "artcarpet"
+	initial_flooring = /decl/flooring/carpet/art
+
 /turf/simulated/floor/bluegrid
 	name = "mainframe floor"
 	icon = 'icons/turf/flooring/circuit.dmi'
@@ -35,11 +49,6 @@
 	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "grass_alt"
 	initial_flooring = /decl/flooring/grass/alt
-
-/turf/simulated/floor/carpet/blue
-	name = "blue carpet"
-	icon_state = "bcarpet"
-	initial_flooring = /decl/flooring/carpet/blue
 
 /turf/simulated/floor/tiled
 	name = "floor"
@@ -124,10 +133,33 @@
 	nitrogen = 0
 	roof_type = null
 
+/turf/simulated/floor/tiled/old
+	name = "old floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_steel"
+	initial_flooring = /decl/flooring/tiling/old
+
+/turf/simulated/floor/tiled/old_dark
+	name = "old dark floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_dark"
+	initial_flooring = /decl/flooring/tiling/old_dark
+
+/turf/simulated/floor/tiled/old_white
+	name = "old sterile floor"
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_state = "old_white"
+	initial_flooring = /decl/flooring/tiling/old_white
+
 /turf/simulated/floor/tiled/asteroid
 	icon = 'icons/turf/total_floors.dmi'
 	icon_state = "asteroidfloor"
 	initial_flooring = /decl/flooring/tiling/asteroid
+
+/turf/simulated/floor/tiled/asteroid/airless
+	oxygen = 0
+	nitrogen = 0
+	roof_type = null
 
 /turf/simulated/floor/plating/asteroid
 	icon = 'icons/turf/total_floors.dmi'
@@ -166,6 +198,10 @@
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_state = "lino"
 	initial_flooring = /decl/flooring/linoleum
+
+/turf/simulated/floor/lino/grey
+	icon_state = "lino_grey"
+	initial_flooring = /decl/flooring/linoleum/grey
 
 //ATMOS PREMADES
 /turf/simulated/floor/reinforced/airless

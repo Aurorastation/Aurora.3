@@ -2,7 +2,12 @@
 	name = "\improper DNA injector"
 	desc = "This injects the person with DNA."
 	icon = 'icons/obj/items.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	icon_state = "dnainjector"
+	item_state = "dnainjector"
 	var/block=0
 	var/datum/dna2/record/buf=null
 	var/s_time = 10.0

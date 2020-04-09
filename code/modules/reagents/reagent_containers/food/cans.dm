@@ -100,7 +100,7 @@
 /obj/item/reagent_containers/food/drinks/cans/grape_juice
 	name = "\improper Grapel juice"
 	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
-	icon_state = "purple_can"
+	icon_state = "grapesoda"
 	center_of_mass = list("x"=16, "y"=10)
 
 /obj/item/reagent_containers/food/drinks/cans/grape_juice/Initialize()
@@ -113,7 +113,7 @@
 	icon_state = "tonic"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/toni/Initialize()
+/obj/item/reagent_containers/food/drinks/cans/tonic/Initialize()
 	. = ..()
 	reagents.add_reagent("tonic", 50)
 

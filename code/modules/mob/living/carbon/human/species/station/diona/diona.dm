@@ -46,7 +46,7 @@
 	water and other radiation."
 
 	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
-	resist_mod = 3 // Pretty stronk tho, can break out
+	resist_mod = 2 // Reasonably stronk, not moreso than an Unathi or robot.
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -178,3 +178,8 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/diona/handle_despawn(var/mob/living/carbon/human/H)
+	for(var/mob/living/carbon/alien/diona/D in H.contents)
+		if((!D.client && !D.mind) || D.stat == DEAD)
+			qdel(D)

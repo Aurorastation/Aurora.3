@@ -27,7 +27,7 @@
 
 	// Checks if this step applies to the user mob at all
 /datum/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 
 	if(allowed_species)
@@ -113,7 +113,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofai
 				return	1	  												//don't want to do weapony things after surgery
 
 	if (user.a_intent == I_HELP)
-		to_chat(user, "<span class='warning'>You can't see any useful way to use [tool] on [M].</span>")
+		to_chat(user, "<span class='warning'>You can't see any useful way to use \the [tool] on [M].</span>")
 		//not returning 1 so people and borgs can still use things, like syringes and hyposprays, while their patients are on the table
 	return 0
 

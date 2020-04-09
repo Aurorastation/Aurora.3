@@ -164,7 +164,6 @@
 
 		src.move_speed = world.time - src.l_move_time
 		src.l_move_time = world.time
-		src.m_flag = 1
 		if ((A != src.loc && A && A.z == src.z))
 			src.last_move = get_dir(A, src.loc)
 
@@ -269,7 +268,7 @@
 				//specific vehicle move delays are set in code\modules\vehicles\vehicle.dm
 				move_delay = world.time
 				//drunk driving
-				if(mob.confused && prob(20))
+				if(mob.confused && prob(25))
 					direct = pick(cardinal)
 				return mob.buckled.relaymove(mob,direct)
 
@@ -285,7 +284,7 @@
 						return // No hands to drive your chair? Tough luck!
 					min_move_delay = driver.min_walk_delay
 				//drunk wheelchair driving
-				if(mob.confused && prob(20))
+				if(mob.confused && prob(25))
 					direct = pick(cardinal)
 				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled.relaymove(mob,direct)
@@ -357,7 +356,7 @@
 							M.animate_movement = 2
 							return
 
-		else if(mob.confused && prob(20))
+		else if(mob.confused && prob(25))
 			step(mob, pick(cardinal))
 		else
 			. = mob.SelfMove(n, direct)
@@ -481,24 +480,25 @@
 
 
 /mob/proc/Check_Dense_Object() //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
-
 	var/shoegrip = Check_Shoegrip()
 
 	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //we only care for non-space turfs
 		if(T.density)	//walls work
-			return 1
+			return TRUE
 		else
 			var/area/A = T.loc
 			if(A.has_gravity() || shoegrip)
-				return 1
+				return TRUE
 
 	for(var/obj/O in orange(1, src))
 		if(istype(O, /obj/structure/lattice))
-			return 1
+			return TRUE
+		if(istype(O, /obj/structure/ladder))
+			return TRUE
 		if(O && O.density && O.anchored)
-			return 1
+			return TRUE
 
-	return 0
+	return FALSE
 
 /mob/proc/Check_Shoegrip()
 	return 0

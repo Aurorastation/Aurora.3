@@ -4,6 +4,7 @@ var/list/department_radio_keys = list(
 	  ":i" = "intercom",	".i" = "intercom",
 	  ":h" = "department",	".h" = "department",
 	  ":+" = "special",		".+" = "special", //activate radio-specific special functions
+	  ":a" = "Common",		".a" = "Common",
 	  ":c" = "Command",		".c" = "Command",
 	  ":n" = "Science",		".n" = "Science",
 	  ":m" = "Medical",		".m" = "Medical",
@@ -21,6 +22,7 @@ var/list/department_radio_keys = list(
 	  ":L" = "left ear",	".L" = "left ear",
 	  ":I" = "intercom",	".I" = "intercom",
 	  ":H" = "department",	".H" = "department",
+	  ":A" = "Common",		".A" = "Common",
 	  ":C" = "Command",		".C" = "Command",
 	  ":N" = "Science",		".N" = "Science",
 	  ":M" = "Medical",		".M" = "Medical",

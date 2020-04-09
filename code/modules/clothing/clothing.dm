@@ -140,7 +140,7 @@
 	return material
 
 /obj/item/clothing/proc/set_material(var/new_material)
-	material = get_material_by_name(new_material)
+	material = SSmaterials.get_material_by_name(new_material)
 	if(!material)
 		qdel(src)
 	else
@@ -319,6 +319,10 @@
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = 2.0
 	icon = 'icons/obj/clothing/gloves.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_gloves.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_gloves.dmi'
+		)
 	siemens_coefficient = 0.75
 	var/wired = 0
 	var/obj/item/cell/cell = 0
@@ -358,7 +362,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
 		if (clipped)
 			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
 			update_icon()

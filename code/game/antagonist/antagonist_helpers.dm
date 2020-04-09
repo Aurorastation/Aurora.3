@@ -13,6 +13,8 @@
 			return FALSE
 		if(player.current.client.prefs && player.current.client.prefs.species in restricted_species)
 			return FALSE
+		if(player.current && (player.current.status_flags & NO_ANTAG))
+			return FALSE
 	return TRUE
 
 /datum/antagonist/proc/antags_are_dead()

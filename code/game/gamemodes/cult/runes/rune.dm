@@ -1,8 +1,10 @@
 var/global/rune_boost = 0 // How many extra runes the cult can lay down
 
 var/global/list/static/rune_types = list(
-			"Armor" = /obj/effect/rune/armor,
+			"Create Armor" = /obj/effect/rune/armor,
+			"Create Construct" = /obj/effect/rune/create_construct,
 			"Summon Tome" = /obj/effect/rune/summon_tome,
+			"Summon Soulstone" = /obj/effect/rune/summon_soulstone,
 			"Become Ethereal" = /obj/effect/rune/ethereal,
 			"Manifest Ghost" = /obj/effect/rune/manifest,
 			"Raise Dead" = /obj/effect/rune/raise_dead,
@@ -32,7 +34,6 @@ var/global/list/static/rune_types = list(
 	anchored = 1
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "1"
-	var/visible = FALSE
 	unacidable = TRUE
 	layer = AO_LAYER
 
@@ -58,6 +59,7 @@ var/global/list/static/rune_types = list(
 		desc = "A powerful rune drawn with blood magic gifted by Nar'sie Himself."
 		if(cult_description)
 			to_chat(user, "This spell circle reads: <span class='cult'><b><i>[cult_description]</i></b></span>.")
+		to_chat(user, "This rune [can_talisman ? "<span class='cult'><b><i>can</i></b></span>" : "<span class='warning'><b><i>cannot</i></b></span>"] be turned into a talisman.")
 	else
 		desc = "A strange collection of symbols drawn in blood."
 

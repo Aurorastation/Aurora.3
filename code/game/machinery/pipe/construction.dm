@@ -65,6 +65,7 @@ Buildable meters
 	randpixel = 5
 	w_class = 3
 	level = 2
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 /obj/item/pipe/New(var/loc, var/pipe_type as num, var/dir as num, var/obj/machinery/atmospherics/make_from = null)
 	..()
@@ -317,25 +318,18 @@ Buildable meters
 
 // rotate the pipe item clockwise
 
-/obj/item/pipe/verb/rotate()
-	set category = "Object"
-	set name = "Rotate Pipe"
-	set src in view(1)
+/obj/item/pipe/rotate()
+	. = ..()
+	sanitize_dir()
 
-	if ( usr.stat || usr.restrained() )
-		return
-
-	src.set_dir(turn(src.dir, -90))
-
-	if (pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_UNIVERSAL, PIPE_HE_STRAIGHT, PIPE_INSULATED_STRAIGHT, PIPE_MVALVE))
-		if(dir==2)
+/obj/item/pipe/proc/sanitize_dir()
+	if(pipe_type in list(PIPE_SIMPLE_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_UNIVERSAL, PIPE_HE_STRAIGHT, PIPE_INSULATED_STRAIGHT, PIPE_MVALVE))
+		if(dir == 2)
 			set_dir(1)
-		else if(dir==8)
+		else if(dir == 8)
 			set_dir(4)
-	else if (pipe_type in list (PIPE_MANIFOLD4W, PIPE_SUPPLY_MANIFOLD4W, PIPE_SCRUBBERS_MANIFOLD4W))
+	else if(pipe_type in list(PIPE_MANIFOLD4W, PIPE_SUPPLY_MANIFOLD4W, PIPE_SCRUBBERS_MANIFOLD4W))
 		set_dir(2)
-	//src.pipe_set_dir(get_pipe_dir())
-	return
 
 /obj/item/pipe/Move()
 	..()

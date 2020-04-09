@@ -11,6 +11,7 @@
 		qdel(src)
 	else
 		master = owner
+		..()
 
 /obj/machinery/abstract/intercom_listener/Destroy()
 	master = null

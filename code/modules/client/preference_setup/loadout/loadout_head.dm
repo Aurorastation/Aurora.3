@@ -259,3 +259,11 @@
 	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/legion_beret
 	tcfl["tcfl beret, field"] = /obj/item/clothing/head/legion
 	gear_tweaks += new/datum/gear_tweak/path(tcfl)
+
+/datum/gear/head/padded_cap
+	display_name = "padded cap"
+	path = /obj/item/clothing/head/padded
+
+/datum/gear/head/padded_cap/New()
+	..()
+	gear_tweaks += gear_tweak_free_color_choice

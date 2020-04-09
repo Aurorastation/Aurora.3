@@ -237,7 +237,7 @@
 	name = ""
 	desc = ""
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "null"
+	icon_state = null
 	anchored = 1
 	density = 0
 

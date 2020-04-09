@@ -61,6 +61,7 @@
 		"Anomalist" = /datum/outfit/job/scientist/hephaestus,
 		"Roboticist" = /datum/outfit/job/roboticist/hephaestus,
 		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
+		"Drill Technician" = /datum/outfit/job/mining/drill/hephaestus,
 		"Quartermaster" = /datum/outfit/job/qm/hephaestus,
 		"Cargo Technician" = /datum/outfit/job/cargo_tech/hephaestus,
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
@@ -88,6 +89,11 @@
 
 /datum/outfit/job/mining/hephaestus
 	name = "Miner - Hephaestus"
+	uniform = /obj/item/clothing/under/rank/hephaestus/tech
+	id = /obj/item/card/id/hephaestus
+
+/datum/outfit/job/mining/drill/hephaestus
+	name = "Drill Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/tech
 	id = /obj/item/card/id/hephaestus
 

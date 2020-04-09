@@ -40,8 +40,8 @@ var/list/flooring_types
 	var/footstep_sound = "tiles"
 
 /decl/flooring/grass
-	name = "grass"
-	desc = "Do they smoke grass out in space, Bowie? Or do they smoke AstroTurf?"
+	name = "synthetic grass"
+	desc = "A patch of synthetic grass."
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_base = "grass"
 	has_base_range = 3
@@ -55,8 +55,8 @@ var/list/flooring_types
 	desc = "A soft patch of grass"
 	icon = 'icons/turf/total_floors.dmi'
 	icon_base = "grass_alt"
-	flags = TURF_ACID_IMMUNE
-	build_type = null
+	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL
+	build_type = /obj/item/stack/tile/grass_alt
 	has_base_range = 0
 
 /decl/flooring/asteroid
@@ -81,8 +81,17 @@ var/list/flooring_types
 /decl/flooring/carpet/blue
 	name = "carpet"
 	icon_base = "bcarpet"
-	build_type = null
-	flags = TURF_HAS_EDGES
+	build_type = /obj/item/stack/tile/carpet_blue
+
+/decl/flooring/carpet/rubber
+	name = "rubber carpet"
+	desc = "Durable, easy to clean and provides extra grip. Perfect for industrial settings."
+	icon_base = "rub_carpet"
+	build_type = /obj/item/stack/tile/carpet_rubber
+
+/decl/flooring/carpet/art
+	icon_base = "artcarpet"
+	build_type = /obj/item/stack/tile/carpet_art
 
 /decl/flooring/tiling
 	name = "floor"
@@ -111,8 +120,14 @@ var/list/flooring_types
 	icon = 'icons/turf/flooring/linoleum.dmi'
 	icon_base = "lino"
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
+	build_type = /obj/item/stack/tile/lino
 	can_paint = 1
-	footstep_sound = "tiles"
+	footstep_sound = "carpet"
+
+/decl/flooring/linoleum/grey
+	icon_base = "lino_grey"
+	build_type = /obj/item/stack/tile/lino_grey
+	has_damage_range = 2
 
 /decl/flooring/tiling/red
 	name = "floor"
@@ -128,6 +143,33 @@ var/list/flooring_types
 	has_damage_range = null
 	flags = TURF_REMOVE_CROWBAR
 	build_type = /obj/item/stack/tile/floor_steel
+
+/decl/flooring/tiling/old
+	name = "old floor"
+	desc = "An old and scuffed floor tile, harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_steel"
+	has_damage_range = 4
+	flags = TURF_IS_FRAGILE | TURF_CAN_BREAK | TURF_CAN_BURN
+	build_type = null
+
+/decl/flooring/tiling/old_dark
+	name = "old dark floor"
+	desc = "An old and scuffed floor tile, harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_dark"
+	has_damage_range = null
+	flags = TURF_IS_FRAGILE
+	build_type = null
+
+/decl/flooring/tiling/old_white
+	name = "old sterile floor"
+	desc = "An old, scuffed and supposedly once sterile floor tile harkening back to a bygone era."
+	icon = 'icons/turf/flooring/tiles.dmi'
+	icon_base = "old_white"
+	has_damage_range = null
+	flags = TURF_IS_FRAGILE
+	build_type = null
 
 /decl/flooring/tiling/white
 	name = "floor"
@@ -188,15 +230,19 @@ var/list/flooring_types
 
 /decl/flooring/reinforced/circuit
 	name = "processing strata"
+	desc = "A durable surface covered in various circuity and wiring."
 	icon = 'icons/turf/flooring/circuit.dmi'
 	icon_base = "bcircuit"
 	build_type = null
+	build_cost = 1
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK | TURF_REMOVE_CROWBAR
 	can_paint = 1
+	build_type = /obj/item/stack/tile/circuit_blue
 
 /decl/flooring/reinforced/circuit/green
 	name = "processing strata"
 	icon_base = "gcircuit"
+	build_type = /obj/item/stack/tile/circuit_green
 
 /decl/flooring/reinforced/circuit/red
 	icon_base = "rcircuit"
@@ -219,7 +265,7 @@ var/list/flooring_types
 	icon = 'icons/turf/flooring/tiles.dmi'
 	icon_base = "ramptop"
 	build_type = null
-	has_damage_range = 1
+	has_damage_range = 2
 	flags = TURF_ACID_IMMUNE | TURF_CAN_BREAK
 	can_paint = 1
 

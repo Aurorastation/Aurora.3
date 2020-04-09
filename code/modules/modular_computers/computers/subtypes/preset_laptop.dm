@@ -77,6 +77,10 @@
 	desc = "A portable computer belonging to the captain."
 	_app_preset_type = /datum/modular_computer_app_presets/captain
 
+/obj/item/modular_computer/laptop/preset/command/captain/install_default_hardware()
+	..()
+	card_slot = new /obj/item/computer_hardware/card_slot(src)	
+
 // Security
 /obj/item/modular_computer/laptop/preset/security/
 	name = "security laptop"

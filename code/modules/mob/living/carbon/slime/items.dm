@@ -227,16 +227,27 @@ var/list/global/golem_runes = list()
 	unacidable = TRUE
 	layer = TURF_LAYER
 	var/wizardy = FALSE //if this rune can only be used by a wizard or not
+	var/golem_type = "Adamantine Golem"
 
 /obj/effect/golemrune/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	announce_to_ghosts()
 	golem_runes += src
+	if(length(golem_runes) == 1)
+		for(var/role_spawner in SSghostroles.spawners)
+			if(role_spawner == "golem")
+				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]
+				golem_spawner.enable()
 
 /obj/effect/golemrune/Destroy()
 	. = ..()
 	golem_runes -= src
+	if(!length(golem_runes))
+		for(var/role_spawner in SSghostroles.spawners)
+			if(role_spawner == "golem")
+				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]
+				golem_spawner.disable()
 
 /obj/effect/golemrune/process()
 	var/mob/abstract/observer/ghost
@@ -253,13 +264,13 @@ var/list/global/golem_runes = list()
 		icon_state = "golem"
 
 /obj/effect/golemrune/proc/spawn_golem(var/mob/user)
-	var/golem_type = "Adamantine Golem"
-
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O?.amount >= 10)
 		if(O.material.golem)
 			golem_type = O.material.golem
 			O.use(10)
+
+	spark(get_turf(src), 10, alldirs)
 
 	var/mob/living/carbon/human/G = new(src.loc)
 
@@ -267,7 +278,7 @@ var/list/global/golem_runes = list()
 	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
-	to_chat(G, span("notice", "You are a golem. Serve [user], and assist them in completing their goals at any cost."))
+	to_chat(G, span("notice", "You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 	qdel(src)
 
 /obj/effect/golemrune/proc/announce_to_ghosts()
