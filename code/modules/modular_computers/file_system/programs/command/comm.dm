@@ -383,7 +383,7 @@ Command action procs
 		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
 
-	if(world.time < 36000) //Shuttle can now only be recalled after one hour and half into the round.
+	if(world.time < 36000) //Shuttle can now only be recalled after one hour into the round.
 		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((36000-world.time)/600)] minute\s before trying again.")
 		return 0
 
