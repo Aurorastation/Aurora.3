@@ -92,7 +92,7 @@
 	icon_state = "detgun"
 	item_state = "detgun"
 	w_class = ITEMSIZE_SMALL
-	magazine_type = /obj/item/ammo_magazine/c45m/rubber
+	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/gun/projectile/sec/detective/update_icon()
 	..()
