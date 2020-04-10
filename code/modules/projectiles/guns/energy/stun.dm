@@ -22,7 +22,7 @@
 	name = "stun revolver"
 	desc = "A Hephaestus designed high-tech revolver that fires rechargable stun bolts."
 	description_fluff = "The ST-30 is a highly advanced sidearm produced by Hephaestus Industries. It is designed for self-defense in a less-than-lethal manner. While the weapon design itself is not groundbreaking, it fires high velocity energy bolts with rechargable cartridges, possessing unusual high stopping power."
-	description_antag = "It is possible to emag this revolver, removing the limiter and supercharging its capacitor. This will allow it to fire lethal bolts of energy, as well as slowly recharge on its own."
+	description_antag = "It is possible to emag this revolver, removing the limiter and supercharging its capacitor. This will allow it to fire lethal bolts of energy."
 	icon = 'icons/obj/guns/stunrevolver.dmi'
 	icon_state = "stunrevolver"
 	item_state = "stunrevolver"
@@ -36,7 +36,7 @@
 /obj/item/gun/energy/stunrevolver/verb/rename_gun()
 	set name = "Name Gun"
 	set category = "Object"
-	set desc = "Click to rename your gun. If you're the detective."
+	set desc = "Click to rename your gun."
 
 	var/mob/M = usr
 	if(!M.mind)
