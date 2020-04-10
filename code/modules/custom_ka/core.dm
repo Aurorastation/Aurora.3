@@ -240,7 +240,6 @@
 
 	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
 		var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
-		new installed_barrel.projectile_type(get_turf(src))
 		shot_projectile.damage = damage_increase
 		shot_projectile.range = range_increase
 		shot_projectile.aoe = aoe_increase

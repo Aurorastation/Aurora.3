@@ -197,6 +197,11 @@
 	path = /obj/item/module/power_control
 	category = "Engineering"
 
+/datum/autolathe/recipe/stockparts_box
+	name = "stock parts box"
+	path = /obj/item/storage/bag/stockparts_box
+	category = "Engineering"
+
 /datum/autolathe/recipe/rfd_ammo
 	name = "compressed matter cartridge"
 	path = /obj/item/rfd_ammo
