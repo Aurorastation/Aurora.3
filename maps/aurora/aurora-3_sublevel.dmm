@@ -16811,6 +16811,7 @@
 "aDJ" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/reinforced/steel,
+/obj/machinery/cell_charger,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "aDL" = (
