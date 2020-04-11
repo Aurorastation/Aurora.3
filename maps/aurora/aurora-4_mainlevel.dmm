@@ -981,6 +981,9 @@
 "abU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "abV" = (
@@ -1275,6 +1278,9 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "acy" = (
@@ -1290,6 +1296,10 @@
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/purple{
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
@@ -1883,7 +1893,7 @@
 	name = "Ore Retrieval";
 	req_access = list(63)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/security/brig)
 "adw" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
@@ -2198,7 +2208,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -62317,6 +62327,9 @@
 /obj/machinery/meter{
 	name = "Air supply"
 	},
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "cMI" = (
@@ -63618,6 +63631,10 @@
 /area/storage/tech)
 "fYf" = (
 /obj/structure/table/standard,
+/obj/effect/floor_decal/corner/purple{
+	icon_state = "corner_white";
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "fZq" = (
@@ -68192,6 +68209,9 @@
 "quF" = (
 /obj/structure/table/standard,
 /obj/item/storage/bag/ore,
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "qvD" = (
@@ -68203,6 +68223,10 @@
 	icon_state = "orebox1"
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/purple/full{
+	icon_state = "corner_white_full";
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/maintenance/security_starboard)
 "qwE" = (
@@ -68985,6 +69009,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
+"sgq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/purple/full,
+/turf/simulated/floor/tiled,
+/area/maintenance/security_starboard)
 "sig" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -104464,7 +104494,7 @@ dED
 cMe
 acx
 abU
-abU
+sgq
 adv
 adT
 aeD
