@@ -379,6 +379,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Research Dock"
 	landmark_tag = "nav_research_dock"
 	docking_controller = "science_bridge"
+	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /obj/effect/shuttle_landmark/research/interim
 	name = "In Transit"
