@@ -208,7 +208,6 @@
 
 	C.emote("gasp")
 	C.tod = worldtime2text()
-	C.verbs += /mob/proc/changeling_revive
 
 	addtimer(CALLBACK(src, .proc/allow_revive, C), 3 MINUTES)
 	feedback_add_details("changeling_powers", "FD")
@@ -228,6 +227,8 @@
 	var/mob/living/carbon/C = src
 	if(!(C.mind?.changeling))
 		log_debug("[C] attempted to revive as a changeling, but they are not a changeling!")
+		return
+	if(!C.mind.changeling.in_stasis) //Well if we're not in stasis...
 		return
 	if(!C.mind.changeling.can_exit_stasis)
 		to_chat(C, SPAN_WARNING("We are not ready to awaken from our stasis. We must bide our time."))

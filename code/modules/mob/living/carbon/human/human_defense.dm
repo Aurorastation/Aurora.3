@@ -59,6 +59,10 @@ emp_act
 	stun_amount *= siemens_coeff
 	agony_amount *= siemens_coeff
 
+	if(mind?.changeling)
+		stun_amount = get_ling_level(LING_LEVEL_HIGH) ? 0 : stun_amount / 2
+		agony_amount /= get_ling_level()
+
 	switch (def_zone)
 		if(BP_HEAD)
 			eye_blurry += min((rand(1,3) * (agony_amount/40)), 12)

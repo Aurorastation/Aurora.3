@@ -27,6 +27,8 @@
 
 	to_chat(src, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>") // tell the changeling
 	for(var/H in src.mind.changeling.hivemind_members) // tell the other hiveminds
-		to_chat(H, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>")
+		var/mob/M = mind.changeling.hivemind_members[H]
+		to_chat(M, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>")
+		world << "To_chat sent to [M]"
 
 	return TRUE

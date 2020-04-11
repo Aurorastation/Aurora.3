@@ -50,6 +50,13 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 0
 	verbpath = /mob/proc/changeling_fakedeath
 
+/datum/power/changeling/fakedeath_revive
+	name = "Revive"
+	desc = "We revive from our stasis."
+	helptext = "Only allows you to revive from your Regenerative Stasis, not regular death."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_revive
+	
 //Hivemind
 
 /datum/power/changeling/hive_upload

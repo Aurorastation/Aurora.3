@@ -163,8 +163,13 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(!min_level)
 			return mind.changeling.ling_level
 		else
-			world << "Returning [mind.changeling.ling_level] >= [min_level]"
-			return mind.changeling.ling_level >= min_level
+			if(mind.changeling.ling_level >= min_level)
+				world << "Ling level current [mind.changeling.ling_level] is higher than required [min_level]"
+				return mind.changeling.ling_level
+			else
+				world << "Ling level current [mind.changeling.ling_level] IS NOT higher than required [min_level] SO WE RETURN FALSE"
+				return FALSE
+
 
 /mob/proc/update_ling_power()
 	world << "Update Ling Power called."
