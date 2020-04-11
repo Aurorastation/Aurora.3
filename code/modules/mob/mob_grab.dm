@@ -167,7 +167,7 @@
 				A.adjustOxyLoss(3)
 				if(affecting.stat == CONSCIOUS)
 					if(do_mob(assailant, affecting, 150))
-						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), SPAN_DANGER("The world goes dark as you fall unconscious..."))
+						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
 						A.Paralyse(20)
 
 	adjust_position()
