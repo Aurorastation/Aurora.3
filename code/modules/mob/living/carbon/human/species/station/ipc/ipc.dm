@@ -152,6 +152,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if(tag)
 			tag.serial_number = uppertext(dd_limittext(md5(new_machine.real_name), 12))
 			tag.ownership_info = IPC_OWNERSHIP_COMPANY
+			tag.citizenship_info = CITIZENSHIP_BIESEL
 		return
 
 	var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
@@ -159,6 +160,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(player.prefs.machine_tag_status)
 		tag.serial_number = player.prefs.machine_serial_number
 		tag.ownership_info = player.prefs.machine_ownership_status
+		tag.citizenship_info = new_machine.citizenship
 	else
 		new_machine.internal_organs_by_name -= BP_IPCTAG
 		new_machine.internal_organs -= tag

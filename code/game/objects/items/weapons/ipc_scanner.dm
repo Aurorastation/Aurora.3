@@ -27,4 +27,5 @@
 		to_chat(user, SPAN_NOTICE("[capitalize_first_letters(tag.name)]:"))
 		to_chat(user, SPAN_NOTICE("<b>Serial Number:</b> [tag.serial_number]"))
 		to_chat(user, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
+		to_chat(user, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
 	return

@@ -141,8 +141,10 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	dead_icon = "gps-c"
+	var/auto_generate = TRUE
 	var/serial_number = ""
 	var/ownership_info = IPC_OWNERSHIP_COMPANY
+	var/citizenship_info = CITIZENSHIP_BIESEL
 
 /obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
@@ -158,18 +160,33 @@
 			if(src.loc != user)
 				to_chat(user, SPAN_WARNING("You can only modify \the [src] if it's on your person!"))
 				return
-			var/choice = alert(user, "How do you want to modify the IPC tag?", "IPC Tag Modification", "Serial Number", "Ownership Status", "Cancel")
-			if(choice != "Cancel")
+			var/static/list/modification_options = list("Serial Number", "Ownership Status", "Citizenship")
+			var/choice = input(user, "How do you want to modify the IPC tag?", "IPC Tag Modification") as null|anything in modification_options
+			if(choice)
 				if(choice == "Serial Number")
-					var/new_serial = input(user, "What do you wish for the new serial number to be? (Limit of 12 characters)", "Serial Number Modification", serial_number) as text|null
-					new_serial = uppertext(dd_limittext(new_serial, 12))
-					if(new_serial)
-						serial_number = new_serial
+					var/serial_selection = alert(user, "In what way do you want to modify the serial number?", "Serial Number Selection", "Auto Generation", "Manual Input", "Cancel")
+					if(serial_selection != "Cancel")
+						if(serial_selection == "Auto Generation")
+							var/auto_generation_choice = alert(user, "Do you wish for the IPC tag to automatically generate its serial number based on the IPCs name?", "Serial Autogeneration", "Yes", "No")
+							if(auto_generation_choice == "Yes")
+								auto_generate = TRUE
+							else
+								auto_generate = FALSE
+						if(serial_selection == "Manual Input")
+							var/new_serial = input(user, "What do you wish for the new serial number to be? (Limit of 12 characters)", "Serial Number Modification", serial_number) as text|null
+							new_serial = uppertext(dd_limittext(new_serial, 12))
+							if(new_serial)
+								serial_number = new_serial
+								auto_generate = FALSE
 				if(choice == "Ownership Status")
 					var/static/list/ownership_options = list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF)
-					var/new_ownership = input(user, "What do you wish for the new ownership status to be?", "Ownership STatus Modification") as null|anything in ownership_options
+					var/new_ownership = input(user, "What do you wish for the new ownership status to be?", "Ownership Status Modification") as null|anything in ownership_options
 					if(new_ownership)
 						ownership_info = new_ownership
+				if(choice == "Citizenship")
+					var/new_citizenship = input(user, "What do you wish for the new citizenship setting to be?", "Citizenship Setting Modification") as null|anything in citizenship_list
+					if(new_citizenship)
+						citizenship_info = new_citizenship 
 	else
 		..()
 

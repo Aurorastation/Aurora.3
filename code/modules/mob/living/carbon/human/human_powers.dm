@@ -1076,6 +1076,7 @@ mob/living/carbon/human/proc/change_monitor()
 	to_chat(src, SPAN_NOTICE("[capitalize_first_letters(tag.name)]:"))
 	to_chat(src, SPAN_NOTICE("<b>Serial Number:</b> [tag.serial_number]"))
 	to_chat(src, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
+	to_chat(src, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
 
 /mob/living/carbon/human/proc/sonar_ping()
 	set name = "Psychic Ping"

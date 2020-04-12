@@ -195,6 +195,8 @@
 
 	ipc_tag.replaced(H, H.organs_by_name[BP_HEAD])
 	ipc_tag.forceMove(M)
+	if(ipc_tag.auto_generate)
+		ipc_tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
 	ipc_tag = null
 
 	update()
