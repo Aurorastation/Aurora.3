@@ -26,7 +26,22 @@
 
 	for(var/obj/item/cell/C in contents)
 		C.screen_loc = "[cx]:16,[cy]:16"
-		C.maptext = "[round((C.charge / C.maxcharge) * 100)]%"
+		var/current_charge = round((C.charge / C.maxcharge) * 100)
+		switch(current_charge)
+			if(99 to INFINITY)
+				C.maptext = "<font color='[COLOR_BRIGHT_GREEN]'>[current_charge]%</font>"
+			if(80 to 99)
+				C.maptext = "<font color='[COLOR_OLIVE]'>[current_charge]%</font>"
+			if(60 to 80)
+				C.maptext = "<font color='[COLOR_CIVIE_GREEN]'>[current_charge]%</font>"
+			if(40 to 60)
+				C.maptext = "<font color='[COLOR_YELLOW]'>[current_charge]%</font>"
+			if(20 to 40)
+				C.maptext = "<font color='[COLOR_ORANGE]'>[current_charge]%</font>"
+			if(1 to 20)
+				C.maptext = "<font color='[COLOR_RED_LIGHT]'>[current_charge]%</font>"
+			if(-INFINITY to 1)
+				C.maptext = "<font color='[COLOR_RED]'>[current_charge]%</font>"
 		C.layer = SCREEN_LAYER + 0.01
 		cx++
 		if (cx > (4+cols))
