@@ -38,6 +38,7 @@ var/global/list/all_languages = list()
 var/global/list/language_keys = list()					// Table of say codes for all languages
 var/global/list/whitelisted_species = list("Human") // Species that require a whitelist check.
 var/global/list/playable_species = list("Human")    // A list of ALL playable species, whitelisted, latejoin or otherwise.
+var/global/list/ipc_species_by_name = list()
 
 // Posters
 var/global/list/poster_designs = list()
@@ -177,6 +178,8 @@ var/global/list/cloaking_devices = list()
 			playable_species += S.name
 		if(S.spawn_flags & IS_WHITELISTED)
 			whitelisted_species += S.name
+		if(istype(S, /datum/species/machine))
+			ipc_species_by_name += S.name
 
 	//Posters
 	paths = subtypesof(/datum/poster)

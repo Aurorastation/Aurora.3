@@ -104,6 +104,15 @@
 	dat += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a><br>"
+	if(is_string_in_list(pref.species, ipc_species_by_name, FALSE))
+		dat += "<b>Has Tag:</b> <a href='?src=\ref[src];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
+		if(pref.machine_tag_status)
+			if(!pref.machine_serial_number)
+				var/generated_serial = uppertext(dd_limittext(md5(pref.real_name), 12))
+				pref.machine_serial_number = generated_serial
+			dat += "<b>Serial Number:</b> <a href='?src=\ref[src];serial_number=1'>[pref.machine_serial_number]</a><br>"
+			dat += "(<a href='?src=\ref[src];generate_serial=1'>Generate Serial Number</A>)<br>"
+			dat += "<b>Ownership Status:</b> <a href='?src=\ref[src];ownership_status=1'>[pref.machine_ownership_status]</a><br>"
 	if(config.allow_Metadata)
 		dat += "<b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a><br>"
 
@@ -165,6 +174,35 @@
 		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata) as message|null)
 		if(new_metadata && CanUseTopic(user))
 			pref.metadata = sanitize(new_metadata)
+			return TOPIC_REFRESH
+
+	else if(href_list["ipc_tag"])
+		var/choice = alert(user, "Do you wish for your IPC to have a tag?", "IPC Tag", "Yes", "No")
+		if(CanUseTopic(user))
+			if(choice == "Yes")
+				pref.machine_tag_status = TRUE
+			else
+				pref.machine_tag_status = FALSE
+			return TOPIC_REFRESH
+
+	else if(href_list["serial_number"])
+		var/new_serial_number = sanitize(input(user, "Enter what you want to set your serial number to.", "IPC Serial Number", pref.machine_serial_number) as message|null)
+		new_serial_number = uppertext(dd_limittext(new_serial_number, 12))
+		if(new_serial_number && CanUseTopic(user))
+			pref.machine_serial_number = sanitize(new_serial_number)
+			return TOPIC_REFRESH
+
+	else if(href_list["generate_serial"])
+		if(pref.real_name)
+			var/generated_serial = uppertext(dd_limittext(md5(pref.real_name), 12))
+			pref.machine_serial_number = generated_serial
+			return TOPIC_REFRESH
+
+	else if(href_list["ownership_status"])
+		var/static/list/ownership_options = list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF)
+		var/new_ownership_status = input(user, "Choose your IPC's ownership status.", "IPC Ownership Status") as null|anything in ownership_options
+		if(new_ownership_status && CanUseTopic(user))
+			pref.machine_ownership_status = new_ownership_status
 			return TOPIC_REFRESH
 
 	return ..()

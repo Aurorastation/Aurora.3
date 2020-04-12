@@ -166,6 +166,11 @@
 #define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
 #define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
 
+// IPC tags
+#define IPC_OWNERSHIP_SELF "Self Owned"
+#define IPC_OWNERSHIP_COMPANY "Company Owned"
+#define IPC_OWNERSHIP_PRIVATE "Privately Owned"
+
 // NT's alignment towards the character
 #define COMPANY_LOYAL 			"Loyal"
 #define COMPANY_SUPPORTATIVE	"Supportive"

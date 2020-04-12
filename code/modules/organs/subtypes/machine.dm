@@ -141,10 +141,37 @@
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
 	dead_icon = "gps-c"
+	var/serial_number = ""
+	var/ownership_info = IPC_OWNERSHIP_COMPANY
 
 /obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
 	. = ..()
+
+/obj/item/organ/internal/ipc_tag/attackby(obj/item/W, mob/user)
+	if(W.ismultitool())
+		if(src.loc != user)
+			to_chat(user, SPAN_WARNING("You can only modify \the [src] if it's on your person!"))
+			return
+		user.visible_message(SPAN_WARNING("\The [user] starts fiddling with \the [src]..."), SPAN_NOTICE("You start fiddling with \the [src]..."))
+		if(do_after(user, 30, TRUE, src))
+			if(src.loc != user)
+				to_chat(user, SPAN_WARNING("You can only modify \the [src] if it's on your person!"))
+				return
+			var/choice = alert(user, "How do you want to modify the IPC tag?", "IPC Tag Modification", "Serial Number", "Ownership Status", "Cancel")
+			if(choice != "Cancel")
+				if(choice == "Serial Number")
+					var/new_serial = input(user, "What do you wish for the new serial number to be? (Limit of 12 characters)", "Serial Number Modification", serial_number) as text|null
+					new_serial = uppertext(dd_limittext(new_serial, 12))
+					if(new_serial)
+						serial_number = new_serial
+				if(choice == "Ownership Status")
+					var/static/list/ownership_options = list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF)
+					var/new_ownership = input(user, "What do you wish for the new ownership status to be?", "Ownership STatus Modification") as null|anything in ownership_options
+					if(new_ownership)
+						ownership_info = new_ownership
+	else
+		..()
 
 // Used for an MMI or posibrain being installed into a human.
 /obj/item/organ/internal/mmi_holder

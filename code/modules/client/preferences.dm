@@ -65,6 +65,11 @@ datum/preferences
 	var/list/language_prefixes = list() // Language prefix keys
 	var/list/gear						// Custom/fluff item loadout.
 
+	// IPC Stuff
+	var/machine_tag_status = TRUE
+	var/machine_serial_number
+	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
+
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.
 	var/citizenship = "None"            //Current home system.
@@ -476,6 +481,8 @@ datum/preferences
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
+	var/generated_serial = uppertext(dd_limittext(md5(real_name), 12))
+	machine_serial_number = generated_serial
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 	signature = "<i>[real_name]</i>"
 	signfont = "Verdana"
