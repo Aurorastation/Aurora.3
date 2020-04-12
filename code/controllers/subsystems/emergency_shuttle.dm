@@ -225,7 +225,7 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 //returns 1 if the shuttle is not idle at centcom
 /datum/controller/subsystem/emergency_shuttle/proc/online()
-	if (isnull(shuttle?.location))
+	if (isnull(shuttle))
 		return FALSE
 	if (!shuttle.location)	//not at centcom
 		return TRUE
