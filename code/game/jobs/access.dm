@@ -243,7 +243,13 @@ var/obj/item/card/id/all_access/ghost_all_access
 		if(id)
 			return id
 	if(wear_id)
-		return wear_id.GetID()
+		var/id = wear_id.GetID()
+		if(id)
+			return id
+	if(gloves)
+		var/id = gloves.GetID()
+		if(id)
+			return id
 
 /mob/living/silicon/GetIdCard()
 	return id_card
