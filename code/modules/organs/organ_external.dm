@@ -137,17 +137,17 @@
 /obj/item/organ/external/attackby(obj/item/W as obj, mob/user as mob)
 	switch(stage)
 		if(0)
-			if(istype(W,/obj/item/scalpel))
+			if(istype(W,/obj/item/surgery/scalpel))
 				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
 				stage++
 				return
 		if(1)
-			if(istype(W,/obj/item/retractor))
+			if(istype(W,/obj/item/surgery/retractor))
 				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
 				stage++
 				return
 		if(2)
-			if(istype(W,/obj/item/hemostat))
+			if(istype(W,/obj/item/surgery/hemostat))
 				if(contents.len)
 					var/obj/item/removing = pick(contents)
 					removing.forceMove(get_turf(user.loc))
@@ -836,7 +836,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 //Handles dismemberment
 /obj/item/organ/external/proc/droplimb(var/clean, var/disintegrate = DROPLIMB_EDGE, var/ignore_children = null)
-
 	if(!(limb_flags & ORGAN_CAN_AMPUTATE) || !owner)
 		return
 
@@ -864,24 +863,26 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/parent_organ = parent
-	removed(null, ignore_children)
+
 	if(!clean)
 		victim.shock_stage += min_broken_damage
 
+	removed(null, ignore_children)
+
 	if(parent_organ)
-		var/datum/wound/lost_limb/W = new (src, disintegrate, clean)
+		var/datum/wound/lost_limb/W = new(src, disintegrate, clean)
 		if(clean)
 			parent_organ.wounds |= W
 			parent_organ.update_damages()
 		else
-			var/obj/item/organ/external/stump/stump = new (victim, 0, src)
+			var/obj/item/organ/external/stump/stump = new(victim, 0, src)
 			if(status & ORGAN_ROBOT)
 				stump.robotize()
 			stump.wounds |= W
 			victim.organs |= stump
 			stump.update_damages()
 
-	addtimer(CALLBACK(src, .proc/post_droplimb, victim), 0)
+	post_droplimb(victim)
 
 	switch(disintegrate)
 		if(DROPLIMB_EDGE)

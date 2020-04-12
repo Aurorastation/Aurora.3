@@ -119,6 +119,9 @@
 /turf/ex_act(severity)
 	return 0
 
+/turf/proc/is_solid_structure()
+	return 1
+
 /turf/proc/is_space()
 	return 0
 
@@ -322,7 +325,7 @@ var/const/enterloopsanity = 100
 			if(istype(O,/obj/effect/rune))
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
-				if(R.visible)
+				if(!R.invisibility)
 					to_chat(user, span("warning", "No matter how well you wash, the bloody symbols remain!"))
 	else
 		if( !(last_clean && world.time < last_clean + 100) )

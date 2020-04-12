@@ -58,12 +58,12 @@
 		var/obj/O = A
 		var/datum/component/multitool/MT = O.GetComponent(/datum/component/multitool)
 		if(MT)
-			MT.interact(aiMulti, src)
+			MT.interact(ai_multi, src)
 			return
 
-	if(aiCamera.in_camera_mode)
-		aiCamera.camera_mode_off()
-		aiCamera.captureimage(A, usr)
+	if(ai_camera.in_camera_mode)
+		ai_camera.camera_mode_off()
+		ai_camera.captureimage(A, usr)
 		return
 
 	/*

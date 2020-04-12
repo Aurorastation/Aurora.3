@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hostile/retaliate/clown
 	name = "clown"
 	desc = "A denizen of clown planet"
+	icon = 'icons/mob/npc/human.dmi'
 	icon_state = "clown"
 	icon_living = "clown"
 	icon_dead = "clown_dead"

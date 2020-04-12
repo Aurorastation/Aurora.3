@@ -1,6 +1,7 @@
 /obj/item/book/manual/ntsl2
 	name = "NTSL2+ For Dummies"
 	icon_state ="bookNTSL"
+	item_state ="book3"
 	author = "Brogrammer George"
 	title = "NTSL2+ For Dummies"
 	dat = {"<html>

@@ -1,7 +1,12 @@
 /turf/unsimulated/floor
 	name = "floor"
 	icon = 'icons/turf/total_floors.dmi'
-	icon_state = "Floor3"
+	icon_state = "new_steel"
+
+/turf/unsimulated/floor/plating
+	name = "plating"
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "plating"
 
 /turf/unsimulated/floor/xmas
 	name = "snow"
@@ -19,7 +24,7 @@
 		return
 
 	new N(src)
-	
+
 /turf/unsimulated/chasm_mask
 	name = "chasm mask"
 	icon = 'icons/turf/walls.dmi'
@@ -40,3 +45,6 @@
 
 /turf/unsimulated/chasm_mask/New()
 	return
+
+/turf/unsimulated/floor/shuttle_ceiling
+	icon_state = "reinforced"

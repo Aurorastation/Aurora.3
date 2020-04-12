@@ -107,7 +107,7 @@
 /obj/item/clothing/shoes/cyborg
 	name = "cyborg boots"
 	desc = "Shoes for a cyborg costume"
-	icon_state = "boots"
+	icon_state = "jackboots"
 	item_state = "jackboots"
 
 /obj/item/clothing/shoes/slippers

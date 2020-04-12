@@ -46,8 +46,8 @@
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
-	icon_state = "lino"
-	initial_flooring = /decl/flooring/linoleum
+	icon_state = "lino_grey"
+	initial_flooring = /decl/flooring/linoleum/grey
 
 /turf/simulated/floor/holofloor/wood
 	name = "wooden floor"
@@ -99,14 +99,14 @@
 	desc = "Uncomfortably gritty for a hologram."
 	base_desc = "Uncomfortably gritty for a hologram."
 	icon = 'icons/misc/beach.dmi'
+	icon_state = "sand"
+	base_icon_state = "sand"
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
 	footstep_sound = "sand"
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
-	icon_state = "desert"
-	base_icon_state = "desert"
 
 /turf/simulated/floor/holofloor/beach/coastline
 	name = "coastline"
@@ -244,6 +244,7 @@
 
 /obj/item/holo/esword
 	desc = "May the force be within you. Sorta."
+	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
 	force = 3.0
 	throw_speed = 1

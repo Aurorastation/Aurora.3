@@ -162,7 +162,8 @@
 		/obj/item/material/twohanded/baseballbat = TRADER_THIS_TYPE,
 		/obj/item/material/twohanded/pike        = TRADER_ALL,
 		/obj/item/material/twohanded/zweihander  = TRADER_THIS_TYPE,
-		/obj/item/melee/whip                     = TRADER_THIS_TYPE
+		/obj/item/melee/whip                     = TRADER_THIS_TYPE,
+		/obj/item/grenade/dynamite               = TRADER_THIS_TYPE
 	)
 
 

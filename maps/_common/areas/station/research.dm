@@ -2,11 +2,15 @@
 	station_area = 1
 
 /area/assembly/chargebay
-	name = "\improper Robotics Charging Bay"
+	name = "\improper Mech Bay"
 	icon_state = "mechbay"
 
 /area/assembly/robotics
 	name = "\improper Robotics Lab"
+	icon_state = "robotics"
+
+/area/assembly/robotics/workshop
+	name = "\improper Robotics Workshop"
 	icon_state = "robotics"
 
 /area/assembly/robotics_cyborgification
@@ -15,7 +19,7 @@
 
 /area/assembly/assembly_line //Derelict Assembly Line
 	name = "\improper Assembly Line"
-	icon_state = "ass_line"
+	icon_state = "robotics"
 	power_equip = 0
 	power_light = 0
 	power_environ = 0
@@ -123,7 +127,7 @@
 	icon_state = "toxmix"
 
 /area/rnd/misc_lab
-	name = "\improper Research - Miscellaneous Research"
+	name = "\improper Research - Circuitry Lab"
 	icon_state = "toxmisc"
 
 /area/rnd/eva

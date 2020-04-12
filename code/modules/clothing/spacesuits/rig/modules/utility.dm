@@ -64,7 +64,7 @@
 	suit_overlay_active = "mounted-drill"
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
-	construction_cost = list("glass"=2250,DEFAULT_WALL_MATERIAL=55000,"silver"=5250,"diamond"=3750)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 55000, MATERIAL_GLASS = 2250, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
 	construction_time = 350
 
 	device_type = /obj/item/pickaxe/diamonddrill
@@ -114,12 +114,12 @@
 /obj/item/rig_module/device/rfd_c
 	name = "RFD-C mount"
 	desc = "A cell-powered rapid construction device for a hardsuit."
-	icon_state = "rfd"
+	icon_state = "rcd"
 	interface_name = "mounted RFD-C"
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	usable = 1
 	engage_string = "Configure RFD-C"
-	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500,"silver"=10000,"gold"=10000)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500, MATERIAL_SILVER =10000, MATERIAL_GOLD =10000)
 	construction_time = 1000
 
 	device_type = /obj/item/rfd/construction/mounted
@@ -162,7 +162,7 @@
 	toggleable = 0
 	disruptive = 0
 	confined_use = 1
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
 	construction_time = 400
 
 	engage_string = "Inject"
@@ -350,7 +350,7 @@
 	usable = 0
 	selectable = 1
 	disruptive = 1
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
 	construction_time = 400
 
 	interface_name = "mounted chem injector"
@@ -424,7 +424,6 @@
 	return 1
 
 /obj/item/rig_module/maneuvering_jets
-
 	name = "hardsuit maneuvering jets"
 	desc = "A compact gas thruster system for a hardsuit."
 	icon_state = "thrusters"
@@ -432,7 +431,7 @@
 	toggleable = 1
 	selectable = 0
 	disruptive = 0
-	construction_cost = list("glass"= 4250,DEFAULT_WALL_MATERIAL=15000,"silver"=4250,"uranium"=5250)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	construction_time = 300
 
 	suit_overlay_active = "maneuvering_active"
@@ -580,7 +579,7 @@
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, "glass"= 1250, "silver"=5250)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, MATERIAL_GLASS = 1250, MATERIAL_SILVER =5250)
 	construction_time = 300
 
 	disruptive = 0
@@ -814,4 +813,3 @@ var/global/list/lattice_users = list()
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
 	lattice_users.Remove(H)
-

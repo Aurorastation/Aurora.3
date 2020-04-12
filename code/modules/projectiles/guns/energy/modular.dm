@@ -2,6 +2,8 @@
 	name = "laser prototype"
 	desc = "A custom prototype laser weapon."
 	icon = 'icons/obj/guns/modular_laser.dmi'
+	icon_state = "large_3"
+	item_state = "large_3"
 	contained_sprite = TRUE
 	has_icon_ratio = FALSE
 	has_item_ratio = FALSE
@@ -55,6 +57,11 @@
 			item_state = "large_3_wielded"
 		else
 			item_state = "large_3"
+	underlays.Cut()
+	if(length(gun_mods))
+		for(var/obj/item/laser_components/mod in gun_mods)
+			if(mod.gun_overlay)
+				underlays += mod.gun_overlay
 	update_held_icon()
 
 /obj/item/gun/energy/laser/prototype/proc/reset_vars()

@@ -5,7 +5,7 @@
 
 /datum/surgery_step/glue_bone
 	allowed_tools = list(
-	/obj/item/bonegel = 100,	\
+	/obj/item/surgery/bonegel = 100,	\
 	/obj/item/tape_roll = 60
 	)
 	can_infect = 1
@@ -42,7 +42,7 @@
 
 /datum/surgery_step/set_bone
 	allowed_tools = list(
-	/obj/item/bonesetter = 100,	\
+	/obj/item/surgery/bonesetter = 100,	\
 	/obj/item/wrench = 75		\
 	)
 
@@ -81,7 +81,7 @@
 
 /datum/surgery_step/mend_skull
 	allowed_tools = list(
-	/obj/item/bonesetter = 100,	\
+	/obj/item/surgery/bonesetter = 100,	\
 	/obj/item/wrench = 75		\
 	)
 
@@ -115,7 +115,7 @@
 
 /datum/surgery_step/finish_bone
 	allowed_tools = list(
-	/obj/item/bonegel = 100,	\
+	/obj/item/surgery/bonegel = 100,	\
 	/obj/item/tape_roll = 60
 	)
 	can_infect = 1

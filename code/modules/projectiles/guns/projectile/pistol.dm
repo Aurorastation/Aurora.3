@@ -86,7 +86,7 @@
 
 /obj/item/gun/projectile/sec/detective
 	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses .45 rounds."
-	description_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Inspector is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk10 is compact and chambered in .45 caliber. With all the bells and whistles of a modern, quality police pistol, the Inspector's main drawback is the notoriously nippy recoil - .45 in such a small package does not play well with the average shooter."
+	description_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in .45 caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - .45 in such a small package does not play well with the average shooter."
 	name = "compact .45 pistol"
 	icon = 'icons/obj/guns/detgun.dmi'
 	icon_state = "detgun"
@@ -138,7 +138,7 @@
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10))
+		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10))
 		)
 
 
@@ -344,6 +344,7 @@
 	caliber = "10mm"
 	w_class = 2
 	ammo_type = /obj/item/ammo_casing/c10mm
+	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'

@@ -11,7 +11,7 @@
 	icon_state = "centcom"
 	requires_power = 0
 	no_light_control = 1
-	base_turf = /turf/unsimulated/floor
+	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
 
 /area/centcom/control
@@ -142,7 +142,7 @@
 	no_light_control = 1
 
 /area/syndicate_station/start
-	name = "\improper Mercenary Forward Operating Base"
+	name = "\improper Mercenary Shuttle"
 	icon_state = "yellow"
 	centcomm_area = 1
 	base_turf = /turf/space
@@ -344,7 +344,7 @@
 
 /area/beach
 	name = "Keelin's private beach"
-	icon_state = "null"
+	icon_state = "yellow"
 	luminosity = 1
 	dynamic_lighting = 0
 	requires_power = 0

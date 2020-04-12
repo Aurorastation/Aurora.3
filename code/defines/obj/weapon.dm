@@ -35,15 +35,13 @@
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
-	var/spam_flag = 0
+	var/last_honk = 0
 
 /obj/item/bikehorn/attack_self(mob/user as mob)
-	if (spam_flag == 0)
-		spam_flag = 1
+	if(last_honk <= world.time - 20) //Spam limiter.
+		last_honk = world.time
 		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 		src.add_fingerprint(user)
-		spawn(20)
-			spam_flag = 0
 	return
 
 /obj/item/cane
@@ -279,19 +277,6 @@
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
 
-/*
-/obj/item/game_kit
-	name = "Gaming Kit"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "game_kit"
-	var/selected = null
-	var/board_stat = null
-	var/data = ""
-	var/base_url = "http://svn.slurm.us/public/spacestation13/misc/game_kit"
-	item_state = "sheet-metal"
-	w_class = 5.0
-*/
-
 /obj/item/gift
 	name = "gift"
 	desc = "A wrapped item."
@@ -317,25 +302,6 @@
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
-
-/*/obj/item/syndicate_uplink
-	name = "station bounced radio"
-	desc = "Remain silent about this..."
-	icon = 'icons/obj/radio.dmi'
-	icon_state = "radio"
-	var/temp = null
-	var/uses = 10.0
-	var/selfdestruct = 0.0
-	var/traitor_frequency = 0.0
-	var/mob/currentUser = null
-	var/obj/item/device/radio/origradio = null
-	flags = CONDUCT | ONBELT
-	w_class = 2.0
-	item_state = "radio"
-	throw_speed = 4
-	throw_range = 20
-	matter = list("metal" = 100
-	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 3)*/
 
 /obj/item/SWF_uplink
 	name = "station-bounced radio"
@@ -386,7 +352,7 @@
 	name = "stick"
 	desc = "A great tool to drag someone else's drinks across the bar."
 	icon = 'icons/obj/weapons.dmi'
-	icon_state = "stick"
+	icon_state = "qstaff0"
 	item_state = "stick"
 	force = 3.0
 	throwforce = 5.0
@@ -394,20 +360,9 @@
 	throw_range = 5
 	w_class = 2.0
 
-/obj/item/wire
-	desc = "This is just a simple piece of regular insulated wire."
-	name = "wire"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "item_wire"
-	var/amount = 1.0
-	var/laying = 0.0
-	var/old_lay = null
-	matter = list(DEFAULT_WALL_MATERIAL = 40)
-	attack_verb = list("whipped", "lashed", "disciplined", "tickled")
-
 /obj/item/module
 	icon = 'icons/obj/module.dmi'
-	icon_state = "std_module"
+	icon_state = "std_mod"
 	w_class = 2.0
 	item_state = "electronic"
 	flags = CONDUCT
@@ -422,13 +377,14 @@
 	name = "power control module"
 	icon_state = "power_mod"
 	desc = "Heavy-duty switching circuits for power control."
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
-/obj/item/module/power_control/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (W.ismultitool())
-		var/obj/item/circuitboard/ghettosmes/newcircuit = new/obj/item/circuitboard/ghettosmes(user.loc)
+/obj/item/module/power_control/attackby(obj/item/W, mob/user)
+	if(W.ismultitool())
+		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
+		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
-		user.put_in_hands(newcircuit)
+		user.put_in_hands(new_circuit)
 
 /obj/item/module/id_auth
 	name = "\improper ID authentication module"

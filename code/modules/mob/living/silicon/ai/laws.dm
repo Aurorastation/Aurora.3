@@ -18,7 +18,7 @@
 /mob/living/silicon/ai/add_ion_law(var/law)
 	..()
 	for(var/mob/living/silicon/robot/R in mob_list)
-		if(R.lawupdate && (R.connected_ai == src))
+		if(R.law_update && (R.connected_ai == src))
 			R.show_laws()
 
 /mob/living/silicon/ai/proc/ai_checklaws()

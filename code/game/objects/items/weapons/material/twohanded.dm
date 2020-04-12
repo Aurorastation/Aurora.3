@@ -293,13 +293,13 @@
 
 //predefined materials for spears
 /obj/item/material/twohanded/spear/steel/New(var/newloc)
-	..(newloc,"steel")
+	..(newloc, MATERIAL_STEEL)
 
 /obj/item/material/twohanded/spear/plasteel/New(var/newloc)
-	..(newloc,"plasteel")
+	..(newloc, MATERIAL_PLASTEEL)
 
 /obj/item/material/twohanded/spear/diamond/New(var/newloc)
-	..(newloc,"diamond")
+	..(newloc, MATERIAL_DIAMOND)
 
 /obj/structure/headspear
 	name = "head on a spear"
@@ -307,7 +307,6 @@
 	icon_state = "headspear"
 	density = 0
 	anchored = 1
-	var/material = "glass"
 
 /obj/structure/headspear/attack_hand(mob/living/user)
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
@@ -556,8 +555,8 @@
 	desc = "An old farming tool, not something you would find at hydroponics."
 
 /obj/item/material/twohanded/zweihander
-	icon_state = "zweihander"
-	base_icon = "zweihander"
+	icon_state = "zweihander0"
+	base_icon = "zweihander0"
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
 	force = 20

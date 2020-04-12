@@ -1151,7 +1151,7 @@ proc/is_blind(A)
 	return ..(get_active_hand())
 
 /mob/living/silicon/ai/get_multitool()
-	return ..(aiMulti)
+	return ..(ai_multi)
 
 /mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
 

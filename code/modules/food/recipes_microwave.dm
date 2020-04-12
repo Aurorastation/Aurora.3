@@ -515,14 +515,6 @@
 	items = list()
 	result = /obj/item/reagent_containers/food/snacks/soup/slime
 
-
-/datum/recipe/boiledslimeextract
-	reagents = list("water" = 5)
-	items = list(
-		/obj/item/slime_extract
-	)
-	result = /obj/item/reagent_containers/food/snacks/boiledslimecore
-
 /datum/recipe/chocolateegg
 	items = list(
 		/obj/item/reagent_containers/food/snacks/egg,
@@ -1124,7 +1116,7 @@
 
 /datum/recipe/spicy_clams
 	fruit = list("chili" = 1, "cabbage" = 1)
-	reagents = list("blackpepper" = 1, "spacespice" = 1)
+	reagents = list("capsaicin" = 1, "spacespice" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/clam,
 		/obj/item/reagent_containers/food/snacks/clam

@@ -10,10 +10,14 @@
 	name = "syringe"
 	desc = "A syringe."
 	icon = 'icons/obj/syringe.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	item_state = "syringe_0"
 	icon_state = "0"
 	center_of_mass = list("x" = 16,"y" = 14)
-	matter = list("glass" = 150)
+	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 15
@@ -407,16 +411,6 @@
 /obj/item/reagent_containers/syringe/norepinephrine/Initialize()
 	. = ..()
 	reagents.add_reagent("norepinephrine", 15)
-	mode = SYRINGE_INJECT
-	update_icon()
-
-/obj/item/reagent_containers/syringe/inaprovaline
-	name = "Syringe (inaprovaline)"
-	desc = "Contains inaprovaline - used to stabilize patients."
-	
-/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
-	. = ..()
-	reagents.add_reagent("inaprovaline", 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
