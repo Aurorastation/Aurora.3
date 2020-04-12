@@ -38,8 +38,6 @@
 		/datum/job/bartender,
 		/datum/job/chef,
 		/datum/job/hydro,
-		/datum/job/cargo_tech,
-		/datum/job/qm,
 		/datum/job/representative
 	)
 
@@ -61,8 +59,6 @@
 		"Detective" = /datum/outfit/job/detective/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
-		"Cargo Technician" = /datum/outfit/job/cargo_tech/idris,
-		"Quartermaster" = /datum/outfit/job/qm/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
@@ -95,17 +91,6 @@
 	name = "Gardener - Idris"
 	uniform = /obj/item/clothing/under/rank/idris/service
 	id = /obj/item/card/id/idris
-
-/datum/outfit/job/cargo_tech/idris
-	name = "Cargo Technician - Idris"
-	uniform = /obj/item/clothing/under/rank/idris/service
-	id = /obj/item/card/id/idris
-
-/datum/outfit/job/qm/idris
-	name = "Quartermaster - Idris"
-	uniform = /obj/item/clothing/under/rank/idris/service
-	id = /obj/item/card/id/idris
-
 
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"

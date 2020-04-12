@@ -31,8 +31,6 @@
 	allowed_role_types = list(
 		/datum/job/engineer,
 		/datum/job/atmos,
-		/datum/job/scientist,
-		/datum/job/roboticist,
 		/datum/job/mining,
 		/datum/job/cargo_tech,
 		/datum/job/qm,
@@ -55,11 +53,6 @@
 		"Engine Technician" = /datum/outfit/job/engineer/hephaestus,
 		"Electrician" = /datum/outfit/job/engineer/hephaestus,
 		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
-		"Scientist" = /datum/outfit/job/scientist/hephaestus,
-		"Phoron Researcher" = /datum/outfit/job/scientist/hephaestus,
-		"Xenoarcheologist" = /datum/outfit/job/scientist/hephaestus,
-		"Anomalist" = /datum/outfit/job/scientist/hephaestus,
-		"Roboticist" = /datum/outfit/job/roboticist/hephaestus,
 		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
 		"Drill Technician" = /datum/outfit/job/mining/drill/hephaestus,
 		"Quartermaster" = /datum/outfit/job/qm/hephaestus,
@@ -75,16 +68,6 @@
 /datum/outfit/job/atmos/hephaestus
 	name = "Atmospherics Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
-	id = /obj/item/card/id/hephaestus
-
-/datum/outfit/job/scientist/hephaestus
-	name = "Scientist - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus/research
-	id = /obj/item/card/id/hephaestus
-
-/datum/outfit/job/roboticist/hephaestus
-	name = "Roboticist - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus/research
 	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/mining/hephaestus
