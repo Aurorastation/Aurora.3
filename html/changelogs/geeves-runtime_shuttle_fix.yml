@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed null emergency shuttles causing runtime errors when the game checks for status displays."
