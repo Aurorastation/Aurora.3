@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed slime core batteries from charging over their maxcharge cap."
+  - tweak: "Increased the slime core battery maxcharge cap from 10K to 15K."
