@@ -1,8 +1,10 @@
+#define LISTENER_MODULAR_COMPUTER "modular_computers"
+
 /obj/item/modular_computer/process()
 	handle_power() // Handles all computer power interaction
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
-		return 0
+		return FALSE
 
 	if(damage > broken_damage)
 		shutdown_computer()
@@ -56,7 +58,7 @@
 
 /obj/item/modular_computer/Initialize()
 	. = ..()
-	listener = new("modular_computers", src)
+	listener = new(LISTENER_MODULAR_COMPUTER, src)
 	START_PROCESSING(SSprocessing, src)
 	install_default_hardware()
 	if(hard_drive)
