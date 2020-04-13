@@ -104,7 +104,7 @@
 	dat += "<b>Gender:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a><br>"
-	if(is_string_in_list(pref.species, ipc_species_by_name, FALSE))
+	if(istype(all_species[pref.species], /datum/species/machine))
 		dat += "<b>Has Tag:</b> <a href='?src=\ref[src];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
 		if(pref.machine_tag_status)
 			if(!pref.machine_serial_number)
@@ -177,7 +177,7 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["ipc_tag"])
-		var/choice = alert(user, "Do you wish for your IPC to have a tag?", "IPC Tag", "Yes", "No")
+		var/choice = alert(user, "Do you wish for your IPC to have a tag?\n\nWARNING: Being an untagged IPC in Tau space is highly illegal!", "IPC Tag", "Yes", "No")
 		if(CanUseTopic(user))
 			if(choice == "Yes")
 				pref.machine_tag_status = TRUE

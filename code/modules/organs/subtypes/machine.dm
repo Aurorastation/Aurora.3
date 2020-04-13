@@ -138,9 +138,11 @@
 	name = "identification tag"
 	organ_tag = "ipc tag"
 	parent_organ = BP_HEAD
-	icon = 'icons/obj/telescience.dmi'
-	icon_state = "gps-c"
-	dead_icon = "gps-c"
+	icon = 'icons/obj/ipc_utilities.dmi'
+	icon_state = "ipc_tag"
+	item_state = "ipc_tag"
+	dead_icon = "ipc_tag_dead"
+	contained_sprite = TRUE
 	var/auto_generate = TRUE
 	var/serial_number = ""
 	var/ownership_info = IPC_OWNERSHIP_COMPANY
@@ -149,6 +151,13 @@
 /obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
 	. = ..()
+
+/obj/item/organ/internal/ipc_tag/examine(mob/user)
+	..()
+	to_chat(user, SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]"))
+	to_chat(user, SPAN_NOTICE("Serial Number: [serial_number]"))
+	to_chat(user, SPAN_NOTICE("Ownership Info: [ownership_info]"))
+	to_chat(user, SPAN_NOTICE("Citizenship Info: [citizenship_info]"))
 
 /obj/item/organ/internal/ipc_tag/attackby(obj/item/W, mob/user)
 	if(W.ismultitool())
@@ -184,9 +193,10 @@
 					if(new_ownership)
 						ownership_info = new_ownership
 				if(choice == "Citizenship")
-					var/new_citizenship = input(user, "What do you wish for the new citizenship setting to be?", "Citizenship Setting Modification") as null|anything in citizenship_list
+					var/datum/citizenship/citizenship = input(user, "What do you wish for the new citizenship setting to be?", "Citizenship Setting Modification") as null|anything in SSrecords.citizenships
+					var/new_citizenship = citizenship.name
 					if(new_citizenship)
-						citizenship_info = new_citizenship 
+						citizenship_info = new_citizenship
 	else
 		..()
 

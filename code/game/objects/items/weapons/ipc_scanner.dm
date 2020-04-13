@@ -1,8 +1,10 @@
 /obj/item/ipc_tag_scanner
 	name = "IPC tag scanner"
 	desc = "A hand-held IPC tag scanner, that, when used to analyze the info of an IPC, will output its tag status and information."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "multitool"
+	icon = 'icons/obj/ipc_utilities.dmi'
+	icon_state = "ipc_tag_scanner"
+	item_state = "ipc_tag_scanner"
+	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 3
