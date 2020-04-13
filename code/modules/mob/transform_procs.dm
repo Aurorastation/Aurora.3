@@ -108,7 +108,7 @@
 		src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // stop the jams for AIs)
 	var/mob/living/silicon/ai/O = new (loc, base_law_type,,1)//No MMI but safety is in effect.
 	O.invisibility = 0
-	O.aiRestorePowerRoutine = 0
+	O.ai_restore_power_routine = 0
 
 	if(mind)
 		mind.transfer_to(O)
@@ -320,9 +320,6 @@
 
 	if(ispath(MP, /mob/living/simple_animal/space_worm))
 		return 0 //Unfinished. Very buggy, they seem to just spawn additional space worms everywhere and eating your own tail results in new worms spawning.
-
-	if(ispath(MP, /mob/living/simple_animal/construct/behemoth))
-		return 0 //I think this may have been an unfinished WiP or something. These constructs should really have their own class simple_animal/construct/subtype
 
 	if(ispath(MP, /mob/living/simple_animal/construct/armoured))
 		return 0 //Verbs do not appear for players. These constructs should really have their own class simple_animal/construct/subtype

@@ -5,8 +5,8 @@
 	program_icon_state = "security"
 	color = LIGHT_COLOR_ORANGE
 	size = 8
-	requires_ntnet = 1
-	available_on_ntnet = 1
+	requires_ntnet = TRUE
+	available_on_ntnet = TRUE
 	required_access_download = access_hos
 	required_access_run = access_security
 	nanomodule_path = /datum/nano_module/program/digitalwarrant/
@@ -44,13 +44,13 @@
 
 /datum/nano_module/program/digitalwarrant/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 
 	if(href_list["sw_menu"])
 		activewarrant = null
 
 	if(href_list["editwarrant"])
-		. = 1
+		. = TRUE
 		for(var/datum/record/warrant/W in SSrecords.warrants)
 			if(W.id == text2num(href_list["editwarrant"]))
 				activewarrant = W
@@ -68,7 +68,7 @@
 		return
 
 	if(href_list["addwarrant"])
-		. = 1
+		. = TRUE
 		var/datum/record/warrant/W = new()
 		var/temp = sanitize(input(usr, "Do you want to create a search-, or an arrest warrant?") as null|anything in list("search","arrest"))
 		if(CanInteract(user, default_state))
@@ -85,17 +85,17 @@
 			activewarrant = W
 
 	if(href_list["savewarrant"])
-		. = 1
+		. = TRUE
 		SSrecords.update_record(activewarrant)
 		activewarrant = null
 
 	if(href_list["deletewarrant"])
-		. = 1
+		. = TRUE
 		SSrecords.remove_record(activewarrant)
 		activewarrant = null
 
 	if(href_list["editwarrantname"])
-		. = 1
+		. = TRUE
 		var/namelist = list()
 		for(var/datum/record/general/t in SSrecords.records)
 			namelist += t.name
@@ -106,7 +106,7 @@
 			activewarrant.name = new_name
 
 	if(href_list["editwarrantnamecustom"])
-		. = 1
+		. = TRUE
 		var/new_name = sanitize(input("Please input name") as null|text)
 		if(CanInteract(user, default_state))
 			if (!new_name)
@@ -114,7 +114,7 @@
 			activewarrant.name = new_name
 
 	if(href_list["editwarrantcharges"])
-		. = 1
+		. = TRUE
 		var/new_charges = sanitize(input("Please input charges", "Charges", activewarrant.notes) as null|text)
 		if(CanInteract(user, default_state))
 			if (!new_charges)
@@ -122,10 +122,10 @@
 			activewarrant.notes = new_charges
 
 	if(href_list["editwarrantauth"])
-		. = 1
+		. = TRUE
 
 		activewarrant.authorization = "[I.registered_name] - [I.assignment ? I.assignment : "(Unknown)"]"
 
 	if(href_list["back"])
-		. = 1
+		. = TRUE
 		activewarrant = null

@@ -64,13 +64,12 @@ for reference:
 	density = 1.0
 	var/health = 100
 	var/maxhealth = 100
-	var/material/material
 
 /obj/structure/barricade/New(var/newloc, var/material_name)
 	..(newloc)
 	if(!material_name)
 		material_name = "wood"
-	material = get_material_by_name("[material_name]")
+	material = SSmaterials.get_material_by_name(material_name)
 	if(!material)
 		qdel(src)
 		return
@@ -79,9 +78,6 @@ for reference:
 	color = material.icon_colour
 	maxhealth = material.integrity
 	health = maxhealth
-
-/obj/structure/barricade/get_material()
-	return material
 
 /obj/structure/barricade/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/stack))
@@ -143,7 +139,7 @@ for reference:
 		return 0
 
 /obj/structure/barricade/steel/New(var/newloc)
-	.=..(newloc,"steel")
+	.=..(newloc, MATERIAL_STEEL)
 
 //Actual Deployable machinery stuff
 /obj/machinery/deployable
@@ -278,7 +274,7 @@ for reference:
 	desc = "A do-it-yourself kit for constructing the finest of emergency floodlights."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	item_state = "box"
 	var/kit_product = /obj/machinery/floodlight
 	var/assembly_time = 8 SECONDS
 
@@ -334,3 +330,13 @@ for reference:
 	w_class = 4
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
+
+/obj/item/deployable_kit/iv_drip
+	name = "IV drip assembly kit"
+	desc = "A quick assembly kit to put together an IV drip."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "inf_box"
+	item_state = "syringe_kit"
+	w_class = 3
+	kit_product = /obj/machinery/iv_drip
+	assembly_time = 4 SECONDS

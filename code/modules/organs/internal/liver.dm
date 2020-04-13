@@ -7,7 +7,7 @@
 	robotic_sprite = "liver-prosthetic"
 	toxin_type = CE_HEPATOTOXIC
 	min_bruised_damage = 25
-	min_broken_damage = 45
+	min_broken_damage = 55
 
 	max_damage = 70
 	relative_size = 60
@@ -28,7 +28,7 @@
 
 	//Detox can heal small amounts of damage
 	if (damage < max_damage && !owner.chem_effects[CE_TOXIN])
-		heal_damage(0.2 * owner.chem_effects[CE_ANTITOXIN])
+		heal_damage(0.3 * owner.chem_effects[CE_ANTITOXIN])
 
 	// Get the effectiveness of the liver.
 	var/filter_effect = 3
@@ -59,10 +59,12 @@
 		filter_strength = INTOX_FILTER_BRUISED
 	if(is_broken())
 		filter_strength = INTOX_FILTER_DAMAGED
+	if(BP_IS_ROBOTIC(src))
+		filter_strength *= 1.1
 
 	if (owner.intoxication > 0)
-		owner.intoxication -= min(owner.intoxication, filter_strength*PROCESS_ACCURACY)
-		if (!owner.intoxication)
+		owner.intoxication -= min(owner.intoxication, filter_strength)
+		if(!owner.intoxication)
 			owner.handle_intoxication()
 
 	if(toxin_type in owner.chem_effects)

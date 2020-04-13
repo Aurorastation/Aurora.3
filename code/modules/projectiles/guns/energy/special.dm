@@ -1,6 +1,7 @@
 /obj/item/gun/energy/rifle/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: stun and kill"
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: Stun and Lethal."
+	icon = 'icons/obj/guns/ionrifle.dmi'
 	icon_state = "ionriflestun100"
 	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
 	modifystate = "ionriflestun"
@@ -10,11 +11,11 @@
 	w_class = 4
 	accuracy = 1
 	force = 10
-	flags =  CONDUCT
+	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	charge_cost = 300
 	max_shots = 10
-	secondary_projectile_type =  /obj/item/projectile/ion
+	secondary_projectile_type = /obj/item/projectile/ion
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_turret = 1
 	can_switch_modes = 1
@@ -56,8 +57,10 @@
 /obj/item/gun/energy/decloner
 	name = "biological demolecularisor"
 	desc = "A gun that discharges high amounts of controlled radiation to slowly break a target into component elements."
+	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/pulse3.ogg'
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
 	max_shots = 10
@@ -66,8 +69,10 @@
 /obj/item/gun/energy/floragun
 	name = "floral somatoray"
 	desc = "A tool that discharges controlled radiation which induces mutation in plant cells."
+	icon = 'icons/obj/guns/flora.dmi'
 	icon_state = "floramut100"
 	item_state = "floramut"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	charge_cost = 100
 	max_shots = 10
@@ -94,8 +99,10 @@
 /obj/item/gun/energy/meteorgun
 	name = "meteor gun"
 	desc = "For the love of god, make sure you're aiming this the right way!"
+	icon = 'icons/obj/guns/meteor_gun.dmi'
 	icon_state = "meteor_gun"
-	item_state = "c20r"
+	item_state = "meteor_gun"
+	has_item_ratio = FALSE
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 4
 	max_shots = 10
@@ -110,6 +117,7 @@
 	name = "meteor pen"
 	desc = "The pen is mightier than the sword."
 	icon = 'icons/obj/bureaucracy.dmi'
+	contained_sprite = FALSE
 	icon_state = "pen"
 	item_state = "pen"
 	w_class = 1
@@ -120,7 +128,10 @@
 /obj/item/gun/energy/mindflayer
 	name = "mind flayer"
 	desc = "A custom-built weapon of some kind."
+	icon = 'icons/obj/guns/xray.dmi'
 	icon_state = "xray"
+	item_state = "xray"
+	has_item_ratio = FALSE
 	projectile_type = /obj/item/projectile/beam/mindflayer
 	fire_sound = 'sound/weapons/Laser.ogg'
 	can_turret = 1
@@ -129,7 +140,10 @@
 /obj/item/gun/energy/toxgun
 	name = "phoron pistol"
 	desc = "A specialized firearm designed to fire lethal bolts of phoron."
+	icon = 'icons/obj/guns/toxgun.dmi'
 	icon_state = "toxgun"
+	item_state = "toxgun"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	w_class = 3.0
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
@@ -141,8 +155,10 @@
 /obj/item/gun/energy/beegun
 	name = "\improper NanoTrasen Portable Apiary"
 	desc = "An experimental firearm that converts energy into bees, for purely botanical purposes."
+	icon = 'icons/obj/guns/gyrorifle.dmi'
 	icon_state = "gyrorifle"
-	item_state = "arifle"
+	item_state = "gyrorifle"
+	has_item_ratio = FALSE
 	charge_meter = 0
 	w_class = 4
 	fire_sound = 'sound/effects/Buzz2.ogg'
@@ -160,7 +176,10 @@
 /obj/item/gun/energy/mousegun
 	name = "pest gun"
 	desc = "The NT \"Arodentia\" Pesti-Shock is a highly sophisticated and probably safe beamgun designed for rapid pest-control."
+	icon = 'icons/obj/guns/pestishock.dmi'
 	icon_state = "pestishock"
+	item_state = "pestishock"
+	has_item_ratio = FALSE
 	w_class = 3
 	fire_sound = 'sound/weapons/taser2.ogg'
 	force = 5
@@ -186,7 +205,10 @@
 /obj/item/gun/energy/net
 	name = "net gun"
 	desc = "A gun designed to deploy energy nets to capture animals or unruly crew members."
+	icon = 'icons/obj/guns/netgun.dmi'
 	icon_state = "netgun"
+	item_state = "netgun"
+	has_item_ratio = FALSE
 	projectile_type = /obj/item/projectile/beam/energy_net
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_HOLSTER | SLOT_BELT
@@ -214,8 +236,10 @@
 /obj/item/gun/energy/vaurca/bfg
 	name = "BFG 9000"
 	desc = "'Bio-Force Gun'. Yeah, right."
+	icon = 'icons/obj/guns/bfg.dmi'
 	icon_state = "bfg"
 	item_state = "bfg"
+	has_item_ratio = FALSE
 	charge_meter = 0
 	w_class = 4
 	fire_sound = 'sound/magic/LightningShock.ogg'
@@ -234,8 +258,10 @@
 /obj/item/gun/energy/vaurca/gatlinglaser
 	name = "gatling laser"
 	desc = "A highly sophisticated rapid fire laser weapon."
+	icon = 'icons/obj/guns/gatling.dmi'
 	icon_state = "gatling"
 	item_state = "gatling"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Laser.ogg'
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
@@ -286,8 +312,10 @@
 /obj/item/gun/energy/vaurca/blaster
 	name = "\improper Zo'ra Blaster"
 	desc = "An elegant weapon for a more civilized time."
+	icon = 'icons/obj/guns/blaster.dmi'
 	icon_state = "blaster"
 	item_state = "blaster"
+	has_item_ratio = FALSE
 	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
@@ -402,10 +430,10 @@
 /obj/item/gun/energy/vaurca/thermaldrill
 	name = "thermal drill"
 	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
-	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "thermaldrill"
 	item_state = "thermaldrill"
+	has_item_ratio = FALSE
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
@@ -463,11 +491,11 @@
 /obj/item/gun/energy/vaurca/mountedthermaldrill
 	name = "mounted thermal drill"
 	desc = "Pierce the heavens? Son, there won't <i>be</i> any heavens when you're through with it."
-	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "thermaldrill"
 	item_state = "thermaldrill"
-	origin_tech = "combat=6;phorontech=8,"
+	has_item_ratio = FALSE
+	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
@@ -505,10 +533,10 @@
 /obj/item/gun/energy/vaurca/tachyon
 	name = "tachyon carbine"
 	desc = "A Vaurcan carbine that fires a beam of concentrated faster than light particles, capable of passing through most forms of matter."
-	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "tachyoncarbine"
 	item_state = "tachyoncarbine"
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
@@ -520,9 +548,10 @@
 /obj/item/gun/energy/tesla
 	name = "tesla gun"
 	desc = "A gun that shoots a projectile that bounces from living thing to living thing. Keep your distance from whatever you are shooting at."
+	icon = 'icons/obj/guns/tesla.dmi'
 	icon_state = "tesla"
 	item_state = "tesla"
-	icon = 'icons/obj/gun.dmi'
+	has_item_ratio = FALSE
 	charge_meter = 0
 	w_class = 4
 	fire_sound = 'sound/magic/LightningShock.ogg'
@@ -545,9 +574,10 @@
 /obj/item/gun/energy/gravity_gun
 	name = "gravity gun"
 	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
+	icon = 'icons/obj/guns/gravity_gun.dmi'
 	icon_state = "gravity_gun"
 	item_state = "gravity_gun"
-	icon = 'icons/obj/gun.dmi'
+	has_item_ratio = FALSE
 	charge_meter = 0
 	w_class = 4
 	fire_sound = 'sound/magic/Repulse.ogg'

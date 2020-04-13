@@ -36,7 +36,7 @@ var/global/list/default_medbay_channels = list(
 	var/b_stat = 0
 	var/broadcasting = 0
 	var/listening = 1
-	var/list/channels = list() //see communications.dm for full list. First channel is a "default" for :h
+	var/list/channels = list() //see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
 	var/subspace_transmission = 0
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
 	flags = CONDUCT
@@ -44,7 +44,7 @@ var/global/list/default_medbay_channels = list(
 	throw_speed = 2
 	throw_range = 9
 	w_class = 2
-	matter = list("glass" = 25,DEFAULT_WALL_MATERIAL = 75)
+	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
 
@@ -231,8 +231,14 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
-		if (channel == "department")
-			channel = channels[1]
+		if(channel == "department")
+			for(var/freq in channels)
+				if(freq == "Common" || freq == "Entertainment")
+					continue
+				channel = freq
+				break
+			if(channel == "department") // didn't find one, use first one
+				channel = channels[1]
 		connection = secure_radio_connections[channel]
 	else
 		connection = radio_connection
@@ -259,9 +265,14 @@ var/global/list/default_medbay_channels = list(
 
 	// Otherwise, if a channel is specified, look for it.
 	if(channels && channels.len > 0)
-		if (message_mode == "department") // Department radio shortcut
-			message_mode = channels[1]
-
+		if(message_mode == "department") // Department radio shortcut
+			for(var/freq in channels)
+				if(freq == "Common" || freq == "Entertainment")
+					continue
+				message_mode = freq
+				break
+			if(message_mode == "department") // didn't find one, use first one
+				message_mode = channels[1]
 		if (channels[message_mode]) // only broadcast if the channel is set on
 			return secure_radio_connections[message_mode]
 
@@ -756,3 +767,8 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/phone/medbay/Initialize()
 	. = ..()
 	internal_channels = default_medbay_channels.Copy()
+
+/obj/item/device/radio/CouldUseTopic(var/mob/user)
+	..()
+	if(iscarbon(user))
+		playsound(src, "button", 10)

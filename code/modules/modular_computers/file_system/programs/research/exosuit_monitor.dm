@@ -7,6 +7,6 @@
 	required_access_run = access_robotics
 	required_access_download = access_rd
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
-	requires_ntnet = 1
+	requires_ntnet = TRUE
 	size = 8
 	color = LIGHT_COLOR_PURPLE

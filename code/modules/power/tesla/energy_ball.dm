@@ -319,7 +319,7 @@
 			var/obj/singularity/energy_ball/B = source
 			if(!E.active)
 				return
-			B.visible_message("\The [src] discharges entirely at [A] until it dissapears and [A] melts down")
+			B.visible_message("\The [B] discharges entirely at [A] until it dissapears and [A] melts down")
 			B.Beam(E, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
 			E.tesla_act(0, TRUE)
 			qdel(B)

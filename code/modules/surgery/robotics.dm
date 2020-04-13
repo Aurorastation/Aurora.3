@@ -11,7 +11,7 @@
 		return 0
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
 		return 0
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)
@@ -56,7 +56,7 @@
 
 /datum/surgery_step/robotics/open_hatch
 	allowed_tools = list(
-		/obj/item/retractor = 100,
+		/obj/item/surgery/retractor = 100,
 		/obj/item/crowbar = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
@@ -88,7 +88,7 @@
 
 /datum/surgery_step/robotics/close_hatch
 	allowed_tools = list(
-		/obj/item/retractor = 100,
+		/obj/item/surgery/retractor = 100,
 		/obj/item/crowbar = 100,
 		/obj/item/material/kitchen/utensil = 50
 	)
@@ -198,7 +198,7 @@
 /datum/surgery_step/robotics/fix_organ_robotic //For artificial organs
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
-	/obj/item/bonegel = 30,
+	/obj/item/surgery/bonegel = 30,
 	/obj/item/screwdriver = 70
 	)
 
@@ -206,7 +206,7 @@
 	max_duration = 90
 
 /datum/surgery_step/robotics/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected)
@@ -219,7 +219,7 @@
 	return affected.open == 3 && is_organ_damaged
 
 /datum/surgery_step/robotics/fix_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -233,7 +233,7 @@
 	..()
 
 /datum/surgery_step/robotics/fix_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -246,9 +246,13 @@
 				var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 				if(sponge && istype(I, sponge))
 					target.cure_all_traumas()
+				if(istype(tool, /obj/item/stack/nanopaste))
+					var/obj/item/stack/nanopaste/nanopaste = tool
+					nanopaste.use(1)
+					return
 
 /datum/surgery_step/robotics/fix_organ_robotic/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 

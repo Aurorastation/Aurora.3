@@ -1,16 +1,19 @@
 /obj
-	//Used to store information about the contents of the object.
-	var/list/matter
+	animate_movement = 2
+
+	
+	var/list/matter //Used to store information about the contents of the object.
 	var/w_class // Size of the object.
 	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
 	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
-	animate_movement = 2
+	
+	var/obj_flags //Special flags such as whether or not this object can be rotated.
 	var/throwforce = 1
 	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
 	var/sharp = 0		// whether this object cuts
 	var/edge = 0		// whether this object is more likely to dismember
 	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
-	var/damtype = "brute"
+	var/damtype = BRUTE
 	var/force = 0
 	var/armor_penetration = 0
 	var/noslice = 0 // To make it not able to slice things.
@@ -24,7 +27,7 @@
 	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
 
 	var/equip_slot = 0
-	var/usesound = null
+	var/usesound
 	var/toolspeed = 1
 
 /obj/Destroy()
@@ -221,3 +224,28 @@
 	var/shake_dir = pick(-1, 1)
 	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
 	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)
+
+/obj/proc/rotate(var/mob/user, var/anchored_ignore = FALSE)
+	if(use_check_and_message(user))
+		return
+	
+	if(anchored && !anchored_ignore)
+		to_chat(user, SPAN_WARNING("\The [src] is bolted down to the floor!"))
+		return
+	
+	set_dir(turn(dir, 90))
+	update_icon()
+
+/obj/AltClick(var/mob/user)
+	if(obj_flags & OBJ_FLAG_ROTATABLE)
+		rotate(user)
+		return
+	if(obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED)
+		rotate(user, TRUE)
+		return
+	..()
+
+/obj/examine(mob/user)
+	. = ..()
+	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
+		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))

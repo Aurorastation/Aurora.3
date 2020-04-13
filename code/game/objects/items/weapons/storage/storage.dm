@@ -31,6 +31,7 @@
 	var/obj/screen/storage/stored_end
 	var/obj/screen/close/closer
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
+	var/list/pickup_blacklist = list() // If you click a blacklisted item, it won't try to pick it up if use_to_pickup is true
 	var/display_contents_with_number	//Set this to make the storage item group contents of the same type and display them as a number.
 	var/allow_quick_empty	//Set this variable to allow the object to have the 'empty' verb, which dumps all the contents on the floor.
 	var/allow_quick_gather	//Set this variable to allow the object to have the 'toggle mode' verb, which quickly collects all items from a tile.
@@ -51,29 +52,29 @@
 	QDEL_NULL(closer)
 	return ..()
 
-/obj/item/storage/MouseDrop(obj/over_object as obj)
-
+/obj/item/storage/MouseDrop(obj/over_object)
 	if(!canremove)
 		return
-
-	if (ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
-
+	if(!over_object || over_object == src)
+		return
+	if(istype(over_object, /obj/screen/inventory))
+		var/obj/screen/inventory/S = over_object
+		if(S.slot_id == src.equip_slot)
+			return
+	if(ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 			src.open(usr)
 			return
-
-		if (!( istype(over_object, /obj/screen) ))
+		if(!(istype(over_object, /obj/screen)))
 			return ..()
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 		//there's got to be a better way of doing this.
-		if (!(src.loc == usr) || (src.loc && src.loc.loc == usr))
+		if(!(src.loc == usr) || (src.loc && src.loc.loc == usr))
 			return
-
-		if (( usr.restrained() ) || ( usr.stat ))
+		if(use_check_and_message(usr))
 			return
-
-		if ((src.loc == usr) && !usr.unEquip(src))
+		if((src.loc == usr) && !usr.unEquip(src))
 			return
 
 		switch(over_object.name)
@@ -84,7 +85,6 @@
 				usr.u_equip(src)
 				usr.put_in_l_hand(src,FALSE)
 		src.add_fingerprint(usr)
-
 
 /obj/item/storage/proc/return_inv()
 	. = contents.Copy()
@@ -308,7 +308,7 @@
 	if(src.loc == W)
 		return 0 //Means the item is already in the storage item
 	if(storage_slots != null && contents.len >= storage_slots)
-		if(!stop_messages)
+		if(!stop_messages || is_type_in_list(W, pickup_blacklist)) // the is_type_in_list is a bit risky, but you tend to not want to pick up things in your blacklist anyway
 			to_chat(usr, "<span class='notice'>[src] is full, make some space.</span>")
 		return 0 //Storage item is full
 

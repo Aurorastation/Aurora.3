@@ -241,7 +241,7 @@
 		var/choice = alert("Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
 			for(var/datum/design/D in temp_server.files.known_designs)
-				if(D.id == href_list["reset_design"])
+				if("[D.type]" == href_list["reset_design"])
 					temp_server.files.known_designs -= D
 					break
 		temp_server.files.RefreshResearch()
@@ -297,7 +297,7 @@
 			dat += "Known Designs<BR>"
 			for(var/datum/design/D in temp_server.files.known_designs)
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.id]'>(Delete)</A><BR>"
+				dat += "<A href='?src=\ref[src];reset_design=[D.type]'>(Delete)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer

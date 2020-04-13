@@ -14,6 +14,7 @@
 #define FAKEDEATH   0x2000  // Replaces stuff like changeling.changeling_fakedeath.
 #define DISFIGURED  0x4000  // Set but never checked. Remove this sometime and replace occurences with the appropriate organ code
 #define XENO_HOST   0x8000  // Tracks whether we're gonna be a baby alien's mummy.
+#define NO_ANTAG    0x10000  // Players are restricted from gaining antag roles when occupying this mob
 
 // Grab levels.
 #define GRAB_PASSIVE    1
@@ -46,6 +47,27 @@
 #define GETPULSE_HAND 0 // Less accurate. (hand)
 #define GETPULSE_TOOL 1 // More accurate. (med scanner, sleeper, etc.)
 #define PULSE_MAX_BPM 250 // Highest, readable BPM by machines and humans.
+
+// Blood pressure levels, simplified
+#define BP_HIGH_SYSTOLIC 		140
+#define BP_PRE_HIGH_SYSTOLIC 	125
+#define BP_IDEAL_SYSTOLIC		80
+
+#define BP_HIGH_DIASTOLIC 		100
+#define BP_PRE_HIGH_DIASTOLIC	85
+#define BP_IDEAL_DIASTOLIC 		60
+
+#define BLOOD_PRESSURE_HIGH     4
+#define BLOOD_PRESSURE_PRE_HIGH 3
+#define BLOOD_PRESSURE_IDEAL    2
+#define BLOOD_PRESSURE_LOW      1
+
+// total_radiation levels (Note that total_radiation can be above RADS_MAX until handle_mutations_and_radiation() runs)
+#define RADS_NONE 0
+#define RADS_LOW 1
+#define RADS_MED 50
+#define RADS_HIGH 75
+#define RADS_MAX 100
 
 //intent flags, why wasn't this done the first time?
 #define I_HELP		"help"
@@ -209,11 +231,13 @@
 #define GLUT_TINY 1       // Eat anything tiny and smaller
 #define GLUT_SMALLER 2    // Eat anything smaller than we are
 #define GLUT_ANYTHING 4   // Eat anything, ever
+#define GLUT_MESSY 8      // Only eat mobs, and eat them in chunks.
 
-#define GLUT_ITEM_TINY 8         // Eat items with a w_class of small or smaller
-#define GLUT_ITEM_NORMAL 16      // Eat items with a w_class of normal or smaller
-#define GLUT_ITEM_ANYTHING 32    // Eat any item
-#define GLUT_PROJECTILE_VOMIT 64 // When vomitting, does it fly out?
+#define GLUT_ITEM_TINY 16         // Eat items with a w_class of small or smaller
+#define GLUT_ITEM_NORMAL 32      // Eat items with a w_class of normal or smaller
+#define GLUT_ITEM_ANYTHING 64    // Eat any item
+#define GLUT_PROJECTILE_VOMIT 128 // When vomitting, does it fly out?
+
 
 // Devour speeds, returned by can_devour()
 #define DEVOUR_SLOW 1

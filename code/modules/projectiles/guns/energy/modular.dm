@@ -1,8 +1,12 @@
 /obj/item/gun/energy/laser/prototype
 	name = "laser prototype"
 	desc = "A custom prototype laser weapon."
-	icon_state = "energykill"
-	item_state = "energykill"
+	icon = 'icons/obj/guns/modular_laser.dmi'
+	icon_state = "large_3"
+	item_state = "large_3"
+	contained_sprite = TRUE
+	has_icon_ratio = FALSE
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
@@ -28,6 +32,8 @@
 
 /obj/item/gun/energy/laser/prototype/examine(mob/user)
 	..(user)
+	if(get_dist(src, user) > 1)
+		return
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 			to_chat(user, "You can see \the [modifier] attached.")
@@ -48,9 +54,14 @@
 	..()
 	if(origin_chassis == CHASSIS_LARGE)
 		if(wielded)
-			item_state = "heavyprotogun_wielded"
+			item_state = "large_3_wielded"
 		else
-			item_state = "heavyprotogun"
+			item_state = "large_3"
+	underlays.Cut()
+	if(length(gun_mods))
+		for(var/obj/item/laser_components/mod in gun_mods)
+			if(mod.gun_overlay)
+				underlays += mod.gun_overlay
 	update_held_icon()
 
 /obj/item/gun/energy/laser/prototype/proc/reset_vars()
@@ -116,18 +127,18 @@
 /obj/item/gun/energy/laser/prototype/proc/update_chassis()
 	switch(origin_chassis)
 		if(CHASSIS_SMALL)
-			gun_type =  CHASSIS_SMALL
+			gun_type = CHASSIS_SMALL
 			slot_flags = SLOT_BELT | SLOT_HOLSTER
-			item_state = "retro"
+			item_state = "small_3"
 		if(CHASSIS_MEDIUM)
 			gun_type = CHASSIS_MEDIUM
 			slot_flags = SLOT_BELT | SLOT_BACK
-			item_state = "energystun"
+			item_state = "medium_3"
 			is_wieldable = TRUE
 		if(CHASSIS_LARGE)
 			gun_type = CHASSIS_LARGE
 			slot_flags = SLOT_BACK
-			item_state = "heavyprotogun"
+			item_state = "large_3"
 			is_wieldable = TRUE
 	update_wield_verb()
 

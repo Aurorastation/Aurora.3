@@ -8,7 +8,7 @@
 	can_infect = 0
 
 /datum/surgery_step/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected || (affected.status & ORGAN_ROBOT))
@@ -17,7 +17,7 @@
 
 /datum/surgery_step/generic/cut_face
 	allowed_tools = list(
-	/obj/item/scalpel = 100,
+	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -55,7 +55,7 @@
 
 /datum/surgery_step/robotics/face/synthskin
 	allowed_tools = list(
-	/obj/item/scalpel = 100,
+	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)

@@ -13,7 +13,7 @@
 
 /turf/unsimulated/wall/other
 	icon = 'icons/turf/walls.dmi'
-	icon_state = "r_wall"
+	icon_state = "rock"
 
 // pretty much just a prettier /turf/unsimulated/wall
 /turf/unsimulated/wall/riveted

@@ -19,7 +19,7 @@
 		else
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 			for(var/hair_string in hair_styles_list)
-				var/list/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
+				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
 				if(test.length >= 2 && (species.bodytype in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
 			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
@@ -40,7 +40,7 @@ mob/living/carbon/human/proc/change_monitor()
 		var/selected_string
 		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
 		for(var/screen_string in facial_hair_styles_list)
-			var/list/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
+			var/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
 			if(species.bodytype in test.species_allowed)
 				valid_screenstyles.Add(screen_string)
 		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
@@ -223,7 +223,10 @@ mob/living/carbon/human/proc/change_monitor()
 	return FALSE
 
 /mob/living/carbon/human/can_commune()
-	return species ? species.can_commune() : FALSE
+	if(psi)
+		return TRUE
+	else
+		return species ? species.can_commune() : FALSE
 
 /mob/living/carbon/human/proc/commune()
 	set category = "Abilities"
@@ -334,43 +337,50 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your mandibles still ache!</span>")
+		to_chat(src, SPAN_WARNING("Your mandibles still ache!"))
 		return
 
-	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+	if(use_check_and_message(usr))
+		return
+
+	if(wear_mask?.flags_inv & HIDEFACE)
+		to_chat(src, SPAN_WARNING("You have a mask covering your mandibles!"))
+		return
+
+	if(head?.flags_inv & HIDEFACE)
+		to_chat(src, SPAN_WARNING("You have something on your head covering your mandibles!"))
 		return
 
 	var/obj/item/grab/G = locate() in src
 	if(!G || !istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(G.state < GRAB_AGGRESSIVE)
-		to_chat(src, "<span class='warning'>You must have an aggressive grab to gut your prey!</span>")
+	if(G.state < GRAB_KILL)
+		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
 		return
 
-	if(istype(G.affecting,/mob/living/carbon/human))
+	if(ishuman(G.affecting))
 		var/mob/living/carbon/human/H = G.affecting
 		var/hit_zone = zone_sel.selecting
 		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
 
 		if(!affected || affected.is_stump())
-			to_chat(H, "<span class='danger'>They are missing that limb!</span>")
+			to_chat(H, SPAN_WARNING("They are missing that limb!"))
 			return
 
-		H.apply_damage(25, BRUTE, hit_zone, sharp = 1, edge = 1)
-		visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!</span>")
+		H.apply_damage(25, BRUTE, hit_zone, sharp = TRUE, edge = TRUE)
+		visible_message(SPAN_WARNING("<b>\The [src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
-		M.apply_damage(25,BRUTE, sharp=1, edge=1)
-		visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
+		M.apply_damage(25, BRUTE, sharp = TRUE, edge = TRUE)
+		visible_message(SPAN_WARNING("<b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
-	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)
-	last_special = world.time + 25
+	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
+	last_special = world.time + 100
 
 /mob/living/carbon/human/proc/detonate_flechettes()
 	set category = "Military Frame"

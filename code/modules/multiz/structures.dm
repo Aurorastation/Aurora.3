@@ -170,7 +170,7 @@
 
 /obj/structure/stairs
 	name = "stairs"
-	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."
+	desc = "Stairs leading to another level.  Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
 	density = 0
 	opacity = 0
@@ -205,6 +205,9 @@
 			var/mob/living/L = A
 			if(L.pulling)
 				L.pulling.forceMove(target)
+			if(ishuman(A))
+				playsound(src, 'sound/effects/stairs_step.ogg', 50)
+				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
 /obj/structure/stairs/proc/upperStep(var/turf/T)
 	return (T == loc)

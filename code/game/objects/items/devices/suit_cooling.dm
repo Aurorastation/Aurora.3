@@ -19,7 +19,7 @@
 
 	var/celltype = /obj/item/cell/high
 
-	matter = list(DEFAULT_WALL_MATERIAL = 25000, "glass" = 3500)
+	matter = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 3500)
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/cell/cell

@@ -124,6 +124,19 @@
 		turn_on(user)
 
 /obj/item/modular_computer/attackby(var/obj/item/W as obj, var/mob/user as mob)
+	if(istype(W, /obj/item/card/tech_support))
+		if(!can_reset)
+			to_chat(user, span("notice", "You cannot reset this type of device."))
+			return
+		if(!enabled)
+			to_chat(user, span("notice", "You cannot reset the device if it isn't powered on."))
+			return
+		if(!hard_drive)
+			to_chat(user, span("notice", "You cannot reset a device that has no hard drive."))
+			return
+		enrolled = 0
+		hard_drive.reset_drive()
+		visible_message("\icon[src.icon] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
 	if(istype(W, /obj/item/card/id)) // ID Card, try to insert it.
 		var/obj/item/card/id/I = W
 		if(!card_slot)

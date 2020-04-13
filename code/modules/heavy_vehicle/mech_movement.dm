@@ -47,6 +47,10 @@
 		to_chat(mover, "<span class='warning'>Maintenance protocols are in effect.</span>")
 		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return MOVEMENT_STOP
+	if(exosuit.lockdown)
+		to_chat(mover, span("warning", "You cannot move while the exosuit's lockdown mode is active."))
+		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
+		return MOVEMENT_STOP
 	var/obj/item/cell/C = exosuit.get_cell()
 	if(!C || !C.check_charge(exosuit.legs.power_use * CELLRATE))
 		to_chat(mover, "<span class='warning'>The power indicator flashes briefly.</span>")

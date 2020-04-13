@@ -9,6 +9,9 @@
 /turf/simulated/wall/cultify()
 	cultify_wall()
 
+/turf/simulated/wall/r_wall/cultify()
+	ChangeTurf(/turf/simulated/wall/cult_reinforced)
+
 /turf/simulated/wall/cult/cultify()
 	return
 
@@ -26,6 +29,12 @@
 
 /turf/unsimulated/wall/cultify()
 	cultify_wall()
+
+/turf/unsimulated/floor/asteroid/cultify()
+	return
+
+/turf/simulated/mineral/cultify()
+	return
 
 /turf/proc/cultify_floor()
 	if((icon_state != "cult")&&(icon_state != "cult-narsie"))

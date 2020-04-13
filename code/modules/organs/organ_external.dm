@@ -137,17 +137,17 @@
 /obj/item/organ/external/attackby(obj/item/W as obj, mob/user as mob)
 	switch(stage)
 		if(0)
-			if(istype(W,/obj/item/scalpel))
+			if(istype(W,/obj/item/surgery/scalpel))
 				user.visible_message("<span class='danger'><b>[user]</b> cuts [src] open with [W]!</span>")
 				stage++
 				return
 		if(1)
-			if(istype(W,/obj/item/retractor))
+			if(istype(W,/obj/item/surgery/retractor))
 				user.visible_message("<span class='danger'><b>[user]</b> cracks [src] open like an egg with [W]!</span>")
 				stage++
 				return
 		if(2)
-			if(istype(W,/obj/item/hemostat))
+			if(istype(W,/obj/item/surgery/hemostat))
 				if(contents.len)
 					var/obj/item/removing = pick(contents)
 					removing.forceMove(get_turf(user.loc))
@@ -242,7 +242,7 @@
 /obj/item/organ/external/proc/is_damageable(var/additional_damage = 0)
 	return (vital || brute_dam + burn_dam + additional_damage < max_damage)
 
-/obj/item/organ/external/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list(), damage_flags)
+/obj/item/organ/external/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list(), damage_flags, var/silent)
 	if((brute <= 0) && (burn <= 0))
 		return 0
 
@@ -251,10 +251,10 @@
 
 	var/laser = (damage_flags & DAM_LASER)
 
-	add_pain(0.6*burn + 0.4*brute)
+	add_pain(0.8*burn + 0.5*brute)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
-		if (owner && (owner.can_feel_pain()))
+		if(owner && (owner.can_feel_pain()))
 			owner.emote("scream")	//getting hit on broken hand hurts
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
@@ -262,7 +262,10 @@
 	// High brute damage or sharp objects may damage internal organs
 	if(length(internal_organs))
 		if(damage_internal_organs(brute, burn, sharp, damage_flags))
-			brute /= 2
+			var/brute_div = 2 //We want melee weapons to not be affected by this.
+			if(damage_flags & DAM_BULLET)
+				brute_div = 1.25
+			brute /= brute_div
 			burn /= 2
 
 	var/can_cut = (prob(brute*2) || sharp) && !(status & ORGAN_ROBOT)
@@ -320,7 +323,7 @@
 	// sync the organ's damage with its wounds
 	update_damages()
 
-	if (owner)
+	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 
 	return update_icon()
@@ -342,7 +345,7 @@
 
 	var/organ_damage_threshold = 10
 	if(sharp)
-		organ_damage_threshold *= 0.5
+		organ_damage_threshold *= 0.3
 	if(laser)
 		organ_damage_threshold *= 2
 
@@ -479,8 +482,10 @@ This function completely restores a damaged organ to perfect condition.
 	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
 		var/fluid_loss_severity
 		switch(type)
-			if(BURN)  fluid_loss_severity = FLUIDLOSS_WIDE_BURN
-			if(LASER) fluid_loss_severity = FLUIDLOSS_CONC_BURN
+			if(BURN)
+				fluid_loss_severity = FLUIDLOSS_WIDE_BURN
+			if(LASER)
+				fluid_loss_severity = FLUIDLOSS_CONC_BURN
 		var/fluid_loss = (damage/(owner.maxHealth - config.health_threshold_dead)) * DEFAULT_BLOOD_AMOUNT * fluid_loss_severity
 		owner.remove_blood_simple(fluid_loss)
 
@@ -831,7 +836,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 //Handles dismemberment
 /obj/item/organ/external/proc/droplimb(var/clean, var/disintegrate = DROPLIMB_EDGE, var/ignore_children = null)
-
 	if(!(limb_flags & ORGAN_CAN_AMPUTATE) || !owner)
 		return
 
@@ -859,24 +863,26 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	var/mob/living/carbon/human/victim = owner //Keep a reference for post-removed().
 	var/obj/item/organ/external/parent_organ = parent
-	removed(null, ignore_children)
+
 	if(!clean)
 		victim.shock_stage += min_broken_damage
 
+	removed(null, ignore_children)
+
 	if(parent_organ)
-		var/datum/wound/lost_limb/W = new (src, disintegrate, clean)
+		var/datum/wound/lost_limb/W = new(src, disintegrate, clean)
 		if(clean)
 			parent_organ.wounds |= W
 			parent_organ.update_damages()
 		else
-			var/obj/item/organ/external/stump/stump = new (victim, 0, src)
+			var/obj/item/organ/external/stump/stump = new(victim, 0, src)
 			if(status & ORGAN_ROBOT)
 				stump.robotize()
 			stump.wounds |= W
 			victim.organs |= stump
 			stump.update_damages()
 
-	addtimer(CALLBACK(src, .proc/post_droplimb, victim), 0)
+	post_droplimb(victim)
 
 	switch(disintegrate)
 		if(DROPLIMB_EDGE)
@@ -1016,7 +1022,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	perma_injury = brute_dam
 
 	// Fractures have a chance of getting you out of restraints
-	if (prob(25))
+	if(prob(25))
 		release_restraints()
 
 	// This is mostly for the ninja suit to stop ninja being so crippled by breaks.
@@ -1345,7 +1351,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return
-	pain = max(0,min(max_damage,pain+amount))
+	pain = max(0, min(max_damage, pain + amount))
 	if(owner && ((amount > 15 && prob(20)) || (amount > 30 && prob(60))))
 		owner.emote("scream")
 	return pain-last_pain

@@ -5,6 +5,9 @@
 	icon_state = "sleeper"
 	density = 1
 	anchored = 1
+	clicksound = 'sound/machines/buttonbeep.ogg'
+	clickvol = 30
+	
 	var/mob/living/carbon/human/occupant = null
 	var/list/available_chemicals = list("norepinephrine" = "Norepinephrine", "stoxin" = "Soporific", "paracetamol" = "Paracetamol", "dylovene" = "Dylovene", "dexalin" = "Dexalin")
 	var/obj/item/reagent_containers/glass/beaker = null

@@ -44,16 +44,14 @@
 
 /obj/item/arrow/rod/removed(mob/user)
 	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
-		to_chat(user, "[src] shatters into a scattering of overstressed metal shards as it leaves the crossbow.")
-		var/obj/item/material/shard/shrapnel/S = new()
-		S.forceMove(get_turf(src))
+		to_chat(user, "[src] shatters into a scattering of unusable overstressed metal shards as it leaves the crossbow.")
 		qdel(src)
 
 /obj/item/gun/launcher/crossbow
 	name = "powered crossbow"
 	desc = "A 2457AD twist on an old classic. Pick up that can."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "crossbow"
+	icon = 'icons/obj/guns/crossbow.dmi'
+	icon_state = "powered_crossbow"
 	item_state = "crossbow-solid"
 	fire_sound = 'sound/weapons/crossbow.ogg'
 	fire_sound_text = "a solid thunk"
@@ -196,12 +194,11 @@
 
 /obj/item/gun/launcher/crossbow/update_icon()
 	if(tension > 1)
-		icon_state = "crossbow-drawn"
+		icon_state = "[initial(icon_state)]-drawn"
 	else if(bolt)
-		icon_state = "crossbow-nocked"
+		icon_state = "[initial(icon_state)]-nocked"
 	else
-		icon_state = "crossbow"
-
+		icon_state = initial(icon_state)
 
 // Crossbow construction.
 /obj/item/crossbowframe
@@ -265,7 +262,7 @@
 			else
 				to_chat(user, "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>")
 			return
-	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plastic")
+	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == MATERIAL_PLASTIC)
 		if(buildstate == 3)
 			var/obj/item/stack/material/P = W
 			if(P.use(3))
@@ -295,9 +292,9 @@
 /obj/item/gun/launcher/crossbow/RFD
 	name = "Rapid-Fabrication-Device Crossbow"
 	desc = "A hacked together RFD turns an innocent tool into the penultimate destruction tool. Flashforges bolts using matter units when the string is drawn back."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/guns/rxb.dmi'
 	icon_state = "rxb"
-	item_state = "rfd"
+	item_state = "rxb"
 	slot_flags = null
 	draw_time = 10
 	var/stored_matter = 0
@@ -365,4 +362,6 @@
 /obj/item/gun/launcher/crossbow/RFD/examine(var/user)
 	. = ..()
 	if(.)
+		if(get_dist(src, user) > 1)
+			return
 		to_chat(user, "It currently holds [stored_matter]/[max_stored_matter] matter-units.")

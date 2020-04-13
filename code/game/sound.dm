@@ -24,7 +24,7 @@
 #define UNDERWATER 22
 #define DRUGGED 23
 #define DIZZY 24
-#define PSYCHOTIC 25
+
 
 #define STANDARD_STATION STONEROOM
 #define LARGE_ENCLOSED HANGAR
@@ -35,11 +35,89 @@
 #define SMALL_SOFTFLOOR ROOM
 #define ASTEROID CAVE
 #define SPACE UNDERWATER
+#define PSYCHOTIC PARKING_LOT
+
+//footsteps
+var/list/blank_footstep = list('sound/effects/footstep/blank.ogg')
+
+var/list/catwalk_footstep = list(
+		'sound/effects/footstep/catwalk1.ogg',
+		'sound/effects/footstep/catwalk2.ogg',
+		'sound/effects/footstep/catwalk3.ogg',
+		'sound/effects/footstep/catwalk4.ogg',
+		'sound/effects/footstep/catwalk5.ogg'
+)
+var/list/wood_footstep = list(
+		'sound/effects/footstep/wood1.ogg',
+		'sound/effects/footstep/wood2.ogg',
+		'sound/effects/footstep/wood3.ogg',
+		'sound/effects/footstep/wood4.ogg',
+		'sound/effects/footstep/wood5.ogg')
+
+var/list/tiles_footstep = list(
+		'sound/effects/footstep/floor1.ogg',
+		'sound/effects/footstep/floor2.ogg',
+		'sound/effects/footstep/floor3.ogg',
+		'sound/effects/footstep/floor4.ogg',
+		'sound/effects/footstep/floor5.ogg'
+)
+var/list/plating_footstep = list(
+		'sound/effects/footstep/plating1.ogg',
+		'sound/effects/footstep/plating2.ogg',
+		'sound/effects/footstep/plating3.ogg',
+		'sound/effects/footstep/plating4.ogg',
+		'sound/effects/footstep/plating5.ogg'
+)
+var/list/carpet_footstep = list(
+		'sound/effects/footstep/carpet1.ogg',
+		'sound/effects/footstep/carpet2.ogg',
+		'sound/effects/footstep/carpet3.ogg',
+		'sound/effects/footstep/carpet4.ogg',
+		'sound/effects/footstep/carpet5.ogg'
+)
+var/list/asteroid_footstep = list(
+		'sound/effects/footstep/asteroid1.ogg',
+		'sound/effects/footstep/asteroid2.ogg',
+		'sound/effects/footstep/asteroid3.ogg',
+		'sound/effects/footstep/asteroid4.ogg',
+		'sound/effects/footstep/asteroid5.ogg'
+)
+var/list/grass_footstep = list(
+		'sound/effects/footstep/grass1.ogg',
+		'sound/effects/footstep/grass2.ogg',
+		'sound/effects/footstep/grass3.ogg',
+		'sound/effects/footstep/grass4.ogg'
+)
+var/list/water_footstep = list(
+		'sound/effects/footstep/water1.ogg',
+		'sound/effects/footstep/water2.ogg',
+		'sound/effects/footstep/water3.ogg',
+		'sound/effects/footstep/water4.ogg'
+)
+var/list/lava_footstep = list(
+		'sound/effects/footstep/lava1.ogg',
+		'sound/effects/footstep/lava2.ogg',
+		'sound/effects/footstep/lava3.ogg'
+)
+var/list/snow_footstep = list(
+		'sound/effects/footstep/snow1.ogg',
+		'sound/effects/footstep/snow2.ogg',
+		'sound/effects/footstep/snow3.ogg',
+		'sound/effects/footstep/snow4.ogg',
+		'sound/effects/footstep/snow5.ogg'
+)
+var/list/sand_footstep = list(
+		'sound/effects/footstep/sand1.ogg',
+		'sound/effects/footstep/sand2.ogg',
+		'sound/effects/footstep/sand3.ogg',
+		'sound/effects/footstep/sand4.ogg'
+)
+var/list/footstepfx = list("blank", "catwalk", "wood", "tiles", "plating", "carpet", "asteroid", "grass", "water", "lava", "snow", "sand")
 
 var/list/shatter_sound = list(
-	'sound/effects/Glassbr1.ogg',
-	'sound/effects/Glassbr2.ogg',
-	'sound/effects/Glassbr3.ogg'
+	'sound/effects/glass_break1.ogg',
+	'sound/effects/glass_break2.ogg',
+	'sound/effects/glass_break3.ogg'
 )
 var/list/explosion_sound = list(
 	'sound/effects/Explosion1.ogg',
@@ -90,64 +168,26 @@ var/list/fracture_sound = list(
 	'sound/effects/bonebreak3.ogg',
 	'sound/effects/bonebreak4.ogg'
 )
-
-//FOOTSTEPS
-var/list/defaultfootsteps = list(
-	'sound/effects/footsteps/tile1.wav',
-	'sound/effects/footsteps/tile2.wav',
-	'sound/effects/footsteps/tile3.wav',
-	'sound/effects/footsteps/tile4.wav'
+var/list/button_sound = list(
+	'sound/machines/button1.ogg',
+	'sound/machines/button2.ogg',
+	'sound/machines/button3.ogg',
+	'sound/machines/button4.ogg'
 )
-var/list/concretefootsteps = list(
-	'sound/effects/footsteps/concrete1.wav',
-	'sound/effects/footsteps/concrete2.wav',
-	'sound/effects/footsteps/concrete3.wav',
-	'sound/effects/footsteps/concrete4.wav'
-)
-var/list/grassfootsteps = list(
-	'sound/effects/footsteps/grass1.wav',
-	'sound/effects/footsteps/grass2.wav',
-	'sound/effects/footsteps/grass3.wav',
-	'sound/effects/footsteps/grass4.wav'
-)
-var/list/dirtfootsteps = list(
-	'sound/effects/footsteps/dirt1.wav',
-	'sound/effects/footsteps/dirt2.wav',
-	'sound/effects/footsteps/dirt3.wav',
-	'sound/effects/footsteps/dirt4.wav'
-)
-var/list/waterfootsteps = list(
-	'sound/effects/footsteps/slosh1.wav',
-	'sound/effects/footsteps/slosh2.wav',
-	'sound/effects/footsteps/slosh3.wav',
-	'sound/effects/footsteps/slosh4.wav'
-)
-var/list/sandfootsteps = list(
-	'sound/effects/footsteps/sand1.wav',
-	'sound/effects/footsteps/sand2.wav',
-	'sound/effects/footsteps/sand3.wav',
-	'sound/effects/footsteps/sand4.wav'
-)
-var/list/gravelfootsteps = list(
-	'sound/effects/footsteps/gravel1.wav',
-	'sound/effects/footsteps/gravel2.wav',
-	'sound/effects/footsteps/gravel3.wav',
-	'sound/effects/footsteps/gravel4.wav'
-)
-var/list/computerbeeps = list(
+var/list/computerbeep_sound = list(
 	'sound/machines/compbeep1.ogg',
 	'sound/machines/compbeep2.ogg',
 	'sound/machines/compbeep3.ogg',
 	'sound/machines/compbeep4.ogg',
 	'sound/machines/compbeep5.ogg'
 )
-var/list/switchsounds = list(
+var/list/switch_sound = list(
 	'sound/machines/switch1.ogg',
 	'sound/machines/switch2.ogg',
 	'sound/machines/switch3.ogg',
 	'sound/machines/switch4.ogg'
 )
-var/list/keyboardsounds = list(
+var/list/keyboard_sound = list(
 	'sound/machines/keyboard/keypress1.ogg',
 	'sound/machines/keyboard/keypress2.ogg',
 	'sound/machines/keyboard/keypress3.ogg',
@@ -156,16 +196,19 @@ var/list/keyboardsounds = list(
 	'sound/machines/keyboard/keystroke2.ogg',
 	'sound/machines/keyboard/keystroke3.ogg',
 	'sound/machines/keyboard/keystroke4.ogg'
-	)
-var/list/pickaxesounds = list(
+)
+var/list/pickaxe_sound = list(
 	'sound/weapons/mine/pickaxe1.ogg',
 	'sound/weapons/mine/pickaxe2.ogg',
 	'sound/weapons/mine/pickaxe3.ogg',
 	'sound/weapons/mine/pickaxe4.ogg'
 	)
-
-var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","waterstep","sandstep", "gravelstep")
-
+var/list/glasscrack_sound = list(
+	'sound/effects/glass_crack1.ogg',
+	'sound/effects/glass_crack2.ogg',
+	'sound/effects/glass_crack3.ogg',
+	'sound/effects/glass_crack4.ogg'
+	)
 //var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
@@ -209,6 +252,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 	S.frequency = frequency
 	S.falloff = fall_off || FALLOFF_SOUNDS
 	S.environment = environment
+	S.volume = volume
 
 	return S
 
@@ -284,7 +328,7 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 		return DIZZY
 	else if (confused)
 		return DIZZY
-	else if (sleeping)
+	else if (stat == UNCONSCIOUS)
 		return UNDERWATER
 	else
 		return ..()
@@ -351,6 +395,20 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 /proc/get_sfx(soundin)
 	if(istext(soundin))
 		switch(soundin)
+			//footsteps
+			if ("blank") soundin = pick(blank_footstep)
+			if ("catwalk") soundin = pick(catwalk_footstep)
+			if ("wood") soundin = pick(wood_footstep)
+			if ("tiles") soundin = pick(tiles_footstep)
+			if ("plating") soundin = pick(plating_footstep)
+			if ("carpet") soundin = pick(carpet_footstep)
+			if ("asteroid") soundin = pick(asteroid_footstep)
+			if ("grass") soundin = pick(grass_footstep)
+			if ("water") soundin = pick(water_footstep)
+			if ("lava") soundin = pick(lava_footstep)
+			if ("snow") soundin = pick(snow_footstep)
+			if ("sand") soundin = pick(sand_footstep)
+			//misc
 			if ("shatter") soundin = pick(shatter_sound)
 			if ("explosion") soundin = pick(explosion_sound)
 			if ("sparks") soundin = pick(spark_sound)
@@ -362,15 +420,9 @@ var/list/footstepfx = list("defaultstep","concretestep","grassstep","dirtstep","
 			if ("pageturn") soundin = pick(page_sound)
 			if ("fracture") soundin = pick(fracture_sound)
 			//if ("gunshot") soundin = pick(gun_sound)
-			if ("defaultstep") soundin = pick(defaultfootsteps)
-			if ("concretestep") soundin = pick(concretefootsteps)
-			if ("grassstep") soundin = pick(grassfootsteps)
-			if ("dirtstep") soundin = pick(dirtfootsteps)
-			if ("waterstep") soundin = pick(waterfootsteps)
-			if ("sandstep") soundin = pick(sandfootsteps)
-			if ("gravelstep") soundin = pick(gravelfootsteps)
-			if ("computerbeep") soundin = pick(computerbeeps)
-			if ("switch") soundin = pick(switchsounds)
-			if ("keyboard") soundin = pick(keyboardsounds)
-			if ("pickaxe") soundin = pick(pickaxesounds)
+			if ("button") soundin = pick(button_sound)
+			if ("glasscrack") soundin = pick(glasscrack_sound)
+			if ("switch") soundin = pick(switch_sound)
+			if ("keyboard") soundin = pick(keyboard_sound)
+			if ("pickaxe") soundin = pick(pickaxe_sound)
 	return soundin

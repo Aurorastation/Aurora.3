@@ -1,6 +1,7 @@
 /obj/item/gun/launcher/harpoon
 	name = "harpoon gun"
 	desc = "A harpoon cannon adapted into a portable firearm. Perfect for hunting space whales."
+	icon = 'icons/obj/guns/harpoon.dmi'
 	icon_state = "harpoon"
 	item_state = "harpoon"
 	release_force = 25

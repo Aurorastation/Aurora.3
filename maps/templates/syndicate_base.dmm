@@ -1,0 +1,9884 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/space,
+/area/space)
+"ab" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict)
+"ac" = (
+/obj/machinery/door/blast/regular,
+/turf/simulated/floor,
+/area/derelict)
+"ad" = (
+/turf/simulated/floor,
+/area/derelict)
+"ae" = (
+/turf/simulated/floor,
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/area/derelict)
+"af" = (
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor,
+/area/derelict)
+"ag" = (
+/obj/structure/lattice/catwalk,
+/obj/random/tool,
+/turf/simulated/floor,
+/area/derelict)
+"ah" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict)
+"ai" = (
+/obj/structure/closet/crate/secure/weapon,
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor,
+/area/derelict)
+"aj" = (
+/obj/structure/lattice/catwalk,
+/obj/item/stack/material/plasteel{
+	amount = 10
+	},
+/turf/simulated/floor,
+/area/derelict)
+"ak" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"al" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"am" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"an" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 9
+	},
+/area/derelict)
+"ao" = (
+/obj/machinery/porta_turret/xray,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict)
+"ap" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"aq" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"ar" = (
+/turf/simulated/floor,
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 9
+	},
+/area/derelict)
+"as" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict)
+"at" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict)
+"au" = (
+/turf/simulated/floor,
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/derelict)
+"av" = (
+/obj/machinery/door/blast/shutters,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/derelict)
+"aw" = (
+/obj/machinery/door/blast/shutters,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"ax" = (
+/turf/simulated/floor,
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/derelict)
+"ay" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_arrivals_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"az" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 6
+	},
+/area/derelict)
+"aA" = (
+/turf/simulated/floor,
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 5;
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 10
+	},
+/area/derelict)
+"aB" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/derelict)
+"aC" = (
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"aD" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "centcom_arrivals_airlock";
+	locked = 1;
+	name = "Arrivals Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor,
+/area/derelict)
+"aE" = (
+/obj/structure/lattice/catwalk,
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/turf/simulated/floor,
+/area/derelict)
+"aF" = (
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"aG" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict)
+"aH" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict)
+"aI" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict)
+"aJ" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor,
+/area/derelict)
+"aK" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"aL" = (
+/obj/structure/closet/crate/secure/weapon,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"aM" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/derelict)
+"aN" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"aO" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"aP" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor,
+/area/derelict)
+"aQ" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"aR" = (
+/obj/machinery/porta_turret/xray,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor,
+/area/derelict)
+"aS" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"aT" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"aU" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"aV" = (
+/turf/simulated/floor,
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 6
+	},
+/area/derelict)
+"aW" = (
+/turf/simulated/floor,
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	icon_state = "diagonalWall3"
+	},
+/area/derelict)
+"aX" = (
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "odinasshutters";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/derelict)
+"aY" = (
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	icon_state = "shutter0";
+	id = "odinasshutters";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"aZ" = (
+/obj/machinery/vending/engivend,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"ba" = (
+/obj/machinery/vending/tool,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bb" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bc" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bd" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/item/storage/briefcase/inflatable,
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"be" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/item/storage/briefcase/inflatable,
+/obj/item/stack/material/steel{
+	amount = 50
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bf" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/red,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/red,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bg" = (
+/obj/structure/closet/syndicate/suit{
+	name = "suit closet"
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bh" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/constructable_frame/temp_deco,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bj" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bk" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bl" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"bm" = (
+/obj/machinery/light,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"bn" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"bo" = (
+/obj/machinery/vending/snack{
+	name = "hacked Getmore Chocolate Corp";
+	prices = list()
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"bp" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/cartridge/syndicate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"bq" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/storage/card,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"br" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"bs" = (
+/obj/structure/bed,
+/obj/item/bedsheet/hos,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bt" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bu" = (
+/obj/structure/computerframe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bw" = (
+/obj/machinery/mech_recharger,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bx" = (
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"by" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"bz" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"bA" = (
+/obj/structure/table/reinforced,
+/obj/item/device/handheld_medical,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"bB" = (
+/obj/machinery/iv_drip,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"bC" = (
+/obj/machinery/optable,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"bD" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/surgery,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"bE" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/firstaid/combat,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"bF" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bH" = (
+/obj/machinery/vending/cola{
+	name = "hacked Robust Softdrinks";
+	prices = list()
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"bI" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/deck/cards,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"bJ" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"bK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/item/robot_parts/robot_component/diagnosis_unit,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bL" = (
+/obj/structure/closet/secure_closet/engineering_personal,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bM" = (
+/obj/structure/closet/syndicate/suit{
+	name = "suit closet"
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"bO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/viscerator,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bR" = (
+/obj/structure/closet/emcloset,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bS" = (
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"bT" = (
+/obj/structure/table/reinforced,
+/obj/item/device/healthanalyzer,
+/obj/item/storage/firstaid/adv,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"bU" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"bV" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"bW" = (
+/obj/machinery/vending/cigarette{
+	name = "hacked cigarette machine";
+	prices = list();
+	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"bX" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"bY" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"bZ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"ca" = (
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cb" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cd" = (
+/obj/machinery/cryopod,
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"ce" = (
+/obj/structure/table/rack,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"cf" = (
+/obj/structure/table/rack,
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"cg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"ch" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/deployable/barrier,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"ci" = (
+/obj/structure/closet/firecloset,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"cj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"ck" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"cl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"cm" = (
+/obj/structure/bed/roller,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"cn" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"co" = (
+/obj/machinery/body_scanconsole{
+	dir = 4;
+	icon_state = "body_scannerconsole"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"cp" = (
+/obj/machinery/bodyscanner{
+	dir = 8;
+	icon_state = "body_scanner_0"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"cq" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"cr" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"cs" = (
+/obj/structure/closet/emcloset,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"ct" = (
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"cu" = (
+/obj/structure/shotgun_rack/pump,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict)
+"cv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"cw" = (
+/obj/machinery/pipedispenser/disposal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cx" = (
+/obj/machinery/drone_fabricator/derelict,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cy" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/item/stack/material/titanium,
+/obj/item/stack/material/titanium,
+/obj/item/stack/material/titanium,
+/obj/item/stack/material/titanium,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cz" = (
+/obj/machinery/vending/engineering,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cA" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cB" = (
+/obj/machinery/floorlayer,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cC" = (
+/obj/machinery/floodlight,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cD" = (
+/obj/machinery/suit_cycler/syndicate{
+	locked = 0
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"cE" = (
+/obj/item/soap/syndie,
+/obj/machinery/shower{
+	pixel_y = 32
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict)
+"cF" = (
+/obj/machinery/shower{
+	pixel_y = 32
+	},
+/obj/item/soap/syndie,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/curtain/open/shower,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict)
+"cG" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict)
+"cH" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"cJ" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"cK" = (
+/obj/structure/toilet,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/vomit,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/greenglow,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict)
+"cL" = (
+/obj/structure/mirror,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict)
+"cM" = (
+/obj/structure/sink{
+	dir = 8;
+	icon_state = "sink";
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict)
+"cN" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict)
+"cO" = (
+/obj/machinery/suit_cycler/syndicate{
+	locked = 0
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"cP" = (
+/obj/structure/table/rack,
+/obj/item/tank/oxygen,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"cQ" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/syndicate/black/red,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/syndicate/black/red,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"cR" = (
+/obj/structure/closet/syndicate/suit{
+	name = "suit closet"
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"cS" = (
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"cT" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"cV" = (
+/obj/item/card/emag_broken,
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"cW" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"cX" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/derelict)
+"cY" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/derelict)
+"cZ" = (
+/turf/unsimulated/wall/fakepdoor,
+/area/derelict)
+"da" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"db" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"de" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/flasher/portable,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"df" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"dh" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"di" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"dj" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"dk" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"dl" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/red,
+/area/derelict)
+"dm" = (
+/obj/machinery/porta_turret/xray,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"dn" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict)
+"do" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/derelict)
+"dp" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dq" = (
+/obj/item/clothing/suit/caution,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"dr" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"ds" = (
+/obj/structure/bed/chair/comfy/black,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dt" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"dv" = (
+/obj/structure/table/rack,
+/obj/item/shield/energy,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"dw" = (
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"dx" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"dy" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion";
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"dz" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/derelict)
+"dA" = (
+/obj/machinery/cryopod,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dB" = (
+/obj/structure/mopbucket,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/mop,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"dC" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"dD" = (
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"dE" = (
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"dF" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"dG" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dH" = (
+/obj/item/folder{
+	pixel_y = 2
+	},
+/obj/structure/table/glass,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dI" = (
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_y = 4
+	},
+/obj/structure/table/glass,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dJ" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dK" = (
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"dL" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor,
+/area/derelict)
+"dM" = (
+/obj/structure/table/rack,
+/turf/simulated/floor,
+/area/derelict)
+"dO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dP" = (
+/obj/structure/janitorialcart,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"dQ" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dR" = (
+/obj/machinery/light,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"dS" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"dT" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/lino,
+/area/derelict)
+"dU" = (
+/obj/effect/floor_decal/industrial/hatch,
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"dV" = (
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"dW" = (
+/obj/structure/computerframe,
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"dZ" = (
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/structure/table/standard,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"ea" = (
+/obj/structure/sink/kitchen{
+	pixel_y = 28
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eb" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/turf/simulated/floor/lino,
+/area/derelict)
+"ec" = (
+/obj/machinery/media/jukebox,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"ed" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"ee" = (
+/obj/effect/floor_decal/industrial/hatch,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/tiled/dark,
+/area/derelict)
+"ef" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 4;
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 6
+	},
+/area/derelict)
+"eg" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"eh" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 10
+	},
+/area/derelict)
+"ei" = (
+/obj/structure/closet/emcloset,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"ej" = (
+/obj/structure/closet/firecloset,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"ek" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/table/reinforced,
+/obj/item/storage/box/drinkingglasses{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/material/kitchen/rollingpin,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"el" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"em" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor,
+/area/derelict)
+"en" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 4
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"eo" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"ep" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_x = 3;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/food/snacks/berrymuffin,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eq" = (
+/obj/machinery/computer/arcade,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"er" = (
+/obj/structure/closet/radiation,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor,
+/area/derelict)
+"es" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"et" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"eu" = (
+/obj/structure/closet/crate/secure/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"ev" = (
+/obj/structure/table/reinforced,
+/obj/item/tray{
+	pixel_y = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"ew" = (
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = list(150)
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"ex" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"ey" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "syndieshutters_workshop";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/structure/table/reinforced,
+/obj/item/storage/box/donkpockets{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"ez" = (
+/obj/machinery/computer/arcade,
+/obj/structure/window/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/derelict)
+"eA" = (
+/obj/structure/table/standard,
+/obj/item/fossil/shell,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"eB" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"eC" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"eD" = (
+/obj/structure/table/rack,
+/obj/random/glowstick,
+/obj/item/shield/energy,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"eE" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"eF" = (
+/obj/machinery/clonepod,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eG" = (
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eH" = (
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/firedoor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"eI" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"eJ" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"eK" = (
+/obj/structure/table/rack,
+/obj/random/plushie,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"eL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"eM" = (
+/obj/structure/crematorium,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"eN" = (
+/obj/machinery/lapvend,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eO" = (
+/obj/machinery/cryopod/robot,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eP" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/constructable_frame/temp_deco,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eQ" = (
+/obj/structure/table/reinforced,
+/obj/random/tech_supply,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eR" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"eS" = (
+/obj/structure/table/standard,
+/turf/simulated/floor,
+/area/derelict)
+"eT" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"eU" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"eV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/flasher/portable,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"eW" = (
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"eY" = (
+/obj/machinery/computer/cloning,
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"eZ" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/table/standard,
+/turf/simulated/floor,
+/area/derelict)
+"fb" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 6;
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 5
+	},
+/area/derelict)
+"fc" = (
+/obj/machinery/constructable_frame,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"fd" = (
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal{
+	dir = 8;
+	icon_state = "diagonalWall3"
+	},
+/turf/simulated/wall/shuttle/dark/corner{
+	icon_state = "wall3";
+	dir = 9
+	},
+/area/derelict)
+"fe" = (
+/obj/structure/table/rack,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"ff" = (
+/obj/structure/closet/crate/internals,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"fg" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/multi_tile/glass{
+	autoclose = 1;
+	dir = 2;
+	id_tag = "RobMechBay";
+	req_access = list(29)
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"fh" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/obj/random/tech_supply,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fi" = (
+/obj/structure/table/reinforced,
+/obj/random/technology_scanner,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fj" = (
+/obj/machinery/door/airlock/hatch,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fk" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 10
+	},
+/area/derelict)
+"fl" = (
+/obj/structure/closet/firecloset,
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"fm" = (
+/obj/machinery/light,
+/obj/structure/table/rack,
+/obj/random/firstaid,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"fn" = (
+/obj/machinery/light,
+/obj/structure/closet/syndicate/suit{
+	name = "suit closet"
+	},
+/obj/item/plastique,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"fo" = (
+/obj/machinery/light,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"fp" = (
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fr" = (
+/obj/machinery/floodlight,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fs" = (
+/obj/machinery/biogenerator,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"ft" = (
+/obj/structure/closet/wardrobe/genetics_white,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fu" = (
+/obj/structure/computerframe,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fv" = (
+/obj/machinery/mineral/rigpress,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"fw" = (
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fx" = (
+/obj/machinery/constructable_frame/temp_deco,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fy" = (
+/obj/structure/table/rack,
+/obj/random/prebuilt_ka,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fz" = (
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 8;
+	icon_state = "shutter0";
+	id = "syndieshutters_infirmary";
+	name = "Blast Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"fA" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor6"
+	},
+/area/derelict)
+"fB" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light,
+/turf/simulated/floor,
+/area/derelict)
+"fC" = (
+/obj/machinery/autolathe{
+	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
+	hacked = 1;
+	name = "Unlocked Autolathe"
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fD" = (
+/obj/machinery/deployable/barrier,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fE" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fF" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fG" = (
+/obj/machinery/dna_scannernew,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fI" = (
+/obj/structure/table/rack,
+/obj/random/loot,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fJ" = (
+/obj/structure/table/reinforced,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fK" = (
+/obj/machinery/light,
+/obj/random/loot,
+/obj/structure/table/rack,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"fL" = (
+/obj/random/loot,
+/obj/structure/table/rack,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor7"
+	},
+/area/derelict)
+"fO" = (
+/obj/machinery/giga_drill,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fP" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/molten_item,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fQ" = (
+/obj/structure/table/rack,
+/obj/random/voidsuit,
+/obj/random/tech_supply,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fR" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light,
+/obj/random/tech_supply,
+/turf/unsimulated/floor{
+	icon_state = "white"
+	},
+/area/derelict)
+"fS" = (
+/obj/structure/computerframe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"fT" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"fU" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"fW" = (
+/obj/structure/table/reinforced,
+/obj/random/coin,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"fX" = (
+/obj/machinery/power/rtg/advanced,
+/turf/simulated/floor,
+/area/derelict)
+"fY" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"fZ" = (
+/obj/structure/table/reinforced,
+/obj/item/phone,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"ga" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"gb" = (
+/obj/machinery/door/airlock/hatch,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"gd" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"ge" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/cat{
+	desc = "A very suspicious cat. Looks to be genetically modified - it's quite large for a housecat.";
+	emote_hear = list("snarls","growls");
+	emote_see = list("bares fangs","viciously hisses");
+	friendly = "scratches";
+	health = 150;
+	name = "Nickel";
+	response_disarm = "struggles to move";
+	response_harm = "kicks";
+	response_help = "thinks better than to pet"
+	},
+/turf/simulated/floor/wood,
+/area/derelict)
+"gf" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"gi" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/rat,
+/turf/simulated/floor/wood,
+/area/derelict)
+"gj" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"gk" = (
+/obj/structure/closet/syndicate/suit{
+	name = "suit closet"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/derelict)
+"gm" = (
+/obj/machinery/door/airlock/vault/bolted,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gn" = (
+/obj/machinery/porta_turret/sniper,
+/obj/effect/decal/warning_stripes,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"go" = (
+/turf/unsimulated/floor/asteroid/ash,
+/area/derelict)
+"gp" = (
+/obj/machinery/porta_turret/sniper,
+/obj/effect/decal/warning_stripes,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/derelict)
+"gq" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"gr" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gs" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/derelict)
+"gt" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gu" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/derelict)
+"gv" = (
+/obj/structure/computerframe,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gw" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"gx" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"gy" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor,
+/area/derelict)
+"gz" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/derelict)
+"gA" = (
+/obj/structure/safe/station,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gB" = (
+/obj/machinery/porta_turret/sniper,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gC" = (
+/obj/structure/table/reinforced,
+/obj/item/spacecash/c1000,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gD" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gE" = (
+/obj/structure/table/reinforced,
+/obj/item/spacecash/c1000,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gF" = (
+/obj/structure/closet/syndicate/resources,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+"gG" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/shuttle{
+	icon_state = "floor4"
+	},
+/area/derelict)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+cK
+cG
+dn
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+cL
+cL
+do
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+cM
+cM
+cG
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+cE
+cG
+cG
+cG
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+cF
+cG
+cG
+dn
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+cG
+cG
+cG
+cG
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+cN
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aO
+aR
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+bs
+bt
+bt
+ab
+aO
+aO
+ab
+bt
+bt
+bs
+av
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+bt
+bt
+bt
+aT
+aO
+aO
+dp
+bt
+dO
+bt
+aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bu
+bt
+cd
+ab
+aO
+aO
+ab
+dA
+bt
+dW
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aQ
+da
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+bs
+bt
+bt
+ab
+aO
+aO
+ab
+bt
+bt
+bs
+av
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+bt
+bt
+bt
+aT
+aO
+aO
+aT
+bt
+bt
+bt
+aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bu
+bt
+cd
+ab
+bQ
+aO
+ab
+dA
+bt
+dW
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aO
+db
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+bs
+bt
+bt
+ab
+aQ
+aQ
+ab
+bt
+bt
+bs
+av
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+bt
+bt
+bt
+aT
+aO
+aO
+aT
+bt
+bt
+bt
+aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bu
+bt
+cd
+ab
+aO
+aO
+ab
+dA
+bt
+dW
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aO
+db
+ab
+ab
+ab
+ab
+ab
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+aO
+bv
+bi
+bi
+ab
+ci
+aO
+ab
+dB
+bz
+bz
+ab
+aO
+aO
+aO
+bv
+aO
+aO
+aO
+aO
+aO
+aQ
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aB
+aP
+ac
+aN
+bw
+aO
+aU
+ab
+bR
+aO
+ab
+bz
+bz
+bz
+aS
+aO
+aR
+aO
+aO
+eV
+aO
+aO
+aO
+aO
+aQ
+aO
+aO
+aO
+aO
+aO
+aO
+aR
+aO
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aB
+aB
+aP
+ac
+aN
+bw
+aO
+ce
+ab
+ab
+bF
+ab
+bz
+bz
+ck
+ab
+aO
+aO
+bk
+aO
+aO
+bR
+fl
+ab
+ab
+ab
+dp
+ab
+ab
+ab
+aO
+aO
+aO
+aO
+aU
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aB
+aP
+ac
+aN
+bw
+bO
+aO
+ab
+aR
+bz
+ab
+cH
+cH
+ab
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+ab
+ab
+fv
+bt
+bt
+bt
+fK
+ab
+aO
+aO
+aO
+aO
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+bh
+bh
+aO
+aO
+ab
+bz
+bz
+cl
+bz
+bz
+ab
+ei
+bt
+bt
+eB
+bt
+bt
+bt
+aR
+ab
+bc
+bt
+aR
+bt
+fL
+ab
+ab
+ab
+gb
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aB
+aP
+ac
+aN
+bw
+aO
+cf
+ab
+bz
+bz
+dq
+bz
+ck
+ab
+ej
+bt
+eu
+eC
+bt
+eu
+fe
+fm
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+fS
+br
+br
+br
+br
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aB
+aB
+aP
+ac
+aN
+bw
+aO
+bh
+ab
+cl
+de
+bz
+cl
+bz
+aT
+bt
+bt
+bt
+bt
+bt
+bt
+bt
+bt
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+br
+fY
+gd
+br
+gi
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aB
+aP
+ac
+aN
+bw
+aO
+bh
+ab
+bz
+bz
+bz
+bz
+dP
+ab
+bt
+bt
+bt
+eD
+eK
+eC
+ff
+fn
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+fT
+fZ
+ge
+br
+gj
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+bi
+aO
+bQ
+cg
+ab
+cH
+df
+dr
+dC
+ab
+ab
+aR
+bt
+bt
+eE
+bt
+bt
+bt
+bt
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+fU
+br
+gf
+br
+gk
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aB
+aP
+ac
+aN
+bw
+aO
+aU
+ab
+bz
+bz
+bz
+dD
+dD
+ab
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aB
+aB
+aP
+ac
+aN
+bx
+bQ
+ch
+bF
+bz
+bz
+bz
+dE
+dE
+ab
+aR
+aO
+aO
+aQ
+aO
+aO
+aD
+ad
+aD
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(34,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
+aB
+aM
+aP
+ac
+aN
+bx
+bR
+ci
+ab
+bz
+cl
+cl
+dF
+dF
+ab
+aO
+aO
+aO
+aQ
+aO
+aO
+aD
+ad
+aD
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(35,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+bz
+bz
+bz
+bz
+bz
+ab
+aQ
+aQ
+ab
+ab
+dr
+dC
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(36,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aO
+aO
+ab
+by
+bS
+cj
+ab
+cH
+df
+dr
+dC
+ab
+ab
+aO
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(37,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+aO
+aU
+ab
+bz
+bz
+ck
+ab
+bz
+bz
+bt
+dG
+bt
+ab
+aO
+aU
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(38,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+aO
+aO
+bj
+bz
+bz
+cl
+cH
+bz
+cl
+ds
+dH
+dQ
+ab
+aO
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(39,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aC
+aF
+ab
+ab
+aQ
+aQ
+ab
+aR
+bz
+bz
+cH
+bz
+bz
+ds
+dI
+dQ
+ab
+aO
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(40,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+aB
+aB
+aD
+aN
+aO
+aO
+ab
+ab
+ab
+ab
+ab
+aR
+bz
+bt
+dJ
+bt
+ab
+aO
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(41,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+aB
+aB
+aD
+aN
+aR
+aU
+ab
+bA
+bT
+cm
+ab
+ab
+ab
+dr
+dC
+ab
+ab
+aO
+aU
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+dr
+gq
+gw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(42,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aB
+aB
+ab
+aO
+aO
+aO
+ab
+bB
+bU
+bU
+ab
+cO
+ak
+dt
+dK
+dK
+ab
+aQ
+aQ
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aR
+bh
+bh
+bh
+gx
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(43,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aD
+aD
+ab
+ab
+aQ
+aQ
+ab
+bC
+bU
+cn
+ab
+cP
+ak
+ak
+ak
+ak
+aS
+aO
+aO
+ab
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+ab
+ab
+ab
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+ab
+aO
+aO
+gr
+gv
+gx
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(44,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aO
+aO
+ab
+bD
+bU
+co
+ab
+cQ
+ak
+ak
+ak
+dR
+ab
+aO
+aO
+aO
+aO
+aO
+aO
+aQ
+aO
+aO
+aO
+bv
+aO
+aO
+aO
+aO
+aO
+aQ
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+gv
+gx
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(45,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+aO
+aU
+ab
+bE
+bU
+cp
+ab
+cR
+bZ
+dv
+cR
+cR
+ab
+aR
+aO
+aO
+aO
+eL
+aO
+aQ
+aO
+aO
+eL
+aO
+aO
+aO
+eL
+aO
+aO
+aQ
+aO
+aO
+aO
+eL
+aO
+aO
+aO
+aR
+gy
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(46,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+aO
+aO
+ab
+ab
+bV
+ab
+ab
+ab
+ab
+dr
+dC
+ab
+ab
+ab
+aS
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+fz
+fz
+fz
+ab
+ab
+ab
+ab
+bF
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(47,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aO
+aO
+aO
+bv
+aO
+aO
+aO
+aO
+aQ
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+ab
+eM
+bb
+bb
+bb
+ab
+ct
+cr
+cr
+cr
+cr
+ab
+bh
+aO
+aO
+bv
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(48,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aQ
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+ab
+eM
+bb
+bb
+fo
+ab
+cs
+cr
+cr
+cr
+bm
+ab
+bh
+aO
+aO
+aO
+aU
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+"}
+(49,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+aO
+aO
+bk
+aO
+aO
+aO
+aO
+aO
+dh
+aO
+aO
+aO
+bk
+aO
+aO
+bi
+ab
+eM
+bb
+bb
+bb
+ab
+ab
+fA
+cr
+cT
+cS
+ab
+fW
+aO
+aO
+aO
+aO
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+"}
+(50,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+bF
+ab
+cq
+cq
+cq
+ab
+ab
+ab
+ab
+ab
+dr
+dC
+ab
+ab
+ab
+eW
+fg
+ab
+ab
+ab
+ab
+dr
+dC
+ab
+ab
+bh
+aO
+aR
+aO
+aO
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(51,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bl
+bl
+ab
+cr
+cr
+cr
+ab
+aR
+bl
+dS
+bU
+bU
+bU
+ev
+ab
+eN
+eG
+eG
+eG
+fu
+fu
+ab
+fC
+eG
+fO
+ab
+ab
+aO
+aO
+aO
+aO
+ab
+gn
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+gn
+go
+go
+gn
+go
+aR
+gz
+gA
+gC
+gE
+ab
+ab
+ab
+aa
+"}
+(52,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bn
+bl
+ab
+cs
+cr
+cS
+ab
+bl
+bl
+ab
+dZ
+bU
+bU
+ew
+ab
+eO
+eG
+eG
+eG
+eG
+fw
+ab
+eG
+eG
+fP
+ab
+aO
+aO
+aO
+aO
+aO
+ab
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+gy
+ak
+ak
+gF
+ab
+ab
+ab
+aa
+"}
+(53,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+bl
+bl
+ab
+ct
+cr
+cT
+ab
+bl
+bl
+ab
+ea
+bU
+bU
+ex
+ab
+eO
+eG
+fh
+fp
+eG
+eG
+fj
+fD
+eG
+eG
+fj
+aO
+aO
+aO
+aO
+aU
+ab
+go
+go
+gs
+go
+go
+gs
+go
+go
+gs
+go
+go
+gs
+go
+go
+gs
+go
+go
+go
+ab
+ab
+ak
+ak
+gF
+ab
+ab
+ab
+aa
+"}
+(54,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+bl
+bl
+ab
+ab
+ab
+ab
+ab
+bn
+bl
+ab
+ab
+ek
+ep
+ey
+ab
+eP
+eG
+eG
+eG
+eG
+fw
+ab
+fE
+eG
+fw
+ab
+ab
+ab
+ab
+aQ
+aQ
+ab
+dr
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+dC
+ab
+ab
+dx
+ak
+ak
+gG
+ab
+ab
+ab
+aa
+"}
+(55,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+bn
+bl
+bl
+bl
+bl
+bl
+bl
+bl
+bl
+ab
+eb
+bl
+bl
+bl
+ab
+eQ
+eG
+eG
+eG
+eG
+fx
+ab
+eG
+eG
+fp
+ab
+fX
+fX
+ab
+aO
+aO
+gm
+ak
+ak
+gt
+ak
+ak
+gt
+ak
+ak
+gt
+ak
+ak
+gt
+ak
+ak
+gt
+ak
+ak
+gm
+ak
+ak
+gB
+ak
+gA
+ab
+ab
+ab
+aa
+"}
+(56,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+av
+bl
+bl
+bl
+bl
+bl
+bl
+bl
+bl
+bl
+ab
+ab
+bn
+bl
+bl
+ab
+eQ
+eQ
+fi
+eG
+eG
+fx
+ab
+fF
+fI
+fQ
+ab
+fX
+fX
+ab
+aO
+aO
+ab
+dr
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+gq
+dC
+ab
+ab
+bZ
+ak
+ak
+gG
+ab
+ab
+ab
+aa
+"}
+(57,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+bo
+bH
+bW
+ab
+ab
+ab
+ab
+dw
+dw
+ab
+ec
+bl
+bl
+ab
+ab
+ab
+ab
+ab
+fr
+eG
+eG
+ab
+dr
+dC
+ab
+ab
+fX
+fX
+ab
+aO
+aU
+ab
+go
+go
+gu
+go
+go
+gu
+go
+go
+gu
+go
+go
+gu
+go
+go
+gu
+go
+go
+go
+ab
+ab
+ak
+ak
+gF
+ab
+ab
+ab
+aa
+"}
+(58,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+cu
+cJ
+cV
+ab
+bl
+bl
+dT
+bl
+bl
+bl
+ab
+eF
+eF
+eY
+ab
+fs
+eG
+eG
+eG
+eG
+eG
+fu
+ab
+ad
+ad
+ab
+aO
+aO
+ab
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+gz
+ak
+ak
+gF
+ab
+ab
+ab
+aa
+"}
+(59,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aX
+bp
+bI
+bX
+cv
+br
+br
+ab
+bl
+bl
+bl
+bl
+bl
+bl
+ab
+eG
+eG
+eG
+fj
+eG
+eG
+fp
+eG
+eG
+eG
+fR
+ab
+ad
+ad
+ab
+aO
+aO
+ab
+gp
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+gp
+go
+go
+gp
+go
+aR
+gy
+gA
+gD
+gG
+ab
+ab
+ab
+aa
+"}
+(60,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aY
+bq
+bJ
+bX
+br
+br
+br
+di
+bl
+bl
+bl
+bl
+bl
+bl
+ab
+eF
+eF
+eY
+ab
+ft
+eG
+fy
+eG
+fG
+fJ
+eQ
+ab
+ad
+ga
+ab
+aO
+aO
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(61,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+br
+br
+br
+br
+br
+br
+di
+bl
+bl
+bl
+bl
+bl
+bl
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aJ
+ab
+ab
+aQ
+aQ
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+"}
+(62,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aX
+br
+br
+br
+br
+br
+br
+di
+bl
+bl
+bl
+bl
+bl
+bl
+bl
+ab
+aO
+aO
+aO
+aO
+aQ
+aO
+aO
+bv
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+"}
+(63,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aY
+br
+br
+br
+br
+br
+br
+dj
+bl
+bl
+bl
+bl
+bl
+bl
+bl
+eH
+aO
+aR
+aO
+aO
+aQ
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aR
+aU
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(64,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+aR
+br
+br
+br
+br
+br
+ab
+bl
+bl
+bl
+bl
+bl
+eq
+ez
+ab
+aO
+aO
+aO
+aO
+dh
+aO
+aO
+bk
+aO
+aO
+bk
+aO
+aO
+bk
+aO
+aO
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(65,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+aS
+bY
+aS
+ab
+ab
+ab
+ab
+ab
+ab
+ed
+el
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+dr
+dC
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(66,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ak
+ak
+ak
+ak
+ak
+ak
+dx
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(67,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(68,1,1) = {"
+aa
+ac
+af
+ag
+af
+am
+af
+af
+af
+aG
+ak
+ak
+ab
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(69,1,1) = {"
+aa
+ac
+af
+af
+af
+ar
+af
+af
+aE
+aH
+ak
+ak
+aS
+ak
+ak
+ak
+ak
+ak
+ab
+ab
+dk
+dk
+dk
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(70,1,1) = {"
+aa
+ac
+af
+af
+af
+ao
+as
+af
+af
+aI
+ak
+ak
+ab
+ak
+ak
+ak
+bZ
+ak
+ab
+cW
+dl
+dl
+dl
+ab
+ab
+cW
+er
+er
+cW
+cW
+cW
+cW
+cW
+cW
+cW
+cW
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(71,1,1) = {"
+aa
+ac
+af
+af
+ah
+ab
+ab
+aA
+af
+ab
+aK
+ak
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(72,1,1) = {"
+aa
+ac
+af
+ah
+al
+ap
+ak
+ay
+af
+aJ
+ak
+ak
+ab
+aZ
+bb
+bK
+bb
+cw
+ab
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(73,1,1) = {"
+aa
+ac
+af
+af
+ah
+ab
+ab
+aV
+ag
+ab
+ak
+ak
+ab
+ba
+bb
+bb
+bb
+cx
+ab
+cX
+dm
+ad
+ad
+dU
+ee
+dU
+dU
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+dm
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(74,1,1) = {"
+aa
+ac
+af
+af
+af
+ao
+at
+af
+af
+aG
+ak
+ak
+aT
+bb
+bb
+bb
+bb
+bb
+ab
+cX
+ad
+ad
+dL
+dU
+dU
+ee
+dU
+ad
+eI
+eR
+eZ
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(75,1,1) = {"
+aa
+ac
+af
+ai
+af
+au
+aj
+af
+af
+aH
+ak
+ak
+ab
+bc
+bb
+bb
+bb
+cy
+ab
+cX
+ad
+ad
+dL
+dV
+dV
+dV
+dV
+ad
+ad
+ad
+eS
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(76,1,1) = {"
+aa
+ac
+af
+af
+af
+aq
+af
+af
+af
+aI
+ak
+ak
+ab
+bc
+bb
+bb
+bb
+cz
+ab
+cX
+ad
+ad
+dM
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+eS
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(77,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ak
+ak
+ab
+bd
+bb
+bb
+bb
+cA
+ab
+cX
+ad
+ad
+dM
+dM
+ad
+ad
+ad
+ad
+ad
+eS
+eS
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(78,1,1) = {"
+aa
+ac
+af
+af
+af
+am
+af
+af
+af
+aG
+ak
+ak
+ab
+bd
+bb
+bb
+bb
+cB
+ab
+cX
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(79,1,1) = {"
+aa
+ac
+af
+af
+af
+ar
+af
+ag
+af
+aH
+ak
+ak
+ab
+be
+bb
+bL
+bL
+cC
+ab
+cX
+ad
+ad
+ad
+ad
+ad
+ad
+dM
+dM
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(80,1,1) = {"
+aa
+ac
+ag
+af
+af
+ao
+as
+af
+af
+aI
+ak
+ak
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+cX
+ad
+ad
+ad
+ad
+ae
+em
+ab
+ab
+ab
+ab
+aW
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(81,1,1) = {"
+aa
+ac
+af
+af
+ah
+ab
+ab
+aA
+af
+ab
+aK
+ak
+ab
+bf
+bf
+bf
+ca
+cD
+ab
+cX
+ad
+ad
+ad
+ad
+ab
+ad
+ab
+eA
+eg
+eT
+ab
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(82,1,1) = {"
+aa
+ac
+af
+ah
+al
+ap
+ak
+ay
+af
+aJ
+ak
+ak
+aT
+bb
+bb
+bb
+bb
+bb
+ab
+cX
+ad
+ad
+ad
+an
+ab
+em
+ab
+eg
+ak
+ak
+ab
+fk
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(83,1,1) = {"
+aa
+ac
+af
+af
+ah
+ab
+ab
+aV
+af
+ab
+aL
+ak
+ab
+bg
+bg
+bM
+cb
+cD
+ab
+cY
+ad
+dy
+ae
+ab
+ef
+ak
+es
+eg
+ak
+ak
+fb
+ab
+aW
+dy
+ad
+fB
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(84,1,1) = {"
+aa
+ac
+af
+af
+af
+ao
+at
+af
+af
+aG
+ak
+ak
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+cX
+ad
+dz
+ab
+ab
+eg
+ak
+ak
+ak
+ak
+ak
+fc
+ab
+ab
+az
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(85,1,1) = {"
+aa
+ac
+af
+af
+af
+ax
+af
+af
+af
+aH
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+ad
+ad
+dz
+ab
+eg
+ak
+ak
+ak
+ak
+ak
+fc
+ab
+az
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(86,1,1) = {"
+aa
+ac
+af
+af
+af
+aq
+af
+af
+af
+aI
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+ad
+ad
+ad
+ab
+al
+ak
+ak
+dm
+ak
+ak
+eg
+ab
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(87,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+ad
+ad
+ad
+ab
+al
+ak
+ak
+ak
+ak
+ak
+eg
+ab
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(88,1,1) = {"
+aa
+ac
+af
+af
+af
+am
+af
+af
+af
+aG
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+ad
+ad
+ad
+ab
+eh
+en
+ak
+ak
+ak
+en
+fd
+ab
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(89,1,1) = {"
+aa
+ac
+af
+aj
+af
+ar
+af
+af
+af
+aH
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+ad
+ad
+ad
+dz
+ab
+al
+ak
+en
+ak
+al
+ab
+az
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(90,1,1) = {"
+aa
+ac
+af
+af
+af
+ao
+as
+af
+ag
+aI
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+ad
+ad
+ad
+ad
+ab
+eg
+ak
+al
+ak
+eg
+ab
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(91,1,1) = {"
+aa
+ac
+af
+af
+ah
+ab
+ab
+aA
+af
+ab
+aK
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+ad
+ad
+ad
+ad
+dz
+eo
+et
+et
+eJ
+eU
+az
+ad
+ad
+ad
+ad
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(92,1,1) = {"
+aa
+ac
+af
+ah
+al
+ap
+ak
+ay
+af
+aJ
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+dm
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+dm
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(93,1,1) = {"
+aa
+ac
+af
+af
+ah
+ab
+ab
+aV
+af
+ab
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(94,1,1) = {"
+aa
+ac
+af
+af
+af
+ao
+at
+af
+af
+aG
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+cZ
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(95,1,1) = {"
+aa
+ac
+af
+af
+af
+ax
+af
+af
+af
+aH
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+cX
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(96,1,1) = {"
+aa
+ac
+ag
+af
+af
+aq
+af
+af
+ai
+aI
+ak
+ak
+ab
+aa
+aa
+aa
+aa
+aa
+ab
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ad
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(97,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+ad
+aa
+ad
+aa
+ad
+aa
+ad
+aa
+aa
+aa
+ad
+aa
+ad
+aa
+ad
+aa
+ad
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(98,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

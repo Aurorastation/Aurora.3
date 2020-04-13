@@ -55,7 +55,15 @@
 			if(istype(A, type))
 				.++
 
-
+/proc/same_entries(var/list/first, var/list/second)
+	if(!islist(first) || !islist(second))
+		return FALSE
+	if(length(first) != length(second))
+		return FALSE
+	for(var/entry in first)
+		if(!(entry in second) || (first[entry] != second[entry]))
+			return FALSE
+	return TRUE
 
 //Removes any null entries from the list
 //Returns TRUE if the list had nulls, FALSE otherwise
@@ -277,6 +285,122 @@
 		if(L[key] == value)
 			return key
 
+/proc/dd_sortedObjectList(var/list/L, var/cache=list())
+	if(L.len < 2)
+		return L
+	var/middle = L.len / 2 + 1 // Copy is first,second-1
+	return dd_mergeObjectList(dd_sortedObjectList(L.Copy(0,middle), cache), dd_sortedObjectList(L.Copy(middle), cache), cache) //second parameter null = to end of list
+
+/proc/dd_mergeObjectList(var/list/L, var/list/R, var/list/cache)
+	var/Li=1
+	var/Ri=1
+	var/list/result = new()
+	while(Li <= L.len && Ri <= R.len)
+		var/LLi = L[Li]
+		var/RRi = R[Ri]
+		var/LLiV = cache[LLi]
+		var/RRiV = cache[RRi]
+		if(!LLiV)
+			LLiV = LLi:dd_SortValue()
+			cache[LLi] = LLiV
+		if(!RRiV)
+			RRiV = RRi:dd_SortValue()
+			cache[RRi] = RRiV
+		if(LLiV < RRiV)
+			result += L[Li++]
+		else
+			result += R[Ri++]
+
+	if(Li <= L.len)
+		return (result + L.Copy(Li, 0))
+	return (result + R.Copy(Ri, 0))
+
+// Insert an object into a sorted list, preserving sortedness
+/proc/dd_insertObjectList(var/list/L, var/O)
+	var/min = 1
+	var/max = L.len
+	var/Oval = O:dd_SortValue()
+
+	while(1)
+		var/mid = min+round((max-min)/2)
+
+		if(mid == max)
+			L.Insert(mid, O)
+			return
+
+		var/Lmid = L[mid]
+		var/midval = Lmid:dd_SortValue()
+		if(Oval == midval)
+			L.Insert(mid, O)
+			return
+		else if(Oval < midval)
+			max = mid
+		else
+			min = mid+1
+
+/proc/dd_sortedtextlist(list/incoming, case_sensitive = 0)
+	// Returns a new list with the text values sorted.
+	// Use binary search to order by sortValue.
+	// This works by going to the half-point of the list, seeing if the node in question is higher or lower cost,
+	// then going halfway up or down the list and checking again.
+	// This is a very fast way to sort an item into a list.
+	var/list/sorted_text = new()
+	var/low_index
+	var/high_index
+	var/insert_index
+	var/midway_calc
+	var/current_index
+	var/current_item
+	var/list/list_bottom
+	var/sort_result
+
+	var/current_sort_text
+	for (current_sort_text in incoming)
+		low_index = 1
+		high_index = sorted_text.len
+		while (low_index <= high_index)
+			// Figure out the midpoint, rounding up for fractions.  (BYOND rounds down, so add 1 if necessary.)
+			midway_calc = (low_index + high_index) / 2
+			current_index = round(midway_calc)
+			if (midway_calc > current_index)
+				current_index++
+			current_item = sorted_text[current_index]
+
+			if (case_sensitive)
+				sort_result = sorttextEx(current_sort_text, current_item)
+			else
+				sort_result = sorttext(current_sort_text, current_item)
+
+			switch(sort_result)
+				if (1)
+					high_index = current_index - 1	// current_sort_text < current_item
+				if (-1)
+					low_index = current_index + 1	// current_sort_text > current_item
+				if (0)
+					low_index = current_index		// current_sort_text == current_item
+					break
+
+		// Insert before low_index.
+		insert_index = low_index
+
+		// Special case adding to end of list.
+		if (insert_index > sorted_text.len)
+			sorted_text += current_sort_text
+			continue
+
+		// Because BYOND lists don't support insert, have to do it by:
+		// 1) taking out bottom of list, 2) adding item, 3) putting back bottom of list.
+		list_bottom = sorted_text.Copy(insert_index)
+		sorted_text.Cut(insert_index)
+		sorted_text += current_sort_text
+		sorted_text += list_bottom
+	return sorted_text
+
+
+/proc/dd_sortedTextList(list/incoming)
+	var/case_sensitive = 1
+	return dd_sortedtextlist(incoming, case_sensitive)
+
 /proc/count_by_type(var/list/L, type)
 	var/i = 0
 	for(var/T in L)
@@ -469,7 +593,7 @@
 
 	if (isnull(subject))
 		return
-		
+
 	var/final = keys[keys.len]
 	if (isdatum(subject))
 		subject_d = subject
@@ -514,7 +638,7 @@
 
 	if (isnull(subject))
 		return
-		
+
 	var/final = keys[keys.len]
 	if (isdatum(subject))
 		subject_d = subject
@@ -560,3 +684,23 @@
 			max = mid
 		else
 			min = mid+1
+
+/proc/filter_list(var/list/L, var/type)
+	. = list()
+	for(var/entry in L)
+		if(istype(entry, type))
+			. += entry
+
+/proc/group_by(var/list/group_list, var/key, var/value)
+	var/values = group_list[key]
+	if(!values)
+		values = list()
+		group_list[key] = values
+
+	values += value
+	
+// Return a list of the values in an assoc list (including null)
+/proc/list_values(var/list/L)
+	. = list()
+	for(var/e in L)
+		. += L[e]

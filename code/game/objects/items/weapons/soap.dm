@@ -5,6 +5,10 @@
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
 	icon = 'icons/obj/soap.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "soap"
 	item_state = "soap"
 	w_class = 2.0
@@ -13,6 +17,8 @@
 	throw_range = 20
 	flags = OPENCONTAINER
 	var/key_data
+	var/clean_msg
+	var/last_clean
 	drop_sound = 'sound/misc/slip.ogg'
 
 /obj/item/soap/New()
@@ -27,7 +33,7 @@
 /obj/item/soap/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/key))
 		if(!key_data)
-			to_chat(user, "<span class='notice'>You imprint \the [I] into \the [src].</span>")
+			to_chat(user, span("notice", "You imprint \the [I] into \the [src]."))
 			var/obj/item/key/K = I
 			key_data = K.key_data
 			update_icon()
@@ -49,22 +55,28 @@
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && (target in user.client.screen))
-		to_chat(user, "<span class='notice'>You need to take that [target.name] off before cleaning it.</span>")
+		to_chat(user, span("notice", "You need to take that [target.name] off before cleaning it."))
 	else if(istype(target,/obj/structure/sink) || istype(target,/obj/structure/sink))
-		to_chat(user, "<span class='notice'>You wet \the [src] in the sink.</span>")
+		to_chat(user, span("notice", "You wet \the [src] in the sink."))
 		wet()
 	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
 		if (target.reagents && target.reagents.total_volume)
-			to_chat(user, "<span class='notice'>You wet \the [src] in the [target].</span>")
+			to_chat(user, span("notice", "You wet \the [src] in the [target]."))
 			wet()
 		else
 			to_chat(user, "\The [target] is empty!")
 	else
-		to_chat(user, "You start scrubbing the [target.name]")
+		if (!(last_clean && world.time < last_clean + 120))
+			to_chat(user, "You start scrubbing the [target.name]")
+			clean_msg = TRUE
+			last_clean = world.time
+		else
+			clean_msg = FALSE
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
 		if (do_after(user, 25, needhand = 0))
 			target.clean_blood()
-			to_chat(user, "<span class='notice'>You scrub \the [target.name] out.</span>")
+			if(clean_msg)
+				to_chat(user, span("notice", "You scrub \the [target.name] out."))
 			if(istype(target, /turf) || istype(target, /obj/effect/decal/cleanable) || istype(target, /obj/effect/overlay))
 				var/turf/T = get_turf(target)
 				if(T)
@@ -74,7 +86,7 @@
 //attack_as_weapon
 /obj/item/soap/attack(mob/living/target, mob/living/user, var/target_zone)
 	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
-		user.visible_message("<span class='danger'>\The [user] washes \the [target]'s mouth out with soap!</span>")
+		user.visible_message(span("danger", "\The [user] washes \the [target]'s mouth out with soap!"))
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
 		return
 	..()

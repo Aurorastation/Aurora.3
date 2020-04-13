@@ -92,12 +92,20 @@
 	src.health -= damage*0.2
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
 
-/obj/structure/grille/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/grille/attackby(obj/item/W, mob/user)
 	if(W.iswirecutter())
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
+	else if(istype(W, /obj/item/gun/energy/plasmacutter))
+		var/obj/item/gun/energy/plasmacutter/PC = W
+		if(!PC.power_supply)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+			return
+		playsound(get_turf(src), PC.fire_sound, 100, TRUE)
+		new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
+		qdel(src)
 	else if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)
@@ -235,6 +243,9 @@
 		..()
 		health = rand(-5, -1) //In the destroyed but not utterly threshold.
 		healthcheck() //Send this to healthcheck just in case we want to do something else with it.
+
+/obj/structure/grille/diagonal
+	icon_state = "grille_diagonal"
 
 /obj/structure/grille/cult
 	name = "cult grille"

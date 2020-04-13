@@ -126,7 +126,7 @@
 
 /obj/item/mecha_equipment/crisis_drone/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	..()
+	. = ..()
 
 /obj/item/mecha_equipment/crisis_drone/uninstalled()
 	. = ..()
@@ -134,7 +134,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/mecha_equipment/crisis_drone/process()	// Will continually try to find the nearest person above the threshold that is a valid target, and try to heal them.
-	if(!(owner.get_cell() && owner.get_cell().check_charge(active_power_use * CELLRATE)))
+	if(!(owner.get_cell()?.check_charge(active_power_use * CELLRATE)))
 		shut_down()
 
 	var/mob/living/carbon/Targ = Target
@@ -248,7 +248,6 @@
 
 /obj/item/mecha_equipment/crisis_drone/proc/toggle_drone()
 	for(var/mob/pilot in owner.pilots)
-		..()
 		if(owner)
 			enabled = !enabled
 			update_icon()

@@ -126,10 +126,12 @@
 		stun *= 0.5
 		if(status)		//Checks to see if the stunbaton is on.
 			agony *= 0.5	//whacking someone causes a much poorer contact than prodding them.
-			if(sheathed) //however breaking the skin results in a more potent electric shock or some bullshit. im a coder, not a doctor
-				L.electrocute_act(force * 2, src, def_zone = target_zone)
-			else
-				L.electrocute_act(force * 2, src, ground_zero = target_zone)
+			if(iscarbon(L))
+				var/mob/living/carbon/C = L
+				if(sheathed) //however breaking the skin results in a more potent electric shock or some bullshit. im a coder, not a doctor
+					C.electrocute_act(force * 2, src, def_zone = target_zone)
+				else
+					C.electrocute_act(force * 2, src, ground_zero = target_zone)
 		else
 			agony = 0
 		//we can't really extract the actual hit zone from ..(), unfortunately. Just act like they attacked the area they intended to.

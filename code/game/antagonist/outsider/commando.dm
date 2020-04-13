@@ -10,6 +10,8 @@ var/datum/antagonist/deathsquad/mercenary/commandos
 
 	faction = "syndicate"
 
+	bantype = "syndicate-commando"
+
 /datum/antagonist/ert/create_default(var/mob/source)
 	var/mob/living/carbon/human/M = ..()
 	if(istype(M)) M.age = rand(25,45)

@@ -6,7 +6,7 @@
 	init_order = SS_INIT_MAPFINALIZE
 
 	var/dmm_suite/maploader
-	var/datum/space_ruin/selected_ruin
+	var/datum/away_mission/selected_mission
 
 /datum/controller/subsystem/finalize/Initialize(timeofday)
 	// Setup the global antag uplink. This needs to be done after SSatlas as it requires current_map.
@@ -16,10 +16,8 @@
 	current_map.finalize_load()
 	log_ss("map_finalization", "Finalized map in [(world.time - time)/10] seconds.")
 
-	//Select ruin and spawn it
-	if(current_map.has_space_ruins)
-		select_ruin()
-		load_space_ruin()
+	select_ruin()
+	load_space_ruin()
 
 	if(config.dungeon_chance > 0)
 		place_dungeon_spawns()
@@ -48,62 +46,87 @@
 	sortTim(all_areas, /proc/cmp_name_asc)
 
 /datum/controller/subsystem/finalize/proc/select_ruin()
-	var/list/ruinconfig = list()
-	var/list/ruinlist = list()
-	var/list/weightedlist = list()
-	try
-		ruinconfig = json_decode(return_file_text("config/space_ruins.json"))
-	catch(var/exception/ej)
-		log_debug("SSatlas: Warning: Could not load space ruin config, as space_ruins.json is missing - [ej]")
-		return
+	//Get all the folders in dynamic maps and check if they contain a config.json
+	var/map_directory = "dynamic_maps/"
+	var/list/mission_list = list()
+	var/list/weighted_mission_list = list()
 
-	for(var/ruinname in ruinconfig)
-		//Create the datums
-		var/datum/space_ruin/sr = new(ruinname,ruinconfig[ruinname]["file_name"])
-		if("weight" in ruinconfig[ruinname])
-			sr.weight = ruinconfig[ruinname]["weight"]
-		if("valid_maps" in ruinconfig[ruinname])
-			sr.valid_maps = ruinconfig[ruinname]["valid_maps"]
-		if("characteristics" in ruinconfig[ruinname])
-			sr.characteristics = ruinconfig[ruinname]["characteristics"]
+	var/list/subfolders = get_subfolders(map_directory)
 
-		//Check if the file exists
-		var/map_directory = "dynamic_maps/"
-		if(!fexists("[map_directory][sr.file_name]"))
-			admin_notice("<span class='danger'>Map file [sr.file_name] for ruin [sr.name] does not exist.</span>")
-			log_ss("atlas","Map file [sr.file_name] for ruin [sr.name] does not exist.")
+	//Build the list of available missions
+	for(var/folder in subfolders)
+		var/list/mission_config = null
+		var/datum/away_mission/am = null
+		if(!fexists("[folder]config.json"))
+			log_ss("map_finalization", "Found no cofiguration file in [folder] - Skipping")
 			continue
 
-		//Build the lists
-		if(length(sr.valid_maps))
-			if(!(current_map.name in sr.valid_maps))
-				continue
-		ruinlist[sr.name] = sr
-		weightedlist[sr.name] = sr.weight
+		try
+			mission_config = json_decode(file2text("[folder]config.json"))
+		catch(var/exception/ed)
+			log_ss("map_finalization", "Invalid config.json in [folder]: [ed]")
+			continue
 
-	if(!length(ruinlist))
-		log_ss("atlas","Found no valid ruins for current map.")
+		try
+			am = new(mission_config, folder)
+		catch(var/exception/ec)
+			log_ss("map_finalization", "Error while creating away mission datum: [ec]")
+			continue
+
+		if(length(am.valid_maps))
+			if(!(current_map.name in am.valid_maps))
+				log_ss("map_finalization", "[current_map.name] is not a valid map for [am.name]")
+				continue
+
+		if(!am.validate_maps(folder))
+			continue
+
+		mission_list[am.name] = am
+		if(am.autoselect)
+			weighted_mission_list[am.name] = am.weight
+		else
+			log_debug("[am.name] has a disabled autoselect")
+
+	if(!length(mission_list))
+		log_ss("map_finalization", "Found no valid ruins for the current map.")
 		return
 
-	log_ss("atlas", "Loaded ruin config.")
-	var/ruinname = pickweight(weightedlist)
-	selected_ruin = ruinlist[ruinname]
+	log_ss("map_finalization", "Loaded ruin config.")
+
+	//Check if we have a enforced mission we should try to load.
+	if(SSpersist_config.forced_awaymission in mission_list)
+		selected_mission = mission_list[SSpersist_config.forced_awaymission]
+		log_ss("map_finalization", "Selected enforced away mission.")
+		admin_notice(SPAN_DANGER("Selected enforced away mission."), R_DEBUG)
+		return
+	else
+		log_ss("map_finalization", "Failed to selected enforced away mission. Fallback to weighted selection.")
+		admin_notice(SPAN_DANGER("Failed to selected enforced away mission. Fallback to weighted selection."), R_DEBUG)
+
+	var/mission_name = pickweight(weighted_mission_list)
+	selected_mission = mission_list[mission_name]
+	admin_notice(SPAN_DANGER("Selected away mission."), R_DEBUG)
 	return
 
 /datum/controller/subsystem/finalize/proc/load_space_ruin()
 	maploader = new
 
-	if(!selected_ruin)
+	if(!selected_mission)
+		log_ss("map_finalization", "Not loading away mission, because no mission has been selected.")
+		admin_notice(SPAN_DANGER("Not loading away mission, because no mission has been selected."), R_DEBUG)
 		return
-	var/map_directory = "dynamic_maps/"
-	var/mfile = "[map_directory][selected_ruin.file_name]"
-	var/time = world.time
+	for(var/map in selected_mission.map_files)
+		var/mfile = "[selected_mission.base_dir][map]"
+		var/time = world.time
+		log_debug("Attempting to load [mfile]")
 
-	if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
-		log_ss("finalize", "Failed to load '[mfile]'!")
-	else
-		log_ss("finalize", "Loaded space ruin on z [world.maxz] in [(world.time - time)/10] seconds.")
-		current_map.restricted_levels.Add(world.maxz)
+		if (!maploader.load_map(file(mfile), 0, 0, no_changeturf = TRUE))
+			log_ss("map_finalization", "Failed to load '[mfile]'!")
+			admin_notice(SPAN_DANGER("Failed to load '[mfile]'!"), R_DEBUG)
+		else
+			log_ss("map_finalization", "Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds.")
+			admin_notice(SPAN_DANGER("Loaded away mission on z [world.maxz] in [(world.time - time)/10] seconds."), R_DEBUG)
+			current_map.restricted_levels.Add(world.maxz)
 	QDEL_NULL(maploader)
 
 /datum/controller/subsystem/finalize/proc/place_dungeon_spawns()
@@ -149,11 +172,11 @@
 	qdel(maploader)
 
 /datum/controller/subsystem/finalize/proc/generate_contact_report()
-	if(!selected_ruin)
+	if(!selected_mission)
 		return
-	var/report_text = selected_ruin.get_contact_report()
+	var/report_text = selected_mission.get_contact_report()
 	for(var/obj/effect/landmark/C in landmarks_list)
-		if(C.name == "Space Ruin Paper")
+		if(C.name == "Mission Paper")
 			var/obj/item/paper/P = new /obj/item/paper(get_turf(C))
 			P.name = "Icarus reading report"
 			P.info = report_text

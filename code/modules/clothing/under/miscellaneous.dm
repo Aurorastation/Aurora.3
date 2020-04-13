@@ -581,20 +581,6 @@
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
 
-/obj/item/clothing/under/dominia
-	name = "dominia suit"
-	desc = "This is a suit in the style of Dominia nobility. It's the latest fashion across Dominian space."
-	icon_state = "domsuit"
-
-/obj/item/clothing/under/dominia/black
-	icon_state = "domsuit2"
-
-/obj/item/clothing/under/dom_thermal
-	name = "lyodsuit"
-	desc = "An imitation Lyodsuit from Dominia. Though it is not able to protect against extreme cold like a true lyodsuit it's lightweight and high quality fabric make it extremely comfortable to wear. \
-	Fashionable amongst the middle and lower classes of Dominia"
-	icon_state = "dom_thermal"
-
 //stripper
 /obj/item/clothing/under/stripper
 	body_parts_covered = 0
@@ -602,26 +588,13 @@
 /obj/item/clothing/under/stripper/stripper_pink
 	name = "pink swimsuit"
 	desc = "A rather skimpy pink swimsuit."
-	icon_state = "stripper_p_under"
+	icon_state = "stripper_p"
 	siemens_coefficient = 1
 
 /obj/item/clothing/under/stripper/stripper_green
 	name = "green swimsuit"
 	desc = "A rather skimpy green swimsuit."
-	icon_state = "stripper_g_under"
-	siemens_coefficient = 1
-
-/obj/item/clothing/suit/stripper/stripper_pink
-	name = "pink skimpy dress"
-	desc = "A rather skimpy pink dress."
-	icon_state = "stripper_p_over"
-	siemens_coefficient = 1
-
-/obj/item/clothing/suit/stripper/stripper_green
-	name = "green skimpy dress"
-	desc = "A rather skimpy green dress."
-	icon_state = "stripper_g_over"
-	item_state = "stripper_g"
+	icon_state = "stripper_g"
 	siemens_coefficient = 1
 
 /obj/item/clothing/under/stripper/mankini

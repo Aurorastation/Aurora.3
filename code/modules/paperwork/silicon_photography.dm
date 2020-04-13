@@ -24,7 +24,7 @@
 /obj/item/device/camera/siliconcam/proc/injectmasteralbum(obj/item/photo/p) //stores image information to a list similar to that of the datacore
 	var/mob/living/silicon/robot/C = usr
 	if(C.connected_ai)
-		C.connected_ai.aiCamera.injectaialbum(p.copy(1), " (synced from [C.name])")
+		C.connected_ai.ai_camera.injectaialbum(p.copy(1), " (synced from [C.name])")
 		to_chat(C.connected_ai, "<span class='unconscious'>Image uploaded by [C.name]</span>")
 		to_chat(usr, "<span class='unconscious'>Image synced to remote database</span>")	//feedback to the Cyborg player that the picture was taken)
 	else
@@ -150,12 +150,12 @@ obj/item/device/camera/siliconcam/proc/getsource()
 	var/mob/living/silicon/robot/C = usr
 	var/obj/item/device/camera/siliconcam/Cinfo
 	if(C.connected_ai)
-		Cinfo = C.connected_ai.aiCamera
+		Cinfo = C.connected_ai.ai_camera
 	else
 		Cinfo = src
 	return Cinfo
 
 /mob/living/silicon/proc/GetPicture()
-	if(!aiCamera)
+	if(!ai_camera)
 		return
-	return aiCamera.selectpicture()
+	return ai_camera.selectpicture()

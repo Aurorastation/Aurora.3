@@ -3,6 +3,11 @@
 	desc = "A scroll for moving around."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "scroll"
+	item_state = "scroll"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
+		)
 	var/uses = 4.0
 	w_class = 1
 	item_state = "paper"
@@ -74,7 +79,7 @@
 	smoke.attach(user)
 	smoke.start()
 	var/list/L = list()
-	for(var/turf/T in get_area_turfs(thearea.type))
+	for(var/turf/T in get_area_turfs(thearea))
 		if(!T.density && !T.is_hole)
 			var/clear = 1
 			for(var/obj/O in T)

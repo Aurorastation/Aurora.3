@@ -22,7 +22,7 @@
 	var/pathweight = 1          // How much does it cost to pathfind over this turf?
 	var/blessed = 0             // Has the turf been blessed?
 
-	var/footstep_sound = "defaultstep"
+	var/footstep_sound = "tiles"
 
 	var/list/decals
 
@@ -43,6 +43,7 @@
 	var/base_desc = "The naked hull."
 	var/base_icon = 'icons/turf/flooring/plating.dmi'
 	var/base_icon_state = "plating"
+	var/last_clean //for clean log spam.
 
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
@@ -117,6 +118,9 @@
 
 /turf/ex_act(severity)
 	return 0
+
+/turf/proc/is_solid_structure()
+	return 1
 
 /turf/proc/is_space()
 	return 0
@@ -321,10 +325,12 @@ var/const/enterloopsanity = 100
 			if(istype(O,/obj/effect/rune))
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
-				if (R.visibility)
-					to_chat(user, "<span class='warning'>No matter how well you wash, the bloody symbols remain!</span>")
+				if(!R.invisibility)
+					to_chat(user, span("warning", "No matter how well you wash, the bloody symbols remain!"))
 	else
-		to_chat(user, "<span class='warning'>\The [source] is too dry to wash that.</span>")
+		if( !(last_clean && world.time < last_clean + 100) )
+			to_chat(user, span("warning", "\The [source] is too dry to wash that."))
+			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
 /turf/proc/update_blood_overlays()
@@ -436,7 +442,7 @@ var/const/enterloopsanity = 100
 
 		var/obj/item/organ/external/lhand = H.organs_by_name[BP_L_HAND]
 		tally += limbCheck(lhand)
-	
+
 		var/obj/item/organ/external/rfoot = H.organs_by_name[BP_R_FOOT]
 		tally += limbCheck(rfoot)
 

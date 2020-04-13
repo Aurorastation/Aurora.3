@@ -5,7 +5,7 @@ var/list/admin_datums = list()
 	var/client/owner	= null
 	var/rights = 0
 	var/fakekey			= null
-
+	var/aooc_mute = FALSE
 	var/datum/marked_datum
 
 	var/mob/living/original_mob = null
@@ -61,6 +61,12 @@ var/list/admin_datums = list()
 	if (!admincaster_signature)
 		admincaster_signature = "[current_map.company_name] Officer #[rand(0,9)][rand(0,9)][rand(0,9)]"
 
+/datum/admins/proc/toggle_aooc_mute_check()
+	aooc_mute = !aooc_mute
+	return !aooc_mute
+
+/datum/admins/proc/check_aooc_mute()
+	return aooc_mute
 /*
 checks if usr is an admin with at least ONE of the flags in rights_required. (Note, they don't need all the flags)
 if rights_required == 0, then it simply checks if they are an admin.
@@ -102,10 +108,16 @@ NOTE: It checks usr by default. Supply the "user" argument if you wish to check 
 		to_chat(usr, "<font color='red'>Error: Cannot proceed. They have more or equal rights to us.</font>")
 	return 0
 
-
-
 /client/proc/deadmin()
 	if(holder)
 		holder.disassociate()
 		//qdel(holder)
 	return 1
+
+/client/proc/toggle_aooc_holder_check()
+	if(holder)
+		return holder.toggle_aooc_mute_check()
+
+/client/proc/aooc_mute_holder_check()
+	if(holder)
+		return holder.check_aooc_mute()

@@ -1,11 +1,8 @@
 /turf/simulated/floor/plating
-	footstep_sound = "concretestep"
+	footstep_sound = "plating"
 
 /turf/simulated/floor/diona
 	name = "biomass flooring"
 	icon_state = "diona"
-	footstep_sound = "grassstep"
+	footstep_sound = "grass"
 	initial_flooring = /decl/flooring/diona
-
-/turf/simulated/floor/diona/attackby()
-	return

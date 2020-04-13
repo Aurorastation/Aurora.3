@@ -23,7 +23,7 @@
 	desc = "A replacement light tube."
 	icon_state = "ltube_preset"//preset state for mapping
 	item_state = "c_tube"
-	matter = list("glass" = 100)
+	matter = list(MATERIAL_GLASS = 100)
 	brightness_range = 8
 	brightness_power = 0.8
 	lighttype = "tube"
@@ -63,8 +63,8 @@
 	name = "light bulb"
 	desc = "A replacement light bulb."
 	icon_state = "lbulb_preset"//preset state for mapping
-	item_state = "contvapour"
-	matter = list("glass" = 100)
+	item_state = "egg"
+	matter = list(MATERIAL_GLASS = 100)
 	brightness_range = 5
 	brightness_power = 0.75
 	brightness_color = LIGHT_COLOR_TUNGSTEN
@@ -103,7 +103,7 @@
 	desc = "A replacement fire bulb."
 	icon_state = "flight"
 	item_state = "egg_red"
-	matter = list("glass" = 100)
+	matter = list(MATERIAL_GLASS = 100)
 	brightness_range = 8
 	brightness_power = 0.8
 	randomize_range = FALSE
@@ -181,5 +181,5 @@
 		status = LIGHT_BROKEN
 		force = 5
 		sharp = 1
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		update()

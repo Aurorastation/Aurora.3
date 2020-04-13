@@ -109,7 +109,7 @@
 	name = "box of chewing wads master"
 	desc = "A generic brand of Waffle Co Wads, unflavored chews. Why do these exist?"
 	icon = 'icons/obj/cigs_lighters.dmi'
-	icon_state = "placeholder"
+	icon_state = "cigpacket"
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	use_sound = 'sound/items/storage/pillbottle.ogg'

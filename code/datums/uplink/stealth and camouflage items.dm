@@ -44,4 +44,4 @@
 	name = "Balaclava"
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	item_cost = 1
-	path = /obj/item/clothing/mask/balaclava/tactical
+	path = /obj/item/clothing/mask/balaclava/grey

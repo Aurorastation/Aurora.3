@@ -23,6 +23,10 @@
 	var/list/datum/matter_synth/synths = null
 	var/icon_has_variants = FALSE
 	icon = 'icons/obj/stacks/materials.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
+		)
 
 /obj/item/stack/Initialize(mapload, amount)
 	. = ..()

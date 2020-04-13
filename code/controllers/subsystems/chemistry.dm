@@ -8,7 +8,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/list/active_holders = list()
 	var/list/chemical_reactions
 	var/list/chemical_reactions_clean = list()
-	var/list/chemical_reagents
+	var/list/datum/reagent/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
 

@@ -7,12 +7,17 @@
 	dead_icon = "stomach"
 	organ_tag = BP_STOMACH
 	parent_organ = BP_GROIN
+	robotic_name = "digestive pump"
+	robotic_sprite = "stomach-prosthetic"
 	var/datum/reagents/metabolism/ingested
 	var/next_cramp = 0
 	var/should_process_alcohol = TRUE
 
 /obj/item/organ/internal/stomach/Destroy()
 	QDEL_NULL(ingested)
+	for(var/mob/M in contents)
+		if(M.stat != DEAD)
+			M.forceMove(owner.loc)
 	. = ..()
 
 /obj/item/organ/internal/stomach/Initialize()
@@ -50,6 +55,8 @@
 
 /obj/item/organ/internal/stomach/proc/is_full(var/atom/movable/food)
 	var/total = Floor(ingested.total_volume / 10)
+	if(species.gluttonous & GLUT_MESSY)
+		return FALSE //Don't need to check if the stomach is full if we're not using the contents.
 	for(var/a in contents + food)
 		if(ismob(a))
 			var/mob/M = a
@@ -68,7 +75,7 @@
 		var/mob/living/L = food
 		if((species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_TINY) && !ishuman(food)) // Anything MOB_TINY or smaller
 			return DEVOUR_SLOW
-		else if((species.gluttonous & GLUT_SMALLER) && owner.mob_size > L.mob_size) // Anything we're larger than
+		else if((species.gluttonous & (GLUT_SMALLER|GLUT_MESSY)) && owner.mob_size > L.mob_size) // Anything we're larger than
 			return DEVOUR_SLOW
 		else if(species.gluttonous & GLUT_ANYTHING) // Eat anything ever
 			return DEVOUR_FAST

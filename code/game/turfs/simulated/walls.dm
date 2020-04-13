@@ -41,9 +41,9 @@
 		icon_state = "blank"
 	if(!materialtype)
 		materialtype = DEFAULT_WALL_MATERIAL
-	material = get_material_by_name(materialtype)
+	material = SSmaterials.get_material_by_name(materialtype)
 	if(!isnull(rmaterialtype))
-		reinf_material = get_material_by_name(rmaterialtype)
+		reinf_material = SSmaterials.get_material_by_name(rmaterialtype)
 	update_material()
 
 	if (material.radioactivity || (reinf_material && reinf_material.radioactivity))
@@ -73,9 +73,11 @@
 	take_damage(damage)
 	return
 
-/turf/simulated/wall/hitby(AM as mob|obj, var/speed=THROWFORCE_SPEED_DIVISOR)
+/turf/simulated/wall/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	..()
-	if(ismob(AM))
+	if(isliving(AM))
+		var/mob/living/M = AM
+		M.turf_collision(src, speed)
 		return
 
 	var/tforce = AM:throwforce * (speed/THROWFORCE_SPEED_DIVISOR)
@@ -184,7 +186,7 @@
 			O.forceMove(src)
 
 	clear_plants()
-	material = get_material_by_name("placeholder")
+	material = SSmaterials.get_material_by_name("placeholder")
 	reinf_material = null
 
 	if (!no_change)

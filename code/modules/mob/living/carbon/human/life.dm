@@ -61,7 +61,7 @@
 		//Updates the number of stored chemicals for powers
 		handle_changeling()
 
-		//Organs and blood
+		//Organs
 		handle_organs()
 		stabilize_body_temperature() //Body temperature adjusts itself (self-regulation)
 
@@ -232,6 +232,9 @@
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
 		adjustCloneLoss(0.1)
+		if(stat != DEAD)
+			blinded = TRUE
+			stat = UNCONSCIOUS
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
 	if(in_stasis)
@@ -374,7 +377,8 @@
 	else
 		var/loc_temp = T0C
 		if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
-			loc_temp = loc:air_contents.temperature
+			var/obj/machinery/atmospherics/unary/cryo_cell/C = loc
+			loc_temp = C.air_contents?.temperature
 		else
 			loc_temp = environment.temperature
 
@@ -731,32 +735,17 @@
 			silent = 0
 			return 1
 
-		if(hallucination)
-			//Machines do not hallucinate.
-			if(hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
-				if(prob(3))
-					fake_attack(src)
-				if(!handling_hal)
-					spawn handle_hallucinations() //The not boring kind!
+		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
+			handle_hallucinations() 
 
-			if(hallucination<=2)
-				hallucination = 0
-				adjustHalLoss(0)
-			else
-				hallucination -= 2
-
-		else
-			for(var/atom/a in hallucinations)
-				qdel(a)
-
-		if(get_shock() >= species.total_health)
+		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
 				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
-				src.visible_message("<B>[src]</B> [species.halloss_message].")
+				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
-		if(paralysis || sleeping)
-			blinded = 1
+		if(paralysis || sleeping || in_stasis)
+			blinded = TRUE
 			stat = UNCONSCIOUS
 
 			adjustHalLoss(-3)
@@ -773,7 +762,7 @@
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
-			if(prob(2) && health && !hal_crit && !failed_last_breath && !isSynthetic())
+			if(prob(2) && health && !failed_last_breath && !isSynthetic())
 				if(!paralysis)
 					emote("snore")
 				else
@@ -782,9 +771,9 @@
 
 
 		//CONSCIOUS
-		else
+		else if(!in_stasis)
 			stat = CONSCIOUS
-			willfully_sleeping = 0
+			willfully_sleeping = FALSE
 
 		// Check everything else.
 
@@ -982,12 +971,12 @@
 				pressure.icon_state = new_pressure
 
 		if(toxin)
-			var/new_tox = (hal_screwyhud == 4 || phoron_alert) ? "tox1" : "tox0"
+			var/new_tox = (phoron_alert) ? "tox1" : "tox0"
 			if (toxin.icon_state != new_tox)
 				toxin.icon_state = new_tox
 
 		if(oxygen)
-			var/new_oxy = (hal_screwyhud == 3 || oxygen_alert) ? "oxy1" : "oxy0"
+			var/new_oxy = (oxygen_alert) ? "oxy1" : "oxy0"
 			if (oxygen.icon_state != new_oxy)
 				oxygen.icon_state = new_oxy
 
@@ -1082,7 +1071,6 @@
 		mind.changeling.regenerate()
 
 /mob/living/carbon/human/proc/handle_shock()
-	..()
 	if(status_flags & GODMODE)
 		return 0
 	if(!can_feel_pain())
@@ -1120,7 +1108,7 @@
 		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
-		if(shock_stage == 60) 
+		if(shock_stage == 60)
 			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
@@ -1252,7 +1240,7 @@
 			if(I.implanted)
 				if(istype(I,/obj/item/implant/tracking))
 					holder1.icon_state = "hud_imp_tracking"
-				if(istype(I,/obj/item/implant/loyalty))
+				if(istype(I,/obj/item/implant/mindshield))
 					holder2.icon_state = "hud_imp_loyal"
 				if(istype(I,/obj/item/implant/chem))
 					holder3.icon_state = "hud_imp_chem"

@@ -46,6 +46,18 @@
 	path = /obj/machinery/floor_light
 	category = "General"
 
+/datum/autolathe/recipe/tile_circuit_blue
+	name = "circuit tile, blue"
+	path = /obj/item/stack/tile/circuit_blue
+	category = "General"
+	is_stack = 1
+
+/datum/autolathe/recipe/tile_circuit_green
+	name = "circuit tile, green"
+	path = /obj/item/stack/tile/circuit_green
+	category = "General"
+	is_stack = 1
+
 /datum/autolathe/recipe/extinguisher
 	name = "extinguisher"
 	path = /obj/item/extinguisher
@@ -185,6 +197,11 @@
 	path = /obj/item/module/power_control
 	category = "Engineering"
 
+/datum/autolathe/recipe/stockparts_box
+	name = "stock parts box"
+	path = /obj/item/storage/bag/stockparts_box
+	category = "Engineering"
+
 /datum/autolathe/recipe/rfd_ammo
 	name = "compressed matter cartridge"
 	path = /obj/item/rfd_ammo
@@ -192,32 +209,32 @@
 
 /datum/autolathe/recipe/scalpel
 	name = "scalpel"
-	path = /obj/item/scalpel
+	path = /obj/item/surgery/scalpel
 	category = "Medical"
 
 /datum/autolathe/recipe/circularsaw
 	name = "circular saw"
-	path = /obj/item/circular_saw
+	path = /obj/item/surgery/circular_saw
 	category = "Medical"
 
 /datum/autolathe/recipe/surgicaldrill
 	name = "surgical drill"
-	path = /obj/item/surgicaldrill
+	path = /obj/item/surgery/surgicaldrill
 	category = "Medical"
 
 /datum/autolathe/recipe/retractor
 	name = "retractor"
-	path = /obj/item/retractor
+	path = /obj/item/surgery/retractor
 	category = "Medical"
 
 /datum/autolathe/recipe/cautery
 	name = "cautery"
-	path = /obj/item/cautery
+	path = /obj/item/surgery/cautery
 	category = "Medical"
 
 /datum/autolathe/recipe/hemostat
 	name = "hemostat"
-	path = /obj/item/hemostat
+	path = /obj/item/surgery/hemostat
 	category = "Medical"
 
 /datum/autolathe/recipe/beaker

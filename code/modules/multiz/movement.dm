@@ -72,6 +72,11 @@
 			to_chat(src, span("warning", "\The [A] blocks you."))
 			return FALSE
 
+	if(buckled && istype(buckled, /obj/vehicle))
+		var/obj/vehicle/car = buckled
+		if(car.flying)
+			buckled.Move(destination)
+			return TRUE
 	// Actually move.
 	Move(destination)
 	return TRUE
@@ -250,6 +255,11 @@
 		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
+			return TRUE
+
+	if(buckled && istype(buckled, /obj/vehicle))
+		var/obj/vehicle/car = buckled
+		if(car.flying)
 			return TRUE
 
 	return ..()
@@ -554,7 +564,7 @@
 
 		visible_message(span("warning", "\The [src] falls and lands arms first!"),
 			span("danger", "You brace your fall with your arms, hitting \the [loc] with a loud thud."), "You hear a thud!")
-		
+
 		if(prob(20))
 			var/obj/item/organ/external/l_hand = get_organ("l_hand")
 			var/obj/item/organ/external/r_hand = get_organ("r_hand")
@@ -627,7 +637,7 @@
 	if (stat == DEAD)
 		SSfeedback.IncrementSimpleStat("openturf_human_deaths")
 
-/mob/living/carbon/human/bst/fall_impact()
+/mob/living/carbon/human/bst/fall_impact(var/damage_mod)
 	return FALSE
 
 /mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)

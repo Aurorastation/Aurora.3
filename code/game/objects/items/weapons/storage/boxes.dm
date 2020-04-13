@@ -25,7 +25,7 @@
 	name = "box"
 	desc = "It's just an ordinary box."
 	icon_state = "box"
-	item_state = "syringe_kit"
+	item_state = "box"
 	center_of_mass = list("x" = 13,"y" = 10)
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
@@ -265,7 +265,7 @@
 
 /obj/item/storage/box/loyaltypins
 	name = "box of firing pins"
-	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a loyalty implant. Often used in ERTs."
+	desc = "A box of specialised \"loyalty\" authentication pins produced by Nanotrasen; these check to see if the user of the gun it's installed in has been implanted with a mind shield implant. Often used in ERTs."
 	starts_with = list(/obj/item/device/firing_pin/implant/loyalty = 7)
 
 /obj/item/storage/box/loyaltypins/fill()
@@ -360,7 +360,7 @@
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."
 	icon_state = "implant"
-	item_state = "syringe_kit"
+	item_state = "box"
 	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6)
 
 /obj/item/storage/box/condimentbottles
@@ -501,7 +501,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "light"
 	desc = "This box is shaped on the inside so that only light tubes and bulbs fit."
-	item_state = "syringe_kit"
+	item_state = "box"
 	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
 
 /obj/item/storage/box/lights/Initialize()	// TODO-STORAGE: Initialize()?
@@ -584,13 +584,32 @@
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
 	icon = 'icons/obj/storage.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = 3
-	can_hold = list(/obj/item/organ, /obj/item/reagent_containers/food, /obj/item/reagent_containers/glass)
 	max_storage_space = 21
-	use_to_pickup = 1 // for picking up broken bulbs, not that most people will try
+	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
+
+	/obj/item/storage/box/freezer/organcooler
+	name = "organ cooler"
+	desc = "A sealed, cooled container to keep organs from decaying."
+	icon_state = "organcooler"
+	item_state = "advfirstaid"
+	max_w_class = ITEMSIZE_NORMAL
+	foldable = FALSE
+	w_class = ITEMSIZE_LARGE
+	can_hold = list(
+		/obj/item/organ,
+		/obj/item/reagent_containers/food,
+		/obj/item/reagent_containers/glass,
+		/obj/item/gun
+	)
+	storage_slots = 2
 
 /obj/item/storage/box/kitchen
 	name = "kitchen supplies"
@@ -679,7 +698,7 @@
 	name = "produce box"
 	desc = "A large box of random, leftover produce."
 	icon_state = "largebox"
-	starts_with = list(/obj/random_produce = 12)
+	starts_with = list(/obj/random_produce/box = 15)
 
 /obj/item/storage/box/produce/fill()
 	. = ..()
@@ -796,3 +815,18 @@
 	name = "box"
 	description_antag = "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
+
+/obj/item/storage/box/dynamite
+	name = "wooden crate"
+	desc = "An ordinary wooden crate."
+	icon_state = "dynamite"
+	foldable = null
+	use_sound = 'sound/effects/doorcreaky.ogg'
+	drop_sound = 'sound/items/drop/wooden.ogg'
+	chewable = FALSE
+	w_class = ITEMSIZE_LARGE
+	starts_with = list(/obj/item/grenade/dynamite = 6)
+
+/obj/item/storage/box/dynamite/throw_impact(atom/hit_atom)
+	..()
+	spill()

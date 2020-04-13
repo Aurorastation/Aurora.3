@@ -4,9 +4,51 @@
 	icon = 'icons/mecha/mecha.dmi'
 	icon_state = "ripley"
 
+	//equipment path vars, which get added to the mech in the add_parts() proc
+	//e_ means equipment - geeves
+	var/e_head
+	var/e_body
+	var/e_arms
+	var/e_legs
+	var/e_color = COLOR_DARK_ORANGE // the colour all the parts uses
+
+	//hardpoint equipment path vars, which gets added to the mech in the spawn_mech_equipment() proc
+	//h_ means hardpoint, the rest should be sensical, i hope - geeves
+	var/h_head = /obj/item/mecha_equipment/light
+	var/h_back
+	var/h_l_shoulder
+	var/h_r_shoulder
+	var/h_l_hand
+	var/h_r_hand
+
 /mob/living/heavy_vehicle/premade/Initialize()
 	icon = null
 	icon_state = null
+	add_parts()
+	do_decals()
+	if(!material)
+		material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
+	update_icon()
+	. = ..()
+	spawn_mech_equipment()
+	if(remote_network)
+		become_remote()
+
+/mob/living/heavy_vehicle/premade/proc/add_parts()
+	if(!head && e_head)
+		head = new e_head(src)
+		head.color = e_color
+	if(!body && e_body)
+		body = new e_body(src)
+		body.color = e_color
+	if(!arms && e_arms)
+		arms = new e_arms(src)
+		arms.color = e_color
+	if(!legs && e_arms)
+		legs = new e_legs(src)
+		legs.color = e_color
+
+/mob/living/heavy_vehicle/premade/proc/do_decals()
 	if(arms)
 		arms.decal = decal
 		arms.prebuild()
@@ -19,16 +61,20 @@
 	if(body)
 		body.decal = decal
 		body.prebuild()
-	if(!material)
-		material = get_material_by_name("steel")
-	update_icon()
-	. = ..()
-	spawn_mech_equipment()
-	if(remote_network)
-		become_remote()
 
 /mob/living/heavy_vehicle/premade/proc/spawn_mech_equipment()
-	install_system(new /obj/item/mecha_equipment/light(src), HARDPOINT_HEAD)
+	if(h_head)
+		install_system(new h_head(src), HARDPOINT_HEAD)
+	if(h_back)
+		install_system(new h_back(src), HARDPOINT_BACK)
+	if(h_l_shoulder)
+		install_system(new h_l_shoulder(src), HARDPOINT_LEFT_SHOULDER)
+	if(h_r_shoulder)
+		install_system(new h_r_shoulder(src), HARDPOINT_RIGHT_SHOULDER)
+	if(h_l_hand)
+		install_system(new h_l_hand(src), HARDPOINT_LEFT_HAND)
+	if(h_r_hand)
+		install_system(new h_r_hand(src), HARDPOINT_RIGHT_HAND)
 
 /mob/living/heavy_vehicle/premade/random
 	name = "mismatched exosuit"

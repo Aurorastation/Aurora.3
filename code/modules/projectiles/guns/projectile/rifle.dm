@@ -1,12 +1,14 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
 	name = "bolt action rifle"
 	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen. Uses 7.62mm rounds."
+	icon = 'icons/obj/guns/moistnugget.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
+	magazine_type = /obj/item/ammo_magazine/boltaction
 	max_shells = 5
 
 	pump_fail_msg = "<span class='warning'>You cannot work the rifle's bolt without gripping it with both hands!</span>"
@@ -20,11 +22,12 @@
 	sawnoff_workmsg = "shorten the barrel and stock"
 
 /obj/item/gun/projectile/shotgun/pump/rifle/saw_off(mob/user, obj/item/tool)
+	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
+	item_state = "obrez"
 	w_class = 3
 	recoil = 2
 	accuracy = -2
-	item_state = "obrez"
 	slot_flags &= ~SLOT_BACK
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 	can_bayonet = FALSE
@@ -40,6 +43,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez
 	name = "sawn-off bolt action rifle"
 	desc = "A shortened bolt action rifle, not really accurate. Uses 7.62mm rounds."
+	icon = 'icons/obj/guns/obrez.dmi'
 	icon_state = "obrez"
 	item_state = "obrez"
 	w_class = 3
@@ -52,12 +56,14 @@
 /obj/item/gun/projectile/contender
 	name = "pocket rifle"
 	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action. Uses 5.56mm rounds."
+	icon = 'icons/obj/guns/pockrifle.dmi'
 	icon_state = "pockrifle"
 	item_state = "pockrifle"
 	caliber = "a556"
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/a556
+	magazine_type = /obj/item/ammo_magazine/a556
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	load_method = SINGLE_CASING
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
@@ -116,8 +122,9 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage
 	name = "vintage bolt action rifle"
 	desc = "An extremely old-looking rifle. Words you can't read are stamped on the gun. Doesn't look like it'll take any modern rounds."
+	icon = 'icons/obj/guns/springfield.dmi'
 	icon_state = "springfield"
-	icon_state = "springfield"
+	item_state = "springfield"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	slot_flags = SLOT_BACK
@@ -125,6 +132,7 @@
 	handle_casings = HOLD_CASINGS
 	caliber = "vintage"
 	ammo_type = /obj/item/ammo_casing/vintage
+	magazine_type = /obj/item/ammo_magazine/boltaction/vintage
 	can_bayonet = TRUE
 	var/open_bolt = 0
 	var/obj/item/ammo_magazine/boltaction/vintage/has_clip
@@ -223,7 +231,9 @@
 	slot_flags = 0
 	magazine_type = /obj/item/ammo_magazine/gauss
 	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
+	icon = 'icons/obj/guns/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
+	item_state = "gauss_thumper"
 	caliber = "gauss"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/railgun.ogg'
@@ -253,7 +263,7 @@
 /obj/item/gun/energy/gauss/mounted/mech
 	name = "heavy gauss cannon"
 	desc = "An outdated and power hungry gauss cannon, modified to deliver high explosive rounds at high velocities."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
 	fire_sound = 'sound/weapons/railgun.ogg'
 	fire_delay = 30

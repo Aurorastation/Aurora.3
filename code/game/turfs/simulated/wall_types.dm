@@ -10,11 +10,11 @@
 	appearance_flags = NO_CLIENT_COLOR
 
 /turf/simulated/wall/cult/Initialize(mapload)
-	. = ..(mapload,"cult")
+	. = ..(mapload, MATERIAL_CULT)
 	desc = "Hideous images dance beneath the surface."
 
 /turf/simulated/wall/cult_reinforced/Initialize(mapload)
-	. = ..(mapload,"cult","cult2")
+	. = ..(mapload, MATERIAL_CULT, MATERIAL_CULT_REINFORCED)
 	desc = "Hideous images dance beneath the surface."
 
 /turf/unsimulated/wall/cult
@@ -27,54 +27,47 @@
 	icon_state = "cult"
 	appearance_flags = NO_CLIENT_COLOR
 
-/turf/simulated/wall/rusty
-	icon_state = "arust"
-
-/turf/simulated/wall/rusty/Initialize(mapload)
-	. = ..(mapload,"rust")
-	desc = "Rust stains this ancient wall."
-
 /turf/simulated/wall/vaurca/Initialize(mapload)
-	. = ..(mapload,"alien biomass")
+	. = ..(mapload, MATERIAL_VAURCA)
 
 /turf/simulated/wall/iron/Initialize(mapload)
-	. = ..(mapload,"iron")
+	. = ..(mapload, MATERIAL_IRON)
 
 /turf/simulated/wall/uranium/Initialize(mapload)
-	. = ..(mapload,"uranium")
+	. = ..(mapload, MATERIAL_URANIUM)
 
 /turf/simulated/wall/diamond/Initialize(mapload)
-	. = ..(mapload,"diamond")
+	. = ..(mapload, MATERIAL_DIAMOND)
 
 /turf/simulated/wall/gold/Initialize(mapload)
-	. = ..(mapload,"gold")
+	. = ..(mapload, MATERIAL_GOLD)
 
 /turf/simulated/wall/silver/Initialize(mapload)
-	. = ..(mapload,"silver")
+	. = ..(mapload, MATERIAL_SILVER)
 
 /turf/simulated/wall/phoron/Initialize(mapload)
-	. = ..(mapload,"phoron")
+	. = ..(mapload, MATERIAL_PHORON)
 
 /turf/simulated/wall/sandstone/Initialize(mapload)
-	. = ..(mapload,"sandstone")
+	. = ..(mapload, MATERIAL_SANDSTONE)
 
 /turf/simulated/wall/ironphoron/Initialize(mapload)
-	. = ..(mapload,"iron","phoron")
+	. = ..(mapload, MATERIAL_IRON, MATERIAL_PHORON)
 
 /turf/simulated/wall/golddiamond/Initialize(mapload)
-	. = ..(mapload,"gold","diamond")
+	. = ..(mapload, MATERIAL_GOLD, MATERIAL_DIAMOND)
 
 /turf/simulated/wall/silvergold/Initialize(mapload)
-	. = ..(mapload,"silver","gold")
+	. = ..(mapload, MATERIAL_SILVER, MATERIAL_GOLD)
 
 /turf/simulated/wall/sandstonediamond/Initialize(mapload)
-	. = ..(mapload,"sandstone","diamond")
+	. = ..(mapload, MATERIAL_SANDSTONE, MATERIAL_DIAMOND)
 
 /turf/simulated/wall/titanium/Initialize(mapload)
-	. = ..(mapload,"titanium")
+	. = ..(mapload, MATERIAL_TITANIUM)
 
 /turf/simulated/wall/titanium_reinforced/Initialize(mapload)
-	. = ..(mapload,"titanium", "titanium")
+	. = ..(mapload, MATERIAL_TITANIUM, MATERIAL_TITANIUM)
 
 /turf/simulated/wall/wood/Initialize(mapload)
-	. = ..(mapload,"wood")
+	. = ..(mapload, MATERIAL_WOOD)

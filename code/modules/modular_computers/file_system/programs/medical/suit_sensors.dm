@@ -5,17 +5,17 @@
 	extended_desc = "This program connects to life signs monitoring system to provide basic information on crew health."
 	required_access_run = access_medical
 	required_access_download = access_cmo
-	requires_ntnet = 1
+	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE | PROGRAM_SILICON
+	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE | PROGRAM_SILICON | PROGRAM_TABLET
 	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/suit_sensors/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-medical-sensors", 800, 600, "Suit Sensors Monitoring")
-		ui.auto_update_content = 1
+		ui.auto_update_content = TRUE
 	ui.open()
 
 /datum/computer_file/program/suit_sensors/vueui_transfer(oldobj)
@@ -23,7 +23,7 @@
 		var/datum/vueui/ui = o
 		// Let's ensure our ui's autoupdate after transfer.
 		// TODO: revert this value on transfer out.
-		ui.auto_update_content = 1
+		ui.auto_update_content = TRUE
 	return TRUE
 
 
@@ -57,4 +57,4 @@
 			var/mob/living/silicon/ai/AI = usr
 			var/mob/living/carbon/human/H = locate(href_list["track"]) in mob_list
 			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
-				AI.ai_actual_track(H)
+				AI.ai_actual_track(H) 

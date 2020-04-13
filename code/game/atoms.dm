@@ -194,7 +194,7 @@
 	return
 
 /atom/proc/hitby(atom/movable/AM as mob|obj)
-	if (density)
+	if(density)
 		AM.throwing = 0
 	return
 
