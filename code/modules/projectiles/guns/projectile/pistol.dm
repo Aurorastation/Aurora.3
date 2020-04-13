@@ -106,12 +106,6 @@
 	set category = "Object"
 	set desc = "Rename your gun. If you're the detective."
 
-	var/mob/M = usr
-	if(!M.mind)	return 0
-	if(!M.mind.assigned_role == "Detective")
-		to_chat(M, SPAN_NOTICE("You don't feel cool enough to name this gun, chump."))
-		return 0
-
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 
 	if(src && input && !M.stat && in_range(M,src))
