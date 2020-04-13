@@ -327,6 +327,11 @@ var/list/slot_equipment_priority = list( \
 	if(!item)
 		return
 
+	if (istype(item, /obj/item))
+		var/obj/item/F = item
+		if(!F.canremove)
+			return
+
 	var/can_throw = TRUE
 	if(istype(item, /obj/item/grab))
 		var/obj/item/grab/G = item
