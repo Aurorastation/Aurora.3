@@ -36,3 +36,7 @@
 
 /obj/effect/decal/remains/robot/attack_hand(mob/user as mob)
 	return
+
+/obj/effect/decal/remains/attack_ai(mob/user)
+	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
+		attack_hand(user)
