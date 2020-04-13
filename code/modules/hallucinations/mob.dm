@@ -22,10 +22,10 @@
 	hallucination -= 1	//Tick down the duration
 
 	//Good/bad chems affecting duration
-	if(chem_effects[CE_MIND] > 0)
-		hallucination -= chem_effects[CE_MIND]	
-	if(chem_effects[CE_MIND] < 0 && prob(abs(chem_effects[CE_MIND]*20)))
-		hallucination += abs(chem_effects[CE_MIND])
+	if(chem_effects[CE_ANTIHALLUCINATE] > 0)
+		hallucination -= chem_effects[CE_ANTIHALLUCINATE]	
+	if(chem_effects[CE_ANTIHALLUCINATE] < 0 && prob(abs(chem_effects[CE_ANTIHALLUCINATE]*20)))
+		hallucination += abs(chem_effects[CE_ANTIHALLUCINATE])
 
 	if(!hallucination)  //We're done
 		return
@@ -42,13 +42,13 @@
 			hall_delay *= 0.75
 		if(400 to INFINITY)		//This should only be possible in cult conversions. Very low delay to represent your flayed mind.
 			hall_delay *= 0.25
-	if(chem_effects[CE_MIND] > 0)
-		if(prob(chem_effects[CE_MIND]*40)) //Chance to skip effects entirely if you're medicated properly
+	if(chem_effects[CE_ANTIHALLUCINATE] > 0)
+		if(prob(chem_effects[CE_ANTIHALLUCINATE]*40)) //Chance to skip effects entirely if you're medicated properly
 			return
 		else
-			hall_delay *= min(1.25, chem_effects[CE_MIND]) //if CE_mind is 1, 25% more time between
-	if(chem_effects[CE_MIND] < 0)
-		hall_delay /= max(1.25, abs(chem_effects[CE_MIND])) //if CE_MIND is -1, 25% less time between
+			hall_delay *= min(1.25, chem_effects[CE_ANTIHALLUCINATE]) //if CE_ANTIHALLUCINATE is 1, 25% more time between
+	if(chem_effects[CE_ANTIHALLUCINATE] < 0)
+		hall_delay /= max(1.25, abs(chem_effects[CE_ANTIHALLUCINATE])) //if CE_ANTIHALLUCINATE is -1, 25% less time between
 
 	next_hallucination = world.time + hall_delay
 	var/datum/hallucination/H = SShallucinations.get_hallucination(src)

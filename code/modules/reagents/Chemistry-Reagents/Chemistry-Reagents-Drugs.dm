@@ -78,7 +78,7 @@
 		return
 	M.dizziness = max(150, M.dizziness)//Setting dizziness directly works as long as the make_dizzy proc is called after to spawn the process
 	M.make_dizzy(4)
-	M.add_chemical_effect(CE_MIND, -1)
+	M.add_chemical_effect(CE_ANTIHALLUCINATE, -1)
 	M.confused = max(M.confused, 20)
 
 /datum/reagent/impedrezene
@@ -111,7 +111,7 @@
 
 /datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 100)
-	M.add_chemical_effect(CE_MIND, -2)
+	M.add_chemical_effect(CE_ANTIHALLUCINATE, -2)
 
 /datum/reagent/psilocybin
 	name = "Psilocybin"
@@ -128,7 +128,7 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.druggy = max(M.druggy, 30)
-	M.add_chemical_effect(CE_MIND, -1)
+	M.add_chemical_effect(CE_ANTIHALLUCINATE, -1)
 	if(dose < 1)
 		M.apply_effect(3, STUTTER)
 		M.make_dizzy(5)
