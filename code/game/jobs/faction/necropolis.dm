@@ -59,27 +59,11 @@
 		"Phoron Researcher" = /datum/outfit/job/scientist/necropolis,
 		"Xenoarcheologist" = /datum/outfit/job/scientist/necropolis,
 		"Anomalist" = /datum/outfit/job/scientist/necropolis,
-		"Forensic Technician" = /datum/outfit/job/forensics/necropolis,
 		"Roboticist" = /datum/outfit/job/roboticist/necropolis,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/necropolis,
 		"Mechatronic Engineer" = /datum/outfit/job/roboticist/necropolis,
 		"Corporate Liaison" = /datum/outfit/job/representative/necropolis
 	)
-
-/datum/outfit/job/officer/necropolis
-	name = "Security Officer - Necropolis"
-	uniform = /obj/item/clothing/under/rank/security/necropolis
-	id = /obj/item/card/id/necropolis/sec
-
-/datum/outfit/job/forensics/necropolis
-	name = "Forensics Technician - Necropolis"
-	uniform = /obj/item/clothing/under/rank/security/necropolis
-	id = /obj/item/card/id/necropolis/sec
-
-/datum/outfit/job/warden/necropolis
-	name = "Warden - Necropolis"
-	uniform = /obj/item/clothing/under/rank/security/necropolis
-	id = /obj/item/card/id/necropolis/sec
 
 /datum/outfit/job/doctor/necropolis
 	name = "Physician - Necropolis"

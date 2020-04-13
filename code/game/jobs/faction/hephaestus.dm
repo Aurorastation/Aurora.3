@@ -52,15 +52,9 @@
 		"Engine Technician" = /datum/outfit/job/engineer/hephaestus,
 		"Electrician" = /datum/outfit/job/engineer/hephaestus,
 		"Atmospheric Technician" = /datum/outfit/job/atmos/hephaestus,
-		"Scientist" = /datum/outfit/job/scientist/hephaestus,
-		"Phoron Researcher" = /datum/outfit/job/scientist/hephaestus,
-		"Xenoarcheologist" = /datum/outfit/job/scientist/hephaestus,
-		"Anomalist" = /datum/outfit/job/scientist/hephaestus,
 		"Roboticist" = /datum/outfit/job/roboticist/hephaestus,
 		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
 		"Drill Technician" = /datum/outfit/job/mining/drill/hephaestus,
-		"Quartermaster" = /datum/outfit/job/qm/hephaestus,
-		"Cargo Technician" = /datum/outfit/job/cargo_tech/hephaestus,
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
 	)
 
@@ -72,11 +66,6 @@
 /datum/outfit/job/atmos/hephaestus
 	name = "Atmospherics Technician - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
-	id = /obj/item/card/id/hephaestus
-
-/datum/outfit/job/scientist/hephaestus
-	name = "Scientist - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus/research
 	id = /obj/item/card/id/hephaestus
 
 /datum/outfit/job/roboticist/hephaestus
@@ -91,11 +80,6 @@
 
 /datum/outfit/job/mining/drill/hephaestus
 	name = "Drill Technician - Hephaestus"
-	uniform = /obj/item/clothing/under/rank/hephaestus/tech
-	id = /obj/item/card/id/hephaestus
-
-/datum/outfit/job/qm/hephaestus
-	name = "Quartermaster - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus/tech
 	id = /obj/item/card/id/hephaestus
 
