@@ -325,7 +325,7 @@
 /datum/reagent/wulumunusha
 	name = "Wulumunusha Extract"
 	id = "wulumunusha"
-	description = "The extract of the wulumunusha fruit, it can cause hallucionations and muteness."
+	description = "The extract of the wulumunusha fruit, it can cause hallucinations and muteness."
 	color = "#61E2EC"
 	taste_description = "sourness"
 	fallback_specific_heat = 1
@@ -336,6 +336,5 @@
 	M.silent = max(M.silent, 5)
 
 /datum/reagent/wulumunusha/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
-	. = ..()
 	if(isskrell(M))
-		M.hallucination = max(M.hallucination, 10)	//light hallucinations that afflict skrell
+		M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict skrell
