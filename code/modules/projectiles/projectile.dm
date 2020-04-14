@@ -62,7 +62,7 @@
 	*/
 
 	//Movement parameters
-	var/speed = 0.4			//Amount of deciseconds it takes for projectile to travel
+	var/speed = 0.2			//Amount of deciseconds it takes for projectile to travel
 	var/pixel_speed = 33	//pixels per move - DO NOT FUCK WITH THIS UNLESS YOU ABSOLUTELY KNOW WHAT YOU ARE DOING OR UNEXPECTED THINGS /WILL/ HAPPEN!
 	var/Angle = 0
 	var/original_angle = 0		//Angle at firing
