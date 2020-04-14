@@ -223,11 +223,13 @@
 /datum/gear/suit/dominia_cape
 	display_name = "dominia cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
 	description = "A selection of Dominian coats."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/dominia/New()
 	..()
@@ -241,6 +243,7 @@
 	display_name = "Tau Ceti Foreign Legion jacket selection"
 	description = "A selection of fine, surplus jackets of the Foreign Legion."
 	path = /obj/item/clothing/suit/storage/legion
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tcfl/New()
 	..()

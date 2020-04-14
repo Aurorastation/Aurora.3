@@ -74,6 +74,7 @@
 	path = /obj/item/clothing/under/skrell/qeblak
 	whitelisted = list("Skrell")
 	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/stellascope
 	display_name = "stellascope"

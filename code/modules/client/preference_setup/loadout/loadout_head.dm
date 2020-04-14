@@ -229,6 +229,7 @@
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
@@ -237,6 +238,7 @@
 /datum/gear/head/tcfl
 	display_name = "tcfl hat selection"
 	path = /obj/item/clothing/head/legion_beret
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/tcfl/New()
 	..()

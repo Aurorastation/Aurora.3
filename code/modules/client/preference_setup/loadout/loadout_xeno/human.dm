@@ -67,6 +67,7 @@
 /datum/gear/mask/offworlder/overmask/scarf
 	display_name = "pioneer scarf"
 	path = /obj/item/clothing/mask/offworlder
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/gloves/offworlder
 	display_name = "starmitts"

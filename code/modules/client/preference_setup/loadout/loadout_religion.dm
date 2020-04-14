@@ -2,6 +2,7 @@
 	display_name = "trinary perfection robes"
 	path = /obj/item/clothing/suit/trinary_robes
 	sort_category = "Religion"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/religion/trinary/mask
 	display_name = "trinary perfection mask"
