@@ -104,7 +104,7 @@
 /obj/item/gun/projectile/sec/detective/verb/rename_gun()
 	set name = "Name Gun"
 	set category = "Object"
-	set desc = "Rename your gun. If you're the detective."
+	set desc = "Rename your gun."
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 
