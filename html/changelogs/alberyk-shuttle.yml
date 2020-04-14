@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "The emergency shuttle can only be called after one hour into the round. This can be changed on the config file."
