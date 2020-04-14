@@ -109,6 +109,14 @@
 	if(component_number > components.len)
 		return
 
+	// Compatiability patch - should be able to load designs from other stations
+	if(istext(pin_type))
+		switch(pin_type)
+			if("input") pin_type = IC_INPUT
+			if("output") pin_type = IC_OUTPUT
+			if("activator") pin_type = IC_ACTIVATOR
+			else return
+
 	var/obj/item/integrated_circuit/component = components[component_number]
 	return component.get_pin_ref(pin_type, pin_number)
 

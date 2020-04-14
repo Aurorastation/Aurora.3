@@ -1,5 +1,7 @@
 // Helpers for saving/loading integrated circuits.
 
+#define MAX_IC_NAME_LEN 20
+#define MAX_PROGRAM_LEN 25000
 
 // Saves type, modified name and modified inputs (if any) to a list
 // The list is converted to JSON down the line.
@@ -52,7 +54,8 @@
 	var/init_name = initial(name)
 	// Validate name
 	if(component_params["name"])
-		sanitizeName(component_params["name"],allow_numbers=TRUE)
+		// There's not much need for a 63-character component names. They also simplify the task of serializing
+		sanitizeName(component_params["name"], max_length=MAX_IC_NAME_LEN, allow_numbers=TRUE)
 	// Validate input values
 	if(component_params["inputs"])
 		var/list/loaded_inputs = component_params["inputs"]
@@ -241,6 +244,21 @@
 // The following parameters area calculated during validation and added to the returned save list:
 // "requires_upgrades", "unsupported_circuit", "cost", "complexity", "max_complexity", "used_space", "max_space"
 /datum/controller/subsystem/processing/electronics/proc/validate_electronic_assembly(program)
+	// Problem: huge JSON files can lag/stop the server
+	// Therefore, we need to somehow limit the huge files
+	// After thinking of several methods, the only way I can think of is limiting the number of characters
+	// So, really quick maths:
+	// The biggest device I can think of on the spot would be a type-a electronic machine filled with 100 starters
+	// Each starter can have a MAX_IC_NAME_LEN of 20, so we have 2000 characters JUST for the starter names
+	// We can also have 63 letters for the name of the assembly
+	// Then, for the supporting data, we got ~ 3000 characters
+	// So, roughly 5000 characters for a box full of useless starters, without accounting for possible wiring
+	// 25000 characters should be enough for everyone?
+	//
+	// For some reason, sanitize strips the first curly brace here.
+	if(length(program) > MAX_PROGRAM_LEN)
+		return "Program too long."
+
 	var/list/blocks = json_decode(program)
 	if(!blocks)
 		return
@@ -332,7 +350,7 @@
 			var/list/wire = w
 
 			if(!islist(wire) || wire.len != 2)
-				return "Invalid wire data."
+				return "Invalid wire data list."
 
 			var/datum/integrated_io/IO = assembly.get_pin_ref_list(wire[1], contents)
 			var/datum/integrated_io/IO2 = assembly.get_pin_ref_list(wire[2], contents)

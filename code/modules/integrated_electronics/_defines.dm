@@ -1,9 +1,13 @@
 #define IC_FLAG_ANCHORABLE 1
 #define IC_FLAG_CAN_FIRE 2
 
-#define IC_INPUT     "input"
-#define IC_OUTPUT    "output"
-#define IC_ACTIVATOR "activator"
+// These macros are numbers since they are used directly to save pin types
+// The JSON already takes up a LOT of space, would be nice to make it shorter
+// This does break backwards compatiability, sadly, but I think it's better
+//  to have a stable server than being able to easily clone shardthrowers
+#define IC_INPUT     1
+#define IC_OUTPUT    2
+#define IC_ACTIVATOR 3
 
 // Pin functionality.
 #define DATA_CHANNEL  "data channel"
