@@ -12,10 +12,7 @@
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"
 	cost = 2
-
-/datum/gear/suit/colorapron/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/leather
 	display_name = "jacket selection"

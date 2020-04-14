@@ -64,6 +64,7 @@
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/antennae/New()
 	..()
@@ -78,7 +79,6 @@
 	antenna["antenna, right"] = /obj/item/clothing/head/antenna/double/right
 	antenna["antenna, trinary perfection"] = /obj/item/clothing/head/antenna/trinary_halo
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
-	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/ears/headlights
 	display_name = "headlights"

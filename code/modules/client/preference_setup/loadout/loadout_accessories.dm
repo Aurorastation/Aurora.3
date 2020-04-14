@@ -181,6 +181,7 @@
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/scarf/New()
 	..()
@@ -188,7 +189,6 @@
 	scarfs["plain scarf"] = /obj/item/clothing/accessory/scarf
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
-	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/chaps
 	display_name = "chaps, brown"

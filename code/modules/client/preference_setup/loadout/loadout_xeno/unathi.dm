@@ -44,10 +44,7 @@
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/autakh_engineering
 	display_name = "engineering grasper"

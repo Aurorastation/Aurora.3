@@ -60,6 +60,7 @@
 	display_name = "skirt selection"
 	description = "A selection of skirts."
 	path = /obj/item/clothing/under/skirt
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/skirt/New()
 	..()
@@ -70,7 +71,6 @@
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
-	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
@@ -153,10 +153,7 @@
 /datum/gear/uniform/customdress
 	display_name = "evening gown"
 	path = /obj/item/clothing/under/dress/dress_evening
-
-/datum/gear/uniform/customdress/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
@@ -218,6 +215,7 @@
 /datum/gear/uniform/colorpants
 	display_name = "pants (recolorable)"
 	path = /obj/item/clothing/under/pants/dress
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/colorpants/New()
 	..()
@@ -225,7 +223,6 @@
 	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
 	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
 	gear_tweaks += new/datum/gear_tweak/path(colorpants)
-	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"
@@ -249,10 +246,7 @@
 /datum/gear/uniform/miscellaneous/kimono
 	display_name = "kimono"
 	path = /obj/item/clothing/under/kimono
-
-/datum/gear/uniform/miscellaneous/kimono/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/miscellaneous/greensuit
 	display_name = "green formal uniform"

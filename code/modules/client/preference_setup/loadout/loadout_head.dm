@@ -57,10 +57,7 @@
 /datum/gear/head/beret/color
 	display_name = "beret (colorable)"
 	path = /obj/item/clothing/head/beret/misc
-
-/datum/gear/head/beret/color/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
@@ -109,10 +106,7 @@
 /datum/gear/head/hairflower
 	display_name = "hair flower pin (colorable)"
 	path = /obj/item/clothing/head/pin/flower/white
-
-/datum/gear/head/hairflower/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/flowercrown
 	display_name = "flowercrown selection"
@@ -215,26 +209,17 @@
 /datum/gear/head/headbando
 	display_name = "basic headband"
 	path = /obj/item/clothing/head/headbando
-
-/datum/gear/head/headbando/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/beanie
 	display_name = "beanie"
 	path = /obj/item/clothing/head/beanie
-
-/datum/gear/head/beanie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/loose_beanie
 	display_name = "loose beanie"
 	path = /obj/item/clothing/head/beanie_loose
-
-/datum/gear/head/loose_beanie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/nonla
 	display_name = "non la hat"
@@ -263,7 +248,4 @@
 /datum/gear/head/padded_cap
 	display_name = "padded cap"
 	path = /obj/item/clothing/head/padded
-
-/datum/gear/head/padded_cap/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
