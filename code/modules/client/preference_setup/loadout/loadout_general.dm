@@ -131,10 +131,7 @@
 /datum/gear/towel
 	display_name = "towel"
 	path = /obj/item/towel
-
-/datum/gear/towel/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/checkers
 	display_name = "checkers game kit"
