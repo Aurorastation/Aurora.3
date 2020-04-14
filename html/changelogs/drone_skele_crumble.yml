@@ -1,0 +1,4 @@
+author: SpaceBaa
+delete-after: True
+changes: 
+  - tweak: "Remains now crumble when touched by robots, or pulled by anyway."
