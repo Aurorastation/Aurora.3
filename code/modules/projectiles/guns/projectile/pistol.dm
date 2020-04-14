@@ -259,7 +259,8 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Rename your gun."
-
+	
+	var/mob/M = usr
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
 
 	if(src && input && !M.stat && in_range(M,src))
