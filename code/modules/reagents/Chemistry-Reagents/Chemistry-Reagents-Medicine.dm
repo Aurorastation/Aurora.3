@@ -569,6 +569,7 @@
 	description = "A theta-lactam antibiotic, effective against wound and organ bacterial infections."
 	reagent_state = LIQUID
 	color = "#41C141"
+	metabolism = REM * 0.05
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
 	overdose = REAGENTS_OVERDOSE
