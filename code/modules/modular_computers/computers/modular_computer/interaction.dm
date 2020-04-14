@@ -226,7 +226,5 @@
 	..()
 
 /obj/item/modular_computer/GetID()
-	if(!card_slot)
-		return null
 	if(card_slot.stored_card)
 		return card_slot.stored_card
