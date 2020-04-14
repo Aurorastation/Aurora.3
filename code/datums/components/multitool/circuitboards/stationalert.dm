@@ -1,4 +1,5 @@
-/obj/item/circuitboard/stationalert/ComponentInitialize()
+/obj/item/circuitboard/stationalert/Initialize()
+	. = ..()
 	AddComponent(/datum/component/multitool/circuitboards/stationalert)
 
 /datum/component/multitool/circuitboards/stationalert/get_interact_window(var/obj/item/device/multitool/M, var/mob/user)
