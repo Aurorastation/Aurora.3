@@ -56,16 +56,18 @@
           </td>
         </tr>
         <tr>
-          <td colspan="3" align="center" v-for="activator in activators" :key="activator">
-            <vui-button :params="{act: 'wire', pin: activator.ref}"><font color="FFFF00"><b>{{activator.name}}</b></font></vui-button>
-            <vui-button :params="{act: 'data', pin: activator.ref}"><font color="FFFF00"><b>{{activator.data}}</b></font></vui-button>
-            <br>
-            <span v-if="activator.linked">
-              <span v-for="linked in activator.linked" :key="linked">
-                <vui-button :params="{act: 'unwire', pin: activator.ref, link: linked.ref}"><font color="FFFF00">{{linked.name}}</font></vui-button>
-                <!-- Porting the old code directly, hence the unsafe-params, change later -->
-                @ <vui-button :unsafe-params="{src: linked.holder, examine: 1}"><font color="FFFF00">{{linked.holder_name}}</font></vui-button>
-                <br>
+          <td colspan="3" align="center">
+            <span v-for="activator in activators" :key="activator">
+              <vui-button :params="{act: 'wire', pin: activator.ref}"><font color="FFFF00"><b>{{activator.name}}</b></font></vui-button>
+              <vui-button :params="{act: 'data', pin: activator.ref}"><font color="FFFF00"><b>{{activator.data}}</b></font></vui-button>
+              <br>
+              <span v-if="activator.linked">
+                <span v-for="linked in activator.linked" :key="linked">
+                  <vui-button :params="{act: 'unwire', pin: activator.ref, link: linked.ref}"><font color="FFFF00">{{linked.name}}</font></vui-button>
+                  <!-- Porting the old code directly, hence the unsafe-params, change later -->
+                  @ <vui-button :unsafe-params="{src: linked.holder, examine: 1}"><font color="FFFF00">{{linked.holder_name}}</font></vui-button>
+                  <br>
+                </span>
               </span>
             </span>
           </td>

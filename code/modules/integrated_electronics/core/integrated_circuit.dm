@@ -253,6 +253,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		internal_examine(usr)
 	else if(href_list["return"] && assembly)
 		assembly.interact(usr)
+		ui.close()
 	else if(href_list["examine"] && assembly)
 		internal_examine(usr)
 

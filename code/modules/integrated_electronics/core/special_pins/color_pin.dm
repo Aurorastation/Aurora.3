@@ -43,7 +43,10 @@
 /datum/integrated_io/color/display_pin_type()
 	return IC_FORMAT_COLOR
 
-/datum/integrated_io/color/display_data(var/input)
-	if(!isnull(data))
-		return "(<font color='[data]'>[data]</font>)"
-	return ..()
+
+// TODO: Think of a way to bring this cool thing back
+///datum/integrated_io/color/display_data(var/input)
+//	if(!isnull(data))
+//		// TODO: Think of a way to bring this cool thing back
+//		return data
+//	return ..()
