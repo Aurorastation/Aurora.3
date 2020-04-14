@@ -1063,10 +1063,8 @@
 
 	if(is_asystole())
 		shock_stage = max(shock_stage + 1, 61)
-		world << "shock stage is [shock_stage]"
 	if(mind?.changeling)
-		shock_stage = min(shock_stage + 1, 40 - (get_ling_level() * 10))
-		world << "shock stage is [shock_stage] POST LING ADJUSTMENT"
+		shock_stage = min(shock_stage, 40 - (get_ling_level() * 10))
 
 	var/traumatic_shock = get_shock()
 	if(traumatic_shock >= max(30, 0.8*shock_stage))

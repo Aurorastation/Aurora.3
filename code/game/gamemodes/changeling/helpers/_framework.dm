@@ -76,7 +76,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		mind.changeling = new /datum/changeling(gender)
 
 	verbs += /datum/changeling/proc/EvolutionMenu
-	add_language("Changeling")
+	add_language(LANGUAGE_CHANGELING)
 
 	var/lesser_form = !ishuman(src)
 
@@ -150,10 +150,16 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	return changeling
 
 //Used to dump the languages from the changeling datum into the actual mob.
-/mob/proc/changeling_update_languages(var/updated_languages)
-	languages = list()
-	for(var/language in updated_languages)
-		languages += language
+/mob/proc/changeling_update_languages()
+	if(!(mind?.changeling))
+		log_debug("Tried to changeling_update_languages [src] but they are not a changeling!")
+		return TRUE
+	for(var/language in mind.changeling.absorbed_languages)
+		add_language(language)
+		for(var/H in mind.changeling.hivemind_members) //update our local hivemind, too
+			var/mob/abstract/hivemind/M = mind.changeling.hivemind_members[H]
+			if(language != LANGUAGE_CHANGELING)
+				M.add_language(language)
 	//This isn't strictly necessary but just to be safe...
 	add_language(LANGUAGE_CHANGELING)
 	return
@@ -164,15 +170,12 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 			return mind.changeling.ling_level
 		else
 			if(mind.changeling.ling_level >= min_level)
-				world << "Ling level current [mind.changeling.ling_level] is higher than required [min_level]"
 				return mind.changeling.ling_level
 			else
-				world << "Ling level current [mind.changeling.ling_level] IS NOT higher than required [min_level] SO WE RETURN FALSE"
 				return FALSE
 
 
 /mob/proc/update_ling_power()
-	world << "Update Ling Power called."
 	var/datum/changeling/changeling
 	if(mind?.changeling)
 		changeling = mind.changeling
@@ -191,8 +194,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 			message = pick("Finally, we have maximized the potential of this host's frail form!", "We have reached the apex of this host's strength. We have no equal.", "This host's pathetic form has achieved peak evolution; it is finally worthy of us.")
 	if(message && changeling.ling_level > previous_level)
 		to_chat(src, FONT_LARGE(SPAN_NOTICE(message)))
-	else
-		world << "No message? [changeling.ling_level] is current level [previous_level] is previous level"
 
 //Making you better than others of your species
 /*/mob/living/carbon/human/proc/adjust_species()

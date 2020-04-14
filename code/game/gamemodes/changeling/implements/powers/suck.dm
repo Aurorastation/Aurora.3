@@ -85,8 +85,7 @@
 	for(var/language in T.languages)
 		if(!(language in changeling.absorbed_languages))
 			changeling.absorbed_languages += language
-
-	changeling_update_languages(changeling.absorbed_languages)
+	changeling_update_languages()
 
 	var/datum/absorbed_dna/newDNA = new(T.real_name, T.dna, T.species.get_cloning_variant(), T.languages)
 	absorbDNA(newDNA)
@@ -101,13 +100,13 @@
 			T.mind.changeling.absorbed_dna.len = TRUE
 
 		if(T.mind.changeling.purchasedpowers)
-			for(var/datum/power/changeling/Tp in T.mind.changeling.purchasedpowers) //who the fuck named these variables?
-				if(Tp in changeling.purchasedpowers)
+			for(var/datum/power/changeling/P in T.mind.changeling.purchasedpowers) 
+				if(P in changeling.purchasedpowers)
 					continue
 				else
-					changeling.purchasedpowers += Tp
-					if(!Tp.isVerb)
-						call(Tp.verbpath)()
+					changeling.purchasedpowers += P
+					if(!P.isVerb)
+						call(P.verbpath)()
 					else
 						src.make_changeling()
 
@@ -124,10 +123,11 @@
 
 	admin_attack_log(usr, T, "absorbed the DNA of", "had their DNA absorbed by", "lethally absorbed DNA from")
 	
-	var/mob/abstract/hivemind/hivemind = new /mob/abstract/hivemind(src)
-	hivemind.icon = T.icon
-	hivemind.icon_state = T.icon_state
-	hivemind.add_to_hivemind(T, src)
+	if(T.is_client_active(1)) //Only add players who are here to hivemind.
+		var/mob/abstract/hivemind/hivemind = new /mob/abstract/hivemind(src)
+		hivemind.icon = T.icon
+		hivemind.icon_state = T.icon_state
+		hivemind.add_to_hivemind(T, src)
 	T.death(0)
 	T.Drain()
 	return TRUE
