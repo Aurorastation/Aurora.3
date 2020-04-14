@@ -106,5 +106,5 @@
 	set desc = "Launches the CCIA Shuttle."
 	set category = "Special Verbs"
 
-	var/datum/shuttle/autodock/ferry/S = SSshuttle.shuttles["Centcom"]
+	var/datum/shuttle/autodock/ferry/S = SSshuttle.shuttles["Agent Shuttle"]
 	S.launch(usr)
