@@ -63,10 +63,11 @@
 			target.silent += strength
 		if(STING_BLIND)
 			to_chat(target, SPAN_DANGER("Your vision suddenly goes black!"))
-			target.sdisabilities |= NEARSIGHTED
 			target.eye_blind = max(target.eye_blind, strength)
 			target.eye_blurry = max(target.eye_blurry, strength / 2)
-			addtimer(CALLBACK(src, .proc/remove_sting_effects, target, type), 300)
+			if(!(target.disabilities & NEARSIGHTED)) //Don't apply nearsighted if the target already is, or we'll accidentally fix them
+				target.disabilities |= NEARSIGHTED
+				addtimer(CALLBACK(src, .proc/remove_sting_effects, target, type), 300)
 		if(STING_PARALYZE)
 			to_chat(target, SPAN_DANGER("Your muscles begin to painfully tighten."))
 			target.Weaken(strength)
@@ -74,7 +75,7 @@
 			to_chat(target, SPAN_DANGER("You feel a small prick and your chest becomes tight."))
 			target.silent += 15
 			target.Paralyse(10)
-			target.make_jittery(1000)
+			target.make_jittery(500)
 			target.make_dizzy(150)
 			target.eye_blind += 10
 			if(target.reagents)
@@ -88,9 +89,9 @@
 	world << "Remove sting effects called with [type]"
 	switch(type)
 		if(STING_DEAF)
-			sdisabilities &= ~DEAF
+			target.sdisabilities &= ~DEAF
 		if(STING_BLIND)
-			sdisabilities &= ~NEARSIGHTED
+			target.disabilities &= ~NEARSIGHTED
 
 /mob/proc/changeling_hallucinate_sting()
 	set category = "Changeling"
@@ -136,6 +137,9 @@
 	var/mob/living/carbon/T = changeling_sting(5, /mob/proc/changeling_deaf_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
+	if(T.sdisabilities & DEAF)
+		to_chat(src, SPAN_WARNING("We sense that \the [T] will not be affected by our sting's chemicals."))
+		return
 	apply_sting_effects(T, STING_DEAF, 2)
 	feedback_add_details("changeling_powers","DS")
 	return TRUE

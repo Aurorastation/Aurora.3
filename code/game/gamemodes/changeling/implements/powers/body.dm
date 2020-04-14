@@ -246,7 +246,6 @@
 	C.status_flags &= ~(FAKEDEATH)
 	// sending display messages
 	to_chat(C, SPAN_NOTICE("We have regenerated fully."))
-	C.verbs -= /mob/proc/changeling_revive
 
 //Recover from stuns.
 /mob/proc/changeling_unstun()
