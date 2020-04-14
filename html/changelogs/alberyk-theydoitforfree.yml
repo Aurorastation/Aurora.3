@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscdel: "Removed janitor's access to medical, security, research and engineering."

@@ -223,8 +223,8 @@
 	spawn_positions = 2
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
-	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_medical)
-	minimal_access = list(access_janitor, access_engine, access_research, access_sec_doors, access_medical)
+	access = list(access_janitor, access_maint_tunnels)
+	minimal_access = list(access_janitor, access_maint_tunnels)
 	outfit = /datum/outfit/job/janitor
 
 /datum/outfit/job/janitor
