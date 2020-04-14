@@ -26222,11 +26222,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/device/radio/intercom{
-	frequency = 1459;
-	pixel_x = 0;
-	pixel_y = -27
-	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
