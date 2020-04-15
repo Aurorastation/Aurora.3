@@ -27,26 +27,26 @@
 	desc = "They look like the remains of a small reptile."
 	icon_state = "lizard"
 
-//Target turns to ash.
-/proc/crumble(user, source)
-	to_chat(user, "<span class='notice'>[source] sinks together into a pile of ash.</span>")
-	var/turf/simulated/floor/F = get_turf(source)
-	if (istype(F))
-		new /obj/effect/decal/cleanable/ash(F)
-	qdel(source)
+//Target turns to ash or oil.
+/obj/effect/decal/remains/proc/crumble()
+	var/turf/simulated/floor/F = get_turf(src)
+	if (icon_state == "remainsrobot")
+		visible_message(SPAN_NOTICE("[src] degrades into a pool of oil."))
+		if (istype(F))
+			new /obj/effect/decal/cleanable/blood/oil(F)
+	else
+		visible_message(SPAN_NOTICE("[src] sinks together into a pile of ash."))
+		if (istype(F))
+			new /obj/effect/decal/cleanable/ash(F)
+	qdel(src)
 
 /obj/effect/decal/remains/Move()
-	if(src.pulledby)
-		crumble(pulledby, src)
-	else
-		return
+	if(pulledby)
+		crumble()
 
-/obj/effect/decal/remains/attack_hand(mob/user as mob)
-	crumble(user, src)
+/obj/effect/decal/remains/attack_hand(mob/user)
+	crumble()
 
 /obj/effect/decal/remains/attack_ai(mob/user)
-	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Remains crumble when robots touch, but not the AI.
-		crumble(user, src)
-
-/obj/effect/decal/remains/robot/attack_hand(mob/user as mob)
-	return
+	if(isrobot(user) && Adjacent(user)) // Remains crumble when robots touch, but not the AI.
+		crumble()
