@@ -312,7 +312,7 @@ var/last_message_id = 0
 		l.Add(message)
 
 	for (var/obj/item/modular_computer/computer in get_listeners_by_type(LISTENER_MODULAR_COMPUTER, /obj/item/modular_computer))
-		if(computer?.working && !!computer.nano_printer)
+		if(computer?.working && !!computer.nano_printer && computer.hard_drive?.stored_files.len)
 			var/datum/computer_file/program/comm/C = locate(/datum/computer_file/program/comm) in computer.hard_drive.stored_files
 			if(C?.intercept)
 				computer.nano_printer.print_text(message_text, message_title, "#deebff")

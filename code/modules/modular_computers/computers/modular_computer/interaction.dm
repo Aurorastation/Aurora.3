@@ -64,7 +64,7 @@
 		to_chat(user, SPAN_WARNING("There is no portable drive connected to \the [src]."))
 		return
 
-	uninstall_component(user, portable_drive)
+	uninstall_component(user, portable_drive, put_in_hands = TRUE)
 	update_uis()
 
 /obj/item/modular_computer/proc/proc_eject_ai(mob/user)

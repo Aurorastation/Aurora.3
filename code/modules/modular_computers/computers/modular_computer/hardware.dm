@@ -62,7 +62,7 @@
 		update_icon()
 
 // Uninstalls component. Found and Critical vars may be passed by parent types, if they have additional hardware.
-/obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/computer_hardware/H, var/found = FALSE, var/critical = FALSE)
+/obj/item/modular_computer/proc/uninstall_component(var/mob/living/user, var/obj/item/computer_hardware/H, var/found = FALSE, var/critical = FALSE, var/put_in_hands = FALSE)
 	if(portable_drive == H)
 		portable_drive = null
 		found = TRUE
@@ -97,6 +97,8 @@
 		if(user)
 			to_chat(user, SPAN_NOTICE("You remove \the [H] from \the [src]."))
 		H.forceMove(get_turf(src))
+		if(put_in_hands)
+			user.put_in_hands(H)
 		H.parent_computer = null
 		update_icon()
 		if(critical && enabled)

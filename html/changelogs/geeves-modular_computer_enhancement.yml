@@ -10,3 +10,5 @@ changes:
   - rscadd: "Added some new names to the modular computer arcade game."
   - tweak: "Suit sensors can now be run on most regular modular computers, no big change in that department."
   - rscadd: "Computers now ping when they finish downloading programs, letting you know without needing to check them."
+  - tweak: "Backup data crystals now have nicer names."
+  - rscadd: "Examining a modular computer now shows you its components."

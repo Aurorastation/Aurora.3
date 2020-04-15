@@ -32,8 +32,8 @@
 	max_capacity = PRG.size // Set the capacity of the backup disk to the capacity of the program
 	store_file(PRG)
 	read_only = TRUE
-	desc = "A read-only backup storage crystal containing a backup of the following software: [PRG.filename]"
-	name = "[PRG.filename] backup crystal"
+	desc = "A read-only backup storage crystal containing a backup of the following software: [PRG.filedesc]"
+	name = "[PRG.filedesc] backup crystal"
 
 /obj/structure/closet/crate/software_backup
 	desc = "A crate containing a backup of all the NT Software available."
