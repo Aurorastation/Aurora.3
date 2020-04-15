@@ -390,16 +390,16 @@ Command action procs
 		return FALSE
 
 	if(world.time < config.time_to_call_emergency_shuttle)
-		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again.")
-		return 0
+		to_chat(user, SPAN_WARNING("The emergency shuttle is refueling. Please wait another [round((config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again."))
+		return FALSE
 
 	if(emergency_shuttle.going_to_centcom())
 		to_chat(user, SPAN_WARNING("The emergency shuttle cannot be called while returning to [current_map.boss_short]."))
-		return 0
+		return FALSE
 
 	if(emergency_shuttle.online())
 		to_chat(user, SPAN_WARNING("The emergency shuttle is already on its way."))
-		return 0
+		return FALSE
 
 	if(SSticker.mode.name == "blob")
 		to_chat(user, SPAN_WARNING("Under directive 7-10, [station_name()] is quarantined until further notice."))
