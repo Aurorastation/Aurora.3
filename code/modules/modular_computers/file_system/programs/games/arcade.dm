@@ -8,24 +8,24 @@
 	program_icon_state = "game"				// Icon state of this program's screen.
 	extended_desc = "Fun for the whole family! Probably not an AAA title, but at least you can download it on the corporate network.."		// A nice description.
 	size = 5								// Size in GQ. Integers only. Smaller sizes should be used for utility/low use programs (like this one), while large sizes are for important programs.
-	requires_ntnet = 0						// This particular program does not require NTNet network conectivity...
-	available_on_ntnet = 1					// ... but we want it to be available for download.
-	nanomodule_path = /datum/nano_module/arcade_classic/	// Path of relevant nano module. The nano module is defined further in the file.
+	requires_ntnet = FALSE					// This particular program does not require NTNet network conectivity...
+	available_on_ntnet = TRUE				// ... but we want it to be available for download.
+	nanomodule_path = /datum/nano_module/arcade_classic	// Path of relevant nano module. The nano module is defined further in the file.
 	var/picked_enemy_name
 	color = LIGHT_COLOR_BLUE
 	usage_flags = PROGRAM_ALL_REGULAR
 
 // Blatantly stolen and shortened version from arcade machines. Generates a random enemy name
 /datum/computer_file/program/game/arcade/proc/random_enemy_name()
-	var/name_part1 = pick("the Automatic ", "Farmer ", "Lord ", "Professor ", "the Cuban ", "the Evil ", "the Dread King ", "the Space ", "Lord ", "the Great ", "Duke ", "General ", "the vibrating bluespace")
-	var/name_part2 = pick("Melonoid", "Murdertron", "Sorcerer", "Ruin", "Jeff", "Ectoplasm", "Crushulon", "Uhangoid", "Vhakoid", "Peteoid", "Slime", "Lizard Man", "Unicorn", "Squirrel")
+	var/name_part1 = pick("The Automatic", "Farmer", "Lord", "Professor", "The Cuban", "The Evil", "The Dread King", "The Space", "Lord", "The Great", "Duke", "General", "The Vibrating Bluespace", "Scalie")
+	var/name_part2 = pick("Melonoid", "Murdertron", "Sorcerer", "Ruin", "Jeff", "Geoff", "Ectoplasm", "Crushulon", "Uhangoid", "Vhakoid", "Peteoid", "Slime", "Lizard Man", "Unicorn", "Squirrel")
 	return "[name_part1] [name_part2]"
 
 // When the program is first created, we generate a new enemy name and name ourselves accordingly.
 /datum/computer_file/program/game/arcade/New()
 	..()
 	picked_enemy_name = random_enemy_name()
-	filedesc = "Defeat [picked_enemy_name]"
+	filedesc = "[pick("Defeat", "Destroy", "Decimate", "Decapitate")] [picked_enemy_name]"
 
 // Important in order to ensure that copied versions will have the same enemy name.
 /datum/computer_file/program/game/arcade/clone()
@@ -44,7 +44,7 @@
 // Nano module the program uses.
 // This can be either /datum/nano_module/ or /datum/nano_module/program. The latter is intended for nano modules that are suposed to be exclusively used with modular computers,
 // and should generally not be used, as such nano modules are hard to use on other places.
-/datum/nano_module/arcade_classic/
+/datum/nano_module/arcade_classic
 	name = "Classic Arcade"
 	var/player_mana			// Various variables specific to the nano module. In this case, the nano module is a simple arcade game, so the variables store health and other stats.
 	var/player_health
@@ -75,7 +75,7 @@
 	if (!ui)
 		ui = new(user, src, ui_key, "arcade_classic.tmpl", "Defeat [enemy_name]", 500, 350, state = state)
 		if(host.update_layout())
-			ui.auto_update_layout = 1
+			ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)
 		ui.open()
 
@@ -92,7 +92,7 @@
 		enemy_health += healamt
 		information += "[enemy_name] heals for [healamt] health!"
 	else
-		var/dam = rand(3,6)
+		var/dam = rand(3, 6)
 		player_health -= dam
 		information += "[enemy_name] attacks for [dam] damage!"
 
@@ -102,10 +102,10 @@
 			information += "You have defeated [enemy_name], but you have died in the fight!"
 		else
 			information += "You have been defeated by [enemy_name]!"
-		gameover = 1
+		gameover = TRUE
 		return TRUE
 	else if(enemy_health <= 0)
-		gameover = 1
+		gameover = TRUE
 		information += "Congratulations! You have defeated [enemy_name]!"
 		return TRUE
 	return FALSE
@@ -118,23 +118,21 @@
 	gameover = FALSE
 	information = "A new game has started!"
 
-
-
 /datum/nano_module/arcade_classic/Topic(href, href_list)
 	if(..())		// Always begin your Topic() calls with a parent call!
-		return 1
+		return TRUE
 	if(href_list["new_game"])
 		new_game()
-		return 1	// Returning 1 (TRUE) in Topic automatically handles UI updates.
+		return TRUE	// Returning 1 (TRUE) in Topic automatically handles UI updates.
 	if(gameover)	// If the game has already ended, we don't want the following three topic calls to be processed at all.
-		return 1	// Instead of adding checks into each of those three, we can easily add this one check here to reduce on code copy-paste.
+		return TRUE	// Instead of adding checks into each of those three, we can easily add this one check here to reduce on code copy-paste.
 	if(href_list["attack"])
 		var/damage = rand(2, 6)
 		information = "You attack for [damage] damage."
 		enemy_health -= damage
 		enemy_play()
 		check_gameover()
-		return 1
+		return TRUE
 	if(href_list["heal"])
 		var/healfor = rand(6, 8)
 		var/cost = rand(1, 3)
@@ -143,11 +141,11 @@
 		player_mana -= cost
 		enemy_play()
 		check_gameover()
-		return 1
+		return TRUE
 	if(href_list["regain_mana"])
 		var/regen = rand(4, 7)
-		information = "You rest of a while, regaining [regen] energy."
+		information = "You rest for a while, regaining [regen] energy."
 		player_mana += regen
 		enemy_play()
 		check_gameover()
-		return 1
+		return TRUE

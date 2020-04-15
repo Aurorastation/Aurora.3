@@ -4,13 +4,12 @@
 	extended_desc = "This program is used to run NTSL2+ programs."
 	program_icon_state = "generic"
 	size = 2
-	requires_ntnet = 1
-	available_on_ntnet = 1
-	undeletable = 0
+	requires_ntnet = TRUE
+	available_on_ntnet = TRUE
 
-	nanomodule_path = /datum/nano_module/program/computer_ntsl2_interpreter/
+	nanomodule_path = /datum/nano_module/program/computer_ntsl2_interpreter
 
-	var/datum/ntsl_program/running = null
+	var/datum/ntsl_program/running
 	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/ntsl2_interpreter/process_tick()
@@ -26,10 +25,10 @@
 
 /datum/computer_file/program/ntsl2_interpreter/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 
 	if(href_list["PRG_execfile"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/datum/computer_file/data/F = HDD.find_file_by_name(href_list["PRG_execfile"])
 		if(istype(F))
@@ -40,7 +39,7 @@
 				running.name = href_list["PRG_execfile"]
 
 	if(href_list["PRG_closefile"])
-		. = 1
+		. = TRUE
 		if(istype(running))
 			running.kill()
 			running = null
@@ -49,13 +48,13 @@
 		if(istype(running))
 			var/topc = href_list["PRG_topic"]
 			if(copytext(topc, 1, 2) == "?")
-				topc = copytext(topc, 2) + "?" + input("","Enter Data")
+				topc = copytext(topc, 2) + "?" + input("", "Enter Data")
 			running.topic(topc)
 			running.cycle(300)
-		. = 1
+		. = TRUE
 
 	if(href_list["PRG_refresh"])
-		. = 1
+		. = TRUE
 
 	if(.)
 		SSnanoui.update_uis(NM)
@@ -98,4 +97,3 @@
 		ui.auto_update_layout = 1
 		ui.set_initial_data(data)
 		ui.open()
-

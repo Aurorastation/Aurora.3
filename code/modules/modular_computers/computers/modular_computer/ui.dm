@@ -18,10 +18,10 @@
 	// We are still here, that means there is no program loaded. Load the BIOS/ROM/OS/whatever you want to call it.
 	// This screen simply lists available programs and user may select them.
 	if(!hard_drive || !hard_drive.stored_files || !hard_drive.stored_files.len)
-		visible_message("\The [src] beeps three times, it's screen displaying \"DISK ERROR\" warning.")
+		visible_message(SPAN_WARNING("\The [src] beeps three times, its screen displaying, \"DISK ERROR!\"."))
 		return // No HDD, No HDD files list or no stored files. Something is very broken.
 
-	if (!ui)
+	if(!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-main", 400, 500, "NTOS Main Menu")
 		ui.header = "modular-computer"
 	ui.open()
@@ -55,30 +55,30 @@
 // Handles user's GUI input
 /obj/item/modular_computer/Topic(href, href_list)
 	if(..())
-		return 1
-	if( href_list["PC_exit"] )
+		return TRUE
+	if(href_list["PC_exit"])
 		kill_program()
-		return 1
-	if( href_list["PC_enable_component"] )
+		return TRUE
+	if(href_list["PC_enable_component"])
 		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_enable_component"])
 		if(H && istype(H) && !H.enabled)
-			H.enabled = 1
-		. = 1
-	if( href_list["PC_disable_component"] )
+			H.enabled = TRUE
+		. = TRUE
+	if(href_list["PC_disable_component"])
 		var/obj/item/computer_hardware/H = find_hardware_by_name(href_list["PC_disable_component"])
 		if(H && istype(H) && H.enabled)
 			H.enabled = 0
-		. = 1
-	if( href_list["PC_shutdown"] )
+		. = TRUE
+	if(href_list["PC_shutdown"])
 		shutdown_computer()
-		return 1
-	if( href_list["PC_minimize"] )
+		return TRUE
+	if(href_list["PC_minimize"])
 		var/mob/user = usr
 		minimize_program(user)
 
-	if( href_list["PC_killprogram"] )
+	if(href_list["PC_killprogram"])
 		var/prog = href_list["PC_killprogram"]
-		var/datum/computer_file/program/P = null
+		var/datum/computer_file/program/P
 		var/mob/user = usr
 		if(hard_drive)
 			P = hard_drive.find_file_by_name(prog)
@@ -86,20 +86,20 @@
 		if(!istype(P) || P.program_state == PROGRAM_STATE_KILLED)
 			return
 
-		P.kill_program(1)
+		P.kill_program(TRUE)
 		update_uis()
-		to_chat(user, "<span class='notice'>Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed.</span>")
+		to_chat(user, SPAN_NOTICE("Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed."))
 
-	if( href_list["PC_runprogram"] )
+	if(href_list["PC_runprogram"])
 		. = run_program(href_list["PC_runprogram"])
 		ui_interact(usr)
 
-	if( href_list["PC_setautorun"] )
+	if(href_list["PC_setautorun"])
 		if(!hard_drive)
 			return
 		var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
 		if(!istype(autorun))
-			autorun = new/datum/computer_file/data()
+			autorun = new /datum/computer_file/data()
 			autorun.filename = "autorun"
 			hard_drive.store_file(autorun)
 		if(autorun.stored_data == href_list["PC_setautorun"])

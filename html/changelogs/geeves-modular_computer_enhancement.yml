@@ -1,0 +1,12 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Modular computers have gotten a major clean-up. Many programs and interactions should look prettier and feel smoother now."
+  - rscadd: "Click dragging most modular computers now open their interface, much like with PDAs."
+  - rscadd: "The IRC program now outputs messages to your chat log, much like PDA messaging does. For smaller devices, it must be on your person, whilst larger ones have a radius to it. The IRC program must be open, it doesn't have to be active, for it to work."
+  - tweak: "The size of the antag hacked camera program has been brought way down, to make it worth getting, if you wish to do so."
+  - rscadd: "Added some new names to the modular computer arcade game."
+  - tweak: "Suit sensors can now be run on most regular modular computers, no big change in that department."
+  - rscadd: "Computers now ping when they finish downloading programs, letting you know without needing to check them."
