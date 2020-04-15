@@ -59,7 +59,7 @@
 		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 
-	if(chem_effects[CE_ANTIHALLUCINATE] > 0)
+	if(chem_effects[CE_HALLUCINATE] < 0)
 		to_chat(usr, SPAN_WARNING("Chemicals in your blood are disrupting your powers!"))
 		return
 
@@ -147,7 +147,7 @@
 		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 
-	if(chem_effects[CE_ANTIHALLUCINATE] > 0)
+	if(chem_effects[CE_HALLUCINATE] < 0)
 		to_chat(usr, SPAN_WARNING("Chemicals in your blood are disrupting your powers!"))
 		return
 

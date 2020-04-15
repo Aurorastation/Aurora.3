@@ -29,9 +29,6 @@
 	var/list/candidates = list()
 	for(var/T in all_hallucinations)
 		var/datum/hallucination/H = new T
-		if(isnull(H))
-			log_debug("Null hallucination found while creating new in subsystem.")
-			continue
 		if(H.can_affect(C))
 			candidates += H
 	if(candidates.len)

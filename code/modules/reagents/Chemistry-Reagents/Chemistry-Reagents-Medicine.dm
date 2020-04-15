@@ -323,7 +323,7 @@
 	M.hallucination = max(0, M.hallucination - 10)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
-	M.add_up_to_chemical_effect(CE_ANTIHALLUCINATE, 1)
+	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
@@ -869,7 +869,7 @@
 	)
 
 /datum/reagent/mental/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_up_to_chemical_effect(CE_ANTIHALLUCINATE, 1)
+	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	..()
 
 /datum/reagent/mental/fluvoxamine
@@ -1090,7 +1090,7 @@
 	)
 
 /datum/reagent/mental/risperidone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_up_to_chemical_effect(CE_ANTIHALLUCINATE, 2)
+	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
 /datum/reagent/mental/olanzapine
@@ -1131,7 +1131,7 @@
 	)
 
 /datum/reagent/mental/olanzapine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_up_to_chemical_effect(CE_ANTIHALLUCINATE, 2)
+	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
 /datum/reagent/mental/truthserum

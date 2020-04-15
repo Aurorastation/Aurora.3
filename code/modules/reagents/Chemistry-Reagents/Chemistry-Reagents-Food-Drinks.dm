@@ -3237,7 +3237,7 @@
 
 /datum/reagent/alcohol/ethanol/pwine/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.add_chemical_effect(CE_ANTIHALLUCINATE, -1)
+	M.add_chemical_effect(CE_HALLUCINATE, 1)
 	M.hallucination = max(M.hallucination, 25)
 	if(dose > 30)
 		M.adjustToxLoss(2 * removed)
