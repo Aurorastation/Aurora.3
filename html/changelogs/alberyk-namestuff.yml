@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes: 
+  - tweak: "Some cultural and religious items in the custom loadout can't be renamed anymore."
