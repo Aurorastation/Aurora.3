@@ -12,8 +12,10 @@
 #define PIERCE    "pierce"
 #define LASER     "laser"
 
-#define DAM_LASER  1
-#define DAM_BULLET 2
+#define DAM_EDGE    1
+#define DAM_SHARP   2
+#define DAM_LASER   4
+#define DAM_BULLET  8
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"

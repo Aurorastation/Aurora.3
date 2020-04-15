@@ -59,7 +59,7 @@
 	playsound(get_turf(A), 'sound/weapons/slice.ogg', 50, 1, -1)
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
 	var/armor_block = D.run_armor_check(affecting, "melee")
-	D.apply_damage(20, BRUTE, affecting, armor_block, sharp = TRUE, edge = TRUE)
+	D.apply_damage(20, BRUTE, affecting, armor_block, damage_flags = DAM_SHARP|DAM_EDGE)
 	if(prob(20))
 		D.apply_effect(4, WEAKEN)
 	return 1
