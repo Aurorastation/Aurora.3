@@ -260,13 +260,12 @@
 	set category = "Object"
 	set desc = "Rename your gun."
 	
-	var/mob/M = usr
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
-
-	if(src && input && !M.stat && in_range(M,src))
-		name = input
-		to_chat(M, "You name the gun [input]. Say hello to your new friend.")
-		return 1
+	
+	if(use_check_and_message(usr))
+		return
+	name = input
+	to_chat(M, "You name the gun [input]. Say hello to your new friend.")
 
 /obj/item/gun/projectile/pistol/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
