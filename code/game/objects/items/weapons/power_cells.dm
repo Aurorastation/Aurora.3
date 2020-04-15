@@ -126,10 +126,11 @@
 /obj/item/cell/slime
 	name = "charged slime core"
 	desc = "A yellow slime core infused with phoron, it crackles with power."
+	description_info = "This slime core is energized with powerful bluespace energies, allowing it to regenerate ten percent of its charge every minute."
 	origin_tech = list(TECH_POWER = 2, TECH_BIO = 4)
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "yellow slime extract"
-	maxcharge = 10000
+	maxcharge = 15000
 	matter = null
 	var/next_recharge
 
@@ -143,7 +144,7 @@
 
 /obj/item/cell/slime/process()
 	if(next_recharge < world.time)
-		charge += maxcharge / 10
+		charge = min(charge + (maxcharge / 10), maxcharge)
 		next_recharge = world.time + 1 MINUTE
 
 /obj/item/cell/device/emergency_light

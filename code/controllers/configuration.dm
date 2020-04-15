@@ -301,6 +301,8 @@ var/list/gamemode_cache = list()
 	var/fail2topic_rule_name = "_DD_Fail2topic"
 	var/fail2topic_enabled = FALSE
 
+	var/time_to_call_emergency_shuttle = 36000  //how many time until the crew can call the transfer shuttle. One hour by default.
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -862,6 +864,9 @@ var/list/gamemode_cache = list()
 
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
+
+				if("time_to_call_emergency_shuttle")
+					config.time_to_call_emergency_shuttle = text2num(value)
 
 				if("force_map")
 					override_map = value
