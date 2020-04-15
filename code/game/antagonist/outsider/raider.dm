@@ -60,7 +60,6 @@ var/datum/antagonist/raider/raiders
 		/obj/item/gun/projectile/revolver/derringer,
 		/obj/item/gun/projectile/revolver/lemat,
 		/obj/item/gun/projectile/contender,
-		/obj/item/gun/projectile/pirate,
 		/obj/item/gun/projectile/tanto,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage
 		)
@@ -205,27 +204,6 @@ var/datum/antagonist/raider/raiders
 
 	var/obj/item/primary = new new_gun(T)
 	var/obj/item/clothing/accessory/holster/holster = null
-
-	//Give some of the raiders a pirate gun as a secondary
-	if(prob(60))
-		var/obj/item/secondary = new /obj/item/gun/projectile/pirate(T)
-		if(!(primary.slot_flags & SLOT_HOLSTER))
-			holster = new new_holster(T)
-			holster.holstered = secondary
-			secondary.forceMove(holster)
-		else
-			player.equip_to_slot_or_del(secondary, slot_belt)
-
-	if(primary.slot_flags & SLOT_HOLSTER)
-		holster = new new_holster(T)
-		holster.holstered = primary
-		primary.forceMove(holster)
-	else if(!player.belt && (primary.slot_flags & SLOT_BELT))
-		player.equip_to_slot_or_del(primary, slot_belt)
-	else if(!player.back && (primary.slot_flags & SLOT_BACK))
-		player.equip_to_slot_or_del(primary, slot_back)
-	else
-		player.put_in_any_hand_if_possible(primary)
 
 	//If they got a projectile gun, give them a little bit of spare ammo
 	equip_ammo(player, primary)
