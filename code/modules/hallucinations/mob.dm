@@ -46,9 +46,9 @@
 		if(prob(abs(chem_effects[CE_HALLUCINATE]*40))) //Chance to skip effects entirely if you're medicated properly
 			return
 		else
-			hall_delay *= min(1.25, abs(chem_effects[CE_HALLUCINATE])) //if CE_HALLUCINATE is 1, 25% more time between
+			hall_delay *= min(1.25, abs(chem_effects[CE_HALLUCINATE])) //if CE_HALLUCINATE is -1, 25% more time between
 	if(chem_effects[CE_HALLUCINATE] > 0)
-		hall_delay /= max(1.25, chem_effects[CE_HALLUCINATE]) //if CE_HALLUCINATE is -1, 25% less time between
+		hall_delay /= max(1.25, chem_effects[CE_HALLUCINATE]) //if CE_HALLUCINATE is 1, 25% less time between
 
 	next_hallucination = world.time + hall_delay
 	var/datum/hallucination/H = SShallucinations.get_hallucination(src)
