@@ -1080,8 +1080,8 @@
 		verbs -= /mob/living/silicon/robot/proc/choose_icon
 		return
 
-	if(icon_selection_tries == -1) // This is a bandaid solution to rig the 'borgs selection tries to 6
-		icon_selection_tries = 6 // If you know how to do it properly, please help.
+	if(icon_selection_tries == -1)
+		icon_selection_tries = round(module_sprites.len*0.5)
 
 
 	if(length(module_sprites) == 1 || !client)
