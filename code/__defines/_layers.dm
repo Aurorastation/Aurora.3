@@ -3,7 +3,6 @@
 #define PLANE_SPACE_DUST (PLANE_SPACE_PARALLAX + 1) // -96
 #define PLANE_ABOVE_PARALLAX (PLANE_SPACE_BACKGROUND + 3) // -95
 
-
 #define LOWER_ON_TURF_LAYER (TURF_LAYER + 0.05)	// under the below
 #define ON_TURF_LAYER (TURF_LAYER + 0.1)	// sitting on the turf - should be preferred over direct use of TURF_LAYER
 #define AO_LAYER (ON_TURF_LAYER + 0.1)
@@ -16,6 +15,7 @@
 #define BELOW_MOB_LAYER 3.7
 #define ABOVE_MOB_LAYER 4.1
 #define LIGHTING_LAYER 11
+#define EFFECTS_ABOVE_LIGHTING_LAYER 12 // For overlays you want to be above light.
 #define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)
 #define OBFUSCATION_LAYER 21	//Where images covering the view for eyes are put
 #define SCREEN_LAYER 22			//Mob HUD/effects layer
