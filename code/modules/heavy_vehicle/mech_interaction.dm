@@ -17,7 +17,7 @@
 	else . = ..()
 
 /mob/living/heavy_vehicle/MouseDrop_T(src_object, over_object, src_location, over_location, src_control, over_control, params, var/mob/user)
-	if(!user || incapacitated() || user.incapacitated() || lockdown)
+	if(!user || incapacitated() || user.incapacitated() || lockdown || health_lockdown)
 		return FALSE
 
 	if(!(user in pilots) && user != src)
@@ -30,7 +30,7 @@
 
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
 
-	if(!user || incapacitated() || user.incapacitated() || lockdown)
+	if(!user || incapacitated() || user.incapacitated() || lockdown || health_lockdown)
 		return
 
 	if(!loc) return
@@ -269,7 +269,7 @@
 	if(world.time < next_move)
 		return 0
 
-	if(!user || incapacitated() || user.incapacitated() || lockdown)
+	if(!user || incapacitated() || user.incapacitated() || lockdown || health_lockdown)
 		return
 
 	if(!legs)
@@ -362,12 +362,28 @@
 				to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
 				dismantle()
 				return
-			else if(thing.iswelder())
-				if(!getBruteLoss())
+			else if(istype(thing, /obj/item/stack/nanopaste))
+				if(!getBruteLoss() && !getFireLoss())
+					to_chat(user, SPAN_WARNING("\The [src] has no damage left to repair!"))
 					return
 				var/list/damaged_parts = list()
 				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
-					if(MC && MC.brute_damage)
+					if(MC?.brute_damage)
+						damaged_parts += MC
+						continue
+					if(MC?.burn_damage)
+						damaged_parts += MC
+						continue
+				var/obj/item/mech_component/to_fix = input(user, "Which component would you like to fix?") as null|anything in damaged_parts
+				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && (to_fix.brute_damage || to_fix.burn_damage))
+					to_fix.repair_burn_and_brute_generic(thing, user)
+			else if(thing.iswelder())
+				if(!getBruteLoss())
+					to_chat(user, SPAN_WARNING("\The [src] has no damage left to repair!"))
+					return
+				var/list/damaged_parts = list()
+				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
+					if(MC?.brute_damage)
 						damaged_parts += MC
 				var/obj/item/mech_component/to_fix = input(user,"Which component would you like to fix?") as null|anything in damaged_parts
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.brute_damage)
@@ -375,10 +391,11 @@
 				return
 			else if(thing.iscoil())
 				if(!getFireLoss())
+					to_chat(user, SPAN_WARNING("\The [src] has no damage left to repair!"))
 					return
 				var/list/damaged_parts = list()
 				for(var/obj/item/mech_component/MC in list(arms, legs, body, head))
-					if(MC && MC.burn_damage)
+					if(MC?.burn_damage)
 						damaged_parts += MC
 				var/obj/item/mech_component/to_fix = input(user,"Which component would you like to fix?") as null|anything in damaged_parts
 				if(CanInteract(user, physical_state) && !QDELETED(to_fix) && (to_fix in src) && to_fix.burn_damage)
@@ -506,6 +523,13 @@
 /mob/living/heavy_vehicle/proc/ToggleLockdown()
 	lockdown = !lockdown
 	if(lockdown)
-		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!</span>")
+		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos seize up, and it enters lockdown mode!</span>")
 	else
 		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")
+
+/mob/living/heavy_vehicle/proc/ToggleHealthLockdown()
+	health_lockdown = !health_lockdown
+	if(health_lockdown)
+		visible_message(FONT_LARGE(SPAN_DANGER("\The [src] whines loudly as its remaining servos seize up!")))
+	else
+		visible_message(FONT_LARGE(SPAN_DANGER("\The [src] hums with life as it is servoes kick back into action!")))

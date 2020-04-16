@@ -33,12 +33,14 @@
 		get_cell()?.drain_power(0, 0, calc_power_draw())
 
 	updatehealth()
-	if(health <= 0 && stat != DEAD)
-		death()
+	if(health <= 0 && health_lockdown == FALSE)
+		ToggleHealthLockdown()
+	else if(health > 0 && health_lockdown == TRUE)
+		ToggleHealthLockdown()
 
 	..()
 
-	lying = 0 // Fuck off, carp.
+	lying = FALSE // Fuck off, carp.
 	handle_vision()
 	handle_hud_icons()
 

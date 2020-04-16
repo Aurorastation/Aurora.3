@@ -1,0 +1,12 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "You can now repair mech components with nanopaste too."
+  - tweak: "Repairing mech components now take three seconds per repair."
+  - tweak: "Repairing mech components with welders now take a bit of fuel."
+  - tweak: "Mechs now take much less damage than they usually did. Burning and lasers do more damage than straight brute damage."
+  - rscadd: "Shooting mechs now properly have the potential of transferring the bullet to the pilot."
+  - rscadd: "Mechs no longer die, they just go into an inactive servolock when their health goes below 0. Repair the mech to releash it from the lockdown."
+  - rscadd: "Examining a mech now properly tells you whether the legs, arms, and body are damaged to its maximum damage level. If the legs or arms are no longer functional, they will display 'Disabled' in bold red."

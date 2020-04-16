@@ -14,6 +14,8 @@
 #define SPAN_BOLD(X) "<span class='bold'>[X]</span>"
 #define SPAN_SUBTLE(X) "<span class='subtle'>[X]</span>"
 
+#define FONT_COLOR(color, text) "<font color='[color]'>[text]</font>"
+
 #define FONT_SMALL(X) "<font size='1'>[X]</font>"
 #define FONT_NORMAL(X) "<font size='2'>[X]</font>"
 #define FONT_LARGE(X) "<font size='3'>[X]</font>"

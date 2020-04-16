@@ -51,6 +51,7 @@
 	var/hardpoints_locked
 	var/maintenance_protocols
 	var/lockdown
+	var/health_lockdown = FALSE
 
 	// Material
 	var/material/material
@@ -127,16 +128,28 @@
 	for(var/obj/item/mech_component/thing in list(arms, legs, head, body))
 		if(!thing)
 			continue
-		var/damage_string = "destroyed"
-		switch(thing.damage_state)
-			if(1)
-				damage_string = "undamaged"
-			if(2)
-				damage_string = "<span class='warning'>damaged</span>"
-			if(3)
-				damage_string = "<span class='warning'>badly damaged</span>"
-			if(4)
-				damage_string = "<span class='danger'>almost destroyed</span>"
+		var/damage_string
+		if(istype(thing, /obj/item/mech_component/propulsion))
+			var/obj/item/mech_component/propulsion/P = thing
+			if(!P.motivator || !P.motivator.is_functional())
+				damage_string = SPAN_DANGER("disabled")
+		if(istype(thing, /obj/item/mech_component/manipulators))
+			var/obj/item/mech_component/manipulators/M = thing
+			if(!M.motivator || !M.motivator.is_functional())
+				damage_string = SPAN_DANGER("disabled")
+		if(istype(thing, /obj/item/mech_component/chassis))
+			if(body.total_damage == body.max_damage)
+				damage_string = SPAN_DANGER("torn open")
+		if(!damage_string)
+			switch(thing.damage_state)
+				if(1)
+					damage_string = FONT_COLOR(COLOR_GREEN, "undamaged")
+				if(2)
+					damage_string = FONT_COLOR(COLOR_YELLOW, "damaged")
+				if(3)
+					damage_string = FONT_COLOR(COLOR_ORANGE, "badly damaged")
+				if(4)
+					damage_string = FONT_COLOR(COLOR_RED, "badly damaged")
 		to_chat(user, "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])

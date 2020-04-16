@@ -3,7 +3,7 @@
 	if(!effect || (blocked >= 100))
 		return 0
 
-	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
+	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage) || body.total_damage == body.max_damage))
 		if(effect > 0 && effecttype == IRRADIATE)
 			var/mob/living/pilot = pick(pilots)
 			return pilot.apply_effect(effect, effecttype, blocked)
@@ -12,18 +12,24 @@
 
 /mob/living/heavy_vehicle/proc/attacked_by(var/obj/item/I, var/mob/living/user, var/def_zone)
 
-	if(!I.force)
-		user.visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly with \the [I].</span>")
+	if(I.force >= 5)
+		user.visible_message(SPAN_WARNING("\The [user] bonks \the [src] harmlessly with \the [I]."))
 		return
 
-	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
+	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage) || body.total_damage == body.max_damage))
 		var/mob/living/pilot = pick(pilots)
 		return pilot.resolve_item_attack(I, user, def_zone)
 
 	return def_zone
 
+/mob/living/heavy_vehicle/bullet_act(obj/item/projectile/P, def_zone, used_weapon)
+	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage) || body.total_damage == body.max_damage))
+		var/mob/living/pilot = pick(pilots)
+		return pilot.bullet_act(P, def_zone, used_weapon)
+	..()
+
 /mob/living/heavy_vehicle/hitby(atom/movable/AM, speed)
-	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
+	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage) || body.total_damage == body.max_damage))
 		var/mob/living/pilot = pick(pilots)
 		return pilot.hitby(AM, speed)
 	. = ..()
@@ -37,14 +43,12 @@
 	maxHealth = body.mech_health
 	health = maxHealth-(getFireLoss()+getBruteLoss())
 
-/mob/living/heavy_vehicle/adjustFireLoss(var/amount)
-	var/obj/item/mech_component/MC = pick(list(arms, legs, body, head))
+/mob/living/heavy_vehicle/adjustFireLoss(var/amount, var/obj/item/mech_component/MC = pick(list(arms, legs, body, head)))
 	if(MC)
 		MC.take_burn_damage(amount)
 		MC.update_health()
 
-/mob/living/heavy_vehicle/adjustBruteLoss(var/amount)
-	var/obj/item/mech_component/MC = pick(list(arms, legs, body, head))
+/mob/living/heavy_vehicle/adjustBruteLoss(var/amount, var/obj/item/mech_component/MC = pick(list(arms, legs, body, head)))
 	if(MC)
 		MC.take_brute_damage(amount)
 		MC.update_health()
@@ -68,8 +72,10 @@
 	//Only 2 types of damage concern mechs and vehicles
 	switch(damagetype)
 		if(BRUTE)
+			damage *= 0.5
 			adjustBruteLoss(damage * BLOCKED_MULT(blocked), target)
 		if(BURN)
+			damage *= 0.6
 			adjustFireLoss(damage * BLOCKED_MULT(blocked), target)
 
 	if((damagetype == BRUTE || damagetype == BURN) && prob(25+(damage*2)))
@@ -96,7 +102,7 @@
 	if(severity <= 3)
 		for(var/obj/item/thing in list(arms,legs,head,body))
 			thing.emp_act(severity)
-		if(!hatch_closed || !prob(body.pilot_coverage))
+		if(!hatch_closed || !prob(body.pilot_coverage) || body.total_damage == body.max_damage)
 			for(var/thing in pilots)
 				var/mob/pilot = thing
 				pilot.emp_act(severity)

@@ -1,3 +1,5 @@
+#define CHASSIS_DAMAGE_MOD 0.25
+
 /obj/item/mech_component/chassis
 	name = "body"
 	icon_state = "loader_body"
@@ -119,3 +121,23 @@
 		C.forceMove(src)
 		update_components()
 	else . = ..()
+
+/obj/item/mech_component/chassis/repair_brute_damage(var/amt)
+	take_brute_damage(-(amt / CHASSIS_DAMAGE_MOD))
+
+/obj/item/mech_component/chassis/repair_burn_damage(var/amt)
+	take_burn_damage(-(amt / CHASSIS_DAMAGE_MOD))
+
+/obj/item/mech_component/chassis/take_brute_damage(var/amt)
+	brute_damage = max(0, brute_damage + (amt * CHASSIS_DAMAGE_MOD))
+	update_health()
+	if(total_damage == max_damage)
+		take_component_damage((amt * CHASSIS_DAMAGE_MOD), 0)
+
+/obj/item/mech_component/chassis/take_burn_damage(var/amt)
+	burn_damage = max(0, burn_damage + (amt * CHASSIS_DAMAGE_MOD))
+	update_health()
+	if(total_damage == max_damage)
+		take_component_damage(0, (amt * CHASSIS_DAMAGE_MOD))
+
+#undef CHASSIS_DAMAGE_MOD

@@ -34,7 +34,7 @@
 /obj/item/mech_component/examine(mob/user)
 	. = ..()
 	if(ready_to_install())
-		to_chat(user, "<span class='notice'>It is ready for installation.</span>")
+		to_chat(user, SPAN_NOTICE("It is ready for installation."))
 	else
 		show_missing_parts(user)
 
@@ -50,16 +50,17 @@
 /obj/item/mech_component/proc/install_component(var/obj/item/thing, var/mob/user)
 	user.drop_from_inventory(thing)
 	thing.forceMove(src)
-	user.visible_message("<span class='notice'>\The [user] installs \the [thing] in \the [src].</span>")
-	return 1
+	user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] in \the [src]."))
+	return TRUE
 
 /obj/item/mech_component/proc/update_health()
 	total_damage = brute_damage + burn_damage
-	if(total_damage > max_damage) total_damage = max_damage
+	if(total_damage > max_damage)
+		total_damage = max_damage
 	damage_state = Clamp(round((total_damage/max_damage) * 4), MECH_COMPONENT_DAMAGE_UNDAMAGED, MECH_COMPONENT_DAMAGE_DAMAGED_TOTAL)
 
 /obj/item/mech_component/proc/ready_to_install()
-	return 1
+	return TRUE
 
 /obj/item/mech_component/proc/repair_brute_damage(var/amt)
 	take_brute_damage(-amt)
@@ -71,40 +72,44 @@
 	brute_damage = max(0, brute_damage + amt)
 	update_health()
 	if(total_damage == max_damage)
-		take_component_damage(amt,0)
+		take_component_damage(amt, 0)
 
 /obj/item/mech_component/proc/take_burn_damage(var/amt)
 	burn_damage = max(0, burn_damage + amt)
 	update_health()
 	if(total_damage == max_damage)
-		take_component_damage(0,amt)
+		take_component_damage(0, amt)
 
 /obj/item/mech_component/proc/take_component_damage(var/brute, var/burn)
 	var/list/damageable_components = list()
 	for(var/obj/item/robot_parts/robot_component/RC in contents)
 		damageable_components += RC
-	if(!damageable_components.len) return
+	if(!damageable_components.len)
+		return
 	var/obj/item/robot_parts/robot_component/RC = pick(damageable_components)
 	if(RC.take_damage(brute, burn))
 		qdel(RC)
 		update_components()
 
-/obj/item/mech_component/attackby(var/obj/item/thing, var/mob/user)
+/obj/item/mech_component/attackby(obj/item/thing, mob/user)
 	if(thing.isscrewdriver())
 		if(contents.len)
 			var/obj/item/removed = pick(contents)
-			user.visible_message("<span class='notice'>\The [user] removes \the [removed] from \the [src].</span>")
-			removed.forceMove(user.loc)
-			playsound(user.loc, 'sound/effects/pop.ogg', 50, 0)
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [removed] from \the [src]."))
+			removed.forceMove(get_turf(src))
+			playsound(get_turf(src), 'sound/effects/pop.ogg', 50, FALSE)
 			update_components()
 		else
-			to_chat(user, "<span class='warning'>There is nothing to remove.</span>")
+			to_chat(user, SPAN_WARNING("There is nothing to remove."))
 		return
 	if(thing.iswelder())
 		repair_brute_generic(thing, user)
 		return
 	if(thing.iscoil())
 		repair_burn_generic(thing, user)
+		return
+	if(istype(thing, /obj/item/stack/nanopaste))
+		repair_burn_and_brute_generic(thing, user)
 		return
 	return ..()
 
@@ -115,37 +120,60 @@
 	if(!istype(WT))
 		return
 	if(!brute_damage)
-		to_chat(user, "<span class='notice'>You inspect \the [src] but find nothing to weld.</span>")
+		to_chat(user, SPAN_WARNING("You inspect \the [src] but find nothing to weld."))
 		return
 	if(!WT.isOn())
-		to_chat(user, "<span class='warning'>Turn \the [WT] on, first.</span>")
+		to_chat(user, SPAN_WARNING("\The [WT] isn't lit!"))
 		return
-	if(WT.remove_fuel(0, user))
+	if(WT.remove_fuel(1, user))
 		var/repair_value = 15
-		if(brute_damage)
+		if(brute_damage && do_after(user, 30, TRUE, src))
 			repair_brute_damage(repair_value)
-			to_chat(user, "<span class='notice'>You mend the damage to \the [src].</span>")
-			playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
+			to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]."))
+			playsound(get_turf(src), 'sound/items/Welder.ogg', 25, TRUE)
 
 /obj/item/mech_component/proc/repair_burn_generic(var/obj/item/stack/cable_coil/CC, var/mob/user)
 	if(!istype(CC))
 		return
 	if(!burn_damage)
-		to_chat(user, "<span class='notice'>\The [src]'s wiring doesn't need replacing.</span>")
+		to_chat(user, SPAN_WARNING("\The [src]'s wiring doesn't need replacing."))
 		return
 
 	var/needed_amount = 3
 	if(CC.get_amount() < needed_amount)
-		to_chat(user, "<span class='warning'>You need at least [needed_amount] unit\s of cable to repair this section.</span>")
+		to_chat(user, SPAN_WARNING("You need at least [needed_amount] unit\s of cable to repair this section."))
 		return
 
 	user.visible_message("\The [user] begins replacing the wiring of \the [src]...")
 
-	if(burn_damage)
+	if(burn_damage && do_after(user, 30, TRUE, src))
 		if(QDELETED(CC) || QDELETED(src) || !CC.use(needed_amount))
 			return
 
 		repair_burn_damage(25)
-		to_chat(user, "<span class='notice'>You mend the damage to \the [src]'s wiring.</span>")
-		playsound(user.loc, 'sound/items/Deconstruct.ogg', 25, 1)
+		to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]'s wiring."))
+		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 25, TRUE)
+	return
+
+/obj/item/mech_component/proc/repair_burn_and_brute_generic(var/obj/item/stack/nanopaste/N, var/mob/user)
+	if(!istype(N))
+		return
+	if(!burn_damage && !brute_damage)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't need repairing."))
+		return
+
+	var/needed_amount = 2
+	if(N.get_amount() < needed_amount)
+		to_chat(user, SPAN_WARNING("You need at least [needed_amount] unit\s of nanopaste to repair this section."))
+		return
+
+	user.visible_message(SPAN_NOTICE("\The [user] begins slathering nanopaste on \the [src]..."))
+
+	if((burn_damage || brute_damage) && do_after(user, 30, TRUE, src))
+		if(QDELETED(CC) || QDELETED(src) || !CC.use(needed_amount))
+			return
+		repair_burn_damage(25)
+		repair_brute_damage(25)
+		to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]."))
+		playsound(get_turf(src), 'sound/items/glowstick.ogg', 25, TRUE) // a bit unorthadox but hey, it works - geeves
 	return
