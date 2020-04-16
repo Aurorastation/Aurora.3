@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Elevator doors are now opaque and laser shots will not pass through them."
