@@ -53,6 +53,7 @@
 	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/yellowgreen
 	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/lightred
 	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/darkred
+	jumpsuit["maroon jumpsuit"] = /obj/item/clothing/under/maroon
 	jumpsuit["rainbow jumpsuit"] = /obj/item/clothing/under/rainbow
 	gear_tweaks += new/datum/gear_tweak/path(jumpsuit)
 
@@ -80,7 +81,7 @@
 /datum/gear/uniform/suit/New()
 	..()
 	var/suits = list()
-	suits["amish suit"] = /obj/item/clothing/under/sl_suit
+	suits["amish suit"] = /obj/item/clothing/under/amish
 	suits["black suit"] = /obj/item/clothing/under/suit_jacket
 	suits["blue suit"] = /obj/item/clothing/under/lawyer/blue
 	suits["burgundy suit"] = /obj/item/clothing/under/suit_jacket/burgundy
@@ -254,10 +255,6 @@
 	..()
 	gear_tweaks += gear_tweak_free_color_choice
 
-/datum/gear/uniform/miscellaneous/greensuit
-	display_name = "green formal uniform"
-	path = /obj/item/clothing/under/gov
-
 /datum/gear/uniform/officer
 	display_name = "uniforms, (Security Officer)"
 	description = "A selection of officer uniforms."
@@ -300,7 +297,6 @@
 	uniform["warden uniform, corporate"] = /obj/item/clothing/under/rank/warden/corp
 	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
-
 
 /datum/gear/uniform/hos
 	display_name = "uniform, corporate (Head of Security)"

@@ -174,7 +174,6 @@
 		/obj/item/clothing/under/pirate,
 		/obj/item/clothing/under/redcoat,
 		/obj/item/clothing/under/serviceoveralls,
-		/obj/item/clothing/under/captain_fly,
 		/obj/item/clothing/under/det,
 		/obj/item/clothing/under/brown,
 		/obj/item/clothing/under/syndicate/tracksuit

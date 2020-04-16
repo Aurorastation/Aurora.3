@@ -3,9 +3,9 @@
 /obj/item/clothing/under/rank/bartender
 	desc = "It looks like it could use some more flair."
 	name = "bartender's uniform"
-	icon_state = "ba_suit"
+	icon_state = "bartender"
 	item_state = "ba_suit"
-	worn_state = "ba_suit"
+	worn_state = "bartender"
 
 /obj/item/clothing/under/rank/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
@@ -24,7 +24,7 @@
 /obj/item/clothing/under/rank/cargotech
 	name = "cargo technician's jumpsuit"
 	desc = "The future of cargo tech apparel: long, stuffy slacks. We never said it was a bright future."
-	icon_state = "cargotech"
+	icon_state = "cargo"
 	item_state = "lb_suit"
 	worn_state = "cargo"
 
@@ -120,13 +120,6 @@
 	item_state = "lawyer_blue"
 	worn_state = "lawyer_blue"
 
-/obj/item/clothing/under/lawyer/bluesuit
-	name = "blue suit"
-	desc = "A classy suit and tie"
-	icon_state = "bluesuit"
-	item_state = "ba_suit"
-	worn_state = "bluesuit"
-
 /obj/item/clothing/under/lawyer/purpsuit
 	name = "purple suit"
 	icon_state = "lawyer_purp"
@@ -137,7 +130,7 @@
 	name = "old man's suit"
 	desc = "A classic suit for the older gentleman with built in back support."
 	icon_state = "oldman"
-	item_state = "johnny"
+	item_state = "oldman"
 	worn_state = "oldman"
 
 /obj/item/clothing/under/librarian

@@ -4,13 +4,6 @@
 	item_state = "bl_suit"
 	worn_state = "black"
 
-/obj/item/clothing/under/color/blackf
-	name = "feminine black jumpsuit"
-	desc = "It's very smart and in a ladies-size!"
-	icon_state = "black"
-	item_state = "bl_suit"
-	worn_state = "blackf"
-
 /obj/item/clothing/under/color/blue
 	name = "blue jumpsuit"
 	icon_state = "blue"
@@ -162,3 +155,11 @@
 	icon_state = "darkred"
 	item_state = "r_suit"
 	worn_state = "darkred"
+
+/obj/item/clothing/under/maroon
+	name = "maroon jumpsuit"
+	desc = "maroon"
+	icon_state = "maroon"
+	item_state = "r_suit"
+	worn_state = "maroon"
+

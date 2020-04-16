@@ -24,13 +24,6 @@
 	worn_state = "blue_pyjamas"
 	item_state = "w_suit"
 
-/obj/item/clothing/under/captain_fly
-	name = "rogue's uniform"
-	desc = "For the man who doesn't care because he's still free."
-	icon_state = "captain_fly"
-	item_state = "r_suit"
-	worn_state = "captain_fly"
-
 /obj/item/clothing/under/scratch
 	name = "white suit"
 	desc = "A white suit, suitable for an excellent host"
@@ -38,12 +31,12 @@
 	item_state = "scratch"
 	worn_state = "scratch"
 
-/obj/item/clothing/under/sl_suit
+/obj/item/clothing/under/amish
 	desc = "It's a very amish looking suit."
 	name = "amish suit"
-	icon_state = "sl_suit"
-	worn_state = "sl_suit"
-	item_state = "sl_suit"
+	icon_state = "amish"
+	worn_state = "amish"
+	item_state = "amish"
 
 /obj/item/clothing/under/waiter
 	name = "waiter's outfit"
@@ -66,13 +59,6 @@
 	item_state = "clown"
 	worn_state = "sexyclown"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
-/obj/item/clothing/under/rank/vice
-	name = "vice officer's jumpsuit"
-	desc = "It's the standard issue pretty-boy outfit, as seen on Holo-Vision."
-	icon_state = "vice"
-	item_state = "gy_suit"
-	worn_state = "vice"
 
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
@@ -160,13 +146,6 @@
 	worn_state = "owl"
 	item_state = "owl"
 
-/obj/item/clothing/under/johnny
-	name = "johnny~~ jumpsuit"
-	desc = "Johnny~~"
-	icon_state = "johnny"
-	worn_state = "johnny"
-	item_state = "johnny"
-
 /obj/item/clothing/under/rainbow
 	name = "rainbow"
 	desc = "rainbow"
@@ -242,7 +221,7 @@
 	name = "pirate outfit"
 	desc = "Yarr."
 	icon_state = "pirate"
-	item_state = "sl_suit"
+	item_state = "amish"
 	worn_state = "pirate"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
@@ -532,10 +511,10 @@
 	worn_state = "mechanic"
 
 /obj/item/clothing/under/sweater
-	desc = "A warm looking sweater and a pair of dark blue slacks."
+	desc = "A warm looking sweater and a pair of slacks."
 	name = "sweater"
-	icon_state = "turtleneck"
-	worn_state = "turtleneck"
+	icon_state = "sweater"
+	worn_state = "sweater"
 
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
@@ -580,28 +559,6 @@
 	icon_state = "blue_blazer"
 	item_state = "blue_blazer"
 	worn_state = "blue_blazer"
-
-//stripper
-/obj/item/clothing/under/stripper
-	body_parts_covered = 0
-
-/obj/item/clothing/under/stripper/stripper_pink
-	name = "pink swimsuit"
-	desc = "A rather skimpy pink swimsuit."
-	icon_state = "stripper_p"
-	siemens_coefficient = 1
-
-/obj/item/clothing/under/stripper/stripper_green
-	name = "green swimsuit"
-	desc = "A rather skimpy green swimsuit."
-	icon_state = "stripper_g"
-	siemens_coefficient = 1
-
-/obj/item/clothing/under/stripper/mankini
-	name = "mankini"
-	desc = "No honest man would wear this abomination"
-	icon_state = "mankini"
-	siemens_coefficient = 1
 
 //swimsuit
 /obj/item/clothing/under/swimsuit
@@ -656,13 +613,6 @@
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
 
-/obj/item/clothing/under/gov
-	name = "green formal uniform"
-	desc = "A neat proper uniform of someone on offical business. Plain, professional attire. The collar is <i>immaculately</i> starched."
-	icon_state = "greensuit"
-	item_state = "greensuit"
-	worn_state = "greensuit"
-
 /obj/item/clothing/under/medical_gown
 	name = "medical gown"
 	desc = "A loose pieces of clothing, commonly worn by medical patients."
@@ -715,49 +665,12 @@
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/under/rank/dispatch
-	name = "dispatcher's uniform"
-	desc = "A dress shirt and khakis with a security patch sewn on."
-	icon_state = "dispatch"
-	worn_state = "dispatch"
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	siemens_coefficient = 0.7
-
-/obj/item/clothing/under/lance
-	name = "ceres lance fatigues"
-	desc = "A set of drab fatigues meant to be worn by the Ceres' Lance Regiment, with their emblem found on the shoulder."
-	icon_state = "lance_fatigues"
-	item_state = "lance_fatigues"
-	worn_state = "lance_fatigues"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.7
-
-/obj/item/clothing/under/dress/lance_dress
-	name = "lance dress uniform"
-	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest. This one seems tailored  to take on a more feminine look, with a long skirt."
-	icon_state = "lance_dress_f"
-	item_state = "lance_dress_f"
-	worn_state = "lance_dress_f"
-
-
-/obj/item/clothing/under/dress/lance_dress/male
-	name = "lance dress uniform"
-	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest."
-	icon_state = "lance_dress_m"
-	item_state = "lance_dress_m"
-	worn_state = "lance_dress_m"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-
-
 /obj/item/clothing/under/dress/bluedress
 	name = "blue dress"
 	desc = "A plain blue dress with a white belt."
 	icon_state = "bluedress"
 	item_state = "bluedress_s"
 	worn_state = "bluedress"
-
 
 /obj/item/clothing/under/dress/darkreddress
 	name = "dark red dress"
@@ -766,7 +679,6 @@
 	item_state = "darkreddress_s"
 	worn_state = "darkreddress"
 
-
 /obj/item/clothing/under/cropdress
 	name = "crop dress"
 	desc = "A red skirt and longsleeved button-up crop top."
@@ -774,14 +686,12 @@
 	item_state = "cropdress_s"
 	worn_state = "cropdress"
 
-
 /obj/item/clothing/under/formalblouse
 	name = "formal blouse"
 	desc = "A formal, office-style blouse, with a black skirt in addition."
 	icon_state = "formalblouse"
 	item_state = "formalblouse_s"
 	worn_state = "formalblouse"
-
 
 /obj/item/clothing/under/croptop
 	name = "crop top"

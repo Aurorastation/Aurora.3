@@ -78,7 +78,6 @@
 			new /obj/item/clothing/under/rank/medical/purple(src)
 			new /obj/item/clothing/head/surgery/purple(src)
 	new /obj/item/clothing/under/rank/medical(src)
-	new /obj/item/clothing/under/rank/orderly(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
 	new /obj/item/clothing/shoes/medical(src)

@@ -686,7 +686,6 @@
 	icon_state = "black"
 	spawnlist = list(
 		/obj/item/clothing/under/color/black,
-		/obj/item/clothing/under/color/blackf,
 		/obj/item/clothing/under/color/blue,
 		/obj/item/clothing/under/color/green,
 		/obj/item/clothing/under/color/grey,
@@ -705,7 +704,9 @@
 		/obj/item/clothing/under/yellowgreen,
 		/obj/item/clothing/under/darkblue,
 		/obj/item/clothing/under/lightred,
-		/obj/item/clothing/under/darkred
+		/obj/item/clothing/under/darkred,
+		/obj/item/clothing/under/maroon,
+		/obj/item/clothing/under/psyche
 	)
 
 /obj/random/loot
@@ -773,14 +774,11 @@
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
 		/obj/item/clothing/under/assistantformal = 0.75,
-		/obj/item/clothing/under/captain_fly = 0.5,
 		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/rainbow = 0.9,
 		/obj/item/clothing/under/rank/clown = 0.1,
-		/obj/item/clothing/under/rank/dispatch = 0.8,
 		/obj/item/clothing/under/rank/mailman = 0.6,
-		/obj/item/clothing/under/rank/vice = 0.8,
 		/obj/item/clothing/under/redcoat = 0.5,
 		/obj/item/clothing/under/serviceoveralls = 0.75,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,

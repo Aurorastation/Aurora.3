@@ -152,7 +152,6 @@
 			new /obj/item/ammo_magazine/mc10mm(src)
 			new /obj/item/ammo_magazine/mc10mm(src)
 			new /obj/item/ammo_magazine/mc10mm/rubber(src)
-			new /obj/item/clothing/under/rank/dispatch(src)
 			new /obj/item/clothing/accessory/badge/old(src)
 			new /obj/item/clothing/head/helmet/formalcaptain(src)
 

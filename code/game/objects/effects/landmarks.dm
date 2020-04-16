@@ -179,7 +179,7 @@
 	new CHOICE(src.loc)
 	new /obj/item/clothing/shoes/black(src.loc)
 	new /obj/item/cane(src.loc)
-	new /obj/item/clothing/under/sl_suit(src.loc)
+	new /obj/item/clothing/under/amish(src.loc)
 	new /obj/item/clothing/mask/fakemoustache(src.loc)
 	delete_me = 1
 
