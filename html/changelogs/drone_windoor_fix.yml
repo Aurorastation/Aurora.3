@@ -1,0 +1,4 @@
+author: SpaceBaa
+delete-after: True
+changes: 
+  - bugfix: "Fixed an issue where drones could not open windoors by walking into them."
