@@ -26,7 +26,7 @@
 		"fuel",
 		"blood",
 		"sterilizine",
-		"ipecac".
+		"ipecac",
 		"monoammoniumphosphate"
 	)
 
@@ -65,4 +65,3 @@
 
 /datum/event/vent_clog/announce()
 	command_announcement.Announce("The scrubbers network is experiencing a backpressure surge. Some ejection of contents may occur.", "Atmospherics alert", new_sound = 'sound/AI/scrubbers.ogg')
-
