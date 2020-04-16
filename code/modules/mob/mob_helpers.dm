@@ -580,7 +580,7 @@ proc/is_blind(A)
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
 	var/client/C
 	//Accept any type, sort what we want here
-	if(ismob(O)))
+	if(ismob(O))
 		var/mob/M = O
 		if(M.client)
 			C = M.client
