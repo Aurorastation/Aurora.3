@@ -64,6 +64,7 @@
 #define CE_PAINKILLER   "painkiller"
 #define CE_PULSE        "xcardic"		// increases or decreases heartrate
 #define CE_UNDEXTROUS "undextrous" // arms no work right
+#define CE_HALLUCINATE  "hallucinogen"	//Makes hallucinations stronger or weaker
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin

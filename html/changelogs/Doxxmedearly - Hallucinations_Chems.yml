@@ -1,0 +1,10 @@
+author: Doxxmedearly
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes: 
+  - tweak: "Synaptizine, methylphenidate, risperidone and olanzapine will reduce overall hallucination duration, reduce frequency of hallucination effects, and sometimes prevent them entirely. Useful!"
+  - tweak: "Some hallucinogenic drugs and toxins will now increase the duration you hallucinate and make effects happen more frequently."
+  - tweak: "Wulumunusha will now cause skrell to experience light hallucinations (as its description implies) at dosages greater than 10u."
+  - bugfix: "Fixed null hallucinations causing runtimes. Hopefully."
