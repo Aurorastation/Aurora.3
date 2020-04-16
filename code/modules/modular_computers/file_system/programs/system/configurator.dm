@@ -50,6 +50,6 @@
 
 	LAZYINITLIST(data["hardware"])
 	for(var/obj/item/computer_hardware/H in hardware)
-		LAZYINITLIST(data["hardware"][H.name])
+		LAZYINITLIST(data["hardware"][capitalize_first_letters(initial(H.name))])
 		for(var/v in list("name", "desc", "enabled", "critical", "power_usage"))
-			VUEUI_SET_CHECK(data["hardware"][H.name][v], H.vars[v], ., data)
+			VUEUI_SET_CHECK(data["hardware"][capitalize_first_letters(initial(H.name))][v], H.vars[v], ., data)

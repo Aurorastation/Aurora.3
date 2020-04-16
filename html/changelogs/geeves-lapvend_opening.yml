@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The computer vendor can now vend out Laptops, Tablets, and Wristbound computers."
+  - rscadd: "The computer vendor has more things that can be vended out."
+  - tweak: "You can now pay for the computer vendor with an ID or a PDA or modular computer containing an ID."
+  - rscadd: "You can now use the AI maintenance program on laptops too."
+  - tweak: "Hardware in the modular computer configuration program now have capital letters."
