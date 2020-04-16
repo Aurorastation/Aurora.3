@@ -27,17 +27,20 @@
 	desc = "They look like the remains of a small reptile."
 	icon_state = "lizard"
 
-//Target turns to ash or oil.
+//Target turns to ash.
 /obj/effect/decal/remains/proc/crumble()
 	var/turf/simulated/floor/F = get_turf(src)
-	if (icon_state == "remainsrobot")
-		visible_message(SPAN_NOTICE("[src] degrades into a pool of oil."))
-		if (istype(F))
-			new /obj/effect/decal/cleanable/blood/oil(F)
-	else
-		visible_message(SPAN_NOTICE("[src] sinks together into a pile of ash."))
-		if (istype(F))
-			new /obj/effect/decal/cleanable/ash(F)
+	visible_message(SPAN_NOTICE("\The [src] sink together into a pile of ash."))
+	if (istype(F))
+		new /obj/effect/decal/cleanable/ash(F)
+	qdel(src)
+
+//Target turns to oil.
+/obj/effect/decal/remains/robot/crumble()
+	var/turf/simulated/floor/F = get_turf(src)
+	visible_message(SPAN_NOTICE("\The [src] degrade into a pool of oil."))
+	if (istype(F))
+		new /obj/effect/decal/cleanable/blood/oil(F)
 	qdel(src)
 
 /obj/effect/decal/remains/Move()
