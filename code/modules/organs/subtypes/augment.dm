@@ -28,7 +28,7 @@
 	if(.)
 
 		if(owner.last_special > world.time)
-			to_chat(owner, SPAN_DANGER("The [src] is still recharging!"))
+			to_chat(owner, SPAN_DANGER("\The [src] is still recharging!"))
 			return
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
@@ -79,6 +79,7 @@
 	activable = TRUE
 	organ_tag = BP_AUG_PDA
 	action_button_icon = "pdapiece"
+	cooldown = 5
 	var/obj/item/device/pda/P
 
 /obj/item/organ/internal/augment/pda/Initialize()
