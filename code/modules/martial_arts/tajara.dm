@@ -71,7 +71,7 @@
 	var/obj/item/organ/external/organ = D.get_organ(A.zone_sel.selecting)
 	var/armor = D.getarmor_organ(organ,"melee")
 	A.visible_message("<span class='danger'>[A] stabs [D]'s [organ.name] with their claws!</span>")
-	D.apply_damage(organ.brute_dam, BRUTE, organ, armor, sharp= TRUE, edge= TRUE)
+	D.apply_damage(organ.brute_dam, BRUTE, organ, armor, damage_flags = DAM_SHARP|DAM_EDGE)
 	return 1
 
 /datum/martial_art/baghrar/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
