@@ -189,7 +189,7 @@
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
 	var/max_charges = 1
 	var/actual_charges = 0
-	var/recharge_time = 2 //this is in minutes
+	var/recharge_time = 5 //this is in minutes
 
 /obj/item/organ/internal/augment/tesla/proc/check_shock()
 	if(is_broken())
@@ -205,7 +205,7 @@
 
 /obj/item/organ/internal/augment/tesla/proc/do_tesla_act()
 	if(owner)
-		to_chat(owner, SPAN_DANGER("You feel your \the [src] surge with energy!"))
+		to_chat(owner, SPAN_DANGER("You feel your [src.name] surge with energy!"))
 		spark(get_turf(owner), 3)
 		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
 		if(is_bruised())
