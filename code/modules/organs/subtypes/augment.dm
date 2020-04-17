@@ -245,6 +245,7 @@
 	cooldown = 50
 	emp_coeff = 1
 	action_button_icon = "tesla_spine"
+	action_button_name = "Activate Tesla Coil"
 	organ_tag = BP_AUG_TESLA_ADV
 	activable = TRUE
 

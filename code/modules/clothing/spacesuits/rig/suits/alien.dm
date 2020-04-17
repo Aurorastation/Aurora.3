@@ -103,4 +103,4 @@
 		var/obj/item/organ/internal/augment/tesla/advanced/T = wearer.internal_organs_by_name[BP_AUG_TESLA_ADV]
 		if(T && !T.is_broken())
 			if(cell)
-				cell.give(500)
+				cell.give(5)
