@@ -114,7 +114,9 @@
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_PDA          "integrated pda"
-
+#define BP_AUG_TOOL         "retractable combitool"
+#define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_TESLA        "tesla spine"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

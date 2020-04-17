@@ -5,6 +5,7 @@
 	organ_tag = "augment"
 	robotic = 2
 	emp_coeff = 2
+	is_augment = TRUE
 	var/cooldown = 150
 	var/action_button_icon = "innards-prosthetic"
 	var/activable = FALSE
@@ -167,12 +168,12 @@
 	name = "retractable combitool"
 	action_button_name = "Deploy Combitool"
 	parent_organ = BP_CHEST
+	organ_tag = BP_AUG_TOOL
 	augment_type = /obj/item/combitool/robotic
 
 /obj/item/organ/internal/augment/health_scanner
 	name = "integrated health scanner"
-	icon_state = "health_scanner"
-	organ_tag = "health_scanner"
+	organ_tag = BP_AUG_HEALTHSCAN
 
 /obj/item/organ/internal/augment/health_scanner/attack_self(var/mob/user)
 	. = ..()
@@ -183,7 +184,7 @@
 /obj/item/organ/internal/augment/tesla
 	name = "tesla spine"
 	icon_state = "tesla_spine"
-	organ_tag = "tesla_spine"
+	organ_tag = BP_AUG_TESLA
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
 	var/max_charges = 1
 	var/actual_charges = 0
