@@ -49,6 +49,43 @@
 	path = /obj/item/organ/internal/augment/health_scanner
 	cost = 3
 
+/datum/gear/augment/suspension
+	display_name = "calf suspension"
+	description = "An augment that reduces the damage from falling down."
+	path = /obj/item/organ/internal/augment/suspension
+	cost = 4
+
+/datum/gear/augment/taste_boosters
+	display_name = "taste booster selection"
+	description = "A selection of augments that modify the user's taste sensitivity."
+	path = /obj/item/organ/internal/augment/taste_booster
+	cost = 3
+
+/datum/gear/augment/taste_boosters/New()
+	..()
+	var/augs = list()
+	augs["taste booster"] = /obj/item/organ/internal/augment/taste_booster
+	augs["taste duller"] = /obj/item/organ/internal/augment/taste_booster/dull
+	gear_tweaks += new/datum/gear_tweak/path(augs)
+
+/datum/gear/augment/radio
+	display_name = "integrated radio"
+	description = "An augment that allows the user to interact with an integrated radio."
+	path = /obj/item/organ/internal/augment/radio
+	cost = 5
+
+/datum/gear/augment/fuel_cell
+	display_name = "integrated fuel cell"
+	description = "An augment that allows the user to synthetize welding fuel into nutrients."
+	path = /obj/item/organ/internal/augment/fuel_cell
+	cost = 3
+
+/datum/gear/augment/air_analyzer
+	display_name = "integrated air analyzer"
+	description = "An augment that allows the user to analyzer the air around them."
+	path = /obj/item/organ/internal/augment/air_analyzer
+	cost = 3
+
 /datum/gear/augment/telsa_spine
 	display_name = "tesla spine"
 	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civillians."

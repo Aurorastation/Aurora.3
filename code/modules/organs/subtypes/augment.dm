@@ -381,7 +381,6 @@
 	organ_tag = BP_AUG_FUEL_CELL
 	parent_organ = BP_HEAD
 
-
 /obj/item/organ/internal/augment/air_analyzer
 	name = "integrated air analyzer"
 	organ_tag = BP_AUG_AIR_ANALYZER
