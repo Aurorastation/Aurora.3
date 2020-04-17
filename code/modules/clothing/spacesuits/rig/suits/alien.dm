@@ -96,3 +96,11 @@
 		/obj/item/rig_module/mounted/tesla)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_UTILITY
+
+/obj/item/rig/tesla/process()
+	..()
+	if(wearer)
+		var/obj/item/organ/internal/augment/tesla/advanced/T = H.internal_organs_by_name[BP_AUG_TESLA_ADV]
+		if(T && !T.is_broken())
+			if(cell)
+				cell.give(500)
