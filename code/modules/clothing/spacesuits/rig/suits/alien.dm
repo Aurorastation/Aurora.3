@@ -100,7 +100,7 @@
 /obj/item/rig/tesla/process()
 	..()
 	if(wearer)
-		var/obj/item/organ/internal/augment/tesla/advanced/T = H.internal_organs_by_name[BP_AUG_TESLA_ADV]
+		var/obj/item/organ/internal/augment/tesla/advanced/T = wearer.internal_organs_by_name[BP_AUG_TESLA_ADV]
 		if(T && !T.is_broken())
 			if(cell)
 				cell.give(500)
