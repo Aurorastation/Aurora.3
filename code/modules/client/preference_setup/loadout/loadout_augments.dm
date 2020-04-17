@@ -13,12 +13,6 @@
 	path = /obj/item/organ/internal/augment/timepiece
 	cost = 1
 
-/datum/gear/augment/hair
-	display_name = "integrated timepiece"
-	description = "An augment that allows the user to consult the time anywhere."
-	path = /obj/item/organ/internal/augment/timepiece
-	cost = 2
-
 /datum/gear/augment/eye_sensors
 	display_name = "integrated eye sensors"
 	description = "An eye augment that allows the user to deploy medical or security sensors."
