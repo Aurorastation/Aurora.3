@@ -285,6 +285,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	if(!parts.len)
 		return
 	var/obj/item/organ/external/picked = pick(parts)
+	var/dam_flags = damage_flags
 	if(picked.take_damage(brute, burn, damage_flags))
 		UpdateDamageIcon()
 		BITSET(hud_updateflag, HEALTH_HUD)
@@ -326,7 +327,7 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 		var/brute_was = picked.brute_dam
 		var/burn_was = picked.burn_dam
 
-		update |= picked.take_damage(brute, burn, damage_flags = damage_flags, used_weapon)
+		update |= picked.take_damage(brute, burn, damage_flags, used_weapon)
 		brute	-= (picked.brute_dam - brute_was)
 		burn	-= (picked.burn_dam - burn_was)
 
@@ -409,20 +410,21 @@ This function restores all organs.
 	if(damage > 15 && prob(damage*4) && organ.can_feel_pain())
 		make_adrenaline(round(damage/10))
 
+	var/dam_flags = damage_flags
 	switch(damagetype)
 
 		if(BRUTE)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.brute_mod
-			if(organ.take_damage(damage, 0, damage_flags = damage_flags, used_weapon))
+			if(organ.take_damage(damage, 0, damage_flags, used_weapon))
 				UpdateDamageIcon()
 
 		if(BURN)
 			damageoverlaytemp = 20
 			if(damage > 0)
 				damage *= species.burn_mod
-			if(organ.take_damage(0, damage, damage_flags = damage_flags, used_weapon))
+			if(organ.take_damage(0, damage, damage_flags, used_weapon))
 				UpdateDamageIcon()
 
 	// Will set our damageoverlay icon to the next level, which will then be set back to the normal level the next mob.Life().
