@@ -170,7 +170,7 @@
 	user.visible_message(SPAN_NOTICE("\The [user] begins slathering nanopaste on \the [src]..."))
 
 	if((burn_damage || brute_damage) && do_after(user, 30, TRUE, src))
-		if(QDELETED(CC) || QDELETED(src) || !CC.use(needed_amount))
+		if(QDELETED(N) || QDELETED(src) || !N.use(needed_amount))
 			return
 		repair_burn_damage(25)
 		repair_brute_damage(25)
