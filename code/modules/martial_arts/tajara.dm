@@ -49,7 +49,7 @@
 	var/obj/item/organ/internal/eyes/eyes = D.get_eyes()
 	eyes.take_damage(rand(3,4), 1)
 	var/armor = D.getarmor_organ(affecting,"melee")
-	D.apply_damage(10,BRUTE, BP_HEAD, armor, sharp=1, edge=1)
+	D.apply_damage(10,BRUTE, BP_HEAD, armor, damage_flags = DAM_SHARP|DAM_EDGE)
 
 	return 1
 

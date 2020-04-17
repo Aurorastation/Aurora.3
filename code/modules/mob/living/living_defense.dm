@@ -187,7 +187,8 @@
 		src.visible_message("<span class='warning'>[src] has been hit by [O].</span>")
 		var/armor = run_armor_check(null, "melee")
 
-		apply_damage(throw_damage, dtype, null, armor, is_sharp(O), has_edge(O), O)
+		var/damage_flags = O.damage_flags()
+		apply_damage(throw_damage, dtype, null, armor, O, damage_flags = damage_flags)
 
 		O.throwing = 0		//it hit, so stop moving
 

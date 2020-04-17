@@ -153,7 +153,7 @@
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!</span>")
 	affected.sever_artery()
-	target.apply_damage(rand(30, 50), BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(rand(30, 50), BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/internal/remove_organ
 	allowed_tools = list(
@@ -209,7 +209,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, damaging [target]'s [affected.name] with \the [tool]!</span>")
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/internal/replace_organ
 	allowed_tools = list(
@@ -338,7 +338,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>")
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/internal/lobotomize
 	allowed_tools = list(
@@ -382,4 +382,4 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>")
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())

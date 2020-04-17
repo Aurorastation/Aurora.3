@@ -62,7 +62,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!</span>")
-	target.apply_damage(7.5, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(7.5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(12.5, BURN, target_zone, 0, tool)
 
 /datum/surgery_step/generic/incision_manager
@@ -102,7 +102,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!</span>")
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(15, BURN, target_zone, 0, tool)
 
 /datum/surgery_step/generic/cut_open
@@ -147,7 +147,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, slicing open [target]'s [affected.name] in the wrong place with \the [tool]!</span>")
-	target.apply_damage(10, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(10, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/generic/cut_open_vaurca
 	allowed_tools = list(
@@ -188,7 +188,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, cracking [target]'s [affected.name] carapace in the wrong place with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, cracking [target]'s [affected.name] carapace in the wrong place with \the [tool]!</span>")
-	target.apply_damage(15, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(15, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/generic/clamp_bleeders
 	allowed_tools = list(
@@ -279,7 +279,7 @@
 		msg = "<span class='warning'>[user]'s hand slips, damaging several organs in [target]'s lower abdomen with \the [tool]</span>"
 		self_msg = "<span class='warning'>Your hand slips, damaging several organs in [target]'s lower abdomen with \the [tool]!</span>"
 	user.visible_message(msg, self_msg)
-	target.apply_damage(12, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(12, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/generic/cauterize
 	allowed_tools = list(
@@ -384,5 +384,5 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, sawing through the bone in [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, sawwing through the bone in [target]'s [affected.name] with \the [tool]!</span>")
-	target.apply_damage(30, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(30, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
