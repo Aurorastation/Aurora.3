@@ -437,7 +437,7 @@
 	chemicals -= 150
 	to_chat(src, span("notice", "You probe your tendrils deep within your host's zona bovinae, seeking to unleash their potential."))
 	to_chat(host, span("danger", "You feel some tendrils probe at the back of your head..."))
-	to_chat(host, SPAN_WARNING("You feel something terrible coming on..."))
+	to_chat(host, FONT_LARGE(SPAN_WARNING("You feel something terrible coming on...")))
 	addtimer(CALLBACK(src, .proc/jumpstart_psi), 150)
 
 /mob/living/simple_animal/borer/proc/jumpstart_psi()
