@@ -115,8 +115,13 @@
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
 #define BP_AUG_PDA          "integrated pda"
 #define BP_AUG_TOOL         "retractable combitool"
+#define BP_AUG_PEN          "retractable combipen"
+#define BP_AUG_LIGHTER      "retractable lighter"
 #define BP_AUG_HEALTHSCAN   "integrated health scanner"
 #define BP_AUG_TESLA        "tesla spine"
+#define BP_AUG_TESLA_ADV    "advanced tesla spine"
+#define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
+#define BP_AUG_HAIR         "synthetic hair extensions"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

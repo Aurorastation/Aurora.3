@@ -7,7 +7,7 @@
 	emp_coeff = 2
 	is_augment = TRUE
 	var/cooldown = 150
-	var/action_button_icon = "innards-prosthetic"
+	var/action_button_icon = "augment"
 	var/activable = FALSE
 
 /obj/item/organ/internal/augment/Initialize()
@@ -61,7 +61,7 @@
 	action_button_name = "Actuvate Integrated Timepiece"
 	activable = TRUE
 	organ_tag = BP_AUG_TIMEPIECE
-	action_button_icon = "timepiece"
+	action_button_icon = "augment-clock"
 
 /obj/item/organ/internal/augment/timepiece/attack_self(var/mob/user)
 	. = ..()
@@ -78,7 +78,7 @@
 	action_button_name = "Activate Integrated PDA"
 	activable = TRUE
 	organ_tag = BP_AUG_PDA
-	action_button_icon = "pdapiece"
+	action_button_icon = "augment-pda"
 	cooldown = 5
 	var/obj/item/device/pda/P
 
@@ -90,21 +90,22 @@
 
 /obj/item/organ/internal/augment/pda/attack_self(var/mob/user)
 	. = ..()
-	if(P)
-		if(!P.owner)
-			var/obj/item/card/id/idcard = owner.get_active_hand()
-			if(istype(idcard))
-				P.owner = idcard.registered_name
-				P.ownjob = idcard.assignment
-				P.ownrank = idcard.rank
-				P.name = "Integrated PDA-[P.owner] ([P.ownjob])"
-				to_chat(owner, SPAN_NOTICE("Card scanned."))
-				P.try_sort_pda_list()
-			else
-				to_chat(owner, SPAN_NOTICE("No ID data loaded. Please hold your ID to be scanned."))
-				return
+	if(.)
+		if(P)
+			if(!P.owner)
+				var/obj/item/card/id/idcard = owner.get_active_hand()
+				if(istype(idcard))
+					P.owner = idcard.registered_name
+					P.ownjob = idcard.assignment
+					P.ownrank = idcard.rank
+					P.name = "Integrated PDA-[P.owner] ([P.ownjob])"
+					to_chat(owner, SPAN_NOTICE("Card scanned."))
+					P.try_sort_pda_list()
+				else
+					to_chat(owner, SPAN_NOTICE("No ID data loaded. Please hold your ID to be scanned."))
+					return
 
-		P.attack_self(user)
+			P.attack_self(user)
 	return
 
 /obj/item/organ/internal/augment/pda/emp_act(severity)
@@ -120,7 +121,7 @@
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
 	action_button_name = "Deploy Widget"
-	action_button_icon = "combitool"
+	action_button_icon = "augment-tool"
 	cooldown = 250
 	var/augment_type
 	var/obj/item/augment
@@ -167,14 +168,33 @@
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
+	icon_state = "augment-tool"
 	action_button_name = "Deploy Combitool"
 	parent_organ = BP_CHEST
 	organ_tag = BP_AUG_TOOL
 	augment_type = /obj/item/combitool/robotic
 
+/obj/item/organ/internal/augment/tool/pen
+	name = "retractable combipen"
+	action_button_name = "Deploy Combipen"
+	action_button_icon = "combipen"
+	organ_tag = BP_AUG_PEN
+	augment_type = /obj/item/pen/multi
+	cooldown = 10
+
+/obj/item/organ/internal/augment/tool/lighter
+	name = "retractable lighter"
+	action_button_name = "Deploy lighter"
+	action_button_icon = "lighter"
+	organ_tag = BP_AUG_LIGHTER
+	augment_type = /obj/item/flame/lighter/zippo
+	cooldown = 10
+
 /obj/item/organ/internal/augment/health_scanner
 	name = "integrated health scanner"
+	action_button_icon = "health"
 	organ_tag = BP_AUG_HEALTHSCAN
+	cooldown = 8
 
 /obj/item/organ/internal/augment/health_scanner/attack_self(var/mob/user)
 	. = ..()
@@ -218,3 +238,83 @@
 	actual_charges = min(actual_charges-1,max_charges)
 	if(actual_charges > 0)
 		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+
+/obj/item/organ/internal/augment/tesla/advanced
+	name = "advanced tesla spine"
+	max_charges = 15
+	cooldown = 50
+	emp_coeff = 1
+	action_button_icon = "tesla_spine"
+	organ_tag = BP_AUG_TESLA_ADV
+	activable = TRUE
+
+/obj/item/organ/internal/augment/tesla/advanced/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+		visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
+		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
+		tesla_zap(owner, 7, 1500)
+
+/obj/item/organ/internal/augment/eye_sensors
+	name = "integrated eye sensors"
+	icon_state = "augment_eyes"
+	cooldown = 25
+	organ_tag = BP_AUG_EYE_SENSORS
+	action_button_name = "Toggle Eyes Sensors"
+
+	var/static/list/hud_types = list(
+		"Disabled",
+		"Security",
+		"Medical")
+
+	var/selected_hud = "Disabled"
+
+/obj/item/organ/internal/augment/eye_sensors/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+
+		var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
+
+		selected_hud = choice
+
+/obj/item/organ/internal/augment/eye_sensors/process()
+	..()
+
+	if(!owner)
+		return
+
+	switch(selected_hud)
+
+		if("Security")
+			req_access = list(access_security)
+			if(allowed(owner))
+				process_sec_hud(owner, 1)
+
+		if("Medical")
+			req_access = list(access_medical)
+			if(allowed(owner))
+				process_med_hud(owner, 1)
+
+/obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
+	..()
+	var/obj/item/organ/internal/eyes/E = owner.get_eyes()
+	if(!E)
+		return
+	E.take_damage(5)
+
+/obj/item/organ/internal/augment/cyber_hair
+	name = "synthetic hair extensions"
+	cooldown = 20
+	action_button_icon = "cyber_hair"
+	organ_tag = BP_AUG_HAIR
+	activable = TRUE
+
+/obj/item/organ/internal/augment/cyber_hair/attack_self(var/mob/user)
+	. = ..()
+
+	if(.)
+		owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shifts shape and length."))
+		owner.change_appearance(APPEARANCE_ALL_HAIR, owner.loc, owner, check_species_whitelist = 1)
+
