@@ -148,6 +148,10 @@
 	if(I && istype(I))
 		I.status |= ORGAN_CUT_AWAY
 
+	target.update_body()
+	target.updatehealth()
+	target.UpdateDamageIcon()
+
 /datum/surgery_step/internal/detach_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!</span>", \
@@ -205,6 +209,10 @@
 		else
 			playsound(target.loc, 'sound/items/Ratchet.ogg', 50, 1)
 
+		target.update_body()
+		target.updatehealth()
+		target.UpdateDamageIcon()
+
 /datum/surgery_step/internal/remove_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging [target]'s [affected.name] with \the [tool]!</span>", \
@@ -252,6 +260,11 @@
 			to_chat(user, "<span class='warning'>\The [O.organ_tag] [o_is] in no state to be transplanted.</span>")
 			return SURGERY_FAILURE
 
+		if(O.species_restricted)
+			if(!target.species.name in O.species_restricted)
+				to_chat(user, SPAN_WARNING("\The [O] is not compatible with \the [target]'s biology."))
+				return SURGERY_FAILURE
+
 		if(!target.internal_organs_by_name[O.organ_tag])
 			organ_missing = 1
 		else
@@ -284,6 +297,10 @@
 	if(istype(O) && user.unEquip(O))
 		O.replaced(target,affected)
 		playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
+
+		target.update_body()
+		target.updatehealth()
+		target.UpdateDamageIcon()
 
 /datum/surgery_step/internal/replace_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging \the [tool]!</span>", \
@@ -333,6 +350,10 @@
 	var/obj/item/organ/I = target.internal_organs_by_name[target.op_stage.current_organ]
 	if(I && istype(I))
 		I.status &= ~ORGAN_CUT_AWAY
+
+		target.update_body()
+		target.updatehealth()
+		target.UpdateDamageIcon()
 
 /datum/surgery_step/internal/attach_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

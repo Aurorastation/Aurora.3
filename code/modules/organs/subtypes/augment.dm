@@ -6,6 +6,13 @@
 	robotic = 2
 	emp_coeff = 2
 	is_augment = TRUE
+	species_restricted = list("Human",
+							"Off-Worlder Human",
+							"Tajara", "Zhan-Khazan Tajara", "M'sai Tajara",
+							"Aut'akh Unathi", "Skrell",
+							"Baseline Frame", "Hephaestus G1 Industrial Frame",
+							"Hephaestus G2 Industrial Frame", "Xion Industrial Frame",
+							"Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
 	var/cooldown = 150
 	var/action_button_icon = "augment"
 	var/activable = FALSE
@@ -29,11 +36,11 @@
 
 		if(owner.last_special > world.time)
 			to_chat(owner, SPAN_DANGER("\The [src] is still recharging!"))
-			return
+			return FALSE
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
 			to_chat(owner, SPAN_DANGER("You can not use your \the [src] in your current state!"))
-			return
+			return FALSE
 
 		if(is_bruised())
 			if(do_bruised_act())
@@ -207,6 +214,7 @@
 	icon_state = "tesla_spine"
 	organ_tag = BP_AUG_TESLA
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	species_restricted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	var/max_charges = 1
 	var/actual_charges = 0
 	var/recharge_time = 5 //this is in minutes
@@ -246,7 +254,6 @@
 	emp_coeff = 1
 	action_button_icon = "tesla_spine"
 	action_button_name = "Activate Tesla Coil"
-	organ_tag = BP_AUG_TESLA_ADV
 	activable = TRUE
 
 /obj/item/organ/internal/augment/tesla/advanced/attack_self(var/mob/user)
