@@ -17,7 +17,7 @@
 	var/obj/effect/golemrune/rune
 	var/list/global_runes = list()
 
-	for(var/obj/effect/golemrune/eligible_rune in golem_runes)
+	for(var/obj/effect/golemrune/eligible_rune in SSghostroles.get_spawn_atom("Golems"))
 		global_runes += eligible_rune
 
 	if(!length(global_runes))

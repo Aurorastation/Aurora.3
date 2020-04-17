@@ -68,18 +68,19 @@ BREATH ANALYZER
 		else
 			. = "moderate"
 
-/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE)
-	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-		user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-		to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-		to_chat(user, "Overall Status: Healthy</span>")
-		return
+/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
+	if(!just_scan)
+		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
+			user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
+			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
+			to_chat(user, "Overall Status: Healthy</span>")
+			return
 
-	if(!usr.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
+		if(!usr.IsAdvancedToolUser())
+			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+			return
 
-	user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
+		user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")

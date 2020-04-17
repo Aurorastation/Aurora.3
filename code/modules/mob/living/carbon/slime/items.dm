@@ -216,8 +216,6 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle17"
 
-var/list/global/golem_runes = list()
-
 /obj/effect/golemrune
 	anchored = TRUE
 	desc = "A strange rune used to create golems. It glows when spirits are nearby."
@@ -233,8 +231,8 @@ var/list/global/golem_runes = list()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	announce_to_ghosts()
-	golem_runes += src
-	if(length(golem_runes) == 1)
+	SSghostroles.add_spawn_atom(src, "Golems")
+	if(length(SSghostroles.get_spawn_atom("Golems")) == 1)
 		for(var/role_spawner in SSghostroles.spawners)
 			if(role_spawner == "golem")
 				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]
@@ -242,8 +240,8 @@ var/list/global/golem_runes = list()
 
 /obj/effect/golemrune/Destroy()
 	. = ..()
-	golem_runes -= src
-	if(!length(golem_runes))
+	SSghostroles.remove_spawn_atom(src, "Golems")
+	if(!length(SSghostroles.get_spawn_atom("Golems")))
 		for(var/role_spawner in SSghostroles.spawners)
 			if(role_spawner == "golem")
 				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]

@@ -1,0 +1,11 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Spawned borers now get added to the Ghostspawner menu, allowing players to inhabit them even if they didn't catch the original request."
+  - rscadd: "Borers have gained the ability to survey their host's health, allowing them to better choose when to administer certain chemicals."
+  - tweak: "Borers now regenerate chemicals even if their host is unconscious."
+  - rscadd: "Awakening psionics now take 15 seconds instead of 10, and the host now gets a message about feeling something bad coming on, allowing them to make a dash to safety and or seclusion."
+  - bugfix: "Skrell returning from Srom no longer eject controlling borers to the lobby by replacing their ckey into the aether."
+  - bugfix: "Skrell no longer spontaneously die when entering Srom on a map that doesn't have a Srom location."

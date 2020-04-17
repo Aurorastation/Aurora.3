@@ -2,6 +2,7 @@
 
 /datum/controller/subsystem/ghostroles
 	name = "Ghost Roles"
+	init_order = SS_INIT_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	var/list/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
@@ -9,6 +10,10 @@
 		//           -> spawnpoint 2
 
 	var/list/spawners = list() //List of the available spawner datums
+
+	// For special spawners that have mobile or object spawnpoints
+	var/list/spawn_types = list("Golems", "Borers")
+	var/list/spawn_atom = list()
 
 /datum/controller/subsystem/ghostroles/Recover()
 	src.spawnpoints = SSghostroles.spawnpoints
@@ -35,6 +40,9 @@
 	for (var/identifier in spawnpoints)
 		CHECK_TICK
 		update_spawnpoint_status_by_identifier(identifier)
+
+	for(var/spawn_type in spawn_types)
+		spawn_atom[spawn_type] = list()
 
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)
@@ -177,3 +185,14 @@
 			for(var/i in S.spawnpoints)
 				update_spawnpoint_status_by_identifier(i)
 	return
+
+/datum/controller/subsystem/ghostroles/proc/add_spawn_atom(var/atom/added_atom, var/atom_list)
+	if(added_atom && atom_list)
+		spawn_atom[atom_list].Add(added_atom)
+
+/datum/controller/subsystem/ghostroles/proc/remove_spawn_atom(var/atom/removed_atom, var/atom_list)
+	if(removed_atom && atom_list)
+		spawn_atom[atom_list].Remove(removed_atom)
+
+/datum/controller/subsystem/ghostroles/proc/get_spawn_atom(var/atom_list)
+	return spawn_atom[atom_list]

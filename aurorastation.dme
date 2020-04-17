@@ -1573,6 +1573,7 @@
 #include "code\modules\ghostroles\spawner\human\responseteams\response_team.dm"
 #include "code\modules\ghostroles\spawner\human\responseteams\syndicate.dm"
 #include "code\modules\ghostroles\spawner\human\responseteams\tcfl.dm"
+#include "code\modules\ghostroles\spawner\simplemob\borer.dm"
 #include "code\modules\ghostroles\spawner\simplemob\maintdrone.dm"
 #include "code\modules\ghostroles\spawner\simplemob\rat.dm"
 #include "code\modules\ghostroles\spawner\simplemob\spider.dm"
