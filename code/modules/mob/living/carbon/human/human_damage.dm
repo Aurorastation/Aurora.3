@@ -285,7 +285,6 @@ In most cases it makes more sense to use apply_damage() instead! And make sure t
 	if(!parts.len)
 		return
 	var/obj/item/organ/external/picked = pick(parts)
-	var/dam_flags = damage_flags
 	if(picked.take_damage(brute, burn, damage_flags))
 		UpdateDamageIcon()
 		BITSET(hud_updateflag, HEALTH_HUD)
@@ -410,7 +409,6 @@ This function restores all organs.
 	if(damage > 15 && prob(damage*4) && organ.can_feel_pain())
 		make_adrenaline(round(damage/10))
 
-	var/dam_flags = damage_flags
 	switch(damagetype)
 
 		if(BRUTE)
