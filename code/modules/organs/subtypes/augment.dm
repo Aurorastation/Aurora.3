@@ -1,6 +1,6 @@
 /obj/item/organ/internal/augment
 	name = "augment"
-	icon_state = "innards-prosthetic"
+	icon_state = "augment"
 	parent_organ = BP_CHEST
 	organ_tag = "augment"
 	robotic = 2
@@ -27,11 +27,11 @@
 	if(.)
 
 		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			to_chat(owner, SPAN_DANGER("The [src] is still recharging!"))
 			return
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use your \the [src] in your current state!</span>")
+			to_chat(owner, SPAN_DANGER("You can not use your \the [src] in your current state!"))
 			return
 
 		if(is_bruised())
@@ -55,9 +55,11 @@
 
 /obj/item/organ/internal/augment/timepiece
 	name = "integrated timepiece"
+	icon_state = "augment-clock"
 	parent_organ = BP_HEAD
 	action_button_name = "Actuvate Integrated Timepiece"
 	activable = TRUE
+	organ_tag = BP_AUG_TIMEPIECE
 	action_button_icon = "timepiece"
 
 /obj/item/organ/internal/augment/timepiece/attack_self(var/mob/user)
@@ -66,13 +68,15 @@
 	if(.)
 		to_chat(owner, "Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day.")
 		if (emergency_shuttle.get_status_panel_eta())
-			to_chat(owner, "<span class='warning'>Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()].</span>")
+			to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()]."))
 
 /obj/item/organ/internal/augment/pda
 	name = "integrated pda"
+	icon_state = "augment-pda"
 	parent_organ = BP_HEAD
-	action_button_name = "Actuvate Integrated PDA"
+	action_button_name = "Activate Integrated PDA"
 	activable = TRUE
+	organ_tag = BP_AUG_PDA
 	action_button_icon = "pdapiece"
 	var/obj/item/device/pda/P
 
@@ -92,14 +96,24 @@
 				P.ownjob = idcard.assignment
 				P.ownrank = idcard.rank
 				P.name = "Integrated PDA-[P.owner] ([P.ownjob])"
-				to_chat(owner, "<span class='notice'>Card scanned.</span>")
+				to_chat(owner, SPAN_NOTICE("Card scanned."))
 				P.try_sort_pda_list()
 			else
-				to_chat(owner, "<span class='notice'>No ID data loaded. Please hold your ID to be scanned.</span>")
+				to_chat(owner, SPAN_NOTICE("No ID data loaded. Please hold your ID to be scanned."))
 				return
 
 		P.attack_self(user)
 	return
+
+/obj/item/organ/internal/augment/pda/emp_act(severity)
+	..()
+	if(P)
+		P = null
+		qdel(P)
+		if(owner)
+			if(owner.can_feel_pain())
+				to_chat(owner, SPAN_DANGER("You feel something burn inside your head!"))
+
 
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
@@ -126,27 +140,27 @@
 		if(!deployed)
 			if(!deployment_location)
 				if(owner.get_active_hand())
-					to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
+					to_chat(owner, SPAN_DANGER("You must empty your active hand before enabling your [src]!"))
 					return
 
 				owner.last_special = world.time + cooldown
 				owner.put_in_active_hand(augment)
-				owner.visible_message("<span class='notice'>\The [augment] slides out of \the [owner]'s [src.loc].</span>","<span class='notice'>You deploy \the [augment]!</span>")
+				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc].","You deploy \the [augment]!"))
 				deployed = TRUE
 
 			else
 				if(!owner.equip_to_slot_if_possible(augment, deployment_location))
-					to_chat(owner, "<span class='danger'>You must remove your [deployment_string] before enabling your [src]!</span>")
+					to_chat(owner, SPAN_DANGER("You must remove your [deployment_string] before enabling your [src]!"))
 					return
 
 				owner.last_special = world.time + cooldown
-				owner.visible_message("<span class='notice'>\The [augment] slides out of \the [owner]'s [src.loc].</span>","<span class='notice'>You deploy \the [augment]!</span>")
+				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc].","You deploy \the [augment]!")
 				deployed = TRUE
 
 		else
 			owner.last_special = world.time + cooldown
 			augment.forceMove(src)
-			owner.visible_message("<span class='notice'>\The [augment] slides into \the [owner]'s [src.loc].</span>","<span class='notice'>You retract \the [augment]!</span>")
+			owner.visible_message(SPAN_NOTICE("\The [augment] slides into \the [owner]'s [src.loc].","You retract \the [augment]!")
 			deployed = FALSE
 
 /obj/item/organ/internal/augment/tool/combitool
@@ -170,6 +184,7 @@
 	name = "tesla spine"
 	icon_state = "tesla_spine"
 	organ_tag = "tesla_spine"
+	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
 	var/max_charges = 1
 	var/actual_charges = 0
 	var/recharge_time = 2 //this is in minutes
@@ -188,7 +203,7 @@
 
 /obj/item/organ/internal/augment/tesla/proc/do_tesla_act()
 	if(owner)
-		to_chat(owner, "<span class='danger'>You feel your \the [src] surge with energy!</span>")
+		to_chat(owner, SPAN_DANGER("You feel your \the [src] surge with energy!"))
 		spark(get_turf(owner), 3)
 		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
 		if(is_bruised())

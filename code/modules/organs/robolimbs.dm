@@ -94,3 +94,9 @@ var/global/datum/robolimb/basic_robolimb
 	paintable = 1
 	brute_mod = 1
 	burn_mod = 1
+
+/datum/robolimb/tesla
+	company = PROSTHETIC_TESLA
+	desc = "A limb designed to be used by the People's Republic of Adhomai Tesla Brigade. This civillian version is issued to disable veterans and civillians."
+	icon = 'icons/mob/human_races/tajara/tesla_limbs.dmi'
+	species_can_use = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara",)

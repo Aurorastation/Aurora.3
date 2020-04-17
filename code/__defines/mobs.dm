@@ -111,6 +111,11 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
+//Augment organs
+#define BP_AUG_TIMEPIECE    "integrated timepiece"
+#define BP_AUG_PDA          "integrated pda"
+
+
 //Organ defines
 #define PROCESS_ACCURACY 10
 #define DEFAULT_BLOOD_AMOUNT 560 //Default blood amount in units
@@ -304,6 +309,7 @@
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
+#define PROSTHETIC_TESLA "Tesla Integrated Limb"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

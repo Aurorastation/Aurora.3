@@ -509,10 +509,10 @@
 	if (shock_damage<1)
 		return 0
 
-	var/obj/item/organ/internal/augment/tesla/T = src.internal_organs_by_name["tesla_spine"]
-	if(T)
-		if(T.check_shock())
-			T.actual_charges = min(T.actual_charges+1, T.max_charges)
+	var/obj/item/organ/internal/augment/tesla/tesla = src.internal_organs_by_name["tesla_spine"]
+	if(tesla)
+		if(tesla.check_shock())
+			tesla.actual_charges = min(tesla.actual_charges+1, tesla.max_charges)
 			return
 
 	if(!def_zone)
