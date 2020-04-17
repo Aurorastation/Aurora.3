@@ -145,7 +145,7 @@
 
 				owner.last_special = world.time + cooldown
 				owner.put_in_active_hand(augment)
-				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc].","You deploy \the [augment]!"))
+				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
 				deployed = TRUE
 
 			else
@@ -154,13 +154,13 @@
 					return
 
 				owner.last_special = world.time + cooldown
-				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc].","You deploy \the [augment]!")
+				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
 				deployed = TRUE
 
 		else
 			owner.last_special = world.time + cooldown
 			augment.forceMove(src)
-			owner.visible_message(SPAN_NOTICE("\The [augment] slides into \the [owner]'s [src.loc].","You retract \the [augment]!")
+			owner.visible_message(SPAN_NOTICE("\The [augment] slides into \the [owner]'s [src.loc]."), SPAN_NOTICE("You retract \the [augment]!"))
 			deployed = FALSE
 
 /obj/item/organ/internal/augment/tool/combitool
