@@ -122,6 +122,11 @@
 #define BP_AUG_TESLA_ADV    "advanced tesla spine"
 #define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
 #define BP_AUG_HAIR         "synthetic hair extensions"
+#define BP_AUG_SUSPENSION   "calf suspension"
+#define BP_AUG_TASTE_BOOSTER   "taste booster"
+#define BP_AUG_RADIO        "integrated radio"
+#define BP_AUG_FUEL_CELL    "integrated fuel cell"
+#define BP_AUG_AIR_ANALYZER "integrated air analyzer"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

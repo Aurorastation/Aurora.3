@@ -31,12 +31,6 @@
 	path = /obj/item/organ/internal/augment/tool/combitool
 	cost = 5
 
-/datum/gear/augment/health_scanner
-	display_name = "integrated health scanner"
-	description = "A augment that allows the user scan their own health condition."
-	path = /obj/item/organ/internal/augment/health_scanner
-	cost = 3
-
 /datum/gear/augment/pen
 	display_name = "retractable combipen"
 	description = "A augment that allows the user to deploy a simple combipen."
@@ -48,6 +42,12 @@
 	description = "A augment that allows the user to deploy a lighter."
 	path = /obj/item/organ/internal/augment/tool/lighter
 	cost = 2
+
+/datum/gear/augment/health_scanner
+	display_name = "integrated health scanner"
+	description = "A augment that allows the user scan their own health condition."
+	path = /obj/item/organ/internal/augment/health_scanner
+	cost = 3
 
 /datum/gear/augment/telsa_spine
 	display_name = "tesla spine"

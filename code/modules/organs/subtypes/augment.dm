@@ -310,6 +310,7 @@
 	action_button_icon = "cyber_hair"
 	organ_tag = BP_AUG_HAIR
 	activable = TRUE
+	action_button_name = "Activate Synthetic Hair Extensions"
 
 /obj/item/organ/internal/augment/cyber_hair/attack_self(var/mob/user)
 	. = ..()
@@ -318,3 +319,77 @@
 		owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shifts shape and length."))
 		owner.change_appearance(APPEARANCE_ALL_HAIR, owner.loc, owner, check_species_whitelist = 1)
 
+/obj/item/organ/internal/augment/suspension
+	name = "calf suspension"
+	icon_state = "suspension"
+	organ_tag = BP_AUG_SUSPENSION
+	parent_organ = BP_GROIN
+	min_broken_damage = 20
+	max_damage = 20
+	var/suspension_mod = 0.8
+
+/obj/item/organ/internal/augment/suspension/advanced
+	name = "advanced calf suspension"
+	min_broken_damage = 50
+	max_damage = 50
+	suspension_mod = 0
+
+/obj/item/organ/internal/augment/taste_booster
+	name = "taste booster"
+	organ_tag = BP_AUG_TASTE_BOOSTER
+	parent_organ = BP_HEAD
+	var/new_taste = TASTE_SENSITIVE //this will replace the species' taste var
+
+/obj/item/organ/internal/augment/taste_booster/dull
+	name = "taste duller"
+	new_taste = TASTE_DULL
+
+/obj/item/organ/internal/augment/radio
+	name = "integrated radio"
+	organ_tag = BP_AUG_RADIO
+	parent_organ = BP_HEAD
+	action_button_icon = "radio"
+	activable = TRUE
+	cooldown = 15
+	action_button_name = "Activate Integrated Radio"
+	var/obj/item/device/radio/off/P
+
+/obj/item/organ/internal/augment/radio/Initialize()
+	. = ..()
+	if(!P)
+		P = new /obj/item/device/radio/off (src)
+		P.canremove = 0
+
+/obj/item/organ/internal/augment/radio/attack_self(var/mob/user)
+	. = ..()
+	if(.)
+		if(P)
+			P.attack_self(user)
+	return
+
+/obj/item/organ/internal/augment/radio/emp_act(severity)
+	..()
+	if(P)
+		P = null
+		qdel(P)
+		if(owner)
+			if(owner.can_feel_pain())
+				to_chat(owner, SPAN_DANGER("You feel something burn inside your head!"))
+
+/obj/item/organ/internal/augment/fuel_cell
+	name = "integrated fuel cell"
+	organ_tag = BP_AUG_FUEL_CELL
+	parent_organ = BP_HEAD
+
+
+/obj/item/organ/internal/augment/air_analyzer
+	name = "integrated air analyzer"
+	organ_tag = BP_AUG_AIR_ANALYZER
+	parent_organ = BP_HEAD
+	action_button_icon = "atmos"
+	action_button_name = "Activate Air Analyzer"
+
+/obj/item/organ/internal/augment/air_analyzer/attack_self(var/mob/user)
+	. = ..()
+	if(.)
+		analyze_gases(src, user)
