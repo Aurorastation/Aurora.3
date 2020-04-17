@@ -1,5 +1,5 @@
 /datum/job/cmo
-	title = "Head Doctor"
+	title = "Head Physician"
 	flag = CMO
 	head_position = 1
 	department = "Medical"
@@ -29,7 +29,7 @@
 	blacklisted_species = list("Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/cmo
-	name = "Head Doctor"
+	name = "Head Physician"
 	jobtype = /datum/job/cmo
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
@@ -53,7 +53,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 3
-	supervisors = "the clinic doctor"
+	supervisors = "the head doctor"
 	selection_color = "#FF97D1"
 	economic_modifier = 7
 

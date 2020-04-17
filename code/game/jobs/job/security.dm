@@ -68,7 +68,7 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 3
-	spawn_positions = 1
+	spawn_positions = 3
 	supervisors = "the ranger lieutenant"
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
@@ -217,7 +217,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 4
-	supervisors = "the security lead"
+	supervisors = "the operations manager"
 	selection_color = "#FFA4A4"
 	economic_modifier = 4
 
