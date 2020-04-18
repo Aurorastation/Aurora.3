@@ -37,8 +37,14 @@
 		to_chat(user, SPAN_WARNING("\The [aug] is not compatible with \the [H]'s body."))
 		return
 
+	if(H.internal_organs_by_name[aug.organ_tag])
+		to_chat(user, SPAN_WARNING("\The [H] already has one [aug]."))
+		return
+
 	aug.replaced(H, aug.parent_organ)
 	H.update_body()
+	H.updatehealth()
+	H.UpdateDamageIcon()
 	aug = null
 
 	user.visible_message(SPAN_DANGER("\The [user] thrusts \the [src] deep into \the [H], injecting something!"))
