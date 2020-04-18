@@ -91,7 +91,7 @@
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
-	blood_color = "#97dd7c"
+	blood_color = COLOR_DIONA_BLOOD
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA

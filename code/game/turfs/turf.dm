@@ -34,6 +34,11 @@
 
 	var/movement_cost = 0 // How much the turf slows down movement, if any.
 
+	// Footprint info
+	var/does_footprint = FALSE
+	var/footprint_color // The hex color produced by the turf
+	var/track_distance = 12 // How far the tracks last
+
 	//Mining resources (for the large drills).
 	var/has_resources
 	var/list/resources
@@ -210,6 +215,33 @@ var/const/enterloopsanity = 100
 		else if (type != /turf/space)
 			M.inertia_dir = 0
 			M.make_floating(0)
+
+	if(does_footprint && footprint_color && ishuman(AM))
+		var/mob/living/carbon/human/H = AM
+		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
+		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
+		var/has_feet = TRUE
+		if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
+			has_feet = FALSE
+		if(!H.buckled && !H.lying && has_feet)
+			if(H.shoes) //Adding ash to shoes
+				var/obj/item/clothing/shoes/S = H.shoes
+				if(istype(S))
+					S.blood_color = footprint_color
+					S.track_footprint = max(track_distance, S.track_footprint)
+
+					if(!S.blood_overlay)
+						S.generate_blood_overlay()
+					if(S.blood_overlay?.color != footprint_color)
+						S.cut_overlay(S.blood_overlay, TRUE)
+
+					S.blood_overlay.color = footprint_color
+					S.add_overlay(S.blood_overlay, TRUE)
+			else
+				H.footprint_color = footprint_color
+				H.track_footprint = max(track_distance, H.track_footprint)
+
+		H.update_inv_shoes(TRUE)
 
 	..()
 
