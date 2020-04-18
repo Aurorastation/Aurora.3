@@ -47,3 +47,7 @@
 
 /obj/item/device/augment_implanter/advanced_tesla
 	augument_type = /obj/item/organ/internal/augment/tesla/advanced
+
+/obj/item/device/augment_implanter/advanced_suspension
+	augument_type =	/obj/item/organ/internal/augment/suspension/advanced
+
