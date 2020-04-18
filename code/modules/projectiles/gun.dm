@@ -395,13 +395,13 @@
 			if(reflex)
 				user.visible_message(
 					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
-					SPAN_DANGER("You fire \the [src] by reflex!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!"),
 					"You hear a [fire_sound_text]!"
 				)
 			else
 				user.visible_message(
 					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
-					SPAN_DANGER("You fire \the [src]!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
 					"You hear a [fire_sound_text]!"
 				)
 
