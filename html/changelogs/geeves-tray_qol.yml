@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "You can now remove individual items from a tray by having it in one hand, and clicking it with the other empty hand."
-  - rscadd: "The sprites on trays are now randomly spread out instead of just going into the centre."
