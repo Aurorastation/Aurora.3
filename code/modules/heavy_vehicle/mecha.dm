@@ -137,9 +137,8 @@
 			var/obj/item/mech_component/manipulators/M = thing
 			if(!M.motivator || !M.motivator.is_functional())
 				damage_string = SPAN_DANGER("disabled")
-		if(istype(thing, /obj/item/mech_component/chassis))
-			if(body.total_damage == body.max_damage)
-				damage_string = SPAN_DANGER("torn open")
+		if(istype(thing, /obj/item/mech_component/chassis) && body.total_damage == body.max_damage)
+			damage_string = SPAN_DANGER("torn open")
 		if(!damage_string)
 			switch(thing.damage_state)
 				if(1)
