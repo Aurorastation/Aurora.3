@@ -399,7 +399,6 @@
 					"You hear a [fire_sound_text]!"
 				)
 			else
-				world << pointblank
 				user.visible_message(
 					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
 					SPAN_DANGER("You fire \the [src]!"),
