@@ -228,7 +228,8 @@
 
 
 /obj/item/tray/proc/load_item(var/obj/item/I, var/mob/user)
-	user.drop_from_inventory(I, src)
+	user.remove_from_mob(I) // these two lines need to stay for borgcode trays to work i hate it i hate it - geeves
+	I.forceMove(src)
 	current_weight += I.w_class
 	carrying += I
 	var/mutable_appearance/MA = new(I)
