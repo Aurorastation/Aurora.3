@@ -271,7 +271,7 @@
 			anchored = !anchored
 		return
 	else if(state != 2 && (istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda) || istype(W, /obj/item/modular_computer) || istype(W, /obj/item/card/tech_support)))
-		to_chat(user, SPAN_WARNING("\The [src] isn't in the payment mode yet!"))
+		to_chat(user, SPAN_WARNING("\The [src]'s ID Scan slot isn't open yet!"))
 		return
 	else if(state == 2) // awaiting payment state
 		if(istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda) || istype(W, /obj/item/modular_computer))
