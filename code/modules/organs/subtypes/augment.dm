@@ -78,7 +78,7 @@
 			to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()]."))
 
 /obj/item/organ/internal/augment/pda
-	name = "integrated pda"
+	name = "integrated PDA"
 	icon_state = "augment-pda"
 	parent_organ = BP_HEAD
 	action_button_name = "Activate Integrated PDA"
@@ -122,7 +122,9 @@
 		if(owner)
 			if(owner.can_feel_pain())
 				to_chat(owner, SPAN_DANGER("You feel something burn inside your head!"))
-
+				var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
+				if(O)
+					O.add_pain(30)
 
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
@@ -382,6 +384,9 @@
 		if(owner)
 			if(owner.can_feel_pain())
 				to_chat(owner, SPAN_DANGER("You feel something burn inside your head!"))
+				var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
+				if(O)
+					O.add_pain(30)
 
 /obj/item/organ/internal/augment/fuel_cell
 	name = "integrated fuel cell"

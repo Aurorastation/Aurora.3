@@ -7,23 +7,23 @@
 	icon_state = "decloner"
 	item_state = "decloner"
 	contained_sprite = TRUE
-	var/obj/item/organ/aug = null
-	var/augument_type
+	var/obj/item/organ/augment_type = null
 
 /obj/item/device/augment_implanter/Initialize()
 	. = ..()
-	if(!aug && augument_type)
-		aug = new augument_type(src)
+	if(!augment_type)
+		augment_type = new augment_type(src)
 
 /obj/item/device/augment_implanter/examine(mob/user)
 	..(user)
-	if(aug)
-		to_chat(user, "\The [aug] can be seen floating inside \the [src]'s biogel.")
+	if(augment_type)
+		to_chat(user, "\The [augment_type] can be seen floating inside \the [src]'s biogel.")
 
 /obj/item/device/augment_implanter/afterattack(var/mob/living/L, var/mob/user, proximity)
-	if(!proximity) return
+	if(!proximity)
+		return
 
-	if(!aug)
+	if(!augment_type)
 		to_chat(user, SPAN_WARNING("\The [src] is empty!"))
 		return
 
@@ -33,27 +33,28 @@
 
 	var/mob/living/carbon/human/H = L
 
-	if(!H.species.name in aug.species_restricted)
-		to_chat(user, SPAN_WARNING("\The [aug] is not compatible with \the [H]'s body."))
+	if(!H.species.name in augment_type.species_restricted)
+		to_chat(user, SPAN_WARNING("\The [augment_type] is not compatible with \the [H]'s body."))
 		return
 
-	if(H.internal_organs_by_name[aug.organ_tag])
-		to_chat(user, SPAN_WARNING("\The [H] already has one [aug]."))
+	if(H.internal_organs_by_name[augment_type.organ_tag])
+		to_chat(user, SPAN_WARNING("\The [H] already has one [augment_type]."))
 		return
 
-	aug.replaced(H, aug.parent_organ)
+	if(!do_mob(user, H, 4 SECONDS))
+		return
+
+	augment_type.replaced(H, augment_type.parent_organ)
 	H.update_body()
 	H.updatehealth()
 	H.UpdateDamageIcon()
-	aug = null
+	augment_type = null
 
 	user.visible_message(SPAN_DANGER("\The [user] thrusts \the [src] deep into \the [H], injecting something!"))
 
-	return
-
 /obj/item/device/augment_implanter/advanced_tesla
-	augument_type = /obj/item/organ/internal/augment/tesla/advanced
+	augment_type = /obj/item/organ/internal/augment/tesla/advanced
 
 /obj/item/device/augment_implanter/advanced_suspension
-	augument_type =	/obj/item/organ/internal/augment/suspension/advanced
+	augment_type =	/obj/item/organ/internal/augment/suspension/advanced
 

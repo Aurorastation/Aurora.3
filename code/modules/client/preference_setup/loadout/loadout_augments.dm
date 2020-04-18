@@ -1,6 +1,6 @@
 /datum/gear/augment
-	display_name = "integrated pda"
-	description = "An augment that allows the user to access a remote pda system."
+	display_name = "integrated PDA"
+	description = "An augment that allows the user to access a remote PDA system."
 	path = /obj/item/organ/internal/augment/pda
 	augment = TRUE
 	cost = 3
@@ -27,25 +27,25 @@
 
 /datum/gear/augment/combitool
 	display_name = "retractable combitool"
-	description = "A augment that allows the user to deploy a robotic combitool."
+	description = "An augment that allows the user to deploy a robotic combitool."
 	path = /obj/item/organ/internal/augment/tool/combitool
 	cost = 5
 
 /datum/gear/augment/pen
 	display_name = "retractable combipen"
-	description = "A augment that allows the user to deploy a simple combipen."
+	description = "An augment that allows the user to deploy a simple combipen."
 	path = /obj/item/organ/internal/augment/tool/pen
 	cost = 2
 
 /datum/gear/augment/lighter
 	display_name = "retractable lighter"
-	description = "A augment that allows the user to deploy a lighter."
+	description = "An augment that allows the user to deploy a lighter."
 	path = /obj/item/organ/internal/augment/tool/lighter
 	cost = 2
 
 /datum/gear/augment/health_scanner
 	display_name = "integrated health scanner"
-	description = "A augment that allows the user scan their own health condition."
+	description = "An augment that allows the user scan their own health condition."
 	path = /obj/item/organ/internal/augment/health_scanner
 	cost = 3
 
