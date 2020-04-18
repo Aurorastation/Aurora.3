@@ -394,16 +394,17 @@
 		if (playemote)
 			if(reflex)
 				user.visible_message(
-					span("reflex_shoot","<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!</b>"),
-					span("reflex_shoot", "You fire \the [src] by reflex!"),
+					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("You fire \the [src] by reflex!"),
 					"You hear a [fire_sound_text]!"
-					)
+				)
 			else
+				world << pointblank
 				user.visible_message(
-					span("danger","\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!"),
-					span("warning","You fire \the [src]!"),
+					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
+					SPAN_DANGER("You fire \the [src]!"),
 					"You hear a [fire_sound_text]!"
-					)
+				)
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
