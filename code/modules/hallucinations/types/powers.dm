@@ -59,6 +59,10 @@
 		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
 		return
 
+	if(chem_effects[CE_HALLUCINATE] < 0)
+		to_chat(usr, SPAN_WARNING("Chemicals in your blood are disrupting your powers!"))
+		return
+
 	var/list/creatures = list()
 	for(var/mob/living/C in oview(usr))
 		creatures += C
@@ -141,6 +145,10 @@
 
 	if(use_check_and_message(usr))
 		to_chat(usr, SPAN_WARNING("You're not in any state to use your powers right now!"))
+		return
+
+	if(chem_effects[CE_HALLUCINATE] < 0)
+		to_chat(usr, SPAN_WARNING("Chemicals in your blood are disrupting your powers!"))
 		return
 
 	var/list/creatures = list()

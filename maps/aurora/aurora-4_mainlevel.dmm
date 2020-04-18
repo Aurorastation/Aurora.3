@@ -8933,7 +8933,7 @@
 /obj/machinery/door/window/southleft{
 	dir = 4;
 	icon_state = "left";
-	name = "Atmospheric Hardsuits";
+	name = "Atmospheric Voidsuits";
 	req_access = list(24)
 	},
 /obj/item/clothing/shoes/magboots,
@@ -9665,7 +9665,7 @@
 /obj/machinery/door/window/southleft{
 	dir = 4;
 	icon_state = "left";
-	name = "Atmospheric Hardsuits";
+	name = "Atmospheric Voidsuits";
 	req_access = list(24)
 	},
 /obj/item/clothing/shoes/magboots,
@@ -26222,11 +26222,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/device/radio/intercom{
-	frequency = 1459;
-	pixel_x = 0;
-	pixel_y = -27
-	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
@@ -34207,7 +34202,7 @@
 	icon_state = "alarm0";
 	pixel_y = -28
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "beV" = (
@@ -34983,6 +34978,14 @@
 /obj/item/hand_labeler,
 /obj/item/stack/wrapping_paper,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/paper_bin{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_x = -4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bgk" = (
@@ -40425,6 +40428,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/chair/office/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bpw" = (
@@ -41085,10 +41089,6 @@
 	req_access = list(66)
 	},
 /obj/structure/table/standard,
-/obj/item/paper_bin{
-	pixel_x = -1;
-	pixel_y = 7
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
@@ -43927,6 +43927,7 @@
 	icon_state = "wide_corner";
 	dir = 5
 	},
+/obj/item/storage/box/bodybags,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
 "bws" = (
@@ -46488,25 +46489,22 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bBf" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Cryogenics Control";
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/power/apc/high{
 	dir = 8;
-	icon_state = "map"
+	icon_state = "apc0";
+	name = "west bump";
+	pixel_x = -24
 	},
+/obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "bBg" = (
-/obj/machinery/atmospherics/unary/freezer{
-	dir = 8;
-	icon_state = "freezer"
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/medical/cryo)
@@ -46837,22 +46835,10 @@
 	dir = 8;
 	icon_state = "map"
 	},
-/obj/item/wrench,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "bBS" = (
-/obj/machinery/atmospherics/unary/freezer{
-	dir = 8;
-	icon_state = "freezer"
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "bBT" = (
@@ -47355,11 +47341,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bCR" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
 	icon_state = "map"
@@ -47367,18 +47348,9 @@
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "bCS" = (
-/obj/machinery/power/apc/high{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1;
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/medical/cryo)
@@ -47791,10 +47763,11 @@
 /turf/simulated/floor/tiled/ramp,
 /area/crew_quarters/sleep/main)
 "bDJ" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+/obj/machinery/atmospherics/unary/freezer{
+	dir = 1;
+	icon_state = "freezer"
 	},
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "bDL" = (
@@ -50468,6 +50441,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/wood,
 /area/library)
 "bJJ" = (
@@ -57013,16 +56987,8 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bZp" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/table/standard,
-/obj/item/paper_bin{
-	pixel_x = -3;
-	pixel_y = 7
-	},
-/obj/item/pen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bZq" = (
@@ -57036,6 +57002,7 @@
 /area/hallway/primary/aft)
 "bZr" = (
 /obj/machinery/vending/cola,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bZs" = (
@@ -57295,14 +57262,11 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bZQ" = (
-/obj/structure/table/standard,
 /obj/structure/noticeboard{
 	pixel_x = -32
 	},
-/obj/item/stack/wrapping_paper,
-/obj/item/stack/wrapping_paper,
-/obj/item/stack/wrapping_paper,
-/obj/item/stack/wrapping_paper,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bZR" = (
@@ -57633,6 +57597,17 @@
 	dir = 4;
 	icon_state = "alarm0";
 	pixel_x = -28
+	},
+/obj/item/stack/wrapping_paper,
+/obj/item/stack/wrapping_paper,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/pen,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -62527,10 +62502,6 @@
 /obj/structure/grille/broken,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"dyG" = (
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/aft)
 "dyX" = (
 /obj/structure/toilet,
 /obj/machinery/light/small{
@@ -62660,6 +62631,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "dJe" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/medical/cryo)
 "dKk" = (
@@ -63459,6 +63433,14 @@
 	},
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
+"fNI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/item/wrench,
+/turf/simulated/floor/plating,
+/area/medical/cryo)
 "fNM" = (
 /obj/structure/table/standard,
 /obj/item/tape_roll,
@@ -63686,11 +63668,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"gpK" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/plating,
-/area/maintenance/bar)
 "grF" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
@@ -68426,6 +68403,17 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"rtt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Cryogenics Control";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/medical/cryo)
 "rut" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/mining{
@@ -69795,6 +69783,15 @@
 /obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"ucY" = (
+/obj/machinery/atmospherics/unary/freezer{
+	dir = 1;
+	icon_state = "freezer"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/medical/cryo)
 "udn" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -70806,6 +70803,7 @@
 /area/maintenance/research_port)
 "wkb" = (
 /obj/machinery/vending/snack,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "wlr" = (
@@ -99661,7 +99659,7 @@ bXS
 bYf
 bYv
 bKM
-dyG
+bLw
 bZp
 bZQ
 cao
@@ -105542,7 +105540,7 @@ bGC
 bEK
 bKe
 enl
-gpK
+bMp
 bMp
 bGC
 eNR
@@ -105792,7 +105790,7 @@ bvv
 bBg
 bBS
 bCS
-bDJ
+ucY
 bEK
 bFG
 bGC
@@ -106047,9 +106045,9 @@ bxJ
 aWn
 bvv
 dJe
-dJe
-dJe
-dJe
+fNI
+rtt
+bDJ
 bEK
 bFH
 bGD

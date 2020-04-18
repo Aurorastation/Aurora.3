@@ -50,7 +50,7 @@
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
-	jackets["leather coat"] = /obj/item/clothing/suit/leathercoat
+	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
 
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
 

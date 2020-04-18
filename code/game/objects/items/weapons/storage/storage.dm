@@ -52,29 +52,29 @@
 	QDEL_NULL(closer)
 	return ..()
 
-/obj/item/storage/MouseDrop(obj/over_object as obj)
-
+/obj/item/storage/MouseDrop(obj/over_object)
 	if(!canremove)
 		return
-
-	if (ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
-
+	if(!over_object || over_object == src)
+		return
+	if(istype(over_object, /obj/screen/inventory))
+		var/obj/screen/inventory/S = over_object
+		if(S.slot_id == src.equip_slot)
+			return
+	if(ishuman(usr) || issmall(usr)) //so monkeys can take off their backpacks -- Urist
 		if(over_object == usr && Adjacent(usr)) // this must come before the screen objects only block
 			src.open(usr)
 			return
-
-		if (!( istype(over_object, /obj/screen) ))
+		if(!(istype(over_object, /obj/screen)))
 			return ..()
 
 		//makes sure that the storage is equipped, so that we can't drag it into our hand from miles away.
 		//there's got to be a better way of doing this.
-		if (!(src.loc == usr) || (src.loc && src.loc.loc == usr))
+		if(!(src.loc == usr) || (src.loc && src.loc.loc == usr))
 			return
-
-		if (( usr.restrained() ) || ( usr.stat ))
+		if(use_check_and_message(usr))
 			return
-
-		if ((src.loc == usr) && !usr.unEquip(src))
+		if((src.loc == usr) && !usr.unEquip(src))
 			return
 
 		switch(over_object.name)
@@ -85,7 +85,6 @@
 				usr.u_equip(src)
 				usr.put_in_l_hand(src,FALSE)
 		src.add_fingerprint(usr)
-
 
 /obj/item/storage/proc/return_inv()
 	. = contents.Copy()

@@ -35,9 +35,13 @@
 
 /obj/item/device/flashlight/lantern
 	name = "lantern"
+	desc = "A mining lantern."
 	icon_state = "lantern"
 	item_state = "lantern"
-	desc = "A mining lantern."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	light_power = 1
 	brightness_on = 6
 	light_wedge = LIGHT_OMNI
@@ -49,12 +53,16 @@
 	name = "pickaxe"
 	desc = "The most basic of mining implements. Surely this is a joke?"
 	icon = 'icons/obj/tools.dmi'
+	icon_state = "pickaxe"
+	item_state = "pickaxe"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
 	force = 10.0
-	icon_state = "pickaxe"
-	item_state = "pickaxe"
 	w_class = 4.0
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
@@ -224,8 +232,8 @@
 
 /obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
-	icon_state = "handdrill"
-	item_state = "jackhammer"
+	icon_state = "miningdrill"
+	item_state = "miningdrill"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
 	desc = "Yours is the drill that will pierce through the rock walls."
 	drill_verb = "drilling"
@@ -287,7 +295,7 @@
 /obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
 	icon_state = "diamonddrill"
-	item_state = "jackhammer"
+	item_state = "diamonddrill"
 	digspeed = 3 //Digs through walls, girders, and can dig up sand
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 4, TECH_ENGINEERING = 5)
 	desc = "Yours is the drill that will pierce the heavens!"
@@ -327,12 +335,16 @@
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	icon_state = "shovel"
+	item_state = "shovel"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 8.0
 	throwforce = 4.0
-	item_state = "shovel"
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)

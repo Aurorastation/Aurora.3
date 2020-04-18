@@ -383,8 +383,8 @@ Command action procs
 		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
 
-	if(world.time < 6000) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
-		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again.")
+	if(world.time < config.time_to_call_emergency_shuttle)
+		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again.")
 		return 0
 
 	if(emergency_shuttle.going_to_centcom())

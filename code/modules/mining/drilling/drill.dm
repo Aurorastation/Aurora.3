@@ -18,6 +18,8 @@
 	var/list/supports = list()
 	var/supported = FALSE
 	var/active = FALSE
+	var/current_error
+	
 	var/list/resource_field = list()
 
 	var/ore_types = list(
@@ -153,6 +155,7 @@
 	else
 		active = FALSE
 		need_player_check = TRUE
+		system_error("Resource field depleted.")
 		update_icon()
 
 /obj/machinery/mining/drill/examine(mob/user)
@@ -163,9 +166,12 @@
 		to_chat(user, "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"].")
 	if(panel_open)
 		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
-	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%")
-	if(attached_satchel && user.Adjacent(src))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
+	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%.")
+	if(user.Adjacent(src))
+		if(attached_satchel)
+			to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
+		if(current_error)
+			to_chat(user, FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\".")))
 	return
 
 /obj/machinery/mining/drill/proc/activate_light(var/lights = DRILL_LIGHT_IDLE)
@@ -206,16 +212,22 @@
 		user.drop_from_inventory(S, src)
 		attached_satchel = S
 		to_chat(user, SPAN_NOTICE("You attach \the [S] to \the [src]."))
+		for(var/obj/item/ore/ore in src) // takes ore currently in the drill and beams it away
+			attached_satchel.insert_into_storage(ore)
 		return
 
 	if(O.iswrench())
 		if(!attached_satchel)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
 			return
-		attached_satchel.forceMove(get_turf(user))
-		user.put_in_hands(attached_satchel)
-		to_chat(user, SPAN_NOTICE("You detach \the [attached_satchel]."))
-		attached_satchel = null
+		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [attached_satchel]."), SPAN_NOTICE("You start detaching \the [attached_satchel]."))
+		if(do_after(user, 30, TRUE, src))
+			if(!attached_satchel)
+				return
+			attached_satchel.forceMove(get_turf(user))
+			user.put_in_hands(attached_satchel)
+			user.visible_message(SPAN_NOTICE("\The [user] detaches \the [attached_satchel]."), SPAN_NOTICE("You detach \the [attached_satchel]."))
+			attached_satchel = null
 		return
 
 	if(O.iscrowbar())
@@ -256,6 +268,7 @@
 
 	if(need_player_check)
 		to_chat(user, SPAN_NOTICE("You hit the manual override and reset the drill's error checking."))
+		current_error = null
 		need_player_check = FALSE
 		if(anchored)
 			get_resource_field()
@@ -324,7 +337,7 @@
 	..()
 	harvest_speed = 0
 	capacity = 0
-	charge_use = 50
+	charge_use = 25
 
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismicrolaser(P))
@@ -332,7 +345,7 @@
 		else if(ismatterbin(P))
 			capacity = 200 * P.rating
 		else if(iscapacitor(P))
-			charge_use -= 10 * P.rating
+			charge_use -= 5 * P.rating
 	cell = locate(/obj/item/cell) in component_parts
 
 /obj/machinery/mining/drill/proc/check_supports()
@@ -352,35 +365,30 @@
 
 /obj/machinery/mining/drill/proc/system_error(var/error)
 	if(error)
-		visible_message(SPAN_WARNING("\icon[src] [src.name] flashes a system warning: [error]"))
+		visible_message(SPAN_WARNING("\icon[src] <b>[capitalize_first_letters(src.name)]</b> flashes a system warning: \"[error]\"."))
+		current_error = error
 		playsound(get_turf(src), 'sound/machines/warning-buzzer.ogg', 100, 1)
 	need_player_check = TRUE
 	active = FALSE
 	update_icon()
 
 /obj/machinery/mining/drill/proc/get_resource_field()
-
 	resource_field = list()
 	need_update_field = FALSE
 
 	var/turf/T = get_turf(src)
-	if(!istype(T)) 
+	if(!istype(T))
 		return
 
-	var/tx = T.x - 2
-	var/ty = T.y - 2
-	var/turf/mine_turf
-	for(var/iy = 0,iy < 5, iy++)
-		for(var/ix = 0, ix < 5, ix++)
-			mine_turf = locate(tx + ix, ty + iy, T.z)
-			if(mine_turf && mine_turf.has_resources)
-				resource_field += mine_turf
+	for(var/turf/mine_turf in block(locate(src.x + 2, src.y + 2, src.z), locate(src.x - 2, src.y - 2, src.z)))
+		if(mine_turf?.has_resources)
+			resource_field += mine_turf
 
 	if(!length(resource_field))
 		system_error("Resources depleted.")
 
 /obj/machinery/mining/drill/proc/use_cell_power()
-	if(!cell) 
+	if(!cell)
 		return FALSE
 	if(cell.charge >= charge_use)
 		cell.use(charge_use)
@@ -403,7 +411,7 @@
 	else
 		for(var/obj/item/ore/O in contents)
 			O.forceMove(get_turf(src))
-		to_chat(usr, SPAN_NOTICE("You spill the contents of \the [src]'s storage box all over the ground"))
+		to_chat(usr, SPAN_NOTICE("You spill the contents of \the [src]'s storage box all over the ground."))
 
 
 /obj/machinery/mining/brace
@@ -471,6 +479,11 @@
 
 		playsound(get_turf(src), W.usesound, 100, 1)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the brace."))
+
+		for(var/angle in cardinal) // make it face any drill in cardinal direction from it
+			if(locate(/obj/machinery/mining/drill) in get_step(src, angle))
+				src.dir = angle
+				break
 
 		anchored = !anchored
 		if(anchored)

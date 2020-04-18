@@ -304,8 +304,9 @@
 	update_held_icon()
 
 	//update timing
-	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.setMoveCooldown(move_delay)
+	var/delay = min(max(burst_delay+1, fire_delay), DEFAULT_QUICK_COOLDOWN)
+	if(delay)
+		user.setClickCooldown(delay)
 	next_fire_time = world.time + fire_delay
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
@@ -392,14 +393,15 @@
 
 		if(playemote)
 			if(reflex)
-				user.visible_message(SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!"), 
-									SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]":""] by reflex!"),
-									SPAN_DANGER("You hear a [fire_sound_text]!")
+				user.visible_message(
+					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!"),
+					"You hear a [fire_sound_text]!"
 				)
 			else
 				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]":""]"),
+					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
 					"You hear a [fire_sound_text]!"
 				)
 

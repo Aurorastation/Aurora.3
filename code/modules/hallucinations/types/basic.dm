@@ -120,8 +120,6 @@
 	t = replace_characters(t, list("you" = "[firstname]"))	//the list contains items that say "you." This replaces "you" with the hallucinator's first name to sell the fact that the person is doing the emote.
 	to_chat(holder, "<b>[pick(hal_target)]</b> [t]")
 
-/datum/hallucination/paranoia/second	//Just so we get another chance at picking this.
-
 /datum/hallucination/skitter
 	max_power = 60
 

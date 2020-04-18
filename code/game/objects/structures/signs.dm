@@ -426,6 +426,25 @@
 /obj/item/flag/eridani/l
 	flag_size = 1
 
+/obj/structure/sign/flag/coalition
+	name = "Coalition of Colonies flag"
+	desc = "The flag of the diverse Coalition of Colonies."
+	icon_state = "coalition"
+
+/obj/structure/sign/flag/coalition/left
+	icon_state = "coalition_l"
+
+/obj/structure/sign/flag/coalition/right
+	icon_state = "coalition_r"
+
+/obj/item/flag/coalition
+	name = "Coalition of Colonies flag"
+	desc = "The flag of the diverse Coalition of Colonies."
+	flag_path = "coalition"
+
+/obj/item/flag/coalition/l
+	flag_size = 1
+
 /obj/structure/sign/flag/vaurca
 	name = "Sedantis flag"
 	desc = "The emblem of Sedantis on a flag, emblematic of Vaurca longing."
