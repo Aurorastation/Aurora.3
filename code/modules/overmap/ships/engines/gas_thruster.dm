@@ -60,13 +60,8 @@
 	opacity = 1
 	density = 1
 	atmos_canpass = CANPASS_NEVER
-	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_FUEL
 
-	construct_state = /decl/machine_construction/default/panel_closed
-	maximum_component_parts = list(/obj/item/stock_parts = 6)//don't want too many, let upgraded component shine
-	uncreated_component_parts = list(/obj/item/stock_parts/power/apc/buildable = 1)
-
-	use_power = POWER_USE_OFF
+	use_power = 0
 	power_channel = EQUIP
 	idle_power_usage = 21600 //6 Wh per tick for default 2 capacitor. Gives them a reason to turn it off, really to nerf backup battery
 
@@ -119,7 +114,7 @@
 /obj/machinery/atmospherics/unary/engine/power_change()
 	. = ..()
 	if(stat & NOPOWER)
-		update_use_power(POWER_USE_OFF)
+		update_use_power(0)
 
 /obj/machinery/atmospherics/unary/engine/proc/is_on()
 	return use_power && operable() && (next_on < world.time)
@@ -152,7 +147,7 @@
 		return 0
 	if(!check_fuel() || (0 < use_power(charge_per_burn)) || check_blockage())
 		audible_message(src,"<span class='warning'>[src] coughs once and goes silent!</span>")
-		update_use_power(POWER_USE_OFF)
+		update_use_power(0)
 		return 0
 
 	var/datum/gas_mixture/removed = air_contents.remove_ratio(volume_per_burn * thrust_limit / air_contents.volume)

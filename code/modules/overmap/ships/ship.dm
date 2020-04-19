@@ -179,7 +179,7 @@
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
-	var/high_edge = GLOB.using_map.overmap_size - 1
+	var/high_edge = current_map.overmap_size - 1
 
 	if((dir & WEST) && x == low_edge)
 		nx = high_edge

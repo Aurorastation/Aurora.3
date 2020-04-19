@@ -24,8 +24,8 @@
 	if(!src.try_consume_fuel()) //insufficient fuel
 		for(var/area/A in shuttle_area)
 			for(var/mob/living/M in A)
-				M.show_message("<spawn class='warning'>You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?", AUDIBLE_MESSAGE,
-				"<spawn class='warning'>The shuttle shakes but fails to take off.", VISIBLE_MESSAGE)
+				M.show_message("<span class='warning'>You hear the shuttle engines sputter... perhaps it doesn't have enough fuel?", 2,
+				"<span class='warning'>The shuttle shakes but fails to take off.", 1)
 				return 0 //failure!
 	return 1 //sucess, continue with launch
 
