@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Station Blueprints now count asteroid turf as space, this should reduce server crashing when using them."
