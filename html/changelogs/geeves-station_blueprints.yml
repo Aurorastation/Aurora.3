@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - bugfix: "Station Blueprints now count asteroid turf as space, this should reduce server crashing when using them."
+  - bugfix: "Air alarms and APCs now self-destruct when they detect their area as being within a mine or space area."
