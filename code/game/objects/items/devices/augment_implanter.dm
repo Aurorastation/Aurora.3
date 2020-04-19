@@ -33,7 +33,7 @@
 
 	var/mob/living/carbon/human/H = L
 
-	if(!H.species.name in augment_type.species_restricted)
+	if(!(H.species.name in augment_type.species_restricted))
 		to_chat(user, SPAN_WARNING("\The [augment_type] is not compatible with \the [H]'s body."))
 		return
 

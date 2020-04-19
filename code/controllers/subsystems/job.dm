@@ -864,22 +864,22 @@
 
 
 /datum/controller/subsystem/jobs/proc/EquipAugments(mob/living/carbon/human/H, datum/preferences/prefs)
-	Debug("EC/([H]): Entry.")
+	Debug("EA/([H]): Entry.")
 	if (!istype(H))
-		Debug("EC/([H]): Abort: invalid arguments.")
+		Debug("EA/([H]): Abort: invalid arguments.")
 		return FALSE
 
 	var/datum/job/rank = GetJob(H.mind.assigned_role)
 
 	switch (rank.title)
 		if ("AI", "Cyborg")
-			Debug("EC/([H]): Abort: synthetic.")
+			Debug("EA/([H]): Abort: synthetic.")
 			return FALSE
 
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
-			var/permitted
+			var/permitted = FALSE
 			if(G.allowed_roles)
 				for(var/job_name in G.allowed_roles)
 					if(rank.title == job_name)
@@ -906,7 +906,7 @@
 			A.replaced(H, affected)
 			H.update_body()
 
-	Debug("EC/([H]): Complete.")
+	Debug("EA/([H]): Complete.")
 	return TRUE
 
 #undef Debug
