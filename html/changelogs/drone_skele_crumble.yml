@@ -1,5 +1,0 @@
-author: SpaceBaa
-delete-after: True
-changes: 
-  - tweak: "Remains now crumble when touched by robots, or pulled by anyone."
-  - tweak: "Robot remains now degrade into a pool of oil instead of nothing."
