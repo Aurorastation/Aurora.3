@@ -85,6 +85,8 @@
 
 	var/image/hud_damage_image
 
+	var/augment_limit //how many augments you can fit inside this limb
+
 /obj/item/organ/external/proc/invalidate_marking_cache()
 	cached_markings = null
 
@@ -1058,6 +1060,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
 			robotize_type = company
+			augment_limit += 1	//robotic limbs get one extra augment capacity
 
 	dislocated = -1 //TODO, make robotic limbs a separate type, remove snowflake
 	limb_flags &= ~ORGAN_CAN_BREAK

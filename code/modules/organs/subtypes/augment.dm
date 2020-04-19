@@ -129,7 +129,6 @@
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
 	action_button_name = "Deploy Widget"
-	action_button_icon = "augment-tool"
 	cooldown = 250
 	var/augment_type
 	var/obj/item/augment
@@ -178,9 +177,13 @@
 	name = "retractable combitool"
 	icon_state = "augment-tool"
 	action_button_name = "Deploy Combitool"
-	parent_organ = BP_CHEST
+	action_button_icon = "augment-tool"
+	parent_organ = BP_R_HAND
 	organ_tag = BP_AUG_TOOL
 	augment_type = /obj/item/combitool/robotic
+
+/obj/item/organ/internal/augment/tool/combitool/left
+	parent_organ = BP_L_HAND
 
 /obj/item/organ/internal/augment/tool/pen
 	name = "retractable combipen"
@@ -189,6 +192,10 @@
 	organ_tag = BP_AUG_PEN
 	augment_type = /obj/item/pen/multi
 	cooldown = 10
+	parent_organ = BP_R_HAND
+
+/obj/item/organ/internal/augment/tool/pen/left
+	parent_organ = BP_L_HAND
 
 /obj/item/organ/internal/augment/tool/lighter
 	name = "retractable lighter"
@@ -197,6 +204,10 @@
 	organ_tag = BP_AUG_LIGHTER
 	augment_type = /obj/item/flame/lighter/zippo
 	cooldown = 10
+	parent_organ = BP_R_HAND
+
+/obj/item/organ/internal/augment/tool/lighter/left
+	parent_organ = BP_L_HAND
 
 /obj/item/organ/internal/augment/health_scanner
 	name = "integrated health scanner"

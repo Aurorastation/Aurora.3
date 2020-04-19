@@ -9,7 +9,10 @@
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == (affected.encased ? 3 : 2)
+	if(affected.encased)
+		return affected && affected.open == (affected.encased ? 3 : 2)
+	else
+		return affected.augment_limit && affected.open == 2
 
 //////////////////////////////////////////////////////////////////
 //				CHEST INTERNAL ORGAN SURGERY					//
@@ -263,6 +266,19 @@
 		if(O.species_restricted)
 			if(!target.species.name in O.species_restricted)
 				to_chat(user, SPAN_WARNING("\The [O] is not compatible with \the [target]'s biology."))
+				return SURGERY_FAILURE
+
+		if(O.is_augment)
+			if(affected.augment_limit)
+				var/total_augments
+				for(var/obj/item/organ/internal/I in affected.internal_organs)
+					if(I.is_augment)
+						total_augments += 1
+					if(total_augments >= affected.augment_limit)
+						to_chat(user, SPAN_WARNING("There is no space left in \the [affected] to implant \the [O]."))
+						return SURGERY_FAILURE
+			else
+				to_chat(user, SPAN_WARNING("There is no space in \the [affected] to implant \the [O]."))
 				return SURGERY_FAILURE
 
 		if(!target.internal_organs_by_name[O.organ_tag])

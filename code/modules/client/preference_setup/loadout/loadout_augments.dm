@@ -31,17 +31,39 @@
 	path = /obj/item/organ/internal/augment/tool/combitool
 	cost = 5
 
+/datum/gear/augment/combitool/New()
+	..()
+	var/augs = list()
+	augs["retractable combitool, right hand"] = /obj/item/organ/internal/augment/tool/combitool
+	augs["retractable combitool, left hand"] = /obj/item/organ/internal/augment/tool/combitool/left
+	gear_tweaks += new/datum/gear_tweak/path(augs)
+
+
 /datum/gear/augment/pen
 	display_name = "retractable combipen"
 	description = "An augment that allows the user to deploy a simple combipen."
 	path = /obj/item/organ/internal/augment/tool/pen
 	cost = 2
 
+/datum/gear/augment/pen/New()
+	..()
+	var/augs = list()
+	augs["retractable combipen, right hand"] = /obj/item/organ/internal/augment/tool/combitool
+	augs["retractable combipen, left hand"] = /obj/item/organ/internal/augment/tool/pen/left
+	gear_tweaks += new/datum/gear_tweak/path(augs)
+
 /datum/gear/augment/lighter
 	display_name = "retractable lighter"
 	description = "An augment that allows the user to deploy a lighter."
 	path = /obj/item/organ/internal/augment/tool/lighter
 	cost = 2
+
+/datum/gear/augment/lighter/New()
+	..()
+	var/augs = list()
+	augs["retractable lighter, right hand"] = /obj/item/organ/internal/augment/tool/lighter
+	augs["retractable lighter, left hand"] = /obj/item/organ/internal/augment/tool/lighter/left
+	gear_tweaks += new/datum/gear_tweak/path(augs)
 
 /datum/gear/augment/health_scanner
 	display_name = "integrated health scanner"
