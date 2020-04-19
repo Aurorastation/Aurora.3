@@ -37,7 +37,7 @@
 	if (!istype(loc, /turf/simulated/floor))
 		to_chat(usr, "<span class='danger'>\The [src] Alarm cannot be placed on this spot.</span>")
 		return
-	if (A.requires_power == 0 || A.name == "Space")
+	if (A.requires_power == FALSE || istype(A, /area/space) || istype(A, /area/mine))
 		to_chat(usr, "<span class='danger'>\The [src] Alarm cannot be placed in this area.</span>")
 		return
 
