@@ -909,9 +909,9 @@
 					if(A.is_augment)
 						total_augments += 1
 					if(total_augments >= affected.augment_limit)
-						qdel(A)
-					else
-						A.replaced(H, affected)
+						continue
+
+			A.replaced(H, affected)
 			H.update_body()
 
 	Debug("EC/([H]): Complete.")

@@ -155,8 +155,8 @@
 
 				owner.last_special = world.time + cooldown
 				owner.put_in_active_hand(augment)
-				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
 				augment.canremove = FALSE
+				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
 				deployed = TRUE
 
 			else
@@ -164,14 +164,9 @@
 					to_chat(owner, SPAN_DANGER("You must remove your [deployment_string] before enabling your [src]!"))
 					return
 
-				owner.last_special = world.time + cooldown
-				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
-				deployed = TRUE
-
 		else
-			owner.last_special = world.time + cooldown
 			augment.canremove = TRUE
-			augment.forceMove(src)
+			owner.drop_from_inventory(augment, src)
 			owner.visible_message(SPAN_NOTICE("\The [augment] slides into \the [owner]'s [src.loc]."), SPAN_NOTICE("You retract \the [augment]!"))
 			deployed = FALSE
 
