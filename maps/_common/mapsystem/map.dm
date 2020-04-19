@@ -65,6 +65,10 @@
 	var/lobby_icon                         // The icon which contains the lobby image(s)
 	var/list/lobby_screens = list("title") // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
 
+	var/use_overmap = FALSE		//If overmap should be used (including overmap space travel override)
+	var/overmap_size = 20		//Dimensions of overmap zlevel if overmap is used.
+	var/overmap_z = 0		//If 0 will generate overmap zlevel on init. Otherwise will populate the zlevel provided.
+	var/overmap_event_areas = 0 //How many event "clouds" will be generated
 	var/list/map_shuttles = list() // A list of all our shuttles.
 
 /datum/map/New()
@@ -90,6 +94,12 @@
 	if(!candidates.len)
 		return current_z_level
 	return text2num(pickweight(candidates))
+
+/datum/map/proc/get_empty_zlevel()
+	if(empty_levels == null)
+		world.maxz++
+		empty_levels = list(world.maxz)
+	return pick(empty_levels)
 
 /datum/map/proc/setup_shuttles()
 
