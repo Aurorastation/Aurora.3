@@ -185,7 +185,7 @@
 	path = /obj/item/storage/belt/shumaila_buckle
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
-  flags = GEAR_HAS_DESC_SELECTION
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/augment/telsa_spine
 	display_name = "tesla spine"
