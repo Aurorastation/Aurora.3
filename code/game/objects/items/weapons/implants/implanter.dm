@@ -201,9 +201,6 @@
 
 	update()
 
-	var/datum/species/machine/machine = H.species
-	machine.update_tag(H, H.client)
-
 /obj/item/implanter/ipc_tag/attackby(obj/item/I, mob/user)
 	if(I.isscrewdriver())
 		if(!ipc_tag)

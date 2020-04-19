@@ -9,6 +9,10 @@
 	S["species"]    >> pref.species
 	S["spawnpoint"] >> pref.spawnpoint
 	S["OOC_Notes"]  >> pref.metadata
+	if(istype(all_species[pref.species], /datum/species/machine))
+		S["ipc_tag_status"] >> pref.machine_tag_status
+		S["ipc_serial_number"] >> pref.machine_serial_number
+		S["ipc_ownership_status"] >> pref.machine_ownership_status
 
 /datum/category_item/player_setup_item/general/basic/save_character(var/savefile/S)
 	S["real_name"]  << pref.real_name
@@ -17,7 +21,13 @@
 	S["species"]    << pref.species
 	S["spawnpoint"] << pref.spawnpoint
 	S["OOC_Notes"]  << pref.metadata
+	if(istype(all_species[pref.species], /datum/species/machine))
+		S["ipc_tag_status"] << pref.machine_tag_status
+		S["ipc_serial_number"] << pref.machine_serial_number
+		S["ipc_ownership_status"] << pref.machine_ownership_status
 
+// if table_name and pref.var_name is different, then do it like
+// "table_name" = "pref.var_name", as below
 /datum/category_item/player_setup_item/general/basic/gather_load_query()
 	return list(
 		"ss13_characters" = list(
@@ -30,12 +40,22 @@
 				"species"
 			),
 			"args" = list("id")
+		),
+		"ss13_characters_ipc_tags" = list(
+			"vars" = list(
+				"tag_status" = "machine_tag_status",
+				"serial_number" = "machine_serial_number",
+				"ownership_status" = "machine_ownership_status"
+				),
+			"args" = list("id")
 		)
 	)
 
+// Generally, this doesn't USUALLY need changing
 /datum/category_item/player_setup_item/general/basic/gather_load_parameters()
 	return list("id" = pref.current_character)
 
+// Only need to list the SQL table field names here
 /datum/category_item/player_setup_item/general/basic/gather_save_query()
 	return list(
 		"ss13_characters" = list(
@@ -47,6 +67,12 @@
 			"species",
 			"id" = 1,
 			"ckey" = 1
+		),
+		"ss13_characters_ipc_tags" = list(
+			"tag_status",
+			"serial_number",
+			"ownership_status"
+			"id" = 1 // = 1 signifies argument
 		)
 	)
 
@@ -58,6 +84,9 @@
 		"metadata" = pref.metadata,
 		"spawnpoint" = pref.spawnpoint,
 		"species" = pref.species,
+		"tag_status" = pref.machine_tag_status,
+		"serial_number" = pref.machine_serial_number,
+		"ownership_status" = pref.machine_ownership_status,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -85,12 +114,13 @@
 	if(!pref.species || !(pref.species in playable_species))
 		pref.species = "Human"
 
-	pref.age           = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
-	pref.gender        = sanitize_gender(pref.gender, pref.species)
-	pref.real_name     = sanitize_name(pref.real_name, pref.species)
+	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
+	pref.gender             = sanitize_gender(pref.gender, pref.species)
+	pref.real_name          = sanitize_name(pref.real_name, pref.species)
 	if(!pref.real_name)
-		pref.real_name = random_name(pref.gender, pref.species)
-	pref.spawnpoint    = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
+		pref.real_name      = random_name(pref.gender, pref.species)
+	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
+	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
 
 /datum/category_item/player_setup_item/general/basic/content()
 	var/list/dat = list("<b>Name:</b> ")
