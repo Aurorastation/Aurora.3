@@ -911,7 +911,7 @@
 					if(total_augments >= affected.augment_limit)
 						continue
 
-			A.replaced(H, affected)
+				A.replaced(H, affected)
 			H.update_body()
 
 	Debug("EC/([H]): Complete.")

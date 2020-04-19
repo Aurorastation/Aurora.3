@@ -11,6 +11,8 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected.encased)
 		return affected && affected.open == (affected.encased ? 3 : 2)
+	if(BP_IS_ROBOTIC(affected))
+		return affected.augment_limit && affected.open == 3
 	else
 		return affected.augment_limit && affected.open == 2
 
