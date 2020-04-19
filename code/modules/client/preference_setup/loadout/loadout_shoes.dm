@@ -129,9 +129,9 @@
 
 /datum/gear/shoes/slippers/New()
 	..()
-	var/shoes = list()
+	var/slippers = list()
 	slippers["bunny slippers"] = /obj/item/clothing/shoes/slippers
-	slippers["worn bunny slippers"] = /obj/item/clothing/shoes/slippers/worn
+	slippers["worn bunny slippers"] = /obj/item/clothing/shoes/slippers_worn
 	gear_tweaks += new/datum/gear_tweak/path(slippers)
 
 /datum/gear/shoes/clog
