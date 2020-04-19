@@ -48,7 +48,6 @@
 	return
 
 /mob/proc/apply_sting_effects(var/mob/living/carbon/target, var/type, var/strength)
-	world << "Apply sting effect called with [type]."
 	if(!target)
 		return FALSE
 	switch(type)
@@ -63,8 +62,8 @@
 			target.silent += strength
 		if(STING_BLIND)
 			to_chat(target, SPAN_DANGER("Your vision suddenly goes black!"))
-			target.eye_blind = max(target.eye_blind, strength)
-			target.eye_blurry = max(target.eye_blurry, strength / 2)
+			target.eye_blind = max(target.eye_blind, strength / 2)
+			target.eye_blurry = max(target.eye_blurry, strength)
 			if(!(target.disabilities & NEARSIGHTED)) //Don't apply nearsighted if the target already is, or we'll accidentally fix them
 				target.disabilities |= NEARSIGHTED
 				addtimer(CALLBACK(src, .proc/remove_sting_effects, target, type), 300)
@@ -86,7 +85,6 @@
 
 
 /mob/proc/remove_sting_effects(var/mob/living/carbon/target, var/type)
-	world << "Remove sting effects called with [type]"
 	switch(type)
 		if(STING_DEAF)
 			target.sdisabilities &= ~DEAF
@@ -134,7 +132,7 @@
 	set name = "Deaf sting (5)"
 	set desc = "Causes the target to temporarily go deaf."
 
-	var/mob/living/carbon/T = changeling_sting(5, /mob/proc/changeling_deaf_sting, stealthy = FALSE)
+	var/mob/living/carbon/T = changeling_sting(5, /mob/proc/changeling_deaf_sting, stealthy = TRUE)
 	if(!T)
 		return FALSE
 	if(T.sdisabilities & DEAF)

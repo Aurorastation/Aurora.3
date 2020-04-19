@@ -68,8 +68,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 //Restores our verbs. It will only restore verbs allowed during lesser (monkey) form if we are not human
 /mob/proc/make_changeling()
-	world << "Make changeling called"
-
 	if(!mind)
 		return
 	if(!mind.changeling)
@@ -89,7 +87,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		if(!P.genomecost) // Is it free?
 			if(!(P in mind.changeling.purchasedpowers)) // Do we not have it already?
 				mind.changeling.purchasePower(mind, P.name, 0) // Purchase it. Don't remake our verbs, we're doing it after this.
-				world << "Purchased free power [P.name]"
 
 	for(var/datum/power/changeling/P in mind.changeling.purchasedpowers)
 		if(P.isVerb)
@@ -97,7 +94,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 				continue
 			if(!(P in src.verbs))
 				src.verbs += P.verbpath
-				world << "[P.verbpath] added"
 
 	for(var/language in languages)
 		mind.changeling.absorbed_languages |= language
