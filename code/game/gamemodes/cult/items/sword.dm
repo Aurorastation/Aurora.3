@@ -3,7 +3,6 @@
 	desc = "A sword humming with unholy energy. It glows with a dim red light."
 	icon_state = "cultblade"
 	item_state = "cultblade"
-	icon = 'icons/obj/weapons.dmi'
 	w_class = 4
 	force = 30
 	throwforce = 10

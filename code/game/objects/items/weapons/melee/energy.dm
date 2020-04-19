@@ -12,6 +12,10 @@
 	var/base_block_chance = 25
 	var/shield_power = 100
 	var/can_block_bullets = 0
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi'
+		)
 
 /obj/item/melee/energy/proc/activate(mob/living/user)
 	if(active)
@@ -276,13 +280,13 @@
 	slot_flags = SLOT_BELT
 	item_state = "kataphract-esword0"
 	icon_state = "kataphract-esword0"
- 
+
 /obj/item/melee/energy/sword/hegemony/activate(mob/living/user)
 	..()
 	item_state = "kataphract-esword1"
 	icon_state = "kataphract-esword1"
 	to_chat(user, span("notice", "\The [src] is now energised."))
- 
+
 /obj/item/melee/energy/sword/hegemony/deactivate(mob/living/user)
 	..()
 	item_state = initial(item_state)
@@ -310,7 +314,10 @@
 /obj/item/melee/energy/sword/powersword
 	name = "power sword"
 	desc = "For when you really want to ruin someone's day. It is extremely heavy."
-	icon_state = "powerswordoff"
+	icon = 'icons/obj/sword.dmi'
+	icon_state = "runesword0" //same icon, lol
+	item_state = "runesword0"
+	contained_sprite = TRUE
 	base_reflectchance = 65
 	active_force = 40
 	base_block_chance = 65
@@ -319,7 +326,8 @@
 
 /obj/item/melee/energy/sword/powersword/activate(mob/living/user)
 	..()
-	icon_state = "powerswordon"
+	icon_state = "runesword1"
+	item_state = "runesword1"
 
 /obj/item/melee/energy/sword/powersword/attack_self(mob/living/user as mob)
 	..()
