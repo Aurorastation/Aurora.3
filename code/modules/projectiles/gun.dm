@@ -291,7 +291,7 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, i == burst)
+			handle_post_fire(user, target, pointblank, reflex, TRUE)
 			update_icon()
 
 		if(i < burst)
@@ -385,13 +385,13 @@
 	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
-/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
 		playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
 
-		if (playemote)
+		if(playemote)
 			if(reflex)
 				user.visible_message(
 					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
@@ -414,7 +414,7 @@
 
 	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
 		var/mob/living/carbon/human/H = user
-		if(istype(H.back,/obj/item/rig))
+		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
 				S.deactivate()
