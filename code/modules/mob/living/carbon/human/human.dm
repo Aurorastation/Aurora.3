@@ -1284,6 +1284,8 @@
 	//Fix husks
 	mutations.Remove(HUSK)
 	status_flags &= ~DISFIGURED	//Fixes the unknown status
+	if(src.client)
+		SSjobs.EquipAugments(src, src.client.prefs)
 	update_body(1)
 	update_eyes()
 
