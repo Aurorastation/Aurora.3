@@ -130,6 +130,7 @@
 	name = "retractable widget"
 	action_button_name = "Deploy Widget"
 	cooldown = 10
+	activable = TRUE
 	var/augment_type
 	var/obj/item/augment
 	var/deployed = FALSE
