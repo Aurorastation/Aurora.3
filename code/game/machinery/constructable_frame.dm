@@ -154,8 +154,8 @@
 				desc = initial(desc)
 				machine_description = null
 				components_description = null
-				req_components = null
-				components = null
+				req_components = list()
+				components = list()
 				icon_state = "blueprint_2"
 			else
 				if(P.isscrewdriver())
