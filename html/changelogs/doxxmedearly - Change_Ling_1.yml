@@ -19,6 +19,7 @@ changes:
   - tweak: "Lesser lings are a bit better at shaking off stuns, weakness, and pain."
   - tweak: "Ling adrenaline sacs cost lowered from 30 chems to 20."
   - tweak: "Ling death sting now injects less cyanide, but now also makes the target dizzy, temporarily blinds them, and silences them for longer."
+  - tweak: "Ling deaf sting is now stealthy, but the target will still receive a message."
   - tweak: "To offset the higher base resistances of changeling, regenerative stasis now takes almost twice as long before you can revive, and is more expensive to use. This is when you are most vulnerable- be careful."
   - bugfix: "You no longer find a pulse on a changeling who is faking death. This affects manually checking, scanners, and HUDs."
   - bugfix: "Ling transformation sting should work now."
