@@ -19,9 +19,4 @@
 /datum/gear/mask/cloth
 	display_name = "cloth mask"
 	path = /obj/item/clothing/mask/cloth
-
-/datum/gear/mask/cloth/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
-
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
