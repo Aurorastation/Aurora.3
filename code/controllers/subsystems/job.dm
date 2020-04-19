@@ -903,15 +903,7 @@
 
 			var/obj/item/organ/A = new G.path (H)
 			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-			if(affected.augment_limit)
-				var/total_augments
-				for(var/obj/item/organ/internal/I in affected.internal_organs)
-					if(A.is_augment)
-						total_augments += 1
-					if(total_augments >= affected.augment_limit)
-						continue
-
-				A.replaced(H, affected)
+			A.replaced(H, affected)
 			H.update_body()
 
 	Debug("EC/([H]): Complete.")
