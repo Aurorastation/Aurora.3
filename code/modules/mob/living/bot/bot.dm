@@ -148,3 +148,5 @@
 /mob/living/bot/proc/explode()
 	qdel(src)
 
+/mob/living/bot/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL

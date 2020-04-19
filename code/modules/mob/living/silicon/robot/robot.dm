@@ -822,13 +822,20 @@
 	return FALSE
 
 /mob/living/silicon/robot/updateicon()
-	cut_overlays()
+	overlays.Cut() // The new way the overlays are applied requires this overlays.Cut difference to remove
+// correctly
+
+//The below lines up to the panels are how the 'borgs get their overlays now. It's made cleaner
+// via the vars below.
+
+	var/overlay_help = image(icon,"eyes-[module_sprites[icontype]]-help", EFFECTS_ABOVE_LIGHTING_LAYER)
+	var/overlay_harm = image(icon,"eyes-[module_sprites[icontype]]-harm", EFFECTS_ABOVE_LIGHTING_LAYER)
 
 	if(stat == CONSCIOUS)
 		if(a_intent == I_HELP)
-			add_overlay("eyes-[module_sprites[icontype]]-help")
+			overlays += overlay_help
 		else
-			add_overlay("eyes-[module_sprites[icontype]]-harm")
+			overlays += overlay_harm
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"

@@ -9,10 +9,7 @@
 	path = /obj/item/clothing/shoes/footwraps
 	sort_category = "Xenowear"
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
-/datum/gear/shoes/footwraps/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/toeless
 	display_name = "toe-less jackboots"

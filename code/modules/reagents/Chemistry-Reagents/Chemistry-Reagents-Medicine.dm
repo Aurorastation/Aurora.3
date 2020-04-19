@@ -323,6 +323,7 @@
 	M.hallucination = max(0, M.hallucination - 10)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
+	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
@@ -569,6 +570,7 @@
 	description = "A theta-lactam antibiotic, effective against wound and organ bacterial infections."
 	reagent_state = LIQUID
 	color = "#41C141"
+	metabolism = REM * 0.05
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
 	overdose = REAGENTS_OVERDOSE
@@ -867,6 +869,10 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
+/datum/reagent/mental/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_HALLUCINATE, -1)
+	..()
+
 /datum/reagent/mental/fluvoxamine
 	name = "Fluvoxamine"
 	id = "fluvoxamine"
@@ -1084,6 +1090,10 @@
 		/datum/reagent/mental/escitalopram = 20
 	)
 
+/datum/reagent/mental/risperidone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_HALLUCINATE, -2)
+	..()
+
 /datum/reagent/mental/olanzapine
 	name = "Olanzapine"
 	id = "olanzapine"
@@ -1120,6 +1130,10 @@
 		/datum/reagent/mental/paroxetine = 20,
 		/datum/reagent/mental/escitalopram = 20
 	)
+
+/datum/reagent/mental/olanzapine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_HALLUCINATE, -2)
+	..()
 
 /datum/reagent/mental/truthserum
 	name = "Truth serum"

@@ -87,18 +87,12 @@
 /datum/gear/shoes/heels
 	display_name = "high heels"
 	path = /obj/item/clothing/shoes/heels
-
-/datum/gear/shoes/heels/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/tongs
 	display_name = "flip flops"
 	path = /obj/item/clothing/shoes/sandal/flipflop
-
-/datum/gear/shoes/tongs/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/hitops
 	display_name = "high-top selection"

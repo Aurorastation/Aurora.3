@@ -129,3 +129,21 @@
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 5)
 
 	holder_type = /obj/item/holder/schlorrgo
+
+/mob/living/simple_animal/schlorrgo/unarmed_harm_attack(mob/living/carbon/human/user)
+	var/obj/item/organ/external/left_leg = user.get_organ(BP_L_LEG)
+	var/obj/item/organ/external/right_leg = user.get_organ(BP_R_LEG)
+
+	if(left_leg?.is_usable() && right_leg?.is_usable())
+		user.visible_message(SPAN_WARNING("[user] punts \the [src]!"))
+		user.do_attack_animation(src)
+		make_noise()
+		throw_at(get_edge_target_turf(user, get_dir(user, src)), 4, 1)
+		poke(TRUE)
+	else
+		..()
+
+/mob/living/simple_animal/schlorrgo/turf_collision(var/turf/T, var/speed = THROWFORCE_SPEED_DIVISOR)
+	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
+	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)
+	make_noise()

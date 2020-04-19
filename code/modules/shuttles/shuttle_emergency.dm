@@ -25,9 +25,7 @@
 	emergency_shuttle.launch_time = world.time
 
 /datum/shuttle/autodock/ferry/emergency/shuttle_moved()
-	if (next_location != waypoint_station)	//leaving the station
-		emergency_shuttle.departed = TRUE
-
+	if (!emergency_shuttle.departed && next_location != waypoint_station) //leaving the station
 		var/list/replacements = list(
 			"%ETA%" = round(emergency_shuttle.estimate_arrival_time()/60,1),
 			"%dock%" = current_map.dock_name
@@ -36,6 +34,7 @@
 			priority_announcement.Announce(replacemany(current_map.emergency_shuttle_leaving_dock, replacements))
 		else
 			priority_announcement.Announce(replacemany(current_map.shuttle_leaving_dock, replacements))
+		emergency_shuttle.departed = TRUE
 	..()
 
 /datum/shuttle/autodock/ferry/emergency/can_launch(var/user)

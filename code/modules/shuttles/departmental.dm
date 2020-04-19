@@ -14,10 +14,10 @@
 	req_access = list(access_research)
 	circuit = /obj/item/circuitboard/research_shuttle
 
-/datum/shuttle/autodock/ferry/research
+/datum/shuttle/autodock/ferry/research_aurora
 	var/triggered_away_sites = FALSE
 
-/datum/shuttle/autodock/ferry/research/shuttle_moved()
+/datum/shuttle/autodock/ferry/research_aurora/shuttle_moved()
 	. = ..()
 	if(!triggered_away_sites)
 		for(var/s in SSghostroles.spawners)

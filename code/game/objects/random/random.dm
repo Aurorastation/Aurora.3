@@ -1407,7 +1407,9 @@
 		/obj/item/flag/vaurca,
 		/obj/item/flag/vaurca/l,
 		/obj/item/flag/zenghu,
-		/obj/item/flag/zenghu/l
+		/obj/item/flag/zenghu/l,
+		/obj/item/flag/coalition,
+		/obj/item/flag/coalition/l
 	)
 
 /obj/random/gift

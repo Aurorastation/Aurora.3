@@ -379,6 +379,7 @@
 
 /obj/item/screwdriver/robotic
 	icon = 'icons/obj/robot_items.dmi'
+	icon_state = "screwdriver"
 	random_icon = FALSE
 
 /obj/item/device/multitool/robotic

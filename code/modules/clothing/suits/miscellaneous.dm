@@ -190,7 +190,7 @@
 
 //coats
 
-/obj/item/clothing/suit/leathercoat
+/obj/item/clothing/suit/storage/leathercoat
 	name = "leather coat"
 	desc = "A long, thick black leather coat."
 	icon_state = "leathercoat_alt"

@@ -71,7 +71,10 @@
 /datum/shuttle/proc/short_jump(var/obj/effect/shuttle_landmark/destination)
 	if(moving_status != SHUTTLE_IDLE) return
 
+	var/obj/effect/shuttle_landmark/start_location = current_location
+
 	moving_status = SHUTTLE_WARMUP
+	callHook("shuttle_moved", list(start_location,destination))
 	if(sound_takeoff)
 		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
 	spawn(warmup_time*10)
@@ -95,6 +98,7 @@
 	var/obj/effect/shuttle_landmark/start_location = current_location
 
 	moving_status = SHUTTLE_WARMUP
+	callHook("shuttle_moved", list(start_location, destination))
 	if(sound_takeoff)
 		playsound(current_location, sound_takeoff, 100, 20, is_global = TRUE)
 	spawn(warmup_time*10)
