@@ -186,10 +186,6 @@
 		init(mapload)
 	else
 		area = get_area(src)
-		if(istype(area, /area/mine) || istype(area, /area/space))
-			log_debug("An APC was created in a mine or space area at coordinates [src.x]-[src.y]-[src.z].")
-			visible_message("\icon[src] \The [src] beeps, \"APC creation in mine or space area detected, self destructing!\".")
-			qdel(src)
 		area.apc = src
 		opened = 1
 		operating = 0

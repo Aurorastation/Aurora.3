@@ -164,10 +164,6 @@
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
-	if(istype(alarm_area, /area/mine) || istype(alarm_area, /area/space))
-		log_debug("An alarm alarm was created in a mine or space area at coordinates [src.x]-[src.y]-[src.z].")
-		visible_message("\icon[src] \The [src] beeps, \"Alarm creation in mine or space area detected, self destructing!\".")
-		qdel(src)
 	area_uid = alarm_area.uid
 	if (name == "alarm")
 		if (highpower)
