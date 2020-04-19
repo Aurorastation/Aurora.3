@@ -6,6 +6,7 @@
 	cost = 3
 	sort_category = "Augments"
 	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Aut'akh Unathi", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/time
 	display_name = "integrated timepiece"
