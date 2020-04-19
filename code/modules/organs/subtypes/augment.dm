@@ -129,7 +129,7 @@
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
 	action_button_name = "Deploy Widget"
-	cooldown = 250
+	cooldown = 10
 	var/augment_type
 	var/obj/item/augment
 	var/deployed = FALSE
@@ -140,7 +140,6 @@
 	. = ..()
 	if(augment_type)
 		augment = new augment_type(src)
-		augment.canremove = FALSE
 
 /obj/item/organ/internal/augment/tool/attack_self(var/mob/user)
 	. = ..()
@@ -156,6 +155,7 @@
 				owner.last_special = world.time + cooldown
 				owner.put_in_active_hand(augment)
 				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
+				augment.canremove = FALSE
 				deployed = TRUE
 
 			else
@@ -169,6 +169,7 @@
 
 		else
 			owner.last_special = world.time + cooldown
+			augment.canremove = TRUE
 			augment.forceMove(src)
 			owner.visible_message(SPAN_NOTICE("\The [augment] slides into \the [owner]'s [src.loc]."), SPAN_NOTICE("You retract \the [augment]!"))
 			deployed = FALSE
