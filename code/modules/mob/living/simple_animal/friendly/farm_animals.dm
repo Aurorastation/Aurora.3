@@ -192,6 +192,7 @@
 	mob_size = 2
 	hunger_enabled = FALSE
 	canbrush = TRUE
+	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)	//Don't cannibalize eggs.
 
 	var/static/chicken_count = 0
 	emote_sounds = list('sound/effects/creatures/chicken.ogg', 'sound/effects/creatures/chicken_bwak.ogg')
