@@ -85,10 +85,3 @@
 	description = "An augment that allows the user to analyzer the air around them."
 	path = /obj/item/organ/internal/augment/air_analyzer
 	cost = 3
-
-/datum/gear/augment/telsa_spine
-	display_name = "tesla spine"
-	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civillians."
-	path = /obj/item/organ/internal/augment/tesla
-	cost = 4
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")

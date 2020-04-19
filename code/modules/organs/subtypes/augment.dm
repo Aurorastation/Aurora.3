@@ -247,6 +247,10 @@
 	actual_charges = min(actual_charges-1,max_charges)
 	if(actual_charges > 0)
 		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
+	if(is_broken())
+		visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
+		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
+		tesla_zap(owner, 7, 1500)
 
 /obj/item/organ/internal/augment/tesla/advanced
 	name = "advanced tesla spine"

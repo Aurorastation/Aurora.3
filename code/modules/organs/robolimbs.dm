@@ -32,6 +32,9 @@ var/global/datum/robolimb/basic_robolimb
 	var/brute_mod = 0.9 //how resistant is this mode to brute damage
 	var/burn_mod = 1.1 //how resistant is this mode to burn damage
 
+/datum/robolimb/proc/malfunctioning_check()
+	return FALSE
+
 /datum/robolimb/bishop
 	company = PROSTHETIC_BC
 	desc = "This limb is coated in a brilliant silver illuminated from the inside with blue status lights."
@@ -100,3 +103,10 @@ var/global/datum/robolimb/basic_robolimb
 	desc = "A limb designed to be used by the People's Republic of Adhomai Tesla Brigade. This civillian version is issued to disable veterans and civillians."
 	icon = 'icons/mob/human_races/tajara/tesla_limbs.dmi'
 	species_can_use = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara",)
+
+/datum/robolimb/tesla/malfunctioning_check(var/mob/living/carbon/human/H)
+	var/obj/item/organ/internal/augment/tesla/T = H.internal_organs_by_name[BP_AUG_TESLA]
+	if(T && !T.is_broken())
+		return FALSE
+	else
+		return TRUE

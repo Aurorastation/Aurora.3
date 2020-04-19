@@ -180,3 +180,11 @@
 	path = /obj/item/storage/belt/shumaila_buckle
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+
+/datum/gear/augment/telsa_spine
+	display_name = "tesla spine"
+	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civillians."
+	path = /obj/item/organ/internal/augment/tesla
+	cost = 4
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear - Tajara"
