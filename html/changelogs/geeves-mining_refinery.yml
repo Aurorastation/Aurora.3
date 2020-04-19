@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a mining outpost dropper to the mining vendor."
+  - rscadd: "Examining orbital drop taggers now properly show how many uses they have left."

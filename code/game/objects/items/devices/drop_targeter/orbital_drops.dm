@@ -46,3 +46,14 @@
 	description_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
 	announcer_name = "Syndicate Autodrone"
 	announcer_channel = "Mercenary"
+
+/obj/item/device/orbital_dropper/mining_outpost
+	name = "mining outpost dropper"
+	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. Watch your head with this one!"
+
+	drop_amount = 1
+	safety_check_radius = 10
+
+	drop_message = "Mining outpost inbound! Watch your heads!"
+
+	map = new /datum/map_template/mining_outpost

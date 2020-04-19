@@ -21,3 +21,7 @@
 /datum/map_template/drill
 	name = "Drill Drop"
 	mappath = 'maps/templates/orbital/drill.dmm'
+
+/datum/map_template/mining_outpost
+	name = "Mining Outpost Drop"
+	mappath = 'maps/templates/orbital/mining-outpost.dmm'

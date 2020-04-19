@@ -14,7 +14,10 @@
 
 	var/paint_distance = 14 // From how far away can you paint a target?
 
+	var/can_be_emagged = TRUE
 	var/emagged = FALSE // If emagged, things can be dropped in on station areas
+
+	var/safety_check_radius = 3 // How far from the centre is it safe to drop the drill
 
 	var/drop_message = "Orbital package inbound, clear the targetted area immediately!"
 	var/drop_message_emagged = "O*b$ital p&ck@ge in#)und, c-c-c-!"
@@ -22,6 +25,13 @@
 	var/announcer_channel = "Supply" // If not emagged, will announce to this channel. If emagged, will always announce on the common channel.
 
 	var/datum/map_template/map
+
+/obj/item/device/orbital_dropper/examine(mob/user, distance)
+	..()
+	if(drop_amount - has_dropped > 0)
+		to_chat(user, SPAN_NOTICE("\The [src] has [drop_amount - has_dropped] drop\s left."))
+	else
+		to_chat(user, SPAN_WARNING("\The [src] has no more drops left."))
 
 /obj/item/device/orbital_dropper/attack_self(mob/user)
 	zoom(user, tileoffset, viewsize)
@@ -40,13 +50,13 @@
 		return
 
 	var/turf/targloc = get_turf(target)
+	if(!isfloor(targloc))
+		to_chat(user, span("warning", "You cannot request this on unstable flooring!"))
+		return
 	if(!emagged)
-		for(var/turf/t in block(locate(targloc.x+3,targloc.y+3,targloc.z), locate(targloc.x-3,targloc.y-3,targloc.z)))
+		for(var/turf/t in block(locate(targloc.x + safety_check_radius, targloc.y + safety_check_radius, targloc.z), locate(targloc.x - safety_check_radius, targloc.y - safety_check_radius, targloc.z)))
 			if (!istype(t.loc, /area/mine))
 				to_chat(user, span("warning", "You can't do this so close to the station, point the laser further into the mine!"))
-				return
-			if (!isfloor(targloc))
-				to_chat(user, span("warning", "You cannot request this on unstable flooring!"))
 				return
 	if(!(user in (viewers(paint_distance, target))) )
 		to_chat(user, span("warning", "You can't paint the target that far away!"))
@@ -91,6 +101,9 @@
 	
 
 /obj/item/device/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
+	if(!can_be_emagged)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be emagged."))
+		return
 	if(!emagged)
 		emagged = TRUE
 		to_chat(user, span("danger", "You override \the [src]'s area safety checks!"))
