@@ -47,7 +47,7 @@
 				"serial_number" = "machine_serial_number",
 				"ownership_status" = "machine_ownership_status"
 				),
-			"args" = list("id")
+			"args" = list("char_id")
 		)
 	)
 
@@ -71,8 +71,8 @@
 		"ss13_characters_ipc_tags" = list(
 			"tag_status",
 			"serial_number",
-			"ownership_status"
-			"id" = 1 // = 1 signifies argument
+			"ownership_status",
+			"char_id" = 1 // = 1 signifies argument
 		)
 	)
 
