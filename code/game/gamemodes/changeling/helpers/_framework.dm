@@ -191,29 +191,6 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(message && changeling.ling_level > previous_level)
 		to_chat(src, FONT_LARGE(SPAN_NOTICE(message)))
 
-//Making you better than others of your species
-/*/mob/living/carbon/human/proc/adjust_species()
-	if(!species)
-		return FALSE
-	if(!(mind?.changeling))
-		return FALSE
-
-	species.brute_mod = initial(species.brute_mod) - 0.05	//Lings are slightly hardier
-	species.burn_mod = initial(species.burn_mod) + 0.25	//Fire is their weakness
-	species.oxy_mod = initial(species.oxy_mod) * 0.9	//Less issues with atmosphere
-	species.toxins_mod = initial(species.toxins_mod) * 0.5	//They have such a weird biology, toxins shouldn't affect them much
-	species.stamina = initial(species.stamina) * 1.1		//Slightly more endurance
-	species.grab_mod = max(initial(species.grab_mod) * 0.75, 0.4)	//Subtle form-shifting makes them harder to hold onto
-	species.resist_mod = min(initial(species.resist_mod) * 1.25, 2.75)	//Much stronger than they appear
-
-	if(!(species.flags & NO_SLIP))
-		species.flags |= NO_SLIP	//Can balance
-
-	if(!mind.changeling.ling_level) //If somehow your level went away?
-		mind.changeling.ling_level = LING_LEVEL_LOW
-
-	return TRUE*/
-
 //DNA related datums
 
 /datum/absorbed_dna
