@@ -26,7 +26,7 @@ calculate text size per text.
 		else
 			total_taste_sensitivity = H.species.taste_sensitivity
 
-		minimum_percent = round(15/ (H.isSynthetic() ? TASTE_DULL : total_taste_sensitivity))
+		minimum_percent = round(15 / (H.isSynthetic() ? TASTE_DULL : total_taste_sensitivity))
 
 	var/list/out = list()
 	var/list/tastes = list() //descriptor = strength
