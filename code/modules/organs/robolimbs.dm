@@ -102,7 +102,7 @@ var/global/datum/robolimb/basic_robolimb
 	company = PROSTHETIC_TESLA
 	desc = "A limb designed to be used by the People's Republic of Adhomai Tesla Brigade. This civilian version is issued to disabled veterans and civilians."
 	icon = 'icons/mob/human_races/tajara/tesla_limbs.dmi'
-	species_can_use = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara",)
+	species_can_use = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/robolimb/tesla/malfunctioning_check(var/mob/living/carbon/human/H)
 	var/obj/item/organ/internal/augment/tesla/T = H.internal_organs_by_name[BP_AUG_TESLA]
