@@ -17,7 +17,7 @@
 /obj/item/device/augment_implanter/examine(mob/user)
 	..(user)
 	if(augment_type)
-		to_chat(user, "\The [augment_type] can be seen floating inside \the [src]'s biogel.")
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")))
 
 /obj/item/device/augment_implanter/afterattack(var/mob/living/L, var/mob/user, proximity)
 	if(!proximity)
