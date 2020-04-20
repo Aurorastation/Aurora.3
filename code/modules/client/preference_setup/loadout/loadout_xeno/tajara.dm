@@ -189,9 +189,8 @@
 
 /datum/gear/augment/telsa_spine
 	display_name = "tesla spine"
-	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civillians."
+	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civilians."
 	path = /obj/item/organ/internal/augment/tesla
 	cost = 4
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
-
