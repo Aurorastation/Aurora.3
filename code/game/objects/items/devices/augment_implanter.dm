@@ -7,7 +7,7 @@
 	icon_state = "decloner"
 	item_state = "decloner"
 	contained_sprite = TRUE
-	var/obj/item/organ/augment_type = null
+	var/obj/item/organ/augment_type
 
 /obj/item/device/augment_implanter/Initialize()
 	. = ..()
