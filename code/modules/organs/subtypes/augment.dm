@@ -251,7 +251,7 @@
 /obj/item/organ/internal/augment/tesla/proc/disarm()
 	if(actual_charges <= 0)
 		return
-	actual_charges = min(actual_charges-1,max_charges)
+	actual_charges = min(actual_charges - 1, max_charges)
 	if(actual_charges > 0)
 		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
 	if(is_broken())
