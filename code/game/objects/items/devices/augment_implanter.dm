@@ -1,7 +1,7 @@
 /obj/item/device/augment_implanter
 	name = "augment implanter"
 	desc = "A complex single use injector that is used to implant augments without the need for surgery."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
@@ -57,4 +57,3 @@
 
 /obj/item/device/augment_implanter/advanced_suspension
 	augment_type =	/obj/item/organ/internal/augment/suspension/advanced
-
