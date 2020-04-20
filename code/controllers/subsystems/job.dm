@@ -895,7 +895,7 @@
 				permitted = FALSE
 
 			if(!permitted)
-				to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>")
+				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
 				continue
 
 			if(!G.augment)
