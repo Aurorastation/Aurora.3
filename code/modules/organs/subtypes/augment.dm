@@ -91,7 +91,7 @@
 	. = ..()
 	if(!P)
 		P = new /obj/item/device/pda(src)
-		P.canremove = 0
+		P.canremove = FALSE
 
 /obj/item/organ/internal/augment/pda/attack_self(var/mob/user)
 	. = ..()
