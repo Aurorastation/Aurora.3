@@ -381,7 +381,7 @@
 		P = new /obj/item/device/radio/off(src)
 		P.canremove = FALSE
 
-/obj/item/organ/internal/augment/radio/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/radio/attack_self(mob/user)
 	. = ..()
 	if(.)
 		if(P)
