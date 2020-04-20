@@ -901,7 +901,7 @@
 			if(!G.augment)
 				continue
 
-			var/obj/item/organ/A = new G.path (H)
+			var/obj/item/organ/A = new G.path(H)
 			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 			A.replaced(H, affected)
 			H.update_body()
