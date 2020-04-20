@@ -16,11 +16,11 @@
 
 /obj/item/ipc_tag_scanner/attack(mob/living/M, mob/living/user)
 	add_fingerprint(user)
-	if(!isipc(M))
-		to_chat(user, SPAN_WARNING("\The [src] can only be used on IPCs!"))
-		return
 	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [M] with \the [src]..."), SPAN_NOTICE("You start analyzing \the [M] with \the [src]..."))
 	if(do_after(user, 50, TRUE, src))
+		if(!isipc(M))
+			to_chat(user, SPAN_WARNING("\The [src] can only be used on IPCs!"))
+			return
 		var/mob/living/carbon/human/IPC = M
 		var/obj/item/organ/internal/ipc_tag/tag = IPC.internal_organs_by_name[BP_IPCTAG]
 		if(isnull(tag) || !tag)
