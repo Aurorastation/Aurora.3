@@ -174,7 +174,7 @@
 		playsound(user, W.usesound, 100, 1)
 		if (do_after(user, 20/W.toolspeed))
 			new /obj/item/stack/material/steel(get_turf(src.loc), steel_sheet_cost)
-			src.visible_message("\The [user] disassembles \the [src].",
+			user.visible_message("\The [user] disassembles \the [src].",
 				"You disassemble \the [src].",
 				"You hear a ratchet.")
 			qdel(src)
