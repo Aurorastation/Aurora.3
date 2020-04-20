@@ -38,7 +38,6 @@
 			return FALSE
 
 		if(use_check_and_message(owner))
-			to_chat(owner, SPAN_DANGER("You can not use your \the [src] in your current state!"))
 			return FALSE
 
 		if(is_bruised())
