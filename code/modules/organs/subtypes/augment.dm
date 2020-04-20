@@ -160,7 +160,7 @@
 
 			else
 				if(!owner.equip_to_slot_if_possible(augment, deployment_location))
-					to_chat(owner, SPAN_DANGER("You must remove your [deployment_string] before enabling your [src]!"))
+					to_chat(owner, SPAN_WARNING("You must remove your [deployment_string] before enabling your [src]!"))
 					return
 
 		else
