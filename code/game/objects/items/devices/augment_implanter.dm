@@ -38,7 +38,7 @@
 		return
 
 	if(H.internal_organs_by_name[augment_type.organ_tag])
-		to_chat(user, SPAN_WARNING("\The [H] already has one [augment_type]."))
+		to_chat(user, SPAN_WARNING("\The [H] already has a [augment_type]."))
 		return
 
 	if(!do_mob(user, H, 4 SECONDS))
