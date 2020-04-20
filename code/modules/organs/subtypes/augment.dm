@@ -241,7 +241,7 @@
 
 /obj/item/organ/internal/augment/tesla/proc/do_tesla_act()
 	if(owner)
-		to_chat(owner, SPAN_DANGER("You feel your [src.name] surge with energy!"))
+		to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel your [src.name] surge with energy!")))
 		spark(get_turf(owner), 3)
 		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
 		if(is_bruised())
