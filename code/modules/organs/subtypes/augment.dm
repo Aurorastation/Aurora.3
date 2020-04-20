@@ -287,6 +287,7 @@
 	name = "integrated eye sensors"
 	icon_state = "augment_eyes"
 	cooldown = 25
+	activable = TRUE
 	organ_tag = BP_AUG_EYE_SENSORS
 	action_button_name = "Toggle Eye Sensors"
 
@@ -427,4 +428,4 @@
 	if(!.)
 		return FALSE
 
-	analyze_gases(owner, user)
+	analyze_gases(src, user)
