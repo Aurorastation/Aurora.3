@@ -24,6 +24,7 @@
 
 /area/security/brig
 	name = "\improper Security - Brig"
+	lightswitch = TRUE
 	icon_state = "brig"
 
 /area/security/brig/prison_break()
@@ -36,6 +37,7 @@
 
 /area/security/prison
 	name = "\improper Security - Prison Wing"
+	lightswitch = TRUE
 	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()

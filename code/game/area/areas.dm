@@ -105,17 +105,11 @@
 
 	. = ..()
 
-/mob/living/carbon/human/Initialize()
-	. = ..()
-	world << round_start_time
-	world << world.time
-	var/area/A = get_area(src)
-	if(A?.lightswitch == FALSE)
-		A.lightswitch = TRUE
-		var/obj/machinery/light_switch/L = locate() in A
-		if(L)
-			L.on = TRUE
-			L.sync_lights()
+/area/proc/set_lightswitch(var/state)
+	var/obj/machinery/light_switch/L = locate() in src
+	if(L)
+		L.on = state
+		L.sync_lights()
 
 /area/proc/get_cameras()
 	. = list()
