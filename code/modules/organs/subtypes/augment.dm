@@ -149,7 +149,7 @@
 		if(!deployed)
 			if(!deployment_location)
 				if(owner.get_active_hand())
-					to_chat(owner, SPAN_DANGER("You must empty your active hand before enabling your [src]!"))
+					to_chat(owner, SPAN_WARNING("You must empty your active hand before enabling your [src]!"))
 					return
 
 				owner.last_special = world.time + cooldown
