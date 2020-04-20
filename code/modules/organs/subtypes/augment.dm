@@ -281,7 +281,7 @@
 	icon_state = "augment_eyes"
 	cooldown = 25
 	organ_tag = BP_AUG_EYE_SENSORS
-	action_button_name = "Toggle Eyes Sensors"
+	action_button_name = "Toggle Eye Sensors"
 
 	var/static/list/hud_types = list(
 		"Disabled",
