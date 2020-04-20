@@ -105,6 +105,6 @@
 
 /datum/gear/augment/air_analyzer
 	display_name = "integrated air analyzer"
-	description = "An augment that allows the user to analyzer the air around them."
+	description = "An augment that allows the user to analyze the air around them."
 	path = /obj/item/organ/internal/augment/air_analyzer
 	cost = 3
