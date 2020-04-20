@@ -64,7 +64,7 @@
 	var/augs = list()
 	augs["retractable lighter, right hand"] = /obj/item/organ/internal/augment/tool/lighter
 	augs["retractable lighter, left hand"] = /obj/item/organ/internal/augment/tool/lighter/left
-	gear_tweaks += new/datum/gear_tweak/path(augs)
+	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/health_scanner
 	display_name = "integrated health scanner"
