@@ -136,5 +136,5 @@
 
 /datum/gear/shoes/clog
 	display_name = "plastic clogs"
-	path = /obj/item/clothing/shoes/clogs
+	path = obj/item/clothing/shoes/sandal/clogs
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

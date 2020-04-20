@@ -66,7 +66,7 @@
 	icon_state = "thongsandal"
 	item_state = "thongsandal"
 
-/obj/item/clothing/shoes/clogs
+obj/item/clothing/shoes/sandal/clogs
 	name = "plastic clogs"
 	desc = "A pair of plastic clog shoes."
 	icon_state = "clogs"
