@@ -337,7 +337,7 @@
 	. = ..()
 
 	if(.)
-		owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shifts shape and length."))
+		owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shift in shape and length."))
 		owner.change_appearance(APPEARANCE_ALL_HAIR, owner.loc, owner, check_species_whitelist = 1)
 
 /obj/item/organ/internal/augment/suspension
