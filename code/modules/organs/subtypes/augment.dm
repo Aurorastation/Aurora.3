@@ -395,7 +395,7 @@
 		qdel(P)
 		if(owner)
 			if(owner.can_feel_pain())
-				to_chat(owner, SPAN_DANGER("You feel something burn inside your head!"))
+				to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel something burn inside your head!")))
 				var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
 				if(O)
 					O.add_pain(30)
