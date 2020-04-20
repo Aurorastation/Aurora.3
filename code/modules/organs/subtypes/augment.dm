@@ -34,7 +34,7 @@
 	if(.)
 
 		if(owner.last_special > world.time)
-			to_chat(owner, SPAN_DANGER("\The [src] is still recharging!"))
+			to_chat(owner, SPAN_WARNING("\The [src] is still recharging!"))
 			return FALSE
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
