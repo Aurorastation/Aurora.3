@@ -49,6 +49,7 @@
 				return FALSE
 
 		owner.last_special = world.time + cooldown
+		return TRUE
 
 
 /obj/item/organ/internal/augment/proc/do_broken_act()
@@ -71,10 +72,12 @@
 /obj/item/organ/internal/augment/timepiece/attack_self(var/mob/user)
 	. = ..()
 
-	if(.)
-		to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day."))
-		if (emergency_shuttle.get_status_panel_eta())
-			to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()]."))
+	if(!.)
+		return FALSE
+
+	to_chat(owner, SPAN_NOTICE("Hello [user], it is currently: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'. Have a lovely day."))
+	if (emergency_shuttle.get_status_panel_eta())
+		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()]."))
 
 /obj/item/organ/internal/augment/pda
 	name = "integrated PDA"
@@ -95,35 +98,35 @@
 
 /obj/item/organ/internal/augment/pda/attack_self(mob/user)
 	. = ..()
-	if(.)
-		if(P)
-			if(!P.owner)
-				var/obj/item/card/id/idcard = owner.get_active_hand()
-				if(istype(idcard))
-					P.owner = idcard.registered_name
-					P.ownjob = idcard.assignment
-					P.ownrank = idcard.rank
-					P.name = "Integrated PDA-[P.owner] ([P.ownjob])"
-					to_chat(owner, SPAN_NOTICE("Card scanned."))
-					P.try_sort_pda_list()
-				else
-					to_chat(owner, SPAN_WARNING("No ID data loaded. Please hold your ID to be scanned."))
-					return
+	if(!.)
+		return FALSE
 
-			P.attack_self(user)
-	return
+	if(P && !P.owner)
+		var/obj/item/card/id/idcard = owner.get_active_hand()
+		if(istype(idcard))
+			P.owner = idcard.registered_name
+			P.ownjob = idcard.assignment
+			P.ownrank = idcard.rank
+			P.name = "Integrated PDA-[P.owner] ([P.ownjob])"
+			to_chat(owner, SPAN_NOTICE("Card scanned."))
+			P.try_sort_pda_list()
+		else
+			to_chat(owner, SPAN_WARNING("No ID data loaded. Please hold your ID to be scanned."))
+			return FALSE
+
+	P.attack_self(user)
+
 
 /obj/item/organ/internal/augment/pda/emp_act(severity)
 	..()
 	if(P)
 		P = null
 		qdel(P)
-		if(owner)
-			if(owner.can_feel_pain())
-				to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel something burn inside your head!")))
-				var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
-				if(O)
-					O.add_pain(30)
+		if(owner && owner.can_feel_pain())
+			to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel something burn inside your head!")))
+			var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
+			if(O)
+				O.add_pain(30)
 
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
@@ -144,30 +147,30 @@
 /obj/item/organ/internal/augment/tool/attack_self(var/mob/user)
 	. = ..()
 
-	if(.)
+	if(!.)
+		return FALSE
 
-		if(!deployed)
-			if(!deployment_location)
-				if(owner.get_active_hand())
-					to_chat(owner, SPAN_WARNING("You must empty your active hand before enabling your [src]!"))
-					return
+	if(!deployed)
+		if(!deployment_location)
+			if(owner.get_active_hand())
+				to_chat(owner, SPAN_WARNING("You must empty your active hand before enabling your [src]!"))
+				return
 
-				owner.last_special = world.time + cooldown
-				owner.put_in_active_hand(augment)
-				augment.canremove = FALSE
-				owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
-				deployed = TRUE
+			owner.last_special = world.time + cooldown
+			owner.put_in_active_hand(augment)
+			augment.canremove = FALSE
+			owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
+			deployed = TRUE
 
-			else
-				if(!owner.equip_to_slot_if_possible(augment, deployment_location))
-					to_chat(owner, SPAN_WARNING("You must remove your [deployment_string] before enabling your [src]!"))
-					return
+		else if (!owner.equip_to_slot_if_possible(augment, deployment_location))
+			to_chat(owner, SPAN_WARNING("You must remove your [deployment_string] before enabling your [src]!"))
+			return
 
-		else
-			augment.canremove = TRUE
-			owner.drop_from_inventory(augment, src)
-			owner.visible_message(SPAN_NOTICE("\The [augment] slides into \the [owner]'s [src.loc]."), SPAN_NOTICE("You retract \the [augment]!"))
-			deployed = FALSE
+	else
+		augment.canremove = TRUE
+		owner.drop_from_inventory(augment, src)
+		owner.visible_message(SPAN_NOTICE("\The [augment] slides into \the [owner]'s [src.loc]."), SPAN_NOTICE("You retract \the [augment]!"))
+		deployed = FALSE
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
@@ -213,9 +216,10 @@
 
 /obj/item/organ/internal/augment/health_scanner/attack_self(var/mob/user)
 	. = ..()
+	if(!.)
+		return FALSE
 
-	if(.)
-		health_scan_mob(owner, owner)
+	health_scan_mob(owner, owner)
 
 /obj/item/organ/internal/augment/tesla
 	name = "tesla spine"
@@ -244,9 +248,8 @@
 		to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel your [src.name] surge with energy!")))
 		spark(get_turf(owner), 3)
 		addtimer(CALLBACK(src, .proc/disarm), recharge_time MINUTES)
-		if(is_bruised())
-			if(prob(50))
-				owner.electrocute_act(40, owner)
+		if(is_bruised() && prob(50))
+			owner.electrocute_act(40, owner)
 
 /obj/item/organ/internal/augment/tesla/proc/disarm()
 	if(actual_charges <= 0)
@@ -271,10 +274,12 @@
 /obj/item/organ/internal/augment/tesla/advanced/attack_self(var/mob/user)
 	. = ..()
 
-	if(.)
-		visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
-		playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
-		tesla_zap(owner, 7, 1500)
+	if(!.)
+		return FALSE
+
+	visible_message(SPAN_DANGER("\The [owner] crackles with energy!"))
+	playsound(owner, 'sound/magic/LightningShock.ogg', 75, 1)
+	tesla_zap(owner, 7, 1500)
 
 /obj/item/organ/internal/augment/eye_sensors
 	name = "integrated eye sensors"
@@ -293,11 +298,12 @@
 /obj/item/organ/internal/augment/eye_sensors/attack_self(var/mob/user)
 	. = ..()
 
-	if(.)
+	if(!.)
+		return FALSE
 
-		var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
+	var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
 
-		selected_hud = choice
+	selected_hud = choice
 
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()
@@ -335,9 +341,11 @@
 /obj/item/organ/internal/augment/cyber_hair/attack_self(var/mob/user)
 	. = ..()
 
-	if(.)
-		owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shift in shape and length."))
-		owner.change_appearance(APPEARANCE_ALL_HAIR, owner.loc, owner, check_species_whitelist = 1)
+	if(!.)
+		return FALSE
+
+	owner.visible_message(SPAN_NOTICE("\The [owner]'s hair begins to rapidly shift in shape and length."))
+	owner.change_appearance(APPEARANCE_ALL_HAIR, owner.loc, owner, check_species_whitelist = 1)
 
 /obj/item/organ/internal/augment/suspension
 	name = "calf suspension"
@@ -382,22 +390,22 @@
 
 /obj/item/organ/internal/augment/radio/attack_self(mob/user)
 	. = ..()
-	if(.)
-		if(P)
-			P.attack_self(user)
-	return
+	if(!.)
+		return FALSE
+
+	if(P)
+		P.attack_self(user)
 
 /obj/item/organ/internal/augment/radio/emp_act(severity)
 	..()
 	if(P)
 		P = null
 		qdel(P)
-		if(owner)
-			if(owner.can_feel_pain())
-				to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel something burn inside your head!")))
-				var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
-				if(O)
-					O.add_pain(30)
+		if(owner && owner.can_feel_pain())
+			to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel something burn inside your head!")))
+			var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
+			if(O)
+				O.add_pain(30)
 
 /obj/item/organ/internal/augment/fuel_cell
 	name = "integrated fuel cell"
@@ -413,5 +421,7 @@
 
 /obj/item/organ/internal/augment/air_analyzer/attack_self(var/mob/user)
 	. = ..()
-	if(.)
-		analyze_gases(src, user)
+	if(!.)
+		return FALSE
+
+	analyze_gases(src, user)
