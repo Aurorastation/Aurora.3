@@ -19,7 +19,7 @@
 	if(augment_type)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")))
 
-/obj/item/device/augment_implanter/afterattack(var/mob/living/L, var/mob/user, proximity)
+/obj/item/device/augment_implanter/afterattack(mob/living/L, mob/user, proximity)
 	if(!proximity)
 		return
 
