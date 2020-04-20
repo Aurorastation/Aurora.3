@@ -37,7 +37,7 @@
 			to_chat(owner, SPAN_WARNING("\The [src] is still recharging!"))
 			return FALSE
 
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+		if(use_check_and_message(owner))
 			to_chat(owner, SPAN_DANGER("You can not use your \the [src] in your current state!"))
 			return FALSE
 
