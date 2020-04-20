@@ -509,7 +509,7 @@
 	if (shock_damage<1)
 		return 0
 
-	var/obj/item/organ/internal/augment/tesla/tesla = src.internal_organs_by_name[BP_AUG_TESLA]
+	var/obj/item/organ/internal/augment/tesla/tesla = internal_organs_by_name[BP_AUG_TESLA]
 	if(tesla?.check_shock())
 		tesla.actual_charges = min(tesla.actual_charges+1, tesla.max_charges)
 		return FALSE
