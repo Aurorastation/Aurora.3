@@ -107,7 +107,7 @@
 					to_chat(owner, SPAN_NOTICE("Card scanned."))
 					P.try_sort_pda_list()
 				else
-					to_chat(owner, SPAN_NOTICE("No ID data loaded. Please hold your ID to be scanned."))
+					to_chat(owner, SPAN_WARNING("No ID data loaded. Please hold your ID to be scanned."))
 					return
 
 			P.attack_self(user)
