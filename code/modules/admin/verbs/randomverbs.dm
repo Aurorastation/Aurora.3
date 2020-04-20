@@ -122,14 +122,24 @@
 	set category = "Special Verbs"
 	set name = "Local Narrate"
 
-	if(!holder)
-		to_chat(src, "Only administrators may use this command.")
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+	
+	var/list/mob/message_mobs = list()
+	var/choice = alert(usr, "Local narrate will send a plain message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", "In my view", "In range of me", "Cancel")
+	if(choice != "Cancel")
+		if(choice == "In my view")
+			message_mobs = mobs_in_view(7, src.mob)
+		else
+			for(var/mob/M in range(7, src.mob))
+				message_mobs += M
+	else
 		return
 
 	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to everyone within seven tiles of you:")) as text))
 	if(!msg)
 		return
-	for(var/mob/M in range(7, src.mob))
+	for(var/M in message_mobs)
 		to_chat(M, msg)
 	log_admin("LocalNarrate: [key_name(usr)] : [msg]", admin_key = key_name(usr))
 	message_admins("<span class='notice'>\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
@@ -318,8 +328,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	set name = "Allow Stationbound Reset"
 	set desc = "Select a stationbound to reset its module."
 
-	if(!holder)
-		to_chat(src, SPAN_WARNING("Only administrators may use this command."))
+	if(!check_rights(R_ADMIN, TRUE))
 		return
 	if(!R || !istype(R))
 		return
