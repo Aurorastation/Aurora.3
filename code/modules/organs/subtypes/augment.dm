@@ -195,7 +195,7 @@
 
 /obj/item/organ/internal/augment/tool/lighter
 	name = "retractable lighter"
-	action_button_name = "Deploy lighter"
+	action_button_name = "Deploy Lighter"
 	action_button_icon = "lighter"
 	organ_tag = BP_AUG_LIGHTER
 	augment_type = /obj/item/flame/lighter/zippo
