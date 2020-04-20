@@ -405,7 +405,7 @@
 		return 0
 
 /proc/fluid_color_type_map(var/supplied_color)
-	var/list/color_map = list(
+	var/static/list/color_map = list(
 					COLOR_HUMAN_BLOOD = "blood",
 					COLOR_DIONA_BLOOD = "blood",
 					COLOR_SKRELL_BLOOD = "blood",
