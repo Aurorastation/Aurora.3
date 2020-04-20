@@ -1,0 +1,6 @@
+author: Code by Geeves, Sprites by Happy Fox
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a special power cell backpack to the mining vendor and RnD protolathe design databank. Give it a try, if you work with power cells a lot."
