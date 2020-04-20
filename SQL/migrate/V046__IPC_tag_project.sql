@@ -10,6 +10,6 @@ CREATE TABLE `ss13_characters_ipc_tags` (
   `tag_status` tinyint(1) NOT NULL DEFAULT '0',
   `serial_number` varchar(12) DEFAULT NULL,
   `ownership_status` enum('Self Owned','Company Owned','Privately Owned') DEFAULT 'Company Owned',
-  PRIMARY KEY (`char_id`)
+  PRIMARY KEY (`char_id`),
   CONSTRAINT `char_id` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4_unicode_ci;

@@ -33,7 +33,8 @@ datum/preferences
 
 	//character preferences
 	var/real_name						//our character's name
-	var/can_edit_name = 1				//Whether or not a character's name can be edited. Used with SQL saving.
+	var/can_edit_name = TRUE				//Whether or not a character's name can be edited. Used with SQL saving.
+	var/can_edit_ipc_tag = TRUE
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).

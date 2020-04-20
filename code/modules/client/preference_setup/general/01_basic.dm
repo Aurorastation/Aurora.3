@@ -92,7 +92,8 @@
 	)
 
 /datum/category_item/player_setup_item/general/basic/load_special()
-	pref.can_edit_name = 1
+	pref.can_edit_name = TRUE
+	pref.can_edit_ipc_tag = TRUE
 
 	if (config.sql_saves && pref.current_character)
 		if (!establish_db_connection(dbcon))
@@ -105,7 +106,9 @@
 
 		if (query.NextRow())
 			if (text2num(query.item[1]) > 5)
-				pref.can_edit_name = 0
+				pref.can_edit_name = FALSE
+				if(config.ipc_timelock_active)
+					pref.can_edit_ipc_tag = FALSE
 		else
 			error("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have.")
 			log_debug("SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
@@ -140,9 +143,13 @@
 			if(!pref.machine_serial_number)
 				var/generated_serial = uppertext(dd_limittext(md5(pref.real_name), 12))
 				pref.machine_serial_number = generated_serial
-			dat += "<b>Serial Number:</b> <a href='?src=\ref[src];serial_number=1'>[pref.machine_serial_number]</a><br>"
-			dat += "(<a href='?src=\ref[src];generate_serial=1'>Generate Serial Number</A>)<br>"
-			dat += "<b>Ownership Status:</b> <a href='?src=\ref[src];ownership_status=1'>[pref.machine_ownership_status]</a><br>"
+			if(pref.can_edit_ipc_tag)
+				dat += "<b>Serial Number:</b> <a href='?src=\ref[src];serial_number=1'>[pref.machine_serial_number]</a><br>"
+				dat += "(<a href='?src=\ref[src];generate_serial=1'>Generate Serial Number</A>)<br>"
+				dat += "<b>Ownership Status:</b> <a href='?src=\ref[src];ownership_status=1'>[pref.machine_ownership_status]</a><br>"
+			else
+				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
+				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
 	if(config.allow_Metadata)
 		dat += "<b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a><br>"
 
@@ -165,7 +172,7 @@
 				return TOPIC_NOACTION
 
 	else if(href_list["namehelp"])
-		alert(user, "Due to game mechanics, you are no longer able to edit the name for this character. The grace period offered is 5 days since the character's initial save.\n\nIf you have a need to change the character's name, or further questions regarding this policy, please contact an administrator.")
+		alert(user, "Due to game mechanics, you are no longer able to edit this information for this character. The grace period offered is 5 days since the character's initial save.\n\nIf you have a need to change the character's information, or further questions regarding this policy, please contact an administrator.")
 		return TOPIC_NOACTION
 
 	else if(href_list["random_name"])
