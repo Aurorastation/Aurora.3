@@ -122,7 +122,7 @@
 
 			var/icon/organ_icon = SSicon_cache.internal_organ_cache[cache_key]
 			if (!organ_icon)
-				organ_icon = new/icon(O.on_mob_icon, O.icon_state)
+				organ_icon = new /icon(O.on_mob_icon, O.icon_state)
 				SSicon_cache.internal_organ_cache[cache_key] = organ_icon
 
 			add_overlay(organ_icon)
