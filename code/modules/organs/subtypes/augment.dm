@@ -63,7 +63,7 @@
 	name = "integrated timepiece"
 	icon_state = "augment-clock"
 	parent_organ = BP_HEAD
-	action_button_name = "Actuvate Integrated Timepiece"
+	action_button_name = "Activate Integrated Timepiece"
 	activable = TRUE
 	organ_tag = BP_AUG_TIMEPIECE
 	action_button_icon = "augment-clock"
