@@ -89,7 +89,7 @@
 	var/augs = list()
 	augs["taste booster"] = /obj/item/organ/internal/augment/taste_booster
 	augs["taste duller"] = /obj/item/organ/internal/augment/taste_booster/dull
-	gear_tweaks += new/datum/gear_tweak/path(augs)
+	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/radio
 	display_name = "integrated radio"
