@@ -106,6 +106,7 @@
 	. = ..()
 
 /area/proc/set_lightswitch(var/state)
+	lightswitch = state
 	var/obj/machinery/light_switch/L = locate() in src
 	if(L)
 		L.on = state

@@ -341,7 +341,6 @@
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.forceMove(S.loc)
 			H.lastarea = get_area(H.loc)
-			H.lastarea.lightswitch = TRUE
 			H.lastarea.set_lightswitch(TRUE)
 		else
 			LateSpawn(H, rank)
