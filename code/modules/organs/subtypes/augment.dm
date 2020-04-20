@@ -378,7 +378,7 @@
 /obj/item/organ/internal/augment/radio/Initialize()
 	. = ..()
 	if(!P)
-		P = new /obj/item/device/radio/off (src)
+		P = new /obj/item/device/radio/off(src)
 		P.canremove = FALSE
 
 /obj/item/organ/internal/augment/radio/attack_self(var/mob/user)
