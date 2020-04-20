@@ -74,7 +74,7 @@
 
 /datum/gear/augment/suspension
 	display_name = "calf suspension"
-	description = "An augment that reduces the damage from falling down."
+	description = "An augment that reduces the damage from falling from heights."
 	path = /obj/item/organ/internal/augment/suspension
 	cost = 4
 
