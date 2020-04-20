@@ -177,24 +177,6 @@
 	to_chat(user, "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>")
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
-/obj/item/reagent_containers/spray/waterflower
-	name = "water flower"
-	desc = "A seemingly innocent sunflower...with a twist."
-	icon = 'icons/obj/toy.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_toy.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_toy.dmi',
-		)
-	icon_state = "sunflower"
-	item_state = "sunflower"
-	amount_per_transfer_from_this = 1
-	possible_transfer_amounts = null
-	volume = 10
-
-/obj/item/reagent_containers/spray/waterflower/Initialize()
-	. = ..()
-	reagents.add_reagent("water", 10)
-
 /obj/item/reagent_containers/spray/chemsprayer
 	name = "chem sprayer"
 	desc = "A utility used to spray large amounts of reagent in a given area."

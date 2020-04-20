@@ -5,6 +5,10 @@
 /obj/item/grown // Grown weapons
 	name = "grown_weapon"
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_grown.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_grown.dmi',
+		)
 	var/plantname
 	var/potency = 1
 
@@ -55,8 +59,8 @@
 	desc = "A peel from a banana."
 	icon = 'icons/obj/trash.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
+		slot_l_hand_str = 'icons/mob/items/lefthand_grown.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_grown.dmi'
 		)
 	icon_state = "banana_peel"
 	item_state = "banana_peel"

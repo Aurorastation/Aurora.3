@@ -836,7 +836,7 @@
 		/obj/item/reagent_containers/inhaler/hyperzine = 0.1,
 		/obj/item/reagent_containers/spray/cleaner = 0.6,
 		/obj/item/reagent_containers/spray/sterilizine = 0.4,
-		/obj/item/reagent_containers/spray/waterflower = 0.2,
+		/obj/item/toy/waterflower = 0.2,
 		/obj/item/shovel = 0.5,
 		/obj/item/spacecash/ewallet/lotto = 0.3,
 		/obj/item/staff/broom = 0.5,

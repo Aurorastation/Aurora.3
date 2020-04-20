@@ -95,7 +95,7 @@
 		/obj/item/bananapeel                             = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/food/snacks/pie     = TRADER_THIS_TYPE,
 		/obj/item/bikehorn                               = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/spray/waterflower   = TRADER_THIS_TYPE,
+		/obj/item/toy/waterflower                        = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/capgun         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/fakemoustache                   = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/wand/toy                    = TRADER_THIS_TYPE,
