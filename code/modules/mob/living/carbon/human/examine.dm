@@ -416,9 +416,5 @@
 					COLOR_ASH = "ash",
 						)
 
-	var/output_text = "fluid"
-	for(var/color in color_map)
-		if(color == supplied_color)
-			output_text = color_map[supplied_color]
-			break
+	var/output_text = color_map[supplied_color] || "fluid"
 	return output_text
