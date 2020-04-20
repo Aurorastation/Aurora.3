@@ -210,8 +210,10 @@
 
 /obj/item/organ/internal/augment/health_scanner
 	name = "integrated health scanner"
+	action_button_name = "Activate Health Scanner"
 	action_button_icon = "health"
 	organ_tag = BP_AUG_HEALTHSCAN
+	activable = TRUE
 	cooldown = 8
 
 /obj/item/organ/internal/augment/health_scanner/attack_self(var/mob/user)
@@ -416,6 +418,7 @@
 	name = "integrated air analyzer"
 	organ_tag = BP_AUG_AIR_ANALYZER
 	parent_organ = BP_HEAD
+	activable = TRUE
 	action_button_icon = "atmos"
 	action_button_name = "Activate Air Analyzer"
 
@@ -424,4 +427,4 @@
 	if(!.)
 		return FALSE
 
-	analyze_gases(src, user)
+	analyze_gases(owner, user)
