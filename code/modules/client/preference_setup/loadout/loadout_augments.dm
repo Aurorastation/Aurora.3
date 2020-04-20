@@ -51,7 +51,7 @@
 	var/augs = list()
 	augs["retractable combipen, right hand"] = /obj/item/organ/internal/augment/tool/combitool
 	augs["retractable combipen, left hand"] = /obj/item/organ/internal/augment/tool/pen/left
-	gear_tweaks += new/datum/gear_tweak/path(augs)
+	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/lighter
 	display_name = "retractable lighter"
