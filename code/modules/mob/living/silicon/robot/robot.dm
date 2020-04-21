@@ -1066,7 +1066,7 @@
 		W.attack_self(src)
 	return
 
-/mob/living/silicon/robot/proc/choose_icon(var/list/module_sprites)
+/mob/living/silicon/robot/proc/choose_icon()
 	set category = "Robot Commands"
 	set name = "Choose Icon"
 	set waitfor = 0
