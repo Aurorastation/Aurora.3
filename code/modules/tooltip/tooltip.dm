@@ -106,10 +106,6 @@ Notes:
 			if(!theme)
 				theme = "midnight"
 			user.client.tooltips.show(tip_src, params, title, content, theme)
-		else
-			world << "returning no tooltips or client"
-	else
-		world << "wrong type"
 
 //Arbitrarily close a user's tooltip
 //Includes sanity checks.
