@@ -866,7 +866,7 @@
 
 /datum/controller/subsystem/jobs/proc/EquipAugments(mob/living/carbon/human/H, datum/preferences/prefs)
 	Debug("EA/([H]): Entry.")
-	if (!istype(H))
+	if(!istype(H))
 		Debug("EA/([H]): Abort: invalid arguments.")
 		return FALSE
 
