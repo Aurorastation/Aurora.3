@@ -41,4 +41,5 @@ changes:
   - tweak: "The Visitor role has been separated from Assistant."
   - tweak: "People may now join as a Visitor from any faction. They still have assistant level access by default."
   - tweak: "Visitors start with a slightly different default outfit now, and have their own sechud icon."
+  - spellcheck: "Job intros now use more appropriate prefixes."
   - backend: "Purged the mime and clown from the job defines."

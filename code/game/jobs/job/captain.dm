@@ -9,6 +9,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "company officials and Corporate Regulations"
 	selection_color = "#4747FF"
 	access = list() 			//See get_access()
@@ -74,6 +75,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#9696FF"
 	minimal_player_age = 10
