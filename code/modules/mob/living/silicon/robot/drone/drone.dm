@@ -60,6 +60,9 @@
 	req_access = list(access_engine, access_robotics)
 	var/hacked = FALSE
 
+	// Anti-theft (Explodes if not in these areas)
+	allowed_areas = list() //See initialize()
+
 	// Laws
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
@@ -146,6 +149,9 @@
 			continue
 		var/datum/robot_component/C = components[V]
 		C.max_damage = 10
+
+	//Give them access to the station
+	allowed_areas += the_station_areas
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	updateicon()
@@ -290,15 +296,25 @@
 	add_language(LANGUAGE_ROBOT, TRUE)
 
 //DRONE LIFE/DEATH
-/mob/living/silicon/robot/drone/process_level_restrictions()
+/*
+/mob/living/silicon/robot/drone/process_level_restrictions(var/detonate)
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
 	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
-		to_chat(src, SPAN_WARNING("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-		gib()
+		if (detonate)
+			to_chat(src, SPAN_WARNING("WARNING: Failure to comply. Anti-theft self-destruct mode engaged.")) //bruh
+			playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
+			addtimer(CALLBACK(src, playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)), 20)
+			addtimer(CALLBACK(src, gib()), 20)
+		else
+			to_chat(src, SPAN_WARNING("WARNING: Drone has left designated boundaries. Return immediately. You have 10 seconds to comply.")) //Anti-Theft mode engaged
+			playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
+			addtimer(CALLBACK(src, process_level_restrictions(detonate = 1)), 100)
 		return
+	if (detonate)
+		to_chat(src, SPAN_GOOD("Drone has re-entered designated boundaries. Anti-Theft self-destruct disengaged.")) //Anti-Theft mode disengaged
 	return
-
+*/
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)

@@ -118,6 +118,14 @@
 	var/weapon_lock = 0
 	var/weapon_lock_time = 120
 
+	// Anti-theft (Explodes if not in these areas)
+	var/list/allowed_areas = list(
+		/area/centcom, //should use centcomm area instead
+		/area/shuttle/escape,
+		/area/shuttle/arrival
+	)
+	var/out_of_bounds = FALSE //True if outside of above areas, see self_destruct()
+
 	// Verbs
 	var/list/robot_verbs_default = list(
 		/mob/living/silicon/robot/proc/sensor_mode,
@@ -1009,13 +1017,8 @@
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 		return
-
+/*
 /mob/living/silicon/robot/proc/self_destruct(var/anti_theft = FALSE)
-	if(anti_theft)
-		say("WARNING! Removal from NanoTrasen property detected. Anti-Theft mode activated. Unit [src] will self-destruct in five seconds.")
-		to_chat(src, SPAN_WARNING("All databases containing information related to NanoTrasen have been wiped!"))
-	else
-		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
 	lock_charge = TRUE
 	update_canmove()
 	sleep(20)
@@ -1026,6 +1029,18 @@
 	density = FALSE
 	fragem(src, 50, 100, 2, 1, 5, 1, 0)
 	gib()
+	return
+*/
+/mob/living/silicon/robot/proc/self_destruct()
+	//What's this for?
+	lock_charge = TRUE
+	update_canmove()
+
+	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
+	addtimer(CALLBACK(src, .proc/playsound, get_turf(src), 'sound/effects/alert.ogg', 125, TRUE), 20, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, .proc/gib), 20, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, .proc/fragem, src, 50, 100, 2, 1, 5, 1, 0), 20, TIMER_UNIQUE)
+	density = FALSE
 	return
 
 /mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
