@@ -117,6 +117,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
+	intro_prefix = "an"
 	supervisors = "the chief engineer"
 	selection_color = "#FFEA95"
 	economic_modifier = 5
@@ -160,6 +161,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
+	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#FFEA95"
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
