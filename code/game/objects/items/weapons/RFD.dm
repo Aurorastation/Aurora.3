@@ -209,10 +209,10 @@ RFD Construction-Class
 		flick("[icon_state]-empty", src)
 		return 0
 
-	playsound(get_turf(src), 'sound/machines/generator/generator_mid1.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/machines/hydraulic_long.ogg', 50, 1)
 
 	working = 1
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [T]..."))
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
 
 	if(build_delay && !do_after(user, build_delay))
 		working = 0
