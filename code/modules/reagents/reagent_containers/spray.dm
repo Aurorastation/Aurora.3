@@ -182,8 +182,8 @@
 	desc = "A seemingly innocent sunflower...with a twist."
 	icon = 'icons/obj/toy.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_toy.dmi',
-		slot_r_hand_str = 'icons/mob/items/stacks/righthand_toy.dmi',
+		slot_l_hand_str = 'icons/mob/items/lefthand_toy.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_toy.dmi',
 		)
 	icon_state = "sunflower"
 	item_state = "sunflower"
