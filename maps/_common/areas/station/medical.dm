@@ -7,6 +7,7 @@
 
 /area/medical/medbay
 	name = "\improper Medbay Hallway - Port"
+	lightswitch = TRUE
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
@@ -22,16 +23,19 @@
 
 /area/medical/medbay2
 	name = "\improper Medbay Hallway - Starboard"
+	lightswitch = TRUE
 	icon_state = "medbay2"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/medbay3
 	name = "\improper Medbay Hallway - Fore"
+	lightswitch = TRUE
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/medbay4
 	name = "\improper Medbay Hallway - Staff Wing"
+	lightswitch = TRUE
 	icon_state = "medbay4"
 	ambience = list('sound/ambience/signal.ogg')
 
@@ -52,6 +56,7 @@
 
 /area/medical/upperlevel
 	name = "\improper Medical - Upper-Level Hallway"
+	lightswitch = TRUE
 	icon_state = "medbay2"
 
 /area/crew_quarters/medbreak
@@ -85,6 +90,7 @@
 
 /area/medical/patient_wing_hallway
 	name = "\improper Medical - Patient Wing Hallway"
+	lightswitch = TRUE
 	icon_state = "patients"
 
 /area/medical/patient_wing_gym

@@ -3,8 +3,9 @@
 
 /area/hallway
 	sound_env = LARGE_ENCLOSED
-	allow_nightmode = 1
-	station_area = 1
+	allow_nightmode = TRUE
+	station_area = TRUE
+	lightswitch = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
 
 /area/hallway/primary/fore
@@ -38,13 +39,14 @@
 /area/hallway/secondary/exit
 	name = "\improper Surface - Red Dock"
 	icon_state = "escape"
-	no_light_control = 1
+	no_light_control = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
 /area/hallway/secondary/construction
 	name = "\improper Construction Area"
 	icon_state = "construction"
-	allow_nightmode = 0
+	allow_nightmode = FALSE
+	lightswitch = FALSE
 
 /area/hallway/secondary/entry/fore
 	name = "\improper Surface Lvl. Hallway Fore"
