@@ -489,7 +489,7 @@
 	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle")
 		return EquipRank(H, rank, 1)
 
-	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 6000, TIMER_STOPPABLE)
+	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
 
 	var/datum/job/job = GetJob(rank)
 
