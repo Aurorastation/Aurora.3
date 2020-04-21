@@ -73,15 +73,15 @@
 				tie_msg += ". Attached to it is [lowertext(english_list(U.accessories))]"
 				tie_msg_warn += "! Attached to it is [lowertext(english_list(U.accessories))]"
 
-		if(w_uniform.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [(w_uniform.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>[w_uniform.name]</a>[tie_msg_warn].</span>\n"
+		if(w_uniform.blood_color)
+			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>[w_uniform.name]</a>[tie_msg_warn].</span>\n"
 		else
 			msg += "[T.He] [T.is] wearing \icon[w_uniform] <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>\a [w_uniform]</a>[tie_msg].\n"
 
 	//head
 	if(head)
-		if(head.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[head] [head.gender==PLURAL?"some":"a"] [(head.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> on [T.his] head!</span>\n"
+		if(head.blood_color)
+			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[head] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> on [T.his] head!</span>\n"
 		else
 			msg += "[T.He] [T.is] wearing \icon[head] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> on [T.his] head.\n"
 
@@ -95,52 +95,52 @@
 				tie_msg += ". Attached to it is [lowertext(english_list(U.accessories))]"
 				tie_msg_warn += "! Attached to it is [lowertext(english_list(U.accessories))]"
 
-		if(wear_suit.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [(wear_suit.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>[wear_suit.name]</a>[tie_msg_warn].</span>\n"
+		if(wear_suit.blood_color)
+			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>[wear_suit.name]</a>[tie_msg_warn].</span>\n"
 		else
 			msg += "[T.He] [T.is] wearing \icon[wear_suit] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>\a [wear_suit]</a>[tie_msg].\n"
 
 		//suit/armour storage
 		if(s_store && !skipsuitstorage)
-			if(s_store.blood_DNA)
-				msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [(s_store.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] [wear_suit.name]!</span>\n"
+			if(s_store.blood_color)
+				msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] [wear_suit.name]!</span>\n"
 			else
 				msg += "[T.He] [T.is] carrying \icon[s_store] <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>\a [s_store]</a> on [T.his] [wear_suit.name].\n"
 	else if(s_store && !skipsuitstorage)
-		if(s_store.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [(s_store.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] chest!</span>\n"
+		if(s_store.blood_color)
+			msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] chest!</span>\n"
 		else
 			msg += "[T.He] [T.is] carrying \icon[s_store] <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>\a [s_store]</a> on [T.his] chest.\n"
 
 	//back
 	if(back)
-		if(back.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[back] [back.gender==PLURAL?"some":"a"] [(back.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>[back]</a> on [T.his] back.</span>\n"
+		if(back.blood_color)
+			msg += "<span class='warning'>[T.He] [T.has] \icon[back] [fluid_color_type_map(back.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>[back]</a> on [T.his] back.</span>\n"
 		else
 			msg += "[T.He] [T.has] \icon[back] <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>\a [back]</a> on [T.his] back.\n"
 
 	//left hand
 	if(l_hand)
-		if(l_hand.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] holding \icon[l_hand] [l_hand.gender==PLURAL?"some":"a"] [(l_hand.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>[l_hand.name]</a> in [T.his] left hand!</span>\n"
+		if(l_hand.blood_color)
+			msg += "<span class='warning'>[T.He] [T.is] holding \icon[l_hand] [l_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(l_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>[l_hand.name]</a> in [T.his] left hand!</span>\n"
 		else
 			msg += "[T.He] [T.is] holding \icon[l_hand] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>\a [l_hand]</a> in [T.his] left hand.\n"
 
 	//right hand
 	if(r_hand)
-		if(r_hand.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] holding \icon[r_hand] [r_hand.gender==PLURAL?"some":"a"] [(r_hand.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>[r_hand.name]</a> in [T.his] right hand!</span>\n"
+		if(r_hand.blood_color)
+			msg += "<span class='warning'>[T.He] [T.is] holding \icon[r_hand] [r_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(r_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>[r_hand.name]</a> in [T.his] right hand!</span>\n"
 		else
 			msg += "[T.He] [T.is] holding \icon[r_hand] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>\a [r_hand]</a> in [T.his] right hand.\n"
 
 	//gloves
 	if(gloves && !skipgloves)
-		if(gloves.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [(gloves.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves.name]</a> on [T.his] hands!</span>\n"
+		if(gloves.blood_color)
+			msg += "<span class='warning'>[T.He] [T.has] \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves.name]</a> on [T.his] hands!</span>\n"
 		else
 			msg += "[T.He] [T.has] \icon[gloves] <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>\a [gloves]</a> on [T.his] hands.\n"
-	else if(blood_DNA)
-		msg += "<span class='warning'>[T.He] [T.has] [(hand_blood_color != "#030303") ? "blood" : "oil"]-stained hands!</span>\n"
+	else if(blood_color)
+		msg += "<span class='warning'>[T.He] [T.has] [fluid_color_type_map(hand_blood_color)]-stained hands!</span>\n"
 
 	//handcuffed?
 	if(handcuffed)
@@ -155,31 +155,31 @@
 
 	//belt
 	if(belt)
-		if(belt.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[belt] [belt.gender==PLURAL?"some":"a"] [(belt.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>[belt.name]</a> about [T.his] waist!</span>\n"
+		if(belt.blood_color)
+			msg += "<span class='warning'>[T.He] [T.has] \icon[belt] [belt.gender==PLURAL?"some":"a"] [fluid_color_type_map(belt.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>[belt.name]</a> about [T.his] waist!</span>\n"
 		else
 			msg += "[T.He] [T.has] \icon[belt] <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>\a [belt]</a> about [T.his] waist.\n"
 
 	//shoes
 	if(shoes && !skipshoes)
-		if(shoes.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[shoes] [shoes.gender==PLURAL?"some":"a"] [(shoes.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>[shoes.name]</a> on [T.his] feet!</span>\n"
+		if(shoes.blood_color)
+			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[shoes] [shoes.gender==PLURAL?"some":"a"] [fluid_color_type_map(shoes.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>[shoes.name]</a> on [T.his] feet!</span>\n"
 		else
 			msg += "[T.He] [T.is] wearing \icon[shoes] <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>\a [shoes]</a> on [T.his] feet.\n"
-	else if(feet_blood_DNA)
-		msg += "<span class='warning'>[T.He] [T.has] [(feet_blood_color != "#030303") ? "blood" : "oil"]-stained feet!</span>\n"
+	else if(footprint_color)
+		msg += "<span class='warning'>[T.He] [T.has] [fluid_color_type_map(footprint_color)]-stained feet!</span>\n"
 
 	//mask
 	if(wear_mask && !skipmask)
-		if(wear_mask.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[wear_mask] [wear_mask.gender==PLURAL?"some":"a"] [(wear_mask.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> on [T.his] face!</span>\n"
+		if(wear_mask.blood_color)
+			msg += "<span class='warning'>[T.He] [T.has] \icon[wear_mask] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> on [T.his] face!</span>\n"
 		else
 			msg += "[T.He] [T.has] \icon[wear_mask] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>\a [wear_mask]</a> on [T.his] face.\n"
 
 	//eyes
 	if(glasses && !skipeyes)
-		if(glasses.blood_DNA)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[glasses] [glasses.gender==PLURAL?"some":"a"] [(glasses.blood_color != "#030303") ? "blood" : "oil"]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>[glasses]</a> covering [T.his] eyes!</span>\n"
+		if(glasses.blood_color)
+			msg += "<span class='warning'>[T.He] [T.has] \icon[glasses] [glasses.gender==PLURAL?"some":"a"] [fluid_color_type_map(glasses.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>[glasses]</a> covering [T.his] eyes!</span>\n"
 		else
 			msg += "[T.He] [T.has] \icon[glasses] <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>\a [glasses]</a> covering [T.his] eyes.\n"
 
@@ -197,7 +197,7 @@
 		if(istype(wear_id, /obj/item/device/pda))
 			var/obj/item/device/pda/pda = wear_id
 			id = pda.owner
-		else if(istype(wear_id, /obj/item/card/id)) //just in case something other than a PDA/ID card somehow gets in the ID slot :[
+		else if(istype(wear_id, /obj/item/card/id)) //just in case something other than a PDA/ID card somehow gets in the ID slot :c
 			var/obj/item/card/id/idcard = wear_id
 			id = idcard.registered_name
 		if(id && (id != real_name) && (get_dist(src, usr) <= 1) && prob(10))
@@ -403,3 +403,18 @@
 				return 0
 	else
 		return 0
+
+/proc/fluid_color_type_map(var/supplied_color)
+	var/static/list/color_map = list(
+					COLOR_HUMAN_BLOOD = "blood",
+					COLOR_DIONA_BLOOD = "blood",
+					COLOR_SKRELL_BLOOD = "blood",
+					COLOR_VAURCA_BLOOD = "blood",
+					COLOR_IPC_BLOOD = "oil",
+					COLOR_OIL = "oil",
+					COLOR_SNOW = "snow",
+					COLOR_ASH = "ash",
+						)
+
+	var/output_text = color_map[supplied_color] || "fluid"
+	return output_text

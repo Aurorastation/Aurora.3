@@ -63,11 +63,11 @@
 	if (!mapload)
 		updateVisibility(src)
 
-/turf/simulated/proc/AddTracks(var/typepath,var/bloodDNA,var/comingdir,var/goingdir,var/bloodcolor="#A10808")
+/turf/simulated/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
 	if(!tracks)
 		tracks = new typepath(src)
-	tracks.AddTracks(bloodDNA,comingdir,goingdir,bloodcolor)
+	tracks.add_tracks(footprint_DNA, comingdir, goingdir, footprint_color)
 
 /turf/simulated/proc/update_dirt()
 	dirt = min(dirt+1, 101)
@@ -79,16 +79,12 @@
 
 /turf/simulated/Entered(atom/A, atom/OL)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		to_chat(usr, "<span class='danger'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
-
-
-	if (istype(A,/mob/living))
+	if(istype(A,/mob/living))
 		var/mob/living/M = A
-
 		if(src.wet_type && src.wet_amount)
-
 			if(M.buckled || (src.wet_type == 1 && M.m_intent == "walk"))
 				return
 
@@ -114,7 +110,7 @@
 		if(M.lying)
 			return ..()
 
-		// Ugly hack :( Should never have multiple plants in the same tile.
+		// Ugly hack :c Should never have multiple plants in the same tile.
 		var/obj/effect/plant/plant = locate() in contents
 		if(plant) plant.trodden_on(M)
 
@@ -124,29 +120,33 @@
 		if(istype(M, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
 			// Tracking blood
-			var/list/bloodDNA = null
-			var/bloodcolor=""
+			var/list/footprint_DNA = list()
+			var/footprint_color
+			var/will_track = FALSE
 			if(H.shoes)
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))
-					S.handle_movement(src,(H.m_intent == "run" ? 1 : 0))
-					if(S.track_blood && S.blood_DNA)
-						bloodDNA = S.blood_DNA
-						bloodcolor=S.blood_color
-						S.track_blood--
+					S.handle_movement(src, H.m_intent == "run" ? TRUE : FALSE)
+					if(S.track_footprint)
+						if(S.blood_DNA)
+							footprint_DNA = S.blood_DNA
+						footprint_color = S.blood_color
+						S.track_footprint--
+						will_track = TRUE
 			else
-				if(H.track_blood && H.feet_blood_DNA)
-					bloodDNA = H.feet_blood_DNA
-					bloodcolor = H.feet_blood_color
-					H.track_blood--
+				if(H.track_footprint)
+					if(H.feet_blood_DNA)
+						footprint_DNA = H.feet_blood_DNA
+					footprint_color = H.footprint_color
+					H.track_footprint--
+					will_track = TRUE
 
-			if(bloodDNA)
-				src.AddTracks(H.species.get_move_trail(H),bloodDNA,H.dir,0,bloodcolor) // Coming
-				var/turf/simulated/from = get_step(H,reverse_direction(H.dir))
+			if(will_track)
+				add_tracks(H.species.get_move_trail(H), footprint_DNA, H.dir, 0, footprint_color) // Coming
+				var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
 				if(istype(from) && from)
-					from.AddTracks(H.species.get_move_trail(H),bloodDNA,0,H.dir,bloodcolor) // Going
-
-				bloodDNA = null
+					from.add_tracks(H.species.get_move_trail(H), footprint_DNA, 0, H.dir, footprint_color) // Going
+				footprint_DNA = null
 
 		M.inertia_dir = 0
 

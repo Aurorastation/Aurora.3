@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Ash and snow now cause footprints when you walk across them."
+  - tweak: "Tweaked the robustness of the examine code when your appendages and clothes are covered in fluids like blood, it now somewhat accurately displays what they're stained with."
