@@ -7,19 +7,12 @@
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/accessory/suspenders
-
-/datum/gear/accessory/suspenders/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
 	path = /obj/item/clothing/accessory/wcoat_rec
-
-/datum/gear/accessory/waistcoat/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"
@@ -82,10 +75,7 @@
 /datum/gear/accessory/bowtie
 	display_name = "bowtie"
 	path = /obj/item/clothing/accessory/tie/bowtie
-
-/datum/gear/accessory/bowtie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -126,10 +116,7 @@
 	display_name = "drop pouches, simple"
 	path = /obj/item/clothing/accessory/storage/pouches/colour
 	cost = 2
-
-/datum/gear/accessory/pouches/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
@@ -146,34 +133,22 @@
 /datum/gear/accessory/sweater
 	display_name = "sweater"
 	path = /obj/item/clothing/accessory/sweater
-
-/datum/gear/accessory/sweater/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"
 	path = /obj/item/clothing/accessory/dressshirt
-
-/datum/gear/accessory/dressshirt/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/dressshirt_r
 	display_name = "dress shirt, rolled up"
 	path = /obj/item/clothing/accessory/dressshirt_r
-
-/datum/gear/accessory/dressshirt_r/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve
 	display_name = "long-sleeved shirt"
 	path = /obj/item/clothing/accessory/longsleeve
-
-/datum/gear/accessory/longsleeve/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve_s
 	display_name = "long-sleeved shirt, striped"
@@ -189,10 +164,7 @@
 /datum/gear/accessory/tshirt
 	display_name = "t-shirt"
 	path = /obj/item/clothing/accessory/tshirt
-
-/datum/gear/accessory/tshirt/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/silversun
 	display_name = "silversun floral shirt selection"
@@ -209,6 +181,7 @@
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/scarf/New()
 	..()
@@ -216,7 +189,6 @@
 	scarfs["plain scarf"] = /obj/item/clothing/accessory/scarf
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
-	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/chaps
 	display_name = "chaps, brown"
@@ -272,7 +244,4 @@
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch
-
-/datum/gear/accessory/sleeve_patch/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

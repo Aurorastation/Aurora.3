@@ -121,6 +121,7 @@
 	name = "\improper Bar"
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
+	lightswitch = TRUE
 	allow_nightmode = 0
 
 /area/crew_quarters/bar/below

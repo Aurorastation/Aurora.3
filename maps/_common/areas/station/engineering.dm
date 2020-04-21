@@ -65,6 +65,7 @@
 
 /area/engineering/engineering_hallway_main
 	name = "\improper Engineering - Main Level Hallway"
+	lightswitch = TRUE
 	icon_state = "engine_monitoring"
 
 /area/engineering/foyer

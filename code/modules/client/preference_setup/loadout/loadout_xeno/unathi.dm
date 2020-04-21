@@ -44,10 +44,7 @@
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
-
-/datum/gear/uniform/unathi/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/autakh_engineering
 	display_name = "engineering grasper"
@@ -57,6 +54,7 @@
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/autakh_mining
 	display_name = "mining grasper"
@@ -66,6 +64,7 @@
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Shaft Miner")
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/autakh_medical
 	display_name = "medical grasper"
@@ -75,6 +74,7 @@
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/autakh_security
 	display_name = "security grasper"
@@ -84,6 +84,7 @@
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/uniform/unathi/jizixi
 	display_name = "jizixi dress"
@@ -128,6 +129,7 @@
 	cost = 1
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/unathi/wrapping_body
 	display_name = "thakh shaman body wrappings"
@@ -136,3 +138,4 @@
 	cost = 1
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION

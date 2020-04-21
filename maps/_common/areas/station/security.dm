@@ -10,6 +10,12 @@
 	name = "\improper Security - Equipment Room"
 	icon_state = "security"
 
+// For mapppers
+/area/security/hallway
+	name = "\improper Security - Hallway"
+	lightswitch = TRUE
+	icon_state = "security"
+
 /area/security/lobby
 	name = "\improper Security - Lobby"
 	icon_state = "security"
@@ -18,6 +24,7 @@
 
 /area/security/brig
 	name = "\improper Security - Brig"
+	lightswitch = TRUE
 	icon_state = "brig"
 
 /area/security/brig/prison_break()
@@ -30,6 +37,7 @@
 
 /area/security/prison
 	name = "\improper Security - Prison Wing"
+	lightswitch = TRUE
 	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()

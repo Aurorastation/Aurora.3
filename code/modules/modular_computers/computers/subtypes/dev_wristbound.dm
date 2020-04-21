@@ -4,15 +4,19 @@
 	description_info = "A NanoTrasen design, this wristbound computer allows the user to quickly and safely access critical info, without taking their hands out of the equation."
 	icon = 'icons/obj/modular_wristbound.dmi'
 	icon_state = "wristbound"
-	icon_state_unpowered = "wristbound_unpowered"
 	icon_state_menu = "menu"
 	icon_state_screensaver = "standby"
 	hardware_flag = PROGRAM_WRISTBOUND
-	slot_flags = SLOT_GLOVES
+	slot_flags = SLOT_GLOVES|SLOT_ID
 	max_hardware_size = 1
 	w_class = ITEMSIZE_NORMAL
 	light_strength = 1
 	menu_light_color = COLOR_GREEN
+
+/obj/item/modular_computer/wristbound/Initialize()
+	icon_state_unpowered = icon_state
+	icon_state_broken = icon_state
+	. = ..()
 
 /obj/item/modular_computer/wristbound/attack_hand(mob/user)
 	if(ishuman(user))

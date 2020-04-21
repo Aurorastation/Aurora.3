@@ -209,3 +209,7 @@
 		return
 	if(!istype(over_object, /obj/screen) && !(over_object == src))
 		return attack_self(M)
+
+/obj/item/modular_computer/GetID()
+	if(card_slot.stored_card)
+		return card_slot.stored_card
