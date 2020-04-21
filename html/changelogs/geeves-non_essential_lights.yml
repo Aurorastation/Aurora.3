@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Areas with lightswitches now start with them off, unless someone spawned in at them during round start."
