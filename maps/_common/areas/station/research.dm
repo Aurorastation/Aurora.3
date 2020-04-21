@@ -30,6 +30,11 @@
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
+/area/rnd/hallway
+	name = "\improper Research - Hallway"
+	icon_state = "research"
+	lightswitch = TRUE
+
 /area/rnd/research
 	name = "\improper Research and Development"
 	icon_state = "research"

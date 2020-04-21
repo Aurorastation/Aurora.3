@@ -73,7 +73,7 @@
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
-	blood_color = "#1F181F"
+	blood_color = COLOR_IPC_BLOOD
 	flesh_color = "#575757"
 	virus_immune = 1
 	reagent_tag = IS_MACHINE

@@ -18,7 +18,7 @@
 	layer = 10
 	luminosity = 0
 	mouse_opacity = 0
-	var/lightswitch = 1
+	var/lightswitch = FALSE
 
 	var/eject = null
 
@@ -104,6 +104,13 @@
 		power_change()		// all machines set to current power level
 
 	. = ..()
+
+/area/proc/set_lightswitch(var/state)
+	lightswitch = state
+	var/obj/machinery/light_switch/L = locate() in src
+	if(L)
+		L.on = state
+		L.sync_lights()
 
 /area/proc/get_cameras()
 	. = list()

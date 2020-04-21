@@ -88,6 +88,17 @@
 #define COLOR_CULT             "#402821"
 #define COLOR_CULT_REINFORCED  "#8f3329"
 #define COLOR_CULT_DOOR        "#402821"
+#define COLOR_OIL              "#030303"
+#define COLOR_ASH              "#615C5B"
+#define COLOR_SNOW             "#9CADAD"
+
+
+// Blood colors
+#define COLOR_HUMAN_BLOOD      "#A10808"
+#define COLOR_DIONA_BLOOD      "#97DD7C"
+#define COLOR_IPC_BLOOD        "#1F181F"
+#define COLOR_SKRELL_BLOOD     "#1D2CBF"
+#define COLOR_VAURCA_BLOOD     "#E6E600"
 
 
 //Color defines used by the assembly detailer.
