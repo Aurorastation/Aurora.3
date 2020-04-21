@@ -288,7 +288,7 @@ var/global/list/radial_menus = list()
 	if(!user || !anchor || !length(choices))
 		return
 	if(!uniqueid)
-		uniqueid = "defmenu_[ref(user)]_[ref(anchor)]"
+		uniqueid = "defmenu_[SOFTREF(user)]_[SOFTREF(anchor)]"
 
 	if(radial_menus[uniqueid])
 		if(!no_repeat_close)
