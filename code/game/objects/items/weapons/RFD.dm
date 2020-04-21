@@ -205,14 +205,14 @@ RFD Construction-Class
 		return 0
 
 	if(!useResource(build_cost, user))
-		user << "The \'Low Ammo\' light on the device blinks yellow."
+		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
 		flick("[icon_state]-empty", src)
 		return 0
 
-	playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/machines/generator/generator_mid1.ogg', 50, 1)
 
 	working = 1
-	to_chat(user, "[(deconstruct ? "Deconstructing" : "Building")] [build_type]...")
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [T]..."))
 
 	if(build_delay && !do_after(user, build_delay))
 		working = 0
@@ -229,7 +229,7 @@ RFD Construction-Class
 	else
 		qdel(T)
 
-	playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
 	return 1
 
 /obj/item/rfd/construction/borg
