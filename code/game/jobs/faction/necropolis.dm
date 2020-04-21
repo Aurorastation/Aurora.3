@@ -33,6 +33,7 @@
 	title_suffix = "Necro"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/officer,
 		/datum/job/forensics,
 		/datum/job/warden,

@@ -32,6 +32,7 @@
 	title_suffix = "Idris"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/officer,
 		/datum/job/detective,
 		/datum/job/forensics,
