@@ -726,6 +726,10 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
+
+			if(G.augment) //augments are handled somewhere else
+				continue
+
 			var/permitted
 			if(G.allowed_roles)
 				for(var/job_name in G.allowed_roles)
@@ -743,9 +747,6 @@
 
 			if(!permitted)
 				to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>")
-				continue
-
-			if(G.augment) //augments are handled somewhere else
 				continue
 
 			if(G.slot && !(G.slot in custom_equip_slots))
@@ -879,6 +880,9 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
+			if(!G.augment)
+				continue
+
 			var/permitted = FALSE
 			if(G.allowed_roles)
 				for(var/job_name in G.allowed_roles)
@@ -896,9 +900,6 @@
 
 			if(!permitted)
 				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
-				continue
-
-			if(!G.augment)
 				continue
 
 			var/obj/item/organ/A = new G.path(H)
