@@ -2,7 +2,7 @@
 /obj/item/rfd
 	name = "\improper Rapid-Fabrication-Device"
 	desc = "A device used for rapid fabrication. The matter decompression matrix is untuned, rendering it useless."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/rfd.dmi'
 	icon_state = "rfd"
 	item_state = "rfd"
 	opacity = 0
@@ -17,23 +17,16 @@
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 50000)
 	drop_sound = 'sound/items/drop/gun.ogg'
-	var/datum/effect_system/sparks/spark_system
 	var/stored_matter = 30 // Starts off full.
 	var/working = 0
 	var/mode = 1
 	var/number_of_modes = 1
-	var/modes = null
+	var/list/modes
 	var/crafting = FALSE
 
 /obj/item/rfd/Initialize()
 	. = ..()
-	src.spark_system = bind_spark(src, 5)
 	update_icon()
-
-/obj/item/rfd/Destroy()
-	qdel(spark_system)
-	spark_system = null
-	return ..()
 
 /obj/item/rfd/attack()
 	return 0
@@ -48,10 +41,12 @@
 
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
-	if(++mode > number_of_modes) mode = 1
-	to_chat(user, "<span class='notice'>Changed mode to '[modes[mode]]'</span>")
+	if(++mode > number_of_modes)
+		mode = 1
+	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-	if(prob(20)) src.spark_system.queue()
+	if(prob(20))
+		spark(get_turf(loc), 3, TRUE)
 
 /obj/item/rfd/attackby(obj/item/W, mob/user)
 
@@ -127,13 +122,37 @@ RFD Construction-Class
 /obj/item/rfd/construction
 	name = "\improper Rapid-Fabrication-Device C-Class"
 	desc = "A RFD, modified to construct walls and floors."
-	modes = list("Floor & Walls","Airlock","Deconstruct")
-	number_of_modes = 3
+	var/list/radial_modes = list()
 	var/canRwall = 0
 	var/disabled = 0
 
+/obj/item/rfd/construction/Initialize()
+	. = ..()
+	radial_modes = list(
+		"Floors and Walls" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "wallfloor"),
+		"Airlock" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "airlock"),
+		"Deconstruct" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "delete")
+	)
+
+/obj/item/rfd/construction/attack_self(mob/user)
+	var/current_mode = show_radial_menu(user, src, radial_modes, radius = 42, require_near = TRUE, tooltips = TRUE)
+	switch(current_mode)
+		if("Floors and Walls")
+			mode = 1
+		if("Airlock")
+			mode = 2
+		if("Deconstruct")
+			mode = 3
+		else
+			mode = 1
+	to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
+	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+	if(prob(20))
+		spark(get_turf(src), 3, TRUE)
+
 /obj/item/rfd/construction/afterattack(atom/A, mob/user, proximity)
-	if(!proximity) return
+	if(!proximity)
+		return
 	if(disabled && !isrobot(user))
 		return 0
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
@@ -141,7 +160,7 @@ RFD Construction-Class
 	var/turf/t = get_turf(A)
 	if (isNotStationLevel(t.z))
 		return 0
-	return alter_turf(A,user,(mode == 3))
+	return alter_turf(A, user, (mode == 3))
 
 /obj/item/rfd/construction/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
 

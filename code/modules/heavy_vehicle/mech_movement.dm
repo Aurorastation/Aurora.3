@@ -68,7 +68,7 @@
 	if(exosuit.emp_damage >= EMP_MOVE_DISRUPT && prob(30))
 		failed = TRUE
 	if(failed)
-		moving_dir = pick(GLOB.cardinal - exosuit.dir)
+		moving_dir = pick(cardinal - exosuit.dir)
 
 	exosuit.get_cell().use(exosuit.legs.power_use * CELLRATE)
 	if(exosuit.dir != moving_dir)

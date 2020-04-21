@@ -425,6 +425,9 @@
 			del(src)
 			return 0
 
+	if(!tooltips)
+		tooltips = new /datum/tooltip(src)
+
 	if(holder)
 		add_admin_verbs()
 
@@ -574,6 +577,10 @@
 	set category = "Preferences"
 	if(prefs)
 		prefs.ShowChoices(usr)
+
+/client/proc/apply_fps(var/client_fps)
+	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
+		vars["fps"] = prefs.clientfps
 
 //I honestly can't find a good place for this atm.
 //If the webint interaction gets more features, I'll move it. - Skull132
