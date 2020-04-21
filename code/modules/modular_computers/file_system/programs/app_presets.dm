@@ -216,7 +216,7 @@
 	description = "Contains the most common security and forensics programs."
 	available = FALSE
 
-/datum/modular_computer_app_presets/security/return_install_programs()
+/datum/modular_computer_app_presets/security/investigations/return_install_programs()
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
