@@ -36,8 +36,6 @@
 				message = message_body
 			else if(message_type == "ref")
 				message = locate(message_body)
-
-			world << "CHANNEL=[channel] TYPE=[message_type] DATA=[message]"
 			for (var/thing in GET_LISTENERS(channel))
 				var/listener/L = thing
 				var/obj/item/integrated_circuit/transfer/wireless/W = L.target
