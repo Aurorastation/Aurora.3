@@ -34,7 +34,7 @@
 
 		var/hearing_aid = FALSE
 		if(ishuman(C.mob))
-			var/mob/living/carbon/human/H = src
+			var/mob/living/carbon/human/H = C.mob
 			hearing_aid = H.has_hearing_aid()
 
 		var/verbal_language = TRUE
