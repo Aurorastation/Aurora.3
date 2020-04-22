@@ -32,24 +32,10 @@
 			C.images += understood
 			continue
 
-		var/hearing_aid = FALSE
-		if(ishuman(C.mob))
-			var/mob/living/carbon/human/H = C.mob
-			hearing_aid = H.has_hearing_aid()
-
-		var/verbal_language = TRUE
-		if((language.flags & NONVERBAL) || (language.flags & SIGNLANG))
-			verbal_language = FALSE
-
-		var/is_deaf = FALSE
-		if(((C.mob.sdisabilities & DEAF) && !hearing_aid) || C.mob.ear_deaf > 1)
-			is_deaf = TRUE
-
-		if(!(verbal_language && is_deaf))
-			if(C.mob.say_understands(null, language))
-				C.images += understood
-			else
-				C.images += gibberish
+		if(C.mob.say_understands(null, language))
+			C.images += understood
+		else
+			C.images += gibberish
 
 // Aracne magicks to keep consistent color for given name without me figuring out color maths
 /proc/get_floating_message_color(name)
