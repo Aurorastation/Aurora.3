@@ -269,7 +269,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 
 	var/list/hear_clients = list()
-	for(var/m in listening)		
+	for(var/m in listening)
 		var/mob/M = m
 		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 		if(heard_say && M.client)
