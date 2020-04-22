@@ -317,6 +317,8 @@
 		return
 
 	var/module_type = robot_modules[mod_type]
+	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
+	spark(get_turf(src), 5, alldirs)
 	new module_type(src)
 
 	hands.icon_state = lowertext(mod_type)

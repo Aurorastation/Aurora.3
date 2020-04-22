@@ -69,7 +69,7 @@
 	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
-	blood_color = "#E6E600" // dark yellow
+	blood_color = COLOR_VAURCA_BLOOD // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
 
