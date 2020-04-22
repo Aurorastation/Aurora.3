@@ -335,7 +335,7 @@ var/datum/controller/subsystem/timer/SStimer
 		timeToRun = REALTIMEOFDAY + wait
 	else
 		timeToRun = world.time + wait
-	
+
 	if (flags & TIMER_UNIQUE)
 		SStimer.hashes[hash] = src
 	if (flags & TIMER_STOPPABLE)
@@ -470,6 +470,18 @@ var/datum/controller/subsystem/timer/SStimer
 
 	var/hash
 
+	var/static/monitor_counter = 0
+	var/static/monitor_time = 0
+
+	if (monitor_time == world.time)
+		monitor_counter++
+
+		if (monitor_counter == 1000)
+			crash_with("This invoked 1000 timers in a single tick.")
+	else
+		monitor_time = world.time
+		monitor_counter = 0
+
 	if (flags & TIMER_UNIQUE)
 		var/list/hashlist
 		if(flags & TIMER_NO_HASH_WAIT)
@@ -525,7 +537,7 @@ var/datum/controller/subsystem/timer/SStimer
 	var/datum/timedevent/timer = null
 	if (!istext(id) && istype(id, /datum/timedevent))
 		timer = id
-	else 
+	else
 		timer = SStimer.timer_id_dict[id]
 
 	if(!timer)
