@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Machine blueprints now no longer need multitools to finalize their direction, you only need to click it with an empty hand."
-  - rscadd: "Machine blueprints have received revamped examines, allowing you to see what the next assembly and disassembly step is, as well as what it'll become."
