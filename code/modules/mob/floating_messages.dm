@@ -25,6 +25,9 @@
 		gibberish = generate_floating_text(src, language.scramble(message), style, fontsize, duration, show_to)
 
 	for(var/client/C in show_to)
+		if(!(C.prefs.toggles_secondary & FLOATING_MESSAGES))
+			continue
+
 		if(isnull(language))
 			C.images += understood
 			continue
@@ -34,7 +37,15 @@
 			var/mob/living/carbon/human/H = src
 			hearing_aid = H.has_hearing_aid()
 
-		if(!(!(language.flags & NONVERBAL) && !(language.flags & SIGNLANG) && (((C.mob.sdisabilities & DEAF) && !hearing_aid) || C.mob.ear_deaf > 1)) && C.floating_messages == TRUE)
+		var/verbal_language = TRUE
+		if((language.flags & NONVERBAL) || (language.flags & SIGNLANG))
+			verbal_language = FALSE
+
+		var/is_deaf = FALSE
+		if(((C.mob.sdisabilities & DEAF) && !hearing_aid) || C.mob.ear_deaf > 1)
+			is_deaf = TRUE
+
+		if(!(verbal_language && is_deaf))
 			if(C.mob.say_understands(null, language))
 				C.images += understood
 			else
@@ -80,14 +91,3 @@
 /proc/remove_floating_text(atom/movable/holder, image/I)
 	animate(I, 2, pixel_y = I.pixel_y + 10, alpha = 0)
 	LAZYREMOVE(holder.stored_chat_text, I)
-
-/client
-	var/floating_messages = FALSE
-
-/client/verb/toggle_floating_messages()
-	set name = "Toggle Floating Messages"
-	set desc = "Toggles messages appearing above mobs when they speak."
-	set category = "OOC"
-
-	floating_messages = !floating_messages
-	to_chat(src, SPAN_NOTICE("Floating messages are now [floating_messages ? "enabled" : "disabled"]."))
