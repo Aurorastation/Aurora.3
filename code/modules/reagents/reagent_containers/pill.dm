@@ -261,7 +261,6 @@
 		. = ..()
 		reagents.add_reagent("nutriment", 20)
 		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
-		//Would be absolutely retarded to grind the biogenerator for juices.
 
 /obj/item/reagent_containers/pill/rmt
 	name = "RMT pill"
