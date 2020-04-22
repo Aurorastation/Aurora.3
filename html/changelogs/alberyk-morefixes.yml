@@ -1,0 +1,9 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed pAI creating a ghost card when folded."
+  - bugfix: "Fixed the tajaran candy not replacing the reagents after being cooked."
+  - bugfix: "Fixed a a medical borg icon facing the wrong direction."
+  - bugfix: "Fixed not being able to remove wrist computers by dragging them to a hand slot."
