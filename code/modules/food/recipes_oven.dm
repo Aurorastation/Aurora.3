@@ -594,6 +594,7 @@
 	appliance = OVEN
 	fruit = list("sugartree" = 2)
 	reagents = list("fatshouter_milk" = 5, "egg" = 3)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
