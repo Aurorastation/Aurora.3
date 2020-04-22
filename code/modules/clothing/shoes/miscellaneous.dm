@@ -66,6 +66,12 @@
 	icon_state = "thongsandal"
 	item_state = "thongsandal"
 
+obj/item/clothing/shoes/sandal/clogs
+	name = "plastic clogs"
+	desc = "A pair of plastic clog shoes."
+	icon_state = "clogs"
+	item_state = "clogs"
+
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
 	name = "clown shoes"
