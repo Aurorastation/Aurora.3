@@ -46,7 +46,7 @@
 	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	if(prob(20))
-		spark(get_turf(loc), 3, TRUE)
+		spark(get_turf(loc), 3, alldirs)
 
 /obj/item/rfd/attackby(obj/item/W, mob/user)
 
@@ -148,7 +148,7 @@ RFD Construction-Class
 	to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	if(prob(20))
-		spark(get_turf(src), 3, TRUE)
+		spark(get_turf(src), 3, alldirs)
 
 /obj/item/rfd/construction/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)

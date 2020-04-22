@@ -1100,6 +1100,8 @@
 	icon_state = module_sprites[icontype]
 	updateicon()
 	icon_selected = TRUE
+	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
+	spark(get_turf(src), 5, alldirs)
 	verbs -= /mob/living/silicon/robot/proc/choose_icon
 	to_chat(src, SPAN_NOTICE("Your icon has been set. You now require a module reset to change it."))
 
