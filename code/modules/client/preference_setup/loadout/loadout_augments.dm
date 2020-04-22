@@ -1,18 +1,12 @@
 /datum/gear/augment
-	display_name = "integrated PDA"
-	description = "An augment that allows the user to access a remote PDA system."
-	path = /obj/item/organ/internal/augment/pda
-	augment = TRUE
-	cost = 3
-	sort_category = "Augments"
-	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Aut'akh Unathi", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
-	flags = GEAR_NO_SELECTION
-
-/datum/gear/augment/time
 	display_name = "integrated timepiece"
 	description = "An augment that allows the user to consult the time anywhere."
 	path = /obj/item/organ/internal/augment/timepiece
 	cost = 1
+	augment = TRUE
+	sort_category = "Augments"
+	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Aut'akh Unathi", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/eye_sensors
 	display_name = "integrated eye sensors"
@@ -37,33 +31,6 @@
 	var/augs = list()
 	augs["retractable combitool, right hand"] = /obj/item/organ/internal/augment/tool/combitool
 	augs["retractable combitool, left hand"] = /obj/item/organ/internal/augment/tool/combitool/left
-	gear_tweaks += new /datum/gear_tweak/path(augs)
-
-
-/datum/gear/augment/pen
-	display_name = "retractable combipen"
-	description = "An augment that allows the user to deploy a simple combipen."
-	path = /obj/item/organ/internal/augment/tool/pen
-	cost = 2
-
-/datum/gear/augment/pen/New()
-	..()
-	var/augs = list()
-	augs["retractable combipen, right hand"] = /obj/item/organ/internal/augment/tool/combitool
-	augs["retractable combipen, left hand"] = /obj/item/organ/internal/augment/tool/pen/left
-	gear_tweaks += new /datum/gear_tweak/path(augs)
-
-/datum/gear/augment/lighter
-	display_name = "retractable lighter"
-	description = "An augment that allows the user to deploy a lighter."
-	path = /obj/item/organ/internal/augment/tool/lighter
-	cost = 2
-
-/datum/gear/augment/lighter/New()
-	..()
-	var/augs = list()
-	augs["retractable lighter, right hand"] = /obj/item/organ/internal/augment/tool/lighter
-	augs["retractable lighter, left hand"] = /obj/item/organ/internal/augment/tool/lighter/left
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/health_scanner
@@ -91,20 +58,8 @@
 	augs["taste duller"] = /obj/item/organ/internal/augment/taste_booster/dull
 	gear_tweaks += new /datum/gear_tweak/path(augs)
 
-/datum/gear/augment/radio
-	display_name = "integrated radio"
-	description = "An augment that allows the user to interact with an integrated radio."
-	path = /obj/item/organ/internal/augment/radio
-	cost = 5
-
 /datum/gear/augment/fuel_cell
 	display_name = "integrated fuel cell"
 	description = "An augment that allows the user to synthetize welding fuel into nutrients."
 	path = /obj/item/organ/internal/augment/fuel_cell
-	cost = 3
-
-/datum/gear/augment/air_analyzer
-	display_name = "integrated air analyzer"
-	description = "An augment that allows the user to analyze the air around them."
-	path = /obj/item/organ/internal/augment/air_analyzer
 	cost = 3

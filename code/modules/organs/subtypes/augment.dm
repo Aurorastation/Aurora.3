@@ -79,70 +79,13 @@
 	if (emergency_shuttle.get_status_panel_eta())
 		to_chat(owner, SPAN_WARNING("Notice: You have one (1) scheduled flight, ETA: [emergency_shuttle.get_status_panel_eta()]."))
 
-/obj/item/organ/internal/augment/pda
-	name = "integrated PDA"
-	icon_state = "augment-pda"
-	parent_organ = BP_HEAD
-	action_button_name = "Activate Integrated PDA"
-	activable = TRUE
-	organ_tag = BP_AUG_PDA
-	action_button_icon = "augment-pda"
-	cooldown = 5
-	var/obj/item/device/pda/P
-
-/obj/item/organ/internal/augment/pda/Initialize()
-	. = ..()
-	if(!P)
-		P = new /obj/item/device/pda(src)
-		P.canremove = FALSE
-
-/obj/item/organ/internal/augment/pda/attack_self(mob/user)
-	. = ..()
-	if(!.)
-		return FALSE
-
-	if(P && !P.owner)
-		var/obj/item/card/id/idcard = owner.get_active_hand()
-		if(istype(idcard))
-			P.owner = idcard.registered_name
-			P.ownjob = idcard.assignment
-			P.ownrank = idcard.rank
-			P.name = "Integrated PDA-[P.owner] ([P.ownjob])"
-			to_chat(owner, SPAN_NOTICE("Card scanned."))
-			P.try_sort_pda_list()
-		else
-			to_chat(owner, SPAN_WARNING("No ID data loaded. Please hold your ID to be scanned."))
-			return FALSE
-
-	P.attack_self(user)
-
-
-/obj/item/organ/internal/augment/pda/emp_act(severity)
-	..()
-	if(P)
-		P = null
-		qdel(P)
-		if(owner && owner.can_feel_pain())
-			to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel something burn inside your head!")))
-			var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
-			if(O)
-				O.add_pain(30)
-
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
 	action_button_name = "Deploy Widget"
 	cooldown = 10
 	activable = TRUE
 	var/augment_type
-	var/obj/item/augment
-	var/deployed = FALSE
-	var/deployment_location
-	var/deployment_string
 
-/obj/item/organ/internal/augment/tool/Initialize()
-	. = ..()
-	if(augment_type)
-		augment = new augment_type(src)
 
 /obj/item/organ/internal/augment/tool/attack_self(var/mob/user)
 	. = ..()
@@ -150,27 +93,20 @@
 	if(!.)
 		return FALSE
 
-	if(!deployed)
-		if(!deployment_location)
-			if(owner.get_active_hand())
-				to_chat(owner, SPAN_WARNING("You must empty your active hand before enabling your [src]!"))
-				return
 
-			owner.last_special = world.time + cooldown
-			owner.put_in_active_hand(augment)
-			augment.canremove = FALSE
-			owner.visible_message(SPAN_NOTICE("\The [augment] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [augment]!"))
-			deployed = TRUE
+	if(!augment_type)
+		return FALSE
 
-		else if (!owner.equip_to_slot_if_possible(augment, deployment_location))
-			to_chat(owner, SPAN_WARNING("You must remove your [deployment_string] before enabling your [src]!"))
-			return
+	for(var/obj/item/augment_type in owner)
+		return
 
-	else
-		augment.canremove = TRUE
-		owner.drop_from_inventory(augment, src)
-		owner.visible_message(SPAN_NOTICE("\The [augment] slides into \the [owner]'s [src.loc]."), SPAN_NOTICE("You retract \the [augment]!"))
-		deployed = FALSE
+	if(owner.get_active_hand())
+		to_chat(owner, SPAN_WARNING("You must empty your active hand before enabling your [src]!"))
+		return
+
+	var/obj/item/M = new augment_type(owner)
+	owner.put_in_active_hand(M)
+	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
@@ -182,30 +118,6 @@
 	augment_type = /obj/item/combitool/robotic
 
 /obj/item/organ/internal/augment/tool/combitool/left
-	parent_organ = BP_L_HAND
-
-/obj/item/organ/internal/augment/tool/pen
-	name = "retractable combipen"
-	action_button_name = "Deploy Combipen"
-	action_button_icon = "combipen"
-	organ_tag = BP_AUG_PEN
-	augment_type = /obj/item/pen/multi
-	cooldown = 10
-	parent_organ = BP_R_HAND
-
-/obj/item/organ/internal/augment/tool/pen/left
-	parent_organ = BP_L_HAND
-
-/obj/item/organ/internal/augment/tool/lighter
-	name = "retractable lighter"
-	action_button_name = "Deploy Lighter"
-	action_button_icon = "lighter"
-	organ_tag = BP_AUG_LIGHTER
-	augment_type = /obj/item/flame/lighter/zippo
-	cooldown = 10
-	parent_organ = BP_R_HAND
-
-/obj/item/organ/internal/augment/tool/lighter/left
 	parent_organ = BP_L_HAND
 
 /obj/item/organ/internal/augment/health_scanner
@@ -375,57 +287,6 @@
 	name = "taste duller"
 	new_taste = TASTE_DULL
 
-/obj/item/organ/internal/augment/radio
-	name = "integrated radio"
-	organ_tag = BP_AUG_RADIO
-	parent_organ = BP_HEAD
-	action_button_icon = "radio"
-	activable = TRUE
-	cooldown = 15
-	action_button_name = "Activate Integrated Radio"
-	var/obj/item/device/radio/off/P
-
-/obj/item/organ/internal/augment/radio/Initialize()
-	. = ..()
-	if(!P)
-		P = new /obj/item/device/radio/off(src)
-		P.canremove = FALSE
-
-/obj/item/organ/internal/augment/radio/attack_self(mob/user)
-	. = ..()
-	if(!.)
-		return FALSE
-
-	if(P)
-		P.attack_self(user)
-
-/obj/item/organ/internal/augment/radio/emp_act(severity)
-	..()
-	if(P)
-		P = null
-		qdel(P)
-		if(owner && owner.can_feel_pain())
-			to_chat(owner, FONT_LARGE(SPAN_DANGER("You feel something burn inside your head!")))
-			var/obj/item/organ/external/O = owner.get_organ(BP_HEAD)
-			if(O)
-				O.add_pain(30)
-
 /obj/item/organ/internal/augment/fuel_cell
 	name = "integrated fuel cell"
 	organ_tag = BP_AUG_FUEL_CELL
-	parent_organ = BP_HEAD
-
-/obj/item/organ/internal/augment/air_analyzer
-	name = "integrated air analyzer"
-	organ_tag = BP_AUG_AIR_ANALYZER
-	parent_organ = BP_HEAD
-	activable = TRUE
-	action_button_icon = "atmos"
-	action_button_name = "Activate Air Analyzer"
-
-/obj/item/organ/internal/augment/air_analyzer/attack_self(var/mob/user)
-	. = ..()
-	if(!.)
-		return FALSE
-
-	analyze_gases(src, user)
