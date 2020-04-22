@@ -57,7 +57,7 @@
 
 //If this hits 0 then they decide to up and leave.
 /datum/trader/proc/tick()
-	addtimer(CALLBACK(src, .proc/do_after_tick), 1)
+	INVOKE_ASYNC(src, .proc/do_after_tick)
 	return 1
 
 /datum/trader/proc/do_after_tick()
