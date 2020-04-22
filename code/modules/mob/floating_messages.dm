@@ -43,7 +43,7 @@
 	seed = copytext(md5(seed), 1, 6)
 	seed = hex2num(seed) % 10000
 	rand_seed(seed)
-	var/list/base_colors = list("#83c0dd","#8396dd","#9983dd","#c583dd","#dd83b6","#dd8383","#83dddc","#83dd9f","#a5dd83","#ddd983","#dda583","#dd8383")
+	var/static/list/base_colors = list("#83c0dd","#8396dd","#9983dd","#c583dd","#dd83b6","#dd8383","#83dddc","#83dd9f","#a5dd83","#ddd983","#dda583","#dd8383")
 	var/base_color = base_colors[seed % base_colors.len]
 	var/list/components = GetHexColors(base_color)
 	for(var/i in 1 to 3)
