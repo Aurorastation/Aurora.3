@@ -1,24 +1,24 @@
 /datum/computer_file/program/civilian/cargodelivery
 	filename = "cargodelivery"
 	filedesc = "Cargo Delivery"
-	extended_desc = "Application to Control Delivery and Payment of Cargo orders"
+	extended_desc = "Application to Control Delivery and Payment of Cargo orders."
 	size = 12
-	requires_ntnet = 1
-	available_on_ntnet = 1
+	requires_ntnet = TRUE
+	available_on_ntnet = TRUE
 	required_access_download = access_hop
 	usage_flags = PROGRAM_ALL
-	nanomodule_path = /datum/nano_module/program/civilian/cargodelivery/
+	nanomodule_path = /datum/nano_module/program/civilian/cargodelivery
 
-/datum/nano_module/program/civilian/cargodelivery/
+/datum/nano_module/program/civilian/cargodelivery
 	name = "Cargo Delivery"
 	var/page = "overview_main" //overview_main - Main Menu, order_overview - Overview page for a specific order, order_payment - Payment page for a specific order
 	var/last_user_name = "" //Name of the User that last used the computer
-	var/status_message = null //A status message that can be displayed
+	var/status_message //A status message that can be displayed
 	var/list/order_details = list() //Order Details for the order
 	var/datum/cargo_order/co
-	var/mod_mode = 1 //If it can be used to pay for orders
+	var/mod_mode = TRUE //If it can be used to pay for orders
 
-/datum/nano_module/program/civilian/cargodelivery/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/civilian/cargodelivery/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = TRUE, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	if(program && program.computer)
@@ -26,13 +26,12 @@
 		data["have_printer"] = !!program.computer.nano_printer
 		data["authenticated"] = program.can_run(user)
 		if(!program.computer.card_slot || !program.computer.network_card)
-			mod_mode = 0 //We can't pay for orders when there is no card reader and no network card
+			mod_mode = FALSE //We can't pay for orders when there is no card reader or no network card
 
 	if(program && program.computer && program.computer.card_slot)
 		var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
 		data["has_id"] = !!id_card
 		data["id_account_number"] = id_card ? id_card.associated_account_number : null
-		//data["id_rank"] = id_card && id_card.assignment ? id_card.assignment : "Unassigned"
 		data["id_owner"] = id_card && id_card.registered_name ? id_card.registered_name : "-----"
 		data["id_name"] = id_card ? id_card.name : "-----"
 		last_user_name = data["id_owner"]
@@ -52,15 +51,15 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "cargo_delivery.tmpl", name, 500, 600, state = state)
-		ui.auto_update_layout = 1
+		ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)
 		ui.open()
-		ui.set_auto_update(1)
+		ui.set_auto_update(TRUE)
 
 
 /datum/nano_module/program/civilian/cargodelivery/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 
 
 	//Check if we want to deliver or pay
@@ -73,13 +72,13 @@
 		//Check if its already delivered
 		if(order_details["status"] == "delivered" && !order_details["needs_payment"])
 			status_message = "Unable to Deliver - Order has already been delivered and paid for."
-			return 1
+			return TRUE
 
 		if(program && program.computer && program.computer.card_slot && program.computer.network_card)
 			var/obj/item/card/id/id_card = program.computer.card_slot.stored_card
-			if(!id_card || !id_card.registered_name)
+			if(!id_card?.registered_name)
 				status_message = "Card Error: Invalid ID Card in Card Reader"
-				return 1
+				return TRUE
 
 			//Check if a payment is required
 			if(order_details["needs_payment"])
@@ -91,9 +90,9 @@
 				
 				if(status)
 					status_message = status
-					return 1
+					return TRUE
 
-				playsound(program.computer, 'sound/machines/chime.ogg', 50, 1)
+				playsound(program.computer, 'sound/machines/chime.ogg', 50, TRUE)
 
 				//Check if we have delivered it aswell or only paid
 				if(order_details["status"] == "shipped")
@@ -110,7 +109,7 @@
 			order_details = co.get_list()
 		else
 			status_message = "Unable to process - Network Card or Cardreader Missing"
-			return 1
+			return TRUE
 
 
 	//But only cargo can switch between the pages
@@ -119,7 +118,7 @@
 		return
 	var/obj/item/card/id/I = user.GetIdCard()
 	if(!istype(I) || !I.registered_name || !(access_cargo in I.access) || issilicon(user))
-		to_chat(user, "Authentication error: Unable to locate ID with appropriate access to allow this operation.")
+		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 
 	if(href_list["page"])
@@ -138,4 +137,4 @@
 				order_details = co.get_list()
 			else
 				page = "overview_main" //fall back to overview_main if a unknown page has been supplied
-		return 1
+		return TRUE
