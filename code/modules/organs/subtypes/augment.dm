@@ -68,6 +68,7 @@
 	activable = TRUE
 	organ_tag = BP_AUG_TIMEPIECE
 	action_button_icon = "augment-clock"
+	cooldown = 10
 
 /obj/item/organ/internal/augment/timepiece/attack_self(var/mob/user)
 	. = ..()
@@ -84,7 +85,7 @@
 	action_button_name = "Deploy Widget"
 	cooldown = 10
 	activable = TRUE
-	var/augment_type
+	var/obj/item/augment_type
 
 
 /obj/item/organ/internal/augment/tool/attack_self(var/mob/user)
@@ -97,7 +98,8 @@
 	if(!augment_type)
 		return FALSE
 
-	for(var/obj/item/augment_type in owner)
+	if (locate(augment_type) in owner)
+		to_chat(owner, SPAN_WARNING("\The [src] is already enabled!"))
 		return
 
 	if(owner.get_active_hand())
