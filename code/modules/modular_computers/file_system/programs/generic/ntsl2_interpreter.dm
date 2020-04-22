@@ -15,7 +15,7 @@
 
 /datum/computer_file/program/ntsl2_interpreter/process_tick()
 	if(istype(running))
-		running.cycle(5000)
+		running.cycle(30000)
 	..()
 
 /datum/computer_file/program/ntsl2_interpreter/kill_program()
@@ -51,7 +51,7 @@
 			if(copytext(topc, 1, 2) == "?")
 				topc = copytext(topc, 2) + "?" + input("","Enter Data")
 			running.topic(topc)
-			running.cycle(300)
+			running.cycle(5000)
 		. = 1
 
 	if(href_list["PRG_refresh"])
