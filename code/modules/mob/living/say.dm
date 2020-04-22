@@ -278,6 +278,7 @@ proc/get_radio_key_from_channel(var/channel)
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, speaking, italics, hear_clients, 30)
 
 	for(var/o in listening_obj)
 		var/obj/O = o
