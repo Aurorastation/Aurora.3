@@ -406,6 +406,7 @@ var/global/list/frozen_crew = list()
 					if(tag)
 						M.client.prefs.machine_ownership_status = tag.ownership_info
 						M.client.prefs.machine_serial_number = tag.serial_number
+						M.client.prefs.citizenship = tag.citizenship_info
 						M.client.prefs.machine_tag_status = TRUE
 					else if(isnull(tag) || !tag)
 						M.client.prefs.machine_tag_status = FALSE
@@ -488,6 +489,7 @@ var/global/list/frozen_crew = list()
 				if(tag)
 					L.client.prefs.machine_ownership_status = tag.ownership_info
 					L.client.prefs.machine_serial_number = tag.serial_number
+					L.client.prefs.citizenship = tag.citizenship_info
 					L.client.prefs.machine_tag_status = TRUE
 				else if(isnull(tag) || !tag)
 					L.client.prefs.machine_tag_status = FALSE
