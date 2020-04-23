@@ -7,7 +7,7 @@
 	available_on_ntnet = FALSE
 	required_access_download = access_hop
 	required_access_run = access_janitor
-	usage_flags = PROGRAM_TELESCREEN
+	processor_strength_needed = PROCESSOR_LARGE
 	nanomodule_path = /datum/nano_module/program/crushercontrol
 
 /datum/nano_module/program/crushercontrol

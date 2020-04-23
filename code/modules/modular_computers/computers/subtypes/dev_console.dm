@@ -8,7 +8,6 @@
 	icon_state_menu = "menu-light"
 	icon_state_broken = "console-broken"
 	menu_light_color = LIGHT_COLOR_BLUE
-	hardware_flag = PROGRAM_CONSOLE
 	anchored = TRUE
 	density = TRUE
 	message_output_range = 1

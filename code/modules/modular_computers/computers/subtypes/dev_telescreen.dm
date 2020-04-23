@@ -6,13 +6,12 @@
 	icon_state_unpowered = "telescreen"
 	icon_state_menu = "menu"
 	icon_state_broken = "telescreen-broken"
-	hardware_flag = PROGRAM_TELESCREEN
 	anchored = TRUE
 	density = FALSE
 	base_idle_power_usage = 75
 	base_active_power_usage = 300
 	message_output_range = 1
-	max_hardware_size = 2
+	max_hardware_size = 3
 	steel_sheet_cost = 10
 	light_strength = 4
 	w_class = ITEMSIZE_HUGE

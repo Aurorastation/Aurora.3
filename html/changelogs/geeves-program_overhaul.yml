@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Modular computer programs have been tweaked rather than requiring a specific computer type, it now require a specific processing unit strength to run. If your processing unit is strong enough, your wristbound or tablet computer can run laptop programs."
+  - rscadd: "Tablets can now be worn on the belt slot."

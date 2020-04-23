@@ -7,7 +7,7 @@
 	available_on_ntnet = TRUE
 	required_access_download = access_hop
 	required_access_run = access_cargo
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_TELESCREEN
+	processor_strength_needed = PROCESSOR_LARGE
 	nanomodule_path = /datum/nano_module/program/civilian/cargocontrol
 
 /datum/nano_module/program/civilian/cargocontrol

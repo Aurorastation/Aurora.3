@@ -176,16 +176,12 @@
 #define NTNETSPEED_ETHERNET 1	  // GQ/s transfer speed when the device is using wired connection
 #define NTNETSPEED_DOS_AMPLIFICATION 20	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
 
-// Program bitflags
-#define PROGRAM_CONSOLE 1
-#define PROGRAM_LAPTOP 2
-#define PROGRAM_TABLET 4
-#define PROGRAM_TELESCREEN 8
-#define PROGRAM_SILICON 16
-#define PROGRAM_WRISTBOUND 32
-
-#define PROGRAM_ALL (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN | PROGRAM_SILICON)
-#define PROGRAM_ALL_REGULAR (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN)
+#define PROCESSOR_SMALL 1
+#define PROCESSOR_SMALL_FAST 2 // intentional overlap so small computers with strong processors can run medium programs - geeves
+#define PROCESSOR_MEDIUM 2
+#define PROCESSOR_MEDIUM_FAST 3
+#define PROCESSOR_LARGE 4
+#define PROCESSOR_LARGE_FAST 5
 
 #define PROGRAM_STATE_KILLED 0
 #define PROGRAM_STATE_BACKGROUND 1

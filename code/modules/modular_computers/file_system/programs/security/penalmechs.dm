@@ -9,7 +9,6 @@
 	available_on_ntnet = TRUE
 	network_destination = "penal robotics monitoring system"
 	size = 11
-	usage_flags = PROGRAM_ALL_REGULAR
 	color = LIGHT_COLOR_ORANGE
 
 	var/obj/machinery/camera/current_camera = null

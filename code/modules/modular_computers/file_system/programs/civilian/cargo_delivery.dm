@@ -6,7 +6,6 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	required_access_download = access_hop
-	usage_flags = PROGRAM_ALL
 	nanomodule_path = /datum/nano_module/program/civilian/cargodelivery
 
 /datum/nano_module/program/civilian/cargodelivery

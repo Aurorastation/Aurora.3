@@ -7,7 +7,7 @@
 	requires_ntnet = 0
 	available_on_ntnet = 0
 	size = 12
-	usage_flags = PROGRAM_CONSOLE
+	processor_strength_needed = PROCESSOR_LARGE
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	required_access_run = list(access_merchant, access_kataphract_trader)
 	required_access_download = list(access_merchant, access_kataphract_trader)

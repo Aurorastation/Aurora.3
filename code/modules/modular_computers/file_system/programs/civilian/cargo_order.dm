@@ -5,7 +5,7 @@
 	size = 10
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE
+	processor_strength_needed = PROCESSOR_MEDIUM
 	nanomodule_path = /datum/nano_module/program/civilian/cargoorder
 
 /datum/nano_module/program/civilian/cargoorder

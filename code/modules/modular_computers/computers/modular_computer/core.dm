@@ -213,7 +213,7 @@
 
 	P.computer = src
 
-	if(!P.is_supported_by_hardware(hardware_flag, TRUE, user))
+	if(!P.is_supported_by_hardware(processor_unit, TRUE, user))
 		return
 	if(P in idle_threads)
 		P.program_state = PROGRAM_STATE_ACTIVE

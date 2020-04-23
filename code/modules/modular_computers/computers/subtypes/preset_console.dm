@@ -11,7 +11,7 @@
 
 /obj/item/modular_computer/console/preset/install_default_hardware()
 	..()
-	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
+	processor_unit = new /obj/item/computer_hardware/processor_unit/large(src)
 	tesla_link = new /obj/item/computer_hardware/tesla_link(src)
 	hard_drive = new /obj/item/computer_hardware/hard_drive/super(src)
 	network_card = new /obj/item/computer_hardware/network_card/wired(src)

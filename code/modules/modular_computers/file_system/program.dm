@@ -16,7 +16,7 @@
 	var/requires_ntnet = FALSE								// Set to TRUE for program to require nonstop NTNet connection to run. If NTNet connection is lost program crashes.
 	var/requires_ntnet_feature = FALSE						// Optional, if above is set to TRUE checks for specific function of NTNet (currently NTNET_SOFTWAREDOWNLOAD, NTNET_PEERTOPEER, NTNET_SYSTEMCONTROL and NTNET_COMMUNICATION)
 	var/ntnet_status = TRUE									// NTNet status, updated every tick by computer running this program. Don't use this for checks if NTNet works, computers do that. Use this for calculations, etc.
-	var/usage_flags = PROGRAM_ALL							// Bitflags (PROGRAM_CONSOLE, PROGRAM_LAPTOP, PROGRAM_TABLET combination) or PROGRAM_ALL
+	var/processor_strength_needed = PROCESSOR_SMALL			// How strong a modular computer's processor has to be, to be able to run this program
 	var/network_destination									// Optional string that describes what NTNet server/system this program connects to. Used in default logging.
 	var/available_on_ntnet = TRUE							// Whether the program can be downloaded from NTNet. Set to 0 to disable.
 	var/available_on_syndinet = FALSE						// Whether the program can be downloaded from SyndiNet (accessible via emagging the computer). Set to 1 to enable.
@@ -45,7 +45,7 @@
 	temp.program_icon_state = program_icon_state
 	temp.requires_ntnet = requires_ntnet
 	temp.requires_ntnet_feature = requires_ntnet_feature
-	temp.usage_flags = usage_flags
+	temp.processor_strength_needed = processor_strength_needed
 	return temp
 
 // Relays icon update to the computer.
@@ -59,10 +59,10 @@
 		return computer.add_log(text)
 	return FALSE
 
-/datum/computer_file/program/proc/is_supported_by_hardware(var/hardware_flag = 0, var/loud = FALSE, var/mob/user)
-	if(!(hardware_flag & usage_flags))
+/datum/computer_file/program/proc/is_supported_by_hardware(var/obj/item/computer_hardware/processor_unit/processing_unit = null, var/loud = FALSE, var/mob/user)
+	if(isnull(processing_unit) || processing_unit.processor_strength < processor_strength_needed) // this shouldn't ever be able to be null, but when has something ever worked as it's supposed to? - geeves
 		if(loud && computer && user)
-			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Hardware Error - Incompatible software\"."))
+			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Processing unit incapable of running this software! This program requires a [processor_unit_power(processor_strength_needed)] power processor!\""))
 		return FALSE
 	return TRUE
 

@@ -1,7 +1,6 @@
 /obj/item/modular_computer/silicon
 	name = "internal computing device"
 	desc = "A synthetic computer."
-	hardware_flag = PROGRAM_SILICON
 	icon_state_unpowered = "laptop-open"
 	icon = 'icons/obj/modular_laptop.dmi'
 	icon_state = "laptop-open"

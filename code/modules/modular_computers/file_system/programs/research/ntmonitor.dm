@@ -7,7 +7,7 @@
 	requires_ntnet = TRUE
 	required_access_run = access_network
 	required_access_download = access_heads
-	usage_flags = PROGRAM_CONSOLE
+	processor_strength_needed = PROCESSOR_MEDIUM_FAST
 	color = LIGHT_COLOR_GREEN
 	
 	available_on_ntnet = TRUE

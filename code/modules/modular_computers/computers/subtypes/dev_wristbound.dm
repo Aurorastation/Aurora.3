@@ -6,7 +6,6 @@
 	icon_state = "wristbound"
 	icon_state_menu = "menu"
 	icon_state_screensaver = "standby"
-	hardware_flag = PROGRAM_WRISTBOUND
 	slot_flags = SLOT_GLOVES|SLOT_ID
 	max_hardware_size = 1
 	w_class = ITEMSIZE_NORMAL

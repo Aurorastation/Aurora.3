@@ -6,7 +6,7 @@
 	var/power_usage = 0					// If the hardware uses extra power, change this.
 	var/enabled = TRUE					// If the hardware is turned off set this to 0.
 	var/critical = TRUE					// Prevent disabling for important component, like the HDD.
-	var/hardware_size = 1				// Limits which devices can contain this component. 1: Tablets/Laptops/Consoles, 2: Laptops/Consoles, 3: Consoles only
+	var/hardware_size = 1				// Limits which devices can contain this component. 1: Tablets/Wristbound/Laptops/Consoles/Telescreen, 2: Laptops/Consoles/Telescreen, 3: Consoles/Telescreen
 	var/damage = 0						// Current damage level
 	var/max_damage = 100				// Maximal damage level.
 	var/damage_malfunction = 20			// "Malfunction" threshold. When damage exceeds this value the hardware piece will semi-randomly fail and do !!FUN!! things

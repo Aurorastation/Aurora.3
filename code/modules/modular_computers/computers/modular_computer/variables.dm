@@ -8,7 +8,6 @@
 	var/working = TRUE										// Whether the computer is working.
 	var/can_reset = FALSE									// Whether you can reset this device with the tech support card.
 	var/datum/computer_file/program/active_program			// A currently active program running on the computer.
-	var/hardware_flag = 0									// A flag that describes this device type
 	var/last_power_usage = 0								// Last tick power usage of this computer
 	var/last_battery_percent = 0							// Used for deciding if battery percentage has chandged
 	var/last_world_time = "00:00"

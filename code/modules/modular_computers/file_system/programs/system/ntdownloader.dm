@@ -205,7 +205,7 @@
 			if(!P.can_download(user) && P.requires_access_to_download)
 				continue
 			
-			if(!P.is_supported_by_hardware(program.computer.hardware_flag))
+			if(!P.is_supported_by_hardware(program.computer.processor_unit))
 				continue
 
 			all_entries.Add(list(list(
