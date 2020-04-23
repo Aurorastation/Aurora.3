@@ -135,10 +135,16 @@
 
 	//gloves
 	if(gloves && !skipgloves)
+		var/gloves_name = gloves
+		if(istype(wear_id, /obj/item/modular_computer))
+			var/obj/item/modular_computer/C = wear_id
+			var/obj/item/card/id/ID = C.GetID()
+			if(ID)
+				gloves_name = "[C.name] ([ID.registered_name] ([ID.assignment]))"
 		if(gloves.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves.name]</a> on [T.his] hands!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.has] \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves_name]</a> on [T.his] hands!</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[gloves] <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>\a [gloves]</a> on [T.his] hands.\n"
+			msg += "[T.He] [T.has] \icon[gloves] <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>\a [gloves_name]</a> on [T.his] hands.\n"
 	else if(blood_color)
 		msg += "<span class='warning'>[T.He] [T.has] [fluid_color_type_map(hand_blood_color)]-stained hands!</span>\n"
 
@@ -193,17 +199,13 @@
 
 	//ID
 	if(wear_id)
-		/*var/id
-		if(istype(wear_id, /obj/item/device/pda))
-			var/obj/item/device/pda/pda = wear_id
-			id = pda.owner
-		else if(istype(wear_id, /obj/item/card/id)) //just in case something other than a PDA/ID card somehow gets in the ID slot :c
-			var/obj/item/card/id/idcard = wear_id
-			id = idcard.registered_name
-		if(id && (id != real_name) && (get_dist(src, usr) <= 1) && prob(10))
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_id] \a [wear_id] yet something doesn't seem right...</span>\n"
-		else*/
-		msg += "[T.He] [T.is] wearing \icon[wear_id] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_id]'>\a [wear_id]</a>.\n"
+		var/id_name = wear_id
+		if(istype(wear_id, /obj/item/modular_computer))
+			var/obj/item/modular_computer/C = wear_id
+			var/obj/item/card/id/ID = C.GetID()
+			if(ID)
+				id_name = "[C.name] ([ID.registered_name] ([ID.assignment]))"
+		msg += "[T.He] [T.is] wearing \icon[wear_id] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_id]'>\a [id_name]</a>.\n"
 
 	//Jitters
 	if(is_jittery)
@@ -354,12 +356,9 @@
 		var/perpname = "wot"
 		var/medical = "None"
 
-		if(wear_id)
-			if(istype(wear_id,/obj/item/card/id))
-				perpname = wear_id:registered_name
-			else if(istype(wear_id,/obj/item/device/pda))
-				var/obj/item/device/pda/tempPda = wear_id
-				perpname = tempPda.owner
+		var/obj/item/card/id/ID = GetIdCard(FALSE)
+		if(ID)
+			perpname = ID.registered_name
 		else
 			perpname = src.name
 

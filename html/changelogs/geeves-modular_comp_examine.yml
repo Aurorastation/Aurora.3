@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Examining someone with a modular computer on their ID or gloves slot will now show the ID info if there's one inside."
+  - bugfix: "Security and medical HUDs now get the proper person info if the person has the ID in their modular computer."
