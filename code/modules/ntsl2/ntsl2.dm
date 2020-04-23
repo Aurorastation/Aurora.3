@@ -9,14 +9,14 @@
 	if(!res)
 		log_debug("NTSL2+ Daemon could not be connected to. Functionality will not be enabled.")
 	else
-		SSprocessing.processing += src
+		START_PROCESSING(SSfast_process, src)
 		connected = 1
 		log_debug("NTSL2+ Daemon connected successfully.")
 
 /datum/NTSL_interpreter/proc/disconnect()
 	connected = 0
 	send(list(action="clear"))
-	SSprocessing.processing -= src
+	STOP_PROCESSING(SSfast_process, src)
 	for(var/datum/ntsl_program/P in programs)
 		P.kill()
 
