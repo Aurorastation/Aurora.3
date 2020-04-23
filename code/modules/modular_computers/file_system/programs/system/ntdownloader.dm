@@ -12,15 +12,15 @@
 	available_on_ntnet = FALSE
 	nanomodule_path = /datum/nano_module/program/computer_ntnetdownload
 	ui_header = "downloader_finished.gif"
-	var/datum/computer_file/program/downloaded_file = null
-	var/hacked_download = 0
+	var/datum/computer_file/program/downloaded_file
+	var/hacked_download = FALSE
 	var/download_completion = 0 //GQ of downloaded data.
 	var/download_netspeed = 0
 	var/download_last_update = 0 // For tracking download rates and completion.
 	var/downloaderror = ""
 	var/downstream_variance = 0.1
 
-/datum/computer_file/program/ntnetdownload/proc/begin_file_download(var/filename, var/user = null)
+/datum/computer_file/program/ntnetdownload/proc/begin_file_download(var/filename, var/user)
 	if(downloaded_file)
 		return FALSE
 
@@ -33,26 +33,26 @@
 	if(PRG.available_on_syndinet && !computer_emagged)
 		return FALSE
 
-	if(!computer || !computer.hard_drive || !computer.hard_drive.try_store_file(PRG))
+	if(!computer?.hard_drive?.try_store_file(PRG))
 		return FALSE
 
-	if(computer.enrolled == 1 && !computer_emagged)
+	if(computer.enrolled == TRUE && !computer_emagged)
 		return FALSE
 
 	ui_header = "downloader_running.gif"
 
 	if(PRG in ntnet_global.available_station_software)
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from NTNet Software Repository.")
-		hacked_download = 0
+		hacked_download = FALSE
 	else if(PRG in ntnet_global.available_antag_software)
 		generate_network_log("Began downloading file **ENCRYPTED**.[PRG.filetype] from unspecified server.")
-		hacked_download = 1
+		hacked_download = TRUE
 	else
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from unspecified server.")
-		hacked_download = 0
+		hacked_download = FALSE
 
 	downloaded_file = PRG.clone()
-	if (user)
+	if(user)
 		spawn()
 			ui_interact(user)
 
@@ -69,9 +69,12 @@
 	if(!downloaded_file)
 		return
 	generate_network_log("Completed download of file [hacked_download ? "**ENCRYPTED**" : downloaded_file.filename].[downloaded_file.filetype].")
-	if(!computer || !computer.hard_drive || !computer.hard_drive.store_file(downloaded_file))
+	if(!computer?.hard_drive?.store_file(downloaded_file))
 		// The download failed
 		downloaderror = "I/O ERROR - Unable to save file. Check whether you have enough free space on your hard drive and whether your hard drive is properly connected. If the issue persists contact your system administrator for assistance."
+	else
+		playsound(get_turf(computer), 'sound/machines/ping.ogg', 40, 0)
+		computer.output_message("\icon[computer] <b>[capitalize_first_letters(computer)]</b> pings, \"Software download completed successfully!\"", 1)
 	downloaded_file = null
 	download_completion = 0
 	download_last_update = 0
@@ -138,7 +141,7 @@
 
 /datum/nano_module/program/computer_ntnetdownload
 	name = "Network Downloader"
-	var/obj/item/modular_computer/my_computer = null
+	var/obj/item/modular_computer/my_computer
 
 /datum/nano_module/program/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	if(program)
@@ -160,7 +163,7 @@
 		data["error"] = prog.downloaderror
 	else if(prog.downloaded_file) // Download running. Wait please..
 		if (ui)
-			ui.set_auto_update(1)
+			ui.set_auto_update(TRUE)
 		data["downloadname"] = prog.downloaded_file.filename
 		data["downloaddesc"] = prog.downloaded_file.filedesc
 		data["downloadsize"] = prog.downloaded_file.size
@@ -168,36 +171,36 @@
 		data["downloadcompletion"] = round(prog.download_completion, 0.01)
 	else // No download running, pick file.
 		if (ui)
-			ui.set_auto_update(0)//No need for auto updating on the software menu
+			ui.set_auto_update(FALSE)//No need for auto updating on the software menu
 		data["disk_size"] = my_computer.hard_drive.max_capacity
 		data["disk_used"] = my_computer.hard_drive.used_capacity
 		if(my_computer.enrolled == 2) //To lock installation of software on work computers until the IT Department is properly implemented - Then check for access on enrolled computers
 			data += get_programlist(user)
 		else
 			data["downloadable_programs"] = list()
-			data["locked"] = 1
+			data["locked"] = TRUE
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "ntnet_downloader.tmpl", "NTNet Download Program", 575, 700, state = state)
-		ui.auto_update_layout = 1
+		ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)
 		ui.open()
-		ui.set_auto_update(1)
+		ui.set_auto_update(TRUE)
 
 
 /datum/nano_module/program/computer_ntnetdownload/proc/get_programlist(var/mob/user)
 	var/list/all_entries[0]
 	var/datum/computer_file/program/ntnetdownload/prog = program
 	var/list/data = list()
-	data["hackedavailable"] = 0
+	data["hackedavailable"] = FALSE
 	for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
-		var/installed = 0
-		for(var/datum/computer_file/program/Q in program.holder.stored_files)
-			if (istype(P, Q.type))
-				installed = 1
+		var/installed = FALSE
+		for(var/datum/computer_file/program/Q in program.hard_drive.stored_files)
+			if(istype(P, Q.type))
+				installed = TRUE
 				break
 
-		if (!installed)
+		if(!installed)
 			// Only those programs our user can run will show in the list
 			if(!P.can_download(user) && P.requires_access_to_download)
 				continue
@@ -215,14 +218,14 @@
 	if(prog.computer_emagged) // If we are running on emagged computer we have access to some "bonus" software
 		var/list/hacked_programs[0]
 		for(var/datum/computer_file/program/P in ntnet_global.available_antag_software)
-			var/installed = 0
-			for(var/datum/computer_file/program/Q in program.holder.stored_files)
-				if (istype(P, Q.type))
-					installed = 1
+			var/installed = FALSE
+			for(var/datum/computer_file/program/Q in program.hard_drive.stored_files)
+				if(istype(P, Q.type))
+					installed = TRUE
 					break
 
-			if (!installed)
-				data["hackedavailable"] = 1
+			if(!installed)
+				data["hackedavailable"] = TRUE
 				hacked_programs.Add(list(list(
 				"filename" = P.filename,
 				"filedesc" = P.filedesc,

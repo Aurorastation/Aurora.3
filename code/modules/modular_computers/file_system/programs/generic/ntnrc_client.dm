@@ -10,11 +10,11 @@
 	ui_header = "ntnrc_idle.gif"
 	available_on_ntnet = TRUE
 	nanomodule_path = /datum/nano_module/program/computer_chatclient
-	var/last_message = null				// Used to generate the toolbar icon
+	var/last_message				// Used to generate the toolbar icon
 	var/username
-	var/datum/ntnet_conversation/channel = null
-	var/operator_mode = 0		// Channel operator mode
-	var/netadmin_mode = 0		// Administrator mode (invisible to other users + bypasses passwords)
+	var/datum/ntnet_conversation/channel
+	var/operator_mode = FALSE		// Channel operator mode
+	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
 	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/chatclient/New()
@@ -51,8 +51,8 @@
 
 		if(C.password)
 			var/mob/living/user = usr
-			var/password = sanitize(input(user,"Access Denied. Enter password:"))
-			if(C && (password == C.password))
+			var/password = sanitize(input(user, "Access Denied. Enter password:"))
+			if(C?.password == password)
 				C.add_client(src)
 				channel = C
 			return TRUE
@@ -66,7 +66,7 @@
 	if(href_list["PRG_newchannel"])
 		. = TRUE
 		var/mob/living/user = usr
-		var/channel_title = sanitize(input(user,"Enter channel name or leave blank to cancel:"))
+		var/channel_title = sanitize(input(user, "Enter channel name or leave blank to cancel:"))
 		if(!channel_title)
 			return
 		var/datum/ntnet_conversation/C = new /datum/ntnet_conversation(channel_title)
@@ -95,19 +95,19 @@
 	if(href_list["PRG_changename"])
 		. = TRUE
 		var/mob/living/user = usr
-		var/newname = sanitize(input(user,"Enter new nickname or leave blank to cancel:"))
-		if(!newname)
-			return 1
+		var/new_name = sanitize(input(user, "Enter new nickname or leave blank to cancel:"))
+		if(!new_name)
+			return TRUE
 		if(channel)
-			channel.add_status_message("[username] is now known as [newname].")
-		username = newname
+			channel.add_status_message("[username] is now known as [new_name].")
+		username = new_name
 
 	if(href_list["PRG_savelog"])
 		. = TRUE
 		if(!channel)
 			return
 		var/mob/living/user = usr
-		var/logname = input(user,"Enter desired logfile name (.log) or leave blank to cancel:")
+		var/logname = input(user, "Enter desired logfile name (.log) or leave blank to cancel:")
 		if(!logname || !channel)
 			return TRUE
 		var/datum/computer_file/data/logfile = new /datum/computer_file/data/logfile()
@@ -170,7 +170,7 @@
 		else
 			last_message = null
 		return 1
-	if(channel && channel.messages && channel.messages.len)
+	if(channel?.messages?.len)
 		ui_header = last_message == channel.messages[channel.messages.len - 1] ? "ntnrc_idle.gif" : "ntnrc_new.gif"
 	else
 		ui_header = "ntnrc_idle.gif"

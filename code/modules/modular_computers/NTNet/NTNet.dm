@@ -2,7 +2,7 @@ var/global/datum/ntnet/ntnet_global = new()
 
 
 // This is the NTNet datum. There can be only one NTNet datum in game at once. Modular computers read data from this.
-/datum/ntnet/
+/datum/ntnet
 	var/list/relays = list()
 	var/list/logs = list()
 	var/list/available_station_software = list()
@@ -17,14 +17,14 @@ var/global/datum/ntnet/ntnet_global = new()
 	var/setting_maxlogcount = 100
 
 	// These only affect wireless. LAN (consoles) are unaffected since it would be possible to create scenario where someone turns off NTNet, and is unable to turn it back on since it refuses connections
-	var/setting_softwaredownload = 1
-	var/setting_peertopeer = 1
-	var/setting_communication = 1
-	var/setting_systemcontrol = 1
-	var/setting_disabled = 0					// Setting to 1 will disable all wireless, independently on relays status.
+	var/setting_softwaredownload = TRUE
+	var/setting_peertopeer = TRUE
+	var/setting_communication = TRUE
+	var/setting_systemcontrol = TRUE
+	var/setting_disabled = FALSE					// Setting to 1 will disable all wireless, independently on relays status.
 
-	var/intrusion_detection_enabled = 1 		// Whether the IDS warning system is enabled
-	var/intrusion_detection_alarm = 0			// Set when there is an IDS warning due to malicious (antag) software.
+	var/intrusion_detection_enabled = TRUE		// Whether the IDS warning system is enabled
+	var/intrusion_detection_alarm = FALSE		// Set when there is an IDS warning due to malicious (antag) software.
 
 
 // If new NTNet datum is spawned, it replaces the old one.
@@ -62,18 +62,18 @@ var/global/datum/ntnet/ntnet_global = new()
 // Checks whether NTNet operates. If parameter is passed checks whether specific function is enabled.
 /datum/ntnet/proc/check_function(var/specific_action = 0)
 	if(!relays || !relays.len) // No relays found. NTNet is down
-		return 0
+		return FALSE
 
-	var/operating = 0
+	var/operating = FALSE
 
 	// Check all relays. If we have at least one working relay, network is up.
 	for(var/obj/machinery/ntnet_relay/R in relays)
 		if(R.operable())
-			operating = 1
+			operating = TRUE
 			break
 
 	if(setting_disabled)
-		return 0
+		return FALSE
 
 	if(specific_action == NTNET_SOFTWAREDOWNLOAD)
 		return (operating && setting_softwaredownload)
@@ -123,7 +123,7 @@ var/global/datum/ntnet/ntnet_global = new()
 
 // Resets the IDS alarm
 /datum/ntnet/proc/resetIDS()
-	intrusion_detection_alarm = 0
+	intrusion_detection_alarm = FALSE
 
 /datum/ntnet/proc/toggleIDS()
 	resetIDS()
@@ -137,7 +137,7 @@ var/global/datum/ntnet/ntnet_global = new()
 // Updates maximal amount of stored logs. Use this instead of setting the number, it performs required checks.
 /datum/ntnet/proc/update_max_log_count(var/lognumber)
 	if(!lognumber)
-		return 0
+		return FALSE
 	// Trim the value if necessary
 	lognumber = between(MIN_NTNET_LOGS, lognumber, MAX_NTNET_LOGS)
 	setting_maxlogcount = lognumber
