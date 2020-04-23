@@ -7,6 +7,7 @@
 	respawn_flag = ANIMAL
 	enabled = FALSE
 
+	uses_spawn_atoms = TRUE
 	spawn_mob = /mob/living/carbon/human/golem
 
 /datum/ghostspawner/human/golem/select_spawnpoint(var/use)
@@ -14,18 +15,12 @@
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/human/golem/spawn_mob(mob/user)
-	var/obj/effect/golemrune/rune
-	var/list/global_runes = list()
-
-	for(var/obj/effect/golemrune/eligible_rune in SSghostroles.get_spawn_atom("Golems"))
-		global_runes += eligible_rune
-
-	if(!length(global_runes))
+	if(!length(spawn_atoms))
 		to_chat(user, span("danger", "There are no available golem runes to spawn at!"))
 		return FALSE
 
-	rune = pick(global_runes)
+	var/obj/effect/golemrune/rune = pick(spawn_atoms)
 
-	if(user)
+	if(user && rune)
 		return rune.spawn_golem(user)
 	return FALSE

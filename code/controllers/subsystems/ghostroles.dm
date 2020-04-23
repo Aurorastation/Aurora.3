@@ -32,7 +32,7 @@
 			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing data")
 			continue
 		//Check if we have a spawnpoint on the current map
-		if(!G.select_spawnpoint(FALSE))
+		if(!G.select_spawnpoint(FALSE) && !G.uses_spawn_atoms)
 			log_debug("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		spawners[G.short_name] = G
@@ -186,13 +186,24 @@
 				update_spawnpoint_status_by_identifier(i)
 	return
 
-/datum/controller/subsystem/ghostroles/proc/add_spawn_atom(var/atom/added_atom, var/atom_list)
-	if(added_atom && atom_list)
-		spawn_atom[atom_list].Add(added_atom)
+/datum/controller/subsystem/ghostroles/proc/add_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
+	if(ghost_role_name && spawn_atom)
+		var/datum/ghostspawner/G = spawners[ghost_role_name]
+		if(G)
+			G.spawn_atoms += spawn_atom
+			if(length(G.spawn_atoms) == 1)
+				G.enable()
 
-/datum/controller/subsystem/ghostroles/proc/remove_spawn_atom(var/atom/removed_atom, var/atom_list)
-	if(removed_atom && atom_list)
-		spawn_atom[atom_list].Remove(removed_atom)
+/datum/controller/subsystem/ghostroles/proc/remove_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
+	if(ghost_role_name && spawn_atom)
+		var/datum/ghostspawner/G = spawners[ghost_role_name]
+		if(G)
+			G.spawn_atoms -= spawn_atom
+			if(!length(G.spawn_atoms))
+				G.disable()
 
-/datum/controller/subsystem/ghostroles/proc/get_spawn_atom(var/atom_list)
-	return spawn_atom[atom_list]
+/datum/controller/subsystem/ghostroles/proc/get_spawn_atoms(var/ghost_role_name)
+	var/datum/ghostspawner/G = spawners[ghost_role_name]
+	if(G)
+		return G.spawn_atoms
+	return list()

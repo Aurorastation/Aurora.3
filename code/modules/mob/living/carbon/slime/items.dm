@@ -231,21 +231,11 @@
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	announce_to_ghosts()
-	SSghostroles.add_spawn_atom(src, "Golems")
-	if(length(SSghostroles.get_spawn_atom("Golems")) == 1)
-		for(var/role_spawner in SSghostroles.spawners)
-			if(role_spawner == "golem")
-				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]
-				golem_spawner.enable()
+	SSghostroles.add_spawn_atom("golem", src)
 
 /obj/effect/golemrune/Destroy()
-	. = ..()
-	SSghostroles.remove_spawn_atom(src, "Golems")
-	if(!length(SSghostroles.get_spawn_atom("Golems")))
-		for(var/role_spawner in SSghostroles.spawners)
-			if(role_spawner == "golem")
-				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]
-				golem_spawner.disable()
+	SSghostroles.remove_spawn_atom("golem", src)
+	return ..()
 
 /obj/effect/golemrune/process()
 	var/mob/abstract/observer/ghost
