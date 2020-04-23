@@ -35,7 +35,8 @@
 	var/movement_cost = 0 // How much the turf slows down movement, if any.
 
 	// Footprint info
-	var/does_footprint = FALSE
+	var/tracks_footprint = TRUE // Whether footprints will appear on this turf
+	var/does_footprint = FALSE // Whether stepping on this turf will dirty your shoes or feet with the below
 	var/footprint_color // The hex color produced by the turf
 	var/track_distance = 12 // How far the tracks last
 
@@ -243,6 +244,37 @@ var/const/enterloopsanity = 100
 
 		H.update_inv_shoes(TRUE)
 
+	if(istype(AM, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = AM
+		// Tracking blood
+		var/list/footprint_DNA = list()
+		var/footprint_color
+		var/will_track = FALSE
+		if(H.shoes)
+			var/obj/item/clothing/shoes/S = H.shoes
+			if(istype(S))
+				S.handle_movement(src, H.m_intent == "run" ? TRUE : FALSE)
+				if(S.track_footprint)
+					if(S.blood_DNA)
+						footprint_DNA = S.blood_DNA
+					footprint_color = S.blood_color
+					S.track_footprint--
+					will_track = TRUE
+		else
+			if(H.track_footprint)
+				if(H.feet_blood_DNA)
+					footprint_DNA = H.feet_blood_DNA
+				footprint_color = H.footprint_color
+				H.track_footprint--
+				will_track = TRUE
+
+		if(tracks_footprint && will_track)
+			add_tracks(H.species.get_move_trail(H), footprint_DNA, H.dir, 0, footprint_color) // Coming
+			var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
+			if(istype(from) && from)
+				from.add_tracks(H.species.get_move_trail(H), footprint_DNA, 0, H.dir, footprint_color) // Going
+			footprint_DNA = null
+
 	..()
 
 	var/objects = 0
@@ -254,6 +286,12 @@ var/const/enterloopsanity = 100
 
 			if (oAM.simulated)
 				AM.proximity_callback(oAM)
+
+/turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
+	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
+	if(!tracks)
+		tracks = new typepath(src)
+	tracks.add_tracks(footprint_DNA, comingdir, goingdir, footprint_color)
 
 /atom/movable/proc/proximity_callback(atom/movable/AM)
 	set waitfor = FALSE
