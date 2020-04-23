@@ -237,6 +237,7 @@ var/list/gear_datums = list()
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	var/augment = FALSE
 
 /datum/gear/New()
 	..()

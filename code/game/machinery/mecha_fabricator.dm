@@ -99,10 +99,10 @@
 	data["buildable"] = get_build_options()
 	data["category"] = category
 	data["categories"] = categories
-	if(chargen_robolimbs )
+	if(fabricator_robolimbs )
 		var/list/T = list()
-		for(var/A in chargen_robolimbs )
-			var/datum/robolimb/R = chargen_robolimbs [A]
+		for(var/A in fabricator_robolimbs )
+			var/datum/robolimb/R = fabricator_robolimbs [A]
 			T += list(list("id" = A, "company" = R.company))
 		data["manufacturers"] = T
 		data["manufacturer"] = manufacturer
@@ -134,7 +134,7 @@
 			category = href_list["category"]
 
 	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in chargen_robolimbs )
+		if(href_list["manufacturer"] in fabricator_robolimbs )
 			manufacturer = href_list["manufacturer"]
 
 	if(href_list["eject"])
