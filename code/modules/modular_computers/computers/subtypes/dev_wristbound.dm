@@ -26,16 +26,33 @@
 	..()
 
 /obj/item/modular_computer/wristbound/MouseDrop(obj/over_object)
-	var/mob/living/carbon/user = usr
-	if(!ishuman(user) || !issmall(user))
+	if(!canremove)
 		return
-	switch(over_object.name)
-		if(BP_R_HAND)
-			user.u_equip(src)
-			user.put_in_r_hand(src, FALSE)
-		if(BP_L_HAND)
-			user.u_equip(src)
-			user.put_in_l_hand(src, FALSE)
+	if(!over_object || over_object == src)
+		return
+	if(istype(over_object, /obj/screen/inventory))
+		var/obj/screen/inventory/S = over_object
+		if(S.slot_id == equip_slot)
+			return
+	if(ishuman(usr))
+		if(!(istype(over_object, /obj/screen)))
+			return ..()
+
+		if(!(loc == usr) || (loc && loc.loc == usr))
+			return
+		if(use_check_and_message(usr))
+			return
+		if((loc == usr) && !usr.unEquip(src))
+			return
+
+		switch(over_object.name)
+			if(BP_R_HAND)
+				usr.u_equip(src)
+				usr.put_in_r_hand(src,FALSE)
+			if(BP_L_HAND)
+				usr.u_equip(src)
+				usr.put_in_l_hand(src,FALSE)
+		add_fingerprint(usr)
 
 /obj/item/modular_computer/wristbound/AltClick(mob/user)
 	if(ishuman(user))

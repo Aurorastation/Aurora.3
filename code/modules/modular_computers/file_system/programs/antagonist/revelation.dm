@@ -4,14 +4,14 @@
 	program_icon_state = "hostile"
 	extended_desc = "This virus can destroy hard drive of system it is executed on. It may be obfuscated to look like another non-malicious program. Once armed, it will destroy the system upon next execution."
 	size = 13
-	requires_ntnet = 0
-	available_on_ntnet = 0
-	available_on_syndinet = 1
-	nanomodule_path = /datum/nano_module/program/revelation/
-	var/armed = 0
+	requires_ntnet = FALSE
+	available_on_ntnet = FALSE
+	available_on_syndinet = TRUE
+	nanomodule_path = /datum/nano_module/program/revelation
+	var/armed = FALSE
 	color = LIGHT_COLOR_RED
 
-/datum/computer_file/program/revelation/run_program(var/mob/living/user)
+/datum/computer_file/program/revelation/run_program(mob/living/user)
 	. = ..(user)
 	if(armed)
 		activate()
@@ -20,10 +20,10 @@
 	if(!computer)
 		return
 
-	computer.visible_message("<span class='notice'>\The [computer]'s screen brightly flashes and emits a loud electrical buzzing.</span>")
-	computer.enabled = 0
+	computer.visible_message(SPAN_NOTICE("\The [computer]'s screen brightly flashes and emits a loud electrical buzzing."))
+	computer.enabled = FALSE
 	computer.update_icon()
-	spark(computer.loc, 10, alldirs)
+	spark(get_turf(src), 10, alldirs)
 
 	if(computer.hard_drive)
 		qdel(computer.hard_drive)
@@ -36,7 +36,7 @@
 
 /datum/computer_file/program/revelation/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 	else if(href_list["PRG_arm"])
 		armed = !armed
 	else if(href_list["PRG_activate"])
@@ -47,7 +47,7 @@
 		if(!newname)
 			return
 		filedesc = newname
-	return 1
+	return TRUE
 
 /datum/computer_file/program/revelation/clone()
 	var/datum/computer_file/program/revelation/temp = ..()
@@ -70,8 +70,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "revelation.tmpl", "Revelation Virus", 400, 250, state = state)
-		ui.auto_update_layout = 1
+		ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)
 		ui.open()
-		ui.set_auto_update(1)
-
+		ui.set_auto_update(TRUE)

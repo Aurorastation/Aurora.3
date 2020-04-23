@@ -416,12 +416,12 @@
 
 /obj/item/clothing/gloves/dropped()
 	..()
-	addtimer(CALLBACK(src, .proc/update_wearer), 0)
+	INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/gloves/mob_can_unequip()
 	. = ..()
 	if (.)
-		addtimer(CALLBACK(src, .proc/update_wearer), 0)
+		INVOKE_ASYNC(src, .proc/update_wearer)
 
 ///////////////////////////////////////////////////////////////////////
 //Head
