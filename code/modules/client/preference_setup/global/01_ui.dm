@@ -30,7 +30,8 @@
 				"html_UI_style",
 				"skin_theme",
 				"ooccolor",
-				"clientfps"
+				"clientfps",
+				"tooltip_style"
 			),
 			"args" = list("ckey")
 		)
@@ -49,6 +50,7 @@
 			"skin_theme",
 			"ooccolor",
 			"clientfps",
+			"tooltip_style",
 			"ckey" = 1
 		)
 	)
@@ -62,7 +64,8 @@
 		"html_UI_style" = pref.html_UI_style,
 		"skin_theme" = pref.skin_theme,
 		"ooccolor" = pref.ooccolor,
-		"clientfps" = pref.clientfps
+		"clientfps" = pref.clientfps,
+		"tooltip_style" = pref.tooltip_style
 	)
 
 /datum/category_item/player_setup_item/player_global/ui/sanitize_preferences()
