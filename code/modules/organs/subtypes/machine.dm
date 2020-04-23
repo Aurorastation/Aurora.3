@@ -165,10 +165,10 @@
 			to_chat(user, SPAN_WARNING("You can scan \the [src] if it's on your person!"))
 			return
 		var/obj/item/ipc_tag_scanner/S = W
-		if(!S.wires.IsFunctional())
+		if(!S.powered)
 			to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 			return
-		if(!S.wires.IsHacked())
+		if(!S.hacked)
 			user.examinate(src)
 		else
 			user.visible_message(SPAN_WARNING("\The [user] starts fiddling with \the [src]..."), SPAN_NOTICE("You start fiddling with \the [src]..."))
@@ -201,9 +201,8 @@
 							ownership_info = new_ownership
 					if(choice == "Citizenship")
 						var/datum/citizenship/citizenship = input(user, "What do you wish for the new citizenship setting to be?", "Citizenship Setting Modification") as null|anything in SSrecords.citizenships
-						var/new_citizenship = citizenship.name
-						if(new_citizenship)
-							citizenship_info = new_citizenship
+						if(citizenship)
+							citizenship_info = citizenship
 	else
 		..()
 

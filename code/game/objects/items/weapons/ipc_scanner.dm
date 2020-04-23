@@ -31,7 +31,7 @@
 
 /obj/item/ipc_tag_scanner/attack(mob/living/M, mob/living/user)
 	add_fingerprint(user)
-	if(!wires.IsFunctional())
+	if(!powered)
 		to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 		return
 	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [M] with \the [src]..."), SPAN_NOTICE("You start analyzing \the [M] with \the [src]..."))
@@ -48,3 +48,15 @@
 		to_chat(user, SPAN_NOTICE("<b>Serial Number:</b> [tag.serial_number]"))
 		to_chat(user, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
 		to_chat(user, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
+
+/obj/item/ipc_tag_scanner/attackby(obj/item/W, mob/user)
+	if(W.isscrewdriver())
+		wires_exposed = !wires_exposed
+		user.visible_message(SPAN_WARNING("\The [user] [wires_exposed ? "exposes the wiring" : "closes the panel"] on \the [src]."), SPAN_WARNING("You [wires_exposed ? "expose the wiring" : "close the panel"] on \the [src]."), 3)
+	else if(W.iswirecutter() || W.ismultitool())
+		if(wires_exposed)
+			wires.Interact(user)
+		else
+			to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
+	else
+		..()
