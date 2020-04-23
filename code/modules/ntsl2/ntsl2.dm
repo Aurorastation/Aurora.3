@@ -33,7 +33,7 @@
 			if(message_type == "num")
 				message = text2num(message_body)
 			else if(message_type == "text")
-				message = message_body
+				message = html_encode(message_body)
 			else if(message_type == "ref")
 				message = locate(message_body)
 			for (var/thing in GET_LISTENERS(channel))
@@ -56,7 +56,7 @@
 
 /datum/NTSL_interpreter/proc/receive_subspace(var/channel, var/data)
 	if(istext(data))
-		ntsl2.send(list(action="subspace_receive", channel=copytext(channel, length(WP_ELECTRONICS)+1), type="text", data="[data]"))
+		ntsl2.send(list(action="subspace_receive", channel=copytext(channel, length(WP_ELECTRONICS)+1), type="text", data=html_decode(data)))
 	else if(isnum(data))
 		ntsl2.send(list(action="subspace_receive", channel=copytext(channel, length(WP_ELECTRONICS)+1), type="num", data="[data]"))
 	else // Probably an object or something, just get a ref to it.
