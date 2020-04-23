@@ -12,4 +12,4 @@ CREATE TABLE `ss13_characters_ipc_tags` (
   `ownership_status` enum('Self Owned','Company Owned','Privately Owned') DEFAULT 'Company Owned' COLLATE 'utf8mb4_unicode_ci',
   PRIMARY KEY (`char_id`),
   CONSTRAINT `char_id` FOREIGN KEY (`char_id`) REFERENCES `ss13_characters` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
-) ENGINE=InnoDB COLLATE='utf8mb4_unicode_ci'
+) ENGINE=InnoDB COLLATE='utf8mb4_unicode_ci';
