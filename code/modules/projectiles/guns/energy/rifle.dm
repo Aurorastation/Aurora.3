@@ -46,6 +46,8 @@
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
 	fire_sound = 'sound/weapons/Laser.ogg'
 	max_shots = 15
+	fire_delay = 5
+	burst_delay = 5
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam
 	secondary_projectile_type = null
