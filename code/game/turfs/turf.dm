@@ -35,7 +35,8 @@
 	var/movement_cost = 0 // How much the turf slows down movement, if any.
 
 	// Footprint info
-	var/does_footprint = FALSE
+	var/tracks_footprint = TRUE // Whether footprints will appear on this turf
+	var/does_footprint = FALSE // Whether stepping on this turf will dirty your shoes or feet with the below
 	var/footprint_color // The hex color produced by the turf
 	var/track_distance = 12 // How far the tracks last
 
@@ -267,7 +268,7 @@ var/const/enterloopsanity = 100
 				H.track_footprint--
 				will_track = TRUE
 
-		if(will_track)
+		if(tracks_footprint && will_track)
 			add_tracks(H.species.get_move_trail(H), footprint_DNA, H.dir, 0, footprint_color) // Coming
 			var/turf/simulated/from = get_step(H, reverse_direction(H.dir))
 			if(istype(from) && from)
