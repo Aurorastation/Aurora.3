@@ -9,13 +9,31 @@
 	slot_flags = SLOT_BELT
 	throwforce = 3
 	w_class = ITEMSIZE_SMALL
+
+	// Wiring
+	var/datum/wires/tag_scanner/wires
+	var/wires_exposed = FALSE
+	var/powered = TRUE
+	var/hacked = FALSE
+
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
 
+/obj/item/ipc_tag_scanner/Initialize(mapload, ...)
+	. = ..()
+	wires = new /datum/wires/tag_scanner(src)
+
+/obj/item/ipc_tag_scanner/Destroy()
+	QDEL_NULL(wires)
+	return ..()
+
 /obj/item/ipc_tag_scanner/attack(mob/living/M, mob/living/user)
 	add_fingerprint(user)
+	if(!wires.IsFunctional())
+		to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
+		return
 	user.visible_message(SPAN_NOTICE("\The [user] starts analyzing \the [M] with \the [src]..."), SPAN_NOTICE("You start analyzing \the [M] with \the [src]..."))
 	if(do_after(user, 50, TRUE, src))
 		if(!isipc(M))
