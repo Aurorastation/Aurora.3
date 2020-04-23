@@ -433,10 +433,10 @@
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No id", var/if_no_job = "No job")
+/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No ID", var/if_no_job = "No Job")
 	var/obj/item/card/id/I = GetIdCard()
 	if(istype(I))
-		return I.assignment
+		return I.assignment ? I.assignment : if_no_job
 	else
 		return if_no_id
 
