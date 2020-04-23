@@ -8,6 +8,7 @@
 	icon_state_screensaver = "standby"
 	hardware_flag = PROGRAM_WRISTBOUND
 	slot_flags = SLOT_GLOVES|SLOT_ID
+	can_reset = TRUE
 	max_hardware_size = 1
 	w_class = ITEMSIZE_NORMAL
 	light_strength = 1
