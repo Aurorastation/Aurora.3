@@ -93,6 +93,9 @@
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
 	footstep_sound = "sand"
+	does_footprint = TRUE
+	footprint_color = COLOR_ASH
+	track_distance = 6
 
 /turf/unsimulated/floor/asteroid/ash/Initialize()
 	. = ..()

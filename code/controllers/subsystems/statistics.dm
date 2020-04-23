@@ -242,7 +242,7 @@
 		return
 
 	var/area/placeofdeath = get_area(H)
-	var/podname = placeofdeath ? placeofdeath.name : "Unknown area"
+	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
 
 	var/sqlname = sanitizeSQL(H.real_name)
 	var/sqlkey = sanitizeSQL(H.key)
@@ -275,7 +275,7 @@
 		return
 
 	var/area/placeofdeath = get_area(H)
-	var/podname = placeofdeath ? placeofdeath.name : "Unknown area"
+	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
 
 	var/sqlname = sanitizeSQL(H.real_name)
 	var/sqlkey = sanitizeSQL(H.key)

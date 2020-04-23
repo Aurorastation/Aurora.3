@@ -318,6 +318,8 @@
 		return
 
 	var/module_type = robot_modules[mod_type]
+	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
+	spark(get_turf(src), 5, alldirs)
 	new module_type(src)
 
 	hands.icon_state = lowertext(mod_type)
@@ -1079,7 +1081,7 @@
 		return
 
 	if(icon_selection_tries == -1)
-		icon_selection_tries = module_sprites.len+1
+		icon_selection_tries = round(module_sprites.len*0.5)
 
 
 	if(length(module_sprites) == 1 || !client)
@@ -1089,6 +1091,8 @@
 			return
 	else
 		icontype = input(src, "Select an icon! [icon_selection_tries ? "You have [icon_selection_tries] more chance\s." : "This is your last try."]", "Icon Selection") in module_sprites
+		playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
+		spark(get_turf(src), 5, alldirs)
 	icon_state = module_sprites[icontype]
 	updateicon()
 
