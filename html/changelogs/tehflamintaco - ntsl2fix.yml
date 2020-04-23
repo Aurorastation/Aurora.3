@@ -40,4 +40,4 @@ delete-after: True
 changes: 
   - bugfix: "NTSL2+ Programs should experience strange computer hopping properties less often."
   - tweak: "NTSL2+ Programs in general run a lot faster."
-  - rcsadd: "Subspace Transmitters can talk to NTSL2+ via the net.subscribe and net.message functions."
+  - rscadd: "Subspace Transmitters can talk to NTSL2+ via the net.subscribe and net.message functions."
