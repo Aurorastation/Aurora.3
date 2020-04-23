@@ -4,7 +4,8 @@
 	desc = "Infest crew, reproduce, repeat."
 	tags = list("Antagonist")
 
-	uses_spawn_atoms = TRUE
+	enabled = FALSE
+
 	spawn_mob = /mob/living/simple_animal/borer
 
 /datum/ghostspawner/simplemob/borer/select_spawnpoint(var/use)

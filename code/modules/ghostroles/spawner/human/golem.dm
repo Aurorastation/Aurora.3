@@ -7,7 +7,6 @@
 	respawn_flag = ANIMAL
 	enabled = FALSE
 
-	uses_spawn_atoms = TRUE
 	spawn_mob = /mob/living/carbon/human/golem
 
 /datum/ghostspawner/human/golem/select_spawnpoint(var/use)

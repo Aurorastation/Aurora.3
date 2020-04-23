@@ -9,7 +9,6 @@
 	//Vars regarding the spawnpoints and conditions of the spawner
 	var/list/spawnpoints = null //List of the applicable spawnpoints (by name)
 	var/list/spawn_atoms = list() // List of atoms you can spawn at
-	var/uses_spawn_atoms = FALSE
 	var/landmark_name = null //Alternatively you can specify a landmark name
 	var/max_count = 0 //How often can this spawner be used
 	var/count = 0 //How ofen has this spawner been used
@@ -38,8 +37,6 @@
 		jobban_job = name
 	if(!isnull(enable_chance))
 		enabled = prob(enable_chance)
-	if(uses_spawn_atoms && !length(spawn_atoms))
-		disable()
 
 //Return a error message if the user CANT see the ghost spawner. Otherwise FALSE
 /datum/ghostspawner/proc/cant_see(mob/user) //If the user can see the spawner in the menu

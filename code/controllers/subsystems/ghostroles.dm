@@ -32,7 +32,7 @@
 			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing data")
 			continue
 		//Check if we have a spawnpoint on the current map
-		if(!G.select_spawnpoint(FALSE) && !G.uses_spawn_atoms)
+		if(!G.select_spawnpoint(FALSE))
 			log_debug("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		spawners[G.short_name] = G
