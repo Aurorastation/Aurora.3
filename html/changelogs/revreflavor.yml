@@ -40,4 +40,5 @@ delete-after: True
 changes: 
   - tweak: "Replaced the 'Revolutionaries' with 'The Contendors', a more neutral flavor of rev that will hopefully make it easier for revs to recruit in the Crew."
   - tweak: "Replaced the 'Loyalists' with 'The Fellowship', which should leave them as the more friendly sounding of the two yet still be much less pro-Command."
-  - tweak: "Added two brand new loyalist/Revolutionary hud icons to use with these differences in mind. Might make better ones at a later time, they don't actually mean anything, just symbolic for the roles."
+  - imageadd: "Added two brand new loyalist/Revolutionary hud icons to use with these differences in mind. Might make better ones at a later time, they don't actually mean anything, just symbolic for the roles."
+  - tweak: "Effectively made the Loyalists a second team of Revolutionaries on request of Arrow."
