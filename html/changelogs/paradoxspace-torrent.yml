@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds NTSL Interpreter and news browser to all modular computers."
+  - rscadd: "Adds NTSL Interpreter to all modular computers."
   - rscadd: "128 GQ standard hard drives can now fit in wristbound computers/tablets. Go ask Research for one."
   - tweak: "Games and the news browser are much smaller now."
