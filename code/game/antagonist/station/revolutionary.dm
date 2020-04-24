@@ -6,7 +6,7 @@ var/datum/antagonist/revolutionary/revs
 	role_text_plural = "The Contendors"
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
-	antag_indicator = "headcontendor"
+	antag_indicator = "contendorhead"
 	welcome_text = "You, as a subversive leader belonging to an element of the NanoTrasen Crew, have caught wind of a hostile Fellowship forming. Whatever your reasons, you fervently stand against its goals. Recruit from the Crew and lead your efforts against them."
 	victory_text = "You eliminated the Fellowship in one fell swoop."
 	loss_text = "The Fellowship threw a wrench into your plans -- permanently."

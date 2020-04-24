@@ -6,13 +6,13 @@ var/datum/antagonist/loyalists/loyalists
 	role_text_plural = "The Fellowship"
 	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
-	antag_indicator = "headfellow"
-	welcome_text = "You are one of the Fellowship leaders! Your goal is your choosing but you must lead your branch of the Fellowship and progress a story. <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
+	antag_indicator = "fellowshiphead"
+	welcome_text = "You are one of the Fellowship leaders! Your goal is your choosing but you are a subversion of the Aurora Crew, you must lead your branch of the Fellowship and progress a story. <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
 	victory_text = "The Contendors failed in their goals! You won!"
 	loss_text = "The Contendors put an end to your Fellowship is one fell swoop."
 	victory_feedback_tag = "win - heads killed"
 	loss_feedback_tag = "loss - rev heads killed"
-	antaghud_indicator = "fellow"
+	antaghud_indicator = "fellowship"
 	flags = 0
 
 	hard_cap = 2
