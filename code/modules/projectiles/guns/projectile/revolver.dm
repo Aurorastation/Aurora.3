@@ -37,8 +37,8 @@
 	return ..()
 
 /obj/item/gun/projectile/revolver/mateba
-	name = "mateba"
-	desc = "The Mateba .454 Autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
+	name = "automatic revolver"
+	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
 	icon = 'icons/obj/guns/mateba.dmi'
 	icon_state = "mateba"
 	item_state = "mateba"
