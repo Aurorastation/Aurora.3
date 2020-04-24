@@ -1,9 +1,10 @@
 /obj/item/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
+	contained_sprite = TRUE
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 4
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
@@ -69,10 +70,8 @@
 /obj/item/material/sword/rapier
 	name = "rapier"
 	desc = "A slender, fancy and sharply pointed sword."
-	icon = 'icons/obj/sword.dmi'
 	icon_state = "rapier"
 	item_state = "rapier"
-	contained_sprite = 1
 	slot_flags = SLOT_BELT
 	attack_verb = list("attacked", "stabbed", "prodded", "poked", "lunged")
 	sharp = 0
@@ -81,7 +80,7 @@
 	name = "longsword"
 	desc = "A double-edged large blade."
 	icon_state = "longsword"
-	item_state = "claymore"
+	item_state = "longsword"
 	slot_flags = SLOT_BELT | SLOT_BACK
 
 /obj/item/material/sword/longsword/pre_attack(var/mob/living/target, var/mob/living/user)
@@ -92,19 +91,15 @@
 /obj/item/material/sword/sabre
 	name = "sabre"
 	desc = "A sharp curved backsword."
-	icon = 'icons/obj/sword.dmi'
 	icon_state = "sabre"
 	item_state = "sabre"
-	contained_sprite = 1
 	slot_flags = SLOT_BELT
 
 /obj/item/material/sword/axe
 	name = "battle axe"
 	desc = "A one handed battle axe, still a deadly weapon."
-	icon = 'icons/obj/sword.dmi'
 	icon_state = "axe"
 	item_state = "axe"
-	contained_sprite = 1
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
@@ -119,44 +114,35 @@
 /obj/item/material/sword/khopesh
 	name = "khopesh"
 	desc = "An ancient sword shapped like a sickle."
-	icon = 'icons/obj/sword.dmi'
 	icon_state = "khopesh"
 	item_state = "khopesh"
-	contained_sprite = 1
 	slot_flags = SLOT_BELT
 
 /obj/item/material/sword/dao
 	name = "dao"
 	desc = "A single-edged broadsword."
-	icon = 'icons/obj/sword.dmi'
 	icon_state = "dao"
 	item_state = "dao"
-	contained_sprite = 1
 	slot_flags = SLOT_BELT
 
 /obj/item/material/sword/gladius
 	name = "gladius"
 	desc = "An ancient short sword, designed to stab and cut."
-	icon = 'icons/obj/sword.dmi'
 	icon_state = "gladius"
 	item_state = "gladius"
-	contained_sprite = 1
 	slot_flags = SLOT_BELT
 
 /obj/item/material/sword/amohdan_sword
 	name = "amohdan blade"
 	desc = "A tajaran sword, commonly used by the swordsmen of the island of Amohda."
-	icon = 'icons/obj/sword.dmi'
 	icon_state = "amohdan_sword"
 	item_state = "amohdan_sword"
-	contained_sprite = 1
 	slot_flags = SLOT_BELT
 
 // improvised sword
 /obj/item/material/sword/improvised_sword
 	name = "selfmade sword"
 	desc = "A crudely made, rough looking sword. Still appears to be quite deadly."
-	icon = 'icons/obj/weapons.dmi'
 	icon_state = "improvsword"
 	item_state = "improvsword"
 	var/obj/item/material/hilt //what is the handle made of?

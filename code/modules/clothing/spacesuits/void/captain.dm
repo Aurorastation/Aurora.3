@@ -3,10 +3,6 @@
 	name = "captain voidsuit helmet"
 	icon_state = "capspace"
 	item_state = "capspace"
-	item_state_slots = list(
-		slot_l_hand_str = "capspacehelmet",
-		slot_r_hand_str = "capspacehelmet"
-	)
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. Only for the most fashionable of military figureheads."
 	armor = list(melee = 65, bullet = 50, laser = 50,energy = 25, bomb = 50, bio = 100, rad = 50)
 	siemens_coefficient = 0.35
