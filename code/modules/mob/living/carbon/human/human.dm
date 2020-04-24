@@ -433,35 +433,21 @@
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No id", var/if_no_job = "No job")
-	var/obj/item/device/pda/pda = wear_id
-	if (istype(pda))
-		if (pda.id)
-			return pda.id.assignment
-		else
-			return pda.ownjob
+/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No ID", var/if_no_job = "No Job")
+	var/obj/item/card/id/I = GetIdCard()
+	if(istype(I))
+		return I.assignment ? I.assignment : if_no_job
 	else
-		var/obj/item/card/id/id = get_idcard()
-		if(id)
-			return id.assignment ? id.assignment : if_no_job
-		else
-			return if_no_id
+		return if_no_id
 
 //gets name from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
 /mob/living/carbon/human/proc/get_authentification_name(var/if_no_id = "Unknown")
-	var/obj/item/device/pda/pda = wear_id
-	if (istype(pda))
-		if (pda.id)
-			return pda.id.registered_name
-		else
-			return pda.owner
+	var/obj/item/card/id/I = GetIdCard()
+	if(istype(I))
+		return I.registered_name
 	else
-		var/obj/item/card/id/id = get_idcard()
-		if(id)
-			return id.registered_name
-		else
-			return if_no_id
+		return if_no_id
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a seperate proc as it'll be useful elsewhere
 /mob/living/carbon/human/proc/get_visible_name()

@@ -8,6 +8,7 @@
 	icon_state_screensaver = "standby"
 	hardware_flag = PROGRAM_WRISTBOUND
 	slot_flags = SLOT_GLOVES|SLOT_ID
+	can_reset = TRUE
 	max_hardware_size = 1
 	w_class = ITEMSIZE_NORMAL
 	light_strength = 1
@@ -21,7 +22,7 @@
 /obj/item/modular_computer/wristbound/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.gloves == src)
+		if(H.gloves == src || H.wear_id == src)
 			return attack_self(user)
 	..()
 

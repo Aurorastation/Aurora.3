@@ -119,7 +119,7 @@
 	description = "Contains the most common research programs and command software."
 	available = FALSE
 
-/datum/modular_computer_app_presets/research/return_install_programs()
+/datum/modular_computer_app_presets/research/rd/return_install_programs()
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
