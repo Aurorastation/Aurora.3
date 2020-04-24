@@ -24,23 +24,26 @@
 	if(connected)
 		var/received_message = send(list(action="subspace_transmit"))
 		if(received_message && received_message!="0")
-			var/list/message_info = params2list(received_message);
-			var/channel = "[WP_ELECTRONICS][message_info["channel"]]"
-			var/message_type = message_info["type"]
-			var/message_body = message_info["data"]
+			var/messages = splittext(received_message, "\n")
+			for(var/individual_message in messages)
+				var/list/message_info = params2list(individual_message);
+				var/channel = "[WP_ELECTRONICS][message_info["channel"]]"
+				var/message_type = message_info["type"]
+				var/message_body = message_info["data"]
 
-			var/message = 0
-			if(message_type == "num")
-				message = text2num(message_body)
-			else if(message_type == "text")
-				message = html_encode(message_body)
-			else if(message_type == "ref")
-				message = locate(message_body)
-			for (var/thing in GET_LISTENERS(channel))
-				var/listener/L = thing
-				var/obj/item/integrated_circuit/transfer/wireless/W = L.target
-				if (W != src)
-					W.receive(message)
+				var/message = 0
+				if(message_type == "num")
+					message = text2num(message_body)
+				else if(message_type == "text")
+					message = html_encode(message_body)
+				else if(message_type == "ref")
+					message = locate(message_body)
+				for (var/thing in GET_LISTENERS(channel))
+					var/listener/L = thing
+					var/obj/item/integrated_circuit/transfer/wireless/W = L.target
+					if (W != src)
+						W.receive(message)
+			
 
 /datum/NTSL_interpreter/proc/new_program(var/code, var/computer, var/mob/user)
 	if(!connected)
