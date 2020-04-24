@@ -9,7 +9,7 @@ var/datum/antagonist/loyalists/loyalists
 	antag_indicator = "fellowshiphead"
 	welcome_text = "You are one of the Fellowship leaders! Your goal is your choosing but you are a subversion of the Aurora Crew, you must lead your branch of the Fellowship and progress a story. <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
 	victory_text = "The Contendors failed in their goals! You won!"
-	loss_text = "The Contendors put an end to your Fellowship in one fell swoop."
+	loss_text = "The Contendors put an end to your Fellowship is one fell swoop."
 	victory_feedback_tag = "win - heads killed"
 	loss_feedback_tag = "loss - rev heads killed"
 	antaghud_indicator = "fellowship"
@@ -40,17 +40,30 @@ var/datum/antagonist/loyalists/loyalists
 		return
 	global_objectives = list()
 	for(var/mob/living/carbon/human/player in mob_list)
-		if(!player.mind || player.stat==2 || !(player.mind.assigned_role in command_positions))
+		if(!player.mind || player.stat == DEAD || !(player.mind.assigned_role in command_positions))
 			continue
 		var/datum/objective/protect/loyal_obj = new
 		loyal_obj.target = player.mind
 		loyal_obj.explanation_text = "Protect [player.real_name], the [player.mind.assigned_role]."
 		global_objectives += loyal_obj
 
+/datum/antagonist/loyalists/can_become_antag(var/datum/mind/player)
+	if(!..())
+		return FALSE
+	for(var/obj/item/implant/mindshield/L in player.current)
+		if(L?.imp_in == player.current)
+			return FALSE
+	return TRUE
+
 /datum/antagonist/loyalists/equip(var/mob/living/carbon/human/player)
 
 	if(!..())
-		return 0
+		return FALSE
 
+	if(!player.back)
+		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
 	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
-	return 1
+	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
+
+	give_codewords(player)
+	return TRUE
