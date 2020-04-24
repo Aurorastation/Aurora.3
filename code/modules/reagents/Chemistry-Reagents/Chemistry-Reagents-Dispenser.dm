@@ -144,11 +144,15 @@
 		L.adjust_fire_stacks((amount / (flammability_divisor || 1)) * (strength / 100))
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
-	if(prob(10*(strength/100)))
-		to_chat(M, span("danger","Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
-	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
-	affect_ingest(M,alien,removed * blood_to_ingest_scale)
-	return
+	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
+	if(aug && !aug.is_broken())
+		M.adjustNutritionLoss(-6 * removed)
+	else
+		if(prob(10*(strength/100)))
+			to_chat(M, span("danger","Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
+		M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
+		affect_ingest(M,alien,removed * blood_to_ingest_scale)
+		return
 
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
@@ -564,7 +568,11 @@
 	fallback_specific_heat = 0.332
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustNutritionLoss(-removed*3)
+	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
+	if(aug && !aug.is_broken())
+		M.adjustNutritionLoss(-4 * removed)
+	else
+		M.adjustNutritionLoss(-removed*3)
 
 /datum/reagent/sulfur
 	name = "Sulfur"

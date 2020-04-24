@@ -81,10 +81,14 @@
 			M.mind.vampire.blood_usable += removed
 			to_chat(M, "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
 			return
-	if(dose > 5)
-		M.adjustToxLoss(removed)
-	if(dose > 15)
-		M.adjustToxLoss(removed)
+	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
+	if(aug && !aug.is_broken())
+		M.adjustNutritionLoss(-4 * removed)
+	else
+		if(dose > 5)
+			M.adjustToxLoss(removed)
+		if(dose > 15)
+			M.adjustToxLoss(removed)
 	if(data && data["viruses"])
 		for(var/datum/disease/D in data["viruses"])
 			if(D.spread_type == SPECIAL || D.spread_type == NON_CONTAGIOUS)

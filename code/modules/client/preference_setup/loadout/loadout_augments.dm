@@ -62,6 +62,6 @@
 
 /datum/gear/augment/fuel_cell
 	display_name = "integrated fuel cell"
-	description = "An augment that allows the user to synthetize welding fuel into nutrients."
+	description = "An augment that allows the user to consume and synthesize nutrience from hydrazine, welding fuel, ethanol, and sugar/blood in descending order."
 	path = /obj/item/organ/internal/augment/fuel_cell
 	cost = 3
