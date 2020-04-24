@@ -11,7 +11,7 @@
 							"Unathi", "Aut'akh Unathi", "Skrell",
 							"Baseline Frame", "Hephaestus G1 Industrial Frame",
 							"Hephaestus G2 Industrial Frame", "Xion Industrial Frame",
-							"Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+							"Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	var/cooldown = 150
 	var/action_button_icon = "augment"
 	var/activable = FALSE
