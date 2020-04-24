@@ -6,7 +6,7 @@
 	color = LIGHT_COLOR_GREEN
 	unsendable = TRUE
 	undeletable = TRUE
-	size = 1
+	size = 4
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
 	available_on_ntnet = FALSE

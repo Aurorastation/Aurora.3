@@ -28,8 +28,6 @@
 
 /datum/modular_computer_app_presets/engineering/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
@@ -38,7 +36,10 @@
 		new /datum/computer_file/program/atmos_control(),
 		new /datum/computer_file/program/rcon_console(),
 		new /datum/computer_file/program/camera_monitor(),
-		new /datum/computer_file/program/lighting_control()
+		new /datum/computer_file/program/lighting_control(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
+
 	)
 	return _prg_list
 
@@ -50,8 +51,6 @@
 
 /datum/modular_computer_app_presets/engineering/ce/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
@@ -64,6 +63,8 @@
 		new /datum/computer_file/program/camera_monitor(),
 		new /datum/computer_file/program/lighting_control(),
 		new /datum/computer_file/program/records/employment()
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -75,13 +76,13 @@
 
 /datum/modular_computer_app_presets/medical/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/suit_sensors(),
 		new /datum/computer_file/program/records/medical()
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -93,8 +94,6 @@
 
 /datum/modular_computer_app_presets/medical/cmo/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
@@ -102,6 +101,8 @@
 		new /datum/computer_file/program/suit_sensors(),
 		new /datum/computer_file/program/records/employment(),
 		new /datum/computer_file/program/records/medical()
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -114,12 +115,13 @@
 /datum/modular_computer_app_presets/research/return_install_programs()
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/ntnetmonitor(),
 		new /datum/computer_file/program/aidiag()
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -131,8 +133,6 @@
 
 /datum/modular_computer_app_presets/research/rd/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
@@ -140,6 +140,8 @@
 		new /datum/computer_file/program/ntnetmonitor(),
 		new /datum/computer_file/program/aidiag(),
 		new /datum/computer_file/program/records/employment()
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -151,14 +153,14 @@
 
 /datum/modular_computer_app_presets/command/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/card_mod(),
 		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/records/employment()
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -170,8 +172,6 @@
 
 /datum/modular_computer_app_presets/command/hop/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
@@ -179,7 +179,9 @@
 		new /datum/computer_file/program/card_mod(),
 		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/records/employment(),
-		new /datum/computer_file/program/records/security()
+		new /datum/computer_file/program/records/security(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -191,8 +193,6 @@
 
 /datum/modular_computer_app_presets/captain/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/card_mod(),
@@ -205,7 +205,9 @@
 		new /datum/computer_file/program/alarm_monitor(),
 		new /datum/computer_file/program/records/employment(),
 		new /datum/computer_file/program/records/medical(),
-		new /datum/computer_file/program/records/security()
+		new /datum/computer_file/program/records/security(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -217,7 +219,6 @@
 
 /datum/modular_computer_app_presets/security/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
 		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
@@ -226,7 +227,9 @@
 		new /datum/computer_file/program/comm(),
 		new /datum/computer_file/program/digitalwarrant(),
 		new /datum/computer_file/program/penal_mechs(),
-		new /datum/computer_file/program/records/security()
+		new /datum/computer_file/program/records/security(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -238,7 +241,6 @@
 
 /datum/modular_computer_app_presets/security/investigations/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
 		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
@@ -247,7 +249,9 @@
 		new /datum/computer_file/program/penal_mechs(),
 		new /datum/computer_file/program/records/security(),
 		new /datum/computer_file/program/records/employment(),
-		new /datum/computer_file/program/records/medical()
+		new /datum/computer_file/program/records/medical(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -259,7 +263,6 @@
 
 /datum/modular_computer_app_presets/security/hos/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
 		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
@@ -269,7 +272,9 @@
 		new /datum/computer_file/program/digitalwarrant(),
 		new /datum/computer_file/program/penal_mechs(),
 		new /datum/computer_file/program/records/security(),
-		new /datum/computer_file/program/records/employment()
+		new /datum/computer_file/program/records/employment(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -281,12 +286,13 @@
 
 /datum/modular_computer_app_presets/civilian/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/game/arcade(),
-		new /datum/computer_file/program/game/sudoku()
+		new /datum/computer_file/program/game/sudoku(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -298,12 +304,13 @@
 
 /datum/modular_computer_app_presets/supply/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargocontrol(),
 		new /datum/computer_file/program/civilian/cargoorder(),
-		new /datum/computer_file/program/civilian/cargodelivery()
+		new /datum/computer_file/program/civilian/cargodelivery(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -315,11 +322,11 @@
 
 /datum/modular_computer_app_presets/cargo_delivery/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
-		new /datum/computer_file/program/civilian/cargodelivery()
+		new /datum/computer_file/program/civilian/cargodelivery(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -331,13 +338,13 @@
 
 /datum/modular_computer_app_presets/representative/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/game/sudoku(),
 		new /datum/computer_file/program/civilian/cargoorder(),
-		new /datum/computer_file/program/records/employment()
+		new /datum/computer_file/program/records/employment(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -349,13 +356,13 @@
 
 /datum/modular_computer_app_presets/wall_generic/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/camera_monitor(),
-		new /datum/computer_file/program/alarm_monitor()
+		new /datum/computer_file/program/alarm_monitor(),
+		new /datum/computer_file/program/ntsl2_interpreter(),
+		new /datum/computer_file/program/newsbrowser()
 	)
 	return _prg_list
 
@@ -369,7 +376,6 @@
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/nttransfer(),
-		new /datum/computer_file/program/ntnetdownload(),
 		new /datum/computer_file/program/camera_monitor/hacked()
 	)
 	return _prg_list
@@ -382,8 +388,6 @@
 
 /datum/modular_computer_app_presets/ert/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/ntnetdownload(),
 		new /datum/computer_file/program/camera_monitor/hacked(),
@@ -416,8 +420,6 @@
 
 /datum/modular_computer_app_presets/merchant/return_install_programs()
 	var/list/_prg_list = list(
-		new /datum/computer_file/program/ntnetdownload(),
-		new /datum/computer_file/program/nttransfer(),
 		new /datum/computer_file/program/filemanager(),
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/merchant()
