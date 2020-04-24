@@ -71,7 +71,7 @@ var/datum/antagonist/revolutionary/revs
 	return TRUE
 
 /datum/antagonist/revolutionary/proc/alert_rev_status(var/mob/living/carbon/human/player) //This is so dumb.
-	alert(player, "As a Head Fellow, you are given an uplink with a lot of telecrystals. \
+	alert(player, "As a Head Contendor you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
 				Doing so may lead to administrative action being taken.",
