@@ -9,6 +9,7 @@
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
 	color = LIGHT_COLOR_CYAN
+	processor_strength_needed = PROCESSOR_MEDIUM
 
 /datum/computer_file/program/suit_sensors/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)

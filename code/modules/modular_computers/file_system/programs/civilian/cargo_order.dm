@@ -5,7 +5,6 @@
 	size = 10
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	processor_strength_needed = PROCESSOR_MEDIUM
 	nanomodule_path = /datum/nano_module/program/civilian/cargoorder
 
 /datum/nano_module/program/civilian/cargoorder
