@@ -60,7 +60,7 @@
 		new /datum/computer_file/program/rcon_console(),
 		new /datum/computer_file/program/camera_monitor(),
 		new /datum/computer_file/program/lighting_control(),
-		new /datum/computer_file/program/records/employment()
+		new /datum/computer_file/program/records/employment(),
 		new /datum/computer_file/program/ntsl2_interpreter()
 	)
 	return _prg_list
@@ -77,7 +77,7 @@
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/suit_sensors(),
-		new /datum/computer_file/program/records/medical()
+		new /datum/computer_file/program/records/medical(),
 		new /datum/computer_file/program/ntsl2_interpreter()
 	)
 	return _prg_list
@@ -96,7 +96,7 @@
 		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/suit_sensors(),
 		new /datum/computer_file/program/records/employment(),
-		new /datum/computer_file/program/records/medical()
+		new /datum/computer_file/program/records/medical(),
 		new /datum/computer_file/program/ntsl2_interpreter()
 	)
 	return _prg_list
@@ -114,7 +114,7 @@
 		new /datum/computer_file/program/chatclient(),
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/ntnetmonitor(),
-		new /datum/computer_file/program/aidiag()
+		new /datum/computer_file/program/aidiag(),
 		new /datum/computer_file/program/ntsl2_interpreter()
 	)
 	return _prg_list
@@ -133,7 +133,7 @@
 		new /datum/computer_file/program/comm(FALSE),
 		new /datum/computer_file/program/ntnetmonitor(),
 		new /datum/computer_file/program/aidiag(),
-		new /datum/computer_file/program/records/employment()
+		new /datum/computer_file/program/records/employment(),
 		new /datum/computer_file/program/ntsl2_interpreter()
 	)
 	return _prg_list
@@ -151,7 +151,7 @@
 		new /datum/computer_file/program/civilian/cargoorder(),
 		new /datum/computer_file/program/card_mod(),
 		new /datum/computer_file/program/comm(FALSE),
-		new /datum/computer_file/program/records/employment()
+		new /datum/computer_file/program/records/employment(),
 		new /datum/computer_file/program/ntsl2_interpreter()
 	)
 	return _prg_list
