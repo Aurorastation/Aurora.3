@@ -100,7 +100,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		src.ispowered = 1
 		src.update_icon()
 	else
-		addtimer(CALLBACK(src, .proc/post_power_loss), rand(0, 15))
+		addtimer(CALLBACK(src, .proc/post_power_loss), rand(1, 15))
 
 /obj/machinery/newscaster/proc/post_power_loss()
 	ispowered = 0

@@ -6,94 +6,94 @@
 	program_icon_state = "generic"
 	color = LIGHT_COLOR_GREEN
 	size = 8
-	requires_ntnet = 0
-	available_on_ntnet = 0
-	undeletable = 1
-	nanomodule_path = /datum/nano_module/program/computer_filemanager/
+	requires_ntnet = FALSE
+	available_on_ntnet = FALSE
+	undeletable = TRUE
+	nanomodule_path = /datum/nano_module/program/computer_filemanager
 	var/open_file
 	var/error
 
 /datum/computer_file/program/filemanager/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 
 	if(href_list["PRG_openfile"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_openfile"])
-		if (!F)
+		if(!F)
 			return
-		if (F.can_access_file(usr))
+		if(F.can_access_file(usr))
 			open_file = href_list["PRG_openfile"]
 		else
 			return
 	if(href_list["PRG_newtextfile"])
-		. = 1
+		. = TRUE
 		var/newname = sanitize(input(usr, "Enter file name or leave blank to cancel:", "File rename"))
 		if(!newname)
-			return 1
+			return TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
-			return 1
+			return TRUE
 		var/datum/computer_file/data/F = new/datum/computer_file/data()
 		F.filename = newname
 		F.filetype = "TXT"
 		HDD.store_file(F)
 	if(href_list["PRG_deletefile"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
-			return 1
+			return TRUE
 		var/datum/computer_file/file = HDD.find_file_by_name(href_list["PRG_deletefile"])
 		if(!file || file.undeletable)
-			return 1
+			return TRUE
 		HDD.remove_file(file)
 	if(href_list["PRG_usbdeletefile"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/RHDD = computer.portable_drive
 		if(!RHDD)
-			return 1
+			return TRUE
 		var/datum/computer_file/file = RHDD.find_file_by_name(href_list["PRG_usbdeletefile"])
 		if(!file || file.undeletable)
-			return 1
+			return TRUE
 		RHDD.remove_file(file)
 	if(href_list["PRG_closefile"])
-		. = 1
+		. = TRUE
 		open_file = null
 		error = null
 	if(href_list["PRG_clone"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
-			return 1
+			return TRUE
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_clone"])
 		if(!F || !istype(F))
-			return 1
+			return TRUE
 		var/datum/computer_file/C = F.clone(1)
 		HDD.store_file(C)
 	if(href_list["PRG_rename"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
-			return 1
+			return TRUE
 		var/datum/computer_file/file = HDD.find_file_by_name(href_list["PRG_rename"])
 		if(!file || !istype(file))
-			return 1
+			return TRUE
 		var/newname = sanitize(input(usr, "Enter new file name:", "File rename", file.filename))
 		if(file && newname)
 			file.filename = newname
 	if(href_list["PRG_edit"])
-		. = 1
+		. = TRUE
 		if(!open_file)
-			return 1
+			return TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
-			return 1
+			return TRUE
 		var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 		if(!F || !istype(F))
-			return 1
+			return TRUE
 		if(F.do_not_edit && (alert("WARNING: This file is not compatible with editor. Editing it may result in permanently corrupted formatting or damaged data consistency. Edit anyway?", "Incompatible File", "No", "Yes") == "No"))
-			return 1
+			return TRUE
 
 		var/oldtext = html_decode(F.stored_data)
 		oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
@@ -114,45 +114,45 @@
 				error = "I/O error: Unable to overwrite file. Hard drive is probably full. You may want to backup your changes before closing this window:<br><br>[html_decode(F.stored_data)]<br><br>"
 				HDD.store_file(backup)
 	if(href_list["PRG_printfile"])
-		. = 1
+		. = TRUE
 		if(!open_file)
-			return 1
+			return TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
-			return 1
+			return TRUE
 		var/datum/computer_file/data/F = HDD.find_file_by_name(open_file)
 		if(!F || !istype(F))
-			return 1
+			return TRUE
 		if(!computer.nano_printer)
 			error = "Missing Hardware: Your computer does not have required hardware to complete this operation."
-			return 1
+			return TRUE
 		if(!computer.nano_printer.print_text(F.stored_data))
 			error = "Hardware error: Printer was unable to print the file. It may be out of paper."
-			return 1
+			return TRUE
 	if(href_list["PRG_copytousb"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
 		if(!HDD || !RHDD || computer.enrolled != 2)
-			return 1
+			return TRUE
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_copytousb"])
 		if(!F || !istype(F))
-			return 1
+			return TRUE
 		var/datum/computer_file/C = F.clone(0)
 		RHDD.store_file(C)
 	if(href_list["PRG_copyfromusb"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
 		if(!HDD || !RHDD || computer.enrolled != 2)
-			return 1
+			return TRUE
 		var/datum/computer_file/F = RHDD.find_file_by_name(href_list["PRG_copyfromusb"])
 		if(!F || !istype(F))
-			return 1
+			return TRUE
 		var/datum/computer_file/C = F.clone(0)
 		HDD.store_file(C)
 	if(href_list["PRG_encrypt"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if (!HDD)
 			return
@@ -163,7 +163,7 @@
 			return
 		F.password = sanitize(input(usr, "Enter an encryption key:", "Encrypt File"))
 	if(href_list["PRG_decrypt"])
-		. = 1
+		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if (!HDD)
 			return
@@ -235,7 +235,8 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "file_manager.tmpl", "NTOS File Manager", 575, 700, state = state)
-		ui.auto_update_layout = 1
+		ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)
 		ui.open()
+
 #undef MAX_TEXTFILE_LENGTH

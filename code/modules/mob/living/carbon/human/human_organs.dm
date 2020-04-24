@@ -19,7 +19,6 @@
 
 // Takes care of organ related updates, such as broken and missing limbs
 /mob/living/carbon/human/proc/handle_organs()
-
 	number_wounds = 0
 	var/force_process = recheck_bad_external_organs()
 

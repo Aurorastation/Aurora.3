@@ -1,6 +1,6 @@
 /obj/item/modular_computer/laptop/preset
-	anchored = 0
-	screen_on = 0
+	anchored = FALSE
+	screen_on = FALSE
 	icon_state = "laptop-closed"
 
 /obj/item/modular_computer/laptop/preset/install_default_hardware()
@@ -18,31 +18,31 @@
 	..()
 
 // Engineering
-/obj/item/modular_computer/laptop/preset/engineering/
+/obj/item/modular_computer/laptop/preset/engineering
 	name = "engineering laptop"
 	desc = "A portable computer belonging to the engineering department. It appears to have been used as a door stop at one point or another."
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
 	enrolled = TRUE
 
-/obj/item/modular_computer/laptop/preset/engineering/ce/
+/obj/item/modular_computer/laptop/preset/engineering/ce
 	name = "chief engineer's laptop"
 	desc = "A portable computer belonging to the chief engineer."
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
 
 // Medical
-/obj/item/modular_computer/laptop/preset/medical/
+/obj/item/modular_computer/laptop/preset/medical
 	name = "medical laptop"
 	desc = "A portable computer belonging to the medical department."
 	_app_preset_type = /datum/modular_computer_app_presets/medical
 	enrolled = TRUE
 
-/obj/item/modular_computer/laptop/preset/medical/cmo/
+/obj/item/modular_computer/laptop/preset/medical/cmo
 	name = "chief medical officer's laptop"
 	desc = "A portable computer belonging to the chief medical officer."
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
 
 // Research
-/obj/item/modular_computer/laptop/preset/research/
+/obj/item/modular_computer/laptop/preset/research
 	name = "research laptop"
 	desc = "A portable computer belonging to the research department."
 	_app_preset_type = /datum/modular_computer_app_presets/research
@@ -52,18 +52,18 @@
 	..()
 	ai_slot = new /obj/item/computer_hardware/ai_slot(src)
 
-/obj/item/modular_computer/laptop/preset/research/rd/
+/obj/item/modular_computer/laptop/preset/research/rd
 	name = "research director's laptop"
 	desc = "A portable computer belonging to the research director. The edges are stained and partially melted."
 	_app_preset_type = /datum/modular_computer_app_presets/research/rd
 
 // Command
-/obj/item/modular_computer/laptop/preset/command/
+/obj/item/modular_computer/laptop/preset/command
 	name = "command laptop"
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	enrolled = TRUE
 
-/obj/item/modular_computer/laptop/preset/command/hop/
+/obj/item/modular_computer/laptop/preset/command/hop
 	name = "head of personnel's laptop"
 	desc = "A portable computer beloning to the head of personnel. The fan is filled with dog hair."
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
@@ -72,41 +72,41 @@
 	..()
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
-/obj/item/modular_computer/laptop/preset/command/captain/
+/obj/item/modular_computer/laptop/preset/command/captain
 	name = "captain's laptop"
 	desc = "A portable computer belonging to the captain."
 	_app_preset_type = /datum/modular_computer_app_presets/captain
 
 /obj/item/modular_computer/laptop/preset/command/captain/install_default_hardware()
 	..()
-	card_slot = new /obj/item/computer_hardware/card_slot(src)	
+	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
 // Security
-/obj/item/modular_computer/laptop/preset/security/
+/obj/item/modular_computer/laptop/preset/security
 	name = "security laptop"
 	desc = "A portable computer belonging to the security department."
 	_app_preset_type = /datum/modular_computer_app_presets/security
 	enrolled = TRUE
 
-/obj/item/modular_computer/laptop/preset/security/hos/
+/obj/item/modular_computer/laptop/preset/security/hos
 	name = "head of security's laptop"
 	desc = "A portable computer belonging to the head of security. It smells faintly of gunpowder."
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
 
 // Civilian
-/obj/item/modular_computer/laptop/preset/civilian/
+/obj/item/modular_computer/laptop/preset/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
 	enrolled = TRUE
 
 // Supply
-/obj/item/modular_computer/laptop/preset/supply/
+/obj/item/modular_computer/laptop/preset/supply
 	name = "supply laptop"
 	desc = "A portable computer belonging to cargo."
 	_app_preset_type = /datum/modular_computer_app_presets/supply
 	enrolled = TRUE
 
 // Representative
-/obj/item/modular_computer/laptop/preset/representative/
+/obj/item/modular_computer/laptop/preset/representative
 	name = "representative's laptop"
 	desc = "A portable computer belonging to the representative's office."
 	_app_preset_type = /datum/modular_computer_app_presets/representative

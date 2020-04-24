@@ -44,46 +44,47 @@
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/uniform/unathi/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
-/datum/gear/autakh_engineering
+/datum/gear/augment/autakh_engineering
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
-	whitelisted = list("Aut'akh Unathi")
+	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
+	flags = GEAR_NO_SELECTION
 
-/datum/gear/autakh_mining
+/datum/gear/augment/autakh_mining
 	display_name = "mining grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
-	whitelisted = list("Aut'akh Unathi")
+	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Shaft Miner")
+	flags = GEAR_NO_SELECTION
 
-/datum/gear/autakh_medical
+/datum/gear/augment/autakh_medical
 	display_name = "medical grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
-	whitelisted = list("Aut'akh Unathi")
+	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
+	flags = GEAR_NO_SELECTION
 
-/datum/gear/autakh_security
+/datum/gear/augment/autakh_security
 	display_name = "security grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
-	whitelisted = list("Aut'akh Unathi")
+	whitelisted = list("Unathi", "Aut'akh Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
+	flags = GEAR_NO_SELECTION
 
 /datum/gear/uniform/unathi/jizixi
 	display_name = "jizixi dress"
@@ -128,11 +129,21 @@
 	cost = 1
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/unathi/wrapping_body
 	display_name = "thakh shaman body wrappings"
 	description = "Closed body wrappings. Only very traditional Th'akh Shamans would wear these."
 	path = /obj/item/clothing/suit/unathi/mantle/wrapping
+	cost = 1
+	whitelisted = list("Unathi")
+	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/anchor
+	display_name = "soul anchor"
+	description = "An implant that connects the Aut'akh to the Mesh."
+	path = /obj/item/organ/internal/anchor
 	cost = 1
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"

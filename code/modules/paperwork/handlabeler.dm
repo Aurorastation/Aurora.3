@@ -29,6 +29,10 @@
 /obj/item/hand_labeler
 	name = "hand labeler"
 	icon = 'icons/obj/bureaucracy.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		)
 	icon_state = "labeler0"
 	var/label = null
 	var/labels_left = 30

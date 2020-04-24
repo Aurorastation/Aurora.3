@@ -5,7 +5,7 @@
 	set name = "Tie Hair"
 	set desc = "Style your hair."
 	set category = "IC"
-	
+
 	if(!use_check_and_message())
 		to_chat(src, span("warning", "You can't tie your hair when you are incapacitated!"))
 		return
@@ -928,7 +928,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 		var/mob/living/carbon/human/G = new(src.loc)
 		G.key = O.brainmob.key
-		addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, O.dna.species), 0)
+		INVOKE_ASYNC(G, /mob/living/carbon/human.proc/set_species, O.dna.species)
 		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
 		qdel(O)
 		last_special = world.time + 200

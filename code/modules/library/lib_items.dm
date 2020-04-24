@@ -103,7 +103,7 @@
 	. = ..()
 	name = "[initial(name)] ([spawn_category])"
 
-	addtimer(CALLBACK(src, .proc/populate_shelves), 0)
+	addtimer(CALLBACK(src, .proc/populate_shelves), 1)
 
 /obj/structure/bookcase/libraryspawn/proc/populate_shelves()
 	if (!establish_db_connection(dbcon))
