@@ -2,18 +2,18 @@ var/datum/antagonist/revolutionary/revs
 
 /datum/antagonist/revolutionary
 	id = MODE_REVOLUTIONARY
-	role_text = "Head Revolutionary"
-	role_text_plural = "Revolutionaries"
+	role_text = "Head Contendor"
+	role_text_plural = "The Contendors"
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
-	antag_indicator = "rev_head"
-	welcome_text = "You are a Head Revolutionary! Your goal is to create and progress a story. <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
-	victory_text = "The heads of staff were relieved of their posts! The revolutionaries win!"
-	loss_text = "The heads of staff managed to stop the revolution!"
-	victory_feedback_tag = "win - heads killed"
-	loss_feedback_tag = "loss - rev heads killed"
+	antag_indicator = "headcontendor"
+	welcome_text = "You, as a subversive leader belonging to an element of the NanoTrasen Crew, have caught wind of a hostile Fellowship forming. Whatever your reasons, you fervently stand against its goals. Recruit from the Crew and lead your efforts against them."
+	victory_text = "You eliminated the Fellowship in one fell swoop."
+	loss_text = "The Fellowship threw a wrench into your plans -- permanently."
+	victory_feedback_tag = "You eliminated the Fellows in one fell swoop."
+	loss_feedback_tag = "No matter your efforts, you failed to thwart them."
 	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
-	antaghud_indicator = "hudrevolutionary"
+	antaghud_indicator = "contendor"
 
 	hard_cap = 2
 	hard_cap_round = 4
@@ -21,10 +21,10 @@ var/datum/antagonist/revolutionary/revs
 	initial_spawn_target = 4
 
 	//Inround revs.
-	faction_role_text = "Revolutionary"
-	faction_descriptor = "Revolution"
+	faction_role_text = "Contendor"
+	faction_descriptor = "Contendors"
 	faction_verb = /mob/living/proc/convert_to_rev
-	faction_welcome = "Help the cause overturn the ruling class. Do not harm your fellow freedom fighters."
+	faction_welcome = "You joined a subversive organization in the Aurora Crew, united under a forward-thinking leader, you must achieve their goals."
 	faction_indicator = "rev"
 	faction_invisible = TRUE
 
@@ -71,7 +71,7 @@ var/datum/antagonist/revolutionary/revs
 	return TRUE
 
 /datum/antagonist/revolutionary/proc/alert_rev_status(var/mob/living/carbon/human/player) //This is so dumb.
-	alert(player, "As a Head Revolutionary, you are given an uplink with a lot of telecrystals. \
+	alert(player, "As a Head Fellow, you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
 				Doing so may lead to administrative action being taken.",

@@ -2,17 +2,17 @@ var/datum/antagonist/loyalists/loyalists
 
 /datum/antagonist/loyalists
 	id = MODE_LOYALIST
-	role_text = "Head Loyalist"
-	role_text_plural = "Loyalists"
+	role_text = "Head Fellow"
+	role_text_plural = "The Fellowship"
 	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
-	antag_indicator = "loyal_head"
-	welcome_text = "You belong to the Company, body and soul. Preserve its interests against the conspirators amongst the crew."
-	victory_text = "The heads of staff remained at their posts! The loyalists win!"
-	loss_text = "The heads of staff did not stop the revolution!"
-	victory_feedback_tag = "win - rev heads killed"
-	loss_feedback_tag = "loss - heads killed"
-	antaghud_indicator = "hudloyalist"
+	antag_indicator = "headfellow"
+	welcome_text = "You are one of the Fellowship leaders! Your goal is your choosing but you must lead your branch of the Fellowship and progress a story. <b>Use the uplink disguised as a station-bounced radio in your backpack to help start your story!</b>"
+	victory_text = "The Contendors failed in their goals! You won!"
+	loss_text = "The Contendors put an end to your Fellowship is one fell swoop."
+	victory_feedback_tag = "win - heads killed"
+	loss_feedback_tag = "loss - rev heads killed"
+	antaghud_indicator = "fellow"
 	flags = 0
 
 	hard_cap = 2
@@ -21,12 +21,13 @@ var/datum/antagonist/loyalists/loyalists
 	initial_spawn_target = 4
 
 	// Inround loyalists.
-	faction_role_text = "Loyalist"
-	faction_descriptor = "Company"
+	faction_role_text = "Fellow"
+	faction_descriptor = "Fellowship"
 	faction_verb = /mob/living/proc/convert_to_loyalist
-	faction_welcome = "Preserve NanoTrasen's interests against the traitorous recidivists amongst the crew. Protect the heads of staff with your life."
+	faction_welcome = "You have joined a budding fellowship under the forward-thinking lead of a Fellowship leader. Follow their instructions and try to achieve the Fellowships goals."
 	faction_indicator = "loyal"
 	faction_invisible = 1
+
 	restricted_jobs = list("AI", "Cyborg")
 	required_age = 31
 
