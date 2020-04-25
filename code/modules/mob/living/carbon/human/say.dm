@@ -220,7 +220,7 @@
 		var/datum/brain_trauma/trauma = T
 		if(!trauma.suppressed)
 			message = trauma.on_hear(message, verb, language, alt_name, italics, speaker)
-	..()
+	return ..()
 
 /mob/living/carbon/human/proc/handle_speech_muts(var/message, var/verb)
 	if(message)
