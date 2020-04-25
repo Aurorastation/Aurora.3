@@ -301,7 +301,7 @@
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_WEAPONS)
 
-/obj/item/mecha_equipment/shield/installed(mob/living/exosuit/_owner)
+/obj/item/mecha_equipment/shield/installed(mob/living/heavy_vehicle/_owner)
 	. = ..()
 	aura = new /obj/aura/mechshield(owner, src)
 
