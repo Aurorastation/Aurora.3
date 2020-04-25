@@ -55,7 +55,7 @@
 //This is a central proc that all emotes are run through. This handles sending the messages to living mobs
 /mob/proc/send_emote(var/message, var/type)
 	var/list/messageturfs = list()//List of turfs we broadcast to.
-	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	var/list/messagemobs = list() 
 	var/list/ghosts = list()
 
 	var/hearing_aid = FALSE
