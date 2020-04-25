@@ -1,5 +1,5 @@
 /mob/living/proc/convert_to_rev(mob/M as mob in oview(src))
-	set name = "Invite to the Contendors"
+	set name = "Invite to the Contenders"
 	set category = "Abilities"
 	if(!M.mind)
 		return
