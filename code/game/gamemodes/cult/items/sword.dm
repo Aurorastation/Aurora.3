@@ -1,8 +1,10 @@
 /obj/item/melee/cultblade
 	name = "eldritch blade"
 	desc = "A sword humming with unholy energy. It glows with a dim red light."
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
+	contained_sprite = TRUE
 	w_class = 4
 	force = 30
 	throwforce = 10
