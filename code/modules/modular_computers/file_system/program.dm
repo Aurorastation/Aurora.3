@@ -228,3 +228,10 @@
 		return NM.check_eye(user)
 	else
 		return -1
+
+/datum/computer_file/program/proc/message_dead(var/message)
+	for(var/mob/M in player_list)
+		if(M.stat == DEAD && M.client?.prefs.toggles & CHAT_GHOSTEARS)
+			if(istype(M, /mob/abstract/new_player))
+				continue
+			to_chat(M, message)
