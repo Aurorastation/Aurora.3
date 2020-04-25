@@ -10,9 +10,6 @@
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
 	can_pull_size = 2 //max size for an object the pAI can pull
 
-	silicon_subsystems = list(
-		/mob/living/silicon/proc/computer_interact
-	)
 
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
@@ -140,6 +137,7 @@
 
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
+	verbs += /mob/living/silicon/pai/computer_interact
 
 	//PDA
 	pda = new(src)
@@ -528,3 +526,9 @@ var/list/pai_emotions = list(
 
 	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
 	card.setEmotion(pai_emotions[selection])
+
+/mob/living/silicon/pai/computer_interact()
+	set category = "pAI Commands"
+	set name = "Open Computer Interface"
+	
+	computer.attack_self(src)
