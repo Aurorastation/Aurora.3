@@ -78,6 +78,7 @@
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
+		return TRUE
 
 /mob/proc/on_hear_say(var/message)
 	to_chat(src, message)
