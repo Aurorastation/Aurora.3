@@ -5,7 +5,6 @@
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	critical = FALSE
 	icon_state = "printer"
-	hardware_size = 1
 	var/stored_paper = 5
 	var/max_paper = 10
 

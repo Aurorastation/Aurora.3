@@ -16,14 +16,14 @@
 	icon_state = "battery_advanced"
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
 	battery_rating = 1100
-	hardware_size = 2
+	hardware_size = HARDWARE_MEDIUM
 
 /obj/item/computer_hardware/battery_module/super
 	name = "super battery"
 	desc = "A very advanced power cell, often used in high-end devices, or as uninterruptable power supply for important consoles or servers. Its rating is 1500."
 	icon_state = "battery_super"
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
-	hardware_size = 3
+	hardware_size = HARDWARE_LARGE
 	battery_rating = 1500
 
 /obj/item/computer_hardware/battery_module/ultra
@@ -31,7 +31,7 @@
 	desc = "A very advanced large power cell. Its often used as uninterruptable power supply for critical consoles or servers. Its rating is 2000."
 	icon_state = "battery_ultra"
 	origin_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 4)
-	hardware_size = 3
+	hardware_size = HARDWARE_LARGE
 	battery_rating = 2000
 
 /obj/item/computer_hardware/battery_module/micro
@@ -53,7 +53,6 @@
 	name = "lambda coil"
 	desc = "A very complex device that creates its own bluespace dimension. This dimension may be used to store massive amounts of energy."
 	icon_state = "battery_lambda"
-	hardware_size = 1
 	battery_rating = 1000000
 
 /obj/item/computer_hardware/battery_module/lambda/Initialize()

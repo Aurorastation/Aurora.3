@@ -176,6 +176,10 @@
 #define NTNETSPEED_ETHERNET 1	  // GQ/s transfer speed when the device is using wired connection
 #define NTNETSPEED_DOS_AMPLIFICATION 20	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
 
+#define HARDWARE_SMALL 1
+#define HARDWARE_MEDIUM 2
+#define HARDWARE_LARGE 3
+
 #define PROCESSOR_SMALL 1
 #define PROCESSOR_SMALL_FAST 2 // intentional overlap so small computers with strong processors can run medium programs - geeves
 #define PROCESSOR_MEDIUM 2

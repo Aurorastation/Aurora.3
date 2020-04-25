@@ -5,7 +5,7 @@
 	name = "standard processor"
 	desc = "A standard CPU used in most computers. It can run up to three programs simultaneously."
 	icon_state = "cpu_normal"
-	hardware_size = 2
+	hardware_size = HARDWARE_MEDIUM
 	power_usage = 75
 	malfunction_probability = 1
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
@@ -17,7 +17,7 @@
 	name = "standard microprocessor"
 	desc = "A standard miniaturised CPU used in portable devices. It can run up to two programs simultaneously."
 	icon_state = "cpu_small"
-	hardware_size = 1
+	hardware_size = HARDWARE_SMALL
 	power_usage = 25
 	max_idle_programs = 1
 	processor_strength = PROCESSOR_SMALL
@@ -27,7 +27,7 @@
 	name = "standard macroprocessor"
 	desc = "A standard macro CPU used in fixed devices. It can run up to four programs simultaneously."
 	icon_state = "cpu_normal"
-	hardware_size = 3
+	hardware_size = HARDWARE_LARGE
 	power_usage = 25
 	max_idle_programs = 4
 	processor_strength = PROCESSOR_LARGE
@@ -37,7 +37,7 @@
 	name = "photonic processor"
 	desc = "An advanced experimental CPU that uses photonic core instead of regular circuitry. It can run up to five programs simultaneously, but uses a lot of power."
 	icon_state = "cpu_normal_photonic"
-	hardware_size = 2
+	hardware_size = HARDWARE_MEDIUM
 	power_usage = 75
 	max_idle_programs = 4
 	processor_strength = PROCESSOR_MEDIUM_FAST
@@ -47,7 +47,7 @@
 	name = "photonic microprocessor"
 	desc = "An advanced miniaturised CPU for use in portable devices. It uses photonic core instead of regular circuitry. It can run up to three programs simultaneously."
 	icon_state = "cpu_small_photonic"
-	hardware_size = 1
+	hardware_size = HARDWARE_SMALL
 	power_usage = 50
 	max_idle_programs = 2
 	processor_strength = PROCESSOR_SMALL_FAST

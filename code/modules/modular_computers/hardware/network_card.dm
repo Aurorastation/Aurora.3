@@ -7,7 +7,6 @@ var/global/ntnet_card_uid = 1
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 1)
 	critical = FALSE
 	icon_state = "netcard_basic"
-	hardware_size = 1
 	var/identification_id			// Identification ID. Technically MAC address of this device. Can't be changed by user.
 	var/identification_string = ""	// Identification string, technically nickname seen in the network. Can be set by user.
 	var/long_range = FALSE
@@ -37,7 +36,7 @@ var/global/ntnet_card_uid = 1
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 2)
 	power_usage = 150 // Better range but higher power usage.
 	icon_state = "netcard_advanced"
-	hardware_size = 2
+	hardware_size = HARDWARE_MEDIUM
 
 /obj/item/computer_hardware/network_card/wired
 	name = "wired NTNet network card"
@@ -46,7 +45,7 @@ var/global/ntnet_card_uid = 1
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 3)
 	power_usage = 150 // Better range but higher power usage.
 	icon_state = "netcard_ethernet"
-	hardware_size = 3
+	hardware_size = HARDWARE_LARGE
 
 // Returns a string identifier of this network card
 /obj/item/computer_hardware/network_card/proc/get_network_tag()
