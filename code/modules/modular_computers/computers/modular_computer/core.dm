@@ -181,6 +181,8 @@
 
 	// Autorun feature
 	var/datum/computer_file/data/autorun = hard_drive ? hard_drive.find_file_by_name("autorun") : null
+	if(!autorun)
+		autorun = portable_drive ? portable_drive.find_file_by_name("autorun") : null
 	if(istype(autorun))
 		run_program(autorun.stored_data)
 
@@ -202,10 +204,12 @@
 
 
 /obj/item/modular_computer/proc/run_program(prog)
-	var/datum/computer_file/program/P = null
+	var/datum/computer_file/program/P
 	var/mob/user = usr
 	if(hard_drive)
 		P = hard_drive.find_file_by_name(prog)
+	if(!P && portable_drive)
+		P = portable_drive.find_file_by_name(prog)
 
 	if(!P || !istype(P)) // Program not found or it's not executable program.
 		to_chat(user, SPAN_WARNING("\The [src]'s screen displays, \"I/O ERROR - Unable to run [prog]\"."))

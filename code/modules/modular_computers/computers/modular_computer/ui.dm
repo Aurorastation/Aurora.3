@@ -44,13 +44,22 @@
 		data["_PC"] = headerdata
 		. = data
 
-	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
+	var/obj/item/computer_hardware/hard_drive/composite_drive = new /obj/item/computer_hardware/hard_drive(src)
+	if(hard_drive)
+		for(var/stored_file in hard_drive.stored_files)
+			composite_drive.store_file(stored_file)
+	if(portable_drive)
+		for(var/stored_file in portable_drive.stored_files)
+			composite_drive.store_file(stored_file)
+
+	var/datum/computer_file/data/autorun = composite_drive.find_file_by_name("autorun")
 	VUEUI_SET_CHECK_IFNOTSET(data["programs"], list(), ., data)
-	for(var/datum/computer_file/program/P in hard_drive.stored_files)
+	for(var/datum/computer_file/program/P in composite_drive.stored_files)
 		VUEUI_SET_CHECK_IFNOTSET(data["programs"][P.filename], list(), ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["desc"], P.filedesc, ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["autorun"], (istype(autorun) && (autorun.stored_data == P.filename)), ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["running"], (P in idle_threads), ., data)
+	qdel(composite_drive)
 
 // Handles user's GUI input
 /obj/item/modular_computer/Topic(href, href_list)
@@ -82,6 +91,8 @@
 		var/mob/user = usr
 		if(hard_drive)
 			P = hard_drive.find_file_by_name(prog)
+		if(!P && portable_drive)
+			P = portable_drive.find_file_by_name(prog)
 
 		if(!istype(P) || P.program_state == PROGRAM_STATE_KILLED)
 			return

@@ -49,3 +49,9 @@
 		// Check whether the program should be available for station/antag download, if yes, add it to lists.
 		if(prog.available_on_ntnet)
 			new /obj/item/computer_hardware/hard_drive/portable/backup(src, prog.filename)
+
+/obj/item/storage/box/portable_drives
+	name = "box of portable drives"
+	desc = "It has pictures of a portable drive on the front."
+	icon_state = "p_drive_kit"
+	starts_with = list(/obj/item/computer_hardware/hard_drive/portable = 7)
