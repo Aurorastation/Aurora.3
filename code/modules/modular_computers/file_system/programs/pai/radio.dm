@@ -53,3 +53,4 @@
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
 	host.radio.Topic(href, href_list)
+	SSvueui.check_uis_for_change(src)

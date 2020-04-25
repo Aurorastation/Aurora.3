@@ -109,7 +109,7 @@
 		to_chat(user, "<span class='warning'>You can't download this program as queue items exceed hard drive size.</span>")
 		return TRUE
 
-	if(hard_drive?.try_store_file(PRG))
+	if(!computer?.hard_drive?.try_store_file(PRG))
 		return FALSE
 
 	if(!computer_emagged && !PRG.can_download(user) && PRG.requires_access_to_download)
