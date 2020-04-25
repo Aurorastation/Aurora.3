@@ -67,10 +67,10 @@ var/datum/antagonist/revolutionary/revs
 	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
-	INVOKE_ASYNC(src, .proc/alert_rev_status, player)
+	INVOKE_ASYNC(src, .proc/alert_contender_status, player)
 	return TRUE
 
-/datum/antagonist/revolutionary/proc/alert_rev_status(var/mob/living/carbon/human/player) //This is so dumb.
+/datum/antagonist/revolutionary/proc/alert_contender_status(var/mob/living/carbon/human/player) //This is so dumb.
 	alert(player, "As a Head Contender you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
