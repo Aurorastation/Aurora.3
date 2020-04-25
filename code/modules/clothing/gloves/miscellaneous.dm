@@ -2,20 +2,20 @@
 	desc = "Regal blue gloves, with a nice gold trim. Swanky."
 	name = "captain's gloves"
 	icon_state = "captain"
-	item_state = "egloves"
+	item_state = "captain"
 
 /obj/item/clothing/gloves/cyborg
 	desc = "beep boop borp"
 	name = "cyborg gloves"
 	icon_state = "black"
-	item_state = "r_hands"
+	item_state = "black"
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/gloves/swat
 	desc = "These tactical gloves are somewhat fire and impact-resistant."
 	name = "\improper SWAT gloves"
 	icon_state = "black"
-	item_state = "swat_gl"
+	item_state = "black"
 	siemens_coefficient = 0.50
 	permeability_coefficient = 0.05
 
@@ -30,14 +30,14 @@
 /obj/item/clothing/gloves/swat/tactical
 	name = "\improper tactical gloves"
 	icon_state = "black_leather"
-	item_state = "black_leather_gloves"
+	item_state = "black_leather"
 	species_restricted = null
 
 /obj/item/clothing/gloves/combat //Combined effect of SWAT gloves and insulated gloves
 	desc = "These tactical gloves are somewhat fire and impact resistant."
 	name = "combat gloves"
 	icon_state = "black"
-	item_state = "swat_gl"
+	item_state = "black"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	cold_protection = HANDS
@@ -49,8 +49,8 @@
 	desc = "A pair of plain black infiltration gloves. Too thin to protect anything, but can fit underneath a hardsuit gauntlet."
 	name = "black slipgloves"
 	icon = 'icons/obj/clothing/gloves.dmi'
-	icon_state = "s-ninja"
-	item_state = "s-ninja"
+	icon_state = "black"
+	item_state = "black"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	undergloves = 1
@@ -63,7 +63,7 @@
 	name = "latex gloves"
 	desc = "Sterile latex gloves."
 	icon_state = "latex"
-	item_state = "lgloves"
+	item_state = "latex"
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
@@ -74,20 +74,20 @@
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves."
 	icon_state = "nitrile"
-	item_state = "ngloves"
+	item_state = "nitrile"
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Unathi use."
 	icon_state = "nitrile"
-	item_state = "ngloves"
+	item_state = "nitrile"
 	species_restricted = list("Unathi")
 
 /obj/item/clothing/gloves/latex/nitrile/tajara
 	name = "tajaran nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Tajara use."
 	icon_state = "nitrile"
-	item_state = "ngloves"
+	item_state = "nitrile"
 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/latex/unathi
@@ -104,7 +104,7 @@
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
 	name = "leather gloves"
 	icon_state = "leather"
-	item_state = "ggloves"
+	item_state = "leather"
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
 	drop_sound = 'sound/items/drop/leather.ogg'
@@ -118,10 +118,11 @@
 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/watch
-	desc = "A small wristwatch, capable of telling time."
 	name = "watch"
+	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in black plastic."
+	description_fluff = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
-	item_state = "watchgloves"
+	item_state = "watch"
 	w_class = 1
 	wired = 1
 	species_restricted = null
@@ -131,6 +132,32 @@
 	var/flipped = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
 
+/obj/item/clothing/gloves/watch/silver
+	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
+	description_fluff = "To unleash the telemarketer in you!"
+	icon_state = "watch_silver"
+	item_state = "watch_silver"
+
+/obj/item/clothing/gloves/watch/gold
+	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in <b>REAL</b> faux gold."
+	description_fluff = "Be the jerk-ass pawn shop owner you'll never be."
+	icon_state = "watch_gold"
+	item_state = "watch_gold"
+
+/obj/item/clothing/gloves/watch/spy
+	desc = "It's a GENUINE Spy-Tech Invisi-watch! <b>WARNING</b> : Does not actually make you invisible."
+	description_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
+	icon_state = "watch_spy"
+	item_state = "watch_silver"
+
+/obj/item/clothing/gloves/watch/spy/checktime()
+	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
+
+/obj/item/clothing/gloves/watch/examine(mob/user)
+	..()
+	if (get_dist(src, user) <= 1)
+		checktime()
+
 /obj/item/clothing/gloves/watch/verb/checktime()
 	set category = "Object"
 	set name = "Check Time"
@@ -139,11 +166,11 @@
 	if(wired && !clipped)
 		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		if (emergency_shuttle.get_status_panel_eta())
-			to_chat(usr, "<span class='warning'>The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()].</span>")
+			to_chat(usr, span("warning", "The shuttle's status is reported as: [emergency_shuttle.get_status_panel_eta()]."))
 	else if(wired && clipped)
-		to_chat(usr, "You check your watch realising it's still open")
+		to_chat(usr, "You check your watch, realising it's still open.")
 	else
-		to_chat(usr, "You check your watch as it dawns on you that it's broken")
+		to_chat(usr, "You check your watch as it dawns on you that it's broken.")
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
@@ -151,11 +178,11 @@
 	set src in usr
 
 	if(wired && !clipped)
-		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes.</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 	else if(wired && clipped)
-		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message ("<span class='notice'>[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken</span>", "<span class='notice'>You point down at the [src], an arrogant look about your eyes.</span>")
+		usr.visible_message (span("notice", "[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), span("notice", "You point down at the [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
@@ -173,19 +200,14 @@
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
 	update_clothing_icon()
 
-/obj/item/clothing/gloves/watch/examine(mob/user)
-	..()
-	if (get_dist(src, user) <= 1)
-		checktime()
-
 /obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if (clipped) //Using clipped because adding a new var for something is dumb
-			user.visible_message("<span class='notice'>[user] screws the cover of the [src] closed.</span>","<span class='notice'>You screw the cover of the [src] closed..</span>")
+			user.visible_message(span("notice", "[user] screws the cover of the [src] closed."), span("notice", "You screw the cover of the [src] closed."))
 			clipped = 0
 			return
 //		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message("<span class='notice'>[user] unscrew the cover of the [src].</span>","<span class='notice'>You unscrew the cover of the [src].</span>")
+		user.visible_message(span("notice", "[user] unscrews the cover of the [src]."), span("notice", "You unscrew the cover of the [src]."))
 		clipped = 1
 		return
 	if(wired)
@@ -193,20 +215,20 @@
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/C = W
 		if (!clipped)
-			to_chat(user, "<span class='notice'>The [src] is not open.</span>")
+			to_chat(user, span("notice", "The [src] is not open."))
 			return
 
 		if(wired)
-			to_chat(user, "<span class='notice'>The [src] are already wired.</span>")
+			to_chat(user, span("notice", "The [src] are already wired."))
 			return
 
 		if(C.amount < 2)
-			to_chat(user, "<span class='notice'>There is not enough wire to cover the [src].</span>")
+			to_chat(user, span("notice", "There is not enough wire to cover the [src]."))
 			return
 
 		C.use(2)
 		wired = 1
-		to_chat(user, "<span class='notice'>You repair some wires in the [src].</span>")
+		to_chat(user, span("notice", "You repair some wires in the [src]."))
 		return
 
 /obj/item/clothing/gloves/watch/emp_act(severity)
@@ -295,13 +317,14 @@
 	name = "brass knuckles"
 	desc = "A pair of brass knuckles. Generally used to enhance the user's punches."
 	icon_state = "knuckledusters"
+	item_state = "knuckledusters"
 	attack_verb = list("punched", "beaten", "struck")
 	siemens_coefficient = 1
 	fingerprint_chance = 100
 	force = 5
 	punch_force = 5
 	clipped = 1
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -341,6 +364,7 @@
 	name = "clawed gauntlets"
 	desc = "A pair of metal gauntlets outfited with menacing sharp blades."
 	icon_state = "warping_claws"
+	item_state = "warping_claws"
 	attack_verb = list("ripped", "torn", "cut")
 	armor = list(melee = 50, bullet = 15, laser = 15, energy = 10, bomb = 10, bio = 0, rad = 0)
 	siemens_coefficient = 1
@@ -422,7 +446,7 @@
 /obj/item/clothing/gloves/ballistic/double
 	name = "ballistic gauntlets"
 	icon_state = "dual-ballisticfist"
-	item_state = "dual-ballisticfist"
+	item_state = "ballisticfist" //just reuse the single inhand
 	fingerprint_chance = 0
 	gender = PLURAL
 

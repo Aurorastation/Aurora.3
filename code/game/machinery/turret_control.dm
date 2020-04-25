@@ -152,12 +152,12 @@
 		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
 
 	if(istype(control_area))
-		if(control_area.turrets.len != data["turrets"].len)
+		if(control_area.turrets.len != LAZYLEN(data["turrets"]))
 			data["turrets"] = list()
 		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
 			var/ref = "\ref[aTurret]"
 			VUEUI_SET_IFNOTSET(data["turrets"][ref], list("ref" = ref), ., data)
-			VUEUI_SET_IFNOTSET(data["turrets"][ref]["name"], sanitize(aTurret.name + " [data["turrets"].len]"), ., data)
+			VUEUI_SET_IFNOTSET(data["turrets"][ref]["name"], sanitize(aTurret.name + " [LAZYLEN(data["turrets"])]"), ., data)
 			var/rtn = aTurret.vueui_data_change(data["turrets"][ref]["settings"], user, ui)
 			if(rtn)
 				data["turrets"][ref]["settings"] = rtn

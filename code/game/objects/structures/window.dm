@@ -4,10 +4,10 @@
 	icon = 'icons/obj/structures.dmi'
 	density = 1
 	w_class = 3
-
 	layer = 3.2//Just above doors
 	anchored = 1.0
 	flags = ON_BORDER
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/maxhealth = 14.0
 	var/maximal_heat = T0C + 100 		// Maximal heat before this window begins taking damage from fire
 	var/damage_per_fire_tick = 2.0 		// Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
@@ -26,24 +26,24 @@
 	. = ..(user)
 
 	if(health == maxhealth)
-		to_chat(user, "<span class='notice'>It looks fully intact.</span>")
+		to_chat(user, span("notice", "It looks fully intact."))
 	else
 		var/perc = health / maxhealth
 		if(perc > 0.75)
-			to_chat(user, "<span class='notice'>It has a few cracks.</span>")
+			to_chat(user, span("notice", "It has a few cracks."))
 		else if(perc > 0.5)
-			to_chat(user, "<span class='warning'>It looks slightly damaged.</span>")
+			to_chat(user, span("warning", "It looks slightly damaged."))
 		else if(perc > 0.25)
-			to_chat(user, "<span class='warning'>It looks moderately damaged.</span>")
+			to_chat(user, span("warning", "It looks moderately damaged."))
 		else
-			to_chat(user, "<span class='danger'>It looks heavily damaged.</span>")
+			to_chat(user, span("danger", "It looks heavily damaged."))
 	if(silicate)
 		if (silicate < 30)
-			to_chat(user, "<span class='notice'>It has a thin layer of silicate.</span>")
+			to_chat(user, span("notice", "It has a thin layer of silicate."))
 		else if (silicate < 70)
-			to_chat(user, "<span class='notice'>It is covered in silicate.</span>")
+			to_chat(user, span("notice", "It is covered in silicate."))
 		else
-			to_chat(user, "<span class='notice'>There is a thick layer of silicate covering it.</span>")
+			to_chat(user, span("notice", "There is a thick layer of silicate covering it."))
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
 	var/initialhealth = health
@@ -57,13 +57,16 @@
 		shatter()
 	else
 		if(sound_effect)
-			playsound(loc, 'sound/effects/Glasshit.ogg', 100, 1)
+			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
-			visible_message("[src] looks like it's about to shatter!" )
+			visible_message(span("danger", "[src] looks like it's about to shatter!"))
+			playsound(loc, "glasscrack", 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
-			visible_message("[src] looks seriously damaged!" )
+			visible_message(span("warning", "[src] looks seriously damaged!"))
+			playsound(loc, "glasscrack", 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
-			visible_message("Cracks begin to appear in [src]!" )
+			visible_message(span("warning", "Cracks begin to appear in [src]!"))
+			playsound(loc, "glasscrack", 100, 1)
 	return
 
 /obj/structure/window/proc/apply_silicate(var/amount)
@@ -86,7 +89,7 @@
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, "shatter", 70, 1)
 	if(display_message)
-		visible_message("[src] shatters!")
+		visible_message(span("warning", "\The [src] shatters!"))
 	if(dir == SOUTHWEST)
 		var/index = null
 		index = 0
@@ -154,7 +157,7 @@
 
 /obj/structure/window/hitby(AM as mob|obj)
 	..()
-	visible_message("<span class='danger'>[src] was hit by [AM].</span>")
+	visible_message(span("danger", "[src] was hit by [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
 		tforce = 40
@@ -172,7 +175,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(HULK in user.mutations)
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
-		user.visible_message("<span class='danger'>[user] smashes through [src]!</span>")
+		user.visible_message(span("danger", "[user] smashes through [src]!"))
 		user.do_attack_animation(src)
 		shatter()
 
@@ -183,13 +186,13 @@
 				attack_generic(H,25)
 				return
 
-		playsound(src.loc, 'sound/effects/glassknock.ogg', 90, 1)
+		playsound(src.loc, 'sound/effects/glass_knock.ogg', 90, 1)
 		user.do_attack_animation(src)
-		user.visible_message("<span class='danger'>\The [user] bangs against \the [src]!</span>",
-							"<span class='danger'>You bang against \the [src]!</span>",
+		user.visible_message(span("danger", "\The [user] bangs against \the [src]!"),
+							span("danger", "You bang against \the [src]!"),
 							"You hear a banging sound.")
 	else
-		playsound(src.loc, 'sound/effects/glassknock.ogg', 60, 1)
+		playsound(src.loc, 'sound/effects/glass_knock.ogg', 60, 1)
 		user.visible_message("[user] knocks on \the [src.name].",
 							"You knock on \the [src.name].",
 							"You hear a knocking sound.")
@@ -198,22 +201,23 @@
 /obj/structure/window/attack_generic(var/mob/user, var/damage)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
-		visible_message("<span class='danger'>[user] smashes into [src]!</span>")
+		visible_message(span("danger", "[user] smashes into [src]!"))
 		take_damage(damage)
 	else
-		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 10, 1, -2)
+		visible_message(span("notice", "\The [user] bonks \the [src] harmlessly."))
+		playsound(src.loc, 'sound/effects/glass_hit.ogg', 10, 1, -2)
 	user.do_attack_animation(src)
 	return 1
 
 /obj/structure/window/do_simple_ranged_interaction(var/mob/user)
 	visible_message(span("notice", "Something knocks on \the [src]."))
-	playsound(loc, 'sound/effects/Glasshit.ogg', 50, 1)
+	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
-/obj/structure/window/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
+/obj/structure/window/attackby(obj/item/W, mob/user)
+	if(!istype(W) || istype(W, /obj/item/flag))
+		return
+	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, BRUTE)
@@ -226,26 +230,26 @@
 			state = 3 - state
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (state == 1 ? "<span class='notice'>You have unfastened the window from the frame.</span>" : "<span class='notice'>You have fastened the window to the frame.</span>"))
+			to_chat(user, (state == 1 ? span("notice", "You have unfastened the window from the frame.") : span("notice", "You have fastened the window to the frame.")))
 		else if(reinf && state == 0)
 			anchored = !anchored
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (anchored ? "<span class='notice'>You have fastened the frame to the floor.</span>" : "<span class='notice'>You have unfastened the frame from the floor.</span>"))
+			to_chat(user, (anchored ? span("notice", "You have fastened the frame to the floor.") : span("notice", "You have unfastened the frame from the floor.")))
 		else if(!reinf)
 			anchored = !anchored
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (anchored ? "<span class='notice'>You have fastened the window to the floor.</span>" : "<span class='notice'>You have unfastened the window.</span>"))
+			to_chat(user, (anchored ? span("notice", "You have fastened the window to the floor.") : span("notice", "You have unfastened the window.")))
 	else if(W.iscrowbar() && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, W.usesound, 75, 1)
-		to_chat(user, (state ? "<span class='notice'>You have pried the window into the frame.</span>" : "<span class='notice'>You have pried the window out of the frame.</span>"))
+		to_chat(user, (state ? span("notice", "You have pried the window into the frame.") : span("notice", "You have pried the window out of the frame.")))
 	else if(W.iswrench() && !anchored && (!state || !reinf))
 		if(!glasstype)
-			to_chat(user, "<span class='notice'>You're not sure how to dismantle \the [src] properly.</span>")
+			to_chat(user, span("notice", "You're not sure how to dismantle \the [src] properly."))
 		else
-			visible_message("<span class='notice'>[user] dismantles \the [src].</span>")
+			visible_message(span("notice", "[user] dismantles \the [src]."))
 			if(dir == SOUTHWEST)
 				var/obj/item/stack/material/mats = new glasstype(loc)
 				mats.amount = is_fulltile() ? 4 : 2
@@ -262,7 +266,7 @@
 				update_nearby_icons()
 				step(src, get_dir(user, src))
 		else
-			playsound(loc, 'sound/effects/Glasshit.ogg', 75, 1)
+			playsound(loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		..()
 	return
 
@@ -277,17 +281,17 @@
 	var/blocked = M.run_armor_check(def_zone, "melee")
 	switch (state)
 		if(1)
-			M.visible_message("<span class='warning'>[user] slams [M] against \the [src]!</span>")
+			M.visible_message(span("warning", "[user] slams [M] against \the [src]!"))
 			M.apply_damage(7, damtype, def_zone, blocked, src)
 			hit(10)
 		if(2)
-			M.visible_message("<span class='danger'>[user] bashes [M] against \the [src]!</span>")
+			M.visible_message(span("danger", "[user] bashes [M] against \the [src]!"))
 			if (prob(50))
 				M.Weaken(1)
 			M.apply_damage(10, damtype, def_zone, blocked, src)
 			hit(25)
 		if(3)
-			M.visible_message("<span class='danger'><big>[user] crushes [M] against \the [src]!</big></span>")
+			M.visible_message(span("danger", "<big>[user] crushes [M] against \the [src]!</big>"))
 			M.Weaken(5)
 			M.apply_damage(20, damtype, def_zone, blocked, src)
 			hit(50)
@@ -295,44 +299,6 @@
 /obj/structure/window/proc/hit(var/damage, var/sound_effect = 1)
 	if(reinf) damage *= 0.5
 	take_damage(damage)
-	return
-
-
-/obj/structure/window/verb/rotate()
-	set name = "Rotate Window Counter-Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return 0
-
-	if(anchored)
-		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
-		return 0
-
-	update_nearby_tiles(need_rebuild=1) //Compel updates before
-	set_dir(turn(dir, 90))
-	updateSilicate()
-	update_nearby_tiles(need_rebuild=1)
-	return
-
-
-/obj/structure/window/verb/revrotate()
-	set name = "Rotate Window Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return 0
-
-	if(anchored)
-		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
-		return 0
-
-	update_nearby_tiles(need_rebuild=1) //Compel updates before
-	set_dir(turn(dir, 270))
-	updateSilicate()
-	update_nearby_tiles(need_rebuild=1)
 	return
 
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
@@ -410,7 +376,6 @@
 	..()
 
 
-
 /obj/structure/window/basic
 	desc = "It looks thin and flimsy. A few knocks with... anything, really should shatter it."
 	icon_state = "window"
@@ -443,6 +408,12 @@
 	damage_per_fire_tick = 1.0 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
 	maxhealth = 80.0
 
+/obj/structure/window/phoronreinforced/skrell
+	name = "advanced borosilicate-alloy window"
+	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
+	basestate = "phoronwindow"
+	icon_state = "phoronwindow"
+	maxhealth = 250
 
 /obj/structure/window/reinforced
 	name = "reinforced window"
@@ -499,6 +470,21 @@
 	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
 	health = 160
 	maxhealth = 160
+
+/obj/structure/window/shuttle/palepurple
+	icon = 'icons/obj/smooth/shuttle_window_palepurple.dmi'
+
+/obj/structure/window/shuttle/skrell
+	name = "advanced borosilicate alloy window"
+	desc = "It looks extremely strong. Might take many good hits to crack it."
+	icon = 'icons/obj/smooth/skrell_window_purple.dmi'
+	health = 500
+	maxhealth = 500
+	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/skrell,
+		/obj/structure/window/shuttle/skrell
+	)
 
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."

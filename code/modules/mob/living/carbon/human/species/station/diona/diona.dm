@@ -3,19 +3,23 @@
 	short_name = "dio"
 	name_plural = "Dionaea"
 	bodytype = "Diona"
+	age_min = 1
 	age_max = 1000
+	default_genders = list(NEUTER)
 	economic_modifier = 3
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	language = LANGUAGE_ROOTSONG
+	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/diona
 	)
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/consume_nutrition_from_air
+		/mob/living/carbon/human/proc/consume_nutrition_from_air,
+		/mob/living/carbon/human/proc/create_structure
 	)
 	//primitive_form = "Nymph"
 	slowdown = 7
@@ -24,7 +28,8 @@
 	siemens_coefficient = 0.3
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
-	num_alternate_languages = 1
+	num_alternate_languages = 2
+	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
@@ -41,7 +46,7 @@
 	water and other radiation."
 
 	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
-	resist_mod = 3 // Pretty stronk tho, can break out
+	resist_mod = 2 // Reasonably stronk, not moreso than an Unathi or robot.
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -86,7 +91,7 @@
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
-	blood_color = "#97dd7c"
+	blood_color = COLOR_DIONA_BLOOD
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA
@@ -147,7 +152,6 @@
 		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
 
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
-	H.gender = NEUTER
 	if (ishuman(H))
 		return ..()
 	else//Most of the stuff in the parent function doesnt apply to nymphs
@@ -174,3 +178,8 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/diona/handle_despawn(var/mob/living/carbon/human/H)
+	for(var/mob/living/carbon/alien/diona/D in H.contents)
+		if((!D.client && !D.mind) || D.stat == DEAD)
+			qdel(D)

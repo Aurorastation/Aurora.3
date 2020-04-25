@@ -19,126 +19,148 @@
 	return mob_hat_cache[key]
 
 /mob/living/silicon/robot/drone
+	// Look and feel
 	name = "drone"
 	real_name = "drone"
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
+	braintype = "Robot"
+	gender = NEUTER
+
+	// Health
 	maxHealth = 35
 	health = 35
-	cell_emp_mult = 1
-	universal_speak = 0
-	universal_understand = 1
-	gender = NEUTER
-	pass_flags = PASSTABLE | PASSDOORHATCH
-	braintype = "Robot"
-	lawupdate = 0
-	density = 0
-	req_access = list(access_engine, access_robotics)
-	integrated_light_power = 3
-	local_transmit = 1
-	possession_candidate = 1
-	mob_size = 4
 
+	// Components
+	var/module_type = /obj/item/robot_module/drone
+	cell_emp_mult = 1
+	integrated_light_power = 3
+	local_transmit = TRUE
+
+	// Interaction
+	universal_speak = FALSE
+	universal_understand = TRUE
+	pass_flags = PASSTABLE | PASSDOORHATCH
+	density = FALSE
+	possession_candidate = TRUE
+	mob_size = 4
 	can_pull_size = 3
 	can_pull_mobs = MOB_PULL_SMALLER
 	//Allow drones to pull disposal pipes
 	var/list/pull_list = list(
 					/obj/structure/disposalconstruct,
-					/obj/item/pipe
+					/obj/item/pipe,
+					/obj/item/pipe_meter
 					)
-
 	mob_bump_flag = SIMPLE_ANIMAL
-	//mob_swap_flags = SIMPLE_ANIMAL
-	//mob_push_flags = SIMPLE_ANIMAL
-	//mob_always_swap = 1
+	holder_type = /obj/item/holder/drone
 
-	//Used for self-mailing.
-	var/mail_destination = ""
+	// ID and Access
+	law_update = FALSE
+	req_access = list(access_engine, access_robotics)
+	var/hacked = FALSE
+
+	// Laws
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
-	var/module_type = /obj/item/robot_module/drone
+
+	// Self-Mailing
+	var/mail_destination = ""
+
+	// Hats!
 	var/obj/item/hat
 	var/hat_x_offset = 0
 	var/hat_y_offset = -13
-	var/hacked = FALSE
-
-	holder_type = /obj/item/holder/drone
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
-		return 0
+		return FALSE
 	if(!config.allow_drone_spawn)
-		to_chat(src, "<span class='danger'>Playing as drones is not currently permitted.</span>")
-		return 0
+		to_chat(possessor, SPAN_WARNING("Playing as drones is not currently permitted."))
+		return FALSE
 	if(too_many_active_drones())
-		to_chat(src, "<span class='danger'>The maximum number of active drones has been reached..</span>")
-		return 0
-	if(jobban_isbanned(possessor,"Cyborg"))
-		to_chat(usr, "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>")
-		return 0
-	if(!possessor.MayRespawn(1,MINISYNTH))
-		return 0
-	return 1
+		to_chat(possessor, SPAN_WARNING("The maximum number of active drones has been reached..."))
+		return FALSE
+	if(jobban_isbanned(possessor, "Cyborg"))
+		to_chat(possessor, SPAN_WARNING("You are banned from playing synthetics and cannot spawn as a drone."))
+		return FALSE
+	if(!possessor.MayRespawn(1, MINISYNTH))
+		return FALSE
+	return TRUE
 
 /mob/living/silicon/robot/drone/do_possession(var/mob/abstract/observer/possessor)
 	if(!(istype(possessor) && possessor.ckey))
 		return 0
 	if(src.ckey || src.client)
-		to_chat(possessor, "<span class='warning'>\The [src] already has a player.</span>")
-		return 0
+		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
+		return FALSE
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
 	log_admin("[key_name(possessor)] took control of \the [src].",ckey=key_name(possessor))
 	transfer_personality(possessor.client)
 	qdel(possessor)
-	return 1
+	return TRUE
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.forceMove(get_turf(src))
+		hat = null
 	return ..()
 
 /mob/living/silicon/robot/drone/construction
+	// Look and feel
 	icon_state = "constructiondrone"
-	law_type = /datum/ai_laws/construction_drone
+
+	// Components
 	module_type = /obj/item/robot_module/drone/construction
-	hat_x_offset = 1
-	hat_y_offset = -12
+
+	// Laws
+	law_type = /datum/ai_laws/construction_drone
+
+	// Interaction
 	can_pull_size = 5
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/holder/drone/heavy
 
+	// Hats!!
+	hat_x_offset = 1
+	hat_y_offset = -12
+
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 
-	verbs += /mob/living/proc/hide
-	remove_language("Robot Talk")
-	add_language("Robot Talk", 0)
-	add_language("Drone Talk", 1)
+	verbs |= /mob/living/proc/hide
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, FALSE)
+	add_language(LANGUAGE_DRONE, TRUE)
 
 	//They are unable to be upgraded, so let's give them a bit of a better battery.
 	cell.maxcharge = 10000
 	cell.charge = 10000
 
-	// NO BRAIN.
+	// NO BRAIN. // me irl - geeves
 	mmi = null
 
 	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
-	for(var/V in components) if(V != "power cell")
+	for(var/V in components)
+		if(V == "power cell")
+			continue
 		var/datum/robot_component/C = components[V]
 		C.max_damage = 10
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	updateicon()
-	density = 0
+	density = FALSE
 
 /mob/living/silicon/robot/drone/init()
-	aiCamera = new/obj/item/device/camera/siliconcam/drone_camera(src)
+	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
-	if(!laws) laws = new law_type
-	if(!module) module = new module_type(src)
+	if(!laws)
+		laws = new law_type
+	if(!module)
+		module = new module_type(src)
 
 	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
-	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
+	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
 /mob/living/silicon/robot/drone/SetName(pickedName as text)
@@ -151,10 +173,12 @@
 	name = real_name
 
 /mob/living/silicon/robot/drone/updateicon()
-
 	cut_overlays()
-	if(stat == 0)
-		add_overlay("eyes-[icon_state]")
+	if(stat == CONSCIOUS)
+		if(!emagged)
+			add_overlay("eyes-[icon_state]")
+		else
+			add_overlay("eyes-[icon_state]-emag")
 	if(hat) // Let the drones wear hats.
 		add_overlay(get_hat_icon(hat, hat_x_offset, hat_y_offset))
 
@@ -173,98 +197,85 @@
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
-
 	if(user.a_intent == "help" && istype(W, /obj/item/clothing/head))
 		if(hat)
-			to_chat(user, "<span class='warning'>\The [src] is already wearing \the [hat].</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is already wearing \the [hat]."))
 			return
 		user.unEquip(W)
 		wear_hat(W)
-		user.visible_message("<span class='notice'>\The [user] puts \the [W] on \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] puts \the [W] on \the [src]."))
 		return
 	else if(istype(W, /obj/item/borg/upgrade/))
-		to_chat(user, "<span class='danger'>\The [src] is not compatible with \the [W].</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
 		return
-
-	else if (W.iscrowbar())
-		to_chat(user, "<span class='danger'>\The [src] is hermetically sealed. You can't open the case.</span>")
+	else if(W.iscrowbar())
+		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
-
-	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
-
-		if(stat == 2)
-
+	else if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
+		if(stat == DEAD)
 			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
-				to_chat(user, "<span class='danger'>The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one.</span>")
+				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
-
 			if(!allowed(usr))
-				to_chat(user, "<span class='danger'>Access denied.</span>")
+				to_chat(user, SPAN_WARNING("Access denied."))
 				return
-
-			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to reboot it.</span>", "<span class='danger'>You swipe your ID card through \the [src], attempting to reboot it.</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] swipes \his ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
-
 		else
-			user.visible_message("<span class='danger'>\The [user] swipes \his ID card through \the [src], attempting to shut it down.</span>", "<span class='danger'>You swipe your ID card through \the [src], attempting to shut it down.</span>")
-
+			user.visible_message(SPAN_WARNING("\The [user] swipes \his ID card through \the [src], attempting to shut it down."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to shut it down."))
 			if(emagged)
 				return
-
-			if(allowed(usr))
+			if(allowed(user))
 				shut_down()
 			else
-				to_chat(user, "<span class='danger'>Access denied.</span>")
-
+				to_chat(user, SPAN_WARNING("Access denied."))
 		return
-
 	..()
 
-/mob/living/silicon/robot/drone/emag_act(var/remaining_charges, var/mob/user)
-	if(!client || stat == 2)
-		to_chat(user, "<span class='danger'>There's not much point subverting this heap of junk.</span>")
+/mob/living/silicon/robot/drone/emag_act(remaining_charges, mob/user)
+	if(!client || stat == DEAD)
+		to_chat(user, SPAN_WARNING("There's not much point subverting this heap of junk."))
 		return
-
 	if(emagged)
-		to_chat(src, "<span class='danger'>\The [user] attempts to load subversive software into you, but your hacked subroutines ignore the attempt.</span>")
-		to_chat(user, "<span class='danger'>You attempt to subvert [src], but the sequencer has no effect.</span>")
+		to_chat(src, SPAN_WARNING("\The [user] attempts to load subversive software into you, but your hacked subroutines ignore the attempt."))
+		to_chat(user, SPAN_WARNING("You attempt to subvert \the [src], but the sequencer has no effect."))
 		return
 
-	to_chat(user, "<span class='danger'>You swipe the sequencer across [src]'s interface and watch its eyes flicker.</span>")
-	to_chat(src, "<span class='danger'>You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script.</span>")
+	to_chat(user, SPAN_WARNING("You swipe the sequencer across \the [src]'s interface and watch its eyes flicker."))
+	to_chat(src, SPAN_WARNING("You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script."))
 
 	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
 	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
-	var/time = time2text(world.realtime,"hh:mm:ss")
+	var/time = time2text(world.realtime, "hh:mm:ss")
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
-	emagged = 1
+	emagged = TRUE
 	hacked = FALSE
-	lawupdate = 0
+	law_update = FALSE
 	connected_ai = null
 	clear_supplied_laws()
 	clear_inherent_laws()
 	laws = new /datum/ai_laws/syndicate_override
-	set_zeroth_law("Only [user.real_name] and people \he designates as being such are operatives.")
+	set_zeroth_law("Only [user.real_name] and people they designate as being such are operatives.")
 
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
-	to_chat(src, "<span class='danger'>ALERT: [user.real_name] is your new master. Obey your new laws and \his commands.</span>")
-	return 1
+	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and \his commands."))
+	updateicon()
+	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
-	if(!client || stat == 2)
+	if(!client || stat == DEAD)
 		return
-
-	to_chat(src, "<span class='danger'>You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script.</span>")
+	to_chat(src, SPAN_DANGER("You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script."))
 
 	log_and_message_admins("[key_name(user)] hacked drone [key_name(src)]. Laws overridden.", key_name(user), get_turf(src))
-	var/time = time2text(world.realtime,"hh:mm:ss")
+	var/time = time2text(world.realtime, "hh:mm:ss")
 	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
 
 	hacked = TRUE
-	lawupdate = 0
+	law_update = FALSE
 	connected_ai = user
 	clear_supplied_laws()
 	clear_inherent_laws()
@@ -273,7 +284,7 @@
 
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
-	to_chat(src, "<span class='danger'>ALERT: [user] is your new master. Obey your new laws and their commands.</span>")
+	to_chat(src, SPAN_DANGER("ALERT: [user] is your new master. Obey your new laws and their commands."))
 	to_chat(src, span("notice", "You have acquired new radio frequency."))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, TRUE)
@@ -283,7 +294,7 @@
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
 	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
-		to_chat(src,"WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated.")
+		to_chat(src, SPAN_WARNING("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
 		gib()
 		return
 	return
@@ -308,24 +319,24 @@
 
 //DRONE MOVEMENT.
 /mob/living/silicon/robot/drone/slip_chance(var/prob_slip)
-	return 0
+	return FALSE
 
 //CONSOLE PROCS
 /mob/living/silicon/robot/drone/proc/law_resync()
-	if(stat != 2)
+	if(stat != DEAD)
 		if(hacked || emagged)
-			to_chat(src, "<span class='danger'>You feel something attempting to modify your programming, but your hacked subroutines are unaffected.</span>")
+			to_chat(src, SPAN_WARNING("You feel something attempting to modify your programming, but your hacked subroutines are unaffected."))
 		else
-			to_chat(src, "<span class='danger'>A reset-to-factory directive packet filters through your data connection, and you obediently modify your programming to suit it.</span>")
+			to_chat(src, SPAN_WARNING("A reset-to-factory directive packet filters through your data connection, and you obediently modify your programming to suit it."))
 			full_law_reset()
 			show_laws()
 
 /mob/living/silicon/robot/drone/proc/shut_down()
-	if(stat != 2)
+	if(stat != DEAD)
 		if(hacked || emagged)
-			to_chat(src, "<span class='danger'>You feel a system kill order percolate through your tiny brain, but it doesn't seem like a good idea to you.</span>")
+			to_chat(src, SPAN_WARNING("You feel a system kill order percolate through your tiny brain, but it doesn't seem like a good idea to you."))
 		else
-			to_chat(src, "<span class='danger'>You feel a system kill order percolate through your tiny brain, and you obediently destroy yourself.</span>")
+			to_chat(src, SPAN_WARNING("You feel a system kill order percolate through your tiny brain, and you obediently destroy yourself."))
 			death()
 
 /mob/living/silicon/robot/drone/proc/full_law_reset()
@@ -343,25 +354,26 @@
 	G.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
-	if(!player) return
-	stat = 0
+	if(!player)
+		return
+	stat = CONSCIOUS
 	src.ckey = player.ckey
 
-	if(player.mob && player.mob.mind)
+	if(player.mob?.mind)
 		player.mob.mind.transfer_to(src)
 
-	lawupdate = 0
+	law_update = FALSE
 	to_chat(src, "<b>Systems rebooted</b>. Loading base pattern maintenance protocol... <b>loaded</b>.")
 	full_law_reset()
 	welcome_drone()
 
 /mob/living/silicon/robot/drone/proc/welcome_drone()
-	to_chat(src, "<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>.")
-	to_chat(src, "You have no individual will, no personality, and no drives or urges other than your laws.")
-	to_chat(src, "Remember,  you are <b>lawed against interference with the crew</b>. Also remember, <b>you DO NOT take orders from the AI.</b>")
-	to_chat(src, "Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows.")
+	to_chat(src, SPAN_NOTICE("<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>."))
+	to_chat(src, SPAN_NOTICE("You have no individual will, no personality, and no drives or urges other than your laws."))
+	to_chat(src, SPAN_NOTICE("Remember, you are <b>lawed against interference with the crew</b>. Also remember, <b>you DO NOT take orders from the AI.</b>"))
+	to_chat(src, SPAN_NOTICE("Use <b>say ;Hello</b> to talk to other drones and <b>say Hello</b> to speak silently to your nearby fellows."))
 
-/mob/living/silicon/robot/drone/start_pulling(var/atom/movable/AM)
+/mob/living/silicon/robot/drone/start_pulling(atom/movable/AM)
 	if(!AM)
 		return
 
@@ -384,14 +396,13 @@
 	if(istype(AM, /obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > can_pull_size)
-			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			to_chat(src, SPAN_WARNING("You are too small to pull that."))
 			return
 	else
 		if(!can_pull_mobs)
-			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			to_chat(src, SPAN_WARNING("You are too small to pull that."))
 			return
 	..()
-
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
 	src.verbs |= silicon_subsystems
@@ -399,11 +410,20 @@
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	src.verbs -= silicon_subsystems
 
+/mob/living/silicon/robot/drone/examine(mob/user)
+	..()
+	var/msg
+	if(emagged)
+		msg += "Their eye glows red."
+	else
+		msg += "Their eye glows green."
+	to_chat(user, msg)
+
 /mob/living/silicon/robot/drone/construction/welcome_drone()
-	to_chat(src, "<b>You are a construction drone, an autonomous engineering and fabrication system.</b>.")
-	to_chat(src, "You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible.")
-	to_chat(src, "Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows.")
-	to_chat(src, "<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>.")
+	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
+	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
+	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
+	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
 
 /mob/living/silicon/robot/drone/construction/init()
 	..()
@@ -415,13 +435,13 @@
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
-	if (lockcharge || scrambledcodes || emagged)
+	if(lock_charge || scrambled_codes || emagged)
 		return
 	//Check if they are not on station level -> abort
 	var/turf/T = get_turf(src)
-	if (!T || isNotStationLevel(T.z))
+	if(!T || isNotStationLevel(T.z))
 		return
-	to_chat(src,"WARNING: Lost contact with controller. Anti-Theft mode activated.")
+	to_chat(src, SPAN_WARNING("WARNING: Lost contact with controller. Anti-Theft mode activated."))
 	gib()
 
 /proc/too_many_active_drones()

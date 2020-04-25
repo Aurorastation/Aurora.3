@@ -40,7 +40,7 @@
 	return
 
 /obj/item/grenade/spawnergrenade/manhacks
-	name = "manhack delivery grenade"
+	name = "viscerator delivery grenade"
 	desc = "It is set to detonate in 5 seconds. It will unleash a swarm of deadly manhack robots that will attack everyone but you and your allies."
 	spawner_type = /mob/living/simple_animal/hostile/viscerator
 	deliveryamt = 5 //Five seems a bit much, but we'll keep it as-is.

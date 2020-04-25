@@ -39,6 +39,7 @@
 		icon_state = on_icon
 
 /obj/machinery/holosign/power_change()
+	..()
 	if (stat & NOPOWER)
 		lit = 0
 		use_power = 0

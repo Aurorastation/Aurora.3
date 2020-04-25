@@ -302,7 +302,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 // Special AI/pAI PDAs that cannot explode.
 /obj/item/device/pda/ai
-	icon_state = "NONE"
+	icon_state = null
 	ttone = "data"
 	newstone = "news"
 	detonate = 0
@@ -424,7 +424,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/MouseDrop(obj/over_object as obj, src_location, over_location)
 	var/mob/M = usr
-	if((!istype(over_object, /obj/screen)) && !use_check(M))
+	if(!istype(over_object, /obj/screen) && !use_check(M) && !(over_object == src))
 		return attack_self(M)
 
 /obj/item/device/pda/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
@@ -535,7 +535,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 						if(P.icon_state == "pda-hop"||P.icon_state == "pda-bar"||P.icon_state == "pda-holy"||P.icon_state == "pda-lawyer"||P.icon_state == "pda-libb"||P.icon_state == "pda-hydro"||P.icon_state == "pda-chef"||P.icon_state == "pda-j")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 					if(8)	//medical
-						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem")
+						if(P.icon_state == "pda-cmo"||P.icon_state == "pda-v"||P.icon_state == "pda-m"||P.icon_state == "pda-chem"||P.icon_state == "pda-psych")
 							pdas.Add(list(list("Name" = "[P]", "Reference" = "\ref[P]", "Detonate" = "[P.detonate]", "inconvo" = "0")))
 			count++
 
@@ -744,11 +744,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				scanmode = 0
 			else if((!isnull(cartridge)) && (cartridge.access_reagent_scanner))
 				scanmode = 3
-		if("Halogen Counter")
-			if(scanmode == 4)
-				scanmode = 0
-			else if((!isnull(cartridge)) && (cartridge.access_engine))
-				scanmode = 4
 		if("Honk")
 			if ( !(last_honk && world.time < last_honk + 20) )
 				playsound(loc, 'sound/items/bikehorn.ogg', 50, 1)
@@ -1121,6 +1116,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	t = sanitize(t)
 	//t = readd_quotes(t)
 	t = replace_characters(t, list("&#34;" = "\""))
+	if(iscarbon(U) && t)
+		var/mob/living/carbon/C = U
+		if(C.hallucination >= 50 && prob(C.hallucination / 10))			//If you're really hallucinating, you might not be typing what you think you are
+			var/t_orig = t
+			t = pick(SShallucinations.hallucinated_phrases)								//see carbon/hallucination.dm
+			log_pda("[usr] (PDA: [C.name]) typed \"[t_orig]\" then hallucination changed it to \"[t]\". Recipient was [P.owner]",ckey=key_name(C),ckey_target=key_name(P.owner))
 	if (!t || !istype(P))
 		return
 	if (!in_range(src, U) && loc != U)
@@ -1160,19 +1161,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			conversations.Add("\ref[P]")
 		if(!P.conversations.Find("\ref[src]"))
 			P.conversations.Add("\ref[src]")
-
-
-		if (prob(15)) //Give the AI a chance of intercepting the message
-			var/who = src.owner // revealing sender
-			if(prob(50))
-				who = P.owner // revealing recipient
-
-			for(var/mob/living/silicon/ai/ai in mob_list)
-				if(ai.aiPDA != P && ai.aiPDA != src)
-					if(who != P.owner) // if not revealing the recipient
-						ai.show_message("<i>Intercepted message from <b>[who]</b>: [t]</i>")
-					else // if not revealing the sender
-						ai.show_message("<i>Intercepted message to <b>[who]</b>: [t]</i>")
 
 		P.new_message_from_pda(src, t)
 		SSnanoui.update_user_uis(U, src) // Update the sending user's PDA UI so that they can see the new message
@@ -1542,6 +1530,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		plist[text("[name]")] = P
 	return plist
 
+/obj/item/device/pda/CouldUseTopic(var/mob/user)
+	..()
+	if(iscarbon(user))
+		playsound(src, 'sound/machines/pda_click.ogg', 20)
 
 //Some spare PDAs in a box
 /obj/item/storage/box/PDAs

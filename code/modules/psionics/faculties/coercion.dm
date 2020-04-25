@@ -20,10 +20,10 @@
 	use_ranged =     TRUE
 	use_melee =      TRUE
 	min_rank =       PSI_RANK_GRANDMASTER
-	use_description = "Target the eyes or mouth on disarm intent and click anywhere to use a radial attack that blinds, deafens and disorients everyone near you."
+	use_description = "Target the eyes on disarm intent and click anywhere to use a radial attack that blinds, deafens and disorients everyone near you."
 
 /datum/psionic_power/coercion/blindstrike/invoke(var/mob/living/user, var/mob/living/target)
-	if(user.zone_sel.selecting != "mouth" && user.zone_sel.selecting != BP_EYES)
+	if(user.zone_sel.selecting != BP_EYES)
 		return FALSE
 	. = ..()
 	if(.)
@@ -58,8 +58,13 @@
 		return
 
 	if(target.stat == DEAD || (target.status_flags & FAKEDEATH) || !target.client)
-		to_chat(user, span("warning", "\The [target] is in no state for a mind-ream."))
+		to_chat(user, span("warning", "\The [target] is in no state for a mind-read."))
 		return TRUE
+
+	for (var/obj/item/implant/mindshield/I in target)
+		if (I.implanted)
+			to_chat(user, span("warning", "\The [target]'s mind is protected from the mind-read."))
+			return TRUE
 
 	user.visible_message(span("warning", "\The [user] touches \the [target]'s temple..."))
 	var/question =  input(user, "Say something?", "Read Mind", "Penny for your thoughts?") as null|text
@@ -146,6 +151,11 @@
 		if(!target.mind || !target.key)
 			to_chat(user, "<span class='warning'>\The [target] is mindless!</span>")
 			return TRUE
+		for (var/obj/item/implant/mindshield/I in target)
+			if (I.implanted)
+				to_chat(user, span("warning", "\The [target]'s mind is protected from the mindslaving."))
+				return TRUE
+
 		user.visible_message("<span class='danger'><i>\The [user] seizes the head of \the [target] in both hands...</i></span>")
 		to_chat(user, "<span class='warning'>You plunge your mentality into that of \the [target]...</span>")
 		to_chat(target, "<span class='danger'>Your mind is invaded by the presence of \the [user]! They are trying to make you a slave!</span>")
@@ -221,6 +231,7 @@
 	min_rank =          PSI_RANK_OPERANT
 	use_sound =         null
 	use_description =   "Target the mouth and click on a creature on disarm intent to psionically send them a message."
+	admin_log = FALSE
 
 /datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
 	if((target == user) || user.zone_sel.selecting != BP_MOUTH)
@@ -249,6 +260,11 @@
 		if (isvaurca(target))
 			to_chat (user, "<span class='cult'>You feel your thoughts pass right through a mind empty of psychic energy.</span>")
 			return
+
+		for (var/obj/item/implant/mindshield/I in target)
+			if (I.implanted)
+				to_chat(user, span("warning", "\The [target]'s mind rejects your attempt to communicate."))
+				return TRUE
 
 		log_say("[key_name(user)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 
@@ -284,7 +300,8 @@
 	use_manifest =      TRUE
 	min_rank =          PSI_RANK_OPERANT
 	use_sound =         null
-	use_description =   "Activate an empty hand on disarm intent to detect nearby psionic signatures."
+	use_description =   "Activate an empty hand on help intent to detect nearby psionic signatures."
+	admin_log = FALSE
 
 /datum/psionic_power/coercion/psiping/invoke(var/mob/living/user, var/mob/living/target)
 	if((target && user != target) || user.a_intent != I_HELP)

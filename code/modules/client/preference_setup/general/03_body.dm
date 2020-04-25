@@ -354,6 +354,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(prev_species != pref.species)
 			mob_species = all_species[pref.species]
 
+			pref.gender = sanitize_gender(pref.gender, pref.species)
 			var/bodytype = mob_species.get_bodytype()
 
 			//grab one of the valid hair styles for the newly chosen species
@@ -752,3 +753,4 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.rlimb_data[organ] = null
 	while(null in pref.rlimb_data)
 		pref.rlimb_data -= null*/
+

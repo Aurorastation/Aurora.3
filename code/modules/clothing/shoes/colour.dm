@@ -141,6 +141,14 @@
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
 
+/obj/item/clothing/shoes/trauma
+	name = "trauma physician shoes"
+	desc = "A pair of black and white shoes resistant to biological and chemical hazards."
+	icon_state = "trauma"
+	item_state = "black"
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+
 /obj/item/clothing/shoes/flats
 	desc = "A pair of black, low-heeled women's flats."
 	name = "black dress flats"

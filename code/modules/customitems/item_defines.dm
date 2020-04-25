@@ -200,27 +200,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "coin_yoiko_heads" //thanks fireandglory for the sprites
 	cmineral = "yoiko"
 
-/obj/item/clothing/suit/unathi/mantle/fluff/karnaikai_wrappings //Unathi Wrappings - Azeazekal Karnaikai - canon35
-	name = "unathi wrappings"
-	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
-	icon = 'icons/obj/custom_items/karnaikai_wrappings.dmi'
-	icon_state = "karnaikai_wrappings" //special thanks to Araskael
-	item_state = "karnaikai_wrappings"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	flags_inv = HIDEJUMPSUIT|HIDETAIL
-	species_restricted = list("Unathi")
-	contained_sprite = TRUE
-
-
-/obj/item/clothing/mask/gas/fluff/karnaikai_mask //Unathi head wrappings - Azeazekal Karnaikai - canon35
-	name = "unathi head wrappings"
-	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
-	icon = 'icons/obj/custom_items/karnaikai_mask.dmi'
-	icon_state = "karnaikai_mask" //special thanks to Araskael
-	item_state = "karnaikai_mask"
-	species_restricted = list("Unathi")
-	contained_sprite = TRUE
-
 /obj/item/flame/lighter/zippo/fluff/locke_zippo //Fire Extinguisher Zippo - Jacob Locke - completegarbage
 	name = "fire extinguisher lighter"
 	desc = "Most fire extinguishers on the station are way too heavy. This one's a little lighter."
@@ -601,6 +580,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "simon_scarf"
 	item_state = "simon_scarf"
 	contained_sprite = TRUE
+	body_parts_covered = FACE
+	item_flags = FLEXIBLEMATERIAL
+	w_class = 2
+	gas_transfer_coefficient = 0.90
 
 
 /obj/item/sign/fluff/triaka_atimono //Framed Zatimono - Azkuyua Triaka - marlonphoenix
@@ -1396,7 +1379,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A kit containing a change of casual clothes, packaged for easy transport. This one advertises some sort of cartoon featuring slimes. It is labeled \"J. Beal.\""
 	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
 	icon_state = "jennifer_wardrobe_box"
-	item_state = "syringe_kit"
+	item_state = "box"
 
 /obj/item/fluff/jennifer_wardrobe_kit/attack_self(mob/user as mob)
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
@@ -1450,15 +1433,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
 	icon_state = "jennifer_tee"
 	item_state = "jennifer_tee"
-	has_sensor = 0
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/fluff/jennifer_jersey //Capital Sting FC Outfit - Jennifer Beal - synnono
-	name = "association football outfit"
-	desc = "A yellow and black jersey for the Mendell City women's club \"Capital Sting FC\" paired with black athletic shorts. This belongs on the pitch!"
-	icon = 'icons/obj/custom_items/jennifer_clothes.dmi'
-	icon_state = "jennifer_jersey"
-	item_state = "jennifer_jersey"
 	has_sensor = 0
 	contained_sprite = TRUE
 
@@ -1855,7 +1829,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
+/obj/item/surgery/retractor/fluff/tristen_retractor //Laser Retractor - Tristen Wolff - elianabeth
 	name = "laser retractor"
 	desc = "The fabled laser retractor. It's a horrible amalgamation of a laser pointer, a retractor, and lots of tape."
 	icon = 'icons/obj/custom_items/tristen_retractor.dmi'
@@ -3266,3 +3240,110 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ioraks_cape.dmi'
 	icon_state = "ioraks_armband2"
 	item_state = "ioraks_armband2"
+
+
+/obj/item/clothing/accessory/poncho/fluff/solozel_mantle //Maraziite Throw Over - Kasluul Solozel - paradoxspace
+	name = "maraziite throw over"
+	desc = "It's a grey poncho, exclusively donned by the members of the Maraziite Order. This one has a Izweski Hegemony flag boldly sewn onto the shoulder."
+	icon = 'icons/obj/custom_items/solozel_items.dmi'
+	icon_state = "solozel_mantle"
+	item_state = "solozel_mantle"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+/obj/item/clothing/mask/fluff/solozel_mask //Iron Mask - Kasluul Solozel - paradoxspace
+	name = "iron mask"
+	desc = "It's a painted mask of white cast iron, decorated with two massive Hegeranzi horns. This is a slightly older design, worn by the members of the Maraziite Order; used to strike fear into the hearts of heretics."
+	icon = 'icons/obj/custom_items/solozel_items.dmi'
+	icon_state = "solozel_mask"
+	item_state = "solozel_mask"
+	contained_sprite = TRUE
+	flags_inv = HIDEEARS|HIDEFACE
+	body_parts_covered = FACE
+	w_class = 3.0
+
+
+/obj/item/cane/fluff/suul_staff //Akhanzi Staff - Suul Akhandi - herpetophilia
+	name = "akhanzi staff"
+	desc = "A staff usually carried by shamans of the Akhanzi Order. It is made out of dark, polished wood and is curved at the end."
+	icon = 'icons/obj/custom_items/suul_staff.dmi'
+	icon_state = "suul_staff"
+	item_state = "suul_staff"
+	slot_flags = SLOT_BACK
+	contained_sprite = TRUE
+	w_class = 4
+
+/obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user as mob, proximity)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(!proximity)
+		return
+	if (istype(A, /turf/simulated/floor))
+		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
+		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
+		return
+
+
+/obj/item/clothing/accessory/sweater/fluff/cress_sweater //Star Sweater - Emily Cress - mattatlas
+	name = "star sweater"
+	desc = "An army green sweater. It looks well cared for and contains a star on the front, near the neck. To those familiar with it, the star is the same symbol as one of the nation alliances' logos in Earth's history."
+	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_state = "cress_sweater"
+	item_state = "cress_sweater"
+	contained_sprite = TRUE
+
+/obj/item/fluff/cress_book //Lyric Book - Emily Cress - mattatlas
+	name = "lyric book"
+	desc = "An old, faded folder containing various alphabetically organized lyrics of several songs, including musical sheets for guitars. A dark purple H is scribbled on the center, along with half a heart on the \
+	left and a cut on the bottom right. The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock."
+	icon = 'icons/obj/custom_items/cress_items.dmi'
+	icon_state = "cress_book"
+	w_class = 2
+	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
+							"Say Something New: A morose song about companionship, and being unable to continue without an undescribed dear friend. Morose, but overall motivational.",
+							"One By One: A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
+
+/obj/item/fluff/cress_book/attack_self(mob/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.visible_message("<span class='notice'>[user] begins searching through \the [src] pages.</span>")
+	if(do_after(user, 25))
+		to_chat(user, "<span class='notice'>You read on the pages of \the [src]: [pick(lyrics)]</span>")
+
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos
+	name = "developer's laptop"
+	anchored = FALSE
+	screen_on = FALSE
+	icon_state = "laptop-closed"
+	desc = "A portable computer, this one is covered edge-to-edge in stickers. Some stand out; such ones from a 2458 Game Jam, 2459 Game Jam and various title logos from obscure holovid series. Printed on the bottom panel \
+	is \"Hello, world!\" in a bright, monospace font."
+	icon = 'icons/obj/custom_items/harrow_laptop.dmi'
+
+/obj/item/modular_computer/laptop/fluff/harrow_laptop/install_default_hardware()
+	..()
+	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
+	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
+	network_card = new /obj/item/computer_hardware/network_card(src)
+	battery_module = new /obj/item/computer_hardware/battery_module(src)
+	battery_module.charge_to_full()
+	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
+	nano_printer.max_paper = 10
+	nano_printer.stored_paper = 5
+
+
+/obj/item/clothing/accessory/poncho/fluff/ozuha_cape //Victory Cape - Skavoss Ozuha - dronzthewolf
+	name = "victory cape"
+	desc = "A finely crafted cape that combines Ozuha clan colors and Izweski nation colors, with inscriptions on the decorative brass paldrons reading something in Sinta'Unathi."
+	icon = 'icons/obj/custom_items/ozuha_cape.dmi'
+	icon_state = "ozuha_cape"
+	item_state = "ozuha_cape"
+	contained_sprite = TRUE
+	icon_override = FALSE
+
+
+/obj/item/clothing/suit/storage/fluff/ulmari_coat //Aut'akh Medical Coat - Optikam Ulmari - soultheif96
+	name = "aut'akh medical coat"
+	desc = "A custom-made tailored coat for use in a laboratory/medical setting."
+	icon = 'icons/obj/custom_items/ulmari_coat.dmi'
+	icon_state = "ulmari_coat"
+	item_state = "ulmari_coat"
+	contained_sprite = TRUE

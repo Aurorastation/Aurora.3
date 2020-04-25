@@ -27,7 +27,7 @@
 	// What does the implant do upon injection?
 	// return 0 if the implant fails (ex. Revhead and loyalty implant.)
 	// return 1 if the implant succeeds (ex. Nonrevhead and loyalty implant.)
-/obj/item/implant/proc/implanted(var/mob/source)
+/obj/item/implant/proc/implanted(var/mob/source, mob/user)
 	return 1
 
 /obj/item/implant/proc/get_data()
@@ -69,6 +69,7 @@
 	if(istype(I, /obj/item/implanter))
 		var/obj/item/implanter/implanter = I
 		if(implanter.imp)
+			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
 			return // It's full.
 		user.drop_from_inventory(src)
 		forceMove(implanter)
@@ -151,8 +152,13 @@ Implant Specifics:<BR>"}
 	name = "explosive implant"
 	desc = "A military grade micro bio-explosive. Highly dangerous."
 	var/elevel = "Localized Limb"
-	var/phrase = "supercalifragilisticexpialidocious"
+	var/phrase
+	var/setup_done = FALSE //Have we set this yet?
 	icon_state = "implant_evil"
+
+/obj/item/implant/explosive/Initialize()
+	. = ..()
+	phrase = "You are [pick(adjectives)]"
 
 /obj/item/implant/explosive/get_data()
 	. = {"
@@ -163,10 +169,28 @@ Implant Specifics:<BR>"}
 <HR>
 <b>Implant Details:</b><BR>
 <b>Function:</b> Contains a compact, electrically detonated explosive that detonates upon receiving a specially encoded signal or upon host death.<BR>
-<b>Special Features:</b> Explodes<BR>
+<b>Special Features:</b> Explodes. Explosion severity can be altered.<BR>
 <b>Integrity:</b> Implant will occasionally be degraded by the body's immune system and thus will occasionally malfunction."}
 
-/obj/item/implant/explosive/hear_talk(mob/M as mob, msg)
+/obj/item/implant/explosive/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/implanter))
+		var/obj/item/implanter/implanter = I
+		if(implanter.imp)
+			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
+			return // It's full.
+		if(!setup_done)
+			var/choice = alert("\The [src]'s default settings have not been changed. Continue?", "Ready for Implantation?", "Yes", "Cancel")
+			if(choice == "Cancel")
+				return
+		to_chat(user, "<B>You load \the [src] into \the [I]. The current setting is \"[elevel]\" and the current phrase is \"[phrase]\".</B>")
+		user.drop_from_inventory(src)
+		forceMove(implanter)
+		implanter.imp = src
+		implanter.update()
+	else
+		..()
+
+/obj/item/implant/explosive/hear_talk(mob/M, msg)
 	hear(msg)
 
 /obj/item/implant/explosive/hear(var/msg)
@@ -174,52 +198,66 @@ Implant Specifics:<BR>"}
 	msg = replace_characters(msg, replacechars)
 	if(findtext(msg,phrase))
 		activate()
-		qdel(src)
 
 /obj/item/implant/explosive/activate()
-	if (malfunction == MALFUNCTION_PERMANENT)
+	if(malfunction == MALFUNCTION_PERMANENT)
 		return
 
-	var/need_gib = null
-	if(istype(imp_in, /mob/))
-		var/mob/T = imp_in
-		message_admins("Explosive implant triggered in [T] ([T.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[T.x];Y=[T.y];Z=[T.z]'>JMP</a>) ")
-		log_game("Explosive implant triggered in [T] ([T.key]).")
-		need_gib = 1
+	if(!imp_in)
+		small_countdown()
+		return
 
-		if(ishuman(imp_in))
-			if (elevel == "Localized Limb")
-				if(part) //For some reason, small_boom() didn't work. So have this bit of working copypaste.
-					imp_in.visible_message("<span class='warning'>Something beeps inside [imp_in][part ? "'s [part.name]" : ""]!</span>")
-					playsound(loc, 'sound/items/countdown.ogg', 75, 1, -3)
-					sleep(25)
-					if (istype(part,/obj/item/organ/external/chest) ||	\
-						istype(part,/obj/item/organ/external/groin) ||	\
-						istype(part,/obj/item/organ/external/head))
-						part.createwound(BRUISE, 60)	//mangle them instead
-						explosion(get_turf(imp_in), -1, -1, 2, 3)
-						qdel(src)
-					else
-						explosion(get_turf(imp_in), -1, -1, 2, 3)
-						part.droplimb(0,DROPLIMB_BLUNT)
-						qdel(src)
-			if (elevel == "Destroy Body")
-				explosion(get_turf(T), -1, 0, 1, 6)
-				T.gib()
-			if (elevel == "Full Explosion")
-				explosion_spread(get_turf(T), rand(8,13))
-				T.gib()
+	message_admins("Explosive implant triggered in [imp_in] ([imp_in.key]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[imp_in.x];Y=[imp_in.y];Z=[imp_in.z]'>JMP</a>) ")
+	log_game("Explosive implant triggered in [imp_in] ([imp_in.key]).")
+	if(ishuman(imp_in))
+		var/mob/living/carbon/human/T = imp_in
+		if(elevel == "Localized Limb" && part)
+			small_countdown()
+			return	//to avoid hotspot_expose. 
+		if(elevel == "Destroy Body")
+			explosion(get_turf(T), -1, 0, 1, 6)
+			T.gib()
+		if(elevel == "Full Explosion")
+			explosion_spread(get_turf(T), rand(8,13))
+			T.gib()
+	else if(ismob(imp_in))
+		var/mob/M = imp_in
+		M.gib()
+		
+	var/turf/F = get_turf(imp_in)	
+	if(F)
+		F.hotspot_expose(3500,125)
+	qdel(src)
 
+/obj/item/implant/explosive/proc/small_countdown()
+	if(!imp_in)
+		visible_message(SPAN_WARNING("Something begins beeping..."))
+	if(ishuman(imp_in))
+		var/message = "Something beeps inside of [imp_in][part ? "'s [part.name]" : ""]..." //for some reason SPAN_X and span() both hate having this in-line
+		imp_in.visible_message(SPAN_WARNING(message))
+	else if(ismob(imp_in))
+		imp_in.visible_message(SPAN_WARNING("Something beeps inside of [imp_in]..."))
+	playsound(loc, 'sound/items/countdown.ogg', 75, 1, -3)
+	addtimer(CALLBACK(src, .proc/small_boom), 25)
+
+/obj/item/implant/explosive/proc/small_boom()
+	if(!imp_in)
+		explosion(get_turf(src), -1, 0, 2, 4)
+	if(ishuman(imp_in) && part)
+		//No tearing off these parts since it's pretty much killing. Mangle them. 
+		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
+			part.createwound(BRUISE, 70)
+			part.add_pain(50)
+			imp_in.visible_message(SPAN_WARNING("[imp_in]'s [part.name] bursts open with a horrible ripping noise!"),
+									SPAN_DANGER("Your [part.name] bursts open with a horrible ripping noise!"),
+									SPAN_WARNING("You hear a horrible ripping noise."))
 		else
-			explosion(get_turf(imp_in), 0, 1, 3, 6)
-
-	if(need_gib)
-		imp_in.gib()
-
-	var/turf/t = get_turf(imp_in)
-
-	if(t)
-		t.hotspot_expose(3500,125)
+			part.droplimb(0,DROPLIMB_BLUNT)
+		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg')
+	else if(ismob(imp_in))
+		var/mob/M = imp_in
+		M.gib()	//Simple mobs just get got
+	qdel(src)
 
 /proc/explosion_spread(turf/epicenter, power, adminlog = 1, z_transfer = UP|DOWN)
 	var/datum/explosiondata/data = new
@@ -230,54 +268,45 @@ Implant Specifics:<BR>"}
 	data.z_transfer = z_transfer
 	SSexplosives.queue(data)
 
-/obj/item/implant/explosive/implanted(mob/source as mob)
+/obj/item/implant/explosive/implanted(mob/source, mob/user)
+	if(user.mind)
+		user.mind.store_memory("\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
+	to_chat(usr, "\The [src] in [source] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
+	return TRUE
+
+/obj/item/implant/explosive/attack_self(mob/user)
 	elevel = alert("What sort of explosion would you prefer?", "Implant Intent", "Localized Limb", "Destroy Body", "Full Explosion")
 	phrase = input("Choose activation phrase:") as text
 	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
 	phrase = replace_characters(phrase, replacechars)
-	usr.mind.store_memory("Explosive implant in [source] can be activated by saying something containing the phrase ''[src.phrase]'', <B>say [src.phrase]</B> to attempt to activate.", 0, 0)
-	to_chat(usr, "The implanted explosive implant in [source] can be activated by saying something containing the phrase ''[src.phrase]'', <B>say [src.phrase]</B> to attempt to activate.")
-	return 1
+	user.mind.store_memory("\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
+	to_chat(user, "\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
+	setup_done = TRUE
 
 /obj/item/implant/explosive/emp_act(severity)
-	if (malfunction)
+	if(malfunction)
 		return
 	malfunction = MALFUNCTION_TEMPORARY
 	switch (severity)
-		if (2.0)	//Weak EMP will make implant tear limbs off.
-			if (prob(50))
-				small_boom()
-		if (1.0)	//strong EMP will melt implant either making it go off, or disarming it
-			if (prob(70))
-				if (prob(50))
-					small_boom()
+		if(2.0)	//Weak EMP will make implant tear limbs off.
+			if(prob(50))
+				small_countdown()
+		if(1.0)	//strong EMP will melt implant either making it go off, or disarming it
+			if(prob(70))
+				if(prob(50))
+					small_countdown()
 				else
-					if (prob(50))
-						activate()		//50% chance of bye bye
+					if(prob(50))
+						activate()	//50% chance of bye bye
 					else
-						meltdown()		//50% chance of implant disarming
-	spawn (20)
-		malfunction--
+						meltdown()	//50% chance of implant disarming
+	addtimer(CALLBACK(src, .proc/self_correct), 20)
+
+/obj/item/implant/explosive/proc/self_correct()
+	malfunction--
 
 /obj/item/implant/explosive/islegal()
-	return 0
-
-/obj/item/implant/explosive/proc/small_boom()
-	if (ishuman(imp_in) && part)
-		imp_in.visible_message("<span class='warning'>Something beeps inside [imp_in][part ? "'s [part.name]" : ""]!</span>")
-		playsound(loc, 'sound/items/countdown.ogg', 75, 1, -3)
-		spawn(25)
-			if (ishuman(imp_in) && part)
-				//No tearing off these parts since it's pretty much killing
-				//and you can't replace groins
-				if (istype(part,/obj/item/organ/external/chest) ||	\
-					istype(part,/obj/item/organ/external/groin) ||	\
-					istype(part,/obj/item/organ/external/head))
-					part.createwound(BRUISE, 60)	//mangle them instead
-				else
-					part.droplimb(0,DROPLIMB_BLUNT)
-			explosion(get_turf(imp_in), -1, -1, 2, 3)
-			qdel(src)
+	return FALSE
 
 /obj/item/implant/explosive/New()
 	..()
@@ -350,35 +379,23 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	spawn(20)
 		malfunction--
 
-/obj/item/implant/loyalty
-	name = "loyalty implant"
-	desc = "Makes you loyal or such."
+/obj/item/implant/mindshield
+	name = "mind shield implant"
+	desc = "A controversial and debatably unethical neurostimulator and autohypnosis device. When implanted against the amygdala, it ensures the host maintains a consistent personality, preventing outside interference through brainwashing or hypnotic suggestion."
 
-/obj/item/implant/loyalty/get_data()
+/obj/item/implant/mindshield/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
 <b>Name:</b> [current_map.company_name] Employee Management Implant<BR>
 <b>Life:</b> Ten years.<BR>
-<b>Important Notes:</b> Personnel injected with this device tend to be much more loyal to the company.<BR>
+<b>Important Notes:</b> Personnel injected with this device tend to be much more resistant to brain washing and other external influences.<BR>
 <HR>
 <b>Implant Details:</b><BR>
 <b>Function:</b> Contains a small pod of nanobots that manipulate the host's mental functions.<BR>
 <b>Special Features:</b> Will prevent and cure most forms of brainwashing.<BR>
 <b>Integrity:</b> Implant will last so long as the nanobots are inside the bloodstream."}
 
-/obj/item/implant/loyalty/implanted(mob/M)
-	if(!istype(M, /mob/living/carbon/human))	return 0
-	var/mob/living/carbon/human/H = M
-	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
-	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-		H.visible_message("[H] seems to resist the implant!", "You feel the corporate tendrils of [current_map.company_name] try to invade your mind!")
-		return 0
-	else
-		clear_antag_roles(H.mind, 1)
-		to_chat(H, "<span class='notice'>You feel a surge of loyalty towards [current_map.company_name].</span>")
-	return 1
-
-/obj/item/implant/loyalty/emp_act(severity)
+/obj/item/implant/mindshield/emp_act(severity)
 	if (malfunction)
 		return
 	malfunction = MALFUNCTION_TEMPORARY
@@ -393,22 +410,21 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	spawn(20)
 		malfunction--
 
-/obj/item/implant/loyalty/ipc
-	name = "loyalty chip"
-	desc = "A device that sets directives programmed for loyalty to NanoTrasen on the synthetic subject. Will not work on organics."
+/obj/item/implant/mindshield/ipc
+	name = "software protection chip"
+	desc = "A dedicated processor core designed to identify and terminate malignant software, ensuring a synthetics protection from outside hacking."
 
-/obj/item/implant/loyalty/ipc/implanted(mob/M)
-
+/obj/item/implant/mindshield/ipc/implanted(mob/M)
 	if (!isipc(M))
 		return
 
 	..()
 
-/obj/item/implant/loyalty/sol
+/obj/item/implant/mindshield/sol
 	name = "loyalty implant"
 	desc = "Makes you loyal to the Sol Alliance, or to a certain individual."
 
-/obj/item/implant/loyalty/sol/implanted(mob/M)
+/obj/item/implant/mindshield/sol/implanted(mob/M)
 	if(!istype(M, /mob/living/carbon/human))	return 0
 	var/mob/living/carbon/human/H = M
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
@@ -594,9 +610,9 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 	var/mob/living/carbon/human/H = M
 
-	for(var/obj/item/implant/loyalty/I in H)
+	for(var/obj/item/implant/mindshield/I in H)
 		if(I.implanted)
-			to_chat(H, span("danger", "Rage surges through your body, but the nanobots from your loyalty implant stop it soon after it starts!"))
+			to_chat(H, span("danger", "Rage surges through your body, but the nanobots from your mind shield implant stop it soon after it starts!"))
 			return TRUE
 
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)

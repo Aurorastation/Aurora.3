@@ -4,6 +4,7 @@
 	icon_state = "loader_arms"
 	has_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	power_use = 50
+	var/damagetype = BRUTE
 
 	var/punch_sound = 'sound/mecha/mech_punch.ogg'
 

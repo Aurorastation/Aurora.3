@@ -17,72 +17,9 @@
 /datum/reagent/norepinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
-	if (!modifier)
-		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 0.6, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/norepinephrine/Destroy()
 	QDEL_NULL(modifier)
-	return ..()
-
-/datum/reagent/inaprovaline
-	name = "Inaprovaline"
-	id = "inaprovaline"
-	description = "Inaprovaline is a super strength stimulant and painkiller intended to keep a patient alive while in critical condition. Overdose causes heart damage and an energy boost equivelent to hyperzine."
-	reagent_state = LIQUID
-	color = "#FFFFFF"
-	overdose = 20
-	metabolism = 2
-	metabolism_min = 0.25
-	breathe_mul = 0.25
-	ingest_mul = 0.25
-	scannable = 1
-	taste_description = "salty sugar"
-	var/datum/modifier/modifier1
-	var/datum/modifier/modifier2
-
-/datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-
-	var/reagent_strength = round(max(0,1 - (M.health/100)),0.1)
-
-	if(reagent_strength == 0)
-		return
-
-	var/list/damage_stats = list(BRUTE = M.getBruteLoss(), BURN = M.getFireLoss(), TOX = M.getToxLoss(), OXY = M.getOxyLoss())
-
-	var/best_stat = "None"
-	var/best_value = 0
-
-	for(var/key in damage_stats)
-		var/value = damage_stats[key]
-		if(value > best_value)
-			best_stat = key
-			best_value = value
-
-	switch(best_stat)
-		if(BRUTE)
-			M.adjustBruteLoss(-removed*5*reagent_strength)
-		if(BURN)
-			M.adjustFireLoss(-removed*5*reagent_strength)
-		if(TOX)
-			M.adjustToxLoss(-removed*5*reagent_strength)
-		if(OXY)
-			M.adjustOxyLoss(-removed*5*reagent_strength)
-
-	M.make_jittery(removed*10)
-	M.add_chemical_effect(CE_STABLE)
-	M.add_chemical_effect(CE_PAINKILLER, 25)
-
-/datum/reagent/inaprovaline/overdose(var/mob/living/carbon/human/H, var/alien, removed )
-	if(istype(H))
-		H.add_chemical_effect(CE_CARDIOTOXIC, 0.1*removed)
-		H.make_jittery(removed*10)
-		H.add_chemical_effect(CE_SPEEDBOOST, 1)
-		if (!modifier2)
-			modifier2 = H.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
-
-/datum/reagent/inaprovaline/Destroy()
-	QDEL_NULL(modifier1)
-	QDEL_NULL(modifier2)
 	return ..()
 
 /datum/reagent/bicaridine
@@ -114,23 +51,28 @@
 	reagent_state = LIQUID
 	color = "#FFA800"
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	metabolism = REM * 0.5
 	taste_description = "bitterness"
-	var/strength = 6
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(0, 6 * removed)
+	if(!(locate(/datum/reagent/dermaline) in M.reagents.reagent_list))
+		M.heal_organ_damage(0, 6 * removed)
 
-/datum/reagent/kelotane/dermaline
+/datum/reagent/dermaline
 	name = "Dermaline"
 	id = "dermaline"
 	description = "Dermaline is the next step in burn medication. Works twice as good as kelotane and enables the body to restore even the direst heat-damaged tissue."
+	reagent_state = LIQUID
 	color = "#FF8000"
 	fallback_specific_heat = 1
+	scannable = TRUE
+	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE * 0.5
 	taste_mult = 1.5
-	strength = 12
+
+/datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.heal_organ_damage(0, 12 * removed)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -153,7 +95,7 @@
 
 	if(remove_generic)
 		M.drowsyness = max(0, M.drowsyness - 6 * removed)
-		M.hallucination += (-9 * removed)
+		M.hallucination -= (2 * removed)
 		M.add_up_to_chemical_effect(CE_ANTITOXIN, 1)
 
 	var/removing = (4 * removed)
@@ -186,6 +128,15 @@
 		M.adjustToxLoss(removed * strength)
 	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
 	holder.remove_reagent("lexorin", strength/3 * removed)
+
+//Hyperoxia causes brain and eye damage
+/datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_NEUROTOXIC, removed * (strength / 6))
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
+		if(E && istype(E))
+			E.take_damage(removed * (strength / 12))
 
 /datum/reagent/dexalin/plus
 	name = "Dexalin Plus"
@@ -254,7 +205,6 @@
 		M.adjustCloneLoss(-10 * removed)
 		M.adjustOxyLoss(-10 * removed)
 		M.heal_organ_damage(10 * removed, 10 * removed)
-		M.adjustToxLoss(-10 * removed)
 
 /datum/reagent/clonexadone
 	name = "Clonexadone"
@@ -272,7 +222,6 @@
 		M.adjustCloneLoss(-30 * removed)
 		M.adjustOxyLoss(-30 * removed)
 		M.heal_organ_damage(30 * removed, 30 * removed)
-		M.adjustToxLoss(-30 * removed)
 
 /* Painkillers */
 
@@ -374,6 +323,7 @@
 	M.hallucination = max(0, M.hallucination - 10)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
+	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
@@ -397,6 +347,10 @@
 	M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 
+/datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.hallucination = max(M.hallucination, 25)
+	..()
+
 /datum/reagent/imidazoline
 	name = "Imidazoline"
 	id = "imidazoline"
@@ -417,6 +371,10 @@
 		if(E && istype(E))
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
+
+/datum/reagent/imidazoline/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.hallucination = max(M.hallucination, 15)
+	..()
 
 /datum/reagent/peridaxon
 	name = "Peridaxon"
@@ -604,7 +562,7 @@
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/deltamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_FEVER, dose/4)
+	M.add_chemical_effect(CE_FEVER, dose/12)
 
 /datum/reagent/thetamycin
 	name = "Thetamycin"
@@ -612,6 +570,7 @@
 	description = "A theta-lactam antibiotic, effective against wound and organ bacterial infections."
 	reagent_state = LIQUID
 	color = "#41C141"
+	metabolism = REM * 0.05
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
 	overdose = REAGENTS_OVERDOSE
@@ -910,6 +869,10 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
+/datum/reagent/mental/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_HALLUCINATE, -1)
+	..()
+
 /datum/reagent/mental/fluvoxamine
 	name = "Fluvoxamine"
 	id = "fluvoxamine"
@@ -1127,6 +1090,10 @@
 		/datum/reagent/mental/escitalopram = 20
 	)
 
+/datum/reagent/mental/risperidone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_HALLUCINATE, -2)
+	..()
+
 /datum/reagent/mental/olanzapine
 	name = "Olanzapine"
 	id = "olanzapine"
@@ -1163,6 +1130,10 @@
 		/datum/reagent/mental/paroxetine = 20,
 		/datum/reagent/mental/escitalopram = 20
 	)
+
+/datum/reagent/mental/olanzapine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_HALLUCINATE, -2)
+	..()
 
 /datum/reagent/mental/truthserum
 	name = "Truth serum"
@@ -1362,6 +1333,25 @@
 				H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
 	. = ..()
 
+/datum/reagent/pneumalin
+	name = "Pneumalin"
+	id = "pneumalin"
+	description = "A chemical that, when inhaled, restores tearing and bruising of the lungs. Overdosing can lower a patient's pulse to dangerous levels."
+	color = "#8154b4"
+	overdose = 15
+	scannable = 1
+	taste_description = "fine dust"
+	reagent_state = SOLID
+
+/datum/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
+	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
+	H.add_chemical_effect(CE_PULSE, -1)
+	. = ..()
+
+/datum/reagent/pneumalin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed)
+	H.add_chemical_effect(CE_PULSE, -dose * 0.33)
+
 /datum/reagent/rezadone
 	name = "Rezadone"
 	id = "rezadone"
@@ -1437,19 +1427,15 @@
 /datum/reagent/adipemcina //Based on quinapril
 	name = "Adipemcina"
 	id = "adipemcina"
-	description = "Adipemcina is a heart medication used for treating high blood pressure, heart failure, and diabetes. Works at it's best when the stomach is empty. Causes vomiting and liver damage when overdosed."
+	description = "Adipemcina is a heart medication used for treating high blood pressure, heart failure, and diabetes. Causes vomiting and liver damage when overdosed."
 	reagent_state = LIQUID
 	color = "#008000"
-	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "bitterness"
 
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(istype(M))
-		if(M.max_nutrition > 0)
-			var/nutritionmod = max(0.25, (1 - M.nutrition) / M.max_nutrition * 0.5) //Less effective when your stomach is "full".
-			M.add_chemical_effect(CE_CARDIOTOXIC, -removed * nutritionmod)
+	M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
@@ -1547,6 +1533,6 @@
 	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
 	reagent_state = LIQUID
 	color = "#AA8866"
-	metabolism = 0.5 * REM
+	metabolism = 0.2 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1

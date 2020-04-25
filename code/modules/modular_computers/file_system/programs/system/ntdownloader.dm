@@ -2,12 +2,12 @@
 	filename = "ntndownloader"
 	filedesc = "NTNet Software Download Tool"
 	program_icon_state = "generic"
-	extended_desc = "This program allows downloads of software from official NT repositories"
+	extended_desc = "This program allows the download of software from official NT repositories."
 	color = LIGHT_COLOR_GREEN
-	unsendable = 1
-	undeletable = 1
+	unsendable = TRUE
+	undeletable = TRUE
 	size = 4
-	requires_ntnet = 1
+	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
 	available_on_ntnet = 0
 	ui_header = "downloader_finished.gif"
@@ -45,7 +45,7 @@
 
 	// Let's send all installed programs
 	LAZYINITLIST(data["installed"])
-	for(var/datum/computer_file/program/I in holder.stored_files)
+	for(var/datum/computer_file/program/I in hard_drive.stored_files)
 		LAZYINITLIST(data["installed"][I.filename])
 		VUEUI_SET_CHECK(data["installed"][I.filename]["name"], I.filedesc, ., data)
 		VUEUI_SET_CHECK(data["installed"][I.filename]["size"], I.size, ., data)
@@ -73,8 +73,8 @@
 			else
 				VUEUI_SET_CHECK(data["avaivable"][P.filename]["rest"], 0, ., data)
 
-	VUEUI_SET_CHECK(data["disk_size"], holder.max_capacity, ., data)
-	VUEUI_SET_CHECK(data["disk_used"], holder.used_capacity, ., data)
+	VUEUI_SET_CHECK(data["disk_size"], hard_drive.max_capacity, ., data)
+	VUEUI_SET_CHECK(data["disk_used"], hard_drive.used_capacity, ., data)
 	VUEUI_SET_CHECK(data["queue_size"], queue_size, ., data)
 	VUEUI_SET_CHECK(data["speed"], speed, ., data)
 
@@ -103,20 +103,20 @@
 /datum/computer_file/program/ntnetdownload/proc/add_to_queue(var/datum/computer_file/program/PRG, var/mob/user)
 	// Attempting to download antag only program, but without having emagged computer. No.
 	if(PRG.available_on_syndinet && !computer_emagged)
-		return 0
+		return FALSE
 
-	if(!holder.can_store_file(queue_size + PRG.size))
+	if(!hard_drive.can_store_file(queue_size + PRG.size))
 		to_chat(user, "<span class='warning'>You can't download this program as queue items exceed hard drive size.</span>")
-		return 1
+		return TRUE
 
-	if(!computer?.hard_drive?.try_store_file(PRG))
-		return 0
+	if(hard_drive?.try_store_file(PRG))
+		return FALSE
 
 	if(!computer_emagged && !PRG.can_download(user) && PRG.requires_access_to_download)
-		return 1
+		return TRUE
 
 	if(!PRG.is_supported_by_hardware(computer.hardware_flag))
-		return 0
+		return FALSE
 
 	if(PRG.available_on_ntnet)
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from NTNet Software Repository.")

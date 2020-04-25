@@ -38,7 +38,7 @@
 		// If we are in AI or pAI we just don't botherwith power use.
 		return TRUE
 	else
-		// If we don't have host, then we let regular computer code handle power - like batteries and tesla coils
+		// If we don't have host, then we let regular computer code handle power - like batteries and tesla coils.
 		return ..()
 
 /obj/item/modular_computer/silicon/Destroy()
@@ -53,7 +53,6 @@
 	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
 	hard_drive = new /obj/item/computer_hardware/hard_drive(src)
 	network_card = new /obj/item/computer_hardware/network_card/advanced(src)
-
 
 /obj/item/modular_computer/silicon/install_default_programs()
 	hard_drive.store_file(new /datum/computer_file/program/filemanager())

@@ -12,6 +12,10 @@
 	var/obj/item/cell/charging = null
 	var/chargelevel = -1
 
+/obj/machinery/cell_charger/Initialize(mapload)
+	. = ..()
+	update_icon()
+
 /obj/machinery/cell_charger/update_icon()
 	icon_state = "ccharger[charging ? 1 : 0]"
 

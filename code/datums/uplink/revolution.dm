@@ -7,12 +7,6 @@
 	item_cost = 45
 	path = /obj/item/device/orbital_dropper/armory/syndicate
 
-/datum/uplink_item/item/revolution/mecha
-	name = "Mecha Dropper"
-	desc = "A device that can be used to drop in a combat exosuit. Can only be used outside station areas, unless emagged, which is hazardous."
-	item_cost = 40
-	path = /obj/item/device/orbital_dropper/mecha
-
 /datum/uplink_item/item/revolution/implants
 	name = "Box of Aggression Implants"
 	desc = "A box containing implants that will make their owners increasingly aggressive."

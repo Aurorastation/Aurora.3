@@ -308,7 +308,7 @@
 	seed_name = "golden apple"
 	display_name = "gold apple tree"
 	mutants = null
-	chems = list("applejuice" = list(1,10), "gold" = list(1,5))
+	chems = list("applejuice" = list(1,10), MATERIAL_GOLD = list(1,5))
 	kitchen_tag = "goldapple"
 
 /datum/seed/apple/gold/setup_traits()
@@ -1204,6 +1204,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#87CEEB")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"alien2")
+	set_trait(TRAIT_IDEAL_HEAT, 283)
 	set_trait(TRAIT_WATER_CONSUMPTION, 8)
 
 /datum/seed/nifberries
@@ -1225,6 +1226,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#C4AE7A")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
 	set_trait(TRAIT_PLANT_ICON,"bush4")
+	set_trait(TRAIT_IDEAL_HEAT, 283)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
@@ -1372,3 +1374,24 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#61E2EC")
 	set_trait(TRAIT_PLANT_ICON,"wumpavines")
 	set_trait(TRAIT_WATER_CONSUMPTION, 10)
+
+/datum/seed/sugartree
+	name = "sugartree"
+	seed_name = "sugar tree fruit"
+	display_name = "sugar tree"
+	chems = list("sugar" = list(3,4))
+	kitchen_tag = "sugartree"
+
+/datum/seed/sugartree/setup_traits()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,3)
+	set_trait(TRAIT_PRODUCTION,5)
+	set_trait(TRAIT_YIELD,1)
+	set_trait(TRAIT_POTENCY,5)
+	set_trait(TRAIT_PRODUCT_ICON,"alien2")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#fffdf7")
+	set_trait(TRAIT_PLANT_COLOUR,"#6BBD68")
+	set_trait(TRAIT_PLANT_ICON, "alien3")
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_IDEAL_HEAT, 283)

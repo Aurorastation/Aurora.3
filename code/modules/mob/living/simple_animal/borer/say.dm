@@ -45,4 +45,4 @@
 		if(istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
-			to_chat(M, "[src.truename] whispers to [host], \"[message]\"")
+			to_chat(M, "<b>[src.truename]</b> whispers to <b>[host]</b>, \"[message]\"")

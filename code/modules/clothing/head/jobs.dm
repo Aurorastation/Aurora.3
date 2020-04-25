@@ -107,6 +107,21 @@
 	desc = "A beret with the medical insignia emblazoned on it. For medical members that want to crush their brains after college left them in massive debt."
 	icon_state = "medberet"
 
+/obj/item/clothing/head/beret/zeng
+	name = "zeng-hu beret"
+	desc = "A purple beret with the Zeng-Hu insignia emblazoned on it."
+	icon_state = "zengberet"
+
+/obj/item/clothing/head/beret/zeng/alt
+	name = "zeng-hu beret"
+	desc = "A white beret with the Zeng-Hu insignia emblazoned on it."
+	icon_state = "zengaltberet"	
+
+/obj/item/clothing/head/beret/heph
+	name = "hephaestus beret"
+	desc = "A green beret with the Hephaestus insignia emblazoned on it."
+	icon_state = "hephberet"
+
 /obj/item/clothing/head/beret/purple
 	name = "purple beret"
 	desc = "A stylish, if purple, beret."
@@ -137,6 +152,12 @@
 	name = "commanders beret"
 	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
 	icon_state = "centcomcaptain"
+
+/obj/item/clothing/head/beret/misc
+	name = "beret"
+	desc = "A colorful beret, treasured by artists and the French."
+	icon_state = "miscberet"
+	item_state = "miscberet"
 
 //Medical
 /obj/item/clothing/head/surgery

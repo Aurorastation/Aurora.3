@@ -23,6 +23,7 @@
 	//blind adjacent people
 	for (var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
+			M.confused = rand(5,15)
 			flick("e_flash", M.flash)
 
 	//snap pop
@@ -159,6 +160,15 @@
 	. = ..()
 	if(isliving(target))
 		tesla_zap(target, 3, 5000)
+
+/obj/item/projectile/energy/tesla/master
+	damage = 15
+
+/obj/item/projectile/energy/tesla/grandmaster
+	damage = 20
+
+/obj/item/projectile/energy/tesla/paramount
+	damage = 25
 
 /obj/item/projectile/energy/gravitydisabler
 	name = "gravity disabler"

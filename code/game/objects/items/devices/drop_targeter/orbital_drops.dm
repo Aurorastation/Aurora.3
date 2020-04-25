@@ -20,6 +20,15 @@
 
 	map = new /datum/map_template/mecha
 
+/obj/item/device/orbital_dropper/mecha/heavy
+	map = new /datum/map_template/mecha/heavy
+
+/obj/item/device/orbital_dropper/mecha/combat
+	map = new /datum/map_template/mecha/combat
+
+/obj/item/device/orbital_dropper/mecha/powerloader
+	map = new /datum/map_template/mecha/powerloader
+
 /obj/item/device/orbital_dropper/armory
 	name = "armory dropper"
 	desc = "A device used to paint a target, which will then promptly orbitally drop the requested items. Who's ready to raise hell?"

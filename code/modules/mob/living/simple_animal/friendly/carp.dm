@@ -94,9 +94,6 @@
 			if(prob(10))
 				say("Glub!")
 
-	if(!friend || movement_target != friend)
-		..()
-
 /mob/living/simple_animal/carp/fluff/verb/friend(var/mob/user)
 	set name = "Become Friends"
 	set category = "IC"

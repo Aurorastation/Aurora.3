@@ -1,16 +1,15 @@
 
-#define evolve_nutrition	4000//when a nymph gathers this much nutrition, it can evolve into a gestalt
-
+#define evolve_nutrition 5000 //when a nymph gathers this much nutrition, it can evolve into a gestalt
 
 //Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 /mob/living/carbon/alien/diona
-	max_nutrition = 6000
+	max_nutrition = 5000
 	language = null
 	mob_size = 4
 	density = 0
-	mouth_size = 2//how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
-	eat_types = 0//This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
-	composition_reagent = "nutriment"//Dionae are plants, so eating them doesn't give animal protein
+	mouth_size = 2 //how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
+	eat_types = 0 //This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
+	composition_reagent = "nutriment" //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
 	voice_name = "diona nymph"
 	adult_form = /mob/living/carbon/human
@@ -18,12 +17,12 @@
 	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"
 	death_msg = "expires with a pitiful chirrup..."
-	universal_understand = 0
-	universal_speak = 0
+	universal_understand = FALSE
+	universal_speak = FALSE
 	holder_type = /obj/item/holder/diona
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
-	maxHealth = 85
+	maxHealth = 33.3
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -39,11 +38,11 @@
 	var/dark_survival = 216                   // How long this diona can survive in darkness after energy is gone, before it dies
 	var/datum/dionastats/DS
 	var/mob/living/carbon/gestalt = null      // If set, then this nymph is inside a gestalt
-	var/kept_clean = 0
+	var/kept_clean = FALSE
 
 	var/mob/living/carbon/alien/diona/master_nymph //nymph who owns this nymph if split. AI diona nymphs will follow this nymph, and these nymphs can be controlled by the master.
 	var/list/mob/living/carbon/alien/diona/birds_of_feather = list() //list of all related nymphs
-	var/echo = 0 //if it's an echo nymph, which has unique properties
+	var/echo = FALSE //if it's an echo nymph, which has unique properties
 	var/detached = FALSE
 
 	var/datum/reagents/metabolism/ingested
@@ -68,7 +67,7 @@
 		master_nymph = null
 		birds_of_feather.Cut()
 
-		kept_clean = 1
+		kept_clean = TRUE
 
 
 /mob/living/carbon/alien/diona/flowery/Initialize(var/mapload)
@@ -77,13 +76,13 @@
 /mob/living/carbon/alien/diona/movement_delay()
 	. = ..()
 	switch(m_intent)
-		if ("walk")
+		if("walk")
 			. += 3
-		if ("run")
+		if("run")
 			species.handle_sprint_cost(src,.+config.walk_speed)
 
 /mob/living/carbon/alien/diona/ex_act(severity)
-	if (life_tick < 4)
+	if(life_tick < 4)
 		//If a nymph was just born, then it already took damage from the ex_act on its gestalt
 		//So we ignore any farther damage for a couple ticks after its born, to prevent it getting hit twice by the same blast
 		return
@@ -98,7 +97,7 @@
 	set_species("Diona")
 	setup_dionastats()
 	eat_types |= TYPE_ORGANIC
-	nutrition = 0//We dont start with biomass
+	nutrition = 0 //We dont start with biomass
 	update_verbs()
 	sampled_DNA = list()
 	language_progress = list()
@@ -119,26 +118,24 @@
 	else if (light <= 3)
 		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
 	else
-		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while.."))
+		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..."))
 
 /mob/living/carbon/alien/diona/start_pulling(var/atom/movable/AM)
 	//TODO: Collapse these checks into one proc (see pai and drone)
 	if(istype(AM,/obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > 2)
-			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			to_chat(src, span("warning", "You are too small to pull that."))
 			return
 		else
 			..()
 	else
-		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+		to_chat(src, span("warning", "You are too small to pull that."))
 		return
 
 /mob/living/carbon/alien/diona/put_in_hands(var/obj/item/W) // No hands.
 	W.forceMove(get_turf(src))
-	return 1
-
-
+	return TRUE
 
 //Functions duplicated from humans, albeit slightly modified
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)
@@ -156,8 +153,7 @@
 		new_species = "Human"
 
 	if(species)
-
-		if(species.name && species.name == new_species)
+		if(species.name == new_species)
 			return
 		if(species.language)
 			remove_language(species.language)
@@ -175,28 +171,20 @@
 		holder_type = species.holder_type
 
 	icon_state = lowertext(species.name)
-
 	species.handle_post_spawn(src)
-
 	maxHealth = species.total_health
 
-
-	spawn(0)
-		regenerate_icons()
-		make_blood()
+	regenerate_icons()
+	make_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
-	if(client && client.screen)
+	if(client?.screen)
 		client.screen.len = null
 		if(hud_used)
 			qdel(hud_used)
 		hud_used = new /datum/hud(src)
 
-
-	if(species)
-		return 1
-	else
-		return 0
+	return !!species
 
 
 /mob/living/carbon/alien/diona/proc/make_blood()
@@ -227,23 +215,23 @@
 			B.color = B.data["blood_colour"]
 
 /mob/living/carbon/alien/diona/proc/setup_dionastats()
-	var/MLS = (1.5 / 2.1)//Maximum energy lost per second, in total darkness
+	var/MLS = (1.5 / 2.1) //Maximum energy lost per second, in total darkness
 	DS = new/datum/dionastats()
 	DS.max_energy = energy_duration * MLS
 	DS.stored_energy = (DS.max_energy / 2)
 	DS.max_health = maxHealth
 	DS.pain_factor = (50 / dark_consciousness) / MLS
 	DS.trauma_factor = (DS.max_health / dark_survival) / MLS
-	DS.dionatype = 1//Nymph
+	DS.dionatype = DIONA_NYMPH
 
 //This is called periodically to register or remove this nymph's status as a bad organ of the gestalt
 //This is used to notify the gestalt when it needs repaired
 /mob/living/carbon/alien/diona/proc/check_status_as_organ()
-	if (istype(gestalt, /mob/living/carbon/human) && !QDELETED(gestalt))
+	if(ishuman(gestalt) && !QDELETED(gestalt))
 		var/mob/living/carbon/human/H = gestalt
 		if(!H.bad_internal_organs)
 			return
-		if (health < maxHealth)
+		if(health < maxHealth)
 			if (!(src in H.bad_internal_organs))
 				H.bad_internal_organs.Add(src)
 		else
@@ -252,55 +240,41 @@
 
 //This function makes sure the nymph has the correct split/merge verbs, depending on whether or not its part of a gestalt
 /mob/living/carbon/alien/diona/proc/update_verbs()
-	if (gestalt && !detached)
-		if (!(/mob/living/carbon/alien/diona/proc/split in verbs))
-			verbs.Add(/mob/living/carbon/alien/diona/proc/split)
-
-		verbs.Remove(/mob/living/proc/ventcrawl)
-		verbs.Remove(/mob/living/proc/hide)
-		verbs.Remove(/mob/living/carbon/alien/diona/proc/grow)
-		verbs.Remove(/mob/living/carbon/alien/diona/proc/merge)
-		verbs.Remove(/mob/living/carbon/proc/absorb_nymph)
-		verbs.Remove(/mob/living/carbon/alien/diona/proc/sample)
+	if(gestalt && !detached)
+		verbs -= /mob/living/proc/ventcrawl
+		verbs -= /mob/living/proc/hide
+		verbs -= /mob/living/carbon/alien/diona/proc/grow
+		verbs -= /mob/living/carbon/alien/diona/proc/merge
+		verbs -= /mob/living/carbon/proc/absorb_nymph
+		verbs -= /mob/living/carbon/alien/diona/proc/sample
+		verbs |= /mob/living/carbon/alien/diona/proc/split
 	else
-		if (!(/mob/living/carbon/alien/diona/proc/merge in verbs) && !detached)
-			verbs.Add(/mob/living/carbon/alien/diona/proc/merge)
+		verbs |= /mob/living/carbon/alien/diona/proc/merge
+		verbs |= /mob/living/carbon/proc/absorb_nymph
+		verbs |= /mob/living/carbon/alien/diona/proc/grow
+		verbs |= /mob/living/proc/ventcrawl
+		verbs |= /mob/living/proc/hide
+		verbs |= /mob/living/carbon/alien/diona/proc/sample
+		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
 
-		if (!(/mob/living/carbon/proc/absorb_nymph in verbs))
-			verbs.Add(/mob/living/carbon/proc/absorb_nymph)
-
-		if (!(/mob/living/carbon/alien/diona/proc/grow in verbs))
-			verbs.Add(/mob/living/carbon/alien/diona/proc/grow)
-
-		if (!(/mob/living/proc/ventcrawl in verbs))
-			verbs.Add(/mob/living/proc/ventcrawl)
-
-		if (!(/mob/living/proc/hide in verbs))
-			verbs.Add(/mob/living/proc/hide)
-
-		if (!(/mob/living/carbon/alien/diona/proc/sample in verbs))
-			verbs.Add(/mob/living/carbon/alien/diona/proc/sample)
-
-		verbs.Remove(/mob/living/carbon/alien/diona/proc/split)
-
-	verbs.Remove(/mob/living/carbon/alien/verb/evolve)//We don't want the old alien evolve verb
+	verbs -= /mob/living/carbon/alien/verb/evolve //We don't want the old alien evolve verb
 
 
 /mob/living/carbon/alien/diona/Stat()
 	..()
-	if (statpanel("Status"))
+	if(statpanel("Status"))
 		stat(null, text("Biomass: [nutrition]/[evolve_nutrition]"))
-		if (nutrition > evolve_nutrition)
+		if(nutrition > evolve_nutrition)
 			stat(null, text("You have enough biomass to grow!"))
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
 /mob/living/carbon/alien/diona/handle_regular_status_updates()
-
-	if(status_flags & GODMODE)	return 0
+	if(status_flags & GODMODE)
+		return FALSE
 
 	if(stat == DEAD)
-		blinded = 1
-		silent = 0
+		blinded = TRUE
+		silent = FALSE
 	else
 		updatehealth()
 		handle_stunned()
@@ -308,38 +282,37 @@
 		if(health <= 0)
 			cleanupTransfer()
 			death()
-			blinded = 1
-			silent = 0
-			return 1
+			blinded = TRUE
+			silent = FALSE
+			return TRUE
 
 		if(getHalLoss() > 50)
 			paralysis = 8
 
-
 		if(paralysis && paralysis > 0)
 			handle_paralysed()
-			blinded = 1
+			blinded = TRUE
 			stat = UNCONSCIOUS
 
 		if(sleeping)
-			if (mind)
-				if(mind.active && client != null)
+			if(mind)
+				if(mind.active && client)
 					sleeping = max(sleeping-1, 0)
-			blinded = 1
+			blinded = TRUE
 			stat = UNCONSCIOUS
 		else if(resting)
-
+			// insert dial up tone
 		else
 			stat = CONSCIOUS
 
 		// Eyes and blindness.
 		if(!has_eyes())
-			eye_blind =  1
-			blinded =    1
-			eye_blurry = 1
+			eye_blind =  TRUE
+			blinded =    TRUE
+			eye_blurry = TRUE
 		else if(eye_blind)
 			eye_blind =  max(eye_blind-1,0)
-			blinded =    1
+			blinded =    TRUE
 		else if(eye_blurry)
 			eye_blurry = max(eye_blurry-1, 0)
 
@@ -352,10 +325,10 @@
 
 		update_icons()
 
-	return 1
+	return TRUE
 
 /mob/living/carbon/alien/diona/Destroy()
-	walk_to(src,0)
+	walk_to(src, 0)
 	cleanupTransfer()
 	. = ..()
 
@@ -371,23 +344,30 @@
 		var/mob/living/carbon/alien/diona/D = A
 		if(D.master_nymph == src) //if the nymph is subservient to you
 			mind.transfer_to(D)
-			D.stunned = 0//Switching mind seems to temporarily stun mobs
+			D.stunned = 0 // Switching mind seems to temporarily stun mobs
 			for(var/mob/living/carbon/alien/diona/DIO in src.birds_of_feather) //its me!
 				DIO.master_nymph = D
-		return 1
+		return TRUE
 	. = ..()
 
 /mob/living/carbon/alien/diona/proc/harvest(var/mob/user)
-	var/actual_meat_amount = max(1,(meat_amount*0.75))
-	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
-		for(var/i=0;i<actual_meat_amount;i++)
+	var/actual_meat_amount = max(1, (meat_amount*0.75))
+	if(meat_type && actual_meat_amount > 0 && (stat == DEAD))
+		for(var/i = 0; i < actual_meat_amount; i++)
 			var/obj/item/meat = new meat_type(get_turf(src))
-			if (meat.name == "meat")
+			if(meat.name == "meat")
 				meat.name = "[src.name] [meat.name]"
 		if(issmall(src))
-			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
+			user.visible_message(span("warning", "[user] chops up \the [src]!"))
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
+			user.visible_message(span("warning", "[user] butchers \the [src] messily!"))
 			gib()
+
+
+
+/mob/living/carbon/alien/diona/adjustBruteLoss(var/amount)
+	if (status_flags & GODMODE)
+		return
+	health = min(health - amount, maxHealth)

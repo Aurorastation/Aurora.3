@@ -1,81 +1,78 @@
-var/datum/controller/subsystem/processing/shuttle/shuttle_controller
+var/datum/controller/subsystem/processing/shuttle/SSshuttle
 
 /datum/controller/subsystem/processing/shuttle
-	name = "Shuttles"
-	init_order = SS_INIT_SHUTTLE
+	name = "Shuttle"
+	wait = 2 SECONDS
+	flags = 0
 	priority = SS_PRIORITY_SHUTTLE
-	flags = 0	// Override parent.
-	var/list/shuttles
+	init_order = SS_INIT_MISC                    //Should be initialized after all maploading is over and atoms are initialized, to ensure that landmarks have been initialized.
+
+	var/list/shuttles = list()                   //maps shuttle tags to shuttle datums, so that they can be looked up.
+	var/list/process_shuttles = list()           //simple list of shuttles, for processing
+	var/list/registered_shuttle_landmarks = list()
+	var/last_landmark_registration_time
+	var/list/docking_registry = list()           //Docking controller tag -> docking controller program, mostly for init purposes.
+	var/list/shuttle_areas = list()              //All the areas of all shuttles.
+
+	var/list/shuttles_to_initialize = list()     //A queue for shuttles to initialize at the appropriate time.
+	var/block_queue = TRUE
+
+	var/tmp/list/working_shuttles
 
 /datum/controller/subsystem/processing/shuttle/New()
-	NEW_SS_GLOBAL(shuttle_controller)
-	shuttles = list()
+	NEW_SS_GLOBAL(SSshuttle)
 
-/datum/controller/subsystem/processing/shuttle/Recover()
-	src.shuttles = shuttle_controller.shuttles
+/datum/controller/subsystem/processing/shuttle/Initialize()
+	last_landmark_registration_time = world.time
+	for(var/shuttle_type in subtypesof(/datum/shuttle)) // This accounts for most shuttles, though away maps can queue up more.
+		var/datum/shuttle/shuttle = shuttle_type
+		if(!(shuttle in current_map.map_shuttles))
+			continue
+		if(!initial(shuttle.defer_initialisation))
+			LAZYDISTINCTADD(shuttles_to_initialize, shuttle_type)
+	block_queue = FALSE
+	clear_init_queue()
+	. = ..()
 
-/datum/controller/subsystem/processing/shuttle/proc/setup_shuttle_docks()
-	for(var/shuttle_tag in shuttles)
-		var/datum/shuttle/shuttle = shuttles[shuttle_tag]
-		shuttle.init_docking_controllers()
-		shuttle.dock() //makes all shuttles docked to something at round start go into the docked state
+/datum/controller/subsystem/processing/shuttle/fire(resumed = FALSE)
+	if (!resumed)
+		working_shuttles = process_shuttles.Copy()
 
-	for(var/obj/machinery/embedded_controller/C in SSmachinery.processing_machines)
-		if(istype(C.program, /datum/computer/file/embedded_program/docking))
-			C.program.tag = null //clear the tags, 'cause we don't need 'em anymore
+	while(working_shuttles.len)
+		var/datum/shuttle/shuttle = working_shuttles[working_shuttles.len]
+		working_shuttles.len--
+		if(shuttle.process_state && (shuttle.process(wait, times_fired, src) == PROCESS_KILL))
+			process_shuttles -= shuttle
 
-/datum/controller/subsystem/processing/shuttle/Initialize(timeofday)
-	var/datum/shuttle/ferry/shuttle
+		if(TICK_CHECK)
+			return
 
-	// Escape shuttle.
-	shuttle = new/datum/shuttle/ferry/emergency()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/shuttle/escape/centcom)
-	shuttle.area_station = locate(/area/shuttle/escape/station)
-	shuttle.area_transition = locate(/area/shuttle/escape/transit)
-	shuttle.docking_controller_tag = "escape_shuttle"
-	shuttle.dock_target_station = "escape_dock"
-	shuttle.dock_target_offsite = "centcom_dock"
-	shuttle.transit_direction = NORTH
-	shuttle.move_time = SHUTTLE_TRANSIT_DURATION_RETURN
-	//shuttle.docking_controller_tag = "supply_shuttle"
-	//shuttle.dock_target_station = "cargo_bay"
-	shuttles["Escape"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
-	if(!shuttle)
-		log_debug("Escape shuttle does not exist!")
-	else
-		emergency_shuttle.shuttle = shuttle
+/datum/controller/subsystem/processing/shuttle/proc/clear_init_queue()
+	if(block_queue)
+		return
+	initialize_shuttles()
 
-	// Supply shuttle
-	shuttle = new/datum/shuttle/ferry/supply()
-	shuttle.location = 1
-	shuttle.warmup_time = 10
-	shuttle.area_offsite = locate(/area/supply/dock)
-	shuttle.area_station = locate(/area/supply/station)
-	shuttle.docking_controller_tag = "supply_shuttle"
-	shuttle.dock_target_station = "cargo_bay"
-	shuttles["Supply"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+/datum/controller/subsystem/processing/shuttle/proc/initialize_shuttles()
+	var/list/shuttles_made = list()
+	for(var/shuttle_type in shuttles_to_initialize)
+		var/shuttle = initialize_shuttle(shuttle_type)
+		if(shuttle)
+			shuttles_made += shuttle
+	shuttles_to_initialize = null
 
-	SScargo.shuttle = shuttle
+/datum/controller/subsystem/processing/shuttle/proc/register_landmark(shuttle_landmark_tag, obj/effect/shuttle_landmark/shuttle_landmark)
+	if (registered_shuttle_landmarks[shuttle_landmark_tag])
+		CRASH("Attempted to register shuttle landmark with tag [shuttle_landmark_tag], but it is already registered!")
+	if (istype(shuttle_landmark))
+		registered_shuttle_landmarks[shuttle_landmark_tag] = shuttle_landmark
+		last_landmark_registration_time = world.time
 
-	shuttle = new/datum/shuttle/ferry/arrival()
-	shuttle.location = 1
-	shuttle.warmup_time = 5
-	shuttle.area_station = locate(/area/shuttle/arrival/station)
-	shuttle.area_offsite = locate(/area/shuttle/arrival/centcom)
-	shuttle.area_transition = locate(/area/shuttle/arrival/transit)
-	shuttle.docking_controller_tag = "arrival_shuttle"
-	shuttle.dock_target_station = "arrival_dock"
-	shuttle.dock_target_offsite = "centcom_setup"
-	shuttle.transit_direction = EAST
-	shuttle.move_time = 60
-	shuttles["Arrival"] = shuttle
-	START_PROCESSING(shuttle_controller, shuttle)
+/datum/controller/subsystem/processing/shuttle/proc/get_landmark(var/shuttle_landmark_tag)
+	return registered_shuttle_landmarks[shuttle_landmark_tag]
 
-	SSarrivals.shuttle = shuttle
-
-	current_map.setup_shuttles()
-	..()
+/datum/controller/subsystem/processing/shuttle/proc/initialize_shuttle(var/shuttle_type)
+	var/datum/shuttle/shuttle = shuttle_type
+	if(initial(shuttle.category) != shuttle_type)
+		shuttle = new shuttle()
+		shuttle_areas |= shuttle.shuttle_area
+		return shuttle

@@ -33,6 +33,10 @@
 	name = "trash bag"
 	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
 	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "trashbag0"
 	item_state = "trashbag"
 
@@ -110,26 +114,6 @@
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
-
-// -----------------------------
-//        Mining Satchel
-// -----------------------------
-
-/obj/item/storage/bag/ore
-	name = "mining satchel"
-	desc = "This little bugger can be used to store and transport ores."
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "satchel"
-	slot_flags = SLOT_BELT | SLOT_POCKET
-	w_class = 3
-	max_storage_space = 100
-	max_w_class = 3
-	can_hold = list(/obj/item/ore)
-
-/obj/item/storage/bag/ore/drone
-	// this used to be 400. The inventory system FUCKING DIED at this.
-	max_storage_space = 200
-
 
 // -----------------------------
 //          Plant bag

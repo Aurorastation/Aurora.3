@@ -5,6 +5,7 @@
 	icon_state = "closed"
 	density = 1
 	w_class = 5
+	layer = OBJ_LAYER - 0.01
 	var/icon_closed = "closed"
 	var/icon_opened = "open"
 	var/welded_overlay_state = "welded"
@@ -16,8 +17,8 @@
 	var/storage_capacity = 40 //Tying this to mob sizes was dumb
 	//This is so that someone can't pack hundreds of items in a locker/crate
 							  //then open it in a populated area to crash clients.
-	var/open_sound = 'sound/effects/locker_open.ogg'
-	var/close_sound = 'sound/effects/locker_close.ogg'
+	var/open_sound = 'sound/effects/closet_open.ogg'
+	var/close_sound = 'sound/effects/closet_close.ogg'
 
 	var/store_misc = 1
 	var/store_items = 1
@@ -114,7 +115,7 @@
 
 	icon_state = icon_opened
 	opened = 1
-	playsound(loc, open_sound, 15, 1, -3)
+	playsound(loc, open_sound, 25, 0, -3)
 	density = 0
 	return 1
 

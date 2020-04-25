@@ -169,7 +169,7 @@
 	var/new_latencies = rand(2,4)
 	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 	for(var/i = 1 to new_latencies)
-		to_chat(src, span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"))
+		custom_pain(span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
 		set_psi_rank(pick_n_take(faculties), 1)
 		sleep(30)
 		psi.update()
@@ -178,3 +178,15 @@
 
 /mob/living/carbon/human/get_resist_power()
 	return species.resist_mod
+
+// Handle cases where the mob's awareness may reside in another mob, but still cares about how its brain is doing
+/mob/living/carbon/human/proc/find_mob_consciousness()
+	if(istype(bg) && bg.client)
+		return bg
+
+	return src
+
+/mob/living/carbon/human/proc/has_hearing_aid()
+	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
+		return TRUE
+	return FALSE

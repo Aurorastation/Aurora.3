@@ -34,7 +34,8 @@ Put (mob/proc)s here that are in dire need of a code cleanup.
 		var/fail = 1
 		for(var/name in virus.affected_species)
 			if(istype(src, /mob/living/carbon))
-				if(src:species && src:species.name == name)
+				var/mob/living/carbon/C = src
+				if(C.species.name == name)
 					fail = 0
 					break
 		if(fail) return

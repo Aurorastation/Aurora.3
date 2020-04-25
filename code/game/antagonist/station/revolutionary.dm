@@ -51,7 +51,7 @@ var/datum/antagonist/revolutionary/revs
 /datum/antagonist/revolutionary/can_become_antag(var/datum/mind/player)
 	if(!..())
 		return FALSE
-	for(var/obj/item/implant/loyalty/L in player.current)
+	for(var/obj/item/implant/mindshield/L in player.current)
 		if(L?.imp_in == player.current)
 			return FALSE
 	return TRUE
@@ -64,12 +64,15 @@ var/datum/antagonist/revolutionary/revs
 	if(!player.back)
 		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
 	player.equip_to_slot_or_del(new /obj/item/device/announcer(player), slot_in_backpack)
-	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
+	INVOKE_ASYNC(src, .proc/alert_rev_status, player)
+	return TRUE
+
+/datum/antagonist/revolutionary/proc/alert_rev_status(var/mob/living/carbon/human/player) //This is so dumb.
 	alert(player, "As a Head Revolutionary, you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
 				Doing so may lead to administrative action being taken.",
 				"Antagonist Introduction", "I understand.")
-	return TRUE

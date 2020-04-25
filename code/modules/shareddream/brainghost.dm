@@ -31,7 +31,7 @@
 
 	if(body.willfully_sleeping)
 		body.sleeping = max(body.sleeping - 5, 0)
-		body.willfully_sleeping = 0
+		body.willfully_sleeping = FALSE
 		if(force_awaken)
 			to_chat(src, "<span class='notice'>You suddenly feel like your connection to the dream is breaking up by the outside force.</span>")
 		else

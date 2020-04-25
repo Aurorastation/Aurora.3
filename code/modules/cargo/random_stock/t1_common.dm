@@ -237,14 +237,14 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 		/obj/item/clothing/gloves/swat/fluff/hawk_gloves,
 		/obj/item/clothing/gloves/black/fluff/kathleen_glove,
 		/obj/item/clothing/gloves/powerfist,
-		/obj/item/clothing/gloves/claws,
-		/obj/item/clothing/gloves/ballistic
+		/obj/item/clothing/gloves/claws
 	)
 	exclusion += typesof(/obj/item/clothing/gloves/rig)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
 	exclusion += typesof(/obj/item/clothing/gloves/watch)
 	exclusion += typesof(/obj/item/clothing/gloves/fluff)
 	exclusion += typesof(/obj/item/clothing/gloves/yellow/fluff)
+	exclusion += typesof(/obj/item/clothing/gloves/ballistic)
 	allgloves -= exclusion
 
 	for (var/i in 1 to rand(1, 5))
@@ -383,13 +383,11 @@ STOCK_ITEM_COMMON(booze, 3.7)
 					T = U
 					break
 
-		if (prob(80))
-			new /obj/structure/reagent_dispensers/keg/beerkeg(T)
-		else
-			new /obj/structure/reagent_dispensers/keg/xuizikeg(T)
+		new /obj/random/keg(T)
+
 	else
-		var/list/drinks = typesof(/obj/item/reagent_containers/food/drinks/bottle)
-		drinks -= /obj/item/reagent_containers/food/drinks/bottle
+		var/list/drinks = subtypesof(/obj/item/reagent_containers/food/drinks/bottle)
+		drinks += subtypesof(/obj/item/reagent_containers/food/drinks/carton)
 
 		for (var/i in 1 to rand(1, 3))
 			var/type = pick(drinks)

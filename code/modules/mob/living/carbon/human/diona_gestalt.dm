@@ -222,6 +222,9 @@
 	set desc = "Allows you to detach specific nymph, and control it."
 	set category = "Abilities"
 
+	if(use_check_and_message(src))
+		return
+
 	if(nutrition <= 150)
 		to_chat(src, span("warning", "You lack nutrition to perform this action!"))
 		return
@@ -237,7 +240,7 @@
 	if(!O || O.is_stump())
 		to_chat(src, span("warning", "Cannot detach that!"))
 		return
-	
+
 	// Get rid of our limb and replace with stump
 	var/obj/item/organ/external/stump/stump = new (src, 0, O)
 	O.removed(null, TRUE)

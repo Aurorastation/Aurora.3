@@ -16,28 +16,31 @@
 	can_buckle = 1
 	buckle_dir = SOUTH
 	buckle_lying = 1
-	var/material/material
 	var/material/padding_material
 	var/base_icon = "bed"
 	var/can_dismantle = 1
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/apply_material_color = TRUE
+	var/makes_rolling_sound = TRUE
+	var/buckle_sound = 'sound/effects/buckle.ogg'
 
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()
 	color = null
 	if(!new_material)
 		new_material = DEFAULT_WALL_MATERIAL
-	material = get_material_by_name(new_material)
+	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
 		return
 	if(new_padding_material)
-		padding_material = get_material_by_name(new_padding_material)
+		padding_material = SSmaterials.get_material_by_name(new_padding_material)
 	update_icon()
 
-/obj/structure/bed/get_material()
-	return material
+/obj/structure/bed/buckle_mob(mob/living/M)
+	. = ..()
+	if(. && buckle_sound)
+		playsound(src, buckle_sound, 20)
 
 // Reuse the cache/code from stools, todo maybe unify.
 /obj/structure/bed/update_icon()
@@ -156,7 +159,7 @@
 	update_icon()
 
 /obj/structure/bed/proc/add_padding(var/padding_type)
-	padding_material = get_material_by_name(padding_type)
+	padding_material = SSmaterials.get_material_by_name(padding_type)
 	update_icon()
 
 /obj/structure/bed/proc/dismantle()
@@ -171,10 +174,21 @@
 	base_icon = "psychbed"
 
 /obj/structure/bed/psych/New(var/newloc)
-	..(newloc,"wood","leather")
+	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 
 /obj/structure/bed/padded/New(var/newloc)
-	..(newloc,"plastic","cotton")
+	..(newloc, MATERIAL_PLASTIC, MATERIAL_COTTON)
+
+/obj/structure/bed/aqua
+	name = "aquabed"
+	icon_state = "aquabed"
+
+/obj/structure/bed/aqua/Initialize()
+	.=..()
+	set_light(1,1,LIGHT_COLOR_CYAN)
+
+/obj/structure/bed/aqua/update_icon()
+	return
 
 /*
  * Roller beds
@@ -182,8 +196,21 @@
 /obj/structure/bed/roller
 	name = "roller bed"
 	icon = 'icons/obj/rollerbed.dmi'
-	icon_state = "down"
+	icon_state = "standard_down"
+	var/base_state = "standard"
+	var/item_bedpath = /obj/item/roller
 	anchored = 0
+
+/obj/structure/bed/roller/hover
+	name = "medical hoverbed"
+	icon_state = "hover_down"
+	base_state = "hover"
+	makes_rolling_sound = FALSE
+	item_bedpath = /obj/item/roller/hover
+
+/obj/structure/bed/roller/hover/Initialize()
+	.=..()
+	set_light(2,1,LIGHT_COLOR_CYAN)
 
 /obj/structure/bed/roller/update_icon()
 	return // Doesn't care about material or anything else.
@@ -206,13 +233,20 @@
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
-	icon_state = "folded"
+	icon_state = "standard_folded"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
+	var/bedpath = /obj/structure/bed/roller
 	w_class = 4.0 // Can't be put in backpacks. Oh well.
 
+/obj/item/roller/hover
+	name = "medical hoverbed"
+	desc = "A collapsed hoverbed that can be carried around."
+	icon_state = "hover_folded"
+	bedpath = /obj/structure/bed/roller/hover
+
 /obj/item/roller/attack_self(mob/user)
-		var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
+		var/obj/structure/bed/roller/R = new bedpath(user.loc)
 		R.add_fingerprint(user)
 		qdel(src)
 
@@ -232,7 +266,7 @@
 	name = "roller bed rack"
 	desc = "A rack for carrying a collapsed roller bed."
 	icon = 'icons/obj/rollerbed.dmi'
-	icon_state = "folded"
+	icon_state = "standard_folded"
 	var/obj/item/roller/held
 
 /obj/item/roller_holder/New()
@@ -254,7 +288,8 @@
 
 /obj/structure/bed/roller/Move()
 	..()
-	playsound(src, 'sound/effects/roll.ogg', 100, 1)
+	if(makes_rolling_sound)
+		playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		if(buckled_mob.buckled == src)
 			buckled_mob.forceMove(src.loc)
@@ -266,12 +301,12 @@
 		M.pixel_y = 6
 		M.old_y = 6
 		density = 1
-		icon_state = "up"
+		icon_state = "[base_state]_up"
 	else
 		M.pixel_y = 0
 		M.old_y = 0
 		density = 0
-		icon_state = "down"
+		icon_state = "[base_state]_down"
 
 	return ..()
 
@@ -281,7 +316,7 @@
 		if(!ishuman(usr))	return
 		if(buckled_mob)	return 0
 		visible_message("[usr] collapses \the [src.name].")
-		new/obj/item/roller(get_turf(src))
+		new item_bedpath(get_turf(src))
 		spawn(0)
 			qdel(src)
 		return

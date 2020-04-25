@@ -32,17 +32,10 @@
 	possible_wanted_items = list (
 		/obj/item/gun/energy/captain                 = TRADER_THIS_TYPE,
 		/obj/item/hand_tele                          = TRADER_THIS_TYPE,
-		/obj/item/blueprints                                = TRADER_THIS_TYPE,
+		/obj/item/blueprints                         = TRADER_THIS_TYPE,
 		/obj/item/disk/nuclear                       = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/hypospray       = TRADER_ALL,
 		/obj/item/card/id/captains_spare             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/heavysniper/tranq   = TRADER_THIS_TYPE,
-		/obj/item/stack/telecrystal                         = TRADER_THIS_TYPE,
-		/obj/item/bluespace_crystal                         = TRADER_ALL,
-		/obj/random/telecrystals                            = TRADER_THIS_TYPE,
-		/obj/item/device/pin_extractor                      = TRADER_THIS_TYPE,
-		/obj/item/circuitboard/aicore                = TRADER_THIS_TYPE,
-		/obj/item/aiModule                           = TRADER_SUBTYPES_ONLY
 	)
 
 	possible_trading_items = list (
@@ -53,7 +46,7 @@
 		/obj/item/melee/energy/sword/color           = TRADER_BLACKLIST,
 		/obj/item/melee/energy/axe                   = TRADER_THIS_TYPE,
 		/obj/item/shield/energy                      = TRADER_ALL,
-		/obj/item/clothing/gloves/force/syndicate           = TRADER_THIS_TYPE,
+		/obj/item/clothing/gloves/force/syndicate    = TRADER_THIS_TYPE,
 		/obj/item/card/id/syndicate                  = TRADER_THIS_TYPE,
 		/obj/item/rig/merc                           = TRADER_THIS_TYPE,
 		/obj/item/rig/light/stealth                  = TRADER_THIS_TYPE,
@@ -61,7 +54,7 @@
 		/obj/item/gun/launcher/grenade               = TRADER_THIS_TYPE,
 		/obj/item/gun/energy/sniperrifle             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic           = TRADER_SUBTYPES_ONLY,
-		/mob/living/heavy_vehicle/premade/combat             = TRADER_THIS_TYPE
+		/mob/living/heavy_vehicle/premade/combat     = TRADER_THIS_TYPE
 
 	)
 

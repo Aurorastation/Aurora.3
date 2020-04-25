@@ -55,7 +55,8 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/pipewrench,
 		/obj/item/powerdrill,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/device/debugger
 		)
 
 
@@ -68,6 +69,17 @@
 		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
 		/obj/item/powerdrill = 1
+	)
+
+/obj/item/storage/belt/utility/very_full
+	starts_with = list(
+		/obj/item/weldingtool/largetank = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1,
+		/obj/item/device/multitool = 1,
+		/obj/item/device/radio = 1
 	)
 
 
@@ -225,7 +237,9 @@
 		/obj/item/device/multitool/hacktool,
 		/obj/item/reagent_containers/hypospray/combat,
 		/obj/item/stack/telecrystal,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/shield/riot/tact,
+		/obj/item/material/knife/tacknife
 		)
 
 /obj/item/storage/belt/military/syndicate

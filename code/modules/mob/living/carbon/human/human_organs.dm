@@ -19,7 +19,6 @@
 
 // Takes care of organ related updates, such as broken and missing limbs
 /mob/living/carbon/human/proc/handle_organs()
-
 	number_wounds = 0
 	var/force_process = recheck_bad_external_organs()
 
@@ -205,7 +204,7 @@
 			return TRUE
 	return FALSE
 
-/mob/living/carbon/human/proc/get_brain_status()
+/mob/living/carbon/human/proc/get_brain_result()
 	var/brain_result
 	if(should_have_organ(BP_BRAIN))
 		var/obj/item/organ/internal/brain/brain = internal_organs_by_name[BP_BRAIN]
@@ -215,7 +214,10 @@
 			brain_result = round(max(0,(1 - brain.damage/brain.max_damage)*100))
 	else
 		brain_result = -1
+	return brain_result
 
+/mob/living/carbon/human/proc/get_brain_status()
+	var/brain_result = get_brain_result()
 	switch(brain_result)
 		if(0)
 			brain_result = "<span class='bad'>none, patient is braindead</span>"
@@ -227,5 +229,5 @@
 			else if(brain_result <= 80)
 				brain_result = "<span class='average'>[brain_result]%</span>"
 			else
-				brain_result = "[brain_result]%"
+				brain_result = "<span class ='scan_green'>[brain_result]%</span>"
 	return brain_result

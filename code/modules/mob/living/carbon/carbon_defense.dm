@@ -23,7 +23,7 @@
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
@@ -31,7 +31,7 @@
 	else if(client && willfully_sleeping)
 		visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 /mob/living/carbon/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..(P, def_zone)
@@ -51,7 +51,7 @@
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
@@ -59,7 +59,7 @@
 	else if(client && willfully_sleeping)
 		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 /mob/living/carbon/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/blocked, var/hit_zone)
 	var/t_him = "it"
@@ -77,7 +77,7 @@
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
-				willfully_sleeping = 0
+				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
 		else
@@ -87,7 +87,7 @@
 		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [t_him] up!</span>", \
 				    "<span class='danger'>You attack [src] with [I], waking [t_him] up!</span>")
 		sleeping = 0
-		willfully_sleeping = 0
+		willfully_sleeping = FALSE
 
 
 	if(!effective_force || blocked >= 100)

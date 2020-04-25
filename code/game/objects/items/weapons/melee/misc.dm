@@ -1,6 +1,10 @@
 /obj/item/melee
 	icon = 'icons/obj/weapons.dmi'
 	hitsound = "swing_hit"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_melee.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
+		)
 
 /obj/item/melee/chainofcommand
 	name = "chain of command"
@@ -144,6 +148,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 	w_class = 3
+	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
 
@@ -166,7 +171,7 @@
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "officersword"
 	item_state = "officersword"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 15

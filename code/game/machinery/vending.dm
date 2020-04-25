@@ -37,6 +37,7 @@
 	layer = 2.9
 	anchored = 1
 	density = 1
+	clicksound = "button"
 
 	var/icon_vend //Icon_state when vending
 	var/icon_deny //Icon_state when denying access
@@ -123,7 +124,6 @@
 	src.build_inventory()
 	power_change()
 
-
 /**
  *  Build src.produdct_records from the products lists
  *
@@ -184,7 +184,23 @@
 		to_chat(user, "You short out the product lock on \the [src]")
 		return 1
 
-/obj/machinery/vending/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/vending/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/device/debugger))
+		if(!shut_up)
+			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
+			if(do_after(user, 100 / W.toolspeed, act_target = src))
+				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied.\"."))
+				shut_up = TRUE
+		if(shoot_inventory)
+			if(wires.IsIndexCut(VENDING_WIRE_THROW))
+				to_chat(user, SPAN_WARNING("\The [W] reads, \"Hardware error detected. Manual repair required.\"."))
+				return
+			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
+			if(do_after(user, 100 / W.toolspeed, act_target = src))
+				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
+				shoot_inventory = FALSE
+		else
+			to_chat(user, SPAN_NOTICE("\The [W] reads, \"All systems nominal.\"."))
 
 	var/obj/item/card/id/I = W.GetID()
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
@@ -207,12 +223,10 @@
 			var/obj/item/spacecash/ewallet/C = W
 			paid = pay_with_ewallet(C)
 			handled = 1
-			playsound(user.loc, 'sound/machines/id_swipe.ogg', 100, 1)
 		else if (istype(W, /obj/item/spacecash))
 			var/obj/item/spacecash/C = W
 			paid = pay_with_cash(C, user)
 			handled = 1
-			playsound(user.loc, 'sound/machines/id_swipe.ogg', 100, 1)
 
 		if(paid)
 			src.vend(currently_vending, usr)
@@ -347,6 +361,7 @@
  */
 /obj/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet)
 	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>")
+	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	if(currently_vending.price > wallet.worth)
 		src.status_message = "Insufficient funds on chargecard."
 		src.status_error = 1
@@ -367,6 +382,7 @@
 		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
 	else
 		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
+	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
 	if (!customer_account)
@@ -509,7 +525,7 @@
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	if(stat & (BROKEN|NOPOWER))
 		return
-	if(usr.stat || usr.restrained())
+	if(..())
 		return
 
 	if(href_list["remove_coin"] && !istype(usr,/mob/living/silicon))
@@ -607,8 +623,8 @@
 	use_power(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
+	playsound(src.loc, "sound/[vending_sound]", 100, 1)
 	spawn(src.vend_delay)
-		playsound(src.loc, "sound/[vending_sound]", 100, 1)
 		var/obj/vended = new R.product_path(get_turf(src))
 		src.status_message = ""
 		src.status_error = 0

@@ -3,7 +3,7 @@
 	name = "cerebro-energetic enhancer"
 	desc = "A matte-black, eyeless cerebro-energetic enhancement helmet. It uses highly sophisticated, and illegal, techniques to drill into your brain and install psi-infected AIs into the fluid cavities between your lobes."
 	action_button_name = "Install Boosters"
-	icon_state = "cerebro"
+	icon_state = "amp"
 
 	item_state_slots = list(
 		slot_l_hand_str = "helmet",
@@ -20,7 +20,6 @@
 /obj/item/clothing/head/helmet/space/psi_amp/lesser
 	name = "psionic amplifier"
 	desc = "A crown-of-thorns cerebro-energetic enhancer that interfaces directly with the brain, isolating and strengthening psionic signals. It kind of looks like a tiara having sex with an industrial robot."
-	icon_state = "amp"
 	flags_inv = 0
 	body_parts_covered = 0
 
@@ -91,7 +90,7 @@
 
 	sleep(80)
 
-	if(H.psi) 
+	if(H.psi)
 		H.psi.reset()
 
 	to_chat(H, span("notice", "\The [src] chimes quietly as it finishes removing the slave-minds from your brain."))

@@ -7,19 +7,12 @@
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/accessory/suspenders
-
-/datum/gear/accessory/suspenders/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
 	path = /obj/item/clothing/accessory/wcoat_rec
-
-/datum/gear/accessory/waistcoat/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/armband
 	display_name = "armband selection"
@@ -29,6 +22,7 @@
 	..()
 	var/armbands = list()
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
+	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
 	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
@@ -81,10 +75,7 @@
 /datum/gear/accessory/bowtie
 	display_name = "bowtie"
 	path = /obj/item/clothing/accessory/tie/bowtie
-
-/datum/gear/accessory/bowtie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
@@ -99,7 +90,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -119,16 +110,13 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist","Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
 	path = /obj/item/clothing/accessory/storage/pouches/colour
 	cost = 2
-
-/datum/gear/accessory/pouches/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
@@ -145,34 +133,22 @@
 /datum/gear/accessory/sweater
 	display_name = "sweater"
 	path = /obj/item/clothing/accessory/sweater
-
-/datum/gear/accessory/sweater/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"
 	path = /obj/item/clothing/accessory/dressshirt
-
-/datum/gear/accessory/dressshirt/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/dressshirt_r
 	display_name = "dress shirt, rolled up"
 	path = /obj/item/clothing/accessory/dressshirt_r
-
-/datum/gear/accessory/dressshirt_r/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve
 	display_name = "long-sleeved shirt"
 	path = /obj/item/clothing/accessory/longsleeve
-
-/datum/gear/accessory/longsleeve/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve_s
 	display_name = "long-sleeved shirt, striped"
@@ -188,14 +164,24 @@
 /datum/gear/accessory/tshirt
 	display_name = "t-shirt"
 	path = /obj/item/clothing/accessory/tshirt
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/tshirt/New()
+/datum/gear/accessory/silversun
+	display_name = "silversun floral shirt selection"
+	path = /obj/item/clothing/accessory/silversun
+
+/datum/gear/accessory/silversun/New()
 	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	var/shirts = list()
+	shirts["cyan silversun shirt"] = /obj/item/clothing/accessory/silversun
+	shirts["red silversun shirt"] = /obj/item/clothing/accessory/silversun/red
+	shirts["random colored silversun shirt"] = /obj/item/clothing/accessory/silversun/random
+	gear_tweaks += new/datum/gear_tweak/path(shirts)
 
 /datum/gear/accessory/scarf
 	display_name = "scarf selection"
 	path = /obj/item/clothing/accessory/scarf
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/scarf/New()
 	..()
@@ -203,7 +189,6 @@
 	scarfs["plain scarf"] = /obj/item/clothing/accessory/scarf
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
-	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/accessory/chaps
 	display_name = "chaps, brown"
@@ -259,11 +244,4 @@
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch
-
-/datum/gear/accessory/sleeve_patch/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
-/datum/gear/accessory/rosary
-	display_name = "rosary"
-	path = /obj/item/clothing/accessory/rosary
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

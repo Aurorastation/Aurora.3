@@ -2,6 +2,7 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
+	var/show_on_job_select = TRUE
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
@@ -27,6 +28,7 @@
 	var/mob_name_pick_message = "Pick a name."
 	var/mob_name_prefix = null //The prefix that should be applied to the mob (i.e. CCIAA, Tpr., Cmdr.)
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
+	var/away_site = FALSE
 
 /datum/ghostspawner/New()
 	. = ..()
@@ -65,7 +67,7 @@
 	var/cant_see = cant_see(user)
 	if(cant_see) //If we cant see it, we cant spawn it
 		return cant_see
-	if(!istype(user, /mob/abstract/observer))
+	if(!(istype(user, /mob/abstract/observer) || isnewplayer(user)))
 		return "You are not a ghost."
 	if(!enabled) //If the spawner id disabled, we cant spawn in
 		return "This spawner is not enabled."
@@ -152,3 +154,18 @@
 	for(var/i in SSghostroles.spawnpoints)
 		SSghostroles.update_spawnpoint_status_by_identifier(i)
 	return TRUE
+
+/datum/ghostspawner/simplemob/spawn_mob(mob/user)
+	//Select a spawnpoint (if available)
+	var/turf/T = select_spawnpoint()
+	var/mob/living/simple_animal/S
+	if (T)
+		S = new spawn_mob(T)
+	else
+		to_chat(user, "<span class='warning'>Unable to find any spawn point. </span>")
+
+	if(S)
+		announce_ghost_joinleave(user, 0, "They are now a [name].")
+		S.ckey = user.ckey
+
+	return S

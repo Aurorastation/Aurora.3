@@ -294,7 +294,7 @@ obj/machinery/computer/general_air_control/Destroy()
 		output_info = null
 		signal.data = list ("tag" = output_tag, "power_toggle" = 1)
 
-	if(href_list["out_set_pressure"])
+	if(href_list["out_set_pressure"] != null)
 		var/setpressure = between(0, text2num(href_list["out_set_pressure"]), max_pressure_setting)
 		output_info = null
 		signal.data = list ("tag" = output_tag, "set_external_pressure" = "[setpressure]", "checks" = 1)

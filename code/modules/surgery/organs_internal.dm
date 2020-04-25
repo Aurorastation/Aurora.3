@@ -5,11 +5,16 @@
 	blood_level = 1
 
 /datum/surgery_step/internal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == (affected.encased ? 3 : 2)
+	if(affected.encased)
+		return affected && affected.open == (affected.encased ? 3 : 2)
+	if(BP_IS_ROBOTIC(affected))
+		return affected.augment_limit && affected.open == 3
+	else
+		return affected.augment_limit && affected.open == 2
 
 //////////////////////////////////////////////////////////////////
 //				CHEST INTERNAL ORGAN SURGERY					//
@@ -24,7 +29,7 @@
 	max_duration = 90
 
 /datum/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected)
@@ -37,7 +42,7 @@
 	return ..() && is_organ_damaged
 
 /datum/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return
 
 	var/tool_name = "\the [tool]"
@@ -62,7 +67,7 @@
 	if(istype(tool, /obj/item/stack/medical/bruise_pack))
 		tool_name = "the bandaid"
 
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -76,7 +81,7 @@
 				target.cure_all_traumas(cure_type = CURE_SURGERY)
 
 /datum/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -99,7 +104,7 @@
 /datum/surgery_step/internal/detach_organ
 	priority = 1
 	allowed_tools = list(
-	/obj/item/scalpel = 100,
+	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -148,6 +153,10 @@
 	if(I && istype(I))
 		I.status |= ORGAN_CUT_AWAY
 
+	target.update_body()
+	target.updatehealth()
+	target.UpdateDamageIcon()
+
 /datum/surgery_step/internal/detach_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!</span>", \
@@ -157,7 +166,7 @@
 
 /datum/surgery_step/internal/remove_organ
 	allowed_tools = list(
-	/obj/item/hemostat = 100,	\
+	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/wirecutters = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)
@@ -205,6 +214,10 @@
 		else
 			playsound(target.loc, 'sound/items/Ratchet.ogg', 50, 1)
 
+		target.update_body()
+		target.updatehealth()
+		target.UpdateDamageIcon()
+
 /datum/surgery_step/internal/remove_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging [target]'s [affected.name] with \the [tool]!</span>", \
@@ -246,11 +259,29 @@
 
 	if(O.organ_tag == "limb")
 		return 0
-	else if(target.species.has_organ[O.organ_tag])
+	else if(target.species.has_organ[O.organ_tag] || O.is_augment)
 
 		if(O.damage > (O.max_damage * 0.75))
 			to_chat(user, "<span class='warning'>\The [O.organ_tag] [o_is] in no state to be transplanted.</span>")
 			return SURGERY_FAILURE
+
+		if(O.species_restricted)
+			if(!target.species.name in O.species_restricted)
+				to_chat(user, SPAN_WARNING("\The [O] is not compatible with \the [target]'s biology."))
+				return SURGERY_FAILURE
+
+		if(O.is_augment)
+			if(affected.augment_limit)
+				var/total_augments
+				for(var/obj/item/organ/internal/I in affected.internal_organs)
+					if(I.is_augment)
+						total_augments += 1
+					if(total_augments >= affected.augment_limit)
+						to_chat(user, SPAN_WARNING("There is no space left in \the [affected] to implant \the [O]."))
+						return SURGERY_FAILURE
+			else
+				to_chat(user, SPAN_WARNING("There is no space in \the [affected] to implant \the [O]."))
+				return SURGERY_FAILURE
 
 		if(!target.internal_organs_by_name[O.organ_tag])
 			organ_missing = 1
@@ -285,6 +316,10 @@
 		O.replaced(target,affected)
 		playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 
+		target.update_body()
+		target.updatehealth()
+		target.UpdateDamageIcon()
+
 /datum/surgery_step/internal/replace_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, damaging \the [tool]!</span>")
@@ -294,7 +329,7 @@
 
 /datum/surgery_step/internal/attach_organ
 	allowed_tools = list(
-	/obj/item/FixOVein = 100, \
+	/obj/item/surgery/FixOVein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 
@@ -334,6 +369,10 @@
 	if(I && istype(I))
 		I.status &= ~ORGAN_CUT_AWAY
 
+		target.update_body()
+		target.updatehealth()
+		target.UpdateDamageIcon()
+
 /datum/surgery_step/internal/attach_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!</span>", \
@@ -342,8 +381,8 @@
 
 /datum/surgery_step/internal/lobotomize
 	allowed_tools = list(
-	/obj/item/scalpel/manager = 95,
-	/obj/item/surgicaldrill = 75,
+	/obj/item/surgery/scalpel/manager = 95,
+	/obj/item/surgery/surgicaldrill = 75,
 	/obj/item/pickaxe/ = 5
 	)
 

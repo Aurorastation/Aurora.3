@@ -31,7 +31,7 @@
 
 /datum/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
-	if((alien != IS_VAURCA) || !(istype(P) && P.stage >= 3))
+	if((alien != IS_VAURCA) && !(istype(P) && P.stage >= 3))
 		H.adjustToxLoss(1 * removed)
 		switch(kois_type)
 			if(1) //Normal
@@ -284,7 +284,7 @@
 	color = "#c79705"
 	touch_met = 1.5
 	var/lastburnmessage = 0
-	taste_description = "some short of oil"
+	taste_description = "some sort of oil"
 	taste_mult = 0.1
 
 /datum/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T)
@@ -1496,7 +1496,7 @@
 	color = "#664300"
 	taste_description = "creamy coffee"
 
-	glass_icon_state = "soy_latte"
+	glass_icon_state = "soy_latte_vended"
 	glass_name = "glass of soy latte"
 	glass_desc = "A nice and refreshing beverage to enjoy while reading."
 	glass_center_of_mass = list("x"=15, "y"=9)
@@ -1686,7 +1686,7 @@
 	taste_description = "creamy chocolate"
 
 	glass_icon_state = "chocolateglass"
-	glass_name = "glass of hot chocolate"
+	glass_name = "cup of hot chocolate"
 	glass_desc = "Made with love! And cocoa beans."
 
 /datum/reagent/drink/sodawater
@@ -3237,6 +3237,8 @@
 
 /datum/reagent/alcohol/ethanol/pwine/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
+	M.add_chemical_effect(CE_HALLUCINATE, 1)
+	M.hallucination = max(M.hallucination, 25)
 	if(dose > 30)
 		M.adjustToxLoss(2 * removed)
 
@@ -3731,16 +3733,16 @@
 	glass_name = "glass of Brandy"
 	glass_desc = "Cheap knock off for cognac."
 
-/datum/reagent/alcohol/ethanol/guinnes
+/datum/reagent/alcohol/ethanol/guinness
 	name = "Guinness"
-	id = "guinnes"
+	id = "guinness"
 	description = "Special Guinnes drink."
 	color = "#2E6671"
 	strength = 8
 	taste_description = "dryness"
 	carbonated = TRUE
 
-	glass_icon_state = "guinnes_glass"
+	glass_icon_state = "guinness_glass"
 	glass_name = "glass of Guinness"
 	glass_desc = "A glass of Guinness."
 

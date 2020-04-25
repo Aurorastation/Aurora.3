@@ -66,12 +66,18 @@
 	icon_state = "thongsandal"
 	item_state = "thongsandal"
 
+obj/item/clothing/shoes/sandal/clogs
+	name = "plastic clogs"
+	desc = "A pair of plastic clog shoes."
+	icon_state = "clogs"
+	item_state = "clogs"
+
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
 	name = "clown shoes"
 	icon_state = "clown"
 	item_state = "clown_shoes"
-	slowdown = SHOES_SLOWDOWN+1
+	slowdown = 1
 	var/footstep = 1	//used for squeeks whilst walking
 	species_restricted = null
 
@@ -107,7 +113,7 @@
 /obj/item/clothing/shoes/cyborg
 	name = "cyborg boots"
 	desc = "Shoes for a cyborg costume"
-	icon_state = "boots"
+	icon_state = "jackboots"
 	item_state = "jackboots"
 
 /obj/item/clothing/shoes/slippers
@@ -152,7 +158,7 @@
 	icon_state = "flippers"
 	item_state = "flippers"
 	item_flags = NOSLIP
-	slowdown = SHOES_SLOWDOWN+1
+	slowdown = 1
 
 /obj/item/clothing/shoes/footwraps
 	name = "cloth footwraps"
@@ -271,3 +277,11 @@
 
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/shoes/iac
+	name = "IAC shoes"
+	desc = "A pair of light blue and white shoes resistant to biological and chemical hazards."
+	icon_state = "surgeon"
+	item_state = "blue"
+	permeability_coefficient = 0.01
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)

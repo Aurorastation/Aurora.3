@@ -36,6 +36,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/gun/launcher/crossbow,
 		/obj/item/gun/launcher/grenade,
 		/obj/item/gun/launcher/pneumatic,
+		/obj/item/gun/launcher/harpoon,
 		/obj/item/gun/projectile/automatic/mini_uzi,
 		/obj/item/gun/projectile/automatic/c20r,
 		/obj/item/gun/projectile/automatic/wt550,
@@ -49,6 +50,7 @@ var/datum/antagonist/raider/raiders
 		/obj/item/gun/projectile/shotgun/doublebarrel/pellet,
 		/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
 		/obj/item/gun/projectile/shotgun/pump/rifle,
+		/obj/item/gun/projectile/shotgun/foldable,
 		/obj/item/gun/projectile/colt,
 		/obj/item/gun/projectile/sec,
 		/obj/item/gun/projectile/pistol,
@@ -259,6 +261,11 @@ var/datum/antagonist/raider/raiders
 			var/grenade_type = pick(grenades)
 			new grenade_type(ammobox)
 		player.put_in_any_hand_if_possible(ammobox)
+	if(istype(gun, /obj/item/gun/launcher/harpoon))
+		var/obj/item/storage/backpack/duffel/bag = new(get_turf(player))
+		for(var/i in 1 to 4)
+			new /obj/item/material/harpoon(bag)
+		player.put_in_any_hand_if_possible(bag)
 
 /datum/antagonist/raider/proc/equip_vox(var/mob/living/carbon/human/player)
 

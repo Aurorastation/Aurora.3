@@ -127,8 +127,9 @@ var/datum/controller/subsystem/vote/SSvote
 		. = pick(winners)
 
 		for(var/key in current_votes)
-			if(choices[current_votes[key]]["votes"] == .)
+			if(current_votes[key] == .)
 				round_voters += key // Keep track of who voted for the winning round.
+
 		if((mode == "gamemode" && . == "Extended") || SSticker.hide_mode == 0) // Announce Extended gamemode, but not other gamemodes
 			text += "<b>Vote Result: [.]</b>"
 		else
@@ -315,7 +316,7 @@ var/datum/controller/subsystem/vote/SSvote
 	if(href_list["open"])
 		OpenVotingUI(usr)
 	var/isstaff = usr.client.holder && (usr.client.holder.rights & (R_ADMIN|R_MOD))
-	
+
 	switch(href_list["action"])
 		if("cancel")
 			if(isstaff)
@@ -371,19 +372,19 @@ var/datum/controller/subsystem/vote/SSvote
 	if(!data)
 		. = list("choices" = list(), "mode" = 0, "voted" = 0)
 	data = . || data
-	if(choices.len != data["choices"].len)
+	if(choices.len != LAZYLEN(data["choices"]))
 		data["choices"] = list()
 	for(var/choice in choices)
 		VUEUI_SET_IFNOTSET(data["choices"][choice], deepCopyList(choices[choice]), ., data)
 		VUEUI_SET_CHECK(data["choices"][choice]["votes"], choices[choice]["votes"], ., data) // Only votes trigger data update
-	
+
 	VUEUI_SET_CHECK(data["mode"], mode, ., data)
 	VUEUI_SET_CHECK(data["voted"], current_votes[user.ckey], ., data)
 	VUEUI_SET_CHECK(data["endtime"], started_time + config.vote_period, ., data)
 	VUEUI_SET_CHECK(data["allow_vote_restart"], config.allow_vote_restart, ., data)
 	VUEUI_SET_CHECK(data["allow_vote_mode"], config.allow_vote_mode, ., data)
 	VUEUI_SET_CHECK(data["allow_extra_antags"], (!antag_add_failed && config.allow_extra_antags), ., data)
-	
+
 	if(!question)
 		VUEUI_SET_CHECK(data["question"], capitalize(mode), ., data)
 	else
@@ -391,7 +392,7 @@ var/datum/controller/subsystem/vote/SSvote
 	VUEUI_SET_CHECK(data["isstaff"], (user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))), ., data)
 	var/slevel = get_security_level()
 	VUEUI_SET_CHECK(data["is_code_red"], (slevel == "red" || slevel == "delta"), ., data)
-	
+
 
 
 /datum/controller/subsystem/vote/proc/OpenVotingUI(var/mob/user)

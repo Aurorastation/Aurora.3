@@ -51,7 +51,7 @@
 		)
 
 	var/obj/item/pai_cable/cable		// The cable we produce and use when door or camera jacking
-	idcard_type = /obj/item/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
+	id_card_type = /obj/item/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
 
 	var/master				// Name of the one who commands us
 	var/master_dna			// DNA string for owner verification
@@ -163,7 +163,7 @@
 		return
 /mob/living/silicon/pai/init_id()
 	. = ..()
-	idcard.registered_name = ""
+	id_card.registered_name = ""
 
 
 /mob/living/silicon/pai/Login()
@@ -198,12 +198,7 @@
 	return 0
 
 /mob/living/silicon/pai/restrained()
-	if(istype(src.loc,/obj/item/device/paicard))
-		return 0
-	..()
-
-/mob/living/silicon/pai/MouseDrop(atom/over_object)
-	return
+	return !istype(loc, /obj/item/device/paicard) && ..()
 
 /mob/living/silicon/pai/emp_act(severity)
 	// Silence for 2 minutes
@@ -467,11 +462,12 @@
 		src.forceMove(get_turf(H))
 
 	// Move us into the card and move the card to the ground.
-	src.forceMove(card)
+
 	card.forceMove(get_turf(card))
 	canmove = 1
 	resting = 0
 	icon_state = "[chassis]"
+	src.forceMove(card)
 
 // No binary for pAIs.
 /mob/living/silicon/pai/binarycheck()

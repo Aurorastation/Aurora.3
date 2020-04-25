@@ -4,7 +4,7 @@
 	short_name = "jak"
 	name_plural = "Shells"
 	bodytype = "Human"
-	neuter_ipc = FALSE
+	default_genders = list(MALE, FEMALE)
 
 	burn_mod = 1.2
 	grab_mod = 1
@@ -226,8 +226,6 @@
 	appearance_flags = HAS_HAIR_COLOR
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
-	blood_color = "#1F181F"
-	flesh_color = "#575757"
 	virus_immune = 1
 	reagent_tag = IS_MACHINE
 
@@ -384,6 +382,8 @@
 	name = "Remote Xion Industrial Frame"
 	short_name = "rem_xmf"
 
+	spawn_flags = IS_RESTRICTED
+
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,
 		BP_CELL    = /obj/item/organ/internal/cell,
@@ -526,6 +526,8 @@
 	name = "Remote Unbranded Frame"
 	short_name = "rem_unbran"
 	name_plural = "Remote Unbranded Frames"
+
+	spawn_flags = IS_RESTRICTED
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/circuit,

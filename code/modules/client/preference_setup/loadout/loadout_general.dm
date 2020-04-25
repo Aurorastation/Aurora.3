@@ -102,6 +102,7 @@
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
+	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
 /datum/gear/flag
@@ -124,15 +125,13 @@
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra/l
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
+	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
 /datum/gear/towel
 	display_name = "towel"
 	path = /obj/item/towel
-
-/datum/gear/towel/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/checkers
 	display_name = "checkers game kit"

@@ -62,7 +62,7 @@ var/datum/controller/subsystem/events/SSevents
 			return
 
 	while (pos <= EVENT_LEVEL_MAJOR)
-		var/list/datum/event_container/EC = event_containers[pos]
+		var/datum/event_container/EC = event_containers[pos]
 		EC.process()
 		pos++
 
@@ -88,7 +88,7 @@ var/datum/controller/subsystem/events/SSevents
 	log_debug("SSevents: Event '[EM.name]' has completed at [worldtime2text()].")
 
 /datum/controller/subsystem/events/proc/delay_events(severity, delay)
-	var/list/datum/event_container/EC = event_containers[severity]
+	var/datum/event_container/EC = event_containers[severity]
 	EC.next_event_time += delay
 
 /datum/controller/subsystem/events/proc/Interact(mob/living/user)

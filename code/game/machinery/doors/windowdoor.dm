@@ -5,7 +5,7 @@
 	icon_state = "left"
 	var/base_state = "left"
 	min_force = 4
-	hitsound = 'sound/effects/Glasshit.ogg'
+	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 150 //If you change this, consiter changing ../door/window/brigdoor/ health at the bottom of this .dm file
 	health = 150
 	visible = 0.0
@@ -69,7 +69,7 @@
 		return
 	if (src.operating)
 		return
-	if (src.density && (!issmall(AM) || ishuman(AM)) && src.allowed(AM))
+	if (src.density && (!issmall(AM) || ishuman(AM) || isrobot(AM)) && src.allowed(AM))
 		open()
 		//secure doors close faster
 		var/time = check_access(null) ? 50 : 20
@@ -144,7 +144,7 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 			user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
 			take_damage(25)
 			return
@@ -214,7 +214,7 @@
 	if(src.density && istype(I, /obj/item) && !istype(I, /obj/item/card))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/aforce = I.force
-		playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 		visible_message("<span class='danger'>[src] was hit by [I].</span>")
 		if(I.damtype == BRUTE || I.damtype == BURN)
 			take_damage(aforce)

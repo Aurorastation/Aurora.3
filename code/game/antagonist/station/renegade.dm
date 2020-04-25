@@ -14,31 +14,19 @@ var/datum/antagonist/renegade/renegades
 	initial_spawn_req = 3
 	initial_spawn_target = 6
 
-	var/list/spawn_guns = list(
-		/obj/item/gun/energy/gun,
-		/obj/item/gun/energy/retro,
-		/obj/item/gun/energy/xray,
-		/obj/item/gun/projectile/revolver,
-		/obj/item/gun/projectile/revolver/deckard,
-		/obj/item/gun/projectile/revolver/adhomian,
-		/obj/item/gun/projectile/automatic/c20r,
-		/obj/item/gun/projectile/deagle,
-		/obj/item/gun/projectile/pistol,
-		/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
-		/obj/item/gun/projectile/automatic,
-		/obj/item/gun/projectile/automatic/c20r,
-		/obj/item/gun/projectile/automatic/tommygun,
-		/obj/item/gun/projectile/automatic/mini_uzi,
-		/obj/item/gun/projectile/tanto
-		)
+	bantype = "renegade"
 
 /datum/antagonist/renegade/New()
 	..()
 	renegades = src
 
-/datum/antagonist/renegade/create_objectives(var/datum/mind/player)
+/datum/antagonist/renegade/can_become_antag(var/datum/mind/player, var/ignore_role)
+	if(..())
+		if(player.current && ishuman(player.current))
+			return TRUE
+	return FALSE
 
+/datum/antagonist/renegade/create_objectives(var/datum/mind/player)
 	if(!..())
 		return
 
@@ -47,14 +35,12 @@ var/datum/antagonist/renegade/renegades
 	player.objectives |= survive
 
 /datum/antagonist/renegade/equip(var/mob/living/carbon/human/player)
-
 	if(!..())
 		return
 
-	var/gun_type = pick(spawn_guns)
 	if(!player.back)
 		player.equip_to_slot_or_del(new /obj/item/storage/backpack/satchel(player), slot_back) // if they have no backpack, spawn one
-	player.equip_to_slot_or_del(new gun_type(player), slot_in_backpack)
+	player.equip_to_slot_or_del(new /obj/item/storage/box/syndie_kit/random_weapon/concealable(player), slot_in_backpack)
 
 /proc/rightandwrong()
 	to_chat(usr, "<B>You summoned guns!</B>")

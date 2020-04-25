@@ -8,12 +8,17 @@
 	can_infect = 0
 
 /datum/surgery_step/limb/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected)
 		return 0
 	var/list/organ_data = target.species.has_limbs["[target_zone]"]
+	var/obj/item/organ/external/E = tool
+	if(E?.parent_organ)
+		var/obj/item/organ/external/P = target.organs_by_name[E.parent_organ]
+		if(!P || P.is_stump() || (BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
+			return FALSE // Parent organ non-existant or unsuitable
 	return !isnull(organ_data)
 
 /datum/surgery_step/limb/attach
@@ -45,7 +50,7 @@
 
 /datum/surgery_step/limb/connect
 	allowed_tools = list(
-	/obj/item/hemostat = 100,	\
+	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
 	/obj/item/device/assembly/mousetrap = 20
 	)

@@ -60,7 +60,7 @@
 
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
-	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
+	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider) || istype(mover,/mob/living/simple_animal/hostile/spider_queen))
 		return 1
 	else if(istype(mover, /mob/living))
 		if(prob(50))
@@ -247,6 +247,18 @@
 
 	if (amount_grown > -1)
 		amount_grown += (rand(0, 1) * growth_rate)
+
+/obj/effect/spider/spiderling/attack_hand(mob/living/user)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src)
+	if(prob(20))
+		visible_message(SPAN_WARNING("\The [user] tries to stomp on \the [src], but misses!"))
+		var/list/nearby = oview(2, src)
+		if(length(nearby))
+			walk_to(src, pick(nearby), 2)
+			return
+	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
+	die()
 
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point
