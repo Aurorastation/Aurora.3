@@ -12,9 +12,14 @@
  * DATA CARDS - Used for the teleporter
  */
 /obj/item/card
+
 	name = "card"
 	desc = "Does card things."
 	icon = 'icons/obj/card.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
+		)
 	w_class = 1.0
 	var/associated_account_number = 0
 

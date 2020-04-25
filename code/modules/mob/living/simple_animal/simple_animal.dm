@@ -80,6 +80,7 @@
 	var/bite_factor = 0.4
 	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
 	var/stomach_size_mult = 5
+	var/list/forbidden_foods = list()	//Foods this animal should never eat
 
 	//Seeking/Moving behaviour vars
 	var/min_scan_interval = 1//Minimum and maximum number of procs between a scan
@@ -296,6 +297,8 @@
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()
 	for(var/obj/item/reagent_containers/food/snacks/S in get_turf(src))
+		if(locate(S) in forbidden_foods)
+			continue
 		food_choices += S
 	if(food_choices.len) //Only when sufficiently hungry
 		UnarmedAttack(pick(food_choices))

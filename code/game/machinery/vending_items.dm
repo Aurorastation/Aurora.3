@@ -4,7 +4,11 @@
 
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_medium-open"
-	item_state = "RPED"
+	item_state = "restock_unit"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		)
 	desc = "A vending machine restock cart."
 	force = 7
 	throwforce = 10
