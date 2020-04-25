@@ -29,7 +29,7 @@ var/datum/antagonist/loyalists/loyalists
 	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security")
 	required_age = 31
 
 /datum/antagonist/loyalists/New()
@@ -67,7 +67,7 @@ var/datum/antagonist/loyalists/loyalists
 	player.equip_to_slot_or_del(new /obj/item/device/special_uplink/rev(player, player.mind), slot_in_backpack)
 
 	give_codewords(player)
-	INVOKE_ASYNC(src, .proc/alert_loy_status, player)
+	INVOKE_ASYNC(src, .proc/alert_fellow_status, player)
 	return TRUE
 
 /datum/antagonist/loyalists/proc/alert_loy_status(var/mob/living/carbon/human/player) //This is still dumb but it works
