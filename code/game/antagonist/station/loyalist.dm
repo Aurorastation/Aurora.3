@@ -24,7 +24,7 @@ var/datum/antagonist/loyalists/loyalists
 	faction_role_text = "Fellow"
 	faction_descriptor = "Fellowship"
 	faction_verb = /mob/living/proc/convert_to_loyalist
-	faction_welcome = "You have joined a budding fellowship under the forward-thinking lead of a Fellowship leader. Follow their instructions and try to achieve the Fellowships goals."
+	faction_welcome = "You have joined a budding fellowship under the forward-thinking lead of a Fellowship leader. Follow their instructions and try to achieve the Fellowship's goals."
 	faction_indicator = "fellowship"
 	faction_invisible = FALSE
 
