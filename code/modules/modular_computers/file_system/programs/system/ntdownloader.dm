@@ -187,6 +187,7 @@
 		if(download_queue[active_download] == null)
 			return
 
+	var/datum/computer_file/active_download_file = download_files[active_download]
 	if(download_queue[active_download] >= 0)
 		if (!last_update)
 			last_update = world.time
@@ -210,7 +211,7 @@
 
 		var/delta_seconds = (world.time - last_update) / 10
 
-		download_queue[active_download] = min(download_queue[active_download] + delta_seconds * speed, download_files[active_download].size)
+		download_queue[active_download] = min(download_queue[active_download] + delta_seconds * speed, active_download_file.size)
 
 		// No connection, so cancel the download.
 		// This is done at the end because of logic reasons.
@@ -220,7 +221,8 @@
 		else
 			last_update = world.time
 
-	if(download_queue[active_download] >= download_files[active_download].size)
+
+	if(download_queue[active_download] >= active_download_file.size)
 		finish_from_queue(active_download)
 		active_download = null
 		playsound(get_turf(computer), 'sound/machines/ping.ogg', 40, 0)
