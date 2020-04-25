@@ -629,7 +629,7 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/cure_traumas(mob/T as mob in mob_list)
 	set category = "Fun"
 	set name = "Cure Traumas"
-	set desc = "Cure the retardations of a given mob."
+	set desc = "Cure the traumas of a given mob."
 
 	if(!istype(T,/mob/living/carbon/human))
 		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
@@ -644,7 +644,7 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/add_traumas(mob/T as mob in mob_list)
 	set category = "Fun"
 	set name = "Add Traumas"
-	set desc = "Induces retardations on a given mob."
+	set desc = "Induces traumas on a given mob."
 
 	if(!istype(T,/mob/living/carbon/human))
 		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
@@ -796,10 +796,10 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/toggle_aooc()
 	set name = "Toggle AOOC"
 	set category = "Admin"
-	
+
 	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))
 		return
-		
+
 	if(holder)
 		if (toggle_aooc_holder_check() == FALSE)
 			to_chat(src, "<span class='notice'>AOOC is now muted.</span>")
@@ -807,7 +807,7 @@ var/list/admin_verbs_cciaa = list(
 		else
 			to_chat(src, "<span class='notice'>AOOC is now unmuted.</span>")
 			verbs |= /client/proc/aooc
-			
+
 	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_log_hrefs()

@@ -125,6 +125,7 @@
 
 	if(has_safety)
 		cut_overlay(safety_overlay, TRUE)
+		safety_overlay = null
 		if(!isturf(loc)) // In a mob, holster or bag or something
 			safety_overlay = image(gun_gui_icons,"[safety()]")
 			add_overlay(safety_overlay, TRUE)
@@ -180,8 +181,6 @@
 			return FALSE
 		else
 			return TRUE
-
-	return TRUE
 
 /obj/item/gun/verb/wield_gun()
 	set name = "Wield Firearm"

@@ -138,7 +138,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		cc.result = chemconfig[chemical]["result"]
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		cc.required_reagents = chemconfig[chemical]["required_reagents"]
-		if(!cc.result in chemical_reagents)
+		if(!(cc.result in chemical_reagents))
 			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
 

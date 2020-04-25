@@ -116,7 +116,7 @@
 				else
 					bar.color = "#ff0000"
 				hardpoint_bar_cache += bar
-		for(var/i=i;i<=value;i++)
+		for(var/i = 1; i <= value; i++)
 			new_overlays += hardpoint_bar_cache[i]
 	overlays = new_overlays
 

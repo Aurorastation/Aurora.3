@@ -264,6 +264,9 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 	footstep_sound = "snow"
+	does_footprint = TRUE
+	footprint_color = COLOR_SNOW
+	track_distance = 4
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()

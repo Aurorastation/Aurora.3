@@ -58,7 +58,7 @@
 	reagents.my_atom = src
 	soundloop = new(list(src), FALSE)
 	if (mapload)
-		addtimer(CALLBACK(src, .proc/setup_recipes), 0)
+		addtimer(CALLBACK(src, .proc/setup_recipes), 1)
 	else
 		setup_recipes()
 

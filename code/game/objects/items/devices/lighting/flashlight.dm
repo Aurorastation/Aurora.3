@@ -2,6 +2,10 @@
 	name = "flashlight"
 	desc = "A hand-held emergency light."
 	icon = 'icons/obj/lighting.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_lighting.dmi',
+		)
 	icon_state = "flashlight"
 	item_state = "flashlight"
 	w_class = 2
