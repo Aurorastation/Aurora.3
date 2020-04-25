@@ -320,6 +320,19 @@
 	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
 	icon_state = "6,2"
 
+//arrivals shuttle
+
+/turf/simulated/wall/shuttle/unique/arrivals
+	icon = 'icons/turf/shuttles_unique/arrivals_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/arrivals
+	icon = 'icons/turf/shuttles_unique/arrivals_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/arrivals
+	icon = 'icons/turf/shuttles_unique/arrivals_shuttle.dmi'
+	icon_state = "6,2"
 
 //--Floors--//
 
