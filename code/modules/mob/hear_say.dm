@@ -11,7 +11,7 @@
 
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
-	if ((T) && (!(isobserver(speaker)))) //Ghosts can hear even in vacuum.
+	if ((T) && (!(istype(src, /mob/abstract/observer)))) //Ghosts can hear even in vacuum.
 		var/datum/gas_mixture/environment = T.return_air()
 		var/pressure = (environment)? environment.return_pressure() : 0
 		if(pressure < SOUND_MINIMUM_PRESSURE && get_dist(speaker, src) > 1)
@@ -42,7 +42,7 @@
 					message = stars(message)
 
 	var/speaker_name = speaker.name
-	if(ishuman(speaker))
+	if(istype(speaker, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.GetVoice()
 
@@ -50,7 +50,7 @@
 		message = "<i>[message]</i>"
 
 	var/track = null
-	if(isobserver(speaker))
+	if(istype(src, /mob/abstract/observer))
 		if(italics && client.prefs.toggles & CHAT_GHOSTRADIO)
 			return
 		if(speaker_name != speaker.real_name && speaker.real_name)

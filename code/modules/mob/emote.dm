@@ -55,8 +55,8 @@
 //This is a central proc that all emotes are run through. This handles sending the messages to living mobs
 /mob/proc/send_emote(var/message, var/type)
 	var/list/messageturfs = list()//List of turfs we broadcast to.
-	var/list/messagemobs = list() 
-	var/list/ghosts = list()
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	var/list/messagemobs_neardead = list()//List of nearby ghosts who can hear it. Those that qualify ONLY go in this list
 
 	var/hearing_aid = FALSE
 	if(type == 2 && ishuman(src))
@@ -67,17 +67,17 @@
 		messageturfs += turf
 
 	for(var/mob/M in player_list)
-		if (!M.client || isnewplayer(M))
+		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(get_turf(M) in messageturfs)
-			if (isobserver(M))
-				ghosts += M
+			if (istype(M, /mob/abstract/observer))
+				messagemobs_neardead += M
 				continue
 			else if (isliving(M) && !(type == 2 && ((sdisabilities & DEAF) && !hearing_aid) || ear_deaf > 1))
 				messagemobs += M
 		else if(src.client)
 			if (M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT))
-				ghosts += M
+				messagemobs += M
 				continue
 
 	for (var/mob/N in messagemobs)
@@ -85,5 +85,5 @@
 
 	message = "<B>[message]</B>"
 
-	for(var/mob/O in ghosts)
-		O.show_message("[ghost_follow_link(src, O)] [message]", type)
+	for (var/mob/O in messagemobs_neardead)
+		O.show_message(message, type)

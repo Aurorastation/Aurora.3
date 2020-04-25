@@ -105,8 +105,8 @@
 	log_ooc("(LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
 
 	var/mob/source = src.mob
-	var/list/messageturfs = list() //List of turfs we broadcast to.
-	var/list/messagemobs = list() //List of living mobs nearby who can hear it
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	var/list/messagemobs = list()//List of living mobs nearby who can hear it
 
 	for(var/turf in range(world.view, get_turf(source)))
 		messageturfs += turf
