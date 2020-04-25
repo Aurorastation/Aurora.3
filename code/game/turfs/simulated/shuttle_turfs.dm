@@ -170,7 +170,7 @@
 	density = TRUE
 
 /obj/structure/window/shuttle/unique
-	name = "unique shuttle window"
+	name = "shuttle window"
 	desc = "It looks extremely strong. Might take many good hits to crack it."
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "wall2"
@@ -304,6 +304,20 @@
 
 /obj/structure/window/shuttle/unique/transfer
 	icon = 'icons/turf/shuttles_unique/transfer_shuttle.dmi'
+	icon_state = "6,2"
+
+//mercenary shuttle
+
+/turf/simulated/wall/shuttle/unique/mercenary
+	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/mercenary
+	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/mercenary
+	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
 	icon_state = "6,2"
 
 

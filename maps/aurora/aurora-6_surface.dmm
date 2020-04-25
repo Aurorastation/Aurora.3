@@ -9058,6 +9058,11 @@
 /obj/item/reagent_containers/food/snacks/chips,
 /turf/simulated/floor/carpet,
 /area/hallway/secondary/entry/departure_lounge)
+"pW" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,1"
+	},
+/area/shuttle/escape_pod2/station)
 "pX" = (
 /obj/structure/table/wood,
 /obj/item/storage/fancy/cigarettes{
@@ -9171,6 +9176,11 @@
 	},
 /turf/simulated/floor/lino/grey,
 /area/hallway/secondary/entry/departure_lounge)
+"qi" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,2"
+	},
+/area/shuttle/escape_pod2/station)
 "qj" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
@@ -9888,28 +9898,45 @@
 "rv" = (
 /turf/simulated/open,
 /area/turbolift/main_arrivals_aux)
+"rw" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,2"
+	},
+/area/shuttle/escape_pod3/station)
 "rx" = (
-/turf/simulated/wall/shuttle,
+/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,3"
+	},
 /area/shuttle/escape_pod1/station)
 "ry" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
+/obj/structure/window/shuttle/unique/escape_pod{
+	icon_state = "1,3"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod1/station)
 "rz" = (
-/turf/simulated/wall/shuttle,
+/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,3"
+	},
 /area/shuttle/escape_pod2/station)
 "rA" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
+/obj/structure/window/shuttle/unique/escape_pod{
+	icon_state = "1,3"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod2/station)
 "rB" = (
-/turf/simulated/wall/shuttle,
+/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,3"
+	},
 /area/shuttle/escape_pod3/station)
 "rC" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
+/obj/structure/window/shuttle/unique/escape_pod{
+	icon_state = "1,3"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod3/station)
 "rE" = (
@@ -10248,8 +10275,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/sleep/cryo)
 "so" = (
-/obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/wall/shuttle/cardinal,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,0"
+	},
 /area/shuttle/escape_pod1/station)
 "sp" = (
 /obj/machinery/door/airlock/external{
@@ -10263,8 +10291,9 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod1/station)
 "sq" = (
-/obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/wall/shuttle/cardinal,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,0"
+	},
 /area/shuttle/escape_pod2/station)
 "sr" = (
 /obj/machinery/door/airlock/external{
@@ -10278,8 +10307,9 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod2/station)
 "ss" = (
-/obj/structure/shuttle/engine/propulsion/burst,
-/turf/simulated/wall/shuttle/cardinal,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,0"
+	},
 /area/shuttle/escape_pod3/station)
 "st" = (
 /obj/machinery/door/airlock/external{
@@ -11294,6 +11324,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
+"uA" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,0"
+	},
+/area/shuttle/escape_pod2/station)
 "uB" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	icon_state = "corner_white_full";
@@ -11910,6 +11945,11 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"vM" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,0"
+	},
+/area/shuttle/escape_pod3/station)
 "vO" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12469,6 +12509,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/blue,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"wP" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "wQ" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -12639,6 +12698,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"xk" = (
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/unexplored)
 "xo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -12650,6 +12712,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/store)
+"xp" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,1"
+	},
+/area/shuttle/escape_pod2/station)
 "xq" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -12980,6 +13047,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"xZ" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,1"
+	},
+/area/shuttle/escape_pod1/station)
 "ya" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -13772,13 +13844,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"zp" = (
-/obj/machinery/door/firedoor{
-	icon_state = "door_open";
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "zq" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
@@ -14084,10 +14149,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	icon_state = "door_open";
-	dir = 8
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "zT" = (
@@ -14450,6 +14512,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
+"Ar" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "As" = (
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -15713,6 +15794,11 @@
 "CU" = (
 /turf/simulated/wall,
 /area/hallway/secondary/entry/aft)
+"CV" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,2"
+	},
+/area/shuttle/escape_pod1/station)
 "CW" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -15858,12 +15944,22 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
+"Dk" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,2"
+	},
+/area/shuttle/escape_pod2/station)
 "Dl" = (
 /obj/machinery/atm{
 	pixel_y = 27
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Dm" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,1"
+	},
+/area/shuttle/escape_pod3/station)
 "Dn" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -20912,18 +21008,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
-"MD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "ME" = (
 /obj/machinery/light{
 	dir = 1;
@@ -21270,6 +21354,12 @@
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"Nm" = (
+/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,3"
+	},
+/area/shuttle/escape_pod1/station)
 "Nn" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -21714,21 +21804,27 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "Om" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	icon_state = "intact-scrubbers";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -21754,6 +21850,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/store)
+"Op" = (
+/obj/structure/closet,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/arrivals)
 "Oq" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -21809,6 +21910,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
+"Ov" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "0,2"
+	},
+/area/shuttle/escape_pod1/station)
 "Ow" = (
 /obj/structure/bed/chair/shuttle{
 	dir = 8
@@ -21887,6 +21993,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"OC" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,2"
+	},
+/area/shuttle/escape_pod3/station)
 "OD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -23392,6 +23503,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
+"RS" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,1"
+	},
+/area/shuttle/escape_pod1/station)
 "RT" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -23473,6 +23589,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
+"Sd" = (
+/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,3"
+	},
+/area/shuttle/escape_pod2/station)
 "Se" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -23628,6 +23750,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
+"Sv" = (
+/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,3"
+	},
+/area/shuttle/escape_pod3/station)
 "Sw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -25035,6 +25163,11 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"Vo" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,0"
+	},
+/area/shuttle/escape_pod1/station)
 "Vp" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/grass/alt,
@@ -25287,6 +25420,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
+"VQ" = (
+/turf/simulated/wall/shuttle/unique/escape_pod{
+	icon_state = "2,1"
+	},
+/area/shuttle/escape_pod3/station)
 "VS" = (
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -45502,14 +45640,14 @@ aa
 aa
 aa
 aa
-aa
+UA
 ag
 ag
-ag
+YW
 aa
 aa
 aa
-aa
+aw
 aw
 aw
 aw
@@ -45757,15 +45895,15 @@ aa
 aa
 aa
 aa
-aa
-aa
+UA
+UA
 ag
 ag
 ag
-ag
-ag
-aa
-aa
+YW
+YW
+aw
+aw
 aw
 aw
 aw
@@ -46014,15 +46152,15 @@ aa
 aa
 aa
 aa
-aa
-aa
+UA
+UA
 ag
 ag
 ag
 ag
-ag
-ag
-aa
+YW
+xk
+aw
 aw
 aw
 aw
@@ -46270,16 +46408,16 @@ aa
 aa
 aa
 aa
-aa
-aa
+UA
+UA
 ag
 ag
 ag
 ag
 ag
-ag
-ag
-aa
+YW
+xk
+aw
 aw
 aw
 aw
@@ -46527,17 +46665,17 @@ aa
 aa
 aa
 aa
-aa
-aa
+UA
+UA
 ag
 ag
-ag
-ag
-nJ
-nJ
+qb
+qb
 nJ
 Sh
 yt
+aw
+aw
 aw
 aw
 aw
@@ -46784,8 +46922,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 nJ
 nJ
 nJ
@@ -46795,6 +46931,8 @@ Nj
 QW
 Ae
 Yb
+aw
+aw
 aw
 aw
 aw
@@ -47041,8 +47179,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Ko
 Ko
@@ -47052,6 +47188,8 @@ Vh
 Vh
 Vh
 NB
+aw
+aw
 aw
 aw
 aw
@@ -47298,8 +47436,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Ko
 Ko
@@ -47309,6 +47445,8 @@ Vh
 OE
 Vh
 nJ
+aw
+aw
 aw
 aw
 aw
@@ -47555,8 +47693,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Ko
 Ko
@@ -47568,6 +47704,8 @@ Vh
 ZW
 Bc
 Vn
+aw
+aw
 aw
 aw
 aw
@@ -47812,8 +47950,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 nJ
 nJ
 nJ
@@ -47827,6 +47963,8 @@ Qy
 AB
 aw
 aw
+aw
+co
 aw
 aw
 aw
@@ -48069,8 +48207,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Ko
 Ko
@@ -48083,7 +48219,9 @@ Lo
 ob
 Xf
 aw
-co
+aw
+aw
+aw
 aw
 aw
 aw
@@ -48326,8 +48464,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Vy
 Ko
@@ -48339,6 +48475,8 @@ RX
 My
 Bc
 Vn
+aw
+aw
 aw
 aw
 aw
@@ -48583,8 +48721,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Ko
 Ko
@@ -48596,6 +48732,8 @@ RX
 nJ
 aa
 aa
+aw
+aw
 aw
 aw
 aw
@@ -48840,8 +48978,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 nJ
 nJ
 nJ
@@ -48852,6 +48988,8 @@ TD
 RX
 Im
 aa
+aw
+aw
 aw
 aw
 aw
@@ -49097,8 +49235,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Ko
 Ko
@@ -49109,6 +49245,8 @@ uh
 Uc
 Yb
 aa
+aw
+aw
 aw
 aw
 aw
@@ -49354,8 +49492,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Ko
 Ko
@@ -49367,6 +49503,8 @@ RX
 NB
 aa
 aa
+aw
+aw
 aw
 aw
 aw
@@ -49611,8 +49749,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 Ko
 Ko
 Ko
@@ -49625,6 +49761,8 @@ nJ
 aa
 aa
 aa
+aw
+aw
 aw
 aw
 aw
@@ -49868,8 +50006,6 @@ aa
 aa
 aa
 aa
-aa
-aa
 nJ
 nJ
 nJ
@@ -49882,6 +50018,8 @@ TU
 aa
 aa
 aa
+aw
+aw
 aw
 aw
 aw
@@ -50125,9 +50263,7 @@ aa
 aa
 aa
 aa
-aa
-ag
-ag
+UA
 ag
 ag
 ag
@@ -50136,6 +50272,8 @@ mY
 Ak
 RX
 NW
+aa
+aa
 aa
 aa
 aa
@@ -50383,8 +50521,6 @@ ag
 ag
 ag
 ag
-ag
-ag
 sU
 sU
 sU
@@ -50397,6 +50533,8 @@ Bc
 Vn
 nJ
 XZ
+Bc
+Bc
 Bc
 Vn
 nJ
@@ -50639,22 +50777,22 @@ ag
 ag
 ag
 ag
-ag
-ag
-ag
-sU
+qb
+Op
 TG
 zy
 nJ
 BF
 Sg
 Rx
+nn
+nn
 xH
 nn
 nn
 nn
-nn
 Li
+nn
 nn
 TH
 OD
@@ -50897,21 +51035,21 @@ sU
 sU
 sU
 sU
-sU
-sU
-sU
 GT
+NM
 NM
 Yu
 Cr
+wP
+Ar
 Om
-MD
+mb
 Ah
-mb
-mb
 Dh
 mb
+mb
 nl
+mb
 mb
 Dh
 Ys
@@ -51155,14 +51293,14 @@ tt
 ts
 tt
 tt
-tt
-tt
-tt
-tt
+sU
+sU
 nJ
-zp
+nJ
+nJ
+zr
 zS
-zp
+zr
 nJ
 tu
 tu
@@ -51413,9 +51551,9 @@ sU
 sU
 sU
 sU
-sU
-sU
-sU
+Zq
+OH
+Uv
 nJ
 zq
 zT
@@ -51670,9 +51808,9 @@ sU
 HE
 uG
 FA
-Zq
-OH
-Uv
+wu
+wu
+wu
 nJ
 zr
 QG
@@ -61466,7 +61604,7 @@ aw
 aw
 aw
 aw
-eC
+aw
 aw
 aw
 aw
@@ -61980,7 +62118,7 @@ aw
 aw
 aw
 aw
-aw
+eC
 aw
 aw
 aw
@@ -74279,8 +74417,8 @@ aa
 aa
 aa
 rx
-rx
-rx
+Ov
+xZ
 so
 sM
 rV
@@ -74792,10 +74930,10 @@ aa
 aa
 aa
 aa
-rx
-rx
-rx
-so
+Nm
+CV
+RS
+Vo
 sO
 tk
 tS
@@ -75307,8 +75445,8 @@ aa
 aa
 aa
 rz
-rz
-rz
+Dk
+pW
 sq
 sM
 rV
@@ -75820,10 +75958,10 @@ aa
 aa
 aa
 aa
-rz
-rz
-rz
-sq
+Sd
+qi
+xp
+uA
 sO
 tk
 vB
@@ -76335,8 +76473,8 @@ aa
 aa
 aa
 rB
-rB
-rB
+rw
+Dm
 ss
 sM
 rV
@@ -76848,10 +76986,10 @@ aa
 aa
 aa
 aa
-rB
-rB
-rB
-ss
+Sv
+OC
+VQ
+vM
 sO
 tk
 tZ
@@ -79434,7 +79572,7 @@ yP
 uf
 aw
 aw
-aw
+ec
 aw
 aw
 aa
@@ -79691,7 +79829,7 @@ yQ
 zo
 aw
 aw
-ec
+aw
 aw
 aw
 aa
