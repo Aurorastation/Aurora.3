@@ -53,7 +53,10 @@
 
 // Generally, this doesn't USUALLY need changing
 /datum/category_item/player_setup_item/general/basic/gather_load_parameters()
-	return list("id" = pref.current_character)
+	return list(
+			"id" = pref.current_character,
+			"char_id" = pref.current_character
+			)
 
 // Only need to list the SQL table field names here
 /datum/category_item/player_setup_item/general/basic/gather_save_query()
@@ -88,6 +91,7 @@
 		"serial_number" = pref.machine_serial_number,
 		"ownership_status" = pref.machine_ownership_status,
 		"id" = pref.current_character,
+		"char_id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
