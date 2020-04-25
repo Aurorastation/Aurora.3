@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Replaced the 'Revolutionaries' with 'The Contendors', a more neutral flavor of rev that will hopefully make it easier for revs to recruit in the Crew."
+  - tweak: "Replaced the 'Revolutionaries' with 'The Contendors', a more neutral term that will hopefully make it easier for them to recruit in the Crew."
   - tweak: "Replaced the 'Loyalists' with 'The Fellowship', which should leave them as the more friendly sounding of the two yet still be much less pro-Command."
   - imageadd: "Added two brand new hud icons with these differences in mind. Might make better ones at a later time, they don't actually mean anything, just symbolic for the roles."
   - tweak: "Gave the contendors and fellowship more equal footing."
