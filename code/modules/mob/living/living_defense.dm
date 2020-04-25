@@ -102,6 +102,28 @@
 	P.on_hit(src, absorb, def_zone)
 	return absorb
 
+/mob/living/proc/aura_check(var/type)
+	if(!auras)
+		return TRUE
+	. = TRUE
+	var/list/newargs = args - args[1]
+	for(var/a in auras)
+		var/obj/aura/aura = a
+		var/result = 0
+		switch(type)
+			if(AURA_TYPE_WEAPON)
+				result = aura.attackby(arglist(newargs))
+			if(AURA_TYPE_BULLET)
+				result = aura.bullet_act(arglist(newargs))
+			if(AURA_TYPE_THROWN)
+				result = aura.hitby(arglist(newargs))
+			if(AURA_TYPE_LIFE)
+				result = aura.life_tick()
+		if(result & AURA_FALSE)
+			. = FALSE
+		if(result & AURA_CANCEL)
+			break
+
 //For visuals, blood splatters and so on.
 /mob/living/proc/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
 	var/list/impact_sounds = LAZYACCESS(P.impact_sounds, get_bullet_impact_effect_type(def_zone))
@@ -173,6 +195,8 @@
 
 //this proc handles being hit by a thrown atom
 /mob/living/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+	if(!aura_check(AURA_TYPE_THROWN, AM, speed))
+		return
 	if(istype(AM,/obj/))
 		var/obj/O = AM
 		var/dtype = O.damtype

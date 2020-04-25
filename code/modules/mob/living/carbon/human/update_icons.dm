@@ -149,6 +149,9 @@ There are several things that need to be remembered:
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)
 
+		if(auras)
+			ovr |= auras
+
 		add_overlay(ovr)
 
 	if (lying_prev != lying || size_multiplier != 1)
