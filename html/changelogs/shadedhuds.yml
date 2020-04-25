@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Just added shading to most if not all of Auroras' huds. All of them in the hud.dmi and afew in the mob.dmi."
+  - tweak: "Just added shading to most if not all of Auroras' huds. All of them in the hud.dmi and afew in the mob.dmi. This includes altering the Syndi/NT balloons."
