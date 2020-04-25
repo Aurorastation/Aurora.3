@@ -15,7 +15,7 @@
 
 	var/mob/abstract/observer/G = ghosts[target]
 
-	if(!G in ghosts)
+	if(!(G in ghosts))
 		statuscode = 404
 		response = "Target not in ghosts list"
 		data = null

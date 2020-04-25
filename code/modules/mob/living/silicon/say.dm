@@ -120,7 +120,7 @@
 				if(M.stat == DEAD && M.client?.prefs.toggles & CHAT_GHOSTEARS)
 					M.hear_say(message, verb, speaking, null, null, src)
 					continue
-				if(M.loc && M.locs[1] in hearturfs)
+				if(M.loc && (M.locs[1] in hearturfs))
 					M.hear_say(message, verb, speaking, null, null, src)
 	else
 		to_chat(src, SPAN_WARNING("No holopad connected."))

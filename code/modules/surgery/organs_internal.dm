@@ -266,7 +266,7 @@
 			return SURGERY_FAILURE
 
 		if(O.species_restricted)
-			if(!target.species.name in O.species_restricted)
+			if(!(target.species.name in O.species_restricted))
 				to_chat(user, SPAN_WARNING("\The [O] is not compatible with \the [target]'s biology."))
 				return SURGERY_FAILURE
 

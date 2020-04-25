@@ -56,7 +56,7 @@
 		var/datum/job/job = new J()
 		if(!job || job.faction != faction)
 			continue
-		if(!job.faction in faction)
+		if(!(job.faction in faction))
 			continue
 		occupations += job
 		name_occupations[job.title] = job

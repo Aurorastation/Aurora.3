@@ -133,7 +133,7 @@
 	set name = "Move To Top"
 	set category = "Object"
 
-	if (!I in view(1, src))
+	if (!(I in view(1, src)))
 		return
 	if(!istype(I.loc, /turf) || usr.stat || usr.restrained() )
 		return
@@ -469,7 +469,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	if(!(usr)) //BS12 EDIT
 		return
-	if (!I in view(1, src))
+	if (!(I in view(1, src)))
 		return
 	if (istype(I, /obj/item/storage/internal))
 		return
@@ -672,7 +672,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(M.stat || !(istype(M,/mob/living/carbon/human)))
 		to_chat(M, "You are unable to focus through the [devicename]")
 		cannotzoom = 1
-	else if(!zoom && global_hud.darkMask[1] in M.client.screen)
+	else if(!zoom && (global_hud.darkMask[1] in M.client.screen))
 		to_chat(M, "Your visor gets in the way of looking through the [devicename]")
 		cannotzoom = 1
 	else if(!zoom && M.get_active_hand() != src)
