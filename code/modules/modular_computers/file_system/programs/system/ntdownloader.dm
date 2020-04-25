@@ -133,6 +133,7 @@
 		var/datum/vueui/ui = i
 		ui.data["queue"][PRG.filename] = 0
 		ui.push_change()
+	return TRUE
 
 /datum/computer_file/program/ntnetdownload/proc/cancel_from_queue(var/name)
 	if(!download_files[name])
@@ -222,6 +223,8 @@
 	if(download_queue[active_download] >= download_files[active_download].size)
 		finish_from_queue(active_download)
 		active_download = null
+		playsound(get_turf(computer), 'sound/machines/ping.ogg', 40, 0)
+		computer.output_message("\icon[computer] <b>[capitalize_first_letters(computer)]</b> pings, \"Software download completed successfully!\"", 1)
 
 	SSvueui.check_uis_for_change(src)
 	

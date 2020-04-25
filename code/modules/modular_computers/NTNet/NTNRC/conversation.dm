@@ -5,6 +5,7 @@ var/global/ntnrc_uid = 0
 	var/datum/computer_file/program/chatclient/operator // "Administrator" of this channel. Creator starts as channel's operator,
 	var/list/messages = list()
 	var/list/clients = list()
+	var/direct = FALSE
 	var/password
 
 /datum/ntnet_conversation/New(var/name, var/no_operator)
@@ -25,7 +26,7 @@ var/global/ntnrc_uid = 0
 		if(C.username == username || !C.computer.screen_on)
 			continue
 		if(C.computer.active_program == C || (C in C.computer.idle_threads))
-			C.computer.output_message(FONT_SMALL("<b>([title]) [username]:</b> [message]"), 0)
+			C.computer.output_message(FONT_SMALL("<b>([get_title(C)]) [username]:</b> [message]"), 0)
 
 	message = "[worldtime2text()] [username]: [message]"
 	messages.Add(message)
@@ -45,6 +46,8 @@ var/global/ntnrc_uid = 0
 
 /datum/ntnet_conversation/proc/add_client(var/datum/computer_file/program/chatclient/C)
 	if(!istype(C))
+		return
+	if (C in clients)
 		return
 	clients.Add(C)
 	// No operator, so we assume the channel was empty. Assign this user as operator.
@@ -93,3 +96,23 @@ var/global/ntnrc_uid = 0
 			continue
 		if(C.computer.active_program == src || (C in C.computer.idle_threads))
 			C.computer.output_message(FONT_SMALL("([title]) A new client ([C.username]) has entered the chat."), 0)
+
+/datum/ntnet_conversation/proc/get_title(var/datum/computer_file/program/chatclient/cl = null)
+	if(direct)
+		var/names = list()
+		for(var/datum/computer_file/program/chatclient/C in clients)
+			names += C.username
+		if(cl)
+			names -= cl.username
+		return english_list(names)
+	else
+		return title
+
+/datum/ntnet_conversation/proc/can_see(var/datum/computer_file/program/chatclient/cl)
+	if(cl in clients)
+		return TRUE
+	if(cl.netadmin_mode)
+		return TRUE
+	if(!direct)
+		return TRUE
+	return FALSE
