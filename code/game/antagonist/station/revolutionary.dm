@@ -20,13 +20,13 @@ var/datum/antagonist/revolutionary/revs
 	initial_spawn_req = 2
 	initial_spawn_target = 4
 
-	//Inround revs.
+	// Inround revs.
 	faction_role_text = "Contendor"
 	faction_descriptor = "Contendors"
 	faction_verb = /mob/living/proc/convert_to_rev
 	faction_welcome = "You joined a subversive organization in the Aurora Crew, united under a forward-thinking leader, you must achieve their goals."
-	faction_indicator = "rev"
-	faction_invisible = TRUE
+	faction_indicator = "contendor"
+	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")

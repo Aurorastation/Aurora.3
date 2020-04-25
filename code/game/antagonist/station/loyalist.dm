@@ -25,8 +25,8 @@ var/datum/antagonist/loyalists/loyalists
 	faction_descriptor = "Fellowship"
 	faction_verb = /mob/living/proc/convert_to_loyalist
 	faction_welcome = "You have joined a budding fellowship under the forward-thinking lead of a Fellowship leader. Follow their instructions and try to achieve the Fellowships goals."
-	faction_indicator = "loyal"
-	faction_invisible = 1
+	faction_indicator = "fellowship"
+	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security", "Internal Affairs Agent")
@@ -70,7 +70,7 @@ var/datum/antagonist/loyalists/loyalists
 	INVOKE_ASYNC(src, .proc/alert_loy_status, player)
 	return TRUE
 
-/datum/antagonist/loyalists/proc/alert_loy_status(var/mob/living/carbon/human/player) //This is so dumb.
+/datum/antagonist/loyalists/proc/alert_loy_status(var/mob/living/carbon/human/player) //This is still dumb but it works
 	alert(player, "As a Head Fellow you are given an uplink with a lot of telecrystals. \
 				Your goal is to create and progress a story. Use the announcement device you spawn with to whip people into a frenzy, \
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
