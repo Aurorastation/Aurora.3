@@ -26,7 +26,7 @@ var/global/list/default_medbay_channels = list(
 	name = "station bounced radio"
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
-	item_state = "walkietalkie"
+	item_state = "radio"
 	var/on = 1 // 0 for off
 	var/last_transmission
 	var/frequency = PUB_FREQ //common chat
@@ -280,10 +280,10 @@ var/global/list/default_medbay_channels = list(
 	return null
 
 /obj/item/device/radio/talk_into(mob/living/M, message, channel, var/verb = "says", var/datum/language/speaking = null)
-	if(!on) 
+	if(!on)
 		return 0 // the device has to be on
 	//  Fix for permacell radios, but kinda eh about actually fixing them.
-	if(!M || !message) 
+	if(!M || !message)
 		return 0
 
 	if (iscarbon(M))
@@ -292,7 +292,7 @@ var/global/list/default_medbay_channels = list(
 			to_chat(M, span("warning", "Your can't move your arms enough to activate the radio..."))
 			return
 
-	if(istype(M)) 
+	if(istype(M))
 		M.trigger_aiming(TARGET_CAN_RADIO)
 
 	//  Uncommenting this. To the above comment:

@@ -67,11 +67,6 @@
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
 
-/datum/gear/utility/laptop
-	display_name = "laptop"
-	path = /obj/item/modular_computer/laptop/preset
-	cost = 3
-
 /datum/gear/utility/wallet
 	display_name = "wallet, orange"
 	path = /obj/item/storage/wallet

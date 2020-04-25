@@ -4,6 +4,10 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "red"
 	item_state = "toolbox_red"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_toolbox.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_toolbox.dmi'
+		)
 	center_of_mass = list("x" = 16,"y" = 11)
 	flags = CONDUCT
 	force = 5

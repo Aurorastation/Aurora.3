@@ -7,13 +7,13 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 
-	nanomodule_path = /datum/nano_module/program/computer_newsbrowser/
+	nanomodule_path = /datum/nano_module/program/computer_newsbrowser
 	var/datum/computer_file/data/news_article/loaded_article
 	var/download_progress = 0
 	var/download_netspeed = 0
-	var/downloading = 0
+	var/downloading = FALSE
 	var/message = ""
-	var/show_archived = 0
+	var/show_archived = FALSE
 	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/newsbrowser/process_tick()
@@ -30,56 +30,56 @@
 			download_netspeed = NTNETSPEED_ETHERNET
 	download_progress += download_netspeed
 	if(download_progress >= loaded_article.size)
-		downloading = 0
-		requires_ntnet = 0 // Turn off NTNet requirement as we already loaded the file into local memory.
+		downloading = FALSE
+		requires_ntnet = FALSE // Turn off NTNet requirement as we already loaded the file into local memory.
 	SSnanoui.update_uis(NM)
 
 /datum/computer_file/program/newsbrowser/kill_program()
 	..()
-	requires_ntnet = 1
+	requires_ntnet = TRUE
 	loaded_article = null
 	download_progress = 0
-	downloading = 0
-	show_archived = 0
+	downloading = FALSE
+	show_archived = FALSE
 
 /datum/computer_file/program/newsbrowser/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 	if(href_list["PRG_openarticle"])
-		. = 1
+		. = TRUE
 		if(downloading || loaded_article)
-			return 1
+			return TRUE
 
 		for(var/datum/computer_file/data/news_article/N in ntnet_global.available_news)
 			if(N.uid == text2num(href_list["PRG_openarticle"]))
 				loaded_article = N.clone()
-				downloading = 1
+				downloading = TRUE
 				break
 	if(href_list["PRG_reset"])
-		. = 1
-		downloading = 0
+		. = TRUE
+		downloading = FALSE
 		download_progress = 0
-		requires_ntnet = 1
+		requires_ntnet = TRUE
 		loaded_article = null
 	if(href_list["PRG_clearmessage"])
-		. = 1
+		. = TRUE
 		message = ""
 	if(href_list["PRG_savearticle"])
-		. = 1
+		. = TRUE
 		if(downloading || !loaded_article)
 			return
 
 		var/savename = sanitize(input(usr, "Enter file name or leave blank to cancel:", "Save article", loaded_article.filename))
 		if(!savename)
-			return 1
+			return TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		if(!HDD)
-			return 1
+			return TRUE
 		var/datum/computer_file/data/news_article/N = loaded_article.clone()
 		N.filename = savename
 		HDD.store_file(N)
 	if(href_list["PRG_toggle_archived"])
-		. = 1
+		. = TRUE
 		show_archived = !show_archived
 	if(.)
 		SSnanoui.update_uis(NM)
@@ -124,7 +124,6 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "news_browser.tmpl", "NTNet/ExoNet News Browser", 575, 700, state = state)
-		ui.auto_update_layout = 1
+		ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)
 		ui.open()
-

@@ -315,3 +315,14 @@
 	description = "For those that value leg-room."
 	path = /obj/item/clothing/under/rank/cargotech/alt
 	allowed_roles = list("Cargo Technician")
+
+/datum/gear/uniform/pyjama
+	display_name = "pyjamas"
+	path = /obj/item/clothing/under/pj/blue
+
+/datum/gear/uniform/pyjama/New()
+	..()
+	var/pyjamas = list()
+	pyjamas["blue pyjamas"] = /obj/item/clothing/under/pj/blue
+	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
+	gear_tweaks += new/datum/gear_tweak/path(pyjamas)

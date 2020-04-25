@@ -7,8 +7,8 @@
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi'
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_backpacks.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_backpacks.dmi'
 		)
 	icon_state = "backpack"
 	item_state = null

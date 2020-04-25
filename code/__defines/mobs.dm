@@ -111,6 +111,22 @@
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
 
+//Augment organs
+#define BP_AUG_TIMEPIECE    "integrated timepiece"
+#define BP_AUG_PDA          "integrated pda"
+#define BP_AUG_TOOL         "retractable combitool"
+#define BP_AUG_PEN          "retractable combipen"
+#define BP_AUG_LIGHTER      "retractable lighter"
+#define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_TESLA        "tesla spine"
+#define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
+#define BP_AUG_HAIR         "synthetic hair extensions"
+#define BP_AUG_SUSPENSION   "calf suspension"
+#define BP_AUG_TASTE_BOOSTER   "taste booster"
+#define BP_AUG_RADIO        "integrated radio"
+#define BP_AUG_FUEL_CELL    "integrated fuel cell"
+#define BP_AUG_AIR_ANALYZER "integrated air analyzer"
+
 //Organ defines
 #define PROCESS_ACCURACY 10
 #define DEFAULT_BLOOD_AMOUNT 560 //Default blood amount in units
@@ -304,6 +320,7 @@
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
+#define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

@@ -4,17 +4,17 @@
 	program_icon_state = "sudoku"				// Icon state of this program's screen.
 	extended_desc = "A game of numbers, logic, and deduction. Popular for centuries to keep the mind sharp."		// A nice description.
 	size = 5								// Size in GQ. Integers only. Smaller sizes should be used for utility/low use programs (like this one), while large sizes are for important programs.
-	requires_ntnet = 0						// This particular program does not require NTNet network conectivity...
-	available_on_ntnet = 1					// ... but we want it to be available for download.
+	requires_ntnet = FALSE					// This particular program does not require NTNet network conectivity...
+	available_on_ntnet = TRUE				// ... but we want it to be available for download.
 	nanomodule_path = /datum/nano_module/program/sudoku	// Path of relevant nano module. The nano module is defined further in the file.
 	usage_flags = PROGRAM_ALL_REGULAR
 
 /datum/nano_module/program/sudoku
 	var/list/grid = null
-	var/building = 0
+	var/building = FALSE
 	var/list/solution = list()
 
-	var/cheated = 0
+	var/cheated = FALSE
 
 	var/list/boxes = list(//Most efficient way i could think to do this
 	"11" = list(1,2,3,10,11,12,19,20,21),
@@ -28,19 +28,19 @@
 	"33" = list(61,62,63,70,71,72,79,80,81)
 	)
 	var/message = ""//Error or informational message shown on screen.
-	var/lastmessage = ""
-	var/messagesent = 0
-	var/list/clues = list("Easy" = 36,"Medium"=31,"Hard"=26,"Robust"=17)
-	var/lastuser = null
-	var/wongame = 0
+	var/last_message = ""
+	var/message_sent = FALSE
+	var/list/clues = list("Easy" = 36, "Medium" = 31,"Hard" = 26,"Robust" = 17)
+	var/last_user
+	var/won_game = FALSE
 	var/datum/computer_file/program/game/sudoku
 
-	var/newdifficulty = "Easy"//The selected difficulty mode for generating the next grid
+	var/new_difficulty = "Easy" //The selected difficulty mode for generating the next grid
 
-	var/collapse = 0
+	var/collapse = FALSE
 	var/width = 900
 
-/datum/nano_module/program/sudoku/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 0, var/datum/topic_state/state = default_state)
+/datum/nano_module/program/sudoku/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = FALSE, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
 
 	if (!grid)
@@ -49,88 +49,85 @@
 	data["src"] = "\ref[src]"
 	data["collapse"] = collapse
 	data["message"] = message
-	data["difficulty"] = newdifficulty
-	if (message != lastmessage)
-		lastmessage = message
-		messagesent = world.time
-	else if ((world.time - messagesent) > 100)//Make sure that messages show onscreen for at least 10 seconds
+	data["difficulty"] = new_difficulty
+	if (message != last_message)
+		last_message = message
+		message_sent = world.time
+	else if ((world.time - message_sent) > 100)//Make sure that messages show onscreen for at least 10 seconds
 		message = ""//Displays for one refresh only
-	lastuser = user
+	last_user = user
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "sudoku.tmpl", "Sudoku", width, 557, state = state)
 		//if(host.update_layout()) // This is necessary to ensure the status bar remains updated along with rest of the UI.
-		ui.auto_update_layout = 1
+		ui.auto_update_layout = TRUE
 		ui.set_initial_data(data)
 		ui.open()
-		ui.set_auto_update(0)
-
-
+		ui.set_auto_update(FALSE)
 
 /datum/nano_module/program/sudoku/Topic(var/href, var/list/href_list)
 	..()
 
-
 	if(href_list["save"])//This is called with every keypress
 		save_grid(href_list)
 		return//No refreshing for every input
-	else if (href_list["check"])
+	else if(href_list["check"])
 		save_grid(href_list)
 		check_validity()
-	else if (href_list["hint"])//Reveals one tile
-		var/response = alert(usr,"Are you sure you want a hint? This will reveal the correct number for one tile. But you'll lose the pride of having figured it out yourself..","Ask for a hint","Help me","I can do it myself")
-		if (response == "Help me")
+	else if(href_list["hint"])//Reveals one tile
+		var/response = alert(usr, "Are you sure you want a hint? This will reveal the correct number for one tile. But you'll lose the pride of having figured it out yourself...", "Ask for a hint", "Help me.", "I can do it myself.")
+		if(response == "Help me.")
 			solver(1)
 		else
 			return
-	else if (href_list["solve"])
+	else if(href_list["solve"])
 		solver(81)
-	else if (href_list["clear"])
-		var/response = alert(usr,"Are you sure you want to clear the grid? This will remove all the numbers you've typed in. The starting clues will remain.","Clear board","Clear it","Wait no!")
-		if (response == "Clear it")
-			clear_grid(0)
+	else if(href_list["clear"])
+		var/response = alert(usr, "Are you sure you want to clear the grid? This will remove all the numbers you've typed in. The starting clues will remain.", "Clear board", "Clear it.", "Wait no!")
+		if(response == "Clear it.")
+			clear_grid(FALSE)
 		else
 			return
-	else if (href_list["purge"])
-		clear_grid(1)
-	else if (href_list["difficulty"])
-		newdifficulty = href_list["difficulty"]
-	else if (href_list["newgame"])
-		var/response = alert(usr,"Are you sure you want to start a new game? All progress on this one will be lost. Be sure to pick your desired difficulty first.","New Puzzle","Start Anew","Wait no!")
-		if (response == "Start Anew")
-			advanced_populate_grid(clues[newdifficulty])
+	else if(href_list["purge"])
+		clear_grid(TRUE)
+	else if(href_list["difficulty"])
+		new_difficulty = href_list["difficulty"]
+	else if(href_list["newgame"])
+		var/response = alert(usr, "Are you sure you want to start a new game? All progress on this one will be lost. Be sure to pick your desired difficulty first.", "New Puzzle", "Start Anew.", "Wait no!")
+		if(response == "Start Anew.")
+			advanced_populate_grid(clues[new_difficulty])
 		else
 			return
-	else if (href_list["collapse"])
+	else if(href_list["collapse"])
 		collapse = !collapse
 		set_width(usr)
 		return
 
-	if (usr)
+	if(usr)
 		ui_interact(usr)
 
 /datum/nano_module/program/sudoku/proc/set_width(var/mob/user)
-	if (collapse)
+	if(collapse)
 		width = 400
 	else
 		width = 900
 
 	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
-	if (ui)
+	if(ui)
 		ui.close()
-		ui_interact(user, force_open = 1)
+		ui_interact(user, force_open = TRUE)
 
 /datum/nano_module/program/sudoku/proc/save_grid(var/list/inputdata)
 	var/i = 1
-	for (i = 1, i <= 81, i++)
+	for(i = 1, i <= 81, i++)
 		var/list/cell = grid[i]
 		var/v = text2num(inputdata["[i]"])
-		if (inputdata["[i]"] == "" || (v > 0 && v < 10))
+		if(inputdata["[i]"] == "" || (v > 0 && v < 10))
 			cell["value"] = inputdata["[i]"]
 
 /datum/nano_module/program/sudoku/proc/create_grid()
-	if (grid)
+	if(grid)
 		grid.Cut()
 	grid = list()
 
@@ -188,21 +185,15 @@
 	var/row = 1
 	var/column = 1
 
-	if (index <= 9)
+	if(index <= 9)
 		column = index
 	else
-		while (index > 9)
+		while(index > 9)
 			index -= 9
 			row++
 		column = index
 
-
-
 	return "[row][column]"
-
-
-
-
 
 //Clears the grid:
 //With an input of 0, clears all user input and restores the grid to just the generated clues
@@ -214,6 +205,6 @@
 			tile["value"] = ""
 			tile["static"] = 0
 			tile["highlight"] = 0
-	if (full)
-		cheated = 0
-		wongame = 0
+	if(full)
+		cheated = FALSE
+		won_game = FALSE
