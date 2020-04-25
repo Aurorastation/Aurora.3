@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added optional floating messages above people's heads when they speak. Press Toggle Floating Messages in the OOC tab to enable this."
