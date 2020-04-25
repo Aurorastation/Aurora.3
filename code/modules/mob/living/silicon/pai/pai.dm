@@ -137,7 +137,7 @@
 
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
-	verbs += /mob/living/silicon/pai/computer_interact
+	verbs += /mob/living/silicon/proc/computer_interact
 
 	//PDA
 	pda = new(src)
@@ -526,9 +526,3 @@ var/list/pai_emotions = list(
 
 	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
 	card.setEmotion(pai_emotions[selection])
-
-/mob/living/silicon/pai/computer_interact()
-	set category = "pAI Commands"
-	set name = "Open Computer Interface"
-	
-	computer.attack_self(src)
