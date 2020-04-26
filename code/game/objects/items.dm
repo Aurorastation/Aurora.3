@@ -669,14 +669,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/cannotzoom
 
-	if(M.stat || !(istype(M,/mob/living/carbon/human)))
-		to_chat(M, "You are unable to focus through the [devicename]")
+	if(M.stat || !(ishuman(M)))
+		to_chat(M, SPAN_WARNING("You are unable to focus through \the [devicename]!"))
 		cannotzoom = 1
 	else if(!zoom && global_hud.darkMask[1] in M.client.screen)
-		to_chat(M, "Your visor gets in the way of looking through the [devicename]")
+		to_chat(M, SPAN_WARNING("Your visor gets in the way of looking through the [devicename]!"))
 		cannotzoom = 1
 	else if(!zoom && M.get_active_hand() != src)
-		to_chat(M, "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better")
+		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1
 
 	if(!zoom && !cannotzoom)
@@ -702,7 +702,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_x = -viewoffset
 				M.client.pixel_y = 0
 
-		M.visible_message("[M] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
+		M.visible_message("<b>[M]</b> peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
 
 	else
 		M.client.view = world.view
@@ -714,7 +714,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			M.visible_message("[zoomdevicename ? "[M] looks up from the [src.name]" : "[M] lowers the [src.name]"].")
+			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from the [src.name]" : "<b>[M]</b> lowers the [src.name]"].")
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill

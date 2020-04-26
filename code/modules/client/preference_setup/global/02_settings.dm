@@ -94,6 +94,7 @@
 		"<b>Space Parallax:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_SPACE]'><b>[(pref.toggles_secondary & PARALLAX_SPACE) ? "Yes" : "No"]</b></a><br>",
 		"<b>Space Dust:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_DUST]'><b>[(pref.toggles_secondary & PARALLAX_DUST) ? "Yes" : "No"]</b></a><br>",
 		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
+		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
 		"<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.toggles_secondary & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>"
 	)
 
