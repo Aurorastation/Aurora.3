@@ -35,7 +35,7 @@
 		if(istype(computer_host, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = computer_host
 			return R.cell_use_power(power_usage)
-		// If we are in AI or pAI we just don't botherwith power use.
+		// If we are in AI or pAI we just don't bother with power use.
 		return TRUE
 	else
 		// If we don't have host, then we let regular computer code handle power - like batteries and tesla coils.

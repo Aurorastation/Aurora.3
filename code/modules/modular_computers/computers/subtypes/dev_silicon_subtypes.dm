@@ -18,6 +18,10 @@
 /obj/item/modular_computer/silicon/pai
 	hardware_flag = PROGRAM_SILICON_PAI
 
+/obj/item/modular_computer/silicon/ai/install_default_hardware()
+	. = ..()
+	hard_drive = new /obj/item/computer_hardware/hard_drive/small(src)
+
 /obj/item/modular_computer/silicon/pai/install_default_programs()
 	. = ..()
 	hard_drive.store_file(new /datum/computer_file/program/pai_directives())
