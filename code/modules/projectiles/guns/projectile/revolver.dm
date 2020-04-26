@@ -39,9 +39,9 @@
 /obj/item/gun/projectile/revolver/mateba
 	name = "automatic revolver"
 	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
-	icon = 'icons/obj/guns/mateba.dmi'
-	icon_state = "mateba"
-	item_state = "mateba"
+	icon = 'icons/obj/guns/autorevolver.dmi'
+	icon_state = "autorevolver"
+	item_state = "autorevolver"
 	max_shells = 7
 	accuracy = 2
 	caliber = "454"
