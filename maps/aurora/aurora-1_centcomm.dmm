@@ -5046,11 +5046,10 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "anJ" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,9"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "anK" = (
 /obj/structure/window/reinforced,
@@ -5295,11 +5294,10 @@
 	},
 /area/syndicate_station/start)
 "aoq" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,3"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aor" = (
 /obj/item/device/radio/intercom{
@@ -5319,11 +5317,10 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "aot" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,3"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aou" = (
 /obj/structure/table/rack,
@@ -5333,11 +5330,10 @@
 	},
 /area/syndicate_mothership)
 "aov" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,2"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aow" = (
 /obj/machinery/bodyscanner{
@@ -5374,18 +5370,16 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "aoC" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,2"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aoD" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,1"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aoE" = (
 /obj/structure/shuttle_part/mercenary{
@@ -5406,25 +5400,22 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "aoH" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,1"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aoI" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "1,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aoJ" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "5,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aoK" = (
 /obj/machinery/door/window{
@@ -5435,11 +5426,10 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "aoO" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "15,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "aoU" = (
 /obj/item/weldingtool,
@@ -5844,7 +5834,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "5,7"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "aqS" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -5891,7 +5881,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "1,7"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "ara" = (
 /obj/machinery/computer/shuttle_control{
@@ -15052,7 +15042,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNd" = (
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aNe" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -15076,21 +15066,21 @@
 	icon_state = "8,16";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aNh" = (
 /obj/structure/window/shuttle/unique/raider{
 	icon_state = "9,16";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aNi" = (
 /obj/structure/window/shuttle/unique/raider{
 	icon_state = "12,16";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aNj" = (
 /obj/machinery/door/airlock/hatch{
@@ -15340,7 +15330,7 @@
 	icon_state = "8,14";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aNQ" = (
 /obj/structure/window/shuttle/unique/raider{
@@ -15568,7 +15558,7 @@
 	icon_state = "7,12";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aOu" = (
 /obj/structure/shuttle_part/raider{
@@ -15576,7 +15566,7 @@
 	icon_state = "15,12";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aOv" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -15681,7 +15671,7 @@
 	icon_state = "15,11";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aOM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -15840,7 +15830,7 @@
 	icon_state = "0,10";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aPj" = (
 /obj/machinery/light{
@@ -15862,7 +15852,7 @@
 	icon_state = "0,9";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aPl" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -16091,7 +16081,7 @@
 	icon_state = "0,8";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aPD" = (
 /obj/machinery/door/airlock/hatch{
@@ -16986,7 +16976,7 @@
 	icon_state = "13,2";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aRF" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -18917,7 +18907,7 @@
 	icon_state = "6,15";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aWK" = (
 /obj/structure/shuttle_part/raider{
@@ -18925,7 +18915,7 @@
 	icon_state = "21,7";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aWL" = (
 /obj/structure/shuttle_part/raider{
@@ -18933,7 +18923,7 @@
 	icon_state = "0,5";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aWM" = (
 /obj/structure/shuttle_part/raider{
@@ -18941,7 +18931,7 @@
 	icon_state = "21,6";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aWO" = (
 /obj/structure/closet/walllocker/emerglocker/west,
@@ -19521,7 +19511,7 @@
 	icon_state = "8,3";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aYP" = (
 /turf/template_noop,
@@ -19685,7 +19675,7 @@
 	icon_state = "11,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "bhH" = (
 /turf/unsimulated/floor/plating,
@@ -19797,7 +19787,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "22,5"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "bpY" = (
 /obj/structure/closet/secure_closet/engineering_welding,
@@ -19812,7 +19802,7 @@
 	icon_state = "19,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "brN" = (
 /obj/structure/diona/vines,
@@ -20194,11 +20184,10 @@
 	},
 /area/centcom/legion/hangar5)
 "bVz" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "4,22"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "bVD" = (
 /obj/machinery/iv_drip,
@@ -20228,7 +20217,7 @@
 	icon_state = "21,2";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "bZd" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -20314,7 +20303,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "13,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "ceT" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -20529,7 +20518,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "0,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "cti" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -20803,11 +20792,10 @@
 	},
 /area/syndicate_station/start)
 "cJJ" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "14,13"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "cJP" = (
 /obj/structure/grille,
@@ -21138,11 +21126,10 @@
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "dff" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "8,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "dft" = (
 /obj/machinery/vending/engivend,
@@ -21239,14 +21226,13 @@
 	icon_state = "0,2";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "dlj" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "9,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "dmL" = (
 /obj/structure/shuttle_part/transfer{
@@ -21419,11 +21405,10 @@
 	},
 /area/centcom/legion/hangar5)
 "dzN" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "3,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "dzX" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -21544,7 +21529,7 @@
 	icon_state = "21,12";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "dJv" = (
 /obj/structure/shuttle_part/raider{
@@ -21714,11 +21699,10 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration/centcom)
 "dUb" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "9,25"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "dUn" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -21746,7 +21730,7 @@
 	icon_state = "13,15";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "dVV" = (
 /obj/structure/shuttle_part/mercenary{
@@ -22031,7 +22015,7 @@
 	icon_state = "0,7";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "eqB" = (
 /obj/structure/shuttle_part/raider{
@@ -22039,7 +22023,7 @@
 	icon_state = "13,3";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "erT" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -22064,7 +22048,7 @@
 	icon_state = "0,12";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "etF" = (
 /turf/unsimulated/floor{
@@ -22129,7 +22113,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "0,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "eyM" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -22198,7 +22182,7 @@
 	icon_state = "7,11";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "eIK" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -22405,7 +22389,7 @@
 	icon_state = "13,16";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "eUi" = (
 /obj/structure/flora/tree/jungle/small{
@@ -22493,11 +22477,10 @@
 	},
 /area/shuttle/administration/centcom)
 "eYM" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "11,23"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "eZa" = (
 /obj/structure/window/reinforced/crescent,
@@ -22566,11 +22549,10 @@
 	},
 /area/shuttle/legion/centcom)
 "fcf" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "3,16"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "fcL" = (
 /obj/structure/shuttle_part/raider{
@@ -22578,7 +22560,7 @@
 	icon_state = "1,1";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "fdh" = (
 /turf/unsimulated/floor/plating,
@@ -22887,7 +22869,7 @@
 	icon_state = "0,6";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "ftx" = (
 /obj/machinery/body_scanconsole{
@@ -22916,7 +22898,7 @@
 	icon_state = "17,17";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "fvK" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
@@ -22935,11 +22917,10 @@
 	},
 /area/centcom/legion/hangar5)
 "fwl" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "5,24"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "fwz" = (
 /turf/simulated/wall/shuttle/unique/arrivals{
@@ -23104,7 +23085,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "1,6"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "fKx" = (
 /turf/unsimulated/floor/plating,
@@ -23119,7 +23100,7 @@
 	icon_state = "7,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "fKU" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -23588,7 +23569,7 @@
 	icon_state = "15,13";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "gpf" = (
 /obj/effect/floor_decal/corner/red{
@@ -23873,11 +23854,10 @@
 	},
 /area/centcom/living)
 "gDr" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,12"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "gEu" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -23918,11 +23898,10 @@
 	},
 /area/skipjack_station/start)
 "gFC" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "15,13"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "gGc" = (
 /obj/machinery/door/window/eastleft{
@@ -24006,11 +23985,10 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "gMK" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "13,18"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "gMP" = (
 /obj/effect/decal/fake_object{
@@ -24095,7 +24073,7 @@
 	icon_state = "8,1";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "gTO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -24355,11 +24333,10 @@
 	},
 /area/centcom/legion)
 "hjW" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "5,23"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "hka" = (
 /obj/machinery/door/airlock/external{
@@ -24397,7 +24374,7 @@
 	icon_state = "5,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "hmm" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -24518,11 +24495,10 @@
 	},
 /area/syndicate_station/start)
 "hwY" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "10,25"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "hyh" = (
 /turf/simulated/floor/tiled/dark,
@@ -24555,7 +24531,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "13,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "hzB" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -24581,11 +24557,10 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant/start)
 "hAx" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,11"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "hAC" = (
 /turf/simulated/floor/beach/sand{
@@ -25128,7 +25103,7 @@
 	icon_state = "0,15";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "ibb" = (
 /obj/structure/shuttle_part/transfer{
@@ -25315,7 +25290,7 @@
 	icon_state = "21,4";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "igQ" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
@@ -25353,7 +25328,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "11,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "ijX" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -25445,7 +25420,7 @@
 	icon_state = "7,1";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "iqr" = (
 /turf/simulated/wall/shuttle/unique/transfer{
@@ -25460,7 +25435,7 @@
 	icon_state = "10,17";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "iqu" = (
 /obj/structure/shuttle_part/tcfl{
@@ -25512,11 +25487,10 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "itF" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "4,21"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "iuk" = (
 /obj/machinery/door/airlock/glass_command{
@@ -25716,7 +25690,7 @@
 	icon_state = "0,14";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "iJr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -25757,11 +25731,10 @@
 	},
 /area/centcom/legion/hangar5)
 "iMy" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,7"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "iMB" = (
 /obj/structure/curtain/open/shower,
@@ -26121,11 +26094,10 @@
 /turf/space,
 /area/syndicate_station/start)
 "jhe" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "10,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "jhr" = (
 /obj/structure/table/rack,
@@ -26266,7 +26238,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "22,1"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "jup" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -26471,7 +26443,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "12,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "jIw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -26605,7 +26577,7 @@
 	icon_state = "0,1";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "jSZ" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -26703,7 +26675,7 @@
 	icon_state = "13,14";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "kbi" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -26770,7 +26742,7 @@
 	icon_state = "21,10";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "kgq" = (
 /turf/simulated/wall/shuttle/unique/ccia{
@@ -26834,7 +26806,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "1,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "kiw" = (
 /turf/simulated/floor/beach/sand{
@@ -27152,7 +27124,7 @@
 	icon_state = "21,8";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "kGE" = (
 /obj/structure/shuttle_part/mercenary{
@@ -27224,18 +27196,17 @@
 	icon_state = "8,2";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "kJo" = (
 /obj/machinery/merchant_pad,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "kJv" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "8,1"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "kJM" = (
 /obj/item/modular_computer/console/preset/security,
@@ -27463,7 +27434,7 @@
 	icon_state = "20,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "kYV" = (
 /obj/machinery/status_display{
@@ -27518,11 +27489,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration/centcom)
 "lfc" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "4,20"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "lfp" = (
 /obj/machinery/light{
@@ -27588,7 +27558,7 @@
 	icon_state = "3,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "liJ" = (
 /obj/structure/sink{
@@ -27673,7 +27643,7 @@
 	icon_state = "6,14";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "lpa" = (
 /obj/structure/flora/rock/pile,
@@ -27755,7 +27725,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "11,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "lwA" = (
 /obj/item/device/radio/intercom{
@@ -27809,7 +27779,7 @@
 	icon_state = "21,11";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "lze" = (
 /obj/item/stool/padded,
@@ -27854,11 +27824,10 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "lBZ" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "6,25"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "lCv" = (
 /obj/structure/window/shuttle/unique/transfer{
@@ -27867,11 +27836,10 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "lDO" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,4"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "lEa" = (
 /turf/simulated/floor/carpet,
@@ -28023,7 +27991,7 @@
 	icon_state = "18,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "lNi" = (
 /obj/structure/shuttle_part/mercenary{
@@ -28032,11 +28000,10 @@
 /turf/space,
 /area/syndicate_station/start)
 "lOl" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,5"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "lOU" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -28056,7 +28023,7 @@
 	icon_state = "14,1";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "lQc" = (
 /turf/simulated/floor/tiled/dark,
@@ -28123,7 +28090,7 @@
 	icon_state = "0,13";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "lSL" = (
 /turf/simulated/wall/shuttle/unique/transfer{
@@ -28201,7 +28168,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "5,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "lXX" = (
 /obj/machinery/light{
@@ -28266,7 +28233,7 @@
 	icon_state = "20,1";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "mbZ" = (
 /obj/structure/shuttle_part/tcfl{
@@ -28468,7 +28435,7 @@
 	icon_state = "0,11";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "mrm" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -28559,11 +28526,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
 "mwf" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "2,14"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "mwP" = (
 /obj/machinery/washing_machine,
@@ -28640,11 +28606,10 @@
 	},
 /area/shuttle/administration/centcom)
 "mAP" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,6"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "mBc" = (
 /turf/simulated/wall/shuttle/unique/transfer{
@@ -28699,7 +28664,7 @@
 	icon_state = "9,17";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "mFy" = (
 /obj/machinery/requests_console{
@@ -28872,7 +28837,7 @@
 	icon_state = "14,11";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "mUu" = (
 /obj/machinery/atmospherics/pipe/tank/air{
@@ -29255,7 +29220,7 @@
 	icon_state = "10,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "nrc" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -29373,7 +29338,7 @@
 	icon_state = "11,17";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "nzS" = (
 /turf/simulated/floor/shuttle/black,
@@ -29420,7 +29385,7 @@
 	icon_state = "21,13";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "nCr" = (
 /obj/item/flame/candle{
@@ -29803,7 +29768,7 @@
 	icon_state = "21,5";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "nVj" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -29819,7 +29784,7 @@
 	icon_state = "15,14";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "nXn" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -30094,11 +30059,10 @@
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "okB" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "okP" = (
 /obj/structure/shuttle_part/tcfl{
@@ -30143,11 +30107,10 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "omL" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "7,25"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "omT" = (
 /obj/vehicle/droppod/legion{
@@ -30595,7 +30558,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "1,2"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "oPB" = (
 /obj/structure/shuttle_part/arrivals{
@@ -30766,7 +30729,7 @@
 	icon_state = "6,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "oXQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -31124,14 +31087,13 @@
 	icon_state = "0,4";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "pyn" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,4"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "pyN" = (
 /obj/structure/shuttle_part/hapt{
@@ -31254,11 +31216,10 @@
 	},
 /area/centcom/legion/hangar5)
 "pFI" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,6"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "pGH" = (
 /obj/structure/closet/wardrobe/orange,
@@ -31361,7 +31322,7 @@
 	icon_state = "21,3";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "pOh" = (
 /obj/structure/closet/secure_closet/personal,
@@ -31411,11 +31372,10 @@
 /turf/space,
 /area/syndicate_station/start)
 "pRX" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "2,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "pSI" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -31690,11 +31650,10 @@
 	},
 /area/centcom/shared_dream)
 "qoj" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,7"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "qom" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -31791,7 +31750,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "22,6"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "qty" = (
 /obj/structure/table/reinforced,
@@ -31920,11 +31879,10 @@
 /turf/simulated/floor/grass/alt,
 /area/centcom/shared_dream)
 "qDw" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "6,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "qDS" = (
 /obj/structure/sink{
@@ -32022,18 +31980,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration/centcom)
 "qHD" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "13,16"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "qIn" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "3,18"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "qIB" = (
 /turf/unsimulated/floor{
@@ -32279,7 +32235,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "5,1"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "qTU" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -32295,11 +32251,10 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/merchant_station/warehouse)
 "qVB" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "1,13"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "qXk" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -32552,7 +32507,6 @@
 	},
 /area/shuttle/merchant/start)
 "rjj" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "12,1";
@@ -32673,7 +32627,7 @@
 	icon_state = "21,14";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "rug" = (
 /obj/effect/decal/cleanable/blood/drip,
@@ -32906,11 +32860,10 @@
 	},
 /area/centcom/distress_prep)
 "rMe" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "3,19"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "rMm" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -33070,7 +33023,7 @@
 	icon_state = "2,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "rWF" = (
 /obj/structure/shuttle_part/mercenary{
@@ -33130,7 +33083,7 @@
 	icon_state = "21,15";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "sbZ" = (
 /turf/simulated/wall/shuttle/unique/merchant{
@@ -33468,11 +33421,10 @@
 	},
 /area/shuttle/escape/centcom)
 "sxB" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "3,14"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "sxH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -33502,7 +33454,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "0,7"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "sDs" = (
 /obj/structure/table/wood/gamblingtable,
@@ -33816,7 +33768,7 @@
 	icon_state = "21,9";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "taH" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -33838,7 +33790,7 @@
 	icon_state = "8,15";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "tbE" = (
 /obj/machinery/meter,
@@ -33912,11 +33864,10 @@
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "tcP" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "12,20"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "tcY" = (
 /obj/machinery/light{
@@ -33985,7 +33936,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "14,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "tff" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -34074,11 +34025,10 @@
 	},
 /area/shuttle/administration/centcom)
 "tnD" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "11,24"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "tnJ" = (
 /obj/machinery/vending/snack{
@@ -34198,11 +34148,10 @@
 	},
 /area/syndicate_station/start)
 "tsk" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "14,14"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "tsY" = (
 /obj/structure/shuttle_part/hapt{
@@ -34232,7 +34181,7 @@
 	icon_state = "13,1";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "tvs" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -34435,14 +34384,13 @@
 	icon_state = "21,1";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "tLj" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "8,25"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "tMm" = (
 /turf/simulated/wall/shuttle/unique/cargo{
@@ -34618,7 +34566,7 @@
 	icon_state = "15,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "tWH" = (
 /turf/unsimulated/floor/plating,
@@ -34764,7 +34712,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "22,7"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "ueV" = (
 /obj/structure/table/wood,
@@ -34846,7 +34794,7 @@
 	icon_state = "1,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "unn" = (
 /obj/structure/sign/nosmoking_2,
@@ -34891,11 +34839,10 @@
 	},
 /area/shuttle/escape/centcom)
 "uqP" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "3,15"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "uqU" = (
 /obj/structure/bed/chair/comfy/brown{
@@ -34921,11 +34868,10 @@
 /turf/simulated/floor/grass/alt,
 /area/centcom/shared_dream)
 "urN" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "4,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "usI" = (
 /obj/structure/window/reinforced,
@@ -35001,13 +34947,13 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "5,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "uza" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "12,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "uAr" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -35053,7 +34999,7 @@
 	icon_state = "19,17";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "uEQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -35092,13 +35038,13 @@
 	icon_state = "15,15";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "uGk" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "1,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "uGS" = (
 /obj/machinery/access_button{
@@ -35192,11 +35138,10 @@
 	},
 /area/syndicate_station/start)
 "uLe" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "13,15"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "uLp" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -35247,11 +35192,10 @@
 	},
 /area/centcom/legion)
 "uNY" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "7,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "uPw" = (
 /obj/structure/flora/pottedplant{
@@ -35521,7 +35465,7 @@
 	icon_state = "0,3";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "vgQ" = (
 /obj/machinery/door/airlock/medical{
@@ -35546,7 +35490,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "22,4"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "vie" = (
 /obj/machinery/door/airlock/centcom{
@@ -35636,7 +35580,7 @@
 	icon_state = "12,17";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "vmR" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -35787,7 +35731,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "14,0"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "vwg" = (
 /obj/structure/shuttle_part/tcfl{
@@ -35903,7 +35847,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "0,1"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "vBl" = (
 /obj/structure/closet/emcloset,
@@ -36031,7 +35975,7 @@
 	icon_state = "14,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "vEy" = (
 /obj/effect/floor_decal/spline/plain{
@@ -36075,11 +36019,10 @@
 	},
 /area/shuttle/distress/centcom)
 "vIS" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,10"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "vJq" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -36324,7 +36267,7 @@
 /obj/structure/shuttle_part/merchant{
 	icon_state = "22,2"
 	},
-/turf/template_noop,
+/turf/space,
 /area/shuttle/merchant/start)
 "vZI" = (
 /obj/structure/noticeboard{
@@ -36462,11 +36405,10 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant/start)
 "whJ" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,9"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "whV" = (
 /obj/structure/table/wood,
@@ -36570,7 +36512,7 @@
 	icon_state = "14,12";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "wrr" = (
 /obj/structure/bed/chair/office/bridge/generic{
@@ -36640,11 +36582,10 @@
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "wxp" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,8"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "wxq" = (
 /obj/effect/decal/fake_object{
@@ -36855,11 +36796,10 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape/centcom)
 "wHk" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "12,22"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "wHU" = (
 /obj/effect/floor_decal/industrial/loading,
@@ -37010,11 +36950,10 @@
 	},
 /area/centcom/legion)
 "wXJ" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "16,5"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "wYc" = (
 /obj/machinery/light/small/emergency{
@@ -37053,7 +36992,7 @@
 	icon_state = "17,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "wZJ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -37088,7 +37027,7 @@
 	icon_state = "16,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "xcr" = (
 /obj/machinery/light{
@@ -37492,7 +37431,7 @@
 	icon_state = "4,0";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "xDI" = (
 /obj/structure/shuttle/engine/heater,
@@ -37596,11 +37535,10 @@
 /turf/simulated/floor/tiled,
 /area/skipjack_station/start)
 "xGX" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "13,19"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "xKx" = (
 /obj/structure/window/reinforced{
@@ -37849,11 +37787,10 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/syndicate_station/start)
 "ycB" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "12,21"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "yex" = (
 /obj/structure/bed/chair/office/bridge/generic{
@@ -78514,7 +78451,7 @@ etF
 etF
 rlk
 bmH
-mbM
+ifh
 wne
 wne
 wne
@@ -78771,7 +78708,7 @@ etF
 aWb
 mbM
 bmH
-mbM
+ifh
 wne
 wne
 wne
@@ -79014,21 +78951,21 @@ wne
 wne
 wne
 mbM
-mbM
-mbM
-mbM
 aEU
 mbM
-ifh
-ifh
-aWi
-aWi
-aWi
-ifh
-ifh
 mbM
-aEU
 mbM
+mbM
+ifh
+ifh
+aWi
+aWi
+aWi
+ifh
+ifh
+ifh
+ifh
+ifh
 ddK
 xFd
 xbK
@@ -79549,13 +79486,13 @@ aXh
 wne
 ifh
 aJG
-aJH
-aJH
-aJH
-aJG
-aJH
-aJH
-aJH
+aKn
+aKD
+aLg
+oPB
+tXm
+aMf
+wbN
 aJH
 aJG
 aKZ
@@ -79806,13 +79743,13 @@ aXi
 wne
 ifh
 aJH
-aKn
-aKD
-aLg
-oPB
-tXm
-aMf
-wbN
+oxr
+hFS
+aLh
+aLE
+aLI
+lHt
+fPE
 aJH
 aJH
 aNw
@@ -80063,13 +80000,13 @@ jON
 wne
 ifh
 aJH
-oxr
-hFS
-aLh
-aLE
-aLI
-lHt
-fPE
+tZN
+aKE
+iOA
+tIB
+pVW
+aMg
+aMz
 aJH
 aJH
 aKZ
@@ -80320,13 +80257,13 @@ xGb
 wne
 ifh
 aJH
-tZN
-aKE
-iOA
-tIB
-pVW
-aMg
-aMz
+vNl
+aKK
+aKK
+aKK
+aKK
+aKK
+aMA
 aKZ
 aKZ
 aKZ
@@ -80577,13 +80514,13 @@ aXj
 wne
 ifh
 aJH
-vNl
+isr
+aKG
 aKK
+aLj
+aLj
 aKK
-aKK
-aKK
-aKK
-aMA
+gdU
 aMN
 aNb
 aMN
@@ -80835,12 +80772,12 @@ wne
 ifh
 aJH
 isr
-aKG
+aKH
 aKK
-aLj
-aLj
 aKK
-gdU
+aKK
+wTI
+isr
 aKZ
 aKZ
 aKZ
@@ -81091,13 +81028,13 @@ aXj
 wne
 ifh
 aJH
-isr
-aKH
+aKo
+aKI
 aKK
+aLj
+aLj
 aKK
-aKK
-wTI
-isr
+aKo
 aJH
 aJH
 aKZ
@@ -81348,13 +81285,13 @@ pHg
 wne
 ifh
 aJH
-aKo
+isr
 aKI
 aKK
-aLj
-aLj
+htp
 aKK
-aKo
+aKK
+isr
 aJH
 aNc
 aNw
@@ -81605,13 +81542,13 @@ ibb
 wne
 ifh
 aJH
-isr
+aKo
 aKI
 aKK
-htp
+aLj
+aLj
 aKK
-aKK
-isr
+aKo
 aJH
 aJH
 aKZ
@@ -81862,13 +81799,13 @@ xun
 wne
 ifh
 aJH
-aKo
-aKI
+isr
+hHE
 aKK
-aLj
-aLj
 aKK
-aKo
+aKK
+mFy
+isr
 aKZ
 aKZ
 aKZ
@@ -82120,12 +82057,12 @@ wne
 ifh
 aJH
 isr
-hHE
+aKG
 aKK
+aLj
+aLj
 aKK
-aKK
-mFy
-isr
+gdU
 aMN
 aNb
 aMN
@@ -82377,12 +82314,12 @@ wne
 ifh
 aJH
 isr
-aKG
 aKK
-aLj
-aLj
 aKK
-gdU
+aKK
+aKK
+aKK
+isr
 aKZ
 aKZ
 aKZ
@@ -82633,13 +82570,13 @@ kbl
 wne
 ifh
 aJH
-isr
-aKK
-aKK
-aKK
-aKK
-aKK
-isr
+fwz
+oiW
+aLk
+aLG
+aLJ
+iGD
+cYR
 aJH
 aJH
 aKZ
@@ -82890,13 +82827,13 @@ wne
 wne
 ifh
 aJH
-fwz
-oiW
-aLk
-aLG
-aLJ
-iGD
-cYR
+uyK
+wUv
+lQQ
+pgL
+uon
+exn
+qnL
 aJH
 aJH
 aNw
@@ -83147,13 +83084,13 @@ wne
 wne
 ifh
 aJH
-uyK
-wUv
-lQQ
-pgL
-uon
-exn
-qnL
+aJH
+aJH
+aJH
+aJH
+aJH
+aJH
+aJH
 aJH
 aJH
 aKZ
