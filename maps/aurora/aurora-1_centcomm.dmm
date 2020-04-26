@@ -12302,6 +12302,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "escape_shuttle";
+	pixel_x = -25;
+	pixel_y = 0;
+	req_one_access = list(13);
+	tag_door = "escape_shuttle_hatch"
+	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape/centcom)
 "aGO" = (
@@ -21076,6 +21084,17 @@
 	name = "transport shuttle"
 	},
 /area/shuttle/escape/centcom)
+"cZH" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "arrival_shuttle";
+	pixel_x = 0;
+	pixel_y = -25;
+	req_one_access = list(13);
+	tag_door = "arrival_shuttle_hatch"
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/shuttle/arrival/centcom)
 "dau" = (
 /obj/machinery/washing_machine,
 /obj/machinery/light{
@@ -24515,9 +24534,6 @@
 /obj/structure/bed/chair/office/bridge,
 /obj/structure/window/reinforced{
 	dir = 8
-	},
-/obj/machinery/status_display{
-	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape/centcom)
@@ -28328,13 +28344,8 @@
 	},
 /area/shuttle/escape/centcom)
 "mjy" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "escape_shuttle";
-	pixel_x = -5;
-	pixel_y = 25;
-	req_one_access = list(13);
-	tag_door = "escape_shuttle_hatch"
+/obj/machinery/status_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape/centcom)
@@ -82318,7 +82329,7 @@ aKK
 aKK
 aKK
 aKK
-aKK
+cZH
 isr
 aKZ
 aKZ
