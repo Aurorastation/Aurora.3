@@ -52,10 +52,6 @@
 
 	computer.attack_self(src)
 
-/mob/living/silicon/emag_act(remaining_charges, mob/user, emag_source)
-	. = ..()
-	computer.emag_act(remaining_charges, user, emag_source)
-
 /********************
 *	Alarm Monitor	*
 ********************/
