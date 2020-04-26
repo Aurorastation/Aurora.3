@@ -41,7 +41,11 @@
 	</div>
 	<b>Connected Users</b><br>
 	{{for data.clients}}
-		{{:value.name}}<br>
+		{{:value.name}}
+		{{if !value.active}}
+		<i>(Away)</i>
+		{{/if}}
+		<br>
 	{{/for}}
 	<b>Chat Window</b>
         <div class="statusDisplay" style="overflow: auto;">

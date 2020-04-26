@@ -209,9 +209,7 @@
 		ui_header = "ntnrc_idle.gif"
 
 /datum/computer_file/program/chatclient/kill_program(var/forced = FALSE)
-	if(channel)
-		channel.remove_client(src)
-		channel = null
+	channel = null
 	ntnet_global.chat_clients -= src
 	..(forced)
 
@@ -246,7 +244,8 @@
 		var/list/clients[0]
 		for(var/datum/computer_file/program/chatclient/cl in C.channel.clients)
 			clients.Add(list(list(
-				"name" = cl.username
+				"name" = cl.username,
+				"active" = cl.program_state > PROGRAM_STATE_KILLED
 			)))
 		data["clients"] = clients
 		C.operator_mode = (C.channel.operator == C) ? 1 : 0

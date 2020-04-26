@@ -23,7 +23,7 @@ var/global/ntnrc_uid = 0
 	log_ntirc("[user.client.ckey]/([username]) : [message]", ckey=key_name(user), conversation=title)
 
 	for(var/datum/computer_file/program/chatclient/C in clients)
-		if(CC.program_state > PROGRAM_STATE_KILLED && C.username != username)
+		if(C.program_state > PROGRAM_STATE_KILLED && C.username != username)
 			C.computer.output_message(FONT_SMALL("<b>([get_title(C)]) [username]:</b> [message]"), 0)
 
 	message = "[worldtime2text()] [username]: [message]"
