@@ -80,6 +80,7 @@
 	var/bite_factor = 0.4
 	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
 	var/stomach_size_mult = 5
+	var/list/forbidden_foods = list()	//Foods this animal should never eat
 
 	//Seeking/Moving behaviour vars
 	var/min_scan_interval = 1//Minimum and maximum number of procs between a scan
@@ -296,6 +297,8 @@
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()
 	for(var/obj/item/reagent_containers/food/snacks/S in get_turf(src))
+		if(locate(S) in forbidden_foods)
+			continue
 		food_choices += S
 	if(food_choices.len) //Only when sufficiently hungry
 		UnarmedAttack(pick(food_choices))
@@ -404,15 +407,18 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			poke(1)
 
 		if(I_HURT)
-			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message("<span class='warning'>[M] [response_harm] \the [src]</span>")
-			M.do_attack_animation(src)
-			poke(1)
+			unarmed_harm_attack(M)
 
 	return
 
+/mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/human/user)
+	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
+	user.visible_message(SPAN_WARNING("[user] [response_harm] \the [src]!"))
+	user.do_attack_animation(src)
+	poke(TRUE)
+
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag. 
+	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
 		attacked_with_item(O, user)
 		return
 	if(has_udder)
@@ -446,8 +452,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
 		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
-		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off. 
-			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"] happily.")) //purring	
+		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
+			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
 		return
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -558,7 +564,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return 1
 
 /mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
-	set name = "Resist"
+	set name = "Make Sound"
 	set category = "Abilities"
 
 	if((usr && usr.stat == DEAD) || !make_sound)

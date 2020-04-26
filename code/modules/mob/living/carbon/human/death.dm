@@ -27,7 +27,6 @@
 		..()
 
 /mob/living/carbon/human/death(gibbed)
-
 	if(stat == DEAD)
 		return
 
@@ -64,7 +63,6 @@
 	callHook("death", list(src, gibbed))
 
 	if(!gibbed)
-		handle_organs()
 		if(species.death_sound)
 			playsound(loc, species.death_sound, 80, 1, 1)
 
@@ -75,7 +73,11 @@
 	if(wearing_rig)
 		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
 
-	. = ..(gibbed,species.death_message, species.death_message_range)
+	. = ..(gibbed, species.death_message, species.death_message_range)
+
+	if(!gibbed) //We want to handle organs one last time to make sure that hearts don't report a positive pulse after death.
+		handle_organs()
+
 	handle_hud_list()
 
 /mob/living/carbon/human/proc/ChangeToHusk()

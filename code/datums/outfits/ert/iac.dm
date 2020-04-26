@@ -22,7 +22,9 @@
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/storage/box/gloves = 1,
 		/obj/item/storage/box/syringes = 1,
-		/obj/item/device/flashlight/pen = 1
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/clothing/accessory/holster/armpit = 1
 	)
 
 	belt_contents = list(
@@ -30,7 +32,7 @@
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/reagent_containers/syringe = 1,
-		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1
+		/obj/item/reagent_containers/glass/bottle/norepinephrine = 1
 	)
 
 /datum/outfit/admin/ert/iac/get_id_access()
@@ -73,7 +75,7 @@
 	)
 
 	belt_contents = list(
-		/obj/item/ammo_magazine/c45x = 2,
+		/obj/item/ammo_magazine/c45x = 3,
 		/obj/item/device/flash = 1,
 		/obj/item/handcuffs/ziptie = 2,
 		/obj/item/melee/baton/loaded = 1,
@@ -93,5 +95,7 @@
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/storage/firstaid/adv = 2,
 		/obj/item/storage/firstaid/o2 = 1,
-		/obj/item/storage/box/syringes = 1
+		/obj/item/storage/box/syringes = 1,
+		/obj/item/gun/energy/pistol = 1,
+		/obj/item/clothing/accessory/holster/armpit = 1
 	)

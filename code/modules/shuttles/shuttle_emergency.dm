@@ -1,31 +1,31 @@
-/datum/shuttle/ferry/emergency
+/datum/shuttle/autodock/ferry/emergency
 	//pass
 
-/datum/shuttle/ferry/emergency/arrived()
+/datum/shuttle/autodock/ferry/emergency/New()
+	..()
+	if(emergency_shuttle.shuttle)
+		CRASH("An emergency shuttle has already been created.")
+		return
+	emergency_shuttle.shuttle = src
+
+/datum/shuttle/autodock/ferry/emergency/arrived()
+	. = ..()
 	if (istype(in_use, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = in_use
 		C.reset_authorization()
 
 	emergency_shuttle.shuttle_arrived()
 
-/datum/shuttle/ferry/emergency/long_jump(var/area/departing, var/area/destination, var/area/interim, var/travel_time, var/direction)
-	if (!location)
-		travel_time = SHUTTLE_TRANSIT_DURATION_RETURN
-	else
-		travel_time = SHUTTLE_TRANSIT_DURATION
+/datum/shuttle/autodock/ferry/emergency/long_jump(var/obj/effect/shuttle_landmark/destination, var/obj/effect/shuttle_landmark/interim, var/travel_time)
+	var/time_to_go = SHUTTLE_TRANSIT_DURATION
+	if(destination == waypoint_offsite)
+		time_to_go = SHUTTLE_TRANSIT_DURATION_RETURN
 
-	//update move_time and launch_time so we get correct ETAs
-	move_time = travel_time
+	..(destination, interim, time_to_go)
 	emergency_shuttle.launch_time = world.time
 
-	..()
-
-/datum/shuttle/ferry/emergency/move(var/area/origin,var/area/destination)
-	..(origin, destination)
-
-	if (origin == area_station)	//leaving the station
-		emergency_shuttle.departed = 1
-
+/datum/shuttle/autodock/ferry/emergency/shuttle_moved()
+	if (!emergency_shuttle.departed && next_location != waypoint_station) //leaving the station
 		var/list/replacements = list(
 			"%ETA%" = round(emergency_shuttle.estimate_arrival_time()/60,1),
 			"%dock%" = current_map.dock_name
@@ -34,15 +34,17 @@
 			priority_announcement.Announce(replacemany(current_map.emergency_shuttle_leaving_dock, replacements))
 		else
 			priority_announcement.Announce(replacemany(current_map.shuttle_leaving_dock, replacements))
+		emergency_shuttle.departed = TRUE
+	..()
 
-/datum/shuttle/ferry/emergency/can_launch(var/user)
+/datum/shuttle/autodock/ferry/emergency/can_launch(var/user)
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
 		if (!C.has_authorization())
 			return 0
 	return ..()
 
-/datum/shuttle/ferry/emergency/can_force(var/user)
+/datum/shuttle/autodock/ferry/emergency/can_force(var/user)
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
 
@@ -52,7 +54,7 @@
 			return 0
 	return ..()
 
-/datum/shuttle/ferry/emergency/can_cancel(var/user)
+/datum/shuttle/autodock/ferry/emergency/can_cancel(var/user)
 	//If we try to cancel it via the shuttle computer
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))
 		var/obj/machinery/computer/shuttle_control/emergency/C = user
@@ -61,13 +63,14 @@
 			return 0
 
 		// If the emergency shuttle is waiting to leave the station and the world time exceeded the force time
-		if (emergency_shuttle.waiting_to_leave() && (world.time > emergency_shuttle.force_time))
+		if(emergency_shuttle.waiting_to_leave() && (world.time > emergency_shuttle.force_time))
 			return 0
 
 	return ..()
 
-/datum/shuttle/ferry/emergency/launch(var/user)
-	if (!can_launch(user)) return
+/datum/shuttle/autodock/ferry/emergency/launch(var/user)
+	if (!can_launch(user))
+		return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
 		if (emergency_shuttle.autopilot)
@@ -80,8 +83,9 @@
 
 	..(user)
 
-/datum/shuttle/ferry/emergency/force_launch(var/user)
-	if (!can_force(user)) return
+/datum/shuttle/autodock/ferry/emergency/force_launch(var/user)
+	if (!can_force(user))
+		return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
 		if (emergency_shuttle.autopilot)
@@ -94,8 +98,9 @@
 
 	..(user)
 
-/datum/shuttle/ferry/emergency/cancel_launch(var/user)
-	if (!can_cancel(user)) return
+/datum/shuttle/autodock/ferry/emergency/cancel_launch(var/user)
+	if (!can_cancel(user))
+		return
 
 	if (istype(user, /obj/machinery/computer/shuttle_control/emergency))	//if we were given a command by an emergency shuttle console
 		if (emergency_shuttle.autopilot)
@@ -108,10 +113,8 @@
 
 	..(user)
 
-
-
 /obj/machinery/computer/shuttle_control/emergency
-	shuttle_tag = "Escape"
+	shuttle_tag = "Escape Shuttle"
 	var/debug = 0
 	var/req_authorizations = 2
 	var/list/authorized = list()
@@ -177,7 +180,7 @@
 
 /obj/machinery/computer/shuttle_control/emergency/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
-	var/datum/shuttle/ferry/emergency/shuttle = shuttle_controller.shuttles[shuttle_tag]
+	var/datum/shuttle/autodock/ferry/emergency/shuttle = SSshuttle.shuttles[shuttle_tag]
 	if (!istype(shuttle))
 		return
 
@@ -223,9 +226,9 @@
 	data = list(
 		"shuttle_status" = shuttle_status,
 		"shuttle_state" = shuttle_state,
-		"has_docking" = shuttle.docking_controller? 1 : 0,
-		"docking_status" = shuttle.docking_controller? shuttle.docking_controller.get_docking_status() : null,
-		"docking_override" = shuttle.docking_controller? shuttle.docking_controller.override_enabled : null,
+		"has_docking" = shuttle.active_docking_controller? 1 : 0,
+		"docking_status" = shuttle.active_docking_controller? shuttle.active_docking_controller.get_docking_status() : null,
+		"docking_override" = shuttle.active_docking_controller? shuttle.active_docking_controller.override_enabled : null,
 		"can_launch" = shuttle.can_launch(src),
 		"can_cancel" = shuttle.can_cancel(src),
 		"can_force" = shuttle.can_force(src),

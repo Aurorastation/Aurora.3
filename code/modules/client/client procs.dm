@@ -373,10 +373,8 @@
 	prefs.client = src					// Safety reasons here.
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
-#if DM_VERSION >= 511
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
-#endif // DM_VERSION >= 511
 	if(SStheming)
 		SStheming.apply_theme_from_perfs(src)
 
@@ -424,6 +422,9 @@
 			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
 			del(src)
 			return 0
+
+	if(!tooltips)
+		tooltips = new /datum/tooltip(src)
 
 	if(holder)
 		add_admin_verbs()
@@ -574,6 +575,10 @@
 	set category = "Preferences"
 	if(prefs)
 		prefs.ShowChoices(usr)
+
+/client/proc/apply_fps(var/client_fps)
+	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
+		vars["fps"] = prefs.clientfps
 
 //I honestly can't find a good place for this atm.
 //If the webint interaction gets more features, I'll move it. - Skull132

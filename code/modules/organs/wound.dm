@@ -245,7 +245,7 @@
 
 		if(BRUISE)
 			return /datum/wound/bruise
-		if(BURN)
+		if(BURN, LASER)
 			switch(damage)
 				if(50 to INFINITY)
 					return /datum/wound/burn/carbonised

@@ -142,7 +142,7 @@
 
 /obj/structure/sign/kiddieplaque
 	name = "\improper AI developers plaque"
-	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. The child appears to be retarded. Beneath the image, someone has scratched the word \"PACKETS\""
+	desc = "Next to the extremely long list of names and job titles, there is a drawing of a little child. Beneath the image, someone has scratched the word \"PACKETS\""
 	icon_state = "kiddieplaque"
 
 /obj/structure/sign/kiddieplaque/janitor
@@ -187,7 +187,7 @@
 
 /obj/structure/sign/patients_only
 	name = "\improper PATIENTS ONLY"
-	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the ISD.'"
+	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the security department.'"
 	icon_state = "patients_only"
 
 //Location and direction signs
@@ -424,6 +424,25 @@
 	flag_path = "eridani"
 
 /obj/item/flag/eridani/l
+	flag_size = 1
+
+/obj/structure/sign/flag/coalition
+	name = "Coalition of Colonies flag"
+	desc = "The flag of the diverse Coalition of Colonies."
+	icon_state = "coalition"
+
+/obj/structure/sign/flag/coalition/left
+	icon_state = "coalition_l"
+
+/obj/structure/sign/flag/coalition/right
+	icon_state = "coalition_r"
+
+/obj/item/flag/coalition
+	name = "Coalition of Colonies flag"
+	desc = "The flag of the diverse Coalition of Colonies."
+	flag_path = "coalition"
+
+/obj/item/flag/coalition/l
 	flag_size = 1
 
 /obj/structure/sign/flag/vaurca

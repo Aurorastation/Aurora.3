@@ -339,9 +339,6 @@ REQ_CULT_GHOSTWRITER 6
 ## Sets the number of available character slots
 CHARACTER_SLOTS 10
 
-## Uncomment to use overmap system for zlevel travel
-#USE_OVERMAP
-
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
 
@@ -402,6 +399,9 @@ STARLIGHT 0
 
 ## Chance, in percentage, of the merchant job slot being open at round start
 MERCHANT_CHANCE 20
+
+## How long before the crew can call the emergency shuttle. One hour by default.
+TIME_TO_CALL_EMERGENCY_SHUTTLE 36000
 
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
 ## Example races include: Human, Tajara, Skrell, Unathi

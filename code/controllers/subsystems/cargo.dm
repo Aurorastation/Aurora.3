@@ -37,7 +37,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	//shuttle movement
 	var/movetime = 1200
 	var/min_movetime = 1200
-	var/datum/shuttle/ferry/supply/shuttle
+	var/datum/shuttle/autodock/ferry/supply/shuttle
 
 	//Item vars
 	var/last_item_id = 0 //The ID of the last item that has been added
@@ -582,16 +582,15 @@ var/datum/controller/subsystem/cargo/SScargo
 
 //Sells stuff on the shuttle to centcom
 /datum/controller/subsystem/cargo/proc/sell()
-	var/area/area_shuttle = shuttle.get_location_area()
-	if(!area_shuttle)	return
+	if(!shuttle.shuttle_area)
+		return
 
 	var/msg = ""
 	var/matched_bounty = FALSE
 	var/sold_atoms = ""
 
-	for(var/place in area_shuttle)
-		var/area/shuttle/shuttle_area = place
-		for(var/atom/movable/AM in shuttle_area)
+	for(var/area/subarea in shuttle.shuttle_area)
+		for(var/atom/movable/AM in subarea)
 			if(bounty_ship_item_and_contents(AM, dry_run = FALSE))
 				matched_bounty = TRUE
 			if(!AM.anchored)
@@ -626,22 +625,23 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	var/list/approved_orders = get_orders_by_status("approved",0)
 
-	var/area/area_shuttle = shuttle.get_location_area()
-	if(!area_shuttle)
-		return 0
+	if(!shuttle.shuttle_area)
+		return
 
 	var/list/clear_turfs = list()
 
-	for(var/turf/T in area_shuttle)
-		if(T.density)	continue
-		var/contcount
-		for(var/atom/A in T.contents)
-			if(!A.simulated)
+	for(var/area/subarea in shuttle.shuttle_area)
+		for(var/turf/T in subarea)
+			if(T.density)
 				continue
-			contcount++
-		if(contcount)
-			continue
-		clear_turfs += T
+			var/contcount
+			for(var/atom/A in T.contents)
+				if(!A.simulated)
+					continue
+				contcount++
+			if(contcount)
+				continue
+			clear_turfs += T
 
 	for(var/datum/cargo_order/co in approved_orders)
 		if(!co)

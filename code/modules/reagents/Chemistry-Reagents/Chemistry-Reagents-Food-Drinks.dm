@@ -31,7 +31,7 @@
 
 /datum/reagent/kois/proc/infect(var/mob/living/carbon/human/H, var/alien, var/removed)
 	var/obj/item/organ/internal/parasite/P = H.internal_organs_by_name["blackkois"]
-	if((alien != IS_VAURCA) || !(istype(P) && P.stage >= 3))
+	if((alien != IS_VAURCA) && !(istype(P) && P.stage >= 3))
 		H.adjustToxLoss(1 * removed)
 		switch(kois_type)
 			if(1) //Normal
@@ -3237,6 +3237,8 @@
 
 /datum/reagent/alcohol/ethanol/pwine/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
+	M.add_chemical_effect(CE_HALLUCINATE, 1)
+	M.hallucination = max(M.hallucination, 25)
 	if(dose > 30)
 		M.adjustToxLoss(2 * removed)
 

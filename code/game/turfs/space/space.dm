@@ -5,6 +5,7 @@
 	icon_state = "0"
 	dynamic_lighting = 0
 	footstep_sound = null //Override to make sure because yeah
+	tracks_footprint = FALSE
 
 	plane = PLANE_SPACE_BACKGROUND
 
@@ -48,6 +49,9 @@
 /turf/space/levelupdate()
 	for(var/obj/O in src)
 		O.hide(0)
+
+/turf/space/is_solid_structure()
+	return locate(/obj/structure/lattice, src) //counts as solid structure if it has a lattice
 
 /turf/space/can_have_cabling()
 	if (locate(/obj/structure/lattice/catwalk) in src)

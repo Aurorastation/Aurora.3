@@ -11,7 +11,7 @@
 	active_power_usage = 2000
 	flags = OPENCONTAINER | NOREACT
 	clicksound = "button"
-	clickvol = "30"
+	clickvol = 30
 
 	var/operating = FALSE // Is it on?
 	var/dirty = 0 // = {0..100} Does it need cleaning?
@@ -58,7 +58,7 @@
 	reagents.my_atom = src
 	soundloop = new(list(src), FALSE)
 	if (mapload)
-		addtimer(CALLBACK(src, .proc/setup_recipes), 0)
+		addtimer(CALLBACK(src, .proc/setup_recipes), 1)
 	else
 		setup_recipes()
 

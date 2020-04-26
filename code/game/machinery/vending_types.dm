@@ -378,7 +378,6 @@
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/norepinephrine = 4,
-		/obj/item/reagent_containers/glass/bottle/stoxin = 4,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
 		/obj/item/reagent_containers/syringe = 12,
@@ -386,6 +385,8 @@
 		/obj/item/device/breath_analyzer = 2,
 		/obj/item/reagent_containers/glass/beaker = 4,
 		/obj/item/reagent_containers/dropper = 2,
+		/obj/item/stack/medical/bruise_pack = 5,
+		/obj/item/stack/medical/ointment = 5,		
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,
@@ -398,9 +399,6 @@
 		/obj/item/reagent_containers/inhaler/space_drugs = 2,
 		/obj/item/reagent_containers/pill/tox = 3,
 		/obj/item/reagent_containers/pill/stox = 4
-	)
-	premium = list(
-		/obj/item/reagent_containers/glass/bottle/inaprovaline = 2
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
@@ -550,7 +548,7 @@
 	icon_state = "seeds"
 	vend_id = "seeds"
 	products = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 3,		
+		/obj/item/seeds/ambrosiavulgarisseed = 3,
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
@@ -589,6 +587,7 @@
 		/obj/item/seeds/soyaseed = 3,
 		/obj/item/seeds/sugarcaneseed = 3,
 		/obj/item/seeds/sunflowerseed = 3,
+		/obj/item/seeds/sugartree = 2,
 		/obj/item/seeds/tobaccoseed = 3,
 		/obj/item/seeds/tomatoseed = 3,
 		/obj/item/seeds/towermycelium = 3,
@@ -609,7 +608,7 @@
 		/obj/item/seeds/ambrosiadeusseed = 3
 	)
 	prices = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 70,		
+		/obj/item/seeds/ambrosiavulgarisseed = 70,
 		/obj/item/seeds/appleseed = 50,
 		/obj/item/seeds/bananaseed = 60,
 		/obj/item/seeds/berryseed = 40,
@@ -648,6 +647,7 @@
 		/obj/item/seeds/soyaseed = 40,
 		/obj/item/seeds/sugarcaneseed = 20,
 		/obj/item/seeds/sunflowerseed = 20,
+		/obj/item/seeds/sugartree = 40,
 		/obj/item/seeds/tobaccoseed = 40,
 		/obj/item/seeds/tomatoseed = 30,
 		/obj/item/seeds/towermycelium = 20,

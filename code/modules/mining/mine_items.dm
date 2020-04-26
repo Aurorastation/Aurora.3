@@ -35,9 +35,13 @@
 
 /obj/item/device/flashlight/lantern
 	name = "lantern"
+	desc = "A mining lantern."
 	icon_state = "lantern"
 	item_state = "lantern"
-	desc = "A mining lantern."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	light_power = 1
 	brightness_on = 6
 	light_wedge = LIGHT_OMNI
@@ -49,12 +53,16 @@
 	name = "pickaxe"
 	desc = "The most basic of mining implements. Surely this is a joke?"
 	icon = 'icons/obj/tools.dmi'
+	icon_state = "pickaxe"
+	item_state = "pickaxe"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
 	force = 10.0
-	icon_state = "pickaxe"
-	item_state = "pickaxe"
 	w_class = 4.0
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
@@ -224,8 +232,8 @@
 
 /obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
-	icon_state = "handdrill"
-	item_state = "jackhammer"
+	icon_state = "miningdrill"
+	item_state = "miningdrill"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
 	desc = "Yours is the drill that will pierce through the rock walls."
 	drill_verb = "drilling"
@@ -287,7 +295,7 @@
 /obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
 	icon_state = "diamonddrill"
-	item_state = "jackhammer"
+	item_state = "diamonddrill"
 	digspeed = 3 //Digs through walls, girders, and can dig up sand
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 4, TECH_ENGINEERING = 5)
 	desc = "Yours is the drill that will pierce the heavens!"
@@ -327,12 +335,16 @@
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	icon_state = "shovel"
+	item_state = "shovel"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 8.0
 	throwforce = 4.0
-	item_state = "shovel"
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
@@ -359,8 +371,8 @@
 	name = "beacons"
 	desc = "A stack of light emitting beacons."
 	singular_name = "flag"
-	amount = 5
-	max_amount = 5
+	amount = 25
+	max_amount = 25
 	w_class = 2
 	icon = 'icons/obj/mining.dmi'
 	var/upright = FALSE
@@ -851,8 +863,10 @@ var/list/total_extraction_beacons = list()
 		beacon = A
 
 /obj/item/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user)
+	if(istype(A, /obj/item/storage/bag/ore))
+		return
 	if(!beacon)
-		to_chat(user, "\The [src] is not linked to a beacon, and cannot be used.")
+		to_chat(user, SPAN_WARNING("\The [src] is not linked to a beacon, and cannot be used."))
 		return
 	if(!istype(A))
 		return
@@ -885,6 +899,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/warp_core
 	name = "warp extraction beacon signaller"
 	desc = "Emits a signal which Warp-Item recovery devices can lock onto. Activate in hand to create a beacon."
+	description_info = "You can activate this item in-hand to create a static beacon, or you can click on an ore box with it to allow the ore box to be linked to warp packed mining satchels."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "subspace_amplifier"
 	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)

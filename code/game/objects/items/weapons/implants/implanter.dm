@@ -47,7 +47,7 @@
 
 				admin_attack_log(user, M, "Implanted using \the [src.name] ([src.imp.name])", "Implanted with \the [src.name] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
 
-				if(src.imp.implanted(M))
+				if(src.imp.implanted(M, user))
 					src.imp.forceMove(M)
 					src.imp.imp_in = M
 					src.imp.implanted = 1

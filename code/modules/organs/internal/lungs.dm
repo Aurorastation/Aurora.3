@@ -103,11 +103,8 @@
 		rupture()
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
-
-	if(is_broken())
-		safe_pressure_min *= 1.5
-	else if(is_bruised())
-		safe_pressure_min *= 1.25
+	// Lung damage increases the minimum safe pressure.
+	safe_pressure_min *= 1 + rand(1,4) * damage/max_damage
 
 	var/safe_exhaled_max = 10
 	var/safe_toxins_max = 0.2
@@ -115,7 +112,7 @@
 	var/SA_sleep_min = 5
 	var/inhaled_gas_used = 0
 
-	var/breath_pressure = (breath.total_moles*R_IDEAL_GAS_EQUATION*breath.temperature)/(BREATH_VOLUME * owner.species.breath_vol_mul)
+	var/breath_pressure = (breath.total_moles * R_IDEAL_GAS_EQUATION * breath.temperature) / (BREATH_VOLUME * owner.species.breath_vol_mul)
 
 	var/inhaling
 	var/poison

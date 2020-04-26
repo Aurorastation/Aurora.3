@@ -57,6 +57,11 @@
 			item_state = "large_3_wielded"
 		else
 			item_state = "large_3"
+	underlays.Cut()
+	if(length(gun_mods))
+		for(var/obj/item/laser_components/mod in gun_mods)
+			if(mod.gun_overlay)
+				underlays += mod.gun_overlay
 	update_held_icon()
 
 /obj/item/gun/energy/laser/prototype/proc/reset_vars()

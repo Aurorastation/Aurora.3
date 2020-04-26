@@ -65,7 +65,6 @@ var/global/list/robot_modules = list(
 
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
-	R.icon_selection_tries = -1
 	R.choose_icon()
 
 	for(var/obj/item/I in modules)
@@ -81,7 +80,6 @@ var/global/list/robot_modules = list(
 		R.radio.recalculateChannels()
 	R.set_module_sprites(list("Default" = "robot"))
 	R.icon_selected = FALSE
-	R.icon_selection_tries = -1
 	R.choose_icon()
 
 /obj/item/robot_module/Destroy()

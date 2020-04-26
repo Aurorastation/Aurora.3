@@ -19,12 +19,6 @@ var/list/nuke_disks = list()
 	antag_tags = list(MODE_MERCENARY)
 	antag_scaling_coeff = 6
 
-/datum/game_mode/nuclear/check_finished()
-	var/datum/shuttle/multi_shuttle/mercs = shuttle_controller.shuttles["Mercenary"]
-	if (mercs && mercs.returned_home)
-		return 1
-	return ..()
-
 //delete all nuke disks not on a station zlevel
 /datum/game_mode/nuclear/proc/check_nuke_disks()
 	for(var/obj/item/disk/nuclear/N in nuke_disks)

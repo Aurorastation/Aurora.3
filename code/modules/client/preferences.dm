@@ -28,6 +28,8 @@ datum/preferences
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
 	var/skin_theme = "Light"
+	//Style for popup tooltips
+	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
 
@@ -126,7 +128,7 @@ datum/preferences
 
 	// SPAAAACE
 	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
+	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES
 	var/clientfps = 0
 
 	var/list/pai = list()	// A list for holding pAI related data.

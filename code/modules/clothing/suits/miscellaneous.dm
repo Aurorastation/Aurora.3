@@ -190,7 +190,7 @@
 
 //coats
 
-/obj/item/clothing/suit/leathercoat
+/obj/item/clothing/suit/storage/leathercoat
 	name = "leather coat"
 	desc = "A long, thick black leather coat."
 	icon_state = "leathercoat_alt"
@@ -434,15 +434,6 @@
 	item_state = "trenchcoat_grey"
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
-
-/obj/item/clothing/suit/storage/toggle/trench/green
-	name = "green trenchcoat"
-	desc = "A comfy looking green trenchcoat with fur."
-	icon_state = "greentrench"
-	item_state = "greentrench"
-	icon_open = "greentrench_open"
-	icon_closed = "greentrench"
-	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/greengov
 	name = "green formal jacket"
