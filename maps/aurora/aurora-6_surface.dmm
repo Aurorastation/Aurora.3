@@ -6068,57 +6068,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
-"kC" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_pump"
-	},
-/obj/machinery/light/small,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_airlock";
-	pixel_x = 0;
-	pixel_y = 30;
-	req_one_access = list(13);
-	tag_airpump = "admin_shuttle_dock_pump";
-	tag_chamber_sensor = "admin_shuttle_dock_sensor";
-	tag_exterior_door = "admin_shuttle_dock_outer";
-	tag_interior_door = "admin_shuttle_dock_inner"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_sensor";
-	pixel_x = -8;
-	pixel_y = -30
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "kD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/lino/grey,
 /area/store)
-"kE" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1399;
-	master_tag = "admin_shuttle_dock_airlock";
-	name = "exterior access button";
-	pixel_x = 6;
-	pixel_y = -26;
-	req_access = list(10,13)
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "admin_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "kF" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -7877,6 +7831,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"nL" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1399;
+	master_tag = "admin_shuttle_dock_airlock";
+	name = "exterior access button";
+	pixel_x = 25;
+	pixel_y = 5;
+	req_access = list(10,13)
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1399;
+	icon_state = "door_locked";
+	id_tag = "admin_shuttle_dock_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "nM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -9988,6 +9962,16 @@
 	pixel_y = 0
 	},
 /turf/simulated/wall/r_wall,
+/area/bridge/levela)
+"rL" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/bridge/levela)
 "rN" = (
 /obj/structure/table/standard,
@@ -12273,27 +12257,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"wp" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 4;
-	name = "EXTERNAL AIRLOCK";
-	pixel_x = 0
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "wq" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -12582,6 +12545,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
+/area/bridge/levela)
+"xa" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
 /area/bridge/levela)
 "xb" = (
 /obj/effect/floor_decal/corner/paleblue/full,
@@ -21008,6 +20981,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
+"MD" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
+	icon_state = "space";
+	layer = 4;
+	name = "EXTERNAL AIRLOCK";
+	pixel_x = 0
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "ME" = (
 /obj/machinery/light{
 	dir = 1;
@@ -23123,6 +23120,32 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"Rf" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_pump"
+	},
+/obj/machinery/light/small,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_airlock";
+	pixel_x = 0;
+	pixel_y = -30;
+	req_one_access = list(13);
+	tag_airpump = "admin_shuttle_dock_pump";
+	tag_chamber_sensor = "admin_shuttle_dock_sensor";
+	tag_exterior_door = "admin_shuttle_dock_outer";
+	tag_interior_door = "admin_shuttle_dock_inner"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_sensor";
+	pixel_x = -8;
+	pixel_y = -30
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Rg" = (
 /obj/machinery/porta_turret{
 	dir = 6
@@ -24192,6 +24215,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"Tj" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1399;
+	icon_state = "door_locked";
+	id_tag = "admin_shuttle_dock_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Tk" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -59222,7 +59256,7 @@ bU
 bU
 bU
 bU
-mf
+bU
 bU
 bU
 bU
@@ -59478,7 +59512,7 @@ bU
 bU
 bU
 bU
-bU
+mf
 bU
 bU
 bU
@@ -80851,7 +80885,7 @@ aw
 rJ
 aa
 we
-hq
+xi
 we
 aa
 aa
@@ -81108,8 +81142,8 @@ aw
 aa
 aa
 we
-kA
-wf
+xi
+we
 aa
 aa
 aa
@@ -81365,8 +81399,8 @@ aw
 aa
 aa
 we
-kC
-yl
+xh
+we
 aa
 aa
 aa
@@ -81621,9 +81655,9 @@ aw
 aw
 aa
 aa
-wp
-kE
-sw
+we
+xi
+we
 aa
 aa
 aa
@@ -81869,6 +81903,18 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+we
+xi
+we
 aa
 aa
 aa
@@ -81877,20 +81923,8 @@ aa
 aa
 aa
 aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+aa
+aa
 aa
 aa
 aa
@@ -82126,28 +82160,28 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+we
+xi
+we
 aa
 aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -82383,28 +82417,28 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+we
+xi
+we
 aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -82649,20 +82683,20 @@ aw
 aw
 aw
 aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+we
+xi
+we
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -82906,21 +82940,21 @@ aw
 aw
 aw
 aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+we
+xh
+we
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -83163,21 +83197,21 @@ aw
 aw
 aw
 aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+we
+xi
+we
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -83402,6 +83436,27 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+we
+xi
+we
 aa
 aa
 aa
@@ -83411,30 +83466,9 @@ aa
 aa
 aa
 aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-dN
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+aa
+aa
+aa
 aa
 aa
 aa
@@ -83653,6 +83687,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+we
+xi
+we
 aa
 aa
 aa
@@ -83665,33 +83726,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
 aa
 aa
 aa
@@ -83909,6 +83943,34 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+we
+xi
+we
 aa
 aa
 aa
@@ -83921,34 +83983,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
 aa
 aa
 aa
@@ -84165,6 +84199,35 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+we
+hq
+we
 aa
 aa
 aa
@@ -84176,35 +84239,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
 aa
 aa
 aa
@@ -84422,6 +84456,35 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+MD
+rL
+kA
+wf
 aa
 aa
 aa
@@ -84432,35 +84495,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
 aa
 aa
 aa
@@ -84679,6 +84713,35 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+Tj
+sN
+Rf
+yl
 aa
 aa
 aa
@@ -84689,35 +84752,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
 aa
 aa
 aa
@@ -84936,31 +84970,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aw
 aw
 aw
@@ -84973,8 +84982,33 @@ aw
 aw
 aw
 aw
+dN
 aw
 aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+nL
+sN
+sN
+wf
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -85193,35 +85227,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+rZ
+yR
+yR
+xa
 aa
 aa
 aa
@@ -85450,31 +85484,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -85707,31 +85741,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -85965,30 +85999,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -86223,29 +86257,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -86486,23 +86520,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
