@@ -169,11 +169,12 @@
 	if(href_list["PRG_directmessage"])
 		. = TRUE
 		var/clients = list()
-		var/names = list()
+		var/names = list(null)
 		for(var/cl in ntnet_global.chat_clients)
 			var/datum/computer_file/program/chatclient/C = cl
 			clients[C.username] = C
 			names += C.username
+		names -= username // Remove ourselves
 		var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
 		var/datum/computer_file/program/chatclient/otherClient = clients[picked]
 		if(picked)

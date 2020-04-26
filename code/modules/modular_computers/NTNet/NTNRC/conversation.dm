@@ -58,7 +58,7 @@ var/global/ntnrc_uid = 0
 		if(CC == C || !CC.computer.screen_on)
 			continue
 		if(CC.computer.active_program == CC || (CC in CC.computer.idle_threads))
-			CC.computer.output_message(FONT_SMALL("<b>([title]) A new client ([C.username]) has entered the chat.</b>"), 0)
+			CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) A new client ([C.username]) has entered the chat.</b>"), 0)
 
 /datum/ntnet_conversation/proc/remove_client(var/datum/computer_file/program/chatclient/C)
 	if(!istype(C) || !(C in clients))
@@ -76,7 +76,7 @@ var/global/ntnrc_uid = 0
 		if(CC == C || !CC.computer.screen_on)
 			continue
 		if(CC.computer.active_program == CC || (CC in CC.computer.idle_threads))
-			CC.computer.output_message(FONT_SMALL("<b>([title]) A client ([C.username]) has left the chat.</b>"), 0)
+			CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) A client ([C.username]) has left the chat.</b>"), 0)
 
 
 /datum/ntnet_conversation/proc/changeop(var/datum/computer_file/program/chatclient/newop)
@@ -88,14 +88,14 @@ var/global/ntnrc_uid = 0
 	if(operator != client)
 		return 0 // Not Authorised
 
-	add_status_message("[client.username] has changed channel title from [title] to [newtitle]")
-	title = newtitle
-
+	add_status_message("[client.username] has changed channel title from [get_title(client)] to [newtitle]")
+	
 	for(var/datum/computer_file/program/chatclient/C in clients)
 		if(C == client || !C.computer.screen_on)
 			continue
 		if(C.computer.active_program == src || (C in C.computer.idle_threads))
-			C.computer.output_message(FONT_SMALL("([title]) A new client ([C.username]) has entered the chat."), 0)
+			C.computer.output_message(FONT_SMALL("([get_title(C)]) ([client.username]) has changed channel title to [newtitle]."), 0)
+	title = newtitle
 
 /datum/ntnet_conversation/proc/get_title(var/datum/computer_file/program/chatclient/cl = null)
 	if(direct)
@@ -104,7 +104,7 @@ var/global/ntnrc_uid = 0
 			names += C.username
 		if(cl)
 			names -= cl.username
-		return english_list(names)
+		return "\[DM] [english_list(names)]"
 	else
 		return title
 
