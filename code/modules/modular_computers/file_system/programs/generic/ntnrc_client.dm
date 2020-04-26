@@ -105,7 +105,7 @@
 		var/comp_name = ckey(new_name)
 		for(var/cl in ntnet_global.chat_clients)
 			var/datum/computer_file/program/chatclient/C = cl
-			if(ckey(C.username) == comp_name)
+			if(ckey(C.username) == comp_name || comp_name == "cancel")
 				alert(user, "This nickname is already taken.")
 				return TRUE
 		for(var/datum/ntnet_conversation/channel in ntnet_global.chat_channels)
@@ -169,22 +169,23 @@
 	if(href_list["PRG_directmessage"])
 		. = TRUE
 		var/clients = list()
-		var/names = list(null)
+		var/names = list()
 		for(var/cl in ntnet_global.chat_clients)
 			var/datum/computer_file/program/chatclient/C = cl
 			clients[C.username] = C
 			names += C.username
 		names -= username // Remove ourselves
+		names += "== Cancel =="
 		var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
+		if(picked == "== Cancel ==")
+			return
 		var/datum/computer_file/program/chatclient/otherClient = clients[picked]
 		if(picked)
 			if(directmessagechannels[otherClient])
 				channel = directmessagechannels[otherClient]
 				return
 			var/datum/ntnet_conversation/C = new /datum/ntnet_conversation("", TRUE)
-			C.direct = TRUE
-			C.add_client(src)
-			C.add_client(otherClient)
+			C.begin_direct(src, otherClient)
 			channel = C
 			directmessagechannels[otherClient] = C
 			otherClient.directmessagechannels[src] = C

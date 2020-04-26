@@ -54,7 +54,19 @@ var/global/ntnrc_uid = 0
 	
 	for(var/datum/computer_file/program/chatclient/CC in clients)
 		if(CC.program_state > PROGRAM_STATE_KILLED && CC != C)
-			CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) A new client ([C.username]) has entered the chat.</b>"), 0)
+			if(!direct)
+				CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) A new client ([C.username]) has entered the chat.</b>"), 0)
+
+/datum/ntnet_conversation/proc/begin_direct(var/datum/computer_file/program/chatclient/CA, var/datum/computer_file/program/chatclient/CB)
+	if(!istype(CA) || !istype(CB))
+		return
+	direct = TRUE
+	clients.Add(CA)
+	clients.Add(CB)
+	
+	add_status_message("[CA.username] has opened direct conversation.")
+	if(CB.program_state > PROGRAM_STATE_KILLED)
+		CB.computer.output_message(FONT_SMALL("<b>([get_title(CB)]) A client ([CA.username]) has opened direct conversation with you.</b>"), 0)
 
 /datum/ntnet_conversation/proc/remove_client(var/datum/computer_file/program/chatclient/C)
 	if(!istype(C) || !(C in clients))
