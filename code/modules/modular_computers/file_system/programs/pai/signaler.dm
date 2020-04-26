@@ -2,7 +2,7 @@
 	filename = "signaler"
 	filedesc = "Remote Signaller"
 	program_icon_state = "generic"
-	extended_desc = "This program is signaling via varous frequencies."
+	extended_desc = "This program can be used to send wide-range signals of various frequencies."
 	size = 3
 	available_on_ntnet = 1
 	usage_flags = PROGRAM_SILICON_PAI

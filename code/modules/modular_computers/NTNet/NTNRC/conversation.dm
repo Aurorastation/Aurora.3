@@ -51,7 +51,6 @@ var/global/ntnrc_uid = 0
 	// No operator, so we assume the channel was empty. Assign this user as operator.
 	if(!operator)
 		changeop(C)
-	
 	for(var/datum/computer_file/program/chatclient/CC in clients)
 		if(CC.program_state > PROGRAM_STATE_KILLED && CC != C)
 			if(!direct)

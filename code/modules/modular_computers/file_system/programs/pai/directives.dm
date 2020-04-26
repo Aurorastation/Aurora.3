@@ -1,8 +1,8 @@
 /datum/computer_file/program/pai_directives
 	filename = "pai_directives"
-	filedesc = "pAI directives"
+	filedesc = "pAI Directives"
 	program_icon_state = "generic"
-	extended_desc = "This program is for viewing pAI directives."
+	extended_desc = "This program is for viewing currently assigned directives."
 	size = 0
 
 	usage_flags = PROGRAM_SILICON_PAI

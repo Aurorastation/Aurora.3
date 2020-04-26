@@ -1,6 +1,6 @@
 /datum/computer_file/program/manifest
 	filename = "manifest"
-	filedesc = "Crew manifest"
+	filedesc = "Crew Manifest"
 	program_icon_state = "generic"
 	extended_desc = "This program is for viewing manifest."
 	size = 3
