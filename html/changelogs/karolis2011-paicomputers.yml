@@ -12,3 +12,4 @@ changes:
   - rscadd: "NTNet Relay Chat Client got ability to have direct message channels."
   - rscadd: "NTNet Relay Chat Client got ability to join multiple channels at once."
   - bugfix: "NTNet Relay Chat Client no longer allows duplicate nicknames."
+  - rscadd: "Crew manifest program was added."
