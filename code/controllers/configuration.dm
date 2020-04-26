@@ -303,6 +303,10 @@ var/list/gamemode_cache = list()
 
 	var/time_to_call_emergency_shuttle = 36000  //how many time until the crew can call the transfer shuttle. One hour by default.
 
+	var/profiler_is_enabled = TRUE
+	var/profiler_restart_period = 3000
+	var/profiler_tick_usage_threshold = 150
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
