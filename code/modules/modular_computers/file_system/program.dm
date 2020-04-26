@@ -243,5 +243,5 @@
 	return 0
 
 // Is called when program service is being deactivated
-/datum/computer_file/program/proc/service_decactivate()
+/datum/computer_file/program/proc/service_deactivate()
 	return

@@ -23,7 +23,7 @@
 		host.add_language(LANGUAGE_ROOTSONG)
 	host.translator_on = TRUE
 
-/datum/computer_file/program/pai_translator/service_decactivate()
+/datum/computer_file/program/pai_translator/service_deactivate()
 	. = ..()
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return

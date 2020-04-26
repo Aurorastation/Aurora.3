@@ -182,7 +182,7 @@
 	for(var/s in enabled_services)
 		var/datum/computer_file/program/service = s
 		if(service.program_type & PROGRAM_SERVICE) // Safety checks
-			service.service_decactivate()
+			service.service_deactivate()
 			service.service_state = PROGRAM_STATE_KILLED
 
 	if(loud)
@@ -366,7 +366,7 @@
 	enabled_services -= S
 
 	// Stop service
-	S.service_decactivate()
+	S.service_deactivate()
 	S.service_state = PROGRAM_STATE_KILLED
 
 /obj/item/modular_computer/proc/output_message(var/message, var/message_range)

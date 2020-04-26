@@ -17,7 +17,7 @@
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 	host.secHUD = TRUE
 
-/datum/computer_file/program/pai_sechud/service_decactivate()
+/datum/computer_file/program/pai_sechud/service_deactivate()
 	. = ..()
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
@@ -46,7 +46,7 @@
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 	host.medHUD = TRUE
 
-/datum/computer_file/program/pai_medhud/service_decactivate()
+/datum/computer_file/program/pai_medhud/service_deactivate()
 	. = ..()
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
