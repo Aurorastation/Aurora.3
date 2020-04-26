@@ -71,9 +71,8 @@
 		var/turf/T = get_turf_or_move(host.loc)
 		host.hack_aborted = 0
 		host.cable = new /obj/item/pai_cable(T)
-		for(var/mob/M in viewers(T))
-			M.show_message("<span class='warning'>A port on [host] opens to reveal [host.cable], which promptly falls to the floor.</span>", 3,
-							"<span class='warning'>You hear the soft click of something light and hard falling to the ground.</span>", 2)
+		T.visible_message("<span class='warning'>A port on [host] opens to reveal [host.cable], which promptly falls to the floor.</span>",
+			"<span class='warning'>You hear the soft click of something light and hard falling to the ground.</span>")
 		return 1
 
 /mob/living/silicon/pai/proc/hackloop()
