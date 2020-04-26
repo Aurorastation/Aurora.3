@@ -1,7 +1,7 @@
 /datum/computer_file/program/pai_translator
 	filename = "translator"
 	filedesc = "pAI Universal Translator"
-	extended_desc = "This program is for enabling universal translation."
+	extended_desc = "This service enables the integrated universal translation systems."
 	size = 12
 	program_type = PROGRAM_SERVICE
 	available_on_ntnet = 1

@@ -2,7 +2,7 @@
 	filename = "doorjack"
 	filedesc = "Door Jack"
 	program_icon_state = "generic"
-	extended_desc = "This program is for using pAI door jack system."
+	extended_desc = "This program is used to access standard-issue pAI door jack systems."
 	size = 12
 
 	available_on_ntnet = 1

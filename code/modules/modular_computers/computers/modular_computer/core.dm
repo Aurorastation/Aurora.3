@@ -322,7 +322,7 @@
 		S = hard_drive?.find_file_by_name(service)
 		
 	if(!istype(S)) // Program not found or it's not executable program.
-		to_chat(user, "<span class='danger'>\The [src]'s screen shows \"I/O ERROR - Unable to locate [service]\" warning.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to locate [service]\""))
 		return
 	
 	if(S.service_state == PROGRAM_STATE_ACTIVE)
@@ -336,7 +336,7 @@
 		S = hard_drive?.find_file_by_name(service)
 
 	if(!istype(S)) // Program not found or it's not executable program.
-		to_chat(user, "<span class='danger'>\The [src]'s screen shows \"I/O ERROR - Unable to enable [service]\" warning.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to enable [service]\""))
 		return
 
 	S.computer = src

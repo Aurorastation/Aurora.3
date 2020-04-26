@@ -106,7 +106,7 @@
 		return FALSE
 
 	if(!hard_drive.can_store_file(queue_size + PRG.size))
-		to_chat(user, "<span class='warning'>You can't download this program as queue items exceed hard drive size.</span>")
+		to_chat(user, SPAN_WARNING("You can't download this program as queued items exceed hard drive capacity."))
 		return TRUE
 
 	if(!computer?.hard_drive?.try_store_file(PRG))
