@@ -22,7 +22,7 @@
 	name = "Omni-Vendor"
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
-	icon_deny = "engivend-deny"
+	deny_time = 6
 	vend_id = "admin"
 	req_access = list(access_janitor)
 	products = list(
@@ -48,7 +48,7 @@
 	name = "Booze-O-Mat"
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
-	icon_deny = "boozeomat-deny"
+	deny_time = 16
 	vend_id = "booze"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/bottle/bitters = 6,
@@ -297,7 +297,7 @@
 	desc = "Cartridges for PDAs."
 	product_slogans = "Carts to go!"
 	icon_state = "cart"
-	icon_deny = "cart-deny"
+	deny_time = 14
 	req_access = list(access_hop)
 	vend_id = "pdas"
 	products = list(
@@ -386,9 +386,7 @@
 	name = "NanoMed Plus"
 	desc = "Medical drug dispenser."
 	icon_state = "med"
-	icon_deny = "med-deny"
 	deny_time = 15
-	icon_deny_cuts_overlay = TRUE
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
 	req_access = list(access_medical_equip)
 	vend_id = "meds"
@@ -456,9 +454,7 @@
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
-	icon_deny = "wallmed-deny"
 	deny_time = 14
-	icon_deny_cuts_overlay = TRUE
 	req_access = list(access_medical)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
@@ -486,9 +482,7 @@
 	name = "NanoMed"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
-	icon_deny = "wallmed-deny"
 	deny_time = 14
-	icon_deny_cuts_overlay = TRUE
 	req_access = list(access_medical)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
@@ -515,9 +509,7 @@
 	desc = "A security equipment vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon_state = "sec"
-	icon_deny = "sec-deny"
 	deny_time = 16
-	icon_deny_cuts_overlay = TRUE
 	req_access = list(access_security)
 	vend_id = "security"
 	products = list(
@@ -552,7 +544,7 @@
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
 	product_ads = "We like plants!;Don't you want some?;The greenest thumbs ever.;We like big plants.;Soft soil..."
 	icon_state = "nutri"
-	icon_deny = "nutri-deny"
+	deny_time = 6
 	vend_id = "hydro"
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
@@ -804,7 +796,7 @@
 	name = "YouTool"
 	desc = "Tools for tools."
 	icon_state = "tool"
-	icon_deny = "tool-deny"
+	deny_time = 6
 	vend_id = "tools"
 	//req_access = list(access_maint_tunnels) //Maintenance access
 	products = list(
@@ -836,7 +828,7 @@
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
-	icon_deny = "engivend-deny"
+	deny_time = 6
 	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
@@ -863,7 +855,7 @@
 	name = "Tactical Express"
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
-	icon_deny = "tact-deny"
+	deny_time = 19
 	req_access = list(access_security)
 	vend_id = "tactical"
 	products = list(
@@ -887,8 +879,6 @@
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
-	icon_state = "tact"
-	icon_deny = "tact-deny"
 	req_access = list(access_security)
 	vend_id = "ert"
 	products = list(
@@ -920,7 +910,7 @@
 	name = "Robco Tool Maker"
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
-	icon_deny = "engi-deny"
+	deny_time = 6
 	req_access = list(access_engine_equip)
 	vend_id = "tools"
 	products = list(
@@ -965,7 +955,7 @@
 	name = "Robotech Deluxe"
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
-	icon_deny = "robotics-deny"
+	deny_time = 14
 	req_access = list(access_robotics)
 	vend_id = "robo-tools"
 	products = list(

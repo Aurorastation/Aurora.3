@@ -40,9 +40,7 @@
 	clicksound = "button"
 
 	var/icon_vend //Icon_state when vending
-	var/icon_deny //Icon_state when denying access
-	var/deny_time // How long the physical flick lasts, used to put the screen back in place
-	var/icon_deny_cuts_overlay = FALSE
+	var/deny_time // How long the physical icon state lasts, used cut the deny overlay
 
 	// Power
 	use_power = 1
@@ -558,12 +556,9 @@
 		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course
-				if(icon_deny_cuts_overlay)
-					cut_overlays(TRUE)
-					cut_overlays(TRUE)
-					addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
-					cut_overlays(TRUE)
-				flick(icon_deny, src)
+				var/mutable_appearance/deny_overlay = mutable_appearance(icon, "[icon_state]-deny", EFFECTS_ABOVE_LIGHTING_LAYER)
+				add_overlay(deny_overlay)
+				addtimer(CALLBACK(src, /atom/.proc/cut_overlay, deny_overlay), deny_time ? deny_time : 15)
 				set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
 				addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
 				return
@@ -604,12 +599,9 @@
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
-		if(icon_deny_cuts_overlay)
-			cut_overlays(TRUE)
-			cut_overlays(TRUE)
-			addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
-			cut_overlays(TRUE)
-		flick(icon_deny, src)
+		var/mutable_appearance/deny_overlay = mutable_appearance(icon, "[icon_state]-deny", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(deny_overlay)
+		addtimer(CALLBACK(src, /atom/.proc/cut_overlay, deny_overlay), deny_time ? deny_time : 15)
 		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
 		addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
 		return
