@@ -24,7 +24,7 @@ var/global/ntnrc_uid = 0
 
 	for(var/datum/computer_file/program/chatclient/C in clients)
 		if(C.program_state > PROGRAM_STATE_KILLED && C.username != username)
-			C.computer.output_message(FONT_SMALL("<b>([get_title(C)]) [username]:</b> [message]"), 0)
+			C.computer.output_message(FONT_SMALL("<b>[get_title(C)]) <i>[username]</i>:</b> [message]"), 0)
 
 	message = "[worldtime2text()] [username]: [message]"
 	messages.Add(message)
@@ -54,7 +54,7 @@ var/global/ntnrc_uid = 0
 	for(var/datum/computer_file/program/chatclient/CC in clients)
 		if(CC.program_state > PROGRAM_STATE_KILLED && CC != C)
 			if(!direct)
-				CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) A new client ([C.username]) has entered the chat.</b>"), 0)
+				CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) <i>[C.username]</i> has entered the chat.</b>"), 0)
 
 /datum/ntnet_conversation/proc/begin_direct(var/datum/computer_file/program/chatclient/CA, var/datum/computer_file/program/chatclient/CB)
 	if(!istype(CA) || !istype(CB))
@@ -65,7 +65,7 @@ var/global/ntnrc_uid = 0
 	
 	add_status_message("[CA.username] has opened direct conversation.")
 	if(CB.program_state > PROGRAM_STATE_KILLED)
-		CB.computer.output_message(FONT_SMALL("<b>([get_title(CB)]) A client ([CA.username]) has opened direct conversation with you.</b>"), 0)
+		CB.computer.output_message(FONT_SMALL("<b>([get_title(CB)]) <i>[CA.username]</i> has opened direct conversation with you.</b>"), 0)
 
 /datum/ntnet_conversation/proc/remove_client(var/datum/computer_file/program/chatclient/C)
 	if(!istype(C) || !(C in clients))
@@ -81,7 +81,7 @@ var/global/ntnrc_uid = 0
 
 	for(var/datum/computer_file/program/chatclient/CC in clients)
 		if(CC.program_state > PROGRAM_STATE_KILLED && CC != C)
-			CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) A client ([C.username]) has left the chat.</b>"), 0)
+			CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) <i>[C.username]</i> has left the chat.</b>"), 0)
 
 
 /datum/ntnet_conversation/proc/changeop(var/datum/computer_file/program/chatclient/newop)
@@ -97,7 +97,7 @@ var/global/ntnrc_uid = 0
 	
 	for(var/datum/computer_file/program/chatclient/C in clients)
 		if(C.program_state > PROGRAM_STATE_KILLED && C != client)
-			C.computer.output_message(FONT_SMALL("([get_title(C)]) ([client.username]) has changed channel title to [newtitle]."), 0)
+			C.computer.output_message(FONT_SMALL("([get_title(C)]) <i>[client.username]</i> has changed channel title to [newtitle]."), 0)
 	title = newtitle
 
 /datum/ntnet_conversation/proc/get_title(var/datum/computer_file/program/chatclient/cl = null)
