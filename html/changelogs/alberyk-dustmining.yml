@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Breaking mineral walls now a chance of creating a cloud of dust."
