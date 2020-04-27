@@ -3239,7 +3239,7 @@
 /turf/space/transit/north/shuttlespace_ns12,
 /area/space)
 "aia" = (
-/obj/effect/shuttle_landmark/skipjack/start,
+/obj/effect/shuttle_landmark/skipjack/interim,
 /turf/space/transit/north/shuttlespace_ns7,
 /area/space)
 "aii" = (
@@ -10544,6 +10544,7 @@
 	},
 /area/shuttle/specops/centcom)
 "aCz" = (
+/turf/simulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "10,3"
 	},
@@ -11207,6 +11208,7 @@
 	},
 /area/centcom/ferry)
 "aEk" = (
+/turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/ccia{
 	icon_state = "3,4"
 	},
@@ -15024,7 +15026,6 @@
 	},
 /area/skipjack_station/start)
 "aNf" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "2,16";
@@ -15184,7 +15185,7 @@
 	icon_state = "9,15";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aNA" = (
 /obj/structure/table/standard,
@@ -15212,7 +15213,7 @@
 	icon_state = "12,15";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aND" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -15309,7 +15310,7 @@
 	icon_state = "9,14";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aNR" = (
 /obj/structure/table/standard,
@@ -15328,7 +15329,7 @@
 	icon_state = "12,14";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "aNT" = (
 /obj/machinery/meter,
@@ -15412,7 +15413,6 @@
 	},
 /area/skipjack_station/start)
 "aOe" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "13,13";
@@ -19486,7 +19486,6 @@
 /turf/space,
 /area/skipjack_station/start)
 "aYP" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "11,1";
@@ -19501,7 +19500,6 @@
 	},
 /area/skipjack_station/start)
 "aYR" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "10,1";
@@ -19670,7 +19668,6 @@
 /turf/space,
 /area/skipjack_station/start)
 "bhl" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "0,2"
 	},
@@ -20134,6 +20131,9 @@
 	},
 /obj/item/storage/firstaid/adv{
 	pixel_x = 1
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/skipjack_station/start)
@@ -20840,7 +20840,6 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "cMo" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "5,10";
@@ -21513,7 +21512,6 @@
 	},
 /area/centcom/legion)
 "dIb" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "6,4"
 	},
@@ -24285,11 +24283,11 @@
 "hdO" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
-	pixel_y = -22
+	pixel_y = -23
 	},
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
-	pixel_y = -32
+	pixel_y = -33
 	},
 /obj/structure/bed/chair/shuttle{
 	icon_state = "shuttlechair";
@@ -24527,6 +24525,10 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom)
+"hwq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/distress/centcom)
 "hwS" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "1,9"
@@ -24811,7 +24813,6 @@
 	},
 /area/centcom/legion/hangar5)
 "hKs" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "16,10";
@@ -25519,7 +25520,7 @@
 	icon_state = "6,11";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "isr" = (
 /turf/simulated/wall/shuttle/unique/arrivals{
@@ -25974,6 +25975,7 @@
 	},
 /area/centcom/checkpoint/fore)
 "iWl" = (
+/turf/simulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "10,1"
 	},
@@ -26004,7 +26006,7 @@
 	icon_state = "6,13";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "iYM" = (
 /obj/structure/closet/secure_closet{
@@ -26753,6 +26755,7 @@
 	},
 /area/centcom/shared_dream)
 "jZD" = (
+/turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "0,3"
 	},
@@ -27082,7 +27085,6 @@
 	},
 /area/supply/dock)
 "kys" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "9,4"
 	},
@@ -27295,6 +27297,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "kHX" = (
+/turf/simulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "0,4"
 	},
@@ -27444,7 +27447,6 @@
 	},
 /area/centcom/checkpoint/fore)
 "kTA" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "15,9";
@@ -27753,7 +27755,6 @@
 /turf/space,
 /area/skipjack_station/start)
 "loO" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "10,0"
 	},
@@ -27848,6 +27849,10 @@
 "lwA" = (
 /obj/item/device/radio/intercom{
 	pixel_y = -30
+	},
+/obj/structure/bed/chair/shuttle{
+	icon_state = "shuttlechair";
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
@@ -28464,7 +28469,6 @@
 	},
 /area/shuttle/transport1/centcom)
 "mlq" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "5,15";
@@ -29169,7 +29173,7 @@
 	icon_state = "6,12";
 	name = "Skipjack"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "nkd" = (
 /obj/machinery/account_database{
@@ -29589,6 +29593,7 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/legion)
 "nHu" = (
+/turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "0,1"
 	},
@@ -30715,7 +30720,6 @@
 	},
 /area/centcom/living)
 "oQB" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "20,15";
@@ -31134,7 +31138,6 @@
 	},
 /area/centcom/distress_prep)
 "ppK" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "17,16";
@@ -31203,7 +31206,6 @@
 	},
 /area/shuttle/merchant/start)
 "pxJ" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "1,0"
 	},
@@ -32782,7 +32784,6 @@
 	},
 /area/shuttle/legion/centcom)
 "rrS" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "2,0"
 	},
@@ -33147,7 +33148,7 @@
 	icon_state = "10,16";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "rSM" = (
 /obj/structure/shuttle_part/transfer{
@@ -33188,6 +33189,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress/centcom)
 "rVC" = (
@@ -33638,6 +33640,13 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
+"sEk" = (
+/obj/structure/bed/chair/shuttle{
+	icon_state = "shuttlechair";
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/distress/centcom)
 "sEG" = (
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -33763,7 +33772,7 @@
 	icon_state = "12,13";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "sMK" = (
 /obj/structure/sign/pods{
@@ -34191,6 +34200,7 @@
 	},
 /area/centcom/legion)
 "tkT" = (
+/turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/ccia{
 	icon_state = "3,0"
 	},
@@ -34636,6 +34646,9 @@
 	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "tPU" = (
@@ -34946,11 +34959,10 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration/centcom)
 "uiB" = (
-/turf/space,
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "2,13"
 	},
-/turf/template_noop,
+/turf/space,
 /area/syndicate_station/start)
 "ujp" = (
 /obj/structure/window/reinforced,
@@ -35277,7 +35289,7 @@
 	icon_state = "9,13";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "uHS" = (
 /obj/structure/window/shuttle/unique/merchant{
@@ -35466,7 +35478,6 @@
 	},
 /area/centcom/legion)
 "uTK" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "10,2"
 	},
@@ -36455,6 +36466,7 @@
 	},
 /area/centcom/checkpoint/aft)
 "vWt" = (
+/turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "10,4"
 	},
@@ -36563,7 +36575,7 @@
 	icon_state = "11,16";
 	name = "skipjack cockpit"
 	},
-/turf/template_noop,
+/turf/space,
 /area/skipjack_station/start)
 "wdn" = (
 /obj/structure/shuttle_part/hapt{
@@ -36678,7 +36690,6 @@
 	},
 /area/centcom/shared_dream)
 "wmg" = (
-/turf/template_noop,
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "9,0"
 	},
@@ -55944,7 +55955,7 @@ bEZ
 rsu
 rsu
 rsu
-rsu
+tna
 tna
 tna
 tna
@@ -56200,8 +56211,8 @@ nVk
 taP
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -56457,8 +56468,8 @@ vav
 bHC
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -56714,8 +56725,8 @@ taP
 bEZ
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -56971,8 +56982,8 @@ nVk
 taP
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -57228,8 +57239,8 @@ vav
 bHC
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -57485,8 +57496,8 @@ taP
 bEZ
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -57743,7 +57754,7 @@ taP
 rsu
 rsu
 rsu
-rsu
+tna
 tna
 rsu
 rsu
@@ -60056,7 +60067,7 @@ bHC
 rsu
 rsu
 rsu
-rsu
+tna
 tna
 rsu
 rsu
@@ -60312,8 +60323,8 @@ taP
 bEZ
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -60569,8 +60580,8 @@ nVk
 bEZ
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -60826,8 +60837,8 @@ vav
 bEZ
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -61083,8 +61094,8 @@ taP
 bEZ
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -61340,8 +61351,8 @@ nVk
 bEZ
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -61597,8 +61608,8 @@ vav
 bEZ
 rsu
 rsu
-rsu
 tna
+rsu
 rsu
 rsu
 rsu
@@ -61855,7 +61866,7 @@ bEZ
 rsu
 rsu
 rsu
-rsu
+tna
 tna
 tna
 tna
@@ -69709,7 +69720,7 @@ aDB
 aDM
 aDT
 aEf
-aEk
+jSa
 jDF
 aEJ
 vBl
@@ -87507,7 +87518,7 @@ eLM
 nFs
 nFs
 dIb
-wVd
+hwq
 wVd
 lwA
 dDk
@@ -87766,7 +87777,7 @@ nFs
 cip
 sTv
 wVd
-wVd
+sEk
 uUo
 nFs
 hcI
