@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Floating messages now has regular brightness in darkness and properly display over most items."
