@@ -79,7 +79,7 @@
 
 /datum/computer_file/program/records/pai
 	available_on_ntnet = 1
-	extended_desc = "Used to view records."
+	extended_desc = "This program is used to view crew records."
 	usage_flags = PROGRAM_SILICON_PAI
 	edit_type = 0
 

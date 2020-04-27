@@ -97,7 +97,7 @@ var/global/ntnrc_uid = 0
 	
 	for(var/datum/computer_file/program/chatclient/C in clients)
 		if(C.program_state > PROGRAM_STATE_KILLED && C != client)
-			C.computer.output_message(FONT_SMALL("([get_title(C)]) <i>[client.username]</i> has changed channel title to [newtitle]."), 0)
+			C.computer.output_message(FONT_SMALL("([get_title(C)]) <i>[client.username]</i> has changed the channel title to <b>[newtitle]</b>."), 0)
 	title = newtitle
 
 /datum/ntnet_conversation/proc/get_title(var/datum/computer_file/program/chatclient/cl = null)
