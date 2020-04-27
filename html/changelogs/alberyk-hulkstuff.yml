@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Hulks should be immune to pain now."
+  - rscdel: "Removed the hulk green overlay."
