@@ -24,6 +24,13 @@
 	var/list/modes
 	var/crafting = FALSE
 
+	var/build_cost = 0
+	var/build_type
+	var/build_turf
+	var/build_delay
+	var/build_other
+
+
 /obj/item/rfd/Initialize()
 	. = ..()
 	update_icon()
@@ -164,12 +171,6 @@ RFD Construction-Class
 
 /obj/item/rfd/construction/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
 
-	var/build_cost = 0
-	var/build_type
-	var/build_turf
-	var/build_delay
-	var/build_other
-
 	if(working == 1)
 		return 0
 
@@ -209,7 +210,8 @@ RFD Construction-Class
 		flick("[icon_state]-empty", src)
 		return 0
 
-	playsound(get_turf(src), 'sound/machines/hydraulic_long.ogg', 50, 1)
+	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), delay, src.mode)
+	playsound(get_turf(src), 'sound/machines/hydraulic_short.ogg', 50, 1)
 
 	working = 1
 	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
@@ -229,8 +231,10 @@ RFD Construction-Class
 	else
 		qdel(T)
 
+	rfd_effect.end_animation()
 	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
 	return 1
+	qdel(rfd_effect)
 
 /obj/item/rfd/construction/borg
 	canRwall = 1
@@ -457,8 +461,8 @@ RFD Piping-Class
 	var/selected_mode = STANDARD_PIPE
 	var/pipe_examine = "Pipe" // used in the examine proc to see what you're putting down at a glance
 	var/selected_pipe = 0 // default is standard pipe, used for the new pipe creation
-	var/build_cost = 1 // this RFD only uses 1 unit of power per pipe, but can be modified if need be in future
-	var/build_delay = 10
+	build_cost = 1 // this RFD only uses 1 unit of power per pipe, but can be modified if need be in future
+	build_delay = 10
 
 	// The numbers below refer to the numberized designator for each pipe, which is used in obj/item/pipe's new
 	// Take a look at code\game\machinery\pipe\construction.dm line 69 for more information. - Geeves
