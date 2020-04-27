@@ -340,24 +340,37 @@
 	//Abort if they should not get blown...
 	if(lock_charge || scrambled_codes || emagged)
 		return
-	var/turf/T = get_turf(src)
-	var/area/A = get_area(T)
-	if((!T || !(A in allowed_areas)) && src.stat != DEAD)
+	var/detonate_timer
+	if (check_allowed_area())
 		if (detonate)
 			to_chat(src, SPAN_WARNING("WARNING: Failure to comply. Anti-theft self-destruct mode engaged.")) //bruh
 			self_destruct()
-		else if (out_of_bounds) //Already outside
+		else if (out_of_allowed_area) //Already outside
 			return
 		else
-			out_of_bounds = TRUE
 			to_chat(src, SPAN_WARNING("WARNING:\The [src] has left designated boundaries. Return immediately. You have 10 seconds to comply.")) //Anti-Theft mode engaged
 			playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, .proc/process_level_restrictions, TRUE), 100, TIMER_UNIQUE)
+			detonate_timer = addtimer(CALLBACK(src, .proc/process_level_restrictions, TRUE), 100, TIMER_UNIQUE, TIMER_STOPPABLE)
+			out_of_allowed_area = TRUE
 		return
-	if (detonate)
+	if (detonate_timer)
+		deltimer(detonate_timer)
 		to_chat(src, SPAN_GOOD("\The [src] has re-entered designated boundaries. Anti-Theft self-destruct disengaged.")) //Anti-Theft mode disengaged
-		out_of_bounds = FALSE
+		out_of_allowed_area = FALSE
 	return
+
+/mob/living/silicon/robot/proc/check_allowed_area()
+	// TRUE = Outside
+	var/turf/T = get_turf(src)
+	var/area/A = get_area(T)
+	//Covers all station levels
+	if (isStationLevel(T.z))
+		return FALSE
+	//Extra allowed areas
+	else if ((!T || !(A in allowed_areas)) && src.stat != DEAD)
+		return TRUE
+	else
+		return FALSE
 
 /mob/living/silicon/robot/update_fire()
 	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))

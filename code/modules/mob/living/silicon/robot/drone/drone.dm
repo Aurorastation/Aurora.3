@@ -315,6 +315,16 @@
 		to_chat(src, SPAN_GOOD("Drone has re-entered designated boundaries. Anti-Theft self-destruct disengaged.")) //Anti-Theft mode disengaged
 	return
 */
+
+/mob/living/silicon/robot/drone/check_allowed_area()
+	var/turf/T = get_turf(src)
+	var/area/A = get_area(T)
+	if ((!T || !(A in allowed_areas)) && src.stat != DEAD)
+		return TRUE
+	else
+		return FALSE
+
+
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)

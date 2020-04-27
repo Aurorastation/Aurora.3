@@ -124,7 +124,7 @@
 		/area/shuttle/escape,
 		/area/shuttle/arrival
 	)
-	var/out_of_bounds = FALSE //True if outside of above areas, see self_destruct()
+	var/out_of_allowed_area = FALSE //True if outside of above areas, see self_destruct()
 
 	// Verbs
 	var/list/robot_verbs_default = list(
