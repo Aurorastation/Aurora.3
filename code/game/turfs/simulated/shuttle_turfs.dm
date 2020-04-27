@@ -147,7 +147,6 @@
 /turf/simulated/wall/shuttle/skrell/corner
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "skrell_diagonal"
-	use_set_icon_state = 1
 	use_set_icon_state = TRUE
 	smooth = null
 	canSmoothWith = null
