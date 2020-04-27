@@ -654,7 +654,7 @@ var/list/gamemode_cache = list()
 					Tickcomp = 1
 
 				if("ipc_timelock_active")
-					ipc_timelock_active = FALSE
+					ipc_timelock_active = TRUE
 
 				if("humans_need_surnames")
 					humans_need_surnames = 1

@@ -162,7 +162,7 @@
 /obj/item/organ/internal/ipc_tag/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/ipc_tag_scanner))
 		if(src.loc != user)
-			to_chat(user, SPAN_WARNING("You can scan \the [src] if it's on your person!"))
+			to_chat(user, SPAN_WARNING("You can't scan \the [src] if it's not on your person!"))
 			return
 		var/obj/item/ipc_tag_scanner/S = W
 		if(!S.powered)
