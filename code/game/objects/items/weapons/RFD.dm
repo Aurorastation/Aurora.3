@@ -210,7 +210,7 @@ RFD Construction-Class
 		flick("[icon_state]-empty", src)
 		return 0
 
-	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), delay, src.mode)
+	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), build_delay, src.mode)
 	playsound(get_turf(src), 'sound/machines/hydraulic_short.ogg', 50, 1)
 
 	working = 1
