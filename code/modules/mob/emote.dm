@@ -88,4 +88,4 @@
 		O.show_message("[ghost_follow_link(src, O)] [message]", type)
 	
 	for(var/mob/GN in ghosts_nearby)
-		O.show_message("[ghost_follow_link(src, O)] <b>[message]</b>", type)
+		GN.show_message("[ghost_follow_link(src, GN)] <b>[message]</b>", type)
