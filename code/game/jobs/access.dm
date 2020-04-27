@@ -236,15 +236,14 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/bot/GetIdCard()
 	return botcard
 
-/mob/living/carbon/human/GetIdCard(var/in_hand = TRUE)
-	if(in_hand)
-		var/obj/item/I = get_active_hand()
-		if(I)
-			var/id = I.GetID()
-			if(id)
-				return id
+/mob/living/carbon/human/GetIdCard()
 	if(wear_id)
 		var/id = wear_id.GetID()
+		if(id)
+			return id
+	var/obj/item/I = get_active_hand()
+	if(I)
+		var/id = I.GetID()
 		if(id)
 			return id
 	if(gloves)

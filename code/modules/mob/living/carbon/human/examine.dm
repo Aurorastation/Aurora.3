@@ -356,7 +356,7 @@
 		var/perpname = "wot"
 		var/medical = "None"
 
-		var/obj/item/card/id/ID = GetIdCard(FALSE)
+		var/obj/item/card/id/ID = GetIdCard()
 		if(ID)
 			perpname = ID.registered_name
 		else
