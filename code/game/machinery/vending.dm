@@ -41,6 +41,8 @@
 
 	var/icon_vend //Icon_state when vending
 	var/icon_deny //Icon_state when denying access
+	var/deny_time // How long the physical flick lasts, used to put the screen back in place
+	var/icon_deny_cuts_overlay = FALSE
 
 	// Power
 	use_power = 1
@@ -107,6 +109,9 @@
 
 	var/vending_sound = "machines/vending/vending_drop.ogg"
 
+	light_range = 2
+	light_power = 1
+
 /obj/machinery/vending/Initialize()
 	. = ..()
 	wires = new(src)
@@ -121,8 +126,19 @@
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
 
+	add_screen_overlay()
+
 	src.build_inventory()
 	power_change()
+
+/obj/machinery/vending/proc/reset_light()
+	set_light(initial(light_range), initial(light_power), initial(light_color))
+
+/obj/machinery/vending/proc/add_screen_overlay()
+	if("[icon_state]-screen" in icon_states(icon))
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "[icon_state]-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+	reset_light()
 
 /**
  *  Build src.produdct_records from the products lists
@@ -242,9 +258,9 @@
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
 		cut_overlays()
+		add_screen_overlay()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
-
 		SSnanoui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
 	else if(W.ismultitool()||W.iswirecutter())
@@ -347,7 +363,7 @@
 		qdel(cashmoney)
 
 		if(left)
-			spawn_money(left, src.loc, user)
+			spawn_money(left, get_turf(user), user)
 
 	// Vending machines have no idea who paid with cash
 	credit_purchase("(cash)")
@@ -533,9 +549,7 @@
 			to_chat(usr, "There is no coin in this machine.")
 			return
 
-		coin.forceMove(src.loc)
-		if(!usr.get_active_hand())
-			usr.put_in_hands(coin)
+		usr.put_in_hands(coin)
 		to_chat(usr, "<span class='notice'>You remove the [coin] from the [src]</span>")
 		coin = null
 		categories &= ~CAT_COIN
@@ -543,8 +557,15 @@
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
 		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
-				flick(icon_deny,src)
+				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course
+				if(icon_deny_cuts_overlay)
+					cut_overlays(TRUE)
+					cut_overlays(TRUE)
+					addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+					cut_overlays(TRUE)
+				flick(icon_deny, src)
+				set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
+				addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
 				return
 
 			var/key = text2num(href_list["vendItem"])
@@ -583,7 +604,14 @@
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
-		flick(src.icon_deny,src)
+		if(icon_deny_cuts_overlay)
+			cut_overlays(TRUE)
+			cut_overlays(TRUE)
+			addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+			cut_overlays(TRUE)
+		flick(icon_deny, src)
+		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
+		addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
 		return
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
@@ -626,6 +654,7 @@
 	playsound(src.loc, "sound/[vending_sound]", 100, 1)
 	spawn(src.vend_delay)
 		var/obj/vended = new R.product_path(get_turf(src))
+		user.put_in_hands(vended)
 		src.status_message = ""
 		src.status_error = 0
 		src.vend_ready = 1
@@ -682,12 +711,15 @@
 	..()
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
+		cut_overlays()
+		set_light(0)
+	else if(!(stat & NOPOWER))
+		icon_state = initial(icon_state)
+		add_screen_overlay()
 	else
-		if( !(stat & NOPOWER) )
-			icon_state = initial(icon_state)
-		else
-			spawn(rand(0, 15))
-				src.icon_state = "[initial(icon_state)]-off"
+		icon_state = "[initial(icon_state)]-off"
+		cut_overlays()
+		set_light(0)
 
 //Oh no we're malfunctioning!  Dump out some product and break.
 /obj/machinery/vending/proc/malfunction()
@@ -699,7 +731,7 @@
 			continue
 
 		while(R.amount>0)
-			new dump_path(src.loc)
+			new dump_path(get_random_turf_in_range(src, 1, 1, TRUE))
 			R.amount--
 		break
 
