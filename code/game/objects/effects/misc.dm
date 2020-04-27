@@ -42,6 +42,7 @@
 	icon = 'icons/effects/effects_rfd.dmi'
 	icon_state = ""
 	layer = ABOVE_MOB_LAYER
+	anchored = TRUE
 	var/mode = 0
 	var/delay = 0
 
