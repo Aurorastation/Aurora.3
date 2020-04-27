@@ -3655,6 +3655,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
+"gE" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "10,10";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
+"gF" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "7,2";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5985,11 +6000,25 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
+"kC" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/window/southright{
+	name = "Cockpit Access"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "kD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/lino/grey,
 /area/store)
+"kE" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "2,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "kF" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -7362,6 +7391,14 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"mZ" = (
+/obj/machinery/computer/shuttle_control/research,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "na" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -7533,10 +7570,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
-"np" = (
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "nq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -8410,6 +8443,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice)
+"oZ" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "0,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "pa" = (
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
@@ -9902,6 +9942,13 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/bridge/levela)
+"rK" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "0,6";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "rL" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -10053,6 +10100,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"sa" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,5";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "sb" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -10360,6 +10414,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"sG" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "10,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "sH" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -10952,6 +11013,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"tU" = (
+/obj/item/storage/firstaid/o2,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/storage/firstaid/regular,
+/obj/structure/closet/medical_wall{
+	pixel_x = 28
+	},
+/obj/machinery/light/small,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/research/station)
 "tV" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	frequency = 1380;
@@ -11076,6 +11149,21 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"ug" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1380;
+	master_tag = "science_shuttle";
+	name = "interior access button";
+	pixel_x = 15;
+	pixel_y = 30
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "uh" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -11394,6 +11482,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"uN" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/wood,
+/area/shuttle/research/station)
 "uO" = (
 /turf/simulated/wall,
 /area/hallway/secondary/entry/locker)
@@ -11437,6 +11533,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
+"uS" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,12";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "uT" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -11483,6 +11586,17 @@
 	},
 /turf/simulated/floor/tiled/old,
 /area/store)
+"uZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "science_shuttle_in";
+	locked = 0
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "va" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/tape_roll,
@@ -11840,6 +11954,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
+"vF" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "5,15"
+	},
+/turf/space,
+/area/shuttle/research/station)
 "vG" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal,
@@ -11852,6 +11972,13 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
+"vJ" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "11,1";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "vK" = (
 /obj/machinery/light{
 	dir = 4
@@ -11873,6 +12000,13 @@
 	icon_state = "2,0"
 	},
 /area/shuttle/escape_pod3/station)
+"vN" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "0,4";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "vO" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12028,6 +12162,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"wd" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "12,8";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "we" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -12146,7 +12288,6 @@
 	id_tag = "science_shuttle_out";
 	locked = 0
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1380;
@@ -12155,12 +12296,35 @@
 	pixel_x = 6;
 	pixel_y = -19
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "wl" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "science_shuttle_pump"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "science_shuttle_sensor";
+	pixel_y = 38
+	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
+	dir = 9
+	},
+/obj/machinery/light/small{
 	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "science_shuttle";
+	layer = 3.3;
+	pixel_y = 28;
+	tag_airpump = "science_shuttle_pump";
+	tag_chamber_sensor = "science_shuttle_sensor";
+	tag_exterior_door = "science_shuttle_out";
+	tag_interior_door = "science_shuttle_in"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
@@ -12196,6 +12360,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"wp" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "5,13"
+	},
+/turf/space,
+/area/shuttle/research/station)
 "wq" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -12383,6 +12553,37 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
+"wL" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,9";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"wM" = (
+/obj/structure/closet/crate/internals{
+	name = "emergency equipment"
+	},
+/obj/item/roller{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/item/roller{
+	pixel_x = 0;
+	pixel_y = 8
+	},
+/obj/item/airbubble,
+/obj/item/airbubble,
+/obj/item/storage/firstaid/o2{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/obj/item/storage/briefcase/inflatable,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "wN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	icon_state = "map";
@@ -12439,6 +12640,14 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass/alt,
 /area/hallway/secondary/entry/fore)
+"wS" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,12";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "wT" = (
 /obj/effect/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
@@ -12461,6 +12670,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"wW" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "0,3";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "wX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -12469,6 +12685,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/storage/tools)
+"wY" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,11";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "wZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12613,6 +12837,20 @@
 "xk" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
+"xl" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,8";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"xm" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "11,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "xo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -12959,6 +13197,32 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"xW" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/landmark{
+	name = "Mission Paper"
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
+"xX" = (
+/turf/space,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "8,11";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"xY" = (
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "xZ" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,1"
@@ -12977,6 +13241,14 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"yb" = (
+/turf/space,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,11";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "yc" = (
 /obj/structure/sign/double/map/right{
 	pixel_y = 30
@@ -13432,6 +13704,13 @@
 "yJ" = (
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
+"yK" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "yL" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/wood,
@@ -13442,11 +13721,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
-"yN" = (
-/obj/machinery/suit_storage_unit/standard_unit,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "yO" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -13525,6 +13799,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
+"yT" = (
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "yU" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -13759,6 +14041,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"zp" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,13";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "zq" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
@@ -14065,6 +14354,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/bridge_surface_checkpoint)
+"zR" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,13";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "zS" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -14585,6 +14882,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
+"AE" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,11";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "AF" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/device/radio/intercom{
@@ -14592,13 +14897,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
-"AG" = (
-/obj/effect/landmark{
-	name = "Mission Paper"
-	},
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/research/station)
 "AI" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -14786,7 +15084,9 @@
 	},
 /area/mine/explored)
 "AY" = (
-/turf/simulated/floor/shuttle/white,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/stool/padded,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "AZ" = (
 /turf/simulated/wall,
@@ -14798,6 +15098,13 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"Bb" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Bc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -15071,6 +15378,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
+"BC" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,5";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "BD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -15109,6 +15423,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"BH" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,10";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "BI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -15123,6 +15444,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
+"BJ" = (
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "BL" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -15357,6 +15691,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/store)
+"Ch" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "0,8";
+	name = "survey shuttle"
+	},
+/turf/space,
+/area/shuttle/research/station)
 "Ci" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/mime,
@@ -15829,6 +16171,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/storage/tools)
+"Dd" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,4";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "De" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -15842,6 +16191,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
+"Df" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,14";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Dg" = (
 /obj/structure/closet,
 /obj/random/loot,
@@ -15964,6 +16321,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
+"Dp" = (
+/turf/space,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "12,5";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Dq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -15990,6 +16355,14 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/old,
 /area/store)
+"Dt" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "1,9";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -16080,6 +16453,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"DA" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "DB" = (
 /obj/structure/ladder/up{
 	pixel_y = 16
@@ -16145,6 +16522,26 @@
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/plating,
 /area/turret_protected/tcomfoyer)
+"DI" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "12,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"DJ" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,1";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"DK" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "7,16"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "DL" = (
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 9";
@@ -16152,6 +16549,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"DM" = (
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "DN" = (
 /obj/effect/floor_decal/spline/plain{
 	icon_state = "spline_plain";
@@ -16162,6 +16572,28 @@
 	dir = 1
 	},
 /area/hallway/secondary/entry/stairs)
+"DO" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "11,5";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"DP" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "12,6";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"DQ" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "7,0";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "DR" = (
 /obj/machinery/light{
 	dir = 8;
@@ -16242,6 +16674,14 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
+"Ea" = (
+/obj/structure/closet/walllocker/emerglocker/north,
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/research/station)
 "Eb" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -17591,6 +18031,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
+"Go" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "7,15"
+	},
+/turf/space,
+/area/shuttle/research/station)
 "Gp" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -18503,6 +18949,14 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"HR" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "10,9";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "HS" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -18526,14 +18980,11 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "HU" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,2";
+	name = "survey shuttle"
 	},
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/research/station)
 "HV" = (
 /obj/machinery/door/airlock/maintenance{
@@ -18653,6 +19104,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Ij" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,4";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"Ik" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,5";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Il" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -18758,6 +19223,15 @@
 "Iv" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/solar/port)
+"Iw" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "Ix" = (
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -18921,14 +19395,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
-"IM" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "IN" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	icon_state = "corner_white_diagonal";
@@ -18988,8 +19454,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "IT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,2";
+	name = "survey shuttle"
+	},
 /area/shuttle/research/station)
 "IU" = (
 /obj/effect/decal/warning_stripes,
@@ -19015,10 +19484,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"IW" = (
-/obj/structure/bed/chair/shuttle,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "IX" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -19387,6 +19852,16 @@
 "JH" = (
 /turf/simulated/wall,
 /area/sconference_room)
+"JJ" = (
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -26;
+	pixel_y = 0
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/research/station)
 "JK" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -19839,6 +20314,14 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
 /area/sconference_room)
+"KH" = (
+/turf/space,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "0,2";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "KI" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue,
@@ -19927,6 +20410,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/sconference_room)
+"KT" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "1,8";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "KU" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -20287,12 +20778,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
-"Lr" = (
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion_r"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Ls" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -20480,6 +20965,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"LI" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,1";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "LJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -20532,10 +21024,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"LN" = (
-/obj/structure/closet/crate/freezer/rations,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
+"LO" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "11,9";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research/station)
 "LP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -20671,6 +21166,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"LZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/hatch{
+	name = "Storage"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "Ma" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -20764,6 +21266,14 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/sleep/cryo)
+"Mj" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "8,14";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Mk" = (
 /obj/structure/closet/toolcloset,
 /obj/random/tech_supply,
@@ -20779,14 +21289,9 @@
 /turf/simulated/floor/airless,
 /area/solar/starboard)
 "Mn" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/white,
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "Mo" = (
 /obj/structure/cryofeed,
@@ -21032,8 +21537,11 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "MM" = (
-/obj/machinery/computer/shuttle_control/research,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,9";
+	name = "survey shuttle"
+	},
 /area/shuttle/research/station)
 "MN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -21110,11 +21618,12 @@
 	},
 /area/mine/explored)
 "MU" = (
-/obj/structure/closet/walllocker/emerglocker/south,
-/obj/structure/bed/chair/shuttle{
-	dir = 4
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "5,1";
+	name = "survey shuttle"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research/station)
 "MV" = (
 /obj/effect/floor_decal/spline/plain{
@@ -21141,6 +21650,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/store)
+"MX" = (
+/turf/space,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "0,1";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "MY" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino/grey,
@@ -21200,15 +21717,12 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
 "Ne" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/hatch{
-	name = "Storage"
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,0";
+	name = "survey shuttle"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research/station)
 "Nf" = (
 /obj/structure/cable/green{
@@ -21247,6 +21761,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"Nh" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Ni" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -21353,10 +21874,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Nt" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Nu" = (
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -21405,6 +21922,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"NC" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/walllocker/emerglocker/north,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
@@ -21684,12 +22206,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
-"Oe" = (
-/obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion_l"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Of" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -21821,10 +22337,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Or" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/recharger,
-/turf/simulated/floor/shuttle/black,
+"Os" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 23
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "Ot" = (
 /obj/structure/grille,
@@ -21868,14 +22393,11 @@
 	},
 /area/shuttle/escape_pod1/station)
 "Ow" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 8
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "8,2";
+	name = "survey shuttle"
 	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/research/station)
 "Ox" = (
 /obj/structure/cable/green{
@@ -21988,6 +22510,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"OJ" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "OK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -22004,21 +22531,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "OL" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1380;
-	id_tag = "science_shuttle_pump"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "science_shuttle_sensor";
-	pixel_y = 32
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
-	dir = 1
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
@@ -22043,6 +22559,14 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
+"OO" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "8,15";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "OP" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -22096,10 +22620,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
-"OU" = (
-/obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+"OV" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,12";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research/station)
 "OW" = (
 /turf/simulated/floor/tiled/dark,
@@ -22136,15 +22663,15 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "Pa" = (
-/obj/machinery/sleeper{
-	icon_state = "sleeper";
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/white,
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "Pb" = (
-/obj/structure/bed/chair/office/bridge/pilot,
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/door/airlock/science{
+	name = "Compilation Office"
+	},
+/turf/simulated/floor/tiled/white,
 /area/shuttle/research/station)
 "Pc" = (
 /obj/machinery/alarm{
@@ -22154,6 +22681,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
+"Pd" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "7,13"
+	},
+/turf/space,
+/area/shuttle/research/station)
 "Pe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -22220,28 +22753,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"Pl" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "2,10";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Pm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,3";
+	name = "survey shuttle"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "science_shuttle_in";
-	locked = 0
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "science_shuttle";
-	layer = 3.3;
-	pixel_y = 28;
-	tag_airpump = "science_shuttle_pump";
-	tag_chamber_sensor = "science_shuttle_sensor";
-	tag_exterior_door = "science_shuttle_out";
-	tag_interior_door = "science_shuttle_in"
-	},
-/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Pn" = (
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -22302,6 +22827,13 @@
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/store)
+"Pt" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,2";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Pu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -22325,10 +22857,16 @@
 /turf/simulated/floor/tiled/old,
 /area/store)
 "Pw" = (
-/obj/machinery/door/airlock/glass{
-	name = "Cockpit"
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -26
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Px" = (
 /turf/simulated/wall,
@@ -22372,6 +22910,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/store)
+"PC" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "5,14"
+	},
+/turf/space,
+/area/shuttle/research/station)
 "PD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	icon_state = "intact-supply";
@@ -22392,6 +22936,12 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
+"PF" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "5,16"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "PG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/telecom{
@@ -22418,9 +22968,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
-"PH" = (
-/turf/simulated/wall/shuttle/cardinal,
-/area/shuttle/research/station)
 "PI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -22465,15 +23012,12 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "PL" = (
-/obj/item/device/radio/intercom{
-	dir = 1;
-	name = "Station Intercom (General)";
-	pixel_y = -26
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "7,1";
+	name = "survey shuttle"
 	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research/station)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -22491,6 +23035,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"PN" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,1";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "PO" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
@@ -22515,6 +23067,13 @@
 /obj/effect/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"PR" = (
+/obj/machinery/door/airlock/glass_medical{
+	name = "Infirmary"
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/research/station)
 "PS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -22548,6 +23107,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
+"PW" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,13";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "PX" = (
 /obj/machinery/door/airlock/glass{
 	name = "Auxillary Tool Storage"
@@ -22570,6 +23137,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
+"PZ" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/rd,
+/turf/simulated/floor/carpet,
+/area/shuttle/research/station)
 "Qa" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -22599,7 +23171,11 @@
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "Qd" = (
-/turf/simulated/wall/shuttle,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,10";
+	name = "survey shuttle"
+	},
 /area/shuttle/research/station)
 "Qe" = (
 /obj/effect/floor_decal/corner/blue{
@@ -22609,10 +23185,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "Qf" = (
-/obj/item/paper_bin,
-/obj/item/pen,
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/white,
 /area/shuttle/research/station)
 "Qg" = (
 /obj/machinery/door/firedoor,
@@ -22648,6 +23221,14 @@
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/maintenance/store)
+"Qj" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "2,9";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Qk" = (
 /obj/structure/table/steel,
 /obj/item/storage/fancy/crayons/chalkbox,
@@ -22685,9 +23266,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "Qn" = (
-/obj/structure/window/shuttle,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "5,10";
+	name = "survey shuttle"
+	},
 /area/shuttle/research/station)
 "Qo" = (
 /obj/machinery/door/firedoor,
@@ -22767,6 +23350,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
+"Qv" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "6,16"
+	},
+/turf/space,
+/area/shuttle/research/station)
 "Qx" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
@@ -22802,11 +23391,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"Qz" = (
-/obj/structure/closet/excavation,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "QA" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
@@ -23029,15 +23613,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
-"QY" = (
-/obj/structure/shuttle/engine/propulsion,
-/turf/simulated/floor/plating,
+"QZ" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,10";
+	name = "survey shuttle"
+	},
 /area/shuttle/research/station)
 "Ra" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Infirmary"
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,3";
+	name = "survey shuttle"
 	},
-/turf/simulated/floor/shuttle/white,
 /area/shuttle/research/station)
 "Rb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -23131,6 +23719,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"Rj" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "1,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Rl" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -23241,13 +23836,6 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
-"Rv" = (
-/obj/machinery/vending/wallmed1{
-	pixel_x = 26;
-	req_access = null
-	},
-/turf/simulated/floor/shuttle/white,
-/area/shuttle/research/station)
 "Rw" = (
 /obj/machinery/computer/telecomms/traffic,
 /obj/machinery/alarm{
@@ -23322,10 +23910,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "RD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/sleeper{
+	icon_state = "sleeper";
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -26;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/shuttle/research/station)
 "RE" = (
 /obj/effect/floor_decal/corner/blue{
@@ -23385,12 +23981,11 @@
 /turf/simulated/floor/plating,
 /area/sconference_room)
 "RI" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "science_shuttle_pump"
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
 	},
-/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "RJ" = (
@@ -23435,12 +24030,11 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/departure_lounge)
 "RN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,3";
+	name = "survey shuttle"
 	},
-/obj/machinery/hologram/holopad,
-/obj/effect/shuttle_landmark/research/start,
-/turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/research/station)
 "RP" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -23499,6 +24093,19 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
+"RU" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/shuttle/research/station)
+"RV" = (
+/turf/space,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "1,1";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "RW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -23740,15 +24347,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"Sx" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Sy" = (
-/obj/structure/closet/walllocker/emerglocker/north,
-/obj/structure/bed/chair/shuttle,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "7,5";
+	name = "survey shuttle"
+	},
 /area/shuttle/research/station)
 "Sz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -23774,6 +24378,13 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
+"SB" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "8,12";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "SC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -23913,18 +24524,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"SO" = (
-/obj/structure/shuttle/engine/heater,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "SP" = (
 /obj/structure/sign/directions/evac{
 	dir = 8;
@@ -24023,6 +24622,13 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"SW" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "9,2";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "SX" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	icon_state = "corner_white_diagonal";
@@ -24103,6 +24709,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/bridge_surface_checkpoint)
+"Tc" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,8";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Td" = (
 /obj/machinery/door/firedoor{
 	dir = 2
@@ -24209,14 +24822,6 @@
 /obj/structure/sign/electricshock,
 /turf/simulated/wall/r_wall,
 /area/tcommsat/entrance)
-"Tm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Tn" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -24228,14 +24833,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"Tp" = (
-/obj/structure/shuttle/engine/heater,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -24247,14 +24844,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
-"Tr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Ts" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/firealarm/east,
@@ -24278,6 +24867,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Tv" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,10";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Tw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -24487,12 +25083,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "TQ" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Research Shuttle - Cockpit"
+/obj/structure/bed/chair/office/bridge{
+	icon_state = "bridge";
+	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/white,
 /area/shuttle/research/station)
 "TR" = (
 /obj/effect/floor_decal/corner/blue{
@@ -24603,6 +25198,14 @@
 "Uf" = (
 /turf/simulated/wall,
 /area/solar/fore)
+"Ug" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,1";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Uh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -24674,10 +25277,6 @@
 /obj/structure/stairs/north,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
-"Un" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Uo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -24705,6 +25304,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
+"Uq" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,0";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Ur" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -24735,6 +25342,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/store)
+"Ut" = (
+/obj/structure/window/shuttle/unique/research{
+	icon_state = "7,14"
+	},
+/turf/space,
+/area/shuttle/research/station)
 "Uu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -24768,6 +25381,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"Ux" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,9";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Uy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -24836,14 +25456,12 @@
 /turf/simulated/wall,
 /area/hallway/secondary/entry/departure_lounge)
 "UF" = (
-/obj/item/storage/firstaid/o2,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/storage/firstaid/regular,
-/obj/structure/closet/medical_wall{
-	pixel_x = 28
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/hydrant{
+	pixel_x = 30;
+	pixel_y = 0
 	},
-/turf/simulated/floor/shuttle/white,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "UG" = (
 /obj/structure/closet,
@@ -24857,9 +25475,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/sconference_room)
-"UI" = (
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "UK" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -24917,12 +25532,11 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/departure_lounge)
 "UP" = (
-/obj/machinery/light{
-	dir = 2;
-	icon_state = "tube1";
-	pixel_y = 0
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "5,7";
+	name = "survey shuttle"
 	},
-/turf/simulated/floor/shuttle/black,
 /area/shuttle/research/station)
 "UQ" = (
 /obj/structure/table/rack,
@@ -24973,13 +25587,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"UU" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "UV" = (
 /turf/simulated/wall,
 /area/hallway/secondary/entry/central)
@@ -25000,6 +25607,14 @@
 /obj/structure/closet/wardrobe/black,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
+"UY" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "11,8";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "UZ" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -25089,25 +25704,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "Vg" = (
-/obj/structure/bed/chair/shuttle{
-	dir = 4
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
 	},
-/turf/simulated/floor/shuttle/white,
+/turf/simulated/floor/tiled,
 /area/shuttle/research/station)
 "Vh" = (
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
-"Vi" = (
-/obj/structure/shuttle/engine/heater,
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "Vj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8;
@@ -25140,6 +25746,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
+"Vm" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "5,0";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Vn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -25169,7 +25783,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "Vr" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1380;
+	id_tag = "science_shuttle_pump"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 10
+	},
+/obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Vs" = (
@@ -25210,6 +25833,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Vw" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "8,1";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Vx" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -25327,6 +25958,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"VJ" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,4";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "VK" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -25358,14 +25996,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
-"VM" = (
-/obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "VN" = (
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/grass/alt,
@@ -25418,6 +26048,14 @@
 	icon_state = "2,1"
 	},
 /area/shuttle/escape_pod3/station)
+"VR" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "8,0";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "VS" = (
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -25753,6 +26391,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/sleep/bedrooms)
+"Ww" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "5,2";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "Wx" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -25833,6 +26478,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
+"WF" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "3,7";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "WG" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -25889,6 +26541,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"WN" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "10,1";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
+"WO" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "2,1";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "WP" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -25902,6 +26568,23 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
+"WQ" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -26;
+	pixel_y = 0
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "WR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/filingcabinet/chestdrawer{
@@ -25947,6 +26630,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/tools)
+"WU" = (
+/turf/space,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "12,1";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "WV" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -26006,6 +26697,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Xd" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "10,8";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Xe" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -26116,7 +26815,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "Xo" = (
-/turf/simulated/floor/shuttle/black,
+/obj/effect/shuttle_landmark/research/start,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,7";
+	name = "survey shuttle"
+	},
 /area/shuttle/research/station)
 "Xp" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -26448,7 +27152,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "XU" = (
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "6,5";
+	name = "survey shuttle"
+	},
 /area/shuttle/research/station)
 "XV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -26631,18 +27339,12 @@
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "Yn" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "science_shuttle";
-	name = "interior access button";
-	pixel_x = 30;
-	pixel_y = 30
+/obj/machinery/vending/wallmed1{
+	pixel_x = 26;
+	req_access = null
 	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/shuttle/research/station)
 "Yo" = (
 /obj/structure/cable/green{
@@ -26699,6 +27401,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"Yt" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "4,15";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Yu" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -26875,6 +27585,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"YJ" = (
+/obj/structure/bed/chair/office/bridge/pilot,
+/obj/effect/floor_decal/corner/blue{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/research/station)
 "YK" = (
 /obj/structure/bed/chair,
 /obj/machinery/firealarm/north,
@@ -26888,14 +27606,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "YM" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Research Shuttle - Main Section";
-	dir = 4
-	},
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/carpet,
 /area/shuttle/research/station)
 "YN" = (
 /obj/machinery/door/firedoor,
@@ -26936,12 +27649,10 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "YR" = (
-/obj/structure/bed/chair/shuttle,
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = 23
+/obj/machinery/door/airlock{
+	name = "Private Quarters"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/wood,
 /area/shuttle/research/station)
 "YS" = (
 /turf/simulated/open/airless,
@@ -27124,6 +27835,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
+"Zk" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/flashlight/lamp,
+/obj/item/paper_bin,
+/obj/item/pen,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/research/station)
 "Zl" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -27219,6 +27937,14 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/old,
 /area/store)
+"Zx" = (
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "2,8";
+	name = "survey shuttle"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/research/station)
 "Zy" = (
 /obj/structure/weightlifter,
 /obj/machinery/alarm{
@@ -27274,6 +28000,13 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
+"ZD" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	icon_state = "spline_fancy";
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/shuttle/research/station)
 "ZE" = (
 /obj/structure/ladder{
 	icon_state = "ladder01";
@@ -27286,6 +28019,9 @@
 	dir = 8;
 	frequency = 1380;
 	id_tag = "science_shuttle_pump"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
@@ -27389,6 +28125,13 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
+"ZO" = (
+/turf/simulated/wall/shuttle/unique/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "8,13";
+	name = "survey shuttle"
+	},
+/area/shuttle/research/station)
 "ZP" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -27427,34 +28170,6 @@
 /obj/item/haircomb,
 /turf/simulated/floor/plating,
 /area/store)
-"ZT" = (
-/obj/structure/closet/crate/internals{
-	name = "emergency equipment"
-	},
-/obj/item/roller{
-	pixel_x = 0;
-	pixel_y = 8
-	},
-/obj/item/roller{
-	pixel_x = 0;
-	pixel_y = 8
-	},
-/obj/item/airbubble,
-/obj/item/airbubble,
-/obj/item/storage/firstaid/o2{
-	pixel_x = 0;
-	pixel_y = 2
-	},
-/obj/item/storage/briefcase/inflatable,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/shuttle/research/station)
 "ZU" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -69027,14 +69742,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-Qd
-Qd
-Qd
-Qd
-Qd
+Ch
+oZ
+rK
+vN
+vN
+wW
+KH
+MX
 aa
 aa
 aa
@@ -69283,15 +69998,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-Qn
+Dt
+KT
+Rj
+yT
+wM
 Pa
 Mn
 Vg
-Qn
+RV
 aa
 aa
 aa
@@ -69539,22 +70254,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-Qd
-Rv
+Pl
+Qj
+Zx
+kE
+DA
+DA
+DA
 AY
 UF
-Qd
-Qd
+WO
 aa
 aa
-Qd
-Qd
-Qd
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -69793,26 +70508,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Qd
-Qd
-Qd
+zR
+wS
+wY
+Tv
+Ux
+Tc
+WF
+LZ
+sa
+Ij
 Ra
-Qd
-Qd
-Qd
-Qd
-Qd
-PH
-LN
-Vi
-Oe
+Pt
+DJ
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -70048,28 +70763,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+Yt
+Df
+zp
+uS
+yb
 Qd
-Qn
-Qn
-Qn
-Qd
-Qd
+Zk
+JJ
+Nh
+DA
+BC
 YM
-XU
+PZ
 HU
-Qd
-Qd
-yN
-VM
-Qz
-Vr
-Tp
-QY
+Ug
+Uq
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -70304,29 +71019,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+PF
+vF
+PC
+wp
+WQ
+BJ
 Qn
 TQ
 Qf
 UP
-Qd
+NC
 YR
-XU
-XU
-XU
+ZD
+uN
+Ww
 MU
-Qd
-IW
-UI
-np
-Vr
-Tp
-QY
+Vm
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -70561,29 +71276,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-Qn
+Qv
+mZ
+YJ
+xY
+DA
+RU
+QZ
 MM
 Pb
 Xo
 Pw
 XU
-XU
+VJ
 RN
 IT
-IT
+PN
 Ne
-Un
-Un
-Un
-Tr
-Tp
-QY
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -70818,29 +71533,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-Qn
-Or
-AG
-UP
-Qd
+DK
+Go
+Ut
+Pd
+yK
+kC
+DA
+DA
+DA
+DA
+DA
 Sy
-XU
+Ea
 RD
-XU
+gF
 PL
-Qd
-IW
-UI
-UI
-ZT
-Tp
-QY
+DQ
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 ag
@@ -71076,28 +71791,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-Qd
-Qn
-Qn
-Qn
-Qd
-Qd
+OO
+Mj
+ZO
+SB
+xX
+Os
+DM
+xW
+OJ
+DA
+PR
 Yn
-RD
+tU
 Ow
-Qd
-Qd
-Sx
-IM
-OU
-Tm
-Tp
-QY
+Vw
+VR
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 ag
 ag
@@ -71335,26 +72050,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Qd
-Qd
-Qn
+PW
+OV
+AE
+BH
+wL
+xl
+Bb
+DA
+Ik
+Dd
 Pm
-Qn
-Qd
-Qd
-Qd
-Qd
-PH
-UU
-SO
-Lr
+SW
+LI
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 ag
 ag
@@ -71595,22 +72310,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-Qd
+gE
+HR
+Xd
+sG
+ug
+uZ
 OL
-Nt
+OL
 RI
-Qd
-Qd
+WN
 aa
 aa
-Qd
-Qd
-Qd
+aa
+aa
+aa
+aa
 aa
 ag
 ag
@@ -71853,15 +72568,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-Qn
+LO
+UY
+xm
+Iw
+DO
 wl
 ZF
 Vr
-Qn
+vJ
 aa
 aa
 aa
@@ -72111,14 +72826,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-Qd
+wd
+DI
+DP
+Dp
 Rs
 Rs
 wk
-Qd
+WU
 aa
 aa
 aa

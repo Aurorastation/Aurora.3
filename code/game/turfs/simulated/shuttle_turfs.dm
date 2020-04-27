@@ -348,6 +348,21 @@
 	icon = 'icons/turf/shuttles_unique/aurora_research_shuttle.dmi'
 	icon_state = "6,2"
 
+//distress team shuttle
+
+/turf/simulated/wall/shuttle/unique/distress
+	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/distress
+	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/distress
+	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
+	icon_state = "6,2"
+
+
 //--Floors--//
 
 /turf/simulated/floor/shuttle
