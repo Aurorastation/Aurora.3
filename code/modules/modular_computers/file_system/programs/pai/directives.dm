@@ -57,7 +57,7 @@
 		while(!istype(M, /mob/living))
 			if(!M || !M.loc || count > 6)
 				//For a runtime where M ends up in nullspace (similar to bluespace but less colourful)
-				to_chat(src, "You are not being carried by anyone!")
+				to_chat(src, SPAN_WARNING("You are not being carried by anyone!"))
 				return 0
 			M = M.loc
 			count++
@@ -67,13 +67,13 @@
 		if(answer == "Yes")
 			var/turf/T = get_turf_or_move(host.loc)
 			for (var/mob/v in viewers(T))
-				v.show_message("<span class='notice'>[M] presses \his thumb against [host].</span>", 3, "<span class='notice'>[host] makes a sharp clicking sound as it extracts DNA material from [M].</span>", 2)
+				v.show_message(SPAN_NOTICE("[M] presses \his thumb against [host]."), 3, SPAN_NOTICE("[host] makes a sharp clicking sound as it extracts DNA material from [M]."), 2)
 			var/datum/dna/dna = M.dna
 			to_chat(host, "<font color = red><h3>[M]'s UE string : [dna.unique_enzymes]</h3></font>")
 			if(dna.unique_enzymes == host.master_dna)
-				to_chat(host, "<b>DNA is a match to stored Master DNA.</b>")
+				to_chat(host, SPAN_NOTICE("<b>Provided DNA is a match to stored Master DNA.</b>"))
 			else
-				to_chat(host, "<b>DNA does not match stored Master DNA.</b>")
+				to_chat(host, SPAN_WARNING("<b>Provided DNA does not match stored Master DNA.</b>"))
 		else
-			to_chat(host, "[M] does not seem like \he [gender_datums[M.gender].is] going to provide a DNA sample willingly.")
+			to_chat(host, SPAN_WARNING("[M] does not seem like \he [gender_datums[M.gender].is] going to provide a DNA sample willingly."))
 		return 1

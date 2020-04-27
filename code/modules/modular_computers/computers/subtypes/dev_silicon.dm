@@ -10,7 +10,7 @@
 	base_active_power_usage = 25
 	max_hardware_size = 3
 	max_damage = 50
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	enrolled = 2
 	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
 
