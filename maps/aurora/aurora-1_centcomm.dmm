@@ -21629,9 +21629,6 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/legion/hangar5)
-"dOi" = (
-/turf/unsimulated/floor/plating,
-/area/shuttle/legion/centcom)
 "dPt" = (
 /obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
@@ -26610,16 +26607,6 @@
 	icon_state = "3,1"
 	},
 /area/shuttle/transport1/centcom)
-"jOG" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 2;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
-/turf/template_noop,
-/area/space)
 "jON" = (
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -75202,7 +75189,7 @@ aas
 abh
 aav
 aav
-jOG
+xiN
 aav
 aav
 aav
@@ -75210,7 +75197,7 @@ aav
 aav
 aav
 aav
-jOG
+xiN
 aav
 aav
 abh
@@ -75459,7 +75446,7 @@ aat
 abi
 aav
 aav
-jOG
+xiN
 aav
 aav
 aav
@@ -75467,7 +75454,7 @@ aav
 aav
 aav
 aav
-jOG
+xiN
 aav
 aav
 abi
@@ -75716,7 +75703,7 @@ aau
 abm
 aav
 aav
-jOG
+xiN
 aav
 aav
 aav
@@ -75724,7 +75711,7 @@ aav
 aav
 aav
 aav
-jOG
+xiN
 aav
 aav
 abm
@@ -75973,7 +75960,7 @@ aav
 abj
 aav
 aav
-jOG
+xiN
 aav
 aav
 aav
@@ -75981,7 +75968,7 @@ aav
 aav
 aav
 aav
-jOG
+xiN
 aav
 aav
 abj
@@ -76230,7 +76217,7 @@ aaw
 aar
 aav
 aav
-jOG
+xiN
 aav
 aav
 aav
@@ -76238,7 +76225,7 @@ aav
 aav
 aav
 aav
-jOG
+xiN
 aav
 aav
 aat
@@ -76487,7 +76474,7 @@ abf
 aas
 aav
 aav
-jOG
+xiN
 aav
 aav
 aav
@@ -76495,7 +76482,7 @@ aav
 aav
 aav
 aav
-jOG
+xiN
 aav
 aav
 aat
@@ -76744,7 +76731,7 @@ aat
 aat
 aat
 aat
-jOG
+xiN
 aav
 aav
 aav
@@ -76752,7 +76739,7 @@ aav
 aav
 aav
 aav
-jOG
+xiN
 aat
 aat
 aat
@@ -77001,7 +76988,7 @@ aat
 aat
 aat
 aat
-jOG
+xiN
 aav
 aav
 aav
@@ -77009,7 +76996,7 @@ aav
 aav
 aav
 aav
-jOG
+xiN
 aat
 aat
 aat
@@ -99394,11 +99381,11 @@ tVX
 hiF
 pWv
 cqP
-dOi
+pWv
 uhk
 vhL
 iSi
-dOi
+pWv
 vkb
 pWv
 hzB
