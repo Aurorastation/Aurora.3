@@ -71,7 +71,7 @@
 		var/turf/T = get_turf_or_move(host.loc)
 		host.hack_aborted = 0
 		host.cable = new /obj/item/pai_cable(T)
-		T.visible_message("SPAN_WARNING("A port on [host] opens to reveal [host.cable], which promptly falls to the floor."),
+		T.visible_message(SPAN_WARNING("A port on [host] opens to reveal [host.cable], which promptly falls to the floor."),
 			SPAN_WARNING("You hear the soft click of something light and hard falling to the ground."))
 		return 1
 
