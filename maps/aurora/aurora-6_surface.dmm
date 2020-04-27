@@ -12613,11 +12613,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "wP" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -12628,6 +12623,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -14738,11 +14738,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
 	icon_state = "intact"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -22269,7 +22264,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "Om" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
