@@ -68,7 +68,6 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
 
 /datum/species/machine/shell/get_light_color()
@@ -165,8 +164,7 @@
 	sprint_charge_factor = 1.1
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/self_diagnostics
 		)
 
 /datum/species/machine/industrial/get_light_color()
@@ -310,7 +308,6 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/crush
 	)
 
@@ -437,8 +434,7 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/self_diagnostics
 		)
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
@@ -484,8 +480,7 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/self_diagnostics
 		)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
@@ -524,8 +519,7 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag
+		/mob/living/carbon/human/proc/self_diagnostics
 		)
 
 /datum/species/machine/unbranded/remote
