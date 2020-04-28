@@ -122,16 +122,15 @@
 	if(!istype(T))
 		return
 
+	if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
+		vent_icon += "h"
+
 	if(welded)
 		vent_icon += "weld"
 	else if(!powered())
 		vent_icon += "off"
 	else
 		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
-		if(vent_icon == "off")
-			flick("[pump_direction ? "out" : "in"]-off", src)
-		else
-			flick("[pump_direction ? "out" : "in"]-starting", src)
 
 	icon_state = vent_icon
 
@@ -353,7 +352,7 @@
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, span("notice", "Now welding the vent."))
 			if(do_after(user, 30/W.toolspeed))
-				if(!src || !WT.isOn())
+				if(!src || !WT.isOn()) 
 					return
 				welded = !welded
 				update_icon()
