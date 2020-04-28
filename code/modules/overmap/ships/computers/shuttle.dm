@@ -2,7 +2,6 @@
 /obj/machinery/computer/shuttle_control/explore
 	name = "general shuttle control console"
 	ui_template = "shuttle_control_console_exploration.tmpl"
-	base_type = /obj/machinery/computer/shuttle_control/explore
 
 /obj/machinery/computer/shuttle_control/explore/get_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
 	. = ..()
@@ -26,10 +25,6 @@
 		)
 
 /obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/datum/shuttle/autodock/overmap/shuttle, var/list/href_list)	
-	if(ismob(usr))
-		var/mob/user = usr
-		shuttle.operator_skill = user.get_skill_value(SKILL_PILOT)
-
 	if((. = ..()) != null)
 		return
 
@@ -41,6 +36,6 @@
 		else
 			to_chat(usr,"<span class='warning'>No valid landing sites in range.</span>")
 		possible_d = shuttle.get_possible_destinations()
-		if(CanInteract(usr, state) && (D in possible_d))
+		if(CanInteract(usr, physical_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TOPIC_REFRESH

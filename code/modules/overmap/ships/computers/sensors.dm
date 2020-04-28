@@ -1,6 +1,5 @@
 /obj/machinery/computer/ship/sensors
 	name = "sensors console"
-	icon_keyboard = "teleport_key"
 	icon_screen = "teleport"
 	light_color = "#77fff8"
 	extra_view = 4
@@ -14,7 +13,7 @@
 /obj/machinery/computer/ship/sensors/proc/find_sensors()
 	if(!linked)
 		return
-	for(var/obj/machinery/shipsensors/S in SSmachines.machinery)
+	for(var/obj/machinery/shipsensors/S in SSmachinery.all_machines)
 		if(linked.check_ownership(S))
 			sensors = S
 			break
@@ -59,7 +58,7 @@
 		data["range"] = "N/A"
 		data["on"] = 0
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "shipsensors.tmpl", "[linked.name] Sensors Control", 420, 530, src)
 		ui.set_initial_data(data)

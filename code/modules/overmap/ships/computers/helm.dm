@@ -1,11 +1,10 @@
-LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
+/datum/computer_file/data/waypoint
+	var/list/fields = list()
 
 /obj/machinery/computer/ship/helm
 	name = "helm control console"
-	icon_keyboard = "teleport_key"
 	icon_screen = "helm"
 	light_color = "#7faaff"
-	core_skill = SKILL_PILOT
 	var/autopilot = 0
 	var/list/known_sectors = list()
 	var/dx		//desitnation
@@ -58,8 +57,6 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 /obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
 	if(viewing_overmap(user) && linked)
-		if(prob(user.skill_fail_chance(SKILL_PILOT, 50, linked.skill_needed, factor = 1)))
-			direction = turn(direction,pick(90,-90))
 		linked.relaymove(user, direction, accellimit)
 		return 1
 
@@ -112,14 +109,14 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 		data["locations"] = locations
 
-		ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+		ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 		if (!ui)
 			ui = new(user, src, ui_key, "helm.tmpl", "[linked.name] Helm Control", 565, 545)
 			ui.set_initial_data(data)
 			ui.open()
 			ui.set_auto_update(1)
 
-/obj/machinery/computer/ship/helm/OnTopic(var/mob/user, var/list/href_list, state)
+/obj/machinery/computer/ship/helm/Topic(href, href_list)
 	if(..())
 		return TOPIC_HANDLED
 
@@ -129,13 +126,13 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	if (href_list["add"])
 		var/datum/computer_file/data/waypoint/R = new()
 		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[known_sectors.len]") as text
-		if(!CanInteract(user,state))
+		if(!CanInteract(usr, physical_state))
 			return TOPIC_NOACTION
 		if(!sec_name)
 			sec_name = "Sector #[known_sectors.len]"
 		R.fields["name"] = sec_name
 		if(sec_name in known_sectors)
-			to_chat(user, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
+			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
 			return TOPIC_REFRESH
 		switch(href_list["add"])
 			if("current")
@@ -143,10 +140,10 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 				R.fields["y"] = linked.y
 			if("new")
 				var/newx = input("Input new entry x coordinate", "Coordinate input", linked.x) as num
-				if(!CanInteract(user,state))
+				if(!CanInteract(usr, physical_state))
 					return TOPIC_REFRESH
 				var/newy = input("Input new entry y coordinate", "Coordinate input", linked.y) as num
-				if(!CanInteract(user,state))
+				if(!CanInteract(usr, physical_state))
 					return TOPIC_NOACTION
 				R.fields["x"] = Clamp(newx, 1, world.maxx)
 				R.fields["y"] = Clamp(newy, 1, world.maxy)
@@ -160,14 +157,14 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 	if (href_list["setx"])
 		var/newx = input("Input new destiniation x coordinate", "Coordinate input", dx) as num|null
-		if(!CanInteract(user,state))
+		if(!CanInteract(usr, physical_state))
 			return
 		if (newx)
 			dx = Clamp(newx, 1, world.maxx)
 
 	if (href_list["sety"])
 		var/newy = input("Input new destiniation y coordinate", "Coordinate input", dy) as num|null
-		if(!CanInteract(user,state))
+		if(!CanInteract(usr, physical_state))
 			return
 		if (newy)
 			dy = Clamp(newy, 1, world.maxy)
@@ -191,8 +188,6 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 
 	if (href_list["move"])
 		var/ndir = text2num(href_list["move"])
-		if(prob(user.skill_fail_chance(SKILL_PILOT, 50, linked.skill_needed, factor = 1)))
-			ndir = turn(ndir,pick(90,-90))
 		linked.relaymove(user, ndir, accellimit)
 
 	if (href_list["brake"])
@@ -202,15 +197,14 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		autopilot = !autopilot
 
 	if (href_list["manual"])
-		viewing_overmap(user) ? unlook(user) : look(user)
+		viewing_overmap(usr) ? unlook(usr) : look(usr)
 
-	add_fingerprint(user)
+	add_fingerprint(usr)
 	updateUsrDialog()
 
 
 /obj/machinery/computer/ship/navigation
 	name = "navigation console"
-	icon_keyboard = "generic_key"
 	icon_screen = "helm"
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
@@ -238,14 +232,14 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	else
 		data["ETAnext"] = "N/A"
 
-	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if (!ui)
 		ui = new(user, src, ui_key, "nav.tmpl", "[linked.name] Navigation Screen", 380, 530)
 		ui.set_initial_data(data)
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/ship/navigation/OnTopic(var/mob/user, var/list/href_list)
+/obj/machinery/computer/ship/navigation/Topic(href, href_list)
 	if(..())
 		return TOPIC_HANDLED
 
@@ -253,7 +247,7 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 		return TOPIC_NOACTION
 
 	if (href_list["viewing"])
-		viewing_overmap(user) ? unlook(user) : look(user)
+		viewing_overmap(usr) ? unlook(usr) : look(usr)
 		return TOPIC_REFRESH
 
 /obj/machinery/computer/ship/navigation/telescreen	//little hacky but it's only used on one ship so it should be okay
@@ -261,9 +255,9 @@ LEGACY_RECORD_STRUCTURE(all_waypoints, waypoint)
 	density = 0
 
 /obj/machinery/computer/ship/navigation/telescreen/on_update_icon()
-	if(reason_broken & MACHINE_BROKEN_NO_PARTS || stat & NOPOWER || stat & BROKEN)
+	if(stat & NOPOWER || stat & BROKEN)
 		icon_state = "tele_off"
 		set_light(0)
 	else
 		icon_state = "tele_nav"
-		set_light(light_max_bright_on, light_inner_range_on, light_outer_range_on, 2, light_color)
+		set_light(2, 2, "#33FAAA")

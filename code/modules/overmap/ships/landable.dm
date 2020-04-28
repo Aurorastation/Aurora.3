@@ -10,10 +10,6 @@
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 
-/obj/effect/overmap/visitable/ship/landable/Destroy()
-	GLOB.shuttle_moved_event.unregister(SSshuttle.shuttles[shuttle], src)
-	return ..()
-
 /obj/effect/overmap/visitable/ship/landable/can_burn()
 	if(status != SHIP_STATUS_OVERMAP)
 		return 0
@@ -61,7 +57,6 @@
 /obj/effect/overmap/visitable/ship/landable/populate_sector_objects()
 	..()
 	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
-	GLOB.shuttle_moved_event.register(shuttle_datum, src, .proc/on_shuttle_jump)
 	on_landing(landmark, shuttle_datum.current_location) // We "land" at round start to properly place ourselves on the overmap.
 
 /obj/effect/shuttle_landmark/ship
@@ -92,13 +87,13 @@
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Initialize(mapload, obj/effect/shuttle_landmark/ship/master, _name)
 	core_landmark = master
-	SetName(_name)
+	name = _name
 	landmark_tag = master.shuttle_name + _name
-	GLOB.destroyed_event.register(master, src, /datum/proc/qdel_self)
+	destroyed_event.register(master, src, /datum/proc/qdel)
 	. = ..()
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Destroy()
-	GLOB.destroyed_event.unregister(core_landmark, src)
+	destroyed_event.unregister(core_landmark, src)
 	LAZYREMOVE(core_landmark.visitors, src)
 	core_landmark = null
 	. = ..()
@@ -115,11 +110,9 @@
 
 /obj/effect/shuttle_landmark/visiting_shuttle/shuttle_arrived(datum/shuttle/shuttle)
 	LAZYSET(core_landmark.visitors, src, shuttle)
-	GLOB.shuttle_moved_event.register(shuttle, src, .proc/shuttle_left)
 
 /obj/effect/shuttle_landmark/visiting_shuttle/proc/shuttle_left(datum/shuttle/shuttle, obj/effect/shuttle_landmark/old_landmark, obj/effect/shuttle_landmark/new_landmark)
 	if(old_landmark == src)
-		GLOB.shuttle_moved_event.unregister(shuttle, src)
 		LAZYREMOVE(core_landmark.visitors, src)
 
 /obj/effect/overmap/visitable/ship/landable/proc/on_shuttle_jump(datum/shuttle/given_shuttle, obj/effect/shuttle_landmark/from, obj/effect/shuttle_landmark/into)

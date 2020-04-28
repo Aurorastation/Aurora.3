@@ -38,16 +38,15 @@
 	min_speed = round(min_speed, SHIP_MOVE_RESOLUTION)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
 	SSshuttle.ships += src
-	START_PROCESSING(SSobj, src)
+	START_PROCESSING(SSprocessing, src)
 
 /obj/effect/overmap/visitable/ship/Destroy()
-	STOP_PROCESSING(SSobj, src)
+	STOP_PROCESSING(SSprocessing, src)
 	SSshuttle.ships -= src
 	. = ..()
 
 /obj/effect/overmap/visitable/ship/relaymove(mob/user, direction, accel_limit)
 	accelerate(direction, accel_limit)
-	operator_skill = user.get_skill_value(SKILL_PILOT)
 
 /obj/effect/overmap/visitable/ship/proc/is_still()
 	return !MOVING(speed[1]) && !MOVING(speed[2])
@@ -131,7 +130,7 @@
 		if(direction & SOUTH)
 			adjust_speed(0, -acceleration)
 
-/obj/effect/overmap/visitable/ship/Process()
+/obj/effect/overmap/visitable/ship/process()
 	if(!halted && !is_still())
 		var/list/deltas = list(0,0)
 		for(var/i=1, i<=2, i++)
@@ -144,7 +143,7 @@
 			handle_wraparound()
 		update_icon()
 
-/obj/effect/overmap/visitable/ship/on_update_icon()
+/obj/effect/overmap/visitable/ship/update_icon()
 	if(!is_still())
 		icon_state = moving_state
 		dir = get_heading()
@@ -214,7 +213,7 @@
 
 /obj/effect/overmap/visitable/ship/populate_sector_objects()
 	..()
-	for(var/obj/machinery/computer/ship/S in SSmachines.machinery)
+	for(var/obj/machinery/computer/ship/S in SSmachinery.all_machines)
 		S.attempt_hook_up(src)
 	for(var/datum/ship_engine/E in ship_engines)
 		if(check_ownership(E.holder))

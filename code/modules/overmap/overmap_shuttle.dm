@@ -124,7 +124,8 @@
 		user.put_in_hands(contents[1])
 	update_icon()
 
-/obj/structure/fuel_port/on_update_icon()
+/obj/structure/fuel_port/update_icon()
+	. = ..()
 	if(opened)
 		if(contents.len > 0)
 			icon_state = icon_full
@@ -133,15 +134,15 @@
 	else
 		icon_state = icon_closed
 
-/obj/structure/fuel_port/attackby(obj/item/W as obj, mob/user as mob)
-	if(isCrowbar(W))
+/obj/structure/fuel_port/attackby(obj/item/W, mob/user)
+	if(iscrowbar(W))
 		if(opened)
 			to_chat(user, "<spawn class='notice'>You tightly shut \the [src] door.")
-			playsound(src.loc, 'sound/effects/locker_close.ogg', 25, 0, -3)
+			playsound(src.loc, 'sound/effects/closet_close.ogg', 25, 0, -3)
 			opened = 0
 		else
 			to_chat(user, "<spawn class='notice'>You open up \the [src] door.")
-			playsound(src.loc, 'sound/effects/locker_open.ogg', 15, 1, -3)
+			playsound(src.loc, 'sound/effects/closet_open.ogg', 15, 1, -3)
 			opened = 1
 	else if(istype(W,/obj/item/tank))
 		if(!opened)

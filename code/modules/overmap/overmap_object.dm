@@ -20,5 +20,5 @@
 	
 	if(known)
 		layer = EFFECTS_ABOVE_LIGHTING_LAYER
-		for(var/obj/machinery/computer/ship/helm/H in SSmachines.machinery)
+		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.all_machines)
 			H.get_known_sectors()

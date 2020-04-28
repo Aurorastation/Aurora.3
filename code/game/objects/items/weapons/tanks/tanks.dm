@@ -306,6 +306,6 @@
 	else if(integrity < 3)
 		integrity++
 
-/obj/item/weapon/tank/proc/remove_air_by_flag(flag, amount)
+/obj/item/tank/proc/remove_air_by_flag(flag, amount)
 	. = air_contents.remove_by_flag(flag, amount)
-	update_gauge()
+	update_icon()
