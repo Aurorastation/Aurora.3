@@ -215,6 +215,11 @@
 						continue
 					TA.ChangeTurf(ceiling_type, TRUE, TRUE, TRUE)
 
+	for(var/obj/structure/shuttle_part/part in get_area(current_location))
+		var/turf/target_turf = get_turf(part)
+		if(part.outside_part)
+			target_turf.ChangeTurf(destination.base_turf)
+
 	// Remove all powernets that were affected, and rebuild them.
 	var/list/cables = list()
 	for(var/datum/powernet/P in powernets)

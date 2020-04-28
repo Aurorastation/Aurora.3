@@ -167,6 +167,7 @@
 	icon_state = "door0"
 	anchored = TRUE
 	density = TRUE
+	var/outside_part = TRUE
 
 /obj/structure/window/shuttle/unique
 	name = "shuttle window"

@@ -11208,10 +11208,10 @@
 	},
 /area/centcom/ferry)
 "aEk" = (
-/turf/unsimulated/floor/plating,
-/turf/simulated/wall/shuttle/unique/ccia{
+/obj/structure/shuttle_part/ccia{
 	icon_state = "3,4"
 	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/transport1/centcom)
 "aEl" = (
 /turf/simulated/wall/shuttle/unique/ccia{
@@ -15849,7 +15849,8 @@
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "7,9";
-	name = "Skipjack"
+	name = "Skipjack";
+	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -16861,7 +16862,8 @@
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "15,3";
-	name = "Skipjack"
+	name = "Skipjack";
+	outside_part = 0
 	},
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
@@ -20154,7 +20156,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "bTZ" = (
-/obj/structure/window/shuttle/unique/ccia{
+/obj/structure/shuttle_part/ccia{
 	icon_state = "0,1"
 	},
 /turf/unsimulated/floor/plating,
@@ -21540,7 +21542,8 @@
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "6,3";
-	name = "Skipjack"
+	name = "Skipjack";
+	outside_part = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/skipjack_station/start)
@@ -22467,9 +22470,10 @@
 	},
 /area/centcom/legion/hangar5)
 "eXy" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "3,0"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "eXD" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -22786,9 +22790,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration/centcom)
 "fmy" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "4,0"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "fmz" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -23247,7 +23252,8 @@
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "2,18";
-	name = "transport shuttle"
+	name = "transport shuttle";
+	outside_part = 0
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape/centcom)
@@ -23283,7 +23289,8 @@
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "2,3";
-	name = "Skipjack"
+	name = "Skipjack";
+	outside_part = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/skipjack_station/start)
@@ -25626,9 +25633,10 @@
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "iDB" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "2,1"
 	},
+/turf/template_noop,
 /area/shuttle/merchant/start)
 "iEq" = (
 /obj/structure/table/standard,
@@ -26313,9 +26321,10 @@
 /turf/space,
 /area/shuttle/merchant/start)
 "jup" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "6,8"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "jvJ" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -26827,7 +26836,7 @@
 /turf/space/transit/north/shuttlespace_ns8,
 /area/space)
 "kgq" = (
-/obj/structure/window/shuttle/unique/ccia{
+/obj/structure/shuttle_part/ccia{
 	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/plating,
@@ -27815,7 +27824,8 @@
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "7,7";
-	name = "Skipjack"
+	name = "Skipjack";
+	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -28004,7 +28014,8 @@
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "14,9";
-	name = "Skipjack"
+	name = "Skipjack";
+	outside_part = 0
 	},
 /obj/effect/floor_decal/corner/red{
 	icon_state = "corner_white";
@@ -28830,9 +28841,10 @@
 	},
 /area/centcom/legion/hangar5)
 "mOi" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "4,7"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "mPM" = (
 /obj/structure/window/reinforced{
@@ -29537,9 +29549,10 @@
 	},
 /area/centcom/legion/hangar5)
 "nFO" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "4,1"
 	},
+/turf/template_noop,
 /area/shuttle/merchant/start)
 "nGh" = (
 /obj/item/stool,
@@ -30103,9 +30116,10 @@
 	},
 /area/shuttle/administration/centcom)
 "ohk" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "6,0"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "oiW" = (
 /turf/simulated/wall/shuttle/unique/arrivals{
@@ -31603,9 +31617,10 @@
 	},
 /area/shuttle/arrival/centcom)
 "pWj" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "3,8"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "pWv" = (
 /turf/unsimulated/floor/plating,
@@ -31620,7 +31635,8 @@
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "19,3";
-	name = "Skipjack"
+	name = "Skipjack";
+	outside_part = 0
 	},
 /turf/simulated/floor/plating,
 /area/skipjack_station/start)
@@ -31993,9 +32009,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
 "qBg" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "2,7"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "qBY" = (
 /obj/structure/flora/tree/jungle,
@@ -32711,9 +32728,10 @@
 	},
 /area/centcom/legion/hangar5)
 "rmk" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "2,0"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "rnj" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -33057,9 +33075,10 @@
 	},
 /area/skipjack_station/start)
 "rPy" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "2,8"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "rPz" = (
 /turf/simulated/wall/shuttle/unique/ert{
@@ -34187,10 +34206,10 @@
 	},
 /area/centcom/legion)
 "tkT" = (
-/turf/unsimulated/floor/plating,
-/turf/simulated/wall/shuttle/unique/ccia{
+/obj/structure/shuttle_part/ccia{
 	icon_state = "3,0"
 	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/transport1/centcom)
 "tmg" = (
 /obj/structure/window/reinforced/crescent{
@@ -35420,9 +35439,10 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "uPA" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "4,8"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "uQh" = (
 /obj/machinery/computer/cryopod{
@@ -35544,7 +35564,8 @@
 /area/shuttle/merchant/start)
 "uXQ" = (
 /obj/structure/shuttle_part/tcfl{
-	icon_state = "13,5"
+	icon_state = "13,5";
+	outside_part = 0
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
@@ -37033,7 +37054,8 @@
 /area/shuttle/legion/centcom)
 "wGD" = (
 /obj/structure/shuttle_part/tcfl{
-	icon_state = "13,1"
+	icon_state = "13,1";
+	outside_part = 0
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
@@ -37041,7 +37063,8 @@
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "12,18";
-	name = "transport shuttle"
+	name = "transport shuttle";
+	outside_part = 0
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape/centcom)
@@ -37430,9 +37453,10 @@
 	},
 /area/syndicate_station/start)
 "xpm" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "3,7"
 	},
+/turf/space,
 /area/shuttle/merchant/start)
 "xqK" = (
 /turf/simulated/floor/tiled,
@@ -38017,9 +38041,10 @@
 	},
 /area/centcom/legion/hangar5)
 "yaw" = (
-/turf/simulated/wall/shuttle/unique/merchant{
+/obj/structure/shuttle_part/merchant{
 	icon_state = "3,1"
 	},
+/turf/template_noop,
 /area/shuttle/merchant/start)
 "ybY" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
