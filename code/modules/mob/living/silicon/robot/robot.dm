@@ -1024,7 +1024,6 @@
 	update_canmove()
 
 	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, get_turf(src), 'sound/effects/alert.ogg', 125, TRUE), 20, TIMER_UNIQUE)
 	addtimer(CALLBACK(src, .proc/gib), 20, TIMER_UNIQUE)
 	addtimer(CALLBACK(GLOBAL_PROC, /proc/fragem, src, 50, 100, 2, 1, 5, 1, 0), 20, TIMER_UNIQUE)
 	density = FALSE
