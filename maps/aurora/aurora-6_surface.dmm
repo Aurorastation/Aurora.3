@@ -19387,6 +19387,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
+"IM" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "IN" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	icon_state = "corner_white_diagonal";
@@ -22274,10 +22283,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -22285,6 +22290,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "On" = (
@@ -51766,7 +51772,7 @@ Cr
 wP
 Ar
 Om
-Cr
+IM
 Ah
 Dh
 mb
