@@ -304,6 +304,12 @@
 	else
 		return FALSE
 
+/mob/living/silicon/robot/proc/self_destruct()
+	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
+	addtimer(CALLBACK(src, .proc/gib), 20, TIMER_UNIQUE)
+	density = FALSE
+	return
+
 /mob/living/silicon/robot/drone/construction/check_allowed_area()
 	// TRUE = Outside
 	var/turf/T = get_turf(src)
