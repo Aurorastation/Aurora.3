@@ -304,7 +304,7 @@
 	else
 		return FALSE
 
-/mob/living/silicon/robot/proc/self_destruct()
+/mob/living/silicon/robot/self_destruct()
 	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
 	addtimer(CALLBACK(src, .proc/gib), 20, TIMER_UNIQUE)
 	density = FALSE

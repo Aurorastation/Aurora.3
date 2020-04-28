@@ -1019,7 +1019,6 @@
 		return
 
 /mob/living/silicon/robot/proc/self_destruct()
-	//What's this for?
 	lock_charge = TRUE
 	update_canmove()
 
