@@ -182,8 +182,6 @@
 		else
 			return TRUE
 
-	return TRUE
-
 /obj/item/gun/verb/wield_gun()
 	set name = "Wield Firearm"
 	set category = "Object"

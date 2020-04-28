@@ -160,7 +160,7 @@ var/datum/controller/subsystem/timer/SStimer
 
 			if (timer.timeToRun < head_offset)
 				bucket_resolution = null //force bucket recreation
-				CRASH("[i] Invalid timer state: Timer in long run queue with a time to run less then head_offset. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
+				crash_with("[i] Invalid timer state: Timer in long run queue with a time to run less then head_offset. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 
 				if (timer.callBack && !timer.spent)
 					timer.callBack.InvokeAsync()
@@ -172,7 +172,7 @@ var/datum/controller/subsystem/timer/SStimer
 
 			if (timer.timeToRun < head_offset + TICKS2DS(practical_offset-1))
 				bucket_resolution = null //force bucket recreation
-				CRASH("[i] Invalid timer state: Timer in long run queue that would require a backtrack to transfer to short run queue. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
+				crash_with("[i] Invalid timer state: Timer in long run queue that would require a backtrack to transfer to short run queue. [get_timer_debug_string(timer)] world.time: [world.time], head_offset: [head_offset], practical_offset: [practical_offset]")
 				if (timer.callBack && !timer.spent)
 					timer.callBack.InvokeAsync()
 					spent += timer
@@ -335,7 +335,7 @@ var/datum/controller/subsystem/timer/SStimer
 		timeToRun = REALTIMEOFDAY + wait
 	else
 		timeToRun = world.time + wait
-	
+
 	if (flags & TIMER_UNIQUE)
 		SStimer.hashes[hash] = src
 	if (flags & TIMER_STOPPABLE)
@@ -525,7 +525,7 @@ var/datum/controller/subsystem/timer/SStimer
 	var/datum/timedevent/timer = null
 	if (!istext(id) && istype(id, /datum/timedevent))
 		timer = id
-	else 
+	else
 		timer = SStimer.timer_id_dict[id]
 
 	if(!timer)

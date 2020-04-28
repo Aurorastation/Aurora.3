@@ -13,5 +13,4 @@
 		to_chat(user, span("warning", "The world beyond opens to your eyes."))
 		user.see_invisible = SEE_INVISIBLE_CULT
 		user.seer = TRUE
-	return
 	return fizzle(user)
