@@ -122,15 +122,16 @@
 	if(!istype(T))
 		return
 
-	if(!T.is_plating() && node && node.level == 1 && istype(node, /obj/machinery/atmospherics/pipe))
-		vent_icon += "h"
-
 	if(welded)
 		vent_icon += "weld"
 	else if(!powered())
 		vent_icon += "off"
 	else
 		vent_icon += "[use_power ? "[pump_direction ? "out" : "in"]" : "off"]"
+		if(vent_icon == "off")
+			flick("[pump_direction ? "out" : "in"]-off", src)
+		else
+			flick("[pump_direction ? "out" : "in"]-starting", src)
 
 	icon_state = vent_icon
 
@@ -271,16 +272,20 @@
 	if(signal.data["purge"] != null)
 		pressure_checks &= ~1
 		pump_direction = 0
+		update_icon()
 
 	if(signal.data["stabalize"] != null)
 		pressure_checks |= 1
 		pump_direction = 1
+		update_icon()
 
 	if(signal.data["power"] != null)
 		use_power = text2num(signal.data["power"])
+		update_icon()
 
 	if(signal.data["power_toggle"] != null)
 		use_power = !use_power
+		update_icon()
 
 	if(signal.data["checks"] != null)
 		if (signal.data["checks"] == "default")
@@ -293,6 +298,7 @@
 
 	if(signal.data["direction"] != null)
 		pump_direction = text2num(signal.data["direction"])
+		update_icon()
 
 	if(signal.data["set_internal_pressure"] != null)
 		if (signal.data["set_internal_pressure"] == "default")
@@ -341,7 +347,6 @@
 		//log_debug("DEBUG \[[world.timeofday]\]: vent_pump/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
 	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
 
-	update_icon()
 	return
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
@@ -352,7 +357,7 @@
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, span("notice", "Now welding the vent."))
 			if(do_after(user, 30/W.toolspeed))
-				if(!src || !WT.isOn()) 
+				if(!src || !WT.isOn())
 					return
 				welded = !welded
 				update_icon()
