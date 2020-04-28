@@ -1,72 +1,3 @@
-/datum/bounty/item/assistant/stunprod
-	name = "Stunprod"
-	description = "%BOSSSHORT needs to pacify some rioting \"cows\". Craft one, then ship it."
-	reward = 1300
-	wanted_types = list(/obj/item/melee/baton/cattleprod)
-
-/datum/bounty/item/assistant/soap
-	name = "Soap"
-	description = "Soap has gone missing from %BOSSSHORT's bathrooms and nobody knows who took it. Replace it and be the hero %BOSSSHORT needs."
-	reward = 2000
-	required_count = 3
-	wanted_types = list(/obj/item/soap)
-
-/datum/bounty/item/assistant/spear
-	name = "Spears"
-	description = "As part of our cultural appreciation programs, we require a bunch of spears to please a Unathi diplomat. Please send your best!"
-	reward = 2000
-	required_count = 5
-	wanted_types = list(/obj/item/material/twohanded/spear)
-
-/datum/bounty/item/assistant/toolbox
-	name = "Toolboxes"
-	description = "There's an absence of \"engineering robustness\" at %BOSSNAME. Hurry up and ship some toolboxes as a solution."
-	reward = 2000
-	required_count = 6
-	wanted_types = list(/obj/item/storage/toolbox)
-
-/datum/bounty/item/assistant/statue
-	name = "Statue"
-	description = "%BOSSNAME would like to commision an artsy statue for the lobby. Ship one out, when possible."
-	reward = 2000
-	wanted_types = list(/obj/structure/sculpting_block)
-
-/datum/bounty/item/assistant/statue/applies_to(obj/O)
-	if(!..())
-		return FALSE
-	var/obj/structure/sculpting_block/S = O
-	if(S && S.sculpted)
-		return TRUE
-	return FALSE
-
-/datum/bounty/item/assistant/cheesiehonkers
-	name = "Cheesie Honkers"
-	description = "Apparently the company that makes Cheesie Honkers is going out of business soon. %BOSSSHORT wants to stock up before it happens!"
-	reward = 1200
-	required_count = 30
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/cheesiehonkers)
-
-/datum/bounty/item/assistant/baseball_bat
-
-	name = "Baseball Bat"
-	description = "Baseball fever is going on at %BOSSSHORT! Be a dear and ship them some baseball bats, so that management can live out their childhood dream."
-	reward = 2000
-	required_count = 5
-	wanted_types = list(/obj/item/material/twohanded/baseballbat)
-
-/datum/bounty/item/assistant/donut
-	name = "Donuts"
-	description = "%BOSSSHORT's security forces are demoralized. Ship donuts to raise morale."
-	reward = 3000
-	required_count = 10
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/donut)
-
-/datum/bounty/item/assistant/donkpocket
-	name = "Donk-Pockets"
-	description = "Consumer safety recall: Warning. Donk-Pockets manufactured in the past year contain hazardous lizard biomatter. Return units to %BOSSSHORT immediately."
-	reward = 3000
-	required_count = 10
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/donkpocket)
 
 /datum/bounty/item/assistant/briefcase
 	name = "Briefcase"
@@ -74,25 +5,6 @@
 	reward = 2500
 	required_count = 5
 	wanted_types = list(/obj/item/storage/briefcase)
-
-/datum/bounty/item/assistant/sunglasses
-	name = "Sunglasses"
-	description = "A famous blues duo is passing through the sector, but they've lost their shades and they can't perform. Ship new sunglasses to %BOSSSHORT to rectify this."
-	reward = 3000
-	required_count = 2
-	wanted_types = list(/obj/item/clothing/glasses/sunglasses)
-
-/datum/bounty/item/assistant/monkey_hide
-	name = "Monkey Hide"
-	description = "One of the scientists at %BOSSSHORT is interested in testing products on monkey skin. Your mission is to acquire monkey's hide and ship it."
-	reward = 1500
-	wanted_types = list(/obj/item/stack/material/animalhide/monkey)
-
-/datum/bounty/item/assistant/heart
-	name = "Heart"
-	description = "Commander Johnson is in critical condition after suffering a heart attack. Doctors say he needs a new heart fast. Ship one, pronto!"
-	reward = 3000
-	wanted_types = list(/obj/item/organ/internal/heart)
 
 /datum/bounty/item/assistant/lung
 	name = "Lungs"
