@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Tape recorders now come with a portable drive, that when ejected, saves the stored transcript in a digital form."
-  - tweak: "Tape recorders now only audibly play back in a 3 tile radius, no more room spam."
