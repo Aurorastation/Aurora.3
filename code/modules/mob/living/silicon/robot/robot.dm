@@ -124,7 +124,7 @@
 		/area/shuttle/escape,
 		/area/shuttle/arrival
 	)
-	var/out_of_allowed_area = FALSE //True if outside of above areas, see self_destruct()
+	var/detonate_timer //Holds countdown for area restriction self desruct, see process_level_restrictions()
 
 	// Verbs
 	var/list/robot_verbs_default = list(
@@ -1017,29 +1017,16 @@
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 		return
-/*
-/mob/living/silicon/robot/proc/self_destruct(var/anti_theft = FALSE)
-	lock_charge = TRUE
-	update_canmove()
-	sleep(20)
-	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-	sleep(20)
-	playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
-	sleep(10)
-	density = FALSE
-	fragem(src, 50, 100, 2, 1, 5, 1, 0)
-	gib()
-	return
-*/
+
 /mob/living/silicon/robot/proc/self_destruct()
 	//What's this for?
 	lock_charge = TRUE
 	update_canmove()
 
 	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-	addtimer(CALLBACK(src, .proc/playsound, get_turf(src), 'sound/effects/alert.ogg', 125, TRUE), 20, TIMER_UNIQUE)
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, get_turf(src), 'sound/effects/alert.ogg', 125, TRUE), 20, TIMER_UNIQUE)
 	addtimer(CALLBACK(src, .proc/gib), 20, TIMER_UNIQUE)
-	addtimer(CALLBACK(src, .proc/fragem, src, 50, 100, 2, 1, 5, 1, 0), 20, TIMER_UNIQUE)
+	addtimer(CALLBACK(GLOBAL_PROC, /proc/fragem, src, 50, 100, 2, 1, 5, 1, 0), 20, TIMER_UNIQUE)
 	density = FALSE
 	return
 

@@ -296,26 +296,6 @@
 	add_language(LANGUAGE_ROBOT, TRUE)
 
 //DRONE LIFE/DEATH
-/*
-/mob/living/silicon/robot/drone/process_level_restrictions(var/detonate)
-	var/turf/T = get_turf(src)
-	var/area/A = get_area(T)
-	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
-		if (detonate)
-			to_chat(src, SPAN_WARNING("WARNING: Failure to comply. Anti-theft self-destruct mode engaged.")) //bruh
-			playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)), 20)
-			addtimer(CALLBACK(src, gib()), 20)
-		else
-			to_chat(src, SPAN_WARNING("WARNING: Drone has left designated boundaries. Return immediately. You have 10 seconds to comply.")) //Anti-Theft mode engaged
-			playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
-			addtimer(CALLBACK(src, process_level_restrictions(detonate = 1)), 100)
-		return
-	if (detonate)
-		to_chat(src, SPAN_GOOD("Drone has re-entered designated boundaries. Anti-Theft self-destruct disengaged.")) //Anti-Theft mode disengaged
-	return
-*/
-
 /mob/living/silicon/robot/drone/check_allowed_area()
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
@@ -324,6 +304,14 @@
 	else
 		return FALSE
 
+/mob/living/silicon/robot/drone/construction/check_allowed_area()
+	// TRUE = Outside
+	var/turf/T = get_turf(src)
+	// Covers all non-station levels
+	if (!(!T || isNotStationLevel(T.z)) && src.stat != DEAD)
+		return TRUE
+	else
+		return FALSE
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
@@ -458,17 +446,6 @@
 /mob/living/silicon/robot/drone/construction/updatename()
 	real_name = "construction drone ([rand(100,999)])"
 	name = real_name
-
-/mob/living/silicon/robot/drone/construction/process_level_restrictions()
-	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on station level -> abort
-	var/turf/T = get_turf(src)
-	if(!T || isNotStationLevel(T.z))
-		return
-	to_chat(src, SPAN_WARNING("WARNING: Lost contact with controller. Anti-Theft mode activated."))
-	gib()
 
 /proc/too_many_active_drones()
 	var/drones = 0
