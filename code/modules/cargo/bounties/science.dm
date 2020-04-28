@@ -62,7 +62,7 @@
 	wanted_types = list(/obj/item/robot_parts/robot_suit)
 
 /datum/bounty/item/science/borgbody/halstre
-	description = "Due to the borging of Kalren Halstre, we require you to ship us one fully assembled cyborg endoskeleton without a mmi/posibrain inside of it"
+	description = "We require you to ship us one fully assembled cyborg endoskeleton without a mmi/posibrain inside of it"
 	required_count = 1
 
 /datum/bounty/item/science/borgbody/applies_to(obj/O)

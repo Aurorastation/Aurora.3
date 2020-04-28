@@ -19,13 +19,6 @@
 	reward = 3000
 	wanted_types = list(/obj/item/organ/internal/appendix)
 
-/datum/bounty/item/assistant/shard
-	name = "Shards"
-	description = "A killer clown has been stalking %BOSSSHORT, and staff have been unable to catch her because she's not wearing shoes. Please ship some shards so that a booby trap can be constructed."
-	reward = 1500
-	required_count = 15
-	wanted_types = list(/obj/item/material/shard)
-
 /datum/bounty/item/assistant/comfy_chair
 	name = "Comfy Chairs"
 	description = "Commander Pat is unhappy with his chair. He claims it hurts his back. Ship some alternatives out to humor him. "
@@ -33,30 +26,11 @@
 	required_count = 5
 	wanted_types = list(/obj/structure/bed/chair/comfy)
 
-/datum/bounty/item/assistant/revolver
-	name = "Revolver"
-	description = "One of our Lead Investigators lost their revolver. He's asked for help securing an appropriate replacement."
-	reward = 2000
-	wanted_types = list(/obj/item/gun/projectile/revolver)
-
 /datum/bounty/item/assistant/hand_tele
 	name = "Hand Tele"
 	description = "%BOSSNAME has come up with a genius idea: Why not teleport cargo rather than ship it? Send over a hand tele, receive payment, then wait 6-8 years while they deliberate."
 	reward = 2000
 	wanted_types = list(/obj/item/hand_tele)
-
-/datum/bounty/item/assistant/potted_plants
-	name = "Potted Plants"
-	description = "%BOSSNAME is looking to decorate their civilian sector. You've been ordered to supply the potted plants."
-	reward = 2000
-	required_count = 8
-	wanted_types = list(/obj/structure/flora/pottedplant)
-
-/datum/bounty/item/assistant/earmuffs
-	name = "Earmuffs"
-	description = "%BOSSNAME is getting tired of your station's messages. They've ordered that you ship some earmuffs to lessen the annoyance."
-	reward = 1000
-	wanted_types = list(/obj/item/clothing/ears/earmuffs)
 
 /datum/bounty/item/assistant/handcuffs
 	name = "Handcuffs"
@@ -72,33 +46,4 @@
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 
-/datum/bounty/item/assistant/chainsaw
-	name = "Chainsaw"
-	description = "The chef at %BOSSSHORT is having trouble butchering her animals. She requests one chainsaw, please."
-	reward = 2500
-	wanted_types = list(/obj/item/material/twohanded/chainsaw)
-
-/datum/bounty/item/assistant/plasma_tank/
-	name = "Full Tank of Plasma"
-	description = "Station 12 has requested supplies to set up a singularity engine. In particular, they request 28 moles of plasma."
-	reward = 2500
-	wanted_types = list(/obj/item/tank)
-	var/moles_required = 20 // A full tank is 28 moles, but %BOSSSHORT ignores that fact.
-
-/datum/bounty/item/assistant/plasma_tank/applies_to(obj/O)
-	if(!..())
-		return FALSE
-	var/obj/item/tank/T = O
-	if(T)
-		if(!T.air_contents.gas["phoron"])
-			return FALSE
-		return T.air_contents.gas["phoron"] >= moles_required
-	return FALSE
-
-/datum/bounty/item/chef/action_figures
-	name = "Action Figures"
-	description = "The vice president's son saw an ad for action figures on the telescreen and now he won't shut up about them. Ship some to ease his complaints."
-	reward = 4000
-	required_count = 5
-	wanted_types = list(/obj/item/toy/figure)
 
