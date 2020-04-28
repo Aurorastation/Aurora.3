@@ -13,7 +13,7 @@
 	else
 		m_cache_icon = list()
 		m_cache[icon] = m_cache_icon
-	
+
 	if (!multiply)
 		multiply = make_screen_overlay(icon, icon_state)
 		multiply.blend_mode = BLEND_MULTIPLY
@@ -43,7 +43,7 @@
 
 /proc/make_screen_overlay(icon, icon_state, brightness_factor = null)
 	var/image/overlay = image(icon, icon_state)
-	overlay.layer = LIGHTING_LAYER + 0.1
+	overlay.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	if (brightness_factor)
 		overlay.color = list(
 			brightness_factor, 0, 0, 0,

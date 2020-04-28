@@ -2,8 +2,8 @@
 	severity = 3
 	felony = 1
 
-	min_fine = 1000
-	max_fine = 3000
+	min_fine = 0
+	max_fine = 0
 
 /datum/law/high_severity/murder
 	name = "i301 - Murder"

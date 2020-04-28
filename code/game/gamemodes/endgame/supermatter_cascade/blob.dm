@@ -6,7 +6,7 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace"
 
-	layer = LIGHTING_LAYER + 1
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	light_color = "#0066FF"
 	light_range = 2
 	light_power = 2
