@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "Added the fire alarm overlay to the above lighting layer and recolored its frame to be red so it's no longer near invisible on the station walls."
+  - tweak: "Added the fire alarm overlay to the above lighting layer and recolored its frame to be red so it's no longer near invisible on the station walls."
