@@ -5,6 +5,7 @@
 	icon_state = "0"
 	dynamic_lighting = 0
 	footstep_sound = null //Override to make sure because yeah
+	tracks_footprint = FALSE
 
 	plane = PLANE_SPACE_BACKGROUND
 

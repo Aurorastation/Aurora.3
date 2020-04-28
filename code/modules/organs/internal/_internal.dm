@@ -6,6 +6,7 @@
 	var/damage_reduction = 0.5     //modifier for internal organ injury
 	var/toxin_type = "undefined"
 	var/relative_size = 25 //Used for size calcs
+	var/on_mob_icon
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 

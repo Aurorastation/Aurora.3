@@ -6,18 +6,18 @@
 
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
-	w_class = 1.0
-	recording = 0
+	w_class = ITEMSIZE_TINY
 	timestamp = list()	//This actually turns timestamp into a string later on
 
 	//Redundent
 	matter = list()
-	playing = 0
-	emagged = 0
-	timerecorded = 0
-	playsleepseconds = 0
-	storedinfo = list()
-	canprint = 1
+	recording = FALSE
+	playing = FALSE
+	emagged = FALSE
+	time_recorded = FALSE
+	play_sleep_seconds = FALSE
+	stored_info = list()
+	can_print = TRUE
 
 	//Specific for Duty Officers
 	var/paused = FALSE
@@ -118,7 +118,7 @@
 		return
 
 /obj/item/device/taperecorder/cciaa/stop()
-	set name = "Stop"
+	set name = "Stop Recording"
 	set category = "Recorder"
 
 	if(use_check_and_message(usr))

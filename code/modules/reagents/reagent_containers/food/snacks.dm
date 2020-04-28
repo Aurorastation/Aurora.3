@@ -3805,6 +3805,10 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pizzabox1"
 	drop_sound = 'sound/items/drop/box.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
+		)
 	center_of_mass = list("x" = 16,"y" = 6)
 
 	var/open = 0 // Is the box open?

@@ -5,10 +5,10 @@
 	hard_drive = new/obj/item/computer_hardware/hard_drive(src)
 	network_card = new/obj/item/computer_hardware/network_card(src)
 
-/obj/item/modular_computer/telescreen/preset/generic/
+/obj/item/modular_computer/telescreen/preset/generic
 	_app_preset_type = /datum/modular_computer_app_presets/wall_generic
-	enrolled = 1
+	enrolled = TRUE
 
-/obj/item/modular_computer/telescreen/preset/trashcompactor/
+/obj/item/modular_computer/telescreen/preset/trashcompactor
 	_app_preset_type = /datum/modular_computer_app_presets/trashcompactor
-	enrolled = 1
+	enrolled = TRUE

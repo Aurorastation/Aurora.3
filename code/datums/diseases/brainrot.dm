@@ -30,7 +30,7 @@
 				affected_mob.emote("stare")
 			if(prob(2))
 				affected_mob.emote("drool")
-			if(prob(10))//shouldn't retard you to death now
+			if(prob(10))
 				affected_mob.adjustBrainLoss(2, 55)
 				affected_mob.updatehealth()
 				if(prob(2))
@@ -50,7 +50,7 @@
 				affected_mob.updatehealth()
 				if(prob(2))
 					to_chat(affected_mob, "<span class='notice'>Your head hurts.</span>" */
-			if(prob(15)) //shouldn't retard you to death now
+			if(prob(15))
 				affected_mob.adjustBrainLoss(3, 55)
 				affected_mob.updatehealth()
 				if(prob(2))

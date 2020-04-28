@@ -29,6 +29,10 @@
 	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
+		)
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
 
