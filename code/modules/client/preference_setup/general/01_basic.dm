@@ -142,7 +142,10 @@
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
 	dat += "<b>Spawn Point</b>: <a href='?src=\ref[src];spawnpoint=1'>[pref.spawnpoint]</a><br>"
 	if(istype(all_species[pref.species], /datum/species/machine))
-		dat += "<b>Has Tag:</b> <a href='?src=\ref[src];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
+		if(pref.can_edit_ipc_tag)
+			dat += "<b>Has Tag:</b> <a href='?src=\ref[src];ipc_tag=1'>[pref.machine_tag_status ? "Yes" : "No"]</a><br>"
+		else
+			dat += "<b>Has Tag:</b> [pref.machine_tag_status ? "Yes" : "No"] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
 		if(pref.machine_tag_status)
 			if(!pref.machine_serial_number)
 				var/generated_serial = uppertext(dd_limittext(md5(pref.real_name), 12))
@@ -218,6 +221,9 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["ipc_tag"])
+		if(!pref.can_edit_ipc_tag)
+			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
+			return
 		var/choice = alert(user, "Do you wish for your IPC to have a tag?\n\nWARNING: Being an untagged IPC in Tau space is highly illegal!", "IPC Tag", "Yes", "No")
 		if(CanUseTopic(user))
 			if(choice == "Yes")
@@ -227,6 +233,9 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["serial_number"])
+		if(!pref.can_edit_ipc_tag)
+			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
+			return
 		var/new_serial_number = sanitize(input(user, "Enter what you want to set your serial number to.", "IPC Serial Number", pref.machine_serial_number) as message|null)
 		new_serial_number = uppertext(dd_limittext(new_serial_number, 12))
 		if(new_serial_number && CanUseTopic(user))
@@ -234,12 +243,18 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["generate_serial"])
+		if(!pref.can_edit_ipc_tag)
+			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
+			return
 		if(pref.real_name)
 			var/generated_serial = uppertext(dd_limittext(md5(pref.real_name), 12))
 			pref.machine_serial_number = generated_serial
 			return TOPIC_REFRESH
 
 	else if(href_list["ownership_status"])
+		if(!pref.can_edit_ipc_tag)
+			to_chat(usr, SPAN_WARNING("You are unable to edit your IPC tag due to a timelock restriction. If you got here, it is either a hack or a bug."))
+			return
 		var/static/list/ownership_options = list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF)
 		var/new_ownership_status = input(user, "Choose your IPC's ownership status.", "IPC Ownership Status") as null|anything in ownership_options
 		if(new_ownership_status && CanUseTopic(user))
