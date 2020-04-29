@@ -32,7 +32,7 @@
 			damage_coef -= 0.2
 
 		if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
-			damage_coef -= 0.2
+			damage_coef -= 0.1
 
 		if (H.m_intent == "run")
 			damage_coef += 0.4
@@ -49,7 +49,7 @@
 
 				var/armor_block = H.run_armor_check(affecting, "melee")
 
-				H.apply_damage(20*damage_coef, BRUTE, affecting, armor_block)
+				H.apply_damage(30*damage_coef, BRUTE, affecting, armor_block)
 				H.updatehealth()
 
 				if(H.can_feel_pain())
