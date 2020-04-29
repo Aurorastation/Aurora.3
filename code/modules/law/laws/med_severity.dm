@@ -2,8 +2,8 @@
 	severity = 2
 	felony = 1
 
-	min_fine = 100
-	max_fine = 1000
+	min_fine = 0
+	max_fine = 0
 
 /datum/law/med_severity/srs_failure_execute
 	name = "i201 - Failure to Execute an Order with Serious Consequences"

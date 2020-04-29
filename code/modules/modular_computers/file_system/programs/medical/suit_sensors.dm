@@ -8,12 +8,12 @@
 	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE | PROGRAM_SILICON | PROGRAM_TABLET
+	usage_flags = PROGRAM_ALL_REGULAR
 	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/suit_sensors/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
+	if(!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-medical-sensors", 800, 600, "Suit Sensors Monitoring")
 		ui.auto_update_content = TRUE
 	ui.open()
@@ -57,4 +57,4 @@
 			var/mob/living/silicon/ai/AI = usr
 			var/mob/living/carbon/human/H = locate(href_list["track"]) in mob_list
 			if(hassensorlevel(H, SUIT_SENSOR_TRACKING))
-				AI.ai_actual_track(H) 
+				AI.ai_actual_track(H)

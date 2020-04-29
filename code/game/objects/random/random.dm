@@ -1118,7 +1118,7 @@
 		/obj/item/toy/prize/mauler						= 1,
 		/obj/item/toy/prize/odysseus					= 1,
 		/obj/item/toy/prize/phazon						= 1,
-		/obj/item/toy/waterflower						= 5,
+		/obj/item/reagent_containers/spray/waterflower						= 5,
 		/obj/random/action_figure						= 11,
 		/obj/random/plushie								= 44,
 		/obj/item/toy/cultsword							= 5,

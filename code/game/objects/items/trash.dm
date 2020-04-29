@@ -5,6 +5,10 @@
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
 	w_class = 1.0
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
+		)
 	desc = "General waste material, refuse or litter. Dispose responsibly."
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 
@@ -21,11 +25,11 @@
 
 /obj/item/trash/raisins
 	name = "\improper 4no raisins"
-	icon_state= "4no_raisins"
+	icon_state = "4no_raisins"
 
 /obj/item/trash/candy
 	name = "candy wrapper"
-	icon_state= "candy"
+	icon_state = "candy"
 
 /obj/item/trash/cheesie
 	name = "\improper Cheesie Honkers"

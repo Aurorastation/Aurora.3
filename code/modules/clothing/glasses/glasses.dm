@@ -13,8 +13,8 @@ BLIND     // can't see anything
 	name = "glasses"
 	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_glasses.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_glasses.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
 		)
 	w_class = 2.0
 	slot_flags = SLOT_EYES

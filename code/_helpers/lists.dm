@@ -144,6 +144,12 @@
 		return picked
 	return null
 
+//Returns the first element from the list and removes it from the list
+/proc/popleft(list/L)
+	if(length(L))
+		. = L[1]
+		L.Cut(1,2)
+
 //Returns the next element in parameter list after first appearance of parameter element. If it is the last element of the list or not present in list, returns first element.
 /proc/next_in_list(element, list/L)
 	for(var/i=1, i<L.len, i++)
@@ -252,6 +258,8 @@
 #define BITSET(bitfield,index)   (bitfield)  |=  (1 << (index))
 #define BITRESET(bitfield,index) (bitfield)  &= ~(1 << (index))
 #define BITFLIP(bitfield,index)  (bitfield)  ^=  (1 << (index))
+#define BITFIELDMAX 0xFFFFFF
+#define BITFIELDMAX_16 0xFFFF
 
 //Converts a bitfield to a list of numbers (or words if a wordlist is provided)
 /proc/bitfield2list(bitfield = 0, list/wordlist)
@@ -264,7 +272,7 @@
 				r += wordlist[i]
 			bit = bit << 1
 	else
-		for(var/bit=1, bit<=65535, bit = bit << 1)
+		for(var/bit=1, bit<=BITFIELDMAX, bit = bit << 1)
 			if(bitfield & bit)
 				r += bit
 
@@ -698,7 +706,7 @@
 		group_list[key] = values
 
 	values += value
-	
+
 // Return a list of the values in an assoc list (including null)
 /proc/list_values(var/list/L)
 	. = list()

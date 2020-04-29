@@ -128,20 +128,20 @@
 					if(prob(1))
 						to_chat(owner, "<span class='warning'>You feel [pick("dizzy","woozy","faint")]...</span>")
 					damprob = owner.chem_effects[CE_STABLE] ? 30 : 60
-					if(!past_damage_threshold(2) && prob(damprob))
+					if(!past_damage_threshold(4) && prob(damprob))
 						take_internal_damage(1)
 				if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 40 : 80
-					if(!past_damage_threshold(4) && prob(damprob))
-						take_internal_damage(1)
+					if(!past_damage_threshold(6) && prob(damprob))
+						take_internal_damage(2)
 					if(!owner.paralysis && prob(10))
 						owner.Paralyse(rand(1,3))
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
 				if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
-					if(!past_damage_threshold(6) && prob(damprob))
+					if(!past_damage_threshold(8) && prob(damprob))
 						take_internal_damage(1)
 					if(!owner.paralysis)
 						owner.Paralyse(3,5)
@@ -152,17 +152,20 @@
 					if(prob(damprob))
 						take_internal_damage(1)
 					if(prob(damprob))
-						take_internal_damage(1)
+						take_internal_damage(2)
 	..()
 
 /obj/item/organ/internal/brain/take_internal_damage(var/damage, var/silent)
 	set waitfor = 0
+	if(damage >= (max_damage / 4))
+		damage *= 2
 	..()
-	if(damage >= (max_damage / 3)) //This probably won't be triggered by oxyloss or mercury. Probably.
+	if(damage >= (max_damage / 5)) //This probably won't be triggered by oxyloss or mercury. Probably.
 		var/damage_secondary = damage * 0.20
 		owner.eye_blurry += damage_secondary
 		owner.confused += damage_secondary * 2
-		owner.Weaken(round(damage, 1))
+		owner.Weaken(round(damage_secondary * 3, 1))
+		owner.adjustOxyLoss(damage)
 		if(prob(30))
 			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
 
@@ -204,7 +207,7 @@
 
 /obj/item/organ/internal/brain/surgical_fix(mob/user)
 	var/blood_volume = owner.get_blood_oxygenation()
-	if(blood_volume < BLOOD_VOLUME_SURVIVE)
+	if(blood_volume < BLOOD_VOLUME_BAD)
 		to_chat(user, "<span class='danger'>Parts of [src] didn't survive the procedure due to lack of air supply!</span>")
 		set_max_damage(Floor(max_damage - 0.25*damage))
 	heal_damage(damage)

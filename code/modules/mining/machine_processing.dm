@@ -253,7 +253,7 @@
 	P.stamped += /obj/item/stamp
 	P.add_overlay(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the NT Ore Processing System.</i>"
-	
+
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
 	playsound(get_turf(src), "sound/bureaucracy/print_short.ogg", 50, 1)
 
@@ -335,7 +335,7 @@
 		if(!O)
 			break
 		if(!isnull(ores_stored[O.material]))
-			ores_stored[O.material]++
+			ores_stored[O.material] = ores_stored[O.material] + 1
 
 		qdel(O)
 
@@ -388,7 +388,7 @@
 							sheets += total - 1
 
 						for(var/i = 0, i < total, i++)
-							console.alloy_mats[A]++
+							console.alloy_mats[A] = console.alloy_mats[A] + 1
 							new A.product(get_turf(output))
 
 			else if(ores_processing[metal] == 2 && O.compresses_to) //Compressing.
@@ -407,7 +407,7 @@
 					use_power(100)
 					ores_stored[metal] -= 2
 					sheets += 2
-					console.output_mats[M]++
+					console.output_mats[M] += 1
 					new M.stack_type(get_turf(output))
 
 			else if(ores_processing[metal] == 1 && O.smelts_to) //Smelting.
@@ -421,17 +421,17 @@
 					if(console)
 						console.points += O.worth
 					use_power(100)
-					ores_stored[metal]--
+					ores_stored[metal] -= 1
 					sheets++
-					console.output_mats[M]++
+					console.output_mats[M] += 1
 					new M.stack_type(get_turf(output))
 			else
 				if(console)
 					console.points -= O.worth * 3 //reee wasting our materials!
 				use_power(500)
-				ores_stored[metal]--
+				ores_stored[metal] -= 1
 				sheets++
-				console.input_mats[O]++
+				console.input_mats[O] += 1
 				console.waste++
 				new /obj/item/ore/slag(get_turf(output))
 		else

@@ -10,7 +10,6 @@
 	base_active_power_usage = 25
 	max_hardware_size = 3
 	max_damage = 50
-	w_class = 3
 	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
 
 /obj/item/modular_computer/silicon/Initialize(mapload)
@@ -43,4 +42,3 @@
 
 /obj/item/modular_computer/silicon/Click(location, control, params)
 	return attack_self(usr)
-	

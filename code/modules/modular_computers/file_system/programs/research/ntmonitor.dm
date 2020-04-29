@@ -11,7 +11,7 @@
 	color = LIGHT_COLOR_GREEN
 	
 	available_on_ntnet = TRUE
-	nanomodule_path = /datum/nano_module/computer_ntnetmonitor/
+	nanomodule_path = /datum/nano_module/computer_ntnetmonitor
 
 /datum/nano_module/computer_ntnetmonitor
 	name = "NTNet Diagnostics and Monitoring"

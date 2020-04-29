@@ -181,8 +181,6 @@
 			else
 				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
 				return
-			qdel(W)
-			return
 
 	if(!dropsafety(W))
 		return
