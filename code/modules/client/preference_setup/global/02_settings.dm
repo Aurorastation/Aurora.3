@@ -77,12 +77,12 @@
 
 	pref.lastchangelog  = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
 	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
-	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, 65535, initial(pref.toggles))
-	pref.asfx_togs      = sanitize_integer(text2num(pref.asfx_togs), 0, 65535, initial(pref.toggles))
+	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
+	pref.asfx_togs      = sanitize_integer(text2num(pref.asfx_togs), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
 	pref.memo_hash      = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
 	pref.parallax_speed = sanitize_integer(text2num(pref.parallax_speed), 1, 10, initial(pref.parallax_speed))
-	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, 65535, initial(pref.toggles_secondary))
+	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(
