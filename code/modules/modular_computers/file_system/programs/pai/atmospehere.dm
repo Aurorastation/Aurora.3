@@ -45,7 +45,7 @@
 		VUEUI_SET_CHECK(data["tempC"], env.temperature-T0C, ., data)
 		VUEUI_SET_CHECK_IFNOTSET(data["gas"], list("_" = "_"), ., data)
 		for(var/g in gas_data.gases)
-			if(!g in env.gas)
+			if(!(g in env.gas))
 				VUEUI_SET_CHECK(data["gas"][g], null, ., data)
 			else
 				VUEUI_SET_CHECK(data["gas"][g], env.gas[g], ., data)

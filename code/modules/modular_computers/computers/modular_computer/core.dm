@@ -361,7 +361,7 @@
 	if(!istype(S)) // Program not found or it's not executable program.
 		return
 
-	if(!S in enabled_services)
+	if(!(S in enabled_services))
 		return
 	enabled_services -= S
 
