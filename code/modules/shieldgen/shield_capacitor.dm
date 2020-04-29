@@ -42,7 +42,7 @@
 
 	if(istype(W, /obj/item/card/id))
 		var/obj/item/card/id/C = W
-		if(access_captain in C.access || access_security in C.access || access_engine in C.access)
+		if((access_captain in C.access) || (access_security in C.access) || (access_engine in C.access))
 			src.locked = !src.locked
 			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 			updateDialog()

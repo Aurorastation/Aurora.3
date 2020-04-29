@@ -433,7 +433,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/auto_update = 1
 	if(mode in no_auto_update)
 		auto_update = 0
-	if(old_ui && (mode == lastmode && ui_tick % 5 && mode in update_every_five))
+	if(old_ui && (mode == lastmode && ui_tick % 5 && (mode in update_every_five)))
 		return
 
 	lastmode = mode

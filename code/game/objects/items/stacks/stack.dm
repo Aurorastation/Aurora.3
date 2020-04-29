@@ -220,7 +220,6 @@
 			if(!S.use_charge(charge_costs[i] * used)) // Doesn't need to be deleted
 				return 0
 		return 1
-	return 0
 
 /obj/item/stack/proc/add(var/extra)
 	if(!uses_charge)

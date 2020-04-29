@@ -28,7 +28,7 @@
 	if(href_list["download"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
 		var/obj/item/device/paicard/card = locate(href_list["device"])
-		if (!candidate in pai_candidates)
+		if (!(candidate in pai_candidates))
 			return
 
 		if(card.pai)
@@ -93,7 +93,7 @@
 		return FALSE
 	candidate.ready = FALSE
 	return TRUE
-	
+
 
 /datum/controller/subsystem/pai/proc/recruitWindow(mob/M as mob)
 	var/datum/paiCandidate/candidate
@@ -132,7 +132,7 @@
 		state = interactive_state)
 		ui.metadata = list("candidate" = candidate)
 		ui.header = "minimal"
-		
+
 	return ui.open()
 
 /datum/controller/subsystem/pai/proc/findPAI(obj/item/device/paicard/p, mob/user)

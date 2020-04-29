@@ -230,31 +230,10 @@
 
 	if (stat != 2)
 		if (machine)
-			if (!( machine.check_eye(src) ))
+			if (machine.check_eye(src) < 1)
 				reset_view(null)
 		else
-			if(client && !client.adminobs)
+			if(!client?.adminobs)
 				reset_view(null)
 
 	return 1
-
-	if (stat != 2)
-		if (machine)
-			if (machine.check_eye(src) < 0)
-				reset_view(null)
-		else
-			if(client && !client.adminobs)
-				reset_view(null)
-
-/*/mob/living/carbon/brain/emp_act(severity)
-	if(!(container && istype(container, /obj/item/device/mmi)))
-		return
-	else
-		switch(severity)
-			if(1)
-				emp_damage += rand(20,30)
-			if(2)
-				emp_damage += rand(10,20)
-			if(3)
-				emp_damage += rand(0,10)
-	..()*/

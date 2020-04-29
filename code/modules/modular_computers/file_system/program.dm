@@ -119,7 +119,7 @@
 			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
-			if(!check in I.access) //Fail on first miss
+			if(!(check in I.access)) //Fail on first miss
 				if(loud)
 					to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
 				return FALSE
@@ -171,7 +171,7 @@
 			return FALSE
 	else if(check_type == PROGRAM_ACCESS_LIST_ALL)
 		for(var/check in access_to_check) //Loop through all the accesse's to check
-			if(!check in I.access) //Fail on first miss
+			if(!(check in I.access)) //Fail on first miss
 				if(loud)
 					to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Access Denied.\"."))
 				return FALSE
@@ -235,7 +235,6 @@
 		return NM.check_eye(user)
 	else
 		return -1
-
 
 // Is called when program service is being activated
 // Returns 1 if service startup was sucessfull

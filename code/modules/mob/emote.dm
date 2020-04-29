@@ -57,6 +57,7 @@
 	var/list/messageturfs = list()//List of turfs we broadcast to.
 	var/list/messagemobs = list() 
 	var/list/ghosts = list()
+	var/list/ghosts_nearby = list()
 
 	var/hearing_aid = FALSE
 	if(type == 2 && ishuman(src))
@@ -71,7 +72,7 @@
 			continue
 		if(get_turf(M) in messageturfs)
 			if (isobserver(M))
-				ghosts += M
+				ghosts_nearby += M
 				continue
 			else if (isliving(M) && !(type == 2 && ((sdisabilities & DEAF) && !hearing_aid) || ear_deaf > 1))
 				messagemobs += M
@@ -83,7 +84,8 @@
 	for (var/mob/N in messagemobs)
 		N.show_message(message, type)
 
-	message = "<B>[message]</B>"
-
 	for(var/mob/O in ghosts)
 		O.show_message("[ghost_follow_link(src, O)] [message]", type)
+	
+	for(var/mob/GN in ghosts_nearby)
+		GN.show_message("[ghost_follow_link(src, GN)] <b>[message]</b>", type)
