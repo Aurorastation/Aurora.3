@@ -1,19 +1,19 @@
 /obj/item/computer_hardware/hard_drive
 	name = "basic hard drive"
-	desc = "A small power efficient solid state drive, with 128GQ of storage capacity for use in basic computers where power efficiency is desired."
+	desc = "A small power efficient solid state drive, with 256GQ of storage capacity for use in basic computers where power efficiency is desired."
 	power_usage = 20					// SSD or something with low power usage
 	icon_state = "hdd_normal"
 	hardware_size = 1
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	var/max_capacity = 128
+	var/max_capacity = 256
 	var/used_capacity = 0
 	var/read_only = FALSE				// If the HDD is read only
 	var/list/stored_files = list()		// List of stored files on this drive. DO NOT MODIFY DIRECTLY!
 
 /obj/item/computer_hardware/hard_drive/advanced
 	name = "advanced hard drive"
-	desc = "A small hybrid hard drive with 256GQ of storage capacity for use in higher grade computers where balance between power efficiency and capacity is desired."
-	max_capacity = 256
+	desc = "A medium hybrid hard drive with 512GQ of storage capacity for use in higher grade computers where balance between power efficiency and capacity is desired."
+	max_capacity = 512
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	power_usage = 50					// Hybrid, medium capacity and medium power storage
 	icon_state = "hdd_advanced"
@@ -21,8 +21,8 @@
 
 /obj/item/computer_hardware/hard_drive/super
 	name = "super hard drive"
-	desc = "A small hard drive with 512GQ of storage capacity for use in cluster storage solutions where capacity is more important than power efficiency."
-	max_capacity = 512
+	desc = "A large hard drive with 1024GQ of storage capacity for use in cluster storage solutions where capacity is more important than power efficiency."
+	max_capacity = 1024
 	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	power_usage = 100					// High-capacity but uses lots of power, shortening battery life. Best used with APC link.
 	icon_state = "hdd_super"
@@ -30,7 +30,7 @@
 
 /obj/item/computer_hardware/hard_drive/cluster
 	name = "cluster hard drive"
-	desc = "A large storage cluster consisting of multiple hard drives for usage in high capacity storage systems. Has capacity of 2048 GQ."
+	desc = "A huge storage cluster consisting of multiple hard drives for usage in high capacity storage systems. Has capacity of 2048 GQ."
 	power_usage = 500
 	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
 	max_capacity = 2048
@@ -40,19 +40,19 @@
 // For tablets, etc. - highly power efficient.
 /obj/item/computer_hardware/hard_drive/small
 	name = "small hard drive"
-	desc = "A small highly efficient solid state drive for portable devices."
+	desc = "A small, 128GQ highly efficient solid state drive for portable devices."
 	power_usage = 10
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
-	max_capacity = 64
+	max_capacity = 128
 	icon_state = "hdd_small"
 	hardware_size = 1
 
 /obj/item/computer_hardware/hard_drive/micro
 	name = "micro hard drive"
-	desc = "A small micro hard drive for portable devices."
+	desc = "A small, 64GQ micro hard drive for portable devices."
 	power_usage = 2
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
-	max_capacity = 32
+	max_capacity = 64
 	icon_state = "hdd_micro"
 	hardware_size = 1
 
