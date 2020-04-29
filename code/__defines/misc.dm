@@ -84,6 +84,48 @@
 #define  STATUS_HUD_OOC 9 // STATUS_HUD without virus DB check for someone being ill.
 #define 	  LIFE_HUD 10 // STATUS_HUD that only reports dead or alive
 
+//some colors
+#define COLOR_WHITE            "#ffffff"
+#define COLOR_SILVER           "#c0c0c0"
+#define COLOR_GRAY             "#808080"
+#define COLOR_BLACK            "#000000"
+#define COLOR_RED              "#ff0000"
+#define COLOR_RED_LIGHT        "#ff3333"
+#define COLOR_MAROON           "#800000"
+#define COLOR_YELLOW           "#ffff00"
+#define COLOR_OLIVE            "#808000"
+#define COLOR_LIME             "#00ff00"
+#define COLOR_GREEN            "#008000"
+#define COLOR_CYAN             "#00ffff"
+#define COLOR_TEAL             "#008080"
+#define COLOR_BLUE             "#0000ff"
+#define COLOR_BLUE_LIGHT       "#33ccff"
+#define COLOR_NAVY             "#000080"
+#define COLOR_PINK             "#ff00ff"
+#define COLOR_PURPLE           "#800080"
+#define COLOR_ORANGE           "#ff9900"
+#define COLOR_LUMINOL          "#66ffff"
+#define COLOR_BEIGE            "#ceb689"
+#define COLOR_BLUE_GRAY        "#6a97b0"
+#define COLOR_BROWN            "#b19664"
+#define COLOR_DARK_BROWN       "#917448"
+#define COLOR_DARK_ORANGE      "#b95a00"
+#define COLOR_GREEN_GRAY       "#8daf6a"
+#define COLOR_RED_GRAY         "#aa5f61"
+#define COLOR_PALE_BLUE_GRAY   "#8bbbd5"
+#define COLOR_PALE_GREEN_GRAY  "#aed18b"
+#define COLOR_PALE_RED_GRAY    "#cc9090"
+#define COLOR_PALE_PURPLE_GRAY "#bda2ba"
+#define COLOR_PURPLE_GRAY      "#a2819e"
+#define COLOR_SUN              "#ec8b2f"
+
+//different types of atom colorations
+#define ADMIN_COLOUR_PRIORITY 		1 //only used by rare effects like greentext coloring mobs and when admins varedit color
+#define TEMPORARY_COLOUR_PRIORITY 	2 //e.g. purple effect of the revenant on a mob, black effect when mob electrocuted
+#define WASHABLE_COLOUR_PRIORITY 	3 //color splashed onto an atom (e.g. paint on turf)
+#define FIXED_COLOUR_PRIORITY 		4 //color inherent to the atom (e.g. blob color)
+#define COLOUR_PRIORITY_AMOUNT 4 //how many priority levels there are.
+
 //	Shuttles.
 
 // These define the time taken for the shuttle to get to the space station, and the time before it leaves again.
@@ -144,7 +186,7 @@
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
 
-#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon. 
+#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_WALL_MATERIAL "steel"
