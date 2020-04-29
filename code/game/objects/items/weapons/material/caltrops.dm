@@ -49,11 +49,11 @@
 
 				var/armor_block = H.run_armor_check(affecting, "melee")
 
-				H.apply_damage(30*damage_coef, BRUTE, affecting, armor_block)
-				H.updatehealth()
+				if(H.apply_damage(30*damage_coef, BRUTE, affecting, armor_block))
+					H.updatehealth()
 
-				if(H.can_feel_pain())
-					H.Weaken(4)
+					if(H.can_feel_pain())
+						H.Weaken(4)
 
 				return
 			check -= picked
