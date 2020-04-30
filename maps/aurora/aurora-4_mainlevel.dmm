@@ -7383,6 +7383,20 @@
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/bar)
+"ano" = (
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Exploratory Chemistry";
+	dir = 1
+	},
+/obj/machinery/chemical_dispenser/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/mauve{
+	icon_state = "wide_corner";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/chemistry)
 "anp" = (
 /obj/machinery/door/firedoor{
 	enable_smart_generation = 0
@@ -9398,6 +9412,16 @@
 /obj/item/modular_computer/console/preset/engineering,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"aqQ" = (
+/obj/machinery/chem_master{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/mauve{
+	icon_state = "wide_corner";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/chemistry)
 "aqR" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12068,6 +12092,16 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
+"ava" = (
+/obj/machinery/chem_master{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/orange{
+	icon_state = "corner_white";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/pharmacy)
 "avb" = (
 /obj/machinery/light{
 	dir = 8
@@ -14222,6 +14256,16 @@
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice)
+"ays" = (
+/obj/machinery/chemical_dispenser{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "ayt" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/wood,
@@ -33255,14 +33299,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
-"bdv" = (
-/obj/machinery/chem_master,
-/obj/effect/floor_decal/corner/orange{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/pharmacy)
 "bdw" = (
 /obj/structure/closet/wardrobe/pharmacy_white,
 /obj/machinery/firealarm/east,
@@ -48763,26 +48799,6 @@
 /obj/effect/floor_decal/corner_wide/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
-"bGc" = (
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Exploratory Chemistry";
-	dir = 1
-	},
-/obj/machinery/chemical_dispenser/full,
-/obj/effect/floor_decal/corner_wide/mauve{
-	icon_state = "wide_corner";
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/chemistry)
-"bGd" = (
-/obj/machinery/chem_master,
-/obj/effect/floor_decal/corner_wide/mauve{
-	icon_state = "wide_corner";
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/chemistry)
 "bGe" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -51544,14 +51560,6 @@
 /obj/item/reagent_containers/chem_disp_cartridge,
 /obj/item/reagent_containers/chem_disp_cartridge,
 /obj/item/reagent_containers/chem_disp_cartridge,
-/turf/simulated/floor/tiled,
-/area/hydroponics)
-"bMl" = (
-/obj/machinery/chemical_dispenser,
-/obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bMm" = (
@@ -94742,7 +94750,7 @@ iPv
 bDr
 bFg
 bFd
-bGc
+ano
 iPv
 bHW
 avc
@@ -94999,7 +95007,7 @@ iPv
 bDs
 bFi
 bFg
-bGd
+aqQ
 iPv
 pBN
 awB
@@ -102942,7 +102950,7 @@ aZE
 baL
 bbQ
 bdr
-bdv
+ava
 dGq
 bjR
 biO
@@ -103487,7 +103495,7 @@ rWM
 bKa
 bKT
 bLF
-bMl
+ays
 rWM
 bNJ
 bGr
