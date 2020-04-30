@@ -1,6 +1,9 @@
-/mob/living/carbon/human/movement_delay()
+/mob/living/carbon/human
+	move_intents = list(/decl/move_intent/walk)
 
-	var/tally = 0
+/mob/living/carbon/human/movement_delay()
+	var/tally = ..()
+
 	if(species.slowdown)
 		tally = species.slowdown
 
@@ -156,7 +159,7 @@
 			return
 		last_x = x
 		last_y = y
-		if (m_intent == "run")
+		if (MOVING_QUICKLY(src))
 			playsound(src, footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
@@ -170,3 +173,6 @@
 
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
+
+/mob/living/carbon/human/can_sprint()
+	return (stamina > 0)

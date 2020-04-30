@@ -144,11 +144,18 @@ var/list/gamemode_cache = list()
 	var/no_click_cooldown = 0
 
 	//Used for modifying movement speed for mobs.
-	//Unversal modifiers
-	var/walk_speed = 0
+	//Universal modifiers
 	var/walk_delay_multiplier = 1
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
+	
+	var/run_delay = 2
+	var/walk_delay = 4
+	var/creep_delay = 6
+	var/minimum_sprint_cost = 0.8
+	var/skill_sprint_cost_range = 0.8
+	var/minimum_stamina_recovery = 1
+	var/maximum_stamina_recovery = 3
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -953,8 +960,8 @@ var/list/gamemode_cache = list()
 				if("limbs_can_break")
 					config.limbs_can_break = value
 
-				if("walk_speed")
-					config.walk_speed = value
+				if("walk_delay")
+					config.walk_delay = value
 
 				// These should never go to 0 or below. So, we clamp them.
 				if("walk_delay_multiplier")

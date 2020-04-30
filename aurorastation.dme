@@ -326,6 +326,7 @@
 #include "code\datums\helper_datums\topic_input.dm"
 #include "code\datums\looping_sounds\_looping_sound.dm"
 #include "code\datums\looping_sounds\machinery_sounds.dm"
+#include "code\datums\move_intent\move_intent.dm"
 #include "code\datums\observation\_debug.dm"
 #include "code\datums\observation\destroyed.dm"
 #include "code\datums\observation\moved.dm"

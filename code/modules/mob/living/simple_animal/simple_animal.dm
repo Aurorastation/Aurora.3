@@ -479,7 +479,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 
 /mob/living/simple_animal/movement_delay()
-	var/tally = 0 //Incase I need to add stuff other than "speed" later
+	var/tally = ..() //Incase I need to add stuff other than "speed" later
 
 	tally = speed
 	if(purge)//Purged creatures will move more slowly. The more time before their purge stops, the slower they'll move.

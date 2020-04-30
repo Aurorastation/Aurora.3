@@ -107,7 +107,7 @@
 	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
 
-/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
+/*/datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 
 	if (!DS)
@@ -131,10 +131,9 @@
 		DS.stored_energy = 0
 		H.adjustHalLoss(remainder*5, 1)
 		H.updatehealth()
-		H.m_intent = "walk"
-		H.hud_used.move_intent.update_move_icon(H)
+		H.set_moving_slowly()
 		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
-		return 0
+		return 0*/ //TODOMATT: fucking dionae
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other

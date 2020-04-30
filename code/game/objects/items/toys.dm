@@ -325,9 +325,8 @@
 /obj/item/toy/snappop/Crossed(H as mob|obj)
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/M = H
-		if(M.m_intent == "run")
+		if(MOVING_QUICKLY(M))
 			to_chat(M, "<span class='warning'>You step on the snap pop!</span>")
-
 			spark(src, 2)
 			new /obj/effect/decal/cleanable/ash(src.loc)
 			src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")

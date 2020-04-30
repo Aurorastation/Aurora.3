@@ -128,13 +128,11 @@ var/list/global_huds
 	var/show_intent_icons = 0
 	var/hotkey_ui_hidden = 0	//This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
-	var/obj/screen/lingchemdisplay
-	var/obj/screen/blobpwrdisplay
-	var/obj/screen/blobhealthdisplay
 	var/obj/screen/r_hand_hud_object
 	var/obj/screen/l_hand_hud_object
 	var/obj/screen/action_intent
-	var/obj/screen/movement_intent/move_intent
+	var/obj/screen/move_intent
+	var/obj/screen/stamina/stamina_bar
 
 	var/list/adding
 	var/list/other
@@ -150,13 +148,11 @@ datum/hud/New(mob/owner)
 
 /datum/hud/Destroy()
 	. = ..()
+	stamina_bar = null
 	grab_intent = null
 	hurt_intent = null
 	disarm_intent = null
 	help_intent = null
-	lingchemdisplay = null
-	blobpwrdisplay = null
-	blobhealthdisplay = null
 	r_hand_hud_object = null
 	l_hand_hud_object = null
 	action_intent = null
@@ -267,6 +263,14 @@ datum/hud/New(mob/owner)
 /mob/proc/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
 	return
 
+/datum/hud/proc/update_stamina()
+	if(mymob && stamina_bar)
+		stamina_bar.invisibility = INVISIBILITY_MAXIMUM
+		var/stamina = mymob.get_stamina()
+		if(stamina < 100)
+			stamina_bar.invisibility = 0
+			stamina_bar.icon_state = "prog_bar_[Floor(stamina/5)*5]"
+
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
 /mob/verb/button_pressed_F12(var/full = 0 as null)
 	set name = "F12"
@@ -365,3 +369,10 @@ datum/hud/New(mob/owner)
 	hud_used.hidden_inventory_update()
 	hud_used.persistant_inventory_update()
 	update_action_buttons()
+
+/obj/screen/stamina
+	name = "stamina"
+	icon = 'icons/effects/progressbar.dmi'
+	icon_state = "prog_bar_100"
+	invisibility = INVISIBILITY_MAXIMUM
+	screen_loc = ui_stamina

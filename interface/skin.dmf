@@ -791,6 +791,12 @@ macro "borgmacro"
 	elem 
 		name = "CTRL+NUMPAD3"
 		command = "body-l-leg"
+	elem 
+		name = "SHIFT"
+		command = "setmovingquickly"
+	elem 
+		name = "SHIFT+UP"
+		command = "setmovingslowly"
 
 
 menu "menu"

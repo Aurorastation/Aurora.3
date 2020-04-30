@@ -19,6 +19,9 @@
 	var/obj/screen/using
 	var/obj/screen/inventory/inv_box
 
+	stamina_bar = new
+	adding += stamina_bar
+
 	// Draw the various inventory equipment slots.
 	var/has_hidden_gear
 	for(var/gear_slot in hud_data.gear)
@@ -124,9 +127,11 @@
 		//end intent small hud objects
 
 	if(hud_data.has_m_intent)
-		using = new /obj/screen/movement_intent()
+		using = new /obj/screen/movement()
+		using.name = "movement method"
 		using.icon = ui_style
-		using.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
+		using.icon_state = mymob.move_intent.hud_icon_state
+		using.screen_loc = ui_movi
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
