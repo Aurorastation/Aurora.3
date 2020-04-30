@@ -31,7 +31,7 @@
 		if(H.species.siemens_coefficient<0.5 || (H.species.flags & (NO_EMBED)))
 			damage_coef -= 0.2
 
-		if( H.shoes || ( H.wear_suit && (H.wear_suit.body_parts_covered & FEET) ) )
+		if(H.shoes || H.wear_suit?.body_parts_covered & FEET)
 			damage_coef -= 0.1
 
 		if (H.m_intent == "run")
