@@ -4,6 +4,10 @@
 	name = "plant clippers"
 	desc = "A tool used to take samples from plants."
 	icon_state = "plantclippers"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	toolspeed = 0.7
 	bomb_defusal_chance = 40 // 40% chance to successfully defuse a bomb, higher than standard because plant clippers are smaller
 	random_color = FALSE

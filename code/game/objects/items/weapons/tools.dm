@@ -84,18 +84,18 @@
 		update_icon()
 
 /obj/item/screwdriver/update_icon()
+	var/matrix/tf = matrix()
+	if(istype(loc, /obj/item/storage))
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-2,0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
+
 	if(!random_color) //icon override
 		return
 	cut_overlays()
 	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[icon_state]_head")
 	base_overlay.appearance_flags = RESET_COLOR
 	add_overlay(base_overlay)
-
-	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
-		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-2,0) //Could do this with pixel_x but let's just update the appearance once.
-	transform = tf
 
 /obj/item/screwdriver/pickup(mob/user)
 	..()
@@ -165,18 +165,18 @@
 		update_icon()
 
 /obj/item/wirecutters/update_icon()
+	var/matrix/tf = matrix()
+	if(istype(loc, /obj/item/storage))
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
+
 	if(!random_color) //icon override
 		return
 	cut_overlays()
 	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[icon_state]_head")
 	base_overlay.appearance_flags = RESET_COLOR
 	add_overlay(base_overlay)
-
-	var/matrix/tf = matrix()
-	if(istype(loc, /obj/item/storage))
-		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
-	transform = tf
 
 /obj/item/wirecutters/pickup(mob/user)
 	..()
