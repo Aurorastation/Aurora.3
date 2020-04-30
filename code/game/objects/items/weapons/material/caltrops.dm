@@ -28,7 +28,7 @@
 		to_chat(H, "<span class='danger'>You step on \the [src]!</span>")
 		playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1)
 
-		if(H.species.siemens_coefficient<0.5 || (H.species.flags & (NO_EMBED)))
+		if(H.species.siemens_coefficient < 0.5 || (H.species.flags & (NO_EMBED)))
 			damage_coef -= 0.2
 
 		if(H.shoes || H.wear_suit?.body_parts_covered & FEET)
