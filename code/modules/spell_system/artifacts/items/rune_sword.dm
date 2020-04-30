@@ -4,7 +4,7 @@
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "runesword0"
 	item_state = "runesword0"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	active_force = 40
 	active_throwforce = 40
 	active_w_class = 5

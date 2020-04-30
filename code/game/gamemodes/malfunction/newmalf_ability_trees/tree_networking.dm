@@ -130,8 +130,8 @@
 			return
 
 	if (reporttype == "Template")
-		sanitizeSafe(alert(usr, "Would you like it to appear as if CCIAMS made the report?",,"Yes","No"))
-		if ("Yes")
+		var/resp = alert(usr, "Would you like it to appear as if CCIAMS made the report?",,"Yes","No")
+		if (resp == "Yes")
 			reportbody += "\n\n- CCIAMS, [commstation_name()]"
 		else
 

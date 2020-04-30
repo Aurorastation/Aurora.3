@@ -3,12 +3,12 @@
 /datum/computer_file/data/news_article
 	filetype = "XNML"
 	filename = "Unknown News Entry"
-	block_size = 2000 		// Results in smaller files
-	do_not_edit = 1			// Editing the file breaks most formatting due to some HTML tags not being accepted as input from average user.
-	var/server_file_path 	// File path to HTML file that will be loaded on server start. Example: '/news_articles/space_magazine_1.html'. Use the /news_articles/ folder!
+	block_size = 2000		// Results in smaller files
+	do_not_edit = TRUE		// Editing the file breaks most formatting due to some HTML tags not being accepted as input from average user.
+	var/server_file_path	// File path to HTML file that will be loaded on server start. Example: '/news_articles/space_magazine_1.html'. Use the /news_articles/ folder!
 	var/archived			// Set to 1 for older stuff
 
-/datum/computer_file/data/news_article/New(var/load_from_file = 0)
+/datum/computer_file/data/news_article/New(var/load_from_file = FALSE)
 	..()
 	if(server_file_path && load_from_file)
 		stored_data = file2text(server_file_path)

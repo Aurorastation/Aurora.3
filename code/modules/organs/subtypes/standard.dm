@@ -19,6 +19,7 @@
 	limb_flags = ORGAN_CAN_BREAK
 	parent_organ = null
 	encased = "ribcage"
+	augment_limit = 3
 
 /obj/item/organ/external/groin
 	name = "lower body"
@@ -35,6 +36,7 @@
 	artery_name = "iliac artery"
 	dislocated = -1
 	gendered_icon = 1
+	augment_limit = 3
 
 /obj/item/organ/external/arm
 	limb_name = "l_arm"
@@ -50,6 +52,7 @@
 	tendon_name = "palmaris longus tendon"
 	artery_name = "basilic vein"
 	amputation_point = "left shoulder"
+	augment_limit = 2
 
 /obj/item/organ/external/arm/right
 	limb_name = "r_arm"
@@ -76,6 +79,7 @@
 	artery_name = "femoral artery"
 	amputation_point = "left hip"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
+	augment_limit = 2
 
 /obj/item/organ/external/leg/right
 	limb_name = "r_leg"
@@ -100,6 +104,7 @@
 	amputation_point = "left ankle"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
 	maim_bonus = 1
+	augment_limit = 1
 
 /obj/item/organ/external/foot/removed()
 	if(owner)
@@ -130,6 +135,7 @@
 	amputation_point = "left wrist"
 	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP | ORGAN_HAS_TENDON
 	maim_bonus = 1
+	augment_limit = 1
 
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
@@ -163,6 +169,7 @@
 	amputation_point = "neck"
 	gendered_icon = 1
 	encased = "skull"
+	augment_limit = 3
 	var/can_intake_reagents = 1
 
 /obj/item/organ/external/head/removed()

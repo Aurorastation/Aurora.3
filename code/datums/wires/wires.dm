@@ -32,7 +32,6 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	src.holder = holder
 	if(!istype(holder, holder_type))
 		CRASH("Our holder is null/the wrong type!")
-		return
 
 	// Generate new wires
 	if(random)
@@ -312,3 +311,5 @@ var/const/POWER = 8
 /datum/wires/proc/Shuffle()
 	wires_status = 0
 	GenerateWires()
+
+#undef MAX_FLAG

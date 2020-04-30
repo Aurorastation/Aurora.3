@@ -391,6 +391,17 @@ var/list/mineral_can_smooth_with = list(
 			DropMineral()
 
 	//Add some rubble, you did just clear out a big chunk of rock.
+
+	if(prob(25))
+		var/datum/reagents/R = new/datum/reagents(20)
+		R.my_atom = src
+		R.add_reagent("stone_dust",20)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new("stone_dust")
+		S.show_log = 0
+		S.set_up(R, 10, 0, src, 40)
+		S.start()
+		qdel(R)
+
 	ChangeTurf(mined_turf)
 
 	if(rand(1,500) == 1)
@@ -428,9 +439,6 @@ var/list/mineral_can_smooth_with = list(
 
 
 /turf/simulated/mineral/proc/artifact_debris(var/severity = 0)
-	//cael's patented random limited drop componentized loot system!
-	//sky's patented not-fucking-retarded overhaul!
-	//geeves' making this not look like shit!
 
 	//Give a random amount of loot from 1 to 3 or 5, varying on severity.
 	for(var/j in 1 to rand(1, 3 + max(min(severity, 1), 0) * 2))

@@ -1,9 +1,10 @@
 /obj/item/melee/cultblade
 	name = "eldritch blade"
 	desc = "A sword humming with unholy energy. It glows with a dim red light."
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
-	icon = 'icons/obj/weapons.dmi'
+	contained_sprite = TRUE
 	w_class = 4
 	force = 30
 	throwforce = 10
@@ -11,6 +12,7 @@
 	edge = TRUE
 	sharp = TRUE
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	drop_sound = 'sound/items/drop/sword.ogg'
 
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	can_embed = FALSE //can't get stuck anymore, because blood magic

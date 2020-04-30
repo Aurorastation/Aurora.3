@@ -77,12 +77,12 @@
 
 	pref.lastchangelog  = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
 	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
-	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, 65535, initial(pref.toggles))
-	pref.asfx_togs      = sanitize_integer(text2num(pref.asfx_togs), 0, 65535, initial(pref.toggles))
+	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
+	pref.asfx_togs      = sanitize_integer(text2num(pref.asfx_togs), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
 	pref.memo_hash      = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
 	pref.parallax_speed = sanitize_integer(text2num(pref.parallax_speed), 1, 10, initial(pref.parallax_speed))
-	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, 65535, initial(pref.toggles_secondary))
+	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(
@@ -94,6 +94,7 @@
 		"<b>Space Parallax:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_SPACE]'><b>[(pref.toggles_secondary & PARALLAX_SPACE) ? "Yes" : "No"]</b></a><br>",
 		"<b>Space Dust:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_DUST]'><b>[(pref.toggles_secondary & PARALLAX_DUST) ? "Yes" : "No"]</b></a><br>",
 		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
+		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
 		"<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.toggles_secondary & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>"
 	)
 

@@ -160,7 +160,7 @@
 
 		if (halluci)
 			M.hallucination = max(M.hallucination, halluci)
-		
+
 		if(caffeine)
 			M.add_chemical_effect(CE_PULSE, caffeine*2)
 			if(!caffeine_mod)
@@ -269,7 +269,11 @@
 	fallback_specific_heat = 0.549 //Unknown
 
 /datum/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(4 * removed)
+	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
+	if(aug && !aug.is_broken())
+		M.adjustNutritionLoss(-12 * removed)
+	else
+		M.adjustToxLoss(4 * removed)
 
 /datum/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // Hydrazine is both toxic and flammable.
 	M.adjust_fire_stacks(removed / 12)

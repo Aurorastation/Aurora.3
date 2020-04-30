@@ -3,6 +3,10 @@
 	desc = "A hand held grenade, with an adjustable timer."
 	w_class = 2.0
 	icon = 'icons/obj/grenade.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_grenade.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_grenade.dmi',
+		)
 	icon_state = "grenade"
 	item_state = "grenade"
 	throw_speed = 4

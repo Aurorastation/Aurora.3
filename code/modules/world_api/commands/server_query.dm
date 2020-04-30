@@ -20,15 +20,18 @@
 	s["transferring"] = !!(emergency_shuttle?.online())
 
 	s["players"] = clients.len
-	s["admins"] = 0
 	s["staff"] = staff.len
+
+	var/admin_count = 0
 
 	for(var/S in staff)
 		var/client/C = S
 		if(C.holder.fakekey)
 			continue
 		if(C.holder.rights & (R_MOD|R_ADMIN))
-			s["admins"]++
+			admin_count++
+
+	s["admins"] = admin_count
 
 	statuscode = 200
 	response = "Server status fetched."

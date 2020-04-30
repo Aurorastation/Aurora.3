@@ -78,7 +78,7 @@
 	var/mob/living/carbon/human/M = target_mob
 	var/sting_prob = 40 // Bees will always try to sting.
 	var/prob_mult = 1
-	if(M && M in view(src,1)) // Can I see my target?
+	if(M && (M in view(src,1))) // Can I see my target?
 		var/obj/item/clothing/worn_suit = M.wear_suit
 		var/obj/item/clothing/worn_helmet = M.head
 		if(worn_suit) // Are you wearing clothes?
