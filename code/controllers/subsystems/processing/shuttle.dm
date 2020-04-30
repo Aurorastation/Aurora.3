@@ -64,6 +64,7 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 		var/shuttle = initialize_shuttle(shuttle_type)
 		if(shuttle)
 			shuttles_made += shuttle
+	hook_up_motherships(shuttles_made)
 	shuttles_to_initialize = null
 
 /datum/controller/subsystem/processing/shuttle/proc/initialize_sectors()
@@ -129,6 +130,16 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 		shuttle = new shuttle()
 		shuttle_areas |= shuttle.shuttle_area
 		return shuttle
+
+/datum/controller/subsystem/processing/shuttle/proc/hook_up_motherships(shuttles_list)
+	for(var/datum/shuttle/S in shuttles_list)
+		if(S.mothershuttle && !S.motherdock)
+			var/datum/shuttle/mothership = shuttles[S.mothershuttle]
+			if(mothership)
+				S.motherdock = S.current_location.landmark_tag
+				mothership.shuttle_area |= S.shuttle_area
+			else
+				error("Shuttle [S] was unable to find mothership [mothership]!")
 
 /datum/controller/subsystem/processing/shuttle/proc/toggle_overmap(new_setting)
 	if(overmap_halted == new_setting)

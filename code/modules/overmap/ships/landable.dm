@@ -89,7 +89,7 @@
 	core_landmark = master
 	name = _name
 	landmark_tag = master.shuttle_name + _name
-	destroyed_event.register(master, src, /datum/proc/qdel)
+	destroyed_event.register(master, src, /proc/qdel)
 	. = ..()
 
 /obj/effect/shuttle_landmark/visiting_shuttle/Destroy()

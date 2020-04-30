@@ -65,16 +65,13 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/ship/sensors/OnTopic(var/mob/user, var/list/href_list, state)
-	if(..())
-		return TOPIC_HANDLED
-
+/obj/machinery/computer/ship/sensors/Topic(href, href_list)
 	if (!linked)
 		return TOPIC_NOACTION
 
 	if (href_list["viewing"])
-		if(user && !isAI(user))
-			viewing_overmap(user) ? unlook(user) : look(user)
+		if(usr && !isAI(usr))
+			viewing_overmap(usr) ? unlook(usr) : look(usr)
 		return TOPIC_REFRESH
 
 	if (href_list["link"])
@@ -84,7 +81,7 @@
 	if(sensors)
 		if (href_list["range"])
 			var/nrange = input("Set new sensors range", "Sensor range", sensors.range) as num|null
-			if(!CanInteract(user,state))
+			if(!CanInteract(usr, physical_state))
 				return TOPIC_NOACTION
 			if (nrange)
 				sensors.set_range(Clamp(nrange, 1, world.view))
@@ -97,10 +94,10 @@
 		var/obj/effect/overmap/O = locate(href_list["scan"])
 		if(istype(O) && !QDELETED(O) && (O in view(7,linked)))
 			playsound(loc, "sound/machines/dotprinter.ogg", 30, 1)
-			new/obj/item/paper/(get_turf(src), O.get_scan_data(user), "paper (Sensor Scan - [O])")
+			new/obj/item/paper/(get_turf(src), O.get_scan_data(usr), "paper (Sensor Scan - [O])")
 		return TOPIC_HANDLED
 
-/obj/machinery/computer/ship/sensors/Process()
+/obj/machinery/computer/ship/sensors/process()
 	..()
 	if(!linked)
 		return
@@ -126,7 +123,7 @@
 
 /obj/machinery/shipsensors/attackby(obj/item/W, mob/user)
 	var/damage = max_health - health
-	if(damage && isWelder(W))
+	if(damage && iswelder(W))
 
 		var/obj/item/weldingtool/WT = W
 
@@ -153,7 +150,7 @@
 			return 0
 	return 1
 
-/obj/machinery/shipsensors/on_update_icon()
+/obj/machinery/shipsensors/update_icon()
 	if(use_power)
 		icon_state = "sensors"
 	else
@@ -182,7 +179,7 @@
 	update_use_power(!use_power)
 	queue_icon_update()
 
-/obj/machinery/shipsensors/Process()
+/obj/machinery/shipsensors/process()
 	if(use_power) //can't run in non-vacuum
 		if(!in_vacuum())
 			toggle()

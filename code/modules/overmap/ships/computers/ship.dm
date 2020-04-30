@@ -34,19 +34,19 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	popup.set_content("<center><strong><font color = 'red'>Error</strong></font><br>Unable to connect to [flavor].<br><a href='?src=\ref[src];sync=1'>Reconnect</a></center>")
 	popup.open()
 
-/obj/machinery/computer/ship/interface_interact(var/mob/user)
+/obj/machinery/computer/ship/attack_hand(mob/user)
+	if(use_check_and_message(user))
+		return
+	
 	ui_interact(user)
-	return TRUE
 
-/obj/machinery/computer/ship/OnTopic(var/mob/user, var/list/href_list)
-	if(..())
-		return TOPIC_HANDLED
+/obj/machinery/computer/ship/Topic(href, href_list)
 	if(href_list["sync"])
 		sync_linked()
 		return TOPIC_REFRESH
 	if(href_list["close"])
-		unlook(user)
-		user.unset_machine()
+		unlook(usr)
+		usr.unset_machine()
 		return TOPIC_HANDLED
 	return TOPIC_NOACTION
 

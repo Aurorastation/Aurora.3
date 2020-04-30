@@ -26,6 +26,9 @@
 	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
 	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
 
+	var/mothershuttle //tag of mothershuttle
+	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
+
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
 	if(_name)
@@ -228,9 +231,30 @@
 			NewPN.add_cable(C)
 			propagate_network(C,C.powernet)
 
+	if(mothershuttle)
+		var/datum/shuttle/mothership = SSshuttle.shuttles[mothershuttle]
+		if(mothership)
+			if(current_location.landmark_tag == motherdock)
+				mothership.shuttle_area |= shuttle_area
+			else
+				mothership.shuttle_area -= shuttle_area
+
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
 	return (moving_status == SHUTTLE_INTRANSIT)
+
+/datum/shuttle/proc/find_children()
+	. = list()
+	for(var/shuttle_name in SSshuttle.shuttles)
+		var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_name]
+		if(shuttle.mothershuttle == name)
+			. += shuttle
+
+//Returns those areas that are not actually child shuttles.
+/datum/shuttle/proc/find_childfree_areas()
+	. = shuttle_area.Copy()
+	for(var/datum/shuttle/child in find_children())
+		. -= child.shuttle_area
 
 /datum/shuttle/autodock/proc/get_location_name()
 	if(moving_status == SHUTTLE_INTRANSIT)

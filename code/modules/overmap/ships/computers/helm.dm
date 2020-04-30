@@ -27,7 +27,7 @@
 			known_sectors[S.name] = R
 	..()
 
-/obj/machinery/computer/ship/helm/Process()
+/obj/machinery/computer/ship/helm/process()
 	..()
 	if (autopilot && dx && dy)
 		var/turf/T = locate(dx,dy,current_map.overmap_z)
@@ -188,7 +188,7 @@
 
 	if (href_list["move"])
 		var/ndir = text2num(href_list["move"])
-		linked.relaymove(user, ndir, accellimit)
+		linked.relaymove(usr, ndir, accellimit)
 
 	if (href_list["brake"])
 		linked.decelerate()
@@ -254,7 +254,7 @@
 	icon_state = "tele_nav"
 	density = 0
 
-/obj/machinery/computer/ship/navigation/telescreen/on_update_icon()
+/obj/machinery/computer/ship/navigation/telescreen/update_icon()
 	if(stat & NOPOWER || stat & BROKEN)
 		icon_state = "tele_off"
 		set_light(0)
