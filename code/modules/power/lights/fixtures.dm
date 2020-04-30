@@ -20,8 +20,8 @@
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/brightness_range = 5	// luminosity when on, also used in power calculation
 	var/brightness_power = 0.8
-	var/night_brightness_range = 6
-	var/night_brightness_power = 0.6
+	var/night_brightness_range = 3
+	var/night_brightness_power = 0.3
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
