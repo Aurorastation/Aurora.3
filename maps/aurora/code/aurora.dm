@@ -9,8 +9,11 @@
 	admin_levels = list(1)
 	contact_levels = list(3, 4, 5, 6, 7)
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
+	empty_levels = list(9)
 	restricted_levels = list()
 	accessible_z_levels = list("8" = 10, "7" = 15, "2" = 60)
+	overmap_size = 35
+	overmap_event_areas = 34
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
@@ -63,6 +66,7 @@
 	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+	use_overmap = TRUE
 
 	map_shuttles = list(
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
@@ -100,3 +104,19 @@
 /datum/map/aurora/finalize_load()
 	// generate an empty space Z
 	world.maxz++
+
+/obj/effect/overmap/visitable/ship/aurora
+	name = "NSS Aurora"
+	desc = "A big bruh moment."
+	fore_dir = NORTH
+	vessel_mass = 100000
+	burn_delay = 2 SECONDS
+	base = TRUE
+
+	initial_restricted_waypoints = list(
+		"Research Shuttle" = list("nav_research_dock")
+	)
+
+	initial_generic_waypoints = list(
+		"nav_merc_surface"
+	)

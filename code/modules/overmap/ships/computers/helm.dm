@@ -52,7 +52,6 @@
 			// All other cases, move toward direction
 			else if (speed + acceleration <= speedlimit)
 				linked.accelerate(direction, accellimit)
-		linked.operator_skill = null//if this is on you can't dodge meteors
 		return
 
 /obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
