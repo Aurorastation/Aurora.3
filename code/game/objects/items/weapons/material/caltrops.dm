@@ -14,6 +14,7 @@
 /obj/item/material/caltrops/Initialize()
 	. = ..()
 	icon_state = "caltrop[pick(1,2,3)]"
+
 /obj/item/material/caltrops/Crossed(AM as mob|obj)
 	..()
 	if(ishuman(AM))
