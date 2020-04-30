@@ -18,7 +18,7 @@
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	var/brightness_range = 8	// luminosity when on, also used in power calculation
+	var/brightness_range = 5	// luminosity when on, also used in power calculation
 	var/brightness_power = 0.8
 	var/night_brightness_range = 6
 	var/night_brightness_power = 0.6
@@ -62,7 +62,7 @@
 	icon_state = "bulb1"
 	base_state = "bulb"
 	fitting = "bulb"
-	brightness_range = 5
+	brightness_range = 3
 	brightness_power = 0.75
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
@@ -72,12 +72,12 @@
 	bulb_is_noisy = FALSE
 
 /obj/machinery/light/small/emergency
-	brightness_range = 6
+	brightness_range = 3
 	brightness_power = 1
 	brightness_color = "#FA8282"//"#FF0000"
 
 /obj/machinery/light/small/red
-	brightness_range = 2.5
+	brightness_range = 2
 	brightness_power = 1
 	brightness_color = LIGHT_COLOR_RED
 
@@ -92,13 +92,13 @@
 	fitting = "large tube"
 	light_type = /obj/item/light/tube/large
 	inserted_light = /obj/item/light/tube/large
-	brightness_range = 12
+	brightness_range = 8
 	brightness_power = 4
 	supports_nightmode = FALSE
 
 /obj/machinery/light/spot/weak
 	name = "exterior spotlight"
-	brightness_range = 12
+	brightness_range = 8
 	brightness_power = 1.2
 
 /obj/machinery/light/built
