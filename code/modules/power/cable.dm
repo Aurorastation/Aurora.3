@@ -44,7 +44,6 @@ var/list/possible_cable_coil_colours = list(
 	var/d2 = 1
 	layer = 2.44 //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
 	color = COLOR_RED
-	var/our_color = COLOR_RED
 	var/obj/machinery/power/breakerbox/breaker_box
 
 /obj/structure/cable/drain_power(var/drain_check, var/surge, var/amount = 0)
@@ -80,7 +79,6 @@ var/list/possible_cable_coil_colours = list(
 
 /obj/structure/cable/Initialize()
 	. = ..()
-	our_color = color
 
 	// ensure d1 & d2 reflect the icon_state for entering and exiting cable
 
