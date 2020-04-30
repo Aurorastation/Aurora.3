@@ -3,7 +3,7 @@
 	filedesc = "NTNet/ExoNet News Browser"
 	extended_desc = "This program may be used to view and download news articles from the network."
 	program_icon_state = "generic"
-	size = 8
+	size = 2
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 

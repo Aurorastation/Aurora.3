@@ -1,9 +1,9 @@
 /obj/item/computer_hardware/hard_drive
 	name = "basic hard drive"
 	desc = "A small power efficient solid state drive, with 128GQ of storage capacity for use in basic computers where power efficiency is desired."
-	power_usage = 25					// SSD or something with low power usage
+	power_usage = 20					// SSD or something with low power usage
 	icon_state = "hdd_normal"
-	hardware_size = 2
+	hardware_size = 1
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	var/max_capacity = 128
 	var/used_capacity = 0

@@ -311,3 +311,5 @@ var/const/POWER = 8
 /datum/wires/proc/Shuffle()
 	wires_status = 0
 	GenerateWires()
+
+#undef MAX_FLAG
