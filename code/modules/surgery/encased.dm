@@ -59,7 +59,7 @@
 	user.visible_message("<span class='warning'>[user]'s hand slips, cracking [target]'s [affected.encased] with \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!</span>" )
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 
@@ -110,7 +110,7 @@
 	var/self_msg = "<span class='warning'>Your hand slips, cracking [target]'s [affected.encased]!</span>"
 	user.visible_message(msg, self_msg)
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 /datum/surgery_step/open_encased/close
@@ -161,7 +161,7 @@
 	var/self_msg = "<span class='warning'>Your hand slips, bending [target]'s [affected.encased] the wrong way!</span>"
 	user.visible_message(msg, self_msg)
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 	if(affected.internal_organs && affected.internal_organs.len)
