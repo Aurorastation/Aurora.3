@@ -288,10 +288,15 @@
 		var/mob_is_human = ishuman(mob) //Calculate this once to reuse it later.
 
 		if(MOVING_QUICKLY(mob))
+			if(mob_is_human)
+				var/mob/living/carbon/human/H = mob
+				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			mob.last_quick_move_time = world.time
 			mob.adjust_stamina(-(mob.get_stamina_used_per_step()))
 
 		move_delay += tally
+		
+		world << "client tally: [tally]"
 
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
 		if(config.Tickcomp)
@@ -367,7 +372,7 @@
 	return 1
 
 /mob/living/carbon/human/get_stamina_used_per_step()
-	return config.minimum_sprint_cost
+	return sprint_cost_factor
 
 /mob/proc/SelfMove(turf/n, direct)
 	return Move(n, direct)

@@ -208,9 +208,7 @@
 	return 0
 
 /mob/proc/movement_delay()
-	. = 0
-	if(move_intent)
-		. = move_intent.move_delay
+	. = move_intent.move_delay
 
 /mob/proc/Life()
 	return

@@ -149,10 +149,9 @@ var/list/gamemode_cache = list()
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
 	
-	var/run_delay = 2
-	var/walk_delay = 3
-	var/creep_delay = 4
-	var/minimum_sprint_cost = 0.8
+	var/run_delay = 4
+	var/walk_delay = 4
+	var/creep_delay = 6
 	var/minimum_stamina_recovery = 1
 	var/maximum_stamina_recovery = 3
 
@@ -961,6 +960,8 @@ var/list/gamemode_cache = list()
 
 				if("walk_delay")
 					config.walk_delay = value
+				if("creep_delay")
+					config.creep_delay = value
 
 				// These should never go to 0 or below. So, we clamp them.
 				if("walk_delay_multiplier")

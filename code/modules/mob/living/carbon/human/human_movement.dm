@@ -5,8 +5,7 @@
 	var/tally = ..()
 	world << "initial tally: [tally]"
 
-	if(species.slowdown)
-		tally += species.slowdown
+	tally += species.slowdown
 
 	if(isinspace())
 		return -1 // It's hard to be slowed down in space by... anything

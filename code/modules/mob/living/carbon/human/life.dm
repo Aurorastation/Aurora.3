@@ -112,7 +112,7 @@
 			to_chat(src, SPAN_WARNING("You are exhausted!"))
 			if(MOVING_QUICKLY(src))
 				set_moving_slowly()
-	if(last_stamina != stamina)
+	if(last_stamina != stamina && hud_used)
 		hud_used.move_intent.update_stamina_bar(src)
 
 /mob/living/carbon/human/proc/handle_stamina()
