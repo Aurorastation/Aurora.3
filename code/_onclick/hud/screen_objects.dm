@@ -295,6 +295,19 @@
 	screen_loc = ui_movi
 	layer = SCREEN_LAYER
 
+/obj/screen/movement/proc/update_stamina_bar(var/mob/living/user)
+	if(!user.client)
+		return
+	
+	if(user.get_stamina() == user.get_maximum_stamina())
+		if(user.stamina_bar)
+			QDEL_NULL(user.stamina_bar)
+	else
+		if(!user.stamina_bar)
+			user.stamina_bar = new(user, user.get_maximum_stamina(), src)
+		user.stamina_bar.update(user.get_stamina())
+
+
 /obj/screen/movement/Click(var/location, var/control, var/params)
 	if(istype(usr))
 		usr.set_next_usable_move_intent()

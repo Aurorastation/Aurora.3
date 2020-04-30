@@ -54,7 +54,7 @@
 	var/sprint_cost_factor = 1
 	var/stamina_recovery = 1
 	var/min_walk_delay = 0//When move intent is walk, movedelay is clamped to this value as a lower bound
-	var/exhaust_threshold = 50
+	var/datum/progressbar/stamina_bar
 
 	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter
 

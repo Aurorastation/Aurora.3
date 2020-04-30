@@ -123,7 +123,12 @@ default behaviour is:
 		now_pushing = FALSE
 		spawn(0)
 			. = ..()
-			if (!istype(AM, /atom/movable))
+			if (!istype(AM, /atom/movable) || AM.anchored)
+				if(confused && prob(50) && !MOVING_DELIBERATELY(src))
+					Weaken(2)
+					playsound(loc, "punch", 25, 1, -1)
+					visible_message("<span class='warning'>[src] [pick("ran", "slammed")] into \the [AM]!</span>")
+					src.apply_damage(5, BRUTE)
 				return
 			if (!now_pushing)
 				now_pushing = TRUE

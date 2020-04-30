@@ -150,10 +150,9 @@ var/list/gamemode_cache = list()
 	var/vehicle_delay_multiplier = 1
 	
 	var/run_delay = 2
-	var/walk_delay = 4
-	var/creep_delay = 6
+	var/walk_delay = 3
+	var/creep_delay = 4
 	var/minimum_sprint_cost = 0.8
-	var/skill_sprint_cost_range = 0.8
 	var/minimum_stamina_recovery = 1
 	var/maximum_stamina_recovery = 3
 

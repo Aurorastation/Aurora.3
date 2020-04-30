@@ -131,8 +131,7 @@ var/list/global_huds
 	var/obj/screen/r_hand_hud_object
 	var/obj/screen/l_hand_hud_object
 	var/obj/screen/action_intent
-	var/obj/screen/move_intent
-	var/obj/screen/stamina/stamina_bar
+	var/obj/screen/movement/move_intent
 
 	var/list/adding
 	var/list/other
@@ -148,7 +147,6 @@ datum/hud/New(mob/owner)
 
 /datum/hud/Destroy()
 	. = ..()
-	stamina_bar = null
 	grab_intent = null
 	hurt_intent = null
 	disarm_intent = null
@@ -262,14 +260,6 @@ datum/hud/New(mob/owner)
 
 /mob/proc/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
 	return
-
-/datum/hud/proc/update_stamina()
-	if(mymob && stamina_bar)
-		stamina_bar.invisibility = INVISIBILITY_MAXIMUM
-		var/stamina = mymob.get_stamina()
-		if(stamina < 100)
-			stamina_bar.invisibility = 0
-			stamina_bar.icon_state = "prog_bar_[Floor(stamina/5)*5]"
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
 /mob/verb/button_pressed_F12(var/full = 0 as null)

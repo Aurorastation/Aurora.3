@@ -229,9 +229,6 @@
 	if(!mob.canmove)
 		return
 
-	//if(istype(mob.loc, /turf/space) || (mob.flags & NOGRAV))
-	//	if(!mob.Process_Spacemove(0))	return 0
-
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
 
@@ -244,7 +241,6 @@
 				return 0
 			else
 				mob.inertia_dir = 0 //If not then we can reset inertia and move
-
 
 		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
 			for(var/mob/M in range(mob, 1))
@@ -288,8 +284,12 @@
 				move_delay += max((mob.movement_delay() + config.walk_delay) * config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled.relaymove(mob,direct)
 
-		var/tally = mob.movement_delay() + config.walk_delay
+		var/tally = mob.movement_delay()
 		var/mob_is_human = ishuman(mob) //Calculate this once to reuse it later.
+
+		if(MOVING_QUICKLY(mob))
+			mob.last_quick_move_time = world.time
+			mob.adjust_stamina(-(mob.get_stamina_used_per_step()))
 
 		move_delay += tally
 
@@ -336,10 +336,10 @@
 						if(mob != M)
 							M.animate_movement = 3
 					for(var/mob/M in L)
-						spawn( 0 )
+						spawn(0)
 							step(M, direct)
 							return
-						spawn( 1 )
+						spawn(1)
 							M.other_mobs = null
 							M.animate_movement = 2
 							return
@@ -349,12 +349,12 @@
 		else
 			. = mob.SelfMove(n, direct)
 
-		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
+		for(var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(reverse_dir[direct])
 			G.adjust_position()
 
-		for (var/obj/item/grab/G in mob.grabbed_by)
+		for(var/obj/item/grab/G in mob.grabbed_by)
 			G.adjust_position()
 
 		moving = 0
@@ -362,6 +362,12 @@
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
 		var/atom/O = mob.loc
 		return O.relaymove(mob, direct)
+
+/mob/proc/get_stamina_used_per_step()
+	return 1
+
+/mob/living/carbon/human/get_stamina_used_per_step()
+	return config.minimum_sprint_cost
 
 /mob/proc/SelfMove(turf/n, direct)
 	return Move(n, direct)
@@ -628,4 +634,7 @@
 	return
 
 /mob/proc/get_stamina()
+	return 100
+
+/mob/proc/get_maximum_stamina()
 	return 100

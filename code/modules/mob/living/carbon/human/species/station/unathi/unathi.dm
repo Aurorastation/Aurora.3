@@ -38,7 +38,6 @@
 
 	sprint_cost_factor = 1.45
 	sprint_speed_factor = 3.2
-	exhaust_threshold = 65
 
 	rarity_value = 3
 	breakcuffs = list(MALE)

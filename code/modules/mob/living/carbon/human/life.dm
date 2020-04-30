@@ -74,7 +74,6 @@
 
 		handle_medical_side_effects()
 
-		//Handles regenerating stamina if we have sufficient air and no oxyloss
 		handle_stamina()
 
 		if (is_diona())
@@ -100,18 +99,21 @@
 /mob/living/carbon/human/get_stamina()
 	return stamina
 
+/mob/living/carbon/human/get_maximum_stamina()
+	return max_stamina
+
 /mob/living/carbon/human/adjust_stamina(var/amt)
 	var/last_stamina = stamina
 	if(stat == DEAD)
 		stamina = 0
 	else
-		stamina = Clamp(stamina + amt, 0, 100)
+		stamina = Clamp(stamina + amt, 0, max_stamina)
 		if(stamina <= 0)
 			to_chat(src, SPAN_WARNING("You are exhausted!"))
 			if(MOVING_QUICKLY(src))
 				set_moving_slowly()
-	if(last_stamina != stamina && hud_used)
-		hud_used.update_stamina()
+	if(last_stamina != stamina)
+		hud_used.move_intent.update_stamina_bar(src)
 
 /mob/living/carbon/human/proc/handle_stamina()
 	if((world.time - last_quick_move_time) > 5 SECONDS)

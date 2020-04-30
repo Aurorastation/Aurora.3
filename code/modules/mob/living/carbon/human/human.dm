@@ -1505,7 +1505,6 @@
 	sprint_cost_factor = species.sprint_cost_factor
 	stamina_recovery = species.stamina_recovery
 
-	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
 	max_hydration = BASE_MAX_HYDRATION * species.max_hydration_factor
 
