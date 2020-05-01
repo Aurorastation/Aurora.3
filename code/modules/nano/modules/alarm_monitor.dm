@@ -73,8 +73,6 @@
 
 /datum/nano_module/alarm_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
-	if(program)
-		data["_PC"] = program.get_header_data()
 
 	var/categories[0]
 	for(var/datum/alarm_handler/AH in alarm_handlers)

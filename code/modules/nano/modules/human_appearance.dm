@@ -108,8 +108,6 @@
 
 	generate_data(check_whitelist, whitelist, blacklist)
 	var/list/data = host.initial_data()
-	if(program)
-		data["_PC"] = program.get_header_data()
 
 	data["specimen"] = owner.species.name
 	data["gender"] = owner.gender

@@ -182,9 +182,8 @@
 
 /datum/nano_module/program/computer_filemanager/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
-	if(program)
-		data["_PC"] = program.get_header_data()
 	var/datum/computer_file/program/filemanager/PRG
+	//var/list/data = list("_PC" = program.get_header_data())
 	PRG = program
 
 	var/obj/item/computer_hardware/hard_drive/HDD

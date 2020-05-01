@@ -45,8 +45,6 @@
 
 /datum/nano_module/camera_monitor/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE, state = default_state)
 	var/list/data = host.initial_data()
-	if(program)
-		data["_PC"] = program.get_header_data()
 
 	data["current_camera"] = current_camera ? current_camera.nano_structure() : null
 	data["current_network"] = current_network

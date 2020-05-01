@@ -39,8 +39,6 @@
 
 /datum/nano_module/atmos_control/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
-	if(program)
-		data["_PC"] = program.get_header_data()
 	var/alarms[0]
 
 	// TODO: Move these to a cache, similar to cameras
