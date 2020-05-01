@@ -198,7 +198,7 @@
 	//End Marauder launchpad.
 
 /obj/machinery/light/small/readylight
-	brightness_range = 3
+	brightness_range = 4
 	brightness_power = 1
 	brightness_color = "#DA0205"
 	var/state = 0
