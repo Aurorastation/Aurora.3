@@ -5,10 +5,19 @@
 	density = 1
 	anchored = 1
 	use_power = 1
+	idle_power_usage = 60
+	active_power_usage = 2000
+
 	var/obj/item/gun/gun = null
 	var/obj/item/item = null
 	var/obj/item/device/laser_assembly/assembly = null
 	var/process = FALSE
+
+	component_types = list(
+			/obj/item/stock_parts/scanning_module = 2,
+			/obj/item/stock_parts/capacitor = 1,
+			/obj/item/stock_parts/console_screen = 1
+		)
 
 /obj/machinery/weapons_analyzer/examine(mob/user)
 	..()
@@ -92,9 +101,9 @@
 
 	return TRUE
 
-/obj/machinery/weapons_analyzer/verb/eject_inserted_item()
+/obj/machinery/weapons_analyzer/verb/eject()
+	set name = "Eject Inserted Item"
 	set category = "Object"
-	set name = "Eject inserted item"
 	set src in view(1)
 
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))
@@ -111,9 +120,9 @@
 		update_icon()
 
 	else if(assembly)
-		gun.forceMove(usr.loc)
 		assembly.ready_to_craft = FALSE
 		assembly.analyzer = null
+		assembly.forceMove(usr.loc)
 		assembly = null
 		update_icon()
 	else
