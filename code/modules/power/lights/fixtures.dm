@@ -18,10 +18,10 @@
 	active_power_usage = 20
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	var/brightness_range = 5	// luminosity when on, also used in power calculation
-	var/brightness_power = 0.8
-	var/night_brightness_range = 3
-	var/night_brightness_power = 0.3
+	var/brightness_range = 6	// luminosity when on, also used in power calculation
+	var/brightness_power = 0.6
+	var/night_brightness_range = 4
+	var/night_brightness_power = 0.4
 	var/supports_nightmode = TRUE
 	var/nightmode = FALSE
 	var/brightness_color = LIGHT_COLOR_HALOGEN
@@ -62,8 +62,8 @@
 	icon_state = "bulb1"
 	base_state = "bulb"
 	fitting = "bulb"
-	brightness_range = 3
-	brightness_power = 0.75
+	brightness_range = 4
+	brightness_power = 0.4
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	desc = "A small lighting fixture."
 	light_type = /obj/item/light/bulb
@@ -72,7 +72,7 @@
 	bulb_is_noisy = FALSE
 
 /obj/machinery/light/small/emergency
-	brightness_range = 3
+	brightness_range = 5
 	brightness_power = 1
 	brightness_color = "#FA8282"//"#FF0000"
 
