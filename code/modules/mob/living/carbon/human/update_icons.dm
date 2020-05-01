@@ -213,6 +213,12 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icons()
 
+//Overlays for the worn overlay so you can overlay while you overlay
+//eg: ammo counters, primed grenade flashing, etc.
+//"icon_file" is used automatically for inhands etc. to make sure it gets the right inhand file
+/obj/item/proc/worn_overlays(isinhands = FALSE, icon_file)
+	. = list()
+
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)
 	if (QDELING(src))
@@ -1134,6 +1140,10 @@ There are several things that need to be remembered:
 
 			overlays_raw[R_HAND_LAYER] = image(t_icon, t_state)
 
+	var/list/worn_overlays = worn_overlays()
+		if(worn_overlays && worn_overlays.len)
+			overlays.Add(worn_overlays)
+
 	if(update_icons)
 		update_icons()
 
@@ -1170,6 +1180,10 @@ There are several things that need to be remembered:
 				t_icon = INV_L_HAND_DEF_ICON
 
 			overlays_raw[L_HAND_LAYER] = image(t_icon, t_state)
+
+	var/list/worn_overlays = worn_overlays()
+		if(worn_overlays && worn_overlays.len)
+			overlays.Add(worn_overlays)
 
 	if(update_icons)
 		update_icons()

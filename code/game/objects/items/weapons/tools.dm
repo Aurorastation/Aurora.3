@@ -87,7 +87,7 @@
 	var/matrix/tf = matrix()
 	if(istype(loc, /obj/item/storage))
 		tf.Turn(-90) //Vertical for storing compactly
-		tf.Translate(-2,0) //Could do this with pixel_x but let's just update the appearance once.
+		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
 	if(!random_color) //icon override
@@ -108,6 +108,13 @@
 /obj/item/screwdriver/attack_hand()
 	..()
 	update_icon()
+
+/obj/item/screwdriver/worn_overlays()
+	. = list()
+	if(random_color)
+		var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_head")
+		M.appearance_flags = RESET_COLOR
+		. += M
 
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
@@ -189,6 +196,13 @@
 /obj/item/wirecutters/attack_hand()
 	..()
 	update_icon()
+
+/obj/item/wirecutters/worn_overlays()
+	. = list()
+	if(random_color)
+		var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_head")
+		M.appearance_flags = RESET_COLOR
+		. += M
 
 /obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
