@@ -18,7 +18,8 @@
 		/obj/item/ammo_casing,
 		/obj/item/melee/baton,
 		/obj/item/melee/energy/sword,
-		/obj/item/handcuffs
+		/obj/item/handcuffs,
+		/obj/item/storage/backpack
 	)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/terminator

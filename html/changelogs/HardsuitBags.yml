@@ -1,0 +1,7 @@
+  
+author: Cnaym
+
+delete-after: True
+
+changes: 
+  - tweak: "Backpacks can now be equipped in hardsuits. Decreased fiddling."

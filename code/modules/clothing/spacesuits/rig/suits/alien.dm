@@ -13,7 +13,7 @@
 
 	species_restricted = list("Unathi")
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy,/obj/item/storage/backpack)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT
 
@@ -47,7 +47,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
 	air_type =   /obj/item/tank/phoron
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy,/obj/item/storage/backpack)
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
@@ -87,7 +87,7 @@
 
 	species_restricted = list("Tajara")
 
-	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
+	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy,/obj/item/storage/backpack)
 
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat,
