@@ -42,4 +42,5 @@ changes:
   - tweak: "Reduced/Adapted the size of various applications."
   - tweak: "The investigations / generic wristbounds are now enrolled aswell."
   - tweak: "Selecting a unenrolled device in the loadout no longer gives you the advanced version of it."
+  - tweak: "Adapts the modular computer news browser to work with our news system"
 
