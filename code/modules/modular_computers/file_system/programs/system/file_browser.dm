@@ -5,7 +5,7 @@
 	extended_desc = "This program allows management of files."
 	program_icon_state = "generic"
 	color = LIGHT_COLOR_GREEN
-	size = 8
+	size = 4
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
 	undeletable = TRUE
