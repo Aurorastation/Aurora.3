@@ -123,9 +123,8 @@
 		else
 			T = T.ChangeTurf(/turf/unsimulated/map)
 		ChangeArea(T, A)
-		testing("Building [T.x] [T.y] [T.z]")
 
 	current_map.sealed_levels |= current_map.overmap_z
 
-	testing("Overmap build complete:.")
+	testing("Overmap build complete.")
 	return 1

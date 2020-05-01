@@ -38,6 +38,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	if(use_check_and_message(user))
 		return
 	
+	user.set_machine(src)
 	ui_interact(user)
 
 /obj/machinery/computer/ship/Topic(href, href_list)

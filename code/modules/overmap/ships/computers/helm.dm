@@ -3,7 +3,7 @@
 
 /obj/machinery/computer/ship/helm
 	name = "helm control console"
-	icon_screen = "helm"
+	icon_screen = "comm"
 	light_color = "#7faaff"
 	var/autopilot = 0
 	var/list/known_sectors = list()

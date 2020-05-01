@@ -76,6 +76,23 @@
 /obj/machinery/atmospherics/unary/engine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return 0
 
+/obj/machinery/atmospherics/unary/engine/atmos_init()
+	..()
+	if(node)
+		return
+
+	var/node_connect = dir
+
+	for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
+		if(target.initialize_directions & get_dir(target,src))
+			if (check_connect_types(target,src))
+				testing("target found")
+				node = target
+				break
+
+	update_icon()
+	update_underlays()
+
 /obj/machinery/atmospherics/unary/engine/Initialize()
 	. = ..()
 	controller = new(src)
