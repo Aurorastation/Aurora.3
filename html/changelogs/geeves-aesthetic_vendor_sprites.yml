@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Vendors have given some glow in the dark capabilities."
-  - tweak: "Vendors now output to your hands, or to your feet, if your hands are full."
