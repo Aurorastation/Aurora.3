@@ -8,6 +8,8 @@
 /datum/nano_module/rcon/ui_interact(mob/user, ui_key = "rcon", datum/nanoui/ui=null, force_open=1, var/datum/topic_state/state = default_state)
 	//FindDevices() // Update our devices list
 	var/list/data = host.initial_data()
+	if(program)
+		data["_PC"] = program.get_header_data()
 
 	// SMES DATA (simplified view)
 	var/list/smeslist[0]

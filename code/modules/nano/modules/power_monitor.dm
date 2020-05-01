@@ -18,6 +18,8 @@
 // In future it may be expanded to other modular computer devices.
 /datum/nano_module/power_monitor/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
+	if(program)
+		data["_PC"] = program.get_header_data()
 
 	var/list/sensors = list()
 	// Focus: If it remains null if no sensor is selected and UI will display sensor list, otherwise it will display sensor reading.

@@ -21,6 +21,8 @@
 	if(!ntnet_global)
 		return
 	var/list/data = host.initial_data()
+	if(program)
+		data["_PC"] = program.get_header_data()
 
 	data["ntnetstatus"] = ntnet_global.check_function()
 	data["ntnetrelays"] = ntnet_global.relays.len

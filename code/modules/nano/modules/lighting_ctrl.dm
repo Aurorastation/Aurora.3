@@ -37,6 +37,8 @@
 /datum/nano_module/lighting_ctrl/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	lusr = user
 	var/list/data = host.initial_data()
+	if(program)
+		data["_PC"] = program.get_header_data()
 
 	data["context"] = context
 	data["status"] = lstate
