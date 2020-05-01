@@ -86,7 +86,6 @@
 	for(var/obj/machinery/atmospherics/target in get_step(src,node_connect))
 		if(target.initialize_directions & get_dir(target,src))
 			if (check_connect_types(target,src))
-				testing("target found")
 				node = target
 				break
 
@@ -171,7 +170,7 @@
 	if(!removed)
 		return 0
 	. = calculate_thrust(removed)
-	playsound(loc, 'sound/machines/thruster.ogg', 100 * thrust_limit, 0, world.view * 4, 0.1)
+	playsound(loc, 'sound/machines/thruster.ogg', 100 * thrust_limit, 0, world.view * 4, 0.1, is_global = TRUE)
 	if(network)
 		network.update = 1
 
