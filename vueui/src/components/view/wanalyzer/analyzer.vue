@@ -9,14 +9,14 @@
         <tr><td> Damage type: </td> <td class = "right"> {{damage_type}} </td> </tr>
         <tr><td> Force: </td> <td class = "right"> {{force}} </td> </tr>
         <tr><td> Throw force: </td> <td class = "right"> {{throw_force}} </td> </tr>
-        <div v-if="energy == 1">
+        <template class="active_energy" v-if="energy == 1">
             <tr> <td> Active force: </td> <td class = "right"> {{active_force}} </td> </tr>
             <tr> <td> Active throw force: </td> <td class = "right"> {{active_throw_force}} </td> </tr>
             <tr> <td> Base block chance: </td> <td class = "right"> {{base_block_chance}}% </td> </tr>
             <tr> <td> Base reflect chance: </td> <td class = "right"> {{base_reflectchance}}% </td> </tr>
             <tr> <td> Shield power: </td> <td class = "right"> {{shield_power}} </td> </tr>
-            <tr> <td> Can block bullets: {{can_block}} </td> </tr>
-        </div>
+            <tr> <td> Can block bullets: </td> <td class = "right"> {{can_block}} </td> </tr>
+        </template>
         <tr> <td> Is sharp:</td> <td class = "right"> {{sharp}} </td> </tr>
         <tr> <td> Chance to dismember: </td> <td class = "right"> {{edge}} </td> </tr>
         <tr> <td> Armor penetration: </td> <td class = "right"> {{penetration}} </td> </tr>
@@ -95,15 +95,19 @@ export default {
   text-align: left;
   padding: 8px;
 }
-.modular td{
+.modular td {
   text-align: center;
 }
 
-.other td{
+.other td {
   padding: 5px;
 }
 
-.right{
+.right{ 
   text-align: right;
+}
+
+.active_energy {
+  display: contents;
 }
 </style>

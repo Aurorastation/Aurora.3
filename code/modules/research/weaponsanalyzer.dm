@@ -146,8 +146,6 @@
 		gun_overlay.pixel_y += 8
 		add_overlay(gun_overlay)
 
-// #define UIDEBUG
-
 /obj/machinery/weapons_analyzer/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	if(!data)
 		. = data = list()
@@ -161,8 +159,8 @@
 		data["name"] = item.name
 		data["item"] = TRUE
 		data["force"] = item.force
-		data["sharp"] = item.sharp ? "sharp" : "not sharp"
-		data["edge"] = item.edge ? "likely to dismember" : "not likely to dismember"
+		data["sharp"] = item.sharp ? "yes" : "no"
+		data["edge"] = item.edge ? "likely to dismember" : "unlikely to dismember"
 		data["penetration"] = item.armor_penetration
 		data["throw_force"] = item.throwforce
 		data["damage_type"] = item.damtype
@@ -252,10 +250,12 @@
 
 /obj/machinery/weapons_analyzer/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	var/height = (gun || assembly) ? 600: 300
+	var/height = (gun || assembly || item) ? 600: 300
 	var/width = 300
-	if(istype(gun, /obj/item/gun/energy/laser/prototype))
+	if(istype(gun, /obj/item/gun/energy/laser/prototype) || assembly)
 		width = 600
+	else if (item)
+		width = 400
 
 	if (!ui)
 		ui = new(user, src, "wanalyzer-analyzer", width, height, capitalize(name))
