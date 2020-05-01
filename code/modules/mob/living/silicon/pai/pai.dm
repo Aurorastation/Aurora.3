@@ -47,6 +47,24 @@
 		"Rodent" = list("squeaks","squeals","squeeks")
 		)
 
+	var/list/pai_emotions = list(
+		"Happy" = 1,
+		"Cat" = 2,
+		"Extremely Happy" = 3,
+		"Face" = 4,
+		"Laugh" = 5,
+		"Off" = 6,
+		"Sad" = 7,
+		"Angry" = 8,
+		"What" = 9,
+		"Neutral" = 10,
+		"Silly" = 11,
+		"Nose" = 12,
+		"Smirk" = 13,
+		"Exclamation Points" = 14,
+		"Question Mark" = 15
+	)
+
 	var/obj/item/pai_cable/cable		// The cable we produce and use when door or camera jacking
 	id_card_type = /obj/item/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
 
@@ -497,24 +515,6 @@
 	else
 		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
 		return
-
-var/list/pai_emotions = list(
-		"Happy" = 1,
-		"Cat" = 2,
-		"Extremely Happy" = 3,
-		"Face" = 4,
-		"Laugh" = 5,
-		"Off" = 6,
-		"Sad" = 7,
-		"Angry" = 8,
-		"What" = 9,
-		"Neutral" = 10,
-		"Silly" = 11,
-		"Nose" = 12,
-		"Smirk" = 13,
-		"Exclamation Points" = 14,
-		"Question Mark" = 15
-	)
 
 
 /mob/living/silicon/pai/verb/select_card_icon()
