@@ -59,7 +59,7 @@
 		return computer.add_log(text)
 	return FALSE
 
-/datum/computer_file/program/proc/is_supported_by_hardware(var/hardware_flag = 0, var/loud = FALSE, var/mob/user)
+/datum/computer_file/program/proc/is_supported_by_hardware(var/hardware_flag = 0, var/loud = FALSE, var/mob/user = null)
 	if(!(hardware_flag & usage_flags))
 		if(loud && computer && user)
 			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Hardware Error - Incompatible software\"."))
