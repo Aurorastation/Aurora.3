@@ -19,7 +19,7 @@
 
 /datum/controller/subsystem/hallucinations/Initialize()
 	. = ..()
-	for(var/T in subtypesof(/datum/hallucination/))
+	for(var/T in subtypesof(/datum/hallucination))
 		all_hallucinations += T
 	hallucinated_phrases = file2list("code/modules/hallucinations/text_lists/hallucinated_phrases.txt")
 	hallucinated_actions = file2list("code/modules/hallucinations/text_lists/hallucinated_actions.txt")	//important note when adding to this file: "you" will always be replaced by the hallucinator's name
