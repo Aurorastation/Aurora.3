@@ -10,6 +10,7 @@
 
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 
 	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
