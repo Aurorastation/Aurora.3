@@ -29,11 +29,11 @@
 	return ..()
 
 /obj/machinery/ringer/update_icon()
+	cut_overlays()
 	if(!on || stat & NOPOWER)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 		return
-	cut_overlays()
 	if(rings_pdas || rings_pdas.len)
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-active", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
