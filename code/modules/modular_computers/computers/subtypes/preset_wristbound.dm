@@ -6,6 +6,9 @@
 	battery_module = new /obj/item/computer_hardware/battery_module/nano(src)
 	battery_module.charge_to_full()
 
+/obj/item/modular_computer/wristbound/preset/cheap/generic
+	_app_preset_type = /datum/modular_computer_app_presets/civilian
+
 /obj/item/modular_computer/wristbound/preset/advanced/install_default_hardware()
 	..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
@@ -70,7 +73,6 @@
 
 /obj/item/modular_computer/wristbound/preset/advanced/generic
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
-	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/representative
 	_app_preset_type = /datum/modular_computer_app_presets/representative
