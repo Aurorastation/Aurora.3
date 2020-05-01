@@ -24,8 +24,8 @@
 	icon_state = "ltube_preset"//preset state for mapping
 	item_state = "c_tube"
 	matter = list(MATERIAL_GLASS = 100)
-	brightness_range = 5
-	brightness_power = 0.8
+	brightness_range = 6
+	brightness_power = 0.6
 	lighttype = "tube"
 
 /obj/item/light/tube/colored/red
@@ -55,7 +55,7 @@
 /obj/item/light/tube/large
 	w_class = 2
 	name = "large light tube"
-	brightness_range = 15
+	brightness_range = 8
 	brightness_power = 6
 	randomize_range = FALSE
 
@@ -65,8 +65,8 @@
 	icon_state = "lbulb_preset"//preset state for mapping
 	item_state = "egg"
 	matter = list(MATERIAL_GLASS = 100)
-	brightness_range = 3
-	brightness_power = 0.75
+	brightness_range = 4
+	brightness_power = 0.4
 	brightness_color = LIGHT_COLOR_TUNGSTEN
 	lighttype = "bulb"
 
@@ -104,8 +104,8 @@
 	icon_state = "flight"
 	item_state = "egg_red"
 	matter = list(MATERIAL_GLASS = 100)
-	brightness_range = 5
-	brightness_power = 0.8
+	brightness_range = 6
+	brightness_power = 0.6
 	randomize_range = FALSE
 
 /obj/item/light/Initialize()
