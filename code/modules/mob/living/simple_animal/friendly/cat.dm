@@ -78,20 +78,6 @@
 					var/atom/A = pick(visible)
 					visible_emote("suddenly stops and stares at something unseen[istype(A) ? " near [A]":""].",0)
 
-/mob/living/simple_animal/cat/proc/handle_movement_target()
-	//if our target is neither inside a turf or inside a human(???), stop
-	if((movement_target) && !(isturf(movement_target.loc) || ishuman(movement_target.loc) ))
-		movement_target = null
-		stop_automated_movement = 0
-	//if we have no target or our current one is out of sight/too far away
-	if( !movement_target || !(movement_target.loc in oview(src, 4)) )
-		movement_target = null
-		stop_automated_movement = 0
-
-	if(movement_target)
-		stop_automated_movement = 1
-		walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))
-
 /mob/living/simple_animal/cat/proc/attack_mice()
 	if((src.loc) && isturf(src.loc))
 		if(!stat && !resting && !buckled)

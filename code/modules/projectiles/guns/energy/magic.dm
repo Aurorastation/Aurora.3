@@ -146,7 +146,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 /obj/item/gun/energy/staff/chaos
 	name = "staff of chaos"
 	desc = "An artefact that spits bolts of chaotic energy, expect anything."
-	icon = 'icons/obj/wands.dmi'
+	icon = 'icons/obj/guns/staff_of_chaos.dmi'
 	icon_state = "staffofchaos"
 	item_state = "staffofchaos"
 	fire_sound = 'sound/magic/Staff_Chaos.ogg'
@@ -194,7 +194,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	pin = /obj/item/device/firing_pin/magic
 	charge_failure_message = null
 	has_safety = FALSE
-	
+
 /obj/item/gun/energy/wand/get_cell()
 	return DEVICE_NO_CELL
 
@@ -317,7 +317,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] escapes from [H]'s hand, hitting their face and shattering into pieces!</span>")
-			H.apply_damage(35, BRUTE, BP_HEAD, 0, sharp=0, edge=0)
+			H.apply_damage(35, BRUTE, BP_HEAD, 0)
 			H.adjustBrainLoss(50, 55)
 			H.sdisabilities += CLUMSY
 			H.drop_item()

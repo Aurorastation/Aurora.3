@@ -45,6 +45,17 @@
 
 	var/previous_stat
 
+/obj/machinery/light/skrell
+	base_state = "skrell"
+	icon_state = "skrell_empty"
+	supports_nightmode = FALSE
+	fitting= "skrell"
+	bulb_is_noisy = FALSE
+	light_type = /obj/item/light/tube
+	inserted_light = /obj/item/light/tube
+	brightness_power = 1
+	brightness_color = LIGHT_COLOR_PURPLE
+
 // the smaller bulb light fixture
 
 /obj/machinery/light/small
@@ -72,6 +83,9 @@
 
 /obj/machinery/light/colored/blue
 	brightness_color = LIGHT_COLOR_BLUE
+
+/obj/machinery/light/colored/red
+	brightness_color = LIGHT_COLOR_RED
 
 /obj/machinery/light/spot
 	name = "spotlight"
@@ -553,6 +567,7 @@
 
 // called when area power state changes
 /obj/machinery/light/power_change()
+	SHOULD_CALL_PARENT(FALSE)
 	addtimer(CALLBACK(src, .proc/handle_power_change), rand(1, 2 SECONDS), TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
 /obj/machinery/light/proc/handle_power_change()

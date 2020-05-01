@@ -8,7 +8,7 @@
 	can_infect = 0
 
 /datum/surgery_step/limb/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected)
@@ -46,11 +46,11 @@
 	var/obj/item/organ/external/E = tool
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging [target]'s [E.amputation_point]!</span>", \
 		"<span class='warning'>Your hand slips, damaging [target]'s [E.amputation_point]!</span>")
-	target.apply_damage(10, BRUTE, null, sharp=1)
+	target.apply_damage(10, BRUTE, null, damage_flags = DAM_EDGE)
 
 /datum/surgery_step/limb/connect
 	allowed_tools = list(
-	/obj/item/hemostat = 100,	\
+	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
 	/obj/item/device/assembly/mousetrap = 20
 	)
@@ -84,7 +84,7 @@
 	var/obj/item/organ/external/E = tool
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging [target]'s [E.amputation_point]!</span>", \
 		"<span class='warning'>Your hand slips, damaging [target]'s [E.amputation_point]!</span>")
-	target.apply_damage(10, BRUTE, null, sharp=1)
+	target.apply_damage(10, BRUTE, null, damage_flags = DAM_SHARP)
 
 /datum/surgery_step/limb/mechanize
 	allowed_tools = list(/obj/item/robot_parts = 100)
@@ -131,4 +131,4 @@
 /datum/surgery_step/limb/mechanize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging [target]'s flesh!</span>", \
 		"<span class='warning'>Your hand slips, damaging [target]'s flesh!</span>")
-	target.apply_damage(10, BRUTE, null, sharp=1)
+	target.apply_damage(10, BRUTE, null, damage_flags = DAM_SHARP)

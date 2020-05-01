@@ -3,8 +3,8 @@
 	desc = "A Nanotrasen designed energy-based carbine with two settings: Stun and kill."
 	description_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
-	icon_state = "energystun"
-	item_state = "energystun"
+	icon_state = "energystun100"
+	item_state = "energystun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT
 	accuracy = 1
@@ -121,8 +121,8 @@
 	desc = "A Nanotrasen energy-based pistol gun with two settings: Stun and kill."
 	description_fluff = "The NT EP-3 is an energy sidearm developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/epistol.dmi'
-	icon_state = "epistolstun"
-	item_state = "epistolstun"
+	icon_state = "epistolstun100"
+	item_state = "epistolstun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 7
@@ -159,11 +159,11 @@
 	secondary_projectile_type = /obj/item/projectile/beam/pistol/hegemony
 	secondary_fire_sound = 'sound/weapons/Laser.ogg'
 	can_switch_modes = TRUE
- 
+
 	projectile_type = /obj/item/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	modifystate = "hegemony_pistol"
- 
+
 	firemodes = list(
 		list(mode_name="incapacitate", projectile_type=/obj/item/projectile/beam/stun, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/Laser.ogg')

@@ -4,7 +4,7 @@
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
 
-	var/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
+	var/list/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
 		// -> type 1 -> spawnpoint 1
 		//           -> spawnpoint 2
 
@@ -121,8 +121,8 @@
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["enabled"], G.enabled, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["count"], G.count, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["max_count"], G.max_count, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["tags"], G.tags, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["spawnpoints"], G.spawnpoints, ., data)
+		VUEUI_SET_CHECK_LIST(data["spawners"][G.short_name]["tags"], G.tags, ., data)
+		VUEUI_SET_CHECK_LIST(data["spawners"][G.short_name]["spawnpoints"], G.spawnpoints, ., data)
 
 /datum/controller/subsystem/ghostroles/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]
@@ -137,6 +137,9 @@
 		if(cant_spawn)
 			to_chat(usr, "Unable to spawn: [cant_spawn]")
 			return
+		if(isnewplayer(usr))
+			var/mob/abstract/new_player/N = usr
+			N.close_spawn_windows()
 		if(!S.pre_spawn(usr))
 			to_chat(usr, "Unable to spawn: pre_spawn failed. Report this on GitHub")
 			return

@@ -1,11 +1,14 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
 	w_class = 10
+	layer = OBJ_LAYER - 0.01
 
 	var/climbable
 	var/breakable
 	var/parts
 	var/list/climbers
+	var/list/footstep_sound	//footstep sounds when stepped on
+	var/material/material
 
 /obj/structure/Destroy()
 	if(parts)
@@ -84,15 +87,18 @@
 		return 0
 	return 1
 
-/obj/structure/proc/turf_is_crowded()
+/obj/structure/proc/turf_is_crowded(var/exclude_self = FALSE)
 	var/turf/T = get_turf(src)
 	if(!T || !istype(T))
 		return 0
 	for(var/obj/O in T.contents)
 		if(istype(O,/obj/structure))
 			var/obj/structure/S = O
-			if(S.climbable) continue
+			if(S.climbable)
+				continue
 		if(O && O.density && !(O.flags & ON_BORDER)) //ON_BORDER structures are handled by the Adjacent() check.
+			if(exclude_self && O == src)
+				continue
 			return O
 	return 0
 
@@ -185,5 +191,9 @@
 		return 0
 	visible_message("<span class='danger'>[user] [attack_verb] the [src] apart!</span>")
 	user.do_attack_animation(src)
-	spawn(1) qdel(src)
+	spawn(1)
+		qdel(src)
 	return 1
+
+/obj/structure/get_material()
+	return material

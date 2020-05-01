@@ -110,9 +110,9 @@ research holder datum.
 		return
 	for(var/i = 1 to known_designs.len)
 		var/datum/design/A = known_designs[i]
-		if(A.id == D.id) // We are guaranteed to reach this if the ids are the same, because sort_string will also be the same
+		if("[A.type]" == "[D.type]") // We are guaranteed to reach this if the ids are the same, because sort_string will also be the same
 			return
-		if(A.sort_string > D.sort_string)
+		if(A.design_order > D.design_order)
 			known_designs.Insert(i, D)
 			return
 	known_designs.Add(D)
@@ -218,7 +218,7 @@ research holder datum.
 	icon_state = "datadisk2"
 	item_state = "card-id"
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/tech/stored
 
 /obj/item/disk/tech_disk/New()
@@ -232,7 +232,7 @@ research holder datum.
 	icon_state = "datadisk2"
 	item_state = "card-id"
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/design/blueprint
 
 /obj/item/disk/design_disk/New()

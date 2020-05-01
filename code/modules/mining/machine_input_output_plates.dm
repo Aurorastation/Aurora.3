@@ -3,17 +3,21 @@
 /obj/machinery/mineral/input
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
-	name = "Input area"
-	density = 0
-	anchored = 1.0
-	New()
-		icon_state = "blank"
+	name = "Input Area"
+	density = FALSE
+	anchored = TRUE
+
+/obj/machinery/mineral/input/Initialize()
+	. = ..()
+	icon_state = "blank"
 
 /obj/machinery/mineral/output
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x"
-	name = "Output area"
-	density = 0
-	anchored = 1.0
-	New()
-		icon_state = "blank"
+	name = "Output Area"
+	density = FALSE
+	anchored = TRUE
+
+/obj/machinery/mineral/output/Initialize()
+	. = ..()
+	icon_state = "blank"

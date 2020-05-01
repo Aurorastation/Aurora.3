@@ -6,6 +6,7 @@
 	base_icon = "chair"
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled
+	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 
 /obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
@@ -70,56 +71,37 @@
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
 
-/obj/structure/bed/chair/verb/rotate()
-	set name = "Rotate Chair"
-	set category = "Object"
-	set src in oview(1)
-
-	if(config.ghost_interaction)
-		src.set_dir(turn(src.dir, 90))
-		return
-	else
-		if(israt(usr))
-			return
-		if(!usr || !isturf(usr.loc))
-			return
-		if(usr.stat || usr.restrained())
-			return
-
-		src.set_dir(turn(src.dir, 90))
-		return
-
 // Leaving this in for the sake of compilation.
 /obj/structure/bed/chair/comfy
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
 
 /obj/structure/bed/chair/comfy/brown/Initialize(mapload,var/newmaterial)
-	. = ..(mapload,"steel","leather")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_LEATHER)
 
 /obj/structure/bed/chair/comfy/red/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","carpet")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CARPET)
 
 /obj/structure/bed/chair/comfy/teal/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","teal")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_TEAL)
 
 /obj/structure/bed/chair/comfy/black/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","black")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BLACK)
 
 /obj/structure/bed/chair/comfy/green/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","green")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_GREEN)
 
 /obj/structure/bed/chair/comfy/purp/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","purple")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_PURPLE)
 
 /obj/structure/bed/chair/comfy/blue/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","blue")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BLUE)
 
 /obj/structure/bed/chair/comfy/beige/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","beige")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_BEIGE)
 
 /obj/structure/bed/chair/comfy/lime/Initialize(var/mapload,var/newmaterial)
-	. = ..(mapload,"steel","lime")
+	. = ..(mapload, MATERIAL_STEEL, MATERIAL_CLOTH_LIME)
 
 /obj/structure/bed/chair/office
 	anchored = 0
@@ -135,7 +117,8 @@
 
 /obj/structure/bed/chair/office/Move()
 	. = ..()
-	playsound(src, 'sound/effects/roll.ogg', 100, 1)
+	if(makes_rolling_sound)
+		playsound(src, 'sound/effects/roll.ogg', 100, 1)
 	if(buckled_mob)
 		var/mob/living/occupant = buckled_mob
 		occupant.buckled = null
@@ -200,6 +183,20 @@
 	desc = "A comfortable seat for a pilot."
 	icon_state = "pilot"
 
+/obj/structure/bed/chair/office/hover
+	name = "hoverchair"
+	desc = "Adjusts itself to the sitter's weight resulting in a most comfortable sitting experience. Like floating on a cloud."
+	icon_state = "hover_chair"
+	makes_rolling_sound = FALSE
+	can_dismantle = FALSE
+
+/obj/structure/bed/chair/office/hover/Initialize()
+	.=..()
+	set_light(1,1,LIGHT_COLOR_CYAN)
+
+/obj/structure/bed/chair/office/hover/command
+	icon_state = "hover_command"
+
 /obj/structure/bed/chair/office/Initialize()
 	. = ..()
 	var/image/I = image(icon, "[icon_state]_over")
@@ -207,6 +204,12 @@
 	add_overlay(I)
 
 // Chair types
+/obj/structure/bed/chair/plastic
+	color = "#CCCCCC"
+
+/obj/structure/bed/chair/plastic/Initialize(mapload)
+	. = ..(mapload, MATERIAL_PLASTIC)
+
 /obj/structure/bed/chair/wood
 	name = "wooden chair"
 	desc = "Old is never too old to not be in fashion."

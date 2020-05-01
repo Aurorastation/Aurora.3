@@ -14,6 +14,7 @@
 #define FAKEDEATH   0x2000  // Replaces stuff like changeling.changeling_fakedeath.
 #define DISFIGURED  0x4000  // Set but never checked. Remove this sometime and replace occurences with the appropriate organ code
 #define XENO_HOST   0x8000  // Tracks whether we're gonna be a baby alien's mummy.
+#define NO_ANTAG    0x10000  // Players are restricted from gaining antag roles when occupying this mob
 
 // Grab levels.
 #define GRAB_PASSIVE    1
@@ -56,6 +57,18 @@
 #define BP_PRE_HIGH_DIASTOLIC	85
 #define BP_IDEAL_DIASTOLIC 		60
 
+#define BLOOD_PRESSURE_HIGH     4
+#define BLOOD_PRESSURE_PRE_HIGH 3
+#define BLOOD_PRESSURE_IDEAL    2
+#define BLOOD_PRESSURE_LOW      1
+
+// total_radiation levels (Note that total_radiation can be above RADS_MAX until handle_mutations_and_radiation() runs)
+#define RADS_NONE 0
+#define RADS_LOW 1
+#define RADS_MED 50
+#define RADS_HIGH 75
+#define RADS_MAX 100
+
 //intent flags, why wasn't this done the first time?
 #define I_HELP		"help"
 #define I_DISARM	"disarm"
@@ -97,6 +110,22 @@
 #define BP_CELL     "cell"
 #define BP_OPTICS   "optics"
 #define BP_IPCTAG   "ipc tag"
+
+//Augment organs
+#define BP_AUG_TIMEPIECE    "integrated timepiece"
+#define BP_AUG_PDA          "integrated pda"
+#define BP_AUG_TOOL         "retractable combitool"
+#define BP_AUG_PEN          "retractable combipen"
+#define BP_AUG_LIGHTER      "retractable lighter"
+#define BP_AUG_HEALTHSCAN   "integrated health scanner"
+#define BP_AUG_TESLA        "tesla spine"
+#define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
+#define BP_AUG_HAIR         "synthetic hair extensions"
+#define BP_AUG_SUSPENSION   "calf suspension"
+#define BP_AUG_TASTE_BOOSTER   "taste booster"
+#define BP_AUG_RADIO        "integrated radio"
+#define BP_AUG_FUEL_CELL    "integrated fuel cell"
+#define BP_AUG_AIR_ANALYZER "integrated air analyzer"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -291,6 +320,7 @@
 #define PROSTHETIC_XMG "Xion Manufacturing Group"
 #define PROSTHETIC_DIONA "Unknown Model"
 #define PROSTHETIC_AUTAKH "Aut'akh Manufactured"
+#define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

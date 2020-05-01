@@ -81,7 +81,7 @@
 		var/obj/item/clothing/shoes/S = perp.shoes
 		if(istype(S))
 			S.blood_color = basecolor
-			S.track_blood = max(amount,S.track_blood)
+			S.track_footprint = max(amount, S.track_footprint)
 			if(!S.blood_overlay)
 				S.generate_blood_overlay()
 			if(!S.blood_DNA)
@@ -96,8 +96,8 @@
 				S.blood_DNA |= blood_DNA.Copy()
 
 	else if (hasfeet)//Or feet
-		perp.feet_blood_color = basecolor
-		perp.track_blood = max(amount,perp.track_blood)
+		perp.footprint_color = basecolor
+		perp.track_footprint = max(amount,perp.track_footprint)
 		LAZYINITLIST(perp.feet_blood_DNA)
 		if (blood_DNA)
 			perp.feet_blood_DNA |= blood_DNA.Copy()
@@ -182,7 +182,7 @@
 	anchored = 1
 	layer = 2
 	icon = 'icons/effects/blood.dmi'
-	icon_state = "gibbl5"
+	icon_state = "gib1"
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
 	var/fleshcolor = "#FFFFFF"
 

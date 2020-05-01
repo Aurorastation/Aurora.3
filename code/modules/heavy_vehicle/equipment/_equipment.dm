@@ -4,7 +4,7 @@
 	name = "exosuit hardpoint system"
 	icon = 'icons/mecha/mech_equipment.dmi'
 	icon_state = ""
-	matter = list("steel" = 10000, "plastic" = 5000, "osmium" = 500)
+	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
 	force = 10
 	var/restricted_hardpoints
 	var/mob/living/heavy_vehicle/owner
@@ -33,7 +33,7 @@
 		if(target in owner.contents)
 			return 0
 
-		if(!(owner.get_cell() && owner.get_cell().check_charge(active_power_use * CELLRATE)))
+		if(!(owner.get_cell()?.check_charge(active_power_use * CELLRATE)))
 			to_chat(user, "<span class='warning'>The power indicator flashes briefly as you attempt to use \the [src].</span>")
 			return 0
 		return 1
@@ -42,7 +42,7 @@
 
 /obj/item/mecha_equipment/attack_self(var/mob/user)
 	if (owner && loc == owner && ((user in owner.pilots) || user == owner))
-		if(!(owner.get_cell() && owner.get_cell().check_charge(active_power_use * CELLRATE)))
+		if(!(owner.get_cell()?.check_charge(active_power_use * CELLRATE)))
 			to_chat(user, "<span class='warning'>The power indicator flashes briefly as you attempt to use \the [src].</span>")
 			return 0
 		return 1

@@ -11,7 +11,7 @@
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
 	language = LANGUAGE_ROOTSONG
-	secondary_langs = list(LANGUAGE_AZAZIBA)
+	secondary_langs = list(LANGUAGE_SKRELLIAN, LANGUAGE_AZAZIBA)
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -28,7 +28,8 @@
 	siemens_coefficient = 0.3
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
-	num_alternate_languages = 1
+	num_alternate_languages = 2
+	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
@@ -45,7 +46,7 @@
 	water and other radiation."
 
 	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
-	resist_mod = 3 // Pretty stronk tho, can break out
+	resist_mod = 2 // Reasonably stronk, not moreso than an Unathi or robot.
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -90,7 +91,7 @@
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
-	blood_color = "#97dd7c"
+	blood_color = COLOR_DIONA_BLOOD
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA
@@ -177,3 +178,8 @@
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/diona/handle_despawn(var/mob/living/carbon/human/H)
+	for(var/mob/living/carbon/alien/diona/D in H.contents)
+		if((!D.client && !D.mind) || D.stat == DEAD)
+			qdel(D)

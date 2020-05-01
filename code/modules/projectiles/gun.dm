@@ -50,8 +50,8 @@
 
 	var/burst = 1
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
-	var/burst_delay = 2	//delay between shots, if firing in bursts
-	var/move_delay = 1
+	var/burst_delay = 1	//delay between shots, if firing in bursts
+	var/move_delay = 0
 	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	var/fire_sound_text = "gunshot"
 	var/recoil = 0		//screen shake
@@ -91,7 +91,7 @@
 	var/tmp/lock_time = -100
 	var/safety_state = TRUE
 	var/has_safety = TRUE
-	var/safety_icon	= "safety"   //overlay to apply to gun based on safety state, if any
+	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
 
@@ -118,18 +118,17 @@
 	underlays.Cut()
 	if(bayonet)
 		var/image/I
-		I = image(icon = 'icons/obj/guns/bayonet.dmi', "bayonet")
+		I = image(icon = 'icons/obj/guns/bayonet.dmi', icon_state = "bayonet")
 		I.pixel_x = knife_x_offset
 		I.pixel_y = knife_y_offset
 		underlays += I
 
-	if(has_safety && safety_icon)
-		for(var/I in overlays)
-			var/image/gun_overlay = I
-			if(gun_overlay.icon == gun_gui_icons && dd_hasprefix(gun_overlay.icon_state, "[safety_icon]"))
-				overlays -= gun_overlay
-		if(ismob(loc))
-			overlays += image(gun_gui_icons,"[safety_icon][safety()]")
+	if(has_safety)
+		cut_overlay(safety_overlay, TRUE)
+		safety_overlay = null
+		if(!isturf(loc)) // In a mob, holster or bag or something
+			safety_overlay = image(gun_gui_icons,"[safety()]")
+			add_overlay(safety_overlay, TRUE)
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -182,8 +181,6 @@
 			return FALSE
 		else
 			return TRUE
-
-	return TRUE
 
 /obj/item/gun/verb/wield_gun()
 	set name = "Wield Firearm"
@@ -293,7 +290,7 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, i == burst)
+			handle_post_fire(user, target, pointblank, reflex, TRUE)
 			update_icon()
 
 		if(i < burst)
@@ -306,8 +303,9 @@
 	update_held_icon()
 
 	//update timing
-	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.setMoveCooldown(move_delay)
+	var/delay = min(max(burst_delay+1, fire_delay), DEFAULT_QUICK_COOLDOWN)
+	if(delay)
+		user.setClickCooldown(delay)
 	next_fire_time = world.time + fire_delay
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
@@ -386,34 +384,40 @@
 	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
-/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
 		playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
 
-		if (playemote)
+		if(playemote)
 			if(reflex)
 				user.visible_message(
-					span("reflex_shoot","<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!</b>"),
-					span("reflex_shoot", "You fire \the [src] by reflex!"),
+					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!"),
 					"You hear a [fire_sound_text]!"
-					)
+				)
 			else
 				user.visible_message(
-					span("danger","\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!"),
-					span("warning","You fire \the [src]!"),
+					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
 					"You hear a [fire_sound_text]!"
-					)
+				)
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
 			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
 
 	if(recoil)
-		addtimer(CALLBACK(src, /proc/shake_camera, user, recoil+1, recoil), 0, TIMER_UNIQUE)
-	update_icon()
+		shake_camera(user, recoil + 1, recoil)
 
+	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
+		var/mob/living/carbon/human/H = user
+		if(istype(H.back, /obj/item/rig))
+			var/obj/item/rig/R = H.back
+			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
+				S.deactivate()
+	update_icon()
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
 	var/obj/item/projectile/P = projectile
@@ -498,6 +502,11 @@
 			user.visible_message(span("warning", "*click click*"))
 			mouthshoot = FALSE
 			return
+		if(safety() && user.a_intent != I_HURT)
+			user.visible_message(SPAN_WARNING("The safety was on. How anticlimatic!"))
+			handle_click_empty(user)
+			mouthshoot = FALSE
+			return
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else
@@ -514,7 +523,7 @@
 			user.apply_effect(110,PAIN,0)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
-			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", sharp=1)
+			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
 		qdel(in_chamber)
 		mouthshoot = FALSE

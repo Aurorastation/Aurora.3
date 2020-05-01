@@ -226,8 +226,6 @@
 	appearance_flags = HAS_HAIR_COLOR
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
-	blood_color = "#1F181F"
-	flesh_color = "#575757"
 	virus_immune = 1
 	reagent_tag = IS_MACHINE
 

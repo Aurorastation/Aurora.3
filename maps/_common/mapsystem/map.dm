@@ -65,7 +65,7 @@
 	var/lobby_icon                         // The icon which contains the lobby image(s)
 	var/list/lobby_screens = list("title") // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
 
-	var/has_space_ruins = FALSE	//if this map picks and creates a space ruin
+	var/list/map_shuttles = list() // A list of all our shuttles.
 
 /datum/map/New()
 	if(!map_levels)

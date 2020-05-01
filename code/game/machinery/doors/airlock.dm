@@ -75,8 +75,8 @@
 
 /obj/machinery/door/airlock/get_material()
 	if(mineral)
-		return get_material_by_name(mineral)
-	return get_material_by_name(DEFAULT_WALL_MATERIAL)
+		return SSmaterials.get_material_by_name(mineral)
+	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
 /obj/machinery/door/airlock/command
 	name = "Airlock"
@@ -343,8 +343,6 @@
 	glass = 1
 	hatch_colour = "#caa638"
 
-
-
 /obj/machinery/door/airlock/gold
 	name = "Gold Airlock"
 	icon = 'icons/obj/doors/Doorgold.dmi'
@@ -364,12 +362,16 @@
 	hatch_colour = "#66eeee"
 	maxhealth = 2000
 
-
 /obj/machinery/door/airlock/sandstone
 	name = "Sandstone Airlock"
 	icon = 'icons/obj/doors/Doorsand.dmi'
 	mineral = "sandstone"
 	hatch_colour = "#efc8a8"
+
+/obj/machinery/door/airlock/palepurple
+	name = "airlock"
+	icon = 'icons/obj/doors/Doorpalepurple.dmi'
+	hashatch = FALSE
 
 /obj/machinery/door/airlock/highsecurity
 	name = "Secure Airlock"
@@ -381,14 +383,17 @@
 	maxhealth = 600
 	insecure = 0
 
+/obj/machinery/door/airlock/skrell
+	name = "airlock"
+	icon = 'icons/obj/doors/purple_skrell_door.dmi'
+	explosion_resistance = 20
+	secured_wires = 1
+	maxhealth = 600
+	insecure = 0
+	hashatch = FALSE
 
-
-/obj/machinery/door/airlock/uranium/machinery_process()
-	if(world.time > last_event+20)
-		if(prob(50))
-			radiate()
-		last_event = world.time
-	..()
+/obj/machinery/door/airlock/skrell/grey
+	icon = 'icons/obj/doors/grey_skrell_door.dmi'
 
 //---Uranium doors
 /obj/machinery/door/airlock/uranium
@@ -399,11 +404,17 @@
 	var/last_event = 0
 	hatch_colour = "#004400"
 
+/obj/machinery/door/airlock/uranium/machinery_process()
+	if(world.time > last_event+20)
+		if(prob(50))
+			radiate()
+		last_event = world.time
+	..()
+
 /obj/machinery/door/airlock/uranium/proc/radiate()
 	for(var/mob/living/L in range (3,src))
 		L.apply_effect(15,IRRADIATE, blocked = L.getarmor(null, "rad"))
 	return
-
 
 //---Phoron door
 /obj/machinery/door/airlock/phoron
@@ -461,11 +472,6 @@ About the new airlock wires panel:
 					return
 			else /*if(src.justzap)*/
 				return
-		else if(user.hallucination > 50 && prob(10) && src.operating == 0 && !user.is_diona() && !user.isSynthetic())
-			to_chat(user, span("danger", "You feel a powerful shock course through your body!"))
-			user.adjustHalLoss(10)
-			user.stunned += 10
-			return
 	..(user)
 
 /obj/machinery/door/airlock/proc/isElectrified()
@@ -847,7 +853,7 @@ About the new airlock wires panel:
 		cut_sound = "sparks"
 		cut_delay *= 1
 		cutting = TRUE
-	else if(istype(tool,/obj/item/circular_saw))
+	else if(istype(tool,/obj/item/surgery/circular_saw))
 		cut_verb = "sawing"
 		cut_sound = 'sound/weapons/saw/circsawhit.ogg'
 		cut_delay *= 2

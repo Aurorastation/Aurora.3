@@ -20,7 +20,7 @@
 		model_info = model
 		var/datum/robolimb/R = all_robolimbs[model]
 		if(R)
-			name = "[R.company] [initial(name)]"
+			name = "[R.company] robot [initial(name)]"
 			desc = "[R.desc]"
 			linked_frame = R.linked_frame
 			if(icon_state in icon_states(R.icon))
@@ -88,6 +88,14 @@
 /obj/item/robot_parts/robot_suit/Initialize()
 	. = ..()
 	src.updateicon()
+
+/obj/item/robot_parts/robot_suit/equipped/Initialize()
+	. = ..()
+	l_leg = new /obj/item/robot_parts/l_leg(src)
+	r_leg = new /obj/item/robot_parts/r_leg(src)
+	l_arm = new /obj/item/robot_parts/l_arm(src)
+	r_arm = new /obj/item/robot_parts/r_arm(src)
+	updateicon()
 
 /obj/item/robot_parts/robot_suit/proc/updateicon()
 	cut_overlays()

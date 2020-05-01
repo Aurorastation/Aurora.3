@@ -25,7 +25,6 @@
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
 		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
-	..()
 
 /obj/item/clothing/head/helmet/warden
 	name = "warden's hat"

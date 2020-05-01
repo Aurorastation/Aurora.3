@@ -45,31 +45,27 @@
 				// Turf matches, add it.
 				. += T
 
-// Moves the contents of this area to A. If turf_to_leave is defined, that type will be excluded from the area.
-/area/proc/move_contents_to(area/A, turf_to_leave = null)
-	var/list/source_turfs = src.build_ordered_turf_list(turf_to_leave)
-	var/list/target_turfs = A.build_ordered_turf_list()
+/area/proc/move_contents_to(var/area/A)
+	//Takes: Area.
+	//Returns: Nothing.
+	//Notes: Attempts to move the contents of one area to another area.
+	//       Movement based on lower left corner.
 
-	ASSERT(source_turfs.len == target_turfs.len)
+	if(!A || !src) return
 
-	for (var/i = 1 to source_turfs.len)
-		var/turf/ST = source_turfs[i]
-		if (!ST)	// Excluded turfs are null to keep the list ordered.
-			continue
+	var/list/turfs_src = get_area_turfs("\ref[src]")
 
-		if(istype(ST, /turf/unsimulated) || istype(ST, /turf/space))
-			ST.ChangeTurf(A.base_turf, 1, 0, 1)
+	if(!turfs_src.len)
+		return
 
-		var/turf/TT = ST.copy_turf(target_turfs[i])
+	//figure out a suitable origin - this assumes the shuttle areas are the exact same size and shape
+	//might be worth doing this with a shuttle core object instead of areas, in the future
+	var/src_origin = locate(src.x, src.y, src.z)
+	var/trg_origin = locate(A.x, A.y, A.z)
 
-		for (var/thing in ST)
-			var/atom/movable/AM = thing
-			AM.shuttle_move(TT)
-
-		ST.ChangeTurf(ST.baseturf)
-
-		TT.update_icon()
-		TT.update_above()
+	if(src_origin && trg_origin)
+		var/translation = get_turf_translation(src_origin, trg_origin, turfs_src)
+		translate_turfs(translation, null)
 
 // Called when a movable area wants to move this object.
 /atom/movable/proc/shuttle_move(turf/loc)
@@ -104,7 +100,13 @@
 		if (!ST || (plating_required && TTi.type == baseturf))	// Excluded turfs are null to keep the list ordered.
 			continue
 
-		var/turf/TT = ST.copy_turf(TTi, ignore_air = TRUE)
+
+		var/turf/TT
+		if(istype(ST, /turf/simulated))
+			var/turf/simulated/ST_sim = ST
+			TT = ST_sim.copy_turf(TTi, ignore_air = TRUE)
+		else
+			TT = ST.copy_turf(TTi)
 
 		for (var/thing in ST)
 			var/atom/movable/AM = thing

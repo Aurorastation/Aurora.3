@@ -142,6 +142,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	dna.real_name = real_name
 	if(mind)
 		mind.name = real_name
+	status_flags |= NO_ANTAG
 
 	remote_network = "remoterobots"
 	SSvirtualreality.add_robot(src, remote_network)
@@ -160,6 +161,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	dna.real_name = real_name
 	if(mind)
 		mind.name = real_name
+	status_flags |= NO_ANTAG
 
 /mob/living/carbon/human/industrial_xion_remote_mech/Stat()
 	..()
@@ -175,6 +177,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	dna.real_name = real_name
 	if(mind)
 		mind.name = real_name
+	status_flags |= NO_ANTAG
 
 	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
@@ -225,6 +228,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	dna.real_name = real_name
 	if(mind)
 		mind.name = real_name
+	status_flags |= NO_ANTAG
 
 	remote_network = "remoterobots"
 	SSvirtualreality.add_robot(src, remote_network)
@@ -243,6 +247,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	dna.real_name = real_name
 	if(mind)
 		mind.name = real_name
+	status_flags |= NO_ANTAG
 
 	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)

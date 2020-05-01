@@ -477,7 +477,7 @@
 /datum/reagent/alcohol/ethanol/brandy
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/guinnes
+/datum/reagent/alcohol/ethanol/guinness
 	value = 0.1
 
 /datum/reagent/alcohol/ethanol/drambuie
@@ -501,7 +501,7 @@
 /datum/reagent/bicaridine
 	value = 4.9
 
-/datum/reagent/kelotane/dermaline
+/datum/reagent/dermaline
 	value = 3.9
 
 /datum/reagent/dylovene
@@ -545,6 +545,9 @@
 
 /datum/reagent/ryetalyn
 	value = 3.6
+
+/datum/reagent/pneumalin
+	value = 3.2
 
 /datum/reagent/hyperzine
 	value = 3.9
@@ -632,9 +635,6 @@
 
 /datum/reagent/adrenaline
 	value = 3
-
-/datum/reagent/inaprovaline
-	value = 3.5
 
 /datum/reagent/diethylamine
 	value = 0.9

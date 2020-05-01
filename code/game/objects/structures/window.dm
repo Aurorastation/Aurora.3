@@ -4,10 +4,10 @@
 	icon = 'icons/obj/structures.dmi'
 	density = 1
 	w_class = 3
-
 	layer = 3.2//Just above doors
 	anchored = 1.0
 	flags = ON_BORDER
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/maxhealth = 14.0
 	var/maximal_heat = T0C + 100 		// Maximal heat before this window begins taking damage from fire
 	var/damage_per_fire_tick = 2.0 		// Amount of damage per fire tick. Regular windows are not fireproof so they might as well break quickly.
@@ -214,9 +214,10 @@
 	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
-/obj/structure/window/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W)) return//I really wish I did not need this
-	if (istype(W, /obj/item/grab) && get_dist(src,user)<2)
+/obj/structure/window/attackby(obj/item/W, mob/user)
+	if(!istype(W) || istype(W, /obj/item/flag))
+		return
+	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, BRUTE)
@@ -300,44 +301,6 @@
 	take_damage(damage)
 	return
 
-
-/obj/structure/window/verb/rotate()
-	set name = "Rotate Window Counter-Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return 0
-
-	if(anchored)
-		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
-		return 0
-
-	update_nearby_tiles(need_rebuild=1) //Compel updates before
-	set_dir(turn(dir, 90))
-	updateSilicate()
-	update_nearby_tiles(need_rebuild=1)
-	return
-
-
-/obj/structure/window/verb/revrotate()
-	set name = "Rotate Window Clockwise"
-	set category = "Object"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return 0
-
-	if(anchored)
-		to_chat(usr, "It is fastened to the floor therefore you can't rotate it!")
-		return 0
-
-	update_nearby_tiles(need_rebuild=1) //Compel updates before
-	set_dir(turn(dir, 270))
-	updateSilicate()
-	update_nearby_tiles(need_rebuild=1)
-	return
-
 /obj/structure/window/Initialize(mapload, start_dir = null, constructed=0)
 	. = ..()
 
@@ -413,7 +376,6 @@
 	..()
 
 
-
 /obj/structure/window/basic
 	desc = "It looks thin and flimsy. A few knocks with... anything, really should shatter it."
 	icon_state = "window"
@@ -446,6 +408,12 @@
 	damage_per_fire_tick = 1.0 // This should last for 80 fire ticks if the window is not damaged at all. The idea is that borosilicate windows have something like ablative layer that protects them for a while.
 	maxhealth = 80.0
 
+/obj/structure/window/phoronreinforced/skrell
+	name = "advanced borosilicate-alloy window"
+	desc = "A window made out of a higly advanced borosilicate alloy. It seems to be extremely strong."
+	basestate = "phoronwindow"
+	icon_state = "phoronwindow"
+	maxhealth = 250
 
 /obj/structure/window/reinforced
 	name = "reinforced window"
@@ -502,6 +470,21 @@
 	icon = 'icons/obj/smooth/shuttle_window_legion.dmi'
 	health = 160
 	maxhealth = 160
+
+/obj/structure/window/shuttle/palepurple
+	icon = 'icons/obj/smooth/shuttle_window_palepurple.dmi'
+
+/obj/structure/window/shuttle/skrell
+	name = "advanced borosilicate alloy window"
+	desc = "It looks extremely strong. Might take many good hits to crack it."
+	icon = 'icons/obj/smooth/skrell_window_purple.dmi'
+	health = 500
+	maxhealth = 500
+	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
+	canSmoothWith = list(
+		/turf/simulated/wall/shuttle/skrell,
+		/obj/structure/window/shuttle/skrell
+	)
 
 /obj/structure/window/shuttle/crescent
 	desc = "It looks rather strong."

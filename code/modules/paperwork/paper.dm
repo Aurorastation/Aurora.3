@@ -29,7 +29,7 @@
 	var/list/offset_x[0] //offsets stored for later
 	var/list/offset_y[0] //usage by the photocopier
 	var/rigged = 0
-	var/spam_flag = 0
+	var/last_honk = 0
 	var/old_name		// The name of the paper before it was folded into a plane.
 
 	var/const/deffont = "Verdana"
@@ -161,11 +161,10 @@
 
 	user.examinate(src)
 	if(rigged && (Holiday == "April Fool's Day"))
-		if(spam_flag == 0)
-			spam_flag = 1
-			playsound(loc, 'sound/items/bikehorn.ogg', 50, 1)
-			spawn(20)
-				spam_flag = 0
+		if(last_honk <= world.time - 20) //Spam limiter.
+			last_honk = world.time
+			playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+		src.add_fingerprint(user)
 
 /obj/item/paper/attack_ai(var/mob/living/silicon/ai/user)
 	show_content(user)
@@ -330,7 +329,10 @@
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
-		flick("paper_onfire", src)
+		if(icon_state == "scrap")
+			flick("scrap_onfire", src)
+		else
+			flick("paper_onfire", src)
 
 		//I was going to add do_after in here, but keeping the current method allows people to burn papers they're holding, while they move. That seems fine to keep -Nanako
 		spawn(20)
@@ -534,8 +536,6 @@
 		to_chat(user, span("notice", "You stamp the paper with \the [P]."))
 
 	else if(istype(P, /obj/item/flame) || P.iswelder())
-		burnpaper(P, user)
-	else if(P.iswelder())
 		burnpaper(P, user)
 
 	update_icon()

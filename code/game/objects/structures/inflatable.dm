@@ -258,7 +258,7 @@
 	name = "inflatable barrier box"
 	desc = "Contains inflatable walls and doors."
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	item_state = "box"
 	w_class = 3
 	max_storage_space = 28
 	can_hold = list(/obj/item/inflatable)

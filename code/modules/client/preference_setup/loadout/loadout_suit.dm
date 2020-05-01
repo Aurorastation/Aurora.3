@@ -12,10 +12,7 @@
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"
 	cost = 2
-
-/datum/gear/suit/colorapron/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/leather
 	display_name = "jacket selection"
@@ -26,6 +23,7 @@
 	..()
 	var/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
+	jackets["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
@@ -49,7 +47,7 @@
 	jackets["flannel jacket, yellow"] = /obj/item/clothing/suit/storage/toggle/flannel/yellow
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
-	jackets["leather coat"] = /obj/item/clothing/suit/leathercoat
+	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
 
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
 
@@ -69,27 +67,18 @@
 /datum/gear/suit/hoodie
 	display_name = "hoodie"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
-
-/datum/gear/suit/hoodie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/labcoat
 	display_name = "labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
-
-/datum/gear/suit/labcoat/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/overalls
 	display_name = "overalls"
 	path = /obj/item/clothing/suit/apron/overalls
 	cost = 1
-
-/datum/gear/suit/overalls/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/surgeryapron
 	display_name = "surgical apron"
@@ -126,12 +115,7 @@
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
-
-/datum/gear/suit/suitjacket/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
-
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/trenchcoats
 	display_name = "trenchcoat selection"
@@ -145,7 +129,6 @@
 	coat["trenchcoat, grey"] = /obj/item/clothing/suit/storage/toggle/trench/grey
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
-	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 
@@ -172,6 +155,10 @@
 /datum/gear/suit/winter
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
+
+/datum/gear/suit/winter/red
+	display_name = "winter coat, red"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/red
 
 /datum/gear/suit/winter/captain
 	display_name = "winter coat, captain"
@@ -233,25 +220,30 @@
 	path = /obj/item/clothing/suit/security/navyhos
 	allowed_roles = list("Head of Security")
 
+/datum/gear/suit/dominia_cape
+	display_name = "dominia cape"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape
+	flags = GEAR_HAS_DESC_SELECTION
+
 /datum/gear/suit/dominia
 	display_name = "dominia great coat selection"
 	description = "A selection of Dominian coats."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/dominia/New()
 	..()
 	var/coat = list()
-	coat["dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia
-	coat["dominia great coat, alternative"] = /obj/item/clothing/suit/storage/toggle/dominia/alt
-	coat["dominia cape"] = /obj/item/clothing/suit/storage/dominia
+	coat["dominia great coat, red"] = /obj/item/clothing/suit/storage/toggle/dominia
+	coat["dominia great coat, gold"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
-	coat["dominia great coat, alternative black"] = /obj/item/clothing/suit/storage/toggle/dominia/black/alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tcfl
 	display_name = "Tau Ceti Foreign Legion jacket selection"
 	description = "A selection of fine, surplus jackets of the Foreign Legion."
 	path = /obj/item/clothing/suit/storage/legion
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tcfl/New()
 	..()
@@ -280,20 +272,17 @@
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"
 	path = /obj/item/clothing/suit/storage/toggle/peacoat
-
-/datum/gear/suit/miscellaneous/peacoat/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/varsity
 	display_name = "varsity jacket selection"
-	path = /obj/item/clothing/suit/varsity
+	path = /obj/item/clothing/suit/storage/toggle/varsity
 
 /datum/gear/suit/varsity/New()
 	..()
 	var/list/varsities = list()
-	for(var/varsity_style in typesof(/obj/item/clothing/suit/varsity))
-		var/obj/item/clothing/suit/varsity/varsity = varsity_style
+	for(var/varsity_style in typesof(/obj/item/clothing/suit/storage/toggle/varsity))
+		var/obj/item/clothing/suit/storage/toggle/varsity/varsity = varsity_style
 		varsities[initial(varsity.name)] = varsity
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(varsities))
 
@@ -325,7 +314,4 @@
 	display_name = "cardigan"
 	path = /obj/item/clothing/suit/cardigan
 	cost = 1 // has no pockets or any use whatsoever anyway
-
-/datum/gear/suit/cardigan/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

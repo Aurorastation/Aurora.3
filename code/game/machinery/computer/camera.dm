@@ -231,7 +231,6 @@
 /obj/machinery/computer/security/telescreen/entertainment
 	name = "entertainment monitor"
 	desc = "Damn, why do they never have anything interesting on these things?"
-	icon = 'icons/obj/status_display.dmi'
 	icon_screen = "entertainment"
 	light_color = "#FFEEDB"
 	light_range_on = 2

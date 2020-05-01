@@ -152,8 +152,15 @@
 			rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W, mob/user)
 	src.add_fingerprint(user)
+	if(istype(W, /obj/item/wirecutters/bomb) && rig)
+		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
+							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
+		rig.forceMove(get_turf(user))
+		user.put_in_hands(rig)
+		rig = null
+		overlays = new/list()
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
 			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
@@ -345,6 +352,13 @@
 	reagentid = "xuizijuice"
 	filled = TRUE
 
+/obj/structure/reagent_dispensers/keg/mead
+	name = "mead barrel"
+	desc = "A wooden mead barrel."
+	icon_state = "woodkeg"
+	reagentid = "messa_mead"
+	filled = TRUE
+
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
 	name = "cooking oil tank"
@@ -387,7 +401,7 @@
 	S.set_up(5, 0, src.loc)
 
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/start)
+	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/.proc/start)
 
 	var/datum/gas_mixture/env = src.loc.return_air()
 	if(env)

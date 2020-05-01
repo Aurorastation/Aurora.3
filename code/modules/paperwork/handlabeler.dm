@@ -29,11 +29,15 @@
 /obj/item/hand_labeler
 	name = "hand labeler"
 	icon = 'icons/obj/bureaucracy.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		)
 	icon_state = "labeler0"
 	var/label = null
 	var/labels_left = 30
 	var/mode = 0	//off or on.
-	matter = list(DEFAULT_WALL_MATERIAL = 120, "glass" = 80)
+	matter = list(DEFAULT_WALL_MATERIAL = 120, MATERIAL_GLASS = 80)
 
 /obj/item/hand_labeler/attack()
 	return

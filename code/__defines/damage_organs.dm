@@ -12,8 +12,10 @@
 #define PIERCE    "pierce"
 #define LASER     "laser"
 
-#define DAM_LASER  1
-#define DAM_BULLET 2
+#define DAM_EDGE    1
+#define DAM_SHARP   2
+#define DAM_LASER   4
+#define DAM_BULLET  8
 
 #define STUN      "stun"
 #define WEAKEN    "weaken"
@@ -66,7 +68,7 @@
 #define INFECTION_LEVEL_TWO   500
 #define INFECTION_LEVEL_THREE 1000
 
-//Blood levels. These are percentages based on the species blood_volume far.
+//Blood levels. These are percentages based on the species blood_volume var.
 #define BLOOD_VOLUME_SAFE    85
 #define BLOOD_VOLUME_OKAY    70
 #define BLOOD_VOLUME_BAD     60
@@ -77,4 +79,4 @@
 // proportion of their max blood volume to be lost
 // (e.g. 0.6 == 60% lost if 200 burn damage is taken).
 #define FLUIDLOSS_WIDE_BURN 0.4 //for burns from heat applied over a wider area, like from fire
-#define FLUIDLOSS_CONC_BURN 0.6 //for concentrated burns, like from lasers
+#define FLUIDLOSS_CONC_BURN 0.2 //for concentrated burns, like from lasers

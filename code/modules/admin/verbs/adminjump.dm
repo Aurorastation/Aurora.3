@@ -8,7 +8,11 @@
 	set name = "Jump to Area"
 	set desc = "Area to jump to"
 	set category = "Admin"
+
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
+		return
+	
+	if(istype(usr, /mob/abstract/new_player))
 		return
 
 	if(config.allow_admin_jump)
@@ -24,8 +28,13 @@
 /client/proc/jumptoturf(var/turf/T in turfs)
 	set name = "Jump to Turf"
 	set category = "Admin"
+
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
 		return
+
+	if(isnewplayer(usr))
+		return
+
 	if(config.allow_admin_jump)
 		log_admin("[key_name(usr)] jumped to [T.x],[T.y],[T.z] in [T.loc]",admin_key=key_name(usr))
 		message_admins("[key_name_admin(usr)] jumped to [T.x],[T.y],[T.z] in [T.loc]", 1)
@@ -41,6 +50,9 @@
 	set name = "Jump to Mob Admin"
 
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG|R_DEV))
+		return
+
+	if(isnewplayer(usr))
 		return
 
 	if(config.allow_admin_jump)

@@ -28,6 +28,8 @@ datum/preferences
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
 	var/skin_theme = "Light"
+	//Style for popup tooltips
+	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
 
@@ -38,9 +40,6 @@ datum/preferences
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
-	var/underwear						//underwear type
-	var/undershirt						//undershirt type
-	var/socks						//socks type
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1
 	var/h_style = "Bald"				//Hair type
@@ -129,7 +128,7 @@ datum/preferences
 
 	// SPAAAACE
 	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
+	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES
 	var/clientfps = 0
 
 	var/list/pai = list()	// A list for holding pAI related data.
@@ -372,11 +371,17 @@ datum/preferences
 
 	character.sync_trait_prefs_to_mob(src)
 
-	character.underwear = underwear
-
-	character.undershirt = undershirt
-
-	character.socks = socks
+	character.all_underwear.Cut()
+	character.all_underwear_metadata.Cut()
+	for(var/underwear_category_name in all_underwear)
+		var/datum/category_group/underwear/underwear_category = global_underwear.categories_by_name[underwear_category_name]
+		if(underwear_category)
+			var/underwear_item_name = all_underwear[underwear_category_name]
+			character.all_underwear[underwear_category_name] = underwear_category.items_by_name[underwear_item_name]
+			if(all_underwear_metadata[underwear_category_name])
+				character.all_underwear_metadata[underwear_category_name] = all_underwear_metadata[underwear_category_name]
+		else
+			all_underwear -= underwear_category_name
 
 	if(backbag > 6 || backbag < 1)
 		backbag = 1 //Same as above

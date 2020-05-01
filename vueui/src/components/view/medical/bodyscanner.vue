@@ -11,7 +11,7 @@
     </div>
 
     <!-- Health Display -->
-    <div class="table" v-else>
+    <table class="bodyscanner" v-else>
       <div class="row">
 
         <!-- Left Side -->
@@ -38,10 +38,10 @@
 
           <!-- Status Effects -->
           <vui-group>
-            <vui-group-item label="Radation Level:">{{ round(rads) }}</vui-group-item>
+            <vui-group-item label="Radation Level:">{{ Math.round(rads) }}</vui-group-item>
             <vui-group-item label="Genetic Damage:">{{ cloneLoss }}</vui-group-item>
-            <vui-group-item label="Est. Paralysis Level:">{{ paralysis }}<span v-if="paralysis"> (~{{ round(paralysis/4) }} seconds left)</span></vui-group-item>
-            <vui-group-item label="Body Temperature:">{{bodytemp}} K (~ {{round(bodytemp - 273.15)}} C)</vui-group-item>
+            <vui-group-item label="Est. Paralysis Level:">{{ paralysis }}<span v-if="paralysis"> (~{{ Math.round(paralysis/4) }} seconds left)</span></vui-group-item>
+            <vui-group-item label="Body Temperature:">{{bodytemp}} K (~ {{Math.round(bodytemp - 273.15)}} C)</vui-group-item>
           </vui-group>
 
           <!-- Viruses -->
@@ -72,13 +72,13 @@
           <hr>
           <vui-group>
             <vui-group-item label="BP:" :style="{color:getPressureClass(blood_pressure_level)}"> {{blood_pressure}} </vui-group-item>
-            <vui-group-item label="Blood Oxygenation:"> {{ round(blood_o2) }}% </vui-group-item>
-            <vui-group-item label="Norepinephrine:" v-if="round(norepiAmt)"> {{ round(norepiAmt) }} unit(s)</vui-group-item>
-            <vui-group-item label="Soporific:" v-if="round(soporAmt)"> {{ round(soporAmt) }} unit(s)</vui-group-item>
-            <vui-group-item label="Bicaridine:" v-if="round(bicardAmt)"> {{ round(bicardAmt) }} unit(s)</vui-group-item>
-            <vui-group-item label="Dermaline:" v-if="round(dermAmt)"> {{ round(dermAmt) }} unit(s)</vui-group-item>
-            <vui-group-item label="Dexalin:" v-if="round(dexAmt)"> {{ round(dexAmt) }} unit(s)</vui-group-item>
-            <vui-group-item label="Other:" v-if="round(otherAmt)"> {{ round(otherAmt) }} unit(s)</vui-group-item>
+            <vui-group-item label="Blood Oxygenation:"> {{ Math.round(blood_o2) }}% </vui-group-item>
+            <vui-group-item label="Norepinephrine:" v-if="Math.round(norepiAmt)"> {{ Math.round(norepiAmt) }} unit(s)</vui-group-item>
+            <vui-group-item label="Soporific:" v-if="Math.round(soporAmt)"> {{ Math.round(soporAmt) }} unit(s)</vui-group-item>
+            <vui-group-item label="Bicaridine:" v-if="Math.round(bicardAmt)"> {{ Math.round(bicardAmt) }} unit(s)</vui-group-item>
+            <vui-group-item label="Dermaline:" v-if="Math.round(dermAmt)"> {{ Math.round(dermAmt) }} unit(s)</vui-group-item>
+            <vui-group-item label="Dexalin:" v-if="Math.round(dexAmt)"> {{ Math.round(dexAmt) }} unit(s)</vui-group-item>
+            <vui-group-item label="Other:" v-if="Math.round(otherAmt)"> {{ Math.round(otherAmt) }} unit(s)</vui-group-item>
           </vui-group>
         </div>
 
@@ -134,7 +134,7 @@
         <vui-button class="center" :params="{print: 1}">Print Report</vui-button>
 
       </div>
-    </div>
+    </table>
   </div>
 </template>
 
@@ -145,9 +145,6 @@
       return this.$root.$data.state;
     },
     methods: {
-    round(value) {
-      return Math.round(value)
-    },
     capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
@@ -238,7 +235,7 @@
 </script>
 
 <style lang="scss" scoped>
-.table {
+.bodyscanner {
   display: table;
   width: 100%;
 

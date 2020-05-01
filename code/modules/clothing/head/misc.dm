@@ -77,6 +77,12 @@
 	item_state = "hairflower_white"
 	name = "white flower pin"
 
+/obj/item/clothing/head/pin/flower/silversun
+	icon_state = "hairflower_silversun"
+	item_state = "hairflower_silversun"
+	name = "silversun flower pin"
+	desc = "A Silversun dawnflower pin, named after the same flower. This particular version is an artificial recreation, and lacks the distinctive bioluminescence of the original."
+
 /obj/item/clothing/head/pin/bow
 	icon_state = "bow"
 	item_state = "bow"
@@ -593,6 +599,12 @@
 	icon_state = "right_robot_antennae"
 	item_state = "right_robot_antennae"
 
+/obj/item/clothing/head/antenna/trinary_halo
+	name = "trinary perfection antenna"
+	desc = "A decorative antenna that is commonly worn by IPCs who serve the Trinary Perfection. It resembles a golden gear."
+	icon_state = "trinary_halo"
+	item_state = "trinary_halo"
+
 /obj/item/clothing/head/fake_culthood
 	name = "occultist hood"
 	icon_state = "culthood"
@@ -683,3 +695,9 @@
 	desc = "A conical straw hat enjoyed particularly by residents of New Hai Phong, to protect the head from sweltering suns and heavy rains."
 	icon_state = "nonla"
 	item_state = "nonla"
+
+/obj/item/clothing/head/padded
+	name = "padded cap"
+	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
+	icon_state = "tank"
+	flags_inv = BLOCKHEADHAIR

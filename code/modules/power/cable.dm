@@ -481,74 +481,13 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	w_class = 2.0
 	throw_speed = 2
 	throw_range = 5
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
-
-/obj/item/stack/cable_coil/attack(mob/living/carbon/M as mob, mob/user as mob)
-	if(..())
-		return 1
-
-	if(amount <= 10)
-		to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
-		return
-	
-	if (ishuman(M))
-		var/mob/living/carbon/human/H = M
-
-		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
-
-		if(affecting.open == 0 && !(affecting.status & ORGAN_ROBOT))
-
-			if(affecting.is_bandaged())
-				to_chat(user, "<span class='warning'>The cuts on [M]'s [affecting.name] have already been closed.</span>")
-				return 1
-			else
-				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				for(var/datum/wound/W in affecting.wounds)
-
-					if(W.bandaged)
-						continue
-					if(W.current_stage <= W.max_bleeding_stage)
-						user.visible_message("<span class='notice'>\The [user] starts carefully suturing the open wound on [M]'s [affecting.name]...</span>", \
-											  "<span class='notice'>You start carefully suturing the open wound on [M]'s [affecting.name]... This will take a while.</span>")
-						if(!do_mob(user, M, 200))
-							user.visible_message("<span class='danger'>[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!</span>", \
-													 "<span class='danger'><font size=2>The wound on your [affecting.name] is torn open!</font></span>")
-							M.apply_damage(rand(1,10), BRUTE)
-							break
-						user.visible_message("<span class='notice'>\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name].</span>", \
-													"<span class='notice'>You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].</span>" )
-						W.bandage("cable-stitched")
-						use(10)
-						H.apply_damage(25, PAIN)
-						if(prob(50))
-							var/obj/item/organ/external/O = H.get_organ(user.zone_sel.selecting)
-							to_chat(H, "<span class='danger'>Something burns in your [O.name]!</span>")
-							O.germ_level += rand(400, 600)
-					else
-						to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
-				affecting.update_damages()
-		else
-			if(can_operate(H))
-				if (do_surgery(H,user,src))
-					return
-	return
-
-/obj/item/stack/cable_coil/iscoil()
-	return TRUE
-
-/obj/item/stack/cable_coil/cyborg
-	name = "cable coil synthesizer"
-	desc = "A device that makes cable."
-	gender = NEUTER
-	matter = null
-	uses_charge = 1
-	charge_costs = list(1)
 
 /obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
 	. = ..(mapload, amt)
@@ -561,39 +500,100 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	update_icon()
 	update_wclass()
 
-///////////////////////////////////
-// General procedures
-///////////////////////////////////
+/obj/item/stack/cable_coil/attack(mob/living/carbon/M, mob/user)
+	if(..())
+		return TRUE
+	
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
-//you can use wires to heal robotics
+		if(affecting.open != 0)
+			if(can_operate(H))
+				if(do_surgery(H,user,src))
+					return TRUE
+		else 
+			if(!BP_IS_ROBOTIC(affecting))
+				if(affecting.is_bandaged())
+					to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been closed.</span>")
+					return ..()
+				else
+					if(amount <= 10)
+						to_chat(user, "<span class='notice'>You don't have enough coils for this!</span>")
+						return
+					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+					for(var/datum/wound/W in affecting.wounds)
+						if(W.bandaged)
+							continue
+						if(W.current_stage <= W.max_bleeding_stage)
+							user.visible_message("<span class='notice'>\The [user] starts carefully suturing the open wound on [M]'s [affecting.name]...</span>", \
+												"<span class='notice'>You start carefully suturing the open wound on [M]'s [affecting.name]... This will take a while.</span>")
+							if(!do_mob(user, M, 200))
+								user.visible_message("<span class='danger'>[user]'s hand slips and tears open the wound on [M]'s [affecting.name]!</span>", \
+														"<span class='danger'><font size=2>The wound on your [affecting.name] is torn open!</font></span>")
+								M.apply_damage(rand(1,10), BRUTE)
+								break
+							user.visible_message("<span class='notice'>\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name].</span>", \
+														"<span class='notice'>You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].</span>" )
+							W.bandage("cable-stitched")
+							use(10)
+							affecting.add_pain(25)
+							if(prob(50))
+								var/obj/item/organ/external/O = H.get_organ(user.zone_sel.selecting)
+								to_chat(H, "<span class='danger'>Something burns in your [O.name]!</span>")
+								O.germ_level += rand(400, 600)
+						else
+							to_chat(user, "<span class='notice'>This wound isn't large enough for a stitch!</span>")
+					affecting.update_damages()
+			else
+				return ..()
+
 /obj/item/stack/cable_coil/afterattack(var/mob/living/M, var/mob/user)
-
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/S = H.organs_by_name[user.zone_sel.selecting]
 
-		if (!S) return
+		if(!S)
+			return
+
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
+
 		if(M.isSynthetic() && M == user && !(M.get_species() == "Military Frame"))
-			to_chat(user, "<span class='warning'>You can't repair damage to your own body - it's against OH&S.</span>")
+			to_chat(user, span("warning", "You can't repair damage to your own body - it's against OH&S."))
 			return
 
 		if(S.burn_dam)
-			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP && (S.status & ORGAN_ROBOT))
-				to_chat(user, "<span class='warning'>The damage is far too severe to patch over externally.</span>")
+			if(S.burn_dam > ROBOLIMB_SELF_REPAIR_CAP)
+				to_chat(user, span("warning", "The damage is far too severe to patch over externally!"))
 				return
-
-			S.heal_damage(0,15,0,1)
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			user.visible_message("<span class='danger'>\The [user] patches some damaged wiring on \the [M]'s [S.name] with \the [src].</span>")
+			else
+				repair_organ(user, H, S)
 
 		else if(S.open != 2)
-			to_chat(user, "<span class='notice'>Nothing to fix!</span>")
+			to_chat(user, span("notice", "You can't see any external damage to repair."))
 
 	else
 		return ..()
 
+/obj/item/stack/cable_coil/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
+	if(!affecting.burn_dam)
+		user.visible_message(span("notice", "\The [user] finishes mending the burnt wiring in [target]'s [affecting]."))
+		return
+
+	if(do_mob(user, target, 30))
+		if(use(2))
+			var/static/list/repair_messages = list(
+				"mends some cables",
+				"adjusts some wiring",
+				"splices some cables"
+			)
+			affecting.heal_damage(burn = 15, robo_repair = TRUE)
+			user.visible_message(span("notice", "\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."))
+			playsound(target, 'sound/items/Wirecutter.ogg', 15)
+			repair_organ(user, target, affecting)
+		else
+			to_chat(user, span("warning", "You don't have enough cable for this!"))
 
 /obj/item/stack/cable_coil/update_icon()
 	if (!color)
@@ -634,8 +634,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	else if(get_amount() == 2)
 		to_chat(user, "A piece of power cable.")
 	else
-		to_chat(user, "A coil of power cable. There are [get_amount()] lengths of cable in the coil.")
+		to_chat(user, "A coil of power cable. There are <b>[get_amount()]</b> lengths of cable in the coil.")
 
+/obj/item/stack/cable_coil/iscoil()
+	return TRUE
 
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
@@ -653,7 +655,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		src.use(15)
 	else
 		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
-	..()
+
+/obj/item/stack/cable_coil/cyborg
+	name = "cable coil synthesizer"
+	desc = "A device that makes cable."
+	gender = NEUTER
+	matter = null
+	uses_charge = 1
+	charge_costs = list(1)
 
 /obj/item/stack/cable_coil/cyborg/verb/set_colour()
 	set name = "Change Colour"
@@ -970,7 +979,6 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		src.use(25)
 	else
 		to_chat(usr, "<span class='notice'>You cannot do that.</span>")
-	..()
 
 /obj/structure/noose
 	name = "noose"

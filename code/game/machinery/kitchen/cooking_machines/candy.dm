@@ -22,6 +22,6 @@
 			/obj/item/stock_parts/matter_bin = 2
 		)
 
-/obj/machinery/appliance/mixer/candy/change_product_appearance(var/obj/item/reagent_containers/food/snacks/cooked/product)
+/obj/machinery/appliance/mixer/candy/change_product_appearance(var/obj/item/reagent_containers/food/snacks/product)
 	food_color = get_random_colour(1)
 	. = ..()

@@ -3,7 +3,7 @@
 	name = "queen bee packet"
 	desc = "Place her into an apiary so she can get busy."
 	icon = 'icons/obj/seeds.dmi'
-	icon_state = "seed-kudzu"
+	icon_state = "vine2"
 	w_class = 1
 
 
@@ -47,7 +47,8 @@
 
 /obj/item/book/manual/hydroponics_beekeeping
 	name = "The Ins and Outs of Apiculture - A Precise Art"
-	icon_state ="bookHydroponicsBees"
+	icon_state ="bookbee"
+	icon_state ="book8"
 	author = "Beekeeper Dave"
 	title = "The Ins and Outs of Apiculture - A Precise Art"
 	dat = {"<html>

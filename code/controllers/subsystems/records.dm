@@ -14,7 +14,7 @@
 	var/list/localized_fields
 
 	var/manifest_json
-	var/list/manifest
+	var/list/list/manifest
 
 	var/list/citizenships = list()
 	var/list/religions = list()
@@ -265,7 +265,7 @@
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
-			if(R.scrambledcodes)
+			if(R.scrambled_codes)
 				continue
 			var/selected_module = "Default Module"
 			if(R.module)

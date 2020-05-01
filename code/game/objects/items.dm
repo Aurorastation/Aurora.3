@@ -96,6 +96,10 @@
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		)
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
@@ -129,7 +133,7 @@
 	set name = "Move To Top"
 	set category = "Object"
 
-	if (!I in view(1, src))
+	if (!(I in view(1, src)))
 		return
 	if(!istype(I.loc, /turf) || usr.stat || usr.restrained() )
 		return
@@ -158,9 +162,9 @@
 
 	return ..(user, distance, "", "It is a [size] item.")
 
-/obj/item/attack_hand(mob/user as mob)
+/obj/item/attack_hand(mob/user)
 	if (!user) return
-	if (hasorgans(user))
+	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/temp = H.organs_by_name[BP_R_HAND]
 		if (user.hand)
@@ -206,7 +210,7 @@
 	if(istype(W,/obj/item/storage))
 		var/obj/item/storage/S = W
 		if(S.use_to_pickup)
-			if(S.collection_mode) //Mode is set to collect all items on a tile and we clicked on a valid one.
+			if(S.collection_mode && !is_type_in_list(src, S.pickup_blacklist)) //Mode is set to collect all items on a tile and we clicked on a valid one.
 				if(isturf(loc))
 					var/list/rejections = list()
 					var/success = FALSE
@@ -262,7 +266,6 @@
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
 /obj/item/proc/dropped(var/mob/user)
-	..()
 	if(zoom)
 		zoom(user) //binoculars, scope, etc
 
@@ -372,6 +375,8 @@ var/list/global/slot_flags_enumeration = list(
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
 		if(slot_s_store)
+			if(isvaurca(H) && src.w_class <= ITEMSIZE_SMALL)
+				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
 					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
@@ -464,7 +469,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	if(!(usr)) //BS12 EDIT
 		return
-	if (!I in view(1, src))
+	if (!(I in view(1, src)))
 		return
 	if (istype(I, /obj/item/storage/internal))
 		return
@@ -664,14 +669,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/cannotzoom
 
-	if(M.stat || !(istype(M,/mob/living/carbon/human)))
-		to_chat(M, "You are unable to focus through the [devicename]")
+	if(M.stat || !(ishuman(M)))
+		to_chat(M, SPAN_WARNING("You are unable to focus through \the [devicename]!"))
 		cannotzoom = 1
-	else if(!zoom && global_hud.darkMask[1] in M.client.screen)
-		to_chat(M, "Your visor gets in the way of looking through the [devicename]")
+	else if(!zoom && (global_hud.darkMask[1] in M.client.screen))
+		to_chat(M, SPAN_WARNING("Your visor gets in the way of looking through the [devicename]!"))
 		cannotzoom = 1
 	else if(!zoom && M.get_active_hand() != src)
-		to_chat(M, "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better")
+		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1
 
 	if(!zoom && !cannotzoom)
@@ -697,7 +702,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_x = -viewoffset
 				M.client.pixel_y = 0
 
-		M.visible_message("[M] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
+		M.visible_message("<b>[M]</b> peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
 
 	else
 		M.client.view = world.view
@@ -709,7 +714,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			M.visible_message("[zoomdevicename ? "[M] looks up from the [src.name]" : "[M] lowers the [src.name]"].")
+			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from the [src.name]" : "<b>[M]</b> lowers the [src.name]"].")
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill

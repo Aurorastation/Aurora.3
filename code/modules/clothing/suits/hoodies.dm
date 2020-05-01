@@ -102,6 +102,11 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	canremove = 0
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/red
+	name = "red winter coat"
+	icon_state = "coatred"
+	item_state = "coatred"
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/captain
 	name = "captain's winter coat"
 	icon_state = "coatcaptain"

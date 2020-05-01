@@ -369,7 +369,7 @@ default behaviour is:
 
 /mob/living/proc/get_organ_target()
 	var/mob/shooter = src
-	var/t = shooter:zone_sel.selecting
+	var/t = shooter.zone_sel?.selecting
 	if ((t in list( BP_EYES, BP_MOUTH )))
 		t = BP_HEAD
 	var/obj/item/organ/external/def_zone = ran_zone(t)
@@ -697,7 +697,7 @@ default behaviour is:
 /mob/living/var/last_resist
 
 /mob/living/proc/resist_grab()
-	if(last_resist + 8 > world.time)
+	if(last_resist + 10 > world.time)
 		return
 	last_resist = world.time
 	if(stunned > 10)
@@ -733,7 +733,7 @@ default behaviour is:
 				else
 					resist_chance = 3 * resist_power
 				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
-			
+
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)

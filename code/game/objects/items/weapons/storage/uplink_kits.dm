@@ -97,7 +97,7 @@
 
 /obj/item/storage/box/syndie_kit/imp_explosive
 	name = "box (E)"
-	starts_with = list(/obj/item/implanter/explosive = 1)
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive = 1)
 
 /obj/item/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"
@@ -226,3 +226,14 @@
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large/norepinephrine = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large = 1,
 	)
+
+/obj/item/storage/box/syndie_kit/random_weapon
+	desc = "An untraceable gun of varying quality. Acquired from unknown sources. Includes ammunition if applicable."
+	starts_with = list(/obj/random/weapon_and_ammo = 1)
+
+/obj/item/storage/box/syndie_kit/random_weapon/concealable
+	starts_with = list(/obj/random/weapon_and_ammo/concealable = 1)
+
+/obj/item/storage/box/syndie_kit/random_weapon/Initialize()
+	.=..()
+	desc = "A sleek, sturdy box"

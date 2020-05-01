@@ -60,6 +60,7 @@
 	display_name = "skirt selection"
 	description = "A selection of skirts."
 	path = /obj/item/clothing/under/skirt
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/skirt/New()
 	..()
@@ -70,7 +71,6 @@
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
-	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
@@ -153,10 +153,7 @@
 /datum/gear/uniform/customdress
 	display_name = "evening gown"
 	path = /obj/item/clothing/under/dress/dress_evening
-
-/datum/gear/uniform/customdress/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
@@ -192,6 +189,7 @@
 	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
 	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
 	pants["camo pants"] = /obj/item/clothing/under/pants/camo
+	pants["tacticool pants"] = /obj/item/clothing/under/pants/tacticool
 	pants["designer jeans"] = /obj/item/clothing/under/pants/designer
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts
 	pants["athletic shorts, red"] = /obj/item/clothing/under/shorts/red
@@ -217,6 +215,7 @@
 /datum/gear/uniform/colorpants
 	display_name = "pants (recolorable)"
 	path = /obj/item/clothing/under/pants/dress
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/colorpants/New()
 	..()
@@ -224,32 +223,30 @@
 	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
 	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
 	gear_tweaks += new/datum/gear_tweak/path(colorpants)
-	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/uniform/turtleneck
 	display_name = "tacticool turtleneck"
 	path = /obj/item/clothing/under/syndicate/tacticool
 
 /datum/gear/uniform/dominia
-	display_name = "dominia suit selection"
-	description = "A selection of dominian suits."
+	display_name = "dominia clothing selection"
+	description = "A selection of dominian clothing."
 	path = /obj/item/clothing/under/dominia
 
 /datum/gear/uniform/dominia/New()
 	..()
 	var/suit = list()
-	suit["dominia suit"] = /obj/item/clothing/under/dominia
+	suit["dominia suit, red"] = /obj/item/clothing/under/dominia
 	suit["dominia suit, black"] = /obj/item/clothing/under/dominia/black
-	suit["lyodsuit"] = /obj/item/clothing/under/dom_thermal
+	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
+	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
+	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/miscellaneous/kimono
 	display_name = "kimono"
 	path = /obj/item/clothing/under/kimono
-
-/datum/gear/uniform/miscellaneous/kimono/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/miscellaneous/greensuit
 	display_name = "green formal uniform"
@@ -269,6 +266,20 @@
 	uniform["officer uniform, blue"] = /obj/item/clothing/under/rank/security/blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
+/datum/gear/uniform/detective
+	display_name = "uniforms, (Investigations)"
+	description = "A selection of Investigations staff uniforms."
+	path = /obj/item/clothing/under/det
+	allowed_roles = list("Detective", "Forensic Technician")
+
+/datum/gear/uniform/detective/New()
+	..()
+	var/uniform = list()
+	uniform["investigator uniform, tan"] = /obj/item/clothing/under/det
+	uniform["investigator uniform, grey"] = /obj/item/clothing/under/det/forensics
+	uniform["investigator uniform, black"] = /obj/item/clothing/under/det/black
+	uniform["investigator uniform, brown"] = /obj/item/clothing/under/det/classic
+	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/warden
 	display_name = "uniforms, (Warden)"
@@ -304,3 +315,14 @@
 	description = "For those that value leg-room."
 	path = /obj/item/clothing/under/rank/cargotech/alt
 	allowed_roles = list("Cargo Technician")
+
+/datum/gear/uniform/pyjama
+	display_name = "pyjamas"
+	path = /obj/item/clothing/under/pj/blue
+
+/datum/gear/uniform/pyjama/New()
+	..()
+	var/pyjamas = list()
+	pyjamas["blue pyjamas"] = /obj/item/clothing/under/pj/blue
+	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
+	gear_tweaks += new/datum/gear_tweak/path(pyjamas)

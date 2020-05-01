@@ -1,5 +1,9 @@
 /obj/item/material/kitchen
 	icon = 'icons/obj/kitchen.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
+		)
 
 /*
  * Utensils
@@ -10,8 +14,8 @@
 	thrown_force_divisor = 1
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("attacked", "stabbed", "poked")
-	sharp = 1
-	edge = 1
+	sharp = FALSE
+	edge = FALSE
 	force_divisor = 0.1 // 6 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 	var/loaded      //Descriptive string for currently loaded food object.
@@ -25,7 +29,7 @@
 	create_reagents(5)
 	return
 
-/obj/item/material/kitchen/utensil/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
+/obj/item/material/kitchen/utensil/attack(mob/living/carbon/M, mob/user, var/target_zone)
 	if(!istype(M))
 		return ..()
 
@@ -69,9 +73,10 @@
 	name = "fork"
 	desc = "It's a fork. Sure is pointy."
 	icon_state = "fork"
+	sharp = TRUE
 
 /obj/item/material/kitchen/utensil/fork/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /obj/item/material/kitchen/utensil/spoon
 	name = "spoon"
@@ -81,7 +86,7 @@
 	force_divisor = 0.1 //2 when wielded with weight 20 (steel)
 
 /obj/item/material/kitchen/utensil/spoon/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /*
  * Knives
@@ -91,9 +96,9 @@
 	desc = "A knife for eating with. Can cut through any food."
 	icon_state = "knife"
 	force_divisor = 0.1 // 6 when wielded with hardness 60 (steel)
-	scoop_food = 0
-	sharp = 1
-	edge = 1
+	scoop_food = FALSE
+	sharp = TRUE
+	edge = TRUE
 
 // Identical to the tactical knife but nowhere near as stabby.
 // Kind of like the toy esword compared to the real thing.
@@ -106,7 +111,7 @@
 	applies_material_colour = 0
 	unbreakable = 1
 
-/obj/item/material/kitchen/utensil/knife/attack(target as mob, mob/living/user as mob, var/target_zone)
+/obj/item/material/kitchen/utensil/knife/attack(mob/target, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, span("warning", "You accidentally cut yourself with \the [src]."))
 		user.take_organ_damage(20)
@@ -114,7 +119,7 @@
 	return ..()
 
 /obj/item/material/kitchen/utensil/knife/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /*
  * Rolling Pins
@@ -130,7 +135,7 @@
 	thrown_force_divisor = 1 // as above
 	drop_sound = 'sound/items/drop/wooden.ogg'
 
-/obj/item/material/kitchen/rollingpin/attack(mob/living/M as mob, mob/living/user as mob, var/target_zone)
+/obj/item/material/kitchen/rollingpin/attack(mob/living/M, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))
 		to_chat(user, span("warning", "\The [src] slips out of your hand and hits your head."))
 		user.drop_from_inventory(src)
