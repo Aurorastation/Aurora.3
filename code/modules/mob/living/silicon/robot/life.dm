@@ -339,7 +339,7 @@
 		return
 	if (deltimer(detonate_timer))
 		detonate_timer = null
-		to_chat(src, SPAN_GOOD("Unit has re-entered designated boundaries. Self-destruct disengaged.")) //Anti-Theft mode disengaged
+		to_chat(src, SPAN_GOOD("Unit has re-entered designated boundaries. Anti-theft measures disengaged.")) //Anti-Theft mode disengaged
 
 /mob/living/silicon/robot/proc/check_allowed_area()
 	// TRUE = Outside
