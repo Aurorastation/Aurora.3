@@ -100,23 +100,10 @@ export default {
   methods: {
       get_height: function(row) {
           if(row == 2) {
-              return info_size;
+              return this.info_size;
           }
           return 1;
       }
   }
 };
 </script>
-
-<!--
-
-        HTML += "<br><font color='0000AA'>Complexity: [complexity]</font>"
-        HTML += "<br><font color='0000AA'>Cooldown per use: [cooldown_per_use/10] sec</font>"
-        if(ext_cooldown)
-            HTML += "<br><font color='0000AA'>External manipulation cooldown: [ext_cooldown/10] sec</font>"
-        if(power_draw_idle)
-            HTML += "<br><font color='0000AA'>Power Draw: [power_draw_idle] W (Idle)</font>"
-        if(power_draw_per_use)
-            HTML += "<br><font color='0000AA'>Power Draw: [power_draw_per_use] W (Active)</font>" // Borgcode says that powercells' checked_use() takes joules as input.
-        HTML += "<br><font color='0000AA'>[extended_desc]</font>"
-        -->
