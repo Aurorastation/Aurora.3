@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "AOOC should now properly be re-added to the client in all cases."
