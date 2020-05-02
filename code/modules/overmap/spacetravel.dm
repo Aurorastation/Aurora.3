@@ -19,11 +19,12 @@ var/list/cached_space = list()
 /obj/effect/overmap/visitable/sector/temporary/Destroy()
 	map_sectors["[map_z]"] = null
 	testing("Temporary sector at [x],[y] was deleted.")
+	return ..()
 
 /obj/effect/overmap/visitable/sector/temporary/proc/can_die(var/mob/observer)
 	testing("Checking if sector at [map_z[1]] can die.")
 	for(var/mob/M in player_list)
-		if(M != observer && M.z in map_z)
+		if(M != observer && (M.z in map_z))
 			testing("There are people on it.")
 			return 0
 	return 1
