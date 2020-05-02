@@ -31,7 +31,7 @@
 
 /datum/bounty/item/science/posibrain
 	name = "Posibrain"
-	description = "Due to a sudden spike in accidents management has decided to replace some the staff with borgs. Ship us 2 posibrains."
+	description = "Due to a sudden spike in accidents management has decided to replace some of the staff with borgs. Ship us 2 posibrains."
 	reward = 10000
 	required_count = 2
 	wanted_types = list(/obj/item/device/mmi/digital/posibrain)
