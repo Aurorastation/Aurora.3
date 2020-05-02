@@ -29,20 +29,20 @@
 
 /datum/bounty/item/chef/pie
 	name = "Pie"
-	description = "3.14159? No! %BOSSSHORT management wants edible pie! Ship a whole one."
-	reward = 3142
+	description = "%BOSSSHORT management wants a pie! Ship one pie."
+	reward = 3000
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/pie)
 
 /datum/bounty/item/chef/salad
-	name = "Salad or Rice Bowls"
-	description = "%BOSSSHORT management is going on a health binge. Your order is to ship salad or rice bowls."
+	name = "Salad"
+	description = "%BOSSSHORT management is going on a health binge. Your order is to ship salad."
 	reward = 3000
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/salad)
 
 /datum/bounty/item/chef/carrotfries
 	name = "Carrot Fries"
-	description = "Night sight can mean life or death! A shipment of carrot fries is the order."
+	description = "A health craze has started among management. A shipment of carrot fries is the order."
 	reward = 3500
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/carrotfries)
@@ -108,8 +108,7 @@
 
 /datum/bounty/item/chef/kebab
 	name = "Kebabs"
-	description = "Remove all kebab from station you are best food. Ship to %BOSSSHORT to remove from the premises."
+	description = "%BOSSSHORT is requesting a special order, please ship some kebabs."
 	reward = 3500
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/variable/kebab)
-
