@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: true
+
+changes:
+  - bugfix: "Attempting to view your job ban reason will actually work now."
