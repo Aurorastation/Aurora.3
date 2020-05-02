@@ -99,6 +99,8 @@
 	var/datum/integrated_io/O = outputs[1]
 	if(istext(special_data) || isnum(special_data))
 		O.data = special_data
+	if(istext(special_data))
+		O.data = sanitize(special_data, IC_MAX_MEMORY_LEN, TRUE, FALSE, FALSE)
 
 /obj/item/integrated_circuit/memory/constant/attack_self(mob/user)
 	var/datum/integrated_io/O = outputs[1]
@@ -112,7 +114,10 @@
 			accepting_refs = FALSE
 			new_data = input("Now type in a string.","[src] string writing") as null|text
 			if(istext(new_data) && user.IsAdvancedToolUser())
-				O.data = new_data
+				// Small integrated memory is somewhat small.
+				// Not sure if it's a good or a bad idea to encode here.
+				// Trimming and extra is disabled, though, to preserve possible formatting
+				O.data = sanitize(new_data, IC_MAX_MEMORY_LEN, TRUE, FALSE, FALSE)
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(O.data)].</span>")
 		if("number")
 			accepting_refs = FALSE

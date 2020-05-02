@@ -1,7 +1,37 @@
 // Helpers for saving/loading integrated circuits.
 
-#define MAX_IC_NAME_LEN 20
-#define MAX_PROGRAM_LEN 25000
+// Maximum possible JSON values for different assembly elements, with maths
+// ====Assembly:====
+// Max assembly name: MAX_NAME_LEN chars
+// Max assembly description: MAX_MESSAGE_LEN chars
+// Max detail color: 9 chars ("#123456")
+// Max special info (mathed from memory component and clothing/implant): 
+//  17 ({"type":,"name":}) + IC_MAX_TYPE_LEN + MAX_NAME_LEN chars
+// Max JSON metadata: 52 chars ({"type":,"name":,"desc":,"detail_color":,"special":})
+// "type" field length
+// (40 max for assemblies + 2 for quotes + wiggle room, just in case. Arbitrary for components)
+#define IC_MAX_TYPE_LEN 50 
+#define IC_MAX_COLOR_LEN 9
+#define IC_MAX_ASSEMBLY_SPECIAL (17 + IC_MAX_TYPE_LEN + MAX_NAME_LEN)
+#define IC_MAX_ASSEMBLY_METADATA 52
+#define IC_MAX_ASSEMBLY_LEN (MAX_NAME_LEN + IC_MAX_TYPE_LEN + MAX_MESSAGE_LEN + IC_MAX_COLOR_LEN + IC_MAX_ASSEMBLY_SPECIAL + IC_MAX_ASSEMBLY_METADATA)
+
+// ====Component:====
+// Max type len: IC_MAX_TYPE_LEN chars
+// Max component name: MAX_NAME_LEN chars
+// Max special len: IC_MAX_MEMORY_LEN chars
+// Max JSON metadata: 49 chars = 40 ({"name":,"type":,"inputs":[],"special":}) + 9 (commas for inputs, brackets included in input metadata)
+// Max single input len: 7 + IC_MAX_MEMORY_LEN chars 
+// ([xx,y,IC_MAX_MEMORY_LEN], double digit index in case we get such inputs)
+// Max inputs: 10 (8 as the most + 2 for wiggle room)
+#define IC_MAX_INPUT_LEN (7 + IC_MAX_MEMORY_LEN)
+#define IC_MAX_COMPONENT_METADATA 49
+#define IC_MAX_INPUTS 10
+#define IC_MAX_COMPONENT_LEN (MAX_NAME_LEN + IC_MAX_TYPE_LEN + IC_MAX_MEMORY_LEN + IC_MAX_COMPONENT_METADATA + IC_MAX_INPUT_LEN * IC_MAX_INPUTS)
+
+// ====Wire tuple:====
+// {"x":[xxx,y,zzz],"y":[xxx,y,zzz]} = 33 chars (triple digits, some cases MAYBE MIGHT allow this)
+#define IC_MAX_WIRE_LEN 33
 
 // Saves type, modified name and modified inputs (if any) to a list
 // The list is converted to JSON down the line.
@@ -53,9 +83,8 @@
 /obj/item/integrated_circuit/proc/verify_save(list/component_params)
 	var/init_name = initial(name)
 	// Validate name
-	if(component_params["name"])
-		// There's not much need for a 63-character component names. They also simplify the task of serializing
-		sanitizeName(component_params["name"], max_length=MAX_IC_NAME_LEN, allow_numbers=TRUE)
+	if(sanitizeName(component_params["name"]) != component_params["name"])
+		return "Bad component name"
 	// Validate input values
 	if(component_params["inputs"])
 		var/list/loaded_inputs = component_params["inputs"]
@@ -147,7 +176,7 @@
 /obj/item/device/electronic_assembly/proc/verify_save(list/assembly_params)
 	// Validate name and color
 	if(assembly_params["name"])
-		if(sanitizeName(assembly_params["name"], allow_numbers = TRUE) != assembly_params["name"])
+		if(sanitizeName(assembly_params["name"]) != assembly_params["name"])
 			return "Bad assembly name."
 	if(assembly_params["desc"])
 		if(sanitize(assembly_params["desc"]) != assembly_params["desc"])
@@ -229,7 +258,8 @@
 
 				// If not, add a wire "hash" for future checks and save it
 				saved_wires.Add(text_params + "=" + text_params2)
-				wires.Add(list(list(params, params2)))
+				// The wires are saved as tuples, so they can be sent over the loading UI
+				wires.Add(list(list("x" = params, "y" = params2)))
 
 	if(wires.len)
 		blocks["wires"] = wires
@@ -243,36 +273,26 @@
 // Returns error code (type: text) if loading has failed.
 // The following parameters area calculated during validation and added to the returned save list:
 // "requires_upgrades", "unsupported_circuit", "cost", "complexity", "max_complexity", "used_space", "max_space"
-/datum/controller/subsystem/processing/electronics/proc/validate_electronic_assembly(program)
-	// Problem: huge JSON files can lag/stop the server
-	// Therefore, we need to somehow limit the huge files
-	// After thinking of several methods, the only way I can think of is limiting the number of characters
-	// So, really quick maths:
-	// The biggest device I can think of on the spot would be a type-a electronic machine filled with 100 starters
-	// Each starter can have a MAX_IC_NAME_LEN of 20, so we have 2000 characters JUST for the starter names
-	// We can also have 63 letters for the name of the assembly
-	// Then, for the supporting data, we got ~ 3000 characters
-	// So, roughly 5000 characters for a box full of useless starters, without accounting for possible wiring
-	// 25000 characters should be enough for everyone?
-	//
-	// For some reason, sanitize strips the first curly brace here.
-	if(length(program) > MAX_PROGRAM_LEN)
-		return "Program too long."
-
-	var/list/blocks = json_decode(program)
-	if(!blocks)
-		return
-
+/datum/controller/subsystem/processing/electronics/proc/validate_electronic_assembly(assembly_info, components_info, wires_info)
 	var/error
+	var/list/blocks = list()
 
+	if(isnull(assembly_info))
+		return "No assembly provided."
+	if(isnull(components_info) && !isnull(wires_info))
+		// Can possibly happen in the future, so a safeguard here
+		return "Malformed component input."
 
 	// Block 1. Assembly.
-	var/list/assembly_params = blocks["assembly"]
+	if(length(assembly_info) > IC_MAX_ASSEMBLY_LEN)
+		return "Assembly code too large."
+	var/list/assembly_params = json_decode(assembly_info)
 
 	if(!islist(assembly_params) || !length(assembly_params))
 		return "Invalid assembly data."	// No assembly, damaged assembly or empty assembly
 
 	// Validate type, get a temporary component
+	// TODO: Check for invalid path from params here
 	var/assembly_path = all_assemblies[assembly_params["type"]]
 	var/obj/item/device/electronic_assembly/assembly = cached_assemblies[assembly_path]
 	if(!assembly)
@@ -283,7 +303,6 @@
 	if(error)
 		return error
 
-
 	// Read space & complexity limits and start keeping track of them
 	blocks["complexity"] = 0
 	blocks["max_complexity"] = assembly.max_complexity
@@ -293,14 +312,19 @@
 	// Start keeping track of total metal cost
 	blocks["cost"] = assembly.matter.Copy()
 
+	// Add the assembly info back
+	blocks["assembly"] = assembly_params
 
 	// Block 2. Components.
-	if(!islist(blocks["components"]) || !length(blocks["components"]))
+	if(!islist(components_info) || !length(components_info))
 		return "Invalid components list."	// No components or damaged components list
 
 	var/list/contents = list()
-	for(var/C in blocks["components"])
-		var/list/component_params = C
+	blocks["components"] = list()
+	for(var/C in components_info)
+		if(length(C) > IC_MAX_COMPONENT_LEN)
+			return "Malformed component info."
+		var/list/component_params = json_decode(C)
 
 		if(!islist(component_params) || !length(component_params))
 			return "Invalid component data."
@@ -322,6 +346,15 @@
 		// Update estimated assembly complexity, taken space and material cost
 		blocks["complexity"] += component.complexity
 		blocks["used_space"] += component.size
+
+		// NOTE: There are _currently_ no components that reduce complexity or used_space
+		// So the check is taken here
+		// Check complexity and space limitations
+		if(blocks["used_space"] > blocks["max_space"])
+			return "Used space overflow."
+		if(blocks["complexity"] > blocks["max_complexity"])
+			return "Complexity overflow."
+
 		for(var/material in component.matter)
 			blocks["cost"][material] += component.matter[material]
 
@@ -333,27 +366,27 @@
 		if((component.action_flags & assembly.allowed_circuit_action_flags) != component.action_flags)
 			blocks["unsupported_circuit"] = TRUE
 
-
-	// Check complexity and space limitations
-	if(blocks["used_space"] > blocks["max_space"])
-		return "Used space overflow."
-	if(blocks["complexity"] > blocks["max_complexity"])
-		return "Complexity overflow."
+		blocks["components"].Add(list(component_params))
 
 
 	// Block 3. Wires.
-	if(blocks["wires"])
-		if(!islist(blocks["wires"]))
+	if(wires_info)
+		if(!islist(wires_info))
 			return "Invalid wiring list."	// Damaged wires list
 
-		for(var/w in blocks["wires"])
-			var/list/wire = w
+		blocks["wires"] = list()
+
+		for(var/w in wires_info)
+			if(length(w) > IC_MAX_WIRE_LEN)
+				return "Malformed wire tuple."
+			var/list/wire = json_decode(w)
+			blocks["wires"].Add(list(wire))
 
 			if(!islist(wire) || wire.len != 2)
 				return "Invalid wire data list."
 
-			var/datum/integrated_io/IO = assembly.get_pin_ref_list(wire[1], contents)
-			var/datum/integrated_io/IO2 = assembly.get_pin_ref_list(wire[2], contents)
+			var/datum/integrated_io/IO = assembly.get_pin_ref_list(wire["x"], contents)
+			var/datum/integrated_io/IO2 = assembly.get_pin_ref_list(wire["y"], contents)
 			if(!IO || !IO2)
 				return "Invalid wire data."
 
@@ -387,11 +420,11 @@
 	if(blocks["wires"])
 		for(var/w in blocks["wires"])
 			var/list/wire = w
-			var/datum/integrated_io/IO = assembly.get_pin_ref_list(wire[1])
-			var/datum/integrated_io/IO2 = assembly.get_pin_ref_list(wire[2])
+			var/datum/integrated_io/IO = assembly.get_pin_ref_list(wire["x"])
+			var/datum/integrated_io/IO2 = assembly.get_pin_ref_list(wire["y"])
 			IO.connect_pin(IO2)
 
 	assembly.forceMove(loc)
 	assembly.post_load()
 	return assembly
-
+	

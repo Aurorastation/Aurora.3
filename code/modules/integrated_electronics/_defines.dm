@@ -53,3 +53,4 @@
 
 // Data limits.
 #define IC_MAX_LIST_LENGTH 200
+#define IC_MAX_MEMORY_LEN (MAX_MESSAGE_LEN / 4)

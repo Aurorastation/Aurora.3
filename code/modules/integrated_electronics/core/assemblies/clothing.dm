@@ -25,7 +25,7 @@
 		// Might be a good idea to save the description as well, but that would be too big
 		// Also, if someon's planning to mass-produce completely customized items, then they stop being unique
 		if(custom_name != initial(clothing.name))
-			out["name"] = sanitize(clothing.name)
+			out["name"] = sanitizeName(clothing.name)
 		return out
 	return null
 
@@ -36,7 +36,7 @@
 		if(cloth_path)
 			var/obj/item/clothing/cloth = new cloth_path(null)
 			if(special_data["name"])
-				cloth.name = sanitize(special_data["name"])
+				cloth.name = sanitizeName(special_data["name"])
 
 			// Replace old IC
 			QDEL_NULL(cloth.IC)

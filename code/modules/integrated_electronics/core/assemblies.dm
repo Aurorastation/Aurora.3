@@ -64,7 +64,7 @@
 		var/out = list("type" = initial(implant.name))
 		var/custom_name = implant.name
 		if(custom_name != initial(implant.name))
-			out["name"] = sanitize(implant.name)
+			out["name"] = sanitizeName(implant.name)
 		return out
 	return null
 
@@ -73,7 +73,7 @@
 		var/implant_path = SSelectronics.special_paths[special_data["type"]]
 		var/obj/item/implant/integrated_circuit/new_implant = new implant_path(get_turf(loc))
 		if(special_data["name"])
-			new_implant.name = sanitize(special_data["name"])
+			new_implant.name = sanitizeName(special_data["name"])
 
 		// Remove old IC
 		QDEL_NULL(new_implant.IC)

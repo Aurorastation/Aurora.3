@@ -1,5 +1,4 @@
 #define MAX_CIRCUIT_CLONE_TIME 3 MINUTES //circuit slow-clones can only take up this amount of time to complete
-
 /obj/item/device/integrated_circuit_printer
 	name = "integrated circuit printer"
 	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
@@ -147,6 +146,18 @@
 
 	ui.open()
 
+/obj/item/device/integrated_circuit_printer/proc/open_loading(mob/user, var/datum/vueui/ui)
+	if(!(in_range(src, user) || issilicon(user)))
+		return
+
+	if(!ui)
+		ui = new(user, src, "circuits-loading", 800, 630, "Integrated Circuit Loading")
+	else
+		ui.activeui = "circuits-loading"
+		// Not much reason to clean the data here, I think
+
+	ui.open()
+
 /obj/item/device/integrated_circuit_printer/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	if(!data)
 		. = data = list()
@@ -201,6 +212,15 @@
 	if(href_list["category"])
 		current_category = href_list["category"]
 
+	if(href_list["mainMenu"])
+		if(ui.activeui != "circuits-printer")
+			ui.activeui = "circuits-printer"
+
+	// Some error happened in the loading code
+	if(href_list["uiError"])
+		var/error = href_list["uiError"]
+		to_chat(usr, "<span class='warning'>Error: [error]</span>")
+
 	if(href_list["build"])
 		var/build_type = locate(href_list["build"])
 		if(!build_type || !ispath(build_type))
@@ -251,17 +271,46 @@
 			to_chat(usr, "<span class='warning'>This printer does not have the cloning upgrade.</span>")
 			return
 		switch(href_list["print"])
+			if("open-loading")
+				if(cloning)
+					return
+				open_loading(usr, ui)
 			if("load")
+				var/assembly_info = href_list["assembly"]
+				var/list/components_info = href_list["components"]
+				var/list/wires_info = href_list["wires"]
+				/*usr << "TESTING"
+				if(isnull(assembly_info))
+					usr << "ASSEMBLY IS NULL!"
+				usr << href_list["assembly"]
+				if(isnull(components_info))
+					usr << "COMPONENTS IS NULL!"
+				else if(islist(components_info))
+					usr << "COMPONENT LIST!"
+					for (var/i = 1 to components_info.len)
+						usr << components_info[i]
+				usr << href_list["components"]
+				if(isnull(wires_info))
+					usr << "WIRES IS NULL!"
+				else if(islist(wires_info))
+					usr << "WIRES IS LIST!"
+					for (var/i = 1 to wires_info.len)
+						if(islist(wires_info[i]))
+							usr << "WIRE LIST IS LIST"
+							for (var/j = 1 to wires_info[i].len)
+								usr << wires_info[i][j]
+						else
+							usr << wires_info[i]
+				usr << href_list["wires"]
+				*/
+
 				if(cloning)
 					return
-				var/input = input(usr, "Put your code there:", "loading", null) as message
-				if(cloning)
-					return
-				if(!input)
+				if(isnull(assembly_info) && isnull(components_info) && isnull(wires_info))
 					program = null
 					return
 
-				var/validation = SSelectronics.validate_electronic_assembly(input)
+				var/validation = SSelectronics.validate_electronic_assembly(assembly_info, components_info, wires_info)
 
 				// Validation error codes are returned as text.
 				if(istext(validation))

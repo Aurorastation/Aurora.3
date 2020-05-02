@@ -20,7 +20,7 @@
     <hr>
 
     Here you can load script for your assembly.<br>
-    <vui-button :params="{ print: 'load' }" icon="folder-open" :disabled="cloning != 0">Load Program</vui-button>
+    <vui-button :params="{ print: 'open-loading' }" icon="folder-open" :disabled="cloning != 0">Load Program</vui-button>
     <vui-button :params="{ print: 'print' }" icon="print" :disabled="program == null" push-state v-if="!cloning">{{fast_clone ? "Print" : "Begin Printing"}}</vui-button>
     <vui-button :params="{ print: 'cancel' }" icon="close" push-state v-else>Cancel Print</vui-button>
 
