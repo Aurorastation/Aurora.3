@@ -243,12 +243,11 @@
 			if(mod.gun_overlay)
 				A.underlays += mod.gun_overlay
 	A.forceMove(an)
-	an.gun = A
+	an.item = A
 	A.updatetype()
 	A.pin = null
 	gun_mods = null
 	focusing_lens = null
 	capacitor = null
-	an.assembly = null
 	qdel(src)
 	return TRUE

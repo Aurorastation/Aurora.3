@@ -8,9 +8,7 @@
 	idle_power_usage = 60
 	active_power_usage = 2000
 
-	var/obj/item/gun/gun = null
 	var/obj/item/item = null
-	var/obj/item/device/laser_assembly/assembly = null
 	var/process = FALSE
 
 	component_types = list(
@@ -21,10 +19,8 @@
 
 /obj/machinery/weapons_analyzer/examine(mob/user)
 	..()
-	var/name_of_thing
-	if(gun)
-		name_of_thing = gun.name
-	else if(item)
+	var/name_of_thing = ""
+	if(item)
 		name_of_thing = item.name
 	to_chat(user, span("notice", "It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
 
@@ -39,7 +35,7 @@
 		if(!check_gun(user))
 			return
 
-		gun = I
+		item = I
 
 		H.drop_from_inventory(I)
 		I.forceMove(src)
@@ -50,19 +46,20 @@
 
 		var/obj/item/device/laser_assembly/A = I
 		A.ready_to_craft = TRUE
-		assembly = A
+		item = A
 		H.drop_from_inventory(I)
 		I.forceMove(src)
 		A.analyzer = WEAKREF(src)
 		update_icon()
-	else if(istype(I, /obj/item/laser_components))
-		if(!assembly)
+	else if(istype(I, /obj/item/laser_components) && istype(item, /obj/item/device/laser_assembly))
+		if(!item)
 			to_chat(user, span("warning", "\The [src] does not have any assembly installed!"))
 			return
 		if(process)
 			to_chat(user, span("warning", "\The [src] is busy installing component!"))
 			return
-		var/success = assembly.attackby(I, user)
+		var/obj/item/device/laser_assembly/A = item
+		var/success = A.attackby(I, user)
 		if(!success)
 			return
 		message_admins("success: [success]")
@@ -89,16 +86,9 @@
 	update_icon()
 
 /obj/machinery/weapons_analyzer/proc/check_gun(var/mob/user)
-	if(gun)
-		to_chat(user, span("warning", "\The [src] already has \the [gun] mounted. Remove it first."))
-		return FALSE
-	if(assembly)
-		to_chat(user, span("warning", "\The [src] already has \the [assembly] mounted. Remove it first."))
-		return FALSE
 	if(item)
 		to_chat(user, span("warning", "\The [src] already has \the [item] mounted. Remove it first."))
 		return FALSE
-
 	return TRUE
 
 /obj/machinery/weapons_analyzer/verb/eject()
@@ -106,12 +96,15 @@
 	set category = "Object"
 	set src in view(1)
 
-	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))
+	if(use_check_and_message(usr))
 		return
 	
-	if(gun)
-		gun.forceMove(usr.loc)
-		gun = null
+	if(istype(item, /obj/item/device/laser_assembly))
+		var/obj/item/device/laser_assembly/A = item
+		A.ready_to_craft = FALSE
+		A.analyzer = null
+		A.forceMove(usr.loc)
+		item = null
 		update_icon()
 
 	else if(item)
@@ -119,12 +112,6 @@
 		item = null
 		update_icon()
 
-	else if(assembly)
-		assembly.ready_to_craft = FALSE
-		assembly.analyzer = null
-		assembly.forceMove(usr.loc)
-		assembly = null
-		update_icon()
 	else
 		to_chat(usr, span("warning", "There is nothing in \the [src]."))
 
@@ -134,15 +121,11 @@
 
 	var/icon/Icon_used
 
-	if(gun)
-		gun.update_icon()
-		icon_state = "[icon_state]_on"
-		Icon_used = new /icon(gun.icon, gun.icon_state)
-
-	else if(assembly)
-		assembly.update_icon()
+	if(istype(item, /obj/item/device/laser_assembly))
+		var/obj/item/device/laser_assembly/A = item
+		A.update_icon()
 		icon_state = process ?  "[icon_state]_working" : "[icon_state]_on"
-		Icon_used = new /icon(assembly.icon, assembly.icon_state)
+		Icon_used = new /icon(item.icon, item.icon_state)
 	else if(item)
 		icon_state = "[icon_state]_on"
 		Icon_used = new /icon(item.icon, item.icon_state)
@@ -164,25 +147,8 @@
 	data["gun"] = FALSE
 	data["damage_type"] = "none"
 
-	if(item)
-		data["name"] = item.name
-		data["item"] = TRUE
-		data["force"] = item.force
-		data["sharp"] = item.sharp ? "yes" : "no"
-		data["edge"] = item.edge ? "likely to dismember" : "unlikely to dismember"
-		data["penetration"] = item.armor_penetration
-		data["throw_force"] = item.throwforce
-		data["damage_type"] = item.damtype
-		if(istype(item, /obj/item/melee/energy))
-			data["energy"] = TRUE
-			var/obj/item/melee/energy/E_item = item
-			data["active_force"] = E_item.active_force
-			data["active_throw_force"] = E_item.active_throwforce
-			data["can_block"] = E_item.can_block_bullets ? "can block" : "cannot block"
-			data["base_reflectchance"] = E_item.base_reflectchance
-			data["base_block_chance"] = E_item.base_block_chance
-			data["shield_power"] = E_item.shield_power
-	else if(assembly)
+	if(istype(item, /obj/item/device/laser_assembly))
+		var/obj/item/device/laser_assembly/assembly = item
 		data["name"] = assembly.name
 		var/list/mods = list()
 		data["gun_mods"] = mods
@@ -197,8 +163,9 @@
 					"shots modifier" = initial(l_component.shots), "burst modifier" = initial(l_component.burst), "accuracy modifier" = initial(l_component.accuracy), "repair tool" = l_repair_name
 				)
 		data["gun_mods"] = mods
-
-	else if(gun)
+	
+	else if(istype(item, /obj/item/gun))
+		var/obj/item/gun/gun = item
 		data["name"] = gun.name
 		data["gun"] = TRUE
 		data["max_shots"] = 0
@@ -257,25 +224,37 @@
 		data["burst"] = gun.burst
 		data["reliability"] = gun.reliability
 
+	else if(item)
+		data["name"] = item.name
+		data["item"] = TRUE
+		data["force"] = item.force
+		data["sharp"] = item.sharp ? "yes" : "no"
+		data["edge"] = item.edge ? "likely to dismember" : "unlikely to dismember"
+		data["penetration"] = item.armor_penetration
+		data["throw_force"] = item.throwforce
+		data["damage_type"] = item.damtype
+		if(istype(item, /obj/item/melee/energy))
+			data["energy"] = TRUE
+			var/obj/item/melee/energy/E_item = item
+			data["active_force"] = E_item.active_force
+			data["active_throw_force"] = E_item.active_throwforce
+			data["can_block"] = E_item.can_block_bullets ? "can block" : "cannot block"
+			data["base_reflectchance"] = E_item.base_reflectchance
+			data["base_block_chance"] = E_item.base_block_chance
+			data["shield_power"] = E_item.shield_power
+
 /obj/machinery/weapons_analyzer/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	var/height = (gun || assembly || item) ? 600: 300
-	var/width = 300
-	if(istype(gun, /obj/item/gun/energy/laser/prototype) || assembly)
+	var/height = item ? 600: 300
+	var/width = item ? 400 : 300
+	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/device/laser_assembly))
 		width = 600
-	else if (item)
-		width = 400
 
 	if (!ui)
 		ui = new(user, src, "wanalyzer-analyzer", width, height, capitalize(name))
 
 	var/icon/Icon_used
-	if(gun)
-		Icon_used = new /icon(gun.icon, gun.icon_state)
-
-	else if(assembly)
-		Icon_used = new /icon(assembly.icon, assembly.icon_state)
-	else if(item)
+	if(item)
 		Icon_used = new /icon(item.icon, item.icon_state)
 	ui.add_asset("icon", Icon_used) 
 	ui.send_asset("icon")
