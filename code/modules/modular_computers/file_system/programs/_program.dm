@@ -1,7 +1,7 @@
 /obj/item/modular_computer/initial_data()
 	return list("_PC" = get_header_data())
 
-/datum/nano_module/program/initial_data()
+/datum/computer_file/program/initial_data()
 	return list("_PC" = get_header_data())
 
 /obj/item/modular_computer/update_layout()
