@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Nerfs the effectiveness of light fixtures in order to contribute to a more tense atmosphere, this also aids stealth-based antagonists that struggled to make use of darkness before."
+  - balance: "Lighting from light fixtures is much softer, making it notably harder to see details now."
