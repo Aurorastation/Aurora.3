@@ -241,7 +241,7 @@
 		data += reason
 		data += "</center>"
 
-		show_browser(src, data, "jobban_reason")
+		show_browser(src, data, "window=jobban_reason;size=400x300")
 		return
 
 	..()	//redirect to hsrc.()
