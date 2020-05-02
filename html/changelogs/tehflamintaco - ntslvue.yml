@@ -1,0 +1,7 @@
+author: Teh Flamin' Taco
+
+delete-after: True
+
+changes: 
+  - tweak: "NTSL2+'s Interpreter has been ported to VueUI"
+  - rscadd: "Added a 'command line' to NTSL2+, which hooks into term.topic"
