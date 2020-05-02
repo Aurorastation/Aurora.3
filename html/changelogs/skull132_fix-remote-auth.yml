@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "A bug fixed in remote auth where the HUD setup procs would crash during a reconnect."
