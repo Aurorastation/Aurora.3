@@ -210,11 +210,11 @@ RFD Construction-Class
 		flick("[icon_state]-empty", src)
 		return 0
 
-	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), build_delay, src.mode)
 	playsound(get_turf(src), 'sound/machines/hydraulic_short.ogg', 50, 1)
 
 	working = 1
 	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
+	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), src.build_delay, src.mode)
 
 	if(build_delay && !do_after(user, build_delay))
 		working = 0

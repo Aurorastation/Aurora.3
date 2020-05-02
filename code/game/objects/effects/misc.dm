@@ -46,8 +46,9 @@
 	var/mode = 0
 	var/delay = 0
 
-/obj/effect/constructing_effect/Initialize(mapload, var/obj/item/rfd/construction)
+/obj/effect/constructing_effect/Initialize(mapload, mode, delay)
 	. = ..()
+	var/obj/item/rfd/construction
 	mode = construction.mode
 	delay = construction.build_delay
 	if (mode == 3)
