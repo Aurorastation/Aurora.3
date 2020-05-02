@@ -1,3 +1,4 @@
+#define UIDEBUG
 /datum/computer_file/program/ntsl2_interpreter
 	filename = "ntslinterpreter"
 	filedesc = "NTSL2+ Interpreter"
@@ -117,6 +118,14 @@
 		SSvueui.check_uis_for_change(src)
 	
 	if(href_list["refresh"])
+		SSvueui.check_uis_for_change(src)
+		. = TRUE
+
+	if(href_list["commandLineInput"])
+		if(istype(running))
+			var/content = "cmd?" + href_list["commandLineInput"]
+			running.topic(content)
+			running.cycle(5000)
 		SSvueui.check_uis_for_change(src)
 		. = TRUE
 

@@ -4,7 +4,8 @@
     <h2>{{running_name}}</h2>
     <div class="item">
       <div class="itemContent" style="width: 100%; font-family: monospace; line-height:8pt; font-size:8pt; text-align:center;">
-        <span id="ntsl_terminalbody" v-html="terminal"/>
+        <span id="ntsl_terminalbody" v-html="terminal"/><br>
+        <input id="ntsl_commandline" v-on:keyup.enter="commandLine()">
       </div>
     </div>
   </div>
@@ -27,10 +28,39 @@
   }
 }
 </style>
+<style lang="scss" scoped>
+input#hiddenButton {
+  width:0px;
+  height:0px;
+  padding:0px;
+  border:0px;
+  margin:0px;
+}
+input#ntsl_commandline {
+  width: 307pt;
+  background-color: #000;
+  margin: 2pt 0pt 0pt 0pt;
+  color: #fff;
+  border: none;
+  padding: 0 0 0 0;
+  font-size: 8pt;
+  font-family: monospace;
+}
+
+</style>
 <script>
+import Utils from "../../../../../utils.js";
 export default {
   data() {
     return this.$root.$data.state
+  },
+  methods: {
+    commandLine() {
+      var cmd = document.getElementById("ntsl_commandline")
+      Utils.sendToTopic({commandLineInput: cmd.value})
+      cmd.value = ""
+      cmd.select()
+    }
   },
   watch: {
     last_update(newVal, oldVal){
@@ -38,6 +68,7 @@ export default {
         var blok = document.getElementById("ntsl_terminalbody")
         if(blok){
           blok.innerHTML = this.terminal;
+
         }
       }
     }
