@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: true
+
+changes:
+  - bugfix: "Fixes a roughly 6+ year old bug where showering doesn't immediately update your mob's icon."
