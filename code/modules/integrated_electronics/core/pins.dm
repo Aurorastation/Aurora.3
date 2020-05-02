@@ -178,9 +178,9 @@ D [1]/  ||
 	switch(type_to_use)
 		if("string")
 			var/input_text = input(user, "Now type in a string.", "[src] string writing", istext(default) ? default : null) as null|text
-			new_data = sanitize(input_text, trim = 0)
+			new_data = sanitize(input_text, IC_MAX_MEMORY_LEN, trim = FALSE)
 			if(istext(new_data) && holder.check_interactivity(user) )
-				to_chat(user, "<span class='notice'>You input "+new_data+" into the pin.</span>")
+				to_chat(user, "<span class='notice'>You input " + new_data + " into the pin.</span>")
 				return new_data
 		if("number")
 			new_data = input("Now type in a number.","[src] number writing", isnum(default) ? default : null) as null|num

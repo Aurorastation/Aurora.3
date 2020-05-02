@@ -85,7 +85,7 @@
 	ask_input = TRUE
 
 /obj/item/integrated_circuit/input/textpad/ask_for_input(mob/user)
-	var/new_input = sanitize(input(user, "Enter some words, please.","Number pad") as null|text, IC_MAX_MEMORY_LEN, 1, 0, 1)
+	var/new_input = sanitize(input(user, "Enter some words, please.","Text pad") as null|text, IC_MAX_MEMORY_LEN, 1, 0, 1)
 	if(istext(new_input) && assembly.check_interactivity(user))
 		set_pin_data(IC_OUTPUT, 1, new_input)
 		push_data()

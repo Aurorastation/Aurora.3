@@ -4,14 +4,14 @@
 
 /datum/integrated_io/string/ask_for_pin_data(mob/user)
 	var/new_data = input(user, "Please type in a string.", "[src] string writing")
-	new_data = sanitize(new_data)
+	new_data = sanitize(new_data, IC_MAX_MEMORY_LEN)
 	if(holder.check_interactivity(user) )
 		to_chat(user, "<span class='notice'>You input [new_data ? "[new_data]" : "NULL"] into the pin.</span>")
 		write_data_to_pin(new_data)
 
 /datum/integrated_io/string/write_data_to_pin(var/new_data)
 	if(isnull(new_data) || istext(new_data))
-		data = new_data
+		data = sanitize(new_data, IC_MAX_MEMORY_LEN)
 		holder.on_data_written()
 
 // This makes the text go "from this" to "#G&*!HD$%L"

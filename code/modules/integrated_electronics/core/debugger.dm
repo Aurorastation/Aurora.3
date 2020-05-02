@@ -20,7 +20,7 @@
 			accepting_refs = FALSE
 			//new_data = user.get_input("Now type in a string", "[src] string writing", null, MOB_INPUT_TEXT, src)
 			new_data = input(user, "Now type in a string", "[src] string writing", null) as null|text
-			new_data = sanitize(new_data,trim = 0)
+			new_data = sanitize(new_data, IC_MAX_MEMORY_LEN, trim = FALSE)
 			if(istext(new_data) && user.IsAdvancedToolUser())
 				data_to_write = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to \"[new_data]\".</span>")
