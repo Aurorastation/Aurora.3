@@ -10648,12 +10648,12 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aCQ" = (
-/turf/unsimulated/floor/plating,
-/turf/simulated/wall/shuttle/unique/transfer{
+/obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "4,22";
 	name = "transport shuttle"
 	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "aCR" = (
 /turf/unsimulated/wall/fakepdoor{
@@ -15042,16 +15042,18 @@
 /turf/space,
 /area/skipjack_station/start)
 "aNh" = (
-/obj/structure/window/shuttle/unique/raider{
+/obj/structure/shuttle_part/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "9,16";
-	name = "skipjack cockpit"
+	name = "Skipjack"
 	},
 /turf/space,
 /area/skipjack_station/start)
 "aNi" = (
-/obj/structure/window/shuttle/unique/raider{
+/obj/structure/shuttle_part/raider{
+	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
 	icon_state = "12,16";
-	name = "skipjack cockpit"
+	name = "Skipjack"
 	},
 /turf/space,
 /area/skipjack_station/start)
@@ -15185,7 +15187,7 @@
 	icon_state = "9,15";
 	name = "skipjack cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "aNA" = (
 /obj/structure/table/standard,
@@ -15213,7 +15215,7 @@
 	icon_state = "12,15";
 	name = "skipjack cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "aND" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -15310,7 +15312,7 @@
 	icon_state = "9,14";
 	name = "skipjack cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "aNR" = (
 /obj/structure/table/standard,
@@ -15329,7 +15331,7 @@
 	icon_state = "12,14";
 	name = "skipjack cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "aNT" = (
 /obj/machinery/meter,
@@ -33154,7 +33156,7 @@
 	icon_state = "10,16";
 	name = "skipjack cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "rSM" = (
 /obj/structure/shuttle_part/transfer{
@@ -33778,7 +33780,7 @@
 	icon_state = "12,13";
 	name = "skipjack cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "sMK" = (
 /obj/structure/sign/pods{
@@ -34786,12 +34788,12 @@
 /turf/space,
 /area/skipjack_station/start)
 "tWH" = (
-/turf/unsimulated/floor/plating,
-/turf/simulated/wall/shuttle/unique/transfer{
+/obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "10,22";
 	name = "transport shuttle"
 	},
+/turf/unsimulated/floor/plating,
 /area/shuttle/escape/centcom)
 "tXm" = (
 /obj/structure/shuttle_part/arrivals{
@@ -35295,7 +35297,7 @@
 	icon_state = "9,13";
 	name = "skipjack cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "uHS" = (
 /obj/structure/window/shuttle/unique/merchant{
@@ -36583,7 +36585,7 @@
 	icon_state = "11,16";
 	name = "skipjack cockpit"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/skipjack_station/start)
 "wdn" = (
 /obj/structure/shuttle_part/hapt{
