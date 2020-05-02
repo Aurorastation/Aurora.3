@@ -305,6 +305,7 @@
 		return FALSE
 
 /mob/living/silicon/robot/self_destruct()
+	to_chat(src, SPAN_WARNING("WARNING: Self-destruct activated."))
 	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
 	addtimer(CALLBACK(src, .proc/gib), 20, TIMER_UNIQUE)
 	density = FALSE

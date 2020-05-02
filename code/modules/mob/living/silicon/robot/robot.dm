@@ -1019,6 +1019,7 @@
 		return
 
 /mob/living/silicon/robot/proc/self_destruct()
+	to_chat(src, SPAN_WARNING("WARNING: Self-destruct activated."))
 	lock_charge = TRUE
 	update_canmove()
 

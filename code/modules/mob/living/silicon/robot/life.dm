@@ -328,7 +328,7 @@
 		return
 	if (check_allowed_area())
 		if (detonate)
-			to_chat(src, SPAN_WARNING("WARNING: Failure to comply. Self-destruct engaged.")) //bruh
+			to_chat(src, SPAN_WARNING("WARNING: Failure to comply. Anti-theft measures engaged.")) //bruh
 			self_destruct()
 		else if (detonate_timer) //Already outside
 			return

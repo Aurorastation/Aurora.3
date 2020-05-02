@@ -71,9 +71,8 @@
 		else
 			message_admins("[key_name_admin(usr)] detonated [target.name]!")
 			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
-			to_chat(target, "<span class='danger'>Self-destruct command received.</span>")
-			spawn(10)
-				target.self_destruct()
+			to_chat(target, SPAN_WARNING("WARNING: Self-destruct command recieved. Unit [target] will self destruct in ten seconds."))
+			addtimer(CALLBACK(target, /mob/living/silicon/robot/.proc/self_destruct), 10 SECONDS, TIMER_UNIQUE)
 
 
 
@@ -158,13 +157,10 @@
 			if(istype(R, /mob/living/silicon/robot/drone))
 				continue
 			// Ignore antagonistic cyborgs
-			if(R.scrambled_codes)
+			if(R.scrambled_codes || R.emagged)
 				continue
-			if(R.emagged)
-				continue
-			to_chat(R, "<span class='danger'>Self-destruct command received.</span>")
-			spawn(10)
-				R.self_destruct()
+			to_chat(R, SPAN_WARNING("WARNING: Self-destruct command recieved. Unit [R] will self destruct in ten seconds."))
+			addtimer(CALLBACK(R, /mob/living/silicon/robot/.proc/self_destruct), 10 SECONDS, TIMER_UNIQUE)
 
 
 // Proc: get_cyborgs()
