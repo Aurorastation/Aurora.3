@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - rscadd: "Guns now throwing casings around when fired."
+  - rscadd: "Guns now throws casings around when fired."
