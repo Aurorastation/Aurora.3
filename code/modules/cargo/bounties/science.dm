@@ -77,6 +77,6 @@
 	if(!..())
 		return FALSE
 	var/datum/bounty/item/other_item_bounty = other_bounty
-	if(other_bounty && /obj/item/robot_parts/robot_suit in other_item_bounty.wanted_types)
+	if(other_bounty && (/obj/item/robot_parts/robot_suit in other_item_bounty.wanted_types))
 		return FALSE
 	return TRUE

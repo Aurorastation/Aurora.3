@@ -299,4 +299,5 @@
 	if(isprox(D))
 		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return
-	 ..()
+
+	..()

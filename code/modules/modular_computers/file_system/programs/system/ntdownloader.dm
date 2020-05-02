@@ -204,7 +204,7 @@
 			// Only those programs our user can run will show in the list
 			if(!P.can_download(user) && P.requires_access_to_download)
 				continue
-			
+
 			if(!P.is_supported_by_hardware(program.computer.hardware_flag))
 				continue
 
