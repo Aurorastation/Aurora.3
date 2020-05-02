@@ -358,9 +358,10 @@
 		return m
 		//Do auth shit
 	else
+		. = ..()
 		src.InitClient()
 		src.InitPrefs()
-		. = ..()
+		mob.LateLogin()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
