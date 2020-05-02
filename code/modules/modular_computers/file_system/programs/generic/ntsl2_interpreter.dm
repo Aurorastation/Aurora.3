@@ -1,4 +1,3 @@
-#define UIDEBUG
 /datum/computer_file/program/ntsl2_interpreter
 	filename = "ntslinterpreter"
 	filedesc = "NTSL2+ Interpreter"
