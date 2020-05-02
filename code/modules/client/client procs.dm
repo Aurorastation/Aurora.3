@@ -350,11 +350,11 @@
 			return 0
 
 	if(IsGuestKey(key) && config.external_auth)
-		//src.real_mob = ..()
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
 		m.client = src
 		src.InitPrefs() //Init some default prefs
+		m.LateLogin()
 		return m
 		//Do auth shit
 	else

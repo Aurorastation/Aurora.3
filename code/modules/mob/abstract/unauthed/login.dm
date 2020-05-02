@@ -9,6 +9,8 @@
 	verbs -= typesof(/mob/verb)
 
 /mob/abstract/unauthed/LateLogin()
+	SHOULD_CALL_PARENT(FALSE)
+
 	update_Login_details()
 	to_chat(src, "<span class='danger'><b>You need to authenticate before you can continue.</b></span>")
 	token = md5("[client.ckey][client.computer_id][world.time][rand()]")
