@@ -27,24 +27,26 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_player_panel_proc()
 
 /mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B>New Player Options</B><br>"
+	var/output = "<div align='center'><B>Welcome to [station_name()]!</B><br>"
 	var/character_name = client.prefs.real_name
 	if(character_name)
-		output += "<b>Selected Character: [character_name]</b>"
-	output +="<hr>"
-	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
+		output += "<i>You will board as <b>[character_name]</b>.</i>"
+	if(ROUND_IS_STARTED)
+		output += "<a href='byond://?src=\ref[src];late_join=1'>Join the Game!</A>"
+
+	output +="<br><hr>"
+	output += "<a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A> "
 
 	if(!ROUND_IS_STARTED)
 		if(ready)
-			output += "<br><br><p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
+			output += "<a href='byond://?src=\ref[src];ready=0'>Un-Ready</a> "
 		else
-			output += "<br><br><p>\[ <a href='byond://?src=\ref[src];ready=1'>Ready</a> | <b>Not Ready</b> \]</p>"
+			output += "<a href='byond://?src=\ref[src];ready=1'>Ready Up</a> "
 
 	else
-		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><br><br>"
-		output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</A></p>"
+		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A> "
 
-	output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
+	output += "<a href='byond://?src=\ref[src];observe=1'>Observe</A> "
 
 	if(!IsGuestKey(src.key))
 		establish_db_connection(dbcon)
@@ -61,13 +63,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				break
 
 			if(newpoll)
-				output += "<p><b><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
+				output += "<b><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> (NEW!)</b>"
 			else
-				output += "<p><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A></p>"
+				output += "a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A>"
 
 	output += "</div>"
 	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, output),"window=playersetup;size=310x350;can_close=0")
+	src << browse(enable_ui_theme(src, output),"window=playersetup;size=580x280;can_close=0")
 
 /mob/abstract/new_player/Stat()
 	..()

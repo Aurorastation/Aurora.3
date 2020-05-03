@@ -242,7 +242,7 @@ datum/preferences
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
 	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=preferences;size=800x800")
+	user << browse(enable_ui_theme(user, dat), "window=preferences;size=1200x800")
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
