@@ -13,9 +13,6 @@
 	new /obj/item/clothing/head/helmet/space/cult(get_turf(src))
 	..()
 
-/obj/item/clothing/head/culthood/alt
-	icon_state = "cult_hoodalt"
-
 /obj/item/clothing/suit/cultrobes
 	name = "ragged robes"
 	desc = "A ragged, dusty set of robes."
@@ -30,7 +27,3 @@
 /obj/item/clothing/suit/cultrobes/cultify()
 	new /obj/item/clothing/suit/space/cult(get_turf(src))
 	..()
-
-/obj/item/clothing/suit/cultrobes/alt
-	icon_state = "cultrobesalt"
-	item_state = "cultrobesalt"
