@@ -85,7 +85,10 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 			landmarks_still_needed -= shuttle_landmark_tag
 		else if(istype(shuttle_landmark, /obj/effect/shuttle_landmark/automatic)) //These find their sector automatically
 			O = map_sectors["[shuttle_landmark.z]"]
-			O ? O.add_landmark(shuttle_landmark, shuttle_landmark.shuttle_restricted) : (landmarks_awaiting_sector += shuttle_landmark)
+			if(O)
+				O.add_landmark(shuttle_landmark, shuttle_landmark.shuttle_restricted)
+			else
+				landmarks_awaiting_sector += shuttle_landmark
 
 /datum/controller/subsystem/processing/shuttle/proc/get_landmark(var/shuttle_landmark_tag)
 	return registered_shuttle_landmarks[shuttle_landmark_tag]

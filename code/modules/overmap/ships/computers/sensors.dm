@@ -6,7 +6,8 @@
 	var/obj/machinery/shipsensors/sensors
 
 /obj/machinery/computer/ship/sensors/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
-	if(!(. = ..()))
+	. = ..()
+	if(!.)
 		return
 	find_sensors()
 
