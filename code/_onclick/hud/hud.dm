@@ -359,10 +359,3 @@ datum/hud/New(mob/owner)
 	hud_used.hidden_inventory_update()
 	hud_used.persistant_inventory_update()
 	update_action_buttons()
-
-/obj/screen/stamina
-	name = "stamina"
-	icon = 'icons/effects/progressbar.dmi'
-	icon_state = "prog_bar_100"
-	invisibility = INVISIBILITY_MAXIMUM
-	screen_loc = ui_stamina

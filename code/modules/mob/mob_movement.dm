@@ -287,7 +287,7 @@
 		var/tally = mob.movement_delay()
 		var/mob_is_human = ishuman(mob) //Calculate this once to reuse it later.
 
-		if(MOVING_QUICKLY(mob))
+		if(MOVING_QUICKLY(mob) && H.species.handle_sprint_cost(H, tally))
 			if(mob_is_human)
 				var/mob/living/carbon/human/H = mob
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier

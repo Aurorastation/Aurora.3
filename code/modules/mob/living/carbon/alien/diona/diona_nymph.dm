@@ -75,8 +75,11 @@
 
 /mob/living/carbon/alien/diona/movement_delay()
 	. = ..()
-	if(MOVING_DELIBERATELY(src))
+	if(MOVING_QUICKLY(src))
+		species.handle_sprint_cost(src, . + config.walk_speed)
+	else if(MOVING_DELIBERATELY(src))
 		. += 3
+	
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if(life_tick < 4)
