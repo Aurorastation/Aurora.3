@@ -227,6 +227,7 @@
 	for(var/c in assembly.assembly_components)
 		var/obj/item/integrated_circuit/component = c
 		components.Add(list(component.save()))
+		CHECK_TICK
 	blocks["components"] = components
 
 
@@ -260,6 +261,9 @@
 				saved_wires.Add(text_params + "=" + text_params2)
 				// The wires are saved as tuples, so they can be sent over the loading UI
 				wires.Add(list(list("x" = params, "y" = params2)))
+
+				// There MIGHT be a lot of processing, so let's just slow it down if need be
+				CHECK_TICK
 
 	if(wires.len)
 		blocks["wires"] = wires
@@ -368,6 +372,10 @@
 
 		blocks["components"].Add(list(component_params))
 
+		// Not sure if this is needed here, since we don't have much processing/many items.
+		// Better safe than sorry.
+		CHECK_TICK
+
 
 	// Block 3. Wires.
 	if(wires_info)
@@ -393,6 +401,8 @@
 			if(initial(IO.io_type) != initial(IO2.io_type))
 				return "Wire type mismatch."
 
+			CHECK_TICK
+
 	return blocks
 
 
@@ -415,6 +425,8 @@
 		assembly.add_component(component)
 		component.load(component_params)
 
+		CHECK_TICK
+
 
 	// Block 3. Wires.
 	if(blocks["wires"])
@@ -423,6 +435,8 @@
 			var/datum/integrated_io/IO = assembly.get_pin_ref_list(wire["x"])
 			var/datum/integrated_io/IO2 = assembly.get_pin_ref_list(wire["y"])
 			IO.connect_pin(IO2)
+
+			CHECK_TICK
 
 	assembly.forceMove(loc)
 	assembly.post_load()
