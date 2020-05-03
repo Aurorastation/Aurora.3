@@ -23,11 +23,12 @@
 
 	//Good/bad chems affecting duration
 	if(chem_effects[CE_HALLUCINATE] < 0)
-		hallucination -= abs(chem_effects[CE_HALLUCINATE])
+		hallucination = max(0, hallucination - abs(chem_effects[CE_HALLUCINATE]))
 	if(chem_effects[CE_HALLUCINATE] > 0 && prob(chem_effects[CE_HALLUCINATE]*20))
 		hallucination += chem_effects[CE_HALLUCINATE]
 
-	if(!hallucination)  //We're done
+	if(hallucination <= 0)  //We're done
+		hallucination = 0
 		return
 	if(!client || stat || world.time < next_hallucination)
 		return

@@ -245,7 +245,7 @@
 	//Continued damage to vital organs can kill you, and robot organs don't count towards total damage so no need to cap them.
 	return (BP_IS_ROBOTIC(src) || brute_dam + burn_dam + additional_damage < max_damage * 4)
 
-/obj/item/organ/external/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list(), damage_flags, var/silent)
+/obj/item/organ/external/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)
 	if((brute <= 0) && (burn <= 0))
 		return 0
 
@@ -253,6 +253,7 @@
 	burn *= burn_mod
 
 	var/laser = (damage_flags & DAM_LASER)
+	var/sharp = (damage_flags & DAM_SHARP)
 	var/blunt = !!(brute && !sharp && !edge)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
@@ -300,7 +301,7 @@
 
 	// High brute damage or sharp objects may damage internal organs
 	if(length(internal_organs))
-		if(damage_internal_organs(brute, burn, sharp, damage_flags))
+		if(damage_internal_organs(brute, burn, damage_flags))
 			var/brute_div = 2 //We want melee weapons to not be affected by this.
 			if(damage_flags & DAM_BULLET)
 				brute_div = 1.25
@@ -315,13 +316,14 @@
 
 	return update_icon()
 
-/obj/item/organ/external/proc/damage_internal_organs(brute, burn, sharp, damage_flags)
+/obj/item/organ/external/proc/damage_internal_organs(brute, burn, damage_flags)
 	if(!length(internal_organs))
 		return FALSE
 
 	var/damage_amt = brute
 	var/cur_damage = brute_dam
 	var/laser = (damage_flags & DAM_LASER)
+	var/sharp = (damage_flags & DAM_SHARP)
 
 	if(laser)
 		damage_amt += burn

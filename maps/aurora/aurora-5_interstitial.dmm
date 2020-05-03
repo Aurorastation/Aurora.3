@@ -657,9 +657,6 @@
 /obj/machinery/anti_bluespace,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/selfdestruct)
-"bt" = (
-/turf/simulated/wall/r_wall,
-/area/crew_quarters/locker/locker_toilet)
 "bu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -894,13 +891,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator)
-"bN" = (
-/obj/structure/lattice,
-/turf/simulated/open,
-/area/crew_quarters/locker/locker_toilet)
-"bO" = (
-/turf/simulated/open,
-/area/crew_quarters/locker/locker_toilet)
 "bP" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -947,9 +937,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
-"bS" = (
-/turf/simulated/floor/plating,
-/area/crew_quarters/locker/locker_toilet)
 "bT" = (
 /turf/simulated/floor/reinforced/airless,
 /area/mine/unexplored)
@@ -46893,13 +46880,13 @@ aa
 aa
 aa
 aa
-bt
-bt
-bt
-bt
-bt
-bt
-bt
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -47150,13 +47137,13 @@ aa
 aa
 aa
 aa
-bt
-bN
-bN
-bN
-bN
-bN
-bt
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -47407,13 +47394,13 @@ aa
 aa
 aa
 aa
-bt
-bO
-bO
-bO
-bO
-bO
-bt
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -47664,13 +47651,13 @@ aa
 aa
 aa
 aa
-bt
-bS
-bS
-bS
-bS
-bS
-bt
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -47921,13 +47908,13 @@ aa
 aa
 aa
 aa
-bt
-bO
-bS
-bO
-bS
-bO
-bt
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -48178,13 +48165,13 @@ aa
 aa
 aa
 aa
-bt
-bt
-bt
-bt
-bt
-bt
-bt
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
