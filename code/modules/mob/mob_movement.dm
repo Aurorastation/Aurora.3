@@ -287,12 +287,14 @@
 		var/tally = mob.movement_delay()
 		var/mob_is_human = ishuman(mob) //Calculate this once to reuse it later.
 
-		if(MOVING_QUICKLY(mob) && H.species.handle_sprint_cost(H, tally))
-			if(mob_is_human)
-				var/mob/living/carbon/human/H = mob
+		if(mob_is_human)
+			var/mob/living/carbon/human/H = mob
+			if(H.species.handle_sprint_cost(H, tally) && MOVING_QUICKLY(H))
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
-			mob.last_quick_move_time = world.time
-			mob.adjust_stamina(-(mob.get_stamina_used_per_step()))
+			else
+				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay)
+			H.last_quick_move_time = world.time
+			H.adjust_stamina(-(mob.get_stamina_used_per_step()))
 
 		move_delay += tally
 

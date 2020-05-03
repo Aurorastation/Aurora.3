@@ -76,7 +76,7 @@
 /mob/living/carbon/alien/diona/movement_delay()
 	. = ..()
 	if(MOVING_QUICKLY(src))
-		species.handle_sprint_cost(src, . + config.walk_speed)
+		species.handle_sprint_cost(src, . + config.walk_delay)
 	else if(MOVING_DELIBERATELY(src))
 		. += 3
 	
