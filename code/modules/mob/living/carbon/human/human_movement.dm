@@ -3,7 +3,6 @@
 
 /mob/living/carbon/human/movement_delay()
 	var/tally = ..()
-	world << "initial tally: [tally]"
 
 	tally += species.slowdown
 
@@ -98,8 +97,6 @@
 		tally += T.movement_cost
 
 	tally = round(tally, 1)
-
-	world << "final tally: [tally]"
 
 	return (tally + config.human_delay)
 

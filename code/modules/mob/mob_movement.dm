@@ -295,8 +295,6 @@
 			mob.adjust_stamina(-(mob.get_stamina_used_per_step()))
 
 		move_delay += tally
-		
-		world << "client tally: [tally]"
 
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
 		if(config.Tickcomp)
