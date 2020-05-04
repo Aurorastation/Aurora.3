@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Canisters now properly emit the light their icons portray them having."
-  - tweak: "Canisters now eject tanks into any of your hands, dropping them to your feet if your hands aren't free."
