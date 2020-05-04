@@ -2,7 +2,7 @@
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
 	icon = 'icons/obj/terminals.dmi'
-	icon_state = "bell_standby"
+	icon_state = "bell"
 	anchored = TRUE
 
 	req_access = list() //what access it needs to link your pda
@@ -16,8 +16,9 @@
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
-	if (id)
+	if(id)
 		ringers = new(id, src)
+	update_icon()
 
 /obj/machinery/ringer/power_change()
 	..()
@@ -28,17 +29,24 @@
 	return ..()
 
 /obj/machinery/ringer/update_icon()
-	if(stat & NOPOWER)
-		icon_state = "bell_off"
+	cut_overlays()
+	if(!on || stat & NOPOWER)
+		icon_state = initial(icon_state)
+		set_light(FALSE)
 		return
-	if (rings_pdas || rings_pdas.len)
-		icon_state = "bell_active"
+	if(rings_pdas || rings_pdas.len)
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-active", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+		set_light(1.4, 1, COLOR_CYAN)
+		return
 	if(pinged)
-		icon_state = "bell_alert"
-	if(!on)
-		icon_state = "bell_off"
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+		set_light(1.4, 1, COLOR_RED_LIGHT)
 	else
-		icon_state = "bell_standby"
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-standby", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+		set_light(1.4, 1, COLOR_CYAN)
 
 /obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))

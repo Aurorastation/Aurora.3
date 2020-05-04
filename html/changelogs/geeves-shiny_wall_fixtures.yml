@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Some of the wall fixtures now glow in the dark, as they have bright cyan screens."
+  - rscadd: "ATMs now gain an overlay when a card is inserted. It's minute, so you'll probably still forget your ID, like you always do."

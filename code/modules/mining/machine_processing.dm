@@ -21,6 +21,12 @@
 	var/waste = 0
 	var/idx = 0
 
+/obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
+	. = ..()
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+	add_overlay(screen_overlay)
+	set_light(1.4, 1, COLOR_CYAN)
+
 /obj/machinery/mineral/processing_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
 		var/area/A = get_area(src)
