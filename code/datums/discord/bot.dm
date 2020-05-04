@@ -407,7 +407,7 @@ var/datum/discord_bot/discord_bot = null
 		log_debug("BOREALIS: HTTP error while fetching invite: [res.status_code].")
 		return
 	else
-		var/list/A = res.body
+		var/list/A = json_decode(res.body)
 
 		// No length to return data, but a valid 200 return header.
 		// So we simply have no invites active. Make one!
