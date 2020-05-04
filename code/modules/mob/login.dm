@@ -29,12 +29,19 @@
  * In the case of Aurora code, mob/Login is invoked BEFORE client initialization
  * is completed, in order to permit remote authentication.
  *
+ * This also invokes mob/proc/LateLogin in cases where the client has already been
+ * initialized. This is the case when a ckey is moved around from mob to mob during
+ * gameplay.
+ *
  * Use /mob/proc/LateLogin() instead.
  */
 /mob/Login()
 	SHOULD_NOT_OVERRIDE(TRUE)
 
 	..()
+
+	if (client.is_initialized)
+		LateLogin()
 
 /**
  * \brief A function to replace most uses of mob/Login with. 99% of the time, you

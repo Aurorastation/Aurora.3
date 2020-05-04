@@ -447,6 +447,8 @@
 
 	fetch_unacked_warning_count()
 
+	is_initialized = TRUE
+
 //////////////
 //DISCONNECT//
 //////////////
