@@ -540,4 +540,4 @@
 	return
 
 /datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	return
+	return 1

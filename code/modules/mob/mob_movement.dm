@@ -289,7 +289,7 @@
 
 		if(mob_is_human)
 			var/mob/living/carbon/human/H = mob
-			if(H.species.handle_sprint_cost(H, tally) && MOVING_QUICKLY(H))
+			if(MOVING_QUICKLY(H) && H.species.handle_sprint_cost(src, tally))
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
 			else
 				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay)
