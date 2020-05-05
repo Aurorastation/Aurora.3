@@ -173,9 +173,9 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/syndicate_station/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/wizard_station
@@ -268,9 +268,9 @@
 	centcomm_area = 1
 
 /area/skipjack_station/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/skipjack_station/surface
@@ -319,7 +319,7 @@
 	icon_state = "merchant_ware"
 
 /area/merchant_station/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	icon_state = "shuttle"
 	centcomm_area = 1
 

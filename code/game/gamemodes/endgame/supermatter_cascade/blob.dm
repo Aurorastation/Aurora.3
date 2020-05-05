@@ -1,15 +1,15 @@
 // QUALITY COPYPASTA
 /turf/unsimulated/wall/supermatter
-	name = "Bluespace"
+	name = "unstable bluespace"
 	desc = "THE END IS right now actually."
 
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace"
 
 	layer = EFFECTS_ABOVE_LIGHTING_LAYER
-	light_color = "#0066FF"
-	light_range = 2
-	light_power = 2
+	light_color = COLOR_CYAN_BLUE
+	light_power = 6
+	light_range = 8
 
 	var/spawned = 0 // DIR mask
 	var/next_check = 0
@@ -18,6 +18,7 @@
 /turf/unsimulated/wall/supermatter/Initialize()
 	. = ..()
 	START_PROCESSING(SScalamity, src)
+	icon_state = "bluespace[pick("","3","6","9","12","15")]"
 
 /turf/unsimulated/wall/supermatter/process()
 	if (!(SScalamity.times_fired % 2))
