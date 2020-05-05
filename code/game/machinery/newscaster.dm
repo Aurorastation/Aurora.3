@@ -84,6 +84,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	add_overlay(base_screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
+	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-title", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-wanted", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
