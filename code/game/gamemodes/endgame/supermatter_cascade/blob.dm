@@ -18,7 +18,7 @@
 /turf/unsimulated/wall/supermatter/Initialize()
 	. = ..()
 	START_PROCESSING(SScalamity, src)
-	icon_state = "bluespace[pick("","3","6","9","12","15")]"
+	icon_state = "bluespace[pick("1","2","3")]-[pick("1","2","3","4")]"
 
 /turf/unsimulated/wall/supermatter/process()
 	if (!(SScalamity.times_fired % 2))
@@ -40,14 +40,10 @@
 
 	// EXPAND
 	if(!istype(T,type))
-		// Do pretty fadeout animation for 1s.
-		new /obj/effect/overlay/bluespacify(T)
 		addtimer(CALLBACK(src, .proc/after_tick, T), 10)
 		if(A && !istype(A,type))
-			new /obj/effect/overlay/bluespacify(A)
 			addtimer(CALLBACK(src, .proc/after_tick, A), 10)
 		if(B && !istype(B,type))
-			new /obj/effect/overlay/bluespacify(B)
 			addtimer(CALLBACK(src, .proc/after_tick, B), 10)
 	if((spawned & (NORTH|SOUTH|EAST|WEST)) == (NORTH|SOUTH|EAST|WEST))
 		STOP_PROCESSING(SScalamity, src)

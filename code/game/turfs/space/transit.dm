@@ -11,7 +11,7 @@
 
 /turf/space/transit/Initialize()
 	. = ..()
-	icon_state = "bluespace[pick("","3","6","9","12","15")]"
+	icon_state = "bluespace[pick("1","2","3")]-[pick("1","2","3","4")]"
 	update_light()
 
 /turf/space/transit/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0, var/allow = 0, var/keep_air = FALSE)
