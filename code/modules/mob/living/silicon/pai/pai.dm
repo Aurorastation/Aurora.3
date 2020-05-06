@@ -166,7 +166,7 @@
 	id_card.registered_name = ""
 
 
-/mob/living/silicon/pai/Login()
+/mob/living/silicon/pai/LateLogin()
 	greet()
 	..()
 
