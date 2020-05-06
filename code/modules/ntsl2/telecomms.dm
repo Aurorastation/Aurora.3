@@ -36,7 +36,7 @@
 					sig.data["realname"] = html_encode(dat["source"])
 					sig.data["job"] = html_encode(dat["job"])
 					sig.data["reject"] = !dat["pass"]
-					sig.data["verb"] = html_enco	de(dat["verb"])
+					sig.data["verb"] = html_encode(dat["verb"])
 					sig.data["language"] = L
 					sig.data["vmessage"] = html_encode(dat["content"])
 					sig.data["vname"] = html_encode(dat["source"])
