@@ -21,7 +21,7 @@
 /datum/TCS_Compiler/ntsl2/proc/update_code()
 	if(istype(running_code))
 		running_code.cycle(100000)
-		var/list/dat = json_decode(ntsl2.send(list(action="get_signals",id=running_code.id)))
+		var/list/dat = json_decode(ntsl2.send("get_signal", list(id=running_code.id)))
 		if(istype(dat) && ("content" in dat))
 			var/datum/signal/sig = null
 			if(dat["reference"])
@@ -36,7 +36,7 @@
 					sig.data["realname"] = html_encode(dat["source"])
 					sig.data["job"] = html_encode(dat["job"])
 					sig.data["reject"] = !dat["pass"]
-					sig.data["verb"] = html_encode(dat["verb"])
+					sig.data["verb"] = html_enco	de(dat["verb"])
 					sig.data["language"] = L
 					sig.data["vmessage"] = html_encode(dat["content"])
 					sig.data["vname"] = html_encode(dat["source"])
