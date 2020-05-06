@@ -42,11 +42,13 @@
 	if(pinged)
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
-		set_light(1.4, 1, COLOR_RED_LIGHT)
+		set_light(1.4, 1, COLOR_CYAN)
 	else
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-standby", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
 		set_light(1.4, 1, COLOR_CYAN)
+	if(on)
+		add_overlay("bell-scanline") //not mutable_appearance so the colors blend properly
 
 /obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))

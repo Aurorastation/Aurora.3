@@ -97,6 +97,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
 
+	if(hitstaken == 0)
+		add_overlay("newscaster-scanline") //not mutable_appearance so it blends properly
+
 	if(hitstaken > 0) //Cosmetic damage overlay
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "crack[hitstaken]", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
@@ -982,7 +985,8 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	NEWSPAPER.forceMove(get_turf(src))
+	playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	usr.put_in_hands(NEWSPAPER)
 	src.paper_remaining--
 	return
 
