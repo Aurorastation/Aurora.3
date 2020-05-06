@@ -96,7 +96,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				add_overlay(screen_overlay)
 				set_light(1.4, 1, COLOR_ORANGE)
 
-		add_overlay("req_comp-scanline") //not mutable_appearance so the colors blend properly
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()

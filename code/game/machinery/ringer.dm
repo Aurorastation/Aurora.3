@@ -38,17 +38,17 @@
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-active", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
 		set_light(1.4, 1, COLOR_CYAN)
-		return
 	if(pinged)
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
 		set_light(1.4, 1, COLOR_CYAN)
+	if(on)
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 	else
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-standby", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
 		set_light(1.4, 1, COLOR_CYAN)
-	if(on)
-		add_overlay("bell-scanline") //not mutable_appearance so the colors blend properly
 
 /obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
@@ -96,6 +96,7 @@
 		return
 
 	pinged = TRUE
+	update_icon()
 
 	playsound(src.loc, 'sound/machines/ringer.ogg', 50, 1)
 

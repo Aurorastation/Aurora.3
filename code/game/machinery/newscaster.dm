@@ -98,7 +98,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		add_overlay(screen_overlay)
 
 	if(hitstaken == 0)
-		add_overlay("newscaster-scanline") //not mutable_appearance so it blends properly
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 
 	if(hitstaken > 0) //Cosmetic damage overlay
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "crack[hitstaken]", EFFECTS_ABOVE_LIGHTING_LAYER)
