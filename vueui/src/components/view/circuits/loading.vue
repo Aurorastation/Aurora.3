@@ -1,6 +1,6 @@
 <template>
   <div>
-    <textarea v-model="loading_code" placeholder="Paste your Integrated Assembly schema."/>
+    <textarea v-model="loading_code" placeholder="Paste your Integrated Assembly schema." style="width: 100%; height: 20em;"/>
     <br>
     <vui-button :params="{mainMenu:1}" @click="load_assembly()">Load</vui-button>
     <vui-button :params="{mainMenu:1}">Cancel</vui-button>
@@ -43,10 +43,3 @@ export default {
   }
 };
 </script>
-
-<style type="scss" scoped>
-  textarea {
-    width: 100%;
-    height: 20em;
-  }
-</style>
