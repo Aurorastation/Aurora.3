@@ -6,8 +6,8 @@
 	var/capacity = 0
 	var/list/allowed_types = list()
 	var/list/items_contained = list()
-	activators = list("eject contents" = IC_PINTYPE_PULSE_IN, "push ref" = IC_PINTYPE_PULSE_IN)
-	outputs = list("has item" = IC_PINTYPE_BOOLEAN, "self reference" = IC_PINTYPE_REF)
+	activators = list("eject contents" = IC_PINTYPE_PULSE_IN)
+	outputs = list("has item" = IC_PINTYPE_BOOLEAN)
 	power_draw_per_use = 1 
 	w_class = ITEMSIZE_NORMAL
 	size = 5
@@ -27,19 +27,14 @@
 		return itemToReturn
 	return null
 
-/obj/item/integrated_circuit/input/insert_slot/do_work(ord)
-	switch(ord)
-		if(1)
-			for(var/obj/item/O in items_contained)
-				O.forceMove(get_turf(src))
-				visible_message("<span class='notice'>\The [src] drops [O] on the ground.</span>")
-				items_contained -= O
-			set_pin_data(IC_OUTPUT, 1, FALSE)
-			push_data()
-			return TRUE
-		if(2)
-			set_pin_data(IC_OUTPUT, 2, weakref(src))
-			push_data()
+/obj/item/integrated_circuit/input/insert_slot/do_work()
+	for(var/obj/item/O in items_contained)
+		O.forceMove(get_turf(src))
+		visible_message("<span class='notice'>\The [src] drops [O] on the ground.</span>")
+		items_contained -= O
+	set_pin_data(IC_OUTPUT, 1, FALSE)
+	push_data()
+	return TRUE
 
 /obj/item/integrated_circuit/input/insert_slot/attackby_react(obj/item/I, mob/living/user, intent)	
 	// Adjacent is here so that people could insert stuff into free-standing assemblies

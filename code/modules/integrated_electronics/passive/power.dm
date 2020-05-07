@@ -94,8 +94,8 @@
 	flags = OPENCONTAINER
 	complexity = 4
 	inputs = list()
-	outputs = list("volume used" = IC_PINTYPE_NUMBER, "self reference" = IC_PINTYPE_REF)
-	activators = list("push ref" = IC_PINTYPE_PULSE_IN)
+	outputs = list("volume used" = IC_PINTYPE_NUMBER)
+	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/volume = 60
 	var/list/fuel = list("phoron" = 50000, "slimejelly" = 25000, "fuel" = 15000, "carbon" = 10000, "ethanol"= 10000, "nutriment" =8000, "blood" = 5000)
@@ -121,10 +121,6 @@
 				if((assembly.battery.maxcharge-assembly.battery.charge) / CELLRATE > fuel[I])
 					if(reagents.remove_reagent(I, 1))
 						assembly.give_power(fuel[I]*multi)
-
-/obj/item/integrated_circuit/passive/power/chemical_cell/do_work()
-	set_pin_data(IC_OUTPUT, 2, weakref(src))
-	push_data()
 
 
 // For implants.

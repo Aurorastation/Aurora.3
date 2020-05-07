@@ -34,13 +34,11 @@
 	cooldown_per_use = 1 SECONDS
 	inputs = list()
 	outputs = list(
-		"volume used" = IC_PINTYPE_NUMBER,
-		"self reference" = IC_PINTYPE_REF
+		"volume used" = IC_PINTYPE_NUMBER
 		)
 	activators = list(
 		"create smoke" = IC_PINTYPE_PULSE_IN,
-		"on smoked" = IC_PINTYPE_PULSE_OUT,
-		"push ref" = IC_PINTYPE_PULSE_IN
+		"on smoked" = IC_PINTYPE_PULSE_OUT
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 20
@@ -50,25 +48,20 @@
 /obj/item/integrated_circuit/reagent/smoke/on_reagent_change()
 	push_vol()
 
-/obj/item/integrated_circuit/reagent/smoke/do_work(ord)
-	switch(ord)
-		if(1)
-			if(!reagents || (reagents.total_volume < IC_SMOKE_REAGENTS_MINIMUM_UNITS))
-				return
-			var/location = get_turf(src)
-			var/datum/effect/effect/system/smoke_spread/chem/S = new()
-			S.attach(location)
-			playsound(location, 'sound/effects/smoke.ogg', 50, 1, -3)
-			if(S)
-				S.set_up(reagents, smoke_radius, 0, location)
-				if(!notified)
-					notified = TRUE
-				S.start()
-			reagents.clear_reagents()
-			activate_pin(2)
-		if(3)
-			set_pin_data(IC_OUTPUT, 2, weakref(src))
-			push_data()
+/obj/item/integrated_circuit/reagent/smoke/do_work()
+	if(!reagents || (reagents.total_volume < IC_SMOKE_REAGENTS_MINIMUM_UNITS))
+		return
+	var/location = get_turf(src)
+	var/datum/effect/effect/system/smoke_spread/chem/S = new()
+	S.attach(location)
+	playsound(location, 'sound/effects/smoke.ogg', 50, 1, -3)
+	if(S)
+		S.set_up(reagents, smoke_radius, 0, location)
+		if(!notified)
+			notified = TRUE
+		S.start()
+	reagents.clear_reagents()
+	activate_pin(2)
 
 /obj/item/integrated_circuit/reagent/injector
 	name = "integrated hypo-injector"
@@ -90,14 +83,12 @@
 		"2" = 5
 		)
 	outputs = list(
-		"volume used" = IC_PINTYPE_NUMBER,
-		"self reference" = IC_PINTYPE_REF
+		"volume used" = IC_PINTYPE_NUMBER
 		)
 	activators = list(
 		"inject" = IC_PINTYPE_PULSE_IN,
 		"on injected" = IC_PINTYPE_PULSE_OUT,
-		"on fail" = IC_PINTYPE_PULSE_OUT,
-		"push ref" = IC_PINTYPE_PULSE_IN
+		"on fail" = IC_PINTYPE_PULSE_OUT
 		)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 15
@@ -120,13 +111,8 @@
 		transfer_amount = new_amount
 
 
-/obj/item/integrated_circuit/reagent/injector/do_work(ord)
-	switch(ord)
-		if(1)
-			inject()
-		if(4)
-			set_pin_data(IC_OUTPUT, 2, weakref(src))
-			push_data()
+/obj/item/integrated_circuit/reagent/injector/do_work()
+	inject()
 
 /obj/item/integrated_circuit/reagent/injector/proc/target_nearby(var/datum/weakref/target)
 	var/mob/living/L = target.resolve()
@@ -309,17 +295,10 @@
 	complexity = 4
 	inputs = list()
 	outputs = list(
-		"volume used" = IC_PINTYPE_NUMBER,
-		"self reference" = IC_PINTYPE_REF
+		"volume used" = IC_PINTYPE_NUMBER
 		)
-	activators = list("push ref" = IC_PINTYPE_PULSE_IN)
+	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-
-
-
-/obj/item/integrated_circuit/reagent/storage/do_work()
-	set_pin_data(IC_OUTPUT, 2, weakref(src))
-	push_data()
 
 /obj/item/integrated_circuit/reagent/storage/on_reagent_change(changetype)
 	push_vol()
@@ -353,14 +332,12 @@
 		"target" = IC_PINTYPE_REF,
 		)
 	outputs = list(
-		"volume used" = IC_PINTYPE_NUMBER,
-		"self reference" = IC_PINTYPE_REF
+		"volume used" = IC_PINTYPE_NUMBER
 		)
 	activators = list(
 		"grind" = IC_PINTYPE_PULSE_IN,
 		"on grind" = IC_PINTYPE_PULSE_OUT,
-		"on fail" = IC_PINTYPE_PULSE_OUT,
-		"push ref" = IC_PINTYPE_PULSE_IN
+		"on fail" = IC_PINTYPE_PULSE_OUT
 		)
 	volume = 100
 	power_draw_per_use = 150
@@ -368,13 +345,8 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 
 
-/obj/item/integrated_circuit/reagent/storage/grinder/do_work(ord)
-	switch(ord)
-		if(1)
-			grind()
-		if(4)
-			set_pin_data(IC_OUTPUT, 2, weakref(src))
-			push_data()
+/obj/item/integrated_circuit/reagent/storage/grinder/do_work()
+	grind()
 
 /obj/item/integrated_circuit/reagent/storage/grinder/proc/grind()
 	if(reagents.total_volume >= reagents.maximum_volume)
@@ -410,26 +382,19 @@
 	complexity = 8
 	outputs = list(
 		"volume used" = IC_PINTYPE_NUMBER,
-		"self reference" = IC_PINTYPE_REF,
 		"list of reagents" = IC_PINTYPE_LIST
 		)
 	activators = list(
-		"scan" = IC_PINTYPE_PULSE_IN,
-		"push ref" = IC_PINTYPE_PULSE_IN
+		"scan" = IC_PINTYPE_PULSE_IN
 		)
 	spawn_flags = IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/reagent/storage/scan/do_work(ord)
-	switch(ord)
-		if(1)
-			var/cont[0]
-			for(var/datum/reagent/RE in reagents.reagent_list)
-				cont += RE.name
-			set_pin_data(IC_OUTPUT, 3, cont)
-			push_data()
-		if(2)
-			set_pin_data(IC_OUTPUT, 2, weakref(src))
-			push_data()
+	var/cont[0]
+	for(var/datum/reagent/RE in reagents.reagent_list)
+		cont += RE.name
+	set_pin_data(IC_OUTPUT, 3, cont)
+	push_data()
 
 /obj/item/integrated_circuit/reagent/filter
 	name = "reagent filter"
@@ -554,13 +519,11 @@
 	outputs = list(
 		"volume used" = IC_PINTYPE_NUMBER,
 		"temperature" = IC_PINTYPE_NUMBER,
-		"enabled" = IC_PINTYPE_BOOLEAN,
-		"self reference" = IC_PINTYPE_REF
+		"enabled" = IC_PINTYPE_BOOLEAN
 	)
 	activators = list(
 		"toggle" = IC_PINTYPE_PULSE_IN,
-		"on toggle" = IC_PINTYPE_PULSE_OUT,
-		"push ref" = IC_PINTYPE_PULSE_IN
+		"on toggle" = IC_PINTYPE_PULSE_OUT
 	)
 
 	flags = OPENCONTAINER
@@ -585,30 +548,25 @@
 		set_pin_data(IC_OUTPUT, 2, reagents.temperature - T0C)
 	push_data()
 
-/obj/item/integrated_circuit/reagent/temp/do_work(ord)
-	switch(ord)
-		if(1)
-			target_temp = get_pin_data(IC_INPUT, 1)
-			if(isnull(target_temp))
-				return
+/obj/item/integrated_circuit/reagent/temp/do_work()
+	target_temp = get_pin_data(IC_INPUT, 1)
+	if(isnull(target_temp))
+		return
 
-			// +/- T0C to convert to/from kelvin
-			target_temp = Clamp(target_temp + T0C, min_temp, max_temp)
-			set_pin_data(IC_INPUT, 1, target_temp - T0C)
+	// +/- T0C to convert to/from kelvin
+	target_temp = Clamp(target_temp + T0C, min_temp, max_temp)
+	set_pin_data(IC_INPUT, 1, target_temp - T0C)
 
-			active = !active
-			set_pin_data(IC_OUTPUT, 3, active)
-			push_data()
-			activate_pin(2)
+	active = !active
+	set_pin_data(IC_OUTPUT, 3, active)
+	push_data()
+	activate_pin(2)
 
-			// begin processing temperature
-			if(active)
-				START_PROCESSING(SSelectronics, src)
-			else
-				STOP_PROCESSING(SSelectronics, src)
-		if(3)
-			set_pin_data(IC_OUTPUT, 4, weakref(src))
-			push_data()
+	// begin processing temperature
+	if(active)
+		START_PROCESSING(SSelectronics, src)
+	else
+		STOP_PROCESSING(SSelectronics, src)
 
 /obj/item/integrated_circuit/reagent/temp/on_reagent_change()
 	push_vol()
