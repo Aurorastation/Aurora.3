@@ -207,7 +207,7 @@
 	if(target.op_stage.current_organ)
 		var/obj/item/organ/O = target.internal_organs_by_name[target.op_stage.current_organ]
 		if(O && istype(O))
-			O.removed(user)
+			O.removed(target, user)
 		target.op_stage.current_organ = null
 		if(!(O.status & ORGAN_ROBOT))
 			playsound(target.loc, 'sound/effects/squelch1.ogg', 15, 1)

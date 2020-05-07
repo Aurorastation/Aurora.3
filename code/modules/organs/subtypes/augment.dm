@@ -292,3 +292,44 @@
 /obj/item/organ/internal/augment/fuel_cell
 	name = "integrated fuel cell"
 	organ_tag = BP_AUG_FUEL_CELL
+
+// Geeves!
+/obj/item/organ/internal/augment/language
+	name = "language processor"
+	desc = "An augment installed into the head that interfaces with the user's neural interface, intercepting and assisting language faculties."
+	organ_tag = BP_AUG_LANGUAGE
+	parent_organ = BP_HEAD
+	var/list/augment_languages = list() // a list of languages that this augment will add. add your language to this
+	var/list/added_languages = list() // a list of languages that get added when it's installed. used to remove languages later. don't touch this.
+
+/obj/item/organ/internal/augment/language/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
+	. = ..()
+	for(var/language in augment_languages)
+		if(!(language in target.languages))
+			target.add_language(language)
+			added_languages += language
+
+/obj/item/organ/internal/augment/language/removed(var/mob/living/carbon/human/target, mob/living/user)
+	for(var/language in augment_languages)
+		if(length(added_languages) && !(language in added_languages)) // a safety net to not remove the languages someone knew pre-aug
+			continue
+		target.remove_language(language)
+	added_languages = list()
+	..()
+
+/obj/item/organ/internal/augment/language/emp_act()
+	. = ..()
+	for(var/language in augment_languages)
+		if(length(added_languages) && !(language in added_languages))
+			continue
+		if(prob(25))
+			owner.remove_language(language)
+	owner.set_default_language(pick(owner.languages))
+
+/obj/item/organ/internal/augment/language/klax
+	name = "klaxan language processor"
+	augment_languages = list(LANGUAGE_UNATHI)
+
+/obj/item/organ/internal/augment/language/cthur
+	name = "cthur language processor"
+	augment_languages = list(LANGUAGE_SKRELLIAN)

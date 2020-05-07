@@ -111,3 +111,21 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/augment/klaxan_unathi_translator
+	display_name = "klaxan language processor"
+	description = "An augment that allows a vaurca to speak and understand Sinta'Unathi. These are only used by K'lax."
+	path = /obj/item/organ/internal/augment/language/klax
+	cost = 2
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/augment/cthur_skrell_translator
+	display_name = "cthur language processor"
+	description = "An augment that allows a vaurca to speak and understand Nral'Malic. These are only used by C'thur."
+	path = /obj/item/organ/internal/augment/language/cthur
+	cost = 2
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	flags = GEAR_NO_SELECTION
