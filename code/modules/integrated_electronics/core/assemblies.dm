@@ -51,7 +51,13 @@
 	max_complexity = IC_COMPLEXITY_BASE / 2
 	var/obj/item/implant/integrated_circuit/implant = null
 
+/obj/item/device/electronic_assembly/implant/ui_host()
+	return implant
+
 /obj/item/device/electronic_assembly/implant/resolve_ui_host()
+	return implant
+
+/obj/item/device/electronic_assembly/implant/get_assembly_holder()
 	return implant
 
 /obj/item/device/electronic_assembly/implant/update_icon()

@@ -1,4 +1,9 @@
 #define MAX_CIRCUIT_CLONE_TIME 3 MINUTES //circuit slow-clones can only take up this amount of time to complete
+
+// Type variables, to deal with different types of assemblies
+#define IC_ASSEMBLY 1
+#define IC_CLOTH 2
+
 /obj/item/device/integrated_circuit_printer
 	name = "integrated circuit printer"
 	desc = "A portable(ish) machine made to print tiny modular circuitry out of metal."
@@ -227,14 +232,14 @@
 			return TRUE
 
 		var/list/cost = list()
-		var/is_asm = FALSE
+		var/asm_type = 0
 		if(ispath(build_type, /obj/item/device/electronic_assembly))
 			var/obj/item/device/electronic_assembly/E = SSelectronics.cached_assemblies[build_type]
 			cost = E.matter
-			is_asm = TRUE
+			asm_type = IC_ASSEMBLY
 		else if(ispath(build_type, /obj/item/clothing/) || ispath(build_type, /obj/item/implant/integrated_circuit))
 			// TODO: add matter calculations
-			//is_asm = TRUE
+			asm_type = IC_CLOTH
 		else if(ispath(build_type, /obj/item/integrated_circuit))
 			var/obj/item/integrated_circuit/IC = SSelectronics.cached_circuits[build_type]
 			cost = IC.matter
@@ -245,10 +250,22 @@
 		var/obj/item/built
 
 		// TODO: Deal with batteries in clothing assemblies
-		if(is_asm)
+		if(asm_type == IC_ASSEMBLY)
 			built = new build_type(get_turf(src), TRUE)
 		else
 			built = new build_type(get_turf(src))
+
+		// Special case - clothing or an implant
+		if(asm_type == IC_CLOTH)
+			if(istype(built, /obj/item/clothing/))
+				var/obj/item/clothing/cloth = built
+				qdel(cloth.IC.battery)
+				cloth.IC.battery = null
+			else if (istype(built, /obj/item/implant/integrated_circuit))
+				// That's a lot of implants
+				var/obj/item/implant/integrated_circuit/im_asm = built
+				qdel(im_asm.IC.battery)
+				im_asm.IC.battery = null
 
 		usr.put_in_hands(built)
 
