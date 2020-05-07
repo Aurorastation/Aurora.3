@@ -103,12 +103,12 @@
 		var/obj/item/device/laser_assembly/A = item
 		A.ready_to_craft = FALSE
 		A.analyzer = null
-		A.forceMove(usr.loc)
+		A.forceMove(get_turf(src))
 		item = null
 		update_icon()
 
 	else if(item)
-		item.forceMove(usr.loc)
+		item.forceMove(get_turf(src))
 		item = null
 		update_icon()
 
