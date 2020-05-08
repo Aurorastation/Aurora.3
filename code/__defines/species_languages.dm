@@ -51,6 +51,7 @@
 #define LANGUAGE_VAURCA "Hivenet"
 #define LANGUAGE_AZAZIBA "Sinta'azaziba"
 #define LANGUAGE_SIGN "Sign Language"
+#define LANGUAGE_GETMORE "Corporate Doublespeak"
 
 // Antag Languages
 #define LANGUAGE_VOX "Vox-pidgin"

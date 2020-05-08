@@ -28,7 +28,8 @@ var/global/datum/robolimb/basic_robolimb
 		"Vaurca Worker",
 		"Vaurca Warrior",
 		"Baseline Frame",
-		"Off-Worlder Human"
+		"Off-Worlder Human",
+		"Getmorean"
 	)
 	var/paintable = 0 //tired of istype exceptions. bullshirt to find, and by god do i know it after this project.
 	var/linked_frame = "Unbranded Frame" //which machine species this limb will create

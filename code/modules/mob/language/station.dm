@@ -288,3 +288,50 @@
 	syllables = list("azs","zis","zau","azua","skiu","zuakz","izo","aei","ki","kut","zo")
 	partial_understanding = list(LANGUAGE_UNATHI = 50)
 
+/datum/language/getmore
+	name = LANGUAGE_GETMORE
+	desc = "It sounds like basic, but, nothing seems to actually be said? Corporate Proessionals claim to understand it perfectly."
+	key = "$"
+	speech_verb = "advertises"
+	ask_verb = "advertises"
+	exclaim_verb = "proclaims"
+	syllables = list (
+		"nanotrasen", "getmore", "contract", "progress", "robust", "chocolate", "synergy", "promotion", "effective", "quadrant", "finance", "profit", "margin", "product", "finance"
+	)
+	partial_understanding = list(LANGUAGE_TCB = 60)
+	flags = WHITELISTED
+
+	var/flavours = list(	\
+		"Cola",				\
+		"Raspberry",		\
+		"Lemon",			\
+		"Strawberry",		\
+		"Wildberry",		\
+		"Pomegranate",		\
+		"Pineapple",		\
+		"Tropical",			\
+		"Grape",			\
+		"Orange",			\
+		"Juicey",			\
+		"Apple",			\
+		"Pear",				\
+	)
+
+	var/name_verbs = list(	\
+		"Crunch",			\
+		"Crush",			\
+		"Crash",			\
+		"Smash",			\
+		"Splat",			\
+		"Swish",			\
+		"Twist",			\
+		"Turn",				\
+		"Taste",			\
+		"Trap",				\
+		"Flip",				\
+		"Rush",				\
+		"Rise",				\
+	)
+
+/datum/language/getmore/get_random_name(var/gender)
+	return capitalize(pick(flavours)) + " " + capitalize(pick(name_verbs))

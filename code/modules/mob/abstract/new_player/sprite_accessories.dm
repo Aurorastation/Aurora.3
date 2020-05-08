@@ -2950,6 +2950,34 @@ Follow by example and make good judgement based on length which list to include 
 			bishop_triangular_mask
 				name = "Triangular Face Mask"
 				icon_state = "bishop_triangular_mask"
+	
+	get_can_color
+		name = "Can Colouring"
+		icon_state = "get_color"
+		body_parts = list("chest")
+		species_allowed = list("Getmorean")
+		is_painted = 1
+
+	get_logo_backing
+		name = "Logo Backing"
+		icon_state = "get_backing"
+		body_parts = list("chest")
+		species_allowed = list("Getmorean")
+		is_painted = 1
+
+	get_logo_text
+		name = "Logo Text"
+		icon_state = "get_logo"
+		body_parts = list("chest")
+		species_allowed = list("Getmorean")
+		is_painted = 1
+
+	get_lines
+		name = "Lines"
+		icon_state = "get_lines"
+		body_parts = list("chest")
+		species_allowed = list("Getmorean")
+		is_painted = 1
 
 /*
 	zenghu
