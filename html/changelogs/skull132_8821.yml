@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Fixed recorders and pAIs and other things not hearing anything while being held in hands. (Bug only affected the server if it was using BYOND > 513.1512.)"
