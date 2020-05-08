@@ -292,6 +292,7 @@
 	name = "engineering grasper"
 	action_button_name = "Deploy Mechanical Combitool"
 	var/augment_type = /obj/item/combitool/robotic
+	var/emagged = FALSE
 
 /obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
 	. = ..()
@@ -304,30 +305,28 @@
 	. = ..()
 
 	if(.)
-
 		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			to_chat(owner, SPAN_WARNING("\The [src] is still recharging!"))
 			return
 
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+		if(use_check_and_message(user))
 			return
 
 		if(owner.get_active_hand())
-			to_chat(owner, "<span class='danger'>You must empty your active hand before enabling your [src]!</span>")
+			to_chat(owner, SPAN_WARNING("You must empty your active hand before enabling your [src]!"))
 			return
 
 		if(is_broken())
-			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			to_chat(owner, SPAN_WARNING("\The [src] is too damaged to be used!"))
 			return
 
 		if(is_bruised())
 			spark(get_turf(owner), 3)
 
 		owner.last_special = world.time + 100
-		var/obj/item/M = new augment_type(owner)
+		var/obj/item/combitool/robotic/M = new augment_type(owner)
 		owner.put_in_active_hand(M)
-		owner.visible_message("<span class='notice'>\The [M] slides out of \the [owner]'s [src].</span>","<span class='notice'>You deploy \the [M]!</span>")
+		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src]."), SPAN_NOTICE("You deploy \the [M]!"), 3)
 
 /obj/item/combitool/robotic
 	name = "robotic combitool"
@@ -335,6 +334,7 @@
 	icon_state = "digitool"
 	item_state = "digitool"
 	w_class = ITEMSIZE_LARGE
+	var/obj/item/organ/external/hand/right/autakh/tool/owner
 	tools = list(
 		"crowbar",
 		"screwdriver",
@@ -348,6 +348,20 @@
 /obj/item/combitool/robotic/dropped()
 	loc = null
 	qdel(src)
+
+/obj/item/combitool/robotic/emag_act(remaining_charges, mob/user)
+	if(remaining_charges)
+		if("multitool" in tools)
+			to_chat(user, SPAN_WARNING("\The [src] has already been emagged!"))
+			return FALSE
+		to_chat(user, SPAN_NOTICE("You short out \the [src]'s limiter, enabling the multitool function."))
+		tools += "multitool"
+		if(owner)
+			owner.emagged = TRUE
+		return TRUE
+	else
+		to_chat(user, SPAN_WARNING("Your emag has no remaining charges!"))
+		return FALSE
 
 /obj/item/organ/external/hand/right/autakh/tool/mining
 	name = "mining grasper"

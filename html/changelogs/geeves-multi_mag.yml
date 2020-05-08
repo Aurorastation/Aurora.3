@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Emagging your combitool now unlocks the multitool function."
+  - tweak: "Tweaked combitool and powerdrill messages. Should take up slightly less space now."

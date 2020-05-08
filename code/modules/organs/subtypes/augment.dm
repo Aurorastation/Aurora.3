@@ -86,14 +86,13 @@
 	cooldown = 10
 	activable = TRUE
 	var/obj/item/augment_type
-
+	var/emagged = FALSE
 
 /obj/item/organ/internal/augment/tool/attack_self(var/mob/user)
 	. = ..()
 
 	if(!.)
 		return FALSE
-
 
 	if(!augment_type)
 		return FALSE
@@ -106,6 +105,9 @@
 		to_chat(owner, SPAN_WARNING("You must empty your active hand before enabling your [src]!"))
 		return
 
+	spawn_tool()
+
+/obj/item/organ/internal/augment/tool/proc/spawn_tool()
 	var/obj/item/M = new augment_type(owner)
 	owner.put_in_active_hand(M)
 	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [M]!"))
@@ -118,6 +120,14 @@
 	parent_organ = BP_R_HAND
 	organ_tag = BP_AUG_TOOL
 	augment_type = /obj/item/combitool/robotic
+
+/obj/item/organ/internal/augment/tool/combitool/spawn_tool()
+	var/obj/item/combitool/robotic/M = new augment_type(owner)
+	owner.put_in_active_hand(M)
+	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [M]!"), 3)
+	M.owner = src
+	if(emagged)
+		M.tools += "multitool"
 
 /obj/item/organ/internal/augment/tool/combitool/left
 	parent_organ = BP_L_HAND

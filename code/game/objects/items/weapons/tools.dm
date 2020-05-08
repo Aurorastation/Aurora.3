@@ -675,16 +675,16 @@
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
 
-/obj/item/combitool/attack_self(var/mob/user)
+/obj/item/combitool/attack_self(mob/user)
 	if(++current_tool > tools.len)
 		current_tool = 1
 	var/tool = tools[current_tool]
 	if(!tool)
-		to_chat(user, "You can't seem to find any fittings in \the [src].")
+		to_chat(user, SPAN_WARNING("You can't seem to find any fittings in \the [src]."))
 	else
-		to_chat(user, "You switch \the [src] to the [tool] fitting.")
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("You switch \the [src] to the [tool] fitting.")))
 	update_tool()
-	return 1
+	return TRUE
 
 /obj/item/powerdrill
 	name = "impact wrench"
@@ -748,14 +748,14 @@
 		cut_overlays()
 		add_overlay("wrenchbit")
 
-/obj/item/powerdrill/attack_self(var/mob/user)
+/obj/item/powerdrill/attack_self(mob/user)
 	if(++current_tool > tools.len)
 		current_tool = 1
 	var/tool = tools[current_tool]
 	if(!tool)
-		to_chat(user, "You can't seem to find any fittings in \the [src].")
+		to_chat(user, SPAN_WARNING("You can't seem to find any fittings in \the [src]."))
 	else
-		to_chat(user, "You switch \the [src] to the [tool] fitting.")
-		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("You switch \the [src] to the [tool] fitting.")))
+		playsound(loc, 'sound/items/change_drill.ogg', 50, TRUE)
 	update_tool()
-	return 1
+	return TRUE
