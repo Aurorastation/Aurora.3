@@ -4,16 +4,17 @@
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 0 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
-	spawn_positions = 1
+	spawn_positions = 0
 	selection_color = "#00ff00"
-	supervisors = "your laws"
+	supervisors = "your laws and the command staff"
 	minimal_player_age = 7
 	account_allowed = 0
 	economic_modifier = 0
 
 /datum/job/ai/equip(var/mob/living/carbon/human/H, var/alt_title)
-		if(!H)	return 0
-		return 1
+	if(!H)
+		return FALSE
+	return TRUE
 
 /datum/job/ai/is_position_available()
 	return (empty_playable_ai_cores.len != 0)
@@ -28,9 +29,9 @@
 	flag = CYBORG
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
-	supervisors = "your laws and the AI"	//Nodrak
+	total_positions = 3
+	spawn_positions = 3
+	supervisors = "your laws and the command staff"	//Nodrak // Geeves
 	selection_color = "#4dff4d"
 	minimal_player_age = 1
 	alt_titles = list("Android", "Robot")
@@ -38,8 +39,9 @@
 	economic_modifier = 0
 
 /datum/job/cyborg/equip(var/mob/living/carbon/human/H, var/alt_title)
-		if(!H)	return 0
-		return 1
+	if(!H)
+		return FALSE
+	return TRUE
 
 /datum/job/cyborg/equip_preview(mob/living/carbon/human/H)
 	H.equip_to_slot_or_del(new /obj/item/clothing/suit/cardborg(H), slot_wear_suit)

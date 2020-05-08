@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added an additional stationbound slot for a total for 3."
+  - rscdel: "Entirely mapped out the AI."

@@ -17,12 +17,12 @@
 	flags = HIDE_FROM_HOLOMAP
 
 /area/turret_protected/ai_upload
-	name = "AI Upload Chamber"
+	name = "Cyborg Bay"
 	icon_state = "ai_upload"
 	ambience = list('sound/ambience/ambimalf.ogg')
 
 /area/turret_protected/ai_upload_foyer
-	name = "AI Upload Access"
+	name = "Cyborg Bay Foyer"
 	icon_state = "ai_foyer"
 	ambience = list('sound/ambience/ambimalf.ogg')
 	sound_env = SMALL_ENCLOSED
