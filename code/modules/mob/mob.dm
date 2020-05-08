@@ -124,7 +124,7 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTEARS)))
+		if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/A in messagemobs)
