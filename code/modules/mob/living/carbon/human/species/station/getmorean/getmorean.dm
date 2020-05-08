@@ -54,9 +54,9 @@
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/punch
 	)
-	// Getmore Chocolate Corperation
-	// Robust Industries, LLC
-	blurb = "In cooperation with Robust Industries, LLC, the Getmore Chocolate Corperation attempted to produce a \
+
+
+	blurb = "The Getmore Chocolate Corperation, A Subsidiary of Nanotrasen, attempted to produce a \
 	genetically modified line of sodas in order to dynamically appeal to customers. The Result? Getmoreans. \
 	A sentient line of soda products with human features, these human-can hybrides are famous for speaking \
 	corperate double speak, and generally being creepy. Instead of organs, they have a sweet tasting yet fizzy \
