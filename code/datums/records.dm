@@ -62,7 +62,8 @@
 					record[variable] += list(r.Listify())
 				var/llen = 0
 				if((variable in to_update) && islist(to_update[variable]))
-					llen = to_update[variable].len
+					var/list/L = to_update[variable]
+					llen = L.len
 				if(llen != LAZYLEN(record[variable]))
 					. = record
 			else if(islist(src.vars[variable]) || istext(src.vars[variable]) || isnum(src.vars[variable]))
