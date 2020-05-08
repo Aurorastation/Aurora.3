@@ -1140,10 +1140,6 @@ There are several things that need to be remembered:
 
 			overlays_raw[R_HAND_LAYER] = image(t_icon, t_state)
 
-	var/list/worn_overlays = worn_overlays(item_icons)
-		if(worn_overlays && worn_overlays.len)
-			r_hand.overlays.Add(worn_overlays)
-
 	if(update_icons)
 		update_icons()
 
@@ -1181,9 +1177,6 @@ There are several things that need to be remembered:
 
 			overlays_raw[L_HAND_LAYER] = image(t_icon, t_state)
 
-	var/list/worn_overlays = worn_overlays(item_icons)
-		if(worn_overlays && worn_overlays.len)
-			l_hand.overlays.Add(worn_overlays)
 
 	if(update_icons)
 		update_icons()
