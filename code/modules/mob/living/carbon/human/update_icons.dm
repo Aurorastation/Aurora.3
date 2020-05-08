@@ -215,8 +215,8 @@ There are several things that need to be remembered:
 
 //Overlays for the worn overlay so you can overlay while you overlay
 //eg: ammo counters, primed grenade flashing, etc.
-//"icon_file" is used automatically for inhands etc. to make sure it gets the right inhand file
-/obj/item/proc/worn_overlays(isinhands = FALSE, icon_file)
+//"item_icons" is used automatically for inhands etc. to make sure it gets the correct inhand file
+/obj/item/proc/worn_overlays(item_icons)
 	. = list()
 
 //BASE MOB SPRITE
@@ -1140,9 +1140,9 @@ There are several things that need to be remembered:
 
 			overlays_raw[R_HAND_LAYER] = image(t_icon, t_state)
 
-	var/list/worn_overlays = worn_overlays()
+	var/list/worn_overlays = worn_overlays(item_icons)
 		if(worn_overlays && worn_overlays.len)
-			overlays.Add(worn_overlays)
+			r_hand.overlays.Add(worn_overlays)
 
 	if(update_icons)
 		update_icons()
@@ -1181,9 +1181,9 @@ There are several things that need to be remembered:
 
 			overlays_raw[L_HAND_LAYER] = image(t_icon, t_state)
 
-	var/list/worn_overlays = worn_overlays()
+	var/list/worn_overlays = worn_overlays(item_icons)
 		if(worn_overlays && worn_overlays.len)
-			overlays.Add(worn_overlays)
+			l_hand.overlays.Add(worn_overlays)
 
 	if(update_icons)
 		update_icons()
