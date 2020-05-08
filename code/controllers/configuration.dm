@@ -53,6 +53,7 @@ var/list/gamemode_cache = list()
 	var/list/votable_modes = list()		// votable modes
 	var/list/probabilities_secret = list()			// relative probability of each mode in secret/random
 	var/list/probabilities_mixed_secret = list()	// relative probability of each mode in heavy secret mode
+	var/ipc_timelock_active = FALSE
 	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
@@ -651,6 +652,9 @@ var/list/gamemode_cache = list()
 
 				if("tickcomp")
 					Tickcomp = 1
+
+				if("ipc_timelock_active")
+					ipc_timelock_active = TRUE
 
 				if("humans_need_surnames")
 					humans_need_surnames = 1
