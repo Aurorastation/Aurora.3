@@ -8,7 +8,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	name = "newscaster"
 	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/terminals.dmi'
-	icon_state = "newscaster_normal"
+	icon_state = "newscaster"
 	var/isbroken = 0  //1 if someone banged it with something heavy
 	var/ispowered = 1 //starts powered, changes with power_change()
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
@@ -71,7 +71,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 /obj/machinery/newscaster/update_icon()
 	if(!ispowered || isbroken)
-		icon_state = "newscaster_off"
+		icon_state = initial(icon_state)
+		set_light(FALSE)
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
 			cut_overlays()
 			add_overlay("crack3")
@@ -79,17 +80,24 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 	cut_overlays() //reset overlays
 
+	var/mutable_appearance/base_screen_overlay = mutable_appearance(icon, "newscaster-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+	add_overlay(base_screen_overlay)
+	set_light(1.4, 1, COLOR_CYAN)
+
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
-		icon_state = "newscaster_wanted"
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-wanted", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 		return
 
 	if(alert) //new message alert overlay
-		add_overlay("newscaster_alert")
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 
 	if(hitstaken > 0) //Cosmetic damage overlay
-		add_overlay("crack[hitstaken]")
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "crack[hitstaken]", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 
-	icon_state = "newscaster_normal"
+	icon_state = initial(icon_state)
 	return
 
 /obj/machinery/newscaster/power_change()

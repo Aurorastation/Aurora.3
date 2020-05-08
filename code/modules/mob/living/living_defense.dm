@@ -89,15 +89,13 @@
 
 	//Armor
 	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
-	var/proj_sharp = is_sharp(P)
-	var/proj_edge = has_edge(P)
 	var/damaged
-	if ((proj_sharp || proj_edge) && prob(absorb))
-		proj_sharp = 0
-		proj_edge = 0
+	if ((P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP) && prob(absorb))
+		P.damage_flags &= ~DAM_SHARP
+		P.damage_flags &= ~DAM_EDGE
 
 	if(!P.nodamage)
-		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, sharp=proj_sharp, edge=proj_edge, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
+		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
 		bullet_impact_visuals(P, def_zone, damaged)
 	P.on_hit(src, absorb, def_zone)
 	return absorb
@@ -161,13 +159,12 @@
 		effective_force *= 2
 
 	//Apply weapon damage
-	var/weapon_sharp = is_sharp(I)
-	var/weapon_edge = has_edge(I)
+	var/damage_flags = I.damage_flags()
 	if(prob(blocked)) //armour provides a chance to turn sharp/edge weapon attacks into blunt ones
-		weapon_sharp = 0
-		weapon_edge = 0
+		damage_flags &= ~DAM_SHARP
+		damage_flags &= ~DAM_EDGE
 
-	apply_damage(effective_force, I.damtype, hit_zone, blocked, sharp=weapon_sharp, edge=weapon_edge, used_weapon=I)
+	apply_damage(effective_force, I.damtype, hit_zone, blocked, used_weapon=I, damage_flags = damage_flags)
 
 	return 1
 
@@ -190,7 +187,8 @@
 		src.visible_message("<span class='warning'>[src] has been hit by [O].</span>")
 		var/armor = run_armor_check(null, "melee")
 
-		apply_damage(throw_damage, dtype, null, armor, is_sharp(O), has_edge(O), O)
+		var/damage_flags = O.damage_flags()
+		apply_damage(throw_damage, dtype, null, armor, O, damage_flags = damage_flags)
 
 		O.throwing = 0		//it hit, so stop moving
 

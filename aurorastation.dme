@@ -976,6 +976,7 @@
 #include "code\game\objects\items\weapons\implants\implantuplink.dm"
 #include "code\game\objects\items\weapons\material\ashtray.dm"
 #include "code\game\objects\items\weapons\material\bats.dm"
+#include "code\game\objects\items\weapons\material\caltrops.dm"
 #include "code\game\objects\items\weapons\material\kitchen.dm"
 #include "code\game\objects\items\weapons\material\knives.dm"
 #include "code\game\objects\items\weapons\material\material_armor.dm"

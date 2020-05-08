@@ -104,7 +104,7 @@
 
 		if(W.edge)
 			to_chat(H, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
-			H.apply_damage(2, BRUTE, target_zone, edge = TRUE)
+			H.apply_damage(2, BRUTE, target_zone, damage_flags = DAM_EDGE)
 			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 			if(H.can_feel_pain())
 				var/obj/item/organ/external/organ = H.get_organ(target_zone)
