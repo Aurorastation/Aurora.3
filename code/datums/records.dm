@@ -63,7 +63,7 @@
 				var/llen = 0
 				if((variable in to_update) && islist(to_update[variable]))
 					llen = to_update[variable].len
-				if(L.len != LAZYLEN(record[variable]))
+				if(llen != LAZYLEN(record[variable]))
 					. = record
 			else if(islist(src.vars[variable]) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])
