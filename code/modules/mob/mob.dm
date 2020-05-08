@@ -131,7 +131,8 @@
 		var/mob/M = A
 		if(isobserver(M))
 			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
-		if(self_message && M==src)
+			continue
+		if(self_message && M == src)
 			M.show_message(self_message, 1, blind_message, 2)
 		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
 			if(blind_message)
