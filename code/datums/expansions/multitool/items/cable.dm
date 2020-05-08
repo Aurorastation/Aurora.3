@@ -18,7 +18,7 @@
 
 /datum/expansion/multitool/items/cable/on_topic(href, href_list, user)
 	var/obj/item/stack/cable_coil/cable_coil = holder
-	if(href_list["select_color"] && href_list["select_color"] in possible_cable_coil_colours)
+	if(href_list["select_color"] && (href_list["select_color"] in possible_cable_coil_colours))
 		cable_coil.set_cable_color(href_list["select_color"], user)
 		return MT_REFRESH
 

@@ -92,7 +92,7 @@
 
 /atom/movable/openspace/multiplier/proc/copy_lighting(atom/movable/lighting_overlay/LO)
 	appearance = LO
-	layer = LIGHTING_LAYER + 0.001
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	plane = OPENTURF_CAP_PLANE
 	invisibility = 0
 	if (icon_state == LIGHTING_BASE_ICON_STATE)

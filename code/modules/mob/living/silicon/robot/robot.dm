@@ -488,6 +488,19 @@
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
 
+/obj/item/robot_module/janitor/verb/toggle_mop()
+	set category = "Robot Commands"
+	set name = "Toggle Mop"
+	set desc = "Toggle the integrated mop."
+	set src in usr
+	
+	mopping = !mopping
+	if (mopping)
+		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
+		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
+	else 
+		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
+
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
 		if(intense_light)
@@ -503,7 +516,6 @@
 	if(jetpack)
 		stat(null, "Internal Atmosphere Info: [jetpack.name]")
 		stat(null, "Tank Pressure: [jetpack.air_contents.return_pressure()]")
-
 
 // this function displays the cyborgs current cell charge in the stat panel
 /mob/living/silicon/robot/proc/show_cell_power()
@@ -966,8 +978,9 @@
 
 	if(module)
 		if(module.type == /obj/item/robot_module/janitor)
+			var/obj/item/robot_module/janitor/J = module
 			var/turf/tile = get_turf(src)
-			if(isturf(tile))
+			if(isturf(tile) && J.mopping)
 				tile.clean_blood()
 				if(istype(tile, /turf/simulated))
 					var/turf/simulated/S = tile
@@ -1002,7 +1015,6 @@
 								cleaned_human.update_inv_shoes(0)
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
-		return
 
 /mob/living/silicon/robot/proc/self_destruct(var/anti_theft = FALSE)
 	if(anti_theft)

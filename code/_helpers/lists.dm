@@ -258,6 +258,8 @@
 #define BITSET(bitfield,index)   (bitfield)  |=  (1 << (index))
 #define BITRESET(bitfield,index) (bitfield)  &= ~(1 << (index))
 #define BITFLIP(bitfield,index)  (bitfield)  ^=  (1 << (index))
+#define BITFIELDMAX 0xFFFFFF
+#define BITFIELDMAX_16 0xFFFF
 
 //Converts a bitfield to a list of numbers (or words if a wordlist is provided)
 /proc/bitfield2list(bitfield = 0, list/wordlist)
@@ -270,7 +272,7 @@
 				r += wordlist[i]
 			bit = bit << 1
 	else
-		for(var/bit=1, bit<=65535, bit = bit << 1)
+		for(var/bit=1, bit<=BITFIELDMAX, bit = bit << 1)
 			if(bitfield & bit)
 				r += bit
 
@@ -704,7 +706,7 @@
 		group_list[key] = values
 
 	values += value
-	
+
 // Return a list of the values in an assoc list (including null)
 /proc/list_values(var/list/L)
 	. = list()
