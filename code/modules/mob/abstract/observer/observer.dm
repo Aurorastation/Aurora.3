@@ -907,11 +907,11 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 /mob/extra_ghost_link(var/atom/ghost)
 	if(client && eyeobj)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>\[E\]</a>"
+		return "|\[<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>E</a>\]"
 
 /mob/abstract/observer/extra_ghost_link(var/atom/ghost)
 	if(mind && mind.current)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>\[B\]</a>"
+		return "|\[<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>B</a>\]"
 
 /proc/ghost_follow_link(var/atom/target, var/atom/ghost)
 	if((!target) || (!ghost)) return

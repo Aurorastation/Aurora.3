@@ -19,7 +19,6 @@
 	return ..()
 
 /mob/living/silicon/proc/init_subsystems()
-	computer = new/obj/item/modular_computer/silicon/preset(src)
 	alarm_monitor 	= new(src)
 	law_manager 	= new(src)
 	rcon 			= new(src)
@@ -33,7 +32,16 @@
 
 /mob/living/silicon/ai/init_subsystems()
 	..()
+	computer = new/obj/item/modular_computer/silicon/ai(src)
 	ntnet_monitor = new(src)
+
+/mob/living/silicon/pai/init_subsystems()
+	..()
+	computer = new/obj/item/modular_computer/silicon/pai(src)
+
+/mob/living/silicon/robot/init_subsystems()
+	..()
+	computer = new/obj/item/modular_computer/silicon/robot(src)
 
 /****************
 *	Computer	*

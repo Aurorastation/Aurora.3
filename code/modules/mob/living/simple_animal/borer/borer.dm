@@ -38,7 +38,7 @@
 /mob/living/simple_animal/borer/roundstart
 	roundstart = TRUE
 
-/mob/living/simple_animal/borer/Login()
+/mob/living/simple_animal/borer/LateLogin()
 	..()
 	if(mind)
 		borers.add_antagonist(mind)
