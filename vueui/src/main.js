@@ -52,11 +52,13 @@ if (document.getElementById("app")) {
         if(this.$root.$data.active.charAt(0) != "?") {
           return 'view-' + this.$root.$data.active
         }
+        return null
       },
       templateString() {
         if(this.$root.$data.active.charAt(0) == "?") {
           return "<div>" + this.$root.$data.active.substr(1) + "</div>"
         }
+        return null
       }
     },
     watch: {

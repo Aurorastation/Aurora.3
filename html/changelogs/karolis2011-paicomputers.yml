@@ -1,0 +1,15 @@
+author: Karolis2011
+delete-after: True
+changes: 
+  - rscadd: "Added integrated computing device to pAIs."
+  - rscadd: "Ported all relevant pAI programs to VueUI and integrated computers."
+  - balance: "As pAIs software system is now reliant on modular computers, pAIs might be more capable than before."
+  - tweak: "pAI card icon selection is now available trough verb instead of software interface."
+  - backend: "Integrated computing devices has been restructured to allow restrictions depending silicon type."
+  - bugfix: "Adds ability to download suit sensor program to stationbounds."
+  - rscadd: "Adds service abilities to modular computers. Services are like toggles for programs."
+  - rscadd: "NTNet Software Download Tool got ported to VueUI. Also it received ability to have download queue."
+  - rscadd: "NTNet Relay Chat Client got ability to have direct message channels."
+  - rscadd: "NTNet Relay Chat Client got ability to join multiple channels at once."
+  - bugfix: "NTNet Relay Chat Client no longer allows duplicate nicknames."
+  - rscadd: "Crew manifest program was added."

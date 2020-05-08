@@ -10,6 +10,7 @@
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
 	can_pull_size = 2 //max size for an object the pAI can pull
 
+
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
 	var/ram = 100	// Used as currency to purchase different abilities
@@ -46,6 +47,24 @@
 		"Rodent" = list("squeaks","squeals","squeeks")
 		)
 
+	var/list/pai_emotions = list(
+		"Happy" = 1,
+		"Cat" = 2,
+		"Extremely Happy" = 3,
+		"Face" = 4,
+		"Laugh" = 5,
+		"Off" = 6,
+		"Sad" = 7,
+		"Angry" = 8,
+		"What" = 9,
+		"Neutral" = 10,
+		"Silly" = 11,
+		"Nose" = 12,
+		"Smirk" = 13,
+		"Exclamation Points" = 14,
+		"Question Mark" = 15
+	)
+
 	var/obj/item/pai_cable/cable		// The cable we produce and use when door or camera jacking
 	id_card_type = /obj/item/card/id	//Internal ID used to store copied owner access, and to check access for airlocks
 
@@ -67,11 +86,6 @@
 
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
-
-	var/medical_cannotfind = 0
-	var/datum/record/general/active		// Datacore record declarations for record software
-
-	var/security_cannotfind = 0
 
 	var/obj/machinery/door/airlock/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
@@ -136,10 +150,12 @@
 	add_language(LANGUAGE_TRADEBAND, 1)
 	add_language(LANGUAGE_GUTTER, 1)
 	add_language(LANGUAGE_EAL, 1)
+	add_language(LANGUAGE_SIGN, 0)
 	set_custom_sprite()
 
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
+	verbs += /mob/living/silicon/proc/computer_interact
 
 	//PDA
 	pda = new(src)
@@ -244,16 +260,6 @@
 	src.current = C
 	src.reset_view(C)
 	return 1
-
-/mob/living/silicon/pai/verb/reset_record_view()
-	set category = "pAI Commands"
-	set name = "Reset Records Software"
-
-	active = null
-	security_cannotfind = 0
-	medical_cannotfind = 0
-	SSnanoui.update_uis(src)
-	to_chat(usr, "<span class='notice'>You reset your record-viewing software.</span>")
 
 /mob/living/silicon/pai/cancel_camera()
 	set category = "pAI Commands"
@@ -509,3 +515,14 @@
 	else
 		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
 		return
+
+
+/mob/living/silicon/pai/verb/select_card_icon()
+	set category = "pAI Commands"
+	set name = "Select card icon"
+
+	if(stat || sleeping || paralysis || weakened)
+		return
+
+	var/selection = input(src, "Choose an icon for you card.") in pai_emotions
+	card.setEmotion(pai_emotions[selection])
