@@ -60,7 +60,7 @@ var/list/gear_datums = list()
 	return list("ss13_characters" = list("gear", "gear_slot", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/loadout/gather_save_parameters()
-	return list("gear" = json_encode(pref.gear), "gear_slot" = json_encode(pref.gear_slot), "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
+	return list("gear" = json_encode(pref.gear), "gear_slot" = pref.gear_slot, "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
@@ -80,6 +80,9 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
 	if (sql_load)
 		gear_reset = FALSE
+
+		pref.gear_slot = text2num(pref.gear_slot)
+
 		if (istext(pref.gear))
 			try
 				pref.gear = json_decode(pref.gear)
