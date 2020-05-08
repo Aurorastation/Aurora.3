@@ -84,6 +84,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	add_overlay(base_screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
+	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-title", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-wanted", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
@@ -91,6 +95,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 	if(alert) //new message alert overlay
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+
+	if(hitstaken == 0)
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
 
 	if(hitstaken > 0) //Cosmetic damage overlay
@@ -978,7 +986,8 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	NEWSPAPER.forceMove(get_turf(src))
+	playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	usr.put_in_hands(NEWSPAPER)
 	src.paper_remaining--
 	return
 
