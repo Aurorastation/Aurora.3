@@ -22,26 +22,26 @@ AI MODULES
 	var/datum/ai_laws/laws = null
 
 /obj/item/aiModule/proc/install(var/obj/machinery/computer/C)
-	if (istype(C, /obj/machinery/computer/aiupload))
+	if(istype(C, /obj/machinery/computer/aiupload))
 		var/obj/machinery/computer/aiupload/comp = C
 		if(comp.stat & NOPOWER)
-			to_chat(usr, "The upload computer has no power!")
+			to_chat(usr, SPAN_WARNING("The upload computer has no power!"))
 			return
 		if(comp.stat & BROKEN)
-			to_chat(usr, "The upload computer is broken!")
+			to_chat(usr, SPAN_WARNING("The upload computer is broken!"))
 			return
-		if (!comp.current)
-			to_chat(usr, "You haven't selected an AI to transmit laws to!")
+		if(!comp.current)
+			to_chat(usr, SPAN_WARNING("You haven't selected an AI to transmit laws to!"))
 			return
 
 		if(SSticker.mode && SSticker.mode.name == "blob")
-			to_chat(usr, "Law uploads have been disabled by [current_map.company_name]!")
+			to_chat(usr, SPAN_WARNING("Law uploads have been disabled by [current_map.company_name]!"))
 			return
 
-		if (comp.current.stat == 2 || comp.current.control_disabled == 1)
-			to_chat(usr, "Upload failed. No signal is being detected from the AI.")
-		else if (comp.current.see_in_dark == 0)
-			to_chat(usr, "Upload failed. Only a faint signal is being detected from the AI, and it is not responding to our requests. It may be low on power.")
+		if(comp.current.stat == DEAD || comp.current.control_disabled == TRUE)
+			to_chat(usr, SPAN_WARNING("Upload failed. No signal is being detected from the AI."))
+		else if(comp.current.see_in_dark == FALSE)
+			to_chat(usr, SPAN_WARNING("Upload failed. Only a faint signal is being detected from the AI, and it is not responding to our requests. It may be low on power."))
 		else
 			src.transmitInstructions(comp.current, usr)
 			to_chat(comp.current, "These are your laws now:")
@@ -52,23 +52,22 @@ AI MODULES
 					R.show_laws()
 			to_chat(usr, "Upload complete. The AI's laws have been modified.")
 
-
 	else if (istype(C, /obj/machinery/computer/borgupload))
 		var/obj/machinery/computer/borgupload/comp = C
 		if(comp.stat & NOPOWER)
-			to_chat(usr, "The upload computer has no power!")
+			to_chat(usr, SPAN_WARNING("The upload computer has no power!"))
 			return
 		if(comp.stat & BROKEN)
-			to_chat(usr, "The upload computer is broken!")
+			to_chat(usr, SPAN_WARNING("The upload computer is broken!"))
 			return
-		if (!comp.current)
-			to_chat(usr, "You haven't selected a robot to transmit laws to!")
+		if(!comp.current)
+			to_chat(usr, SPAN_WARNING("You haven't selected a robot to transmit laws to!"))
 			return
 
-		if (comp.current.stat == 2 || comp.current.emagged)
-			to_chat(usr, "Upload failed. No signal is being detected from the robot.")
-		else if (comp.current.connected_ai)
-			to_chat(usr, "Upload failed. The robot is slaved to an AI.")
+		if(comp.current.stat == DEAD || comp.current.emagged)
+			to_chat(usr, SPAN_WARNING("Upload failed. No signal is being detected from the robot."))
+		else if(comp.current.connected_ai)
+			to_chat(usr, SPAN_WARNING("Upload failed. The robot is slaved to an AI."))
 		else
 			src.transmitInstructions(comp.current, usr)
 			to_chat(comp.current, "These are your laws now:")

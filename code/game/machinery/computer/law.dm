@@ -1,5 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-
 /obj/machinery/computer/aiupload
 	name = "\improper AI upload console"
 	desc = "Used to upload laws to the AI."
@@ -7,91 +5,83 @@
 
 	icon_screen = "command"
 	circuit = /obj/item/circuitboard/aiupload
-	var/mob/living/silicon/ai/current = null
-	var/opened = 0
-
+	var/mob/living/silicon/ai/current
+	var/opened = FALSE
 
 /obj/machinery/computer/aiupload/verb/AccessInternals()
 	set category = "Object"
 	set name = "Access Computer's Internals"
 	set src in oview(1)
-	if(get_dist(src, usr) > 1 || usr.restrained() || usr.lying || usr.stat || istype(usr, /mob/living/silicon))
+
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
 	opened = !opened
-	if(opened)
-		to_chat(usr, "<span class='notice'>The access panel is now open.</span>")
-	else
-		to_chat(usr, "<span class='notice'>The access panel is now closed.</span>")
+	to_chat(usr, SPAN_NOTICE("The access panel is now [opened ? "open" : "closed"]."))
 	return
 
-
-/obj/machinery/computer/aiupload/attackby(obj/item/O as obj, mob/user as mob)
-	if(isNotStationLevel(src.z))
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
-		return
+/obj/machinery/computer/aiupload/attackby(obj/item/O, mob/user)
 	if(istype(O, /obj/item/aiModule))
+		if(isNotStationLevel(src.z))
+			to_chat(user, SPAN_WARNING("Unable to establish a connection."))
+			return
 		var/obj/item/aiModule/M = O
 		M.install(src)
 	else
 		..()
 
-
-/obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/aiupload/attack_hand(mob/user)
 	if(src.stat & NOPOWER)
-		to_chat(user, "The upload computer has no power!")
+		to_chat(user, SPAN_WARNING("The upload computer has no power!"))
 		return
 	if(src.stat & BROKEN)
-		to_chat(user, "The upload computer is broken!")
+		to_chat(user, SPAN_WARNING("The upload computer is broken!"))
 		return
 
 	src.current = select_active_ai(user)
 
-	if (!src.current)
-		to_chat(user, "No active AIs detected.")
+	if(!src.current)
+		to_chat(user, SPAN_WARNING("No active AIs detected."))
 	else
-		to_chat(user, "[src.current.name] selected for law changes.")
+		to_chat(user, SPAN_NOTICE("[src.current.name] selected for law changes."))
 	return
 
-/obj/machinery/computer/aiupload/attack_ghost(user as mob)
-	return 1
-
+/obj/machinery/computer/aiupload/attack_ghost(user)
+	return TRUE
 
 /obj/machinery/computer/borgupload
-	name = "cyborg upload console"
-	desc = "Used to upload laws to Cyborgs."
+	name = "stationbound upload console"
+	desc = "Used to upload laws to stationbounds."
 	light_color = LIGHT_COLOR_GREEN
-
 	icon_screen = "command"
 	circuit = /obj/item/circuitboard/borgupload
-	var/mob/living/silicon/robot/current = null
+	var/mob/living/silicon/robot/current
 
-
-/obj/machinery/computer/borgupload/attackby(obj/item/aiModule/module as obj, mob/user as mob)
-	if(isNotStationLevel(src.z))
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
-		return
-	if(istype(module, /obj/item/aiModule))
+/obj/machinery/computer/borgupload/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/aiModule))
+		if(isNotStationLevel(src.z))
+			to_chat(user, SPAN_WARNING("Unable to establish a connection."))
+			return
+		var/obj/item/aiModule/module = O
 		module.install(src)
 	else
 		return ..()
 
-
-/obj/machinery/computer/borgupload/attack_hand(var/mob/user as mob)
+/obj/machinery/computer/borgupload/attack_hand(mob/user)
 	if(src.stat & NOPOWER)
-		to_chat(user, "The upload computer has no power!")
+		to_chat(user, SPAN_WARNING("The upload computer has no power!"))
 		return
 	if(src.stat & BROKEN)
-		to_chat(user, "The upload computer is broken!")
+		to_chat(user, SPAN_WARNING("The upload computer is broken!"))
 		return
 
 	src.current = freeborg()
 
-	if (!src.current)
-		to_chat(user, "No free cyborgs detected.")
+	if(!src.current)
+		to_chat(user, SPAN_WARNING("No free cyborgs detected."))
 	else
-		to_chat(user, "[src.current.name] selected for law changes.")
+		to_chat(user, SPAN_NOTICE("[src.current.name] selected for law changes."))
 	return
 
-/obj/machinery/computer/borgupload/attack_ghost(user as mob)
-	return 1
+/obj/machinery/computer/borgupload/attack_ghost(user)
+	return TRUE

@@ -113,11 +113,6 @@ datum/unit_test/zas_area_test/emergency_shuttle
 	name = "ZAS: Emergency Shuttle"
 	area_path = /area/shuttle/escape/centcom
 
-datum/unit_test/zas_area_test/ai_chamber
-	name = "ZAS: AI Chamber"
-	area_path = /area/turret_protected/ai
-	expectation = UT_NORMAL_COOL
-
 datum/unit_test/zas_area_test/arrival_maint
 	name = "ZAS: Arrival Maintenance"
 	area_path = /area/maintenance/arrivals
@@ -130,14 +125,6 @@ datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
 	area_path = /area/rnd/xenobiology
 
-/*
-datum/unit_test/zas_area_test/mining_area
-	name = "ZAS: Mining Area (Vacuum)"
-	area_path = /area/mine/explored
-	expectation = UT_VACUUM
-	disabled = 1
-	why_disabled = "Asteroid Generation disabled"
- */
 datum/unit_test/zas_area_test/
 	name = "ZAS: Cargo Bay"
 	area_path = /area/quartermaster/storage
