@@ -37,6 +37,13 @@
 	access_scanner.req_one_access = req_one_access.Copy()
 
 /mob/living/bot/Destroy()
+	if(pAI)
+		if(isturf(loc))
+			drop_from_inventory(pAI, get_turf(src))
+			pAI.throw_at_random(FALSE, 3, 1)
+		else
+			drop_from_inventory(pAI, loc)
+		pAI = null
 	QDEL_NULL(botcard)
 	QDEL_NULL(access_scanner)
 	return ..()
