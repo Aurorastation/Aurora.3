@@ -37,6 +37,16 @@
 		temp_list[O] = text2num(temp_list[O])
 	return temp_list
 
+/proc/is_string_in_list(var/given_string, var/list/L, var/match_case = TRUE)
+	for(var/list_string in L)
+		if(match_case)
+			if(given_string == list_string)
+				return TRUE
+		else
+			if(uppertext(given_string) == uppertext(list_string))
+				return TRUE
+	return FALSE
+
 //Checks for specific types in a list
 /proc/is_type_in_list(var/datum/A, var/list/L)
 	for(var/type in L)
@@ -258,6 +268,8 @@
 #define BITSET(bitfield,index)   (bitfield)  |=  (1 << (index))
 #define BITRESET(bitfield,index) (bitfield)  &= ~(1 << (index))
 #define BITFLIP(bitfield,index)  (bitfield)  ^=  (1 << (index))
+#define BITFIELDMAX 0xFFFFFF
+#define BITFIELDMAX_16 0xFFFF
 
 //Converts a bitfield to a list of numbers (or words if a wordlist is provided)
 /proc/bitfield2list(bitfield = 0, list/wordlist)
@@ -270,7 +282,7 @@
 				r += wordlist[i]
 			bit = bit << 1
 	else
-		for(var/bit=1, bit<=65535, bit = bit << 1)
+		for(var/bit=1, bit<=BITFIELDMAX, bit = bit << 1)
 			if(bitfield & bit)
 				r += bit
 
@@ -704,7 +716,7 @@
 		group_list[key] = values
 
 	values += value
-	
+
 // Return a list of the values in an assoc list (including null)
 /proc/list_values(var/list/L)
 	. = list()

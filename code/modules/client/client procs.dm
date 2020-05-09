@@ -241,7 +241,7 @@
 		data += reason
 		data += "</center>"
 
-		show_browser(src, data, "jobban_reason")
+		show_browser(src, data, "window=jobban_reason;size=400x300")
 		return
 
 	..()	//redirect to hsrc.()
@@ -350,17 +350,18 @@
 			return 0
 
 	if(IsGuestKey(key) && config.external_auth)
-		//src.real_mob = ..()
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
 		m.client = src
 		src.InitPrefs() //Init some default prefs
+		m.LateLogin()
 		return m
 		//Do auth shit
 	else
+		. = ..()
 		src.InitClient()
 		src.InitPrefs()
-		. = ..()
+		mob.LateLogin()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -445,6 +446,8 @@
 	check_ip_intel()
 
 	fetch_unacked_warning_count()
+
+	is_initialized = TRUE
 
 //////////////
 //DISCONNECT//

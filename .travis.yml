@@ -9,7 +9,7 @@ env:
     FLYWAY_BUILD="5.2.4"
     NODE_VERSION=10
     RUST_G_VERSION="0.4.1"
-    SPACEMAN_DMM_VERSION="suite-1.1"
+    SPACEMAN_DMM_VERSION="suite-1.4"
   matrix:
     - USE_MAP=aurora
     - USE_MAP=runtime

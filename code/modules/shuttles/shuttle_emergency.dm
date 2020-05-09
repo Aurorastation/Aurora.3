@@ -5,7 +5,6 @@
 	..()
 	if(emergency_shuttle.shuttle)
 		CRASH("An emergency shuttle has already been created.")
-		return
 	emergency_shuttle.shuttle = src
 
 /datum/shuttle/autodock/ferry/emergency/arrived()

@@ -308,8 +308,7 @@
 
 			var/real_damage = rand_damage
 			var/hit_dam_type = attack.damage_type
-			var/is_sharp = 0
-			var/is_edge = 0
+			var/damage_flags = attack.damage_flags()
 
 			real_damage += attack.get_unarmed_damage(H)
 			real_damage *= damage_multiplier
@@ -329,28 +328,16 @@
 					if(H.pulling_punches)
 						hit_dam_type = PAIN
 
-					if(G.sharp)
-						is_sharp = 1
-
-					if(G.edge)
-						is_edge = 1
-
 					if(istype(H.gloves,/obj/item/clothing/gloves/force))
 						var/obj/item/clothing/gloves/force/X = H.gloves
 						real_damage *= X.amplification
-
-			if(attack.sharp)
-				is_sharp = 1
-
-			if(attack.edge)
-				is_edge = 1
 
 			var/armour = run_armor_check(hit_zone, "melee")
 			// Apply additional unarmed effects.
 			attack.apply_effects(H, src, armour, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
+			apply_damage(real_damage, hit_dam_type, hit_zone, armour, damage_flags = damage_flags)
 
 
 			if(M.resting && src.help_up_offer)
