@@ -565,13 +565,13 @@
 				visible_message("<span class='warning'>[connected] begins humming with an electrical tone.</span>", "<span class='warning'>You hear an electrical humming.</span>")
 				if(H && connected.occupant.resolve() == H)
 					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
-					var/retardation = H.getBrainLoss()
+					var/braindamage = H.getBrainLoss()
 					if(sponge && istype(sponge))
 						if(!sponge.lobotomized)
-							to_chat(user, "<span class='notice'>Scans indicate [retardation] distinct abnormalities present in subject.</span>")
+							to_chat(user, "<span class='notice'>Scans indicate [braindamage] distinct abnormalities present in subject.</span>")
 							return
 						else
-							to_chat(user, "<span class='notice'>Scans indicate [retardation+rand(-20,20)] distinct abnormalities present in subject.</span>")
+							to_chat(user, "<span class='notice'>Scans indicate [braindamage+rand(-20,20)] distinct abnormalities present in subject.</span>")
 							return
 
 				to_chat(user, "<span class='warning'>Scans indicate total brain failure in subject.</span>")

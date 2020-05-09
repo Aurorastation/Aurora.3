@@ -383,10 +383,8 @@ STOCK_ITEM_COMMON(booze, 3.7)
 					T = U
 					break
 
-		if (prob(80))
-			new /obj/structure/reagent_dispensers/keg/beerkeg(T)
-		else
-			new /obj/structure/reagent_dispensers/keg/xuizikeg(T)
+		new /obj/random/keg(T)
+
 	else
 		var/list/drinks = subtypesof(/obj/item/reagent_containers/food/drinks/bottle)
 		drinks += subtypesof(/obj/item/reagent_containers/food/drinks/carton)

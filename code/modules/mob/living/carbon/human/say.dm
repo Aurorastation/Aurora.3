@@ -220,7 +220,7 @@
 		var/datum/brain_trauma/trauma = T
 		if(!trauma.suppressed)
 			message = trauma.on_hear(message, verb, language, alt_name, italics, speaker)
-	..()
+	return ..()
 
 /mob/living/carbon/human/proc/handle_speech_muts(var/message, var/verb)
 	if(message)
@@ -282,7 +282,7 @@
 				var/cword = pick(words)
 				words.Remove(cword)
 				var/suffix = copytext(cword,length(cword)-1,length(cword))
-				while(length(cword)>0 && suffix in list(".",",",";","!",":","?"))
+				while(length(cword)>0 && (suffix in list(".",",",";","!",":","?")))
 					cword  = copytext(cword,1              ,length(cword)-1)
 					suffix = copytext(cword,length(cword)-1,length(cword)  )
 				if(length(cword))

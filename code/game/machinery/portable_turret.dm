@@ -289,7 +289,7 @@
 	if(powered())
 		queue_icon_update()
 	else
-		addtimer(CALLBACK(src, .proc/lose_power), rand(0, 15))
+		addtimer(CALLBACK(src, .proc/lose_power), rand(1, 15))
 
 /obj/machinery/porta_turret/proc/lose_power()
 	stat |= NOPOWER

@@ -3805,6 +3805,10 @@
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pizzabox1"
 	drop_sound = 'sound/items/drop/box.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
+		)
 	center_of_mass = list("x" = 16,"y" = 6)
 
 	var/open = 0 // Is the box open?
@@ -4581,6 +4585,7 @@
 	nutriment_desc = list("tortilla chips" = 10)
 	bitesize = 1
 	nutriment_amt = 10
+	var/unitname = "chip"
 
 /obj/item/reagent_containers/food/snacks/chipplate/attack_hand(mob/user as mob)
 	var/obj/item/reagent_containers/food/snacks/returningitem = new vendingobject(loc)
@@ -4589,9 +4594,9 @@
 	returningitem.bitesize = bitesize/2
 	user.put_in_hands(returningitem)
 	if (reagents && reagents.total_volume)
-		to_chat(user, "You take a chip from the plate.")
+		to_chat(user, "You take a [unitname] from the plate.")
 	else
-		to_chat(user, "You take the last chip from the plate.")
+		to_chat(user, "You take the last [unitname] from the plate.")
 		var/obj/waste = new trash(loc)
 		if (loc == user)
 			user.put_in_hands(waste)
@@ -5483,6 +5488,55 @@
 	description_fluff = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
 	It is known for its hard crust, bland taste and for being long lasting. The hard bread was usually prepared for long journeys, hard winters or military campaigns, \
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
+
+/obj/item/reagent_containers/food/snacks/spreads/lard
+	name = "lard"
+	desc = "A stick of animal fat."
+	icon_state = "lard"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=16)
+	nutriment_desc = list("fat" = 3)
+	nutriment_amt = 5
+
+/obj/item/reagent_containers/food/snacks/chipplate/tajcandy
+	name = "plate of sugar tree candy"
+	desc = "A plate full of adhomian candy made from sugar tree, a plant native to Adhomai."
+	icon_state = "cubes26"
+	trash = /obj/item/trash/candybowl
+	vendingobject = /obj/item/reagent_containers/food/snacks/tajcandy
+	nutriment_desc = list("candy" = 1)
+	bitesize = 1
+	nutriment_amt = 26
+	unitname = "candy"
+
+/obj/item/reagent_containers/food/snacks/chipplate/tajcandy/update_icon()
+	switch(reagents.total_volume)
+		if(1)
+			icon_state = "cubes1"
+		if(2 to 5)
+			icon_state = "cubes5"
+		if(6 to 10)
+			icon_state = "cubes10"
+		if(11 to 15)
+			icon_state = "cubes15"
+		if(16 to 20)
+			icon_state = "cubes20"
+		if(21 to 25)
+			icon_state = "cubes25"
+		if(26 to INFINITY)
+			icon_state = "cubes26"
+
+/obj/item/reagent_containers/food/snacks/tajcandy
+	name = "sugar tree candy"
+	desc = "An adhomian candy made from the sugar tree fruit."
+	icon_state = "tajcandy"
+	nutriment_desc = list("candy" = 3)
+	nutriment_amt = 1
+	bitesize = 1
+
+/obj/item/reagent_containers/food/snacks/tajcandy/Initialize()
+	. = ..()
+	reagents.add_reagent("sugar", 3)
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

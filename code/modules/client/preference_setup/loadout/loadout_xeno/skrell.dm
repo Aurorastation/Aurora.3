@@ -74,6 +74,7 @@
 	path = /obj/item/clothing/under/skrell/qeblak
 	whitelisted = list("Skrell")
 	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/stellascope
 	display_name = "stellascope"
@@ -92,6 +93,7 @@
 	path = /obj/item/clothing/ears/skrell/goop
 	whitelisted = list("Skrell")
 	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/ears/skrell/goop/New()
 	..()
@@ -100,7 +102,6 @@
 	algae["glowing algae(stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes
 	algae["glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles
 	gear_tweaks += new/datum/gear_tweak/path(algae)
-	gear_tweaks += list(gear_tweak_free_color_choice)
 
 /datum/gear/mask/skrell
 	display_name = "skrell gill cover"

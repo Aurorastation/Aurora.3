@@ -263,7 +263,7 @@
 
 /obj/item/device/destTagger/Topic(href, href_list)
 	src.add_fingerprint(usr)
-	if(href_list["nextTag"] && href_list["nextTag"] in SSdisposals.tagger_locations)
+	if(href_list["nextTag"] && (href_list["nextTag"] in SSdisposals.tagger_locations))
 		src.currTag = href_list["nextTag"]
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")

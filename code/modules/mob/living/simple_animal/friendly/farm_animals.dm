@@ -98,6 +98,7 @@
 	canbrush = TRUE
 	has_udder = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 8)
+	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
@@ -192,6 +193,7 @@
 	mob_size = 2
 	hunger_enabled = FALSE
 	canbrush = TRUE
+	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
 
 	var/static/chicken_count = 0
 	emote_sounds = list('sound/effects/creatures/chicken.ogg', 'sound/effects/creatures/chicken_bwak.ogg')

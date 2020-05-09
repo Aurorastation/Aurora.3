@@ -63,7 +63,7 @@
 					previous_state = icon_state
 					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_ORANGE)
 
-		add_overlay("overlay_[seclevel]")
+		add_overlay(image(icon, "overlay_[seclevel]", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -255,19 +255,19 @@
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
 	dir = NORTH
-	pixel_y = 28
+	pixel_y = 31
 
 /obj/machinery/firealarm/east
 	dir = EAST
-	pixel_x = 28
+	pixel_x = 31
 
 /obj/machinery/firealarm/west
 	dir = WEST
-	pixel_x = -28
+	pixel_x = -31
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -28
+	pixel_y = -31
 
 /*
 FIRE ALARM CIRCUIT

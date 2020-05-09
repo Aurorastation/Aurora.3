@@ -67,11 +67,6 @@
 	display_name = "personal AI device"
 	path = /obj/item/device/paicard
 
-/datum/gear/utility/laptop
-	display_name = "laptop"
-	path = /obj/item/modular_computer/laptop/preset
-	cost = 3
-
 /datum/gear/utility/wallet
 	display_name = "wallet, orange"
 	path = /obj/item/storage/wallet
@@ -79,26 +74,17 @@
 /datum/gear/utility/wallet_colourable
 	display_name = "wallet, colourable"
 	path = /obj/item/storage/wallet/colourable
-
-/datum/gear/utility/wallet_colourable/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/wallet_purse
 	display_name = "wallet, purse"
 	path = /obj/item/storage/wallet/purse
-
-/datum/gear/utility/wallet_purse/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/lanyard
 	display_name = "lanyard"
 	path = /obj/item/storage/wallet/lanyard
-
-/datum/gear/utility/lanyard/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /*
 /datum/gear/utility/cheaptablet

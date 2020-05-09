@@ -98,7 +98,7 @@
 /datum/controller/subsystem/ghostroles/proc/vui_interact(mob/user,var/spawnpoint=null)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
-		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", nstate = interactive_state)
+		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", state = interactive_state)
 		ui.data = vueui_data_change(list("spawnpoint"=spawnpoint,"current_tag"="All"),user,ui)
 	ui.open()
 
@@ -137,6 +137,9 @@
 		if(cant_spawn)
 			to_chat(usr, "Unable to spawn: [cant_spawn]")
 			return
+		if(isnewplayer(usr))
+			var/mob/abstract/new_player/N = usr
+			N.close_spawn_windows()
 		if(!S.pre_spawn(usr))
 			to_chat(usr, "Unable to spawn: pre_spawn failed. Report this on GitHub")
 			return

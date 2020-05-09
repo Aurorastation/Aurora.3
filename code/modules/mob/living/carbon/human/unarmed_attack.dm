@@ -26,19 +26,19 @@ var/global/list/sparring_attack_cache = list()
 		return sparring_attack_cache[sparring_variant_type]
 
 /datum/unarmed_attack/proc/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
-	if(user.restrained())
-		return 0
+	if(user.restrained() || user.incapacitated())
+		return FALSE
 
 	// Check if they have a functioning hand.
 	var/obj/item/organ/external/E = user.organs_by_name[BP_L_HAND]
 	if(E && !E.is_stump())
-		return 1
+		return TRUE
 
 	E = user.organs_by_name[BP_R_HAND]
 	if(E && !E.is_stump())
-		return 1
+		return TRUE
 
-	return 0
+	return FALSE
 
 /datum/unarmed_attack/proc/get_unarmed_damage()
 	return damage
@@ -115,6 +115,13 @@ var/global/list/sparring_attack_cache = list()
 	user.visible_message("<span class='danger'>[user] presses \his [eye_attack_text] into [target]'s [eyes.name]!</span>")
 	to_chat(target, "<span class='danger'>You experience[(!target.can_feel_pain())? "" : " immense pain as you feel" ] [eye_attack_text_victim] being pressed into your [eyes.name][(!target.can_feel_pain())? "." : "!"]</span>")
 
+/datum/unarmed_attack/proc/damage_flags()
+	. = 0
+	if(sharp)
+		. |= DAM_SHARP
+	if(edge)
+		. |= DAM_EDGE
+
 /datum/unarmed_attack/bite
 	attack_verb = list("bit")
 	attack_sound = 'sound/weapons/bite.ogg'
@@ -125,12 +132,13 @@ var/global/list/sparring_attack_cache = list()
 	attack_name = "bite"
 
 /datum/unarmed_attack/bite/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
-
-	if (user.wear_mask && istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
-		return 0
-	if (user == target && (zone == BP_HEAD || zone == BP_EYES || zone == BP_MOUTH))
-		return 0
-	return 1
+	if(user.incapacitated())
+		return FALSE
+	if(user.wear_mask && istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
+		return FALSE
+	if(user == target && (zone == BP_HEAD || zone == BP_EYES || zone == BP_MOUTH))
+		return FALSE
+	return TRUE
 
 /datum/unarmed_attack/punch
 	attack_verb = list("punched")
@@ -194,21 +202,21 @@ var/global/list/sparring_attack_cache = list()
 	attack_name = "kick"
 
 /datum/unarmed_attack/kick/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
-	if (user.legcuffed)
-		return 0
+	if(user.legcuffed || user.incapacitated())
+		return FALSE
 
 	if(!(zone in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_GROIN)))
-		return 0
+		return FALSE
 
 	var/obj/item/organ/external/E = user.organs_by_name[BP_L_FOOT]
 	if(E && !E.is_stump())
-		return 1
+		return TRUE
 
 	E = user.organs_by_name[BP_R_FOOT]
 	if(E && !E.is_stump())
-		return 1
+		return TRUE
 
-	return 0
+	return FALSE
 
 /datum/unarmed_attack/kick/get_unarmed_damage(var/mob/living/carbon/human/user)
 	var/obj/item/clothing/shoes = user.shoes
@@ -239,25 +247,23 @@ var/global/list/sparring_attack_cache = list()
 	attack_name = "stomp"
 
 /datum/unarmed_attack/stomp/is_usable(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone)
-
-	if (user.legcuffed)
-		return 0
-
+	if(user.legcuffed || user.incapacitated())
+		return FALSE
 	if(!istype(target))
-		return 0
+		return FALSE
 
-	if (!user.lying && (target.lying || (zone in list(BP_L_FOOT, BP_R_FOOT))))
+	if(!user.lying && (target.lying || (zone in list(BP_L_FOOT, BP_R_FOOT))))
 		if(target.grabbed_by == user && target.lying)
-			return 0
+			return FALSE
 		var/obj/item/organ/external/E = user.organs_by_name[BP_L_FOOT]
 		if(E && !E.is_stump())
-			return 1
+			return TRUE
 
 		E = user.organs_by_name[BP_R_FOOT]
 		if(E && !E.is_stump())
-			return 1
+			return TRUE
 
-		return 0
+		return FALSE
 
 /datum/unarmed_attack/stomp/get_unarmed_damage(var/mob/living/carbon/human/user)
 	var/obj/item/clothing/shoes = user.shoes

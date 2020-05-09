@@ -42,6 +42,7 @@
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tajara_priest/New()
 	..()
@@ -141,6 +142,7 @@
 	path = /obj/item/clothing/accessory/tajaran_wrap
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/tajara_wrap/New()
 	..()
@@ -154,6 +156,7 @@
 	path = /obj/item/clothing/accessory/tajaran_pelt
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/mask/tajara
 	display_name = "sun sister veil"
@@ -161,6 +164,7 @@
 	cost = 1
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/shoes/tajara
 	display_name = "native tajaran foot-wear"
@@ -173,10 +177,20 @@
 	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/gloves/shumalia_belt
 	display_name = "hammer buckle belt"
 	description = "A leather belt adorned by a hammer shaped buckle, worn by priesthood and worshippers of Shumaila."
 	path = /obj/item/storage/belt/shumaila_buckle
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/tesla_spine
+	display_name = "tesla spine"
+	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civilians."
+	path = /obj/item/organ/internal/augment/tesla
+	cost = 4
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"

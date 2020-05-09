@@ -260,7 +260,7 @@
 		"<span class='warning'>Your hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!</span>")
 
 	target.adjustToxLoss(5)
-	target.apply_damage(5, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 	for(var/obj/item/organ/I in affected.internal_organs)
 		if(I)
