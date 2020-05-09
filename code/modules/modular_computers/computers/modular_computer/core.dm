@@ -63,6 +63,8 @@
 	if(enrolled)
 		var/programs = get_preset_programs(_app_preset_type)
 		for(var/datum/computer_file/program/prog in programs)
+			if(!prog.is_supported_by_hardware(hardware_flag, FALSE))
+				return
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/Initialize()
