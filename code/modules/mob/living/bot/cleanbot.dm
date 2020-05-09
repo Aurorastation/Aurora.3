@@ -88,7 +88,6 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		step_to(src, path[1])
 		path -= path[1]
 		return TRUE
-	return
 
 /mob/living/bot/cleanbot/proc/remove_from_ignore(path)
 	ignorelist -= path
