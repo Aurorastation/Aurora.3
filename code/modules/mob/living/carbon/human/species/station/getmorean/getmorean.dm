@@ -44,7 +44,7 @@
 	// Always looks like pepsi, regardless of the flavour.
 	blood_color = "#654321"
 
-	flags = NO_CHUBBY | NO_BLOOD | NO_BREATHE | NO_SCAN | NO_PAIN | NO_POISON
+	flags = NO_CHUBBY | NO_BREATHE | NO_SCAN | NO_PAIN | NO_POISON
 
 
 	primitive_form = null
@@ -98,6 +98,11 @@
 		"l_foot" = list("path" = /obj/item/organ/external/foot),
 		"r_foot" = list("path" = /obj/item/organ/external/foot/right)
 	)
+
+/datum/species/getmorean/handle_death_check(var/mob/living/carbon/human/H)
+	if(H.get_total_health() <= config.health_threshold_dead)
+		return TRUE
+	return FALSE
 
 /datum/species/getmorean/equip_later_gear(var/mob/living/carbon/human/H)
 	var/obj/item/device/radio/R = new /obj/item/device/radio(H)
