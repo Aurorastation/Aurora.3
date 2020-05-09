@@ -5,7 +5,7 @@
 	size = 10
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_TELESCREEN | PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_STATIONBOUND | PROGRAM_TELESCREEN | PROGRAM_WRISTBOUND
 	nanomodule_path = /datum/nano_module/program/civilian/cargoorder
 
 /datum/nano_module/program/civilian/cargoorder
@@ -24,7 +24,7 @@
 	if(!co)
 		var/datum/cargo_order/crord = new
 		co = crord
-	
+
 	var/list/data = host.initial_data()
 
 	//Pass the ID Data
@@ -109,7 +109,7 @@
 		co.ordered_by = last_user_name
 		co.reason = reason
 		co.set_submitted()
-		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]" 
+		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]"
 		//TODO: Print a list with the order data
 		co = null
 		return TRUE
@@ -136,7 +136,7 @@
 		//page = "main"
 		//selected_item = ""
 		return TRUE
-	
+
 	//Remove item from the order list
 	if(href_list["remove_item"])
 		status_message = co.remove_item(text2num(href_list["remove_item"]))
@@ -172,7 +172,7 @@
 	if(href_list["select_category"])
 		selected_category = href_list["select_category"]
 		return TRUE
-	
+
 	if(href_list["clear_message"])
 		status_message = null
 		return TRUE
