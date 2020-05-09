@@ -194,13 +194,14 @@
 	target = null
 
 /mob/living/bot/floorbot/UnarmedAttack(var/atom/A, var/proximity)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 
 	if(repairing)
 		return
 
-	if(get_turf(A) != loc)
+	if(!src.Adjacent(A))
 		return
 
 	if(emagged && istype(A, /turf/simulated/floor))

@@ -23,6 +23,7 @@
 
 	var/can_take_pai = TRUE
 	var/obj/item/device/paicard/pAI
+	var/old_name
 
 /mob/living/bot/Initialize()
 	. = ..()
@@ -40,6 +41,11 @@
 	QDEL_NULL(access_scanner)
 	return ..()
 
+/mob/living/bot/examine(mob/user, distance, infix, suffix)
+	. = ..()
+	if(pAI)
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a pAI piloting it.")))
+
 /mob/living/bot/Life()
 	..()
 	if(health <= 0)
@@ -48,6 +54,9 @@
 	weakened = 0
 	stunned = 0
 	paralysis = 0
+
+/mob/living/bot/movement_delay()
+	return 3
 
 /mob/living/bot/updatehealth()
 	if(status_flags & GODMODE)
@@ -105,10 +114,38 @@
 		else
 			to_chat(user, SPAN_WARNING("[src] does not need a repair."))
 		return
+	else if(O.iscrowbar())
+		if(!pAI)
+			to_chat(user, SPAN_WARNING("\The [src] does not have a pAI installed!"))
+			return
+		if(!old_name)
+			old_name = initial(name)
+		name = old_name
+		user.put_in_hands(pAI)
+		user.visible_message(SPAN_NOTICE("\The [user] pries \the [pAI.pai] out of \the [src]."), SPAN_NOTICE("You pry \the [pAI.pai] out of \the [src]."))
+		pAI = null
+	else if(istype(O, /obj/item/device/paicard))
+		if(!can_take_pai)
+			to_chat(user, SPAN_WARNING("\The [src] cannot take a pAI!"))
+			return
+		if(pAI)
+			to_chat(user, SPAN_WARNING("\The [src] already has a pAI installed!"))
+			return
+		var/obj/item/device/paicard/P = O
+		P.pai.open_up(FALSE)
+		P.pai.close_up()
+		user.drop_from_inventory(P, src)
+		pAI = P
+		user.visible_message(SPAN_NOTICE("\The [user] places \the [pAI.pai] into \the [src]."), SPAN_NOTICE("You place \the [O] into \the [src]."))
+		old_name = src.name
+		name = pAI.pai.name
 	else
 		..()
 
-/mob/living/bot/attack_ai(var/mob/user)
+/mob/living/bot/attack_ai(mob/user)
+	if(pAI)
+		to_chat(user, SPAN_WARNING("\The [src] contains a pAI and cannot be remotely controlled."))
+		return
 	return attack_hand(user)
 
 /mob/living/bot/say(var/message)
@@ -125,6 +162,11 @@
 			D.open()
 	else
 		. = ..()
+
+/mob/living/bot/cleanbot/think()
+	if(pAI) // no AI if we have a pAI installed
+		return
+	..()
 
 /mob/living/bot/emag_act()
 	return FALSE

@@ -180,7 +180,8 @@
 				path = list()
 
 /mob/living/bot/farmbot/UnarmedAttack(var/atom/A, var/proximity)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 	if(attacking)
 		return
@@ -340,7 +341,7 @@
 		name = "farmbot assembly"
 		qdel(W)
 		return TRUE
-	else if(istype(W, /obj/item/reagent_containers/glass/bucket)) && (build_step == 1)
+	else if(istype(W, /obj/item/reagent_containers/glass/bucket) && build_step == 1)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add a bucket to [src]."))
 		name = "farmbot assembly with bucket"

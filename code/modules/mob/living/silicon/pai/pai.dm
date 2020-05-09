@@ -186,7 +186,6 @@
 	greet()
 	..()
 
-
 /mob/living/silicon/pai/proc/greet()
 
 	if (!greeted)
@@ -323,12 +322,18 @@
 		return
 
 	last_special = world.time + 20
+	open_up()
+
+/mob/living/silicon/pai/proc/open_up(var/loud = TRUE)
+	if(istype(card.loc, /mob/living/bot))
+		to_chat(src, SPAN_WARNING("You cannot unfold while inside the bot!"))
+		return FALSE
 
 	//I'm not sure how much of this is necessary, but I would rather avoid issues.
 	if(istype(card.loc,/obj/item/rig_module))
-		to_chat(src, "There is no room to unfold inside this rig module. You're good and stuck.")
-		return 0
-	else if(istype(card.loc,/mob))
+		to_chat(src, SPAN_WARNING("There is no room to unfold inside this rig module. You're good and stuck."))
+		return FALSE
+	else if(istype(card.loc, /mob))
 		var/mob/holder = card.loc
 		if(ishuman(holder))
 			var/mob/living/carbon/human/H = holder
@@ -336,7 +341,8 @@
 				if(card in affecting.implants)
 					affecting.take_damage(rand(30,50))
 					affecting.implants -= card
-					H.visible_message("<span class='danger'>\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!</span>")
+					if(loud)
+						H.visible_message(SPAN_DANGER("\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!"))
 					break
 		holder.drop_from_inventory(card)
 	else if(istype(card.loc,/obj/item/device/pda))
@@ -351,9 +357,11 @@
 	card.screen_loc = null
 
 	var/turf/T = get_turf(src)
-	if(istype(T)) T.visible_message("<b>[src]</b> folds outwards, expanding into a mobile form.")
-	canmove = 1
-	resting = 0
+	if(loud && istype(T))
+		T.visible_message(SPAN_NOTICE("<b>[src]</b> folds outwards, expanding into a mobile form."))
+	canmove = TRUE
+	resting = FALSE
+
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
@@ -394,8 +402,8 @@
 	set name = "Check location"
 	set desc = "Find out where on their person, someone is holding you."
 
-	if (!get_holding_mob())
-		to_chat(src, "Nobody is holding you!")
+	if(!get_holding_mob())
+		to_chat(src, SPAN_WARNING("Nobody is holding you!"))
 		return
 
 	card.report_onmob_location(0, card.get_equip_slot(), src)

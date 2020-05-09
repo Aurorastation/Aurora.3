@@ -198,9 +198,12 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 				patrol_path -= patrol_path[1]
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 
+	if(isturf(D))
+		D = locate(/obj/effect/decal/cleanable) in D
 	if(!istype(D))
 		return
 
@@ -208,23 +211,25 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	cleaning = TRUE
-	target.being_cleaned = TRUE
+	D.being_cleaned = TRUE
 	update_icons()
 	var/clean_time = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	spawn(1)
-		if(do_after(src, clean_time))
-			if(istype(loc, /turf/simulated))
-				var/turf/simulated/f = loc
-				f.dirt = 0
-			if(!D)
-				return
-			D.clean_marked = null
-			if(D == target)
-				target.being_cleaned = FALSE
-				target = null
-			qdel(D)
-		cleaning = FALSE
-		update_icons()
+	INVOKE_ASYNC(src, .proc/do_clean, D, clean_time)
+
+/mob/living/bot/cleanbot/proc/do_clean(var/obj/effect/decal/cleanable/D, var/clean_time)
+	if(D && do_after(src, clean_time))
+		if(istype(D.loc, /turf/simulated))
+			var/turf/simulated/f = loc
+			f.dirt = 0
+		if(!D)
+			return
+		D.clean_marked = null
+		if(D == target)
+			target.being_cleaned = FALSE
+			target = null
+		qdel(D)
+	cleaning = FALSE
+	update_icons()
 
 /mob/living/bot/cleanbot/explode()
 	on = FALSE // the first thing i do when i explode is turn off, tbh - geeves
