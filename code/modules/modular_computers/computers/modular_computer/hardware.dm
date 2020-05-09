@@ -55,6 +55,17 @@
 			return
 		found = TRUE
 		tesla_link = H
+	else if(istype(H, /obj/item/device/paicard))
+		if(personal_ai)
+			to_chat(user, SPAN_WARNING("\The [src]'s personal AI slot is already occupied by \the [personal_ai]."))
+			return
+		personal_ai = H
+		to_chat(user, SPAN_NOTICE("You install \the [H] into \the [src]."))
+		personal_ai.pai.parent_computer = src
+		personal_ai.pai.verbs += /mob/proc/personal_computer_interact
+		to_chat(personal_ai.pai, SPAN_NOTICE("You gain access to \the [src]'s computronics."))
+		user.drop_from_inventory(H, src)
+		update_icon()
 	if(found)
 		to_chat(user, SPAN_NOTICE("You install \the [H] into \the [src]."))
 		H.parent_computer = src
@@ -92,6 +103,17 @@
 	else if(tesla_link == H)
 		tesla_link = null
 		found = TRUE
+	else if(personal_ai == H)
+		if(user)
+			to_chat(user, SPAN_NOTICE("You remove \the [H] from \the [src]."))
+		H.forceMove(get_turf(src))
+		if(put_in_hands)
+			user.put_in_hands(H)
+		personal_ai.pai.verbs -= /mob/proc/personal_computer_interact
+		to_chat(personal_ai.pai, SPAN_NOTICE("You lose access to \the [src]'s computronics."))
+		personal_ai.pai.parent_computer = null
+		update_icon()
+		personal_ai = null
 
 	if(found)
 		if(user)
@@ -104,7 +126,6 @@
 		if(critical && enabled)
 			to_chat(user, SPAN_WARNING("\The [src]'s screen freezes for few seconds and then displays, \"HARDWARE ERROR: Critical component disconnected. Please verify component connection and reboot the device. If the problem persists contact technical support for assistance.\"."))
 			shutdown_computer()
-
 
 // Checks all hardware pieces to determine if name matches, if yes, returns the hardware piece, otherwise returns null
 /obj/item/modular_computer/proc/find_hardware_by_name(var/name)

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "pAI can now be put into modular computers to control them. When a pAI is inserted, a new service will be unlocked, which can disable their access to the computer."
