@@ -211,5 +211,5 @@
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()
-	if(card_slot.stored_card)
+	if(card_slot)
 		return card_slot.stored_card
