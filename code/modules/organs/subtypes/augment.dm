@@ -15,6 +15,7 @@
 	var/cooldown = 150
 	var/action_button_icon = "augment"
 	var/activable = FALSE
+	var/bypass_implant = FALSE
 
 /obj/item/organ/internal/augment/Initialize()
 	robotize()
@@ -47,6 +48,12 @@
 		if(is_broken())
 			if(do_broken_act())
 				return FALSE
+
+
+		if(!bypass_implant)
+			for (var/obj/item/implant/anti_augment/I in owner)
+				if (I.implanted)
+					return FALSE
 
 		owner.last_special = world.time + cooldown
 		return TRUE
