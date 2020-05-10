@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - tweak: "Bluespace travel now has a bluespace aesthetic."
+  - bugfix: "Fixes shuttle turfs not updating while in transit."
