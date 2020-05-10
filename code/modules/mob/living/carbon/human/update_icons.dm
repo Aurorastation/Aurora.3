@@ -308,20 +308,18 @@ There are several things that need to be remembered:
 		update_icons()
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
-	var/list/ovr
+	overlays_raw[UNDERWEAR_LAYER] = list()
 
-	if(underwear && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[underwear]"))
+	if(species.appearance_flags & HAS_UNDERWEAR)
+		for(var/category in all_underwear)
+			if(hide_underwear[category])
+				continue
+			if(category == "Underwear, top" && hide_underwear["Undershirt"] == FALSE && !istype(all_underwear["Undershirt"], /datum/category_item/underwear/undershirt/none))
+				continue //This piece of "code" is here to prevent tops from showing up over undershirts.
+			var/datum/category_item/underwear/UWI = all_underwear[category]
+			overlays_raw[UNDERWEAR_LAYER] += UWI.generate_image(all_underwear_metadata[category])
 
-	if(undershirt && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[undershirt]"))
-
-	if(socks && (species.appearance_flags & HAS_SOCKS))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[socks]"))
-
-	overlays_raw[UNDERWEAR_LAYER] = ovr
-
-	if (update_icons)
+	if(update_icons)
 		update_icons()
 
 // This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
@@ -417,20 +415,6 @@ There are several things that need to be remembered:
 				add_image = 1
 	for(var/mut in mutations)
 		switch(mut)
-			/*
-			if(HULK)
-				if(fat)
-					standing.underlays	+= "hulk_[fat]_s"
-				else
-					standing.underlays	+= "hulk_[g]_s"
-				add_image = 1
-			if(COLD_RESISTANCE)
-				standing.underlays	+= "fire[fat]_s"
-				add_image = 1
-			if(TK)
-				standing.underlays	+= "telekinesishead[fat]_s"
-				add_image = 1
-			*/
 			if(LASER_EYES)
 				standing.overlays += "lasereyes_s"
 				add_image = 1
@@ -650,20 +634,25 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[GLASSES_LAYER] = null
+	var/image/glasses_overlay = null
 	if(check_draw_glasses())
 		if(glasses.contained_sprite)
 			glasses.auto_adapt_species(src)
 			var/state = "[UNDERSCORE_OR_NULL(glasses.icon_species_tag)][glasses.item_state][WORN_EYES]"
 
-			overlays_raw[GLASSES_LAYER] = image(glasses.icon_override || glasses.icon, state)
+			glasses_overlay = image(glasses.icon_override || glasses.icon, state)
 
 		else if(glasses.icon_override)
-			overlays_raw[GLASSES_LAYER] = image(glasses.icon_override, glasses.icon_state)
+			glasses_overlay = image(glasses.icon_override, glasses.icon_state)
 		else if(glasses.sprite_sheets && glasses.sprite_sheets[GET_BODY_TYPE])
-			overlays_raw[GLASSES_LAYER] = image(glasses.sprite_sheets[GET_BODY_TYPE], glasses.icon_state)
+			glasses_overlay = image(glasses.sprite_sheets[GET_BODY_TYPE], glasses.icon_state)
 		else
-			overlays_raw[GLASSES_LAYER] = image('icons/mob/eyes.dmi', glasses.icon_state)
+			glasses_overlay = image('icons/mob/eyes.dmi', glasses.icon_state)
+
+		if(glasses.color)
+			glasses_overlay.color = glasses.color
+
+	overlays_raw[GLASSES_LAYER] = glasses_overlay
 
 	if(update_icons)
 		update_icons()
@@ -748,16 +737,16 @@ There are several things that need to be remembered:
 
 		var/list/ovr
 
-		if(shoes.blood_DNA)
+		if(shoes.blood_color)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = shoes.blood_color
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[shoe_layer] = ovr || standing
 	else
-		if(feet_blood_DNA)
+		if(footprint_color)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
-			bloodsies.color = feet_blood_color
+			bloodsies.color = footprint_color
 			overlays_raw[SHOES_LAYER] = bloodsies
 		else
 			overlays_raw[SHOES_LAYER] = null
@@ -1433,3 +1422,4 @@ There are several things that need to be remembered:
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
 #undef GET_TAIL_LAYER
+

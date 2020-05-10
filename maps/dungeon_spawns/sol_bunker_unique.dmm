@@ -1129,7 +1129,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/sol_outpost)
 "dc" = (
-/turf/unsimulated/mineral/asteroid,
+/turf/simulated/mineral,
 /area/mine/unexplored)
 "dd" = (
 /obj/effect/decal/remains/rat,

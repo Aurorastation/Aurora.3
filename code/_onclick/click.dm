@@ -211,17 +211,7 @@
 	if(!mutations.len) return
 	if((LASER_EYES in mutations) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
-	else if(TK in mutations)
-		switch(get_dist(src,A))
-			if(1 to 5) // not adjacent may mean blocked by window
-				setMoveCooldown(2)
-			if(5 to 7)
-				setMoveCooldown(5)
-			if(8 to tk_maxrange)
-				setMoveCooldown(10)
-			else
-				return
-		A.attack_tk(src)
+
 /*
 	Restrained ClickOn
 

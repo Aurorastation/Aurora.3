@@ -166,6 +166,8 @@
 	desc = "A uniform worn by Hephaestus Industries engineers."
 	icon_state = "heph_engineer"
 	worn_state = "heph_engineer"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
+	siemens_coefficient = 0.75	
 
 /obj/item/clothing/under/rank/hephaestus/tech
 	name = "Hephaestus Industries technician uniform"
@@ -178,6 +180,8 @@
 	desc = "A uniform worn by Hephaestus Industries researchers."
 	icon_state = "heph_research"
 	worn_state = "heph_research"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 10)	
 
 /obj/item/clothing/under/rank/necropolis
 	name = "Necropolis Industries uniform"
@@ -190,6 +194,8 @@
 	desc = "A uniform worn by Necropolis Industries researchers."
 	icon_state = "necro_research"
 	worn_state = "necro_research"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 0, rad = 0)	
 
 /obj/item/clothing/under/rank/necropolis/research/alt
 	icon_state = "necro_research_alt"
@@ -214,12 +220,16 @@
 	desc = "A uniform worn by Einstein Engines Incorporated employees and contractors."
 	icon_state = "einstein_engine"
 	worn_state = "einstein_engine"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
+	siemens_coefficient = 0.75	
 
 /obj/item/clothing/under/rank/zeng
 	name = "Zeng-Hu uniform"
 	desc = "A uniform worn by Zeng-Hu medical doctors and researchers."
 	icon_state = "zeng_research"
 	worn_state = "zeng_research"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 10, rad = 0)	
 
 /obj/item/clothing/under/rank/zeng/alt
 	icon_state = "zeng_research_alt"
@@ -236,3 +246,5 @@
 	desc = "A uniform worn by Eridani PMC paramedics."
 	icon_state = "eridani_medic"
 	worn_state = "eridani_medic"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 10, rad = 0)		

@@ -2,8 +2,8 @@
 
 /obj/item/coin
 	icon = 'icons/obj/coins.dmi'
-	name = "Coin"
-	icon_state = "coin"
+	name = "coin"
+	icon_state = "coin__heads"
 	randpixel = 8
 	desc = "A flat disc or piece of metal with an official stamp. An archaic type of currency."
 	flags = CONDUCT
@@ -64,33 +64,33 @@
 	icon_state = "coin_battlemonsters_heads"
 	cmineral = "battlemonsters"
 
-/obj/item/coin/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/coin/attackby(obj/item/W, mob/user)
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/CC = W
 		if(string_attached)
-			to_chat(user, "<span class='notice'>There already is a string attached to this coin.</span>")
+			to_chat(user, SPAN_NOTICE("There already is a string attached to this coin."))
 			return
-		if (CC.use(1))
+		if(CC.use(1))
 			add_overlay("coin_string_overlay")
-			string_attached = 1
-			to_chat(user, "<span class='notice'>You attach a string to the coin.</span>")
+			string_attached = TRUE
+			to_chat(user, SPAN_NOTICE("You attach a string to the coin."))
 		else
-			to_chat(user, "<span class='notice'>This cable coil appears to be empty.</span>")
+			to_chat(user, SPAN_NOTICE("This cable coil appears to be empty."))
 		return
 	else if(W.iswirecutter())
 		if(!string_attached)
 			..()
 			return
 
-		var/obj/item/stack/cable_coil/CC = new/obj/item/stack/cable_coil(user.loc)
+		var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(get_turf(user))
 		CC.amount = 1
 		CC.update_icon()
 		cut_overlays()
 		string_attached = null
-		to_chat(user, "<span class='notice'>You detach the string from the coin.</span>")
+		to_chat(user, SPAN_NOTICE("You detach the string from the coin."))
 	else ..()
 
-/obj/item/coin/attack_self(mob/user as mob)
+/obj/item/coin/attack_self(mob/user)
 	var/result = rand(1, sides)
 	var/comment = ""
 	if(result == 1)
@@ -99,6 +99,6 @@
 		comment = "heads"
 	flick("coin_[cmineral]_flip", src)
 	icon_state = "coin_[cmineral]_[comment]"
-	playsound(src.loc, 'sound/items/coinflip.ogg', 100, 1, -4)
-	user.visible_message("<span class='notice'>[user] has thrown \the [src]. It lands on [comment]! </span>", \
-						 "<span class='notice'>You throw \the [src]. It lands on [comment]! </span>")
+	playsound(get_turf(src), 'sound/items/coinflip.ogg', 100, 1, -4)
+	user.visible_message(SPAN_NOTICE("\The [user] has thrown \the [src]. It lands on [comment]!"), \
+						 SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))

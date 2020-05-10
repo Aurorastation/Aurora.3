@@ -153,3 +153,40 @@
 		return null
 
 	return O
+
+/mob/living/carbon/human/proc/awaken_psi_basic(var/source)
+	var/static/list/psi_operancy_messages = list(
+		"There's something in your skull!",
+		"Something is eating your thoughts!",
+		"You can feel your brain being rewritten!",
+		"Something is crawling over your frontal lobe!",
+		"Something is drilling through your skull!",
+		"Your head feels like it's going to implode!",
+		"Thousands of ants are tunneling in your head!"
+		)
+	to_chat(src, span("danger", "An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
+	seizure()
+	var/new_latencies = rand(2,4)
+	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
+	for(var/i = 1 to new_latencies)
+		custom_pain(span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
+		set_psi_rank(pick_n_take(faculties), 1)
+		sleep(30)
+		psi.update()
+	sleep(45)
+	psi.check_latency_trigger(100, source, TRUE)
+
+/mob/living/carbon/human/get_resist_power()
+	return species.resist_mod
+
+// Handle cases where the mob's awareness may reside in another mob, but still cares about how its brain is doing
+/mob/living/carbon/human/proc/find_mob_consciousness()
+	if(istype(bg) && bg.client)
+		return bg
+
+	return src
+
+/mob/living/carbon/human/proc/has_hearing_aid()
+	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
+		return TRUE
+	return FALSE

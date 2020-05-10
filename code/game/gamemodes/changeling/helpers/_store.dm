@@ -18,15 +18,9 @@ var/list/datum/power/changeling/powerinstances = list()
 
 /datum/power/changeling/absorb_dna
 	name = "Absorb DNA"
-	desc = "Permits us to syphon some of the DNA from a another sentient creature. They will take some toxin damage as a result of our extraction. Does not work on other changelings."
-	genomecost = 0
-	verbpath = /mob/proc/changeling_absorb_dna
-
-/datum/power/changeling/extract_dna
-	name = "Full DNA Extraction"
 	desc = "Permits us to forcibly absorb a massive quantity DNA from another sentient creature. They will perish during the process, and we become stronger, especially if they were another changeling. Have caution, this takes some time."
 	genomecost = 0
-	verbpath = /mob/proc/changeling_extract_dna
+	verbpath = /mob/proc/changeling_absorb_dna
 
 //Transformation
 

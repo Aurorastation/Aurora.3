@@ -16,6 +16,7 @@
 	default_material = "glass"
 	unbreakable = 1 //It's already broken.
 	drops_debris = 0
+	drop_sound = 'sound/effects/glass_step.ogg'
 
 /obj/item/material/shard/set_material(var/new_material)
 	..(new_material)
@@ -63,7 +64,7 @@
 		if(M.buckled) //wheelchairs, office chairs, rollerbeds
 			return
 
-		to_chat(M, "<span class='danger'>You step on \the [src]!</span>")
+		to_chat(M, span("danger", "You step on \the [src]!"))
 		playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
@@ -92,13 +93,13 @@
 
 // Preset types - left here for the code that uses them
 /obj/item/material/shard/shrapnel/New(loc)
-	..(loc, "steel")
+	..(loc, MATERIAL_STEEL)
 
 /obj/item/material/shard/shrapnel/flechette/New(loc)
-	..(loc, "titanium")
+	..(loc, MATERIAL_TITANIUM)
 
 /obj/item/material/shard/phoron/New(loc)
-	..(loc, "phglass")
+	..(loc, MATERIAL_GLASS_PHORON)
 
 /obj/item/material/shard/wood/New(loc)
-	..(loc, "wood")
+	..(loc, MATERIAL_WOOD)

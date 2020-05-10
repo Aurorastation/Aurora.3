@@ -5,8 +5,12 @@
 	name = "bottle"
 	desc = "A small bottle."
 	icon = 'icons/obj/chemical.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		)
 	icon_state = null
-	item_state = "atoxinbottle"
+	item_state = "bottle"
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	flags = 0
@@ -66,13 +70,6 @@
 	desc = "A small bottle. Contains norepinephrine - used to stabilize patients."
 	icon_state = "bottle-4"
 	reagents_to_add = list("norepinephrine" = 60)
-
-/obj/item/reagent_containers/glass/bottle/inaprovaline
-	name = "inaprovaline bottle"
-	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
-	icon_state = "bottle-4"
-	reagents_to_add = list("inaprovaline" = 60)
-	
 
 /obj/item/reagent_containers/glass/bottle/toxin
 	name = "toxin bottle"
@@ -134,13 +131,13 @@
 	if(!icon_state)
 		icon_state = "bottle-[rand(1,4)]"
 	reagents.add_reagent("blood", 20, data)
-	
+
 	update_icon()
 
 /obj/item/reagent_containers/glass/bottle/with_virus/flu_virion
 	name = "Flu virion culture bottle"
 	desc = "A small bottle. Contains H13N1 flu virion culture in synthblood medium."
-	disease = /datum/disease/advance/flu	
+	disease = /datum/disease/advance/flu
 
 /obj/item/reagent_containers/glass/bottle/with_virus/epiglottis_virion
 	name = "Epiglottis virion culture bottle"

@@ -462,7 +462,7 @@
 	if (O.is_open_container())
 		return 0
 
-	if(O.iswirecutter() || istype(O, /obj/item/scalpel))
+	if(O.iswirecutter() || istype(O, /obj/item/surgery/scalpel))
 
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")
@@ -588,7 +588,7 @@
 			check_health()
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/attack_tk(mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/do_simple_ranged_interaction(var/mob/user)
 	if(dead)
 		remove_dead(user)
 	else if(harvest)

@@ -194,13 +194,6 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "messy locks"
 
-	bedhead5
-		name = "Bedhead 5"
-		icon_state = "hair_bedhead5"
-		gender = FEMALE
-		length = 4
-		chatname = "messy locks"
-
 	beehive
 		name = "Beehive"
 		icon_state = "hair_beehive"
@@ -1428,6 +1421,12 @@ Follow by example and make good judgement based on length which list to include 
 		gender = MALE
 		chatname = "unshaved hair"
 
+	undercut5
+		name = "Undercut 5"
+		icon_state = "hair_undercut5"
+		gender = MALE
+		chatname = "unshaved hair"
+
 	unkept
 		name = "Unkept"
 		icon_state = "hair_unkept"
@@ -1720,6 +1719,12 @@ Follow by example and make good judgement based on length which list to include 
 		swept_short
 			name = "Swept, Short"
 			icon_state = "hair_swept_short"
+			length = 1
+			chatname = "short hair"
+
+		swept_back
+			name = "Swept, Back"
+			icon_state = "hair_swept_back"
 			length = 1
 			chatname = "short hair"
 
@@ -2147,6 +2152,24 @@ Follow by example and make good judgement based on length which list to include 
 			length = 5
 			chatname = "horns"
 
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "unathi_hood"
+			length = 5
+			chatname = "hood"
+
+		una_skewers
+			name = "Unathi Super Long Horns"
+			icon_state = "unathi_skewers"
+			length = 6
+			chatname = "huge horns"
+
+		una_chameleon
+			name = "Unathi Chameleon Horns"
+			icon_state = "unathi_chameleon"
+			length = 3
+			chatname = "small horns"
+
 //skrell tentacles
 
 	skr_tentacle_m
@@ -2565,6 +2588,18 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Unathi Double Horns"
 			icon_state = "facial_dubhorns"
 
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "facial_hood"
+
+		una_skewers
+			name = "Unathi Super Long Horns"
+			icon_state = "facial_skewers"
+
+		una_chameleon
+			name = "Unathi Chameleon Horns"
+			icon_state = "facial_chameleon"
+
 //ipc screens
 
 	ipc_screen_blank
@@ -2847,6 +2882,24 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list("Unathi")
 
+	una_maswaist
+		name = "Masculine Waist (For Females)"
+		icon_state = "una_maswaist"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Unathi")
+
+	una_clawshand
+		name = "Claws (Hands)"
+		icon_state = "una_claws"
+		body_parts = list(BP_L_HAND,BP_R_HAND)
+		species_allowed = list("Unathi")
+
+	una_clawsfoot
+		name = "Claws (Feet)"
+		icon_state = "una_claws"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT)
+		species_allowed = list("Unathi")
+
 	spelunker
 		name = "Spelunker"
 		icon_state = "spelunker"
@@ -2879,47 +2932,26 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
 		species_allowed = list("Diona")
 
-
-// Branded IPC markings - disabled for now, some layering issues.
-/*
-	bishop
+	bishop_lights
+		name = "Lights Colour"
 		icon = 'icons/mob/human_races/markings_bishop.dmi'
-		icon_state = "face_lights"
+		icon_state = "bishop_lights"
 		icon_blend_mode = ICON_MULTIPLY
-		name = "Face Color"
-		body_parts = list(BP_HEAD)
-		species_allowed = list("Bishop Accessory Frame")
 		is_painted = TRUE
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+		species_allowed = list("Bishop Accessory Frame")
 
-		monoeye
-			name = "Eye"
-			icon_state = "monoeye"
+		bishop_mask
+			name = "Face Mask"
+			icon_state = "bishop_mask"
+			do_colouration = FALSE
+			body_parts = list(BP_HEAD)
 
-		plating
-			name = "Plating (Full)"
-			icon_state = "plating"
-			body_parts = list(BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
+			bishop_triangular_mask
+				name = "Triangular Face Mask"
+				icon_state = "bishop_triangular_mask"
 
-			l_arm
-				name = "Plating (Left arm)"
-				body_parts = list(BP_L_ARM)
-
-			r_arm
-				name = "Plating (Right arm)"
-				body_parts = list(BP_R_ARM)
-
-			l_leg
-				name = "Plating (Left leg)"
-				body_parts = list(BP_L_LEG)
-
-			r_leg
-				name = "Plating (Right leg)"
-				body_parts = list(BP_R_LEG)
-
-			chest
-				name = "Plating (Chest)"
-				body_parts = list(BP_CHEST)
-
+/*
 	zenghu
 		icon = 'icons/mob/human_races/markings_zenghu.dmi'
 		icon_state = "outer"

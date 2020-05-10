@@ -2,6 +2,8 @@
 	name = "body"
 	icon_state = "loader_body"
 	gender = NEUTER
+	pixel_y = -8
+	center_of_mass = list("x"=24, "y"=20)
 
 	var/mech_health = 300
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
@@ -16,7 +18,7 @@
 	var/list/pilot_positions
 	var/pilot_coverage = 100
 	var/transparent_cabin = FALSE
-	var/hide_pilot = FALSE
+	var/hide_pilot = TRUE
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
 /obj/item/mech_component/chassis/update_components()

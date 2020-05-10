@@ -13,8 +13,13 @@
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 15000, "plastic" = 1000, "osmium" = 500)
+	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_PLASTIC = 1000, MATERIAL_OSMIUM = 500)
 	dir = SOUTH
+
+/obj/item/mech_component/pickup(mob/user)
+	pixel_x = initial(pixel_x)
+	pixel_y = initial(pixel_y)
+	return
 
 /obj/item/mech_component/proc/set_colour(new_colour)
 	var/last_colour = color
@@ -73,7 +78,6 @@
 	update_health()
 	if(total_damage == max_damage)
 		take_component_damage(0,amt)
-
 
 /obj/item/mech_component/proc/take_component_damage(var/brute, var/burn)
 	var/list/damageable_components = list()

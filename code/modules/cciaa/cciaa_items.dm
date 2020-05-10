@@ -6,18 +6,18 @@
 
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
-	w_class = 1.0
-	recording = 0
+	w_class = ITEMSIZE_TINY
 	timestamp = list()	//This actually turns timestamp into a string later on
 
 	//Redundent
 	matter = list()
-	playing = 0
-	emagged = 0
-	timerecorded = 0
-	playsleepseconds = 0
-	storedinfo = list()
-	canprint = 1
+	recording = FALSE
+	playing = FALSE
+	emagged = FALSE
+	time_recorded = FALSE
+	play_sleep_seconds = FALSE
+	stored_info = list()
+	can_print = TRUE
 
 	//Specific for Duty Officers
 	var/paused = FALSE
@@ -125,7 +125,7 @@
 		return
 
 /obj/item/device/taperecorder/cciaa/stop()
-	set name = "Stop"
+	set name = "Stop Recording"
 	set category = "Recorder"
 
 	if(use_check_and_message(usr))
@@ -277,7 +277,7 @@
 	if(interviewee_id)
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"A interviewee has already been associated with this interview\".</span>")
 		return
-	
+
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.character_id)
@@ -345,3 +345,6 @@
 	storage_slots = 8
 	max_storage_space = 16
 
+/obj/item/storage/lockbox/cciaa/fib
+	name = "FIB agent briefcase"
+	desc = "A smart looking ID locked briefcase."

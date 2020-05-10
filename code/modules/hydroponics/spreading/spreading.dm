@@ -242,7 +242,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	SSplants.add_plant(src)
 
-	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
 		if(sampled)
 			to_chat(user, "<span class='warning'>\The [src] has already been sampled recently.</span>")
 			return

@@ -29,6 +29,8 @@ main ui datum.
 	var/windowid
 	// determines if ui state should be constantly be cheacked for updates
 	var/auto_update_content = FALSE
+	// list for storing ui sensitive data. this meant for object data tracking
+	var/list/metadata
 
 /**
   * Creates a new ui
@@ -44,11 +46,11 @@ main ui datum.
   *
   * @return nothing
   */
-/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/nstate = default_state)
+/datum/vueui/New(var/nuser, var/nobject, var/nactiveui = 0, var/nwidth = 0, var/nheight = 0, var/ntitle, var/list/ndata, var/datum/topic_state/state = default_state)
 	user = nuser
 	object = nobject
 	data = ndata
-	state = nstate
+	src.state = state
 	LAZYINITLIST(assets)
 
 	if (nactiveui)
@@ -98,6 +100,7 @@ main ui datum.
   * @return nothing
   */
 /datum/vueui/proc/close()
+	object.vueui_on_close(src)
 	SSvueui.ui_closed(src)
 	user << browse(null, "window=[windowid]")
 	status = null
@@ -187,9 +190,9 @@ main ui datum.
 	send_theme_resources(cl)
 	for(var/asset_name in assets)
 		var/asset = assets[asset_name]
-		if (!QDELETED(asset["img"]))
-			cl << browse_rsc(asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
-
+		var/image/I = asset["img"]
+		if (!QDELETED(I))
+			cl << browse_rsc(I, "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
 /**
   * Sends requested asset to ui's client
   *
@@ -201,9 +204,9 @@ main ui datum.
 	if (QDELETED(user) || !user.client)
 		return
 	var/asset = assets[ckey(name)]
-	if (asset && !QDELETED(asset["img"]))
-		user.client << browse_rsc(asset["img"], "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
-
+	var/image/I = asset["img"]
+	if (asset && !QDELETED(I))
+		user.client << browse_rsc(I, "vueuiimg_" + ckey("\ref[asset["img"]]") + ".png")
 /**
   * Adds / sets dynamic asset for this ui's use
   *
@@ -302,7 +305,7 @@ main ui datum.
 				src.data = ret
 				return 2
 		else if (force)
-			if(!nopush) 
+			if(!nopush)
 				push_change(null)
 				return 1
 			else
@@ -330,7 +333,7 @@ main ui datum.
 		if(nstatus > STATUS_DISABLED)
 			return check_for_change(TRUE, !autopush) == 2 // Gather data and update it
 		else if (nstatus == STATUS_DISABLED && autopush)
-			if(autopush) 
+			if(autopush)
 				push_change(null) // Only update ui data
 			else
 				return 1

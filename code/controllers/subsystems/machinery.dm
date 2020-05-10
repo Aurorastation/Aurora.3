@@ -221,4 +221,11 @@
 	if (remove_from_global)
 		SSmachinery.all_machines -= M
 
+
+/datum/controller/subsystem/machinery/ExplosionStart()
+	suspend()
+
+/datum/controller/subsystem/machinery/ExplosionEnd()
+	wake()
+
 #undef MACHINERY_GO_TO_NEXT

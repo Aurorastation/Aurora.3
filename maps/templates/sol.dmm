@@ -1,0 +1,2791 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/space,
+/area/space)
+"ab" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"ac" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"ad" = (
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"ae" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"af" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"ag" = (
+/obj/item/modular_computer/console,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ah" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"ai" = (
+/turf/space,
+/area/template_noop)
+"aj" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"ak" = (
+/obj/item/modular_computer/console,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"al" = (
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"am" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"an" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/highvalue,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ao" = (
+/obj/item/device/binoculars,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ap" = (
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict/ship)
+"aq" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/random/belt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ar" = (
+/obj/machinery/porta_turret/pulse,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"as" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/structure/table/reinforced/steel,
+/obj/random/ammo,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"at" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"au" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/ammo,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"av" = (
+/obj/structure/sign/flag/sol,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict/ship)
+"aw" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ax" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ay" = (
+/obj/machinery/door/airlock/hatch{
+	desc = "A thick blast door with Sol Alliance markings.";
+	icon_state = "door_locked";
+	id_tag = "engine_access_hatch";
+	locked = 1;
+	req_access = list(11)
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"az" = (
+/obj/machinery/computer/cryopod,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict/ship)
+"aA" = (
+/obj/structure/closet/sol/marine,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aB" = (
+/obj/machinery/cryopod{
+	icon_state = "body_scanner_0";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aC" = (
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aD" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/cryopod{
+	icon_state = "body_scanner_0";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aE" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/machinery/cryopod,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aG" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Laser Rifle)";
+	req_access = list(3)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aH" = (
+/obj/structure/table/rack,
+/obj/random/voidsuit,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aI" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"aJ" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/machinery/porta_turret/pulse,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aK" = (
+/obj/structure/table/rack,
+/obj/random/handgun,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aL" = (
+/obj/structure/table/rack,
+/obj/random/vault_weapon,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aM" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/porta_turret/pulse,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aN" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"aO" = (
+/obj/structure/table/rack,
+/obj/random/spacecash,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aP" = (
+/obj/machinery/vending/tacticool,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aQ" = (
+/obj/structure/table/rack,
+/obj/random/energy_antag,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aR" = (
+/obj/structure/table/rack,
+/obj/random/belt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aS" = (
+/obj/structure/bed/chair/e_chair,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aT" = (
+/obj/machinery/porta_turret/pulse,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor,
+/area/derelict/ship)
+"aU" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/plushie,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aV" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/medical,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aW" = (
+/obj/machinery/porta_turret/ion,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aX" = (
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"aY" = (
+/turf/simulated/floor,
+/area/derelict/ship)
+"aZ" = (
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"ba" = (
+/obj/structure/AIcore,
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bb" = (
+/obj/machinery/power/port_gen/pacman/super,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bc" = (
+/mob/living/simple_animal/rat,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bd" = (
+/obj/machinery/door/airlock/maintenance_hatch,
+/turf/simulated/floor,
+/area/derelict/ship)
+"be" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bf" = (
+/obj/structure/table/rack,
+/obj/random/belt,
+/obj/random/belt,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bg" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bh" = (
+/obj/machinery/constructable_frame,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bj" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bk" = (
+/obj/machinery/power/rtg/advanced,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bl" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bm" = (
+/obj/machinery/porta_turret/pulse,
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bn" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/table/reinforced/steel,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bo" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bp" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bq" = (
+/obj/random/glowstick,
+/turf/simulated/floor,
+/area/derelict/ship)
+"br" = (
+/obj/machinery/cryopod/robot,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bs" = (
+/obj/random/voidsuit,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bt" = (
+/obj/structure/table/rack,
+/obj/random/glowstick,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bu" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bv" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bw" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bx" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/machinery/shield_capacitor,
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"by" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bz" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bA" = (
+/obj/machinery/shield_gen,
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bB" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bC" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bD" = (
+/obj/structure/closet/bombcloset,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bE" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular/open,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bF" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bG" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/greengrid,
+/area/derelict/ship)
+"bH" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/sleeper,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"bI" = (
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"bJ" = (
+/obj/item/storage/firstaid/combat,
+/obj/structure/table/reinforced/steel,
+/obj/random/firstaid,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"bK" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular/open,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bL" = (
+/mob/living/bot/cleanbot,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bM" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"bN" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/derelict/ship)
+"bO" = (
+/obj/structure/table/rack,
+/obj/random/glowstick,
+/obj/random/toolbox,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bP" = (
+/obj/structure/table/reinforced/steel,
+/obj/random/loot,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bQ" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/blast/regular/open,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bR" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/backpack/satchel_med,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"bS" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"bT" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/simulated/floor,
+/area/derelict/ship)
+"bU" = (
+/obj/machinery/firealarm,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict/ship)
+"bV" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bW" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock{
+	name = "Unisex Restrooms"
+	},
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"bX" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"bY" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock,
+/obj/machinery/holosign/surgery,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"bZ" = (
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"ca" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/closet/radiation,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cb" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/floodlight,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cc" = (
+/obj/machinery/shower{
+	dir = 4;
+	icon_state = "shower";
+	pixel_y = -8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/igniter,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"cd" = (
+/obj/machinery/washing_machine,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"ce" = (
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/suit/apron/surgery,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"cf" = (
+/obj/structure/closet/medical_wall{
+	desc = "It's wall-mounted storage unit for medical supplies. It has almost come off its mounts.";
+	name = "Dilapitated medical closet";
+	pixel_y = -32
+	},
+/obj/item/storage/firstaid/surgery,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"cg" = (
+/obj/machinery/reagentgrinder,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"ch" = (
+/mob/living/simple_animal/rat,
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"ci" = (
+/obj/machinery/floorlayer,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cj" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"ck" = (
+/obj/structure/sink{
+	dir = 4;
+	icon_state = "sink";
+	pixel_x = 11;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"cl" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor,
+/area/derelict/ship)
+"cm" = (
+/obj/machinery/door/blast/regular/open,
+/turf/simulated/floor,
+/area/derelict/ship)
+"cn" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"co" = (
+/turf/simulated/floor/tiled/ramp,
+/area/derelict/ship)
+"cp" = (
+/obj/structure/toilet{
+	dir = 4;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/derelict/ship)
+"cq" = (
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/ripley,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cr" = (
+/obj/machinery/door/blast/regular,
+/turf/simulated/floor,
+/area/derelict/ship)
+"cs" = (
+/obj/machinery/mass_driver,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/derelict/ship)
+"ct" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cu" = (
+/obj/structure/table/rack,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cv" = (
+/obj/structure/table/rack,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cw" = (
+/obj/structure/table/rack,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cx" = (
+/obj/item/am_containment,
+/obj/structure/table/rack,
+/obj/item/am_containment,
+/obj/item/am_containment,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cy" = (
+/obj/item/am_containment,
+/obj/structure/table/rack,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/am_containment,
+/obj/item/am_containment,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cz" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/derelict/ship)
+"cA" = (
+/obj/structure/closet/crate/large,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cB" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cC" = (
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cD" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cF" = (
+/obj/structure/closet/secure_closet/engineering_personal,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cG" = (
+/obj/structure/closet/wardrobe/engineering_yellow,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cH" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cI" = (
+/obj/structure/shuttle/engine/heater,
+/turf/simulated/floor,
+/area/derelict/ship)
+"cJ" = (
+/obj/machinery/suit_cycler/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cK" = (
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/dark,
+/area/derelict/ship)
+"cL" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 10
+	},
+/area/derelict/ship)
+"cM" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict/ship)
+"cN" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict/ship)
+"cO" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/simulated/wall/shuttle/dark/cardinal,
+/area/derelict/ship)
+"cP" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	icon_state = "wall3";
+	dir = 6
+	},
+/area/derelict/ship)
+"cQ" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"cR" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/template_noop,
+/area/derelict/ship)
+"cS" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/template_noop,
+/area/derelict/ship)
+"cT" = (
+/obj/structure/lattice,
+/turf/space,
+/area/template_noop)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+ap
+ap
+ap
+bN
+bT
+ap
+ap
+cl
+cl
+cl
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ap
+bk
+bk
+bk
+bk
+bk
+bk
+bk
+ap
+aY
+aY
+aY
+aY
+aY
+ap
+cm
+cm
+cm
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ap
+bk
+bk
+bk
+bk
+bk
+bk
+bk
+ap
+aY
+aY
+bO
+ap
+bd
+ap
+cl
+cl
+cl
+ap
+ap
+ap
+ap
+cL
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+cT
+ap
+ap
+ap
+bo
+ap
+bo
+ap
+bo
+ap
+ap
+bd
+ap
+ap
+ap
+al
+al
+al
+al
+al
+cA
+cB
+ap
+cI
+cM
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+ap
+ap
+bb
+al
+al
+al
+al
+al
+bs
+bs
+ap
+al
+bj
+bP
+ap
+aX
+al
+cn
+cn
+al
+al
+cB
+ap
+cI
+cN
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+aT
+ap
+av
+al
+al
+al
+al
+al
+al
+al
+al
+ay
+al
+al
+bP
+ap
+bv
+al
+cn
+cn
+al
+al
+al
+ap
+cI
+cN
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+ap
+ap
+bc
+bl
+al
+bp
+bp
+bl
+al
+al
+ap
+al
+al
+al
+ay
+al
+al
+al
+al
+al
+al
+cC
+ap
+cI
+cN
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+bC
+al
+al
+bU
+al
+al
+al
+ct
+cv
+ct
+cC
+ap
+cI
+cO
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+ap
+aY
+aY
+aY
+aY
+aY
+aY
+aY
+aY
+aY
+ap
+bD
+al
+al
+ap
+ay
+ap
+ap
+ap
+av
+ap
+ap
+ap
+ap
+cP
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+cT
+ai
+ai
+ai
+ai
+ap
+ap
+ap
+bd
+ap
+ap
+ap
+ap
+ap
+bt
+aY
+ap
+bD
+al
+al
+ap
+al
+ci
+al
+cu
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ap
+ap
+ap
+ap
+ap
+ap
+aI
+ap
+ap
+ap
+cT
+cT
+cT
+ap
+aW
+al
+al
+ay
+al
+al
+al
+ap
+bu
+aY
+ap
+aX
+al
+al
+ap
+bv
+al
+al
+ct
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+cT
+cT
+ap
+ap
+ap
+aA
+aA
+ap
+al
+al
+al
+al
+al
+ap
+ap
+aI
+ap
+ap
+al
+al
+be
+ap
+al
+ar
+be
+ap
+ap
+bd
+av
+bE
+bK
+bQ
+ap
+al
+al
+al
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+cL
+aa
+"}
+(14,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ac
+am
+ap
+ap
+av
+al
+ay
+al
+al
+ay
+al
+al
+aJ
+al
+al
+ay
+al
+ax
+al
+ay
+al
+al
+bf
+ap
+al
+al
+al
+ay
+al
+al
+al
+al
+aw
+al
+bV
+al
+al
+aX
+ap
+cw
+ct
+cD
+cG
+cJ
+ap
+cI
+cQ
+aa
+"}
+(15,1,1) = {"
+aa
+ai
+ai
+ac
+aj
+aj
+af
+an
+aq
+at
+aw
+al
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ay
+ap
+ap
+ap
+ay
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+av
+bv
+al
+al
+al
+al
+al
+ap
+ap
+ap
+ap
+av
+al
+al
+al
+al
+al
+ap
+cI
+cR
+aa
+"}
+(16,1,1) = {"
+aa
+ai
+ac
+af
+ak
+ak
+al
+al
+al
+al
+al
+ap
+az
+aB
+aD
+aB
+ap
+aG
+aK
+aK
+al
+aP
+ap
+al
+al
+aU
+ap
+aZ
+aZ
+bm
+aZ
+al
+ap
+br
+al
+bw
+bz
+bF
+al
+al
+ap
+ca
+al
+co
+al
+al
+al
+al
+al
+cK
+ap
+cI
+cR
+aa
+"}
+(17,1,1) = {"
+aa
+ab
+ad
+ag
+al
+al
+al
+al
+ar
+al
+al
+ay
+al
+al
+al
+al
+av
+ar
+al
+al
+al
+aQ
+av
+aS
+al
+al
+ap
+ba
+aZ
+aZ
+aZ
+al
+ay
+al
+al
+bx
+bA
+aZ
+al
+al
+ay
+al
+al
+co
+al
+al
+al
+al
+al
+al
+ap
+cI
+cR
+aa
+"}
+(18,1,1) = {"
+aa
+ai
+ae
+ah
+ak
+ak
+al
+al
+al
+al
+al
+ap
+az
+aC
+aE
+aC
+ap
+aH
+aL
+aO
+al
+aR
+ap
+al
+al
+aV
+ap
+aZ
+aZ
+bm
+aZ
+al
+ap
+al
+al
+by
+bB
+bG
+al
+al
+ap
+cb
+cj
+co
+al
+al
+al
+al
+al
+al
+ap
+cI
+cR
+aa
+"}
+(19,1,1) = {"
+aa
+ai
+ai
+ae
+aj
+aj
+ah
+ao
+as
+au
+ax
+al
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ay
+ap
+ap
+ap
+ay
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+av
+bv
+al
+al
+al
+al
+al
+ap
+ap
+ap
+ap
+av
+cx
+al
+al
+al
+al
+ap
+cI
+cR
+aa
+"}
+(20,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ae
+am
+ap
+ap
+av
+al
+ay
+al
+al
+ay
+al
+al
+aM
+al
+al
+ay
+al
+aw
+al
+ay
+al
+al
+bg
+ap
+al
+al
+al
+ay
+al
+al
+al
+al
+bL
+al
+ap
+cc
+bI
+cp
+ap
+cy
+al
+cF
+cH
+al
+ap
+cI
+cS
+aa
+"}
+(21,1,1) = {"
+aa
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+cT
+cT
+ap
+ap
+ap
+aA
+aA
+ap
+al
+al
+al
+al
+al
+ap
+ap
+aN
+ap
+ap
+al
+al
+bh
+ap
+al
+ar
+be
+ap
+ap
+ap
+av
+al
+al
+al
+bW
+bI
+ck
+bI
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+cP
+aa
+"}
+(22,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ap
+ap
+ap
+ap
+ap
+ap
+aN
+ap
+ap
+ap
+cT
+cT
+cT
+ap
+aX
+al
+al
+ay
+al
+al
+al
+ap
+bu
+aY
+ap
+aX
+al
+al
+ap
+ap
+ap
+ap
+ap
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(23,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+cT
+ai
+ai
+ai
+ai
+ap
+ap
+ap
+bd
+ap
+ap
+ap
+ap
+ap
+aY
+aY
+bd
+al
+al
+al
+bX
+al
+aw
+al
+al
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+ap
+aY
+aY
+aY
+aY
+aY
+bq
+aY
+aY
+aY
+ap
+ap
+bM
+ap
+ap
+ap
+ap
+al
+al
+ap
+ap
+ap
+ap
+ap
+cL
+aa
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+bH
+bI
+bI
+bI
+cd
+ap
+al
+al
+aw
+al
+al
+ap
+cI
+cM
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+cT
+cT
+cT
+cT
+ap
+ap
+bj
+bn
+al
+al
+al
+aw
+al
+al
+ap
+bI
+bI
+bI
+bI
+ce
+ap
+ap
+ap
+ap
+ay
+ap
+ap
+cI
+cN
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ai
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+aT
+ap
+av
+al
+al
+al
+al
+al
+al
+al
+al
+ay
+bI
+bI
+bI
+bI
+cf
+ap
+cq
+cq
+cq
+al
+al
+ap
+cI
+cN
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cT
+cT
+cT
+cT
+ap
+ap
+bb
+al
+al
+al
+al
+al
+al
+al
+ap
+bJ
+bJ
+bI
+bI
+cg
+ap
+bv
+al
+al
+al
+al
+ap
+cI
+cN
+aa
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cT
+cT
+ap
+ap
+ap
+bo
+ap
+bo
+ap
+bo
+ap
+ap
+ap
+ap
+ap
+bY
+ap
+ap
+al
+al
+al
+ct
+ct
+ap
+cI
+cO
+aa
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ap
+bk
+bk
+bk
+bk
+bk
+bk
+bk
+ap
+ap
+ap
+bR
+bI
+bI
+ap
+cr
+ap
+cz
+ap
+ap
+ap
+ap
+cP
+aa
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ap
+bk
+bk
+bk
+bk
+bk
+bk
+bk
+ap
+ap
+ap
+bS
+bZ
+ch
+ap
+cs
+aY
+aY
+cr
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+cT
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+ap
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(33,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

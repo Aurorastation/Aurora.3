@@ -6,208 +6,214 @@
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
 /area/medical/medbay
-	name = "\improper Medbay Hallway - Port"
+	name = "Medbay Hallway - Port"
+	lightswitch = TRUE
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
 //Medbay is a large area, these additional areas help level out APC load.
 
 /area/medical/emt
-	name = "\improper Medical - Emergency Technician Storage"
+	name = "Medical - Emergency Technician Storage"
 	icon_state = "medbay"
 
 /area/medical/temp_morgue
-	name = "\improper Medical - Temporary Morgue"
+	name = "Medical - Temporary Morgue"
 	icon_state = "morgue"
 
 /area/medical/medbay2
-	name = "\improper Medbay Hallway - Starboard"
+	name = "Medbay Hallway - Starboard"
+	lightswitch = TRUE
 	icon_state = "medbay2"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/medbay3
-	name = "\improper Medbay Hallway - Fore"
+	name = "Medbay Hallway - Fore"
+	lightswitch = TRUE
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/medbay4
-	name = "\improper Medbay Hallway - Staff Wing"
+	name = "Medbay Hallway - Staff Wing"
+	lightswitch = TRUE
 	icon_state = "medbay4"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/biostorage
-	name = "\improper Medical - Secondary Storage"
+	name = "Medical - Secondary Storage"
 	icon_state = "medbay2"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/reception
-	name = "\improper Medical - Reception"
+	name = "Medical - Reception"
 	icon_state = "medbay"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/psych
-	name = "\improper Medical - Psych Room"
+	name = "Medical - Psych Room"
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/upperlevel
-	name = "\improper Medical - Upper-Level Hallway"
+	name = "Medical - Upper-Level Hallway"
+	lightswitch = TRUE
 	icon_state = "medbay2"
 
 /area/crew_quarters/medbreak
-	name = "\improper Medical - Break Room"
+	name = "Medical - Break Room"
 	icon_state = "medbay3"
 	ambience = list('sound/ambience/signal.ogg')
 
 /area/medical/patients_rooms
-	name = "\improper Medical - Patient's Rooms"
+	name = "Medical - Patient's Rooms"
 	icon_state = "patients"
 
 /area/medical/patient_a
-	name = "\improper Medical - Isolation A"
+	name = "Medical - Isolation A"
 	icon_state = "patients"
 
 /area/medical/patient_b
-	name = "\improper Medical - Isolation B"
+	name = "Medical - Isolation B"
 	icon_state = "patients"
 
 /area/medical/patient_c
-	name = "\improper Medical - Isolation C"
+	name = "Medical - Isolation C"
 	icon_state = "patients"
 
 /area/medical/patient_d
-	name = "\improper Medical - Isolation D"
+	name = "Medical - Isolation D"
 	icon_state = "patients"
 
 /area/medical/patient_wing
-	name = "\improper Medical - Patient Wing"
+	name = "Medical - Patient Wing"
 	icon_state = "patients"
 
 /area/medical/patient_wing_hallway
-	name = "\improper Medical - Patient Wing Hallway"
+	name = "Medical - Patient Wing Hallway"
+	lightswitch = TRUE
 	icon_state = "patients"
 
 /area/medical/patient_wing_gym
-	name = "\improper Medical - Patient Wing Gym"
+	name = "Medical - Patient Wing Gym"
 	icon_state = "patients"
 
 /area/medical/patient_wing_post1
-	name = "\improper Medical - Patient Wing Observation Post One"
+	name = "Medical - Patient Wing Observation Post One"
 	icon_state = "patients"
 
 /area/medical/patient_wing_post2
-	name = "\improper Medical - Patient Wing Observation Post Two"
+	name = "Medical - Patient Wing Observation Post Two"
 	icon_state = "patients"
 
 /area/medical/patient_wing_library
-	name = "\improper Medical - Patient Wing Library"
+	name = "Medical - Patient Wing Library"
 	icon_state = "patients"
 
 /area/medical/patient_wing_picnic
-	name = "\improper Medical - Patient Wing Picnic Area"
+	name = "Medical - Patient Wing Picnic Area"
 	icon_state = "patients"
 
 /area/medical/cmostore
-	name = "\improper Secure Storage"
+	name = "Secure Storage"
 	icon_state = "CMO"
 
 /area/medical/robotics
-	name = "\improper Robotics"
+	name = "Robotics"
 	icon_state = "medresearch"
 
 /area/medical/virology
-	name = "\improper Medical - Virology"
+	name = "Medical - Virology"
 	icon_state = "virology"
 
 /area/medical/virologyaccess
-	name = "\improper Medical - Virology Access"
+	name = "Medical - Virology Access"
 	icon_state = "virology"
 
 /area/medical/virologytesting
-	name = "\improper Medical Sublevel - Virology Testing"
+	name = "Medical Sublevel - Virology Testing"
 	icon_state = "virology"
 
 /area/medical/quarantine
-	name = "\improper Medical Sublevel - Quarantine Ward"
+	name = "Medical Sublevel - Quarantine Ward"
 	icon_state = "virology"
 
 /area/medical/quarantineaccess
-	name = "\improper Medical Sublevel - Quarantine Access"
+	name = "Medical Sublevel - Quarantine Access"
 	icon_state = "virology"
 
 /area/medical/quarantineautopsy
-	name = "\improper Medical Sublevel - Quarantine Autopsy"
+	name = "Medical Sublevel - Quarantine Autopsy"
 	icon_state = "virology"
 
 /area/medical/morgue
-	name = "\improper Medical - Long-term Morgue"
+	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"
 	ambience = list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/music/main.ogg')
 
 /area/medical/pharmacy
-	name = "\improper Medical - Pharmacy"
+	name = "Medical - Pharmacy"
 	icon_state = "phar"
 
 /area/medical/surgery
-	name = "\improper Medical - Operating Theatre"
+	name = "Medical - Operating Theatre"
 	icon_state = "surgery"
 	no_light_control = 1
 
 /area/medical/surgeryobs
-	name = "\improper Medical - Operation Observation Room"
+	name = "Medical - Operation Observation Room"
 	icon_state = "surgery"
 
 /area/medical/surgeryprep
-	name = "\improper Medical - Pre-Op Prep Room"
+	name = "Medical - Pre-Op Prep Room"
 	icon_state = "surgery"
 
 /area/medical/surgerywing
-	name = "\improper Medical - Surgery Wing"
+	name = "Medical - Surgery Wing"
 	icon_state = "surgery"
 
 /area/medical/cryo
-	name = "\improper Cryogenics"
+	name = "Cryogenics"
 	icon_state = "cryo"
 
 /area/medical/gen_treatment
-	name = "\improper Medical - General Treatment"
+	name = "Medical - General Treatment"
 	icon_state = "cryo"
 
 /area/medical/exam_room
-	name = "\improper Medical - Exam Room"
+	name = "Medical - Exam Room"
 	icon_state = "exam_room"
 
 /area/medical/genetics
-	name = "\improper Genetics Lab"
+	name = "Genetics Lab"
 	icon_state = "genetics"
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/medical/custodial_closet
-	name = "\improper Medical - Custodial Closet"
+	name = "Medical - Custodial Closet"
 	icon_state = "medcustodial"
 
 /area/medical/sleeper
-	name = "\improper Medical - Emergency Treatment Centre"
+	name = "Medical - Emergency Treatment Centre"
 	icon_state = "exam_room"
 	no_light_control = 1
 
 /area/medical/icu
-	name = "\improper Medical - Intensive Care Unit"
+	name = "Medical - Intensive Care Unit"
 	icon_state = "cryo"
 
 /area/medical/triage
-	name = "\improper Medical - Triage Room"
+	name = "Medical - Triage Room"
 	icon_state = "medbay4"
 
 /area/medical/em_preop
-	name = "\improper Medical - Emergency Pre-Op"
+	name = "Medical - Emergency Pre-Op"
 	icon_state = "medbay4"
 
 /area/medical/med_office
-	name = "\improper Medical - Medical Office"
+	name = "Medical - Medical Office"
 	icon_state = "exam_room"
 
 /area/medical/main_storage
-	name = "\improper Medical - Main Storage"
+	name = "Medical - Main Storage"
 	icon_state = "exam_room"
 

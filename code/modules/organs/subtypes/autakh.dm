@@ -333,6 +333,14 @@
 	name = "robotic combitool"
 	desc = "An integrated combitool module."
 	icon_state = "digitool"
+	item_state = "digitool"
+	w_class = ITEMSIZE_LARGE
+	tools = list(
+		"crowbar",
+		"screwdriver",
+		"wrench",
+		"wirecutters"
+		)
 
 /obj/item/combitool/robotic/throw_at()
 	usr.drop_from_inventory(src)

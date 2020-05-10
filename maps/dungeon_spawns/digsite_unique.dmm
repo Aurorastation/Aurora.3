@@ -174,7 +174,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "aB" = (
 /obj/structure/grille,
@@ -182,7 +182,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "aC" = (
 /obj/structure/grille,
@@ -194,7 +194,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor,
 /area/dungeon/anomaly_outpost)
 "aD" = (
 /turf/simulated/mineral,
@@ -303,7 +303,7 @@
 /area/dungeon/anomaly_outpost)
 "aU" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1352;
+	frequency = 1353;
 	id_tag = "digsite_sensor";
 	pixel_y = -25
 	},

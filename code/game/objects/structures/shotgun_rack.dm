@@ -30,7 +30,7 @@
 		rack_shotgun = null
 		icon_state = "shotgun_rack"
 
-/obj/structure/shotgun_rack/attack_tk(mob/user)
+/obj/structure/shotgun_rack/do_simple_ranged_interaction(var/mob/user)
 	if(rack_shotgun)
 		rack_shotgun.forceMove(loc)
 		to_chat(user, "<span class='notice'>You telekinetically remove \the [rack_shotgun] from \the [src].</span>")

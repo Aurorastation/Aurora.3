@@ -6,6 +6,7 @@
 	var/damage_reduction = 0.5     //modifier for internal organ injury
 	var/toxin_type = "undefined"
 	var/relative_size = 25 //Used for size calcs
+	var/on_mob_icon
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 
@@ -23,9 +24,6 @@
 /obj/item/organ/internal/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	if(!istype(target))
 		return 0
-
-	if(status & ORGAN_CUT_AWAY)
-		return 0 //organs don't work very well in the body when they aren't properly attached
 
 	// robotic organs emulate behavior of the equivalent flesh organ of the species
 	if(BP_IS_ROBOTIC(src) || !species)
@@ -46,11 +44,11 @@
 
 /obj/item/organ/internal/proc/surgical_fix(mob/user)
 	if(damage > min_broken_damage)
-		var/scarring = damage/max_damage
-		scarring = 1 - 0.3 * scarring ** 2 // Between ~15 and 30 percent loss
+		var/scarring = damage / max_damage
+		scarring = 1 - 0.5 * scarring ** 2 // Between ~15 and 50 percent loss.
 		var/new_max_dam = Floor(scarring * max_damage)
 		if(new_max_dam < max_damage)
-			to_chat(user, "<span class='warning'>Not every part of [src] could be saved, some dead tissue had to be removed, making it more suspectable to damage in the future.</span>")
+			to_chat(user, SPAN_WARNING("Not every part of [src] could be saved; some dead tissue had to be removed, making it more susceptible to future damage."))
 			set_max_damage(new_max_dam)
 	heal_damage(damage)
 
@@ -98,7 +96,7 @@
 					degree = " a lot"
 				if(damage < 5)
 					degree = " a bit"
-				owner.custom_pain("Something inside your [parent.name] hurts[degree].", amount)
+				owner.custom_pain("Something inside your [parent.name] hurts[degree]!", amount)
 
 /obj/item/organ/internal/proc/get_visible_state()
 	if(damage > max_damage)

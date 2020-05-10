@@ -9,7 +9,7 @@
 	can_infect = 0
 
 /datum/surgery_step/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected || (affected.status & ORGAN_ROBOT))
@@ -18,7 +18,7 @@
 
 /datum/surgery_step/generic/prepare_face
 	allowed_tools = list(
-	/obj/item/retractor = 100,
+	/obj/item/surgery/retractor = 100,
 	/obj/item/material/knife/tacknife = 75
 	)
 
@@ -41,14 +41,14 @@
 /datum/surgery_step/generic/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, OXY)
 	target.losebreath += 10
 
 
 /datum/surgery_step/generic/alter_face
 	allowed_tools = list(
-	/obj/item/hemostat = 100, 	\
+	/obj/item/surgery/hemostat = 100, 	\
 	/obj/item/stack/cable_coil = 75, 	\
 	/obj/item/device/assembly/mousetrap = 10	//I don't know. Don't ask me. But I'm leaving it because hilarity.
 	)
@@ -69,6 +69,7 @@
 	if(head.disfigured || (HUSK in target.mutations))
 		head.disfigured = FALSE
 		target.mutations.Remove(HUSK)
+		target.update_body()
 		user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>You successfully restore [target]'s appearance.</span>")
 
 	var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
@@ -85,14 +86,14 @@
 /datum/surgery_step/generic/alter_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, OXY)
 	target.losebreath += 10
 
 
 /datum/surgery_step/face/cauterize
 	allowed_tools = list(
-	/obj/item/cautery = 100,			\
+	/obj/item/surgery/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
@@ -135,7 +136,7 @@
 
 /datum/surgery_step/robotics/face/synthskinopen
 	allowed_tools = list(
-	/obj/item/scalpel = 100,
+	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -159,11 +160,11 @@
 /datum/surgery_step/robotics/face/synthskinopen/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/prepare_face
 	allowed_tools = list(
-	/obj/item/retractor = 100,
+	/obj/item/surgery/retractor = 100,
 	/obj/item/material/knife/tacknife = 75
 	)
 
@@ -186,7 +187,7 @@
 /datum/surgery_step/robotics/face/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/alter_synthface
 	allowed_tools = list(
@@ -208,8 +209,10 @@
 
 /datum/surgery_step/robotics/face/alter_synthface/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured)
+	if(head.disfigured || (HUSK in target.mutations))
 		head.disfigured = FALSE
+		target.mutations.Remove(HUSK)
+		target.update_body()
 		user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>You successfully restore [target]'s appearance.</span>")
 
 	var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
@@ -226,11 +229,11 @@
 /datum/surgery_step/robotics/face/alter_synthface/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/seal_face
 	allowed_tools = list(
-	/obj/item/cautery = 100,			\
+	/obj/item/surgery/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25

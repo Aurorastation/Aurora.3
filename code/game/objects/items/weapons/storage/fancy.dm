@@ -15,7 +15,7 @@
 
 
 /obj/item/storage/fancy
-	item_state = "syringe_kit" //placeholder, many of these don't have inhands
+	item_state = "box" //placeholder, many of these don't have inhands
 	var/icon_type = null
 	var/storage_type = "box"
 	drop_sound = 'sound/items/drop/box.ogg'
@@ -237,19 +237,6 @@
 	item_state = "Dpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
-/obj/item/storage/fancy/cigarettes/pra
-	name = "\improper Working Tajara packet"
-	desc = "A packet of six adhomian \"Working Tajara?\" cigarettes, imported straight from the People's Republic of Adhomai."
-	icon_state = "prapacket"
-	item_state = "prapacket"
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/pra
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
-	storage_slots = 7
-
-/obj/item/storage/fancy/cigarettes/pra/fill()
-	..()
-	new /obj/item/tajcard(src)
-
 /obj/item/storage/fancy/cigar
 	name = "cigar case"
 	desc = "A case for holding your cigars when you are not smoking them."
@@ -313,10 +300,24 @@
 
 /obj/item/storage/fancy/cigarettes/rugged
 	name = "\improper Lucky Strike cigarette packet"
-	desc = "A packet of six Lucky Strike cigarettes. Rumored to be part of an Idris money laundering scheme, it's original purpose long forgotten."
+	desc = "A packet of six Lucky Strike cigarettes. Rumored to be part of an Idris money laundering scheme, its original purpose long forgotten."
 	icon_state = "Fpacket"
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
+
+/obj/item/storage/fancy/cigarettes/pra
+	name = "\improper Working Tajara cigarette packet"
+	desc = "A packet of six adhomian \"Working Tajara\" cigarettes, imported straight from the People's Republic of Adhomai."
+	icon_state = "prapacket"
+	item_state = "prapacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/pra
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
+	storage_slots = 7
+
+/obj/item/storage/fancy/cigarettes/pra/fill()
+	..()
+	new /obj/item/tajcard(src)
+
 
 /*
  * Vial Box
@@ -338,7 +339,7 @@
 	desc = "A locked box for keeping things away from children."
 	icon = 'icons/obj/vialbox.dmi'
 	icon_state = "vialbox0"
-	item_state = "syringe_kit"
+	item_state = "box"
 	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/metalboots.ogg'
 	max_w_class = 2

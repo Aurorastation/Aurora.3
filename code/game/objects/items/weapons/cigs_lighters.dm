@@ -279,7 +279,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/transfered = glass.reagents.trans_to_obj(src, chem_volume)
 		if(transfered)	//if reagents were transfered, show the message
 			to_chat(user, span("warning", "You dip \the [src] into \the [glass]."))
-			playsound(src.loc, 'sound/effects/footsteps/slosh1.wav', 50, 1)
+			playsound(src.loc, 'sound/effects/footstep/water1.ogg', 50, 1)
 		else			//if not, either the beaker was empty, or the cigarette was full
 			if(!glass.reagents.total_volume)
 				to_chat(user, span("notice", "[glass] is empty."))
@@ -716,10 +716,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/update_icon()
 	. = ..()
+	icon_on = filter ? "cigon" : "cigrollon"
+	icon_off = filter ? "cigoff" : "cigrolloff"
 	if(!lit)
 		icon_state = filter ? "cigoff" : "cigrolloff"
 	else
 		icon_state = filter ? "cigon" : "cigrollon"
+	update_clothing_icon()
 
 /obj/item/paper/cig
 	name = "rolling paper"
@@ -727,6 +730,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaper_generic"
 	w_class = 1.0
+
+/obj/item/paper/cig/attackby(obj/item/P as obj, mob/user as mob)
+	if(istype(P, /obj/item/flame) || P.iswelder())
+		..()
+	if(P.ispen())
+		..()
+	else
+		return
 
 /obj/item/paper/cig/fine
 	name = "\improper Trident rolling paper"
@@ -738,6 +749,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A small nub like filter for cigarettes."
 	icon_state = "cigfilter"
 	w_class = 1.0
+
+/obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
+	if(istype(P, /obj/item/flame) || P.iswelder())
+		..()
+	else
+		return //no writing on filters now
+
+/obj/item/paper/cig/attack_self(mob/living/user as mob)
+	if(user.a_intent == I_HURT)
+		..()
+		return
+	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
+		user.show_message(span("alert", "The cigarette paper is too small to fold into a plane."))
+		return
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
@@ -769,6 +794,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			return
 		if(user.unEquip(I))
 			to_chat(user, span("notice", "You stick [I] into \the [src]"))
+			playsound(src, 'sound/items/drop/gloves.ogg', 25, 1)
 			filter = 1
 			name = "filtered [name]"
 			update_icon()
@@ -786,6 +812,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			R.chem_volume = reagents.total_volume
 			reagents.trans_to_holder(R.reagents, R.chem_volume)
 			to_chat(user, span("notice", "You roll \the [src] into \the [I]"))
+			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
 			user.put_in_active_hand(R)
 			qdel(I)
 			qdel(src)

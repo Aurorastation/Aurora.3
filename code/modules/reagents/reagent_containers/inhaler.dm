@@ -17,7 +17,7 @@
 	slot_flags = SLOT_BELT
 	center_of_mass = null
 	var/used = FALSE
-	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/inhaler/Initialize()
 	. =..()

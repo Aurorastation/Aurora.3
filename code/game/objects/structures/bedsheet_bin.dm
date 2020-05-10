@@ -7,8 +7,7 @@ LINEN BINS
 /obj/item/bedsheet
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
-	description_info = "Click to roll and unroll. Alt-click to fold and unfold. Drag and drop to pick up."
-	description_fluff = "It seems like you can equip it in your backpack slot..."
+	description_info = "Click to roll and unroll. Alt-click to fold and unfold. Drag and drop to pick up. You can equip it in your backpack slot."
 	icon = 'icons/obj/bedsheets.dmi'
 	icon_state = "sheetwhite"
 	item_state = "sheetwhite"
@@ -433,7 +432,7 @@ LINEN BINS
 
 	add_fingerprint(user)
 
-/obj/structure/bedsheetbin/attack_tk(mob/user as mob)
+/obj/structure/bedsheetbin/do_simple_ranged_interaction(var/mob/user)
 	if(amount >= 1)
 		amount--
 

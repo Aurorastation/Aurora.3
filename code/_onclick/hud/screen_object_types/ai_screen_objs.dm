@@ -80,16 +80,6 @@
 		var/mob/living/silicon/ai/AI = usr
 		AI.toggle_camera_light()
 
-/obj/screen/ai/crew_monitoring
-	name = "Crew Monitoring"
-	icon_state = "crew_monitor"
-	screen_loc = ui_ai_crew_monitor
-
-/obj/screen/ai/crew_monitoring/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_crew_monitor()
-
 /obj/screen/ai/crew_manifest
 	name = "Show Crew Manifest"
 	icon_state = "manifest"
@@ -148,7 +138,7 @@
 /obj/screen/ai/pda_msg/Click()
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.aiPDA.cmd_send_pdamesg(usr)
+		AI.ai_pda.cmd_send_pdamesg(usr)
 
 /obj/screen/ai/pda_log
 	name = "PDA - Show Message Log"
@@ -158,7 +148,7 @@
 /obj/screen/ai/pda_log/Click()
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.aiPDA.cmd_show_message_log(usr)
+		AI.ai_pda.cmd_show_message_log(usr)
 
 /obj/screen/ai/take_image
 	name = "Take Image"
@@ -168,7 +158,7 @@
 /obj/screen/ai/take_image/Click()
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.aiCamera.toggle_camera_mode()
+		AI.ai_camera.toggle_camera_mode()
 
 /obj/screen/ai/view_image
 	name = "View Images"
@@ -178,7 +168,7 @@
 /obj/screen/ai/view_image/Click()
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.aiCamera.viewpictures()
+		AI.ai_camera.viewpictures()
 
 /obj/screen/ai/sensor_aug
 	name = "Set Sensor Augmentation"

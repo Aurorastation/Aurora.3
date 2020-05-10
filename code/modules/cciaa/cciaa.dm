@@ -99,3 +99,12 @@
 		data += "<center>No faxes have been sent out.</center>"
 
 	usr << browse("<HTML><HEAD><TITLE>Centcomm Fax History</TITLE></HEAD><BODY>[data]</BODY></HTML>", "window=Centcomm Fax History")
+
+
+/client/proc/launch_ccia_shuttle()
+	set name = "Launch CCIA Shuttle"
+	set desc = "Launches the CCIA Shuttle."
+	set category = "Special Verbs"
+
+	var/datum/shuttle/autodock/ferry/S = SSshuttle.shuttles["Agent Shuttle"]
+	S.launch(usr)

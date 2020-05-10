@@ -66,22 +66,3 @@
 		kit.use(1,user)
 		return 1
 	return ..()
-
-/obj/item/device/kit/paint
-	name = "exosuit customisation kit"
-	desc = "A kit containing all the needed tools and parts to repaint an exosuit."
-	var/removable = null
-
-/obj/item/device/kit/paint/examine()
-	. = ..()
-	to_chat(usr, "This kit will add a '[new_name]' decal to a exosuit'.")
-
-/obj/item/device/kit/paint/powerloader/flames_red
-	name = "\"Firestarter\" exosuit customisation kit"
-	new_name = "red flames"
-	new_icon = "flames_red"
-
-/obj/item/device/kit/paint/powerloader/flames_blue
-	name = "\"Burning Chrome\" exosuit customisation kit"
-	new_name = "blue flames"
-	new_icon = "flames_blue"

@@ -6,7 +6,6 @@
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
-	var/material/material
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
 	var/oreAmount = 7
@@ -26,7 +25,7 @@
 	..()
 	if(!material_name)
 		material_name = DEFAULT_WALL_MATERIAL
-	material = get_material_by_name(material_name)
+	material = SSmaterials.get_material_by_name(material_name)
 	if(!material)
 		qdel(src)
 		return
@@ -63,9 +62,6 @@
 	if(lock)
 		to_chat(user, "<span class='notice'>It appears to have a lock.</span>")
 
-/obj/structure/simple_door/get_material()
-	return material
-
 /obj/structure/simple_door/CollidedWith(atom/user)
 	..()
 	if(!state)
@@ -81,6 +77,11 @@
 
 /obj/structure/simple_door/attack_hand(mob/user as mob)
 	return TryToSwitchState(user)
+
+/obj/structure/simple_door/attack_generic(mob/user)
+	if(istype(user, /mob/living/simple_animal/construct)) // don't know of any other attack_generic smart enough to open doors
+		TryToSwitchState(user)
+	return
 
 /obj/structure/simple_door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return 0
@@ -101,6 +102,8 @@
 				var/mob/living/carbon/C = M
 				if(!C.handcuffed)
 					SwitchState(user)
+			else if(istype(M, /mob/living/simple_animal/construct))
+				SwitchState(M)
 
 /obj/structure/simple_door/proc/SwitchState(mob/user)
 	if(state)
@@ -215,28 +218,32 @@
 		L.apply_effect(round(material.radioactivity/3),IRRADIATE,0)
 
 /obj/structure/simple_door/iron/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "iron", complexity)
+	..(newloc, MATERIAL_IRON, complexity)
 
 /obj/structure/simple_door/silver/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "silver", complexity)
+	..(newloc, MATERIAL_SILVER, complexity)
 
 /obj/structure/simple_door/gold/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "gold", complexity)
+	..(newloc, MATERIAL_GOLD, complexity)
 
 /obj/structure/simple_door/uranium/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "uranium", complexity)
+	..(newloc, MATERIAL_URANIUM, complexity)
 
 /obj/structure/simple_door/sandstone/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "sandstone", complexity)
+	..(newloc, MATERIAL_SANDSTONE, complexity)
 
 /obj/structure/simple_door/phoron/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "phoron", complexity)
+	..(newloc, MATERIAL_PHORON, complexity)
 
 /obj/structure/simple_door/diamond/New(var/newloc,var/material_name, var/complexity)
-	..(newloc, "diamond", complexity)
+	..(newloc, MATERIAL_DIAMOND, complexity)
 
 /obj/structure/simple_door/wood/New(var/newloc,var/material_name)
-	..(newloc, "wood")
+	..(newloc, MATERIAL_WOOD)
 
 /obj/structure/simple_door/resin/New(var/newloc,var/material_name)
-	..(newloc, "resin")
+	..(newloc, MATERIAL_RESIN)
+
+/obj/structure/simple_door/cult/New(var/newloc, var/material_name)
+	..(newloc, MATERIAL_CULT)
+	color = COLOR_CULT_DOOR // looks better than the standard cult colours

@@ -147,7 +147,7 @@ var/list/global/random_stock_large = list()
 
 	if (cratespawn)
 		return emptiest
-	else
+	else if (length(tables))
 		//If cratespawn is zero, we either failed to find a crate to spawn in, or didnt select
 		//crate spawning with the random check.
 		var/turf/clearest

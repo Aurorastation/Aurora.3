@@ -21,6 +21,10 @@
 	icon_state = "skirt_casual"
 	worn_state = "skirt_casual"
 
+/obj/item/clothing/under/skirt/casual/alt
+	icon_state = "skirt_casual_alt"
+	worn_state = "skirt_casual_alt"
+
 /obj/item/clothing/under/skirt/long
 	name = "long skirt"
 	desc = "A long, modest skirt."

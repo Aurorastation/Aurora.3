@@ -1,0 +1,9 @@
+"a" = (/turf/simulated/floor/reinforced/airless,/area/mine/explored)
+"b" = (/obj/machinery/mining/brace,/turf/simulated/floor/reinforced/airless,/area/mine/explored)
+"c" = (/obj/machinery/mining/drill,/turf/simulated/floor/reinforced/airless,/area/mine/explored)
+
+(1,1,1) = {"
+aaa
+bcb
+aaa
+"}

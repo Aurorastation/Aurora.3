@@ -17,7 +17,7 @@
 	dissipate = 1
 	dissipate_delay = 10
 	dissipate_strength = 1
-	layer = LIGHTING_LAYER + 0.1
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	blend_mode = BLEND_ADD
 	var/failed_direction = 0
 	var/list/orbiting_balls = list()
@@ -314,12 +314,12 @@
 
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
 
-		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))		
+		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))
 			var/obj/machinery/power/singularity_beacon/emergency/E = A
 			var/obj/singularity/energy_ball/B = source
 			if(!E.active)
 				return
-			B.visible_message("\The [src] discharges entirely at [A] until it dissapears and [A] melts down")
+			B.visible_message("\The [B] discharges entirely at [A] until it dissapears and [A] melts down")
 			B.Beam(E, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
 			E.tesla_act(0, TRUE)
 			qdel(B)

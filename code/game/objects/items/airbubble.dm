@@ -417,8 +417,6 @@
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)
 			return 0
-		if(istype(W,/obj/item/tk_grab))
-			return 0
 		if(!dropsafety(W))
 			return
 		user.drop_item()

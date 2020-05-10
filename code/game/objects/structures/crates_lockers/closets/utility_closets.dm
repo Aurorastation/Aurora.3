@@ -20,7 +20,7 @@
 	icon_opened = "emergencyopen"
 
 /obj/structure/closet/emcloset/fill()
-	switch (pickweight(list("small" = 55, "aid" = 25, "tank" = 10, "both" = 10)))
+	switch (pickweight(list("small" = 50, "aid" = 20, "tank" = 10, "seal" = 10, "all" = 10)))
 		if ("small")
 			new /obj/item/tank/emergency_oxygen(src)
 			new /obj/item/tank/emergency_oxygen(src)
@@ -47,7 +47,17 @@
 			new /obj/item/device/oxycandle(src)
 			new /obj/item/device/oxycandle(src)
 			new /obj/item/airbubble(src)
-		if ("both")
+		if ("seal")
+			new /obj/item/tank/emergency_oxygen(src)
+			new /obj/item/storage/toolbox/emergency(src)
+			new /obj/item/clothing/mask/breath(src)
+			new /obj/item/clothing/suit/space/emergency(src)
+			new /obj/item/clothing/head/helmet/space/emergency(src)
+			new /obj/item/device/oxycandle(src)
+			new /obj/item/inflatable/door(src)
+			new /obj/item/inflatable/wall(src)
+			new /obj/item/inflatable/wall(src)
+		if ("all")
 			new /obj/item/storage/toolbox/emergency(src)
 			new /obj/item/tank/emergency_oxygen/engi(src)
 			new /obj/item/clothing/mask/breath(src)
@@ -61,6 +71,9 @@
 			new /obj/item/device/oxycandle(src)
 			new /obj/item/airbubble(src)
 			new /obj/item/airbubble(src)
+			new /obj/item/inflatable/door(src)
+			new /obj/item/inflatable/wall(src)
+			new /obj/item/inflatable/wall(src)
 
 /obj/structure/closet/emcloset/legacy/fill()
 	..()
@@ -161,30 +174,31 @@
  */
 /obj/structure/closet/bombcloset
 	name = "\improper EOD closet"
-	desc = "It's a storage unit for explosion-protective suits."
+	desc = "It's a storage unit for explosive-defusal equipment."
 	icon_state = "bombsuit"
 	icon_closed = "bombsuit"
 	icon_opened = "bombsuitopen"
 
 /obj/structure/closet/bombcloset/fill()
-	new /obj/item/clothing/suit/bomb_suit( src )
-	new /obj/item/clothing/under/color/black( src )
-	new /obj/item/clothing/shoes/black( src )
-	new /obj/item/clothing/head/bomb_hood( src )
-
+	new /obj/item/clothing/suit/bomb_suit(src)
+	new /obj/item/clothing/under/color/black(src)
+	new /obj/item/clothing/shoes/black(src)
+	new /obj/item/clothing/head/bomb_hood(src)
+	new /obj/item/wirecutters/bomb(src)
 
 /obj/structure/closet/bombclosetsecurity
 	name = "\improper EOD closet"
-	desc = "It's a storage unit for explosion-protective suits."
+	desc = "It's a storage unit for the security department's explosive-defusal equipment."
 	icon_state = "bombsuitsec"
 	icon_closed = "bombsuitsec"
 	icon_opened = "bombsuitsecopen"
 
 /obj/structure/closet/bombclosetsecurity/fill()
-	new /obj/item/clothing/suit/bomb_suit/security( src )
-	new /obj/item/clothing/under/rank/security( src )
-	new /obj/item/clothing/shoes/brown( src )
-	new /obj/item/clothing/head/bomb_hood/security( src )
+	new /obj/item/clothing/suit/bomb_suit/security(src)
+	new /obj/item/clothing/under/rank/security(src)
+	new /obj/item/clothing/shoes/brown(src)
+	new /obj/item/clothing/head/bomb_hood/security(src)
+	new /obj/item/wirecutters/bomb(src)
 
 /*
  * Hydrant

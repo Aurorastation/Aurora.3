@@ -7,11 +7,15 @@
 	greater_form = "Vaurca Breeder"
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
+
 	brute_mod = 0.7
 	burn_mod = 1.2
 	oxy_mod = 1
 	radiation_mod = 0.5
+
 	grab_mod = 1.25
+	resist_mod = 1.75
+
 	mob_size = 10 //fairly lighter than the worker type.
 	taste_sensitivity = TASTE_DULL
 	blurb = "Type BA, a sub-type of the generic Type B Warriors, are the second most prominent type of Vaurca society, taking the form of hive security and military grunts. \
@@ -70,7 +74,7 @@
 	stamina_recovery = 3
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP
+	flags = NO_SCAN | NO_SLIP | NO_ARTERIES
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/bugbite
@@ -131,7 +135,7 @@
 	warning_high_pressure = 3250 //Default 325
 
 	spawn_flags = IS_RESTRICTED
-	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE
+	flags = NO_SCAN | NO_SLIP | NO_PAIN | NO_BREATHE | NO_ARTERIES
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/rebel_yell,

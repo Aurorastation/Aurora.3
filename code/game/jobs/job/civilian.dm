@@ -182,6 +182,8 @@
 
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
+	alt_titles = list("Drill Technician")
+	alt_outfits = list("Drill Technician" = /datum/outfit/job/mining/drill)
 	outfit = /datum/outfit/job/mining
 
 /datum/outfit/job/mining
@@ -194,8 +196,9 @@
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_mining
 
+	l_hand = /obj/item/storage/toolbox/ka
+
 	backpack_contents = list(
-		/obj/item/crowbar = 1,
 		/obj/item/storage/bag/ore = 1
 	)
 
@@ -203,6 +206,11 @@
 	satchel = /obj/item/storage/backpack/satchel_eng
 	dufflebag = /obj/item/storage/backpack/duffel/eng
 	messengerbag = /obj/item/storage/backpack/messenger/engi
+
+/datum/outfit/job/mining/drill
+	name = "Drill Technician"
+
+	l_hand = /obj/item/storage/toolbox/drill
 
 //Not engineers, just the mop boys
 /datum/job/janitor
@@ -286,6 +294,8 @@
 	selection_color = "#C0C0C0"
 	access = list(access_library, access_maint_tunnels)
 	minimal_access = list(access_library)
+	alt_titles = list("Curator", "Tech Support")
+	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian
@@ -298,3 +308,21 @@
 	l_ear = /obj/item/device/radio/headset/headset_service
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books
+
+/datum/outfit/job/librarian/curator
+	name = "Curator"
+	jobtype = /datum/job/librarian
+
+	uniform = /obj/item/clothing/under/suit_jacket
+	r_pocket = /obj/item/device/price_scanner
+	l_hand = null
+
+/datum/outfit/job/librarian/tech_support
+	name = "Tech Support"
+	jobtype = /datum/job/librarian
+
+	uniform = /obj/item/clothing/under/suit_jacket/charcoal
+	l_pocket = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
+	r_pocket = /obj/item/card/tech_support
+	l_hand = /obj/item/modular_computer/laptop/preset
+	gloves = /obj/item/modular_computer/wristbound/preset/advanced/generic

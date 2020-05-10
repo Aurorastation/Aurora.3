@@ -1,6 +1,10 @@
 /obj/item/melee
 	icon = 'icons/obj/weapons.dmi'
 	hitsound = "swing_hit"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_melee.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
+		)
 
 /obj/item/melee/chainofcommand
 	name = "chain of command"
@@ -63,7 +67,7 @@
 	icon = 'icons/obj/kneehammer.dmi'
 	icon_state = "kneehammer"
 	item_state = "kneehammer"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	force = 25
 	throwforce = 15.0
@@ -83,18 +87,20 @@
 	item_state = "hammeron"
 	origin_tech = list(TECH_MATERIAL = 5, TECH_ILLEGAL = 2, TECH_COMBAT = 3)
 	var/on = TRUE
+	var/trigger_chance = 30
+	var/reset_time = 30 // reset time in seconds
 
 /obj/item/melee/hammer/powered/update_icon()
 	if(on)
-		icon_state = "hammeron"
-		item_state = "hammeron"
+		icon_state = initial(icon_state)
+		item_state = initial(item_state)
 	else
 		icon_state = "hammeroff"
 		item_state = "hammeroff"
 
-/obj/item/melee/hammer/powered/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+/obj/item/melee/hammer/powered/attack(var/mob/target, var/mob/living/user, var/target_zone)
 	..()
-	if(prob(25))
+	if(prob(trigger_chance))
 		if(!on)
 			to_chat(user, "<span class='warning'>\The [src] buzzes!</span>")
 			return
@@ -115,7 +121,7 @@
 			H.apply_effect(2, WEAKEN)
 		on = FALSE
 		update_icon()
-		addtimer(CALLBACK(src, .proc/rearm), 45 SECONDS)
+		addtimer(CALLBACK(src, .proc/rearm), reset_time SECONDS)
 		if(isrobot(user))
 			var/mob/living/silicon/robot/R = user
 			if(R.cell)
@@ -126,6 +132,12 @@
 	on = TRUE
 	update_icon()
 
+/obj/item/melee/hammer/powered/hegemony
+	name = "hegemony powered hammer"
+	desc = "A heavily modified plasteel hammer, it seems to be powered by a robust hydraulic system. This one has the colours of the Izweski Hegemony on it."
+	icon_state = "hammeron-hegemony"
+	item_state = "hammeron-hegemony"
+	trigger_chance = 50
 
 /obj/item/melee/whip
 	name = "whip"
@@ -136,6 +148,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 	w_class = 3
+	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
 
@@ -158,7 +171,7 @@
 	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "officersword"
 	item_state = "officersword"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 15

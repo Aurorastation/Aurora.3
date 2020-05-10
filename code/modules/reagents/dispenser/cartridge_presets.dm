@@ -64,6 +64,7 @@
 	watermelon	spawn_reagent = "watermelonjuice"
 	apple   	spawn_reagent = "applejuice"
 	banana  	spawn_reagent = "banana"
+	root_beer	spawn_reagent = "root_beer"
 
 	// Bar, coffee and tea
 	coffee		spawn_reagent = "coffee"
@@ -74,9 +75,9 @@
 	greentea	spawn_reagent = "greentea"
 	chaitea		spawn_reagent = "chaitea"
 	ciderhot	spawn_reagent = "ciderhot"
+	hot_coco	spawn_reagent = "hot_coco"
 
 	// ERT
-	inaprov		spawn_reagent = "inaprovaline"
 	norepi		spawn_reagent = "norepinephrine"
 	ryetalyn	spawn_reagent = "ryetalyn"
 	paracetamol	spawn_reagent = "paracetamol"
@@ -109,3 +110,4 @@
 	chloral		spawn_reagent = "chloralhydrate"
 	cryoxadone	spawn_reagent = "cryoxadone"
 	clonexadone	spawn_reagent = "clonexadone"
+	pneumalin	spawn_reagent = "pneumalin"

@@ -111,8 +111,8 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view)
-	var/list/messageturfs = list()//List of turfs we broadcast to.
-	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	var/list/messageturfs = list() //List of turfs we broadcast to.
+	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
@@ -124,12 +124,15 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if(get_turf(M) in messageturfs)
+		if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/A in messagemobs)
 		var/mob/M = A
-		if(self_message && M==src)
+		if(isobserver(M))
+			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
+			continue
+		if(self_message && M == src)
 			M.show_message(self_message, 1, blind_message, 2)
 		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
 			if(blind_message)
@@ -372,12 +375,15 @@
 		if (W)
 			W.attack_self(src)
 			update_inv_l_hand()
+		else
+			attack_empty_hand(BP_L_HAND)
 	else
 		var/obj/item/W = r_hand
 		if (W)
 			W.attack_self(src)
 			update_inv_r_hand()
-	return
+		else
+			attack_empty_hand(BP_R_HAND)
 
 /mob/verb/memory()
 	set name = "Notes"
@@ -670,7 +676,7 @@
 		if(!iscarbon(src))
 			M.LAssailant = null
 		else
-			M.LAssailant = usr
+			M.LAssailant = WEAKREF(usr)
 
 	else if(isobj(AM))
 		var/obj/I = AM
@@ -996,7 +1002,39 @@
 /mob/proc/embedded_needs_process()
 	return (embedded.len > 0)
 
-mob/proc/yank_out_object()
+/mob/proc/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE)
+	if(!LAZYLEN(get_visible_implants(0))) //Yanking out last object - removing verb.
+		verbs -= /mob/proc/yank_out_object
+	for(var/obj/item/O in pinned)
+		if(O == implant)
+			pinned -= O
+		if(!pinned.len)
+			anchored = 0
+	implant.dropInto(loc)
+	implant.add_blood(src)
+	implant.update_icon()
+	if(istype(implant,/obj/item/implant))
+		var/obj/item/implant/imp = implant
+		imp.removed()
+	. = TRUE
+
+/mob/living/carbon/human/remove_implant(var/obj/item/implant, var/surgical_removal = FALSE, var/obj/item/organ/external/affected)
+	if(!affected) //Grab the organ holding the implant.
+		for(var/obj/item/organ/external/organ in organs)
+			for(var/obj/item/O in organ.implants)
+				if(O == implant)
+					affected = organ
+					break
+	if(affected)
+		affected.implants -= implant
+		if(!surgical_removal)
+			shock_stage += 20
+			apply_damage((implant.w_class * 7), BRUTE, affected)
+			if(!BP_IS_ROBOTIC(affected) && prob(implant.w_class * 5) && affected.sever_artery()) //I'M SO ANEMIC I COULD JUST -DIE-.
+				custom_pain("Something tears wetly in your [affected.name] as [implant] is pulled free!", 50, affecting = affected)
+	. = ..()
+
+/mob/proc/yank_out_object()
 	set category = "Object"
 	set name = "Yank out object"
 	set desc = "Remove an embedded item at the cost of bleeding and pain."
@@ -1043,49 +1081,18 @@ mob/proc/yank_out_object()
 		return
 
 	if(self)
-		visible_message("<span class='warning'><b>[src] rips [selection] out of their body.</b></span>","<span class='warning'><b>You rip [selection] out of your body.</b></span>")
+		visible_message("<span class='warning'><b>[src] rips [selection] out of their body!</b></span>","<span class='warning'><b>You rip [selection] out of your body!</b></span>")
 	else
-		visible_message("<span class='warning'><b>[usr] rips [selection] out of [src]'s body.</b></span>","<span class='warning'><b>[usr] rips [selection] out of your body.</b></span>")
+		visible_message("<span class='warning'><b>[usr] rips [selection] out of [src]'s body!</b></span>","<span class='warning'><b>[usr] rips [selection] out of your body!</b></span>")
 	valid_objects = get_visible_implants(0)
-	if(valid_objects.len == 1) //Yanking out last object - removing verb.
-		src.verbs -= /mob/proc/yank_out_object
 
-	if(ishuman(src))
-		var/mob/living/carbon/human/H = src
-		var/obj/item/organ/external/affected
-
-		for(var/obj/item/organ/external/organ in H.organs) //Grab the organ holding the implant.
-			for(var/obj/item/O in organ.implants)
-				if(O == selection)
-					affected = organ
-
-		affected.implants -= selection
-		H.shock_stage+=20
-		affected.take_damage((selection.w_class * 3), 0, 0, 1, "Embedded object extraction")
-
-		if(prob(selection.w_class * 5)) //I'M SO ANEMIC I COULD JUST -DIE-.
-			affected.sever_artery()
-			H.custom_pain("Something tears wetly in your [affected] as [selection] is pulled free!", 50)
-
-		if (ishuman(U))
-			var/mob/living/carbon/human/human_user = U
-			human_user.bloody_hands(H)
-
-	else if(issilicon(src))
-		var/mob/living/silicon/robot/R = src
-		R.embedded -= selection
-		R.adjustBruteLoss(5)
-		R.adjustFireLoss(10)
-
+	remove_implant(selection)
 	selection.forceMove(get_turf(src))
 	if(!(U.l_hand && U.r_hand))
 		U.put_in_hands(selection)
-
-	for(var/obj/item/O in pinned)
-		if(O == selection)
-			pinned -= O
-		if(!pinned.len)
-			anchored = 0
+	if(ishuman(U))
+		var/mob/living/carbon/human/human_user = U
+		human_user.bloody_hands(src)
 	return 1
 
 /mob/living/proc/handle_statuses()

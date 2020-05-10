@@ -56,7 +56,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 			continue
 		if(amount && send_count >= amount)
 			break
-		if(!machine.loc.z in listening_level)
+		if(!(machine.loc.z in listening_level))
 			if(long_range_link == 0 && machine.long_range_link == 0)
 				continue
 		// If we're sending a copy, be sure to create the copy for EACH machine and paste the data
@@ -94,7 +94,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/proc/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
 	// receive information from linked machinery
-	..()
+	return
 
 /obj/machinery/telecomms/proc/is_freq_listening(datum/signal/signal)
 	// return 1 if found, 0 if not found

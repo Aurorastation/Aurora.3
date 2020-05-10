@@ -104,6 +104,9 @@
 	armor = list(melee = 80, bullet = 75, laser = 60, energy = 40, bomb = 80, bio = 100, rad =100)
 	slowdown = 0
 	emp_protection = 50
+
+	species_restricted = list("Human")
+	
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,

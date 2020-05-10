@@ -20,6 +20,8 @@
 	for (var/obj/machinery/atmospherics/pipe/thing in members)
 		thing.parent = null
 
+	members = null
+
 	return ..()
 
 /datum/pipeline/process()//This use to be called called from the pipe networks

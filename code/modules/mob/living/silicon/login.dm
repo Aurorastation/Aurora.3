@@ -1,3 +1,3 @@
-/mob/living/silicon/Login()
-	sleeping = 0
+/mob/living/silicon/LateLogin()
+	sleeping = FALSE
 	..()

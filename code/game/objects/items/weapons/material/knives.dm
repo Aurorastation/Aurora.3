@@ -4,6 +4,10 @@
 /obj/item/material/knife
 	name = "kitchen knife"
 	icon = 'icons/obj/kitchen.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
+		)
 	icon_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	flags = CONDUCT
@@ -36,20 +40,16 @@
 	if(!istype(H))
 		return
 
-	for(var/obj/item/material/shard/shrapnel/S in H.contents)
+	if(!H.get_visible_implants(1))
+		to_chat(usr, "<span class='warning'>There's nothing large enough to remove!</span>")
+		return
+
+	for(var/obj/item/material/shard/S in H.contents)
 		visible_message("<span class='notice'>[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...</span>")
-		to_chat(H, "<font size=3><span class='danger'>It burns!</span></font>")
+		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
 		if(do_mob(usr, H, 100))
-			S.forceMove(H.loc)
+			H.remove_implant(S, FALSE)
 			log_and_message_admins("has extracted shrapnel out of [key_name(H)]")
-		else
-			break
-		H.apply_damage(30, PAIN)
-		if(prob(25))
-			var/obj/item/organ/external/affecting = H.get_organ(H.zone_sel.selecting)
-			if(affecting)
-				to_chat(H, "<span class='danger'><font size=2>You feel something rip open in your [affecting.name]!</span></font>")
-				affecting.sever_artery()
 		if(H.can_feel_pain())
 			H.emote("scream")
 
@@ -101,6 +101,10 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "butterfly"
 	item_state = null
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_knives.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_knives.dmi',
+		)
 	hitsound = null
 	active = 0
 	w_class = 2

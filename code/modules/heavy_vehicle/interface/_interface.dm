@@ -62,7 +62,7 @@
 	handle_hud_icons_health()
 	var/obj/item/cell/C = get_cell()
 	if(istype(C))
-		hud_power.maptext = "[round(get_cell().charge)]/[round(get_cell().maxcharge)]"
+		hud_power.maptext = "[round(get_cell()?.charge)]/[round(get_cell()?.maxcharge)]"
 	else hud_power.maptext = "CHECK POWER"
 	refresh_hud()
 

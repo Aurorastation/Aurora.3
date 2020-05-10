@@ -9,10 +9,10 @@ This UI framework is mostly composed of four main parts:
 ### Step 1: Open ui
 First we have to create a way to open ui, for example, a proc that's called when we want to open ui:
 ```DM
-/datum/mydatum/ui_interact(mob/user)
+/datum/mydatum/ui_interact(mob/user, var/datum/topic_state/state = default_state)
     var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
     if (!ui)
-        ui = new(user, src, "uiname", 300, 300, "Title of ui")
+        ui = new(user, src, "uiname", 300, 300, "Title of ui", state = state)
     ui.open()
 ```
 On first line we check if we already have open ui for this user, if we already have, then we just open it on last line, but if we don't have existing ui, we then create a new one.
@@ -65,7 +65,7 @@ p {
 </style>
 ```
 ### Step 5: Compile and lint
-This ui framework requires whole ui to be compiled for changes to be available. Compilation requires Node.js runtime, that is obtainable in various ways, most common is install from official site. To do initial dependency setup run `npm install` to gather all dependencies needed for ui. Single compilation can be done with `npm run build-dev`, but if you constantly do changes, then `npm run dev` is more convenient, as it compiles everything as soon as change is detected. To make client side code better, you should also lint code with command `npm run lint`.
+This ui framework requires whole ui to be compiled for changes to be available. Compilation requires Node.js runtime (>=13.6.0), that is obtainable in various ways, most common is install from official site. To do initial dependency setup run `npm install` to gather all dependencies needed for ui. Single compilation can be done with `npm run build-dev`, but if you constantly do changes, then `npm run dev` is more convenient, as it compiles everything as soon as change is detected. To make client side code better, you should also lint code with command `npm run lint`.
 ### Step 6: Add built files to repository
 When changes are made to ui code updated compiled code is needed to be included with PR. To compile code for production run `npm run build`
 ## Ways to provide data to ui more easily
@@ -87,9 +87,10 @@ This way is more primitive, but simpler and allows reverse data flow. Let's look
         . = newdata = list()
     VUEUI_SET_CHECK(newdata["uis_var_name"], objects_var_name, ., newdata)
     VUEUI_SET_CHECK(newdata["has_other_datum"], !!other_datum, ., newdata)
+    VUEUI_SET_CHECK_LIST(newdata["some_list"], other_list, ., newdata)
     VUEUI_SET_CHECK_IFNOTSET(newdata["text"], "[other_datum]", ., newdata)
 ```
-This code functionally is same as example that is provided for var monitors. Macro `VUEUI_SET_CHECK` compare if first two params are equal, if not, then it makes them equal, and also sets third parameter to fourth one (I this case it sets `.` to `newdata`, what makes it return data). `VUEUI_SET_CHECK_IFNOTSET` is almost exactly same, but it's checks if first var is not already set (is null), and if it is null, then it sets it.
+This code functionally is same as example that is provided for var monitors. Macro `VUEUI_SET_CHECK` compare if first two params are equal, if not, then it makes them equal, and also sets third parameter to fourth one (I this case it sets `.` to `newdata`, what makes it return data). `VUEUI_SET_CHECK_LIST` should be used if the first two params are lists. `VUEUI_SET_CHECK_IFNOTSET` is almost exactly same, but it's checks if first var is not already set (is null), and if it is null, then it sets it.
 ### 3. Combination of both
 ```DM
 VUEUI_MONITOR_VARS(/datum/mydatum, mydatummonitor)
@@ -136,6 +137,8 @@ Checks with `object.vueui_data_change` if data has changed, if so, then change i
 Resizes open UI to specified dimensions. Usefully when UI content changes size dramatically. Should be avoided in regular use.
 ### `ui.update_status()`
 This call should be used if external change was detected. It checks if user still can use this ui, and what's its usability level.
+### `ui.metadata`
+This is helper variable meant to store references, or other data that is linked to that specific ui. This is just a helper field for keeping track of what goes where.
 ### `href_list["vueui"]`
 This variable provides a way to obtain instance of ui that has invoked this `Topic()` call. Fast and simple way to safetly obtain it using this var is:
 ```DM

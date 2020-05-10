@@ -6,8 +6,8 @@
 		return ..(gibbed,"no message")
 
 /mob/living/carbon/brain/gib()
-	if(istype(container, /obj/item/device/mmi))
-		qdel(container)//Gets rid of the MMI if there is one
+	if(container)
+		QDEL_NULL(container)//Gets rid of the MMI if there is one
 	if(loc)
 		if(istype(loc,/obj/item/organ/internal/brain))
 			qdel(loc)//Gets rid of the brain item

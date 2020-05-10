@@ -84,6 +84,9 @@
 /proc/get_distress_access()
 	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
 
+/proc/get_distress_access_lesser()
+	return list(access_distress, access_external_airlocks)
+
 /var/list/datum/access/priv_all_access_datums
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
@@ -234,16 +237,22 @@ var/obj/item/card/id/all_access/ghost_all_access
 	return botcard
 
 /mob/living/carbon/human/GetIdCard()
+	if(wear_id)
+		var/id = wear_id.GetID()
+		if(id)
+			return id
 	var/obj/item/I = get_active_hand()
 	if(I)
 		var/id = I.GetID()
 		if(id)
 			return id
-	if(wear_id)
-		return wear_id.GetID()
+	if(gloves)
+		var/id = gloves.GetID()
+		if(id)
+			return id
 
 /mob/living/silicon/GetIdCard()
-	return idcard
+	return id_card
 
 proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
 	var/obj/item/card/id/C = M.GetIdCard()

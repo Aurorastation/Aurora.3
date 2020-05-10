@@ -41,6 +41,7 @@
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL_LIST(accessories)
 	return ..()
 
 //Updates the icons of the mob wearing the clothing item, if any.
@@ -139,7 +140,7 @@
 	return material
 
 /obj/item/clothing/proc/set_material(var/new_material)
-	material = get_material_by_name(new_material)
+	material = SSmaterials.get_material_by_name(new_material)
 	if(!material)
 		qdel(src)
 	else
@@ -318,6 +319,10 @@
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = 2.0
 	icon = 'icons/obj/clothing/gloves.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
+		)
 	siemens_coefficient = 0.75
 	var/wired = 0
 	var/obj/item/cell/cell = 0
@@ -357,7 +362,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
 		if (clipped)
 			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
 			update_icon()
@@ -411,12 +416,12 @@
 
 /obj/item/clothing/gloves/dropped()
 	..()
-	addtimer(CALLBACK(src, .proc/update_wearer), 0)
+	INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/gloves/mob_can_unequip()
 	. = ..()
 	if (.)
-		addtimer(CALLBACK(src, .proc/update_wearer), 0)
+		INVOKE_ASYNC(src, .proc/update_wearer)
 
 ///////////////////////////////////////////////////////////////////////
 //Head
@@ -424,8 +429,8 @@
 	name = "head"
 	icon = 'icons/obj/clothing/hats.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hats.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hats.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
 		)
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
@@ -533,8 +538,8 @@
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_masks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_masks.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_masks.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_masks.dmi'
 		)
 	slot_flags = SLOT_MASK
 	drop_sound = 'sound/items/drop/hat.ogg'
@@ -570,13 +575,19 @@
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
 	return
 
-/obj/item/clothing/mask/proc/adjust_mask(mob/user)
+/obj/item/clothing/mask/proc/adjust_mask(mob/user, var/self = TRUE)
 	set name = "Adjust Mask"
 	set category = "Object"
+
 	if(!adjustable)
 		return
-	if(use_check_and_message(user))
-		return
+
+	if(self)
+		if(use_check_and_message(user))
+			return
+	else
+		if(use_check_and_message(user, USE_ALLOW_NON_ADJACENT))
+			return
 
 	hanging = !hanging
 
@@ -586,7 +597,8 @@
 		icon_state = "[icon_state]down"
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
-		user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
+		if(self)
+			user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -594,7 +606,8 @@
 		item_state = initial(icon_state)
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
-		user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
+		if(self)
+			user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
 	usr.update_action_buttons()
 	update_clothing_icon()
 
@@ -607,6 +620,10 @@
 /obj/item/clothing/shoes
 	name = "shoes"
 	icon = 'icons/obj/clothing/shoes.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_shoes.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_shoes.dmi'
+		)
 	desc = "Comfortable-looking shoes."
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	siemens_coefficient = 0.9
@@ -620,7 +637,6 @@
 	var/shoes_under_pants = 0
 
 	permeability_coefficient = 0.50
-	slowdown = SHOES_SLOWDOWN
 	force = 0
 	var/overshoes = 0
 	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
@@ -707,6 +723,10 @@
 //Suit
 /obj/item/clothing/suit
 	icon = 'icons/obj/clothing/suits.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
+		)
 	name = "suit"
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -734,8 +754,8 @@
 /obj/item/clothing/under
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_uniforms.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_uniforms.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
 		)
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -901,7 +921,6 @@
 	set category = "Object"
 	set src in usr
 	set_sensors(usr)
-	..()
 
 /obj/item/clothing/under/verb/rollsuit()
 	set name = "Roll Down Jumpsuit"

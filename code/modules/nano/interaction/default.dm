@@ -80,7 +80,7 @@
 	if(. != STATUS_CLOSE)
 		if(loc)
 			. = min(., loc.contents_nano_distance(src_object, src))
-	if(STATUS_INTERACTIVE)
+	if(. == STATUS_INTERACTIVE)
 		return STATUS_UPDATE
 
 /mob/living/carbon/human/default_can_use_topic(var/src_object)
@@ -90,5 +90,3 @@
 			. = min(., loc.contents_nano_distance(src_object, src))
 		else
 			. = min(., shared_living_nano_distance(src_object))
-		if(. == STATUS_UPDATE && (TK in mutations))	// If we have telekinesis and remain close enough, allow interaction.
-			return STATUS_INTERACTIVE

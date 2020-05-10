@@ -112,7 +112,7 @@
 			stop_automated_movement = 1
 			stance_step++
 			if(stance_step >= 15) //rests for 10 ticks
-				if(target_mob && target_mob in ListTargets(10))
+				if(target_mob && (target_mob in ListTargets(10)))
 					set_stance(HOSTILE_STANCE_ATTACK) //If the mob he was chasing is still nearby, resume the attack, otherwise go idle.
 				else
 					set_stance(HOSTILE_STANCE_IDLE)
@@ -409,7 +409,7 @@
 	break_stuff_probability = 100//Constantly smashing everything nearby
 	speak_chance = 15
 	var/idletime
-	var/focus_time//How long we've focused on this target
+	var/focus_time //How long we've focused on this target
 	var/teleport_delay = 60
 	var/tactical_delay = 3//Procs between shortrange teleports
 	var/datum/effect_system/sparks/spark_system

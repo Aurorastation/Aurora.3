@@ -5,6 +5,7 @@
 	icon_state = "suspension2"
 	density = 1
 	req_access = list(access_research)
+	obj_flags = OBJ_FLAG_ROTATABLE
 	var/obj/item/cell/cell
 	var/obj/item/card/id/auth_card
 	var/locked = 1
@@ -314,26 +315,6 @@
 	//safety checks: clear the field and drop anything it's holding
 	deactivate()
 	return ..()
-
-/obj/machinery/suspension_gen/verb/rotate_ccw()
-	set src in view(1)
-	set name = "Rotate suspension gen (counter-clockwise)"
-	set category = "Object"
-
-	if(anchored)
-		to_chat(usr, "<span class='warning'>You cannot rotate [src], it has been firmly fixed to the floor.</span>")
-	else
-		set_dir(turn(dir, 90))
-
-/obj/machinery/suspension_gen/verb/rotate_cw()
-	set src in view(1)
-	set name = "Rotate suspension gen (clockwise)"
-	set category = "Object"
-
-	if(anchored)
-		to_chat(usr, "<span class='warning'>You cannot rotate [src], it has been firmly fixed to the floor.</span>")
-	else
-		set_dir(turn(dir, -90))
 
 /obj/effect/suspension_field
 	name = "energy field"

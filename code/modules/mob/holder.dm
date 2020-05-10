@@ -59,21 +59,6 @@ var/list/holder_mob_icon_cache = list()
 	for(var/mob/M in contents)
 		M.show_inv(usr)
 
-//Mob specific holders.
-/obj/item/holder/diona
-	icon = 'icons/mob/diona.dmi'
-	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
-	slot_flags = SLOT_HEAD | SLOT_OCLOTHING | SLOT_HOLSTER
-
-/obj/item/holder/drone
-	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
-
-/obj/item/holder/rat
-	w_class = 1
-
-/obj/item/holder/borer
-	origin_tech = list(TECH_BIO = 6)
-
 /obj/item/holder/process()
 	if (!contained)
 		qdel(src)
@@ -370,7 +355,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "nymph"
 	icon_state_dead = "nymph_dead"
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
-	slot_flags = SLOT_HEAD | SLOT_OCLOTHING
+	slot_flags = SLOT_HEAD | SLOT_EARS | SLOT_HOLSTER
 	w_class = 2
 
 /obj/item/holder/drone
@@ -645,3 +630,10 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "fox"
 	item_state = "fox"
 	w_class = 3
+
+/obj/item/holder/schlorrgo
+	name = "schlorrgo"
+	icon = 'icons/mob/npc/livestock.dmi'
+	icon_state = "schlorgo"
+	item_state = "schlorgo"
+	w_class = ITEMSIZE_NORMAL

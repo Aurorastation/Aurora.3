@@ -36,7 +36,7 @@
 	activates_on_touch = 1
 	confined_use = 1
 
-	construction_cost = list("glass" = 7500, DEFAULT_WALL_MATERIAL = 5000)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 7500)
 	construction_time = 300
 
 	engage_string = "Eject AI"
@@ -367,7 +367,7 @@
 	activates_on_touch = 1
 	disruptive = 0
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"gold"=2000,"silver"=3000,"glass"=2000)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GOLD =2000, MATERIAL_SILVER =3000, MATERIAL_GLASS =2000)
 	construction_time = 500
 
 	activate_string = "Enable Power Sink"

@@ -16,10 +16,10 @@
 	artery_name = "internal thoracic artery"
 	dislocated = -1
 	gendered_icon = 1
-	cannot_amputate = 1
+	limb_flags = ORGAN_CAN_BREAK
 	parent_organ = null
 	encased = "ribcage"
-	can_be_maimed = FALSE
+	augment_limit = 3
 
 /obj/item/organ/external/groin
 	name = "lower body"
@@ -36,7 +36,7 @@
 	artery_name = "iliac artery"
 	dislocated = -1
 	gendered_icon = 1
-	maim_bonus = 0.25
+	augment_limit = 3
 
 /obj/item/organ/external/arm
 	limb_name = "l_arm"
@@ -48,11 +48,11 @@
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
 	joint = "left elbow"
-	has_tendon = TRUE
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON | ORGAN_CAN_GRASP
 	tendon_name = "palmaris longus tendon"
 	artery_name = "basilic vein"
 	amputation_point = "left shoulder"
-	can_grasp = 1
+	augment_limit = 2
 
 /obj/item/organ/external/arm/right
 	limb_name = "r_arm"
@@ -60,7 +60,6 @@
 	icon_name = "r_arm"
 	body_part = ARM_RIGHT
 	joint = "right elbow"
-	has_tendon = TRUE
 	tendon_name = "cruciate ligament"
 	artery_name = "brachial artery"
 	amputation_point = "right shoulder"
@@ -76,11 +75,11 @@
 	icon_position = LEFT
 	parent_organ = BP_GROIN
 	joint = "left knee"
-	has_tendon = TRUE
 	tendon_name = "quadriceps tendon"
 	artery_name = "femoral artery"
 	amputation_point = "left hip"
-	can_stand = 1
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_HAS_TENDON
+	augment_limit = 2
 
 /obj/item/organ/external/leg/right
 	limb_name = "r_leg"
@@ -95,7 +94,7 @@
 	limb_name = "l_foot"
 	name = "left foot"
 	icon_name = "l_foot"
-	max_damage = 30
+	max_damage = 35
 	min_broken_damage = 15
 	w_class = 2
 	body_part = FOOT_LEFT
@@ -103,8 +102,9 @@
 	parent_organ = BP_L_LEG
 	joint = "left ankle"
 	amputation_point = "left ankle"
-	can_stand = 1
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_STAND
 	maim_bonus = 1
+	augment_limit = 1
 
 /obj/item/organ/external/foot/removed()
 	if(owner)
@@ -125,17 +125,17 @@
 	limb_name = "l_hand"
 	name = "left hand"
 	icon_name = "l_hand"
-	max_damage = 30
+	max_damage = 35
 	min_broken_damage = 15
 	w_class = 2
 	body_part = HAND_LEFT
 	parent_organ = BP_L_ARM
 	joint = "left wrist"
-	has_tendon = TRUE
 	tendon_name = "carpal ligament"
 	amputation_point = "left wrist"
-	can_grasp = 1
+	limb_flags = ORGAN_CAN_AMPUTATE | ORGAN_CAN_BREAK | ORGAN_CAN_MAIM | ORGAN_CAN_GRASP | ORGAN_HAS_TENDON
 	maim_bonus = 1
+	augment_limit = 1
 
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
@@ -169,8 +169,8 @@
 	amputation_point = "neck"
 	gendered_icon = 1
 	encased = "skull"
+	augment_limit = 3
 	var/can_intake_reagents = 1
-	maim_bonus = 0.33
 
 /obj/item/organ/external/head/removed()
 	if(owner)
@@ -184,8 +184,8 @@
 			owner.update_hair()
 	..()
 
-/obj/item/organ/external/head/take_damage(brute, burn, sharp, edge, used_weapon = null, list/forbidden_limbs = list(), damage_flags)
-	..(brute, burn, sharp, edge, used_weapon, forbidden_limbs, damage_flags)
+/obj/item/organ/external/head/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)
+	..(brute, burn, damage_flags, used_weapon, forbidden_limbs, damage_flags, silent)
 	if (!disfigured)
 		if (brute_dam > 40)
 			if (prob(50))

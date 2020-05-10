@@ -11,8 +11,6 @@
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
-		if(istype(W,/obj/item/tk_grab))
-			return 0
 		if(!dropsafety(W))
 			return
 		if(W)

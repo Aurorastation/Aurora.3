@@ -54,7 +54,9 @@
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/extinguisher/mini,
 		/obj/item/pipewrench,
-		/obj/item/powerdrill
+		/obj/item/powerdrill,
+		/obj/item/device/radio,
+		/obj/item/device/debugger
 		)
 
 
@@ -67,6 +69,17 @@
 		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
 		/obj/item/powerdrill = 1
+	)
+
+/obj/item/storage/belt/utility/very_full
+	starts_with = list(
+		/obj/item/weldingtool/largetank = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1,
+		/obj/item/device/multitool = 1,
+		/obj/item/device/radio = 1
 	)
 
 
@@ -115,7 +128,8 @@
 		/obj/item/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/antibody_scanner
+		/obj/item/device/antibody_scanner,
+		/obj/item/device/radio
 		)
 
 /obj/item/storage/belt/medical/emt
@@ -155,7 +169,8 @@
 		/obj/item/material/knife/trench,
 		/obj/item/shield/energy,
 		/obj/item/shield/riot/tact,
-		/obj/item/device/holowarrant
+		/obj/item/device/holowarrant,
+		/obj/item/device/radio
 		)
 
 /obj/item/storage/belt/soulstone
@@ -221,7 +236,10 @@
 		/obj/item/card/emag,
 		/obj/item/device/multitool/hacktool,
 		/obj/item/reagent_containers/hypospray/combat,
-		/obj/item/stack/telecrystal
+		/obj/item/stack/telecrystal,
+		/obj/item/device/radio,
+		/obj/item/shield/riot/tact,
+		/obj/item/material/knife/tacknife
 		)
 
 /obj/item/storage/belt/military/syndicate
@@ -349,6 +367,7 @@
 		/obj/item/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
+		/obj/item/device/radio
 	)
 
 /obj/item/storage/belt/ninja //credits to BurgerBB
@@ -387,7 +406,8 @@
 		/obj/item/reagent_containers,
 		/obj/item/stack/telecrystal,
 		/obj/item/material/sword,
-		/obj/item/material/star
+		/obj/item/material/star,
+		/obj/item/device/radio
 	)
 
 /obj/item/storage/belt/fannypack

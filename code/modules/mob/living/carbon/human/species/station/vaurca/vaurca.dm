@@ -5,6 +5,7 @@
 	bodytype = "Vaurca"
 	age_min = 1
 	age_max = 20
+	default_genders = list(NEUTER)
 	economic_modifier = 2
 	language = LANGUAGE_VAURCA
 	primitive_form = "V'krexi"
@@ -25,12 +26,17 @@
 	darksight = 8 //USELESS
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_are_impermeable = TRUE
+
 	brute_mod = 0.5
 	burn_mod = 1.5 //2x was a bit too much. we'll see how this goes.
 	toxins_mod = 2 //they're not used to all our weird human bacteria.
 	oxy_mod = 0.6
 	radiation_mod = 0.2 //almost total radiation protection
 	bleed_mod = 2.2
+
+	grab_mod = 1.1
+	resist_mod = 1.75
+
 	warning_low_pressure = 50
 	hazard_low_pressure = 0
 	ethanol_resistance = 2
@@ -41,6 +47,7 @@
 	breath_vol_mul = 1/6 // 0.5 liters * breath_vol_mul = breath volume
 	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
 	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
+	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
 	climb_coeff = 0.75
@@ -62,7 +69,7 @@
 	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
-	blood_color = "#E6E600" // dark yellow
+	blood_color = COLOR_VAURCA_BLOOD // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
 

@@ -333,7 +333,7 @@
 /obj/machinery/biogenerator/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = 1
-		visible_message("<span class='danger'>\The [src] makes a fizzling sound.</span>")
+		visible_message(span("danger", "\The [src] makes a fizzling sound."))
 		return 1
 
 /obj/machinery/biogenerator/Initialize()
@@ -364,47 +364,47 @@
 		return
 	if(istype(O, /obj/item/reagent_containers/glass))
 		if(beaker)
-			to_chat(user, "<span class='notice'>]The [src] is already loaded.</span>")
+			to_chat(user, span("notice", "\The [src] is already loaded."))
 		else
 			user.remove_from_mob(O)
 			O.forceMove(src)
 			beaker = O
 			updateUsrDialog()
 	else if(processing)
-		to_chat(user, "<span class='notice'>\The [src] is currently processing.</span>")
+		to_chat(user, span("notice", "\The [src] is currently processing."))
 	else if(istype(O, /obj/item/storage/bag/plants))
 		var/i = 0
 		var/obj/item/storage/bag/P = O
 		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
-			to_chat(user, "<span class='notice'>\The [src] is already full! Activate it.</span>")
+			to_chat(user, span("notice", "\The [src] is already full! Activate it."))
 		else
 			for(var/obj/item/reagent_containers/food/snacks/grown/G in P.contents)
 				P.remove_from_storage(G,src)
 				i++
 				if(i >= capacity)
-					to_chat(user, "<span class='notice'>You fill \the [src] to its capacity.</span>")
+					to_chat(user, span("notice", "You fill \the [src] to its capacity."))
 					break
 
 				CHECK_TICK
 
 			if(i < capacity)
-				to_chat(user, "<span class='notice'>You empty \the [O] into \the [src].</span>")
+				to_chat(user, span("notice", "You empty \the [O] into \the [src]."))
 
 
 	else if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
-		to_chat(user, "<span class='notice'>You cannot put this in \the [src].</span>")
+		to_chat(user, span("notice", "You cannot put this in \the [src]."))
 	else
 		var/i = 0
 		for(var/obj/item/reagent_containers/food/snacks/grown/G in contents)
 			i++
 		if(i >= capacity)
-			to_chat(user, "<span class='notice'>\The [src] is full! Activate it.</span>")
+			to_chat(user, span("notice", "\The [src] is full! Activate it."))
 		else
 			user.remove_from_mob(O)
 			O.forceMove(src)
-			to_chat(user, "<span class='notice'>You put \the [O] in \the [src]</span>")
+			to_chat(user, span("notice", "You put \the [O] in \the [src]"))
 	update_icon()
 	return
 
@@ -482,7 +482,7 @@
 	if (stat) //NOPOWER etc
 		return
 	if(processing)
-		to_chat(usr, "<span class='notice'>The biogenerator is in the process of working.</span>")
+		to_chat(usr, span("notice", "The biogenerator is in the process of working."))
 		return
 	var/S = 0
 	for(var/obj/item/reagent_containers/food/snacks/grown/I in contents)
@@ -532,7 +532,7 @@
 			points -= totake
 			use_power(totake * 0.25)
 			sleep( delay )
-			playsound(src.loc, 'sound/machines/switch3.ogg', 50, 1)
+			playsound(src.loc, "switchsounds", 50, 1)
 			var/new_object = recipie_data["object"]
 			new new_object(loc)
 

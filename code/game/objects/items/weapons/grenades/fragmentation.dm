@@ -13,7 +13,7 @@ proc/fragem(var/source,var/fragx,var/fragy,var/light_dam,var/flash_dam,var/p_dam
 		P.pellets = fragments_per_projectile
 		P.range_step = p_range
 		P.shot_from = source
-		P.name = "[source]'s shrapnel"
+		P.name = "shrapnel"
 
 		P.launch_projectile(T)
 

@@ -198,7 +198,7 @@
 	fallback_specific_heat = 0.241
 
 /datum/reagent/uranium
-	name ="Uranium"
+	name = "Uranium"
 	id = "uranium"
 	description = "A silvery-white metallic chemical element in the actinide series, weakly radioactive."
 	reagent_state = SOLID
@@ -363,11 +363,11 @@
 		var/mob/living/carbon/slime/S = M
 		S.adjustToxLoss( volume * (removed/REM) * 0.5 )
 		if(!S.client)
-			if(S.Target) // Like cats
-				S.Target = null
-				++S.Discipline
+			if(S.target) // Like cats
+				S.target = null
+				++S.discipline
 		if(dose == removed)
-			S.visible_message("<span class='warning'>[S]'s flesh sizzles where the water touches it!</span>", "<span class='danger'>Your flesh burns in the water!</span>")
+			S.visible_message(span("warning", "[S]'s flesh sizzles where the space cleaner touches it!"), span("danger", "Your flesh burns in the space cleaner!"))
 
 /datum/reagent/lube
 	name = "Space Lube"
@@ -413,6 +413,7 @@
 	reagent_state = LIQUID
 	color = "#808080"
 	taste_description = "oil"
+	var/temp_set = FALSE
 
 /datum/reagent/nitroglycerin/proc/explode()
 	var/datum/effect/effect/system/reagents_explosion/e = new()
@@ -427,6 +428,9 @@
 
 /datum/reagent/nitroglycerin/add_thermal_energy(var/added_energy)
 	. = ..()
+	if(!temp_set) // so initial temperature-setting doesn't make stuff explode
+		temp_set = TRUE
+		return
 	if(abs(added_energy) > (specific_heat * 5 / volume)) // can explode via cold or heat shock
 		explode()
 
@@ -850,3 +854,20 @@
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
+
+/datum/reagent/stone_dust
+	name = "Stone Dust"
+	id = "stone_dust"
+	description = "Crystalline silica dust, harmful when inhaled."
+	reagent_state = SOLID
+	color = "#5a4d41"
+	taste_description = "dust"
+	specific_heat = 1
+
+/datum/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	. = ..()
+	if(istype(H))
+		if(prob(15))
+			var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
+			if(istype(L) && !L.robotic)
+				L.take_damage(0.5*removed)

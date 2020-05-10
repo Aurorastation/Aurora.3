@@ -1,10 +1,12 @@
 // Generic data stored in record
 /datum/record
+	var/name
 	var/id
 	var/notes = "No notes found."
 
 	var/cmp_field = "id"
 	var/list/excluded_fields
+	var/list/excluded_print_fields
 
 /datum/record/New()
 	..()
@@ -12,6 +14,10 @@
 	excluded_fields = list()
 	for(var/f in tmp_ex)
 		excluded_fields[f] = f
+	tmp_ex = excluded_print_fields
+	excluded_print_fields = list()
+	for(var/f in tmp_ex)
+		excluded_print_fields[f] = f
 
 /datum/record/proc/Copy(var/datum/copied)
 	if(!copied)
@@ -20,7 +26,8 @@
 	for(var/variable in src.vars)
 		if(exclusions[variable]) continue
 		if(istype(src.vars[variable], /datum/record) || istype(src.vars[variable], /list))
-			copied.vars[variable] = src.vars[variable].Copy()
+			var/list/V = vars[variable]
+			copied.vars[variable] = V.Copy()
 		else
 			copied.vars[variable] = src.vars[variable]
 	return copied
@@ -40,31 +47,66 @@
 		if(!exclusions[variable])
 			if(deep && (istype(src.vars[variable], /datum/record)))
 				if(to_update)
-					var/listified = src.vars[variable].Listify(to_update = to_update[variable])
+					var/datum/record/R = src.vars[variable]
+					var/listified = R.Listify(to_update = to_update[variable])
 					if(listified)
 						record[variable] = listified
 						. = record
 				else
-					record[variable] = src.vars[variable].Listify()
-			else if(deep && istype(src.vars[variable], /list) && is_list_containing_type(src.vars[variable], /datum/record))
+					var/datum/record/R = src.vars[variable]
+					record[variable] = R.Listify()
+			else if(deep && islist(src.vars[variable]) && is_list_containing_type(src.vars[variable], /datum/record))
 				record[variable] = list()
 				for(var/subr in src.vars[variable])
 					var/datum/record/r = subr
 					record[variable] += list(r.Listify())
-				if(to_update && to_update[variable].len != record[variable].len)
+				var/llen = 0
+				if((variable in to_update) && islist(to_update[variable]))
+					var/list/L = to_update[variable]
+					llen = L.len
+				if(llen != LAZYLEN(record[variable]))
 					. = record
-			else if(istype(src.vars[variable], /list) || istext(src.vars[variable]) || isnum(src.vars[variable]))
+			else if(islist(src.vars[variable]) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])
 					record[variable] = src.vars[variable]
 					. = record
 				else if(!to_update)
 					record[variable] = src.vars[variable]
 
+
+/datum/record/proc/Printify(var/list/excluded = list()) // Mostyl to support old things or to use with serialization
+	. = ""
+	var/tmp_ex = excluded
+	excluded = list()
+	for(var/e in tmp_ex)
+		excluded[e] = e
+	var/exclusions = (SSrecords.excluded_fields | src.excluded_fields | excluded | src.excluded_print_fields)
+	var/extendedVars = list() // To put last
+	for(var/variable in src.vars)
+		if(!exclusions[variable])
+			if(istype(src.vars[variable], /datum/record))
+				var/datum/record/R = src.vars[variable]
+				extendedVars[variable] = R
+				// . += "<h3>[variable]</h3>"
+				// . += src.vars[variable].Printify()
+			else if(istype(src.vars[variable], /list))
+				. += "<b>[get_field_name(variable)]:</b><br>"
+				. += jointext(src.vars[variable], "<br>")
+			else if(istext(src.vars[variable]) || isnum(src.vars[variable]))
+				. += "<b>[get_field_name(variable)]:</b> [src.vars[variable]]<br>"
+	for(var/variable in extendedVars)
+		. += "<center><h3>[get_field_name(variable)]</h3></center>"
+		var/datum/record/R = src.vars[variable]
+		. += R.Printify()
+
+/datum/record/proc/get_field_name(var/field)
+	. = SSrecords.localized_fields[src.type][field]
+	if(!.)
+		return capitalize(replacetext(field, "_", " "))
+
 // Record for storing general data, data tree top level datum
 /datum/record/general
-	var/datum/record/medical/medical
-	var/datum/record/security/security
-	var/name = "New Record"
+	name = "New Record"
 	var/real_rank = "Unassigned"
 	var/rank = "Unassigned"
 	var/age = 0
@@ -80,9 +122,12 @@
 	var/list/ccia_actions = list()
 	var/icon/photo_front
 	var/icon/photo_side
-	var/list/advanced_fields = list("species", "citizenship", "faction", "religion", "ccia_record", "ccia_actions")
+	var/datum/record/medical/medical
+	var/datum/record/security/security
+	var/list/advanced_fields = list("species", "citizenship", "employer", "religion", "ccia_record", "ccia_actions")
 	cmp_field = "name"
-	excluded_fields = list("photo_front", "photo_side", "advanced_fields")
+	excluded_fields = list("photo_front", "photo_side", "advanced_fields", "real_rank")
+	excluded_print_fields = list("ccia_actions")
 
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
 	..()
@@ -155,7 +200,7 @@
 // Record for storing security data
 /datum/record/security
 	var/criminal = "None"
-	var/crimes = "There is no crime convictions."
+	var/crimes = "No criminal record."
 	var/list/incidents = list()
 	var/list/comments = list()
 
@@ -174,7 +219,7 @@
 /datum/record/warrant
 	var/authorization = "Unauthorized"
 	var/wtype = "Unknown"
-	var/name = "Unknown"
+	name = "Unknown"
 	notes = "No charges present"
 	cmp_field = "name"
 
@@ -185,7 +230,7 @@ var/warrant_uid = 0
 
 // Virus record
 /datum/record/virus
-	var/name = "Unknown"
+	name = "Unknown"
 	var/description = ""
 	var/antigen
 	var/spread_type = "Unknown"

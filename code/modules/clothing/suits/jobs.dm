@@ -4,14 +4,21 @@
 
 //Botonist
 /obj/item/clothing/suit/apron
-	name = "apron"
-	desc = "A basic blue apron."
-	icon_state = "apron"
-	item_state = "apron"
+	name = "botanist apron"
+	desc = "A basic blue apron meant for botanists."
+	icon_state = "blueapron"
+	item_state = "blueapron"
 	blood_overlay_type = "armor"
 	body_parts_covered = 0
 	allowed = list (/obj/item/reagent_containers/spray/plantbgone,/obj/item/device/analyzer/plant_analyzer,/obj/item/seeds,/obj/item/reagent_containers/glass/fertilizer,/obj/item/material/minihoe)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+obj/item/clothing/suit/apron/colored
+	name = "multipurpose apron"
+	desc = "A multipurpose apron that comes in many colors."
+	icon_state = "apron"
+	item_state = "apron"
+	allowed = list (/obj/item/reagent_containers/food/drinks/shaker,/obj/item/material/kitchen/utensil, /obj/item/reagent_containers/food/condiment/, /obj/item/reagent_containers/food/drinks/bottle/)
 
 /obj/item/clothing/suit/apron/overalls
 	name = "coveralls"

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <vui-button v-for="bv in subButtons" :key="'-' + bv" :push-state="pushState" :disabled="val - bv < min" @click="onUpdatedValue(-bv)">-</vui-button>
-    <input :style="{width: width}" ref="input" :value="val" @input="onFieldUpdate($event.target)">
-    <vui-button v-for="bv in addButtons" :key="'+' + bv" :push-state="pushState" :disabled="val + bv > max" @click="onUpdatedValue(bv)">+</vui-button>
+    <vui-button v-for="bv in subButtons" :key="'-' + bv" :disabled="val - bv < min" @click="onUpdatedValue(-bv)">-</vui-button>
+    <input @keypress="onKeyPress" :style="{width: width}" ref="input" :value="val" @input="onFieldUpdate($event.target)">
+    <vui-button v-for="bv in addButtons" :key="'+' + bv" :disabled="val + bv > max" @click="onUpdatedValue(bv)">+</vui-button>
   </div>
 </template>
 
@@ -71,7 +71,6 @@ export default {
       }
       console.log(int, field.value, this.value, this.val)
       this.UpdateValue(int)
-      Store.pushState()
       if(_inival == this.val && !(field.value.endsWith("."))) {
         this.$refs.input.value = this.val
       }
@@ -89,6 +88,10 @@ export default {
       if(int < this.min) int = this.min
       this.val = int
       this.$emit('input', int);
+      if(this.pushState) Store.pushState()
+    },
+    onKeyPress(event) {
+      this.$emit('keypress', event)
     }
   },
   watch: {

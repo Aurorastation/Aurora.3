@@ -1,7 +1,7 @@
 //citizenship defines
 #define CITIZENSHIP_BIESEL "Republic of Biesel"
 #define CITIZENSHIP_SOL "Sol Alliance"
-#define CITIZENSHIP_FRONTIER "Frontier Alliance"
+#define CITIZENSHIP_COALITION "Coalition of Colonies"
 #define CITIZENSHIP_ELYRA "Republic of Elyra"
 #define CITIZENSHIP_ERIDANI "Eridani Federation"
 #define CITIZENSHIP_DOMINIA "Empire of Dominia"

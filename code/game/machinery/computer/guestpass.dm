@@ -129,7 +129,7 @@
 	if (href_list["choice"])
 		switch(href_list["choice"])
 			if ("giv_name")
-				var/nam = sanitize(input("Person pass is issued to", "Name", giv_name) as text|null)
+				var/nam = sanitizeName(input("Person pass is issued to", "Name", giv_name) as text|null)
 				if (nam)
 					giv_name = nam
 			if ("reason")

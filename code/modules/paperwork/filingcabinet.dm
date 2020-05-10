@@ -65,23 +65,6 @@
 
 	return
 
-/obj/structure/filingcabinet/attack_tk(mob/user)
-	if(anchored)
-		attack_self_tk(user)
-	else
-		..()
-
-/obj/structure/filingcabinet/attack_self_tk(mob/user)
-	if(contents.len)
-		if(prob(40 + contents.len * 5))
-			var/obj/item/I = pick(contents)
-			I.forceMove(loc)
-			if(prob(25))
-				step_rand(I)
-			to_chat(user, "<span class='notice'>You pull \a [I] out of [src] at random.</span>")
-			return
-	to_chat(user, "<span class='notice'>You find nothing in [src].</span>")
-
 /obj/structure/filingcabinet/Topic(href, href_list)
 	if(href_list["retrieve"])
 		usr << browse("", "window=filingcabinet") // Close the menu)
@@ -132,13 +115,12 @@ Important Notes:<BR>
 				P.name = "Security Record ([R.name])"
 				virgin = 0	//tabbing here is correct- it's possible for people to try and use it
 							//before the records have been generated, so we do this inside the loop.
-	..()
 
 /obj/structure/filingcabinet/security/attack_hand()
 	populate()
 	..()
 
-/obj/structure/filingcabinet/security/attack_tk()
+/obj/structure/filingcabinet/security/do_simple_ranged_interaction(var/mob/user)
 	populate()
 	..()
 
@@ -179,12 +161,11 @@ Important Notes:<BR>
 				P.set_content_unsafe(pname, info)
 			virgin = 0	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
-	..()
 
 /obj/structure/filingcabinet/medical/attack_hand()
 	populate()
 	..()
 
-/obj/structure/filingcabinet/medical/attack_tk()
+/obj/structure/filingcabinet/medical/do_simple_ranged_interaction(var/mob/user)
 	populate()
 	..()

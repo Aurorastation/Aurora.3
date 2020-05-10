@@ -1,6 +1,6 @@
 /datum/gear/gloves
-	display_name = "watch"
-	path = /obj/item/clothing/gloves/watch
+	display_name = "fingerless gloves"
+	path = /obj/item/clothing/gloves/fingerless
 	cost = 1
 	slot = slot_gloves
 	sort_category = "Gloves and Handwear"
@@ -24,18 +24,16 @@
 	gloves["grey gloves"] = /obj/item/clothing/gloves/grey
 	gloves["rainbow gloves"] = /obj/item/clothing/gloves/rainbow
 	gloves["black leather gloves"] = /obj/item/clothing/gloves/black_leather
+	gloves["lyodsuit gloves"] = /obj/item/clothing/gloves/lyodsuit
 	gear_tweaks += new/datum/gear_tweak/path(gloves)
 
 /datum/gear/gloves/evening
 	display_name = "evening gloves"
 	path = /obj/item/clothing/gloves/evening
-
-/datum/gear/gloves/evening/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/gloves/ring
-	display_name = "ring"
+	display_name = "ring selection"
 	description = "A selection of rings."
 	path = /obj/item/clothing/ring/engagement
 
@@ -55,9 +53,20 @@
 	ringtype["ring, plastic"] = /obj/item/clothing/ring/material/plastic
 	gear_tweaks += new/datum/gear_tweak/path(ringtype)
 
-/datum/gear/gloves/fingerless
-	display_name = "fingerless gloves"
-	path = /obj/item/clothing/gloves/fingerless
+/datum/gear/gloves/watch
+	display_name = "watch selection"
+	description = "A selection of watches."
+	path = /obj/item/clothing/gloves/watch
+
+/datum/gear/gloves/watch/New()
+	..()
+	var/watchtype = list()
+	watchtype["watch"] = /obj/item/clothing/gloves/watch
+	watchtype["silver watch"] = /obj/item/clothing/gloves/watch/silver
+	watchtype["gold watch"] = /obj/item/clothing/gloves/watch/gold
+	watchtype["spy watch"] = /obj/item/clothing/gloves/watch/spy
+	watchtype["pocketwatch"] = /obj/item/pocketwatch
+	gear_tweaks += new/datum/gear_tweak/path(watchtype)
 
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"

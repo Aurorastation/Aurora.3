@@ -573,6 +573,18 @@
 		Game() // updates the main game menu
 		.(href, list("f_secret"=1))
 
+	else if(href_list["remove_psionics"])
+		var/datum/psi_complexus/psi = locate(href_list["remove_psionics"])
+		if(psi && psi.owner && !QDELETED(psi))
+			to_chat(psi.owner, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
+			log_and_message_admins("removed all psionics from [key_name(psi.owner)].")
+			QDEL_NULL(psi)
+
+	else if(href_list["trigger_psi_latencies"])
+		var/datum/psi_complexus/psi = locate(href_list["trigger_psi_latencies"])
+		log_and_message_admins("triggered psi latencies for [key_name(psi.owner)].")
+		psi.check_latency_trigger(100, "outside intervention", redactive = TRUE)
+
 	else if(href_list["monkeyone"])
 		if(!check_rights(R_SPAWN))	return
 
@@ -1074,51 +1086,6 @@
 		create_admin_fax(department)
 
 		return
-
-	else if(href_list["SolGovFaxReply"])
-		//TODO
-		/*
-		var/mob/living/carbon/human/H = locate(href_list["SolGovFaxReply"])
-		var/obj/machinery/photocopier/faxmachine/fax = locate(href_list["originfax"])
-
-		var/input = input(src.owner, "Please enter a message to reply to [key_name(H)] via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
-		if(!input)	return
-
-		var/customname = input(src.owner, "Pick a title for the report", "Title") as text|null
-
-		for(var/obj/machinery/photocopier/faxmachine/F in machines)
-			if(F == fax)
-				if(! (F.stat & (BROKEN|NOPOWER) ) )
-
-					// animate! it's alive!
-					flick("faxreceive", F)
-
-					// give the sprite some time to flick
-					spawn(20)
-						var/obj/item/paper/P = new /obj/item/paper( F.loc )
-						P.name = "Sol Government- [customname]"
-						P.info = input
-						P.update_icon()
-
-						playsound(F.loc, "sound/items/polaroid1.ogg", 50, 1)
-
-						// Stamps
-						var/image/stampoverlay = image('icons/obj/bureaucracy.dmi')
-						stampoverlay.icon_state = "paper_stamp-cap"
-						if(!P.stamped)
-							P.stamped = new
-						P.stamped += /obj/item/stamp
-						P.overlays += stampoverlay
-						P.stamps += "<HR><i>This paper has been stamped and encrypted by the Sol Government Quantum Relay.</i>"
-
-				to_chat(src.owner, "Message reply to transmitted successfully.")
-				log_admin("[key_name(src.owner)] replied to a fax message from [key_name(H)]: [input]")
-				message_admins("[key_name_admin(src.owner)] replied to a fax message from [key_name_admin(H)]", 1)
-				return
-		to_chat(src.owner, "/red Unable to locate fax!")
-		*/
-
-
 
 	else if(href_list["jumpto"])
 		if(!check_rights(R_ADMIN))	return

@@ -42,8 +42,8 @@
 			effectrange = rand(5, 15)
 		if(3)
 			//large range, long charge time
-			chargelevelmax = rand(20, 120)
-			effectrange = rand(20, 200)
+			chargelevelmax = rand(20, 60)
+			effectrange = rand(15, 20)
 
 /datum/artifact_effect/proc/ToggleActivate(var/reveal_toggle = 1)
 	//so that other stuff happens first
@@ -106,7 +106,7 @@ proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
 		protected += 0.2
 
 	//latex gloves and science goggles also give a bit of bonus protection
-	if(istype(H.gloves,/obj/item/clothing/gloves/latex))
+	if(istype(H.gloves,/obj/item/clothing/gloves/latex/nitrile))
 		protected += 0.1
 	/*
 	If you have Anomaly Suit, Anomaly Hood, Latex Gloves AND Science Goggles, you will have

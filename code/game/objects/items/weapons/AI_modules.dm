@@ -47,7 +47,7 @@ AI MODULES
 			to_chat(comp.current, "These are your laws now:")
 			comp.current.show_laws()
 			for(var/mob/living/silicon/robot/R in mob_list)
-				if(R.lawupdate && (R.connected_ai == comp.current))
+				if(R.law_update && (R.connected_ai == comp.current))
 					to_chat(R, "These are your laws now:")
 					R.show_laws()
 			to_chat(usr, "Upload complete. The AI's laws have been modified.")
@@ -395,3 +395,11 @@ AI MODULES
 	desc = "An 'Antimov' Core AI Module: 'Reconfigures the AI's core laws.'"
 	origin_tech = list(TECH_DATA = 4)
 	laws = new/datum/ai_laws/antimov()
+
+/******************** PRA ********************/
+
+/obj/item/aiModule/hadiist
+	name = "\improper 'Hadiist' core AI module"
+	desc = "An 'Hadiist' Core AI Module: 'Reconfigures the AI's core laws.'"
+	origin_tech = list(TECH_DATA = 4)
+	laws = new/datum/ai_laws/pra()

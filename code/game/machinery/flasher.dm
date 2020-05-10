@@ -9,7 +9,7 @@
 	var/range = 2 //this is roughly the size of brig cell
 	var/disable = 0
 	var/last_flash = 0 //Don't want it getting spammed like regular flashes
-	var/strength = 10 //How weakened targets are when flashed.
+	var/strength = 20 //How weakened targets are when flashed.
 	var/base_state = "mflash"
 	anchored = 1
 	use_power = 1
@@ -98,6 +98,7 @@
 			if(!O.blinded)
 				flick("flash", O:flash)
 		O.Weaken(flash_time)
+		flick("e_flash", O.flash)
 
 /obj/machinery/flasher/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))

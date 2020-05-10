@@ -26,6 +26,8 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 	update_pilot_overlay(FALSE)
 	if(LAZYLEN(pilot_overlays))
 		new_overlays += pilot_overlays
+	if(head)
+		new_overlays += get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, MECH_INTERMEDIATE_LAYER)
 	if(body)
 		new_overlays += get_mech_image("[body.icon_state]_overlay[hatch_closed ? "" : "_open"]", body.on_mech_icon, body.color, MECH_COCKPIT_LAYER)
 	if(arms)

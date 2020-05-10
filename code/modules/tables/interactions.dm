@@ -142,7 +142,7 @@
 	// Handle harm intent grabbing/tabling.
 	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = W
-		if (istype(G.affecting, /mob/living))
+		if(istype(G.affecting, /mob/living))
 			var/mob/living/M = G.affecting
 			var/obj/occupied = turf_is_crowded()
 			if(occupied)
@@ -150,7 +150,7 @@
 				return
 			if(!user.Adjacent(M))
 				return
-			if (G.state < GRAB_AGGRESSIVE)
+			if(G.state > GRAB_AGGRESSIVE && world.time >= G.last_action + UPGRADE_COOLDOWN)
 				if(user.a_intent == I_HURT)
 					var/blocked = M.run_armor_check(BP_HEAD, "melee")
 					if (prob(30 * BLOCKED_MULT(blocked)))
@@ -161,29 +161,33 @@
 						playsound(loc, material.tableslam_noise, 50, 1)
 					else
 						playsound(loc, 'sound/weapons/tablehit1.ogg', 50, 1)
-					var/list/L = take_damage(rand(1,5))
 					// Shards. Extra damage, plus potentially the fact YOU LITERALLY HAVE A PIECE OF GLASS/METAL/WHATEVER IN YOUR FACE
-					for(var/obj/item/material/shard/S in L)
+					var/sanity_counter = 0
+					for(var/obj/item/material/shard/S in get_turf(src))
 						if(prob(50))
 							M.visible_message("<span class='danger'>\The [S] slices [M]'s face messily!</span>",
-							                   "<span class='danger'>\The [S] slices your face messily!</span>")
+												"<span class='danger'>\The [S] slices your face messily!</span>")
 							M.apply_damage(10, BRUTE, BP_HEAD, blocked)
-							M.standard_weapon_hit_effects(S, G.assailant, 10, blocked, BP_HEAD)
+							sanity_counter++
+						if(sanity_counter >= 3)
+							break
+					G.last_action = world.time
 				else
-					to_chat(user, "<span class='danger'>You need a better grip to do that!</span>")
-					return
+					G.affecting.forceMove(src.loc)
+					G.affecting.Weaken(rand(2,4))
+					visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
+					qdel(W)
+				return
 			else
-				G.affecting.forceMove(src.loc)
-				G.affecting.Weaken(rand(2,4))
-				visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
-			qdel(W)
-			return
+				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
+				return
 
 	if(!dropsafety(W))
 		return
 
 	if(istype(W, /obj/item/melee/energy/blade))
-		W:spark_system.queue()
+		var/obj/item/melee/energy/blade/blade = W
+		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 		playsound(src.loc, "sparks", 50, 1)
 		user.visible_message("<span class='danger'>\The [src] was sliced apart by [user]!</span>")
@@ -236,6 +240,5 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 #undef CELLS
 #undef CELLSIZE
 
-/obj/structure/table/attack_tk() // no telehulk sorry
+/obj/structure/table/do_simple_ranged_interaction(var/mob/user)
 	return
-

@@ -1,7 +1,7 @@
 /**********************Miner Lockers**************************/
 
 /obj/structure/closet/secure_closet/miner
-	name = "miner's equipment"
+	name = "shaft miner locker"
 	icon_state = "miningsec1"
 	icon_closed = "miningsec"
 	icon_locked = "miningsec1"
@@ -35,9 +35,13 @@
 
 /obj/item/device/flashlight/lantern
 	name = "lantern"
+	desc = "A mining lantern."
 	icon_state = "lantern"
 	item_state = "lantern"
-	desc = "A mining lantern."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	light_power = 1
 	brightness_on = 6
 	light_wedge = LIGHT_OMNI
@@ -49,12 +53,16 @@
 	name = "pickaxe"
 	desc = "The most basic of mining implements. Surely this is a joke?"
 	icon = 'icons/obj/tools.dmi'
+	icon_state = "pickaxe"
+	item_state = "pickaxe"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
 	force = 10.0
-	icon_state = "pickaxe"
-	item_state = "pickaxe"
 	w_class = 4.0
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
@@ -63,64 +71,62 @@
 	var/drill_sound = "pickaxe"
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
-	sharp = 1
+	sharp = TRUE
 
-	var/can_wield = 1
+	var/can_wield = TRUE
 
-	var/excavation_amount = 30
-	var/wielded = 0
+	var/excavation_amount = 40
+	var/wielded = FALSE
 	var/force_unwielded = 5.0
 	var/force_wielded = 15.0
 	var/digspeed_unwielded = 30
-	var/digspeed_wielded = 10
-	var/drilling = 0
+	var/digspeed_wielded = 5
+	var/drilling = FALSE
 
 	action_button_name = "Wield pick/drill"
 
 /obj/item/pickaxe/proc/unwield()
-	wielded = 0
+	wielded = FALSE
 	force = force_unwielded
 	digspeed = digspeed_unwielded
 	name = initial(name)
 	update_icon()
 
 /obj/item/pickaxe/proc/wield()
-	wielded = 1
+	wielded = TRUE
 	force = force_wielded
 	digspeed = digspeed_wielded
-	name = "[name] (Wielded)"
 	update_icon()
 
 /obj/item/pickaxe/update_icon()
-		..()
-		if(wielded)
-				item_state = "[initial(icon_state)]-wielded"
-		else
-				item_state = initial(item_state)
-		update_held_icon()
+	..()
+	if(wielded)
+		item_state = "[initial(icon_state)]-wielded"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
 
-/obj/item/pickaxe/mob_can_equip(M as mob, slot)
+/obj/item/pickaxe/mob_can_equip(M, slot)
 	//Cannot equip wielded items.
 	if(wielded)
-		to_chat(M, "<span class='warning'>Unwield the [initial(name)] first!</span>")
-		return 0
+		to_chat(M, SPAN_WARNING("Unwield the [initial(name)] first!"))
+		return FALSE
 
 	return ..()
 
-/obj/item/pickaxe/dropped(mob/user as mob)
+/obj/item/pickaxe/dropped(mob/user)
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
 		var/obj/item/pickaxe/O = user.get_inactive_hand()
 		if(istype(O))
 			O.unwield()
-	return	unwield()
+	return unwield()
 
 /obj/item/pickaxe/pickup(mob/user)
 	..()
 	unwield()
 
-/obj/item/pickaxe/attack_self(mob/user as mob)
-
+/obj/item/pickaxe/attack_self(mob/user)
 	..()
 
 	if(!can_wield)
@@ -129,18 +135,18 @@
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(issmall(H))
-			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
+			to_chat(user, SPAN_WARNING("It's too heavy for you to wield fully."))
 			return
 	else
 		return
 
 	if(!istype(user.get_active_hand(), src))
-		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand.</span>")
+		to_chat(user, SPAN_WARNING("You need to be holding \the [src] in your active hand."))
 		return
 
 	if(wielded) //Trying to unwield it
 		unwield()
-		to_chat(user, "<span class='notice'>You are now carrying the [initial(name)] with one hand.</span>")
+		to_chat(user, SPAN_NOTICE("You are now carrying \the [src] with one hand."))
 
 		var/obj/item/pickaxe/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
@@ -148,10 +154,10 @@
 
 	else //Trying to wield it
 		if(user.get_inactive_hand())
-			to_chat(user, "<span class='warning'>You need your other hand to be empty</span>")
+			to_chat(user, SPAN_WARNING("Your other hand needs to be empty."))
 			return
 		wield()
-		to_chat(user, "<span class='notice'>You grab the [initial(name)] with both hands.</span>")
+		to_chat(user, SPAN_NOTICE("You grab \the [src] with both hands."))
 
 		var/obj/item/pickaxe/offhand/O = new(user) ////Let's reserve his other hand~
 		O.name = "[initial(name)] - offhand"
@@ -193,7 +199,7 @@
 	force = parent.force_wielded
 
 /obj/item/pickaxe/offhand/unwield()
-	if (ismob(loc))
+	if(ismob(loc))
 		var/mob/living/our_mob = loc
 		our_mob.remove_from_mob(src)
 
@@ -219,26 +225,26 @@
 	item_state = "spickaxe"
 	origin_tech = list(TECH_MATERIAL = 3)
 	desc = "This makes no metallurgic sense."
-	excavation_amount = 30
+	excavation_amount = 50
 
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
 
 /obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
-	icon_state = "handdrill"
-	item_state = "jackhammer"
+	icon_state = "miningdrill"
+	item_state = "miningdrill"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
 	desc = "Yours is the drill that will pierce through the rock walls."
 	drill_verb = "drilling"
-	autodrill = 1
+	autodrill = TRUE
 	drill_sound = 'sound/weapons/drill.ogg'
-	digspeed = 20
-	digspeed_unwielded = 30
+	digspeed = 10
+	digspeed_unwielded = 15
 	force_unwielded = 15.0
 	excavation_amount = 100
 
-	can_wield = 0
+	can_wield = FALSE
 	force = 15.0
 
 	action_button_name = null
@@ -250,14 +256,14 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
 	drill_verb = "hammering"
-	autodrill = 1
+	autodrill = TRUE
 	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
-	digspeed = 15
-	digspeed_unwielded = 15
+	digspeed = 5
+	digspeed_unwielded = 10
 	force_unwielded = 15.0
 	excavation_amount = 100
 
-	can_wield = 0
+	can_wield = FALSE
 	force = 25.0
 
 	action_button_name = null
@@ -269,7 +275,7 @@
 	digspeed = 10
 	origin_tech = list(TECH_MATERIAL = 4)
 	desc = "This makes no metallurgic sense."
-	excavation_amount = 50
+	excavation_amount = 40
 
 	digspeed_unwielded = 30
 	digspeed_wielded = 5
@@ -280,28 +286,28 @@
 	item_state = "dpickaxe"
 	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 4)
 	desc = "A pickaxe with a diamond pick head."
-	excavation_amount = 30
-
-	digspeed_unwielded = 20
+	excavation_amount = 50
+	autodrill = TRUE
+	digspeed_unwielded = 10
 	digspeed_wielded = 1
 	force_wielded = 25.0
 
 /obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
 	icon_state = "diamonddrill"
-	item_state = "jackhammer"
-	digspeed = 5 //Digs through walls, girders, and can dig up sand
+	item_state = "diamonddrill"
+	digspeed = 3 //Digs through walls, girders, and can dig up sand
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 4, TECH_ENGINEERING = 5)
 	desc = "Yours is the drill that will pierce the heavens!"
 	drill_verb = "drilling"
-	autodrill = 1
+	autodrill = TRUE
 	drill_sound = 'sound/weapons/drill.ogg'
 	excavation_amount = 100
 
 	can_wield = 0
 	force = 20.0
-	digspeed = 5
-	digspeed_unwielded = 5
+	digspeed = 2
+	digspeed_unwielded = 3
 	force_unwielded = 20.0
 
 	action_button_name = null
@@ -310,14 +316,14 @@
 	name = "cyborg mining drill"
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
-	digspeed = 15
-	digspeed_unwielded = 15
+	digspeed = 10
+	digspeed_unwielded = 10
 	force_unwielded = 25.0
 	desc = ""
 	drill_verb = "drilling"
-	autodrill = 1
+	autodrill = TRUE
 	drill_sound = 'sound/weapons/drill.ogg'
-	can_wield = 0
+	can_wield = FALSE
 	force = 15.0
 	excavation_amount = 100
 
@@ -329,22 +335,30 @@
 	name = "shovel"
 	desc = "A large tool for digging and moving dirt."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_mining.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
+		)
 	icon_state = "shovel"
+	item_state = "shovel"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 8.0
 	throwforce = 4.0
-	item_state = "shovel"
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
-	sharp = 0
-	edge = 1
+	sharp = FALSE
+	edge = TRUE
 
 /obj/item/shovel/spade
 	name = "spade"
 	desc = "A small tool for digging and moving dirt."
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	icon_state = "spade"
 	item_state = "spade"
 	force = 5.0
@@ -357,11 +371,11 @@
 	name = "beacons"
 	desc = "A stack of light emitting beacons."
 	singular_name = "flag"
-	amount = 5
-	max_amount = 5
+	amount = 25
+	max_amount = 25
 	w_class = 2
 	icon = 'icons/obj/mining.dmi'
-	var/upright = 0
+	var/upright = FALSE
 	var/base_state
 
 	light_color = LIGHT_COLOR_TUNGSTEN
@@ -381,8 +395,8 @@
 	name = "red beacon"
 	icon_state = "redflag_open"
 	amount = 1
-	upright = 1
-	anchored = 1
+	upright = TRUE
+	anchored = TRUE
 
 /obj/item/stack/flag/red/planted/Initialize()
 	..()
@@ -407,42 +421,41 @@
 	icon_state = "purpflag"
 	light_color = LIGHT_COLOR_PURPLE
 
-/obj/item/stack/flag/attackby(obj/item/W as obj, mob/user as mob)
-	if(upright && istype(W,src.type))
+/obj/item/stack/flag/attackby(obj/item/W, mob/user)
+	if(upright && istype(W, src.type))
 		src.attack_hand(user)
 	else
 		..()
 
-/obj/item/stack/flag/attack_hand(user as mob)
+/obj/item/stack/flag/attack_hand(user)
 	if(upright)
-		upright = 0
+		upright = FALSE
 		icon_state = base_state
-		anchored = 0
+		anchored = FALSE
 		set_light(0)
-		src.visible_message("<b>[user]</b> turns [src] off.")
+		src.visible_message(SPAN_NOTICE("<b>[user]</b> turns \the [src] off."))
 	else
 		..()
 
-/obj/item/stack/flag/attack_self(mob/user as mob)
-
+/obj/item/stack/flag/attack_self(mob/user)
 	var/obj/item/stack/flag/F = locate() in get_turf(src)
 
 	var/turf/T = get_turf(src)
 	if(!T || !istype(T, /turf/unsimulated/floor/asteroid))
-		to_chat(user, "The beacon won't stand up in this terrain.")
+		to_chat(user, SPAN_WARNING("The beacon won't stand up in this terrain."))
 		return
 
-	if(F && F.upright)
-		to_chat(user, "There is already a beacon here.")
+	if(F?.upright)
+		to_chat(user, SPAN_WARNING("There is already a beacon here."))
 		return
 
 	var/obj/item/stack/flag/newflag = new src.type(T)
 	newflag.amount = 1
-	newflag.upright = 1
-	newflag.anchored = 1
+	newflag.upright = TRUE
+	newflag.anchored = TRUE
 	newflag.name = newflag.singular_name
 	newflag.icon_state = "[newflag.base_state]_open"
-	newflag.visible_message("<b>[user]</b> plants [newflag] firmly in the ground.")
+	newflag.visible_message(SPAN_NOTICE("<b>[user]</b> plants \the [newflag] firmly in the ground."))
 	newflag.set_light(2)
 	src.use(1)
 
@@ -455,25 +468,25 @@
 	desc = "Just like your grandpappy used to lay 'em in 1862."
 	icon = 'icons/obj/smoothtrack.dmi'
 	icon_state = "track15"
-	density = 0
-	anchored = 1.0
+	density = FALSE
+	anchored = TRUE
 	w_class = 3
 	layer = 2.44
 
 /obj/structure/track/Initialize()
 	. = ..()
-	var/obj/structure/track/track = locate() in loc
-	if (track && track != src)
+	var/obj/structure/track/track = locate() in get_turf(src)
+	if(track && track != src)
 		qdel(src)
 		return
 	updateOverlays()
-	for (var/dir in cardinal)
+	for(var/dir in cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
 
 /obj/structure/track/Destroy()
-	for (var/dir in cardinal)
+	for(var/dir in cardinal)
 		var/obj/structure/track/R = locate(/obj/structure/track, get_step(src, dir))
 		if(R)
 			R.updateOverlays()
@@ -487,19 +500,17 @@
 			qdel(src)
 	return
 
-/obj/structure/track/attackby(obj/item/C as obj, mob/user as mob)
-
-	if (istype(C, /obj/item/stack/tile/floor))
+/obj/structure/track/attackby(obj/item/C, mob/user)
+	if(istype(C, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		T.attackby(C, user)
 		return
-	if (C.iswelder())
+	if(C.iswelder())
 		var/obj/item/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
-			to_chat(user, "<span class='notice'>Slicing apart connectors ...</span>")
-		new /obj/item/stack/rods(src.loc)
-		qdel(src)
-
+			to_chat(user, SPAN_NOTICE("You slice apart the track."))
+			new /obj/item/stack/rods(get_turf(src))
+			qdel(src)
 	return
 
 /obj/structure/track/proc/updateOverlays()
@@ -508,7 +519,7 @@
 
 	var/dir_sum = 0
 
-	for (var/direction in cardinal)
+	for(var/direction in cardinal)
 		if(locate(/obj/structure/track, get_step(src, direction)))
 			dir_sum += direction
 
@@ -520,11 +531,11 @@
 	desc = "A ridable electric minecart designed for pulling other mine carts."
 	icon = 'icons/obj/cart.dmi'
 	icon_state = "mining_engine"
-	on = 0
-	powered = 1
+	on = FALSE
+	powered = TRUE
 	move_delay = -1
 
-	load_item_visible = 1
+	load_item_visible = TRUE
 	load_offset_x = 0
 	mob_offset_y = 15
 	active_engines = 1
@@ -540,12 +551,12 @@
 	key = null
 	var/image/I = new(icon = 'icons/obj/cart.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
 	add_overlay(I)
-	turn_off()	//so engine verbs are correctly set
+	turn_off() //so engine verbs are correctly set
 
-/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/engine/mining/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/key/minecarts))
 		if(!key)
-			user.drop_from_inventory(W,src)
+			user.drop_from_inventory(W, src)
 			key = W
 			verbs += /obj/vehicle/train/cargo/engine/verb/remove_key
 		return
@@ -562,11 +573,11 @@
 	desc = "A modern day twist to an ancient classic."
 	icon = 'icons/obj/cart.dmi'
 	icon_state = "mining_trailer"
-	anchored = 0
-	passenger_allowed = 0
+	anchored = FALSE
+	passenger_allowed = FALSE
 	move_delay = -1
 
-	load_item_visible = 1
+	load_item_visible = TRUE
 	load_offset_x = 1
 	load_offset_y = 15
 	mob_offset_y = 16
@@ -584,7 +595,7 @@
 	desc = "A keyring with a small steel key, and a pickaxe shaped fob."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "mine_keys"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /**********************Pinpointer**********************/
 
@@ -600,37 +611,37 @@
 	throw_speed = 4
 	throw_range = 20
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
-	var/turf/simulated/mineral/random/sonar = null
+	var/turf/simulated/mineral/random/sonar
 	var/active = 0
 
 
 /obj/item/ore_radar/attack_self(mob/user)
 	if(!active)
-		active = 1
-		to_chat(usr, "<span class='notice'>You activate the pinpointer</span>")
+		active = TRUE
+		to_chat(user, SPAN_NOTICE("You activate the pinpointer."))
 		START_PROCESSING(SSfast_process, src)
 	else
-		active = 0
+		active = FALSE
 		icon_state = "pinoff"
-		to_chat(usr, "<span>You deactivate the pinpointer</span>")
+		to_chat(user, SPAN_NOTICE("You deactivate the pinpointer."))
 		STOP_PROCESSING(SSfast_process, src)
 
 /obj/item/ore_radar/process()
-	if (active)
+	if(active)
 		workdisk()
 	else
 		STOP_PROCESSING(SSfast_process, src)
 
 /obj/item/ore_radar/proc/workdisk()
 	if(!src.loc)
-		active = 0
+		active = FALSE
 
 	if(!active)
 		return
 
 	var/closest = 15
 
-	for(var/turf/simulated/mineral/random/R in orange(14,loc))
+	for(var/turf/simulated/mineral/random/R in orange(14, loc))
 		if(!R.mineral)
 			continue
 		var/dist = get_dist(loc, R)
@@ -657,7 +668,7 @@
 /obj/item/device/wormhole_jaunter
 	name = "wormhole jaunter"
 	desc = "A single use device harnessing outdated warp technology. The wormholes it creates are unpleasant to travel through, to say the least."
-	contained_sprite = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "jaunter"
 	item_state = "jaunter"
@@ -669,14 +680,14 @@
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
 /obj/item/device/wormhole_jaunter/attack_self(mob/user)
-	user.visible_message("<span class='notice'>[user.name] activates the [src.name]!</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
 	feedback_add_details("jaunter", "U") // user activated
 	activate(user)
 
 /obj/item/device/wormhole_jaunter/proc/turf_check(mob/user)
 	var/turf/device_turf = get_turf(user)
-	if(!device_turf||device_turf.z==0)
-		to_chat(user, "<span class='notice'>You're having difficulties getting the [src.name] to work.</span>")
+	if(!device_turf || device_turf.z == 0)
+		to_chat(user, SPAN_NOTICE("You're having difficulties getting \the [src] to work."))
 		return FALSE
 	return TRUE
 
@@ -695,13 +706,13 @@
 		return
 
 	var/list/L = get_destinations(user)
-	if(!L.len)
-		to_chat(user, "<span class='notice'>The [src.name] found no beacons in the world to anchor a wormhole to.</span>")
+	if(!length(L))
+		to_chat(user, SPAN_NOTICE("\The [src] found no beacons in the world to anchor a wormhole to."))
 		return
 	var/chosen_beacon = pick(L)
-	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(src), chosen_beacon, lifespan=100)
+	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(src), chosen_beacon, lifespan = 100)
 	J.target = chosen_beacon
-	playsound(src,'sound/effects/sparks4.ogg',50,1)
+	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
 
 /obj/item/device/wormhole_jaunter/emp_act(power)
@@ -712,8 +723,8 @@
 		triggered = TRUE
 
 	if(triggered)
-		usr.visible_message("<span class='warning'>The [src] overloads and activates!</span>")
-		feedback_add_details("jaunter","E") // EMP accidental activation
+		usr.visible_message(SPAN_WARNING("\The [src] overloads and activates!"))
+		feedback_add_details("jaunter", "E") // EMP accidental activation
 		activate(usr)
 
 /obj/effect/portal/wormhole/jaunt_tunnel
@@ -725,10 +736,10 @@
 /obj/effect/portal/wormhole/jaunt_tunnel/teleport(atom/movable/M)
 	if(M.anchored || istype(M, /obj/effect))
 		return
-	single_spark(M.loc)
+	single_spark(get_turf(M))
 	if(istype(M))
 		if(do_teleport(M, target, 6))
-			single_spark(M.loc)
+			single_spark(get_turf(M))
 			playsound(M,'sound/weapons/resonator_blast.ogg',50,1)
 			if(iscarbon(M))
 				var/mob/living/carbon/L = M
@@ -749,8 +760,8 @@
 	w_class = 2
 	throw_speed = 3
 	throw_range = 5
-	var/loaded = 1
-	var/malfunctioning = 0
+	var/loaded = TRUE
+	var/malfunctioning = FALSE
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
 	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
 
@@ -761,35 +772,35 @@
 		if(istype(target, /mob/living/simple_animal))
 			var/mob/living/simple_animal/M = target
 			if(!(M.find_type() & revive_type))
-				to_chat(user, "<span class='info'>[src] does not work on this sort of creature.</span>")
+				to_chat(user, span("info", "\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)
 				if(!malfunctioning)
 					M.faction = "neutral"
 				M.revive()
 				M.icon_state = M.icon_living
-				loaded = 0
-				user.visible_message("<span class='notice'>[user] injects [M] with [src], reviving it.</span>")
+				loaded = FALSE
+				user.visible_message(SPAN_NOTICE("\The [user] injects \the [M] with \the [src], reviving it."))
 				feedback_add_details("lazarus_injector", "[M.type]")
-				playsound(src,'sound/effects/refill.ogg',50,1)
+				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 				return
 			else
-				to_chat(user, "<span class='info'>[src] is only effective on the dead.</span>")
+				to_chat(user, span("info", "\The [src] is only effective on the dead."))
 				return
 		else
-			to_chat(user, "<span class='info'>[src] is only effective on lesser beings.</span>")
+			to_chat(user, span("info", "\The [src] is only effective on lesser beings."))
 			return
 
 /obj/item/lazarus_injector/emp_act()
 	if(!malfunctioning)
-		malfunctioning = 1
+		malfunctioning = TRUE
 
 /obj/item/lazarus_injector/examine(mob/user)
 	..()
 	if(!loaded)
-		to_chat(user, "<span class='info'>[src] is empty.</span>")
+		to_chat(user, span("info", "\The [src] is empty."))
 	if(malfunctioning)
-		to_chat(user, "<span class='info'>The display on [src] seems to be flickering.</span>")
+		to_chat(user, span("info", "The display on \the [src] seems to be flickering."))
 
 /**********************Point Transfer Card**********************/
 
@@ -804,15 +815,15 @@
 		if(points)
 			var/obj/item/card/id/C = I
 			C.mining_points += points
-			to_chat(user, "<span class='info'>You transfer [points] points to [C].</span>")
+			to_chat(user, span("info", "You transfer [points] points to \the [C]."))
 			points = 0
 		else
-			to_chat(user, "<span class='info'>There's no points left on [src].</span>")
+			to_chat(user, span("info", "There's no points left on \the [src]."))
 	..()
 
 /obj/item/card/mining_point_card/examine(mob/user)
 	..()
-	to_chat(user, "There's [points] point\s on the card.")
+	to_chat(user, SPAN_NOTICE("There's [points] point\s on the card."))
 
 /**********************"Fultons"**********************/
 
@@ -821,7 +832,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/extraction_pack
 	name = "warp extraction pack"
 	desc = "A complex device that warps nonliving matter to nearby locations."
-	contained_sprite = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "fulton"
 	w_class = 3
@@ -830,9 +841,9 @@ var/list/total_extraction_beacons = list()
 	var/uses_left = 3
 	origin_tech = list(TECH_BLUESPACE = 3, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
-/obj/item/extraction_pack/examine()
+/obj/item/extraction_pack/examine(mob/user)
 	. = ..()
-	usr.show_message("It has [uses_left] uses remaining.", 1)
+	to_chat(user, SPAN_NOTICE("It has [uses_left] uses remaining."))
 
 /obj/item/extraction_pack/attack_self(mob/user)
 	var/list/possible_beacons = list()
@@ -841,60 +852,62 @@ var/list/total_extraction_beacons = list()
 		if(EP.beacon_network in beacon_networks)
 			possible_beacons += EP
 
-	if(!possible_beacons.len)
-		to_chat(user, "There are no extraction beacons in existence!")
+	if(!length(possible_beacons))
+		to_chat(user, SPAN_NOTICE("There are no extraction beacons in existence!"))
 		return
 
 	else
-		var/A
-
-		A = input("Select a beacon to connect to", "Warp Extraction Pack", A) in possible_beacons
-
+		var/A = input(user, "Select a beacon to connect to", "Warp Extraction Pack") in possible_beacons
 		if(!A)
 			return
 		beacon = A
 
 /obj/item/extraction_pack/afterattack(atom/movable/A, mob/living/carbon/human/user)
+	if(istype(A, /obj/item/storage/bag/ore))
+		return
 	if(!beacon)
-		to_chat(user, "[src] is not linked to a beacon, and cannot be used.")
+		to_chat(user, SPAN_WARNING("\The [src] is not linked to a beacon, and cannot be used."))
 		return
 	if(!istype(A))
 		return
 	else
-		if(istype(A,/mob/living))
-			to_chat(user, "[src] is not safe for use with living creatures, they wouldn't survive the trip back!")
+		if(istype(A, /mob/living))
+			to_chat(user, SPAN_WARNING("\The [src] is not safe for use with living creatures, they wouldn't survive the trip back!"))
 			return
 		if(A.loc == user) // no extracting stuff you're holding
 			return
 		if(A.anchored)
 			return
-		to_chat(user, "<span class='notice'>You start attaching the pack to [A]...</span>")
+		to_chat(user, SPAN_NOTICE("You start attaching the pack to \the [A]..."))
 		if(do_after(user,50))
-			to_chat(user, "<span class='notice'>You attach the pack to [A] and activate it.</span>")
+			to_chat(user, SPAN_NOTICE("You attach the pack to \the [A] and activate it."))
 			uses_left--
 			if(uses_left <= 0)
 				user.drop_item(src)
-				loc = A
-			single_spark(A.loc)
+			single_spark(get_turf(A))
 			var/list/flooring_near_beacon = list()
 			for(var/turf/simulated/floor/floor in orange(1, beacon))
 				flooring_near_beacon += floor
-			A.forceMove(pick(flooring_near_beacon))
-			single_spark(A.loc)
+			if(length(flooring_near_beacon))
+				A.forceMove(pick(flooring_near_beacon))
+			else
+				A.forceMove(get_turf(beacon))
+			single_spark(get_turf(A))
 			if(uses_left <= 0)
 				qdel(src)
-
 
 /obj/item/warp_core
 	name = "warp extraction beacon signaller"
 	desc = "Emits a signal which Warp-Item recovery devices can lock onto. Activate in hand to create a beacon."
+	description_info = "You can activate this item in-hand to create a static beacon, or you can click on an ore box with it to allow the ore box to be linked to warp packed mining satchels."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "subspace_amplifier"
 	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)
 
 /obj/item/warp_core/attack_self(mob/user)
-	to_chat(user, "<span class='notice'>You start placing down the beacon. . .</span>")
-	if(do_after(user,15))
+	to_chat(user, SPAN_NOTICE("You start placing down the beacon..."))
+	if(do_after(user, 15))
+		to_chat(user, SPAN_NOTICE("You successfully deploy the beacon."))
 		new /obj/structure/extraction_point(get_turf(user))
 		qdel(src)
 
@@ -903,11 +916,12 @@ var/list/total_extraction_beacons = list()
 	desc = "A beacon for the Warp-Item recovery system. Hit a beacon with a pack to link the pack to a beacon."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "extraction_point"
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 	var/beacon_network = "station"
 
-/obj/structure/extraction_point/New()
+/obj/structure/extraction_point/Initialize()
+	. = ..()
 	var/area/area_name = get_area(src)
 	name += " ([rand(100,999)]) ([area_name.name])"
 	total_extraction_beacons += src
@@ -915,18 +929,18 @@ var/list/total_extraction_beacons = list()
 
 /obj/structure/extraction_point/Destroy()
 	total_extraction_beacons -= src
-	..()
+	. = ..()
 
 /**********************Resonator**********************/
 
 /obj/item/resonator
 	name = "resonator"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "resonator"
 	item_state = "resonator"
 	desc = "A handheld device that creates small fields of energy that resonate until they detonate, crushing rock. It can also be activated without a target to create a field at the user's location, to act as a delayed time trap. It's more effective in a vacuum."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 15
 	throwforce = 10
 	var/burst_time = 30
@@ -953,17 +967,17 @@ var/list/total_extraction_beacons = list()
 		R.burst(T)
 		return
 	if(fields.len < fieldlimit)
-		playsound(src,'sound/weapons/resonator_fire.ogg',50,1)
+		playsound(src, 'sound/weapons/resonator_fire.ogg', 50, TRUE)
 		var/obj/effect/resonance/RE = new /obj/effect/resonance(T, creator, burst_time, src)
 		fields += RE
 
 /obj/item/resonator/attack_self(mob/user)
 	if(burst_time == 50)
 		burst_time = 30
-		to_chat(user, "<span class='info'>You set the resonator's fields to detonate after 3 seconds.</span>")
+		to_chat(user, span("info", "You set the resonator's fields to detonate after 3 seconds."))
 	else
 		burst_time = 50
-		to_chat(user, "<span class='info'>You set the resonator's fields to detonate after 5 seconds.</span>")
+		to_chat(user, span("info", "You set the resonator's fields to detonate after 5 seconds."))
 
 /obj/item/resonator/afterattack(atom/target, mob/user, proximity_flag)
 	..()
@@ -1011,7 +1025,7 @@ var/list/total_extraction_beacons = list()
 	for(var/mob/living/L in T)
 		if(creator)
 			add_logs(creator, L, "used a resonator field on", "resonator")
-		to_chat(L, "<span class='danger'>The [src.name] ruptured with you in it!</span>")
+		to_chat(L, SPAN_DANGER("\The [src] ruptured with you in it!"))
 		L.apply_damage(resonance_damage, BRUTE)
 	qdel(src)
 
@@ -1019,7 +1033,7 @@ var/list/total_extraction_beacons = list()
 /******************************Ore Magnet*******************************/
 /obj/item/oremagnet
 	name = "ore magnet"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "magneto"
 	item_state = "magneto"
@@ -1030,26 +1044,23 @@ var/list/total_extraction_beacons = list()
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
 
 /obj/item/oremagnet/attack_self(mob/user)
-	if (use_check_and_message(user))
+	if(use_check_and_message(user))
 		return
-
 	toggle_on(user)
 
 /obj/item/oremagnet/process()
 	for(var/obj/item/ore/O in oview(7, loc))
 		if(prob(80))
-			step_to(O, src.loc, 0)
-
-		if (TICK_CHECK)
+			step_to(O, get_turf(src), 0)
+		if(TICK_CHECK)
 			return
 
 /obj/item/oremagnet/proc/toggle_on(mob/user)
-	if (!isprocessing)
+	if(!isprocessing)
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
-
-	if (user)
+	if(user)
 		to_chat(user, "<span class='[isprocessing ? "notice" : "warning"]'>You switch [isprocessing ? "on" : "off"] [src].</span>")
 
 /obj/item/oremagnet/Destroy()
@@ -1060,7 +1071,7 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/oreportal
 	name = "ore summoner"
-	contained_sprite = 1
+	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "supermagneto"
 	item_state = "jaunter"
@@ -1073,19 +1084,19 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/oreportal/attack_self(mob/user)
 	if(world.time - last_oresummon_time >= 25)
-		to_chat(user, "<span class='notice'>You pulse the ore summoner.</span>")
+		to_chat(user, SPAN_NOTICE("You pulse the ore summoner."))
 		last_oresummon_time = world.time
 		var/limit = 50
-		for(var/obj/item/ore/O in orange(7,user))
+		for(var/obj/item/ore/O in orange(7, user))
 			if(limit <= 0)
 				break
-			single_spark(O.loc)
+			single_spark(get_turf(O))
 			do_teleport(O, user, 0)
 			limit -= 1
 			CHECK_TICK
 	else
-		to_chat(user, "The ore summoner is in the middle of some calibrations.")
-		return 0
+		to_chat(user, SPAN_NOTICE("The ore summoner is in the middle of some calibrations."))
+		return FALSE
 
 /******************************Sculpting*******************************/
 /obj/item/autochisel
@@ -1101,24 +1112,14 @@ var/list/total_extraction_beacons = list()
 	desc = "A finely chiselled sculpting block, it is ready to be your canvas."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "sculpting_block"
-	density = 1
-	opacity = 1
-	anchored = 0
-	var/sculpted = 0
+	density = TRUE
+	opacity = TRUE
+	anchored = FALSE
+	obj_flags = OBJ_FLAG_ROTATABLE
+	var/sculpted = FALSE
 	var/mob/living/T
 	var/times_carved = 0
 	var/last_struck = 0
-
-/obj/structure/sculpting_block/verb/rotate()
-	set name = "Rotate"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 90))
-	return 1
 
 /obj/structure/sculpting_block/attackby(obj/item/C as obj, mob/user as mob)
 
@@ -1127,38 +1128,39 @@ var/list/total_extraction_beacons = list()
 		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>")
 		anchored = !anchored
 
-	if (istype(C, /obj/item/autochisel))
+	if(istype(C, /obj/item/autochisel))
 		if(!sculpted)
 			if(last_struck)
 				return
-
 			if(!T)
 				var/list/choices = list()
 				for(var/mob/living/M in view(7,user))
 					choices += M
 				T = input(user,"Who do you wish to sculpt?") as null|anything in choices
-				user.visible_message("<span class='notice'>[user] begins sculpting.</span>",
-					"<span class='notice'>You begin sculpting.</span>")
+				if(!T)
+					to_chat(user, SPAN_NOTICE("You decide against sculpting for now."))
+				user.visible_message(SPAN_NOTICE("\The [user] begins sculpting."),
+					SPAN_NOTICE("You begin sculpting."))
 
 			var/sculpting_coefficient = get_dist(user,T)
 			if(sculpting_coefficient <= 0)
 				sculpting_coefficient = 1
 
 			if(sculpting_coefficient >= 7)
-				to_chat(user, "<span class='warning'>You hardly remember what [T] really looks like! Bah!</span>")
+				to_chat(user, SPAN_WARNING("You hardly remember what \the [T] really looks like! Bah!"))
 				T = null
 
-			user.visible_message("<span class='notice'>[user] carves away at the sculpting block!</span>",
-				"<span class='notice'>You continue sculpting.</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] carves away at the sculpting block!"),
+				SPAN_NOTICE("You continue sculpting."))
 
 			if(prob(25))
-				playsound(user, 'sound/items/Screwdriver.ogg', 20, 1)
+				playsound(user, 'sound/items/Screwdriver.ogg', 20, TRUE)
 			else
-				playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, 1)
+				playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
 				spawn(3)
-					playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, 1)
+					playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
 					spawn(3)
-						playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, 1)
+						playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
 
 			last_struck = 1
 			if(do_after(user,(20)))
@@ -1166,12 +1168,12 @@ var/list/total_extraction_beacons = list()
 				if(times_carved <= 9)
 					times_carved += 1
 					if(times_carved < 1)
-						to_chat(user, "<span class='notice'>You review your work and see there is more to do.</span>")
+						to_chat(user, SPAN_NOTICE("You review your work and see there is more to do."))
 					return
 				else
-					sculpted = 1
-					user.visible_message("<span class='notice'>[user] finishes sculpting their magnum opus!</span>",
-						"<span class='notice'>You finish sculpting a masterpiece.</span>")
+					sculpted = TRUE
+					user.visible_message(SPAN_NOTICE("\The [user] finishes sculpting their magnum opus!"),
+						SPAN_NOTICE("You finish sculpting a masterpiece."))
 					src.appearance = T
 					src.color = list(
 					    0.35, 0.3, 0.25,
@@ -1204,7 +1206,7 @@ var/list/total_extraction_beacons = list()
 	desc = "A punching bag. Better this than the Quartermaster."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "punchingbag"
-	anchored = 1
+	anchored = TRUE
 	layer = 5.1
 	var/list/hit_sounds = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg',\
 	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
@@ -1212,15 +1214,15 @@ var/list/total_extraction_beacons = list()
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	flick("[icon_state]2", src)
-	playsound(src.loc, pick(src.hit_sounds), 25, 1, -1)
+	playsound(get_turf(src), pick(src.hit_sounds), 25, 1, -1)
 
 /obj/structure/weightlifter
-	name = "Weight Machine"
+	name = "weight machine"
 	desc = "Just looking at this thing makes you feel tired."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "fitnessweight"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 
 /obj/structure/weightlifter/attack_hand(var/mob/living/carbon/human/user)
 	if(!istype(user))
@@ -1229,7 +1231,7 @@ var/list/total_extraction_beacons = list()
 		to_chat(user, "It's already in use - wait a bit.")
 		return
 	else
-		in_use = 1
+		in_use = TRUE
 		icon_state = "fitnessweight-c"
 		user.dir = SOUTH
 		user.Stun(4)
@@ -1238,7 +1240,7 @@ var/list/total_extraction_beacons = list()
 		W.layer = 5.1
 		add_overlay(W)
 		var/bragmessage = pick("pushing it to the limit","going into overdrive","burning with determination","rising up to the challenge", "getting strong now","getting ripped")
-		user.visible_message("<B>[user] is [bragmessage]!</B>")
+		user.visible_message(SPAN_NOTICE("<B>[user] is [bragmessage]!</B>"))
 		var/reps = 0
 		user.pixel_y = 5
 		while (reps++ < 6)
@@ -1260,7 +1262,7 @@ var/list/total_extraction_beacons = list()
 		var/finishmessage = pick("You feel stronger!","You feel like you can take on the world!","You feel robust!","You feel indestructible!")
 		icon_state = "fitnessweight"
 		cut_overlay(W)
-		to_chat(user, "[finishmessage]")
+		to_chat(user, SPAN_NOTICE("[finishmessage]"))
 		user.adjustNutritionLoss(5)
 		user.adjustHydrationLoss(5)
 

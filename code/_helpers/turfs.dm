@@ -25,6 +25,24 @@
 			return 0
 	return 1
 
+/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density)
+	origin = get_turf(origin)
+	if(!origin)
+		return
+	var/list/turfs = list()
+	for(var/turf/T in orange(outer_range, origin))
+		if(!(T.z in current_map.sealed_levels)) // Picking a turf outside the map edge isn't recommended
+			if(T.x >= world.maxx-TRANSITIONEDGE || T.x <= TRANSITIONEDGE)
+				continue
+			if(T.y >= world.maxy-TRANSITIONEDGE || T.y <= TRANSITIONEDGE)
+				continue
+			if(check_density && turf_contains_dense_objects(T))
+				continue
+		if(!inner_range || get_dist(origin, T) >= inner_range)
+			turfs += T
+	if(turfs.len)
+		return pick(turfs)
+
 // This proc will check if a neighboring tile in the stated direction "dir" is dense or not
 // Will return 1 if it is dense and zero if not
 /proc/check_neighbor_density(turf/T, var/dir)
@@ -72,3 +90,66 @@
 
 /proc/is_station_turf(var/turf/T)
 	return T && isStationLevel(T.z)
+
+/proc/is_below_sound_pressure(var/turf/T)
+	var/datum/gas_mixture/environment = T ? T.return_air() : null
+	var/pressure =  environment ? environment.return_pressure() : 0
+	if(pressure < SOUND_MINIMUM_PRESSURE)
+		return TRUE
+	return FALSE
+
+/*
+	Turf manipulation
+*/
+
+//Returns an assoc list that describes how turfs would be changed if the
+//turfs in turfs_src were translated by shifting the src_origin to the dst_origin
+/proc/get_turf_translation(turf/src_origin, turf/dst_origin, list/turfs_src)
+	var/list/turf_map = list()
+	for(var/turf/source in turfs_src)
+		var/x_pos = (source.x - src_origin.x)
+		var/y_pos = (source.y - src_origin.y)
+		var/z_pos = (source.z - src_origin.z)
+
+		var/turf/target = locate(dst_origin.x + x_pos, dst_origin.y + y_pos, dst_origin.z + z_pos)
+		if(!target)
+			error("Null turf in translation @ ([dst_origin.x + x_pos], [dst_origin.y + y_pos], [dst_origin.z + z_pos])")
+		turf_map[source] = target //if target is null, preserve that information in the turf map
+
+	return turf_map
+
+
+/proc/translate_turfs(var/list/translation, var/area/base_area = null, var/turf/base_turf)
+	for(var/turf/source in translation)
+
+		var/turf/target = translation[source]
+
+		if(target)
+			if(base_area)
+				ChangeArea(target, get_area(source))
+				ChangeArea(source, base_area)
+			transport_turf_contents(source, target)
+
+	//change the old turfs
+	for(var/turf/source in translation)
+		source.ChangeTurf(base_turf ? base_turf : get_base_turf_by_area(source), 1, 1)
+
+//Transports a turf from a source turf to a target turf, moving all of the turf's contents and making the target a copy of the source.
+/proc/transport_turf_contents(turf/source, turf/target)
+
+	var/turf/new_turf = target.ChangeTurf(source.type, 1, 1)
+	new_turf.transport_properties_from(source)
+
+	for(var/obj/O in source)
+		if(O.simulated)
+			O.forceMove(new_turf)
+		else if(istype(O,/obj/effect))
+			var/obj/effect/E = O
+			if(E.movable_flags & MOVABLE_FLAG_EFFECTMOVE)
+				E.forceMove(new_turf)
+
+	for(var/mob/M in source)
+		if(isEye(M)) continue // If we need to check for more mobs, I'll add a variable
+		M.forceMove(new_turf)
+
+	return new_turf

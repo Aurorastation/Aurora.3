@@ -6,7 +6,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "c" = (
-/turf/unsimulated/mineral/asteroid,
+/turf/simulated/mineral,
 /area/mine/unexplored)
 "d" = (
 /obj/structure/girder,

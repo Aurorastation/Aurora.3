@@ -8,7 +8,7 @@
 	can_infect = 0
 
 /datum/surgery_step/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!hasorgans(target))
+	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected || (affected.status & ORGAN_ROBOT))
@@ -17,7 +17,7 @@
 
 /datum/surgery_step/generic/cut_face
 	allowed_tools = list(
-	/obj/item/scalpel = 100,
+	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -41,7 +41,7 @@
 /datum/surgery_step/generic/cut_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, OXY)
 	target.losebreath += 10
 
@@ -55,7 +55,7 @@
 
 /datum/surgery_step/robotics/face/synthskin
 	allowed_tools = list(
-	/obj/item/scalpel = 100,
+	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
 	/obj/item/material/shard = 50
 	)
@@ -79,4 +79,4 @@
 /datum/surgery_step/robotics/face/synthskin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())

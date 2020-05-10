@@ -123,7 +123,7 @@ BREATH ANALYZER
 			pulse_result = 0
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
-		pulse_result = "[pulse_result]bpm"
+		pulse_result = "<span class='scan_green'>[pulse_result]bpm</span>"
 		if(H.pulse() == PULSE_NONE)
 			pulse_result = "<span class='scan_danger'>[pulse_result]</span>"
 		else if(H.pulse() < PULSE_NORM)
@@ -141,7 +141,7 @@ BREATH ANALYZER
 	if(H.should_have_organ(BP_HEART))
 		if(H.get_blood_volume() <= 70)
 			dat += "<span class='scan_danger'>Severe blood loss detected.</span>"
-		var/oxygenation_string = "[H.get_blood_oxygenation()]% blood oxygenation"
+		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]% blood oxygenation</span>"
 		switch(H.get_blood_oxygenation())
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]</span>"
@@ -149,7 +149,18 @@ BREATH ANALYZER
 				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]</span>"
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
 				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]</span>"
-		dat += "[b]Blood pressure:[endb] [H.get_blood_pressure()] ([oxygenation_string])"
+
+		var/blood_pressure_string
+		switch(H.get_blood_pressure_alert())
+			if(1)
+				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
+			if(2)
+				blood_pressure_string = "<span class='scan_green'>[H.get_blood_pressure()]</span>"
+			if(3)
+				blood_pressure_string = "<span class='scan_warning'>[H.get_blood_pressure()]</span>"
+			if(4)
+				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
+		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
 	else
 		if(H.isFBP())
 			dat += "[b]Blood pressure:[endb] [rand(118, 125)]/[rand(77, 85)] (100%)"
@@ -157,7 +168,12 @@ BREATH ANALYZER
 			dat += "[b]Blood pressure:[endb] N/A"
 
 	// Body temperature.
-	dat += "Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)"
+	var/temperature_string
+	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
+		temperature_string = "<span class='scan_warning'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+	else
+		temperature_string = "<span class='scan_green'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
+	dat += temperature_string
 
 	// Traumatic shock.
 	if(H.is_asystole())
@@ -168,12 +184,24 @@ BREATH ANALYZER
 	if(H.getOxyLoss() > 50)
 		dat += "<span class='scan_blue'>[b]Severe oxygen deprivation detected.[endb]</span>"
 	if(H.getToxLoss() > 50)
-		dat += "<span class='scan_green'>[b]Major systemic organ failure detected.[endb]</span>"
+		dat += "<span class='scan_orange'>[b]Major systemic organ failure detected.[endb]</span>"
 	if(H.getFireLoss() > 50)
 		dat += "<span class='scan_orange'>[b]Severe burn damage detected.[endb]</span>"
 	if(H.getBruteLoss() > 50)
 		dat += "<span class='scan_red'>[b]Severe anatomical damage detected.[endb]</span>"
 
+	var/rad_result = "Radiation: "
+	switch(H.total_radiation)
+		if(RADS_NONE)
+			rad_result += span("scan_green", "No radiation detected.")
+		if(RADS_LOW to RADS_MED)
+			rad_result += span("scan_orange", "Low levels of radiation poisoning detected.")
+		if(RADS_MED to RADS_HIGH)
+			rad_result += span("scan_orange", "Severe levels of radiation poisoning detected!")
+		if(RADS_HIGH to INFINITY)
+			rad_result += span("scan_red", "[b]Extreme levels of radiation poisoning detected![endb]")
+	dat += rad_result
+	
 	if(show_limb_damage)
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)
@@ -303,7 +331,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
@@ -337,7 +365,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -398,7 +426,7 @@ BREATH ANALYZER
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -446,39 +474,38 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
-/obj/item/device/slime_scanner/attack(mob/living/M as mob, mob/living/user as mob)
-	if (!isslime(M))
-		to_chat(user, "<B>This device can only scan slimes!</B>")
+/obj/item/device/slime_scanner/attack(mob/living/M, mob/living/user)
+	if(!isslime(M))
+		to_chat(user, span("warning", "This device can only scan slimes!"))
 		return
 	var/mob/living/carbon/slime/T = M
-	user.show_message("Slime scan results:")
-	user.show_message(text("[T.colour] [] slime", T.is_adult ? "adult" : "baby"))
-	user.show_message(text("Nutrition: [T.nutrition]/[]", T.get_max_nutrition()))
-	if (T.nutrition < T.get_starve_nutrition())
-		user.show_message("<span class='alert'>Warning: slime is starving!</span>")
+	to_chat(user, span("notice", "**************************"))
+	to_chat(user, span("notice", "Slime scan results:"))
+	to_chat(user, span("notice", capitalize_first_letters("[T.colour] [T.is_adult ? "adult" : "baby"] slime")))
+	to_chat(user, span("notice", "Health: [T.health]"))
+	to_chat(user, span("notice", "Nutrition: [T.nutrition]/[T.get_max_nutrition()]"))
+	if(T.nutrition < T.get_starve_nutrition())
+		to_chat(user, span("alert", "Warning: slime is starving!"))
 	else if (T.nutrition < T.get_hunger_nutrition())
-		user.show_message("<span class='warning'>Warning: slime is hungry</span>")
-	user.show_message("Electric change strength: [T.powerlevel]")
-	user.show_message("Health: [T.health]")
-	if (T.slime_mutation[4] == T.colour)
-		user.show_message("This slime does not evolve any further")
+		to_chat(user, span("warning", "Warning: slime is hungry!"))
+	to_chat(user, span("notice", "Electric charge strength: [T.powerlevel]"))
+	to_chat(user, span("notice", "Growth progress: [T.amount_grown]/10"))
+	if(T.cores > 1)
+		to_chat(user, span("warning", "Anomalous number of slime cores detected."))
+	else if(!T.cores)
+		to_chat(user, span("warning", "No slime cores detected."))
+	to_chat(user, span("notice", "Genetic Information:"))
+	if(T.slime_mutation[4] == T.colour)
+		to_chat(user, span("warning", "This slime cannot evolve any further."))
 	else
-		if (T.slime_mutation[3] == T.slime_mutation[4])
-			if (T.slime_mutation[2] == T.slime_mutation[1])
-				user.show_message(text("Possible mutation: []", T.slime_mutation[3]))
-				user.show_message("Genetic destability: [T.mutation_chance/2]% chance of mutation on splitting")
-			else
-				user.show_message(text("Possible mutations: [], [], [] (x2)", T.slime_mutation[1], T.slime_mutation[2], T.slime_mutation[3]))
-				user.show_message("Genetic destability: [T.mutation_chance]% chance of mutation on splitting")
-		else
-			user.show_message(text("Possible mutations: [], [], [], []", T.slime_mutation[1], T.slime_mutation[2], T.slime_mutation[3], T.slime_mutation[4]))
-			user.show_message("Genetic destability: [T.mutation_chance]% chance of mutation on splitting")
-	if (T.cores > 1)
-		user.show_message("Anomalious slime core amount detected")
-	user.show_message("Growth progress: [T.amount_grown]/10")
-
+		var/list/poss_mutations = uniquelist(T.slime_mutation)
+		var/mutation_message = capitalize(english_list(poss_mutations))
+		to_chat(user, SPAN_NOTICE(mutation_message))
+		var/mut_chance = T.mutation_chance / (poss_mutations.len > 2 ? 1 : 2)
+		to_chat(user, SPAN_NOTICE("Instability: [mut_chance]% chance of mutation upon reproduction."))
+		to_chat(user, SPAN_NOTICE("**************************"))
 
 /obj/item/device/price_scanner
 	name = "price scanner"
@@ -489,7 +516,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 25, "glass" = 25)
+	matter = list(DEFAULT_WALL_MATERIAL = 25, MATERIAL_GLASS = 25)
 
 /obj/item/device/price_scanner/afterattack(atom/movable/target, mob/user as mob, proximity)
 	if(!proximity)
@@ -510,7 +537,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
 /obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)

@@ -6,7 +6,6 @@
 
 <script>
 export default {
-  name: 'vui-progress',
   props: {
     value: {
       type: Number,

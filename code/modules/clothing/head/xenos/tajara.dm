@@ -49,6 +49,7 @@
 	desc = "A face concealing mask worn by the members of the cult of Raskara."
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
+	species_restricted = list("Tajara")
 	icon_state = "raskara_mask"
 	item_state = "raskara_mask"
 
