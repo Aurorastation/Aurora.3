@@ -64,7 +64,7 @@
 			report_query.Execute()
 			while(report_query.NextRow())
 				CHECK_TICK
-				var/datum/ccia_report/R = new(report_query.item[1], report_query.item[2], report_query.item[3], report_query.item[41], report_query.item[5], report_query.item[6], report_query.item[7])
+				var/datum/ccia_report/R = new(report_query.item[1], report_query.item[2], report_query.item[3], report_query.item[4], report_query.item[5], report_query.item[6], report_query.item[7])
 				reports["[report_query.item[2]] - [report_query.item[3]]"] = R
 
 			selected_report = input(usr, "Select Report","Report Name") as null|anything in reports
@@ -83,7 +83,6 @@
 			if(!report_id || report_id == "")
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
-			//TODO: create the report datum and set it
 			selected_report = new(report_id,time2text(world.realtime, "YYYY_MM_DD"),report_name)
 		return
 	//If we are ready to record, but no interviewee is selected
@@ -152,7 +151,7 @@
 		//To avoid this the text and the antag_involvement_text are saved separately
 		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:, :antag_involvement:)")
 		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "antag_involvement" = antag_involvement))
-		
+
 		//Run the query to get the inserted id
 		var/transcript_id = null
 		var/DBQuery/tid = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
@@ -303,7 +302,7 @@
 
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint recognized, Employee: [interviewee_name], ID: [interviewee_id]\".</span>")
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-		
+
 
 	else
 		to_chat(user,"<span class='notice'>The device beeps and flashes \"Unrecognized entity - Aborting\".</span>")
