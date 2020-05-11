@@ -37,6 +37,7 @@
 		/datum/job/officer,
 		/datum/job/warden,
 		/datum/job/scientist,
+		/datum/job/doctor,
 		/datum/job/roboticist,
 		/datum/job/representative
 	)
@@ -50,6 +51,10 @@
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
+		"Physician" = /datum/outfit/job/doctor/zavodskoi,
+		"Surgeon" = /datum/outfit/job/doctor/zavodskoi,
+		"Trauma Physician" = /datum/outfit/job/doctor/zavodskoi,
+		"Nurse" = /datum/outfit/job/doctor/zavodskoi,
 		"Warden" = /datum/outfit/job/warden/zavodskoi,
 		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
 		"Phoron Researcher" = /datum/outfit/job/scientist/zavodskoi,
@@ -78,6 +83,11 @@
 
 /datum/outfit/job/roboticist/zavodskoi
 	name = "Roboticist - Zavodskoi Interstellar"
+	uniform = /obj/item/clothing/under/rank/zavodskoi/research
+	id = /obj/item/card/id/zavodskoi
+
+/datum/outfit/job/doctor/zavodskoi
+	name = "Physician - Zavodskoi Interstellar"
 	uniform = /obj/item/clothing/under/rank/zavodskoi/research
 	id = /obj/item/card/id/zavodskoi
 
