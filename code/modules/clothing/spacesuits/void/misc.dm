@@ -250,7 +250,7 @@
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list("Human")
-	description_fluff = "A portable, sleek combat suit utilized in excess by Zavodskoiprivate military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
+	description_fluff = "A portable, sleek combat suit utilized in excess by Zavodskoi Interstellar private military contractors. It is known to be utilized by the company's most secretive sectors explicitly for espionage."
 
 //Freelancer voidsuit
 /obj/item/clothing/head/helmet/space/void/freelancer
