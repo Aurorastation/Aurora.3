@@ -49,7 +49,6 @@
 	)
 
 	titles_to_loadout = list(
-		"Physician" = /datum/outfit/job/doctor/zavodskoi,
 		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
 		"Warden" = /datum/outfit/job/warden/zavodskoi,
 		"Scientist" = /datum/outfit/job/scientist/zavodskoi,

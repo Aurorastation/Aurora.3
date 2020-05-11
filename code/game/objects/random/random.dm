@@ -430,7 +430,7 @@
 		/obj/item/clothing/suit/space/void/hephaestus = /obj/item/clothing/head/helmet/space/void/hephaestus,
 		/obj/item/clothing/suit/space/void/zenghu = /obj/item/clothing/head/helmet/space/void/zenghu,
 		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
-		/obj/item/clothing/suit/space/void/\avodskoi = /obj/item/clothing/head/helmet/space/void/\avodskoi
+		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
