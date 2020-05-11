@@ -19,7 +19,7 @@
 			for(var/obj/item/I in src)
 				drop_from_inventory(I)
 			visible_message(SPAN_WARNING("\The [src] burns away into a pile of ash."))
-			new /obj/effect/decal/cleanable/ash(get_turf(src))
+			dust()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
