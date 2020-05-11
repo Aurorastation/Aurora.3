@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
-	desc = "The revised Mark II Necropolis Industries revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
+	desc = "The revised Mark II Zavodskoi Interstellar revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
 	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"

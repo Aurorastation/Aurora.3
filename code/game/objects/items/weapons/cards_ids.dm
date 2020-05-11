@@ -525,13 +525,13 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "heph_card"
 	overlay_state = "heph_card"
 
-/obj/item/card/id/necropolis
-	name = "\improper Necropolis Incorporated identification card"
+/obj/item/card/id/zavodskoi
+	name = "\improper Zavodskoi Interstellar Incorporated identification card"
 	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
 	icon_state = "necro_card"
 	overlay_state = "necro_card"
 
-/obj/item/card/id/necropolis/sec
+/obj/item/card/id/zavodskoi/sec
 	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
 	icon_state = "necrosec_card"
 	overlay_state = "necrosec_card"

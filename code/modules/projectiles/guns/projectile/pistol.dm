@@ -122,7 +122,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/gun/projectile/tanto
-	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
+	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
@@ -236,7 +236,7 @@
 /obj/item/gun/projectile/pistol
 	name = "9mm pistol"
 	desc = "A compact 9mm handgun, extremely popular all throughout human space."
-	description_fluff = "The Necropolis Industries Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
+	description_fluff = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
@@ -365,7 +365,7 @@
 
 /obj/item/gun/projectile/pistol/sol
 	name = "service pistol"
-	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Necropolis."
+	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Zavodskoi Instellar."
 	icon = 'icons/obj/guns/m8.dmi'
 	icon_state = "m8"
 	item_state = "m8"
