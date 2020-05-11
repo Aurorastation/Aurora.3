@@ -114,7 +114,6 @@
 	var/fingerprint = "Unknown"
 	var/physical_status = "Active"
 	var/mental_status = "Stable"
-	var/species = "Unknown"
 	var/citizenship = "Unknown"
 	var/employer = "Unknown"
 	var/religion = "Unknown"
@@ -124,7 +123,7 @@
 	var/icon/photo_side
 	var/datum/record/medical/medical
 	var/datum/record/security/security
-	var/list/advanced_fields = list("species", "citizenship", "employer", "religion", "ccia_record", "ccia_actions")
+	var/list/advanced_fields = list("citizenship", "employer", "religion", "ccia_record", "ccia_actions")
 	cmp_field = "name"
 	excluded_fields = list("photo_front", "photo_side", "advanced_fields", "real_rank")
 	excluded_print_fields = list("ccia_actions")
@@ -148,7 +147,6 @@
 		age = H.age
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.gender
-		species = H.get_species()
 		citizenship = H.citizenship
 		employer = H.employer_faction
 		religion = SSrecords.get_religion_record_name(H.religion)

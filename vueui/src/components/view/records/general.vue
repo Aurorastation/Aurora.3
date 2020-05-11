@@ -26,7 +26,6 @@
       </vui-group-item>
       <vui-group-item label="Fingerprint:"><view-records-field :editable="(editable & 1) > 0" path="active.fingerprint"/></vui-group-item>
       <template v-if="!hideAdvanced && (avaivabletypes & 1)">
-        <vui-group-item label="Species:"><view-records-field :editable="(editable & 1) > 0" path="active.species"/></vui-group-item>
         <vui-group-item label="Citizenship:"><view-records-field :editable="(editable & 1) > 0" path="active.citizenship"/></vui-group-item>
         <vui-group-item label="Religion:"><view-records-field :editable="(editable & 1) > 0" path="active.religion"/></vui-group-item>
         <vui-group-item label="Employer:"><view-records-field :editable="(editable & 1) > 0" path="active.employer"/></vui-group-item>
