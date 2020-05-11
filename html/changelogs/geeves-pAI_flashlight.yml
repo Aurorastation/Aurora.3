@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added lights to pAI."
+  - rscadd: "Disarming a pAI now causes them to fold up."
+  - tweak: "pAI have been resprited to have green screens."
