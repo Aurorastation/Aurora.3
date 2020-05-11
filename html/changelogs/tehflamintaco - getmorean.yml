@@ -30,4 +30,5 @@
 author: Teh Flamin' Taco
 delete-after: True
 changes: 
-  - rscadd: "Adds Getmoreans."
+  - rscadd: "Adds Getmoreans as a whitelist playable race."
+  - rscadd: "Adds Corperate Doublespeak as a new language."
