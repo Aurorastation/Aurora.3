@@ -65,12 +65,13 @@
 			while(report_query.NextRow())
 				CHECK_TICK
 				var/datum/ccia_report/R = new(report_query.item[1], report_query.item[2], report_query.item[3], report_query.item[4], report_query.item[5], report_query.item[6], report_query.item[7])
-				reports["[report_query.item[2]] - [report_query.item[3]]"] = R
+				reports["[report_query.item[1]] - [report_query.item[2]] - [report_query.item[3]]"] = R
 
-			selected_report = input(usr, "Select Report","Report Name") as null|anything in reports
-			if(!selected_report)
+			var/selection = input(usr, "Select Report","Report Name") as null|anything in reports
+			if(!selection)
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
+			selected_report = reports[selection]
 			to_chat(usr,"<span class='notice'>The device flashes \"Report [selected_report.title] selected, fingerprint of interviewee required\"</span>")
 			if(selected_report.internal_topic)
 				send_link(usr, selected_report.internal_topic)
@@ -83,7 +84,7 @@
 			if(!report_id || report_id == "")
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
-			selected_report = new(report_id,time2text(world.realtime, "YYYY_MM_DD"),report_name)
+			selected_report = new(report_id, time2text(world.realtime, "YYYY_MM_DD"), report_name)
 		return
 	//If we are ready to record, but no interviewee is selected
 	else if(!selected_report && !interviewee_id)
@@ -149,8 +150,8 @@
 	if(config.sql_ccia_logs && establish_db_connection(dbcon))
 		//This query is split up into multiple parts due to the length limitations of byond.
 		//To avoid this the text and the antag_involvement_text are saved separately
-		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :text:, :antag_involvement:)")
-		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "antag_involvement" = antag_involvement))
+		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :antag_involvement:, :text:)")
+		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "antag_involvement" = antag_involvement, "text" = P.info))
 
 		//Run the query to get the inserted id
 		var/transcript_id = null
@@ -169,6 +170,7 @@
 
 		//Check if we need to update the status to review required
 		if(antag_involvement && selected_report.status == "in progress")
+			to_chat(usr, "<span class='notice'>The device beeps and flashes \"Liaison Review Required. Interviewee claimed antag involvement.\".</span>")
 			var/DBQuery/update_db = dbcon.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id:")
 			update_db.Execute(list("id" = selected_report.id))
 
