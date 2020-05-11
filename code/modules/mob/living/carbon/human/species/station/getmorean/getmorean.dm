@@ -6,8 +6,9 @@
 	bodytype = "Getmorean"
 	age_max = 20
 	economic_modifier = 4 // Getmorean don't get paid much money at all, as they're technically a hired corperate entity.
-	icobase = 'icons/mob/human_races/r_getmore.dmi'
-	deform = 'icons/mob/human_races/r_getmore.dmi'
+	icobase = 'icons/mob/human_races/getmorean/r_getmorean.dmi'
+	deform = 'icons/mob/human_races/getmorean/r_def_getmorean.dmi'
+	preview_icon = 'icons/mob/human_races/getmorean/getmorean_preview.dmi'
 
 	default_genders = list(MALE)
 
