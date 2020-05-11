@@ -114,6 +114,7 @@
 	var/fingerprint = "Unknown"
 	var/physical_status = "Active"
 	var/mental_status = "Stable"
+	var/species = "Unknown"
 	var/citizenship = "Unknown"
 	var/employer = "Unknown"
 	var/religion = "Unknown"
@@ -147,6 +148,7 @@
 		age = H.age
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.gender
+		species = H.get_species()
 		citizenship = H.citizenship
 		employer = H.employer_faction
 		religion = SSrecords.get_religion_record_name(H.religion)
