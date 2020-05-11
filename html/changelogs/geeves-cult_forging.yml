@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added cult descriptions to items that can be reforged in a daemon forge."
+  - rscadd: "Added some more items to be reforged."
+  - rscadd: "Eldritch voidsuit sprites now have in-built shoes."
+  - rscadd: "Eldritch voidsuits have been slightly buffed."
+  - bugfix: "Fixed eldritch helmets not having the correct light colour."

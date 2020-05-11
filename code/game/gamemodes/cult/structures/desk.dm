@@ -8,5 +8,6 @@
 	if(istype(W, /obj/item/book) && iscultist(user))
 		var/obj/item/book/B = W
 		if(!B.unique)
-			B.cultify()
+			var/cult_item = B.cultify()
+			user.put_in_hands(cult_item)
 			to_chat(user, span("cult", "You pass the book over the desk. The contents within fade away and get replaced by the writings of Nar'Sie."))

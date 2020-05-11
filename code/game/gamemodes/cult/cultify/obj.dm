@@ -13,21 +13,32 @@
 /obj/item/device/flashlight/lamp/cultify()
 	new /obj/structure/cult/pylon(get_turf(src))
 	..()
+	return "As you cast \the [src] into the forge, a great pylon grows beneath your feet, achieving its form in seconds."
 
 /obj/item/stack/material/wood/cultify()
 	return
 
 /obj/item/book/cultify()
-	new /obj/item/book/tome(get_turf(src))
+	var/obj/item/book/tome/T = new /obj/item/book/tome(get_turf(src))
 	..()
+	return T
+
+/obj/item/tank/emergency_oxygen/cultify()
+	var/obj/item/tank/oxygen/brown/B = new /obj/item/tank/oxygen/brown(get_turf(src))
+	..()
+	return B
 
 /obj/item/material/sword/cultify()
-	new /obj/item/melee/cultblade(get_turf(src))
+	var/obj/item/melee/cultblade/CBT = new /obj/item/melee/cultblade(get_turf(src)) // AHAHAHAHAHAHAHA - Geeves
 	..()
+	return CBT
 
 /obj/item/storage/backpack/cultify()
-	new /obj/item/storage/backpack/cultpack(get_turf(src))
+	var/obj/item/storage/backpack/cultpack/CP = new /obj/item/storage/backpack/cultpack(get_turf(src))
+	for(var/obj/O in src)
+		CP.handle_item_insertion(O)
 	..()
+	return CP
 
 /obj/item/storage/backpack/cultpack/cultify()
 	return
@@ -48,7 +59,7 @@
 /obj/machinery/atmospherics/cultify()
 	if(src.invisibility != INVISIBILITY_MAXIMUM)
 		src.invisibility = INVISIBILITY_MAXIMUM
-		density = 0
+		density = FALSE
 
 /obj/machinery/cooker/cultify()
 	new /obj/structure/cult/talisman(get_turf(src))
@@ -90,11 +101,11 @@
 	qdel(src)
 
 /obj/structure/bed/chair/cultify()
-	var/obj/structure/bed/chair/wood/wings/I = new(get_turf(src))
+	var/obj/structure/bed/chair/wood/wings/I = new /obj/structure/bed/chair/wood/wings(get_turf(src))
 	I.dir = dir
 	..()
 
-/obj/structure/bed/chair/wood/cultify()
+/obj/structure/bed/chair/wood/wings/cultify()
 	return
 
 /obj/structure/bookcase/cultify()
