@@ -297,7 +297,7 @@
 		var/a = input(user, "Were your actions influenced by antagonists?", "Antagonist involvement") in list("yes","no")
 		if(a == "yes")
 			antag_involvement = TRUE
-			antag_involvement_text = sanitize(input("Describe how your actions were influenced by the antagonists.", "Antag involvement") as message|null)
+			antag_involvement_text = sanitizeSafe(input("Describe how your actions were influenced by the antagonists.", "Antag involvement") as message|null)
 			message_cciaa("CCIA Interview: [user] claimed their actions were influenced by antagonists.", R_CCIAA)
 		else
 			antag_involvement = FALSE
