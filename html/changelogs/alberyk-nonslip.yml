@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscdel: "Non-slip species flag should no longer grant immunity to lack of gravity effects."
