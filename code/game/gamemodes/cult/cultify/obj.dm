@@ -1,4 +1,6 @@
-/obj/proc/cultify()
+/obj/proc/cultify(var/check_only = FALSE)
+	if(check_only)
+		return
 	qdel(src)
 
 /obj/effect/decal/cleanable/blood/cultify()
@@ -12,7 +14,7 @@
 
 /obj/item/device/flashlight/lamp/cultify()
 	new /obj/structure/cult/pylon(get_turf(src))
-	..()
+	..(FALSE)
 	return "As you cast \the [src] into the forge, a great pylon grows beneath your feet, achieving its form in seconds."
 
 /obj/item/stack/material/wood/cultify()
@@ -20,24 +22,24 @@
 
 /obj/item/book/cultify()
 	var/obj/item/book/tome/T = new /obj/item/book/tome(get_turf(src))
-	..()
+	..(FALSE)
 	return T
 
 /obj/item/tank/emergency_oxygen/cultify()
 	var/obj/item/tank/oxygen/brown/B = new /obj/item/tank/oxygen/brown(get_turf(src))
-	..()
+	..(FALSE)
 	return B
 
 /obj/item/material/sword/cultify()
 	var/obj/item/melee/cultblade/CBT = new /obj/item/melee/cultblade(get_turf(src)) // AHAHAHAHAHAHAHA - Geeves
-	..()
+	..(FALSE)
 	return CBT
 
 /obj/item/storage/backpack/cultify()
 	var/obj/item/storage/backpack/cultpack/CP = new /obj/item/storage/backpack/cultpack(get_turf(src))
 	for(var/obj/O in src)
 		CP.handle_item_insertion(O)
-	..()
+	..(FALSE)
 	return CP
 
 /obj/item/storage/backpack/cultpack/cultify()
@@ -54,7 +56,7 @@
 			)
 		var/I = pick(random_structure)
 		new I(get_turf(src))
-	..()
+	..(FALSE)
 
 /obj/machinery/atmospherics/cultify()
 	if(src.invisibility != INVISIBILITY_MAXIMUM)
@@ -103,7 +105,7 @@
 /obj/structure/bed/chair/cultify()
 	var/obj/structure/bed/chair/wood/wings/I = new /obj/structure/bed/chair/wood/wings(get_turf(src))
 	I.dir = dir
-	..()
+	..(FALSE)
 
 /obj/structure/bed/chair/wood/wings/cultify()
 	return
@@ -113,14 +115,14 @@
 
 /obj/structure/grille/cultify()
 	new /obj/structure/grille/cult(get_turf(src))
-	..()
+	..(FALSE)
 
 /obj/structure/grille/cult/cultify()
 	return
 
 /obj/structure/simple_door/cultify()
 	new /obj/structure/simple_door/cult(get_turf(src))
-	..()
+	..(FALSE)
 
 /obj/structure/simple_door/cult/cultify()
 	return
@@ -132,13 +134,13 @@
 
 /obj/structure/shuttle/engine/heater/cultify()
 	new /obj/structure/cult/pylon(get_turf(src))
-	..()
+	..(FALSE)
 
 /obj/structure/shuttle/engine/propulsion/cultify()
 	var/turf/T = get_turf(src)
 	if(T)
 		T.ChangeTurf(/turf/simulated/wall/cult)
-	..()
+	..(FALSE)
 
 /obj/structure/table/cultify()
 	if(material == SSmaterials.get_material_by_name(MATERIAL_CULT) || reinforced == SSmaterials.get_material_by_name(MATERIAL_CULT))
