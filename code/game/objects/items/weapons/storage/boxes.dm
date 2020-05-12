@@ -620,7 +620,7 @@
 	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE
 
-	/obj/item/storage/box/freezer/organcooler
+/obj/item/storage/box/freezer/organcooler
 	name = "organ cooler"
 	desc = "A sealed, cooled container to keep organs from decaying."
 	icon_state = "organcooler"

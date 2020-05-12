@@ -63,6 +63,8 @@
 	if(enrolled)
 		var/programs = get_preset_programs(_app_preset_type)
 		for(var/datum/computer_file/program/prog in programs)
+			if(!prog.is_supported_by_hardware(hardware_flag, FALSE))
+				continue
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/Initialize()
@@ -178,7 +180,7 @@
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(TRUE)
 		idle_threads.Remove(P)
-	
+
 	for(var/s in enabled_services)
 		var/datum/computer_file/program/service = s
 		if(service.program_type & PROGRAM_SERVICE) // Safety checks
@@ -320,16 +322,16 @@
 /obj/item/modular_computer/proc/toggle_service(service, mob/user, var/datum/computer_file/program/S = null)
 	if(!S)
 		S = hard_drive?.find_file_by_name(service)
-		
+
 	if(!istype(S)) // Program not found or it's not executable program.
 		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to locate [service]\""))
 		return
-	
+
 	if(S.service_state == PROGRAM_STATE_ACTIVE)
 		disable_service(null, user, S)
 	else
 		enable_service(null, user, S)
-	
+
 
 /obj/item/modular_computer/proc/enable_service(service, mob/user, var/datum/computer_file/program/S = null)
 	if(!S)
@@ -346,7 +348,7 @@
 
 	if(S in enabled_services)
 		return
-	
+
 	enabled_services += S
 
 	// Start service
