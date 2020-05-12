@@ -4,8 +4,9 @@
 	icon_state = "briefcase"
 	item_state = "briefcase"
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_briefcase.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_briefcase.dmi',
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_briefcase.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_briefcase.dmi'
+		)
 	flags = CONDUCT
 	force = 8.0
 	throw_speed = 1
