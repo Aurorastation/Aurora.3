@@ -5,6 +5,9 @@
 	icon = 'icons/obj/rfd.dmi'
 	icon_state = "rfd"
 	item_state = "rfd"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 	opacity = 0
 	density = 0
 	anchored = 0.0

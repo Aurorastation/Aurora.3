@@ -3,6 +3,9 @@
 	desc = "It's made of AUTHENTIC faux-leather and has a price-tag still attached. Its owner must be a real professional."
 	icon_state = "briefcase"
 	item_state = "briefcase"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_briefcase.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_briefcase.dmi',
 	flags = CONDUCT
 	force = 8.0
 	throw_speed = 1
@@ -29,4 +32,4 @@
 	name = "\improper NT briefcase"
 	desc = "The NanoTrasen-branded briefcase is an elegant, yet functional upgrade to the traditional black briefcase. The logo is the only difference, though."
 	icon_state = "briefcase_corpnt"
-	item_state = "briefcase_corpnt" 
+	item_state = "briefcase_corpnt"
