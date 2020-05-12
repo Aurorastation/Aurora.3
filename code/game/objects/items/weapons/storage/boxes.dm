@@ -30,7 +30,8 @@
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	var/chewable = TRUE
 
 /obj/item/storage/box/Initialize()
@@ -187,64 +188,86 @@
 	name = "box of blank shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front."
 	icon_state = "blankshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/blank = 8)
 
 /obj/item/storage/box/beanbags
 	name = "box of beanbag shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "beanshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/beanbag = 8)
 
 /obj/item/storage/box/shotgunammo
 	name = "box of shotgun slugs"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "lethalslug_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun = 8)
 
 /obj/item/storage/box/shotgunshells
 	name = "box of shotgun shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "lethalshell_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/pellet = 8)
 
 /obj/item/storage/box/flashshells
 	name = "box of illumination shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "illumshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/flash = 8)
 
 /obj/item/storage/box/stunshells
 	name = "box of stun shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "stunshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/stunshell = 8)
 
 /obj/item/storage/box/practiceshells
 	name = "box of practice shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "blankshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/practice = 8)
 
 /obj/item/storage/box/haywireshells
 	name = "box of haywire shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "empshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/emp = 8)
 
 /obj/item/storage/box/incendiaryshells
 	name = "box of incendiary shells"
 	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 	icon_state = "incendiaryshot_box"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/incendiary = 8)
 
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/a145 = 7)
 
 /obj/item/storage/box/ammo10mm
 	name = "box of 10mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/c10mm = 10)
 
 /obj/item/storage/box/flashbangs
@@ -470,6 +493,8 @@
 	icon_state = "matchbox"
 	item_state = "zippo"
 	w_class = 1
+	drop_sound = 'sound/items/drop/matchbox.ogg'
+	pickup_sound =  'sound/items/pickup/matchbox.ogg'
 	slot_flags = SLOT_BELT
 	can_hold = list(/obj/item/flame/match)
 	starts_with = list(/obj/item/flame/match = 10)
@@ -823,6 +848,7 @@
 	foldable = null
 	use_sound = 'sound/effects/doorcreaky.ogg'
 	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
 	chewable = FALSE
 	w_class = ITEMSIZE_LARGE
 	starts_with = list(/obj/item/grenade/dynamite = 6)

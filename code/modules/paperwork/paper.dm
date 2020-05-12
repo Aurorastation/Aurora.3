@@ -38,6 +38,7 @@
 	var/const/fountainfont = "Segoe Script"
 
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()

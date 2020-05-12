@@ -100,6 +100,7 @@
 	w_class = 1
 
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/clothing/accessory/hadii_pin
 	name = "hadiist party pin"
@@ -113,6 +114,7 @@
 	seen as nothing but a honor and does not grant any status or position that a regular Party member would have."
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/dpra_pin
 	name = "almariist pin"
@@ -126,6 +128,7 @@
 	This ideology is known as Al'mariism, as it seeks to preserve the initial ideals of the first revolution."
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/nka_pin
 	name = "diplomatic service order"
@@ -138,3 +141,4 @@
 	their customary roles related to their ethnicity."
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'

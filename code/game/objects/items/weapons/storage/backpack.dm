@@ -24,6 +24,7 @@
 	max_storage_space = 28
 	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 

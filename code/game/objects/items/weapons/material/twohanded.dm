@@ -35,6 +35,7 @@
 		)
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/material/twohanded/proc/unwield()
 	wielded = 0
@@ -196,6 +197,7 @@
 	applies_material_colour = 0
 	can_embed = 0
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
@@ -347,7 +349,8 @@
 
 	var/cutting = 0 //Ignore
 	var/powered = 0 //Ignore
-	drop_sound = 'sound/items/drop/metalshield.ogg'
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/chainsaw/Initialize()
 	. = ..()
@@ -540,6 +543,7 @@
 	applies_material_colour = 0
 	can_embed = 0
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
+	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
 /obj/item/material/twohanded/pike/halberd
 	icon_state = "halberd0"

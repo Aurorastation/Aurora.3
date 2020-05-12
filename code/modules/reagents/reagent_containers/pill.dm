@@ -16,6 +16,7 @@
 	slot_flags = SLOT_EARS
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 	New()
 		..()

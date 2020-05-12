@@ -15,7 +15,8 @@ Contains:
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
 		)
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	amount = 5
 	max_amount = 5
 	w_class = 2
@@ -84,6 +85,7 @@ Contains:
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg')
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -152,6 +154,7 @@ Contains:
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/ointment.ogg')
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 /obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -352,6 +355,7 @@ Contains:
 	amount = 5
 	max_amount = 5
 	drop_sound = 'sound/items/drop/hat.ogg'
+	pickup_sound = 'sound/items/pickup/hat.ogg'
 	var/list/splintable_organs = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_R_FOOT, BP_L_FOOT)
 
 /obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user as mob)

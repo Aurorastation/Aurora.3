@@ -7,7 +7,8 @@
 	item_state = "cell_rack"
 	contained_sprite = TRUE
 	use_sound = 'sound/items/storage/toolbox.ogg'
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	can_hold = list(/obj/item/cell)
 	max_storage_space = 40 // about 10 cells
 	storage_slots = 10

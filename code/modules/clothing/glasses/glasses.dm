@@ -36,6 +36,7 @@ BLIND     // can't see anything
 		)
 	species_restricted = list("exclude","Vaurca Breeder")
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 // Called in mob/RangedAttack() and mob/UnarmedAttack.
 /obj/item/clothing/glasses/proc/Look(var/atom/A, mob/user, var/proximity)
@@ -230,6 +231,7 @@ BLIND     // can't see anything
 	body_parts_covered = 0
 	var/flipped = 0
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/glasses/eyepatch/verb/flip_patch()
 	set name = "Flip Patch"
@@ -400,6 +402,7 @@ BLIND     // can't see anything
 	item_state = "blindfold"
 	tint = TINT_BLIND
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"
@@ -407,6 +410,7 @@ BLIND     // can't see anything
 	icon_state = "blinders"
 	item_state = "blindfold"
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/glasses/sunglasses/blindfold/tape
 	name = "length of tape"
