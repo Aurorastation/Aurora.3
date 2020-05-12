@@ -61,7 +61,7 @@
 
 	if(href_list["initialize"])
 		pistons = list()
-		for(var/obj/machinery/crusher_base/pstn in orange(10, src.ui_host())
+		for(var/obj/machinery/crusher_base/pstn in orange(10, src.ui_host()))
 			pistons += pstn
 
 		airlocks = list()
