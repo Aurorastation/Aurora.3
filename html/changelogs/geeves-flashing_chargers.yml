@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Heavy cell chargers now flash while they charge. Ported from Polaris."
