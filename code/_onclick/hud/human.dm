@@ -28,6 +28,7 @@
 		inv_box.layer = SCREEN_LAYER
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
+		inv_box.hud = src
 
 		var/list/slot_data =  hud_data.gear[gear_slot]
 		inv_box.name =        gear_slot
@@ -192,6 +193,7 @@
 		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
+		using.hud = src
 		src.adding += using
 
 		using = new /obj/screen/inventory()
@@ -202,6 +204,7 @@
 		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
+		using.hud = src
 		src.adding += using
 
 	if(hud_data.has_resist)

@@ -56,7 +56,7 @@
 	else
 		return 0
 
-/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user)
+/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user
 
 	if(H.shoes)

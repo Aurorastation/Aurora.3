@@ -106,7 +106,7 @@
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/pickaxe/mob_can_equip(M, slot)
+/obj/item/pickaxe/mob_can_equip(M, slot, disable_warning = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, SPAN_WARNING("Unwield the [initial(name)] first!"))
