@@ -311,7 +311,7 @@
 
 /obj/item/organ/internal/augment/language/removed(var/mob/living/carbon/human/target, mob/living/user)
 	for(var/language in augment_languages)
-		if(length(added_languages) && !(language in added_languages)) // a safety net to not remove the languages someone knew pre-aug
+		if(!(language in added_languages)) // a safety net to not remove the languages someone knew pre-aug
 			continue
 		target.remove_language(language)
 	added_languages = list()
@@ -320,7 +320,7 @@
 /obj/item/organ/internal/augment/language/emp_act()
 	. = ..()
 	for(var/language in augment_languages)
-		if(length(added_languages) && !(language in added_languages))
+		if(!(language in added_languages))
 			continue
 		if(prob(25))
 			owner.remove_language(language)
