@@ -12,6 +12,7 @@
 	layer = SCREEN_LAYER
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
+	var/datum/hud/hud = null // A reference to the owner HUD, if any.
 	appearance_flags = NO_CLIENT_COLOR
 
 /obj/screen/Destroy(force = FALSE)
@@ -126,7 +127,7 @@
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
-	var/selecting = BP_TORSO
+	var/selecting = BP_CHEST
 	var/static/list/hover_overlays_cache = list()
 	var/hovering_choice
 	var/mutable_appearance/selecting_appearance
@@ -208,7 +209,7 @@
 				if(8 to 11)
 					return BP_R_ARM
 				if(12 to 20)
-					return BP_TORSO
+					return BP_CHEST
 				if(21 to 24)
 					return BP_L_ARM
 		if(23 to 30) //Head, but we need to check for eye or mouth
@@ -233,7 +234,7 @@
 		update_icon()
 
 /obj/screen/zone_sel/update_icon()
-	cut_overlay(selecting_appearance)
+	cut_overlays()
 	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
 	add_overlay(selecting_appearance)
 
@@ -402,3 +403,20 @@
 				usr.m_intent = "run"
 
 		update_move_icon(usr)
+
+// Hand slots are special to handle the handcuffs overlay
+/obj/screen/inventory/hand
+	var/image/handcuff_overlay
+
+/obj/screen/inventory/hand/update_icon()
+	..()
+	if(!hud)
+		return
+	if(!handcuff_overlay)
+		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
+		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
+	overlays.Cut()
+	if(hud.mymob && iscarbon(hud.mymob))
+		var/mob/living/carbon/C = hud.mymob
+		if(C.handcuffed)
+			overlays |= handcuff_overlay

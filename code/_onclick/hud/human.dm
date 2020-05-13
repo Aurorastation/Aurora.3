@@ -156,7 +156,8 @@
 		using.alpha = ui_alpha
 		src.adding += using
 
-		inv_box = new /obj/screen/inventory()
+		inv_box = new /obj/screen/inventory/hand()
+		inv_box.hud = src
 		inv_box.name = BP_R_HAND
 		inv_box.icon = ui_style
 		inv_box.icon_state = "r_hand_inactive"
@@ -171,7 +172,8 @@
 		src.r_hand_hud_object = inv_box
 		src.adding += inv_box
 
-		inv_box = new /obj/screen/inventory()
+		inv_box = new /obj/screen/inventory/hand()
+		inv_box.hud = src
 		inv_box.name = BP_L_HAND
 		inv_box.icon = ui_style
 		inv_box.icon_state = "l_hand_inactive"
