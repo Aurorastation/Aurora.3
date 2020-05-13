@@ -9,6 +9,10 @@
 	Spur. They are prominently associated with the Empire of Dominia, and are at
 	the forefront of genetic modification technology.
 	</p>
+
+	<p><font size='5' color='red'><b> DO NOT PLAY AN IPC AS A NECROPOLIS LIAISON, THIS IS UNINTENDED.</b></font>
+	</p>
+
 	<p>Some character examples are:
 	<ul>
 	<li><b>Bio-technician</b>: Unit to unit Necropolis ships the most firearms
