@@ -32,7 +32,7 @@
 		CtrlClickOn(A)
 		return
 
-	if(stat || lockcharge || weakened || stunned || paralysis)
+	if(stat || lock_charge || weakened || stunned || paralysis)
 		return
 
 	if(!canClick())
@@ -40,10 +40,10 @@
 
 	face_atom(A) // change direction to face what you clicked on
 
-	if(aiCamera.in_camera_mode)
-		aiCamera.camera_mode_off()
+	if(ai_camera.in_camera_mode)
+		ai_camera.camera_mode_off()
 		if(is_component_functioning("camera"))
-			aiCamera.captureimage(A, usr)
+			ai_camera.captureimage(A, usr)
 		else
 			to_chat(src, "<span class='danger'>Your camera isn't functional.</span>")
 		return
@@ -74,8 +74,8 @@
 
 
 	//Handling using grippers
-	if (istype(W, /obj/item/weapon/gripper))
-		var/obj/item/weapon/gripper/G = W
+	if (istype(W, /obj/item/gripper))
+		var/obj/item/gripper/G = W
 		//If the gripper contains something, then we will use its contents to attack
 		if (G.wrapped && (G.wrapped.loc == G))
 			GripperClickOn(A, params, G)
@@ -97,10 +97,11 @@
 	if(isturf(A) || isturf(A.loc))
 		if(A.Adjacent(src)) // see adjacent.dm
 
-			var/resolved = A.attackby(W, src)
-			if(!resolved && A && W)
-				W.afterattack(A, src, 1, params)
-			return
+			if(W)
+				var/resolved = W.resolve_attackby(A, src, params)
+				if(!resolved && A && W)
+					W.afterattack(A, src, 1, params)
+				return
 		else
 			W.afterattack(A, src, 0, params)
 			return
@@ -111,7 +112,7 @@
 	Gripper Handling
 	This is used when a gripper is used on anything. It does all the handling for it
 */
-/mob/living/silicon/robot/proc/GripperClickOn(var/atom/A, var/params, var/obj/item/weapon/gripper/G)
+/mob/living/silicon/robot/proc/GripperClickOn(var/atom/A, var/params, var/obj/item/gripper/G)
 
 	var/obj/item/W = G.wrapped
 	if (!grippersafety(G))return
@@ -166,9 +167,9 @@
 
 /mob/living/silicon/robot/AltClickOn(var/atom/A)
 	var/doClickAction = 1
-	if (istype(module_active, /obj/item/weapon))
-		var/obj/item/weapon/W = module_active
-		doClickAction = W.alt_attack(A,src)
+	if (istype(module_active, /obj/item))
+		var/obj/item/I = module_active
+		doClickAction = I.alt_attack(A,src)
 
 	if (doClickAction)
 		A.BorgAltClick(src)

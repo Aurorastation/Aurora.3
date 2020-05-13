@@ -12,13 +12,14 @@
 	var/spawn_positions = 0               // How many players can spawn in as this job
 	var/current_positions = 0             // How many players have this job
 	var/supervisors = null                // Supervisors, who this person answers to directly
-	var/selection_color = "#ffffff"       // Selection screen color
+	var/selection_color = "#888888"       // Selection screen color
 	var/list/alt_titles                   // List of alternate titles, if any
 	var/list/title_accesses               // A map of title -> list of accesses to add if the person has this title.
 	var/minimal_player_age = 0            // If you have use_age_restriction_for_jobs config option enabled and the database set up, this option will add a requirement for players to be at least minimal_player_age days old. (meaning they first signed in at least that many days before.)
 	var/department = null                 // Does this position have a department tag?
 	var/head_position = 0                 // Is this position Command?
 	var/minimum_character_age = 17
+	var/list/alt_ages = null // assoc list of alt titles to minimum character ages
 	var/ideal_character_age = 30
 
 	var/latejoin_at_spawnpoints = FALSE          //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
@@ -29,6 +30,7 @@
 
 	var/datum/outfit/outfit = null
 	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
+	var/list/blacklisted_species = null		  // A blacklist of species that can't be this job
 
 //Only override this proc
 /datum/job/proc/after_spawn(mob/living/carbon/human/H)
@@ -88,7 +90,6 @@
 	if (!species_modifier)
 		var/datum/species/human_species = global.all_species["Human"]
 		species_modifier = human_species.economic_modifier
-		PROCLOG_WEIRD("species [H.species || "NULL"] did not have a set economic_modifier!")
 
 	var/money_amount = (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier
 	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null)
@@ -168,7 +169,7 @@
 		if(10 to 14)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/suit_jacket/really_black(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
-			H.equip_to_slot_or_del(new /obj/item/weapon/storage/briefcase(H), slot_l_hand)
+			H.equip_to_slot_or_del(new /obj/item/storage/briefcase(H), slot_l_hand)
 		if(15 to INFINITY)
 			H.equip_to_slot_or_del(new /obj/item/clothing/under/sl_suit(H), slot_w_uniform)
 			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/laceup(H), slot_shoes)
@@ -185,48 +186,17 @@
 	collect_not_del = FALSE
 
 	var/allow_loadout = TRUE
-	var/allow_backbag_choice = TRUE
+	allow_backbag_choice = TRUE
 	var/jobtype = null
 
 	uniform = /obj/item/clothing/under/color/grey
-	id = /obj/item/weapon/card/id
+	id = /obj/item/card/id
 	l_ear = /obj/item/device/radio/headset
-	back = /obj/item/weapon/storage/backpack
+	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
 	pda = /obj/item/device/pda
 
-	var/backpack = /obj/item/weapon/storage/backpack
-	var/satchel = /obj/item/weapon/storage/backpack/satchel_norm
-	var/satchel_alt = /obj/item/weapon/storage/backpack/satchel
-	var/dufflebag = /obj/item/weapon/storage/backpack/duffel
-	var/messengerbag = /obj/item/weapon/storage/backpack/messenger
-	var/box = /obj/item/weapon/storage/box/survival
-
-/datum/outfit/job/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(allow_backbag_choice)
-		var/use_job_specific = H.backbag_style == 1
-		switch(H.backbag)
-			if (1)
-				back = null
-			if (2)
-				back = use_job_specific ? backpack : /obj/item/weapon/storage/backpack
-			if (3)
-				back = use_job_specific ? satchel : /obj/item/weapon/storage/backpack/satchel_norm
-			if (4)
-				back = use_job_specific ? satchel_alt : /obj/item/weapon/storage/backpack/satchel
-			if (5)
-				back = use_job_specific ? dufflebag : /obj/item/weapon/storage/backpack/duffel
-			if (6)
-				back = use_job_specific ? messengerbag : /obj/item/weapon/storage/backpack/messenger
-			else
-				back = backpack //Department backpack
-	if(back)
-		equip_item(H, back, slot_back)
-
-	if(istype(H.back,/obj/item/weapon/storage/backpack))
-		var/obj/item/weapon/storage/backpack/B = H.back
-		B.autodrobe_no_remove = TRUE
+	var/box = /obj/item/storage/box/survival
 
 /datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip

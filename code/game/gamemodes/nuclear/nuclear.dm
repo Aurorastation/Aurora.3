@@ -19,21 +19,15 @@ var/list/nuke_disks = list()
 	antag_tags = list(MODE_MERCENARY)
 	antag_scaling_coeff = 6
 
-/datum/game_mode/nuclear/check_finished()
-	var/datum/shuttle/multi_shuttle/mercs = shuttle_controller.shuttles["Mercenary"]
-	if (mercs && mercs.returned_home)
-		return 1
-	return ..()
-
 //delete all nuke disks not on a station zlevel
 /datum/game_mode/nuclear/proc/check_nuke_disks()
-	for(var/obj/item/weapon/disk/nuclear/N in nuke_disks)
+	for(var/obj/item/disk/nuclear/N in nuke_disks)
 		var/turf/T = get_turf(N)
 		if(isNotStationLevel(T.z)) qdel(N)
 
 //checks if L has a nuke disk on their person
 /datum/game_mode/nuclear/proc/check_mob(mob/living/L)
-	for(var/obj/item/weapon/disk/nuclear/N in nuke_disks)
+	for(var/obj/item/disk/nuclear/N in nuke_disks)
 		if(N.storage_depth(L) >= 0)
 			return 1
 	return 0
@@ -43,7 +37,7 @@ var/list/nuke_disks = list()
 		..()
 		return
 	var/disk_rescued = 1
-	for(var/obj/item/weapon/disk/nuclear/D in nuke_disks)
+	for(var/obj/item/disk/nuclear/D in nuke_disks)
 		var/disk_area = get_area(D)
 		if(!is_type_in_list(disk_area, centcom_areas))
 			disk_rescued = 0

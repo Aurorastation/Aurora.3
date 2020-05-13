@@ -1,19 +1,23 @@
 /obj/item/device/paicard
 	name = "personal AI device"
-	icon = 'icons/obj/pda.dmi'
+	icon = 'icons/obj/pai.dmi'
 	icon_state = "pai"
 	item_state = "electronic"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2)
 	var/obj/item/device/radio/radio
 	var/looking_for_personality = 0
 	var/mob/living/silicon/pai/pai
 
+	light_power = 1
+	light_range = 1
+	light_color = COLOR_BRIGHT_GREEN
+
 /obj/item/device/paicard/relaymove(var/mob/user, var/direction)
 	if(user.stat || user.stunned)
 		return
-	var/obj/item/weapon/rig/rig = src.get_rig()
+	var/obj/item/rig/rig = src.get_rig()
 	if(istype(rig))
 		rig.forced_move(direction, user)
 
@@ -21,6 +25,7 @@
 	. = ..()
 	add_overlay("pai_off")
 	SSpai.all_pai_devices += src
+	update_light()
 
 /obj/item/device/paicard/Destroy()
 	SSpai.all_pai_devices -= src
@@ -30,7 +35,7 @@
 	return ..()
 
 /obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
-	if(istype(C, /obj/item/weapon/card/id))
+	if(istype(C, /obj/item/card/id))
 		scan_ID(C, user)
 
 
@@ -39,7 +44,7 @@
 //Scanning an ID replaces any previously stored access with the new set.
 //Only cards that match the imprinted DNA can be used, it's not a free Agent ID card.
 //Possible TODO in future, allow emagging a paicard to let it work like an agent ID, accumulating access from any ID
-/obj/item/device/paicard/proc/scan_ID(var/obj/item/weapon/card/id/card, var/mob/user)
+/obj/item/device/paicard/proc/scan_ID(var/obj/item/card/id/card, var/mob/user)
 	if (!pai)
 		to_chat(user, "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
@@ -55,16 +60,16 @@
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
-	pai.idcard.access.Cut()
-	pai.idcard.access = card.access.Copy()
-	pai.idcard.registered_name = card.registered_name
+	pai.id_card.access.Cut()
+	pai.id_card.access = card.access.Copy()
+	pai.id_card.registered_name = card.registered_name
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-	to_chat(user, "<span class='notice'>ID Registration for [pai.idcard.registered_name] is a success. PAI access updated!</span>")
+	to_chat(user, "<span class='notice'>ID Registration for [pai.id_card.registered_name] is a success. PAI access updated!</span>")
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
-	if (pai.idcard.registered_name)
-		return "<span class='notice'>Identity of owner: [pai.idcard.registered_name] registered.</span>"
+	if (pai.id_card.registered_name)
+		return "<span class='notice'>Identity of owner: [pai.id_card.registered_name] registered.</span>"
 	else
 		return "<span class='warning'>No ID card registered! Please scan your ID to share access.</span>"
 
@@ -381,7 +386,7 @@
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
 	//We only care about the second one
-	if (istype(loc, /obj/item/weapon/storage))	//The second drop reads the container its placed into as the location
+	if (istype(loc, /obj/item/storage))	//The second drop reads the container its placed into as the location
 		update_location()
 
 

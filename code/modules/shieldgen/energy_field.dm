@@ -13,7 +13,7 @@
 	var/strength = 0
 	var/ticks_recovering = 10
 
-	atmos_canpass = CANPASS_NEVER
+	atmos_canpass = CANPASS_ALWAYS
 
 /obj/effect/energy_field/New()
 	..()
@@ -56,7 +56,7 @@
 	else if(strength < 1)
 		invisibility = 101
 		density = 0
-	
+
 	if (density != old_density)
 		update_nearby_tiles()
 
@@ -67,4 +67,4 @@
 	//Outputs: Boolean if can pass.
 
 	//return (!density || !height || air_group)
-	return !density
+	return (!density || air_group)

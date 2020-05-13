@@ -16,11 +16,11 @@
 	var/stored_matter = 200
 	var/loaded_dna //Blood sample for DNA hashing.
 	var/list/products = list(
-		"heart" =   list(/obj/item/organ/heart,  50),
-		"lungs" =   list(/obj/item/organ/lungs,  40),
-		"kidneys" = list(/obj/item/organ/kidneys,20),
-		"eyes" =    list(/obj/item/organ/eyes,   30),
-		"liver" =   list(/obj/item/organ/liver,  50)
+		BP_HEART =   list(/obj/item/organ/internal/heart,  50),
+		BP_LUNGS =   list(/obj/item/organ/internal/lungs,  40),
+		BP_KIDNEYS = list(/obj/item/organ/internal/kidneys,20),
+		BP_EYES =    list(/obj/item/organ/internal/eyes,   30),
+		BP_LIVER =   list(/obj/item/organ/internal/liver,  50)
 		)
 
 /obj/machinery/bioprinter/prosthetics
@@ -57,18 +57,18 @@
 	else
 		to_chat(user, "<span class='warning'>There is not enough matter in the printer.</span>")
 
-/obj/machinery/bioprinter/attackby(obj/item/weapon/W, mob/user)
+/obj/machinery/bioprinter/attackby(obj/item/W, mob/user)
 
 	// DNA sample from syringe.
-	if(!prints_prosthetics && istype(W,/obj/item/weapon/reagent_containers/syringe))
-		var/obj/item/weapon/reagent_containers/syringe/S = W
+	if(!prints_prosthetics && istype(W,/obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = W
 		var/datum/reagent/blood/injected = locate() in S.reagents.reagent_list //Grab some blood
 		if(injected && injected.data)
 			loaded_dna = injected.data
 			to_chat(user, "<span class='info'>You inject the blood sample into the bioprinter.</span>")
 		return
 	// Meat for biomass.
-	if(!prints_prosthetics && istype(W, /obj/item/weapon/reagent_containers/food/snacks/meat))
+	if(!prints_prosthetics && istype(W, /obj/item/reagent_containers/food/snacks/meat))
 		stored_matter += 50
 		user.drop_from_inventory(W,src)
 		to_chat(user, "<span class='info'>\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]</span>")

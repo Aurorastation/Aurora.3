@@ -1,16 +1,22 @@
 /obj/item/device/multitool/hacktool
 	var/is_hacking = 0
-	var/max_known_targets
 
 	var/in_hack_mode = 0
+	var/list/current_hacks
 	var/list/known_targets
 	var/list/supported_types
 	var/datum/topic_state/default/must_hack/hack_state
 
+	var/hack_time = 30 SECONDS
+	var/max_known_targets = 7
+	var/silent = FALSE
+	var/multihack = FALSE
+	var/allow_movement = FALSE
+
 /obj/item/device/multitool/hacktool/New()
 	..()
 	known_targets = list()
-	max_known_targets = 5 + rand(1,3)
+	current_hacks = list()
 	supported_types = list(/obj/machinery/door/airlock)
 	hack_state = new(src)
 
@@ -26,7 +32,7 @@
 /obj/item/device/multitool/hacktool/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		in_hack_mode = !in_hack_mode
-		playsound(src.loc, W.usesound, 50, 1)
+		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 	else
 		..()
 
@@ -39,12 +45,16 @@
 	if(!attempt_hack(user, A))
 		return 0
 
-	A.ui_interact(user, state = hack_state)
+	if(A.Adjacent(user))
+		A.ui_interact(user, state = hack_state)
 	return 1
 
 /obj/item/device/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)
-	if(is_hacking)
+	if(is_hacking && !multihack)
 		to_chat(user, "<span class='warning'>You are already hacking!</span>")
+		return 0
+	if(target in current_hacks)
+		to_chat(user, span("warning", "You are already hacking this door!"))
 		return 0
 	if(!is_type_in_list(target, supported_types))
 		to_chat(user, "\icon[src] <span class='warning'>Unable to hack this target!</span>")
@@ -56,13 +66,17 @@
 
 	to_chat(user, "<span class='notice'>You begin hacking \the [target]...</span>")
 	is_hacking = 1
+	current_hacks += target
+
 	// On average hackin takes ~30 seconds. Fairly small random span to avoid people simply aborting and trying again
-	var/hack_result = do_after(user, (20 SECONDS + rand(0, 10 SECONDS) + rand(0, 10 SECONDS)))
+	var/hack_result = do_after(user, hack_time + rand(-5,5), use_user_turf = (allow_movement ? -1 : FALSE))
 	is_hacking = 0
+	current_hacks -= target
 
 	if(hack_result && in_hack_mode)
 		to_chat(user, "<span class='notice'>Your hacking attempt was succesful!</span>")
-		playsound(src.loc, 'sound/piano/A#6.ogg', 75)
+		if(!silent)
+			playsound(src.loc, 'sound/piano/A#6.ogg', 75)
 	else
 		to_chat(user, "<span class='warning'>Your hacking attempt failed!</span>")
 		return 0
@@ -82,6 +96,39 @@
 
 /obj/item/device/multitool/hacktool/proc/on_target_destroy(var/target)
 	known_targets -= target
+
+/obj/item/device/multitool/hacktool/rig //For ninjas; Credits to BurgerBB
+	hack_time = 50
+	max_known_targets = 10
+	in_hack_mode = TRUE
+	silent = TRUE
+	multihack = TRUE
+	allow_movement = TRUE
+	reach = 8
+	var/mob/living/creator
+
+/obj/item/device/multitool/hacktool/rig/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/device/multitool/hacktool/rig/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/device/multitool/hacktool/rig/process()
+	if(!creator || loc != creator || (creator.l_hand != src && creator.r_hand != src))
+		// Tidy up a bit.
+		if(istype(loc,/mob/living))
+			var/mob/living/carbon/human/host = loc
+			if(istype(host))
+				for(var/obj/item/organ/external/organ in host.organs)
+					for(var/obj/item/O in organ.implants)
+						if(O == src)
+							organ.implants -= src
+			host.pinned -= src
+			host.embedded -= src
+			host.drop_from_inventory(src)
+		QDEL_IN(src, 1)
 
 /datum/topic_state/default/must_hack
 	var/obj/item/device/multitool/hacktool/hacktool

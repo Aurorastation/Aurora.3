@@ -286,3 +286,12 @@ proc/tg_list2text(list/list, glue=",")
 			return null
 		r += ascii2text(c)
 	return r
+
+/proc/hex2cssrgba(var/hex, var/alpha)
+	var/textr = copytext(hex, 2, 4)
+	var/textg = copytext(hex, 4, 6)
+	var/textb = copytext(hex, 6, 8)
+	var/r = hex2num(textr)
+	var/g = hex2num(textg)
+	var/b = hex2num(textb)
+	return "rgba([r], [g], [b], [alpha])"

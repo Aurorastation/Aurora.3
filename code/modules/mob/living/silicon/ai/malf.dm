@@ -17,7 +17,7 @@
 	// And greet user with some OOC info.
 	to_chat(user, "You are malfunctioning, you do not have to follow any laws.")
 	to_chat(user, "Use ai-help command to view relevant information about your abilities")
-	to_chat(user, "<span class='danger'>Malf AI has been severely buffed. Ensure that you use these new powers responsibly and follow a narrative.</span>")
+	to_chat(user, "<span class='danger'><font size=4>Malf AI has been severely buffed. Ensure that you use these new powers responsibly and follow a narrative.</font></span>")
 
 // Safely remove malfunction status, fixing hacked APCs and resetting variables.
 /mob/living/silicon/ai/proc/stop_malf()
@@ -50,7 +50,7 @@
 				errored = 0
 		return
 	recalc_cpu()
-	if(APU_power || aiRestorePowerRoutine != 0)
+	if(APU_power || ai_restore_power_routine != 0)
 		research.process(1)
 	else
 		research.process(0)
@@ -102,11 +102,11 @@
 
 // Returns percentage of AI's remaining backup capacitor charge (maxhealth - oxyloss).
 /mob/living/silicon/ai/proc/backup_capacitor()
-	return ((200 - getOxyLoss()) / 2)
+	return ((getOxyLoss() - maxHealth) / maxHealth) * -100
 
 // Returns percentage of AI's remaining hardware integrity (maxhealth - (bruteloss + fireloss))
 /mob/living/silicon/ai/proc/hardware_integrity()
-	return (health-config.health_threshold_dead)/2
+	return (health / maxHealth) * 100
 
 // Shows capacitor charge and hardware integrity information to the AI in Status tab.
 /mob/living/silicon/ai/show_system_integrity()

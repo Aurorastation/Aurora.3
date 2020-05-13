@@ -53,7 +53,7 @@
 	var/mob/living/carbon/owner
 	var/datum/brain_trauma/special/imaginary_friend/trauma
 
-/mob/abstract/mental/friend/Login()
+/mob/abstract/mental/friend/LateLogin()
 	..()
 	to_chat(src, "<span class='notice'><b>You are the imaginary friend of [owner]!</b></span>")
 	to_chat(src, "<span class='notice'>You are absolutely loyal to your friend, no matter what.</span>")

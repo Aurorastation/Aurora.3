@@ -8,7 +8,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the head of personnel"
-	selection_color = "#dddddd"
+	selection_color = "#C0C0C0"
 	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
 	minimal_access = list(access_morgue, access_chapel_office, access_crematorium)
 	alt_titles = list("Presbyter","Rabbi","Imam","Priest","Shaman","Counselor")
@@ -28,8 +28,8 @@
 	if(visualsOnly)
 		return
 
-	var/obj/item/weapon/storage/bible/B = new /obj/item/weapon/storage/bible(get_turf(H)) //BS12 EDIT
-	var/obj/item/weapon/storage/S = locate() in H.contents
+	var/obj/item/storage/bible/B = new /obj/item/storage/bible(get_turf(H)) //BS12 EDIT
+	var/obj/item/storage/S = locate() in H.contents
 	if(S && istype(S))
 		B.forceMove(S)
 
@@ -37,7 +37,7 @@
 	if (religion)
 
 		if(religion.name == "None" || religion.name == "Other")
-			B.verbs += /obj/item/weapon/storage/bible/proc/Set_Religion
+			B.verbs += /obj/item/storage/bible/proc/Set_Religion
 			return 1
 
 		B.icon_state = religion.book_sprite

@@ -52,7 +52,7 @@
 	holomap_datum.initialize_holomap(T, reinit = TRUE)
 
 	small_station_map = image(SSholomap.extra_minimaps["[HOLOMAP_EXTRA_STATIONMAPSMALL]_[original_zLevel]"], dir = dir)
-	small_station_map.layer = LIGHTING_LAYER + 0.1
+	small_station_map.layer = EFFECTS_ABOVE_LIGHTING_LAYER
 
 	floor_markings = image('icons/obj/machines/stationmap.dmi', "decal_station_map")
 	floor_markings.dir = src.dir
@@ -170,7 +170,7 @@
 	else
 		cut_overlay("station_map-panel")
 
-/*/obj/machinery/station_map/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/*/obj/machinery/station_map/attackby(obj/item/W as obj, mob/user as mob)
 	src.add_fingerprint(user)
 	if(default_deconstruction_screwdriver(user, W))
 		return

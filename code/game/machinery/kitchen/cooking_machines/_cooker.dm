@@ -2,13 +2,14 @@
 	var/temperature = T20C
 	var/min_temp = 80 + T0C	//Minimum temperature to do any cooking
 	var/optimal_temp = 200 + T0C	//Temperature at which we have 100% efficiency. efficiency is lowered on either side of this
-	var/optimal_power = 0.1//cooking power at 100%
+	var/optimal_power = 1.1//cooking power at 100%
 
 	var/loss = 1	//Temp lost per proc when equalising
-	var/resistance = 320000	//Resistance to heating. combines with active power usage to determine how long heating takes
+	var/resistance = 320000	//Resistance to heating. combines with heating power to determine how long heating takes
 
 	var/light_x = 0
 	var/light_y = 0
+	cooking_coeff = 0
 	cooking_power = 0
 
 /obj/machinery/appliance/cooker/examine(var/mob/user)
@@ -16,7 +17,7 @@
 	if (.)	//no need to duplicate adjacency check
 		if (!stat)
 			if (temperature < min_temp)
-				to_chat(user, span("warning", "The [src] is still heating up and is too cold to cook anything yet."))
+				to_chat(user, span("warning", "\The [src] is still heating up and is too cold to cook anything yet."))
 			else
 				to_chat(user, span("notice", "It is running at [round(get_efficiency(), 0.1)]% efficiency!"))
 			to_chat(user, "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C")
@@ -34,10 +35,9 @@
 				string += "- [CI.container.label(num)], [report_progress(CI)]</br>"
 		to_chat(usr, string)
 	else
-		to_chat(usr, span("notice","It is empty."))
+		to_chat(usr, span("notice","It's empty."))
 
 /obj/machinery/appliance/cooker/proc/get_efficiency()
-	RefreshParts()
 	. = (cooking_power / optimal_power) * 100
 
 /obj/machinery/appliance/cooker/Initialize()
@@ -77,19 +77,13 @@
 /obj/machinery/appliance/cooker/proc/update_cooking_power()
 	var/temp_scale = 0
 	if(temperature > min_temp)
+		if(temperature >= optimal_temp)
+			temp_scale = 1
+		else
+			temp_scale = (temperature - 73.15) / (optimal_temp - 73.15)
+		//If we're between min and optimal this will yield a value in the range 0.7 to 1
 
-		temp_scale = (temperature - min_temp) / (optimal_temp - min_temp)
-		//If we're between min and optimal this will yield a value in the range 0-1
-
-		if (temp_scale > 1)
-			//We're above optimal, efficiency goes down as we pass too much over it
-			if (temp_scale >= 2)
-				temp_scale = 0
-			else
-				temp_scale = 1 - (temp_scale - 1)
-
-
-	cooking_power = optimal_power * temp_scale
+	cooking_coeff = optimal_power * temp_scale
 	RefreshParts()
 
 /obj/machinery/appliance/cooker/proc/heat_up()
@@ -98,7 +92,7 @@
 			playsound(src, 'sound/machines/click.ogg', 20, 1)
 			use_power = 2.//If we're heating we use the active power
 			update_icon()
-		temperature += active_power_usage / resistance
+		temperature += heating_power / resistance
 		update_cooking_power()
 		return 1
 	else
@@ -117,7 +111,7 @@
 
 //Cookers do differently, they use containers
 /obj/machinery/appliance/cooker/has_space(var/obj/item/I)
-	if (istype(I, /obj/item/weapon/reagent_containers/cooking_container))
+	if (istype(I, /obj/item/reagent_containers/cooking_container))
 		//Containers can go into an empty slot
 		if (cooking_objs.len < max_contents)
 			return 1

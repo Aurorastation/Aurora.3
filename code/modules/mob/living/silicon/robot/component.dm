@@ -44,13 +44,15 @@
 /datum/robot_component/proc/get_damage(var/type)
 	return Clamp(brute_damage + electronics_damage,0,max_damage)
 
-/datum/robot_component/proc/take_damage(brute, electronics, sharp, edge)
-	if(installed != 1) return
+/datum/robot_component/proc/take_damage(brute, electronics, damage_flags)
+	if(installed != 1)
+		return
 
 	brute_damage += brute
 	electronics_damage += electronics
 
-	if(brute_damage + electronics_damage >= max_damage) destroy()
+	if(brute_damage + electronics_damage >= max_damage)
+		destroy()
 
 /datum/robot_component/proc/heal_damage(brute, electronics)
 	if(installed != 1)
@@ -77,9 +79,9 @@
 // ARMOUR
 // Protects the cyborg from damage. Usually first module to be hit
 // No power usage
-/datum/robot_component/armour
+/datum/robot_component/armor
 	name = "armour plating"
-	external_type = /obj/item/robot_parts/robot_component/armour
+	external_type = /obj/item/robot_parts/robot_component/armor
 	max_damage = 60
 
 // JETPACK
@@ -92,7 +94,7 @@
 	max_damage = 60
 	installed = 0
 
-	var/obj/item/weapon/tank/jetpack/carbondioxide/synthetic/tank = null
+	var/obj/item/tank/jetpack/carbondioxide/synthetic/tank = null
 
 /datum/robot_component/surge
 	name = "surge preventor"
@@ -108,7 +110,7 @@
 
 /datum/robot_component/jetpack/install()
 	..()
-	tank = new/obj/item/weapon/tank/jetpack/carbondioxide/synthetic
+	tank = new/obj/item/tank/jetpack/carbondioxide/synthetic
 	owner.internals = tank
 	tank.forceMove(owner)
 	owner.jetpack = tank
@@ -225,36 +227,30 @@
 
 // Initializes cyborg's components. Technically, adds default set of components to new borgs
 /mob/living/silicon/robot/proc/initialize_components()
-	components["actuator"] = new/datum/robot_component/actuator(src)
+	components["actuator"] = new /datum/robot_component/actuator(src)
 	actuatorComponent = components["actuator"]
-	components["radio"] = new/datum/robot_component/radio(src)
-	components["power cell"] = new/datum/robot_component/cell(src)
-	components["diagnosis unit"] = new/datum/robot_component/diagnosis_unit(src)
-	components["camera"] = new/datum/robot_component/camera(src)
-	components["comms"] = new/datum/robot_component/binary_communication(src)
-	components["armour"] = new/datum/robot_component/armour(src)
-	components["jetpack"] = new/datum/robot_component/jetpack(src)
-	components["surge"] = new/datum/robot_component/surge(src)
+	components["radio"] = new /datum/robot_component/radio(src)
+	components["power cell"] = new /datum/robot_component/cell(src)
+	components["diagnosis unit"] = new /datum/robot_component/diagnosis_unit(src)
+	components["camera"] = new /datum/robot_component/camera(src)
+	components["comms"] = new /datum/robot_component/binary_communication(src)
+	components["armour"] = new /datum/robot_component/armor(src)
+	components["jetpack"] = new /datum/robot_component/jetpack(src)
+	components["surge"] = new /datum/robot_component/surge(src)
 	jetpackComponent = components["jetpack"]
-	jetpackComponent.installed = 0//We start the jetpack as not installed, because its nondefault
+	jetpackComponent.installed = FALSE //We start the jetpack as not installed, because its nondefault
 
 // Checks if component is functioning
 /mob/living/silicon/robot/proc/is_component_functioning(module_name)
 	var/datum/robot_component/C = components[module_name]
-	return C && C.installed == 1 && C.toggled && C.is_powered()
+	return C && C.installed == TRUE && C.toggled && C.is_powered()
 
 // Returns component by it's string name
 /mob/living/silicon/robot/proc/get_component(var/component_name)
 	var/datum/robot_component/C = components[component_name]
 	return C
 
-
-
 // COMPONENT OBJECTS
-
-
-
-// Component Objects
 // These objects are visual representation of modules
 
 /obj/item/broken_device
@@ -262,12 +258,30 @@
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "broken"
 
+/obj/item/robot_parts/robot_component/proc/take_damage(var/brute_amt, var/burn_amt)
+	brute += brute_amt
+	burn += burn_amt
+	total_dam = brute + burn
+	if(total_dam >= max_dam)
+		var/obj/item/circuitboard/broken/broken_device = new(get_turf(src))
+		if(icon_state_broken != "broken")
+			broken_device.icon = src.icon
+			broken_device.icon_state = icon_state_broken
+		broken_device.name = "broken [name]"
+		return broken_device
+	return FALSE
+
+/obj/item/robot_parts/robot_component/proc/is_functional()
+	return ((brute + burn) < max_dam)
+
 /obj/item/robot_parts/robot_component
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "working"
 	var/brute = 0
 	var/burn = 0
 	var/icon_state_broken = "broken"
+	var/total_dam = 0
+	var/max_dam = 30
 
 /obj/item/robot_parts/robot_component/binary_communication_device
 	name = "binary communication device"
@@ -279,8 +293,8 @@
 	icon_state = "motor"
 	icon_state_broken = "motor_broken"
 
-/obj/item/robot_parts/robot_component/armour
-	name = "armour plating"
+/obj/item/robot_parts/robot_component/armor
+	name = "armor plating"
 	icon_state = "armor"
 	icon_state_broken = "armor_broken"
 

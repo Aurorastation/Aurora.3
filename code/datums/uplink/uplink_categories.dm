@@ -53,6 +53,15 @@
 /datum/uplink_category/badassery
 	name = "Badassery"
 
+/datum/uplink_category/exosuit
+	name = "Exosuit"
+
+/datum/uplink_category/exosuit_equipment
+	name = "Exosuit Equipment"
+
+/datum/uplink_category/corporate_equipment
+	name = "Corporate Equipment"
+
 /datum/uplink_category/telecrystals
 	name = "Telecrystals"
 
@@ -66,3 +75,7 @@
 /datum/uplink_category/gear_loadout
 	name = "Gear Loadout"
 	antag_roles = list(MODE_MERCENARY)
+
+/datum/uplink_category/revolution
+	name = "Revolution Items"
+	antag_roles = list(MODE_REVOLUTIONARY)

@@ -9,7 +9,7 @@
 	var/refund_type = /obj/item/stack/material/steel
 	var/reverse = 0 //if resulting object faces opposite its dir (like light fixtures)
 
-/obj/item/frame/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/frame/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.iswrench())
 		new refund_type( get_turf(src.loc), refund_amt)
 		qdel(src)
@@ -37,7 +37,7 @@
 	if (!istype(loc, /turf/simulated/floor))
 		to_chat(usr, "<span class='danger'>\The [src] Alarm cannot be placed on this spot.</span>")
 		return
-	if (A.requires_power == 0 || A.name == "Space")
+	if (A.requires_power == FALSE || istype(A, /area/space) || istype(A, /area/mine))
 		to_chat(usr, "<span class='danger'>\The [src] Alarm cannot be placed in this area.</span>")
 		return
 

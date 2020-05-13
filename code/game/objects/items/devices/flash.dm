@@ -2,7 +2,7 @@
 	name = "flash"
 	desc = "Used for blinding and being an asshole."
 	icon_state = "flash"
-	item_state = "flashtool"
+	item_state = "flash"
 	throwforce = 5
 	w_class = 2
 	throw_speed = 4
@@ -79,8 +79,9 @@
 		var/safety = M:eyecheck(TRUE)
 		if(safety <= 0)
 			flick("e_flash", M.flash)
+			M.confused = 10
 			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/eyes/E = H.get_eyes()
+			var/obj/item/organ/internal/eyes/E = H.get_eyes()
 			if(!E)
 				return
 
@@ -143,7 +144,7 @@
 	//It will never break on the first use.
 	switch(times_used)
 		if(0 to 5)
-			if(prob(10*times_used))	//More consequential rolls are made the more you overuse the device.
+			if(prob(5*times_used))	//More consequential rolls are made the more you overuse the device.
 				broken = 1
 				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
 				icon_state = "flashburnt"
@@ -167,8 +168,8 @@
 
 	for(var/mob/living/carbon/M in oviewers(3, null))
 		if(prob(50))
-			if (locate(/obj/item/weapon/cloaking_device, M))
-				for(var/obj/item/weapon/cloaking_device/S in M)
+			if (locate(/obj/item/cloaking_device, M))
+				for(var/obj/item/cloaking_device/S in M)
 					S.active = 0
 					S.icon_state = "shield0"
 		var/safety = M.eyecheck(TRUE)
@@ -183,7 +184,7 @@
 	flash_recharge()
 	switch(times_used)
 		if(0 to 5)
-			if(prob(20*times_used))
+			if(prob(5*times_used))
 				broken = 1
 				icon_state = "flashburnt"
 				return

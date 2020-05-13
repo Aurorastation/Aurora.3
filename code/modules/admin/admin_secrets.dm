@@ -27,11 +27,7 @@ var/datum/admin_secrets/admin_secrets = new()
 /datum/admin_secret_category
 	var/name = ""
 	var/desc = ""
-	var/list/datum/admin_secret_item/items
-
-/datum/admin_secret_category
-	..()
-	items = list()
+	var/list/datum/admin_secret_item/items = list()
 
 /datum/admin_secret_category/proc/can_view(var/mob/user)
 	for(var/datum/admin_secret_item/item in items)

@@ -36,14 +36,15 @@
 	var/list/human_icon_cache = list()
 	var/list/tail_icon_cache = list()	//key is [species.race_key][r_skin][g_skin][b_skin]
 	var/list/light_overlay_cache = list()
-	// Cached body hair icons, used by resomi.
-	var/list/body_hair_cache = list()
+	// Cached limb icons, used by the damage health doll.
+	var/list/limb_icons_cache = list()
 	// Cached human damage icons.
 	var/list/damage_icon_parts = list()
 	// Cached human body markings.
 	var/list/markings_cache = list()	// [icon]-[icon_state]-[limb_name]-[color]
 	var/list/human_eye_cache = list()
 	var/list/human_lip_cache = list()
+	var/list/internal_organ_cache = list()
 	// Cached composited human hair (beard & hair).
 	// Key:
 	//    hair+beard: [beard_style][r_facial][g_facial][b_facial]_[hair_style][r_hair][g_hair][b_hair]

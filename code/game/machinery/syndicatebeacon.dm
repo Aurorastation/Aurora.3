@@ -80,7 +80,7 @@
 	name = "ominous beacon"
 	desc = "This looks suspicious..."
 	icon = 'icons/obj/singularity.dmi'
-	icon_state = "beacon"
+	icon_state = "beacon0"
 
 	anchored = 0
 	density = 1
@@ -129,7 +129,7 @@
 		return
 
 
-/obj/machinery/power/singularity_beacon/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/machinery/power/singularity_beacon/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.isscrewdriver())
 		if(active)
 			to_chat(user, "<span class='danger'>You need to deactivate the beacon first!</span>")
@@ -168,3 +168,7 @@
 /obj/machinery/power/singularity_beacon/syndicate
 	icontype = "beaconsynd"
 	icon_state = "beaconsynd0"
+
+/obj/machinery/power/singularity_beacon/emergency
+	name = "emergency singularity beacon"
+	desc = "A beacon that is designed to be used as last resort to contain Singularity or Tesla Engine. A one time use device."

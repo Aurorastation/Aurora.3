@@ -9,7 +9,7 @@
 
 /datum/martial_art/wrestling/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.grabbedby(A,1)
-	var/obj/item/weapon/grab/G = A.get_active_hand()
+	var/obj/item/grab/G = A.get_active_hand()
 	if(G && prob(50))
 		G.state = GRAB_AGGRESSIVE
 		D.visible_message("<span class='danger'>[A] has [D] in a clinch!</span>")
@@ -36,8 +36,8 @@
 	return
 
 /datum/martial_art/wrestling/disarm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	if(istype(A.get_inactive_hand(),/obj/item/weapon/grab))
-		var/obj/item/weapon/grab/G = A.get_inactive_hand()
+	if(istype(A.get_inactive_hand(),/obj/item/grab))
+		var/obj/item/grab/G = A.get_inactive_hand()
 		if(G.affecting == D)
 			Suplex(A,D)
 			return 1
@@ -49,7 +49,7 @@
 	D.visible_message("<span class='danger'>[A] holds [D] down!</span>")
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
 	var/armor_block = D.run_armor_check(affecting, "melee")
-	D.apply_damage(40, HALLOSS, affecting, armor_block)
+	D.apply_damage(40, PAIN, affecting, armor_block)
 	return 1
 
 /datum/martial_art/wrestling/proc/wrestling_help()

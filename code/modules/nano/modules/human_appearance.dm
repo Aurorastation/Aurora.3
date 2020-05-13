@@ -34,9 +34,9 @@
 				return 1
 	if(href_list["skin_tone"])
 		if(can_change_skin_tone())
-			var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light 1 - 220 Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
+			var/new_s_tone = input(usr, "Choose your character's skin-tone:\n(Light 30 - 220 Dark)", "Skin Tone", -owner.s_tone + 35) as num|null
 			if(isnum(new_s_tone) && can_still_topic(state))
-				new_s_tone = 35 - max(min( round(new_s_tone), 220),1)
+				new_s_tone = 35 - max(min( round(new_s_tone), 220),30)
 				return owner.change_skin_tone(new_s_tone)
 	if(href_list["skin_color"])
 		if(can_change_skin_color())
@@ -45,6 +45,17 @@
 				var/r_skin = hex2num(copytext(new_skin, 2, 4))
 				var/g_skin = hex2num(copytext(new_skin, 4, 6))
 				var/b_skin = hex2num(copytext(new_skin, 6, 8))
+				if(owner.change_skin_color(r_skin, g_skin, b_skin))
+					update_dna()
+					return 1
+	if(href_list["skin_preset"])
+		if(can_change_skin_preset())
+			var/new_preset = input(usr, "Choose your character's body color preset:", "Character Preference", rgb(owner.r_skin, owner.g_skin, owner.b_skin)) as null|anything in owner.species.character_color_presets
+			if(new_preset && can_still_topic(state))
+				new_preset = owner.species.character_color_presets[new_preset]
+				var/r_skin = GetRedPart(new_preset)
+				var/g_skin = GetGreenPart(new_preset)
+				var/b_skin = GetBluePart(new_preset)
 				if(owner.change_skin_color(r_skin, g_skin, b_skin))
 					update_dna()
 					return 1
@@ -110,6 +121,7 @@
 	data["change_gender"] = can_change(APPEARANCE_GENDER)
 	data["change_skin_tone"] = can_change_skin_tone()
 	data["change_skin_color"] = can_change_skin_color()
+	data["change_skin_preset"] = can_change_skin_preset()
 	data["change_eye_color"] = can_change(APPEARANCE_EYE_COLOR)
 	data["change_hair"] = can_change(APPEARANCE_HAIR)
 	if(data["change_hair"])
@@ -148,6 +160,9 @@
 
 /datum/nano_module/appearance_changer/proc/can_change_skin_color()
 	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_COLOR
+
+/datum/nano_module/appearance_changer/proc/can_change_skin_preset()
+	return owner && (flags & APPEARANCE_SKIN) && owner.species.appearance_flags & HAS_SKIN_PRESET
 
 /datum/nano_module/appearance_changer/proc/cut_and_generate_data()
 	// Making the assumption that the available species remain constant

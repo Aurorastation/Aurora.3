@@ -29,24 +29,23 @@
 /atom/proc/attack_hand(mob/user as mob)
 	return
 
+/mob/proc/attack_empty_hand(var/bp_hand)
+	return
+
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
 	return
 
 /mob/living/carbon/human/RangedAttack(var/atom/A)
-	if(!(gloves || mutations.len || glasses)) return
 	var/obj/item/clothing/gloves/GV = gloves
 	var/obj/item/clothing/glasses/GS = glasses
-	if((LASER in mutations) && a_intent == I_HURT)
-		LaserEyes(A) // moved into a proc below
 	
-	else if(istype(GS) && GS.Look(A,src,0)) // for goggles
+	if(istype(GS) && GS.Look(A,src,0)) // for goggles
 		return
 	
-	else if(istype(GV) && GV.Touch(A,src,0)) // for magic gloves
+	if(istype(GV) && GV.Touch(A,src,0)) // for magic gloves
 		return
 
-	else if(TK in mutations)
-		A.attack_tk(src)
+	. = ..()
 
 /mob/living/RestrainedClickOn(var/atom/A)
 	return
@@ -80,16 +79,17 @@
 		return
 
 	// Eating
-	if(Victim)
-		if (Victim == A)
+	if(victim)
+		if (victim == A)
 			Feedstop()
 		return
 
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	var/mob/living/M = A
-	if (istype(M))
-
+	if(ishuman(M) && !istype(M, /mob/living/carbon/human/monkey) && content)
+		return
+	if(istype(M))
 		switch(src.a_intent)
 			if (I_HELP) // We just poke the other
 				M.visible_message("<span class='notice'>[src] gently pokes [M]!</span>", "<span class='notice'>[src] gently pokes you!</span>")
@@ -101,15 +101,21 @@
 						var/mob/living/carbon/human/H = M
 						stunprob *= H.species.siemens_coefficient
 
-
 					switch(power * 10)
-						if(0) stunprob *= 10
-						if(1 to 2) stunprob *= 20
-						if(3 to 4) stunprob *= 30
-						if(5 to 6) stunprob *= 40
-						if(7 to 8) stunprob *= 60
-						if(9) 	   stunprob *= 70
-						if(10) 	   stunprob *= 95
+						if(0)
+							stunprob *= 10
+						if(1 to 2)
+							stunprob *= 20
+						if(3 to 4)
+							stunprob *= 30
+						if(5 to 6)
+							stunprob *= 40
+						if(7 to 8)
+							stunprob *= 60
+						if(9)
+							stunprob *= 70
+						if(10)
+							stunprob *= 95
 
 				if(prob(stunprob))
 					powerlevel = max(0, powerlevel-3)

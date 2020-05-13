@@ -140,9 +140,12 @@
 /obj/effect/ebeam
 	mouse_opacity = 0
 	anchored = 1
-	layer = LIGHTING_LAYER + 0.1
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	blend_mode = BLEND_ADD
 	var/datum/beam/owner
+
+/obj/effect/ebeam/tesla_act()
+	return
 
 /obj/effect/ebeam/Destroy()
 	owner = null

@@ -259,7 +259,7 @@
 /obj/item/clothing/suit/space/void/engineering,
 /obj/item/clothing/glasses/meson,
 /obj/item/clothing/head/helmet/space/void/engineering,
-/obj/item/weapon/tank/oxygen,
+/obj/item/tank/oxygen,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/random/tech_supply,

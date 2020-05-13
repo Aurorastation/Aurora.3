@@ -19,57 +19,58 @@
 	var/blood_level = 0
 
 	//returns how well tool is suited for this step
-	proc/tool_quality(obj/item/tool)
-		for (var/T in allowed_tools)
-			if (istype(tool,T))
-				return allowed_tools[T]
-		return 0
+/datum/surgery_step/proc/tool_quality(obj/item/tool)
+	for(var/T in allowed_tools)
+		if(istype(tool,T))
+			return allowed_tools[T]
+	return 0
 
 	// Checks if this step applies to the user mob at all
-	proc/is_valid_target(mob/living/carbon/human/target)
-		if(!hasorgans(target))
-			return 0
-
-		if(allowed_species)
-			for(var/species in allowed_species)
-				if(target.species.get_bodytype() == species)
-					return 1
-
-		if(disallowed_species)
-			for(var/species in disallowed_species)
-				if(target.species.get_bodytype() == species)
-					return 0
-
-		return 1
-
-
-	// checks whether this step can be applied with the given user and target
-	proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/datum/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
+	if(!ishuman(target))
 		return 0
 
-	// does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
-	proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		if (can_infect && affected)
-			spread_germs_to_organ(affected, user)
-		if (ishuman(user) && prob(60))
-			var/mob/living/carbon/human/H = user
-			if (blood_level)
-				H.bloody_hands(target,0)
-			if (blood_level > 1)
-				H.bloody_body(target,0)
-		return
+	if(allowed_species)
+		for(var/species in allowed_species)
+			if(target.species.get_bodytype() == species)
+				return 1
 
-	// does stuff to end the step, which is normally print a message + do whatever this step changes
-	proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		return
+	if(disallowed_species)
+		for(var/species in disallowed_species)
+			if(target.species.get_bodytype() == species)
+				return 0
 
-	// stuff that happens when the step fails
-	proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		return null
+	return 1
+
+
+// checks whether this step can be applied with the given user and target
+/datum/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	return 0
+
+// does stuff to begin the step, usually just printing messages. Moved germs transfering and bloodying here too
+/datum/surgery_step/proc/begin_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(can_infect && affected)
+		spread_germs_to_organ(affected, user)
+	if(ishuman(user) && prob(60))
+		var/mob/living/carbon/human/H = user
+		if(blood_level)
+			H.bloody_hands(target,0)
+		if(blood_level > 1)
+			H.bloody_body(target,0)
+	return
+
+// does stuff to end the step, which is normally print a message + do whatever this step changes
+/datum/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	return
+
+// stuff that happens when the step fails
+/datum/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	return null
 
 proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/human/user)
-	if(!istype(user) || !istype(E)) return
+	if(!istype(user) || !istype(E))
+		return
 
 	var/germ_level = user.germ_level
 	if(user.gloves)
@@ -77,7 +78,7 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 
 	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
 
-proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
+proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool, var/autofail = FALSE)
 	if(!istype(M))
 		return 0
 	if (user.a_intent == I_HURT)	//check for Hippocratic Oath
@@ -95,8 +96,11 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 					return 1
 				M.op_stage.in_progress += zone
 				S.begin_step(user, M, zone, tool)		//start on it
+				//The surface we're working on is shoddy, so we make a mistake
+				if(autofail)
+					S.fail_step(user, M, zone, tool)
 				//We had proper tools! (or RNG smiled.) and user did not move or change hands.
-				if(prob(S.tool_quality(tool)) &&  do_mob(user, M, rand(S.min_duration, S.max_duration)))
+				else if(prob(S.tool_quality(tool)) &&  do_mob(user, M, rand(S.min_duration, S.max_duration)))
 					S.end_step(user, M, zone, tool)		//finish successfully
 				else if ((tool in user.contents) && user.Adjacent(M))			//or
 					S.fail_step(user, M, zone, tool)		//malpractice~
@@ -109,7 +113,7 @@ proc/do_surgery(mob/living/carbon/M, mob/living/user, obj/item/tool)
 				return	1	  												//don't want to do weapony things after surgery
 
 	if (user.a_intent == I_HELP)
-		to_chat(user, "<span class='warning'>You can't see any useful way to use [tool] on [M].</span>")
+		to_chat(user, "<span class='warning'>You can't see any useful way to use \the [tool] on [M].</span>")
 		//not returning 1 so people and borgs can still use things, like syringes and hyposprays, while their patients are on the table
 	return 0
 

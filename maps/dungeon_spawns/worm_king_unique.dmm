@@ -25,7 +25,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "j" = (
-/obj/item/weapon/archaeological_find,
+/obj/item/archaeological_find,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 

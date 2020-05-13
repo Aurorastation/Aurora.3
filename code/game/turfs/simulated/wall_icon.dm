@@ -8,7 +8,7 @@
 	else
 		construction_stage = null
 	if(!material)
-		material = get_material_by_name(DEFAULT_WALL_MATERIAL)
+		material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 	if(material)
 		explosion_resistance = material.explosion_resistance
 		if (material.wall_icon)
@@ -110,6 +110,8 @@
 		damage_overlays[i] = img
 
 /turf/simulated/wall/calculate_adjacencies()
+	if(use_standard_smoothing)
+		return ..()
 	. = 0
 	if (!loc || !material)
 		return

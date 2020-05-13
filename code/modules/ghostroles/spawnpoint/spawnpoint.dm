@@ -82,7 +82,7 @@
 		return //if its a one-use spawner and it got used already, dont reset it
 	else if(state == STATE_RECHARGING)
 		STOP_PROCESSING(SSprocessing, src)
-	
+
 	state = STATE_UNAVAILABLE
 	update_icon()
 
@@ -122,3 +122,31 @@
 	unacidable = 1
 	simulated = 1
 	invisibility = 0
+
+/obj/effect/ghostspawpoint/button
+	name = "button"
+	desc = "A button used for some kind of purpose."
+	icon = 'icons/obj/stationobjs.dmi'
+	icon_state = "doorctrl0"
+
+	identifier = null
+
+	icon_unavailable = "doorctrl0"
+	icon_available = "doorctrl-p"
+	icon_recharging = "doorctrl-p"
+	icon_used = "doorctrl-p"
+
+	anchored = 1
+	unacidable = 1
+	simulated = 1
+	invisibility = 0
+
+	var/use_message = "An assistant has been requested. One will be with you shortly if available."
+	var/message_used = FALSE
+
+/obj/effect/ghostspawpoint/button/set_available()
+	..()
+	if(use_message && !message_used)
+		message_used = TRUE
+		visible_message(span("notice",use_message))
+		playsound(src.loc, 'sound/machines/chime.ogg', 25, 1)

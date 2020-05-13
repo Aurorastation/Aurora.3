@@ -326,9 +326,12 @@ it should be avoided in favour of manual removal where possible
 			if (istype(target, /mob/living))
 				var/mob/living/L = target
 
-				for (var/datum/reagent/R in L.ingested.reagent_list)
-					if (istype(R, ourtype))
-						totaldose += R.dose
+				if(ishuman(L))
+					var/mob/living/carbon/human/H = L
+
+					for (var/datum/reagent/R in H.get_ingested_reagents())
+						if(istype(R, ourtype))
+							totaldose += R.dose
 
 				if (istype(target, /mob/living/carbon))
 					var/mob/living/carbon/C = target

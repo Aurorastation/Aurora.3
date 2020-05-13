@@ -63,6 +63,20 @@ research holder datum.
 		known_tech += new T(src)
 	RefreshResearch()
 
+/datum/research/hightech
+
+/datum/research/hightech/New()
+	for(var/T in typesof(/datum/tech) - /datum/tech)
+		known_tech += new T(src)
+	for(var/D in typesof(/datum/design) - /datum/design)
+		possible_designs += new D(src)
+	for(var/datum/tech/known in known_tech)
+		if(istype(known,/datum/tech/syndicate) || istype(known,/datum/tech/arcane)) //illegal or antag shit we don't want to start with
+			known.level = 0
+		else
+			known.level = 3
+	RefreshResearch()
+
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
 /datum/research/proc/DesignHasReqs(var/datum/design/D)
@@ -96,9 +110,9 @@ research holder datum.
 		return
 	for(var/i = 1 to known_designs.len)
 		var/datum/design/A = known_designs[i]
-		if(A.id == D.id) // We are guaranteed to reach this if the ids are the same, because sort_string will also be the same
+		if("[A.type]" == "[D.type]") // We are guaranteed to reach this if the ids are the same, because sort_string will also be the same
 			return
-		if(A.sort_string > D.sort_string)
+		if(A.design_order > D.design_order)
 			known_designs.Insert(i, D)
 			return
 	known_designs.Add(D)
@@ -197,30 +211,30 @@ research holder datum.
 	id = TECH_ARCANE
 	level = 0
 
-/obj/item/weapon/disk/tech_disk
+/obj/item/disk/tech_disk
 	name = "technology disk"
 	desc = "A disk for storing technology data for further research."
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk2"
 	item_state = "card-id"
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/tech/stored
 
-/obj/item/weapon/disk/tech_disk/New()
+/obj/item/disk/tech_disk/New()
 	pixel_x = rand(-5.0, 5)
 	pixel_y = rand(-5.0, 5)
 
-/obj/item/weapon/disk/design_disk
+/obj/item/disk/design_disk
 	name = "component design disk"
 	desc = "A disk for storing device design data for construction in lathes."
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk2"
 	item_state = "card-id"
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 30, "glass" = 10)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/design/blueprint
 
-/obj/item/weapon/disk/design_disk/New()
+/obj/item/disk/design_disk/New()
 	pixel_x = rand(-5.0, 5)
 	pixel_y = rand(-5.0, 5)

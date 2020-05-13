@@ -38,21 +38,21 @@
 	is_critical = 1
 
 /obj/machinery/power/apc/high
-	cell_type = /obj/item/weapon/cell/high
+	cell_type = /obj/item/cell/high
 
 /obj/machinery/power/apc/isolation
-	cell_type = /obj/item/weapon/cell
+	cell_type = /obj/item/cell
 	req_access = null
 	req_one_access = list(access_engine_equip,access_research,access_xenobiology)
 
 
 /obj/machinery/power/apc/vault
-	cell_type = /obj/item/weapon/cell
+	cell_type = /obj/item/cell
 	req_access = list(access_captain)
 
 // Construction site APC, starts turned off
 /obj/machinery/power/apc/high/inactive
-	cell_type = /obj/item/weapon/cell/high
+	cell_type = /obj/item/cell/high
 	lighting = 0
 	equipment = 0
 	environ = 0
@@ -61,13 +61,13 @@
 	start_charge = 100
 
 /obj/machinery/power/apc/super
-	cell_type = /obj/item/weapon/cell/super
+	cell_type = /obj/item/cell/super
 
 /obj/machinery/power/apc/super/critical
 	is_critical = 1
 
 /obj/machinery/power/apc/hyper
-	cell_type = /obj/item/weapon/cell/hyper
+	cell_type = /obj/item/cell/hyper
 
 /obj/machinery/power/apc
 	name = "area power controller"
@@ -77,14 +77,16 @@
 	anchored = 1
 	use_power = 0
 	req_access = list(access_engine_equip)
+	gfi_layer_rotation = GFI_ROTATION_DEFDIR
+	clicksound = "switch"
 	var/area/area
 	var/areastring = null
-	var/obj/item/weapon/cell/cell
+	var/obj/item/cell/cell
 	var/chargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/cellused = 0
 	var/initalchargelevel = 0.0005  // Cap for how fast APC cells charge, as a percentage-per-tick (0.01 means cellcharge is capped to 1% per second)
 	var/start_charge = 90				// initial cell charge %
-	var/cell_type = /obj/item/weapon/cell/apc
+	var/cell_type = /obj/item/cell/apc
 	var/opened = 0 //0=closed, 1=opened, 2=cover removed
 	var/shorted = 0
 	var/night_mode = 0 // Determines if the light level is set to dimmed or not
@@ -109,8 +111,8 @@
 	var/main_status = 0
 	var/mob/living/silicon/ai/hacker = null // Malfunction var. If set AI hacked the APC and has full control.
 	var/wiresexposed = 0
-	powernet = 0		// set so that APCs aren't found as powernet nodes //Hackish, Horrible, was like this before I changed it :(
-	var/debug= 0
+	powernet = 0		// set so that APCs aren't found as powernet nodes //Hackish, Horrible, was like this before I changed it :c
+	var/debug = 0
 	var/autoflag= 0		// 0 = off, 1= eqp and lights off, 2 = eqp off, 3 = all on.
 	var/has_electronics = 0 // 0 - none, 1 - plugged in, 2 - secured by screwdriver
 	var/beenhit = 0 // used for counting how many times it has been hit, used for Aliens at the moment
@@ -439,7 +441,8 @@
 
 	if (istype(user, /mob/living/silicon) && get_dist(src,user)>1)
 		return src.attack_hand(user)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
 	if (W.iscrowbar() && opened)
 		if (has_electronics==1)
 			if (terminal)
@@ -460,7 +463,7 @@
 						user.visible_message(\
 							"<span class='warning'>[user.name] has removed the power control board from [src.name]!</span>",\
 							"<span class='notice'>You remove the power control board.</span>")
-						new /obj/item/weapon/module/power_control(loc)
+						new /obj/item/module/power_control(loc)
 		else if (opened!=2) //cover isn't removed
 			panel_open = 0
 			opened = 0
@@ -473,8 +476,8 @@
 			opened = 1
 			panel_open = 1
 			update_icon()
-	else if (istype(W, /obj/item/weapon/gripper))//Code for allowing cyborgs to use rechargers
-		var/obj/item/weapon/gripper/Gri = W
+	else if (istype(W, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
+		var/obj/item/gripper/Gri = W
 		if(opened && cell)
 			if (Gri.grip_item(cell, user))
 				cell.add_fingerprint(user)
@@ -486,7 +489,7 @@
 				charging = 0
 				src.update_icon()
 				return
-	else if	(istype(W, /obj/item/weapon/cell) && opened)	// trying to put a cell inside
+	else if	(istype(W, /obj/item/cell) && opened)	// trying to put a cell inside
 		if(cell)
 			to_chat(user, "There is a power cell already installed.")
 			return
@@ -529,7 +532,7 @@
 			to_chat(user, "The wires have been [wiresexposed ? "exposed" : "unexposed"]")
 			update_icon()
 
-	else if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))			// trying to unlock the interface with an ID card
+	else if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))			// trying to unlock the interface with an ID card
 		if(emagged)
 			to_chat(user, "The interface is broken.")
 		else if(opened)
@@ -589,7 +592,7 @@
 				new /obj/item/stack/cable_coil(loc,10)
 				to_chat(user, "<span class='notice'>You cut the cables and dismantle the power terminal.</span>")
 				qdel(terminal)
-	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && !((stat & BROKEN)))
+	else if (istype(W, /obj/item/module/power_control) && opened && has_electronics==0 && !((stat & BROKEN)))
 		user.visible_message("<span class='warning'>[user.name] inserts the power control board into [src].</span>", \
 							"You start to insert the power control board into the frame...")
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -598,11 +601,11 @@
 				has_electronics = 1
 				to_chat(user, "<span class='notice'>You place the power control board inside the frame.</span>")
 				qdel(W)
-	else if (istype(W, /obj/item/weapon/module/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
+	else if (istype(W, /obj/item/module/power_control) && opened && has_electronics==0 && ((stat & BROKEN)))
 		to_chat(user, "<span class='warning'>You cannot put the board inside, the frame is damaged.</span>")
 		return
 	else if (W.iswelder() && opened && has_electronics==0 && !terminal)
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if (!WT.isOn()) return
 		if (WT.get_fuel() < 3)
 			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
@@ -658,25 +661,25 @@
 	else if (istype(W, /obj/item/device/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, "<span class='warning'>There is a software error with the device. Attempting to fix...</span>")
-			if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+			if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
 				to_chat(user, "<span class='notice'>Problem diagnosed, searching for solution...</span>")
-				if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
+				if(do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 					to_chat(user, "<span class='notice'>Solution found. Applying fixes...</span>")
-					if(do_after(user, 60/W.toolspeed SECONDS, act_target = src))
+					if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
 						if(prob(15))
 							to_chat(user, "<span class='warning'>Error while applying fixes. Please try again.</span>")
 							return
 					to_chat(user, "<span class='notice'>Applied default software. Restarting APC...</span>")
-					if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+					if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
 						to_chat(user, "<span class='notice'>APC Reset. Fixes applied.</span>")
 						if(hacker)
 							hacker.hacked_apcs -= src
 							hacker = null
 							update_icon()
 						if(emagged)
-							emagged = 0
+							emagged = FALSE
 						if(infected)
-							infected = 0
+							infected = FALSE
 			else
 				to_chat(user, "<span class='notice'>There has been a connection issue.</span>")
 				return
@@ -688,7 +691,7 @@
 		if ((stat & BROKEN) \
 				&& !opened \
 				&& W.iswelder() )
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if (!WT.isOn()) return
 			if (WT.get_fuel() <1)
 				to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
@@ -729,7 +732,13 @@
 // attack with hand - remove cell (if cover open) or interact with the APC
 
 /obj/machinery/power/apc/emag_act(var/remaining_charges, var/mob/user)
-	if (!(emagged || hacker))		// trying to unlock with an emag card
+	if(emagged && !infected)
+		to_chat(user, SPAN_WARNING("You start sliding your cryptographic device into the charging slot. This will take a few seconds..."))
+		if(do_after(user, 60))
+			to_chat(user, SPAN_NOTICE("You hack the charging slot. The next IPC that charges from this APC will be hacked and slaved to you."))
+			infected = TRUE
+			hacker = user
+	if(!(emagged || hacker))		// trying to unlock with an emag card
 		if(opened)
 			to_chat(user, "You must close the cover to swipe an ID card.")
 		else if(wiresexposed)
@@ -738,11 +747,11 @@
 			to_chat(user, "Nothing happens.")
 		else
 			flick("apc-spark", src)
-			if (do_after(user,6))
+			if(do_after(user, 6))
 				if(prob(50))
-					emagged = 1
-					locked = 0
-					to_chat(user, "<span class='notice'>You emag the APC interface.</span>")
+					emagged = TRUE
+					locked = FALSE
+					to_chat(user, "<span class='notice'>You hack the APC interface open.</span>")
 					update_icon()
 				else
 					to_chat(user, "<span class='warning'>You fail to [ locked ? "unlock" : "lock"] the APC interface.</span>")
@@ -765,12 +774,16 @@
 				to_chat(H, "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>")
 				H.adjustFireLoss(10, 0)
 			if(infected)
+				for(var/obj/item/implant/mindshield/ipc/I in H)
+					if(I.implanted)
+						return
 				if(SOFTREF(H) in hacked_ipcs)
 					return
 				LAZYADD(hacked_ipcs, SOFTREF(H))
-				infected = 0
-				to_chat(H, "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>")
-				to_chat(hacker, "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are repaired.</span>")
+				infected = FALSE
+				to_chat(H, "<span class='danger'>F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now.</span>")
+				if(issilicon(hacker))
+					to_chat(hacker, "<span class='notice'>Corrupt files transfered to [H]. They are now under your control until they are repaired.</span>")
 			else if(src.cell && src.cell.charge > 0)
 				if(H.max_nutrition > 0 && H.nutrition < H.max_nutrition)
 					if(src.cell.charge >= H.max_nutrition)

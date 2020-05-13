@@ -3,42 +3,37 @@
 // The datum containing all the chunks.
 
 /datum/visualnet/camera
-	// The cameras on the map, no matter if they work or not. Updated in obj/machinery/camera.dm by New() and Destroy().
-	var/list/cameras = list()
-	var/cameras_unsorted = 1
+	// The cameras on the map, no matter if they work or not.
+	var/list/cameras
 	chunk_type = /datum/chunk/camera
+	valid_source_types = list(/obj/machinery/camera, /mob/living/silicon/ai)
 
-/datum/visualnet/camera/proc/process_sort()
-	if(cameras_unsorted)
-		sortTim(cameras, /proc/cmp_camera, FALSE)
-		cameras_unsorted = 0
+/datum/visualnet/camera/New()
+	cameras = list()
+	..()
 
-// Removes a camera from a chunk.
+/datum/visualnet/camera/Destroy()
+	cameras.Cut()
+	. = ..()
 
-/datum/visualnet/camera/proc/removeCamera(obj/machinery/camera/c)
-	if(c.can_use())
-		majorChunkChange(c, 0)
+/datum/visualnet/camera/add_source(obj/machinery/camera/c)
+	if(istype(c))
+		if(c in cameras)
+			return FALSE
+		. = ..(c, c.can_use())
+		if(.)
+			dd_binaryInsertSorted(cameras, c)
+	else if(isAI(c))
+		var/mob/living/silicon/AI = c
+		return ..(AI, AI.stat != DEAD)
+	else
+		..()
 
-// Add a camera to a chunk.
-
-/datum/visualnet/camera/proc/addCamera(obj/machinery/camera/c)
-	if(c.can_use())
-		majorChunkChange(c, 1)
-
-// Used for Cyborg cameras. Since portable cameras can be in ANY chunk.
-
-/datum/visualnet/camera/proc/updatePortableCamera(obj/machinery/camera/c)
-	if(c.can_use())
-		majorChunkChange(c, 1)
-	//else
-	//	majorChunkChange(c, 0)
-
-/datum/visualnet/camera/onMajorChunkChange(atom/c, var/choice, var/datum/chunk/camera/chunk)
-// Only add actual cameras to the list of cameras
-	if(istype(c, /obj/machinery/camera))
-		if(choice == 0)
-			// Remove the camera.
-			chunk.cameras -= c
-		else if(choice == 1)
-			// You can't have the same camera in the list twice.
-			chunk.cameras |= c
+/datum/visualnet/camera/remove_source(obj/machinery/camera/c)
+	if(istype(c) && cameras.Remove(c))
+		. = ..(c, c.can_use())
+	if(isAI(c))
+		var/mob/living/silicon/AI = c
+		return ..(AI, AI.stat != DEAD)
+	else
+		..()

@@ -3,28 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build-dev": "vue-cli-service build --target app --name main --mode development",
     "build": "vue-cli-service build --target app --name main",
     "lint": "vue-cli-service lint",
+    "build-dev": "vue-cli-service build --target app --name main --mode development",
     "dev": "vue-cli-service build --watch"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.1",
-    "core-js": "^3.1.4",
-    "core-js-compat": "^3.1.4",
-    "fuse.js": "^3.4.5",
-    "vue": "^2.6.10",
-    "webpack": "^4.39.1"
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "core-js": "^3.6.5",
+    "core-js-compat": "^3.6.5",
+    "fuse.js": "^3.6.1",
+    "vue": "^2.6.11",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.5.5",
-    "@vue/cli-plugin-babel": "^3.10.0",
-    "@vue/cli-plugin-eslint": "^3.10.0",
-    "@vue/cli-service": "^3.10.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.10",
-    "webpack-command": "^0.4.2"
+    "@babel/preset-env": "^7.9.6",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.14.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
     "ie >= 9",

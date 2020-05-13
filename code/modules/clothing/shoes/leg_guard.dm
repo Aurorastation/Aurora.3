@@ -2,10 +2,11 @@
 	name = "leg guards"
 	desc = "These will protect your legs and feet."
 	icon_state = "leg_guards_riot"
+	item_state = "jackboots"
 	body_parts_covered = LEGS|FEET
 	w_class = 3
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	siemens_coefficient = 0.5
+	siemens_coefficient = 0.35
 	force = 3
 	drop_sound = 'sound/items/drop/boots.ogg'
 

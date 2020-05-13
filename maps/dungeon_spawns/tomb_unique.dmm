@@ -4,20 +4,20 @@
 /area/mine/unexplored)
 "b" = (
 /turf/simulated/wall/sandstone,
-/area/tomb)
+/area/dungeon/tomb)
 "c" = (
 /turf/simulated/floor/tiled/dark,
-/area/tomb)
+/area/dungeon/tomb)
 "d" = (
 /turf/simulated/floor/silver,
-/area/tomb)
+/area/dungeon/tomb)
 "e" = (
 /turf/simulated/floor/gold,
-/area/tomb)
+/area/dungeon/tomb)
 "f" = (
 /obj/structure/sarcophagus,
 /turf/simulated/floor/gold,
-/area/tomb)
+/area/dungeon/tomb)
 
 (1,1,1) = {"
 a

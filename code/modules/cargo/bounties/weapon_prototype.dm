@@ -20,7 +20,7 @@
 /datum/bounty/weapon_prototype/applies_to(obj/O)
 	if(shipped)
 		return FALSE
-	if(!istype(O, /obj/item/weapon/gun/energy/laser/prototype))
+	if(!istype(O, /obj/item/gun/energy/laser/prototype))
 		return FALSE
 	if(accepts_weapon(O))
 		return TRUE
@@ -38,7 +38,7 @@
 	return type != W.type
 
 
-/datum/bounty/weapon_prototype/proc/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
+/datum/bounty/weapon_prototype/proc/accepts_weapon(var/obj/item/gun/energy/laser/prototype/P)
 	return TRUE
 
 /datum/bounty/weapon_prototype/burst
@@ -46,7 +46,7 @@
 	stat_value = 3
 	stat_comparison = "greater than"
 
-/datum/bounty/weapon_prototype/burst/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
+/datum/bounty/weapon_prototype/burst/accepts_weapon(var/obj/item/gun/energy/laser/prototype/P)
 	return P.burst > stat_value
 
 /datum/bounty/weapon_prototype/fire_delay
@@ -54,7 +54,7 @@
 	stat_value = 1
 	stat_comparison = "smaller than"
 
-/datum/bounty/weapon_prototype/fire_delay/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
+/datum/bounty/weapon_prototype/fire_delay/accepts_weapon(var/obj/item/gun/energy/laser/prototype/P)
 	return P.fire_delay < stat_value
 
 /datum/bounty/weapon_prototype/reliability
@@ -62,7 +62,7 @@
 	stat_value = 60
 	stat_comparison = "greater than"
 
-/datum/bounty/weapon_prototype/reliability/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
+/datum/bounty/weapon_prototype/reliability/accepts_weapon(var/obj/item/gun/energy/laser/prototype/P)
 	return P.reliability > stat_value
 
 /datum/bounty/weapon_prototype/reliability
@@ -70,5 +70,5 @@
 	stat_value = 3
 	stat_comparison = "greater than"
 
-/datum/bounty/weapon_prototype/reliability/accepts_weapon(var/obj/item/weapon/gun/energy/laser/prototype/P)
+/datum/bounty/weapon_prototype/reliability/accepts_weapon(var/obj/item/gun/energy/laser/prototype/P)
 	return P.accuracy > stat_value

@@ -36,7 +36,7 @@
 		var/area/A = get_area(C)
 		if(!A)
 			continue
-		if(!(A.z in current_map.station_levels))
+		if(isNotStationLevel(A.z))
 			continue
 		if(A.flags & RAD_SHIELDED)
 			continue

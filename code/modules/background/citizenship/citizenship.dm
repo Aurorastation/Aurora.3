@@ -16,7 +16,7 @@
 			rep_objectives = pick("Have [rand(2,5)] amount of [demonym] citizens write down their grievances with the company, and present the report to station command")
 		else
 			rep_objectives = pick("Collect [rand(3,7)] pictures of secure station areas",
-							"Convince station command to turn a [demonym] crewmember's sentence into a fine.")
+							"Convince station command to turn a [demonym] crewmember's sentence into a fine")
 
 
 	return rep_objectives

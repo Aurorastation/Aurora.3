@@ -50,3 +50,11 @@
 	have the potential to evolve and ascend, and that they will one day become equal to gods."
 	book_name = "holy book of trinary perfection"
 	book_sprite = "trinary"
+
+/datum/religion/scarab
+	name = RELIGION_SCARAB
+	description = "A combination of culture and religion, the folk beliefs of the Scarab Fleet have diverged greatly from the faiths held by the original colonists. \
+	Scarabs are usually quite superstitious: omens are a constant factor that are avoided by habitual rituals (that are likely to be viewed as odd by their regular crewmates), \
+	and one must always be aware of the Shaitan - a malevolent spirit in Scarab folklore that personifies all evil."
+	book_name = "Collected Scarab Tales"
+	book_sprite = "scrapbook"

@@ -10,7 +10,7 @@
 	return ..() && shipped_volume >= required_volume
 
 /datum/bounty/reagent/applies_to(obj/O)
-	if(!istype(O, /obj/item/weapon/reagent_containers))
+	if(!istype(O, /obj/item/reagent_containers))
 		return FALSE
 	if(!O.reagents || !O.reagents.has_reagent(wanted_reagent.id))
 		return FALSE

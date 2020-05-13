@@ -12,14 +12,14 @@
 	name = "hardsuit upgrade"
 	desc = "It looks pretty sciency."
 	icon = 'icons/obj/rig_modules.dmi'
-	icon_state = "module"
-	matter = list(DEFAULT_WALL_MATERIAL = 20000, "plastic" = 30000, "glass" = 5000)
+	icon_state = "generic"
+	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PLASTIC = 30000, MATERIAL_GLASS = 5000)
 
-	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL=7000,"glass"=7000)
+	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL=7000, MATERIAL_GLASS =7000)
 	var/construction_time = 100
 
 	var/damage = 0
-	var/obj/item/weapon/rig/holder
+	var/obj/item/rig/holder
 
 	var/module_cooldown = 10
 	var/next_use = 0
@@ -141,7 +141,7 @@
 	stat_modules +=	new/stat_rig_module/charge(src)
 
 // Called when the module is installed into a suit.
-/obj/item/rig_module/proc/installed(var/obj/item/weapon/rig/new_holder)
+/obj/item/rig_module/proc/installed(var/obj/item/rig/new_holder)
 	holder = new_holder
 	return
 
@@ -175,7 +175,7 @@
 	if(!holder.check_power_cost(usr, use_power_cost, 0, src, (istype(usr,/mob/living/silicon ? 1 : 0) ) ) )
 		return 0
 
-	if(!confined_use && istype(usr.loc, /obj/mecha))
+	if(!confined_use && istype(usr.loc, /mob/living/heavy_vehicle))
 		to_chat(usr, "<span class='danger'>You cannot use the suit in the confined space.</span>")
 		return 0
 
@@ -239,11 +239,11 @@
 /mob/living/carbon/human/Stat()
 	. = ..()
 
-	if(. && istype(back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/R = back
+	if(. && istype(back,/obj/item/rig))
+		var/obj/item/rig/R = back
 		SetupStat(R)
 
-/mob/proc/SetupStat(var/obj/item/weapon/rig/R)
+/mob/proc/SetupStat(var/obj/item/rig/R)
 	if(R && !R.canremove && R.installed_modules.len && statpanel("Hardsuit Modules"))
 		var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
 		stat("Suit charge", cell_status)
@@ -351,17 +351,17 @@
 
 /mob/living/carbon/human/ClickOn(atom/A, params)
 	. = ..()
-	if (ismob(A) && istype(back, /obj/item/weapon/rig))
-		var/obj/item/weapon/rig/R = back
+	if (ismob(A) && istype(back, /obj/item/rig))
+		var/obj/item/rig/R = back
 		R.attack_disrupt_check(src)
 
 /mob/living/carbon/human/throw_item(atom/target)
 	. = ..()
-	if (ismob(src) && istype(back, /obj/item/weapon/rig))
-		var/obj/item/weapon/rig/R = back
+	if (ismob(src) && istype(back, /obj/item/rig))
+		var/obj/item/rig/R = back
 		R.attack_disrupt_check(src)
 
-/obj/item/weapon/rig/proc/attack_disrupt_check()
+/obj/item/rig/proc/attack_disrupt_check()
 	for (var/obj/item/rig_module/module in installed_modules)
 		if (module.active && module.attackdisrupts)
 			module.deactivate()

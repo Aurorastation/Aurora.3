@@ -44,7 +44,7 @@ obj/var/contaminated = 0
 /obj/item/proc/can_contaminate()
 	//Clothing and backpacks can be contaminated.
 	if(flags & PHORONGUARD) return 0
-	else if(istype(src,/obj/item/weapon/storage/backpack)) return 0 //Cannot be washed :(
+	else if(istype(src,/obj/item/storage/backpack)) return 0 //Cannot be washed :(
 	else if(istype(src,/obj/item/clothing)) return 1
 
 /obj/item/proc/contaminate()
@@ -69,7 +69,7 @@ obj/var/contaminated = 0
 		if(prob(1)) suit_contamination() //Phoron can sometimes get through such an open suit.
 
 //Cannot wash backpacks currently.
-//	if(istype(back,/obj/item/weapon/storage/backpack))
+//	if(istype(back,/obj/item/storage/backpack))
 //		back.contaminate()
 
 /mob/proc/pl_effects()
@@ -126,7 +126,7 @@ obj/var/contaminated = 0
 	if (!has_eyes() || species.eyes_are_impermeable)
 		return
 
-	var/obj/item/organ/eyes/E = get_eyes(no_synthetic = TRUE)
+	var/obj/item/organ/internal/eyes/E = get_eyes(no_synthetic = TRUE)
 	if(E)
 		if(prob(20)) to_chat(src, "<span class='danger'>Your eyes burn!</span>")
 		E.damage += 2.5

@@ -5,6 +5,7 @@
 	icon_state = "closed"
 	density = 1
 	w_class = 5
+	layer = OBJ_LAYER - 0.01
 	var/icon_closed = "closed"
 	var/icon_opened = "open"
 	var/welded_overlay_state = "welded"
@@ -16,8 +17,8 @@
 	var/storage_capacity = 40 //Tying this to mob sizes was dumb
 	//This is so that someone can't pack hundreds of items in a locker/crate
 							  //then open it in a populated area to crash clients.
-	var/open_sound = 'sound/effects/locker_open.ogg'
-	var/close_sound = 'sound/effects/locker_close.ogg'
+	var/open_sound = 'sound/effects/closet_open.ogg'
+	var/close_sound = 'sound/effects/closet_close.ogg'
 
 	var/store_misc = 1
 	var/store_items = 1
@@ -114,7 +115,7 @@
 
 	icon_state = icon_opened
 	opened = 1
-	playsound(loc, open_sound, 15, 1, -3)
+	playsound(loc, open_sound, 25, 0, -3)
 	density = 0
 	return 1
 
@@ -218,16 +219,14 @@
 	..()
 	damage(proj_damage)
 
-/obj/structure/closet/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/closet/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)
-		if(istype(W, /obj/item/weapon/grab))
-			var/obj/item/weapon/grab/G = W
+		if(istype(W, /obj/item/grab))
+			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
-		if(istype(W,/obj/item/tk_grab))
-			return 0
 		if(W.iswelder())
-			var/obj/item/weapon/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
 					"<span class='warning'>[user] begins cutting [src] apart.</span>",
@@ -248,8 +247,8 @@
 					)
 					qdel(src)
 					return
-		if(istype(W, /obj/item/weapon/storage/laundry_basket) && W.contents.len)
-			var/obj/item/weapon/storage/laundry_basket/LB = W
+		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
+			var/obj/item/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)
 			for(var/obj/item/I in LB.contents)
 				LB.remove_from_storage(I, T)
@@ -268,7 +267,7 @@
 	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else if(W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(WT.isOn())
 			user.visible_message(
 				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
@@ -336,12 +335,6 @@
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
 	return toggle(user)
-
-// tk grab then use on self
-/obj/structure/closet/attack_self_tk(mob/user as mob)
-	add_fingerprint(user)
-	if(!toggle())
-		to_chat(usr, "<span class='notice'>It won't budge!</span>")
 
 /obj/structure/closet/verb/verb_toggleopen()
 	set src in oview(1)

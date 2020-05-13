@@ -1,11 +1,11 @@
-/obj/item/weapon/grenade/empgrenade
+/obj/item/grenade/empgrenade
 	name = "classic emp grenade"
 	icon_state = "emp"
 	item_state = "emp"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_MAGNET = 3)
 
-/obj/item/weapon/grenade/empgrenade/prime()
+/obj/item/grenade/empgrenade/prime()
 	..()
-	if(empulse(src, 4, 10))
+	if(empulse(src, 2, 5))
 		qdel(src)
 	return

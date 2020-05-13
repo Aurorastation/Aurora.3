@@ -20,18 +20,6 @@
 	LAZYINITLIST(pai_software_by_key)
 	LAZYINITLIST(default_pai_software)
 
-/datum/controller/subsystem/pai/Initialize()
-	// Initialize the pAI software list.
-	for(var/type in subtypesof(/datum/pai_software))
-		var/datum/pai_software/P = new type()
-		if(pai_software_by_key[P.id])
-			var/datum/pai_software/O = pai_software_by_key[P.id]
-			to_world("<span class='warning'>pAI software module [P.name] has the same key as [O.name]!</span>")
-			continue
-		pai_software_by_key[P.id] = P
-		if(P.default)
-			default_pai_software[P.id] = P
-
 /datum/controller/subsystem/pai/Recover()
 	pai_software_by_key = SSpai.pai_software_by_key
 	default_pai_software = SSpai.default_pai_software
@@ -40,7 +28,7 @@
 	if(href_list["download"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
 		var/obj/item/device/paicard/card = locate(href_list["device"])
-		if (!candidate in pai_candidates)
+		if (!(candidate in pai_candidates))
 			return
 
 		if(card.pai)
@@ -62,64 +50,52 @@
 			pai_candidates -= candidate
 			usr << browse(null, "window=findPai")
 
-	if(href_list["new"])
-		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
-		var/option = href_list["option"]
-		var/t = ""
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
 
-		switch(option)
-			if("name")
-				t = sanitizeSafe(input("Enter a name for your pAI", "pAI Name", candidate.name) as text, MAX_NAME_LEN)
-				if(t)
-					candidate.name = t
-			if("desc")
-				t = input("Enter a description for your pAI", "pAI Description", candidate.description) as message
-				if(t)
-					candidate.description = sanitize(t)
-			if("role")
-				t = input("Enter a role for your pAI", "pAI Role", candidate.role) as text
-				if(t)
-					candidate.role = sanitize(t)
-			if("ooc")
-				t = input("Enter any OOC comments", "pAI OOC Comments", candidate.comments) as message
-				if(t)
-					candidate.comments = sanitize(t)
+	if(href_list["submit_candidate"])
+		var/datum/paiCandidate/candidate = ui.metadata["candidate"]
+		if(!istype(candidate))
+			return
+		href_list["submit_candidate"]["name"] = sanitizeSafe(href_list["submit_candidate"]["name"], MAX_NAME_LEN)
+		href_list["submit_candidate"]["description"] = sanitize(href_list["submit_candidate"]["description"])
+		href_list["submit_candidate"]["role"] = sanitize(href_list["submit_candidate"]["role"])
+		href_list["submit_candidate"]["comments"] = sanitize(href_list["submit_candidate"]["comments"])
+		if(href_list["submit_candidate"]["name"])
+			candidate.name = href_list["submit_candidate"]["name"]
+		if(href_list["submit_candidate"]["description"])
+			candidate.description = href_list["submit_candidate"]["description"]
+		if(href_list["submit_candidate"]["role"])
+			candidate.role = href_list["submit_candidate"]["role"]
+		if(href_list["submit_candidate"]["comments"])
+			candidate.comments = href_list["submit_candidate"]["comments"]
+		if(length(candidate.name) < 1)
+			to_chat(ui.user, "Please set your pAI name.")
+			return
+		candidate.ready = 1
+		for(var/obj/item/device/paicard/p in all_pai_devices)
+			if(p.looking_for_personality == 1)
+				p.alertUpdate()
+		ui.close()
 
-			if("save")
-				if (config.sql_saves)
-					usr.client.prefs.save_preferences()
-				else
-					candidate.savefile_save(usr)
-			if("load")
-				if (config.sql_saves)
-					usr.client.prefs.load_preferences()
-				else
-					candidate.savefile_load(usr)
-				//In case people have saved unsanitized stuff.
-				if(candidate.name)
-					candidate.name = sanitizeSafe(candidate.name, MAX_NAME_LEN)
-				if(candidate.description)
-					candidate.description = sanitize(candidate.description)
-				if(candidate.role)
-					candidate.role = sanitize(candidate.role)
-				if(candidate.comments)
-					candidate.comments = sanitize(candidate.comments)
+/datum/controller/subsystem/pai/proc/revokeCandidancy(mob/M as mob)
+	var/datum/paiCandidate/candidate
+	if(!istype(M))
+		return FALSE
+	for(var/datum/paiCandidate/c in pai_candidates)
+		if(!istype(c))
+			continue
+		if(c.key == M.key)
+			candidate = c
+			break
+	if(!candidate)
+		return FALSE
+	candidate.ready = FALSE
+	return TRUE
 
-			if("submit")
-				if(candidate)
-					candidate.ready = 1
-					for(var/obj/item/device/paicard/p in all_pai_devices)
-						if(p.looking_for_personality == 1)
-							p.alertUpdate()
-				usr << browse(null, "window=paiRecruit")
-				return
-		if (config.sql_saves)
-			usr.client.prefs.save_preferences()
-		else
-			candidate.savefile_save(usr)
-		recruitWindow(usr, href_list["allow_submit"] != "0")
 
-/datum/controller/subsystem/pai/proc/recruitWindow(mob/M as mob, allowSubmit = TRUE)
+/datum/controller/subsystem/pai/proc/recruitWindow(mob/M as mob)
 	var/datum/paiCandidate/candidate
 	for(var/datum/paiCandidate/c in pai_candidates)
 		if(!istype(c) || !istype(M))
@@ -136,116 +112,28 @@
 		candidate.savefile_load(M)
 	else
 		M.client.prefs.load_preferences()
+		var/pai = M.client.prefs.pai
+		if(pai["name"])
+			candidate.name = sanitizeSafe(pai["name"], MAX_NAME_LEN)
+		if(pai["description"])
+			candidate.description = sanitize(pai["description"])
+		if(pai["role"])
+			candidate.role = sanitize(pai["role"])
+		if(pai["comments"])
+			candidate.comments = sanitize(pai["comments"])
 
-	var/dat = ""
-	dat += {"
-			<style type="text/css">
-				body {
-					margin-top:5px;
-					font-family:Verdana;
-					color:white;
-					font-size:13px;
-					background-image:url('uiBackground.png');
-					background-repeat:repeat-x;
-					background-color:#272727;
-					background-position:center top;
-				}
-				table {
-					border-collapse:collapse;
-					font-size:13px;
-				}
-				th, td {
-					border: 1px solid #333333;
-				}
-				p.top {
-					background-color: none;
-					color: white;
-				}
-				tr.d0 td {
-					background-color: #c0c0c0;
-					color: black;
-					border:0px;
-					border: 1px solid #333333;
-				}
-				tr.d0 th {
-					background-color: none;
-					color: #4477E0;
-					text-align:right;
-					vertical-align:top;
-					width:120px;
-					border:0px;
-				}
-				tr.d1 td {
-					background-color: #555555;
-					color: white;
-				}
-				td.button {
-					border: 1px solid #161616;
-					background-color: #40628a;
-				}
-				td.desc {
-					font-weight:bold;
-				}
-				a {
-					color:#4477E0;
-				}
-				a.button {
-					color:white;
-					text-decoration: none;
-				}
-			</style>
-			"}
+	var/datum/vueui/ui = SSvueui.get_open_ui(M, src)
+	if(!ui)
+		ui = new(M, src, "misc-pai-recruit", 580, 590, "pAI Personality Configuration", list(
+			"name" = candidate.name,
+			"description" = candidate.description,
+			"role" = candidate.role,
+			"comments" = candidate.comments),
+		state = interactive_state)
+		ui.metadata = list("candidate" = candidate)
+		ui.header = "minimal"
 
-	dat += {"
-	<body>
-		<b><font size="3px">pAI Personality Configuration</font></b>
-		<p class="top">Please configure your pAI personality's options. Remember, what you enter here could determine whether or not the user requesting a personality chooses you!</p>
-
-		<table>
-			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=\ref[src];option=name;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>Name</a>:</th>
-				<td class="desc">[candidate.name]&nbsp;</td>
-			</tr>
-			<tr class="d1">
-				<td>What you plan to call yourself. Suggestions: Any character name you would choose for a station character OR an AI.</td>
-			</tr>
-			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=\ref[src];option=desc;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>Description</a>:</th>
-				<td class="desc">[candidate.description]&nbsp;</td>
-			</tr>
-			<tr class="d1">
-				<td>What sort of pAI you typically play; your mannerisms, your quirks, etc. This can be as sparse or as detailed as you like.</td>
-			</tr>
-			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=\ref[src];option=role;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>Preferred Role</a>:</th>
-				<td class="desc">[candidate.role]&nbsp;</td>
-			</tr>
-			<tr class="d1">
-				<td>Do you like to partner with sneaky social ninjas? Like to help security hunt down thugs? Enjoy watching an engineer's back while he saves the station yet again? This doesn't have to be limited to just station jobs. Pretty much any general descriptor for what you'd like to be doing works here.</td>
-			</tr>
-			<tr class="d0">
-				<th rowspan="2"><a href='byond://?src=\ref[src];option=ooc;new=1;allow_submit=[allowSubmit];candidate=\ref[candidate]'>OOC Comments</a>:</th>
-				<td class="desc">[candidate.comments]&nbsp;</td>
-			</tr>
-			<tr class="d1">
-				<td>Anything you'd like to address specifically to the player reading this in an OOC manner. \"I prefer more serious RP.\", \"I'm still learning the interface!\", etc. Feel free to leave this blank if you want.</td>
-			</tr>
-		</table>
-		<br>
-	"}
-	if(allowSubmit)
-		dat += {"
-			<table>
-				<td class="button"><a href='byond://?src=\ref[src];option=submit;new=1;candidate=\ref[candidate]' class="button"><b><font size="4px">Submit Personality</font></b></a></td>
-			</table><br>
-			"}
-	dat += {"
-	<body>
-	"}
-
-	M << browse(dat, "window=paiRecruit;size=580x580;")
-
-// TODO: Refactor the spaghetti above into NanoUI.
+	return ui.open()
 
 /datum/controller/subsystem/pai/proc/findPAI(obj/item/device/paicard/p, mob/user)
 	requestRecruits(user)

@@ -118,7 +118,10 @@ STOCK_ITEM_LARGE(pipemachine, 1.7)
 		new /obj/machinery/pipedispenser(L)
 
 STOCK_ITEM_LARGE(bike, 0.3)
-	new /obj/vehicle/bike(L)
+	if (prob(75))
+		new /obj/vehicle/bike(L)
+	else
+		new /obj/vehicle/bike/monowheel(L)
 
 STOCK_ITEM_LARGE(sol, 0.2)
 	if (prob(50))

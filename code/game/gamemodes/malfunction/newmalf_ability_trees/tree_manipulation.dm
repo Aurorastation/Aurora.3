@@ -155,7 +155,7 @@
 
 	var/obj/machinery/power/N = M
 
-	var/explosion_intensity = 2
+	var/explosion_intensity = 2 //Base explosion intensity
 
 	// Verify if we can overload the target, if yes, calculate explosion strength. Some things have higher explosion strength than others, depending on charge(APCs, SMESs)
 	if(N && istype(N)) // /obj/machinery/power first, these create bigger explosions due to direct powernet connection
@@ -165,14 +165,14 @@
 		else if (istype(N, /obj/machinery/power/apc)) // APC. Explosion is increased by available cell power.
 			var/obj/machinery/power/apc/A = N
 			if(A.cell && A.cell.charge)
-				explosion_intensity = explosion_intensity + round((A.cell.charge / CELLRATE) / 100000)
+				explosion_intensity = explosion_intensity + (A.cell.charge/10000)*6
 			else
 				to_chat(user, "<span class='notice'>ERROR: APC Malfunction - Cell depleted or removed. Unable to overload.</span>")
 				return
 		else if (istype(N, /obj/machinery/power/smes/buildable)) // SMES. These explode in a very very very big boom. Similar to magnetic containment failure when messing with coils.
 			var/obj/machinery/power/smes/buildable/S = N
 			if(S.charge && S.RCon)
-				explosion_intensity = 4 + round((S.charge / CELLRATE) / 100000)
+				explosion_intensity = explosion_intensity + (S.charge/10000)*6
 			else
 				// Different error texts
 				if(!S.charge)
@@ -191,7 +191,7 @@
 		to_chat(user, "<span class='notice'>ERROR: Unable to overload - target is not a machine.</span>")
 		return
 
-	explosion_intensity = min(explosion_intensity, 12) // 3, 6, 12 explosion cap
+	explosion_intensity = min(explosion_intensity, 12) // 1, 6, 12 explosion cap
 
 	if(!ability_pay(user,price))
 		return
@@ -213,7 +213,7 @@
 	log_ability_use(user, "machine overload", M)
 	M.visible_message("<span class='notice'>BZZZZZZZT</span>")
 	sleep(50)
-	explosion(get_turf(M), round(explosion_intensity/4),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
+	explosion(get_turf(M), min(1,round(explosion_intensity/4)),round(explosion_intensity/2),round(explosion_intensity),round(explosion_intensity * 2))
 	if(M)
 		qdel(M)
 

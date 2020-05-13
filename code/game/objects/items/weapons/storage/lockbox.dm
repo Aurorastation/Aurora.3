@@ -1,10 +1,14 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
 
-/obj/item/weapon/storage/lockbox
+/obj/item/storage/lockbox
 	name = "lockbox"
 	desc = "A locked box."
 	icon_state = "lockbox+l"
 	item_state = "lockbox"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_briefcase.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_briefcase.dmi'
+		)
 	w_class = 4
 	max_w_class = 3
 	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
@@ -16,8 +20,8 @@
 	var/icon_broken = "lockbox+b"
 
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if (istype(W, /obj/item/weapon/card/id))
+	attackby(obj/item/W as obj, mob/user as mob)
+		if (istype(W, /obj/item/card/id))
 			if(src.broken)
 				to_chat(user, "<span class='warning'>It appears to be broken.</span>")
 				return
@@ -33,9 +37,10 @@
 					return
 			else
 				to_chat(user, "<span class='warning'>Access Denied</span>")
-		else if(istype(W, /obj/item/weapon/melee/energy/blade))
+		else if(istype(W, /obj/item/melee/energy/blade))
 			if(emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
-				W:spark_system.queue()
+				var/obj/item/melee/energy/blade/blade = W
+				blade.spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 				playsound(src.loc, "sparks", 50, 1)
 		if(!locked)
@@ -52,7 +57,7 @@
 			..()
 		return
 
-/obj/item/weapon/storage/lockbox/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
+/obj/item/storage/lockbox/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
 	if(!broken)
 		if(visual_feedback)
 			visual_feedback = "<span class='warning'>[visual_feedback]</span>"
@@ -70,31 +75,31 @@
 		visible_message(visual_feedback, audible_feedback)
 		return 1
 
-/obj/item/weapon/storage/lockbox/loyalty
-	name = "lockbox of loyalty implants"
+/obj/item/storage/lockbox/loyalty
+	name = "lockbox of mind shield implants"
 	req_access = list(access_security)
 	starts_with = list(
-		/obj/item/weapon/implantcase/loyalty = 3,
-		/obj/item/weapon/implanter/loyalty = 1
+		/obj/item/implantcase/loyalty = 3,
+		/obj/item/implanter/loyalty = 1
 	)
 
-/obj/item/weapon/storage/lockbox/clusterbang
+/obj/item/storage/lockbox/clusterbang
 	name = "lockbox of clusterbangs"
 	desc = "You have a bad feeling about opening this."
 	req_access = list(access_security)
-	starts_with = list(/obj/item/weapon/grenade/flashbang/clusterbang = 1)
+	starts_with = list(/obj/item/grenade/flashbang/clusterbang = 1)
 
-/obj/item/weapon/storage/lockbox/lawgiver
+/obj/item/storage/lockbox/lawgiver
 	name = "Weapons lockbox"
 	desc = "A high security weapons lockbox"
 	req_access = list(access_armory)
-	starts_with = list(/obj/item/weapon/gun/energy/lawgiver = 1)
+	starts_with = list(/obj/item/gun/energy/lawgiver = 1)
 
-/obj/item/weapon/storage/lockbox/medal
+/obj/item/storage/lockbox/medal
 	name = "medal box"
 	desc = "A locked box used to store medals."
 	icon_state = "medalbox+l"
-	item_state = "syringe_kit"
+	item_state = "box"
 	w_class = 3
 	max_w_class = 2
 	req_access = list(access_captain)

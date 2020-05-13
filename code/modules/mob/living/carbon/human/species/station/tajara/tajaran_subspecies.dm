@@ -18,6 +18,8 @@
 	ethanol_resistance = 1 // Default value
 	climb_coeff = 1.1
 
+	resist_mod = 2 // ZHAN POWERRRRRR
+
 	cold_level_1 = 160 //RaceDefault 200 Default 260
 	cold_level_2 = 100 //RaceDefault 140 Default 200
 	cold_level_3 = 50  //RaceDefault 80 Default 120

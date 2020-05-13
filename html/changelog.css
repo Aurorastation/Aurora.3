@@ -5,27 +5,35 @@ a img {border:none;}
 	padding:2px 10px 2px 30px;
 	background-position:6px center;
 	background-repeat:no-repeat;
-	border:1px solid #ddd;
-	border-left:4px solid #999;
+	border:1px solid rgba(180, 180, 180, 0.3);
+	border-left:4px solid rgba(107, 107, 107, 0.3);
 	margin-bottom:2px;
+	position: relative;
 }
-.bugfix {background-image:url(bug-minus.png)}
-.wip {background-image:url(hard-hat-exclamation.png)}
-.tweak {background-image:url(wrench-screwdriver.png)}
-.soundadd {background-image:url(music-plus.png)}
-.sounddel {background-image:url(music-minus.png)}
-.rscdel {background-image:url(cross-circle.png)}
-.rscadd {background-image:url(tick-circle.png)}
-.imageadd {background-image:url(image-plus.png)}
-.imagedel {background-image:url(image-minus.png)}
-.spellcheck {background-image:url(spell-check.png)}
-.experiment {background-image:url(burn-exclamation.png)}
-.maptweak {background-image:url(map-pencil.png)}
-.balance {background-image:url(scales.png)}
-.admin {background-image:url(toolbox.png)}
-.backend {background-image:url(disk.png)}
-.security {background-image:url(shield.png)}
-.refactor {background-image:url(retort.png)}
+.bugfix::before, .wip::before, .tweak::before, .soundadd::before, .sounddel::before, .rscdel::before, .rscadd::before, .imageadd::before, .imagedel::before, .spellcheck::before, .experiment::before, .maptweak::before, .balance::before, .admin::before, .backend::before, .security::before, .refactor::before {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	position: absolute;
+	left: 6px;
+	top: 3px;
+}
+.bugfix::before {content: '\f188'}
+.wip::before {content: '\f807'}
+.tweak::before {content: '\f7d9'}
+.soundadd::before {content: '\f001'}
+.sounddel::before {content: '\f001'}
+.rscdel::before {content: '\f057'}
+.rscadd::before {content: '\f058'}
+.imageadd::before {content: '\f03e'}
+.imagedel::before {content: '\f03e'}
+.spellcheck::before {content: '\f891'}
+.experiment::before {content: '\f071'}
+.maptweak::before {content: '\f279'}
+.balance::before {content: '\f24e'}
+.admin::before {content: '\f552'}
+.backend::before {content: '\f0a0'}
+.security::before {content: '\f3ed'}
+.refactor::before {content: '\f0c3'}
 .sansserif {font-size:12px;}
 .commit {
 	margin-bottom:20px;
@@ -35,7 +43,6 @@ a img {border:none;}
 	list-style:none;
 	margin:5px 0;
 	padding:0 0 0 25px;
-	font-size:0.8em;
 }
 .date {
 	margin:10px 0;
@@ -52,22 +59,7 @@ a img {border:none;}
 	font-weight:bold;
 	font-size:0.9em;
 	}
-.drop {
-	cursor:pointer;
-	border:1px solid #999;
-	display:inline;
-	font-size:0.9em;
-	padding:1px 20px 1px 5px;
-	line-height:16px;
-}
 .hidden {display:none;}
-.indrop {
-	margin:2px 0 0 0;
-	clear:both;
-	background:#fff;
-	border:1px solid #ddd;
-	padding:5px 10px;
-	}
 .indrop p {
 	margin:0;
 	font-size:0.8em;
@@ -77,6 +69,8 @@ a img {border:none;}
 .indrop img {
 	margin-right:5px;
 	vertical-align:middle;}
-.closed {background:url(chevron-expand.png) right center no-repeat;}
-.open {background:url(chevron.png) right center no-repeat;}
 .lic {font-size:9px;}
+.dark-theme .date {
+	color:goldenrod;
+	border-bottom:2px solid goldenrod;
+}

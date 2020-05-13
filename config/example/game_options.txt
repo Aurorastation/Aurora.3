@@ -55,7 +55,7 @@ RUN_DELAY_MULTIPLIER 1
 VEHICLE_DELAY_MULTIPLIER 1
 
 ## The variables below affect the movement of specific mob types.
-HUMAN_DELAY 1
+HUMAN_DELAY 0
 ROBOT_DELAY 1
 MONKEY_DELAY 1
 ALIEN_DELAY 1

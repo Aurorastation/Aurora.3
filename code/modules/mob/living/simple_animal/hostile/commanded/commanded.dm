@@ -62,11 +62,6 @@
 			continue
 		if(isliving(A))
 			M = A
-		if(istype(A,/obj/mecha))
-			var/obj/mecha/mecha = A
-			if(!mecha.occupant)
-				continue
-			M = mecha.occupant
 		if(M && M.stat)
 			continue
 		if(mode == "specific")
@@ -214,7 +209,13 @@
 		target_mob = null
 		if(M.a_intent == I_HURT)
 			audible_emote("[pick(sad_emote)].",0)
-			return
+		return
+	if(M.a_intent == I_HELP && prob(40)) //chance that they won't immediately kill anyone who pets them. But only a chance. 
+		stance = HOSTILE_STANCE_IDLE
+		target_mob = null
+		audible_emote("growls at [M].")
+		to_chat(M, span("warning", "Maybe you should keep your hands to yourself..."))
+		return
 
 	if(M.a_intent == I_HURT && retribution) //assume he wants to hurt us.
 
@@ -249,7 +250,8 @@
 	if(user == master)
 		target_mob = null
 		stance = HOSTILE_STANCE_IDLE
-		audible_emote("[pick(sad_emote)].",0)
+		if(!istype(O, brush)) //we don't get sad if we're brushed!
+			audible_emote("[pick(sad_emote)].",0)
 
 /mob/living/simple_animal/hostile/commanded/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	..()

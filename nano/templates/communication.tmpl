@@ -14,6 +14,11 @@
 				{{:helper.link('Call Emergency Shuttle', null, {'action' : 'shuttle', 'target' : 'call'}, !data.net_syscont ? 'disabled' : null)}}
 			{{/if}} </div>
 		{{/if}}
+		{{if data.current_maint_all_access}}
+			<div class=item>{{:helper.link('Disable Emergency Maintenance Access', null, {'action' : 'emergencymaint'}, data.isAI ? 'disabled' : null)}}</div>
+		{{else}}
+			<div class=item>{{:helper.link('Enable Emergency Maintenance Access', null, {'action' : 'emergencymaint'}, data.isAI ? 'disabled' : null)}}</div>
+		{{/if}}
 		<div class=item>{{:helper.link('Set Status Display', null, {'action' : 'sw_menu', 'target' : 4}, !data.net_syscont ? 'disabled' : null)}} </div>
 		<div class=item>{{:helper.link('Message List', null, {'action' : 'sw_menu', 'target' : 2}, !data.net_comms ? 'disabled' : null)}} </div>
 	{{else data.state === 2}}

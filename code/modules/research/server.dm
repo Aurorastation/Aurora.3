@@ -15,8 +15,8 @@
 	req_access = list(access_rd) //Only the R&D can change server settings.
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/rdserver,
-		/obj/item/weapon/stock_parts/scanning_module,
+		/obj/item/circuitboard/rdserver,
+		/obj/item/stock_parts/scanning_module,
 		/obj/item/stack/cable_coil = 2
 	)
 
@@ -27,7 +27,7 @@
 /obj/machinery/r_n_d/server/RefreshParts()
 	var/tot_rating = 0
 
-	for(var/obj/item/weapon/stock_parts/SP in component_parts)
+	for(var/obj/item/stock_parts/SP in component_parts)
 		tot_rating += SP.rating
 	idle_power_usage /= max(1, tot_rating)
 
@@ -150,12 +150,29 @@
 /obj/machinery/r_n_d/server/centcom/machinery_process()
 	return PROCESS_KILL //don't need process()
 
+/obj/machinery/r_n_d/server/advanced //an advanced server that starts with higher tech levels
+
+/obj/machinery/r_n_d/server/advanced/setup()
+	if(!files)
+		files = new /datum/research/hightech(src)
+	var/list/temp_list
+	if(!id_with_upload.len)
+		temp_list = list()
+		temp_list = text2list(id_with_upload_string, ";")
+		for(var/N in temp_list)
+			id_with_upload += text2num(N)
+	if(!id_with_download.len)
+		temp_list = list()
+		temp_list = text2list(id_with_download_string, ";")
+		for(var/N in temp_list)
+			id_with_download += text2num(N)
+
 /obj/machinery/computer/rdservercontrol
 	name = "R&D Server Controller"
 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
-	circuit = /obj/item/weapon/circuitboard/rdservercontrol
+	circuit = /obj/item/circuitboard/rdservercontrol
 	var/screen = 0
 	var/obj/machinery/r_n_d/server/temp_server
 	var/list/servers = list()
@@ -224,7 +241,7 @@
 		var/choice = alert("Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
 			for(var/datum/design/D in temp_server.files.known_designs)
-				if(D.id == href_list["reset_design"])
+				if("[D.type]" == href_list["reset_design"])
 					temp_server.files.known_designs -= D
 					break
 		temp_server.files.RefreshResearch()
@@ -280,7 +297,7 @@
 			dat += "Known Designs<BR>"
 			for(var/datum/design/D in temp_server.files.known_designs)
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.id]'>(Delete)</A><BR>"
+				dat += "<A href='?src=\ref[src];reset_design=[D.type]'>(Delete)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
@@ -301,13 +318,13 @@
 		src.updateUsrDialog()
 		return 1
 
-/obj/machinery/r_n_d/server/robotics
+/obj/machinery/r_n_d/server/advanced/robotics
 	name = "Robotics R&D Server"
 	id_with_upload_string = "1;2"
 	id_with_download_string = "1;2"
 	server_id = 2
 
-/obj/machinery/r_n_d/server/core
+/obj/machinery/r_n_d/server/advanced/core
 	name = "Core R&D Server"
 	id_with_upload_string = "1"
 	id_with_download_string = "1"

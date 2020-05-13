@@ -3,6 +3,12 @@
 	desc = "A fancy red armband!"
 	icon_state = "red"
 	slot = "armband"
+	flippable = 1
+
+/obj/item/clothing/accessory/armband/sec
+	name = "security armband"
+	desc = "An armband, worn by the crew to display which department they're assigned to. This one is navy blue."
+	icon_state = "sec"
 
 /obj/item/clothing/accessory/armband/cargo
 	name = "cargo armband"
@@ -17,7 +23,7 @@
 /obj/item/clothing/accessory/armband/science
 	name = "science armband"
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is purple."
-	icon_state = "rnd"
+	icon_state = "sci"
 
 /obj/item/clothing/accessory/armband/hydro
 	name = "hydroponics armband"
@@ -34,11 +40,6 @@
 	desc = "An armband, worn by the crew to display which department they're assigned to. This one is white and green."
 	icon_state = "medgreen"
 
-/obj/item/clothing/accessory/armband/atlas
-	name = "atlas armband"
-	desc = "This is a armband showing anyone who sees this person, as a member of the political party Atlas. This one is black."
-	icon_state = "black"
-
 /obj/item/clothing/accessory/armband/iac
 	name = "interstellar aid corps armband"
 	desc = "An armband denoting its wearer as a medical worker of the Interstellar Aid Corps. This one is white and blue."
@@ -49,6 +50,7 @@
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is purple."
 	icon_state = "ribbon_sci"
 	slot = "over"
+	flippable = 0
 
 /obj/item/clothing/accessory/armband/offworlder/engineering
 	name = "engineering exo-stellar ribbon"

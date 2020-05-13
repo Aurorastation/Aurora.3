@@ -127,7 +127,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	if(pulledby) // Don't wiggle if someone pulls you
-		patrol_path.Cut()
+		patrol_path?.Cut()
 		return
 
 	var/found_spot
@@ -190,6 +190,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 				return
 			if(patrol_path[1] == loc)
 				patrol_path -= patrol_path[1]
+				return
+
 			var/moved = step_towards(src, patrol_path[1])
 			if(moved)
 				patrol_path -= patrol_path[1]
@@ -228,7 +230,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	visible_message("<span class='danger'>[src] blows apart!</span>")
 	var/turf/Tsec = get_turf(src)
 
-	new /obj/item/weapon/reagent_containers/glass/bucket(Tsec)
+	new /obj/item/reagent_containers/glass/bucket(Tsec)
 	new /obj/item/device/assembly/prox_sensor(Tsec)
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
@@ -364,7 +366,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /* Assembly */
 
-/obj/item/weapon/bucket_sensor
+/obj/item/bucket_sensor
 	desc = "It's a bucket. With a sensor attached."
 	name = "proxy bucket"
 	icon = 'icons/obj/aibots.dmi'
@@ -376,7 +378,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	w_class = 3.0
 	var/created_name = "Cleanbot"
 
-/obj/item/weapon/bucket_sensor/attackby(var/obj/item/O, var/mob/user)
+/obj/item/bucket_sensor/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm))
 		user.drop_from_inventory(O,get_turf(src))
@@ -387,7 +389,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		to_chat(user, "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>")
 		qdel(src)
 
-	else if(istype(O, /obj/item/weapon/pen))
+	else if(O.ispen())
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)
 			return

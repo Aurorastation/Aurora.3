@@ -34,7 +34,7 @@
 	desc = "A .38 bullet casing fitted with a single-use ion pulse generator."
 	projectile_type = /obj/item/projectile/ion/small
 	icon_state = "empcasing"
-	matter = list(DEFAULT_WALL_MATERIAL = 130, "uranium" = 100)
+	matter = list(DEFAULT_WALL_MATERIAL = 130, MATERIAL_URANIUM = 100)
 
 /obj/item/ammo_casing/trod
 	desc = "hyperdense tungsten rod residue."
@@ -125,7 +125,7 @@
 	icon_state = "pshell"
 	spent_icon = "pshell-spent"
 	projectile_type = /obj/item/projectile/bullet/shotgun/practice
-	matter = list("metal" = 90)
+	matter = list(MATERIAL_STEEL = 90)
 
 /obj/item/ammo_casing/shotgun/beanbag
 	name = "beanbag shell"
@@ -143,7 +143,7 @@
 	icon_state = "stunshell"
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
-	matter = list(DEFAULT_WALL_MATERIAL = 360, "glass" = 720)
+	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_GLASS = 720)
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
 	if(prob(100/severity)) BB = null
@@ -156,7 +156,7 @@
 	icon_state = "fshell"
 	spent_icon = "fshell-spent"
 	projectile_type = /obj/item/projectile/energy/flash/flare
-	matter = list(DEFAULT_WALL_MATERIAL = 90, "glass" = 90)
+	matter = list(DEFAULT_WALL_MATERIAL = 90, MATERIAL_GLASS = 90)
 
 /obj/item/ammo_casing/shotgun/incendiary
 	name = "incendiary shell"
@@ -172,7 +172,7 @@
 	icon_state = "empshell"
 	spent_icon = "empshell-spent"
 	projectile_type  = /obj/item/projectile/ion
-	matter = list(DEFAULT_WALL_MATERIAL = 260, "uranium" = 200)
+	matter = list(DEFAULT_WALL_MATERIAL = 260, MATERIAL_URANIUM = 200)
 
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
@@ -188,6 +188,10 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/a762
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
+
+/obj/item/ammo_casing/a762/spent/Initialize()
+	. = ..()
+	expend()
 
 /obj/item/ammo_casing/a145
 	name = "shell casing"
@@ -308,3 +312,10 @@
 	name = "canister shot"
 	desc = "A solid projectile filled with deadly shrapnel."
 	projectile_type = /obj/item/projectile/bullet/pellet/shotgun/canister
+
+/obj/item/ammo_casing/nuke
+	name = "miniaturized nuclear warhead"
+	icon_state = "nuke"
+	caliber = "nuke"
+	desc = "A miniaturized version of a nuclear bomb."
+	projectile_type = /obj/item/projectile/bullet/nuke

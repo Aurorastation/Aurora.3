@@ -196,29 +196,8 @@ var/list/asset_datums = list()
 
 /datum/asset/simple/changelog
 	assets = list(
-		"88x31.png" = 'html/88x31.png',
-		"bug-minus.png" = 'html/bug-minus.png',
-		"cross-circle.png" = 'html/cross-circle.png',
-		"hard-hat-exclamation.png" = 'html/hard-hat-exclamation.png',
-		"image-minus.png" = 'html/image-minus.png',
-		"image-plus.png" = 'html/image-plus.png',
-		"map-pencil.png" = 'html/map-pencil.png',
-		"music-minus.png" = 'html/music-minus.png',
-		"music-plus.png" = 'html/music-plus.png',
-		"tick-circle.png" = 'html/tick-circle.png',
-		"wrench-screwdriver.png" = 'html/wrench-screwdriver.png',
-		"spell-check.png" = 'html/spell-check.png',
-		"burn-exclamation.png" = 'html/burn-exclamation.png',
-		"scales.png" = 'html/scales.png',
-		"chevron.png" = 'html/chevron.png',
-		"chevron-expand.png" = 'html/chevron-expand.png',
 		"changelog.css" = 'html/changelog.css',
 		"changelog.js" = 'html/changelog.js'
-	)
-
-/datum/asset/simple/vueui_theming
-	assets = list(
-		"vueui.css" = 'vueui/dist/app.css'
 	)
 
 /datum/asset/simple/vueui

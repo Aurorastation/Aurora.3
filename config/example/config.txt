@@ -42,6 +42,9 @@ JOBS_HAVE_MINIMAL_ACCESS
 # What to multiply power by when crossing Z-levels.
 #EXPLOSION_Z_MULT 0.75
 
+# What to subtract power by when crossing Z-levels.
+#EXPLOSION_Z_SUB 2
+
 ## log OOC channel
 LOG_OOC
 
@@ -290,6 +293,9 @@ TICKLAG 0.33
 ## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.
 #TICKCOMP
 
+## Uncomment this to activate the five day from character creation timelock on modifying IPC tags
+#IPC_TIMELOCK_ACTIVE
+
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
 
@@ -335,9 +341,6 @@ REQ_CULT_GHOSTWRITER 6
 
 ## Sets the number of available character slots
 CHARACTER_SLOTS 10
-
-## Uncomment to use overmap system for zlevel travel
-#USE_OVERMAP
 
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
@@ -399,6 +402,9 @@ STARLIGHT 0
 
 ## Chance, in percentage, of the merchant job slot being open at round start
 MERCHANT_CHANCE 20
+
+## How long before the crew can call the emergency shuttle. One hour by default.
+TIME_TO_CALL_EMERGENCY_SHUTTLE 36000
 
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
 ## Example races include: Human, Tajara, Skrell, Unathi
@@ -476,8 +482,8 @@ MC_TICKLIMIT_INIT 500
 
 ## GELF Logging Configuration
 LOG_GELF_ENABLED 0
-LOG_GELF_IP 192.168.100.80
-LOG_GELF_PORT 12201
+# Make sure the IP string is written in a manner of "IP:port", without the quotes.
+#LOG_GELF_ADDR 127.0.0.1:5667
 
 ### IPINTEL:
 ### This allows you to detect likely proxies by checking ips against getipintel.net
@@ -528,16 +534,6 @@ FORCE_MAP aurora
 # n - do this every n rounds.
 #ROUNDS_UNTIL_HARD_RESTART -1
 
-ERT_BASE_CHANCE 10
-ERT_GREEN_INC 1
-ERT_YELLOW_INC 1
-ERT_BLUE_INC 2
-ERT_RED_INC 3
-ERT_DELTA_INC 10
-ERT_SCALING_FACTOR 1
-ERT_SCALING_FACTOR_ANTAG 1
-ERT_SCALING_FACTOR_DEAD 2
-
 # NTSL2+ Connection Info
 NTSL_HOSTNAME localhost
 NTSL_PORT 1945
@@ -551,3 +547,15 @@ DOCS_LOAD_DOCS_FROM sql
 LOAD_CUSTOMSYNTHS_FROM sql
 # Specifies where random document images are hosted at. Valid format is "https://cdn.aurorastation.org/images/", trailing slash included.
 DOCS_IMAGE_HOST https://cdn.aurorastation.org/images/
+
+### FAIL2TOPIC:
+### fail2topic is a system for automating IP bans for abusers of the world/Topic API.
+### Note that this subsystem respects the IPs listed in api_rate_limit_whitelist. They will not be considered for a ban.
+## Uncomment and set to 1 to enable the API.
+FAIL2TOPIC_ENABLED 0
+## The minimum wait time, in seconds, between valid requests.
+#FAIL2TOPIC_RATE_LIMIT 1
+## The number of requests above rate limit in sequence for which we ban.
+#FAIL2TOPIC_MAX_FAILS 5
+## The name of the firewall rule used.
+#FAIL2TOPIC_RULE_NAME _dd_fail2topic

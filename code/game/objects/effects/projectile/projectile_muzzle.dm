@@ -75,3 +75,7 @@
 /obj/effect/projectile/muzzle/bfg
 	icon_state = "muzzle_bfg"
 	light_color = LIGHT_COLOR_GREEN
+
+/obj/effect/projectile/muzzle/hegemony
+	icon_state = "muzzle_hegemony"
+	light_color = LIGHT_COLOR_ORANGE
