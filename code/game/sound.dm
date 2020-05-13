@@ -229,6 +229,11 @@ var/list/bodyfall_sound = list(
 	'sound/effects/bodyfall4.ogg'
 	)
 
+var/list/bodyfall_machine_sound = list(
+	'sound/effects/bodyfall_machine1.ogg',
+	'sound/effects/bodyfall_machine2.ogg',
+	)
+
 //var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
@@ -446,4 +451,5 @@ var/list/bodyfall_sound = list(
 			if ("keyboard") soundin = pick(keyboard_sound)
 			if ("pickaxe") soundin = pick(pickaxe_sound)
 			if ("bodyfall") soundin = pick(bodyfall_sound)
+			if ("bodyfall_machine") soundin = pick(bodyfall_machine_sound)
 	return soundin
