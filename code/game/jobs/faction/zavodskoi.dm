@@ -38,7 +38,6 @@
 		/datum/job/warden,
 		/datum/job/scientist,
 		/datum/job/doctor,
-		/datum/job/roboticist,
 		/datum/job/representative
 	)
 
@@ -60,9 +59,6 @@
 		"Phoron Researcher" = /datum/outfit/job/scientist/zavodskoi,
 		"Xenoarcheologist" = /datum/outfit/job/scientist/zavodskoi,
 		"Anomalist" = /datum/outfit/job/scientist/zavodskoi,
-		"Roboticist" = /datum/outfit/job/roboticist/zavodskoi,
-		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zavodskoi,
-		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zavodskoi,
 		"Corporate Liaison" = /datum/outfit/job/representative/zavodskoi
 	)
 
@@ -78,11 +74,6 @@
 
 /datum/outfit/job/scientist/zavodskoi
 	name = "Scientist - Zavodskoi Interstellar"
-	uniform = /obj/item/clothing/under/rank/zavodskoi/research
-	id = /obj/item/card/id/zavodskoi
-
-/datum/outfit/job/roboticist/zavodskoi
-	name = "Roboticist - Zavodskoi Interstellar"
 	uniform = /obj/item/clothing/under/rank/zavodskoi/research
 	id = /obj/item/card/id/zavodskoi
 
