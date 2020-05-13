@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - bugfix: "Fixed Zavodskoi Interstellar contractors being able to be Physician, they should now have access to the surgeon role."
+  - bugfix: "Fixed Zavodskoi Interstellar research uniform having the wrong sprite."
