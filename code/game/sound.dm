@@ -112,7 +112,20 @@ var/list/sand_footstep = list(
 		'sound/effects/footstep/sand3.ogg',
 		'sound/effects/footstep/sand4.ogg'
 )
-var/list/footstepfx = list("blank", "catwalk", "wood", "tiles", "plating", "carpet", "asteroid", "grass", "water", "lava", "snow", "sand")
+var/list/footstepfx = list(
+	"blank",
+	"catwalk",
+	"wood",
+	"tiles",
+	"plating",
+	"carpet",
+	"asteroid",
+	"grass",
+	"water",
+	"lava",
+	"snow",
+	"sand"
+	)
 
 var/list/shatter_sound = list(
 	'sound/effects/glass_break1.ogg',
