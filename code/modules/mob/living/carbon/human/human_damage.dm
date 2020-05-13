@@ -111,7 +111,7 @@
 	var/old_lying = lying
 	. = ..()
 	if(lying && !old_lying && !resting && !buckled) // fell down
-		playsound(loc, "bodyfall", 50, 1, -1)
+		playsound(loc, species.bodyfall_sound, 50, 1, -1)
 
 /mob/living/carbon/human/getCloneLoss()
 	var/amount = 0
