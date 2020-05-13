@@ -1,9 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Renamed Necropolis Industries to Zavodskoi Interstellar."
-  - tweak: "Idris contractors can no be longer be cargo technician and quartermaster."
-  - tweak: "Zavodskoi/Necropolis contractors can no be longer be pharmacist and warden."
-  - tweak: "Hephaestus Industries can no be longer be cargo technician, scientist and quartermaster."
