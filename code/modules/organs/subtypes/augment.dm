@@ -49,7 +49,6 @@
 			if(do_broken_act())
 				return FALSE
 
-
 		if(!bypass_implant)
 			for (var/obj/item/implant/anti_augment/I in owner)
 				if (I.implanted)
@@ -57,7 +56,6 @@
 
 		owner.last_special = world.time + cooldown
 		return TRUE
-
 
 /obj/item/organ/internal/augment/proc/do_broken_act()
 	spark(get_turf(owner), 3)
