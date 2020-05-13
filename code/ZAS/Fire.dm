@@ -128,7 +128,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	blend_mode = BLEND_ADD
 
 	icon = 'icons/effects/fire.dmi'
-	icon_state = "1"
+	icon_state = "wavey_fire"
 	light_color = "#ED9200"
 	layer = ON_TURF_LAYER
 
@@ -147,13 +147,10 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	var/datum/gas_mixture/air_contents = my_tile.return_air()
 
 	if(firelevel > 6)
-		icon_state = "3"
 		set_light(7, FIRE_LIGHT_3, no_update = TRUE)	// We set color later in the proc, that should trigger an update.
 	else if(firelevel > 2.5)
-		icon_state = "2"
 		set_light(5, FIRE_LIGHT_2, no_update = TRUE)
 	else
-		icon_state = "1"
 		set_light(3, FIRE_LIGHT_1, no_update = TRUE)
 	
 	air_contents.adjust_gas("carbon_dioxide", firelevel * 0.07)
