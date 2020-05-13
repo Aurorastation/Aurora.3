@@ -42,7 +42,7 @@
 
 
 /obj/effect/overlay/bluespacify
-	name = "Bluespace"
+	name = "bluespace"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespacify"
 	layer = 10
