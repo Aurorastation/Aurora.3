@@ -4,3 +4,5 @@ delete-after: True
 
 changes: 
   - imageadd: "Changed fire's sprite."
+  - tweak: "Made fire layer over most things."
+  - rscadd: "Made fires a bit brighter."

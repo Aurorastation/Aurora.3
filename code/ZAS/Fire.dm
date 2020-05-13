@@ -8,8 +8,8 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 //#define FIREDBG
 #define FIRE_LIGHT_1	2 //These defines are the power of the light given off by fire at various stages
-#define FIRE_LIGHT_2	3
-#define FIRE_LIGHT_3	4
+#define FIRE_LIGHT_2	4
+#define FIRE_LIGHT_3	5
 
 /turf
 	var/tmp/obj/fire/fire = null
@@ -129,8 +129,8 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "wavey_fire"
-	light_color = "#ED9200"
-	layer = ON_TURF_LAYER
+	light_color = LIGHT_COLOR_FIRE
+	layer = ABOVE_MOB_LAYER
 
 	var/firelevel = 1 //Calculated by gas_mixture.calculate_firelevel()
 
@@ -147,11 +147,11 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	var/datum/gas_mixture/air_contents = my_tile.return_air()
 
 	if(firelevel > 6)
-		set_light(7, FIRE_LIGHT_3, no_update = TRUE)	// We set color later in the proc, that should trigger an update.
+		set_light(9, FIRE_LIGHT_3, no_update = TRUE)	// We set color later in the proc, that should trigger an update.
 	else if(firelevel > 2.5)
-		set_light(5, FIRE_LIGHT_2, no_update = TRUE)
+		set_light(7, FIRE_LIGHT_2, no_update = TRUE)
 	else
-		set_light(3, FIRE_LIGHT_1, no_update = TRUE)
+		set_light(5, FIRE_LIGHT_1, no_update = TRUE)
 	
 	air_contents.adjust_gas("carbon_dioxide", firelevel * 0.07)
 
@@ -190,7 +190,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 			else
 				enemy_tile.adjacent_fire_act(loc, air_contents, air_contents.temperature, air_contents.volume)
 
-	set_light(l_color = color)
+	set_light(l_color = fire_color(air_contents.temperature, TRUE))
 	var/list/animate_targets = get_above_oo() + src
 	for (var/thing in animate_targets)
 		var/atom/movable/AM = thing
