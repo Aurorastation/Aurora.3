@@ -189,7 +189,7 @@
 	icon_state = "necro"
 	worn_state = "necro"
 
-/obj/item/clothing/under/rank/zecropolis/research
+/obj/item/clothing/under/rank/zavodskoi/research
 	name = "Zavodskoi Interstellar research uniform"
 	desc = "A uniform worn by Zavodskoi Interstellar researchers."
 	icon_state = "necro_research"

@@ -10,17 +10,14 @@
 	</p>
 	<p>Some character examples are:
 	<ul>
-	<li><b>Bio-technician</b>: Unit to unit Zavodskoi ships the most firearms
-	and weapons compared to any other corporation in the known galaxy and you're
-	proud of it just as you take a vulgar pride in your known unscrupulous and
-	slimy mannerisms, if only they knew the fools. Your genetics research has
-	seen the advent of geneboosted sentients championed by the Dominian Empire,
-	a civilization your company is very close to. The ethical concerns of both
-	of those achievements are largely irrelevant compared to the general benefits
-	and of course profits to be had. Your one rival in both these fields is NT
-	whose cloning technologies and weapons technology outpaces all others. You
-	need to get your hands on that tech without compromising Zavodskoi contract,
-	and you think you might know how.</li>
+	<li><b>Surgical Specialist</b>: Unit to unit Zavodskoi ships the most firearms and weapons compared
+	to any other corporation in the known galaxy and you're proud of it, but know the business comes with
+	its hazards. Your medical experience has allowed you to survive the closing of many genetics testing
+	centers during the recent transfer of leadership, and you know it. Zeng-Hu may have a reputation for
+	being the best in the Orion Spur, but they are in the past - Zavodskoi is the future. You are a
+	professional through-and-through, and consider yourself a (literal) cut above whatever washouts
+	NanoTrasen can hire as surgeons. Just remember, you need to prove that you're better than Zeng-Hu.
+	We need these medical contracts, lest we have to cut back the medical division just like the genetics one.</li>
 	<li><b>Personal Security Professional</b>:Excellent customer service and client
 	care is why Zavodskoi's private security personnel win security contracts and
 	you know this. A cut above the rest, you are clear, calm, concise and polite when
@@ -38,7 +35,7 @@
 		/datum/job/warden,
 		/datum/job/scientist,
 		/datum/job/roboticist,
-		/datum/job/doctor,
+		/datum/job/surgeon,
 		/datum/job/representative
 	)
 
@@ -51,10 +48,7 @@
 
 	titles_to_loadout = list(
 		"Security Officer" = /datum/outfit/job/officer/zavodskoi,
-		"Physician" = /datum/outfit/job/doctor/zavodskoi,
 		"Surgeon" = /datum/outfit/job/doctor/zavodskoi,
-		"Trauma Physician" = /datum/outfit/job/doctor/zavodskoi,
-		"Nurse" = /datum/outfit/job/doctor/zavodskoi,
 		"Warden" = /datum/outfit/job/warden/zavodskoi,
 		"Scientist" = /datum/outfit/job/scientist/zavodskoi,
 		"Phoron Researcher" = /datum/outfit/job/scientist/zavodskoi,
