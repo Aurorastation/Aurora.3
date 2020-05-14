@@ -23,6 +23,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
 	maxHealth = 33.3
+	health = 33.3
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -172,7 +173,8 @@
 
 	icon_state = lowertext(species.name)
 	species.handle_post_spawn(src)
-	maxHealth = species.total_health
+	maxHealth = 33.3
+	health = 33.3
 
 	regenerate_icons()
 	make_blood()
