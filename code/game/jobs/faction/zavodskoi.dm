@@ -8,6 +8,10 @@
 	military force across the Orion Spur. They are the main corporation found in the Empire of
 	Dominia, and are at the forefront of weapons development technology.
 	</p>
+
+	<p><font size='5' color='red'><b> DO NOT PLAY AN IPC AS A ZAVODSKOI LIAISON, THIS IS UNINTENDED. JOINING AS ONE WILL RESULT IN AN IPC/HEAD WHITELIST STRIP.</b></font>
+	</p>
+
 	<p>Some character examples are:
 	<ul>
 	<li><b>Surgical Specialist</b>: Unit to unit Zavodskoi ships the most firearms and weapons compared
@@ -43,7 +47,8 @@
 		/datum/species/human,
 		/datum/species/skrell,
 		/datum/species/unathi,
-		/datum/species/diona
+		/datum/species/diona,
+		/datum/species/machine
 	)
 
 	titles_to_loadout = list(
