@@ -790,6 +790,7 @@
 	SearchVar(ntnrc_uid)
 	SearchVar(all_robolimbs)
 	SearchVar(chargen_robolimbs)
+	SearchVar(fabricator_robolimbs)
 	SearchVar(basic_robolimb)
 	SearchVar(moving_levels)
 	SearchVar(cached_space)

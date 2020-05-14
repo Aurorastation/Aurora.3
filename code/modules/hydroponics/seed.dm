@@ -260,6 +260,23 @@
 			origin_turf.visible_message("<span class='danger'>The [thrown.name] splatters against [target]!</span>")
 		qdel(thrown)
 
+	if(get_trait(TRAIT_TELEPORTING))
+
+		var/outer_teleport_radius = get_trait(TRAIT_POTENCY)/5
+		var/inner_teleport_radius = get_trait(TRAIT_POTENCY)/15
+
+		var/list/turfs = list()
+		if(inner_teleport_radius > 0)
+			for(var/turf/T in orange(target,outer_teleport_radius))
+				if(get_dist(target,T) >= inner_teleport_radius)
+					turfs |= T
+
+		if(turfs.len)
+			var/turf/picked = get_turf(pick(turfs))
+			var/obj/effect/portal/P = new /obj/effect/portal(get_turf(target))
+			P.target = picked
+			P.creator = null
+
 /datum/seed/proc/handle_environment(var/turf/current_turf, var/datum/gas_mixture/environment, var/light_supplied, var/check_only)
 
 	var/health_change = 0
@@ -308,28 +325,6 @@
 	var/impact = 1
 	do_sting(target,thrown)
 	do_thorns(target,thrown)
-
-	// Bluespace tomato code copied over from grown.dm.
-	if(get_trait(TRAIT_TELEPORTING))
-
-		//Plant potency determines radius of teleport.
-		var/outer_teleport_radius = get_trait(TRAIT_POTENCY)/5
-		var/inner_teleport_radius = get_trait(TRAIT_POTENCY)/15
-
-		var/list/turfs = list()
-		if(inner_teleport_radius > 0)
-			for(var/turf/T in orange(target,outer_teleport_radius))
-				if(get_dist(target,T) >= inner_teleport_radius)
-					turfs |= T
-
-		if(turfs.len)
-			// Moves the mob, causes sparks.
-			spark(target, 3, alldirs)
-			var/turf/picked = get_turf(pick(turfs))                      // Just in case...
-			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
-			do_teleport(target, picked)                                      // And teleport them to the chosen location.                                      // And teleport them to the chosen location.
-
-			impact = 1
 
 	return impact
 

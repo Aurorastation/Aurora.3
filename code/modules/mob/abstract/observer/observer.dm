@@ -396,7 +396,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	moved_event.register(following, src, /atom/movable/proc/move_to_destination)
 	destroyed_event.register(following, src, /mob/abstract/observer/proc/stop_following)
 
-	to_chat(src, "<span class='notice'>Now following \the [following]</span>")
+	to_chat(src, "<span class='notice'>Now following \the [following].</span>")
 	move_to_destination(following, following.loc, following.loc)
 	updateghostsight()
 
@@ -907,15 +907,15 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 /mob/extra_ghost_link(var/atom/ghost)
 	if(client && eyeobj)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>\[E\]</a>"
+		return "|\[<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>E</a>\]"
 
 /mob/abstract/observer/extra_ghost_link(var/atom/ghost)
 	if(mind && mind.current)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>\[B\]</a>"
+		return "|\[<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>B</a>\]"
 
 /proc/ghost_follow_link(var/atom/target, var/atom/ghost)
 	if((!target) || (!ghost)) return
-	. = "<a href='byond://?src=\ref[ghost];track=\ref[target]'>\[F\]</a>"
+	. = "\[<a href='byond://?src=\ref[ghost];track=\ref[target]'>F</a>\]"
 	. += target.extra_ghost_link(ghost)
 
 

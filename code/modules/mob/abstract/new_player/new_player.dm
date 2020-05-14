@@ -333,6 +333,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
+	SSjobs.EquipAugments(character, character.client.prefs)
 	character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core

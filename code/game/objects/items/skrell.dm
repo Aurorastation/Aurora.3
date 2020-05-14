@@ -49,7 +49,7 @@
 	icon_state = "starprojection"
 	mouse_opacity = TRUE
 	duration = 30 SECONDS
-	layer = LIGHTING_LAYER + 0.1
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN

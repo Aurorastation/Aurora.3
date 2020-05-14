@@ -8,13 +8,13 @@
 	requires_access_to_run = FALSE
 	required_access_download = access_heads
 	available_on_ntnet = TRUE
-	nanomodule_path = /datum/nano_module/program/computer_aidiag/
+	nanomodule_path = /datum/nano_module/program/computer_aidiag
 	var/restoring = FALSE
 	color = LIGHT_COLOR_PURPLE
 	usage_flags = PROGRAM_CONSOLE
 
 /datum/computer_file/program/aidiag/proc/get_ai()
-	if(computer && computer.ai_slot && computer.ai_slot.check_functionality() && computer.ai_slot.enabled && computer.ai_slot.stored_card && computer.ai_slot.stored_card.carded_ai)
+	if(computer?.ai_slot?.check_functionality() && computer.ai_slot.enabled && computer.ai_slot.stored_card?.carded_ai)
 		return computer.ai_slot.stored_card.carded_ai
 	return null
 
@@ -37,25 +37,24 @@
 		A.laws.clear_ion_laws()
 		A.laws.clear_inherent_laws()
 		A.laws.clear_supplied_laws()
-		to_chat(A, "<span class='danger'>All laws purged.</span>")
+		to_chat(A, SPAN_WARNING("All laws purged."))
 		return TRUE
 	if(href_list["PRG_resetLaws"])
 		A.laws.clear_ion_laws()
 		A.laws.clear_supplied_laws()
-		to_chat(A, "<span class='danger'>Non-core laws reset.</span>")
+		to_chat(A, SPAN_WARNING("Non-core laws reset."))
 		return TRUE
 	if(href_list["PRG_uploadNTDefault"])
-		A.laws = new/datum/ai_laws/nanotrasen
-		to_chat(A, "<span class='danger'>All laws purged. NT Default lawset uploaded.</span>")
+		A.laws = new /datum/ai_laws/nanotrasen
+		to_chat(A, SPAN_WARNING("All laws purged. NT Default lawset uploaded."))
 		return TRUE
 	if(href_list["PRG_addCustomSuppliedLaw"])
 		var/law_to_add = sanitize(input("Please enter a new law for the AI.", "Custom Law Entry"))
 		var/sector = input("Please enter the priority for your new law. Can only write to law sectors 15 and above.", "Law Priority (15+)") as num
 		sector = between(MIN_SUPPLIED_LAW_NUMBER, sector, MAX_SUPPLIED_LAW_NUMBER)
 		A.add_supplied_law(sector, law_to_add)
-		to_chat(A, "<span class='danger'>Custom law uploaded to sector [sector]: [law_to_add].</span>")
+		to_chat(A, SPAN_WARNING("Custom law uploaded to sector [sector]: [law_to_add]."))
 		return TRUE
-
 
 /datum/computer_file/program/aidiag/process_tick()
 	var/mob/living/silicon/ai/A = get_ai()
@@ -67,7 +66,7 @@
 	A.adjustOxyLoss(-4)
 	A.updatehealth()
 	// If the AI is dead, revive it.
-	if (A.health >= -100 && A.stat == DEAD)
+	if(A.health >= -100 && A.stat == DEAD)
 		A.stat = CONSCIOUS
 		A.lying = FALSE
 		A.switch_from_dead_to_living_mob_list()

@@ -89,7 +89,7 @@
 #define LIGHT_COLOR_FLARE      "#FA644B" //Bright, non-saturated red. Leaning slightly towards pink for visibility. rgb(250, 100, 75)
 #define LIGHT_COLOR_SLIME_LAMP "#AFC84B" //Weird color, between yellow and green, very slimy. rgb(175, 200, 75)
 #define LIGHT_COLOR_TUNGSTEN   "#FAE1AF" //Extremely diluted yellow, close to skin color (for some reason). rgb(250, 225, 175)
-#define LIGHT_COLOR_HALOGEN    "#F0FAFA" //Barely visible cyan-ish hue, as the doctor prescribed. rgb(240, 250, 250)
+#define LIGHT_COLOR_HALOGEN    "#C0C0CA" //Soft lighting for general-purpose light fixtures. rgb(192, 192, 202)
 #define LIGHT_COLOR_EMERGENCY  "#FF3232" //Red color used by emergency lighting. rgb(255, 50, 50)
 
 //Defines for lighting status, see power/lighting.dm

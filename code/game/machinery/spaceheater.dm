@@ -82,10 +82,12 @@
 		user.visible_message(span("notice", "[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
 				span("notice", "You [panel_open ? "open" : "close"] the hatch on the [src]."))
 		update_icon()
-		return
+
 		if(!panel_open && user.machine == src)
 			user << browse(null, "window=spaceheater")
 			user.unset_machine()
+
+		return
 	else
 		..()
 	return

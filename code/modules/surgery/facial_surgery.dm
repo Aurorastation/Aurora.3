@@ -41,7 +41,7 @@
 /datum/surgery_step/generic/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, OXY)
 	target.losebreath += 10
 
@@ -86,7 +86,7 @@
 /datum/surgery_step/generic/alter_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, OXY)
 	target.losebreath += 10
 
@@ -160,7 +160,7 @@
 /datum/surgery_step/robotics/face/synthskinopen/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/prepare_face
 	allowed_tools = list(
@@ -187,7 +187,7 @@
 /datum/surgery_step/robotics/face/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/alter_synthface
 	allowed_tools = list(
@@ -229,7 +229,7 @@
 /datum/surgery_step/robotics/face/alter_synthface/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/seal_face
 	allowed_tools = list(

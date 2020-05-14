@@ -78,7 +78,7 @@
 		return
 	M.dizziness = max(150, M.dizziness)//Setting dizziness directly works as long as the make_dizzy proc is called after to spawn the process
 	M.make_dizzy(4)
-
+	M.add_chemical_effect(CE_HALLUCINATE, 1)
 	M.confused = max(M.confused, 20)
 
 /datum/reagent/impedrezene
@@ -111,6 +111,7 @@
 
 /datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 100)
+	M.add_chemical_effect(CE_HALLUCINATE, 2)
 
 /datum/reagent/psilocybin
 	name = "Psilocybin"
@@ -127,6 +128,7 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	M.druggy = max(M.druggy, 30)
+	M.add_chemical_effect(CE_HALLUCINATE, 1)
 	if(dose < 1)
 		M.apply_effect(3, STUTTER)
 		M.make_dizzy(5)
@@ -323,11 +325,16 @@
 /datum/reagent/wulumunusha
 	name = "Wulumunusha Extract"
 	id = "wulumunusha"
-	description = "The extract of the wulumunusha fruit, it can cause hallucionations and muteness."
+	description = "The extract of the wulumunusha fruit, it can cause hallucinations and muteness."
 	color = "#61E2EC"
 	taste_description = "sourness"
 	fallback_specific_heat = 1
+	overdose = 10
 
 /datum/reagent/wulumunusha/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.druggy = max(M.druggy, 100)
 	M.silent = max(M.silent, 5)
+
+/datum/reagent/wulumunusha/overdose(var/mob/living/carbon/M, var/alien, var/removed = 0, var/scale = 1)
+	if(isskrell(M))
+		M.hallucination = max(M.hallucination, 10 * scale)	//light hallucinations that afflict skrell

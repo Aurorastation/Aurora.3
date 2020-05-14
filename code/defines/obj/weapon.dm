@@ -268,7 +268,7 @@
 		item_state = "foldcane"
 
 /obj/item/cane/crutch
-	name ="crutch"
+	name = "crutch"
 	desc = "A long stick with a crosspiece at the top, used to help with walking."
 	icon_state = "crutch"
 	item_state = "crutch"
@@ -276,6 +276,10 @@
 /obj/item/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
+		)
 
 /obj/item/gift
 	name = "gift"
@@ -342,7 +346,7 @@
 	icon_state = "broom"
 
 /obj/item/staff/gentcane
-	name = "Gentlemans Cane"
+	name = "gentlemans cane"
 	desc = "An ebony can with an ivory tip."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
@@ -476,6 +480,10 @@
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	icon_state = "RPED"
 	item_state = "RPED"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi'
+		)
 	w_class = 5
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50

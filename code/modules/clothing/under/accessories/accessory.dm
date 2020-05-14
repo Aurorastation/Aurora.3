@@ -181,7 +181,7 @@
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
-				user.visible_message(span("notice", "[user] places [src] against [M]'s [organ.name] and listens attentively."), 
+				user.visible_message(span("notice", "[user] places [src] against [M]'s [organ.name] and listens attentively."),
 									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
@@ -694,15 +694,15 @@
 	flippable = 1
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
-/obj/item/clothing/accessory/sleevepatch/necro
-	name = "\improper Necropolis Industries sleeve patch"
-	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Necropolis Industries logo."
+/obj/item/clothing/accessory/sleevepatch/zavodskoi
+	name = "\improper Zavodskoi Interstellar sleeve patch"
+	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo."
 	icon_state = "necro_patch"
 	overlay_state = "necro_patch"
 
-/obj/item/clothing/accessory/sleevepatch/necrosec
-	name = "\improper Necropolis Industries Security sleeve patch"
-	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Necropolis Industries logo with an insignia."
+/obj/item/clothing/accessory/sleevepatch/zavodskoisec
+	name = "\improper Zavodskoi Interstellar Security sleeve patch"
+	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo with an insignia."
 	icon_state = "necrosec_patch"
 	overlay_state = "necrosec_patch"
 

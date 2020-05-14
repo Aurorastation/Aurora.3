@@ -40,6 +40,7 @@
 	var/last_hit_zone = 0
 	var/force_down //determines if the affecting mob will be pinned to the ground
 	var/dancing //determines if assailant and affecting keep looking at each other. Basically a wrestling position
+	var/has_choked = FALSE //Used as a counter for choking people.
 
 	layer = SCREEN_LAYER
 	abstract = 1
@@ -136,9 +137,6 @@
 			hud.icon_state = "!reinforce"
 
 	if(state >= GRAB_AGGRESSIVE)
-		affecting.drop_l_hand()
-		affecting.drop_r_hand()
-
 		if(iscarbon(affecting))
 			handle_eye_mouth_covering(affecting, assailant, assailant.zone_sel.selecting)
 
@@ -149,6 +147,8 @@
 				affecting.Weaken(4)
 
 	if(state >= GRAB_NECK)
+		affecting.drop_l_hand()
+		affecting.drop_r_hand()
 		affecting.Stun(3)
 		if(isliving(affecting))
 			var/mob/living/L = affecting
@@ -159,9 +159,16 @@
 		affecting.Weaken(7)	//Should keep you down unless you get help.
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/A = affecting
+			var/obj/item/clothing/C = A.head
+			if(C && (C.item_flags & THICKMATERIAL))
+				return
 			if(!(A.species.flags & NO_BREATHE))
 				A.losebreath = max(A.losebreath + 3, 5)
 				A.adjustOxyLoss(3)
+				if(affecting.stat == CONSCIOUS)
+					if(do_mob(assailant, affecting, 150))
+						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
+						A.Paralyse(20)
 
 	adjust_position()
 

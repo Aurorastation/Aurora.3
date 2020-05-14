@@ -77,7 +77,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging the bone in [target]'s [affected.name] with \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, damaging the bone in [target]'s [affected.name] with \the [tool]!</span>")
-	target.apply_damage(5, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/mend_skull
 	allowed_tools = list(
@@ -110,7 +110,7 @@
 	user.visible_message("<span class='warning'>[user]'s hand slips, damaging [target]'s face with \the [tool]!</span>"  , \
 		"<span class='warning'>Your hand slips, damaging [target]'s face with \the [tool]!</span>")
 	var/obj/item/organ/external/head/h = affected
-	target.apply_damage(10, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(10, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	h.disfigured = 1
 
 /datum/surgery_step/finish_bone

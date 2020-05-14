@@ -293,6 +293,9 @@ TICKLAG 0.33
 ## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.
 #TICKCOMP
 
+## Uncomment this to activate the five day from character creation timelock on modifying IPC tags
+#IPC_TIMELOCK_ACTIVE
+
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
 
@@ -399,6 +402,9 @@ STARLIGHT 0
 
 ## Chance, in percentage, of the merchant job slot being open at round start
 MERCHANT_CHANCE 20
+
+## How long before the crew can call the emergency shuttle. One hour by default.
+TIME_TO_CALL_EMERGENCY_SHUTTLE 36000
 
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
 ## Example races include: Human, Tajara, Skrell, Unathi
