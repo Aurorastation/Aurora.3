@@ -345,9 +345,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent("tobaccobad",10)
 	reagents.add_reagent("nicotine",5)
 
-/obj/item/clothing/mask/smokable/cigarette/pra
+/obj/item/clothing/mask/smokable/cigarette/adhomai
+	name = "adhomian cigarette"
+	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 
-/obj/item/clothing/mask/smokable/cigarette/pra/Initialize()
+/obj/item/clothing/mask/smokable/cigarette/adhomai/Initialize()
 	. = ..()
 	reagents.clear_reagents()
 	reagents.add_reagent("tobacco",5)

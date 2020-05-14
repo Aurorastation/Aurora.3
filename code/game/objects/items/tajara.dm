@@ -88,29 +88,3 @@
 			in basic survival and reconnaissance skills emphasizing on self dependence within the frozen wilderness of Adhomai.  As a scouting unit, Ha'narri travel lightly on equipment, \
 			carrying primarily the essentials for survival and only a token amount of ammunition. Many detachments also make use of snow skiis in order to travel quickly in mountainous regions. \
 			They are well-known for their iconic thick light-colored cloaks which they wear while traversing the vast countrysides for warmth, as well as camouflage."
-
-/obj/item/tajcard/dpra
-	figures = list("nated", "kahan", "hotak", "hromakar", "haurjuhrl", "tank", "commando", "sniper", "nminer")
-
-/obj/item/tajcard/dpra/set_card(var/figure)
-	if(!figure)
-		return
-
-	icon_state = "tajcig_[figure]"
-
-	switch(figure)
-
-		if("nated")
-			desc += " This one has the picture of Supreme Commander Halkiikijr Nated'Hakhan."
-			description_fluff = "Halkiikijr Nated'Hakhan was born in 2409 to an M'sai family in Nal'tor. When the First Civil War of Adhomai ignited in 2421, Halkiikijr fought for the \
-			loyalists alongside the Hadii family. Becoming a battle-brother of Rhagrrhuzau Hadii, or better known as Al'Mari Hadii, Halkiikijr Nated'Hakhan stood with the Hadii family's \
-			decision to become informants for the rebels for their freedom and assured political rule. When the Civil War ended in 2432 and Al'Mari Hadii was sworn into office, \
-			Halkiikijr was made a Commander of the Tajaran Navy in return for his servitude to the Hadii family. Al'Mari supposedly made promises of swearing in Halkiikijr as the \
-			next president of the People's Republic once the political climate on Adhomai had stabilized. The legitimacy of this claim is not \know, but what is known is that Al'Mari \
-			was assassinated during a military parade in 2451 and Njadrasanukii Hadii, vice president of the People's Republic, quickly \swore himself in as the successor of the \
-			presidency. Outraged at the assassination and accusing Njadrasanukii of treachery against his own family, Halkiikijr tore himself free from the leadership of the People's \
-			Republic and swore to reclaim his rightful throne as the leader of a new nation; the Adhomai Liberation Army."
-
-	if("kahan")
-			desc += " This one has the picture of Commander Kahan Hro'rammhad."
-			description_fluff = ""

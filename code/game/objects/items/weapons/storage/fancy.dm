@@ -310,22 +310,26 @@
 	desc = "A packet of six adhomian \"Working Tajara\" cigarettes, imported straight from the People's Republic of Adhomai."
 	icon_state = "prapacket"
 	item_state = "prapacket"
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/pra
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
-	storage_slots = 7
-	starts_with = list(/obj/item/tajcard = 1)
 
-/obj/item/storage/fancy/cigarettes/pra/dpra
+/obj/item/storage/fancy/cigarettes/pra/fill()
+	..()
+	new /obj/item/tajcard(src)
+
+/obj/item/storage/fancy/cigarettes/dpra
 	name = "\improper Shastar Leaves cigarette packet"
 	desc = "A packet of six adhomian \"Shastar Leaves\" cigarettes, imported straight from the Democratic People's Republic of Adhomai."
 	icon_state = "dprapacket"
 	item_state = "dprapacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
-/obj/item/storage/fancy/cigarettes/pra/nka
+/obj/item/storage/fancy/cigarettes/nka
 	name = "\improper Royal Choice cigarette packet"
 	desc = "A packet of six adhomian \"Royal Choice\" cigarettes, imported straight from the New Kingdom of Adhomai."
 	icon_state = "nkapacket"
 	item_state = "nkapacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
 /*
  * Vial Box
