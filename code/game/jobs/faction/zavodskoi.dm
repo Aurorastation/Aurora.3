@@ -10,7 +10,7 @@
 	</p>
 	<p>Some character examples are:
 	<ul>
-	<li><b>Surgical Specialist</b>: Unit to unit Necropolis ships the most firearms and weapons compared
+	<li><b>Surgical Specialist</b>: Unit to unit Zavodskoi ships the most firearms and weapons compared
 	to any other corporation in the known galaxy and you're proud of it, but know the business comes with
 	its hazards. Your medical experience has allowed you to survive the closing of many genetics testing
 	centers during the recent transfer of leadership, and you know it. Zeng-Hu may have a reputation for
