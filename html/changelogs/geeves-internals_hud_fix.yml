@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixes internals appearing to be off, even when they're on, when spawning or relogging."
