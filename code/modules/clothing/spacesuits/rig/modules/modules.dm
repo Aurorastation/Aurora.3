@@ -248,11 +248,9 @@
 		var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
 		stat("Suit charge", cell_status)
 		for(var/obj/item/rig_module/module in R.installed_modules)
-		{
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())
 					stat(SRM.module.interface_name,SRM)
-		}
 
 /stat_rig_module
 	parent_type = /atom/movable
@@ -265,6 +263,11 @@
 
 /stat_rig_module/Destroy()
 	module = null
+
+	for (var/sm in stat_modules)
+		qdel(sm)
+	stat_modules.Cut()
+
 	return ..()
 
 /stat_rig_module/proc/AddHref(var/list/href_list)
