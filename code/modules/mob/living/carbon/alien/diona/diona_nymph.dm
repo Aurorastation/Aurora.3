@@ -173,7 +173,6 @@
 
 	icon_state = lowertext(species.name)
 	species.handle_post_spawn(src)
-	maxHealth = 33.3
 	health = 33.3
 
 	regenerate_icons()
