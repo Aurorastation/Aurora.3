@@ -254,6 +254,7 @@
 	organ_tag = BP_AUG_HAIR
 	activable = TRUE
 	action_button_name = "Activate Synthetic Hair Extensions"
+	species_restricted = list("Human","Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Shell Frame")
 
 /obj/item/organ/internal/augment/cyber_hair/attack_self(var/mob/user)
 	. = ..()
