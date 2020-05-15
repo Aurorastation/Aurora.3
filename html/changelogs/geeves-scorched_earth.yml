@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "Doing enough fire damage to a corpse will now turn it into ash."
+  - rscadd: "Doing enough fire damage to a corpse will now turn it into a skeleton."

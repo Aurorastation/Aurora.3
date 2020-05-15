@@ -13,13 +13,8 @@
 	if(stat == DEAD)
 		if(getFireLoss() > maxHealth * 1.5)
 			ChangeToHusk()
-		if(getFireLoss() > maxHealth * 2.5)
-			ChangeToSkeleton()
 		if(getFireLoss() > maxHealth * 3)
-			for(var/obj/item/I in src)
-				drop_from_inventory(I)
-			visible_message(SPAN_WARNING("\The [src] burns away into a pile of ash."))
-			dust()
+			ChangeToSkeleton()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
