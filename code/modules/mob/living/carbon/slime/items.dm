@@ -240,6 +240,10 @@ var/list/global/golem_runes = list()
 				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]
 				golem_spawner.enable()
 
+/obj/effect/golemrune/random_type/Initialize()
+	. = ..()
+	golem_type = pick(golem_types)
+
 /obj/effect/golemrune/Destroy()
 	. = ..()
 	golem_runes -= src

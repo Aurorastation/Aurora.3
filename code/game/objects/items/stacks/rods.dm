@@ -31,6 +31,11 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	lock_picking_level = 3
 	drop_sound = 'sound/items/drop/sword.ogg'
 
+/obj/item/stack/rods/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/rods/cyborg
 	name = "metal rod synthesizer"
 	desc = "A device that makes metal rods."

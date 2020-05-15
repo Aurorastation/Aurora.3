@@ -88,6 +88,11 @@
 	default_type = MATERIAL_IRON
 	apply_colour = 1
 
+/obj/item/stack/material/iron/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/sandstone
 	name = "sandstone brick"
 	icon_state = "sheet-sandstone"
@@ -95,11 +100,21 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 
+/obj/item/stack/material/sandstone/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/marble
 	name = "marble brick"
 	icon_state = "sheet-marble"
 	default_type = MATERIAL_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
+
+/obj/item/stack/material/marble/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/material/diamond
 	name = "diamond"
@@ -107,10 +122,20 @@
 	default_type = MATERIAL_DIAMOND
 	drop_sound = 'sound/items/drop/glass.ogg'
 
+/obj/item/stack/material/diamond/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/uranium
 	name = "uranium"
 	icon_state = "sheet-uranium"
 	default_type = MATERIAL_URANIUM
+
+/obj/item/stack/material/uranium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/material/phoron
 	name = "solid phoron"
@@ -118,6 +143,11 @@
 	default_type = MATERIAL_PHORON
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/glass.ogg'
+
+/obj/item/stack/material/phoron/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/material/plastic
 	name = "plastic"
@@ -127,22 +157,42 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/card.ogg'
 
+/obj/item/stack/material/plastic/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/gold
 	name = "gold"
 	icon_state = "sheet-gold"
 	default_type = MATERIAL_GOLD
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/gold/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/osmium
 	name = "osmium"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_OSMIUM
+
+/obj/item/stack/material/osmium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/material/silver
 	name = "silver"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_SILVER
 	icon_has_variants = TRUE
+
+/obj/item/stack/material/silver/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 //Valuable resource, cargo can sell it.
 /obj/item/stack/material/platinum
@@ -151,11 +201,21 @@
 	default_type = MATERIAL_PLATINUM
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/platinum/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 //Extremely valuable to Research.
 /obj/item/stack/material/mhydrogen
 	name = "metallic hydrogen"
 	icon_state = "sheet-mythril"
 	default_type = MATERIAL_HYDROGEN_METALLIC
+
+/obj/item/stack/material/mhydrogen/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 //Fuel for MRSPACMAN generator.
 /obj/item/stack/material/tritium
@@ -164,17 +224,32 @@
 	default_type = MATERIAL_TRITIUM
 	apply_colour = 1
 
+/obj/item/stack/material/tritium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/osmium
 	name = "osmium"
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_OSMIUM
 	apply_colour = 1
 
+/obj/item/stack/material/osmium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/steel
 	name = DEFAULT_WALL_MATERIAL
 	icon_state = "sheet-metal"
 	default_type = DEFAULT_WALL_MATERIAL
 	icon_has_variants = TRUE
+
+/obj/item/stack/material/steel/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/material/plasteel
 	name = "plasteel"
@@ -183,21 +258,41 @@
 	default_type = MATERIAL_PLASTEEL
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/plasteel/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/wood
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD
 	drop_sound = 'sound/items/drop/wooden.ogg'
 
+/obj/item/stack/material/wood/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/woodlog
 	name = "log"
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD_LOG
 
+/obj/item/stack/material/woodlog/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/woodbranch
 	name = "branch"
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD_BRANCH
+
+/obj/item/stack/material/woodbranch/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 
 /obj/item/stack/material/cloth
@@ -206,6 +301,11 @@
 	default_type = MATERIAL_CLOTH
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/clothing.ogg'
+
+/obj/item/stack/material/cloth/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
 	if(is_sharp(I))
@@ -224,6 +324,11 @@
 	default_type = MATERIAL_CARDBOARD
 	drop_sound = 'sound/items/drop/box.ogg'
 
+/obj/item/stack/material/cardboard/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/leather
 	name = "leather"
 	desc = "The by-product of mob grinding."
@@ -232,6 +337,11 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/leather.ogg'
 
+/obj/item/stack/material/leather/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/glass
 	name = "glass"
 	icon_state = "sheet-glass"
@@ -239,17 +349,32 @@
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/glass.ogg'
 
+/obj/item/stack/material/glass/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/glass/wired
 	name = "wired glass"
 	icon = 'icons/obj/stacks/tiles.dmi'
 	icon_state = MATERIAL_GLASS_WIRED
 	default_type = "wired glass"
 
+/obj/item/stack/material/glass/wired/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
 	icon_state = "sheet-rglass"
 	item_state = "sheet-rglass"
 	default_type = MATERIAL_GLASS_REINFORCED
+
+/obj/item/stack/material/glass/reinforced/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/material/glass/phoronglass
 	name = "borosilicate glass"
@@ -259,6 +384,11 @@
 	item_state = "sheet-pglass"
 	default_type = MATERIAL_GLASS_PHORON
 
+/obj/item/stack/material/glass/phoronglass/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/glass/phoronrglass
 	name = "reinforced borosilicate glass"
 	desc = "This sheet is special platinum-glass alloy designed to withstand large temperatures. It is reinforced with few rods."
@@ -266,14 +396,30 @@
 	icon_state = "sheet-phoronrglass"
 	item_state = "sheet-prglass"
 	default_type = MATERIAL_GLASS_REINFORCED_PHORON
+
+/obj/item/stack/material/glass/phoronrglass/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/bronze
 	name = "bronze"
 	icon_state = "sheet-brass"
 	default_type = "bronze"
 	icon_has_variants = TRUE
 
+/obj/item/stack/material/bronze/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/material/titanium
 	name = "titanium"
 	icon_state = "sheet-titanium"
 	default_type = MATERIAL_TITANIUM
 	icon_has_variants = TRUE
+
+/obj/item/stack/material/titanium/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
