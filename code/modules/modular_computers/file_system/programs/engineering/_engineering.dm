@@ -11,7 +11,7 @@
 	required_access_download = access_ce
 	requires_ntnet = TRUE
 	network_destination = "power monitoring system"
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_STATIONBOUND | PROGRAM_WRISTBOUND
+	usage_flags = PROGRAM_ALL
 	size = 9
 	var/has_alert = FALSE
 	color = LIGHT_COLOR_ORANGE
@@ -41,7 +41,7 @@
 	extended_desc = "This program provides visual interface for station's alarm system."
 	requires_ntnet = TRUE
 	network_destination = "alarm monitoring network"
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_STATIONBOUND | PROGRAM_WRISTBOUND
+	usage_flags = PROGRAM_ALL
 	size = 5
 	var/has_alert = FALSE
 	color = LIGHT_COLOR_CYAN

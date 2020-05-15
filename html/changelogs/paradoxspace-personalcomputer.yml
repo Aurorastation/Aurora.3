@@ -39,5 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Some Engineering programs have been re-added to function on wristbounds."
-  - rscadd: "All computers can now run Cargo Order."
+  - rscadd: "All computers can now run Cargo Order and NTSL2 Interpreter."
   - rscadd: "Everyone now gets a Crew Manifest and News Browser on their computers."
