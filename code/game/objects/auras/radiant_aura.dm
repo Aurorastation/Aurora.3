@@ -5,7 +5,7 @@
 	alpha = 75
 	layer = ABOVE_MOB_LAYER
 
-/obj/aura/radiant_aura/New()
+/obj/aura/radiant_aura/added_to(mob/living/user)
 	..()
 	to_chat(user, SPAN_NOTICE("A bubble of light appears around you, exuding protection and warmth."))
 	set_light(6, 6, COLOR_AMBER)

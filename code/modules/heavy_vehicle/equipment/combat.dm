@@ -303,7 +303,9 @@
 
 /obj/item/mecha_equipment/shield/installed(mob/living/heavy_vehicle/_owner)
 	. = ..()
-	aura = new /obj/aura/mechshield(owner, src)
+	aura = new /obj/aura/mechshield(_owner)
+	aura.added_to(_owner)
+	aura.set_holder(src)
 
 /obj/item/mecha_equipment/shield/uninstalled()
 	QDEL_NULL(aura)
@@ -333,6 +335,11 @@
 	if(!aura)
 		return
 	aura.toggle()
+	aura.dir = owner.dir
+	if(aura.dir == NORTH)
+		aura.layer = MECH_UNDER_LAYER
+	else
+		aura.layer = ABOVE_MOB_LAYER
 	playsound(owner,'sound/weapons/flash.ogg', 35, TRUE)
 	update_icon()
 	if(aura.active)
@@ -372,28 +379,17 @@
 	var/obj/item/mecha_equipment/shield/shields
 	var/active = FALSE
 	layer = ABOVE_MOB_LAYER
-	var/north_layer = MECH_UNDER_LAYER
 	pixel_x = 8
 	pixel_y = 4
 	mouse_opacity = 0
 
-/obj/aura/mechshield/Initialize(var/maploading, var/obj/item/mecha_equipment/shield/holder)
-	. = ..()
-	shields = holder
-
 /obj/aura/mechshield/added_to(mob/living/target)
-	. = ..()
+	..()
 	target.vis_contents += src
-	set_dir()
+	dir = target.dir
 
-/obj/aura/mechshield/proc/update_dir(var/user, var/old_dir, var/dir)
-	set_dir(dir)
-
-/obj/aura/mechshield/set_dir(new_dir)
-	. = ..()
-	if(dir == NORTH)
-		layer = north_layer
-	else layer = initial(layer)
+/obj/aura/mechshield/proc/set_holder(var/obj/item/mecha_equipment/shield/holder)
+	shields = holder
 
 /obj/aura/mechshield/Destroy()
 	if(user)

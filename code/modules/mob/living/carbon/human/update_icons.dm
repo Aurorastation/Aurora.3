@@ -149,8 +149,10 @@ There are several things that need to be remembered:
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)
 
-		if(auras)
-			ovr |= auras
+		for(var/aura in auras)
+			var/obj/aura/A = aura
+			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+			ovr += aura_overlay
 
 		add_overlay(ovr)
 

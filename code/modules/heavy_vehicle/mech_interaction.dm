@@ -307,6 +307,14 @@
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_move = world.time + legs.turn_delay
 		set_dir(direction)
+		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
+			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
+			if(S.aura)
+				S.aura.dir = direction
+				if(S.aura.dir == NORTH)
+					S.aura.layer = MECH_UNDER_LAYER
+				else
+					S.aura.layer = ABOVE_MOB_LAYER
 		update_icon()
 
 /mob/living/heavy_vehicle/Move()

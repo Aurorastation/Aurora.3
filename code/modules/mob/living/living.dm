@@ -908,8 +908,10 @@ default behaviour is:
 		adjustHalLoss(rand(50,60))
 
 /mob/living/update_icons()
-	if(auras)
-		overlays |= auras
+	for(var/aura in auras)
+		var/obj/aura/A = aura
+		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+		add_overlay(aura_overlay)
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
 	LAZYDISTINCTADD(auras, aura)

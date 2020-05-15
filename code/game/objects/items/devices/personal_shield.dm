@@ -25,7 +25,9 @@
 
 /obj/item/device/personal_shield/attack_self(mob/living/user)
 	if(uses && !shield)
-		shield = new /obj/aura/personal_shield/device(user, src)
+		shield = new /obj/aura/personal_shield/device(user)
+		shield.added_to(user)
+		shield.set_shield(src)
 	else
 		dissipate()
 

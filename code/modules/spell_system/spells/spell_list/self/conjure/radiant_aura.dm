@@ -19,6 +19,7 @@
 
 /spell/radiant_aura/cast(var/list/targets, mob/user)
 	var/obj/aura/radiant_aura/A = new /obj/aura/radiant_aura(user)
+	A.added_to(user)
 	QDEL_IN(A, duration)
 
 /spell/radiant_aura/starlight
