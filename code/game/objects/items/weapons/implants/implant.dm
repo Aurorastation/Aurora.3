@@ -122,6 +122,19 @@ Implant Specifics:<BR>"}
 	desc = "And boom goes the weasel."
 	icon_state = "implant_evil"
 
+/obj/item/implant/dexplosive/implanted(mob/source, mob/user)
+	. = ..()
+
+	if (. == 1)
+		START_PROCESSING(SSprocessing, src)
+
+/obj/item/implant/dexplosive/process()
+
+/obj/item/implant/dexplosive/meltdown()
+	. = ..()
+
+	STOP_PROCESSING(SSprocessing, src)
+
 /obj/item/implant/dexplosive/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
@@ -213,7 +226,7 @@ Implant Specifics:<BR>"}
 		var/mob/living/carbon/human/T = imp_in
 		if(elevel == "Localized Limb" && part)
 			small_countdown()
-			return	//to avoid hotspot_expose. 
+			return	//to avoid hotspot_expose.
 		if(elevel == "Destroy Body")
 			explosion(get_turf(T), -1, 0, 1, 6)
 			T.gib()
@@ -223,8 +236,8 @@ Implant Specifics:<BR>"}
 	else if(ismob(imp_in))
 		var/mob/M = imp_in
 		M.gib()
-		
-	var/turf/F = get_turf(imp_in)	
+
+	var/turf/F = get_turf(imp_in)
 	if(F)
 		F.hotspot_expose(3500,125)
 	qdel(src)
@@ -244,7 +257,7 @@ Implant Specifics:<BR>"}
 	if(!imp_in)
 		explosion(get_turf(src), -1, 0, 2, 4)
 	if(ishuman(imp_in) && part)
-		//No tearing off these parts since it's pretty much killing. Mangle them. 
+		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
 			part.createwound(BRUISE, 70)
 			part.add_pain(50)

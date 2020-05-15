@@ -19,7 +19,58 @@
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
 	if(config.sql_enabled)
 		load_from_sql()
+
+	load_from_forums()
 	..()
+
+/datum/controller/subsystem/news/proc/load_from_forums()
+	if (!config.forum_api_path || !config.forum_api_key)
+		log_debug("SSnews: Unable to load from forums, API path or key not set up.")
+		return
+
+	config.forum_news_topic_ids = list(2816)
+
+	for (var/topic_id in config.forum_news_topic_ids)
+		var/datum/http_request/forum_api/initial = new("forums/topics")
+		initial.prepare_get("[topic_id]")
+		initial.begin_async()
+		UNTIL(initial.is_complete())
+
+		var/datum/http_response/initial_response = initial.into_response()
+		if (initial_response.errored)
+			testing("Errored: [initial_response.error]")
+			log_debug("SSnews: errored: [initial_response.error]")
+			continue
+
+		var/list/forum_topic = initial_response.body
+		var/datum/feed_channel/channel = CreateFeedChannel(
+			forum_topic["title"], "meme mcgee", TRUE, TRUE, FALSE
+		)
+
+		var/datum/http_request/forum_api/posts = new("forums/topics")
+		posts.prepare_get("[topic_id]/posts", list("sortDir" = "desc", "hidden" = 0, "page" = 1, "perPage" = 10))
+		posts.begin_async()
+		UNTIL(posts.is_complete())
+
+		var/datum/http_response/posts_response = posts.into_response()
+		if (posts_response.errored)
+			log_debug("SSnews: errored getting posts from [topic_id]: [posts_response.error]")
+			continue
+
+		var/list/forum_posts = posts_response.body
+		for (var/list/post in forum_posts["results"])
+			SubmitArticle(
+				post["content"], GetForumAuthor(topic_id, post["id"]), channel,
+				null, FALSE, "Story", GetForumTimestamp(post["date"])
+			)
+// finish this
+			var/datum/computer_file/data/news_article/news = new()
+			news.filename = "[channel.channel_name] vol. [news_count]"
+			news.archived = 0
+			news.stored_data = news_query.item[1]
+			ntnet_global.available_news.Add(news)
+			news_count += 1
+
 
 /datum/controller/subsystem/news/proc/load_from_sql()
 	if(!establish_db_connection(dbcon))

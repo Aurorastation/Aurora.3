@@ -304,6 +304,12 @@ var/list/gamemode_cache = list()
 
 	var/time_to_call_emergency_shuttle = 36000  //how many time until the crew can call the transfer shuttle. One hour by default.
 
+	var/forum_api_key
+	var/forum_api_path
+
+	var/list/forum_news_topic_ids
+
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -918,6 +924,12 @@ var/list/gamemode_cache = list()
 					fail2topic_rule_name = value
 				if ("fail2topic_enabled")
 					fail2topic_enabled = text2num(value)
+
+
+				if ("forum_api_path")
+					forum_api_path = value
+				if ("forum_api_key")
+					forum_api_key = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
