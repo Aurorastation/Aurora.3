@@ -13,6 +13,6 @@
 			return
 		if(istype(cult_item, /obj/item))
 			user.put_in_hands(cult_item)
-			to_chat(user, span("cult", stored_message))
+			to_chat(user, SPAN_CULT(stored_message))
 		else if(!isnull(cult_item)) // it didn't return an item
-			to_chat(user, span("cult", cult_item)) // but i still want it to play a message
+			to_chat(user, SPAN_CULT(cult_item)) // but i still want it to play a message

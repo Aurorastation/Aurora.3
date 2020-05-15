@@ -10,4 +10,4 @@
 		if(!B.unique)
 			var/cult_item = B.cultify()
 			user.put_in_hands(cult_item)
-			to_chat(user, span("cult", "You pass the book over the desk. The contents within fade away and get replaced by the writings of Nar'Sie."))
+			to_chat(user, SPAN_CULT("You pass the book over the desk. The contents within fade away and get replaced by the writings of Nar'Sie."))
