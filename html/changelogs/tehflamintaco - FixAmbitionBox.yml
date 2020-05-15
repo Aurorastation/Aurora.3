@@ -1,4 +1,0 @@
-author: Teh Flamin'Taco
-delete-after: True
-changes: 
-  - bugfix: "Set-Ambition should no-longer be filled with HTML constructs when edited."
