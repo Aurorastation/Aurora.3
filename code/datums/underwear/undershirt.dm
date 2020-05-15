@@ -278,12 +278,12 @@
 	name = "Shirt, Fleet Feminine"
 	icon_state = "shirt_fleet_fem"
 
-/datum/category_item/underwear/undershirt/shirt_necropolis
-	name = "Shirt, Necropolis Industries"
+/datum/category_item/underwear/undershirt/shirt_zavodskoi
+	name = "Shirt, Zavodskoi Interstellar"
 	icon_state = "shirt_necropolis"
 
-/datum/category_item/underwear/undershirt/shirt_necropolis_fem
-	name = "Shirt, Necropolis Industries Feminine"
+/datum/category_item/underwear/undershirt/shirt_zavodskoi_fem
+	name = "Shirt, Zavodskoi Interstellar Feminine"
 	icon_state = "shirt_necropolis_fem"
 
 /datum/category_item/underwear/undershirt/shirt_epmc

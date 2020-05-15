@@ -123,6 +123,10 @@
 	name = "plant bag"
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "plantbag"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	max_storage_space = 100
 	max_w_class = 3
 	w_class = 2

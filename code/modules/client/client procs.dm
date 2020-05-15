@@ -440,9 +440,6 @@
 
 	send_resources()
 
-	// Check code/modules/admin/verbs/antag-ooc.dm for definition
-	add_aooc_if_necessary()
-
 	check_ip_intel()
 
 	fetch_unacked_warning_count()

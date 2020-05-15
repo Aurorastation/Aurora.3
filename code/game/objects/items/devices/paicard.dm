@@ -3,7 +3,7 @@
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "pai"
 	item_state = "electronic"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2)
 	var/obj/item/device/radio/radio
@@ -11,7 +11,11 @@
 	var/mob/living/silicon/pai/pai
 	var/move_delay = 0
 
-/obj/item/device/paicard/relaymove(mob/user, var/direction)
+	light_power = 1
+	light_range = 1
+	light_color = COLOR_BRIGHT_GREEN
+
+/obj/item/device/paicard/relaymove(var/mob/user, var/direction)
 	if(user.stat || user.stunned)
 		return
 	if(istype(loc, /mob/living/bot))
@@ -31,6 +35,7 @@
 	. = ..()
 	add_overlay("pai_off")
 	SSpai.all_pai_devices += src
+	update_light()
 
 /obj/item/device/paicard/Destroy()
 	SSpai.all_pai_devices -= src
