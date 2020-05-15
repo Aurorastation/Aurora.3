@@ -27,14 +27,16 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_player_panel_proc()
 
 /mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B>Welcome to [station_name()]!</B><br>"
+	var/output = "<div align='center'><B>Welcome to the [station_name()]!</B><br>"
 	var/character_name = client.prefs.real_name
 	if(character_name)
-		output += "<i>You will board as <b>[character_name]</b>.</i>"
+		output += "<i>You will board as <b>[character_name]</b>.</i><br>"
+	if(current_map.description)
+		output += "<i>[current_map.description]</i><hr>"
 	if(ROUND_IS_STARTED)
 		output += "<a href='byond://?src=\ref[src];late_join=1'>Join the Game!</A>"
 
-	output +="<br><hr>"
+	output +="<br>"
 	output += "<a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A> "
 
 	if(!ROUND_IS_STARTED)
