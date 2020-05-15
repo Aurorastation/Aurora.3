@@ -140,6 +140,17 @@
 	stat_modules +=	new/stat_rig_module/select(src)
 	stat_modules +=	new/stat_rig_module/charge(src)
 
+
+/obj/item/rig_module/Destroy()
+
+	for (var/sm in stat_modules)
+		qdel(sm)
+	stat_modules.Cut()
+
+	holder = null
+
+	return ..()
+
 // Called when the module is installed into a suit.
 /obj/item/rig_module/proc/installed(var/obj/item/rig/new_holder)
 	holder = new_holder
@@ -263,11 +274,6 @@
 
 /stat_rig_module/Destroy()
 	module = null
-
-	for (var/sm in stat_modules)
-		qdel(sm)
-	stat_modules.Cut()
-
 	return ..()
 
 /stat_rig_module/proc/AddHref(var/list/href_list)
