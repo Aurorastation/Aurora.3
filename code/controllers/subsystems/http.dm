@@ -54,13 +54,23 @@ var/datum/controller/subsystem/http/SShttp
 	src.headers = headers
 
 /datum/http_request/proc/execute_blocking()
+	. = world.realtime
+
 	_raw_response = rustg_http_request_blocking(method, url, body, headers)
+
+	if (. - world.realtime > 10 SECONDS)
+		crash_with("execute_blocking crashed due to over 10 second execution time.")
 
 /datum/http_request/proc/begin_async()
 	if (in_progress)
 		crash_with("Attempted to re-use a request object.")
 
+	. = world.realtime
+
 	id = rustg_http_request_async(method, url, body, headers)
+
+	if (. - world.realtime > 10 SECONDS)
+		crash_with("begin_async crashed due to over 10 second execution time.")
 
 	if (isnull(text2num(id)))
 		crash_with("Proc error: [id]")
@@ -75,7 +85,13 @@ var/datum/controller/subsystem/http/SShttp
 	if (!in_progress)
 		return TRUE
 
+
+	. = world.realtime
+
 	var/r = rustg_http_check_request(id)
+
+	if (. - world.realtime > 10 SECONDS)
+		crash_with("is_complete crashed due to over 10 second execution time.")
 
 	if (r == RUSTG_JOB_NO_RESULTS_YET)
 		return FALSE

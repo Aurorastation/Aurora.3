@@ -188,7 +188,12 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	if (argument_list)
 		sql_query = parseArguments(sql_query, argument_list, pass_not_found)
 
+	. = world.realtime
+
 	var/result = _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
+
+	if (. - world.realtime > 10 SECONDS)
+		crash_with("/DBQuery/proc/Execute crashed due to over 10 second execution time.")
 
 	var/error = ErrorMsg()
 	if (error)
