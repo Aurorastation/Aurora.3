@@ -13,7 +13,7 @@
 
 	// For special spawners that have mobile or object spawnpoints
 	var/list/spawn_types = list("Golems", "Borers")
-	var/list/list/spawn_atom = list()
+	var/list/spawn_atom = list()
 
 /datum/controller/subsystem/ghostroles/Recover()
 	src.spawnpoints = SSghostroles.spawnpoints
