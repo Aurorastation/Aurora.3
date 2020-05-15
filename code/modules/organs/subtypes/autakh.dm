@@ -185,39 +185,21 @@
 	if(owner)
 		to_chat(owner, "<span class='notice'>\The [singular_name]'s retinal overlays clicks and shifts!</span>")
 
-/obj/item/organ/internal/adrenal
+/obj/item/organ/internal/augment/adrenal
 	name = "adrenal management system"
 	icon_state = "ams"
 	organ_tag = "adrenal"
 	parent_organ = BP_CHEST
-	robotic = 2
+	action_button_icon = "ams"
 	action_button_name = "Activate Adrenal Management System"
+	cooldown = 300
+	activable = TRUE
 
-/obj/item/organ/internal/adrenal/Initialize()
-	robotize()
-	. = ..()
-
-/obj/item/organ/internal/adrenal/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "ams"
-		if(action.button)
-			action.button.UpdateIcon()
-
-/obj/item/organ/internal/adrenal/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/adrenal/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)
 
-		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
-			return
-
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
-			return
-
-		owner.last_special = world.time + 500
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
 		if(owner.reagents)
@@ -233,43 +215,20 @@
 			owner.reagents.add_reagent("paracetamol", 5)
 			owner.reagents.add_reagent("norepinephrine", 5)
 
-/obj/item/organ/internal/haemodynamic
+/obj/item/organ/internal/augment/haemodynamic
 	name = "haemodynamic control system"
 	icon_state = "stabilizer"
 	organ_tag = "haemodynamic"
 	parent_organ = BP_CHEST
-	robotic = 1
 	action_button_name = "Activate Haemodynamic Control System"
+	action_button_icon = "stabilizer"
+	cooldown = 300
+	activable = TRUE
 
-/obj/item/organ/internal/haemodynamic/Initialize()
-	mechassist()
-	. = ..()
-
-/obj/item/organ/internal/haemodynamic/Initialize()
-	robotize()
-	. = ..()
-
-/obj/item/organ/internal/haemodynamic/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "stabilizer"
-		if(action.button)
-			action.button.UpdateIcon()
-
-/obj/item/organ/internal/haemodynamic/attack_self(var/mob/user)
+/obj/item/organ/internal/augment/haemodynamic/attack_self(var/mob/user)
 	. = ..()
 
 	if(.)
-
-		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
-			return
-
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
-			return
-
-		owner.last_special = world.time + 500
 
 		owner.adjustNutritionLoss(300)
 		owner.adjustHydrationLoss(300)

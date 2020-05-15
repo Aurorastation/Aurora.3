@@ -8,8 +8,7 @@
 	is_augment = TRUE
 	species_restricted = list("Human","Off-Worlder Human",
 							"Tajara", "Zhan-Khazan Tajara", "M'sai Tajara",
-							"Unathi", "Aut'akh Unathi", "Skrell",
-							"Baseline Frame", "Hephaestus G1 Industrial Frame",
+							"Unathi", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame",
 							"Hephaestus G2 Industrial Frame", "Xion Industrial Frame",
 							"Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	var/cooldown = 150
