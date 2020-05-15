@@ -173,7 +173,6 @@
 
 	icon_state = lowertext(species.name)
 	species.handle_post_spawn(src)
-	health = 33.3
 
 	regenerate_icons()
 	make_blood()
