@@ -217,7 +217,7 @@
 		memory = new_memo
 
 	else if (href_list["amb_edit"])
-		var/new_ambition = input("Enter a new ambition", "Memory",src.ambitions) as null|message
+		var/new_ambition = input("Enter a new ambition", "Memory",html_decode(src.ambitions)) as null|message
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
