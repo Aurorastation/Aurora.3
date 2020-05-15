@@ -129,9 +129,9 @@
 	var/choice = alert(usr, "Local narrate will send a plain message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", "In my view", "In range of me", "Cancel")
 	if(choice != "Cancel")
 		if(choice == "In my view")
-			message_mobs = mobs_in_view(7, src.mob)
+			message_mobs = mobs_in_view(view, src.mob)
 		else
-			for(var/mob/M in range(7, src.mob))
+			for(var/mob/M in range(view, src.mob))
 				message_mobs += M
 	else
 		return
