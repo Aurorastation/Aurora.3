@@ -12,7 +12,7 @@
 
 /obj/item/clothing/head/culthood/cultify()
 	var/obj/item/clothing/head/helmet/space/cult/C = new /obj/item/clothing/head/helmet/space/cult(get_turf(src))
-	..(FALSE)
+	qdel(src)
 	return C
 
 /obj/item/clothing/head/culthood/alt
@@ -32,7 +32,7 @@
 
 /obj/item/clothing/suit/cultrobes/cultify()
 	var/obj/item/clothing/suit/space/cult/C = new /obj/item/clothing/suit/space/cult(get_turf(src))
-	..(FALSE)
+	qdel(src)
 	return C
 
 /obj/item/clothing/suit/cultrobes/alt
