@@ -34,6 +34,7 @@
 		if(!message || !channel)
 			return
 		channel.add_message(message, username, usr)
+		message_dead(FONT_SMALL("<b>([channel]) [username]:</b> [message]"))
 
 	if(href_list["PRG_joinchannel"])
 		. = TRUE
@@ -58,11 +59,13 @@
 				channel = C
 			return TRUE
 		C.add_client(src)
+		message_dead(FONT_SMALL("<b>([channel]) A new client ([username]) has entered the chat.</b>"))
 		channel = C
 	if(href_list["PRG_leavechannel"])
 		. = TRUE
 		if(channel && !channel.direct)
 			channel.remove_client(src)
+			message_dead(FONT_SMALL(FONT_SMALL("<b>([channel]) A new client ([username]) has left the chat.</b>")))
 		channel = null
 	if(href_list["PRG_backtomain"])
 		. = TRUE
@@ -77,6 +80,7 @@
 		C.add_client(src)
 		C.operator = src
 		channel = C
+		message_dead(FONT_SMALL("<b>([channel]) A new channel has been made by [username].</b>"))
 	if(href_list["PRG_toggleadmin"])
 		. = TRUE
 		if(netadmin_mode)

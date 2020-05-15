@@ -244,3 +244,10 @@
 // Is called when program service is being deactivated
 /datum/computer_file/program/proc/service_deactivate()
 	return
+
+/datum/computer_file/program/proc/message_dead(var/message)
+	for(var/mob/M in player_list)
+		if(M.stat == DEAD && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
+			if(isnewplayer(M))
+				continue
+			to_chat(M, message)
