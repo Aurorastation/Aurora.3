@@ -386,13 +386,13 @@
 		H.ckey = O.ckey
 		qdel(O)
 
-/client/proc/cmd_admin_dress()
+/client/proc/cmd_admin_dress(mob/living/carbon/human/H in human_mob_list)
 	set category = "Fun"
 	set name = "Set Human Outfit"
 
 	if(!check_rights(R_FUN))
 		return
-	do_dressing()
+	do_dressing(H)
 
 /client/proc/do_dressing(var/mob/living/carbon/human/M = null)
 	if(!M || !istype(M))
