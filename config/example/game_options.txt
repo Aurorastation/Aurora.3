@@ -50,6 +50,10 @@ RUN_DELAY 4
 WALK_DELAY 4
 CREEP_DELAY 6
 
+## The following two values will determine the stamina recovery speed of a mob.
+MINIMUM_STAMINA_RECOVERY 1
+MAXIMUM_STAMINA_RECOVERY 3
+
 ## The following two will globally affect all movement speed, while retaining the proportional relationships between the different mob's movement speeds.
 ## Ideally, you want to modify these. Any value between 0 and 1 will increase speed by decreasing the movement delay, anything above 1 will slow everyone down by increasing the delay.
 WALK_DELAY_MULTIPLIER 1

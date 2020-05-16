@@ -958,10 +958,16 @@ var/list/gamemode_cache = list()
 				if("limbs_can_break")
 					config.limbs_can_break = value
 
+				if("run_delay")
+					config.run_delay = value
 				if("walk_delay")
 					config.walk_delay = value
 				if("creep_delay")
 					config.creep_delay = value
+				if("minimum_stamina_recovery")
+					config.minimum_stamina_recovery = value
+				if("maximum_stamina_recovery")
+					config.maximum_stamina_recovery = value
 
 				// These should never go to 0 or below. So, we clamp them.
 				if("walk_delay_multiplier")
