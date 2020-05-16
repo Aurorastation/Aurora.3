@@ -1,14 +1,8 @@
-/datum/unit_test/overmap_test
-	name = "Overmap Test"
-
-/datum/unit_test/overmap_test/New()
-	name = "OVERMAP: " + name
-
 // 513 does not allow white or no color as a filter color
-/datum/unit_test/overmap_test/shall_have_non_white_color
-	name = "Shall have non-white color"
+/datum/unit_test/overmap_effects_shall_have_non_white_color
+	name = "OVERMAP: Shall have non-white color"
 
-/datum/unit_test/overmap_test/shall_have_non_white_color/start_test()
+/datum/unit_test/overmap_effects_shall_have_non_white_color/start_test()
 	var/list/invalid_overmap_types = list()
 	for(var/omt in subtypesof(/obj/effect/overmap))
 		var/obj/overmap = omt
