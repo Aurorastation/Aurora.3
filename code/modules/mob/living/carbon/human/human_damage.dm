@@ -10,9 +10,11 @@
 
 	health = maxHealth - getBrainLoss()
 
-	//TODO: fix husking
-	if(((maxHealth - getFireLoss()) < config.health_threshold_dead) && stat == DEAD)
-		ChangeToHusk()
+	if(stat == DEAD)
+		if(getFireLoss() > maxHealth * 1.5)
+			ChangeToHusk()
+		if(getFireLoss() > maxHealth * 3)
+			ChangeToSkeleton()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return

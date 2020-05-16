@@ -1061,6 +1061,23 @@ mob/living/carbon/human/proc/change_monitor()
 
 		to_chat(src, output)
 
+/mob/living/carbon/human/proc/check_tag()
+	set name = "Check Tag"
+	set desc = "Run diagnostics on your tag to display its information."
+	set category = "Abilities"
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+	if(isnull(tag) || !tag)
+		to_chat(src, SPAN_WARNING("Error: No Tag Found."))
+		return
+	to_chat(src, SPAN_NOTICE("[capitalize_first_letters(tag.name)]:"))
+	to_chat(src, SPAN_NOTICE("<b>Serial Number:</b> [tag.serial_number]"))
+	to_chat(src, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
+	to_chat(src, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
+
 /mob/living/carbon/human/proc/sonar_ping()
 	set name = "Psychic Ping"
 	set desc = "Allows you to listen in to psychic traces of organisms around you."

@@ -45,8 +45,8 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
-	resist_mod = 2 // Reasonably stronk, not moreso than an Unathi or robot.
+	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
+	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,

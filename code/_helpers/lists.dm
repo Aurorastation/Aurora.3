@@ -37,6 +37,16 @@
 		temp_list[O] = text2num(temp_list[O])
 	return temp_list
 
+/proc/is_string_in_list(var/given_string, var/list/L, var/match_case = TRUE)
+	for(var/list_string in L)
+		if(match_case)
+			if(given_string == list_string)
+				return TRUE
+		else
+			if(uppertext(given_string) == uppertext(list_string))
+				return TRUE
+	return FALSE
+
 //Checks for specific types in a list
 /proc/is_type_in_list(var/datum/A, var/list/L)
 	for(var/type in L)

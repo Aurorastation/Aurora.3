@@ -128,12 +128,15 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if(get_turf(M) in messageturfs)
+		if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/A in messagemobs)
 		var/mob/M = A
-		if(self_message && M==src)
+		if(isobserver(M))
+			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
+			continue
+		if(self_message && M == src)
 			M.show_message(self_message, 1, blind_message, 2)
 		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
 			if(blind_message)
