@@ -54,7 +54,7 @@ var/list/gear_datums = list()
 	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/loadout/gather_load_query()
-	return list("ss13_characters" = list("vars" = list("gear", "gear_slot"), "args" = list("id")))
+	return list("ss13_characters" = list("vars" = list("gear" = "gear_list", "gear_slot"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/loadout/gather_save_query()
 	return list("ss13_characters" = list("gear", "gear_slot", "id" = 1, "ckey" = 1))
