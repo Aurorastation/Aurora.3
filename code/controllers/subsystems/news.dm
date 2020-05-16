@@ -28,7 +28,7 @@
 		log_debug("SSnews: Unable to load from forums, API path or key not set up.")
 		return
 
-	for (var/topic_id in config.forum_news_topics)
+	for (var/topic_id in config.news_forum_topics)
 		var/datum/http_request/forum_api/initial = new("forums/topics")
 		initial.prepare_get("[topic_id]")
 		initial.begin_async()
@@ -136,10 +136,10 @@
 	topic_id = "[topic_id]"
 	post_id = text2num(post_id)
 
-	if (!config.forum_news_topics[topic_id])
+	if (!config.news_forum_topics[topic_id])
 		return prob(50) ? "John Doe" : "Jane Doe"
 
-	var/list/authors = config.forum_news_topics[topic_id]
+	var/list/authors = config.news_forum_topics[topic_id]
 	var/idx = post_id % authors.len
 	return authors[idx + 1]
 

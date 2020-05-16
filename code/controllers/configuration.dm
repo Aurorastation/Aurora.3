@@ -308,7 +308,7 @@ var/list/gamemode_cache = list()
 	// global.forum_api_key - see modules/http/forum_api.dm
 
 	var/news_use_forum_api = FALSE
-	var/list/forum_news_topics = list()
+	var/list/news_forum_topics = list()
 
 
 /datum/configuration/New()
@@ -935,18 +935,18 @@ var/list/gamemode_cache = list()
 				if ("news_use_forum_api")
 					news_use_forum_api = TRUE
 
-				if ("forum_news_topics")
+				if ("news_forum_topics")
 					var/list/split = splittext(value, "=")
 					if (length(split) != 2)
-						error("Configuration error: couldn't split topic for forum_news_topics.")
+						error("Configuration error: couldn't split topic for news_forum_topics.")
 						break
 
 					var/list/authors = splittext(split[2], ",")
 					if (!text2num(split[1]) || !length(authors))
-						error("Configuration error: couldn't get valid topic ID or authors list for forum_news_topics.")
+						error("Configuration error: couldn't get valid topic ID or authors list for news_forum_topics.")
 						break
 
-					forum_news_topics[split[1]] = authors
+					news_forum_topics[split[1]] = authors
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
