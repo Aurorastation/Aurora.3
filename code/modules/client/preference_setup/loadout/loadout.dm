@@ -89,15 +89,26 @@ var/list/gear_datums = list()
 			catch
 				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 
-				pref.gear = list()
 				gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
-	if(!islist(pref.gear))
-		pref.gear = list()
 
 	if(!islist(pref.gear_list))
 		pref.gear_list = list()
+
+	if(!isnull(pref.gear_slot) && islist(pref.gear_list["[pref.gear_slot]"]))
+		pref.gear = pref.gear_list["[pref.gear_slot]"]
+	else
+	// old format, try to recover it.
+		if(!islist(pref.gear_list["1"]))
+			pref.gear = pref.gear_list.Copy()
+			pref.gear_list = list("1" = pref.gear)
+			pref.gear_slot = 1
+		else
+			pref.gear = list()
+			pref.gear_list = list("1" = pref.gear)
+			pref.gear_slot = 1
+			gear_reset = TRUE
 
 	for(var/gear_name in pref.gear)
 		if(!(gear_name in gear_datums))
