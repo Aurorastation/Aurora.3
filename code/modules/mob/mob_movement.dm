@@ -8,7 +8,6 @@
 		return (!mover.density || !density || lying)
 	else
 		return (!mover.density || !density || lying)
-	return
 
 /mob/proc/setMoveCooldown(var/timeout)
 	if(client)

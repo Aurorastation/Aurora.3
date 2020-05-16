@@ -84,23 +84,6 @@
 	else
 		icon_state = "secgunwood-e"
 
-/obj/item/gun/projectile/sec/detective
-	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses .45 rounds."
-	description_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in .45 caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - .45 in such a small package does not play well with the average shooter."
-	name = "compact .45 pistol"
-	icon = 'icons/obj/guns/detgun.dmi'
-	icon_state = "detgun"
-	item_state = "detgun"
-	w_class = ITEMSIZE_SMALL
-	magazine_type = /obj/item/ammo_magazine/c45m
-
-/obj/item/gun/projectile/sec/detective/update_icon()
-	..()
-	if(ammo_magazine?.stored_ammo.len)
-		icon_state = "detgun"
-	else
-		icon_state = "detgunempty"
-
 /obj/item/gun/projectile/automatic/x9
 	name = "automatic .45 pistol"
 	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
@@ -122,7 +105,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/gun/projectile/tanto
-	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
+	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
@@ -236,7 +219,7 @@
 /obj/item/gun/projectile/pistol
 	name = "9mm pistol"
 	desc = "A compact 9mm handgun, extremely popular all throughout human space."
-	description_fluff = "The Necropolis Industries Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
+	description_fluff = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
@@ -254,6 +237,35 @@
 /obj/item/gun/projectile/pistol/flash
 	name = "9mm signal pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
+
+/obj/item/gun/projectile/pistol/detective
+	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses 9mm rounds."
+	description_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
+	name = "compact 9mm pistol"
+	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
+	icon = 'icons/obj/guns/detgun.dmi'
+	icon_state = "detgun"
+	item_state = "detgun"
+	can_silence = FALSE
+	
+/obj/item/gun/projectile/pistol/detective/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "detgun"
+	else
+		icon_state = "detgunempty"
+
+/obj/item/gun/projectile/pistol/detective/verb/rename_gun()
+	set name = "Name Gun"
+	set category = "Object"
+	set desc = "Rename your gun."
+	
+	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
+	
+	if(use_check_and_message(usr))
+		return
+	name = input
+	to_chat(usr, "You name the gun [input]. Say hello to your new friend.")
 
 /obj/item/gun/projectile/pistol/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src)
@@ -365,7 +377,7 @@
 
 /obj/item/gun/projectile/pistol/sol
 	name = "service pistol"
-	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Necropolis."
+	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Zavodskoi Instellar."
 	icon = 'icons/obj/guns/m8.dmi'
 	icon_state = "m8"
 	item_state = "m8"

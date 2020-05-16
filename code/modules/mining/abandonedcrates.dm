@@ -127,7 +127,7 @@
 			new /obj/item/clothing/mask/gas/clown_hat(src)
 			new /obj/item/bikehorn(src)
 			new /obj/item/pen/crayon/rainbow(src)
-			new /obj/item/toy/waterflower(src)
+			new /obj/item/reagent_containers/spray/waterflower(src)
 		if(95)
 			new /obj/item/clothing/under/mime(src)
 			new /obj/item/clothing/shoes/black(src)

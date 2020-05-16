@@ -19,7 +19,8 @@
 		/////////
 		//OTHER//
 		/////////
-	var/datum/preferences/prefs = null
+	var/datum/preferences/prefs
+	var/datum/tooltip/tooltips
 	var/move_delay		= 1
 	var/moving			= null
 	var/adminobs		= null
@@ -74,3 +75,5 @@
 	var/obj/screen/plane_master/parallax_spacemaster/parallax_spacemaster = null
 
 	var/authed = TRUE
+
+	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.

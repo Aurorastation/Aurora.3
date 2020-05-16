@@ -74,7 +74,7 @@
 	//This gives the last one a 30% chance of infection.
 	if(prob(dirtiness+(targets.len-1)*10))
 		log_and_message_admins("[loc] infected [target]'s [eo.name] with \the [src].")
-		addtimer(CALLBACK(src, .proc/infect_limb), rand(5 MINUTES, 10 MINUTES))
+		addtimer(CALLBACK(src, .proc/infect_limb, eo), rand(5 MINUTES, 10 MINUTES))
 
 	//75% chance to spread a virus if we have one
 	if(LAZYLEN(viruses) && prob(75))

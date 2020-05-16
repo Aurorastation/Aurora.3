@@ -3,6 +3,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/reagent_containers/food
 	drop_sound = 'sound/items/drop/food.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
+		)
 	flags = OPENCONTAINER
 	possible_transfer_amounts = null
 	volume = 50 //Sets the default container amount for all food items.

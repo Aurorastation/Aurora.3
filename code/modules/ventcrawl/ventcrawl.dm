@@ -23,8 +23,8 @@ var/global/list/can_enter_vent_with = list(
 /mob/living/proc/can_ventcrawl()
 	return 0
 
-/mob/living/Login()
-	. = ..()
+/mob/living/LateLogin()
+	..()
 	//login during ventcrawl
 	if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics)) //attach us back into the pipes
 		remove_ventcrawl()

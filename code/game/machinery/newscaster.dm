@@ -8,7 +8,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	name = "newscaster"
 	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/terminals.dmi'
-	icon_state = "newscaster_normal"
+	icon_state = "newscaster"
 	var/isbroken = 0  //1 if someone banged it with something heavy
 	var/ispowered = 1 //starts powered, changes with power_change()
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
@@ -50,7 +50,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/hitstaken = 0      //Death at 3 hits from an item with force>=15
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
-	light_range = 0
 	anchored = 1
 
 
@@ -71,7 +70,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 /obj/machinery/newscaster/update_icon()
 	if(!ispowered || isbroken)
-		icon_state = "newscaster_off"
+		icon_state = initial(icon_state)
+		set_light(FALSE)
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
 			cut_overlays()
 			add_overlay("crack3")
@@ -79,17 +79,32 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 	cut_overlays() //reset overlays
 
+	var/mutable_appearance/base_screen_overlay = mutable_appearance(icon, "newscaster-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+	add_overlay(base_screen_overlay)
+	set_light(1.4, 1, COLOR_CYAN)
+
+	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-title", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
-		icon_state = "newscaster_wanted"
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-wanted", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 		return
 
 	if(alert) //new message alert overlay
-		add_overlay("newscaster_alert")
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+
+	if(hitstaken == 0)
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 
 	if(hitstaken > 0) //Cosmetic damage overlay
-		add_overlay("crack[hitstaken]")
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "crack[hitstaken]", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 
-	icon_state = "newscaster_normal"
+	icon_state = initial(icon_state)
 	return
 
 /obj/machinery/newscaster/power_change()
@@ -100,7 +115,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		src.ispowered = 1
 		src.update_icon()
 	else
-		addtimer(CALLBACK(src, .proc/post_power_loss), rand(0, 15))
+		addtimer(CALLBACK(src, .proc/post_power_loss), rand(1, 15))
 
 /obj/machinery/newscaster/proc/post_power_loss()
 	ispowered = 0
@@ -123,7 +138,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				src.isbroken=1
 			src.update_icon()
 			return
-	return
 
 /obj/machinery/newscaster/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
@@ -971,7 +985,8 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	NEWSPAPER.forceMove(get_turf(src))
+	playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	usr.put_in_hands(NEWSPAPER)
 	src.paper_remaining--
 	return
 

@@ -633,7 +633,7 @@
 	orient2hud(null, mapload)
 
 	if (defer_shrinkwrap)	// Caller wants to defer shrinkwrapping until after the current callstack; probably putting something in.
-		addtimer(CALLBACK(src, .proc/shrinkwrap), 0)
+		INVOKE_ASYNC(src, .proc/shrinkwrap)
 	else
 		shrinkwrap()
 
