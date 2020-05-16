@@ -1,17 +1,18 @@
 /datum/component/multitool
 	var/window_x = 370
 	var/window_y = 470
-	var/station_alert = FALSE
+	var/datum/callback/callback_get_interact_window
+	var/datum/callback/on_topic_interaction
 
-/datum/component/multitool/Initialize(var/alert_mode = FALSE)
-	if(alert_mode)
-		station_alert = TRUE
+/datum/component/multitool/Initialize(var/callback/interact_window, var/callback/new_on_topic)
+	callback_get_interact_window = interact_window
+	on_topic_interaction = on_new_topic
 
 /datum/component/multitool/proc/interact(var/obj/item/device/multitool/M, var/mob/user)
 	if(CanUseTopic(user) != STATUS_INTERACTIVE)
 		return
 
-	var/html = get_interact_window(M, user)
+	var/html = callback_get_interact_window.Invoke(user, M, src)
 	if(html)
 		var/datum/browser/popup = new(usr, "multitool", "Multitool Menu", window_x, window_y)
 		popup.set_content(html)
@@ -19,21 +20,6 @@
 		popup.open()
 	else
 		close_window(usr)
-
-/datum/component/multitool/proc/get_interact_window(var/obj/item/device/multitool/M, var/mob/user)
-	if(station_alert)
-		var/obj/item/circuitboard/stationalert/SA = parent
-		. += "<b>Alarm Sources</b><br>"
-		. += "<table>"
-		for(var/datum/alarm_handler/AH in SSalarm.all_handlers)
-			. += "<tr>"
-			. += "<td>[AH.category]</td>"
-			if(AH in SA.alarm_handlers)
-				. += "<td><span class='good'>&#9724</span>Active</td><td><a href='?src=\ref[src];remove=\ref[AH]'>Inactivate</a></td>"
-			else
-				. += "<td><span class='bad'>&#9724</span>Inactive</td><td><a href='?src=\ref[src];add=\ref[AH]'>Activate</a></td>"
-			. += "</tr>"
-		. += "</table>"
 
 /datum/component/multitool/proc/close_window(var/mob/user)
 	user << browse(null, "window=multitool")
@@ -71,7 +57,7 @@
 		M.set_buffer(null)
 		. = MT_REFRESH
 	else
-		. = on_topic(href, href_list, user)
+		. = on_topic_interaction.Invoke(href, href_list, user)
 
 	switch(.)
 		if(MT_REFRESH)
@@ -81,21 +67,7 @@
 	return 1
 
 /datum/component/multitool/proc/on_topic(href, href_list, user)
-	if(station_alert)
-		var/obj/item/circuitboard/stationalert/SA = parent
-		if(href_list["add"])
-			var/datum/alarm_handler/AH = locate(href_list["add"]) in SSalarm.all_handlers
-			if(AH)
-				SA.alarm_handlers |= AH
-				return MT_REFRESH
-
-		if(href_list["remove"])
-			var/datum/alarm_handler/AH = locate(href_list["remove"]) in SSalarm.all_handlers
-			if(AH)
-				SA.alarm_handlers -= AH
-				return MT_REFRESH
-
-		return MT_NOACTION
+	return MT_NOACTION
 
 /datum/component/multitool/proc/send_buffer(var/obj/item/device/multitool/M, var/atom/buffer, var/mob/user)
 	if(M.get_buffer() == buffer && buffer)
