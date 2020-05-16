@@ -153,8 +153,8 @@
 	if(!ability_prechecks(user, price))
 		return
 
-	if(istype(M,/obj/machinery/shield))
-		to_chat(user, span("notice", "ERROR: Generated shields cannot be overloaded!"))
+	if(istype(M, /obj/machinery/shield))
+		to_chat(user, SPAN_WARNING("ERROR: Generated shields cannot be overloaded!"))
 		return
 
 	var/obj/machinery/power/N = M
