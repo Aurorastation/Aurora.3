@@ -3,7 +3,7 @@
 	<tr>
 		<td valign='top'>
 			<div align='center'><font size='3'><b>Space Station 13</b></font></div>
-
+			
 			<p><div align='center'><font size='3'><a href="https://aurorastation.org/wiki/index.php?title=Main_Page">Wiki</a> | <a href="https://github.com/Aurorastation/Aurora.3">Source code</a></font></div></p>
             <font size='2'>Code licensed under <a href="http://www.gnu.org/licenses/agpl.html">AGPLv3</a>. Content licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.<br><br>
 			</td>
@@ -27,18 +27,171 @@
 </table>
 
 		<!--
-
-		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE.
-
+		
+		TO ADD AN ENTRY, ADD AND MAINTAIN YOUR OWN changelog/USERNAME.yml FILE. 
+		
 		*** DO NOT MODIFY THIS FILE OR YOU WILL CAUSE MERGE CONFLICTS. ***
-
+		
 		-->
 		<div class="commit sansserif">
+
+			<h2 class="date">16 May 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added augment disrupter implants to the armory.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Changed fire's sprite.</li>
+				<li class="tweak">Made fire layer over most things.</li>
+				<li class="rscadd">Made fires a bit brighter.</li>
+				<li class="bugfix">Held and worn uncollapsed pAI flashlights now work.</li>
+				<li class="rscadd">Heavy cell chargers now flash while they charge. Ported from Polaris.</li>
+			</ul>
+
+			<h2 class="date">15 May 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Restricted the synthetic hair extensions to species that have hair.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Doing enough fire damage to a corpse will now turn it into a skeleton.</li>
+				<li class="rscadd">Added a personal shield device to the traitor tools uplink.</li>
+				<li class="rscadd">Added a radiant shielding aura spell to Battlemage and Cleric.</li>
+				<li class="rscadd">Added an exosuit shield drone to the mechfab.</li>
+				<li class="rscadd">== ADMIN FACING CHANGES ==</li>
+				<li class="rscadd">Adds full variants of stacks of items in the spawn menu.</li>
+				<li class="rscadd">Adds local narrate, which allows you to narrate to all mobs in a your view or your view range tile radius.</li>
+				<li class="rscadd">Allows admins to reset stationbounds via right click or Special Verbs menu.</li>
+				<li class="rscadd">Adds a random type golem rune to the spawn menu, if an admin wants to adminbus a random golem into a round.</li>
+				<li class="rscadd">Spawned borers now get added to the Ghostspawner menu, allowing players to inhabit them even if they didn't catch the original request.</li>
+				<li class="rscadd">Borers have gained the ability to survey their host's health, allowing them to better choose when to administer certain chemicals.</li>
+				<li class="tweak">Borers now regenerate chemicals even if their host is unconscious.</li>
+				<li class="rscadd">Awakening psionics now take 15 seconds instead of 10, and the host now gets a message about feeling something bad coming on, allowing them to make a dash to safety and or seclusion.</li>
+				<li class="bugfix">Skrell returning from Srom no longer eject controlling borers to the lobby by replacing their ckey into the aether.</li>
+				<li class="bugfix">Skrell no longer spontaneously die when entering Srom on a map that doesn't have a Srom location.</li>
+			</ul>
+			<h3 class="author">ParadoxSpace updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Actually reduces nymph health to 33.3.</li>
+			</ul>
+			<h3 class="author">Teh Flamin'Taco updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Set-Ambition should no-longer be filled with HTML constructs when edited.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes request consoles having weird lighting.</li>
+			</ul>
+
+			<h2 class="date">14 May 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Non-slip species flag should no longer grant immunity to lack of gravity effects.</li>
+				<li class="bugfix">Fixed Zavodskoi Interstellar contractors being able to be Physician, they should now have access to the surgeon role.</li>
+				<li class="bugfix">Fixed Zavodskoi Interstellar research uniform having the wrong sprite.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The staffwho function now shows if a staff member is AFK.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes internals appearing to be off, even when they're on, when spawning or relogging.</li>
+			</ul>
+			<h3 class="author">ParadoxSpace updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">IPCs can now be Zavodskoi contractors, except for liaisons. Do not join as an IPC liaison, or your IPC/head whitelists will be stripped.</li>
+			</ul>
+
+			<h2 class="date">13 May 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Renamed Necropolis Industries to Zavodskoi Interstellar.</li>
+				<li class="tweak">Idris contractors can no be longer be cargo technician and quartermaster.</li>
+				<li class="tweak">Zavodskoi/Necropolis contractors can no be longer be pharmacist and warden.</li>
+				<li class="tweak">Hephaestus Industries can no be longer be cargo technician, scientist and quartermaster.</li>
+				<li class="tweak">Fruits with the teleporting gene do not randomly teleport people anymore. They will now create a portal where they land.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="admin">Changes the CCIA Recorder to prompt if there were antags involved in the Incident.</li>
+			</ul>
+			<h3 class="author">Code by Geeves, Sprites by Kyres updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Bluespace travel now has a bluespace aesthetic.</li>
+				<li class="bugfix">Fixes shuttle turfs not updating while in transit.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes missing inhands for RFDs, RPED, toy sword, plant bag and briefcases.</li>
+				<li class="bugfix">Fixes some problems with the human sprite.</li>
+			</ul>
+
+			<h2 class="date">12 May 2020</h2>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Cargo control and crusher control programs now will properly work.</li>
+			</ul>
+
+			<h2 class="date">11 May 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Cyborgs can't remove items or clothing from human mobs anymore.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added lights to pAI.</li>
+				<li class="rscadd">Disarming a pAI now causes them to fold up.</li>
+				<li class="tweak">pAI have been resprited to have green screens.</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">AOOC should now properly be re-added to the client in all cases.</li>
+			</ul>
+
+			<h2 class="date">10 May 2020</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes app presets not properly installing on modular computers.</li>
+			</ul>
+			<h3 class="author">Kaedwuff updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Cleaned up the bounty list of many senseless/silly entries.</li>
+			</ul>
+			<h3 class="author">Scheveningen updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="balance">Lighting from light fixtures is much softer, making it notably harder to see details now.</li>
+			</ul>
+
+			<h2 class="date">09 May 2020</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Incompatible applications are no longer downloaded via the presets.</li>
+				<li class="tweak">Reduced/Adapted the size of various applications.</li>
+				<li class="tweak">The investigations / generic wristbounds are now enrolled aswell.</li>
+				<li class="tweak">Selecting a unenrolled device in the loadout no longer gives you the advanced version of it.</li>
+				<li class="tweak">Adapts the modular computer news browser to work with our news system</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Ghosts with ghostears can now see IRC communications properly.</li>
+			</ul>
 
 			<h2 class="date">08 May 2020</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscdel">Removed the multitool option from the augment combitool.</li>
+			</ul>
+			<h3 class="author">Code by Geeves, Sprites by Scrambles updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">IPC tags have been completely changed, in appearance and function.</li>
+				<li class="rscadd">IPC tags now store a serial number, ownership status, and citizenship data, all of which is editable by the player in character creation.</li>
+				<li class="tweak">Cyborg analyzers no longer pick up IPC tags, unless the IPC's head is open.</li>
+				<li class="tweak">You can no longer examine an IPC to see if they have an installed tag.</li>
+				<li class="rscadd">You can edit a tag's info as an in-game character by using a multitool on it. Doing so without permission is highly illegal.</li>
+				<li class="rscadd">You can take the tag out of an IPC tag implanter by using a screwdriver on it.</li>
 			</ul>
 			<h3 class="author">Karolis2011 updated:</h3>
 			<ul class="changes bgimages16">
@@ -14473,7 +14626,7 @@
 			<h2 class="date">09 March 2013</h2>
 			<h3 class="author">Cael Aislinn updated:</h3>
 			<ul class="changes bgimages16">
-				<li class="rscadd">Beekeeping is now possible. Construct an apiary of out wood and embed it into a hydroponics tray, then get a queen bee and bottle of BeezEez from cargo bay.
+				<li class="rscadd">Beekeeping is now possible. Construct an apiary of out wood and embed it into a hydroponics tray, then get a queen bee and bottle of BeezEez from cargo bay. 
 		Hives produce honey and honeycomb, but be wary if the bees start swarming.</li>
 			</ul>
 

@@ -255,6 +255,10 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
 	item_state = "sword0"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi',
+		)
 	drop_sound = 'sound/items/drop/gun.ogg'
 	var/active = 0.0
 	var/colorvar = "blue"

@@ -63,7 +63,7 @@
 		return computer.add_log(text)
 	return FALSE
 
-/datum/computer_file/program/proc/is_supported_by_hardware(var/hardware_flag = 0, var/loud = FALSE, var/mob/user)
+/datum/computer_file/program/proc/is_supported_by_hardware(var/hardware_flag = 0, var/loud = FALSE, var/mob/user = null)
 	if(!(hardware_flag & usage_flags))
 		if(loud && computer && user)
 			to_chat(user, SPAN_WARNING("\The [computer] flashes, \"Hardware Error - Incompatible software\"."))
@@ -244,3 +244,10 @@
 // Is called when program service is being deactivated
 /datum/computer_file/program/proc/service_deactivate()
 	return
+
+/datum/computer_file/program/proc/message_dead(var/message)
+	for(var/mob/M in player_list)
+		if(M.stat == DEAD && (M.client && M.client.prefs.toggles & CHAT_GHOSTEARS))
+			if(isnewplayer(M))
+				continue
+			to_chat(M, message)

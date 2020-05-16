@@ -6481,11 +6481,12 @@
 	network = list("Security","Armoury")
 	},
 /obj/structure/table/rack,
+/obj/item/storage/lockbox/anti_augment,
+/obj/item/storage/box/trackimp,
 /obj/item/storage/box/chemimp{
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/trackimp,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "alG" = (

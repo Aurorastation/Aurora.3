@@ -153,6 +153,15 @@
 	..()
 	update()
 
+/obj/item/implanter/anti_augment
+	name = "implanter-augmentation disrupter"
+
+/obj/item/implanter/anti_augment/New()
+	src.imp = new /obj/item/implant/anti_augment(src)
+	..()
+	update()
+	return
+
 /obj/item/implanter/ipc_tag
 	name = "IPC tag implanter"
 	desc = "A special implanter used for implanting synthetics with a special tag."

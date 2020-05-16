@@ -238,6 +238,8 @@
 		mymob.internals = new /obj/screen/internals()
 		mymob.internals.icon = ui_style
 		hud_elements |= mymob.internals
+		if(!isnull(target.internal))
+			mymob.internals.icon_state = "internal1"
 
 	if(hud_data.has_warnings)
 		mymob.oxygen = new /obj/screen()

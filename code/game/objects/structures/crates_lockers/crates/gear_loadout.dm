@@ -24,9 +24,9 @@
 	icon_opened = "einsteincrateopen"
 	icon_closed = "einsteincrate"
 
-/obj/structure/closet/crate/gear_loadout/necropolis
-	desc = "A sturdy crate with Necropolis Industries branding."
-	name = "necropolis drop crate"
+/obj/structure/closet/crate/gear_loadout/zavodskoi
+	desc = "A sturdy crate with Zavodskoi Interstellar branding."
+	name = "zavodskoi interstellar drop crate"
 	icon_state = "necrocrate"
 	icon_opened = "necrocrateopen"
 	icon_closed = "necrocrate"
@@ -237,9 +237,9 @@
 	new /obj/item/melee/whip(src)
 	new /obj/item/gun/projectile/revolver/detective(src)
 //Megacorporate suits are used in devices and tools in the uplink
-/obj/structure/closet/crate/gear_loadout/necropolis/fill()
-	new /obj/item/clothing/head/helmet/space/void/necropolis(src)
-	new /obj/item/clothing/suit/space/void/necropolis(src)
+/obj/structure/closet/crate/gear_loadout/zavodskoi/fill()
+	new /obj/item/clothing/head/helmet/space/void/zavodskoi(src)
+	new /obj/item/clothing/suit/space/void/zavodskoi(src)
 	new /obj/item/tank/oxygen/red(src)
 	new /obj/item/clothing/shoes/magboots(src)
 

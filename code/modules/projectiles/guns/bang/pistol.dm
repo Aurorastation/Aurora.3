@@ -38,7 +38,7 @@
 	pixel_offset_y = 13
 
 /obj/item/gun/bang/tanto
-	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
+	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
 	name = "10mm pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
