@@ -5,7 +5,7 @@
 	name = "OVERMAP: " + name
 
 // 513 does not allow white or no color as a filter color
-/datum/unit_test/overmap_test/shall_have_non_white_color()
+/datum/unit_test/overmap_test/shall_have_non_white_color
 	name = "Shall have non-white color"
 
 /datum/unit_test/overmap_test/shall_have_non_white_color/start_test()
