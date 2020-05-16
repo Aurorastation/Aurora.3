@@ -85,7 +85,7 @@ var/list/gear_datums = list()
 
 		if (istext(pref.gear))
 			try
-				pref.gear = json_decode(pref.gear)
+				pref.gear_list = json_decode(pref.gear_list)
 			catch
 				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
 
