@@ -12,6 +12,7 @@
 
 /obj/effect/shuttle_landmark/escape_pod/transit
 	name = "In transit"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/escape_pod/out
 	name = "Escaped"
@@ -64,6 +65,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/emergency/interim
 	name = "In Transit"
 	landmark_tag = "nav_emergency_interim"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/emergency/dock
 	name = "Escape Shuttle Dock"
@@ -93,6 +95,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/arrival/interim
 	name = "In Transit"
 	landmark_tag = "nav_arrival_interim"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/arrival/dock
 	name = "Arrival Shuttle Dock"
@@ -143,6 +146,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/merchant/interim
 	name = "In Transit"
 	landmark_tag = "nav_merchant_interim"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/merchant/dock
 	name = "Merchant Shuttle Dock"
@@ -250,6 +254,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/skipjack/interim
 	name = "In Transit"
 	landmark_tag = "nav_skipjack_interim"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/skipjack/surface
 	name = "Surface Aft of Cargo"
@@ -308,6 +313,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/merc/interim
 	name = "In Transit"
 	landmark_tag = "nav_merc_interim"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/merc/dock
 	name = "Station Dock"
@@ -357,6 +363,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/legion/interim
 	name = "In Transit"
 	landmark_tag = "nav_legion_interim"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/legion/dock
 	name = "Legion Dock"
@@ -384,6 +391,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/research/interim
 	name = "In Transit"
 	landmark_tag = "nav_research_interim"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/research/dock
 	name = "Away Site"
@@ -411,6 +419,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/distress/interim
 	name = "In Transit"
 	landmark_tag = "nav_distress_interim"
+	base_turf = /turf/space/transit
 
 /obj/effect/shuttle_landmark/distress/dock
 	name = "Distress Dock"

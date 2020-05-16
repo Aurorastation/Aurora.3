@@ -1,5 +1,5 @@
 /mob/living/carbon/human/proc/handle_strip(var/slot_to_strip, var/mob/living/user)
-	if(!slot_to_strip || !istype(user) || ispAI(user) || (isanimal(user) && !istype(user, /mob/living/simple_animal/hostile) ) )
+	if(!slot_to_strip || !istype(user) || ispAI(user) || (isanimal(user) && !istype(user, /mob/living/simple_animal/hostile) ) || isrobot(user) )
 		return FALSE
 
 	if(user.incapacitated() || !user.Adjacent(src))

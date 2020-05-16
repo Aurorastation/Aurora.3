@@ -85,8 +85,14 @@
 			to_chat(user, SPAN_NOTICE("Internal prosthetics:"))
 			organ_found = FALSE
 			if(length(H.internal_organs))
+				var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
+				var/show_tag = FALSE
+				if(head?.open == 3) // Hatch open
+					show_tag = TRUE
 				for(var/obj/item/organ/O in H.internal_organs)
 					if(!(O.status & ORGAN_ROBOT))
+						continue
+					if(!show_tag && istype(O, /obj/item/organ/internal/ipc_tag))
 						continue
 					organ_found = TRUE
 					to_chat(user, "[O.name]: <font color='red'>[O.damage]</font>")

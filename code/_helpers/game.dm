@@ -231,12 +231,14 @@
 		if (!AM.loc)
 			continue
 
+		var/turf/AM_turf = get_turf(AM)
+
 		if(ismob(AM))
 			mobs[AM] = TRUE
-			hearturfs[AM.locs[1]] = TRUE
+			hearturfs[AM_turf] = TRUE
 		else if(isobj(AM))
 			objs[AM] = TRUE
-			hearturfs[AM.locs[1]] = TRUE
+			hearturfs[AM_turf] = TRUE
 
 	for(var/m in player_list)
 		var/mob/M = m
@@ -248,13 +250,16 @@
 			if (!mobs[M])
 				mobs[M] = TRUE
 			continue
-		if(M.loc && hearturfs[M.locs[1]])
+
+		var/turf/M_turf = get_turf(M)
+		if(M.loc && hearturfs[M_turf])
 			if (!mobs[M])
 				mobs[M] = TRUE
 
 	for(var/o in listening_objects)
 		var/obj/O = o
-		if(O && O.loc && hearturfs[O.locs[1]])
+		var/turf/O_turf = get_turf(O)
+		if(O && O.loc && hearturfs[O_turf])
 			if (!objs[O])
 				objs[O] = TRUE
 

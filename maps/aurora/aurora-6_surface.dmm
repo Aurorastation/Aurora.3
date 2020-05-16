@@ -11934,7 +11934,7 @@
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "5,15"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "vG" = (
 /obj/structure/disposalpipe/trunk,
@@ -12340,7 +12340,7 @@
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "5,13"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "wq" = (
 /obj/structure/cable/yellow{
@@ -12424,6 +12424,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
+"wx" = (
+/obj/structure/shuttle_part/escape_pod{
+	icon_state = "2,3"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/escape_pod3/station)
 "wy" = (
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
@@ -14865,6 +14871,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
+"AG" = (
+/obj/structure/shuttle_part/escape_pod{
+	icon_state = "0,3"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/escape_pod3/station)
 "AI" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -16505,8 +16517,10 @@
 	},
 /area/shuttle/research/station)
 "DK" = (
-/obj/structure/window/shuttle/unique/research{
-	icon_state = "7,16"
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "7,16";
+	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research/station)
@@ -18003,7 +18017,7 @@
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "7,15"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Gp" = (
 /obj/effect/floor_decal/corner/brown{
@@ -19829,6 +19843,12 @@
 "JH" = (
 /turf/simulated/wall,
 /area/sconference_room)
+"JI" = (
+/obj/structure/window/shuttle/unique/escape_pod{
+	icon_state = "1,3"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/escape_pod2/station)
 "JJ" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -22657,7 +22677,7 @@
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "7,13"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Pe" = (
 /obj/effect/decal/cleanable/dirt,
@@ -22886,7 +22906,7 @@
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "5,14"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "PD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -22909,8 +22929,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "PF" = (
-/obj/structure/window/shuttle/unique/research{
-	icon_state = "5,16"
+/obj/structure/shuttle_part/research{
+	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+	icon_state = "5,16";
+	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research/station)
@@ -23326,7 +23348,7 @@
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "6,16"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Qx" = (
 /obj/machinery/door/firedoor,
@@ -23392,6 +23414,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"QE" = (
+/obj/structure/window/shuttle/unique/escape_pod{
+	icon_state = "1,3"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/escape_pod3/station)
 "QF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -23808,6 +23836,12 @@
 	temperature = 303.15
 	},
 /area/crew_quarters/fitness/pool)
+"Rv" = (
+/obj/structure/shuttle_part/escape_pod{
+	icon_state = "2,3"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/escape_pod2/station)
 "Rw" = (
 /obj/machinery/computer/telecomms/traffic,
 /obj/machinery/alarm{
@@ -25306,7 +25340,7 @@
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "7,14"
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "Uu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -25891,6 +25925,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
+"VE" = (
+/obj/structure/shuttle_part/escape_pod{
+	icon_state = "0,3"
+	},
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/escape_pod2/station)
 "VF" = (
 /obj/effect/floor_decal/plaque,
 /turf/simulated/floor/tiled,
@@ -76135,7 +76175,7 @@ aa
 aa
 aa
 aa
-rx
+VE
 Dk
 pW
 sq
@@ -76392,7 +76432,7 @@ aa
 aa
 aa
 aa
-ry
+JI
 mu
 rX
 sr
@@ -76649,7 +76689,7 @@ aa
 aa
 aa
 aa
-Nm
+Rv
 qi
 xp
 uA
@@ -77163,7 +77203,7 @@ aa
 aa
 aa
 aa
-rx
+AG
 rw
 Dm
 ss
@@ -77420,7 +77460,7 @@ aa
 aa
 aa
 aa
-ry
+QE
 mw
 rY
 st
@@ -77677,7 +77717,7 @@ aa
 aa
 aa
 aa
-Nm
+wx
 OC
 VQ
 vM

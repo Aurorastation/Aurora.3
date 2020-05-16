@@ -874,9 +874,9 @@
 
 /datum/chemical_reaction/emp_pulse/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/location = get_turf(holder.my_atom)
-	// 100 created volume = 4 heavy range & 7 light range. A few tiles smaller than traitor EMP grandes.
-	// 200 created volume = 8 heavy range & 14 light range. 4 tiles larger than traitor EMP grenades.
-	empulse(location, round(created_volume / 24), round(created_volume / 14), 1)
+	// 100 created volume = ~1 heavy range & ~2 light range.
+	// 200 created volume = ~2 heavy range & ~4 light range.
+	empulse(location, round(created_volume / 6), round(created_volume / 3), 1)
 	holder.clear_reagents()
 	return
 

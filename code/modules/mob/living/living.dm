@@ -906,3 +906,25 @@ default behaviour is:
 		Paralyse(rand(8,16))
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
+
+/mob/living/update_icons()
+	for(var/aura in auras)
+		var/obj/aura/A = aura
+		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+		add_overlay(aura_overlay)
+
+/mob/living/proc/add_aura(var/obj/aura/aura)
+	LAZYDISTINCTADD(auras, aura)
+	update_icons()
+	return TRUE
+
+/mob/living/proc/remove_aura(var/obj/aura/aura)
+	LAZYREMOVE(auras, aura)
+	update_icons()
+	return TRUE
+
+/mob/living/Destroy()
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+	return ..()

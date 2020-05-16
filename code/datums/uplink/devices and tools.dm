@@ -68,6 +68,12 @@
 	item_cost = 6
 	path = /obj/item/card/emag
 
+/datum/uplink_item/item/tools/personal_shield
+	name = "Personal Shield"
+	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots."
+	item_cost = 6
+	path = /obj/item/device/personal_shield
+
 /datum/uplink_item/item/tools/hacking_tool
 	name = "Door Hacking Tool"
 	item_cost = 6
