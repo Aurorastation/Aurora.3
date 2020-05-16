@@ -81,7 +81,7 @@ export default {
         this.$emit("save", this.gdata.state.editingvalue)
         return
       }
-      Utils.sendToTopic({
+      this.$atc({
         editrecord: {
           value: this.gdata.state.editingvalue,
           key: this.path.split(".")

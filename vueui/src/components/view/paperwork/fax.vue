@@ -16,7 +16,7 @@
         </vui-item>
         <template v-if="state.paper">
           <vui-item label="Currently sending:">{{ state.paper }}</vui-item>
-          <vui-button push-state :params="{ send: 1}">Send</vui-button>
+          <vui-button :params="{ send: 1}">Send</vui-button>
         </template>
         <span v-else>Please insert paper to send via secure connection.</span>
       </template>

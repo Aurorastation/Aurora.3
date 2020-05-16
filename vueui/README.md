@@ -171,6 +171,7 @@ export default {
 #### `state` - Representation of `ui.data` inside ui.
 This is outside metadata, so changes to this variable can be made, but this variable is expected to be a object or how BYOND calls it - a keyed list, using other type *will* cause errors. This variable is main way to interact with server without using `Topic()`.
 
+*TODO: Rework - remove push state*
 Note: `state` can get very out of sync with `ui.data`, this often occur on rapid changes. So to make sure latest data gets to ui datum, when ui data is needed for usage, `<vui-button>` parameter `push-state` should be set. Example: `<vui-button push-state :params="{copy: 1}">Copy</vui-button>` in photocopier.vue - makes sure that copy amount is up to date. When `state` object is huge, it's discouraged to solve this issue like this. Then it should be solved by sending needed data inside `params`.
 #### `wtime` - Global world time since boot, client side guess of `word.time`
 This is constantly counting counter updated every 200ms representing time since server has started. This should be used for displaying counters, timers, as it doesn't depend on pushed state so much, so it allows making better user experiences.
@@ -197,7 +198,6 @@ Parameters:
  - `params` - key value pairs to send to `Topic` of object. Can contain objects or arrays (DM keyed lists and lists respectively).
  - `unsafe-params` - Used to execute a generic `Topic()` call to the game. Requires that you specify the `src` object as a valid reference, otherwise it will not function. **Should not generally be used**, primary use-case is backwards compatibility with older APIs that are spread out over multiple objects.
  - `icon` - icon that should be used in that button. For available icons look at `\vueui\styles\icons.scss`
- - `push-state` - Boolean determining if current ui state should be pushed on button click. This often results in `vueui_data_change` call right before `Topic` call.
 
 Events:
  - `click` - Fires when button is clicked.
@@ -274,7 +274,6 @@ Parameters:
  - `button-count` - How many -/+ buttons to show on each side.
  - `min` - Minimum value.
  - `max` - Maximum value.
- - `push-state` - Boolean determining if current ui state should be pushed on input change.
  - `width` - Determines width of input text field.
  - `decimal-places` - How many decimal places are allowed.
 

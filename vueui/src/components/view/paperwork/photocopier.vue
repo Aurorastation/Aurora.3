@@ -7,7 +7,7 @@
         <div class="itemLabel copylabel">Copies to print:</div>
         <div class="copyBlock">
           <vui-input-numeric width="2.5em" v-model="state.copies" :min="1" :max="state.maxcopies"/><br>
-          <vui-button push-state :params="{copy: 1}">Copy</vui-button>
+          <vui-button :params="{copy: 1}">Copy</vui-button>
         </div>
       </template>
       <template v-else>

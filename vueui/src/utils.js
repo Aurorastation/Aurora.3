@@ -1,5 +1,4 @@
 import Store from './store.js'
-import store from './store.js';
 export default {
   sendToTopicRaw(data) {
     var sendparams = []
@@ -11,15 +10,13 @@ export default {
     r.open("GET", sendUrl, true);
     r.send()
   },
-  sendToTopic(data, pushState = false) {
-    var pushData = {
+  // ATC call.
+  sendToTopic(data) {
+    var callData = {
       src: Store.state.uiref,
       vueuihrefjson: JSON.stringify(data)
     }
-    if(pushState) {
-      pushData["vueuistateupdate"] = store.getStatePushDataString()
-    }
-    this.sendToTopicRaw(pushData)
+    this.sendToTopicRaw(callData)
   },
   dotNotationRead(object, key) {
     return key.split('.').reduce((a, b) => a[b], object);

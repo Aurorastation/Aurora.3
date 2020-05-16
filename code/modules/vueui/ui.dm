@@ -234,7 +234,7 @@ main ui datum.
 	assets -= assets[name]
 
 /**
-  * Handles interactivity and state updates
+  * Handles topic calls and ATCs
   *
   * @return nothing
   */
@@ -247,29 +247,22 @@ main ui datum.
 			user.client << browse_rsc(file("vueui/dist/app.js"), "vueui.js")
 			user.client << browse_rsc(file("vueui/dist/app.css"), "vueui.css")
 		open()
-	if(href_list["vueuistateupdate"])
-		var/rdata = json_decode(href_list["vueuistateupdate"])
-		var/ndata = rdata["state"]
-		var/ret = object.vueui_data_change(ndata, user, src)
-		if(ret)
-			. = TRUE
-			ndata = ret
-		src.data = ndata
-	var/topicReturn = 0
-	if(!href_list["vueuipushonly"])
-		if(href_list["vueuihrefjson"])
-			var/json_href = json_decode(href_list["vueuihrefjson"])
-			if(json_href)
-				for(var/hvar in json_href)
-					href_list[hvar] = json_href[hvar]
-		if(href_list["_openurl"])
-			send_link(usr, href_list["_openurl"])
-		href_list["vueui"] = src // Let's pass our UI object to object for it to do things.
-		topicReturn = object.Topic(href, href_list)
-	if(. || topicReturn)
-		if(topicReturn) check_for_change(FALSE, TRUE)
+	// Parse ATC call if present.
+	if(href_list["vueuiatc"])
+		var/json_href = json_decode(href_list["vueuiatc"])
+		if(json_href)
+			for(var/hvar in json_href)
+				href_list[hvar] = json_href[hvar]
+	// Does our UI ask to open external URL?
+	if(href_list["_openurl"])
+		send_link(usr, href_list["_openurl"])
+	// Inject UI instance in to topic href_list
+	href_list["vueui"] = src
+	// Call topic of our onject to do actuall work
+	. = object.Topic(href, href_list)
+	if(.)
+		check_for_change(FALSE)
 		. = null
-		push_change()
 
 /**
   * Pushes latest data to client (Including metadata such as: assets index, status, activeui)
