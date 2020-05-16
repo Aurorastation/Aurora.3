@@ -154,9 +154,6 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                     {{if data.cartridge.access.access_reagent_scanner==1}}
                         {{:helper.link(data.scanmode == 3 ? 'Disable Reagent Scanner' : 'Enable Reagent Scanner', 'gear', {'choice' : "Reagent Scan"}, null, 'fixedLeftWider')}}
                     {{/if}}
-                    {{if data.cartridge.access.access_engine==1}}
-                        {{:helper.link(data.scanmode == 4 ? 'Disable Halogen Counter' : 'Enable Halogen Counter', 'gear', {'choice' : "Halogen Counter"}, null, 'fixedLeftWider')}}
-                    {{/if}}
                     {{if data.cartridge.access.access_atmos==1}}
                         {{:helper.link(data.scanmode == 5 ? 'Disable Gas Scanner' : 'Enable Gas Scanner', 'gear', {'choice' : "Gas Scan"}, null, 'fixedLeftWide')}}
                     {{/if}}
@@ -604,7 +601,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                 </div>
             {{/if}}
 		{{else}}
-            <!-- values["sensor_reading"] not set in /obj/item/weapon/cartridge/proc/create_NanoUI_values proc -->
+            <!-- values["sensor_reading"] not set in /obj/item/cartridge/proc/create_NanoUI_values proc -->
 			<div class="notice">
                  Unable to contact sensor controller! Please retry and contact tech support if this problem persists.
             </div>
@@ -636,7 +633,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                         <span class="good">Age:			</span> <span class="average">{{:data.records.general.age}}		</span><br>
                         <span class="good">Rank:		</span> <span class="average">{{:data.records.general.rank}}	</span><br>
                         <span class="good">Fingerprint:		</span> <span class="average">{{:data.records.general.fingerprint}}	</span><br>
-                        <span class="good">Physical Status:	</span> <span class="average">{{:data.records.general.phisical_status}}	</span><br>
+                        <span class="good">Physical Status:	</span> <span class="average">{{:data.records.general.physical_status}}	</span><br>
                         <span class="good">Mental Status:	</span> <span class="average">{{:data.records.general.mental_status}}	</span><br><br>
                     {{else}}
                         <span class="bad">
@@ -687,7 +684,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                         <span class="good">Age: </span>  <span class="average">{{:data.records.general.age}} </span><br>
                         <span class="good">Rank: </span>  <span class="average">{{:data.records.general.rank}} </span><br>
                         <span class="good">Fingerprint:  </span> <span class="average">{{:data.records.general.fingerprint}} </span><br>
-                        <span class="good">Physical Status:  </span> <span class="average">{{:data.records.general.phisical_status}} </span><br>
+                        <span class="good">Physical Status:  </span> <span class="average">{{:data.records.general.physical_status}} </span><br>
                         <span class="good">Mental Status:  </span> <span class="average">{{:data.records.general.mental_status}} </span><br><br>
                     {{else}}
                         <span class="bad">

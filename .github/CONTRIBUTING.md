@@ -168,7 +168,7 @@ For reference, here are the standard span classes for user output, and the corre
 * `<span class='warning'></span>` also corresponds to `\red` and is not bold.
 * `<span class='notice'></span>` corresponds to `\blue` and is not bold.
 
-There exist pre-processor macros for using these spans. `span(class, text)` which is the equivilant of typing a string that looks like this: `"<span class='[class]'>[text]</span>"`.
+There exist pre-processor macros for using these spans. `span(class, text)` which is the equivalent of typing a string that looks like this: `"<span class='[class]'>[text]</span>"` and macros such as `SPAN_WARNING(text)`, `SPAN_NOTICE(text)`, `SPAN_DANGER(text)`.
 
 The stylesheet available for use within DM can be found in `code/stylesheet.dm`.
 

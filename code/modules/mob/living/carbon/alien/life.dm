@@ -56,7 +56,7 @@
 			handle_paralysed()
 			blinded = 1
 			stat = UNCONSCIOUS
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
 		if(sleeping)
@@ -67,12 +67,12 @@
 			blinded = 1
 			stat = UNCONSCIOUS
 		else if(resting)
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-3)
 
 		else
 			stat = CONSCIOUS
-			if(halloss > 0)
+			if(getHalLoss() > 0)
 				adjustHalLoss(-1)
 
 		// Eyes and blindness.
@@ -108,7 +108,7 @@
 
 	if (healths)
 		if (stat != 2)
-			switch(health - halloss)//Halloss should be factored in here for displaying
+			switch(health - getHalLoss())//Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)

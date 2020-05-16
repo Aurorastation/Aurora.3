@@ -185,7 +185,6 @@ var/list/advance_cures = 	list(
 
 	if(!symptoms || !symptoms.len)
 		CRASH("We did not have any symptoms before generating properties.")
-		return
 
 	for(var/datum/symptom/S in symptoms)
 

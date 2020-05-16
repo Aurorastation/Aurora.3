@@ -12,6 +12,18 @@
 
 	return text
 
+/proc/get_subfolders(var/root)
+	var/list/folders = list()
+	var/list/contents = flist(root)
+
+	for(var/file in contents)
+		//Check if the filename ends with / to see if its a folder
+		if(copytext(file,-1,0) != "/")
+			continue
+		folders.Add("[root][file]")
+
+	return folders
+
 //Sends resource files to client cache
 /client/proc/getFiles()
 	for(var/file in args)

@@ -106,13 +106,13 @@
 // Returns a new bounty of random type, but does not add it to bounties_list.
 /datum/controller/subsystem/cargo/proc/random_bounty(var/category)
 	if(!category)
-		category = rand(1, 11)
+		category = rand(1, 10)
 	switch(category)
 		if(1)
 			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 			return new subtype
 		if(2)
-			var/subtype = pick(subtypesof(/datum/bounty/item/mech))
+			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 			return new subtype
 		if(3)
 			var/subtype = pick(subtypesof(/datum/bounty/item/chef))
@@ -127,18 +127,15 @@
 		if(6)
 			return new /datum/bounty/reagent/chemical
 		if(7)
-			var/subtype = pick(subtypesof(/datum/bounty/virus))
-			return new subtype
-		if(8)
 			var/subtype = pick(subtypesof(/datum/bounty/item/science))
 			return new subtype
-		if(9)
+		if(8)
 			var/subtype = pick(subtypesof(/datum/bounty/item/slime))
 			return new subtype
-		if(10)
+		if(9)
 			var/subtype = pick(subtypesof(/datum/bounty/item/bot))
 			return new subtype
-		if(11)
+		if(10)
 			var/subtype = pick(subtypesof(/datum/bounty/weapon_prototype))
 			return new subtype
 
@@ -165,7 +162,7 @@
 
 	for(var/i = 0; i < 1; ++i)
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/item/mech,/datum/bounty/item/bot))
+		var/list/subtype = pick(subtypesof(/datum/bounty/item/bot))
 		try_add_bounty(new subtype)
 
 	for(var/i = 0; i < 2; ++i)
@@ -177,7 +174,7 @@
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/item/security))
 		try_add_bounty(new subtype)
-	
+
 	for(var/i = 0; i < 5; ++i)
 		CHECK_TICK
 		var/list/subtype = pick(subtypesof(/datum/bounty/weapon_prototype, /datum/bounty/item/science, /datum/bounty/item/slime))
@@ -186,11 +183,6 @@
 	try_add_bounty(new /datum/bounty/reagent/simple_drink)
 	try_add_bounty(new /datum/bounty/reagent/complex_drink)
 	try_add_bounty(new /datum/bounty/reagent/chemical)
-
-	/*for(var/i = 0; i < 1; ++i)
-		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/virus))
-		try_add_bounty(new subtype)*/
 
 	var/datum/bounty/B = pick(bounties_list)
 	B.mark_high_priority()

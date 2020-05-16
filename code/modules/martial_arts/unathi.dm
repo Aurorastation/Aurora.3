@@ -28,7 +28,7 @@
 	if(check_streak(A,D))
 		return 1
 	D.grabbedby(A,1)
-	var/obj/item/weapon/grab/G = A.get_active_hand()
+	var/obj/item/grab/G = A.get_active_hand()
 	if(G && prob(50))
 		G.state = GRAB_AGGRESSIVE
 		D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
@@ -101,6 +101,6 @@
 /obj/item/martial_manual/unathi
 	name = "kis khan scroll"
 	desc = "A parched scroll.It seems to be drawings of some sort of martial art involving tails."
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "scroll2"
+	icon_state = "scroll"
+	item_state = "scroll"
 	martial_art = /datum/martial_art/kis_khan

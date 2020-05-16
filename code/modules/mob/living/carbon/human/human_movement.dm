@@ -16,8 +16,8 @@
 	var/health_deficiency = (100 - health)
 	if(health_deficiency >= 40) tally += (health_deficiency / 25)
 
-	if (can_feel_pain())
-		if(halloss >= 10) tally += (halloss / 10) //halloss shouldn't slow you down if you can't even feel it
+	if(can_feel_pain())
+		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
 		tally += I.slowdown
@@ -25,18 +25,18 @@
 	if(species)
 		tally += species.get_species_tally(src)
 
-	if (nutrition < (max_nutrition * 0.4))
+	if (nutrition < (max_nutrition * 0.2))
 		tally++
 		if (nutrition < (max_nutrition * 0.1))
 			tally++
 
-	if (hydration < (max_hydration * 0.4))
+	if (hydration < (max_hydration * 0.2))
 		tally++
 		if (hydration < (max_hydration * 0.1))
 			tally++
 
 	if(istype(buckled, /obj/structure/bed/chair/wheelchair))
-		for(var/organ_name in list("l_hand","r_hand","l_arm","r_arm"))
+		for(var/organ_name in list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
 				tally += 4
@@ -48,7 +48,7 @@
 		if(shoes)
 			tally += shoes.slowdown
 
-		for(var/organ_name in list("l_foot","r_foot","l_leg","r_leg"))
+		for(var/organ_name in list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG))
 			var/obj/item/organ/external/E = get_organ(organ_name)
 			if(!E || E.is_stump())
 				tally += 4
@@ -58,7 +58,11 @@
 				tally += 1.5
 
 	if (can_feel_pain())
-		if(shock_stage >= 10) tally += 3
+		if(shock_stage >= 10)
+			tally += 3
+
+	if(is_asystole())
+		tally += 10  //heart attacks are kinda distracting
 
 	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
 
@@ -95,7 +99,7 @@
 	if(restrained())	return 0
 
 	//Do we have a working jetpack?
-	var/obj/item/weapon/tank/jetpack/thrust = GetJetpack(src)
+	var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 	if(thrust)
 		if(((!check_drift) || (check_drift && thrust.stabilization_on)) && (!lying) && (thrust.allow_thrust(0.01, src)))
@@ -119,8 +123,6 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
-	if(checkSpecies && (species.flags & NO_SLIP))
-		return 1
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
@@ -134,24 +136,30 @@
 	. = ..()
 
 	var/turf/T = loc
-	if (!isturf(T))
-		return
+	var/footsound
+	var/top_layer = 0
+	for(var/obj/structure/S in T)
+		if(S.layer > top_layer && S.footstep_sound)
+			top_layer = S.layer
+			footsound = S.footstep_sound
+	if(!footsound)
+		footsound = T.footstep_sound
 
 	if (client)
 		var/turf/B = GetAbove(T)
 		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
-		if ((x == last_x && y == last_y) || !T.footstep_sound)
+		if ((x == last_x && y == last_y) || !footsound)
 			return
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
-			playsound(src, T.footstep_sound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+			playsound(src, footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, T.footstep_sound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+				playsound(src, footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()

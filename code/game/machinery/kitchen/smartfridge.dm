@@ -29,10 +29,10 @@
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/smartfridge,
-		/obj/item/weapon/stock_parts/manipulator,
-		/obj/item/weapon/stock_parts/manipulator,
-		/obj/item/weapon/stock_parts/manipulator
+		/obj/item/circuitboard/smartfridge,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/manipulator
 	)
 
 	var/datum/wires/smartfridge/wires = null
@@ -40,6 +40,59 @@
 
 /obj/machinery/smartfridge/secure
 	is_secure = 1
+
+/obj/machinery/smartfridge/stocked
+	var/list/starting_produce = list(
+		"apple" = 24,
+		"banana" = 24,
+		"berry" = 24,
+		"cabbage" = 24,
+		"carrot" = 24,
+		"chanterelle" = 16,
+		"cherry" = 8,
+		"chili" = 24,
+		"cacao" = 8,
+		"corn" = 24,
+		"earthen-root" = 16,
+		"eggplant" = 16,
+		"garlic" = 8,
+		"grape" = 8,
+		"lemon" = 16,
+		"lime" = 16,
+		"Messa's tear" = 16,
+		"dirt berries" = 16,
+		"onion" = 24,
+		"orange" = 24,
+		"peanut" = 24,
+		"plump helmet" = 24,
+		"poppy" = 16,
+		"potato" = 24,
+		"pumpkin" = 16,
+		"rice" = 24,
+		"soybean" = 24,
+		"tomato" = 24,
+		"wheat" = 8,
+		"watermelon" = 8,
+		"white-beet" = 8,
+		"dyn" = 24,
+		"wulumunusha" = 24
+	)
+
+/obj/machinery/smartfridge/stocked/Initialize()
+	. = ..()
+	for(var/seed in starting_produce)
+		var/produce_amount = starting_produce[seed]
+		for(var/i in 1 to produce_amount)
+			var/datum/seed/chosen_seed = SSplants.seeds[seed]
+			if(chosen_seed)
+				chosen_seed.spawn_seed(src)
+		CHECK_TICK
+
+	for(var/obj/item/reagent_containers/food/snacks/grown/g in contents)
+		if(item_quants[g.name])
+			item_quants[g.name]++
+		else
+			item_quants[g.name] = 1
 
 /obj/machinery/smartfridge/Initialize()
 	. = ..()
@@ -54,7 +107,7 @@
 	return ..()
 
 /obj/machinery/smartfridge/proc/accept_check(var/obj/item/O as obj)
-	if(istype(O,/obj/item/weapon/reagent_containers/food/snacks/grown/) || istype(O,/obj/item/seeds/))
+	if(istype(O,/obj/item/reagent_containers/food/snacks/grown/) || istype(O,/obj/item/seeds/))
 		return 1
 	return 0
 
@@ -66,7 +119,7 @@
 	icon_off = "smartfridge_food-off"
 
 /obj/machinery/smartfridge/foodheater/accept_check(var/obj/item/O as obj)
-	if(istype(O,/obj/item/weapon/reagent_containers/food/snacks))
+	if(istype(O,/obj/item/reagent_containers/food/snacks))
 		return 1
 	return 0
 
@@ -90,7 +143,7 @@
 
 /obj/machinery/smartfridge/secure/extract/Initialize()
 	. = ..()
-	new/obj/item/weapon/storage/bag/slimes(src)
+	new/obj/item/storage/bag/slimes(src)
 
 /obj/machinery/smartfridge/secure/extract/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/slime_extract))
@@ -105,21 +158,21 @@
 	req_one_access = list(access_medical,access_pharmacy)
 
 /obj/machinery/smartfridge/secure/medbay/accept_check(var/obj/item/O as obj)
-	if(istype(O,/obj/item/weapon/reagent_containers/glass/))
+	if(istype(O,/obj/item/reagent_containers/glass/))
 		return 1
-	if(istype(O,/obj/item/weapon/storage/pill_bottle/))
+	if(istype(O,/obj/item/storage/pill_bottle/))
 		return 1
-	if(istype(O,/obj/item/weapon/reagent_containers/pill/))
+	if(istype(O,/obj/item/reagent_containers/pill/))
 		return 1
-	if(istype(O,/obj/item/weapon/reagent_containers/inhaler))
+	if(istype(O,/obj/item/reagent_containers/inhaler))
 		return 1
-	if(istype(O,/obj/item/weapon/reagent_containers/personal_inhaler_cartridge	))
+	if(istype(O,/obj/item/reagent_containers/personal_inhaler_cartridge	))
 		return 1
-	if(istype(O,/obj/item/weapon/reagent_containers/inhaler))
+	if(istype(O,/obj/item/reagent_containers/inhaler))
 		return 1
-	if(istype(O,/obj/item/weapon/reagent_containers/hypospray/autoinjector))
+	if(istype(O,/obj/item/reagent_containers/hypospray/autoinjector))
 		return 1
-	if(istype(O,/obj/item/weapon/personal_inhaler))
+	if(istype(O,/obj/item/personal_inhaler))
 		return 1
 
 	return 0
@@ -133,9 +186,9 @@
 	icon_off = "smartfridge_virology-off"
 
 /obj/machinery/smartfridge/secure/virology/accept_check(var/obj/item/O as obj)
-	if(istype(O,/obj/item/weapon/reagent_containers/glass/beaker/vial/))
+	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial/))
 		return 1
-	if(istype(O,/obj/item/weapon/virusdish/))
+	if(istype(O,/obj/item/virusdish/))
 		return 1
 	return 0
 
@@ -144,7 +197,7 @@
 	desc = "A refrigerated storage unit for medicine and chemical storage."
 
 /obj/machinery/smartfridge/chemistry/accept_check(var/obj/item/O as obj)
-	if(istype(O,/obj/item/weapon/storage/pill_bottle) || istype(O,/obj/item/weapon/reagent_containers))
+	if(istype(O,/obj/item/storage/pill_bottle) || istype(O,/obj/item/reagent_containers))
 		return 1
 	return 0
 
@@ -159,7 +212,7 @@
 	cooling = TRUE
 
 /obj/machinery/smartfridge/drinks/accept_check(var/obj/item/O as obj)
-	if(istype(O,/obj/item/weapon/reagent_containers/glass) || istype(O,/obj/item/weapon/reagent_containers/food/drinks) || istype(O,/obj/item/weapon/reagent_containers/food/condiment))
+	if(istype(O,/obj/item/reagent_containers/glass) || istype(O,/obj/item/reagent_containers/food/drinks) || istype(O,/obj/item/reagent_containers/food/condiment))
 		return 1
 
 /obj/machinery/smartfridge/drying_rack
@@ -167,8 +220,8 @@
 	desc = "A machine for drying plants."
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O as obj)
-	if(istype(O, /obj/item/weapon/reagent_containers/food/snacks/))
-		var/obj/item/weapon/reagent_containers/food/snacks/S = O
+	if(istype(O, /obj/item/reagent_containers/food/snacks/))
+		var/obj/item/reagent_containers/food/snacks/S = O
 		if (S.dried_type)
 			return 1
 	return 0
@@ -179,7 +232,7 @@
 		dry()
 
 /obj/machinery/smartfridge/drying_rack/proc/dry()
-	for(var/obj/item/weapon/reagent_containers/food/snacks/S in contents)
+	for(var/obj/item/reagent_containers/food/snacks/S in contents)
 		if(S.dry) continue
 		if(S.dried_type == S.type)
 			S.dry = 1
@@ -260,31 +313,31 @@
 		if(panel_open)
 			switch(input(user, "What would you like to select?", "Machine Debug Software") as null|anything in list("SmartHeater", "MegaSeed Storage", "Slime Extract Storage", "Refrigerated Chemical Storage", "Refrigerated Virus Storage", "Drink Showcase", "Drying Rack"))
 				if("SmartHeater")
-					new /obj/machinery/smartfridge/foodheater(loc, make_from=src)
+					new /obj/machinery/smartfridge/foodheater(loc)
 					qdel(src)
 
 				if("MegaSeed Storage")
-					new /obj/machinery/smartfridge/seeds(loc, make_from=src)
+					new /obj/machinery/smartfridge/seeds(loc)
 					qdel(src)
 
 				if("Slime Extract Storage")
-					new /obj/machinery/smartfridge/secure/extract(loc, make_from=src)
+					new /obj/machinery/smartfridge/secure/extract(loc)
 					qdel(src)
 
 				if("Refrigerated Chemical Storage")
-					new /obj/machinery/smartfridge/secure/medbay(loc, make_from=src)
+					new /obj/machinery/smartfridge/secure/medbay(loc)
 					qdel(src)
 
 				if("Refrigerated Virus Storage")
-					new /obj/machinery/smartfridge/secure/virology(loc, make_from=src)
+					new /obj/machinery/smartfridge/secure/virology(loc)
 					qdel(src)
 
 				if("Drink Showcase")
-					new /obj/machinery/smartfridge/drinks(loc, make_from=src)
+					new /obj/machinery/smartfridge/drinks(loc)
 					qdel(src)
 
 				if("Drying Rack")
-					new /obj/machinery/smartfridge/drying_rack(loc, make_from=src)
+					new /obj/machinery/smartfridge/drying_rack(loc)
 					qdel(src)
 
 
@@ -313,8 +366,8 @@
 			SSnanoui.update_uis(src)
 			return
 
-	if(istype(O, /obj/item/weapon/storage/bag) || istype(O, /obj/item/weapon/storage/box/produce))
-		var/obj/item/weapon/storage/P = O
+	if(istype(O, /obj/item/storage/bag) || istype(O, /obj/item/storage/box/produce))
+		var/obj/item/storage/P = O
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)
 			if(accept_check(G))

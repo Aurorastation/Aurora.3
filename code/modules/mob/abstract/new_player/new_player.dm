@@ -27,15 +27,18 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_player_panel_proc()
 
 /mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B>New Player Options</B>"
+	var/output = "<div align='center'><B>New Player Options</B><br>"
+	var/character_name = client.prefs.real_name
+	if(character_name)
+		output += "<b>Selected Character: [character_name]</b>"
 	output +="<hr>"
 	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
 
 	if(!ROUND_IS_STARTED)
 		if(ready)
-			output += "<p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
+			output += "<br><br><p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
 		else
-			output += "<p>\[ <a href='byond://?src=\ref[src];ready=1'>Ready</a> | <b>Not Ready</b> \]</p>"
+			output += "<br><br><p>\[ <a href='byond://?src=\ref[src];ready=1'>Ready</a> | <b>Not Ready</b> \]</p>"
 
 	else
 		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><br><br>"
@@ -106,6 +109,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			if (config.sql_saves && !client.prefs.current_character)
 				alert(src, "You have not saved your character yet. Please do so before readying up.")
 				return
+			if(client.unacked_warning_count > 0)
+				alert(src, "You can not ready up, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+				return
 
 			ready = text2num(href_list["ready"])
 		else
@@ -172,17 +178,23 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		if(!check_rights(R_ADMIN, 0))
 			var/datum/species/S = all_species[client.prefs.species]
 			if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-				to_chat(src, alert("You are currently not whitelisted to play [client.prefs.species]."))
+				to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
 				return 0
 
 			if(!(S.spawn_flags & CAN_JOIN))
-				to_chat(src, alert("Your current species, [client.prefs.species], is not available for play on the station."))
+				to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
 				return 0
 
 		LateChoices()
 
 	if(href_list["manifest"])
 		ViewManifest()
+
+	if(href_list["ghostspawner"])
+		if(!ROUND_IS_STARTED)
+			to_chat(usr, SPAN_WARNING("The round hasn't started yet!"))
+			return
+		SSghostroles.vui_interact(src)
 
 	if(href_list["SelectedJob"])
 
@@ -193,13 +205,17 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
 			return
 
+		if(client.unacked_warning_count > 0)
+			alert(usr, "You can not join the game, because you have unacknowledged warnings. Acknowledge your warnings in OOC->Warnings and Notifications.")
+			return
+
 		var/datum/species/S = all_species[client.prefs.species]
 		if((S.spawn_flags & IS_WHITELISTED) && !is_alien_whitelisted(src, client.prefs.species) && config.usealienwhitelist)
-			to_chat(src, alert("You are currently not whitelisted to play [client.prefs.species]."))
+			to_chat(usr, "<span class='danger'>You are currently not whitelisted to play [client.prefs.species].</span>")
 			return 0
 
 		if(!(S.spawn_flags & CAN_JOIN))
-			to_chat(src, alert("Your current species, [client.prefs.species], is not available for play on the station."))
+			to_chat(usr, "<span class='danger'>Your current species, [client.prefs.species], is not available for play on the station.</span>")
 			return 0
 
 		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
@@ -279,6 +295,11 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if (jobban_isbanned(src,rank))
 		return FALSE
 
+	if(job.blacklisted_species) // check for restricted species
+		var/datum/species/S = all_species[client.prefs.species]
+		if(S.name in job.blacklisted_species)
+			return FALSE
+
 	var/datum/faction/faction = SSjobs.name_factions[client.prefs.faction] || SSjobs.default_faction
 	if (!(job.type in faction.allowed_role_types))
 		return FALSE
@@ -299,10 +320,10 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
 		return 0
 	if(config.sql_saves && !client.prefs.current_character)
-		alert(src, "You have not saved your character yet. Please do so before attempting to join.")
+		alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
 	if(!IsJobAvailable(rank))
-		to_chat(src, alert("[rank] is not available. Please try another."))
+		to_chat(usr, "<span class='notice'>[rank] is not available. Please try another.</span>")
 		return 0
 
 	spawning = 1
@@ -312,6 +333,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
+	SSjobs.EquipAugments(character, character.client.prefs)
 	character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core
@@ -324,6 +346,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		empty_playable_ai_cores -= C
 
 		character.forceMove(C.loc)
+		character.eyeobj.forceMove(C.loc)
 
 		AnnounceCyborg(character, rank, "has been downloaded to the empty core in \the [character.loc.loc]")
 		SSticker.mode.handle_latejoin(character)
@@ -370,6 +393,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	var/dat = "<center>"
 	dat += "<b>Welcome, [name].<br></b>"
 	dat += "Round Duration: [get_round_duration_formatted()]<br>"
+	dat += "Alert Level: [capitalize(get_security_level())]<br>"
 
 	if(emergency_shuttle) //In case Nanotrasen decides reposess CentComm's shuttles.
 		if(emergency_shuttle.going_to_centcom()) //Shuttle is going to centcomm, not recalled
@@ -379,6 +403,22 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				dat += "<font color='red'>The station is currently undergoing evacuation procedures.</font><br>"
 			else						// Crew transfer initiated
 				dat += "<font color='red'>The station is currently undergoing crew transfer procedures.</font><br>"
+
+	var/unique_role_available = FALSE
+	for(var/ghost_role in SSghostroles.spawners)
+		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
+		if(!G.show_on_job_select)
+			continue
+		if(!G.enabled)
+			continue
+		if(!isnull(G.req_perms))
+			continue
+		unique_role_available = TRUE
+		break
+
+	if(unique_role_available)
+		dat += "<font color='[COLOR_BRIGHT_GREEN]'><b>A unique ghost role is available:</b></font><br>"
+	dat += "<a href='byond://?src=\ref[src];ghostspawner=1'>Ghost Spawner Menu</A><br>"
 
 	dat += "Choose from the following open/valid positions:<br>"
 	for(var/datum/job/job in SSjobs.occupations)

@@ -16,7 +16,7 @@
 	speak_chance = 10
 	turns_per_move = 10
 	see_in_dark = 6
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/bearmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	meat_amount = 5
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
@@ -112,7 +112,7 @@
 			stop_automated_movement = 1
 			stance_step++
 			if(stance_step >= 15) //rests for 10 ticks
-				if(target_mob && target_mob in ListTargets(10))
+				if(target_mob && (target_mob in ListTargets(10)))
 					set_stance(HOSTILE_STANCE_ATTACK) //If the mob he was chasing is still nearby, resume the attack, otherwise go idle.
 				else
 					set_stance(HOSTILE_STANCE_IDLE)
@@ -206,12 +206,6 @@
 						nearest_downed_target = L
 						nearest_downed_dist = dist
 
-		else if(istype(A, /obj/mecha))
-			var/obj/mecha/M = A
-			if (M.occupant)
-				if (dist < nearest_dist)
-					nearest_target = M
-					nearest_dist = dist
 
 		if(istype(A, /obj/machinery/bot))
 			var/obj/machinery/bot/B = A
@@ -236,10 +230,6 @@
 	if (isliving(target_mob))
 		var/mob/living/L = target_mob
 		if((L.stat != DEAD))
-			return (0)
-	if (istype(target_mob,/obj/mecha))
-		var/obj/mecha/M = target_mob
-		if (M.occupant)
 			return (0)
 	if (istype(target_mob,/obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
@@ -419,7 +409,7 @@
 	break_stuff_probability = 100//Constantly smashing everything nearby
 	speak_chance = 15
 	var/idletime
-	var/focus_time//How long we've focused on this target
+	var/focus_time //How long we've focused on this target
 	var/teleport_delay = 60
 	var/tactical_delay = 3//Procs between shortrange teleports
 	var/datum/effect_system/sparks/spark_system

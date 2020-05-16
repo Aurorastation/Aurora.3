@@ -1,6 +1,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Formerly talking crystals - these procs are now modular so that you can make any /obj/item/weapon 'parrot' player speech back to them
+// Formerly talking crystals - these procs are now modular so that you can make any /obj/item 'parrot' player speech back to them
 // This could be extended to atoms, but it's bad enough as is
 // I genuinely tried to Add and Remove them from var and proc lists, but just couldn't get it working
 
@@ -41,7 +41,7 @@
 	else if(findtext(msg," ")==0)
 		return
 	else
-		/*var/l = lentext(msg)
+		/*var/l = length(msg)
 		if(findtext(msg," ",l,l+1)==0)
 			msg+=" "*/
 		seperate = text2list(msg, " ")
@@ -77,12 +77,12 @@
 		text = "[pick(heard_words)]"
 	else
 		text = pick(text2list(word, " "))
-	if(lentext(text)==1)
+	if(length(text)==1)
 		text=uppertext(text)
 	else
 		var/cap = copytext(text,1,2)
 		cap = uppertext(cap)
-		cap += copytext(text,2,lentext(text)+1)
+		cap += copytext(text,2,length(text)+1)
 		text=cap
 	var/q = 0
 	msg+=text

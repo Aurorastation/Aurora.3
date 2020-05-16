@@ -34,7 +34,7 @@
 		streak = copytext(streak,2)
 	return
 
-/datum/martial_art/proc/basic_hit(var/mob/living/carbon/human/A,var/mob/living/carbon/human/D)	//copy pasta of the regular unarmed attack, but can be replaced by something else
+/datum/martial_art/proc/basic_hit(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)	//copy pasta of the regular unarmed attack, but can be replaced by something else
 	var/rand_damage = rand(1, 5)
 	var/block = 0
 	var/accurate = 0
@@ -65,7 +65,7 @@
 	if(!accurate)
 		if(prob(80))
 			hit_zone = ran_zone(hit_zone)
-		if(prob(15) && hit_zone != "chest") // Missed!
+		if(prob(15) && hit_zone != BP_CHEST) // Missed!
 			if(!D.lying)
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
@@ -98,8 +98,7 @@
 
 	var/real_damage = rand_damage
 	var/hit_dam_type = attack.damage_type
-	var/is_sharp = 0
-	var/is_edge = 0
+	var/damage_flags = attack.damage_flags()
 
 	real_damage += attack.get_unarmed_damage(A)
 	real_damage *= D.damage_multiplier
@@ -117,29 +116,23 @@
 			real_damage += G.punch_force
 			hit_dam_type = G.punch_damtype
 			if(A.pulling_punches)
-				hit_dam_type = AGONY
+				hit_dam_type = PAIN
 
 			if(G.sharp)
-				is_sharp = 1
+				damage_flags |= DAM_SHARP
 
 			if(G.edge)
-				is_edge = 1
+				damage_flags |= DAM_EDGE
 
 			if(istype(A.gloves,/obj/item/clothing/gloves/force))
 				var/obj/item/clothing/gloves/force/X = A.gloves
 				real_damage *= X.amplification
 
-	if(attack.sharp)
-		is_sharp = 1
-
-	if(attack.edge)
-		is_edge = 1
-
 	var/armour = D.run_armor_check(hit_zone, "melee")
 
 	attack.apply_effects(A, D, armour, rand_damage, hit_zone)
 
-	D.apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, armour, damage_flags = damage_flags)
 
 	return 1
 
@@ -174,7 +167,12 @@
 	name = "SolCom manual"
 	desc = "A manual designated to teach the user about the martial art of solarian combat, a style based on traditional human martial arts."
 	icon = 'icons/obj/library.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_books.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
+		)
 	icon_state ="cqcmanual"
+	item_state ="book1"
 	var/martial_art = /datum/martial_art/sol_combat
 
 /obj/item/martial_manual/attack_self(mob/user as mob)

@@ -8,8 +8,9 @@
 	available_on_ntnet = 0
 	size = 12
 	usage_flags = PROGRAM_CONSOLE
-	required_access_run = access_merchant
-	required_access_download = access_merchant
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
+	required_access_run = list(access_merchant, access_kataphract_trader)
+	required_access_download = list(access_merchant, access_kataphract_trader)
 	var/obj/machinery/merchant_pad/pad = null
 	var/current_merchant = 0
 	var/show_trades = 0
@@ -81,6 +82,26 @@
 			bank -= response
 		return
 	last_comms = "PAD NOT CONNECTED"
+	
+/datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
+	var/BulkAmount = input("How many items? (Buy 1-50 items. 0 to cancel.)") as num
+	if(istext(BulkAmount))
+		last_comms = "ERROR: NUMBER EXPECTED"
+		return 
+	if(BulkAmount < 0 || BulkAmount > 50)
+		last_comms = "ERROR: POSITIVE NUMBER UP TO 50 EXPECTED"
+		return
+	if(pad)
+		for(var/BulkCounter = 0, BulkCounter < BulkAmount, BulkCounter++)
+			var/response = T.offer_money_for_trade(num, bank)
+			if(istext(response))
+				last_comms = T.get_response(response, "No thank you.")
+			else
+				last_comms = T.get_response("trade_complete", "Thank you!")
+				T.trade(null,num, get_turf(pad))
+				bank -= response
+		return
+	last_comms = "PAD NOT CONNECTED"
 
 /datum/computer_file/program/merchant/proc/bribe(var/datum/trader/T, var/amt)
 	if(bank < amt)
@@ -122,8 +143,8 @@
 	if(pad)
 		var/list/targets = pad.get_targets()
 		for(var/target in targets)
-			if(istype(target, /obj/item/weapon/spacecash))
-				var/obj/item/weapon/spacecash/cash = target
+			if(istype(target, /obj/item/spacecash))
+				var/obj/item/spacecash/cash = target
 				bank += cash.worth
 				qdel(target)
 		last_comms = "ALL MONEY DETECTED ON PAD TRANSFERED"
@@ -135,7 +156,7 @@
 		last_comms = "PAD NOT CONNECTED. CANNOT TRANSFER"
 		return
 	var/turf/T = get_turf(pad)
-	var/obj/item/weapon/spacecash/bundle/B = new(T)
+	var/obj/item/spacecash/bundle/B = new(T)
 	B.worth = bank
 	bank = 0
 	B.update_icon()
@@ -216,6 +237,9 @@
 			if(href_list["PRG_offer_money_for_item"])
 				. = 1
 				offer_money(T, text2num(href_list["PRG_offer_money_for_item"])+1)
+			if (href_list["PRG_bulk_money_for_item"])
+				. = 1
+				bulk_offer(T, text2num(href_list["PRG_bulk_money_for_item"])+1)
 			if(href_list["PRG_what_do_you_want"])
 				. = 1
 				last_comms = T.what_do_you_want()

@@ -64,3 +64,9 @@
 
 /mob/proc/on_think_enabled()
 	return
+
+/datum/controller/subsystem/mob_ai/ExplosionStart()
+	suspend()
+
+/datum/controller/subsystem/mob_ai/ExplosionEnd()
+	wake()

@@ -117,7 +117,7 @@
 
 	if(href_list["category"])
 		var/category = locate(href_list["category"])
-		if(category && category in categories)
+		if(category && (category in categories))
 			selected_category = category
 		. = 1
 
@@ -131,6 +131,9 @@
 	var/sort_order = 0
 	var/sql_role = SQL_CHARACTER
 	var/modified = 0
+
+/datum/category_group/player_setup_category/dd_SortValue()
+	return sort_order
 
 /datum/category_group/player_setup_category/proc/sanitize_setup(sql_load = FALSE)
 	for(var/datum/category_item/player_setup_item/PI in items)
@@ -219,6 +222,9 @@
 /datum/category_item/player_setup_item/Destroy()
 	pref = null
 	return ..()
+
+/datum/category_item/player_setup_item/dd_SortValue()
+	return sort_order
 
 /datum/category_item/player_setup_item/proc/to_client_chat(str)
 	if (pref && pref.client)

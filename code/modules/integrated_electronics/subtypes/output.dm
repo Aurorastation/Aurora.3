@@ -65,23 +65,29 @@
 	outputs = list()
 	activators = list("toggle light" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	var/light_toggled = 0
+	var/light_toggled = FALSE
 	var/light_brightness = 3
-	var/light_rgb = "#FFFFFF"
+	var/light_rgb = COLOR_WHITE
 	power_draw_idle = 0 // Adjusted based on brightness.
+	light_wedge = LIGHT_WIDE
 
 /obj/item/integrated_circuit/output/light/do_work()
 	light_toggled = !light_toggled
 	update_lighting()
 
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
-	if(light_toggled)
-		if(assembly)
-			assembly.set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb)
-	else
-		if(assembly)
-			assembly.set_light(0)
+	if(assembly)
+		var/atom/atom_holder = assembly.get_assembly_holder()
+		if(light_toggled)
+			atom_holder.set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb, uv = 0, angle = light_wedge)
+		else
+			atom_holder.set_light(0)
 	power_draw_idle = light_toggled ? light_brightness * 2 : 0
+
+/obj/item/integrated_circuit/output/light/disconnect_all()
+	..()
+	light_toggled = FALSE
+	update_lighting()
 
 /obj/item/integrated_circuit/output/light/advanced/update_lighting()
 	var/new_color = get_pin_data(IC_INPUT, 1)
@@ -372,7 +378,7 @@
 
 /obj/item/integrated_circuit/output/printer/do_work()
 	var/obj/item/integrated_circuit/insert_slot/paper_tray/paper_source = get_pin_data_as_type(IC_INPUT, 2, /obj/item/)
-	var/obj/item/weapon/paper/paper_sheet = null
+	var/obj/item/paper/paper_sheet = null
 	var/eject = get_pin_data(IC_INPUT, 3)
 	var/datum/integrated_io/info = inputs[1]
 	var/using_tray = istype(paper_source)
@@ -382,7 +388,7 @@
 		stuff_to_print = info.data
 	if(using_tray)
 		paper_sheet = paper_source.get_item(FALSE)
-	if(istype(paper_source, /obj/item/weapon/paper))
+	if(istype(paper_source, /obj/item/paper))
 		paper_sheet = paper_source
 	if(paper_sheet)
 		stuff_to_print = paper_sheet.info + stuff_to_print

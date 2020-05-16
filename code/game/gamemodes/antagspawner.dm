@@ -6,22 +6,22 @@
 
 	return 1
 
-/obj/item/weapon/antag_spawner
+/obj/item/antag_spawner
 	throw_speed = 1
 	throw_range = 5
 	w_class = 1.0
 	var/uses = 1
 
-/obj/item/weapon/antag_spawner/proc/equip_antag(mob/target as mob)
+/obj/item/antag_spawner/proc/equip_antag(mob/target as mob)
 	return
 
-/obj/item/weapon/antag_spawner/borg_tele
+/obj/item/antag_spawner/borg_tele
 	name = "syndicate cyborg teleporter"
 	desc = "A single-use teleporter used to deploy a Syndicate Cyborg on the field. Due to budget restrictions, it is only possible to deploy a single cyborg at time."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 
-/obj/item/weapon/antag_spawner/borg_tele/attack_self(mob/user)
+/obj/item/antag_spawner/borg_tele/attack_self(mob/user)
 
 	if(uses == 0)
 		to_chat(usr, "This teleporter is out of uses.")

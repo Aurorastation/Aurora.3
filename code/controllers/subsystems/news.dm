@@ -40,12 +40,35 @@
 		catch(var/exception/ec)
 			log_debug("SSnews: Error when loading channel: [ec]")
 			continue
+
+		//Load the expired news into the modular computers first
+		var/news_count = 1
+		var/DBQuery/news_query_expired = dbcon.NewQuery("SELECT body FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: AND publish_at < NOW() AND (publish_until <= NOW()) AND approved_at IS NOT NULL ORDER BY publish_at DESC")
+		news_query_expired.Execute(list("channel_id" = channel_query.item[1]))
+		while(news_query_expired.NextRow())
+			CHECK_TICK
+			try
+				var/datum/computer_file/data/news_article/news = new()
+				news.filename = "[channel.channel_name] vol. [news_count]"
+				news.archived = 1
+				news.stored_data = news_query_expired.item[1]
+				ntnet_global.available_news.Add(news)
+				news_count += 1
+			catch(var/exception/em)
+				log_debug("SSnews: Error when loading news: [em]")
+
 		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, ic_timestamp, url FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: AND publish_at < NOW() AND (publish_until > NOW() OR publish_until IS NULL) AND approved_at IS NOT NULL ORDER BY publish_at DESC")
 		news_query.Execute(list("channel_id" = channel_query.item[1]))
 		while(news_query.NextRow())
 			CHECK_TICK
 			try
 				SubmitArticle(news_query.item[1], news_query.item[2], channel, null, text2num(news_query.item[3]), news_query.item[4], news_query.item[5])
+				var/datum/computer_file/data/news_article/news = new()
+				news.filename = "[channel.channel_name] vol. [news_count]"
+				news.archived = 0
+				news.stored_data = news_query.item[1]
+				ntnet_global.available_news.Add(news)
+				news_count += 1
 			catch(var/exception/en)
 				log_debug("SSnews: Error when loading news: [en]")
 
@@ -67,11 +90,11 @@
 	network_channels[channel_name] = newChannel
 	return newChannel
 
-/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/datum/feed_channel/channel, var/obj/item/weapon/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
+/datum/controller/subsystem/news/proc/SubmitArticle(var/msg, var/author, var/datum/feed_channel/channel, var/obj/item/photo/photo, var/adminMessage = 0, var/message_type = "", var/time_stamp)
 	if(!channel)
 		log_debug("SSnews: Attempted to submit a article from [author] without a proper channel",SEVERITY_ERROR)
 		return
-	
+
 	var/datum/feed_message/newMsg = new /datum/feed_message
 	newMsg.author = author
 	newMsg.body = msg
@@ -106,7 +129,7 @@
 		if (P.toff)
 			continue
 		receiving_pdas += P
-		
+
 	for(var/obj/item/device/pda/PDA in receiving_pdas)
 		PDA.new_news(annoncement)
 

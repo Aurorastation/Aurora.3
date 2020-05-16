@@ -236,13 +236,20 @@ var/list/gear_datums = list()
 	var/faction            //Is this item whitelisted for a faction?
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
+	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	var/augment = FALSE
 
 /datum/gear/New()
 	..()
 	if(!description)
 		var/obj/O = path
 		description = initial(O.desc)
-	gear_tweaks = list(gear_tweak_free_name, gear_tweak_free_desc)
+	if(flags & GEAR_HAS_COLOR_SELECTION)
+		gear_tweaks += list(gear_tweak_free_color_choice)
+	if(flags & GEAR_HAS_NAME_SELECTION)
+		gear_tweaks += list(gear_tweak_free_name)
+	if(flags & GEAR_HAS_DESC_SELECTION)
+		gear_tweaks += list(gear_tweak_free_desc)
 
 /datum/gear_data
 	var/path

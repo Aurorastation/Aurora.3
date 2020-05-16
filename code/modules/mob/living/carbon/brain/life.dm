@@ -3,32 +3,32 @@
 
 /mob/living/carbon/brain/handle_mutations_and_radiation()
 	if (total_radiation)
-		if (total_radiation > 100)
-			total_radiation = 100
+		if (total_radiation > RADS_MAX)
+			total_radiation = RADS_MAX
 			if(!container)//If it's not in an MMI
-				to_chat(src, "<span class='warning'>You feel weak.</span>")
+				to_chat(src, SPAN_WARNING("You feel weak."))
 			else//Fluff-wise, since the brain can't detect anything itself, the MMI handles thing like that
-				to_chat(src, "<span class='warning'>STATUS: CRITICAL AMOUNTS OF RADIATION DETECTED.</span>")
+				to_chat(src, SPAN_WARNING("STATUS: CRITICAL AMOUNTS OF RADIATION DETECTED."))
 
 		switch(total_radiation)
-			if(1 to 49)
+			if(RADS_LOW to RADS_MED-1)
 				apply_radiation(-1)
 				if(prob(25))
 					adjustToxLoss(1)
 					updatehealth()
 
-			if(50 to 74)
+			if(RADS_MED to RADS_HIGH-1)
 				apply_radiation(-2)
 				adjustToxLoss(1)
 				if(prob(5))
 					apply_radiation(-5)
 					if(!container)
-						to_chat(src, "<span class='warning'>You feel weak.</span>")
+						to_chat(src, SPAN_WARNING("You feel weak."))
 					else
-						to_chat(src, "<span class='danger'>STATUS: DANGEROUS LEVELS OF RADIATION DETECTED.</span>")
+						to_chat(src, SPAN_DANGER("STATUS: DANGEROUS LEVELS OF RADIATION DETECTED."))
 				updatehealth()
 
-			if(75 to 100)
+			if(RADS_HIGH to RADS_MAX)
 				apply_radiation(-3)
 				adjustToxLoss(3)
 				updatehealth()
@@ -55,7 +55,8 @@
 	return //TODO: DEFERRED
 
 /mob/living/carbon/brain/proc/handle_temperature_damage(body_part, exposed_temperature, exposed_intensity)
-	if(status_flags & GODMODE) return
+	if(status_flags & GODMODE)
+		return
 
 	if(exposed_temperature > bodytemperature)
 		var/discomfort = min( abs(exposed_temperature - bodytemperature)*(exposed_intensity)/2000000, 1.0)
@@ -74,7 +75,8 @@
 	analgesic = 0
 
 	if(touching) touching.metabolize()
-	if(ingested) ingested.metabolize()
+	var/datum/reagents/metabolism/ingested = get_ingested_reagents()
+	if(istype(ingested)) ingested.metabolize()
 	if(bloodstr) bloodstr.metabolize()
 	if(breathing) breathing.metabolize()
 
@@ -228,31 +230,10 @@
 
 	if (stat != 2)
 		if (machine)
-			if (!( machine.check_eye(src) ))
+			if (machine.check_eye(src) < 1)
 				reset_view(null)
 		else
-			if(client && !client.adminobs)
+			if(!client?.adminobs)
 				reset_view(null)
 
 	return 1
-
-	if (stat != 2)
-		if (machine)
-			if (machine.check_eye(src) < 0)
-				reset_view(null)
-		else
-			if(client && !client.adminobs)
-				reset_view(null)
-
-/*/mob/living/carbon/brain/emp_act(severity)
-	if(!(container && istype(container, /obj/item/device/mmi)))
-		return
-	else
-		switch(severity)
-			if(1)
-				emp_damage += rand(20,30)
-			if(2)
-				emp_damage += rand(10,20)
-			if(3)
-				emp_damage += rand(0,10)
-	..()*/

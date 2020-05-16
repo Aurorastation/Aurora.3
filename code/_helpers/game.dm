@@ -12,7 +12,7 @@
 /proc/is_on_same_plane_or_station(var/z1, var/z2)
 	if(z1 == z2)
 		return 1
-	if((z1 in current_map.station_levels) &&	(z2 in current_map.station_levels))
+	if(isStationLevel(z1) && isStationLevel(z2))
 		return 1
 	return 0
 
@@ -59,15 +59,6 @@
 	source.luminosity = lum
 
 	return heard
-
-/proc/isPlayerLevel(var/level)
-	return level in current_map.player_levels
-
-/proc/isAdminLevel(var/level)
-	return level in current_map.admin_levels
-
-/proc/isNotAdminLevel(var/level)
-	return !isAdminLevel(level)
 
 /proc/circlerange(center=usr,radius=3)
 
@@ -240,12 +231,14 @@
 		if (!AM.loc)
 			continue
 
+		var/turf/AM_turf = get_turf(AM)
+
 		if(ismob(AM))
 			mobs[AM] = TRUE
-			hearturfs[AM.locs[1]] = TRUE
+			hearturfs[AM_turf] = TRUE
 		else if(isobj(AM))
 			objs[AM] = TRUE
-			hearturfs[AM.locs[1]] = TRUE
+			hearturfs[AM_turf] = TRUE
 
 	for(var/m in player_list)
 		var/mob/M = m
@@ -257,13 +250,16 @@
 			if (!mobs[M])
 				mobs[M] = TRUE
 			continue
-		if(M.loc && hearturfs[M.locs[1]])
+
+		var/turf/M_turf = get_turf(M)
+		if(M.loc && hearturfs[M_turf])
 			if (!mobs[M])
 				mobs[M] = TRUE
 
 	for(var/o in listening_objects)
 		var/obj/O = o
-		if(O && O.loc && hearturfs[O.locs[1]])
+		var/turf/O_turf = get_turf(O)
+		if(O && O.loc && hearturfs[O_turf])
 			if (!objs[O])
 				objs[O] = TRUE
 

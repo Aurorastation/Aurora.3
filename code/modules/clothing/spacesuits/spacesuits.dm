@@ -7,7 +7,6 @@
 	icon_state = "space"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL | AIRTIGHT
-	flags_inv = BLOCKHAIR
 	item_state_slots = list(
 		slot_l_hand_str = "s_helmet",
 		slot_r_hand_str = "s_helmet"
@@ -24,7 +23,6 @@
 	allow_hair_covering = FALSE
 
 	var/obj/machinery/camera/camera
-	var/list/camera_networks
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light"
@@ -34,7 +32,7 @@
 
 /obj/item/clothing/head/helmet/space/Initialize()
 	. = ..()
-	if(camera_networks && camera_networks.len)
+	if(camera)
 		verbs += /obj/item/clothing/head/helmet/space/proc/toggle_camera
 
 /obj/item/clothing/head/helmet/space/proc/toggle_camera()
@@ -42,9 +40,8 @@
 	set category = "Object"
 	set src in usr
 
-	if(!camera && camera_networks)
-		camera = new /obj/machinery/camera(src)
-		camera.replace_networks(camera_networks)
+	if(ispath(camera))
+		camera = new camera(src)
 		camera.set_status(0)
 
 	if(camera)
@@ -56,8 +53,8 @@
 			to_chat(usr, "<span class='notice'>Camera deactivated.</span>")
 
 /obj/item/clothing/head/helmet/space/examine(var/mob/user)
-	if(..(user, 1) && camera_networks && camera_networks.len)
-		to_chat(user, "This helmet has a built-in camera. It's [camera && camera.status ? "" : "in"]active.")
+	if(..(user, 1) && camera)
+		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/suit/space
 	name = "space suit"
@@ -71,7 +68,7 @@
 	permeability_coefficient = 0.02
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	allowed = list(/obj/item/device/flashlight,/obj/item/weapon/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/device/suit_cooling_unit)
 	slowdown = 3
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 100, rad = 50)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL

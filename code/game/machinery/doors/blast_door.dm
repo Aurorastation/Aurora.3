@@ -115,9 +115,10 @@
 // Parameters: 2 (C - Item this object was clicked with, user - Mob which clicked this object)
 // Description: If we are clicked with crowbar or wielded fire axe, try to manually open the door.
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
-/obj/machinery/door/blast/attackby(obj/item/weapon/C as obj, mob/user as mob)
-	src.add_fingerprint(user)
-	if((istype(C, /obj/item/weapon/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/weapon/melee/hammer)))
+/obj/machinery/door/blast/attackby(obj/item/C as obj, mob/user as mob)
+	if(!istype(C, /obj/item/forensics))
+		src.add_fingerprint(user)
+	if((istype(C, /obj/item/material/twohanded/fireaxe) && C:wielded == 1) || (istype(C, /obj/item/melee/hammer)))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
@@ -242,7 +243,7 @@
 	density = 0
 	opacity = 0
 
-/obj/machinery/door/blast/odin/attackby(obj/item/weapon/C as obj, mob/user as mob)
+/obj/machinery/door/blast/odin/attackby(obj/item/C as obj, mob/user as mob)
 	return
 
 /obj/machinery/door/blast/odin/ex_act(var/severity)
@@ -255,11 +256,26 @@
 	icon_state = "pdoor0"
 	density = 0
 	opacity = 0
+
 /obj/machinery/door/blast/odin/shuttle/ert
 	_wifi_id = "ert_shuttle_lockdown"
 
 /obj/machinery/door/blast/odin/shuttle/tcfl
+	_wifi_id = "tcfl_shuttle_release"
+	icon_state = "pdoor1"
+	density = 1
+	opacity = 1
+
+/obj/machinery/door/blast/odin/shuttle/tcfl/shutter
 	_wifi_id = "tcfl_shuttle_lockdown"
+	density = 0
+	opacity = 0
+	icon_state_open = "shutter0"
+	icon_state_opening = "shutterc0"
+	icon_state_closed = "shutter1"
+	icon_state_closing = "shutterc1"
+	icon_state = "shutter0"
+	damage = SHUTTER_CRUSH_DAMAGE
 
 #undef BLAST_DOOR_CRUSH_DAMAGE
 #undef SHUTTER_CRUSH_DAMAGE

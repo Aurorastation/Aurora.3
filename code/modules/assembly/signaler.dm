@@ -4,7 +4,7 @@
 	icon_state = "signaller"
 	item_state = "signaler"
 	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, "glass" = 200, "waste" = 100)
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 200)
 	wires = WIRE_RECEIVE | WIRE_PULSE | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
 
 	secured = 1
@@ -12,8 +12,9 @@
 	var/code = 30
 	var/frequency = 1457
 	var/delay = 0
-	var/airlock_wire = null
-	var/datum/wires/connected = null
+	var/airlock_wire
+	var/obj/machinery/machine
+	var/datum/wires/connected
 	var/datum/radio_frequency/radio_connection
 	var/deadman = 0
 
@@ -113,6 +114,8 @@
 		connected.Pulse(src)
 	else if(holder)
 		holder.process_activation(src, 1, 0)
+	else if(machine)
+		machine.do_signaler()
 	else
 		..(radio)
 	return 1
@@ -133,9 +136,10 @@
 
 	pulse(1)
 
-	if(!holder)
-		for(var/mob/O in hearers(1, src.loc))
-			O.show_message(text("\icon[] *beep* *beep*", src), 3, "*beep* *beep*", 2)
+	if(machine)
+		machine.visible_message("\icon[machine] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
+	else if(!holder)
+		visible_message("\icon[src] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
 	return
 
 

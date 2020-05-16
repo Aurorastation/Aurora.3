@@ -26,7 +26,7 @@
 /obj/item/borg/upgrade/reset/action(var/mob/living/silicon/robot/R)
 	if(..()) return 0
 	R.uneq_all()
-	R.modtype = initial(R.modtype)
+	R.mod_type = initial(R.mod_type)
 	R.hands.icon_state = initial(R.hands.icon_state)
 
 	R.notify_ai(ROBOT_NOTIFICATION_MODULE_RESET, R.module.name)
@@ -64,11 +64,11 @@
 /obj/item/borg/upgrade/floodlight/action(var/mob/living/silicon/robot/R)
 	if(..()) return 0
 
-	if(R.intenselight)
+	if(R.intense_light)
 		to_chat(usr, "<span class='notice'>This cyborg's light was already upgraded </span>")
 		return 0
 	else
-		R.intenselight = 1
+		R.intense_light = 1
 		R.update_robot_light()
 		to_chat(R, "Lighting systems upgrade detected.")
 	return 1
@@ -124,13 +124,12 @@
 		return 0
 
 	R.emagged = 1
-	R.fakeemagged = 1
+	R.fake_emagged = 1
 	return 1
 
 /obj/item/borg/upgrade/combat
 	name = "combat cyborg module"
 	desc = "Unlocks the combat cyborg module"
-//	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=15000,"gold"= 5000,"diamond" = 1000)
 	icon_state = "cyborg_upgrade3"
 	require_module = 0
 

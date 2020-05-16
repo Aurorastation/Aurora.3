@@ -1,17 +1,5 @@
 /turf/simulated/wall/diona/Initialize(mapload)
-	. = ..(mapload,"biomass")
-
-/turf/simulated/wall/diona/attack_generic(var/mob/user, var/damage, var/attack_message)
-	if(istype(user, /mob/living/carbon/alien/diona))
-		if(can_open == WALL_OPENING)
-			return
-		can_open = WALL_CAN_OPEN
-		user.visible_message("<span class='alium'>\The [user] strokes its feelers against \the [src] and the biomass [density ? "moves aside" : "closes up"].</span>")
-		toggle_open(user)
-		sleep(15)
-		if(can_open == WALL_CAN_OPEN) can_open = 0
-	else
-		return ..(user, damage, attack_message)
+	. = ..(mapload, "biomass")
 
 /obj/structure/diona
 	icon = 'icons/obj/diona.dmi'
@@ -54,6 +42,40 @@
 	light_power = 3
 	light_range = 3
 	light_color = "#557733"
+	density = 0
+
+/obj/structure/diona/bulb/attackby(obj/item/W, mob/user)
+	if(W.iswelder())
+		var/obj/item/weldingtool/WT = W
+		if (!WT.welding)
+			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+			return
+		else if (WT.remove_fuel(0,user))
+			to_chat(user, "<span class='notice'>You begin slicing through the skin of \the [src].</span>")
+			if(do_after(user, 20/W.toolspeed, act_target = src))
+				if(QDELETED(src) || !WT.isOn())
+					return
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				user.visible_message("<span class='notice'>\ [user] slices through the skin of \the [src], revealing a confused diona nymph.</span>")
+			else
+				return
+		spawn_diona_nymph(src.loc)
+		qdel(src)
+
+/obj/structure/diona/bulb/unpowered
+	name = "unpowered glow bulb"
+	desc = "A bulb of some sort. Seems like it needs some power."
+	description_info = "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
+	light_power = 0
+	light_range = 0
+
+/obj/structure/diona/bulb/unpowered/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/cell))
+		to_chat(user, span("notice", "You jack the power cell into the glow bulb."))
+		new /obj/structure/diona/bulb(get_turf(src))
+		qdel(W)
+		qdel(src)
+	..()
 
 /datum/random_map/automata/diona
 	iterations = 3

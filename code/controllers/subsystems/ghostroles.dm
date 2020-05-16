@@ -2,13 +2,18 @@
 
 /datum/controller/subsystem/ghostroles
 	name = "Ghost Roles"
+	init_order = SS_INIT_JOBS
 	flags = SS_NO_FIRE
 
-	var/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
+	var/list/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
 		// -> type 1 -> spawnpoint 1
 		//           -> spawnpoint 2
 
 	var/list/spawners = list() //List of the available spawner datums
+
+	// For special spawners that have mobile or object spawnpoints
+	var/list/spawn_types = list("Golems", "Borers")
+	var/list/spawn_atom = list()
 
 /datum/controller/subsystem/ghostroles/Recover()
 	src.spawnpoints = SSghostroles.spawnpoints
@@ -35,6 +40,9 @@
 	for (var/identifier in spawnpoints)
 		CHECK_TICK
 		update_spawnpoint_status_by_identifier(identifier)
+
+	for(var/spawn_type in spawn_types)
+		spawn_atom[spawn_type] = list()
 
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)
@@ -98,7 +106,7 @@
 /datum/controller/subsystem/ghostroles/proc/vui_interact(mob/user,var/spawnpoint=null)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user,src)
 	if(!ui)
-		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", nstate = interactive_state)
+		ui = new(user,src,"misc-ghostspawner",950,700,"Ghost Role Spawner", state = interactive_state)
 		ui.data = vueui_data_change(list("spawnpoint"=spawnpoint,"current_tag"="All"),user,ui)
 	ui.open()
 
@@ -121,8 +129,8 @@
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["enabled"], G.enabled, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["count"], G.count, ., data)
 		VUEUI_SET_CHECK(data["spawners"][G.short_name]["max_count"], G.max_count, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["tags"], G.tags, ., data)
-		VUEUI_SET_CHECK(data["spawners"][G.short_name]["spawnpoints"], G.spawnpoints, ., data)
+		VUEUI_SET_CHECK_LIST(data["spawners"][G.short_name]["tags"], G.tags, ., data)
+		VUEUI_SET_CHECK_LIST(data["spawners"][G.short_name]["spawnpoints"], G.spawnpoints, ., data)
 
 /datum/controller/subsystem/ghostroles/Topic(href, href_list)
 	var/datum/vueui/ui = href_list["vueui"]
@@ -137,6 +145,9 @@
 		if(cant_spawn)
 			to_chat(usr, "Unable to spawn: [cant_spawn]")
 			return
+		if(isnewplayer(usr))
+			var/mob/abstract/new_player/N = usr
+			N.close_spawn_windows()
 		if(!S.pre_spawn(usr))
 			to_chat(usr, "Unable to spawn: pre_spawn failed. Report this on GitHub")
 			return
@@ -174,3 +185,25 @@
 			for(var/i in S.spawnpoints)
 				update_spawnpoint_status_by_identifier(i)
 	return
+
+/datum/controller/subsystem/ghostroles/proc/add_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
+	if(ghost_role_name && spawn_atom)
+		var/datum/ghostspawner/G = spawners[ghost_role_name]
+		if(G)
+			G.spawn_atoms += spawn_atom
+			if(length(G.spawn_atoms) == 1)
+				G.enable()
+
+/datum/controller/subsystem/ghostroles/proc/remove_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
+	if(ghost_role_name && spawn_atom)
+		var/datum/ghostspawner/G = spawners[ghost_role_name]
+		if(G)
+			G.spawn_atoms -= spawn_atom
+			if(!length(G.spawn_atoms))
+				G.disable()
+
+/datum/controller/subsystem/ghostroles/proc/get_spawn_atoms(var/ghost_role_name)
+	var/datum/ghostspawner/G = spawners[ghost_role_name]
+	if(G)
+		return G.spawn_atoms
+	return list()

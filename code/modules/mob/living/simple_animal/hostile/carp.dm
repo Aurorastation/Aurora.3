@@ -10,7 +10,7 @@
 	icon_rest = "carp_rest"
 	speak_chance = 0
 	turns_per_move = 5
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -42,10 +42,6 @@
 	attack_emote = "nashes at"
 
 	flying = TRUE
-
-/mob/living/simple_animal/hostile/carp/Initialize()
-	. = ..()
-	target_type_validator_map[/obj/effect/energy_field] = CALLBACK(src, .proc/validator_e_field)
 
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
 	return 1	//No drifting in space for space carp!	//original comments do not steal
@@ -97,14 +93,6 @@
 				obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 				return 1
 	return 0
-
-/mob/living/simple_animal/hostile/carp/proc/validator_e_field(var/obj/effect/energy_field/E, var/atom/current)
-	if(isliving(current)) // We prefer mobs over anything else
-		return FALSE
-	if(get_dist(src, E) < get_dist(src, current))
-		return TRUE
-	else
-		return FALSE
 
 /mob/living/simple_animal/hostile/carp/russian
 	name = "Ivan the carp"

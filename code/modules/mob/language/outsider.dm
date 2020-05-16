@@ -15,27 +15,33 @@
 
 /datum/language/corticalborer
 	name = LANGUAGE_BORER
-	desc = "Cortical borers possess a strange link between their tiny minds."
+	desc = "A language Cortical Borers use to influence the minds of those nearby, or those they infest."
 	speech_verb = "sings"
 	ask_verb = "sings"
 	exclaim_verb = "sings"
 	colour = "alien"
+	key = "v"
+	flags = RESTRICTED
+
+/datum/language/corticalborer/hivemind
+	name = LANGUAGE_BORER_HIVEMIND
+	desc = "Cortical Borers possess a strange link between their tiny minds, allowing them to communicate telepathically."
 	key = "x"
 	flags = RESTRICTED | HIVEMIND
 
-/datum/language/corticalborer/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
+/datum/language/corticalborer/hivemind/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
 
 	var/mob/living/simple_animal/borer/B
 
-	if(istype(speaker,/mob/living/carbon))
+	if(istype(speaker, /mob/living/carbon))
 		var/mob/living/carbon/M = speaker
 		B = M.has_brain_worms()
-	else if(istype(speaker,/mob/living/simple_animal/borer))
+	else if(istype(speaker, /mob/living/simple_animal/borer))
 		B = speaker
 
 	if(B)
 		speaker_mask = B.truename
-	..(speaker,message,speaker_mask)
+	..(speaker, message, speaker_mask)
 
 /datum/language/vox
 	name = LANGUAGE_VOX

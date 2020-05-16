@@ -38,7 +38,7 @@ var/datum/vueui_module/player_panel/global_player_panel
 		return
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", nstate = interactive_state)
+		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", state = interactive_state)
 		ui.header = "minimal"
 		ui.auto_update_content = TRUE
 
@@ -57,10 +57,11 @@ var/datum/vueui_module/player_panel/global_player_panel
 	var/list/mobs = sortmobs()
 	
 	LAZYINITLIST(data["players"])
-	if(data["players"].len != mobs.len)
-		data["players"].Cut()
+	if(LAZYLEN(data["players"]) != mobs.len)
+		data["players"] = list()
 	for(var/mob/M in mobs)
 		var/ref = "\ref[M]"
+		LAZYINITLIST(data["players"][ref])
 		if(!M.ckey)
 			data["players"][ref] = FALSE
 			continue

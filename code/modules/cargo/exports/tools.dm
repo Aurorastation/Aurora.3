@@ -1,7 +1,7 @@
 /datum/export/toolbox
 	cost = 4
 	unit_name = "toolbox"
-	export_types = list(/obj/item/weapon/storage/toolbox)
+	export_types = list(/obj/item/storage/toolbox)
 
 // mechanical toolbox:	22cr
 // emergency toolbox:	17-20cr
@@ -12,48 +12,48 @@
 /datum/export/screwdriver
 	cost = 2
 	unit_name = "screwdriver"
-	export_types = list(/obj/item/weapon/screwdriver)
+	export_types = list(/obj/item/screwdriver)
 	include_subtypes = FALSE
 
 /datum/export/wrench
 	cost = 2
 	unit_name = "wrench"
-	export_types = list(/obj/item/weapon/wrench)
+	export_types = list(/obj/item/wrench)
 
 /datum/export/crowbar
 	cost = 2
 	unit_name = "crowbar"
-	export_types = list(/obj/item/weapon/crowbar)
+	export_types = list(/obj/item/crowbar)
 
 /datum/export/wirecutters
 	cost = 2
 	unit_name = "pair"
 	message = "of wirecutters"
-	export_types = list(/obj/item/weapon/wirecutters)
+	export_types = list(/obj/item/wirecutters)
 
 
 /datum/export/weldingtool
 	cost = 5
 	unit_name = "welding tool"
-	export_types = list(/obj/item/weapon/weldingtool)
+	export_types = list(/obj/item/weldingtool)
 	include_subtypes = FALSE
 
 /datum/export/weldingtool/industrial
 	cost = 10
 	unit_name = "industrial welding tool"
-	export_types = list(/obj/item/weapon/weldingtool/largetank, /obj/item/weapon/weldingtool/hugetank)
+	export_types = list(/obj/item/weldingtool/largetank, /obj/item/weldingtool/hugetank)
 
 
 /datum/export/extinguisher
 	cost = 15
 	unit_name = "fire extinguisher"
-	export_types = list(/obj/item/weapon/extinguisher)
+	export_types = list(/obj/item/extinguisher)
 	include_subtypes = FALSE
 
 /datum/export/extinguisher/mini
 	cost = 2
 	unit_name = "pocket fire extinguisher"
-	export_types = list(/obj/item/weapon/extinguisher/mini)
+	export_types = list(/obj/item/extinguisher/mini)
 
 
 /datum/export/flashlight
@@ -93,9 +93,9 @@
 /datum/export/rfd_construction
 	cost = 100
 	unit_name = "Rapid-Fabrication-Device C-Class"
-	export_types = list(/obj/item/weapon/rfd/construction)
+	export_types = list(/obj/item/rfd/construction)
 
 /datum/export/rfd_ammo
 	cost = 60
 	unit_name = "compressed matter cartridge"
-	export_types = list(/obj/item/weapon/rfd_ammo)
+	export_types = list(/obj/item/rfd_ammo)

@@ -136,7 +136,7 @@ var/list/global/random_stock_large = list()
 	var/cratespawn = 0
 	var/obj/structure/closet/crate/emptiest
 	if (prob(70))//We'll usually put items in crates
-		var/minweight = 99999999999//We will distribute items somewhat evenly among crates
+		var/minweight = 1000000000 //We will distribute items somewhat evenly among crates
 		//by selecting the least-filled one for each spawn
 
 		for (var/obj/structure/closet/crate/C in containers)
@@ -147,7 +147,7 @@ var/list/global/random_stock_large = list()
 
 	if (cratespawn)
 		return emptiest
-	else
+	else if (length(tables))
 		//If cratespawn is zero, we either failed to find a crate to spawn in, or didnt select
 		//crate spawning with the random check.
 		var/turf/clearest

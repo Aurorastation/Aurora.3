@@ -49,7 +49,7 @@
 			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE*100)
 			if (prob(chance))
 				delayed_vomit()
-				add_chemical_effect(CE_ALCOHOL_TOXIC, 1)
+				add_chemical_effect(CE_HEPATOTOXIC, 1)
 
 	if(bac > INTOX_BALANCE*SR)
 		slurring = max(slurring, 100)
@@ -75,7 +75,7 @@
 				adjustBrainLoss(1,5)
 
 	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent("ethylredoxrazine")) //Death usually occurs here
-		add_chemical_effect(CE_ALCOHOL_TOXIC, 10)
+		add_chemical_effect(CE_HEPATOTOXIC, 10)
 		adjustOxyLoss(3,100)
 		adjustBrainLoss(1,50)
 

@@ -7,6 +7,7 @@ var/datum/antagonist/mutineer/mutineers
 	id = MODE_MUTINEER
 	antag_indicator = "mutineer"
 	restricted_jobs = list("Captain")
+	required_age = 10
 
 /datum/antagonist/mutineer/New(var/no_reference)
 	..()

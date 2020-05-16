@@ -15,7 +15,7 @@
 /datum/event/prison_break/virology
 	eventDept = "Medical"
 	areaName = list("Virology")
-	areaType = list(/area/medical/virology, /area/medical/virologyaccess)
+	areaType = list(/area/medical/virology, /area/medical/virologyaccess, /area/medical/quarantineaccess, /area/medical/quarantine, /area/medical/virologytesting)
 
 /datum/event/prison_break/xenobiology
 	eventDept = "Science"
@@ -26,9 +26,14 @@
 /datum/event/prison_break/station
 	eventDept = "Station"
 	areaName = list("Brig","Virology","Xenobiology")
-	areaType = list(/area/security/prison, /area/security/brig, /area/medical/virology, /area/medical/virologyaccess, /area/rnd/xenobiology)
+	areaType = list(/area/security/prison, /area/security/brig, /area/medical/virology, /area/medical/virologyaccess, /area/medical/quarantineaccess, /area/medical/quarantine, /area/medical/virologytesting, /area/rnd/xenobiology)
 	areaNotType = list(/area/rnd/xenobiology/xenoflora, /area/rnd/xenobiology/xenoflora_storage)
 
+/datum/event/prison_break/bridge
+	eventDept = "Bridge"
+	areaName = list("Bridge")
+	areaType = list(/area/bridge, /area/teleporter, /area/crew_quarters/heads/cryo, /area/maintenance/maintcentral)
+	areaNotType = list(/area/bridge/aibunker, /area/bridge/levela, /area/bridge/selfdestruct)
 
 /datum/event/prison_break/setup()
 	announceWhen = rand(75, 105)

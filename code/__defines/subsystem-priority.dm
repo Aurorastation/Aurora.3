@@ -4,7 +4,6 @@
 #define SS_INIT_MAPLOAD     21	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
 #define SS_INIT_JOBS        20
 #define SS_INIT_MAPFINALIZE 19	// Asteroid generation.
-#define SS_INIT_SHUTTLE     18	// Shuttle setup.
 #define SS_INIT_PARALLAX    17	// Parallax image cache generation. Must run before ghosts are able to join.
 #define SS_INIT_HOLOMAP     16
 #define SS_INIT_ATOMS       15	// World initialization. Will trigger lighting updates. Observers can join after this loads.
@@ -65,6 +64,7 @@
 // SS_BACKGROUND
 #define SS_PRIORITY_PROCESSING    50	// Generic datum processor. Replaces objects processor.
 //#define SS_PRIORITY_DEFAULT     50	// This is defined somewhere else.
+#define SS_PRIORITY_PSYCHICS      30
 #define SS_PRIORITY_ARRIVALS      30	// Centcomm arrivals shuttle auto-launch. Usually asleep.
 #define SS_PRIORITY_EXPLOSIVES    20	// Explosion processor. Doesn't have much effect on explosion tick-checking.
 #define SS_PRIORITY_DISPOSALS     20	// Disposal holder movement.

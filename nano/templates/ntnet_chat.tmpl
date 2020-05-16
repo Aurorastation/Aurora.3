@@ -24,9 +24,13 @@
 	</div>
 	<div class="itemContent">
 		<table>
+			<tr><td>{{:helper.link("Return to channel list", null, {'PRG_backtomain' : 1})}}
+			<tr><td>{{:helper.link("Direct message", null, {'PRG_directmessage' : 1})}}
 			<tr><td>{{:helper.link("Change nickname", null, {'PRG_changename' : 1})}}
 			<tr><td>{{:helper.link("Toggle administration mode", null, {'PRG_toggleadmin' : 1})}}
+			{{if !data.is_direct}}
 			<tr><td>{{:helper.link("Leave channel", null, {'PRG_leavechannel' : 1})}}
+			{{/if}}
 			<tr><td>{{:helper.link("Save log to local drive", null, {'PRG_savelog' : 1})}}
 			{{if data.is_operator}}
 				<tr><td>{{:helper.link("Rename channel", null, {'PRG_renamechannel' : 1})}}
@@ -37,7 +41,11 @@
 	</div>
 	<b>Connected Users</b><br>
 	{{for data.clients}}
-		{{:value.name}}<br>
+		{{:value.name}}
+		{{if !value.active}}
+		<i>(Away)</i>
+		{{/if}}
+		<br>
 	{{/for}}
 	<b>Chat Window</b>
         <div class="statusDisplay" style="overflow: auto;">
@@ -60,6 +68,7 @@
 {{else}}
 	<b>Controls:</b>
 	<table>
+		<tr><td>{{:helper.link("Direct message", null, {'PRG_directmessage' : 1})}}
 		<tr><td>{{:helper.link("Change nickname", null, {'PRG_changename' : 1})}}
 		<tr><td>{{:helper.link("New Channel", null, {'PRG_newchannel' : 1})}}
 		<tr><td>{{:helper.link("Toggle Administration Mode", null, {'PRG_toggleadmin' : 1})}}
@@ -67,7 +76,7 @@
 	<b>Available channels:</b>
 	<table>
 	{{for data.all_channels}}		
-		<tr><td>{{:helper.link(value.chan, null, {'PRG_joinchannel' : value.id})}}<br>
+		<tr><td>{{:helper.link(value.chan, null, {'PRG_joinchannel' : value.id}, null, value.con ? 'selected' : null)}}<br>
 	{{/for}}
 	</table>
 {{/if}}

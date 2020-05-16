@@ -1,11 +1,14 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
 	w_class = 10
+	layer = OBJ_LAYER - 0.01
 
 	var/climbable
 	var/breakable
 	var/parts
 	var/list/climbers
+	var/list/footstep_sound	//footstep sounds when stepped on
+	var/material/material
 
 /obj/structure/Destroy()
 	if(parts)
@@ -30,9 +33,6 @@
 		structure_shaken()
 
 	return ..()
-
-/obj/structure/attack_tk()
-	return
 
 /obj/structure/ex_act(severity)
 	switch(severity)
@@ -87,15 +87,18 @@
 		return 0
 	return 1
 
-/obj/structure/proc/turf_is_crowded()
+/obj/structure/proc/turf_is_crowded(var/exclude_self = FALSE)
 	var/turf/T = get_turf(src)
 	if(!T || !istype(T))
 		return 0
 	for(var/obj/O in T.contents)
 		if(istype(O,/obj/structure))
 			var/obj/structure/S = O
-			if(S.climbable) continue
+			if(S.climbable)
+				continue
 		if(O && O.density && !(O.flags & ON_BORDER)) //ON_BORDER structures are handled by the Adjacent() check.
+			if(exclude_self && O == src)
+				continue
 			return O
 	return 0
 
@@ -143,17 +146,17 @@
 
 			var/obj/item/organ/external/affecting
 
-			switch(pick(list("ankle","wrist","head","knee","elbow")))
+			switch(pick(list("ankle","wrist",BP_HEAD,"knee","elbow")))
 				if("ankle")
-					affecting = H.get_organ(pick("l_foot", "r_foot"))
+					affecting = H.get_organ(pick(BP_L_FOOT, BP_R_FOOT))
 				if("knee")
-					affecting = H.get_organ(pick("l_leg", "r_leg"))
+					affecting = H.get_organ(pick(BP_L_LEG, BP_R_LEG))
 				if("wrist")
-					affecting = H.get_organ(pick("l_hand", "r_hand"))
+					affecting = H.get_organ(pick(BP_L_HAND, BP_R_HAND))
 				if("elbow")
-					affecting = H.get_organ(pick("l_arm", "r_arm"))
-				if("head")
-					affecting = H.get_organ("head")
+					affecting = H.get_organ(pick(BP_L_ARM, BP_R_ARM))
+				if(BP_HEAD)
+					affecting = H.get_organ(BP_HEAD)
 
 			if(affecting)
 				to_chat(M, "<span class='danger'>You land heavily on your [affecting.name]!</span>")
@@ -188,5 +191,9 @@
 		return 0
 	visible_message("<span class='danger'>[user] [attack_verb] the [src] apart!</span>")
 	user.do_attack_animation(src)
-	spawn(1) qdel(src)
+	spawn(1)
+		qdel(src)
 	return 1
+
+/obj/structure/get_material()
+	return material

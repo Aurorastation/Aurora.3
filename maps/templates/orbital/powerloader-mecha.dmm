@@ -1,0 +1,5 @@
+"a" = (/mob/living/heavy_vehicle/premade/ripley,/turf/simulated/floor/reinforced/airless,/area/security/armoury)
+
+(1,1,1) = {"
+a
+"}

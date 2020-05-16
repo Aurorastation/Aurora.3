@@ -51,17 +51,23 @@ var/list/global_webhooks = list()
 			Data["content"] = "[mention]: " + Data["content"]
 		else
 			Data["content"] = "[mention]"
-	var/res = send_post_request(url, json_encode(Data), "Content-Type: application/json")
-	switch (res)
-		if (-1)
-			return 0
-		if (0 to 90)
-			log_debug("Webhooks: cURL error while sending: [res]. Data: [Data].")
-			return 0
-		else
-			return 1
+
+	var/datum/http_request/req = SShttp.post(url, body = json_encode(Data), headers = list("Content-Type" = "application/json"))
+
+	req.begin_async()
+	UNTIL(req.is_complete())
+
+	var/datum/http_response/res = req.into_response()
+
+	if (res.errored)
+		log_debug("Webhooks: proc error while sending: [res.error]")
+		return FALSE
+	else
+		return TRUE
 
 /proc/post_webhook_event(var/tag, var/list/data)
+	set background = 1
+
 	if (!global_webhooks.len)
 		return
 	var/OutData = list()

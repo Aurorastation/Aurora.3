@@ -8,7 +8,7 @@
 	var/state = 0
 	var/base_icon_state = ""
 	var/base_name = "Airlock"
-	var/obj/item/weapon/airlock_electronics/electronics = null
+	var/obj/item/airlock_electronics/electronics = null
 	var/airlock_type = "" //the type path of the airlock once completed
 	var/glass_type = "/glass"
 	var/glass = 0 // 0 = glass can be installed. -1 = glass can't be installed. 1 = glass is already installed. Text = mineral plating is installed instead.
@@ -119,8 +119,20 @@
 	airlock_type = "/lift"
 	glass = -1
 
+/obj/structure/door_assembly/door_assembly_skrell
+	base_icon_state = "skrell_purple"
+	base_name = "Airlock"
+	airlock_type = "/skrell"
+	glass = -1
+
+/obj/structure/door_assembly/door_assembly_skrell/grey
+	base_icon_state = "skrell_grey"
+	base_name = "Airlock"
+	airlock_type = "/skrell/grey"
+
 /obj/structure/door_assembly/multi_tile
 	icon = 'icons/obj/doors/door_assembly2x1.dmi'
+	icon_state = null //only have icons for the glass version
 	dir = EAST
 	var/width = 1
 
@@ -153,7 +165,7 @@
 
 
 /obj/structure/door_assembly/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/pen))
+	if(W.ispen())
 		var/t = sanitizeSafe(input(user, "Enter the name for the door.", src.name, src.created_name), MAX_NAME_LEN)
 		if(!t)	return
 		if(!in_range(src, usr) && src.loc != usr)	return
@@ -161,7 +173,7 @@
 		return
 
 	if(W.iswelder() && ( (istext(glass)) || (glass == 1) || (!anchored) ))
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if (WT.remove_fuel(0, user))
 			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 			if(istext(glass))
@@ -223,14 +235,14 @@
 			new/obj/item/stack/cable_coil(src.loc, 1)
 			src.state = 0
 
-	else if(istype(W, /obj/item/weapon/airlock_electronics) && state == 1)
-		var/obj/item/weapon/airlock_electronics/EL = W
-		if(!EL.inuse)
+	else if(istype(W, /obj/item/airlock_electronics) && state == 1)
+		var/obj/item/airlock_electronics/EL = W
+		if(!EL.is_installed)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
-			EL.inuse = 1
+			EL.is_installed = 1
 			if(do_after(user, 40/W.toolspeed))
-				EL.inuse = 0
+				EL.is_installed = 0
 				if(!src) return
 				user.drop_from_inventory(EL,src)
 				to_chat(user, "<span class='notice'>You installed the airlock electronics!</span>")
@@ -238,7 +250,7 @@
 				src.name = "Near finished Airlock Assembly"
 				src.electronics = EL
 			else
-				EL.inuse = 0
+				EL.is_installed = 0
 
 	else if(W.iscrowbar() && state == 2 )
 		//This should never happen, but just in case I guess
@@ -280,7 +292,7 @@
 						user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))
-								to_chat(user, "<span class='notice'>You installed [material_display_name(material_name)] plating into the airlock assembly.</span>")
+								to_chat(user, "<span class='notice'>You installed [SSmaterials.material_display_name(material_name)] plating into the airlock assembly.</span>")
 								glass = material_name
 
 	else if(W.isscrewdriver() && state == 2 )
@@ -300,8 +312,8 @@
 
 			new path(src.loc, src)
 			qdel(src)
-	else if(istype(W, /obj/item/weapon/material/twohanded/chainsaw))
-		var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar = W
+	else if(istype(W, /obj/item/material/twohanded/chainsaw))
+		var/obj/item/material/twohanded/chainsaw/ChainSawVar = W
 		if(!ChainSawVar.wielded)
 			to_chat(user, "<span class='notice'>Cutting the airlock requires the strength of two hands.</span>")
 		else if(ChainSawVar.cutting)
@@ -330,7 +342,7 @@
 		..()
 	update_state()
 
-/obj/structure/door_assembly/proc/CanChainsaw(var/obj/item/weapon/material/twohanded/chainsaw/ChainSawVar)
+/obj/structure/door_assembly/proc/CanChainsaw(var/obj/item/material/twohanded/chainsaw/ChainSawVar)
 	return (ChainSawVar.powered)
 
 /obj/structure/door_assembly/proc/update_state()

@@ -95,7 +95,7 @@
 /datum/dna/gene/disability/stutter
 	name="Stuttering"
 	activation_message="You feel like forming words becomes increasingly difficult."
-	disability=STUTTER
+	disability=STUTTERING
 
 	New()
 		block=STUTTERBLOCK

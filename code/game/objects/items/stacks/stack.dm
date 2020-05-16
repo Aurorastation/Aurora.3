@@ -23,6 +23,10 @@
 	var/list/datum/matter_synth/synths = null
 	var/icon_has_variants = FALSE
 	icon = 'icons/obj/stacks/materials.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
+		)
 
 /obj/item/stack/Initialize(mapload, amount)
 	. = ..()
@@ -89,7 +93,7 @@
 		if (istype(E, /datum/stack_recipe))
 			var/datum/stack_recipe/R = E
 			var/max_multiplier = round(src.get_amount() / R.req_amount)
-			var/title as text
+			var/title
 			var/can_build = 1
 			can_build = can_build && (max_multiplier>0)
 			if (R.res_amount>1)
@@ -155,7 +159,7 @@
 			S.amount = produced
 			S.add_to_stacks(user)
 
-		if (istype(O, /obj/item/weapon/storage)) //BubbleWrap - so newly formed boxes are empty
+		if (istype(O, /obj/item/storage)) //BubbleWrap - so newly formed boxes are empty
 			for (var/obj/item/I in O)
 				qdel(I)
 
@@ -190,8 +194,10 @@
 
 //Return 1 if an immediate subsequent call to use() would succeed.
 //Ensures that code dealing with stacks uses the same logic
-/obj/item/stack/proc/can_use(var/used)
+/obj/item/stack/proc/can_use(var/used, var/mob/user=null)
 	if (get_amount() < used)
+		if(user && isrobot(user))
+			to_chat(user, span("warning", "You don't have enough charge left in your synthesizer!"))
 		return 0
 	return 1
 
@@ -211,9 +217,9 @@
 			return 0
 		for(var/i = 1 to charge_costs.len)
 			var/datum/matter_synth/S = synths[i]
-			S.use_charge(charge_costs[i] * used) // Doesn't need to be deleted
+			if(!S.use_charge(charge_costs[i] * used)) // Doesn't need to be deleted
+				return 0
 		return 1
-	return 0
 
 /obj/item/stack/proc/add(var/extra)
 	if(!uses_charge)

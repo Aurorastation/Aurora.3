@@ -12,7 +12,7 @@ fundamental differences
 /obj/machinery/appliance/mixer
 	max_contents = 1
 	stat = POWEROFF
-	cooking_power = 0.4
+	cooking_coeff = 0.75
 	active_power_usage = 3000
 	idle_power_usage = 50
 
@@ -22,7 +22,7 @@ fundamental differences
 
 /obj/machinery/appliance/mixer/Initialize()
 	. = ..()
-	cooking_objs += new /datum/cooking_item(new /obj/item/weapon/reagent_containers/cooking_container(src))
+	cooking_objs += new /datum/cooking_item(new /obj/item/reagent_containers/cooking_container(src))
 	cooking = 0
 	selected_option = pick(output_options)
 

@@ -241,7 +241,7 @@
 		data += reason
 		data += "</center>"
 
-		show_browser(src, data, "jobban_reason")
+		show_browser(src, data, "window=jobban_reason;size=400x300")
 		return
 
 	..()	//redirect to hsrc.()
@@ -263,7 +263,9 @@
 			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
-	spam_alert = max(0, spam_alert - 1)
+	else
+		spam_alert = max(0, spam_alert - 1)
+
 	return FALSE
 
 /client/proc/automute_by_duplicate(message, mute_type)
@@ -348,17 +350,18 @@
 			return 0
 
 	if(IsGuestKey(key) && config.external_auth)
-		//src.real_mob = ..()
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
 		m.client = src
 		src.InitPrefs() //Init some default prefs
+		m.LateLogin()
 		return m
 		//Do auth shit
 	else
 		. = ..()
 		src.InitClient()
 		src.InitPrefs()
+		mob.LateLogin()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -371,16 +374,16 @@
 	prefs.client = src					// Safety reasons here.
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
-#if DM_VERSION >= 511
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
-#endif // DM_VERSION >= 511
 	if(SStheming)
 		SStheming.apply_theme_from_perfs(src)
 
+	// Server greeting shenanigans.
+	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
+		server_greeting.display_to_client(src)
+
 /client/proc/InitClient()
-	if(initialized)
-		return
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
 	//Admin Authorisation
@@ -421,6 +424,9 @@
 			del(src)
 			return 0
 
+	if(!tooltips)
+		tooltips = new /datum/tooltip(src)
+
 	if(holder)
 		add_admin_verbs()
 
@@ -434,16 +440,11 @@
 
 	send_resources()
 
-	// Server greeting shenanigans.
-	if (server_greeting.find_outdated_info(src, 1))
-		server_greeting.display_to_client(src)
-
-	// Check code/modules/admin/verbs/antag-ooc.dm for definition
-	add_aooc_if_necessary()
-
 	check_ip_intel()
 
-	initialized = TRUE
+	fetch_unacked_warning_count()
+
+	is_initialized = TRUE
 
 //////////////
 //DISCONNECT//
@@ -574,6 +575,10 @@
 	set category = "Preferences"
 	if(prefs)
 		prefs.ShowChoices(usr)
+
+/client/proc/apply_fps(var/client_fps)
+	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
+		vars["fps"] = prefs.clientfps
 
 //I honestly can't find a good place for this atm.
 //If the webint interaction gets more features, I'll move it. - Skull132

@@ -13,8 +13,8 @@ FLOOR SAFES
 	anchored = 1
 	density = 1
 	var/open = 0		//is the safe open?
-	var/tumbler_1_pos	//the tumbler position- from 0 to 72
-	var/tumbler_1_open	//the tumbler position to open at- 0 to 72
+	var/tumbler_1_pos	//the tumbler position- from 0 to 71
+	var/tumbler_1_open	//the tumbler position to open at- 0 to 71
 	var/tumbler_2_pos
 	var/tumbler_2_open
 	var/dial = 0		//where is the dial pointing?
@@ -23,11 +23,11 @@ FLOOR SAFES
 
 
 /obj/structure/safe/New()
-	tumbler_1_pos = rand(0, 72)
-	tumbler_1_open = rand(0, 72)
+	tumbler_1_pos = rand(0, 71)
+	tumbler_1_open = rand(0, 71)
 
-	tumbler_2_pos = rand(0, 72)
-	tumbler_2_open = rand(0, 72)
+	tumbler_2_pos = rand(0, 71)
+	tumbler_2_open = min(71 , max( 1 , abs(tumbler_1_open + rand(-34, 34))))
 
 
 /obj/structure/safe/Initialize()

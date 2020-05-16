@@ -9,11 +9,11 @@
 	var/list/authorized = list(  )
 
 
-	attackby(var/obj/item/weapon/card/W as obj, var/mob/user as mob)
+	attackby(var/obj/item/card/W as obj, var/mob/user as mob)
 		if(stat & (BROKEN|NOPOWER))	return
-		if ((!( istype(W, /obj/item/weapon/card) ) || !(ROUND_IS_STARTED) || emergency_shuttle.location() || !( user )))	return
-		if (istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
-			var/obj/item/weapon/card/id/id = W
+		if ((!( istype(W, /obj/item/card) ) || !(ROUND_IS_STARTED) || emergency_shuttle.location() || !( user )))	return
+		if (istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
+			var/obj/item/card/id/id = W
 			if (istype(W, /obj/item/device/pda))
 				var/obj/item/device/pda/pda = W
 				id = pda.id
@@ -63,7 +63,7 @@
 					src.authorized.len = 0
 					src.authorized = list(  )
 
-		else if (istype(W, /obj/item/weapon/card/emag) && !emagged)
+		else if (istype(W, /obj/item/card/emag) && !emagged)
 			var/choice = alert(user, "Would you like to launch the shuttle?","Shuttle control", "Launch", "Cancel")
 
 			if(!emagged && !emergency_shuttle.location() && user.get_active_hand() == W)

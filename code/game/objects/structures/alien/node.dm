@@ -79,7 +79,7 @@
 				qdel(src)
 	return
 
-/obj/structure/alien/weeds/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/structure/alien/weeds/attackby(var/obj/item/W, var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	visible_message("<span class='danger'>\The [src] have been attacked with \the [W][(user ? " by [user]." : ".")]</span>")
@@ -87,7 +87,7 @@
 	var/damage = W.force / 4.0
 
 	if(W.iswelder())
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 
 		if(WT.remove_fuel(0, user))
 			damage = 15

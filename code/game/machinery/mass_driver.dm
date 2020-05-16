@@ -9,6 +9,7 @@
 	use_power = 1
 	idle_power_usage = 2
 	active_power_usage = 50
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/power = 1.0
 	var/code = 1.0
@@ -34,7 +35,7 @@
 	var/O_limit
 	var/atom/target = get_edge_target_turf(src, dir)
 	for(var/atom/movable/O in loc)
-		if(!O.anchored||istype(O, /obj/mecha))//Mechs need their launch platforms.
+		if(!O.anchored)
 			O_limit++
 			if(O_limit >= 20)
 				for(var/mob/M in hearers(src, null))
@@ -68,46 +69,35 @@
 				"You hear a ratchet")
 			src.anchored = 0
 
-/obj/machinery/mass_driver/verb/rotate()
-	set name = "Rotate"
-	set category = "Object"
-	set src in oview(1)
-
-	if (src.anchored || usr:stat)
-		to_chat(usr, "It is fastened to the floor!")
-		return 0
-	src.set_dir(turn(src.dir, 90))
-	return 1
-
-/obj/item/weapon/mass_driver_diy
+/obj/item/mass_driver_diy
 	name = "Mass Driver Kit"
 	desc = "A do-it-yourself kit for constructing the finest of mass drivers."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_box"
-	item_state = "syringe_kit"
+	item_state = "box"
 
-/obj/item/weapon/mass_driver_diy/attack_self(mob/user)
+/obj/item/mass_driver_diy/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")
 	if(do_after(user, 80))
 		var/master_id = "[user.name] - [pick("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")][rand(100,999)]"
 		var/obj/machinery/mass_driver/mining/R = new /obj/machinery/mass_driver/mining(user.loc)
 		R.id = master_id
 		R.power = 2.0
-		var/obj/item/weapon/mass_driver_button/B = new /obj/item/weapon/mass_driver_button(user.loc)
+		var/obj/item/mass_driver_button/B = new /obj/item/mass_driver_button(user.loc)
 		B.id = master_id
 		user.visible_message("<span class='notice'>[user] assembles \a [R].\
 			</span>", "<span class='notice'>You assemble \a [R].</span>")
 		R.add_fingerprint(user)
 		qdel(src)
 
-/obj/item/weapon/mass_driver_button
+/obj/item/mass_driver_button
 	name = "mass driver button"
 	desc = "An unscrewed mass driver button."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "launcherbtt"
 	var/id
 
-/obj/item/weapon/mass_driver_button/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
+/obj/item/mass_driver_button/afterattack(var/atom/A, var/mob/user, var/adjacent, var/clickparams)
 	if (!adjacent)
 		return
 

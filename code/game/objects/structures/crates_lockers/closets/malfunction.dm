@@ -5,10 +5,10 @@
 	icon_opened = "syndicateopen"
 
 /obj/structure/closet/malf/suits/fill()
-	new /obj/item/weapon/tank/jetpack/void(src)
+	new /obj/item/tank/jetpack/void(src)
 	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/clothing/head/helmet/space/void(src)
 	new /obj/item/clothing/suit/space/void(src)
-	new /obj/item/weapon/crowbar(src)
-	new /obj/item/weapon/cell(src)
+	new /obj/item/crowbar(src)
+	new /obj/item/cell(src)
 	new /obj/item/device/multitool(src)

@@ -73,12 +73,12 @@
 
 /datum/computer/file/embedded_program/docking/New()
 	..()
-	var/datum/existing = locate(id_tag) //in case a datum already exists with our tag
-	if(existing)
-		existing.tag = null //take it from them
+	if(id_tag)
+		SSshuttle.docking_registry[id_tag] = src
 
-	tag = id_tag //Greatly simplifies shuttle initialization
-
+/datum/computer/file/embedded_program/docking/Destroy()
+	SSshuttle.docking_registry -= id_tag
+	return ..()
 
 /datum/computer/file/embedded_program/docking/receive_signal(datum/signal/signal, receive_method, receive_param)
 	var/receive_tag = signal.data["tag"]		//for docking signals, this is the sender id

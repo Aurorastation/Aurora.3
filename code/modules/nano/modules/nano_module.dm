@@ -6,11 +6,11 @@
 
 /datum/nano_module/New(var/datum/host, var/topic_manager)
 	..()
-	src.host = host.ui_host()
+	src.host = host
 	src.topic_manager = topic_manager
 
 /datum/nano_module/ui_host()
-	return host ? host : src
+	return host ? host.ui_host() : src
 
 /datum/nano_module/proc/can_still_topic(var/datum/topic_state/state = default_state)
 	return CanUseTopic(usr, state) == STATUS_INTERACTIVE
@@ -25,7 +25,7 @@
 	if(!istype(user))
 		return 0
 
-	var/obj/item/weapon/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = user.GetIdCard()
 	if(!I)
 		return 0
 

@@ -11,7 +11,7 @@
 	var/channel_name = "Station Announcements"
 	var/announcement_type = "Announcement"
 
-/datum/announcement/New(var/do_log = 0, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
+/datum/announcement/New(var/do_log = 1, var/new_sound = null, var/do_newscast = 0, var/do_print = 0)
 	sound = new_sound
 	log = do_log
 	newscast = do_newscast
@@ -53,8 +53,8 @@
 	for(var/mob/M in player_list)
 		if(!istype(M,/mob/abstract/new_player) && !isdeaf(M))
 			var/turf/T = get_turf(M)
-			if(T && isStationLevel(T.z))
-				to_chat(M, "<h2 class='alert'>[title]</h2>")
+			if(T && isContactLevel(T.z))
+				to_chat(M, "<h2 class='alert'>[message_title]</h2>")
 				to_chat(M, "<span class='alert'>[message]</span>")
 				if (announcer)
 					to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
@@ -66,9 +66,9 @@
 
 /datum/announcement/priority/command/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	var/command_title
-	command_title += "<h1 class='alert'>[current_map.boss_name] Update</h1>"
+	command_title += "<h2><font color='#272727'>[current_map.boss_name] Update</font></h2>"
 	if (message_title)
-		command_title += "<br><h2 class='alert'>[message_title]</h2>"
+		command_title += "<h3><span class='alert'>[message_title]</span></h3>"
 
 	var/command_body
 	command_body += "<br><span class='alert'>[message]</span><br>"
@@ -98,7 +98,7 @@
 		log_say("[key_name(usr)] has made \a [announcement_type]: [message_title] - [message] - [announcer]",ckey=key_name(usr))
 		message_admins("[key_name_admin(usr)] has made \a [announcement_type].", 1)
 
-/proc/GetNameAndAssignmentFromId(var/obj/item/weapon/card/id/I)
+/proc/GetNameAndAssignmentFromId(var/obj/item/card/id/I)
 	if(!I)
 		return "Unknown"
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)

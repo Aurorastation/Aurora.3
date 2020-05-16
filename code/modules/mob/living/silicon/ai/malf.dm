@@ -50,7 +50,7 @@
 				errored = 0
 		return
 	recalc_cpu()
-	if(APU_power || aiRestorePowerRoutine != 0)
+	if(APU_power || ai_restore_power_routine != 0)
 		research.process(1)
 	else
 		research.process(0)
@@ -102,11 +102,11 @@
 
 // Returns percentage of AI's remaining backup capacitor charge (maxhealth - oxyloss).
 /mob/living/silicon/ai/proc/backup_capacitor()
-	return ((200 - getOxyLoss()) / 2)
+	return ((getOxyLoss() - maxHealth) / maxHealth) * -100
 
 // Returns percentage of AI's remaining hardware integrity (maxhealth - (bruteloss + fireloss))
 /mob/living/silicon/ai/proc/hardware_integrity()
-	return (health-config.health_threshold_dead)/2
+	return (health / maxHealth) * 100
 
 // Shows capacitor charge and hardware integrity information to the AI in Status tab.
 /mob/living/silicon/ai/show_system_integrity()

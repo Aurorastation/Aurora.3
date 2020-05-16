@@ -19,7 +19,8 @@
 		/////////
 		//OTHER//
 		/////////
-	var/datum/preferences/prefs = null
+	var/datum/preferences/prefs
+	var/datum/tooltip/tooltips
 	var/move_delay		= 1
 	var/moving			= null
 	var/adminobs		= null
@@ -57,6 +58,7 @@
 	var/need_saves_migrated = "Requires database"	//Used to determine whether or not the ckey needs their saves migrated over to the database. Default is 0 upon successful connection.
 	var/account_age = -1							// Age on the BYOND account in days.
 	var/account_join_date = null					// Date of the BYOND account creation in ISO 8601 format.
+	var/unacked_warning_count = 0
 
 	preload_rsc = 1
 
@@ -72,6 +74,6 @@
 	var/obj/screen/plane_master/parallax_dustmaster/parallax_dustmaster = null
 	var/obj/screen/plane_master/parallax_spacemaster/parallax_spacemaster = null
 
-	var/initialized = FALSE
-
 	var/authed = TRUE
+
+	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.

@@ -8,13 +8,15 @@
 	standard 0 if fail
 */
 
-/mob/living/proc/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/sharp = 0, var/edge = 0)
-	if(!damage || (blocked >= 100))	return 0
+/mob/living/proc/apply_damage(var/damage = 0,var/damagetype = BRUTE, var/def_zone = null, var/blocked = 0, var/used_weapon = null, var/damage_flags)
+	if(!damage || (blocked >= 100))
+		return 0
 	switch(damagetype)
 		if(BRUTE)
 			adjustBruteLoss(damage * BLOCKED_MULT(blocked))
 		if(BURN)
-			if(COLD_RESISTANCE in mutations)	damage = 0
+			if(COLD_RESISTANCE in mutations)
+				damage = 0
 			adjustFireLoss(damage * BLOCKED_MULT(blocked))
 		if(TOX)
 			adjustToxLoss(damage * BLOCKED_MULT(blocked))
@@ -22,12 +24,11 @@
 			adjustOxyLoss(damage * BLOCKED_MULT(blocked))
 		if(CLONE)
 			adjustCloneLoss(damage * BLOCKED_MULT(blocked))
-		if(HALLOSS)
+		if(PAIN)
 			adjustHalLoss(damage * BLOCKED_MULT(blocked))
 	flash_weak_pain()
 	updatehealth()
 	return 1
-
 
 /mob/living/proc/apply_damages(var/brute = 0, var/burn = 0, var/tox = 0, var/oxy = 0, var/clone = 0, var/halloss = 0, var/def_zone = null, var/blocked = 0)
 	if(blocked >= 100)	return 0
@@ -36,10 +37,8 @@
 	if(tox)		apply_damage(tox, TOX, def_zone, blocked)
 	if(oxy)		apply_damage(oxy, OXY, def_zone, blocked)
 	if(clone)	apply_damage(clone, CLONE, def_zone, blocked)
-	if(halloss) apply_damage(halloss, HALLOSS, def_zone, blocked)
+	if(halloss) apply_damage(halloss, PAIN, def_zone, blocked)
 	return 1
-
-
 
 /mob/living/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
 	if(!effect || (blocked >= 100))	return 0
@@ -50,7 +49,7 @@
 			Weaken(effect * BLOCKED_MULT(blocked))
 		if(PARALYZE)
 			Paralyse(effect * BLOCKED_MULT(blocked))
-		if(AGONY)
+		if(PAIN)
 			adjustHalLoss(effect * BLOCKED_MULT(blocked)) //Changed this to use the wrapper function, it shouldn't directly alter the value
 		if(IRRADIATE)
 			var/rad_protection = blocked ? getarmor(null, "rad")/100 : 0
@@ -77,7 +76,7 @@
 	if(stutter)		apply_effect(stutter, STUTTER, blocked)
 	if(eyeblur)		apply_effect(eyeblur, EYE_BLUR, blocked)
 	if(drowsy)		apply_effect(drowsy, DROWSY, blocked)
-	if(agony)		apply_effect(agony, AGONY, blocked)
+	if(agony)		apply_effect(agony, PAIN, blocked)
 	if(incinerate) apply_effect(incinerate, INCINERATE, blocked)
 	return 1
 

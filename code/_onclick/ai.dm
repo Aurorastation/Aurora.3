@@ -58,12 +58,12 @@
 		var/obj/O = A
 		var/datum/expansion/multitool/MT = LAZYACCESS(O.expansions, /datum/expansion/multitool)
 		if(MT)
-			MT.interact(aiMulti, src)
+			MT.interact(ai_multi, src)
 			return
 
-	if(aiCamera.in_camera_mode)
-		aiCamera.camera_mode_off()
-		aiCamera.captureimage(A, usr)
+	if(ai_camera.in_camera_mode)
+		ai_camera.camera_mode_off()
+		ai_camera.captureimage(A, usr)
 		return
 
 	/*
@@ -186,4 +186,4 @@
 //
 
 /mob/living/silicon/ai/TurfAdjacent(var/turf/T)
-	return (cameranet && cameranet.checkTurfVis(T))
+	return (cameranet && cameranet.is_turf_visible(T))

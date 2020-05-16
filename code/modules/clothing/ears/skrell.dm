@@ -1,9 +1,10 @@
 /obj/item/clothing/ears/skrell
 	name = "skrell tentacle wear"
 	desc = "Some stuff worn by skrell to adorn their head tentacles."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/skrell_items.dmi'
+	contained_sprite = TRUE
 	w_class = 1
-	slot_flags = SLOT_EARS
+	slot_flags = SLOT_HEAD | SLOT_EARS
 	species_restricted = list("Skrell")
 
 /obj/item/clothing/ears/skrell/chain
@@ -226,10 +227,14 @@
 	icon_state = "skrell_dots"
 	item_state = "skrell_dots"
 
+/obj/item/clothing/ears/skrell/goop/update_icon()
+	..()
+	if(color)
+		set_light(1.5,1.5,color)
+
 /obj/item/clothing/ears/skrell/goop/Initialize()
 	. = ..()
-	if(color)
-		set_light(1,1,color)
+	update_icon()
 
 /obj/item/clothing/ears/skrell/goop/stripes
 	icon_state = "skrell_stripes"

@@ -53,6 +53,7 @@ var/list/gamemode_cache = list()
 	var/list/votable_modes = list()		// votable modes
 	var/list/probabilities_secret = list()			// relative probability of each mode in secret/random
 	var/list/probabilities_mixed_secret = list()	// relative probability of each mode in heavy secret mode
+	var/ipc_timelock_active = FALSE
 	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
@@ -124,7 +125,7 @@ var/list/gamemode_cache = list()
 	var/default_brain_health = 400
 
 	//Paincrit knocks someone down once they hit 60 shock_stage, so by default make it so that close to 100 additional damage needs to be dealt,
-	//so that it's similar to HALLOSS. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
+	//so that it's similar to PAIN. Lowered it a bit since hitting paincrit takes much longer to wear off than a halloss stun.
 	var/organ_damage_spillover_multiplier = 0.5
 
 	var/bones_can_break = 0
@@ -185,7 +186,6 @@ var/list/gamemode_cache = list()
 
 	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
-	var/use_overmap = 0
 
 	// Event settings
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
@@ -251,8 +251,7 @@ var/list/gamemode_cache = list()
 
 	//UDP GELF Logging
 	var/log_gelf_enabled = 0
-	var/log_gelf_ip = ""
-	var/log_gelf_port = ""
+	var/log_gelf_addr = ""
 
 	//IP Intel vars
 	var/ipintel_email
@@ -280,6 +279,7 @@ var/list/gamemode_cache = list()
 
 	var/iterative_explosives_z_threshold = 10
 	var/iterative_explosives_z_multiplier = 0.75
+	var/iterative_explosives_z_subtraction = 2
 
 	var/ticket_reminder_period = 0
 
@@ -289,22 +289,20 @@ var/list/gamemode_cache = list()
 	var/load_customsynths_from
 	var/docs_image_host
 
-	var/ert_base_chance = 10
-	var/ert_green_inc = 1
-	var/ert_yellow_inc = 1
-	var/ert_blue_inc = 2
-	var/ert_red_inc = 3
-	var/ert_delta_inc = 10
-	var/ert_scaling_factor = 1
-	var/ert_scaling_factor_antag = 1
-	var/ert_scaling_factor_dead = 2
-
 	// Configurable hostname / port for the NTSL Daemon.
 	var/ntsl_hostname = "localhost"
 	var/ntsl_port = "1945"
 
 	// Is external Auth enabled
 	var/external_auth = FALSE
+
+	// fail2topic settings
+	var/fail2topic_rate_limit = 5 SECONDS
+	var/fail2topic_max_fails = 5
+	var/fail2topic_rule_name = "_DD_Fail2topic"
+	var/fail2topic_enabled = FALSE
+
+	var/time_to_call_emergency_shuttle = 36000  //how many time until the crew can call the transfer shuttle. One hour by default.
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -479,9 +477,6 @@ var/list/gamemode_cache = list()
 
 				if ("allow_ai")
 					config.allow_ai = 1
-
-//				if ("authentication")
-//					config.enable_authentication = 1
 
 				if ("respawn_delay")
 					config.respawn_delay = text2num(value)
@@ -658,6 +653,9 @@ var/list/gamemode_cache = list()
 				if("tickcomp")
 					Tickcomp = 1
 
+				if("ipc_timelock_active")
+					ipc_timelock_active = TRUE
+
 				if("humans_need_surnames")
 					humans_need_surnames = 1
 
@@ -725,9 +723,6 @@ var/list/gamemode_cache = list()
 
 				if("max_maint_drones")
 					config.max_maint_drones = text2num(value)
-
-				if("use_overmap")
-					config.use_overmap = 1
 
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))
@@ -840,11 +835,8 @@ var/list/gamemode_cache = list()
 				if("log_gelf_enabled")
 					config.log_gelf_enabled = text2num(value)
 
-				if("log_gelf_ip")
-					config.log_gelf_ip = value
-
-				if("log_gelf_port")
-					config.log_gelf_port = value
+				if("log_gelf_addr")
+					config.log_gelf_addr = value
 
 				if("ipintel_email")
 					if (value != "ch@nge.me")
@@ -877,6 +869,9 @@ var/list/gamemode_cache = list()
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
 
+				if("time_to_call_emergency_shuttle")
+					config.time_to_call_emergency_shuttle = text2num(value)
+
 				if("force_map")
 					override_map = value
 
@@ -885,6 +880,9 @@ var/list/gamemode_cache = list()
 
 				if ("explosion_z_mult")
 					iterative_explosives_z_multiplier = text2num(value)
+
+				if ("explosion_z_sub")
+					iterative_explosives_z_subtraction = text2num(value)
 
 				if("show_game_type_odd")
 					config.show_game_type_odd = 1
@@ -904,25 +902,6 @@ var/list/gamemode_cache = list()
 				if ("docs_image_host")
 					docs_image_host = value
 
-				if ("ert_base_chance")
-					ert_base_chance = text2num(value)
-				if ("ert_green_inc")
-					ert_green_inc = text2num(value)
-				if ("ert_yellow_inc")
-					ert_yellow_inc = text2num(value)
-				if ("ert_blue_inc")
-					ert_blue_inc = text2num(value)
-				if ("ert_red_inc")
-					ert_red_inc = text2num(value)
-				if ("ert_delta_inc")
-					ert_delta_inc = text2num(value)
-				if ("ert_scaling_factor")
-					ert_scaling_factor = text2num(value)
-				if ("ert_scaling_factor_antag")
-					ert_scaling_factor_antag = text2num(value)
-				if ("ert_scaling_factor_dead")
-					ert_scaling_factor_dead = text2num(value)
-
 				if ("ntsl_hostname")
 					ntsl_hostname = value
 				if ("ntsl_port")
@@ -930,6 +909,15 @@ var/list/gamemode_cache = list()
 
 				if ("external_auth")
 					external_auth = TRUE
+
+				if ("fail2topic_rate_limit")
+					fail2topic_rate_limit = text2num(value) SECONDS
+				if ("fail2topic_max_fails")
+					fail2topic_max_fails = text2num(value)
+				if ("fail2topic_rule_name")
+					fail2topic_rule_name = value
+				if ("fail2topic_enabled")
+					fail2topic_enabled = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
