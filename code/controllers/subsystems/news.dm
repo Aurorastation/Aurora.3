@@ -137,7 +137,7 @@
 	post_id = text2num(post_id)
 
 	if (!config.forum_news_topics[topic_id])
-		return "John Doe"
+		return prob(50) ? "John Doe" : "Jane Doe"
 
 	var/list/authors = config.forum_news_topics[topic_id]
 	var/idx = post_id % authors.len
