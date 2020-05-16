@@ -14,7 +14,7 @@
       </vui-group-item>
       <vui-group-item label="Backup power:">
         <vui-progress 
-          :class="{ good: s.plu_back == 0, bad: s.plu_back == -1, average: s.plu_back > 0 }"
+          :class="{ good: s.plu_back == 0 || s.plu_main == 0, bad: s.plu_back == -1 && s.plu_main != 0, average: s.plu_back > 0 }"
           style="width: 12em;"
           :value="gs.wtime"
           :min="s.plua_back"
