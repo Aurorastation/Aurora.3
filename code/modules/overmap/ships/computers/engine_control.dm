@@ -2,7 +2,7 @@
 
 /obj/machinery/computer/ship/engines
 	name = "engine control console"
-	icon_screen = "power"
+	icon_screen = "enginecontrol"
 	var/display_state = "status"
 
 /obj/machinery/computer/ship/engines/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)

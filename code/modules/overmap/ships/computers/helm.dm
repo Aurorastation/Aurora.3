@@ -3,7 +3,7 @@
 
 /obj/machinery/computer/ship/helm
 	name = "helm control console"
-	icon_screen = "comm"
+	icon_screen = "helm"
 	light_color = "#7faaff"
 	var/autopilot = 0
 	var/list/known_sectors = list()
@@ -203,7 +203,7 @@
 
 /obj/machinery/computer/ship/navigation
 	name = "navigation console"
-	icon_screen = "helm"
+	icon_screen = "nav"
 
 /obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(!linked)
