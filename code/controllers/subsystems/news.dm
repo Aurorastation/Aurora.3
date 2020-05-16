@@ -42,7 +42,7 @@
 
 		var/list/forum_topic = initial_response.body
 		var/datum/feed_channel/channel = CreateFeedChannel(
-			forum_topic["title"], "meme mcgee", TRUE, TRUE, FALSE
+			forum_topic["title"], "System", TRUE, TRUE, FALSE
 		)
 
 		var/datum/http_request/forum_api/posts = new("forums/topics")
