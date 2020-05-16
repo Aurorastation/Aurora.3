@@ -111,7 +111,7 @@ export default {
   methods: {
     getPowerStatusMessage(state, time) {
       if(state == -1) {
-        return 'Unavailable'
+        return 'Offline'
       } else if (state == 0) {
         return 'Online'
       } else {
