@@ -89,7 +89,7 @@
 
 	stamina = 100			  // Long period of sprinting, but relatively low speed gain
 	sprint_speed_factor = 0.7
-	sprint_cost_factor = 0.30
+	sprint_cost_factor = 0.6
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(

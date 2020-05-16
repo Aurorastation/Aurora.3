@@ -18,7 +18,7 @@
 	economic_modifier = 4
 
 	sprint_speed_factor = 2.6
-	sprint_cost_factor = 1.10
+	sprint_cost_factor = 3
 
 	rarity_value = 4
 

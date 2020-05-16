@@ -36,7 +36,7 @@
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
 	stamina_recovery = 5
 
-	sprint_cost_factor = 1.45
+	sprint_cost_factor = 2.7
 	sprint_speed_factor = 3.2
 
 	rarity_value = 3

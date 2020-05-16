@@ -25,6 +25,12 @@
 	maxHealth = 33.3
 	health = 33.3
 	pass_flags = PASSTABLE
+	stamina = 35
+	stamina_recovery = 0.5
+	move_intents = list(
+		/decl/move_intent/walk,
+		/decl/move_intent/run
+	)
 
 	// Decorative head flower.
 	var/flower_color
@@ -78,9 +84,6 @@
 	. = ..()
 	if(MOVING_QUICKLY(src))
 		species.handle_sprint_cost(src, . + config.walk_delay)
-	else if(MOVING_DELIBERATELY(src))
-		. += 3
-	
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if(life_tick < 4)

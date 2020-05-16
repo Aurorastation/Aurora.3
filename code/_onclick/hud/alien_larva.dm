@@ -9,9 +9,11 @@
 	var/obj/screen/using
 
 	using = new /obj/screen/movement()
-	using.set_dir(SOUTHWEST)
-	src.adding += using
+	adding += using
 	move_intent = using
+	using.name = "movement method" //holy shit dionae what the fuck
+	using.icon_state = mymob.move_intent.hud_icon_state
+	
 
 	mymob.healths = new /obj/screen()
 	mymob.healths.icon = 'icons/mob/screen/alien.dmi'
