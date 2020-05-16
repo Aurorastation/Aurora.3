@@ -559,3 +559,13 @@ FAIL2TOPIC_ENABLED 0
 #FAIL2TOPIC_MAX_FAILS 5
 ## The name of the firewall rule used.
 #FAIL2TOPIC_RULE_NAME _dd_fail2topic
+
+### News subsystem configuration.
+## Uncomment to enable the pulling of news from the forum API.
+## See the section about configuration the forum API as well!
+#NEWS_USE_FORUM_API
+## Use the following entry to configure a forum topic ID with a list of authors.
+## The authors will be picked randomly (but consistently) per article.
+## Each entry is formatted as: topicid=author one,author two,author three
+## You have to repeat these entries per topic you want to add.
+#NEWS_FORUM_TOPICS 1234=John Doe,Jane Doe

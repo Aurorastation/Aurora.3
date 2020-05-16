@@ -17,8 +17,8 @@
 	CreateFeedChannel("Station Announcements", "Automatic Announcement System", 1, 1, "New Station Announcement Available")
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
-	if(config.sql_enabled)
-		load_from_sql()
+//	if(config.sql_enabled)
+//		load_from_sql()
 
 	load_from_forums()
 	..()
@@ -28,9 +28,9 @@
 		log_debug("SSnews: Unable to load from forums, API path or key not set up.")
 		return
 
-	config.forum_news_topic_ids = list(2816)
+	config.forum_news_topics = list("2816" = list("Alberyk", "Kywes", "Garnameme"))
 
-	for (var/topic_id in config.forum_news_topic_ids)
+	for (var/topic_id in config.forum_news_topics)
 		var/datum/http_request/forum_api/initial = new("forums/topics")
 		initial.prepare_get("[topic_id]")
 		initial.begin_async()
@@ -58,19 +58,20 @@
 			continue
 
 		var/list/forum_posts = posts_response.body
+
+		var/news_count = 1
 		for (var/list/post in forum_posts["results"])
 			SubmitArticle(
 				post["content"], GetForumAuthor(topic_id, post["id"]), channel,
 				null, FALSE, "Story", GetForumTimestamp(post["date"])
 			)
-// finish this
+
 			var/datum/computer_file/data/news_article/news = new()
 			news.filename = "[channel.channel_name] vol. [news_count]"
 			news.archived = 0
-			news.stored_data = news_query.item[1]
+			news.stored_data = post["content"]
 			ntnet_global.available_news.Add(news)
-			news_count += 1
-
+			news_count++
 
 /datum/controller/subsystem/news/proc/load_from_sql()
 	if(!establish_db_connection(dbcon))
@@ -184,6 +185,28 @@
 	for(var/obj/item/device/pda/PDA in receiving_pdas)
 		PDA.new_news(annoncement)
 
+/datum/controller/subsystem/news/proc/GetForumAuthor(topic_id, post_id)
+	topic_id = "[topic_id]"
+	post_id = text2num(post_id)
+
+	if (!config.forum_news_topics[topic_id])
+		return "John Doe"
+
+	var/list/authors = config.forum_news_topics[topic_id]
+	var/idx = post_id % authors.len
+	return authors[idx + 1]
+
+/datum/controller/subsystem/news/proc/GetForumTimestamp(timestamp)
+	// Input format is: 2020-05-10T16:34:50Z
+
+	timestamp = replacetextEx(timestamp, "T", " ")
+	timestamp = replacetextEx(timestamp, "Z", "")
+
+	var/year = text2num(copytext(timestamp, 1, 5))
+	var/new_year = year + 442
+	timestamp = replacetext(timestamp, "[year]", "[new_year]")
+
+	return timestamp
 
 /datum/feed_message
 	var/author =""
