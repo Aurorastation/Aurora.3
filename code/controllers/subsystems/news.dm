@@ -17,18 +17,16 @@
 	CreateFeedChannel("Station Announcements", "Automatic Announcement System", 1, 1, "New Station Announcement Available")
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
-//	if(config.sql_enabled)
-//		load_from_sql()
 
-	load_from_forums()
+	if (config.news_use_forum_api)
+		load_from_forums()
+
 	..()
 
 /datum/controller/subsystem/news/proc/load_from_forums()
-	if (!config.forum_api_path || !config.forum_api_key)
+	if (!config.forum_api_path || !global.forum_api_key)
 		log_debug("SSnews: Unable to load from forums, API path or key not set up.")
 		return
-
-	config.forum_news_topics = list("2816" = list("Alberyk", "Kywes", "Garnameme"))
 
 	for (var/topic_id in config.forum_news_topics)
 		var/datum/http_request/forum_api/initial = new("forums/topics")

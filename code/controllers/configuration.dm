@@ -304,11 +304,10 @@ var/list/gamemode_cache = list()
 
 	var/time_to_call_emergency_shuttle = 36000  //how many time until the crew can call the transfer shuttle. One hour by default.
 
-	var/forum_api_key
 	var/forum_api_path
 
 	var/news_use_forum_api = FALSE
-	var/list/forum_news_topics
+	var/list/forum_news_topics = list()
 
 
 /datum/configuration/New()
@@ -930,7 +929,7 @@ var/list/gamemode_cache = list()
 				if ("forum_api_path")
 					forum_api_path = value
 				if ("forum_api_key")
-					forum_api_key = value
+					global.forum_api_key = value
 
 				if ("news_use_forum_api")
 					news_use_forum_api = TRUE

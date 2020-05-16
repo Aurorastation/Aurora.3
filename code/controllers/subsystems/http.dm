@@ -122,7 +122,7 @@ var/datum/controller/subsystem/http/SShttp
 	if (suffix)
 		. += "/[suffix]"
 
-	. += "?key=[config.forum_api_key]"
+	. += "?key=[global.forum_api_key]"
 
 /datum/http_request/forum_api/proc/prepare_get(subtopic, list/params)
 	var/url = _get_url(subtopic)
