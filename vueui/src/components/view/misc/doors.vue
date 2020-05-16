@@ -32,9 +32,9 @@
           :max="s.ele || 10">
           {{ eleMsg }}
         </vui-progress>
-        <vui-button :params="{ command: 'electrify_permanently', activate: 0}">R</vui-button>
-        <vui-button :params="{ command: 'electrify_temporary', activate: 1}">T</vui-button>
-        <vui-button :params="{ command: 'electrify_permanently', activate: 1}">P</vui-button>
+        <vui-button :disabled="s.ele == 0" :params="{ command: 'electrify_permanently', activate: 0}">R</vui-button>
+        <vui-button :disabled="s.ele > 0" :params="{ command: 'electrify_temporary', activate: 1}">T</vui-button>
+        <vui-button :disabled="s.ele == -1" :params="{ command: 'electrify_permanently', activate: 1}">P</vui-button>
       </vui-group-item>
       <vui-group-item>
         &nbsp;
