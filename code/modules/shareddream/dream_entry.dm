@@ -34,7 +34,7 @@ var/list/dream_entries = list()
 			var/mob/return_mob = src
 
 			var/mob/living/simple_animal/borer/B = has_brain_worms()
-			if(B && B.host_brain)
+			if(B?.host_brain)
 				return_mob = B.host_brain
 				return_text = "You are ripped from the Srom as you return to the captivity of your own mind."
 
