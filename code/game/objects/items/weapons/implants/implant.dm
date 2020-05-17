@@ -122,19 +122,6 @@ Implant Specifics:<BR>"}
 	desc = "And boom goes the weasel."
 	icon_state = "implant_evil"
 
-/obj/item/implant/dexplosive/implanted(mob/source, mob/user)
-	. = ..()
-
-	if (. == 1)
-		START_PROCESSING(SSprocessing, src)
-
-/obj/item/implant/dexplosive/process()
-
-/obj/item/implant/dexplosive/meltdown()
-	. = ..()
-
-	STOP_PROCESSING(SSprocessing, src)
-
 /obj/item/implant/dexplosive/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
