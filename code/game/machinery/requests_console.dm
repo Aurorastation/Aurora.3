@@ -57,9 +57,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/recipient = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
 
-	light_color = LIGHT_COLOR_RED
-	light_power = 0.25	// It's a tiny light, it ain't going to be bright.
-
 	//Form intregration
 	var/SQLquery
 	var/paperstock = 10

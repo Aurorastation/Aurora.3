@@ -21,6 +21,8 @@
 	description = "A hair augment that allows the user to change the shape and color of their hair."
 	path = /obj/item/organ/internal/augment/cyber_hair
 	cost = 2
+	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Shell Frame")
+
 
 /datum/gear/augment/combitool
 	display_name = "retractable combitool"

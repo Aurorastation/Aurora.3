@@ -83,6 +83,14 @@
 		/obj/item/implanter/loyalty = 1
 	)
 
+/obj/item/storage/lockbox/anti_augment
+	name = "lockbox of augmentation disrupter implants"
+	req_access = list(access_security)
+	starts_with = list(
+		/obj/item/implantcase/anti_augment = 3,
+		/obj/item/implanter/anti_augment = 1
+	)
+
 /obj/item/storage/lockbox/clusterbang
 	name = "lockbox of clusterbangs"
 	desc = "You have a bad feeling about opening this."

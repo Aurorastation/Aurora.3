@@ -104,22 +104,27 @@
 	var/response_harm   = "kicks"
 	var/harm_intent_damage = 15//based on 100 health, which is probably too much for a pai to have
 
+	var/flashlight_active = FALSE
+	light_power = 0
+	light_range = 4
+	light_color = COLOR_BRIGHT_GREEN
+	light_wedge = 45
+
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
 
-/mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M as mob)
+/mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M)
 	..()
 
 	switch(M.a_intent)
-
 		if(I_HELP)
 			M.visible_message(span("notice","[M] [response_help] \the [src]"))
+			toggle_flashlight()
 
 		if(I_DISARM)
 			M.visible_message(span("notice","[M] [response_disarm] \the [src]"))
 			M.do_attack_animation(src)
-			//TODO: Push the mob away or something
-
+			close_up()
 
 		if(I_HURT)
 			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
@@ -127,12 +132,30 @@
 			M.do_attack_animation(src)
 			updatehealth()
 
+/mob/living/silicon/pai/proc/toggle_flashlight()
+	flashlight_active = !flashlight_active
+	if(flashlight_active)
+		set_light(4, 1, COLOR_BRIGHT_GREEN, angle = 45)
+	else
+		set_light(0)
+
+/mob/living/silicon/pai/set_light(l_range, l_power, l_color, uv, angle, no_update)
+	..()
+	if(istype(loc, /obj/item/holder/pai))
+		var/obj/item/holder/pai/P = loc
+		P.set_light(l_range, l_power, l_color, uv, angle, no_update)
+
+/mob/living/silicon/pai/post_scoop()
+	if(istype(loc, /obj/item/holder/pai))
+		var/obj/item/holder/pai/P = loc
+		P.set_light(light_range, light_power, light_color, uv_intensity, light_wedge)
+
 /mob/living/silicon/pai/Initialize(mapload)
 	var/obj/item/device/paicard/paicard = loc
 	if (!istype(paicard))
 		//If we get here, then we must have been created by adminspawning.
 		//so lets assist with debugging by creating our own card and adding ourself to it
-		paicard = new/obj/item/device/paicard(loc)
+		paicard = new /obj/item/device/paicard(loc)
 		paicard.pai = src
 
 	canmove = 0
