@@ -68,7 +68,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	output += "</div>"
 	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, output),"window=playersetup;size=580x280;can_close=0")
+	src << browse(enable_ui_theme(src, output),"window=playersetup;size=400x280;can_close=0")
 
 /mob/abstract/new_player/Stat()
 	..()
