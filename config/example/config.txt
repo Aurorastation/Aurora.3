@@ -571,9 +571,6 @@ FAIL2TOPIC_ENABLED 0
 ### News subsystem configuration.
 ## Uncomment to enable the pulling of news from the forum API.
 ## See the section about configuration the forum API as well!
+## Once enabled, make sure to write a news.json in the configuration
+## folder as well.
 #NEWS_USE_FORUM_API
-## Use the following entry to configure a forum topic ID with a list of authors.
-## The authors will be picked randomly (but consistently) per article.
-## Each entry is formatted as: topicid=author one,author two,author three
-## You have to repeat these entries per topic you want to add.
-#NEWS_FORUM_TOPICS 1234=John Doe,Jane Doe

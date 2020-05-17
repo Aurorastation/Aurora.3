@@ -5,6 +5,7 @@
 	flags = SS_NO_FIRE
 	var/list/datum/feed_channel/network_channels = list()
 	var/datum/feed_message/wanted_issue
+	var/list/forum_topics
 
 /datum/controller/subsystem/news/Recover()
 	src.network_channels = SSnews.network_channels
@@ -19,6 +20,8 @@
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
 
 	if (config.news_use_forum_api)
+		load_forum_news_config()
+
 		load_from_forums()
 
 	..()
@@ -28,7 +31,10 @@
 		log_debug("SSnews: Unable to load from forums, API path or key not set up.")
 		return
 
-	for (var/topic_id in config.news_forum_topics)
+	if (!length(forum_topics))
+		return
+
+	for (var/topic_id in forum_topics)
 		var/datum/http_request/forum_api/initial = new("forums/topics")
 		initial.prepare_get("[topic_id]")
 		initial.begin_async()
@@ -70,6 +76,23 @@
 			news.stored_data = post["content"]
 			ntnet_global.available_news.Add(news)
 			news_count++
+
+/datum/controller/subsystem/news/proc/load_forum_news_config()
+	var/json = file2text("config/news.json")
+
+	if (!length(json))
+		return
+
+	try
+		var/list/data = json_decode(json)
+		if (!data["news_topics"] || !length(data["news_topics"]))
+			return
+
+		forum_topics = data["news_topics"]
+		forum_topics -= "_comment"
+
+	catch(var/exception/e)
+		log_debug("SSnews: error loading news.json. [e]")
 
 /datum/controller/subsystem/news/proc/GetFeedChannel(var/channel_name)
 	if(network_channels[channel_name])
@@ -136,10 +159,10 @@
 	topic_id = "[topic_id]"
 	post_id = text2num(post_id)
 
-	if (!config.news_forum_topics[topic_id])
+	if (!forum_topics[topic_id])
 		return prob(50) ? "John Doe" : "Jane Doe"
 
-	var/list/authors = config.news_forum_topics[topic_id]
+	var/list/authors = forum_topics[topic_id]
 	var/idx = post_id % authors.len
 	return authors[idx + 1]
 
