@@ -19727,7 +19727,6 @@
 /obj/machinery/turretid/lethal{
 	ailock = 1;
 	check_synth = 1;
-	control_area = "\improper Vault";
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Vault lethal turret control";
 	pixel_x = -28;
