@@ -1,6 +1,8 @@
 //===================================================================================
 //Overmap object representing zlevel(s)
 //===================================================================================
+var/global/area/overmap/map_overmap // Global object used to locate the overmap area.
+
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
@@ -116,6 +118,7 @@
 	
 	testing("Putting overmap on [current_map.overmap_z]")
 	var/area/overmap/A = new
+	global.map_overmap = A
 	for (var/square in block(locate(1,1,current_map.overmap_z), locate(current_map.overmap_size,current_map.overmap_size,current_map.overmap_z)))
 		var/turf/T = square
 		if(T.x == current_map.overmap_size || T.y == current_map.overmap_size)

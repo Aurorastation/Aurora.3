@@ -40,7 +40,7 @@
 
 /obj/machinery/computer/ship/engines/Topic(href, href_list)
 	if(..())
-		return
+		return TOPIC_HANDLED
 
 	if(href_list["state"])
 		display_state = href_list["state"]

@@ -155,3 +155,5 @@
 // Walls hide stuff inside them, but we want to be visible.
 /obj/structure/fuel_port/hide()
 	return
+
+#undef waypoint_sector
