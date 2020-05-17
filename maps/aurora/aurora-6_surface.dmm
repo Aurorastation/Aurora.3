@@ -2170,7 +2170,7 @@
 /obj/machinery/porta_turret/stationary,
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/airless,
-/area/turret_protected/tcomsat)
+/area/turret_protected/tcomfoyer)
 "dV" = (
 /turf/simulated/wall/r_wall,
 /area/tcommsat/chamber)
@@ -3152,7 +3152,7 @@
 /obj/machinery/turretid/stun{
 	ailock = 1;
 	check_synth = 1;
-	control_area = "\improper Telecoms Foyer";
+	control_area = null;
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Telecoms Foyer turret control";
 	pixel_y = 29;
@@ -16501,7 +16501,7 @@
 	},
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/plating,
-/area/turret_protected/tcomfoyer)
+/area/tcommsat/entrance)
 "DI" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -22954,7 +22954,7 @@
 /obj/machinery/turretid/lethal{
 	ailock = 1;
 	check_synth = 1;
-	control_area = "\improper Telecoms Exterior";
+	control_area = null;
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "Telecoms lethal turret control";
 	pixel_y = 29;
@@ -23700,7 +23700,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/tcomfoyer)
+/area/tcommsat/entrance)
 "Rh" = (
 /obj/structure/weightlifter,
 /obj/effect/floor_decal/corner/red/full{

@@ -1151,7 +1151,7 @@
 		if(istype(I,/mob/living/simple_animal/borer))
 			return I
 
-	return 0
+	return null
 
 /mob/proc/Released()
 	//This is called when the mob is let out of a holder
