@@ -54,8 +54,8 @@ var/list/diona_banned_languages = list(
 	sprint_speed_factor = initial(sprint_speed_factor)
 	sprint_cost_factor = Clamp(initial(sprint_cost_factor) - light_amount * DIONA_LIGHT_COEFICIENT, 0, initial(sprint_cost_factor))
 	if (total_radiation)
-		move_delay_mod = max(move_delay_mod * total_radiation * 3, -7)
-		sprint_speed_factor = 0.75
+		move_delay_mod = max(move_delay_mod * total_radiation * 3, -4.5)
+		sprint_speed_factor = 0.65
 		sprint_cost_factor = 0
 
 /mob/living/carbon/alien/diona/death()

@@ -1,3 +1,3 @@
-/mob/living/carbon/brain/Login()
+/mob/living/carbon/brain/LateLogin()
 	..()
 	sleeping = 0

@@ -135,7 +135,7 @@
 
 	..()
 
-/mob/living/mental/split_personality/Login()
+/mob/living/mental/split_personality/LateLogin()
 	..()
 	to_chat(src, "<span class='notice'>As a split personality, you cannot do anything but observe. However, you will eventually gain control of your body, switching places with the current personality.</span>")
 
@@ -209,7 +209,7 @@
 	var/objective
 	var/codeword
 
-/mob/living/mental/split_personality/traitor/Login()
+/mob/living/mental/split_personality/traitor/LateLogin()
 	..()
 	to_chat(src, "<span class='notice'>As a brainwashed personality, you cannot do anything yet but observe. However, you may gain control of your body if you hear the special codeword, switching places with the current personality.</span>")
 	to_chat(src, "<span class='notice'>Your activation codeword is: <b>[codeword]</b></span>")

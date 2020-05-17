@@ -148,7 +148,7 @@
 	turns_since_move = turns_per_move
 	..()
 
-/mob/living/simple_animal/Login()
+/mob/living/simple_animal/LateLogin()
 	if(src && src.client)
 		src.client.screen = null
 	..()

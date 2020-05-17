@@ -36,4 +36,20 @@
 /datum/proc/vueui_transfer(var/srcObject)
 	return FALSE
 
+/**
+ * Callback to object when UI is being transfered away from it
+ *
+ * @param ui - that is being transfered
+ */
+/datum/proc/vueui_on_transfer(var/datum/vueui/ui)
+	return
+
+/**
+ * Callback to object when UI is closed
+ *
+ * @param ui - that is being closed
+ */
+/datum/proc/vueui_on_close(var/datum/vueui/ui)
+	return
+
 /mob/var/list/open_vueui_uis

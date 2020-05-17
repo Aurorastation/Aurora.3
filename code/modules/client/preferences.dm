@@ -35,7 +35,8 @@ datum/preferences
 
 	//character preferences
 	var/real_name						//our character's name
-	var/can_edit_name = 1				//Whether or not a character's name can be edited. Used with SQL saving.
+	var/can_edit_name = TRUE				//Whether or not a character's name can be edited. Used with SQL saving.
+	var/can_edit_ipc_tag = TRUE
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
@@ -66,6 +67,13 @@ datum/preferences
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
 	var/list/gear						// Custom/fluff item loadout.
+	var/list/gear_list = list()			//Custom/fluff item loadouts.
+	var/gear_slot = 1					//The current gear save slot
+
+	// IPC Stuff
+	var/machine_tag_status = TRUE
+	var/machine_serial_number
+	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
 
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.
@@ -478,6 +486,8 @@ datum/preferences
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
+	var/generated_serial = uppertext(dd_limittext(md5(real_name), 12))
+	machine_serial_number = generated_serial
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 	signature = "<i>[real_name]</i>"
 	signfont = "Verdana"
