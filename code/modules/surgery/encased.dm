@@ -17,7 +17,7 @@
 
 /datum/surgery_step/open_encased/saw
 	allowed_tools = list(
-	/obj/item/circular_saw = 100,
+	/obj/item/surgery/circular_saw = 100,
 	/obj/item/melee/energy = 100,
 	/obj/item/melee/chainsword = 70,
 	/obj/item/material/hatchet = 75
@@ -59,13 +59,13 @@
 	user.visible_message("<span class='warning'>[user]'s hand slips, cracking [target]'s [affected.encased] with \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!</span>" )
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 
 /datum/surgery_step/open_encased/retract
 	allowed_tools = list(
-	/obj/item/retractor = 100, 	\
+	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75
 	)
 
@@ -110,12 +110,12 @@
 	var/self_msg = "<span class='warning'>Your hand slips, cracking [target]'s [affected.encased]!</span>"
 	user.visible_message(msg, self_msg)
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 /datum/surgery_step/open_encased/close
 	allowed_tools = list(
-	/obj/item/retractor = 100, 	\
+	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75
 	)
 
@@ -161,7 +161,7 @@
 	var/self_msg = "<span class='warning'>Your hand slips, bending [target]'s [affected.encased] the wrong way!</span>"
 	user.visible_message(msg, self_msg)
 
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
 	if(affected.internal_organs && affected.internal_organs.len)
@@ -172,7 +172,7 @@
 
 /datum/surgery_step/open_encased/mend
 	allowed_tools = list(
-	/obj/item/bonegel = 100,	\
+	/obj/item/surgery/bonegel = 100,	\
 	/obj/item/tape_roll = 60
 	)
 

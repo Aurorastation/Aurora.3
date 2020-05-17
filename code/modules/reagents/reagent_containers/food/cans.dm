@@ -113,7 +113,7 @@
 	icon_state = "tonic"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/toni/Initialize()
+/obj/item/reagent_containers/food/drinks/cans/tonic/Initialize()
 	. = ..()
 	reagents.add_reagent("tonic", 50)
 

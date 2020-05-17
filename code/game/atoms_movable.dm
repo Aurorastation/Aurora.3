@@ -2,10 +2,11 @@
 	layer = 3
 	var/last_move = null
 	var/anchored = 0
+	var/movable_flags
+
 	// var/elevation = 2    - not used anywhere
 	var/move_speed = 10
 	var/l_move_time = 1
-	var/m_flag = 1
 	var/throwing = 0
 	var/thrower
 	var/turf/throw_source = null
@@ -59,7 +60,7 @@
 
 //called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
-	if(istype(hit_atom,/mob/living))
+	if(isliving(hit_atom))
 		var/mob/living/M = hit_atom
 		M.hitby(src,speed)
 
@@ -70,23 +71,26 @@
 		O.hitby(src,speed)
 
 	else if(isturf(hit_atom))
-		src.throwing = 0
+		throwing = 0
 		var/turf/T = hit_atom
 		if(T.density)
 			spawn(2)
 				step(src, turn(src.last_move, 180))
-			if(istype(src,/mob/living))
+			if(isliving(src))
 				var/mob/living/M = src
 				M.turf_collision(T, speed)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
 /atom/movable/proc/hit_check(var/speed)
-	if(src.throwing)
+	if(throwing)
 		for(var/atom/A in get_turf(src))
-			if(A == src) continue
-			if(istype(A,/mob/living))
-				if(A:lying) continue
-				src.throw_impact(A,speed)
+			if(A == src)
+				continue
+			if(isliving(A))
+				var/mob/living/M = A
+				if(M.lying)
+					continue
+				throw_impact(A, speed)
 			if(isobj(A))
 				if(A.density && !A.throwpass)	// **TODO: Better behaviour for windows which are dense, but shouldn't always stop movement
 					src.throw_impact(A,speed)
@@ -176,6 +180,14 @@
 		var/turf/Tloc = loc
 		Tloc.Entered(src)
 
+/atom/movable/proc/throw_at_random(var/include_own_turf, var/maxrange, var/speed)
+	var/list/turfs = RANGE_TURFS(maxrange, src)
+	if(!maxrange)
+		maxrange = 1
+
+	if(!include_own_turf)
+		turfs -= get_turf(src)
+	src.throw_at(pick(turfs), maxrange, speed)
 
 //Overlays
 /atom/movable/overlay
@@ -198,10 +210,6 @@
 
 /atom/movable/proc/touch_map_edge()
 	if(z in current_map.sealed_levels)
-		return
-
-	if(config.use_overmap)
-		overmap_spacetravel(get_turf(src), src)
 		return
 
 	var/move_to_z = src.get_transit_zlevel()
@@ -296,3 +304,6 @@
 
 /atom/movable/proc/do_simple_ranged_interaction(var/mob/user)
 	return FALSE
+
+/atom/movable/proc/get_bullet_impact_effect_type()
+	return BULLET_IMPACT_NONE

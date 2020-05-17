@@ -98,7 +98,7 @@ var/global/list/golem_types = list("Coal Golem",
 	hud_type = /datum/hud_data/construct
 
 	var/turn_into_materials = TRUE //the golem will turn into materials upon its death
-	var/golem_designation = "coal" //used in the creation of the name
+	var/golem_designation = "Coal" //used in the creation of the name
 
 /datum/species/golem/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(H.mind)
@@ -108,7 +108,8 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/get_random_name()
-	return "[golem_designation] golem ([rand(1, 1000)])"
+	var/static/list/golem_descriptors = list("Lumbering", "Ponderous", "Slow", "Rumbling", "Sleek", "Solid", "Ephemeral", "Dense", "Shimmering", "Dull", "Glittering", "Shining", "Sluggish", "Quiet", "Ominious", "Lightweight", "Weighty", "Honest", "Watchful", "Short", "Tall", "Mysterious", "Curious", "Dimwitted")
+	return "[pick(golem_descriptors)] [golem_designation] Golem"
 
 /datum/species/golem/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
@@ -151,7 +152,7 @@ var/global/list/golem_types = list("Coal Golem",
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
 
-	golem_designation = "iron"
+	golem_designation = "Iron"
 
 /datum/species/golem/iron/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(92, 84, 84)
@@ -182,7 +183,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+750
 	heat_level_3 = T0C+950
 
-	golem_designation = "bronze"
+	golem_designation = "Bronze"
 
 /datum/species/golem/steel
 	name = "Steel Golem"
@@ -215,7 +216,7 @@ var/global/list/golem_types = list("Coal Golem",
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
 
-	golem_designation = "steel"
+	golem_designation = "Steel"
 
 /datum/species/golem/steel/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(102,102,102)
@@ -255,7 +256,7 @@ var/global/list/golem_types = list("Coal Golem",
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
 
-	golem_designation = "plasteel"
+	golem_designation = "Plasteel"
 
 /datum/species/golem/plasteel/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(80,80,80)
@@ -296,7 +297,7 @@ var/global/list/golem_types = list("Coal Golem",
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
 
-	golem_designation = "titanium"
+	golem_designation = "Titanium"
 
 /datum/species/golem/titanium/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(50,95,88)
@@ -326,7 +327,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+250
 	heat_level_3 = T0C+300
 
-	golem_designation = "cloth"
+	golem_designation = "Cloth"
 
 /datum/species/golem/cardboard
 	name = "Cardboard Golem"
@@ -351,7 +352,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+250
 	heat_level_3 = T0C+300
 
-	golem_designation = "cardboard"
+	golem_designation = "Cardboard"
 
 /datum/species/golem/glass
 	name = "Glass Golem"
@@ -380,7 +381,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+550
 	heat_level_3 = T0C+750
 
-	golem_designation = "glass"
+	golem_designation = "Glass"
 
 /datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
@@ -406,7 +407,7 @@ var/global/list/golem_types = list("Coal Golem",
 	for(var/i in 1 to 5)
 		var/obj/item/material/shard/T = new meat_type(H.loc)
 		var/turf/landing = get_step(H, pick(alldirs))
-		addtimer(CALLBACK(T, /atom/movable/.proc/throw_at, landing, 30, 5), 0)
+		INVOKE_ASYNC(T, /atom/movable/.proc/throw_at, landing, 30, 5)
 	qdel(H)
 
 /datum/species/golem/glass/handle_post_spawn(var/mob/living/carbon/human/H)
@@ -438,7 +439,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+200
 	heat_level_3 = PHORON_FLASHPOINT
 
-	golem_designation = "phoron"
+	golem_designation = "Phoron"
 
 /datum/species/golem/phoron/handle_death(var/mob/living/carbon/human/H)
 	set waitfor = 0
@@ -474,7 +475,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+761
 	heat_level_3 = T0C+961
 
-	golem_designation = "silver"
+	golem_designation = "Silver"
 
 /datum/species/golem/silver/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(120,120,120)
@@ -501,7 +502,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+864
 	heat_level_3 = T0C+1064
 
-	golem_designation = "gold"
+	golem_designation = "Gold"
 
 /datum/species/golem/gold/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(176,152,14)
@@ -532,7 +533,7 @@ var/global/list/golem_types = list("Coal Golem",
 	blood_color = "#E6C5DE"
 	flesh_color = "#E6C5DE"
 
-	golem_designation = "metallic hydrogen"
+	golem_designation = "Metallic Hydrogen"
 
 /datum/species/golem/mhydrogen/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(199,127,181)
@@ -562,7 +563,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+288
 	heat_level_3 = T0C+300
 
-	golem_designation = "wooden"
+	golem_designation = "Wooden"
 
 /datum/species/golem/diamond
 	name = "Diamond Golem"
@@ -584,7 +585,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+4526
 	heat_level_3 = T0C+4726
 
-	golem_designation = "diamond"
+	golem_designation = "Diamond"
 
 /datum/species/golem/diamond/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(0,197,172)
@@ -633,7 +634,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+625
 	heat_level_3 = T0C+825
 
-	golem_designation = "marble"
+	golem_designation = "Marble"
 
 /datum/species/golem/marble/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(170,170,170)
@@ -666,7 +667,7 @@ var/global/list/golem_types = list("Coal Golem",
 	death_message = "collapses into a pile of sand!"
 	death_message_range = 7
 
-	golem_designation = "sand"
+	golem_designation = "Sand"
 
 /datum/species/golem/sand/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(201,166,64)
@@ -716,7 +717,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+80
 	heat_level_3 = T0C+100
 
-	golem_designation = "plastic"
+	golem_designation = "Plastic"
 
 /datum/species/golem/plastic/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(171,171,171)
@@ -748,7 +749,7 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+932
 	heat_level_3 = T0C+1132
 
-	golem_designation = "uranium"
+	golem_designation = "Uranium"
 
 /datum/species/golem/uranium/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.change_skin_color(0,80,0)
@@ -806,7 +807,7 @@ var/global/list/golem_types = list("Coal Golem",
 
 	death_sound = 'sound/magic/disintegrate.ogg'
 
-	golem_designation = "flesh"
+	golem_designation = "Flesh"
 
 	radiation_mod = 1
 
@@ -849,4 +850,4 @@ var/global/list/golem_types = list("Coal Golem",
 	heat_level_2 = T0C+1338
 	heat_level_3 = T0C+1538
 
-	golem_designation = "adamantine"
+	golem_designation = "Adamantine"

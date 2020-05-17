@@ -36,6 +36,7 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/chief(src)
+	new /obj/item/rfd/piping(src)
 
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"
@@ -164,3 +165,4 @@
 	new /obj/item/cartridge/atmos(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)
+	new /obj/item/rfd/piping(src)

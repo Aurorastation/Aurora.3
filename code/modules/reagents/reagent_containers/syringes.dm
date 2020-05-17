@@ -10,10 +10,14 @@
 	name = "syringe"
 	desc = "A syringe."
 	icon = 'icons/obj/syringe.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	item_state = "syringe_0"
 	icon_state = "0"
 	center_of_mass = list("x" = 16,"y" = 14)
-	matter = list("glass" = 150)
+	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 15
@@ -70,7 +74,7 @@
 	//This gives the last one a 30% chance of infection.
 	if(prob(dirtiness+(targets.len-1)*10))
 		log_and_message_admins("[loc] infected [target]'s [eo.name] with \the [src].")
-		addtimer(CALLBACK(src, .proc/infect_limb), rand(5 MINUTES, 10 MINUTES))
+		addtimer(CALLBACK(src, .proc/infect_limb, eo), rand(5 MINUTES, 10 MINUTES))
 
 	//75% chance to spread a virus if we have one
 	if(LAZYLEN(viruses) && prob(75))
@@ -407,16 +411,6 @@
 /obj/item/reagent_containers/syringe/norepinephrine/Initialize()
 	. = ..()
 	reagents.add_reagent("norepinephrine", 15)
-	mode = SYRINGE_INJECT
-	update_icon()
-
-/obj/item/reagent_containers/syringe/inaprovaline
-	name = "Syringe (inaprovaline)"
-	desc = "Contains inaprovaline - used to stabilize patients."
-	
-/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
-	. = ..()
-	reagents.add_reagent("inaprovaline", 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 

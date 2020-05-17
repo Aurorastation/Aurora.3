@@ -5,6 +5,7 @@
 	icon_state = "turbine"
 	anchored = 0
 	density = 1
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/efficiency = 0.4
 	var/kin_energy = 0
@@ -118,27 +119,6 @@
 		else
 			..()
 
-	verb/rotate_clockwise()
-		set category = "Object"
-		set name = "Rotate Circulator (Clockwise)"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained() || anchored)
-			return
-
-		src.set_dir(turn(src.dir, -90))
-
-
-	verb/rotate_anticlockwise()
-		set category = "Object"
-		set name = "Rotate Circulator (Counterclockwise)"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained() || anchored)
-			return
-
-		src.set_dir(turn(src.dir, 90))
-
 //Goddamn copypaste from binary base class because atmospherics machinery API is not damn flexible
 	network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
 		if(reference == node1)
@@ -230,6 +210,7 @@
 	icon_state = "motor"
 	anchored = 0
 	density = 1
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/kin_to_el_ratio = 0.1	//How much kinetic energy will be taken from turbine and converted into electricity
 	var/obj/machinery/atmospherics/pipeturbine/turbine
@@ -267,23 +248,3 @@
 			updateConnection()
 		else
 			..()
-
-	verb/rotate_clock()
-		set category = "Object"
-		set name = "Rotate Motor Clockwise"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained()  || anchored)
-			return
-
-		src.set_dir(turn(src.dir, -90))
-
-	verb/rotate_anticlock()
-		set category = "Object"
-		set name = "Rotate Motor Counterclockwise"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained()  || anchored)
-			return
-
-		src.set_dir(turn(src.dir, 90))

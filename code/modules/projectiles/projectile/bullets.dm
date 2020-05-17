@@ -3,10 +3,11 @@
 	icon_state = "bullet"
 	damage = 60
 	damage_type = BRUTE
-	nodamage = 0
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
+	nodamage = FALSE
 	check_armour = "bullet"
-	embed = 1
-	sharp = 1
+	embed = TRUE
+	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 

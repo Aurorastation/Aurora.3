@@ -1,12 +1,16 @@
 /obj/item/implanter
 	name = "implanter"
 	icon = 'icons/obj/items.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	icon_state = "implanter0"
 	item_state = "syringe_0"
 	throw_speed = 1
 	throw_range = 5
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 320, "glass" = 800)
+	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
 /obj/item/implanter/attack_self(var/mob/user)
@@ -43,7 +47,7 @@
 
 				admin_attack_log(user, M, "Implanted using \the [src.name] ([src.imp.name])", "Implanted with \the [src.name] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
 
-				if(src.imp.implanted(M))
+				if(src.imp.implanted(M, user))
 					src.imp.forceMove(M)
 					src.imp.imp_in = M
 					src.imp.implanted = 1
@@ -66,7 +70,7 @@
 	name = "implanter-loyalty"
 
 /obj/item/implanter/loyalty/New()
-	src.imp = new /obj/item/implant/loyalty( src )
+	src.imp = new /obj/item/implant/mindshield( src )
 	..()
 	update()
 	return
@@ -149,67 +153,80 @@
 	..()
 	update()
 
-/obj/item/implanter/ipc_tag
-	name = "IPC/Shell tag implanter"
-	desc = "A special implanter used for implanting synthetics with a special tag."
-	var/obj/item/organ/internal/ipc_tag/ipc_tag = null
+/obj/item/implanter/anti_augment
+	name = "implanter-augmentation disrupter"
 
-/obj/item/implanter/ipc_tag/New()
-	ipc_tag = new(src)
+/obj/item/implanter/anti_augment/New()
+	src.imp = new /obj/item/implant/anti_augment(src)
 	..()
+	update()
+	return
+
+/obj/item/implanter/ipc_tag
+	name = "IPC tag implanter"
+	desc = "A special implanter used for implanting synthetics with a special tag."
+	var/obj/item/organ/internal/ipc_tag/ipc_tag
+
+/obj/item/implanter/ipc_tag/Initialize()
+	. = ..()
+	ipc_tag = new /obj/item/organ/internal/ipc_tag(src)
 	update()
 
 /obj/item/implanter/ipc_tag/update()
-	if (ipc_tag)
+	if(ipc_tag)
 		icon_state = "cimplanter1"
 	else
 		icon_state = "cimplanter0"
 	return
 
-/obj/item/implanter/ipc_tag/attack(mob/M as mob, mob/user as mob)
-	if (!ishuman(M))
+/obj/item/implanter/ipc_tag/attack(mob/M, mob/user)
+	if(!ishuman(M))
 		return
 
-	if (!ipc_tag)
-		to_chat(user, "<span class ='warning'>[src] is empty!</span>")
+	if(!ipc_tag)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have an IPC tag loaded!"))
 		return
 
 	var/mob/living/carbon/human/H = M
-	if (!H.species || !isipc(H) || !H.organs_by_name[BP_HEAD])
-		to_chat(user, "<span class = 'warning'>You cannot use this on a non-synthetic organism!</span>")
+	if(!H.species || !isipc(H) || !H.organs_by_name[BP_HEAD])
+		to_chat(user, SPAN_WARNING("You cannot use \the [src] on a non-IPC!"))
 		return
 
-	if (H.internal_organs_by_name[BP_IPCTAG])
-		to_chat(user, "<span class = 'warning'>[H] is already tagged!</span>")
+	if(H.internal_organs_by_name[BP_IPCTAG])
+		to_chat(user, SPAN_WARNING("\The [H] is already tagged!"))
 		return
 
-	for (var/mob/O in viewers(M, null))
-		O.show_message("<span class = 'warning'>[M] has been implanted by [user].</span>", 1)
+	user.visible_message(SPAN_WARNING("\The [user] tags \the [M] with \the [src]!"), SPAN_NOTICE("You tag \the [M] with \the [src]."), range = 3)
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [src.name] ([src.ipc_tag.name])  by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] ([src.ipc_tag.name]) to implant [M.name] ([M.ckey])</font>")
 	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(M)] with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
-	user.show_message("<span class = 'warning'>You implanted the implant into [M].</span>")
-
 	ipc_tag.replaced(H, H.organs_by_name[BP_HEAD])
-
+	ipc_tag.forceMove(M)
+	if(ipc_tag.auto_generate)
+		ipc_tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
 	ipc_tag = null
 
 	update()
 
-	var/datum/species/machine/machine = H.species
-	machine.update_tag(H, H.client)
-
-/obj/item/implanter/ipc_tag/attackby(var/obj/item/organ/internal/ipc_tag/new_tag, mob/user as mob)
+/obj/item/implanter/ipc_tag/attackby(obj/item/I, mob/user)
+	if(I.isscrewdriver())
+		if(!ipc_tag)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have an IPC tag loaded."))
+			return
+		to_chat(user, SPAN_NOTICE("You remove \the [ipc_tag] from \the [src]."))
+		ipc_tag.forceMove(get_turf(user))
+		user.put_in_hands(ipc_tag)
+		ipc_tag = null
+		update()
+		return
+	if(istype(I, /obj/item/organ/internal/ipc_tag))
+		if(ipc_tag)
+			to_chat(user, SPAN_WARNING("\The [src] already has an IPC tag loaded."))
+			return
+		ipc_tag = I
+		user.drop_from_inventory(I, src)
+		update()
+		return
 	..()
-
-	if (!istype(new_tag))
-		return
-
-	if (ipc_tag)
-		return
-
-	ipc_tag = new_tag
-	user.drop_from_inventory(new_tag,src)
-	update()

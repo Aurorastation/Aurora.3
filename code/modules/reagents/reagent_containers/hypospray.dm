@@ -8,6 +8,10 @@
 	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
 	description_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/syringe.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	item_state = "hypo"
 	icon_state = "hypo"
 	amount_per_transfer_from_this = 5
@@ -20,7 +24,7 @@
 	var/armorcheck = 1
 	var/time = 3 SECONDS
 	var/image/filling //holds a reference to the current filling overlay
-	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/hypospray/Initialize()
 	. = ..()
@@ -95,8 +99,8 @@
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	icon_state = "autoinjector1"
+	item_state = "autoinjector1"
 	var/empty_state = "autoinjector0"
-	item_state = "autoinjector"
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 5
@@ -105,6 +109,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
 	icon_state = empty_state
+	item_state = empty_state
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
@@ -136,8 +141,10 @@
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
 	if(reagents.total_volume > 0 && !is_open_container())
 		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
 	else
 		icon_state = empty_state
+		item_state = empty_state
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)

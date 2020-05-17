@@ -141,16 +141,28 @@
 			var/client/C = s
 			if(R_ADMIN & C.holder.rights || (!R_MOD & C.holder.rights))
 				if(!C.holder.fakekey)
-					msg += "\t[C.key] is a [C.holder.rank]\n"
+					if(C.is_afk())
+						msg += "\t[C.key] is a [C.holder.rank] (AFK)\n"
+					else
+						msg += "\t[C.key] is a [C.holder.rank]\n"
 					num_admins_online++
 			else if (R_MOD & C.holder.rights)
-				modmsg += "\t[C.key] is a [C.holder.rank]\n"
+				if(C.is_afk())
+					modmsg += "\t[C.key] is a [C.holder.rank] (AFK)\n"
+				else
+					modmsg += "\t[C.key] is a [C.holder.rank]\n"
 				num_mods_online++
 			else if(C.holder.rights & R_DEV)
-				devmsg += "\t[C.key] is a [C.holder.rank]\n"
+				if(C.is_afk())
+					devmsg += "\t[C.key] is a [C.holder.rank] (AFK)\n"
+				else
+					devmsg += "\t[C.key] is a [C.holder.rank]\n"
 				num_devs_online++
 			else if (R_CCIAA & C.holder.rights)
-				cciaamsg += "\t[C.key] is a [C.holder.rank]\n"
+				if(C.is_afk())
+					cciaamsg += "\t[C.key] is a [C.holder.rank] (AFK)\n"
+				else
+					cciaamsg += "\t[C.key] is a [C.holder.rank]\n"
 				num_cciaa_online++
 
 	if(discord_bot && discord_bot.active)

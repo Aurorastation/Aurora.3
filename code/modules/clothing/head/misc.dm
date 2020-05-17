@@ -695,3 +695,9 @@
 	desc = "A conical straw hat enjoyed particularly by residents of New Hai Phong, to protect the head from sweltering suns and heavy rains."
 	icon_state = "nonla"
 	item_state = "nonla"
+
+/obj/item/clothing/head/padded
+	name = "padded cap"
+	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
+	icon_state = "tank"
+	flags_inv = BLOCKHEADHAIR

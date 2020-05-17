@@ -11,7 +11,7 @@
 		return ..()
 
 	var/static/list/barrel_cutting_tools = typecacheof(list(
-		/obj/item/circular_saw,
+		/obj/item/surgery/circular_saw,
 		/obj/item/melee/energy,
 		/obj/item/gun/energy/plasmacutter	// does this even work?
 	))
@@ -107,7 +107,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/combat/sol
 	name = "naval shotgun"
-	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Necropolis Industries."
+	desc = "A Malella-type 12-gauge breaching shotgun commonly found in the hands of the Sol Alliance. Made by Zavodskoi Interstellar."
 	icon = 'icons/obj/guns/malella.dmi'
 	icon_state = "malella"
 	item_state = "malella"

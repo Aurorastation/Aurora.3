@@ -6,6 +6,10 @@
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
 	drop_sound = 'sound/items/drop/gascan.ogg'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tank.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tank.dmi',
+		)
 
 	var/gauge_icon = "indicator_tank"
 	var/last_gauge_pressure
@@ -121,7 +125,7 @@
 		else if(src in location)		// or if tank is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
-		else if(istype(src.loc, /obj/item/rig) && src.loc in location)	// or the rig is in the mobs possession
+		else if(istype(src.loc, /obj/item/rig) && (src.loc in location))	// or the rig is in the mobs possession
 			if(!location.internal)		// and they do not have any active internals
 				mask_check = 1
 

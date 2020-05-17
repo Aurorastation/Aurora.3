@@ -32,9 +32,9 @@
 	var/age = 30		//Player's age (pure fluff)
 	var/b_type = "A+"	//Player's bloodtype
 
-	var/underwear = 1	//Which underwear the player wants
-	var/undershirt = 0	//Which undershirt the player wants.
-	var/socks = 0		//Which socks the player wants.
+	var/list/all_underwear = list()
+	var/list/all_underwear_metadata = list()
+	var/list/hide_underwear = list()
 	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
 	var/backbag_style = 1
 
@@ -102,6 +102,8 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
+	var/bodyfall_sound = "bodyfall"
+
 	var/last_x = 0
 	var/last_y = 0
 

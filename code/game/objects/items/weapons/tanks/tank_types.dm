@@ -108,6 +108,7 @@
 	name = "emergency oxygen tank"
 	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
 	icon_state = "emergency"
+	item_state = "emergency"
 	gauge_icon = "indicator_emergency"
 	gauge_cap = 4
 	flags = CONDUCT
@@ -131,11 +132,13 @@
 /obj/item/tank/emergency_oxygen/engi
 	name = "extended-capacity emergency oxygen tank"
 	icon_state = "emergency_engi"
+	item_state = "emergency_engi"
 	volume = 6
 
 /obj/item/tank/emergency_oxygen/double
 	name = "double emergency oxygen tank"
 	icon_state = "emergency_double"
+	item_state = "emergency_engi"
 	gauge_icon = "indicator_emergency_double"
 	volume = 10
 

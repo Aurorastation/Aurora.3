@@ -1421,6 +1421,12 @@ Follow by example and make good judgement based on length which list to include 
 		gender = MALE
 		chatname = "unshaved hair"
 
+	undercut5
+		name = "Undercut 5"
+		icon_state = "hair_undercut5"
+		gender = MALE
+		chatname = "unshaved hair"
+
 	unkept
 		name = "Unkept"
 		icon_state = "hair_unkept"
@@ -1713,6 +1719,12 @@ Follow by example and make good judgement based on length which list to include 
 		swept_short
 			name = "Swept, Short"
 			icon_state = "hair_swept_short"
+			length = 1
+			chatname = "short hair"
+
+		swept_back
+			name = "Swept, Back"
+			icon_state = "hair_swept_back"
 			length = 1
 			chatname = "short hair"
 

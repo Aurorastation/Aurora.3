@@ -1,11 +1,11 @@
 /mob/living/proc/convert_to_rev(mob/M as mob in oview(src))
-	set name = "Convert Bourgeoise"
+	set name = "Invite to the Contenders"
 	set category = "Abilities"
 	if(!M.mind)
 		return
-	for (var/obj/item/implant/loyalty/I in M)
+	for (var/obj/item/implant/mindshield/I in M)
 		if (I.implanted)
-			to_chat(src, "<span class='warning'>[M] is too loyal to the company!</span>")
+			to_chat(src, "<span class='warning'>[M] is too loyal to be subverted!</span>")
 			return
 	convert_to_faction(M.mind, revs)
 
@@ -43,12 +43,17 @@
 		to_chat(src, "<span class='notice'>\The [player.current] joins the [faction.faction_descriptor]!</span>")
 		return
 	if(choice == "No!")
-		to_chat(player, "<span class='danger'>You reject this traitorous cause!</span>")
+		to_chat(player, "<span class='danger'>You reject this subversive cause!</span>")
 	to_chat(src, "<span class='danger'>\The [player.current] does not support the [faction.faction_descriptor]!</span>")
 
 /mob/living/proc/convert_to_loyalist(mob/M as mob in oview(src))
-	set name = "Convert Recidivist"
+	set name = "Invite to the Fellowship"
 	set category = "Abilities"
 	if(!M.mind)
 		return
+	for (var/obj/item/implant/mindshield/I in M)
+		if (I.implanted)
+			to_chat(src, "<span class='warning'>[M] is too loyal to be subverted!</span>")
+			return
 	convert_to_faction(M.mind, loyalists)
+

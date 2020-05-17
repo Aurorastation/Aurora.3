@@ -426,7 +426,11 @@
 		/obj/item/clothing/suit/space/void/hos = /obj/item/clothing/head/helmet/space/void/hos,
 		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
 		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol,
+		/obj/item/clothing/suit/space/void/hephaestus = /obj/item/clothing/head/helmet/space/void/hephaestus,
+		/obj/item/clothing/suit/space/void/zenghu = /obj/item/clothing/head/helmet/space/void/zenghu,
+		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
+		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
@@ -442,7 +446,11 @@
 		/obj/item/clothing/suit/space/void/hos = 0.3,
 		/obj/item/clothing/suit/space/void/lancer = 0.3,
 		/obj/item/clothing/suit/space/void/sci = 2,
-		/obj/item/clothing/suit/space/void/sol = 0.5
+		/obj/item/clothing/suit/space/void/sol = 0.5,
+		/obj/item/clothing/suit/space/void/zavodskoi = 0.5,
+		/obj/item/clothing/suit/space/void/einstein = 0.5,
+		/obj/item/clothing/suit/space/void/hephaestus = 0.5,
+		/obj/item/clothing/suit/space/void/zenghu = 0.5
 	)
 	has_postspawn = TRUE
 
@@ -1110,7 +1118,7 @@
 		/obj/item/toy/prize/mauler						= 1,
 		/obj/item/toy/prize/odysseus					= 1,
 		/obj/item/toy/prize/phazon						= 1,
-		/obj/item/toy/waterflower						= 5,
+		/obj/item/reagent_containers/spray/waterflower						= 5,
 		/obj/random/action_figure						= 11,
 		/obj/random/plushie								= 44,
 		/obj/item/toy/cultsword							= 5,
@@ -1362,6 +1370,7 @@
 		/obj/structure/largecrate/animal/adhomai = 0.5,
 		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
 		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
+		/obj/structure/largecrate/animal/adhomai/schlorrgo = 0.2,
 		/obj/structure/largecrate/animal/hakhma = 0.5
 	)
 
@@ -1398,7 +1407,9 @@
 		/obj/item/flag/vaurca,
 		/obj/item/flag/vaurca/l,
 		/obj/item/flag/zenghu,
-		/obj/item/flag/zenghu/l
+		/obj/item/flag/zenghu/l,
+		/obj/item/flag/coalition,
+		/obj/item/flag/coalition/l
 	)
 
 /obj/random/gift
@@ -1560,3 +1571,14 @@
 			return pick_gun()
 
 	return W
+
+/obj/random/keg
+	name = "random alcohol keg"
+	desc = "Contains a random alcohol keg."
+	icon = 'icons/obj/reagent_dispensers.dmi'
+	icon_state = "beertankTEMP"
+	spawnlist = list(
+		/obj/structure/reagent_dispensers/keg/beerkeg = 2,
+		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
+		/obj/structure/reagent_dispensers/keg/mead = 0.5
+	)

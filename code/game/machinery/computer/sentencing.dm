@@ -310,11 +310,11 @@
 	. += "<hr>"
 	switch( menu_screen )
 		if( "low_severity" )
-			. += low_severity()
+			. += get_law_table(SSlaw.low_severity, header="Misdemeanors")
 		if( "med_severity" )
-			. += med_severity()
+			. += get_law_table(SSlaw.med_severity, header="Indictable Offences")
 		if( "high_severity" )
-			. += high_severity()
+			. += get_law_table(SSlaw.high_severity, header="Capital Offences")
 
 	. += "<br><hr>"
 	. += "<center><a href='?src=\ref[src];button=change_menu;choice=incident_report'>Return</a></center>"
@@ -346,13 +346,12 @@
 
 	return .
 
-/obj/machinery/computer/sentencing/proc/low_severity()
+/obj/machinery/computer/sentencing/proc/get_law_table(list/laws, header = "Misdemeanors")
 	. = ""
 
-	// Low severity
 	. += "<table class='border'>"
 	. += "<tr>"
-	. += "<th colspan='5'>Misdemeanors</th>"
+	. += "<th colspan='5'>[header]</th>"
 	. += "</tr>"
 
 	. += "<tr>"
@@ -363,70 +362,12 @@
 	. += "<th>Button</th>"
 	. += "</tr>"
 
-	for( var/datum/law/L in SSlaw.low_severity )
+	for(var/datum/law/L in laws)
 		. += "<tr>"
 		. += "<td><b>[L.name]</b></td>"
 		. += "<td><i>[L.desc]</i></td>"
 		. += "<td>[L.get_brig_time_string()]</td>"
 		. += "<td>[L.get_fine_string()]</td>"
-		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
-		. += "</tr>"
-
-	. += "</table>"
-
-	return .
-
-/obj/machinery/computer/sentencing/proc/med_severity()
-	. = ""
-
-	// Med severity
-	. += "<table class='border'>"
-	. += "<tr>"
-	. += "<th colspan='5'>Indictable Offences</th>"
-	. += "</tr>"
-
-	. += "<tr>"
-	. += "<th>Name</th>"
-	. += "<th>Description</th>"
-	. += "<th>Brig Sentence</th>"
-	. += "<th>Fine</th>"
-	. += "<th>Button</th>"
-	. += "</tr>"
-
-	for( var/datum/law/L in SSlaw.med_severity )
-		. += "<tr>"
-		. += "<td><b>[L.name]</b></td>"
-		. += "<td><i>[L.desc]</i></td>"
-		. += "<td>[L.get_brig_time_string()]</td>"
-		. += "<td>[L.get_fine_string()]</td>"
-		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
-		. += "</tr>"
-
-	. += "</table>"
-
-	return .
-
-/obj/machinery/computer/sentencing/proc/high_severity()
-	. = ""
-
-	// High severity
-	. += "<table class='border'>"
-	. += "<tr>"
-	. += "<th colspan='5'>Capital Offences</th>"
-	. += "</tr>"
-
-	. += "<tr>"
-	. += "<th>Name</th>"
-	. += "<th>Description</th>"
-	. += "<th>Brig Sentence</th>"
-	. += "<th>Button</th>"
-	. += "</tr>"
-
-	for( var/datum/law/L in SSlaw.high_severity )
-		. += "<tr>"
-		. += "<td><b>[L.name]</b></td>"
-		. += "<td><i>[L.desc]</i></td>"
-		. += "<td>[L.get_brig_time_string()]</td>"
 		. += "<td><a href='?src=\ref[src];button=add_charge;law=\ref[L]'>Charge</a></td>"
 		. += "</tr>"
 

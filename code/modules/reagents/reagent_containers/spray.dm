@@ -2,6 +2,10 @@
 	name = "spray bottle"
 	desc = "A spray bottle, with an unscrewable top."
 	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "cleaner"
 	item_state = "cleaner"
 	center_of_mass = list("x" = 16,"y" = 10)
@@ -157,7 +161,6 @@
 	safety = 1
 	hitsound = "swing_hit"
 
-
 /obj/item/reagent_containers/spray/pepper/Initialize()
 	. = ..()
 	reagents.add_reagent("condensedcapsaicin", 40)
@@ -178,8 +181,13 @@
 	name = "water flower"
 	desc = "A seemingly innocent sunflower...with a twist."
 	icon = 'icons/obj/toy.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_toy.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_toy.dmi',
+		)
 	icon_state = "sunflower"
 	item_state = "sunflower"
+	drop_sound = 'sound/items/drop/herb.ogg'
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = null
 	volume = 10
@@ -240,6 +248,10 @@
 	name = "Plant-B-Gone"
 	desc = "Kills those pesky weeds!"
 	icon = 'icons/obj/hydroponics_machines.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	icon_state = "plantbgone"
 	item_state = "plantbgone"
 	volume = 100

@@ -14,13 +14,13 @@
 	ore_key = M.name
 	icon_state = "rock_[ore_key]"
 	var/turf/simulated/mineral/T = get_turf(src)
-	layer = T.layer+0.1
-	if (!istype(T))
+	layer = T.layer + 0.1
+	if(!istype(T))
 		crash_with("Invalid loc for mineral overlay: [T ? T.type : "NULL"].")
 		qdel(src)
 		return
 
-	if (T.my_mineral)
+	if(T.my_mineral)
 		crash_with("Mineral overlay created on turf that already had one.")
 		qdel(T.my_mineral)
 
@@ -28,9 +28,8 @@
 
 /obj/effect/mineral/Destroy()
 	var/turf/simulated/mineral/T = loc
-	if (istype(T))
+	if(istype(T))
 		T.my_mineral = null
-
 	return ..()
 
 /obj/effect/mineral/proc/get_scan_overlay()
@@ -43,7 +42,7 @@
 	return scanner_image
 
 /obj/effect/mineral/singularity_pull()
-    return
+	return
 
 /obj/effect/mineral/singuloCanEat()
-    return FALSE
+	return FALSE

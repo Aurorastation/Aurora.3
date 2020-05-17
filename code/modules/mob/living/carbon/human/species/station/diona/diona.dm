@@ -45,8 +45,8 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
-	resist_mod = 3 // Pretty stronk tho, can break out
+	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
+	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -91,7 +91,7 @@
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
-	blood_color = "#97dd7c"
+	blood_color = COLOR_DIONA_BLOOD
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA

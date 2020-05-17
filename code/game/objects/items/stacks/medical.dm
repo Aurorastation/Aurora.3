@@ -11,6 +11,10 @@ Contains:
 	name = "medical pack"
 	singular_name = "medical pack"
 	icon = 'icons/obj/stacks/medical.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		)
 	drop_sound = 'sound/items/drop/box.ogg'
 	amount = 5
 	max_amount = 5
@@ -81,6 +85,11 @@ Contains:
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg')
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
+/obj/item/stack/medical/bruise_pack/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
 		return 1
@@ -149,6 +158,11 @@ Contains:
 	apply_sounds = list('sound/items/ointment.ogg')
 	drop_sound = 'sound/items/drop/herb.ogg'
 
+/obj/item/stack/medical/ointment/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/medical/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
 		return 1
@@ -192,6 +206,11 @@ Contains:
 	heal_brute = 8
 	origin_tech = list(TECH_BIO = 1)
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg','sound/items/tape.ogg')
+
+/obj/item/stack/medical/advanced/bruise_pack/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -260,6 +279,11 @@ Contains:
 	origin_tech = list(TECH_BIO = 1)
 	apply_sounds = list('sound/items/ointment.ogg')
 
+/obj/item/stack/medical/advanced/ointment/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/medical/advanced/ointment/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
 		return 1
@@ -302,6 +326,11 @@ Contains:
 	origin_tech = list(TECH_BIO = 4)
 	var/open = 0
 	var/used = 0
+
+/obj/item/stack/medical/advanced/bruise_pack/spaceklot/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/medical/advanced/bruise_pack/spaceklot/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())
@@ -349,6 +378,11 @@ Contains:
 	max_amount = 5
 	drop_sound = 'sound/items/drop/hat.ogg'
 	var/list/splintable_organs = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_R_FOOT, BP_L_FOOT)
+
+/obj/item/stack/medical/splint/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/medical/splint/attack(mob/living/carbon/M as mob, mob/user as mob)
 	if(..())

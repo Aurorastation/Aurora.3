@@ -2,17 +2,17 @@
 	name = "RFID card slot"
 	desc = "Slot that allows this computer to write data on RFID cards. Necessary for some programs to run properly."
 	power_usage = 10 //W
-	critical = 0
+	critical = FALSE
 	icon_state = "cardreader"
 	hardware_size = 1
 	origin_tech = list(TECH_DATA = 2)
 
-	var/obj/item/card/id/stored_card = null
+	var/obj/item/card/id/stored_card
 
 /obj/item/computer_hardware/card_slot/Destroy()
-	if(holder2 && (holder2.card_slot == src))
-		holder2.card_slot = null
+	if(parent_computer?.card_slot == src)
+		parent_computer.card_slot = null
 	if(stored_card)
-		stored_card.forceMove(get_turf(holder2))
-	holder2 = null
+		stored_card.forceMove(get_turf(parent_computer))
+	parent_computer = null
 	return ..()

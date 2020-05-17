@@ -161,12 +161,12 @@
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
-	pixel_x = 24
+	pixel_x = 28
 	},
 /obj/structure/dispenser/oxygen,
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	icon_state = "tube1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -676,8 +676,7 @@
 "bD" = (
 /obj/machinery/alarm{
 	dir = 4;
-	pixel_x = -23;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -706,9 +705,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
-"bH" = (
-/turf/simulated/open/airless,
-/area/syndicate_station/above)
 "bI" = (
 /obj/structure/bed,
 /obj/item/bedsheet/purple,
@@ -1097,7 +1093,7 @@
 "cv" = (
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/lounge)
@@ -1278,7 +1274,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/camera,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cL" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1294,13 +1290,13 @@
 	pixel_x = -8;
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cN" = (
 /obj/structure/ladder{
@@ -1315,7 +1311,7 @@
 	icon_state = "warningcee";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cP" = (
 /obj/structure/sign/electricshock{
@@ -1350,10 +1346,10 @@
 /obj/item/device/binoculars{
 	pixel_y = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cS" = (
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cT" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1364,7 +1360,7 @@
 	icon_state = "warningcorner";
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cU" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -1399,7 +1395,7 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -24
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cX" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1410,7 +1406,7 @@
 	status = 0
 	},
 /obj/structure/flora/pottedplant/random,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "cY" = (
 /obj/structure/grille,
@@ -1435,7 +1431,7 @@
 	dir = 8
 	},
 /obj/structure/bed/chair,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "da" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1443,7 +1439,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/fancy/donut,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "db" = (
 /obj/structure/grille,
@@ -1469,18 +1465,18 @@
 /obj/structure/table/standard,
 /obj/item/dice,
 /obj/item/deck/cards,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "dd" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "de" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "df" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1498,7 +1494,7 @@
 	pixel_x = 6;
 	pixel_y = -2
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "dg" = (
 /obj/structure/grille,
@@ -1748,8 +1744,9 @@
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "dL" = (
+/obj/effect/shuttle_landmark/skipjack/above,
 /turf/simulated/open/airless,
-/area/skipjack_station/above)
+/area/mine/explored)
 "dN" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable/yellow{
@@ -1759,10 +1756,29 @@
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "dO" = (
-/obj/structure/cable/yellow,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "dP" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
 "dQ" = (
@@ -1777,15 +1793,9 @@
 	icon_state = "2-4"
 	},
 /obj/structure/cable/yellow{
+	d1 = 1;
 	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
-"dS" = (
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
@@ -2048,6 +2058,12 @@
 /obj/machinery/power/smes/buildable{
 	charge = 0;
 	cur_coils = 2;
+	input_attempt = 1;
+	input_level = 500000;
+	inputting = 1;
+	output_attempt = 1;
+	output_level = 500000;
+	outputting = 1;
 	RCon_tag = "Solar - Roof"
 	},
 /obj/structure/cable{
@@ -2074,7 +2090,7 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22
+	pixel_x = -28
 	},
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecoms - Aft Solar Maintenance";
@@ -2126,16 +2142,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "ey" = (
-/obj/machinery/power/solar_control{
-	id = "starboardsolar";
-	name = "Aft Starboard Solar Control";
-	track = 0
-	},
 /obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
+/obj/machinery/power/solar_control/autostart{
+	id = "starboardsolar";
+	name = "Aft Starboard Solar Control"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "ez" = (
@@ -2432,8 +2447,9 @@
 /area/solar/auxport)
 "eV" = (
 /obj/structure/cable/yellow{
+	d1 = 4;
 	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
 /area/solar/auxport)
@@ -2494,13 +2510,13 @@
 	icon_state = "warning";
 	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "fd" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "fe" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -2747,10 +2763,6 @@
 	},
 /area/mine/explored)
 "gs" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2760,6 +2772,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	icon_state = "map-scrubbers";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2783,8 +2799,8 @@
 	icon_state = "tube1";
 	pixel_x = 0
 	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2825,7 +2841,6 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
 "jq" = (
-/obj/effect/floor_decal/corner/red,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -2841,8 +2856,13 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/corner_wide/red,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
+"jw" = (
+/obj/effect/shuttle_landmark/skipjack/pool,
+/turf/simulated/open/airless,
+/area/mine/explored)
 "ka" = (
 /obj/structure/lattice,
 /turf/simulated/open{
@@ -2863,11 +2883,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "lB" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/machinery/firealarm/west,
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
 	dir = 9
 	},
-/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "lK" = (
@@ -2900,6 +2920,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
+"oD" = (
+/obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
 "oH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2967,18 +2997,18 @@
 	},
 /area/mine/explored)
 "sV" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "tj" = (
 /obj/structure/bed/chair/office/dark,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "tr" = (
 /obj/machinery/door/firedoor,
@@ -3021,6 +3051,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"uC" = (
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/tiled,
+/area/crew_quarters/fitness/running)
 "uI" = (
 /turf/simulated/wall,
 /area/crew_quarters/fitness/running)
@@ -3050,6 +3084,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "wf" = (
@@ -3069,6 +3104,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
+"wU" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/airless,
+/area/solar/auxport)
 "xr" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -3099,8 +3152,8 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
 "yx" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3125,16 +3178,16 @@
 	},
 /area/mine/explored)
 "zd" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
 /obj/machinery/firealarm/north,
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "zL" = (
@@ -3163,28 +3216,24 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "AO" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "Ba" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
 	dir = 9
 	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "BY" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3193,6 +3242,10 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "Cb" = (
@@ -3205,18 +3258,14 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/standard,
 /obj/item/modular_computer/laptop/preset/security,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "CC" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner_wide/red/full{
+	icon_state = "wide_corner_full";
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "CT" = (
@@ -3233,27 +3282,13 @@
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/alarm{
 	dir = 1;
-	pixel_y = -22
+	pixel_y = -28
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/crew_quarters/fitness/running)
-"Du" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 2
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "DU" = (
 /obj/structure/window/reinforced,
@@ -3264,21 +3299,21 @@
 	pixel_x = -23;
 	pixel_y = 8
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "Es" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
@@ -3297,10 +3332,6 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "EX" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -3314,11 +3345,15 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "FH" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3369,10 +3404,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "GC" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -3386,6 +3417,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
@@ -3418,10 +3453,6 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "Hs" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -3436,6 +3467,10 @@
 	icon_state = "intact-scrubbers";
 	dir = 9
 	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "HD" = (
@@ -3449,6 +3484,7 @@
 	dir = 8;
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "HW" = (
@@ -3460,6 +3496,7 @@
 "IB" = (
 /obj/machinery/light{
 	dir = 4;
+	name = "broken light fixture";
 	status = 2
 	},
 /turf/simulated/floor/tiled,
@@ -3525,38 +3562,34 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
 "Ly" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	icon_state = "wide_corner_full";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "Mt" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "Mu" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
@@ -3573,8 +3606,8 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
 "Nq" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3587,6 +3620,7 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-30"
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "NJ" = (
@@ -3604,13 +3638,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"NK" = (
-/obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/airless,
-/area/solar/auxport)
 "NR" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3638,16 +3665,16 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "Pw" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
@@ -3681,10 +3708,6 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/running)
 "PL" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3695,6 +3718,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
 	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
@@ -3731,24 +3758,21 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "SX" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "TV" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -3766,6 +3790,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	icon_state = "wide_corner_full";
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
 "Uh" = (
@@ -3780,12 +3808,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
 "Uu" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 10
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	icon_state = "wide_corner";
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
@@ -3883,6 +3911,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/mine/explored)
+"Xa" = (
+/obj/effect/shuttle_landmark/merc/above,
+/turf/simulated/open/airless,
+/area/mine/explored)
 "Xd" = (
 /obj/structure/lattice,
 /obj/machinery/camera/network/civilian_surface{
@@ -3915,27 +3947,17 @@
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
-	pixel_x = -22;
-	pixel_y = 0
+	pixel_x = -28
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "YJ" = (
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/red{
-	icon_state = "corner_white";
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1";
-	pixel_y = 0
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	icon_state = "wide_corner_full";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/running)
@@ -3954,6 +3976,7 @@
 	icon_state = "intact-scrubbers";
 	dir = 1
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 "Zg" = (
@@ -3991,6 +4014,7 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-31"
 	},
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/fitness/running)
 
@@ -12944,8 +12968,8 @@ aa
 aa
 aa
 aa
-dL
-dL
+aa
+aa
 aa
 aa
 aa
@@ -13191,19 +13215,19 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13449,18 +13473,18 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13706,18 +13730,18 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -13962,19 +13986,19 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14223,19 +14247,19 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14480,19 +14504,19 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14735,22 +14759,22 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -14990,25 +15014,25 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -15248,24 +15272,24 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -15505,24 +15529,24 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -15762,24 +15786,24 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
 dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -16019,24 +16043,24 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -16276,24 +16300,24 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -16532,25 +16556,25 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -16791,22 +16815,22 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -17050,19 +17074,19 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -17307,19 +17331,19 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -17560,19 +17584,19 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -17818,18 +17842,18 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -18075,18 +18099,18 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -18331,19 +18355,19 @@ aa
 aa
 aa
 aa
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
-dL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -18598,8 +18622,8 @@ aa
 aa
 aa
 aa
-dL
-dL
+aa
+aa
 aa
 aa
 aa
@@ -28551,7 +28575,7 @@ bb
 bb
 bb
 dV
-dP
+eV
 PA
 bb
 bb
@@ -28808,7 +28832,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dW
 dF
@@ -29066,7 +29090,7 @@ dK
 dK
 dO
 dP
-dS
+dO
 dX
 dX
 dX
@@ -29322,7 +29346,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -29579,7 +29603,7 @@ ah
 ah
 ah
 ah
-dP
+eV
 ah
 ah
 ah
@@ -29836,7 +29860,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -30094,7 +30118,7 @@ dK
 dK
 dO
 dP
-dS
+dO
 dX
 dX
 dX
@@ -30350,7 +30374,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -30607,7 +30631,7 @@ ah
 ah
 ah
 ah
-dP
+eV
 ah
 ah
 ah
@@ -30864,7 +30888,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -31122,7 +31146,7 @@ dK
 dK
 dO
 dP
-dS
+dO
 dX
 dX
 dX
@@ -31378,7 +31402,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -31635,7 +31659,7 @@ ag
 fy
 aP
 dV
-NK
+eV
 ad
 ag
 ag
@@ -32099,9 +32123,9 @@ af
 aq
 aq
 aq
-aq
-aq
 ff
+ah
+ah
 ah
 ah
 ah
@@ -32356,9 +32380,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -32406,7 +32430,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -32613,9 +32637,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -32663,8 +32687,8 @@ dK
 dK
 dK
 dO
-dP
-dS
+wU
+dO
 dX
 dX
 dX
@@ -32870,9 +32894,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -32920,7 +32944,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -33127,9 +33151,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -33177,7 +33201,7 @@ ah
 ah
 ah
 ah
-dP
+eV
 ah
 ah
 ah
@@ -33384,9 +33408,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -33434,7 +33458,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -33640,10 +33664,10 @@ aa
 aa
 aa
 aa
-aa
 aC
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -33691,8 +33715,8 @@ dK
 dK
 dK
 dO
-dP
-dS
+wU
+dO
 dX
 dX
 dX
@@ -33898,9 +33922,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -33948,7 +33972,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -34155,9 +34179,9 @@ aa
 aa
 aa
 aa
-aa
-aa
 ae
+ah
+ah
 ah
 ah
 ah
@@ -34205,7 +34229,7 @@ ah
 ah
 ah
 ah
-dP
+eV
 ah
 ah
 ah
@@ -34412,10 +34436,7 @@ aa
 aa
 aa
 aa
-aa
-aa
 af
-aq
 ff
 ah
 ah
@@ -34428,7 +34449,10 @@ ah
 ah
 ah
 ah
+ah
 fg
+aq
+aq
 aq
 am
 aa
@@ -34462,7 +34486,7 @@ dF
 dF
 dF
 ah
-dP
+eV
 ah
 dF
 dF
@@ -34670,22 +34694,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 ae
 ah
 fg
 ai
+ai
+ai
+ai
 ff
 ah
 ah
 ah
 fg
-ai
-ff
-ah
-al
+ao
+eK
+aa
+aa
 aa
 aa
 aa
@@ -34719,8 +34743,8 @@ dK
 dK
 dK
 dO
-dP
-dS
+wU
+dO
 dX
 dX
 dX
@@ -34927,22 +34951,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 ae
 ah
 al
 aa
+aa
+aa
+aa
 bn
 ah
 ah
 ah
 al
 aa
-bn
-ah
-al
+aa
+aa
+aa
 aa
 aa
 aa
@@ -34976,7 +35000,7 @@ dH
 dH
 dH
 ah
-dP
+eV
 ah
 dH
 dH
@@ -35184,22 +35208,22 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 ed
 ao
 am
 aa
+aa
+aa
+aa
 ed
 ai
 ai
 ai
 am
 aa
-ed
-ao
-am
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35233,7 +35257,7 @@ oH
 oH
 oH
 dV
-dP
+eV
 PA
 oH
 oH
@@ -35490,7 +35514,7 @@ dF
 dF
 dF
 dF
-NK
+eV
 dW
 dF
 dF
@@ -38569,7 +38593,7 @@ MO
 pm
 pm
 pr
-Wx
+uC
 yx
 GC
 VL
@@ -39353,7 +39377,7 @@ ka
 Cb
 MO
 yx
-Du
+Pw
 uI
 aa
 aa
@@ -40901,7 +40925,7 @@ ab
 aa
 aa
 aa
-aa
+jw
 aa
 aa
 aa
@@ -41427,17 +41451,17 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -41677,24 +41701,24 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -41934,24 +41958,24 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42191,24 +42215,24 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42440,32 +42464,32 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42696,30 +42720,30 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -42953,32 +42977,32 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43210,32 +43234,32 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43467,32 +43491,32 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43724,32 +43748,32 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -43981,32 +44005,32 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44238,30 +44262,30 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44496,32 +44520,32 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -44761,24 +44785,24 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45018,24 +45042,24 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45275,24 +45299,24 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45539,17 +45563,17 @@ aa
 aa
 aa
 aa
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
-bH
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -45789,7 +45813,7 @@ aa
 aa
 aa
 aa
-aa
+Xa
 aa
 aa
 aa
@@ -58106,9 +58130,9 @@ aa
 aa
 aa
 aa
-ed
-aq
-ao
+bn
+ah
+al
 aa
 aa
 aa
@@ -58363,9 +58387,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -58620,9 +58644,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -58877,9 +58901,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -59134,9 +59158,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -59391,9 +59415,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -59648,9 +59672,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -59905,9 +59929,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -60162,9 +60186,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -60419,9 +60443,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -60676,9 +60700,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+bn
+ah
+al
 aa
 aa
 aa
@@ -60932,10 +60956,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+oD
+fe
+ah
+al
 aa
 aa
 aa
@@ -61189,10 +61213,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+bn
+ah
+ah
+al
 aa
 aa
 aa
@@ -61446,10 +61470,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+bn
+ah
+ah
+al
 aa
 aa
 aa
@@ -61703,10 +61727,10 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+ed
+aq
+aq
+ao
 aa
 aa
 aa

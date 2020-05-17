@@ -5,6 +5,7 @@
 	icon_state = "closed"
 	density = 1
 	w_class = 5
+	layer = OBJ_LAYER - 0.01
 	var/icon_closed = "closed"
 	var/icon_opened = "open"
 	var/welded_overlay_state = "welded"

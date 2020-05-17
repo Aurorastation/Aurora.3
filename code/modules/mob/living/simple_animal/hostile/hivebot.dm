@@ -13,6 +13,7 @@
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebot"
+	blood_type = "#000000"
 	health = 15
 	maxHealth = 15
 	harm_intent_damage = 3
@@ -39,6 +40,9 @@
 	pass_flags = PASSTABLE
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
+
+/mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL
 
 /mob/living/simple_animal/hostile/hivebot/guardian
 	health = 80
@@ -277,7 +281,7 @@
 			destinations += T
 	var/area/A = get_area(src)
 	if(!isNotStationLevel(A.z))
-		var/list/area_turfs = get_area_turfs(A, null, 0, FALSE)
+		var/list/area_turfs = get_area_turfs(A)
 		var/list/floor_turfs = list()
 		for(var/turf/simulated/floor/T in (area_turfs))
 			if(turf_clear(T))

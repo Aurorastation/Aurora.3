@@ -46,20 +46,20 @@
 
 		new /obj/structure/ladder/mobile(upper_loc)
 
-		user.drop_from_inventory(src,get_turf(src))
+		user.drop_from_inventory(src, get_turf(src))
 		qdel(src)
 
 /obj/item/ladder_mobile/afterattack(atom/A, mob/user,proximity)
-	if (!proximity)
+	if(!proximity)
 		return
 
 	place_ladder(A,user)
 
 /obj/item/ladder_mobile/proc/handle_action(atom/A, mob/user)
-	if (!do_after(user, 30, act_target = user))
-		to_chat(user, "Can't place ladder! You were interrupted!")
+	if(!do_after(user, 30, act_target = user))
+		to_chat(user, SPAN_WARNING("You were interrupted while placing the ladder!"))
 		return FALSE
-	if (!A || QDELETED(src) || QDELETED(user))
+	if(!A || QDELETED(src) || QDELETED(user))
 		// Shit was deleted during delay, call is no longer valid.
 		return FALSE
 	return TRUE
@@ -67,31 +67,38 @@
 /obj/structure/ladder/mobile
 	base_icon = "mobile_ladder"
 
+/obj/structure/ladder/mobile/AltClick(mob/user)
+	fold_up(user)
+
 /obj/structure/ladder/mobile/verb/fold()
 	set name = "Fold Ladder"
 	set category = "Object"
 	set src in oview(1)
 
-	if (usr.incapacitated() || !usr.IsAdvancedToolUser() || !ishuman(usr))
-		to_chat(usr, "<span class='warning'>You can't do that right now!</span>")
+	fold_up(usr)
+
+/obj/structure/ladder/mobile/proc/fold_up(var/mob/user)
+	if(!istype(user))
+		return
+	if(use_check_and_message(user))
 		return
 
-	var/mob/living/carbon/human/H = usr
-	H.visible_message("<span class='notice'>[H] starts folding up [src].</span>",
-		"<span class='notice'>You start folding up [src].</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] starts folding up \the [src]."),
+		SPAN_NOTICE("You start folding up \the [src]."))
 
-	if (!do_after(H, 30, act_target = src))
-		to_chat(H, "<span class='warning'>You are interrupted!</span>")
+	if(!do_after(user, 30, act_target = src))
+		to_chat(user, SPAN_WARNING("You are interrupted!"))
 		return
 
-	if (QDELETED(src))
+	if(QDELETED(src))
 		return
 
-	var/obj/item/ladder_mobile/R = new(get_turf(H))
+	var/obj/item/ladder_mobile/R = new /obj/item/ladder_mobile(get_turf(user))
 	transfer_fingerprints_to(R)
+	user.put_in_hands(R)
 
-	H.visible_message("<span class='notice'>[H] folds [src] up into [R]!</span>",
-		"<span class='notice'>You fold [src] up into [R]!</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] folds \the [src] up into \the [R]!"),
+		SPAN_NOTICE("You fold \the [src] up into \the [R]!"))
 
 	if(target_down)
 		QDEL_NULL(target_down)

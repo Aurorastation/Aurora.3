@@ -152,8 +152,15 @@
 			rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W, mob/user)
 	src.add_fingerprint(user)
+	if(istype(W, /obj/item/wirecutters/bomb) && rig)
+		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
+							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
+		rig.forceMove(get_turf(user))
+		user.put_in_hands(rig)
+		rig = null
+		overlays = new/list()
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
 			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
@@ -343,6 +350,13 @@
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
 	reagentid = "xuizijuice"
+	filled = TRUE
+
+/obj/structure/reagent_dispensers/keg/mead
+	name = "mead barrel"
+	desc = "A wooden mead barrel."
+	icon_state = "woodkeg"
+	reagentid = "messa_mead"
 	filled = TRUE
 
 //Cooking oil tank

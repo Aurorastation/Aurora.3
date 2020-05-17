@@ -216,9 +216,9 @@
 	dat = replacetext(dat, "\t", "")
 	return dat
 
-/datum/controller/subsystem/records/proc/get_manifest_json()
+/datum/controller/subsystem/records/proc/get_manifest_list()
 	if(manifest.len)
-		return manifest_json
+		return manifest
 	manifest = list(
 		"heads" = list(),
 		"sec" = list(),
@@ -256,6 +256,7 @@
 				department = 1
 				if ((depthead || rank == "Captain") && manifest[positionType].len != 1)
 					manifest[positionType].Swap(1, manifest[positionType].len)
+					manifest[positionType][1]["head"] = TRUE
 				if(positionType == "head")
 					depthead = 1
 
@@ -265,7 +266,7 @@
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
-			if(R.scrambledcodes)
+			if(R.scrambled_codes)
 				continue
 			var/selected_module = "Default Module"
 			if(R.module)
@@ -278,6 +279,13 @@
 				manifest["bot"].Swap(1, manifest["bot"].len)
 
 	manifest_json = json_encode(manifest)
+	return manifest
+
+/datum/controller/subsystem/records/proc/get_manifest_json()
+	if(manifest.len)
+		return manifest_json
+	
+	get_manifest_list()
 	return manifest_json
 
 /datum/controller/subsystem/records/proc/onDelete(var/datum/record/r)

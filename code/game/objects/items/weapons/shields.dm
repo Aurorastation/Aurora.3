@@ -33,6 +33,10 @@
 	name = "shield"
 	hitsound = "swing_hit"
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_shield.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_shield.dmi'
+		)
 	var/base_block_chance = 50
 
 /obj/item/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -62,7 +66,7 @@
 	throw_range = 4
 	w_class = 4.0
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list("glass" = 7500, DEFAULT_WALL_MATERIAL = 1000)
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 7500)
 	attack_verb = list("shoved", "bashed")
 	var/cooldown = 0 //shield bash cooldown. based on world.time
 
@@ -230,7 +234,7 @@
 	name = "hegemony barrier"
 	desc = "A hardlight kite shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "kataphract-eshield0"
- 
+
 /obj/item/shield/energy/hegemony/update_icon()
 	icon_state = "kataphract-eshield[active]"
 	if(active)

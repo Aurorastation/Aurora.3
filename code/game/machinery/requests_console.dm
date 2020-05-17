@@ -28,7 +28,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	desc = "A console intended to send requests to different departments on the station."
 	anchored = 1
 	icon = 'icons/obj/terminals.dmi'
-	icon_state = "req_comp0"
+	icon_state = "req_comp"
 	component_types = list(
 			/obj/item/circuitboard/requestconsole,
 			/obj/item/stock_parts/capacitor,
@@ -57,9 +57,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/recipient = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
 
-	light_color = LIGHT_COLOR_RED
-	light_power = 0.25	// It's a tiny light, it ain't going to be bright.
-
 	//Form intregration
 	var/SQLquery
 	var/paperstock = 10
@@ -73,16 +70,31 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	update_icon()
 
 /obj/machinery/requests_console/update_icon()
+	cut_overlays()
 	if(stat & NOPOWER)
-		if(icon_state != "req_comp_off")
-			icon_state = "req_comp_off"
+		icon_state = initial(icon_state)
+		set_light(FALSE)
 	else
-		if(icon_state == "req_comp_off")
-			icon_state = "req_comp[newmessagepriority]"
-			if (newmessagepriority)
-				set_light(2)
-			else
-				set_light(0)
+		switch(newmessagepriority)
+			if(0)
+				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-idle", EFFECTS_ABOVE_LIGHTING_LAYER)
+				add_overlay(screen_overlay)
+				set_light(1.4, 1, COLOR_CYAN)
+			if(1)
+				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
+				add_overlay(screen_overlay)
+				set_light(1.4, 1, COLOR_CYAN)
+			if(2)
+				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-redalert", EFFECTS_ABOVE_LIGHTING_LAYER)
+				add_overlay(screen_overlay)
+				set_light(1.4, 1, COLOR_ORANGE)
+			if(3)
+				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-yellowalert", EFFECTS_ABOVE_LIGHTING_LAYER)
+				add_overlay(screen_overlay)
+				set_light(1.4, 1, COLOR_ORANGE)
+
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
@@ -107,6 +119,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_supplies |= department
 	if (departmentType & RC_INFO)
 		req_console_information |= department
+	update_icon()
 
 /obj/machinery/requests_console/Destroy()
 	allConsoles -= src

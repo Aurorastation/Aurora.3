@@ -8,8 +8,8 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 //#define FIREDBG
 #define FIRE_LIGHT_1	2 //These defines are the power of the light given off by fire at various stages
-#define FIRE_LIGHT_2	3
-#define FIRE_LIGHT_3	4
+#define FIRE_LIGHT_2	4
+#define FIRE_LIGHT_3	5
 
 /turf
 	var/tmp/obj/fire/fire = null
@@ -128,9 +128,9 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	blend_mode = BLEND_ADD
 
 	icon = 'icons/effects/fire.dmi'
-	icon_state = "1"
-	light_color = "#ED9200"
-	layer = ON_TURF_LAYER
+	icon_state = "wavey_fire"
+	light_color = LIGHT_COLOR_FIRE
+	layer = ABOVE_MOB_LAYER
 
 	var/firelevel = 1 //Calculated by gas_mixture.calculate_firelevel()
 
@@ -147,14 +147,11 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	var/datum/gas_mixture/air_contents = my_tile.return_air()
 
 	if(firelevel > 6)
-		icon_state = "3"
-		set_light(7, FIRE_LIGHT_3, no_update = TRUE)	// We set color later in the proc, that should trigger an update.
+		set_light(9, FIRE_LIGHT_3, no_update = TRUE)	// We set color later in the proc, that should trigger an update.
 	else if(firelevel > 2.5)
-		icon_state = "2"
-		set_light(5, FIRE_LIGHT_2, no_update = TRUE)
+		set_light(7, FIRE_LIGHT_2, no_update = TRUE)
 	else
-		icon_state = "1"
-		set_light(3, FIRE_LIGHT_1, no_update = TRUE)
+		set_light(5, FIRE_LIGHT_1, no_update = TRUE)
 	
 	air_contents.adjust_gas("carbon_dioxide", firelevel * 0.07)
 
@@ -193,7 +190,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 			else
 				enemy_tile.adjacent_fire_act(loc, air_contents, air_contents.temperature, air_contents.volume)
 
-	set_light(l_color = color)
+	set_light(l_color = fire_color(air_contents.temperature, TRUE))
 	var/list/animate_targets = get_above_oo() + src
 	for (var/thing in animate_targets)
 		var/atom/movable/AM = thing
@@ -455,13 +452,13 @@ datum/gas_mixture/proc/check_recombustability(list/fuel_objs)
 
 	//Always check these damage procs first if fire damage isn't working. They're probably what's wrong.
 
-	apply_damage(2.5*mx*head_exposure, BURN, BP_HEAD, 0, 0, "Fire")
-	apply_damage(2.5*mx*chest_exposure, BURN, BP_CHEST, 0, 0, "Fire")
-	apply_damage(2.0*mx*groin_exposure, BURN, BP_GROIN, 0, 0, "Fire")
-	apply_damage(0.6*mx*legs_exposure, BURN, BP_L_LEG, 0, 0, "Fire")
-	apply_damage(0.6*mx*legs_exposure, BURN, BP_R_LEG, 0, 0, "Fire")
-	apply_damage(0.4*mx*arms_exposure, BURN, BP_L_ARM, 0, 0, "Fire")
-	apply_damage(0.4*mx*arms_exposure, BURN, BP_R_ARM, 0, 0, "Fire")
+	apply_damage(2.5*mx*head_exposure, BURN, BP_HEAD, 0, "Fire")
+	apply_damage(2.5*mx*chest_exposure, BURN, BP_CHEST, 0, "Fire")
+	apply_damage(2.0*mx*groin_exposure, BURN, BP_GROIN, 0, "Fire")
+	apply_damage(0.6*mx*legs_exposure, BURN, BP_L_LEG, 0, "Fire")
+	apply_damage(0.6*mx*legs_exposure, BURN, BP_R_LEG, 0, "Fire")
+	apply_damage(0.4*mx*arms_exposure, BURN, BP_L_ARM, 0, "Fire")
+	apply_damage(0.4*mx*arms_exposure, BURN, BP_R_ARM, 0, "Fire")
 
 
 #undef FIRE_LIGHT_1

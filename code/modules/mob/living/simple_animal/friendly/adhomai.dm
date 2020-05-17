@@ -100,3 +100,50 @@
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 5)
 	meat_amount = 8
+
+/mob/living/simple_animal/schlorrgo
+	name = "schlorrgo"
+	desc = "A fat creature native to the world of Hro'zamal."
+	icon = 'icons/mob/npc/livestock.dmi'
+	icon_state = "schlorgo"
+	icon_living = "schlorgo"
+	icon_dead = "schlorgo_dead"
+	speak = list("Ough!")
+	speak_emote = list("moans", "moans raucously")
+	emote_hear = list("moans", "moans raucously")
+	emote_see = list("rolls around")
+
+	emote_sounds = list('sound/effects/creatures/ough.ogg')
+
+	meat_amount = 3
+	hunger_enabled = TRUE
+	canbrush = TRUE
+
+	maxHealth = 50
+	health = 50
+
+	has_udder = TRUE
+	milk_type = "milk"
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
+	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 5)
+
+	holder_type = /obj/item/holder/schlorrgo
+
+/mob/living/simple_animal/schlorrgo/unarmed_harm_attack(mob/living/carbon/human/user)
+	var/obj/item/organ/external/left_leg = user.get_organ(BP_L_LEG)
+	var/obj/item/organ/external/right_leg = user.get_organ(BP_R_LEG)
+
+	if(left_leg?.is_usable() && right_leg?.is_usable())
+		user.visible_message(SPAN_WARNING("[user] punts \the [src]!"))
+		user.do_attack_animation(src)
+		make_noise()
+		throw_at(get_edge_target_turf(user, get_dir(user, src)), 4, 1)
+		poke(TRUE)
+	else
+		..()
+
+/mob/living/simple_animal/schlorrgo/turf_collision(var/turf/T, var/speed = THROWFORCE_SPEED_DIVISOR)
+	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
+	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)
+	make_noise()

@@ -46,8 +46,8 @@
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
-	icon_state = "lino"
-	initial_flooring = /decl/flooring/linoleum
+	icon_state = "lino_grey"
+	initial_flooring = /decl/flooring/linoleum/grey
 
 /turf/simulated/floor/holofloor/wood
 	name = "wooden floor"

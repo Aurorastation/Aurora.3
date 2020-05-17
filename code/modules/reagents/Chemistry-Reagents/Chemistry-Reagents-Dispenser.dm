@@ -153,14 +153,14 @@
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
 	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed * 3.5
+		M.intoxication += (strength / 100) * removed * 3.15
 
 		if (druggy != 0)
 			M.druggy = max(M.druggy, druggy)
 
 		if (halluci)
 			M.hallucination = max(M.hallucination, halluci)
-		
+
 		if(caffeine)
 			M.add_chemical_effect(CE_PULSE, caffeine*2)
 			if(!caffeine_mod)
@@ -269,7 +269,11 @@
 	fallback_specific_heat = 0.549 //Unknown
 
 /datum/reagent/hydrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(4 * removed)
+	var/obj/item/organ/internal/augment/fuel_cell/aug = M.internal_organs_by_name[BP_AUG_FUEL_CELL]
+	if(aug && !aug.is_broken())
+		M.adjustNutritionLoss(-12 * removed)
+	else
+		M.adjustToxLoss(4 * removed)
 
 /datum/reagent/hydrazine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed) // Hydrazine is both toxic and flammable.
 	M.adjust_fire_stacks(removed / 12)
@@ -373,13 +377,6 @@
 
 /datum/reagent/radium/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.apply_effect(10 * removed, IRRADIATE, blocked = 0) // Radium may increase your chances to cure a disease
-	if(M.is_diona())
-		M.adjustToxLoss(-20 * removed)
-		M.adjustBruteLoss(-20 * removed)
-		M.adjustFireLoss(-20 * removed)
-		if(!message_shown) // Not to spam message
-			to_chat(M, "<span class='notice'>You feel an extreme energy as your body regenerates faster.</span>")
-			message_shown = TRUE
 	if(M.virus2.len)
 		for(var/ID in M.virus2)
 			var/datum/disease2/disease/V = M.virus2[ID]

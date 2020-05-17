@@ -37,11 +37,11 @@
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
 	user.visible_message("<span class='warning'>[user]'s hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!</span>", \
 		"<span class='warning'>Your hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!</span>")
-	target.apply_damage(20, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/cavity/make_space
 	allowed_tools = list(
-	/obj/item/surgicaldrill = 100,	\
+	/obj/item/surgery/surgicaldrill = 100,	\
 	/obj/item/pen = 75,	\
 	/obj/item/stack/rods = 50
 	)
@@ -71,7 +71,7 @@
 /datum/surgery_step/cavity/close_space
 	priority = 2
 	allowed_tools = list(
-	/obj/item/cautery = 100,			\
+	/obj/item/surgery/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
 	/obj/item/flame/lighter = 50,			\
 	/obj/item/weldingtool = 25
@@ -146,7 +146,7 @@
 
 /datum/surgery_step/cavity/implant_removal
 	allowed_tools = list(
-	/obj/item/hemostat = 100,	\
+	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/wirecutters = 75,	\
 	/obj/item/material/kitchen/utensil/fork = 20
 	)

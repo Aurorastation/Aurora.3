@@ -67,7 +67,7 @@
 				to_chat(target, span("cult", "Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind, something sinister takes root."))
 				to_chat(target, span("cult", "And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come."))
 				var/has_implant // we don't want people with loy implants to just get gibbed
-				for(var/obj/item/implant/loyalty/L in target)
+				for(var/obj/item/implant/mindshield/L in target)
 					if(L?.imp_in == target)
 						has_implant = TRUE
 				if(!has_implant)

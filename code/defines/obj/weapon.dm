@@ -35,15 +35,13 @@
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
-	var/spam_flag = 0
+	var/last_honk = 0
 
 /obj/item/bikehorn/attack_self(mob/user as mob)
-	if (spam_flag == 0)
-		spam_flag = 1
+	if(last_honk <= world.time - 20) //Spam limiter.
+		last_honk = world.time
 		playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
 		src.add_fingerprint(user)
-		spawn(20)
-			spam_flag = 0
 	return
 
 /obj/item/cane
@@ -270,7 +268,7 @@
 		item_state = "foldcane"
 
 /obj/item/cane/crutch
-	name ="crutch"
+	name = "crutch"
 	desc = "A long stick with a crosspiece at the top, used to help with walking."
 	icon_state = "crutch"
 	item_state = "crutch"
@@ -278,19 +276,10 @@
 /obj/item/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
-
-/*
-/obj/item/game_kit
-	name = "Gaming Kit"
-	icon = 'icons/obj/items.dmi'
-	icon_state = "game_kit"
-	var/selected = null
-	var/board_stat = null
-	var/data = ""
-	var/base_url = "http://svn.slurm.us/public/spacestation13/misc/game_kit"
-	item_state = "sheet-metal"
-	w_class = 5.0
-*/
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
+		)
 
 /obj/item/gift
 	name = "gift"
@@ -317,25 +306,6 @@
 	w_class = 3.0
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
-
-/*/obj/item/syndicate_uplink
-	name = "station bounced radio"
-	desc = "Remain silent about this..."
-	icon = 'icons/obj/radio.dmi'
-	icon_state = "radio"
-	var/temp = null
-	var/uses = 10.0
-	var/selfdestruct = 0.0
-	var/traitor_frequency = 0.0
-	var/mob/currentUser = null
-	var/obj/item/device/radio/origradio = null
-	flags = CONDUCT | ONBELT
-	w_class = 2.0
-	item_state = "radio"
-	throw_speed = 4
-	throw_range = 20
-	matter = list("metal" = 100
-	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 3)*/
 
 /obj/item/SWF_uplink
 	name = "station-bounced radio"
@@ -376,7 +346,7 @@
 	icon_state = "broom"
 
 /obj/item/staff/gentcane
-	name = "Gentlemans Cane"
+	name = "gentlemans cane"
 	desc = "An ebony can with an ivory tip."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
@@ -411,13 +381,14 @@
 	name = "power control module"
 	icon_state = "power_mod"
 	desc = "Heavy-duty switching circuits for power control."
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
-/obj/item/module/power_control/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (W.ismultitool())
-		var/obj/item/circuitboard/ghettosmes/newcircuit = new/obj/item/circuitboard/ghettosmes(user.loc)
+/obj/item/module/power_control/attackby(obj/item/W, mob/user)
+	if(W.ismultitool())
+		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
+		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
-		user.put_in_hands(newcircuit)
+		user.put_in_hands(new_circuit)
 
 /obj/item/module/id_auth
 	name = "\improper ID authentication module"
@@ -509,6 +480,10 @@
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	icon_state = "RPED"
 	item_state = "RPED"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi'
+		)
 	w_class = 5
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
@@ -536,7 +511,7 @@
 
 /obj/item/research
 	name = "research debugging device"
-	desc = "Instant research tool. For testing purposes only."
+	desc = "Instant research tool. For testing purposes only. PUTS ALL RESEARCH TECHS TO MAX, EVEN ILLEGAL AND ARCANE."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
 	origin_tech = list(TECH_MATERIAL = 19, TECH_ENGINEERING = 19, TECH_PHORON = 19, TECH_POWER = 19, TECH_BLUESPACE = 19, TECH_BIO = 19, TECH_COMBAT = 19, TECH_MAGNET = 19, TECH_DATA = 19, TECH_ILLEGAL = 19, TECH_ARCANE = 19)

@@ -217,7 +217,7 @@
 		memory = new_memo
 
 	else if (href_list["amb_edit"])
-		var/new_ambition = input("Enter a new ambition", "Memory",src.ambitions) as null|message
+		var/new_ambition = input("Enter a new ambition", "Memory",html_decode(src.ambitions)) as null|message
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
@@ -361,7 +361,7 @@
 
 		switch(href_list["implant"])
 			if("remove")
-				for(var/obj/item/implant/loyalty/I in H.contents)
+				for(var/obj/item/implant/mindshield/I in H.contents)
 					for(var/obj/item/organ/external/organs in H.organs)
 						if(I in organs.implants)
 							qdel(I)

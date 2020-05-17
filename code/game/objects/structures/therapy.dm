@@ -79,7 +79,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
-	matter = list("glass" = 150, "gold" = 50)
+	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	w_class = 1
 	var/closed = FALSE
 
@@ -125,7 +125,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
-	matter = list("glass" = 150, "gold" = 50)
+	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	w_class = 1
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
@@ -173,7 +173,9 @@
 		STOP_PROCESSING(SSfast_process, src)
 
 /obj/item/mesmetron/attack_self(mob/user as mob)
-	if(!closed || !thrall || !thrall.resolve())
+	if(closed)
+		return
+	if(!thrall || !thrall.resolve())
 		thrall = null
 		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
 		return
@@ -563,13 +565,13 @@
 				visible_message("<span class='warning'>[connected] begins humming with an electrical tone.</span>", "<span class='warning'>You hear an electrical humming.</span>")
 				if(H && connected.occupant.resolve() == H)
 					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
-					var/retardation = H.getBrainLoss()
+					var/braindamage = H.getBrainLoss()
 					if(sponge && istype(sponge))
 						if(!sponge.lobotomized)
-							to_chat(user, "<span class='notice'>Scans indicate [retardation] distinct abnormalities present in subject.</span>")
+							to_chat(user, "<span class='notice'>Scans indicate [braindamage] distinct abnormalities present in subject.</span>")
 							return
 						else
-							to_chat(user, "<span class='notice'>Scans indicate [retardation+rand(-20,20)] distinct abnormalities present in subject.</span>")
+							to_chat(user, "<span class='notice'>Scans indicate [braindamage+rand(-20,20)] distinct abnormalities present in subject.</span>")
 							return
 
 				to_chat(user, "<span class='warning'>Scans indicate total brain failure in subject.</span>")

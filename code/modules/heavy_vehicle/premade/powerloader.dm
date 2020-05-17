@@ -108,7 +108,7 @@
 
 /mob/living/heavy_vehicle/premade/firefighter/Initialize()
 	. = ..()
-	material = get_material_by_name("osmium", "carbide", "plasteel")
+	material = SSmaterials.get_material_by_name(MATERIAL_PLASTEEL)
 
 /obj/item/mech_component/sensors/firefighter/prebuild()
 	..()

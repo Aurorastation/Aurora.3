@@ -7,7 +7,7 @@
 /datum/surgery_step/fix_vein
 	priority = 3
 	allowed_tools = list(
-	/obj/item/FixOVein = 100, \
+	/obj/item/surgery/FixOVein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
 	can_infect = 1
@@ -52,7 +52,7 @@
 /datum/surgery_step/fix_dead_tissue		//Debridement
 	priority = 3
 	allowed_tools = list(
-		/obj/item/scalpel = 100,
+		/obj/item/surgery/scalpel = 100,
 		/obj/item/material/knife = 75,
 		/obj/item/material/shard = 50
 	)
@@ -137,8 +137,8 @@
 	if(!ishuman(target))
 		return 0
 
-		if (target_zone == BP_MOUTH || target_zone == BP_EYES)
-			return 0
+	if (target_zone == BP_MOUTH)
+		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && affected.open == 3 && (affected.status & ORGAN_DEAD)
@@ -182,7 +182,7 @@
 /datum/surgery_step/fix_tendon
 	priority = 2
 	allowed_tools = list(
-		/obj/item/FixOVein = 100, \
+		/obj/item/surgery/FixOVein = 100, \
 		/obj/item/stack/cable_coil = 75
 	)
 	can_infect = 1
@@ -218,7 +218,7 @@
 /datum/surgery_step/hardsuit
 	allowed_tools = list(
 		/obj/item/weldingtool = 80,
-		/obj/item/circular_saw = 60,
+		/obj/item/surgery/circular_saw = 60,
 		/obj/item/gun/energy/plasmacutter = 100
 	)
 

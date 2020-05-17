@@ -54,7 +54,7 @@
  */
 
 /obj/item/clothing/under/det
-	name = "detective's uniform"
+	name = "tan investigator's uniform"
 	desc = "Someone who wears this means business."
 	icon_state = "detective_standard"
 	worn_state = "detective_standard"
@@ -72,7 +72,7 @@
 	worn_state = "detective_classic"
 
 /obj/item/clothing/under/det/forensics
-	name = "forensics technician's uniform"
+	name = "grey investigator's uniform"
 	icon_state = "forensic_standard"
 	worn_state = "forensic_standard"
 
@@ -95,13 +95,13 @@
  * Contractors
  */
 
-/obj/item/clothing/under/rank/security/necropolis
-	name = "Necropolis Industries security uniform"
-	desc = "A uniform worn by Necropolis Industries security forces."
+/obj/item/clothing/under/rank/security/zavodskoi
+	name = "Zavodskoi Interstellar security uniform"
+	desc = "A uniform worn by Zavodskoi Interstellar security forces."
 	icon_state = "necro_sec"
 	worn_state = "necro_sec"
 
-/obj/item/clothing/under/rank/security/necropolis/alt
+/obj/item/clothing/under/rank/security/zavodskoi/alt
 	icon_state = "necro_sec_alt"
 	worn_state = "necro_sec_alt"
 

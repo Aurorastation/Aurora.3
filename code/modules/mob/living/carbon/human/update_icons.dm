@@ -149,6 +149,11 @@ There are several things that need to be remembered:
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)
 
+		for(var/aura in auras)
+			var/obj/aura/A = aura
+			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+			ovr += aura_overlay
+
 		add_overlay(ovr)
 
 	if (lying_prev != lying || size_multiplier != 1)
@@ -308,20 +313,18 @@ There are several things that need to be remembered:
 		update_icons()
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
-	var/list/ovr
+	overlays_raw[UNDERWEAR_LAYER] = list()
 
-	if(underwear && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[underwear]"))
+	if(species.appearance_flags & HAS_UNDERWEAR)
+		for(var/category in all_underwear)
+			if(hide_underwear[category])
+				continue
+			if(category == "Underwear, top" && hide_underwear["Undershirt"] == FALSE && !istype(all_underwear["Undershirt"], /datum/category_item/underwear/undershirt/none))
+				continue //This piece of "code" is here to prevent tops from showing up over undershirts.
+			var/datum/category_item/underwear/UWI = all_underwear[category]
+			overlays_raw[UNDERWEAR_LAYER] += UWI.generate_image(all_underwear_metadata[category])
 
-	if(undershirt && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[undershirt]"))
-
-	if(socks && (species.appearance_flags & HAS_SOCKS))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[socks]"))
-
-	overlays_raw[UNDERWEAR_LAYER] = ovr
-
-	if (update_icons)
+	if(update_icons)
 		update_icons()
 
 // This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
@@ -739,16 +742,16 @@ There are several things that need to be remembered:
 
 		var/list/ovr
 
-		if(shoes.blood_DNA)
+		if(shoes.blood_color)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = shoes.blood_color
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[shoe_layer] = ovr || standing
 	else
-		if(feet_blood_DNA)
+		if(footprint_color)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
-			bloodsies.color = feet_blood_color
+			bloodsies.color = footprint_color
 			overlays_raw[SHOES_LAYER] = bloodsies
 		else
 			overlays_raw[SHOES_LAYER] = null
@@ -1424,3 +1427,4 @@ There are several things that need to be remembered:
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
 #undef GET_TAIL_LAYER
+

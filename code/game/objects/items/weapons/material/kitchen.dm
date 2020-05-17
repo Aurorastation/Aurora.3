@@ -1,5 +1,9 @@
 /obj/item/material/kitchen
 	icon = 'icons/obj/kitchen.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
+		)
 
 /*
  * Utensils
@@ -72,7 +76,7 @@
 	sharp = TRUE
 
 /obj/item/material/kitchen/utensil/fork/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /obj/item/material/kitchen/utensil/spoon
 	name = "spoon"
@@ -82,7 +86,7 @@
 	force_divisor = 0.1 //2 when wielded with weight 20 (steel)
 
 /obj/item/material/kitchen/utensil/spoon/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /*
  * Knives
@@ -115,7 +119,7 @@
 	return ..()
 
 /obj/item/material/kitchen/utensil/knife/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /*
  * Rolling Pins
