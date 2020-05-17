@@ -46,13 +46,14 @@
 			log_debug("SSnews: errored: [initial_response.error]")
 			continue
 
+
 		var/list/forum_topic = initial_response.body
 		var/datum/feed_channel/channel = CreateFeedChannel(
 			forum_topic["title"], "System", TRUE, TRUE, FALSE
 		)
 
 		var/datum/http_request/forum_api/posts = new("forums/topics")
-		posts.prepare_get("[topic_id]/posts", list("sortDir" = "desc", "hidden" = 0, "page" = 1, "perPage" = 10))
+		posts.prepare_get("[topic_id]/posts", list("sortDir" = "desc", "hidden" = 0, "page" = 1, "perPage" = 20))
 		posts.begin_async()
 		UNTIL(posts.is_complete())
 
@@ -64,17 +65,32 @@
 		var/list/forum_posts = posts_response.body
 
 		var/news_count = 1
-		for (var/list/post in forum_posts["results"])
-			SubmitArticle(
-				post["content"], GetForumAuthor(topic_id, post["id"]), channel,
-				null, FALSE, "Story", GetForumTimestamp(post["date"])
-			)
+		var/archive_limit = 10
+		var/total_vol_count = forum_posts["totalResults"]
+		var/count_pulled = length(forum_posts["results"])
+
+		if (total_vol_count < 20)
+			archive_limit = total_vol_count - archive_limit
+
+		for (var/i = count_pulled; i > 0; i--)
+			var/list/post = forum_posts["results"][i]
+
+			if (news_count > archive_limit)
+				SubmitArticle(
+					post["content"], GetForumAuthor(topic_id, post["id"]), channel,
+					null, FALSE, "Story", GetForumTimestamp(post["date"])
+				)
 
 			var/datum/computer_file/data/news_article/news = new()
-			news.filename = "[channel.channel_name] vol. [news_count]"
-			news.archived = 0
+			news.filename = "[channel.channel_name] vol. [total_vol_count - count_pulled + news_count]"
 			news.stored_data = post["content"]
 			ntnet_global.available_news.Add(news)
+
+			if (news_count > archive_limit)
+				news.archived = 1
+			else
+				news.archived = 0
+
 			news_count++
 
 /datum/controller/subsystem/news/proc/load_forum_news_config()
