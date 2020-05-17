@@ -4,7 +4,7 @@
 /area
 	// Turrets use this list to see if individual power/lethal settings are allowed
 	var/list/turret_controls = list()
-	var/list/turrets
+	var/list/turrets = list()
 
 
 /obj/machinery/turretid
