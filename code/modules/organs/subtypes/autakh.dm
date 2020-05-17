@@ -198,22 +198,27 @@
 /obj/item/organ/internal/augment/adrenal/attack_self(var/mob/user)
 	. = ..()
 
-	if(.)
+	if(!.)
+		return FALSE
 
-		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
+	to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-		if(owner.reagents)
+	if(owner.reagents)
 
-			if(is_bruised())
-				owner.reagents.add_reagent("toxin", 10)
+		owner.vessel.remove_reagent("blood",rand(15,30))
+		owner.reagents.add_reagent("paracetamol", 5)
+		owner.reagents.add_reagent("norepinephrine", 5)
 
-			if(is_broken())
-				owner.reagents.add_reagent("toxin", 25)
-				return
+/obj/item/organ/internal/augment/adrenal/do_broken_act()
+	if(owner.reagents)
+		owner.reagents.add_reagent("toxin", 25)
+	return TRUE
 
-			owner.vessel.remove_reagent("blood",rand(15,30))
-			owner.reagents.add_reagent("paracetamol", 5)
-			owner.reagents.add_reagent("norepinephrine", 5)
+/obj/item/organ/internal/augment/adrenal/do_bruised_act()
+	if(owner.reagents)
+		owner.reagents.add_reagent("toxin", 10)
+	return FALSE
+
 
 /obj/item/organ/internal/augment/haemodynamic
 	name = "haemodynamic control system"
@@ -228,22 +233,26 @@
 /obj/item/organ/internal/augment/haemodynamic/attack_self(var/mob/user)
 	. = ..()
 
-	if(.)
+	if(!.)
+		return FALSE
 
-		owner.adjustNutritionLoss(300)
-		owner.adjustHydrationLoss(300)
+	owner.adjustNutritionLoss(300)
+	owner.adjustHydrationLoss(300)
 
-		if(is_broken())
-			owner.vessel.remove_reagent("blood",rand(50,75))
-			return
+	to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
+	if(owner.reagents)
+		owner.reagents.add_reagent("coagulant", 15)
 
-		if(is_bruised())
-			owner.vessel.remove_reagent("blood",rand(25,50))
+/obj/item/organ/internal/augment/haemodynamic/do_broken_act()
+	if(owner.reagents)
+		owner.vessel.remove_reagent("blood",rand(50,75))
+	return TRUE
 
-		if(owner.reagents)
-			owner.reagents.add_reagent("coagulant", 15)
+/obj/item/organ/internal/augment/haemodynamic/do_bruised_act()
+	if(owner.reagents)
+		owner.vessel.remove_reagent("blood",rand(25,50))
+	return FALSE
 
 //limb implants
 
