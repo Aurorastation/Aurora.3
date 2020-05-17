@@ -24,8 +24,9 @@
 			"fuel_span" = fuel_span
 		)
 
-/obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/datum/shuttle/autodock/overmap/shuttle, var/list/href_list)	
-	if((. = ..()) != null)
+/obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/datum/shuttle/autodock/overmap/shuttle, var/list/href_list)
+	. = ..()
+	if(. != null)
 		return
 
 	if(href_list["pick"])

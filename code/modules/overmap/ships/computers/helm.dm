@@ -255,7 +255,7 @@
 	density = 0
 
 /obj/machinery/computer/ship/navigation/telescreen/update_icon()
-	if(stat & NOPOWER || stat & BROKEN)
+	if(stat & (NOPOWER|BROKEN))
 		icon_state = "tele_off"
 		set_light(0)
 	else
