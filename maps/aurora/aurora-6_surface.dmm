@@ -2170,7 +2170,7 @@
 /obj/machinery/porta_turret/stationary,
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/airless,
-/area/turret_protected/tcomsat)
+/area/turret_protected/tcomfoyer)
 "dV" = (
 /turf/simulated/wall/r_wall,
 /area/tcommsat/chamber)
@@ -16501,7 +16501,7 @@
 	},
 /obj/effect/decal/warning_stripes,
 /turf/simulated/floor/plating,
-/area/turret_protected/tcomfoyer)
+/area/tcommsat/entrance)
 "DI" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -23700,7 +23700,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/turret_protected/tcomfoyer)
+/area/tcommsat/entrance)
 "Rh" = (
 /obj/structure/weightlifter,
 /obj/effect/floor_decal/corner/red/full{

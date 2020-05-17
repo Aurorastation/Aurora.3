@@ -11127,7 +11127,6 @@
 	pixel_y = -5
 	},
 /obj/machinery/turretid/stun{
-	control_area = null;
 	name = "AI Upload turret control";
 	pixel_x = 24;
 	pixel_y = 6
