@@ -4,9 +4,9 @@
 	var/datum/callback/callback_get_interact_window
 	var/datum/callback/on_topic_interaction
 
-/datum/component/multitool/Initialize(var/callback/interact_window, var/callback/new_on_topic)
+/datum/component/multitool/Initialize(var/datum/callback/interact_window, var/datum/callback/new_on_topic)
 	callback_get_interact_window = interact_window
-	on_topic_interaction = on_new_topic
+	on_topic_interaction = new_on_topic
 
 /datum/component/multitool/proc/interact(var/obj/item/device/multitool/M, var/mob/user)
 	if(CanUseTopic(user) != STATUS_INTERACTIVE)
