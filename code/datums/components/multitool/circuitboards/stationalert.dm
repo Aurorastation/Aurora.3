@@ -15,7 +15,7 @@
 		. += "</tr>"
 	. += "</table>"
 
-/obj/item/circuitboard/stationalert/proc/on_topic(href, href_list, user)
+/obj/item/circuitboard/stationalert/proc/on_topic(href, href_list, var/mob/user, var/datum/component/multitool/MT)
 	if(href_list["add"])
 		var/datum/alarm_handler/AH = locate(href_list["add"]) in SSalarm.all_handlers
 		if(AH)

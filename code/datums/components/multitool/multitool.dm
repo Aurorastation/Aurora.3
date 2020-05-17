@@ -57,7 +57,7 @@
 		M.set_buffer(null)
 		. = MT_REFRESH
 	else
-		. = on_topic_interaction.Invoke(href, href_list, user)
+		. = on_topic_interaction.Invoke(href, href_list, user, src)
 
 	switch(.)
 		if(MT_REFRESH)
