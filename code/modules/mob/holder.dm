@@ -202,24 +202,15 @@ var/list/holder_mob_icon_cache = list()
 
 	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
 
-
 	spawn(2)
 		var/obj/item/holder/H = new holder_type(loc)
-
 		src.forceMove(H)
-
-
 		H.contained = src
-
-
 
 		if (src.stat == DEAD)
 			H.held_death()//We've scooped up an animal that's already dead. use the proper dead icons
 		else
 			H.isalive = 1//We note that the mob is alive when picked up. If it dies later, we can know that its death happened while held, and play its deathmessage for it
-
-
-
 
 		var/success = 0
 		if (src == user)
@@ -238,14 +229,18 @@ var/list/holder_mob_icon_cache = list()
 				to_chat(src, "<span class='notice'>[grabber] scoops you up.</span>")
 
 			H.sync(src)
-
 		else
 			to_chat(user, "Failed, try again!")
 			//If the scooping up failed something must have gone wrong
 			H.release_mob()
 
+		post_scoop()
+
 		return success
 
+// Override to add stuff that should happen when scooping
+/mob/living/proc/post_scoop()
+	return
 
 /mob/living/proc/get_holder_location()
 	set category = "Abilities"
@@ -601,6 +596,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/pai/rabbit
 	icon_state = "rabbit_rest"
 	item_state = "rabbit"
+
 /obj/item/holder/pai/custom
 	var/customsprite = 1
 

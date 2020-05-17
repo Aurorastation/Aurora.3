@@ -102,6 +102,8 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
+	var/bodyfall_sound = "bodyfall"
+
 	var/last_x = 0
 	var/last_y = 0
 

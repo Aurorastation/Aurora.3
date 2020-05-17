@@ -71,7 +71,7 @@
 
 /obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
-	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Necropolis Industries for paramilitary and private use. Uses 9mm rounds."
+	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use. Uses 9mm rounds."
 	icon = 'icons/obj/guns/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
@@ -149,7 +149,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "battle rifle"
-	desc = "A powerful battle rifle, the M469 is a highly accurate skirmishing firearm of Necropolis make which is chambered in 7.62."
+	desc = "A powerful battle rifle, the M469 is a highly accurate skirmishing firearm of Zavodskoi Instellar make which is chambered in 7.62."
 	icon = 'icons/obj/guns/battlerifle.dmi'
 	icon_state = "battlerifle"
 	item_state = "battlerifle"
@@ -371,7 +371,7 @@
 
 /obj/item/gun/projectile/automatic/terminator
 	name = "flechette rifle"
-	desc = "A fearsome Necropolis Industries designed rifle with unattached bayonet that fires lethal flechette rounds."
+	desc = "A fearsome Zavodskoi Interstellar designed rifle with unattached bayonet that fires lethal flechette rounds."
 	icon = 'icons/obj/guns/flechette.dmi'
 	icon_state = "flechetterifle"
 	item_state = "flechetterifle"

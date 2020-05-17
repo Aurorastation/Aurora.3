@@ -268,3 +268,10 @@
 	name = "Mounted Passenger Compartment"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/sleeper/passenger_compartment
+
+/datum/design/item/mechfab/exosuit/mechshields
+	name = "Energy Shield Drone"
+	time = 90
+	materials = list(MATERIAL_STEEL = 20000, MATERIAL_SILVER = 12000, MATERIAL_GOLD = 12000)
+	req_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 2)
+	build_path = /obj/item/mecha_equipment/shield
