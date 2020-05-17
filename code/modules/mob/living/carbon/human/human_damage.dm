@@ -109,6 +109,12 @@
 		wearing_rig.notify_ai("<span class='danger'>Warning: user consciousness failure. Mobility control passed to integrated intelligence system.</span>")
 	..()
 
+/mob/living/carbon/human/update_canmove()
+	var/old_lying = lying
+	. = ..()
+	if(lying && !old_lying && !resting && !buckled) // fell down
+		playsound(loc, species.bodyfall_sound, 50, 1, -1)
+
 /mob/living/carbon/human/getCloneLoss()
 	var/amount = 0
 	for(var/obj/item/organ/external/E in organs)
