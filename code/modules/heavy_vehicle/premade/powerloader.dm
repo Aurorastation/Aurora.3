@@ -157,3 +157,10 @@
 	name = "penal power loader"
 	dummy_colour = "#302e2b"
 	remote_network = "prisonmechs"
+
+/mob/living/heavy_vehicle/premade/ripley/remote_ai
+	name = "stationbound power loader"
+	e_color = COLOR_GREEN_GRAY
+	dummy_colour = COLOR_GREEN_GRAY
+	dummy_type = /mob/living/simple_animal/spiderbot/ai
+	remote_network = "aimechs"

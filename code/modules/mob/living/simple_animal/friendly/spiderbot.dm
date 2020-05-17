@@ -12,6 +12,7 @@
 	var/obj/item/cell/cell = null
 	var/obj/machinery/camera/camera = null
 	var/obj/item/device/mmi/mmi = null
+	var/obj/item/card/id/internal_id = null
 	var/list/req_access = list(access_robotics) //Access needed to pop out the brain.
 	var/positronic
 
@@ -44,8 +45,9 @@
 
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
-	add_language("Ceti Basic")
-	default_language = all_languages["Ceti Basic"]
+	add_language(LANGUAGE_TCB)
+	default_language = all_languages[LANGUAGE_TCB] // to-do figure out why this is getting the string and not the language
+	internal_id = new /obj/item/card/id(src)
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/proc/hide
 
@@ -302,3 +304,7 @@
 
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
+
+/mob/living/simple_animal/spiderbot/ai/Initialize()
+	. = ..()
+	internal_id.access = get_all_station_access()

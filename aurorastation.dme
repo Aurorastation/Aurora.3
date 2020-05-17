@@ -1617,6 +1617,7 @@
 #include "code\modules\heavy_vehicle\components\frame.dm"
 #include "code\modules\heavy_vehicle\components\head.dm"
 #include "code\modules\heavy_vehicle\components\legs.dm"
+#include "code\modules\heavy_vehicle\components\remote.dm"
 #include "code\modules\heavy_vehicle\components\software.dm"
 #include "code\modules\heavy_vehicle\equipment\_equipment.dm"
 #include "code\modules\heavy_vehicle\equipment\combat.dm"

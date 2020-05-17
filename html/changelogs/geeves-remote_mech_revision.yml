@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The AI can now remotely control mechs in its network. It has one mapped in near its core."
+  - rscadd: "Messages received by your old body will now reach your VR body (does not affect Skrell Srom)."

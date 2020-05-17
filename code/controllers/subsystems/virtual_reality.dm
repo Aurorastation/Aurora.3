@@ -6,7 +6,7 @@
 	flags = SS_NO_FIRE
 
 	// MECHA
-	var/list/mechnetworks = list("remotemechs", "prisonmechs") // A list of all the networks a mech can possibly connect to
+	var/list/mechnetworks = list("remotemechs", "aimechs", "prisonmechs") // A list of all the networks a mech can possibly connect to
 	var/list/list/mechs = list() // A list of lists, containing the mechs and their networks
 
 	// IPC BODIES
@@ -41,7 +41,7 @@
 		robots[network].Remove(robot)
 
 
-/mob/living/
+/mob
 	var/mob/living/vr_mob = null // In which mob is our mind
 	var/mob/living/old_mob = null // Which mob is our old mob
 
@@ -105,7 +105,7 @@
 			continue
 		if(mech_pilot.stat == DEAD)
 			continue
-		mech[mech_pilot.name] = mech_pilot
+		mech[R.name] = R
 
 	if(mech.len == 1)
 		to_chat(user, span("warning", "No active remote mechs are available."))

@@ -346,7 +346,16 @@
 
 	else
 		if(user.a_intent != I_HURT)
-			if(thing.ismultitool())
+			if(istype(thing, /obj/item/remote_mecha))
+				if(length(pilots))
+					to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
+					return
+				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [thing] into \the [src]..."), SPAN_NOTICE("You begin installing the [thing] into \the [src]..."))
+				if(do_after(user, 30, TRUE, src))
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] into \the [src]."), SPAN_NOTICE("You install the [thing] into \the [src]."))
+					become_remote()
+					qdel(thing)
+			else if(thing.ismultitool())
 				if(hardpoints_locked)
 					to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
 					return

@@ -32,7 +32,8 @@
 
 	// Remote control stuff
 	var/remote = FALSE // Spawns a robotic pilot to be remote controlled
-	var/mob/living/carbon/human/industrial_xion_remote_mech/dummy // The remote controlled dummy
+	var/mob/living/simple_animal/spiderbot/dummy // The remote controlled dummy
+	var/dummy_type = /mob/living/simple_animal/spiderbot
 	var/dummy_colour
 
 	// Visible external components. Not strictly accurately named for non-humanoid machines (submarines) but w/e
@@ -250,7 +251,11 @@
 	if(hatch_closed)
 		hatch_closed = FALSE
 
-	dummy = new /mob/living/carbon/human/industrial_xion_remote_mech(get_turf(src))
+	dummy = new dummy_type(get_turf(src))
+	dummy.mmi = new /obj/item/device/mmi(dummy) // this is literally just because i luck the aesthetics - geeves
+	dummy.verbs -= /mob/living/proc/ventcrawl
+	dummy.verbs -= /mob/living/proc/hide
+	dummy.update_icon()
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)

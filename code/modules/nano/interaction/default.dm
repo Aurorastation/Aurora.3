@@ -83,6 +83,7 @@
 	if(. == STATUS_INTERACTIVE)
 		return STATUS_UPDATE
 
+// To-do make mech shit work with nanoui here
 /mob/living/carbon/human/default_can_use_topic(var/src_object)
 	. = shared_nano_interaction(src_object)
 	if(. != STATUS_CLOSE)
@@ -90,3 +91,5 @@
 			. = min(., loc.contents_nano_distance(src_object, src))
 		else
 			. = min(., shared_living_nano_distance(src_object))
+
+// To-do add spiderbots inside mechs here because i'm a masochist
