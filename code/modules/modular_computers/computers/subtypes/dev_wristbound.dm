@@ -1,7 +1,7 @@
 /obj/item/modular_computer/wristbound
 	name = "wristbound computer"
 	desc = "A portable wristbound device for your needs on the go. Quite comfortable."
-	description_info = "A NanoTrasen design, this wristbound computer allows the user to quickly and safely access critical info, without taking their hands out of the equation."
+	desc_info = "A NanoTrasen design, this wristbound computer allows the user to quickly and safely access critical info, without taking their hands out of the equation."
 	icon = 'icons/obj/modular_wristbound.dmi'
 	icon_state = "wristbound"
 	icon_state_menu = "menu"
