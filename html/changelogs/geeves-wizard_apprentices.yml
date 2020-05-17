@@ -1,0 +1,12 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Wizard spellbooks can now be stored in the belt slot."
+  - tweak: "Necromancers now get 10 spell points, up from 8."
+  - bugfix: "Smoke now properly layers over mobs, obscuring them."
+  - rscadd: "Wizard Apprentices and Skeletons are now in the Ghost Spawner menu. The former can be enabled by buying an Apprentice Pebble artifact, a new wizard item which acts as a portable spawnpoint. The latter by casting Raise Dead on a corpse."
+  - rscadd: "Apprentices are now given additional spells at the bottom of their spellbook, depending on which type of wizard their master is."  
+  - rscadd: "Bought artifacts now appear in your hands, if you have any free."
+  - bugfix: "The Return to Master spell has received numerous bugfixes and should now work as expected, most of the time."

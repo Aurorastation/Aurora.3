@@ -5,6 +5,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 								/obj/item/gun/energy/staff/focus = 	"MF",
 								/obj/item/monster_manual = 			"MA",
 								/obj/item/contract/apprentice = 		"CP",
+								/obj/item/apprentice_pebble =			"AP",
 								/obj/structure/closet/wizard/souls = 		"SS",
 								/obj/structure/closet/wizard/scrying = 		"SO",
 								/obj/item/teleportation_scroll = 	"TS",
@@ -21,14 +22,15 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	icon_state = "spellbook"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_BELT
 	var/uses = 1
 	var/temp = null
 	var/datum/spellbook/spellbook
-	var/spellbook_type = /datum/spellbook/ //for spawning specific spellbooks.
+	var/spellbook_type = /datum/spellbook //for spawning specific spellbooks.
 
-/obj/item/spellbook/New()
-	..()
+/obj/item/spellbook/Initialize()
+	. = ..()
 	set_spellbook(spellbook_type)
 
 /obj/item/spellbook/proc/set_spellbook(var/type)
@@ -159,8 +161,25 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			else
 				if(ispath(path,/spell))
 					temp = src.add_spell(usr,path)
+				else if(ispath(path, /obj/item/contract/apprentice))
+					var/obj/item/contract/apprentice/A = new path(get_turf(usr))
+					A.contract_master = usr
+					A.additional_spells = spellbook.apprentice_spells
+					temp = "You have purchased \a [A]."
+					spellbook.max_uses -= spellbook.spells[path]
+					playsound(get_turf(usr),'sound/effects/phasein.ogg',50,1)
+					usr.put_in_hands(A)
+				else if(ispath(path, /obj/item/apprentice_pebble))
+					var/obj/item/apprentice_pebble/A = new path(get_turf(usr))
+					A.contract.additional_spells = spellbook.apprentice_spells
+					A.contract.contract_master = usr
+					temp = "You have purchased \a [A]."
+					spellbook.max_uses -= spellbook.spells[path]
+					playsound(get_turf(usr),'sound/effects/phasein.ogg',50,1)
+					usr.put_in_hands(A)
 				else
 					var/obj/O = new path(get_turf(usr))
+					usr.put_in_hands(O)
 					temp = "You have purchased \a [O]."
 					spellbook.max_uses -= spellbook.spells[path]
 					//finally give it a bit of an oomf
@@ -228,3 +247,4 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 				/datum/spellbook/druid = 1,
 				/datum/spellbook/necromancer = 1
 				) //spell's path = cost of spell
+	var/list/apprentice_spells = list() // extra spells that apprentices get, based on their master's book
