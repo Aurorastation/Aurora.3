@@ -117,15 +117,15 @@ var/datum/controller/subsystem/processing/shuttle/SSshuttle
 /datum/controller/subsystem/processing/shuttle/proc/try_add_landmark_tag(landmark_tag, obj/effect/overmap/visitable/given_sector)
 	var/obj/effect/shuttle_landmark/landmark = get_landmark(landmark_tag)
 	if(!landmark)
-		return
+		return FALSE
 
 	if(landmark.landmark_tag in given_sector.initial_generic_waypoints)
 		given_sector.add_landmark(landmark)
-		. = 1
+		. = TRUE
 	for(var/shuttle_name in given_sector.initial_restricted_waypoints)
 		if(landmark.landmark_tag in given_sector.initial_restricted_waypoints[shuttle_name])
 			given_sector.add_landmark(landmark, shuttle_name)
-			. = 1
+			. = TRUE
 
 /datum/controller/subsystem/processing/shuttle/proc/initialize_shuttle(var/shuttle_type)
 	var/datum/shuttle/shuttle = shuttle_type
