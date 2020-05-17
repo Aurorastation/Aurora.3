@@ -24,9 +24,4 @@
 /obj/item/mecha_equipment/doomblade/attack(mob/living/M, mob/living/user)
 	if(!owner)
 		return
-	var/target_zone = BP_CHEST
-	for(var/mob/living/carbon/human/pilot in owner.pilots)
-		if(pilot)
-			target_zone = pilot.zone_sel.selecting
-			break
-	doomblade.attack(M, user, target_zone)
+	doomblade.attack(M, user, zone_sel.selecting)
