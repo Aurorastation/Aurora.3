@@ -33,20 +33,17 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		output += "<i>You will board as <b>[character_name]</b>.</i><br>"
 	if(current_map.description)
 		output += "<i>[current_map.description]</i><hr>"
-	if(ROUND_IS_STARTED)
-		output += "<a href='byond://?src=\ref[src];late_join=1'>Join the Game!</A>"
 
-	output +="<br>"
 	output += "<a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A> "
 
-	if(!ROUND_IS_STARTED)
+	if(ROUND_IS_STARTED)
+		output += "<a href='byond://?src=\ref[src];late_join=1'>Join the Game!</A> "
+		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A> "
+	else
 		if(ready)
 			output += "<a href='byond://?src=\ref[src];ready=0'>Un-Ready</a> "
 		else
 			output += "<a href='byond://?src=\ref[src];ready=1'>Ready Up</a> "
-
-	else
-		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A> "
 
 	output += "<a href='byond://?src=\ref[src];observe=1'>Observe</A> "
 
