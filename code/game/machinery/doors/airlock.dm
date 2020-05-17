@@ -945,7 +945,7 @@ About the new airlock wires panel:
 				to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
 			else if(activate)
 				if(issilicon(usr) && !player_is_antag(usr.mind))
-					to_chat(usr, SPAN_WARNING("You do not have the ability to lower bolts!"))
+					to_chat(usr, SPAN_WARNING("Your programming prevents you from lowering the door bolts."))
 				else if(lock())
 					to_chat(usr, SPAN_NOTICE("The door bolts have been dropped."))
 			else if(!activate)
@@ -957,12 +957,12 @@ About the new airlock wires panel:
 					to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
 		if("electrify_temporary")
 			if(issilicon(usr) && !player_is_antag(usr.mind))
-				to_chat(usr, SPAN_WARNING("You do not have the ability to electrify airlocks!"))
+				to_chat(usr, SPAN_WARNING("Your programming prevents you from electrifying the door."))
 			else
 				electrify(30 * activate, 1)
 		if("electrify_permanently")
 			if(issilicon(usr) && !player_is_antag(usr.mind))
-				to_chat(usr, SPAN_WARNING("You do not have the ability to electrify airlocks!"))
+				to_chat(usr, SPAN_WARNING("Your programming prevents you from electrifying the door."))
 			else
 				electrify(-1 * activate, 1)
 		if("open")
