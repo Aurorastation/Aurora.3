@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - bugfix: "T-comms turret controllers are now properly mapped and connect to turrets."
+  - bugfix: "T-comms, Vault, Station self-destruct turrets controllers are now properly mapped and connect to turrets."
   - bugfix: "KA AOE now properly works for asteroid mining and deals proper damage."
