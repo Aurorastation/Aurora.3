@@ -83,12 +83,11 @@ var/list/gear_datums = list()
 
 		pref.gear_slot = text2num(pref.gear_slot)
 
-		if (istext(pref.gear))
+		if (istext(pref.gear_list))
 			try
 				pref.gear_list = json_decode(pref.gear_list)
 			catch
 				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
-
 				gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
@@ -108,7 +107,6 @@ var/list/gear_datums = list()
 			pref.gear = list()
 			pref.gear_list = list("1" = pref.gear)
 			pref.gear_slot = 1
-			gear_reset = TRUE
 
 	for(var/gear_name in pref.gear)
 		if(!(gear_name in gear_datums))
@@ -245,6 +243,7 @@ var/list/gear_datums = list()
 	if(href_list["next_slot"] || href_list["prev_slot"])
 		//Set the current slot in the gear list to the currently selected gear
 		pref.gear_list["[pref.gear_slot]"] = pref.gear
+
 		//If we're moving up a slot..
 		if(href_list["next_slot"])
 			//change the current slot number
