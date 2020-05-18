@@ -749,5 +749,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 	src.ckey = user.ckey
 	SSghostroles.remove_spawn_atom("wizard_familiar", src)
-	add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
+	if(wizard_master)
+		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
 	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")

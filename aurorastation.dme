@@ -1587,6 +1587,7 @@
 #include "code\modules\ghostroles\spawner\human\responseteams\response_team.dm"
 #include "code\modules\ghostroles\spawner\human\responseteams\syndicate.dm"
 #include "code\modules\ghostroles\spawner\human\responseteams\tcfl.dm"
+#include "code\modules\ghostroles\spawner\misc\mining_drone.dm"
 #include "code\modules\ghostroles\spawner\misc\posibrain.dm"
 #include "code\modules\ghostroles\spawner\misc\syndicate_cyborg.dm"
 #include "code\modules\ghostroles\spawner\simplemob\borer.dm"
