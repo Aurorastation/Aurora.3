@@ -2,28 +2,28 @@
 	display_name = "hide mantle"
 	path = /obj/item/clothing/suit/unathi/mantle
 	cost = 1
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi_robe
 	display_name = "roughspun robe"
 	path = /obj/item/clothing/suit/unathi/robe
 	cost = 1
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/robe_coat
 	display_name = "tzirzi robe"
 	path = /obj/item/clothing/suit/unathi/robe/robe_coat
 	cost = 1
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi
 	display_name = "unathi gloves selection"
 	description = "A selection of unathi colored gloves."
 	path = /obj/item/clothing/gloves/black/unathi
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi/New()
@@ -42,7 +42,7 @@
 /datum/gear/uniform/unathi
 	display_name = "sinta tunic"
 	path = /obj/item/clothing/under/unathi
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -50,7 +50,7 @@
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
@@ -60,7 +60,7 @@
 	display_name = "mining grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Shaft Miner")
@@ -70,7 +70,7 @@
 	display_name = "medical grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
@@ -80,7 +80,7 @@
 	display_name = "security grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 3
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
@@ -89,37 +89,37 @@
 /datum/gear/uniform/unathi/jizixi
 	display_name = "jizixi dress"
 	path = /obj/item/clothing/under/unathi/jizixi
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/sashes
 	display_name = "gyzao sashes"
 	path = /obj/item/clothing/under/unathi/sashes
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/mogazali
 	display_name = "mogazali attire"
 	path = /obj/item/clothing/under/unathi/mogazali
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/zazali
 	display_name = "zazali garb"
 	path = /obj/item/clothing/under/unathi/zazali
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/huytai
 	display_name = "huytai outfit"
 	path = /obj/item/clothing/under/unathi/huytai
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/uniform/unathi/zozo
 	display_name = "zozo top"
 	path = /obj/item/clothing/under/unathi/zozo
-	whitelisted = list("Unathi", "Aut'akh Unathi")
+	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/suit/unathi/wrapping_head
@@ -145,5 +145,21 @@
 	description = "An implant that connects the Aut'akh to the Mesh."
 	path = /obj/item/organ/internal/anchor
 	cost = 1
+	whitelisted = list("Unathi")
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/augment/haemodynamic
+	display_name = "haemodynamic control system"
+	description = "An Aut'akh augment that allows the user to stabilize themselves."
+	path = /obj/item/organ/internal/augment/haemodynamic
+	cost = 4
+	whitelisted = list("Unathi")
+	sort_category = "Xenowear - Unathi"
+
+/datum/gear/augment/adrenal
+	display_name = "adrenal management system"
+	description = "A series of aut'akh mechanical stimulants and extra glands placed along the adrenal system. ."
+	path = /obj/item/organ/internal/augment/adrenal
+	cost = 4
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
