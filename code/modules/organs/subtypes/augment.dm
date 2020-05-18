@@ -310,9 +310,7 @@
 			added_languages += language
 
 /obj/item/organ/internal/augment/language/removed(var/mob/living/carbon/human/target, mob/living/user)
-	for(var/language in augment_languages)
-		if(!(language in added_languages)) // a safety net to not remove the languages someone knew pre-aug
-			continue
+	for(var/language in added_languages)
 		target.remove_language(language)
 	added_languages = list()
 	..()
