@@ -1589,6 +1589,7 @@
 #include "code\modules\ghostroles\spawner\human\responseteams\tcfl.dm"
 #include "code\modules\ghostroles\spawner\simplemob\borer.dm"
 #include "code\modules\ghostroles\spawner\simplemob\maintdrone.dm"
+#include "code\modules\ghostroles\spawner\simplemob\posibrain.dm"
 #include "code\modules\ghostroles\spawner\simplemob\rat.dm"
 #include "code\modules\ghostroles\spawner\simplemob\spider.dm"
 #include "code\modules\ghostroles\spawnpoint\spawnpoint.dm"

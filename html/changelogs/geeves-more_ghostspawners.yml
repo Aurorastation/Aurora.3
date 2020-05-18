@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Posibrains are now in the ghost spawner menu. Activating them is now a one-and-done deal, as they remain open in the ghost spawner until someone disables it or someone spawns in."
