@@ -17,7 +17,7 @@
 	name = "eldritch voidsuit helmet"
 	desc = "A bulky armoured voidsuit helmet, bristling with menacing spikes. It looks space proof."
 	icon_state = "cult_helmet"
-	armor = list(melee = 60, bullet = 50, laser = 35, energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0
 	light_overlay = "helmet_light_dual_red"
 	light_color = COLOR_RED_LIGHT
