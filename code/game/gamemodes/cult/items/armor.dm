@@ -33,7 +33,7 @@
 	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	slowdown = 1
-	armor = list(melee = 60, bullet = 50, laser = 45, energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL|HIDESHOES
