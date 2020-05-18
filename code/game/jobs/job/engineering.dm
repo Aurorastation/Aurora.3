@@ -165,6 +165,8 @@
 	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	outfit = /datum/outfit/job/intern_eng
 
+	minimum_character_age = 18
+
 /datum/outfit/job/intern_eng
 	name = "Engineering Apprentice"
 	jobtype = /datum/job/intern_eng
