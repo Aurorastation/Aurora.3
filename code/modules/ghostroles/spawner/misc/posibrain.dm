@@ -1,4 +1,4 @@
-/datum/ghostspawner/simplemob/posibrain
+/datum/ghostspawner/posibrain
 	short_name = "posibrain"
 	name = "Positronic Brain"
 	desc = "Enter a synthetic brain, capable of piloting a spiderbrain, operating an android, becoming an AI, or being a pocketbuddy."
@@ -10,11 +10,11 @@
 	enabled = FALSE
 	spawn_mob = /mob/living/carbon/brain
 
-/datum/ghostspawner/simplemob/posibrain/select_spawnpoint(var/use)
+/datum/ghostspawner/posibrain/select_spawnpoint(var/use)
 	return TRUE //We just fake it here, since the spawnpoint is selected if someone is spawned in.
 
 //The proc to actually spawn in the user
-/datum/ghostspawner/simplemob/posibrain/spawn_mob(mob/user)
+/datum/ghostspawner/posibrain/spawn_mob(mob/user)
 	if(!length(spawn_atoms))
 		to_chat(user, SPAN_DANGER("There are no available posibrains to spawn at!"))
 		return FALSE
