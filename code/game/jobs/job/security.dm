@@ -261,6 +261,7 @@
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
+	minimum_character_age = 18
 
 /datum/outfit/job/intern_sec
 	name = "Security Cadet"
