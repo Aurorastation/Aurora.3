@@ -145,6 +145,8 @@
 		return processor_unit
 	if(ai_slot && (initial(ai_slot.name) == name))
 		return ai_slot
+	if(personal_ai && (initial(personal_ai.name) == name))
+		return personal_ai
 	if(tesla_link && (initial(tesla_link.name) == name))
 		return tesla_link
 	return null
@@ -168,6 +170,8 @@
 		all_components.Add(processor_unit)
 	if(ai_slot)
 		all_components.Add(ai_slot)
+	if(personal_ai)
+		all_components.Add(personal_ai)
 	if(tesla_link)
 		all_components.Add(tesla_link)
 	return all_components
