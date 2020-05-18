@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscdel: "Removed the Aut'akh subspecies."
-  - rscadd: "Added the Aut'akh robotic limbs to the robotic limb option, and their augments to the loadout."
