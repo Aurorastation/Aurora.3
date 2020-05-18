@@ -71,6 +71,23 @@
 /obj/machinery/computer/guestpass/Initialize()
 	. = ..()
 	uid = "[rand(100,999)]-G[rand(10,99)]"
+	update_icon()
+
+/obj/machinery/computer/guestpass/power_change()
+	..()
+	update_icon()
+
+/obj/machinery/computer/guestpass/update_icon()
+	cut_overlays()
+	if(stat & BROKEN)
+		icon_state = "guestb"
+		return
+	if(stat & NOPOWER)
+		return
+	else
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "guest-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+		set_light(1.4, 1, COLOR_CYAN)
 
 /obj/machinery/computer/guestpass/attackby(obj/O, mob/user)
 	if(istype(O, /obj/item/card/id))

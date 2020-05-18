@@ -513,6 +513,7 @@
 	update_icon()
 
 /obj/machinery/chakraconsole/update_icon()
+	cut_overlays()
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else

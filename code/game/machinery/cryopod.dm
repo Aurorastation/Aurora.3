@@ -48,12 +48,15 @@ var/global/list/frozen_crew = list()
 	allow_items = FALSE
 
 /obj/machinery/computer/cryopod/robot/update_icon()
+	cut_overlays()
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "[initial(icon_state)]-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
-		set_light(1.4, 1, COLOR_RED)
+		set_light(1.4, 1, COLOR_PURPLE)
+		var/mutable_appearance/scanline_overlay = mutable_appearance(icon, "[initial(icon_state)]-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(scanline_overlay)
 
 /obj/machinery/computer/cryopod/attack_ai()
 	src.attack_hand()
