@@ -6,3 +6,4 @@ changes:
   - rscadd: "Posibrains are now in the ghost spawner menu. Activating them is now a one-and-done deal, as they remain open in the ghost spawner until someone disables it or someone spawns in."
   - rscadd: "Syndicate Cyborgs have been added to the ghost spawner menu, and will remain in a boot-up state until someone spawns into it."
   - bugfix: "Syndicate Cyborg eye overlays have been fixed."
+  - rscadd: "Wizard Familiars have been added to the ghost spawn menu, same as above."
