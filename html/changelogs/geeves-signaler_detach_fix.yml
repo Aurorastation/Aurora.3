@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Signalers can now be removed from wires without a need to have an item in-hand."
