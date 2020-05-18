@@ -46,7 +46,7 @@
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)
-	default_language = all_languages[LANGUAGE_TCB] // to-do figure out why this is getting the string and not the language
+	default_language = all_languages[LANGUAGE_TCB]
 	internal_id = new /obj/item/card/id(src)
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/proc/hide

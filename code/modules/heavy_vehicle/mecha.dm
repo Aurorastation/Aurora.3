@@ -32,6 +32,7 @@
 
 	// Remote control stuff
 	var/remote = FALSE // Spawns a robotic pilot to be remote controlled
+	var/does_hardpoint_lock = TRUE
 	var/mob/living/simple_animal/spiderbot/dummy // The remote controlled dummy
 	var/dummy_type = /mob/living/simple_animal/spiderbot
 	var/dummy_colour
@@ -242,16 +243,16 @@
 
 	remote = TRUE
 	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
-	if(remote_network)
-		SSvirtualreality.add_mech(src, remote_network)
-	else
+	if(!remote_network)
 		remote_network = "remotemechs"
-		SSvirtualreality.add_mech(src, remote_network)
+	SSvirtualreality.add_mech(src, remote_network)
 
 	if(hatch_closed)
 		hatch_closed = FALSE
 
 	dummy = new dummy_type(get_turf(src))
+	dummy.real_name = "Remote-Bot"
+	dummy.name = dummy.real_name
 	dummy.mmi = new /obj/item/device/mmi(dummy) // this is literally just because i luck the aesthetics - geeves
 	dummy.verbs -= /mob/living/proc/ventcrawl
 	dummy.verbs -= /mob/living/proc/hide
@@ -263,5 +264,7 @@
 	if(!hatch_closed)
 		hatch_closed = TRUE
 	hatch_locked = TRUE
-	hardpoints_locked = TRUE
+	if(does_hardpoint_lock)
+		hardpoints_locked = TRUE
 	force_locked = TRUE
+	update_icon()

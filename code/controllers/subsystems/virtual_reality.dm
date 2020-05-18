@@ -57,14 +57,20 @@
 		ckey = vr_mob.ckey
 		vr_mob.ckey = null
 		vr_mob.old_mob = null
-		vr_mob.languages = list(LANGUAGE_TCB)
+		if(istype(vr_mob, /mob/living/silicon))
+			var/mob/living/silicon/S = vr_mob
+			S.speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
+		vr_mob.languages = list(all_languages[LANGUAGE_TCB])
 		vr_mob = null
 		to_chat(src, span("notice", "System exited safely, we hope you enjoyed your stay."))
 	if(old_mob)
 		old_mob.ckey = ckey
 		ckey = null
 		old_mob.vr_mob = null
-		languages = list(LANGUAGE_TCB)
+		if(istype(src, /mob/living/silicon)) // don't kill me skull remaking this proc would be agony
+			var/mob/living/silicon/S = src
+			S.speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
+		languages = list(all_languages[LANGUAGE_TCB])
 		to_chat(old_mob, span("notice", "System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -80,7 +86,22 @@
 	M.ckey = "@[new_ckey]"
 	target.verbs += /mob/living/proc/body_return
 
-	target.languages = M.languages
+	if(istype(target, /mob/living/simple_animal/spiderbot))
+		target.real_name = "Remote-Bot ([M.real_name])"
+		target.name = target.real_name
+	if(istype(M, /mob/living/silicon))
+		var/mob/living/silicon/MS = target
+		if(istype(target, /mob/living/silicon))
+			var/mob/living/silicon/TS = target
+			TS.speech_synthesizer_langs = MS.languages
+		else
+			target.languages = MS.languages
+	else
+		if(istype(target, /mob/living/silicon))
+			var/mob/living/silicon/TS = target
+			TS.speech_synthesizer_langs = M.languages
+		else
+			target.languages = M.languages
 
 	to_chat(target, span("notice", "Connection established, system suite active and calibrated."))
 	to_chat(target, span("warning", "To exit this mode, use the \"Return to Body\" verb in the IC tab."))
