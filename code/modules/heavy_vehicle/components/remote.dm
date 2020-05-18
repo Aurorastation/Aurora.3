@@ -12,7 +12,8 @@
 	. = ..()
 	to_chat(user, FONT_SMALL(SPAN_WARNING("This exosuit upgrade cannot be undone if applied!")))
 	if(Adjacent(user))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("Applying \the [src] <b>will [hardpoint_lock ? "" : "not"]</b> lock the hardpoints[hardpoint_lock ? ", preventing further modification" : ""].")))
+		var/message = "Applying \the [src] <b>will [hardpoint_lock ? "" : "not"]</b> lock the hardpoints[hardpoint_lock ? ", preventing further modification" : ""]."
+		to_chat(user, FONT_SMALL(SPAN_NOTICE(message)))
 
 /obj/item/remote_mecha/penal
 	name = "penal exosuit remote upgrade"
