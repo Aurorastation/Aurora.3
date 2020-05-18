@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Ported inventory slot and zone select hover overlays from Polaris."
