@@ -987,7 +987,11 @@
 	return ""
 
 /mob/proc/flash_weak_pain()
-	flick("weak_pain",pain)
+	flick("weak_pain", pain)
+
+/mob/living/carbon/human/flash_weak_pain()
+	if(can_feel_pain())
+		flick("weak_pain", pain)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
