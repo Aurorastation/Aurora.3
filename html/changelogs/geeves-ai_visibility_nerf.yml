@@ -1,0 +1,5 @@
+author: Geeves
+
+delete-after: True
+changes: 
+  - rscadd: "The agent ID card now makes you invisible to the AI when electronic warfare is enabled."

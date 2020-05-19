@@ -2,7 +2,8 @@
 	name = "agent card"
 	assignment = "Agent"
 	origin_tech = list(TECH_ILLEGAL = 3)
-	var/electronic_warfare = 1
+	var/electronic_warfare = FALSE
+	var/image/obfuscation_image
 	var/mob/registered_user = null
 
 /obj/item/card/id/syndicate/New(mob/user as mob)
@@ -79,6 +80,42 @@
 		return STATUS_CLOSE
 	return ..()
 
+
+/obj/item/card/id/syndicate/throw_at()
+	..()
+	electronic_warfare = FALSE
+	check_obfuscation()
+
+/obj/item/card/id/syndicate/dropped()
+	..()
+	electronic_warfare = FALSE
+	check_obfuscation()
+
+/obj/item/card/id/syndicate/on_give()
+	check_obfuscation()
+
+/obj/item/card/id/syndicate/update_icon()
+	cut_overlays()
+	if(electronic_warfare)
+		var/mutable_appearance/electro_overlay = mutable_appearance(icon, "electronic_warfare")
+		add_overlay(electro_overlay)
+
+/obj/item/card/id/syndicate/proc/check_obfuscation()
+	if(electronic_warfare)
+		if(ismob(loc))
+			obfuscation_image = image("loc" = loc)
+			obfuscation_image.override = TRUE
+			SSai_obfuscation.add_obfuscation_image(obfuscation_image)
+		else if(obfuscation_image)
+			electronic_warfare = FALSE
+			SSai_obfuscation.remove_obfuscation_image(obfuscation_image)
+			QDEL_NULL(obfuscation_image)
+	else
+		if(obfuscation_image)
+			SSai_obfuscation.remove_obfuscation_image(obfuscation_image)
+		QDEL_NULL(obfuscation_image)
+	update_icon()
+
 /obj/item/card/id/syndicate/Topic(href, href_list, var/datum/topic_state/state)
 	if(..())
 		return 1
@@ -86,7 +123,8 @@
 	var/user = usr
 	if(href_list["electronic_warfare"])
 		electronic_warfare = text2num(href_list["electronic_warfare"])
-		to_chat(user, "<span class='notice'>Electronic warfare [electronic_warfare ? "enabled" : "disabled"].</span>")
+		to_chat(user, SPAN_NOTICE("Electronic warfare [electronic_warfare ? "enabled" : "disabled"]."))
+		check_obfuscation()
 	else if(href_list["set"])
 		switch(href_list["set"])
 			if("Age")
