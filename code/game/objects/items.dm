@@ -432,7 +432,7 @@ var/list/global/slot_flags_enumeration = list(
 	return 1
 
 // override for give shenanigans
-/obj/item/proc/on_give()
+/obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
 	return
 
 /*
