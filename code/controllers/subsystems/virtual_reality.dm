@@ -57,7 +57,7 @@
 		ckey = vr_mob.ckey
 		vr_mob.ckey = null
 		vr_mob.old_mob = null
-		if(istype(vr_mob, /mob/living/silicon))
+		if(issilicon(vr_mob))
 			var/mob/living/silicon/S = vr_mob
 			S.speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
 		vr_mob.languages = list(all_languages[LANGUAGE_TCB])
@@ -67,10 +67,35 @@
 		old_mob.ckey = ckey
 		ckey = null
 		old_mob.vr_mob = null
-		if(istype(src, /mob/living/silicon)) // don't kill me skull remaking this proc would be agony
-			var/mob/living/silicon/S = src
-			S.speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
 		languages = list(all_languages[LANGUAGE_TCB])
+		to_chat(old_mob, span("notice", "System exited safely, we hope you enjoyed your stay."))
+		old_mob = null
+	else
+		to_chat(src, span("danger", "Interface error, you cannot exit the system at this time."))
+		to_chat(src, span("warning", "Ahelp to get back into your body, a bug has occurred."))
+
+/mob/living/silicon/body_return()
+	set name = "Return to Body"
+	set category = "IC"
+
+	if(!vr_mob && !old_mob)
+		return
+
+	if(vr_mob)
+		ckey = vr_mob.ckey
+		vr_mob.ckey = null
+		vr_mob.old_mob = null
+		if(issilicon(vr_mob))
+			var/mob/living/silicon/S = vr_mob
+			S.speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
+		vr_mob.languages = list(all_languages[LANGUAGE_TCB])
+		vr_mob = null
+		to_chat(src, span("notice", "System exited safely, we hope you enjoyed your stay."))
+	if(old_mob)
+		old_mob.ckey = ckey
+		ckey = null
+		old_mob.vr_mob = null
+		speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
 		to_chat(old_mob, span("notice", "System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
@@ -89,15 +114,15 @@
 	if(istype(target, /mob/living/simple_animal/spiderbot))
 		target.real_name = "Remote-Bot ([M.real_name])"
 		target.name = target.real_name
-	if(istype(M, /mob/living/silicon))
+	if(issilicon(M))
 		var/mob/living/silicon/MS = target
-		if(istype(target, /mob/living/silicon))
+		if(issilicon(target))
 			var/mob/living/silicon/TS = target
 			TS.speech_synthesizer_langs = MS.languages
 		else
 			target.languages = MS.languages
 	else
-		if(istype(target, /mob/living/silicon))
+		if(issilicon(target))
 			var/mob/living/silicon/TS = target
 			TS.speech_synthesizer_langs = M.languages
 		else
