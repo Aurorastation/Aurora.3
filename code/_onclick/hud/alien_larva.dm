@@ -16,7 +16,7 @@
 	move_intent = using
 
 	mymob.healths = new /obj/screen()
-	mymob.healths.icon = 'icons/mob/screen/alien.dmi'
+	mymob.healths.icon = 'icons/mob/screen/gestalt.dmi'
 	mymob.healths.icon_state = "health0"
 	mymob.healths.name = "health"
 	mymob.healths.screen_loc = ui_alien_health
@@ -38,7 +38,7 @@
 
 	mymob.fire = new /obj/screen()
 	mymob.fire.icon = 'icons/mob/screen/alien.dmi'
-	mymob.fire.icon_state = "fire0"
+	mymob.fire.icon_state = "blank"
 	mymob.fire.name = "fire"
 	mymob.fire.screen_loc = ui_fire
 
