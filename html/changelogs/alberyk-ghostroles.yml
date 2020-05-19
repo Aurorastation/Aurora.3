@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed some ghost roles not being properly added at round start."
