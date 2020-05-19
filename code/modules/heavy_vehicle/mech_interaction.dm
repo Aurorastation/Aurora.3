@@ -359,6 +359,7 @@
 					user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] into \the [src]."), SPAN_NOTICE("You install the [thing] into \the [src]."))
 					remote_network = RM.mech_remote_network
 					does_hardpoint_lock = RM.hardpoint_lock
+					dummy_type = RM.dummy_path
 					become_remote()
 					qdel(thing)
 			else if(thing.ismultitool())
