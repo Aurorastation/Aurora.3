@@ -1,5 +1,9 @@
 #define DEBUG
 
+// Flags
+#define ALL (~0) //For convenience.
+#define NONE 0
+
 // Turf-only flags.
 #define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
 #define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
