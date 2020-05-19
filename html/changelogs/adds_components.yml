@@ -1,6 +1,0 @@
-author: mikomyazaki, MattAtlas
-
-delete-after: True
-
-changes: 
-  - rscadd: "Ports components system from tg, no player-facing changes."
