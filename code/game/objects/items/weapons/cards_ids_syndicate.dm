@@ -2,6 +2,7 @@
 	name = "agent card"
 	assignment = "Agent"
 	origin_tech = list(TECH_ILLEGAL = 3)
+	var/charge = 10000
 	var/electronic_warfare = FALSE
 	var/image/obfuscation_image
 	var/mob/registered_user = null
@@ -9,10 +10,29 @@
 /obj/item/card/id/syndicate/New(mob/user as mob)
 	..()
 	access = syndicate_access.Copy()
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/card/id/syndicate/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
 	unset_registered_user(registered_user)
 	return ..()
+
+/obj/item/card/id/syndicate/examine(mob/user)
+	..()
+	if(Adjacent(user))
+		if(user == registered_user)
+			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
+
+/obj/item/card/id/syndicate/process()
+	if(electronic_warfare)
+		charge = max(0, charge - 50)
+		if(charge <= 0)
+			if(ismob(loc))
+				to_chat(loc, SPAN_WARNING("\The [src] runs out of power and deactivates."))
+				electronic_warfare = FALSE
+				check_obfuscation()
+	else if(charge != initial(charge))
+		charge = min(initial(charge), charge + 100)
 
 /obj/item/card/id/syndicate/prevent_tracking()
 	return electronic_warfare
