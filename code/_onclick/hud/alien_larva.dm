@@ -16,7 +16,7 @@
 	move_intent = using
 
 	mymob.healths = new /obj/screen()
-	mymob.healths.icon = 'icons/mob/screen/gestalt.dmi'
+	mymob.healths.icon = 'icons/mob/screen/diona_health.dmi'
 	mymob.healths.icon_state = "health0"
 	mymob.healths.name = "health"
 	mymob.healths.screen_loc = ui_alien_health
