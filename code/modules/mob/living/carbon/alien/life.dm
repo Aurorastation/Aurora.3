@@ -109,20 +109,22 @@
 	if (healths)
 		if (stat != 2)
 			switch(health - getHalLoss())//Halloss should be factored in here for displaying
-				if(100 to INFINITY)
+				if(36 to INFINITY)
 					healths.icon_state = "health0"
-				if(80 to 100)
+				if(30 to 36)
 					healths.icon_state = "health1"
-				if(60 to 80)
+				if(24 to 30)
 					healths.icon_state = "health2"
-				if(40 to 60)
+				if(18 to 24)
 					healths.icon_state = "health3"
-				if(20 to 40)
+				if(12 to 18)
 					healths.icon_state = "health4"
-				if(0 to 20)
+				if(6 to 12)
 					healths.icon_state = "health5"
-				else
+				if(0 to 6)
 					healths.icon_state = "health6"
+				else
+					healths.icon_state = "health7"
 		else
 			healths.icon_state = "health7"
 
