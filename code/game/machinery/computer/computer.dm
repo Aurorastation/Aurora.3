@@ -8,7 +8,7 @@
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = "keyboard"
-	
+
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
 
@@ -66,7 +66,7 @@
 	icon_state = initial(icon_state)
 
 	if(stat & BROKEN)
-		icon_state = "computer-broken"
+		icon_state = "[initial(icon_state)]-broken"
 		if (overlay_layer != layer)
 			add_overlay(image(icon, "broken", overlay_layer))
 		else

@@ -39,24 +39,15 @@ var/global/list/frozen_crew = list()
 /obj/machinery/computer/cryopod/robot
 	name = "robotic storage console"
 	desc = "An interface between crew and the robotic storage systems"
-	icon = 'icons/obj/robot_storage.dmi'
 	icon_state = "console"
 	circuit = /obj/item/circuitboard/robotstoragecontrol
+
+	light_color = LIGHT_COLOR_PURPLE
+	icon_screen = "robot"
 
 	storage_type = "Cyborgs"
 	storage_name = "Robotic Storage Control"
 	allow_items = FALSE
-
-/obj/machinery/computer/cryopod/robot/update_icon()
-	cut_overlays()
-	if((stat & BROKEN) || (stat & NOPOWER))
-		return
-	else
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "[initial(icon_state)]-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
-		set_light(1.4, 1, COLOR_PURPLE)
-		var/mutable_appearance/scanline_overlay = mutable_appearance(icon, "[initial(icon_state)]-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(scanline_overlay)
 
 /obj/machinery/computer/cryopod/attack_ai()
 	src.attack_hand()
