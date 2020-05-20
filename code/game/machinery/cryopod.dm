@@ -43,7 +43,7 @@ var/global/list/frozen_crew = list()
 	circuit = /obj/item/circuitboard/robotstoragecontrol
 
 	light_color = LIGHT_COLOR_PURPLE
-	icon_screen = "robot"
+	icon_screen = "robot_storage"
 
 	storage_type = "Cyborgs"
 	storage_name = "Robotic Storage Control"
