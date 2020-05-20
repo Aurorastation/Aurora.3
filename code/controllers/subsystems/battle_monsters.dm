@@ -243,8 +243,6 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		else
 			return GetSpecies(card_defense_type," mixed with ")
 
-	return "unknown"
-
 /datum/controller/subsystem/battle_monsters/proc/GetSpecies(card_defense_type, var/and_text = " and ")
 
 	//This list looks odd to prevent runtime errors related to out of bounds indexes

@@ -7,8 +7,8 @@
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		slot_l_hand_str = 'icons/mob/items/lefthand_backpacks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_backpacks.dmi'
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_backpacks.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_backpacks.dmi'
 		)
 	icon_state = "backpack"
 	item_state = null
@@ -27,7 +27,7 @@
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 
-/obj/item/storage/backpack/mob_can_equip(M as mob, slot)
+/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())

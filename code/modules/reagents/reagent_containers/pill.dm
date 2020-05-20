@@ -5,6 +5,10 @@
 	name = "pill"
 	desc = "a pill."
 	icon = 'icons/obj/chemical.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		)
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
@@ -261,7 +265,6 @@
 		. = ..()
 		reagents.add_reagent("nutriment", 20)
 		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
-		//Would be absolutely retarded to grind the biogenerator for juices.
 
 /obj/item/reagent_containers/pill/rmt
 	name = "RMT pill"

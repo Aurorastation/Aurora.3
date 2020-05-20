@@ -19,7 +19,6 @@
 	return ..()
 
 /mob/living/silicon/proc/init_subsystems()
-	computer = new/obj/item/modular_computer/silicon/preset(src)
 	alarm_monitor 	= new(src)
 	law_manager 	= new(src)
 	rcon 			= new(src)
@@ -33,14 +32,23 @@
 
 /mob/living/silicon/ai/init_subsystems()
 	..()
+	computer = new/obj/item/modular_computer/silicon/ai(src)
 	ntnet_monitor = new(src)
+
+/mob/living/silicon/pai/init_subsystems()
+	..()
+	computer = new/obj/item/modular_computer/silicon/pai(src)
+
+/mob/living/silicon/robot/init_subsystems()
+	..()
+	computer = new/obj/item/modular_computer/silicon/robot(src)
 
 /****************
 *	Computer	*
 *****************/
 /mob/living/silicon/proc/computer_interact()
 	set name = "Open Computer Interface"
-	set category = "Subystems"
+	set category = "Subsystems"
 
 	computer.attack_self(src)
 
@@ -49,7 +57,7 @@
 ********************/
 /mob/living/silicon/proc/subsystem_alarm_monitor()
 	set name = "Alarm Monitor"
-	set category = "Subystems"
+	set category = "Subsystems"
 
 	alarm_monitor.ui_interact(usr, state = self_state)
 
@@ -58,7 +66,7 @@
 ****************/
 /mob/living/silicon/proc/subsystem_law_manager()
 	set name = "Law Manager"
-	set category = "Subystems"
+	set category = "Subsystems"
 
 	law_manager.ui_interact(usr, state = conscious_state)
 
@@ -67,6 +75,6 @@
 ********************/
 /mob/living/silicon/ai/proc/subsystem_ntnet_monitor()
 	set name = "NTNet Monitoring"
-	set category = "Subystems"
+	set category = "Subsystems"
 
 	ntnet_monitor.ui_interact(usr, state = conscious_state)

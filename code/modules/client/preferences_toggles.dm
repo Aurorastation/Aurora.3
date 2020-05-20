@@ -203,6 +203,15 @@
 	else
 		to_chat(src, "You will no longer see progress bars on delayed actions.")
 
+/client/verb/toggle_floating_messages()
+	set name = "Toggle Floating Messages"
+	set desc = "Toggles messages appearing above mobs when they speak."
+	set category = "Preferences"
+
+	prefs.toggles_secondary ^= FLOATING_MESSAGES
+	prefs.save_preferences()
+	to_chat(src, SPAN_NOTICE("Floating messages are now [prefs.toggles_secondary & FLOATING_MESSAGES ? "enabled" : "disabled"]."))
+
 /client/verb/toggle_static_spess()
 	set name = "Toggle Parallax Movement"
 	set category = "Preferences"

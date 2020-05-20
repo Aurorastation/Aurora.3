@@ -47,7 +47,7 @@ export default {
         return !data.tags.indexOf(this.current_tag) || this.current_tag == 'All'
       } else {
         //if we have a spawnpoint filter set, filter by spawnpoints
-        if(!data.hasOwnProperty('spawnpoints'))
+        if(!Object.prototype.hasOwnProperty.apply(data, 'spawnpoints'))
           return false
         return !data.spawnpoints.indexOf(this.spawnpoint)
       }

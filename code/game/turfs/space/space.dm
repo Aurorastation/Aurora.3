@@ -5,6 +5,7 @@
 	icon_state = "0"
 	dynamic_lighting = 0
 	footstep_sound = null //Override to make sure because yeah
+	tracks_footprint = FALSE
 
 	plane = PLANE_SPACE_BACKGROUND
 
@@ -14,14 +15,17 @@
 	is_hole = TRUE
 
 	permit_ao = FALSE
+	var/use_space_appearance = TRUE
+	var/use_starlight = TRUE
 
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
 	dynamic_lighting = 1
 
 // Copypaste of parent for performance.
 /turf/space/Initialize()
-	appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
-	if (config.starlight)
+	if(use_space_appearance)
+		appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
+	if(config.starlight && use_starlight)
 		update_starlight()
 
 	if (initialized)

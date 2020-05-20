@@ -443,12 +443,12 @@
 				connected.system_error("Unexpected user interface error.")
 				return
 			else
-				H.apply_damage(25, BRUTE, sharp = TRUE, edge = TRUE)
+				H.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
 				connected.system_error("Unexpected user interface error.")
 				return
 		else
 			var/mob/living/M = user
-			M.apply_damage(25, BRUTE, sharp = TRUE, edge = TRUE)
+			M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
 
 	if(default_deconstruction_screwdriver(user, W))
 		return

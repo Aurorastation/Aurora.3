@@ -29,6 +29,10 @@
 	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
+		)
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
 
@@ -58,7 +62,7 @@
 	..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(M as mob, slot)
+/obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")

@@ -317,7 +317,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] escapes from [H]'s hand, hitting their face and shattering into pieces!</span>")
-			H.apply_damage(35, BRUTE, BP_HEAD, 0, sharp=0, edge=0)
+			H.apply_damage(35, BRUTE, BP_HEAD, 0)
 			H.adjustBrainLoss(50, 55)
 			H.sdisabilities += CLUMSY
 			H.drop_item()

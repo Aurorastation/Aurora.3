@@ -5,17 +5,16 @@
 	desc = "A vending machine with microfabricator capable of dispensing various NT-branded computers."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "robotics"
-	layer = 2.9
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 
 	// The actual laptop/tablet
-	var/obj/item/modular_computer/laptop/fabricated_laptop = null
-	var/obj/item/modular_computer/tablet/fabricated_tablet = null
+	var/obj/item/modular_computer/laptop/fabricated_laptop
+	var/obj/item/modular_computer/tablet/fabricated_tablet
 
 	// Utility vars
-	var/state = 0 							// 0: Select device type, 1: Select loadout, 2: Payment, 3: Thankyou screen
-	var/devtype = 0 						// 0: None(unselected), 1: Laptop, 2: Tablet
+	var/state = 0							// 0: Select device type, 1: Select loadout, 2: Payment, 3: Thankyou screen
+	var/devtype = 0							// 0: None(unselected), 1: Laptop, 2: Tablet
 	var/total_price = 0						// Price of currently vended device.
 
 	// Device loadout
@@ -358,6 +357,3 @@
 	else // just incase
 		ping("You cannot pay with this!")
 		return 0
-
-
-

@@ -8,7 +8,7 @@
 		var/orig_message = message
 		message = pick(SShallucinations.hallucinated_phrases)
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
-	..()
+	return ..()
 
 /mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language, var/part_a, var/part_b, var/mob/speaker, var/hard_to_hear = 0, var/vname ="")
 	if(hallucination >= 60 && prob(1))
@@ -23,11 +23,12 @@
 
 	//Good/bad chems affecting duration
 	if(chem_effects[CE_HALLUCINATE] < 0)
-		hallucination -= abs(chem_effects[CE_HALLUCINATE])
+		hallucination = max(0, hallucination - abs(chem_effects[CE_HALLUCINATE]))
 	if(chem_effects[CE_HALLUCINATE] > 0 && prob(chem_effects[CE_HALLUCINATE]*20))
 		hallucination += chem_effects[CE_HALLUCINATE]
 
-	if(!hallucination)  //We're done
+	if(hallucination <= 0)  //We're done
+		hallucination = 0
 		return
 	if(!client || stat || world.time < next_hallucination)
 		return

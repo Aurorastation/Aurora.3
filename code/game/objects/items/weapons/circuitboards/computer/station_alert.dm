@@ -5,7 +5,6 @@
 
 /obj/item/circuitboard/stationalert/New()
 	alarm_handlers = new()
-	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/circuitboards/stationalert(src))
 	..()
 
 /obj/item/circuitboard/stationalert/construct(var/obj/machinery/computer/station_alert/SA)

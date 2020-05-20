@@ -1,6 +1,6 @@
 //admin verb groups - They can overlap if you so wish. Only one of each verb will exist in the verbs list regardless
 var/list/admin_verbs_default = list(
-	/datum/admins/proc/show_player_panel,	//shows an interface for individual players, with various links (links require additional flags,
+	/datum/admins/proc/show_player_panel,	//shows an interface for individual players, with various links (links require additional flags),
 	/client/proc/player_panel_modern,
 	/client/proc/toggleadminhelpsound,	/*toggles whether we hear a sound when adminhelps/PMs are used*/
 	/client/proc/deadmin_self,			/*destroys our own admin datum so we can play as a regular player*/
@@ -41,6 +41,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/admin_call_shuttle,	//allows us to call the emergency shuttle,
 	/client/proc/admin_cancel_shuttle,	//allows us to cancel the emergency shuttle, sending it back to centcomm,
 	/client/proc/cmd_admin_direct_narrate,	//send text directly to a player with no padding. Useful for narratives and fluff-text,
+	/client/proc/cmd_admin_local_narrate,	//sends text to all mobs within 7 tiles of src.mob
 	/client/proc/cmd_admin_world_narrate,	//sends text to all players with no padding,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/check_ai_laws,			//shows AI and borg laws,
@@ -78,6 +79,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
 	/client/proc/allow_character_respawn,    // Allows a ghost to respawn ,
+	/client/proc/allow_stationbound_reset,
 	/client/proc/event_manager_panel,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
@@ -263,6 +265,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/admin_call_shuttle,
 	/client/proc/admin_cancel_shuttle,
 	/client/proc/cmd_admin_direct_narrate,
+	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_world_narrate,
 	/client/proc/play_local_sound,
 	/client/proc/play_sound,
@@ -629,7 +632,7 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/cure_traumas(mob/T as mob in mob_list)
 	set category = "Fun"
 	set name = "Cure Traumas"
-	set desc = "Cure the retardations of a given mob."
+	set desc = "Cure the traumas of a given mob."
 
 	if(!istype(T,/mob/living/carbon/human))
 		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
@@ -644,7 +647,7 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/add_traumas(mob/T as mob in mob_list)
 	set category = "Fun"
 	set name = "Add Traumas"
-	set desc = "Induces retardations on a given mob."
+	set desc = "Induces traumas on a given mob."
 
 	if(!istype(T,/mob/living/carbon/human))
 		to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
@@ -796,10 +799,10 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/toggle_aooc()
 	set name = "Toggle AOOC"
 	set category = "Admin"
-	
+
 	if(!check_rights(R_ADMIN|R_MOD|R_CCIAA))
 		return
-		
+
 	if(holder)
 		if (toggle_aooc_holder_check() == FALSE)
 			to_chat(src, "<span class='notice'>AOOC is now muted.</span>")
@@ -807,7 +810,7 @@ var/list/admin_verbs_cciaa = list(
 		else
 			to_chat(src, "<span class='notice'>AOOC is now unmuted.</span>")
 			verbs |= /client/proc/aooc
-			
+
 	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_log_hrefs()

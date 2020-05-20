@@ -13,8 +13,8 @@ BLIND     // can't see anything
 	name = "glasses"
 	icon = 'icons/obj/clothing/glasses.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_glasses.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_glasses.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
 		)
 	w_class = 2.0
 	slot_flags = SLOT_EYES
@@ -326,12 +326,17 @@ BLIND     // can't see anything
 	item_state = "3d"
 	body_parts_covered = 0
 
-/obj/item/clothing/glasses/gglasses
-	name = "green glasses"
-	desc = "Forest green glasses, like the kind you'd wear when hatching a nasty scheme."
-	icon_state = "gglasses"
-	item_state = "gglasses"
-	body_parts_covered = 0
+/obj/item/clothing/glasses/regular/jamjar
+	name = "jamjar glasses"
+	desc = "Also known as Virginity Protectors."
+	icon_state = "jamjar_glasses"
+	item_state = "jamjar_glasses"
+
+/obj/item/clothing/glasses/regular/circle
+	name = "circle glasses"
+	desc = "Why would you wear something so controversial yet so brave?"
+	icon_state = "circle_glasses"
+	item_state = "circle_glasses"
 
 /obj/item/clothing/glasses/sunglasses
 	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."

@@ -10,6 +10,21 @@
 	flags = NOBLUDGEON
 	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 4)
 
+/obj/item/stack/telecrystal/five/Initialize()
+	. = ..()
+	amount = 5
+	update_icon()
+
+/obj/item/stack/telecrystal/twentyfive/Initialize()
+	. = ..()
+	amount = 25
+	update_icon()
+
+/obj/item/stack/telecrystal/fifty/Initialize()
+	. = ..()
+	amount = 50
+	update_icon()
+
 /obj/item/stack/telecrystal/afterattack(var/obj/item/I as obj, mob/user as mob, proximity)
 	if(!proximity)
 		return

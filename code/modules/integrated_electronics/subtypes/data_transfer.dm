@@ -143,6 +143,7 @@
 	var/data = get_pin_data(IC_INPUT, 1)
 	if (data != null)
 		var/chan = "[WP_ELECTRONICS][get_pin_data(IC_INPUT, 2) || "default"]"
+		ntsl2.receive_subspace(chan, data)
 		for (var/thing in GET_LISTENERS(chan))
 			var/listener/L = thing
 			var/obj/item/integrated_circuit/transfer/wireless/W = L.target

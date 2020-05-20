@@ -17,12 +17,14 @@ var/DBConnection/dbcon_ut
 	var/faults = 0
 	var/valid_columns = list()
 
+	// this is the worst unit test in the history of unit tests - geeves
 	var/list/table_names = list(
 		"ss13_characters",
 		"ss13_characters_flavour",
 		"ss13_player",
 		"ss13_player_preferences",
-		"ss13_player_pai"
+		"ss13_player_pai",
+		"ss13_characters_ipc_tags"
 	)
 	for (var/T in table_names)
 		var/DBQuery/get_cs = dbcon_ut.NewQuery("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` = :table:")

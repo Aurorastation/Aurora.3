@@ -741,6 +741,23 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
+"abN" = (
+/obj/structure/window/reinforced{
+	icon_state = "rwindow";
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/chem_master{
+	dir = 8;
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/corner_wide/mauve/full{
+	icon_state = "wide_corner_full";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/xenoflora)
 "abO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
@@ -11110,7 +11127,6 @@
 	pixel_y = -5
 	},
 /obj/machinery/turretid/stun{
-	control_area = null;
 	name = "AI Upload turret control";
 	pixel_x = 24;
 	pixel_y = 6
@@ -38343,22 +38359,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/test_range)
-"xSP" = (
-/obj/structure/window/reinforced{
-	icon_state = "rwindow";
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/chem_master{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/effect/floor_decal/corner_wide/mauve/full{
-	icon_state = "wide_corner_full";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology/xenoflora)
 "xUc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
@@ -56712,7 +56712,7 @@ aba
 kJR
 aAo
 rKS
-xSP
+abN
 pdV
 waa
 bEO

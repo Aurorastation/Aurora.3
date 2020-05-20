@@ -15,7 +15,12 @@
 	s_tone = null
 	skin_color = null
 	hair_color = null
-	if(status & ORGAN_ROBOT && !(isipc(human)) && !(isautakh(human)))
+	var/limb_exception = FALSE
+	if(robotize_type)
+		var/datum/robolimb/R = all_robolimbs[robotize_type]
+		if(R.paintable)
+			limb_exception = TRUE
+	if(status & ORGAN_ROBOT && !(isipc(human)) && !limb_exception)
 		return
 	if(species && human.species && species.name != human.species.name)
 		return
@@ -85,6 +90,8 @@
 
 	apply_markings()
 
+	get_internal_organs_overlay()
+
 	add_overlay(owner.generate_hair_icon())
 
 	compile_overlays()
@@ -113,6 +120,19 @@
 			add_overlay(finished_icon) //So when it's not on your body, it has icons
 			mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
 
+/obj/item/organ/external/proc/get_internal_organs_overlay()
+	for(var/obj/item/organ/internal/O in internal_organs)
+		if(O.on_mob_icon)
+			var/cache_key = "[O.on_mob_icon]-[O.icon_state]"
+
+			var/icon/organ_icon = SSicon_cache.internal_organ_cache[cache_key]
+			if (!organ_icon)
+				organ_icon = new /icon(O.on_mob_icon, O.icon_state)
+				SSicon_cache.internal_organ_cache[cache_key] = organ_icon
+
+			add_overlay(organ_icon)
+			mob_icon.Blend(organ_icon, ICON_OVERLAY)
+
 /obj/item/organ/external/var/icon_cache_key
 /obj/item/organ/external/proc/get_icon(var/skeletal)
 
@@ -125,6 +145,7 @@
 		if(painted && skin_color)
 			mob_icon.Blend(skin_color, ICON_ADD)
 		apply_markings(restrict_to_robotic = TRUE)
+		get_internal_organs_overlay()
 	else
 		if(!dna)
 			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
@@ -162,6 +183,7 @@
 
 
 			apply_markings()
+			get_internal_organs_overlay()
 
 			if(body_hair)
 				var/list/limb_icon_cache = SSicon_cache.limb_icons_cache
@@ -211,6 +233,10 @@
 
 	for (var/marking in cached_markings)
 		keyparts += "[marking][cached_markings[marking]["color"]]"
+
+	for(var/obj/item/organ/internal/O in internal_organs)
+		if(O.on_mob_icon)
+			keyparts += "[O.on_mob_icon]-[O.icon_state]"
 
 	. = keyparts.Join("_")
 

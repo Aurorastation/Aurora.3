@@ -185,106 +185,74 @@
 	if(owner)
 		to_chat(owner, "<span class='notice'>\The [singular_name]'s retinal overlays clicks and shifts!</span>")
 
-/obj/item/organ/internal/adrenal
+/obj/item/organ/internal/augment/adrenal
 	name = "adrenal management system"
 	icon_state = "ams"
 	organ_tag = "adrenal"
 	parent_organ = BP_CHEST
-	robotic = 2
+	action_button_icon = "ams"
 	action_button_name = "Activate Adrenal Management System"
+	cooldown = 300
+	activable = TRUE
 
-/obj/item/organ/internal/adrenal/Initialize()
-	robotize()
+/obj/item/organ/internal/augment/adrenal/attack_self(var/mob/user)
 	. = ..()
 
-/obj/item/organ/internal/adrenal/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "ams"
-		if(action.button)
-			action.button.UpdateIcon()
+	if(!.)
+		return FALSE
 
-/obj/item/organ/internal/adrenal/attack_self(var/mob/user)
-	. = ..()
+	to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-	if(.)
+	if(owner.reagents)
 
-		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
-			return
+		owner.vessel.remove_reagent("blood",rand(15,30))
+		owner.reagents.add_reagent("paracetamol", 5)
+		owner.reagents.add_reagent("norepinephrine", 5)
 
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
-			return
+/obj/item/organ/internal/augment/adrenal/do_broken_act()
+	if(owner.reagents)
+		owner.reagents.add_reagent("toxin", 25)
+	return TRUE
 
-		owner.last_special = world.time + 500
-		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
+/obj/item/organ/internal/augment/adrenal/do_bruised_act()
+	if(owner.reagents)
+		owner.reagents.add_reagent("toxin", 10)
+	return FALSE
 
-		if(owner.reagents)
 
-			if(is_bruised())
-				owner.reagents.add_reagent("toxin", 10)
-
-			if(is_broken())
-				owner.reagents.add_reagent("toxin", 25)
-				return
-
-			owner.vessel.remove_reagent("blood",rand(15,30))
-			owner.reagents.add_reagent("paracetamol", 5)
-			owner.reagents.add_reagent("norepinephrine", 5)
-
-/obj/item/organ/internal/haemodynamic
+/obj/item/organ/internal/augment/haemodynamic
 	name = "haemodynamic control system"
 	icon_state = "stabilizer"
 	organ_tag = "haemodynamic"
 	parent_organ = BP_CHEST
-	robotic = 1
 	action_button_name = "Activate Haemodynamic Control System"
+	action_button_icon = "stabilizer"
+	cooldown = 300
+	activable = TRUE
 
-/obj/item/organ/internal/haemodynamic/Initialize()
-	mechassist()
+/obj/item/organ/internal/augment/haemodynamic/attack_self(var/mob/user)
 	. = ..()
 
-/obj/item/organ/internal/haemodynamic/Initialize()
-	robotize()
-	. = ..()
+	if(!.)
+		return FALSE
 
-/obj/item/organ/internal/haemodynamic/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "stabilizer"
-		if(action.button)
-			action.button.UpdateIcon()
+	owner.adjustNutritionLoss(300)
+	owner.adjustHydrationLoss(300)
 
-/obj/item/organ/internal/haemodynamic/attack_self(var/mob/user)
-	. = ..()
+	to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-	if(.)
+	if(owner.reagents)
+		owner.reagents.add_reagent("coagulant", 15)
 
-		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
-			return
+/obj/item/organ/internal/augment/haemodynamic/do_broken_act()
+	if(owner.reagents)
+		owner.vessel.remove_reagent("blood",rand(50,75))
+	return TRUE
 
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
-			return
-
-		owner.last_special = world.time + 500
-
-		owner.adjustNutritionLoss(300)
-		owner.adjustHydrationLoss(300)
-
-		if(is_broken())
-			owner.vessel.remove_reagent("blood",rand(50,75))
-			return
-
-		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
-
-		if(is_bruised())
-			owner.vessel.remove_reagent("blood",rand(25,50))
-
-		if(owner.reagents)
-			owner.reagents.add_reagent("coagulant", 15)
+/obj/item/organ/internal/augment/haemodynamic/do_bruised_act()
+	if(owner.reagents)
+		owner.vessel.remove_reagent("blood",rand(25,50))
+	return FALSE
 
 //limb implants
 
@@ -334,7 +302,14 @@
 	desc = "An integrated combitool module."
 	icon_state = "digitool"
 	item_state = "digitool"
-	
+	w_class = ITEMSIZE_LARGE
+	tools = list(
+		"crowbar",
+		"screwdriver",
+		"wrench",
+		"wirecutters"
+		)
+
 /obj/item/combitool/robotic/throw_at()
 	usr.drop_from_inventory(src)
 
