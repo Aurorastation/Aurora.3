@@ -49,6 +49,13 @@ var/global/list/frozen_crew = list()
 	storage_name = "Robotic Storage Control"
 	allow_items = FALSE
 
+/obj/machinery/computer/cryopod/update_icon()
+	. = ..()
+	if(stat & (NOPOWER|BROKEN))
+		return
+	else
+		holographic_overlay("robot_storage-scanline")
+
 /obj/machinery/computer/cryopod/attack_ai()
 	src.attack_hand()
 
