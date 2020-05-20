@@ -32,8 +32,8 @@
           :max="s.ele || 10">
           {{ eleMsg }}
         </vui-progress>
+        <vui-button :disabled="s.ele == 0" :params="{ command: 'electrify_permanently', activate: 0}">R</vui-button>
         <template v-if="!s.isai">
-          <vui-button :disabled="s.ele == 0" :params="{ command: 'electrify_permanently', activate: 0}">R</vui-button>
           <vui-button :disabled="s.ele > 0" :params="{ command: 'electrify_temporary', activate: 1}">T</vui-button>
           <vui-button :disabled="s.ele == -1" :params="{ command: 'electrify_permanently', activate: 1}">P</vui-button>
         </template>
@@ -42,7 +42,7 @@
         &nbsp;
       </vui-group-item>
       <vui-group-item v-for="(c, k) in commands" :key="k" :label="c.n + ':'">
-        <vui-button :disabled="c.a && s.isai" style="min-width: 6em" :class="{on: s[k]}" :params="{ command: k, activate: c.i ? 1 : 0 }">{{ c.et || 'Enabled' }}</vui-button>
+        <vui-button style="min-width: 6em" :class="{on: s[k]}" :params="{ command: k, activate: c.i ? 1 : 0 }">{{ c.et || 'Enabled' }}</vui-button>
         <vui-button :disabled="c.a && s.isai" style="min-width: 6em" :class="{on: !s[k] && !c.d, danger: !s[k] && c.d}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
       </vui-group-item>
     </vui-group>
