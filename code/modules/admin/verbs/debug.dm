@@ -369,7 +369,7 @@
 		for(var/choice in valid_choices)
 			if(choice in chosen_observers)
 				valid_choices -= choice
-			if(!istype(choice, /mob/abstract/observer))
+			if(!isobserver(choice))
 				valid_choices -= choice
 		valid_choices += "== Finished =="
 		next_observer = input("Choose an observer you want to add to the list.", "Choose Observer") as null|anything in valid_choices
