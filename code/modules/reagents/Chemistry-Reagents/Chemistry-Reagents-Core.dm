@@ -30,30 +30,6 @@
 		color = data["blood_colour"]
 	return
 
-/datum/reagent/blood/get_data() // Just in case you have a reagent that handles data differently.
-	var/t = data.Copy()
-	if(t["virus2"])
-		var/list/v = t["virus2"]
-		t["virus2"] = v.Copy()
-	return t
-
-/datum/reagent/blood/mix_data(var/newdata, var/newamount) // You have a reagent with data, and new reagent with its own data get added, how do you deal with that?
-	if(data["viruses"] || newdata["viruses"])
-		var/list/mix1 = data["viruses"]
-		var/list/mix2 = newdata["viruses"]
-		var/list/to_mix = list() // Stop issues with the list changing during mixing.
-		for(var/datum/disease/advance/AD in mix1)
-			to_mix += AD
-		for(var/datum/disease/advance/AD in mix2)
-			to_mix += AD
-		var/datum/disease/advance/AD = Advance_Mix(to_mix)
-		if(AD)
-			var/list/preserve = list(AD)
-			for(var/D in data["viruses"])
-				if(!istype(D, /datum/disease/advance))
-					preserve += D
-			data["viruses"] = preserve
-
 /datum/reagent/blood/touch_turf(var/turf/simulated/T)
 
 	if(!istype(T) || volume < 3)
@@ -136,20 +112,6 @@
 	color = "#C81040"
 	taste_description = "slime"
 	fallback_specific_heat = 1.2
-
-/datum/reagent/vaccine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(data)
-		for(var/datum/disease/D in M.viruses)
-			if(istype(D, /datum/disease/advance))
-				var/datum/disease/advance/A = D
-				if(A.GetDiseaseID() == data)
-					D.cure()
-			else
-				if(D.type == data)
-					D.cure()
-
-		M.resistances += data
-	return
 
 // pure concentrated antibodies
 /datum/reagent/antibodies

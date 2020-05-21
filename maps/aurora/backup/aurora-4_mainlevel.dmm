@@ -33976,6 +33976,10 @@
 	dir = 8;
 	layer = 2.9
 	},
+/obj/item/circuitboard/pandemic{
+	pixel_x = -3;
+	pixel_y = 3
+	},
 /obj/item/circuitboard/rdconsole,
 /obj/item/circuitboard/rdserver{
 	pixel_x = 3;
@@ -110868,7 +110872,7 @@ aab
 aaa
 nHe
 lQC
-xOq
+gYT
 acV
 gYT
 ael
