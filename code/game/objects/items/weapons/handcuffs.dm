@@ -47,7 +47,7 @@
 		if(fast_place)
 			place_handcuffs(C, user)
 		else
-			if(c.stat == DEAD) // gotta make sure those corpses don't run off...
+			if(C.stat == DEAD) // gotta make sure those corpses don't run off...
 				restrain()
 				return
 			if(C.stat == UNCONSCIOUS)
@@ -61,15 +61,15 @@
 
 /obj/item/handcuffs/proc/restrain(var/mob/living/carbon/C, var/mob/user)
 	if(is_restraining)
-				return
-		is_restraining = TRUE
-		to_chat(user, "<span class='danger'>You begin to restrain [C] with \the [src]. This would be faster if you had a firm grip on them!!</span>")
-		visible_message("<span class='danger'>\The [user] is attempting to restrain \the [C]!</span>")
-		if(!do_mob(user, C, 70))
+		return
+	is_restraining = TRUE
+	to_chat(user, "<span class='danger'>You begin to restrain [C] with \the [src]. This would be faster if you had a firm grip on them!!</span>")
+	visible_message("<span class='danger'>\The [user] is attempting to restrain \the [C]!</span>")
+	if(!do_mob(user, C, 70))
 		is_restraining = FALSE
-			return	
-		is_restraining = FALSE
-		place_handcuffs(C, user)
+		return	
+	is_restraining = FALSE
+	place_handcuffs(C, user)
 
 /obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
