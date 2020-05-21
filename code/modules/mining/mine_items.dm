@@ -899,7 +899,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/warp_core
 	name = "warp extraction beacon signaller"
 	desc = "Emits a signal which Warp-Item recovery devices can lock onto. Activate in hand to create a beacon."
-	description_info = "You can activate this item in-hand to create a static beacon, or you can click on an ore box with it to allow the ore box to be linked to warp packed mining satchels."
+	desc_info = "You can activate this item in-hand to create a static beacon, or you can click on an ore box with it to allow the ore box to be linked to warp packed mining satchels."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "subspace_amplifier"
 	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)

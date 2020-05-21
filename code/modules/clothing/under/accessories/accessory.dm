@@ -583,7 +583,7 @@
 /obj/item/clothing/accessory/poncho/shouldercape
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
-	description_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
+	desc_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = 1

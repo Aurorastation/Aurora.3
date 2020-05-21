@@ -6,7 +6,7 @@
 /obj/structure/cult/pylon
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
-	description_antag = "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult\
+	desc_antag = "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult\
 	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it.\
 	</br>Once the sacrifice is accepted, kill it to complete the process. This will gib its body and make a very visible mess. After this point the pylon is fixed to the floor and cant be moved\
 	</br>The pylon will fire weak beams that are harmless to the cult. In addition it can be upgraded even more by shooting it with a laser, which will give it a limited number of extra-power shots."
