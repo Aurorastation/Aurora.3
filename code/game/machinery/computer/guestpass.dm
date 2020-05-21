@@ -56,6 +56,7 @@
 
 	light_color = LIGHT_COLOR_BLUE
 	icon_screen = "guest"
+	icon_scanline = "altcomputerw-scanline"
 	density = 0
 
 	var/obj/item/card/id/giver
@@ -70,7 +71,6 @@
 /obj/machinery/computer/guestpass/Initialize()
 	. = ..()
 	uid = "[rand(100,999)]-G[rand(10,99)]"
-	update_icon()
 
 /obj/machinery/computer/guestpass/attackby(obj/O, mob/user)
 	if(istype(O, /obj/item/card/id))

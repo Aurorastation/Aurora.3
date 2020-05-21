@@ -14,11 +14,15 @@ var/global/list/frozen_crew = list()
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "cellconsole"
+	icon_state = "altcomputerw"
 	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
 	interact_offline = TRUE
+
+	icon_screen = "cryo"
+	icon_scanline = "altcomputerw-scanline"
+	light_color = LIGHT_COLOR_GREEN
+
 	var/mode = null
 
 	var/list/frozen_items = list()
@@ -27,34 +31,18 @@ var/global/list/frozen_crew = list()
 	var/storage_name = "Cryogenic Oversight Control"
 	var/allow_items = TRUE
 
-/obj/machinery/computer/cryopod/update_icon()
-	. = ..()
-	if((stat & BROKEN) || (stat & NOPOWER))
-		return
-	else
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "[initial(icon_state)]-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
-		set_light(1.4, 1, COLOR_GREEN)
-
 /obj/machinery/computer/cryopod/robot
 	name = "robotic storage console"
 	desc = "An interface between crew and the robotic storage systems"
-	icon_state = "console"
+	icon_state = "altcomputerw"
 	circuit = /obj/item/circuitboard/robotstoragecontrol
 
+	icon_screen = "cryo_robot"
 	light_color = LIGHT_COLOR_PURPLE
-	icon_screen = "robot_storage"
 
 	storage_type = "Cyborgs"
 	storage_name = "Robotic Storage Control"
 	allow_items = FALSE
-
-/obj/machinery/computer/cryopod/update_icon()
-	. = ..()
-	if(stat & (NOPOWER|BROKEN))
-		return
-	else
-		holographic_overlay("robot_storage-scanline")
 
 /obj/machinery/computer/cryopod/attack_ai()
 	src.attack_hand()

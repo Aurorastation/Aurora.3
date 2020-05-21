@@ -13,6 +13,7 @@
 	var/processing = 0
 
 	var/icon_screen = "generic"
+	var/icon_scanline
 	var/light_range_on = 2
 	var/light_power_on = 1
 	var/overlay_layer
@@ -74,6 +75,8 @@
 	else if (icon_screen)
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_screen)
+		if (icon_scanline)
+			add_overlay(icon_scanline)
 		else if (overlay_layer != layer)
 			add_overlay(image(icon, icon_screen, overlay_layer))
 		else
