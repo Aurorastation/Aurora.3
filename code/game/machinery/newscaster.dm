@@ -412,7 +412,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
 
 		send_theme_resources(human_or_robot_user)
-		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=400x600")
+		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
 		onclose(human_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)

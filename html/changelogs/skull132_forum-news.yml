@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - rscadd: "The game now pulls news from the forum threads. Showcasing the latest 10 posts per topic. Enjoy!"
