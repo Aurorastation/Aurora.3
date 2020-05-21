@@ -1,13 +1,14 @@
 // Big stompy robots.
 /mob/living/heavy_vehicle
 	name = "exosuit"
-	density = 1
-	opacity = 1
-	anchored = 1
+	density = TRUE
+	opacity = TRUE
+	anchored = TRUE
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
 	mob_push_flags = ALLMOBS
+	can_buckle = FALSE
 	var/decal
 
 	var/emp_damage = 0
@@ -24,7 +25,7 @@
 	// Access updating/container.
 	var/obj/item/card/id/access_card
 	var/list/saved_access = list()
-	var/sync_access = 1
+	var/sync_access = TRUE
 
 	// Mob currently piloting the mech.
 	var/list/pilots
@@ -58,8 +59,8 @@
 	var/material/material
 
 	// Cockpit access vars.
-	var/hatch_closed = 0
-	var/hatch_locked = 0
+	var/hatch_closed = FALSE
+	var/hatch_locked = FALSE
 	var/force_locked = FALSE // Is it possible to unlock the hatch?
 
 	var/use_air      = FALSE

@@ -46,7 +46,7 @@
 	var/mob/living/old_mob = null // Which mob is our old mob
 
 // Return to our original body
-/mob/living/proc/body_return()
+/mob/proc/body_return()
 	set name = "Return to Body"
 	set category = "IC"
 
@@ -57,10 +57,7 @@
 		ckey = vr_mob.ckey
 		vr_mob.ckey = null
 		vr_mob.old_mob = null
-		if(issilicon(vr_mob))
-			var/mob/living/silicon/S = vr_mob
-			S.speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
-		vr_mob.languages = list(all_languages[LANGUAGE_TCB])
+		vr_mob.vr_mob_exit_languages()
 		vr_mob = null
 		to_chat(src, span("notice", "System exited safely, we hope you enjoyed your stay."))
 	if(old_mob)
@@ -70,7 +67,7 @@
 		languages = list(all_languages[LANGUAGE_TCB])
 		to_chat(old_mob, span("notice", "System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
-	else
+	if(!vr_mob && !old_mob)
 		to_chat(src, span("danger", "Interface error, you cannot exit the system at this time."))
 		to_chat(src, span("warning", "Ahelp to get back into your body, a bug has occurred."))
 
@@ -85,9 +82,7 @@
 		ckey = vr_mob.ckey
 		vr_mob.ckey = null
 		vr_mob.old_mob = null
-		if(issilicon(vr_mob))
-			var/mob/living/silicon/S = vr_mob
-			S.speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
+		vr_mob.vr_mob_exit_languages()
 		vr_mob.languages = list(all_languages[LANGUAGE_TCB])
 		vr_mob = null
 		to_chat(src, span("notice", "System exited safely, we hope you enjoyed your stay."))
@@ -102,6 +97,13 @@
 		to_chat(src, span("danger", "Interface error, you cannot exit the system at this time."))
 		to_chat(src, span("warning", "Ahelp to get back into your body, a bug has occurred."))
 
+/mob/living/proc/vr_mob_exit_languages()
+	languages = list(all_languages[LANGUAGE_TCB])
+
+/mob/living/silicon/vr_mob_exit_languages()
+	..()
+	speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
+
 // Handles saving of the original mob and assigning the new mob
 /datum/controller/subsystem/virtualreality/proc/mind_transfer(var/mob/living/M, var/mob/living/target)
 	var/new_ckey = M.ckey
@@ -109,28 +111,27 @@
 	M.vr_mob = target
 	target.ckey = new_ckey
 	M.ckey = "@[new_ckey]"
-	target.verbs += /mob/living/proc/body_return
+	target.verbs += /mob/proc/body_return
 
 	if(istype(target, /mob/living/simple_animal/spiderbot))
 		target.real_name = "Remote-Bot ([M.real_name])"
 		target.name = target.real_name
-	if(issilicon(M))
-		var/mob/living/silicon/MS = target
-		if(issilicon(target))
-			var/mob/living/silicon/TS = target
-			TS.speech_synthesizer_langs = MS.languages
-		else
-			target.languages = MS.languages
-	else
-		if(issilicon(target))
-			var/mob/living/silicon/TS = target
-			TS.speech_synthesizer_langs = M.languages
-		else
-			target.languages = M.languages
+	M.swap_languages(target)
 
 	to_chat(target, span("notice", "Connection established, system suite active and calibrated."))
 	to_chat(target, span("warning", "To exit this mode, use the \"Return to Body\" verb in the IC tab."))
 
+/mob/living/proc/swap_languages(var/mob/target)
+	target.languages = languages
+	if(issilicon(target))
+		var/mob/living/silicon/T = target
+		T.speech_synthesizer_langs = languages
+
+/mob/living/silicon/swap_languages(mob/target)
+	target.languages = speech_synthesizer_langs
+	if(issilicon(target))
+		var/mob/living/silicon/T = target
+		T.speech_synthesizer_langs = speech_synthesizer_langs
 
 /datum/controller/subsystem/virtualreality/proc/mech_selection(var/user, var/network)
 	var/list/mech = list()

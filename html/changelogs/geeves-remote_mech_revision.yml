@@ -9,3 +9,5 @@ changes:
   - rscadd: "Robotics and RnD can now create remote controlled mechs. The control centre is in the protolathe, while the exosuit upgrade is in the circuit imprinter."
   - tweak: "Mechs can no longer be dismantled if it has a pilot in it."
   - tweak: "Dismantling a mech now takes a while."
+  - bugfix: "Mechs can no longer be buckled to chairs or beds."
+  - bugfix: "AIs now properly ghost after dying."
