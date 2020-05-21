@@ -19,7 +19,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] already has an active occupant!"))
 		return
 	var/area/A = get_area(src)
-	if(brainmob && !brainmob.key && !searching)
+	if(brainmob && !brainmob.key)
 		if(!searching)
 			to_chat(user, SPAN_NOTICE("You carefully locate the manual activation switch and start \the [src]'s boot process."))
 			icon_state = "posibrain-searching"
