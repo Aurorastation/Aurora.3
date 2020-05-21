@@ -47,17 +47,26 @@
 		if(fast_place)
 			place_handcuffs(C, user)
 		else
-			if(is_restraining)
+			if(C.stat == UNCONSCIOUS)
+				restrain()
 				return
-			is_restraining = TRUE
-			to_chat(user, "<span class='danger'>You begin to restrain [C] with \the [src]. This would be faster if you had a firm grip on them!!</span>")
-			visible_message("<span class='danger'>\The [user] is attempting to restrain \the [C]!</span>")
-			if(!do_mob(user, C, 70))
-				is_restraining = FALSE
-				return	
-			is_restraining = FALSE
-			place_handcuffs(C, user)
+			if(C.a_intent == I_HELP)
+				restrain() 
+			else
+				to_chat(user, "<span class='danger'>\the [C] is not unconcious or cooperative! Try getting a good grip on them first, or suggest they cooperate!</span>")
+				to_chat(C, "<span class='danger'>\the [user] is trying to restrain you, but you resist them! Try being more helpful if you meant to cooperate.</span>")
 
+/obj/item/handcuffs/proc/restrain(var/mob/living/carbon/C, var/mob/user)
+	if(is_restraining)
+				return
+		is_restraining = TRUE
+		to_chat(user, "<span class='danger'>You begin to restrain [C] with \the [src]. This would be faster if you had a firm grip on them!!</span>")
+		visible_message("<span class='danger'>\The [user] is attempting to restrain \the [C]!</span>")
+		if(!do_mob(user, C, 70))
+		is_restraining = FALSE
+			return	
+		is_restraining = FALSE
+		place_handcuffs(C, user)
 
 /obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)

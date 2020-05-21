@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "You can now handcuff people one-handed, but it takes about 3 times as long as handcuffing while gripping."
+  - tweak: "You can now handcuff people one-handed, but it takes about 3 times as long as handcuffing while gripping. They must be in help intent or unconscious for this to work."
