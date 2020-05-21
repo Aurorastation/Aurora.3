@@ -14,6 +14,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 500)
 	var/elastic
 	var/dispenser = 0
+	var/is_restraining = FALSE
 	var/breakouttime = 1200 //Deciseconds = 120s = 2 minutes
 	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
@@ -34,19 +35,29 @@
 			place_handcuffs(user, user)
 			return
 
-		var/can_place
+		var/fast_place
 		if(istype(user, /mob/living/silicon/robot))
-			can_place = TRUE
+			fast_place = TRUE
 		else
 			for (var/obj/item/grab/G in C.grabbed_by)
 				if (G.loc == user && G.state >= GRAB_AGGRESSIVE)
-					can_place = TRUE
+					fast_place = TRUE
 					break
 
-		if(can_place)
+		if(fast_place)
 			place_handcuffs(C, user)
 		else
-			to_chat(user, "<span class='danger'>You need to have a firm grip on [C] before you can put \the [src] on!</span>")
+			if(is_restraining)
+				return
+			is_restraining = TRUE
+			to_chat(user, "<span class='danger'>You begin to restrain [C] with \the [src]. This would be faster if you had a firm grip on them!!</span>")
+			visible_message("<span class='danger'>\The [user] is attempting to restrain \the [C]!</span>")
+			if(!do_mob(user, C, 70))
+				is_restraining = FALSE
+				return	
+			is_restraining = FALSE
+			place_handcuffs(C, user)
+
 
 /obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
