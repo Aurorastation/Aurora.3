@@ -39,7 +39,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - backend: "Implemented a modifiable function for calling a name change prompt."
-  - rscadd: "Most simple animals can be now renamed via a special verb. Pest or hostile simple mobs can only be renamed if they have a player in them. Normal rats and hakhma cannot be renamed. You can only change a name once, then you're locked into it."
+  - rscadd: "Most simple animals can be now renamed via a special verb. Pest or hostile simple mobs can only be renamed if they have a player in them. Normal rats, non-tamed slimes, and hakhma cannot be renamed. You can only change a name once, then you're locked into it."
   - rscdel: "Station pets and similar pre-named mobs cannot be renamed."
   - admin: "Added an admin verb that resets the locked name variable, allowing the mob's name to be changed again."
   
