@@ -64,7 +64,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 			if(newpoll)
 				output += "<b><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> (NEW!)</b>"
 			else
-				output += "a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A>"
+				output += "<a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A>"
 
 	output += "</div>"
 	send_theme_resources(src)
