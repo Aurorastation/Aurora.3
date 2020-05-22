@@ -184,7 +184,7 @@
 
 		var/input = sanitizeSafe(input("What do you want to name the dog?", ,""), MAX_NAME_LEN)
 
-		if(src && input && !M.stat && in_range(M,src))
+		if(src && input && !usr.stat && in_range(usr, src))
 			name = input
 			real_name = input
 			name_changed = 1
