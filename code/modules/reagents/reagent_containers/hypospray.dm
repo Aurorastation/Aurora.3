@@ -68,6 +68,7 @@
 
 		filling.color = reagents.get_color()
 		add_overlay(filling)
+
 /obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
@@ -157,7 +158,6 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
 	name = "autoinjector (norepinephrine)"
-	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	volume = 5
 	amount_per_transfer_from_this = 20
 	flags = 0
