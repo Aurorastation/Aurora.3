@@ -684,6 +684,7 @@
 	name = "Poly"
 	desc = "Poly the Parrot. An expert on quantum cracker theory."
 	speak = list("Poly wanna cracker!", ":e Check the singlo, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN VOIDSUITS?",":e OH GOD ITS FREE CALL THE SHUTTLE")
+	unique = TRUE
 
 /mob/living/simple_animal/parrot/Poly/Initialize()
 	ears = new /obj/item/device/radio/headset/headset_eng(src)
@@ -760,3 +761,12 @@
 	icon_state = "parrot_fly"
 	return success
 
+/mob/living/simple_animal/carp/verb/rename_parrot()
+	set name = "Name Parrot"
+	set category = "IC"
+	set desc = "Name this parrot."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this parrot? No numbers or symbols other than -", "No numbers or symbols, please.")

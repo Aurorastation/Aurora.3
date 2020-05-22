@@ -37,16 +37,32 @@
 	. = ..()
 	nutrition = max_nutrition * 0.8	//They can start a little hungry, but let's no go crazy
 
+/mob/living/simple_animal/corgi/verb/rename_corgi()
+	set name = "Name Corgi"
+	set category = "IC"
+	set desc = "Name this corgi."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this corgi? No numbers or symbols other than -", "No numbers or symbols, please.")
+
+
 //IAN! SQUEEEEEEEEE~
 /mob/living/simple_animal/corgi/Ian
 	name = "Ian"
 	real_name = "Ian"	//Intended to hold the name without altering it.
 	gender = MALE
-	desc = "It's a corgi."
+	desc = "It's a the famous corgi, Sir Ian McBarken."
 	//var/obj/movement_target
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
+	unique = TRUE
+
+/mob/living/simple_animal/corgi/Ian/Initialize()
+	. = ..()
+	verbs -= /mob/living/simple_animal/corgi/verb/rename_corgi
 
 /mob/living/simple_animal/corgi/Ian/think()
 	..()
@@ -133,6 +149,7 @@
 	response_disarm = "bops"
 	response_harm   = "kicks"
 	var/puppies = 0
+	unique = TRUE
 
 //Lisa already has a cute bow!
 /mob/living/simple_animal/corgi/Lisa/Topic(href, href_list)

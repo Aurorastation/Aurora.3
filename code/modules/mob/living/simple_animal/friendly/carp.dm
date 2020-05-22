@@ -113,6 +113,20 @@
 	set_dir(get_dir(src, friend))
 	say("Glubglub!")
 
+/mob/living/simple_animal/carp/verb/rename_carp()
+	set name = "Name Carp"
+	set category = "IC"
+	set desc = "Name this space carp."
+	set src in view(1)
+
+	if(!client)
+		to_chat(usr, span("notice", "This carp doesn't seem important enough to name.")) 
+		return
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this space carp? No numbers or symbols other than -", "No numbers or symbols, please.")
+
+
 // ENGINEERING HAS AN ACTUAL PET, WHAAAAAAAAAAAAAT? - geeves
 /mob/living/simple_animal/carp/fluff/ginny
 	name = "Ginny"
@@ -133,6 +147,10 @@
 
 	befriend_job = "Chief Engineer"
 	holder_type = /obj/item/holder/carp/baby
+
+/mob/living/simple_animal/carp/fluff/ginny/Initialize()
+	. = ..()
+	verbs -= /mob/living/simple_animal/carp/verb/rename_carp
 
 /mob/living/simple_animal/carp/fluff/ginny/death()
 	.=..()

@@ -48,3 +48,16 @@
 
 /mob/living/simple_animal/lizard/dust()
 	..(remains = /obj/effect/decal/remains/lizard)
+
+/mob/living/simple_animal/carp/verb/rename_lizard()
+	set name = "Name Lizard"
+	set category = "IC"
+	set desc = "Name this lizard."
+	set src in view(1)
+
+	if(!client)
+		to_chat(usr, span("notice", "This lizard doesn't seem important enough to name.")) 
+		return
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this lizard? No numbers or symbols other than -", "No numbers or symbols, please.")

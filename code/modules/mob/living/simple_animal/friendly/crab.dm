@@ -34,6 +34,17 @@
 				turns_since_move = 0
 	regenerate_icons()
 
+/mob/living/simple_animal/crab/verb/rename_crab()
+	set name = "Name Crab"
+	set category = "IC"
+	set desc = "Name this crab."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this crab? No numbers or symbols other than -", "No numbers or symbols, please.")
+
+
 //COFFEE! SQUEEEEEEEEE!
 /mob/living/simple_animal/crab/Coffee
 	name = "Coffee"
@@ -42,3 +53,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"
+
+/mob/living/simple_animal/crab/Coffee/Initialize()
+	. = ..()
+	verbs -= /mob/living/simple_animal/crab/verb/rename_crab

@@ -103,6 +103,8 @@
 	var/icon_rest = null
 
 	var/tameable = TRUE //if you can tame it, used by the dociler for now
+	var/unique = FALSE
+	var/was_named = FALSE
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
 
@@ -741,3 +743,42 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
+
+/mob/living/simple_animal/proc/rename_self_helper(mob/M, regex/name_pattern, name_message, bad_name_message)
+	var/input = input(M, name_message)
+	if (!input)
+		return
+	if (length(input) > MAX_NAME_LEN)
+		to_chat(M, span("notice", "That name is too long, maximum is [MAX_NAME_LEN] characters."))
+		return
+	if (!name_pattern.Find(input))
+		to_chat(M, bad_name_message)
+		return
+	if (QDELETED(src) || stat)
+		to_chat(M, span("notice", "The dead cannot choose names."))
+		return
+
+	if (M == src)
+		log_and_message_admins("changed their name to [input].", src)
+	else
+		log_and_message_admins("changed [key_name(src)]'s name to [input].", M) //To track name changes and ooc shittery.
+	name = input
+	real_name = name
+	was_named = TRUE
+
+var/regex/defaultgex = regex(@"^[A-z \-]+$")
+
+/mob/living/simple_animal/proc/can_change_name(usr)
+	if (src.unique)
+		to_chat(usr, span("notice", "[src.real_name] is to precious to rename!"))
+		return FALSE
+	if(src.was_named)
+		to_chat(usr, span("notice", "[src.name] has already received a name!"))
+		return FALSE
+	return TRUE
+
+/client/proc/reset_name(mob/living/simple_animal/M in mob_list)
+	set category = "Special Verbs"
+	set name = "Reset Named Status"
+	
+	M.was_named = FALSE

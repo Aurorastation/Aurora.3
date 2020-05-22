@@ -25,6 +25,17 @@
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
 
+/mob/living/simple_animal/familiar/verb/rename_familiar()
+	set name = "Name Familiar"
+	set category = "IC"
+	set desc = "Name this familiar."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this familiar? No numbers or symbols other than -", "No numbers or symbols, please.")
+
+
 /mob/living/simple_animal/familiar/carcinus
 	name = "crab"
 	desc = "A small crab said to be made of stone and starlight."

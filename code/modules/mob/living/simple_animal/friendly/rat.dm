@@ -323,3 +323,16 @@
 
 /mob/living/simple_animal/rat/cannot_use_vents()
 	return
+
+/mob/living/simple_animal/rat/special //a special rat that has the ability to be named - mostly for admin spawn, but maybe later uses
+	desc = "A strangely non-generic rat."
+
+/mob/living/simple_animal/rat/special/verb/rename_rat()
+	set name = "Name rat"
+	set category = "IC"
+	set desc = "Name this rat."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this rat? No numbers or symbols other than -", "No numbers or symbols, please.")

@@ -116,6 +116,17 @@
 	else
 		..()
 
+/mob/living/simple_animal/cow/verb/rename_cow()
+	set name = "Name Cow"
+	set category = "IC"
+	set desc = "Name this cow."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this cow? No numbers or symbols other than -", "No numbers or symbols, please.")
+
+
 /mob/living/simple_animal/chick
 	name = "\improper chick"
 	desc = "Adorable! They make such a racket though."
@@ -267,6 +278,17 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 
+/mob/living/simple_animal/chicken/verb/rename_chicken()
+	set name = "Name Chicken"
+	set category = "IC"
+	set desc = "Name this chicken."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this chicken? No numbers or symbols other than -", "No numbers or symbols, please.")
+
+
 // Penguins
 
 /mob/living/simple_animal/penguin
@@ -307,3 +329,15 @@
 	name = "emperor penguin"
 	desc = "Emperor of all he surveys."
 
+/mob/living/simple_animal/penguin/verb/rename_penguin()
+	set name = "Name Penguin"
+	set category = "IC"
+	set desc = "Name this penguin."
+	set src in view(1)
+
+	if(!client)
+		to_chat(usr, span("notice", "This penguin doesn't seem important enough to name.")) 
+		return
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this penguin? No numbers or symbols other than -", "No numbers or symbols, please.")

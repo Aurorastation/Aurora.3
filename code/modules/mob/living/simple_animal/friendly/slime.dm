@@ -55,3 +55,13 @@
 	S2.icon_dead = "[src.colour] baby slime dead"
 	S2.colour = "[src.colour]"
 	qdel(src)
+
+/mob/living/simple_animal/slime/verb/rename_slime()
+	set name = "Name Slime"
+	set category = "IC"
+	set desc = "Name this slime."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this slime? No numbers or symbols other than -", "No numbers or symbols, please.")

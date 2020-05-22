@@ -219,6 +219,17 @@
 	set_dir(get_dir(src, friend))
 	say("Meow!")
 
+/mob/living/simple_animal/cat/verb/rename_cat()
+	set name = "Name Cat"
+	set category = "IC"
+	set desc = "Name this cat."
+	set src in view(1)
+
+	if(!can_change_name())
+		return
+	rename_self_helper(usr, defaultgex, "What do you want to name this cat? No numbers or symbols other than -", "No numbers or symbols, please.")
+
+
 //RUNTIME IS ALIVE! SQUEEEEEEEE~
 /mob/living/simple_animal/cat/fluff/Runtime
 	name = "Runtime"
@@ -232,6 +243,11 @@
 	can_nap = 1
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/holder/cat/black
+	unique = TRUE
+
+/mob/living/simple_animal/cat/fluff/Runtime/Initialize()
+	. = ..()
+	verbs -= /mob/living/simple_animal/cat/verb/rename_cat
 
 /mob/living/simple_animal/cat/fluff/Runtime/death()
 	.=..()
@@ -264,10 +280,15 @@
 	can_nap = 1
 	var/friend_name = "Erstatz Vryroxes"
 	holder_type = /obj/item/holder/cat/black
+	unique = TRUE
+
+/mob/living/simple_animal/cat/fluff/bones/Initialize()
+	. = ..()
+	verbs -= /mob/living/simple_animal/cat/verb/rename_cat
 
 /mob/living/simple_animal/cat/fluff/bones/death()
 	.=..()
-	desc = "Bones is dead"
+	desc = "Bones is dead."
 
 /mob/living/simple_animal/cat/kitten/Initialize()
 	. = ..()
@@ -282,3 +303,8 @@
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
 	holder_type = /obj/item/holder/cat/penny
+	unique = TRUE
+
+/mob/living/simple_animal/cat/penny/Initialize()
+	. = ..()
+	verbs -= /mob/living/simple_animal/cat/verb/rename_cat
