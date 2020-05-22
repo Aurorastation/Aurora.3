@@ -40,7 +40,7 @@
 
 	if(has_lifespan && lifespan > 0)
 		QDEL_IN(src, lifespan)
-	
+
 	precision = precise
 
 /obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
@@ -63,7 +63,7 @@
 /obj/effect/portal/spawner
 	name = "portal"
 	desc = "Looks like a one-way portal, don't come too close."
-	description_info = "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
+	desc_info = "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
 	does_teleport = FALSE
 	has_lifespan = FALSE
 	layer = OBJ_LAYER - 0.01

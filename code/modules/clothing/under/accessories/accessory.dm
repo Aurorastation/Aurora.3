@@ -585,7 +585,7 @@
 /obj/item/clothing/accessory/poncho/shouldercape
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
-	description_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
+	desc_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = 1
@@ -701,15 +701,15 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
-/obj/item/clothing/accessory/sleevepatch/necro
-	name = "\improper Necropolis Industries sleeve patch"
-	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Necropolis Industries logo."
+/obj/item/clothing/accessory/sleevepatch/zavodskoi
+	name = "\improper Zavodskoi Interstellar sleeve patch"
+	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo."
 	icon_state = "necro_patch"
 	overlay_state = "necro_patch"
 
-/obj/item/clothing/accessory/sleevepatch/necrosec
-	name = "\improper Necropolis Industries Security sleeve patch"
-	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Necropolis Industries logo with an insignia."
+/obj/item/clothing/accessory/sleevepatch/zavodskoisec
+	name = "\improper Zavodskoi Interstellar Security sleeve patch"
+	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing. This one bears the Zavodskoi Interstellar logo with an insignia."
 	icon_state = "necrosec_patch"
 	overlay_state = "necrosec_patch"
 

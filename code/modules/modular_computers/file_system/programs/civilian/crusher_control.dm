@@ -61,11 +61,11 @@
 
 	if(href_list["initialize"])
 		pistons = list()
-		for(var/obj/machinery/crusher_base/pstn in orange(10, src.host))
+		for(var/obj/machinery/crusher_base/pstn in orange(10, src.ui_host()))
 			pistons += pstn
 
 		airlocks = list()
-		for(var/obj/machinery/door/airlock/arlk in orange(10, src.host))
+		for(var/obj/machinery/door/airlock/arlk in orange(10, src.ui_host()))
 			if(arlk.id_tag != "crusher")
 				continue
 			airlocks += arlk

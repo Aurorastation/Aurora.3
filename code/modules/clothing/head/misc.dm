@@ -204,10 +204,6 @@
 	name = "flat cap"
 	desc = "A working man's cap."
 	icon_state = "flat_cap"
-	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
-		)
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/pirate

@@ -832,13 +832,13 @@
 
 /obj/item/storage/box/aggression
 	name = "box"
-	description_antag = "This box contains various implants that will make their owners increasingly aggressive."
+	desc_antag = "This box contains various implants that will make their owners increasingly aggressive."
 	max_storage_space = 12
 	starts_with = list(/obj/item/implantcase/aggression = 6, /obj/item/implanter = 1, /obj/item/implantpad = 1)
 
 /obj/item/storage/box/encryption_key
 	name = "box"
-	description_antag = "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
+	desc_antag = "This box contains encryption keys that gives the user a safe channel to chatter in. Access the safe comms with :x."
 	starts_with = list(/obj/item/device/encryptionkey/rev = 8)
 
 /obj/item/storage/box/dynamite

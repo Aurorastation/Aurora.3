@@ -75,7 +75,7 @@
 /obj/item/pocketwatch
 	name = "pocketwatch"
 	desc = "A watch that goes in your pocket."
-	description_fluff = "Because your wrists have better things to do."
+	desc_fluff = "Because your wrists have better things to do."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'

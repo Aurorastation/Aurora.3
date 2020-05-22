@@ -3147,8 +3147,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/helmet/fluff/oscar_helmet //Necropolis Specialist Helmet -  Oscar Easter - slymantis84
-	name = "necropolis specialist helmet"
+/obj/item/clothing/head/helmet/fluff/oscar_helmet //zavodskoi Specialist Helmet -  Oscar Easter - slymantis84
+	name = "zavodskoi instellar specialist helmet"
 	desc = "A modified EPMC specialist helmet, with a built-in visor and HUD to access electronics and receive tactical information. It doesn't appear to serve many purposes in Biesel"
 	icon = 'icons/obj/custom_items/oscar_helmet.dmi'
 	icon_state = "oscar_helmet"

@@ -63,7 +63,7 @@
 	..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(M as mob, slot)
+/obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")

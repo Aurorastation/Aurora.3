@@ -255,7 +255,7 @@
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
 	icon_state = "milk_can"
 	center_of_mass = list("x"=16, "y"=10)
-	description_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
+	desc_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk/Initialize()
 	. = ..()

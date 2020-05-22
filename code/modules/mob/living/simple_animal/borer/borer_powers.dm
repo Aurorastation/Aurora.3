@@ -414,7 +414,7 @@
 /mob/living/simple_animal/borer/verb/awaken_psionics()
 	set category = "Abilities"
 	set name = "Awaken Host Psionics (150)"
-	set desc = "Probe into your host an unlock their psionic potential."
+	set desc = "Probe into your host and unlock their psionic potential. Note, it will give them a seizure as their brain realizes its potential."
 
 	if(!host)
 		to_chat(src, span("notice", "You are not inside a host body."))
@@ -437,7 +437,8 @@
 	chemicals -= 150
 	to_chat(src, span("notice", "You probe your tendrils deep within your host's zona bovinae, seeking to unleash their potential."))
 	to_chat(host, span("danger", "You feel some tendrils probe at the back of your head..."))
-	addtimer(CALLBACK(src, .proc/jumpstart_psi), 100)
+	to_chat(host, FONT_LARGE(SPAN_WARNING("You feel something terrible coming on...")))
+	addtimer(CALLBACK(src, .proc/jumpstart_psi), 150)
 
 /mob/living/simple_animal/borer/proc/jumpstart_psi()
 	to_chat(src, span("notice", "You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
@@ -486,3 +487,17 @@
 	to_chat(src, span("notice", "You successfully manage to upgrade your host's [selected_faculty] faculty."))
 	to_chat(host, span("good", "A breeze of fresh air washes over your mind, you feel powerful!"))
 	to_chat(host, span("notice", "You have been psionically enlightened. You are now a [psychic_ranks_to_strings[host.psi.ranks[selected_faculty]]] in the [selected_faculty] faculty."))
+
+/mob/living/simple_animal/borer/verb/host_health_scan()
+	set category = "Abilities"
+	set name = "Inspect Host Health"
+	set desc = "Survey your host for injuries, allowing you to better treat them."
+
+	if(!host)
+		to_chat(src, SPAN_WARNING("You have no host to scan."))
+		return
+	if(stat)
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
+		return
+
+	health_scan_mob(host, src, TRUE, TRUE)

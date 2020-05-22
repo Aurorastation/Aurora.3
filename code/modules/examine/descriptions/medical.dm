@@ -1,5 +1,5 @@
 /obj/machinery/bodyscanner
-	description_info = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
+	desc_info = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
 	This is useful if you are about to perform surgery.<br>\
 	<br>\
 	Click your target with Grab intent, then click on the scanner to place them in it. Click the red terminal to operate. \
@@ -7,7 +7,7 @@
 	verb."
 
 /obj/machinery/atmospherics/unary/cryo_cell
-	description_info = "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
+	desc_info = "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
 	in critical condition by placing them in stasis, so they can be treated at a later time.<br>\
 	<br>\
 	In order for it to work, it must be loaded with chemicals, and the temperature of the solution must reach a certain point. Additionally, it \
@@ -24,13 +24,13 @@
 	Remember to turn it off, once you've finished, to save power and chemicals!"
 
 /obj/machinery/optable
-	description_info = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
+	desc_info = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 
 /obj/machinery/computer/operating
-	description_info = "This console gives information on the status of the patient on the adjacent operating table, notably their consciousness."
+	desc_info = "This console gives information on the status of the patient on the adjacent operating table, notably their consciousness."
 
 /obj/machinery/sleeper
-	description_info = "The sleeper allows you to clean the blood by means of dialysis, and to administer medication in a controlled environment.<br>\
+	desc_info = "The sleeper allows you to clean the blood by means of dialysis, and to administer medication in a controlled environment.<br>\
 	<br>\
 	Click your target with Grab intent, then click on the sleeper to place them in it. Click the green console, with an empty hand, to open the menu. \
 	Click 'Start Dialysis' to begin filtering unwanted chemicals from the occupant's blood. The beaker contained will begin to fill with their \

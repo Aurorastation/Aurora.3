@@ -1,35 +1,26 @@
-var/datum/controller/subsystem/http/SShttp
-
-/datum/controller/subsystem/http
-	name = "HTTP"
-	flags = SS_NO_FIRE | SS_NO_INIT
-
-/datum/controller/subsystem/http/New()
-	NEW_SS_GLOBAL(SShttp)
-
-/datum/controller/subsystem/http/proc/request(method, url, body = "", list/headers)
+/proc/http_create_request(method, url, body = "", list/headers)
 	var/datum/http_request/R = new()
 	R.prepare(method, url, body, headers)
 
 	return R
 
-/datum/controller/subsystem/http/proc/get(url, body = "", list/headers)
-	return request(RUSTG_HTTP_METHOD_GET, url, body, headers)
+/proc/http_create_get(url, body = "", list/headers)
+	return http_create_request(RUSTG_HTTP_METHOD_GET, url, body, headers)
 
-/datum/controller/subsystem/http/proc/post(url, body = "", list/headers)
-	return request(RUSTG_HTTP_METHOD_POST, url, body, headers)
+/proc/http_create_post(url, body = "", list/headers)
+	return http_create_request(RUSTG_HTTP_METHOD_POST, url, body, headers)
 
-/datum/controller/subsystem/http/proc/put(url, body = "", list/headers)
-	return request(RUSTG_HTTP_METHOD_PUT, url, body, headers)
+/proc/http_create_put(url, body = "", list/headers)
+	return http_create_request(RUSTG_HTTP_METHOD_PUT, url, body, headers)
 
-/datum/controller/subsystem/http/proc/delete(url, body = "", list/headers)
-	return request(RUSTG_HTTP_METHOD_DELETE, url, body, headers)
+/proc/http_create_delete(url, body = "", list/headers)
+	return http_create_request(RUSTG_HTTP_METHOD_DELETE, url, body, headers)
 
-/datum/controller/subsystem/http/proc/patch(url, body = "", list/headers)
-	return request(RUSTG_HTTP_METHOD_PATCH, url, body, headers)
+/proc/http_create_patch(url, body = "", list/headers)
+	return http_create_request(RUSTG_HTTP_METHOD_PATCH, url, body, headers)
 
-/datum/controller/subsystem/http/proc/head(url, body = "", list/headers)
-	return request(RUSTG_HTTP_METHOD_HEAD, url, body, headers)
+/proc/http_create_head(url, body = "", list/headers)
+	return http_create_request(RUSTG_HTTP_METHOD_HEAD, url, body, headers)
 
 /datum/http_request
 	var/id

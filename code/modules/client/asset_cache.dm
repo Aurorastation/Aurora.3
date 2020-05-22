@@ -189,7 +189,7 @@ var/list/asset_datums = list()
 		"zhlogo.png" = 'html/images/zhlogo.png',
 		"idrislogo.png" = 'html/images/idrislogo.png',
 		"eridanilogo.png" = 'html/images/eridanilogo.png',
-		"necrologo.png" = 'html/images/necrologo.png',
+		"zavodlogo.png" = 'html/images/zavodlogo.png',
 		"hplogo.png" = 'html/images/hplogo.png',
 		"belogo.png" = 'html/images/belogo.png'
 	)
@@ -229,7 +229,7 @@ var/list/asset_datums = list()
 	assets = list(
 		"faction_EPMC.png" = 'icons/misc/factions/ECFlogo.png',
 		"faction_Zeng.png" = 'icons/misc/factions/ZhenHulogo.png',
-		"faction_Necro.png" = 'icons/misc/factions/NecroInclogo.png',
+		"faction_Zavod.png" = 'icons/misc/factions/Zavodlogo.png',
 		"faction_NT.png" = 'icons/misc/factions/NanoTrasenlogo.png',
 		"faction_Idris.png" = 'icons/misc/factions/Idrislogo.png',
 		"faction_Hepht.png" = 'icons/misc/factions/Hephaestuslogo.png',

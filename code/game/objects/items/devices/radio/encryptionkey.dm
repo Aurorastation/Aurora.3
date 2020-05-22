@@ -19,7 +19,7 @@
 	icon_state = "cypherkey"
 	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_MERCENARY = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 3)
-	description_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
+	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/raider
@@ -144,4 +144,4 @@
 	desc = "An encryption key for a radio headset. Contains cypherkeys."
 	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_RAIDER = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
-	description_antag = "An encryption key that allows you to speak on private non-station channels. Use :x to access the private channel."
+	desc_antag = "An encryption key that allows you to speak on private non-station channels. Use :x to access the private channel."

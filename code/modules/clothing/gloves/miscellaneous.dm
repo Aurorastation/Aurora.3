@@ -122,7 +122,7 @@
 /obj/item/clothing/gloves/watch
 	name = "watch"
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in black plastic."
-	description_fluff = "For those who want too much time on their wrists instead."
+	desc_fluff = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
 	w_class = 1
@@ -137,19 +137,19 @@
 
 /obj/item/clothing/gloves/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
-	description_fluff = "To unleash the telemarketer in you!"
+	desc_fluff = "To unleash the telemarketer in you!"
 	icon_state = "watch_silver"
 	item_state = "watch_silver"
 
 /obj/item/clothing/gloves/watch/gold
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in <b>REAL</b> faux gold."
-	description_fluff = "Be the jerk-ass pawn shop owner you'll never be."
+	desc_fluff = "Be the jerk-ass pawn shop owner you'll never be."
 	icon_state = "watch_gold"
 	item_state = "watch_gold"
 
 /obj/item/clothing/gloves/watch/spy
 	desc = "It's a GENUINE Spy-Tech Invisi-watch! <b>WARNING</b> : Does not actually make you invisible."
-	description_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
+	desc_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
 	icon_state = "watch_spy"
 	item_state = "watch_silver"
 

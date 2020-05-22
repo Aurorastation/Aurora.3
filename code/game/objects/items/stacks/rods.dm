@@ -32,6 +32,11 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
 
+/obj/item/stack/rods/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
+
 /obj/item/stack/rods/cyborg
 	name = "metal rod synthesizer"
 	desc = "A device that makes metal rods."
