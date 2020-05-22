@@ -63,7 +63,7 @@
 	if(is_restraining)
 		return
 	is_restraining = TRUE
-	to_chat(user, "<span class='danger'>You begin to restrain [C] with \the [src]. This would be faster if you had a firm grip on them!!</span>")
+	to_chat(user, "<span class='danger'>You begin to restrain [C] with \the [src]. This would be faster if you had a firm grip on them!</span>")
 	visible_message("<span class='danger'>\The [user] is attempting to restrain \the [C]!</span>")
 	if(!do_mob(user, C, 70))
 		is_restraining = FALSE
