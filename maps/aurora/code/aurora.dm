@@ -1,6 +1,9 @@
 /datum/map/aurora
 	name = "Aurora"
 	full_name = "NSS Aurora"
+	description = "The NSS Aurora is a phoron research and extraction station. It houses facilities for studying all manner of ways to acquire phoron, \
+	 			   even ways one may think impossible to be related to acquiring the element. It is located on the 361224 Colossus asteroid, \
+				   known for its anomalous and phoron rich nature, partly due to its own location in the Romanovich Cloud."
 	path = "aurora"
 
 	lobby_screens = list("aurora_asteroid", "aurora_postcard")
