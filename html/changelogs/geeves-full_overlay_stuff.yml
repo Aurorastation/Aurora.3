@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Full pain overlays have been added, or rather fixed, since they never worked before. They're just small flashes of pain with an accompanying overlay."
-  - rscadd: "Remotely controlled stuff will now have a neat scanline overlay, a gentle reminder that this isn't your actual physical body."
