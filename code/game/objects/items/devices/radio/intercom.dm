@@ -138,17 +138,16 @@
 		return
 	else
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "intercom_screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		holographic_overlay(screen_overlay)
 		var/mutable_appearance/scanline_overlay = mutable_appearance(icon, "intercom_scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(scanline_overlay)
+		holographic_overlay(scanline_overlay)
 		set_light(1.4, 1, COLOR_CYAN)
 		if(broadcasting)
 			var/mutable_appearance/button_overlay = mutable_appearance(icon, "intercom_b", EFFECTS_ABOVE_LIGHTING_LAYER)
-			add_overlay(button_overlay)
+			holographic_overlay(button_overlay)
 		if(listening)
 			var/mutable_appearance/button_overlay = mutable_appearance(icon, "intercom_l", EFFECTS_ABOVE_LIGHTING_LAYER)
-			add_overlay(button_overlay)
-
+			holographic_overlay(button_overlay)
 
 /obj/item/device/radio/intercom/broadcasting
 	broadcasting = 1
