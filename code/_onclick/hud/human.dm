@@ -342,7 +342,13 @@
 	mymob.flash.mouse_opacity = 0
 	hud_elements |= mymob.flash
 
-	mymob.pain = new /obj/screen( null )
+	mymob.pain = new /obj/screen()
+	mymob.pain.icon = 'icons/mob/screen/full.dmi'
+	mymob.pain.icon_state = null
+	mymob.pain.name = "pain"
+	mymob.pain.screen_loc = "1,1"
+	mymob.pain.mouse_opacity = 0
+	hud_elements |= mymob.pain
 
 	mymob.zone_sel = new /obj/screen/zone_sel( null )
 	mymob.zone_sel.icon = ui_style
