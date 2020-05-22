@@ -7,7 +7,7 @@
 /obj/item/device/multitool
 	name = "multitool"
 	desc = "Used for pulsing wires to test which to cut. Not recommended by doctors."
-	description_info = "You can use this on airlocks or APCs to try to hack them without cutting wires."
+	desc_info = "You can use this on airlocks or APCs to try to hack them without cutting wires."
 	icon_state = "multitool"
 	item_state = "multitool"
 	item_icons = list(
