@@ -92,7 +92,7 @@
 
 	else
 		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
-		return
+		return 
 
 /mob/living/simple_animal/hostile/commanded/dog/amaskan
 	desc = "A dog trained to listen and obey its owner commands, this one is a Tamaskan."
