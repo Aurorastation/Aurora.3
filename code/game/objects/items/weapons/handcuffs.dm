@@ -56,7 +56,7 @@
 			if(C.a_intent == I_HELP)
 				restrain() 
 			else
-				to_chat(user, "<span class='danger'>\the [C] is not unconcious or cooperative! Try getting a good grip on them first, or suggest they cooperate!</span>")
+				to_chat(user, "<span class='danger'>\the [C] is not unconscious or cooperative! Try getting a good grip on them first, or suggest they cooperate!</span>")
 				to_chat(C, "<span class='danger'>\the [user] is trying to restrain you, but you resist them! Try being more helpful if you meant to cooperate.</span>")
 
 /obj/item/handcuffs/proc/restrain(var/mob/living/carbon/C, var/mob/user)
