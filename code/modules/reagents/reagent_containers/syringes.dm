@@ -36,6 +36,7 @@
 	var/time = 30
 	center_of_mass = null
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/reagent_containers/syringe/Initialize()
 	. = ..()
@@ -407,7 +408,7 @@
 /obj/item/reagent_containers/syringe/norepinephrine
 	name = "Syringe (norepinephrine)"
 	desc = "Contains norepinephrine - used to stabilize patients."
-	
+
 /obj/item/reagent_containers/syringe/norepinephrine/Initialize()
 	. = ..()
 	reagents.add_reagent("norepinephrine", 15)
@@ -417,7 +418,7 @@
 /obj/item/reagent_containers/syringe/dylovene
 	name = "Syringe (dylovene)"
 	desc = "Contains anti-toxins."
-	
+
 /obj/item/reagent_containers/syringe/dylovene/Initialize()
 	. = ..()
 	reagents.add_reagent("dylovene", 15)

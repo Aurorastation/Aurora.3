@@ -7,7 +7,8 @@
 	punch_force = 3
 	w_class = 3
 	siemens_coefficient = 0.35
-	drop_sound = 'sound/items/drop/metalshield.ogg'
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/clothing/gloves/arm_guard/mob_can_equip(var/mob/living/carbon/human/H, slot, disable_warning = 0)
 	if(..()) //This will only run if no other problems occured when equiping.

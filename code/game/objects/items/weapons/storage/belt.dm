@@ -10,7 +10,8 @@
 	max_storage_space = 28
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
-	drop_sound = 'sound/items/drop/leather.ogg'
+	drop_sound = 'sound/items/drop/toolbelt.ogg'
+	pickup_sound = 'sound/items/pickup/toolbelt.ogg'
 
 	var/show_above_suit = 0
 
@@ -35,6 +36,7 @@
 	desc = "A sturdy belt for holding various tools."
 	icon_state = "utilitybelt"
 	item_state = "utility"
+	equip_sound = 'sound/items/equip/toolbelt.ogg'
 	can_hold = list(
 		///obj/item/combitool,
 		/obj/item/crowbar,

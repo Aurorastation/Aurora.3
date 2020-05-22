@@ -21,7 +21,8 @@ LINEN BINS
 	throw_speed = 1
 	throw_range = 2
 	w_class = 4.0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	randpixel = 0
 	center_of_mass = null
 	var/roll = FALSE

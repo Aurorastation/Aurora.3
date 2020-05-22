@@ -16,6 +16,7 @@
 	max_storage_space = 16
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 /obj/item/storage/briefcase/black
 	name = "black briefcase"
