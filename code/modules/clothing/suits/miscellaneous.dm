@@ -435,15 +435,6 @@
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
 
-/obj/item/clothing/suit/storage/toggle/greengov
-	name = "green formal jacket"
-	desc = "A sleek proper formal jacket with gold buttons."
-	icon_state = "suitjacket_green_open"
-	item_state = "suitjacket_green"
-	icon_open = "suitjacket_green_open"
-	icon_closed = "suitjacket_green"
-	body_parts_covered = UPPER_TORSO|ARMS
-
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."
@@ -618,11 +609,35 @@
 	icon_state = "fib_jacket"
 	item_state = "fib_jacket"
 
-/obj/item/clothing/suit/cardigan
+// Cardigans.
+
+/obj/item/clothing/suit/storage/toggle/cardigan
 	name = "cardigan"
-	desc = "A cozy, warm knit cardigan. Only slightly worse than a blanket."
+	desc = "A cozy, warm knit cardigan."
+	desc_fluff = "Only slightly worse than a blanket."
 	icon_state = "cardigan"
 	item_state = "cardigan"
+	icon_open = "cardigan_open"
+	icon_closed = "cardigan"
+
+/obj/item/clothing/suit/storage/toggle/cardigan/sweater
+	name = "sweater cardigan"
+	desc = "A cozy, warm knit sweater cardigan."
+	desc_fluff = "Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself."
+	icon_state = "cardigan"
+	item_state = "cardigan"
+	icon_open = "cardigan_open"
+	icon_closed = "cardigan"
+
+/obj/item/clothing/suit/storage/toggle/cardigan/argyle
+	name = "argyle cardigan"
+	desc = "A cozy, warm knit argyle cardigan."
+	desc_fluff = "You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again."
+	icon_state = "cardiganargyle"
+	item_state = "cardiganargyle"
+	icon_open = "cardiganargyle_open"
+	icon_closed = "cardiganargyle"
+
 
 /obj/item/clothing/suit/fake_cultrobes
 	name = "occultist robes"

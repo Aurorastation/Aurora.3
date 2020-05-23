@@ -1,8 +1,30 @@
 /obj/item/clothing/accessory/sweater
 	name = "sweater"
 	desc = "A warm knit sweater."
+	desc_fluff = "Fortunately, it comes with Itch-Proof technology. The only thing they haven't invented is a better fashion sense for you, though."
 	icon_state = "sweater"
 	item_state = "sweater"
+
+/obj/item/clothing/accessory/sweaterargyle
+	name = "argyle sweater"
+	desc = "A warm knit sweater with an argyle pattern."
+	desc_fluff = "Never go unprepared for the next work-mandated secret santa with this fashion statement! Revel in their awkward thanks as they unbox it! Realize that you've received one too!"
+	icon_state = "sweaterargyle"
+	item_state = "sweaterargyle"
+
+/obj/item/clothing/accessory/sweatervest
+	name = "sweater vest"
+	desc = "A warm knit sweater vest."
+	desc_fluff = "Unlike a bulletproof vest, the only thing this'll protect you from is the opposite sex."
+	icon_state = "sweatervest"
+	item_state = "sweatervest"
+
+/obj/item/clothing/accessory/sweatervestargyle
+	name = "argyle sweater vest"
+	desc = "A warm knit sweater vest with an argyle pattern."
+	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
+	icon_state = "sweatervestargyle"
+	item_state = "sweatervestargyle"
 
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
