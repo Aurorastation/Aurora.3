@@ -23,10 +23,15 @@
 	var/message = input(src, "What do you wish to tell your Hivemind?", "Hivemind Commune") as text
 	if(!message)
 		return
-
-	to_chat(src, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>") // tell the changeling
-	for(var/H in src.mind.changeling.hivemind_members) // tell the other hiveminds
-		var/mob/M = mind.changeling.hivemind_members[H]
-		to_chat(M, "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>")
-
+	relay_hivemind(changeling_message_process(message), src)
 	return TRUE
+
+/mob/proc/relay_hivemind(var/message, var/mob/ling)
+	if(ling.mind?.changeling)
+		for(var/H in ling.mind.changeling.hivemind_members) // tell the others in the hivemind
+			var/mob/M = ling.mind.changeling.hivemind_members[H]
+			to_chat(M, message)
+		to_chat(ling, message)
+
+/mob/proc/changeling_message_process(var/message)
+	return "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>"

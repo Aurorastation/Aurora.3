@@ -16,10 +16,7 @@
 
 	announce_ghost_joinleave(ghostize(1, 0))
 	changeling_mob.mind.changeling.hivemind_members -= src
-	to_chat(changeling_mob, SPAN_NOTICE("[src] has left our hivemind to join the living dead."))
-	for(var/H in changeling_mob.mind.changeling.hivemind_members) // tell the others in the hivemind
-		var/mob/M = changeling_mob.mind.changeling.hivemind_members[H]
-		to_chat(M, SPAN_NOTICE("[src] has left our hivemind to join the living dead."))
+	relay_hivemind(SPAN_NOTICE("[src] has left our hivemind to join the living dead."), changeling_mob)
 
 /mob/abstract/hivemind/proc/add_to_hivemind(var/mob/original_body, var/mob/living/carbon/human/ling)
 	name = original_body.real_name
@@ -52,14 +49,7 @@
 	if(src.client?.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
 		to_chat(src, SPAN_WARNING("You cannot talk. (Admin Muted)"))
 		return
-
-	to_chat(changeling_mob, message_process(message)) // tell the changeling
-	for(var/H in changeling_mob.mind.changeling.hivemind_members) // tell the others in the hivemind
-		var/mob/M = changeling_mob.mind.changeling.hivemind_members[H]
-		to_chat(M, message_process(message))
-
-/mob/abstract/hivemind/proc/message_process(var/message)
-	return "<font color=[COLOR_LING_I_HIVEMIND]>[src] says, \"[message]\"</font>"
+	relay_hivemind(changeling_message_process(message), changeling_mob)
 
 /mob/abstract/hivemind/emote()
 	to_chat(src, SPAN_WARNING("You cannot emote."))

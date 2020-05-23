@@ -47,31 +47,31 @@
 		return T	//T will be affected by the sting
 	return
 
-/mob/proc/apply_sting_effects(var/mob/living/carbon/target, var/type, var/strength)
+/datum/changeling/proc/apply_sting_effects(var/mob/living/carbon/target, var/type, var/strength)
 	if(!target)
 		return FALSE
 	switch(type)
 		if(STING_HALL)
 			target.hallucination += strength
 		if(STING_DEAF)
-			to_chat(target, SPAN_DANGER("Your ears pop and begin ringing loudly!"))
+			to_chat(target, FONT_HUGE(SPAN_DANGER("Your ears pop and begin ringing loudly!")))
 			target.sdisabilities |= DEAF
 			target.ear_damage += strength
 			addtimer(CALLBACK(src, .proc/remove_sting_effects, target, type), 300)
 		if(STING_SILENT)
 			target.silent += strength
 		if(STING_BLIND)
-			to_chat(target, SPAN_DANGER("Your vision suddenly goes black!"))
+			to_chat(target, FONT_HUGE(SPAN_DANGER("Your vision suddenly goes black!")))
 			target.eye_blind = max(target.eye_blind, strength / 2)
 			target.eye_blurry = max(target.eye_blurry, strength)
 			if(!(target.disabilities & NEARSIGHTED)) //Don't apply nearsighted if the target already is, or we'll accidentally fix them
 				target.disabilities |= NEARSIGHTED
 				addtimer(CALLBACK(src, .proc/remove_sting_effects, target, type), 300)
 		if(STING_PARALYZE)
-			to_chat(target, SPAN_DANGER("Your muscles begin to painfully tighten."))
+			to_chat(target, FONT_HUGE(SPAN_DANGER("Your muscles begin to painfully tighten.")))
 			target.Weaken(strength)
 		if(STING_DEATH)
-			to_chat(target, SPAN_DANGER("You feel a small prick and your chest becomes tight."))
+			to_chat(target, FONT_HUGE(SPAN_DANGER("You feel a small prick and your chest becomes tight.")))
 			target.silent += 15
 			target.Paralyse(10)
 			target.make_jittery(500)
@@ -83,8 +83,7 @@
 			return FALSE
 	return TRUE
 
-
-/mob/proc/remove_sting_effects(var/mob/living/carbon/target, var/type)
+/datum/changeling/proc/remove_sting_effects(var/mob/living/carbon/target, var/type)
 	switch(type)
 		if(STING_DEAF)
 			target.sdisabilities &= ~DEAF
@@ -99,7 +98,7 @@
 	var/mob/living/carbon/T = changeling_sting(15, /mob/proc/changeling_hallucinate_sting, stealthy = TRUE)
 	if(!T)
 		return FALSE
-	addtimer(CALLBACK(src, .proc/apply_sting_effects, T, STING_HALL, 150), rand(50, 150))
+	addtimer(CALLBACK(src, /datum/changeling/.proc/apply_sting_effects, T, STING_HALL, 150), rand(50, 150))
 	feedback_add_details("changeling_powers", "HS")
 	return TRUE
 
@@ -111,7 +110,7 @@
 	var/mob/living/carbon/T = changeling_sting(10, /mob/proc/changeling_silence_sting, stealthy = TRUE)
 	if(!T)
 		return FALSE
-	apply_sting_effects(T, STING_SILENT, 30)
+	mind.changeling.apply_sting_effects(T, STING_SILENT, 30)
 	feedback_add_details("changeling_powers", "SS")
 	return TRUE
 
@@ -123,7 +122,7 @@
 	var/mob/living/carbon/T = changeling_sting(20, /mob/proc/changeling_blind_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	apply_sting_effects(T, STING_BLIND, 20)
+	mind.changeling.apply_sting_effects(T, STING_BLIND, 20)
 	feedback_add_details("changeling_powers", "BS")
 	return TRUE
 
@@ -138,7 +137,7 @@
 	if(T.sdisabilities & DEAF)
 		to_chat(src, SPAN_WARNING("We sense that \the [T] will not be affected by our sting's chemicals."))
 		return
-	apply_sting_effects(T, STING_DEAF, 2)
+	mind.changeling.apply_sting_effects(T, STING_DEAF, 2)
 	feedback_add_details("changeling_powers","DS")
 	return TRUE
 
@@ -150,7 +149,7 @@
 	var/mob/living/carbon/T = changeling_sting(30, /mob/proc/changeling_paralysis_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	apply_sting_effects(T, STING_PARALYZE, 20)
+	mind.changeling.apply_sting_effects(T, STING_PARALYZE, 20)
 	feedback_add_details("changeling_powers", "PS")
 	return TRUE
 
@@ -202,7 +201,7 @@
 	var/mob/living/carbon/T = changeling_sting(40, /mob/proc/changeling_death_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	apply_sting_effects(T, STING_DEATH, 3)
+	mind.changeling.apply_sting_effects(T, STING_DEATH, 3)
 	feedback_add_details("changeling_powers", "DTHS")
 	return TRUE
 
