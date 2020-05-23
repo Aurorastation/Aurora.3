@@ -104,6 +104,7 @@
 
 	var/tameable = TRUE //if you can tame it, used by the dociler for now
 	var/unique = FALSE
+	var/recentlynamed = 0
 	var/was_named = FALSE
 
 	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
@@ -764,11 +765,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		log_and_message_admins("changed [key_name(src)]'s name to [input].", M) //To track name changes and ooc shittery.
 	name = input
 	real_name = name
-	was_named = TRUE
+	recentlynamed = world.time
 
 var/regex/defaultgex = regex(@"^[A-z \-]+$")
 
 /mob/living/simple_animal/proc/can_change_name(usr)
+	if(src.recentlynamed + 60 SECONDS > world.time)
+		src.was_named = TRUE
 	if (src.unique)
 		to_chat(usr, span("notice", "[src.real_name] is to precious to rename!"))
 		return FALSE
