@@ -1,13 +1,14 @@
 /obj/item/storage/backpack/cell
 	name = "power cell backpack"
 	desc = "A specially designed power cell rack backpack. Includes an interior holographic display that shows held cells' charge."
-	description_fluff = "Designed by Nanotrasen Scientists in 2462, the power cell backpack, formally known as the 'NT-100 Zeus' or more informally, the 'ABT-DMN-TME'. Using sophisticated sensors first designed four centuries earlier, hooked up to screens designed three centuries earlier, it allows the user to hotswap batteries at a glance, without spending many eye-hours wasted counting charge and doing mental arithmetic."
+	desc_fluff = "Designed by Nanotrasen Scientists in 2462, the power cell backpack, formally known as the 'NT-100 Zeus' or more informally, the 'ABT-DMN-TME'. Using sophisticated sensors first designed four centuries earlier, hooked up to screens designed three centuries earlier, it allows the user to hotswap batteries at a glance, without spending many eye-hours wasted counting charge and doing mental arithmetic."
 	icon = 'icons/obj/cell_backpack.dmi'
 	icon_state = "cell_rack"
 	item_state = "cell_rack"
 	contained_sprite = TRUE
 	use_sound = 'sound/items/storage/toolbox.ogg'
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	can_hold = list(/obj/item/cell)
 	max_storage_space = 40 // about 10 cells
 	storage_slots = 10

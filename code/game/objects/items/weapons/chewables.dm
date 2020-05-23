@@ -3,6 +3,7 @@
 	desc = "If you are seeing this, ahelp it."
 	icon = 'icons/obj/clothing/masks.dmi'
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 	body_parts_covered = 0
 
 	var/type_butt = null
@@ -168,6 +169,7 @@ obj/item/clothing/mask/chewable/Destroy()
 					/obj/item/trash/spitgum)
 	use_sound = 'sound/items/drop/paper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	max_storage_space = 5
 	foldable = null
 

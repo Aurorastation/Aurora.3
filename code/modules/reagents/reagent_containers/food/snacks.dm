@@ -2195,6 +2195,7 @@
 	icon_state = "stew"
 	trash = /obj/item/trash/stew
 	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	filling_color = "#9E673A"
 	center_of_mass = list("x"=16, "y"=5)
 	nutriment_desc = list("potato" = 2, "carrot" = 2, "eggplant" = 2, "mushroom" = 2)
@@ -2483,6 +2484,7 @@
 	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
 	use_sound = 'sound/items/drop/paper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	max_storage_space = 6
 	foldable = null
 
@@ -3804,7 +3806,8 @@
 	desc = "A box suited for pizzas."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pizzabox1"
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
@@ -5142,7 +5145,7 @@
 	desc = "An adhomian clam, native from the sea of Ras'val."
 	icon_state = "clam"
 	bitesize = 2
-	description_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
+	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
 	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other system besides S'rand'marr."
 
 /obj/item/reagent_containers/food/snacks/clam/Initialize()
@@ -5155,7 +5158,7 @@
 	icon_state = "spicy_clams"
 	bitesize = 2
 	trash = /obj/item/trash/snack_bowl
-	description_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
+	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
 	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other system besides S'rand'marr."
 
 /obj/item/reagent_containers/food/snacks/spicy_clams/Initialize()
@@ -5170,7 +5173,7 @@
 	bitesize = 2
 	nutriment_amt = 5
 	nutriment_desc = list("bread" = 2)
-	description_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
+	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Bread, baked with flour produced from a variation of the Blizzard Ears, is considered an essential part of a worker's breakfast."
 
 /obj/item/reagent_containers/food/snacks/soup/earthenroot
@@ -5179,7 +5182,7 @@
 	icon_state = "tajaran_soup"
 	bitesize = 2
 	nutriment_amt = 4
-	description_fluff = "The Earth-Root soup is a common sight on the tables, of all social sectors, in the Northern Harr'masir. Prepared traditionally with water, Earth-Root and \
+	desc_fluff = "The Earth-Root soup is a common sight on the tables, of all social sectors, in the Northern Harr'masir. Prepared traditionally with water, Earth-Root and \
 	other plants, such as the Nif-Berries."
 
 /obj/item/reagent_containers/food/snacks/stew/tajaran
@@ -5189,7 +5192,7 @@
 	bitesize = 2
 	nutriment_amt = 4
 	nutriment_desc = list("sweetness" = 2)
-	description_fluff = "Traditional adhomian stews are made with diced vegetables, such as Nif-Berries, and meat, Snow Strider is commonly used by the rural population, while \
+	desc_fluff = "Traditional adhomian stews are made with diced vegetables, such as Nif-Berries, and meat, Snow Strider is commonly used by the rural population, while \
 	industrialized Fatshouters's beef is prefered by the city's inhabitants."
 
 /obj/item/reagent_containers/food/snacks/stew/tajaran/Initialize()
@@ -5203,7 +5206,7 @@
 	icon_state = "canned"
 	bitesize = 2
 	trash = /obj/item/trash/can
-	description_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
+	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Salt-cured Fatshouters's meat also has been introduced widely, facilitated by the recent advances in the livestock husbandry techniques."
 
 /obj/item/reagent_containers/food/snacks/adhomian_can/Initialize()
@@ -5485,7 +5488,7 @@
 	throw_range = 5
 	throwforce = 10
 	w_class = 3
-	description_fluff = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
+	desc_fluff = "The adhomian hard bread is type of tajaran bread, made from Blizzard Ears's flour, water and spice, usually basked in the shape of a loaf. \
 	It is known for its hard crust, bland taste and for being long lasting. The hard bread was usually prepared for long journeys, hard winters or military campaigns, \
 	due to its shelf life. Certain folk stories and jokes claim that such food could also be used as an artillery ammunition or thrown at besieging armies during sieges."
 

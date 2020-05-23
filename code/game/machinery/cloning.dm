@@ -54,7 +54,6 @@
 /obj/machinery/clonepod/Initialize()
 	. = ..()
 	update_icon()
-	set_expansion(/datum/expansion/multitool, new/datum/expansion/multitool/store(src))
 
 /obj/machinery/clonepod/Destroy()
 	if(connected)

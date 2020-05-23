@@ -170,3 +170,14 @@
 	src.imp = new /obj/item/implant/aggression(src)
 	..()
 	return
+
+
+/obj/item/implantcase/anti_augment
+	name = "glass case - 'augmentation disrupter'"
+	desc = "A case containing an augmentation disrupter implant."
+	icon_state = "implantcase-b"
+
+/obj/item/implantcase/anti_augment/New()
+	src.imp = new /obj/item/implant/anti_augment(src)
+	..()
+	return

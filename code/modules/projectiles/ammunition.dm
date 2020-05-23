@@ -16,6 +16,7 @@
 	var/spent_icon = "s-casing-spent"
 
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/ammo_casing/Initialize()
 	. = ..()

@@ -69,6 +69,7 @@
 	germ_level = 0
 	fingerprint_chance = 75
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
@@ -108,6 +109,7 @@
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
 	drop_sound = 'sound/items/drop/leather.ogg'
+	pickup_sound = 'sound/items/pickup/leather.ogg'
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
@@ -120,7 +122,7 @@
 /obj/item/clothing/gloves/watch
 	name = "watch"
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in black plastic."
-	description_fluff = "For those who want too much time on their wrists instead."
+	desc_fluff = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
 	w_class = 1
@@ -131,22 +133,23 @@
 	fingerprint_chance = 100
 	var/flipped = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/gloves/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
-	description_fluff = "To unleash the telemarketer in you!"
+	desc_fluff = "To unleash the telemarketer in you!"
 	icon_state = "watch_silver"
 	item_state = "watch_silver"
 
 /obj/item/clothing/gloves/watch/gold
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in <b>REAL</b> faux gold."
-	description_fluff = "Be the jerk-ass pawn shop owner you'll never be."
+	desc_fluff = "Be the jerk-ass pawn shop owner you'll never be."
 	icon_state = "watch_gold"
 	item_state = "watch_gold"
 
 /obj/item/clothing/gloves/watch/spy
 	desc = "It's a GENUINE Spy-Tech Invisi-watch! <b>WARNING</b> : Does not actually make you invisible."
-	description_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
+	desc_fluff = "Makes you want to wear a balaclava and smoke a cigarette."
 	icon_state = "watch_spy"
 	item_state = "watch_silver"
 
@@ -244,6 +247,7 @@
 	siemens_coefficient = 1.0
 	fingerprint_chance = 100
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/gloves/armchain/emerald
 	name = "emerald arm chains"
@@ -265,6 +269,7 @@
 	siemens_coefficient = 1.0
 	fingerprint_chance = 100
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/gloves/goldbracer/emerald
 	name = "emerald bracers"
@@ -291,7 +296,8 @@
 	item_state = "force_glove"
 	siemens_coefficient = 0.6
 	permeability_coefficient = 0.05
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
@@ -325,6 +331,7 @@
 	punch_force = 5
 	clipped = 1
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -338,7 +345,8 @@
 	punch_force = 10
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
 
 /obj/item/clothing/gloves/powerfist/Touch(atom/A, mob/living/user, proximity)
@@ -373,7 +381,8 @@
 	clipped = 1
 	sharp = 1
 	edge = 1
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"
@@ -391,7 +400,8 @@
 	siemens_coefficient = 1
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
 	var/obj/item/gun/projectile/mounted
 	var/gun_type = /obj/item/gun/projectile/shotgun/doublebarrel/pellet

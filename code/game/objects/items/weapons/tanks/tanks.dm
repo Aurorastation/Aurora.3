@@ -6,6 +6,7 @@
 	name = "tank"
 	icon = 'icons/obj/tank.dmi'
 	drop_sound = 'sound/items/drop/gascan.ogg'
+	pickup_sound = 'sound/items/pickup/gascan.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_tank.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_tank.dmi',
