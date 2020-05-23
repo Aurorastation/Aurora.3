@@ -87,5 +87,5 @@
 
 /obj/item/clothing/head/soft/eri
 	name = "eridani cap"
-	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection.."
+	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
 	icon_state = "eridanihat"
