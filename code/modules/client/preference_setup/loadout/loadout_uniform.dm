@@ -66,10 +66,11 @@
 	..()
 	var/skirts = list()
 	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
-	skirts["casual skirt, alt"] = /obj/item/clothing/under/skirt/casual/alt
+	skirts["puffy skirt"] = /obj/item/clothing/under/skirt/puffy
 	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
+	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
