@@ -282,3 +282,6 @@
 	icon_dead = "penny_dead"
 	icon_rest = "penny_rest"
 	holder_type = /obj/item/holder/cat/penny
+
+/mob/living/simple_animal/cat/wizard
+	desc = "A mysterious feline. How did it get on the station?"

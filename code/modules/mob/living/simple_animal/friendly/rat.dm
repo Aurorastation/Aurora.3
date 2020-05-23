@@ -323,3 +323,6 @@
 
 /mob/living/simple_animal/rat/cannot_use_vents()
 	return
+
+/mob/living/simple_animal/rat/wizard
+	desc = "A large rodent that seems to have appeared quite mysteriously."

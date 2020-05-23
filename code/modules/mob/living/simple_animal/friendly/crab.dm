@@ -42,3 +42,6 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"
+
+/mob/living/simple_animal/crab/wizard
+	desc = "A mysterious crustacean."

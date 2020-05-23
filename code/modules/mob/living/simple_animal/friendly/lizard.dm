@@ -48,3 +48,6 @@
 
 /mob/living/simple_animal/lizard/dust()
 	..(remains = /obj/effect/decal/remains/lizard)
+
+/mob/living/simple_animal/lizard/wizard
+	desc = "It's a little lizard. Where did it come from?"

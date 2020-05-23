@@ -1,10 +1,9 @@
-/spell/targeted/shapeshift/avian
+/spell/targeted/shapeshift/shapechange
 	name = "Shapechange"
 	desc = "This spell transforms the wizard into an animal."
 	feedback = "AV"
-	possible_transformations = list(/mob/living/simple_animal/parrot)
 
-	invocation = "Poli'crakata!"
+	invocation = "Animalio!"
 	invocation_type = SpI_SHOUT
 	drop_items = 0
 	share_damage = 0

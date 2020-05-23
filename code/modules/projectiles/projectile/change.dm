@@ -7,7 +7,8 @@
 	check_armour = "energy"
 
 /obj/item/projectile/change/on_hit(var/atom/change)
-	wabbajack(change)
+	if (isliving(change))
+		badpolymorph(change, duration = 400, normal_transformations = list(/mob/living/simple_animal/lizard/wizard, /mob/living/simple_animal/crab/wizard, /mob/living/simple_animal/rat/wizard, /mob/living/simple_animal/corgi, /mob/living/simple_animal/chicken/wizard, /mob/living/simple_animal/cat/wizard), big_transformations = list(, /mob/living/simple_animal/hostile/giant_spider/wizard, /mob/living/simple_animal/hostile/carp/wizard), newVars = list("health" = 150, "maxHealth" = 150))
 
 /obj/item/projectile/change/proc/wabbajack(var/mob/M)
 	if(istype(M, /mob/living) && M.stat != DEAD)

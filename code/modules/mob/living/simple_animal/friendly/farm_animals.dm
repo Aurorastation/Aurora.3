@@ -267,6 +267,9 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 
+/mob/living/simple_animal/chicken/wizard
+		desc = "A fine specimen of poultry. Its feathers seem somewhat ruffled."
+
 // Penguins
 
 /mob/living/simple_animal/penguin
@@ -307,3 +310,5 @@
 	name = "emperor penguin"
 	desc = "Emperor of all he surveys."
 
+/mob/living/simple_animal/penguin/wizard
+	desc = "A very out of place bird."

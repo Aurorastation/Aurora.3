@@ -154,3 +154,6 @@
 /mob/living/simple_animal/carp/baby/death()
 	.=..()
 	desc = "A dead baby space carp, what a tragedy!"
+
+/mob/living/simple_animal/hostile/carp/wizard
+		desc = "A ferocious-looking fish-like creature. How did it get in here?"
