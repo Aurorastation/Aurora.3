@@ -13189,7 +13189,6 @@
 /area/centcom/spawning)
 "aIV" = (
 /obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_casual,
 /obj/item/clothing/shoes/magboots/vox,
 /obj/item/clothing/gloves/yellow/vox,
 /obj/item/clothing/suit/space/vox/stealth,
@@ -13289,7 +13288,6 @@
 /area/centcom/holding)
 "aJj" = (
 /obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_casual,
 /obj/item/clothing/shoes/magboots/vox,
 /obj/item/clothing/gloves/yellow/vox,
 /obj/item/clothing/suit/space/vox/carapace,
@@ -13555,7 +13553,6 @@
 /area/centcom/spawning)
 "aJJ" = (
 /obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_casual,
 /obj/item/clothing/shoes/magboots/vox,
 /obj/item/clothing/gloves/yellow/vox,
 /obj/item/clothing/suit/space/vox/medic,
@@ -13881,7 +13878,6 @@
 /area/centcom/spawning)
 "aKq" = (
 /obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_robes,
 /obj/item/clothing/shoes/magboots/vox,
 /obj/item/clothing/gloves/yellow/vox,
 /obj/item/clothing/suit/space/vox/pressure,
@@ -14234,7 +14230,6 @@
 /area/shuttle/arrival/centcom)
 "aLl" = (
 /obj/structure/table/rack,
-/obj/item/clothing/under/vox/vox_robes,
 /obj/item/clothing/shoes/magboots/vox,
 /obj/item/clothing/gloves/yellow/vox,
 /obj/item/clothing/suit/space/vox/carapace,
@@ -17056,7 +17051,6 @@
 	icon_opened = "cabinet_open";
 	icon_state = "cabinet_closed"
 	},
-/obj/item/clothing/under/psysuit,
 /obj/item/clothing/suit/wizrobe/psypurple,
 /obj/item/clothing/head/wizard/amp,
 /obj/effect/decal/cleanable/cobweb2{
@@ -17111,7 +17105,6 @@
 	desc = "A set of fancy shoes that are as functional as they are comfortable.";
 	name = "Gentlemans Shoes"
 	},
-/obj/item/clothing/under/gentlesuit,
 /obj/item/clothing/head/wizard/cap,
 /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat,
 /obj/item/staff/gentcane,
@@ -30688,11 +30681,9 @@
 	dir = 8
 	},
 /obj/structure/closet/cabinet,
-/obj/item/clothing/under/pirate,
 /obj/item/clothing/under/pants/tacticool,
 /obj/item/clothing/under/color/black,
 /obj/item/clothing/under/color/pink,
-/obj/item/clothing/under/captain_fly,
 /obj/item/clothing/under/unathi,
 /obj/item/clothing/suit/unathi/mantle,
 /obj/item/clothing/accessory/poncho,

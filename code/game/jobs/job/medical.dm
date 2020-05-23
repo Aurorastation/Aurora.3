@@ -270,8 +270,6 @@
 	name = "Emergency Medical Technician"
 	jobtype = /datum/job/paramedic
 
-	uniform = /obj/item/clothing/under/rank/medical/paramedic
-
 /datum/job/intern_med
 	title = "Medical Resident"
 	flag = INTERN_MED

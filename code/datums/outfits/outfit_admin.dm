@@ -338,7 +338,6 @@
 /datum/outfit/admin/nt/fib
 	name = "FIB Agent"
 
-	uniform = /obj/item/clothing/under/rank/fib
 	suit = /obj/item/clothing/suit/storage/fib
 	gloves = /obj/item/clothing/gloves/black
 
@@ -379,7 +378,6 @@
 /datum/outfit/admin/pirate
 	name = "Pirate"
 
-	uniform = /obj/item/clothing/under/pirate
 	shoes = /obj/item/clothing/shoes/brown
 	head = /obj/item/clothing/head/bandana
 	glasses = /obj/item/clothing/glasses/eyepatch
@@ -389,7 +387,6 @@
 /datum/outfit/admin/spacepirate
 	name = "Space Pirate"
 
-	uniform = /obj/item/clothing/under/pirate
 	suit = /obj/item/clothing/suit/space/pirate
 	shoes = /obj/item/clothing/shoes/brown
 	head = /obj/item/clothing/head/helmet/space/pirate
@@ -400,7 +397,6 @@
 /datum/outfit/admin/sovietsoldier
 	name = "Soviet Soldier"
 
-	uniform = /obj/item/clothing/under/soviet
 	shoes = /obj/item/clothing/shoes/black
 	head = /obj/item/clothing/head/ushanka/grey
 
@@ -408,7 +404,6 @@
 /datum/outfit/admin/sovietsoldier
 	name = "Soviet Admiral"
 
-	uniform = /obj/item/clothing/under/soviet
 	suit = /obj/item/clothing/suit/hgpirate
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/combat
@@ -423,29 +418,6 @@
 
 /datum/outfit/admin/sovietsoldier/get_id_rank()
 	return "Admiral"
-
-
-/datum/outfit/admin/maskedkiller
-	name = "Masked Killer"
-
-	uniform = /obj/item/clothing/under/overalls
-	suit = /obj/item/clothing/suit/apron
-	shoes = /obj/item/clothing/shoes/white
-	gloves = /obj/item/clothing/gloves/latex
-	mask = /obj/item/clothing/mask/surgical
-	head = /obj/item/clothing/head/welding
-	l_ear = /obj/item/device/radio/headset
-	glasses = /obj/item/clothing/glasses/thermal/plain/monocle
-	l_pocket = /obj/item/material/knife
-	r_pocket = /obj/item/surgery/scalpel
-	r_hand = /obj/item/material/twohanded/fireaxe
-	id = null
-
-/datum/outfit/admin/maskedkiller/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	for(var/obj/item/carried_item in H.contents)
-		if(!istype(carried_item, /obj/item/implant))//If it's not an implant.
-			carried_item.add_blood(H)//Oh yes, there will be blood...
-
 
 /datum/outfit/admin/assassin
 	name = "Assassin"
