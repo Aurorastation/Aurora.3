@@ -131,9 +131,19 @@
 	cost = 2
 
 /datum/gear/accessory/sweater
-	display_name = "sweater"
+	display_name = "sweater selection"
 	path = /obj/item/clothing/accessory/sweater
+	description = "A selection of sweaters and sweater vests."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/sweater/New()
+	..()
+	var/sweater = list()
+	sweater["sweater"] = /obj/item/clothing/accessory/sweater
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
+	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"
