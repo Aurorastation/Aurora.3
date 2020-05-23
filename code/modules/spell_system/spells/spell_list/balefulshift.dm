@@ -108,4 +108,4 @@
 	to_chat(src, span("notice", "You suddenly find yourself a sapient being again, with vague memories of being \a [holder_mob] for a time."))
 
 /mob/living/simple_animal/hostile/faithless/wizard/untransform_prompt()
-	to_chat(src, span("notice", "You return to your normal form."))
+	to_chat(src, span("notice", "You return to your normal form.")) 
