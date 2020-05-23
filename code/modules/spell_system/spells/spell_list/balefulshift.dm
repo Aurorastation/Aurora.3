@@ -78,7 +78,7 @@
 
 /spell/targeted/shapeshift/cast(var/list/targets, mob/user)
 	for(var/mob/living/M in targets)
-		if (M.mind && M.mind.special_role in protected_roles)
+		if (M.mind && (M.mind.special_role in protected_roles))
 			to_chat(user, "You can't shapeshift [M].")
 			continue
 		badpolymorph(M, user, share_damage, drop_items, revert_sound, normal_transformations, big_transformations, duration, newVars)
