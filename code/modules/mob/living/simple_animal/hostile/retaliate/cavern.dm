@@ -133,7 +133,7 @@
 /mob/living/simple_animal/hostile/retaliate/minedrone/proc/FindOre()
 	if(!enemies.len)
 		setClickCooldown(attack_delay)
-		if(!target_ore in ListTargets(10))
+		if(!(target_ore in ListTargets(10)))
 			target_ore = null
 		for(var/obj/item/ore/O in oview(1,src))
 			O.forceMove(src)

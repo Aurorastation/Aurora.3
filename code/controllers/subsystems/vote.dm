@@ -257,8 +257,8 @@ var/datum/controller/subsystem/vote/SSvote
 						to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
 						return 0
 					if(SSticker.current_state <= 2)
-						return 0
 						to_chat(initiator_key, "The crew transfer button has been disabled!")
+						return 0
 					question = "End the shift?"
 					AddChoice("Initiate Crew Transfer")
 					AddChoice("Continue The Round")
@@ -398,7 +398,7 @@ var/datum/controller/subsystem/vote/SSvote
 /datum/controller/subsystem/vote/proc/OpenVotingUI(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, SSvote, "misc-voting", 400, 500, "Voting panel", nstate = interactive_state)
+		ui = new(user, SSvote, "misc-voting", 400, 500, "Voting panel", state = interactive_state)
 		ui.header = "minimal"
 	ui.open()
 

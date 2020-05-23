@@ -697,7 +697,7 @@ default behaviour is:
 /mob/living/var/last_resist
 
 /mob/living/proc/resist_grab()
-	if(last_resist + 8 > world.time)
+	if(last_resist + 10 > world.time)
 		return
 	last_resist = world.time
 	if(stunned > 10)
@@ -733,7 +733,7 @@ default behaviour is:
 				else
 					resist_chance = 3 * resist_power
 				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
-			
+
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
@@ -906,3 +906,25 @@ default behaviour is:
 		Paralyse(rand(8,16))
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
+
+/mob/living/update_icons()
+	for(var/aura in auras)
+		var/obj/aura/A = aura
+		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+		add_overlay(aura_overlay)
+
+/mob/living/proc/add_aura(var/obj/aura/aura)
+	LAZYDISTINCTADD(auras, aura)
+	update_icons()
+	return TRUE
+
+/mob/living/proc/remove_aura(var/obj/aura/aura)
+	LAZYREMOVE(auras, aura)
+	update_icons()
+	return TRUE
+
+/mob/living/Destroy()
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
+	return ..()

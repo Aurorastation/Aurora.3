@@ -56,7 +56,7 @@
 
 	if(multitool_mode && isobj(A))
 		var/obj/O = A
-		var/datum/expansion/multitool/MT = LAZYACCESS(O.expansions, /datum/expansion/multitool)
+		var/datum/component/multitool/MT = O.GetComponent(/datum/component/multitool)
 		if(MT)
 			MT.interact(ai_multi, src)
 			return

@@ -7,6 +7,7 @@
 	w_class = 4.0
 	var/max_fuel = 350
 	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 /obj/item/weldpack/New()
 	var/datum/reagents/R = new/datum/reagents(max_fuel) //Lotsa refills

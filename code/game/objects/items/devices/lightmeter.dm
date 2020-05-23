@@ -38,7 +38,7 @@
 	set src in usr
 
 	var/num = input(usr, "Please enter the low-bound for the detector") as num|null
-	if (null)
+	if (num == null)
 		return
 
 	low = num
@@ -49,7 +49,7 @@
 	set src in usr
 
 	var/num = input(usr, "Please enter the high-bound for the detector") as num|null
-	if (null)
+	if (num == null)
 		return
 
 	high = num

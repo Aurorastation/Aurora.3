@@ -195,7 +195,7 @@
 				span("notice", "[src] examines [src.gender==MALE?"himself":"herself"]."), \
 				span("notice", "You check yourself for injuries.") \
 				)
-				
+
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
@@ -437,6 +437,8 @@
 	if (species && (species.flags & NO_PAIN))
 		return FALSE
 	if (is_berserk())
+		return FALSE
+	if (HULK in mutations)
 		return FALSE
 	if (analgesic > 100)
 		return FALSE

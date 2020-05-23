@@ -33,6 +33,15 @@
 		else
 			idle_threads.Remove(P)
 
+	for(var/s in enabled_services)
+		var/datum/computer_file/program/service = s
+		if(service.program_type & PROGRAM_SERVICE) // Safety checks
+			if(service.service_state == PROGRAM_STATE_ACTIVE)
+				if(active_program != service && !(service in idle_threads))
+					service.process_tick()
+			else
+				enabled_services -= service
+
 	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
@@ -54,6 +63,8 @@
 	if(enrolled)
 		var/programs = get_preset_programs(_app_preset_type)
 		for(var/datum/computer_file/program/prog in programs)
+			if(!prog.is_supported_by_hardware(hardware_flag, FALSE))
+				continue
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/Initialize()
@@ -169,6 +180,13 @@
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(TRUE)
 		idle_threads.Remove(P)
+
+	for(var/s in enabled_services)
+		var/datum/computer_file/program/service = s
+		if(service.program_type & PROGRAM_SERVICE) // Safety checks
+			service.service_deactivate()
+			service.service_state = PROGRAM_STATE_KILLED
+
 	if(loud)
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
 	SSvueui.close_uis(src)
@@ -182,7 +200,13 @@
 	// Autorun feature
 	var/datum/computer_file/data/autorun = hard_drive ? hard_drive.find_file_by_name("autorun") : null
 	if(istype(autorun))
-		run_program(autorun.stored_data)
+		run_program(autorun.stored_data, user)
+
+	for(var/s in enabled_services)
+		var/datum/computer_file/program/service = s
+		if(service.program_type & PROGRAM_SERVICE) // Safety checks
+			service.service_activate()
+			service.service_state = PROGRAM_STATE_ACTIVE
 
 	if(user)
 		ui_interact(user)
@@ -201,9 +225,10 @@
 		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
 
 
-/obj/item/modular_computer/proc/run_program(prog)
+/obj/item/modular_computer/proc/run_program(prog, mob/user)
 	var/datum/computer_file/program/P = null
-	var/mob/user = usr
+	if(!istype(user))
+		user = usr
 	if(hard_drive)
 		P = hard_drive.find_file_by_name(prog)
 
@@ -293,6 +318,58 @@
 
 /obj/item/modular_computer/get_cell()
 	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL
+
+/obj/item/modular_computer/proc/toggle_service(service, mob/user, var/datum/computer_file/program/S = null)
+	if(!S)
+		S = hard_drive?.find_file_by_name(service)
+
+	if(!istype(S)) // Program not found or it's not executable program.
+		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to locate [service]\""))
+		return
+
+	if(S.service_state == PROGRAM_STATE_ACTIVE)
+		disable_service(null, user, S)
+	else
+		enable_service(null, user, S)
+
+
+/obj/item/modular_computer/proc/enable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	if(!S)
+		S = hard_drive?.find_file_by_name(service)
+
+	if(!istype(S)) // Program not found or it's not executable program.
+		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to enable [service]\""))
+		return
+
+	S.computer = src
+
+	if(!S.is_supported_by_hardware(hardware_flag, 1, user))
+		return
+
+	if(S in enabled_services)
+		return
+
+	enabled_services += S
+
+	// Start service
+	S.service_activate()
+	S.service_state = PROGRAM_STATE_ACTIVE
+
+
+/obj/item/modular_computer/proc/disable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	if(!S)
+		S = hard_drive?.find_file_by_name(service)
+
+	if(!istype(S)) // Program not found or it's not executable program.
+		return
+
+	if(!(S in enabled_services))
+		return
+	enabled_services -= S
+
+	// Stop service
+	S.service_deactivate()
+	S.service_state = PROGRAM_STATE_KILLED
 
 /obj/item/modular_computer/proc/output_message(var/message, var/message_range)
 	message_range += message_output_range

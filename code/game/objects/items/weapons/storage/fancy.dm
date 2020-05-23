@@ -18,7 +18,8 @@
 	item_state = "box" //placeholder, many of these don't have inhands
 	var/icon_type = null
 	var/storage_type = "box"
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/fancy/update_icon(var/itemremoved = 0)
@@ -162,6 +163,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/drop/paper.ogg'
 	w_class = 1
 	throwforce = 2
@@ -244,6 +246,7 @@
 	item_state = "cigarcase"
 	icon = 'icons/obj/cigs_lighters.dmi'
 	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
@@ -329,7 +332,8 @@
 	icon_state = "vialbox6"
 	icon_type = "vial"
 	use_sound = 'sound/items/drop/glass.ogg'
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	storage_slots = 6
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
@@ -341,7 +345,8 @@
 	icon_state = "vialbox0"
 	item_state = "box"
 	use_sound = 'sound/items/drop/glass.ogg'
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	max_w_class = 2
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.

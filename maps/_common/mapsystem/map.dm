@@ -1,6 +1,7 @@
 /datum/map
 	var/name = "Unnamed Map"
 	var/full_name = "Unnamed Map"
+	var/description // Basic info about the map. Shows up in the new player options.
 	var/path
 
 	var/list/station_levels = list() // Z-levels the station exists on

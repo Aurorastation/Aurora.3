@@ -17,6 +17,8 @@
 	var/brightness_color = LIGHT_COLOR_HALOGEN
 	var/lighttype = null
 	var/randomize_range = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/light/tube
 	name = "light tube"

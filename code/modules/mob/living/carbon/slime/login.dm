@@ -1,4 +1,4 @@
-/mob/living/carbon/slime/Login()
+/mob/living/carbon/slime/LateLogin()
 	..()
 	update_hud()
 	return
