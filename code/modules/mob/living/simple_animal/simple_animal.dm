@@ -765,7 +765,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		log_and_message_admins("changed [key_name(src)]'s name to [input].", M) //To track name changes and ooc shittery.
 	name = input
 	real_name = name
-	recentlynamed = world.time
+	recentlynamed = world.time 
 
 var/regex/defaultgex = regex(@"^[A-z \-]+$")
 
