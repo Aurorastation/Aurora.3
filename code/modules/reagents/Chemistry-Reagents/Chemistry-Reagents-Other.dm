@@ -698,6 +698,38 @@
 		L.adjust_fire_stacks(10)
 		L.IgniteMob()
 
+/datum/reagent/liquid_fire/firetoxin
+	name = "Dragonsand solution"
+	id = "firetoxin"
+	description = "A suspension of a dangerous substance known as 'dragon sand' that quickly raises the body temperature of a biological creature as it is processed by their organs, eventually igniting them."
+	color = "#51c747"
+	metabolism = REM * 0.4
+	taste_description = "spicy tea"
+	fallback_specific_heat = 5
+
+/datum/reagent/liquid_fire/firetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	switch (dose)
+		if (0 to 1)
+			if(prob(20))
+				to_chat(M, span("notice", "You feel warm."))	
+		if (1 to 2)
+			M.bodytemperature = max(M.bodytemperature + 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+			if(prob(30))
+				to_chat(M, span("warning", "Your body is burning up."))	
+		if (2 to INFINITY)
+			if(istype(M))
+				M.bodytemperature = max(M.bodytemperature + 30 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+				if(M.fire_stacks <= 0)
+					M.visible_message(span("danger", "\The [M] ignites suddenly with a roar of flame!"), span("danger", "With a sudden roar, your body ignites!"), "You hear a firey whoosh.")
+					M.adjust_fire_stacks(2)
+					M.IgniteMob()
+			else
+				M.adjust_fire_stacks(1)
+				M.IgniteMob()
+
+/datum/reagent/liquid_fire/firetoxin/touch_mob(var/mob/living/L, var/amount)
+	return
+
 /datum/reagent/black_matter
 	name = "Unstable Black Matter"
 	id = "black_matter"

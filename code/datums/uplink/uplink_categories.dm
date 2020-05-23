@@ -62,6 +62,9 @@
 /datum/uplink_category/corporate_equipment
 	name = "Corporate Equipment"
 
+/datum/uplink_category/kits
+	name = "Equipment Kits"
+
 /datum/uplink_category/telecrystals
 	name = "Telecrystals"
 

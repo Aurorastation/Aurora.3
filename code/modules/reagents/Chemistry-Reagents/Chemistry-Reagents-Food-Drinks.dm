@@ -549,7 +549,7 @@
 	id = "frostoil"
 	description = "A special oil that chemically chills the body. Extracted from Ice Peppers."
 	reagent_state = LIQUID
-	color = "#B31008"
+	color = "#276acf"
 	taste_description = "mint"
 	taste_mult = 1.5
 
@@ -563,6 +563,53 @@
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature = max(M.bodytemperature - rand(10,20), 0)
 	holder.remove_reagent("capsaicin", 5)
+
+/datum/reagent/frostoil/frosttoxin
+	name = "Concentrated Frost Oil"
+	id = "frosttoxin"	
+	description = "A chemically condensed version of frost oil that leeches heat from the body rapidly. Particularly deadly to unathi."
+	color = "#2a19c4"
+	metabolism = REM * 0.5
+	taste_description = "wintermint"
+	default_temperature = T0C - 5
+
+/datum/reagent/frostoil/frosttoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	switch (dose)
+		if(0 to 1)
+			if(prob(5))
+				to_chat(M, span("notice", "You feel cool."))	
+		if (1 to 1.5)
+			M.bodytemperature = max(M.bodytemperature - rand(30,60), 0)
+		if (1.5 to 2)
+			M.bodytemperature = max(M.bodytemperature - rand(60,90), 0)
+			if(prob(10))
+				M.emote("shiver")
+			if(prob(10))
+				to_chat(M, span("alert", "You feel cold."))
+		if (2 to 2.5)
+			M.bodytemperature = max(M.bodytemperature - rand(200,300), 0)
+			if(prob(10))
+				M.emote("shiver")
+			if(prob(10))
+				to_chat(M, "<span style='color: #276acf;'>You can't stop shivering!</span>")
+			if(alien && alien == IS_UNATHI)
+				if(prob(30))
+					if(prob(15))
+						to_chat(M, "<span style='color: #276acf;'><em>You can feel your scales crackling with frost as you struggle to breathe...</em></span>.")
+					M.take_organ_damage(rand(1,2))
+		if (2.5 to INFINITY)
+			M.bodytemperature = max(M.bodytemperature - rand(350,450), 0)
+			if(prob(10))
+				M.emote("shiver")
+			if(prob(10))
+				to_chat(M, "<span style='color: #276acf;'><em>It's so cold! You feel like your insides are freezing over!</em></span>")
+			if(alien && alien == IS_UNATHI)
+				if(prob(30))
+					if(prob(15))
+						to_chat(M, "<span style='color: #276acf;'><b><em>Some of your scales begin to crack and fall off your frozen body!</em></b></span>.")
+					M.take_organ_damage(rand(2,4))
+	holder.remove_reagent("capsaicin", 15)
+
 
 /datum/reagent/capsaicin
 	name = "Capsaicin Oil"

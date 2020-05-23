@@ -45,6 +45,12 @@
 	path = /obj/item/plastique
 	desc = "A single block of C4, enough to breach any wall."
 
+/datum/uplink_item/item/tools/c4multipack
+	name = "C-4 Multipack (Destroys walls)"
+	item_cost = 10
+	path = /obj/item/storage/box/syndie_kit/c4
+	desc = "A four-pack of C4, enough to breach several walls."
+
 /datum/uplink_item/item/tools/heavy_vest
 	name = "Heavy Armor Kit"
 	item_cost = 4
