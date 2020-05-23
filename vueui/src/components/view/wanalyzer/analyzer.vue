@@ -7,51 +7,45 @@
     <div v-if="item == 1">
       <table class="other">
         <tr><td> Damage type: </td> <td class = "right"> {{damage_type}} </td> </tr>
-        <tr><td> Force: </td> <td class = "right"> {{force}} </td> </tr>
-        <tr><td> Throw force: </td> <td class = "right"> {{throw_force}} </td> </tr>
+        <tr><td> Item's estimated force-rating: </td> <td class = "right"> {{force}} points</td> </tr>
+        <tr><td> Item's estimated throw force-rating: </td> <td class = "right"> {{throw_force}} points </td> </tr>
         <template class="active_energy" v-if="energy == 1">
-          <tr> <td> Active force: </td> <td class = "right"> {{active_force}} </td> </tr>
-          <tr> <td> Active throw force: </td> <td class = "right"> {{active_throw_force}} </td> </tr>
-          <tr> <td> Base block chance: </td> <td class = "right"> {{base_block_chance}}% </td> </tr>
-          <tr> <td> Base reflect chance: </td> <td class = "right"> {{base_reflectchance}}% </td> </tr>
-          <tr> <td> Shield power: </td> <td class = "right"> {{shield_power}} </td> </tr>
+          <tr> <td> Item's estimated force-rating when activated: </td> <td class = "right"> {{active_force}} points </td> </tr>
+          <tr> <td> Item's estimated throw force-rating when activated: </td> <td class = "right"> {{active_throw_force}} points</td> </tr>
+          <tr> <td> Base block chance is: </td> <td class = "right"> {{base_block_chance}}% </td> </tr>
+          <tr> <td> Base reflect chance is: </td> <td class = "right"> {{base_reflectchance}}% </td> </tr>
+          <tr> <td> Item's estimated shield rating: </td> <td class = "right"> {{shield_power}} points</td> </tr>
           <tr> <td> Can block bullets: </td> <td class = "right"> {{can_block}} </td> </tr>
         </template>
         <tr> <td> Is sharp:</td> <td class = "right"> {{sharp}} </td> </tr>
         <tr> <td> Chance to dismember: </td> <td class = "right"> {{edge}} </td> </tr>
-        <tr> <td> Armor penetration: </td> <td class = "right"> {{penetration}} </td> </tr>
+        <tr> <td> Item's estimated armor penetration rating: </td> <td class = "right"> {{penetration}} points</td> </tr>
       </table>
     </div>
-    <div v-if="gun == 1">
+    <div class="active_energy" v-if="gun == 1">
       <table class="other">
-        <tr><td> Max shots: </td> <td class = "right"> {{max_shots}} </td> </tr>
+        <tr><td> Maximum shots: </td> <td class = "right"> {{max_shots}} </td> </tr>
         <tr><td> Burst: </td> <td class = "right"> {{burst}} </td> </tr>
         <tr><td> Self recharge: </td> <td class = "right"> {{recharge}} </td> </tr>
         <tr><td> Recharge time: </td> <td class = "right"> {{recharge_time}} </td> </tr>
         <tr><td> Reliability: </td> <td class = "right"> {{reliability}} </td> </tr>
-      </table>
-      <div>
         <br><b>First projectile information: </b><br>
-        <table class="other">
-          <tr><td> Damage: </td> <td class = "right"> {{damage}} </td> </tr>
-          <tr><td> Damage type: </td> <td class = "right"> {{damage_type}} </td> </tr>
-          <tr><td> Armor penetration: </td> <td class = "right"> {{armor_penetration}} </td> </tr>
-          <tr><td> Armor damage type: </td> <td class = "right"> {{check_armor}} </td> </tr>
-          <tr><td> Shrapnel type: </td> <td class = "right"> {{shrapnel_type}} </td> </tr>
-          <tr><td> Stun: </td> <td class = "right"> {{stun}} </td> </tr>
-        </table>
-      </div>
-      <div v-if="secondary_damage">
-        <br><b>Second projectile information: </b><br>
-        <table class="other">
-          <tr><td> Damage: </td> <td class = "right"> {{secondary_damage}} </td> </tr>
-          <tr><td> Damage type: </td> <td class = "right"> {{secondary_damage_type}} </td> </tr>
-          <tr><td> Armor penetration: </td> <td class = "right"> {{secondary_armor_penetration}} </td> </tr>
-          <tr><td> Armor damage type: </td> <td class = "right"> {{secondary_check_armor}} </td> </tr>
-          <tr><td> Shrapnel type: </td> <td class = "right"> {{secondary_shrapnel_type}} </td> </tr>
+        <tr><td> Projectile's estimated damage rating: </td> <td class = "right"> {{damage}} points</td> </tr>
+        <tr><td> Projectile's Damage type: </td> <td class = "right"> {{damage_type}} </td> </tr>
+        <tr><td> Projectile's estimated armor penetration rating: </td> <td class = "right"> {{armor_penetration}} points</td> </tr>
+        <tr><td> Projectile's armor damage type: </td> <td class = "right"> {{check_armor}} </td> </tr>
+        <tr><td> Projectile's shrapnel type: </td> <td class = "right"> {{shrapnel_type}} </td> </tr>
+        <tr><td> Stun: </td> <td class = "right"> {{stun}} </td> </tr>
+        <template class="active_energy" v-if="secondary_damage">
+          <br><b>Second projectile information: </b><br>
+          <tr><td> Projectile's estimated damage rating: </td> <td class = "right"> {{secondary_damage}} points</td> </tr>
+          <tr><td> Projectile's damage type: </td> <td class = "right"> {{secondary_damage_type}} </td> </tr>
+          <tr><td> Projectile's estimated armor penetration rating: </td> <td class = "right"> {{secondary_armor_penetration}} points</td> </tr>
+          <tr><td> Projectile's armor damage type: </td> <td class = "right"> {{secondary_check_armor}} </td> </tr>
+          <tr><td> Projectile's shrapnel type: </td> <td class = "right"> {{secondary_shrapnel_type}} </td> </tr>
           <tr><td> Stun: </td> <td class = "right"> {{secondary_stun}} </td> </tr>
-        </table>
-      </div>
+        </template>
+      </table>
     </div>
     <div v-if="gun_mods">
       <br><b>Modular gun information: </b><br>

@@ -246,7 +246,7 @@
 /obj/machinery/weapons_analyzer/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	var/height = item ? 600: 300
-	var/width = item ? 400 : 300
+	var/width = item ? 500 : 300
 	if(istype(item, /obj/item/gun/energy/laser/prototype) || istype(item, /obj/item/device/laser_assembly))
 		width = 600
 
