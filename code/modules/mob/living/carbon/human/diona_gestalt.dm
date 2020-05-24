@@ -337,8 +337,7 @@
 		nymphos += D
 		D.forceMove(T)
 		if(death_split && D.health != 0 && D.stat != DEAD)
-			D.health = D.maxHealth * 0.25
-		D.health = D.maxHealth * 0.20
+			D.health = D.maxHealth * 0.20
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
