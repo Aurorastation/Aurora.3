@@ -1,0 +1,49 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+author: aleksix
+
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - wip: "Ported a lot of different components from Baystation, such as pullers, maintenance clamps, filters, reagent cooler/heater etc."
+  - wip: "Added IC duplication. Schemas can be saved by the user to be loaded and printed at a later time. Schemas can be seen by the assembly creator or by using an assembly analyser. Duplication takes resources and time, but the latter can be removed with an upgrade."
+  - rscadd: "Weapon firing mechanism can now change firing modes on the weapon."
+  - tweak: "Weapon firing mechanism nerfed - fire delay is now equal to (gun's firing rate * 5), with a minimum of 30 ms (Bay's idea, not mine). However, it doesn't require a firing pin."
+  - balance: "Assemblies now have specializations - only the gun assembly can fire weapons and throw items, to ensure that weapons are easier to recognize (Again, bay's idea)."
+  - tweak: "IC Medical analyser nerfed and changed to adhere to the handheld analyser - the basic IC med. analyser only reports basic vitals - brain activity, pulse and conciousness. IC advanced med. analyser reports an estimation of damage in terms of levels (0-4, where 0 is no damage, 4 is ~ 80 damage)."
+  - tweak: "Integrated circuits now work with their own specialized tools instead of the multitool."
+  - rscadd: "IC printer, assemblies and components now have reactive VueUI interfaces."
+  - rscadd: "Circuit bag now contains list and filter bags."
+  - rscadd: "Added the fast cloning disk to the protolathe."
+  - bugfix: "Assemblies no longer spawn with free device cells."
