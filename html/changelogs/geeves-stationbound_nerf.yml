@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "AI and cyborgs can no longer bolt or electrify airlocks, only unbolt or de-electrify on a five second timer. This restriction does not apply to antagonist silicons."
+  - bugfix: "Malf AI can no longer machine overload the forcefields they generate."
