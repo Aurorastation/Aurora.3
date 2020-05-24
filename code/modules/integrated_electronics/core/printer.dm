@@ -296,30 +296,6 @@
 				var/assembly_info = href_list["assembly"]
 				var/list/components_info = href_list["components"]
 				var/list/wires_info = href_list["wires"]
-				/*usr << "TESTING"
-				if(isnull(assembly_info))
-					usr << "ASSEMBLY IS NULL!"
-				usr << href_list["assembly"]
-				if(isnull(components_info))
-					usr << "COMPONENTS IS NULL!"
-				else if(islist(components_info))
-					usr << "COMPONENT LIST!"
-					for (var/i = 1 to components_info.len)
-						usr << components_info[i]
-				usr << href_list["components"]
-				if(isnull(wires_info))
-					usr << "WIRES IS NULL!"
-				else if(islist(wires_info))
-					usr << "WIRES IS LIST!"
-					for (var/i = 1 to wires_info.len)
-						if(islist(wires_info[i]))
-							usr << "WIRE LIST IS LIST"
-							for (var/j = 1 to wires_info[i].len)
-								usr << wires_info[i][j]
-						else
-							usr << wires_info[i]
-				usr << href_list["wires"]
-				*/
 
 				if(cloning)
 					return
