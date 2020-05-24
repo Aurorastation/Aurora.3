@@ -9,6 +9,7 @@
 
 <script>
 import Utils from '../../../utils.js'
+import Store from '../../../store.js'
 
 export default {
   data() {
@@ -29,8 +30,12 @@ export default {
             return
           }
           // Send parsed info to the server
-          Utils.sendToTopic({
-            //src: Store.state.uiref,
+          // So. Stuff that doesn't work HERE (some work in the template):
+          // global.state.uiref, global.state.printer_ref, state.printer_ref, state.uiref, printer_ref, uiref
+          // (printer_ref doesn't exist anymore, used to be \ref[src] in the printer, all correct)
+          // What works, not quite sure why:
+          Utils.sendToTopicRaw({
+            src: Store.state.uiref,
             print: 'load', 
             assembly: this.assembly_data['assembly'] ? 
               JSON.stringify(this.assembly_data['assembly']) : null,
