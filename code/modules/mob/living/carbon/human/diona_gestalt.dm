@@ -301,7 +301,7 @@
 	else
 		nymph.key = key
 
-/mob/living/carbon/human/proc/diona_split_into_nymphs()
+/mob/living/carbon/human/proc/diona_split_into_nymphs(var/death_split = FALSE)
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
 	var/bestHealth = 0
@@ -336,6 +336,9 @@
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
+		if(death_split && D.health != 0 && D.stat != DEAD)
+			D.health = D.maxHealth * 0.25
+		D.health = D.maxHealth * 0.20
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
