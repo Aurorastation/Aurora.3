@@ -79,6 +79,13 @@
 	item_state = "psyche"
 	worn_state = "psyche"
 
+/obj/item/clothing/under/rainbow
+	name = "rainbow"
+	desc = "rainbow"
+	icon_state = "rainbow"
+	item_state = "rainbow"
+	worn_state = "rainbow"
+
 /obj/item/clothing/under/lightblue
 	name = "lightblue jumpsuit"
 	desc = "lightblue"

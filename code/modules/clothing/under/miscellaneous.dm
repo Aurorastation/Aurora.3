@@ -78,6 +78,12 @@
 	worn_state = "centcom"
 	displays_id = 0
 
+/obj/item/clothing/under/rank/fib
+	name = "\improper FIB agent uniform"
+	desc = "A formal uniform used by Federal Investigations Bureau agents."
+	icon_state = "fib_uniform"
+	worn_state = "fib_uniform"
+
 /obj/item/clothing/under/ert
 	name = "ERT tactical uniform"
 	desc = "A short-sleeved black uniform, paired with grey digital-camo cargo pants. It looks very tactical."
@@ -133,12 +139,13 @@
 	worn_state = "owl"
 	item_state = "owl"
 
-/obj/item/clothing/under/rainbow
-	name = "rainbow"
-	desc = "rainbow"
-	icon_state = "rainbow"
-	item_state = "rainbow"
-	worn_state = "rainbow"
+/obj/item/clothing/under/psysuit
+	name = "dark undersuit"
+	desc = "A thick, layered grey undersuit lined with power cables. Feels a little like wearing an electrical storm."
+	icon_state = "psysuit"
+	item_state = "bl_suit"
+	worn_state = "psysuit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 
 /obj/item/clothing/under/gimmick/rank/captain/suit
 	name = "captain's suit"
@@ -146,6 +153,13 @@
 	icon_state = "green_suit"
 	item_state = "dg_suit"
 	worn_state = "green_suit"
+
+/obj/item/clothing/under/overalls
+	name = "laborer's overalls"
+	desc = "A set of durable overalls for getting the job done."
+	icon_state = "overalls"
+	item_state = "lb_suit"
+	worn_state = "overalls"
 
 /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
 	name = "head of personnel's suit"
@@ -297,11 +311,6 @@
 	name = "red swept dress"
 	desc = "A red dress that sweeps to the side."
 	icon_state = "red_swept_dress"
-
-/obj/item/clothing/under/dress/westernbustle
-	name = "western bustle"
-	desc = "A western bustle dress from somewhere in the ancient history of Earth."
-	icon_state = "westernbustle"
 
 /obj/item/clothing/under/dress/blacktango
 	name = "black tango dress"
