@@ -79,6 +79,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	w_class = 1
 	var/closed = FALSE
@@ -125,6 +126,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	w_class = 1
 	var/datum/weakref/thrall = null
@@ -510,10 +512,16 @@
 
 /obj/machinery/chakraconsole/power_change()
 	..()
+	update_icon()
+
+/obj/machinery/chakraconsole/update_icon()
+	cut_overlays()
 	if((stat & BROKEN) || (stat & NOPOWER))
-		icon_state = "sleeper_s_scannerconsole-p"
+		return
 	else
-		icon_state = initial(icon_state)
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "sleeper_s_scannerconsole-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+		set_light(1.4, 1, COLOR_RED)
 
 /obj/machinery/chakraconsole/Initialize()
 	. = ..()
@@ -522,6 +530,7 @@
 		break
 	if(connected)
 		connected.connected = src
+	update_icon()
 
 /obj/machinery/chakraconsole/Destroy()
 	if (connected)

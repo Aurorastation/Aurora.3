@@ -69,6 +69,7 @@
 	germ_level = 0
 	fingerprint_chance = 75
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
@@ -108,6 +109,7 @@
 	permeability_coefficient = 0.05
 	siemens_coefficient = 0.50 //thick work gloves
 	drop_sound = 'sound/items/drop/leather.ogg'
+	pickup_sound = 'sound/items/pickup/leather.ogg'
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
@@ -131,6 +133,7 @@
 	fingerprint_chance = 100
 	var/flipped = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/gloves/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
@@ -244,6 +247,7 @@
 	siemens_coefficient = 1.0
 	fingerprint_chance = 100
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/gloves/armchain/emerald
 	name = "emerald arm chains"
@@ -265,6 +269,7 @@
 	siemens_coefficient = 1.0
 	fingerprint_chance = 100
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/gloves/goldbracer/emerald
 	name = "emerald bracers"
@@ -291,7 +296,8 @@
 	item_state = "force_glove"
 	siemens_coefficient = 0.6
 	permeability_coefficient = 0.05
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 	cold_protection = HANDS
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
@@ -325,6 +331,7 @@
 	punch_force = 5
 	clipped = 1
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -338,7 +345,8 @@
 	punch_force = 10
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
 
 /obj/item/clothing/gloves/powerfist/Touch(atom/A, mob/living/user, proximity)
@@ -373,7 +381,8 @@
 	clipped = 1
 	sharp = 1
 	edge = 1
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 /obj/item/clothing/gloves/offworlder
 	name = "starmitts"
@@ -391,7 +400,8 @@
 	siemens_coefficient = 1
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
 	var/obj/item/gun/projectile/mounted
 	var/gun_type = /obj/item/gun/projectile/shotgun/doublebarrel/pellet

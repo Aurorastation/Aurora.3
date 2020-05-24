@@ -2195,6 +2195,7 @@
 	icon_state = "stew"
 	trash = /obj/item/trash/stew
 	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	filling_color = "#9E673A"
 	center_of_mass = list("x"=16, "y"=5)
 	nutriment_desc = list("potato" = 2, "carrot" = 2, "eggplant" = 2, "mushroom" = 2)
@@ -2483,6 +2484,7 @@
 	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
 	use_sound = 'sound/items/drop/paper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	max_storage_space = 6
 	foldable = null
 
@@ -3804,7 +3806,8 @@
 	desc = "A box suited for pizzas."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "pizzabox1"
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
