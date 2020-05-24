@@ -530,7 +530,6 @@
 			var/path = pick(list(
 				/obj/item/clothing/glasses/eyepatch,
 				/obj/item/clothing/glasses/regular,
-				/obj/item/clothing/glasses/gglasses,
 				/obj/item/clothing/glasses/regular/hipster,
 				/datum/gear/eyes/glasses/monocle,
 				/datum/gear/eyes/shades/aviator,

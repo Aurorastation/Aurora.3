@@ -12,14 +12,14 @@
 /obj/machinery/mining/drill
 	name = "mining drill head"
 	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
-	description_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
+	desc_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
 	icon_state = "mining_drill"
 	var/braces_needed = 2
 	var/list/supports = list()
 	var/supported = FALSE
 	var/active = FALSE
 	var/current_error
-	
+
 	var/list/resource_field = list()
 
 	var/ore_types = list(
@@ -195,7 +195,7 @@
 				return
 			if(default_part_replacement(user, O))
 				return
-	if(active) 
+	if(active)
 		return ..()
 
 	if(istype(O, /obj/item/storage/bag/ore))

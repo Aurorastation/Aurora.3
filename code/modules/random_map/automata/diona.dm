@@ -65,7 +65,7 @@
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"
 	desc = "A bulb of some sort. Seems like it needs some power."
-	description_info = "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
+	desc_info = "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
 	light_power = 0
 	light_range = 0
 

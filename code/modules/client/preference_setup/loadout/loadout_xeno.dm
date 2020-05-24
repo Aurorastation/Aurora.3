@@ -8,20 +8,20 @@
 	display_name = "cloth footwraps"
 	path = /obj/item/clothing/shoes/footwraps
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/toeless
 	display_name = "toe-less jackboots"
 	path = /obj/item/clothing/shoes/jackboots/toeless
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/workboots_toeless
 	display_name = "toeless workboots selection"
 	path = /obj/item/clothing/shoes/workboots/toeless
 	sort_category = "Xenowear"
-	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/workboots_toeless/New()
 	..()
@@ -34,7 +34,7 @@
 /datum/gear/shoes/caligae
 	display_name = "caligae selection"
 	path = /obj/item/clothing/shoes/caligae
-	whitelisted = list("Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	whitelisted = list("Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear"
 
 /datum/gear/shoes/caligae/New()

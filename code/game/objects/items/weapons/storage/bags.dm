@@ -25,6 +25,7 @@
 	slot_flags = SLOT_BELT
 	var/use_deferred = TRUE
 	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
 // -----------------------------
 //          Trash bag
@@ -46,6 +47,7 @@
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/storage/bag/trash/update_icon()
 	if(contents.len == 0)
@@ -114,6 +116,7 @@
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 // -----------------------------
 //          Plant bag

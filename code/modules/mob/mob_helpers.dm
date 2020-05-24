@@ -48,17 +48,8 @@
 		switch(H.get_species())
 			if ("Unathi")
 				return 1
-			if("Aut'akh Unathi")
-				return 1
 			if ("Unathi Zombie")
 				return 1
-	return 0
-
-/proc/isautakh(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
-		if(H.get_species() == "Aut'akh Unathi")
-			return 1
 	return 0
 
 /proc/istajara(A)

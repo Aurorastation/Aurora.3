@@ -100,14 +100,10 @@ var/global/datum/robolimb/basic_robolimb
 
 /datum/robolimb/autakh
 	company = PROSTHETIC_AUTAKH
-	desc = "This limb has been designed by the Aut'akh sect, it was created to interact exclusively with their bodies and implants."
+	desc = "This limb has been designed by the Aut'akh unathi sect."
 	icon = 'icons/mob/human_races/unathi/r_autakh.dmi'
-	species_can_use = list("Aut'akh Unathi")
-	linked_frame = "Aut'akh Unathi"
-	unavailable_at_chargen = 1
+	species_can_use = list("Unathi")
 	paintable = 1
-	brute_mod = 1
-	burn_mod = 1
 
 /datum/robolimb/tesla
 	company = PROSTHETIC_TESLA

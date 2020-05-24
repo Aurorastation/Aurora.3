@@ -197,7 +197,8 @@
 
 	slot_flags = SLOT_BELT | SLOT_TIE
 
-	drop_sound = 'sound/items/drop/scrap.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 //Medals
 /obj/item/clothing/accessory/medal
@@ -207,7 +208,8 @@
 	overlay_state = "bronze"
 	flippable = 1
 
-	drop_sound = 'sound/items/drop/scrap.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/accessory/medal/conduct
 	name = "distinguished conduct medal"
@@ -583,7 +585,7 @@
 /obj/item/clothing/accessory/poncho/shouldercape
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
-	description_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
+	desc_fluff = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = 1
@@ -668,6 +670,7 @@
 	overlay_state = "tc-pin"
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/sol_pin
 	name = "Sol Alliance pin"
@@ -677,6 +680,7 @@
 	overlay_state = "sol-pin"
 	flippable = 1
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/dogtags
 	name = "dogtags"
@@ -684,7 +688,9 @@
 	icon_state = "tags"
 	item_state = "tags"
 	overlay_state = "tags"
-	drop_sound = 'sound/items/drop/scrap.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
@@ -693,6 +699,7 @@
 	overlay_state = "patch"
 	flippable = 1
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/accessory/sleevepatch/zavodskoi
 	name = "\improper Zavodskoi Interstellar sleeve patch"

@@ -11,10 +11,11 @@
 	health = maxHealth - getBrainLoss()
 
 	if(stat == DEAD)
-		if(getFireLoss() > maxHealth * 1.5)
-			ChangeToHusk()
-		if(getFireLoss() > maxHealth * 3)
+		var/fire_dmg = getFireLoss()
+		if(fire_dmg > maxHealth * 3)
 			ChangeToSkeleton()
+		else if(fire_dmg > maxHealth * 1.5)
+			ChangeToHusk()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return

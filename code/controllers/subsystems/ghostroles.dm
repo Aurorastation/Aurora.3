@@ -2,7 +2,6 @@
 
 /datum/controller/subsystem/ghostroles
 	name = "Ghost Roles"
-	init_order = SS_INIT_JOBS
 	flags = SS_NO_FIRE
 
 	var/list/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
@@ -36,7 +35,7 @@
 			log_debug("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		spawners[G.short_name] = G
-	
+
 	for (var/identifier in spawnpoints)
 		CHECK_TICK
 		update_spawnpoint_status_by_identifier(identifier)
@@ -53,7 +52,7 @@
 
 	if(!spawnpoints[P.identifier])
 		spawnpoints[P.identifier] = list()
-	
+
 	spawnpoints[P.identifier].Add(P)
 	//Only update the status if the round is started. During initialization that´s taken care of at the end of init.
 	if(ROUND_IS_STARTED)
@@ -79,7 +78,7 @@
 		return null
 	if(!length(spawnpoints[identifier])) //If we have no spawnpoints for that identifier, return false
 		return null
-	
+
 	for (var/spawnpoint in spawnpoints[identifier])
 		CHECK_TICK
 		var/obj/effect/ghostspawpoint/P = spawnpoint

@@ -144,7 +144,7 @@
 /obj/item/clothing/under/dominia/lyodsuit
 	name = "lyodsuit"
 	desc = "An imitation Lyodsuit from Dominia. It's lightweight, and high has quality fabric that makes it extremely comfortable to wear."
-	description_fluff = "This Lyodsuit was created in Dominia. It is fashionable amongst the middle and lower classes of Dominia."
+	desc_fluff = "This Lyodsuit was created in Dominia. It is fashionable amongst the middle and lower classes of Dominia."
 	icon = 'icons/clothing/under/uniforms/lyodsuit.dmi'
 	icon_state = "dom_thermal"
 	item_state = "dom_thermal"

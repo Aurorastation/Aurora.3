@@ -3,7 +3,7 @@
 /obj/item/bee_smoker
 	name = "bee smoker"
 	desc = "An archaic contraption that slowly burns welding fuel to create thick clouds of smoke, and directs it with attached bellows, used to control angry bees and calm them before harvesting honey."
-	description_antag = "This device can be used to blind people in short range."
+	desc_antag = "This device can be used to blind people in short range."
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state ="beesmoker"
 	item_state = "beesmoker"

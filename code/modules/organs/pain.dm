@@ -1,5 +1,9 @@
-mob/proc/flash_pain()
-	flick("pain",pain)
+/mob/proc/flash_pain()
+	flick("pain", pain)
+
+/mob/living/carbon/human/flash_pain()
+	if(can_feel_pain())
+		flick("pain", pain)
 
 mob/var/list/pain_stored = list()
 mob/var/last_pain_message = ""

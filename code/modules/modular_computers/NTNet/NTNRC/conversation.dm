@@ -111,6 +111,15 @@ var/global/ntnrc_uid = 0
 	else
 		return title
 
+/datum/ntnet_conversation/proc/get_dead_title()
+	if(direct)
+		var/names = list()
+		for(var/datum/computer_file/program/chatclient/C in clients)
+			names += C.username
+		return "\[DM] [english_list(names)]"
+	else
+		return title
+
 /datum/ntnet_conversation/proc/can_see(var/datum/computer_file/program/chatclient/cl)
 	if(cl in clients)
 		return TRUE
