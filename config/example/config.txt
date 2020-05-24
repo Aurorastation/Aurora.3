@@ -293,6 +293,9 @@ TICKLAG 0.33
 ## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.
 #TICKCOMP
 
+## Uncomment this to activate the five day from character creation timelock on modifying IPC tags
+#IPC_TIMELOCK_ACTIVE
+
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
 
@@ -556,3 +559,18 @@ FAIL2TOPIC_ENABLED 0
 #FAIL2TOPIC_MAX_FAILS 5
 ## The name of the firewall rule used.
 #FAIL2TOPIC_RULE_NAME _dd_fail2topic
+
+### Forum API configuration
+### Required for certain components of the game to function.
+### Is compatible with the Invision Community API (specifically IPS4).
+## The base URL for the forum. Do not include a training backslash!
+#FORUM_API_PATH https://myforums.com/api
+## The API key for the forum.
+#FORUM_API_KEY abcdefgh
+
+### News subsystem configuration.
+## Uncomment to enable the pulling of news from the forum API.
+## See the section about configuration the forum API as well!
+## Once enabled, make sure to write a news.json in the configuration
+## folder as well.
+#NEWS_USE_FORUM_API

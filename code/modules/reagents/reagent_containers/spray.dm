@@ -188,6 +188,7 @@
 	icon_state = "sunflower"
 	item_state = "sunflower"
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = null
 	volume = 10

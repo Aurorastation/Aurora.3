@@ -26,6 +26,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
 	var/colour = "black"	//what colour the ink is!
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/pen/ispen()
 	return TRUE
@@ -280,6 +281,7 @@
 	icon = 'icons/obj/crayons.dmi'
 	icon_state = "crayonred"
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	w_class = 1.0
 	attack_verb = list("attacked", "coloured")
 	colour = "#FF0000" //RGB

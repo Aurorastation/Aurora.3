@@ -11,6 +11,7 @@
 	required_access_download = access_ce
 	requires_ntnet = TRUE
 	network_destination = "power monitoring system"
+	usage_flags = PROGRAM_ALL
 	size = 9
 	var/has_alert = FALSE
 	color = LIGHT_COLOR_ORANGE
@@ -40,6 +41,7 @@
 	extended_desc = "This program provides visual interface for station's alarm system."
 	requires_ntnet = TRUE
 	network_destination = "alarm monitoring network"
+	usage_flags = PROGRAM_ALL
 	size = 5
 	var/has_alert = FALSE
 	color = LIGHT_COLOR_CYAN
@@ -72,7 +74,7 @@
 	requires_ntnet = TRUE
 	network_destination = "atmospheric control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_SILICON
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_STATIONBOUND
 	size = 17
 	color = LIGHT_COLOR_CYAN
 
@@ -87,7 +89,7 @@
 	requires_ntnet = TRUE
 	network_destination = "RCON remote control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_STATIONBOUND
 	size = 19
 	color = LIGHT_COLOR_GREEN
 
@@ -103,6 +105,6 @@
 	requires_ntnet = TRUE
 	network_destination = "APC Coordinator"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_STATIONBOUND
 	size = 9
 	color = LIGHT_COLOR_GREEN

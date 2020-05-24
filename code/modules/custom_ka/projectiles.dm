@@ -25,6 +25,8 @@
 	if(istype(target_turf) && !aoe_shot)
 		aoe_shot = TRUE
 		strike_thing(A)
+	else if(aoe_shot)
+		do_damage(A)
 
 /obj/item/projectile/kinetic/proc/do_damage(var/atom/A)
 	var/turf/target_turf = get_turf(A)
@@ -51,8 +53,19 @@
 	for(var/new_target in orange(aoe, target_turf))
 		new /obj/effect/overlay/temp/kinetic_blast(get_turf(new_target))
 		var/obj/item/projectile/kinetic/spread = new /obj/item/projectile/kinetic
-		spread.aoe_shot = TRUE
-		spread.damage = max(base_damage - base_damage * get_dist(new_target, target_turf) * 0.25, 0)
-		spread.do_damage(new_target)
-		spread.Collide(new_target)
-		CHECK_TICK
+		if(istype(get_turf(new_target), /turf/simulated/mineral))
+			spread.aoe_shot = TRUE
+			spread.damage = max(base_damage - base_damage * get_dist(new_target, target_turf) * 0.25, 0)
+			spread.base_damage = base_damage
+			var/turf/simulated/mineral/M = new_target
+			M.kinetic_hit(spread.base_damage, dir)
+			qdel(spread)
+			CHECK_TICK
+			continue
+		else
+			spread.aoe_shot = TRUE
+			spread.damage = max(base_damage - base_damage * get_dist(new_target, target_turf) * 0.25, 0)
+			spread.base_damage = base_damage
+			spread.do_damage(new_target)
+			spread.Collide(new_target)
+			CHECK_TICK

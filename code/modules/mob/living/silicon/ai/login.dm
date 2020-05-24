@@ -1,4 +1,4 @@
-/mob/living/silicon/ai/Login()	//ThisIsDumb(TM) TODO: tidy this up ¬_¬ ~Carn
+/mob/living/silicon/ai/LateLogin()	//ThisIsDumb(TM) TODO: tidy this up ¬_¬ ~Carn // It's still dumb and not really tidied up. Enjoy!
 	..()
 	regenerate_icons()
 	flash = new /obj/screen()

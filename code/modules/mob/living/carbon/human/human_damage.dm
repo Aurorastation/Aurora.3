@@ -10,9 +10,12 @@
 
 	health = maxHealth - getBrainLoss()
 
-	//TODO: fix husking
-	if(((maxHealth - getFireLoss()) < config.health_threshold_dead) && stat == DEAD)
-		ChangeToHusk()
+	if(stat == DEAD)
+		var/fire_dmg = getFireLoss()
+		if(fire_dmg > maxHealth * 3)
+			ChangeToSkeleton()
+		else if(fire_dmg > maxHealth * 1.5)
+			ChangeToHusk()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
@@ -106,6 +109,12 @@
 	if(wearing_rig && !stat && paralysis < amount) //We are passing out right this second.
 		wearing_rig.notify_ai("<span class='danger'>Warning: user consciousness failure. Mobility control passed to integrated intelligence system.</span>")
 	..()
+
+/mob/living/carbon/human/update_canmove()
+	var/old_lying = lying
+	. = ..()
+	if(lying && !old_lying && !resting && !buckled) // fell down
+		playsound(loc, species.bodyfall_sound, 50, 1, -1)
 
 /mob/living/carbon/human/getCloneLoss()
 	var/amount = 0
