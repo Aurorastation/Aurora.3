@@ -72,6 +72,7 @@
 #include "code\_helpers\areas.dm"
 #include "code\_helpers\atmospherics.dm"
 #include "code\_helpers\data_structures.dm"
+#include "code\_helpers\dll_call.dm"
 #include "code\_helpers\files.dm"
 #include "code\_helpers\functional.dm"
 #include "code\_helpers\game.dm"
