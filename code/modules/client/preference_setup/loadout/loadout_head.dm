@@ -28,16 +28,17 @@
 /datum/gear/head/cap/New()
 	..()
 	var/caps = list()
-	caps["blue cap"] = /obj/item/clothing/head/soft/blue
-	caps["flat cap"] = /obj/item/clothing/head/flatcap
-	caps["green cap"] = /obj/item/clothing/head/soft/green
-	caps["grey cap"] = /obj/item/clothing/head/soft/grey
+	caps["red cap"] = /obj/item/clothing/head/soft
 	caps["orange cap"] = /obj/item/clothing/head/soft/orange
+	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["green cap"] = /obj/item/clothing/head/soft/green
+	caps["blue cap"] = /obj/item/clothing/head/soft/blue
 	caps["purple cap"] = /obj/item/clothing/head/soft/purple
 	caps["rainbow cap"] = /obj/item/clothing/head/soft/rainbow
-	caps["red cap"] = /obj/item/clothing/head/soft/red
-	caps["white cap"] = /obj/item/clothing/head/soft/mime
-	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["black cap"] = /obj/item/clothing/head/soft/black
+	caps["grey cap"] = /obj/item/clothing/head/soft/grey
+	caps["white cap"] = /obj/item/clothing/head/soft/white
+	caps["flat cap"] = /obj/item/clothing/head/flatcap
 	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
 

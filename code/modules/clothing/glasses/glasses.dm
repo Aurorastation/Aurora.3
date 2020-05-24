@@ -326,12 +326,17 @@ BLIND     // can't see anything
 	item_state = "3d"
 	body_parts_covered = 0
 
-/obj/item/clothing/glasses/gglasses
-	name = "green glasses"
-	desc = "Forest green glasses, like the kind you'd wear when hatching a nasty scheme."
-	icon_state = "gglasses"
-	item_state = "gglasses"
-	body_parts_covered = 0
+/obj/item/clothing/glasses/regular/jamjar
+	name = "jamjar glasses"
+	desc = "Also known as Virginity Protectors."
+	icon_state = "jamjar_glasses"
+	item_state = "jamjar_glasses"
+
+/obj/item/clothing/glasses/regular/circle
+	name = "circle glasses"
+	desc = "Why would you wear something so controversial yet so brave?"
+	icon_state = "circle_glasses"
+	item_state = "circle_glasses"
 
 /obj/item/clothing/glasses/sunglasses
 	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."

@@ -15,7 +15,12 @@
 	s_tone = null
 	skin_color = null
 	hair_color = null
-	if(status & ORGAN_ROBOT && !(isipc(human)) && !(isautakh(human)))
+	var/limb_exception = FALSE
+	if(robotize_type)
+		var/datum/robolimb/R = all_robolimbs[robotize_type]
+		if(R.paintable)
+			limb_exception = TRUE
+	if(status & ORGAN_ROBOT && !(isipc(human)) && !limb_exception)
 		return
 	if(species && human.species && species.name != human.species.name)
 		return

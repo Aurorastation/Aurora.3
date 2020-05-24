@@ -16806,12 +16806,12 @@
 /area/quartermaster/loading)
 "En" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/soft,
+/obj/item/clothing/head/soft/yellow,
 /obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/head/soft,
+/obj/item/clothing/head/soft/yellow,
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
 	dir = 8
