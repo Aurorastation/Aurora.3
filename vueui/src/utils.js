@@ -6,7 +6,7 @@ export default {
     for(var val in data) {
       if (Array.isArray(data[val])) {
         for (const value in data[val]) {
-          sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(value))
+          sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(data[val][value]))
         }
       } else {
         sendparams.push(encodeURIComponent(val) + "=" + encodeURIComponent(data[val]))
