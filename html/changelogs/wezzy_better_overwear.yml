@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds blazers, argyle sweaters, sweater vests, argyle sweater vests, sweater cardigans and argyle sweater cardigans."
+  - rscadd: "Adds blazers, tubenecks, turtlenecks, sweaters, sweater vests, sweater cardigans and sweater cardigans, as well as argyle styles for each!"
   - rscadd: "These new clothing types can be found in the loadout, under new selections. Check the loadout!"
   - tweak: "Makes cardigans and sweaters look better. Check them out."
   - tweak: "Cardigans can now be buttoned and unbuttoned."

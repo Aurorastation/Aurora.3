@@ -143,6 +143,10 @@
 	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
 	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
 	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
+	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweaterturtleneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
+	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/dressshirt
