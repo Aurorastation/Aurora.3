@@ -2134,7 +2134,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	ball = null
 	working = FALSE
 	update_icon()
-	to_chat(user, "<span class='warning'>You finished \the [S]!</span>")
+	to_chat(user, "<span class='warning'>You finish \the [S]!</span>")
 
 /obj/item/fluff/yarn
 	name = "ball of yarn"

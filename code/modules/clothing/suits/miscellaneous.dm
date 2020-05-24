@@ -624,10 +624,10 @@
 	name = "sweater cardigan"
 	desc = "A cozy, warm knit sweater cardigan."
 	desc_fluff = "Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself."
-	icon_state = "cardigan"
-	item_state = "cardigan"
-	icon_open = "cardigan_open"
-	icon_closed = "cardigan"
+	icon_state = "cardigansweater"
+	item_state = "cardigansweater"
+	icon_open = "cardigansweater_open"
+	icon_closed = "cardigansweater"
 
 /obj/item/clothing/suit/storage/toggle/cardigan/argyle
 	name = "argyle cardigan"
