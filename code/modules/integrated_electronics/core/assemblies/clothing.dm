@@ -12,10 +12,10 @@
 	max_complexity = IC_COMPLEXITY_BASE
 	var/obj/item/clothing/clothing = null
 
-/obj/item/device/electronic_assembly/clothing/ui_host()
+/obj/item/device/electronic_assembly/clothing/resolve_ui_host()
 	return clothing
 
-/obj/item/device/electronic_assembly/clothing/resolve_ui_host()
+/obj/item/device/electronic_assembly/clothing/get_assembly_holder()
 	return clothing
 
 /obj/item/device/electronic_assembly/clothing/save_special()
@@ -47,7 +47,7 @@
 	..()
 	if(clothing)
 		// Find and add the action circuit to the clothing
-		// load_special loads before cicruits are loaded, therefore it can't load the action circuit
+		// load_special loads before circuits are loaded, therefore it can't load the action circuit
 		var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null
 		for(var/var/obj/item/integrated_circuit/IC in assembly_components)
 			if(istype(IC, /obj/item/integrated_circuit/built_in/action_button))
@@ -69,9 +69,6 @@
 	else
 		visible_message("<span class='warning'>The malformed device crumples on the floor!</span>")
 		qdel(src)			// EMERGENCY DELETION!
-
-/obj/item/device/electronic_assembly/clothing/get_assembly_holder()
-	return clothing
 
 /obj/item/device/electronic_assembly/clothing/update_icon()
 	..()

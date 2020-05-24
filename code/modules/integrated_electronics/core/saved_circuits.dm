@@ -174,13 +174,11 @@
 // Verifies a list of assembly parameters
 // Returns null on success, error name on failure
 /obj/item/device/electronic_assembly/proc/verify_save(list/assembly_params)
-	// Validate name and color
+	// Sanitize name and description, verify color
 	if(assembly_params["name"])
-		if(sanitizeName(assembly_params["name"]) != assembly_params["name"])
-			return "Bad assembly name."
+		assembly_params["name"] = sanitizeName(assembly_params["name"])
 	if(assembly_params["desc"])
-		if(sanitize(assembly_params["desc"]) != assembly_params["desc"])
-			return "Bad assembly description."
+		assembly_params["desc"] = sanitize(assembly_params["desc"])
 	if(assembly_params["detail_color"] && !(assembly_params["detail_color"] in color_whitelist))
 		return "Bad assembly color."
 

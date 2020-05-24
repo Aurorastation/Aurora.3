@@ -47,7 +47,8 @@
 		/obj/item/clothing/head/circuitry,
 		/obj/item/clothing/ears/circuitry,
 		/obj/item/clothing/suit/circuitry,
-		/obj/item/implant/integrated_circuit
+		/obj/item/implant/integrated_circuit,
+		/obj/item/device/assembly/electronic_assembly
 	)
 
 	//Cached lists for free performance
@@ -88,8 +89,8 @@
 
 	// Specific Recipe Lists
 	printer_recipe_list["Assemblies"] = subtypesof(/obj/item/device/electronic_assembly) -\
-		typesof(/obj/item/device/electronic_assembly/clothing) - /obj/item/device/electronic_assembly/implant +\
-		special
+		typesof(/obj/item/device/electronic_assembly/clothing) - /obj/item/device/electronic_assembly/implant -\
+		typesof(/obj/item/device/electronic_assembly/device/) + special
 
 	printer_recipe_list["Tools"] = list(
 		/obj/item/device/integrated_electronics/wirer,

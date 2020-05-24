@@ -2,7 +2,7 @@
 
 // Type variables, to deal with different types of assemblies
 #define IC_ASSEMBLY 1
-#define IC_CLOTH 2
+#define IC_SPECIAL 2
 
 /obj/item/device/integrated_circuit_printer
 	name = "integrated circuit printer"
@@ -237,9 +237,11 @@
 			var/obj/item/device/electronic_assembly/E = SSelectronics.cached_assemblies[build_type]
 			cost = E.matter
 			asm_type = IC_ASSEMBLY
-		else if(ispath(build_type, /obj/item/clothing/) || ispath(build_type, /obj/item/implant/integrated_circuit))
+		else if(ispath(build_type, /obj/item/clothing/) \
+				|| ispath(build_type, /obj/item/implant/integrated_circuit) \
+				|| ispath(build_type, /obj/item/device/assembly/electronic_assembly))
 			// TODO: add matter calculations
-			asm_type = IC_CLOTH
+			asm_type = IC_SPECIAL
 		else if(ispath(build_type, /obj/item/integrated_circuit))
 			var/obj/item/integrated_circuit/IC = SSelectronics.cached_circuits[build_type]
 			cost = IC.matter
@@ -256,7 +258,7 @@
 			built = new build_type(get_turf(src))
 
 		// Special case - clothing or an implant
-		if(asm_type == IC_CLOTH)
+		if(asm_type == IC_SPECIAL)
 			if(istype(built, /obj/item/clothing/))
 				var/obj/item/clothing/cloth = built
 				qdel(cloth.IC.battery)
@@ -266,6 +268,10 @@
 				var/obj/item/implant/integrated_circuit/im_asm = built
 				qdel(im_asm.IC.battery)
 				im_asm.IC.battery = null
+			else if (istype(built, /obj/item/device/assembly/electronic_assembly))
+				var/obj/item/device/assembly/electronic_assembly/device = built
+				qdel(device.EA.battery)
+				device.EA.battery = null
 
 		usr.put_in_hands(built)
 
@@ -296,6 +302,23 @@
 				var/assembly_info = href_list["assembly"]
 				var/list/components_info = href_list["components"]
 				var/list/wires_info = href_list["wires"]
+
+				// null is sent as text from vueui.
+				// Yes, this is kinda dumb.
+				if(assembly_info["assembly"] == "null")
+					assembly_info = null
+
+				// BYOND will not recognize a single-element list as a list
+				// Fixing it here
+				if(href_list["wires"] == "null")
+					wires_info = null
+				else if(!islist(wires_info))
+					wires_info = list(wires_info)
+
+				if(href_list["components"] == "null")
+					components_info = null
+				else if(!isemptylist(components_info) && !islist(components_info))
+					components_info = list(components_info)
 
 				if(cloning)
 					return
