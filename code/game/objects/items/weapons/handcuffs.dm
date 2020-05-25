@@ -48,7 +48,7 @@
 			place_handcuffs(C, user)
 		else
 			if(C.stat == DEAD) // gotta make sure those corpses don't run off...
-				restrain()
+				restrain(C, user)
 				return
 			if(C.stat == UNCONSCIOUS)
 				restrain()
