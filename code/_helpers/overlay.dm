@@ -42,13 +42,21 @@
 	target.add_overlay(list(multiply, overlay))
 
 /proc/make_screen_overlay(icon, icon_state, brightness_factor = null)
+	var/icon/base = new(icon, icon_state) // forgive us, but this is to get the width/height.
+	var/height = base.Height() // at least this is cached in most use cases
+	var/width = base.Width()
 	var/image/overlay = image(icon, icon_state)
 	overlay.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	var/image/underlay = image(overlay)
+	underlay.alpha = 240
+	underlay.transform = underlay.transform.Scale((width + 2)/width, (height+2)/height)
+	underlay.filters = filter(type="blur", size=2)
+	overlay.underlays += underlay
 	if (brightness_factor)
 		overlay.color = list(
 			brightness_factor, 0, 0, 0,
 			0, brightness_factor, 0, 0,
 			0, 0, brightness_factor, 0,
-			0, 0, 0, 1
+			0, 0, 0, 240/255
 		)
 	return overlay
