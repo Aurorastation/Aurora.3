@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-changes: 
-  - rscadd: "The agent ID card now makes you invisible to the AI when electronic warfare is enabled."
-  - tweak: "The price of the agent ID card have been upped to 4, from 3."
-  - tweak: "Agent IDs now have a charge, which lasts for a few minutes. When the charge runs out, electronic warfare is disabled."
