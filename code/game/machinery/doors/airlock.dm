@@ -724,6 +724,8 @@ About the new airlock wires panel:
 	VUEUI_SET_CHECK(data["plua_back"], backup_power_lost_at, ., data)
 	VUEUI_SET_CHECK(data["ele"], electrified_until, ., data)
 	VUEUI_SET_CHECK(data["elea"], electrified_at, ., data)
+	var/isAI = issilicon(user) && !player_is_antag(user.mind)
+	VUEUI_SET_CHECK(data["isai"], isAI, ., data)
 
 	VUEUI_SET_CHECK(data["idscan"], !aiDisabledIdScanner, ., data)
 	VUEUI_SET_CHECK(data["bolts"], !locked, ., data)
