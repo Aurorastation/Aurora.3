@@ -200,7 +200,10 @@ var/global/photo_count = 0
 
 //Proc for capturing check
 /mob/living/proc/can_capture_turf(turf/T)
-	return TRUE	// DVIEW will do sanity checks, we've got no special checks.
+	if(!src.client)
+		return TRUE
+	var/list/view_range = getviewsize(src.client.view)
+	return T in view((view_range[1]/2)+7, src)
 
 /obj/item/device/camera/proc/captureimage(atom/target, mob/living/user, flag)
 	var/obj/item/photo/p = createpicture(get_turf(target), user, flag)
