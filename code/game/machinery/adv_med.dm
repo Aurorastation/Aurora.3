@@ -253,24 +253,23 @@
 			/obj/item/stock_parts/console_screen
 		)
 
-
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
 	return ..()
 
-
-
 /obj/machinery/body_scanconsole/power_change()
 	..()
-	if(stat & BROKEN)
-		icon_state = "body_scannerconsole-p"
+	update_icon()
+
+/obj/machinery/body_scanconsole/update_icon()
+	cut_overlays()
+	if((stat & BROKEN) || (stat & NOPOWER))
+		return
 	else
-		if (stat & NOPOWER)
-			spawn(rand(0, 15))
-				icon_state = "body_scannerconsole-p"
-		else
-			icon_state = initial(icon_state)
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "body_scannerconsole-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+		set_light(1.4, 1, COLOR_RED)
 
 /obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
 	if (!connected || !connected.occupant)
@@ -298,6 +297,7 @@
 		connected = C
 		break
 	connected.connected = src
+	update_icon()
 
 /obj/machinery/body_scanconsole/attack_ai(var/mob/user)
 	return attack_hand(user)

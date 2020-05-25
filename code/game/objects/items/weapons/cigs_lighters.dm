@@ -51,6 +51,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/flame/match/process()
 	if(isliving(loc))
@@ -111,6 +112,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/burn_rate = 0
 	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/clothing/mask/smokable/Initialize()
 	. = ..()
@@ -373,6 +375,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	weldermes = "<span class='notice'>USER insults NAME by lighting it with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/Initialize()
 	. = ..()
@@ -480,6 +483,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	weldermes = "<span class='notice'>USER recklessly lights NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/mask/smokable/pipe/Initialize()
 	. = ..()
@@ -590,6 +594,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	)
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/flame/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -599,6 +604,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
 	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/flame/lighter/random
 	New()

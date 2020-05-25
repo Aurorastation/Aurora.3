@@ -10,6 +10,7 @@
 	singular_name = "square unit"
 	amount = 20.0
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/stack/wrapping_paper/attackby(obj/item/W, mob/user)
 	..()
@@ -84,6 +85,7 @@
 	amount = 25.0
 	var/wrapping_tag = "Sorting Office"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/stack/packageWrap/afterattack(var/obj/target as obj, mob/user as mob, proximity)
 	if(!proximity) return

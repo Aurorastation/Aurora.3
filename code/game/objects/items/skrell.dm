@@ -6,6 +6,7 @@
 	w_class = 1
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 	var/list/constellations = list("Island", "Hatching Egg", "Star Chanter", "Jiu'x'klua", "Stormcloud", "Gnarled Tree", "Poet", "Bloated Toad", "Qu'Poxiii", "Fisher")
 	var/selected_constellation
 	var/projection_ready = TRUE
@@ -78,6 +79,7 @@
 	w_class = 1
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 	var/list/worlds_selection = list("Xrim", "Kal'lo", "Nralakk")
 	var/selected_world
 	var/working = FALSE

@@ -1,5 +1,5 @@
 /obj/item/pen
-	description_info = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
+	desc_info = {"This is an item for writing down your thoughts, on paper or elsewhere. The following special commands are available:
 Pen and crayon commands
 \[br\] : Creates a linebreak.
 \[center\] - \[/center\] : Centers the text.
