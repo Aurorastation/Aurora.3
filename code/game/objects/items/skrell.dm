@@ -54,7 +54,7 @@
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
-	var/image/global/glow_state
+	var/global/image/glow_state
 
 /obj/effect/temp_visual/constellation/Initialize()
 	. = ..()
