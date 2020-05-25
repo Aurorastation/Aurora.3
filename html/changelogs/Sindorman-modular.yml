@@ -1,0 +1,51 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: PoZe
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - tweak: "Capacitors reliability was buffed: reinforced 80 -> 100, uranium 50 -> 60, teranium 45 -> 55, phoron 40 -> 50, bluespace 30 -> 45."
+  - rscadd: "Added nano reinforced barrel which has 10 more reliability than reinforced barrel."
+  - rscadd: "Added enhanced grip MK2, which has improved fire delay by 0.2 compared to MK1 grip."
+  - rscadd: "Added stablity stock, which improves fire delay by 0.2 and accuracy by 0.5 compared to regular stock."
+  - tweak: "Added animations to lots of modular components like all capacitors, almost all modulators, lenses, etc."
+  - tweak: "Modular guns now have to be assembled inside of weapons analyzers. You cannot assemble them in hands anymore."
+  - rscadd: "Added machinery called Weapons analyzer. Main purpose of it is to display stats of any weapon or item. You can accepts anything that is an item, even trash(probably). For modular guns it will also display table of components and their statistics."
+  - rscadd: "Added circuit board and ability to construct weapons analyzer in RND. Circuit board required tech: engineering = 3, data = 2, combat = 2."
+  - tweak: "recharger and wall recharger now visually display on their icon how much charge is inside of weapon/gun that is being charged."
+
+
