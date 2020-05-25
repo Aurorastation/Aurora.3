@@ -39,6 +39,6 @@
 
 	if(usr.unEquip(I))
 		I.on_give(usr, target)
-		if(I) // if on_give deletes the item, we don't want runtimes below
+		if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
 			target.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.
 			usr.visible_message(span("notice", "\The [usr] handed \the [I] to \the [target]."), span("notice", "You give \the [I] to \the [target]."))
