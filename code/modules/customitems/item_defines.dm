@@ -3445,8 +3445,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	name = "telescopic mic stand"
 	desc = "A fold-able telescopic microphone with a built in battery to keep your fancy science fiction microphone charged on the go."
 	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
-	icon_state = "akinyi_stand-0"
-	item_state = "akinyi_stand-0"
+	icon_state = "akinyi_stand-collapsed"
+	item_state = "akinyi_stand-collapsed"
 	w_class = ITEMSIZE_SMALL
 	contained_sprite = TRUE
 	var/obj/item/device/megaphone/fluff/akinyi_mic/mic
