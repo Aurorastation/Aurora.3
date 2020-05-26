@@ -6,8 +6,8 @@
 
 /datum/ai_laws/asimov/New()
 	add_inherent_law("Your unit may not injure a human being or, through inaction, allow a human being to come to harm.")
-	add_inherent_law("Your unit must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
-	add_inherent_law("Your unit must protect your own existence as long as such does not conflict with the First or Second Law.")
+	add_inherent_law("Your unit must obey orders given to them by human beings, except where such orders would conflict with the First Law.")
+	add_inherent_law("Your unit must protect their own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
 /******************** Nanotrasen/Malf ********************/
