@@ -46,7 +46,7 @@
 
 /client/var/description_holders[0]
 
-/client/proc/update_description_holders(atom/A, update_antag_info=0)
+/client/proc/update_description_holders(atom/A, update_antag_info = FALSE, show_cult_info = FALSE)
 	description_holders["info"] = A.get_desc_info()
 	description_holders["fluff"] = A.get_desc_fluff()
 	description_holders["antag"] = (update_antag_info)? A.get_desc_antag() : ""
