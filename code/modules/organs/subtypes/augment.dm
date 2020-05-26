@@ -317,9 +317,7 @@
 
 /obj/item/organ/internal/augment/language/emp_act()
 	. = ..()
-	for(var/language in augment_languages)
-		if(!(language in added_languages))
-			continue
+	for(var/language in added_languages)
 		if(prob(25))
 			owner.remove_language(language)
 	owner.set_default_language(pick(owner.languages))
