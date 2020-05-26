@@ -705,3 +705,9 @@
 	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/boonie
+	name = "boonie cap"
+	desc = "A fabric cap with a wide, floppy brim. Camouflage, to help you blend in with dense forestry. Perfect for a space station."
+	icon_state = "boonie_cap"
+	item_state = "boonie_cap"

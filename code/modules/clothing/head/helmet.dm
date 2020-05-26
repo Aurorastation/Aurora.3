@@ -324,3 +324,10 @@
 		to_chat(user, "You flip up the pilot visor.")
 	update_clothing_icon()
 	user.update_action_buttons()
+
+/obj/item/clothing/head/helmet/flak
+	name = "flak helmet"
+	desc = "An old kevlar helmet. Mostly designed to keep shrapnel from turning your brain into pink soup, but it might be able to stop a bullet."
+	icon_state = "helmet_flak"
+	armor = list(melee = 40, bullet = 40, laser = 20, energy = 10, bomb = 60, bio = 0, rad = 0)
+	siemens_coefficient = 0.35

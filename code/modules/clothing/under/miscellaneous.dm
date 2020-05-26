@@ -789,3 +789,13 @@
 	icon_state = "croptop"
 	item_state = "croptop_s"
 	worn_state = "croptop"
+
+/obj/item/clothing/under/milsurp
+	name = "camo fatigues"
+	desc = "An old camouflage shirt and trousers, made of durable fabric. Smells of mothballs."
+	icon_state = "milsurpfatigues"
+	item_state = "milsurpfatigues_s"
+	worn_state = "milsurpfatigues"
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	siemens_coefficient = 0.7

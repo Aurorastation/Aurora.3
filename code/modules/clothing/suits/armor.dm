@@ -91,6 +91,13 @@
 	icon_state = "fib_armor"
 	item_state = "fib_armor"
 
+/obj/item/clothing/suit/armor/vest/milsurp
+	name = "flak jacket"
+	desc = "An old flak vest. Not designed to stop anything more than shrapnel, though it might be able to stop a bullet. Smells like mothballs."
+	icon_state = "flakvest"
+	item_state = "flakvest"
+	armor = list(melee = 25, bullet = 40, laser = 25, energy = 10, bomb = 60, bio = 0, rad = 0)
+
 /obj/item/clothing/suit/armor/hos
 	name = "head of security's jacket"
 	desc = "An armoured jacket with golden rank pips and livery."
@@ -662,3 +669,5 @@
 	icon_state = "tdgreen"
 	item_state = "tdgreen"
 	siemens_coefficient = 1
+
+
