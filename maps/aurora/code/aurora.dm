@@ -1,9 +1,10 @@
 /datum/map/aurora
 	name = "Aurora"
 	full_name = "NSS Aurora"
-	description = "The NSS Aurora is a phoron research and extraction station. It houses facilities for studying all manner of ways to acquire phoron, \
-	 			   even ways one may think impossible to be related to acquiring the element. It is located on the 361224 Colossus asteroid, \
-				   known for its anomalous and phoron rich nature, partly due to its own location in the Romanovich Cloud."
+	description = "You have been assigned to work aboard the NSS Aurora, a state-of-the-art phoron research and mining facility, \
+				   staffed with a mix of Nanotrasen employees and contractors from other megacorporations. \
+				   Orbiting at the very edge of the Tau Ceti system within the Romanovich Cloud at approximately 12 light-years away from Sol, \
+				   it is under the joint control of the Republic of Biesel and the trans-stellar corporate conglomerate Nanotrasen."
 	path = "aurora"
 
 	lobby_screens = list("aurora_asteroid", "aurora_postcard")
