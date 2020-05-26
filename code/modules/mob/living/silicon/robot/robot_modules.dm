@@ -796,7 +796,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/combat/shield(src)
 	src.modules += new /obj/item/borg/combat/mobility(src)
 	src.modules += new /obj/item/handcuffs/cyborg(src)
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards..
 	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
