@@ -3366,19 +3366,20 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/examine(mob/user)
 	..()
-	if(in_range(user, src) && !(all_languages[LANGUAGE_TRADEBAND] in user.languages))
+	if(!in_range(user, src))
+		to_chat(user, SPAN_NOTICE("There might be something written on the inside of the coat. You have to get closer if you want to read it."))
+		return
+
+	if(!all_languages[LANGUAGE_TRADEBAND] in user.languages)
 		to_chat(user, SPAN_NOTICE("On the inside of the coat there are various sentences in Tradeband printed in an elegant blue font."))
 		return
 
-	if(in_range(user, src) && (all_languages[LANGUAGE_TRADEBAND] in user.languages))
+	else
 		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br>Exclusive Time Limited Holocoat Deal from July 30, 2459. \
 		Now with graced with an animated Eridani Corporate Federation logo. For the Prosperity of all Eridanians - <i>Delta HoloTextiles. Sector Alpha's best \
 		wears.</i><br><small><i><font face='Courier New'>Every cloud has a silver lining, and you should be happy for yours. Congratulations on your \
 		graduation.</font> - <font face='Times New Roman'>Teremun A. M.</font></i></small>"))
 		return
-
-	else
-		to_chat(user, SPAN_NOTICE("There might be something written on the inside of the coat. You have to get closer if you want to read it."))
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/verb/activate_holocoat()
 	set name = "Toggle Holocoat"
@@ -3463,9 +3464,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/akinyi_stand/MouseDrop(mob/user as mob)
 	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
-		if(ishuman(usr))
-			forceMove(get_turf(usr))
-			usr.put_in_hands(src)
+		if(ishuman(user))
+			forceMove(get_turf(user))
+			user.put_in_hands(src)
 			update_icon()
 
 /obj/item/fluff/akinyi_stand/attack_hand(mob/user)
