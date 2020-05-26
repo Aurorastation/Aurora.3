@@ -278,7 +278,7 @@
 				occupant.adjustOxyLoss(-1)
 			//severe damage should heal waaay slower without proper chemicals
 			if(occupant.bodytemperature < 225)
-				if(!is_diona(occupant))
+				if(!occupant.is_diona())
 					var/heal_brute = occupant.getBruteLoss() ? min(1, 20/occupant.getBruteLoss()) : 0
 					var/heal_fire = occupant.getFireLoss() ? min(1, 20/occupant.getFireLoss()) : 0
 					occupant.heal_organ_damage(heal_brute,heal_fire)
