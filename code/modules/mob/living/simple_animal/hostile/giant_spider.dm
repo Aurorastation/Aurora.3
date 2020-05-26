@@ -232,4 +232,4 @@
 #undef SPINNING_COCOON
 
 /mob/living/simple_animal/hostile/giant_spider/wizard
-	desc = "A large and hungry-looking spider. Where it it come from?"
+	desc = "A large and hungry-looking spider. Where did it come from?"
