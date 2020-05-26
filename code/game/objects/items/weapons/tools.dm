@@ -64,13 +64,13 @@
 	lock_picking_level = 5
 	var/random_color = TRUE //if the tool uses random coloring
 	var/static/list/tool_colors = list(
-		"blue" = COLOR_BLUE,
-		"red" = COLOR_RED,
-		"pink" = COLOR_PINK,
-		"brown" = COLOR_BROWN,
-		"green" = COLOR_GREEN,
-		"cyan" = COLOR_CYAN,
-		"yellow" = COLOR_YELLOW
+		COLOR_BLUE,
+		COLOR_RED,
+		COLOR_PINK,
+		COLOR_BROWN,
+		COLOR_GREEN,
+		COLOR_CYAN,
+		COLOR_YELLOW
 	)
 	drop_sound = 'sound/items/drop/scrap.ogg'
 	usesound = 'sound/items/Screwdriver.ogg'
@@ -80,7 +80,7 @@
 	if(random_color) //random colors!
 		icon_state = "screwdriver"
 		var/our_color = pick(tool_colors)
-		add_atom_colour(tool_colors[our_color], FIXED_COLOUR_PRIORITY)
+		add_atom_colour(tool_colors[our_color])
 		update_icon()
 
 /obj/item/screwdriver/update_icon()
@@ -155,20 +155,20 @@
 	drop_sound = 'sound/items/drop/knife.ogg'
 	var/random_color = TRUE
 	var/static/list/tool_colors = list(
-		"blue" = COLOR_BLUE,
-		"red" = COLOR_RED,
-		"pink" = COLOR_PINK,
-		"brown" = COLOR_BROWN,
-		"green" = COLOR_GREEN,
-		"cyan" = COLOR_CYAN,
-		"yellow" = COLOR_YELLOW
+		COLOR_BLUE,
+		COLOR_RED,
+		COLOR_PINK,
+		COLOR_BROWN,
+		COLOR_GREEN,
+		COLOR_CYAN,
+		COLOR_YELLOW
 	)
 
 /obj/item/wirecutters/Initialize()
 	. = ..()
 	if(random_color) //random colors!
 		var/our_color = pick(tool_colors)
-		add_atom_colour(tool_colors[our_color], FIXED_COLOUR_PRIORITY)
+		add_atom_colour(tool_colors[our_color])
 		update_icon()
 
 /obj/item/wirecutters/update_icon()

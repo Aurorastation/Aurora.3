@@ -493,7 +493,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	. = ..(mapload, amt)
 	icon_state = "coil"
 	our_color = pick(possible_cable_coil_colours)
-	add_atom_colour(possible_cable_coil_colours[our_color], FIXED_COLOUR_PRIORITY)
+	add_atom_colour(possible_cable_coil_colours[our_color])
 	update_icon()
 
 	if (param_color) // It should be red by default, so only recolor it if parameter was specified.

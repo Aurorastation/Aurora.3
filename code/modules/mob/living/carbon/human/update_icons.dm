@@ -1122,10 +1122,6 @@ There are several things that need to be remembered:
 			t_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_tag)][r_hand.item_state][WORN_RHAND]"
 
 			overlays_raw[R_HAND_LAYER] = image(r_hand.icon_override || r_hand.icon, t_state)
-
-		//	var/list/worn_overlays = r_hand.worn_overlays()
-		//		if(worn_overlays && worn_overlays.len)
-		//			r_hand.overlays.Add(worn_overlays)
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				t_state = r_hand.item_state_slots[slot_r_hand_str]
@@ -1163,10 +1159,6 @@ There are several things that need to be remembered:
 			t_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
 
 			overlays_raw[L_HAND_LAYER] = image(l_hand.icon_override || l_hand.icon, t_state)
-
-		//	var/list/worn_overlays = l_hand.worn_overlays()
-		//		if(worn_overlays && worn_overlays.len)
-		//			l_hand.overlays.Add(worn_overlays)
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				t_state = l_hand.item_state_slots[slot_l_hand_str]
