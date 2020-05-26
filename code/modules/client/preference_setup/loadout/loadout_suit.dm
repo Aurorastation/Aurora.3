@@ -117,6 +117,11 @@
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/suit/blazer
+	display_name = "blazer"
+	path = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/trenchcoats
 	display_name = "trenchcoat selection"
 	description = "A selection of trenchcoats."
@@ -306,12 +311,16 @@
 	display_name = "puffer vest"
 	path = /obj/item/clothing/suit/jacket/puffer/vest
 
-/datum/gear/suit/greenjacket
-	display_name = "green suit jacket"
-	path = /obj/item/clothing/suit/storage/toggle/greengov
-
 /datum/gear/suit/cardigan
-	display_name = "cardigan"
-	path = /obj/item/clothing/suit/cardigan
-	cost = 1 // has no pockets or any use whatsoever anyway
+	display_name = "cardigan selection"
+	description = "A selection of cardigans."
+	path = /obj/item/clothing/suit/storage/toggle/cardigan
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/cardigan/New()
+	..()
+	var/cardigan = list()
+	cardigan["cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan
+	cardigan["sweater cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/sweater
+	cardigan["argyle cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/argyle
+	gear_tweaks += new/datum/gear_tweak/path(cardigan)
