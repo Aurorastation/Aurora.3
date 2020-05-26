@@ -2128,13 +2128,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 		update_icon()
 		return
 
-	var/obj/item/clothing/under/sweater/G = new(get_turf(user))
-	G.color = ball.color
+	var/obj/item/clothing/accessory/sweater/S = new(get_turf(user))
+	S.color = ball.color
 	qdel(ball)
 	ball = null
 	working = FALSE
 	update_icon()
-	to_chat(user, "<span class='warning'>You finished \the [G]!</span>")
+	to_chat(user, "<span class='warning'>You finish \the [S]!</span>")
 
 /obj/item/fluff/yarn
 	name = "ball of yarn"

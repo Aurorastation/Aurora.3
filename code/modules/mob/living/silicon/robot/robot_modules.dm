@@ -740,7 +740,6 @@ var/global/list/robot_modules = list(
 					"Treadhound" = "syndie_treadhound",
 					"HD-MAD" = "mcspizzytronsyndi",
 					"Industrial" = "heavysyndi",
-					"Heph-Android" = "droid",
 					"Arachnotronic" = "arachnotronicsyndi",
 					"Toileto-tron" = "syndi-medi",
 					)

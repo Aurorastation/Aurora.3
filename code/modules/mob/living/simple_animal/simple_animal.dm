@@ -67,6 +67,8 @@
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
 
+	var/wizard_master
+
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0
@@ -732,7 +734,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damtype == BRUTE)
+			if(P.damage_type == BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
@@ -741,3 +743,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
+
+/mob/living/simple_animal/proc/spawn_into_wizard_familiar(var/mob/user)
+	if(src.ckey)
+		return
+	src.ckey = user.ckey
+	SSghostroles.remove_spawn_atom("wizard_familiar", src)
+	if(wizard_master)
+		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
+	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
