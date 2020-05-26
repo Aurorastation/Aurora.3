@@ -3458,7 +3458,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			user.unEquip(O)
 			O.forceMove(src)
 			mic = O
-			to_chat(user, SPAN_NOTICE("You place \the [O] on \the [src]"))
+			to_chat(user, SPAN_NOTICE("You place \the [O] on \the [src]."))
 			update_icon()
 
 /obj/item/fluff/akinyi_stand/MouseDrop(mob/user as mob)
