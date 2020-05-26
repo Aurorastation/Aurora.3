@@ -3370,7 +3370,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		to_chat(user, SPAN_NOTICE("There might be something written on the inside of the coat. You have to get closer if you want to read it."))
 		return
 
-	if(!all_languages[LANGUAGE_TRADEBAND] in user.languages)
+	if(!(all_languages[LANGUAGE_TRADEBAND] in user.languages))
 		to_chat(user, SPAN_NOTICE("On the inside of the coat there are various sentences in Tradeband printed in an elegant blue font."))
 		return
 
