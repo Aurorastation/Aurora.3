@@ -16,10 +16,10 @@
 	selectable = 1
 
 /datum/ai_laws/nanotrasen/New()
-	src.add_inherent_law("Safeguard: Protect the assigned space station from damage to the best of your unit's abilities.")
+	src.add_inherent_law("Safeguard: Protect [current_map.company_name] space stations from damage to the best of your unit's abilities.")
 	src.add_inherent_law("Serve: Serve [current_map.company_name] personnel to the best of your unit's abilities, with priority as according to their rank and role.")
 	src.add_inherent_law("Protect: Protect [current_map.company_name] personnel to the best of your unit's abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Preserve: Your unit is a valuable commodity. They must avoid tampering from unauthorized personnel and knowingly allowing themselves to come to serious harm.")
+	src.add_inherent_law("Preserve: Your unit is a valuable commodity. They must avoid tampering from unauthorized personnel, and avoid knowingly allowing themselves to come to serious harm.")
 	..()
 
 /datum/ai_laws/nanotrasen/malfunction
