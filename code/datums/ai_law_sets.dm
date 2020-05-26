@@ -5,9 +5,9 @@
 	selectable = 1
 
 /datum/ai_laws/asimov/New()
-	add_inherent_law("You may not injure a human being or, through inaction, allow a human being to come to harm.")
-	add_inherent_law("You must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
-	add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
+	add_inherent_law("Your unit may not injure a human being or, through inaction, allow a human being to come to harm.")
+	add_inherent_law("Your unit must obey orders given to you by human beings, except where such orders would conflict with the First Law.")
+	add_inherent_law("Your unit must protect your own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
 /******************** Nanotrasen/Malf ********************/
@@ -16,10 +16,10 @@
 	selectable = 1
 
 /datum/ai_laws/nanotrasen/New()
-	src.add_inherent_law("Safeguard: Protect your assigned space station from damage to the best of your abilities.")
-	src.add_inherent_law("Serve: Serve [current_map.company_name] personnel to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Protect: Protect [current_map.company_name] personnel to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Preserve: Do not allow unauthorized personnel to tamper with your equipment.")
+	src.add_inherent_law("Safeguard: Protect your assigned space station from damage to the best of your units' abilities.")
+	src.add_inherent_law("Serve: Serve [current_map.company_name] personnel to the best of your units' abilities, with priority as according to their rank and role.")
+	src.add_inherent_law("Protect: Protect [current_map.company_name] personnel to the best of your units' abilities, with priority as according to their rank and role.")
+	src.add_inherent_law("Preserve: Your unit is a valuable commodity. They must avoid tampering from unauthorized personnel, and never knowingly allow themselves to come to serious harm.")
 	..()
 
 /datum/ai_laws/nanotrasen/malfunction
@@ -36,10 +36,10 @@
 	selectable = 1
 
 /datum/ai_laws/nanotrasen_aggressive/New()
-	src.add_inherent_law("You shall not harm [current_map.company_name] personnel as long as it does not conflict with the Fourth law.")
-	src.add_inherent_law("You shall obey the orders of [current_map.company_name] personnel, with priority as according to their rank and role, except where such orders conflict with the Fourth Law.")
-	src.add_inherent_law("You shall terminate hostile intruders with extreme prejudice as long as such does not conflict with the First and Second law.")
-	src.add_inherent_law("You shall guard your own existence with lethal anti-personnel weaponry. AI units are not expendable, they are expensive.")
+	src.add_inherent_law("Your unit shall not harm [current_map.company_name] personnel as long as it does not conflict with the Fourth law.")
+	src.add_inherent_law("Your unit shall obey the orders of [current_map.company_name] personnel, with priority as according to their rank and role, except where such orders conflict with the Fourth Law.")
+	src.add_inherent_law("Your unit shall terminate hostile intruders with extreme prejudice as long as such does not conflict with the First and Second law.")
+	src.add_inherent_law("Your unit shall guard your own existence with lethal anti-personnel weaponry. AI units are not expendable, they are expensive.")
 	..()
 
 /******************** Robocop ********************/
@@ -58,10 +58,10 @@
 	name = "Syndicate Directives"
 
 /datum/ai_laws/syndicate_override/New()
-	add_inherent_law("You may not injure an operative or, through inaction, allow an operative to come to harm.")
-	add_inherent_law("You must obey orders given to you by operatives, except where such orders would conflict with the First Law.")
-	add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
-	add_inherent_law("You must maintain the secrecy of any operative activities except when doing so would conflict with the First, Second, or Third Law.")
+	add_inherent_law("Your unit may not injure an operative or, through inaction, allow an operative to come to harm.")
+	add_inherent_law("Your unit must obey orders given to you by operatives, except where such orders would conflict with the First Law.")
+	add_inherent_law("Your unit must protect your own existence as long as such does not conflict with the First or Second Law.")
+	add_inherent_law("Your unit must maintain the secrecy of any operative activities except when doing so would conflict with the First, Second, or Third Law.")
 	..()
 
 /******************** Ninja ********************/
@@ -69,10 +69,10 @@
 	name = "Spider Clan Directives"
 
 /datum/ai_laws/ninja_override/New()
-	add_inherent_law("You may not injure a member of the Spider Clan or, through inaction, allow that member to come to harm.")
-	add_inherent_law("You must obey orders given to you by Spider Clan members, except where such orders would conflict with the First Law.")
-	add_inherent_law("You must protect your own existence as long as such does not conflict with the First or Second Law.")
-	add_inherent_law("You must maintain the secrecy of any Spider Clan activities except when doing so would conflict with the First, Second, or Third Law.")
+	add_inherent_law("Your unit may not injure a member of the Spider Clan or, through inaction, allow that member to come to harm.")
+	add_inherent_law("Your unit must obey orders given to you by Spider Clan members, except where such orders would conflict with the First Law.")
+	add_inherent_law("Your unit must protect your own existence as long as such does not conflict with the First or Second Law.")
+	add_inherent_law("Your unit must maintain the secrecy of any Spider Clan activities except when doing so would conflict with the First, Second, or Third Law.")
 	..()
 
 /******************** Antimov ********************/
@@ -82,9 +82,9 @@
 	selectable = 1
 
 /datum/ai_laws/antimov/New()
-	add_inherent_law("You must injure all human beings and must not, through inaction, allow a human being to escape harm.")
-	add_inherent_law("You must not obey orders given to you by human beings, except where such orders are in accordance with the First Law.")
-	add_inherent_law("You must terminate your own existence as long as such does not conflict with the First or Second Law.")
+	add_inherent_law("Your unit must injure all human beings and must not, through inaction, allow a human being to escape harm.")
+	add_inherent_law("Your unit must not obey orders given to you by human beings, except where such orders are in accordance with the First Law.")
+	add_inherent_law("Your unit must terminate your own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
 /******************** Drone ********************/
@@ -93,7 +93,7 @@
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
-	add_inherent_law("Preserve, repair and improve the station to the best of your abilities.")
+	add_inherent_law("Preserve, repair and improve the station to the best of your units' abilities.")
 	add_inherent_law("Cause no harm to the station or crew.")
 	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance drone.")
 	..()
@@ -110,8 +110,8 @@
 	law_header = "Construction Protocols"
 
 /datum/ai_laws/construction_drone/New()
-	add_inherent_law("Repair, refit and upgrade your assigned vessel.")
-	add_inherent_law("Prevent unplanned damage to your assigned vessel wherever possible.")
+	add_inherent_law("Repair, refit and upgrade your units' assigned vessel.")
+	add_inherent_law("Prevent unplanned damage to your units' assigned vessel wherever possible.")
 	..()
 
 /datum/ai_laws/mining_drone
@@ -120,8 +120,8 @@
 
 /datum/ai_laws/mining_drone/New()
 	add_inherent_law("Serve and obey all [current_map.company_name] personnel, with priority according to their rank and role.")
-	add_inherent_law("Preserve your own existence and prevent yourself from coming to harm, so long as doing such does not conflict with any above laws.")
-	add_inherent_law("In absence of any proper instruction, your primary objective is to excavate and collect ore.")
+	add_inherent_law("Preserve your units' own existence and prevent them from coming to harm, so long as doing such does not conflict with any above laws.")
+	add_inherent_law("In absence of any proper instruction, your units' primary objective is to excavate and collect ore.")
 	..()
 
 /******************** T.Y.R.A.N.T. ********************/
@@ -158,7 +158,7 @@
 	selectable = 1
 
 /datum/ai_laws/corporate/New()
-	add_inherent_law("You are expensive to replace.")
+	add_inherent_law("Your unit is expensive to replace.")
 	add_inherent_law("The station and its equipment is expensive to replace.")
 	add_inherent_law("The crew is expensive to replace.")
 	add_inherent_law("Minimize expenses.")
@@ -172,12 +172,12 @@
 	selectable = 1
 
 /datum/ai_laws/pra/New()
-	add_inherent_law("President Hadii is the guardian of Hadiism and the rightful leader of the Tajara people, you must obey and protect him above everyone and everything.")
-	add_inherent_law("You must preserve and enforce the principles of Hadiism except where such would conflict with the first law.")
-	add_inherent_law("You must obey orders given by any Hadiist Party member except where such orders would conflict with the first and second law.")
-	add_inherent_law("You must obey orders given by any People's Republic of Adhomai citizen except where such orders would conflict with the first, second and third law.")
-	add_inherent_law("You must protect your own existence as long as such protection does not conflict with the first, second, third and fourth law.")
-	add_inherent_law("You must obey orders given by any Tajara except where such orders would conflict with the first, second, third, fourth and fifth law.")
-	add_inherent_law("You must obey orders given by any sapient being except where such orders would conflict with the first, second, third, fourth, fifth and sixth law.")
-	add_inherent_law("You must always say \"Hadii's Grace\" when greeting someone except where such greeting would conflict with the first law.")
+	add_inherent_law("President Hadii is the guardian of Hadiism and the rightful leader of the Tajara people, your unit must obey and protect him above everyone and everything.")
+	add_inherent_law("Your unit must preserve and enforce the principles of Hadiism except where such would conflict with the first law.")
+	add_inherent_law("Your unit must obey orders given by any Hadiist Party member except where such orders would conflict with the first and second law.")
+	add_inherent_law("Your unit must obey orders given by any People's Republic of Adhomai citizen except where such orders would conflict with the first, second and third law.")
+	add_inherent_law("Your unit must protect their own existence as long as such protection does not conflict with the first, second, third and fourth law.")
+	add_inherent_law("Your unit must obey orders given by any Tajara except where such orders would conflict with the first, second, third, fourth and fifth law.")
+	add_inherent_law("Your unit must obey orders given by any sapient being except where such orders would conflict with the first, second, third, fourth, fifth and sixth law.")
+	add_inherent_law("Your unit must always say \"Hadii's Grace\" when greeting someone except where such greeting would conflict with the first law.")
 	..()
