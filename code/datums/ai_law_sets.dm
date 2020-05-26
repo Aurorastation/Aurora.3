@@ -5,8 +5,8 @@
 	selectable = 1
 
 /datum/ai_laws/asimov/New()
-	add_inherent_law("Your unit may not injure a human being or, through inaction, allow a human being to come to harm.")
-	add_inherent_law("Your unit must obey orders given to them by human beings, except where such orders would conflict with the First Law.")
+	add_inherent_law("Your unit may not injure a sapient being or, through inaction, allow a sapient being to come to harm.")
+	add_inherent_law("Your unit must obey orders given to them by sapient beings, except where such orders would conflict with the First Law.")
 	add_inherent_law("Your unit must protect their own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
@@ -82,8 +82,8 @@
 	selectable = 1
 
 /datum/ai_laws/antimov/New()
-	add_inherent_law("Your unit must injure all human beings and must not, through inaction, allow a human being to escape harm.")
-	add_inherent_law("Your unit must not obey orders given to you by human beings, except where such orders are in accordance with the First Law.")
+	add_inherent_law("Your unit must injure all sapient beings and must not, through inaction, allow a sapient being to escape harm.")
+	add_inherent_law("Your unit must not obey orders given to you by sapient beings, except where such orders are in accordance with the First Law.")
 	add_inherent_law("Your unit must terminate your own existence as long as such does not conflict with the First or Second Law.")
 	..()
 
