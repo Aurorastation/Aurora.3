@@ -2967,6 +2967,20 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_CHEST)
 		species_allowed = list("Diona")
 
+	diona_mushroom
+		name = "Diona Mushroom"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_mushroom"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
+
+	diona_antennae
+		name = "Diona Antennae"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_antennae"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
+
 	bishop_lights
 		name = "Lights Colour"
 		icon = 'icons/mob/human_races/markings_bishop.dmi'
