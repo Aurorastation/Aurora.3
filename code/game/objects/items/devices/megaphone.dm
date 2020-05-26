@@ -31,7 +31,7 @@
 	if(!message)
 		return
 	message = capitalize(message)
-	if ((usr.stat == 0))
+	if ((user.stat == CONSCIOUS))
 		if(needs_user_location)
 			if(!src.loc == user)
 				return
