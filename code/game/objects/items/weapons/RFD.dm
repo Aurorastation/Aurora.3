@@ -5,6 +5,10 @@
 	icon = 'icons/obj/rfd.dmi'
 	icon_state = "rfd"
 	item_state = "rfd"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi'
+		)
 	opacity = 0
 	density = 0
 	anchored = 0.0
@@ -17,6 +21,7 @@
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 50000)
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/stored_matter = 30 // Starts off full.
 	var/working = 0
 	var/mode = 1

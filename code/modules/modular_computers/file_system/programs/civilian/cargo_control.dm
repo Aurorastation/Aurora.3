@@ -20,7 +20,7 @@
 
 /datum/nano_module/program/civilian/cargocontrol/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
-	var/obj/item/modular_computer/console = host
+	var/obj/item/modular_computer/console = program.computer
 
 	post_signal("supply")
 
@@ -109,7 +109,7 @@
 
 /datum/nano_module/program/civilian/cargocontrol/Topic(href, href_list)
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
-	var/obj/item/modular_computer/console = host
+	var/obj/item/modular_computer/console = program.computer
 	if (!shuttle)
 		log_debug("## ERROR: Eek. The supply/shuttle datum is missing somehow.")
 		return

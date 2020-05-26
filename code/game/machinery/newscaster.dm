@@ -50,7 +50,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/hitstaken = 0      //Death at 3 hits from an item with force>=15
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
-	light_range = 0
 	anchored = 1
 
 
@@ -84,6 +83,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	add_overlay(base_screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
+	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-title", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-wanted", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
@@ -91,6 +94,10 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 	if(alert) //new message alert overlay
 		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+
+	if(hitstaken == 0)
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
 		add_overlay(screen_overlay)
 
 	if(hitstaken > 0) //Cosmetic damage overlay
@@ -405,7 +412,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
 
 		send_theme_resources(human_or_robot_user)
-		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=400x600")
+		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
 		onclose(human_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)
@@ -808,6 +815,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble=""
 	var/scribble_page = null
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 obj/item/newspaper/attack_self(mob/user as mob)
 	if(ishuman(user))
@@ -978,7 +986,8 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	NEWSPAPER.forceMove(get_turf(src))
+	playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	usr.put_in_hands(NEWSPAPER)
 	src.paper_remaining--
 	return
 

@@ -123,7 +123,7 @@
 		if(!hard_drive)
 			to_chat(user, SPAN_WARNING("You cannot reset a device that has no hard drive."))
 			return
-		enrolled = FALSE
+		enrolled = 0
 		hard_drive.reset_drive()
 		visible_message("\icon[src.icon] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
 	if(istype(W, /obj/item/card/id)) // ID Card, try to insert it.
@@ -211,5 +211,5 @@
 		return attack_self(M)
 
 /obj/item/modular_computer/GetID()
-	if(card_slot.stored_card)
+	if(card_slot)
 		return card_slot.stored_card

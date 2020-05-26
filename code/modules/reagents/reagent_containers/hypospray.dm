@@ -5,8 +5,8 @@
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
-	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
-	description_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
+	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
+	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/syringe.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
@@ -21,6 +21,7 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/armorcheck = 1
 	var/time = 3 SECONDS
 	var/image/filling //holds a reference to the current filling overlay
@@ -37,8 +38,8 @@
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
-	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
-	description_info = "This version of the hypospray has no delay before injecting a patient with reagent."
+	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
+	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
 	time = 0
@@ -67,6 +68,7 @@
 
 		filling.color = reagents.get_color()
 		add_overlay(filling)
+
 /obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
@@ -156,7 +158,6 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
 	name = "autoinjector (norepinephrine)"
-	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	volume = 5
 	amount_per_transfer_from_this = 20
 	flags = 0

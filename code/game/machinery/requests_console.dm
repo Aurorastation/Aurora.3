@@ -57,9 +57,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/recipient = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
 
-	light_color = LIGHT_COLOR_RED
-	light_power = 0.25	// It's a tiny light, it ain't going to be bright.
-
 	//Form intregration
 	var/SQLquery
 	var/paperstock = 10
@@ -90,11 +87,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(2)
 				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-redalert", EFFECTS_ABOVE_LIGHTING_LAYER)
 				add_overlay(screen_overlay)
-				set_light(1.4, 1, COLOR_RED_LIGHT)
+				set_light(1.4, 1, COLOR_ORANGE)
 			if(3)
 				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-yellowalert", EFFECTS_ABOVE_LIGHTING_LAYER)
 				add_overlay(screen_overlay)
-				set_light(1.4, 1, COLOR_YELLOW)
+				set_light(1.4, 1, COLOR_ORANGE)
+
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()

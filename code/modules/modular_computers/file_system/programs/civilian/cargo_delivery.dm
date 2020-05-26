@@ -2,7 +2,7 @@
 	filename = "cargodelivery"
 	filedesc = "Cargo Delivery"
 	extended_desc = "Application to Control Delivery and Payment of Cargo orders."
-	size = 12
+	size = 6
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	required_access_download = access_hop
@@ -87,7 +87,7 @@
 				var/transaction_terminal = "Modular Computer #[program.computer.network_card.identification_id]"
 
 				var/status = SSeconomy.transfer_money(id_card.associated_account_number, SScargo.supply_account.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
-				
+
 				if(status)
 					status_message = status
 					return TRUE
@@ -100,7 +100,7 @@
 				else
 					status_message = co.set_paid(id_card.registered_name)
 				order_details = co.get_list()
-				
+
 			else
 				//TODO: Add a sound effect here
 				//If a payment is not needed and we are at the status shipped, then confirm the delivery

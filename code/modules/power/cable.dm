@@ -488,6 +488,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
 	. = ..(mapload, amt)
@@ -622,6 +623,15 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		base_overlay.appearance_flags = RESET_COLOR
 		add_overlay(base_overlay)
 
+/obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
+	if(W.ismultitool())
+		choose_cable_color(user)
+	return ..()
+
+/obj/item/stack/cable_coil/proc/choose_cable_color(var/user)
+	var/selected_type = input("Pick new colour.", "Cable Colour", null, null) as null|anything in possible_cable_coil_colours
+	set_cable_color(selected_type, usr)
+
 /obj/item/stack/cable_coil/proc/set_cable_color(var/selected_color, var/user)
 	if(!selected_color)
 		return
@@ -682,8 +692,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	set name = "Change Colour"
 	set category = "Object"
 
-	var/selected_type = input("Pick new colour.", "Cable Colour", null, null) as null|anything in possible_cable_coil_colours
-	set_cable_color(selected_type, usr)
+	choose_cable_color(usr)
 
 // Items usable on a cable coil :
 //   - Wirecutters : cut them duh !

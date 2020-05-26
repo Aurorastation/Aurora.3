@@ -220,3 +220,8 @@
 	name = "Mining Drill Brace"
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	build_path = /obj/item/circuitboard/miningdrillbrace
+
+/datum/design/circuit/machine/weapons_analyzer
+	name = "Weapons Analyzer"
+	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 3, TECH_COMBAT = 2)
+	build_path = /obj/item/circuitboard/weapons_analyzer

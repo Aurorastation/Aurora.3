@@ -8,7 +8,7 @@
 	requires_ntnet = TRUE
 	network_destination = "crew lifesigns monitoring system"
 	size = 11
-	usage_flags = PROGRAM_ALL_REGULAR
+	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 	color = LIGHT_COLOR_CYAN
 
 /datum/computer_file/program/suit_sensors/ui_interact(mob/user)
