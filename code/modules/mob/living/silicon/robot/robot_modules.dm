@@ -426,7 +426,6 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
 	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
 	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
