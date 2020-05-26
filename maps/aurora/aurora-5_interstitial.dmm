@@ -4199,7 +4199,6 @@
 /obj/machinery/turretid/lethal{
 	ailock = 1;
 	check_synth = 1;
-	control_area = "\improper Command - Station Authentication Terminal Safe";
 	desc = "A firewall prevents AIs from interacting with this device.";
 	name = "SAT turrets control";
 	pixel_x = 0;

@@ -16,7 +16,7 @@
 
 /datum/uplink_item/item/stealth_items/id
 	name = "Agent ID card"
-	item_cost = 3
+	item_cost = 4
 	path = /obj/item/card/id/syndicate
 
 /datum/uplink_item/item/stealth_items/chameleon_kit

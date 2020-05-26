@@ -71,6 +71,8 @@
 		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
 
+	bodyfall_sound = "bodyfall"
+
 /datum/species/machine/shell/get_light_color()
 	return
 
@@ -95,9 +97,9 @@
 	)
 
 	unarmed_types = list(
-		/datum/unarmed_attack/stomp/ipc, 
-		/datum/unarmed_attack/kick/ipc,  
-		/datum/unarmed_attack/terminator, 
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc,
+		/datum/unarmed_attack/terminator,
 		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
@@ -349,7 +351,7 @@
 		/datum/unarmed_attack/industrial/xion)
 
 	brute_mod = 0.9
-	grab_mod = 0.9 
+	grab_mod = 0.9
 	resist_mod = 8
 
 	heat_level_1 = 700

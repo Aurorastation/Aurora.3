@@ -9,7 +9,8 @@
 	max_storage_space = 35
 	contained_sprite = 1
 	use_sound = 'sound/items/storage/toolbox.ogg'
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 /obj/item/storage/briefcase/crimekit/fill()
 	..()

@@ -48,7 +48,7 @@
 *****************/
 /mob/living/silicon/proc/computer_interact()
 	set name = "Open Computer Interface"
-	set category = "Subystems"
+	set category = "Subsystems"
 
 	computer.attack_self(src)
 
@@ -57,7 +57,7 @@
 ********************/
 /mob/living/silicon/proc/subsystem_alarm_monitor()
 	set name = "Alarm Monitor"
-	set category = "Subystems"
+	set category = "Subsystems"
 
 	alarm_monitor.ui_interact(usr, state = self_state)
 
@@ -66,7 +66,7 @@
 ****************/
 /mob/living/silicon/proc/subsystem_law_manager()
 	set name = "Law Manager"
-	set category = "Subystems"
+	set category = "Subsystems"
 
 	law_manager.ui_interact(usr, state = conscious_state)
 
@@ -75,6 +75,6 @@
 ********************/
 /mob/living/silicon/ai/proc/subsystem_ntnet_monitor()
 	set name = "NTNet Monitoring"
-	set category = "Subystems"
+	set category = "Subsystems"
 
 	ntnet_monitor.ui_interact(usr, state = conscious_state)

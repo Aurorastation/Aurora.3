@@ -327,6 +327,7 @@ for reference:
 	icon_state = "blaster_turret_kit"
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 	w_class = 4
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS

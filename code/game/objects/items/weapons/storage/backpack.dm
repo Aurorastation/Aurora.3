@@ -25,10 +25,11 @@
 	max_storage_space = 28
 	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 
-/obj/item/storage/backpack/mob_can_equip(M as mob, slot)
+/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())

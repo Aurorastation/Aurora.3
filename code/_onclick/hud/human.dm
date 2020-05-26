@@ -28,6 +28,7 @@
 		inv_box.layer = SCREEN_LAYER
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
+		inv_box.hud = src
 
 		var/list/slot_data =  hud_data.gear[gear_slot]
 		inv_box.name =        gear_slot
@@ -155,7 +156,8 @@
 		using.alpha = ui_alpha
 		src.adding += using
 
-		inv_box = new /obj/screen/inventory()
+		inv_box = new /obj/screen/inventory/hand()
+		inv_box.hud = src
 		inv_box.name = BP_R_HAND
 		inv_box.icon = ui_style
 		inv_box.icon_state = "r_hand_inactive"
@@ -170,7 +172,8 @@
 		src.r_hand_hud_object = inv_box
 		src.adding += inv_box
 
-		inv_box = new /obj/screen/inventory()
+		inv_box = new /obj/screen/inventory/hand()
+		inv_box.hud = src
 		inv_box.name = BP_L_HAND
 		inv_box.icon = ui_style
 		inv_box.icon_state = "l_hand_inactive"
@@ -192,6 +195,7 @@
 		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
+		using.hud = src
 		src.adding += using
 
 		using = new /obj/screen/inventory()
@@ -202,6 +206,7 @@
 		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
+		using.hud = src
 		src.adding += using
 
 	if(hud_data.has_resist)
@@ -238,6 +243,8 @@
 		mymob.internals = new /obj/screen/internals()
 		mymob.internals.icon = ui_style
 		hud_elements |= mymob.internals
+		if(!isnull(target.internal))
+			mymob.internals.icon_state = "internal1"
 
 	if(hud_data.has_warnings)
 		mymob.oxygen = new /obj/screen()
@@ -335,7 +342,13 @@
 	mymob.flash.mouse_opacity = 0
 	hud_elements |= mymob.flash
 
-	mymob.pain = new /obj/screen( null )
+	mymob.pain = new /obj/screen()
+	mymob.pain.icon = 'icons/mob/screen/full.dmi'
+	mymob.pain.icon_state = null
+	mymob.pain.name = "pain"
+	mymob.pain.screen_loc = "1,1"
+	mymob.pain.mouse_opacity = 0
+	hud_elements |= mymob.pain
 
 	mymob.zone_sel = new /obj/screen/zone_sel( null )
 	mymob.zone_sel.icon = ui_style

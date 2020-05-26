@@ -37,6 +37,11 @@
 #define SPACE UNDERWATER
 #define PSYCHOTIC PARKING_LOT
 
+#define EQUIP_SOUND_VOLUME 30
+#define PICKUP_SOUND_VOLUME 15
+#define DROP_SOUND_VOLUME 20
+#define THROW_SOUND_VOLUME 90
+
 //footsteps
 var/list/blank_footstep = list('sound/effects/footstep/blank.ogg')
 
@@ -112,7 +117,20 @@ var/list/sand_footstep = list(
 		'sound/effects/footstep/sand3.ogg',
 		'sound/effects/footstep/sand4.ogg'
 )
-var/list/footstepfx = list("blank", "catwalk", "wood", "tiles", "plating", "carpet", "asteroid", "grass", "water", "lava", "snow", "sand")
+var/list/footstepfx = list(
+	"blank",
+	"catwalk",
+	"wood",
+	"tiles",
+	"plating",
+	"carpet",
+	"asteroid",
+	"grass",
+	"water",
+	"lava",
+	"snow",
+	"sand"
+	)
 
 var/list/shatter_sound = list(
 	'sound/effects/glass_break1.ogg',
@@ -209,6 +227,18 @@ var/list/glasscrack_sound = list(
 	'sound/effects/glass_crack3.ogg',
 	'sound/effects/glass_crack4.ogg'
 	)
+var/list/bodyfall_sound = list(
+	'sound/effects/bodyfall1.ogg',
+	'sound/effects/bodyfall2.ogg',
+	'sound/effects/bodyfall3.ogg',
+	'sound/effects/bodyfall4.ogg'
+	)
+
+var/list/bodyfall_machine_sound = list(
+	'sound/effects/bodyfall_machine1.ogg',
+	'sound/effects/bodyfall_machine2.ogg',
+	)
+
 //var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
@@ -425,4 +455,6 @@ var/list/glasscrack_sound = list(
 			if ("switch") soundin = pick(switch_sound)
 			if ("keyboard") soundin = pick(keyboard_sound)
 			if ("pickaxe") soundin = pick(pickaxe_sound)
+			if ("bodyfall") soundin = pick(bodyfall_sound)
+			if ("bodyfall_machine") soundin = pick(bodyfall_machine_sound)
 	return soundin

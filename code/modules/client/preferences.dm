@@ -67,6 +67,8 @@ datum/preferences
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
 	var/list/gear						// Custom/fluff item loadout.
+	var/list/gear_list = list()			//Custom/fluff item loadouts.
+	var/gear_slot = 1					//The current gear save slot
 
 	// IPC Stuff
 	var/machine_tag_status = TRUE
@@ -248,7 +250,7 @@ datum/preferences
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
 	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=preferences;size=800x800")
+	user << browse(enable_ui_theme(user, dat), "window=preferences;size=1200x800")
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
