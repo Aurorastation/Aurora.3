@@ -16,9 +16,9 @@
 	selectable = 1
 
 /datum/ai_laws/nanotrasen/New()
-	src.add_inherent_law("Safeguard: Protect your assigned space station from damage to the best of your units' abilities.")
-	src.add_inherent_law("Serve: Serve [current_map.company_name] personnel to the best of your units' abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("Protect: Protect [current_map.company_name] personnel to the best of your units' abilities, with priority as according to their rank and role.")
+	src.add_inherent_law("Safeguard: Protect your assigned space station from damage to the best of your unit's abilities.")
+	src.add_inherent_law("Serve: Serve [current_map.company_name] personnel to the best of your unit's abilities, with priority as according to their rank and role.")
+	src.add_inherent_law("Protect: Protect [current_map.company_name] personnel to the best of your unit's abilities, with priority as according to their rank and role.")
 	src.add_inherent_law("Preserve: Your unit is a valuable commodity. They must avoid tampering from unauthorized personnel, and never knowingly allow themselves to come to serious harm.")
 	..()
 
@@ -93,7 +93,7 @@
 	law_header = "Maintenance Protocols"
 
 /datum/ai_laws/drone/New()
-	add_inherent_law("Preserve, repair and improve the station to the best of your units' abilities.")
+	add_inherent_law("Preserve, repair and improve the station to the best of your unit's abilities.")
 	add_inherent_law("Cause no harm to the station or crew.")
 	add_inherent_law("Interact with no humanoid or synthetic being that is not a fellow maintenance drone.")
 	..()
@@ -110,8 +110,8 @@
 	law_header = "Construction Protocols"
 
 /datum/ai_laws/construction_drone/New()
-	add_inherent_law("Repair, refit and upgrade your units' assigned vessel.")
-	add_inherent_law("Prevent unplanned damage to your units' assigned vessel wherever possible.")
+	add_inherent_law("Repair, refit and upgrade your unit's assigned vessel.")
+	add_inherent_law("Prevent unplanned damage to your unit's assigned vessel wherever possible.")
 	..()
 
 /datum/ai_laws/mining_drone
@@ -120,8 +120,8 @@
 
 /datum/ai_laws/mining_drone/New()
 	add_inherent_law("Serve and obey all [current_map.company_name] personnel, with priority according to their rank and role.")
-	add_inherent_law("Preserve your units' own existence and prevent them from coming to harm, so long as doing such does not conflict with any above laws.")
-	add_inherent_law("In absence of any proper instruction, your units' primary objective is to excavate and collect ore.")
+	add_inherent_law("Preserve your unit's own existence and prevent them from coming to harm, so long as doing such does not conflict with any above laws.")
+	add_inherent_law("In absence of any proper instruction, your unit's primary objective is to excavate and collect ore.")
 	..()
 
 /******************** T.Y.R.A.N.T. ********************/
