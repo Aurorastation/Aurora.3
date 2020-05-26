@@ -98,9 +98,6 @@
 	update_uis()
 
 /obj/item/modular_computer/proc/proc_eject_personal_ai(mob/user)
-	if(!user)
-		user = usr
-
 	if(!personal_ai)
 		to_chat(user, SPAN_WARNING("There is no personal AI connected to \the [src]."))
 		return

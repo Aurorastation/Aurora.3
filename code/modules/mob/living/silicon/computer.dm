@@ -52,14 +52,11 @@
 
 	computer.attack_self(src)
 
-/mob/proc/personal_computer_interact()
+/mob/living/silicon/pai/proc/personal_computer_interact()
 	set name = "Access Local Computer"
 	set category = "Subsystems"
 
-	if(!(istype(src, /mob/living/silicon/pai))) // I have to do this shitcode thanks to how runtime verb assignment works
-		return
-	var/mob/living/silicon/pai/P = src
-	P.parent_computer.attack_self(src)
+	parent_computer.attack_self(src)
 
 /********************
 *	Alarm Monitor	*
