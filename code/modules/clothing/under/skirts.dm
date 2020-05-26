@@ -3,8 +3,9 @@
 /obj/item/clothing/under/skirt
 	name = "skirt"
 	desc = "A skirt, very fancy!"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	body_parts_covered = LOWER_TORSO
 	rolled_sleeves = -1
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/skirt/casual
 	name = "casual skirt"
