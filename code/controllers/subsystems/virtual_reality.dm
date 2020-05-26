@@ -75,21 +75,8 @@
 	set name = "Return to Body"
 	set category = "IC"
 
-	if(!vr_mob && !old_mob)
-		return
-
-	if(vr_mob)
-		ckey = vr_mob.ckey
-		vr_mob.ckey = null
-		vr_mob.old_mob = null
-		vr_mob.vr_mob_exit_languages()
-		vr_mob.languages = list(all_languages[LANGUAGE_TCB])
-		vr_mob = null
-		to_chat(src, span("notice", "System exited safely, we hope you enjoyed your stay."))
 	if(old_mob)
-		old_mob.ckey = ckey
-		ckey = null
-		old_mob.vr_mob = null
+		ckey_transfer(old_mob)
 		speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
 		to_chat(old_mob, span("notice", "System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
@@ -113,10 +100,9 @@
 	M.ckey = "@[new_ckey]"
 	target.verbs += /mob/proc/body_return
 
-	if(istype(target, /mob/living/simple_animal/spiderbot))
-		target.real_name = "Remote-Bot ([M.real_name])"
-		target.name = target.real_name
+	target.get_vr_name(M)
 	M.swap_languages(target)
+
 	if(target.client)
 		target.client.screen |= global_hud.vr_control
 
@@ -134,6 +120,19 @@
 	if(issilicon(target))
 		var/mob/living/silicon/T = target
 		T.speech_synthesizer_langs = speech_synthesizer_langs
+
+/mob/proc/get_vr_name(var/mob/user)
+	return
+
+/mob/living/simple_animal/spiderbot/get_vr_name(mob/user)
+	real_name = "Remote-Bot ([user.real_name])"
+	name = real_name
+
+/mob/proc/ckey_transfer(var/mob/target, var/null_vr_mob = TRUE)
+	target.ckey = src.ckey
+	src.ckey = null
+	if(null_vr_mob)
+		target.vr_mob = null
 
 /datum/controller/subsystem/virtualreality/proc/mech_selection(var/user, var/network)
 	var/list/mech = list()
