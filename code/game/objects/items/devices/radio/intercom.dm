@@ -9,6 +9,7 @@
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
 	var/radio_sound = null
+	clickvol = 40
 
 /obj/item/device/radio/intercom/custom
 	name = "station intercom (Custom)"
@@ -48,6 +49,7 @@
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
 	power_interface = new(loc, src)
+	update_icon()
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
@@ -129,10 +131,23 @@
 	..(dest)
 
 /obj/item/device/radio/intercom/update_icon()
-	if (on)
-		icon_state = "intercom"
+	cut_overlays()
+	if(!on)
+		icon_state = initial(icon_state)
+		set_light(FALSE)
+		return
 	else
-		icon_state = "intercom-p"
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "intercom_screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+		var/mutable_appearance/scanline_overlay = mutable_appearance(icon, "intercom_scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(scanline_overlay)
+		set_light(1.4, 1, COLOR_CYAN)
+		if(broadcasting)
+			var/mutable_appearance/button_overlay = mutable_appearance(icon, "intercom_b", EFFECTS_ABOVE_LIGHTING_LAYER)
+			add_overlay(button_overlay)
+		if(listening)
+			var/mutable_appearance/button_overlay = mutable_appearance(icon, "intercom_l", EFFECTS_ABOVE_LIGHTING_LAYER)
+			add_overlay(button_overlay)
 
 /obj/item/device/radio/intercom/broadcasting
 	broadcasting = 1

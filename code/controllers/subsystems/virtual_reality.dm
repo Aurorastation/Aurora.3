@@ -117,6 +117,8 @@
 		target.real_name = "Remote-Bot ([M.real_name])"
 		target.name = target.real_name
 	M.swap_languages(target)
+	if(target.client)
+		target.client.screen |= global_hud.vr_control
 
 	to_chat(target, span("notice", "Connection established, system suite active and calibrated."))
 	to_chat(target, span("warning", "To exit this mode, use the \"Return to Body\" verb in the IC tab."))

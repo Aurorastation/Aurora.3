@@ -5,6 +5,7 @@
 	icon_state = "folder"
 	w_class = 2
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/folder/blue
 	desc = "A blue folder."

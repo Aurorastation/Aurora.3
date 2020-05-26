@@ -30,6 +30,7 @@
 	throw_range = 20
 	force = 0
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /*
  * Balloons
@@ -40,6 +41,7 @@
 	icon_state = "waterballoon-e"
 	item_state = "balloon-empty"
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/toy/balloon/New()
 	var/datum/reagents/R = new/datum/reagents(10)
@@ -99,6 +101,7 @@
 	icon_state = "syndballoon"
 	item_state = "syndballoon"
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/toy/nanotrasenballoon
@@ -108,6 +111,7 @@
 	item_state = "ntballoon"
 	w_class = ITEMSIZE_LARGE
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /*
  * Fake telebeacon
@@ -139,6 +143,7 @@
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
@@ -236,6 +241,7 @@
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/effect/foam_dart_dummy
 	name = ""
@@ -260,6 +266,7 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi',
 		)
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/active = 0.0
 	var/colorvar = "blue"
 	w_class = ITEMSIZE_SMALL
@@ -299,6 +306,7 @@
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	hitsound = "swing_hit"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_BACK
@@ -317,6 +325,7 @@
 	icon_state = "snappop"
 	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 	throw_impact(atom/hit_atom)
 		..()
@@ -353,6 +362,7 @@
 	desc = "A genuine Admiral Krush Bosun's Whistle, for the aspiring ship's captain! Suitable for ages 8 and up, do not swallow."
 	icon_state = "bosunwhistle"
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 	var/cooldown = 0
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
@@ -443,6 +453,7 @@
 	icon_state = "glitched"
 	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/toy/figure/cmo
 	name = "chief medical officer action figure"
@@ -667,6 +678,7 @@
 	desc = "A very generic small plushie. It seems to not want to exist."
 	icon_state = "nymphplushie"
 	drop_sound = 'sound/items/drop/plushie.ogg'
+	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
@@ -808,6 +820,7 @@
 	icon = 'icons/obj/clothing/belts.dmi'
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 
 /obj/item/toy/xmastree
@@ -817,4 +830,5 @@
 	w_class = ITEMSIZE_TINY
 	force = 1
 	throwforce = 1
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
