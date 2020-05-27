@@ -62,7 +62,7 @@
 		personal_ai = H
 		to_chat(user, SPAN_NOTICE("You install \the [H] into \the [src]."))
 		personal_ai.pai.parent_computer = src
-		personal_ai.pai.verbs += /mob/proc/personal_computer_interact
+		personal_ai.pai.verbs += /mob/living/silicon/pai/proc/personal_computer_interact
 		to_chat(personal_ai.pai, SPAN_NOTICE("You gain access to \the [src]'s computronics."))
 		user.drop_from_inventory(H, src)
 		update_icon()
@@ -109,7 +109,7 @@
 		H.forceMove(get_turf(src))
 		if(put_in_hands)
 			user.put_in_hands(H)
-		personal_ai.pai.verbs -= /mob/proc/personal_computer_interact
+		personal_ai.pai.verbs -= /mob/living/silicon/pai/proc/personal_computer_interact
 		to_chat(personal_ai.pai, SPAN_NOTICE("You lose access to \the [src]'s computronics."))
 		personal_ai.pai.parent_computer = null
 		update_icon()

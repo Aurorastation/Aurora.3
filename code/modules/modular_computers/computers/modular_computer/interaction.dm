@@ -102,7 +102,7 @@
 		to_chat(user, SPAN_WARNING("There is no personal AI connected to \the [src]."))
 		return
 
-	personal_ai.pai.verbs -= /mob/proc/personal_computer_interact
+	personal_ai.pai.verbs -= /mob/living/silicon/pai/proc/personal_computer_interact
 	personal_ai.pai.parent_computer = null
 	to_chat(personal_ai.pai, SPAN_NOTICE("You lose access to \the [src]'s computronics."))
 	uninstall_component(user, personal_ai, put_in_hands = TRUE)
