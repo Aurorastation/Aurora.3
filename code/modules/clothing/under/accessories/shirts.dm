@@ -23,8 +23,8 @@
 	name = "argyle sweater vest"
 	desc = "A warm knit sweater vest with an argyle pattern."
 	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
-	icon_state = "sweatervestargyle"
-	item_state = "sweatervestargyle"
+	icon_state = "sweaterargylevest"
+	item_state = "sweaterargylevest"
 
 /obj/item/clothing/accessory/sweaterturtleneck
 	name = "turtleneck sweater"
