@@ -47,7 +47,7 @@ mob/var/next_pain_time = 0
 				flash_pain()
 				msg = species.organ_high_pain
 	if(msg && (msg != last_pain_message || prob(10)))
-		msg = replacetext(msg, "PARTNAME", [partname])
+		msg = replacetext(msg, "PARTNAME", partname)
 		last_pain_message = msg
 		to_chat(src, msg)
 	next_pain_time = world.time + 50
