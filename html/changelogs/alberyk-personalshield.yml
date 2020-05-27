@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added a new icon to the personal shield and its aura."
-  - tweak: "Personal shields can now be stored on the belt slot."
