@@ -27,7 +27,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_player_panel_proc()
 
 /mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]</B></hr1><br>"
+	var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
 	var/character_name = client.prefs.real_name
 	if(current_map.description)
 		output += "<i>[current_map.description]</i><hr>"
