@@ -1,9 +1,9 @@
 /datum/map/aurora
 	name = "Aurora"
 	full_name = "NSS Aurora"
-	description = "You have been assigned to work aboard the NSS Aurora, a state-of-the-art phoron research and mining facility, \
-				   staffed with a mix of Nanotrasen employees and contractors from other megacorporations. \
-				   Orbiting at the very edge of the Tau Ceti system within the Romanovich Cloud at approximately 12 light-years away from Sol, \
+	description = "You have been assigned to work aboard the NSS Aurora, \
+				   a state-of-the-art phoron research and mining facility staffed with a mix of Nanotrasen employees and contractors from other megacorporations. \
+				   Orbiting at the very edge of the Tau Ceti system within the Romanovich Cloud approximately 12 light-years away from Sol, \
 				   it is under the joint control of the Republic of Biesel and the trans-stellar corporate conglomerate Nanotrasen."
 	path = "aurora"
 
