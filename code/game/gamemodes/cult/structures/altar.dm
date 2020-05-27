@@ -12,7 +12,7 @@
 			last_use = world.time + 1200 // Cooldown of two minutes
 			var/mob/living/carbon/human/H = user
 			H.heal_overall_damage(20, 20)
-			to_chat(H, span("cult", "You begin your prayer to Nar'Sie, your wounds slowly closing up..."))
+			to_chat(H, SPAN_CULT("You begin your prayer to Nar'Sie, your wounds slowly closing up..."))
 			for(var/obj/item/organ/external/O in H.organs)
 				if(O.status & ORGAN_ARTERY_CUT)
 					to_chat(H, span("warning", "Severed artery found in [O.name], repairing..."))

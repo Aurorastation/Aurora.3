@@ -1,4 +1,6 @@
-/obj/proc/cultify()
+/obj/proc/cultify(var/check_only = FALSE)
+	if(check_only)
+		return
 	qdel(src)
 
 /obj/effect/decal/cleanable/blood/cultify()
@@ -12,22 +14,33 @@
 
 /obj/item/device/flashlight/lamp/cultify()
 	new /obj/structure/cult/pylon(get_turf(src))
-	..()
+	qdel(src)
+	return "As you cast \the [src] into the forge, a great pylon grows beneath your feet, achieving its form in seconds."
 
 /obj/item/stack/material/wood/cultify()
 	return
 
 /obj/item/book/cultify()
-	new /obj/item/book/tome(get_turf(src))
-	..()
+	var/obj/item/book/tome/T = new /obj/item/book/tome(get_turf(src))
+	qdel(src)
+	return T
+
+/obj/item/tank/emergency_oxygen/cultify()
+	var/obj/item/tank/oxygen/brown/B = new /obj/item/tank/oxygen/brown(get_turf(src))
+	qdel(src)
+	return B
 
 /obj/item/material/sword/cultify()
-	new /obj/item/melee/cultblade(get_turf(src))
-	..()
+	var/obj/item/melee/cultblade/CBT = new /obj/item/melee/cultblade(get_turf(src)) // AHAHAHAHAHAHAHA - Geeves
+	qdel(src)
+	return CBT
 
 /obj/item/storage/backpack/cultify()
-	new /obj/item/storage/backpack/cultpack(get_turf(src))
-	..()
+	var/obj/item/storage/backpack/cultpack/CP = new /obj/item/storage/backpack/cultpack(get_turf(src))
+	for(var/obj/O in src)
+		CP.handle_item_insertion(O)
+	qdel(src)
+	return CP
 
 /obj/item/storage/backpack/cultpack/cultify()
 	return
@@ -43,12 +56,12 @@
 			)
 		var/I = pick(random_structure)
 		new I(get_turf(src))
-	..()
+	qdel(src)
 
 /obj/machinery/atmospherics/cultify()
 	if(src.invisibility != INVISIBILITY_MAXIMUM)
 		src.invisibility = INVISIBILITY_MAXIMUM
-		density = 0
+		density = FALSE
 
 /obj/machinery/cooker/cultify()
 	new /obj/structure/cult/talisman(get_turf(src))
@@ -90,11 +103,11 @@
 	qdel(src)
 
 /obj/structure/bed/chair/cultify()
-	var/obj/structure/bed/chair/wood/wings/I = new(get_turf(src))
+	var/obj/structure/bed/chair/wood/wings/I = new /obj/structure/bed/chair/wood/wings(get_turf(src))
 	I.dir = dir
-	..()
+	qdel(src)
 
-/obj/structure/bed/chair/wood/cultify()
+/obj/structure/bed/chair/wood/wings/cultify()
 	return
 
 /obj/structure/bookcase/cultify()
@@ -102,14 +115,14 @@
 
 /obj/structure/grille/cultify()
 	new /obj/structure/grille/cult(get_turf(src))
-	..()
+	qdel(src)
 
 /obj/structure/grille/cult/cultify()
 	return
 
 /obj/structure/simple_door/cultify()
 	new /obj/structure/simple_door/cult(get_turf(src))
-	..()
+	qdel(src)
 
 /obj/structure/simple_door/cult/cultify()
 	return
@@ -121,13 +134,13 @@
 
 /obj/structure/shuttle/engine/heater/cultify()
 	new /obj/structure/cult/pylon(get_turf(src))
-	..()
+	qdel(src)
 
 /obj/structure/shuttle/engine/propulsion/cultify()
 	var/turf/T = get_turf(src)
 	if(T)
 		T.ChangeTurf(/turf/simulated/wall/cult)
-	..()
+	qdel(src)
 
 /obj/structure/table/cultify()
 	if(material == SSmaterials.get_material_by_name(MATERIAL_CULT) || reinforced == SSmaterials.get_material_by_name(MATERIAL_CULT))
