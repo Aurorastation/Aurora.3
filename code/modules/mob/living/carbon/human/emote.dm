@@ -595,10 +595,8 @@
 				message = "acts out a scream!"
 				m_type = 1
 			else
-				if(species.flags & IS_PLANT)
-					message = pick("creaks in pain!", "rustles in agony!")
-				else if (!muzzled)
-					message = "screams!"
+				if (!muzzled)
+					message = pick(species.scream_emote)
 				else
 					message = "makes a very loud noise."
 				m_type = 2

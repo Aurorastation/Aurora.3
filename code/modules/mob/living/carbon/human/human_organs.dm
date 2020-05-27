@@ -148,9 +148,7 @@
 						continue
 					drop_from_inventory(r_hand)
 
-			var/emote_scream = pick("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
-			if(species.flags & IS_PLANT)
-				emote_scream = pick("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
+			var/emote_scream = pick(species.pain_item_drop_cry)
 			emote("me", 1, "[(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
 
 		else if(!(E.status & ORGAN_ROBOT) && (CE_DROPITEM in chem_effects) && prob(chem_effects[CE_DROPITEM]))

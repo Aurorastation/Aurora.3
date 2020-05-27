@@ -29,41 +29,23 @@ mob/var/next_pain_time = 0
 	if(burning)
 		switch(amount)
 			if(1 to 10)
-				if(species.flags & IS_PLANT)
-					msg = "<b>The nymph making up our [partname] notes a burning injury.</b>"
-				else
-					msg = "<span class='danger'>Your [partname] burns.</span>"
+				msg = species.organ_low_burn
 			if(11 to 90)
 				flash_weak_pain()
-				if(species.flags & IS_PLANT)
-					msg = "<span class='danger'><font size=3>The nymph making up our [partname] burns terribly!</font></span>"
-				else
-					msg = "<span class='danger'><font size=3>Your [partname] burns horribly!</font></span>"
+				msg = species.organ_med_burn
 			if(91 to 10000)
 				flash_pain()
-				if(species.flags & IS_PLANT)
-					msg = "<span class='danger'><font size=3>The nymph making up our [partname] screams in agony at the burning!</font></span>"
-				else
-					msg = "<span class='danger'><font size=4>Your [partname] feels like it's on fire!</font></span>"
+				msg = species.organ_high_burn
 	else
 		switch(amount)
 			if(5 to 14)
-				if(species.flags & IS_PLANT)
-					msg = "<b>The nymph making up our [partname] feels injured.</b>"
-				else
-					msg = "<b>Your [partname] hurts.</b>"
+				msg = species.organ_low_pain
 			if(15 to 90)
 				flash_weak_pain()
-				if(species.flags & IS_PLANT)
-					msg = "<b><font size=3>The nymph making up our [partname] can barely manage the pain!</font></b>"
-				else
-					msg = "<b><font size=3>Your [partname] hurts badly!</font></b>"
+				msg = species.organ_med_pain
 			if(91 to 10000)
 				flash_pain()
-				if(species.flags & IS_PLANT)
-					msg = "<b><font size=3>The nymph making up our [partname] screams out in pain!</font></b>"
-				else
-					msg = "<b><font size=3>Your [partname] is screaming out in pain!</font></b>"
+				msg = species.organ_high_pain
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		to_chat(src, msg)

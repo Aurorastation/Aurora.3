@@ -45,9 +45,20 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
+	organ_low_pain = "<b>The nymph making up our [partname] feels injured.</b>"
+	organ_med_pain = "<b><font size=3>The nymph making up our [partname] can barely manage the pain!</font></b>"
+	organ_high_pain = "<b><font size=3>The nymph making up our [partname] screams out in pain!</font></b>"
+
+	organ_low_burn = "<b>The nymph making up our [partname] notes a burning injury.</b>"
+	organ_med_burn = "<span class='danger'><font size=3>The nymph making up our [partname] burns terribly!</font></span>"
+	organ_high_burn = "<span class='danger'><font size=3>The nymph making up our [partname] screams in agony at the burning!</font></span>"
+
+	scream_emote = list("creaks in pain!", "rustles in agony!")
+	scream_emote = "screams!"
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
+	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
 
 	pain_mod = 0.7
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
