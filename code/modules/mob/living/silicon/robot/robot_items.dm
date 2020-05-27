@@ -256,10 +256,10 @@
 	w_class = 3
 	var/deploying = 0
 	// By default stores up to 10 walls and 5 doors. May be changed.
-	var/stored_walls = 10
-	var/stored_doors = 5
-	var/max_walls = 10
-	var/max_doors = 5
+	var/stored_walls = 5
+	var/stored_doors = 3
+	var/max_walls = 5
+	var/max_doors = 3
 	var/mode = 0 // 0 - Walls   1 - Doors
 
 /obj/item/inflatable_dispenser/examine(mob/user)
@@ -310,7 +310,7 @@
 	deploying = 1
 	user.visible_message(span("notice", "[user] starts deploying an inflatable"), span("notice", "You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, TRUE)
-	if(do_after(user, 15, needhand = FALSE))
+	if(do_after(user, 30, needhand = FALSE))
 		new newtype(T)
 		if(mode)
 			stored_doors--
