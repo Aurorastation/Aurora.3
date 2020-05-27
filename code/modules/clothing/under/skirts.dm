@@ -1,20 +1,16 @@
 //skirts
 
 /obj/item/clothing/under/skirt
-	name = "skirt"
-	icon = 'icons/obj/clothing/skirts.dmi'
-	desc = "A skirt, very fancy!"
-	body_parts_covered = LOWER_TORSO
-	rolled_sleeves = -1
-	contained_sprite = TRUE
-
-/obj/item/clothing/under/skirt/casual
 	name = "casual skirt"
 	desc = "A short, colorful skirt."
 	desc_info = "Not to be mistaken with the similarly named cut of steak."
+	icon = 'icons/obj/clothing/skirts.dmi'
 	icon_state = "skirt_casual"
 	item_state = "skirt_casual"
 	worn_state = "skirt_casual"
+	body_parts_covered = LOWER_TORSO
+	rolled_sleeves = -1
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/skirt/puffy
 	name = "puffy skirt"
