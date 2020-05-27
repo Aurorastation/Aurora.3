@@ -45,6 +45,11 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
+	halloss_message = "creaks and crumbles to the floor."
+	halloss_message_self = "We can't take this much pain..."
+	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
+
+	pain_mod = 0.7
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
@@ -86,7 +91,7 @@
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
-	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES
+	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")

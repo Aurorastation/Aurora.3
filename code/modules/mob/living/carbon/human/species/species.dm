@@ -67,6 +67,7 @@
 		/datum/unarmed_attack/bite
 		)
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	var/pain_mod =      1                    // Pain multiplier
 	var/brute_mod =     1                    // Physical damage multiplier.
 	var/burn_mod =      1                    // Burn damage multiplier.
 	var/oxy_mod =       1                    // Oxyloss modifier
@@ -99,6 +100,7 @@
 	var/knockout_message = "has been knocked unconscious!"
 	var/halloss_message = "slumps to the ground, too weak to continue fighting."
 	var/halloss_message_self = "You're in too much pain to keep going..."
+	var/list/pain_messages = list("It hurts so much", "You really need some painkillers", "Dear god, the pain")
 
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.

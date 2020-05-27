@@ -29,23 +29,41 @@ mob/var/next_pain_time = 0
 	if(burning)
 		switch(amount)
 			if(1 to 10)
-				msg = "<span class='danger'>Your [partname] burns.</span>"
+				if(species.flags & IS_PLANT)
+					msg = "<b>The nymph making up our [partname] notes a burning injury.</b>"
+				else
+					msg = "<span class='danger'>Your [partname] burns.</span>"
 			if(11 to 90)
 				flash_weak_pain()
-				msg = "<span class='danger'><font size=3>Your [partname] burns horribly!</font></span>"
+				if(species.flags & IS_PLANT)
+					msg = "<span class='danger'><font size=3>The nymph making up our [partname] burns terribly!</font></span>"
+				else
+					msg = "<span class='danger'><font size=3>Your [partname] burns horribly!</font></span>"
 			if(91 to 10000)
 				flash_pain()
-				msg = "<span class='danger'><font size=4>Your [partname] feels like it's on fire!</font></span>"
+				if(species.flags & IS_PLANT)
+					msg = "<span class='danger'><font size=3>The nymph making up our [partname] screams in agony at the burning!</font></span>"
+				else
+					msg = "<span class='danger'><font size=4>Your [partname] feels like it's on fire!</font></span>"
 	else
 		switch(amount)
 			if(5 to 14)
-				msg = "<b>Your [partname] hurts.</b>"
+				if(species.flags & IS_PLANT)
+					msg = "<b>The nymph making up our [partname] feels injured.</b>"
+				else
+					msg = "<b>Your [partname] hurts.</b>"
 			if(15 to 90)
 				flash_weak_pain()
-				msg = "<b><font size=3>Your [partname] hurts badly!</font></b>"
+				if(species.flags & IS_PLANT)
+					msg = "<b><font size=3>The nymph making up our [partname] can barely manage the pain!</font></b>"
+				else
+					msg = "<b><font size=3>Your [partname] hurts badly!</font></b>"
 			if(91 to 10000)
 				flash_pain()
-				msg = "<b><font size=3>Your [partname] is screaming out in pain!</font></b>"
+				if(species.flags & IS_PLANT)
+					msg = "<b><font size=3>The nymph making up our [partname] screams out in pain!</font></b>"
+				else
+					msg = "<b><font size=3>Your [partname] is screaming out in pain!</font></b>"
 	if(msg && (msg != last_pain_message || prob(10)))
 		last_pain_message = msg
 		to_chat(src, msg)
