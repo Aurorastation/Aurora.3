@@ -59,7 +59,7 @@
 /datum/gear/uniform/skirt
 	display_name = "skirt selection"
 	description = "A selection of skirts."
-	path = /obj/item/clothing/under/skirt
+	path = /obj/item/clothing/under/skirt/casual
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/skirt/New()
