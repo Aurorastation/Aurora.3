@@ -31,8 +31,12 @@
 
 /mob/living/silicon/robot/syndicate/updateicon() //because this was the only way I found out how to make their eyes and etc works
 	cut_overlays()
-	if(stat == 0)
-		add_overlay("eyes-[icon_state]")
+
+	if(stat == CONSCIOUS)
+		if(a_intent == I_HELP)
+			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
+		else
+			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
@@ -58,6 +62,13 @@
 	playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
 	explosion(get_turf(src), 1, 2, 3, 5)
 	qdel(src)
+
+/mob/living/silicon/robot/syndicate/proc/spawn_into_syndiborg(var/mob/user)
+	if(src.ckey)
+		return
+	src.ckey = user.ckey
+	SSghostroles.remove_spawn_atom("syndiborg", src)
+	say("Boot sequence complete!")
 
 //syndicate borg gear
 

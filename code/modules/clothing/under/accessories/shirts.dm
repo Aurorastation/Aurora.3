@@ -23,8 +23,36 @@
 	name = "argyle sweater vest"
 	desc = "A warm knit sweater vest with an argyle pattern."
 	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
-	icon_state = "sweatervestargyle"
-	item_state = "sweatervestargyle"
+	icon_state = "sweaterargylevest"
+	item_state = "sweaterargylevest"
+
+/obj/item/clothing/accessory/sweaterturtleneck
+	name = "turtleneck sweater"
+	desc = "A warm knit turtleneck sweater."
+	desc_fluff = "Engineered for the rigors of poetry club finger snapping."
+	icon_state = "sweaterturtleneck"
+	item_state = "sweaterturtleneck"
+
+/obj/item/clothing/accessory/sweaterargyleturtleneck
+	name = "argyle turtleneck sweater"
+	desc = "A warm knit argyle turtleneck sweater."
+	desc_fluff = "Now your clothing can be as stuffy as your personality."
+	icon_state = "sweaterargyleturtleneck"
+	item_state = "sweaterargyleturtleneck"
+
+/obj/item/clothing/accessory/sweatertubeneck
+	name = "tubeneck sweater"
+	desc = "A warm knit tubeneck sweater."
+	desc_fluff = "What the hell is cashmere anyway?"
+	icon_state = "sweatertubeneck"
+	item_state = "sweatertubeneck"
+
+/obj/item/clothing/accessory/sweaterargyletubeneck
+	name = "argyle tubeneck sweater"
+	desc = "A warm knit argyle tubeneck sweater."
+	desc_fluff = "Does not come with accompanying dog-sized version."
+	icon_state = "sweaterargyletubeneck"
+	item_state = "sweaterargyletubeneck"
 
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"

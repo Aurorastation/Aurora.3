@@ -28,5 +28,13 @@
 							/obj/item/gun/energy/staff/animate =				1,
 							/obj/structure/closet/wizard/scrying =				1,
 							/obj/item/monster_manual =							2,
-							/obj/item/contract/apprentice =						1
+							/obj/item/contract/apprentice =						1,
+							/obj/item/apprentice_pebble =						2
 							)
+
+	apprentice_spells = list(
+		/spell/targeted/projectile/dumbfire/fireball = 1,
+		/spell/aoe_turf/smoke = 1,
+		/spell/targeted/mindcontrol = 2,
+		/obj/structure/closet/wizard/scrying = 1
+	)

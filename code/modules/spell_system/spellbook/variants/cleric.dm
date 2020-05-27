@@ -32,5 +32,14 @@
 				/obj/item/gun/energy/staff/focus =					2,
 				/obj/item/storage/belt/wands/full =					2,
 				/obj/item/poppet =									1,
-				/obj/item/contract/apprentice =						1
+				/obj/item/contract/apprentice =						1,
+				/obj/item/apprentice_pebble =						2
 				)
+
+	apprentice_spells = list(
+		/spell/targeted/heal_target = 1,
+		/spell/targeted/heal_target/area = 1,
+		/spell/targeted/resurrection = 2,
+		/spell/targeted/genetic/blind = 1,
+		/spell/radiant_aura = 1
+	)

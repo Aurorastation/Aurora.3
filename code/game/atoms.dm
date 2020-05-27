@@ -146,6 +146,8 @@
 
 	to_chat(user, "\icon[src] That's [f_name] [suffix]")
 	to_chat(user, desc)
+	if(description_cult && (user.mind?.special_role == "Cultist" || isobserver(src)))
+		to_chat(user, FONT_SMALL(span("cult", description_cult)))
 	if(desc_info || desc_fluff)
 		to_chat(user, span("notice", "This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 	if(desc_antag && player_is_antag(user.mind))

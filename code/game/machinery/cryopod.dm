@@ -14,12 +14,15 @@ var/global/list/frozen_crew = list()
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "cellconsole"
-	light_color = LIGHT_COLOR_GREEN
+	icon_state = "altcomputerw"
 	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
 	interact_offline = TRUE
+
+	icon_screen = "cryo"
+	icon_scanline = "altcomputerw-scanline"
+	light_color = LIGHT_COLOR_GREEN
+
 	var/mode = null
 
 	var/list/frozen_items = list()
@@ -31,9 +34,11 @@ var/global/list/frozen_crew = list()
 /obj/machinery/computer/cryopod/robot
 	name = "robotic storage console"
 	desc = "An interface between crew and the robotic storage systems"
-	icon = 'icons/obj/robot_storage.dmi'
-	icon_state = "console"
+	icon_state = "altcomputerw"
 	circuit = /obj/item/circuitboard/robotstoragecontrol
+
+	icon_screen = "cryo_robot"
+	light_color = LIGHT_COLOR_PURPLE
 
 	storage_type = "Cyborgs"
 	storage_name = "Robotic Storage Control"

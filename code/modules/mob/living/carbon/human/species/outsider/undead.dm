@@ -1,6 +1,17 @@
 /mob/living/carbon/human/skeleton/Initialize(mapload)
 	. = ..(mapload, "Skeleton")
 
+/mob/living/carbon/human/skeleton
+	var/master
+
+/mob/living/carbon/human/skeleton/proc/spawn_skeleton(var/mob/user)
+	src.ckey = user.ckey
+	src.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
+	src.name = src.real_name
+	if(master)
+		to_chat(src, "<B>You are a skeleton minion to [master], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
+	SSghostroles.remove_spawn_atom("skeleton", src)
+
 /datum/species/skeleton //SPOOKY
 	name = "Skeleton"
 	name_plural = "skeletons"
@@ -11,22 +22,22 @@
 
 	total_health = 70 //gotta get headshots to kill them, so they're frail
 
-	default_language = "Ceti Basic"
-	language = "Cult"
-	name_language = "Cult"
+	default_language = LANGUAGE_TCB
+	language = LANGUAGE_CULT
+	name_language = LANGUAGE_CULT
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
 	darksight = 8
 	has_organ = list() //skeletons are empty shells for now, maybe we can add something in the future
 	siemens_coefficient = 0
 	ethanol_resistance = -1 //no drunk skeletons
 	taste_sensitivity = TASTE_NUMB
-	breakcuffs = list(MALE,FEMALE,NEUTER)
+	breakcuffs = list(MALE, FEMALE, NEUTER)
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
 	reagent_tag = IS_UNDEAD
 
-	virus_immune = 1
+	virus_immune = TRUE
 
 	rarity_value = 10
 	blurb = "Skeletons are undead brought back to life through dark wizardry, \
