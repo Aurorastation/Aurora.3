@@ -222,9 +222,6 @@
 	name = "Psychologist"
 	jobtype = /datum/job/psychiatrist
 
-	uniform = /obj/item/clothing/under/rank/psych/turtleneck
-
-
 /datum/job/paramedic
 	title = "Paramedic"
 	flag = PARAMEDIC

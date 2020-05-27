@@ -192,10 +192,8 @@
 	desc = "A small rodent. It looks very old."
 	body_color = "gray"
 
-
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-
 
 	health = 25
 	maxHealth = 25
@@ -204,6 +202,7 @@
 	attacktext = "nibbled"
 	universal_speak = 1
 	universal_understand = 1
+	stop_automated_movement = TRUE
 
 	min_oxy = 1 //still require a /bit/ of air.
 	max_co2 = 0

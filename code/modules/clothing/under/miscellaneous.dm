@@ -531,12 +531,6 @@
 	item_state = "lb_suit"
 	worn_state = "mechanic"
 
-/obj/item/clothing/under/sweater
-	desc = "A warm looking sweater and a pair of dark blue slacks."
-	name = "sweater"
-	icon_state = "turtleneck"
-	worn_state = "turtleneck"
-
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."

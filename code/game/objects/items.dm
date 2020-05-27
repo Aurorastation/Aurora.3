@@ -466,6 +466,10 @@ var/list/global/slot_flags_enumeration = list(
 		return 0
 	return 1
 
+// override for give shenanigans
+/obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
+	return
+
 /*
 /obj/item/verb/verb_pickup()
 	set src in oview(1)

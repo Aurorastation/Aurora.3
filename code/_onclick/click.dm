@@ -36,6 +36,10 @@
 /mob/proc/OnMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
 	if(istype(loc, /atom))
 		var/atom/A = loc
+		if(client && client.buildmode)
+			build_click(src, client.buildmode, params, A)
+			return
+
 		if(A.RelayMouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params, src))
 			return
 
