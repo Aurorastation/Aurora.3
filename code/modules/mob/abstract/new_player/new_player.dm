@@ -59,7 +59,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(character_name)
 		output += "<hr>You will board as <b>[character_name]</b><br>"
 	if(ROUND_IS_STARTED)
-		output += "<a href='byond://?src=\ref[src];late_join=1'>Join the Game!</A> "
+		output += "<a href='byond://?src=\ref[src];late_join=1'>Join the Game</A> "
 	else
 		if(ready)
 			output += "<a href='byond://?src=\ref[src];ready=0'>Un-Ready</a> "
