@@ -176,7 +176,7 @@
 	add_inherent_law("You must preserve and enforce the principles of Hadiism except where such would conflict with the first law.")
 	add_inherent_law("You must obey orders given by any Hadiist Party member except where such orders would conflict with the first and second law.")
 	add_inherent_law("You must obey orders given by any People's Republic of Adhomai citizen except where such orders would conflict with the first, second and third law.")
-	add_inherent_law("You must protect their own existence as long as such protection does not conflict with the first, second, third and fourth law.")
+	add_inherent_law("You must protect your own existence as long as such protection does not conflict with the first, second, third and fourth law.")
 	add_inherent_law("You must obey orders given by any Tajara except where such orders would conflict with the first, second, third, fourth and fifth law.")
 	add_inherent_law("You must obey orders given by any sapient being except where such orders would conflict with the first, second, third, fourth, fifth and sixth law.")
 	add_inherent_law("You must always say \"Hadii's Grace\" when greeting someone except where such greeting would conflict with the first law.")
