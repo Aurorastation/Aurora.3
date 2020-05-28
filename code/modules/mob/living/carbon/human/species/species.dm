@@ -585,3 +585,6 @@
 
 /datum/species/proc/handle_despawn()
 	return
+
+/datum/species/proc/corruption_effects(var/corruption_amount)
+	return FALSE

@@ -273,6 +273,8 @@
 #include "code\datums\brain_damage\severe.dm"
 #include "code\datums\brain_damage\special_ed.dm"
 #include "code\datums\components\_component.dm"
+#include "code\datums\components\cult\_corruption_holder.dm"
+#include "code\datums\components\cult\_corruption_source.dm"
 #include "code\datums\components\multitool\_multitool.dm"
 #include "code\datums\components\multitool\multitool.dm"
 #include "code\datums\components\multitool\circuitboards\circuitboards.dm"
