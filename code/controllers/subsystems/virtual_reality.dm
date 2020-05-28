@@ -50,26 +50,14 @@
 	set name = "Return to Body"
 	set category = "IC"
 
-	if(!vr_mob && !old_mob)
-		return
-
-	if(vr_mob)
-		ckey = vr_mob.ckey
-		vr_mob.ckey = null
-		vr_mob.old_mob = null
-		vr_mob.vr_mob_exit_languages()
-		vr_mob = null
-		to_chat(src, span("notice", "System exited safely, we hope you enjoyed your stay."))
 	if(old_mob)
-		old_mob.ckey = ckey
-		ckey = null
-		old_mob.vr_mob = null
+		ckey_transfer(old_mob)
 		languages = list(all_languages[LANGUAGE_TCB])
-		to_chat(old_mob, span("notice", "System exited safely, we hope you enjoyed your stay."))
+		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
-	if(!vr_mob && !old_mob)
-		to_chat(src, span("danger", "Interface error, you cannot exit the system at this time."))
-		to_chat(src, span("warning", "Ahelp to get back into your body, a bug has occurred."))
+	else
+		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
+		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
 
 /mob/living/silicon/body_return()
 	set name = "Return to Body"
@@ -78,11 +66,11 @@
 	if(old_mob)
 		ckey_transfer(old_mob)
 		speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
-		to_chat(old_mob, span("notice", "System exited safely, we hope you enjoyed your stay."))
+		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
-		to_chat(src, span("danger", "Interface error, you cannot exit the system at this time."))
-		to_chat(src, span("warning", "Ahelp to get back into your body, a bug has occurred."))
+		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
+		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
 
 /mob/living/proc/vr_mob_exit_languages()
 	languages = list(all_languages[LANGUAGE_TCB])
@@ -106,8 +94,8 @@
 	if(target.client)
 		target.client.screen |= global_hud.vr_control
 
-	to_chat(target, span("notice", "Connection established, system suite active and calibrated."))
-	to_chat(target, span("warning", "To exit this mode, use the \"Return to Body\" verb in the IC tab."))
+	to_chat(target, SPAN_NOTICE("Connection established, system suite active and calibrated."))
+	to_chat(target, SPAN_WARNING("To exit this mode, use the \"Return to Body\" verb in the IC tab."))
 
 /mob/living/proc/swap_languages(var/mob/target)
 	target.languages = languages
@@ -156,7 +144,7 @@
 		mech[R.name] = R
 
 	if(mech.len == 1)
-		to_chat(user, span("warning", "No active remote mechs are available."))
+		to_chat(user, SPAN_WARNING("No active remote mechs are available."))
 		return
 
 	var/desc = input("Please select a remote control compatible mech to take over.", "Remote Mech Selection") in mech|null
@@ -186,7 +174,7 @@
 		robot[R.name] = R
 
 	if(robot.len == 1)
-		to_chat(user, span("warning", "No active remote robots are available."))
+		to_chat(user, SPAN_WARNING("No active remote robots are available."))
 		return
 
 	var/desc = input("Please select a remote control robot to take over.", "Remote Robot Selection") in robot|null
