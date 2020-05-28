@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added and mapped in a Slime Extractinator to the Xenobio level, which extract all the cores within a slime. It can be upgraded."
+  - rscadd: "Added the above's machine circuit to circuit imprinters."
