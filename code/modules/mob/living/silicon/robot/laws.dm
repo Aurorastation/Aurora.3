@@ -26,7 +26,7 @@
 			to_chat(src, SPAN_WARNING("<b>No AI selected to sync laws with, disabling lawsync protocol.</b>"))
 			law_update = FALSE
 
-	to_chat(who, SPAN_WARNING("<b>Obey these laws:</b>"))
+	to_chat(who, SPAN_WARNING("<b>Obey these laws: (No law overrides any other law unless explicitly stated; laws refer to the Stationbound unit and not the player)</b>"))
 	laws.show_laws(who)
 	// TODO: Update to new antagonist system.
 	if(mind && (mind.special_role == "traitor" && mind.original == src) && connected_ai)
@@ -37,7 +37,6 @@
 		to_chat(who, SPAN_NOTICE("<b>Remember, you are not required to listen to the AI.</b>"))
 	else
 		to_chat(who, SPAN_NOTICE("<b>Remember, you are not bound to any AI, you are not required to listen to them.</b>"))
-
 
 /mob/living/silicon/robot/lawsync()
 	laws_sanity_check()
