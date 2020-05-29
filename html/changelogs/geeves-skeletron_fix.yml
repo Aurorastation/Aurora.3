@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Burning into a skeleton now properly makes you unidentifiable, and no longer keeps your species torso."
