@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - tweak: "Added the Synthetic prime directive to the 'borg Laws in the form of preserve which creates a form of fear RP for 'borgs, also added a separation between player and character + the no-override clause to the jointext."
   - tweak: "Altered all of the laws to have more clear phrasing, now it should be a lot harder to stretch them to enable undesirable behavior and have what could be construed as valid justifications."
+  - tweak: "Added a clause for general crew to the Stationbound laws and separated it from NanoTrasen only, so it takes into account contractors, merchants and general visitors."
