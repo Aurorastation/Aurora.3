@@ -317,6 +317,7 @@
 	if(!istype(loc, /turf))
 		return
 	var/image/I = image(icon = src, loc = loc, layer = layer + 0.1)
+	I.plane = -1
 	I.transform *= 0.75
 	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
 	var/turf/T = get_turf(src)
