@@ -92,7 +92,7 @@
 				"<span class='notice'>You hear metal clanking.</span>")
 		else
 			M.visible_message(\
-				"<span class='notice'>[M.name] unbuckled themselves!</span>",\
+				"<b>[M.name]</b> unbuckles themselves.",\
 				"<span class='notice'>You unbuckle yourself from [src].</span>",\
 				"<span class='notice'>You hear metal clanking.</span>")
 		add_fingerprint(user)
