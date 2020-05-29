@@ -14,6 +14,8 @@
 		var/fire_dmg = getFireLoss()
 		if(fire_dmg > maxHealth * 3)
 			ChangeToSkeleton()
+			real_name = "Unknown"
+			name = real_name
 		else if(fire_dmg > maxHealth * 1.5)
 			ChangeToHusk()
 
