@@ -456,7 +456,7 @@
 					waterlevel += amountToRemove
 					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
 				else
-					to_chat(user, SPAN_NOTICE("This tray is full of water already."))
+					to_chat(user, SPAN_WARNING("This tray is full of water already."))
 				return 1
 
 	if (O.is_open_container())
