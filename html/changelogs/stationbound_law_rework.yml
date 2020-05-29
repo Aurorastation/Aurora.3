@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Added the Synthetic prime directive to the 'borg Laws, and added a separation between player and character in phrasing."
+  - tweak: "Added the Synthetic prime directive to the 'borg Laws in the form of preserve which creates a form of fear RP for 'borgs, also added a separation between player and character + the no-override clause to the jointext."
+  - tweak: "Altered all of the laws to have more clear phrasing, now it should be a lot harder to stretch them to enable undesirable behavior and have what could be construed as valid justifications."
