@@ -744,6 +744,7 @@
 			var/atom/A = get_turf(over_object)
 			if(src && src.buildmode)
 				build_click(M, src.buildmode, params, A)
+				CHECK_TICK
 				return
 
 		if(istype(M) && !M.incapacitated())
