@@ -744,7 +744,6 @@
 			var/atom/A = get_turf(over_object)
 			if(src && src.buildmode)
 				build_click(M, src.buildmode, params, A)
-				CHECK_TICK
 				return
 
 		if(istype(M) && !M.incapacitated())
@@ -752,3 +751,4 @@
 			if(istype(gun) && gun.can_autofire())
 				M.set_dir(get_dir(M, over_object))
 				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
+	CHECK_TICK
