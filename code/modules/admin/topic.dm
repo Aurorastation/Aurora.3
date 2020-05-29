@@ -684,7 +684,7 @@
 		log_admin("[key_name(usr)] has sent [key_name(M)] back to the Lobby.")
 		message_admins("[key_name(usr)] has sent [key_name(M)] back to the Lobby.")
 
-		var/mob/new_player/NP = new /mob/new_player()
+		var/mob/abstract/new_player/NP = new /mob/abstract/new_player()
 		NP.key = M.ckey
 		qdel(M)
 
