@@ -26,3 +26,4 @@
 	. = ..()
 	hard_drive.store_file(new /datum/computer_file/program/pai_directives())
 	hard_drive.store_file(new /datum/computer_file/program/pai_radio())
+	hard_drive.store_file(new /datum/computer_file/program/pai_flashlight())

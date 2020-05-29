@@ -16,6 +16,7 @@
 	desc = "A simple deck of playing cards."
 	icon_state = "deck"
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/deck/Initialize()
 	. = ..()
@@ -175,6 +176,7 @@
 	icon = 'icons/obj/playing_cards.dmi'
 	icon_state = "card_pack"
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 	w_class = 1
 	var/list/cards = list()
 
@@ -196,6 +198,7 @@
 	icon = 'icons/obj/playing_cards.dmi'
 	icon_state = null
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 	w_class = 1
 
 	var/concealed = 0

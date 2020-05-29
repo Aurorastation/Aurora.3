@@ -23,6 +23,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "card1"
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 	w_class = 1
 	randpixel = 1
 	layer = ABOVE_MOB_LAYER //so you can mark bodies

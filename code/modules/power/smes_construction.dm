@@ -111,7 +111,6 @@
 	wires = new /datum/wires/smes(src)
 
 	SSmachinery.queue_rcon_update()
-
 	..()
 
 	LAZYINITLIST(component_parts)	// Parent machinery call won't initialize this list if this is a newly constructed SMES.

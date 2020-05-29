@@ -10,7 +10,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns15,
+/turf/space/transit,
 /area/template_noop)
 "aab" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -23,7 +23,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns9,
+/turf/space/transit,
 /area/template_noop)
 "aac" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -36,7 +36,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns5,
+/turf/space/transit,
 /area/template_noop)
 "aad" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -49,7 +49,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns12,
+/turf/space/transit,
 /area/template_noop)
 "aae" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -62,7 +62,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns8,
+/turf/space/transit,
 /area/template_noop)
 "aaf" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -75,7 +75,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns3,
+/turf/space/transit,
 /area/template_noop)
 "aag" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -88,7 +88,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns6,
+/turf/space/transit,
 /area/template_noop)
 "aah" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -101,7 +101,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns7,
+/turf/space/transit,
 /area/template_noop)
 "aai" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -114,7 +114,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns4,
+/turf/space/transit,
 /area/template_noop)
 "aaj" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -127,7 +127,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns14,
+/turf/space/transit,
 /area/template_noop)
 "aak" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -140,7 +140,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns1,
+/turf/space/transit,
 /area/template_noop)
 "aal" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -153,7 +153,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns11,
+/turf/space/transit,
 /area/template_noop)
 "aam" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -166,7 +166,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns13,
+/turf/space/transit,
 /area/template_noop)
 "aan" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -179,7 +179,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns2,
+/turf/space/transit,
 /area/template_noop)
 "aao" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -192,7 +192,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns10,
+/turf/space/transit,
 /area/template_noop)
 "aap" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -215,28 +215,28 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns10,
+/turf/space/transit,
 /area/template_noop)
 "aaq" = (
-/turf/space/transit/east/shuttlespace_ew13,
+/turf/space/transit,
 /area/template_noop)
 "aar" = (
-/turf/space/transit/east/shuttlespace_ew14,
+/turf/space/transit,
 /area/template_noop)
 "aas" = (
-/turf/space/transit/east/shuttlespace_ew15,
+/turf/space/transit,
 /area/template_noop)
 "aat" = (
-/turf/space/transit/east/shuttlespace_ew1,
+/turf/space/transit,
 /area/template_noop)
 "aau" = (
-/turf/space/transit/east/shuttlespace_ew2,
+/turf/space/transit,
 /area/template_noop)
 "aav" = (
-/turf/space/transit/east/shuttlespace_ew3,
+/turf/space/transit,
 /area/template_noop)
 "aaw" = (
-/turf/space/transit/east/shuttlespace_ew4,
+/turf/space/transit,
 /area/template_noop)
 "aax" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -249,7 +249,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew5,
+/turf/space/transit,
 /area/template_noop)
 "aay" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -262,7 +262,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew6,
+/turf/space/transit,
 /area/template_noop)
 "aaz" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -275,7 +275,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew7,
+/turf/space/transit,
 /area/template_noop)
 "aaA" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -288,7 +288,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew8,
+/turf/space/transit,
 /area/template_noop)
 "aaB" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -301,7 +301,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew9,
+/turf/space/transit,
 /area/template_noop)
 "aaC" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -314,7 +314,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew10,
+/turf/space/transit,
 /area/template_noop)
 "aaD" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -327,7 +327,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew11,
+/turf/space/transit,
 /area/template_noop)
 "aaE" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -340,7 +340,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew12,
+/turf/space/transit,
 /area/template_noop)
 "aaF" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -353,7 +353,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew13,
+/turf/space/transit,
 /area/template_noop)
 "aaG" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -366,7 +366,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew14,
+/turf/space/transit,
 /area/template_noop)
 "aaH" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -379,7 +379,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew15,
+/turf/space/transit,
 /area/template_noop)
 "aaI" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -392,7 +392,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew1,
+/turf/space/transit,
 /area/template_noop)
 "aaJ" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -405,7 +405,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew2,
+/turf/space/transit,
 /area/template_noop)
 "aaK" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -418,7 +418,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew3,
+/turf/space/transit,
 /area/template_noop)
 "aaL" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -431,7 +431,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/east/shuttlespace_ew4,
+/turf/space/transit,
 /area/template_noop)
 "aaM" = (
 /turf/template_noop,
@@ -447,73 +447,73 @@
 /turf/unsimulated/wall,
 /area/template_noop)
 "aaQ" = (
-/turf/space/transit/north/shuttlespace_ns8,
+/turf/space/transit,
 /area/template_noop)
 "aaR" = (
-/turf/space/transit/north/shuttlespace_ns4,
+/turf/space/transit,
 /area/template_noop)
 "aaS" = (
-/turf/space/transit/north/shuttlespace_ns11,
+/turf/space/transit,
 /area/template_noop)
 "aaT" = (
-/turf/space/transit/north/shuttlespace_ns7,
+/turf/space/transit,
 /area/template_noop)
 "aaU" = (
-/turf/space/transit/north/shuttlespace_ns2,
+/turf/space/transit,
 /area/template_noop)
 "aaV" = (
-/turf/space/transit/north/shuttlespace_ns5,
+/turf/space/transit,
 /area/template_noop)
 "aaW" = (
-/turf/space/transit/north/shuttlespace_ns6,
+/turf/space/transit,
 /area/template_noop)
 "aaX" = (
-/turf/space/transit/north/shuttlespace_ns14,
+/turf/space/transit,
 /area/template_noop)
 "aaY" = (
-/turf/space/transit/north/shuttlespace_ns3,
+/turf/space/transit,
 /area/template_noop)
 "aaZ" = (
-/turf/space/transit/north/shuttlespace_ns13,
+/turf/space/transit,
 /area/template_noop)
 "aba" = (
-/turf/space/transit/north/shuttlespace_ns15,
+/turf/space/transit,
 /area/template_noop)
 "abb" = (
-/turf/space/transit/north/shuttlespace_ns10,
+/turf/space/transit,
 /area/template_noop)
 "abc" = (
-/turf/space/transit/north/shuttlespace_ns12,
+/turf/space/transit,
 /area/template_noop)
 "abd" = (
-/turf/space/transit/north/shuttlespace_ns1,
+/turf/space/transit,
 /area/template_noop)
 "abe" = (
-/turf/space/transit/north/shuttlespace_ns9,
+/turf/space/transit,
 /area/template_noop)
 "abf" = (
-/turf/space/transit/east/shuttlespace_ew5,
+/turf/space/transit,
 /area/template_noop)
 "abg" = (
-/turf/space/transit/east/shuttlespace_ew6,
+/turf/space/transit,
 /area/template_noop)
 "abh" = (
-/turf/space/transit/east/shuttlespace_ew7,
+/turf/space/transit,
 /area/template_noop)
 "abi" = (
-/turf/space/transit/east/shuttlespace_ew8,
+/turf/space/transit,
 /area/template_noop)
 "abj" = (
-/turf/space/transit/east/shuttlespace_ew10,
+/turf/space/transit,
 /area/template_noop)
 "abk" = (
-/turf/space/transit/east/shuttlespace_ew11,
+/turf/space/transit,
 /area/template_noop)
 "abl" = (
-/turf/space/transit/east/shuttlespace_ew12,
+/turf/space/transit,
 /area/template_noop)
 "abm" = (
-/turf/space/transit/east/shuttlespace_ew9,
+/turf/space/transit,
 /area/template_noop)
 "abn" = (
 /obj/structure/bed,
@@ -924,7 +924,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns14,
+/turf/space/transit,
 /area/template_noop)
 "acx" = (
 /obj/effect/step_trigger/thrower{
@@ -935,7 +935,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns6,
+/turf/space/transit,
 /area/template_noop)
 "acy" = (
 /obj/effect/step_trigger/thrower{
@@ -946,7 +946,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns8,
+/turf/space/transit,
 /area/template_noop)
 "acA" = (
 /obj/effect/step_trigger/thrower{
@@ -956,7 +956,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns5,
+/turf/space/transit,
 /area/template_noop)
 "acB" = (
 /obj/effect/step_trigger/thrower{
@@ -966,7 +966,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns1,
+/turf/space/transit,
 /area/template_noop)
 "acD" = (
 /obj/effect/step_trigger/thrower{
@@ -976,7 +976,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns9,
+/turf/space/transit,
 /area/template_noop)
 "acE" = (
 /obj/effect/step_trigger/thrower{
@@ -986,7 +986,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns15,
+/turf/space/transit,
 /area/template_noop)
 "acF" = (
 /obj/effect/decal/cleanable/blood,
@@ -1121,7 +1121,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns13,
+/turf/space/transit,
 /area/template_noop)
 "acT" = (
 /obj/effect/shuttle_landmark/emergency/interim,
@@ -1193,7 +1193,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns1,
+/turf/space/transit,
 /area/template_noop)
 "ade" = (
 /obj/effect/step_trigger/thrower{
@@ -1204,7 +1204,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns11,
+/turf/space/transit,
 /area/template_noop)
 "adg" = (
 /obj/structure/flora/ausbushes/ywflowers,
@@ -1264,49 +1264,49 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns7,
+/turf/space/transit,
 /area/template_noop)
 "adn" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew4,
+/turf/space/transit,
 /area/template_noop)
 "ado" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew13,
+/turf/space/transit,
 /area/template_noop)
 "adp" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew14,
+/turf/space/transit,
 /area/template_noop)
 "adq" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew15,
+/turf/space/transit,
 /area/template_noop)
 "adr" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew1,
+/turf/space/transit,
 /area/template_noop)
 "ads" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew9,
+/turf/space/transit,
 /area/template_noop)
 "adt" = (
 /obj/structure/flora/ausbushes/brflowers,
@@ -1360,7 +1360,7 @@
 	nostop = 0;
 	tiles = 0
 	},
-/turf/space/transit/east/shuttlespace_ew14,
+/turf/space/transit,
 /area/template_noop)
 "adE" = (
 /obj/structure/holostool,
@@ -1431,18 +1431,18 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns14,
+/turf/space/transit,
 /area/template_noop)
 "adK" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew11,
+/turf/space/transit,
 /area/template_noop)
 "adM" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod5,
-/turf/space/transit/east/shuttlespace_ew3,
+/turf/space/transit,
 /area/template_noop)
 "adP" = (
 /obj/effect/step_trigger/thrower{
@@ -1452,7 +1452,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/east/shuttlespace_ew1,
+/turf/space/transit,
 /area/template_noop)
 "adQ" = (
 /obj/structure/flora/pottedplant{
@@ -1542,7 +1542,7 @@
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew5,
+/turf/space/transit,
 /area/template_noop)
 "aec" = (
 /obj/effect/step_trigger/thrower{
@@ -1552,7 +1552,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/east/shuttlespace_ew10,
+/turf/space/transit,
 /area/template_noop)
 "aed" = (
 /obj/structure/window/reinforced,
@@ -1577,7 +1577,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns10,
+/turf/space/transit,
 /area/template_noop)
 "aeg" = (
 /obj/effect/step_trigger/thrower{
@@ -1587,21 +1587,21 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns12,
+/turf/space/transit,
 /area/template_noop)
 "aeh" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew10,
+/turf/space/transit,
 /area/template_noop)
 "aei" = (
 /obj/effect/step_trigger/thrower{
 	affect_ghosts = 1;
 	name = "thrower_leftnostop"
 	},
-/turf/space/transit/east/shuttlespace_ew12,
+/turf/space/transit,
 /area/template_noop)
 "aej" = (
 /turf/simulated/floor/holofloor/space,
@@ -1743,7 +1743,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns2,
+/turf/space/transit,
 /area/template_noop)
 "aeH" = (
 /obj/effect/step_trigger/thrower{
@@ -1754,7 +1754,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns9,
+/turf/space/transit,
 /area/template_noop)
 "aeI" = (
 /obj/effect/step_trigger/thrower{
@@ -1764,7 +1764,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns11,
+/turf/space/transit,
 /area/template_noop)
 "aeJ" = (
 /obj/effect/step_trigger/thrower{
@@ -1774,7 +1774,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns3,
+/turf/space/transit,
 /area/template_noop)
 "aeK" = (
 /obj/effect/landmark{
@@ -1883,7 +1883,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns2,
+/turf/space/transit,
 /area/template_noop)
 "aeZ" = (
 /obj/structure/flora/tree/pine,
@@ -1940,7 +1940,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns15,
+/turf/space/transit,
 /area/template_noop)
 "afm" = (
 /obj/structure/flora/tree/dead,
@@ -1989,7 +1989,7 @@
 /area/holodeck/source_boxingcourt)
 "afw" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod3,
-/turf/space/transit/east/shuttlespace_ew3,
+/turf/space/transit,
 /area/template_noop)
 "afz" = (
 /obj/structure/flora/grass/green,
@@ -2373,7 +2373,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns10,
+/turf/space/transit,
 /area/template_noop)
 "agA" = (
 /obj/effect/floor_decal/corner/green/full,
@@ -2447,7 +2447,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns7,
+/turf/space/transit,
 /area/template_noop)
 "agJ" = (
 /obj/effect/step_trigger/thrower{
@@ -2457,7 +2457,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns8,
+/turf/space/transit,
 /area/template_noop)
 "agK" = (
 /obj/effect/step_trigger/thrower{
@@ -2468,7 +2468,7 @@
 	stopper = 0;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns5,
+/turf/space/transit,
 /area/template_noop)
 "agL" = (
 /obj/effect/step_trigger/thrower{
@@ -2478,7 +2478,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns6,
+/turf/space/transit,
 /area/template_noop)
 "agO" = (
 /obj/effect/step_trigger/thrower{
@@ -2488,7 +2488,7 @@
 	nostop = 1;
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns4,
+/turf/space/transit,
 /area/template_noop)
 "agP" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -2560,7 +2560,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns12,
+/turf/space/transit,
 /area/template_noop)
 "ahg" = (
 /obj/effect/step_trigger/thrower{
@@ -2569,7 +2569,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns7,
+/turf/space/transit,
 /area/template_noop)
 "ahh" = (
 /obj/effect/step_trigger/thrower{
@@ -2578,7 +2578,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns9,
+/turf/space/transit,
 /area/template_noop)
 "ahi" = (
 /obj/effect/step_trigger/thrower{
@@ -2587,7 +2587,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns4,
+/turf/space/transit,
 /area/template_noop)
 "ahj" = (
 /obj/effect/step_trigger/thrower{
@@ -2596,7 +2596,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns6,
+/turf/space/transit,
 /area/template_noop)
 "ahk" = (
 /obj/effect/step_trigger/thrower{
@@ -2605,7 +2605,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns10,
+/turf/space/transit,
 /area/template_noop)
 "ahl" = (
 /obj/effect/step_trigger/thrower{
@@ -2614,7 +2614,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns3,
+/turf/space/transit,
 /area/template_noop)
 "ahm" = (
 /obj/effect/step_trigger/thrower{
@@ -2623,7 +2623,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns14,
+/turf/space/transit,
 /area/template_noop)
 "ahn" = (
 /obj/effect/step_trigger/thrower{
@@ -2632,7 +2632,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns11,
+/turf/space/transit,
 /area/template_noop)
 "aho" = (
 /obj/effect/landmark{
@@ -2674,7 +2674,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns7,
+/turf/space/transit,
 /area/template_noop)
 "ahs" = (
 /obj/effect/step_trigger/thrower{
@@ -2683,11 +2683,11 @@
 	name = "thrower_escapeshuttletop(left)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns11,
+/turf/space/transit,
 /area/template_noop)
 "ahw" = (
 /obj/effect/shuttle_landmark/merc/interim,
-/turf/space/transit/north/shuttlespace_ns5,
+/turf/space/transit,
 /area/template_noop)
 "ahA" = (
 /obj/effect/step_trigger/thrower{
@@ -2696,7 +2696,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns6,
+/turf/space/transit,
 /area/template_noop)
 "ahB" = (
 /obj/structure/bed/chair{
@@ -2720,7 +2720,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns5,
+/turf/space/transit,
 /area/template_noop)
 "ahL" = (
 /obj/effect/step_trigger/thrower{
@@ -2729,7 +2729,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns3,
+/turf/space/transit,
 /area/template_noop)
 "ahM" = (
 /obj/effect/step_trigger/thrower{
@@ -2738,7 +2738,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns10,
+/turf/space/transit,
 /area/template_noop)
 "ahN" = (
 /obj/effect/step_trigger/thrower{
@@ -2747,7 +2747,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns15,
+/turf/space/transit,
 /area/template_noop)
 "ahO" = (
 /turf/template_noop,
@@ -2816,7 +2816,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/turf/space/transit/north/shuttlespace_ns12,
+/turf/space/transit,
 /area/template_noop)
 "aia" = (
 /obj/effect/step_trigger/thrower{
@@ -2825,11 +2825,11 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns4,
+/turf/space/transit,
 /area/template_noop)
 "aib" = (
 /obj/effect/shuttle_landmark/skipjack/interim,
-/turf/space/transit/north/shuttlespace_ns3,
+/turf/space/transit,
 /area/template_noop)
 "aie" = (
 /obj/structure/grille,
@@ -2874,7 +2874,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns2,
+/turf/space/transit,
 /area/template_noop)
 "aio" = (
 /obj/machinery/door/airlock/glass_security{
@@ -2902,7 +2902,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns1,
+/turf/space/transit,
 /area/template_noop)
 "aiv" = (
 /obj/machinery/computer/pod{
@@ -2922,7 +2922,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns15,
+/turf/space/transit,
 /area/template_noop)
 "aiB" = (
 /obj/machinery/door/airlock/external{
@@ -2944,7 +2944,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns14,
+/turf/space/transit,
 /area/template_noop)
 "aiG" = (
 /turf/template_noop,
@@ -2984,7 +2984,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns1,
+/turf/space/transit,
 /area/template_noop)
 "aiP" = (
 /obj/effect/step_trigger/thrower{
@@ -2993,7 +2993,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns5,
+/turf/space/transit,
 /area/template_noop)
 "aiQ" = (
 /obj/effect/step_trigger/thrower{
@@ -3002,7 +3002,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns13,
+/turf/space/transit,
 /area/template_noop)
 "aiT" = (
 /obj/structure/window/reinforced,
@@ -3088,7 +3088,7 @@
 	name = "thrower_escapeshuttletop(left)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns4,
+/turf/space/transit,
 /area/template_noop)
 "ajo" = (
 /obj/effect/step_trigger/thrower{
@@ -3097,7 +3097,7 @@
 	name = "thrower_escapeshuttletop(left)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns14,
+/turf/space/transit,
 /area/template_noop)
 "ajp" = (
 /obj/effect/step_trigger/thrower{
@@ -3106,7 +3106,7 @@
 	name = "thrower_escapeshuttletop(left)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns10,
+/turf/space/transit,
 /area/template_noop)
 "ajq" = (
 /obj/effect/step_trigger/thrower{
@@ -3115,7 +3115,7 @@
 	name = "thrower_escapeshuttletop(left)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns6,
+/turf/space/transit,
 /area/template_noop)
 "ajr" = (
 /turf/simulated/floor/plating,
@@ -3168,7 +3168,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns13,
+/turf/space/transit,
 /area/template_noop)
 "ajF" = (
 /obj/effect/step_trigger/thrower{
@@ -3177,7 +3177,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns2,
+/turf/space/transit,
 /area/template_noop)
 "ajG" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -3187,11 +3187,11 @@
 /area/centcom/evac)
 "ajI" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod1,
-/turf/space/transit/north/shuttlespace_ns6,
+/turf/space/transit,
 /area/template_noop)
 "ajL" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod2,
-/turf/space/transit/north/shuttlespace_ns13,
+/turf/space/transit,
 /area/template_noop)
 "ajN" = (
 /obj/effect/step_trigger/thrower{
@@ -3200,7 +3200,7 @@
 	name = "thrower_escapeshuttletop(left)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns12,
+/turf/space/transit,
 /area/template_noop)
 "ajP" = (
 /obj/machinery/vending/cigarette,
@@ -3294,7 +3294,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns12,
+/turf/space/transit,
 /area/template_noop)
 "akq" = (
 /obj/machinery/computer/arcade,
@@ -3310,7 +3310,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns11,
+/turf/space/transit,
 /area/template_noop)
 "aks" = (
 /obj/structure/closet/secure_closet/personal/patient,
@@ -3379,7 +3379,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns9,
+/turf/space/transit,
 /area/template_noop)
 "akD" = (
 /obj/machinery/sleeper{
@@ -3439,7 +3439,7 @@
 	name = "thrower_throwdown";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns8,
+/turf/space/transit,
 /area/template_noop)
 "akK" = (
 /obj/machinery/vending/wallmed1{
@@ -3543,7 +3543,7 @@
 	name = "thrower_escapeshuttletop(right)";
 	tiles = 0
 	},
-/turf/space/transit/north/shuttlespace_ns8,
+/turf/space/transit,
 /area/template_noop)
 "akY" = (
 /obj/item/storage/lockbox,

@@ -7,7 +7,7 @@
 /obj/item/clothing/mask/gas/voice
 	var/obj/item/voice_changer/changer
 	origin_tech = list(TECH_ILLEGAL = 4)
-	description_antag = "This mask can be used to change the owner's voice."
+	desc_antag = "This mask can be used to change the owner's voice."
 
 /obj/item/clothing/mask/gas/voice/verb/Toggle_Voice_Changer()
 	set category = "Object"

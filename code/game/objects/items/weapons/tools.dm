@@ -33,8 +33,9 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
-	drop_sound = 'sound/items/drop/sword.ogg'
 	usesound = 'sound/items/Ratchet.ogg'
+	drop_sound = 'sound/items/drop/wrench.ogg'
+	pickup_sound = 'sound/items/pickup/wrench.ogg'
 
 /obj/item/wrench/iswrench()
 	return TRUE
@@ -56,16 +57,17 @@
 	slot_flags = SLOT_BELT | SLOT_EARS
 	center_of_mass = list("x" = 13,"y" = 7)
 	force = 8
-	w_class = ITEMSIZE_TINY
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
+	w_class = ITEMSIZE_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
+	usesound = 'sound/items/Screwdriver.ogg'
+	drop_sound = 'sound/items/drop/screwdriver.ogg'
+	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
 	var/random_icon = TRUE
-	drop_sound = 'sound/items/drop/scrap.ogg'
-	usesound = 'sound/items/Screwdriver.ogg'
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
@@ -133,10 +135,11 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 	attack_verb = list("pinched", "nipped")
-	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
 	sharp = TRUE
 	edge = TRUE
-	drop_sound = 'sound/items/drop/knife.ogg'
+	drop_sound = 'sound/items/drop/wirecutter.ogg'
+	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
+	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
 
 /obj/item/wirecutters/New()
 	if(prob(50))
@@ -186,11 +189,12 @@
 		)
 	icon_state = "welder_off"
 	item_state = "welder_off"
-	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
-	var/base_itemstate = "welder"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	drop_sound = 'sound/items/drop/scrap.ogg'
+	drop_sound = 'sound/items/drop/weldingtool.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
+	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
+	var/base_itemstate = "welder"
 
 	//Amount of OUCH when it's thrown
 	force = 3
@@ -240,7 +244,7 @@
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
-	
+
 
 	var/last_gen = 0
 	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
@@ -582,12 +586,13 @@
 	slot_flags = SLOT_BELT
 	force = 8
 	throwforce = 7
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	usesound = 'sound/items/Crowbar.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
-	drop_sound = 'sound/items/drop/sword.ogg'
-	usesound = 'sound/items/Crowbar.ogg'
 
 /obj/item/crowbar/iscrowbar()
 	return TRUE
@@ -635,7 +640,8 @@
 		)
 	force = 3
 	w_class = ITEMSIZE_SMALL
-	drop_sound = 'sound/items/drop/scrap.ogg'
+	drop_sound = 'sound/items/drop/multitool.ogg'
+	pickup_sound = 'sound/items/pickup/multitool.ogg'
 
 	var/list/tools = list(
 		"crowbar",

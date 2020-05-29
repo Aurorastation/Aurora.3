@@ -1,6 +1,6 @@
 /datum/bounty/item/chef/birthday_cake
 	name = "Birthday Cake"
-	description = "Miranda Trasen's birthday is coming up! Ship a complete birthday cake to celebrate!"
+	description = "A birthday party is coming up! Ship a complete birthday cake to celebrate!"
 	reward = 4000
 	wanted_types = list(
 		/obj/item/reagent_containers/food/snacks/variable/cake,
@@ -26,22 +26,23 @@
 	reward = 4000
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/icecreamsandwich)
+
 /datum/bounty/item/chef/pie
 	name = "Pie"
-	description = "3.14159? No! %BOSSSHORT management wants edible pie! Ship a whole one."
-	reward = 3142
+	description = "%BOSSSHORT management wants a pie! Ship one pie."
+	reward = 3000
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/pie)
 
 /datum/bounty/item/chef/salad
-	name = "Salad or Rice Bowls"
-	description = "%BOSSSHORT management is going on a health binge. Your order is to ship salad or rice bowls."
+	name = "Salad"
+	description = "%BOSSSHORT management is going on a health binge. Your order is to ship salad."
 	reward = 3000
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/salad)
 
 /datum/bounty/item/chef/carrotfries
 	name = "Carrot Fries"
-	description = "Night sight can mean life or death! A shipment of carrot fries is the order."
+	description = "A health craze has started among management. A shipment of carrot fries is the order."
 	reward = 3500
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/carrotfries)
@@ -54,7 +55,7 @@
 
 /datum/bounty/item/chef/poppypretzel
 	name = "Poppy Pretzel"
-	description = "%BOSSNAME needs a popply brezel for the drug-training of their security department."
+	description = "%BOSSNAME needs a poppy pretzel for the drug-training of their security department."
 	reward = 3000
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/poppypretzel)
 
@@ -72,8 +73,8 @@
 
 /datum/bounty/item/chef/lemon
 	name = "Lemons"
-	description = "A commander claims he can turn lemons into money. Ship him a few and he'll deposit the money into the station's account."
-	reward = 4444
+	description = "A commander needs fresh lemons. Ship him a few and he'll deposit the money into the station's account."
+	reward = 4000
 	required_count = 10
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown)
 
@@ -94,7 +95,7 @@
 
 /datum/bounty/item/chef/muffin
 	name = "Muffins"
-	description = "The Muffin Man is visiting %BOSSSHORT, but he's forgotten his muffins! Your order is to rectify this."
+	description = "%BOSSSHORT needs muffins! Your order is to rectify this."
 	reward = 3000
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/muffin)
@@ -107,22 +108,7 @@
 
 /datum/bounty/item/chef/kebab
 	name = "Kebabs"
-	description = "Remove all kebab from station you are best food. Ship to %BOSSSHORT to remove from the premises."
+	description = "%BOSSSHORT is requesting a special order, please ship some kebabs."
 	reward = 3500
 	required_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/variable/kebab)
-
-/datum/bounty/item/chef/pancakes
-	name = "Pancakes"
-	description = "Here at %COMPNAME we consider employees to be family. And you know what families love? Pancakes. Ship a baker's dozen."
-	reward = 5000
-	required_count = 13
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/pancakes)
-
-/datum/bounty/item/chef/nuggies
-	name = "Chicken Nuggets"
-	description = "The vice president's son won't shut up about chicken nuggies. Would you mind shipping some?"
-	reward = 4000
-	required_count = 6
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/nugget)
-

@@ -47,6 +47,9 @@ var/global/list/default_medbay_channels = list(
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
+	var/clicksound = "button" //played sound on usage
+	var/clickvol = 10 //volume
+
 
 	var/obj/item/cell/cell = /obj/item/cell/device
 
@@ -183,6 +186,11 @@ var/global/list/default_medbay_channels = list(
 		return STATUS_CLOSE
 	return ..()
 
+/obj/item/device/radio/CouldUseTopic(var/mob/user)
+	..()
+	if(clicksound && iscarbon(user))
+		playsound(src, clicksound, clickvol)
+
 /obj/item/device/radio/Topic(href, href_list)
 	if(..())
 		return 1
@@ -227,6 +235,7 @@ var/global/list/default_medbay_channels = list(
 
 	if(.)
 		SSnanoui.update_uis(src)
+		update_icon()
 
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
@@ -767,8 +776,3 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/phone/medbay/Initialize()
 	. = ..()
 	internal_channels = default_medbay_channels.Copy()
-
-/obj/item/device/radio/CouldUseTopic(var/mob/user)
-	..()
-	if(iscarbon(user))
-		playsound(src, "button", 10)

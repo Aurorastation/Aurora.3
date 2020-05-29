@@ -3,7 +3,7 @@
 	filedesc = "NTNet Relay Chat Client"
 	program_icon_state = "command"
 	extended_desc = "This program allows communication over the NTNRC network."
-	size = 8
+	size = 2
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	network_destination = "NTNRC server"
@@ -34,6 +34,7 @@
 		if(!message || !channel)
 			return
 		channel.add_message(message, username, usr)
+		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
 
 	if(href_list["PRG_joinchannel"])
 		. = TRUE
@@ -58,11 +59,13 @@
 				channel = C
 			return TRUE
 		C.add_client(src)
+		message_dead(FONT_SMALL("<b>([C.get_dead_title()]) A new client ([username]) has entered the chat.</b>"))
 		channel = C
 	if(href_list["PRG_leavechannel"])
 		. = TRUE
 		if(channel && !channel.direct)
 			channel.remove_client(src)
+			message_dead(FONT_SMALL(FONT_SMALL("<b>([channel.get_dead_title()]) A client ([username]) has left the chat.</b>")))
 		channel = null
 	if(href_list["PRG_backtomain"])
 		. = TRUE
@@ -77,6 +80,7 @@
 		C.add_client(src)
 		C.operator = src
 		channel = C
+		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) A new channel has been made by [username].</b>"))
 	if(href_list["PRG_toggleadmin"])
 		. = TRUE
 		if(netadmin_mode)

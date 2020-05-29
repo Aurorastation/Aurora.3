@@ -216,8 +216,6 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle17"
 
-var/list/global/golem_runes = list()
-
 /obj/effect/golemrune
 	anchored = TRUE
 	desc = "A strange rune used to create golems. It glows when spirits are nearby."
@@ -233,21 +231,15 @@ var/list/global/golem_runes = list()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	announce_to_ghosts()
-	golem_runes += src
-	if(length(golem_runes) == 1)
-		for(var/role_spawner in SSghostroles.spawners)
-			if(role_spawner == "golem")
-				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]
-				golem_spawner.enable()
+	SSghostroles.add_spawn_atom("golem", src)
+
+/obj/effect/golemrune/random_type/Initialize()
+	. = ..()
+	golem_type = pick(golem_types)
 
 /obj/effect/golemrune/Destroy()
-	. = ..()
-	golem_runes -= src
-	if(!length(golem_runes))
-		for(var/role_spawner in SSghostroles.spawners)
-			if(role_spawner == "golem")
-				var/datum/ghostspawner/human/golem/golem_spawner = SSghostroles.spawners[role_spawner]
-				golem_spawner.disable()
+	SSghostroles.remove_spawn_atom("golem", src)
+	return ..()
 
 /obj/effect/golemrune/process()
 	var/mob/abstract/observer/ghost

@@ -140,6 +140,17 @@
 	stat_modules +=	new/stat_rig_module/select(src)
 	stat_modules +=	new/stat_rig_module/charge(src)
 
+
+/obj/item/rig_module/Destroy()
+
+	for (var/sm in stat_modules)
+		qdel(sm)
+	stat_modules.Cut()
+
+	holder = null
+
+	return ..()
+
 // Called when the module is installed into a suit.
 /obj/item/rig_module/proc/installed(var/obj/item/rig/new_holder)
 	holder = new_holder
@@ -248,11 +259,9 @@
 		var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
 		stat("Suit charge", cell_status)
 		for(var/obj/item/rig_module/module in R.installed_modules)
-		{
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())
 					stat(SRM.module.interface_name,SRM)
-		}
 
 /stat_rig_module
 	parent_type = /atom/movable

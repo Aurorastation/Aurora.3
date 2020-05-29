@@ -107,6 +107,7 @@
 	icon_state = "penlight"
 	item_state = "pen"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
 	brightness_on = 2

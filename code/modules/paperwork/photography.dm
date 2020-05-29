@@ -35,6 +35,9 @@ var/global/photo_count = 0
 	var/icon/tiny
 	var/photo_size = 3
 
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
+
 /obj/item/photo/New()
 	id = photo_count++
 
