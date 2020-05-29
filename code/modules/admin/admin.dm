@@ -78,6 +78,7 @@ proc/admin_notice(var/message, var/rights)
 
 	if(M.client)
 		body += "| <A HREF='?src=\ref[src];sendtoprison=\ref[M]'>Prison</A> | "
+		body += "\ <A HREF='?src=\ref[src];sendbacktolobby=\ref[M]]'>Send back to Lobby</A> | "
 		body += "<a href='?src=\ref[src];admin_wind_player=\ref[M]'>Wind</a>"
 		var/muted = M.client.prefs.muted
 		body += {"<br><b>Mute: </b>
