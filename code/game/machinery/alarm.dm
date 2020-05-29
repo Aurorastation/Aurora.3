@@ -85,19 +85,6 @@
 
 	var/report_danger_level = 1
 
-/obj/machinery/firealarm/examine(mob/user)
-	. = ..()
-	if(security_level == SEC_LEVEL_GREEN)
-		to_chat(user, "The current alert level is green.")
-	if(security_level == SEC_LEVEL_YELLOW)
-		to_chat(user, "The current alert level is yellow.")
-	if(security_level == SEC_LEVEL_BLUE)
-		to_chat(user, "The current alert level is blue.")
-	if(security_level == SEC_LEVEL_RED)
-		to_chat(user, "The current alert level is red!")
-	if(security_level == SEC_LEVEL_DELTA)
-		to_chat(user, "The current alert level is delta! Evacuate!")
-
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
