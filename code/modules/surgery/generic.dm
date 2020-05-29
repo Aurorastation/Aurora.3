@@ -175,8 +175,8 @@
 
 /datum/surgery_step/generic/cut_open_vaurca/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<b>[user]</b> has drilled into [target]'s [affected.name] carapace with \the [tool]." \
-		"<span class='notice'>You have drilled into [target]'s [affected.name] carapace with \the [tool].</span>",)
+	user.visible_message("<b>[user]</b> has drilled into [target]'s [affected.name] carapace with \the [tool].", \
+						 "<span class='notice'>You have drilled into [target]'s [affected.name] carapace with \the [tool].</span>",)
 	affected.open = 1
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
