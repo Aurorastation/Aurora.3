@@ -314,7 +314,7 @@
 
 /obj/item/proc/do_pickup_animation(atom/target)
 	set waitfor = FALSE
-	if(!istype(loc, /turf))
+	if(!isturf(loc))
 		return
 	var/image/I = image(icon = src, loc = loc, layer = layer + 0.1)
 	I.plane = -1
