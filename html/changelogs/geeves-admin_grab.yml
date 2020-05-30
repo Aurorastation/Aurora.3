@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a new admin verb that allows admins to more easily put observers into event bodies."
+  - tweak: "Changed the Select equipment verb in the Fun menu to Set Human Outfit, made it a little easier to use."

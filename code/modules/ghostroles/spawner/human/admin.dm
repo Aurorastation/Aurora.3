@@ -36,7 +36,7 @@
 	req_perms = R_CCIAA
 
 	//Vars related to human mobs
-	outfit = /datum/outfit/admin/nt/tcfl_legate
+	outfit = /datum/outfit/admin/tcfl
 	possible_species = list("Human","M'sai Tajara","Skrell", "Unathi","Baseline Frame")
 	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
