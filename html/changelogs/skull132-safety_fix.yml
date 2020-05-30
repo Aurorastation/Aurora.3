@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Mounted (sub)machinegun for mechs now works again. It had its safety enabled otherwise."
