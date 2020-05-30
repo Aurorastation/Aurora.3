@@ -74,7 +74,8 @@
 				break
 
 /mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/human/H, var/proximity)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 
 	if(!on)
@@ -84,6 +85,9 @@
 		return
 
 	if(H.stat == DEAD)
+		if(pAI)
+			to_chat(pAI.pai, SPAN_WARNING("\The [H] is dead, you cannot help them now."))
+			return
 		var/death_message = pick("No! NO!", "Live, damnit! LIVE!", "I... I've never lost a patient before. Not today, I mean.")
 		say(death_message)
 		patient = null
