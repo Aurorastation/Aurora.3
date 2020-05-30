@@ -236,6 +236,9 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/bot/GetIdCard()
 	return botcard
 
+/mob/living/simple_animal/spiderbot/GetIdCard()
+	return internal_id
+
 /mob/living/carbon/human/GetIdCard()
 	if(wear_id)
 		var/id = wear_id.GetID()

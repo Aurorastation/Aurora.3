@@ -100,6 +100,8 @@
 /obj/structure/lift/panel/interact(var/mob/user)
 	if(!..())
 		return
+	if(istype(user, /mob/living/heavy_vehicle)) // terrible, i know, but it shat out runtimes otherwise
+		user = usr
 
 	var/dat = list()
 	dat += "<html><body><hr><b>Lift panel</b><hr>"
