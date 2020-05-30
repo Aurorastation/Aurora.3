@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "pAI can now pilot farmbots, cleanbots, floorbots and medbots."
-  - rscadd: "Floating messages now appear even if you're inside an object or another mob."
