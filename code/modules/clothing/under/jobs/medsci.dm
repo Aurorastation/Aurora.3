@@ -249,8 +249,8 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/under/rank/biochemist
-	desc = "Made of a special fiber that gives increased protection against biohazards."
-	name = "biochemist's jumpsuit"
+	desc = "Made of a special fiber that gives increased protection against hazards."
+	name = "chemist's jumpsuit"
 	icon_state = "virology"
 	item_state = "w_suit"
 	worn_state = "virology"

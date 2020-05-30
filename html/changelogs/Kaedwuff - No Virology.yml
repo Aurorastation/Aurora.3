@@ -42,3 +42,4 @@ changes:
   - rscdel: "Removes almost all virus code from the game."
   - rscdel: "Removes the Virus Outbreak event and all other Virology related events."
   - maptweak: "The Virology department is now the Abandoned Sector and has been modified to resemble such."
+  - tweak: "The Biochemist job has been replaced with the old Chemist job again."
