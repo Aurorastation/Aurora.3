@@ -154,7 +154,7 @@
 	alt_titles = list("Chemist")
 	outfit = /datum/outfit/job/pharmacist
 	alt_outfits = list(
-		"Chemist"=/datum/outfit/job/pharmacist/biochemist
+		"Chemist"=/datum/outfit/job/pharmacist/chemist
 		)
 
 /datum/outfit/job/pharmacist
