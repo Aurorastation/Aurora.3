@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Mechs will now consistently stay fully charged if they're on top of an exosuit dock / mech recharger."
-  - bugfix: "Spiderbots can now properly hear and speak into the radio."
-  - bugfix: "Fix spiderbots speaking floating chat."
