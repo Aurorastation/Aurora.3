@@ -112,7 +112,7 @@
 		return
 
 	if(iscultist(user))
-		if(!istype(user.loc, /turf))
+		if(!isturf(user.loc))
 			to_chat(user, span("warning", "You do not have enough space to write a proper rune."))
 			return
 

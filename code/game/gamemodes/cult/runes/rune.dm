@@ -47,7 +47,7 @@ var/global/list/static/rune_types = list(
 
 /obj/effect/rune/Initialize()
 	. = ..()
-	rune_list += src
+	SScult.rune_list += src
 	name = "graffiti"
 	icon_state = pick("1", "2", "3", "4", "5", "6")
 

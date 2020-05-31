@@ -6,10 +6,10 @@
 	var/rune_flags    // Things like if it can be a talisman or not.
 
 /datum/rune/Initialize()
-	rune_list += src
+	SScult.add_rune(src)
 
 /datum/rune/Destroy()
-	rune_list -= src
+	SScult.remove_rune(src)
 	return ..()
 
 /datum/rune/proc/do_rune_action(var/mob/user, var/atom/movable/A)
@@ -17,6 +17,9 @@
 
 /datum/rune/proc/do_fizzle_action(var/mob/user, var/atom/movable/A)
 	return
+
+/datum/rune/proc/special_checks() //Use this proc if you need to check for pre-existing conditions before adding a rune.
+	return TRUE
 
 /datum/rune/proc/get_normal_fluff_text()
 	. = SPAN_WARNING("A heavy smell of blood permeates the area around the arcane drawings.")
