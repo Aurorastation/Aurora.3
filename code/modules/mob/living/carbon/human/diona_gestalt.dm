@@ -336,7 +336,7 @@
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
-		if(gestalt_health / 6 >= D.maxHealth * 0.20)
+		if(health / 6 >= D.maxHealth * 0.20)
 			D.health = health / 6
 		else
 			D.health = D.maxHealth * 0.20
