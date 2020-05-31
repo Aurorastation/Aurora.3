@@ -33,9 +33,12 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		"Vox" = 'icons/mob/species/vox/head.dmi',
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	drop_sound = 'sound/items/drop/helm.ogg'
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
@@ -152,6 +155,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 	w_class = 3
 	throwforce = 1
 	throw_speed = 0.5
@@ -282,10 +286,11 @@
 /obj/item/clothing/head/cone
 	name = "warning cone"
 	desc = "This cone is trying to warn you of something!"
-	description_info = "It looks like you can wear it in your head slot."
+	desc_info = "It looks like you can wear it in your head slot."
 	icon_state = "cone"
 	item_state = "cone"
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	force = 1
 	throwforce = 3
 	throw_speed = 2

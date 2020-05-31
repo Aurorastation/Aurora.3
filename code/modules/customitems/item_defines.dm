@@ -2128,13 +2128,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 		update_icon()
 		return
 
-	var/obj/item/clothing/under/sweater/G = new(get_turf(user))
-	G.color = ball.color
+	var/obj/item/clothing/accessory/sweater/S = new(get_turf(user))
+	S.color = ball.color
 	qdel(ball)
 	ball = null
 	working = FALSE
 	update_icon()
-	to_chat(user, "<span class='warning'>You finished \the [G]!</span>")
+	to_chat(user, "<span class='warning'>You finish \the [S]!</span>")
 
 /obj/item/fluff/yarn
 	name = "ball of yarn"
@@ -2834,6 +2834,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	helmet_type = /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
 	name = "battered metal bucket helmet"
@@ -2979,6 +2980,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	tint = TINT_BLIND
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/glasses/sunglasses/blindfold/fluff/nai_fold/equipped(mob/M as mob, slot)
 	if (M.ckey == "jamchop23334" && M.name == "Nai Eresh'Wake")
@@ -3184,6 +3186,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	storage_slots = 6
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/storage/fancy/fluff/sentiment_bouquet/fill()

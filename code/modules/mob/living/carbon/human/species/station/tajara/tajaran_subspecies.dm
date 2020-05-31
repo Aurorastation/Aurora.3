@@ -30,8 +30,6 @@
 
 	primitive_form = "Zhan-Khazan Farwa"
 
-	num_alternate_languages = 1 // Only one Extra Language
-
 /datum/species/tajaran/m_sai
 	name = "M'sai Tajara"
 	name_plural = "M'sai Tajaran"

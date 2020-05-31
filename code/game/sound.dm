@@ -37,6 +37,11 @@
 #define SPACE UNDERWATER
 #define PSYCHOTIC PARKING_LOT
 
+#define EQUIP_SOUND_VOLUME 30
+#define PICKUP_SOUND_VOLUME 15
+#define DROP_SOUND_VOLUME 20
+#define THROW_SOUND_VOLUME 90
+
 //footsteps
 var/list/blank_footstep = list('sound/effects/footstep/blank.ogg')
 

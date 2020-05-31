@@ -13,6 +13,7 @@
 	icon_state = "skrell_chain"
 	item_state = "skrell_chain"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/ears/skrell/chain/silver
 	name = "silver headtail chains"
@@ -128,6 +129,7 @@
 	icon_state = "skrell_band"
 	item_state = "skrell_band"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/ears/skrell/band/silver
 	name = "silver headtail bands"

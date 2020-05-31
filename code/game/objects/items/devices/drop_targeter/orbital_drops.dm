@@ -43,6 +43,6 @@
 	map = new /datum/map_template/armory
 
 /obj/item/device/orbital_dropper/armory/syndicate
-	description_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
+	desc_antag = "This is a stealthy variant of the standard armory orbital drop. It will not report itself dropping on common, unless emagged."
 	announcer_name = "Syndicate Autodrone"
 	announcer_channel = "Mercenary"

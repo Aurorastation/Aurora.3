@@ -321,6 +321,7 @@
 	active_w_class = 3
 	w_class = 3
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/melee/energy/sword/powersword/activate(mob/living/user)
 	..()

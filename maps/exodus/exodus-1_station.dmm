@@ -36761,12 +36761,12 @@
 /area/maintenance/locker)
 "bqe" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/soft,
+/obj/item/clothing/head/soft/yellow,
 /obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/head/soft,
+/obj/item/clothing/head/soft/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "bqf" = (

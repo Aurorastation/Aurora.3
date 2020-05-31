@@ -16,6 +16,7 @@
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/head/pin/pink
 	icon_state = "pinkpin"
@@ -171,7 +172,8 @@
 	item_state = "cardborg_h"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|FACE|EYES
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
 /obj/item/clothing/head/justice
 	name = "justice hat"
@@ -202,10 +204,6 @@
 	name = "flat cap"
 	desc = "A working man's cap."
 	icon_state = "flat_cap"
-	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
-		)
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/pirate
@@ -461,6 +459,7 @@
 	item_state = "sunflower_crown"
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 /obj/item/clothing/head/lavender_crown
 	name = "harebell crown"
@@ -469,6 +468,7 @@
 	item_state = "lavender_crown"
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 /obj/item/clothing/head/poppy_crown
 	name = "poppy crown"
@@ -477,6 +477,7 @@
 	item_state = "poppy_crown"
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 //Tau Ceti Foreign Legion
 
@@ -513,6 +514,7 @@
 	item_state = "cobalt_headchains"
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/head/headchain/emerald
 	name = "emerald head chains"
@@ -533,6 +535,7 @@
 	item_state = "cobalt_crest"
 	body_parts_covered = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/head/crest/emerald
 	name = "emerald head crest"
@@ -557,7 +560,8 @@
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	body_parts_covered = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
-	drop_sound = 'sound/items/drop/scrap.ogg'
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
 
 /obj/item/clothing/head/antenna/straight
 	name = "straight antennae"

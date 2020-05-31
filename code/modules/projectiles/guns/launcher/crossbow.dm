@@ -12,6 +12,7 @@
 	edge = 0
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -27,6 +28,7 @@
 	icon_state = "metal-rod"
 	item_state = "bolt"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/arrow/quill
 	name = "vox quill"
@@ -36,6 +38,7 @@
 	item_state = "quill"
 	throwforce = 8
 	drop_sound = 'sound/items/drop/knife.ogg'
+	pickup_sound = 'sound/items/pickup/knife.ogg'
 
 /obj/item/arrow/rod
 	name = "metal rod"

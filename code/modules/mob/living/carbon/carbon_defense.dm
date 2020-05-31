@@ -26,7 +26,7 @@
 				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
+		else if(!vr_mob)
 			visible_message(span("danger","[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
 		visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
@@ -54,7 +54,7 @@
 				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
+		else if(!vr_mob)
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
 		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
@@ -80,7 +80,7 @@
 				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
+		else if(!vr_mob)
 			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [t_him] up!</span>", \
 					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)

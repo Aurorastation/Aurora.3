@@ -9,6 +9,7 @@
 	var/obj/item/device/radio/radio
 	var/looking_for_personality = 0
 	var/mob/living/silicon/pai/pai
+	var/move_delay = 0
 
 	light_power = 1
 	light_range = 1
@@ -17,6 +18,15 @@
 /obj/item/device/paicard/relaymove(var/mob/user, var/direction)
 	if(user.stat || user.stunned)
 		return
+	if(istype(loc, /mob/living/bot))
+		if(world.time < move_delay)
+			return
+		var/mob/living/bot/B = loc
+		move_delay = world.time + 1 SECOND
+		if(!B.on)
+			to_chat(pai, SPAN_WARNING("\The [B] isn't turned on!"))
+			return
+		step_towards(B, get_step(B, direction))
 	var/obj/item/rig/rig = src.get_rig()
 	if(istype(rig))
 		rig.forced_move(direction, user)

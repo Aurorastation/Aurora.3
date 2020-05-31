@@ -49,6 +49,7 @@
 	zoomdevicename = "scope"
 
 	var/burst = 1
+	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 1	//delay between shots, if firing in bursts
 	var/move_delay = 0
@@ -94,6 +95,7 @@
 	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -818,3 +820,8 @@
 				qdel(pin)
 				pin = null
 	return ..()
+
+//Autofire
+
+/obj/item/gun/proc/can_autofire()
+	return (can_autofire && world.time >= next_fire_time)
