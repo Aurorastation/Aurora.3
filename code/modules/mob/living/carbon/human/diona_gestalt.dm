@@ -301,7 +301,7 @@
 	else
 		nymph.key = key
 
-/mob/living/carbon/human/proc/diona_split_into_nymphs(var/gestalt_health = 60)
+/mob/living/carbon/human/proc/diona_split_into_nymphs(var/gestalt_health = health)
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
 	var/bestHealth = 0
