@@ -290,7 +290,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
-	/client/proc/Jump,
 	/client/proc/jumptokey,
 	/client/proc/jumptomob,
 	/client/proc/jumptoturf,
@@ -300,7 +299,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/colorooc,
 	/client/proc/add_client_color,
 	/datum/admins/proc/force_mode_latespawn,
-	/datum/admins/proc/force_antag_latespawn,
 	/datum/admins/proc/toggleenter,
 	/client/proc/admin_memo_control,
 	/datum/admins/proc/toggleguests,
@@ -359,6 +357,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/add_traumas,
 	/client/proc/respawn_character,
 	/client/proc/spawn_chemdisp_cartridge,
+	/client/proc/jobbans,
+	/client/proc/investigate_show,
 	/client/proc/cmd_admin_list_open_jobs,
 	/client/proc/reset_openturf,
 	/client/proc/Debug2,
@@ -383,9 +383,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/SDQL_query,
 	/client/proc/SDQL2_query,
 	/client/proc/cmd_admin_dress,
-	/client/proc/Jump,
-	/client/proc/jumptomob,
-	/client/proc/jumptocoord,
 	/client/proc/kill_air,
 	/client/proc/kill_airgroup,
 	/client/proc/cmd_display_del_log,
@@ -429,7 +426,6 @@ var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_check_contents,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
-	/client/proc/print_logout_report,
 	/client/proc/toggle_aooc
 )
 
