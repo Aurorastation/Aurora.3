@@ -1,6 +1,8 @@
 //Updates the mob's health from organs and mob damage variables
 /mob/living/carbon/human/updatehealth()
-	if(is_diona())
+	if(IS_DIONA())
+		if(health <= maxHealth * 0.20)
+			INVOKE_ASYNC(/mob/living/carbon/human/proc/diona_split_into_nymphs, health * 0.20)
 		return ..()
 
 	if(status_flags & GODMODE)
