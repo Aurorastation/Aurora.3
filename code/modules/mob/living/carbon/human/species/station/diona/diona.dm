@@ -7,6 +7,8 @@
 	age_max = 1000
 	default_genders = list(NEUTER)
 	economic_modifier = 3
+	maxHealth = 300
+	health = 300
 	icobase = 'icons/mob/human_races/diona/r_diona.dmi'
 	deform = 'icons/mob/human_races/diona/r_def_plant.dmi'
 	preview_icon = 'icons/mob/human_races/diona/diona_preview.dmi'
@@ -156,6 +158,10 @@
 		return ..()
 	else//Most of the stuff in the parent function doesnt apply to nymphs
 		add_inherent_verbs(H)
+		
+/datum/species/diona/damage_split(var/mob/living/carbon/human/H)
+	if (health = maxHealth % 20)
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs, TRUE)
 
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
