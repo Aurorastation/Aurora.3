@@ -37,6 +37,8 @@ var/global/list/static/rune_types = list(
 	unacidable = TRUE
 	layer = AO_LAYER
 
+	var/datum/rune/rune
+
 	var/can_talisman = FALSE // some runes just don't work with talisman stuff
 	var/cult_description // what does the cult see the rune as?
 
@@ -88,7 +90,9 @@ var/global/list/static/rune_types = list(
 	return
 
 /obj/effect/rune/proc/fizzle(var/mob/living/user)
-	if(istype(src,/obj/effect/rune))
+	if(istype(src,/obj/effect/rune)) // what the fuck
+									 // seriously why does istype(src) even compile
+									 // who the fuck wrote this?
 		user.say(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
 	else
 		user.whisper(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
