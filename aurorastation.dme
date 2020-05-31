@@ -105,7 +105,7 @@
 #include "code\_onclick\hud\_defines.dm"
 #include "code\_onclick\hud\action.dm"
 #include "code\_onclick\hud\ai.dm"
-#include "code\_onclick\hud\alien_larva.dm"
+#include "code\_onclick\hud\nymph_hud.dm"
 #include "code\_onclick\hud\gun_mode.dm"
 #include "code\_onclick\hud\hud.dm"
 #include "code\_onclick\hud\human.dm"
