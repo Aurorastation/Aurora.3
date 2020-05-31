@@ -47,7 +47,7 @@
 /datum/surgery_step/generic/cut_with_laser/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has made a bloodless incision on [target]'s [affected.name] with \the [tool].", \
-		"<span class='notice'>You have made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>",)
+		"<span class='notice'>You have made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>")
 	affected.open = 1
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
