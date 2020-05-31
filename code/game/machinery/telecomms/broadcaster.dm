@@ -288,7 +288,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	// Did not understand the message:
 	var/list/heard_voice 	= list() // voice message	(ie "chimpers")
 	var/list/heard_garbled	= list() // garbled message (ie "f*c* **u, **i*er!")
-	var/list/heard_gibberish= list() // completely screwed over message (ie "F%! (O*# *#!<>&**%!")
+	var/list/heard_gibberish= list() // completely screwed over message ie "F%! (O*# *#!<>&**%!")
 
 	for (var/mob/R in receive)
 

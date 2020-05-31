@@ -150,7 +150,7 @@
 		usr.examinate(M, 1)
 
 /mob/living/heavy_vehicle/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
-	. = ..()
+	..()
 
 	if(!access_card) access_card = new (src)
 
@@ -196,6 +196,13 @@
 
 	// Build icon.
 	update_icon()
+
+	. = INITIALIZE_HINT_LATELOAD
+
+/mob/living/heavy_vehicle/LateInitialize()
+	var/obj/machinery/mech_recharger/MR = locate() in get_turf(src)
+	if(MR)
+		MR.start_charging(src)
 
 /mob/living/heavy_vehicle/return_air()
 	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc.return_air()
