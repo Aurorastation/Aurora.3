@@ -125,8 +125,6 @@
 					healths.icon_state = "health6"
 		else
 			healths.icon_state = "health7""
-		else
-			healths.icon_state = "health7"
 
 	client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
 
