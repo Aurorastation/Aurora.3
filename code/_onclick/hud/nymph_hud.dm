@@ -1,7 +1,7 @@
 /mob/living/carbon/alien/instantiate_hud(var/datum/hud/HUD)
-	HUD.larva_hud()
+	HUD.nymph_hud()
 
-/datum/hud/proc/larva_hud()
+/datum/hud/proc/nymph_hud()
 
 	src.adding = list()
 	src.other = list()
