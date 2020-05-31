@@ -301,7 +301,7 @@
 	else
 		nymph.key = key
 
-/mob/living/carbon/human/proc/diona_split_into_nymphs(var/gestalt_health = health)
+/mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
 	var/bestHealth = 0
@@ -337,7 +337,7 @@
 		nymphos += D
 		D.forceMove(T)
 		if(gestalt_health / 6 >= D.maxHealth * 0.20)
-			D.health = gestalt_health / 6
+			D.health = health / 6
 		else
 			D.health = D.maxHealth * 0.20
 		D.split_languages(src)
