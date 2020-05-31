@@ -1,7 +1,7 @@
 // At minimum every mob has a hear_say proc.
 
 /mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if(!istype(src, /mob/living/test) && !client)
+	if(!istype(src, /mob/living/test) && (!client && !vr_mob))
 		return
 
 	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
@@ -21,7 +21,7 @@
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-	if(sleeping || stat == 1)
+	if((sleeping && !vr_mob) || stat == 1)
 		hear_sleep(message)
 		return
 
@@ -82,17 +82,20 @@
 
 /mob/proc/on_hear_say(var/message)
 	to_chat(src, message)
+	if(vr_mob)
+		to_chat(vr_mob, message)
 
 /mob/living/silicon/on_hear_say(var/message)
 	var/time = say_timestamp()
 	to_chat(src, "[time] [message]")
+	if(vr_mob)
+		to_chat(vr_mob, "[time] [message]")
 
 /mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
-
-	if(!client)
+	if(!client && !vr_mob)
 		return
 
-	if(sleeping || stat==1) //If unconscious or sleeping
+	if((sleeping && !vr_mob) || stat==1) //If unconscious or sleeping
 		hear_sleep(message)
 		return
 
@@ -209,6 +212,8 @@
 
 /mob/proc/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	to_chat(src, "[part_a][speaker_name][part_b][formatted]")
+	if(vr_mob)
+		to_chat(vr_mob, "[part_a][speaker_name][part_b][formatted]")
 
 /mob/abstract/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	to_chat(src, "[track][part_a][speaker_name][part_b][formatted]")
@@ -216,10 +221,14 @@
 /mob/living/silicon/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	var/time = say_timestamp()
 	to_chat(src, "[time][part_a][speaker_name][part_b][formatted]")
+	if(vr_mob)
+		to_chat(vr_mob, "[time][part_a][speaker_name][part_b][formatted]")
 
 /mob/living/silicon/ai/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	var/time = say_timestamp()
 	to_chat(src, "[time][part_a][track][part_b][formatted]")
+	if(vr_mob)
+		to_chat(vr_mob, "[time][part_a][track][part_b][formatted]")
 
 /mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
 	if(!client || !speaker)

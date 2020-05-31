@@ -62,7 +62,7 @@
 		var/success = A.attackby(I, user)
 		if(!success)
 			return
-		message_admins("success: [success]")
+
 		if(success == 2)
 			playsound(loc, 'sound/machines/weapons_analyzer_finish.ogg', 75, 1)
 			addtimer(CALLBACK(src, .proc/reset), 32)

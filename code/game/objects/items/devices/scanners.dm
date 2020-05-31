@@ -53,20 +53,11 @@ BREATH ANALYZER
 		return "none"
 	. = "minor"
 	if(amount > 50)
-		if(tag)
-			. = "<span class='bad'>severe</span>"
-		else
-			. = "severe"
+		. = "severe"
 	else if(amount > 25)
-		if(tag)
-			. = "<span class='bad'>significant</span>"
-		else
-			. = "significant"
+		. = "significant"
 	else if(amount > 10)
-		if(tag)
-			. = "<span class='average'>moderate</span>"
-		else
-			. = "moderate"
+		. = "moderate"
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
 	if(!just_scan)
@@ -202,7 +193,7 @@ BREATH ANALYZER
 		if(RADS_HIGH to INFINITY)
 			rad_result += span("scan_red", "[b]Extreme levels of radiation poisoning detected![endb]")
 	dat += rad_result
-	
+
 	if(show_limb_damage)
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)

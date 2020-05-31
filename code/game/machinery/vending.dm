@@ -106,6 +106,9 @@
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
 	var/vending_sound = "machines/vending/vending_drop.ogg"
+	
+	var/global/list/screen_overlays
+	var/exclusive_screen = TRUE // Are we not allowed to show the deny and screen states at the same time?
 
 	light_range = 2
 	light_power = 1
@@ -123,7 +126,7 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
-
+	
 	add_screen_overlay()
 
 	src.build_inventory()
@@ -132,14 +135,20 @@
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
 
-/obj/machinery/vending/proc/add_screen_overlay()
-	if("[icon_state]-screen" in icon_states(icon))
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "[icon_state]-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+/obj/machinery/vending/proc/add_screen_overlay(var/deny = FALSE)
+	if(!LAZYLEN(screen_overlays))
+		LAZYINITLIST(screen_overlays)
+	if(!("[icon_state]-screen" in screen_overlays) || (deny && !("[icon_state]-deny" in screen_overlays)))
+		var/list/states = icon_states(icon)
+		if ("[icon_state]-screen" in states)
+			screen_overlays["[icon_state]-screen"] = make_screen_overlay(icon, "[icon_state]-screen")
+		if ("[icon_state]-deny" in states)
+			screen_overlays["[icon_state]-deny"] = make_screen_overlay(icon, "[icon_state]-deny")
+	add_overlay(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
 	reset_light()
 
 /**
- *  Build src.produdct_records from the products lists
+ *  Build src.product_records from the products lists
  *
  *  src.products, src.contraband, src.premium, and src.prices allow specifying
  *  products that the vending machine is to carry without manually populating
@@ -556,11 +565,14 @@
 		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course
-				var/mutable_appearance/deny_overlay = mutable_appearance(icon, "[icon_state]-deny", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(deny_overlay)
-				addtimer(CALLBACK(src, /atom/.proc/cut_overlay, deny_overlay), deny_time ? deny_time : 15)
+				if(exclusive_screen)
+					cut_overlays()
+					addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+				add_screen_overlay(deny = TRUE)
+				addtimer(CALLBACK(src, /atom/.proc/cut_overlay, screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
 				set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
 				addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
+				addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
 				return
 
 			var/key = text2num(href_list["vendItem"])
@@ -599,9 +611,11 @@
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
-		var/mutable_appearance/deny_overlay = mutable_appearance(icon, "[icon_state]-deny", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(deny_overlay)
-		addtimer(CALLBACK(src, /atom/.proc/cut_overlay, deny_overlay), deny_time ? deny_time : 15)
+		if(exclusive_screen)
+			cut_overlays()
+			addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
+		add_screen_overlay(deny = TRUE)
+		addtimer(CALLBACK(src, /atom/.proc/cut_overlay, screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
 		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
 		addtimer(CALLBACK(src, .proc/reset_light), deny_time ? deny_time : 15)
 		return

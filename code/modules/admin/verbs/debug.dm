@@ -357,76 +357,102 @@
 	for(var/areatype in areas_without_camera)
 		to_world("* [areatype]")
 
-/client/proc/cmd_admin_dress()
+/client/proc/cmd_admin_grab_observers()
 	set category = "Fun"
-	set name = "Select equipment"
+	set name = "Grab Observers"
+	set desc = "Grabs players that are observing and spawns them as basic humans beneath your feet."
+
+	var/list/chosen_observers = list()
+	var/next_observer = "NotGeeves"
+	while(next_observer != "== Finished ==")
+		var/list/valid_choices = player_list
+		for(var/choice in valid_choices)
+			if(choice in chosen_observers)
+				valid_choices -= choice
+			if(!isobserver(choice))
+				valid_choices -= choice
+		valid_choices += "== Finished =="
+		next_observer = input("Choose an observer you want to add to the list.", "Choose Observer") as null|anything in valid_choices
+		if(!next_observer || isnull(next_observer))
+			next_observer = "== Finished =="
+		else
+			chosen_observers += next_observer
+	chosen_observers -= "== Finished =="
+
+	for(var/spawn_observer in chosen_observers)
+		var/mob/living/carbon/human/H = new /mob/living/carbon/human(get_turf(usr))
+		do_dressing(H)
+		var/mob/abstract/observer/O = spawn_observer
+		H.ckey = O.ckey
+		qdel(O)
+
+/client/proc/cmd_admin_dress(mob/living/carbon/human/H in human_mob_list)
+	set category = "Fun"
+	set name = "Set Human Outfit"
 
 	if(!check_rights(R_FUN))
 		return
+	do_dressing(H)
 
-	var/mob/living/carbon/human/M = input("Select mob.", "Select equipment.") as null|anything in human_mob_list
-	if(!M) return
-
-	var/list/choices = list(
-		"strip",
-		"as job...",
-		"emergency response team"
-	)
-
-	var/admin_outfits = subtypesof(/datum/outfit/admin)
-	for(var/type in admin_outfits)
-		var/datum/outfit/O = type
-		var/name = initial(O.name)
-		if(name != "Naked")
-			choices[initial(O.name)] = type
-
-	var/dostrip = 0
-	switch(alert("Strip [M] before dressing?", "Strip?", "Yes", "No", "Cancel"))
-		if("Yes")
-			dostrip = 1
-		if("Cancel")
-			return
-
-	var/dresscode = input("Select dress for [M]", "Robust quick dress shop") as null|anything in choices
-	if (isnull(dresscode))
+/client/proc/do_dressing(var/mob/living/carbon/human/M = null)
+	if(!M || !istype(M))
+		M = input("Select a mob you would like to dress.", "Set Human Outfit") as null|anything in human_mob_list
+	if(!M)
 		return
 
-	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	var/list/outfit_catagories = list()
+	switch(alert("Would you like ERT outfits, or standard admin outfits?", "ERT-or-Admin?", "ERT", "Admin", "Cancel"))
+		if("Cancel")
+			return
+		if("ERT")
+			outfit_catagories["NT-ERT"] = typesof(/datum/outfit/admin/ert/nanotrasen)
+			outfit_catagories["Deathsquad"] = typesof(/datum/outfit/admin/deathsquad)
+			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
+			outfit_catagories["Syndicate"] = typesof(/datum/outfit/admin/deathsquad/syndicate)
+			outfit_catagories["Freelance Mercenaries"] = typesof(/datum/outfit/admin/ert/mercenary)
+			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
+			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
+		if("Admin")
+			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)
+			outfit_catagories["Antagonist"] = typesof(/datum/outfit/admin/syndicate)
+			outfit_catagories["Ceres Lance"] = typesof(/datum/outfit/admin/lance)
+			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
+			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
+			outfit_catagories["Pirates"] = typesof(/datum/outfit/admin/pirate)
+			outfit_catagories["Soviets"] = typesof(/datum/outfit/admin/soviet_soldier)
+			outfit_catagories["Miscellaneous"] = typesof(/datum/outfit/admin/random)
+			outfit_catagories["Miscellaneous"] += /datum/outfit/admin/random_employee
 
-	if(dostrip)
-		for (var/obj/item/I in M)
-			if (istype(I, /obj/item/implant))
+	var/chosen_catagory = input("Select an outfit catagory.", "Robust Quick-dress Shop") as null|anything in outfit_catagories
+	if(isnull(chosen_catagory))
+		return
+
+	var/list/outfit_types = list()
+	for(var/outfit in outfit_catagories[chosen_catagory])
+		var/datum/outfit/admin/A = new outfit
+		outfit_types[A.name] = A
+
+	var/chosen_outfit = input("Select an outfit.", "Robust Quick-dress Shop") as null|anything in outfit_types
+	if(isnull(chosen_outfit))
+		return
+
+	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
+
+	var/datum/outfit/O = outfit_types[chosen_outfit]
+	if(O)
+		for(var/obj/item/I in M)
+			if(istype(I, /obj/item/implant))
 				continue
 			M.drop_from_inventory(I)
 			if(I.loc != M)
 				qdel(I)
-
-	switch(dresscode)
-		if("strip")
-			//do nothing
-
-		if("as job...")
-			var/datum/job/jobdatum
-			var/jobname = input("Select job", "Robust quick dress shop") as null|anything in get_all_jobs()
-			jobdatum = SSjobs.GetJob(jobname)
-			if(jobdatum)
-				dresscode = "[jobdatum.title]"
-				M.job = jobdatum.title
-				jobdatum.equip(M)
-
-		if("emergency response team")
-			ert.equip(M)
-
-		else
-			var/datum/outfit/O = choices[dresscode]
-			if(O)
-				M.preEquipOutfit(O,FALSE)
-				M.equipOutfit(O,FALSE)
+		M.preEquipOutfit(O, FALSE)
+		M.equipOutfit(O, FALSE)
 
 	M.regenerate_icons()
 
-	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [dresscode].",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..</span>", 1)
+	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [chosen_outfit].",admin_key=key_name(usr),ckey=key_name(M))
+	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [chosen_outfit].</span>", 1)
 	return
 
 /client/proc/startSinglo()

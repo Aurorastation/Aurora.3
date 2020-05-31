@@ -114,6 +114,7 @@ var/list/admin_verbs_sounds = list(
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
 	/client/proc/cmd_admin_dress,
+	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_gib_self,
 	/client/proc/drop_bomb,
 	/client/proc/everyone_random,
@@ -287,6 +288,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_admin_direct_narrate,
 	/client/proc/cmd_admin_local_narrate,
 	/client/proc/cmd_admin_world_narrate,
+	/client/proc/cmd_admin_grab_observers,
 	/client/proc/cmd_admin_create_centcom_report,
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
