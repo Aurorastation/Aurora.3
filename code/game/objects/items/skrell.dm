@@ -54,6 +54,13 @@
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
+	var/global/image/glow_state
+
+/obj/effect/temp_visual/constellation/Initialize()
+	. = ..()
+	if(!glow_state)
+		glow_state = make_screen_overlay(icon, icon_state)
+	add_overlay(glow_state)
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
