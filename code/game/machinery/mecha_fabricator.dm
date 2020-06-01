@@ -336,6 +336,7 @@
 		if(!D.build_path || !(D.build_type & MECHFAB))
 			continue
 		categories |= D.category
+	categories -= "null"
 	if(!category || !(category in categories))
 		category = categories[1]
 
