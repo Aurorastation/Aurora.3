@@ -95,13 +95,13 @@
  * Contractors
  */
 
-/obj/item/clothing/under/rank/security/necropolis
-	name = "Necropolis Industries security uniform"
-	desc = "A uniform worn by Necropolis Industries security forces."
+/obj/item/clothing/under/rank/security/zavodskoi
+	name = "Zavodskoi Interstellar security uniform"
+	desc = "A uniform worn by Zavodskoi Interstellar security forces."
 	icon_state = "necro_sec"
 	worn_state = "necro_sec"
 
-/obj/item/clothing/under/rank/security/necropolis/alt
+/obj/item/clothing/under/rank/security/zavodskoi/alt
 	icon_state = "necro_sec_alt"
 	worn_state = "necro_sec_alt"
 

@@ -10,6 +10,7 @@
 	required_access_download = access_hos
 	required_access_run = access_security
 	nanomodule_path = /datum/nano_module/program/digitalwarrant
+	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 
 /datum/nano_module/program/digitalwarrant
 	name = "Warrant Assistant"

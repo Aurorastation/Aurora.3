@@ -1,7 +1,7 @@
 /obj/item/am_containment
 	name = "antimatter containment jar"
 	desc = "Holds antimatter. Warranty void if exposed to matter."
-	description_antag = "Antimatter is extremely volatile, and containment jars are not particularly strong. Weak explosions will reduce the container's integrity, and larger ones will cause it to explode immediately."
+	desc_antag = "Antimatter is extremely volatile, and containment jars are not particularly strong. Weak explosions will reduce the container's integrity, and larger ones will cause it to explode immediately."
 	icon = 'icons/obj/machines/antimatter.dmi'
 	icon_state = "jar"
 	density = 0

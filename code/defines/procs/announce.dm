@@ -116,5 +116,5 @@
 			rank = character.mind.role_alt_title
 		AnnounceArrivalSimple(character.real_name, rank, join_message)
 
-/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the station", var/new_sound = 'sound/misc/announcements/nightlight.ogg')
+/proc/AnnounceArrivalSimple(var/name, var/rank = "visitor", var/join_message = "has arrived on the station", var/new_sound = 'sound/misc/announcements/notice.ogg')
 	global_announcer.autosay("[name], [rank], [join_message].", "Arrivals Announcement Computer")

@@ -23,7 +23,7 @@ var/controlling
 /mob/living/parasite
 	var/mob/living/carbon/host // the host that this parasite occupies
 
-/mob/living/parasite/Login()
+/mob/living/parasite/LateLogin()
 	..()
 	// make the client see through the host instead
 	client.eye = host

@@ -22,6 +22,7 @@
 				/spell/aoe_turf/conjure/mirage =					1,
 				/spell/targeted/shapeshift/corrupt_form =			1,
 				/spell/targeted/flesh_to_stone =					1,
+				/spell/radiant_aura =								1,
 				/spell/noclothes =									1,
 				/obj/structure/closet/wizard/armor =				1,
 				/obj/item/gun/energy/staff/focus =					1,
@@ -29,5 +30,14 @@
 				/obj/item/storage/belt/wands/full =					2,
 				/obj/item/melee/energy/wizard =						2,
 				/obj/item/monster_manual =							2,
-				/obj/item/contract/apprentice =						1
+				/obj/item/contract/apprentice =						1,
+				/obj/item/apprentice_pebble =						2
 				)
+
+	apprentice_spells = list(
+		/spell/targeted/equip_item/shield = 1,
+		/spell/targeted/torment = 1,
+		/spell/targeted/heal_target = 2,
+		/spell/targeted/shapeshift/corrupt_form = 1,
+		/obj/item/melee/energy/wizard = 2
+	)

@@ -11,7 +11,6 @@
 		"Off-Worlder Human",
 		"Skrell",
 		"Unathi",
-		"Aut'akh Unathi",
 		"Tajara",
 		"M'sai Tajara",
 		"Zhan-Khazan Tajara",
@@ -253,25 +252,26 @@
 			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/stock_parts/console_screen
 		)
-
+	var/global/image/console_overlay
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
 		connected.connected = null
 	return ..()
 
-
-
 /obj/machinery/body_scanconsole/power_change()
 	..()
-	if(stat & BROKEN)
-		icon_state = "body_scannerconsole-p"
+	update_icon()
+
+/obj/machinery/body_scanconsole/update_icon()
+	cut_overlays()
+	if((stat & BROKEN) || (stat & NOPOWER))
+		return
 	else
-		if (stat & NOPOWER)
-			spawn(rand(0, 15))
-				icon_state = "body_scannerconsole-p"
-		else
-			icon_state = initial(icon_state)
+		if(!console_overlay)
+			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
+		add_overlay(console_overlay)
+		set_light(1.4, 1, COLOR_RED)
 
 /obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
 	if (!connected || !connected.occupant)
@@ -299,6 +299,7 @@
 		connected = C
 		break
 	connected.connected = src
+	update_icon()
 
 /obj/machinery/body_scanconsole/attack_ai(var/mob/user)
 	return attack_hand(user)

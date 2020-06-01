@@ -49,6 +49,7 @@
 	zoomdevicename = "scope"
 
 	var/burst = 1
+	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 1	//delay between shots, if firing in bursts
 	var/move_delay = 0
@@ -94,6 +95,7 @@
 	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -181,8 +183,6 @@
 			return FALSE
 		else
 			return TRUE
-
-	return TRUE
 
 /obj/item/gun/verb/wield_gun()
 	set name = "Wield Firearm"
@@ -525,7 +525,7 @@
 			user.apply_effect(110,PAIN,0)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
-			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", sharp=1)
+			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
 		qdel(in_chamber)
 		mouthshoot = FALSE
@@ -750,8 +750,8 @@
 	if (!QDELETED(src))
 		qdel(src)
 
-/obj/item/offhand/mob_can_equip(var/mob/M, slot)
-		return FALSE
+/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+	return FALSE
 
 /obj/item/gun/Destroy()
 	if (istype(pin))
@@ -820,3 +820,8 @@
 				qdel(pin)
 				pin = null
 	return ..()
+
+//Autofire
+
+/obj/item/gun/proc/can_autofire()
+	return (can_autofire && world.time >= next_fire_time)

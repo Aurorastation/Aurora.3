@@ -124,9 +124,14 @@
 			turfs += T
 	return turfs
 
-
-
-//var/debug_mob = 0
+// Will recursively loop through an atom's locs until it finds the atom loc above a turf
+/proc/recursive_loc_turf_check(var/atom/O, var/recursion_limit = 3)
+	if(recursion_limit <= 0 || isturf(O.loc))
+		return O
+	else
+		O = O.loc
+		recursion_limit--
+		return recursive_loc_turf_check(O, recursion_limit)
 
 // Will recursively loop through an atom's contents and check for mobs, then it will loop through every atom in that atom's contents.
 // It will keep doing this until it checks every content possible. This will fix any problems with mobs, that are inside objects,
@@ -231,12 +236,14 @@
 		if (!AM.loc)
 			continue
 
+		var/turf/AM_turf = get_turf(AM)
+
 		if(ismob(AM))
 			mobs[AM] = TRUE
-			hearturfs[AM.locs[1]] = TRUE
+			hearturfs[AM_turf] = TRUE
 		else if(isobj(AM))
 			objs[AM] = TRUE
-			hearturfs[AM.locs[1]] = TRUE
+			hearturfs[AM_turf] = TRUE
 
 	for(var/m in player_list)
 		var/mob/M = m
@@ -248,17 +255,18 @@
 			if (!mobs[M])
 				mobs[M] = TRUE
 			continue
-		if(M.loc && hearturfs[M.locs[1]])
+
+		var/turf/M_turf = get_turf(M)
+		if(M.loc && hearturfs[M_turf])
 			if (!mobs[M])
 				mobs[M] = TRUE
 
 	for(var/o in listening_objects)
 		var/obj/O = o
-		if(O && O.loc && hearturfs[O.locs[1]])
+		var/turf/O_turf = get_turf(O)
+		if(O && O.loc && hearturfs[O_turf])
 			if (!objs[O])
 				objs[O] = TRUE
-
-#define SIGN(X) ((X<0)?-1:1)
 
 proc
 	inLineOfSight(X1,Y1,X2,Y2,Z=1,PX1=16.5,PY1=16.5,PX2=16.5,PY2=16.5)
@@ -290,7 +298,6 @@ proc
 				if(T.opacity)
 					return 0
 		return 1
-#undef SIGN
 
 proc/isInSight(var/atom/A, var/atom/B)
 	var/turf/Aturf = get_turf(A)

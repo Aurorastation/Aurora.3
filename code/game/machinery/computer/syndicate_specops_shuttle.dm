@@ -23,7 +23,6 @@ var/syndicate_elite_shuttle_timeleft = 0
 
 /proc/syndicate_elite_process()
 	var/area/syndicate_mothership/control/syndicate_ship = locate()//To find announcer. This area should exist for this proc to work.
-	var/area/syndicate_mothership/elite_squad/elite_squad = locate()//Where is the specops area located?
 	var/mob/living/silicon/decoy/announcer = locate() in syndicate_ship//We need a fake AI to announce some stuff below. Otherwise it will be wonky.
 
 	var/message_tracker[] = list(0,1,2,3,5,10,30,45)//Create a a list with potential time values.
@@ -63,86 +62,6 @@ var/syndicate_elite_shuttle_timeleft = 0
 		to_chat(usr, "<span class='warning'>The Syndicate Elite shuttle is unable to leave.</span>")
 		return
 
-		sleep(600)
-/*
-	//Begin Marauder launchpad.
-	spawn(0)//So it parallel processes it.
-		for(var/obj/machinery/door/poddoor/M in elite_squad)
-			switch(M.id)
-				if("ASSAULT0")
-					spawn(10)//1 second delay between each.
-						M.open()
-				if("ASSAULT1")
-					spawn(20)
-						M.open()
-				if("ASSAULT2")
-					spawn(30)
-						M.open()
-				if("ASSAULT3")
-					spawn(40)
-						M.open()
-
-		sleep(10)
-
-		var/spawn_marauder[] = new()
-		for(var/obj/effect/landmark/L in landmarks_list)
-			if(L.name == "Marauder Entry")
-				spawn_marauder.Add(L)
-		for(var/obj/effect/landmark/L in landmarks_list)
-			if(L.name == "Marauder Exit")
-				var/obj/effect/portal/P = new(L.loc)
-				P.invisibility = 101//So it is not seen by anyone.
-				P.failchance = 0//So it has no fail chance when teleporting.
-				P.target = pick(spawn_marauder)//Where the marauder will arrive.
-				spawn_marauder.Remove(P.target)
-
-		sleep(10)
-
-		for(var/obj/machinery/mass_driver/M in elite_squad)
-			switch(M.id)
-				if("ASSAULT0")
-					spawn(10)
-						M.drive()
-				if("ASSAULT1")
-					spawn(20)
-						M.drive()
-				if("ASSAULT2")
-					spawn(30)
-						M.drive()
-				if("ASSAULT3")
-					spawn(40)
-						M.drive()
-
-		sleep(50)//Doors remain open for 5 seconds.
-
-		for(var/obj/machinery/door/poddoor/M in elite_squad)
-			switch(M.id)//Doors close at the same time.
-				if("ASSAULT0")
-					spawn(0)
-						M.close()
-				if("ASSAULT1")
-					spawn(0)
-						M.close()
-				if("ASSAULT2")
-					spawn(0)
-						M.close()
-				if("ASSAULT3")
-					spawn(0)
-						M.close()
-						*/
-		elite_squad.readyreset()//Reset firealarm after the team launched.
-	//End Marauder launchpad.
-/*
-	var/obj/explosionmarker = locate("Syndicate Breach Area")
-	if(explosionmarker)
-		var/turf/simulated/T = explosionmarker.loc
-		if(T)
-			explosion(T,4,6,8,10,0)
-
-	sleep(40)
-//	proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1)
-
-*/
 	var/area/start_location = locate(/area/shuttle/syndicate_elite/mothership)
 	var/area/end_location = locate(/area/shuttle/syndicate_elite/station)
 

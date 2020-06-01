@@ -13,7 +13,8 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
 /obj/item/a_gift/New()
 	..()

@@ -306,6 +306,14 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
+/obj/item/clothing/suit/storage/toggle/suitjacket/blazer
+	name = "blazer"
+	desc = "A charming jacket."
+	desc_fluff = "for when you want to play ball sports like an aristocrat."
+	icon_state = "blazer_open"
+	item_state = "blazer_open"
+	icon_open = "blazer_open"
+	icon_closed = "blazer"
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket

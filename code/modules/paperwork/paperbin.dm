@@ -3,7 +3,8 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper_bin1"
 	item_state = "sheet-metal"
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	throwforce = 1
 	w_class = 5
 	throw_speed = 3

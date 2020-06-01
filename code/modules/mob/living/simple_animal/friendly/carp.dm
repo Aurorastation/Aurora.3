@@ -76,7 +76,7 @@
 		var/current_dist = get_dist(src, friend)
 
 		if(movement_target != friend)
-			if(current_dist > follow_dist && friend in oview(src))
+			if(current_dist > follow_dist && (friend in oview(src)))
 				//stop existing movement
 				walk_to(src,0)
 				turns_since_scan = 0

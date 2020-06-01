@@ -179,3 +179,14 @@
 	req_components = list(
 							"/obj/item/stock_parts/scanning_module" = 2,
 							"/obj/item/stock_parts/capacitor" = 2)
+
+/obj/item/circuitboard/weapons_analyzer
+	name = T_BOARD("Weapons Analyzer")
+	desc = "The circuitboard for a weapons analyzer."
+	build_path = "/obj/machinery/weapons_analyzer"
+	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 4, TECH_COMBAT = 3)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/stock_parts/scanning_module" = 2,
+							"/obj/item/stock_parts/capacitor" = 1,
+							"/obj/item/stock_parts/console_screen" = 1)

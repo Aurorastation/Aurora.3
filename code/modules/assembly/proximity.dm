@@ -2,6 +2,8 @@
 	name = "proximity sensor"
 	desc = "Used for scanning and alerting when someone enters a certain proximity."
 	icon_state = "prox"
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound =  'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 800, MATERIAL_GLASS = 200)
 	flags = PROXMOVE

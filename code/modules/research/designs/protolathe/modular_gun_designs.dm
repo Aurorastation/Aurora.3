@@ -120,6 +120,11 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 3000)
 	build_path = /obj/item/laser_components/modifier/barrel
 
+/datum/design/item/modular_weapon/modular_barrel/nano
+	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000)
+	build_path = /obj/item/laser_components/modifier/barrel/nano
+
 /datum/design/item/modular_weapon/modular_vents
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000)
@@ -129,6 +134,11 @@
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000)
 	build_path = /obj/item/laser_components/modifier/stock
+
+/datum/design/item/modular_weapon/modular_stock/gyro
+	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000)
+	build_path = /obj/item/laser_components/modifier/stock/gyro
 
 /datum/design/item/modular_weapon/modular_bayonet
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -144,6 +154,11 @@
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000)
 	build_path = /obj/item/laser_components/modifier/grip
+
+/datum/design/item/modular_weapon/modular_grip_mk2
+	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000)
+	build_path = /obj/item/laser_components/modifier/grip/improved
 
 /datum/design/item/modular_weapon/modular_taser
 	req_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)

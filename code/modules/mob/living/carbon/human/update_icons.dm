@@ -149,6 +149,11 @@ There are several things that need to be remembered:
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)
 
+		for(var/aura in auras)
+			var/obj/aura/A = aura
+			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+			ovr += aura_overlay
+
 		add_overlay(ovr)
 
 	if (lying_prev != lying || size_multiplier != 1)
@@ -256,7 +261,7 @@ There are several things that need to be remembered:
 	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
-		base_icon = chest.get_icon()
+		base_icon = chest.get_icon(skeleton)
 
 		for(var/obj/item/organ/external/part in organs)
 			if(isnull(part) || part.is_stump())
@@ -1051,6 +1056,11 @@ There are several things that need to be remembered:
 		if(hud_used)
 			hud_used.hidden_inventory_update() 	//Updates the screenloc of the items on the 'other' inventory bar
 
+//update whether handcuffs appears on our hud.
+/mob/living/carbon/proc/update_hud_handcuffed()
+	if(hud_used && hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
+		hud_used.l_hand_hud_object.update_icon()
+		hud_used.r_hand_hud_object.update_icon()
 
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
 	if (QDELING(src))
@@ -1072,6 +1082,7 @@ There are several things that need to be remembered:
 	else
 		overlays_raw[HANDCUFF_LAYER] = null
 
+	update_hud_handcuffed()
 	if(update_icons)
 		update_icons()
 

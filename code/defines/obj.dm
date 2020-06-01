@@ -78,6 +78,7 @@
 	throw_range = 20
 	flags = CONDUCT
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 	afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
 		user.drop_item()

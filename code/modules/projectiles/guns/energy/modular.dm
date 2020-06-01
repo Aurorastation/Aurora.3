@@ -63,6 +63,11 @@
 			if(mod.gun_overlay)
 				underlays += mod.gun_overlay
 	update_held_icon()
+	underlays.Cut()
+	for(var/v in gun_mods)
+		var/obj/item/laser_components/modifier/mod = v
+		if(mod.gun_overlay)
+			underlays += mod.gun_overlay
 
 /obj/item/gun/energy/laser/prototype/proc/reset_vars()
 	burst = initial(burst)
@@ -162,7 +167,7 @@
 		if(modifier.scope_name)
 			zoomdevicename = modifier.scope_name
 
-/obj/item/gun/energy/laser/prototype/consume_next_projectile()
+/obj/item/gun/energy/laser/prototype/consume_next_projectile(var/bypass_degrade = FALSE)
 	if(!power_supply)
 		return null
 	if(!ispath(projectile_type))
@@ -183,28 +188,23 @@
 	damage_coeff *= modulator.damage
 	A.damage *= damage_coeff
 	A.damage = min(A.damage, 60) //let's not get too ridiculous here
-	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-		if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
-			capacitor.degrade(modifier.malus)
-		if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
-			focusing_lens.degrade(modifier.malus)
-		if(prob((33 + capacitor.damage)/(max(1,(burst - 1)))))
-			modifier.degrade(1)
-	if((prob(A.damage)/burst))
-		if(prob(A.damage/2))
-			medium_fail(ismob(loc) ? loc : null)
-		else
-			small_fail(ismob(loc) ? loc : null)
+	if(!bypass_degrade)
+		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
+			if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
+				capacitor.degrade(modifier.malus)
+			if(prob((gun_mods.len * 10 * damage_coeff)/(max(1,(burst - 1)))))
+				focusing_lens.degrade(modifier.malus)
+			if(prob((33 + capacitor.damage)/(max(1,(burst - 1)))))
+				modifier.degrade(1)
 
 	updatetype(ismob(loc) ? loc : null)
 	return A
 
 /obj/item/gun/energy/laser/prototype/proc/disassemble(var/mob/user)
-	var/atom/A
-	if (user && user.loc)
-		A = user.loc
-	else
-		A = get_turf(src)
+	var/atom/A = get_turf(src)
+	if(!A)
+		return
+
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 			modifier.forceMove(A)

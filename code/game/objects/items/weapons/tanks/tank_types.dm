@@ -107,6 +107,7 @@
 /obj/item/tank/emergency_oxygen
 	name = "emergency oxygen tank"
 	desc = "Used for emergencies. Contains very little oxygen, so try to conserve it until you actually need it."
+	description_cult = "This can be reforged to become a large brown oxygen tank."
 	icon_state = "emergency"
 	item_state = "emergency"
 	gauge_icon = "indicator_emergency"
