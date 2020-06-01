@@ -39,7 +39,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rsctweak: "Changes dionae health to 300, from 200"
+  - rsctweak: "Changes Dionae health to 300, from 200"
   - rsctweak: "Changes nymph health to 50, from 33.3"
-  - rscadd: "Makes it so nymphs from a dionae who split are damaged based on how much damage the dionae had divided between the six nymphs.
-  - rscadd: "Makes it so Dionae split once they reach 240 damage, ensuring the nymphs always have at least 20% of their health"
+  - rscadd: " When a dionae splist, their health is now divided among their nymphs"
+  - rscadd: "Dionae will now split once they reach 60 health."
