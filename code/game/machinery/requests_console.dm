@@ -57,9 +57,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/recipient = ""; //the department which will be receiving the message
 	var/priority = -1 ; //Priority of the message being sent
 
-	light_color = LIGHT_COLOR_RED
-	light_power = 0.25	// It's a tiny light, it ain't going to be bright.
-
 	//Form intregration
 	var/SQLquery
 	var/paperstock = 10
@@ -67,6 +64,17 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	//End Form Integration
 	var/datum/announcement/announcement = new
 	var/list/obj/item/device/pda/alert_pdas = list() //The PDAs we alert upon a request receipt.
+	var/global/list/screen_overlays
+
+/obj/machinery/requests_console/proc/generate_overlays(var/force = 0)
+	if(LAZYLEN(screen_overlays) && !force)
+		return
+	LAZYINITLIST(screen_overlays)
+	screen_overlays["req_comp-idle"] = make_screen_overlay(icon, "req_comp-idle")
+	screen_overlays["req_comp-alert"] = make_screen_overlay(icon, "req_comp-alert")
+	screen_overlays["req_comp-redalert"] = make_screen_overlay(icon, "req_comp-redalert")
+	screen_overlays["req_comp-yellowalert"] = make_screen_overlay(icon, "req_comp-yellowalert")
+	screen_overlays["req_comp-scanline"] = make_screen_overlay(icon, "req_comp-scanline")
 
 /obj/machinery/requests_console/power_change()
 	..()
@@ -80,24 +88,19 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	else
 		switch(newmessagepriority)
 			if(0)
-				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-idle", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(screen_overlay)
+				add_overlay(screen_overlays["req_comp-idle"])
 				set_light(1.4, 1, COLOR_CYAN)
 			if(1)
-				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(screen_overlay)
+				add_overlay(screen_overlays["req_comp-alert"])
 				set_light(1.4, 1, COLOR_CYAN)
 			if(2)
-				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-redalert", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(screen_overlay)
+				add_overlay(screen_overlays["req_comp-redalert"])
 				set_light(1.4, 1, COLOR_ORANGE)
 			if(3)
-				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-yellowalert", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(screen_overlay)
+				add_overlay(screen_overlays["req_comp-yellowalert"])
 				set_light(1.4, 1, COLOR_ORANGE)
 
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["req_comp-scanline"])
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
@@ -122,6 +125,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_supplies |= department
 	if (departmentType & RC_INFO)
 		req_console_information |= department
+	generate_overlays()
 	update_icon()
 
 /obj/machinery/requests_console/Destroy()

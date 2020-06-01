@@ -25,5 +25,6 @@
 				/obj/structure/closet/wizard/scrying =				2,
 				/obj/item/storage/belt/wands/full =					4,
 				/obj/item/teleportation_scroll =					1,
-				/obj/item/contract/apprentice =						1
+				/obj/item/contract/apprentice =						1,
+				/obj/item/apprentice_pebble =						2
 				)

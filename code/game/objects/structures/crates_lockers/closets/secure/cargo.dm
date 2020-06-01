@@ -16,7 +16,7 @@
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/device/radio/headset/headset_cargo/alt(src)
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/head/soft(src)
+	new /obj/item/clothing/head/soft/yellow(src)
 	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 
@@ -41,7 +41,7 @@
 	new /obj/item/tank/emergency_oxygen(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/glasses/meson(src)
-	new /obj/item/clothing/head/soft(src)
+	new /obj/item/clothing/head/soft/yellow(src)
 	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/orbital_dropper/drill(src)

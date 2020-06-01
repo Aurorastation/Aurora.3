@@ -24,6 +24,7 @@
 	var/vampire_marks = null
 	var/being_feed = FALSE
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/reagent_containers/blood/Initialize()
 	. = ..()

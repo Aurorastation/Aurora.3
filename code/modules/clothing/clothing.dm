@@ -1,7 +1,8 @@
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
@@ -57,7 +58,7 @@
 	return 0
 
 //BS12: Species-restricted clothing check.
-/obj/item/clothing/mob_can_equip(M as mob, slot)
+/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
@@ -340,6 +341,7 @@
 		"Vox" = 'icons/mob/species/vox/gloves.dmi'
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -381,7 +383,7 @@
 			species_restricted -= "Vaurca"
 		return
 
-/obj/item/clothing/gloves/mob_can_equip(mob/user, slot)
+/obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user
 	if(slot && slot == slot_gloves)
 		if(istype(H.gloves, /obj/item/clothing/ring))
@@ -439,6 +441,7 @@
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	drop_sound = 'sound/items/drop/hat.ogg'
+	pickup_sound = 'sound/items/pickup/hat.ogg'
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
@@ -543,6 +546,7 @@
 		)
 	slot_flags = SLOT_MASK
 	drop_sound = 'sound/items/drop/hat.ogg'
+	pickup_sound = 'sound/items/pickup/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
@@ -630,6 +634,7 @@
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 	var/can_hold_knife
 	var/obj/item/holding
@@ -763,6 +768,7 @@
 	slot_flags = SLOT_ICLOTHING
 	armor = null
 	w_class = 3
+	equip_sound = 'sound/items/equip/jumpsuit.ogg'
 	var/has_sensor = 1 //For the crew computer 2 = unable to change mode
 	var/sensor_mode = 0
 		/*
@@ -985,4 +991,5 @@
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/undergloves = 1

@@ -19,7 +19,8 @@
 	throw_speed = 2
 	throw_range = 8
 	var/empty = 0
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
 /obj/item/storage/firstaid/fill()
 	if (empty) return
@@ -158,6 +159,7 @@
 	use_to_pickup = 1
 	use_sound = 'sound/items/storage/pillbottle.ogg'
 	drop_sound = 'sound/items/drop/pillbottle.ogg'
+	pickup_sound = 'sound/items/pickup/pillbottle.ogg'
 	max_storage_space = 16
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)

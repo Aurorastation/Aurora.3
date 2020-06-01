@@ -31,8 +31,12 @@
 
 /mob/living/silicon/robot/syndicate/updateicon() //because this was the only way I found out how to make their eyes and etc works
 	cut_overlays()
-	if(stat == 0)
-		add_overlay("eyes-[icon_state]")
+
+	if(stat == CONSCIOUS)
+		if(a_intent == I_HELP)
+			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
+		else
+			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
@@ -59,6 +63,13 @@
 	explosion(get_turf(src), 1, 2, 3, 5)
 	qdel(src)
 
+/mob/living/silicon/robot/syndicate/proc/spawn_into_syndiborg(var/mob/user)
+	if(src.ckey)
+		return
+	src.ckey = user.ckey
+	SSghostroles.remove_spawn_atom("syndiborg", src)
+	say("Boot sequence complete!")
+
 //syndicate borg gear
 
 /obj/item/gun/energy/mountedsmg
@@ -82,6 +93,7 @@
 		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 15, 15)),
 		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=4,    burst_accuracy=list(0,-1,-1,-2,-2), dispersion=list(0, 15, 15, 18, 18, 20))
 		)
+	has_safety = FALSE
 
 /obj/item/gun/energy/crossbow/cyborg
 	name = "mounted energy-crossbow"

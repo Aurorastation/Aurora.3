@@ -11,6 +11,7 @@
 
 	h_l_hand = /obj/item/mecha_equipment/mounted_system/taser/laser
 	h_r_hand = /obj/item/mecha_equipment/mounted_system/taser/ion
+	h_back = /obj/item/mecha_equipment/shield
 
 /obj/item/mech_component/manipulators/heavy
 	name = "heavy arms"

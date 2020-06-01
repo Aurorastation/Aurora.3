@@ -47,6 +47,14 @@
 	var/zoomdevicename //name used for message when binoculars/scope is used
 	var/zoom = 0 //1 if item is actively being used to zoom. For scoped guns and binoculars.
 	var/contained_sprite = 0 //1 if item_state, lefthand, righthand, and worn sprite are all in one dmi
+
+	///Used when thrown into a mob
+	var/mob_throw_hit_sound
+	///Sound used when equipping the item into a valid slot
+	var/equip_sound
+	///Sound uses when picking the item up (into your hands)
+	var/pickup_sound = 'sound/items/pickup/device.ogg'
+	///Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = 'sound/items/drop/device.ogg' // drop sound - this is the default
 
 	//Item_state definition moved to /obj
@@ -258,10 +266,30 @@
 /obj/item/proc/moved(mob/user as mob, old_loc as turf)
 	return
 
+/obj/item/proc/get_volume_by_throwforce_and_or_w_class()
+		if(throwforce && w_class)
+				return Clamp((throwforce + w_class) * 5, 30, 100)// Add the item's throwforce to its weight class and multiply by 5, then clamp the value between 30 and 100
+		else if(w_class)
+				return Clamp(w_class * 8, 20, 100) // Multiply the item's weight class by 8, then clamp the value between 20 and 100
+		else
+				return 0
+
 /obj/item/throw_impact(atom/hit_atom)
 	..()
-	if(drop_sound)
-		playsound(src, drop_sound, 50, 0, required_asfx_toggles = ASFX_DROPSOUND)
+	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
+		var/volume = get_volume_by_throwforce_and_or_w_class()
+		if (throwforce > 0)
+			if (mob_throw_hit_sound)
+				playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
+			else if(hitsound)
+				playsound(hit_atom, hitsound, volume, TRUE, -1)
+			else
+				playsound(hit_atom, 'sound/weapons/genhit.ogg', volume, TRUE, -1)
+		else
+			playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
+	else
+		playsound(src, drop_sound, THROW_SOUND_VOLUME)
+
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
@@ -303,6 +331,13 @@
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
+	if((slot_flags & slot))
+		if(equip_sound)
+			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
+		else
+			playsound(src, drop_sound, EQUIP_SOUND_VOLUME)
+	else if(slot == slot_l_hand || slot == slot_r_hand)
+		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	return
 
 //Defines which slots correspond to which slot flags
@@ -430,6 +465,10 @@ var/list/global/slot_flags_enumeration = list(
 	if(!M.slot_is_accessible(slot, src, disable_warning? null : M))
 		return 0
 	return 1
+
+// override for give shenanigans
+/obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
+	return
 
 /*
 /obj/item/verb/verb_pickup()

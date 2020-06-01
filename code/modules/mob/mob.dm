@@ -260,6 +260,7 @@
 
 /mob/proc/reset_view(atom/A)
 	if (client)
+		A = A ? A : eyeobj
 		if (istype(A, /atom/movable))
 			client.perspective = EYE_PERSPECTIVE
 			client.eye = A
@@ -987,7 +988,11 @@
 	return ""
 
 /mob/proc/flash_weak_pain()
-	flick("weak_pain",pain)
+	flick("weak_pain", pain)
+
+/mob/living/carbon/human/flash_weak_pain()
+	if(can_feel_pain())
+		flick("weak_pain", pain)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
@@ -1151,7 +1156,7 @@
 		if(istype(I,/mob/living/simple_animal/borer))
 			return I
 
-	return 0
+	return null
 
 /mob/proc/Released()
 	//This is called when the mob is let out of a holder

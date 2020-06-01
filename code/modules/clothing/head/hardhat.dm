@@ -10,6 +10,7 @@
 	siemens_coefficient = 0.9
 	light_wedge = LIGHT_WIDE
 	drop_sound = 'sound/items/drop/helm.ogg'
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 
 /obj/item/clothing/head/hardhat/orange
 	icon_state = "hardhat_orange"

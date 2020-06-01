@@ -280,6 +280,8 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
 		)
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound =  'sound/items/pickup/disk.ogg'
 
 /obj/item/gift
 	name = "gift"
@@ -480,6 +482,10 @@
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	icon_state = "RPED"
 	item_state = "RPED"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi'
+		)
 	w_class = 5
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
@@ -507,7 +513,7 @@
 
 /obj/item/research
 	name = "research debugging device"
-	desc = "Instant research tool. For testing purposes only."
+	desc = "Instant research tool. For testing purposes only. PUTS ALL RESEARCH TECHS TO MAX, EVEN ILLEGAL AND ARCANE."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
 	origin_tech = list(TECH_MATERIAL = 19, TECH_ENGINEERING = 19, TECH_PHORON = 19, TECH_POWER = 19, TECH_BLUESPACE = 19, TECH_BIO = 19, TECH_COMBAT = 19, TECH_MAGNET = 19, TECH_DATA = 19, TECH_ILLEGAL = 19, TECH_ARCANE = 19)

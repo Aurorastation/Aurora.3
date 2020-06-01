@@ -37,7 +37,7 @@
 
 /area/shuttle/arrival/transit
 	icon_state = "shuttle2"
-	base_turf = /turf/space/transit/east
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/shuttle/arrival/station
@@ -64,7 +64,7 @@
 /area/shuttle/escape/transit // the area to pass through for 3 minute transit
 	name = "Emergency Shuttle Transit"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/shuttle/escape_pod1
@@ -83,7 +83,7 @@
 
 /area/shuttle/escape_pod1/transit
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/shuttle/escape_pod2
@@ -102,7 +102,7 @@
 
 /area/shuttle/escape_pod2/transit
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/shuttle/escape_pod3
@@ -121,7 +121,7 @@
 
 /area/shuttle/escape_pod3/transit
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/shuttle/escape_pod5 //Pod 4 was lost to meteors
@@ -140,7 +140,7 @@
 
 /area/shuttle/escape_pod5/transit
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/shuttle/mining
@@ -225,9 +225,9 @@
 	base_turf = /turf/simulated/floor/reinforced
 
 /area/shuttle/research/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 
 /area/shuttle/legion
 	name = "Foreign Legion Shuttle"
@@ -246,9 +246,9 @@
 	station_area = 1
 
 /area/shuttle/legion/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/east
+	base_turf = /turf/space/transit
 
 /area/shuttle/distress/centcom
 	name = "Unidentified Shuttle"
@@ -266,7 +266,7 @@
 
 /area/shuttle/distress/transit
 	name = "Unidentified Shuttle"
-	base_turf = /turf/space/transit/east
+	base_turf = /turf/space/transit
 	icon_state = "shuttle"
 	centcomm_area = 1
 
@@ -281,9 +281,9 @@
 	centcomm_area = 1
 
 /area/shuttle/merchant/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	centcomm_area = 1
-	base_turf = /turf/space/transit/east
+	base_turf = /turf/space/transit
 
 /area/shuttle/merchant/station
 	name = "Merchant Docking Port"

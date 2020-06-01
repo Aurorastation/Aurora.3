@@ -48,17 +48,8 @@
 		switch(H.get_species())
 			if ("Unathi")
 				return 1
-			if("Aut'akh Unathi")
-				return 1
 			if ("Unathi Zombie")
 				return 1
-	return 0
-
-/proc/isautakh(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
-		if(H.get_species() == "Aut'akh Unathi")
-			return 1
 	return 0
 
 /proc/istajara(A)
@@ -775,6 +766,9 @@ proc/is_blind(A)
 	*/
 
 /obj/proc/report_onmob_location(var/justmoved, var/slot = null, var/mob/reportto)
+	if(istype(reportto.loc, /mob/living/bot))
+		to_chat(reportto, SPAN_NOTICE("You are currently housed within \the [reportto.loc]."))
+		return
 	var/mob/living/carbon/human/H//The person who the item is on
 	var/newlocation
 	var/preposition= ""

@@ -171,6 +171,7 @@
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "broken_bottle"
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 	force = 9
 	throwforce = 5
 	throw_speed = 3
@@ -202,7 +203,7 @@
 	desc = "Pour one out for Al'mari. His gun was on stun, bless his heart."
 	icon_state = "victorygin"
 	center_of_mass = list("x"=16, "y"=4)
-	description_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
+	desc_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
 	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
 	People's Republic situation in the current conflict."
 
@@ -421,6 +422,7 @@
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 /obj/item/reagent_containers/food/drinks/bottle/cola/Initialize()
 	. = ..()
@@ -433,6 +435,7 @@
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up/Initialize()
 	. = ..()
@@ -445,6 +448,7 @@
 	center_of_mass = list("x"=16, "y"=6)
 	drink_flags = NO_EMPTY_ICON
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind/Initialize()
 	. = ..()
@@ -578,7 +582,7 @@
 	desc = "A bottle of Messa's mead. Bottled somewhere in the icy world of Adhomai."
 	icon_state = "messa_mead"
 	center_of_mass = list("x" = 16,"y" = 5)
-	description_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
+	desc_fluff = "Adhomian beverages are commonly made with fermented grains or vegetables, if alcoholic, or juices mixed with sugar or honey. Victory gin is the most \
 	widespread alcoholic drink in Adhomai, the result of the fermentation of honey extracted from Messa's tears, but its production and consumption is slowly declining due to the \
 	People's Republic situation in the current conflict. Messa's mead is also another more traditional alternative, made with honey and fermented Earthen-Root juice."
 

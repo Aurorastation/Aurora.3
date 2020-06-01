@@ -91,7 +91,7 @@
 
 	mutations.Add(HUSK)
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
-	update_body(1)
+	update_body(TRUE)
 	return
 
 /mob/living/carbon/human/proc/Drain()
@@ -110,15 +110,10 @@
 
 	mutations.Add(SKELETON)
 	status_flags |= DISFIGURED
-	update_body(0)
+	update_body(TRUE)
 	return
 
 /mob/living/carbon/human/proc/vr_disconnect()
-	// Come out of VR right before you die, how depressing - geeves
-	// Also come out of VR if your VR body dies
-	if(vr_mob || old_mob)
-		body_return()
-
 	if(remote_network)
 		SSvirtualreality.remove_robot(src, remote_network)
 		remote_network = null

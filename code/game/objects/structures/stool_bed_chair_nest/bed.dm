@@ -235,6 +235,7 @@
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_folded"
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
 	var/bedpath = /obj/structure/bed/roller
 	w_class = 4.0 // Can't be put in backpacks. Oh well.

@@ -126,6 +126,7 @@
 #define BP_AUG_RADIO        "integrated radio"
 #define BP_AUG_FUEL_CELL    "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER "integrated air analyzer"
+#define BP_AUG_LANGUAGE     "integrated language processor"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -345,3 +346,10 @@
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
+
+#define AURA_CANCEL 1
+#define AURA_FALSE  2
+#define AURA_TYPE_BULLET "Bullet"
+#define AURA_TYPE_WEAPON "Weapon"
+#define AURA_TYPE_THROWN "Thrown"
+#define AURA_TYPE_LIFE   "Life"
