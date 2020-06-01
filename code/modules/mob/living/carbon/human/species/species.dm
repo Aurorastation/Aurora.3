@@ -105,13 +105,13 @@
 	var/list/pain_item_drop_cry = list("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
 
 	// External Organ Pain Damage
-	var/organ_low_pain = "<b>Your PARTNAME hurts.</b>"
-	var/organ_med_pain = "<b><font size=3>Your PARTNAME hurts badly!</font></b>"
-	var/organ_high_pain = "<b><font size=3>Your PARTNAME is screaming out in pain!</font></b>"
+	var/organ_low_pain_message = "<b>Your PARTNAME hurts.</b>"
+	var/organ_med_pain_message = "<b><font size=3>Your PARTNAME hurts badly!</font></b>"
+	var/organ_high_pain_message = "<b><font size=3>Your PARTNAME is screaming out in pain!</font></b>"
 
-	var/organ_low_burn = "<span class='danger'>Your PARTNAME burns.</span>"
-	var/organ_med_burn = "<span class='danger'><font size=3>Your PARTNAME burns horribly!</font></span>"
-	var/organ_high_burn = "<span class='danger'><font size=4>Your PARTNAME feels like it's on fire!</font></span>"
+	var/organ_low_burn_message = "<span class='danger'>Your PARTNAME burns.</span>"
+	var/organ_med_burn_message = "<span class='danger'><font size=3>Your PARTNAME burns horribly!</font></span>"
+	var/organ_high_burn_message = "<span class='danger'><font size=4>Your PARTNAME feels like it's on fire!</font></span>"
 
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.

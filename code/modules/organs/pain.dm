@@ -29,23 +29,23 @@ mob/var/next_pain_time = 0
 	if(burning)
 		switch(amount)
 			if(1 to 10)
-				msg = species.organ_low_burn
+				msg = species.organ_low_burn_message
 			if(11 to 90)
 				flash_weak_pain()
-				msg = species.organ_med_burn
+				msg = species.organ_med_burn_message
 			if(91 to 10000)
 				flash_pain()
-				msg = species.organ_high_burn
+				msg = species.organ_high_burn_message
 	else
 		switch(amount)
 			if(5 to 14)
-				msg = species.organ_low_pain
+				msg = species.organ_low_pain_message
 			if(15 to 90)
 				flash_weak_pain()
-				msg = species.organ_med_pain
+				msg = species.organ_med_pain_message
 			if(91 to 10000)
 				flash_pain()
-				msg = species.organ_high_pain
+				msg = species.organ_high_pain_message
 	if(msg && (msg != last_pain_message || prob(10)))
 		msg = replacetext(msg, "PARTNAME", partname)
 		last_pain_message = msg

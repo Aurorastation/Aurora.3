@@ -45,13 +45,13 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	organ_low_pain = "<b>The nymph making up our PARTNAME feels injured.</b>"
-	organ_med_pain = "<b><font size=3>The nymph making up our PARTNAME can barely manage the pain!</font></b>"
-	organ_high_pain = "<b><font size=3>The nymph making up our PARTNAME screams out in pain!</font></b>"
+	organ_low_pain_message = "<b>The nymph making up our PARTNAME feels injured.</b>"
+	organ_med_pain_message = "<b><font size=3>The nymph making up our PARTNAME can barely manage the pain!</font></b>"
+	organ_high_pain_message = "<b><font size=3>The nymph making up our PARTNAME screams out in pain!</font></b>"
 
-	organ_low_burn = "<b>The nymph making up our PARTNAME notes a burning injury.</b>"
-	organ_med_burn = "<span class='danger'><font size=3>The nymph making up our PARTNAME burns terribly!</font></span>"
-	organ_high_burn = "<span class='danger'><font size=3>The nymph making up our PARTNAME screams in agony at the burning!</font></span>"
+	organ_low_burn_message = "<b>The nymph making up our PARTNAME notes a burning injury.</b>"
+	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our PARTNAME burns terribly!</font></span>"
+	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our PARTNAME screams in agony at the burning!</font></span>"
 
 	scream_emote = list("creaks in pain!", "rustles in agony!")
 	scream_emote = "screams!"
