@@ -38,5 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Added multiple general Utility items that should make most 'borg modules able to protect Crew from and designate hazards to a v. basic degree, this includes Engi tape for most modules and inflatables for the syndie 'borg."
+  - tweak: "Added multiple general Utility items that should make most 'borg modules able to protect Crew from and designate hazards to a v. basic degree, this includes Engi tape for most modules and weakened inflatables all modules."
   - tweak: "Added a GPS to all 'borg modules in an attempt to fight off the tendency for them to be lost in dark corners of the Station with 0 power. This should enable them to be found far easier by Roboticists."
