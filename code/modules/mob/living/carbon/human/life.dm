@@ -78,7 +78,7 @@
 		handle_stamina()
 
 		if (is_diona())
-			if(health < -40) //240+ damage
+			if(health < 60)
 				diona_split_into_nymphs()
 			diona_handle_light(DS)
 
