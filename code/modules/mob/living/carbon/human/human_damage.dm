@@ -1,6 +1,6 @@
 //Updates the mob's health from organs and mob damage variables
 /mob/living/carbon/human/updatehealth()
-	if(IS_DIONA())
+	if(is_diona())
 		return ..()
 
 	if(status_flags & GODMODE)
