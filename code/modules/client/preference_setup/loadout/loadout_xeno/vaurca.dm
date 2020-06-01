@@ -123,7 +123,7 @@
 
 /datum/gear/augment/language_processor/New()
 	..()
-	var/language_processor = list()
-	language_processor["klaxan sinta unathi language processor"] = /obj/item/organ/internal/augment/language/klax
-	language_processor["cthur nral malic language processor"] = /obj/item/organ/internal/augment/language/cthur
-	gear_tweaks += new /datum/gear_tweak/path(language_processor)
+	var/language_processors = list()
+	language_processors["K'laxan [LANGUAGE_UNATHI] language processor"] = /obj/item/organ/internal/augment/language/klax
+	language_processors["C'thur [LANGUAGE_SKRELLIAN] language processor"] = /obj/item/organ/internal/augment/language/cthur
+	gear_tweaks += new /datum/gear_tweak/path(language_processors)
