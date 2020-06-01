@@ -163,7 +163,7 @@
 					SPAN_WARNING("You finish cutting open the [src]."),\
 					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
-				emag_act(INFINITY, user, SPAN_DANGER("The locker has been sliced open by [user] with \an [W]</span>!"), SPAN_DANGER("You hear metal being sliced and sparks flying."))
+				emag_act(INFINITY, user, SPAN_DANGER("The locker has been sliced open by [user] with \an [W]!"), SPAN_DANGER("You hear metal being sliced and sparks flying."))
 				spark(src, 5)
 			ChainSawVar.cutting = 0
 		else if(istype(W, /obj/item/melee/energy/blade))//Attempt to cut open locker if locked
@@ -274,4 +274,3 @@
 		var/obj/structure/bigDelivery/BD = loc
 		BD.unwrap()
 	open()
-
