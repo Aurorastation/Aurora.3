@@ -350,7 +350,7 @@
 		else if(href_list["import"])
 			var/t = ""
 			do
-				t = html_encode(input(usr, "Please paste the entire song, formatted:", text("[]", name), t)  as message)
+				t = html_encode(input(usr, "Please paste the entire song, formatted:", "[name]", t)  as message)
 				if(!in_range(src, usr))
 					return
 
@@ -389,7 +389,7 @@
 
 /obj/item/device/violin/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	..()
-	user.visible_message("<span class='danger'>\The [user] shatters \the [src] into pieces!</span>")
+	user.visible_message(SPAN_DANGER("\The [user] shatters \the [src] into pieces!"))
 	playsound(loc, 'sound/effects/kabong.ogg', 50, 1)
 	new /obj/item/material/shard/wood(get_turf(user))
 	qdel(src)

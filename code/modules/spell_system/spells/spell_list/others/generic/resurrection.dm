@@ -23,7 +23,7 @@
 
 	for(var/mob/living/target in targets)
 		if(target.stat != DEAD && !(target.status_flags & FAKEDEATH))
-			to_chat(user, "<span class='warning'>\The [target] is still alive!</span>")
+			to_chat(user, SPAN_WARNING("\The [target] is still alive!"))
 			return 0
 
 		if(isundead(target))
@@ -35,22 +35,22 @@
 			return 0
 
 		if((world.time - target.timeofdeath) > 30 MINUTES)
-			to_chat(user, "<span class='warning'>\The [target]'s soul is too far away from your grasp.</span>")
+			to_chat(user, SPAN_WARNING("\The [target]'s soul is too far away from your grasp."))
 			return 0
 
-		user.visible_message("<span class='notice'>\The [user] waves their hands over \the [target]'s body...</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] waves their hands over \the [target]'s body..."))
 
 		if(!do_after(user, 30, target, 0, 1))
-			to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
+			to_chat(user, SPAN_WARNING("Your concentration is broken!"))
 			return 0
 
 		for(var/mob/abstract/observer/ghost in dead_mob_list)
 			if(ghost.mind && ghost.mind.current == target && ghost.client)
-				to_chat(ghost, "<span class='notice'>Your body has been revived, <b>Re-Enter Corpse</b> to return to it.</span>")
+				to_chat(ghost, SPAN_NOTICE("Your body has been revived, <b>Re-Enter Corpse</b> to return to it."))
 				break
 
-		to_chat(target, "<span class='warning'>Eternal rest is stolen from you, you are cast back into the world of the living!</span>")
-		target.visible_message("<span class='notice'>\The [target] shudders violently!</span>")
+		to_chat(target, SPAN_WARNING("Eternal rest is stolen from you, you are cast back into the world of the living!"))
+		target.visible_message(SPAN_NOTICE("\The [target] shudders violently!"))
 
 		if(target.status_flags & FAKEDEATH)
 			target.changeling_revive()

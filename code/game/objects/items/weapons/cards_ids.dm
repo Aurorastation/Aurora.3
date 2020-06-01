@@ -43,7 +43,7 @@
 	set src in usr
 
 	if (t)
-		src.name = text("data disk- '[]'", t)
+		src.name = "data disk- '[t]'"
 	else
 		src.name = "data disk"
 	src.add_fingerprint(usr)
@@ -89,7 +89,7 @@ var/const/NO_EMAG_ACT = -50
 		log_and_message_admins("emagged \an [A].")
 
 	if(uses<1)
-		user.visible_message("<span class='warning'>\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent.</span>")
+		user.visible_message(SPAN_WARNING("\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent."))
 		var/obj/item/card/emag_broken/junk = new(user.loc)
 		junk.add_fingerprint(user)
 		user.drop_from_inventory(src,get_turf(junk))
@@ -179,17 +179,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
-	dat += text("Name: []</A><BR>", registered_name)
-	dat += text("Sex: []</A><BR>\n", sex)
-	dat += text("Age: []</A><BR>\n", age)
-	dat += text("Citizenship: []</A><BR>\n", citizenship)
-	dat += text("Religion: []</A><BR>\n", religion)
-	dat += text("Rank: []</A><BR>\n", assignment)
-	dat += text("Fingerprint: []</A><BR>\n", fingerprint_hash)
-	dat += text("Blood Type: []<BR>\n", blood_type)
-	dat += text("DNA Hash: []<BR><BR>\n", dna_hash)
+	dat += "Name: [registered_name]</A><BR>"
+	dat += "Sex: [sex]</A><BR>\n"
+	dat += "Age: [age]</A><BR>\n"
+	dat += "Citizenship: [citizenship]</A><BR>\n"
+	dat += "Religion: [religion]</A><BR>\n"
+	dat += "Rank: [assignment]</A><BR>\n"
+	dat += "Fingerprint: [fingerprint_hash]</A><BR>\n"
+	dat += "Blood Type: [blood_type]<BR>\n"
+	dat += "DNA Hash: [dna_hash]<BR><BR>\n"
 	if(mining_points)
-		dat += text("Ore Redemption Points: []<BR><BR>\n", mining_points)
+		dat += "Ore Redemption Points: [mining_points]<BR><BR>\n"
 	if(front && side)
 		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
 	dat += "</tr></table>"
@@ -201,7 +201,7 @@ var/const/NO_EMAG_ACT = -50
 		if (response == "Yes")
 			var/mob/living/carbon/human/H = user
 			if(H.gloves)
-				to_chat(user, "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>")
+				to_chat(user, SPAN_WARNING("You cannot imprint [src] while wearing \the [H.gloves]."))
 				return
 			else
 				mob = H
@@ -211,11 +211,11 @@ var/const/NO_EMAG_ACT = -50
 				citizenship = H.citizenship
 				religion = SSrecords.get_religion_record_name(H.religion)
 				age = H.age
-				to_chat(user, "<span class='notice'>Biometric Imprinting successful!</span>")
+				to_chat(user, SPAN_NOTICE("Biometric Imprinting successful!"))
 				return
 
 	for(var/mob/O in viewers(user, null))
-		O.show_message(text("[] shows you: \icon[] []: assignment: []", user, src, src.name, src.assignment), 1)
+		O.show_message("[user] shows you: \icon[src] [src.name]: assignment: [src.assignment]", 1)
 
 	src.add_fingerprint(user)
 	return
@@ -232,17 +232,17 @@ var/const/NO_EMAG_ACT = -50
 			if (response == "Yes")
 
 				if (!user.Adjacent(M) || user.restrained() || user.lying || user.stat)
-					to_chat(user, "<span class='warning'>You must remain adjacent to [M] to scan their biometric data.</span>")
+					to_chat(user, SPAN_WARNING("You must remain adjacent to [M] to scan their biometric data."))
 					return
 
 				var/mob/living/carbon/human/H = M
 
 				if(H.gloves)
-					to_chat(user, "<span class='warning'>\The [H] is wearing gloves.</span>")
+					to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
 					return 1
 
 				if(user != H && H.a_intent != "help" && !H.lying)
-					user.visible_message("<span class='danger'>\The [user] tries to take prints from \the [H], but they move away.</span>")
+					user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."))
 					return 1
 
 				var/has_hand
@@ -254,7 +254,7 @@ var/const/NO_EMAG_ACT = -50
 					if(istype(O) && !O.is_stump())
 						has_hand = 1
 				if(!has_hand)
-					to_chat(user, "<span class='warning'>They don't have any hands.</span>")
+					to_chat(user, SPAN_WARNING("They don't have any hands."))
 					return 1
 				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
 				mob = H
@@ -265,7 +265,7 @@ var/const/NO_EMAG_ACT = -50
 				religion = H.religion
 				age = H.age
 				src.add_fingerprint(H)
-				to_chat(user, "<span class='notice'>Biometric Imprinting Successful!.</span>")
+				to_chat(user, SPAN_NOTICE("Biometric Imprinting Successful!."))
 				return 1
 	return ..()
 
@@ -280,7 +280,7 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
+	to_chat(usr, "\icon[src] [src.name]: The current assignment on the card is [src.assignment].")
 	to_chat(usr, "The age on the card is [age].")
 	to_chat(usr, "The citizenship on the card is [citizenship].")
 	to_chat(usr, "The religion on the card is [religion].")
@@ -319,7 +319,7 @@ var/const/NO_EMAG_ACT = -50
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
 		return
 	if(wear_over_suit == -1)
-		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()

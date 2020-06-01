@@ -28,13 +28,13 @@
 	..()
 	icon_state = "runesword1"
 	item_state = "runesword1"
-	to_chat(user, "<span class='notice'>\The [src] surges to life!.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] surges to life!."))
 
 /obj/item/melee/energy/wizard/deactivate(mob/living/user)
 	..()
 	icon_state = "runesword0"
 	item_state = "runesword0"
-	to_chat(user, "<span class='notice'>\The [src] slowly dies out.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] slowly dies out."))
 
 /obj/item/melee/energy/wizard/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(user.is_wizard())
@@ -44,7 +44,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
-		to_chat(user, "<span class='danger'>The sword refuses you as its true wielder, slashing your [affecting.name] instead!</span>")
+		to_chat(user, SPAN_DANGER("The sword refuses you as its true wielder, slashing your [affecting.name] instead!"))
 
 	user.apply_damage(active_force, BRUTE, zone, 0, damage_flags = DAM_SHARP|DAM_EDGE)
 

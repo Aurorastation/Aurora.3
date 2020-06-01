@@ -32,10 +32,10 @@
 		if(I.ismultitool())
 			var/obj/item/device/multitool/M = I
 			M.buffer = src
-			to_chat(user, "<span class='caution'>You save the data in the [I.name]'s buffer.</span>")
+			to_chat(user, span("caution", "You save the data in the [I.name]'s buffer."))
 	else
 		if(I.ismultitool())
-			to_chat(user, "<span class='caution'>You should open [src]'s maintenance panel first.</span>")
+			to_chat(user, span("caution", "You should open [src]'s maintenance panel first."))
 
 	default_deconstruction_crowbar(user, I)
 
@@ -64,22 +64,22 @@
 		playsound(src, W.usesound, 50, 1)
 		if(anchored)
 			anchored = 0
-			to_chat(user, "<span class='caution'>\The [src] can now be moved.</span>")
+			to_chat(user, span("caution", "\The [src] can now be moved."))
 		else if(!anchored)
 			anchored = 1
-			to_chat(user, "<span class='caution'>\The [src] is now secured.</span>")
+			to_chat(user, span("caution", "\The [src] is now secured."))
 	if(W.isscrewdriver())
 		if(stage == 0)
 			playsound(src, W.usesound, 50, 1)
-			to_chat(user, "<span class='caution'>You unscrew the telepad's tracking beacon.</span>")
+			to_chat(user, span("caution", "You unscrew the telepad's tracking beacon."))
 			stage = 1
 		else if(stage == 1)
 			playsound(src, W.usesound, 50, 1)
-			to_chat(user, "<span class='caution'>You screw in the telepad's tracking beacon.</span>")
+			to_chat(user, span("caution", "You screw in the telepad's tracking beacon."))
 			stage = 0
 	if(W.iswelder() && stage == 1)
 		playsound(src, 'sound/items/Welder.ogg', 50, 1)
-		to_chat(user, "<span class='caution'>You disassemble the telepad.</span>")
+		to_chat(user, span("caution", "You disassemble the telepad."))
 		new /obj/item/stack/material/steel(get_turf(src))
 		new /obj/item/stack/material/glass(get_turf(src))
 		qdel(src)
@@ -95,7 +95,7 @@
 
 /obj/item/device/telepad_beacon/attack_self(mob/user)
 	if(user)
-		to_chat(user, "<span class='caution'>Locked In</span>")
+		to_chat(user, span("caution", "Locked In"))
 		new /obj/machinery/telepad_cargo(user.loc)
 		playsound(src, 'sound/effects/pop.ogg', 100, 1, 1)
 		qdel(src)
@@ -139,14 +139,14 @@
 		if(mode == 0)
 			mode = 1
 			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-			to_chat(user, "<span class='caution'>The telepad locator has become uncalibrated.</span>")
+			to_chat(user, span("caution", "The telepad locator has become uncalibrated."))
 		else
 			mode = 0
 			playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-			to_chat(user, "<span class='caution'>You calibrate the telepad locator.</span>")
+			to_chat(user, span("caution", "You calibrate the telepad locator."))
 
 /obj/item/rcs/attackby(var/obj/item/O, var/mob/user)
 	if (istype(O, /obj/item/card/emag) && !emagged)
 		emagged = 1
 		spark(src, 5, alldirs)
-		to_chat(user, "<span class='caution'>You emag the RCS. Click on it to toggle between modes.</span>")
+		to_chat(user, span("caution", "You emag the RCS. Click on it to toggle between modes."))

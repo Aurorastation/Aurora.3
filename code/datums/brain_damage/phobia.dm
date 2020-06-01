@@ -20,8 +20,8 @@
 	if(!phobia_type)
 		phobia_type = pick(SStraumas.phobia_types)
 
-	gain_text = "<span class='warning'>You start finding [phobia_type] very unnerving...</span>"
-	lose_text = "<span class='notice'>You no longer feel afraid of [phobia_type].</span>"
+	gain_text = SPAN_WARNING("You start finding [phobia_type] very unnerving...")
+	lose_text = SPAN_NOTICE("You no longer feel afraid of [phobia_type].")
 	scan_desc += " of [phobia_type]"
 	trigger_words = SStraumas.phobia_words[phobia_type]
 	trigger_mobs = SStraumas.phobia_mobs[phobia_type]
@@ -89,7 +89,7 @@
 /datum/brain_trauma/mild/phobia/on_say(message)
 	for(var/word in trigger_words)
 		if(findtext(message, word))
-			to_chat(owner, "<span class='warning'>You can't bring yourself to say the word \"[word]\"!</span>")
+			to_chat(owner, SPAN_WARNING("You can't bring yourself to say the word \"[word]\"!"))
 			return ""
 	return message
 
@@ -97,16 +97,16 @@
 	next_scare = world.time + 120
 	var/message = pick("spooks you to the bone", "shakes you up", "terrifies you", "sends you into a panic", "sends chills down your spine")
 	if(reason)
-		to_chat(owner, "<span class='danger'>Seeing [reason] [message]!</span>")
+		to_chat(owner, SPAN_DANGER("Seeing [reason] [message]!"))
 	else if(trigger_word)
-		to_chat(owner, "<span class='danger'>Hearing \"[trigger_word]\" [message]!</span>")
+		to_chat(owner, SPAN_DANGER("Hearing \"[trigger_word]\" [message]!"))
 	else
-		to_chat(owner, "<span class='danger'>Something [message]!</span>")
+		to_chat(owner, SPAN_DANGER("Something [message]!"))
 	var/reaction = rand(1,4)
 	owner.emote("scream")
 	switch(reaction)
 		if(1)
-			to_chat(owner, "<span class='warning'>You are paralyzed with fear!</span>")
+			to_chat(owner, SPAN_WARNING("You are paralyzed with fear!"))
 			owner.Stun(3)
 			owner.Jitter(15)
 		if(2)
@@ -115,7 +115,7 @@
 			if(reason)
 				owner.pointed(reason)
 		if(3)
-			to_chat(owner, "<span class='warning'>You shut your eyes in terror!</span>")
+			to_chat(owner, SPAN_WARNING("You shut your eyes in terror!"))
 			owner.Jitter(5)
 			owner.eye_blind += 10
 		if(4)

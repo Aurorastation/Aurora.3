@@ -14,7 +14,7 @@
 	set src in usr
 
 	changer.active = !changer.active
-	to_chat(usr, span("notice", "You [changer.active ? "enable" : "disable"] the voice-changing module in \the [src]."))
+	to_chat(usr, SPAN_NOTICE("You [changer.active ? "enable" : "disable"] the voice-changing module in \the [src]."))
 
 /obj/item/clothing/mask/gas/voice/verb/Set_Voice(name as text)
 	set category = "Object"
@@ -23,7 +23,7 @@
 	var/voice = sanitize(name, MAX_NAME_LEN)
 	if(!voice || !length(voice)) return
 	changer.voice = voice
-	to_chat(usr, span("notice", "You are now mimicking <B>[changer.voice]</B>."))
+	to_chat(usr, SPAN_NOTICE("You are now mimicking <B>[changer.voice]</B>."))
 
 /obj/item/clothing/mask/gas/voice/Initialize()
 	. = ..()

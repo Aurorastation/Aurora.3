@@ -49,7 +49,7 @@
 				if(prob(5))
 					damage = rand(20, 60)
 					H.adjustToxLoss(-damage)
-				to_chat(H, "<span class='notice'>You can feel flow of energy which makes you regenerate.</span>")
+				to_chat(H, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
 
 			H.apply_effect((rand(15,30)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 			if(prob(4))

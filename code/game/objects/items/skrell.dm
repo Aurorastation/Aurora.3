@@ -21,14 +21,14 @@
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
-	visible_message("<span class='notice'>\The [src] lands on \the [pick_constellation()].</span>")
+	visible_message(SPAN_NOTICE("\The [src] lands on \the [pick_constellation()]."))
 
 /obj/item/stellascope/attack_self(mob/user as mob)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
-			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to \his eye and peers at something unseen.</span>",
-							"<span class='notice'>You see the starry edge of srom floating on the void of space.</span>")
+			H.visible_message(SPAN_NOTICE("\The [H] holds the brassy instrument up to \his eye and peers at something unseen."),
+							SPAN_NOTICE("You see the starry edge of srom floating on the void of space."))
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
 				projection_ready = FALSE
@@ -63,18 +63,18 @@
 	add_overlay(glow_state)
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
-	visible_message("<span class='notice'>\The [src] vanishes!</span>")
+	visible_message(SPAN_NOTICE("\The [src] vanishes!"))
 	qdel(src)
 	return
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
-	visible_message("<span class='notice'>\The [src] vanishes!</span>")
+	visible_message(SPAN_NOTICE("\The [src] vanishes!"))
 	qdel(src)
 	return
 
 /obj/effect/temp_visual/constellation/attack_hand(mob/user as mob)
 	if(user.a_intent == I_HURT)
-		visible_message("<span class='notice'>\The [src] vanishes!</span>")
+		visible_message(SPAN_NOTICE("\The [src] vanishes!"))
 		qdel(src)
 		return
 
@@ -161,7 +161,7 @@
 										"You hear faint ceremonial hymms.")
 
 		if(hologram_message)
-			visible_message("<span class='notice'>[hologram_message]</span>")
+			visible_message(SPAN_NOTICE("[hologram_message]"))
 
 /obj/item/jargontag
 	name = "\improper Jargon Federation loyalty ear-tag"
@@ -185,14 +185,14 @@
 
 // Could add some stuff to this in the future? I dunno. I just couldn't figure out how to callback to_chat LOL - geeves
 /obj/item/jargontag/proc/do_loyalty(var/mob/wearer)
-	to_chat(wearer, span("good", "You feel an intense feeling of loyalty towards the Jargon Federation surge through your brain."))
+	to_chat(wearer, SPAN_GOOD("You feel an intense feeling of loyalty towards the Jargon Federation surge through your brain."))
 
 /obj/item/jargontag/proc/clamp_on(var/mob/wearer)
 	if(fried)
 		return
 	canremove = FALSE
 	icon_state = "[initial(icon_state)]_active"
-	to_chat(wearer, span("warning", "\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
+	to_chat(wearer, SPAN_WARNING("\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
 	addtimer(CALLBACK(src, .proc/do_loyalty, wearer), 15)
 
 /obj/item/jargontag/proc/unclamp()
@@ -200,7 +200,7 @@
 		return
 	if(!canremove)
 		icon_state = initial(icon_state)
-		visible_message(span("warning", "\The [src] fizzles loudly, then clicks open!"))
+		visible_message(SPAN_WARNING("\The [src] fizzles loudly, then clicks open!"))
 		canremove = TRUE
 		fried = TRUE
 
@@ -212,5 +212,5 @@
 		unclamp()
 		return TRUE
 	else
-		to_chat(user, span("notice", "\The [src] isn't locked down, your e-mag has no effect!"))
+		to_chat(user, SPAN_NOTICE("\The [src] isn't locked down, your e-mag has no effect!"))
 		return FALSE

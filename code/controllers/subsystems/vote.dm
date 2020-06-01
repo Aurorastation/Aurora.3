@@ -187,12 +187,12 @@ var/datum/controller/subsystem/vote/SSvote
 		if (mode == "crew_transfer")
 			if(config.vote_no_dead && usr && !usr.client.holder)
 				if (isnewplayer(usr))
-					to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+					to_chat(usr, SPAN_WARNING("You must be playing or have been playing to start a vote."))
 					return 0
 				else if (isobserver(usr))
 					var/mob/abstract/observer/O = usr
 					if (O.started_as_observer)
-						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+						to_chat(usr, SPAN_WARNING("You must be playing or have been playing to start a vote."))
 						return 0
 		if(vote in choices)
 			if(current_votes[ckey])
@@ -212,12 +212,12 @@ var/datum/controller/subsystem/vote/SSvote
 			if (vote_type == "crew_transfer")
 				if (config.vote_no_dead && !usr.client.holder)
 					if (isnewplayer(usr))
-						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+						to_chat(usr, SPAN_WARNING("You must be playing or have been playing to start a vote."))
 						return 0
 					else if (isobserver(usr))
 						var/mob/abstract/observer/O = usr
 						if (O.started_as_observer)
-							to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
+							to_chat(usr, SPAN_WARNING("You must be playing or have been playing to start a vote."))
 							return 0
 
 				if (last_transfer_vote)
@@ -349,7 +349,7 @@ var/datum/controller/subsystem/vote/SSvote
 					initiate_vote("restart", usr.key)
 				else
 					log_and_message_admins("tried to start a restart vote.", usr, null)
-					to_chat(usr, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
+					to_chat(usr, SPAN_NOTICE("<b>There are active admins around! You cannot start a restart vote due to this.</b>"))
 		if("gamemode")
 			if(config.allow_vote_mode || isstaff)
 				initiate_vote("gamemode",usr.key)

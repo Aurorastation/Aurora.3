@@ -50,25 +50,25 @@
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/bluespace_crystal))
 		if(crystals.len >= max_crystals)
-			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
+			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
 			return
 		user.drop_item(src)
 		crystals += W
 		W.forceMove(null)
-		user.visible_message("[user] inserts [W] into \the [src]'s crystal slot.", "<span class='notice'>You insert [W] into \the [src]'s crystal slot.</span>")
+		user.visible_message("[user] inserts [W] into \the [src]'s crystal slot.", SPAN_NOTICE("You insert [W] into \the [src]'s crystal slot."))
 		updateDialog()
 	else if(istype(W, /obj/item/device/gps))
 		if(!inserted_gps)
 			inserted_gps = W
 			user.unEquip(W)
 			W.forceMove(src)
-			user.visible_message("[user] inserts [W] into \the [src]'s GPS device slot.", "<span class='notice'>You insert [W] into \the [src]'s GPS device slot.</span>")
+			user.visible_message("[user] inserts [W] into \the [src]'s GPS device slot.", SPAN_NOTICE("You insert [W] into \the [src]'s GPS device slot."))
 	else if(W.ismultitool())
 		var/obj/item/device/multitool/M = W
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
-			to_chat(user, "<span class='caution'>You upload the data from the [W.name]'s buffer.</span>")
+			to_chat(user, span("caution", "You upload the data from the [W.name]'s buffer."))
 	else
 		..()
 
@@ -90,22 +90,22 @@
 			t += "<A href='?src=\ref[src];ejectGPS=1'>Eject GPS</A>"
 			t += "<A href='?src=\ref[src];setMemory=1'>Set GPS memory</A>"
 		else
-			t += "<span class='linkOff'>Eject GPS</span>"
-			t += "<span class='linkOff'>Set GPS memory</span>"
+			t += span("linkOff", "Eject GPS")
+			t += span("linkOff", "Set GPS memory")
 		t += "<div class='statusDisplay'>[temp_msg]</div><BR>"
 		t += "<A href='?src=\ref[src];setrotation=1'>Set Bearing</A>"
 		t += "<div class='statusDisplay'>[rotation]&deg;</div>"
 		t += "<A href='?src=\ref[src];setangle=1'>Set Elevation</A>"
 		t += "<div class='statusDisplay'>[angle]&deg;</div>"
-		t += "<span class='linkOn'>Set Power</span>"
+		t += span("linkOn", "Set Power")
 		t += "<div class='statusDisplay'>"
 
 		for(var/i = 1; i <= power_options.len; i++)
 			if(crystals.len + telepad.efficiency < i)
-				t += "<span class='linkOff'>[power_options[i]]</span>"
+				t += span("linkOff", "[power_options[i]]")
 				continue
 			if(power == power_options[i])
-				t += "<span class='linkOn'>[power_options[i]]</span>"
+				t += span("linkOn", "[power_options[i]]")
 				continue
 			t += "<A href='?src=\ref[src];setpower=[i]'>[power_options[i]]</A>"
 		t += "</div>"
@@ -139,7 +139,7 @@
 
 /obj/machinery/computer/telescience/proc/telefail()
 	sparks()
-	visible_message("<span class='warning'>The telepad weakly fizzles.</span>")
+	visible_message(SPAN_WARNING("The telepad weakly fizzles."))
 	return
 
 /obj/machinery/computer/telescience/proc/doteleport(mob/user)

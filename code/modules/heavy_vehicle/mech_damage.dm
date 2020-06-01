@@ -13,7 +13,7 @@
 /mob/living/heavy_vehicle/proc/attacked_by(var/obj/item/I, var/mob/living/user, var/def_zone)
 
 	if(!I.force)
-		user.visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly with \the [I].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly with \the [I]."))
 		return
 
 	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))

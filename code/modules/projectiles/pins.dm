@@ -16,7 +16,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	w_class = 1
 	attack_verb = list("poked")
 	var/emagged = FALSE
-	var/fail_message = "<span class='warning'>INVALID USER.</span>"
+	var/fail_message = SPAN_WARNING("INVALID USER.")
 	var/selfdestruct = 0 // Explode when user check is failed.
 	var/force_replace = 0 // Can forcefully replace other pins.
 	var/pin_replaceable = 0 // Can be replaced by any pin.
@@ -48,7 +48,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 /obj/item/device/firing_pin/emag_act(mob/user)
 	if(!emagged)
 		emagged = TRUE
-		to_chat(user, "<span class='notice'>You override the authentication mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("You override the authentication mechanism."))
 
 /obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
@@ -69,7 +69,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	user.show_message(fail_message, 1)
 	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
 		user.show_message("<span class='danger'>SELF-DESTRUCTING...</span><br>", 1)
-		visible_message("<span class='danger'>\The [gun] explodes!</span>")
+		visible_message(SPAN_DANGER("\The [gun] explodes!"))
 		playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
 		var/obj/item/organ/external/E = user.organs_by_name[user.hand ? BP_L_HAND : BP_R_HAND]
 		E.droplimb(0,DROPLIMB_BLUNT)
@@ -91,7 +91,7 @@ Pins Below.
 /obj/item/device/firing_pin/test_range
 	name = "test-range firing pin"
 	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
-	fail_message = "<span class='warning'>TEST RANGE CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("TEST RANGE CHECK FAILED.")
 	pin_replaceable = 1
 	durable = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
@@ -107,7 +107,7 @@ Pins Below.
 /obj/item/device/firing_pin/implant
 	name = "implant-keyed firing pin"
 	desc = "This is a implant-locked firing pin which only authorizes users who are implanted with a certain device."
-	fail_message = "<span class='warning'>IMPLANT CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("IMPLANT CHECK FAILED.")
 	var/req_implant
 
 /obj/item/device/firing_pin/implant/pin_auth(mob/living/user)
@@ -128,7 +128,7 @@ Pins Below.
 	name = "hilarious firing pin"
 	desc = "Advanced clowntech that can convert any firearm into a far more useful object."
 	color = "#FFFF00"
-	fail_message = "<span class='warning'>HONK!</span>"
+	fail_message = SPAN_WARNING("HONK!")
 	force_replace = 1
 
 /obj/item/device/firing_pin/clown/pin_auth(mob/living/user)
@@ -141,7 +141,7 @@ Pins Below.
 	name = "DNA-keyed firing pin"
 	desc = "This is a DNA-locked firing pin which only authorizes one user. Attempt to fire once to DNA-link."
 	icon_state = "firing_pin_dna"
-	fail_message = "<span class='warning'>DNA CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("DNA CHECK FAILED.")
 	var/unique_enzymes = null
 
 /obj/item/device/firing_pin/dna/afterattack(atom/target, mob/user, proximity_flag)
@@ -150,7 +150,7 @@ Pins Below.
 		var/mob/living/carbon/M = target
 		if(M.dna && M.dna.unique_enzymes)
 			unique_enzymes = M.dna.unique_enzymes
-			to_chat(user, "<span class='notice'>DNA-LOCK SET.</span>")
+			to_chat(user, SPAN_NOTICE("DNA-LOCK SET."))
 
 /obj/item/device/firing_pin/dna/pin_auth(mob/living/carbon/user)
 	if(istype(user) && user.dna && user.dna.unique_enzymes)
@@ -163,7 +163,7 @@ Pins Below.
 	if(!unique_enzymes)
 		if(istype(user) && user.dna && user.dna.unique_enzymes)
 			unique_enzymes = user.dna.unique_enzymes
-			to_chat(user, "<span class='notice'>DNA-LOCK SET.</span>")
+			to_chat(user, SPAN_NOTICE("DNA-LOCK SET."))
 	else
 		..()
 
@@ -176,7 +176,7 @@ Pins Below.
 /obj/item/device/firing_pin/tag
 	name = "laser tag firing pin"
 	desc = "A recreational firing pin, used in laser tag units to ensure users have their vests on."
-	fail_message = "<span class='warning'>SUIT CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("SUIT CHECK FAILED.")
 	var/obj/item/clothing/suit/suit_requirement = null
 	var/tagcolor = ""
 
@@ -185,7 +185,7 @@ Pins Below.
 		var/mob/living/carbon/human/M = user
 		if(istype(M.wear_suit, suit_requirement))
 			return 1
-	to_chat(user, "<span class='warning'>You need to be wearing [tagcolor] laser tag armor!</span>")
+	to_chat(user, SPAN_WARNING("You need to be wearing [tagcolor] laser tag armor!"))
 	return 0
 
 /obj/item/device/firing_pin/tag/red
@@ -209,7 +209,7 @@ Pins Below.
 /obj/item/device/firing_pin/access
 	name = "access-keyed firing pin"
 	desc = "This access locked firing pin allows weapons to be fired only when the user has the required access."
-	fail_message = "<span class='warning'>ACCESS CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("ACCESS CHECK FAILED.")
 	req_access = list(access_weapons)
 
 /obj/item/device/firing_pin/access/pin_auth(mob/living/user)

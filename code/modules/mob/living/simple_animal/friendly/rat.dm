@@ -197,7 +197,7 @@
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			to_chat(src, "<span class='warning'>Your hoarse rattish throat can't squeal just now, stop and take a breath!</span>")
+			to_chat(src, SPAN_WARNING("Your hoarse rattish throat can't squeal just now, stop and take a breath!"))
 
 
 //Wrapper verbs for the squeak functions
@@ -206,7 +206,7 @@
 	set category = "Abilities"
 
 	if (usr.client.prefs.muted & MUTE_IC)
-		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
+		to_chat(usr, SPAN_DANGER("You are muted from IC emotes."))
 		return
 
 	squeak_loud(1)
@@ -216,7 +216,7 @@
 	set category = "Abilities"
 
 	if (usr.client.prefs.muted & MUTE_IC)
-		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
+		to_chat(usr, SPAN_DANGER("You are muted from IC emotes."))
 		return
 
 	squeak_soft(1)
@@ -226,7 +226,7 @@
 	set category = "Abilities"
 
 	if (usr.client.prefs.muted & MUTE_IC)
-		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
+		to_chat(usr, SPAN_DANGER("You are muted from IC emotes."))
 		return
 
 	squeak(1)
@@ -236,7 +236,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			to_chat(M, "<span class='notice'>\icon[src] Squeek!</span>")
+			to_chat(M, SPAN_NOTICE("\icon[src] Squeek!"))
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)
@@ -251,8 +251,8 @@
 		if(!K.health)
 			return
 
-		src.visible_message("<span class='warning'>[src] joins the [K.swarm_name] of \the [K]</span>", \
-							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].</span>")
+		src.visible_message(SPAN_WARNING("[src] joins the [K.swarm_name] of \the [K]"), \
+							SPAN_NOTICE("We join our brethren in \the [K.swarm_name]. Long live \the [K]."))
 		K.absorb(src)
 	..()
 

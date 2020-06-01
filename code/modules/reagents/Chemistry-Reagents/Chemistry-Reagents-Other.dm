@@ -367,7 +367,7 @@
 				S.target = null
 				++S.discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the space cleaner touches it!"), span("danger", "Your flesh burns in the space cleaner!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), SPAN_DANGER("Your flesh burns in the space cleaner!"))
 
 /datum/reagent/lube
 	name = "Space Lube"
@@ -531,7 +531,7 @@
 /datum/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
 	if(stored_value >= 5)
-		to_chat(M,span("notice","You feel strange..."))
+		to_chat(M,SPAN_NOTICE("You feel strange..."))
 		if(prob(25))
 			randmutb(M)
 		else
@@ -583,15 +583,15 @@
 /datum/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
 	stored_value = metabolism
 	stored_dna = M.dna.Clone()
-	to_chat(M,span("warning","Your skin starts crawling..."))
+	to_chat(M,SPAN_WARNING("Your skin starts crawling..."))
 
 /datum/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
 	if(stored_value >= 1)
 		M.visible_message(\
-			"<span class='warning'>/The [M]'s body shifts and contorts!</span>",\
-			"<span class='danger'>Your body shifts and contorts!</span>",\
-			"<span class='notice'>You hear strange flesh-like noises.</span>"\
+			SPAN_WARNING("/The [M]'s body shifts and contorts!"),\
+			SPAN_DANGER("Your body shifts and contorts!"),\
+			SPAN_NOTICE("You hear strange flesh-like noises.")\
 		)
 		scramble(TRUE, M, 100)
 		M.adjustHalLoss(25)
@@ -606,7 +606,7 @@
 		M.real_name = M.dna.real_name
 		M.UpdateAppearance()
 
-	to_chat(M,span("warning","You seem back to your normal self."))
+	to_chat(M,SPAN_WARNING("You seem back to your normal self."))
 
 /datum/reagent/fuel/zoragel
 	name = "Inert Gel"
@@ -735,7 +735,7 @@
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		M.make_jittery(5)
-		to_chat(M, "<span class='warning'>You feel unstable...</span>")
+		to_chat(M, SPAN_WARNING("You feel unstable..."))
 
 	if(prob(10))
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
@@ -767,7 +767,7 @@
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
 		remove_self(10*I.w_class)
-		I.visible_message("<span class='notice'>[I] begins to glisten with some gluey substance.</span>")
+		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."))
 
 /datum/reagent/usolve
 	name = "Universal Solvent"
@@ -783,7 +783,7 @@
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
-		I.visible_message("<span class='notice'>A thin shell of glue cracks off of [I].</span>")
+		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."))
 		remove_self(10*I.w_class)
 
 /datum/reagent/shapesand
@@ -805,7 +805,7 @@
 		mimic.item_state = O.item_state
 		mimic.overlays = O.overlays
 		remove_self(10*O.w_class)
-		mimic.visible_message("<span class='notice'>The sand forms into an exact duplicate of [O].</span>")
+		mimic.visible_message(SPAN_NOTICE("The sand forms into an exact duplicate of [O]."))
 
 /obj/item/shapesand
 	name = "shapesand"
@@ -818,7 +818,7 @@
 	return 1
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)
-	to_chat(user, "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>")
+	to_chat(user, SPAN_WARNING("As you attempt to use the [src], it crumbles into inert sand!"))
 	new /obj/item/ore/glass(get_turf(src))
 	qdel(src)
 	return

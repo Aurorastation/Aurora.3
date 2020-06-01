@@ -66,7 +66,7 @@ proc/cardinalrange(var/center)
 		control_unit.remove_shielding(src)
 	if(processing)
 		shutdown_core()
-	visible_message("<span class='warning'>\The [src.name] melts!</span>")
+	visible_message(SPAN_WARNING("\The [src.name] melts!"))
 	//Might want to have it leave a mess on the floor but no sprites for now
 	return ..()
 
@@ -238,7 +238,7 @@ proc/cardinalrange(var/center)
 /obj/item/device/am_shielding_container/attackby(var/obj/item/I, var/mob/user)
 	if(I.ismultitool() && isturf(loc))
 		if(locate(/obj/machinery/am_shielding/) in loc)
-			to_chat(user, "<span class='warning'>\icon[src]There is already an antimatter reactor section there.</span>")
+			to_chat(user, SPAN_WARNING("\icon[src]There is already an antimatter reactor section there."))
 			return
 
 		//Search for shielding first
@@ -254,7 +254,7 @@ proc/cardinalrange(var/center)
 			new/obj/machinery/am_shielding(src.loc, AMC)
 			qdel(src)
 		else //Stranded & Alone
-			to_chat(user, "<span class='warning'>\icon[src]Couldn't connect to an Antimatter Control Unit.</span>")
+			to_chat(user, SPAN_WARNING("\icon[src]Couldn't connect to an Antimatter Control Unit."))
 			return
 
 	..()

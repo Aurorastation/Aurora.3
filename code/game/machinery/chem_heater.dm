@@ -34,17 +34,17 @@
 		return
 	if(istype(O, /obj/item/reagent_containers/glass) || istype(O, /obj/item/reagent_containers/food))
 		if(container)
-			to_chat(user,span("warning","There is already \a [container] on \the [src]!"))
+			to_chat(user,SPAN_WARNING("There is already \a [container] on \the [src]!"))
 			return
 
 		var/obj/item/reagent_containers/RC = O
 		if(!RC.is_open_container())
-			to_chat(user,span("warning","You don't see how \the [src] could heat up the reagents in \the [RC]."))
+			to_chat(user,SPAN_WARNING("You don't see how \the [src] could heat up the reagents in \the [RC]."))
 			return
 
 		container =  RC
 		user.drop_from_inventory(RC,src)
-		to_chat(user,span("notice","You set \the [RC] in \the [src]."))
+		to_chat(user,SPAN_NOTICE("You set \the [RC] in \the [src]."))
 		updateUsrDialog()
 		return
 

@@ -22,7 +22,7 @@
 	var/name_of_thing = ""
 	if(item)
 		name_of_thing = item.name
-	to_chat(user, span("notice", "It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
+	to_chat(user, SPAN_NOTICE("It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
 
 /obj/machinery/weapons_analyzer/attackby(var/obj/item/I, var/mob/user as mob)
 	if(!I || !user || !ishuman(user))
@@ -53,10 +53,10 @@
 		update_icon()
 	else if(istype(I, /obj/item/laser_components) && istype(item, /obj/item/device/laser_assembly))
 		if(!item)
-			to_chat(user, span("warning", "\The [src] does not have any assembly installed!"))
+			to_chat(user, SPAN_WARNING("\The [src] does not have any assembly installed!"))
 			return
 		if(process)
-			to_chat(user, span("warning", "\The [src] is busy installing component!"))
+			to_chat(user, SPAN_WARNING("\The [src] is busy installing component!"))
 			return
 		var/obj/item/device/laser_assembly/A = item
 		var/success = A.attackby(I, user)
@@ -87,7 +87,7 @@
 
 /obj/machinery/weapons_analyzer/proc/check_gun(var/mob/user)
 	if(item)
-		to_chat(user, span("warning", "\The [src] already has \the [item] mounted. Remove it first."))
+		to_chat(user, SPAN_WARNING("\The [src] already has \the [item] mounted. Remove it first."))
 		return FALSE
 	return TRUE
 
@@ -113,7 +113,7 @@
 		update_icon()
 
 	else
-		to_chat(usr, span("warning", "There is nothing in \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is nothing in \the [src]."))
 
 /obj/machinery/weapons_analyzer/update_icon()
 	icon_state = initial(icon_state)

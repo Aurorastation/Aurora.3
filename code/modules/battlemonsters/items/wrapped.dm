@@ -30,8 +30,8 @@
 /obj/item/battle_monsters/wrapped/attack_self(mob/user)
 
 	user.visible_message(\
-		span("notice","\The [user] unwraps \the [src]."),\
-		span("notice","You unwrap \the [src].")\
+		SPAN_NOTICE("\The [user] unwraps \the [src]."),\
+		SPAN_NOTICE("You unwrap \the [src].")\
 	)
 	var/obj/item/battle_monsters/deck/generated_deck = new(get_turf(src))
 	GenerateCards(user,generated_deck)

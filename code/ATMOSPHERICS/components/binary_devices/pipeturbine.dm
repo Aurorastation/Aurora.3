@@ -89,7 +89,7 @@
 	attackby(obj/item/W as obj, mob/user as mob)
 		if(W.iswrench())
 			anchored = !anchored
-			to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>")
+			to_chat(user, SPAN_NOTICE("You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor."))
 
 			if(anchored)
 				if(dir & (NORTH|SOUTH))
@@ -244,7 +244,7 @@
 		if(W.iswrench())
 			anchored = !anchored
 			turbine = null
-			to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>")
+			to_chat(user, SPAN_NOTICE("You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor."))
 			updateConnection()
 		else
 			..()

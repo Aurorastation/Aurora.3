@@ -62,9 +62,9 @@
 	if(!..(user,1 ))
 		return
 	if(active)
-		to_chat(usr, "<span class='notice'>The generator is on.</span>")
+		to_chat(usr, SPAN_NOTICE("The generator is on."))
 	else
-		to_chat(usr, "<span class='notice'>The generator is off.</span>")
+		to_chat(usr, SPAN_NOTICE("The generator is off."))
 
 /obj/machinery/power/port_gen/emp_act(severity)
 	var/duration = 6000 //ten minutes
@@ -152,8 +152,8 @@
 	..(user)
 	to_chat(user, "\The [src] appears to be producing [power_gen*power_output] W.")
 	to_chat(user, "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper.")
-	if(IsBroken()) to_chat(user, "<span class='warning'>\The [src] seems to have broken down.</span>")
-	if(overheating) to_chat(user, "<span class='danger'>\The [src] is overheating!</span>")
+	if(IsBroken()) to_chat(user, SPAN_WARNING("\The [src] seems to have broken down."))
+	if(overheating) to_chat(user, SPAN_DANGER("\The [src] is overheating!"))
 
 /obj/machinery/power/port_gen/pacman/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
@@ -268,9 +268,9 @@
 		var/obj/item/stack/addstack = O
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
-			to_chat(user, "<span class='notice'>The [src.name] is full!</span>")
+			to_chat(user, SPAN_NOTICE("The [src.name] is full!"))
 			return
-		to_chat(user, "<span class='notice'>You add [amount] sheet\s to the [src.name].</span>")
+		to_chat(user, SPAN_NOTICE("You add [amount] sheet\s to the [src.name]."))
 		sheets += amount
 		addstack.use(amount)
 		updateUsrDialog()
@@ -280,10 +280,10 @@
 
 			if(!anchored)
 				connect_to_network()
-				to_chat(user, "<span class='notice'>You secure the generator to the floor.</span>")
+				to_chat(user, SPAN_NOTICE("You secure the generator to the floor."))
 			else
 				disconnect_from_network()
-				to_chat(user, "<span class='notice'>You unsecure the generator from the floor.</span>")
+				to_chat(user, SPAN_NOTICE("You unsecure the generator from the floor."))
 
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
@@ -292,9 +292,9 @@
 			open = !open
 			playsound(src.loc, O.usesound, 50, 1)
 			if(open)
-				to_chat(user, "<span class='notice'>You open the access panel.</span>")
+				to_chat(user, SPAN_NOTICE("You open the access panel."))
 			else
-				to_chat(user, "<span class='notice'>You close the access panel.</span>")
+				to_chat(user, SPAN_NOTICE("You close the access panel."))
 		else if(O.iscrowbar() && open)
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 			for(var/obj/item/I in component_parts)
@@ -360,19 +360,19 @@
 
 	user.set_machine(src)
 
-	var/dat = text("<b>[name]</b><br>")
+	var/dat = "<b>[name]</b><br>"
 	if (active)
-		dat += text("Generator: <A href='?src=\ref[src];action=disable'>On</A><br>")
+		dat += "Generator: <A href='?src=\ref[src];action=disable'>On</A><br>"
 	else
-		dat += text("Generator: <A href='?src=\ref[src];action=enable'>Off</A><br>")
-	dat += text("[capitalize(sheet_name)]: [sheets] - <A href='?src=\ref[src];action=eject'>Eject</A><br>")
+		dat += "Generator: <A href='?src=\ref[src];action=enable'>Off</A><br>"
+	dat += "[capitalize(sheet_name)]: [sheets] - <A href='?src=\ref[src];action=eject'>Eject</A><br>"
 	var/stack_percent = round(sheet_left * 100, 1)
-	dat += text("Current stack: [stack_percent]% <br>")
-	dat += text("Power output: <A href='?src=\ref[src];action=lower_power'>-</A> [power_gen * power_output] Watts<A href='?src=\ref[src];action=higher_power'>+</A><br>")
-	dat += text("Power current: [(powernet == null ? "Unconnected" : "[avail()]")]<br>")
+	dat += "Current stack: [stack_percent]% <br>"
+	dat += "Power output: <A href='?src=\ref[src];action=lower_power'>-</A> [power_gen * power_output] Watts<A href='?src=\ref[src];action=higher_power'>+</A><br>"
+	dat += "Power current: [(powernet == null ? "Unconnected" : "[avail()]")]<br>"
 
 	var/tempstr = "Temperature: [temperature]&deg;C<br>"
-	dat += (overheating)? "<span class='danger'>[tempstr]</span>" : tempstr
+	dat += (overheating)? SPAN_DANGER("[tempstr]") : tempstr
 	dat += "<br><A href='?src=\ref[src];action=close'>Close</A>"
 	user << browse("[dat]", "window=port_gen")
 	onclose(user, "port_gen")

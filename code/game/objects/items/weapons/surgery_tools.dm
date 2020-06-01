@@ -268,10 +268,10 @@
 			if (H.hand)
 				temp = H.organs_by_name[BP_L_HAND]
 			if(temp && !temp.is_usable())
-				to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 				return
 
-			to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You pick up the [src]."))
 			pixel_x = 0
 			pixel_y = 0
 			forceMove(get_turf(user))
@@ -283,7 +283,7 @@
 	if(..() && contents.len)
 		spill(3, get_turf(M))
 		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
-		user.visible_message(span("danger", "[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
+		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
 
 /obj/item/storage/fancy/tray/throw_impact(atom/hit_atom)
 	..()

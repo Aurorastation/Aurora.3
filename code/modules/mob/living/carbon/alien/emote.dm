@@ -16,7 +16,7 @@
 				return
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
+					to_chat(src, SPAN_WARNING("You cannot send IC messages (muted)."))
 					return
 			if (stat)
 				return
@@ -28,7 +28,7 @@
 			return custom_emote(m_type, message)
 		if("sign")
 			if (!src.restrained())
-				message = text("<B>The alien</B> signs[].", (text2num(param) ? text(" the number []", text2num(param)) : null))
+				message = "<B>The alien</B> signs[(text2num(param) ? " the number [text2num(param)]" : null)]."
 				m_type = 1
 		if ("burp")
 			if (!muzzled)
@@ -105,7 +105,7 @@
 			m_type = 1
 		if("collapse")
 			Paralyse(2)
-			message = text("<B>[]</B> collapses!", src)
+			message = "<B>[src]</B> collapses!"
 			m_type = 2
 		if("chirp")
 			message = "<B>The [src.name]</B> chirps!"
@@ -114,7 +114,7 @@
 		if("help")
 			to_chat(src, "burp, chirp, choke, collapse, dance, drool, gasp, shiver, gnarl, jump, moan, nod, roll, scratch,\nscretch, shake, sign-#, sulk, sway, tail, twitch, whimper")
 		else
-			to_chat(src, text("Invalid Emote: []", act))
+			to_chat(src, "Invalid Emote: [act]")
 	if ((message && src.stat == 0))
 		log_emote("[name]/[key] : [message]",ckey=key_name(key))
 		send_emote(message, m_type)

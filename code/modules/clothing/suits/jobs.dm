@@ -177,7 +177,7 @@ obj/item/clothing/suit/apron/overalls/blue
 		var/obj/item/reagent_containers/glass/paint/P = O
 		suit_color = P.paint_type
 		name = "[suit_color] trenchcoat" // Added name change, why was it never here?!
-		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
+		user.visible_message(SPAN_WARNING("[user] soaks \the [src] into [P]!"))
 		icon_state = "suit_detective_[suit_color]"
 		item_state = "suit_detective_[suit_color]"
 		icon_open = "suit_detective_[suit_color]_open"
@@ -226,13 +226,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	if(icon_state == icon_open)
 		item_state = icon_closed
 		icon_state = icon_closed
-		to_chat(usr, span("notice", "You zip up the hazard vest."))
+		to_chat(usr, SPAN_NOTICE("You zip up the hazard vest."))
 	else if(icon_state == icon_closed)
 		item_state = icon_open
 		icon_state = icon_open
-		to_chat(usr, span("notice", "You unzip the hazard vest."))
+		to_chat(usr, SPAN_NOTICE("You unzip the hazard vest."))
 	else
-		to_chat(usr, span("notice", "You attempt to zip up your [src], before promptly realising how silly you are."))
+		to_chat(usr, SPAN_NOTICE("You attempt to zip up your [src], before promptly realising how silly you are."))
 		return
 	update_clothing_icon()
 

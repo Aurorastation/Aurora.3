@@ -19,7 +19,7 @@
 	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
 		return ..(user)
 
-	var/t1 = text("<B>Access control</B><br>\n")
+	var/t1 = "<B>Access control</B><br>\n"
 
 	if(last_configurator)
 		t1 += "Operator: [last_configurator]<br>"
@@ -47,7 +47,7 @@
 			else
 				t1 += "<a style='color: red' href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
 
-	t1 += text("<p><a href='?src=\ref[];close=1'>Close</a></p>\n", src)
+	t1 += "<p><a href='?src=\ref[src];close=1'>Close</a></p>\n"
 
 	user << browse(t1, "window=airlock_electronics")
 	onclose(user, "airlock")

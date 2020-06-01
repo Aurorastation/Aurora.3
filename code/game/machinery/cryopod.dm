@@ -399,7 +399,7 @@ var/global/list/frozen_crew = list()
 			icon_state = occupied_icon_state
 
 			to_chat(M, SPAN_NOTICE("[on_enter_occupant_message]"))
-			to_chat(M, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
 			time_entered = world.time
 
@@ -421,7 +421,7 @@ var/global/list/frozen_crew = list()
 			// Book keeping!
 			var/turf/location = get_turf(src)
 			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)",ckey=key_name(M))
-			message_admins("<span class='notice'>[key_name_admin(M)] has entered a stasis pod.</span>")
+			message_admins(SPAN_NOTICE("[key_name_admin(M)] has entered a stasis pod."))
 
 			//Despawning occurs when process() is called with an occupant without a client.
 			src.add_fingerprint(M)
@@ -445,7 +445,7 @@ var/global/list/frozen_crew = list()
 		return
 	for(var/mob/living/carbon/slime/M in range(1, L))
 		if(M.victim == L)
-			to_chat(usr, span("warning", "[L.name] will not fit into the cryo pod because they have a slime latched onto their head."))
+			to_chat(usr, SPAN_WARNING("[L.name] will not fit into the cryo pod because they have a slime latched onto their head."))
 			return
 
 	var/willing = FALSE //We don't want to allow people to be forced into despawning.
@@ -482,7 +482,7 @@ var/global/list/frozen_crew = list()
 		icon_state = occupied_icon_state
 
 		to_chat(L, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
-		to_chat(L, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(L, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 		occupant = L
 		time_entered = world.time
 
@@ -504,7 +504,7 @@ var/global/list/frozen_crew = list()
 		// Book keeping!
 		var/turf/location = get_turf(src)
 		log_admin("[key_name_admin(L)] has entered a stasis pod.",ckey=key_name(L))
-		message_admins("<span class='notice'>[key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)</span>")
+		message_admins(SPAN_NOTICE("[key_name_admin(L)] has entered a stasis pod.(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)"))
 
 		//Despawning occurs when process() is called with an occupant without a client.
 		src.add_fingerprint(L)
@@ -551,7 +551,7 @@ var/global/list/frozen_crew = list()
 
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.victim == usr)
-			to_chat(usr, span("warning", "You cannot do this while a slime is latched onto you!"))
+			to_chat(usr, SPAN_WARNING("You cannot do this while a slime is latched onto you!"))
 			return
 
 	usr.visible_message(SPAN_NOTICE("[usr] starts climbing into [src]."), SPAN_NOTICE("You start climbing into [src]."), range = 3)
@@ -574,7 +574,7 @@ var/global/list/frozen_crew = list()
 		icon_state = occupied_icon_state
 
 		to_chat(usr, SPAN_NOTICE("[on_enter_occupant_message]"))
-		to_chat(usr, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
+		to_chat(usr, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 
 		if(isipc(usr))
 			var/choice = alert(usr, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")

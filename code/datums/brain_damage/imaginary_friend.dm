@@ -2,8 +2,8 @@
 	name = "Imaginary Friend"
 	desc = "Patient can see and hear an imaginary person."
 	scan_desc = "partial schizophrenia"
-	gain_text = "<span class='notice'>You feel in good company, for some reason.</span>"
-	lose_text = "<span class='warning'>You feel lonely again.</span>"
+	gain_text = SPAN_NOTICE("You feel in good company, for some reason.")
+	lose_text = SPAN_WARNING("You feel lonely again.")
 	cure_type = CURE_SOLITUDE
 	var/mob/abstract/mental/friend/friend
 
@@ -55,9 +55,9 @@
 
 /mob/abstract/mental/friend/LateLogin()
 	..()
-	to_chat(src, "<span class='notice'><b>You are the imaginary friend of [owner]!</b></span>")
-	to_chat(src, "<span class='notice'>You are absolutely loyal to your friend, no matter what.</span>")
-	to_chat(src, "<span class='notice'>You cannot directly influence the world around you, but you can see what [owner] cannot.</span>")
+	to_chat(src, SPAN_NOTICE("<b>You are the imaginary friend of [owner]!</b>"))
+	to_chat(src, SPAN_NOTICE("You are absolutely loyal to your friend, no matter what."))
+	to_chat(src, SPAN_NOTICE("You cannot directly influence the world around you, but you can see what [owner] cannot."))
 
 /mob/abstract/mental/friend/Initialize(mapload, _trauma)
 	. = ..()

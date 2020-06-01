@@ -54,7 +54,7 @@
 	var/extra_law = "Crew authorized to know of pathogen [virus_name]'s existence are: Heads of command. Do not allow unauthorized personnel to gain knowledge of [virus_name]. Aid authorized personnel in quarantining and neutrlizing the outbreak. This law overrides all other laws."
 	for(var/mob/living/silicon/ai/M in silicon_mob_list)
 		M.add_ion_law(extra_law)
-		to_chat(M, "<span class='danger'>[extra_law]</span>")
+		to_chat(M, SPAN_DANGER("[extra_law]"))
 
 /datum/game_mode/epidemic/proc/announce_to_kill_crew()
 	var/intercepttext = "<FONT size = 3 color='red'><B>CONFIDENTIAL REPORT</B></FONT><HR>"
@@ -78,8 +78,8 @@
 		crew += H
 
 	if(crew.len < 2)
-		to_world("<span class='danger'>There aren't enough players for this mode!</span>")
-		to_world("<span class='danger'>Rebooting world in 5 seconds.</span>")
+		to_world(SPAN_DANGER("There aren't enough players for this mode!"))
+		to_world(SPAN_DANGER("Rebooting world in 5 seconds."))
 
 		sleep(50)
 		world.Reboot()
@@ -167,10 +167,10 @@
 	for(var/mob/M in mob_list)
 		if(M.client)
 			to_chat(M, 'sound/machines/Alarm.ogg')
-	to_world("<span class='notice'><b>Incoming missile detected.. Impact in 10..</b></span>")
+	to_world(SPAN_NOTICE("<b>Incoming missile detected.. Impact in 10..</b>"))
 	for (var/i=9 to 1 step -1)
 		sleep(10)
-		to_world("<span class='notice'><b>[i]..</b></span>")
+		to_world(SPAN_NOTICE("<b>[i]..</b>"))
 	sleep(10)
 	enter_allowed = 0
 	SSticker.station_explosion_cinematic(0,null)

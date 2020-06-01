@@ -16,11 +16,11 @@
 				C.disabilities |= NEARSIGHTED
 				if(prob(10))
 					C.sdisabilities |= BLIND
-			to_chat(C, span("danger", "Suddenly you see a red flash that blinds you!"))
+			to_chat(C, SPAN_DANGER("Suddenly you see a red flash that blinds you!"))
 			affected += C
 		if(length(affected))
 			user.say("Sti[pick("'","`")] kaliesin!")
-			to_chat(user, span("warning", "The rune flashes, blinding those who not follow the Nar-Sie, and dissipates into fine dust."))
+			to_chat(user, SPAN_WARNING("The rune flashes, blinding those who not follow the Nar-Sie, and dissipates into fine dust."))
 			admin_attacker_log_many_victims(user, affected, "Used a blindness rune.", "Was victim of a blindness rune.", "used a blindness rune on")
 			qdel(O)
 			return TRUE
@@ -38,9 +38,9 @@
 			C.eye_blind += 10
 			//talismans is weaker.
 			affected += C
-			to_chat(C, span("warning", "You feel a sharp pain in your eyes, and the world disappears into darkness.."))
+			to_chat(C, SPAN_WARNING("You feel a sharp pain in your eyes, and the world disappears into darkness.."))
 		if(length(affected))
 			user.whisper("Sti[pick("'","`")] kaliesin!")
-			to_chat(user, span("warning", "Your talisman turns into gray dust, blinding those who not follow the Nar-Sie."))
+			to_chat(user, SPAN_WARNING("Your talisman turns into gray dust, blinding those who not follow the Nar-Sie."))
 			admin_attacker_log_many_victims(user, affected, "Used a blindness talisman.", "Was victim of a blindness talisman.", "used a blindness talisman on")
 		return TRUE

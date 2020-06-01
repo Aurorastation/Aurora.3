@@ -361,7 +361,7 @@
 				S.target = null
 				++S.discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the foam touches it!"), span("danger", "Your flesh burns in the foam!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), SPAN_DANGER("Your flesh burns in the foam!"))
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
@@ -380,7 +380,7 @@
 		if(locate(/obj/effect/overlay/wallrot) in W)
 			for(var/obj/effect/overlay/wallrot/E in W)
 				qdel(E)
-			W.visible_message("<span class='notice'>The fungi are completely dissolved by the solution!</span>")
+			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"))
 
 /datum/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
 	if(istype(O, /obj/structure/alien/weeds))
@@ -464,7 +464,7 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	if(prob(10))
-		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
+		to_chat(M, SPAN_DANGER("Your insides are burning!"))
 		M.add_chemical_effect(CE_TOXIN, rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
@@ -555,7 +555,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.name != "Slime")
-			to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
+			to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
 			H.set_species("Slime")
 
 /datum/reagent/aslimetoxin
@@ -569,7 +569,7 @@
 /datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
 		return
-	to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
+	to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
 	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
@@ -760,7 +760,7 @@
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
 	if (!(CE_UNDEXTROUS in M.chem_effects))
-		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
+		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
 	if(dose > 0.2)	
@@ -769,5 +769,5 @@
 /datum/reagent/toxin/dextrotoxin/Destroy()
 	if(holder && holder.my_atom && ismob(holder.my_atom))
 		var/mob/M = holder.my_atom
-		to_chat(M, span("warning", "You can feel sensation creeping back into your limbs..."))
+		to_chat(M, SPAN_WARNING("You can feel sensation creeping back into your limbs..."))
 	return ..()

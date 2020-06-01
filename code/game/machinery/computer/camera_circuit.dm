@@ -40,7 +40,7 @@
 		..()
 		else if(I.isscrewdriver())
 			secured = !secured
-			user.visible_message("<span class='notice'>The [src] can [secured ? "no longer" : "now"] be modified.</span>")
+			user.visible_message(SPAN_NOTICE("The [src] can [secured ? "no longer" : "now"] be modified."))
 			updateBuildPath()
 		return
 
@@ -108,8 +108,8 @@
 /obj/item/circuitboard/camera/emag_act(var/remaining_charges, var/mob/user)
 	if(network)
 		authorised = 1
-		to_chat(user, "<span class='notice'>You authorised the circuit network!</span>")
+		to_chat(user, SPAN_NOTICE("You authorised the circuit network!"))
 		updateDialog()
 		return 1
 	else
-		to_chat(user, "<span class='warning'>You must select a camera network circuit!</span>")
+		to_chat(user, SPAN_WARNING("You must select a camera network circuit!"))

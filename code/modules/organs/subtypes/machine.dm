@@ -80,7 +80,7 @@
 	emp_counter += 30/severity
 	if(emp_counter >= 30)
 		owner.Paralyse(emp_counter/6)
-		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
+		to_chat(owner, SPAN_DANGER("%#/ERR: Power leak detected!$%^/"))
 
 
 /obj/item/organ/internal/surge

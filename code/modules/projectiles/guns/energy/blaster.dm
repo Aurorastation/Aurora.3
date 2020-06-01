@@ -57,7 +57,7 @@
 	else
 		return
 
-	user.visible_message(span("warning","\The [user] spins the cylinder of \the [src]!"),span("warning","You spin the cylinder of \the [src]!"),span("notice","You hear something metallic spin and click."))
+	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"),SPAN_WARNING("You spin the cylinder of \the [src]!"),SPAN_NOTICE("You hear something metallic spin and click."))
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 
 /obj/item/gun/energy/blaster/revolver/pilot
@@ -115,4 +115,4 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))

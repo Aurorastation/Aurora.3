@@ -117,7 +117,7 @@
 		for(var/limb_tag in list(BP_L_HAND,BP_L_ARM))
 			var/obj/item/organ/external/E = get_organ(limb_tag)
 			if(!E)
-				visible_message("<span class='danger'>Lacking a functioning left hand, \the [src] drops \the [l_hand].</span>")
+				visible_message(SPAN_DANGER("Lacking a functioning left hand, \the [src] drops \the [l_hand]."))
 				drop_from_inventory(l_hand)
 				break
 
@@ -125,7 +125,7 @@
 		for(var/limb_tag in list(BP_R_HAND,BP_R_ARM))
 			var/obj/item/organ/external/E = get_organ(limb_tag)
 			if(!E)
-				visible_message("<span class='danger'>Lacking a functioning right hand, \the [src] drops \the [r_hand].</span>")
+				visible_message(SPAN_DANGER("Lacking a functioning right hand, \the [src] drops \the [r_hand]."))
 				drop_from_inventory(r_hand)
 				break
 
@@ -152,7 +152,7 @@
 			emote("me", 1, "[(species.flags & NO_PAIN) ? "" : emote_scream ]drops what they were holding in their [E.name]!")
 
 		else if(!(E.status & ORGAN_ROBOT) && (CE_DROPITEM in chem_effects) && prob(chem_effects[CE_DROPITEM]))
-			to_chat(src, span("warning", "Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
+			to_chat(src, SPAN_WARNING("Your [E.name] goes limp and unresponsive for a moment, dropping what it was holding!"))
 			emote("me", 1, "drops what they were holding in their [E.name]!")
 			switch(E.body_part)
 				if(HAND_LEFT, ARM_LEFT)
@@ -220,14 +220,14 @@
 	var/brain_result = get_brain_result()
 	switch(brain_result)
 		if(0)
-			brain_result = "<span class='bad'>none, patient is braindead</span>"
+			brain_result = SPAN_BAD("none, patient is braindead")
 		if(-1)
-			brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
+			brain_result = span("average", "ERROR - Nonstandard biology")
 		else
 			if(brain_result <= 50)
-				brain_result = "<span class='bad'>[brain_result]%</span>"
+				brain_result = SPAN_BAD("[brain_result]%")
 			else if(brain_result <= 80)
-				brain_result = "<span class='average'>[brain_result]%</span>"
+				brain_result = span("average", "[brain_result]%")
 			else
 				brain_result = "<span class ='scan_green'>[brain_result]%</span>"
 	return brain_result

@@ -47,5 +47,5 @@
 /obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
 	..()
 	if(istype(I, /obj/item/nullrod))
-		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
+		to_chat(user, SPAN_NOTICE("You touch \the [src] with \the [I], closing the path to the otherworld."))
 		qdel(src)

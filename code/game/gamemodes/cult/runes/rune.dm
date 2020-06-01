@@ -59,27 +59,27 @@ var/global/list/static/rune_types = list(
 		desc = "A powerful rune drawn with blood magic gifted by Nar'sie Himself."
 		if(cult_description)
 			to_chat(user, "This spell circle reads: <span class='cult'><b><i>[cult_description]</i></b></span>.")
-		to_chat(user, "This rune [can_talisman ? "<span class='cult'><b><i>can</i></b></span>" : "<span class='warning'><b><i>cannot</i></b></span>"] be turned into a talisman.")
+		to_chat(user, "This rune [can_talisman ? SPAN_CULT("<b><i>can</i></b>") : SPAN_WARNING("<b><i>cannot</i></b>")] be turned into a talisman.")
 	else
 		desc = "A strange collection of symbols drawn in blood."
 
 /obj/effect/rune/attackby(obj/I, mob/user)
 	if(istype(I, /obj/item/book/tome) && iscultist(user))
-		to_chat(user, span("notice", "You retrace your steps, carefully undoing the lines of the rune."))
+		to_chat(user, SPAN_NOTICE("You retrace your steps, carefully undoing the lines of the rune."))
 		qdel(src)
 		return
 	else if(istype(I, /obj/item/nullrod))
-		to_chat(user, span("notice", "You disrupt the vile magic with the deadening field of \the [I]!"))
+		to_chat(user, SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [I]!"))
 		qdel(src)
 		return
 	return
 
 /obj/effect/rune/attack_hand(mob/living/user)
 	if(!iscultist(user))
-		to_chat(user, span("notice", "You can't mouth the arcane scratchings without fumbling over them."))
+		to_chat(user, SPAN_NOTICE("You can't mouth the arcane scratchings without fumbling over them."))
 		return
 	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
-		to_chat(user, span("warning", "You are unable to speak the words of the rune."))
+		to_chat(user, SPAN_WARNING("You are unable to speak the words of the rune."))
 		return
 	return do_rune_action(user)
 
@@ -93,7 +93,7 @@ var/global/list/static/rune_types = list(
 	else
 		user.whisper(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
 		for(var/mob/V in viewers(src))
-			to_chat(V, span("warning", "The markings pulse with a small burst of light, then fall dark."))
+			to_chat(V, SPAN_WARNING("The markings pulse with a small burst of light, then fall dark."))
 		return
 
 /obj/effect/rune/cultify()

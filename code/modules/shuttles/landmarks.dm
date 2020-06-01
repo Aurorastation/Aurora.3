@@ -128,7 +128,7 @@
 
 /obj/item/device/spaceflare/attack_self(var/mob/user)
 	if(!active)
-		visible_message("<span class='notice'>[user] pulls the cord, activating \the [src].</span>")
+		visible_message(SPAN_NOTICE("[user] pulls the cord, activating \the [src]."))
 		activate()
 
 /obj/item/device/spaceflare/proc/activate()

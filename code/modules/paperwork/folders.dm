@@ -40,12 +40,12 @@
 /obj/item/folder/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo) || istype(W, /obj/item/paper_bundle) || istype(W, /obj/item/sample/print))
 		user.drop_from_inventory(W,src)
-		to_chat(user, "<span class='notice'>You put the [W] into \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You put the [W] into \the [src]."))
 		update_icon()
 	else if(W.ispen())
 		var/n_name = sanitizeSafe(input(usr, "What would you like to label the folder?", "Folder Labelling", null)  as text, MAX_NAME_LEN)
 		if((loc == usr && usr.stat == 0))
-			name = "folder[(n_name ? text("- '[n_name]'") : null)]"
+			name = "folder[(n_name ? "- '[n_name]'" : null)]"
 	return
 
 /obj/item/folder/attack_self(mob/user as mob)

@@ -181,7 +181,7 @@
 		return
 	if (usr.IsAdvancedToolUser())
 		if(!istype(usr, /mob/living/silicon/ai))
-			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+			to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 			return
 
 	if (( usr.machine==src && ((get_dist(src, usr) <= 1) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon/ai)))
@@ -242,7 +242,7 @@
 		\n<BR>
 		\n"}
 	else
-		dat += "<span class='danger'>No compatible attached compressor found.</span>"
+		dat += SPAN_DANGER("No compatible attached compressor found.")
 
 	user << browse(dat, "window=computer;size=400x500")
 	onclose(user, "computer")

@@ -133,12 +133,12 @@
 	var/modifiers = params2list(params)
 	if(modifiers["ctrl"])
 		if(owner.hardpoints_locked)
-			to_chat(usr, "<span class='warning'>Hardpoint ejection system is locked.</span>")
+			to_chat(usr, SPAN_WARNING("Hardpoint ejection system is locked."))
 			return
 		if(owner.remove_system(hardpoint_tag))
-			to_chat(usr, "<span class='notice'>You disengage and discard the system mounted to your [hardpoint_tag] hardpoint.</span>")
+			to_chat(usr, SPAN_NOTICE("You disengage and discard the system mounted to your [hardpoint_tag] hardpoint."))
 		else
-			to_chat(usr, "<span class='danger'>You fail to remove the system mounted to your [hardpoint_tag] hardpoint.</span>")
+			to_chat(usr, SPAN_DANGER("You fail to remove the system mounted to your [hardpoint_tag] hardpoint."))
 		return
 
 	if(owner.selected_hardpoint == hardpoint_tag)
@@ -188,7 +188,7 @@
 
 /obj/screen/movable/mecha/toggle/air/toggled()
 	owner.use_air = ..()
-	to_chat(usr, "<span class='notice'>Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"].</span>")
+	to_chat(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
 
 /obj/screen/movable/mecha/toggle/maint
 	name = "toggle maintenance protocol"
@@ -196,7 +196,7 @@
 
 /obj/screen/movable/mecha/toggle/maint/toggled()
 	owner.maintenance_protocols = ..()
-	to_chat(usr, "<span class='notice'>Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"].</span>")
+	to_chat(usr, SPAN_NOTICE("Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"]."))
 
 /obj/screen/movable/mecha/toggle/hardpoint
 	name = "toggle hardpoint lock"
@@ -204,10 +204,10 @@
 
 /obj/screen/movable/mecha/toggle/hardpoint/toggled()
 	if(owner.force_locked)
-		to_chat(usr, "<span class='warning'>The locking system cannot be operated due to software restriction. Contact the manufacturer for more details.</span>")
+		to_chat(usr, SPAN_WARNING("The locking system cannot be operated due to software restriction. Contact the manufacturer for more details."))
 		return
 	owner.hardpoints_locked = ..()
-	to_chat(usr, "<span class='notice'>Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"].</span>")
+	to_chat(usr, SPAN_NOTICE("Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"]."))
 
 /obj/screen/movable/mecha/toggle/hatch
 	name = "toggle hatch lock"
@@ -215,13 +215,13 @@
 
 /obj/screen/movable/mecha/toggle/hatch/toggled()
 	if(!owner.hatch_locked && !owner.hatch_closed)
-		to_chat(usr, "<span class='warning'>You cannot lock the hatch while it is open.</span>")
+		to_chat(usr, SPAN_WARNING("You cannot lock the hatch while it is open."))
 		return
 	if(owner.force_locked)
-		to_chat(usr, "<span class='warning'>The locking system cannot be operated due to software restriction. Contact the manufacturer for more details.</span>")
+		to_chat(usr, SPAN_WARNING("The locking system cannot be operated due to software restriction. Contact the manufacturer for more details."))
 		return
 	owner.hatch_locked = ..()
-	to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked.</span>")
+	to_chat(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked."))
 
 /obj/screen/movable/mecha/toggle/hatch_open
 	name = "open or close hatch"
@@ -233,10 +233,10 @@
 
 /obj/screen/movable/mecha/toggle/hatch_open/toggled()
 	if(owner.hatch_locked && owner.hatch_closed)
-		to_chat(usr, "<span class='warning'>You cannot open the hatch while it is locked.</span>")
+		to_chat(usr, SPAN_WARNING("You cannot open the hatch while it is locked."))
 		return
 	owner.hatch_closed = ..()
-	to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ].</span>")
+	to_chat(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ]."))
 	owner.update_icon()
 
 // This is basically just a holder for the updates the mech does.
@@ -250,12 +250,12 @@
 
 /obj/screen/movable/mecha/toggle/camera/toggled()
 	if(!owner.head)
-		to_chat(usr, "<span class='warning'>I/O Error: Camera systems not found.</span>")
+		to_chat(usr, SPAN_WARNING("I/O Error: Camera systems not found."))
 		return
 	if(!owner.head.vision_flags)
-		to_chat(usr, "<span class='warning'>Alternative sensor configurations not found. Contact manufacturer for more details.</span>")
+		to_chat(usr, SPAN_WARNING("Alternative sensor configurations not found. Contact manufacturer for more details."))
 		return
 	owner.head.active_sensors = ..()
-	to_chat(usr, "<span class='notice'>[owner.head.name] advanced sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active.</span>")
+	to_chat(usr, SPAN_NOTICE("[owner.head.name] advanced sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active."))
 
 #undef BAR_CAP

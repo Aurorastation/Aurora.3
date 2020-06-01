@@ -24,9 +24,9 @@
 				use()
 			return
 		else
-			to_chat(user, span("cult", "This talisman has not been imbued with power!"))
+			to_chat(user, SPAN_CULT("This talisman has not been imbued with power!"))
 	else
-		to_chat(user, span("cult", "You see strange symbols on the paper. Are they supposed to mean something?"))
+		to_chat(user, SPAN_CULT("You see strange symbols on the paper. Are they supposed to mean something?"))
 		return
 
 /obj/item/paper/talisman/proc/use()

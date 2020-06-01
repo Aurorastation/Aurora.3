@@ -84,22 +84,22 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		if("AI")
 			if(last_request + 200 < world.time) //don't spam the AI with requests you jerk!
 				last_request = world.time
-				to_chat(user, "<span class='notice'>You request an AI's presence.</span>")
+				to_chat(user, SPAN_NOTICE("You request an AI's presence."))
 				var/area/area = get_area(src)
 				for(var/mob/living/silicon/ai/AI in silicon_mob_list)
 					if(!AI.client)	continue
-					to_chat(AI, "<span class='info'>Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>.</span>")
+					to_chat(AI, span("info", "Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>."))
 			else
-				to_chat(user, "<span class='notice'>A request for AI presence was already sent recently.</span>")
+				to_chat(user, SPAN_NOTICE("A request for AI presence was already sent recently."))
 		if("Holocomms")
 			if(user.loc != src.loc)
-				to_chat(user, "<span class='info'>Please step unto the holopad.</span>")
+				to_chat(user, span("info", "Please step unto the holopad."))
 				return
 			if(last_request + 200 < world.time) //don't spam other people with requests either, you jerk!
 				last_request = world.time
 				var/obj/item/card/id/I = user.GetIdCard()
 				if(!I)
-					to_chat(user, span("notice", "You need authorization to use the holocall system. Please equip a valid ID card."))
+					to_chat(user, SPAN_NOTICE("You need authorization to use the holocall system. Please equip a valid ID card."))
 					return
 				var/forcedcall = 0
 				if(access_heads in I.access) //Special functions for command level people
@@ -114,7 +114,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 				var/temppad = input(user, "Which holopad would you like to contact?", "holopad list") as null|anything in holopadlist
 				targetpad = holopadlist["[temppad]"]
 				if(targetpad == src)
-					to_chat(user, "<span class='info'>Using such sophisticated technology, just to talk to yourself seems a bit silly.</span>")
+					to_chat(user, span("info", "Using such sophisticated technology, just to talk to yourself seems a bit silly."))
 					return
 				if(targetpad)
 					make_call(targetpad, user, forcedcall)
@@ -128,13 +128,13 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	targetpad.icon_state = "holopad1"
 	if(forcedcall)
 		targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming call with command authorization from [targetpad.sourcepad.loc.loc].\"")
-		to_chat(user, "<span class='notice'>Establishing forced connection to the holopad in [targetpad.loc.loc]</span>")
+		to_chat(user, SPAN_NOTICE("Establishing forced connection to the holopad in [targetpad.loc.loc]"))
 		targetpad.forced = 1
 		sleep(80)
 		targetpad.take_call(user)
 	else
 		targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
-		to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [targetpad.loc.loc]... Please await confirmation from recipient.</span>")
+		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [targetpad.loc.loc]... Please await confirmation from recipient."))
 
 /obj/machinery/hologram/holopad/proc/take_call(mob/living/carbon/user)
 	incoming_connection = 0

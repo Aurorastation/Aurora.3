@@ -147,11 +147,11 @@
 	to_chat(user, "\icon[src] That's [f_name] [suffix]")
 	to_chat(user, desc)
 	if(description_cult && (user.mind?.special_role == "Cultist" || isobserver(src)))
-		to_chat(user, FONT_SMALL(span("cult", description_cult)))
+		to_chat(user, FONT_SMALL(SPAN_CULT(description_cult)))
 	if(desc_info || desc_fluff)
-		to_chat(user, span("notice", "This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+		to_chat(user, SPAN_NOTICE("This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 	if(desc_antag && player_is_antag(user.mind))
-		to_chat(user, span("notice", "This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+		to_chat(user, SPAN_NOTICE("This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 
 	return distance == -1 || (get_dist(src, user) <= distance)
 
@@ -210,17 +210,17 @@
 			return 0
 		if (H.gloves)
 			if(src.fingerprintslast != H.key)
-				src.fingerprintshidden += text("\[[time_stamp()]\] (Wearing gloves). Real name: [], Key: []",H.real_name, H.key)
+				src.fingerprintshidden += "\[[time_stamp()]\] (Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 				src.fingerprintslast = H.key
 			return 0
 		if (!( src.fingerprints ))
 			if(src.fingerprintslast != H.key)
-				src.fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",H.real_name, H.key)
+				src.fingerprintshidden += "\[[time_stamp()]\] Real name: [H.real_name], Key: [H.key]"
 				src.fingerprintslast = H.key
 			return 1
 	else
 		if(src.fingerprintslast != M.key)
-			src.fingerprintshidden += text("\[[time_stamp()]\] Real name: [], Key: []",M.real_name, M.key)
+			src.fingerprintshidden += "\[[time_stamp()]\] Real name: [M.real_name], Key: [M.key]"
 			src.fingerprintslast = M.key
 	return
 
@@ -254,7 +254,7 @@
 		//Now, deal with gloves.
 		if (H.gloves && H.gloves != src)
 			if(fingerprintslast != H.key)
-				fingerprintshidden += text("\[[]\](Wearing gloves). Real name: [], Key: []",time_stamp(), H.real_name, H.key)
+				fingerprintshidden += "\[[time_stamp()]\](Wearing gloves). Real name: [H.real_name], Key: [H.key]"
 				fingerprintslast = H.key
 			H.gloves.add_fingerprint(M)
 
@@ -267,7 +267,7 @@
 
 		//More adminstuffz
 		if(fingerprintslast != H.key)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), H.real_name, H.key)
+			fingerprintshidden += "\[[time_stamp()]\]Real name: [H.real_name], Key: [H.key]"
 			fingerprintslast = H.key
 
 		//Make the list if it does not exist.
@@ -320,7 +320,7 @@
 	else
 		//Smudge up dem prints some
 		if(fingerprintslast != M.key)
-			fingerprintshidden += text("\[[]\]Real name: [], Key: []",time_stamp(), M.real_name, M.key)
+			fingerprintshidden += "\[[time_stamp()]\]Real name: [M.real_name], Key: [M.key]"
 			fingerprintslast = M.key
 
 	//Cleaning up shit.

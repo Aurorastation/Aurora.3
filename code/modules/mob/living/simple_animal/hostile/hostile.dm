@@ -177,7 +177,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		var/obj/machinery/porta_turret/T = target_mob
 		src.do_attack_animation(T)
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
-		visible_message("<span class='danger'>[src] [attacktext] \the [T]!</span>")
+		visible_message(SPAN_DANGER("[src] [attacktext] \the [T]!"))
 		return T
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
@@ -227,7 +227,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	// This code checks if we are not going to hit our target
 	if(smart && !check_fire(target_mob))
 		return
-	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>")
+	visible_message(SPAN_WARNING(" <b>[src]</b> fires at [target]!"))
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
@@ -285,7 +285,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
 			if(e)
 				e.Stress(rand(1,2))
-				visible_message("<span class='danger'>\the [src] [attacktext] \the [e]!</span>")
+				visible_message(SPAN_DANGER("\the [src] [attacktext] \the [e]!"))
 				src.do_attack_animation(e)
 				target_mob = e
 				stance = HOSTILE_STANCE_ATTACKING

@@ -28,9 +28,9 @@
 		var/move_duration = input(user, "How many seconds will this jump take?") as num
 
 		S.long_jump(origin_area, destination_area, transition_area, move_duration)
-		message_admins("<span class='notice'>[key_name_admin(user)] has initiated a jump from [origin_area] to [destination_area] lasting [move_duration] seconds for the [shuttle_tag] shuttle</span>", 1)
+		message_admins(SPAN_NOTICE("[key_name_admin(user)] has initiated a jump from [origin_area] to [destination_area] lasting [move_duration] seconds for the [shuttle_tag] shuttle"), 1)
 		log_admin("[key_name(user)] has initiated a jump from [origin_area] to [destination_area] lasting [move_duration] seconds for the [shuttle_tag] shuttle",admin_key=key_name(user))
 	else
 		S.short_jump(origin_area, destination_area)
-		message_admins("<span class='notice'>[key_name_admin(user)] has initiated a jump from [origin_area] to [destination_area] for the [shuttle_tag] shuttle</span>", 1)
+		message_admins(SPAN_NOTICE("[key_name_admin(user)] has initiated a jump from [origin_area] to [destination_area] for the [shuttle_tag] shuttle"), 1)
 		log_admin("[key_name(user)] has initiated a jump from [origin_area] to [destination_area] for the [shuttle_tag] shuttle",admin_key=key_name(user))

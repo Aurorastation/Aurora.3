@@ -55,7 +55,7 @@
 			to_chat(user, "You already control this APC!")
 			return
 		else if(A.aidisabled)
-			to_chat(user, "<span class='notice'>Unable to connect to APC. Please verify wire connection and try again.</span>")
+			to_chat(user, SPAN_NOTICE("Unable to connect to APC. Please verify wire connection and try again."))
 			return
 	else
 		return
@@ -76,9 +76,9 @@
 		if(A.hacker == user)
 			to_chat(user, "Hack successful. You now have full control over the APC.")
 		else
-			to_chat(user, "<span class='notice'>Hack failed. Connection to APC has been lost. Please verify wire connection and try again.</span>")
+			to_chat(user, SPAN_NOTICE("Hack failed. Connection to APC has been lost. Please verify wire connection and try again."))
 	else
-		to_chat(user, "<span class='notice'>Hack failed. Unable to locate APC. Please verify the APC still exists.</span>")
+		to_chat(user, SPAN_NOTICE("Hack failed. Unable to locate APC. Please verify the APC still exists."))
 	user.hacking = 0
 
 
@@ -99,7 +99,7 @@
 		if("Template")
 			establish_db_connection(dbcon)
 			if (!dbcon.IsConnected())
-				to_chat(src, "<span class='notice'>Unable to connect to the database.</span>")
+				to_chat(src, SPAN_NOTICE("Unable to connect to the database."))
 				return
 			var/DBQuery/query = dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
 			query.Execute()
@@ -113,7 +113,7 @@
 
 			// Catch empty list
 			if (!templates.len)
-				to_chat(src, "<span class='notice'>There are no templates in the database.</span>")
+				to_chat(src, SPAN_NOTICE("There are no templates in the database."))
 				return
 
 			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
@@ -172,7 +172,7 @@
 			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			to_world("<span class='alert'>New [current_map.company_name] Update available at all communication consoles.</span>")
+			to_world(SPAN_ALERT("New [current_map.company_name] Update available at all communication consoles."))
 			to_world(sound('sound/AI/commandreport.ogg'))
 			post_comm_message(reporttitle, reportbody)
 

@@ -40,7 +40,7 @@
 /obj/item/device/flashlight/flare/glowstick/attack_self(var/mob/living/user)
 
 	if(((user.is_clumsy())) && prob(50))
-		to_chat(user, span("notice", "You break \the [src] apart, spilling its contents everywhere!"))
+		to_chat(user, SPAN_NOTICE("You break \the [src] apart, spilling its contents everywhere!"))
 		fuel = 0
 		new /obj/effect/decal/cleanable/greenglow(get_turf(user))
 		user.apply_effect((rand(15,30)),IRRADIATE,blocked = user.getarmor(null, "rad"))
@@ -48,18 +48,18 @@
 		return
 
 	if(!fuel)
-		to_chat(user, span("notice", "\The [src] has already been used."))
+		to_chat(user, SPAN_NOTICE("\The [src] has already been used."))
 		return
 	if(on)
-		to_chat(user, span("notice", "\The [src] has already been turned on."))
+		to_chat(user, SPAN_NOTICE("\The [src] has already been turned on."))
 		return
 
 	. = ..()
 
 	if(.)
 		user.visible_message(
-		span("notice", "[user] cracks and shakes \the [src]."),
-		span("notice", "You crack and shake \the [src], turning it on!")
+		SPAN_NOTICE("[user] cracks and shakes \the [src]."),
+		SPAN_NOTICE("You crack and shake \the [src], turning it on!")
 		)
 		update_icon()
 		START_PROCESSING(SSprocessing, src)

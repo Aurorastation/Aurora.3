@@ -13,7 +13,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	var/charge_max = 100 //recharge time in deciseconds if charge_type = Sp_RECHARGE or starting charges if charge_type = Sp_CHARGES
 	var/charge_counter = 0 //can only cast spells if it equals recharge, ++ each decisecond if charge_type = Sp_RECHARGE or -- each cast if charge_type = Sp_CHARGES
-	var/still_recharging_msg = "<span class='notice'>The spell is still recharging.</span>"
+	var/still_recharging_msg = SPAN_NOTICE("The spell is still recharging.")
 
 	var/silenced = 0 //not a binary - the length of time we can't cast this for
 	var/processing = 0 //are we processing already? Mainly used so that silencing a spell doesn't call process() again. (and inadvertedly making it run twice as fast)
@@ -63,7 +63,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 /spell/New()
 	..()
 
-	//still_recharging_msg = "<span class='notice'>[name] is still recharging.</span>"
+	//still_recharging_msg = SPAN_NOTICE("[name] is still recharging.")
 	charge_counter = charge_max
 
 /spell/process()
@@ -103,7 +103,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		take_charge(user, skipcharge)
 
 		before_cast(targets) //applies any overlays and effects
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>[user.real_name] ([user.ckey]) cast the spell [name].</font>")
+		user.attack_log += "\[[time_stamp()]\] <font color='red'>[user.real_name] ([user.ckey]) cast the spell [name].</font>"
 		if(prob(critfailchance))
 			critfail(targets, user)
 		else
@@ -172,7 +172,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	for(var/atom/target in targets)
 		var/location = get_turf(target)
 		if(istype(target,/mob/living) && message)
-			to_chat(target, text("[message]"))
+			to_chat(target, "[message]")
 		if(sparks_spread)
 			spark(location, sparks_amt)
 		if(smoke_spread)
@@ -194,7 +194,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	if(!(src in user.spell_list) && holder == user)
 		error("[user] utilized the spell '[src]' without having it.")
-		to_chat(user, "<span class='warning'>You shouldn't have this spell! Something's wrong.</span>")
+		to_chat(user, SPAN_WARNING("You shouldn't have this spell! Something's wrong."))
 		return 0
 
 	if(silenced > 0)
@@ -202,7 +202,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	var/turf/user_turf = get_turf(user)
 	if(!user_turf)
-		to_chat(user, "<span class='warning'>You cannot cast spells in null space!</span>")
+		to_chat(user, SPAN_WARNING("You cannot cast spells in null space!"))
 
 	if(spell_flags & Z2NOCAST && isAdminLevel(user_turf.z)) //Certain spells are not allowed on the centcomm zlevel
 		return 0
@@ -215,7 +215,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	if(istype(user, /mob/living/simple_animal) && holder == user)
 		var/mob/living/simple_animal/SA = user
 		if(SA.purge)
-			to_chat(SA, "<span class='warning'>The nullrod's power interferes with your own!</span>")
+			to_chat(SA, SPAN_WARNING("The nullrod's power interferes with your own!"))
 			return 0
 
 	if(!src.check_charge(skipcharge, user)) //sees if we can cast based on charges alone
@@ -247,7 +247,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 					return 0
 			if(Sp_CHARGES)
 				if(!charge_counter)
-					to_chat(user, "<span class='notice'>[name] has no charges left.</span>")
+					to_chat(user, SPAN_NOTICE("[name] has no charges left."))
 					return 0
 	return 1
 

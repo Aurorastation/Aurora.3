@@ -74,7 +74,7 @@ var/list/admin_departments
 	if(href_list["send"])
 		if (get_remaining_cooldown() > 0)
 			// Rate-limit sending faxes
-			to_chat(usr, "<span class='warning'>The fax machine isn't ready, yet!</span>")
+			to_chat(usr, SPAN_WARNING("The fax machine isn't ready, yet!"))
 			SSvueui.check_uis_for_change(src)
 			return
 
@@ -96,9 +96,9 @@ var/list/admin_departments
 			copyitem.forceMove(loc)
 			if (get_dist(usr, src) < 2)
 				usr.put_in_hands(copyitem)
-				to_chat(usr, "<span class='notice'>You take \the [copyitem] out of \the [src].</span>")
+				to_chat(usr, SPAN_NOTICE("You take \the [copyitem] out of \the [src]."))
 			else
-				to_chat(usr, "<span class='notice'>You eject \the [copyitem] from \the [src].</span>")
+				to_chat(usr, SPAN_NOTICE("You eject \the [copyitem] from \the [src]."))
 			copyitem = null
 			SSvueui.check_uis_for_change(src)
 
@@ -122,23 +122,23 @@ var/list/admin_departments
 	if(href_list["linkpda"])
 		var/obj/item/device/pda/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
-			to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
+			to_chat(usr, SPAN_WARNING("You need to be holding a PDA to link it."))
 		else if (pda in alert_pdas)
-			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 			SSvueui.check_uis_for_change(src)
 		else
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
-			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
+			to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine."))
 			SSvueui.check_uis_for_change(src)
 
 	if(href_list["unlink"])
 		var/obj/item/device/pda/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
+				to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes."))
 				alert_pdas -= pda
 				SSvueui.check_uis_for_change(src)
 
@@ -278,7 +278,7 @@ var/list/admin_departments
 
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
-	var/msg = "<span class='notice'> <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[sender]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=\ref[sender]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=\ref[src];faxMachine=\ref[src]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a></span>"
+	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[sender]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=\ref[sender]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=\ref[src];faxMachine=\ref[src]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a>")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0

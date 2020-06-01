@@ -12,18 +12,18 @@
 		if(target_zone == BP_EYES)
 
 			if(!H.organs_by_name[BP_HEAD])
-				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head."))
 				return
 			if(!H.has_eyes())
-				to_chat(user, "<span class='warning'>\The [H] doesn't have any eyes.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have any eyes."))
 				return
 			if(H.glasses)
-				to_chat(user, "<span class='warning'>\The [H] is already wearing somethign on their eyes.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] is already wearing somethign on their eyes."))
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
-				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
+				to_chat(user, SPAN_WARNING("Remove their [H.head] first."))
 				return
-			user.visible_message("<span class='danger'>\The [user] begins taping over \the [H]'s eyes!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] begins taping over \the [H]'s eyes!"))
 
 			if(!do_after(user, 30))
 				return
@@ -33,26 +33,26 @@
 				return
 
 			playsound(src, 'sound/items/tape.ogg',25)
-			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s eyes!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s eyes!"))
 			H.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/blindfold/tape(H), slot_glasses)
 			H.update_inv_glasses()
 
 		else if(target_zone == BP_MOUTH || target_zone == BP_HEAD)
 			if(!H.organs_by_name[BP_HEAD])
-				to_chat(user, "<span class='warning'>\The [H] doesn't have a head.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a head."))
 				return
 			if(!H.check_has_mouth())
-				to_chat(user, "<span class='warning'>\The [H] doesn't have a mouth.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] doesn't have a mouth."))
 				return
 			if(H.wear_mask)
-				to_chat(user, "<span class='warning'>\The [H] is already wearing a mask.</span>")
+				to_chat(user, SPAN_WARNING("\The [H] is already wearing a mask."))
 				return
 			if(H.head && (H.head.body_parts_covered & FACE))
-				to_chat(user, "<span class='warning'>Remove their [H.head] first.</span>")
+				to_chat(user, SPAN_WARNING("Remove their [H.head] first."))
 				return
 
 			playsound(src, 'sound/items/tape.ogg',25)
-			user.visible_message("<span class='danger'>\The [user] begins taping up \the [H]'s mouth!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] begins taping up \the [H]'s mouth!"))
 
 			if(!do_after(user, 30))
 				return
@@ -62,7 +62,7 @@
 				return
 
 			playsound(src, 'sound/items/tape.ogg',25)
-			user.visible_message("<span class='danger'>\The [user] has taped up \the [H]'s mouth!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] has taped up \the [H]'s mouth!"))
 			H.equip_to_slot_or_del(new /obj/item/clothing/mask/muzzle/tape(H), slot_wear_mask)
 			H.update_inv_wear_mask()
 

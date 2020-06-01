@@ -18,7 +18,7 @@ obj/item/reagent_containers/glass/solution_tray/attackby(obj/item/W as obj, mob/
 		var/new_label = sanitizeSafe(input("What should the new label be?","Label solution tray"), MAX_NAME_LEN)
 		if(new_label)
 			name = "solution tray ([new_label])"
-			to_chat(user, "<span class='notice'>You write on the label of the solution tray.</span>")
+			to_chat(user, SPAN_NOTICE("You write on the label of the solution tray."))
 	else
 		..(W, user)
 

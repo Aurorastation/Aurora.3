@@ -97,13 +97,13 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	M.take_organ_damage(0, rand(5,20)) //really lucky - 5 hits for a crit
-	visible_message(span("warning", "\The [user] beats \the [M] with \the [src]!"))
-	to_chat(M, span("danger", "You feel searing heat inside!"))
+	visible_message(SPAN_WARNING("\The [user] beats \the [M] with \the [src]!"))
+	to_chat(M, SPAN_DANGER("You feel searing heat inside!"))
 	attack_admins(M, user)
 
 /obj/item/book/tome/proc/attack_admins(var/mob/living/M, var/mob/living/user)
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
+	M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>"
 	msg_admin_attack("[key_name_admin(user)] used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 
@@ -113,18 +113,18 @@
 
 	if(iscultist(user))
 		if(!istype(user.loc, /turf))
-			to_chat(user, span("warning", "You do not have enough space to write a proper rune."))
+			to_chat(user, SPAN_WARNING("You do not have enough space to write a proper rune."))
 			return
 
 		var/turf/T = get_turf(user)
 
 		if(T.is_hole || T.is_space())
-			to_chat(user, span("warning", "You are unable to write a rune here."))
+			to_chat(user, SPAN_WARNING("You are unable to write a rune here."))
 			return
 
 		// This counts how many runes exist in the game, for some sort of arbitrary rune limit. I trust the old devs had their reasons. - Geeves
 		if(length(rune_list) >= 25 + rune_boost + cult.current_antagonists.len)
-			to_chat(user, span("warning", "The cloth of reality can't take that much of a strain. Remove some runes first!"))
+			to_chat(user, SPAN_WARNING("The cloth of reality can't take that much of a strain. Remove some runes first!"))
 			return
 		else
 			switch(alert("What shall you do with the tome?", "Tome of Nar'sie", "Read it", "Scribe a rune", "Cancel"))
@@ -138,7 +138,7 @@
 
 		//only check if they want to scribe a rune, so they can still read if standing on a rune
 		if(locate(/obj/effect/rune) in user.loc)
-			to_chat(user, span("warning", "There is already a rune in this location."))
+			to_chat(user, SPAN_WARNING("There is already a rune in this location."))
 			return
 
 		if(use_check_and_message(user))
@@ -150,7 +150,7 @@
 		if(!chosen_rune)
 			return
 		if(chosen_rune == "None")
-			to_chat(user, span("notice", "You decide against scribing a rune, perhaps you should take this time to study your notes."))
+			to_chat(user, SPAN_NOTICE("You decide against scribing a rune, perhaps you should take this time to study your notes."))
 			return
 		if(chosen_rune == "Teleport")
 			network = input(user, "Choose a teleportation network for the rune to connect to.", "Teleportation Rune") in teleport_network
@@ -158,7 +158,7 @@
 		if(use_check_and_message(user))
 			return
 
-		user.visible_message(span("warning", "\The [user] slices open a finger and begins to chant and paint symbols on the floor."), span("notice", "You slice open one of your fingers and begin drawing a rune on the floor whilst softly chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world."))
+		user.visible_message(SPAN_WARNING("\The [user] slices open a finger and begins to chant and paint symbols on the floor."), SPAN_NOTICE("You slice open one of your fingers and begin drawing a rune on the floor whilst softly chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world."))
 		user.take_overall_damage((rand(9)+1)/10) // 0.1 to 1.0 damage
 
 		if(do_after(user, 50))
@@ -168,7 +168,7 @@
 			
 			//prevents using multiple dialogs to layer runes.
 			if(locate(/obj/effect/rune) in user.loc) //This is check is done twice. once when choosing to scribe a rune, once here
-				to_chat(user, span("warning", "There is already a rune in this location."))
+				to_chat(user, SPAN_WARNING("There is already a rune in this location."))
 				return
 
 			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
@@ -176,7 +176,7 @@
 			var/mob/living/carbon/human/H = user
 			var/rune_path = rune_types[chosen_rune]
 			var/obj/effect/rune/R = new rune_path(get_turf(user))
-			to_chat(user, span("notice", "You finish drawing the arcane markings of the Geometer."))
+			to_chat(user, SPAN_NOTICE("You finish drawing the arcane markings of the Geometer."))
 			R.blood_DNA = list()
 			R.blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
 			if(network)
@@ -187,7 +187,7 @@
 				R.color = scribe.species.blood_color
 		return
 	else
-		to_chat(user, span("cult", "The book seems full of illegible scribbles."))
+		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 		return
 
 /obj/item/book/tome/examine(mob/user)

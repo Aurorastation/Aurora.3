@@ -11,7 +11,7 @@
 			cant_talisman = TRUE
 	if(!new_talisman)
 		if(cant_talisman)
-			to_chat(user, span("cult", "The paper is tainted. It is unsuitable."))
+			to_chat(user, SPAN_CULT("The paper is tainted. It is unsuitable."))
 		return fizzle(user)
 
 	var/obj/effect/rune/imbued_from
@@ -28,7 +28,7 @@
 			T.network = R.network
 		break
 	if(imbued_from)
-		visible_message(span("warning", "The runes turn into dust, which then forms into an arcane image on the paper."))
+		visible_message(SPAN_WARNING("The runes turn into dust, which then forms into an arcane image on the paper."))
 		user.say("H'drak v[pick("'","`")]loso, mir'kanas verbot!")
 		qdel(imbued_from)
 		qdel(new_talisman)

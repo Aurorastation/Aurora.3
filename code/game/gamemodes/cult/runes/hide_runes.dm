@@ -12,13 +12,13 @@
 		if(istype(O,/obj/effect/rune))
 			user.say("Kla[pick("'","`")]atu barada nikt'o!")
 			for(var/mob/V in viewers(get_turf(O)))
-				to_chat(V, span("warning", "The rune turns into gray dust, veiling the surrounding runes."))
+				to_chat(V, SPAN_WARNING("The rune turns into gray dust, veiling the surrounding runes."))
 			qdel(O)
 		else
 			user.whisper("Kla[pick("'","`")]atu barada nikt'o!")
-			to_chat(user, span("warning", "Your talisman turns into gray dust, veiling the surrounding runes."))
+			to_chat(user, SPAN_WARNING("Your talisman turns into gray dust, veiling the surrounding runes."))
 			for(var/mob/V in orange(1, get_turf(O)))
 				if(V == user)
 					continue
-				to_chat(V, span("warning", "Dust emanates from [user]'s hands for a moment."))
+				to_chat(V, SPAN_WARNING("Dust emanates from [user]'s hands for a moment."))
 		return TRUE

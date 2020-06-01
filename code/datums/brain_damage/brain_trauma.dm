@@ -7,8 +7,8 @@
 	var/scan_desc = "a generic brain trauma" //description when detected by a health scanner
 	var/mob/living/carbon/owner //the poor bastard
 	var/obj/item/organ/internal/brain/brain //the poor bastard's brain
-	var/gain_text = "<span class='notice'>You feel traumatized.</span>"
-	var/lose_text = "<span class='notice'>You no longer feel traumatized.</span>"
+	var/gain_text = SPAN_NOTICE("You feel traumatized.")
+	var/lose_text = SPAN_NOTICE("You no longer feel traumatized.")
 	var/can_gain = TRUE //can this be gained through random traumas?
 	var/permanent = FALSE //can this be cured?
 	var/suppressed = 0 //currently being suppressed

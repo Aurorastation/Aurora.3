@@ -63,13 +63,13 @@
 
 	if (istype(C, /obj/item/device/pda))
 		if(!check_access(C))
-			to_chat(user, "<span class='warning'>Access Denied.</span>")
+			to_chat(user, SPAN_WARNING("Access Denied."))
 			return
 		else if (C in rings_pdas)
-			to_chat(user, "<span class='notice'>You unlink \the [C] from \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You unlink \the [C] from \the [src]."))
 			remove_pda(C)
 			return
-		to_chat(user, "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You link \the [C] to \the [src], it will now ring upon someone using \the [src]."))
 		rings_pdas += C
 		// WONT FIX: This requires callbacks fuck my dick.
 		destroyed_event.register(C, src, .proc/remove_pda)
@@ -88,11 +88,11 @@
 		return
 
 	if(!on)
-		to_chat(user, "<span class='notice'>You turn \the [src] on, now all PDAs linked to it will be notified.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] on, now all PDAs linked to it will be notified."))
 		on = TRUE
 
 	else
-		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] off."))
 		on = FALSE
 
 	update_icon()

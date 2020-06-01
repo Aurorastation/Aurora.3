@@ -83,14 +83,14 @@
 		var/mob/living/carbon/human/H = mob
 		var/obj/item/organ/external/O = pick(H.organs)
 		if(prob(25))
-			to_chat(mob, "<span class='warning'>Your [O.name] feels as if it might burst!</span>")
+			to_chat(mob, SPAN_WARNING("Your [O.name] feels as if it might burst!"))
 		if(prob(10))
 			spawn(50)
 				if(O)
 					O.droplimb(0,DROPLIMB_BLUNT)
 	else
 		if(prob(75))
-			to_chat(mob, "<span class='warning'>Your whole body feels like it might fall apart!</span>")
+			to_chat(mob, SPAN_WARNING("Your whole body feels like it might fall apart!"))
 		if(prob(10))
 			mob.adjustBruteLoss(25*multiplier)
 
@@ -150,7 +150,7 @@
 		var/obj/item/organ/external/E = H.organs_by_name[organ]
 		if (!(E.status & ORGAN_DEAD))
 			E.status |= ORGAN_DEAD
-			to_chat(H, "<span class='notice'>You can't feel your [E.name] anymore...</span>")
+			to_chat(H, SPAN_NOTICE("You can't feel your [E.name] anymore..."))
 			for (var/obj/item/organ/external/C in E.children)
 				C.status |= ORGAN_DEAD
 		H.update_body(1)
@@ -185,7 +185,7 @@
 /datum/disease2/effect/immortal/deactivate(var/mob/living/carbon/mob,var/multiplier)
 	if(istype(mob, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = mob
-		to_chat(H, "<span class='notice'>You suddenly feel hurt and old...</span>")
+		to_chat(H, SPAN_NOTICE("You suddenly feel hurt and old..."))
 		H.age += 8
 	var/backlash_amt = 5*multiplier
 	mob.apply_damages(backlash_amt,backlash_amt,backlash_amt,backlash_amt)
@@ -272,7 +272,7 @@
 	stage = 3
 
 /datum/disease2/effect/confusion/activate(var/mob/living/carbon/mob,var/multiplier)
-	to_chat(mob, "<span class='notice'>You have trouble telling right and left apart all of a sudden.</span>")
+	to_chat(mob, SPAN_NOTICE("You have trouble telling right and left apart all of a sudden."))
 	mob.confused += 10
 
 /datum/disease2/effect/mutation
@@ -346,7 +346,7 @@
 
 /datum/disease2/effect/cough/activate(var/mob/living/carbon/mob,var/multiplier)
 	if(mob.reagents.has_reagent("coughsyrup"))
-		to_chat(mob, span("notice", "You faintly feel the urge to cough, but manage to suppress it."))
+		to_chat(mob, SPAN_NOTICE("You faintly feel the urge to cough, but manage to suppress it."))
 		return
 	mob.say("*cough")
 	for(var/mob/living/carbon/M in oview(2,mob))
@@ -375,7 +375,7 @@
 	if(istype(mob, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = mob
 		if(H.species.name == "Human" && !(H.h_style == "Bald") && !(H.h_style == "Balding Hair"))
-			to_chat(H, "<span class='danger'>Your hair starts to fall out in clumps...</span>")
+			to_chat(H, SPAN_DANGER("Your hair starts to fall out in clumps..."))
 			spawn(50)
 				H.h_style = "Balding Hair"
 				H.update_hair()
@@ -387,7 +387,7 @@
 
 
 /datum/disease2/effect/stimulant/activate(var/mob/living/carbon/mob,var/multiplier)
-	to_chat(mob, "<span class='notice'>You feel a rush of energy inside you!</span>")
+	to_chat(mob, SPAN_NOTICE("You feel a rush of energy inside you!"))
 	if (mob.reagents.get_reagent_amount("hyperzine") < 10)
 		mob.reagents.add_reagent("hyperzine", 4)
 	if (prob(30))
@@ -401,9 +401,9 @@
 
 /datum/disease2/effect/sneeze/activate(var/mob/living/carbon/mob, var/multiplier)
 	if (prob(30))
-		to_chat(mob, "<span class='warning'>You feel like you are about to sneeze!</span>")
+		to_chat(mob, SPAN_WARNING("You feel like you are about to sneeze!"))
 	if(mob.reagents.has_reagent("diphenhydramine"))
-		to_chat(mob, span("notice", "You faintly feel the urge to sneeze, but manage to suppress it."))
+		to_chat(mob, SPAN_NOTICE("You faintly feel the urge to sneeze, but manage to suppress it."))
 		return
 	addtimer(CALLBACK(src, .proc/do_sneeze, mob, multiplier), 5)
 
@@ -423,7 +423,7 @@
 	stage = 1
 
 /datum/disease2/effect/gunck/activate(var/mob/living/carbon/mob,var/multiplier)
-	to_chat(mob, "<span class='warning'>Mucous runs down the back of your throat.</span>")
+	to_chat(mob, SPAN_WARNING("Mucous runs down the back of your throat."))
 
 /datum/disease2/effect/drool
 	name = "Salivary Incontinence"
@@ -446,4 +446,4 @@
 	stage = 1
 
 /datum/disease2/effect/headache/activate(var/mob/living/carbon/mob,var/multiplier)
-	to_chat(mob, "<span class='warning'>Your head hurts a bit.</span>")
+	to_chat(mob, SPAN_WARNING("Your head hurts a bit."))

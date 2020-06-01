@@ -16,7 +16,7 @@
 	var/is_liquid = TRUE
 
 /obj/item/reagent_containers/food/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You [is_liquid ? "drink from" : "eat"] \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [is_liquid ? "drink from" : "eat"] \the [src]."))
 
 /obj/item/reagent_containers/food/feed_sound(var/mob/user)
 	if(is_liquid)
@@ -30,6 +30,6 @@
 			user.drop_from_inventory(src)	//so trash actually stays in the active hand.
 			var/obj/item/TrashItem = new trash(user)
 			user.put_in_hands(TrashItem)
-			target.visible_message(span("notice", "[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
-								   span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
+			target.visible_message(SPAN_NOTICE("[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
+								   SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 			qdel(src)

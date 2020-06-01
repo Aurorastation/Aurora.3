@@ -27,8 +27,8 @@
 	return ..()
 
 /obj/item/melee/arm_blade/dropped(var/mob/living/user)
-	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
-	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	visible_message(SPAN_DANGER("With a sickening crunch, [user] reforms their arm blade into an arm!"),
+	SPAN_WARNING("You hear organic matter ripping and tearing!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -83,8 +83,8 @@
 	return ..()
 
 /obj/item/shield/riot/changeling/dropped(var/mob/living/user)
-	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
-	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	visible_message(SPAN_DANGER("With a sickening crunch, [user] reforms their shield into an arm!"),
+	SPAN_WARNING("You hear organic matter ripping and tearing!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 

@@ -62,29 +62,29 @@
 		return ..()
 
 	if(!reagent_volumes[reagent_ids[mode]])
-		to_chat(user,"<span class='warning'>The injector is empty.</span>")
+		to_chat(user,SPAN_WARNING("The injector is empty."))
 		return
 
 	var/mob/living/carbon/human/H = M
 	if(istype(H))
 		var/obj/item/organ/external/affected = H.get_organ(user.zone_sel.selecting)
 		if(!affected)
-			to_chat(user,"<span class='danger'>\The [H] is missing that limb!</span>")
+			to_chat(user,SPAN_DANGER("\The [H] is missing that limb!"))
 			return
 		else if(affected.status & ORGAN_ROBOT)
-			to_chat(user,"<span class='danger'>You cannot inject a robotic limb.</span>")
+			to_chat(user,SPAN_DANGER("You cannot inject a robotic limb."))
 			return
 
 	if (M.can_inject(user, 1))
-		user.visible_message("<span class='notice'>[user] injects [M] with their hypospray!</span>", "<span class='notice'>You inject [M] with your hypospray!</span>", "<span class='notice'>You hear a hissing noise.</span>")
-		to_chat(M,"<span class='notice'>You feel a tiny prick!</span>")
+		user.visible_message(SPAN_NOTICE("[user] injects [M] with their hypospray!"), SPAN_NOTICE("You inject [M] with your hypospray!"), SPAN_NOTICE("You hear a hissing noise."))
+		to_chat(M,SPAN_NOTICE("You feel a tiny prick!"))
 
 		if(M.reagents)
 			var/t = min(amount_per_transfer_from_this, reagent_volumes[reagent_ids[mode]])
 			M.reagents.add_reagent(reagent_ids[mode], t)
 			reagent_volumes[reagent_ids[mode]] -= t
 			admin_inject_log(user, M, src, reagent_ids[mode], reagents.get_temperature(), t)
-			to_chat(user,"<span class='notice'>[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining.</span>")
+			to_chat(user,SPAN_NOTICE("[t] units injected. [reagent_volumes[reagent_ids[mode]]] units remaining."))
 	return
 
 /obj/item/reagent_containers/borghypo/attack_self(mob/user as mob) //Change the mode
@@ -108,7 +108,7 @@
 			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
 			mode = t
 			var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
-			to_chat(usr, "<span class='notice'>Synthesizer is now producing '[R.name]'.</span>")
+			to_chat(usr, SPAN_NOTICE("Synthesizer is now producing '[R.name]'."))
 
 /obj/item/reagent_containers/borghypo/examine(mob/user)
 	if(!..(user, 2))
@@ -116,7 +116,7 @@
 
 	var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_ids[mode]]
 
-	to_chat(user, "<span class='notice'>It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left.</span>")
+	to_chat(user, SPAN_NOTICE("It is currently producing [R.name] and has [reagent_volumes[reagent_ids[mode]]] out of [volume] units left."))
 
 /obj/item/reagent_containers/borghypo/service
 	name = "cyborg drink synthesizer"
@@ -140,11 +140,11 @@
 		return
 
 	if(!reagent_volumes[reagent_ids[mode]])
-		to_chat(user, "<span class='notice'>[src] is out of this reagent, give it some time to refill.</span>")
+		to_chat(user, SPAN_NOTICE("[src] is out of this reagent, give it some time to refill."))
 		return
 
 	if(!target.reagents.get_free_space())
-		to_chat(user, "<span class='notice'>[target] is full.</span>")
+		to_chat(user, SPAN_NOTICE("[target] is full."))
 		return
 
 	var/rid = reagent_ids[mode]
@@ -153,5 +153,5 @@
 	var/amt = min(amount_per_transfer_from_this, reagent_volumes[rid])
 	target.reagents.add_reagent(rid, amt, temperature = temp)
 	reagent_volumes[rid] -= amt
-	to_chat(user, "<span class='notice'>You transfer [amt] units of the solution to [target].</span>")
+	to_chat(user, SPAN_NOTICE("You transfer [amt] units of the solution to [target]."))
 	return

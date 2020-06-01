@@ -79,7 +79,7 @@
 			if(M.dna.unique_enzymes == data["blood_DNA"]) //so vampires can't drink their own blood
 				return
 			M.mind.vampire.blood_usable += removed
-			to_chat(M, "<span class='notice'>You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+			to_chat(M, SPAN_NOTICE("You have accumulated [M.mind.vampire.blood_usable] [M.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale."))
 			return
 	if(dose > 5)
 		M.adjustToxLoss(removed)
@@ -212,7 +212,7 @@
 		var/removed_heat = between(0, volume * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5))
-			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
+			T.visible_message(SPAN_WARNING("The water sizzles as it lands on \the [T]!"))
 
 	else if(volume >= 10)
 		T.wet_floor(WET_TYPE_WATER,volume)
@@ -242,7 +242,7 @@
 				S.target = null
 				++S.discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the water touches it!"), span("danger", "Your flesh burns in the water!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), SPAN_DANGER("Your flesh burns in the water!"))
 
 
 /datum/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)

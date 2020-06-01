@@ -71,7 +71,7 @@
 
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					to_chat(src, "<span class='danger'>You cannot send IC messages (muted).</span>")
+					to_chat(src, SPAN_DANGER("You cannot send IC messages (muted)."))
 					return
 			if (stat)
 				return
@@ -323,17 +323,17 @@
 						show_ssd = H.species.show_ssd
 					if(H && show_ssd && !H.client && !H.teleop)
 						if(H.bg)
-							to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
+							to_chat(H, SPAN_DANGER("You sense some disturbance to your physical body!"))
 						else if(!vr_mob)
-							message = "<span class='danger'>slaps [M] across the face, but they do not respond... Maybe they have S.S.D?</span>"
+							message = SPAN_DANGER("slaps [M] across the face, but they do not respond... Maybe they have S.S.D?")
 					else if(H.client && H.willfully_sleeping)
-						message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
+						message = SPAN_DANGER("slaps [M] across the face, waking them up. Ouch!")
 						H.sleeping = 0
 						H.willfully_sleeping = FALSE
 					else
-						message = "<span class='danger'>slaps [M] across the face. Ouch!</span>"
+						message = SPAN_DANGER("slaps [M] across the face. Ouch!")
 				else
-					message = "<span class='danger'>slaps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]!</span>"
+					message = SPAN_DANGER("slaps [get_visible_gender() == MALE ? "himself" : get_visible_gender() == FEMALE ? "herself" : "themselves"]!")
 					playsound(loc, 'sound/effects/snap.ogg', 50, 1)
 					SSfeedback.IncrementSimpleStat("selfslap")
 
@@ -618,7 +618,7 @@
 
 		if("beep")
 			if (!isipc(src))
-				to_chat(src, span("notice", "You're not a Machine!"))
+				to_chat(src, SPAN_NOTICE("You're not a Machine!"))
 			else
 				var/M = null
 				if(param)
@@ -638,7 +638,7 @@
 
 		if("ping")
 			if (!isipc(src))
-				to_chat(src, span("notice", "You're not a machine!"))
+				to_chat(src, SPAN_NOTICE("You're not a machine!"))
 			else
 				var/M = null
 				if(param)
@@ -658,7 +658,7 @@
 
 		if("buzz")
 			if (!isipc(src))
-				to_chat(src, span("notice", "You're not a machine!"))
+				to_chat(src, SPAN_NOTICE("You're not a machine!"))
 			else
 				var/M = null
 				if(param)
@@ -678,7 +678,7 @@
 
 		if("chirp")
 			if(!is_diona(src))
-				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
+				to_chat(src, SPAN_WARNING("You are not a Diona!"))
 				return
 			message = "chirps!"
 			playsound(src.loc, 'sound/misc/nymphchirp.ogg', 50, 0)
@@ -686,7 +686,7 @@
 
 		if("chirp_song")
 			if(!is_diona(src))
-				to_chat(src, "<span class='warning'>You are not a Diona!</span>")
+				to_chat(src, SPAN_WARNING("You are not a Diona!"))
 				return
 			message = "chirps a song!"
 			for(var/mob/living/carbon/alien/diona/D in src)
@@ -696,7 +696,7 @@
 
 		if("chitter")
 			if(!isvaurca(src))
-				to_chat(src, "<span class='warning'>You don't have the means to do this!</span>")
+				to_chat(src, SPAN_WARNING("You don't have the means to do this!"))
 				return
 			message = "chitters."
 			playsound(src.loc, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/misc/zapsplat/chitter3.ogg'), 50, 0)
@@ -704,7 +704,7 @@
 
 		if("vomit")
 			if (!check_has_mouth(src))
-				to_chat(src, "<span class='warning'>You are unable to vomit.</span>")
+				to_chat(src, SPAN_WARNING("You are unable to vomit."))
 				return
 			delayed_vomit()
 			return
@@ -714,7 +714,7 @@
 			to_chat(src, "blink, blink_r, blush, bow-(none)/mob, burp, choke, chuckle, clap, golfclap, collapse, cough, cry, custom, deathgasp, drool, eyebrow, frown, gasp, giggle, groan, grumble, handshake, hug-(none)/mob, glare-(none)/mob, grin, laugh, look-(none)/mob, moan, mumble, nod, pale, point-atom, raise, salute, shake, shiver, shrug, sigh, signal-#1-10, smile, sneeze, sniff, snore, stare-(none)/mob, tremble, twitch, twitch_s, whimper, wink, yawn, swish, sway/wag, fastsway/qwag, stopsway/swag, beep, ping, buzz, slap, snap, chitter, vomit")
 
 		else
-			to_chat(src, span("notice", "Unusable emote '[act]'. Say *help for a list."))
+			to_chat(src, SPAN_NOTICE("Unusable emote '[act]'. Say *help for a list."))
 
 
 

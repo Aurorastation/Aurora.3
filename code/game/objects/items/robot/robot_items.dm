@@ -14,7 +14,7 @@
 	if(!istype(user))
 		return 0
 
-	user.visible_message("<span class='danger'>\The [user] has prodded \the [M] with \a [src]!</span>")
+	user.visible_message(SPAN_DANGER("\The [user] has prodded \the [M] with \a [src]!"))
 
 	if(!user.cell || !user.cell.checked_use(1250)) //Slightly more than a baton.
 		return 0

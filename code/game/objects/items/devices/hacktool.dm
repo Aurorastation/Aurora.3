@@ -51,10 +51,10 @@
 
 /obj/item/device/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)
 	if(is_hacking && !multihack)
-		to_chat(user, "<span class='warning'>You are already hacking!</span>")
+		to_chat(user, SPAN_WARNING("You are already hacking!"))
 		return 0
 	if(target in current_hacks)
-		to_chat(user, span("warning", "You are already hacking this door!"))
+		to_chat(user, SPAN_WARNING("You are already hacking this door!"))
 		return 0
 	if(!is_type_in_list(target, supported_types))
 		to_chat(user, "\icon[src] <span class='warning'>Unable to hack this target!</span>")
@@ -64,7 +64,7 @@
 		known_targets.Swap(1, found)	// Move the last hacked item first
 		return 1
 
-	to_chat(user, "<span class='notice'>You begin hacking \the [target]...</span>")
+	to_chat(user, SPAN_NOTICE("You begin hacking \the [target]..."))
 	is_hacking = 1
 	current_hacks += target
 
@@ -74,11 +74,11 @@
 	current_hacks -= target
 
 	if(hack_result && in_hack_mode)
-		to_chat(user, "<span class='notice'>Your hacking attempt was succesful!</span>")
+		to_chat(user, SPAN_NOTICE("Your hacking attempt was succesful!"))
 		if(!silent)
 			playsound(src.loc, 'sound/piano/A#6.ogg', 75)
 	else
-		to_chat(user, "<span class='warning'>Your hacking attempt failed!</span>")
+		to_chat(user, SPAN_WARNING("Your hacking attempt failed!"))
 		return 0
 
 	known_targets.Insert(1, target)	// Insert the newly hacked target first,

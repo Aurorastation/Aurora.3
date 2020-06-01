@@ -22,7 +22,7 @@ obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob
 			new_seed_type = SSplants.seeds[F.plantname]
 
 		if(new_seed_type)
-			to_chat(user, "<span class='notice'>You extract some seeds from [O].</span>")
+			to_chat(user, SPAN_NOTICE("You extract some seeds from [O]."))
 			var/produce = rand(1,4)
 			for(var/i = 0;i<=produce;i++)
 				var/obj/item/seeds/seeds = new(get_turf(src))
@@ -37,7 +37,7 @@ obj/machinery/seed_extractor/attackby(var/obj/item/O as obj, var/mob/user as mob
 	else if(istype(O, /obj/item/stack/tile/grass_alt))
 		var/obj/item/stack/tile/grass/S = O
 		if (S.use(1))
-			to_chat(user, "<span class='notice'>You extract some seeds from the grass tile.</span>")
+			to_chat(user, SPAN_NOTICE("You extract some seeds from the grass tile."))
 			new /obj/item/seeds/grassseed(loc)
 
 	return

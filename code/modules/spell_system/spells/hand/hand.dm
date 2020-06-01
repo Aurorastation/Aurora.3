@@ -13,7 +13,7 @@
 /spell/hand/cast(list/targets, mob/user)
 	for(var/mob/M in targets)
 		if(M.get_active_hand())
-			to_chat(user, "<span class='warning'>You need an empty hand to cast this spell.</span>")
+			to_chat(user, SPAN_WARNING("You need an empty hand to cast this spell."))
 			return
 		var/obj/item/magic_hand/H = new(src)
 		if(!M.put_in_active_hand(H))

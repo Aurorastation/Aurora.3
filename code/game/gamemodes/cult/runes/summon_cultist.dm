@@ -17,7 +17,7 @@
 			return
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
 			for(var/mob/C in users)
-				to_chat(C, span("warning", "You cannot summon \the [cultist], for \his shackles of blood are strong."))
+				to_chat(C, SPAN_WARNING("You cannot summon \the [cultist], for \his shackles of blood are strong."))
 			return fizzle(user)
 		cultist.forceMove(get_turf(src))
 		cultist.lying = TRUE
@@ -32,8 +32,8 @@
 				if(users.len <= 4)				// You did the minimum, this is going to hurt more and we're going to stun you.
 					C.apply_effect(rand(3,6), STUN)
 					C.apply_effect(1, WEAKEN)
-		user.visible_message("<span class='warning'>The rune disappears with a flash of red light, and in its place now a body lies.</span>", \
-		"<span class='warning'>You are blinded by a flash of red light! After you're able to see again, you see that now instead of the rune there's a body.</span>", \
-		"<span class='warning'>You hear a pop and smell ozone.</span>")
+		user.visible_message(SPAN_WARNING("The rune disappears with a flash of red light, and in its place now a body lies."), \
+		SPAN_WARNING("You are blinded by a flash of red light! After you're able to see again, you see that now instead of the rune there's a body."), \
+		SPAN_WARNING("You hear a pop and smell ozone."))
 		qdel(src)
 	return fizzle(user)

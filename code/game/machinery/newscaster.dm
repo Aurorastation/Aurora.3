@@ -159,7 +159,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(istype(user, /mob/living/carbon/human) || istype(user,/mob/living/silicon) )
 		var/mob/living/human_or_robot_user = user
 		var/dat
-		dat = text("<H3>Newscaster Unit #[src.unit_no]</H3>")
+		dat = "<H3>Newscaster Unit #[src.unit_no]</H3>"
 
 		src.scan_user(human_or_robot_user) //Newscaster scans you
 
@@ -755,7 +755,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
 					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
-			to_chat(user, "<span class='notice'>This does nothing.</span>")
+			to_chat(user, SPAN_NOTICE("This does nothing."))
 	src.update_icon()
 
 /obj/machinery/newscaster/attack_ai(mob/user as mob)
@@ -1005,14 +1005,14 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 	var/turf/T = get_turf(src)                      //Who the fuck uses spawn(600) anyway, jesus christ
 	if(news_call)
 		for(var/mob/O in hearers(world.view-1, T))
-			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"[news_call]\"</span>",2)
+			O.show_message(span("newscaster", "<EM>[src.name]</EM> beeps, \"[news_call]\""),2)
 		src.alert = 1
 		src.update_icon()
 		addtimer(CALLBACK(src, .proc/clearAlert), 300)
 		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
 	else
 		for(var/mob/O in hearers(world.view-1, T))
-			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"Attention! Wanted issue distributed!\"</span>",2)
+			O.show_message(span("newscaster", "<EM>[src.name]</EM> beeps, \"Attention! Wanted issue distributed!\""),2)
 		playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 75, 1)
 	return
 

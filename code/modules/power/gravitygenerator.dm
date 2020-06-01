@@ -201,14 +201,14 @@
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(I.isscrewdriver())
-				to_chat(user, "<span class='notice'>You secure the screws of the framework.</span>")
+				to_chat(user, SPAN_NOTICE("You secure the screws of the framework."))
 				playsound(src.loc, I.usesound, 50, 1)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(I.iswelder())
 				var/obj/item/weldingtool/WT = I
 				if(WT.remove_fuel(1, user))
-					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
+					to_chat(user, SPAN_NOTICE("You mend the damaged framework."))
 					playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 					broken_state++
 		if(GRAV_NEEDS_PLASTEEL)
@@ -216,14 +216,14 @@
 				var/obj/item/stack/material/plasteel/PS = I
 				if(PS.amount >= 10)
 					PS.use(10)
-					to_chat(user, "<span class='notice'>You add the plating to the framework.</span>")
+					to_chat(user, SPAN_NOTICE("You add the plating to the framework."))
 					playsound(src.loc, 'sound/machines/click.ogg', 75, 1)
 					broken_state++
 				else
-					to_chat(user, "<span class='notice'>You need 10 sheets of plasteel.</span>")
+					to_chat(user, SPAN_NOTICE("You need 10 sheets of plasteel."))
 		if(GRAV_NEEDS_WRENCH)
 			if(I.iswrench())
-				to_chat(user, "<span class='notice'>You secure the plating to the framework.</span>")
+				to_chat(user, SPAN_NOTICE("You secure the plating to the framework."))
 				playsound(src.loc, I.usesound, 75, 1)
 				set_fix()
 		else
@@ -231,11 +231,11 @@
 	if(I.iscrowbar())
 		if(backpanelopen)
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
+			to_chat(user, SPAN_NOTICE("You replace the back panel."))
 			backpanelopen = 0
 		else
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-			to_chat(user, "<span class='notice'>You open the back panel.</span>")
+			to_chat(user, SPAN_NOTICE("You open the back panel."))
 			backpanelopen = 1
 
 	if(old_broken_state != broken_state)
@@ -465,7 +465,7 @@
 	if(!Area)
 		return
 	to_world("<h2 class='alert'>Station Announcement:</h2>")
-	to_world(span("danger", "Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
+	to_world(SPAN_DANGER("Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
 	sleep(50)
 	set_state(FALSE)
 	sleep(30)
@@ -478,5 +478,5 @@
 				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
 				if(istype(boots))
 					continue
-			to_chat(M, span("danger", "Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
+			to_chat(M, SPAN_DANGER("Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(1)

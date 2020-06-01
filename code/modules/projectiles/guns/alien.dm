@@ -49,7 +49,7 @@
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.species && H.species.name != "Vox" && H.species.name != "Vox Armalis")
-			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] does not respond to you!"))
 			return 0
 	return ..()
 
@@ -92,7 +92,7 @@
 			if(H.species.name == "Vox Armalis")
 				..()
 				return
-		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is far too large for you to pick up."))
 		return
 
 /obj/item/gun/energy/noisecannon/update_icon()

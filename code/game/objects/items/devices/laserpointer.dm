@@ -47,13 +47,13 @@
 			user.drop_item()
 			W.forceMove(src)
 			diode = W
-			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You install a [diode.name] in [src]."))
 		else
-			to_chat(user, "<span class='notice'>[src] already has a laser diode.</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has a laser diode."))
 
 	else if(W.isscrewdriver())
 		if(diode)
-			to_chat(user, "<span class='notice'>You remove the [diode.name] from the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove the [diode.name] from the [src]."))
 			diode.forceMove(get_turf(user))
 			diode = null
 			return
@@ -69,10 +69,10 @@
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
-		to_chat(user, "<span class='notice'>You point [src] at [target], but nothing happens!</span>")
+		to_chat(user, SPAN_NOTICE("You point [src] at [target], but nothing happens!"))
 		return
 	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	add_fingerprint(user)
@@ -86,21 +86,21 @@
 
 		if(prob(25))
 			C.emp_act(28)
-			outmsg = "<span class='notice'>You hit the lens of [C] with [src], temporarily disabling the camera!</span>"
+			outmsg = SPAN_NOTICE("You hit the lens of [C] with [src], temporarily disabling the camera!")
 
 			admin_attack_log(user, src,"hits the  camera with a laser pointer",  "EMPd a camera with a laser pointer")
 
 		else
-			outmsg = "<span class='notice'>You fail to hit the lens of [C] with [src].</span>"
+			outmsg = SPAN_NOTICE("You fail to hit the lens of [C] with [src].")
 
 	if(iscarbon(target))
 		if(user.zone_sel.selecting == BP_EYES)
 			var/mob/living/carbon/C = target
 			if(C.eyecheck() <= 0 && prob(30))
-				outmsg = "<span class='notice'>You blind [C] with [src]</span>"
+				outmsg = SPAN_NOTICE("You blind [C] with [src]")
 				C.eye_blind = 3
 			else
-				outmsg = "<span class='notice'>You fail to blind [C] with [src]</span>"
+				outmsg = SPAN_NOTICE("You fail to blind [C] with [src]")
 	
 	//laser pointer image
 	icon_state = "pointer_[pointer_icon_state]"
@@ -115,7 +115,7 @@
 	if(outmsg)
 		to_chat(user, outmsg)
 	else
-		to_chat(user, "<span class='notice'>You point [src] at [target].</span>")
+		to_chat(user, SPAN_NOTICE("You point [src] at [target]."))
 
 
 	flick_overlay(I, showto, 10)

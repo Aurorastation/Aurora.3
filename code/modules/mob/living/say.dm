@@ -118,9 +118,9 @@ proc/get_radio_key_from_channel(var/channel)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
 		if(prob(50))
-			to_chat(src, "<span class='danger'>You struggle to speak with your dislocated jaw!</span>")
+			to_chat(src, SPAN_DANGER("You struggle to speak with your dislocated jaw!"))
 		if(prob(10))
-			to_chat(src, "<span class='danger'>You feel a sharp pain from your jaw as you speak!</span>")
+			to_chat(src, SPAN_DANGER("You feel a sharp pain from your jaw as you speak!"))
 			src.Weaken(3)
 	returns[1] = message
 	returns[2] = verb
@@ -189,7 +189,7 @@ proc/get_radio_key_from_channel(var/channel)
 	// irrespective of distance or anything else.
 	if(speaking && (speaking.flags & HIVEMIND))
 		if(speaking.name == LANGUAGE_VAURCA && within_jamming_range(src))
-			to_chat(src, span("warning", "Your head buzzes as your message is blocked with jamming signals."))
+			to_chat(src, SPAN_WARNING("Your head buzzes as your message is blocked with jamming signals."))
 			return
 		speaking.broadcast(src,trim(message))
 		return 1
@@ -197,7 +197,7 @@ proc/get_radio_key_from_channel(var/channel)
 	verb = say_quote(message, speaking)
 
 	if(is_muzzled())
-		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
+		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
 	message = trim_left(message)
@@ -243,7 +243,7 @@ proc/get_radio_key_from_channel(var/channel)
 			message_range = speaking.get_talkinto_msg_range(message)
 		var/msg
 		if(!speaking || !(speaking.flags & NO_TALK_MSG))
-			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]]</span>"
+			msg = SPAN_NOTICE("\The [src] talks into \the [used_radios[1]]")
 		for(var/mob/living/M in hearers(5, src))
 			if((M != src) && msg)
 				M.show_message(msg)

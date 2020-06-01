@@ -12,7 +12,7 @@
 			if(N)
 				continue
 			M.take_overall_damage(50, 50)
-			to_chat(M, span("danger", "Your blood boils!"))
+			to_chat(M, SPAN_DANGER("Your blood boils!"))
 			victims += M
 		for(var/mob/living/carbon/human/C in orange(1, src))
 			if(iscultist(C) && !C.stat)

@@ -49,7 +49,7 @@
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
 
-	H.visible_message("<span class='notice'>[H] vanishes into thin air!</span>", "<span class='notice'>You vanish into thin air!</span>")
+	H.visible_message(SPAN_NOTICE("[H] vanishes into thin air!"), SPAN_NOTICE("You vanish into thin air!"))
 
 /obj/item/rig_module/stealth_field/deactivate()
 
@@ -58,7 +58,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	to_chat(H, "<span class='danger'>You are now visible.</span>")
+	to_chat(H, SPAN_DANGER("You are now visible."))
 	H.invisibility = 0
 
 	anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
@@ -112,11 +112,11 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(lastteleport + (5 SECONDS) > world.time)
-		to_chat(H, span("warning", "The teleporter needs time to cool down!"))
+		to_chat(H, SPAN_WARNING("The teleporter needs time to cool down!"))
 		return FALSE
 
 	if(!istype(H.loc, /turf))
-		to_chat(H, "<span class='warning'>You cannot teleport out of your current location.</span>")
+		to_chat(H, SPAN_WARNING("You cannot teleport out of your current location."))
 		return FALSE
 
 	var/turf/T
@@ -126,19 +126,19 @@
 		T = get_teleport_loc(get_turf(H), H, rand(5, 9))
 
 	if(!T || T.density)
-		to_chat(H, "<span class='warning'>You cannot teleport into solid walls.</span>")
+		to_chat(H, SPAN_WARNING("You cannot teleport into solid walls."))
 		return FALSE
 
 	if(isAdminLevel(T.z))
-		to_chat(H, "<span class='warning'>You cannot use your teleporter on this Z-level.</span>")
+		to_chat(H, SPAN_WARNING("You cannot use your teleporter on this Z-level."))
 		return FALSE
 
 	if(T.contains_dense_objects())
-		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
+		to_chat(H, SPAN_WARNING("You cannot teleport to a location with solid objects."))
 		return FALSE
 
 	if((T.z != H.z || get_dist(T, get_turf(H)) > world.view) && target)
-		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
+		to_chat(H, SPAN_WARNING("You cannot teleport to such a distant object."))
 		return FALSE
 
 	phase_out(H,get_turf(H))
@@ -146,7 +146,7 @@
 	phase_in(H,get_turf(H))
 
 	if(T != get_turf(H))
-		to_chat(H,span("warning","Something interferes with your [src]!"))
+		to_chat(H,SPAN_WARNING("Something interferes with your [src]!"))
 
 	for(var/obj/item/grab/G in H.contents)
 		if(G.affecting)
@@ -279,10 +279,10 @@
 		return
 	var/mob/living/carbon/human/H = holder.wearer
 	if(cooldown)
-		to_chat(H, "<span class='danger'>There isn't enough power stored up yet!</span>")
+		to_chat(H, SPAN_DANGER("There isn't enough power stored up yet!"))
 		return 0
 	else
-		to_chat(H, "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>")
+		to_chat(H, SPAN_DANGER("Your suit emits a loud sound as power is rapidly injected into your suits battery!"))
 		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
 		holder.cell.give(generation_ammount)
 		cooldown = 1
@@ -345,7 +345,7 @@
 	var/mob/living/M = holder.wearer
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, "<span class='danger'>Your hands are full.</span>")
+		to_chat(M, SPAN_DANGER("Your hands are full."))
 		deactivate()
 		return
 

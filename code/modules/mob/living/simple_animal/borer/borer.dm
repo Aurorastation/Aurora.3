@@ -98,7 +98,7 @@
 	host.remove_language(LANGUAGE_BORER)
 	host.remove_language(LANGUAGE_BORER_HIVEMIND)
 
-	to_chat(host, "<span class='notice'>You feel your nerves again as your control over your own body is restored.</span>")
+	to_chat(host, SPAN_NOTICE("You feel your nerves again as your control over your own body is restored."))
 	host.verbs -= /mob/living/carbon/proc/release_control
 	host.verbs -= /mob/living/carbon/proc/punish_host
 	host.verbs -= /mob/living/carbon/proc/spawn_larvae

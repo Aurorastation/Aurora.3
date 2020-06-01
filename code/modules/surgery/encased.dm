@@ -47,8 +47,8 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	user.visible_message("<span class='notice'>[user] has cut [target]'s [affected.encased] open with \the [tool].</span>",		\
-		"<span class='notice'>You have cut [target]'s [affected.encased] open with \the [tool].</span>")
+	user.visible_message(SPAN_NOTICE("[user] has cut [target]'s [affected.encased] open with \the [tool]."),		\
+		SPAN_NOTICE("You have cut [target]'s [affected.encased] open with \the [tool]."))
 	affected.open = 2.5
 
 /datum/surgery_step/open_encased/saw/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -56,8 +56,8 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	user.visible_message("<span class='warning'>[user]'s hand slips, cracking [target]'s [affected.encased] with \the [tool]!</span>" , \
-		"<span class='warning'>Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!</span>" )
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, cracking [target]'s [affected.encased] with \the [tool]!") , \
+		SPAN_WARNING("Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!") )
 
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
@@ -94,8 +94,8 @@
 		return
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/msg = "<span class='notice'>[user] forces open [target]'s [affected.encased] with \the [tool].</span>"
-	var/self_msg = "<span class='notice'>You force open [target]'s [affected.encased] with \the [tool].</span>"
+	var/msg = SPAN_NOTICE("[user] forces open [target]'s [affected.encased] with \the [tool].")
+	var/self_msg = SPAN_NOTICE("You force open [target]'s [affected.encased] with \the [tool].")
 	user.visible_message(msg, self_msg)
 	..()
 
@@ -106,8 +106,8 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	var/msg = "<span class='warning'>[user]'s hand slips, cracking [target]'s [affected.encased]!</span>"
-	var/self_msg = "<span class='warning'>Your hand slips, cracking [target]'s [affected.encased]!</span>"
+	var/msg = SPAN_WARNING("[user]'s hand slips, cracking [target]'s [affected.encased]!")
+	var/self_msg = SPAN_WARNING("Your hand slips, cracking [target]'s [affected.encased]!")
 	user.visible_message(msg, self_msg)
 
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
@@ -157,8 +157,8 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	var/msg = "<span class='warning'>[user]'s hand slips, bending [target]'s [affected.encased] the wrong way!</span>"
-	var/self_msg = "<span class='warning'>Your hand slips, bending [target]'s [affected.encased] the wrong way!</span>"
+	var/msg = SPAN_WARNING("[user]'s hand slips, bending [target]'s [affected.encased] the wrong way!")
+	var/self_msg = SPAN_WARNING("Your hand slips, bending [target]'s [affected.encased] the wrong way!")
 	user.visible_message(msg, self_msg)
 
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
@@ -167,7 +167,7 @@
 	if(affected.internal_organs && affected.internal_organs.len)
 		if(prob(40))
 			var/obj/item/organ/O = pick(affected.internal_organs) //TODO weight by organ size
-			user.visible_message("<span class='danger'>A wayward piece of [target]'s [affected.encased] pierces \his [O.name]!</span>")
+			user.visible_message(SPAN_DANGER("A wayward piece of [target]'s [affected.encased] pierces \his [O.name]!"))
 			O.bruise()
 
 /datum/surgery_step/open_encased/mend

@@ -16,7 +16,7 @@
 			user.unEquip(O)
 			O.forceMove(src)
 			rack_shotgun = O
-			to_chat(user, "<span class='notice'>You place \the [O] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You place \the [O] in \the [src]."))
 			icon_state = "shotgun_rack_[O.icon_state]"
 
 /obj/structure/shotgun_rack/attack_hand(mob/user)
@@ -26,14 +26,14 @@
 		return
 	if(rack_shotgun)
 		user.put_in_hands(rack_shotgun)
-		to_chat(user, "<span class='notice'>You take \the [rack_shotgun] from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You take \the [rack_shotgun] from \the [src]."))
 		rack_shotgun = null
 		icon_state = "shotgun_rack"
 
 /obj/structure/shotgun_rack/do_simple_ranged_interaction(var/mob/user)
 	if(rack_shotgun)
 		rack_shotgun.forceMove(loc)
-		to_chat(user, "<span class='notice'>You telekinetically remove \the [rack_shotgun] from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You telekinetically remove \the [rack_shotgun] from \the [src]."))
 		rack_shotgun = null
 		icon_state = "shotgun_rack"
 

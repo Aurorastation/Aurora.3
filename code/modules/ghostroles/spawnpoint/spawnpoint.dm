@@ -49,13 +49,13 @@
 
 /obj/effect/ghostspawpoint/attack_ghost(mob/user)
 	if(!ROUND_IS_STARTED)
-		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		to_chat(usr, SPAN_DANGER("The round hasn't started yet!"))
 		return
 	SSghostroles.vui_interact(user,identifier)
 
 /obj/effect/ghostspawpoint/attack_hand(mob/user)
 	if(!ROUND_IS_STARTED)
-		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		to_chat(usr, SPAN_DANGER("The round hasn't started yet!"))
 		return
 	SSghostroles.vui_interact(user,identifier)
 
@@ -148,5 +148,5 @@
 	..()
 	if(use_message && !message_used)
 		message_used = TRUE
-		visible_message(span("notice",use_message))
+		visible_message(SPAN_NOTICE(use_message))
 		playsound(src.loc, 'sound/machines/chime.ogg', 25, 1)

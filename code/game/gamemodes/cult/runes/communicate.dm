@@ -18,6 +18,6 @@
 	log_and_message_admins("used a communicate rune to say '[input]'")
 	for(var/datum/mind/H in cult.current_antagonists)
 		if(H.current)
-			to_chat(H.current, span("cult", "Cult Broadcast: \"[input]\""))
+			to_chat(H.current, SPAN_CULT("Cult Broadcast: \"[input]\""))
 	qdel(src)
 	return TRUE

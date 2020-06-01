@@ -94,7 +94,7 @@
 	if(src.ckey || src.client)
 		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return FALSE
-	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
+	message_admins(span("adminnotice", "[key_name_admin(possessor)] has taken control of \the [src]."))
 	log_admin("[key_name(possessor)] took control of \the [src].",ckey=key_name(possessor))
 	transfer_personality(possessor.client)
 	qdel(possessor)
@@ -285,7 +285,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user] is your new master. Obey your new laws and their commands."))
-	to_chat(src, span("notice", "You have acquired new radio frequency."))
+	to_chat(src, SPAN_NOTICE("You have acquired new radio frequency."))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, TRUE)
 

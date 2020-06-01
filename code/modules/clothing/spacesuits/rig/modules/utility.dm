@@ -236,7 +236,7 @@
 	if(total_transferred)
 		to_chat(user, "<font color='blue'>You transfer [total_transferred] units into the suit reservoir.</font>")
 	else
-		to_chat(user, "<span class='danger'>None of the reagents seem suitable.</span>")
+		to_chat(user, SPAN_DANGER("None of the reagents seem suitable."))
 	return 1
 
 /obj/item/rig_module/chem_dispenser/engage(atom/target)
@@ -247,7 +247,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!charge_selected)
-		to_chat(H, "<span class='danger'>You have not selected a chemical type.</span>")
+		to_chat(H, SPAN_DANGER("You have not selected a chemical type."))
 		return 0
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -257,7 +257,7 @@
 
 	var/chems_to_use = 10
 	if(charge.charges <= 0)
-		to_chat(H, "<span class='danger'>Insufficient chems!</span>")
+		to_chat(H, SPAN_DANGER("Insufficient chems!"))
 		return 0
 	else if(charge.charges < chems_to_use)
 		chems_to_use = charge.charges
@@ -272,16 +272,16 @@
 		target_mob = H
 
 	if(!H.Adjacent(target_mob))
-		to_chat(H, "<span class='danger'>You are not close enough to inject them!</span>")
+		to_chat(H, SPAN_DANGER("You are not close enough to inject them!"))
 		return 0
 
 	if(target_mob != H)
-		to_chat(H, "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>")
+		to_chat(H, SPAN_DANGER("You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name]."))
 
 	if(target_mob.is_physically_disabled())
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 	else
-		to_chat(target_mob, "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>")
+		to_chat(target_mob, SPAN_DANGER("You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected."))
 		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
 
 	charge.charges -= chems_to_use
@@ -555,10 +555,10 @@
 	if(!target)
 		if(device == iastamp)
 			device = deniedstamp
-			to_chat(holder.wearer, "<span class='notice'>Switched to denied stamp.</span>")
+			to_chat(holder.wearer, SPAN_NOTICE("Switched to denied stamp."))
 		else if(device == deniedstamp)
 			device = iastamp
-			to_chat(holder.wearer, "<span class='notice'>Switched to internal affairs stamp.</span>")
+			to_chat(holder.wearer, SPAN_NOTICE("Switched to internal affairs stamp."))
 		return 1
 
 /obj/item/rig_module/device/decompiler
@@ -629,13 +629,13 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if (!isturf(H.loc))
-		to_chat(H, "<span class='warning'>You cannot leap out of your current location!</span>")
+		to_chat(H, SPAN_WARNING("You cannot leap out of your current location!"))
 		return 0
 
 	var/turf/T = get_turf(target)
 
 	if (!T || T.density)
-		to_chat(H, "<span class='warning'>You cannot leap at solid walls!</span>")
+		to_chat(H, SPAN_WARNING("You cannot leap at solid walls!"))
 		return 0
 
 	// Saved, we need it more than 1 place.
@@ -648,11 +648,11 @@
 				continue
 
 			if (aa.density)
-				to_chat(H, "<span class='warning'>You cannot leap at a location with solid objects on it!</span>")
+				to_chat(H, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
 				return 0
 
 	if (T.z != H.z || dist > leapDistance)
-		to_chat(H, "<span class='warning'>You cannot leap at such a distant object!</span>")
+		to_chat(H, SPAN_WARNING("You cannot leap at such a distant object!"))
 		return 0
 
 	// Handle leaping at targets with a combat capable version here.
@@ -663,31 +663,31 @@
 	// If dist -> horizontal leap. Otherwise, the user clicked the turf that they're
 	// currently on. Which means they want to do a vertical leap upwards!
 	if (dist)
-		H.visible_message("<span class='warning'>\The [H] leaps horizontally at \the [T]!</span>",
-			"<span class='warning'>You leap horizontally at \the [T]!</span>",
-			"<span class='warning'>You hear an electric <i>whirr</i> followed by a weighty thump!</span>")
+		H.visible_message(SPAN_WARNING("\The [H] leaps horizontally at \the [T]!"),
+			SPAN_WARNING("You leap horizontally at \the [T]!"),
+			SPAN_WARNING("You hear an electric <i>whirr</i> followed by a weighty thump!"))
 		H.face_atom(T)
 		H.throw_at(T, leapDistance, 1, src, do_throw_animation = FALSE)
 		return 1
 	else
 		var/turf/simulated/open/TA = GetAbove(src)
 		if (!istype(TA))
-			to_chat(H, "<span class='warning'>There is a ceiling above you that stop you from leaping upwards!</span>")
+			to_chat(H, SPAN_WARNING("There is a ceiling above you that stop you from leaping upwards!"))
 			return 0
 
 		for (var/atom/A in TA)
 			if (!A.CanPass(src, TA, 1.5, 0))
-				to_chat(H, "<span class='warning'>\The [A] blocks you!</span>")
+				to_chat(H, SPAN_WARNING("\The [A] blocks you!"))
 				return 0
 
 		var/turf/leapEnd = get_step(TA, H.dir)
 		if (!leapEnd || isopenturf(leapEnd) || istype(leapEnd, /turf/space)\
 			|| leapEnd.density || leapEnd.contains_dense_objects())
-			to_chat(H, "<span class='warning'>There is no valid ledge to scale ahead of you!</span>")
+			to_chat(H, SPAN_WARNING("There is no valid ledge to scale ahead of you!"))
 			return 0
 
-		H.visible_message("<span class='notice'>\The [H] leaps up, out of view!</span>",
-			"<span class='notice'>You leap up!</span>")
+		H.visible_message(SPAN_NOTICE("\The [H] leaps up, out of view!"),
+			SPAN_NOTICE("You leap up!"))
 
 		// This setting is necessary even for combat type, to stop you from moving onto
 		// the turf, falling back down, and then getting forcemoved to the final destination.
@@ -698,11 +698,11 @@
 		// Combat type actuators are better, they allow you to jump instantly onto
 		// a ledge. Regular actuators make you have to climb the rest of the way.
 		if (!combatType)
-			H.visible_message("<span class='notice'>\The [H] starts pulling \himself up onto \the [leapEnd].</span>",
-				"<span class='notice'>You start pulling yourself up onto \the [leapEnd].</span>")
+			H.visible_message(SPAN_NOTICE("\The [H] starts pulling \himself up onto \the [leapEnd]."),
+				SPAN_NOTICE("You start pulling yourself up onto \the [leapEnd]."))
 			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
-				H.visible_message("<span class='warning'>\The [H] is interrupted and falls!</span>",
-					"<span class='danger'>You are interrupted and fall back down!</span>")
+				H.visible_message(SPAN_WARNING("\The [H] is interrupted and falls!"),
+					SPAN_DANGER("You are interrupted and fall back down!"))
 
 				// Climbers will auto-fall if they exit the turf. This is for in case
 				// something else interrupts them.
@@ -712,11 +712,11 @@
 
 				return 1
 
-			H.visible_message("<span class='notice'>\The [H] finishes climbing onto \the [leapEnd].</span>",
-				"<span class='notice'>You finish climbing onto \the [leapEnd].</span>")
+			H.visible_message(SPAN_NOTICE("\The [H] finishes climbing onto \the [leapEnd]."),
+				SPAN_NOTICE("You finish climbing onto \the [leapEnd]."))
 		else
-			H.visible_message("<span class='warning'>\The [H] lands on \the [leapEnd] with a heavy slam!</span>",
-				"<span class='warning'>You land on \the [leapEnd] with a heavy thud!</span>")
+			H.visible_message(SPAN_WARNING("\The [H] lands on \the [leapEnd] with a heavy slam!"),
+				SPAN_WARNING("You land on \the [leapEnd] with a heavy thud!"))
 
 		// open/Exited() removes from climbers.
 		H.forceMove(leapEnd)
@@ -803,7 +803,7 @@ var/global/list/lattice_users = list()
 		return 0
 
 	var/mob/living/carbon/human/H = holder.wearer
-	to_chat(H, "<span class='notice'>Neural lattice engaged. Pain receptors altered.</span>")
+	to_chat(H, SPAN_NOTICE("Neural lattice engaged. Pain receptors altered."))
 	lattice_users.Add(H)
 
 /obj/item/rig_module/lattice/deactivate()
@@ -811,5 +811,5 @@ var/global/list/lattice_users = list()
 		return 0
 
 	var/mob/living/carbon/human/H = holder.wearer
-	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
+	to_chat(H, SPAN_NOTICE("Neural lattice disengaged. Pain receptors restored."))
 	lattice_users.Remove(H)

@@ -808,7 +808,7 @@ var/list/asteroid_floor_smooth = list(
 			var/area/below_area = get_area(below)	// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
 				if(user)
-					to_chat(user, span("alert", "You strike metal!"))
+					to_chat(user, SPAN_ALERT("You strike metal!"))
 				below.spawn_roof(ROOF_FORCE_SPAWN)
 			else
 				ChangeTurf(/turf/space)

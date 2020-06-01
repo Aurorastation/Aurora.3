@@ -91,7 +91,7 @@
 		var/mob/living/carbon/human/M = user
 		M.apply_damage(45, BRUTE, user.get_active_hand())
 		M.apply_damage(45, PAIN)
-		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
+		M.visible_message(SPAN_DANGER("[user]'s hand catches in the [src]!"), SPAN_DANGER("Your hand gets caught in the [src]!"))
 		M.say("*scream")
 		return
 	if(default_deconstruction_screwdriver(user, O))
@@ -104,10 +104,10 @@
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
 		if(O.iswrench())
-			to_chat(user, "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>")
+			to_chat(user, SPAN_NOTICE("You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src]."))
 			if(do_after(user,50/O.toolspeed))
 				valve_open = !valve_open
-				to_chat(user, "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>")
+				to_chat(user, SPAN_NOTICE("You [valve_open ? "open" : "close"] the pressure relief valve of [src]."))
 				if(valve_open)
 					blocked = 0
 					action = "retract"
@@ -118,7 +118,7 @@
 	if(!istype(C))
 		return 0
 	if(num_progress != 0) //Piston needs to be retracted before you are able to deconstruct it
-		to_chat(user, "<span class='notice'>You can not deconstruct [src] while the piston is extended.</span>")
+		to_chat(user, SPAN_NOTICE("You can not deconstruct [src] while the piston is extended."))
 		return 0
 	return ..()
 

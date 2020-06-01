@@ -29,13 +29,13 @@ mob/var/next_pain_time = 0
 	if(burning)
 		switch(amount)
 			if(1 to 10)
-				msg = "<span class='danger'>Your [partname] burns.</span>"
+				msg = SPAN_DANGER("Your [partname] burns.")
 			if(11 to 90)
 				flash_weak_pain()
-				msg = "<span class='danger'><font size=3>Your [partname] burns horribly!</font></span>"
+				msg = SPAN_DANGER("<font size=3>Your [partname] burns horribly!</font>")
 			if(91 to 10000)
 				flash_pain()
-				msg = "<span class='danger'><font size=4>Your [partname] feels like it's on fire!</font></span>"
+				msg = SPAN_DANGER("<font size=4>Your [partname] feels like it's on fire!</font>")
 	else
 		switch(amount)
 			if(5 to 14)
@@ -75,13 +75,13 @@ mob/var/next_pain_time = 0
 	if(force || (message != last_pain_message) || (world.time >= next_pain_time))
 		last_pain_message = message
 		if(power >= 70)
-			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
+			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
 		else if(power >= 40)
-			to_chat(src, "<span class='danger'><font size=2>[message]</font></span>")
+			to_chat(src, SPAN_DANGER("<font size=2>[message]</font>"))
 		else if(power >= 10)
-			to_chat(src, "<span class='danger'>[message]</span>")
+			to_chat(src, SPAN_DANGER("[message]"))
 		else
-			to_chat(src, "<span class='warning'>[message]</span>")
+			to_chat(src, SPAN_WARNING("[message]"))
 
 	next_pain_time = world.time + (100-power)
 

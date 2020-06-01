@@ -182,10 +182,10 @@
 
 /obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
 	if(!inserted_id)
-		to_chat(user, span("warning", "No ID inserted. Cannot digitally sign."))
+		to_chat(user, SPAN_WARNING("No ID inserted. Cannot digitally sign."))
 		return
 	if(!input_mats.len && !output_mats.len && !alloy_mats)
-		to_chat(user, span("warning", "There is no data to print."))
+		to_chat(user, SPAN_WARNING("There is no data to print."))
 		return
 	if(printing)
 		return

@@ -56,7 +56,7 @@ var/global/photo_count = 0
 		show(user)
 		to_chat(user, desc)
 	else
-		to_chat(user, "<span class='notice'>It is too far away.</span>")
+		to_chat(user, SPAN_NOTICE("It is too far away."))
 
 /obj/item/photo/proc/show(mob/user as mob)
 	to_chat(user, browse_rsc(img, "tmp_photo_[id].png"))
@@ -72,7 +72,7 @@ var/global/photo_count = 0
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the photo?", "Photo Labelling", null)  as text, MAX_NAME_LEN)
 	//loc.loc check is for making possible renaming photos in clipboards
 	if(( (loc == usr || (loc.loc && loc.loc == usr)) && usr.stat == 0))
-		name = "[(n_name ? text("[n_name]") : "photo")]"
+		name = "[(n_name ? "[n_name]" : "photo")]"
 	add_fingerprint(usr)
 	return
 
@@ -137,7 +137,7 @@ var/global/photo_count = 0
 	var/nsize = input("Photo Size","Pick a size of resulting photo.") as null|anything in list(1,3,5,7)
 	if(nsize)
 		size = nsize
-		to_chat(usr, "<span class='notice'>Camera will now take [size]x[size] photos.</span>")
+		to_chat(usr, SPAN_NOTICE("Camera will now take [size]x[size] photos."))
 
 /obj/item/device/camera/attack(mob/living/carbon/human/M as mob, mob/user as mob)
 	return
@@ -154,9 +154,9 @@ var/global/photo_count = 0
 /obj/item/device/camera/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/device/camera_film))
 		if(pictures_left)
-			to_chat(user, "<span class='notice'>[src] still has some film in it!</span>")
+			to_chat(user, SPAN_NOTICE("[src] still has some film in it!"))
 			return
-		to_chat(user, "<span class='notice'>You insert [I] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You insert [I] into [src]."))
 		user.drop_from_inventory(I,get_turf(src))
 		qdel(I)
 		pictures_left = pictures_max
@@ -191,7 +191,7 @@ var/global/photo_count = 0
 
 	pictures_left--
 	desc = "A polaroid camera. It has [pictures_left] photos left."
-	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
+	to_chat(user, SPAN_NOTICE("[pictures_left] photos left."))
 	icon_state = icon_off
 	on = 0
 	spawn(64)

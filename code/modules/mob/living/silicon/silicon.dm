@@ -155,9 +155,9 @@
 // this function shows the health of the AI in the Status panel
 /mob/living/silicon/proc/show_system_integrity()
 	if(!stat)
-		stat(null, text("System Integrity: [round((health/maxHealth)*100)]%"))
+		stat(null, "System Integrity: [round((health/maxHealth)*100)]%")
 	else
-		stat(null, text("Systems Non-functional"))
+		stat(null, "Systems Non-functional")
 
 // This is a pure virtual function, it should be overwritten by all subclasses
 /mob/living/silicon/proc/show_malf_ai()
@@ -190,7 +190,7 @@
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
 	if(error_msg)
-		to_chat(user, span("alert", "The armoured plating is too tough."))
+		to_chat(user, SPAN_ALERT("The armoured plating is too tough."))
 	return FALSE
 
 //Silicon mob language procs

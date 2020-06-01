@@ -44,7 +44,7 @@
 
 /obj/structure/closet/body_bag/attackby(var/obj/item/W, mob/user as mob)
 	if (W.ispen())
-		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
+		var/t = input(user, "What would you like the label to be?", "[src.name]", null)  as text
 		if (user.get_active_hand() != W)
 			return
 		if (!in_range(src, user) && src.loc != user)
@@ -131,5 +131,5 @@
 /obj/structure/closet/body_bag/cryobag/MouseDrop(over_object, src_location, over_location)
 	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
 		if(!ishuman(usr))	return
-		to_chat(usr, "<span class='warning'>You can't fold that up anymore..</span>")
+		to_chat(usr, SPAN_WARNING("You can't fold that up anymore.."))
 	..()

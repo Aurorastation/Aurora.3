@@ -42,7 +42,7 @@
 	var/obj/item/organ/external/affecting = D.get_organ(hit_zone)
 
 	if(!affecting || affecting.is_stump())
-		to_chat(A, "<span class='danger'>They are missing that limb!</span>")
+		to_chat(A, SPAN_DANGER("They are missing that limb!"))
 		return 1
 
 	switch(D.a_intent)
@@ -86,11 +86,11 @@
 	if(!attack_message)
 		attack.show_attack(A, D, hit_zone, rand_damage)
 	else
-		D.visible_message("<span class='danger'>[attack_message]</span>")
+		D.visible_message(SPAN_DANGER("[attack_message]"))
 
 	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
-	A.attack_log += text("\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</font>")
-	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [A.name] ([A.ckey])</font>")
+	A.attack_log += "\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</font>"
+	D.attack_log += "\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [A.name] ([A.ckey])</font>"
 	msg_admin_attack("[key_name(A)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
 	if(miss_type)
@@ -181,7 +181,7 @@
 	var/mob/living/carbon/human/H = user
 	var/datum/martial_art/F = new martial_art(null)
 	F.teach(H)
-	to_chat(H, "<span class='notice'>You have learned the martial art of [F.name].</span>")
+	to_chat(H, SPAN_NOTICE("You have learned the martial art of [F.name]."))
 	if(F.possible_weapons)
 		var/weapon = pick(F.possible_weapons)
 		var/obj/item/W = new weapon(get_turf(user))

@@ -42,7 +42,7 @@
 
 	// Usual checks
 	if(!fuel)
-		to_chat(user, "<span class='notice'>It's out of fuel.</span>")
+		to_chat(user, SPAN_NOTICE("It's out of fuel."))
 		return
 	if(on)
 		return
@@ -51,8 +51,8 @@
 	// All good, turn it on.
 	if(.)
 		user.visible_message(
-		"<span class='notice'>[user] activates the flare.</span>",
-		"<span class='notice'>You pull the cord on the flare, activating it!</span>"
+		SPAN_NOTICE("[user] activates the flare."),
+		SPAN_NOTICE("You pull the cord on the flare, activating it!")
 		)
 		src.force = on_damage
 		src.damtype = "fire"

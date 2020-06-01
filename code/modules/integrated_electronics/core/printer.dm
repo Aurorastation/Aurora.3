@@ -23,16 +23,16 @@
 		if(stack.material.name == DEFAULT_WALL_MATERIAL)
 			var/num = min((max_metal - metal) / metal_per_sheet, stack.amount)
 			if(num < 1)
-				to_chat(user, "<span class='warning'>\The [src] is too full to add more metal.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is too full to add more metal."))
 				return
 			if(stack.use(num))
-				to_chat(user, "<span class='notice'>You add [num] sheet\s to \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You add [num] sheet\s to \the [src]."))
 				metal += num * metal_per_sheet
 				interact(user)
 				return TRUE
 
 	if(istype(O,/obj/item/integrated_circuit))
-		to_chat(user, "<span class='notice'>You insert the circuit into \the [src]. </span>")
+		to_chat(user, SPAN_NOTICE("You insert the circuit into \the [src]. "))
 		user.unEquip(O)
 		metal = min(metal + O.w_class, max_metal)
 		qdel(O)
@@ -41,18 +41,18 @@
 
 	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
-			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
+		to_chat(user, SPAN_NOTICE("You install \the [O] into  \the [src]. "))
 		upgraded = TRUE
 		interact(user)
 		return TRUE
 
 	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/clone))
 		if(can_clone)
-			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
+		to_chat(user, SPAN_NOTICE("You install \the [O] into  \the [src]. "))
 		can_clone = TRUE
 		interact(user)
 		return TRUE
@@ -117,7 +117,7 @@
 			return 1
 
 		if (!can_print(build_type))
-			to_chat(usr, "<span class='danger'>[src] buzzes angrily at you!</span>")
+			to_chat(usr, SPAN_DANGER("[src] buzzes angrily at you!"))
 			return 1
 
 		var/cost = 1
@@ -131,7 +131,7 @@
 			cost = initial(IC.w_class)
 
 		if(metal - cost < 0)
-			to_chat(usr, "<span class='warning'>You need [cost] metal to build that!.</span>")
+			to_chat(usr, SPAN_WARNING("You need [cost] metal to build that!."))
 			return 1
 		metal -= cost
 		if (is_asm)

@@ -126,7 +126,7 @@
 	if(max_count && count >= max_count)
 		disable()
 	if(welcome_message)
-		to_chat(user, span("notice", welcome_message))
+		to_chat(user, SPAN_NOTICE(welcome_message))
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)
@@ -147,9 +147,9 @@
 		for(var/mob/abstract/observer/O in player_list)
 			if(O.client && !cant_see(O))
 				if(enable_dmessage == TRUE)
-					to_chat(O, "<span class='deadsay'><b>A ghostspawner for a \"[src.name]\" has been enabled.</b></span>")
+					to_chat(O, span("deadsay", "<b>A ghostspawner for a \"[src.name]\" has been enabled.</b>"))
 				else
-					to_chat(O, "<span class='deadsay'><b>[enable_dmessage]</b></span>")
+					to_chat(O, span("deadsay", "<b>[enable_dmessage]</b>"))
 	for(var/i in spawnpoints)
 		SSghostroles.update_spawnpoint_status_by_identifier(i)
 	return TRUE
@@ -168,7 +168,7 @@
 	if (T)
 		S = new spawn_mob(T)
 	else
-		to_chat(user, "<span class='warning'>Unable to find any spawn point. </span>")
+		to_chat(user, SPAN_WARNING("Unable to find any spawn point. "))
 
 	if(S)
 		announce_ghost_joinleave(user, 0, "They are now a [name].")

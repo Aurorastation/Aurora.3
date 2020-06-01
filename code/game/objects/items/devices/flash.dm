@@ -16,7 +16,7 @@
 
 /obj/item/device/flash/proc/clown_check(var/mob/user)
 	if(user && (user.is_clumsy()) && prob(50))
-		to_chat(user, "<span class='warning'>\The [src] slips out of your hand.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] slips out of your hand."))
 		user.drop_from_inventory(src)
 		return 0
 	return 1
@@ -35,8 +35,8 @@
 /obj/item/device/flash/attack(mob/living/M, mob/living/user, var/target_zone)
 	if(!user || !M)	return	//sanity
 
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to flash [M.name] ([M.ckey])</font>")
+	M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <font color='red'>Used the [src.name] to flash [M.name] ([M.ckey])</font>"
 	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -44,7 +44,7 @@
 
 	if(!clown_check(user))	return
 	if(broken)
-		to_chat(user, "<span class='warning'>\The [src] is broken.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is broken."))
 		return
 
 	flash_recharge()
@@ -56,12 +56,12 @@
 			last_used = world.time
 			if(prob(times_used))	//if you use it 5 times in a minute it has a 10% chance to break!
 				broken = 1
-				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+				to_chat(user, SPAN_WARNING("The bulb has burnt out!"))
 				icon_state = "flashburnt"
 				return
 			times_used++
 		else	//can only use it  5 times a minute
-			to_chat(user, "<span class='warning'>*click* *click*</span>")
+			to_chat(user, SPAN_WARNING("*click* *click*"))
 			return
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	var/flashfail = 0
@@ -116,13 +116,13 @@
 		flick("flash2", src)
 		if(!issilicon(M))
 
-			user.visible_message("<span class='disarm'>[user] blinds [M] with the flash!</span>")
+			user.visible_message(span("disarm", "[user] blinds [M] with the flash!"))
 		else
 
-			user.visible_message("<span class='notice'>[user] overloads [M]'s sensors with the flash!</span>")
+			user.visible_message(SPAN_NOTICE("[user] overloads [M]'s sensors with the flash!"))
 	else
 
-		user.visible_message("<span class='notice'>[user] fails to blind [M] with the flash!</span>")
+		user.visible_message(SPAN_NOTICE("[user] fails to blind [M] with the flash!"))
 
 	return
 
@@ -135,7 +135,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
 	if(broken)
-		user.show_message("<span class='warning'>The [src.name] is broken</span>", 2)
+		user.show_message(SPAN_WARNING("The [src.name] is broken"), 2)
 		return
 
 	flash_recharge()
@@ -146,12 +146,12 @@
 		if(0 to 5)
 			if(prob(5*times_used))	//More consequential rolls are made the more you overuse the device.
 				broken = 1
-				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+				to_chat(user, SPAN_WARNING("The bulb has burnt out!"))
 				icon_state = "flashburnt"
 				return
 			times_used++
 		else	//can only use it  5 times a minute
-			user.show_message("<span class='warning'>*click* *click*</span>", 2)
+			user.show_message(SPAN_WARNING("*click* *click*"), 2)
 			return
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	flick("flash2", src)
@@ -195,7 +195,7 @@
 				if(safety < FLASH_PROTECTION_MODERATE)
 					flick("e_flash", M.flash)
 					for(var/mob/O in viewers(M, null))
-						O.show_message("<span class='disarm'>[M] is blinded by the flash!</span>")
+						O.show_message(span("disarm", "[M] is blinded by the flash!"))
 	..()
 
 /obj/item/device/flash/synthetic
@@ -209,12 +209,12 @@
 	..()
 	if(!broken)
 		broken = 1
-		to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+		to_chat(user, SPAN_WARNING("The bulb has burnt out!"))
 		icon_state = "flashburnt"
 
 /obj/item/device/flash/synthetic/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	..()
 	if(!broken)
 		broken = 1
-		to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+		to_chat(user, SPAN_WARNING("The bulb has burnt out!"))
 		icon_state = "flashburnt"

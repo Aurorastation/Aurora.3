@@ -184,11 +184,11 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					feedback_set_details("end_proper","universe destroyed")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b></span>")
+					to_world(SPAN_NOTICE("<b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b>"))
 			else
 				feedback_set_details("end_proper","proper completion")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
+					to_world(SPAN_NOTICE("<b>Restarting in [restart_timeout/10] seconds</b>"))
 
 			var/wait_for_tickets
 			var/delay_notified = 0
@@ -201,11 +201,11 @@ var/datum/controller/subsystem/ticker/SSticker
 				if(wait_for_tickets)
 					if(!delay_notified)
 						delay_notified = 1
-						message_admins("<span class='warning'><b>Automatically delaying restart due to active tickets.</b></span>")
-						to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+						message_admins(SPAN_WARNING("<b>Automatically delaying restart due to active tickets.</b>"))
+						to_world(SPAN_NOTICE("<b>An admin has delayed the round end</b>"))
 					sleep(15 SECONDS)
 				else if(delay_notified)
-					message_admins("<span class='warning'><b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b></span>")
+					message_admins(SPAN_WARNING("<b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b>"))
 			while(wait_for_tickets)
 
 			if(!delay_end)
@@ -213,9 +213,9 @@ var/datum/controller/subsystem/ticker/SSticker
 				if(!delay_end)
 					world.Reboot()
 				else if(!delay_notified)
-					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+					to_world(SPAN_NOTICE("<b>An admin has delayed the round end</b>"))
 			else if(!delay_notified)
-				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+				to_world(SPAN_NOTICE("<b>An admin has delayed the round end</b>"))
 
 	else if (mode_finished)
 		post_game = 1
@@ -225,7 +225,7 @@ var/datum/controller/subsystem/ticker/SSticker
 		//call a transfer shuttle vote
 		spawn(50)
 			if(!round_end_announced && !config.continous_rounds) // Spam Prevention. Now it should announce only once.
-				to_world("<span class='danger'>The round has ended!</span>")
+				to_world(SPAN_DANGER("The round has ended!"))
 				round_end_announced = 1
 				SSvote.autotransfer()
 

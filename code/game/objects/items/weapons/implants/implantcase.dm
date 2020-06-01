@@ -13,7 +13,7 @@
 
 /obj/item/implantcase/proc/update()
 	if (src.imp)
-		src.icon_state = text("implantcase-[]", src.imp.implant_color)
+		src.icon_state = "implantcase-[src.imp.implant_color]"
 	else
 		src.icon_state = "implantcase-0"
 	return
@@ -21,25 +21,25 @@
 /obj/item/implantcase/attackby(obj/item/I as obj, mob/user as mob)
 	..()
 	if (I.ispen())
-		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
+		var/t = input(user, "What would you like the label to be?", "[src.name]", null)  as text
 		if (user.get_active_hand() != I)
 			return
 		if((!in_range(src, usr) && src.loc != user))
 			return
 		t = sanitizeSafe(t, MAX_NAME_LEN)
 		if(t)
-			src.name = text("Glass Case - '[]'", t)
+			src.name = "Glass Case - '[t]'"
 		else
 			src.name = "Glass Case"
 	else if(istype(I, /obj/item/reagent_containers/syringe))
 		if(!src.imp)	return
 		if(!src.imp.allow_reagents)	return
 		if(src.imp.reagents.total_volume >= src.imp.reagents.maximum_volume)
-			to_chat(user, "<span class='warning'>\The [src] is full.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		else
 			var/trans = I.reagents.trans_to_obj(src.imp, 5)
 			if (trans > 0)
-				to_chat(user, "<span class='notice'>You inject [trans] units of the solution. The syringe now contains [I.reagents.total_volume] units.</span>")
+				to_chat(user, SPAN_NOTICE("You inject [trans] units of the solution. The syringe now contains [I.reagents.total_volume] units."))
 	else if (istype(I, /obj/item/implanter))
 		var/obj/item/implanter/M = I
 		if (M.imp)

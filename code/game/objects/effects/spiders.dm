@@ -21,7 +21,7 @@
 	return
 
 /obj/effect/spider/attackby(var/obj/item/W, var/mob/user)
-	visible_message("<span class='warning'>[src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]</span>")
+	visible_message(SPAN_WARNING("[src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]"))
 
 	var/damage = W.force / 4.0
 
@@ -64,7 +64,7 @@
 		return 1
 	else if(istype(mover, /mob/living))
 		if(prob(50))
-			to_chat(mover, "<span class='warning'>You get stuck in \the [src] for a moment.</span>")
+			to_chat(mover, SPAN_WARNING("You get stuck in \the [src] for a moment."))
 			return 0
 	else if(istype(mover, /obj/item/projectile))
 		return prob(30)
@@ -112,7 +112,7 @@
 	else if (O && O.owner && prob(1))
 		if(world.time > last_itch + 30 SECONDS)
 			last_itch = world.time
-			to_chat(O.owner, "<span class='notice'>Your [O.name] itches.</span>")
+			to_chat(O.owner, SPAN_NOTICE("Your [O.name] itches."))
 
 /obj/effect/spider/spiderling
 	name = "spiderling"
@@ -155,7 +155,7 @@
 		..()
 
 /obj/effect/spider/spiderling/proc/die()
-	visible_message("<span class='alert'>\The [src] dies!</span>")
+	visible_message(SPAN_ALERT("\The [src] dies!"))
 	new /obj/effect/decal/cleanable/spiderling_remains(src.loc)
 	qdel(src)
 
@@ -192,7 +192,7 @@
 							return
 
 						if(prob(50))
-							visible_message("<span class='notice'>You hear something squeezing through the ventilation ducts.</span>", range = 2)
+							visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), range = 2)
 						sleep(travel_time)
 
 						if(!exit_vent || exit_vent.welded)
@@ -212,7 +212,7 @@
 			var/target_atom = pick(nearby)
 			walk_to(src, target_atom, 5)
 			if(prob(25))
-				src.visible_message(span("notice", "\the [src] skitters[pick(" away"," around","")]."))
+				src.visible_message(SPAN_NOTICE("\the [src] skitters[pick(" away"," around","")]."))
 	else if(prob(5))
 		//vent crawl!
 		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
@@ -235,15 +235,15 @@
 				if(world.time > last_itch + 30 SECONDS)
 					last_itch = world.time
 					O.owner.visible_message(
-						"<span class='warning'>You think you see something moving around in \the [O.owner]'s [O.name].</span>",
-						"<span class='warning'>You [prob(25) ? "see" : "feel"] something large move around in your [O.name]!</span>")
+						SPAN_WARNING("You think you see something moving around in \the [O.owner]'s [O.name]."),
+						SPAN_WARNING("You [prob(25) ? "see" : "feel"] something large move around in your [O.name]!"))
 			else if (prob(1))
 				if(world.time > last_itch + 30 SECONDS)
 					last_itch = world.time
-					to_chat(O.owner, "<span class='notice'>You feel something large move around in your [O.name]!</span>")
+					to_chat(O.owner, SPAN_NOTICE("You feel something large move around in your [O.name]!"))
 
 	else if(prob(1))
-		src.visible_message("<span class='notice'>\The [src] skitters.</span>")
+		src.visible_message(SPAN_NOTICE("\The [src] skitters."))
 
 	if (amount_grown > -1)
 		amount_grown += (rand(0, 1) * growth_rate)
@@ -276,11 +276,11 @@
 
 	if (O.owner)
 		O.owner.visible_message(
-			"<span class='danger'>A group of [src] burst out of [O.owner]'s [O]!</span>",
-			"<span class='danger'>A group of [src] burst out of your [O]!</span>")
+			SPAN_DANGER("A group of [src] burst out of [O.owner]'s [O]!"),
+			SPAN_DANGER("A group of [src] burst out of your [O]!"))
 		O.owner.emote("scream")
 	else
-		O.visible_message("<span class='danger'>A group of [src] burst out of \the [O]!</span>")
+		O.visible_message(SPAN_DANGER("A group of [src] burst out of \the [O]!"))
 
 	var/target_loc = O.owner ? O.owner.loc : O.loc
 
@@ -293,7 +293,7 @@
 	if (O.owner)
 		O.droplimb(0, DROPLIMB_BLUNT)
 	else
-		O.visible_message("<span class='danger'>\The [O] explodes into a pile of gore!</span>")
+		O.visible_message(SPAN_DANGER("\The [O] explodes into a pile of gore!"))
 		gibs(target_loc)
 		qdel(O)
 
@@ -315,7 +315,7 @@
 	icon_state = pick("cocoon1","cocoon2","cocoon3")
 
 /obj/effect/spider/cocoon/Destroy()
-	src.visible_message("<span class='warning'>\The [src] splits open.</span>")
+	src.visible_message(SPAN_WARNING("\The [src] splits open."))
 	for(var/atom/movable/A in contents)
 		A.forceMove(src.loc)
 	return ..()

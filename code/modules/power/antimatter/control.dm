@@ -164,12 +164,12 @@
 			src.anchored = 0
 			disconnect_from_network()
 		else
-			to_chat(user, "<span class='warning'>Once bolted and linked to a shielding unit it the [src.name] is unable to be moved!</span>")
+			to_chat(user, SPAN_WARNING("Once bolted and linked to a shielding unit it the [src.name] is unable to be moved!"))
 		return
 
 	if(istype(W, /obj/item/am_containment))
 		if(fueljar)
-			to_chat(user, "<span class='warning'>There is already a [fueljar] inside!</span>")
+			to_chat(user, SPAN_WARNING("There is already a [fueljar] inside!"))
 			return
 		fueljar = W
 		user.drop_from_inventory(W, src)

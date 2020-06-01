@@ -258,7 +258,7 @@ Class Procs:
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -268,10 +268,10 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
+			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
 			return 1
 		else if(prob(H.getBrainLoss()))
-			to_chat(user, "<span class='warning'>You momentarily forget how to use [src].</span>")
+			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
 			return 1
 
 	src.add_fingerprint(user)
@@ -338,7 +338,7 @@ Class Procs:
 		return 0
 	playsound(src.loc,  S.usesound, 50, 1)
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 	update_icon()
 	return 1
 
@@ -366,7 +366,7 @@ Class Procs:
 						component_parts -= G
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
 						break
 		for(var/obj/item/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
@@ -382,14 +382,14 @@ Class Procs:
 						component_parts -= A
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 						break
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
+		to_chat(user, SPAN_NOTICE("Following parts detected in the machine:"))
 		for(var/obj/item/C in component_parts)
-			to_chat(user, "<span class='notice'>    [C.name]</span>")
+			to_chat(user, SPAN_NOTICE("    [C.name]"))
 	return 1
 
 /obj/machinery/proc/dismantle()
@@ -412,7 +412,7 @@ Class Procs:
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
 
-	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
+	visible_message(SPAN_NOTICE("[src] rattles to life and spits out a paper titled [paper]."))
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 
@@ -440,7 +440,7 @@ Class Procs:
 	if(hair_style.length >= 4)
 		if(prob(25))
 			H.apply_damage(30, BRUTE, BP_HEAD)
-			H.visible_message("<span class='danger'>[H]'s hair catches in \the [src]!</span>", "<span class='danger'>Your hair gets caught in \the [src]!</span>")
+			H.visible_message(SPAN_DANGER("[H]'s hair catches in \the [src]!"), SPAN_DANGER("Your hair gets caught in \the [src]!"))
 			if(H.can_feel_pain())
 				H.emote("scream")
 				H.apply_damage(45, PAIN)

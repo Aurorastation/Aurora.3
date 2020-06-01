@@ -47,10 +47,10 @@
 			to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 			updateDialog()
 		else
-			to_chat(user, span("alert", "Access denied."))
+			to_chat(user, SPAN_ALERT("Access denied."))
 	else if(W.iswrench())
 		src.anchored = !src.anchored
-		src.visible_message(span("notice", "\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
+		src.visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 
 		if(anchored)
 			spawn(0)
@@ -135,7 +135,7 @@
 		return
 	if( href_list["toggle"] )
 		if(!active && !anchored)
-			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
+			to_chat(usr, SPAN_WARNING("The [src] needs to be firmly secured to the floor first."))
 			return
 		active = !active
 	if( href_list["charge_rate"] )

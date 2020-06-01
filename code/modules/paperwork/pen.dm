@@ -93,15 +93,15 @@
 	else
 		icon_state = "pen_[colour]"
 
-	to_chat(user, "<span class='notice'>Changed color to '[colour].'</span>")
+	to_chat(user, SPAN_NOTICE("Changed color to '[colour].'"))
 
 /obj/item/pen/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if(!ismob(M))
 		return
-	to_chat(user, "<span class='warning'>You stab [M] with \the [src].</span>")
+	to_chat(user, SPAN_WARNING("You stab [M] with \the [src]."))
 //	to_chat(M, "\red You feel a tiny prick!" //That's a whole lot of meta!)
-	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name]  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to stab [M.name] ([M.ckey])</font>")
+	M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name]  by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <font color='red'>Used the [name] to stab [M.name] ([M.ckey])</font>"
 	msg_admin_attack("[user.name] ([user.ckey]) Used the [name] to stab [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 	return
 
@@ -122,7 +122,7 @@
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
-	to_chat(user, span("notice", "You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
+	to_chat(user, SPAN_NOTICE("You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
 	cursive = !cursive
 
 /*
@@ -268,7 +268,7 @@
 				colour = COLOR_WHITE
 			else
 				colour = COLOR_BLACK
-		to_chat(usr, "<span class='info'>You select the [lowertext(selected_type)] ink container.</span>")
+		to_chat(usr, span("info", "You select the [lowertext(selected_type)] ink container."))
 
 
 /*

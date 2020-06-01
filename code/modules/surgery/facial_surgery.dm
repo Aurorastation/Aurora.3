@@ -34,13 +34,13 @@
 	..()
 
 /datum/surgery_step/generic/prepare_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has retracted [target]'s face with \the [tool] for his facial alteration.</span>" , \
-		"<span class='notice'>You have retracted [target]'s face and neck with \the [tool] for plastic surgery.</span>",)
+	user.visible_message(SPAN_NOTICE("[user] has retracted [target]'s face with \the [tool] for his facial alteration.") , \
+		SPAN_NOTICE("You have retracted [target]'s face and neck with \the [tool] for plastic surgery."),)
 	target.op_stage.face = 2
 
 /datum/surgery_step/generic/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
-		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
+		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, OXY)
 	target.losebreath += 10
@@ -70,7 +70,7 @@
 		head.disfigured = FALSE
 		target.mutations.Remove(HUSK)
 		target.update_body()
-		user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>You successfully restore [target]'s appearance.</span>")
+		user.visible_message("[user] successfully restores [target]'s appearance!", SPAN_NOTICE("You successfully restore [target]'s appearance."))
 
 	var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
 	if(getName)
@@ -84,8 +84,8 @@
 
 
 /datum/surgery_step/generic/alter_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
-		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
+		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, OXY)
 	target.losebreath += 10
@@ -112,8 +112,8 @@
 
 /datum/surgery_step/face/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='notice'>[user] cauterizes the incision on [target]'s face and neck with \the [tool].</span>", \
-		"<span class='notice'>You cauterize the incision on [target]'s face and neck with \the [tool].</span>")
+	user.visible_message(SPAN_NOTICE("[user] cauterizes the incision on [target]'s face and neck with \the [tool]."), \
+		SPAN_NOTICE("You cauterize the incision on [target]'s face and neck with \the [tool]."))
 	affected.open = 0
 	affected.status &= ~ORGAN_BLEEDING
 	if(target.op_stage.face == 3)
@@ -123,8 +123,8 @@
 
 /datum/surgery_step/face/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, leaving a small burn on [target]'s face with \the [tool]!</span>", \
-		"<span class='warning'>Your hand slips, leaving a small burn on [target]'s face with \the [tool]!</span>")
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s face with \the [tool]!"), \
+		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s face with \the [tool]!"))
 	target.apply_damage(5, BURN, affected)
 
 /datum/surgery_step/robotics/face
@@ -153,13 +153,13 @@
 	..()
 
 /datum/surgery_step/robotics/face/synthskinopen/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has cut open [target]'s synthskin face and neck with \the [tool].</span>" , \
-		"<span class='notice'>You have cut open [target]'s synthskin face and neck with \the [tool].</span>",)
+	user.visible_message(SPAN_NOTICE("[user] has cut open [target]'s synthskin face and neck with \the [tool].") , \
+		SPAN_NOTICE("You have cut open [target]'s synthskin face and neck with \the [tool]."),)
 	target.op_stage.face = 1
 
 /datum/surgery_step/robotics/face/synthskinopen/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
-		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
+		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/prepare_face
@@ -180,13 +180,13 @@
 	..()
 
 /datum/surgery_step/robotics/face/prepare_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has retracted [target]'s synthskin face with \the [tool] for thier facial alteration.</span>" , \
-		"<span class='notice'>You have retracted [target]'s synthskin face and neck with \the [tool] for plastic surgery.</span>",)
+	user.visible_message(SPAN_NOTICE("[user] has retracted [target]'s synthskin face with \the [tool] for thier facial alteration.") , \
+		SPAN_NOTICE("You have retracted [target]'s synthskin face and neck with \the [tool] for plastic surgery."),)
 	target.op_stage.face = 2
 
 /datum/surgery_step/robotics/face/prepare_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
-		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
+		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/alter_synthface
@@ -213,7 +213,7 @@
 		head.disfigured = FALSE
 		target.mutations.Remove(HUSK)
 		target.update_body()
-		user.visible_message("[user] successfully restores [target]'s appearance!", "<span class='notice'>You successfully restore [target]'s appearance.</span>")
+		user.visible_message("[user] successfully restores [target]'s appearance!", SPAN_NOTICE("You successfully restore [target]'s appearance."))
 
 	var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
 	if(getName)
@@ -227,8 +227,8 @@
 
 
 /datum/surgery_step/robotics/face/alter_synthface/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
-		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing [target]'s throat wth \the [tool]!") , \
+		SPAN_WARNING("Your hand slips, slicing [target]'s throat wth \the [tool]!") )
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /datum/surgery_step/robotics/face/seal_face
@@ -252,8 +252,8 @@
 
 /datum/surgery_step/robotics/face/seal_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='notice'>[user] seals the incision on [target]'s synthskin face and neck with \the [tool].</span>", \
-		"<span class='notice'>You seal the incision on [target]'s synthskin face and neck with \the [tool].</span>")
+	user.visible_message(SPAN_NOTICE("[user] seals the incision on [target]'s synthskin face and neck with \the [tool]."), \
+		SPAN_NOTICE("You seal the incision on [target]'s synthskin face and neck with \the [tool]."))
 	affected.open = 0
 	if(target.op_stage.face == 3)
 		var/obj/item/organ/external/head/h = affected
@@ -262,6 +262,6 @@
 
 /datum/surgery_step/robotics/face/seal_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!</span>", \
-		"<span class='warning'>Your hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!</span>")
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"), \
+		SPAN_WARNING("Your hand slips, leaving a small burn on [target]'s synthskin face with \the [tool]!"))
 	target.apply_damage(5, BURN, affected)

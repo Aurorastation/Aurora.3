@@ -53,7 +53,7 @@
 			receive_pm_type = holder.rank
 
 	else if(!C.holder)
-		to_chat(src, "<span class='warning'>Error: Admin-PM: Non-admin to non-admin PM communication is forbidden.</span>")
+		to_chat(src, SPAN_WARNING("Error: Admin-PM: Non-admin to non-admin PM communication is forbidden."))
 		return
 
 	//get message text, limit it's length.and clean/escape html
@@ -91,10 +91,10 @@
 			ticket = new /datum/ticket(C.ckey)
 			ticket.take(src)
 		else
-			to_chat(src, "<span class='notice'>You do not have an open ticket. Please use the adminhelp verb to open a ticket.</span>")
+			to_chat(src, SPAN_NOTICE("You do not have an open ticket. Please use the adminhelp verb to open a ticket."))
 			return
 	else if(ticket.status != TICKET_ASSIGNED && src.ckey == ticket.owner)
-		to_chat(src, "<span class='notice'>Your ticket is not open for conversation. Please wait for an administrator to receive your adminhelp.</span>")
+		to_chat(src, SPAN_NOTICE("Your ticket is not open for conversation. Please wait for an administrator to receive your adminhelp."))
 		return
 
 	// if the sender is an admin and they're not assigned to the ticket, ask them if they want to take/join it, unless the admin is responding to their own ticket
@@ -123,7 +123,7 @@
 						adminhelp(reply)													//sender has left, adminhelp instead
 				return
 
-	var/sender_message = "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "PM", src) + " to <span class='name'>[get_options_bar(C, holder ? 1 : 0, holder ? 1 : 0, 1)]</span>"
+	var/sender_message = span("pm", "<span class='out'>" + create_text_tag("pm_out_alt", "PM", src) + " to <span class='name'>[get_options_bar(C, holder ? 1 : 0, holder ? 1 : 0, 1)]")
 	if(holder)
 		sender_message += " (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
 		sender_message += ": <span class='message'>[generate_ahelp_key_words(mob, msg)]</span>"
@@ -132,7 +132,7 @@
 	sender_message += "</span></span>"
 	to_chat(src, sender_message)
 
-	var/receiver_message = "<span class='pm'><span class='in'>" + create_text_tag("pm_in", "", C) + " <b>\[[receive_pm_type] PM\]</b> <span class='name'>[get_options_bar(src, C.holder ? 1 : 0, C.holder ? 1 : 0, 1)]</span>"
+	var/receiver_message = span("pm", "<span class='in'>" + create_text_tag("pm_in", "", C) + " <b>\[[receive_pm_type] PM\]</b> <span class='name'>[get_options_bar(src, C.holder ? 1 : 0, C.holder ? 1 : 0, 1)]")
 	if(C.holder)
 		receiver_message += " (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
 		receiver_message += ": <span class='message'>[generate_ahelp_key_words(C.mob, msg)]</span>"
@@ -157,7 +157,7 @@
 		if(X == C || X == src)
 			continue
 		if(X.key != key && X.key != C.key && (X.holder.rights & (R_ADMIN|R_MOD)))
-			to_chat(X, "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0, ticket)]</span> to <span class='name'>[key_name(C, X, 0, ticket)]</span> (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): <span class='message'>[msg]</span></span></span>")
+			to_chat(X, span("pm", span("other", "" + create_text_tag("pm_other", "PM:", X) + " <span class='name'>[key_name(src, X, 0, ticket)]</span> to <span class='name'>[key_name(C, X, 0, ticket)]</span> (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): <span class='message'>[msg]</span>")))
 
 /client/proc/cmd_admin_discord_pm(sender)
 	if(prefs.muted & MUTE_ADMINHELP)
@@ -175,7 +175,7 @@
 	post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is requested", "message"="PlayerPM to **[discord_escape(sender)]** from **[discord_escape(key_name(src))]**: ```[discord_escape(html_decode(msg))]```"))
 	discord_bot.send_to_admins("PlayerPM to [discord_escape(sender)] from [discord_escape(key_name(src))]: [discord_escape(html_decode(msg))]")
 
-	to_chat(src, "<span class='pm'><span class='out'>" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>")
+	to_chat(src, span("pm", span("out", "" + create_text_tag("pm_out_alt", "", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span>")))
 
 	log_admin("PM: [key_name(src)]->Discord-[sender]: [msg]")
 	for(var/s in staff)
@@ -183,4 +183,4 @@
 		if(C == src)
 			continue
 		if(C.holder.rights & (R_ADMIN|R_MOD))
-			to_chat(C, "<span class='pm'><span class='other'>" + create_text_tag("pm_other", "PM:", C) + " <span class='name'>[key_name(src, C, 0)]</span> to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span></span></span>")
+			to_chat(C, span("pm", span("other", "" + create_text_tag("pm_other", "PM:", C) + " <span class='name'>[key_name(src, C, 0)]</span> to <span class='name'>Discord-[sender]</span>: <span class='message'>[msg]</span>")))

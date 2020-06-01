@@ -47,13 +47,13 @@
 	if (C.iswelder())
 		var/obj/item/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
-			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
+			to_chat(user, SPAN_NOTICE("Slicing lattice joints ..."))
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
 	if (istype(C, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = C
 		if (R.use(2))
-			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
+			to_chat(user, SPAN_NOTICE("Constructing catwalk ..."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
@@ -79,7 +79,7 @@
 	if (C.iswelder())
 		var/obj/item/weldingtool/WT = C
 		if (do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
-			to_chat(user, "<span class='notice'>You slice apart [src].</span>")
+			to_chat(user, SPAN_NOTICE("You slice apart [src]."))
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			var/obj/item/stack/rods/R = new /obj/item/stack/rods(get_turf(src))
 			R.amount = return_amount
@@ -89,7 +89,7 @@
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
 	if (C.isscrewdriver())
 		anchored = !anchored
-		to_chat(user, "<span class='notice'>You [anchored ? "" : "un"]anchor [src].</span>")
+		to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
 		playsound(src, C.usesound, 50, 1)
 		queue_smooth(src)
 		queue_smooth_neighbors(src)
@@ -143,7 +143,7 @@
 	if(C.iswelder() && damaged)
 		var/obj/item/weldingtool/WT = C
 		if(do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
-			to_chat(user, span("notice","You slice apart the [src] leaving nothing useful behind."))
+			to_chat(user, SPAN_NOTICE("You slice apart the [src] leaving nothing useful behind."))
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			qdel(src)
 	else

@@ -47,7 +47,7 @@
 	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
-			user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 			return 1
 	return 0
 
@@ -85,7 +85,7 @@
 /obj/item/shield/riot/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
-			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
+			user.visible_message(SPAN_WARNING("[user] bashes [src] with [W]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 	else
@@ -157,7 +157,7 @@
 			shield_power -= round(damage/4)
 
 			if(shield_power <= 0)
-				visible_message("<span class='danger'>\The [user]'s [src.name] overloads!</span>")
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] overloads!"))
 				active = 0
 				force = 3
 				update_icon()
@@ -171,7 +171,7 @@
 
 				var/reflectchance = 80 - round(damage/3)
 				if(P.starting && prob(reflectchance))
-					visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+					visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
 
 					// Find a turf near or on the original location to bounce to
 					var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
@@ -183,10 +183,10 @@
 
 					return PROJECTILE_CONTINUE // complete projectile permutation
 				else
-					user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+					user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 					return 1
 			else
-				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+				user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 				return 1
 
 /obj/item/shield/energy/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
@@ -198,7 +198,7 @@
 
 /obj/item/shield/energy/attack_self(mob/living/user as mob)
 	if ((user.is_clumsy()) && prob(50))
-		to_chat(user, "<span class='warning'>You beat yourself in the head with [src].</span>")
+		to_chat(user, SPAN_WARNING("You beat yourself in the head with [src]."))
 		user.take_organ_damage(5)
 	active = !active
 	if (active)
@@ -206,14 +206,14 @@
 		update_icon()
 		w_class = 4
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>\The [src] is now active.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now active."))
 
 	else
 		force = 3
 		update_icon()
 		w_class = 1
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>\The [src] can now be concealed.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] can now be concealed."))
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
@@ -296,7 +296,7 @@
 		throw_speed = 2
 		w_class = 4
 		slot_flags = SLOT_BACK
-		to_chat(user, span("notice","You extend \the [src] downward with a sharp snap of your wrist."))
+		to_chat(user, SPAN_NOTICE("You extend \the [src] downward with a sharp snap of your wrist."))
 	else
 		icon_state = "[initial(icon_state)]"
 		item_state = "[initial(item_state)]"
@@ -305,7 +305,7 @@
 		throw_speed = 3
 		w_class = 3
 		slot_flags = 0
-		to_chat(user, span("notice","\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
+		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user

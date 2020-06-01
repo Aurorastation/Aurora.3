@@ -48,7 +48,7 @@
 	possession_candidate = TRUE
 
 /mob/living/simple_animal/carp/fall_impact()
-	src.visible_message(span("notice","\The [src] gently floats to a stop."))
+	src.visible_message(SPAN_NOTICE("\The [src] gently floats to a stop."))
 	return FALSE
 
 //Basic friend AI
@@ -105,7 +105,7 @@
 		return
 
 	if(!(ishuman(usr) && befriend_job && usr.job == befriend_job))
-		to_chat(user, "<span class='notice'>[src] ignores you.</span>")
+		to_chat(user, SPAN_NOTICE("[src] ignores you."))
 		return
 
 	friend = user

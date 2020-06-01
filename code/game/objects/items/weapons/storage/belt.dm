@@ -20,7 +20,7 @@
 	set category = "Object"
 
 	if(show_above_suit == -1)
-		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
 		return
 	show_above_suit = !show_above_suit
 	update_icon()

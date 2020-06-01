@@ -14,7 +14,7 @@
 				break
 	if(!corpse_to_raise)
 		if(is_sacrifice_target)
-			to_chat(user, span("warning", "The Geometer of blood wants this mortal for himself."))
+			to_chat(user, SPAN_WARNING("The Geometer of blood wants this mortal for himself."))
 		return fizzle(user)
 
 	is_sacrifice_target = FALSE
@@ -33,9 +33,9 @@
 
 	if(!body_to_maim)
 		if(is_sacrifice_target)
-			to_chat(user, span("cult", "The Geometer of Blood wants that corpse for himself."))
+			to_chat(user, SPAN_CULT("The Geometer of Blood wants that corpse for himself."))
 		else
-			to_chat(user, span("warning", "The sacrifical corpse is not dead. You must free it from this world of illusions before it may be used."))
+			to_chat(user, SPAN_WARNING("The sacrifical corpse is not dead. You must free it from this world of illusions before it may be used."))
 		return fizzle(user)
 
 	var/mob/abstract/observer/ghost
@@ -50,7 +50,7 @@
 		break
 
 	if(!ghost)
-		to_chat(user, span("warning", "You require a restless spirit which clings to this world. Beckon their prescence with the sacred chants of Nar-Sie."))
+		to_chat(user, SPAN_WARNING("You require a restless spirit which clings to this world. Beckon their prescence with the sacred chants of Nar-Sie."))
 		var/area/A = get_area(src)
 		for(var/mob/M in dead_mob_list)
 			to_chat(M, "[ghost_follow_link(user, M)] <span class='cult'>A cultist is attempting to revive a body in [A.name]!</span>")
@@ -61,12 +61,12 @@
 	corpse_to_raise.key = ghost.key	//the corpse will keep its old mind! but a new player takes ownership of it (they are essentially possessed)
 									//This means, should that player leave the body, the original may re-enter
 	user.say("Pasnar val'keriam usinar. Savrae ines amutan. Yam'toth remium il'tarat!")
-	corpse_to_raise.visible_message("<span class='warning'>[corpse_to_raise]'s eyes glow with a faint red as \he stands up, slowly starting to breathe again.</span>", \
-	"<span class='warning'>Life... I'm alive again...</span>", \
-	"<span class='warning'>You hear a faint, slightly familiar whisper.</span>")
-	body_to_maim.visible_message("<span class='danger'>[body_to_maim] is torn apart, a black smoke swiftly dissipating from \his wounds!</span>", \
-	"<span class='danger'>You feel as your blood boils, tearing you apart.</span>", \
-	"<span class='danger'>You hear a thousand voices, all crying in pain.</span>")
+	corpse_to_raise.visible_message(SPAN_WARNING("[corpse_to_raise]'s eyes glow with a faint red as \he stands up, slowly starting to breathe again."), \
+	SPAN_WARNING("Life... I'm alive again..."), \
+	SPAN_WARNING("You hear a faint, slightly familiar whisper."))
+	body_to_maim.visible_message(SPAN_DANGER("[body_to_maim] is torn apart, a black smoke swiftly dissipating from \his wounds!"), \
+	SPAN_DANGER("You feel as your blood boils, tearing you apart."), \
+	SPAN_DANGER("You hear a thousand voices, all crying in pain."))
 
 	var/list/obj/item/organ/external/possible_limbs = list()
 	var/limbs_to_drop = round(rand(1, 3))
@@ -79,6 +79,6 @@
 		var/obj/item/organ/external/limb = pick(possible_limbs)
 		limb.droplimb(FALSE, DROPLIMB_BURN)
 
-	to_chat(corpse_to_raise, span("cult", "Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root."))
-	to_chat(corpse_to_raise, span("cult", "Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring it back."))
+	to_chat(corpse_to_raise, SPAN_CULT("Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root."))
+	to_chat(corpse_to_raise, SPAN_CULT("Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring it back."))
 	return

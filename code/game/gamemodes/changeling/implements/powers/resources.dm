@@ -32,7 +32,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 			names += DNA.name
 
 	if(names.len <= 0)
-		to_chat(src, "<span class='notice'>The airwaves already has all of our DNA.</span>")
+		to_chat(src, SPAN_NOTICE("The airwaves already has all of our DNA."))
 		return
 
 	var/S = input("Select a DNA to channel: ", "Channel DNA", null) as null|anything in names
@@ -45,7 +45,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	changeling.chem_charges -= 10
 	hivemind_bank += chosen_dna
-	to_chat(src, "<span class='notice'>We channel the DNA of [S] to the air.</span>")
+	to_chat(src, SPAN_NOTICE("We channel the DNA of [S] to the air."))
 	feedback_add_details("changeling_powers", "HU")
 	return TRUE
 
@@ -64,7 +64,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 			names[DNA.name] = DNA
 
 	if(names.len <= 0)
-		to_chat(src, "<span class='notice'>There's no new DNA to absorb from the air.</span>")
+		to_chat(src, SPAN_NOTICE("There's no new DNA to absorb from the air."))
 		return
 
 	var/S = input("Select a DNA absorb from the air: ", "Absorb DNA", null) as null|anything in names
@@ -77,6 +77,6 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 
 	changeling.chem_charges -= 20
 	absorbDNA(chosen_dna)
-	to_chat(src, "<span class='notice'>We absorb the DNA of [S] from the air.</span>")
+	to_chat(src, SPAN_NOTICE("We absorb the DNA of [S] from the air."))
 	feedback_add_details("changeling_powers", "HD")
 	return TRUE

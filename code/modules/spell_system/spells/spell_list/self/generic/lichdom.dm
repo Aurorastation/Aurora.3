@@ -21,7 +21,7 @@
 		to_chat(user, "You have no soul or life to offer.")
 		return 0
 
-	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
+	user.visible_message(SPAN_CULT("\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!"))
 	gibs(user.loc)
 	user.add_spell(new /spell/targeted/dark_resurrection)
 	user.set_species("Skeleton")
@@ -29,7 +29,7 @@
 	user.unEquip(user.head)
 	user.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe/black(user), slot_wear_suit)
 	user.equip_to_slot_or_del(new /obj/item/clothing/head/wizard/black(user), slot_head)
-	to_chat(user, "<span class='notice'>Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!</span>")
+	to_chat(user, SPAN_NOTICE("Your soul flee to the remains of your heart, turning it into your phylactery. Do not allow anyone to destroy it!"))
 	var/obj/item/phylactery/G = new(get_turf(user))
 	G.lich = user
 	G.icon_state = "cursedheart-on"

@@ -11,7 +11,7 @@
 	spell_flags = 0
 	invocation = "STI KALY"
 	invocation_type = SpI_WHISPER
-	message = "<span class='danger'>Your eyes cry out in pain!</span>"
+	message = SPAN_DANGER("Your eyes cry out in pain!")
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 1, Sp_POWER = 3)
 	cooldown_min = 50
 

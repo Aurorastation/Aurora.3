@@ -32,10 +32,10 @@
 
 /obj/structure/alien/resin/attack_hand(var/mob/user)
 	if (HULK in user.mutations)
-		visible_message("<span class='danger'>\The [user] destroys \the [name]!</span>")
+		visible_message(SPAN_DANGER("\The [user] destroys \the [name]!"))
 		health = 0
 	else
-		visible_message("<span class='danger'>\The [user] claws at \the [src]!</span>")
+		visible_message(SPAN_DANGER("\The [user] claws at \the [src]!"))
 		// Todo check attack datums.
 		health -= rand(5,10)
 	healthcheck()

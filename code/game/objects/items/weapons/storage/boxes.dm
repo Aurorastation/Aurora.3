@@ -54,7 +54,7 @@
 
 		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
 			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
-				to_chat(user, span("warning", "There's no food in that box!"))
+				to_chat(user, SPAN_WARNING("There's no food in that box!"))
 				return
 			var/damage
 			if (!L.mob_size)
@@ -67,7 +67,7 @@
 
 			user.do_attack_animation(src)
 			if ((health-damage) <= 0)
-				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
+				L.visible_message(SPAN_DANGER("[L] tears open the [src], spilling its contents everywhere!"), SPAN_DANGER("You tear open the [src], spilling its contents everywhere!"))
 				spill()
 			else
 				animate_shake()
@@ -80,9 +80,9 @@
 	..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, span("warning", "It is slightly torn."))
+			to_chat(user, SPAN_WARNING("It is slightly torn."))
 		else
-			to_chat(user, span("danger", "It is full of tears and holes."))
+			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -104,7 +104,7 @@
 	if ( !found )	// User is too far away
 		return
 	// Now make the cardboard
-	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
+	to_chat(user, SPAN_NOTICE("You fold [src] flat."))
 	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
 	new src.foldable(get_turf(src))
 	qdel(src)
@@ -503,7 +503,7 @@
 	if(istype(W) && !W.lit && !W.burnt)
 		if(prob(25))
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<span class='notice'>[user] manages to light the match on the matchbox.</span>")
+			user.visible_message(SPAN_NOTICE("[user] manages to light the match on the matchbox."))
 			W.lit = 1
 			W.damtype = "burn"
 			W.icon_state = "match_lit"

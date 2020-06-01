@@ -34,4 +34,4 @@
 			I.hidden_uplink.update_nano_data()
 			SSnanoui.update_uis(I.hidden_uplink)
 			use(amount)
-			to_chat(user, "<span class='notice'>You slot \the [src] into \the [I] and charge its internal uplink.</span>")
+			to_chat(user, SPAN_NOTICE("You slot \the [src] into \the [I] and charge its internal uplink."))

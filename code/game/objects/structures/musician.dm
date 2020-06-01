@@ -256,7 +256,7 @@
 		return
 
 	if(broken)
-		to_chat(user,span("notice","\The [src] seems to be broken after so many years of misuse, perhaps due to reckless hooligans breaking into the display case and carelessly bashing keys."))
+		to_chat(user,SPAN_NOTICE("\The [src] seems to be broken after so many years of misuse, perhaps due to reckless hooligans breaking into the display case and carelessly bashing keys."))
 		return
 
 	usr.machine = src
@@ -376,7 +376,7 @@
 		else if(href_list["import"])
 			var/t = ""
 			do
-				t = html_encode(input(usr, "Please paste the entire song, formatted:", text("[]", src.name), t)  as message)
+				t = html_encode(input(usr, "Please paste the entire song, formatted:", "[src.name]", t)  as message)
 				if (!in_range(src, usr))
 					return
 
@@ -416,16 +416,16 @@
 	if (O.iswrench())
 		if (anchored)
 			playsound(src.loc, O.usesound, 50, 1)
-			to_chat(user, "<span class='notice'>You begin to loosen \the [src]'s casters...</span>")
+			to_chat(user, SPAN_NOTICE("You begin to loosen \the [src]'s casters..."))
 			if (do_after(user, 40/O.toolspeed))
 				user.visible_message( \
 					"[user] loosens \the [src]'s casters.", \
-					"<span class='notice'>You have loosened \the [src]. Now it can be pulled somewhere else.</span>", \
+					SPAN_NOTICE("You have loosened \the [src]. Now it can be pulled somewhere else."), \
 					"You hear ratchet.")
 				src.anchored = 0
 		else
 			playsound(src.loc, O.usesound, 50, 1)
-			to_chat(user, "<span class='notice'>You begin to tighten \the [src] to the floor...</span>")
+			to_chat(user, SPAN_NOTICE("You begin to tighten \the [src] to the floor..."))
 			if (do_after(user, 20/O.toolspeed))
 				user.visible_message( \
 					"[user] tightens \the [src]'s casters.", \

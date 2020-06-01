@@ -63,7 +63,7 @@
 		/obj/item/storage/pill_bottle/zoom                            = TRADER_THIS_TYPE
 	)
 
-	mob_transfer_message = "<span class='danger'>You are transported to the ORIGIN. When the transportation dizziness wears off, you find you are surrounded by cackling Vox...</span>"
+	mob_transfer_message = SPAN_DANGER("You are transported to the ORIGIN. When the transportation dizziness wears off, you find you are surrounded by cackling Vox...")
 
 /datum/trader/ship/vox/hail(var/mob/user)
 	var/specific

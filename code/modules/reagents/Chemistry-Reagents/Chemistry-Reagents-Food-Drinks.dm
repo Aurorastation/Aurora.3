@@ -356,7 +356,7 @@
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
 		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you
 		if (lastburnmessage+100 < world.time	)
-			to_chat(M, span("danger", "Searing hot oil burns you, wash it off quick!"))
+			to_chat(M, SPAN_DANGER("Searing hot oil burns you, wash it off quick!"))
 			lastburnmessage = world.time
 
 
@@ -576,7 +576,7 @@
 
 	var/agony_dose = 5
 	var/agony_amount = 1
-	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/discomfort_message = SPAN_DANGER("Your insides feel uncomfortably hot!")
 	var/slime_temp_adj = 10
 
 
@@ -595,7 +595,7 @@
 		M.apply_effect(agony_amount, PAIN, 0)
 		if(prob(5))
 			M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+			to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
 	holder.remove_reagent("frostoil", 5)
@@ -613,7 +613,7 @@
 	color = "#B31008"
 	agony_dose = 0.5
 	agony_amount = 4
-	discomfort_message = "<span class='danger'>You feel like your insides are burning!</span>"
+	discomfort_message = SPAN_DANGER("You feel like your insides are burning!")
 	slime_temp_adj = 15
 	fallback_specific_heat = 4
 
@@ -652,11 +652,11 @@
 	var/message = null
 	if(eyes_covered)
 		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
-			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
+			message = SPAN_WARNING("Your [eye_protection] protects your eyes from the pepperspray!")
 		else if (eyes_covered & EYES_MECH)
-			message = "<span class='warning'>Your mechanical eyes are invulnurable to pepperspray!</span>"
+			message = SPAN_WARNING("Your mechanical eyes are invulnurable to pepperspray!")
 	else
-		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
+		message = SPAN_WARNING("The pepperspray gets in your eyes!")
 		if(mouth_covered)
 			M.eye_blurry = max(M.eye_blurry, 15)
 			M.eye_blind = max(M.eye_blind, 5)
@@ -666,9 +666,9 @@
 
 	if(mouth_covered)
 		if(!message)
-			message = "<span class='warning'>Your [face_protection] protects you from the pepperspray!</span>"
+			message = SPAN_WARNING("Your [face_protection] protects you from the pepperspray!")
 	else if(!no_pain)
-		message = "<span class='danger'>Your face and throat burn!</span>"
+		message = SPAN_DANGER("Your face and throat burn!")
 		if(prob(25))
 			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
 		M.apply_effect(40, PAIN, 0)
@@ -679,11 +679,11 @@
 		if(!H.can_feel_pain())
 			return
 	if(dose == metabolism)
-		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+		to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 	else
 		M.apply_effect(4, PAIN, 0)
 		if(prob(5))
-			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
+			M.visible_message(SPAN_WARNING("[M] [pick("dry heaves!","coughs!","splutters!")]"), SPAN_DANGER("You feel like your insides are burning!"))
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent("frostoil", 5)
@@ -1100,7 +1100,7 @@
 /datum/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
@@ -2159,7 +2159,7 @@
 /datum/reagent/drink/toothpaste/teathpaste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
@@ -3861,7 +3861,7 @@
 	taste_mult = 1.2
 	var/agony_dose = 5
 	var/agony_amount = 1
-	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/discomfort_message = SPAN_DANGER("Your insides feel uncomfortably hot!")
 	var/slime_temp_adj = 3
 
 /datum/reagent/alcohol/ethanol/fireball/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -3880,7 +3880,7 @@
 			M.apply_effect(agony_amount, PAIN, 0)
 			if(prob(5))
 				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+				to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
 		holder.remove_reagent("frostoil", 2)
@@ -4470,7 +4470,7 @@
 /datum/reagent/alcohol/butanol/trizkizki_tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)

@@ -8,8 +8,8 @@
 	name = "Hallucinations"
 	desc = "Patient suffers constant hallucinations."
 	scan_desc = "schizophrenia"
-	gain_text = "<span class='warning'>You feel your grip on reality slipping...</span>"
-	lose_text = "<span class='notice'>You feel more grounded.</span>"
+	gain_text = SPAN_WARNING("You feel your grip on reality slipping...")
+	lose_text = SPAN_NOTICE("You feel more grounded.")
 	cure_type = CURE_SOLITUDE
 
 /datum/brain_trauma/mild/hallucinations/on_life()
@@ -24,8 +24,8 @@
 	name = "Stuttering"
 	desc = "Patient can't speak properly."
 	scan_desc = "reduced mouth coordination"
-	gain_text = "<span class='warning'>Speaking clearly is getting harder.</span>"
-	lose_text = "<span class='notice'>You feel in control of your speech.</span>"
+	gain_text = SPAN_WARNING("Speaking clearly is getting harder.")
+	lose_text = SPAN_NOTICE("You feel in control of your speech.")
 	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/stuttering/on_life()
@@ -40,8 +40,8 @@
 	name = "Dumbness"
 	desc = "Patient has reduced brain activity, making them less intelligent."
 	scan_desc = "reduced brain activity"
-	gain_text = "<span class='warning'>You feel dumber.</span>"
-	lose_text = "<span class='notice'>You feel smart again.</span>"
+	gain_text = SPAN_WARNING("You feel dumber.")
+	lose_text = SPAN_NOTICE("You feel smart again.")
 	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/dumbness/on_gain()
@@ -112,8 +112,8 @@
 	name = "Concussion"
 	desc = "Patient's brain is concussed."
 	scan_desc = "a concussion"
-	gain_text = "<span class='warning'>Your head hurts!</span>"
-	lose_text = "<span class='notice'>The pressure inside your head starts fading.</span>"
+	gain_text = SPAN_WARNING("Your head hurts!")
+	lose_text = SPAN_NOTICE("The pressure inside your head starts fading.")
 	cure_type = CURE_SURGERY
 
 /datum/brain_trauma/mild/concussion/on_life()
@@ -122,17 +122,17 @@
 			if(1)
 				if(ishuman(owner))
 					var/mob/living/carbon/human/H = owner
-					to_chat(owner, "<span class='notice'>Your stomach writhes with pain.</span>")
+					to_chat(owner, SPAN_NOTICE("Your stomach writhes with pain."))
 					H.vomit()
 			if(2,3)
-				to_chat(owner, "<span class='notice'>You feel light-headed.</span>")
+				to_chat(owner, SPAN_NOTICE("You feel light-headed."))
 				owner.dizziness = max(owner.slurring, 10)
 			if(4,5)
-				to_chat(owner, "<span class='notice'>it becomes hard to see for some reason.</span>")
+				to_chat(owner, SPAN_NOTICE("it becomes hard to see for some reason."))
 				owner.confused = max(owner.slurring, 10)
 				owner.apply_effect(10,EYE_BLUR)
 			if(6 to 9)
-				to_chat(owner, "<span class='notice'>Your tongue feels thick in your mouth.</span>")
+				to_chat(owner, SPAN_NOTICE("Your tongue feels thick in your mouth."))
 				owner.slurring = max(owner.slurring, 30)
 
 	..()
@@ -147,8 +147,8 @@
 	name = "Muscle Weakness"
 	desc = "Patient experiences occasional bouts of muscle weakness."
 	scan_desc = "weak motor nerve signal"
-	gain_text = "<span class='warning'>Your muscles feel oddly faint.</span>"
-	lose_text = "<span class='notice'>You feel in control of your muscles again.</span>"
+	gain_text = SPAN_WARNING("Your muscles feel oddly faint.")
+	lose_text = SPAN_NOTICE("You feel in control of your muscles again.")
 	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/muscle_weakness/on_life()
@@ -156,7 +156,7 @@
 	if(owner.m_intent == "run")
 		fall_chance += 15
 	if(prob(fall_chance) && !owner.lying && !owner.buckled)
-		to_chat(owner, "<span class='warning'>Your leg gives out!</span>")
+		to_chat(owner, SPAN_WARNING("Your leg gives out!"))
 		owner.Weaken(5)
 
 	else if(owner.get_active_hand())
@@ -164,10 +164,10 @@
 		var/obj/item/I = owner.get_active_hand()
 		drop_chance += I.w_class
 		if(prob(drop_chance) && owner.drop_from_inventory(I))
-			to_chat(owner, "<span class='warning'>You drop [I]!</span>")
+			to_chat(owner, SPAN_WARNING("You drop [I]!"))
 
 	else if(prob(3))
-		to_chat(owner, "<span class='warning'>You feel a sudden weakness in your muscles!</span>")
+		to_chat(owner, SPAN_WARNING("You feel a sudden weakness in your muscles!"))
 		owner.adjustHalLoss(25)
 	..()
 
@@ -175,8 +175,8 @@
 	name = "Muscle Spasms"
 	desc = "Patient has occasional muscle spasms, causing them to move unintentionally."
 	scan_desc = "nervous fits"
-	gain_text = "<span class='warning'>Your muscles feel oddly faint.</span>"
-	lose_text = "<span class='notice'>You feel in control of your muscles again.</span>"
+	gain_text = SPAN_WARNING("Your muscles feel oddly faint.")
+	lose_text = SPAN_NOTICE("You feel in control of your muscles again.")
 	cure_type = CURE_CRYSTAL
 
 /datum/brain_trauma/mild/muscle_spasms/on_life()
@@ -184,14 +184,14 @@
 		switch(rand(1,5))
 			if(1)
 				if(owner.canmove)
-					to_chat(owner, "<span class='warning'>Your leg spasms!</span>")
+					to_chat(owner, SPAN_WARNING("Your leg spasms!"))
 					step(owner, pick(cardinal))
 			if(2)
 				if(owner.incapacitated())
 					return
 				var/obj/item/I = owner.get_active_hand()
 				if(I)
-					to_chat(owner, "<span class='warning'>Your fingers spasm!</span>")
+					to_chat(owner, SPAN_WARNING("Your fingers spasm!"))
 					I.attack_self(owner)
 			if(3)
 				var/prev_intent = owner.a_intent
@@ -209,13 +209,13 @@
 						if(isliving(M))
 							targets += M
 				if(LAZYLEN(targets))
-					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
+					to_chat(owner, SPAN_WARNING("Your arm spasms!"))
 					owner.ClickOn(pick(targets))
 				owner.a_intent = prev_intent
 			if(4)
 				var/prev_intent = owner.a_intent
 				owner.a_intent = I_HURT
-				to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
+				to_chat(owner, SPAN_WARNING("Your arm spasms!"))
 				owner.ClickOn(owner)
 				owner.a_intent = prev_intent
 			if(5)
@@ -226,7 +226,7 @@
 				for(var/turf/T in oview(owner, 3))
 					targets += T
 				if(LAZYLEN(targets) && I)
-					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
+					to_chat(owner, SPAN_WARNING("Your arm spasms!"))
 					owner.throw_item(pick(targets))
 	..()
 
@@ -234,8 +234,8 @@
 	name = "Cerebral Near-Blindness"
 	desc = "Patient's brain is loosely connected to its eyes."
 	scan_desc = "minor damage to the brain's occipital lobe"
-	gain_text = "<span class='warning'>You can barely see!</span>"
-	lose_text = "<span class='notice'>Your vision returns.</span>"
+	gain_text = SPAN_WARNING("You can barely see!")
+	lose_text = SPAN_NOTICE("Your vision returns.")
 	cure_type = CURE_SURGERY
 
 /datum/brain_trauma/mild/nearsightedness/on_gain()
@@ -257,8 +257,8 @@
 	name = "Partial Colorblindedness"
 	desc = "Patient's brain is loosely connected to ocular cones."
 	scan_desc = "minor damage to the brain's occipital lobe"
-	gain_text = "<span class='warning'>Your perception of color distorts!</span>"
-	lose_text = "<span class='notice'>Your vision returns.</span>"
+	gain_text = SPAN_WARNING("Your perception of color distorts!")
+	lose_text = SPAN_NOTICE("Your vision returns.")
 	cure_type = CURE_SURGERY
 	var/colorblindedness
 

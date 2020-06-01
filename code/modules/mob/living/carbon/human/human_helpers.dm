@@ -15,7 +15,7 @@
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
 			to_chat(src, "Where do you intend to put \the [food]? You don't have a mouth!")
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
-			to_chat(src, "<span class='warning'>\The [status[2]] is in the way!</span>")
+			to_chat(src, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0
 
 /mob/living/carbon/human/can_force_feed(var/feeder, var/food, var/feedback = 1)
@@ -26,7 +26,7 @@
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
 			to_chat(feeder, "Where do you intend to put \the [food]? \The [src] doesn't have a mouth!")
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
-			to_chat(feeder, "<span class='warning'>\The [status[2]] is in the way!</span>")
+			to_chat(feeder, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0
 
 /mob/living/carbon/human/proc/can_eat_status()
@@ -164,12 +164,12 @@
 		"Your head feels like it's going to implode!",
 		"Thousands of ants are tunneling in your head!"
 		)
-	to_chat(src, span("danger", "An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
+	to_chat(src, SPAN_DANGER("An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
 	seizure()
 	var/new_latencies = rand(2,4)
 	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 	for(var/i = 1 to new_latencies)
-		custom_pain(span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
+		custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
 		set_psi_rank(pick_n_take(faculties), 1)
 		sleep(30)
 		psi.update()

@@ -19,7 +19,7 @@
 	if(!owner)
 		return
 
-	to_chat(owner, "<span class='warning'>Your eyes burn with the intense light of the flash!</span>")
+	to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
 	owner.Weaken(10)
 	take_damage(rand(10, 11))
 
@@ -80,23 +80,23 @@ obj/item/organ/vaurca/neuralsocket/process()
 	if (is_broken())
 		if (all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+			to_chat(owner, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	else
 		if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 			owner.add_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+			to_chat(owner, SPAN_NOTICE(" Your mind expands, and your thoughts join the unity of the Hivenet."))
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/replaced(var/mob/living/carbon/human/target)
 	if (!(all_languages[LANGUAGE_VAURCA] in owner.languages))
 		owner.add_language(LANGUAGE_VAURCA)
-		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+		to_chat(owner, SPAN_NOTICE(" Your mind expands, and your thoughts join the unity of the Hivenet."))
 	..()
 
 /obj/item/organ/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
-		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+		to_chat(target, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	..()
 
 /obj/item/organ/vaurca/preserve
@@ -151,27 +151,27 @@ obj/item/organ/vaurca/neuralsocket/process()
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] feels [descriptive]."))
 
 /obj/item/organ/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	var/obj/icon = src
 
 	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		user.visible_message("<span class='warning'>[user] has used [W] on \icon[icon] [src]</span>")
+		user.visible_message(SPAN_WARNING("[user] has used [W] on \icon[icon] [src]"))
 
 		var/pressure = air_contents.return_pressure()
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
 		var/total_moles = air_contents.total_moles
 
-		to_chat(user, "<span class='notice'>Results of analysis of \icon[icon]</span>")
+		to_chat(user, SPAN_NOTICE("Results of analysis of \icon[icon]"))
 		if (total_moles>0)
-			to_chat(user, "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>")
+			to_chat(user, SPAN_NOTICE("Pressure: [round(pressure,0.1)] kPa"))
 			for(var/g in air_contents.gas)
-				to_chat(user, "<span class='notice'>[gas_data.name[g]]: [(round(air_contents.gas[g] / total_moles) * 100)]%</span>")
-			to_chat(user, "<span class='notice'>Temperature: [round(air_contents.temperature-T0C)]&deg;C</span>")
+				to_chat(user, SPAN_NOTICE("[gas_data.name[g]]: [(round(air_contents.gas[g] / total_moles) * 100)]%"))
+			to_chat(user, SPAN_NOTICE("Temperature: [round(air_contents.temperature-T0C)]&deg;C"))
 		else
-			to_chat(user, "<span class='notice'>Tank is empty!</span>")
+			to_chat(user, SPAN_NOTICE("Tank is empty!"))
 		src.add_fingerprint(user)
 	else if (istype(W,/obj/item/latexballon))
 		var/obj/item/latexballon/LB = W
@@ -257,7 +257,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
+				to_chat(usr, SPAN_NOTICE("You close the tank release valve."))
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -272,11 +272,11 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 				if(can_open_valve)
 					location.internal = src
-					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
+					to_chat(usr, SPAN_NOTICE("You open \the [src] valve."))
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					to_chat(usr, "<span class='notice'>You need something to connect to \the [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You need something to connect to \the [src]."))
 
 	src.add_fingerprint(usr)
 	return 1
@@ -300,7 +300,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 
 	var/tank_pressure = air_contents.return_pressure()
 	if((tank_pressure < distribute_pressure) && prob(5))
-		to_chat(owner, "<span class='warning'>There is a buzzing in your [parent_organ].</span>")
+		to_chat(owner, SPAN_WARNING("There is a buzzing in your [parent_organ]."))
 
 	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
 

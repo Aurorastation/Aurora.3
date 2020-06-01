@@ -54,7 +54,7 @@
 		return 0
 
 	if(accepted_item.charges >= 5)
-		to_chat(user, "<span class='danger'>Another grenade of that type will not fit into the module.</span>")
+		to_chat(user, SPAN_DANGER("Another grenade of that type will not fit into the module."))
 		return 0
 
 	to_chat(user, "<font color='blue'><b>You slot \the [input_device] into the suit module.</b></font>")
@@ -73,7 +73,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(!charge_selected)
-		to_chat(H, "<span class='danger'>You have not selected a grenade type.</span>")
+		to_chat(H, SPAN_DANGER("You have not selected a grenade type."))
 		return 0
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -82,12 +82,12 @@
 		return 0
 
 	if(charge.charges <= 0)
-		to_chat(H, "<span class='danger'>Insufficient grenades!</span>")
+		to_chat(H, SPAN_DANGER("Insufficient grenades!"))
 		return 0
 
 	charge.charges--
 	var/obj/item/grenade/new_grenade = new charge.product_type(get_turf(H))
-	H.visible_message("<span class='danger'>[H] launches \a [new_grenade]!</span>")
+	H.visible_message(SPAN_DANGER("[H] launches \a [new_grenade]!"))
 	new_grenade.activate(H)
 	new_grenade.throw_at(target,fire_force,fire_distance)
 
@@ -307,7 +307,7 @@
 	var/mob/living/M = holder.wearer
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, "<span class='danger'>Your hands are full.</span>")
+		to_chat(M, SPAN_DANGER("Your hands are full."))
 		deactivate()
 		return
 
@@ -357,11 +357,11 @@
 	if(target)
 		var/obj/item/firing = new fabrication_type()
 		firing.forceMove(get_turf(src))
-		H.visible_message("<span class='danger'>[H] launches \a [firing]!</span>")
+		H.visible_message(SPAN_DANGER("[H] launches \a [firing]!"))
 		firing.throw_at(target,fire_force,fire_distance)
 	else
 		if(H.l_hand && H.r_hand)
-			to_chat(H, "<span class='danger'>Your hands are full.</span>")
+			to_chat(H, SPAN_DANGER("Your hands are full."))
 		else
 			var/obj/item/new_weapon = new fabrication_type()
 			new_weapon.forceMove(H)
@@ -402,7 +402,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	H.visible_message("<span class='danger'>\The [H] crackles with energy!</span>")
+	H.visible_message(SPAN_DANGER("\The [H] crackles with energy!"))
 	playsound(H, 'sound/magic/LightningShock.ogg', 75, 1)
 	tesla_zap(H, 5, 5000)
 	return 1

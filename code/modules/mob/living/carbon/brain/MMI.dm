@@ -35,19 +35,19 @@
 		if(istype(O,/obj/item/organ/internal/brain) && !brainmob) //Time to stick a brain in it --NEO
 			var/obj/item/organ/internal/brain/B = O
 			if(!B.can_lobotomize)
-				to_chat(user, "<span class='warning'>\The [B] is incompatible with [src]!</span>")
+				to_chat(user, SPAN_WARNING("\The [B] is incompatible with [src]!"))
 				return
 			if(B.health <= 0)
-				to_chat(user, "<span class='warning'>That brain is well and truly dead.</span>")
+				to_chat(user, SPAN_WARNING("That brain is well and truly dead."))
 				return
 			else if(!B.lobotomized && B.can_lobotomize)
-				to_chat(user, "<span class='warning'>The brain won't fit until you perform a lobotomy!</span>")
+				to_chat(user, SPAN_WARNING("The brain won't fit until you perform a lobotomy!"))
 				return
 			else if(!B.brainmob)
-				to_chat(user, "<span class='warning'>You aren't sure where this brain came from, but you're pretty sure it's a useless brain.</span>")
+				to_chat(user, SPAN_WARNING("You aren't sure where this brain came from, but you're pretty sure it's a useless brain."))
 				return
 
-			user.visible_message("<span class='notice'>[user] sticks \a [B] into \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("[user] sticks \a [B] into \the [src]."))
 
 			brainmob = B.brainmob
 			B.brainmob = null
@@ -73,9 +73,9 @@
 		if((istype(O,/obj/item/card/id)||istype(O,/obj/item/device/pda)) && brainmob)
 			if(allowed(user))
 				locked = !locked
-				to_chat(user, "<span class='notice'>You [locked ? "lock" : "unlock"] the brain holder.</span>")
+				to_chat(user, SPAN_NOTICE("You [locked ? "lock" : "unlock"] the brain holder."))
 			else
-				to_chat(user, "<span class='warning'>Access denied.</span>")
+				to_chat(user, SPAN_WARNING("Access denied."))
 			return
 		if(brainmob)
 			O.attack(brainmob, user)//Oh noooeeeee
@@ -85,11 +85,11 @@
 	//TODO: ORGAN REMOVAL UPDATE. Make the brain remain in the MMI so it doesn't lose organ data.
 	attack_self(mob/user as mob)
 		if(!brainmob)
-			to_chat(user, "<span class='warning'>You upend the MMI, but there's nothing in it.</span>")
+			to_chat(user, SPAN_WARNING("You upend the MMI, but there's nothing in it."))
 		else if(locked)
-			to_chat(user, "<span class='warning'>You upend the MMI, but the brain is clamped into place.</span>")
+			to_chat(user, SPAN_WARNING("You upend the MMI, but the brain is clamped into place."))
 		else
-			to_chat(user, "<span class='notice'>You upend the MMI, spilling the brain onto the floor.</span>")
+			to_chat(user, SPAN_NOTICE("You upend the MMI, spilling the brain onto the floor."))
 			var/obj/item/organ/internal/brain/brain
 			if (brainobj)	//Pull brain organ out of MMI.
 				brainobj.forceMove(user.loc)
@@ -161,7 +161,7 @@
 				to_chat(brainmob, "Can't do that while incapacitated or dead.")
 
 			radio.broadcasting = radio.broadcasting==1 ? 0 : 1
-			to_chat(brainmob, "<span class='notice'>Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting.</span>")
+			to_chat(brainmob, SPAN_NOTICE("Radio is [radio.broadcasting==1 ? "now" : "no longer"] broadcasting."))
 
 		Toggle_Listening()
 			set name = "Toggle Listening"
@@ -174,7 +174,7 @@
 				to_chat(brainmob, "Can't do that while incapacitated or dead.")
 
 			radio.listening = radio.listening==1 ? 0 : 1
-			to_chat(brainmob, "<span class='notice'>Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast.</span>")
+			to_chat(brainmob, SPAN_NOTICE("Radio is [radio.listening==1 ? "now" : "no longer"] receiving broadcast."))
 
 /obj/item/device/mmi/emp_act(severity)
 	if(!brainmob)

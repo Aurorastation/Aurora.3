@@ -71,14 +71,14 @@
 				tie_msg_warn += "! Attached to it is [lowertext(english_list(U.accessories))]"
 
 		if(w_uniform.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>[w_uniform.name]</a>[tie_msg_warn].</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] wearing \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>[w_uniform.name]</a>[tie_msg_warn].\n")
 		else
 			msg += "[T.He] [T.is] wearing \icon[w_uniform] <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>\a [w_uniform]</a>[tie_msg].\n"
 
 	//head
 	if(head)
 		if(head.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[head] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> on [T.his] head!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] wearing \icon[head] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> on [T.his] head!\n")
 		else
 			msg += "[T.He] [T.is] wearing \icon[head] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> on [T.his] head.\n"
 
@@ -93,40 +93,40 @@
 				tie_msg_warn += "! Attached to it is [lowertext(english_list(U.accessories))]"
 
 		if(wear_suit.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>[wear_suit.name]</a>[tie_msg_warn].</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] wearing \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>[wear_suit.name]</a>[tie_msg_warn].\n")
 		else
 			msg += "[T.He] [T.is] wearing \icon[wear_suit] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>\a [wear_suit]</a>[tie_msg].\n"
 
 		//suit/armour storage
 		if(s_store && !skipsuitstorage)
 			if(s_store.blood_color)
-				msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] [wear_suit.name]!</span>\n"
+				msg += SPAN_WARNING("[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] [wear_suit.name]!\n")
 			else
 				msg += "[T.He] [T.is] carrying \icon[s_store] <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>\a [s_store]</a> on [T.his] [wear_suit.name].\n"
 	else if(s_store && !skipsuitstorage)
 		if(s_store.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] chest!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] chest!\n")
 		else
 			msg += "[T.He] [T.is] carrying \icon[s_store] <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>\a [s_store]</a> on [T.his] chest.\n"
 
 	//back
 	if(back)
 		if(back.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[back] [fluid_color_type_map(back.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>[back]</a> on [T.his] back.</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.has] \icon[back] [fluid_color_type_map(back.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>[back]</a> on [T.his] back.\n")
 		else
 			msg += "[T.He] [T.has] \icon[back] <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>\a [back]</a> on [T.his] back.\n"
 
 	//left hand
 	if(l_hand)
 		if(l_hand.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] holding \icon[l_hand] [l_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(l_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>[l_hand.name]</a> in [T.his] left hand!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] holding \icon[l_hand] [l_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(l_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>[l_hand.name]</a> in [T.his] left hand!\n")
 		else
 			msg += "[T.He] [T.is] holding \icon[l_hand] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>\a [l_hand]</a> in [T.his] left hand.\n"
 
 	//right hand
 	if(r_hand)
 		if(r_hand.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] holding \icon[r_hand] [r_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(r_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>[r_hand.name]</a> in [T.his] right hand!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] holding \icon[r_hand] [r_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(r_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>[r_hand.name]</a> in [T.his] right hand!\n")
 		else
 			msg += "[T.He] [T.is] holding \icon[r_hand] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>\a [r_hand]</a> in [T.his] right hand.\n"
 
@@ -139,50 +139,50 @@
 			if(ID)
 				gloves_name = "[C.name] ([ID.registered_name] ([ID.assignment]))"
 		if(gloves.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves_name]</a> on [T.his] hands!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.has] \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves_name]</a> on [T.his] hands!\n")
 		else
 			msg += "[T.He] [T.has] \icon[gloves] <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>\a [gloves_name]</a> on [T.his] hands.\n"
 	else if(blood_color)
-		msg += "<span class='warning'>[T.He] [T.has] [fluid_color_type_map(hand_blood_color)]-stained hands!</span>\n"
+		msg += SPAN_WARNING("[T.He] [T.has] [fluid_color_type_map(hand_blood_color)]-stained hands!\n")
 
 	//handcuffed?
 	if(handcuffed)
 		if(istype(handcuffed, /obj/item/handcuffs/cable))
-			msg += "<span class='warning'>[T.He] [T.is] \icon[handcuffed] restrained with cable!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] \icon[handcuffed] restrained with cable!\n")
 		else
-			msg += "<span class='warning'>[T.He] [T.is] \icon[handcuffed] handcuffed!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] \icon[handcuffed] handcuffed!\n")
 
 	//buckled
 	if(buckled)
-		msg += "<span class='warning'>[T.He] [T.is] \icon[buckled] buckled to [buckled]!</span>\n"
+		msg += SPAN_WARNING("[T.He] [T.is] \icon[buckled] buckled to [buckled]!\n")
 
 	//belt
 	if(belt)
 		if(belt.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[belt] [belt.gender==PLURAL?"some":"a"] [fluid_color_type_map(belt.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>[belt.name]</a> about [T.his] waist!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.has] \icon[belt] [belt.gender==PLURAL?"some":"a"] [fluid_color_type_map(belt.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>[belt.name]</a> about [T.his] waist!\n")
 		else
 			msg += "[T.He] [T.has] \icon[belt] <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>\a [belt]</a> about [T.his] waist.\n"
 
 	//shoes
 	if(shoes && !skipshoes)
 		if(shoes.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[shoes] [shoes.gender==PLURAL?"some":"a"] [fluid_color_type_map(shoes.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>[shoes.name]</a> on [T.his] feet!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] wearing \icon[shoes] [shoes.gender==PLURAL?"some":"a"] [fluid_color_type_map(shoes.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>[shoes.name]</a> on [T.his] feet!\n")
 		else
 			msg += "[T.He] [T.is] wearing \icon[shoes] <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>\a [shoes]</a> on [T.his] feet.\n"
 	else if(footprint_color)
-		msg += "<span class='warning'>[T.He] [T.has] [fluid_color_type_map(footprint_color)]-stained feet!</span>\n"
+		msg += SPAN_WARNING("[T.He] [T.has] [fluid_color_type_map(footprint_color)]-stained feet!\n")
 
 	//mask
 	if(wear_mask && !skipmask)
 		if(wear_mask.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[wear_mask] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> on [T.his] face!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.has] \icon[wear_mask] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> on [T.his] face!\n")
 		else
 			msg += "[T.He] [T.has] \icon[wear_mask] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>\a [wear_mask]</a> on [T.his] face.\n"
 
 	//eyes
 	if(glasses && !skipeyes)
 		if(glasses.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[glasses] [glasses.gender==PLURAL?"some":"a"] [fluid_color_type_map(glasses.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>[glasses]</a> covering [T.his] eyes!</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.has] \icon[glasses] [glasses.gender==PLURAL?"some":"a"] [fluid_color_type_map(glasses.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>[glasses]</a> covering [T.his] eyes!\n")
 		else
 			msg += "[T.He] [T.has] \icon[glasses] <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>\a [glasses]</a> covering [T.his] eyes.\n"
 
@@ -207,20 +207,20 @@
 	//Jitters
 	if(is_jittery)
 		if(jitteriness >= 300)
-			msg += "<span class='warning'><B>[T.He] [T.is] convulsing violently!</B></span>\n"
+			msg += SPAN_WARNING("<B>[T.He] [T.is] convulsing violently!</B>\n")
 		else if(jitteriness >= 200)
-			msg += "<span class='warning'>[T.He] [T.is] extremely jittery.</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] extremely jittery.\n")
 		else if(jitteriness >= 100)
-			msg += "<span class='warning'>[T.He] [T.is] twitching ever so slightly.</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.is] twitching ever so slightly.\n")
 
 	//splints
 	for(var/organ in list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_R_FOOT,BP_L_FOOT))
 		var/obj/item/organ/external/o = get_organ(organ)
 		if(o)
 			if(o.status & ORGAN_SPLINTED)
-				msg += "<span class='warning'>[T.He] [T.has] a splint on [T.his] [o.name]!</span>\n"
+				msg += SPAN_WARNING("[T.He] [T.has] a splint on [T.his] [o.name]!\n")
 			if(o.applied_pressure == src)
-				msg += "<span class='warning'>[T.He] [T.is] applying pressure to [T.his] [o.name]!</span>\n"
+				msg += SPAN_WARNING("[T.He] [T.is] applying pressure to [T.his] [o.name]!\n")
 
 	if(mSmallsize in mutations)
 		msg += "[T.He] [T.is] small halfling!\n"
@@ -229,28 +229,25 @@
 	if(istype(user, /mob/abstract/observer) || user.stat == 2) // ghosts can see anything
 		distance = 1
 	if (src.stat && !(src.species.flags & NO_BLOOD))	// No point checking pulse of a species that doesn't have one.
-		msg += "<span class='warning'>[T.He] [T.is]n't responding to anything around [T.him] and seems to be unconscious.</span>\n"
+		msg += SPAN_WARNING("[T.He] [T.is]n't responding to anything around [T.him] and seems to be unconscious.\n")
 		if((stat == DEAD || is_asystole() || src.losebreath) && distance <= 3)
-			msg += "<span class='warning'>[T.He] [T.does] not appear to be breathing.</span>\n"
+			msg += SPAN_WARNING("[T.He] [T.does] not appear to be breathing.\n")
 		if(istype(user, /mob/living/carbon/human) && !user.stat && Adjacent(user))
 			spawn (0)
 				user.visible_message("<b>[user]</b> checks [src]'s pulse.", "You check [src]'s pulse.")
 				if (do_mob(user, src, 15))
 					if(pulse() == PULSE_NONE)
-						to_chat(user, "<span class='deadsay'>[T.He] [T.has] no pulse.</span>")
+						to_chat(user, span("deadsay", "[T.He] [T.has] no pulse."))
 					else
-						to_chat(user, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")
+						to_chat(user, span("deadsay", "[T.He] [T.has] a pulse!"))
 
 	else if (src.stat)
-		msg += span("warning", "[T.He] [T.is] not responding to anything around [T.him].\n")
+		msg += SPAN_WARNING("[T.He] [T.is] not responding to anything around [T.him].\n")
 
 	if(fire_stacks)
 		msg += "[T.He] [T.is] covered in some liquid.\n"
 	if(on_fire)
-		msg += "<span class='danger'>[T.He] [T.is] on fire!</span>\n"
-	msg += "<span class='warning'>"
-
-	msg += "</span>"
+		msg += SPAN_DANGER("[T.He] [T.is] on fire!\n")
 
 	var/have_client = client
 	var/inactivity = client ? client.inactivity : null
@@ -263,13 +260,13 @@
 
 	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
 		if(!vr_mob && !key)
-			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
+			msg += span("deadsay", "[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.\n")
 		else if(!vr_mob && !client && !bg)
-			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
+			msg += span("deadsay", "[T.He] [T.is] [species.show_ssd].\n")
 		if(have_client && ((inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
-			msg += "<span class='deadsay'>\[Inactive for [round(inactivity / 600)] minutes.\]\n</span>"
+			msg += span("deadsay", "\[Inactive for [round(inactivity / 600)] minutes.\]\n")
 		else if(!have_client && (world.realtime - disconnect_time) >= 5 MINUTES)
-			msg += "<span class='deadsay'>\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n</span>"
+			msg += span("deadsay", "\[Disconnected/ghosted [(world.realtime - disconnect_time)/600] minutes ago.\]\n")
 
 	var/list/wound_flavor_text = list()
 	var/list/is_bleeding = list()
@@ -281,9 +278,9 @@
 
 		var/obj/item/organ/external/E = organs_by_name[organ_tag]
 		if(!E)
-			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>[T.He] [T.is] missing [T.his] [organ_descriptor].</b></span>\n"
+			wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[T.He] [T.is] missing [T.his] [organ_descriptor].</b>\n")
 		else if(E.is_stump())
-			wound_flavor_text["[organ_descriptor]"] = "<span class='warning'><b>[T.He] [T.has] a stump where [T.his] [organ_descriptor] should be.</b></span>\n"
+			wound_flavor_text["[organ_descriptor]"] = SPAN_WARNING("<b>[T.He] [T.has] a stump where [T.his] [organ_descriptor] should be.</b>\n")
 		else
 			continue
 
@@ -293,25 +290,25 @@
 				continue
 			if(temp.status & ORGAN_ASSISTED)
 				if(!(temp.brute_dam + temp.burn_dam))
-					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
+					//wound_flavor_text["[temp.name]"] = SPAN_WARNING("[T.He] [T.has] a robot [temp.name]!\n")
 					// No need to notify about robotic limbs if they're not damaged, really.
 					continue
 				else
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]. It has[temp.get_wounds_desc()]!</span>\n"
+					wound_flavor_text["[temp.name]"] = SPAN_WARNING("[T.He] [T.has] a robot [temp.name]. It has[temp.get_wounds_desc()]!\n")
 			else if(temp.wounds.len > 0 || temp.open)
 				if(temp.is_stump() && temp.parent_organ && organs_by_name[temp.parent_organ])
 					var/obj/item/organ/external/parent = organs_by_name[temp.parent_organ]
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [parent.name].</span><br>"
+					wound_flavor_text["[temp.name]"] = SPAN_WARNING("[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [parent.name].<br>")
 				else
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.name].</span><br>"
+					wound_flavor_text["[temp.name]"] = SPAN_WARNING("[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.name].<br>")
 				if(temp.status & ORGAN_BLEEDING)
-					is_bleeding["[temp.name]"] = "<span class='danger'>[T.His] [temp.name] is bleeding!</span><br>"
+					is_bleeding["[temp.name]"] = SPAN_DANGER("[T.His] [temp.name] is bleeding!<br>")
 			else
 				wound_flavor_text["[temp.name]"] = ""
 			if(temp.dislocated == 2)
-				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.joint] is dislocated!</span><br>"
+				wound_flavor_text["[temp.name]"] += SPAN_WARNING("[T.His] [temp.joint] is dislocated!<br>")
 			if(((temp.status & ORGAN_BROKEN) && temp.brute_dam > temp.min_broken_damage) || (temp.status & ORGAN_MUTATED))
-				wound_flavor_text["[temp.name]"] += "<span class='warning'>[T.His] [temp.name] is dented and swollen!</span><br>"
+				wound_flavor_text["[temp.name]"] += SPAN_WARNING("[T.His] [temp.name] is dented and swollen!<br>")
 
 	//Handles the text strings being added to the actual description.
 	//If they have something that covers the limb, and it is not missing, put flavortext.  If it is covered but bleeding, add other flavortext.
@@ -324,7 +321,7 @@
 	for(var/obj/item/organ/external/organ in src.organs)
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O,/obj/item/implant) && !istype(O,/obj/item/material/shard/shrapnel))
-				msg += "<span class='danger'>[src] [T.has] \a [O] sticking out of [T.his] [organ.name]!</span>\n"
+				msg += SPAN_DANGER("[src] [T.has] \a [O] sticking out of [T.his] [organ.name]!\n")
 	if(digitalcamo)
 		msg += "[T.He] [T.is] a little difficult to identify.\n"
 

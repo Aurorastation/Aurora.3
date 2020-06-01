@@ -367,7 +367,7 @@ var/list/mob/living/forced_ambiance_list = new
 		if(has_gravity())
 			thunk(M)
 		else
-			to_chat(M, span("notice", "The sudden lack of gravity makes you feel weightless and float cluelessly!"))
+			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly!"))
 		M.update_floating( M.Check_Dense_Object() )
 
 /area/proc/thunk(mob)
@@ -385,7 +385,7 @@ var/list/mob/living/forced_ambiance_list = new
 		else
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
-		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
+		to_chat(mob, SPAN_NOTICE("The sudden appearance of gravity makes you fall to the floor!"))
 
 /area/proc/prison_break()
 	for(var/obj/machinery/power/apc/temp_apc in src)

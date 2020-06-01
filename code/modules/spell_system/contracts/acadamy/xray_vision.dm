@@ -10,6 +10,6 @@
 		user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
 		user.see_in_dark = 8
 		user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
-		to_chat(user, "<span class='notice'>The walls suddenly disappear.</span>")
+		to_chat(user, SPAN_NOTICE("The walls suddenly disappear."))
 		return 1
 	return 0

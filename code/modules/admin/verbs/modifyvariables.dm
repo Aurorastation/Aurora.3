@@ -409,11 +409,11 @@ var/list/VVdynamic_lock = list(
 
 	for(var/p in forbidden_varedit_object_types)
 		if( istype(O,p) )
-			to_chat(usr, "<span class='danger'>It is forbidden to edit this object's variables.</span>")
+			to_chat(usr, SPAN_DANGER("It is forbidden to edit this object's variables."))
 			return
 
 	if(istype(O, /client) && (param_var_name == "ckey" || param_var_name == "key"))
-		to_chat(usr, "<span class='danger'>You cannot edit ckeys on client objects.</span>")
+		to_chat(usr, SPAN_DANGER("You cannot edit ckeys on client objects."))
 		return
 
 	var/class

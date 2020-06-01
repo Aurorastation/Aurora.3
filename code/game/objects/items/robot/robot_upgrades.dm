@@ -12,7 +12,7 @@
 
 /obj/item/borg/upgrade/proc/action(var/mob/living/silicon/robot/R)
 	if(R.stat == DEAD)
-		to_chat(usr, "<span class='warning'>The [src] will not function on a deceased robot.</span>")
+		to_chat(usr, SPAN_WARNING("The [src] will not function on a deceased robot."))
 		return 1
 	return 0
 
@@ -65,7 +65,7 @@
 	if(..()) return 0
 
 	if(R.intense_light)
-		to_chat(usr, "<span class='notice'>This cyborg's light was already upgraded </span>")
+		to_chat(usr, SPAN_NOTICE("This cyborg's light was already upgraded "))
 		return 0
 	else
 		R.intense_light = 1
@@ -81,7 +81,7 @@
 
 /obj/item/borg/upgrade/restart/action(var/mob/living/silicon/robot/R)
 	if(R.health < 0)
-		to_chat(usr, "<span class='warning'>You have to repair the robot before using this module!</span>")
+		to_chat(usr, SPAN_WARNING("You have to repair the robot before using this module!"))
 		return 0
 
 	if(!R.key)

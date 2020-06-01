@@ -153,7 +153,7 @@
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
 	..()
@@ -199,7 +199,7 @@ var/const/enterloopsanity = 100
 
 /turf/Entered(atom/movable/AM)
 	if(movement_disabled)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
 	ASSERT(istype(AM))
@@ -396,10 +396,10 @@ var/const/enterloopsanity = 100
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if(!R.invisibility)
-					to_chat(user, span("warning", "No matter how well you wash, the bloody symbols remain!"))
+					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
 	else
 		if( !(last_clean && world.time < last_clean + 100) )
-			to_chat(user, span("warning", "\The [source] is too dry to wash that."))
+			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
 			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
@@ -520,7 +520,7 @@ var/const/enterloopsanity = 100
 		tally += limbCheck(lfoot)
 
 	if(tally >= 120)
-		to_chat(user, span("notice", "You're too injured to do this!"))
+		to_chat(user, SPAN_NOTICE("You're too injured to do this!"))
 		return
 
 	var/finaltime = 25 + (5 * (user.weakened * 1.5))

@@ -78,9 +78,9 @@
 				handle_storage_deferred(user)
 
 			if (count)
-				to_chat(user, "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>")
+				to_chat(user, SPAN_NOTICE("You empty [count] broken bulbs into the trashbag."))
 			else if (!bagfull)
-				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
+				to_chat(user, SPAN_NOTICE("There are no broken bulbs to empty out."))
 			return 1
 	..()
 
@@ -178,7 +178,7 @@
 		current += S.amount
 	if(capacity == current)//If it's full, you're done
 		if(!stop_messages)
-			to_chat(usr, "<span class='warning'>The snatcher is full.</span>")
+			to_chat(usr, SPAN_WARNING("The snatcher is full."))
 		return 0
 	return 1
 

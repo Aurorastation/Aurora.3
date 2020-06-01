@@ -79,10 +79,10 @@
 	if (usr.stat != CONSCIOUS)
 		return
 	if (occupant)
-		to_chat(usr, span("warning", "The scanner is already occupied!"))
+		to_chat(usr, SPAN_WARNING("The scanner is already occupied!"))
 		return
 	if (usr.abiotic())
-		to_chat(usr, span("warning", "The subject cannot have abiotic items on."))
+		to_chat(usr, SPAN_WARNING("The subject cannot have abiotic items on."))
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -112,14 +112,14 @@
 	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
 	if (occupant)
-		to_chat(user, span("warning", "The scanner is already occupied!"))
+		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
 		return
 	if (G.affecting.abiotic())
-		to_chat(user, span("warning", "Subject cannot have abiotic items on."))
+		to_chat(user, SPAN_WARNING("Subject cannot have abiotic items on."))
 		return
 
 	var/mob/living/M = G.affecting
-	user.visible_message(span("notice", "\The [user] starts putting \the [M] into \the [src]."), span("notice", "You start putting \the [M] into \the [src]."), range = 3)
+	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
 
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
@@ -149,10 +149,10 @@
 		return
 	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
 	if (occupant)
-		to_chat(user, span("notice", "<B>The scanner is already occupied!</B>"))
+		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 	if (M.abiotic())
-		to_chat(user, span("notice", "<B>Subject cannot have abiotic items on.</B>"))
+		to_chat(user, SPAN_NOTICE("<B>Subject cannot have abiotic items on.</B>"))
 		return
 
 	var/mob/living/L = O
@@ -162,9 +162,9 @@
 		return
 
 	if(L == user)
-		user.visible_message(span("notice", "\The [user] starts climbing into \the [src]."), span("notice", "You start climbing into \the [src]."), range = 3)
+		user.visible_message(SPAN_NOTICE("\The [user] starts climbing into \the [src]."), SPAN_NOTICE("You start climbing into \the [src]."), range = 3)
 	else
-		user.visible_message(span("notice", "\The [user] starts putting \the [L] into \the [src]."), span("notice", "You start putting \the [L] into \the [src]."), range = 3)
+		user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] into \the [src]."), SPAN_NOTICE("You start putting \the [L] into \the [src]."), range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -616,33 +616,33 @@
 /obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
 	var/dat = "<font color='blue'><b>Scan performed at [occ["stationtime"]]</b></font><br>"
 	dat += "<font color='blue'><b>Occupant Statistics:</b></font><br>"
-	dat += text("Brain Activity: []<br>", occ["brain_activity"])
+	dat += "Brain Activity: [occ["brain_activity"]]<br>"
 	if (occ["virus_present"])
 		dat += "<font color='red'>Viral pathogen detected in blood stream.</font><br>"
-	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
-	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
-	dat += text("Physical Trauma: []<br>", occ["bruteloss"])
-	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
-	dat += text("Systemic Organ Failure: []<br>", occ["toxloss"])
-	dat += text("Burn Severity: []<br><br>", occ["fireloss"])
+	dat += "Blood Pressure: [occ["blood_pressure"]]<br>"
+	dat += "Blood Oxygenation: [occ["blood_oxygenation"]]%<br>"
+	dat += "Physical Trauma: [occ["bruteloss"]]<br>"
+	dat += "Oxygen Deprivation: [occ["oxyloss"]]<br>"
+	dat += "Systemic Organ Failure: [occ["toxloss"]]<br>"
+	dat += "Burn Severity: [occ["fireloss"]]<br><br>"
 
-	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
-	dat += text("Genetic Tissue Damage: []<br>", occ["cloneloss"])
-	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
-	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
+	dat += "["<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"]\tRadiation Level %: [occ["rads"]]</font><br>"
+	dat += "Genetic Tissue Damage: [occ["cloneloss"]]<br>"
+	dat += "Paralysis Summary %: [occ["paralysis"]] ([round(occ["paralysis"] / 4)] seconds left!)<br>"
+	dat += "Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>"
 
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
 
-	dat += text("Norepinephrine: [] units<BR>", occ["norepinephrine_amount"])
-	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
-	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
-	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
-	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += "Norepinephrine: [occ["norepinephrine_amount"]] units<BR>"
+	dat += "Soporific: [occ["stoxin_amount"]] units<BR>"
+	dat += "["<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"]\tDermaline: [occ["dermaline_amount"]] units</FONT><BR>"
+	dat += "["<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"]\tBicaridine: [occ["bicaridine_amount"]] units</font><BR>"
+	dat += "["<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"]\tDexalin: [occ["dexalin_amount"]] units</font><BR>"
 
 	for(var/datum/disease/D in occ["tg_diseases_list"])
 		if(!D.hidden[SCANNER])
-			dat += text("<font color='red'><B>Warning: [D.form] Detected</B>\nName: [D.name].\nType: [D.spread].\nStage: [D.stage]/[D.max_stages].\nPossible Cure: [D.cure]</FONT><BR>")
+			dat += "<font color='red'><B>Warning: [D.form] Detected</B>\nName: [D.name].\nType: [D.spread].\nStage: [D.stage]/[D.max_stages].\nPossible Cure: [D.cure]</FONT><BR>"
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"
@@ -740,10 +740,10 @@
 	var/list/species_organs = occ["species_organs"]
 	for(var/organ_name in species_organs)
 		if(!locate(species_organs[organ_name]) in occ["internal_organs"])
-			dat += text("<font color='red'>No [organ_name] detected.</font><BR>")
+			dat += "<font color='red'>No [organ_name] detected.</font><BR>"
 
 	if(occ["sdisabilities"] & BLIND)
-		dat += text("<font color='red'>Cataracts detected.</font><BR>")
+		dat += "<font color='red'>Cataracts detected.</font><BR>"
 	if(occ["sdisabilities"] & NEARSIGHTED)
-		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
+		dat += "<font color='red'>Retinal misalignment detected.</font><BR>"
 	return dat

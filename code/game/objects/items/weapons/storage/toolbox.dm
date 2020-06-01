@@ -143,7 +143,7 @@
 			spill(3, get_turf(M))
 			playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
 			update_force()
-			user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
+			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
 
 /obj/item/storage/toolbox/lunchbox

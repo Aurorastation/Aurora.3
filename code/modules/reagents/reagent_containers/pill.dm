@@ -30,7 +30,7 @@
 			if(!M.can_eat(src))
 				return
 
-			M.visible_message(span("notice", "[M] swallows a pill."), span("notice", "You swallow \the [src]."), null, 2)
+			M.visible_message(SPAN_NOTICE("[M] swallows a pill."), SPAN_NOTICE("You swallow \the [src]."), null, 2)
 			if(reagents.total_volume)
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 			qdel(src)
@@ -40,17 +40,17 @@
 			if(!M.can_force_feed(user, src))
 				return
 
-			user.visible_message(span("warning", "[user] attempts to force [M] to swallow \the [src]."))
+			user.visible_message(SPAN_WARNING("[user] attempts to force [M] to swallow \the [src]."))
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			if(!do_mob(user, M))
 				return
 
-			user.visible_message(span("warning", "[user] forces [M] to swallow \the [src]."))
+			user.visible_message(SPAN_WARNING("[user] forces [M] to swallow \the [src]."))
 
 			var/contained = reagentlist()
-			M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [name] to [key_name(M)] Reagents: [contained]</font>")
+			M.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
+			user.attack_log += "\[[time_stamp()]\] <font color='red'>Fed [name] to [key_name(M)] Reagents: [contained]</font>"
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(M)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 			if(reagents.total_volume)
@@ -65,16 +65,16 @@
 
 		if(proximity && target.is_open_container() && target.reagents)
 			if(!target.reagents.total_volume)
-				to_chat(user, span("notice", "[target] is empty. Can't dissolve \the [src]."))
+				to_chat(user, SPAN_NOTICE("[target] is empty. Can't dissolve \the [src]."))
 				return
-			to_chat(user, span("notice", "You dissolve \the [src] in [target]."))
+			to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
 
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</font>")
+			user.attack_log += "\[[time_stamp()]\] <font color='red'>Spiked \a [target] with a pill. Reagents: [reagentlist()]</font>"
 			msg_admin_attack("[user.name] ([user.ckey]) spiked \a [target] with a pill. Reagents: [reagentlist()] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
 			reagents.trans_to(target, reagents.total_volume)
 			for(var/mob/O in viewers(2, user))
-				O.show_message(span("warning", "[user] puts something in \the [target]."), 1)
+				O.show_message(SPAN_WARNING("[user] puts something in \the [target]."), 1)
 
 			qdel(src)
 			return

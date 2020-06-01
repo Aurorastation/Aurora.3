@@ -28,7 +28,7 @@
 	icon_state = "t-ray[on]"
 
 /obj/item/device/t_scanner/emp_act()
-	audible_message(src, span("notice", "\The [src] buzzes oddly."))
+	audible_message(src, SPAN_NOTICE("\The [src] buzzes oddly."))
 	set_active(FALSE)
 
 /obj/item/device/t_scanner/attack_self(mob/user)

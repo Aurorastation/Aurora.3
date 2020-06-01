@@ -66,7 +66,7 @@
 /obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
-		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
+		to_chat(M, SPAN_WARNING("Unwield the [base_name] first!"))
 		return 0
 
 	return ..()
@@ -82,7 +82,7 @@
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
 /obj/item/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
 		return 1
 	return 0
@@ -102,18 +102,18 @@
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(issmall(H))
-			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
+			to_chat(user, SPAN_WARNING("It's too heavy for you to wield fully."))
 			return
 	else
 		return
 
 	if(!istype(user.get_active_hand(), src))
-		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand.</span>")
+		to_chat(user, SPAN_WARNING("You need to be holding the [name] in your active hand."))
 		return
 
 	if(wielded) //Trying to unwield it
 		unwield()
-		to_chat(user, "<span class='notice'>You are now carrying the [name] with one hand.</span>")
+		to_chat(user, SPAN_NOTICE("You are now carrying the [name] with one hand."))
 		if (src.unwieldsound)
 			playsound(src.loc, unwieldsound, 50, 1)
 
@@ -124,10 +124,10 @@
 
 	else //Trying to wield it
 		if(user.get_inactive_hand())
-			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
+			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
 			return
 		wield()
-		to_chat(user, "<span class='notice'>You grab the [base_name] with both hands.</span>")
+		to_chat(user, SPAN_NOTICE("You grab the [base_name] with both hands."))
 		if (src.wieldsound)
 			playsound(src.loc, wieldsound, 50, 1)
 
@@ -250,7 +250,7 @@
 
 /obj/item/material/twohanded/spear/attackby(var/obj/item/I, var/mob/living/user)
 	if(istype(I, /obj/item/organ/external/head))
-		to_chat(user, "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>")
+		to_chat(user, SPAN_NOTICE("You stick the head onto the spear and stand it upright on the ground."))
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
 		I.transform = M
@@ -264,7 +264,7 @@
 		return
 
 	if(istype(I, /obj/item/grenade))
-		to_chat(user, "<span class='notice'>You strap \the [I] to \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You strap \the [I] to \the [src]."))
 		user.unEquip(I)
 		I.forceMove(src)
 		explosive = I
@@ -316,7 +316,7 @@
 	anchored = 1
 
 /obj/structure/headspear/attack_hand(mob/living/user)
-	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] kicks over \the [src]!"), SPAN_DANGER("You kick down \the [src]!"))
 	new /obj/item/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
 		H.forceMove(user.loc)
@@ -375,7 +375,7 @@
 
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
-	T.audible_message(span("notice", "\The [src] rumbles to life."))
+	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
 	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
 	force = 15
 	force_unwielded = 30
@@ -390,7 +390,7 @@
 
 /obj/item/material/twohanded/chainsaw/proc/PowerDown()
 	var/turf/T = get_turf(src)
-	T.audible_message(span("notice", "\The [src] slowly powers down."))
+	T.audible_message(SPAN_NOTICE("\The [src] slowly powers down."))
 	force = initial(force)
 	force_wielded = initial(force_wielded)
 	throwforce = initial(throwforce)
@@ -451,15 +451,15 @@
 	if(!proximity) return
 	if (istype(O, /obj/structure/reagent_dispensers/fueltank) && get_dist(src,O) <= 1 && !powered)
 		O.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>[src] refueled</span>")
+		to_chat(user, SPAN_NOTICE("[src] refueled"))
 		playsound(loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(powered)
 		if(!istype(O))
 			user.visible_message(\
-				"<span class='warning'>[user] revs the chainsaw!.</span>",\
-				"<span class='warning'>You rev the chainsaw!.</span>",\
-				"<span class='warning'>You hear a machine rev.</span>"\
+				SPAN_WARNING("[user] revs the chainsaw!."),\
+				SPAN_WARNING("You rev the chainsaw!."),\
+				SPAN_WARNING("You hear a machine rev.")\
 			)
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -480,27 +480,27 @@
 	var/eye_damage = max(0, (2 - H.eyecheck())*multiplier )
 	E.damage += eye_damage
 	if(eye_damage > 0)
-		to_chat(H, "<span class='danger'>Some stray sparks fly in your eyes!</span>")
+		to_chat(H, SPAN_DANGER("Some stray sparks fly in your eyes!"))
 
 /obj/item/material/twohanded/chainsaw/AltClick(mob/user as mob)
 
 	if(powered)
 		PowerDown(user)
 	else if(!wielded)
-		to_chat(user, "<span class='notice'>You need to hold this with two hands to turn this on.</span>")
+		to_chat(user, SPAN_NOTICE("You need to hold this with two hands to turn this on."))
 	else if(reagents.get_reagent_amount("fuel") <= 0)
 		user.visible_message(\
-			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
-			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\
-			"<span class='notice'>You hear a cord being pulled.</span>"\
+			SPAN_NOTICE("[user] pulls the cord on the [src], but nothing happens."),\
+			SPAN_NOTICE("You pull the cord on the [src], but nothing happens."),\
+			SPAN_NOTICE("You hear a cord being pulled.")\
 		)
 	else
 		var/max = rand(3,6)
 		for(var/i in 1 to max)
 			user.visible_message(\
-				"<span class='notice'>[user] pulls the cord on the [src]...</span>",\
-				"<span class='notice'>You pull the cord on the [src]...</span>",\
-				"<span class='notice'>You hear a cord being pulled and an engine sputtering...</span>"\
+				SPAN_NOTICE("[user] pulls the cord on the [src]..."),\
+				SPAN_NOTICE("You pull the cord on the [src]..."),\
+				SPAN_NOTICE("You hear a cord being pulled and an engine sputtering...")\
 			)
 			if(i == max)
 				PowerUp(user)

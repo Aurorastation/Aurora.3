@@ -14,7 +14,7 @@
 	if(shattered)	return
 
 	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
-		to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("Your reflection appears distorted on the surface of \the [src]."))
 
 	if(ishuman(user))
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]
@@ -47,10 +47,10 @@
 		return
 
 	if(prob(I.force * 2))
-		visible_message("<span class='warning'>[user] smashes [src] with [I]!</span>")
+		visible_message(SPAN_WARNING("[user] smashes [src] with [I]!"))
 		shatter()
 	else
-		visible_message("<span class='warning'>[user] hits [src] with [I]!</span>")
+		visible_message(SPAN_WARNING("[user] hits [src] with [I]!"))
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 70, 1)
 
 /obj/structure/mirror/attack_generic(var/mob/user, var/damage)
@@ -61,10 +61,10 @@
 		return 0
 
 	if(damage)
-		user.visible_message("<span class='danger'>[user] smashes [src]!</span>")
+		user.visible_message(SPAN_DANGER("[user] smashes [src]!"))
 		shatter()
 	else
-		user.visible_message("<span class='danger'>[user] hits [src] and bounces off!</span>")
+		user.visible_message(SPAN_DANGER("[user] hits [src] and bounces off!"))
 	return 1
 
 /obj/structure/mirror/Destroy()
@@ -112,7 +112,7 @@
 /obj/item/mirror/attack_self(mob/user as mob)
 
 	if(user.mind && user.mind.vampire && (!(user.mind.vampire.status & VAMP_ISTHRALL)))
-		to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("Your reflection appears distorted on the surface of \the [src]."))
 
 	if(ishuman(user))
 		var/datum/nano_module/appearance_changer/AC = ui_users[user]

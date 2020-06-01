@@ -17,7 +17,7 @@
 				return
 			if (src.client)
 				if (client.prefs.muted & MUTE_IC)
-					to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
+					to_chat(src, SPAN_WARNING("You cannot send IC messages (muted)."))
 					return
 			if (stat)
 				return
@@ -63,7 +63,7 @@
 		if ("help")
 			to_chat(src, "alarm,alert,notice,flash,blink,whistle,beep,boop")
 		else
-			to_chat(src, "<span class='notice'>Unusable emote '[act]'. Say *help for a list.</span>")
+			to_chat(src, SPAN_NOTICE("Unusable emote '[act]'. Say *help for a list."))
 
 	if (message)
 		log_emote("[name]/[key] : [message]",ckey=key_name(key))

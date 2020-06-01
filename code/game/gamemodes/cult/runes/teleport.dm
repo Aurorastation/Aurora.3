@@ -20,7 +20,7 @@ var/global/list/static/teleport_network = list("Vernuth", "Koglan", "Irgros", "A
 /obj/effect/rune/teleport/do_rune_action(mob/living/user)
 	var/turf/T = get_turf(user)
 	if(isNotStationLevel(T.z))
-		to_chat(user, span("warning", "You are too far from the station, Nar'sie is unable to reach you here."))
+		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie is unable to reach you here."))
 		return fizzle(user)
 
 	var/list/obj/effect/rune/teleport/possible_runes = list()
@@ -36,9 +36,9 @@ var/global/list/static/teleport_network = list("Vernuth", "Koglan", "Irgros", "A
 			user.say("Sas[pick("'","`")]so c'arta forbici!")//Only you can stop auto-muting
 		else
 			user.whisper("Sas[pick("'","`")]so c'arta forbici!")
-		user.visible_message("<span class='warning'>[user] disappears in a flash of red light!</span>", \
-		"<span class='cult'>You feel as your body gets dragged through the dimension of Nar-Sie!</span>", \
-		"<span class='warning'>You hear a sickening crunch and sloshing of viscera.</span>")
+		user.visible_message(SPAN_WARNING("[user] disappears in a flash of red light!"), \
+		SPAN_CULT("You feel as your body gets dragged through the dimension of Nar-Sie!"), \
+		SPAN_WARNING("You hear a sickening crunch and sloshing of viscera."))
 		user.forceMove(get_turf(pick(possible_runes)))
 		return TRUE
 	if(istype(src, /obj/effect/rune))

@@ -6,7 +6,7 @@ var/datum/antagonist/ninja/ninjas
 	role_text_plural = "Ninja"
 	bantype = "ninja"
 	landmark_id = "ninjastart"
-	welcome_text = "<span class='info'>You are an elite stealth agent. You can equip your suit with the latest technology using your uplink.</span>"
+	welcome_text = span("info", "You are an elite stealth agent. You can equip your suit with the latest technology using your uplink.")
 	restricted_species = list("Diona")
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudninja"

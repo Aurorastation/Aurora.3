@@ -238,7 +238,7 @@
 	if (!has_emergency_power(pwr))
 		return FALSE
 	if (cell.charge > 300)	//it's meant to handle 120 W, ya doofus
-		visible_message("<span class='warning'>[src] short-circuits!</span>", "<span class='warning'>You hear glass breaking.</span>")
+		visible_message(SPAN_WARNING("[src] short-circuits!"), SPAN_WARNING("You hear glass breaking."))
 		broken()
 		return FALSE
 	cell.use(pwr)
@@ -264,7 +264,7 @@
 		return
 	if(!(status == LIGHT_OK||status == LIGHT_BURNED))
 		return
-	visible_message("<span class='danger'>[user] smashes the light!</span>")
+	visible_message(SPAN_DANGER("[user] smashes the light!"))
 	user.do_attack_animation(src)
 	broken()
 	return 1
@@ -439,9 +439,9 @@
 		var/mob/living/carbon/human/H = user
 		if(H.species.can_shred(H))
 			H.visible_message(
-				"<span class='warning'>[user] smashes [src]!</span>",
-				"<span class='warning'>You smash [src]!</span>",
-				"<span class='notice'>You hear the tinkle of breaking glass.</span>"
+				SPAN_WARNING("[user] smashes [src]!"),
+				SPAN_WARNING("You smash [src]!"),
+				SPAN_NOTICE("You hear the tinkle of breaking glass.")
 			)
 			broken()
 			return

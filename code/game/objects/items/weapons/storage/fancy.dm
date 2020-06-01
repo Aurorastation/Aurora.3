@@ -211,7 +211,7 @@
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		to_chat(user, "<span class='notice'>You take a cigarette out of the pack.</span>")
+		to_chat(user, SPAN_NOTICE("You take a cigarette out of the pack."))
 		update_icon()
 	else
 		..()
@@ -289,7 +289,7 @@
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
 		contents.len--
-		to_chat(user, "<span class='notice'>You take a cigar out of the case.</span>")
+		to_chat(user, SPAN_NOTICE("You take a cigar out of the case."))
 		update_icon()
 	else
 		..()

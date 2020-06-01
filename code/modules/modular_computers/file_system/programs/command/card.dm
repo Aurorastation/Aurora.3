@@ -153,7 +153,7 @@
 									<br>
 									[SSrecords.get_manifest(1)]
 									"}
-					if(!computer.nano_printer.print_text(contents,text("crew manifest ([])", worldtime2text())))
+					if(!computer.nano_printer.print_text(contents,"crew manifest ([worldtime2text()])"))
 						to_chat(usr, SPAN_WARNING(">Hardware error: Printer was unable to print the file. It may be out of paper."))
 						return
 					else
@@ -186,7 +186,7 @@
 					if(temp_name)
 						id_card.registered_name = temp_name
 					else
-						computer.visible_message("<span class='notice'>[computer] buzzes rudely.</span>")
+						computer.visible_message(SPAN_NOTICE("[computer] buzzes rudely."))
 				else if(href_list["account"])
 					var/account_num = text2num(input("Enter account number.", "Account", id_card.associated_account_number))
 					id_card.associated_account_number = account_num
@@ -230,7 +230,7 @@
 					if(!access_allowed)
 						id_card.access += access_type
 	if(id_card)
-		id_card.name = text("[id_card.registered_name]'s ID Card ([id_card.assignment])")
+		id_card.name = "[id_card.registered_name]'s ID Card ([id_card.assignment])"
 
 	SSnanoui.update_uis(NM)
 	return TRUE

@@ -36,23 +36,23 @@
 
 /obj/item/device/orbital_dropper/proc/laser_act(var/atom/target, var/mob/living/user)
 	if(has_dropped >= drop_amount)
-		to_chat(user, span("warning", "You can't use this device again!"))
+		to_chat(user, SPAN_WARNING("You can't use this device again!"))
 		return
 
 	var/turf/targloc = get_turf(target)
 	if(!emagged)
 		for(var/turf/t in block(locate(targloc.x+3,targloc.y+3,targloc.z), locate(targloc.x-3,targloc.y-3,targloc.z)))
 			if (!istype(t.loc, /area/mine))
-				to_chat(user, span("warning", "You can't do this so close to the station, point the laser further into the mine!"))
+				to_chat(user, SPAN_WARNING("You can't do this so close to the station, point the laser further into the mine!"))
 				return
 			if (!isfloor(targloc))
-				to_chat(user, span("warning", "You cannot request this on unstable flooring!"))
+				to_chat(user, SPAN_WARNING("You cannot request this on unstable flooring!"))
 				return
 	if(!(user in (viewers(paint_distance, target))) )
-		to_chat(user, span("warning", "You can't paint the target that far away!"))
+		to_chat(user, SPAN_WARNING("You can't paint the target that far away!"))
 		return
 	if (!user.IsAdvancedToolUser())
-		to_chat(user, span("warning", "You don't have the dexterity to do this!"))
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 	add_fingerprint(user)
 
@@ -66,7 +66,7 @@
 	I.pixel_x = target.pixel_x + rand(-5,5)
 	I.pixel_y = target.pixel_y + rand(-5,5)
 
-	to_chat(user, span("notice", "You paint the target at [target]."))
+	to_chat(user, SPAN_NOTICE("You paint the target at [target]."))
 
 	var/obj/item/device/radio/intercom/announcer = new /obj/item/device/radio/intercom(null)
 	announcer.config(list("Common" = FALSE, "Entertainment" = FALSE, "Response Team" = FALSE, "Science" = FALSE, "Command" = FALSE, "Medical" = FALSE, "Engineering" = FALSE, "Security" = FALSE, "Supply" = FALSE, "Service" = FALSE, "Mercenary" = FALSE, "Raider" = FALSE, "Ninja" = FALSE, "AI Private" = FALSE))
@@ -93,7 +93,7 @@
 /obj/item/device/orbital_dropper/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
 		emagged = TRUE
-		to_chat(user, span("danger", "You override \the [src]'s area safety checks!"))
+		to_chat(user, SPAN_DANGER("You override \the [src]'s area safety checks!"))
 		return TRUE
 	else
-		to_chat(user, span("danger", "\The [src]'s area safety checks have already been disabled."))
+		to_chat(user, SPAN_DANGER("\The [src]'s area safety checks have already been disabled."))

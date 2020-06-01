@@ -17,11 +17,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 	switch(icon_state)
 		if("pocket_watch_open")
 			icon_state = "pocket_watch_close"
-			to_chat(user, "<span class='notice'>You close \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You close \the [src]."))
 			desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
 		if("pocket_watch_close")
 			icon_state = "pocket_watch_open"
-			to_chat(user, "<span class='notice'>You open \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You open \the [src]."))
 			desc = "Inside the pocket watch, there is a collection of numbers, displaying '[worldtime2text()]'. On the inside of the lid, there is another sequence of numbers etched into the lid itself."
 
 
@@ -73,7 +73,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/glasses/fluff/nebula_glasses/attack_self(mob/user as mob)
 	if(chip)
 		user.put_in_hands(chip)
-		to_chat(user, "<span class='notice'>You eject a small, concealed data chip from a small slot in the frames of \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You eject a small, concealed data chip from a small slot in the frames of \the [src]."))
 		chip = null
 
 /obj/item/clothing/glasses/fluff/nebula_glasses/attackby(obj/item/W as obj, mob/user as mob)
@@ -83,7 +83,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		chip = W
 		W.add_fingerprint(user)
 		add_fingerprint(user)
-		to_chat(user, "<span class='notice'>You slot \the [W] back into its place in the frames of \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You slot \the [W] back into its place in the frames of \the [src]."))
 
 /obj/item/disk/fluff/nebula_chip //data chip - Roxy Wallace - nebulaflare
 	name = "data chip"
@@ -120,11 +120,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/fluff/kiara_altar/attack_self(mob/user as mob)
 	if(src.icon_state == "kiara_altar1")
 		src.icon_state = "kiara_altar2"
-		to_chat(user, "<span class='notice'>You open \the [src], revealing its contents.</span>")
+		to_chat(user, SPAN_NOTICE("You open \the [src], revealing its contents."))
 		desc = "A black tin box, you can see inside; a vial of herbs, a little bag of salt, some epoxy clay runes, a candle with match, a permanent marker and a tiny besom."
 	else
 		src.icon_state = "kiara_altar1"
-		to_chat(user, "<span class='notice'>You close \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You close \the [src]."))
 		desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 
 
@@ -168,9 +168,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/cane/fluff/usiki_cane/attack_self(mob/user as mob)
 	if(all_languages[LANGUAGE_UNATHI] in user.languages)
-		to_chat(user, "<span class='notice'>This cane has the words \"A new and better life\" carved into one side in basic, and on the other side in Sinta'Unathi.</span>")
+		to_chat(user, SPAN_NOTICE("This cane has the words \"A new and better life\" carved into one side in basic, and on the other side in Sinta'Unathi."))
 	else
-		to_chat(user, "<span class='notice'>This cane has the words \"A new and better life\" carved into the side, the other side has some unreadable carvings.</span>")
+		to_chat(user, SPAN_NOTICE("This cane has the words \"A new and better life\" carved into the side, the other side has some unreadable carvings."))
 
 
 /obj/item/clothing/gloves/black/fluff/kathleen_glove //Black Left Glove - Kathleen Mistral - valkywalky2
@@ -294,14 +294,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 		icon_state = "tigerclaw_active"
 		item_state = icon_state
 		slot_flags = null
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>\The [src] is now de-energised.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now de-energised."))
 		icon_state = initial(icon_state)
 		item_state = icon_state
 		slot_flags = initial(slot_flags)
@@ -331,13 +331,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 		if("fabian_coat_open")
 			icon_state = "fabian_coat_closed"
 			item_state = icon_state
-			to_chat(usr, "<span class='notice'>You zip up \the [src].</span>")
+			to_chat(usr, SPAN_NOTICE("You zip up \the [src]."))
 		if("fabian_coat_closed")
 			icon_state = "fabian_coat_open"
 			item_state = icon_state
-			to_chat(usr, "<span class='notice'>You unzip \the [src].</span>")
+			to_chat(usr, SPAN_NOTICE("You unzip \the [src]."))
 		else
-			to_chat(usr, "<span class='notice'>You attempt to button-up the velcro on \the [src], before promptly realising how silly you are.</span>")
+			to_chat(usr, SPAN_NOTICE("You attempt to button-up the velcro on \the [src], before promptly realising how silly you are."))
 			return
 
 	usr.update_inv_wear_suit()
@@ -462,11 +462,11 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/accessory/fluff/laikov_broach/attack_self(mob/user as mob)
 	if(isliving(user))
-		user.visible_message("<span class='notice'>[user] displays their [src.name]. It glitters in many colors.</span>")
+		user.visible_message(SPAN_NOTICE("[user] displays their [src.name]. It glitters in many colors."))
 
 /obj/item/clothing/accessory/fluff/laikov_broach/attack(mob/living/carbon/human/M, mob/living/user)
 	if(isliving(user))
-		user.visible_message("<span class='danger'>[user] thrust the [src.name] into [M]'s face.</span>")
+		user.visible_message(SPAN_DANGER("[user] thrust the [src.name] into [M]'s face."))
 
 
 /obj/item/fluff/akela_photo //Akela's Family Photo - Akela Ha'kim - moltenkore
@@ -493,7 +493,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set desc = "HNNNNG."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your chest still hurts badly!</span>")
+		to_chat(src, SPAN_WARNING("Your chest still hurts badly!"))
 		return
 
 	last_special = world.time + 500
@@ -504,7 +504,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	F.take_damage(5)
-	to_chat(src, "<span class='warning'>You feel a stabbing pain in your chest!</span>")
+	to_chat(src, SPAN_WARNING("You feel a stabbing pain in your chest!"))
 	sound_to(src, 'sound/effects/Heart Beat.ogg')
 
 
@@ -565,7 +565,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/mask/fluff/rur_collar/emag_act(var/remaining_charges, var/mob/user)
 	if (!emagged)
-		to_chat(user, "<span class='danger'>You short out \the [src]'s locking mechanism.</span>")
+		to_chat(user, SPAN_DANGER("You short out \the [src]'s locking mechanism."))
 		src.icon_state = "rur_collar_broken"
 		src.canremove = TRUE
 		src.emagged = TRUE
@@ -770,7 +770,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attack_self(var/mob/user)
 	if(letter)
-		to_chat(user, "<span class='notice'>You remove \the [letter] from inside the [src]'s flap.</span>")
+		to_chat(user, SPAN_NOTICE("You remove \the [letter] from inside the [src]'s flap."))
 		user.put_in_hands(letter)
 		letter = null
 	else
@@ -778,7 +778,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/clothing/head/beret/engineering/fluff/ikrad_beret/attackby(var/obj/item/fluff/ikrad_letter/W, var/mob/user)
 	if(!src.letter && istype(W))
-		to_chat(user, "<span class='notice'>You place \the [W] back inside the [src]'s flap.</span>")
+		to_chat(user, SPAN_NOTICE("You place \the [W] back inside the [src]'s flap."))
 		user.drop_from_inventory(W,src)
 		src.letter = W
 	else
@@ -838,7 +838,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, "\icon[] []: The detective's credentials show:")
+	to_chat(usr, "\icon[src] [src]: The detective's credentials show:")
 	to_chat(usr, "The investigator registered to the credentials is [investigator].")
 	to_chat(usr, "The assignment registered on the card is [occupation].")
 	to_chat(usr, "The birth date on the card displays [birth_year].")
@@ -874,9 +874,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3
 
 /obj/item/fluff/zhilin_book/attack_self(mob/user as mob)
-	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>",
-						"<span class='notice'>You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users.</span>",
-						"<span class='notice'>You hear pages being flipped.</span>")
+	user.visible_message(SPAN_NOTICE("[user] starts flipping through \the [src]."),
+						SPAN_NOTICE("You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users."),
+						SPAN_NOTICE("You hear pages being flipped."))
 	playsound(src.loc, "pageturn", 50, 1)
 
 
@@ -1048,9 +1048,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/corvo_cigarette/attack_self(mob/user)
 	active= !active
 	if(active)
-		to_chat(user, "<span class='notice'>You turn \the [src] on.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] on."))
 	else
-		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] off."))
 
 	update_icon()
 	user.update_inv_l_hand(FALSE)
@@ -1311,8 +1311,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 			desc = "A grey t-shirt with a stylistic white, faded depiction of the Parthenon on it. It has been cut in half, displaying the inside, with sections clearly labelled in small font."
 
 	usr.update_inv_w_uniform()
-	usr.visible_message("<span class='notice'>[usr] fumbles with \the [src], changing the shirt..</span>",
-						"<span class='notice'>You change \the [src]'s style to be '[style]'.</span>")
+	usr.visible_message(SPAN_NOTICE("[usr] fumbles with \the [src], changing the shirt.."),
+						SPAN_NOTICE("You change \the [src]'s style to be '[style]'."))
 
 
 /obj/item/clothing/gloves/watch/fluff/rex_watch //Engraved Wristwatch - Rex Winters - tailson
@@ -1405,7 +1405,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 	for (var/item in outfits[selection])
 		new item(get_turf(src))
-	to_chat(user, "<span class='notice'>You unpack the outfit from the kit.</span>")
+	to_chat(user, SPAN_NOTICE("You unpack the outfit from the kit."))
 
 	qdel(src)
 
@@ -1528,7 +1528,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(src.separated)
 		return
 
-	usr.visible_message("<span class='notice'>[usr] yanks apart \the [src]!</span>")
+	usr.visible_message(SPAN_NOTICE("[usr] yanks apart \the [src]!"))
 	var/obj/item/fluff/jamie_tag/tag = new(get_turf(usr))
 	usr.put_in_hands(tag)
 	src.separated = TRUE
@@ -1647,7 +1647,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(in_range(user, src) || isobserver(user))
 		show_picture(user)
 	else
-		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
+		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 /obj/item/fluff/raymond_tablet/proc/show_picture(mob/user)
 	var/desc
@@ -1868,15 +1868,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/amy_player/attack_self(mob/user as mob)
 	if(broken)
-		to_chat(user, "<span class='warning'>The screen flickers and blinks with errors.</span>")
+		to_chat(user, SPAN_WARNING("The screen flickers and blinks with errors."))
 		return
 
 	if(!on)
-		to_chat(user, "<span class='notice'>You turn on \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You turn on \the [src]."))
 		on = TRUE
 
 	else
-		to_chat(user, "<span class='notice'>You turn off \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You turn off \the [src]."))
 		on = FALSE
 
 	update_icon()
@@ -1897,22 +1897,22 @@ All custom items with worn sprites must follow the contained sprite system: http
 		user.unEquip(I)
 		I.forceMove(src)
 		earbuds = I
-		to_chat(user, "<span class='notice'>You place \the [I] in \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You place \the [I] in \the [src]."))
 		return
 
 	if(broken)
 		if(I.isscrewdriver())
 			if(!open)
 				open = TRUE
-				to_chat(user, "<span class='notice'>You unfasten the back panel.</span>")
+				to_chat(user, SPAN_NOTICE("You unfasten the back panel."))
 
 			else
 				open = FALSE
-				to_chat(user, "<span class='notice'>You secure the back panel.</span>")
+				to_chat(user, SPAN_NOTICE("You secure the back panel."))
 			playsound(user.loc, I.usesound, 50, 1)
 
 		if(I.ismultitool() && open)
-			to_chat(user, "<span class='notice'>You quickly pulse a few fires, and reset the screen and device.</span>")
+			to_chat(user, SPAN_NOTICE("You quickly pulse a few fires, and reset the screen and device."))
 			broken = FALSE
 			update_icon()
 
@@ -2040,7 +2040,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if (use_check_and_message(usr)) return
 
 	if(!lit)
-		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
+		usr.visible_message(SPAN_NOTICE("With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!"))
 		lit = TRUE
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 75, 1)
 		update_icon()
@@ -2048,7 +2048,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	else
-		usr.visible_message("<span class='notice'>With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
+		usr.visible_message(SPAN_NOTICE("With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished."))
 		lit = FALSE
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_off.ogg', 75, 1)
 		update_icon()
@@ -2106,24 +2106,24 @@ All custom items with worn sprites must follow the contained sprite system: http
 			user.unEquip(O)
 			O.forceMove(src)
 			ball = O
-			to_chat(user, "<span class='notice'>You place \the [O] in \the [src]</span>")
+			to_chat(user, SPAN_NOTICE("You place \the [O] in \the [src]"))
 			update_icon()
 
 /obj/item/fluff/fernando_knittingneedles/attack_self(mob/user as mob)
 	if(!ball) //if there is no yarn ball, nothing happens
-		to_chat(user, "<span class='warning'>You need a yarn ball to stitch.</span>")
+		to_chat(user, SPAN_WARNING("You need a yarn ball to stitch."))
 		return
 
 	if(working)
-		to_chat(user, "<span class='warning'>You are already sitching something.</span>")
+		to_chat(user, SPAN_WARNING("You are already sitching something."))
 		return
 
-	user.visible_message("<span class='notice'>\The [user] is knitting something soft and cozy.</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] is knitting something soft and cozy."))
 	working = TRUE
 	update_icon()
 
 	if(!do_after(user,2 MINUTES))
-		to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
+		to_chat(user, SPAN_WARNING("Your concentration is broken!"))
 		working = FALSE
 		update_icon()
 		return
@@ -2134,7 +2134,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	ball = null
 	working = FALSE
 	update_icon()
-	to_chat(user, "<span class='warning'>You finish \the [S]!</span>")
+	to_chat(user, SPAN_WARNING("You finish \the [S]!"))
 
 /obj/item/fluff/yarn
 	name = "ball of yarn"
@@ -2253,7 +2253,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/storage/fluff/sovno_carrier/proc/deploy_cats(mob/user as mob)
 	used = TRUE
-	to_chat(user, "<span class='notice'>You open \the [src]'s hatch.</span>")
+	to_chat(user, SPAN_NOTICE("You open \the [src]'s hatch."))
 	new /mob/living/simple_animal/cat/fluff/jonesy(user.loc)
 	new /mob/living/simple_animal/cat/fluff/kathrine(user.loc)
 	new /mob/living/simple_animal/cat/fluff/fluffles(user.loc)
@@ -2386,12 +2386,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/dionaea_arm/attack_self(mob/user)
 	if(user.ckey != "burgerbb" || !ishuman(user))
-		to_chat(user,span("notice","You can't seem to figure out what to do with this."))
+		to_chat(user,SPAN_NOTICE("You can't seem to figure out what to do with this."))
 		return
 
 	var/mob/living/carbon/human/H = user
 	if(!H.is_diona())
-		to_chat(user,span("notice","It looks strangely familiar..."))
+		to_chat(user,SPAN_NOTICE("It looks strangely familiar..."))
 		return
 
 	var/obj/item/organ/external/OL = H.get_organ(BP_L_ARM)
@@ -2498,7 +2498,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(rolled_sleeves)
-		to_chat(usr, "<span class='warning'>You must roll up your [src]'s sleeves first!</span>")
+		to_chat(usr, SPAN_WARNING("You must roll up your [src]'s sleeves first!"))
 		return
 
 	rolled_down = !rolled_down
@@ -2519,7 +2519,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(rolled_down)
-		to_chat(usr, "<span class='warning'>You must roll up your [src] first!</span>")
+		to_chat(usr, SPAN_WARNING("You must roll up your [src] first!"))
 		return
 
 	rolled_sleeves = !rolled_sleeves
@@ -2591,12 +2591,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 		item_state = icon_state
 		w_class = 4
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>\The [src] is now de-energised..</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now de-energised.."))
 		w_class = initial(w_class)
 
 	update_icon()
@@ -2734,7 +2734,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/tokash_spear/attack_self(var/mob/user)
 	if(has_spear)
-		to_chat(user, "<span class='notice'>You remove the spearhead from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You remove the spearhead from \the [src]."))
 		var/obj/item/fluff/tokash_spearhead/piece = new(get_turf(user))
 		user.put_in_hands(piece)
 		has_spear = FALSE
@@ -2742,7 +2742,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/tokash_spear/attackby(var/obj/item/W, var/mob/user)
 	if(!has_spear && istype(W, /obj/item/fluff/tokash_spearhead))
-		to_chat(user, "<span class='notice'>You place \the [W] on the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You place \the [W] on the [src]."))
 		user.drop_from_inventory(W,src)
 		qdel(W)
 		has_spear = TRUE
@@ -2866,7 +2866,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/akinyi_symphette/attack_self(var/mob/user)
 	deployed = !deployed
-	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [deployed ? "expand" : "collapse"] \the [src]."))
 	update_icon()
 	user.update_inv_l_hand()
 	user.update_inv_r_hand()
@@ -3009,7 +3009,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/muhawir_bedroll/attack_self(mob/user as mob)
 	if(!deployed)
-		to_chat(user, "<span class='notice'>You open the bedroll, extending it.</span>")
+		to_chat(user, SPAN_NOTICE("You open the bedroll, extending it."))
 		name = "open bedroll"
 		icon_state = "bedroll-open"
 		layer = MOB_LAYER - 0.01
@@ -3019,7 +3019,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/muhawir_bedroll/attack_hand(mob/user as mob)
 	if(deployed)
-		to_chat(user, "<span class='notice'>You pick up and fold \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You pick up and fold \the [src]."))
 		name = initial(name)
 		icon_state = initial(icon_state)
 		layer = initial(layer)
@@ -3045,20 +3045,20 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/muhawir_tent/attackby(var/obj/item/W, mob/user as mob)
 	if(istype(W, /obj/item/fluff/muhawir_tenttools))
-		user.visible_message("<span class='warning'>[user] unrolls the tent .</span>",
-			"<span class='notice'>You unroll the tent.</span>")
+		user.visible_message(SPAN_WARNING("[user] unrolls the tent ."),
+			SPAN_NOTICE("You unroll the tent."))
 		if(do_after(user, 5 SECONDS, act_target = src))
 			user.visible_message(
-				"<span class='warning'>[user] begins sliding the tent poles into the frame of the tent.</span>",
-				"<span class='notice'>You begin sliding the tent poles into the frame of the tent.</span>")
+				SPAN_WARNING("[user] begins sliding the tent poles into the frame of the tent."),
+				SPAN_NOTICE("You begin sliding the tent poles into the frame of the tent."))
 			if(do_after(user, 60 SECONDS, act_target = src))
 				user.visible_message(
-					"<span class='warning'>[user] begins raising tent.</span>",
-					"<span class='notice'>You begin raising the tent.</span>")
+					SPAN_WARNING("[user] begins raising tent."),
+					SPAN_NOTICE("You begin raising the tent."))
 				if(do_after(user, 20 SECONDS, act_target = src))
 					user.visible_message(
-						"<span class='warning'>[usr] finishes raising the tent.</span>",
-						"<span class='notice'>You finish raising the tent.</span>")
+						SPAN_WARNING("[usr] finishes raising the tent."),
+						SPAN_NOTICE("You finish raising the tent."))
 					new/obj/structure/closet/fluff/muhawir_tent(user.loc)
 					qdel(src)
 				return
@@ -3079,8 +3079,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/structure/closet/fluff/muhawir_tent/attackby(W as obj, mob/user as mob)
 	if(istype(W, /obj/item/fluff/muhawir_bedroll))
 		user.visible_message(
-		"<span class='warning'>[user] lays down the bedroll inside \the [src].</span>",
-		"<span class='notice'>You lay down the bedroll in \the [src].</span>")
+		SPAN_WARNING("[user] lays down the bedroll inside \the [src]."),
+		SPAN_NOTICE("You lay down the bedroll in \the [src]."))
 		qdel(W)
 		has_bedroll = TRUE
 		return
@@ -3094,15 +3094,15 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	usr.visible_message(
-	"<span class='warning'>[usr] begins taking apart the [src.name].</span>",
-	"<span class='notice'>You begin taking apart the [src.name].</span>")
+	SPAN_WARNING("[usr] begins taking apart the [src.name]."),
+	SPAN_NOTICE("You begin taking apart the [src.name]."))
 	if(has_bedroll)
 		if(do_after(usr, 20 SECONDS, act_target = src))
-			to_chat(usr, "<span class='notice'>You roll up the bedroll inside \the [src].</span>")
+			to_chat(usr, SPAN_NOTICE("You roll up the bedroll inside \the [src]."))
 			new/obj/item/fluff/muhawir_bedroll(get_turf(usr))
 			has_bedroll = FALSE
 	if(do_after(usr, 50 SECONDS, act_target = src))
-		to_chat(usr, "<span class='notice'>You take down \the [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You take down \the [src]."))
 		dump_contents()
 		new/obj/item/fluff/muhawir_tent(get_turf(usr))
 		qdel(src)
@@ -3159,9 +3159,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/head/helmet/fluff/oscar_helmet/attack_self(mob/user)
 	online= !online
 	if(online)
-		to_chat(user, "<span class='notice'>You turn \the [src] on.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] on."))
 	else
-		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] off."))
 
 	update_icon()
 	user.update_inv_head()
@@ -3281,7 +3281,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
-		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
+		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."))
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		return
 
@@ -3307,9 +3307,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/cress_book/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.visible_message("<span class='notice'>[user] begins searching through \the [src] pages.</span>")
+	user.visible_message(SPAN_NOTICE("[user] begins searching through \the [src] pages."))
 	if(do_after(user, 25))
-		to_chat(user, "<span class='notice'>You read on the pages of \the [src]: [pick(lyrics)]</span>")
+		to_chat(user, SPAN_NOTICE("You read on the pages of \the [src]: [pick(lyrics)]"))
 
 
 /obj/item/modular_computer/laptop/fluff/harrow_laptop //Developer's Laptop - Danny Harrow - brainos

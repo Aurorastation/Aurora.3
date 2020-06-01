@@ -3,9 +3,9 @@
 
 /obj/effect/rune/manifest/do_rune_action(mob/living/user)
 	if(!iscarbon(user))
-		to_chat(user, span("warning", "Your primitive form cannot use this rune!"))
+		to_chat(user, SPAN_WARNING("Your primitive form cannot use this rune!"))
 	if(apparition)
-		to_chat(user, span("warning", "This rune already has an active apparition!"))
+		to_chat(user, SPAN_WARNING("This rune already has an active apparition!"))
 
 	var/mob/abstract/observer/ghost
 	for(var/mob/abstract/observer/O in get_turf(src))
@@ -16,14 +16,14 @@
 		ghost = O
 		break
 	if(!ghost)
-		to_chat(user, span("warning", "There are no spirits in the area of the rune!"))
+		to_chat(user, SPAN_WARNING("There are no spirits in the area of the rune!"))
 		return fizzle(user)
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
 	apparition = new /mob/living/carbon/human/apparition(get_turf(src))
-	user.visible_message("<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
-	"<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
-	"<span class='warning'>You hear liquid flowing.</span>")
+	user.visible_message(SPAN_WARNING("A shape forms in the center of the rune. A shape of... a man."), \
+	SPAN_WARNING("A shape forms in the center of the rune. A shape of... a man."), \
+	SPAN_WARNING("You hear liquid flowing."))
 
 	var/chose_name = FALSE
 	for(var/obj/item/paper/P in get_turf(src))
@@ -53,9 +53,9 @@
 
 /obj/effect/rune/manifest/proc/apparition_check()
 	if(apparition)
-		apparition.visible_message("<span class='danger'>[apparition] slowly dissipates into dust and bones.</span>", \
-		"<span class='danger'>You feel pain, as bonds formed between your soul and this homunculus break.</span>", \
-		"<span class='warning'>You hear a faint rustling.</span>")
+		apparition.visible_message(SPAN_DANGER("[apparition] slowly dissipates into dust and bones."), \
+		SPAN_DANGER("You feel pain, as bonds formed between your soul and this homunculus break."), \
+		SPAN_WARNING("You hear a faint rustling."))
 		apparition.dust()
 		apparition = null
 

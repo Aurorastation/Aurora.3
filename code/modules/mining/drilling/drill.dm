@@ -253,11 +253,11 @@
 				cell = O
 				component_parts += O
 				O.add_fingerprint(user)
-				visible_message(span("notice", "\The [user] inserts a power cell into \the [src]."),
-					span("notice", "You insert the power cell into \the [src]."))
+				visible_message(SPAN_NOTICE("\The [user] inserts a power cell into \the [src]."),
+					SPAN_NOTICE("You insert the power cell into \the [src]."))
 				power_change()
 		else
-			to_chat(user, span("notice", "The hatch must be open to insert a power cell."))
+			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
 			return
 	else
 		..()

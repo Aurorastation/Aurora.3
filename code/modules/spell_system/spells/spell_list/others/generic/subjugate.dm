@@ -7,7 +7,7 @@
 	spell_flags = 0
 	invocation = "DII ODA BAJI"
 	invocation_type = SpI_WHISPER
-	message = "<span class='danger'>You feel your mind burn, and your limbs feel unsteady as your vision wobbles severely.</span>"
+	message = SPAN_DANGER("You feel your mind burn, and your limbs feel unsteady as your vision wobbles severely.")
 
 	max_targets = 1
 

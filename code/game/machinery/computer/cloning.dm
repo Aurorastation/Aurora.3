@@ -104,7 +104,7 @@
 
 /obj/machinery/computer/cloning/attack_hand(mob/user as mob)
 	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access Denied.</span>")
+		to_chat(user, SPAN_WARNING("Access Denied."))
 		return
 
 	user.set_machine(src)

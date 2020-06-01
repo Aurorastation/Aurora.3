@@ -134,21 +134,21 @@
 
 	if (istype(W, /obj/item/cell))
 		if (!cell_connectors)
-			to_chat(user, "<span class='notice'>[src] does not have power cell connectors.</span>")
+			to_chat(user, SPAN_NOTICE("[src] does not have power cell connectors."))
 			return
 		if (!user.unEquip(W))
 			return
 		if (cell)
 			user.visible_message(
-				"<span class='notice'>[user] swaps [W] out for [src]'s cell.</span>",
-				"<span class='notice'>You swap out [src]'s cell out for [W].</span>"
+				SPAN_NOTICE("[user] swaps [W] out for [src]'s cell."),
+				SPAN_NOTICE("You swap out [src]'s cell out for [W].")
 			)
 			cell.forceMove(get_turf(src))
 			user.put_in_hands(cell)
 		else
 			user.visible_message(
-				"<span class='notice'>[user] installs [W] in [src].</span>",
-				"<span class='notice'>You hook up [W] to [src]'s cell terminals.</span>"
+				SPAN_NOTICE("[user] installs [W] in [src]."),
+				SPAN_NOTICE("You hook up [W] to [src]'s cell terminals.")
 			)
 			playsound(src, 'sound/machines/click.ogg', 50, TRUE)
 			W.forceMove(src)
@@ -158,17 +158,17 @@
 
 	if (W.iscrowbar())
 		if (!cell_connectors)
-			to_chat(user, "<span class='notice'>[src] does not have a power cell connector.</span>")
+			to_chat(user, SPAN_NOTICE("[src] does not have a power cell connector."))
 			return
 
 		if (!cell)
-			to_chat(user, "<span class='notice'>[src] does not have a power cell installed.</span>")
+			to_chat(user, SPAN_NOTICE("[src] does not have a power cell installed."))
 			return
 
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, TRUE)
 		visible_message(
 			"[user] removes [cell] from [src].",
-			"<span class='notice'>You remove [cell] from [src].</span>"
+			SPAN_NOTICE("You remove [cell] from [src].")
 		)
 		cell.forceMove(get_turf(src))
 		cell = null

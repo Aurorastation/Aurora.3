@@ -17,7 +17,7 @@
 			return //Borer stuff - RR
 
 		if(istype(M, /mob/living/carbon/human/apparition))
-			visible_message("<span class='caution'>\The [src] doesn't seem to affect [M] in any way.</span>")
+			visible_message(span("caution", "\The [src] doesn't seem to affect [M] in any way."))
 			return
 
 		if(istype(M, /mob/living/silicon/robot))
@@ -90,10 +90,10 @@
 			else
 				new_mob.key = M.key
 
-			to_chat(new_mob, "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>")
+			to_chat(new_mob, SPAN_WARNING("Your form morphs into that of \a [lowertext(randomize)]."))
 
 			qdel(M)
 			return
 		else
-			to_chat(M, "<span class='warning'>Your form morphs into that of \a [lowertext(randomize)].</span>")
+			to_chat(M, SPAN_WARNING("Your form morphs into that of \a [lowertext(randomize)]."))
 			return

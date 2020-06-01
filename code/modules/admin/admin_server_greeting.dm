@@ -37,44 +37,44 @@
 	var/new_memo = input(usr, "Please write your memo.", "Memo", current_memo) as message
 
 	if (server_greeting.update_value("memo_write", list(ckey, new_memo)))
-		to_chat(src, "<span class='notice'>Operation carried out successfully.</span>")
+		to_chat(src, SPAN_NOTICE("Operation carried out successfully."))
 		message_admins("[ckey] wrote a new memo:<br>[html_encode(new_memo)]")
 	else
-		to_chat(src, "<span class='danger'>Error carrying out desired operation.</span>")
+		to_chat(src, SPAN_DANGER("Error carrying out desired operation."))
 
 	return
 
 /client/proc/admin_memo_delete()
 	if (!server_greeting.memo_list.len)
-		to_chat(src, "<span class='notice'>No memos are currently saved.</span>")
+		to_chat(src, SPAN_NOTICE("No memos are currently saved."))
 		return
 
 	if (!check_rights(R_SERVER))
 		if (!server_greeting.memo_list[ckey])
-			to_chat(src, "<span class='warning'>You do not have a memo saved. Cancelling.</span>")
+			to_chat(src, SPAN_WARNING("You do not have a memo saved. Cancelling."))
 
 		else if (alert("Do you wish to delete your own memo, written on [server_greeting.memo_list[ckey]["date"]]?", "Choices", "Yes", "No") == "Yes")
 			if (server_greeting.update_value("memo_delete", ckey))
-				to_chat(src, "<span class='notice'>Operation carried out successfully.</span>")
+				to_chat(src, SPAN_NOTICE("Operation carried out successfully."))
 				message_admins("[ckey] has deleted their own memo.")
 			else
-				to_chat(src, "<span class='danger'>Error carrying out desired operation.</span>")
+				to_chat(src, SPAN_DANGER("Error carrying out desired operation."))
 
 		else
-			to_chat(src, "<span class='notice'>Cancelled.</span>")
+			to_chat(src, SPAN_NOTICE("Cancelled."))
 
 		return
 	else
 		var/input = input(usr, "Whose memo shall we delete?", "Remove Memo", null) as null|anything in server_greeting.memo_list
 
 		if (!input)
-			to_chat(src, "<span class='notice'>Cancelled.</span>")
+			to_chat(src, SPAN_NOTICE("Cancelled."))
 			return
 
 		if (server_greeting.update_value("memo_delete", input))
-			to_chat(src, "<span class='notice'>Operation carried out successfully.</span>")
+			to_chat(src, SPAN_NOTICE("Operation carried out successfully."))
 			message_admins("[ckey] has deleted the memo of [input].")
 		else
-			to_chat(src, "<span class='danger'>Error carrying out desired operation.</span>")
+			to_chat(src, SPAN_DANGER("Error carrying out desired operation."))
 
 		return

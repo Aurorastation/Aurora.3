@@ -61,7 +61,7 @@ LINEN BINS
 	if(!istype(loc,/mob))
 		toggle_fold(user)
 	else
-		user.show_message("<span class='warning'>Drop \the [src] first.</span>")
+		user.show_message(SPAN_WARNING("Drop \the [src] first."))
 		..()
 	add_fingerprint(user)
 
@@ -74,10 +74,10 @@ LINEN BINS
 				if (H.hand)
 					temp = H.organs_by_name["l_hand"]
 				if(temp && !temp.is_usable())
-					to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You pick up the [src]."))
 				user.put_in_hands(src)
 	return
 
@@ -111,7 +111,7 @@ LINEN BINS
 	if(inuse)
 		return FALSE
 	if(roll)
-		user.show_message("<span class='warning'>Unroll \the [src] first.</span>")
+		user.show_message(SPAN_WARNING("Unroll \the [src] first."))
 		return FALSE
 	inuse = TRUE
 	if (do_after(user, 25, src))
@@ -119,7 +119,7 @@ LINEN BINS
 			user.do_attack_animation(src)
 		playsound(get_turf(loc), "rustle", 15, 1, -5)
 		var/folds = fold
-		user.visible_message("<span class='notice'>\The [user] [folds ? "unfolds" : "folds"] \the [src].", "You [fold ? "unfold" : "fold"] \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] [folds ? "unfolds" : "folds"] \the [src]."), SPAN_NOTICE("You [fold ? "unfold" : "fold"] \the [src]."))
 		if(!fold)
 			fold = TRUE
 			slot_flags = null
@@ -156,7 +156,7 @@ LINEN BINS
 			user.do_attack_animation(src)
 		playsound(get_turf(loc), "rustle", 15, 1, -5)
 		var/rolls = roll
-		user.visible_message("<span class='notice'>\The [user] [rolls ? "unrolls" : "rolls"] \the [src].", "You [roll ? "unroll" : "roll"] \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] [rolls ? "unrolls" : "rolls"] \the [src]."), SPAN_NOTICE("You [roll ? "unroll" : "roll"] \the [src]."))
 		if(!roll)
 			roll = TRUE
 			slot_flags = null
@@ -180,16 +180,16 @@ LINEN BINS
 
 /obj/item/bedsheet/attackby(obj/item/I, mob/user)
 	if(I.isscrewdriver())
-		user.visible_message("<span class='notice'>\The [user] begins poking eyeholes in \the [src] with \the [I].</span>", "<span class='notice'>You begin poking eyeholes in \the [src] with \the [I].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."), SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [I]."))
 		if(do_after(user, 50/I.toolspeed))
-			to_chat(user, "<span class='notice'>You poke eyeholes in \the [src]!</span>")
+			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
 			new /obj/item/bedsheet/costume(get_turf(src))
 			qdel(src)
 		return
 	else if(is_sharp(I))
-		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [I]."), SPAN_NOTICE("You begin cutting up [src] with [I]."))
 		if(do_after(user, 50/I.toolspeed))
-			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
+			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))
 			for(var/i in 1 to rand(2,5))
 				new /obj/item/reagent_containers/glass/rag(get_turf(src))
 			qdel(src)
@@ -403,11 +403,11 @@ LINEN BINS
 		user.drop_from_inventory(I,src)
 		sheets.Add(I)
 		amount++
-		to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
+		to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
 	else if(amount && !hidden && I.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
 		user.drop_from_inventory(I,src)
 		hidden = I
-		to_chat(user, "<span class='notice'>You hide [I] among the sheets.</span>")
+		to_chat(user, SPAN_NOTICE("You hide [I] among the sheets."))
 
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
 	if(amount >= 1)
@@ -423,11 +423,11 @@ LINEN BINS
 
 		B.forceMove(user.loc)
 		user.put_in_hands(B)
-		to_chat(user, "<span class='notice'>You take [B] out of [src].</span>")
+		to_chat(user, SPAN_NOTICE("You take [B] out of [src]."))
 
 		if(hidden)
 			hidden.forceMove(user.loc)
-			to_chat(user, "<span class='notice'>[hidden] falls out of [B]!</span>")
+			to_chat(user, SPAN_NOTICE("[hidden] falls out of [B]!"))
 			hidden = null
 
 
@@ -446,7 +446,7 @@ LINEN BINS
 			B = new /obj/item/bedsheet(loc)
 
 		B.forceMove(loc)
-		to_chat(user, "<span class='notice'>You telekinetically remove [B] from [src].</span>")
+		to_chat(user, SPAN_NOTICE("You telekinetically remove [B] from [src]."))
 		update_icon()
 
 		if(hidden)

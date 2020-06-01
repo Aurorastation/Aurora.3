@@ -9,7 +9,7 @@
 
 /obj/item/contract/attack_self(mob/user as mob)
 	if(contract_master == null)
-		to_chat(user, "<span class='notice'>You bind the contract to your soul, making you the recipient of whatever poor fool's soul that decides to contract with you.</span>")
+		to_chat(user, SPAN_NOTICE("You bind the contract to your soul, making you the recipient of whatever poor fool's soul that decides to contract with you."))
 		contract_master = user
 		return
 
@@ -37,5 +37,5 @@
 		qdel(src)
 
 /obj/item/contract/proc/contract_effect(mob/user as mob)
-	to_chat(user, "<span class='warning'>You've signed your soul over to \the [contract_master] and with that your unbreakable vow of servitude begins.</span>")
+	to_chat(user, SPAN_WARNING("You've signed your soul over to \the [contract_master] and with that your unbreakable vow of servitude begins."))
 	return 1
