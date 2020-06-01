@@ -328,9 +328,9 @@
 	owner.set_default_language(pick(owner.languages))
 
 /obj/item/organ/internal/augment/language/klax
-	name = "klaxan language processor"
+	name = "K'laxan language processor"
 	augment_languages = list(LANGUAGE_UNATHI)
 
 /obj/item/organ/internal/augment/language/cthur
-	name = "cthur language processor"
+	name = "C'thur language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
