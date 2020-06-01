@@ -152,10 +152,11 @@ RFD Construction-Class
 			mode = 3
 		else
 			mode = 1
-	to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-	if(prob(20))
-		spark(get_turf(src), 3, alldirs)
+	if(current_mode)
+		to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
+		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+		if(prob(20))
+			spark(get_turf(src), 3, alldirs)
 
 /obj/item/rfd/construction/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
@@ -217,9 +218,11 @@ RFD Construction-Class
 	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), src.build_delay, src.mode)
 
 	if(build_delay && !do_after(user, build_delay))
+		rfd_effect.end_animation()
 		working = 0
 		return 0
 
+	rfd_effect.end_animation()
 	working = 0
 	if(build_delay && !can_use(user,T))
 		return 0
@@ -231,10 +234,8 @@ RFD Construction-Class
 	else
 		qdel(T)
 
-	rfd_effect.end_animation()
 	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
 	return 1
-	qdel(rfd_effect)
 
 /obj/item/rfd/construction/borg
 	canRwall = 1

@@ -43,34 +43,33 @@
 	icon_state = ""
 	layer = ABOVE_MOB_LAYER
 	anchored = TRUE
-	var/mode = 0
-	var/delay = 0
+	var/effect_mode = 0
+	var/effect_delay = 0
 
-/obj/effect/constructing_effect/Initialize(mapload, mode, delay)
+/obj/effect/constructing_effect/Initialize(mapload, build_delay, mode)
 	. = ..()
-	var/obj/item/rfd/construction
-	mode = construction.mode
-	delay = construction.build_delay
-	if (mode == 3)
+	effect_delay = build_delay // so the variables transfer over.
+	effect_mode = mode
+	if(effect_mode == 3)
 		addtimer(CALLBACK(src, /atom/.proc/update_icon), 11)
-		delay -= 11
+		effect_delay -= 11
 		icon_state = "rfd_end_reverse"
 	else
 		update_icon()
 
 /obj/effect/constructing_effect/update_icon()
 	icon_state = "rfd"
-	if (delay < 10)
+	if(effect_delay < 10)
 		icon_state += "_shortest"
-	else if (delay < 20)
+	else if(effect_delay < 20)
 		icon_state += "_shorter"
-	else if (delay < 37)
+	else if(effect_delay < 37)
 		icon_state += "_short"
-	if (mode == 3)
+	if(effect_mode == 3)
 		icon_state += "_reverse"
 
 /obj/effect/constructing_effect/proc/end_animation()
-	if (mode == 3)
+	if(effect_mode == 3)
 		qdel(src)
 	else
 		icon_state = "rfd_end"
