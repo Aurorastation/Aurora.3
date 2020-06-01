@@ -743,8 +743,11 @@
 
 /obj/item/powerdrill/isscrewdriver()
 	usesound = 'sound/items/drill_use.ogg'
-
 	return tools[current_tool] == "screwdriverbit"
+
+/obj/item/powerdrill/iscrowbar()
+	usesound = 'sound/items/drill_use.ogg'
+	return tools[current_tool] == "crowbarbit"
 
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())
@@ -764,4 +767,4 @@
 		to_chat(user, "You switch \the [src] to the [tool] fitting.")
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
 	update_tool()
-	return 1
+	return TRUE

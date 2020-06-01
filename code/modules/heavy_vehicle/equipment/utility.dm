@@ -280,7 +280,7 @@
 	. = ..()
 	if(.)
 		if(drill_head)
-			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menancingly.</span>")
+			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menacingly.</span>")
 			playsound(get_turf(src), 'sound/mecha/mechdrill.ogg', 50, 1)
 
 /obj/item/mecha_equipment/drill/get_hardpoint_maptext()
@@ -498,3 +498,61 @@
 	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter() || istype(W, /obj/item/storage/part_replacer))
 		lathe.attackby(W, user)
 	..()
+
+/obj/item/mecha_equipment/toolset
+	name = "mounted toolset"
+	desc = "A vast toolset that's built into an exosuit arm mount. When a power drill just isn't enough."
+	icon_state = "mecha_drill"
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)
+	equipment_delay = 10
+
+	//Drill can have a head
+	var/obj/item/powerdrill/mech/mounted_tool
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+
+/obj/item/mecha_equipment/toolset/Initialize()
+	. = ..()
+	mounted_tool = new/obj/item/powerdrill/mech(src)
+
+/obj/item/mecha_equipment/toolset/attack_self(var/mob/user)
+	. = ..()
+	if(.)
+		if(mounted_tool)
+			var/list/options = list()
+			for(var/tool_name in mounted_tool.tools)
+				var/tool_sprite_name = replacetext(tool_name, "bit", "")
+				var/image/radial_button = image('icons/obj/tools.dmi', tool_sprite_name)
+				options[tool_name] = radial_button
+			var/selected_tool = show_radial_menu(user, owner, options, radius = 42, tooltips = TRUE)
+			if(!selected_tool)
+				return
+			mounted_tool.current_tool = 1
+			for(var/tool in mounted_tool.tools)
+				if(mounted_tool.tools[mounted_tool.current_tool] == selected_tool)
+					break
+				else
+					mounted_tool.current_tool++
+
+// to-do fix this thing being out of bounds
+/obj/item/mecha_equipment/toolset/get_hardpoint_maptext()
+	if(mounted_tool)
+		var/tool_name = capitalize(replacetext(mounted_tool.tools[mounted_tool.current_tool], "bit", ""))
+		return "Tool: [tool_name]"
+
+/obj/item/mecha_equipment/toolset/isscrewdriver()
+	return mounted_tool.tools[mounted_tool.current_tool] == "screwdriverbit"
+
+/obj/item/mecha_equipment/toolset/iswrench()
+	return mounted_tool.tools[mounted_tool.current_tool] == "wrenchbit"
+
+/obj/item/mecha_equipment/toolset/iscrowbar()
+	return mounted_tool.tools[mounted_tool.current_tool] == "crowbarbit"
+
+/obj/item/powerdrill/mech
+	name = "mounted toolset"
+	tools = list(
+		"screwdriverbit",
+		"wrenchbit",
+		"crowbarbit"
+		)
