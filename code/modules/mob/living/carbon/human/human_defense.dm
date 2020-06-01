@@ -293,7 +293,7 @@ emp_act
 		if(!(I.flags & NOBLOODY))
 			I.add_blood(src)
 
-		if(prob(33))
+		if(prob(effective_force * 2))
 			var/turf/location = loc
 			if(istype(location, /turf/simulated))
 				location.add_blood(src)

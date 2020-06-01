@@ -127,7 +127,7 @@
 	if(speaker != null)
 		speaker_name = speaker.name
 	else
-		speaker_name = "unknown"
+		speaker_name = "Unknown"
 
 	if(istype(speaker, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = speaker
@@ -138,7 +138,7 @@
 		speaker_name = vname
 
 	if(hard_to_hear)
-		speaker_name = "unknown"
+		speaker_name = "Unknown"
 
 	var/changed_voice
 
