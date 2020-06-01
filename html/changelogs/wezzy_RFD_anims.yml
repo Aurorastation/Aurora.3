@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - imageadd: "RFD-Cs have cool animations now. Check it out!"
   - bugfix: "RFD-Cs can properly build airlocks now."
+  - bugfix: "RFDs no longer eat your ammo when you move away."

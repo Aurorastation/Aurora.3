@@ -23,7 +23,7 @@
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/stored_matter = 30 // Starts off full.
-	var/working = 0
+	var/working = FALSE
 	var/mode = 1
 	var/number_of_modes = 1
 	var/list/modes
@@ -39,7 +39,7 @@
 	update_icon()
 
 /obj/item/rfd/attack()
-	return 0
+	return FALSE
 
 /obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
@@ -64,7 +64,6 @@
 		if((stored_matter + 10) > 30)
 			to_chat(user, "<span class='notice'>The RFD can't hold any more matter-units.</span>")
 			return
-		//TODO: Possible better animation
 		user.drop_from_inventory(W,src)
 		qdel(W)
 		stored_matter += 10
@@ -101,10 +100,10 @@
 
 /obj/item/rfd/proc/useResource(var/amount, var/mob/user)
 	if(stored_matter < amount)
-		return 0
+		return FALSE
 	stored_matter -= amount
 	update_icon()
-	return 1
+	return TRUE
 
 /obj/item/rfd/update_icon()	//For the fancy "ammo" counter
 	overlays.Cut()
@@ -165,18 +164,18 @@ RFD Construction-Class
 	if(!proximity)
 		return
 	if(disabled && !isrobot(user))
-		return 0
+		return FALSE
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
-		return 0
+		return FALSE
 	var/turf/t = get_turf(A)
 	if (isNotStationLevel(t.z))
-		return 0
+		return FALSE
 	return alter_turf(A, user, (mode == 3))
 
 /obj/item/rfd/construction/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
 
-	if(working == 1)
-		return 0
+	if(working)
+		return FALSE
 
 	if(mode == 3 && istype(T,/obj/machinery/door/airlock))
 		build_cost =  3
@@ -203,46 +202,46 @@ RFD Construction-Class
 		build_type =  deconstruct ? "floor" : "wall"
 		build_turf =  deconstruct ? T.baseturf : /turf/simulated/wall
 	else
-		return 0
+		return FALSE
 
 	if(!build_type)
-		working = 0
-		return 0
+		working = FALSE
+		return FALSE
 
 	if(mode == 3 && !T.density && !istype(T,/turf/simulated/floor))
 		to_chat(user, "<span class='warning'>\The [build_type] must be closed before you can deconstruct it.</span>")
-		return 0
+		return FALSE
 
-	if(!useResource(build_cost, user))
+	if(stored_matter < build_cost)
 		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
 		flick("[icon_state]-empty", src)
-		return 0
+		return FALSE
 
 	playsound(get_turf(src), 'sound/machines/hydraulic_short.ogg', 50, 1)
 
-	working = 1
+	working = TRUE
 	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
 	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), src.build_delay, src.mode)
 
-	if(build_delay && !do_after(user, build_delay))
-		working = 0
+	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
+		working = FALSE
 		rfd_effect.end_animation()
-		return 0
+		return FALSE
 
-	working = 0
+	working = FALSE
 	if(build_delay && !can_use(user,T))
 		rfd_effect.end_animation()
-		return 0
+		return FALSE
 
 	if(build_turf)
 		T.ChangeTurf(build_turf)
 	else
 		qdel(T)
 
-	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
 	rfd_effect.end_animation()
-	return 1
+	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
 	qdel(rfd_effect)
+	return TRUE
 
 /obj/item/rfd/construction/borg
 	canRwall = 1
@@ -254,11 +253,11 @@ RFD Construction-Class
 			var/cost = amount*30
 			if(R.cell.charge >= cost)
 				R.cell.use(cost)
-				return 1
-	return 0
+				return TRUE
+	return FALSE
 
 /obj/item/rfd/construction/borg/infinite/useResource()
-	return 1
+	return TRUE
 
 /obj/item/rfd/construction/borg/attackby()
 	return
@@ -273,13 +272,13 @@ RFD Construction-Class
 		if(module.holder && module.holder.cell)
 			if(module.holder.cell.charge >= cost)
 				module.holder.cell.use(cost)
-				return 1
+				return TRUE
 	else if(istype(user, /mob/living/heavy_vehicle))
 		var/obj/item/cell/c = user.get_cell()
 		if(c && c.charge >= cost)
 			c.use(cost)
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /obj/item/rfd/construction/mounted/attackby()
 	return
@@ -529,7 +528,7 @@ RFD Piping-Class
 	if(working)
 		return FALSE
 
-	if(!useResource(build_cost, user))
+	if(stored_matter < build_cost)
 		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
 		flick("[icon_state]-empty", src)
 		return FALSE
@@ -537,13 +536,12 @@ RFD Piping-Class
 	playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
 
 	working = TRUE
-	to_chat(user, SPAN_NOTICE("You start laying down your pipe..."))
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start laying down your pipe..."))
 
-	if(build_delay && !do_after(user, build_delay))
+	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
 		working = FALSE
 		return FALSE
 
-	working = FALSE
 	if(build_delay && !can_use(user, T))
 		return FALSE
 
