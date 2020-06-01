@@ -472,16 +472,16 @@
 	lathe = new /obj/machinery/autolathe/mounted(src)
 
 /obj/item/mecha_equipment/autolathe/installed()
-	lathe.print_loc = owner
 	..()
+	lathe.print_loc = owner
 
 /obj/item/mecha_equipment/autolathe/uninstalled()
 	lathe.print_loc = null
 	..()
 
 /obj/item/mecha_equipment/autolathe/Destroy()
-	. = ..()
 	QDEL_NULL(lathe)
+	return ..()
 
 /obj/item/mecha_equipment/autolathe/attack_self(mob/user)
 	. = ..()
@@ -491,9 +491,10 @@
 /obj/item/mecha_equipment/autolathe/afterattack(atom/target, mob/living/user, inrange, params)
 	. = ..()
 	if(istype(target, /obj/item/stack/material/steel) || istype(target, /obj/item/stack/material/glass))
+		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
 		lathe.attackby(target, owner)
 
 /obj/item/mecha_equipment/autolathe/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter())
+	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter() || istype(W, /obj/item/storage/part_replacer))
 		lathe.attackby(W, user)
 	..()
