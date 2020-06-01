@@ -14,6 +14,7 @@
 #define DOOR_CLOSED_LAYER 3.1	//Above most items if closed
 #define BELOW_MOB_LAYER 3.7
 #define ABOVE_MOB_LAYER 4.1
+#define ABOVE_ALL_MOB_LAYER 4.5
 #define LIGHTING_LAYER 11
 #define EFFECTS_ABOVE_LIGHTING_LAYER 12 // For overlays you want to be above light.
 #define HUD_LAYER 20			//Above lighting, but below obfuscation. For in-game HUD effects (whereas SCREEN_LAYER is for abstract/OOC things like inventory slots)

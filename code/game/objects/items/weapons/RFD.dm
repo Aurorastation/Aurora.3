@@ -28,8 +28,6 @@
 	var/build_type
 	var/build_turf
 	var/build_delay
-	var/build_other
-
 
 /obj/item/rfd/Initialize()
 	. = ..()
@@ -176,14 +174,14 @@ RFD Construction-Class
 		return 0
 
 	if(mode == 3 && istype(T,/obj/machinery/door/airlock))
-		build_cost =  10
-		build_delay = 50
+		build_cost =  3
+		build_delay = 20
 		build_type = "airlock"
 	else if(mode == 2 && !deconstruct && istype(T,/turf/simulated/floor))
 		build_cost =  10
 		build_delay = 50
 		build_type = "airlock"
-		build_other = /obj/machinery/door/airlock
+		build_turf = /obj/machinery/door/airlock
 	else if(!deconstruct && (istype(T,/turf/space) || istype(T,T.baseturf)))
 		build_cost =  1
 		build_type =  "floor"
@@ -206,6 +204,10 @@ RFD Construction-Class
 		working = 0
 		return 0
 
+	if(mode == 3 && !T.density && !istype(T,/turf/simulated/floor))
+		to_chat(user, "<span class='warning'>\The [build_type] must be closed before you can deconstruct it.</span>")
+		return 0
+
 	if(!useResource(build_cost, user))
 		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
 		flick("[icon_state]-empty", src)
@@ -218,24 +220,24 @@ RFD Construction-Class
 	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), src.build_delay, src.mode)
 
 	if(build_delay && !do_after(user, build_delay))
-		rfd_effect.end_animation()
 		working = 0
+		rfd_effect.end_animation()
 		return 0
 
-	rfd_effect.end_animation()
 	working = 0
 	if(build_delay && !can_use(user,T))
+		rfd_effect.end_animation()
 		return 0
 
 	if(build_turf)
 		T.ChangeTurf(build_turf)
-	else if(build_other)
-		new build_other(T)
 	else
 		qdel(T)
 
 	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
+	rfd_effect.end_animation()
 	return 1
+	qdel(rfd_effect)
 
 /obj/item/rfd/construction/borg
 	canRwall = 1

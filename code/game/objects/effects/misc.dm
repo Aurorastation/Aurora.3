@@ -41,39 +41,40 @@
 /obj/effect/constructing_effect
 	icon = 'icons/effects/effects_rfd.dmi'
 	icon_state = ""
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
-	var/effect_mode = 0
-	var/effect_delay = 0
+	var/delay = 0
+	var/status = 0
 
 /obj/effect/constructing_effect/Initialize(mapload, build_delay, mode)
 	. = ..()
-	effect_delay = build_delay // so the variables transfer over.
-	effect_mode = mode
-	if(effect_mode == 3)
+	delay = build_delay // so the variables transfer over between procs.
+	status = mode
+	if(status == 3)
 		addtimer(CALLBACK(src, /atom/.proc/update_icon), 11)
-		effect_delay -= 11
+		delay -= 11
 		icon_state = "rfd_end_reverse"
 	else
 		update_icon()
 
 /obj/effect/constructing_effect/update_icon()
 	icon_state = "rfd"
-	if(effect_delay < 10)
+	if(delay < 10)
 		icon_state += "_shortest"
-	else if(effect_delay < 20)
+	else if(delay < 20)
 		icon_state += "_shorter"
-	else if(effect_delay < 37)
+	else if(delay < 37)
 		icon_state += "_short"
-	if(effect_mode == 3)
+	if(status == 3)
 		icon_state += "_reverse"
 
 /obj/effect/constructing_effect/proc/end_animation()
-	if(effect_mode == 3)
-		qdel(src)
+	if(status == 3)
+		end()
 	else
 		icon_state = "rfd_end"
 		addtimer(CALLBACK(src, .proc/end), 15)
 
 /obj/effect/constructing_effect/proc/end()
 	qdel(src)
+s
