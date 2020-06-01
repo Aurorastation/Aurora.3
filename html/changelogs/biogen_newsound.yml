@@ -1,0 +1,5 @@
+author: LocoTokyoFunBus
+delete-after: true
+
+changes:
+  - rscadd: "Replaced the old juicer.ogg file with a new file of the same name."
