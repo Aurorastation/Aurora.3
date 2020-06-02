@@ -345,8 +345,6 @@
 #include "code\datums\outfits\event\outfit_killers.dm"
 #include "code\datums\outfits\event\outfit_lance.dm"
 #include "code\datums\outfits\event\outfit_nanotrasen.dm"
-#include "code\datums\outfits\event\outfit_pirate.dm"
-#include "code\datums\outfits\event\outfit_soviet.dm"
 #include "code\datums\outfits\event\outfit_tfcl.dm"
 #include "code\datums\radio\frequency.dm"
 #include "code\datums\radio\signal.dm"
