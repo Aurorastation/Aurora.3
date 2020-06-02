@@ -1,25 +1,33 @@
-/obj/effect/rune/convert/do_rune_action(mob/living/user)
-	var/mob/living/attacker = user
-	var/mob/living/carbon/target = null
-	for(var/mob/living/carbon/M in src.loc)
+/datum/rune/convert
+	name = "conversion rune"
+	desc = "A rune used to convert the Unenlightened."
+
+	var/list/converting
+
+/datum/rune/convert/do_rune_action(mob/living/user, atom/movable/A)
+	. = ..()
+	LAZYINITLIST(converting)
+	var/mob/living/carbon/target
+	for(var/mob/living/carbon/M in get_turf(A))
 		if(!iscultist(M) && M.stat < DEAD && !(M in converting))
 			target = M
 			break
 
 	if(!target) //didn't find any new targets
 		if(!converting.len)
-			fizzle(user)
+			fizzle(user, A)
+			LAZYCLEARLIST(converting)
 		else
-			to_chat(user, span("cult", "You sense that the power of the dark one is already working away at them."))
+			to_chat(user, SPAN_CULT("They are already being enlightened by the Dark One."))
 		return
 
-	user.say("Mah[pick("'","`")]weyh pleggh at e'ntrath!")
+	user.say("Mah'weyh pleggh at e'ntrath!")
 
-	converting |= target
+	LAZYDISTINCTADD(converting, target)
 	var/list/waiting_for_input = list(target = 0) //need to box this up in order to be able to reset it again from inside spawn, apparently
 	var/initial_message = 0
 	while(target in converting)
-		if(target.loc != src.loc || target.stat == DEAD)
+		if(get_turf(target) != get_turf(A) || target.stat == DEAD)
 			converting -= target
 			if(target.getFireLoss() < 100)
 				target.hallucination = min(target.hallucination, 500)
@@ -83,4 +91,5 @@
 					target.setBrainLoss(0) // nar'sie heals you
 					sound_to(target, 'sound/effects/bloodcult.ogg')
 		sleep(100) //proc once every 10 seconds
+	LAZYCLEARLIST(converting)
 	return TRUE

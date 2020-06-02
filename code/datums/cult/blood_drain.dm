@@ -1,9 +1,10 @@
-/obj/effect/rune/blood_drain
-	can_talisman = TRUE
+/datum/rune/blood_drain
+	name = "blood draining rune"
+	desc = "This rune is used to drain the blood of the believers and coalesce it into a single one."
 
-/obj/effect/rune/blood_drain/do_rune_action(mob/living/user)
+/datum/rune/blood_drain/do_rune_action(mob/living/user, atom/movable/A)
 	var/drain
-	for(var/obj/effect/rune/blood_drain/R in rune_list)
+	for(var/datum/rune/blood_drain/R in rune_list) //todomatt: fix this shit, it's called blood drain but it actually heals organ damage? wtf?
 		for(var/mob/living/carbon/D in get_turf(R))
 			if(D.stat != DEAD)
 				admin_attack_log(user, D, "Used a blood drain rune.", "Was victim of a blood drain rune.", "used a blood drain rune on")
@@ -13,7 +14,7 @@
 				drain += bdrain
 	if(!drain)
 		return fizzle(user)
-	user.say("Yu[pick("'","`")]gular faras desdae. Havas mithum javara. Umathar uf'kal thenar!")
+	user.say("Yu'gular delenda est! Umathar uf'kal thenar!")
 	user.visible_message("<span class='danger'>Blood flows from the rune into [user]!</span>", \
 	"<span class='danger'>The blood starts flowing from the rune and into your frail body. You feel... empowered.</span>", \
 	"<span class='warning'>You hear a liquid flowing.</span>")
@@ -32,7 +33,7 @@
 			user.take_overall_damage(3, 0)
 		return
 	user.heal_organ_damage(drain%5, 0)
-	drain-=drain%5
+	drain -= drain%5
 	while(drain)
 		drain -= 5
 		sleep(2)

@@ -39,31 +39,26 @@ var/global/list/static/rune_types = list(
 
 	var/datum/rune/rune
 
-	var/can_talisman = FALSE // some runes just don't work with talisman stuff
-	var/cult_description // what does the cult see the rune as?
-
 	var/network // For teleportation runes. Can connect to other runes in the network.
-	var/list/converting = list()
 
 /obj/effect/rune/Initialize()
 	. = ..()
-	SScult.rune_list += src
-	name = "graffiti"
-	icon_state = pick("1", "2", "3", "4", "5", "6")
+	SScult.add_rune(rune)
 
 /obj/effect/rune/Destroy()
-	rune_list -= src
+	SScult.remove_rune(rune)
+	QDEL_NULL(rune)
 	return ..()
 
 /obj/effect/rune/examine(mob/user)
 	..(user)
 	if(iscultist(user) || isobserver(user))
-		desc = "A powerful rune drawn with blood magic gifted by Nar'sie Himself."
+		to_chat(user, rune.get_cultist_fluff_text())) //i'd just like to note that this was changing the desc earlier
 		if(cult_description)
-			to_chat(user, "This spell circle reads: <span class='cult'><b><i>[cult_description]</i></b></span>.")
-		to_chat(user, "This rune [can_talisman ? "<span class='cult'><b><i>can</i></b></span>" : "<span class='warning'><b><i>cannot</i></b></span>"] be turned into a talisman.")
+			to_chat(user, "This spell circle reads: [rune.desc]")
+		to_chat(user, "This rune [rune.can_be_talisman() ? "<span class='cult'><b><i>can</i></b></span>" : "<span class='warning'><b><i>cannot</i></b></span>"] be turned into a talisman.")
 	else
-		desc = "A strange collection of symbols drawn in blood."
+		to_chat(user, rune.get_normal_fluff_text())
 
 /obj/effect/rune/attackby(obj/I, mob/user)
 	if(istype(I, /obj/item/book/tome) && iscultist(user))
@@ -78,27 +73,12 @@ var/global/list/static/rune_types = list(
 
 /obj/effect/rune/attack_hand(mob/living/user)
 	if(!iscultist(user))
-		to_chat(user, span("notice", "You can't mouth the arcane scratchings without fumbling over them."))
+		to_chat(user, SPAN_NOTICE("You can't mouth the arcane scratchings without fumbling over them."))
 		return
 	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
-		to_chat(user, span("warning", "You are unable to speak the words of the rune."))
+		to_chat(user, SPAN_WARNING("You are unable to speak the words of the rune."))
 		return
-	return do_rune_action(user)
-
-// Runes should override this
-/obj/effect/rune/proc/do_rune_action(var/mob/living/user, var/obj/O = src)
-	return
-
-/obj/effect/rune/proc/fizzle(var/mob/living/user)
-	if(istype(src,/obj/effect/rune)) // what the fuck
-									 // seriously why does istype(src) even compile
-									 // who the fuck wrote this?
-		user.say(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
-	else
-		user.whisper(pick("Hakkrutju gopoenjim.", "Nherasai pivroiashan.", "Firjji prhiv mazenhor.", "Tanah eh wakantahe.", "Obliyae na oraie.", "Miyf hon vnor'c.", "Wakabai hij fen juswix."))
-		for(var/mob/V in viewers(src))
-			to_chat(V, span("warning", "The markings pulse with a small burst of light, then fall dark."))
-		return
+	return rune.do_rune_action(user, src)
 
 /obj/effect/rune/cultify()
 	return
