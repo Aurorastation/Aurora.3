@@ -456,7 +456,7 @@
 /obj/item/mecha_equipment/autolathe
 	name = "mounted autolathe"
 	desc = "A large, heavy industrial autolathe. Most of the exterior and interior is stripped, relying primarily on the structure of the exosuit."
-	icon_state = "mech_sleeper"
+	icon_state = "mecha_autolathe"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
@@ -502,10 +502,11 @@
 /obj/item/mecha_equipment/toolset
 	name = "mounted toolset"
 	desc = "A vast toolset that's built into an exosuit arm mount. When a power drill just isn't enough."
-	icon_state = "mecha_drill"
+	icon_state = "mecha_toolset-screwdriverbit"
+	on_mech_icon_state = "mecha_toolset"
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
-	equipment_delay = 10
+	equipment_delay = 8
 
 	//Drill can have a head
 	var/obj/item/powerdrill/mech/mounted_tool
@@ -533,6 +534,10 @@
 					break
 				else
 					mounted_tool.current_tool++
+			update_icon()
+
+/obj/item/mecha_equipment/toolset/update_icon()
+	icon_state = "mecha_toolset-[mounted_tool.tools[mounted_tool.current_tool]]"
 
 // to-do fix this thing being out of bounds
 /obj/item/mecha_equipment/toolset/get_hardpoint_maptext()

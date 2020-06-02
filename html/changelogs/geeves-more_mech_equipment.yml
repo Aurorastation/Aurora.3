@@ -1,0 +1,7 @@
+author: Geeves, Sprites by Wezzy, edited by Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a mounted autolathe and a mounted toolset, which has a wrench, a screwdriver, and a crowbar bit."
+  - tweak: "Replaced the AI's remote mech's drill with the mounted toolset."
