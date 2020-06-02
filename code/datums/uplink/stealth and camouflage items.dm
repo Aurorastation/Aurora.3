@@ -31,6 +31,7 @@
 
 /datum/uplink_item/item/stealth_items/chameleon_projector
 	name = "Chameleon-Projector"
+	desc = "A device that can be used to mimic common items by scanning, then transforming into them."
 	item_cost = 8
 	path = /obj/item/device/chameleon
 
