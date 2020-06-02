@@ -9,6 +9,7 @@
 	var/list/runes_by_name  = list()
 	var/list/rune_list      = list()
 	var/rune_limit          = DEFAULT_MAX_RUNES //in the SS so admins can easily modify it if needed
+	var/rune_boost          = 0
 
 /datum/controller/subsystem/cult/New()
 	NEW_SS_GLOBAL(SScult)
@@ -18,8 +19,8 @@
 	for(var/rune in subtypesof(/datum/rune))
 		runes += rune
 
-/datum/controller/subsystem/cult/proc/add_rune(var/datum/rune/R) //todomatt add special checks here (+ current antags + rune_boost)
-	if((length(rune_list) >= rune_limit) && R.special_checks())
+/datum/controller/subsystem/cult/proc/add_rune(var/datum/rune/R)
+	if(((length(rune_list) + rune_boost + length(cult.current_antagonists)) >= rune_limit) && R.special_checks())
 		return FALSE
 	else
 		rune_list += R

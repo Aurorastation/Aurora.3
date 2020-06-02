@@ -123,7 +123,7 @@
 			return
 
 		// This counts how many runes exist in the game, for some sort of arbitrary rune limit. I trust the old devs had their reasons. - Geeves
-		if(length(rune_list) >= 25 + rune_boost + cult.current_antagonists.len)
+		if(length(rune_list) >= 25 + rune_boost + cult.current_antagonists.len) //todomatt: rune creation here
 			to_chat(user, span("warning", "The cloth of reality can't take that much of a strain. Remove some runes first!"))
 			return
 		else

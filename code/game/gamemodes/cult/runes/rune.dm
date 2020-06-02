@@ -1,5 +1,3 @@
-var/global/rune_boost = 0 // How many extra runes the cult can lay down
-
 var/global/list/static/rune_types = list(
 			"Create Armor" = /obj/effect/rune/armor,
 			"Create Construct" = /obj/effect/rune/create_construct,
@@ -28,6 +26,7 @@ var/global/list/static/rune_types = list(
 			"Summon Nar'sie" = /obj/effect/rune/summon_narsie,
 			"None" = /obj/effect/rune
 			)
+//todomatt fuck that shit above
 
 /obj/effect/rune
 	desc = "A strange collection of symbols drawn in blood."
