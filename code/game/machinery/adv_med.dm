@@ -252,6 +252,7 @@
 			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/stock_parts/console_screen
 		)
+	var/global/image/console_overlay
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
@@ -267,8 +268,9 @@
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "body_scannerconsole-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		if(!console_overlay)
+			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
+		add_overlay(console_overlay)
 		set_light(1.4, 1, COLOR_RED)
 
 /obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()

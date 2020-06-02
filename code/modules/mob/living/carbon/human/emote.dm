@@ -324,7 +324,7 @@
 					if(H && show_ssd && !H.client && !H.teleop)
 						if(H.bg)
 							to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
-						else
+						else if(!vr_mob)
 							message = "<span class='danger'>slaps [M] across the face, but they do not respond... Maybe they have S.S.D?</span>"
 					else if(H.client && H.willfully_sleeping)
 						message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"

@@ -33,7 +33,9 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		"Vox" = 'icons/mob/species/vox/head.dmi',
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'

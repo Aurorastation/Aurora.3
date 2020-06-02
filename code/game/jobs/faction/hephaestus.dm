@@ -29,6 +29,7 @@
 	title_suffix = "Hepht"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/engineer,
 		/datum/job/atmos,
 		/datum/job/roboticist,

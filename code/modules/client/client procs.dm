@@ -751,3 +751,4 @@
 			if(istype(gun) && gun.can_autofire())
 				M.set_dir(get_dir(M, over_object))
 				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
+	CHECK_TICK

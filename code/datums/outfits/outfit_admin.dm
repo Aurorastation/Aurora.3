@@ -470,7 +470,6 @@
 /datum/outfit/admin/assassin/get_id_access()
 	return get_all_station_access()
 
-
 /datum/outfit/admin/random_employee
 	name = "Random Employee"
 
