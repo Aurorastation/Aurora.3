@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added the ability to throw snap pops at your feet by simply activating them in hand, or clicking them in hand."
+  - rscadd: "Added smokepops, snap pops that deploy a small smokescreen. Added to the stealth and camouflage uplink for 1 TC."

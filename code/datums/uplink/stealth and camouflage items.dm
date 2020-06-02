@@ -45,3 +45,9 @@
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	item_cost = 1
 	path = /obj/item/clothing/mask/balaclava/grey
+
+/datum/uplink_item/item/stealth_items/stealthpop
+	name = "Stealthpops"
+	desc = "Snap pops with a compound added which deploys a small smokescreen upon exploding."
+	item_cost = 1
+	path = /obj/item/storage/box/snappops/syndi

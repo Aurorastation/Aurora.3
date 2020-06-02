@@ -486,6 +486,10 @@
 	can_hold = list(/obj/item/toy/snappop)
 	starts_with = list(/obj/item/toy/snappop = 8)
 
+/obj/item/storage/box/snappops/syndi
+	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
+	starts_with = list(/obj/item/toy/snappop/syndi = 8)
+
 /obj/item/storage/box/matches
 	name = "matchbox"
 	desc = "A small box of 'Space-Proof' premium matches."
