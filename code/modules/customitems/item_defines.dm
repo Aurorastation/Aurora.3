@@ -967,24 +967,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 2
 
 
-/obj/item/clothing/head/fluff/jix_wrap //Dull Headwraps - JIX - kyres1
-	name = "dull headwraps"
-	desc = "A sturdy, dull brown cloth."
-	icon = 'icons/obj/custom_items/jix_items.dmi'
-	icon_state = "jix_wrap"
-	item_state = "jix_wrap"
-	contained_sprite = TRUE
-
-/obj/item/clothing/suit/fluff/jix_robes //Dull Robes - JIX - kyres1
-	name = "dull robes"
-	desc = "A set of drab robes which look particularly old, though in good condition. It consists of two pieces, loosely connected and separating at the center."
-	icon = 'icons/obj/custom_items/jix_items.dmi'
-	icon_state = "jix_robes"
-	item_state = "jix_robes"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	contained_sprite = TRUE
-
-
 /obj/item/clothing/mask/fluff/ird_mask //Titanium Faceplate - IRD - kyres1
 	name = "titanium faceplate"
 	desc = "An odd mask seeming to mimic the face of a Human with some artistic liberties taken. Small lights keep it dimly illuminated from within with holographic projectors emulating two bright blue eyes.  \
