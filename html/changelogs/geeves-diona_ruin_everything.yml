@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Diona now have a biomass drain when they have apparitions summoned, they also take slightly more damage."

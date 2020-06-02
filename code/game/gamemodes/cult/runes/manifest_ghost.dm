@@ -1,7 +1,7 @@
 /obj/effect/rune/manifest
 	var/mob/living/carbon/human/apparition/apparition
 
-/obj/effect/rune/manifest/do_rune_action(mob/living/user)
+/obj/effect/rune/manifest/do_rune_action(mob/living/carbon/user)
 	if(!iscarbon(user))
 		to_chat(user, span("warning", "Your primitive form cannot use this rune!"))
 	if(apparition)
@@ -45,17 +45,18 @@
 	log_and_message_admins("used a manifest rune.")
 
 	// The cultist doesn't have to stand on the rune, but they will continually take damage for as long as they have a summoned ghost
-	while(user?.stat == CONSCIOUS && user.client)
-		user.take_organ_damage(1, 0)
+	var/can_manifest = TRUE
+	while(user?.stat == CONSCIOUS && user.client && can_manifest)
+		can_manifest = user.species.take_manifest_ghost_damage(user)
 		sleep(30)
 	apparition_check()
 	return
 
 /obj/effect/rune/manifest/proc/apparition_check()
 	if(apparition)
-		apparition.visible_message("<span class='danger'>[apparition] slowly dissipates into dust and bones.</span>", \
-		"<span class='danger'>You feel pain, as bonds formed between your soul and this homunculus break.</span>", \
-		"<span class='warning'>You hear a faint rustling.</span>")
+		apparition.visible_message(FONT_LARGE(SPAN_WARNING("\The [apparition] slowly dissipates into dust and bones.")), \
+		FONT_LARGE(SPAN_WARNING("You feel pain, as bonds formed between your soul and this homunculus break.")), \
+		SPAN_WARNING("You hear a faint rustling."))
 		apparition.dust()
 		apparition = null
 
