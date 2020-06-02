@@ -741,7 +741,7 @@
 /datum/reagent/aslimetoxin
 	value = 3
 
-/datum/reagent/nanites
+/datum/reagent/toxin/nanites
 	value = 9
 
 /datum/reagent/estus
