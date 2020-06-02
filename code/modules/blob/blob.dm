@@ -16,12 +16,11 @@
 	var/health
 	var/regen_rate = 4
 	var/brute_resist = 4
-	var/laser_resist = 4 // Special resist for laser based weapons - Emitters or handheld energy weaponry. Damage is divided by this and THEN by fire_resist.
-	var/fire_resist = 1
+	var/fire_resist = 1.75
 	var/secondary_core_growth_chance = 10.0 //% chance to grow a secondary blob core instead of whatever was suposed to grown. Secondary cores are considerably weaker, but still nasty.
 	var/expandType = /obj/effect/blob
 	var/obj/effect/blob/core/parent_core = null
-	var/blob_may_process = 1
+	var/blob_may_process = 0
 	var/hangry = 0 //if the blob will attack or not.
 	var/blob_cost = 1 //point cost of the blob tile
 
@@ -232,7 +231,7 @@
 		if(BRUTE)
 			take_damage(Proj.damage / brute_resist)
 		if(BURN)
-			take_damage((Proj.damage / laser_resist) / fire_resist)
+			take_damage(Proj.damage / fire_resist)
 	return 0
 
 /obj/effect/blob/attackby(var/obj/item/W, var/mob/user)
@@ -264,7 +263,6 @@
 	light_color = "#F3D203"
 	maxHealth = 200
 	brute_resist = 2
-	laser_resist = 7
 	regen_rate = 2
 	fire_resist = 2
 	var/core_count //amount of secondary cores
@@ -293,24 +291,21 @@
 /obj/effect/blob/core/process()
 	set waitfor = 0
 	..()
-	if(!blob_may_process)
+	if(world.time < blob_may_process)
 		return
-	blob_may_process = 0
+	blob_may_process = world.time + 8 SECONDS
 	sleep(0)
 	pulse(20, list(NORTH, EAST))
 	pulse(20, list(NORTH, WEST))
 	pulse(20, list(SOUTH, EAST))
 	pulse(20, list(SOUTH, WEST))
-	blob_may_process = 1
 
-// Half the stats of a normal core. Blob has a very small probability of growing these when spreading. These will spread the blob further.
 /obj/effect/blob/core/secondary
 	name = "small blob core"
 	icon_state = "blob_core"
 	maxHealth = 100
 	brute_resist = 1
-	fire_resist = 1
-	laser_resist = 4
+	fire_resist = 1.75
 	regen_rate = 1
 	expandType = /obj/effect/blob
 
@@ -329,8 +324,7 @@
 	icon_state = "blob_idle"
 	maxHealth = 60
 	brute_resist = 1
-	fire_resist = 2
-	laser_resist = 4
+	fire_resist = 2.5
 	blob_cost = 0 //so that the core can regrow its shields when they break
 
 /obj/effect/blob/shield/New()
