@@ -25,6 +25,7 @@
 
 	var/list/files = list(  )
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/card/data
 	name = "data disk"

@@ -50,8 +50,19 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/hitstaken = 0      //Death at 3 hits from an item with force>=15
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
+	var/global/list/screen_overlays
 	anchored = 1
 
+/obj/machinery/newscaster/proc/generate_overlays(var/force = 0)
+	if(LAZYLEN(screen_overlays) && !force)
+		return
+	LAZYINITLIST(screen_overlays)
+	screen_overlays["newscaster-screen"] = make_screen_overlay(icon, "newscaster-screen")
+	screen_overlays["newscaster-title"] = make_screen_overlay(icon, "newscaster-title")
+	screen_overlays["newscaster-wanted"] = make_screen_overlay(icon, "newscaster-wanted")
+	screen_overlays["newscaster-scanline"] = make_screen_overlay(icon, "newscaster-scanline")
+	for(var/i in 1 to 3)
+		screen_overlays["crack[i]"] = make_screen_overlay(icon, "crack[i]")
 
 /obj/machinery/newscaster/security_unit                   //Security unit
 	name = "Security Newscaster"
@@ -62,6 +73,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	allCasters += src
 	src.paper_remaining = 15            // Will probably change this to something better
 	src.unit_no = allCasters.len + 1
+	src.generate_overlays()
 	src.update_icon() //for any custom ones on the map...
 
 /obj/machinery/newscaster/Destroy()
@@ -74,36 +86,30 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		set_light(FALSE)
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
 			cut_overlays()
-			add_overlay("crack3")
+			add_overlay(screen_overlays["crack3"])
 		return
 
 	cut_overlays() //reset overlays
 
-	var/mutable_appearance/base_screen_overlay = mutable_appearance(icon, "newscaster-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-	add_overlay(base_screen_overlay)
+	add_overlay(screen_overlays["newscaster-screen"])
 	set_light(1.4, 1, COLOR_CYAN)
 
 	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-title", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["newscaster-title"])
 
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-wanted", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["newscaster-wanted"])
 		return
 
 	if(alert) //new message alert overlay
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["newscaster-alert"])
 
 	if(hitstaken == 0)
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "newscaster-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["newscaster-scanline"])
 
 	if(hitstaken > 0) //Cosmetic damage overlay
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "crack[hitstaken]", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
-
+		add_overlay(screen_overlays["crack[hitstaken]"])
+	
 	icon_state = initial(icon_state)
 	return
 
@@ -412,7 +418,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
 
 		send_theme_resources(human_or_robot_user)
-		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=400x600")
+		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
 		onclose(human_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)
@@ -815,6 +821,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble=""
 	var/scribble_page = null
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 obj/item/newspaper/attack_self(mob/user as mob)
 	if(ishuman(user))

@@ -30,6 +30,7 @@
 	title_suffix = "Zeng"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/doctor,
 		/datum/job/surgeon,
 		/datum/job/pharmacist,

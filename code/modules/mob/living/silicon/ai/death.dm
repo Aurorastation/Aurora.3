@@ -16,4 +16,5 @@
 			card.update_icon()
 
 	. = ..(gibbed,"gives one shrill beep before falling lifeless.")
-	density = 1
+	density = TRUE
+	ghostize(FALSE)

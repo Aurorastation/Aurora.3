@@ -327,6 +327,7 @@ for reference:
 	icon_state = "blaster_turret_kit"
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 	w_class = 4
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
@@ -340,3 +341,17 @@ for reference:
 	w_class = 3
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
+
+/obj/item/deployable_kit/remote_mech
+	name = "mech control centre assembly kit"
+	desc = "A quick assembly kit to put together a mech control centre."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "barrier_kit"
+	w_class = ITEMSIZE_LARGE
+	kit_product = /obj/structure/bed/chair/remote/mech/portable
+	assembly_time = 20 SECONDS
+
+/obj/item/deployable_kit/remote_mech/brig
+	name = "brig mech control centre assembly kit"
+	desc = "A quick assembly kit to put together a brig mech control centre."
+	kit_product = /obj/structure/bed/chair/remote/mech/prison/portable

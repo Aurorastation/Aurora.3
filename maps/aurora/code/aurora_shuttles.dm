@@ -16,6 +16,7 @@
 
 /obj/effect/shuttle_landmark/escape_pod/out
 	name = "Escaped"
+	base_turf = /turf/space
 
 #define AURORA_ESCAPE_POD(NUMBER) \
 /datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
@@ -142,6 +143,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Merchant Shuttle Base"
 	landmark_tag = "nav_merchant_start"
 	docking_controller = "merchant_station"
+	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/merchant/interim
 	name = "In Transit"
@@ -250,6 +252,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/skipjack/start
 	name = "Pirate Hideout"
 	landmark_tag = "nav_skipjack_start"
+	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/skipjack/interim
 	name = "In Transit"
@@ -270,6 +273,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Under the Station"
 	landmark_tag = "nav_skipjack_under"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/skipjack/caverns
 	name = "Caverns by Mining"
@@ -309,6 +313,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Mercenary Base"
 	landmark_tag = "nav_merc_start"
 	docking_controller = "merc_base"
+	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/merc/interim
 	name = "In Transit"
@@ -335,6 +340,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Under the Station"
 	landmark_tag = "nav_merc_under"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/merc/caverns
 	name = "Caverns Fore of the Station"

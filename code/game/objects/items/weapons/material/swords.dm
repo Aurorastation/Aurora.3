@@ -1,6 +1,7 @@
 /obj/item/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
+	description_cult = "This can be reforged to become a cult blade."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
@@ -16,6 +17,7 @@
 	can_embed = 0
 	var/parry_chance = 40
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/material/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1
@@ -105,6 +107,7 @@
 	applies_material_colour = 0
 	parry_chance = 10
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/sword/axe/pre_attack(var/mob/living/target, var/mob/living/user)
 	if(istype(target))

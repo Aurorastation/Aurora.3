@@ -7,6 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#FF56B4"
 	economic_modifier = 10
@@ -221,9 +222,6 @@
 /datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
 	jobtype = /datum/job/psychiatrist
-
-	uniform = /obj/item/clothing/under/rank/psych/turtleneck
-
 
 /datum/job/paramedic
 	title = "Paramedic"
