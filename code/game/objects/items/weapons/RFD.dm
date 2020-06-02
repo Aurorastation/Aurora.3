@@ -240,6 +240,10 @@ RFD Construction-Class
 
 	rfd_effect.end_animation()
 	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
+	build_cost = null
+	build_delay = null
+	build_type = null
+	build_turf = null // So it resets and any fuckery is avoided
 	qdel(rfd_effect)
 	return TRUE
 
