@@ -230,7 +230,6 @@ RFD Construction-Class
 
 	working = FALSE
 	if(build_delay && !can_use(user,T))
-		rfd_effect.end_animation()
 		return FALSE
 
 	if(build_turf)
@@ -244,7 +243,6 @@ RFD Construction-Class
 	build_delay = null
 	build_type = null
 	build_turf = null // So it resets and any fuckery is avoided
-	qdel(rfd_effect)
 	return TRUE
 
 /obj/item/rfd/construction/borg
