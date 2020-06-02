@@ -256,7 +256,6 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/device/core_sampler              = TRADER_THIS_TYPE,
 		/obj/item/device/depth_scanner             = TRADER_THIS_TYPE,
 		/obj/item/device/beacon_locator            = TRADER_THIS_TYPE,
-		/obj/item/device/antibody_scanner          = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced           = TRADER_BLACKLIST
 	)
 

@@ -119,21 +119,6 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list("diethylamine" = 60)
 
-/obj/item/reagent_containers/glass/bottle/with_virus
-	name = "virus bottle"
-	desc = "A small bottle. Contains some virus."
-	icon_state = "bottle-4"
-	var/datum/disease/disease
-
-/obj/item/reagent_containers/glass/bottle/with_virus/Initialize()
-	var/datum/disease/F = new disease(0)
-	var/list/data = list("viruses"= list(F))
-	if(!icon_state)
-		icon_state = "bottle-[rand(1,4)]"
-	reagents.add_reagent("blood", 20, data)
-
-	update_icon()
-
 /obj/item/reagent_containers/glass/bottle/pacid
 	name = "Polytrinic Acid Bottle"
 	desc = "A small bottle. Contains a small amount of Polytrinic Acid"

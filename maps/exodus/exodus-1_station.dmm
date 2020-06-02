@@ -10106,8 +10106,8 @@
 /area/maintenance/dormitory)
 "asC" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -19866,8 +19866,8 @@
 /area/hydroponics)
 "aMh" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/dark,
@@ -19883,8 +19883,8 @@
 /area/hydroponics)
 "aMk" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/closet/chefcloset,
@@ -39555,8 +39555,8 @@
 /area/medical/medbay2)
 "bxO" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -39608,8 +39608,8 @@
 /area/medical/medbay2)
 "bxU" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
@@ -43970,8 +43970,8 @@
 /area/medical/psych)
 "bFO" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/item/modular_computer/console/preset/medical,
 /turf/simulated/floor/carpet/blue,
@@ -57823,8 +57823,8 @@
 	pixel_y = 22
 	},
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/item/hand_labeler,
 /obj/effect/floor_decal/corner/lime/full{
@@ -57842,8 +57842,8 @@
 /area/rnd/xenobiology/xenoflora_storage)
 "cfH" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/machinery/light_switch{
 	pixel_x = 27
@@ -57908,8 +57908,8 @@
 /area/rnd/xenobiology/xenoflora)
 "cfN" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/machinery/light_switch{
 	pixel_x = -6;
@@ -57937,8 +57937,8 @@
 /area/rnd/xenobiology/xenoflora)
 "cfQ" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/botanydisk,
@@ -65486,15 +65486,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
-"cuh" = (
-/obj/machinery/disease2/incubator,
-/turf/simulated/floor/tiled/white,
-/area/medical/abandoned)
 "cui" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/computer/centrifuge,
 /obj/item/storage/secure/safe{
 	pixel_x = 5;
 	pixel_y = 25
@@ -65502,7 +65497,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "cuj" = (
-/obj/machinery/disease2/isolator,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
 	pixel_x = 30
@@ -66247,12 +66241,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "cvn" = (
-/turf/simulated/floor/tiled/white,
-/area/medical/abandoned)
-"cvo" = (
-/obj/structure/bed/chair/office/dark{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "cvp" = (
@@ -68064,7 +68052,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "czb" = (
-/obj/item/device/antibody_scanner,
 /obj/machinery/requests_console{
 	department = "Virology";
 	name = "Virology Requests Console";
@@ -68074,7 +68061,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "czc" = (
-/obj/structure/bed/chair/office/dark,
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -68469,18 +68458,13 @@
 /area/medical/abandoned)
 "czS" = (
 /obj/structure/closet/crate/freezer,
-/obj/item/virusdish/random,
-/obj/item/virusdish/random,
-/obj/item/virusdish/random,
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "czT" = (
-/obj/machinery/computer/diseasesplicer,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "czU" = (
-/obj/machinery/disease2/diseaseanalyser,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
@@ -72817,8 +72801,8 @@
 /area/engineering/engine_room)
 "cHY" = (
 /obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 1
 	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
@@ -117333,7 +117317,7 @@ aaa
 aaa
 aaa
 cmi
-cuh
+cvn
 cvn
 cwl
 cxk
@@ -117591,7 +117575,7 @@ aaa
 aaa
 cmi
 cui
-cvo
+cvn
 cwm
 cxl
 cym

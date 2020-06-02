@@ -2,8 +2,6 @@
 	gender = MALE
 	var/datum/species/species //Contains icon generation and language information, set during New().
 	//stomach contents redefined at mob/living level, removed from here
-	var/list/datum/disease2/disease/virus2 = list()
-	var/list/antibodies = list()
 
 	var/analgesic = 0 // when this is set, the mob isn't affected by shock or pain
 					  // life should decrease this by 1 every tick

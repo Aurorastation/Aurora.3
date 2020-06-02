@@ -61,72 +61,14 @@
 		M.adjustToxLoss(removed)
 	if(dose > 15)
 		M.adjustToxLoss(removed)
-	if(data && data["viruses"])
-		for(var/datum/disease/D in data["viruses"])
-			if(D.spread_type == SPECIAL || D.spread_type == NON_CONTAGIOUS)
-				continue
-			if(D.spread_type in list(CONTACT_FEET, CONTACT_HANDS, CONTACT_GENERAL))
-				M.contract_disease(D)
-	if(data && data["virus2"])
-		var/list/vlist = data["virus2"]
-		if(vlist.len)
-			for(var/ID in vlist)
-				var/datum/disease2/disease/V = vlist[ID]
-				if(V.spreadtype == "Contact")
-					infect_virus2(M, V.getcopy())
 
 /datum/reagent/blood/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_MACHINE)
 		return
-	if(data && data["viruses"])
-		for(var/datum/disease/D in data["viruses"])
-			if(D.spread_type == SPECIAL || D.spread_type == NON_CONTAGIOUS)
-				continue
-			if(D.spread_type in list(CONTACT_FEET, CONTACT_HANDS, CONTACT_GENERAL))
-				M.contract_disease(D)
-	if(data && data["virus2"])
-		var/list/vlist = data["virus2"]
-		if(vlist.len)
-			for(var/ID in vlist)
-				var/datum/disease2/disease/V = vlist[ID]
-				if(V.spreadtype == "Contact")
-					infect_virus2(M, V.getcopy())
-	if(data && data["antibodies"])
-		M.antibodies |= data["antibodies"]
 
 /datum/reagent/blood/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.inject_blood(src, volume)
 	remove_self(volume)
-
-/datum/reagent/blood/proc/get_diseases()
-	. = list()
-	if(data && data["viruses"])
-		for(var/thing in data["viruses"])
-			var/datum/disease/D = thing
-			. += D
-
-/datum/reagent/vaccine
-	name = "Vaccine"
-	id = "vaccine"
-	reagent_state = LIQUID
-	color = "#C81040"
-	taste_description = "slime"
-	fallback_specific_heat = 1.2
-
-// pure concentrated antibodies
-/datum/reagent/antibodies
-	data = list("antibodies"=list())
-	name = "Antibodies"
-	id = "antibodies"
-	reagent_state = LIQUID
-	color = "#0050F0"
-	taste_description = "slime"
-	fallback_specific_heat = 1.5
-
-/datum/reagent/antibodies/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(src.data)
-		M.antibodies |= src.data["antibodies"]
-	..()
 
 #define WATER_LATENT_HEAT 19000 // How much heat is removed when applied to a hot turf, in J/unit (19000 makes 120 u of water roughly equivalent to 4L)
 /datum/reagent/water

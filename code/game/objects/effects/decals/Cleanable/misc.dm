@@ -107,11 +107,6 @@
 	..()
 	create_reagents(20, src)
 
-/obj/effect/decal/cleanable/vomit/Destroy()
-	for(var/datum/disease/D in viruses)
-		D.cure(0)
-	return ..()
-
 /obj/effect/decal/cleanable/tomato_smudge
 	name = "tomato smudge"
 	desc = "It's red."
