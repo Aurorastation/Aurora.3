@@ -90,9 +90,12 @@
 	//Armor
 	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
 	var/damaged
-	if ((P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP) && prob(absorb))
-		P.damage_flags &= ~DAM_SHARP
-		P.damage_flags &= ~DAM_EDGE
+	if(prob(absorb))
+		if(P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP || P.damage_flags & DAM_LASER)
+			P.damage_flags &= ~DAM_SHARP
+			P.damage_flags &= ~DAM_EDGE
+			P.damage_flags &= ~DAM_LASER
+			world << P.damage_flags
 
 	if(!P.nodamage)
 		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
