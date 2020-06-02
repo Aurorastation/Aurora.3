@@ -203,4 +203,3 @@
 /area/medical/main_storage
 	name = "Medical - Main Storage"
 	icon_state = "exam_room"
-

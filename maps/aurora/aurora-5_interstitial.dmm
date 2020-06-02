@@ -511,8 +511,8 @@
 	req_one_access = list(24,11,55)
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/random/tech_supply,
 /obj/random/tech_supply,
@@ -532,8 +532,8 @@
 	},
 /obj/machinery/door/window/southright,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_main)
@@ -1217,6 +1217,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -4782,8 +4783,8 @@
 /area/medical/psych)
 "jU" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner_wide/green{
@@ -4793,8 +4794,8 @@
 /area/medical/psych)
 "jV" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/medbay{
@@ -5612,8 +5613,8 @@
 /area/medical/psych)
 "lw" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -5870,8 +5871,8 @@
 /area/medical/psych)
 "lW" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/ringer{
 	department = "Medbay";
@@ -6161,12 +6162,14 @@
 "na" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 1;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Shutters";
@@ -6185,15 +6188,18 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -6204,6 +6210,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -6286,9 +6293,11 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/grille,
@@ -6380,6 +6389,7 @@
 	req_access = list(33)
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -6461,6 +6471,17 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
+"oX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/greenglow,
+/turf/simulated/floor/tiled/white,
+/area/medical/abandoned)
 "pa" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -6486,6 +6507,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -6566,6 +6588,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 9
 	},
 /obj/item/reagent_containers/glass/beaker/vial,
@@ -6620,6 +6643,7 @@
 "pO" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6703,9 +6727,11 @@
 	},
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6713,6 +6739,7 @@
 /area/medical/abandoned)
 "qu" = (
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 9
 	},
 /obj/item/modular_computer/console,
@@ -6745,7 +6772,7 @@
 /area/maintenance/interstitial_cargo)
 "qG" = (
 /obj/machinery/disposal{
-	name = "MediExpress - Quarantine"
+	name = "Ancient Disposal Chute"
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 1
@@ -6754,6 +6781,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -6810,6 +6838,7 @@
 	pixel_y = 7
 	},
 /obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -6887,6 +6916,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -6923,6 +6953,7 @@
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -7246,6 +7277,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -7308,9 +7340,11 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/grille,
@@ -7433,6 +7467,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -7636,9 +7671,11 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -7745,15 +7782,18 @@
 	},
 /obj/machinery/alarm{
 	dir = 8;
+	icon_state = "alarm0";
 	pixel_x = 28
 	},
 /obj/machinery/ringer{
 	department = "Pharmacy Frontdesk";
 	id = "pharmacy_ringer";
+	pixel_x = 0;
 	pixel_y = -28;
 	req_access = list(33)
 	},
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 4
 	},
 /obj/structure/closet,
@@ -7948,6 +7988,7 @@
 	pixel_y = -4
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -7955,15 +7996,18 @@
 "yE" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 1;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Shutters";
@@ -8007,6 +8051,7 @@
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/effect/decal/cleanable/cobweb2{
@@ -8051,6 +8096,7 @@
 /area/maintenance/interstitial_cargo)
 "yX" = (
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -8065,16 +8111,14 @@
 /area/hallway/secondary/entry/stairs)
 "zd" = (
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/item/modular_computer/console,
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "zi" = (
-/obj/machinery/disease2/isolator,
-/obj/effect/floor_decal/corner/pink{
-	dir = 10
-	},
+/obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "zm" = (
@@ -8238,6 +8282,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/grille,
@@ -8337,6 +8382,7 @@
 "BC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -8378,9 +8424,11 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 1
 	},
 /obj/effect/decal/cleanable/molten_item,
@@ -8420,6 +8468,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	icon_state = "map-scrubbers";
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8485,7 +8534,8 @@
 "Co" = (
 /obj/structure/lattice,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 2
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/open,
@@ -8549,6 +8599,7 @@
 /area/medical/abandoned)
 "CT" = (
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/effect/decal/cleanable/molten_item,
@@ -8615,17 +8666,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"Do" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/greenglow,
-/turf/simulated/floor/tiled/white,
-/area/medical/abandoned)
 "Dt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -8850,15 +8890,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/security/forensics_office)
-"EH" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/medical/abandoned)
 "EI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -8923,12 +8954,14 @@
 /area/medical/upperlevel)
 "Fc" = (
 /obj/machinery/light/small/emergency{
+	icon_state = "bulb1";
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/effect/floor_decal/corner/red{
+	icon_state = "corner_white";
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8983,6 +9016,7 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -9033,9 +9067,7 @@
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
-/obj/effect/floor_decal/corner/pink/full{
-	dir = 8
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "FJ" = (
@@ -9171,9 +9203,11 @@
 /area/maintenance/interstitial_main)
 "GA" = (
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 1
 	},
 /obj/item/storage/fancy/vials{
@@ -9330,6 +9364,7 @@
 /area/maintenance/substation/interstitial)
 "HE" = (
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/machinery/power/apc{
@@ -9343,6 +9378,7 @@
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -9370,6 +9406,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -9410,6 +9447,7 @@
 "HP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/red/full{
+	icon_state = "corner_white_full";
 	dir = 1
 	},
 /obj/machinery/smartfridge/chemistry{
@@ -9903,6 +9941,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -9981,9 +10020,11 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/grille,
@@ -10136,10 +10177,12 @@
 /area/maintenance/substation/interstitial)
 "Kr" = (
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 5
 	},
 /obj/machinery/light{
-	dir = 4
+	dir = 4;
+	status = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -10781,6 +10824,7 @@
 /area/medical/upperlevel)
 "Nl" = (
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -11120,6 +11164,7 @@
 /obj/item/folder/white,
 /obj/item/pen,
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -11127,6 +11172,7 @@
 "PB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -11245,9 +11291,11 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -11295,10 +11343,12 @@
 /area/maintenance/elevator)
 "QB" = (
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 9
 	},
 /obj/machinery/shower{
 	dir = 4;
+	icon_state = "shower";
 	pixel_y = 12
 	},
 /obj/structure/sink{
@@ -11312,10 +11362,12 @@
 /area/medical/abandoned)
 "QC" = (
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 10
 	},
 /obj/machinery/alarm{
 	dir = 4;
+	icon_state = "alarm0";
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -11323,6 +11375,7 @@
 	},
 /obj/machinery/shower{
 	dir = 4;
+	icon_state = "shower";
 	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/white,
@@ -11339,8 +11392,8 @@
 "QE" = (
 /obj/structure/lattice,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/open,
 /area/medical/abandoned)
@@ -11691,6 +11744,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -11740,7 +11794,8 @@
 "ST" = (
 /obj/structure/lattice,
 /obj/machinery/light{
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 2
 	},
 /turf/simulated/open,
 /area/medical/abandoned)
@@ -11820,11 +11875,13 @@
 /area/security/forensics_office)
 "Ts" = (
 /obj/machinery/light{
+	dir = 8;
 	icon_state = "tube1";
-	dir = 8
+	pixel_y = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -11838,9 +11895,11 @@
 	},
 /obj/structure/sink{
 	dir = 4;
+	icon_state = "sink";
 	pixel_x = 12
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -11863,6 +11922,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -11949,6 +12009,7 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -12002,6 +12063,7 @@
 "Ur" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 10
 	},
 /obj/item/storage/box/monkeycubes,
@@ -12130,9 +12192,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
+	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -12169,11 +12233,21 @@
 	},
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 1
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/tiled/white,
+/area/medical/abandoned)
+"Vi" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
 /area/medical/abandoned)
 "Vt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -12191,6 +12265,7 @@
 /area/maintenance/telecoms_ladder)
 "Vv" = (
 /obj/structure/extinguisher_cabinet{
+	pixel_x = 0;
 	pixel_y = -32
 	},
 /obj/structure/bed/chair{
@@ -12246,7 +12321,8 @@
 "VO" = (
 /obj/machinery/light{
 	dir = 4;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	pixel_x = 0
 	},
 /obj/machinery/alarm{
 	dir = 1;
@@ -12263,6 +12339,7 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -12418,9 +12495,11 @@
 /area/maintenance/interstitial_construction_site/zone_2)
 "WL" = (
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -12482,9 +12561,11 @@
 	pixel_y = 26
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
+	icon_state = "warningcorner";
 	dir = 1
 	},
 /obj/item/reagent_containers/glass/beaker/vial,
@@ -12494,6 +12575,7 @@
 "Xv" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced,
@@ -12503,6 +12585,7 @@
 /obj/structure/grille,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 1;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Shutters";
@@ -12586,6 +12669,7 @@
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /obj/effect/floor_decal/corner/pink/full{
+	icon_state = "corner_white_full";
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2{
@@ -12738,6 +12822,7 @@
 /area/maintenance/medbay_interstitial)
 "YX" = (
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -12766,6 +12851,7 @@
 	pixel_y = -26
 	},
 /obj/effect/floor_decal/corner/pink{
+	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -46439,7 +46525,7 @@ aa
 UK
 nr
 CN
-EH
+Vi
 UK
 UW
 Fk
@@ -46952,7 +47038,7 @@ aa
 aa
 UK
 YX
-Do
+oX
 Ur
 UK
 UK
