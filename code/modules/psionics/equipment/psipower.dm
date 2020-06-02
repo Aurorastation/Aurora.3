@@ -2,8 +2,10 @@
 	name = "psychic power"
 	icon = 'icons/obj/psychic_powers.dmi'
 	flags = 0
-	simulated = 1
-	anchored = 1
+	anchored = TRUE
+	throwforce = 0 //Just to be on the safe side
+	throw_range = 0
+	throw_speed = 0
 	var/maintain_cost = 3
 	var/mob/living/owner
 
@@ -31,6 +33,9 @@
 
 /obj/item/psychic_power/dropped()
 	..()
+	QDEL_IN(src, 1)
+
+/obj/item/psychic_power/on_give()
 	qdel(src)
 
 /obj/item/psychic_power/process()
