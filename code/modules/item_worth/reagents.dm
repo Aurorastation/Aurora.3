@@ -561,9 +561,6 @@
 /datum/reagent/arithrazine
 	value = 2.7
 
-/datum/reagent/deltamivir
-	value = 2.5
-
 /datum/reagent/thetamycin
 	value = 2.5
 

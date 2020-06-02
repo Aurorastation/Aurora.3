@@ -174,12 +174,6 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list("dexalinp" = 60)
 
-/obj/item/reagent_containers/glass/bottle/deltamivir
-	name = "deltamivir bottle"
-	desc = "A small bottle. Contains deltamivir. An all-purpose antiviral agent."
-	icon_state = "bottle-4"
-	reagents_to_add = list("deltamivir" = 60)
-
 /obj/item/reagent_containers/glass/bottle/coughsyrup
 	name = "cough syrup bottle"
 	desc = "A small bottle of cough syrup. Don't take too much!"

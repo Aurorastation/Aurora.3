@@ -411,16 +411,6 @@
 	mode = SYRINGE_INJECT
 	update_icon()
 
-/obj/item/reagent_containers/syringe/antiviral
-	name = "Syringe (deltamivir)"
-	desc = "Contains antiviral agents."
-
-/obj/item/reagent_containers/syringe/antiviral/Initialize()
-	. = ..()
-	reagents.add_reagent("deltamivir", 15)
-	mode = SYRINGE_INJECT
-	update_icon()
-
 /obj/item/reagent_containers/syringe/antibiotic
 	name = "Syringe (thetamycin)"
 	desc = "Contains antibiotics."
