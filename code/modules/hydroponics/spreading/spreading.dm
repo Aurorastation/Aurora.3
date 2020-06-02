@@ -4,7 +4,7 @@
 /proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=5, var/maturation_max=15)
 	set waitfor = FALSE
 
-	var/turf/T = pick_area_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
+	var/turf/T = pick_subarea_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
 		var/datum/seed/seed = SSplants.create_random_seed(1)
 		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
