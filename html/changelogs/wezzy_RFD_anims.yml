@@ -41,4 +41,4 @@ changes:
   - imageadd: "RFD-Cs have cool animations now. Check it out!"
   - bugfix: "RFD-Cs can properly build airlocks now."
   - bugfix: "RFDs no longer eat your ammo when you move away."
-  - bugfix: "RFD-Cs deconstruct airlocks cheaper and faster to be more in line with wall deconstruction."
+  - bugfix: "RFD-Cs construct airlocks cheaper and faster to be more in line with wall deconstruction."

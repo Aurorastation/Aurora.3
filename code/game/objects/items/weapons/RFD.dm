@@ -178,12 +178,12 @@ RFD Construction-Class
 		return FALSE
 
 	if(mode == 3 && istype(T,/obj/machinery/door/airlock))
-		build_cost =  3
-		build_delay = 20
-		build_type = "airlock"
-	else if(mode == 2 && !deconstruct && istype(T,/turf/simulated/floor))
 		build_cost =  10
 		build_delay = 50
+		build_type = "airlock"
+	else if(mode == 2 && !deconstruct && istype(T,/turf/simulated/floor))
+		build_cost =  3
+		build_delay = 20
 		build_type = "airlock"
 		build_turf = /obj/machinery/door/airlock
 	else if(!deconstruct && (istype(T,/turf/space) || istype(T,T.baseturf)))
