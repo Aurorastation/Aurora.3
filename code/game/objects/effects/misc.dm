@@ -77,4 +77,3 @@
 
 /obj/effect/constructing_effect/proc/end()
 	qdel(src)
-s
