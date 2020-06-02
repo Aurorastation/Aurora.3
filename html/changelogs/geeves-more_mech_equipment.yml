@@ -5,4 +5,4 @@ delete-after: True
 changes: 
   - rscadd: "Added a mounted autolathe and a mounted toolset, which has a wrench, a screwdriver, and a crowbar bit."
   - tweak: "Replaced the AI's remote mech's drill with the mounted toolset."
-  - tweak: "Autolathe now has wiring like most other machines, with a seperate UI."
+  - tweak: "Autolathe now has wiring like most other machines, with a seperate UI. The hints have also been revamped."

@@ -457,6 +457,7 @@
 	name = "mounted autolathe"
 	desc = "A large, heavy industrial autolathe. Most of the exterior and interior is stripped, relying primarily on the structure of the exosuit."
 	icon_state = "mecha_autolathe"
+	on_mech_icon_state = "mecha_autolathe"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
@@ -497,7 +498,14 @@
 /obj/item/mecha_equipment/autolathe/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter() || istype(W, /obj/item/storage/part_replacer))
 		lathe.attackby(W, user)
+		update_icon()
 	..()
+
+/obj/item/mecha_equipment/autolathe/update_icon()
+	if(lathe.panel_open)
+		icon_state = "mecha_autolathe-open"
+	else
+		icon_state = initial(icon_state)
 
 /obj/item/mecha_equipment/toolset
 	name = "mounted toolset"

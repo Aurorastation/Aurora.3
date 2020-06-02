@@ -8,10 +8,11 @@ var/const/AUTOLATHE_DISABLE_WIRE = 4
 
 /datum/wires/autolathe/GetInteractWindow()
 	var/obj/machinery/autolathe/A = holder
+
 	. += ..()
-	. += "<BR>The red light is [A.disabled ? "off" : "on"]."
-	. += "<BR>The green light is [A.shocked ? "off" : "on"]."
-	. += "<BR>The blue light is [A.hacked ? "off" : "on"].<BR>"
+	. += "<BR>\The [A] [A.disabled ? "is dead quiet" : "has a soft electric whirr"]."
+	. += "<BR>\The [A] [A.shocked ? "is making sparking noises" : "is cycling normally"]."
+	. += "<BR>\The [A] [A.hacked ? "rarely" : "occasionally"] makes a beep boop noise.<BR>"
 
 /datum/wires/autolathe/CanUse()
 	var/obj/machinery/autolathe/A = holder
