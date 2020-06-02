@@ -36768,7 +36768,6 @@
 	name = "Pill Cabinet";
 	pixel_y = -32
 	},
-/obj/item/reagent_containers/syringe/antiviral,
 /obj/item/storage/pill_bottle/antitox,
 /obj/item/storage/pill_bottle/tramadol,
 /obj/structure/table/standard{
@@ -42886,8 +42885,6 @@
 	},
 /obj/item/storage/pill_bottle/antitox,
 /obj/item/storage/pill_bottle/tramadol,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/norepinephrine,
 /turf/simulated/wall,
 /area/medical/sleeper)
@@ -67179,10 +67176,6 @@
 /area/medical/abandoned)
 "cxk" = (
 /obj/item/storage/lockbox/vials,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},

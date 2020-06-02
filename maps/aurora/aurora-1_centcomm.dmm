@@ -3959,7 +3959,6 @@
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aoj" = (
@@ -3981,8 +3980,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aok" = (
@@ -29169,7 +29166,6 @@
 	pixel_x = 32;
 	req_access = list(150)
 	},
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "pLp" = (

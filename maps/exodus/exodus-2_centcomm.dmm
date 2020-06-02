@@ -4240,7 +4240,6 @@
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
@@ -4264,8 +4263,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
@@ -4966,7 +4963,6 @@
 	pixel_x = 32;
 	req_access = list(150)
 	},
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
@@ -9504,8 +9500,6 @@
 /obj/item/surgery/bonesetter,
 /obj/item/surgery/bonegel,
 /obj/item/surgery/FixOVein,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},

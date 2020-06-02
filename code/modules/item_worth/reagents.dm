@@ -6,9 +6,6 @@
 /datum/reagent/blood
 	value = 2
 
-/datum/reagent/antibodies
-	value = 6
-
 /datum/reagent/water
 	value = 0
 

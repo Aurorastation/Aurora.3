@@ -23,15 +23,12 @@
 		if(B.id == "blood")
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = species.bodytype,
 				"blood_DNA" = dna.unique_enzymes,
 				"blood_colour" = species.blood_color,
 				"blood_type" = dna.b_type,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 			B.color = B.data["blood_colour"]
 

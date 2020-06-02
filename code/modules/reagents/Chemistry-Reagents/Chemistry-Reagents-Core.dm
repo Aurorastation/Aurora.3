@@ -1,14 +1,12 @@
 /datum/reagent/blood
 	data = list(
 		"donor" = null,
-		"viruses" = null,
 		"species" = "Human",
 		"blood_DNA" = null,
 		"blood_type" = null,
 		"blood_colour" = "#A10808",
 		"resistances" = null,
-		"trace_chem" = null,
-		"antibodies" = list()
+		"trace_chem" = null
 	)
 	name = "Blood"
 	id = "blood"
