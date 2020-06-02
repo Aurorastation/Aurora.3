@@ -183,3 +183,6 @@
 	for(var/mob/living/carbon/alien/diona/D in H.contents)
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
+
+/datum/species/diona/has_zona_bovinidae()
+	return FALSE
