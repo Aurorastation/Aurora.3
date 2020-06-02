@@ -20,6 +20,7 @@
 	such an ancient and venerable species, they often hold patronizing attitudes towards the younger races."
 
 	num_alternate_languages = 3
+	secondary_langs = list("Sol Common")
 	language = LANGUAGE_SKRELLIAN
 	name_language = LANGUAGE_SKRELLIAN
 	rarity_value = 3
