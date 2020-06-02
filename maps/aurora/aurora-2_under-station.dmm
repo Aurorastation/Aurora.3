@@ -33,8 +33,7 @@
 	},
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/cooling)
@@ -53,7 +52,6 @@
 "k" = (
 /obj/structure/ladder/up,
 /obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
 	dir = 1
 	},
 /turf/simulated/floor/plating{
@@ -79,7 +77,6 @@
 	pixel_y = -28
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -111,10 +108,8 @@
 	id_tag = "cooling_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	frequency = 1379;
 	id_tag = "cooling_airlock";
 	layer = 3.3;
-	pixel_x = 0;
 	pixel_y = -25;
 	req_access = list(11);
 	tag_airpump = "cooling_pump";
@@ -123,7 +118,6 @@
 	tag_interior_door = "cooling_inner"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1379;
 	id_tag = "cooling_sensor";
 	layer = 3.3;
 	master_tag = "cooling airlock";
@@ -156,7 +150,6 @@
 "q" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/structure/cable{
@@ -171,7 +164,6 @@
 	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -181,12 +173,10 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/machinery/meter,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -198,11 +188,9 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -218,11 +206,9 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -234,7 +220,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -244,7 +229,6 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/green,
@@ -254,7 +238,6 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -288,7 +271,6 @@
 /area/template_noop)
 "B" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/structure/lattice,
@@ -301,7 +283,6 @@
 /area/template_noop)
 "D" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	icon_state = "intact";
 	dir = 10
 	},
 /obj/structure/lattice,
@@ -327,7 +308,6 @@
 "H" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
 	dir = 4
 	},
 /turf/template_noop,
