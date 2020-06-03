@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Drills are no longer permanently rooted in place if one of their braces explodes or gets deleted."
