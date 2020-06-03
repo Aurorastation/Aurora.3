@@ -468,7 +468,7 @@
 
 /obj/item/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	var/datum/firemode/current_mode = firemodes[sel_mode]
-	if(current_mode.name == "point-burst auto")
+	if(current_mode.can_autofire)
 		return ..()
 	if(is_charging)
 		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
