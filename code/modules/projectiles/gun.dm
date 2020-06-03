@@ -292,7 +292,10 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, TRUE)
+			var/show_emote = TRUE
+			if(i > 1 && burst_delay < 3 && burst < 5)
+				show_emote = FALSE
+			handle_post_fire(user, target, pointblank, reflex, show_emote)
 			update_icon()
 
 		if(i < burst)

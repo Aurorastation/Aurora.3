@@ -1,0 +1,10 @@
+author: Code by Geeves, Sprites by Kyres
+
+delete-after: True
+
+changes: 
+  - tweak: "Tweaked the laser shotgun sprite. Renamed it to laser shotgun, instead of quad-beam laser."
+  - tweak: "Buffed the laser shotgun damage from 15 burn, to 20. Increased the max shots from 12 to 20, which is 5 bursts. It can now be wielded."
+  - rscadd: "Added two expedition laser shotguns to the research shuttle. They can only be fired when off-station."
+  - tweak: "Burst weapons now only emote you firing them the first time, if their burst delay is low and they burst amount is low."
+  - rscadd: "Added testing range and away site firing pins to the modular gun protolathe category."

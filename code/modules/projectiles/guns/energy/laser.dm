@@ -166,32 +166,46 @@ obj/item/gun/energy/retro
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
 /obj/item/gun/energy/laser/shotgun
-	name = "quad-beam laser"
-	desc = "A Nanotrasen designed laser weapon, designed to split a single beam four times."
+	name = "laser shotgun"
+	desc = "A Nanotrasen designed laser weapon, designed to split a single amplified beam four times."
 	desc_fluff = "The NT QB-2 is a laser weapon developed and produced by Nanotrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
-	icon = 'icons/obj/guns/ecarbine.dmi' // using this as placeholder until proper sprites are made
-	icon_state = "energykill100"
-	item_state = "energykill100"
+	icon = 'icons/obj/guns/lasershotgun.dmi'
+	icon_state = "lasershotgun"
+	item_state = "lasershotgun"
+	modifystate = null
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = 3
+	w_class = ITEMSIZE_LARGE
 	accuracy = 0
 	force = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam/shotgun
-	max_shots = 12
+	max_shots = 20
 	sel_mode = 1
+	is_wieldable = TRUE
 	burst = 4
 	burst_delay = 0
 	move_delay = 0
 	fire_delay = 2
 	dispersion = list(10)
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "laser"
 
-	modifystate = "energykill"
+/obj/item/gun/energy/laser/shotgun/update_icon()
+	..()
+	if(wielded)
+		item_state = "[initial(icon_state)]-wielded"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
+
+/obj/item/gun/energy/laser/shotgun/research
+	name = "expedition shotgun"
+	desc = "A Nanotrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
+	pin = /obj/item/device/firing_pin/away_site
 
 ////////Laser Tag////////////////////
 
