@@ -56,9 +56,9 @@
 	name = "pleated skirt"
 	desc = "A sharp-looking knife-pleated skirt."
 	desc_info = "Would go great with a sailor uniform."
-	icon_state = "skirt_plaid"
-	item_state = "skirt_plaid"
-	worn_state = "skirt_plaid"
+	icon_state = "skirt_pleated"
+	item_state = "skirt_pleated"
+	worn_state = "skirt_pleated"
 
 /obj/item/clothing/under/skirt/offworlder
 	name = "\improper CR skirt"
