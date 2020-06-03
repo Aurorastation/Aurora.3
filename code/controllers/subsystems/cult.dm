@@ -17,7 +17,9 @@
 /datum/controller/subsystem/cult/Initialize()
 	. = ..()
 	for(var/rune in subtypesof(/datum/rune))
+		var/datum/rune/R = new rune
 		runes += rune
+		runes_by_name[R.name] = rune
 
 /datum/controller/subsystem/cult/proc/add_rune(var/datum/rune/R)
 	if(((length(rune_list) + rune_boost + length(cult.current_antagonists)) >= rune_limit) && R.special_checks())

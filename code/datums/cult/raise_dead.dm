@@ -1,9 +1,14 @@
-/obj/effect/rune/raise_dead/do_rune_action(mob/living/user)
+/datum/rune/raise_dead
+	name = "revival rune"
+	desc = "This rune is used to revive a body in exchange for a dead sacrifice."
+	rune_flags = NO_TALISMAN
+
+/datum/rune/raise_dead/do_rune_action(mob/living/user, atom/movable/A)
 	var/mob/living/carbon/human/corpse_to_raise
 	var/mob/living/carbon/human/body_to_maim
 
 	var/is_sacrifice_target
-	for(var/mob/living/carbon/human/M in get_turf(src))
+	for(var/mob/living/carbon/human/M in get_turf(A))
 		if(M.stat == DEAD)
 			if(M.mind == cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
@@ -39,7 +44,7 @@
 		return fizzle(user)
 
 	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in get_turf(src))
+	for(var/mob/abstract/observer/O in get_turf(A))
 		if(!O.client)
 			continue
 		if(O.mind?.current?.stat != DEAD)

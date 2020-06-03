@@ -1,15 +1,17 @@
-/obj/effect/rune/stun
-	can_talisman = TRUE
+/datum/rune/stun
+	name = "incapacitation rune"
+	desc = "This rune is used to deafen, silence, flash and confuse the unbelievers in a radius around us."
+	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
+	
 
-/obj/effect/rune/stun/do_rune_action(mob/living/user, obj/O = src)
-	user.say("Fuu ma[pick("'","`")]jin!")
+/datum/rune/stun/do_rune_action(mob/living/user, atom/movable/A)
+	do_stun(5, TRUE, A)
 
-	var/radius = 5
-	var/is_rune = TRUE
-	if(!istype(O, /obj/effect/rune))
-		radius = 2
-		is_rune = FALSE
+/datum/rune/stun/do_talisman_action(mob/living/user, atom/movable/A)
+	do_stun(3, FALSE, A)
 
+/datum/rune/stun/proc/do_stun(var/radius, var/is_rune, atom/movable/A)
+	user.say("Fuu ma'jin!")
 	for(var/mob/living/L in range(radius, O))
 		if(iscultist(L))
 			continue
@@ -32,4 +34,4 @@
 			S.silent += 15
 			to_chat(S, span("danger", "BZZZT... The rune has exploded in a bright flash!"))
 			admin_attack_log(user, S, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
-	qdel(O)
+	qdel(A)

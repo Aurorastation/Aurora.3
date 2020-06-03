@@ -1,33 +1,3 @@
-var/global/list/static/rune_types = list(
-			"Create Armor" = /obj/effect/rune/armor,
-			"Create Construct" = /obj/effect/rune/create_construct,
-			"Summon Tome" = /obj/effect/rune/summon_tome,
-			"Summon Soulstone" = /obj/effect/rune/summon_soulstone,
-			"Become Ethereal" = /obj/effect/rune/ethereal,
-			"Manifest Ghost" = /obj/effect/rune/manifest,
-			"Raise Dead" = /obj/effect/rune/raise_dead,
-			"Rune Wall" = /obj/effect/rune/wall,
-			"Blind" = /obj/effect/rune/blind,
-			"Blood Boil" = /obj/effect/rune/blood_boil,
-			"Blood Drain" = /obj/effect/rune/blood_drain,
-			"Communicate" = /obj/effect/rune/communicate,
-			"Convert" = /obj/effect/rune/convert,
-			"Create Talisman" = /obj/effect/rune/create_talisman,
-			"Deafen Others" = /obj/effect/rune/deafen,
-			"EMP" = /obj/effect/rune/emp,
-			"Free Cultist" = /obj/effect/rune/freedom,
-			"Hide Runes" = /obj/effect/rune/hiderunes,
-			"Reveal Runes" = /obj/effect/rune/revealrunes,
-			"Teleport" = /obj/effect/rune/teleport,
-			"Sacrifice" = /obj/effect/rune/sacrifice,
-			"See Invisible" = /obj/effect/rune/see_invisible,
-			"Stun" = /obj/effect/rune/stun,
-			"Summon Cultist" = /obj/effect/rune/summon_cultist,
-			"Summon Nar'sie" = /obj/effect/rune/summon_narsie,
-			"None" = /obj/effect/rune
-			)
-//todomatt fuck that shit above
-
 /obj/effect/rune
 	desc = "A strange collection of symbols drawn in blood."
 	anchored = 1
@@ -35,10 +5,7 @@ var/global/list/static/rune_types = list(
 	icon_state = "1"
 	unacidable = TRUE
 	layer = AO_LAYER
-
 	var/datum/rune/rune
-
-	var/network // For teleportation runes. Can connect to other runes in the network.
 
 /obj/effect/rune/Initialize()
 	. = ..()
