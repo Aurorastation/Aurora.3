@@ -39,4 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Adds pleated skirts to the loadout."
+  - rscadd: "Adds skirt inhands."
   - tweak: "Skirts have more well-defined outlines to stand out more."
