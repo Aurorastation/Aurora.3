@@ -52,6 +52,14 @@
 	item_state = "skirt_plaid"
 	worn_state = "skirt_plaid"
 
+/obj/item/clothing/under/skirt/pleated
+	name = "pleated skirt"
+	desc = "A sharp-looking knife-pleated skirt."
+	desc_info = "Would go great with a sailor uniform."
+	icon_state = "skirt_plaid"
+	item_state = "skirt_plaid"
+	worn_state = "skirt_plaid"
+
 /obj/item/clothing/under/skirt/offworlder
 	name = "\improper CR skirt"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
