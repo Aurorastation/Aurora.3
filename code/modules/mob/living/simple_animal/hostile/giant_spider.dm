@@ -21,8 +21,8 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 200
-	health = 200
+	maxHealth = 80
+	health = 80
 	melee_damage_lower = 15
 	melee_damage_upper = 20
 	heat_damage_per_tick = 20
