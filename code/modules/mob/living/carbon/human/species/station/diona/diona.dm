@@ -184,5 +184,5 @@
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
-/datum/species/diona/has_zona_bovinidae()
+/datum/species/diona/has_psi_potential()
 	return FALSE

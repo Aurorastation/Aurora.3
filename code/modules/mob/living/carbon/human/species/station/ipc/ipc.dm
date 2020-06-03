@@ -302,5 +302,5 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		return TRUE
 	return FALSE
 
-/datum/species/machine/has_zona_bovinidae()
+/datum/species/machine/has_psi_potential()
 	return FALSE

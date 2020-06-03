@@ -425,7 +425,7 @@
 	if(chemicals < 150)
 		to_chat(src, SPAN_WARNING("You don't have enough chemicals!"))
 		return
-	if(!host.species.has_zona_bovinidae())
+	if(!host.species.has_psi_potential())
 		to_chat(src, SPAN_WARNING("\The [host] lacks a zona bovinidae to psionically enlighten! How disturbing..."))
 	if(host.psi)
 		to_chat(src, SPAN_WARNING("Your host is already psionically active!"))

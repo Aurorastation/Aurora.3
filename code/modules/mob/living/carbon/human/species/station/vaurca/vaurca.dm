@@ -151,5 +151,5 @@
 	H.gender = NEUTER
 	return ..()
 
-/datum/species/bug/has_zona_bovinidae()
+/datum/species/bug/has_psi_potential()
 	return FALSE

@@ -583,8 +583,7 @@
 /datum/species/proc/can_commune()
 	return FALSE
 
-// this is the part of the brain which handles psionics
-/datum/species/proc/has_zona_bovinidae()
+/datum/species/proc/has_psi_potential()
 	return TRUE
 
 /datum/species/proc/handle_despawn()
