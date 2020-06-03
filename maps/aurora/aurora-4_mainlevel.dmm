@@ -63439,7 +63439,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Internal Affairs EFTPOS scanner"
 	},
-/obj/item/clothing/under/suit_jacket/female,
+/obj/item/clothing/under/suit_jacket/really_black,
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/shoes/laceup,
 /turf/simulated/floor/wood,
