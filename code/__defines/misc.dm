@@ -35,7 +35,7 @@
 #define PROCESS_KILL 26 // Used to trigger removal from a processing list.
 
 // Age limits on a character.
-#define AGE_MIN 17
+#define AGE_MIN 18
 #define AGE_MAX 85
 
 #define MAX_GEAR_COST 15 // Used in chargen for accessory loadout limit.
@@ -149,7 +149,7 @@
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
 
-#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon. 
+#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_WALL_MATERIAL "steel"
