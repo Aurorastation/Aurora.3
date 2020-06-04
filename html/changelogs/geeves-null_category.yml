@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "The mechfab no longer has a useless null category that does nothing when clicked on."
-  - rscadd: "The exosuit category in the mechfab has now been split into body construction and equipment construction for ease of use."
-  - rscadd: "Radio, Diagnosis Unit, and Actuator construction has been added to the exosuit body category as well."
-  - tweak: "Many RnD machineries have had their names changed to lowercase to match the style of the rest of the game."
