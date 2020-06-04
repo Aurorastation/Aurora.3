@@ -294,6 +294,7 @@
 #include "code\datums\cult\hide_runes.dm"
 #include "code\datums\cult\manifest_ghost.dm"
 #include "code\datums\cult\raise_dead.dm"
+#include "code\datums\cult\reveal_runes.dm"
 #include "code\datums\cult\rune.dm"
 #include "code\datums\cult\sacrifice.dm"
 #include "code\datums\cult\see_invisible.dm"

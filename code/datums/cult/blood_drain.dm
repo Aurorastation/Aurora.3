@@ -14,8 +14,9 @@
 /datum/rune/blood_drain/do_rune_action(mob/living/user, atom/movable/A)
 	LAZYINITLIST(lambs)
 	for(var/mob/living/carbon/human/H in get_turf(A))
-		if(iscultist(H) && !target)
-			target = H
+		if(iscultist(H))
+			if(!target)
+				target = H
 			continue
 		if(H.stat == DEAD)
 			continue
@@ -32,11 +33,12 @@
 	if(target && length(lambs) && (get_turf(target) == get_turf(parent)))
 		for(var/mob/living/carbon/human/H in lambs)
 			if(get_turf(H) == get_turf(parent))
-				if(target.vessel.get_reagent_amount("blood") + 25 > H.species.blood_volume)
+				if(target.vessel.get_reagent_amount("blood") + 10 > H.species.blood_volume)
 					to_chat(target, SPAN_CULT("You feel refreshed!"))
 					interrupt()
-				H.whisper("Sa'ii, ble-nii...")
-				H.vessel.trans_to_mob(target, 25, CHEM_BLOOD)
+				target.whisper("Sa'ii, ble-nii...")
+				H.vessel.trans_to_mob(target, 10, CHEM_BLOOD)
+				H.take_overall_damage(10, 10)
 				playsound(target, 'sound/magic/enter_blood.ogg', 50, 1)
 			else
 				interrupt()

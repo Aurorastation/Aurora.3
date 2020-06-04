@@ -129,8 +129,8 @@
 		cooldown = world.time
 		user.visible_message(span("notice", "[user] loudly taps their [src.name] against the floor."))
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
-		//var/datum/callback/cb = CALLBACK(src, /datum/rune/reveal/.proc/do_rune_action) todomatt what the fuck
-		//cb.Invoke(user, src)
+		var/datum/callback/cb = CALLBACK(src, /datum/rune/reveal_runes/.proc/reveal)
+		cb.Invoke(user, src, 2, SPAN_WARNING("A holy glow permeates the air!"))
 		return
 
 /obj/item/reagent_containers/spray/aspergillum
