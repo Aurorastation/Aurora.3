@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Newscasters now tend to always get your ID if it's in your ID slot, hand, or glove slot."
