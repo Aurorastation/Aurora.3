@@ -211,6 +211,7 @@
 	display_name = "dominia clothing selection"
 	description = "A selection of dominian clothing."
 	path = /obj/item/clothing/under/dominia
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/dominia/New()
 	..()
