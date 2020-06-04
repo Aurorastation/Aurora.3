@@ -25,8 +25,7 @@
 		if(!R.rune?.can_be_talisman())
 			continue
 		var/obj/item/paper/talisman/T = new /obj/item/paper/talisman(get_turf(A))
-		T.rune = R.rune
-		qdel(R)
+		imbued_from = R
 		break
 	if(imbued_from)
 		A.visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"))

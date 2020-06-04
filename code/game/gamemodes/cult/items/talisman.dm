@@ -21,9 +21,9 @@
 /obj/item/paper/talisman/attack_self(mob/living/user)
 	if(iscultist(user))
 		if(rune)
-			if(rune.do_rune_action(user, src))
-				user.say("INVOKE!")
-				return qdel(src)
+			user.say("INVOKE!")
+			rune.do_rune_action(user, src)
+			return
 		else
 			to_chat(user, SPAN_CULT("This talisman has no power."))
 	else

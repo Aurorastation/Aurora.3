@@ -8,6 +8,7 @@
 
 /datum/rune/emp/do_talisman_action(mob/living/user, var/atom/movable/A)
 	do_emp(user, A, 1)
+	return TRUE
 
 /datum/rune/emp/proc/do_emp(mob/living/user, atom/movable/A, radius = 2)
 	user.say("Ta'gh fara'qha fel d'amar det!")

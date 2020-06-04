@@ -44,3 +44,4 @@ changes:
   - tweak: "Teleport runes now create gibs and play a sound when you teleport."
   - tweak: "The blood drain rune now drains blood from non-cult humans on the rune into the cultist standing on the rune."
   - tweak: "The cult tome now actually makes you bleed when you create runes."
+  - tweak: "The cult tome reading is now actually useful, containing better information."
