@@ -80,7 +80,6 @@
 	suits["charcoal suit"] = /obj/item/clothing/under/suit_jacket/charcoal
 	suits["checkered suit"] = /obj/item/clothing/under/suit_jacket/checkered
 	suits["executive suit"] = /obj/item/clothing/under/suit_jacket/really_black
-	suits["female executive suit"] = /obj/item/clothing/under/suit_jacket/female
 	suits["navy suit"] = /obj/item/clothing/under/suit_jacket/navy
 	suits["purple suit"] = /obj/item/clothing/under/lawyer/purple
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
