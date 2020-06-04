@@ -1116,13 +1116,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
-"cd" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/tcommsat/computer)
 "ce" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -9424,6 +9417,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod1/station)
+"rB" = (
+/obj/effect/landmark/map_data{
+	height = 5
+	},
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
 "rE" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -12096,20 +12095,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"xd" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 6
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "xe" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Surface Docks";
@@ -15625,9 +15610,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "DB" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -21514,9 +21496,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"OZ" = (
-/turf/simulated/floor/tiled,
-/area/crew_quarters/fitness/running)
 "Pa" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -23660,13 +23639,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/old,
 /area/store)
-"Tz" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock{
-	name = "Running Track"
-	},
-/turf/simulated/floor/tiled,
-/area/crew_quarters/fitness/running)
 "TA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -23995,10 +23967,6 @@
 /obj/item/trash/candy,
 /turf/simulated/floor/plating,
 /area/store)
-"Um" = (
-/obj/structure/stairs/north,
-/turf/simulated/floor/tiled,
-/area/crew_quarters/fitness/running)
 "Uo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -27097,7 +27065,7 @@ aa
 aa
 aa
 aa
-aa
+rB
 "}
 (2,1,1) = {"
 aa
@@ -38821,7 +38789,7 @@ ag
 bg
 bg
 bh
-cd
+ci
 cw
 ci
 dl
@@ -59615,10 +59583,10 @@ ag
 ag
 ag
 ag
-TL
-TL
-TL
-TL
+ag
+ag
+ag
+ag
 TL
 RB
 IQ
@@ -59872,11 +59840,11 @@ aa
 ag
 ag
 ag
+ag
+ag
+ag
+ag
 TL
-Um
-OZ
-OZ
-Tz
 Cv
 Sn
 Cv
@@ -60129,10 +60097,10 @@ aa
 aa
 ag
 ag
-TL
-TL
-TL
-TL
+ag
+ag
+ag
+ag
 TL
 Zy
 TV
@@ -76586,7 +76554,7 @@ vw
 Yw
 vw
 rV
-xd
+aw
 aw
 aw
 aw
