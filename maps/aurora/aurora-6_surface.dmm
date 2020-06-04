@@ -5561,9 +5561,6 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
 /turf/simulated/floor/tiled{
 	roof_type = null
 	},
