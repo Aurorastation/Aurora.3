@@ -7,10 +7,11 @@
 	layer = AO_LAYER
 	var/datum/rune/rune
 
-/obj/effect/rune/Initialize(var/R)
+/obj/effect/rune/Initialize(mapload, var/R)
 	. = ..()
 	if(!R)
 		return INITIALIZE_HINT_QDEL
+	filters = filter(type="ripple", x = 0, y = 0, flags = WAVE_BOUNDED) 
 	rune = new R
 	SScult.add_rune(src, rune)
 

@@ -89,7 +89,7 @@
 		if(use_check_and_message(scribe))
 			return
 
-		scribe.visible_message(span("warning", "\The [scribe] slices open a finger and begins to chant and paint symbols on the floor."), span("notice", "You slice open one of your fingers and begin drawing a rune on the floor whilst softly chanting the ritual that binds your life essence with the dark arcane energies flowing through the surrounding world."))
+		scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
 		scribe.drip(2)
 
 		if(do_after(scribe, 50))
@@ -102,7 +102,7 @@
 				to_chat(scribe, span("warning", "There is already a rune in this location."))
 				return
 
-			log_and_message_admins("created \an [chosen_rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
+			log_and_message_admins("created \an [chosen_rune] at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
 
 			var/obj/effect/rune/R = new(get_turf(scribe), SScult.runes_by_name[chosen_rune])
 			to_chat(scribe, span("notice", "You finish drawing the arcane markings of the Geometer."))
