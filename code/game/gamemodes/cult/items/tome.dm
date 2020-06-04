@@ -90,6 +90,7 @@
 			return
 
 		scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
+		playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
 		scribe.drip(2)
 
 		if(do_after(scribe, 50))

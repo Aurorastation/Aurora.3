@@ -28,7 +28,7 @@
 	. = SPAN_WARNING("A heavy smell of blood permeates the area around the arcane drawings.")
 
 /datum/rune/proc/get_cultist_fluff_text()
-	. = SPAN_CULT("You remember clear as the night that this is a [name].")
+	. = SPAN_CULT("You remember clear as the night that this is \an [name].")
 
 /datum/rune/proc/can_be_talisman()
 	return !(rune_flags & NO_TALISMAN)

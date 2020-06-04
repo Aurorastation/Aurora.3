@@ -11,7 +11,7 @@
 	. = ..()
 	if(!R)
 		return INITIALIZE_HINT_QDEL
-	filters = filter(type="ripple", x = 0, y = 0, flags = WAVE_BOUNDED) 
+	filters = filter(type="drop_shadow", x = 1, y = 1, size = 2) 
 	rune = new R
 	SScult.add_rune(src, rune)
 

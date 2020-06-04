@@ -1,5 +1,5 @@
 /datum/rune/emp
-	name = "emp rune"
+	name = "EMP rune"
 	desc = "This rune is used to disable electronics in an area around us."
 	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
 
