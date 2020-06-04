@@ -77,7 +77,6 @@
 			var/datum/gear/G = gear_datums["gloves selection"]
 			H.equip_or_collect(G.spawn_random(), slot_gloves)
 
-
 /datum/outfit/admin/random/visitor
 	name = "Random Visitor"
 

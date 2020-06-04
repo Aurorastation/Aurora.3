@@ -351,15 +351,13 @@
 /obj/machinery/mining/drill/proc/check_supports()
 	supported = FALSE
 
-	if((!supports || !supports.len) && initial(anchored) == 0)
-		icon_state = "mining_drill"
-		anchored = FALSE
-		active = FALSE
-	else
-		anchored = TRUE
-
 	if(supports && length(supports) >= braces_needed)
 		supported = TRUE
+		anchored = TRUE
+	else
+		icon_state = "mining_drill"
+		active = FALSE
+		anchored = FALSE
 
 	update_icon()
 
@@ -490,6 +488,10 @@
 			connect()
 		else
 			disconnect()
+
+/obj/machinery/mining/brace/Destroy()
+	disconnect()
+	return ..()
 
 /obj/machinery/mining/brace/proc/connect()
 	var/turf/T = get_step(get_turf(src), src.dir)

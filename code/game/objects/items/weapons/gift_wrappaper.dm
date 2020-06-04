@@ -309,7 +309,6 @@
 		/obj/random/backpack,
 		/obj/item/inflatable_duck,
 		/obj/item/beach_ball,
-		/obj/item/clothing/under/redcoat,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/rank/clown,
 		/obj/item/clothing/under/mime,
