@@ -11,9 +11,9 @@
 	. = ..()
 	if(!R)
 		return INITIALIZE_HINT_QDEL
-	filters = filter(type="drop_shadow", x = 1, y = 1, size = 2) 
-	rune = new R
-	SScult.add_rune(src, rune)
+	filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000") 
+	rune = new R(src, src)
+	SScult.add_rune(rune)
 
 /obj/effect/rune/Destroy()
 	SScult.remove_rune(rune)
@@ -30,8 +30,7 @@
 
 /obj/effect/rune/attackby(obj/I, mob/user)
 	if(istype(I, /obj/item/book/tome) && iscultist(user))
-		to_chat(user, span("notice", "You retrace your steps, carefully undoing the lines of the rune."))
-		qdel(src)
+		rune.do_tome_action(user, I)
 		return
 	else if(istype(I, /obj/item/nullrod))
 		to_chat(user, span("notice", "You disrupt the vile magic with the deadening field of \the [I]!"))

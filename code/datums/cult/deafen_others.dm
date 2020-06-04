@@ -6,7 +6,7 @@
 /datum/rune/deafen/do_rune_action(mob/living/user, atom/movable/A)
 	do_deafen(user, A, 1, TRUE)
 
-/datum/rune/deafen/do_talisman_action(mob/living/user, obj/item/A)
+/datum/rune/deafen/do_talisman_action(mob/living/user, var/atom/movable/A)
 	do_deafen(user, A, 5, 0.5, FALSE)
 
 /datum/rune/deafen/proc/do_deafen(mob/living/user, atom/movable/A, var/radius = 7, var/effect_mod = 1, var/special_effects = TRUE)

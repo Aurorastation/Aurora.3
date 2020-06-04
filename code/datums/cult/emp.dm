@@ -6,7 +6,7 @@
 /datum/rune/emp/do_rune_action(mob/living/user, atom/movable/A)
 	do_emp(user, A, 2)
 
-/datum/rune/emp/do_talisman_action(mob/living/user, obj/A)
+/datum/rune/emp/do_talisman_action(mob/living/user, var/atom/movable/A)
 	do_emp(user, A, 1)
 
 /datum/rune/emp/proc/do_emp(mob/living/user, atom/movable/A, radius = 2)

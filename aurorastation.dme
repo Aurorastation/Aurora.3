@@ -282,6 +282,7 @@
 #include "code\datums\cult\armor.dm"
 #include "code\datums\cult\blind_others.dm"
 #include "code\datums\cult\blood_boil.dm"
+#include "code\datums\cult\blood_drain.dm"
 #include "code\datums\cult\communicate.dm"
 #include "code\datums\cult\convert.dm"
 #include "code\datums\cult\create_construct.dm"

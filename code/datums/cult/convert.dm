@@ -1,6 +1,7 @@
 /datum/rune/convert
 	name = "conversion rune"
 	desc = "A rune used to convert the Unenlightened."
+	rune_flags = NO_TALISMAN
 
 	var/list/converting
 

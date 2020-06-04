@@ -13,7 +13,7 @@
 
 	var/rune_limit          = DEFAULT_MAX_RUNES //in the SS so admins can easily modify it if needed
 	var/rune_boost          = 0
-	var/tome_data
+	var/tome_data           = ""
 
 /datum/controller/subsystem/cult/New()
 	NEW_SS_GLOBAL(SScult)
@@ -23,7 +23,7 @@
 	for(var/rune in subtypesof(/datum/rune))
 		var/datum/rune/R = new rune
 		runes_by_name[R.name] = rune
-		tome_data = "[R.name]: [R.desc]<br>"
+		tome_data += "<b>[R.name]</b>: <i>[R.desc]</i><br>"
 
 /datum/controller/subsystem/cult/proc/add_rune(var/datum/rune/R)
 	if(check_rune_limit())

@@ -2,7 +2,6 @@
 	name = "incapacitation rune"
 	desc = "This rune is used to deafen, silence, flash and confuse the unbelievers in a radius around us."
 	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
-	
 
 /datum/rune/stun/do_rune_action(mob/living/user, atom/movable/A)
 	do_stun(user, A, 5, TRUE)

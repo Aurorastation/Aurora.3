@@ -30,12 +30,6 @@
 
 	var/RD = SScult.runes_by_name[rune]
 	var/obj/effect/rune/R = new(get_turf(user), RD)
-
-	/*var/network
-	if(istype(R, /obj/effect/rune/teleport))
-		network = input(user, "Choose a teleportation network for the rune to connect to.", "Teleport Rune") in teleport_network
-	if(network)
-		R.network = network TODOMATT: FUCKING TP RUNE*/
 	R.color = "#A10808"
 
 	var/area/A = get_area(R)

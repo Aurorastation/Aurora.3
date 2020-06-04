@@ -67,7 +67,7 @@ var/global/list/exclude_jobs = list(/datum/job/ai,/datum/job/cyborg, /datum/job/
 var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
 
-// Runes TODOMATT get rid of all this snowflake bullshit
+// Runes
 var/global/list/escape_list = list()
 var/global/list/endgame_exits = list()
 var/global/list/endgame_safespawns = list()

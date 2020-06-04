@@ -83,15 +83,13 @@
 		chosen_rune = input("Choose a rune to scribe.") as null|anything in SScult.runes_by_name
 		if(!chosen_rune)
 			return
-		/*if(chosen_rune == "Teleport")
-			network = input(scribe, "Choose a teleportation network for the rune to connect to.", "Teleportation Rune") in teleport_network todomatt: what the fuck was this shit*/ 
 
 		if(use_check_and_message(scribe))
 			return
 
 		scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
 		playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
-		scribe.drip(2)
+		scribe.drip(4)
 
 		if(do_after(scribe, 50))
 			var/area/A = get_area(scribe)
@@ -106,11 +104,9 @@
 			log_and_message_admins("created \an [chosen_rune] at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
 
 			var/obj/effect/rune/R = new(get_turf(scribe), SScult.runes_by_name[chosen_rune])
-			to_chat(scribe, span("notice", "You finish drawing the arcane markings of the Geometer."))
+			to_chat(scribe, SPAN_CULT("You finish drawing the Geometer's markings."))
 			scribe.blood_DNA = list()
 			scribe.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
-			/*if(network)
-				R.network = network todomatt: fucking tp runes*/
 			R.color = scribe.species.blood_color
 	else
 		to_chat(user, span("cult", "The book seems full of illegible scribbles."))

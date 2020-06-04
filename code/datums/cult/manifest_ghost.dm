@@ -1,4 +1,3 @@
-
 /datum/rune/apparition
 	name = "apparition rune"
 	desc = "This rune is used to turn a spirit around us into an apparition."
