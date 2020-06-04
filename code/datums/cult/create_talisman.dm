@@ -26,11 +26,13 @@
 			continue
 		var/obj/item/paper/talisman/T = new /obj/item/paper/talisman(get_turf(A))
 		imbued_from = R
+		T.rune = R.rune
 		break
 	if(imbued_from)
 		A.visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"))
 		user.say("H'drak v'loso! Mir'kanas verbot!")
 		qdel(imbued_from)
 		qdel(new_talisman)
+		playsound(A, 'sound/magic/enter_blood.ogg', 50)
 	else
 		return fizzle(user, A)

@@ -33,7 +33,14 @@
 	else
 		return ..()
 
+/datum/rune/teleport/do_talisman_action(mob/living/user, atom/movable/A)
+	teleport(user, A)
+	qdel(A)
+
 /datum/rune/teleport/do_rune_action(mob/living/user, atom/movable/A)
+	teleport(user, A)
+
+/datum/rune/teleport/proc/teleport(mob/living/user, atom/movable/A)
 	var/turf/T = get_turf(user)
 	if(isNotStationLevel(T.z))
 		to_chat(user, span("warning", "You are too far from the station, Nar'sie is unable to reach you here."))
@@ -63,5 +70,6 @@
 		gibs(get_turf(user))
 		valid_rune.last_tp_time = world.time
 		last_tp_time = world.time
-		return TRUE
 	return fizzle(user, A)
+
+

@@ -1,6 +1,6 @@
 /datum/rune/summon_cultist
 	name = "cultist summoning rune"
-	desc = "This rune is used to summon a cultist to our location."
+	desc = "This rune is used to summon a cultist to our location. It will not work if they are restrained."
 	rune_flags = NO_TALISMAN
 
 /datum/rune/summon_cultist/do_rune_action(mob/living/user, atom/movable/A)
