@@ -8,11 +8,12 @@
 #define PRESSURE_CHECK_INTERNAL 2
 
 /obj/machinery/atmospherics/unary/vent_pump
+	name = "air vent"
+	desc = "Has a valve and pump attached to it."
+	desc_info = "This pumps the contents of the attached pipe out into the atmosphere, if needed.  It can be controlled from an Air Alarm."
 	icon = 'icons/atmos/vent_pump.dmi'
 	icon_state = "map_vent"
 
-	name = "Air Vent"
-	desc = "Has a valve and pump attached to it"
 	use_power = 0
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 7500			//7500 W ~ 10 HP

@@ -343,7 +343,11 @@
 //*****************
 /obj/item/gun/energy/chameleon
 	name = "desert eagle"
-	desc = "A hologram projector in the shape of a gun. There is a dial on the side to change the gun's disguise."
+	desc = null
+	desc_info = null //The chameleon gun adopts the desc_info of the weapon it is impersonating as, to make meta-ing harder.
+	desc_antag = "This gun is actually a hologram projector that can alter its appearance to mimick other weapons.  To change the appearance, use \
+	the appropriate verb in the chameleon items tab. Any beams or projectiles fired from this gun are actually holograms and useless for actual combat. \
+	Projecting these holograms over distance uses a little bit of charge."
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	w_class = 3
@@ -367,6 +371,12 @@
 		for(var/gun_type in typesof(/obj/item/gun/) - src.type)
 			var/obj/item/gun/G = gun_type
 			src.gun_choices[initial(G.name)] = gun_type
+
+/obj/item/gun/energy/chameleon/change(picked in gun_choices) //Making the gun change its help text to match the weapon's help text.
+	..(picked)
+	var/obj/O = gun_choices[picked]
+	desc = initial(O.desc)
+	desc_info = initial(O.desc_info)
 
 /obj/item/gun/energy/chameleon/consume_next_projectile()
 	var/obj/item/projectile/P = ..()

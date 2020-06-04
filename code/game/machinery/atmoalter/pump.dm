@@ -1,6 +1,9 @@
 /obj/machinery/portable_atmospherics/powered/pump
 	name = "portable air pump"
 	desc = "Used to fill or drain rooms without differentiating between gasses."
+	desc_info = "Invaluable for filling air in a room rapidly after a breach repair.  The internal gas container can be filled by \
+	connecting it to a connector port.  The pump can pump the air in (sucking) or out (blowing), at a specific target pressure.  The powercell inside can be \
+	replaced by using a screwdriver, and then adding a new cell.  A tank of gas can also be attached to the air pump."
 
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "psiphon:0"
