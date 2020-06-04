@@ -429,4 +429,4 @@
 	new /obj/item/clothing/under/suit_jacket(src)
 	new /obj/item/clothing/under/suit_jacket/really_black(src)
 	new /obj/item/clothing/under/suit_jacket/red(src)
-	new /obj/item/clothing/under/(src)
+	new /obj/item/clothing/under/white(src)
