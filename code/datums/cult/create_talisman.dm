@@ -29,7 +29,7 @@
 		qdel(R)
 		break
 	if(imbued_from)
-		visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"))
+		A.visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"))
 		user.say("H'drak v'loso! Mir'kanas verbot!")
 		qdel(imbued_from)
 		qdel(new_talisman)

@@ -4,24 +4,14 @@
 	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
 
 /datum/rune/emp/do_rune_action(mob/living/user, atom/movable/A)
-	user.say("Ta'gh fara[pick("'","`")]qha fel d'amar det!")
-	log_and_message_admins("activated an EMP rune.")
-	var/turf/T = get_turf(A)
-	playsound(T, 'sound/magic/Disable_Tech.ogg', 25, 1)
-
-	var/list/ex = list(user) // exclude caster
-	for(var/mob/M in range(2, T))
-		if(iscultist(M))
-			ex += M
-		else
-			continue
-	empulse(T, 1, 2, exclude = ex)
-	qdel(A)
-	return TRUE
+	do_emp(user, A, 2)
 
 /datum/rune/emp/do_talisman_action(mob/living/user, obj/A)
+	do_emp(user, A, 1)
+
+/datum/rune/emp/proc/do_emp(mob/living/user, atom/movable/A, radius = 2)
 	user.say("Ta'gh fara'qha fel d'amar det!")
-	log_and_message_admins("activated an EMP talisman.")
+	log_and_message_admins("activated an EMP [A].")
 	var/turf/T = get_turf(A)
 	playsound(T, 'sound/magic/Disable_Tech.ogg', 25, 1)
 

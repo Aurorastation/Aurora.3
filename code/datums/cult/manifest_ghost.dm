@@ -43,7 +43,7 @@
 	apparition.all_underwear.Cut()
 	apparition.key = ghost.key
 	cult.add_antagonist(apparition.mind)
-	playsound(loc, 'sound/magic/exit_blood.ogg', 100, 1)
+	playsound(get_turf(A), 'sound/magic/exit_blood.ogg', 100, 1)
 
 	if(!chose_name)
 		apparition.real_name = pick("Anguished", "Blasphemous", "Corrupt", "Cruel", "Depraved", "Despicable", "Disturbed", "Exacerbated", "Foul", "Hateful", "Inexorable", "Implacable", "Impure", "Malevolent", "Malignant", "Malicious", "Pained", "Profane", "Profligate", "Relentless", "Resentful", "Restless", "Spiteful", "Tormented", "Unclean", "Unforgiving", "Vengeful", "Vindictive", "Wicked", "Wronged")

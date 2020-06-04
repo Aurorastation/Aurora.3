@@ -7,9 +7,12 @@
 	layer = AO_LAYER
 	var/datum/rune/rune
 
-/obj/effect/rune/Initialize()
+/obj/effect/rune/Initialize(var/R)
 	. = ..()
-	SScult.add_rune(rune)
+	if(!R)
+		return INITIALIZE_HINT_QDEL
+	rune = new R
+	SScult.add_rune(src, rune)
 
 /obj/effect/rune/Destroy()
 	SScult.remove_rune(rune)
@@ -19,9 +22,7 @@
 /obj/effect/rune/examine(mob/user)
 	..(user)
 	if(iscultist(user) || isobserver(user))
-		to_chat(user, rune.get_cultist_fluff_text())) //i'd just like to note that this was changing the desc earlier
-		if(cult_description)
-			to_chat(user, "This spell circle reads: [rune.desc]")
+		to_chat(user, rune.get_cultist_fluff_text())
 		to_chat(user, "This rune [rune.can_be_talisman() ? "<span class='cult'><b><i>can</i></b></span>" : "<span class='warning'><b><i>cannot</i></b></span>"] be turned into a talisman.")
 	else
 		to_chat(user, rune.get_normal_fluff_text())

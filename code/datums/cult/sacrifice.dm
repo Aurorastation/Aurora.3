@@ -21,8 +21,8 @@
 			victims += B.brainmob
 
 		else if(istype(I,/obj/item/aicard))
-			for(var/mob/living/silicon/ai/A in I)
-				victims += A
+			for(var/mob/living/silicon/ai/AI in I)
+				victims += AI
 	
 	for(var/mob/living/carbon/C in orange(1, A))
 		if(iscultist(C) && !C.stat)

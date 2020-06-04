@@ -5,14 +5,14 @@
 	
 
 /datum/rune/stun/do_rune_action(mob/living/user, atom/movable/A)
-	do_stun(5, TRUE, A)
+	do_stun(user, A, 5, TRUE)
 
 /datum/rune/stun/do_talisman_action(mob/living/user, atom/movable/A)
-	do_stun(3, FALSE, A)
+	do_stun(user, A, 3, FALSE)
 
-/datum/rune/stun/proc/do_stun(var/radius, var/is_rune, atom/movable/A)
+/datum/rune/stun/proc/do_stun(mob/living/user, atom/movable/A, var/radius, var/is_rune)
 	user.say("Fuu ma'jin!")
-	for(var/mob/living/L in range(radius, O))
+	for(var/mob/living/L in range(radius, A))
 		if(iscultist(L))
 			continue
 		if(iscarbon(L))

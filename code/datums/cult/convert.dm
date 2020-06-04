@@ -36,7 +36,7 @@
 		target.take_overall_damage(0, rand(5, 20)) // You dirty resister cannot handle the damage to your mind. Easily. - even cultists who accept right away should experience some effects
 		// Resist messages go!
 		if(initial_message) //don't do this stuff right away, only if they resist or hesitate.
-			admin_attack_log(attacker, target, "Used a convert rune", "Was subjected to a convert rune", "used a convert rune on")
+			admin_attack_log(user, target, "Used a convert rune", "Was subjected to a convert rune", "used a convert rune on")
 			switch(target.getFireLoss())
 				if(0 to 25)
 					to_chat(target, span("cult", "Your blood boils as you force yourself to resist the corruption invading every corner of your mind."))

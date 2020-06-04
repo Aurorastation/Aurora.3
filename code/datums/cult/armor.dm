@@ -36,7 +36,7 @@
 		user.equip_to_slot_or_del(new /obj/item/storage/backpack/cultpack(user), slot_back)
 		user.put_in_hands(new /obj/item/melee/cultblade(user))
 
-	qdel(O)
+	qdel(A)
 	return TRUE
 
 /datum/rune/armor/proc/construct_msg(mob/living/construct, var/type)

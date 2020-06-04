@@ -7,8 +7,8 @@
 	var/rune_flags    // Things like if it can be a talisman or not.
 	var/atom/movable/parent
 
-/datum/rune/Initialize(atom/owner)
-	. = ..()
+/datum/rune/New(atom/owner)
+	..()
 	parent = owner
 
 /datum/rune/proc/do_rune_action(var/mob/living/user, var/atom/movable/A)
@@ -21,11 +21,8 @@
 /datum/rune/proc/do_talisman_action(var/mob/living/user, var/obj/item/A)
 	return
 
-/datum/rune/proc/do_fizzle_action(var/mob/living/user, var/atom/movable/A)
+/datum/rune/proc/fizzle(var/mob/living/user, var/atom/movable/A)
 	return
-
-/datum/rune/proc/special_checks() //Use this proc if you need to check for pre-existing conditions before adding a rune.
-	return TRUE
 
 /datum/rune/proc/get_normal_fluff_text()
 	. = SPAN_WARNING("A heavy smell of blood permeates the area around the arcane drawings.")
