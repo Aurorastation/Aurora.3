@@ -142,7 +142,6 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			walk_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
-
 	stop_automated_movement = 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
@@ -168,16 +167,19 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
+		set_dir(get_dir(src, L))
 		return L
 	if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		B.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
+		set_dir(get_dir(src, B))
 		return B
 	if(istype(target_mob, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/T = target_mob
 		src.do_attack_animation(T)
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
 		visible_message("<span class='danger'>\The [src] [attacktext] \the [T]!</span>")
+		set_dir(get_dir(src, T))
 		return T
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()

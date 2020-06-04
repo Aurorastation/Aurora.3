@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "You can now command commandable animals such as guard dogs or Lt. Columbo by alt-clicking them."

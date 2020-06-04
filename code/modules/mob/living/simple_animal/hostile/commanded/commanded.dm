@@ -1,5 +1,6 @@
 /mob/living/simple_animal/hostile/commanded
 	name = "commanded"
+	desc_info = "If you befriend this animal, they will consider you their master. You can then alt-click to get a menu of commands you can give them. You can also simply say the command, and they will carry it out to the best of their ability."
 	stance = COMMANDED_STOP
 	melee_damage_lower = 0
 	melee_damage_upper = 0
@@ -17,16 +18,73 @@
 	if(!short_name)
 		short_name = name
 
+/mob/living/simple_animal/hostile/commanded/AltClick(mob/user)
+	if(user != master)
+		to_chat(user, SPAN_WARNING("You can't command \the [src], you aren't their master!"))
+		return
+	var/list/options = list()
+	for(var/command in known_commands)
+		var/command_icon_state = "crossed_out"
+		switch(command)
+			if("stay")
+				command_icon_state = "down_arrow"
+			if("stop")
+				command_icon_state = "crossed_out"
+			if("attack")
+				command_icon_state = "targeting_glyph"
+			if("follow")
+				command_icon_state = "right_arrow"
+		command = capitalize(command)
+		var/image/radial_button = image(icon = 'icons/radial/basic.dmi', icon_state = command_icon_state)
+		options[command] = radial_button
+	var/choice = show_radial_menu(user, src, options, radius = 42, tooltips = TRUE)
+	if(choice)
+		choice = lowertext(choice)
+		var/suffix = ""
+		switch(choice)
+			if("stay")
+				suffix = "here"
+			if("attack")
+				var/list/attack_list = list()
+				for(var/mob/M in view(user.client.view, user))
+					if(M == user || M == src)
+						continue
+					var/radial_button = get_mob_head_mutable_appearance(M)
+					attack_list[M.name] = radial_button
+				suffix = show_radial_menu(user, src, attack_list, radius = 42, tooltips = TRUE)
+				if(!suffix)
+					choice = null
+			if("follow")
+				var/list/attack_list = list()
+				for(var/mob/M in view(user.client.view, user))
+					if(M == src)
+						continue
+					var/image/radial_button = get_mob_head_mutable_appearance(M)
+					attack_list[M.name] = radial_button
+				suffix = show_radial_menu(user, src, attack_list, radius = 42, tooltips = TRUE)
+				if(!suffix)
+					choice = null
+				else if(suffix == user.name)
+					suffix = "me"
+		if(!choice)
+			return
+		var/end_mark = "."
+		if(user.a_intent != I_HELP)
+			end_mark = "!"
+		user.say("[capitalize(src.name)], [choice][suffix ? " [suffix]" : ""][end_mark]")
+
 /mob/living/simple_animal/hostile/commanded/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(thinking_enabled && !stat && ((speaker in friends) || speaker == master))
 		command_buffer.Add(speaker)
 		command_buffer.Add(lowertext(html_decode(message)))
+		think()
 	return 0
 
 /mob/living/simple_animal/hostile/commanded/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	if(thinking_enabled && !stat && ((speaker in friends) || speaker == master))
 		command_buffer.Add(speaker)
 		command_buffer.Add(lowertext(html_decode(message)))
+		think()
 	return 0
 
 /mob/living/simple_animal/hostile/commanded/think()
@@ -137,7 +195,7 @@
 		allowed_targets = list("everyone")//everyone? EVERYONE
 		return 1
 
-	allowed_targets += get_targets_by_name(text)
+	allowed_targets |= get_targets_by_name(text)
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
 	return targets.len != 0
@@ -167,14 +225,14 @@
 		stance = COMMANDED_FOLLOW
 		target_mob = speaker //this wont bite me in the ass later.
 		return 1
-	var/list/targets = get_targets_by_name(text)
-	if(targets.len > 1 || !targets.len) //CONFUSED. WHO DO I FOLLOW?
+	var/list/follow_targets = get_targets_by_name(text)
+	if(follow_targets.len > 1 || !follow_targets.len) //CONFUSED. WHO DO I FOLLOW?
 		return 0
 
 	if(emote_hear && emote_hear.len)
 		audible_emote("[pick(emote_hear)].",0)
 	stance = COMMANDED_FOLLOW //GOT SOMEBODY. BETTER FOLLOW EM.
-	target_mob = targets[1] //YEAH GOOD IDEA
+	target_mob = follow_targets[1] //YEAH GOOD IDEA
 
 	return 1
 
@@ -195,8 +253,8 @@
 	if(!. && retribution)
 		stance = HOSTILE_STANCE_ATTACK
 		target_mob = user
-		allowed_targets += user //fuck this guy in particular.
-		if(user in friends) //We were buds :'(
+		allowed_targets |= user //fuck this guy in particular.
+		if(user in friends) //We were buds :'C
 			friends -= user
 
 
@@ -220,7 +278,7 @@
 	if(M.a_intent == I_HURT && retribution) //assume he wants to hurt us.
 
 		target_mob = M
-		allowed_targets += M
+		allowed_targets |= M
 		stance = HOSTILE_STANCE_ATTACK
 		if(M in friends)
 			friends -= M

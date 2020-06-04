@@ -312,4 +312,22 @@ var/global/list/radial_menus = list()
 	radial_menus -= uniqueid
 	return answer
 
+/proc/get_mob_head_mutable_appearance(var/mob/M)
+	var/mutable_appearance/MA = mutable_appearance(M.icon, M.icon_state)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.head?.flags_inv & HIDEFACE)
+			MA = mutable_appearance(H.head.icon, H.head.icon_state)
+		else if(H.wear_mask?.flags_inv & HIDEFACE)
+			MA = mutable_appearance(H.wear_mask.icon, H.wear_mask.icon_state)
+		else
+			var/obj/item/organ/external/head/head = H.organs_by_name[BP_HEAD]
+			MA = mutable_appearance(head.icon, head.icon_state)
+			var/icon/head_overlay = head.get_icon()
+			MA.add_overlay(head_overlay)
+
+			MA.transform = MA.transform.Scale(2.5, 2.5)
+			MA.transform = MA.transform.Translate(2, -24)
+	return MA
+
 #define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices)
