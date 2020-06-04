@@ -958,7 +958,7 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 // Newscaster scans you
 // autorecognition, woo!
 /obj/machinery/newscaster/proc/scan_user(mob/living/user)
-	if(istype(user, /mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/card/id/ID = H.GetIdCard()
 		if(ID)
