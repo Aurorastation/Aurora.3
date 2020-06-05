@@ -569,3 +569,25 @@
 		"wrenchbit",
 		"crowbarbit"
 		)
+
+/obj/item/mecha_equipment/quick_enter
+	name = "rapid-entry system"
+	desc = "A large back-mounted device with installed hydraulics, capable of quickly lifting the user into their piloting seat."
+	icon_state = "mecha_quickie"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	w_class = ITEMSIZE_HUGE
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+
+/obj/item/mecha_equipment/quick_enter/installed()
+	..()
+	owner.entry_speed = 5
+
+/obj/item/mecha_equipment/quick_enter/uninstalled()
+	owner.entry_speed = initial(owner.entry_speed)
+	..()
+
+/obj/item/mecha_equipment/quick_enter/afterattack()
+	return
+
+/obj/item/mecha_equipment/quick_enter/attack_self()
+	return

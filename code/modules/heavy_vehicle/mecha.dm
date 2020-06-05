@@ -54,6 +54,7 @@
 	var/hardpoints_locked
 	var/maintenance_protocols
 	var/lockdown
+	var/entry_speed = 30
 
 	// Material
 	var/material/material

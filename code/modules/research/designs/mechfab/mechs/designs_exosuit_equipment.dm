@@ -116,3 +116,8 @@
 	name = "Mounted Toolset"
 	materials = list(DEFAULT_WALL_MATERIAL = 7500)
 	build_path = /obj/item/mecha_equipment/toolset
+
+/datum/design/item/mechfab/exosuit_equipment/quick_enter
+	name = "Mounted Rapid-Entry System"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	build_path = /obj/item/mecha_equipment/quick_enter
