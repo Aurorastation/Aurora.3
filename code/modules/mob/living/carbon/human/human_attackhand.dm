@@ -100,9 +100,6 @@
 
 			return
 
-	if(istype(M,/mob/living/carbon))
-		M.spread_disease_to(src, "Contact")
-
 	var/datum/martial_art/attacker_style = H.martial_art
 
 	switch(M.a_intent)

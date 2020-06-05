@@ -25,7 +25,6 @@
 	var/treatment_oxy = "tricordrazine"
 	var/treatment_fire = "tricordrazine"
 	var/treatment_tox = "tricordrazine"
-	var/treatment_virus = "deltamivir"
 	var/treatment_emag = "toxin"
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
 
@@ -305,10 +304,6 @@
 
 	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
-
-	for(var/datum/disease2/disease/D in H.virus2)
-		if (!H.reagents.has_reagent(treatment_virus))
-			return treatment_virus // STOP DISEASE FOREVER
 
 /* Construction */
 

@@ -55,7 +55,7 @@
 		"Trauma Physician" = /datum/outfit/job/doctor/zeng_hu,
 		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
-		"Biochemist" = /datum/outfit/job/pharmacist/zeng_hu,
+		"Chemist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Paramedic" = /datum/outfit/job/paramedic/zeng_hu,

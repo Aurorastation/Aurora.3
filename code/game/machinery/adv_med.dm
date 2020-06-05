@@ -431,7 +431,6 @@
 		var/list/missing 		= get_missing_organs(occupant)
 		VUEUI_SET_CHECK_LIST(data["missingparts"], missing, ., data)
 		VUEUI_SET_CHECK(data["hasmissing"], missing.len, ., data)
-		VUEUI_SET_CHECK(data["hasvirus"], occupant.virus2.len || occupant.viruses.len, ., data)
 		VUEUI_SET_CHECK(data["hastgvirus"], occupant.viruses.len, ., data)
 		VUEUI_SET_CHECK_LIST(data["tgvirus"], occupant.viruses, ., data)
 
@@ -582,7 +581,6 @@
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
 		"brain_activity" = H.get_brain_status(),
-		"virus_present" = H.virus2.len,
 		"blood_volume" = H.get_blood_volume(),
 		"blood_oxygenation" = H.get_blood_oxygenation(),
 		"blood_pressure" = H.get_blood_pressure(),
@@ -639,10 +637,6 @@
 	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
 	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
 	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
-
-	for(var/datum/disease/D in occ["tg_diseases_list"])
-		if(!D.hidden[SCANNER])
-			dat += text("<font color='red'><B>Warning: [D.form] Detected</B>\nName: [D.name].\nType: [D.spread].\nStage: [D.stage]/[D.max_stages].\nPossible Cure: [D.cure]</FONT><BR>")
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"

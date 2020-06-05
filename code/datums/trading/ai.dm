@@ -70,8 +70,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/depth_scanner              = TRADER_BLACKLIST, // Xenoarch
 		/obj/item/device/beacon_locator             = TRADER_BLACKLIST, // Telescience
 		/obj/item/device/telepad_beacon             = TRADER_BLACKLIST, // Telescience
-		/obj/item/device/udp_debugger               = TRADER_BLACKLIST, // Circuits
-		/obj/item/device/antibody_scanner           = TRADER_BLACKLIST // Virology
+		/obj/item/device/udp_debugger               = TRADER_BLACKLIST // Circuits
 	)
 
 	possible_trading_items = list(

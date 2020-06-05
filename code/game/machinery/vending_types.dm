@@ -468,7 +468,6 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/syringe/dylovene = 4,
-		/obj/item/reagent_containers/syringe/antiviral = 4,
 		/obj/item/reagent_containers/pill/tox = 1
 	)
 	premium = list(

@@ -27,17 +27,6 @@
 					if(do_after(user, 20))
 						O.status &= ~ORGAN_BROKEN
 				O.update_damages()
-
-			var/virus_found
-			for(var/datum/disease/D in H.viruses)
-				virus_found = TRUE
-				D.cure()
-			for(var/ID in H.virus2)
-				var/datum/disease2/disease/V = H.virus2[ID]
-				virus_found = TRUE
-				V.cure(src)
-			if(virus_found)
-				to_chat(H, span("warning", "Virus found, curing..."))
 		else
 			to_chat(user, span("warning", "This altar isn't ready to be prayed at yet."))
 	else

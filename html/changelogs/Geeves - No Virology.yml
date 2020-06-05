@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscdel: "Removed appendicitis."
+  - rscdel: "Removed the nanite robot transformation."
+  - rscdel: "Removed viruses. This includes deltamivir."

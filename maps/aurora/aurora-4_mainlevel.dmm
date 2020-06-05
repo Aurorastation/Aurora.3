@@ -3225,8 +3225,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -4345,8 +4345,8 @@
 /area/maintenance/atmos_control)
 "aij" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/structure/closet/crate,
 /obj/random/loot,
@@ -5702,8 +5702,8 @@
 /area/engineering/atmos/storage)
 "akJ" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/requests_console{
 	department = "Atmospherics";
@@ -6959,8 +6959,8 @@
 	dir = 5
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
@@ -22360,8 +22360,8 @@
 /area/crew_quarters/heads/chief)
 "aMM" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/firealarm/north,
 /obj/structure/filingcabinet/chestdrawer,
@@ -24774,8 +24774,8 @@
 /area/journalistoffice)
 "aRe" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/wood,
 /area/journalistoffice)
@@ -24956,8 +24956,8 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/meeting_room)
@@ -27748,8 +27748,8 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
@@ -30763,8 +30763,8 @@
 /obj/item/reagent_containers/spray/cleaner,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
@@ -32435,10 +32435,6 @@
 /obj/structure/table/rack{
 	dir = 8;
 	layer = 2.9
-	},
-/obj/item/circuitboard/pandemic{
-	pixel_x = -3;
-	pixel_y = 3
 	},
 /obj/item/circuitboard/rdconsole,
 /obj/item/circuitboard/rdserver{
@@ -34802,8 +34798,8 @@
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
@@ -35292,8 +35288,8 @@
 	department = "Chief Medical Officer's Office"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/newscaster{
 	pixel_y = 32
@@ -36254,8 +36250,8 @@
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -36443,8 +36439,8 @@
 /area/medical/medbay2)
 "blv" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/structure/flora/pottedplant/random,
 /obj/effect/floor_decal/corner_wide/green{
@@ -36511,8 +36507,8 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/power/apc{
 	dir = 1;
@@ -38232,8 +38228,8 @@
 "boJ" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
@@ -39931,8 +39927,8 @@
 	req_access = list(5)
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -46495,8 +46491,8 @@
 /area/medical/surgeryobs)
 "bFL" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 4
@@ -50271,8 +50267,8 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/item/stool/padded,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -50337,8 +50333,8 @@
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -51612,8 +51608,8 @@
 /area/chapel/main)
 "bSG" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -53358,8 +53354,8 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled,
@@ -57416,8 +57412,8 @@
 	pixel_y = 32
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -66457,8 +66453,8 @@
 /area/assembly/robotics_cyborgification)
 "tQm" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
