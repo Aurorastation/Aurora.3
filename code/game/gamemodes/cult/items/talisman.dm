@@ -22,7 +22,7 @@
 	if(iscultist(user))
 		if(rune)
 			user.say("INVOKE!")
-			rune.do_rune_action(user, src)
+			rune.activate(user, src)
 			return
 		else
 			to_chat(user, SPAN_CULT("This talisman has no power."))

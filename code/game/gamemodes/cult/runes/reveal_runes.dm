@@ -8,7 +8,6 @@
 
 /datum/rune/reveal_runes/do_talisman_action(mob/living/user, atom/movable/A)
 	reveal(user, A, 4, SPAN_WARNING("\The [A] turns into red dust, reveaing the surrounding runes."))
-	return TRUE
 
 /datum/rune/reveal_runes/proc/reveal(mob/living/user, atom/movable/A, var/radius = 6, var/message = SPAN_WARNING("The rune turns into red dust, reveaing the surrounding runes."))
 	var/did_reveal

@@ -11,12 +11,16 @@
 	..()
 	parent = owner
 
-/datum/rune/proc/do_rune_action(var/mob/living/user, var/atom/movable/A)
+/datum/rune/proc/activate(var/mob/living/user, var/atom/movable/A)
 	if(!isliving(user))
 		return
 	if(!istype(A, /obj/effect/rune) && (rune_flags & HAS_SPECIAL_TALISMAN_ACTION) && can_be_talisman())
 		do_talisman_action(user, A)
-		return
+	else
+		do_rune_action(user, A)
+
+/datum/rune/proc/do_rune_action(var/mob/living/user, var/atom/movable/A)
+	return
 
 /datum/rune/proc/do_talisman_action(var/mob/living/user, var/atom/movable/A)
 	return

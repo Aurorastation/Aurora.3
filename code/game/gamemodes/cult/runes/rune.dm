@@ -46,7 +46,7 @@
 	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle))
 		to_chat(user, SPAN_WARNING("You are unable to speak the words of the rune."))
 		return
-	return rune.do_rune_action(user, src)
+	return rune.activate(user, src)
 
 /obj/effect/rune/cultify()
 	return
