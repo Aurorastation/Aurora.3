@@ -107,7 +107,6 @@
 		if(88)
 			new /obj/item/gun/projectile/shotgun/pump/rifle(src)
 			new /obj/item/ammo_magazine/boltaction(src)
-			new /obj/item/clothing/under/soviet(src)
 			new /obj/item/clothing/head/ushanka/grey(src)
 		if(89)
 			new /obj/item/stack/material/animalhide/xeno(src)
@@ -152,7 +151,6 @@
 			new /obj/item/ammo_magazine/mc10mm(src)
 			new /obj/item/ammo_magazine/mc10mm(src)
 			new /obj/item/ammo_magazine/mc10mm/rubber(src)
-			new /obj/item/clothing/under/rank/dispatch(src)
 			new /obj/item/clothing/accessory/badge/old(src)
 			new /obj/item/clothing/head/helmet/formalcaptain(src)
 

@@ -18,42 +18,34 @@
 	..()
 
 	for(var/mob/living/target in targets)
-		if(!(target.stat == DEAD))
-			to_chat(user, "This spell can't affect the living.")
-			return 0
+		if(target.stat != DEAD)
+			to_chat(user, SPAN_WARNING("This spell can't affect the living."))
+			return FALSE
 
 		if(isundead(target))
-			to_chat(user, "This spell can't affect the undead.")
-			return 0
+			to_chat(user, SPAN_WARNING("This spell can't affect the undead."))
+			return FALSE
 
 		if(islesserform(target))
-			to_chat(user, "This spell can't affect this lesser creature.")
-			return 0
+			to_chat(user, SPAN_WARNING("This spell can't affect this lesser creature."))
+			return FALSE
 
 		if(isipc(target))
-			to_chat(user, "This spell can't affect non-organics.")
-			return 0
+			to_chat(user, SPAN_WARNING("This spell can't affect non-organics."))
+			return FALSE
 
-		var/mob/living/carbon/human/skeleton/F = new(get_turf(target))
+		var/mob/living/carbon/human/skeleton/F = new /mob/living/carbon/human/skeleton(get_turf(target))
+		SSghostroles.add_spawn_atom("skeleton", F)
+		var/area/A = get_area(F)
+		if(A)
+			say_dead_direct("A skeleton has been created in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 		target.visible_message("<span class='cult'>\The [target] explodes in a shower of gore, a skeleton emerges from the remains!</span>")
 		target.gib()
-		var/datum/ghosttrap/ghost = get_ghost_trap("skeleton minion")
-		ghost.request_player(F,"A wizard is requesting a skeleton minion.", 60 SECONDS)
-		spawn(600)
-			if(F)
-				if(!F.ckey || !F.client)
-					F.visible_message("With no soul to keep \the [F] linked to this plane, it turns into dust.")
-					F.dust()
+		
+		F.master = user
+		F.faction = user.faction
 
-			else
-				to_chat(F, "<B>You are a skeleton minion to [usr], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
-				F.faction = usr.faction
+		F.preEquipOutfit(/datum/outfit/admin/wizard/skeleton, FALSE)
+		F.equipOutfit(/datum/outfit/admin/wizard/skeleton, FALSE)
 
-		//equips the skeleton war gear
-		F.equip_to_slot_or_del(new /obj/item/clothing/under/gladiator(F), slot_w_uniform)
-		F.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(F), slot_shoes)
-		F.equip_to_slot_or_del(new /obj/item/material/twohanded/spear/bone(F), slot_back)
-		F.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/bone(F), slot_head)
-		F.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/bone(F), slot_wear_suit)
-
-		return 1
+		return TRUE

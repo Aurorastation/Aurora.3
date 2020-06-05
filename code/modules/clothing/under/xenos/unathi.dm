@@ -112,7 +112,7 @@
 /obj/item/clothing/suit/unathi/mantle/wrapping
 	name = "unathi wrappings"
 	desc = "Stitched together clothing with bandages covering them, looks tailored for an unathi."
-	description_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
+	desc_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "thakh_wrappings" //special thanks to Araskael
 	item_state = "thakh_wrappings"
@@ -124,7 +124,7 @@
 /obj/item/clothing/mask/gas/wrapping
 	name = "unathi head wrappings"
 	desc = "A bunch of stitched together bandages with a fibreglass breath mask on it, openings for the eyes. Looks tailored for an unathi."
-	description_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
+	desc_fluff = "This is a very traditional Sinta wear for Th'akh shamans, most modern Sinta do not wear these."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "thakh_mask" //special thanks to Araskael
 	item_state = "thakh_mask"

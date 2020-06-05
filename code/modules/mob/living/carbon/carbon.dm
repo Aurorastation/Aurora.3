@@ -114,7 +114,7 @@
 		if(H && show_ssd && !client && !teleop)
 			if(H.bg)
 				to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
-			else
+			else if(!vr_mob)
 				visible_message(span("notice", "[M] [action] [src], but they do not respond... Maybe they have S.S.D?"))
 		else if(client && willfully_sleeping)
 			visible_message(span("notice", "[M] [action] [src] waking [t_him] up!"))
@@ -277,7 +277,7 @@
 			if(H && show_ssd && !client && !teleop)
 				if(H.bg)
 					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
-				else
+				else if(!vr_mob)
 					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
 										span("notice", "You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)

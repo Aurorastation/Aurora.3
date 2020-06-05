@@ -159,7 +159,7 @@
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs, TRUE)
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.

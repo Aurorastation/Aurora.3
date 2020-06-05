@@ -2128,13 +2128,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 		update_icon()
 		return
 
-	var/obj/item/clothing/under/sweater/G = new(get_turf(user))
-	G.color = ball.color
+	var/obj/item/clothing/accessory/sweater/S = new(get_turf(user))
+	S.color = ball.color
 	qdel(ball)
 	ball = null
 	working = FALSE
 	update_icon()
-	to_chat(user, "<span class='warning'>You finished \the [G]!</span>")
+	to_chat(user, "<span class='warning'>You finish \the [S]!</span>")
 
 /obj/item/fluff/yarn
 	name = "ball of yarn"
@@ -2834,6 +2834,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	helmet_type = /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/clothing/head/helmet/bucket/fluff/khasan_bucket
 	name = "battered metal bucket helmet"
@@ -2979,6 +2980,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	tint = TINT_BLIND
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/glasses/sunglasses/blindfold/fluff/nai_fold/equipped(mob/M as mob, slot)
 	if (M.ckey == "jamchop23334" && M.name == "Nai Eresh'Wake")
@@ -3184,6 +3186,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	storage_slots = 6
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/storage/fancy/fluff/sentiment_bouquet/fill()
@@ -3347,3 +3350,180 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ulmari_coat"
 	item_state = "ulmari_coat"
 	contained_sprite = TRUE
+
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat //Biochemist Holocoat - Neith Mekesatis - vrow
+	name = "biochemist holocoat"
+	desc = "An Eridani Corporate Federation holocoat modelled after a standard biochemist labcoat. It is extremely well cared for."
+	icon = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
+	icon_state = "mekesatis_labcoat"
+	item_state = "mekesatis_labcoat"
+	icon_open = "mekesatis_labcoat_open"
+	icon_closed = "mekesatis_labcoat"
+	contained_sprite = TRUE
+	var/changed = FALSE
+	var/changing = FALSE
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/examine(mob/user)
+	..()
+	if(!in_range(user, src))
+		to_chat(user, SPAN_NOTICE("There might be something written on the inside of the coat. You have to get closer if you want to read it."))
+		return
+
+	if(!(all_languages[LANGUAGE_TRADEBAND] in user.languages))
+		to_chat(user, SPAN_NOTICE("On the inside of the coat there are various sentences in Tradeband printed in an elegant blue font."))
+		return
+
+	else
+		to_chat(user, SPAN_NOTICE("On the inside of the coat, the following words are printed in an elegant blue font:<br>Exclusive Time Limited Holocoat Deal from July 30, 2459. \
+		Now with graced with an animated Eridani Corporate Federation logo. For the Prosperity of all Eridanians - <i>Delta HoloTextiles. Sector Alpha's best \
+		wears.</i><br><small><i><font face='Courier New'>Every cloud has a silver lining, and you should be happy for yours. Congratulations on your \
+		graduation.</font> - <font face='Times New Roman'>Teremun A. M.</font></i></small>"))
+		return
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/verb/activate_holocoat()
+	set name = "Toggle Holocoat"
+	set category = "Object"
+	set src in usr
+
+	if (use_check_and_message(usr))
+		return
+
+	if(changing)
+		return
+
+	if(!changed)
+		usr.visible_message("<span class='notice'>With a subtle gesture, the labcoat flickers activate!</span>")
+		icon_state = "mekesatis_holocoat_t"
+		item_state = "mekesatis_holocoat_t"
+		icon_open = "mekesatis_holocoat_t_open"
+		icon_closed = "mekesatis_holocoat_t"
+		flick("mekesatis_holocoat_t", src)
+
+	else
+		usr.visible_message("<span class='notice'>With a subtle gesture, the holocoat fades to a normal labcoat.</span>")
+		icon_state = "mekesatis_labcoat_r"
+		item_state = "mekesatis_labcoat_r"
+		icon_open = "mekesatis_labcoat_r_open"
+		icon_closed = "mekesatis_labcoat_r"
+
+	update_icon()
+	usr.update_inv_wear_suit()
+	changing = TRUE
+	addtimer(CALLBACK(src, .proc/finish_toggle, usr), 10 SECONDS)
+
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/proc/finish_toggle(mob/user)
+	if(!changed)
+		icon_state = "mekesatis_holocoat"
+		item_state = "mekesatis_holocoat"
+		icon_open = "mekesatis_holocoat_open"
+		icon_closed = "mekesatis_holocoat"
+
+	else
+		icon_state = "mekesatis_labcoat"
+		item_state = "mekesatis_labcoat"
+		icon_open = "mekesatis_labcoat_open"
+		icon_closed = "mekesatis_labcoat"
+
+	update_icon()
+	user.update_inv_wear_suit()
+	changed = !changed
+	changing = FALSE
+
+
+/obj/item/device/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
+	name = "resonance microphone"
+	desc = "A rather costly voice amplifier disguised as a microphone. A button on the side permits the user to dial their vocal volume with ease."
+	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_state = "akinyi_mic"
+	item_state = "akinyi_mic"
+	w_class = ITEMSIZE_SMALL
+	contained_sprite = TRUE
+	activation_sound = null
+	needs_user_location = FALSE
+
+/obj/item/fluff/akinyi_stand //Telescopic Mic Stand - Akinyi Idowu - kyres1
+	name = "telescopic mic stand"
+	desc = "A fold-able telescopic microphone with a built in battery to keep your fancy science fiction microphone charged on the go."
+	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_state = "akinyi_stand-collapsed"
+	item_state = "akinyi_stand-collapsed"
+	w_class = ITEMSIZE_SMALL
+	contained_sprite = TRUE
+	var/obj/item/device/megaphone/fluff/akinyi_mic/mic
+	var/collapsed = TRUE
+
+/obj/item/fluff/akinyi_stand/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/device/megaphone/fluff/akinyi_mic))
+		if(!mic && !collapsed)
+			user.unEquip(O)
+			O.forceMove(src)
+			mic = O
+			to_chat(user, SPAN_NOTICE("You place \the [O] on \the [src]."))
+			update_icon()
+
+/obj/item/fluff/akinyi_stand/MouseDrop(mob/user as mob)
+	if((user == usr && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
+		if(ishuman(user))
+			forceMove(get_turf(user))
+			user.put_in_hands(src)
+			update_icon()
+
+/obj/item/fluff/akinyi_stand/attack_hand(mob/user)
+	if(!isturf(loc)) //so if you want to play the use the board, you need to put it down somewhere
+		..()
+	else
+		if(mic && !collapsed)
+			mic.attack_self(user)
+
+/obj/item/fluff/akinyi_stand/attack_self(mob/user as mob)
+	if(mic)
+		mic.forceMove(get_turf(src))
+		user.put_in_hands(mic)
+		mic = null
+		update_icon()
+		return
+
+	if(collapsed)
+		w_class = ITEMSIZE_LARGE
+		collapsed = FALSE
+	else
+		w_class = ITEMSIZE_SMALL
+		collapsed = TRUE
+
+	update_icon()
+	user.update_inv_l_hand()
+	user.update_inv_r_hand()
+
+/obj/item/fluff/akinyi_stand/update_icon()
+	if(collapsed)
+		icon_state = "akinyi_stand-collapsed"
+		item_state = "akinyi_stand-collapsed"
+	else
+		if(mic)
+			icon_state = "akinyi_stand-1"
+			item_state = "akinyi_stand-1"
+		else
+			icon_state = "akinyi_stand-0"
+			item_state = "akinyi_stand-0"
+
+/obj/item/storage/fluff/akinyi_case //Instrument Case - Akinyi Idowu - kyres1
+	name = "instrument case"
+	desc = "A chunky white leather case, with lots of space inside for holding your delicate musical instruments."
+	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
+	icon_state = "akinyi_case"
+	item_state = "akinyi_case"
+	w_class = ITEMSIZE_LARGE
+	contained_sprite = TRUE
+	storage_slots = 3
+	max_w_class = 3
+	can_hold = list(
+		/obj/item/device/megaphone/fluff/akinyi_mic,
+		/obj/item/fluff/akinyi_stand,
+		/obj/item/fluff/akinyi_symphette
+		)
+	starts_with = list(
+		/obj/item/device/megaphone/fluff/akinyi_mic = 1,
+		/obj/item/fluff/akinyi_stand = 1,
+		/obj/item/fluff/akinyi_symphette = 1
+	)

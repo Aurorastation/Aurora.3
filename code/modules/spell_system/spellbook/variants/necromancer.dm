@@ -10,7 +10,7 @@
 	title = "The Art of Necromancy"
 	title_desc = "Buy spells using your available spell slots. Artefacts may also be bought however their cost is permanent."
 	book_flags = CAN_MAKE_CONTRACTS
-	max_uses = 8
+	max_uses = 10
 
 	spells = list(/spell/targeted/projectile/dumbfire/fireball =	1,
 				/spell/targeted/torment =							1,
@@ -26,5 +26,13 @@
 				/obj/structure/closet/wizard/armor =				1,
 				/obj/structure/closet/wizard/scrying =				2,
 				/obj/structure/closet/wizard/souls =				1,
-				/obj/item/contract/apprentice =						1
+				/obj/item/contract/apprentice =						1,
+				/obj/item/apprentice_pebble =						2
 				)
+
+	apprentice_spells = list(
+		/spell/aoe_turf/conjure/summon/bats = 1,
+		/spell/targeted/shapeshift/corrupt_form = 1,
+		/spell/targeted/raise_dead = 2,
+		/obj/structure/closet/wizard/souls = 1
+	)

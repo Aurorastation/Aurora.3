@@ -179,7 +179,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
@@ -249,7 +248,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
@@ -350,6 +348,3 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/adamantine_golem/Initialize(mapload)
 	. = ..(mapload, "Adamantine Golem")
-
-/mob/living/carbon/human/autakh/Initialize(mapload)
-	. = ..(mapload, "Aut'akh Unathi")

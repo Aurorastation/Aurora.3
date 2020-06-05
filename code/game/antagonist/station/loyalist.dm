@@ -3,7 +3,7 @@ var/datum/antagonist/loyalists/loyalists
 /datum/antagonist/loyalists
 	id = MODE_LOYALIST
 	role_text = "Head Fellow"
-	role_text_plural = "The Fellowship"
+	role_text_plural = "Fellowship"
 	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
 	antag_indicator = "fellowshiphead"

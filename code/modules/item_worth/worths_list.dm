@@ -501,7 +501,6 @@ var/list/worths = list(
 					/obj/item/clothing/suit/armor/centcomm = 2000,
 					/obj/item/clothing/suit/armor/heavy = 1000,
 					/obj/item/clothing/suit/armor/hos = 1000,
-					/obj/item/clothing/suit/storage/toggle/armor/hos/jensen = 1000,
 					/obj/item/clothing/suit/armor/tactical = 1500,
 					/obj/item/clothing/suit/armor = 500,
 					/obj/item/clothing/suit/bio_suit = 150,

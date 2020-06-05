@@ -3,6 +3,7 @@
 	filedesc = "Crew Manifest"
 	program_icon_state = "generic"
 	extended_desc = "This program is used for viewing the crew manifest."
+	usage_flags = PROGRAM_ALL
 	size = 3
 
 	requires_ntnet = 1

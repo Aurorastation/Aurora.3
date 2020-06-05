@@ -8,6 +8,7 @@
 	slowdown = 1
 	species_restricted = null
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/clothing/shoes/jackboots
 	name = "jackboots"
@@ -19,6 +20,7 @@
 	siemens_coefficient = 0.75
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less jackboots"
@@ -36,6 +38,7 @@
 	siemens_coefficient = 0.75
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /obj/item/clothing/shoes/workboots/toeless
 	name = "toe-less workboots"

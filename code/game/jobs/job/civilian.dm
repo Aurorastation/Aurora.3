@@ -159,7 +159,7 @@
 	name = "Cargo Technician"
 	jobtype = /datum/job/cargo_tech
 
-	uniform = /obj/item/clothing/under/rank/cargotech
+	uniform = /obj/item/clothing/under/rank/cargo
 	pda = /obj/item/device/pda/cargo
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown

@@ -280,6 +280,8 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
 		)
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound =  'sound/items/pickup/disk.ogg'
 
 /obj/item/gift
 	name = "gift"

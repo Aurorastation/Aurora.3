@@ -57,7 +57,7 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	heat_level_1 = 600		
+	heat_level_1 = 600
 	heat_level_2 = 1200
 	heat_level_3 = 2400
 
@@ -114,6 +114,7 @@
 
 	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
 	default_citizenship = CITIZENSHIP_NONE
+	bodyfall_sound = "bodyfall_machine"
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15

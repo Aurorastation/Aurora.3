@@ -12,14 +12,14 @@
 /obj/machinery/mining/drill
 	name = "mining drill head"
 	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
-	description_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
+	desc_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
 	icon_state = "mining_drill"
 	var/braces_needed = 2
 	var/list/supports = list()
 	var/supported = FALSE
 	var/active = FALSE
 	var/current_error
-	
+
 	var/list/resource_field = list()
 
 	var/ore_types = list(
@@ -195,7 +195,7 @@
 				return
 			if(default_part_replacement(user, O))
 				return
-	if(active) 
+	if(active)
 		return ..()
 
 	if(istype(O, /obj/item/storage/bag/ore))
@@ -351,15 +351,13 @@
 /obj/machinery/mining/drill/proc/check_supports()
 	supported = FALSE
 
-	if((!supports || !supports.len) && initial(anchored) == 0)
-		icon_state = "mining_drill"
-		anchored = FALSE
-		active = FALSE
-	else
-		anchored = TRUE
-
 	if(supports && length(supports) >= braces_needed)
 		supported = TRUE
+		anchored = TRUE
+	else
+		icon_state = "mining_drill"
+		active = FALSE
+		anchored = FALSE
 
 	update_icon()
 
@@ -490,6 +488,10 @@
 			connect()
 		else
 			disconnect()
+
+/obj/machinery/mining/brace/Destroy()
+	disconnect()
+	return ..()
 
 /obj/machinery/mining/brace/proc/connect()
 	var/turf/T = get_step(get_turf(src), src.dir)
