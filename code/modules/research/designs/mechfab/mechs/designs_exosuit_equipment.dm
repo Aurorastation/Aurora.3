@@ -106,3 +106,13 @@
 	materials = list(MATERIAL_STEEL = 20000, MATERIAL_SILVER = 12000, MATERIAL_GOLD = 12000)
 	req_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 2)
 	build_path = /obj/item/mecha_equipment/shield
+
+/datum/design/item/mechfab/exosuit_equipment/autolathe
+	name = "Mounted Autolathe"
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_SILVER = 1000)
+	build_path = /obj/item/mecha_equipment/autolathe
+
+/datum/design/item/mechfab/exosuit_equipment/toolset
+	name = "Mounted Toolset"
+	materials = list(DEFAULT_WALL_MATERIAL = 7500)
+	build_path = /obj/item/mecha_equipment/toolset
