@@ -43,7 +43,6 @@
 	update_icon()
 
 /obj/item/reagent_containers/syringe/Destroy()
-	LAZYCLEARLIST(viruses)
 	LAZYCLEARLIST(targets)
 	return ..()
 
@@ -64,24 +63,11 @@
 	//Just once!
 	targets |= WEAKREF(target)
 
-	//Grab any viruses they have
-	var/datum/disease2/disease/virus
-	if(LAZYLEN(target.virus2.len))
-		LAZYINITLIST(viruses)
-		virus = pick(target.virus2.len)
-		viruses += virus.getcopy()
-
 	//Dirtiness should be very low if you're the first injectee. If you're spam-injecting 4 people in a row around you though,
 	//This gives the last one a 30% chance of infection.
 	if(prob(dirtiness+(targets.len-1)*10))
 		log_and_message_admins("[loc] infected [target]'s [eo.name] with \the [src].")
 		addtimer(CALLBACK(src, .proc/infect_limb, eo), rand(5 MINUTES, 10 MINUTES))
-
-	//75% chance to spread a virus if we have one
-	if(LAZYLEN(viruses) && prob(75))
-		var/newvir = pick(viruses - virus)
-		var/datum/disease2/disease/newvirus = viruses[newvir]
-		infect_virus2(target,newvirus.getcopy())
 
 	if(!used)
 		START_PROCESSING(SSprocessing, src)
@@ -422,16 +408,6 @@
 /obj/item/reagent_containers/syringe/dylovene/Initialize()
 	. = ..()
 	reagents.add_reagent("dylovene", 15)
-	mode = SYRINGE_INJECT
-	update_icon()
-
-/obj/item/reagent_containers/syringe/antiviral
-	name = "Syringe (deltamivir)"
-	desc = "Contains antiviral agents."
-
-/obj/item/reagent_containers/syringe/antiviral/Initialize()
-	. = ..()
-	reagents.add_reagent("deltamivir", 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 

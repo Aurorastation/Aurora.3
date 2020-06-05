@@ -8,7 +8,6 @@
 "ac" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -21,7 +20,6 @@
 "ad" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/grille,
@@ -34,7 +32,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/grille,
@@ -46,7 +43,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -82,7 +78,6 @@
 /area/derelict/ship)
 "ak" = (
 /obj/structure/bed/chair/office/bridge{
-	icon_state = "bridge";
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -151,7 +146,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /turf/simulated/floor/grass,
@@ -175,11 +169,9 @@
 /area/derelict/ship)
 "ay" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 9
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 10
 	},
 /obj/machinery/door/firedoor,
@@ -203,7 +195,6 @@
 /area/derelict/ship)
 "aC" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /obj/structure/closet/cabinet,
@@ -214,7 +205,6 @@
 /area/derelict/ship)
 "aD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /obj/structure/table/rack,
@@ -225,7 +215,6 @@
 /area/derelict/ship)
 "aE" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 5
 	},
 /obj/structure/computerframe,
@@ -244,7 +233,6 @@
 /area/derelict/ship)
 "aH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 9
 	},
 /obj/structure/bed/chair/comfy/beige,
@@ -252,7 +240,6 @@
 /area/derelict/ship)
 "aI" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /obj/structure/table/wood/gamblingtable,
@@ -261,7 +248,6 @@
 /area/derelict/ship)
 "aJ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 5
 	},
 /obj/structure/bed/chair/comfy/beige{
@@ -271,7 +257,6 @@
 /area/derelict/ship)
 "aK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 8
 	},
 /obj/structure/coatrack,
@@ -285,7 +270,6 @@
 /area/derelict/ship)
 "aM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -299,21 +283,18 @@
 /area/derelict/ship)
 "aO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "aP" = (
 /obj/structure/bed/chair/comfy/blue{
-	icon_state = "comfychair_preview";
 	dir = 1
 	},
 /turf/simulated/floor/wood,
 /area/derelict/ship)
 "aQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -327,7 +308,6 @@
 /area/derelict/ship)
 "aS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 10
 	},
 /obj/structure/table/wood,
@@ -355,7 +335,6 @@
 /area/derelict/ship)
 "aW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 6
 	},
 /obj/structure/bed/padded,
@@ -370,7 +349,6 @@
 /area/derelict/ship)
 "aY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 10
 	},
 /obj/structure/flora/pottedplant/random,
@@ -383,7 +361,6 @@
 /area/derelict/ship)
 "ba" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 6
 	},
 /obj/machinery/computer/arcade,
@@ -438,7 +415,6 @@
 /area/derelict/ship)
 "bj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 9
 	},
 /obj/item/bedsheet/rd,
@@ -447,7 +423,6 @@
 /area/derelict/ship)
 "bk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -456,7 +431,6 @@
 /area/derelict/ship)
 "bl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -469,11 +443,9 @@
 /area/derelict/ship)
 "bn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 6
 	},
 /obj/machinery/door/firedoor,
@@ -493,7 +465,6 @@
 "bq" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 6
 	},
 /obj/structure/closet/cabinet,
@@ -535,7 +506,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/sink/kitchen{
 	dir = 4;
-	icon_state = "sink_alt";
 	pixel_x = -18
 	},
 /turf/simulated/floor/tiled/white,
@@ -572,7 +542,6 @@
 /area/derelict/ship)
 "bD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 10
 	},
 /obj/machinery/light/small{
@@ -599,10 +568,6 @@
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
 /obj/item/reagent_containers/food/snacks/tajaran_bread,
-/obj/item/reagent_containers/food/snacks/tajaran_stew,
-/obj/item/reagent_containers/food/snacks/tajaran_stew,
-/obj/item/reagent_containers/food/snacks/tajaran_stew,
-/obj/item/reagent_containers/food/snacks/tajaran_stew,
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/reagent_containers/food/snacks/lasagna,
 /obj/item/reagent_containers/food/snacks/lasagna,
@@ -637,13 +602,11 @@
 "bL" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/snacks/tajaran_stew,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bM" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 6
 	},
 /obj/structure/closet/cabinet,
@@ -687,7 +650,6 @@
 "bU" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
 	pixel_x = 12;
 	pixel_y = -2
 	},
@@ -704,7 +666,6 @@
 /obj/item/clothing/under/tajaran,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -712,7 +673,6 @@
 /area/derelict/ship)
 "bY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -722,7 +682,6 @@
 "bZ" = (
 /obj/random/glowstick,
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /turf/simulated/floor/wood,
@@ -774,7 +733,6 @@
 "ck" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 6
 	},
 /obj/effect/decal/cleanable/vomit,
@@ -811,7 +769,6 @@
 /area/derelict/ship)
 "cq" = (
 /obj/structure/toilet{
-	icon_state = "toilet00";
 	dir = 1
 	},
 /obj/machinery/light/small,
@@ -832,7 +789,6 @@
 "ct" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 1
 	},
 /obj/structure/table/wood,
@@ -865,7 +821,6 @@
 	},
 /obj/item/rig/tesla,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /turf/simulated/floor/greengrid,
@@ -891,7 +846,6 @@
 "cC" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 6
 	},
 /obj/structure/closet/cabinet,
@@ -962,11 +916,9 @@
 /area/derelict/ship)
 "cP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 6
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
-	icon_state = "spline_fancy";
 	dir = 5
 	},
 /obj/machinery/door/firedoor,
@@ -1069,7 +1021,6 @@
 "dh" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/machinery/power/terminal{
-	icon_state = "term";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1347,7 +1298,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{

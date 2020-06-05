@@ -20,7 +20,7 @@ As a Physician, you can attempt to draw blood from a husk with a syringe to dete
 As a Physician, you can surgically implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.
 As a Physician, remember to target the correct limb and be on help intent when trying to perform surgery on someone.
 As a Chemist, there are dozens of chemicals that can heal, and even more that can cause harm. Experiment!
-As the Biochemist, you only require small amounts of vaccine to heal a sick patient. Use your chemistry access to distribute your cures more efficiently.
+As the Chemist, your job is to tinker more generally with the secrets of chemical concoctions.
 As the Research Director, you can take AIs out of their cores by loading them into an intelliCard, and then from there into an AI system integrity restorer computer to revive and/or repair them.
 As the Research Director, you can lock down cyborgs instead of blowing them up. Then you can have their laws reset or if that doesn't work, safely dismantled.
 As a Xenobiologist, you can maximize the number of uses you get out of a slime by feeding it slime steroid, created from purple slimes, while alive. You can then apply extract enhancer, created from cerulean slimes, on each extract.

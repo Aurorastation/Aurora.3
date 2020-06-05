@@ -284,12 +284,6 @@ BREATH ANALYZER
 	if(print_reagent_default_message)
 		dat += "No results."
 
-	if(H.virus2.len)
-		for (var/ID in H.virus2)
-			var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
-			if(istype(V))
-				dat += "<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>"
-
 	. += dat
 
 	header = jointext(header, null)

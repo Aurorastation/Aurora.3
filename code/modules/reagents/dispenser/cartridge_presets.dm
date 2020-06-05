@@ -101,7 +101,6 @@
 	bicaridine	spawn_reagent = "bicaridine"
 	hyperzine	spawn_reagent = "hyperzine"
 	rezadone	spawn_reagent = "rezadone"
-	deltamivir	spawn_reagent = "deltamivir"
 	thetamycin	spawn_reagent = "thetamycin"
 	coughsyrup	spawn_reagent = "coughsyrup"
 	benadryl	spawn_reagent = "diphenhydramine"

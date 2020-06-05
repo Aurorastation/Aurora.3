@@ -270,8 +270,7 @@ STOCK_ITEM_COMMON(scanners, 3.2)
 		/obj/item/device/reagent_scanner = 2,
 		/obj/item/device/reagent_scanner/adv = 2,
 		/obj/item/barcodescanner = 1,
-		/obj/item/device/depth_scanner = 1,
-		/obj/item/device/antibody_scanner = 0.5
+		/obj/item/device/depth_scanner = 1
 	)
 	for (var/i in 1 to rand(1, 3))
 		var/stype = pickweight(possible)
