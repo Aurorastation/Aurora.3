@@ -6,7 +6,6 @@
 	var/list/converting
 
 /datum/rune/convert/do_rune_action(mob/living/user, atom/movable/A)
-	. = ..()
 	LAZYINITLIST(converting)
 	var/mob/living/carbon/target
 	for(var/mob/living/carbon/M in get_turf(A))
