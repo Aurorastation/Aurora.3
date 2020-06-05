@@ -91,7 +91,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/machinery/door/window/westleft,
@@ -115,8 +114,7 @@
 /area/dungeon/syndie_listening_post)
 "ap" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/dungeon/syndie_listening_post)
@@ -140,15 +138,13 @@
 /area/dungeon/syndie_listening_post)
 "as" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1;
-	icon_state = "map"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/syndie_listening_post)
 "at" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/syndie_listening_post)
@@ -204,7 +200,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/machinery/door/window/northright,
@@ -359,11 +354,9 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -376,7 +369,6 @@
 "aW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair/office/dark{
-	icon_state = "officechair_dark";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -385,8 +377,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/light{
 	brightness_color = "#FA8282";
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/item/pen/fountain/black,
 /turf/simulated/floor/tiled/dark,
@@ -431,7 +422,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -473,7 +463,6 @@
 /obj/machinery/button/remote/airlock{
 	id = "listening_post_server";
 	name = "Door Bolt Control";
-	pixel_x = 0;
 	pixel_y = -32;
 	req_access = null;
 	specialfunctions = 4

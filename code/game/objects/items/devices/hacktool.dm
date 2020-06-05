@@ -46,7 +46,7 @@
 		return 0
 
 	if(A.Adjacent(user))
-		A.ui_interact(user, state = hack_state)
+		A.ui_interact(user)
 	return 1
 
 /obj/item/device/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)

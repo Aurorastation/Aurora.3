@@ -1,5 +1,5 @@
 /obj/machinery/weapons_analyzer
-	name = "Weapons Analyzer"
+	name = "weapons analyzer"
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "weapon_analyzer"
 	density = 1

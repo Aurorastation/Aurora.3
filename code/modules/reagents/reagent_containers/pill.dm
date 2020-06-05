@@ -30,7 +30,7 @@
 			if(!M.can_eat(src))
 				return
 
-			M.visible_message(span("notice", "[M] swallows a pill."), span("notice", "You swallow \the [src]."), null, 2)
+			M.visible_message("<b>[M]</b> swallows a pill.", span("notice", "You swallow \the [src]."), null, 2)
 			if(reagents.total_volume)
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 			qdel(src)
@@ -40,7 +40,7 @@
 			if(!M.can_force_feed(user, src))
 				return
 
-			user.visible_message(span("warning", "[user] attempts to force [M] to swallow \the [src]."))
+			user.visible_message(span("warning", "[user] attempts to force [M] to swallow \the [src]!"))
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			if(!do_mob(user, M))

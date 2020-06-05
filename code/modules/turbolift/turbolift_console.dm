@@ -25,7 +25,7 @@
 		if(user.a_intent == I_HURT)
 			user.visible_message("<span class='danger'>\The [user] hammers on the lift button!</span>")
 		else
-			user.visible_message("<span class='notice'>\The [user] presses the lift button.</span>")
+			user.visible_message("<b>\The [user]</b> presses the lift button.")
 
 
 /obj/structure/lift/Initialize(mapload, datum/turbolift/_lift)

@@ -146,6 +146,7 @@
 
 /obj/effect/spider/spiderling/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	entry_vent = null
 	return ..()
 
 /obj/effect/spider/spiderling/Collide(atom/user)
