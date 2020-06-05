@@ -540,5 +540,8 @@
 /datum/species/proc/handle_despawn()
 	return
 
+/datum/species/proc/has_special_sprint()
+	return FALSE
+
 /datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	return 1
+	return

@@ -282,6 +282,9 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
 
+/datum/species/machine/has_special_sprint()
+	return TRUE
+
 /datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
@@ -292,8 +295,8 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
 			playsound(get_turf(H), 'sound/machines/buzz-two.ogg', 100, 0)
 		else
-			return 1
-	return 0
+			return
+	return
 
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)

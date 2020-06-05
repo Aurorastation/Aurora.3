@@ -83,7 +83,6 @@
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
 
-
 	if(mRun in mutations)
 		tally = 0
 
@@ -98,7 +97,7 @@
 
 	tally = round(tally, 1)
 
-	return (tally + config.human_delay)
+	return tally + config.human_delay
 
 
 /mob/living/carbon/human/Allow_Spacemove(var/check_drift = 0)

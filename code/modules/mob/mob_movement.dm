@@ -289,18 +289,19 @@
 
 		if(mob_is_human)
 			var/mob/living/carbon/human/H = mob
-			if(MOVING_QUICKLY(H) && H.species.handle_sprint_cost(src, tally))
+			if(MOVING_QUICKLY(H))
+				if(H.species.has_special_sprint())
+					H.species.handle_sprint_cost(H, tally)
+				else
+					H.adjust_stamina(-(H.get_stamina_used_per_step()))
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
+				H.last_quick_move_time = world.time
 			else
 				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay)
-			H.last_quick_move_time = world.time
-			H.adjust_stamina(-(mob.get_stamina_used_per_step()))
-
 		move_delay += tally
 
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
 		if(config.Tickcomp)
-			// move_delay -= 1.3 //~added to the tickcomp calculation below
 			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
 			move_delay = move_delay + tickcomp
 
