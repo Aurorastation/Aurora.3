@@ -52,7 +52,7 @@
 	log_and_message_admins("used a manifest rune.")
 
 	// The cultist doesn't have to stand on the rune, but they will continually take damage for as long as they have a summoned ghost
-	while(user?.stat == CONSCIOUS && user.client)
+	while(user?.stat == CONSCIOUS && user.client && apparition)
 		user.take_organ_damage(1, 0)
 		sleep(30)
 	apparition_check()
