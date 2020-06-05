@@ -19162,8 +19162,8 @@
 	pixel_y = 2
 	},
 /obj/item/storage/briefcase/inflatable,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare/glowstick/red,
+/obj/item/device/flashlight/flare/glowstick/red,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -20505,40 +20505,40 @@
 /area/centcom/legion)
 "eQO" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
