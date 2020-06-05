@@ -5576,6 +5576,7 @@
 	},
 /obj/item/pen,
 /obj/machinery/firealarm/east,
+/obj/item/device/camera,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "ko" = (
@@ -6116,6 +6117,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/item/device/binoculars,
 /turf/simulated/floor/tiled,
 /area/security/checkpoint2)
 "ls" = (
@@ -8735,20 +8737,6 @@
 "qm" = (
 /turf/simulated/open,
 /area/turbolift/main_arrivals)
-"qn" = (
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 10
-	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/explored)
 "qo" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -23177,26 +23165,6 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/grass/alt,
 /area/hallway/secondary/entry/fore)
-"SF" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/ladder/up{
-	pixel_y = 16
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/arrivals)
 "SG" = (
 /obj/structure/cable/blue{
 	icon_state = "0-4"
@@ -23739,9 +23707,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/quartermaster/qm)
-"TL" = (
-/turf/simulated/wall,
-/area/crew_quarters/fitness/running)
 "TM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -49818,7 +49783,7 @@ ag
 ag
 ag
 ag
-ag
+sU
 sU
 sU
 sU
@@ -50075,7 +50040,7 @@ ag
 ag
 ag
 ag
-qb
+sU
 Op
 TG
 zy
@@ -59053,8 +59018,8 @@ aa
 aa
 ag
 ag
-qb
-qn
+xk
+aw
 aw
 aw
 aw
@@ -59310,7 +59275,7 @@ aw
 aa
 ag
 ag
-ag
+xk
 aw
 aw
 aw
@@ -59584,7 +59549,7 @@ ag
 ag
 ag
 ag
-TL
+tM
 RB
 IQ
 TM
@@ -59601,7 +59566,7 @@ Ce
 Cu
 AF
 Pi
-SF
+Uj
 JH
 Kd
 Ym
@@ -59841,7 +59806,7 @@ ag
 ag
 ag
 ag
-TL
+tM
 Cv
 Sn
 Cv
@@ -60098,7 +60063,7 @@ ag
 ag
 ag
 ag
-TL
+tM
 Zy
 TV
 Ip
