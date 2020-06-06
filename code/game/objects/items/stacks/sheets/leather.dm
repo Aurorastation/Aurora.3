@@ -5,7 +5,8 @@
 	icon_state = "sheet-hide"
 	default_type = "hide"
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/material/animalhide/human
 	name = "human skin"

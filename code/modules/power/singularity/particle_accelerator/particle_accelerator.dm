@@ -218,8 +218,6 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			update_state()
 		update_icon()
 		return TRUE
-	return FALSE
-
 
 /obj/machinery/particle_accelerator
 	name = "Particle Accelerator"
@@ -335,4 +333,3 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			use_power = 1
 		update_icon()
 		return TRUE
-	return FALSE

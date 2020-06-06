@@ -57,7 +57,7 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	heat_level_1 = 600		
+	heat_level_1 = 600
 	heat_level_2 = 1200
 	heat_level_3 = 2400
 
@@ -66,14 +66,15 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/change_monitor
+		/mob/living/carbon/human/proc/change_monitor,
+		/mob/living/carbon/human/proc/check_tag
 	)
 
 	flags = IS_IPC
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
-	blood_color = "#1F181F"
+	blood_color = COLOR_IPC_BLOOD
 	flesh_color = "#575757"
 	virus_immune = 1
 	reagent_tag = IS_MACHINE
@@ -113,6 +114,7 @@
 
 	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
 	default_citizenship = CITIZENSHIP_NONE
+	bodyfall_sound = "bodyfall_machine"
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
@@ -146,28 +148,24 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	return sanitizeName(new_name, allow_numbers = 1)
 
 /datum/species/machine/proc/check_tag(var/mob/living/carbon/human/new_machine, var/client/player)
-	if (!new_machine || !player)
+	if(!new_machine || !player)
+		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
+		if(tag)
+			tag.serial_number = uppertext(dd_limittext(md5(new_machine.real_name), 12))
+			tag.ownership_info = IPC_OWNERSHIP_COMPANY
+			tag.citizenship_info = CITIZENSHIP_BIESEL
 		return
 
-	if (establish_db_connection(dbcon))
+	var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
 
-		var/obj/item/organ/internal/ipc_tag/tag = new_machine.internal_organs_by_name[BP_IPCTAG]
-
-		var/status = TRUE
-		var/list/query_details = list("ckey" = player.ckey, "character_name" = player.prefs.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
-		query.Execute(query_details)
-
-		if (query.NextRow())
-			status = text2num(query.item[1])
-		else
-			var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO ss13_ipc_tracking (player_ckey, character_name, tag_status) VALUES (:ckey:, :character_name:, 1)")
-			log_query.Execute(query_details)
-
-		if (!status)
-			new_machine.internal_organs_by_name -= BP_IPCTAG
-			new_machine.internal_organs -= tag
-			qdel(tag)
+	if(player.prefs.machine_tag_status)
+		tag.serial_number = player.prefs.machine_serial_number
+		tag.ownership_info = player.prefs.machine_ownership_status
+		tag.citizenship_info = new_machine.citizenship
+	else
+		new_machine.internal_organs_by_name -= BP_IPCTAG
+		new_machine.internal_organs -= tag
+		qdel(tag)
 
 /datum/species/machine/proc/update_tag(var/mob/living/carbon/human/target, var/client/player)
 	if (!target || !player)
@@ -302,4 +300,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
+	return FALSE
+
+/datum/species/machine/has_psi_potential()
 	return FALSE

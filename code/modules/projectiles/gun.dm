@@ -49,6 +49,7 @@
 	zoomdevicename = "scope"
 
 	var/burst = 1
+	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 1	//delay between shots, if firing in bursts
 	var/move_delay = 0
@@ -94,6 +95,7 @@
 	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -125,6 +127,7 @@
 
 	if(has_safety)
 		cut_overlay(safety_overlay, TRUE)
+		safety_overlay = null
 		if(!isturf(loc)) // In a mob, holster or bag or something
 			safety_overlay = image(gun_gui_icons,"[safety()]")
 			add_overlay(safety_overlay, TRUE)
@@ -180,8 +183,6 @@
 			return FALSE
 		else
 			return TRUE
-
-	return TRUE
 
 /obj/item/gun/verb/wield_gun()
 	set name = "Wield Firearm"
@@ -291,7 +292,7 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, i == burst)
+			handle_post_fire(user, target, pointblank, reflex, TRUE)
 			update_icon()
 
 		if(i < burst)
@@ -304,8 +305,9 @@
 	update_held_icon()
 
 	//update timing
-	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
-	user.setMoveCooldown(move_delay)
+	var/delay = min(max(burst_delay+1, fire_delay), DEFAULT_QUICK_COOLDOWN)
+	if(delay)
+		user.setClickCooldown(delay)
 	next_fire_time = world.time + fire_delay
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
@@ -384,25 +386,25 @@
 	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
-/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
 		playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
 
-		if (playemote)
+		if(playemote)
 			if(reflex)
 				user.visible_message(
-					span("reflex_shoot","<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!</b>"),
-					span("reflex_shoot", "You fire \the [src] by reflex!"),
+					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!"),
 					"You hear a [fire_sound_text]!"
-					)
+				)
 			else
 				user.visible_message(
-					span("danger","\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!"),
-					span("warning","You fire \the [src]!"),
+					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
 					"You hear a [fire_sound_text]!"
-					)
+				)
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
@@ -413,7 +415,7 @@
 
 	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
 		var/mob/living/carbon/human/H = user
-		if(istype(H.back,/obj/item/rig))
+		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
 				S.deactivate()
@@ -523,7 +525,7 @@
 			user.apply_effect(110,PAIN,0)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
-			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", sharp=1)
+			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
 		qdel(in_chamber)
 		mouthshoot = FALSE
@@ -748,8 +750,8 @@
 	if (!QDELETED(src))
 		qdel(src)
 
-/obj/item/offhand/mob_can_equip(var/mob/M, slot)
-		return FALSE
+/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+	return FALSE
 
 /obj/item/gun/Destroy()
 	if (istype(pin))
@@ -818,3 +820,8 @@
 				qdel(pin)
 				pin = null
 	return ..()
+
+//Autofire
+
+/obj/item/gun/proc/can_autofire()
+	return (can_autofire && world.time >= next_fire_time)

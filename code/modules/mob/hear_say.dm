@@ -1,17 +1,17 @@
 // At minimum every mob has a hear_say proc.
 
 /mob/proc/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if(!istype(src, /mob/living/test) && !client)
+	if(!istype(src, /mob/living/test) && (!client && !vr_mob))
 		return
 
-	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !speaker in view(src)))
+	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
 			//Or someone snoring.  So we make it where they won't hear it.
 		return
 
 	//make sure the air can transmit speech - hearer's side
 	var/turf/T = get_turf(src)
-	if ((T) && (!(istype(src, /mob/abstract/observer)))) //Ghosts can hear even in vacuum.
+	if ((T) && (!(isobserver(src)))) //Ghosts can hear even in vacuum.
 		var/datum/gas_mixture/environment = T.return_air()
 		var/pressure = (environment)? environment.return_pressure() : 0
 		if(pressure < SOUND_MINIMUM_PRESSURE && get_dist(speaker, src) > 1)
@@ -21,7 +21,7 @@
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-	if(sleeping || stat == 1)
+	if((sleeping && !vr_mob) || stat == 1)
 		hear_sleep(message)
 		return
 
@@ -42,7 +42,7 @@
 					message = stars(message)
 
 	var/speaker_name = speaker.name
-	if(istype(speaker, /mob/living/carbon/human))
+	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.GetVoice()
 
@@ -50,13 +50,13 @@
 		message = "<i>[message]</i>"
 
 	var/track = null
-	if(istype(src, /mob/abstract/observer))
+	if(isobserver(src))
 		if(italics && client.prefs.toggles & CHAT_GHOSTRADIO)
 			return
 		if(speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
-		if(client.prefs.toggles & CHAT_GHOSTEARS && speaker in view(src))
+		if((client.prefs.toggles & CHAT_GHOSTEARS) && (speaker in view(src)))
 			message = "<b>[message]</b>"
 
 	var/hearing_aid = FALSE
@@ -78,20 +78,24 @@
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
 			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
+		return TRUE
 
 /mob/proc/on_hear_say(var/message)
 	to_chat(src, message)
+	if(vr_mob)
+		to_chat(vr_mob, message)
 
 /mob/living/silicon/on_hear_say(var/message)
 	var/time = say_timestamp()
 	to_chat(src, "[time] [message]")
+	if(vr_mob)
+		to_chat(vr_mob, "[time] [message]")
 
 /mob/proc/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
-
-	if(!client)
+	if(!client && !vr_mob)
 		return
 
-	if(sleeping || stat==1) //If unconscious or sleeping
+	if((sleeping && !vr_mob) || stat==1) //If unconscious or sleeping
 		hear_sleep(message)
 		return
 
@@ -123,7 +127,7 @@
 	if(speaker != null)
 		speaker_name = speaker.name
 	else
-		speaker_name = "unknown"
+		speaker_name = "Unknown"
 
 	if(istype(speaker, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = speaker
@@ -134,7 +138,7 @@
 		speaker_name = vname
 
 	if(hard_to_hear)
-		speaker_name = "unknown"
+		speaker_name = "Unknown"
 
 	var/changed_voice
 
@@ -208,6 +212,8 @@
 
 /mob/proc/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	to_chat(src, "[part_a][speaker_name][part_b][formatted]")
+	if(vr_mob)
+		to_chat(vr_mob, "[part_a][speaker_name][part_b][formatted]")
 
 /mob/abstract/observer/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	to_chat(src, "[track][part_a][speaker_name][part_b][formatted]")
@@ -215,10 +221,14 @@
 /mob/living/silicon/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	var/time = say_timestamp()
 	to_chat(src, "[time][part_a][speaker_name][part_b][formatted]")
+	if(vr_mob)
+		to_chat(vr_mob, "[time][part_a][speaker_name][part_b][formatted]")
 
 /mob/living/silicon/ai/on_hear_radio(part_a, speaker_name, track, part_b, formatted)
 	var/time = say_timestamp()
 	to_chat(src, "[time][part_a][track][part_b][formatted]")
+	if(vr_mob)
+		to_chat(vr_mob, "[time][part_a][track][part_b][formatted]")
 
 /mob/proc/hear_signlang(var/message, var/verb = "gestures", var/datum/language/language, var/mob/speaker = null)
 	if(!client || !speaker)

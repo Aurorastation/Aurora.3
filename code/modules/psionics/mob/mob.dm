@@ -1,8 +1,8 @@
 /mob/living
 	var/datum/psi_complexus/psi
 
-/mob/living/Login()
-	. = ..()
+/mob/living/LateLogin()
+	..()
 	if(psi)
 		psi.update(TRUE)
 		if(!psi.suppressed)

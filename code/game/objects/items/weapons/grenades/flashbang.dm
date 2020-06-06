@@ -63,10 +63,7 @@
 
 //Now applying sound
 	if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
-		if(ear_safety > 0)
-			M.Weaken(1)
-		else
-			M.Weaken(3)
+		if(!(ear_safety > 0))
 			if ((prob(14) || (M == src.loc && prob(70))))
 				M.ear_damage += rand(1, 10)
 			else

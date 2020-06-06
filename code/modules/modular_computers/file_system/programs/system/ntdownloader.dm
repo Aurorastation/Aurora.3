@@ -9,228 +9,224 @@
 	size = 4
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SOFTWAREDOWNLOAD
-	available_on_ntnet = FALSE
-	nanomodule_path = /datum/nano_module/program/computer_ntnetdownload
+	available_on_ntnet = 0
 	ui_header = "downloader_finished.gif"
-	var/datum/computer_file/program/downloaded_file = null
-	var/hacked_download = 0
-	var/download_completion = 0 //GQ of downloaded data.
-	var/download_netspeed = 0
-	var/download_last_update = 0 // For tracking download rates and completion.
-	var/downloaderror = ""
-	var/downstream_variance = 0.1
+	var/list/download_queue = list()
+	var/list/download_files = list()
+	var/queue_size = 0
+	var/active_download = null
+	var/last_update = 0
+	var/speed = 0
 
-/datum/computer_file/program/ntnetdownload/proc/begin_file_download(var/filename, var/user = null)
-	if(downloaded_file)
-		return FALSE
 
-	var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(filename)
+/datum/computer_file/program/ntnetdownload/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-system-downloader", 575, 700, "NTNet Download Program", state = state)
+	ui.open()
 
-	if(!PRG || !istype(PRG))
-		return FALSE
+/datum/computer_file/program/ntnetdownload/vueui_transfer(oldobj)
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-system-downloader", 575, 700, "NTNet Download Program")
+	return TRUE
 
+// Gaters data for ui
+/datum/computer_file/program/ntnetdownload/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+	. = ..()
+	data = . || data || list("queue" = download_queue)
+
+	if(!istype(computer))
+		return
+
+	// Gather data for computer header
+	var/headerdata = get_header_data(data["_PC"])
+	if(headerdata)
+		data["_PC"] = headerdata
+		. = data
+
+	// Let's send all installed programs
+	LAZYINITLIST(data["installed"])
+	for(var/datum/computer_file/program/I in hard_drive.stored_files)
+		LAZYINITLIST(data["installed"][I.filename])
+		VUEUI_SET_CHECK(data["installed"][I.filename]["name"], I.filedesc, ., data)
+		VUEUI_SET_CHECK(data["installed"][I.filename]["size"], I.size, ., data)
+
+	// Now lets send all available programs with their status.
+	// Statuses (rest): 0 - ALL OK, 1 - can't download due to access, 2 - unsuported hardware, 3 - sindies only
+	LAZYINITLIST(data["available"])
+	for(var/datum/computer_file/program/P in ntnet_global.available_software)
+		LAZYINITLIST(data["available"][P.filename])
+		VUEUI_SET_CHECK(data["available"][P.filename]["name"], P.filedesc, ., data)
+		VUEUI_SET_CHECK(data["available"][P.filename]["desc"], P.extended_desc, ., data)
+		VUEUI_SET_CHECK(data["available"][P.filename]["size"], P.size, ., data)
+		if(computer_emagged)
+			if(!P.is_supported_by_hardware(computer.hardware_flag))
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 2, ., data)
+			else
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 0, ., data)
+		else
+			if(!P.available_on_ntnet)
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 3, ., data)
+			else if(!P.can_download(user) && P.requires_access_to_download)
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 1, ., data)
+			else if(!P.is_supported_by_hardware(computer.hardware_flag))
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 2, ., data)
+			else
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 0, ., data)
+
+	VUEUI_SET_CHECK(data["disk_size"], hard_drive.max_capacity, ., data)
+	VUEUI_SET_CHECK(data["disk_used"], hard_drive.used_capacity, ., data)
+	VUEUI_SET_CHECK(data["queue_size"], queue_size, ., data)
+	VUEUI_SET_CHECK(data["speed"], speed, ., data)
+
+	for(var/name in download_queue)
+		VUEUI_SET_CHECK(data["queue"][name], download_queue[name], ., data)
+
+
+/datum/computer_file/program/ntnetdownload/Topic(href, href_list)
+	if(..())
+		return 1
+
+	var/datum/vueui/ui = href_list["vueui"]
+	if(!istype(ui))
+		return
+
+	if(href_list["download"])
+		var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(href_list["download"])
+		
+		if(!istype(PRG))
+			return 1
+		return add_to_queue(PRG, ui.user)
+
+	if(href_list["cancel"])
+		return cancel_from_queue(href_list["cancel"])
+
+/datum/computer_file/program/ntnetdownload/proc/add_to_queue(var/datum/computer_file/program/PRG, var/mob/user)
 	// Attempting to download antag only program, but without having emagged computer. No.
 	if(PRG.available_on_syndinet && !computer_emagged)
 		return FALSE
 
-	if(!computer || !computer.hard_drive || !computer.hard_drive.try_store_file(PRG))
+	if(!hard_drive.can_store_file(queue_size + PRG.size))
+		to_chat(user, SPAN_WARNING("You can't download this program as queued items exceed hard drive capacity."))
+		return TRUE
+
+	if(!computer?.hard_drive?.try_store_file(PRG))
 		return FALSE
 
-	if(computer.enrolled == 1 && !computer_emagged)
+	if(!computer_emagged && !PRG.can_download(user) && PRG.requires_access_to_download)
+		return TRUE
+
+	if(!PRG.is_supported_by_hardware(computer.hardware_flag))
 		return FALSE
 
-	ui_header = "downloader_running.gif"
-
-	if(PRG in ntnet_global.available_station_software)
+	if(PRG.available_on_ntnet)
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from NTNet Software Repository.")
-		hacked_download = 0
-	else if(PRG in ntnet_global.available_antag_software)
+	else if (PRG.available_on_syndinet)
 		generate_network_log("Began downloading file **ENCRYPTED**.[PRG.filetype] from unspecified server.")
-		hacked_download = 1
 	else
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from unspecified server.")
-		hacked_download = 0
 
-	downloaded_file = PRG.clone()
-	if (user)
-		spawn()
-			ui_interact(user)
 
-/datum/computer_file/program/ntnetdownload/proc/abort_file_download()
-	if(!downloaded_file)
+	download_files[PRG.filename] = PRG.clone()
+	queue_size += PRG.size
+	download_queue[PRG.filename] = 0
+	for(var/i in SSvueui.get_open_uis(src))
+		var/datum/vueui/ui = i
+		ui.data["queue"][PRG.filename] = 0
+		ui.push_change()
+	return TRUE
+
+/datum/computer_file/program/ntnetdownload/proc/cancel_from_queue(var/name)
+	if(!download_files[name])
 		return
-	generate_network_log("Aborted download of file [hacked_download ? "**ENCRYPTED**" : downloaded_file.filename].[downloaded_file.filetype].")
-	downloaded_file = null
-	download_completion = 0
-	download_last_update = 0
-	ui_header = "downloader_finished.gif"
+	var/datum/computer_file/program/PRG = download_files[name]
+	var/hacked_download = PRG.available_on_syndinet && !PRG.available_on_ntnet
+	generate_network_log("Aborted download of file [hacked_download ? "**ENCRYPTED**" : PRG.filename].[PRG.filetype].")
+	download_queue -= name
+	download_files -= name
+	queue_size -= PRG.size
+	for(var/i in SSvueui.get_open_uis(src))
+		var/datum/vueui/ui = i
+		ui.data["queue"] -= name
+		ui.push_change()
 
-/datum/computer_file/program/ntnetdownload/proc/complete_file_download()
-	if(!downloaded_file)
+/datum/computer_file/program/ntnetdownload/proc/finish_from_queue(var/name)
+	if(!download_files[name])
 		return
-	generate_network_log("Completed download of file [hacked_download ? "**ENCRYPTED**" : downloaded_file.filename].[downloaded_file.filetype].")
-	if(!computer || !computer.hard_drive || !computer.hard_drive.store_file(downloaded_file))
-		// The download failed
-		downloaderror = "I/O ERROR - Unable to save file. Check whether you have enough free space on your hard drive and whether your hard drive is properly connected. If the issue persists contact your system administrator for assistance."
-	downloaded_file = null
-	download_completion = 0
-	download_last_update = 0
-	ui_header = "downloader_finished.gif"
+
+	var/datum/computer_file/program/PRG = download_files[name]
+	var/hacked_download = PRG.available_on_syndinet && !PRG.available_on_ntnet
+	generate_network_log("Completed download of file [hacked_download ? "**ENCRYPTED**" : PRG.filename].[PRG.filetype].")
+	if(!computer?.hard_drive?.store_file(PRG))
+		download_queue[name] = -1
+		for(var/i in SSvueui.get_open_uis(src))
+			var/datum/vueui/ui = i
+			ui.data["queue"] = -1
+			ui.push_change()
+		return
+
+	download_queue -= name
+	download_files -= name
+	queue_size -= PRG.size
+	for(var/i in SSvueui.get_open_uis(src))
+		var/datum/vueui/ui = i
+		ui.data["queue"] -= name
+		ui.push_change()
+
 
 /datum/computer_file/program/ntnetdownload/process_tick()
-	if(!downloaded_file)
+	if(!queue_size)
+		ui_header = "downloader_finished.gif"
 		return
-	if(download_completion >= downloaded_file.size)
-		complete_file_download()
-		return
-	// Download speed according to connectivity state. NTNet server is assumed to be on unlimited speed so we're limited by our local connectivity
-	download_netspeed = 0
-	// Speed defines are found in misc.dm
-	switch(ntnet_status)
-		if(1)
-			download_netspeed = NTNETSPEED_LOWSIGNAL
-			downstream_variance = 0.3
-		if(2)
-			download_netspeed = NTNETSPEED_HIGHSIGNAL
-			downstream_variance = 0.2
-		if(3)
-			download_netspeed = NTNETSPEED_ETHERNET
+	ui_header = "downloader_running.gif"
 
-	// We recovered connection or started a new download.
-	// So we don't have any bytes yet. We'll get them next time!
-	if (!download_last_update)
-		download_last_update = world.time
-		return
-
-	var/delta = ((rand() - 0.5) * 2) * downstream_variance * download_netspeed
-	//Download speed varies +/- 10% each proc. Adds a more realistic feel
-
-	download_netspeed += delta
-	download_netspeed = round(download_netspeed, 0.002)//3 decimal places
-
-	var/delta_seconds = (world.time - download_last_update) / 10
-
-	download_completion = min(download_completion + delta_seconds * download_netspeed, downloaded_file.size)
-
-	// No connection, so cancel the download.
-	// This is done at the end because of logic reasons.
-	// Trust me, it's fine. - Skull132
-	if (!download_netspeed)
-		download_last_update = 0
-	else
-		download_last_update = world.time
-
-/datum/computer_file/program/ntnetdownload/Topic(href, href_list)
-	if(..())
-		return TRUE
-	if(href_list["PRG_downloadfile"])
-		if(!downloaded_file)
-			begin_file_download(href_list["PRG_downloadfile"], usr)
-		return TRUE
-	if(href_list["PRG_reseterror"])
-		if(downloaderror)
-			download_completion = 0
-			download_netspeed = 0
-			downloaded_file = null
-			downloaderror = ""
-		return TRUE
-	return FALSE
-
-/datum/nano_module/program/computer_ntnetdownload
-	name = "Network Downloader"
-	var/obj/item/modular_computer/my_computer = null
-
-/datum/nano_module/program/computer_ntnetdownload/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	if(program)
-		my_computer = program.computer
-
-	if(!istype(my_computer))
-		return
-
-	var/list/data = list()
-	var/datum/computer_file/program/ntnetdownload/prog = program
-	// For now limited to execution by the downloader program
-	if(!prog || !istype(prog))
-		return
-	if(program)
-		data = list("_PC" = program.get_header_data())
-
-	// This IF cuts on data transferred to client, so i guess it's worth it.
-	if(prog.downloaderror) // Download errored. Wait until user resets the program.
-		data["error"] = prog.downloaderror
-	else if(prog.downloaded_file) // Download running. Wait please..
-		if (ui)
-			ui.set_auto_update(1)
-		data["downloadname"] = prog.downloaded_file.filename
-		data["downloaddesc"] = prog.downloaded_file.filedesc
-		data["downloadsize"] = prog.downloaded_file.size
-		data["downloadspeed"] = prog.download_netspeed //Even if it does update every 2 seconds, this is bad coding on everyone's count. :ree:
-		data["downloadcompletion"] = round(prog.download_completion, 0.01)
-	else // No download running, pick file.
-		if (ui)
-			ui.set_auto_update(0)//No need for auto updating on the software menu
-		data["disk_size"] = my_computer.hard_drive.max_capacity
-		data["disk_used"] = my_computer.hard_drive.used_capacity
-		if(my_computer.enrolled == 2) //To lock installation of software on work computers until the IT Department is properly implemented - Then check for access on enrolled computers
-			data += get_programlist(user)
-		else
-			data["downloadable_programs"] = list()
-			data["locked"] = 1
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "ntnet_downloader.tmpl", "NTNet Download Program", 575, 700, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
-
-
-/datum/nano_module/program/computer_ntnetdownload/proc/get_programlist(var/mob/user)
-	var/list/all_entries[0]
-	var/datum/computer_file/program/ntnetdownload/prog = program
-	var/list/data = list()
-	data["hackedavailable"] = 0
-	for(var/datum/computer_file/program/P in ntnet_global.available_station_software)
-		var/installed = 0
-		for(var/datum/computer_file/program/Q in program.holder.stored_files)
-			if (istype(P, Q.type))
-				installed = 1
+	if(download_queue[active_download] == null)
+		for(var/name in download_queue)
+			if(download_queue[name] >= 0)
+				active_download = name
 				break
+		if(download_queue[active_download] == null)
+			return
 
-		if (!installed)
-			// Only those programs our user can run will show in the list
-			if(!P.can_download(user) && P.requires_access_to_download)
-				continue
-			
-			if(!P.is_supported_by_hardware(program.computer.hardware_flag))
-				continue
+	var/datum/computer_file/active_download_file = download_files[active_download]
+	if(download_queue[active_download] >= 0)
+		if (!last_update)
+			last_update = world.time
+			return
+		speed = 0
+		var/variance = 0.1
+		switch(ntnet_status)
+			if(1)
+				speed = NTNETSPEED_LOWSIGNAL
+				variance = 0.3
+			if(2)
+				speed = NTNETSPEED_HIGHSIGNAL
+				variance = 0.2
+			if(3)
+				speed = NTNETSPEED_ETHERNET
 
-			all_entries.Add(list(list(
-				"filename" = P.filename,
-				"filedesc" = P.filedesc,
-				"fileinfo" = P.extended_desc,
-				"size" = P.size
-				)))
+		var/delta = ((rand() - 0.5) * 2) * variance * speed
+		//Download speed varies +/- 10% each proc. Adds a more realistic feels
+		speed += delta
+		speed = round(speed, 0.002)//3 decimal places
 
-	if(prog.computer_emagged) // If we are running on emagged computer we have access to some "bonus" software
-		var/list/hacked_programs[0]
-		for(var/datum/computer_file/program/P in ntnet_global.available_antag_software)
-			var/installed = 0
-			for(var/datum/computer_file/program/Q in program.holder.stored_files)
-				if (istype(P, Q.type))
-					installed = 1
-					break
+		var/delta_seconds = (world.time - last_update) / 10
 
-			if (!installed)
-				data["hackedavailable"] = 1
-				hacked_programs.Add(list(list(
-				"filename" = P.filename,
-				"filedesc" = P.filedesc,
-				"fileinfo" = P.extended_desc,
-				"size" = P.size
-				)))
-				data["hacked_programs"] = hacked_programs
+		download_queue[active_download] = min(download_queue[active_download] + delta_seconds * speed, active_download_file.size)
+
+		// No connection, so cancel the download.
+		// This is done at the end because of logic reasons.
+		// Trust me, it's fine. - Skull132
+		if (!speed)
+			last_update = 0
+		else
+			last_update = world.time
 
 
-	data["downloadable_programs"] = all_entries
-	return data
+	if(download_queue[active_download] >= active_download_file.size)
+		finish_from_queue(active_download)
+		active_download = null
+		playsound(get_turf(computer), 'sound/machines/ping.ogg', 40, 0)
+		computer.output_message("\icon[computer] <b>[capitalize_first_letters(computer)]</b> pings, \"Software download completed successfully!\"", 1)
+
+	SSvueui.check_uis_for_change(src)
+	

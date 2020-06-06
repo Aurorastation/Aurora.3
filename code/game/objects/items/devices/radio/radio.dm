@@ -26,7 +26,7 @@ var/global/list/default_medbay_channels = list(
 	name = "station bounced radio"
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
-	item_state = "walkietalkie"
+	item_state = "radio"
 	var/on = 1 // 0 for off
 	var/last_transmission
 	var/frequency = PUB_FREQ //common chat
@@ -47,8 +47,12 @@ var/global/list/default_medbay_channels = list(
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
 	var/const/FREQ_LISTENING = 1
 	var/list/internal_channels
+	var/clicksound = "button" //played sound on usage
+	var/clickvol = 10 //volume
+
 
 	var/obj/item/cell/cell = /obj/item/cell/device
+	var/last_radio_sound = -INFINITY
 
 /obj/item/device/radio
 	var/datum/radio_frequency/radio_connection
@@ -183,6 +187,11 @@ var/global/list/default_medbay_channels = list(
 		return STATUS_CLOSE
 	return ..()
 
+/obj/item/device/radio/CouldUseTopic(var/mob/user)
+	..()
+	if(clicksound && iscarbon(user))
+		playsound(src, clicksound, clickvol)
+
 /obj/item/device/radio/Topic(href, href_list)
 	if(..())
 		return 1
@@ -227,6 +236,7 @@ var/global/list/default_medbay_channels = list(
 
 	if(.)
 		SSnanoui.update_uis(src)
+		update_icon()
 
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
@@ -280,10 +290,10 @@ var/global/list/default_medbay_channels = list(
 	return null
 
 /obj/item/device/radio/talk_into(mob/living/M, message, channel, var/verb = "says", var/datum/language/speaking = null)
-	if(!on) 
+	if(!on)
 		return 0 // the device has to be on
 	//  Fix for permacell radios, but kinda eh about actually fixing them.
-	if(!M || !message) 
+	if(!M || !message)
 		return 0
 
 	if (iscarbon(M))
@@ -292,7 +302,7 @@ var/global/list/default_medbay_channels = list(
 			to_chat(M, span("warning", "Your can't move your arms enough to activate the radio..."))
 			return
 
-	if(istype(M)) 
+	if(istype(M))
 		M.trigger_aiming(TARGET_CAN_RADIO)
 
 	//  Uncommenting this. To the above comment:
@@ -302,6 +312,9 @@ var/global/list/default_medbay_channels = list(
 
 	if(!radio_connection)
 		set_frequency(frequency)
+
+	if(loc == M)
+		playsound(loc, 'sound/effects/walkietalkie.ogg', 5, 0, -1, required_asfx_toggles = ASFX_RADIO)
 
 	/* Quick introduction:
 		This new radio system uses a very robust FTL signaling technology unoriginally
@@ -425,7 +438,7 @@ var/global/list/default_medbay_channels = list(
 			R.receive_signal(signal)
 
 		// Receiving code can be located in Telecommunications.dm
-		return signal.data["done"] && position.z in signal.data["level"]
+		return signal.data["done"] && (position.z in signal.data["level"])
 
 
   /* ###### Intercoms and station-bounced radios ###### */
@@ -476,7 +489,7 @@ var/global/list/default_medbay_channels = list(
 
 	sleep(rand(10,25)) // wait a little...
 
-	if(signal.data["done"] && position.z in signal.data["level"])
+	if(signal.data["done"] && (position.z in signal.data["level"]))
 		// we're done here.
 		return 1
 
@@ -767,8 +780,3 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/phone/medbay/Initialize()
 	. = ..()
 	internal_channels = default_medbay_channels.Copy()
-
-/obj/item/device/radio/CouldUseTopic(var/mob/user)
-	..()
-	if(iscarbon(user))
-		playsound(src, "button", 10)

@@ -488,6 +488,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
 	. = ..(mapload, amt)
@@ -503,7 +504,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/item/stack/cable_coil/attack(mob/living/carbon/M, mob/user)
 	if(..())
 		return TRUE
-	
+
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
@@ -512,7 +513,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			if(can_operate(H))
 				if(do_surgery(H,user,src))
 					return TRUE
-		else 
+		else
 			if(!BP_IS_ROBOTIC(affecting))
 				if(affecting.is_bandaged())
 					to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been closed.</span>")
@@ -608,6 +609,15 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		icon_state = "coil"
 		name = "cable coil"
 
+/obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
+	if(W.ismultitool())
+		choose_cable_color(user)
+	return ..()
+
+/obj/item/stack/cable_coil/proc/choose_cable_color(var/user)
+	var/selected_type = input("Pick new colour.", "Cable Colour", null, null) as null|anything in possible_cable_coil_colours
+	set_cable_color(selected_type, usr)
+
 /obj/item/stack/cable_coil/proc/set_cable_color(var/selected_color, var/user)
 	if(!selected_color)
 		return
@@ -668,8 +678,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	set name = "Change Colour"
 	set category = "Object"
 
-	var/selected_type = input("Pick new colour.", "Cable Colour", null, null) as null|anything in possible_cable_coil_colours
-	set_cable_color(selected_type, usr)
+	choose_cable_color(usr)
 
 // Items usable on a cable coil :
 //   - Wirecutters : cut them duh !

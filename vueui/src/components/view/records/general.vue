@@ -42,7 +42,7 @@
       </template>
       <slot/>
     </vui-group>
-    <vui-button v-if="!hideAdvanced && (avaivabletypes & 1)" :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete record</vui-button>
+    <vui-button v-if="!hideAdvanced && (editable & 1)" :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete record</vui-button>
   </div>
 </template>
 

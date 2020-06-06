@@ -111,8 +111,8 @@
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
 /mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view)
-	var/list/messageturfs = list()//List of turfs we broadcast to.
-	var/list/messagemobs = list()//List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
+	var/list/messageturfs = list() //List of turfs we broadcast to.
+	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
@@ -124,12 +124,15 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if(get_turf(M) in messageturfs)
+		if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/A in messagemobs)
 		var/mob/M = A
-		if(self_message && M==src)
+		if(isobserver(M))
+			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
+			continue
+		if(self_message && M == src)
 			M.show_message(self_message, 1, blind_message, 2)
 		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
 			if(blind_message)
@@ -257,6 +260,7 @@
 
 /mob/proc/reset_view(atom/A)
 	if (client)
+		A = A ? A : eyeobj
 		if (istype(A, /atom/movable))
 			client.perspective = EYE_PERSPECTIVE
 			client.eye = A
@@ -984,7 +988,11 @@
 	return ""
 
 /mob/proc/flash_weak_pain()
-	flick("weak_pain",pain)
+	flick("weak_pain", pain)
+
+/mob/living/carbon/human/flash_weak_pain()
+	if(can_feel_pain())
+		flick("weak_pain", pain)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
@@ -1148,7 +1156,7 @@
 		if(istype(I,/mob/living/simple_animal/borer))
 			return I
 
-	return 0
+	return null
 
 /mob/proc/Released()
 	//This is called when the mob is let out of a holder

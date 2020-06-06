@@ -7,11 +7,11 @@
 	idle_power_usage = 100
 	icon_state = "ntnet"
 	icon = 'icons/obj/machines/telecomms.dmi'
-	anchored = 1
-	density = 1
-	var/datum/ntnet/NTNet = null // This is mostly for backwards reference and to allow varedit modifications from ingame.
-	var/enabled = 1				// Set to 0 if the relay was turned off
-	var/dos_failure = 0			// Set to 1 if the relay failed due to (D)DoS attack
+	anchored = TRUE
+	density = TRUE
+	var/datum/ntnet/NTNet			// This is mostly for backwards reference and to allow varedit modifications from ingame.
+	var/enabled = TRUE				// Set to FALSE if the relay was turned off
+	var/dos_failure = FALSE			// Set to TRUE if the relay failed due to (D)DoS attack
 	var/list/dos_sources = list()	// Backwards reference for qdel() stuff
 
 	// Denial of Service attack variables
@@ -27,30 +27,24 @@
 // TODO: Implement more logic here. For now it's only a placeholder.
 /obj/machinery/ntnet_relay/operable()
 	if(!..(EMPED))
-		return 0
+		return FALSE
 	if(dos_failure)
-		return 0
+		return FALSE
 	if(!enabled)
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 /obj/machinery/ntnet_relay/update_icon()
 	icon_state = initial(icon_state)
-
 	cut_overlays()
-
-	if (panel_open)
+	if(panel_open)
 		icon_state += "_o"
-
-	if (!operable())
+	if(!operable())
 		icon_state += "_off"
-
-	else if (dos_failure)
+	else if(dos_failure)
 		add_overlay("ntnet_o_problem")
-
-	else if (!enabled)
+	else if(!enabled)
 		add_overlay("ntnet_o_error")
-
 	else
 		add_overlay("ntnet_o_ok")
 
@@ -65,12 +59,12 @@
 
 	// If DoS traffic exceeded capacity, crash.
 	if((dos_overload > dos_capacity) && !dos_failure)
-		dos_failure = 1
+		dos_failure = TRUE
 		update_icon()
 		ntnet_global.add_log("Quantum relay switched from normal operation mode to overload recovery mode.")
 	// If the DoS buffer reaches 0 again, restart.
 	if((dos_overload == 0) && dos_failure)
-		dos_failure = 0
+		dos_failure = FALSE
 		update_icon()
 		ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
 	..()
@@ -94,10 +88,10 @@
 
 /obj/machinery/ntnet_relay/Topic(href, href_list)
 	if(..())
-		return 1
+		return TRUE
 	if(href_list["restart"])
-		dos_overload = 0
-		dos_failure = 0
+		dos_overload = FALSE
+		dos_failure = FALSE
 		update_icon()
 		ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
 	else if(href_list["toggle"])
@@ -127,22 +121,22 @@
 		D.error = "Connection to quantum relay severed"
 	return ..()
 
-/obj/machinery/ntnet_relay/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/machinery/ntnet_relay/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
-		playsound(src.loc, W.usesound, 50, 1)
+		playsound(get_turf(src), W.usesound, 50, TRUE)
 		panel_open = !panel_open
-		to_chat(user, "You [panel_open ? "open" : "close"] the maintenance hatch")
+		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch."))
 		return
 	if(W.iscrowbar())
 		if(!panel_open)
-			to_chat(user, "Open the maintenance panel first.")
+			to_chat(user, SPAN_WARNING("Open the maintenance panel first."))
 			return
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-		to_chat(user, "You disassemble \the [src]!")
+		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
+		to_chat(user, SPAN_NOTICE("You disassemble \the [src]!"))
 
 		for(var/atom/movable/A in component_parts)
-			A.forceMove(src.loc)
-		new/obj/machinery/constructable_frame/machine_frame(src.loc)
+			A.forceMove(get_turf(src))
+		new /obj/machinery/constructable_frame/machine_frame(get_turf(src))
 		qdel(src)
 		return
 	..()

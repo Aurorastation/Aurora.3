@@ -22,9 +22,8 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	var/pin_replaceable = 0 // Can be replaced by any pin.
 	var/durable = FALSE //is destroyed when it's pried out with a screwdriver, see gun.dm
 	var/obj/item/gun/gun
-	drop_sound = 'sound/items/drop/scrap.ogg'
-
-
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
 
 /obj/item/device/firing_pin/Initialize(mapload)
 	.=..()

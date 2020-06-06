@@ -159,7 +159,7 @@
 	name = "Cargo Technician"
 	jobtype = /datum/job/cargo_tech
 
-	uniform = /obj/item/clothing/under/rank/cargotech
+	uniform = /obj/item/clothing/under/rank/cargo
 	pda = /obj/item/device/pda/cargo
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
@@ -325,3 +325,4 @@
 	l_pocket = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced
 	r_pocket = /obj/item/card/tech_support
 	l_hand = /obj/item/modular_computer/laptop/preset
+	gloves = /obj/item/modular_computer/wristbound/preset/advanced/generic

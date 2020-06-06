@@ -45,8 +45,8 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
-	resist_mod = 2 // Reasonably stronk, not moreso than an Unathi or robot.
+	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
+	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -91,7 +91,7 @@
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
-	blood_color = "#97dd7c"
+	blood_color = COLOR_DIONA_BLOOD
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA
@@ -160,7 +160,7 @@
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs, TRUE)
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.
@@ -183,3 +183,6 @@
 	for(var/mob/living/carbon/alien/diona/D in H.contents)
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
+
+/datum/species/diona/has_psi_potential()
+	return FALSE

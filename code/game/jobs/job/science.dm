@@ -7,6 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#FF40FF"
 	economic_modifier = 15
@@ -25,7 +26,7 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/rd
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/rd
 	name = "Research Director"

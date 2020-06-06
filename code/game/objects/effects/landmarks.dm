@@ -136,7 +136,7 @@
 	new /obj/item/clothing/under/gimmick/rank/captain/suit(src.loc)
 	new /obj/item/clothing/head/flatcap(src.loc)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/mad(src.loc)
-	new /obj/item/clothing/glasses/gglasses(src.loc)
+	new /obj/item/clothing/glasses/regular(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/elpresidente/New()
@@ -162,7 +162,7 @@
 /obj/effect/landmark/costume/scratch/New()
 	new /obj/item/clothing/gloves/white(src.loc)
 	new /obj/item/clothing/shoes/white(src.loc)
-	new /obj/item/clothing/under/scratch(src.loc)
+	new /obj/item/clothing/under/suit_jacket/white(src.loc)
 	if (prob(30))
 		new /obj/item/clothing/head/cueball(src.loc)
 	delete_me = 1
@@ -201,7 +201,6 @@
 	delete_me = 1
 
 /obj/effect/landmark/costume/pirate/New()
-	new /obj/item/clothing/under/pirate(src.loc)
 	new /obj/item/clothing/suit/pirate(src.loc)
 	var/CHOICE = pick( /obj/item/clothing/head/pirate , /obj/item/clothing/head/bandana )
 	new CHOICE(src.loc)
@@ -209,7 +208,6 @@
 	delete_me = 1
 
 /obj/effect/landmark/costume/commie/New()
-	new /obj/item/clothing/under/soviet(src.loc)
 	new /obj/item/clothing/head/ushanka/grey(src.loc)
 	delete_me = 1
 

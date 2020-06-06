@@ -496,8 +496,14 @@
 			visible_message(span("notice", "\The [src] tucks into a roll as they hit \the [loc]!"),
 				span("notice", "You tuck into a roll as you hit \the [loc], minimizing damage!"))
 
+	var/aug_mod = 1
+	var/obj/item/organ/internal/augment/suspension/suspension = internal_organs_by_name[BP_AUG_SUSPENSION]
+	if(suspension && !suspension.is_broken())
+		aug_mod = suspension.suspension_mod
+		suspension.take_damage(10)
+
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod
+	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod * aug_mod
 
 	var/limb_damage = rand(0,damage/2)
 

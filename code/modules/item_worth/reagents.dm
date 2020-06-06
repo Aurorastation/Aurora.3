@@ -6,9 +6,6 @@
 /datum/reagent/blood
 	value = 2
 
-/datum/reagent/antibodies
-	value = 6
-
 /datum/reagent/water
 	value = 0
 
@@ -561,9 +558,6 @@
 /datum/reagent/arithrazine
 	value = 2.7
 
-/datum/reagent/deltamivir
-	value = 2.5
-
 /datum/reagent/thetamycin
 	value = 2.5
 
@@ -744,7 +738,7 @@
 /datum/reagent/aslimetoxin
 	value = 3
 
-/datum/reagent/nanites
+/datum/reagent/toxin/nanites
 	value = 9
 
 /datum/reagent/estus

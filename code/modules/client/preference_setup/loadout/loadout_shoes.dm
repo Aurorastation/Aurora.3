@@ -87,18 +87,12 @@
 /datum/gear/shoes/heels
 	display_name = "high heels"
 	path = /obj/item/clothing/shoes/heels
-
-/datum/gear/shoes/heels/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/tongs
 	display_name = "flip flops"
 	path = /obj/item/clothing/shoes/sandal/flipflop
-
-/datum/gear/shoes/tongs/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/hitops
 	display_name = "high-top selection"
@@ -128,3 +122,19 @@
 /datum/gear/shoes/circuitry
 	display_name = "boots, circuitry (empty)"
 	path = /obj/item/clothing/shoes/circuitry
+
+/datum/gear/shoes/slippers
+	display_name = "bunny slippers"
+	path = /obj/item/clothing/shoes/slippers
+
+/datum/gear/shoes/slippers/New()
+	..()
+	var/slippers = list()
+	slippers["bunny slippers"] = /obj/item/clothing/shoes/slippers
+	slippers["worn bunny slippers"] = /obj/item/clothing/shoes/slippers_worn
+	gear_tweaks += new/datum/gear_tweak/path(slippers)
+
+/datum/gear/shoes/clog
+	display_name = "plastic clogs"
+	path = /obj/item/clothing/shoes/sandal/clogs
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

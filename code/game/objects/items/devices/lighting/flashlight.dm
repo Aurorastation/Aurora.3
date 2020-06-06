@@ -2,6 +2,10 @@
 	name = "flashlight"
 	desc = "A hand-held emergency light."
 	icon = 'icons/obj/lighting.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_lighting.dmi',
+		)
 	icon_state = "flashlight"
 	item_state = "flashlight"
 	w_class = 2
@@ -103,6 +107,7 @@
 	icon_state = "penlight"
 	item_state = "pen"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
 	brightness_on = 2

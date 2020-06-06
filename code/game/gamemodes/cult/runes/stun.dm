@@ -16,7 +16,7 @@
 		if(iscarbon(L))
 			var/mob/living/carbon/C = L
 			flick("e_flash", C.flash)
-			if(C.stuttering < 1 && !HULK in C.mutations)
+			if(C.stuttering < 1 && !(HULK in C.mutations))
 				C.stuttering = 1
 			if(is_rune)
 				C.Weaken(3)

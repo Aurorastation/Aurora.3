@@ -37,7 +37,7 @@
 	return get_distress_access()
 
 /datum/outfit/admin/ert/kataphract/klax
-	name = "Kataphract-Hopeful"
+	name = "Kataphract-Hopeful Klax"
 
 	uniform = /obj/item/clothing/under/vaurca
 	head = /obj/item/clothing/head/helmet/unathi/klax

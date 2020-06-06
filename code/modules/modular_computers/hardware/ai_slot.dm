@@ -12,31 +12,31 @@
 	var/power_usage_occupied = 2 KILOWATTS
 
 /obj/item/computer_hardware/ai_slot/proc/update_power_usage()
-	if(!stored_card || !stored_card.carded_ai)
+	if(!stored_card?.carded_ai)
 		power_usage = power_usage_idle
 		return
 	power_usage = power_usage_occupied
 
-/obj/item/computer_hardware/ai_slot/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/item/computer_hardware/ai_slot/attackby(obj/item/W, mob/user)
 	if(..())
-		return 1
+		return TRUE
 	if(istype(W, /obj/item/aicard))
 		if(stored_card)
-			to_chat(user, "\The [src] is already occupied.")
+			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
-		user.drop_from_inventory(W,src)
+		user.drop_from_inventory(W, src)
 		stored_card = W
 		update_power_usage()
 	if(W.isscrewdriver())
-		to_chat(user, "You manually remove \the [stored_card] from \the [src].")
+		to_chat(user, SPAN_NOTICE("You manually remove \the [stored_card] from \the [src]."))
 		stored_card.forceMove(get_turf(src))
 		stored_card = null
 		update_power_usage()
 
 /obj/item/computer_hardware/ai_slot/Destroy()
-	if(holder2 && (holder2.ai_slot == src))
-		holder2.ai_slot = null
+	if(parent_computer?.ai_slot == src)
+		parent_computer.ai_slot = null
 	if(stored_card)
-		stored_card.forceMove(get_turf(holder2))
-	holder2 = null
+		stored_card.forceMove(get_turf(parent_computer))
+	parent_computer = null
 	return ..()

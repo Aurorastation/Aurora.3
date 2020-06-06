@@ -99,10 +99,10 @@
 	data["buildable"] = get_build_options()
 	data["category"] = category
 	data["categories"] = categories
-	if(chargen_robolimbs )
+	if(fabricator_robolimbs )
 		var/list/T = list()
-		for(var/A in chargen_robolimbs )
-			var/datum/robolimb/R = chargen_robolimbs [A]
+		for(var/A in fabricator_robolimbs )
+			var/datum/robolimb/R = fabricator_robolimbs [A]
 			T += list(list("id" = A, "company" = R.company))
 		data["manufacturers"] = T
 		data["manufacturer"] = manufacturer
@@ -134,7 +134,7 @@
 			category = href_list["category"]
 
 	if(href_list["manufacturer"])
-		if(href_list["manufacturer"] in chargen_robolimbs )
+		if(href_list["manufacturer"] in fabricator_robolimbs )
 			manufacturer = href_list["manufacturer"]
 
 	if(href_list["eject"])
@@ -300,7 +300,7 @@
 	if(D.build_path)
 		var/loc_offset = get_step(src, dir)
 		var/obj/new_item = D.Fabricate(loc_offset, src)
-		visible_message("\The [src] pings, indicating that \the [new_item] is complete.", "You hear a ping.")
+		visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.")
 		if(mat_efficiency != 1)
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)
@@ -317,7 +317,7 @@
 	. = list()
 	for(var/i = 1 to files.known_designs.len)
 		var/datum/design/D = files.known_designs[i]
-		if(!D.build_path || !(D.build_type & MECHFAB))
+		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
 			continue
 		. += list(list("name" = D.name, "id" = i, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
 
@@ -333,7 +333,7 @@
 /obj/machinery/mecha_part_fabricator/proc/update_categories()
 	categories = list()
 	for(var/datum/design/D in files.known_designs)
-		if(!D.build_path || !(D.build_type & MECHFAB))
+		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
 			continue
 		categories |= D.category
 	if(!category || !(category in categories))

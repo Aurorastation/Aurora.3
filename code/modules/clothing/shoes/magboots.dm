@@ -12,7 +12,8 @@
 	action_button_name = "Toggle Magboots"
 	var/obj/item/clothing/shoes/shoes = null	//Undershoes
 	var/mob/living/carbon/human/wearer = null	//For shoe procs
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 /obj/item/clothing/shoes/magboots/proc/set_slowdown()
 	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.
@@ -56,7 +57,7 @@
 	else
 		return 0
 
-/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user)
+/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user
 
 	if(H.shoes)
@@ -81,12 +82,12 @@
 
 /obj/item/clothing/shoes/magboots/dropped()
 	..()
-	addtimer(CALLBACK(src, .proc/update_wearer), 0)
+	INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/shoes/magboots/mob_can_unequip()
 	. = ..()
 	if (.)
-		addtimer(CALLBACK(src, .proc/update_wearer), 0)
+		INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	..(user)

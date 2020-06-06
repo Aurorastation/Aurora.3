@@ -275,15 +275,13 @@
 				to_chat(M,"<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
 		var/mob/living/carbon/human/H = target
-		if (target.can_commune())
+		if(H.can_commune() || H.psi)
 			to_chat(H,"<b>You instinctively sense [user] sending their thoughts into your mind, hearing:</b> [text]")
 		else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 			to_chat(H,"<b>You sense [user]'s psyche enter your mind, whispering quietly:</b> [text]")
 		else
 			to_chat(H,"<b>You feel something crawl behind your eyes, hearing:</b> [text]")
 			if(istype(H))
-				if (H.can_commune())
-					return
 				if(prob(10) && !(H.species.flags & NO_BLOOD))
 					to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
 					H.drip(3)

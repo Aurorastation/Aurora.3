@@ -27,24 +27,15 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	new_player_panel_proc()
 
 /mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B>New Player Options</B><br>"
+	var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
 	var/character_name = client.prefs.real_name
-	if(character_name)
-		output += "<b>Selected Character: [character_name]</b>"
-	output +="<hr>"
-	output += "<p><a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A></p>"
+	if(current_map.description)
+		output += "<i>[current_map.description]</i><hr>"
 
-	if(!ROUND_IS_STARTED)
-		if(ready)
-			output += "<br><br><p>\[ <b>Ready</b> | <a href='byond://?src=\ref[src];ready=0'>Not Ready</a> \]</p>"
-		else
-			output += "<br><br><p>\[ <a href='byond://?src=\ref[src];ready=1'>Ready</a> | <b>Not Ready</b> \]</p>"
-
-	else
-		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A><br><br>"
-		output += "<p><a href='byond://?src=\ref[src];late_join=1'>Join Game!</A></p>"
-
-	output += "<p><a href='byond://?src=\ref[src];observe=1'>Observe</A></p>"
+	output += "<a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A> "
+	output += "<a href='byond://?src=\ref[src];observe=1'>Observe</A> "
+	if(ROUND_IS_STARTED)
+		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A> "
 
 	if(!IsGuestKey(src.key))
 		establish_db_connection(dbcon)
@@ -61,13 +52,23 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 				break
 
 			if(newpoll)
-				output += "<p><b><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
+				output += "<b><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> (NEW!)</b>"
 			else
-				output += "<p><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A></p>"
+				output += "<a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A>"
+
+	if(character_name)
+		output += "<hr>You will board as <b>[character_name]</b><br>"
+	if(ROUND_IS_STARTED)
+		output += "<a href='byond://?src=\ref[src];late_join=1'>Join the Game</A> "
+	else
+		if(ready)
+			output += "<a href='byond://?src=\ref[src];ready=0'>Un-Ready</a> "
+		else
+			output += "<a href='byond://?src=\ref[src];ready=1'>Ready Up</a> "
 
 	output += "</div>"
 	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, output),"window=playersetup;size=310x350;can_close=0")
+	src << browse(enable_ui_theme(src, output),"window=playersetup;size=560x280;can_close=0")
 
 /mob/abstract/new_player/Stat()
 	..()
@@ -333,6 +334,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 
 	var/mob/living/character = create_character()	//creates the human and transfers vars and mind
 
+	SSjobs.EquipAugments(character, character.client.prefs)
 	character = SSjobs.EquipPersonal(character, rank, 1,spawning_at)					//equips the human
 
 	// AIs don't need a spawnpoint, they must spawn at an empty core

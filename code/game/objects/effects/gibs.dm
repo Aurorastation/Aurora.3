@@ -23,9 +23,6 @@
 			return
 
 		var/obj/effect/decal/cleanable/blood/gibs/gib = null
-		for(var/datum/disease/D in viruses)
-			if(D.spread_type == SPECIAL)
-				qdel(D)
 
 		if(sparks)
 			spark(location, 2, alldirs)
@@ -43,13 +40,6 @@
 						gib.basecolor = bloodcolor
 
 					gib.update_icon()
-
-					if(viruses.len > 0)
-						for(var/datum/disease/D in viruses)
-							if(prob(virusProb))
-								var/datum/disease/viruus = D.Copy(1)
-								gib.viruses += viruus
-								viruus.holder = gib
 
 					gib.blood_DNA = list()
 					if(MobDNA)

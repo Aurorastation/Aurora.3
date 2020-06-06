@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
-	desc = "The revised Mark II Necropolis Industries revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
+	desc = "The revised Mark II Zavodskoi Interstellar revolver, chambering .357 rounds and utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon with a beautiful cedar grip and a transparent plastic cover so as to not splinter your hands while firing."
 	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
@@ -37,11 +37,11 @@
 	return ..()
 
 /obj/item/gun/projectile/revolver/mateba
-	name = "mateba"
-	desc = "The Mateba .454 Autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
-	icon = 'icons/obj/guns/mateba.dmi'
-	icon_state = "mateba"
-	item_state = "mateba"
+	name = "automatic revolver"
+	desc = "The Hammerhead .454 autorevolver, a very rare weapon typical of special ops teams and mercenary teams. It packs quite the punch."
+	icon = 'icons/obj/guns/autorevolver.dmi'
+	icon_state = "autorevolver"
+	item_state = "autorevolver"
 	max_shells = 7
 	accuracy = 2
 	caliber = "454"
@@ -257,6 +257,6 @@
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = null
 
-	description_fluff = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
+	desc_fluff = "A simple and reliable double action revolver, favored by the nobility, officers and law enforcement. The design is known for having an outdated reloading \
 	mechanism, with the need to manually eject each of the used cartridges, and reload one cartridge at a time through a loading gate. However, their cheap manufacturing cost has \
 	allowed countless copies to flood the Kingdom's markets."

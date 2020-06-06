@@ -7,17 +7,24 @@
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
 /area/security/main
-	name = "\improper Security - Equipment Room"
+	name = "Security - Equipment Room"
+	icon_state = "security"
+
+// For mapppers
+/area/security/hallway
+	name = "Security - Hallway"
+	lightswitch = TRUE
 	icon_state = "security"
 
 /area/security/lobby
-	name = "\improper Security - Lobby"
+	name = "Security - Lobby"
 	icon_state = "security"
 	allow_nightmode = 1
 	no_light_control = 0
 
 /area/security/brig
-	name = "\improper Security - Brig"
+	name = "Security - Brig"
+	lightswitch = TRUE
 	icon_state = "brig"
 
 /area/security/brig/prison_break()
@@ -29,7 +36,8 @@
 	..()
 
 /area/security/prison
-	name = "\improper Security - Prison Wing"
+	name = "Security - Prison Wing"
+	lightswitch = TRUE
 	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()
@@ -41,41 +49,41 @@
 	..()
 
 /area/security/warden
-	name = "\improper Security - Warden's Office"
+	name = "Security - Warden's Office"
 	icon_state = "Warden"
 
 /area/security/armoury
-	name = "\improper Security - Armory"
+	name = "Security - Armory"
 	icon_state = "Warden"
 
 /area/security/forensics_office
-	name = "\improper Security - Forensic Office"
+	name = "Security - Forensic Office"
 	icon_state = "detective"
 	sound_env = MEDIUM_SOFTFLOOR
 
 /area/security/detectives_office
-	name = "\improper Security - Detective's Office"
+	name = "Security - Detective's Office"
 	icon_state = "detective"
 
 /area/security/investigations
-	name = "\improper Security - Investigations Division"
+	name = "Security - Investigations Division"
 	icon_state = "detective"
 
 /area/security/training
-	name = "\improper Security - Training Wing"
+	name = "Security - Training Wing"
 	icon_state = "firingrange"
 
 /area/security/range
-	name = "\improper Security - Firing Range"
+	name = "Security - Firing Range"
 	icon_state = "firingrange"
 	flags = FIRING_RANGE
 
 /area/security/tactical
-	name = "\improper Security - Tactical Equipment"
+	name = "Security - Tactical Equipment"
 	icon_state = "Tactical"
 
 /area/security/security_office
-	name = "\improper Security - Security Office"
+	name = "Security - Security Office"
 	icon_state = "security"
 
 /*
@@ -96,21 +104,21 @@
 */
 
 /area/security/nuke_storage
-	name = "\improper Vault"
+	name = "Vault"
 	icon_state = "nuke_storage"
 	holomap_color = null
 	flags = HIDE_FROM_HOLOMAP
 
 /area/security/checkpoint
-	name = "\improper Security Checkpoint"
+	name = "Security Checkpoint"
 	icon_state = "checkpoint1"
 
 /area/security/checkpoint2
-	name = "\improper Security - Arrivals Checkpoint"
+	name = "Security - Arrivals Checkpoint"
 	icon_state = "security"
 
 /area/security/bridge_surface_checkpoint
-	name = "\improper Bridge Security Checkpoint"
+	name = "Bridge Security Checkpoint"
 	icon_state = "security"
 
 /area/security/checkpoint/supply
@@ -130,9 +138,9 @@
 	icon_state = "checkpoint1"
 
 /area/security/vacantoffice
-	name = "\improper Vacant Office"
+	name = "Vacant Office"
 	icon_state = "security"
 
 /area/security/vacantoffice2
-	name = "\improper Security - Meeting Room"
+	name = "Security - Meeting Room"
 	icon_state = "security"

@@ -156,7 +156,8 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/put_in_hands(var/obj/item/W)
 	if(!W || !istype(W))
 		return 0
-
+	if(isturf(W.loc))
+		W.do_pickup_animation(src)
 	W.forceMove(get_turf(src))
 	W.layer = initial(W.layer)
 	W.dropped()
@@ -302,12 +303,12 @@ var/list/slot_equipment_priority = list( \
 //Outdated but still in use apparently. This should at least be a human proc.
 /mob/proc/get_equipped_items(var/include_carried = 0)
 	. = list()
-	if(slot_back) . += back
-	if(slot_wear_mask) . += wear_mask
+	if(back) . += back
+	if(wear_mask) . += wear_mask
 
 	if(include_carried)
-		if(slot_l_hand) . += l_hand
-		if(slot_r_hand) . += r_hand
+		if(l_hand) . += l_hand
+		if(r_hand) . += r_hand
 
 
 

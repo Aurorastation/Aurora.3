@@ -7,7 +7,7 @@
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.update_spells(0, src)
 
-/mob/Login()
+/mob/LateLogin()
 	..()
 	if(spell_masters)
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
@@ -34,6 +34,8 @@
 			H.add_spell(spell_to_add)
 
 /mob/proc/add_spell(var/spell/spell_to_add, var/spell_base = "wiz_spell_ready", var/master_type = /obj/screen/movable/spell_master)
+	if(isobserver(usr)) // we spawned in via ghost spawner, so set our thing to this so we don't screw up
+		usr = src
 	if(!spell_masters)
 		spell_masters = list()
 

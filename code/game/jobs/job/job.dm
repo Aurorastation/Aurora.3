@@ -11,6 +11,7 @@
 	var/total_positions = 0               // How many players can be this job
 	var/spawn_positions = 0               // How many players can spawn in as this job
 	var/current_positions = 0             // How many players have this job
+	var/intro_prefix = "a"
 	var/supervisors = null                // Supervisors, who this person answers to directly
 	var/selection_color = "#888888"       // Selection screen color
 	var/list/alt_titles                   // List of alternate titles, if any

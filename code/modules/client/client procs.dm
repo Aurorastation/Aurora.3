@@ -241,7 +241,7 @@
 		data += reason
 		data += "</center>"
 
-		show_browser(src, data, "jobban_reason")
+		show_browser(src, data, "window=jobban_reason;size=400x300")
 		return
 
 	..()	//redirect to hsrc.()
@@ -350,17 +350,18 @@
 			return 0
 
 	if(IsGuestKey(key) && config.external_auth)
-		//src.real_mob = ..()
 		src.authed = FALSE
 		var/mob/abstract/unauthed/m = new()
 		m.client = src
 		src.InitPrefs() //Init some default prefs
+		m.LateLogin()
 		return m
 		//Do auth shit
 	else
+		. = ..()
 		src.InitClient()
 		src.InitPrefs()
-		. = ..()
+		mob.LateLogin()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -373,10 +374,8 @@
 	prefs.client = src					// Safety reasons here.
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
-#if DM_VERSION >= 511
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
-#endif // DM_VERSION >= 511
 	if(SStheming)
 		SStheming.apply_theme_from_perfs(src)
 
@@ -425,6 +424,9 @@
 			del(src)
 			return 0
 
+	if(!tooltips)
+		tooltips = new /datum/tooltip(src)
+
 	if(holder)
 		add_admin_verbs()
 
@@ -438,12 +440,11 @@
 
 	send_resources()
 
-	// Check code/modules/admin/verbs/antag-ooc.dm for definition
-	add_aooc_if_necessary()
-
 	check_ip_intel()
 
 	fetch_unacked_warning_count()
+
+	is_initialized = TRUE
 
 //////////////
 //DISCONNECT//
@@ -574,6 +575,10 @@
 	set category = "Preferences"
 	if(prefs)
 		prefs.ShowChoices(usr)
+
+/client/proc/apply_fps(var/client_fps)
+	if(world.byond_version >= 511 && byond_version >= 511 && client_fps >= 0 && client_fps <= 1000)
+		vars["fps"] = prefs.clientfps
 
 //I honestly can't find a good place for this atm.
 //If the webint interaction gets more features, I'll move it. - Skull132
@@ -729,3 +734,21 @@
 		sleep(1)
 	else
 		stoplag(5)
+
+/client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	. = ..()
+
+	if(over_object)
+		var/mob/living/M = mob
+		if(istype(get_turf(over_object), /atom))
+			var/atom/A = get_turf(over_object)
+			if(src && src.buildmode)
+				build_click(M, src.buildmode, params, A)
+				return
+
+		if(istype(M) && !M.incapacitated())
+			var/obj/item/gun/gun = mob.get_active_hand()
+			if(istype(gun) && gun.can_autofire())
+				M.set_dir(get_dir(M, over_object))
+				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
+	CHECK_TICK

@@ -219,6 +219,7 @@
 	var/default_citizenship = CITIZENSHIP_BIESEL
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
+	var/bodyfall_sound = "bodyfall" //default, can be used for species specific falling sounds
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -581,6 +582,9 @@
 
 /datum/species/proc/can_commune()
 	return FALSE
+
+/datum/species/proc/has_psi_potential()
+	return TRUE
 
 /datum/species/proc/handle_despawn()
 	return

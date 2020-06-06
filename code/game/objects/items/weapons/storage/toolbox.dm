@@ -4,6 +4,10 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "red"
 	item_state = "toolbox_red"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_toolbox.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_toolbox.dmi'
+		)
 	center_of_mass = list("x" = 16,"y" = 11)
 	flags = CONDUCT
 	force = 5
@@ -16,8 +20,10 @@
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
 	use_sound = 'sound/items/storage/toolbox.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
+
 	var/stunhit = 0
-	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/storage/toolbox/Initialize()
 	. = ..()
