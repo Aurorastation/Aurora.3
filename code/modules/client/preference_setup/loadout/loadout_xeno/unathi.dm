@@ -46,69 +46,54 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-<<<<<<< HEAD
-/datum/gear/uniform/unathi/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
-/datum/gear/autakh
-=======
-/datum/gear/augment/autakh_engineering
->>>>>>> 189b6e7d44a42592d3754fa735f3013287910227
+/datum/gear/augment/autakh
 	display_name = "engineering grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a limited toolkit."
 	path = /obj/item/organ/external/hand/right/autakh/tool
+	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 	cost = 2 // as it is job-restricted
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Atmospheric Technician", "Engineering Apprentice", "Roboticist")
 	flags = GEAR_NO_SELECTION
 
-<<<<<<< HEAD
-/datum/gear/autakh/mining
+/datum/gear/augment/autakh/mining
 	display_name = "mining grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
 	path = /obj/item/organ/external/hand/right/autakh/tool/mining
-=======
-/datum/gear/augment/autakh_mining
-	display_name = "mining grasper"
-	description = "An Aut'akh augment limb, this one is outfitted with a mining drill."
-	path = /obj/item/organ/external/hand/right/autakh/tool/mining
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Unathi"
-	cost = 3
->>>>>>> 189b6e7d44a42592d3754fa735f3013287910227
 	allowed_roles = list("Shaft Miner")
-	flags = GEAR_NO_SELECTION
 
-<<<<<<< HEAD
-/datum/gear/autakh/medical
-=======
-/datum/gear/augment/autakh_medical
->>>>>>> 189b6e7d44a42592d3754fa735f3013287910227
+/datum/gear/augment/autakh/medical
 	display_name = "medical grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with a health scanner."
 	path = /obj/item/organ/external/hand/right/autakh/medical
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Unathi"
-<<<<<<< HEAD
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
-
-/datum/gear/autakh/security
-=======
-	cost = 3
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
-	flags = GEAR_NO_SELECTION
 
-/datum/gear/augment/autakh_security
->>>>>>> 189b6e7d44a42592d3754fa735f3013287910227
+/datum/gear/augment/autakh/security
 	display_name = "security grasper"
 	description = "An Aut'akh augment limb, this one is outfitted with an electroshock weapon."
 	path = /obj/item/organ/external/hand/right/autakh/security
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Unathi"
 	allowed_roles = list("Security Officer", "Head of Security", "Warden")
-	flags = GEAR_NO_SELECTION
+
+/datum/gear/augment/autakh/anchor
+	display_name = "soul anchor"
+	description = "An implant that connects the Aut'akh to the Mesh."
+	path = /obj/item/organ/internal/anchor
+	cost = 1
+	allowed_roles = null
+
+/datum/gear/augment/autakh/haemodynamic
+	display_name = "haemodynamic control system"
+	description = "An Aut'akh augment that allows the user to stabilize themselves."
+	path = /obj/item/organ/internal/augment/haemodynamic
+	cost = 4
+	allowed_roles = null
+
+/datum/gear/augment/autakh/adrenal
+	display_name = "adrenal management system"
+	description = "A series of aut'akh mechanical stimulants and extra glands placed along the adrenal system."
+	path = /obj/item/organ/internal/augment/adrenal
+	cost = 4
+	allowed_roles = null
 
 /datum/gear/uniform/unathi/jizixi
 	display_name = "jizixi dress"
@@ -163,27 +148,3 @@
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
-
-/datum/gear/augment/anchor
-	display_name = "soul anchor"
-	description = "An implant that connects the Aut'akh to the Mesh."
-	path = /obj/item/organ/internal/anchor
-	cost = 1
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/augment/haemodynamic
-	display_name = "haemodynamic control system"
-	description = "An Aut'akh augment that allows the user to stabilize themselves."
-	path = /obj/item/organ/internal/augment/haemodynamic
-	cost = 4
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Unathi"
-
-/datum/gear/augment/adrenal
-	display_name = "adrenal management system"
-	description = "A series of aut'akh mechanical stimulants and extra glands placed along the adrenal system. ."
-	path = /obj/item/organ/internal/augment/adrenal
-	cost = 4
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Unathi"
