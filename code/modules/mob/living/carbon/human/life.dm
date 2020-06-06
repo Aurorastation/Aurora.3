@@ -227,10 +227,10 @@
 	// Handle side effects from stasis bag
 	if(in_stasis)
 		// First off, there's no oxygen supply, so the mob will slowly take brain damage
-		adjustOxyLoss(5)
+		adjustOxyLoss(3.5)
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
-		adjustCloneLoss(2)
+		adjustCloneLoss(0.8)
 		if(stat != DEAD)
 			blinded = TRUE
 			stat = UNCONSCIOUS
