@@ -5,6 +5,7 @@
 	icon_state = "turbine"
 	anchored = 0
 	density = 1
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/efficiency = 0.4
 	var/kin_energy = 0
@@ -85,7 +86,7 @@
 		if (kin_energy > 1000000)
 			add_overlay("hi-turb")
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		if(W.iswrench())
 			anchored = !anchored
 			to_chat(user, "<span class='notice'>You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.</span>")
@@ -117,27 +118,6 @@
 
 		else
 			..()
-
-	verb/rotate_clockwise()
-		set category = "Object"
-		set name = "Rotate Circulator (Clockwise)"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained() || anchored)
-			return
-
-		src.set_dir(turn(src.dir, -90))
-
-
-	verb/rotate_anticlockwise()
-		set category = "Object"
-		set name = "Rotate Circulator (Counterclockwise)"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained() || anchored)
-			return
-
-		src.set_dir(turn(src.dir, 90))
 
 //Goddamn copypaste from binary base class because atmospherics machinery API is not damn flexible
 	network_expand(datum/pipe_network/new_network, obj/machinery/atmospherics/pipe/reference)
@@ -230,6 +210,7 @@
 	icon_state = "motor"
 	anchored = 0
 	density = 1
+	obj_flags = OBJ_FLAG_ROTATABLE
 
 	var/kin_to_el_ratio = 0.1	//How much kinetic energy will be taken from turbine and converted into electricity
 	var/obj/machinery/atmospherics/pipeturbine/turbine
@@ -259,7 +240,7 @@
 		add_avail(power_generated)
 
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		if(W.iswrench())
 			anchored = !anchored
 			turbine = null
@@ -267,23 +248,3 @@
 			updateConnection()
 		else
 			..()
-
-	verb/rotate_clock()
-		set category = "Object"
-		set name = "Rotate Motor Clockwise"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained()  || anchored)
-			return
-
-		src.set_dir(turn(src.dir, -90))
-
-	verb/rotate_anticlock()
-		set category = "Object"
-		set name = "Rotate Motor Counterclockwise"
-		set src in view(1)
-
-		if (usr.stat || usr.restrained()  || anchored)
-			return
-
-		src.set_dir(turn(src.dir, 90))

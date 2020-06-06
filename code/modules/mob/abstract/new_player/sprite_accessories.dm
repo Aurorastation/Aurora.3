@@ -194,13 +194,6 @@ Follow by example and make good judgement based on length which list to include 
 		length = 3
 		chatname = "messy locks"
 
-	bedhead5
-		name = "Bedhead 5"
-		icon_state = "hair_bedhead5"
-		gender = FEMALE
-		length = 4
-		chatname = "messy locks"
-
 	beehive
 		name = "Beehive"
 		icon_state = "hair_beehive"
@@ -1428,6 +1421,12 @@ Follow by example and make good judgement based on length which list to include 
 		gender = MALE
 		chatname = "unshaved hair"
 
+	undercut5
+		name = "Undercut 5"
+		icon_state = "hair_undercut5"
+		gender = MALE
+		chatname = "unshaved hair"
+
 	unkept
 		name = "Unkept"
 		icon_state = "hair_unkept"
@@ -1720,6 +1719,12 @@ Follow by example and make good judgement based on length which list to include 
 		swept_short
 			name = "Swept, Short"
 			icon_state = "hair_swept_short"
+			length = 1
+			chatname = "short hair"
+
+		swept_back
+			name = "Swept, Back"
+			icon_state = "hair_swept_back"
 			length = 1
 			chatname = "short hair"
 
@@ -2116,6 +2121,54 @@ Follow by example and make good judgement based on length which list to include 
 			icon_state = "unathi_swepthorn2"
 			length = 0
 			chatname = "horns"
+
+		una_demonforward
+			name = "Unathi Forward Demon Horns"
+			icon_state = "unathi_demonforward"
+			length = 5
+			chatname = "horns"
+
+		una_bullhorns
+			name = "Unathi Bull Horns"
+			icon_state = "unathi_bullhorn"
+			length = 5
+			chatname = "horns"
+
+		una_longhorns
+			name = "Unathi Long Bull Horns"
+			icon_state = "unathi_longhorn"
+			length = 5
+			chatname = "horns"
+
+		una_faun
+			name = "Unathi Faun Horns"
+			icon_state = "unathi_faun"
+			length = 5
+			chatname = "horns"
+
+		una_double
+			name = "Unathi Double Horns"
+			icon_state = "unathi_dubhorns"
+			length = 5
+			chatname = "horns"
+
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "unathi_hood"
+			length = 5
+			chatname = "hood"
+
+		una_skewers
+			name = "Unathi Super Long Horns"
+			icon_state = "unathi_skewers"
+			length = 6
+			chatname = "huge horns"
+
+		una_chameleon
+			name = "Unathi Chameleon Horns"
+			icon_state = "unathi_chameleon"
+			length = 3
+			chatname = "small horns"
 
 //skrell tentacles
 
@@ -2515,6 +2568,38 @@ Follow by example and make good judgement based on length which list to include 
 			name = "Unathi Swept-Forward Horns 2"
 			icon_state = "facial_swepthorn2"
 
+		una_demonforward
+			name = "Unathi Forward Demon Horns"
+			icon_state = "facial_demonforward"
+
+		una_bullhorns
+			name = "Unathi Bull Horns"
+			icon_state = "facial_bullhorn"
+
+		una_longhorns
+			name = "Unathi Long Bull Horns"
+			icon_state = "facial_longhorn"
+
+		una_faun
+			name = "Unathi Faun Horns"
+			icon_state = "facial_faun"
+
+		una_double
+			name = "Unathi Double Horns"
+			icon_state = "facial_dubhorns"
+
+		una_hood
+			name = "Unathi Cobra Hood"
+			icon_state = "facial_hood"
+
+		una_skewers
+			name = "Unathi Super Long Horns"
+			icon_state = "facial_skewers"
+
+		una_chameleon
+			name = "Unathi Chameleon Horns"
+			icon_state = "facial_chameleon"
+
 //ipc screens
 
 	ipc_screen_blank
@@ -2681,7 +2766,7 @@ Follow by example and make good judgement based on length which list to include 
 */
 /datum/sprite_accessory/marking
 	icon = 'icons/mob/human_races/markings.dmi'
-	do_colouration = 1 //Almost all of them have it, COLOR_ADD
+	do_colouration = TRUE //Almost all of them have it, COLOR_ADD
 
 	species_allowed = list()
 
@@ -2692,213 +2777,259 @@ Follow by example and make good judgement based on length which list to include 
 	tiger_stripes
 		name = "Tiger Stripes (Tajara)"
 		icon_state = "tiger"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin")
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_paw_socks
 		name = "Socks Coloration (Tajara)"
 		icon_state = "taj_pawsocks"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	una_paw_socks
 		name = "Socks Coloration (Unathi)"
 		icon_state = "una_pawsocks"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand")
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list("Unathi")
 
 	belly_hands_feet
 		name = "Hands,Feet,Belly Color (Minor)"
 		icon_state = "bellyhandsfeetsmall"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","groin","chest")
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	patches
 		name = "Color Patches"
 		icon_state = "patches"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	patchesface
 		name = "Color Patches (Face)"
 		icon_state = "patchesface"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	bands
 		name = "Color Bands"
 		icon_state = "bands"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","l_hand","r_hand","chest","groin")
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	bandsface
 		name = "Color Bands (Face)"
 		icon_state = "bandsface"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	tigerhead
 		name = "Tiger Stripes (Head, Minor)"
 		icon_state = "tigerhead"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	tigerface
 		name = "Tiger Stripes (Head, Major)"
 		icon_state = "tigerface"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	backstripe
 		name = "Back Stripe"
 		icon_state = "backstripe"
-		body_parts = list("chest")
+		body_parts = list(BP_CHEST)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi")
 
 	taj_nose
 		name = "Nose Color"
 		icon_state = "taj_nose"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_muzzle
 		name = "Muzzle Color"
 		icon_state = "taj_muzzle"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_face
 		name = "Cheeks Color"
 		icon_state = "taj_face"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	taj_all
 		name = "All Tajara Head"
 		icon_state = "taj_all"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 	una_face
 		name = "Face Color"
 		icon_state = "una_face"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Unathi")
 
 	una_facelow
 		name = "Face Color Low"
 		icon_state = "una_facelow"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Unathi")
 
 	una_scutes
 		name = "Scutes"
 		icon_state = "una_scutes"
-		body_parts = list("chest")
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Unathi")
+
+	una_maswaist
+		name = "Masculine Waist (For Females)"
+		icon_state = "una_maswaist"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Unathi")
+
+	una_clawshand
+		name = "Claws (Hands)"
+		icon_state = "una_claws"
+		body_parts = list(BP_L_HAND,BP_R_HAND)
+		species_allowed = list("Unathi")
+
+	una_clawsfoot
+		name = "Claws (Feet)"
+		icon_state = "una_claws"
+		body_parts = list(BP_L_FOOT,BP_R_FOOT)
 		species_allowed = list("Unathi")
 
 	spelunker
 		name = "Spelunker"
 		icon_state = "spelunker"
-		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
+		body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
 		species_allowed = list("Vaurca")
 
 	delver
 		name = "Delver"
 		icon_state = "delver"
-		body_parts = list("l_leg","r_leg","l_arm","r_arm","chest","groin","head")
+		body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
 		species_allowed = list("Vaurca")
 
 	skr_tears
 		name = "Tear Stains"
 		icon_state = "skr_tears"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Skrell")
-		do_colouration = 0
+		do_colouration = FALSE
 
 	skr_arms
 		name = "Skrell Arms"
 		icon_state = "skrell_arms"
-		body_parts = list("l_arm","r_arm","l_hand","r_hand")
+		body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list("Skrell")
 
 	diona_leaves
 		name = "Diona Leaves"
 		icon = 'icons/mob/human_races/markings_diona.dmi'
 		icon_state = "diona_leaves"
-		body_parts = list("l_foot","r_foot","l_leg","r_leg","l_arm","r_arm","chest","groin","head")
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
 		species_allowed = list("Diona")
 
+	diona_thorns_head
+		name = "Diona Thorns (Head)"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_thorns"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
 
-// Branded IPC markings - disabled for now, some layering issues.
-/*
-	bishop
+	diona_thorns_torso
+		name = "Diona Thorns (Torso)"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_thorns"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Diona")
+
+	diona_flowers_head
+		name = "Diona Flowers (Head)"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_flowers"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
+
+	diona_flowers_torso
+		name = "Diona Flowers (Torso)"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_flowers"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Diona")
+
+	diona_moss
+		name = "Diona Moss"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_moss"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Diona")
+
+	diona_mushroom
+		name = "Diona Mushroom"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_mushroom"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
+
+	diona_antennae
+		name = "Diona Antennae"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_antennae"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
+
+	bishop_lights
+		name = "Lights Colour"
 		icon = 'icons/mob/human_races/markings_bishop.dmi'
-		icon_state = "face_lights"
+		icon_state = "bishop_lights"
 		icon_blend_mode = ICON_MULTIPLY
-		name = "Face Color"
-		body_parts = list("head")
-		species_allowed = list("Bishop Accessory Frame")
 		is_painted = TRUE
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+		species_allowed = list("Bishop Accessory Frame")
 
-		monoeye
-			name = "Eye"
-			icon_state = "monoeye"
+		bishop_mask
+			name = "Face Mask"
+			icon_state = "bishop_mask"
+			do_colouration = FALSE
+			body_parts = list(BP_HEAD)
 
-		plating
-			name = "Plating (Full)"
-			icon_state = "plating"
-			body_parts = list("chest", "l_arm", "r_arm", "l_leg", "r_leg")
+			bishop_triangular_mask
+				name = "Triangular Face Mask"
+				icon_state = "bishop_triangular_mask"
 
-			l_arm
-				name = "Plating (Left arm)"
-				body_parts = list("l_arm")
-
-			r_arm
-				name = "Plating (Right arm)"
-				body_parts = list("r_arm")
-
-			l_leg
-				name = "Plating (Left leg)"
-				body_parts = list("l_leg")
-
-			r_leg
-				name = "Plating (Right leg)"
-				body_parts = list("r_leg")
-
-			chest
-				name = "Plating (Chest)"
-				body_parts = list("chest")
-
+/*
 	zenghu
 		icon = 'icons/mob/human_races/markings_zenghu.dmi'
 		icon_state = "outer"
 		icon_blend_mode = ICON_MULTIPLY
 		name = "Outer Finish"
-		body_parts = list("head")
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Zeng-Hu Mobility Frame")
 		is_painted = TRUE
 
 		inner
 			name = "Inner Finish"
 			icon_state = "inner"
-			body_parts = list("l_foot", "r_foot", "l_hand", "r_hand", "l_leg", "r_leg")
+			body_parts = list(BP_L_FOOT, BP_R_FOOT, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG)
 
 			l_foot
 				name = "Inner Finish (Left Leg)"
-				body_parts = list("l_foot", "l_leg")
+				body_parts = list(BP_L_FOOT, BP_L_LEG)
 
 			r_foot
 				name = "Inner Finish (Right Leg)"
-				body_parts = list("r_foot", "r_leg")
+				body_parts = list(BP_R_FOOT, BP_R_LEG)
 
 			l_hand
 				name = "Inner Finish (Left Arm)"
-				body_parts = list("l_hand", "l_arm")
+				body_parts = list(BP_L_HAND, BP_L_ARM)
 
 			r_hand
 				name = "Inner Finish (Right Arm)"
-				body_parts = list("r_hand", "r_arm")
+				body_parts = list(BP_R_HAND, BP_R_ARM)
 
 		crest_leser
 			name = "Head Coloration (Lesser)"

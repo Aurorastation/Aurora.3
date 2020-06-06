@@ -18,7 +18,15 @@ calculate text size per text.
 	var/minimum_percent = 15
 	if(ishuman(taster))
 		var/mob/living/carbon/human/H = taster
-		minimum_percent = round(15/ (H.isSynthetic() ? TASTE_DULL : H.species.taste_sensitivity))
+		var/total_taste_sensitivity
+
+		var/obj/item/organ/internal/augment/taste_booster/booster = H.internal_organs_by_name[BP_AUG_TASTE_BOOSTER]
+		if(booster && !booster.is_broken())
+			total_taste_sensitivity = booster.new_taste
+		else
+			total_taste_sensitivity = H.species.taste_sensitivity
+
+		minimum_percent = round(15 / (H.isSynthetic() ? TASTE_DULL : total_taste_sensitivity))
 
 	var/list/out = list()
 	var/list/tastes = list() //descriptor = strength
@@ -41,7 +49,7 @@ calculate text size per text.
 					tastes[taste_desc] += taste_amount
 				else
 					tastes[taste_desc] = taste_amount
-				if(!(R.default_temperature in (T0C + 15 to T0C + 25)))
+				if(R.default_temperature >= (T0C + 15) && R.default_temperature <= (T0C + 25))
 					lukewarm = 1
 
 		//deal with percentages
@@ -89,3 +97,6 @@ calculate text size per text.
 			temp_text = "lethally hot"
 
 	return "[temp_text][temp_text ? " " : ""][english_list(out, "something indescribable")]."
+
+/mob/living/carbon/proc/get_fullness()
+	return nutrition + (reagents.get_reagent_amount("nutriment") * 25)

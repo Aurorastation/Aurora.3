@@ -3,10 +3,10 @@
 /turf/template_noop,
 /area/template_noop)
 "ab" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/derelict/ship)
 "ag" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -16,7 +16,7 @@
 	dir = 1
 	},
 /obj/effect/decal/remains/human,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -28,24 +28,23 @@
 /turf/template_noop,
 /area/derelict/ship)
 "an" = (
-/obj/machinery/computer/records/medical,
-/turf/simulated/shuttle/floor{
+/obj/item/modular_computer/console/preset/medical,
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "ao" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/firstaid/regular{
+/obj/item/storage/firstaid/regular{
 	pixel_x = 6;
 	pixel_y = -5
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "aq" = (
 /obj/structure/shuttle/engine/heater{
-	icon_state = "heater";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -55,25 +54,24 @@
 /area/derelict/ship)
 "ar" = (
 /obj/structure/shuttle/engine/propulsion{
-	icon_state = "propulsion";
 	dir = 4
 	},
 /turf/template_noop,
 /area/derelict/ship)
 "at" = (
-/obj/item/weapon/scalpel,
-/turf/simulated/shuttle/floor{
+/obj/item/surgery/scalpel,
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "av" = (
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "aw" = (
 /obj/structure/computerframe{
 	anchored = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -86,7 +84,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "ay" = (
 /obj/structure/grille,
@@ -94,7 +92,7 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "az" = (
 /obj/structure/grille,
@@ -105,13 +103,13 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "aA" = (
 /obj/machinery/door/airlock/glass{
 	name = "Hibernation Pods"
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -119,28 +117,28 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "aC" = (
 /obj/structure/table/standard,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "aE" = (
 /obj/item/device/multitool,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "aF" = (
-/obj/item/weapon/cell{
+/obj/item/cell{
 	charge = 100;
 	maxcharge = 15000
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -166,20 +164,20 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "aL" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "aN" = (
 /obj/machinery/door/airlock/glass,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -187,13 +185,13 @@
 /obj/machinery/light_switch{
 	pixel_x = 27
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "aP" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -205,22 +203,22 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "aR" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "aS" = (
 /obj/machinery/door/window,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -229,7 +227,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -239,8 +237,8 @@
 /area/template_noop)
 "aV" = (
 /obj/structure/table/standard,
-/obj/item/weapon/gun/energy/retro,
-/turf/simulated/shuttle/floor{
+/obj/item/gun/energy/retro,
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -256,20 +254,20 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "aX" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "aY" = (
 /obj/structure/table/standard,
-/obj/item/weapon/tank/oxygen,
-/turf/simulated/shuttle/floor{
+/obj/item/tank/oxygen,
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -285,23 +283,23 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "ba" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bb" = (
-/turf/simulated/shuttle/wall,
+/turf/simulated/wall/shuttle,
 /area/template_noop)
 "bf" = (
 /obj/structure/table/standard,
 /obj/item/device/analyzer,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -310,7 +308,7 @@
 	dir = 8
 	},
 /obj/effect/decal/remains/human,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -318,56 +316,56 @@
 /obj/machinery/door/airlock/glass{
 	name = "Living Module"
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bi" = (
 /obj/machinery/door/unpowered/shuttle,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bl" = (
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/template_noop)
 "bo" = (
 /obj/machinery/door/window/northright,
 /obj/effect/decal/remains/human,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bp" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bq" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "br" = (
 /obj/machinery/door/unpowered/shuttle,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/template_noop)
 "bu" = (
 /obj/structure/table,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/template_noop)
@@ -380,7 +378,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "bx" = (
 /obj/machinery/light_switch{
@@ -389,28 +387,28 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bB" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bC" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/structure/bed/chair,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bD" = (
 /obj/structure/bed/chair,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -419,7 +417,7 @@
 /obj/structure/computerframe{
 	anchored = 1
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -429,17 +427,17 @@
 	anchored = 1
 	},
 /obj/item/stack/cable_coil/cut,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bG" = (
 /obj/structure/table/rack,
-/obj/item/weapon/tank/emergency_oxygen,
-/obj/item/weapon/tank/emergency_oxygen,
-/obj/item/weapon/tank/emergency_oxygen,
-/obj/item/weapon/tank/emergency_oxygen,
-/turf/simulated/shuttle/floor{
+/obj/item/tank/emergency_oxygen,
+/obj/item/tank/emergency_oxygen,
+/obj/item/tank/emergency_oxygen,
+/obj/item/tank/emergency_oxygen,
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -448,14 +446,14 @@
 /obj/item/clothing/suit/space/syndicate,
 /obj/item/clothing/head/helmet/space/syndicate,
 /obj/item/clothing/mask/breath,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bI" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/syndicate,
-/turf/simulated/shuttle/floor{
+/obj/item/storage/toolbox/syndicate,
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -470,7 +468,7 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -479,13 +477,13 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bL" = (
 /obj/machinery/light/small,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -498,31 +496,30 @@
 	id = "oldship_gun";
 	name = "Pod Bay Door"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "bP" = (
 /obj/machinery/mass_driver{
 	dir = 8;
-	icon_state = "mass_driver";
 	id = "oldship_gun"
 	},
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "bQ" = (
 /obj/machinery/door/airlock/glass,
-/turf/simulated/shuttle/plating,
+/turf/simulated/floor/plating,
 /area/derelict/ship)
 "bR" = (
 /obj/machinery/door/airlock/glass{
 	name = "Pod Bay"
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bS" = (
 /obj/effect/decal/remains/human,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -530,22 +527,22 @@
 /obj/machinery/computer/pod{
 	id = "oldship_gun"
 	},
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bW" = (
 /obj/structure/table/standard,
-/obj/item/weapon/screwdriver,
+/obj/item/screwdriver,
 /obj/machinery/light,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
 "bX" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/off,
-/turf/simulated/shuttle/floor{
+/turf/simulated/floor/shuttle{
 	icon_state = "floor3"
 	},
 /area/derelict/ship)
@@ -616,12 +613,10 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_x = 0;
 	pixel_y = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 6;
-	icon_state = "intact"
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/tcomsat)
@@ -639,8 +634,7 @@
 /area/turret_protected/tcomsat)
 "cn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
-	dir = 1;
-	icon_state = "map"
+	dir = 1
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
@@ -656,7 +650,7 @@
 /area/tcommsat/computer)
 "cq" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/green,
+/obj/item/bedsheet/green,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cr" = (
@@ -667,7 +661,7 @@
 /area/tcommsat/computer)
 "cs" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/brown,
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "ct" = (
@@ -678,7 +672,7 @@
 /area/tcommsat/computer)
 "cu" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/red,
+/obj/item/bedsheet/red,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cv" = (
@@ -712,8 +706,7 @@
 /area/turret_protected/tcomsat)
 "cA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/turret_protected/tcomsat)
@@ -744,8 +737,8 @@
 /area/tcommsat/computer)
 "cF" = (
 /obj/structure/table/standard,
-/obj/item/weapon/folder/yellow,
-/obj/item/weapon/folder/yellow,
+/obj/item/folder/yellow,
+/obj/item/folder/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -756,8 +749,8 @@
 /area/tcommsat/computer)
 "cG" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen/blue{
+/obj/item/paper_bin,
+/obj/item/pen/blue{
 	pixel_x = -3;
 	pixel_y = 2
 	},
@@ -773,7 +766,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cJ" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh{
+/obj/item/reagent_containers/food/snacks/meat/syntiflesh{
 	name = "Cuban Pete-Meat"
 	},
 /turf/simulated/floor/reinforced,
@@ -781,8 +774,7 @@
 "cK" = (
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
-	pixel_x = -29;
-	pixel_y = 0
+	pixel_x = -29
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
@@ -843,15 +835,13 @@
 	pixel_x = -28
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4;
-	icon_state = "intact"
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
@@ -860,22 +850,13 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/tiled,
-/area/tcommsat/computer)
-"cV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
@@ -885,14 +866,13 @@
 	},
 /obj/item/device/radio/intercom{
 	name = "General Listening Channel";
-	pixel_x = 28;
-	pixel_y = 0
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "cY" = (
 /obj/structure/bed,
-/obj/item/weapon/bedsheet/orange,
+/obj/item/bedsheet/orange,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -983,10 +963,10 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "dk" = (
-/obj/item/weapon/reagent_containers/food/snacks/meat/syntiflesh{
+/obj/item/reagent_containers/food/snacks/meat/syntiflesh{
 	name = "Cuban Pete-Meat"
 	},
-/obj/item/weapon/spacecash/c1,
+/obj/item/spacecash/c1,
 /turf/simulated/floor/reinforced,
 /area/tcommsat/computer)
 "dl" = (
@@ -1015,7 +995,7 @@
 /area/tcommsat/computer)
 "dp" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/fancy/cigarettes,
+/obj/item/storage/fancy/cigarettes,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "dq" = (
@@ -1076,8 +1056,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1091,8 +1070,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/hatch{
 	name = "Telecoms Control Room";
@@ -1110,12 +1088,10 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
@@ -1123,8 +1099,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
@@ -1171,7 +1146,7 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "dE" = (
-/obj/item/weapon/cigbutt,
+/obj/item/trash/cigbutt,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
@@ -1271,7 +1246,6 @@
 /area/tcommsat/computer)
 "dR" = (
 /obj/machinery/atmospherics/unary/freezer{
-	dir = 2;
 	icon_state = "freezer_1";
 	set_temperature = 73;
 	use_power = 1
@@ -1288,8 +1262,7 @@
 /area/tcommsat/computer)
 "dT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	dir = 5
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
 	frequency = 1381;
@@ -1313,7 +1286,6 @@
 	req_access = list(61)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1334,7 +1306,6 @@
 	frequency = 1381;
 	id_tag = "server_access_airlock";
 	name = "Server Access Airlock";
-	pixel_x = 0;
 	pixel_y = 25;
 	tag_airpump = "server_access_pump";
 	tag_chamber_sensor = "server_access_sensor";
@@ -1345,7 +1316,6 @@
 	tag_secure = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1355,7 +1325,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
-	icon_state = "warningcee";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1425,8 +1394,7 @@
 	},
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+	icon_state = "0-2"
 	},
 /obj/structure/cable,
 /obj/structure/cable{
@@ -1551,7 +1519,6 @@
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_x = 0;
 	pixel_y = 24
 	},
 /turf/simulated/floor/bluegrid{
@@ -1565,8 +1532,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/bluegrid{
@@ -1580,8 +1546,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/bluegrid{
 	name = "Mainframe Base";
@@ -1761,8 +1726,7 @@
 	},
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/template_noop,
 /area/turret_protected/tcomsat)
@@ -1823,8 +1787,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
@@ -1843,16 +1806,16 @@
 /area/turret_protected/tcomsat)
 "eM" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/micro_laser,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/manipulator,
-/obj/item/weapon/stock_parts/capacitor,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
-/obj/item/weapon/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "eN" = (
@@ -1864,14 +1827,14 @@
 /area/turret_protected/tcomsat)
 "eO" = (
 /obj/structure/table/rack,
-/obj/item/weapon/circuitboard/telecomms/processor,
-/obj/item/weapon/circuitboard/telecomms/processor,
-/obj/item/weapon/circuitboard/telecomms/receiver,
-/obj/item/weapon/circuitboard/telecomms/server,
-/obj/item/weapon/circuitboard/telecomms/server,
-/obj/item/weapon/circuitboard/telecomms/bus,
-/obj/item/weapon/circuitboard/telecomms/bus,
-/obj/item/weapon/circuitboard/telecomms/broadcaster,
+/obj/item/circuitboard/telecomms/processor,
+/obj/item/circuitboard/telecomms/processor,
+/obj/item/circuitboard/telecomms/receiver,
+/obj/item/circuitboard/telecomms/server,
+/obj/item/circuitboard/telecomms/server,
+/obj/item/circuitboard/telecomms/bus,
+/obj/item/circuitboard/telecomms/bus,
+/obj/item/circuitboard/telecomms/broadcaster,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "eP" = (
@@ -1953,9 +1916,9 @@
 /area/turret_protected/tcomsat)
 "eX" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/subspace/treatment,
-/obj/item/weapon/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "eY" = (
@@ -1964,9 +1927,9 @@
 /area/turret_protected/tcomsat)
 "eZ" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/analyzer,
-/obj/item/weapon/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fa" = (
@@ -1991,8 +1954,7 @@
 /area/turret_protected/tcomsat)
 "fd" = (
 /obj/structure/sign/nosmoking_2{
-	pixel_x = -32;
-	pixel_y = 0
+	pixel_x = -32
 	},
 /obj/machinery/light{
 	icon_state = "tube1";
@@ -2051,8 +2013,7 @@
 /area/tcommsat/chamber)
 "fl" = (
 /obj/structure/sign/nosmoking_2{
-	pixel_x = 32;
-	pixel_y = 0
+	pixel_x = 32
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2111,20 +2072,18 @@
 /area/turret_protected/tcomsat)
 "fq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fr" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/amplifier,
-/obj/item/weapon/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
-	pixel_x = 29;
-	pixel_y = 0
+	pixel_x = 29
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -2182,14 +2141,14 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fA" = (
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fB" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/ansible,
-/obj/item/weapon/stock_parts/subspace/ansible,
-/obj/item/weapon/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fC" = (
@@ -2208,24 +2167,24 @@
 /area/tcommsat/chamber)
 "fD" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/transmitter,
-/obj/item/weapon/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fE" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
-/obj/item/weapon/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fF" = (
 /obj/structure/table/standard,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/crystal,
-/obj/item/weapon/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "fG" = (
@@ -2367,13 +2326,11 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
 	name = "LETHAL TURRETS";
-	pixel_x = -32;
-	pixel_y = 0
+	pixel_x = -32
 	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
-	pixel_x = 0;
 	pixel_y = 24
 	},
 /obj/structure/cable{
@@ -2381,7 +2338,6 @@
 	d2 = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -2393,11 +2349,9 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2406,11 +2360,9 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2440,14 +2392,12 @@
 	c_tag = "Telecoms Foyer"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
 "ga" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2457,7 +2407,6 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2466,11 +2415,9 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
 	name = "LETHAL TURRETS";
-	pixel_x = 32;
-	pixel_y = 0
+	pixel_x = 32
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -2567,8 +2514,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled{
 	icon_state = "vault";
@@ -2600,11 +2546,9 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
 	name = "LETHAL TURRETS";
-	pixel_x = -32;
-	pixel_y = 0
+	pixel_x = -32
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -2612,7 +2556,6 @@
 "gr" = (
 /obj/machinery/light/small,
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2638,11 +2581,9 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'LETHAL TURRETS'. Enter at your own risk!";
 	name = "LETHAL TURRETS";
-	pixel_x = 32;
-	pixel_y = 0
+	pixel_x = 32
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -2710,8 +2651,6 @@
 /area/tcommsat/entrance)
 "gC" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 0;
-	listening = 1;
 	name = "Station Intercom (General)";
 	pixel_y = 20
 	},
@@ -2745,8 +2684,7 @@
 "gG" = (
 /obj/structure/cable{
 	d2 = 2;
-	icon_state = "0-2";
-	pixel_y = 0
+	icon_state = "0-2"
 	},
 /obj/machinery/computer/power_monitor{
 	name = "telecoms power monitoring"
@@ -2782,7 +2720,6 @@
 /area/tcommsat/entrance)
 "gI" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2794,7 +2731,6 @@
 	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2803,8 +2739,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -2818,8 +2753,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -2846,8 +2780,7 @@
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
-	icon_state = "4-8";
-	pixel_x = 0
+	icon_state = "4-8"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -2884,7 +2817,6 @@
 /area/tcommsat/entrance)
 "gR" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -2897,7 +2829,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -2907,7 +2838,6 @@
 	c_tag = "Telecoms Entrance North"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -2934,8 +2864,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	pixel_y = 0
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -2959,13 +2888,12 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "ha" = (
-/obj/item/weapon/cell,
+/obj/item/cell,
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "hb" = (
@@ -3007,7 +2935,6 @@
 	frequency = 1381;
 	id_tag = "telecoms_airlock";
 	tag_interior_door = "telecoms_inner";
-	pixel_x = 0;
 	pixel_y = -25;
 	req_access = list(13);
 	tag_chamber_sensor = "telecoms_sensor"
@@ -3048,7 +2975,6 @@
 	req_access = list(13)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3063,8 +2989,7 @@
 "hi" = (
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
-	pixel_x = 29;
-	pixel_y = 0
+	pixel_x = 29
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
@@ -3078,21 +3003,19 @@
 /obj/structure/closet/crate,
 /obj/item/clothing/glasses/night,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
 "hl" = (
 /obj/structure/closet/crate,
-/obj/item/weapon/aicard,
+/obj/item/aicard,
 /obj/item/device/multitool,
 /obj/machinery/camera/network/telecom{
 	c_tag = "Telecoms Entrance South";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -3107,7 +3030,6 @@
 	},
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -3132,24 +3054,25 @@
 /turf/template_noop,
 /area/template_noop)
 "hs" = (
+/obj/effect/shuttle_landmark/merc/telecomms,
 /turf/template_noop,
-/area/syndicate_station/commssat)
+/area/template_noop)
 "ht" = (
 /turf/simulated/wall/r_wall,
 /area/AIsattele)
 "hu" = (
 /obj/structure/computerframe,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/airless,
 /area/AIsattele)
 "hv" = (
 /obj/machinery/teleport/station,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/airless,
 /area/AIsattele)
@@ -3157,7 +3080,7 @@
 /turf/simulated/floor/airless,
 /area/AIsattele)
 "hx" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/airless,
@@ -3176,7 +3099,7 @@
 /turf/simulated/floor/airless,
 /area/AIsattele)
 "hB" = (
-/obj/item/weapon/cell,
+/obj/item/cell,
 /turf/simulated/floor/airless,
 /area/AIsattele)
 "hC" = (
@@ -3210,7 +3133,7 @@
 /turf/template_noop,
 /area/AIsattele)
 "hJ" = (
-/obj/item/weapon/storage/toolbox/electrical{
+/obj/item/storage/toolbox/electrical{
 	pixel_x = 1;
 	pixel_y = -1
 	},
@@ -29627,17 +29550,17 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -29877,24 +29800,24 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30134,24 +30057,24 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30391,24 +30314,24 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30640,32 +30563,32 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -30896,30 +30819,30 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -31153,32 +31076,32 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -31410,32 +31333,32 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -31667,32 +31590,32 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
 hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -31924,32 +31847,32 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32181,32 +32104,32 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32438,30 +32361,30 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32696,32 +32619,32 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -32961,24 +32884,24 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33218,24 +33141,24 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33475,24 +33398,24 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -33739,17 +33662,17 @@ aa
 aa
 aa
 aa
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
-hs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -35972,7 +35895,7 @@ ce
 ce
 cg
 cG
-cV
+cT
 cv
 dx
 cv

@@ -1,13 +1,16 @@
 /datum/map/aurora
 	name = "Aurora"
 	full_name = "NSS Aurora"
+	description = "The NSS Aurora is a phoron research and extraction station. It houses facilities for studying all manner of ways to acquire phoron, \
+	 			   even ways one may think impossible to be related to acquiring the element. It is located on the 361224 Colossus asteroid, \
+				   known for its anomalous and phoron rich nature, partly due to its own location in the Romanovich Cloud."
 	path = "aurora"
 
 	lobby_screens = list("aurora_asteroid", "aurora_postcard")
 
-	station_levels = list(3, 4, 5, 6, 7)
+	station_levels = list(2, 3, 4, 5, 6, 7)
 	admin_levels = list(1)
-	contact_levels = list(3, 4, 5, 6)
+	contact_levels = list(3, 4, 5, 6, 7)
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
 	restricted_levels = list()
 	accessible_z_levels = list("8" = 10, "7" = 15, "2" = 60)
@@ -22,8 +25,6 @@
 		"8" = /turf/space,
 		"9" = /turf/space
 	)
-
-	has_space_ruins = TRUE
 
 	station_name = "NSS Aurora"
 	station_short = "Aurora"
@@ -65,6 +66,24 @@
 	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+
+	map_shuttles = list(
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
+		/datum/shuttle/autodock/ferry/emergency/aurora,
+		/datum/shuttle/autodock/ferry/arrival/aurora,
+		/datum/shuttle/autodock/ferry/supply/aurora,
+		/datum/shuttle/autodock/ferry/merchant_aurora,
+		/datum/shuttle/autodock/ferry/admin,
+		/datum/shuttle/autodock/ferry/autoreturn/ccia,
+		/datum/shuttle/autodock/ferry/specops/ert_aurora,
+		/datum/shuttle/autodock/multi/antag/skipjack_aurora,
+		/datum/shuttle/autodock/multi/antag/merc_aurora,
+		/datum/shuttle/autodock/ferry/legion,
+		/datum/shuttle/autodock/ferry/research_aurora,
+		/datum/shuttle/autodock/ferry/distress
+	)
 
 /datum/map/aurora/generate_asteroid()
 	// Create the chasms.

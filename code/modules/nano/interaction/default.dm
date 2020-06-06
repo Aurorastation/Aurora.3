@@ -40,7 +40,7 @@
 	// Prevents the AI from using Topic on admin levels (by for example viewing through the court/thunderdome cameras)
 	// unless it's on the same level as the object it's interacting with.
 	var/turf/T = get_turf(src_object)
-	if(!T || !(z == T.z || (T.z in current_map.player_levels)))
+	if(!T || !(z == T.z || isStationLevel(T.z)))
 		return STATUS_CLOSE
 
 	// If an object is in view then we can interact with it
@@ -50,7 +50,7 @@
 	// If we're installed in a chassi, rather than transfered to an inteliCard or other container, then check if we have camera view
 	if(is_in_chassis())
 		//stop AIs from leaving windows open and using then after they lose vision
-		if(cameranet && !cameranet.checkTurfVis(get_turf(src_object)))
+		if(cameranet && !cameranet.is_turf_visible(get_turf(src_object)))
 			return STATUS_CLOSE
 		return STATUS_INTERACTIVE
 	else if(get_dist(src_object, src) <= client.view)	// View does not return what one would expect while installed in an inteliCard
@@ -61,6 +61,16 @@
 //Some atoms such as vehicles might have special rules for how mobs inside them interact with NanoUI.
 /atom/proc/contents_nano_distance(var/src_object, var/mob/living/user)
 	return user.shared_living_nano_distance(src_object)
+
+/mob/living/heavy_vehicle/contents_nano_distance(src_object, mob/living/user)
+	if(src_object in contents)
+		return STATUS_INTERACTIVE
+	if(hatch_closed && body.pilot_coverage == 100 && !istype(user, /mob/living/simple_animal/spiderbot)) // spiderbots get a pass cuz they need a bone, call it RFID bullshit
+		to_chat(user, SPAN_WARNING("You can't interact with things outside \the [src] if its hatch is closed!"))
+		return STATUS_CLOSE
+	if(!src.Adjacent(src_object))
+		return STATUS_CLOSE
+	return STATUS_INTERACTIVE
 
 /mob/living/proc/shared_living_nano_distance(var/atom/movable/src_object)
 	if (!(src_object in view(4, src))) 	// If the src object is not in visable, disable updates
@@ -79,16 +89,20 @@
 	. = shared_nano_interaction(src_object)
 	if(. != STATUS_CLOSE)
 		if(loc)
-			. = min(., loc.contents_nano_distance(src_object, src))
-	if(STATUS_INTERACTIVE)
+			if(istype(loc, /mob/living/heavy_vehicle))
+				return loc.contents_nano_distance(src_object, src)
+			else
+				. = min(., loc.contents_nano_distance(src_object, src))
+	if(. == STATUS_INTERACTIVE)
 		return STATUS_UPDATE
 
 /mob/living/carbon/human/default_can_use_topic(var/src_object)
 	. = shared_nano_interaction(src_object)
 	if(. != STATUS_CLOSE)
 		if(loc)
-			. = min(., loc.contents_nano_distance(src_object, src))
+			if(istype(loc, /mob/living/heavy_vehicle))
+				. = loc.contents_nano_distance(src_object, src)
+			else
+				. = min(., loc.contents_nano_distance(src_object, src))
 		else
 			. = min(., shared_living_nano_distance(src_object))
-		if(. == STATUS_UPDATE && (TK in mutations))	// If we have telekinesis and remain close enough, allow interaction.
-			return STATUS_INTERACTIVE

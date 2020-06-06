@@ -1,0 +1,1499 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"ab" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"ac" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"ad" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"ae" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"af" = (
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	frequency = 1353;
+	id_tag = "digsite_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"ag" = (
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"ah" = (
+/obj/structure/inflatable/wall,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"ai" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"aj" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"ak" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"al" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"am" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"an" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"ao" = (
+/obj/machinery/artifact,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"ap" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"aq" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"ar" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"as" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"at" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"au" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"av" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"aw" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1353;
+	id_tag = "digsite_airlock";
+	pixel_y = -25;
+	tag_airpump = "digsite_vent";
+	tag_chamber_sensor = "digsite_sensor";
+	tag_exterior_door = "digsite_exterior";
+	tag_interior_door = "digsite_interior"
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4;
+	frequency = 1353;
+	id_tag = "digsite_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"ax" = (
+/obj/structure/inflatable/door,
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"az" = (
+/turf/simulated/wall,
+/area/dungeon/anomaly_outpost)
+"aA" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aC" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aD" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"aE" = (
+/obj/machinery/access_button/airlock_exterior{
+	frequency = 1353;
+	master_tag = "digsite_airlock";
+	pixel_x = 25
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/dungeon/anomaly_outpost)
+"aF" = (
+/obj/structure/table/standard,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aG" = (
+/obj/structure/table/standard,
+/obj/item/device/gps,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aH" = (
+/obj/structure/table/standard,
+/obj/item/pickaxe/drill{
+	pixel_y = -3
+	},
+/obj/item/stack/nanopaste{
+	pixel_y = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aI" = (
+/obj/machinery/artifact_scanpad,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aJ" = (
+/obj/machinery/artifact_analyser,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aL" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1353;
+	icon_state = "door_locked";
+	id_tag = "digsite_exterior";
+	locked = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aM" = (
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aO" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1353;
+	icon_state = "door_locked";
+	id_tag = "digsite_interior";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aP" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aQ" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aR" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aS" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/vending/wallmed2{
+	pixel_x = 25;
+	pixel_y = 30;
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aT" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aU" = (
+/obj/machinery/airlock_sensor{
+	frequency = 1353;
+	id_tag = "digsite_sensor";
+	pixel_y = -25
+	},
+/obj/machinery/light{
+	status = 2
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"aW" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aX" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aY" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"aZ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 8;
+	target_pressure = 80;
+	unlocked = 1;
+	use_power = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"ba" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/closet/crate/freezer/rations,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"bb" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+"bc" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/dungeon/anomaly_outpost)
+"bd" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/access_button/airlock_interior{
+	frequency = 1353;
+	master_tag = "digsite_airlock";
+	pixel_x = -25
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"be" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"bf" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/northright,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/anomaly,
+/obj/item/clothing/head/helmet/space/anomaly,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"bg" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/northright,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/anomaly,
+/obj/item/clothing/head/helmet/space/anomaly,
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"bh" = (
+/obj/machinery/radiocarbon_spectrometer,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/anomaly_outpost)
+"bi" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/dungeon/anomaly_outpost)
+"Vd" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless/ceiling,
+/area/mine/unexplored)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ac
+am
+ar
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ac
+ab
+ag
+ab
+ar
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ac
+ah
+ah
+ai
+ah
+ah
+ar
+ab
+ab
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(14,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ac
+ab
+ah
+aj
+an
+as
+ah
+ab
+ar
+ab
+ab
+ab
+ab
+ab
+bb
+ab
+aa
+aa
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ad
+ag
+ai
+ak
+ao
+at
+ax
+ag
+Vd
+ag
+ag
+ag
+ag
+ag
+ab
+ab
+aa
+aa
+aa
+"}
+(16,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ae
+ab
+ah
+al
+ap
+au
+ah
+ab
+av
+ab
+ab
+aE
+ag
+ag
+bc
+ab
+aa
+aa
+aa
+"}
+(17,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ae
+ah
+ah
+ai
+ah
+ah
+av
+ab
+ab
+ab
+az
+aL
+aL
+az
+aD
+aa
+aa
+aa
+"}
+(18,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ae
+ab
+ag
+ab
+av
+ab
+ab
+ab
+ab
+aA
+aM
+aU
+az
+aD
+aD
+aa
+aa
+"}
+(19,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ae
+aq
+av
+ab
+ab
+ab
+ab
+ab
+aC
+af
+aw
+az
+aD
+aD
+aD
+aa
+"}
+(20,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+az
+az
+aO
+aO
+az
+az
+aD
+aD
+aD
+"}
+(21,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aA
+aF
+aP
+aW
+bd
+az
+aD
+aD
+aD
+"}
+(22,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+aB
+aG
+aQ
+aX
+be
+az
+aD
+aD
+aD
+"}
+(23,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aB
+aH
+aR
+aX
+bf
+az
+aD
+aD
+aD
+"}
+(24,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+ab
+aB
+aI
+aR
+aX
+bg
+az
+aD
+aD
+aD
+"}
+(25,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+aC
+aJ
+aS
+aY
+bh
+az
+aD
+aD
+aD
+"}
+(26,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+ab
+ab
+ab
+ab
+az
+az
+bi
+aZ
+az
+az
+aD
+aD
+aD
+"}
+(27,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aD
+az
+aT
+ba
+az
+aD
+aD
+aD
+aD
+"}
+(28,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aD
+az
+az
+az
+az
+aD
+aD
+aD
+aD
+"}
+(29,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aD
+aD
+aD
+aD
+aD
+aD
+aD
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aD
+aD
+aD
+aD
+aD
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

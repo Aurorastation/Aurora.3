@@ -21,10 +21,10 @@
 	var/cooling = 0
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/unary_atmos/cooler,
-		/obj/item/weapon/stock_parts/matter_bin,
-		/obj/item/weapon/stock_parts/capacitor = 2,
-		/obj/item/weapon/stock_parts/manipulator,
+		/obj/item/circuitboard/unary_atmos/cooler,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/capacitor = 2,
+		/obj/item/stock_parts/manipulator,
 		/obj/item/stack/cable_coil{amount = 2}
 	)
 
@@ -153,7 +153,7 @@
 	var/cap_rating = 0
 	var/manip_rating = 0
 	var/bin_rating = 0
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(iscapacitor(P))
 			cap_rating += P.rating
 		else if(ismanipulator(P))

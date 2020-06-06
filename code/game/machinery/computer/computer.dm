@@ -7,15 +7,17 @@
 	use_power = 1
 	idle_power_usage = 300
 	active_power_usage = 300
+	clicksound = "keyboard"
+
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
 
 	var/icon_screen = "generic"
+	var/icon_scanline
 	var/light_range_on = 2
 	var/light_power_on = 1
 	var/overlay_layer
 	var/is_holographic = TRUE
-	clicksound = "keyboard"
 
 /obj/machinery/computer/Initialize()
 	. = ..()
@@ -65,7 +67,7 @@
 	icon_state = initial(icon_state)
 
 	if(stat & BROKEN)
-		icon_state = "computer-broken"
+		icon_state = "[initial(icon_state)]-broken"
 		if (overlay_layer != layer)
 			add_overlay(image(icon, "broken", overlay_layer))
 		else
@@ -73,6 +75,8 @@
 	else if (icon_screen)
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_screen)
+		if (icon_scanline)
+			add_overlay(icon_scanline)
 		else if (overlay_layer != layer)
 			add_overlay(image(icon, icon_screen, overlay_layer))
 		else
@@ -101,14 +105,14 @@
 		playsound(src.loc,  W.usesound, 50, 1)
 		if(do_after(user, 20))
 			var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
-			var/obj/item/weapon/circuitboard/M = new circuit( A )
+			var/obj/item/circuitboard/M = new circuit( A )
 			A.circuit = M
 			A.anchored = 1
 			for (var/obj/C in src)
 				C.forceMove(src.loc)
 			if (src.stat & BROKEN)
 				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
-				new /obj/item/weapon/material/shard( src.loc )
+				new /obj/item/material/shard( src.loc )
 				A.state = 3
 				A.icon_state = "3"
 			else

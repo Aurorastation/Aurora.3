@@ -2,123 +2,96 @@
 
 /datum/controller/subsystem/responseteam
 	name = "Response Team"
-	wait = 1800 //Fire only every 3 minutes - Not more often needed for now
+	flags = SS_NO_FIRE
 
-	var/progression_chance = 0
-	var/percentage_antagonists = 0
-	var/percentage_dead = 0
-	var/can_call_ert = TRUE
-	var/ert_type = "NT-ERT" //what ert type will be deployed
-	var/send_emergency_team = 0
 	var/ert_count = 0
+	var/send_emergency_team = FALSE
+	var/can_call_ert = TRUE
 
-	var/pg_green = 0
-	var/pg_yellow = 0
-	var/pg_red = 0
-	var/pg_delta = 0
+	var/list/datum/responseteam/all_ert_teams = list()
+	var/list/datum/responseteam/available_teams = list()
+	var/datum/responseteam/picked_team
+	var/list/datum/ghostspawner/human/ert/sent_teams = list()
 
 /datum/controller/subsystem/responseteam/Recover()
-	progression_chance = SSresponseteam.progression_chance
-	can_call_ert = SSresponseteam.can_call_ert
-	ert_type = SSresponseteam.ert_type
 	send_emergency_team = SSresponseteam.send_emergency_team
-	pg_green = SSresponseteam.pg_green
-	pg_yellow = SSresponseteam.pg_yellow
-	pg_red = SSresponseteam.pg_red
-	pg_delta = SSresponseteam.pg_delta
 
 /datum/controller/subsystem/responseteam/New()
 	NEW_SS_GLOBAL(SSresponseteam)
 	feedback_set("responseteam_count",0)
 
+/datum/controller/subsystem/responseteam/Initialize(start_timeofday)
+	. = ..()
+	var/list/all_teams = subtypesof(/datum/responseteam)
+	for(var/team in all_teams)
+		CHECK_TICK
+		var/datum/responseteam/ert = new team
+		if(!ert.admin)
+			available_teams += ert
+		all_ert_teams += ert
+
 /datum/controller/subsystem/responseteam/stat_entry()
-	var/out = "PGC:[progression_chance] "
-	out += "BC:[config.ert_base_chance]\n"
-	out += "PA:[percentage_antagonists] "
-	out += "PAF:[config.ert_scaling_factor_antag]\n"
-	out += "PD:[percentage_dead] "
-	out += "PDF:[config.ert_scaling_factor_dead]\n"
-	out += "SF:[config.ert_scaling_factor] "
-	out += "CC:[can_call_ert] "
+	var/out = "CC:[can_call_ert]"
 	..(out)
 
-/datum/controller/subsystem/responseteam/fire()
-	if(send_emergency_team == 0) // There is no ERT at the time.
-		var/total = 0
-		var/deadcount = 0
-		var/antagonists = 0
-		for(var/mob/living/carbon/human/H in mob_list)
-			if(!H.isMonkey() || H.client) 
-				total++
-				if(is_special_character(H) >= 1) antagonists++
-				if(H.stat == 2) deadcount++
-				
-		if(total == 0)
-			percentage_antagonists = 0
-			percentage_dead = 0
-		else
-			percentage_antagonists = round(100 * antagonists / total)
-			percentage_dead = round(100 * deadcount / total)
-		
+/datum/controller/subsystem/responseteam/proc/pick_random_team()
+	var/list/datum/responseteam/possible_teams = list()
+	for(var/datum/responseteam/ert in available_teams)
+		possible_teams[ert] = ert.chance
 
-		switch(get_security_level())
-			if("green")
-				progression_chance += config.ert_green_inc
-				pg_green += config.ert_green_inc
-			if("blue")
-				progression_chance += config.ert_yellow_inc
-				pg_yellow += config.ert_yellow_inc
-			if("red")
-				progression_chance += config.ert_blue_inc
-				pg_red += config.ert_red_inc
-			if("delta")
-				progression_chance += config.ert_delta_inc
-				pg_delta += config.ert_delta_inc
-			else
-				progression_chance += 1
+	return pickweight(possible_teams)
 
-/datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice = FALSE)
+
+/datum/controller/subsystem/responseteam/proc/trigger_armed_response_team(var/forced_choice = null)
 	if(!can_call_ert && !forced_choice)
 		return
 	if(send_emergency_team)
 		return
-	
+
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	var/ert_chance = progression_chance + config.ert_base_chance // Is incremented by fire.
-	ert_chance += config.ert_scaling_factor_dead*percentage_dead // the more people are dead, the higher the chance
-	ert_chance += config.ert_scaling_factor_antag*percentage_antagonists // the more antagonists, the higher the chance
-	ert_chance *= config.ert_scaling_factor
-	ert_chance = min(ert_chance, 100)
+	command_announcement.Announce("A distress beacon has been launched. Please remain calm, a relief team will arrive soon.", "[current_map.boss_name]", 'sound/effects/distressbeacon.ogg')
 
-	command_announcement.Announce("It would appear that an emergency response team was requested for [station_name()]. We will prepare and send one as soon as possible.", "[current_map.boss_name]")
-
-	if(forced_choice)
-		ert_type = forced_choice
-	else if(!forced_choice && !prob(ert_chance)) 
-		ert_type = "TCFL"
+	if(forced_choice && forced_choice != "Random")
+		for(var/datum/responseteam/R in available_teams)
+			if(R.name == forced_choice)
+				picked_team = R
+				break
+	else
+		picked_team = pick_random_team()
 
 	feedback_set("responseteam[ert_count]",world.time)
-	feedback_add_details("responseteam[ert_count]","BC:[config.ert_base_chance]")
-	feedback_add_details("responseteam[ert_count]","PGC:[progression_chance]")
-	feedback_add_details("responseteam[ert_count]","PGG:[pg_green]")
-	feedback_add_details("responseteam[ert_count]","PGY:[pg_yellow]")
-	feedback_add_details("responseteam[ert_count]","PGR:[pg_red]")
-	feedback_add_details("responseteam[ert_count]","PGD:[pg_delta]")
-	feedback_add_details("responseteam[ert_count]","PA:[percentage_antagonists]")
-	feedback_add_details("responseteam[ert_count]","PAF:[config.ert_scaling_factor_antag]")
-	feedback_add_details("responseteam[ert_count]","PD:[percentage_dead]")
-	feedback_add_details("responseteam[ert_count]","PDF:[config.ert_scaling_factor_dead]")
-	feedback_add_details("responseteam[ert_count]","SF:[config.ert_scaling_factor]")
-	feedback_add_details("responseteam[ert_count]","RT:[ert_type]")
 
 	can_call_ert = FALSE // Only one call per round, gentleman.
 	send_emergency_team = 1
 
-	sleep(600 * 5)
-	send_emergency_team = 0 // Can no longer join the ERT.
-	ert_type = "NT-ERT"
+	sent_teams = list() //Make sure this list is clear before we use it.
+
+	handle_spawner()
+
+	sleep(120 SECONDS)
+
+	for(var/datum/ghostspawner/G in sent_teams)
+		G.disable()
+
+	send_emergency_team = FALSE //We completed the ERT handling, so let's allow admins to call another.
+
+/datum/controller/subsystem/responseteam/proc/handle_spawner()
+	for(var/N in typesof(picked_team.spawner)) //Find all spawners that are subtypes of the team we want.
+		var/datum/ghostspawner/human/ert/new_spawner = new N
+		for(var/role_spawner in SSghostroles.spawners)
+			if(new_spawner.short_name == role_spawner) //Create the spawner, then use its name to find the spawner in SSghostroles' spawner lists.
+				var/datum/ghostspawner/human/ert/good_spawner = SSghostroles.spawners[role_spawner]
+				sent_teams += good_spawner //Enable that spawner.
+				good_spawner.enable()
+	if(picked_team.equipment_map)
+		var/landmark_position
+		for(var/obj/effect/landmark/distress_team_equipment/L in landmarks_list)
+			landmark_position = L.loc
+		if(landmark_position)
+			var/datum/map_template/distress_map = new picked_team.equipment_map
+			distress_map.load(landmark_position)
 
 /datum/controller/subsystem/responseteam/proc/close_ert_blastdoors()
 	var/datum/wifi/sender/door/wifi_sender = new("ert_shuttle_lockdown", src)
@@ -128,13 +101,16 @@
 	var/datum/wifi/sender/door/wifi_sender = new("tcfl_shuttle_lockdown", src)
 	wifi_sender.activate("close")
 
+	var/datum/wifi/sender/door/wifi_sender_blast = new("tcfl_shuttle_release", src)
+	wifi_sender_blast.activate("open")
+
 /client/proc/response_team()
 	set name = "Dispatch Emergency Response Team"
 	set category = "Special Verbs"
 	set desc = "Send an emergency response team to the station"
 
 	if(!holder)
-		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>") 
+		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
 		return
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
@@ -149,10 +125,11 @@
 			if("No")
 				return
 
-	var/choice = input("Select the response team type","Response team selection") as null|anything in list("NT-ERT", "TCFL")
+	var/list/plaintext_teams = list("Random")
+	for(var/datum/responseteam/A in SSresponseteam.all_ert_teams)
+		plaintext_teams += A.name
 
-	if(!choice)
-		choice = FALSE
+	var/choice = input("Select the response team type","Response team selection") as null|anything in plaintext_teams
 
 	if(SSresponseteam.send_emergency_team)
 		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
@@ -162,49 +139,13 @@
 	log_admin("[key_name(usr)] used Dispatch Response Team: [choice].",admin_key=key_name(usr))
 	SSresponseteam.trigger_armed_response_team(choice)
 
-/client/verb/JoinResponseTeam()
 
-	set name = "Join Response Team"
-	set category = "IC"
-
-	if(!MayRespawn(1))
-		to_chat(usr, "<span class='warning'>You cannot join the response team at this time.</span>")
-		return
-
-	if(istype(usr,/mob/abstract/observer) || istype(usr,/mob/abstract/new_player))
-
-		if(!SSresponseteam.send_emergency_team)
-			to_chat(usr, "No emergency response team is currently being sent.")
-			return
-
-		if(jobban_isbanned(usr, "Antagonist") || jobban_isbanned(usr, "Emergency Response Team") || jobban_isbanned(usr, "Security Officer"))
-			to_chat(usr, "<span class='danger'>You are jobbanned from the emergency reponse team!</span>")
-			return
-
-		switch(SSresponseteam.ert_type)
-
-			if("TCFL")
-				if(legion.current_antagonists.len >= legion.hard_cap)
-					to_chat(usr, "The emergency response team is already full!")
-					return
-
-				legion.create_default(usr)
-
-			else
-				if(ert.current_antagonists.len >= ert.hard_cap)
-					to_chat(usr, "The emergency response team is already full!")
-					return
-
-				ert.create_default(usr)
-	else
-		to_chat(usr, "You need to be an observer or new player to use this.")
-
-/hook/shuttle_moved/proc/close_response_blastdoors(var/area/departing, var/area/destination)
+/hook/shuttle_moved/proc/close_response_blastdoors(var/obj/effect/shuttle_landmark/start_location, var/obj/effect/shuttle_landmark/destination)
 	//Check if we are departing from the Odin
-	if(istype(departing,/area/shuttle/specops/centcom))
+	if(start_location.landmark_tag == "nav_ert_start")
 		SSresponseteam.close_ert_blastdoors()
 
 	//Check if we are departing from the TCFL base
-	else if(istype(departing,/area/shuttle/legion/centcom))
+	else if(start_location.landmark_tag == "nav_legion_start")
 		SSresponseteam.close_tcfl_blastdoors()
 	return TRUE

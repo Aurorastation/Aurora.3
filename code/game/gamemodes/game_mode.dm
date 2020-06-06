@@ -218,10 +218,6 @@ var/global/list/additional_antag_types = list()
 		antag.update_initial_spawn_target()
 		antag.build_candidate_list() //compile a list of all eligible candidates
 
-		//can't find enough antags? check again but don't apply the antag chance restrictions per job
-		if(antag.candidates.len < required_enemies)
-			antag.build_candidate_list(FALSE, FALSE, FALSE)
-
 		//antag roles that replace jobs need to be assigned before the job controller hands out jobs.
 		if(antag.flags & ANTAG_OVERRIDE_JOB)
 			antag.attempt_spawn() //select antags to be spawned
@@ -355,14 +351,14 @@ var/global/list/additional_antag_types = list()
 				var/mob/living/carbon/human/H = M
 				if(M.stat != DEAD)
 					surviving_humans++
-					if(M.loc && M.loc.loc && M.loc.loc.type in escape_locations)
+					if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
 						escaped_humans++
 					if (isipc(H))
 						var/datum/species/machine/machine = H.species
 						machine.update_tag(H, H.client)
 			if(M.stat != DEAD)
 				surviving_total++
-				if(M.loc && M.loc.loc && M.loc.loc.type in escape_locations)
+				if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
 					escaped_total++
 
 				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape/centcom)
@@ -598,6 +594,20 @@ var/global/list/additional_antag_types = list()
 				log_debug("[player.key] had [antag_id] enabled, so we are drafting them.")
 				candidates += player.mind
 				players -= player
+
+		// If we don't have enough antags, draft people who voted for the round.
+		if(candidates.len < required_enemies)
+			var/initial_candidates = candidates.len
+
+			for(var/mob/abstract/new_player/player in players)
+				if(player.ckey in SSvote.round_voters)
+					log_debug("[player.key] voted for this round, so we are drafting them.")
+					candidates += player.mind
+					players -= player
+
+					if (candidates.len >= required_enemies)
+						log_debug("Drafted [candidates.len - initial_candidates] new antags from voters.")
+						break
 
 	return candidates		// Returns: The number of people who had the antagonist role set to yes, regardless of recomended_enemies, if that number is greater than required_enemies
 							//			required_enemies if the number of people with that role set to yes is less than recomended_enemies,

@@ -5,27 +5,32 @@
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
 	w_class = 1.0
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
+		)
 	desc = "General waste material, refuse or litter. Dispose responsibly."
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/trash/attack(mob/M as mob, mob/living/user as mob)
 	return
 
 /obj/item/trash/koisbar
-	name = "\improper K'ois Bar Wrapper"
+	name = "\improper k'ois bar wrapper"
 	icon_state = "koisbar"
 
 /obj/item/trash/kokobar
-	name = "\improper Koko Bar Wrapper"
+	name = "\improper koko bar wrapper"
 	icon_state = "kokobar"
 
 /obj/item/trash/raisins
 	name = "\improper 4no raisins"
-	icon_state= "4no_raisins"
+	icon_state = "4no_raisins"
 
 /obj/item/trash/candy
-	name = "candy"
-	icon_state= "candy"
+	name = "candy wrapper"
+	icon_state = "candy"
 
 /obj/item/trash/cheesie
 	name = "\improper Cheesie Honkers"
@@ -50,14 +55,22 @@
 /obj/item/trash/waffles
 	name = "square tray"
 	icon_state = "waffles"
+	drop_sound = 'sound/items/trayhit1.ogg'
 
 /obj/item/trash/plate
 	name = "plate"
 	icon_state = "plate"
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
+
+/obj/item/trash/plate/steak
+	icon_state = "steak"
 
 /obj/item/trash/snack_bowl
 	name = "snack bowl"
 	icon_state	= "snack_bowl"
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/trash/pistachios
 	name = "pistachios pack"
@@ -76,6 +89,8 @@
 	name = "candle"
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle4"
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/trash/liquidfood
 	name = "\improper \"LiquidFood\" ration"
@@ -92,11 +107,14 @@
 /obj/item/trash/maps
 	name = "maps salty ham"
 	icon_state = "maps-used"
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 
 /obj/item/trash/nathisnack
 	name = "razi-snack corned beef"
 	icon_state = "cbeef-used"
-	drop_sound = 'sound/items/drop/soda.ogg'
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 
 /obj/item/trash/brownies
 	name = "square tray"
@@ -123,6 +141,7 @@
 	name = "used can"
 	icon_state = "can-used"
 	drop_sound = 'sound/items/drop/soda.ogg'
+	pickup_sound = 'sound/items/pickup/soda.ogg'
 
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
@@ -133,10 +152,39 @@
 	icon_state = "skrellsnacks"
 
 /obj/item/trash/space_twinkie
-	name = "space twinkie"
+	name = "\improper space twinkie"
 	icon_state = "space_twinkie"
 
 /obj/item/trash/grease //used for generic plattered food. example is lasagna.
 	name = "square tray"
 	icon_state = "grease"
 	drop_sound = 'sound/items/trayhit1.ogg'
+
+/obj/item/trash/cookiesnack
+	name = "\improper Carps Ahoy! miniature cookies"
+	icon_state = "cookiesnack"
+
+/obj/item/trash/stew
+	name = "empty pot"
+	icon = 'icons/obj/food.dmi'
+	icon_state = "stew_empty"
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
+
+/obj/item/trash/coffee
+	name = "empty cup"
+	icon_state = "coffee_vended"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+
+/obj/item/trash/ramen
+	name = "cup ramen"
+	icon_state = "ramen"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+
+/obj/item/trash/candybowl
+	name = "empty candy bowl"
+	icon_state = "candy_bowl"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'

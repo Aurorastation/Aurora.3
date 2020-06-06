@@ -102,6 +102,11 @@
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	canremove = 0
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/red
+	name = "red winter coat"
+	icon_state = "coatred"
+	item_state = "coatred"
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/captain
 	name = "captain's winter coat"
 	icon_state = "coatcaptain"
@@ -200,11 +205,11 @@
 	if(icon_state == icon_open)
 		icon_state = icon_closed
 		item_state = icon_closed
-		to_chat(usr, "You zip the hoodie.")
+		to_chat(usr, "You zip \the [src].")
 	else if(icon_state == icon_closed)
 		icon_state = icon_open
 		item_state = icon_open
-		to_chat(usr, "You unzip the hoodie.")
+		to_chat(usr, "You unzip \the [src].")
 	else
 		to_chat(usr, "You attempt to zip the velcro on your [src], before promptly realising how silly you are.")
 		return

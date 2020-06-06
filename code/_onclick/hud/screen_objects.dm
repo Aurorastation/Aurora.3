@@ -9,9 +9,10 @@
 /obj/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
-	layer = 20.0
+	layer = SCREEN_LAYER
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
+	var/datum/hud/hud = null // A reference to the owner HUD, if any.
 	appearance_flags = NO_CLIENT_COLOR
 
 /obj/screen/Destroy(force = FALSE)
@@ -29,16 +30,42 @@
 
 
 /obj/screen/inventory
-	var/slot_id	//The indentifier for the slot. It has nothing to do with ID cards.
+	var/slot_id	//The identifier for the slot. It has nothing to do with ID cards.
+	var/list/object_overlays = list() // Required for inventory/screen overlays.
 
+/obj/screen/inventory/MouseEntered()
+	..()
+	add_overlays()
+
+/obj/screen/inventory/MouseExited()
+	..()
+	cut_overlay(object_overlays)
+	object_overlays.Cut()
+
+/obj/screen/inventory/proc/add_overlays()
+	var/mob/user = hud.mymob
+
+	if(hud && user && slot_id)
+		var/obj/item/holding = user.get_active_hand()
+		if(!holding || user.get_equipped_item(slot_id))
+			return
+
+		var/image/item_overlay = image(holding)
+		item_overlay.alpha = 92
+		if(!holding.mob_can_equip(user, slot_id, disable_warning = TRUE))
+			item_overlay.color = "#ff0000"
+		else
+			item_overlay.color = "#00ff00"
+		object_overlays += item_overlay
+		add_overlay(object_overlays)
 
 /obj/screen/close
 	name = "close"
 
 /obj/screen/close/Click()
 	if(master)
-		if(istype(master, /obj/item/weapon/storage))
-			var/obj/item/weapon/storage/S = master
+		if(istype(master, /obj/item/storage))
+			var/obj/item/storage/S = master
 			S.close(usr)
 	return 1
 
@@ -69,7 +96,7 @@
 	name = "grab"
 
 /obj/screen/grab/Click()
-	var/obj/item/weapon/grab/G = master
+	var/obj/item/grab/G = master
 	G.s_click(src)
 	return 1
 
@@ -82,15 +109,13 @@
 
 /obj/screen/storage
 	name = "storage"
-	layer = 19
+	layer = SCREEN_LAYER
 	screen_loc = "7,7 to 10,8"
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
 		return 1
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
 		return 1
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
@@ -102,78 +127,116 @@
 	name = "damage zone"
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
-	var/selecting = "chest"
+	var/selecting = BP_CHEST
+	var/static/list/hover_overlays_cache = list()
+	var/hovering_choice
+	var/mutable_appearance/selecting_appearance
 
 /obj/screen/zone_sel/Click(location, control,params)
+	if(isobserver(usr))
+		return
+
 	var/list/PL = params2list(params)
 	var/icon_x = text2num(PL["icon-x"])
 	var/icon_y = text2num(PL["icon-y"])
-	var/old_selecting = selecting //We're only going to update_icon() if there's been a change
+	var/choice = get_zone_at(icon_x, icon_y)
+	if(!choice)
+		return 1
 
+	return set_selected_zone(choice, usr)
+
+/obj/screen/zone_sel/MouseEntered(location, control, params)
+	MouseMove(location, control, params)
+
+/obj/screen/zone_sel/MouseMove(location, control, params)
+	if(isobserver(usr))
+		return
+
+	var/list/PL = params2list(params)
+	var/icon_x = text2num(PL["icon-x"])
+	var/icon_y = text2num(PL["icon-y"])
+	var/choice = get_zone_at(icon_x, icon_y)
+
+	if(hovering_choice == choice)
+		return
+	vis_contents -= hover_overlays_cache[hovering_choice]
+	hovering_choice = choice
+
+	var/obj/effect/overlay/zone_sel/overlay_object = hover_overlays_cache[choice]
+	if(!overlay_object)
+		overlay_object = new
+		overlay_object.icon_state = "[choice]"
+		hover_overlays_cache[choice] = overlay_object
+	vis_contents += overlay_object
+
+
+/obj/effect/overlay/zone_sel
+	icon = 'icons/mob/zone_sel.dmi'
+	mouse_opacity = 0
+	alpha = 128
+	anchored = TRUE
+	layer = SCREEN_LAYER + 0.1
+
+/obj/screen/zone_sel/MouseExited(location, control, params)
+	if(!isobserver(usr) && hovering_choice)
+		vis_contents -= hover_overlays_cache[hovering_choice]
+		hovering_choice = null
+
+/obj/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
 		if(1 to 3) //Feet
 			switch(icon_x)
 				if(10 to 15)
-					selecting = "r_foot"
+					return BP_R_FOOT
 				if(17 to 22)
-					selecting = "l_foot"
-				else
-					return 1
+					return BP_L_FOOT
 		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					selecting = "r_leg"
+					return BP_R_LEG
 				if(17 to 22)
-					selecting = "l_leg"
-				else
-					return 1
+					return BP_L_LEG
 		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					selecting = "r_hand"
+					return BP_R_HAND
 				if(12 to 20)
-					selecting = "groin"
+					return BP_GROIN
 				if(21 to 24)
-					selecting = "l_hand"
-				else
-					return 1
+					return BP_L_HAND
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					selecting = "r_arm"
+					return BP_R_ARM
 				if(12 to 20)
-					selecting = "chest"
+					return BP_CHEST
 				if(21 to 24)
-					selecting = "l_arm"
-				else
-					return 1
+					return BP_L_ARM
 		if(23 to 30) //Head, but we need to check for eye or mouth
 			if(icon_x in 12 to 20)
-				selecting = "head"
 				switch(icon_y)
 					if(23 to 24)
 						if(icon_x in 15 to 17)
-							selecting = "mouth"
+							return BP_MOUTH
 					if(26) //Eyeline, eyes are on 15 and 17
 						if(icon_x in 14 to 18)
-							selecting = "eyes"
+							return BP_EYES
 					if(25 to 27)
 						if(icon_x in 15 to 17)
-							selecting = "eyes"
+							return BP_EYES
+				return BP_HEAD
 
-	if(old_selecting != selecting)
-		update_icon()
-	return 1
-
-/obj/screen/zone_sel/proc/set_selected_zone(bodypart)
-	var/old_selecting = selecting
-	selecting = bodypart
-	if(old_selecting != selecting)
+/obj/screen/zone_sel/proc/set_selected_zone(choice, mob/user)
+	if(isobserver(user))
+		return
+	if(choice != selecting)
+		selecting = choice
 		update_icon()
 
 /obj/screen/zone_sel/update_icon()
 	cut_overlays()
-	add_overlay(image('icons/mob/zone_sel.dmi', "[selecting]"))
+	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
+	add_overlay(selecting_appearance)
 
 /obj/screen/Click(location, control, params)
 	if(!usr)	return 1
@@ -189,8 +252,6 @@
 			usr.hud_used.hidden_inventory_update()
 
 		if("equip")
-			if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-				return 1
 			if(ishuman(usr))
 				var/mob/living/carbon/human/H = usr
 				H.quick_equip()
@@ -262,7 +323,6 @@
 				var/mob/living/silicon/robot/R = usr
 				if(R.module)
 					R.uneq_active()
-					R.hud_used.update_robot_modules_display()
 				else
 					to_chat(R, "You haven't selected a module yet.")
 
@@ -274,17 +334,15 @@
 	// At this point in client Click() code we have passed the 1/10 sec check and little else
 	// We don't even know if it's a middle click
 	if(!usr.canClick())
-		return 1
-	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return 1
-	if (istype(usr.loc,/obj/mecha)) // stops inventory actions in a mech
-		return 1
+		return TRUE
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADJACENT|USE_ALLOW_NON_ADV_TOOL_USR)) //You're always adjacent to your inventory in practice.
+		return TRUE
 	switch(name)
-		if("r_hand")
+		if(BP_R_HAND)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("r")
-		if("l_hand")
+		if(BP_L_HAND)
 			if(iscarbon(usr))
 				var/mob/living/carbon/C = usr
 				C.activate_hand("l")
@@ -301,7 +359,7 @@
 /obj/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
-	layer = 20
+	layer = SCREEN_LAYER
 
 //This updates the run/walk button on the hud
 /obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
@@ -345,3 +403,20 @@
 				usr.m_intent = "run"
 
 		update_move_icon(usr)
+
+// Hand slots are special to handle the handcuffs overlay
+/obj/screen/inventory/hand
+	var/image/handcuff_overlay
+
+/obj/screen/inventory/hand/update_icon()
+	..()
+	if(!hud)
+		return
+	if(!handcuff_overlay)
+		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
+		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
+	overlays.Cut()
+	if(hud.mymob && iscarbon(hud.mymob))
+		var/mob/living/carbon/C = hud.mymob
+		if(C.handcuffed)
+			overlays |= handcuff_overlay

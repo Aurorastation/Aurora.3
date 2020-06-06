@@ -21,6 +21,7 @@
 	default_type = "glass"
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
@@ -132,7 +133,7 @@
 		else
 			to_chat(user, "<span class='warning'>You need one metal sheet to finish the light tile!</span>")
 
-	else if(istype(O, /obj/item/weapon/wirecutters))
+	else if(O.iswirecutter())
 		user.drop_from_inventory(O,get_turf(src))
 		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)

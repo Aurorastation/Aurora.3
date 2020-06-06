@@ -78,10 +78,6 @@
 			makepowernets()
 			powernet_update_queued = FALSE
 
-		if (cameranet.cameras_unsorted)
-			sortTim(cameranet.cameras, /proc/cmp_camera)
-			cameranet.cameras_unsorted = FALSE
-
 	var/list/curr_machinery = working_machinery
 	var/list/curr_powersinks = working_powersinks
 
@@ -224,5 +220,12 @@
 
 	if (remove_from_global)
 		SSmachinery.all_machines -= M
+
+
+/datum/controller/subsystem/machinery/ExplosionStart()
+	suspend()
+
+/datum/controller/subsystem/machinery/ExplosionEnd()
+	wake()
 
 #undef MACHINERY_GO_TO_NEXT

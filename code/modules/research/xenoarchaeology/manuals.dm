@@ -1,7 +1,8 @@
 
-/obj/item/weapon/book/manual/excavation
+/obj/item/book/manual/excavation
 	name = "Out on the Dig"
 	icon_state = "excavation"
+	item_state = "book15"
 	author = "Professor Patrick Mason, Curator of the Antiquities Museum on Ichar VII"
 	title = "Out on the Dig"
 	dat = {"<html>
@@ -112,9 +113,10 @@
 				</html>
 			"}
 
-/obj/item/weapon/book/manual/mass_spectrometry
+/obj/item/book/manual/mass_spectrometry
 	name = "High Power Mass Spectrometry: A Comprehensive Guide"
 	icon_state = "analysis"
+	item_state = "book15"
 	author = "Winton Rice, Chief Mass Spectrometry Technician at the Institute of Applied Sciences on Arcadia"
 	title = "High powered mass spectrometry, a comprehensive guide"
 	dat = {"<html>
@@ -183,9 +185,10 @@
 				</html>
 			"}
 
-/obj/item/weapon/book/manual/anomaly_spectroscopy
+/obj/item/book/manual/anomaly_spectroscopy
 	name = "Spectroscopy: Analysing the Anomalies of the Cosmos"
 	icon_state = "anomaly"
+	item_state = "book15"
 	author = "Doctor Martin Boyle, Director Research at the Lower Hydrolian Sector Listening Array"
 	title = "Spectroscopy: Analysing the Anomalies of the Cosmos"
 	dat = {"<html>
@@ -208,9 +211,10 @@
 				</body>
 			</html>"}
 
-/obj/item/weapon/book/manual/materials_chemistry_analysis
+/obj/item/book/manual/materials_chemistry_analysis
 	name = "Materials Analysis and the Chemical Implications"
 	icon_state = "chemistry"
+	item_state = "book15"
 	author = "Jasper Pascal, Senior Lecturer in Materials Analysis at the University of Jol'Nar"
 	title = "Materials Analysis and the Chemical Implications"
 	dat = {"<html>
@@ -235,9 +239,10 @@
 				a new element that defies classification. I defy you to classify it without reviving this once great field!
 			"}
 
-/obj/item/weapon/book/manual/anomaly_testing
+/obj/item/book/manual/anomaly_testing
 	name = "Anomalous Materials and Energies"
 	icon_state = "triangulate"
+	item_state = "book15"
 	author = "Norman York, formerly of the Tyrolion Institute on Titan"
 	title = "Anomalous Materials and Energies"
 	dat = {"<html>
@@ -313,9 +318,10 @@
 				</html>
 			"}
 
-/obj/item/weapon/book/manual/stasis
+/obj/item/book/manual/stasis
 	name = "Cellular Suspension, the New Cryogenics?"
 	icon_state = "stasis"
+	item_state = "book15"
 	author = "Elvin Schmidt"
 	title = "Cellular Suspension, the New Cryogenics?"
 	dat = {"<html>

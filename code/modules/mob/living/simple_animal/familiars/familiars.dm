@@ -25,6 +25,9 @@
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
 
+/mob/living/simple_animal/familiar/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /mob/living/simple_animal/familiar/carcinus
 	name = "crab"
 	desc = "A small crab said to be made of stone and starlight."
@@ -43,7 +46,8 @@
 	friendly = "pinches"
 	attacktext = "pinched"
 	resistance = 9
-
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
 
 /mob/living/simple_animal/familiar/pike
 	name = "space pike"
@@ -64,8 +68,9 @@
 	maxHealth = 100
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/carpmeat
+	canbrush = TRUE
+	brush = /obj/item/reagent_containers/glass/rag
+	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
 
 	min_oxy = 0
 
@@ -119,6 +124,7 @@
 /mob/living/simple_animal/familiar/goat
 	name = "goat"
 	desc = "A sprightly looking goat."
+	icon = 'icons/mob/npc/livestock.dmi'
 	icon_state = "goat"
 	icon_living = "goat"
 	icon_dead = "goat_dead"
@@ -133,8 +139,9 @@
 	mob_size = 4.5 //weight based on Chanthangi goats
 	density = 0
 	wizardy_spells = list(/spell/aoe_turf/smoke)
+	canbrush = TRUE
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
@@ -155,6 +162,7 @@
 /mob/living/simple_animal/familiar/pet/cat
 	name = "black cat"
 	desc = "A pitch black cat. Said to be especially unlucky."
+	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "cat3"
 	icon_living = "cat3"
 	icon_dead = "cat3_dead"
@@ -165,7 +173,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	speak_emote = list("meows", "purrs")
-	holder_type = /obj/item/weapon/holder/cat
+	holder_type = /obj/item/holder/cat/black/familiar
 	mob_size = MOB_SMALL
 
 	health = 45
@@ -176,8 +184,9 @@
 	density = 0
 
 	wizardy_spells = list(/spell/targeted/subjugation)
+	canbrush = TRUE
 
-	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
 
@@ -186,10 +195,8 @@
 	desc = "A small rodent. It looks very old."
 	body_color = "gray"
 
-
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-
 
 	health = 25
 	maxHealth = 25
@@ -198,6 +205,7 @@
 	attacktext = "nibbled"
 	universal_speak = 1
 	universal_understand = 1
+	stop_automated_movement = TRUE
 
 	min_oxy = 1 //still require a /bit/ of air.
 	max_co2 = 0
@@ -212,3 +220,6 @@
 	add_language(LANGUAGE_TCB)
 	name = initial(name)
 	desc = initial(desc)
+
+/mob/living/simple_animal/rat/familiar/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

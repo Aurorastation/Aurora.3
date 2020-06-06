@@ -1,0 +1,2334 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
+"ab" = (
+/obj/machinery/access_button/airlock_exterior{
+	frequency = 1352;
+	master_tag = "bunker_airlock";
+	pixel_y = -25
+	},
+/obj/machinery/light/small{
+	brightness_color = "#FA8282"
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/dungeon/sol_outpost)
+"ac" = (
+/turf/simulated/wall/r_wall,
+/area/dungeon/sol_outpost)
+"ad" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/lino,
+/area/dungeon/sol_outpost)
+"ae" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/lino,
+/area/dungeon/sol_outpost)
+"af" = (
+/obj/machinery/appliance/cooker/fryer,
+/turf/simulated/floor/lino,
+/area/dungeon/sol_outpost)
+"ag" = (
+/obj/structure/table/standard,
+/obj/machinery/microwave,
+/turf/simulated/floor/lino,
+/area/dungeon/sol_outpost)
+"ah" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"ai" = (
+/obj/structure/table/reinforced,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"aj" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/donkpockets,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"ak" = (
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"al" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/mucus,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/turf/simulated/floor/lino,
+/area/dungeon/sol_outpost)
+"am" = (
+/turf/simulated/floor/lino,
+/area/dungeon/sol_outpost)
+"an" = (
+/obj/effect/decal/cleanable/flour,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
+/area/dungeon/sol_outpost)
+"ao" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"ap" = (
+/obj/item/stool/padded,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"aq" = (
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"ar" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"as" = (
+/obj/effect/decal/cleanable/flour,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"at" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "spiderling";
+	name = "dead spider"
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"au" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"av" = (
+/obj/item/stool/padded,
+/obj/effect/decal/cleanable/flour,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"aw" = (
+/obj/random/junk,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"ax" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"ay" = (
+/obj/item/stool/padded,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"az" = (
+/obj/structure/toilet,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "spiderling";
+	name = "dead spider"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aA" = (
+/turf/simulated/wall,
+/area/dungeon/sol_outpost)
+"aB" = (
+/obj/structure/toilet,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/scarybat{
+	wander = 0
+	},
+/mob/living/simple_animal/hostile/scarybat{
+	wander = 0
+	},
+/mob/living/simple_animal/hostile/scarybat{
+	wander = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aC" = (
+/obj/structure/toilet,
+/obj/effect/decal/cleanable/mucus,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/vomit,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aD" = (
+/obj/item/stool/padded,
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"aE" = (
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"aF" = (
+/obj/item/stool/padded,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"aG" = (
+/obj/structure/table/reinforced,
+/obj/random/booze,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"aH" = (
+/obj/machinery/door/airlock,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aI" = (
+/obj/machinery/door/airlock/glass,
+/turf/simulated/floor/tiled,
+/area/dungeon/sol_outpost)
+"aJ" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aL" = (
+/obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/vending/wallmed2{
+	pixel_x = -7;
+	pixel_y = 30;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aM" = (
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"aN" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"aO" = (
+/obj/structure/sign/flag/sol/left{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"aP" = (
+/obj/structure/sign/flag/sol/right{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"aQ" = (
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"aR" = (
+/obj/structure/sign/flag/sol/left{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"aS" = (
+/obj/structure/sign/flag/sol/right{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"aT" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/obj/structure/mirror{
+	pixel_x = -32
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/greenglow,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aX" = (
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"aY" = (
+/obj/structure/curtain/open/shower,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"aZ" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1352;
+	icon_state = "door_locked";
+	id_tag = "bunker_exterior";
+	locked = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"ba" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bb" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 6
+	},
+/obj/structure/mirror{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"bc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"bd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/toothpaste,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"be" = (
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"bf" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"bg" = (
+/obj/effect/decal/cleanable/mucus,
+/obj/machinery/airlock_sensor{
+	frequency = 1352;
+	id_tag = "bunker_sensor";
+	pixel_x = -25
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8;
+	frequency = 1352;
+	id_tag = "bunker_vent"
+	},
+/obj/machinery/light/small{
+	brightness_color = "#FA8282";
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/porta_turret/pulse,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bj" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bk" = (
+/obj/machinery/porta_turret/pulse,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bl" = (
+/obj/machinery/door/airlock,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"bm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	frequency = 1352;
+	id_tag = "bunker_airlock";
+	pixel_x = -25;
+	tag_airpump = "bunker_vent";
+	tag_chamber_sensor = "bunker_sensor";
+	tag_exterior_door = "bunker_exterior";
+	tag_interior_door = "bunker_interior"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 8;
+	frequency = 1352;
+	id_tag = "bunker_vent"
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bo" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bp" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bq" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"br" = (
+/obj/machinery/door/airlock/centcom{
+	opacity = 1
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bs" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bt" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/sol/marine,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/mask/gas/tactical,
+/obj/item/clothing/glasses/night,
+/obj/item/clothing/gloves/swat/tactical,
+/obj/item/clothing/head/helmet/sol,
+/obj/item/clothing/suit/storage/vest/sol,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bv" = (
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 1;
+	status = 2
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bw" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bx" = (
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"by" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 1
+	},
+/obj/item/stool/padded,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bz" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1352;
+	icon_state = "door_locked";
+	id_tag = "bunker_interior";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bA" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1352;
+	icon_state = "door_locked";
+	id_tag = "bunker_interior";
+	locked = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bB" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bC" = (
+/obj/structure/sign/flag/sol/left{
+	pixel_y = -32
+	},
+/obj/item/landmine/frag{
+	deployed = 1
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"bD" = (
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine,
+/obj/item/paper{
+	info = "2452 - SOL CENTRAL GOVERNMENT - Operations are to be ceased immediately and the bunker is to be abandoned due to the recent indepenence of Tau Ceti."
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bE" = (
+/obj/structure/table/wood,
+/obj/random/finances,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bF" = (
+/obj/random/junk,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bG" = (
+/obj/structure/table/wood,
+/obj/item/phone,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bH" = (
+/obj/structure/table/wood,
+/obj/random/junk,
+/obj/item/gun/projectile/pistol/sol{
+	pixel_y = 6
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bK" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/eastleft,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/sol,
+/obj/item/clothing/head/helmet/space/void/sol,
+/obj/structure/sign/vacuum{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/spiderling_remains,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bM" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/access_button/airlock_interior{
+	frequency = 1352;
+	master_tag = "bunker_airlock";
+	pixel_y = 25
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bN" = (
+/obj/structure/sign/flag/sol{
+	pixel_x = -32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bP" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"bQ" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bR" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bS" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bT" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/mucus,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/flag/sol{
+	pixel_x = 32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bW" = (
+/obj/effect/decal/cleanable/ash,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"bX" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/eastleft,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/sol,
+/obj/item/clothing/head/helmet/space/void/sol,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"bZ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"ca" = (
+/obj/machinery/door/airlock/hatch,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "spiderling";
+	name = "dead spider"
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cc" = (
+/obj/machinery/door/airlock,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cd" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"ce" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster{
+	pixel_x = 32
+	},
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cf" = (
+/turf/simulated/wall/r_wall,
+/area/mine/unexplored)
+"cg" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/eastleft,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/sol,
+/obj/item/clothing/head/helmet/space/void/sol,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"ch" = (
+/obj/effect/decal/cleanable/ash,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"ci" = (
+/obj/random/junk,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"ck" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cl" = (
+/obj/effect/decal/cleanable/spiderling_remains,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/remains/rat,
+/obj/structure/sign/flag/sol{
+	pixel_x = 32
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cn" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"co" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/nosmoking_1{
+	pixel_y = -32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cp" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/northleft{
+	name = "Airlock Canisters"
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cq" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/northleft{
+	name = "Airlock Canisters"
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/sign/flag/sol{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cr" = (
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cs" = (
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"ct" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"cu" = (
+/obj/random/junk,
+/obj/structure/bed/chair/office/light,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cv" = (
+/obj/effect/decal/cleanable/mucus,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cw" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cx" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cy" = (
+/obj/effect/decal/cleanable/generic,
+/obj/structure/sign/flag/sol{
+	pixel_x = 32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cz" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "An old cryogenic freezer .";
+	dir = 4;
+	icon = 'icons/obj/sleeper.dmi';
+	icon_state = "body_scanner";
+	name = "dilapitated cryogenic freezer";
+	pixel_x = 1
+	},
+/obj/effect/decal/cleanable/dirt{
+	layer = 3.1
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cA" = (
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"cB" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cC" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cD" = (
+/obj/structure/table/wood,
+/obj/random/document/junk,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cE" = (
+/obj/structure/table/wood,
+/obj/item/pen,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cF" = (
+/obj/structure/safe,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cG" = (
+/obj/effect/decal/cleanable/dirt{
+	layer = 3.1
+	},
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "An old cryogenic freezer .";
+	dir = 4;
+	icon = 'icons/obj/sleeper.dmi';
+	icon_state = "body_scanner";
+	name = "dilapitated cryogenic freezer";
+	pixel_x = 1
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cI" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"cJ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"cK" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"cL" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"cM" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor,
+/area/dungeon/sol_outpost)
+"cN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "spiderling";
+	name = "dead spider"
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/turf/simulated/floor/wood,
+/area/dungeon/sol_outpost)
+"cP" = (
+/obj/structure/curtain/open/shower,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/soap/blue_soap,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+"cQ" = (
+/obj/effect/decal/cleanable/mucus,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cS" = (
+/obj/structure/sign/securearea{
+	pixel_y = -32
+	},
+/obj/machinery/light{
+	brightness_color = "#FA8282"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
+"cT" = (
+/obj/machinery/door/airlock/highsecurity{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"cU" = (
+/obj/structure/table/reinforced,
+/obj/item/ammo_magazine/c762/sol,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"cV" = (
+/obj/structure/table/reinforced,
+/obj/item/gun/launcher/grenade{
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"cW" = (
+/obj/structure/table/reinforced,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"cX" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"cZ" = (
+/obj/structure/table/reinforced,
+/obj/item/ammo_magazine/mc9mm/empty,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"da" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(150)
+	},
+/obj/item/melee/ceremonial_sword/marine,
+/obj/item/melee/ceremonial_sword/marine,
+/obj/item/melee/ceremonial_sword/marine,
+/obj/item/melee/ceremonial_sword/marine,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"db" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dc" = (
+/turf/simulated/mineral,
+/area/mine/unexplored)
+"dd" = (
+/obj/effect/decal/remains/rat,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"de" = (
+/obj/structure/sign/flag/sol/right{
+	pixel_y = -32
+	},
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"df" = (
+/obj/structure/boulder,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"dg" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dh" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(150)
+	},
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"di" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(150)
+	},
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dj" = (
+/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dk" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(150)
+	},
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	brightness_color = "#FA8282";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dl" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(150)
+	},
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/spiderling_remains,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"do" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(150)
+	},
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/c762/sol,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dp" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(150)
+	},
+/obj/item/storage/box/shotgunshells,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dq" = (
+/obj/machinery/porta_turret/pulse,
+/obj/structure/sign/flag/sol/left{
+	pixel_y = -32
+	},
+/obj/effect/decal/warning_stripes,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dr" = (
+/obj/machinery/porta_turret/pulse,
+/obj/structure/sign/flag/sol/right{
+	pixel_y = -32
+	},
+/obj/effect/decal/warning_stripes,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"ds" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(150)
+	},
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/frags,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/dungeon/sol_outpost)
+"dt" = (
+/obj/item/reagent_containers/toothbrush,
+/turf/simulated/floor/tiled/white,
+/area/dungeon/sol_outpost)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(3,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+dc
+dc
+cA
+cA
+dc
+dc
+dc
+ac
+ac
+ac
+ac
+ac
+ac
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+aa
+dc
+dc
+cA
+aX
+ab
+ac
+ac
+ac
+ac
+bK
+bX
+cg
+cn
+ac
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(5,1,1) = {"
+aa
+dc
+dc
+dc
+dc
+cA
+cA
+cA
+cA
+aZ
+bg
+bm
+bz
+bL
+bY
+ch
+co
+ac
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+aa
+df
+df
+df
+cA
+cA
+cA
+cA
+aZ
+bh
+bn
+bA
+aN
+bZ
+ci
+cp
+ac
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(7,1,1) = {"
+aa
+aa
+df
+df
+df
+cA
+aX
+cA
+bC
+ac
+ac
+ac
+ac
+bM
+aN
+cj
+cq
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+df
+df
+df
+cA
+cA
+cA
+de
+ac
+ac
+ac
+ac
+ac
+ca
+ca
+ac
+ac
+ac
+ac
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+dc
+dc
+dc
+dc
+cA
+cA
+cA
+ac
+ac
+aQ
+aN
+aQ
+bN
+aN
+aN
+cr
+aQ
+ba
+aQ
+ac
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+"}
+(10,1,1) = {"
+dc
+dc
+dc
+dc
+dc
+cA
+cA
+ac
+ac
+aQ
+aQ
+aN
+ba
+bO
+aN
+aN
+cs
+aQ
+aQ
+aN
+aQ
+ac
+ac
+cf
+cf
+cf
+cf
+cf
+cf
+cf
+dc
+aa
+"}
+(11,1,1) = {"
+dc
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+aM
+aN
+bi
+aQ
+aN
+aQ
+aQ
+aQ
+aQ
+aQ
+bO
+bi
+aQ
+aQ
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+cf
+dc
+aa
+"}
+(12,1,1) = {"
+dc
+ac
+ad
+al
+ar
+ap
+ay
+aA
+aN
+aQ
+bj
+bo
+bB
+bP
+br
+br
+ct
+bB
+cI
+aQ
+cQ
+aN
+ac
+cU
+da
+di
+dl
+dp
+ac
+cf
+dc
+aa
+"}
+(13,1,1) = {"
+dc
+ac
+ae
+am
+as
+au
+ai
+aA
+aO
+aN
+aN
+bp
+bD
+bQ
+bx
+bw
+bQ
+cD
+cJ
+bj
+aQ
+aQ
+ac
+cV
+db
+cX
+cX
+cX
+ac
+cf
+dc
+aa
+"}
+(14,1,1) = {"
+dc
+ac
+af
+an
+as
+av
+aD
+aA
+aP
+aN
+aN
+bq
+bE
+bR
+cH
+bw
+cu
+cE
+cK
+aQ
+aN
+cR
+ac
+cW
+cX
+cX
+dm
+cX
+ac
+cf
+dc
+aa
+"}
+(15,1,1) = {"
+dc
+ac
+ag
+am
+at
+ar
+aE
+aI
+aQ
+aN
+aQ
+br
+bF
+bx
+bT
+bT
+cv
+bw
+br
+aQ
+aQ
+bj
+cT
+cX
+cX
+dj
+cX
+dq
+ac
+cf
+dc
+aa
+"}
+(16,1,1) = {"
+dc
+ac
+ah
+ao
+ar
+aw
+ar
+aI
+aN
+aQ
+aN
+br
+bx
+cH
+bT
+bT
+bx
+cH
+br
+aQ
+aQ
+aQ
+cT
+cX
+cX
+cX
+cX
+dr
+ac
+cf
+dc
+aa
+"}
+(17,1,1) = {"
+dc
+ac
+ai
+ap
+ar
+ap
+aF
+aA
+aR
+aN
+aQ
+bs
+bG
+bR
+cb
+ck
+cw
+cF
+cL
+aQ
+aN
+cS
+ac
+cW
+dd
+cX
+dn
+cX
+ac
+cf
+dc
+aa
+"}
+(18,1,1) = {"
+dc
+ac
+aj
+ap
+ao
+ax
+aG
+aA
+aS
+aN
+aQ
+bp
+bH
+bS
+bx
+bw
+cx
+cD
+cJ
+aQ
+aN
+ba
+ac
+cW
+dg
+cX
+cX
+cX
+ac
+cf
+dc
+aa
+"}
+(19,1,1) = {"
+dc
+ac
+ak
+aq
+ar
+ay
+ay
+aA
+aQ
+aQ
+aN
+bt
+bB
+bP
+br
+br
+ct
+bB
+cM
+aN
+aQ
+aQ
+ac
+cZ
+dh
+dk
+do
+ds
+ac
+cf
+dc
+aa
+"}
+(20,1,1) = {"
+dc
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+aQ
+aN
+bk
+aN
+aQ
+aQ
+aN
+aQ
+aQ
+aN
+aQ
+bk
+aQ
+aQ
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+cf
+dc
+aa
+"}
+(21,1,1) = {"
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+ac
+ac
+ba
+aN
+aQ
+aQ
+bU
+bj
+aN
+aN
+aQ
+aQ
+aN
+aQ
+ac
+ac
+cf
+cf
+cf
+cf
+cf
+cf
+cf
+dc
+aa
+"}
+(22,1,1) = {"
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+ac
+ac
+aQ
+aQ
+aQ
+bV
+aN
+aQ
+cy
+aN
+aN
+aQ
+ac
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+"}
+(23,1,1) = {"
+aa
+dc
+dc
+dc
+ac
+ac
+ac
+ac
+ac
+ac
+aA
+aA
+aA
+ac
+cc
+cc
+aA
+aA
+aA
+ac
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+"}
+(24,1,1) = {"
+aa
+dc
+dc
+dc
+ac
+az
+aH
+bd
+aT
+bb
+aA
+bu
+bu
+bu
+bw
+cl
+cz
+cG
+cG
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+"}
+(25,1,1) = {"
+aa
+dc
+dc
+dc
+ac
+aA
+aA
+aK
+aU
+bc
+aA
+bv
+bI
+bI
+bJ
+bw
+bw
+bw
+cN
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+"}
+(26,1,1) = {"
+aa
+dc
+dc
+dc
+ac
+aB
+aH
+aJ
+aV
+aJ
+bl
+bw
+bJ
+bw
+bw
+bw
+bw
+bx
+bw
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+"}
+(27,1,1) = {"
+aa
+dc
+dc
+dc
+ac
+aA
+aA
+aJ
+aW
+dt
+bl
+bx
+bI
+bW
+bw
+bI
+cB
+cB
+cB
+ac
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+"}
+(28,1,1) = {"
+aa
+dc
+dc
+dc
+ac
+aC
+aH
+aJ
+aY
+be
+aA
+by
+bx
+bw
+cd
+bw
+bw
+cH
+cO
+ac
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+dc
+aa
+aa
+"}
+(29,1,1) = {"
+aa
+aa
+dc
+dc
+ac
+aA
+aA
+aL
+cP
+bf
+aA
+bu
+bu
+bu
+ce
+cm
+cC
+cC
+cC
+ac
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+dc
+dc
+aa
+aa
+"}
+(30,1,1) = {"
+aa
+aa
+dc
+dc
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+dc
+dc
+aa
+aa
+"}
+(31,1,1) = {"
+aa
+aa
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(32,1,1) = {"
+aa
+aa
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+dc
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

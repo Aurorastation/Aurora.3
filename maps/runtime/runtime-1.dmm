@@ -23,8 +23,8 @@
 "ag" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -36,7 +36,6 @@
 /area/engineering/gravity_gen)
 "aj" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -72,7 +71,6 @@
 /area/template_noop)
 "an" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -102,7 +100,6 @@
 /area/engineering)
 "aq" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -127,12 +124,12 @@
 	pixel_y = 25
 	},
 /obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -249,8 +246,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -281,9 +278,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	dir = 2
-	},
+/turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aK" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -396,9 +391,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	dir = 2
-	},
+/turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aY" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -412,7 +405,7 @@
 /turf/simulated/floor/airless,
 /area/template_noop)
 "ba" = (
-/obj/item/weapon/weldingtool/experimental,
+/obj/item/weldingtool/experimental,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
@@ -456,7 +449,7 @@
 	},
 /obj/machinery/light,
 /obj/item/device/analyzer,
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
@@ -488,14 +481,14 @@
 /area/engineering/atmos)
 "bl" = (
 /obj/machinery/atmospherics/unary/vent_pump,
-/obj/item/weapon/screwdriver,
-/obj/item/weapon/wirecutters,
+/obj/item/screwdriver,
+/obj/item/wirecutters,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/engineering)
 "bm" = (
 /obj/machinery/light,
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /obj/item/device/lightreplacer,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
@@ -570,7 +563,6 @@
 	d2 = 2
 	},
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -598,7 +590,6 @@
 /area/hallway/primary/central_one)
 "bD" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -622,20 +613,20 @@
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bF" = (
-/obj/item/weapon/card/id/captains_spare,
+/obj/item/card/id/captains_spare,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bG" = (
-/obj/item/weapon/storage/backpack/holding,
+/obj/item/storage/backpack/holding,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bH" = (
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd_ammo,
-/obj/item/weapon/rfd/construction,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd_ammo,
+/obj/item/rfd/construction,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -680,7 +671,6 @@
 /area/hallway/primary/central_one)
 "bQ" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -1049,7 +1039,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cG" = (
-/obj/item/weapon/storage/box/donut,
+/obj/item/storage/fancy/donut,
 /obj/effect/floor_decal/corner/blue{
 	dir = 1
 	},
@@ -1076,7 +1066,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cI" = (
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
@@ -1140,7 +1130,6 @@
 /area/storage/primary)
 "cT" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -1151,7 +1140,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -1159,7 +1147,6 @@
 "cU" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -1176,7 +1163,6 @@
 /area/construction)
 "cX" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -1347,8 +1333,8 @@
 /area/storage/primary)
 "dA" = (
 /obj/machinery/light,
-/obj/item/weapon/material/twohanded/fireaxe,
-/obj/item/weapon/extinguisher,
+/obj/item/material/twohanded/fireaxe,
+/obj/item/extinguisher,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
@@ -1358,8 +1344,8 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "dC" = (
-/obj/item/weapon/storage/box/lights/mixed,
-/obj/item/weapon/storage/box/lights/tubes,
+/obj/item/storage/box/lights/mixed,
+/obj/item/storage/box/lights/tubes,
 /obj/machinery/light,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,

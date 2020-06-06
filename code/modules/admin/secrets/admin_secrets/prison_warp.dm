@@ -12,18 +12,18 @@
 	for(var/mob/living/carbon/human/H in mob_list)
 		var/turf/T = get_turf(H)
 		var/security = 0
-		if((T && T in current_map.admin_levels) || prisonwarped.Find(H))
+		if((T && isAdminLevel(T.z)) || prisonwarped.Find(H))
 		//don't warp them if they aren't ready or are already there
 			continue
 		H.Paralyse(5)
 		if(H.wear_id)
-			var/obj/item/weapon/card/id/id = H.get_idcard()
+			var/obj/item/card/id/id = H.get_idcard()
 			for(var/A in id.access)
 				if(A == access_security)
 					security++
 		if(!security)
 			//strip their stuff before they teleport into a cell :downs:
-			for(var/obj/item/weapon/W in H)
+			for(var/obj/item/W in H)
 				if(istype(W, /obj/item/organ/external))
 					continue
 					//don't strip organs

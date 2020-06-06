@@ -4,7 +4,7 @@
 	anchored = 1
 	density = 1
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		return attack_hand(user)
 
 	attack_hand(mob/user as mob)
@@ -32,18 +32,6 @@
 	var/def_zone
 	flags = PROXMOVE
 	pass_flags = PASSTABLE
-
-
-/obj/effect/begin
-	name = "begin"
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "begin"
-	anchored = 1.0
-	unacidable = 1
-
-/*
- * This item is completely unused, but removing it will break something in R&D and Radio code causing PDA and Ninja code to fail on compile
- */
 
 /var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
 
@@ -76,7 +64,7 @@
 
 /obj/item/mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
-/obj/item/weapon/beach_ball
+/obj/item/beach_ball
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "ball"
 	name = "beach ball"
@@ -90,6 +78,7 @@
 	throw_range = 20
 	flags = CONDUCT
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 	afterattack(atom/target as mob|obj|turf|area, mob/user as mob)
 		user.drop_item()

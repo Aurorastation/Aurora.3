@@ -16,7 +16,7 @@
 // Run all strings to be used in an SQL query through this proc first to properly escape out injection attempts.
 /proc/sanitizeSQL(var/t as text)
 	var/sqltext = dbcon.Quote(t);
-	return copytext(sqltext, 2, lentext(sqltext));//Quote() adds quotes around input, we already do that
+	return copytext(sqltext, 2, length(sqltext));//Quote() adds quotes around input, we already do that
 
 /*
  * Text sanitization
@@ -183,8 +183,8 @@
 
 //Parses a string into a list
 /proc/dd_text2List(text, separator)
-	var/textlength      = lentext(text)
-	var/separatorlength = lentext(separator)
+	var/textlength      = length(text)
+	var/separatorlength = length(separator)
 	var/list/textList   = new /list()
 	var/searchPosition  = 1
 	var/findPosition    = 1
@@ -280,9 +280,9 @@
 //This is used for fingerprints
 /proc/stringmerge(var/text,var/compare,replace = "*")
 	var/newtext = text
-	if(lentext(text) != lentext(compare))
+	if(length(text) != length(compare))
 		return 0
-	for(var/i = 1, i < lentext(text), i++)
+	for(var/i = 1, i < length(text), i++)
 		var/a = copytext(text,i,i+1)
 		var/b = copytext(compare,i,i+1)
 		//if it isn't both the same letter, or if they are both the replacement character
@@ -302,7 +302,7 @@
 	if(!text || !character)
 		return 0
 	var/count = 0
-	for(var/i = 1, i <= lentext(text), i++)
+	for(var/i = 1, i <= length(text), i++)
 		var/a = copytext(text,i,i+1)
 		if(a == character)
 			count++
@@ -317,8 +317,8 @@
 //Used in preferences' SetFlavorText and human's set_flavor verb
 //Previews a string of len or less length
 proc/TextPreview(var/string,var/len=40)
-	if(lentext(string) <= len)
-		if(!lentext(string))
+	if(length(string) <= len)
+		if(!length(string))
 			return "\[...\]"
 		else
 			return string
@@ -332,11 +332,10 @@ proc/TextPreview(var/string,var/len=40)
 //For generating neat chat tag-images
 //The icon var could be local in the proc, but it's a waste of resources
 //	to always create it and then throw it out.
-/var/icon/text_tag_icons = new('./icons/chattags.dmi')
 /proc/create_text_tag(var/tagname, var/tagdesc = tagname, var/client/C = null)
 	if(C && (C.prefs.toggles & CHAT_NOICONS))
 		return tagdesc
-	return "<IMG src='\ref[text_tag_icons.icon]' class='text_tag' iconstate='[tagname]'" + (tagdesc ? " alt='[tagdesc]'" : "") + ">"
+	return "<IMG src='\ref['./icons/chattags.dmi']' class='text_tag' iconstate='[tagname]'" + (tagdesc ? " alt='[tagdesc]'" : "") + ">"
 
 // For processing simple markup, similar to what Skype and Discord use.
 // Enabled from a config setting.
@@ -454,7 +453,7 @@ proc/TextPreview(var/string,var/len=40)
 	t = replacetext(t, "\[logo_zh\]", "<img src = zhlogo.png>")
 	t = replacetext(t, "\[logo_idris\]", "<img src = idrislogo.png>")
 	t = replacetext(t, "\[logo_eridani\]", "<img src = eridanilogo.png>")
-	t = replacetext(t, "\[logo_necro\]", "<img src = necrologo.png>")
+	t = replacetext(t, "\[logo_zavodskoi\]", "<img src = necrologo.png>")
 	t = replacetext(t, "\[logo_hp\]", "<img src = hplogo.png>")
 	t = replacetext(t, "\[logo_be\]", "<img src = belogo.png>")
 	t = replacetext(t, "\[barcode\]", "<img src = barcode[rand(0, 3)].png>")
@@ -542,3 +541,11 @@ proc/TextPreview(var/string,var/len=40)
 
 	for (var/replacement in replacements)
 		. = replacetext(., replacement, replacements[replacement])
+
+// Finds the first letter of each word in the provided string and capitalize them
+/proc/capitalize_first_letters(var/string)
+	var/list/text = splittext(string, " ")
+	var/list/finalized_text = list()
+	for(var/word in text)
+		finalized_text += capitalize(word)
+	return jointext(finalized_text, " ")

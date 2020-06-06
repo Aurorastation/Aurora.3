@@ -57,7 +57,7 @@
 
 //If this hits 0 then they decide to up and leave.
 /datum/trader/proc/tick()
-	addtimer(CALLBACK(src, .proc/do_after_tick), 0)
+	addtimer(CALLBACK(src, .proc/do_after_tick), 1)
 	return 1
 
 /datum/trader/proc/do_after_tick()
@@ -99,7 +99,7 @@
 	if(possible.len)
 		var/picked = pick(possible)
 		var/atom/A = picked
-		if(initial(A.name) in list("object", "item","weapon", "structure", "machinery", "Mecha", "organ", "snack")) //weed out a few of the common bad types. Reason we don't check types specifically is that (hopefully) further bad subtypes don't set their name up and are similar.
+		if(initial(A.name) in list("object", "item","weapon", "structure", "machinery", "exosuit", "organ", "snack")) //weed out a few of the common bad types. Reason we don't check types specifically is that (hopefully) further bad subtypes don't set their name up and are similar.
 			return
 		return picked
 
@@ -153,7 +153,7 @@
 			else if(is_type_in_list(offer,blacklisted_trade_items))
 				return 0
 
-		if(istype(offer,/obj/item/weapon/spacecash))
+		if(istype(offer,/obj/item/spacecash))
 			if(!(trade_flags & TRADER_MONEY))
 				return TRADER_NO_MONEY
 		else
@@ -213,9 +213,6 @@
 			if(istype(offer,/mob))
 				var/text = mob_transfer_message
 				to_chat(offer, replacetext(text, "ORIGIN", origin))
-			if(istype(offer, /obj/mecha))
-				var/obj/mecha/M = offer
-				M.wreckage = null //So they don't ruin the illusion
 			qdel(offer)
 
 	var/type = trading_items[num]

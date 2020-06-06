@@ -7,11 +7,13 @@
 	maxbodytemp = 500
 	mob_size = MOB_SMALL
 
+	var/radio_type = /obj/item/device/radio/borg
 	var/obj/item/device/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
-	var/obj/item/weapon/cell/cell = null
+	var/obj/item/cell/cell = null
 	var/obj/machinery/camera/camera = null
 	var/obj/item/device/mmi/mmi = null
+	var/obj/item/card/id/internal_id = null
 	var/list/req_access = list(access_robotics) //Access needed to pop out the brain.
 	var/positronic
 
@@ -41,13 +43,16 @@
 	speed = -1                    //Spiderbots gotta go fast.
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	speak_emote = list("beeps","clicks","chirps")
+	universal_understand = TRUE
 
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
-	add_language("Ceti Basic")
-	default_language = all_languages["Ceti Basic"]
+	add_language(LANGUAGE_TCB)
+	default_language = all_languages[LANGUAGE_TCB]
+	internal_id = new /obj/item/card/id(src)
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/proc/hide
+	verbs |= /mob/living/simple_animal/spiderbot/proc/control_integrated_radio
 
 /mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
@@ -92,7 +97,7 @@
 		return 1
 
 	if (O.iswelder())
-		var/obj/item/weapon/weldingtool/WT = O
+		var/obj/item/weldingtool/WT = O
 		if (WT.remove_fuel(0))
 			if(health < maxHealth)
 				health += pick(1,1,1,2,2,3)
@@ -105,14 +110,14 @@
 		else
 			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
 			return
-	else if(istype(O, /obj/item/weapon/card/id)||istype(O, /obj/item/device/pda))
+	else if(istype(O, /obj/item/card/id)||istype(O, /obj/item/device/pda))
 		if (!mmi)
 			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>")
 			return 0
 
-		var/obj/item/weapon/card/id/id_card
+		var/obj/item/card/id/id_card
 
-		if(istype(O, /obj/item/weapon/card/id))
+		if(istype(O, /obj/item/card/id))
 			id_card = O
 		else
 			var/obj/item/device/pda/pda = O
@@ -187,7 +192,7 @@
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 
-	radio = new /obj/item/device/radio/borg(src)
+	radio = new radio_type(src)
 	camera = new /obj/machinery/camera(src)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
@@ -223,11 +228,11 @@
 		to_chat(usr, "<span class='warning'>You have nothing to drop!</span>")
 		return 0
 
-	if(istype(held_item, /obj/item/weapon/grenade))
+	if(istype(held_item, /obj/item/grenade))
 		visible_message("<span class='danger'>\The [src] launches \the [held_item]!</span>", \
 			"<span class='danger'>You launch \the [held_item]!</span>", \
 			"You hear a skittering noise and a thump!")
-		var/obj/item/weapon/grenade/G = held_item
+		var/obj/item/grenade/G = held_item
 		G.forceMove(src.loc)
 		G.prime()
 		held_item = null
@@ -240,8 +245,6 @@
 	held_item.forceMove(src.loc)
 	held_item = null
 	return 1
-
-	return
 
 /mob/living/simple_animal/spiderbot/verb/get_item()
 	set name = "Pick up item"
@@ -301,3 +304,39 @@
 			if (!underdoor)
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
+
+/mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL
+
+/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+	switch(message_mode)
+		if("headset")
+			radio.talk_into(src, message, null, verb, speaking)
+			used_radios += radio
+		if("intercom")
+			var/turf/T = get_turf(src)
+			for(var/obj/item/device/radio/intercom/I in view(1, T))
+				I.talk_into(src, message, null, verb, speaking)
+				used_radios += I
+	if(message_mode)
+		radio.talk_into(src, message, message_mode, verb, speaking)
+		used_radios += radio
+
+/mob/living/simple_animal/spiderbot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
+/mob/living/simple_animal/spiderbot/proc/control_integrated_radio()
+	set name = "Radio Settings"
+	set desc = "Allows you to change settings of your radio."
+	set category = "Spiderbot"
+
+	to_chat(src, SPAN_NOTICE("Accessing Subspace Transceiver control..."))
+	if(radio)
+		radio.interact(src)
+
+/mob/living/simple_animal/spiderbot/ai
+	radio_type = /obj/item/device/radio/headset/heads/ai_integrated
+
+/mob/living/simple_animal/spiderbot/ai/Initialize()
+	. = ..()
+	internal_id.access = get_all_station_access()

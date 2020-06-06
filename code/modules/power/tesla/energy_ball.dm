@@ -17,13 +17,14 @@
 	dissipate = 1
 	dissipate_delay = 10
 	dissipate_strength = 1
-	layer = LIGHTING_LAYER + 0.1
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	blend_mode = BLEND_ADD
 	var/failed_direction = 0
 	var/list/orbiting_balls = list()
 	var/produced_power
 	var/energy_to_raise = 32
 	var/energy_to_lower = -20
+	var/list/immune_things = list(/obj/effect/projectile/muzzle/emitter, /obj/effect/ebeam, /obj/effect/decal/cleanable/ash, /obj/singularity)
 
 /obj/singularity/energy_ball/ex_act(severity, target)
 	return
@@ -199,18 +200,36 @@
 
 
 /obj/singularity/energy_ball/Collide(atom/A)
+	if(check_for_immune(A))
+		return
 	if(isliving(A))
 		dust_mobs(A)
 	else if(isobj(A))
+		if(istype(A, /obj/effect/accelerated_particle))
+			consume(A)
+			return
 		var/obj/O = A
 		O.tesla_act(0, TRUE)
 
 /obj/singularity/energy_ball/CollidedWith(atom/A)
+	if(check_for_immune(A))
+		return
 	if(isliving(A))
 		dust_mobs(A)
 	else if(isobj(A))
+		if(istype(A, /obj/effect/accelerated_particle))
+			consume(A)
+			return
 		var/obj/O = A
 		O.tesla_act(0, TRUE)
+
+/obj/singularity/energy_ball/proc/check_for_immune(var/O)
+	if(!O)
+		return FALSE
+	for(var/v in immune_things)
+		if(istype(O, v))
+			return TRUE
+	return FALSE
 
 /obj/singularity/energy_ball/Move(NewLoc, Dir)
 	. = ..()
@@ -248,6 +267,9 @@
 			return
 	var/mob/living/carbon/C = A
 	C.dust()
+
+/obj/singularity/energy_ball/tesla_act()
+	return
 
 /proc/tesla_zap(atom/source, zap_range = 3, power, explosive = FALSE, stun_mobs = TRUE)
 	. = source.dir
@@ -292,12 +314,12 @@
 
 	for(var/A in typecache_filter_multi_list_exclusion(oview(source, zap_range+2), things_to_shock, blacklisted_types))
 
-		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))		
+		if(istype(source, /obj/singularity/energy_ball) && istype(A, /obj/machinery/power/singularity_beacon/emergency))
 			var/obj/machinery/power/singularity_beacon/emergency/E = A
 			var/obj/singularity/energy_ball/B = source
 			if(!E.active)
 				return
-			B.visible_message("\The [src] discharges entirely at [A] until it dissapears and [A] melts down")
+			B.visible_message("\The [B] discharges entirely at [A] until it dissapears and [A] melts down")
 			B.Beam(E, icon_state="lightning[rand(1,12)]", icon = 'icons/effects/effects.dmi', time=2)
 			E.tesla_act(0, TRUE)
 			qdel(B)

@@ -15,7 +15,7 @@
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
 	if(isipc(A))
 		var/mob/living/carbon/human/H = A
-		var/obj/item/organ/surge/s = H.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/surge/s = H.internal_organs_by_name["surge"]
 		if(!isnull(s))
 			if(s.surge_left >= 0.5)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
@@ -222,7 +222,7 @@
 	damage = 1 // stop trying to murderbone with a fake gun dumbass!!!
 	embed = 0 // nope
 	nodamage = 1
-	damage_type = HALLOSS
+	damage_type = PAIN
 	muzzle_type = /obj/effect/projectile/muzzle/bullet
 
 /obj/item/projectile/bullet/cannon
@@ -246,7 +246,7 @@
 	damage = 0
 	check_armour = "energy"
 	embed = 0
-	damage_type = HALLOSS
+	damage_type = PAIN
 
 /obj/item/projectile/magic/fireball
 	name = "fireball"
@@ -290,3 +290,17 @@
 	damage = 10
 	armor_penetration = 10
 	incinerate = 5
+
+/obj/item/missile
+	icon = 'icons/obj/grenade.dmi'
+	icon_state = "missile"
+	var/primed = null
+	throwforce = 15
+
+/obj/item/missile/throw_impact(atom/hit_atom)
+	if(primed)
+		explosion(hit_atom, 0, 1, 2, 4)
+		qdel(src)
+	else
+		..()
+	return

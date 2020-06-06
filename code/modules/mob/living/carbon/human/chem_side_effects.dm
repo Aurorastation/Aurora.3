@@ -100,7 +100,7 @@
 /datum/medical_effect/bad_stomach
 	name = "Bad Stomach"
 	triggers = list("kelotane" = 30, "dermaline" = 15)
-	cures = list("anti_toxin")
+	cures = list("dylovene")
 	cure_message = "Your stomach feels a little better now..."
 
 /datum/medical_effect/bad_stomach/on_life(mob/living/carbon/human/H, strength)
@@ -116,8 +116,8 @@
 // ======
 /datum/medical_effect/cramps
 	name = "Cramps"
-	triggers = list("anti_toxin" = 30, "tramadol" = 15)
-	cures = list("inaprovaline")
+	triggers = list("dylovene" = 30, "tramadol" = 15)
+	cures = list("norepinephrine")
 	cure_message = "The cramps let up..."
 
 /datum/medical_effect/cramps/on_life(mob/living/carbon/human/H, strength)
@@ -135,7 +135,7 @@
 /datum/medical_effect/itch
 	name = "Itch"
 	triggers = list("space_drugs" = 10)
-	cures = list("inaprovaline")
+	cures = list("norepinephrine")
 	cure_message = "The itching stops..."
 
 /datum/medical_effect/itch/on_life(mob/living/carbon/human/H, strength)

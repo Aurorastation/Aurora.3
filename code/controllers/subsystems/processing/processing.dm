@@ -36,3 +36,9 @@ var/datum/controller/subsystem/processing/SSprocessing
 // Helper so PROCESS_KILL works.
 /datum/controller/subsystem/processing/proc/stop_processing(datum/D)
 	STOP_PROCESSING(src, D)
+
+/datum/controller/subsystem/processing/ExplosionStart()
+	suspend()
+
+/datum/controller/subsystem/processing/ExplosionEnd()
+	wake() 

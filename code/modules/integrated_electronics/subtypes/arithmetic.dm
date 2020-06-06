@@ -312,3 +312,42 @@
 	push_data()
 	activate_pin(2)
 
+// Min //
+
+/obj/item/integrated_circuit/arithmetic/min
+	name = "min circuit"
+	desc = "This outputs the smallest of the numbers you put in."
+	// The states are rarely used symbols for the operations
+	// Letters didn't fit as well
+	icon_state = "min"
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/arithmetic/min/do_work()
+	var/list/values = list()
+	for(var/datum/integrated_io/I in inputs)
+		I.pull_data()
+		if(isnum(I.data))
+			values.Add(I.data)
+
+	set_pin_data(IC_OUTPUT, 1, min(values))
+	push_data()
+	activate_pin(2)
+
+// Max //
+
+/obj/item/integrated_circuit/arithmetic/max
+	name = "max circuit"
+	desc = "This outputs the biggest of the numbers you put in."
+	icon_state = "max"
+	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
+
+/obj/item/integrated_circuit/arithmetic/max/do_work()
+	var/list/values = list()
+	for(var/datum/integrated_io/I in inputs)
+		I.pull_data()
+		if(isnum(I.data))
+			values.Add(I.data)
+
+	set_pin_data(IC_OUTPUT, 1, max(values))
+	push_data()
+	activate_pin(2)

@@ -56,8 +56,6 @@
 		var/datum/job/job = new J()
 		if(!job || job.faction != faction)
 			continue
-		if(!job.faction in faction)
-			continue
 		occupations += job
 		name_occupations[job.title] = job
 		type_occupations[J] = job
@@ -331,14 +329,6 @@
 
 		job.equip(H)
 
-		// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
-
-		if(H.max_nutrition > 0)
-			H.nutrition = rand(CREW_MINIMUM_NUTRITION*100, CREW_MAXIMUM_NUTRITION*100) * H.max_nutrition * 0.01
-
-		if(H.max_hydration > 0)
-			H.hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * H.max_hydration * 0.01
-
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
@@ -349,6 +339,7 @@
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.forceMove(S.loc)
 			H.lastarea = get_area(H.loc)
+			H.lastarea.set_lightswitch(TRUE)
 		else
 			LateSpawn(H, rank)
 
@@ -387,8 +378,8 @@
 			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H) && !megavend) //give humans wheelchairs, if they need them.
-		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
-		var/obj/item/organ/external/r_foot = H.get_organ("r_foot")
+		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
+		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
 		if(!l_foot || !r_foot)
 			var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
 			H.buckled = W
@@ -400,7 +391,7 @@
 	to_chat(H, "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
 
 	if(job.supervisors)
-		to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
+		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED && !megavend)
@@ -446,7 +437,7 @@
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		if(!src.megavend)
 			var/rank= src.mind.assigned_role
-			SSjobs.EquipRank(src, rank, 1)
+			SSjobs.EquipRank(src, rank, 1, megavend = TRUE)
 			src.megavend = TRUE
 	else
 		SSjobs.centcomm_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
@@ -531,8 +522,8 @@
 		EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H)) //give humans wheelchairs, if they need them.
-		var/obj/item/organ/external/l_foot = H.get_organ("l_foot")
-		var/obj/item/organ/external/r_foot = H.get_organ("r_foot")
+		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
+		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
 		if(!l_foot || !r_foot)
 			var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
 			H.buckled = W
@@ -712,6 +703,8 @@
 	H.ckey = null
 
 	// Delete the mob.
+	if(H.species)
+		H.species.handle_despawn(H)
 	qdel(H)
 
 // Equips a human-type with their custom loadout crap.
@@ -732,6 +725,10 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
+
+			if(G.augment) //augments are handled somewhere else
+				continue
+
 			var/permitted
 			if(G.allowed_roles)
 				for(var/job_name in G.allowed_roles)
@@ -754,7 +751,12 @@
 			if(G.slot && !(G.slot in custom_equip_slots))
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
-				var/metadata = prefs.gear[G.display_name]
+				var/metadata
+				var/list/gear_test = prefs.gear[G.display_name]
+				if(gear_test?.len)
+					metadata = gear_test
+				else
+					metadata = list()
 				var/obj/item/CI = G.spawn_item(null,metadata)
 				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
@@ -787,7 +789,12 @@
 		if (G.slot in used_slots)
 			. += thing
 		else
-			var/metadata = prefs.gear[G.display_name]
+			var/metadata
+			var/list/gear_test = prefs.gear[G.display_name]
+			if(gear_test?.len)
+				metadata = gear_test
+			else
+				metadata = list()
 			var/obj/item/CI = G.spawn_item(H, metadata)
 			if (H.equip_to_slot_or_del(CI, G.slot))
 				to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
@@ -808,12 +815,17 @@
 	Debug("EIS/([H]): Entry.")
 	if (LAZYLEN(items))
 		Debug("EIS/([H]): [items.len] items.")
-		var/obj/item/weapon/storage/B = locate() in H
+		var/obj/item/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
 				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")
 				var/datum/gear/G = gear_datums[thing]
-				var/metadata = prefs.gear[G.display_name]
+				var/metadata
+				var/list/gear_test = prefs.gear[G.display_name]
+				if(gear_test?.len)
+					metadata = gear_test
+				else
+					metadata = list()
 				G.spawn_item(B, metadata)
 				Debug("EIS/([H]): placed [thing] in [B].")
 
@@ -849,5 +861,58 @@
 		CB.Invoke()
 
 	deferred_preference_sanitizations.Cut()
+
+
+/datum/controller/subsystem/jobs/proc/EquipAugments(mob/living/carbon/human/H, datum/preferences/prefs)
+	Debug("EA/([H]): Entry.")
+	if(!istype(H))
+		Debug("EA/([H]): Abort: invalid arguments.")
+		return FALSE
+
+	var/datum/job/rank = GetJob(H.mind.assigned_role)
+
+	switch (rank.title)
+		if ("AI", "Cyborg")
+			Debug("EA/([H]): Abort: synthetic.")
+			return FALSE
+
+	for(var/thing in prefs.gear)
+		var/datum/gear/G = gear_datums[thing]
+		if(G)
+			if(!G.augment)
+				continue
+
+			var/permitted = FALSE
+			if(G.allowed_roles)
+				for(var/job_name in G.allowed_roles)
+					if(rank.title == job_name)
+						permitted = TRUE
+						break
+			else
+				permitted = TRUE
+
+			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+				permitted = FALSE
+
+			if(G.faction && G.faction != H.employer_faction)
+				permitted = FALSE
+
+			if(!permitted)
+				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
+				continue
+
+			var/metadata
+			var/list/gear_test = prefs.gear[G.display_name]
+			if(gear_test?.len)
+				metadata = gear_test
+			else
+				metadata = list()
+			var/obj/item/organ/A = G.spawn_item(H, metadata)
+			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+			A.replaced(H, affected)
+			H.update_body()
+
+	Debug("EA/([H]): Complete.")
+	return TRUE
 
 #undef Debug

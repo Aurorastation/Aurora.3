@@ -11,12 +11,14 @@
 		qdel(src)
 	else
 		master = owner
+		..()
 
 /obj/machinery/abstract/intercom_listener/Destroy()
 	master = null
 	return ..()
 
 /obj/machinery/abstract/intercom_listener/power_change()
+	..()
 	if (master)
 		var/state = powered(power_channel)
 		master.power_change(state)

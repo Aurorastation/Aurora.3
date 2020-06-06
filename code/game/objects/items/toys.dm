@@ -21,11 +21,16 @@
 
 /obj/item/toy
 	icon = 'icons/obj/toy.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_toy.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_toy.dmi',
+		)
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
 	force = 0
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /*
  * Balloons
@@ -36,6 +41,7 @@
 	icon_state = "waterballoon-e"
 	item_state = "balloon-empty"
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/toy/balloon/New()
 	var/datum/reagents/R = new/datum/reagents(10)
@@ -55,7 +61,7 @@
 	return
 
 /obj/item/toy/balloon/attackby(obj/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/weapon/reagent_containers/glass))
+	if(istype(O, /obj/item/reagent_containers/glass))
 		if(O.reagents)
 			if(O.reagents.total_volume < 1)
 				to_chat(user, "The [O] is empty.")
@@ -95,6 +101,7 @@
 	icon_state = "syndballoon"
 	item_state = "syndballoon"
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/toy/nanotrasenballoon
@@ -104,6 +111,7 @@
 	item_state = "ntballoon"
 	w_class = ITEMSIZE_LARGE
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /*
  * Fake telebeacon
@@ -131,14 +139,12 @@
 /obj/item/toy/crossbow
 	name = "foam dart crossbow"
 	desc = "A weapon favored by many overactive children. Ages 8 and up."
-	icon = 'icons/obj/gun.dmi'
+	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
-		icon_l_hand = 'icons/mob/items/lefthand_guns.dmi',
-		icon_r_hand = 'icons/mob/items/righthand_guns.dmi'
-		)
+	pickup_sound = 'sound/items/pickup/gun.ogg'
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
 	var/bullets = 5
@@ -235,12 +241,13 @@
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/effect/foam_dart_dummy
 	name = ""
 	desc = ""
 	icon = 'icons/obj/toy.dmi'
-	icon_state = "null"
+	icon_state = null
 	anchored = 1
 	density = 0
 
@@ -254,7 +261,12 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
 	item_state = "sword0"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi',
+		)
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/active = 0.0
 	var/colorvar = "blue"
 	w_class = ITEMSIZE_SMALL
@@ -294,6 +306,8 @@
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
+	hitsound = "swing_hit"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5
@@ -311,6 +325,7 @@
 	icon_state = "snappop"
 	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 	throw_impact(atom/hit_atom)
 		..()
@@ -335,71 +350,8 @@
 /*
  * Water flower
  */
-/obj/item/toy/waterflower
-	name = "water flower"
-	desc = "A seemingly innocent sunflower...with a twist."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "sunflower"
-	item_state = "sunflower"
-	drop_sound = 'sound/items/drop/herb.ogg'
-	var/empty = 0
-	flags
 
-/obj/item/toy/waterflower/New()
-	var/datum/reagents/R = new/datum/reagents(10)
-	reagents = R
-	R.my_atom = src
-	R.add_reagent("water", 10)
-
-/obj/item/toy/waterflower/attack(mob/living/carbon/human/M as mob, mob/user as mob)
-	return
-
-/obj/item/toy/waterflower/afterattack(atom/A as mob|obj, mob/user as mob)
-
-	if (istype(A, /obj/item/weapon/storage/backpack ))
-		return
-
-	else if (locate (/obj/structure/table, src.loc))
-		return
-
-	else if (istype(A, /obj/structure/reagent_dispensers/watertank) && get_dist(src,A) <= 1)
-		A.reagents.trans_to(src, 10)
-		to_chat(user, "<span class='notice'>You refill your flower!</span>")
-		return
-
-	else if (src.reagents.total_volume < 1)
-		src.empty = 1
-		to_chat(user, "<span class='notice'>Your flower has run dry!</span>")
-		return
-
-	else
-		src.empty = 0
-
-
-		var/obj/effect/decal/D = new/obj/effect/decal/(get_turf(src))
-		D.name = "water"
-		D.icon = 'icons/obj/chemical.dmi'
-		D.icon_state = "chempuff"
-		D.create_reagents(5)
-		src.reagents.trans_to_obj(D, 1)
-		playsound(src.loc, 'sound/effects/spray3.ogg', 50, 1, -6)
-
-		spawn(0)
-			for(var/i=0, i<1, i++)
-				step_towards(D,A)
-				D.reagents.touch_turf(get_turf(D))
-				for(var/atom/T in get_turf(D))
-					D.reagents.touch(T)
-					if(ismob(T) && T:client)
-						to_chat(T:client, "<span class='warning'>\The [user] has sprayed you with water!</span>")
-				sleep(4)
-			qdel(D)
-
-		return
-
-/obj/item/toy/waterflower/examine(mob/user)
-	if(..(user, 0))
-		to_chat(user, text("\icon[] [] units of water left!", src, src.reagents.total_volume))
+ //moved to spray.dm
 
 /*
  * Bosun's whistle
@@ -410,6 +362,7 @@
 	desc = "A genuine Admiral Krush Bosun's Whistle, for the aspiring ship's captain! Suitable for ages 8 and up, do not swallow."
 	icon_state = "bosunwhistle"
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 	var/cooldown = 0
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
@@ -430,20 +383,11 @@
 	drop_sound = 'sound/mecha/mechstep.ogg'
 
 //all credit to skasi for toy mech fun ideas
-/obj/item/toy/prize/attack_self(mob/user as mob)
+/obj/item/toy/prize/attack_self(mob/user)
 	if(cooldown < world.time - 8)
 		to_chat(user, "<span class='notice'>You play with [src].</span>")
 		playsound(user, 'sound/mecha/mechstep.ogg', 20, 1)
 		cooldown = world.time
-
-/obj/item/toy/prize/attack_hand(mob/user as mob)
-	if(loc == user)
-		if(cooldown < world.time - 8)
-			to_chat(user, "<span class='notice'>You play with [src].</span>")
-			playsound(user, 'sound/mecha/mechturn.ogg', 20, 1)
-			cooldown = world.time
-			return
-	..()
 
 /obj/item/toy/prize/ripley
 	name = "toy ripley"
@@ -509,6 +453,7 @@
 	icon_state = "glitched"
 	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/toy/figure/cmo
 	name = "chief medical officer action figure"
@@ -636,8 +581,8 @@
 	icon_state = "librarian"
 
 /obj/item/toy/figure/md
-	name = "medical doctor action figure"
-	desc = "A \"Space Life\" brand medical doctor action figure."
+	name = "physician action figure"
+	desc = "A \"Space Life\" brand physician action figure."
 	icon_state = "md"
 
 /obj/item/toy/figure/mime
@@ -733,6 +678,7 @@
 	desc = "A very generic small plushie. It seems to not want to exist."
 	icon_state = "nymphplushie"
 	drop_sound = 'sound/items/drop/plushie.ogg'
+	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
@@ -855,7 +801,7 @@
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 
 /* NYET.
-/obj/item/weapon/toddler
+/obj/item/toddler
 	icon_state = "toddler"
 	name = "toddler"
 	desc = "This baby looks almost real. Wait, did it just burp?"
@@ -866,7 +812,7 @@
 
 //This should really be somewhere else but I don't know where. w/e
 
-/obj/item/weapon/inflatable_duck
+/obj/item/inflatable_duck
 	name = "inflatable duck"
 	desc = "No bother to sink or swim when you can just float!"
 	icon_state = "inflatable"
@@ -874,6 +820,7 @@
 	icon = 'icons/obj/clothing/belts.dmi'
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 
 /obj/item/toy/xmastree
@@ -883,4 +830,5 @@
 	w_class = ITEMSIZE_TINY
 	force = 1
 	throwforce = 1
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'

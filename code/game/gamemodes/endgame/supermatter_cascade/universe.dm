@@ -103,7 +103,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if(istype(T, /turf/space))
 			T.add_overlay("end01")
 		else
-			if (!(T.z in current_map.admin_levels))
+			if (isNotAdminLevel(T.z))
 				T.underlays += "end01"
 		CHECK_TICK
 
@@ -111,7 +111,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 		if (!C.active)
 			continue
 
-		if (!(C.z in current_map.admin_levels))
+		if (isNotAdminLevel(C.z))
 			C.update_lumcount(0.15, 0.15, 0.5)
 		CHECK_TICK
 

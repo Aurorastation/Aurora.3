@@ -3,7 +3,6 @@
 	path = /obj/item/clothing/head/ushanka
 	slot = slot_head
 	sort_category = "Hats and Headwear"
-	cost = 1
 
 /datum/gear/head/ushanka_grey
 	display_name = "ushanka, grey"
@@ -29,16 +28,17 @@
 /datum/gear/head/cap/New()
 	..()
 	var/caps = list()
-	caps["blue cap"] = /obj/item/clothing/head/soft/blue
-	caps["flat cap"] = /obj/item/clothing/head/flatcap
-	caps["green cap"] = /obj/item/clothing/head/soft/green
-	caps["grey cap"] = /obj/item/clothing/head/soft/grey
+	caps["red cap"] = /obj/item/clothing/head/soft
 	caps["orange cap"] = /obj/item/clothing/head/soft/orange
+	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["green cap"] = /obj/item/clothing/head/soft/green
+	caps["blue cap"] = /obj/item/clothing/head/soft/blue
 	caps["purple cap"] = /obj/item/clothing/head/soft/purple
 	caps["rainbow cap"] = /obj/item/clothing/head/soft/rainbow
-	caps["red cap"] = /obj/item/clothing/head/soft/red
-	caps["white cap"] = /obj/item/clothing/head/soft/mime
-	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["black cap"] = /obj/item/clothing/head/soft/black
+	caps["grey cap"] = /obj/item/clothing/head/soft/grey
+	caps["white cap"] = /obj/item/clothing/head/soft/white
+	caps["flat cap"] = /obj/item/clothing/head/flatcap
 	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
 
@@ -50,53 +50,50 @@
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
-	cost = 1/2
 
 /datum/gear/head/beret/purp
 	display_name = "beret, purple"
 	path = /obj/item/clothing/head/beret/purple
 
+/datum/gear/head/beret/color
+	display_name = "beret (colorable)"
+	path = /obj/item/clothing/head/beret/misc
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
-	cost = 1/2
 
 /datum/gear/head/beret/warden
 	display_name = "beret, security (warden)"
 	path = /obj/item/clothing/head/beret/sec/warden
 	allowed_roles = list("Head of Security", "Warden")
-	cost = 1/2
 
 /datum/gear/head/beret/hos
 	display_name = "beret, security (head of security)"
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
-	cost = 1/2
 
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
 	path = /obj/item/clothing/head/beret/medical
-	allowed_roles = list("Medical Doctor", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
-	cost = 1/2
+	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
-	cost = 1/2
+	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
 
 /datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
-	cost = 1/2
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician",)
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
-	cost = 1/2
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -110,10 +107,20 @@
 /datum/gear/head/hairflower
 	display_name = "hair flower pin (colorable)"
 	path = /obj/item/clothing/head/pin/flower/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/head/hairflower/New()
+/datum/gear/head/flowercrown
+	display_name = "flowercrown selection"
+	description = "A set of flowercrowns, perfect for the queen or even the king."
+	path = /obj/item/clothing/head
+
+/datum/gear/head/flowercrown/New()
 	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	var/flowercrown = list()
+	flowercrown["crown, sunflower"] = /obj/item/clothing/head/sunflower_crown
+	flowercrown["crown, harebell"] = /obj/item/clothing/head/lavender_crown
+	flowercrown["crown, poppy"] = /obj/item/clothing/head/poppy_crown
+	gear_tweaks += new/datum/gear_tweak/path(flowercrown)
 
 /datum/gear/head/pin
 	display_name = "pin selection"
@@ -189,8 +196,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Medical Doctor", "Geneticist", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
-	cost = 1/2
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -204,39 +210,45 @@
 /datum/gear/head/headbando
 	display_name = "basic headband"
 	path = /obj/item/clothing/head/headbando
-
-/datum/gear/head/headbando/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/beanie
 	display_name = "beanie"
 	path = /obj/item/clothing/head/beanie
-
-/datum/gear/head/beanie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/loose_beanie
 	display_name = "loose beanie"
 	path = /obj/item/clothing/head/beanie_loose
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/head/loose_beanie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
-
+/datum/gear/head/nonla
+	display_name = "non la hat"
+	path = /obj/item/clothing/head/nonla
 
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Pharmacist", "Paramedic", "Medical Resident")
-	cost = 1/2
-
-/datum/gear/head/tcflberet
-	display_name = "Tau Ceti Foreign Legion dress beret"
-	path = /obj/item/clothing/head/legion_beret
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
 	path = /obj/item/clothing/head/circuitry
-	cost = 3/2 // special functionality but doesn't replace uniform items
+
+/datum/gear/head/tcfl
+	display_name = "tcfl hat selection"
+	path = /obj/item/clothing/head/legion_beret
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/tcfl/New()
+	..()
+	var/tcfl = list()
+	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/legion_beret
+	tcfl["tcfl beret, field"] = /obj/item/clothing/head/legion
+	gear_tweaks += new/datum/gear_tweak/path(tcfl)
+
+/datum/gear/head/padded_cap
+	display_name = "padded cap"
+	path = /obj/item/clothing/head/padded
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

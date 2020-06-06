@@ -11,7 +11,7 @@ var/list/floor_light_cache = list()
 	idle_power_usage = 2
 	active_power_usage = 20
 	power_channel = LIGHT
-	matter = list(DEFAULT_WALL_MATERIAL = 2500, "glass" = 2750)
+	matter = list(DEFAULT_WALL_MATERIAL = 2500, MATERIAL_GLASS = 2750)
 
 	var/on
 	var/on_state = "on"
@@ -29,7 +29,7 @@ var/list/floor_light_cache = list()
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
-		var/obj/item/weapon/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
 			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
 			return
@@ -45,7 +45,7 @@ var/list/floor_light_cache = list()
 		update_brightness()
 	else if(W.force && user.a_intent == "hurt")
 		attack_hand(user)
-	else if(istype(W, /obj/item/weapon/crowbar))
+	else if(W.iscrowbar())
 		if(anchored)
 			to_chat(user, "<span class='warning'>\The [src] must be unfastened from the [loc] first!</span>")
 			return
@@ -70,7 +70,7 @@ var/list/floor_light_cache = list()
 			stat |= BROKEN
 		else
 			visible_message("<span class='danger'>\The [user] attacks \the [src]!</span>")
-			playsound(src.loc, 'sound/effects/Glasshit.ogg', 75, 1)
+			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 			if(isnull(damaged)) damaged = 0
 		update_brightness()
 		return

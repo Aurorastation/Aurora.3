@@ -1,6 +1,12 @@
 <template>
   <view-records-general v-if="active" hide-advanced>
-    <vui-group-item label="Criminal Status:"><view-records-field :editable="(editable & 4) > 0" path="active.security.criminal"/></vui-group-item>
+    <vui-group-item label="Criminal Status:">
+      <view-records-field :editable="(editable & 4) > 0" path="active.security.criminal">
+        <select v-model="$root.$data.state.editingvalue">
+          <option v-for="i in choices.criminal_status" :key="i" :value="i">{{ i }}</option>
+        </select>
+      </view-records-field>
+    </vui-group-item>
     <vui-group-item label="Crimes:"><view-records-field :editable="(editable & 4) > 0" path="active.security.crimes"><textarea v-model="$root.$data.state.editingvalue"/></view-records-field></vui-group-item>
     
     <vui-group-item label="Comments:">

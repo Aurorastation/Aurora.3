@@ -9,6 +9,8 @@
 	throwforce = 2
 	throw_speed = 3
 	throw_range = 10
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound =  'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
 
 	var/secured = 1
@@ -94,7 +96,7 @@
 		return 0
 
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
+	attackby(obj/item/W as obj, mob/user as mob)
 		if(isassembly(W))
 			var/obj/item/device/assembly/A = W
 			if((!A.secured) && (!secured))

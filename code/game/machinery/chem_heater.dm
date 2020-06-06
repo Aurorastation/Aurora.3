@@ -6,7 +6,7 @@
 	idle_power_usage = 100
 	density = 1
 	anchored = 1
-	var/obj/item/weapon/reagent_containers/container
+	var/obj/item/reagent_containers/container
 	var/target_temperature = 300 //Measured in kelvin.
 	var/accept_drinking = FALSE
 	var/machine_strength = 0 //How much joules to add per process. Controlled by manipulators.
@@ -15,10 +15,10 @@
 	var/max_temperature = 600
 
 	component_types = list(
-		/obj/item/weapon/circuitboard/chem_heater,
-		/obj/item/weapon/stock_parts/manipulator,
-		/obj/item/weapon/stock_parts/manipulator,
-		/obj/item/weapon/stock_parts/manipulator
+		/obj/item/circuitboard/chem_heater,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/manipulator
 	)
 
 /obj/machinery/chem_heater/attack_hand(mob/user)
@@ -32,12 +32,12 @@
 		return
 	if(default_part_replacement(user, O))
 		return
-	if(istype(O, /obj/item/weapon/reagent_containers/glass) || istype(O, /obj/item/weapon/reagent_containers/food))
+	if(istype(O, /obj/item/reagent_containers/glass) || istype(O, /obj/item/reagent_containers/food))
 		if(container)
 			to_chat(user,span("warning","There is already \a [container] on \the [src]!"))
 			return
 
-		var/obj/item/weapon/reagent_containers/RC = O
+		var/obj/item/reagent_containers/RC = O
 		if(!RC.is_open_container())
 			to_chat(user,span("warning","You don't see how \the [src] could heat up the reagents in \the [RC]."))
 			return
@@ -148,7 +148,7 @@
 
 /obj/machinery/chem_heater/RefreshParts()
 	machine_strength = initial(machine_strength)
-	for(var/obj/item/weapon/stock_parts/P in component_parts)
+	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismanipulator(P))
 			machine_strength += P.rating
 

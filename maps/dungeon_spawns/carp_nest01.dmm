@@ -51,7 +51,7 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "n" = (
-/obj/item/weapon/pickaxe/gold,
+/obj/item/pickaxe/gold,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 "o" = (

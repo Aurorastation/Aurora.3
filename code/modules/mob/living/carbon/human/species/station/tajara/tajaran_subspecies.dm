@@ -18,6 +18,8 @@
 	ethanol_resistance = 1 // Default value
 	climb_coeff = 1.1
 
+	resist_mod = 2 // ZHAN POWERRRRRR
+
 	cold_level_1 = 160 //RaceDefault 200 Default 260
 	cold_level_2 = 100 //RaceDefault 140 Default 200
 	cold_level_3 = 50  //RaceDefault 80 Default 120
@@ -27,8 +29,6 @@
 	heat_level_3 = 700 //RaceDefault 800 Default 1000
 
 	primitive_form = "Zhan-Khazan Farwa"
-
-	num_alternate_languages = 1 // Only one Extra Language
 
 /datum/species/tajaran/m_sai
 	name = "M'sai Tajara"

@@ -4,7 +4,7 @@
 /area
 	// Turrets use this list to see if individual power/lethal settings are allowed
 	var/list/turret_controls = list()
-	var/list/turrets
+	var/list/turrets = list()
 
 
 /obj/machinery/turretid
@@ -90,11 +90,11 @@
 
 	return ..()
 
-/obj/machinery/turretid/attackby(obj/item/weapon/W, mob/user)
+/obj/machinery/turretid/attackby(obj/item/W, mob/user)
 	if(stat & BROKEN)
 		return
 
-	if(istype(W, /obj/item/weapon/card/id)||istype(W, /obj/item/device/pda))
+	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
 		if(src.allowed(usr))
 			if(emagged)
 				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
@@ -152,12 +152,12 @@
 		VUEUI_SET_CHECK(data["settings"][v]["value"], vars[v], ., data)
 
 	if(istype(control_area))
-		if(control_area.turrets.len != data["turrets"].len)
+		if(control_area.turrets.len != LAZYLEN(data["turrets"]))
 			data["turrets"] = list()
 		for (var/obj/machinery/porta_turret/aTurret in control_area.turrets)
 			var/ref = "\ref[aTurret]"
 			VUEUI_SET_IFNOTSET(data["turrets"][ref], list("ref" = ref), ., data)
-			VUEUI_SET_IFNOTSET(data["turrets"][ref]["name"], sanitize(aTurret.name + " [data["turrets"].len]"), ., data)
+			VUEUI_SET_IFNOTSET(data["turrets"][ref]["name"], sanitize(aTurret.name + " [LAZYLEN(data["turrets"])]"), ., data)
 			var/rtn = aTurret.vueui_data_change(data["turrets"][ref]["settings"], user, ui)
 			if(rtn)
 				data["turrets"][ref]["settings"] = rtn

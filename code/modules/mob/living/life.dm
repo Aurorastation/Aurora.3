@@ -25,6 +25,8 @@
 		//Random events (vomiting etc)
 		handle_random_events()
 
+		aura_check(AURA_TYPE_LIFE)
+
 		. = 1
 
 	//Handle temperature/pressure differences between body and environment
@@ -37,12 +39,9 @@
 	//Check if we're on fire
 	handle_fire()
 
-	//stuff in the stomach
-	handle_stomach()
-
 	update_pulling()
 
-	for(var/obj/item/weapon/grab/G in src)
+	for(var/obj/item/grab/G in src)
 		G.process()
 
 	blinded = 0 // Placing this here just show how out of place it is.
@@ -78,10 +77,6 @@
 /mob/living/proc/handle_environment(var/datum/gas_mixture/environment)
 	return
 
-// Defined in devour.dm
-// /mob/living/proc/handle_stomach()
-// 	return
-
 /mob/living/proc/update_pulling()
 	if(pulling)
 		if(incapacitated())
@@ -112,6 +107,9 @@
 		weakened = max(weakened-1,0)
 		if(!weakened)
 			update_icons()
+
+	if(confused)
+		confused = max(0, confused - 1)
 
 /mob/living/proc/handle_disabilities()
 	//Eyes
@@ -173,7 +171,7 @@
 		reset_view(null)
 
 /mob/living/proc/update_sight()
-	if(stat == DEAD)
+	if(stat == DEAD || eyeobj)
 		update_dead_sight()
 	else
 		sight &= ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
@@ -183,6 +181,9 @@
 		if (!stop_sight_update) //If true, it won't reset the mob vision flags to the initial ones
 			see_in_dark = initial(see_in_dark)
 			see_invisible = initial(see_invisible)
+		var/list/vision = get_accumulated_vision_handlers()
+		sight|= vision[1]
+		see_invisible = (max(vision[2], see_invisible))
 
 /mob/living/proc/update_dead_sight()
 	sight |= SEE_TURFS

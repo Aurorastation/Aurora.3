@@ -5,7 +5,7 @@
 
 /obj/item/device/electronic_assembly/clothing
 	name = "electronic clothing"
-	icon_state = "circuitry" // Needs to match the clothing's base icon_state.
+	var/clothing_icon_state = "circuitry" // Needs to match the clothing's base icon_state.
 	desc = "It's a case, for building machines attached to clothing."
 	w_class = ITEMSIZE_SMALL
 	max_components = IC_COMPONENTS_BASE
@@ -18,9 +18,12 @@
 /obj/item/device/electronic_assembly/clothing/resolve_ui_host()
 	return clothing
 
+/obj/item/device/electronic_assembly/clothing/get_assembly_holder()
+	return clothing
+
 /obj/item/device/electronic_assembly/clothing/update_icon()
 	..()
-	clothing.icon_state = icon_state
+	clothing.icon_state = clothing_icon_state
 	// We don't need to update the mob sprite since it won't (and shouldn't) actually get changed.
 
 // This is 'small' relative to the size of regular clothing assemblies.
@@ -124,8 +127,7 @@
 	desc = "It's a wearable case for electronics. This one is a pair of goggles, with wiring sticking out. \
 	Could this augment your vision?" // Sadly it won't, or at least not yet.
 	icon_state = "circuitry"
-	item_state = "glasses"
-	off_state = "denight"
+	item_state = "circuitry"
 
 /obj/item/clothing/glasses/circuitry/Initialize()
 	setup_integrated_circuit(/obj/item/device/electronic_assembly/clothing/small)
@@ -134,7 +136,7 @@
 /obj/item/clothing/glasses/circuitry/Look(var/atom/A, mob/user, var/proximity)
 	if(!A)
 		return 0
-	
+
 	if(istype(action_circuit) && action_circuit.check_power())
 		action_circuit.set_pin_data(IC_OUTPUT, 1, A)
 		action_circuit.push_data() // we have to not return 1 so we can still do normal stuff like picking things up, etc.

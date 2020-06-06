@@ -41,9 +41,10 @@ var/datum/controller/subsystem/docs/SSdocs
 /datum/controller/subsystem/docs/proc/pick_document()
 	var/subtotal = rand() * src.total_docs
 	for (var/doc in docs)
-		subtotal -= docs[doc].chance
+		var/datum/docs_document/dd = doc
+		subtotal -= dd.chance
 		if (subtotal <= 0)
-			return docs[doc]
+			return dd
 	return null
 
 //Pick a document by one tag
@@ -52,9 +53,10 @@ var/datum/controller/subsystem/docs/SSdocs
 		return null
 	var/subtotal = rand() * src.total_by_tags[tag]
 	for (var/doc in docs_by_tags[tag])
-		subtotal -= docs_by_tags[tag][doc].chance
+		var/datum/docs_document/dd = doc
+		subtotal -= dd.chance
 		if (subtotal <= 0)
-			return docs_by_tags[tag][doc]
+			return dd
 	return null
 
 //Pick a document by any tag from a list of tags. Weighted.
@@ -70,9 +72,10 @@ var/datum/controller/subsystem/docs/SSdocs
 		tag_sublist += docs_by_tags[t]
 	var/subtotal = total_chance * rand()
 	for(var/doc in tag_sublist)
-		subtotal -= tag_sublist[doc].chance
+		var/datum/docs_document/dd = doc
+		subtotal -= dd.chance
 		if(subtotal <= 0)
-			return tag_sublist[doc]
+			return dd
 	return null
 
 //Pick a document by multiple tags that it must have.
@@ -86,13 +89,15 @@ var/datum/controller/subsystem/docs/SSdocs
 		tag_sublist &= docs_by_tags[t]
 	log_ss("docs", "Tag sublist has length [tag_sublist.len].")
 	var/subtotal = 0
-	for(var/datum/docs_document/dd in tag_sublist)
+	for(var/doc in tag_sublist)
+		var/datum/docs_document/dd = doc
 		subtotal += dd.chance
 	subtotal *= rand()
 	for (var/doc in tag_sublist)
-		subtotal -= tag_sublist[doc].chance
+		var/datum/docs_document/dd = doc
+		subtotal -= dd.chance
 		if (subtotal <= 0)
-			return tag_sublist[doc]
+			return tag_sublist[dd]
 	return null
 /*
 	Loading Data
@@ -194,9 +199,9 @@ var/datum/controller/subsystem/docs/SSdocs
 	var/tags = list() // for use by mappers, typically
 
 /obj/random/document/item_to_spawn()
-	return /obj/item/weapon/paper
+	return /obj/item/paper
 
-/obj/random/document/post_spawn(var/obj/item/weapon/paper/spawned)
+/obj/random/document/post_spawn(var/obj/item/paper/spawned)
 	if(!istype(spawned))
 		return
 	var/list/total_tags = tags | list(SSDOCS_MEDIUM_PAPER)
@@ -211,13 +216,13 @@ var/datum/controller/subsystem/docs/SSdocs
 		return null
 
 	log_ss("docs","Document [doc.name] successfully spawned!")
-	var/obj/item/weapon/paper/P = spawned
+	var/obj/item/paper/P = spawned
 	P.set_content(doc.title, doc.content)
 
 /obj/random/document/junk/post_spawn(var/obj/item/spawned)
 	..()
-	if(istype(spawned, /obj/item/weapon/paper) && prob(80)) // 1 in 5 junk-spawned documents will be perfectly readable
-		var/obj/item/weapon/paper/P = spawned
+	if(istype(spawned, /obj/item/paper) && prob(80)) // 1 in 5 junk-spawned documents will be perfectly readable
+		var/obj/item/paper/P = spawned
 		P.info = stars(P.info, 85) // 85% readable, preserves tags
 		P.icon_state = "scrap"
 

@@ -86,3 +86,8 @@
 /obj/effect/projectile/tracer/bfg
 	icon_state = "bfg"
 	light_color = LIGHT_COLOR_GREEN
+
+/obj/effect/projectile/tracer/hegemony
+	name = "laser"
+	icon_state = "hegemony"
+	light_color = LIGHT_COLOR_ORANGE

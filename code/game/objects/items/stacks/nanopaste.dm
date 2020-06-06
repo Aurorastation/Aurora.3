@@ -3,11 +3,15 @@
 	singular_name = "nanite swarm"
 	desc = "A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery."
 	icon = 'icons/obj/stacks/nanopaste.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_nanopaste.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_nanopaste.dmi',
+		)
 	icon_state = "tube"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
 	amount = 10
 
-	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, "glass" = 7000)
+	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
 
 /obj/item/stack/nanopaste/update_icon()
 	var/amount = round(get_amount() / 2)
@@ -20,6 +24,8 @@
 
 /obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if (!istype(M) || !istype(user))
+		return 0
+	if (!can_use(1, user))
 		return 0
 	if (istype(M,/mob/living/silicon/robot))	//Repairing cyborgs
 		var/mob/living/silicon/robot/R = M
@@ -43,7 +49,7 @@
 			if(S.get_damage())
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
-				if(S.limb_name == "head")
+				if(S.limb_name == BP_HEAD)
 					if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
 						to_chat(user, "<span class='warning'>You can't apply [src] through [H.head]!</span>")
 						return
@@ -87,7 +93,7 @@
 		return 0
 
 	if (isipc(M))
-		var/obj/item/organ/surge/s = M.internal_organs_by_name["surge"]
+		var/obj/item/organ/internal/surge/s = M.internal_organs_by_name["surge"]
 		if(isnull(s))
 			user.visible_message(
 			"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
@@ -97,7 +103,7 @@
 			if (!do_mob(user, M, 2))
 				return 0
 
-			s = new /obj/item/organ/surge()
+			s = new /obj/item/organ/internal/surge()
 			M.internal_organs += s
 			M.internal_organs_by_name["surge"] = s
 			user.visible_message(

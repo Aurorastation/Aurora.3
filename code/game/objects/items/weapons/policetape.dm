@@ -2,7 +2,7 @@
 /obj/item/taperoll
 	name = "tape roll"
 	icon = 'icons/policetape.dmi'
-	icon_state = "rollstart"
+	icon_state = "tape"
 	w_class = 2.0
 	var/turf/start
 	var/turf/end
@@ -152,7 +152,7 @@ var/list/tape_roll_applications = list()
 			crumple()
 	return ..(mover)
 
-/obj/item/tape/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/tape/attackby(obj/item/W as obj, mob/user as mob)
 	breaktape(W, user)
 
 /obj/item/tape/attack_hand(mob/user as mob)
@@ -167,7 +167,7 @@ var/list/tape_roll_applications = list()
 
 
 
-/obj/item/tape/proc/breaktape(obj/item/weapon/W as obj, mob/user as mob)
+/obj/item/tape/proc/breaktape(obj/item/W as obj, mob/user as mob)
 	if(user.a_intent == I_HELP && ((!can_puncture(W) && src.allowed(user))))
 		to_chat(user, "You can't break the [src] with that!")
 		return

@@ -2,6 +2,7 @@
 	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. They're large enough to be worn over other footwear."
 	name = "magboots"
 	icon_state = "magboots0"
+	item_state = "magboots"
 	center_of_mass = list("x" = 17,"y" = 12)
 	species_restricted = null
 	force = 5
@@ -11,10 +12,11 @@
 	action_button_name = "Toggle Magboots"
 	var/obj/item/clothing/shoes/shoes = null	//Undershoes
 	var/mob/living/carbon/human/wearer = null	//For shoe procs
-	drop_sound = 'sound/items/drop/metalboots.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 
 /obj/item/clothing/shoes/magboots/proc/set_slowdown()
-	slowdown = shoes? max(SHOES_SLOWDOWN, shoes.slowdown): SHOES_SLOWDOWN	//So you can't put on magboots to make you walk faster.
+	slowdown = shoes? max(0, shoes.slowdown): 0	//So you can't put on magboots to make you walk faster.
 	if (magpulse)
 		slowdown += 3
 
@@ -55,7 +57,7 @@
 	else
 		return 0
 
-/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user)
+/obj/item/clothing/shoes/magboots/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user
 
 	if(H.shoes)
@@ -80,12 +82,12 @@
 
 /obj/item/clothing/shoes/magboots/dropped()
 	..()
-	addtimer(CALLBACK(src, .proc/update_wearer), 0)
+	INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/shoes/magboots/mob_can_unequip()
 	. = ..()
 	if (.)
-		addtimer(CALLBACK(src, .proc/update_wearer), 0)
+		INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/shoes/magboots/examine(mob/user)
 	..(user)
@@ -93,3 +95,12 @@
 	if(item_flags & NOSLIP)
 		state = "enabled"
 	to_chat(user, "Its mag-pulse traction system appears to be [state].")
+
+/obj/item/clothing/shoes/magboots/hegemony
+	name = "hegemony magboots"
+	desc = "Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle. They're large enough to be worn over other footwear. This variant is frequently seen in the Hegemony Navy."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "hegemony_magboots0"
+	item_state = "hegemony_magboots"
+	icon_base = "hegemony_magboots"
+	contained_sprite = TRUE

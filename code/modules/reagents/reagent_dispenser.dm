@@ -39,7 +39,7 @@
 
 /obj/structure/reagent_dispensers/attackby(obj/item/O as obj, mob/user as mob)
 
-	var/obj/item/weapon/reagent_containers/RG = O
+	var/obj/item/reagent_containers/RG = O
 	if (istype(RG) && RG.is_open_container())
 
 		var/atype
@@ -152,8 +152,15 @@
 			rig = null
 			overlays = new/list()
 
-/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/fueltank/attackby(obj/item/W, mob/user)
 	src.add_fingerprint(user)
+	if(istype(W, /obj/item/wirecutters/bomb) && rig)
+		user.visible_message(SPAN_WARNING("\The [user] carefully removes \the [rig] from \the [src]."), \
+							SPAN_NOTICE("You carefully remove \the [rig] from \the [src]."))
+		rig.forceMove(get_turf(user))
+		user.put_in_hands(rig)
+		rig = null
+		overlays = new/list()
 	if (istype(W,/obj/item/device/assembly_holder))
 		if (rig)
 			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
@@ -281,7 +288,7 @@
 	. = ..()
 	reagents.add_reagent("water",capacity)
 
-/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
 		src.add_fingerprint(user)
 		playsound(src.loc, W.usesound, 100, 1)
@@ -313,7 +320,7 @@
 	if(filled)
 		reagents.add_reagent(src.reagentid,capacity)
 
-/obj/structure/reagent_dispensers/keg/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/reagent_dispensers/keg/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = W
 		if(!R.can_use(3)) // like a tripod
@@ -343,6 +350,13 @@
 	desc = "A keg full of Xuizi juice, blended flower buds from the Moghean Xuizi cactus. The export stamp of the Arizi Guild is imprinted on the side."
 	icon_state = "keg_xuizi"
 	reagentid = "xuizijuice"
+	filled = TRUE
+
+/obj/structure/reagent_dispensers/keg/mead
+	name = "mead barrel"
+	desc = "A wooden mead barrel."
+	icon_state = "woodkeg"
+	reagentid = "messa_mead"
 	filled = TRUE
 
 //Cooking oil tank
@@ -375,7 +389,7 @@
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
-		if (Proj.damage_type != HALLOSS)
+		if (Proj.damage_type != PAIN)
 			explode()
 
 /obj/structure/reagent_dispensers/coolanttank/ex_act(var/severity = 2.0)
@@ -387,7 +401,7 @@
 	S.set_up(5, 0, src.loc)
 
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/start)
+	INVOKE_ASYNC(S, /datum/effect/effect/system/smoke_spread/.proc/start)
 
 	var/datum/gas_mixture/env = src.loc.return_air()
 	if(env)

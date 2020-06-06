@@ -13,7 +13,7 @@
 	throwforce = 5.0
 	throw_range = 15
 	throw_speed = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	var/low = 0
 	var/high = 1
 
@@ -38,7 +38,7 @@
 	set src in usr
 
 	var/num = input(usr, "Please enter the low-bound for the detector") as num|null
-	if (null)
+	if (num == null)
 		return
 
 	low = num
@@ -49,7 +49,7 @@
 	set src in usr
 
 	var/num = input(usr, "Please enter the high-bound for the detector") as num|null
-	if (null)
+	if (num == null)
 		return
 
 	high = num

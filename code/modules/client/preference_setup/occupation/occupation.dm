@@ -1,7 +1,3 @@
-//used for pref.alternate_option
-#define BE_ASSISTANT 0
-#define RETURN_TO_LOBBY 1
-
 /datum/category_item/player_setup_item/occupation
 	name = "Occupation"
 	sort_order = 1
@@ -174,7 +170,9 @@
 		dat += "<tr style='background-color: [hex2cssrgba(job.selection_color, 0.4)];'><td width='60%' align='right'>"
 		var/rank = job.title
 		lastJob = job
-		var/dispRank = LAZYACCESS(pref.GetValidTitles(job), 1) || rank
+
+		var/list/available = pref.GetValidTitles(job)
+		var/dispRank = LAZYLEN(available) ? LAZYACCESS(available, 1) : rank
 		var/ban_reason = jobban_isbanned(user, rank)
 		if(ban_reason == "WHITELISTED")
 			dat += "<del>[dispRank]</del></td><td><b> \[WHITELISTED]</b></td></tr>"
@@ -187,8 +185,13 @@
 			dat += "<del>[dispRank]</del></td><td> \[MINIMUM AGE: [LAZYLEN(job.alt_ages) ? min(job.alt_ages[min(job.alt_ages)], job.minimum_character_age) : job.minimum_character_age]]</td></tr>"
 			continue
 		else if (ban_reason)
-			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=\ref[rank];'>BANNED</a>]</b></td></tr>"
+			dat += "<del>[dispRank]</del></td><td><b> \[<a href='?src=\ref[user.client];view_jobban=[rank];'>BANNED</a>]</b></td></tr>"
 			continue
+		if(job.blacklisted_species) // check for restricted species
+			var/datum/species/S = all_species[pref.species]
+			if(S.name in job.blacklisted_species)
+				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
+				continue
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<font color=orange>[dispRank]</font></td><td></td></tr>"
 			continue

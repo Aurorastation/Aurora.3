@@ -8,3 +8,53 @@
 
 # force changelog merging to use union
 html/changelog.html merge=union
+
+# Enforce Line Endings
+* text=auto
+
+*.ai binary
+*.dmi binary
+*.exe binary
+*.fla binary
+*.gif binary
+*.jar binary
+*.jpg binary
+*.mid binary
+*.ogg binary
+*.pdb binary
+*.png binary
+*.psd binary
+*.s3m binary
+*.sav binary
+*.so binary
+*.svg binary
+*.wav binary
+*.xcf binary
+*.xlsx binary
+
+*.awk text
+*.bat text
+*.conf text
+*.cpp text
+*.cs text
+*.css text
+*.dm text
+*.dmf text
+*.dmm text
+*.gitkeep text
+*.hook text
+*.html text
+*.java text
+*.js text
+*.json text
+*.log text
+*.map text
+*.md text
+*.php text
+*.py text
+*.scss text
+*.sh text
+*.sql text
+*.tmpl text
+*.txt text
+*.vue text

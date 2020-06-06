@@ -25,9 +25,10 @@
 
 		inv_box = new /obj/screen/inventory()
 		inv_box.icon = ui_style
-		inv_box.layer = 19
+		inv_box.layer = SCREEN_LAYER
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
+		inv_box.hud = src
 
 		var/list/slot_data =  hud_data.gear[gear_slot]
 		inv_box.name =        gear_slot
@@ -50,7 +51,7 @@
 		using.icon = ui_style
 		using.icon_state = "other"
 		using.screen_loc = ui_inventory
-		using.layer = 20
+		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
@@ -65,7 +66,7 @@
 		using.screen_loc = ui_acti
 		using.color = ui_color
 		using.alpha = ui_alpha
-		using.layer = 20
+		using.layer = SCREEN_LAYER
 		src.adding += using
 		action_intent = using
 
@@ -82,7 +83,7 @@
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
-		using.layer = 21
+		using.layer = SCREEN_LAYER
 		src.adding += using
 		help_intent = using
 
@@ -94,7 +95,7 @@
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
-		using.layer = 21
+		using.layer = SCREEN_LAYER
 		src.adding += using
 		disarm_intent = using
 
@@ -106,7 +107,7 @@
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
-		using.layer = 21
+		using.layer = SCREEN_LAYER
 		src.adding += using
 		grab_intent = using
 
@@ -118,7 +119,7 @@
 		using.icon = ico
 		using.screen_loc = ui_acti
 		using.alpha = ui_alpha
-		using.layer = 21
+		using.layer = SCREEN_LAYER
 		src.adding += using
 		hurt_intent = using
 		//end intent small hud objects
@@ -138,7 +139,7 @@
 		using.icon = ui_style
 		using.icon_state = "act_drop"
 		using.screen_loc = ui_drop_throw
-		using.layer = 19
+		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.hotkeybuttons += using
@@ -150,35 +151,37 @@
 		using.icon = ui_style
 		using.icon_state = "act_equip"
 		using.screen_loc = ui_equip
-		using.layer = 20
+		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.adding += using
 
-		inv_box = new /obj/screen/inventory()
-		inv_box.name = "r_hand"
+		inv_box = new /obj/screen/inventory/hand()
+		inv_box.hud = src
+		inv_box.name = BP_R_HAND
 		inv_box.icon = ui_style
 		inv_box.icon_state = "r_hand_inactive"
 		if(mymob && !mymob.hand)	//This being 0 or null means the right hand is in use
 			inv_box.icon_state = "r_hand_active"
 		inv_box.screen_loc = ui_rhand
 		inv_box.slot_id = slot_r_hand
-		inv_box.layer = 19
+		inv_box.layer = SCREEN_LAYER
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
 
 		src.r_hand_hud_object = inv_box
 		src.adding += inv_box
 
-		inv_box = new /obj/screen/inventory()
-		inv_box.name = "l_hand"
+		inv_box = new /obj/screen/inventory/hand()
+		inv_box.hud = src
+		inv_box.name = BP_L_HAND
 		inv_box.icon = ui_style
 		inv_box.icon_state = "l_hand_inactive"
 		if(mymob && mymob.hand)	//This being 1 means the left hand is in use
 			inv_box.icon_state = "l_hand_active"
 		inv_box.screen_loc = ui_lhand
 		inv_box.slot_id = slot_l_hand
-		inv_box.layer = 19
+		inv_box.layer = SCREEN_LAYER
 		inv_box.color = ui_color
 		inv_box.alpha = ui_alpha
 		src.l_hand_hud_object = inv_box
@@ -189,9 +192,10 @@
 		using.icon = ui_style
 		using.icon_state = "hand1"
 		using.screen_loc = ui_swaphand1
-		using.layer = 19
+		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
+		using.hud = src
 		src.adding += using
 
 		using = new /obj/screen/inventory()
@@ -199,9 +203,10 @@
 		using.icon = ui_style
 		using.icon_state = "hand2"
 		using.screen_loc = ui_swaphand2
-		using.layer = 19
+		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
+		using.hud = src
 		src.adding += using
 
 	if(hud_data.has_resist)
@@ -210,7 +215,7 @@
 		using.icon = ui_style
 		using.icon_state = "act_resist"
 		using.screen_loc = ui_pull_resist
-		using.layer = 19
+		using.layer = SCREEN_LAYER
 		using.color = ui_color
 		using.alpha = ui_alpha
 		src.hotkeybuttons += using
@@ -238,6 +243,8 @@
 		mymob.internals = new /obj/screen/internals()
 		mymob.internals.icon = ui_style
 		hud_elements |= mymob.internals
+		if(!isnull(target.internal))
+			mymob.internals.icon_state = "internal1"
 
 	if(hud_data.has_warnings)
 		mymob.oxygen = new /obj/screen()
@@ -291,7 +298,7 @@
 		mymob.nutrition_icon.name = "nutrition"
 		mymob.nutrition_icon.screen_loc = ui_nutrition
 		hud_elements |= mymob.nutrition_icon
-		
+
 	if(hud_data.has_hydration)
 		mymob.hydration_icon = new /obj/screen()
 		mymob.hydration_icon.icon = ui_style
@@ -335,7 +342,13 @@
 	mymob.flash.mouse_opacity = 0
 	hud_elements |= mymob.flash
 
-	mymob.pain = new /obj/screen( null )
+	mymob.pain = new /obj/screen()
+	mymob.pain.icon = 'icons/mob/screen/full.dmi'
+	mymob.pain.icon_state = null
+	mymob.pain.name = "pain"
+	mymob.pain.screen_loc = "1,1"
+	mymob.pain.mouse_opacity = 0
+	hud_elements |= mymob.pain
 
 	mymob.zone_sel = new /obj/screen/zone_sel( null )
 	mymob.zone_sel.icon = ui_style
@@ -393,7 +406,5 @@
 	f_style = "Shaved"
 	if(dna.species == "Human") //no more xenos losing ears/tentacles
 		h_style = pick("Bedhead", "Bedhead 2", "Bedhead 3")
-	undershirt = null
-	underwear = null
-	socks = null
+	all_underwear.Cut()
 	regenerate_icons()

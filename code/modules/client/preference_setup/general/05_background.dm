@@ -75,15 +75,14 @@
 	)
 
 /datum/category_item/player_setup_item/general/background/sanitize_character()
+	var/datum/species/S = all_species[pref.species]
 	if(!pref.citizenship)
-		pref.citizenship	= CITIZENSHIP_BIESEL
+		pref.citizenship	= S.default_citizenship
 	if(!pref.religion)
 		pref.religion		= RELIGION_NONE
 
-	var/datum/species/S = all_species[pref.species]
-
 	if(!(pref.citizenship in S.allowed_citizenships))
-		pref.citizenship	= CITIZENSHIP_BIESEL
+		pref.citizenship	= S.default_citizenship
 
 	if(!(pref.religion in S.allowed_religions))
 		pref.religion	= RELIGION_NONE
@@ -103,11 +102,11 @@
 		dat += "<span class='danger'>You are banned from using character records.</span><br>"
 	else
 		dat += "Medical Records:<br>"
-		dat += "<a href='?src=\ref[src];set_medical_records=1'>[TextPreview(pref.med_record,40)]</a><br><br>"
+		dat += "<a href='?src=\ref[src];set_medical_records=1'>[TextPreview(pref.med_record,40)]</a><a href='?src=\ref[src];clear=medical'>Clear</a><br><br>"
 		dat += "Employment Records:<br>"
-		dat += "<a href='?src=\ref[src];set_general_records=1'>[TextPreview(pref.gen_record,40)]</a><br><br>"
+		dat += "<a href='?src=\ref[src];set_general_records=1'>[TextPreview(pref.gen_record,40)]</a><a href='?src=\ref[src];clear=general'>Clear</a><br><br>"
 		dat += "Security Records:<br>"
-		dat += "<a href='?src=\ref[src];set_security_records=1'>[TextPreview(pref.sec_record,40)]</a><br>"
+		dat += "<a href='?src=\ref[src];set_security_records=1'>[TextPreview(pref.sec_record,40)]</a><a href='?src=\ref[src];clear=security'>Clear</a><br>"
 
 	. = dat.Join()
 
@@ -160,6 +159,20 @@
 		if(!isnull(sec_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.sec_record = sec_medical
 		return TOPIC_REFRESH
+
+	else if(href_list["clear"])
+		if(!jobban_isbanned(user, "Records") && CanUseTopic(user))
+			if(alert(user, "Are you sure you wish to clear the [capitalize(href_list["clear"])] record?", "Clear Record Confirmation","Yes","No") == "No")
+				return TOPIC_NOACTION
+			switch(href_list["clear"])
+				if("medical")
+					pref.med_record = ""
+				if("general")
+					pref.gen_record = ""
+				if("security")
+					pref.sec_record = ""
+			return TOPIC_REFRESH
+
 
 	return ..()
 

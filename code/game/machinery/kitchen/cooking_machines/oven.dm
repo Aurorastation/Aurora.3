@@ -18,29 +18,29 @@
 
 	light_x = 2
 	max_contents = 5
-	container_type = /obj/item/weapon/reagent_containers/cooking_container/oven
+	container_type = /obj/item/reagent_containers/cooking_container/oven
 
 	stat = POWEROFF	//Starts turned off
 
 	var/open = FALSE // Start closed so people don't heat up ovens with the door open
 
 	output_options = list(
-		"Pizza" = /obj/item/weapon/reagent_containers/food/snacks/variable/pizza,
-		"Bread" = /obj/item/weapon/reagent_containers/food/snacks/variable/bread,
-		"Pie" = /obj/item/weapon/reagent_containers/food/snacks/variable/pie,
-		"Cake" = /obj/item/weapon/reagent_containers/food/snacks/variable/cake,
-		"Hot Pocket" = /obj/item/weapon/reagent_containers/food/snacks/variable/pocket,
-		"Kebab" = /obj/item/weapon/reagent_containers/food/snacks/variable/kebab,
-		"Waffles" = /obj/item/weapon/reagent_containers/food/snacks/variable/waffles,
-		"Cookie" = /obj/item/weapon/reagent_containers/food/snacks/variable/cookie,
-		"Donut" = /obj/item/weapon/reagent_containers/food/snacks/variable/donut
+		"Pizza" = /obj/item/reagent_containers/food/snacks/variable/pizza,
+		"Bread" = /obj/item/reagent_containers/food/snacks/variable/bread,
+		"Pie" = /obj/item/reagent_containers/food/snacks/variable/pie,
+		"Cake" = /obj/item/reagent_containers/food/snacks/variable/cake,
+		"Hot Pocket" = /obj/item/reagent_containers/food/snacks/variable/pocket,
+		"Kebab" = /obj/item/reagent_containers/food/snacks/variable/kebab,
+		"Waffles" = /obj/item/reagent_containers/food/snacks/variable/waffles,
+		"Cookie" = /obj/item/reagent_containers/food/snacks/variable/cookie,
+		"Donut" = /obj/item/reagent_containers/food/snacks/variable/donut
 	)
 
 	component_types = list(
-			/obj/item/weapon/circuitboard/oven,
-			/obj/item/weapon/stock_parts/capacitor = 3,
-			/obj/item/weapon/stock_parts/scanning_module,
-			/obj/item/weapon/stock_parts/matter_bin = 2
+			/obj/item/circuitboard/oven,
+			/obj/item/stock_parts/capacitor = 3,
+			/obj/item/stock_parts/scanning_module,
+			/obj/item/stock_parts/matter_bin = 2
 		)
 
 
@@ -91,7 +91,7 @@
 /obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
 	// check if someone's trying to manipulate the machine
 
-	if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/weapon/storage/part_replacer))
+	if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer))
 		return TRUE
 	else
 		return FALSE

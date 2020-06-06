@@ -1,0 +1,28 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"b" = (
+/obj/machinery/mining/brace,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+"c" = (
+/obj/machinery/mining/drill,
+/turf/simulated/floor/reinforced/airless,
+/area/mine/explored)
+
+(1,1,1) = {"
+a
+b
+a
+"}
+(2,1,1) = {"
+a
+c
+a
+"}
+(3,1,1) = {"
+a
+b
+a
+"}

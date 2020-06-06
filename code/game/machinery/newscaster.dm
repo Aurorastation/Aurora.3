@@ -8,7 +8,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	name = "newscaster"
 	desc = "A standard newsfeed handler for use on commercial space stations. All the news you absolutely have no use for, in one place!"
 	icon = 'icons/obj/terminals.dmi'
-	icon_state = "newscaster_normal"
+	icon_state = "newscaster"
 	var/isbroken = 0  //1 if someone banged it with something heavy
 	var/ispowered = 1 //starts powered, changes with power_change()
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
@@ -50,9 +50,19 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/hitstaken = 0      //Death at 3 hits from an item with force>=15
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
-	light_range = 0
+	var/global/list/screen_overlays
 	anchored = 1
 
+/obj/machinery/newscaster/proc/generate_overlays(var/force = 0)
+	if(LAZYLEN(screen_overlays) && !force)
+		return
+	LAZYINITLIST(screen_overlays)
+	screen_overlays["newscaster-screen"] = make_screen_overlay(icon, "newscaster-screen")
+	screen_overlays["newscaster-title"] = make_screen_overlay(icon, "newscaster-title")
+	screen_overlays["newscaster-wanted"] = make_screen_overlay(icon, "newscaster-wanted")
+	screen_overlays["newscaster-scanline"] = make_screen_overlay(icon, "newscaster-scanline")
+	for(var/i in 1 to 3)
+		screen_overlays["crack[i]"] = make_screen_overlay(icon, "crack[i]")
 
 /obj/machinery/newscaster/security_unit                   //Security unit
 	name = "Security Newscaster"
@@ -63,6 +73,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	allCasters += src
 	src.paper_remaining = 15            // Will probably change this to something better
 	src.unit_no = allCasters.len + 1
+	src.generate_overlays()
 	src.update_icon() //for any custom ones on the map...
 
 /obj/machinery/newscaster/Destroy()
@@ -71,25 +82,35 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 /obj/machinery/newscaster/update_icon()
 	if(!ispowered || isbroken)
-		icon_state = "newscaster_off"
+		icon_state = initial(icon_state)
+		set_light(FALSE)
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
 			cut_overlays()
-			add_overlay("crack3")
+			add_overlay(screen_overlays["crack3"])
 		return
 
 	cut_overlays() //reset overlays
 
+	add_overlay(screen_overlays["newscaster-screen"])
+	set_light(1.4, 1, COLOR_CYAN)
+
+	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
+		add_overlay(screen_overlays["newscaster-title"])
+
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
-		icon_state = "newscaster_wanted"
+		add_overlay(screen_overlays["newscaster-wanted"])
 		return
 
 	if(alert) //new message alert overlay
-		add_overlay("newscaster_alert")
+		add_overlay(screen_overlays["newscaster-alert"])
+
+	if(hitstaken == 0)
+		add_overlay(screen_overlays["newscaster-scanline"])
 
 	if(hitstaken > 0) //Cosmetic damage overlay
-		add_overlay("crack[hitstaken]")
-
-	icon_state = "newscaster_normal"
+		add_overlay(screen_overlays["crack[hitstaken]"])
+	
+	icon_state = initial(icon_state)
 	return
 
 /obj/machinery/newscaster/power_change()
@@ -100,7 +121,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		src.ispowered = 1
 		src.update_icon()
 	else
-		addtimer(CALLBACK(src, .proc/post_power_loss), rand(0, 15))
+		addtimer(CALLBACK(src, .proc/post_power_loss), rand(1, 15))
 
 /obj/machinery/newscaster/proc/post_power_loss()
 	ispowered = 0
@@ -123,7 +144,6 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				src.isbroken=1
 			src.update_icon()
 			return
-	return
 
 /obj/machinery/newscaster/attack_ai(mob/user as mob)
 	return src.attack_hand(user)
@@ -175,7 +195,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						if(FC.is_admin_channel)
 							dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen '><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A></FONT></B><BR>"
 						else
-							dat+="<B><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR></B>"
+							dat+="<B><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR></B>"
 				dat+="<BR><HR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Back</A>"
 			if(2)
@@ -279,7 +299,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				else
 					for(var/channel in SSnews.network_channels)
 						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Cancel</A>"
 			if(11)
 				dat+="<B>[current_map.company_name] D-Notice Handler</B><HR>"
@@ -291,7 +311,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				else
 					for(var/channel in SSnews.network_channels)
 						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-						dat+="<A href='?src=\ref[src];pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : ()]<BR>"
+						dat+="<A href='?src=\ref[src];pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<FONT COLOR='red'>***</FONT>") : null]<BR>"
 
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Back</A>"
 			if(12)
@@ -398,7 +418,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<A href='?src=\ref[src];setScreen=[9]'>Return</A>"
 
 		send_theme_resources(human_or_robot_user)
-		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=400x600")
+		human_or_robot_user << browse(enable_ui_theme(human_or_robot_user, dat), "window=newscaster_main;size=600x900")
 		onclose(human_or_robot_user, "newscaster_main")
 
 /obj/machinery/newscaster/Topic(href, href_list)
@@ -716,24 +736,24 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		for (var/mob/O in hearers(5, src.loc))
 			O.show_message("<EM>[user.name]</EM> further abuses the shattered [src.name].")
 	else
-		if(istype(I, /obj/item/weapon) )
+		if(istype(I, /obj/item) )
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			var/obj/item/weapon/W = I
+			var/obj/item/W = I
 			if(W.force <15)
 				for (var/mob/O in hearers(5, src.loc))
 					O.show_message("[user.name] hits the [src.name] with the [W.name] with no visible effect." )
-					playsound(src.loc, 'sound/effects/Glasshit.ogg', 100, 1)
+					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 			else
 				src.hitstaken++
 				if(src.hitstaken==3)
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, 'sound/effects/Glassbr3.ogg', 100, 1)
+					playsound(src.loc, "shatter", 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
-					playsound(src.loc, 'sound/effects/Glasshit.ogg', 100, 1)
+					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
 			to_chat(user, "<span class='notice'>This does nothing.</span>")
 	src.update_icon()
@@ -743,9 +763,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 /datum/news_photo
 	var/is_synth = 0
-	var/obj/item/weapon/photo/photo = null
+	var/obj/item/photo/photo = null
 
-/datum/news_photo/New(var/obj/item/weapon/photo/p, var/synth)
+/datum/news_photo/New(var/obj/item/photo/p, var/synth)
 	is_synth = synth
 	photo = p
 
@@ -757,13 +777,13 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				user.put_in_inactive_hand(photo_data.photo)
 		QDEL_NULL(photo_data)
 
-	if(istype(user.get_active_hand(), /obj/item/weapon/photo))
+	if(istype(user.get_active_hand(), /obj/item/photo))
 		var/obj/item/photo = user.get_active_hand()
 		user.drop_from_inventory(photo,src)
 		photo_data = new(photo, 0)
 	else if(istype(user,/mob/living/silicon))
 		var/mob/living/silicon/tempAI = user
-		var/obj/item/weapon/photo/selection = tempAI.GetPicture()
+		var/obj/item/photo/selection = tempAI.GetPicture()
 		if (!selection)
 			return
 
@@ -774,8 +794,8 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		paper_name = ""
 		paper_data = ""
 
-	if(istype(user.get_active_hand(), /obj/item/weapon/paper))
-		var/obj/item/weapon/paper/attached = user.get_active_hand()
+	if(istype(user.get_active_hand(), /obj/item/paper))
+		var/obj/item/paper/attached = user.get_active_hand()
 		paper_name = attached.name
 		paper_data = attached.info
 		to_chat(user, "You scan \the [attached] and add it to the news story.")
@@ -786,7 +806,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 //###################################### NEWSPAPER! ######################################################################
 //########################################################################################################################
 
-/obj/item/weapon/newspaper
+/obj/item/newspaper
 	name = "newspaper"
 	desc = "An issue of The Griffon, the newspaper circulating aboard most stations."
 	icon = 'icons/obj/bureaucracy.dmi'
@@ -801,8 +821,9 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	var/scribble=""
 	var/scribble_page = null
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
-obj/item/weapon/newspaper/attack_self(mob/user as mob)
+obj/item/newspaper/attack_self(mob/user as mob)
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/dat
@@ -883,7 +904,7 @@ obj/item/weapon/newspaper/attack_self(mob/user as mob)
 		to_chat(user, "The paper is full of intelligible symbols!")
 
 
-obj/item/weapon/newspaper/Topic(href, href_list)
+obj/item/newspaper/Topic(href, href_list)
 	var/mob/living/U = usr
 	..()
 	if ((src in U.contents) || ( istype(loc, /turf) && in_range(src, U) ))
@@ -915,8 +936,8 @@ obj/item/weapon/newspaper/Topic(href, href_list)
 			src.attack_self(src.loc)
 
 
-obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/pen))
+obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
+	if(W.ispen())
 		if(src.scribble_page == src.curr_page)
 			to_chat(user, "<FONT COLOR='blue'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</FONT>")
 		else
@@ -945,11 +966,11 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 					src.scanned_user = GetNameAndAssignmentFromId(P.id)
 				else
 					src.scanned_user = "Unknown"
-			else if(istype(human_user.wear_id, /obj/item/weapon/card/id) )
-				var/obj/item/weapon/card/id/ID = human_user.wear_id
+			else if(istype(human_user.wear_id, /obj/item/card/id) )
+				var/obj/item/card/id/ID = human_user.wear_id
 				src.scanned_user = GetNameAndAssignmentFromId(ID)
-			else if(istype(human_user.wear_id, /obj/item/weapon/storage/wallet))
-				var/obj/item/weapon/storage/wallet/W = human_user.wear_id
+			else if(istype(human_user.wear_id, /obj/item/storage/wallet))
+				var/obj/item/storage/wallet/W = human_user.wear_id
 				if(W.GetID())
 					src.scanned_user = GetNameAndAssignmentFromId(W.GetID())
 				else
@@ -965,13 +986,14 @@ obj/item/weapon/newspaper/attackby(obj/item/weapon/W as obj, mob/user as mob)
 
 /obj/machinery/newscaster/proc/print_paper()
 	feedback_inc("newscaster_newspapers_printed",1)
-	var/obj/item/weapon/newspaper/NEWSPAPER = new /obj/item/weapon/newspaper
+	var/obj/item/newspaper/NEWSPAPER = new /obj/item/newspaper
 	for(var/channel in SSnews.network_channels)
 		var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
 		NEWSPAPER.news_content += FC
 	if(SSnews.wanted_issue)
 		NEWSPAPER.important_message = SSnews.wanted_issue
-	NEWSPAPER.forceMove(get_turf(src))
+	playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
+	usr.put_in_hands(NEWSPAPER)
 	src.paper_remaining--
 	return
 

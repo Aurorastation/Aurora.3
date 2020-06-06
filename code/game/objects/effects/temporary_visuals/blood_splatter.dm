@@ -1,5 +1,6 @@
 /obj/effect/temp_visual/dir_setting/bloodsplatter
 	icon = 'icons/effects/bloodspatter.dmi'
+	icon_state = null
 	duration = 5
 	randomdir = FALSE
 	layer = BELOW_MOB_LAYER

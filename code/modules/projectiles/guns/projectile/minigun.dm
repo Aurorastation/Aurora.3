@@ -10,7 +10,7 @@
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_MAGNET = 4, TECH_ILLEGAL = 7)
 	action_button_name = "Deploy the Gatling Machine Gun"
 
-	var/obj/item/weapon/gun/projectile/automatic/rifle/minigun/gun
+	var/obj/item/gun/projectile/automatic/rifle/minigun/gun
 	var/armed = FALSE
 	var/obj/item/ammo_magazine/ammo_magazine
 	var/magazine_type =  /obj/item/ammo_magazine/minigun
@@ -34,7 +34,7 @@
 	gun.forceMove(src)
 
 /obj/item/minigunpack/proc/make_gun()
-	return new /obj/item/weapon/gun/projectile/automatic/rifle/minigun()
+	return new /obj/item/gun/projectile/automatic/rifle/minigun()
 
 /obj/item/minigunpack/ui_action_click()
 	if(src in usr)
@@ -111,7 +111,7 @@
 	else
 		return ..()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/minigun
+/obj/item/gun/projectile/automatic/rifle/minigun
 	name = "gatling machine gun"
 	desc = "A six-barrel rotary machine gun with an incredible rate of fire. Requires a bulky backpack power source to use."
 	slot_flags = 0
@@ -127,14 +127,15 @@
 	origin_tech = null
 
 	firemodes = list(
-		list(mode_name="short bursts",	burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
-		list(mode_name="long bursts",	burst=12, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8))
+		list(mode_name="short bursts",	can_autofire=0, burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	can_autofire=0, burst=12, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 
 	var/obj/item/minigunpack/source
 
-/obj/item/weapon/gun/projectile/automatic/rifle/minigun/special_check(var/mob/user)
+/obj/item/gun/projectile/automatic/rifle/minigun/special_check(var/mob/user)
 	if(!wielded)
 		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
 		return 0
@@ -145,21 +146,21 @@
 
 	return ..()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/minigun/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/automatic/rifle/minigun/load_ammo(var/obj/item/A, mob/user)
 	return
 
-/obj/item/weapon/gun/projectile/automatic/rifle/minigun/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/automatic/rifle/minigun/unload_ammo(mob/user, var/allow_dump=1)
 	return
 
-/obj/item/weapon/gun/projectile/automatic/rifle/minigun/dropped(mob/user)
+/obj/item/gun/projectile/automatic/rifle/minigun/dropped(mob/user)
 	..()
 	if(source)
 		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
-		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
+		INVOKE_ASYNC(source, /obj/item/minigunpack/.proc/remove_gun)
 		source.update_icon()
 		user.update_inv_back()
 
-/obj/item/weapon/gun/projectile/automatic/rifle/minigun/Move()
+/obj/item/gun/projectile/automatic/rifle/minigun/Move()
 	..()
 	if(loc != source.loc)
-		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
+		INVOKE_ASYNC(source, /obj/item/minigunpack/.proc/remove_gun)

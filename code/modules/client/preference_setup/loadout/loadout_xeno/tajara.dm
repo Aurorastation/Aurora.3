@@ -1,6 +1,6 @@
 /datum/gear/gloves/tajara
 	display_name = "tajara gloves selection"
-	description = "A selection of tajaran colored gloves."
+	description = "A selection of tajaran gloves."
 	path = /obj/item/clothing/gloves/black/tajara
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
@@ -16,6 +16,7 @@
 	taj_gloves["brown gloves"] = /obj/item/clothing/gloves/brown/tajara
 	taj_gloves["green gloves"] = /obj/item/clothing/gloves/green/tajara
 	taj_gloves["white gloves"] = /obj/item/clothing/gloves/white/tajara
+	taj_gloves["machinist gloves"] =  /obj/item/clothing/gloves/black/tajara/smithgloves
 	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)
 
 /datum/gear/suit/tajara_coat
@@ -28,11 +29,11 @@
 /datum/gear/suit/tajara_coat/New()
 	..()
 	var/coat = list()
-	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/tajaran
+	coat["tajaran naval coat"] = /obj/item/clothing/suit/storage/toggle/tajaran
 	coat["commoner cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak
 	coat["royal cloak"] = /obj/item/clothing/suit/storage/tajaran/cloak/fancy
 	coat["gruff cloak"] = /obj/item/clothing/suit/storage/hooded/tajaran
-	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran/nomad
+	coat["adhomian wool coat"] = /obj/item/clothing/suit/storage/tajaran
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_priest
@@ -41,6 +42,7 @@
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tajara_priest/New()
 	..()
@@ -48,13 +50,14 @@
 	robes["sun priest robe"] = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	robes["sun sister robe"] = /obj/item/clothing/suit/storage/tajaran/messa
 	robes["matake priest mantle"] = /obj/item/clothing/suit/storage/tajaran/matake
+	robes["Azubarre priest robes"] = /obj/item/clothing/suit/storage/tajaran/azubarre
 	gear_tweaks += new/datum/gear_tweak/path(robes)
 
 /datum/gear/suit/tajaran_labcoat
 	display_name = "PRA medical coat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
@@ -71,6 +74,9 @@
 	uniform["fancy uniform"] = /obj/item/clothing/under/tajaran/fancy
 	uniform["NanoTrasen overalls"] = /obj/item/clothing/under/tajaran/nt
 	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
+	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
+	uniform["adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
+	uniform["machinist uniform"] = /obj/item/clothing/under/tajaran/mechanic
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/tajara_dress
@@ -89,6 +95,8 @@
 	dress["red fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran/red
 	dress["red noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy
 	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
+	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
+	dress["adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/accessory/tajara
@@ -134,6 +142,7 @@
 	path = /obj/item/clothing/accessory/tajaran_wrap
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/tajara_wrap/New()
 	..()
@@ -147,6 +156,7 @@
 	path = /obj/item/clothing/accessory/tajaran_pelt
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/mask/tajara
 	display_name = "sun sister veil"
@@ -154,6 +164,7 @@
 	cost = 1/2
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/shoes/tajara
 	display_name = "native tajaran foot-wear"
@@ -166,4 +177,20 @@
 	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	cost = 1 // because it's annoying but justifiable, i guess
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/gloves/shumalia_belt
+	display_name = "hammer buckle belt"
+	description = "A leather belt adorned by a hammer shaped buckle, worn by priesthood and worshippers of Shumaila."
+	path = /obj/item/storage/belt/shumaila_buckle
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/tesla_spine
+	display_name = "tesla spine"
+	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civilians."
+	path = /obj/item/organ/internal/augment/tesla
+	cost = 4
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear - Tajara"

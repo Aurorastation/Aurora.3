@@ -1,7 +1,7 @@
 // explosion logic is in code/controllers/Processes/explosives.dm now
 
 /proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, spreading = config.use_spreading_explosions)
-	src = null	//so we don't abort once src is deleted
+	UNLINT(src = null)	//so we don't abort once src is deleted
 	var/datum/explosiondata/data = new
 	data.epicenter = epicenter
 	data.devastation_range = devastation_range
@@ -50,18 +50,6 @@
 
 /turf/simulated/mineral
 	explosion_resistance = 2
-
-/turf/simulated/shuttle/floor
-	explosion_resistance = 1
-
-/turf/simulated/shuttle/floor4
-	explosion_resistance = 1
-
-/turf/simulated/shuttle/plating
-	explosion_resistance = 1
-
-/turf/simulated/shuttle/wall
-	explosion_resistance = 10
 
 /turf/simulated/wall
 	explosion_resistance = 10

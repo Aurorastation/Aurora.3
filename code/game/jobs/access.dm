@@ -81,6 +81,12 @@
 	log_debug("Invalid job [job] passed to get_syndicate_access")
 	return list()
 
+/proc/get_distress_access()
+	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+
+/proc/get_distress_access_lesser()
+	return list(access_distress, access_external_airlocks)
+
 /var/list/datum/access/priv_all_access_datums
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
@@ -218,7 +224,7 @@
 /mob/proc/GetIdCard()
 	return null
 
-var/obj/item/weapon/card/id/all_access/ghost_all_access
+var/obj/item/card/id/all_access/ghost_all_access
 /mob/abstract/observer/GetIdCard()
 	if(!is_admin(src))
 		return
@@ -230,20 +236,29 @@ var/obj/item/weapon/card/id/all_access/ghost_all_access
 /mob/living/bot/GetIdCard()
 	return botcard
 
+/mob/living/simple_animal/spiderbot/GetIdCard()
+	return internal_id
+
 /mob/living/carbon/human/GetIdCard()
+	if(wear_id)
+		var/id = wear_id.GetID()
+		if(id)
+			return id
 	var/obj/item/I = get_active_hand()
 	if(I)
 		var/id = I.GetID()
 		if(id)
 			return id
-	if(wear_id)
-		return wear_id.GetID()
+	if(gloves)
+		var/id = gloves.GetID()
+		if(id)
+			return id
 
 /mob/living/silicon/GetIdCard()
-	return idcard
+	return id_card
 
 proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
-	var/obj/item/weapon/card/id/C = M.GetIdCard()
+	var/obj/item/card/id/C = M.GetIdCard()
 	if(C)
 		return C.registered_name
 	return missing_id_name
@@ -252,7 +267,7 @@ proc/get_all_job_icons() //For all existing HUD icons
 	return joblist + list("Prisoner")
 
 /obj/proc/GetJobName() //Used in secHUD icon generation
-	var/obj/item/weapon/card/id/I = GetID()
+	var/obj/item/card/id/I = GetID()
 
 	if(I)
 		var/job_icons = get_all_job_icons()

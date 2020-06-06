@@ -36,8 +36,6 @@
 
 	// stages such as "cut", "deep cut", etc.
 	var/list/stages
-	// internal wounds can only be fixed through surgery
-	var/internal = 0
 	// maximum stage at which bleeding should still happen. Beyond this stage bleeding is prevented.
 	var/max_bleeding_stage = 0
 	// one of CUT, BRUISE, PIERCE , BURN
@@ -157,10 +155,6 @@
 // than what needed to be healed, return how much heal was left
 // set @heals_internal to also heal internal organ damage
 /datum/wound/proc/heal_damage(amount, heals_internal = 0)
-	if(src.internal && !heals_internal)
-		// heal nothing
-		return amount
-
 	var/healed_damage = min(src.damage, amount)
 	amount -= healed_damage
 	src.damage -= healed_damage
@@ -169,16 +163,6 @@
 		current_stage++
 	desc = desc_list[current_stage]
 	src.min_damage = damage_list[current_stage]
-
-	//Internal wounds should vanish if damage reaches 0
-	if (internal && damage <= 0)
-		//Wounds can't clean themselves up. Instead we'll set vars that will make the organ delete us
-		internal = 0
-		bleed_timer = 0
-		damage = 0
-		created = -6000//Wounds only disappear after 10 mins
-		//These vars will cause this wound to be removed and GC'd next tick
-
 
 	// return amount of healing still leftover, can be used for other wounds
 	return amount
@@ -213,9 +197,6 @@
 	return 1
 
 /datum/wound/proc/bleeding()
-	if (src.internal)
-		return 0	// internal wounds don't bleed in the sense of this function
-
 	if (current_stage > max_bleeding_stage)
 		return 0
 
@@ -264,7 +245,7 @@
 
 		if(BRUISE)
 			return /datum/wound/bruise
-		if(BURN)
+		if(BURN, LASER)
 			switch(damage)
 				if(50 to INFINITY)
 					return /datum/wound/burn/carbonised
@@ -372,13 +353,6 @@ datum/wound/puncture/massive
 
 /datum/wound/burn/carbonised
 	stages = list("carbonised area" = 50, "healing carbonised area" = 20, "massive burn scar" = 0)
-
-/** INTERNAL BLEEDING **/
-/datum/wound/internal_bleeding
-	internal = 1
-	stages = list("severed artery" = 30, "cut artery" = 20, "damaged artery" = 10, "bruised artery" = 5)
-	autoheal_cutoff = 5
-	max_bleeding_stage = 4	//all stages bleed. It's called internal bleeding after all.
 
 /** EXTERNAL ORGAN LOSS **/
 /datum/wound/lost_limb

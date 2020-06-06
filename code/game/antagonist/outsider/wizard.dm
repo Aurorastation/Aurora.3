@@ -9,6 +9,7 @@ var/datum/antagonist/wizard/wizards
 	welcome_text = "You will find a list of available spells in your spell book. Choose your magic arsenal carefully.<br>In your pockets you will find a teleport scroll. Use it as needed."
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudwizard"
+	required_age = 10
 
 	hard_cap = 1
 	hard_cap_round = 3
@@ -70,27 +71,23 @@ var/datum/antagonist/wizard/wizards
 	wizard.current.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
 	wizard.current.name = wizard.current.real_name
 
-/datum/antagonist/wizard/equip(var/mob/living/carbon/human/wizard_mob)
+/datum/antagonist/wizard/equip(var/mob/living/carbon/human/player)
 
 	if(!..())
-		return 0
+		return FALSE
 
-	wizard_mob.equip_to_slot_or_del(new /obj/item/device/radio/headset(wizard_mob), slot_l_ear)
-	wizard_mob.equip_to_slot_or_del(new /obj/item/clothing/under/lightpurple(wizard_mob), slot_w_uniform)
-	wizard_mob.equip_to_slot_or_del(new /obj/item/clothing/shoes/sandal(wizard_mob), slot_shoes)
-	wizard_mob.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe(wizard_mob), slot_wear_suit)
-	wizard_mob.equip_to_slot_or_del(new /obj/item/clothing/head/wizard(wizard_mob), slot_head)
-	if(wizard_mob.backbag == 2) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/wizard(wizard_mob), slot_back)
-	if(wizard_mob.backbag == 3) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel_wizard(wizard_mob), slot_back)
-	if(wizard_mob.backbag == 4) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/satchel(wizard_mob), slot_back)
-	if(wizard_mob.backbag == 5) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/duffel/wizard(wizard_mob), slot_back)
-	if(wizard_mob.backbag == 6) wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/messenger/wizard(wizard_mob), slot_back)
-	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/storage/box(wizard_mob), slot_in_backpack)
-	wizard_mob.equip_to_slot_or_del(new /obj/item/weapon/teleportation_scroll(wizard_mob), slot_r_store)
-	var/obj/item/I = new /obj/item/weapon/spellbook(get_turf(wizard_mob))
-	wizard_mob.put_in_hands(I)
-	wizard_mob.update_icons()
-	return 1
+	for (var/obj/item/I in player)
+		if (istype(I, /obj/item/implant))
+			continue
+		player.drop_from_inventory(I)
+		if(I.loc != player)
+			qdel(I)
+
+	player.preEquipOutfit(/datum/outfit/admin/wizard, FALSE)
+	player.equipOutfit(/datum/outfit/admin/wizard, FALSE)
+	player.force_update_limbs()
+	player.update_eyes()
+	player.regenerate_icons()
 
 /datum/antagonist/wizard/check_victory()
 	var/survivor

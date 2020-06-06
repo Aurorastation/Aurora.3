@@ -47,7 +47,7 @@
 	var/auto_return = 1	// true if auto return to home beacon after unload
 	var/auto_pickup = 1 // true if auto-pickup at beacon
 
-	var/obj/item/weapon/cell/cell
+	var/obj/item/cell/cell
 						// the installed power cell
 
 	// constants for internal wiring bitflags
@@ -88,8 +88,8 @@
 // cell: insert it
 // other: chance to knock rider off bot
 /obj/machinery/bot/mulebot/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I,/obj/item/weapon/cell) && open && !cell)
-		var/obj/item/weapon/cell/C = I
+	if(istype(I,/obj/item/cell) && open && !cell)
+		var/obj/item/cell/C = I
 		user.drop_from_inventory(C,src)
 		cell = C
 		updateDialog()
@@ -273,7 +273,7 @@
 
 			if("cellinsert")
 				if(open && !cell)
-					var/obj/item/weapon/cell/C = usr.get_active_hand()
+					var/obj/item/cell/C = usr.get_active_hand()
 					if(istype(C))
 						usr.drop_from_inventory(C,src)
 						cell = C
@@ -695,12 +695,12 @@
 	playsound(src.loc, 'sound/effects/splat.ogg', 50, 1)
 
 	var/damage = rand(5,15)
-	H.apply_damage(2*damage, BRUTE, "head")
-	H.apply_damage(2*damage, BRUTE, "chest")
-	H.apply_damage(0.5*damage, BRUTE, "l_leg")
-	H.apply_damage(0.5*damage, BRUTE, "r_leg")
-	H.apply_damage(0.5*damage, BRUTE, "l_arm")
-	H.apply_damage(0.5*damage, BRUTE, "r_arm")
+	H.apply_damage(2*damage, BRUTE, BP_HEAD)
+	H.apply_damage(2*damage, BRUTE, BP_CHEST)
+	H.apply_damage(0.5*damage, BRUTE, BP_L_LEG)
+	H.apply_damage(0.5*damage, BRUTE, BP_R_LEG)
+	H.apply_damage(0.5*damage, BRUTE, BP_L_ARM)
+	H.apply_damage(0.5*damage, BRUTE, BP_R_ARM)
 
 	blood_splatter(src,H,1)
 	bloodiness += 4

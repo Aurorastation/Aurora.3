@@ -3,16 +3,16 @@
 // It allows you to toggle components of your device.
 
 /datum/computer_file/program/computerconfig
-	filename = "compconfig"
-	filedesc = "Computer Configuration Tool"
-	extended_desc = "This program allows configuration of computer's hardware"
+	filename = "hardwareconfig"
+	filedesc = "Hardware Configuration Tool"
+	extended_desc = "This program allows configuration of the computer's hardware."
 	program_icon_state = "generic"
 	color = LIGHT_COLOR_GREEN
-	unsendable = 1
-	undeletable = 1
+	unsendable = TRUE
+	undeletable = TRUE
 	size = 4
-	available_on_ntnet = 0
-	requires_ntnet = 0
+	available_on_ntnet = FALSE
+	requires_ntnet = FALSE
 
 /datum/computer_file/program/computerconfig/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -49,7 +49,7 @@
 		VUEUI_SET_CHECK(data["battery"]["percent"], round(computer.battery_module.battery.percent()), ., data)
 
 	LAZYINITLIST(data["hardware"])
-	for(var/obj/item/weapon/computer_hardware/H in hardware)
+	for(var/obj/item/computer_hardware/H in hardware)
 		LAZYINITLIST(data["hardware"][H.name])
 		for(var/v in list("name", "desc", "enabled", "critical", "power_usage"))
 			VUEUI_SET_CHECK(data["hardware"][H.name][v], H.vars[v], ., data)

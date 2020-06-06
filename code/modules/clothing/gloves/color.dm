@@ -2,19 +2,21 @@
 	desc = "These gloves will protect the wearer from electric shock."
 	name = "insulated gloves"
 	icon_state = "yellow"
-	item_state = "ygloves"
+	item_state = "yellow"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/clothing/gloves/fyellow                             //Cheap Chinese Crap
 	desc = "These gloves are cheap copies of the coveted gloves, no way this can end badly."
 	name = "budget insulated gloves"
 	icon_state = "yellow"
-	item_state = "ygloves"
+	item_state = "yellow"
 	siemens_coefficient = 1			//Set to a default of 1, gets overridden in New()
 	permeability_coefficient = 0.05
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 	New()
 		//average of 0.5, somewhat better than regular gloves' 0.75
@@ -24,7 +26,7 @@
 	desc = "These work gloves are thick and fire-resistant."
 	name = "black gloves"
 	icon_state = "black"
-	item_state = "bgloves"
+	item_state = "black"
 	siemens_coefficient = 0.50
 	permeability_coefficient = 0.05
 
@@ -37,76 +39,67 @@
 	name = "orange gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "orange"
-	item_state = "orangegloves"
+	item_state = "orange"
 
 /obj/item/clothing/gloves/red
 	name = "red gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "red"
-	item_state = "redgloves"
+	item_state = "red"
 
 /obj/item/clothing/gloves/rainbow
 	name = "rainbow gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "rainbow"
-	item_state = "rainbowgloves"
+	item_state = "rainbow"
 
 /obj/item/clothing/gloves/blue
 	name = "blue gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "blue"
-	item_state = "bluegloves"
+	item_state = "blue"
 
 /obj/item/clothing/gloves/purple
 	name = "purple gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "purple"
-	item_state = "purplegloves"
+	item_state = "purple"
 
 /obj/item/clothing/gloves/green
 	name = "green gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "green"
-	item_state = "greengloves"
+	item_state = "green"
 
 /obj/item/clothing/gloves/grey
 	name = "grey gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "gray"
-	item_state = "graygloves"
+	item_state = "gray"
 
 /obj/item/clothing/gloves/light_brown
 	name = "light brown gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "lightbrown"
-	item_state = "lightbrowngloves"
+	item_state = "lightbrown"
 
 /obj/item/clothing/gloves/brown
 	name = "brown gloves"
 	desc = "A pair of gloves, they don't look special in any way."
 	icon_state = "brown"
-	item_state = "browngloves"
+	item_state = "brown"
 
 /obj/item/clothing/gloves/white
 	name = "white gloves"
 	desc = "These look pretty fancy."
 	icon_state = "latex"
-	item_state = "lgloves"
-
-/obj/item/clothing/gloves/yellow/specialt
-	desc = "These gloves will protect the wearer from electric shock. Made special for Tajaran use."
-	name = "tajaran electrical gloves"
-	icon_state = "yellow"
-	item_state = "ygloves"
-	siemens_coefficient = 0
-	permeability_coefficient = 0.05
-	species_restricted = list("Tajara")
+	item_state = "latex"
 
 /obj/item/clothing/gloves/yellow/specialu
 	desc = "These gloves will protect the wearer from electric shock. Made special for Unathi use."
 	name = "unathi electrical gloves"
 	icon_state = "yellow"
-	item_state = "ygloves"
+	item_state = "yellow"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	species_restricted = list("Unathi")
@@ -116,11 +109,6 @@
 	desc = "Black gloves made for Unathi use."
 	species_restricted = list("Unathi")
 
-/obj/item/clothing/gloves/black/tajara
-	name = "black gloves"
-	desc = "Black gloves made for Tajara use."
-	species_restricted = list("Tajara")
-
 //more snowflake gloves for the custom loadout
 
 /obj/item/clothing/gloves/red/unathi
@@ -128,70 +116,35 @@
  	desc = "Red gloves made for Unathi use."
  	species_restricted = list("Unathi")
 
-/obj/item/clothing/gloves/red/tajara
-	name = "red gloves"
-	desc = "Red gloves made for Tajaran use."
-	species_restricted = list("Tajara")
-
 /obj/item/clothing/gloves/blue/unathi
  	name = "blue gloves"
  	desc = "Blue gloves made for Unathi use."
  	species_restricted = list("Unathi")
-
-/obj/item/clothing/gloves/blue/tajara
- 	name = "blue gloves"
- 	desc = "Blue gloves made for Tajaran use."
- 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/orange/unathi
  	name = "orange gloves"
  	desc = "Orange gloves made for Unathi use."
  	species_restricted = list("Unathi")
 
-/obj/item/clothing/gloves/orange/tajara
- 	name = "orange gloves"
- 	desc = "Orange gloves made for Tajaran use."
- 	species_restricted = list("Tajara")
-
 /obj/item/clothing/gloves/purple/unathi
  	name = "purple gloves"
  	desc = "Purple gloves made for Unathi use."
  	species_restricted = list("Unathi")
-
-/obj/item/clothing/gloves/purple/tajara
- 	name = "purple gloves"
- 	desc = "Purple gloves made for Tajaran use."
- 	species_restricted = list("Tajara")
 
 /obj/item/clothing/gloves/brown/unathi
  	name = "brown gloves"
  	desc = "Brown gloves made for Unathi use."
  	species_restricted = list("Unathi")
 
-/obj/item/clothing/gloves/brown/tajara
- 	name = "brown gloves"
- 	desc = "Brown gloves made for Tajaran use."
- 	species_restricted = list("Tajara")
-
 /obj/item/clothing/gloves/green/unathi
  	name = "green gloves"
  	desc = "Green gloves made for Unathi use."
  	species_restricted = list("Unathi")
 
-/obj/item/clothing/gloves/green/tajara
- 	name = "green gloves"
- 	desc = "Green gloves made for Tajaran use."
- 	species_restricted = list("Tajara")
-
 /obj/item/clothing/gloves/white/unathi
  	name = "white gloves"
  	desc = "White gloves made for Unathi use."
  	species_restricted = list("Unathi")
-
-/obj/item/clothing/gloves/white/tajara
- 	name = "white gloves"
- 	desc = "White gloves made for Tajaran use."
- 	species_restricted = list ("Tajara")
 
 /obj/item/clothing/gloves/evening
 	name = "evening gloves"
@@ -202,7 +155,7 @@
 	name = "black leather gloves"
 	desc = "A pair of tight-fitting synthleather gloves."
 	icon_state = "black_leather"
-	item_state = "black_leather_gloves"
+	item_state = "black_leather"
 
 /obj/item/clothing/gloves/fingerless
 	desc = "A pair of gloves that don't actually cover the fingers."

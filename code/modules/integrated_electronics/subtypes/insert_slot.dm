@@ -54,7 +54,7 @@
 	capacity = 10
 	size = 8
 	power_draw_per_use = 3
-	allowed_types = list(/obj/item/weapon/paper)
+	allowed_types = list(/obj/item/paper)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_MATERIALS = 2)
 
@@ -65,6 +65,6 @@
 	It has a bracket to hold the beaker in place and a lid to prevent spillage. \
 	There is an extraction tube built into the lid"
 	capacity = 1
-	allowed_types = list(/obj/item/weapon/reagent_containers/glass/beaker)
+	allowed_types = list(/obj/item/reagent_containers/glass/beaker)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 2, TECH_MATERIALS = 2)

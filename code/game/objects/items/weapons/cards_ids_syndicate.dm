@@ -1,30 +1,51 @@
-/obj/item/weapon/card/id/syndicate
+/obj/item/card/id/syndicate
 	name = "agent card"
 	assignment = "Agent"
 	origin_tech = list(TECH_ILLEGAL = 3)
-	var/electronic_warfare = 1
+	var/charge = 10000
+	var/electronic_warfare = FALSE
+	var/image/obfuscation_image
 	var/mob/registered_user = null
 
-/obj/item/weapon/card/id/syndicate/New(mob/user as mob)
+/obj/item/card/id/syndicate/New(mob/user as mob)
 	..()
 	access = syndicate_access.Copy()
+	START_PROCESSING(SSprocessing, src)
 
-/obj/item/weapon/card/id/syndicate/Destroy()
+/obj/item/card/id/syndicate/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/weapon/card/id/syndicate/prevent_tracking()
+/obj/item/card/id/syndicate/examine(mob/user)
+	..()
+	if(Adjacent(user))
+		if(user == registered_user)
+			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
+
+/obj/item/card/id/syndicate/process()
+	if(electronic_warfare)
+		charge = max(0, charge - 50)
+		if(charge <= 0)
+			if(ismob(loc))
+				to_chat(loc, SPAN_WARNING("\The [src] runs out of power and deactivates."))
+				electronic_warfare = FALSE
+				check_obfuscation()
+	else if(charge != initial(charge))
+		charge = min(initial(charge), charge + 100)
+
+/obj/item/card/id/syndicate/prevent_tracking()
 	return electronic_warfare
 
-/obj/item/weapon/card/id/syndicate/afterattack(var/obj/item/weapon/O as obj, mob/user as mob, proximity)
+/obj/item/card/id/syndicate/afterattack(var/obj/item/O as obj, mob/user as mob, proximity)
 	if(!proximity) return
-	if(istype(O, /obj/item/weapon/card/id))
-		var/obj/item/weapon/card/id/I = O
+	if(istype(O, /obj/item/card/id))
+		var/obj/item/card/id/I = O
 		src.access |= I.access
 		if(player_is_antag(user.mind))
 			to_chat(user, "<span class='notice'>The microscanner activates as you pass it over the ID, copying its access.</span>")
 
-/obj/item/weapon/card/id/syndicate/attack_self(mob/user as mob)
+/obj/item/card/id/syndicate/attack_self(mob/user as mob)
 	// We use the fact that registered_name is not unset should the owner be vaporized, to ensure the id doesn't magically become unlocked.
 	if(!registered_user && register_user(user))
 		to_chat(user, "<span class='notice'>The microscanner marks you as its owner, preventing others from accessing its internals.</span>")
@@ -37,7 +58,7 @@
 	else
 		..()
 
-/obj/item/weapon/card/id/syndicate/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/card/id/syndicate/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	var/entries[0]
 	entries[++entries.len] = list("name" = "Age", 				"value" = age)
@@ -59,34 +80,71 @@
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/item/weapon/card/id/syndicate/proc/register_user(var/mob/user)
+/obj/item/card/id/syndicate/proc/register_user(var/mob/user)
 	if(!istype(user) || user == registered_user)
 		return FALSE
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	destroyed_event.register(user, src, /obj/item/weapon/card/id/syndicate/proc/unset_registered_user)
+	destroyed_event.register(user, src, /obj/item/card/id/syndicate/proc/unset_registered_user)
 	return TRUE
 
-/obj/item/weapon/card/id/syndicate/proc/unset_registered_user(var/mob/user)
+/obj/item/card/id/syndicate/proc/unset_registered_user(var/mob/user)
 	if(!registered_user || (user && user != registered_user))
 		return
 	destroyed_event.unregister(registered_user, src)
 	registered_user = null
 
-/obj/item/weapon/card/id/syndicate/CanUseTopic(mob/user)
+/obj/item/card/id/syndicate/CanUseTopic(mob/user)
 	if(user != registered_user)
 		return STATUS_CLOSE
 	return ..()
 
-/obj/item/weapon/card/id/syndicate/Topic(href, href_list, var/datum/topic_state/state)
+
+/obj/item/card/id/syndicate/throw_at()
+	..()
+	electronic_warfare = FALSE
+	check_obfuscation()
+
+/obj/item/card/id/syndicate/dropped()
+	..()
+	electronic_warfare = FALSE
+	check_obfuscation()
+
+/obj/item/card/id/syndicate/on_give()
+	check_obfuscation()
+
+/obj/item/card/id/syndicate/update_icon()
+	cut_overlays()
+	if(electronic_warfare)
+		var/mutable_appearance/electro_overlay = mutable_appearance(icon, "electronic_warfare")
+		add_overlay(electro_overlay)
+
+/obj/item/card/id/syndicate/proc/check_obfuscation()
+	if(electronic_warfare)
+		if(ismob(loc))
+			obfuscation_image = image("loc" = loc)
+			obfuscation_image.override = TRUE
+			SSai_obfuscation.add_obfuscation_image(obfuscation_image)
+		else if(obfuscation_image)
+			electronic_warfare = FALSE
+			SSai_obfuscation.remove_obfuscation_image(obfuscation_image)
+			QDEL_NULL(obfuscation_image)
+	else
+		if(obfuscation_image)
+			SSai_obfuscation.remove_obfuscation_image(obfuscation_image)
+		QDEL_NULL(obfuscation_image)
+	update_icon()
+
+/obj/item/card/id/syndicate/Topic(href, href_list, var/datum/topic_state/state)
 	if(..())
 		return 1
 
 	var/user = usr
 	if(href_list["electronic_warfare"])
 		electronic_warfare = text2num(href_list["electronic_warfare"])
-		to_chat(user, "<span class='notice'>Electronic warfare [electronic_warfare ? "enabled" : "disabled"].</span>")
+		to_chat(user, SPAN_NOTICE("Electronic warfare [electronic_warfare ? "enabled" : "disabled"]."))
+		check_obfuscation()
 	else if(href_list["set"])
 		switch(href_list["set"])
 			if("Age")
@@ -186,8 +244,8 @@
 /proc/id_card_states()
 	if(!id_card_states)
 		id_card_states = list()
-		for(var/path in typesof(/obj/item/weapon/card/id))
-			var/obj/item/weapon/card/id/ID = path
+		for(var/path in typesof(/obj/item/card/id))
+			var/obj/item/card/id/ID = path
 			var/datum/card_state/CS = new()
 			CS.icon_state = initial(ID.icon_state)
 			CS.item_state = initial(ID.item_state)

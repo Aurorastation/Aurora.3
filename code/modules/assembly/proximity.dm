@@ -2,8 +2,10 @@
 	name = "proximity sensor"
 	desc = "Used for scanning and alerting when someone enters a certain proximity."
 	icon_state = "prox"
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound =  'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 800, "glass" = 200, "waste" = 50)
+	matter = list(DEFAULT_WALL_MATERIAL = 800, MATERIAL_GLASS = 200)
 	flags = PROXMOVE
 	wires = WIRE_PULSE
 
@@ -101,8 +103,8 @@
 			attached_overlays += "prox_scanning"
 		if(holder)
 			holder.update_icon()
-		if(holder && istype(holder.loc,/obj/item/weapon/grenade/chem_grenade))
-			var/obj/item/weapon/grenade/chem_grenade/grenade = holder.loc
+		if(holder && istype(holder.loc,/obj/item/grenade/chem_grenade))
+			var/obj/item/grenade/chem_grenade/grenade = holder.loc
 			grenade.primed(scanning)
 		return
 

@@ -28,7 +28,7 @@ Also like bay, we use transforms to handle lying states instead of a separate se
 
 There are several things that need to be remembered:
 
->	Whenever we do something that should cause an overlay to update (which doesn't use standard procs
+>	Whenever we do something that should cause an overlay to update (which doesn't use standard procs)
 	( i.e. you do something like l_hand = /obj/item/something new(src) )
 	You will need to call the relevant update_inv_* proc:
 		update_inv_head()
@@ -149,6 +149,11 @@ There are several things that need to be remembered:
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)
 
+		for(var/aura in auras)
+			var/obj/aura/A = aura
+			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+			ovr += aura_overlay
+
 		add_overlay(ovr)
 
 	if (lying_prev != lying || size_multiplier != 1)
@@ -239,7 +244,7 @@ There are several things that need to be remembered:
 	stand_icon = new(species.icon_template ? species.icon_template : 'icons/mob/human.dmi',"blank")
 
 	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lip_style || "nolips"][!!husk][!!fat][!!hulk][!!skeleton]"
-	var/obj/item/organ/eyes/eyes = get_eyes()
+	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
 	else
@@ -255,8 +260,8 @@ There are several things that need to be remembered:
 	var/icon/base_icon = SSicon_cache.human_icon_cache[icon_key]
 	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
-		var/obj/item/organ/external/chest = get_organ("chest")
-		base_icon = chest.get_icon()
+		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
+		base_icon = chest.get_icon(skeleton)
 
 		for(var/obj/item/organ/external/part in organs)
 			if(isnull(part) || part.is_stump())
@@ -308,20 +313,18 @@ There are several things that need to be remembered:
 		update_icons()
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
-	var/list/ovr
+	overlays_raw[UNDERWEAR_LAYER] = list()
 
-	if(underwear && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[underwear]"))
+	if(species.appearance_flags & HAS_UNDERWEAR)
+		for(var/category in all_underwear)
+			if(hide_underwear[category])
+				continue
+			if(category == "Underwear, top" && hide_underwear["Undershirt"] == FALSE && !istype(all_underwear["Undershirt"], /datum/category_item/underwear/undershirt/none))
+				continue //This piece of "code" is here to prevent tops from showing up over undershirts.
+			var/datum/category_item/underwear/UWI = all_underwear[category]
+			overlays_raw[UNDERWEAR_LAYER] += UWI.generate_image(all_underwear_metadata[category])
 
-	if(undershirt && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[undershirt]"))
-
-	if(socks && (species.appearance_flags & HAS_SOCKS))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[socks]"))
-
-	overlays_raw[UNDERWEAR_LAYER] = ovr
-
-	if (update_icons)
+	if(update_icons)
 		update_icons()
 
 // This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
@@ -365,7 +368,7 @@ There are several things that need to be remembered:
 	//Reset our hair
 	overlays_raw[HAIR_LAYER] = null
 
-	var/obj/item/organ/external/head/head_organ = get_organ("head")
+	var/obj/item/organ/external/head/head_organ = get_organ(BP_HEAD)
 	if(!head_organ || head_organ.is_stump() )
 		if(update_icons)   update_icons()
 		return
@@ -417,21 +420,7 @@ There are several things that need to be remembered:
 				add_image = 1
 	for(var/mut in mutations)
 		switch(mut)
-			/*
-			if(HULK)
-				if(fat)
-					standing.underlays	+= "hulk_[fat]_s"
-				else
-					standing.underlays	+= "hulk_[g]_s"
-				add_image = 1
-			if(COLD_RESISTANCE)
-				standing.underlays	+= "fire[fat]_s"
-				add_image = 1
-			if(TK)
-				standing.underlays	+= "telekinesishead[fat]_s"
-				add_image = 1
-			*/
-			if(LASER)
+			if(LASER_EYES)
 				standing.overlays += "lasereyes_s"
 				add_image = 1
 	if(add_image)
@@ -571,12 +560,12 @@ There are several things that need to be remembered:
 
 		//Layering under/over suit
 		var/id_layer = ID_LAYER
-		if(istype(wear_id, /obj/item/weapon/storage/wallet))
-			var/obj/item/weapon/storage/wallet/wallet = wear_id
+		if(istype(wear_id, /obj/item/storage/wallet))
+			var/obj/item/storage/wallet/wallet = wear_id
 			if(wallet.wear_over_suit == 1)
 				id_layer = ID_LAYER_ALT
-		else if(istype(wear_id, /obj/item/weapon/card/id))
-			var/obj/item/weapon/card/id/id_card = wear_id
+		else if(istype(wear_id, /obj/item/card/id))
+			var/obj/item/card/id/id_card = wear_id
 			if(id_card.wear_over_suit == 1)
 				id_layer = ID_LAYER_ALT
 		else if(istype(wear_id, /obj/item/device/pda))
@@ -587,8 +576,8 @@ There are several things that need to be remembered:
 		if (wear_id.color)
 			result_layer.color = wear_id.color
 
-		if(istype(wear_id, /obj/item/weapon/storage/wallet/lanyard)) //lanyard checking; tacky as bejesus, but...
-			var/obj/item/weapon/storage/wallet/lanyard/lanyard = wear_id
+		if(istype(wear_id, /obj/item/storage/wallet/lanyard)) //lanyard checking; tacky as bejesus, but...
+			var/obj/item/storage/wallet/lanyard/lanyard = wear_id
 			var/image/plastic_film = image("icon" = 'icons/mob/lanyard_overlays.dmi', "icon_state" = "plasticfilm")
 			var/image/lanyard_card
 			if(lanyard.front_id)
@@ -650,20 +639,25 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	overlays_raw[GLASSES_LAYER] = null
+	var/image/glasses_overlay = null
 	if(check_draw_glasses())
 		if(glasses.contained_sprite)
 			glasses.auto_adapt_species(src)
 			var/state = "[UNDERSCORE_OR_NULL(glasses.icon_species_tag)][glasses.item_state][WORN_EYES]"
 
-			overlays_raw[GLASSES_LAYER] = image(glasses.icon_override || glasses.icon, state)
+			glasses_overlay = image(glasses.icon_override || glasses.icon, state)
 
 		else if(glasses.icon_override)
-			overlays_raw[GLASSES_LAYER] = image(glasses.icon_override, glasses.icon_state)
+			glasses_overlay = image(glasses.icon_override, glasses.icon_state)
 		else if(glasses.sprite_sheets && glasses.sprite_sheets[GET_BODY_TYPE])
-			overlays_raw[GLASSES_LAYER] = image(glasses.sprite_sheets[GET_BODY_TYPE], glasses.icon_state)
+			glasses_overlay = image(glasses.sprite_sheets[GET_BODY_TYPE], glasses.icon_state)
 		else
-			overlays_raw[GLASSES_LAYER] = image('icons/mob/eyes.dmi', glasses.icon_state)
+			glasses_overlay = image('icons/mob/eyes.dmi', glasses.icon_state)
+
+		if(glasses.color)
+			glasses_overlay.color = glasses.color
+
+	overlays_raw[GLASSES_LAYER] = glasses_overlay
 
 	if(update_icons)
 		update_icons()
@@ -748,16 +742,16 @@ There are several things that need to be remembered:
 
 		var/list/ovr
 
-		if(shoes.blood_DNA)
+		if(shoes.blood_color)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = shoes.blood_color
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[shoe_layer] = ovr || standing
 	else
-		if(feet_blood_DNA)
+		if(footprint_color)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
-			bloodsies.color = feet_blood_color
+			bloodsies.color = footprint_color
 			overlays_raw[SHOES_LAYER] = bloodsies
 		else
 			overlays_raw[SHOES_LAYER] = null
@@ -870,7 +864,7 @@ There are several things that need to be remembered:
 		standing = image(t_icon, t_state)
 		var/list/ovr
 
-		if(belt.contents.len && istype(belt, /obj/item/weapon/storage/belt))
+		if(belt.contents.len && istype(belt, /obj/item/storage/belt))
 			ovr = list(standing)
 			for(var/obj/item/i in belt.contents)
 				var/c_state
@@ -884,8 +878,8 @@ There are several things that need to be remembered:
 				ovr += image(c_icon, c_state)
 
 		var/beltlayer = BELT_LAYER
-		if(istype(belt, /obj/item/weapon/storage/belt))
-			var/obj/item/weapon/storage/belt/ubelt = belt
+		if(istype(belt, /obj/item/storage/belt))
+			var/obj/item/storage/belt/ubelt = belt
 			if(ubelt.show_above_suit)
 				beltlayer = BELT_LAYER_ALT
 
@@ -1023,9 +1017,9 @@ There are several things that need to be remembered:
 			overlay_icon = back.icon_override || back.icon
 		else if(back.icon_override)
 			overlay_icon = back.icon_override
-		else if(istype(back, /obj/item/weapon/rig))
+		else if(istype(back, /obj/item/rig))
 			//If this is a rig and a mob_icon is set, it will take species into account in the rig update_icon() proc.
-			var/obj/item/weapon/rig/rig = back
+			var/obj/item/rig/rig = back
 			overlay_icon = rig.mob_icon
 		else if(back.sprite_sheets && back.sprite_sheets[GET_BODY_TYPE])
 			overlay_icon = back.sprite_sheets[GET_BODY_TYPE]
@@ -1062,6 +1056,11 @@ There are several things that need to be remembered:
 		if(hud_used)
 			hud_used.hidden_inventory_update() 	//Updates the screenloc of the items on the 'other' inventory bar
 
+//update whether handcuffs appears on our hud.
+/mob/living/carbon/proc/update_hud_handcuffed()
+	if(hud_used && hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
+		hud_used.l_hand_hud_object.update_icon()
+		hud_used.r_hand_hud_object.update_icon()
 
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
 	if (QDELING(src))
@@ -1083,6 +1082,7 @@ There are several things that need to be remembered:
 	else
 		overlays_raw[HANDCUFF_LAYER] = null
 
+	update_hud_handcuffed()
 	if(update_icons)
 		update_icons()
 
@@ -1302,13 +1302,38 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/proc/update_surgery(var/update_icons=1)
 	overlays_raw[SURGERY_LAYER] = null
-	var/list/ovr
-	for(var/obj/item/organ/external/E in organs)
-		if(E.open)
-			var/image/I = image("icon"='icons/mob/surgery.dmi', "icon_state"="[E.name][round(E.open)]", "layer" = -SURGERY_LAYER)
-			LAZYADD(ovr, I)
 
-	overlays_raw[SURGERY_LAYER] = ovr
+	var/image/total = new
+	for(var/obj/item/organ/external/E in organs)
+		if(E.status & ORGAN_ROBOT || E.is_stump())
+			continue
+		if(!E.open)
+			continue
+
+		var/surgery_icon = E.owner.species.get_surgery_overlay_icon(src)
+		if(!surgery_icon)
+			continue
+
+		var/list/surgery_states = icon_states(surgery_icon)
+		var/base_state = "[E.icon_name][E.open]"
+		var/overlay_state = "[base_state]-flesh"
+		var/list/overlays_to_add
+
+		if(overlay_state in surgery_states)
+			var/image/flesh = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
+			flesh.color = E.owner.species.flesh_color
+			LAZYADD(overlays_to_add, flesh)
+		overlay_state = "[base_state]-blood"
+		if(overlay_state in surgery_states)
+			var/image/blood = image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER)
+			blood.color = E.owner.species.blood_color
+			LAZYADD(overlays_to_add, blood)
+		overlay_state = "[base_state]-bones"
+		if(overlay_state in surgery_states)
+			LAZYADD(overlays_to_add, image(icon = surgery_icon, icon_state = overlay_state, layer = -SURGERY_LAYER))
+		total.overlays |= overlays_to_add
+
+	overlays_raw[SURGERY_LAYER] = total
 
 	if(update_icons)
 		update_icons()
@@ -1408,3 +1433,4 @@ There are several things that need to be remembered:
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
 #undef GET_TAIL_LAYER
+

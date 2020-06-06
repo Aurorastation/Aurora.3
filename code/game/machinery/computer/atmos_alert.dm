@@ -7,14 +7,14 @@ var/global/list/minor_air_alarms = list()
 /obj/machinery/computer/atmos_alert
 	name = "atmospheric alert computer"
 	desc = "Used to access the station's atmospheric sensors."
-	circuit = /obj/item/weapon/circuitboard/atmos_alert
+	circuit = /obj/item/circuitboard/atmos_alert
 
 	icon_screen = "alert:0"
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/atmos_alert/Initialize()
 	. = ..()
-	atmosphere_alarm.register_alarm(src, /obj/machinery/computer/station_alert/update_icon)
+	atmosphere_alarm.register_alarm(src, /atom/.proc/update_icon)
 
 /obj/machinery/computer/atmos_alert/Destroy()
     atmosphere_alarm.unregister_alarm(src)

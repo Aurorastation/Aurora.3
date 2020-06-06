@@ -2,6 +2,10 @@
 	name = "flashlight"
 	desc = "A hand-held emergency light."
 	icon = 'icons/obj/lighting.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_lighting.dmi',
+		)
 	icon_state = "flashlight"
 	item_state = "flashlight"
 	w_class = 2
@@ -11,7 +15,7 @@
 	uv_intensity = 50
 	light_wedge = LIGHT_WIDE
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
@@ -50,7 +54,7 @@
 
 /obj/item/device/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
 	add_fingerprint(user)
-	if(on && user.zone_sel.selecting == "eyes")
+	if(on && user.zone_sel.selecting == BP_EYES)
 
 		if(((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))	//too dumb to use flashlight properly
 			return ..()	//just hit them in the head
@@ -84,9 +88,10 @@
 
 				var/list/pinpoint = list("oxycodone"=1,"tramadol"=5)
 				var/list/dilating = list("space_drugs"=5,"mindbreaker"=1)
-				if(M.reagents.has_any_reagent(pinpoint) || H.ingested.has_any_reagent(pinpoint) || H.breathing.has_any_reagent(pinpoint))
+				var/datum/reagents/ingested = H.get_ingested_reagents()
+				if(H.reagents.has_any_reagent(pinpoint) || ingested.has_any_reagent(pinpoint))
 					to_chat(user, span("notice", "\The [M]'s pupils are already pinpoint and cannot narrow any more."))
-				else if(M.reagents.has_any_reagent(dilating) || H.ingested.has_any_reagent(dilating) || H.breathing.has_any_reagent(dilating))
+				else if(H.shock_stage >= 30 || H.reagents.has_any_reagent(dilating) || ingested.has_any_reagent(dilating) || H.breathing.has_any_reagent(dilating))
 					to_chat(user, span("notice", "\The [M]'s pupils narrow slightly, but are still very dilated."))
 				else
 					to_chat(user, span("notice", "\The [M]'s pupils narrow."))
@@ -100,7 +105,9 @@
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff."
 	icon_state = "penlight"
-	item_state = ""
+	item_state = "pen"
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
 	brightness_on = 2
@@ -124,7 +131,7 @@
 	brightness_on = 4
 	w_class = 3
 	uv_intensity = 60
-	matter = list(DEFAULT_WALL_MATERIAL = 100,"glass" = 70)
+	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
 
 /obj/item/device/flashlight/maglight
@@ -137,7 +144,7 @@
 	w_class = 3
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 200,"glass" = 100)
+	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	light_wedge = LIGHT_NARROW
 

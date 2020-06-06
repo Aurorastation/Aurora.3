@@ -20,6 +20,13 @@
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 
+/obj/machinery/firealarm/examine(mob/user)
+	. = ..()
+	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
+		return
+
+	to_chat(user, "The current alert level is [get_security_level()].")
+
 /obj/machinery/firealarm/update_icon()
 	cut_overlays()
 
@@ -63,7 +70,7 @@
 					previous_state = icon_state
 					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_ORANGE)
 
-		add_overlay("overlay_[seclevel]")
+		add_overlay(image(icon, "overlay_[seclevel]", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -83,7 +90,10 @@
 	..()
 
 /obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
-	src.add_fingerprint(user)
+	if(!istype(W, /obj/item/forensics))
+		src.add_fingerprint(user)
+	else
+		return
 
 	if (W.isscrewdriver() && buildstage == 2)
 		if(!wiresexposed)
@@ -122,12 +132,12 @@
 					to_chat(user, "You pry out the circuit!")
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 					spawn(20)
-						var/obj/item/weapon/firealarm_electronics/circuit = new /obj/item/weapon/firealarm_electronics()
+						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
 						circuit.forceMove(user.loc)
 						buildstage = 0
 						update_icon()
 			if(0)
-				if(istype(W, /obj/item/weapon/firealarm_electronics))
+				if(istype(W, /obj/item/firealarm_electronics))
 					to_chat(user, "You insert the circuit!")
 					qdel(W)
 					buildstage = 1
@@ -204,7 +214,7 @@
 	else if (href_list["state"] == "inactive")
 		src.reset()
 	if (href_list["tmr"] == "set")
-		time = max(0, input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num)
+		time = Clamp(input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num, 0, 600)
 	else if (href_list["tmr"] == "start")
 		src.timing = 1
 	else if (href_list["tmr"] == "stop")
@@ -246,37 +256,37 @@
 	pixel_x = DIR2PIXEL_X(dir)
 	pixel_y = DIR2PIXEL_Y(dir)
 
-	if(z in current_map.contact_levels)
+	if(isContactLevel(z))
 		set_security_level(security_level ? get_security_level() : "green")
 
 // Convenience subtypes for mappers.
 /obj/machinery/firealarm/north
 	dir = NORTH
-	pixel_y = 28
+	pixel_y = 31
 
 /obj/machinery/firealarm/east
 	dir = EAST
-	pixel_x = 28
+	pixel_x = 31
 
 /obj/machinery/firealarm/west
 	dir = WEST
-	pixel_x = -28
+	pixel_x = -31
 
 /obj/machinery/firealarm/south
 	dir = SOUTH
-	pixel_y = -28
+	pixel_y = -31
 
 /*
 FIRE ALARM CIRCUIT
 Just a object used in constructing fire alarms
 */
-/obj/item/weapon/firealarm_electronics
+/obj/item/firealarm_electronics
 	name = "fire alarm electronics"
 	icon = 'icons/obj/doors/door_assembly.dmi'
 	icon_state = "door_electronics"
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 
 /obj/machinery/firealarm/partyalarm

@@ -26,7 +26,7 @@
 				qdel(Robot.mmi)
 		else
 			for(var/obj/item/W in M)
-				if(istype(W, /obj/item/weapon/implant))	//TODO: Carn. give implants a dropped() or something
+				if(istype(W, /obj/item/implant))	//TODO: Carn. give implants a dropped() or something
 					qdel(W)
 					continue
 				M.drop_from_inventory(W)
@@ -75,7 +75,7 @@
 				H.name += " [pick(last_names)]"
 				H.real_name = H.name
 
-				addtimer(CALLBACK(H, /mob/living/carbon/human.proc/set_species, randomize), 0)
+				INVOKE_ASYNC(H, /mob/living/carbon/human.proc/set_species, randomize)
 				H.universal_speak = 1
 				var/datum/preferences/A = new() //Randomize appearance for the human
 				A.randomize_appearance_for(H)

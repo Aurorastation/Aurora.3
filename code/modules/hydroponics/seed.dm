@@ -116,7 +116,7 @@
 		return
 
 
-	if(!target_limb) target_limb = pick("l_foot","r_foot","l_leg","r_leg","l_hand","r_hand","l_arm", "r_arm","head","chest","groin")
+	if(!target_limb) target_limb = pick(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM, BP_R_ARM,BP_HEAD,BP_CHEST,BP_GROIN)
 	var/obj/item/organ/external/affecting = target.get_organ(target_limb)
 	var/damage = 0
 
@@ -260,6 +260,23 @@
 			origin_turf.visible_message("<span class='danger'>The [thrown.name] splatters against [target]!</span>")
 		qdel(thrown)
 
+	if(get_trait(TRAIT_TELEPORTING))
+
+		var/outer_teleport_radius = get_trait(TRAIT_POTENCY)/5
+		var/inner_teleport_radius = get_trait(TRAIT_POTENCY)/15
+
+		var/list/turfs = list()
+		if(inner_teleport_radius > 0)
+			for(var/turf/T in orange(target,outer_teleport_radius))
+				if(get_dist(target,T) >= inner_teleport_radius)
+					turfs |= T
+
+		if(turfs.len)
+			var/turf/picked = get_turf(pick(turfs))
+			var/obj/effect/portal/P = new /obj/effect/portal(get_turf(target))
+			P.target = picked
+			P.creator = null
+
 /datum/seed/proc/handle_environment(var/turf/current_turf, var/datum/gas_mixture/environment, var/light_supplied, var/check_only)
 
 	var/health_change = 0
@@ -308,28 +325,6 @@
 	var/impact = 1
 	do_sting(target,thrown)
 	do_thorns(target,thrown)
-
-	// Bluespace tomato code copied over from grown.dm.
-	if(get_trait(TRAIT_TELEPORTING))
-
-		//Plant potency determines radius of teleport.
-		var/outer_teleport_radius = get_trait(TRAIT_POTENCY)/5
-		var/inner_teleport_radius = get_trait(TRAIT_POTENCY)/15
-
-		var/list/turfs = list()
-		if(inner_teleport_radius > 0)
-			for(var/turf/T in orange(target,outer_teleport_radius))
-				if(get_dist(target,T) >= inner_teleport_radius)
-					turfs |= T
-
-		if(turfs.len)
-			// Moves the mob, causes sparks.
-			spark(target, 3, alldirs)
-			var/turf/picked = get_turf(pick(turfs))                      // Just in case...
-			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
-			do_teleport(target, picked)                                      // And teleport them to the chosen location.                                      // And teleport them to the chosen location.
-
-			impact = 1
 
 	return impact
 
@@ -397,7 +392,7 @@
 			"plasticide",
 			"mutationtoxin",
 			"amutationtoxin",
-			"inaprovaline",
+			"norepinephrine",
 			"space_drugs",
 			"paroxetine",
 			"mercury",
@@ -710,12 +705,12 @@
 	if(has_mob_product)
 		product = new has_mob_product(spawning_loc,name)
 	else
-		product = new /obj/item/weapon/reagent_containers/food/snacks/grown(spawning_loc,name)
+		product = new /obj/item/reagent_containers/food/snacks/grown(spawning_loc,name)
 	if(get_trait(TRAIT_PRODUCT_COLOUR))
 		if(!istype(product, /mob))
 			product.color = get_trait(TRAIT_PRODUCT_COLOUR)
-			if(istype(product,/obj/item/weapon/reagent_containers/food))
-				var/obj/item/weapon/reagent_containers/food/food = product
+			if(istype(product,/obj/item/reagent_containers/food))
+				var/obj/item/reagent_containers/food/food = product
 				food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
 
 	if(mysterious)

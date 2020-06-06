@@ -1,5 +1,5 @@
 #define PAINFUL_PALM "DDH"
-#define LEG_SWEEP "DHD"
+#define SKRELL_LEG_SWEEP "DHD"
 #define DISLOCATING_STRIKE "HDDD"
 
 /datum/martial_art/karak_virul
@@ -7,15 +7,15 @@
 	help_verb = /datum/martial_art/karak_virul/proc/karak_virul_help
 
 /datum/martial_art/karak_virul/proc/check_streak(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	if(findtext(streak,PAINFUL_PALM))
+	if(findtext(streak, PAINFUL_PALM))
 		streak = ""
 		painful_palm(A,D)
 		return 1
-	if(findtext(streak,LEG_SWEEP))
+	if(findtext(streak, SKRELL_LEG_SWEEP))
 		streak = ""
 		leg_sweep(A,D)
 		return 1
-	if(findtext(streak,DISLOCATING_STRIKE))
+	if(findtext(streak, DISLOCATING_STRIKE))
 		streak = ""
 		dislocating_strike(A,D)
 		return 1
@@ -37,7 +37,7 @@
 	playsound(get_turf(A), "punch", 50, 1, -1)
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
 	var/armor_block = D.run_armor_check(affecting, "melee")
-	D.apply_damage(25, HALLOSS, affecting, armor_block)
+	D.apply_damage(25, PAIN, affecting, armor_block)
 	return 1
 
 /datum/martial_art/karak_virul/proc/dislocating_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

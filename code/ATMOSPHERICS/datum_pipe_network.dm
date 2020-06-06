@@ -84,7 +84,7 @@
 	line_members = null
 
 	for (var/obj/machinery/atmospherics/thing in normal_members)
-		thing.remove_network(src)
+		thing.reassign_network(src, null)
 
 	normal_members = null
 

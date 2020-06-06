@@ -1,12 +1,14 @@
 /obj/item/clothing/shoes/galoshes
-	desc = "Rubber boots"
+	desc = "A waterproof overshoe, made of rubber."
 	name = "galoshes"
 	icon_state = "galoshes"
+	item_state = "galoshes"
 	permeability_coefficient = 0.05
 	item_flags = NOSLIP
-	slowdown = SHOES_SLOWDOWN+1
+	slowdown = 1
 	species_restricted = null
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/clothing/shoes/jackboots
 	name = "jackboots"
@@ -18,12 +20,12 @@
 	siemens_coefficient = 0.75
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 
-/obj/item/clothing/shoes/jackboots/unathi
+/obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less jackboots"
 	desc = "Modified pair of jackboots, particularly friendly to those species whose toes hold claws."
-	item_state = "digiboots"
-	icon_state = "digiboots"
+	icon_state = "jackboots_toeless"
 	species_restricted = null
 
 /obj/item/clothing/shoes/workboots
@@ -36,10 +38,35 @@
 	siemens_coefficient = 0.75
 	can_hold_knife = 1
 	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /obj/item/clothing/shoes/workboots/toeless
 	name = "toe-less workboots"
 	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
-	icon_state = "workbootstoeless"
-	item_state = "workbootstoeless"
+	icon_state = "workboots_toeless"
 	species_restricted = null
+
+/obj/item/clothing/shoes/workboots/grey
+	name = "grey workboots"
+	desc = "A pair of grey steel-toed work boots designed for use in industrial settings. Safety first."
+	icon_state = "workboots_grey"
+	item_state = "workboots_grey"
+
+/obj/item/clothing/shoes/workboots/toeless/grey
+	name = "toe-less grey workboots"
+	desc = "A pair of toeless work boots designed for use in industrial settings. Modified for species whose toes have claws."
+	icon_state = "workboots_grey_toeless"
+	item_state = "workboots_grey"
+
+/obj/item/clothing/shoes/workboots/dark
+	name = "dark workboots"
+	desc = "A pair of dark steel-toed work boots designed for use in industrial settings. Safety first."
+	icon_state = "workboots_dark"
+	item_state = "workboots_dark"
+
+/obj/item/clothing/shoes/workboots/toeless/dark
+	name = "toe-less dark workboots"
+	desc = "A pair of toeless dark work boots designed for use in industrial settings. Modified for species whose toes have claws."
+	icon_state = "workboots_dark_toeless"
+	item_state = "workboots_dark"
+

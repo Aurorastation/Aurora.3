@@ -37,6 +37,7 @@
 	//Never ever ever ever change this value for datum/reagent. This should only be used for massive, yet specific things like drinks or food where it is infeasible to assign a specific heat value.
 
 	var/germ_adjust = 0 // for makeshift bandages/disinfectant
+	var/carbonated = FALSE // if it's carbonated or not
 
 /datum/reagent/proc/initialize_data(var/newdata) // Called when the reagent is created.
 	if(!isnull(newdata))
@@ -106,6 +107,10 @@
 				affect_breathe(M, alien, removed)
 
 	remove_self(removed)
+
+// Called when a beaker is thrown or something is hit with it, AND the beaker doesn't break.
+/datum/reagent/proc/apply_force(var/force)
+	return force
 
 //Initial effect is called once when the reagent first starts affecting a mob.
 /datum/reagent/proc/initial_effect(var/mob/living/carbon/M, var/alien)

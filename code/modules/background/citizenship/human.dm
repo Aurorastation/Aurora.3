@@ -30,9 +30,9 @@
 	uniform = /obj/item/clothing/under/lawyer/blue
 	accessory = /obj/item/clothing/accessory/tc_pin
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/ceti_visa = 1,
-		/obj/item/weapon/storage/box/tcfl_pamphlet = 1,
-		/obj/item/weapon/gun/energy/pistol = 1
+		/obj/item/storage/box/ceti_visa = 1,
+		/obj/item/storage/box/tcfl_pamphlet = 1,
+		/obj/item/gun/energy/pistol = 1
 	)
 
 
@@ -66,9 +66,9 @@
 
 	accessory = /obj/item/clothing/accessory/sol_pin
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/sol_visa = 1,
+		/obj/item/storage/box/sol_visa = 1,
 		/obj/item/device/camera = 1,
-		/obj/item/weapon/gun/projectile/pistol/sol = 1
+		/obj/item/gun/projectile/pistol/sol = 1
 	)
 
 /datum/citizenship/sol_alliance/eridani
@@ -78,9 +78,9 @@
 	and poor, yet free-willed and provocative Dregs. The Federation is controlled by several megacorporations, and although NanoTrasen is not one of them, it is a common former \
 	workplace of various contractors on board NSS Aurora."
 
-/datum/citizenship/frontier
-	name = CITIZENSHIP_FRONTIER
-	description = "Rising from the former Coalition of Colonies, the Frontier Alliance is a loose confederation of united \"entities\" within the human frontier. These entities range \
+/datum/citizenship/coalition
+	name = CITIZENSHIP_COALITION
+	description = "The Coalition of Colonies is a loose confederation of united \"entities\" within the human frontier. These entities range \
 	from whole colonial systems to travelling super ships to mining and farming outposts. Most communities here are, although not as developed as many galactic powers, very \
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
@@ -123,6 +123,6 @@
 	name = "Empire of Dominia Consular Officer"
 
 	backpack_contents = list(
-		/obj/item/weapon/storage/box/dominia_honor = 1,
-		/obj/item/weapon/gun/energy/pistol = 1
+		/obj/item/storage/box/dominia_honor = 1,
+		/obj/item/gun/energy/pistol = 1
 	)

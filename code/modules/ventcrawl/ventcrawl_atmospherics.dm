@@ -41,14 +41,17 @@
 	//If its not small or the device isnt enabled, it wont blend
 	if(!issmall(AM) || !use_power)
 		return FALSE
-	
+
 	//Get the things we need to create the "output"
 	var/mob/living/L = AM
+
+	if(L.mob_size > MOB_TINY)
+		return
 
 	var/blood_color = "#A10808"
 	if(L.blood_color)
 		blood_color = L.blood_color
-	
+
 	if(iscarbon(AM))
 		var/mob/living/carbon/C = AM
 		blood_color = C.species.blood_color
@@ -58,7 +61,7 @@
 	//Blend the Mob
 	to_chat(AM, span("danger","\The [src] blends you to a fine dust."))
 	L.death()
-	qdel(L)	
+	qdel(L)
 
 	//Output what´s left through the connected vents
 	if(N)

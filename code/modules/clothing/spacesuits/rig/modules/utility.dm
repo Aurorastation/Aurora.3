@@ -64,10 +64,10 @@
 	suit_overlay_active = "mounted-drill"
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
-	construction_cost = list("glass"=2250,DEFAULT_WALL_MATERIAL=55000,"silver"=5250,"diamond"=3750)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 55000, MATERIAL_GLASS = 2250, MATERIAL_SILVER = 5250, MATERIAL_DIAMOND = 3750)
 	construction_time = 350
 
-	device_type = /obj/item/weapon/pickaxe/diamonddrill
+	device_type = /obj/item/pickaxe/diamonddrill
 
 	category = MODULE_UTILITY
 
@@ -81,7 +81,7 @@
 	suit_overlay_inactive = "mounted-drill"
 	use_power_cost = 0.1
 
-	device_type = /obj/item/weapon/pickaxe/drill
+	device_type = /obj/item/pickaxe/drill
 
 	category = MODULE_UTILITY
 
@@ -107,22 +107,22 @@
 	engage_string = "Begin Scan"
 	usable = 1
 	selectable = 0
-	device_type = /obj/item/weapon/mining_scanner
+	device_type = /obj/item/mining_scanner
 
 	category = MODULE_UTILITY
 
 /obj/item/rig_module/device/rfd_c
 	name = "RFD-C mount"
 	desc = "A cell-powered rapid construction device for a hardsuit."
-	icon_state = "rfd"
+	icon_state = "rcd"
 	interface_name = "mounted RFD-C"
 	interface_desc = "A device for building or removing walls. Cell-powered."
 	usable = 1
 	engage_string = "Configure RFD-C"
-	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500,"silver"=10000,"gold"=10000)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=30000,"phoron"=12500, MATERIAL_SILVER =10000, MATERIAL_GOLD =10000)
 	construction_time = 1000
 
-	device_type = /obj/item/weapon/rfd/construction/mounted
+	device_type = /obj/item/rfd/construction/mounted
 
 	category = MODULE_UTILITY
 
@@ -162,7 +162,7 @@
 	toggleable = 0
 	disruptive = 0
 	confined_use = 1
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
 	construction_time = 400
 
 	engage_string = "Inject"
@@ -176,9 +176,9 @@
 		list("dexalin plus",  "dexalinp",             0, 80),
 		list("antibiotics",   "thetamycin",          0, 80),
 		list("antivirals",    "deltamivir",           0, 80),
-		list("antitoxins",    "anti_toxin",           0, 80),
+		list("antitoxins",    "dylovene",           0, 80),
 		list("nutrients",     "glucose",              0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("saline",        "saline", 0, 80),
 		list("hyronalin",     "hyronalin",            0, 80),
 		list("radium",        "radium",               0, 80)
 		)
@@ -197,9 +197,9 @@
 		list("dexalin plus",  "dexalinp",      0, 20),
 		list("antibiotics",   "thetamycin",   0, 20),
 		list("antivirals",    "deltamivir",     0, 20),
-		list("antitoxins",    "anti_toxin",    0, 20),
+		list("antitoxins",    "dylovene",    0, 20),
 		list("nutrients",     "glucose",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80),
+		list("saline",        "saline", 0, 80),
 		list("hyronalin",     "hyronalin",     0, 20),
 		list("radium",        "radium",        0, 20)
 		)
@@ -299,7 +299,7 @@
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
 		list("nutrients",     "glucose",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80)
+		list("saline",        "saline", 0, 80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -316,9 +316,9 @@
 		list("synaptizine",   "synaptizine",   0, 30),
 		list("hyperzine",     "hyperzine",     0, 30),
 		list("oxycodone",     "oxycodone",     0, 30),
-		list("phoron",     "phoron",     0, 60),
-		list("kois",     "k'ois paste",     0, 80),
-		list("hydration",     "potassium_hydrophoro", 0, 80)
+		list("phoron",        "phoron",     0, 60),
+		list("kois",          "k'ois paste",     0, 80),
+		list("saline",        "saline", 0, 80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"
@@ -334,7 +334,7 @@
 
 	charges = list(
 		list("dexalin",   "dexalin",   0, 5),
-		list("inaprovaline",     "inaprovaline",     0, 5)
+		list("norepinephrine",     "norepinephrine",     0, 5)
 		)
 
 	interface_name = "chem dispenser"
@@ -350,7 +350,7 @@
 	usable = 0
 	selectable = 1
 	disruptive = 1
-	construction_cost = list(DEFAULT_WALL_MATERIAL=10000,"glass"=9250,"gold"=2500,"silver"=4250,"phoron"=5500)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=10000, MATERIAL_GLASS =9250, MATERIAL_GOLD =2500, MATERIAL_SILVER =4250,"phoron"=5500)
 	construction_time = 400
 
 	interface_name = "mounted chem injector"
@@ -364,7 +364,7 @@
 		list("tricordrazine",	"tricordrazine", 0, 40),
 		list("tramadol",	"tramadol",      0, 40),
 		list("dexalin",		"dexalin",      0, 40),
-		list("inaprovaline",	"inaprovaline",     0, 40)
+		list("norepinephrine",	"norepinephrine",     0, 40)
 		)
 
 /obj/item/rig_module/voice
@@ -424,7 +424,6 @@
 	return 1
 
 /obj/item/rig_module/maneuvering_jets
-
 	name = "hardsuit maneuvering jets"
 	desc = "A compact gas thruster system for a hardsuit."
 	icon_state = "thrusters"
@@ -432,7 +431,7 @@
 	toggleable = 1
 	selectable = 0
 	disruptive = 0
-	construction_cost = list("glass"= 4250,DEFAULT_WALL_MATERIAL=15000,"silver"=4250,"uranium"=5250)
+	construction_cost = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 4250, MATERIAL_SILVER = 4250, MATERIAL_URANIUM = 5250)
 	construction_time = 300
 
 	suit_overlay_active = "maneuvering_active"
@@ -443,9 +442,9 @@
 	deactivate_string = "Deactivate Thrusters"
 
 	interface_name = "maneuvering jets"
-	interface_desc = "An inbuilt EVA maneuvering system that runs off the rig air supply."
+	interface_desc = "An inbuilt EVA maneuvering system that runs off the hardsuit air supply."
 
-	var/obj/item/weapon/tank/jetpack/rig/jets
+	var/obj/item/tank/jetpack/rig/jets
 
 	category = MODULE_GENERAL
 
@@ -505,7 +504,7 @@
 	engage_string = "Dispense"
 	usable = 1
 	selectable = 0
-	device_type = /obj/item/weapon/paper_bin
+	device_type = /obj/item/paper_bin
 
 	category = MODULE_GENERAL
 
@@ -526,7 +525,7 @@
 	interface_desc = "Signatures with style(tm)."
 	engage_string = "Change color"
 	usable = 1
-	device_type = /obj/item/weapon/pen/multi
+	device_type = /obj/item/pen/multi
 
 	category = MODULE_GENERAL
 
@@ -545,8 +544,8 @@
 
 /obj/item/rig_module/device/stamp/New()
 	..()
-	iastamp = new /obj/item/weapon/stamp/internalaffairs(src)
-	deniedstamp = new /obj/item/weapon/stamp/denied(src)
+	iastamp = new /obj/item/stamp/internalaffairs(src)
+	deniedstamp = new /obj/item/stamp/denied(src)
 	device = iastamp
 
 /obj/item/rig_module/device/stamp/engage(atom/target)
@@ -569,7 +568,7 @@
 	interface_name = "mounted matter decompiler"
 	interface_desc = "Eats trash like no one's business."
 
-	device_type = /obj/item/weapon/matter_decompiler
+	device_type = /obj/item/matter_decompiler
 
 	category = MODULE_GENERAL
 
@@ -580,7 +579,7 @@
 	interface_name = "leg actuators"
 	interface_desc = "Allows you to fall from heights and to jump up onto ledges."
 
-	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, "glass"= 1250, "silver"=5250)
+	construction_cost = list(DEFAULT_WALL_MATERIAL=15000, MATERIAL_GLASS = 1250, MATERIAL_SILVER =5250)
 	construction_time = 300
 
 	disruptive = 0
@@ -776,7 +775,7 @@
 	playsound(src,'sound/magic/lightningbolt.ogg',60,1)
 	var/turf/T = get_turf(holder.wearer)
 	if(istype(T, /turf/simulated))
-		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall) || istype(T, /turf/simulated/shuttle))
+		if(istype(T, /turf/simulated/mineral) || istype(T, /turf/simulated/wall))
 			T.ChangeTurf(T.baseturf)
 		else
 			T.ChangeTurf(/turf/space)
@@ -814,4 +813,3 @@ var/global/list/lattice_users = list()
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, "<span class='notice'>Neural lattice disengaged. Pain receptors restored.</span>")
 	lattice_users.Remove(H)
-
