@@ -23,6 +23,7 @@
 	var/store_misc = 1
 	var/store_items = 1
 	var/store_mobs = 1
+	var/bodybag = FALSE
 
 	var/const/default_mob_size = 15
 
@@ -52,7 +53,7 @@
 /obj/structure/closet/proc/fill()
 
 /obj/structure/closet/examine(mob/user)
-	if(..(user, 1) && !opened)
+	if(..(user, 1) && !opened && !bodybag)
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
