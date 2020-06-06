@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Vaurca and Dionae can no longer be psionically awakened. Flatbrains."
+  - bugfix: "Being psionically active lets you know who telepathically messaged you."
