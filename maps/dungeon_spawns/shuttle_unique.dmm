@@ -534,7 +534,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
-"XY" = (
+"YQ" = (
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
 
@@ -1121,7 +1121,7 @@ aa
 aa
 aa
 aa
-XY
+YQ
 ad
 ae
 ae

@@ -336,6 +336,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/range)
+"aaT" = (
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medbay Cloning"
+	},
+/obj/structure/mopbucket,
+/turf/simulated/floor/tiled/white,
+/area/medical/custodial_closet)
 "aaU" = (
 /obj/structure/closet/crate,
 /obj/item/target,
@@ -1447,17 +1454,11 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/security/main)
-"acK" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 8
-	},
-/obj/item/modular_computer/console/preset/security,
-/turf/simulated/floor/tiled,
-/area/security/main)
 "acL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
 	},
+/obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "acM" = (
@@ -2997,6 +2998,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/main)
+"afI" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/main)
 "afJ" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3359,6 +3366,20 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/hos)
+"ags" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "RD"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "RD"
+	},
+/turf/simulated/floor/plating,
+/turf/template_noop,
+/area/rnd/research)
 "agt" = (
 /obj/structure/grille,
 /obj/structure/cable/green{
@@ -5287,6 +5308,28 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/hos)
+"ajV" = (
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/item/mop,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/white,
+/area/medical/custodial_closet)
+"ajW" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/machinery/firealarm/south,
+/obj/structure/table/rack,
+/obj/item/storage/box/lights/mixed,
+/turf/simulated/floor/tiled/white,
+/area/medical/custodial_closet)
 "ajX" = (
 /obj/machinery/alarm{
 	pixel_y = 22
@@ -5684,6 +5727,19 @@
 "akH" = (
 /turf/simulated/wall,
 /area/security/detectives_office)
+"akI" = (
+/obj/machinery/light_switch{
+	name = "light switch ";
+	pixel_y = -22
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/caution,
+/obj/item/clothing/suit/caution,
+/turf/simulated/floor/tiled/white,
+/area/medical/custodial_closet)
 "akN" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable/yellow{
@@ -41362,20 +41418,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
-"bBa" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "RD"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "RD"
-	},
-/turf/simulated/floor/plating,
-/turf/template_noop,
-/area/rnd/research)
 "bBb" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -43005,13 +43047,6 @@
 "bDT" = (
 /turf/simulated/wall,
 /area/medical/cryo)
-"bDU" = (
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medbay Cloning"
-	},
-/obj/structure/mopbucket,
-/turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
 "bDV" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/custodial_closet)
@@ -46509,41 +46544,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/medical/cryo)
-"bKe" = (
-/obj/machinery/alarm{
-	dir = 1;
-	pixel_y = -22
-	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/item/mop,
-/obj/structure/table/rack,
-/turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
-"bKf" = (
-/obj/machinery/light,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/machinery/firealarm/south,
-/obj/structure/table/rack,
-/obj/item/storage/box/lights/mixed,
-/turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
-"bKg" = (
-/obj/machinery/light_switch{
-	name = "light switch ";
-	pixel_y = -22
-	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/structure/table/rack,
-/obj/item/clothing/suit/caution,
-/obj/item/clothing/suit/caution,
-/turf/simulated/floor/tiled/white,
-/area/medical/custodial_closet)
 "bKh" = (
 /obj/machinery/light{
 	dir = 1
@@ -75118,10 +75118,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
-"jhU" = (
-/obj/effect/shuttle_landmark/research_exodus/start,
-/turf/simulated/floor/shuttle,
-/area/shuttle/research/station)
 "jnk" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -75272,6 +75268,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
+"kLi" = (
+/obj/effect/shuttle_landmark/research_exodus/start,
+/turf/simulated/floor/shuttle,
+/area/shuttle/research/station)
 "kOb" = (
 /obj/structure/dispenser/oxygen,
 /obj/machinery/camera/network/security{
@@ -75590,10 +75590,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
-"nKT" = (
-/obj/item/modular_computer/console/preset/engineering/ce,
-/turf/simulated/floor/tiled,
-/area/crew_quarters/heads/chief)
 "nUd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -76032,10 +76028,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
-"qUe" = (
-/obj/effect/shuttle_landmark/mining/start,
-/turf/simulated/floor/shuttle,
-/area/shuttle/mining/station)
 "qWO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -76145,6 +76137,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
+"rru" = (
+/obj/item/modular_computer/console/preset/engineering/ce,
+/turf/simulated/floor/tiled,
+/area/crew_quarters/heads/chief)
 "rry" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -76902,6 +76898,10 @@
 /obj/item/ladder_mobile,
 /turf/simulated/floor/tiled/dark,
 /area/ai_monitored/storage/eva)
+"wtc" = (
+/obj/effect/shuttle_landmark/mining/start,
+/turf/simulated/floor/shuttle,
+/area/shuttle/mining/station)
 "wAz" = (
 /obj/structure/window/phoronreinforced{
 	dir = 8
@@ -97018,7 +97018,7 @@ aaa
 bKS
 bMs
 bNz
-qUe
+wtc
 bNz
 bSe
 bTw
@@ -103964,7 +103964,7 @@ bTK
 bUU
 bWs
 bNQ
-nKT
+rru
 caD
 cbY
 cdu
@@ -107989,7 +107989,7 @@ aaC
 aaV
 aaC
 acj
-acK
+acL
 add
 adv
 adK
@@ -108246,7 +108246,7 @@ aaS
 abh
 abC
 acl
-acL
+afI
 acO
 acO
 adL
@@ -108254,7 +108254,7 @@ adL
 aes
 aeP
 acO
-acL
+afI
 agt
 agR
 aht
@@ -116285,11 +116285,11 @@ bxQ
 bzk
 bAW
 bwl
-bDU
+aaT
 bFF
 byo
 bIC
-bKe
+ajV
 bLJ
 bHa
 bHa
@@ -116546,7 +116546,7 @@ bDV
 bDV
 bzb
 bDV
-bKf
+ajW
 bLJ
 bHe
 bHa
@@ -116803,7 +116803,7 @@ bDW
 bFG
 bzd
 bIE
-bKg
+akI
 bLJ
 bZX
 bHm
@@ -123738,7 +123738,7 @@ bwz
 bzD
 bBt
 bCI
-bBa
+ags
 bFZ
 bFZ
 bJa
@@ -128875,7 +128875,7 @@ aaa
 aaf
 bwJ
 byr
-jhU
+kLi
 bys
 bCX
 bEC
