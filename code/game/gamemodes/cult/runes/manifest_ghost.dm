@@ -13,6 +13,7 @@
 		to_chat(user, span("warning", "Your primitive form cannot use this rune!"))
 	if(apparition)
 		to_chat(user, span("warning", "This rune already has an active apparition!"))
+	var/mob/living/carbon/C = user
 
 	var/mob/abstract/observer/ghost
 	for(var/mob/abstract/observer/O in get_turf(A))
@@ -53,8 +54,8 @@
 
 	// The cultist doesn't have to stand on the rune, but they will continually take damage for as long as they have a summoned ghost
 	var/can_manifest = TRUE
-	while(user?.stat == CONSCIOUS && user.client && can_manifest && apparition)
-		can_manifest = user.species.take_manifest_ghost_damage(user)
+	while(user?.stat == CONSCIOUS && C.client && can_manifest && apparition)
+		can_manifest = C.species.take_manifest_ghost_damage(user)
 	apparition_check()
 	return
 
