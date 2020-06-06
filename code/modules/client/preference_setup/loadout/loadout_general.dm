@@ -37,10 +37,10 @@
 /datum/gear/flask/New()
 	..()
 	var/flasks = list()
-	flasks["glass flask"] = /obj/item/weapon/reagent_containers/food/drinks/flask/barflask
-	flasks["vacuum flask"] = /obj/item/weapon/reagent_containers/food/drinks/flask/vacuumflask
-	flasks["lambda symbol flask"] = /obj/item/weapon/reagent_containers/food/drinks/flask/shiny
-	flasks["lithium atom flask"] = /obj/item/weapon/reagent_containers/food/drinks/flask/lithium
+	flasks["glass flask"] = /obj/item/reagent_containers/food/drinks/flask/barflask
+	flasks["vacuum flask"] = /obj/item/reagent_containers/food/drinks/flask/vacuumflask
+	flasks["lambda symbol flask"] = /obj/item/reagent_containers/food/drinks/flask/shiny
+	flasks["lithium atom flask"] = /obj/item/reagent_containers/food/drinks/flask/lithium
 	
 	gear_tweaks += new/datum/gear_tweak/path(flasks)
 	gear_tweaks += new/datum/gear_tweak/reagents(lunchables_alcohol_reagents() + lunchables_drink_reagents())
