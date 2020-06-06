@@ -304,14 +304,14 @@ var/list/gamemode_cache = list()
 
 	var/time_to_call_emergency_shuttle = 36000  //how many time until the crew can call the transfer shuttle. One hour by default.
 
-	var/profiler_is_enabled = TRUE
-	var/profiler_restart_period = 3000
-	var/profiler_tick_usage_threshold = 150
-
 	var/forum_api_path
 	// global.forum_api_key - see modules/http/forum_api.dm
 
 	var/news_use_forum_api = FALSE
+
+	var/profiler_is_enabled = FALSE
+	var/profiler_restart_period = 120 SECONDS
+	var/profiler_timeout_threshold = 5 SECONDS
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -936,6 +936,13 @@ var/list/gamemode_cache = list()
 
 				if ("news_use_forum_api")
 					news_use_forum_api = TRUE
+
+				if ("profiler_enabled")
+					profiler_is_enabled = TRUE
+				if ("profiler_restart_period")
+					profiler_restart_period = text2num(value) SECONDS
+				if ("profiler_timeout_threshold")
+					profiler_timeout_threshold = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
