@@ -10,8 +10,6 @@
 /mob/living/carbon/Life()
 	..()
 
-	handle_viruses()
-
 	// Increase germ_level regularly
 	if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
 		germ_level++
@@ -108,21 +106,12 @@
 		if(H && show_ssd && !client && !teleop)
 			if(H.bg)
 				to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
-			else
+			else if(!vr_mob)
 				visible_message(span("notice", "[M] [action] [src], but they do not respond... Maybe they have S.S.D?"))
 		else if(client && willfully_sleeping)
 			visible_message(span("notice", "[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
-
-	for(var/datum/disease/D in viruses)
-		if(D.spread_by_touch())
-			M.contract_disease(D, 0, 1, CONTACT_HANDS)
-
-	for(var/datum/disease/D in M.viruses)
-		if(D.spread_by_touch())
-			contract_disease(D, 0, 1, CONTACT_HANDS)
-
 	return
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
@@ -195,7 +184,7 @@
 				span("notice", "[src] examines [src.gender==MALE?"himself":"herself"]."), \
 				span("notice", "You check yourself for injuries.") \
 				)
-				
+
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
@@ -271,7 +260,7 @@
 			if(H && show_ssd && !client && !teleop)
 				if(H.bg)
 					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
-				else
+				else if(!vr_mob)
 					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
 										span("notice", "You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)
@@ -385,8 +374,6 @@
 	if(now_pushing)
 		return
 	. = ..()
-	if(istype(A, /mob/living/carbon) && prob(10))
-		src.spread_disease_to(A, "Contact")
 
 /mob/living/carbon/cannot_use_vents()
 	return
@@ -437,6 +424,8 @@
 	if (species && (species.flags & NO_PAIN))
 		return FALSE
 	if (is_berserk())
+		return FALSE
+	if (HULK in mutations)
 		return FALSE
 	if (analgesic > 100)
 		return FALSE

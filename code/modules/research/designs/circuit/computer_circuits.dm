@@ -21,10 +21,6 @@
 	name = "Patient Monitoring Console"
 	build_path = /obj/item/circuitboard/operating
 
-/datum/design/circuit/computer/pandemic
-	name = "PanD.E.M.I.C. 2200"
-	build_path = /obj/item/circuitboard/pandemic
-
 /datum/design/circuit/computer/teleconsole
 	name = "Teleporter Control Console"
 	req_tech = list(TECH_DATA = 3, TECH_BLUESPACE = 2)

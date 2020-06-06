@@ -1,9 +1,9 @@
 /obj/item/computer_hardware/hard_drive
 	name = "basic hard drive"
 	desc = "A small power efficient solid state drive, with 128GQ of storage capacity for use in basic computers where power efficiency is desired."
-	power_usage = 25					// SSD or something with low power usage
+	power_usage = 20					// SSD or something with low power usage
 	icon_state = "hdd_normal"
-	hardware_size = 2
+	hardware_size = 1
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	var/max_capacity = 128
 	var/used_capacity = 0
@@ -85,6 +85,7 @@
 /obj/item/computer_hardware/hard_drive/proc/install_default_programs()
 	store_file(new /datum/computer_file/program/computerconfig(src))		// Computer configuration utility, allows hardware control and displays more info than status bar
 	store_file(new /datum/computer_file/program/clientmanager(src))			// Client Manager to Enroll the Device
+	store_file(new /datum/computer_file/program/pai_access_lock(src))		// pAI access control, to stop pesky pAI from messing with computers
 
 // Use this proc to remove file from the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F)

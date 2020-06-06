@@ -69,7 +69,6 @@
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
 #define CE_ANTITOXIN    "antitoxin"		// Dylovene and stuff
-#define CE_ANTIVIRAL    "antiviral"		// Deltamivir
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
 #define CE_OXYGENATED   "oxygen"		// Dexalin

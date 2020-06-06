@@ -59,7 +59,11 @@
 
 // Returns true if val is from min to max, inclusive.
 /proc/IsInRange(val, min, max)
-	return (val >= min) && (val <= max)
+	return (min <= val && val <= max)
+
+// Same as above, exclusive.
+/proc/IsInRange_Ex(val, min, max)
+	return (min < val && val < max)
 
 /proc/IsInteger(x)
 	return Floor(x) == x

@@ -19,6 +19,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "yummy"
 	icon = 'icons/obj/drinks.dmi'
 	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	icon_state = null
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
@@ -140,7 +141,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "It's milk. White and nutritious goodness!"
 	icon_state = "milk"
 	item_state = "carton"
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	center_of_mass = list("x"=16, "y"=9)
 
 /obj/item/reagent_containers/food/drinks/milk/Initialize()
@@ -152,7 +154,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "It's soy milk. White and nutritious goodness!"
 	icon_state = "soymilk"
 	item_state = "carton"
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	center_of_mass = list("x"=16, "y"=9)
 
 /obj/item/reagent_containers/food/drinks/soymilk/Initialize()
@@ -167,6 +170,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	trash = /obj/item/trash/coffee
 	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 
 /obj/item/reagent_containers/food/drinks/coffee/Initialize()
@@ -182,6 +186,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drink_flags = UNIQUE_EMPTY_ICON
 	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 
 /obj/item/reagent_containers/food/drinks/pslatte/Initialize()
@@ -196,6 +201,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	trash = /obj/item/trash/coffee
 	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/reagent_containers/food/drinks/tea/Initialize()
@@ -211,6 +217,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drink_flags = UNIQUE_EMPTY_ICON
 	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/reagent_containers/food/drinks/greentea/Initialize()
@@ -226,6 +233,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drink_flags = UNIQUE_EMPTY_ICON
 	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/reagent_containers/food/drinks/hotcider/Initialize()
@@ -241,6 +249,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drink_flags = UNIQUE_EMPTY_ICON
 	empty_icon_state = "coffee_vended_empty"
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/reagent_containers/food/drinks/chaitea/Initialize()
@@ -255,6 +264,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	trash = /obj/item/trash/coffee
 	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=10)
 
 /obj/item/reagent_containers/food/drinks/ice/Initialize()
@@ -269,6 +279,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	trash = /obj/item/trash/coffee
 	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=15, "y"=13)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate/Initialize()
@@ -283,6 +294,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	trash = /obj/item/trash/ramen
 	drink_flags = null
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 
 /obj/item/reagent_containers/food/drinks/dry_ramen/Initialize()
@@ -295,6 +307,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A paper water cup."
 	icon_state = "water_cup_e"
 	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	possible_transfer_amounts = null
 	volume = 10
 	center_of_mass = list("x"=16, "y"=12)
@@ -311,6 +324,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "medcup"
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 	possible_transfer_amounts = null
 	volume = 15
 
@@ -353,7 +367,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	item_state = "carton"
 	volume = 100
 	center_of_mass = list("x"=16, "y"=6)
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
 /obj/item/reagent_containers/food/drinks/carton/orangejuice
 	name = "orange juice"

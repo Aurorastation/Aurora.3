@@ -546,24 +546,6 @@
 		if(prob(60))
 			M.take_organ_damage(4 * removed, 0)
 
-/datum/reagent/deltamivir
-	name = "Deltamivir"
-	id = "deltamivir"
-	description = "An interferon-delta type III antiviral agent."
-	reagent_state = LIQUID
-	color = "#C1C1C1"
-	metabolism = REM * 0.05 // only performs its effects while in blood
-	ingest_met = REM // .2 units per tick
-	breathe_met = REM * 2 // .4 units per tick
-	// touch is slow
-	overdose = REAGENTS_OVERDOSE
-	scannable = 1
-	taste_description = "bitterness"
-	fallback_specific_heat = 0.605 // assuming it's ethanol-based
-
-/datum/reagent/deltamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_FEVER, dose/12)
-
 /datum/reagent/thetamycin
 	name = "Thetamycin"
 	id = "thetamycin"

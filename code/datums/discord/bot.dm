@@ -312,7 +312,7 @@ var/datum/discord_bot/discord_bot = null
 	if (!token || !message)
 		return ERROR_PROC
 
-	var/datum/http_request/req = SShttp.post("https://discordapp.com/api/channels/[id]/messages", message, list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
+	var/datum/http_request/req = http_create_post("https://discordapp.com/api/channels/[id]/messages", message, list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())
@@ -343,7 +343,7 @@ var/datum/discord_bot/discord_bot = null
  *						  Num upon failure.
  */
 /datum/discord_channel/proc/get_pins(var/token)
-	var/datum/http_request/req = SShttp.get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization" = "Bot [token]"))
+	var/datum/http_request/req = http_create_get("https://discordapp.com/api/channels/[id]/pins", headers = list("Authorization" = "Bot [token]"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())
@@ -393,7 +393,7 @@ var/datum/discord_bot/discord_bot = null
 	if (invite_url)
 		return invite_url
 
-	var/datum/http_request/req = SShttp.get("https://discordapp.com/api/channels/[id]/invites", headers = list("Authorization" = "Bot [token]"))
+	var/datum/http_request/req = http_create_get("https://discordapp.com/api/channels/[id]/invites", headers = list("Authorization" = "Bot [token]"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())
@@ -407,7 +407,7 @@ var/datum/discord_bot/discord_bot = null
 		log_debug("BOREALIS: HTTP error while fetching invite: [res.status_code].")
 		return
 	else
-		var/list/A = res.body
+		var/list/A = json_decode(res.body)
 
 		// No length to return data, but a valid 200 return header.
 		// So we simply have no invites active. Make one!
@@ -449,7 +449,7 @@ var/datum/discord_bot/discord_bot = null
  */
 /datum/discord_channel/proc/create_invite(var/token)
 	var/data = list("max_age" = 0, "max_uses" = 0)
-	var/datum/http_request/req = SShttp.post("https://discordapp.com/api/channels/[id]/invites", json_encode(data), list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
+	var/datum/http_request/req = http_create_post("https://discordapp.com/api/channels/[id]/invites", json_encode(data), list("Authorization" = "Bot [token]", "Content-Type" = "application/json"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())

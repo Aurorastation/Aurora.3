@@ -317,7 +317,7 @@
 	. = list()
 	for(var/i = 1 to files.known_designs.len)
 		var/datum/design/D = files.known_designs[i]
-		if(!D.build_path || !(D.build_type & MECHFAB))
+		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
 			continue
 		. += list(list("name" = D.name, "id" = i, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
 
@@ -333,7 +333,7 @@
 /obj/machinery/mecha_part_fabricator/proc/update_categories()
 	categories = list()
 	for(var/datum/design/D in files.known_designs)
-		if(!D.build_path || !(D.build_type & MECHFAB))
+		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
 			continue
 		categories |= D.category
 	if(!category || !(category in categories))

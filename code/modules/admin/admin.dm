@@ -11,6 +11,13 @@ var/global/enabled_spooking = 0
 		if((R_ADMIN|R_MOD) & C.holder.rights)
 			to_chat(C, msg)
 
+/proc/message_cciaa(var/msg)
+	msg = "<span class=\"log_message\"><span class=\"prefix\">CCIA LOG:</span> <span class=\"message\">[msg]</span></span>"
+	for(var/s in staff)
+		var/client/C = s
+		if(R_CCIAA & C.holder.rights)
+			to_chat(C, msg)
+
 /proc/msg_admin_attack(var/text,var/ckey="",var/ckey_target="") //Toggleable Attack Messages
 	log_attack(text,ckey=ckey,ckey_target=ckey_target)
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
@@ -71,7 +78,8 @@ proc/admin_notice(var/message, var/rights)
 
 	if(M.client)
 		body += "| <A HREF='?src=\ref[src];sendtoprison=\ref[M]'>Prison</A> | "
-		body += "<a href='?src=\ref[src];admin_wind_player=\ref[M]'>Wind</a>"
+		body += "<a href='?src=\ref[src];admin_wind_player=\ref[M]'>Wind</a> | "
+		body += "\ <A HREF='?src=\ref[src];sendbacktolobby=\ref[M]]'>Send back to Lobby</A>"
 		var/muted = M.client.prefs.muted
 		body += {"<br><b>Mute: </b>
 			\[<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_IC]'><font color='[(muted & MUTE_IC)?"red":"blue"]'>IC</font></a> |

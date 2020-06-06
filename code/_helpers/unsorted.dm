@@ -12,11 +12,9 @@
 
 	if (!( istext(HTMLstring) ))
 		CRASH("Given non-text argument!")
-		return
 	else
 		if (length(HTMLstring) != 7)
 			CRASH("Given non-HTML argument!")
-			return
 	var/textr = copytext(HTMLstring, 2, 4)
 	var/textg = copytext(HTMLstring, 4, 6)
 	var/textb = copytext(HTMLstring, 6, 8)
@@ -33,7 +31,6 @@
 	if (length(textb) < 2)
 		textr = text("0[]", textb)
 	return text("#[][][]", textr, textg, textb)
-	return
 
 //Returns the middle-most value
 /proc/dd_range(var/low, var/high, var/num)
@@ -559,12 +556,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 /proc/between(var/low, var/middle, var/high)
 	return max(min(middle, high), low)
 
-#if DM_VERSION < 513
-proc/arctan(x)
-	var/y=arcsin(x/sqrt(1+x*x))
-	return y
-#endif
-
 //returns random gauss number
 proc/GaussRand(var/sigma)
   var/x,y,rsq
@@ -859,25 +850,39 @@ proc/is_hot(obj/item/W as obj)
 		else
 			return 0
 
-	return 0
-
 //Whether or not the given item counts as sharp in terms of dealing damage
-/proc/is_sharp(obj/O as obj)
-	if (!O) return 0
-	if (O.sharp) return 1
-	if (O.edge) return 1
+/proc/is_sharp(obj/O)
+	if (!O)
+		return 0
+	if (O.sharp)
+		return 1
+	if (O.edge)
+		return 1
 	return 0
 
 //Whether or not the given item counts as cutting with an edge in terms of removing limbs
-/proc/has_edge(obj/O as obj)
-	if (!O) return 0
-	if (O.edge) return 1
+/proc/has_edge(obj/O)
+	if (!O)
+		return 0
+	if (O.edge)
+		return 1
 	return 0
+
+/obj/proc/damage_flags()
+	. = 0
+	if(has_edge(src))
+		. |= DAM_EDGE
+	if(is_sharp(src))
+		. |= DAM_SHARP
+		if(damtype == BURN)
+			. |= DAM_LASER
 
 //Returns 1 if the given item is capable of popping things like balloons, inflatable barriers, or cutting police tape.
 /proc/can_puncture(obj/item/W as obj)		// For the record, WHAT THE HELL IS THIS METHOD OF DOING IT?
-	if(!W) return 0
-	if(W.sharp) return 1
+	if(!W)
+		return 0
+	if(W.sharp)
+		return 1
 	return ( \
 		W.sharp													  || \
 		W.isscrewdriver()                   || \
@@ -889,17 +894,10 @@ proc/is_hot(obj/item/W as obj)
 		istype(W, /obj/item/shovel) \
 	)
 
-/proc/is_surgery_tool(obj/item/W as obj)
-	return (	\
-	istype(W, /obj/item/surgery/scalpel)			||	\
-	istype(W, /obj/item/surgery/hemostat)		||	\
-	istype(W, /obj/item/surgery/retractor)		||	\
-	istype(W, /obj/item/surgery/cautery)			||	\
-	istype(W, /obj/item/surgery/bonegel)			||	\
-	istype(W, /obj/item/surgery/bonesetter)
-	)
+/proc/is_surgery_tool(obj/item/W)
+	return istype(W, /obj/item/surgery)
 
-/proc/is_borg_item(obj/item/W as obj)
+/proc/is_borg_item(obj/item/W)
 	return W && W.loc && isrobot(W.loc)
 
 //check if mob is lying down on something we can operate him on.

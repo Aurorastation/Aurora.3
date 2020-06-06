@@ -20,6 +20,13 @@
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 
+/obj/machinery/firealarm/examine(mob/user)
+	. = ..()
+	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
+		return
+
+	to_chat(user, "The current alert level is [get_security_level()].")
+
 /obj/machinery/firealarm/update_icon()
 	cut_overlays()
 
@@ -63,7 +70,7 @@
 					previous_state = icon_state
 					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_ORANGE)
 
-		add_overlay("overlay_[seclevel]")
+		add_overlay(image(icon, "overlay_[seclevel]", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
