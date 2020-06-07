@@ -175,6 +175,8 @@
 	return
 
 /obj/item/gun/energy/lawgiver/proc/hear(var/msg)
+	var/datum/firemode/old_mode = firemodes[sel_mode]
+
 	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = ""," " = "")
 	msg = sanitize_old(msg, replacechars)
 	/* Firing Modes*/
@@ -218,6 +220,7 @@
 		play_message()
 
 	if(mode_check != sel_mode)
+		old_mode.unapply_to(src)
 		var/datum/firemode/new_mode = firemodes[sel_mode]
 		new_mode.apply_to(src)
 		mode_check = sel_mode
