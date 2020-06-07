@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Kataphract K'lax now spawn in with the Sinta'Unathi augment, allowing them to speak with their teammates."
