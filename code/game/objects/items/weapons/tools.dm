@@ -123,7 +123,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 		)
-	icon_state = "cutters"
+	icon_state = "wirecutters"
 	item_state = "cutters"
 	flags = CONDUCT
 	center_of_mass = list("x" = 18,"y" = 10)
@@ -143,7 +143,7 @@
 
 /obj/item/wirecutters/New()
 	if(prob(50))
-		icon_state = "cutters-y"
+		icon_state = "wirecutters-y"
 		item_state = "cutters_yellow"
 	..()
 
@@ -626,8 +626,6 @@
 	. = ..()
 	color = color_rotation(rand(-11, 12) * 15)
 
-//combitool
-
 /obj/item/combitool
 	name = "combi-tool"
 	desc = "It even has one of those nubbins for doing the thingy."
@@ -654,6 +652,8 @@
 
 /obj/item/combitool/Initialize()
 	desc = "[initial(desc)] ([tools.len]. [tools.len] possibilit[tools.len == 1 ? "y" : "ies"])"
+	for(var/tool in tools)
+		tools[tool] = image('icons/obj/tools.dmi', icon_state = tool)
 	. = ..()
 
 /obj/item/combitool/examine(var/mob/user)
@@ -679,17 +679,16 @@
 	return tools[current_tool] == "multitool"
 
 /obj/item/combitool/proc/update_tool()
-	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
+	icon_state = "[initial(icon_state)]-[current_tool]"
 
 /obj/item/combitool/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
 		current_tool = 1
-	var/tool = tools[current_tool]
-	if(!tool)
-		to_chat(user, "You can't seem to find any fittings in \the [src].")
-	else
-		to_chat(user, "You switch \the [src] to the [tool] fitting.")
-	update_tool()
+	var/tool = RADIAL_INPUT(user, tools)
+	if(tool)
+		playsound(user, 'sound/items/penclick.ogg', 25)
+		current_tool = tool
+		update_tool()
 	return 1
 
 /obj/item/powerdrill
