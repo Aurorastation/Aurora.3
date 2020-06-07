@@ -51,6 +51,11 @@
 	oil.add_reagent("cornoil", optimal_oil*(1 - variance))
 	fry_loop = new(list(src), FALSE)
 
+/obj/machinery/appliance/cooker/fryer/Destroy()
+	QDEL_NULL(fry_loop)
+	QDEL_NULL(oil)
+	return ..()
+
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
 		//Set temperature of oil reagent
@@ -87,12 +92,12 @@
 
 
 /obj/machinery/appliance/cooker/fryer/update_icon()
-	if (cooking)
+	if(cooking && !stat)
 		icon_state = on_icon
-		fry_loop.start()
+		fry_loop.start(src)
 	else
 		icon_state = off_icon
-		fry_loop.stop()
+		fry_loop.stop(src)
 	..()
 
 
