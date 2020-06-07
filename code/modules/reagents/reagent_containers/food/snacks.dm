@@ -3987,7 +3987,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#75754B"
 	center_of_mass = list("x"=16, "y"=7)
-	nutriment_desc = list("a strange concoction of delicious flavours" = 3)
+	nutriment_desc = list("roasted diona" = 3)
 	nutriment_amt = 6
 	bitesize = 2
 
