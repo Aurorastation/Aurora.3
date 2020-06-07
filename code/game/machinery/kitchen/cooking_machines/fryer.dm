@@ -52,7 +52,7 @@
 	fry_loop = new(list(src), FALSE)
 
 /obj/machinery/appliance/cooker/fryer/Destroy()
-	QDEL_NULL(frying_loop)
+	QDEL_NULL(fry_loop)
 	QDEL_NULL(oil)
 	return ..()
 
