@@ -42,4 +42,3 @@ changes:
   - tweak: "Changes Dionae health to 300, from 200"
   - tweak: "Changes nymph health to 50, from 33.3"
   - rscadd: " When a dionae splist, their health is now divided among their nymphs"
-  - rscadd: "Dionae will now split once they reach 60 health."
