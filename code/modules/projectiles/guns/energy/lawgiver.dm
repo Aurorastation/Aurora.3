@@ -23,10 +23,7 @@
 			charge_cost = 50,
 			fire_delay = 3,
 			recoil = 1,
-			burst = null,
-			move_delay = null,
 			accuracy = 1,
-			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pistol,
 			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		),
@@ -47,10 +44,7 @@
 			charge_cost = 400,
 			fire_delay = 6,
 			recoil = 3,
-			burst = null,
-			move_delay = null,
 			accuracy = 0,
-			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/gyro/law,
 			fire_sound = 'sound/effects/Explosion1.ogg'
 		),
@@ -59,10 +53,7 @@
 			charge_cost = 50,
 			fire_delay = 4,
 			recoil = 0,
-			burst = null,
-			move_delay = null,
 			accuracy = 1,
-			dispersion = null,
 			projectile_type = /obj/item/projectile/energy/electrode,
 			fire_sound = 'sound/weapons/Taser.ogg'
 		),
@@ -71,10 +62,7 @@
 			charge_cost = 250,
 			fire_delay = 4,
 			recoil = 3,
-			burst = null,
-			move_delay = null,
 			accuracy = 1,
-			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/shotgun/incendiary,
 			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		),
@@ -83,10 +71,7 @@
 			charge_cost = 130,
 			fire_delay = 6,
 			recoil = 3,
-			burst = null,
-			move_delay = null,
 			accuracy = 1,
-			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/rifle/a556,
 			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		),
@@ -95,10 +80,7 @@
 			charge_cost = 250,
 			fire_delay = 6,
 			recoil = 3,
-			burst = null,
-			move_delay = null,
 			accuracy = 0,
-			dispersion = null,
 			projectile_type = /obj/item/projectile/bullet/pellet/shotgun,
 			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		)
