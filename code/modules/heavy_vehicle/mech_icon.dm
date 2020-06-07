@@ -46,7 +46,10 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 	for(var/hardpoint in hardpoints)
 		var/obj/item/mecha_equipment/hardpoint_object = hardpoints[hardpoint]
 		if(hardpoint_object)
-			var/use_icon_state = "[hardpoint_object.icon_state]_[hardpoint]"
+			var/object_icon_state = hardpoint_object.icon_state
+			if(hardpoint_object.on_mech_icon_state)
+				object_icon_state = hardpoint_object.on_mech_icon_state
+			var/use_icon_state = "[object_icon_state]_[hardpoint]"
 			if(use_icon_state in mecha_weapon_overlays)
 				new_overlays += get_mech_image(use_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, hardpoint_object.mech_layer)
 

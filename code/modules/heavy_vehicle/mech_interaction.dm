@@ -202,7 +202,7 @@
 		return
 	if(!instant)
 		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
-		if(!do_after(user, 30))
+		if(!do_after(user, entry_speed))
 			return
 	if(!user || user.incapacitated())
 		return
