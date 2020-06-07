@@ -1,5 +1,8 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
+#define BEGIN_TIME var/__t = world.timeofday
+#define END_TIME if (world.timeofday - __t > 1 SECOND) { crash_with("Took longer than 1 second to complete."); }
+
 //cursors
 #define Default_Cursor	0
 #define Client_Cursor	1
@@ -65,7 +68,9 @@
 	cursor_handler = con_cursor
 	if (!cursor_handler)
 		cursor_handler = Default_Cursor
-	return _dm_db_connect(_db_con, dbi_handler, user_handler, password_handler, cursor_handler, null)
+	BEGIN_TIME
+	. = _dm_db_connect(_db_con, dbi_handler, user_handler, password_handler, cursor_handler, null)
+	END_TIME
 
 /DBConnection/proc/Disconnect()
 	return _dm_db_close(_db_con)
@@ -77,14 +82,21 @@
 /DBConnection/proc/IsConnected()
 	if(!config.sql_enabled)
 		return 0
+
+	BEGIN_TIME
 	var/success = _dm_db_is_connected(_db_con)
+	END_TIME
 	return success
 
 /DBConnection/proc/Quote(str)
-	return _dm_db_quote(_db_con,str)
+	BEGIN_TIME
+	. = _dm_db_quote(_db_con,str)
+	END_TIME
 
 /DBConnection/proc/ErrorMsg()
-	return _dm_db_error_msg(_db_con)
+	BEGIN_TIME
+	. = _dm_db_error_msg(_db_con)
+	END_TIME
 
 /DBConnection/proc/SelectDB(database_name, new_dbi)
 	if (IsConnected())
@@ -176,7 +188,10 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 		db_connection = connection_handler
 	if (cursor_handler)
 		default_cursor = cursor_handler
+
+	BEGIN_TIME
 	_db_query = _dm_db_new_query()
+	END_TIME
 	return ..()
 
 /DBQuery/proc/Connect(DBConnection/connection_handler)
@@ -188,7 +203,11 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	if (argument_list)
 		sql_query = parseArguments(sql_query, argument_list, pass_not_found)
 
+	BEGIN_TIME
+
 	var/result = _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
+
+	END_TIME
 
 	var/error = ErrorMsg()
 	if (error)
@@ -202,20 +221,30 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	return result
 
 /DBQuery/proc/NextRow()
-	return _dm_db_next_row(_db_query,item,conversions)
+	BEGIN_TIME
+	. = _dm_db_next_row(_db_query,item,conversions)
+	END_TIME
 
 /DBQuery/proc/RowsAffected()
-	return _dm_db_rows_affected(_db_query)
+	BEGIN_TIME
+	. = _dm_db_rows_affected(_db_query)
+	END_TIME
 
 /DBQuery/proc/RowCount()
-	return _dm_db_row_count(_db_query)
+	BEGIN_TIME
+	. = _dm_db_row_count(_db_query)
+	END_TIME
 
 /DBQuery/proc/ErrorMsg()
-	return _dm_db_error_msg(_db_query)
+	BEGIN_TIME
+	. = _dm_db_error_msg(_db_query)
+	END_TIME
 
 /DBQuery/proc/Columns()
 	if (!columns)
+		BEGIN_TIME
 		columns = _dm_db_columns(_db_query,/DBColumn)
+		END_TIME
 	return columns
 
 /DBQuery/proc/GetRowData()
@@ -233,7 +262,9 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 	item.len = 0
 	columns = null
 	conversions = null
-	return _dm_db_close(_db_query)
+	BEGIN_TIME
+	. = _dm_db_close(_db_query)
+	END_TIME
 
 /DBQuery/proc/Quote(str)
 	return db_connection.Quote(str)
@@ -432,3 +463,6 @@ Delayed insert mode was removed in mysql 7 and only works with MyISAM type table
 #undef TIME
 #undef STRING
 #undef BLOB
+
+#undef BEGIN_TIME
+#undef END_TIME
