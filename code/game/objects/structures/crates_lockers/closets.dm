@@ -51,22 +51,25 @@
 // Fill lockers with this.
 /obj/structure/closet/proc/fill()
 
+/obj/structure/closet/proc/content_info(mob/user, content_size)
+	if(!content_size)
+		to_chat(user, "\The [src] is empty.")
+	else if(storage_capacity > content_size*4)
+		to_chat(user, "\The [src] is barely filled.")
+	else if(storage_capacity > content_size*2)
+		to_chat(user, "\The [src] is less than half full.")
+	else if(storage_capacity > content_size)
+		to_chat(user, "\The [src] still has some free space.")
+	else
+		to_chat(user, "\The [src] is full.")
+
 /obj/structure/closet/examine(mob/user)
 	if(..(user, 1) && !opened)
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
-		if(!content_size)
-			to_chat(user, "It is empty.")
-		else if(storage_capacity > content_size*4)
-			to_chat(user, "It is barely filled.")
-		else if(storage_capacity > content_size*2)
-			to_chat(user, "It is less than half full.")
-		else if(storage_capacity > content_size)
-			to_chat(user, "There is still some free space.")
-		else
-			to_chat(user, "It is full.")
+		content_info(user, content_size)
 
 /obj/structure/closet/proc/stored_weight()
 	var/content_size = 0
