@@ -190,7 +190,7 @@
 		qdel(mymist)
 
 	if(on)
-		soundloop.start()
+		soundloop.start(src)
 		add_overlay(image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir))
 		if(temperature_settings[watertemp] < T20C)
 			return //no mist for cold water
