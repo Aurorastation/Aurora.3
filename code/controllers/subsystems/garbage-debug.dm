@@ -316,7 +316,6 @@
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)
-	SearchVar(rune_list)
 	SearchVar(escape_list)
 	SearchVar(endgame_exits)
 	SearchVar(endgame_safespawns)

@@ -129,8 +129,14 @@
 		cooldown = world.time
 		user.visible_message(span("notice", "[user] loudly taps their [src.name] against the floor."))
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
-		var/datum/callback/cb = CALLBACK(src, /obj/effect/rune/revealrunes/.proc/do_rune_action)
-		cb.Invoke(user, src)
+		var/rune_found = FALSE
+		for(var/obj/effect/rune/R in orange(2, get_turf(src)))
+			if(R == src)
+				continue
+			rune_found = TRUE
+			R.invisibility = 0
+		if(rune_found)
+			visible_message(SPAN_NOTICE("A holy glow permeates the air!"))
 		return
 
 /obj/item/reagent_containers/spray/aspergillum
