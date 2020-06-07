@@ -266,8 +266,8 @@
 		return FALSE
 
 	var/shoot_time = (burst - 1) * burst_delay
-	user.setClickCooldown(shoot_time) //no clicking on things while shooting
-	user.setMoveCooldown(shoot_time) //no moving while shooting either
+	user.setClickCooldown(shoot_time)
+	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
 
 	return TRUE
