@@ -33,7 +33,7 @@
 
 /datum/firemode/proc/unapply_to(obj/item/gun/gun)
 	if (LAZYLEN(original_settings))
-		for (var/propname in settings)
+		for (var/propname in original_settings)
 			gun.vars[propname] = original_settings[propname]
 
 		LAZYCLEARLIST(original_settings)
