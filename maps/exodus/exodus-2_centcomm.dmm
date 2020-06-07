@@ -11575,10 +11575,6 @@
 /area/centcom/holding)
 "aNI" = (
 /obj/structure/table/reinforced,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aNJ" = (
