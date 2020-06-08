@@ -1087,7 +1087,7 @@
 		return 0
 
 	if(shock_stage == 10)
-		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 10, nohalloss = TRUE)
+		custom_pain("[pick(species.pain_messages)]!", 10, nohalloss = TRUE)
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
