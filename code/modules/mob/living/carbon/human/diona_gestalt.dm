@@ -343,18 +343,10 @@
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
-		if (D.stat != DEAD && D.health > (D.maxHealth*0.1))//If a nymph is alive and has enough health, it will emerge from the gestalt
-			total_nymph += 1
-			D.stat = CONSCIOUS
-			D.stunned = 0
-			D.update_verbs()
-			if ((!D.key) && D.health > bestHealth)
-				bestHealth = D.health
-				bestNymph = D
-
-		else //If a nymph is too heavily damaged, it cannot survive and will be born dead
-			D.visible_message("[D] is too damaged to survive outside a gestalt, and expires with a pitiful chirrup", "You are too damaged to survive outside of your gestalt!", "You hear a pitiful chirrup!")
-			D.stat = DEAD
+		total_nymph += 1
+		D.stat = CONSCIOUS
+		D.stunned = 0
+		D.update_verbs()
 
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)
