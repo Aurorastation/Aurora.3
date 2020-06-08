@@ -74,6 +74,8 @@ var/global/photo_count = 0
 	if(((loc == usr || (loc.loc && loc.loc == usr)) && usr.stat == 0))
 		if(n_name)
 			name += " ([n_name])"
+		else
+			name = initial(n_name)
 	add_fingerprint(usr)
 	return
 

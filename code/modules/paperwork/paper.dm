@@ -120,8 +120,11 @@
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
 
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0 && n_name)
-		name += " ([n_name])"
+	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+		if(n_name)
+			name += " ([n_name])"
+		else
+			name = initial(name)
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)

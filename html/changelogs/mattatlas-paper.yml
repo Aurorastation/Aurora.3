@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Renaming paper now adds the new name to the end of the paper name, so you get paper (fragmentation grenade), instead of just fragmentation grenade."
+  - tweak: "Renaming paper now adds the new name to the end of the paper name, so you get paper (fragmentation grenade), instead of just fragmentation grenade. To reset the name, just input a blank name."
