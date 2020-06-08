@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Diona now feel pain, although they only take 70% of the pain other species experience."
-  - rscadd: "Unathi now get a unique pain message, instead of the dear god one."
