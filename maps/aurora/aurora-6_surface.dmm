@@ -12992,6 +12992,12 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "expedition armory";
+	req_access = null
+	},
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/gun/energy/laser/shotgun/research,
 /turf/simulated/floor/plating,
 /area/shuttle/research/station)
 "yL" = (

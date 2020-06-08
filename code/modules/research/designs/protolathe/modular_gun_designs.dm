@@ -5,6 +5,14 @@
 	..()
 	name = "Modular Weapon Design ([capitalize_first_letters(item_name)])"
 
+/datum/design/item/modular_weapon/firing_pin
+	req_tech = list(TECH_MATERIAL = 1)
+	materials = list(DEFAULT_WALL_MATERIAL = 500)
+	build_path = /obj/item/device/firing_pin/test_range
+
+/datum/design/item/modular_weapon/firing_pin/away
+	build_path = /obj/item/device/firing_pin/away_site
+
 /datum/design/item/modular_weapon/modular_small
 	req_tech = list(TECH_MATERIAL = 1)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
