@@ -152,12 +152,15 @@
 			blind.invisibility = 0
 		else
 			blind.invisibility = 101
-			if (disabilities & NEARSIGHTED)
+			if(disabilities & NEARSIGHTED)
 				client.screen += global_hud.vimpaired
-			if (eye_blurry)
+			if(eye_blurry)
 				client.screen += global_hud.blurry
-			if (druggy)
-				client.screen += global_hud.druggy
+
+			if(druggy > 5)
+				add_client_color(/datum/client_color/druggy)
+			else
+				remove_client_color(/datum/client_color/druggy)
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)

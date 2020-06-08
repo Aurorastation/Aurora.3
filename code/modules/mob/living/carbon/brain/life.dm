@@ -225,8 +225,10 @@
 			if (eye_blurry)
 				client.screen += global_hud.blurry
 
-			if (druggy)
-				client.screen += global_hud.druggy
+			if(druggy > 5)
+				add_client_color(/datum/client_color/druggy)
+			else
+				remove_client_color(/datum/client_color/druggy)
 
 	if (stat != 2)
 		if (machine)
