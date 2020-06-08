@@ -304,7 +304,6 @@
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
-	var/bestHealth = 0
 
 
 	var/nymphs_to_kill_off = 0
