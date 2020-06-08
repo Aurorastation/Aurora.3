@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
 #define BEGIN_TIME var/__t = world.timeofday
-#define END_TIME if (world.timeofday - __t > 1 SECOND) { crash_with("Took longer than 1 second to complete."); }
+#define END_TIME if (world.timeofday - __t > 10 SECONDS) { crash_with("Took longer than 10 seconds to complete."); }
 
 //cursors
 #define Default_Cursor	0
