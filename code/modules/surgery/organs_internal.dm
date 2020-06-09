@@ -36,7 +36,7 @@
 		return
 	var/is_organ_damaged = 0
 	for(var/obj/item/organ/I in affected.internal_organs)
-		if(I.damage > 0)
+		if(I.damage > 0 && !BP_IS_ROBOTIC(I))
 			is_organ_damaged = 1
 			break
 	return ..() && is_organ_damaged
@@ -96,6 +96,104 @@
 		dam_amt = 5
 		target.adjustToxLoss(10)
 		target.apply_damage(5, BRUTE, target_zone, 0, tool)
+
+	for(var/obj/item/organ/I in affected.internal_organs)
+		if(I && I.damage > 0)
+			I.take_damage(dam_amt,0)
+
+// Repairs mechanical organs, including augments
+/datum/surgery_step/internal/fix_mech_organ
+	allowed_tools = list(
+	/obj/item/stack/nanopaste = 100,
+	/obj/item/surgery/bonegel = 30,			// Taken with modifications from robot organ repair
+	/obj/item/screwdriver = 50				// Screwdriver nerfed, since 70% is basically free repairs
+	)
+
+	min_duration = 70
+	max_duration = 90
+
+/datum/surgery_step/internal/fix_mech_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(!affected)
+		return
+	var/is_organ_damaged = 0
+	for(var/obj/item/organ/I in affected.internal_organs)
+		if(I.damage > 0 && I.robotic >= 2)
+			is_organ_damaged = 1
+			break
+	return ..() && is_organ_damaged
+
+/datum/surgery_step/internal/fix_mech_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && I.robotic >= 2)
+			user.visible_message("[user] starts mending the damage to [target]'s [I.name]'s mechanisms.", \
+					"You start mending the damage to [target]'s [I.name]'s mechanisms." )
+
+	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
+	..()
+
+/datum/surgery_step/internal/fix_mech_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	for(var/obj/item/organ/internal/I in affected.internal_organs)
+		if(I && I.damage > 0 && I.robotic >= 2)
+			user.visible_message("<span class='notice'>[user] repairs [target]'s [I.name] with \the [tool].</span>", \
+					"<span class='notice'>You repair [target]'s [I.name] with \the [tool].</span>" )
+			// No surgical_fix, since we probably can't have scar tissue on eye augments.
+			// This would be realistic, but no real need here
+			I.damage = 0
+			var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
+
+			if(sponge && istype(I, sponge))
+				target.cure_all_traumas(cure_type = CURE_SURGERY)
+
+			if(istype(tool, /obj/item/stack/nanopaste))
+				var/obj/item/stack/nanopaste/nanopaste = tool
+				nanopaste.use(1)
+				return
+
+/datum/surgery_step/internal/fix_mech_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	var/dam_amt = 2
+	// 0 - spillage
+	// 1 - cut
+	var/msg_type = 0
+
+	if(istype(tool, /obj/item/stack/nanopaste))
+		// Nanopaste is probably toxic when applied incorrectly.
+		// Don't want to make it worse than advanced bruis pack in this case though
+		target.adjustToxLoss(5)
+
+	else if(istype(tool, /obj/item/surgery/bonegel))
+		dam_amt = 5
+		// No brute damage, but a bit more toxin
+		target.adjustToxLoss(12)
+
+	else if(istype(tool, /obj/item/screwdriver))
+		// Stabbing the internal organs is probably bad
+		dam_amt = 10
+		target.apply_damage(10, BRUTE, target_zone, 0, tool)
+		msg_type = 1
+
+	if(msg_type == 0)
+		user.visible_message("<span class='warning'>[user]'s hand slips, spilling the contents of \the [tool] inside [target]'s [affected.name]!</span>", \
+			"<span class='warning'>Your hand slips, spilling the contents of \the [tool] inside [target]'s [affected.name]!</span>")
+	else if(msg_type == 1)
+		user.visible_message("<span class='warning'>[user]'s hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!</span>", \
+			"<span class='warning'>Your hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!</span>")
+	
 
 	for(var/obj/item/organ/I in affected.internal_organs)
 		if(I && I.damage > 0)
