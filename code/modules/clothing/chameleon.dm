@@ -370,7 +370,7 @@
 		gun_choices = list()
 		for(var/gun_type in typesof(/obj/item/gun/) - src.type)
 			var/obj/item/gun/G = gun_type
-			src.gun_choices[initial(G.name)] = gun_typ
+			src.gun_choices[initial(G.name)] = gun_type
 
 /obj/item/gun/energy/chameleon/consume_next_projectile()
 	var/obj/item/projectile/P = ..()
