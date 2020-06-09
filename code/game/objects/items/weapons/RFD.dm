@@ -547,7 +547,11 @@ RFD Piping-Class
 	if(build_delay && !can_use(user, T))
 		return FALSE
 
-	new /obj/item/pipe(T, selected_pipe, NORTH)
+	// Special case handling for bent pipes. They require a non-cardinal direction
+	var/pipe_dir = NORTH
+	if(selected_pipe in list(1, 30, 32))
+		pipe_dir = NORTHEAST
+	new /obj/item/pipe(T, selected_pipe, pipe_dir)
 
 	playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 	return TRUE
