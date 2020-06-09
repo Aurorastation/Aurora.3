@@ -282,6 +282,8 @@
 		else
 			to_chat(H,"<b>You feel something crawl behind your eyes, hearing:</b> [text]")
 			if(istype(H))
+				if(H.can_commune() || H.stat >= UNCONSCIOUS)
+					return
 				if(prob(10) && !(H.species.flags & NO_BLOOD))
 					to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
 					H.drip(3)
