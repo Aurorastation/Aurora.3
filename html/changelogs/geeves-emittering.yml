@@ -1,0 +1,11 @@
+author: Geeves, sprites by Kyres
+
+delete-after: True
+
+changes: 
+  - tweak: "Emitters have received new sprites."
+  - tweak: "Emitters can now be locked even when not firing. This prevents some forms of manipulation."
+  - rscadd: "Emitters can now have their barrels removed and replaced."
+  - rscadd: "Emitter barrels can now be placed on a plasteel stock, wired up, powered up, and used as a makeshift laser rifle."
+  - tweak: "Emitters no longer need to be welded to the floor, simply bolting them is enough."
+  - rscdel: "Killed innocent kittens."

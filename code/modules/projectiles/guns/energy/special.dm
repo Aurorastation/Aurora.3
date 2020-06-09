@@ -592,3 +592,59 @@
 	fire_delay = 20
 	accuracy = 40
 	muzzle_flash = 10
+
+/obj/item/gun/energy/emitter_rifle
+	name = "emitter rifle"
+	desc = "A large emitter barrel mounted on a plasteel stock. Unwieldy, messy, lethal."
+	icon = 'icons/obj/guns/emitterrifle.dmi'
+	icon_state = "emitter_rifle"
+	item_state = "emitter_rifle"
+	w_class = ITEMSIZE_HUGE
+	fire_sound = 'sound/weapons/emitter.ogg'
+	projectile_type = /obj/item/projectile/beam/emitter/rifle
+	cell_type = null
+	charge_cost = 5000 // 2 shots on a high cap cell
+	fire_delay = 30
+	fire_delay_wielded = 20
+	is_wieldable = TRUE
+	has_safety = FALSE
+
+/obj/item/gun/energy/emitter_rifle/update_icon()
+	cut_overlays()
+	var/suffix = ""
+	if(power_supply)
+		if(power_supply.charge >= 5000)
+			add_overlay("emitter_cell-charged")
+			suffix = "-charged"
+		else
+			add_overlay("emitter_cell")
+	icon_state = "emitter_rifle[suffix]"
+	if(wielded)
+		suffix += "-wielded"
+	item_state = "emitter_rifle[suffix]"
+	update_held_icon()
+
+/obj/item/gun/energy/emitter_rifle/attackby(obj/item/I, mob/user)
+	if(I.isscrewdriver())
+		if(power_supply)
+			to_chat(user, SPAN_NOTICE("You uninstall \the [power_supply]."))
+			power_supply.forceMove(get_turf(src))
+			user.put_in_hands(power_supply)
+			power_supply = null
+			update_icon()
+		else
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply!"))
+	else if(istype(I, /obj/item/cell))
+		if(power_supply)
+			to_chat(user, SPAN_WARNING("\The [src] already has a power supply installed!"))
+		else
+			to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
+			user.drop_from_inventory(I, src)
+			power_supply = I
+			update_icon()
+	else
+		..()
+
+/obj/item/gun/energy/emitter_rifle/high_cap
+	cell_type = /obj/item/cell/high
+	icon_state = "emitter_rifle-charged"

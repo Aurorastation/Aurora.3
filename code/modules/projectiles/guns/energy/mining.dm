@@ -53,7 +53,7 @@
 	name = "mounted plasma cutter"
 	self_recharge = TRUE
 	use_external_power = TRUE
-	cell_type = null
+	cell_type = "Variable"
 	max_shots = 15
 
 /obj/item/projectile/beam/plasmacutter

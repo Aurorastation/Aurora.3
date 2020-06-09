@@ -14,7 +14,7 @@
 	var/obj/item/cell/power_supply //What type of power cell this uses
 	var/charge_cost = 200 //How much energy is needed to fire.
 	var/max_shots = 10 //Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
-	var/cell_type = null
+	var/cell_type = "Variable"
 	var/projectile_type = /obj/item/projectile/beam/practice //also passed to turrets
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
@@ -47,10 +47,10 @@
 
 /obj/item/gun/energy/Initialize()
 	. = ..()
-	if(cell_type)
-		power_supply = new cell_type(src)
-	else
+	if(cell_type == "Variable")
 		power_supply = new /obj/item/cell/device/variable(src, max_shots*charge_cost)
+	else if(cell_type)
+		power_supply = new cell_type(src)
 
 /obj/item/gun/energy/Destroy()
 	QDEL_NULL(power_supply)

@@ -98,6 +98,10 @@
 	tracer_type = /obj/effect/projectile/tracer/emitter
 	impact_type = /obj/effect/projectile/impact/emitter
 
+/obj/item/projectile/beam/emitter/rifle
+	name = "diffused emitter beam"
+	damage = 40
+
 /obj/item/projectile/beam/lastertag/blue
 	name = "lasertag beam"
 	icon_state = "bluelaser"
