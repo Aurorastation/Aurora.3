@@ -135,7 +135,6 @@
 	name = "dense chemical crystal cluster"
 	desc = "A dense cluster of hardened chemical crystals."
 	icon_state = "dense"
-	density = TRUE
 	health = 200
 	mine_rate = 2
 
