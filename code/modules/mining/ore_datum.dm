@@ -85,23 +85,6 @@ var/global/list/ore_data = list()
 	xarch_source_mineral = "phoron"
 	worth = 8
 
-/ore/impure_phoron
-	name = ORE_PHORON
-	display_name = "impure phoron crystals"
-	compresses_to = MATERIAL_PHORON
-	result_amount = 1
-	spread_chance = 15
-	ore = /obj/item/ore/phoron/impure
-	scan_icon = "mineral_uncommon"
-	xarch_ages = list(
-		"thousand" = 999,
-		"million" = 999,
-		"billion" = 13,
-		"billion_lower" = 10
-		)
-	xarch_source_mineral = "phoron"
-	worth = 5
-
 /ore/silver
 	name = ORE_SILVER
 	display_name = "native silver"

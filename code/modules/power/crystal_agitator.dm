@@ -1,8 +1,8 @@
-/obj/machinery/power/phoron_agitator
-	name = "phoron agitator"
-	desc = "A device of incredibly niche design. This agitator disturbs the ashy turf around it, causing phoron crystals to form."
-	icon = 'icons/obj/phoron_agitator.dmi'
-	icon_state = "phoron_agitator"
+/obj/machinery/power/crystal_agitator
+	name = "crystal agitator"
+	desc = "A device of incredibly niche design. This agitator disturbs the ashy turf around it, causing chemical crystals to form."
+	icon = 'icons/obj/crystal_agitator.dmi'
+	icon_state = "agitator"
 	density = TRUE
 	anchored = TRUE
 
@@ -19,22 +19,22 @@
 		/obj/item/stock_parts/capacitor,
 		/obj/item/stock_parts/manipulator,
 		/obj/item/bluespace_crystal,
-		/obj/item/circuitboard/phoron_agitator
+		/obj/item/circuitboard/crystal_agitator
 	)
 
-/obj/machinery/power/phoron_agitator/Initialize()
+/obj/machinery/power/crystal_agitator/Initialize()
 	. = ..()
 	connect_to_network()
 
-/obj/machinery/power/phoron_agitator/attack_hand(mob/user)
+/obj/machinery/power/crystal_agitator/attack_hand(mob/user)
 	toggle_active()
 	visible_message(SPAN_NOTICE("\The [user] turns \the [src] [active ? "on" : "off"]."), SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."))
 
-/obj/machinery/power/phoron_agitator/proc/toggle_active()
+/obj/machinery/power/crystal_agitator/proc/toggle_active()
 	active = !active
 	icon_state = "[initial(icon_state)][active ? "-active": ""]"
 
-/obj/machinery/power/phoron_agitator/machinery_process()
+/obj/machinery/power/crystal_agitator/machinery_process()
 	if(!active)
 		return
 	if(stat & (BROKEN) || !powernet)
@@ -54,28 +54,28 @@
 			continue
 		if(!istype(T, /turf/unsimulated/floor/asteroid))
 			continue
-		if(locate(/obj/structure/phoron_crystal/dense) in T)
+		if(locate(/obj/structure/reagent_crystal/dense) in T)
 			continue
 		grow_turfs += T
 
 	var/turf/selected_turf = pick(grow_turfs)
 	if(!selected_turf || !istype(selected_turf))
 		return
-	if(locate(/obj/structure/phoron_crystal) in selected_turf)
-		var/obj/structure/phoron_crystal/P = locate() in selected_turf
+	if(locate(/obj/structure/reagent_crystal) in selected_turf)
+		var/obj/structure/reagent_crystal/P = locate() in selected_turf
 		P.become_dense()
 		return
-	new /obj/structure/phoron_crystal(selected_turf)
+	new /obj/structure/reagent_crystal(selected_turf)
 	last_agitation = world.time
 
-/obj/machinery/power/phoron_agitator/RefreshParts()
+/obj/machinery/power/crystal_agitator/RefreshParts()
 	for(var/obj/item/stock_parts/SP in component_parts)
 		if(ismanipulator(SP))
 			agitation_rate = initial(agitation_rate) - (SP.rating * 5)
 		if(iscapacitor(SP))
 			active_power_usage = initial(active_power_usage) - (SP.rating * 500)
 
-/obj/machinery/power/phoron_agitator/attackby(obj/item/I, mob/user, params)
+/obj/machinery/power/crystal_agitator/attackby(obj/item/I, mob/user, params)
 	if(default_part_replacement(user, I))
 		return
 	else if(default_deconstruction_screwdriver(user, I))
@@ -84,9 +84,9 @@
 		return
 	return ..()
 
-/obj/item/circuitboard/phoron_agitator
-	name = T_BOARD("Phoron Agitator")
-	build_path = /obj/machinery/power/phoron_agitator
+/obj/item/circuitboard/crystal_agitator
+	name = T_BOARD("Crystal Agitator")
+	build_path = /obj/machinery/power/crystal_agitator
 	board_type = "machine"
 	origin_tech = list(
 		TECH_ENGINEERING = 3,

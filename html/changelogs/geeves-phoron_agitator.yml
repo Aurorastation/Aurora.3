@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "Implements Phoron Agitators, machines that agitate asteroid turf to form impure phoron crystals."
+  - rscadd: "Implements Crystal Agitators, machines that agitate asteroid turf to form chemical crystals. Check the communal out."

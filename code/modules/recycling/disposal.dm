@@ -108,7 +108,7 @@
 		update()
 		return
 
-	else if(istype(I, /obj/item/storage/bag/ore))
+	else if(istype(I, /obj/item/storage/bag/crystal) || istype(I, /obj/item/storage/bag/ore))
 		var/obj/item/storage/bag/ore/B = I
 		to_chat(user, SPAN_NOTICE("You empty \the [B] into \the [src]."))
 		for(var/obj/item/O in B.contents)
