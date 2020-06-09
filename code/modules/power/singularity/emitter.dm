@@ -85,6 +85,7 @@
 			icon_state = "emitter[dismantled]_secure_on"
 			var/mutable_appearance/glow_overlay = make_screen_overlay(icon, "emitter_glow")
 			add_overlay(glow_overlay)
+			set_light(1.5, 1, COLOR_BRIGHT_GREEN)
 		else
 			icon_state = "emitter[dismantled]_secure"
 
