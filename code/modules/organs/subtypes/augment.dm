@@ -207,6 +207,7 @@
 	cooldown = 25
 	activable = TRUE
 	organ_tag = BP_AUG_EYE_SENSORS
+	parent_organ = BP_HEAD
 	action_button_name = "Toggle Eye Sensors"
 
 	var/static/list/hud_types = list(
@@ -256,6 +257,7 @@
 	cooldown = 20
 	action_button_icon = "cyber_hair"
 	organ_tag = BP_AUG_HAIR
+	parent_organ = BP_HEAD
 	activable = TRUE
 	action_button_name = "Activate Synthetic Hair Extensions"
 	species_restricted = list("Human","Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Shell Frame")
