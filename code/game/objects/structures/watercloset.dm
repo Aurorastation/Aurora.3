@@ -190,7 +190,7 @@
 		qdel(mymist)
 
 	if(on)
-		soundloop.start()
+		soundloop.start(src)
 		add_overlay(image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir))
 		if(temperature_settings[watertemp] < T20C)
 			return //no mist for cold water
@@ -199,14 +199,15 @@
 				if(src && on)
 					ismist = 1
 					mymist = new /obj/effect/mist(loc)
-		else
-			soundloop.stop()
+		else //??? what the fuck is this
 			ismist = 1
 			mymist = new /obj/effect/mist(loc)
-	else if(ismist)
-		ismist = 1
-		mymist = new /obj/effect/mist(loc)
-		addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE)
+	else
+		soundloop.stop(src)
+		if(ismist)
+			ismist = 1
+			mymist = new /obj/effect/mist(loc)
+			addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 /obj/machinery/shower/proc/clear_mist()
 	if (!on)
@@ -226,8 +227,9 @@
 	..()
 
 //Yes, showers are super powerful as far as washing goes.
-/obj/machinery/shower/proc/wash(atom/movable/O as obj|mob)
-	if(!on) return
+/obj/machinery/shower/proc/wash(atom/movable/O)
+	if(!on)
+		return
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(spray_amount)
@@ -235,6 +237,8 @@
 	W.set_up(O, spray_amount)
 
 	if(iscarbon(O))
+		var/update_icons_required = FALSE
+
 		var/mob/living/carbon/M = O
 		if(M.r_hand)
 			M.r_hand.clean_blood()
@@ -275,39 +279,53 @@
 			if(H.head)
 				if(H.head.clean_blood())
 					H.update_inv_head(0)
+					update_icons_required = TRUE
 			if(H.wear_suit)
 				if(H.wear_suit.clean_blood())
 					H.update_inv_wear_suit(0)
+					update_icons_required = TRUE
 			else if(H.w_uniform)
 				if(H.w_uniform.clean_blood())
 					H.update_inv_w_uniform(0)
+					update_icons_required = TRUE
 			if(H.gloves && washgloves)
 				if(H.gloves.clean_blood())
 					H.update_inv_gloves(0)
+					update_icons_required = TRUE
 			if(H.shoes && washshoes)
 				if(H.shoes.clean_blood())
 					H.update_inv_shoes(0)
+					update_icons_required = TRUE
 			if(H.wear_mask && washmask)
 				if(H.wear_mask.clean_blood())
 					H.update_inv_wear_mask(0)
+					update_icons_required = TRUE
 			if(H.glasses && washglasses)
 				if(H.glasses.clean_blood())
 					H.update_inv_glasses(0)
+					update_icons_required = TRUE
 			if(H.l_ear && washears)
 				if(H.l_ear.clean_blood())
 					H.update_inv_ears(0)
+					update_icons_required = TRUE
 			if(H.r_ear && washears)
 				if(H.r_ear.clean_blood())
 					H.update_inv_ears(0)
+					update_icons_required = TRUE
 			if(H.belt)
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)
+					update_icons_required = TRUE
 			H.clean_blood(washshoes)
 		else
 			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
 				if(M.wear_mask.clean_blood())
 					M.update_inv_wear_mask(0)
+					update_icons_required = TRUE
 			M.clean_blood()
+
+		if (update_icons_required)
+			M.update_icons()
 	else
 		O.clean_blood()
 
@@ -330,10 +348,10 @@
 				qdel(E)
 
 /obj/machinery/shower/machinery_process()
-	if(!on) 
+	if(!on)
 		return
 	wash_floor()
-	if(!mobpresent)	
+	if(!mobpresent)
 		return
 	for(var/mob/living/L in loc)
 		wash(L) // Why was it not here before?
@@ -350,7 +368,7 @@
 		is_washing = 0
 
 /obj/machinery/shower/proc/process_heat(mob/living/M)
-	if(!on || !istype(M)) 
+	if(!on || !istype(M))
 		return
 
 	var/temperature = temperature_settings[watertemp]
@@ -418,7 +436,7 @@
 		return TRUE
 	busy = 0
 
-	if(!Adjacent(user)) 
+	if(!Adjacent(user))
 		return		//Person has moved away from the sink
 
 	user.clean_blood()

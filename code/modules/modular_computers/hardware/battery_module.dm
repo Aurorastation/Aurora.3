@@ -2,9 +2,9 @@
 // have tremendeous capacity in comparsion. Higher tier cells would provide your device with nearly infinite battery life, which is something i want to avoid.
 /obj/item/computer_hardware/battery_module
 	name = "standard battery"
-	desc = "A standard power cell, commonly seen in high-end portable microcomputers or low-end laptops. It's rating is 750."
+	desc = "A standard power cell, commonly seen in high-end portable microcomputers or low-end laptops. Its rating is 750."
 	icon_state = "battery_normal"
-	critical = 1
+	critical = TRUE
 	malfunction_probability = 1
 	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
 	var/battery_rating = 750
@@ -12,7 +12,7 @@
 
 /obj/item/computer_hardware/battery_module/advanced
 	name = "advanced battery"
-	desc = "An advanced power cell, often used in most laptops. It is too large to be fitted into smaller devices. It's rating is 1100."
+	desc = "An advanced power cell, often used in most laptops. It is too large to be fitted into smaller devices. Its rating is 1100."
 	icon_state = "battery_advanced"
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
 	battery_rating = 1100
@@ -20,7 +20,7 @@
 
 /obj/item/computer_hardware/battery_module/super
 	name = "super battery"
-	desc = "A very advanced power cell, often used in high-end devices, or as uninterruptable power supply for important consoles or servers. It's rating is 1500."
+	desc = "A very advanced power cell, often used in high-end devices, or as uninterruptable power supply for important consoles or servers. Its rating is 1500."
 	icon_state = "battery_super"
 	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3)
 	hardware_size = 3
@@ -28,7 +28,7 @@
 
 /obj/item/computer_hardware/battery_module/ultra
 	name = "ultra battery"
-	desc = "A very advanced large power cell. It's often used as uninterruptable power supply for critical consoles or servers. It's rating is 2000."
+	desc = "A very advanced large power cell. Its often used as uninterruptable power supply for critical consoles or servers. Its rating is 2000."
 	icon_state = "battery_ultra"
 	origin_tech = list(TECH_POWER = 5, TECH_ENGINEERING = 4)
 	hardware_size = 3
@@ -36,14 +36,14 @@
 
 /obj/item/computer_hardware/battery_module/micro
 	name = "micro battery"
-	desc = "A small power cell, commonly seen in most portable microcomputers. It's rating is 500."
+	desc = "A small power cell, commonly seen in most portable microcomputers. Its rating is 500."
 	icon_state = "battery_micro"
 	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2)
 	battery_rating = 500
 
 /obj/item/computer_hardware/battery_module/nano
 	name = "nano battery"
-	desc = "A tiny power cell, commonly seen in low-end portable microcomputers. It's rating is 300."
+	desc = "A tiny power cell, commonly seen in low-end portable microcomputers. Its rating is 300."
 	icon_state = "battery_nano"
 	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
 	battery_rating = 300
@@ -58,15 +58,15 @@
 
 /obj/item/computer_hardware/battery_module/lambda/Initialize()
 	. = ..()
-	battery = new/obj/item/cell/infinite(src)
+	battery = new /obj/item/cell/infinite(src)
 
 /obj/item/computer_hardware/battery_module/diagnostics(var/mob/user)
 	..()
-	to_chat(user, "Internal battery charge: [battery.charge]/[battery.maxcharge] mAh")
+	to_chat(user, SPAN_NOTICE("Internal battery charge: [battery.charge]/[battery.maxcharge] mAh"))
 
 /obj/item/computer_hardware/battery_module/Initialize()
 	. = ..()
-	battery = new/obj/item/cell/device/variable(src, battery_rating)
+	battery = new /obj/item/cell/device/variable(src, battery_rating)
 	battery.charge = 0
 
 /obj/item/computer_hardware/battery_module/proc/charge_to_full()

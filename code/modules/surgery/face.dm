@@ -34,14 +34,14 @@
 	..()
 
 /datum/surgery_step/generic/cut_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has cut open [target]'s face and neck with \the [tool].</span>" , \
+	user.visible_message("<b>[user]</b> has cut open [target]'s face and neck with \the [tool]." , \
 		"<span class='notice'>You have cut open [target]'s face and neck with \the [tool].</span>",)
 	target.op_stage.face = 1
 
 /datum/surgery_step/generic/cut_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	target.apply_damage(20, OXY)
 	target.losebreath += 10
 
@@ -72,11 +72,11 @@
 	..()
 
 /datum/surgery_step/robotics/face/synthskin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has cut open [target]'s synthskin face and neck with \the [tool].</span>" , \
+	user.visible_message("<b>[user]</b> has cut open [target]'s synthskin face and neck with \the [tool]." , \
 		"<span class='notice'>You have cut open [target]'s synthskin face and neck with \the [tool].</span>",)
 	target.op_stage.face = 1
 
 /datum/surgery_step/robotics/face/synthskin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
 		"<span class='warning'>Your hand slips, slicing [target]'s throat wth \the [tool]!</span>" )
-	target.apply_damage(40, BRUTE, target_zone, 0, tool, tool.sharp, tool.edge)
+	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())

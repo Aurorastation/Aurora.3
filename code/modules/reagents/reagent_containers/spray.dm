@@ -161,7 +161,6 @@
 	safety = 1
 	hitsound = "swing_hit"
 
-
 /obj/item/reagent_containers/spray/pepper/Initialize()
 	. = ..()
 	reagents.add_reagent("condensedcapsaicin", 40)
@@ -182,8 +181,14 @@
 	name = "water flower"
 	desc = "A seemingly innocent sunflower...with a twist."
 	icon = 'icons/obj/toy.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_toy.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_toy.dmi',
+		)
 	icon_state = "sunflower"
 	item_state = "sunflower"
+	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = null
 	volume = 10

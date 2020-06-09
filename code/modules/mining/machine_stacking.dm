@@ -2,14 +2,20 @@
 
 /obj/machinery/mineral/stacking_unit_console
 	name = "stacking machine console"
-	icon = 'icons/obj/machines/mining_machines.dmi'
-	icon_state = "console"
+	icon = 'icons/obj/terminals.dmi'
+	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
 	var/obj/machinery/mineral/stacking_machine/machine
 	use_power = 1
 	idle_power_usage = 15
 	active_power_usage = 50
+
+/obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
+	. = ..()
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+	add_overlay(screen_overlay)
+	set_light(1.4, 1, COLOR_CYAN)
 
 /obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
 	if(!machine)

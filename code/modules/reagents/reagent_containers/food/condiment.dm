@@ -14,6 +14,16 @@
 	possible_transfer_amounts = list(1,5,10)
 	center_of_mass = list("x"=16, "y"=6)
 	volume = 50
+	var/next_shake
+
+/obj/item/reagent_containers/food/condiment/proc/shake(var/mob/user)
+	if(world.time >= next_shake)
+		if(reagents.total_volume > 0)
+			user.visible_message(pick(SPAN_NOTICE("[user] shakes \the [src]."), SPAN_NOTICE("[user] gives \the [src] a good shake.")), SPAN_NOTICE("You give \the [src] a good shake."))
+			playsound(get_turf(src),'sound/items/condiment_shaking.ogg', rand(10,50), 1)
+		else
+			user.visible_message(pick(SPAN_NOTICE("[user] shakes \the [src], but it makes no noise."), SPAN_NOTICE("[user] gives \the [src] a good shake, but it makes no noise.")), SPAN_NOTICE("You give \the [src] a good shake, but it makes no noise."))
+		next_shake = world.time + 30
 
 /obj/item/reagent_containers/food/condiment/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
@@ -123,6 +133,9 @@
 	amount_per_transfer_from_this = 1
 	volume = 20
 
+/obj/item/reagent_containers/food/condiment/saltshaker/attack_self(mob/user)
+	shake(user)
+
 /obj/item/reagent_containers/food/condiment/saltshaker/Initialize()
 	. = ..()
 	reagents.add_reagent("sodiumchloride", 20)
@@ -135,6 +148,9 @@
 	possible_transfer_amounts = list(1,20) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 20
+
+/obj/item/reagent_containers/food/condiment/peppermill/attack_self(mob/user)
+	shake(user)
 
 /obj/item/reagent_containers/food/condiment/peppermill/Initialize()
 	. = ..()
@@ -162,6 +178,9 @@
 	possible_transfer_amounts = list(1,40) //for clown turning the lid off
 	amount_per_transfer_from_this = 1
 	volume = 40
+
+/obj/item/reagent_containers/food/condiment/spacespice/attack_self(mob/user)
+	shake(user)
 
 /obj/item/reagent_containers/food/condiment/spacespice/Initialize()
 	. = ..()

@@ -78,7 +78,7 @@
 	var/mob/living/carbon/human/M = target_mob
 	var/sting_prob = 40 // Bees will always try to sting.
 	var/prob_mult = 1
-	if(M && M in view(src,1)) // Can I see my target?
+	if(M && (M in view(src,1))) // Can I see my target?
 		var/obj/item/clothing/worn_suit = M.wear_suit
 		var/obj/item/clothing/worn_helmet = M.head
 		if(worn_suit) // Are you wearing clothes?
@@ -92,7 +92,7 @@
 			else
 				prob_mult -= 0.01 *(min(LAZYACCESS(worn_helmet.armor, "bio"), 30))// Is your helmet sealed? I can't get to 30% of your body.
 		if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
-			M.apply_damage(min(strength*0.85,2)+mut, BURN, sharp=1) // Stinging. The more mutated I am, the harder I sting.
+			M.apply_damage(min(strength*0.85,2)+mut, BURN, damage_flags = DAM_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			M.apply_damage(max(strength*0.2,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
 			to_chat(M, "<span class='warning'>You have been stung!</span>")
 			M.flash_pain()

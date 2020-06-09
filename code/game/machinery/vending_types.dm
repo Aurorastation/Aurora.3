@@ -22,7 +22,7 @@
 	name = "Omni-Vendor"
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
-	icon_deny = "engivend-deny"
+	deny_time = 6
 	vend_id = "admin"
 	req_access = list(access_janitor)
 	products = list(
@@ -41,12 +41,14 @@
 		/obj/item/vending_refill/battlemonsters = 1,
 	)
 	random_itemcount = 0
+	light_color = COLOR_GOLD
+
 
 /obj/machinery/vending/boozeomat
 	name = "Booze-O-Mat"
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
-	icon_deny = "boozeomat-deny"
+	deny_time = 16
 	vend_id = "booze"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/bottle/bitters = 6,
@@ -113,6 +115,9 @@
 	req_access = list(access_bar)
 	random_itemcount = 0
 	vending_sound = "machines/vending/vending_cans.ogg"
+	light_color = COLOR_PALE_BLUE_GRAY
+	exclusive_screen = FALSE
+
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
@@ -134,6 +139,8 @@
 	)
 	product_ads = "Only the finest!;Have some tools.;The most robust equipment.;The finest gear in space!"
 	restock_items = 1
+	light_color = COLOR_GUNMETAL
+
 
 /obj/machinery/vending/coffee
 	name = "Hot Drinks machine"
@@ -173,6 +180,8 @@
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
 	temperature_setting = -1
+	light_color = COLOR_BROWN
+
 
 /obj/machinery/vending/snack
 	name = "Getmore Chocolate Corp"
@@ -230,11 +239,13 @@
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
 		/obj/item/reagent_containers/food/snacks/tuna = 23
 	)
+	light_color = COLOR_BABY_BLUE
+
 
 /obj/machinery/vending/cola
 	name = "Robust Softdrinks"
 	desc = "A softdrink vendor provided by Robust Industries, LLC."
-	icon_state = "Cola_Machine"
+	icon_state = "cola_machine"
 	product_slogans = "Robust Softdrinks: More robust than a toolbox to the head!"
 	product_ads = "Refreshing!;Hope you're thirsty!;Over 1 million drinks sold!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
 	vend_id = "cola"
@@ -278,6 +289,8 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vending_sound = "machines/vending/vending_cans.ogg"
 	temperature_setting = -1
+	light_color = COLOR_GUNMETAL
+
 
 //This one's from bay12
 /obj/machinery/vending/cart
@@ -285,7 +298,7 @@
 	desc = "Cartridges for PDAs."
 	product_slogans = "Carts to go!"
 	icon_state = "cart"
-	icon_deny = "cart-deny"
+	deny_time = 14
 	req_access = list(access_hop)
 	vend_id = "pdas"
 	products = list(
@@ -305,6 +318,7 @@
 		/obj/item/cartridge/captain = 1
 	)
 	restock_items = 1
+	light_color = COLOR_BLUE_GRAY
 
 
 /obj/machinery/vending/cigarette
@@ -366,12 +380,14 @@
 		/obj/item/storage/fancy/cigpaper/fine = 42,
 		/obj/item/spacecash/ewallet/lotto = 200
 	)
+	light_color = COLOR_BLUE_GRAY
+
 
 /obj/machinery/vending/medical
 	name = "NanoMed Plus"
 	desc = "Medical drug dispenser."
 	icon_state = "med"
-	icon_deny = "med-deny"
+	deny_time = 15
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
 	req_access = list(access_medical_equip)
 	vend_id = "meds"
@@ -403,6 +419,8 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
+	light_color = LIGHT_COLOR_GREEN
+
 
 //This one's from bay12
 /obj/machinery/vending/phoronresearch
@@ -429,13 +447,15 @@
 	)
 	restock_items = 1
 	random_itemcount = 0
+	light_color = COLOR_BLUE_GRAY
+
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
-	icon_deny = "wallmed-deny"
+	deny_time = 15
 	req_access = list(access_medical)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
@@ -448,7 +468,6 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/syringe/dylovene = 4,
-		/obj/item/reagent_containers/syringe/antiviral = 4,
 		/obj/item/reagent_containers/pill/tox = 1
 	)
 	premium = list(
@@ -456,12 +475,14 @@
 	)
 	random_itemcount = 0
 	temperature_setting = -1
+	light_color = LIGHT_COLOR_GREEN
+
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
-	icon_deny = "wallmed-deny"
+	deny_time = 15
 	req_access = list(access_medical)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
@@ -480,13 +501,15 @@
 	)
 	random_itemcount = 0
 	temperature_setting = -1
+	light_color = LIGHT_COLOR_GREEN
+
 
 /obj/machinery/vending/security
 	name = "SecTech"
 	desc = "A security equipment vendor."
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon_state = "sec"
-	icon_deny = "sec-deny"
+	deny_time = 16
 	req_access = list(access_security)
 	vend_id = "security"
 	products = list(
@@ -512,6 +535,9 @@
 		)
 	restock_items = 1
 	random_itemcount = 0
+	light_color = COLOR_BABY_BLUE
+	exclusive_screen = FALSE
+
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -519,7 +545,7 @@
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
 	product_ads = "We like plants!;Don't you want some?;The greenest thumbs ever.;We like big plants.;Soft soil..."
 	icon_state = "nutri"
-	icon_deny = "nutri-deny"
+	deny_time = 6
 	vend_id = "hydro"
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
@@ -536,9 +562,9 @@
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
 	)
-
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
+	light_color = COLOR_BABY_BLUE
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
@@ -659,6 +685,7 @@
 	)
 	restock_items = 1
 	random_itemcount = 0
+	light_color = COLOR_BABY_BLUE
 
 /**
  *  Populate hydroseeds product_records
@@ -689,7 +716,7 @@
 /obj/machinery/vending/magivend
 	name = "MagiVend"
 	desc = "A magic vending machine."
-	icon_state = "MagiVend"
+	icon_state = "magivend"
 	product_slogans = "Sling spells the proper way with MagiVend!;Be your own Houdini! Use MagiVend!"
 	vend_delay = 15
 	vend_reply = "Have an enchanted evening!"
@@ -708,9 +735,9 @@
 	premium = list(
 		/obj/item/clothing/head/wizard/fake = 1
 	)
-
 	restock_items = 1
 	random_itemcount = 0
+	light_color = COLOR_BABY_BLUE
 
 /obj/machinery/vending/dinnerware
 	name = "Dinnerware"
@@ -742,6 +769,7 @@
 	)
 	restock_items = 1
 	random_itemcount = 0
+	light_color = COLOR_STEEL
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -763,12 +791,13 @@
 	random_itemcount = 0
 	temperature_setting = -1
 	vending_sound = "machines/vending/vending_cans.ogg"
+	light_color = COLOR_RED
 
 /obj/machinery/vending/tool
 	name = "YouTool"
 	desc = "Tools for tools."
 	icon_state = "tool"
-	icon_deny = "tool-deny"
+	deny_time = 6
 	vend_id = "tools"
 	//req_access = list(access_maint_tunnels) //Maintenance access
 	products = list(
@@ -794,12 +823,13 @@
 		/obj/item/weldingtool/hugetank
 	)
 	restock_items = 1
+	light_color = COLOR_GOLD
 
 /obj/machinery/vending/engivend
 	name = "Engi-Vend"
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
-	icon_deny = "engivend-deny"
+	deny_time = 6
 	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
@@ -820,12 +850,13 @@
 	)
 	restock_items = 1
 	random_itemcount = 0
+	light_color = COLOR_GOLD
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
-	icon_deny = "tact-deny"
+	deny_time = 19
 	req_access = list(access_security)
 	vend_id = "tactical"
 	products = list(
@@ -844,12 +875,11 @@
 		/obj/item/grenade/chem_grenade/gas = 2
 	)
 	random_itemcount = 0
+	light_color = COLOR_BROWN
 
 /obj/machinery/vending/tacticool/ert //Slightly more !FUN!
 	name = "Nanosecurity Plus"
 	desc = "For when shit really goes down; the private contractor's personal armory."
-	icon_state = "tact"
-	icon_deny = "tact-deny"
 	req_access = list(access_security)
 	vend_id = "ert"
 	products = list(
@@ -881,7 +911,7 @@
 	name = "Robco Tool Maker"
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
-	icon_deny = "engi-deny"
+	deny_time = 6
 	req_access = list(access_engine_equip)
 	vend_id = "tools"
 	products = list(
@@ -919,13 +949,14 @@
 		/obj/item/light/tube
 	)
 	restock_items = 1
+	light_color = COLOR_GOLD
 
 //This one's from bay12
 /obj/machinery/vending/robotics
 	name = "Robotech Deluxe"
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
-	icon_deny = "robotics-deny"
+	deny_time = 14
 	req_access = list(access_robotics)
 	vend_id = "robo-tools"
 	products = list(
@@ -959,6 +990,7 @@
 	)
 	restock_items = 1
 	random_itemcount = 0
+	light_color = COLOR_BABY_BLUE
 
 /obj/machinery/vending/zora
 	name = "Zo'ra Soda"
@@ -993,6 +1025,7 @@
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	temperature_setting = -1
+	light_color = COLOR_CULT_REINFORCED
 
 /obj/machinery/vending/battlemonsters
 	name = "\improper Battlemonsters vendor"
@@ -1026,3 +1059,4 @@
 		/obj/item/coin/battlemonsters = 10
 	)
 	restock_items = 0
+	light_color = COLOR_BABY_BLUE

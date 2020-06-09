@@ -23,7 +23,8 @@
         <td v-else/>
       </tr>
     </table>
-</div></template>
+  </div>
+</template>
 
 <script>
 export default {

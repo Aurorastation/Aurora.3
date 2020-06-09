@@ -281,9 +281,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	if(mind.current.ajourn && mind.current.stat != DEAD) //check if the corpse is astral-journeying (it's client ghosted using a cultist rune).
 		var/found_rune
-		for(var/obj/effect/rune/ethereal/R in get_turf(mind.current)) //whilst corpse is alive, we can only reenter the body if it's on the rune
-			found_rune = TRUE
-			break
+		for(var/obj/effect/rune/R in get_turf(mind.current)) //whilst corpse is alive, we can only reenter the body if it's on the rune
+			if(R.rune.type == /datum/rune/ethereal)
+				found_rune = TRUE
+				break
 		if(!found_rune)
 			to_chat(usr, span("cult", "The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
 			return
@@ -396,7 +397,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	moved_event.register(following, src, /atom/movable/proc/move_to_destination)
 	destroyed_event.register(following, src, /mob/abstract/observer/proc/stop_following)
 
-	to_chat(src, "<span class='notice'>Now following \the [following]</span>")
+	to_chat(src, "<span class='notice'>Now following \the [following].</span>")
 	move_to_destination(following, following.loc, following.loc)
 	updateghostsight()
 
@@ -907,15 +908,15 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 /mob/extra_ghost_link(var/atom/ghost)
 	if(client && eyeobj)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>\[E\]</a>"
+		return "|\[<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>E</a>\]"
 
 /mob/abstract/observer/extra_ghost_link(var/atom/ghost)
 	if(mind && mind.current)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>\[B\]</a>"
+		return "|\[<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>B</a>\]"
 
 /proc/ghost_follow_link(var/atom/target, var/atom/ghost)
 	if((!target) || (!ghost)) return
-	. = "<a href='byond://?src=\ref[ghost];track=\ref[target]'>\[F\]</a>"
+	. = "\[<a href='byond://?src=\ref[ghost];track=\ref[target]'>F</a>\]"
 	. += target.extra_ghost_link(ghost)
 
 

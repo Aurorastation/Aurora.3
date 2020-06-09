@@ -134,7 +134,7 @@
 
 /obj/item/vampiric/hear_talk(mob/M as mob, text)
 	..()
-	if(world.time - last_bloodcall >= bloodcall_interval && M in view(7, src))
+	if(world.time - last_bloodcall >= bloodcall_interval && (M in view(7, src)))
 		bloodcall(M)
 
 /obj/item/vampiric/proc/bloodcall(var/mob/living/carbon/human/M)

@@ -56,8 +56,6 @@
 		var/datum/job/job = new J()
 		if(!job || job.faction != faction)
 			continue
-		if(!job.faction in faction)
-			continue
 		occupations += job
 		name_occupations[job.title] = job
 		type_occupations[J] = job
@@ -341,6 +339,7 @@
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.forceMove(S.loc)
 			H.lastarea = get_area(H.loc)
+			H.lastarea.set_lightswitch(TRUE)
 		else
 			LateSpawn(H, rank)
 
@@ -392,7 +391,7 @@
 	to_chat(H, "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
 
 	if(job.supervisors)
-		to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
+		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED && !megavend)
@@ -726,6 +725,10 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
+
+			if(G.augment) //augments are handled somewhere else
+				continue
+
 			var/permitted
 			if(G.allowed_roles)
 				for(var/job_name in G.allowed_roles)
@@ -858,5 +861,58 @@
 		CB.Invoke()
 
 	deferred_preference_sanitizations.Cut()
+
+
+/datum/controller/subsystem/jobs/proc/EquipAugments(mob/living/carbon/human/H, datum/preferences/prefs)
+	Debug("EA/([H]): Entry.")
+	if(!istype(H))
+		Debug("EA/([H]): Abort: invalid arguments.")
+		return FALSE
+
+	var/datum/job/rank = GetJob(H.mind.assigned_role)
+
+	switch (rank.title)
+		if ("AI", "Cyborg")
+			Debug("EA/([H]): Abort: synthetic.")
+			return FALSE
+
+	for(var/thing in prefs.gear)
+		var/datum/gear/G = gear_datums[thing]
+		if(G)
+			if(!G.augment)
+				continue
+
+			var/permitted = FALSE
+			if(G.allowed_roles)
+				for(var/job_name in G.allowed_roles)
+					if(rank.title == job_name)
+						permitted = TRUE
+						break
+			else
+				permitted = TRUE
+
+			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+				permitted = FALSE
+
+			if(G.faction && G.faction != H.employer_faction)
+				permitted = FALSE
+
+			if(!permitted)
+				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
+				continue
+
+			var/metadata
+			var/list/gear_test = prefs.gear[G.display_name]
+			if(gear_test?.len)
+				metadata = gear_test
+			else
+				metadata = list()
+			var/obj/item/organ/A = G.spawn_item(H, metadata)
+			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+			A.replaced(H, affected)
+			H.update_body()
+
+	Debug("EA/([H]): Complete.")
+	return TRUE
 
 #undef Debug

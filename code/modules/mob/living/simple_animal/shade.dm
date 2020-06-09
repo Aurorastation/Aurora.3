@@ -40,6 +40,9 @@
 	new residue(loc)
 	qdel(src)
 
+/mob/living/simple_animal/shade/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
 	if(istype(O, /obj/item/device/soulstone))
 		var/obj/item/device/soulstone/S = O;
@@ -92,7 +95,7 @@
 	var/datum/weakref/original_body
 	var/datum/weakref/possessed_body
 
-/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage_flags, var/def_zone, var/edge, var/sharp, var/used_weapon)
+/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage_flags, var/def_zone, var/used_weapon)
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/adjustBruteLoss()

@@ -162,6 +162,13 @@
 				open()
 		return
 
+	if(istype(AM, /mob/living/simple_animal/spiderbot))
+		var/mob/living/simple_animal/spiderbot/bot = AM
+		if(src.check_access(bot.internal_id))
+			if(density)
+				open()
+		return
+
 	if(istype(AM, /obj/structure/bed/chair/wheelchair))
 		var/obj/structure/bed/chair/wheelchair/wheel = AM
 		if(density)

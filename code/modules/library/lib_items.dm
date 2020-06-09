@@ -103,7 +103,7 @@
 	. = ..()
 	name = "[initial(name)] ([spawn_category])"
 
-	addtimer(CALLBACK(src, .proc/populate_shelves), 0)
+	addtimer(CALLBACK(src, .proc/populate_shelves), 1)
 
 /obj/structure/bookcase/libraryspawn/proc/populate_shelves()
 	if (!establish_db_connection(dbcon))
@@ -196,6 +196,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_books.dmi'
 		)
 	icon_state = "book"
+	description_cult = "This can be reforged to become a cult tome."
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
@@ -207,7 +208,8 @@
 	var/title		 // The real name of the book.
 	var/carved = 0	 // Has the book been hollowed out for use as a secret storage item?
 	var/obj/item/store	//What's in the book?
-	drop_sound = 'sound/bureaucracy/bookclose.ogg'
+	drop_sound = 'sound/items/drop/book.ogg'
+	pickup_sound = 'sound/items/pickup/book.ogg'
 
 /obj/item/book/attack_self(var/mob/user as mob)
 	if(carved)
@@ -224,6 +226,7 @@
 		user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
 		playsound(loc, 'sound/bureaucracy/bookopen.ogg', 50, 1)
 		onclose(user, "book")
+		onclose(playsound(loc, 'sound/bureaucracy/bookclose.ogg', 50, 1))
 	else
 		to_chat(user, "This book is completely blank!")
 

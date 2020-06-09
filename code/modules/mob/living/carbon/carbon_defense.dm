@@ -26,7 +26,7 @@
 				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
+		else if(!vr_mob)
 			visible_message(span("danger","[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
 		visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
@@ -54,7 +54,7 @@
 				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
+		else if(!vr_mob)
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
 		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
@@ -80,7 +80,7 @@
 				willfully_sleeping = FALSE
 			else
 				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
+		else if(!vr_mob)
 			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [t_him] up!</span>", \
 					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
@@ -98,13 +98,12 @@
 		effective_force *= 2
 
 	//Apply weapon damage
-	var/weapon_sharp = is_sharp(I)
-	var/weapon_edge = has_edge(I)
+	var/damage_flags = I.damage_flags()
 	if(prob(blocked)) //armour provides a chance to turn sharp/edge weapon attacks into blunt ones
-		weapon_sharp = 0
-		weapon_edge = 0
+		damage_flags &= ~DAM_SHARP
+		damage_flags &= ~DAM_EDGE
 
-	apply_damage(effective_force, I.damtype, hit_zone, blocked, sharp=weapon_sharp, edge=weapon_edge, used_weapon=I)
+	apply_damage(effective_force, I.damtype, hit_zone, blocked, used_weapon=I, damage_flags = damage_flags)
 
 	//Melee weapon embedded object code.
 	if (I && I.damtype == BRUTE && !I.anchored && !is_robot_module(I))
@@ -114,11 +113,13 @@
 
 		if (I.can_embed)//If this weapon is allowed to embed in people
 			//blunt objects should really not be embedding in things unless a huge amount of force is involved
-			var/embed_chance = weapon_sharp? damage/I.w_class : damage/(I.w_class*3)
-			var/embed_threshold = weapon_sharp? 5*I.w_class : 15*I.w_class
+			var/sharp = damage_flags & DAM_SHARP
+			var/edge = damage_flags & DAM_EDGE
+			var/embed_chance = sharp? damage/I.w_class : damage/(I.w_class*3)
+			var/embed_threshold = edge? 5*I.w_class : 15*I.w_class
 
 			//Sharp objects will always embed if they do enough damage.
-			if((weapon_sharp && damage > (10*I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
+			if((sharp && damage > (10*I.w_class)) || (damage > embed_threshold && prob(embed_chance)))
 				src.embed(I, hit_zone)
 
 	return 1
@@ -134,9 +135,9 @@
 
 // Knifing
 /mob/living/carbon/proc/attack_throat(obj/item/W, obj/item/grab/G, mob/user)
-
-	if(!W.edge || !W.force || W.damtype != BRUTE)
-		return 0 //unsuitable weapon
+	var/damage_flags = W.damage_flags()
+	if(!(damage_flags & (DAM_SHARP|DAM_EDGE)) || W.damtype != BRUTE)
+		return FALSE //unsuitable weapon
 
 	user.visible_message("<span class='danger'>\The [user] begins to slit [src]'s throat with \the [W]!</span>")
 
@@ -156,7 +157,7 @@
 	var/total_damage = 0
 	for(var/i in 1 to 3)
 		var/damage = min(W.force*1.5, 20)*damage_mod
-		apply_damage(damage, W.damtype, BP_HEAD, 0, sharp=W.sharp, edge=W.edge)
+		apply_damage(damage, W.damtype, BP_HEAD, 0, used_weapon = W, damage_flags = damage_flags)
 		total_damage += damage
 
 	var/oxyloss = total_damage

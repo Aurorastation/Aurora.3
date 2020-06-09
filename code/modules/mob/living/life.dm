@@ -25,6 +25,8 @@
 		//Random events (vomiting etc)
 		handle_random_events()
 
+		aura_check(AURA_TYPE_LIFE)
+
 		. = 1
 
 	//Handle temperature/pressure differences between body and environment

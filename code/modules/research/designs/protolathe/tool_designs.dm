@@ -66,6 +66,13 @@ datum/design/item/tool/advanced_light_replacer
 	materials = list(MATERIAL_GOLD = 3000, MATERIAL_DIAMOND = 1500, MATERIAL_URANIUM = 250)
 	build_path = /obj/item/storage/backpack/holding
 
+/datum/design/item/tool/power_cell_backpack
+	name = "Power Cell Backpack"
+	desc = "A backpack specially designed to hold power cells, includes a holographic display to show current charge."
+	req_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 2, TECH_POWER = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 7500, MATERIAL_GLASS = 2500)
+	build_path = /obj/item/storage/backpack/cell
+
 /datum/design/item/tool/bluespace_crystal
 	name = "Artificial Bluespace Crystal"
 	desc = "An artificially made bluespace crystal."
@@ -91,6 +98,14 @@ datum/design/item/tool/advanced_light_replacer
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 	build_path = /obj/item/device/analyzer
+
+
+/datum/design/item/tool/tag_scanner
+	name = "Tag Scanner"
+	desc = "A hand-held scanner used to scan IPCs and receive data from their tags."
+	req_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
+	build_path = /obj/item/ipc_tag_scanner
 
 /datum/design/item/tool/plant_analyzer
 	name = "Plant Analyzer"

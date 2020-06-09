@@ -29,8 +29,13 @@
 	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
+		)
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/material/twohanded/proc/unwield()
 	wielded = 0
@@ -58,7 +63,7 @@
 	..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(M as mob, slot)
+/obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
@@ -192,6 +197,7 @@
 	applies_material_colour = 0
 	can_embed = 0
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
@@ -227,6 +233,7 @@
 	edge = 1
 	sharp = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	mob_throw_hit_sound =  'sound/weapons/pierce.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
 	var/obj/item/grenade/explosive = null
@@ -343,7 +350,8 @@
 
 	var/cutting = 0 //Ignore
 	var/powered = 0 //Ignore
-	drop_sound = 'sound/items/drop/metalshield.ogg'
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/chainsaw/Initialize()
 	. = ..()
@@ -536,6 +544,7 @@
 	applies_material_colour = 0
 	can_embed = 0
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
+	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
 /obj/item/material/twohanded/pike/halberd
 	icon_state = "halberd0"

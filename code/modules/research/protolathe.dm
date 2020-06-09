@@ -1,5 +1,5 @@
 /obj/machinery/r_n_d/protolathe
-	name = "Protolathe"
+	name = "protolathe"
 	icon_state = "protolathe"
 	flags = OPENCONTAINER
 

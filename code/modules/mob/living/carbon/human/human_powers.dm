@@ -5,7 +5,7 @@
 	set name = "Tie Hair"
 	set desc = "Style your hair."
 	set category = "IC"
-	
+
 	if(!use_check_and_message())
 		to_chat(src, span("warning", "You can't tie your hair when you are incapacitated!"))
 		return
@@ -369,14 +369,14 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(H, SPAN_WARNING("They are missing that limb!"))
 			return
 
-		H.apply_damage(25, BRUTE, hit_zone, sharp = TRUE, edge = TRUE)
+		H.apply_damage(25, BRUTE, hit_zone, damage_flags = DAM_SHARP|DAM_EDGE)
 		visible_message(SPAN_WARNING("<b>\The [src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
-		M.apply_damage(25, BRUTE, sharp = TRUE, edge = TRUE)
+		M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
 		visible_message(SPAN_WARNING("<b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
@@ -928,7 +928,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 		var/mob/living/carbon/human/G = new(src.loc)
 		G.key = O.brainmob.key
-		addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, O.dna.species), 0)
+		INVOKE_ASYNC(G, /mob/living/carbon/human.proc/set_species, O.dna.species)
 		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
 		qdel(O)
 		last_special = world.time + 200
@@ -1060,6 +1060,23 @@ mob/living/carbon/human/proc/change_monitor()
 				output += "[IO.name] - <span style='color:green;'>OK</span>\n"
 
 		to_chat(src, output)
+
+/mob/living/carbon/human/proc/check_tag()
+	set name = "Check Tag"
+	set desc = "Run diagnostics on your tag to display its information."
+	set category = "Abilities"
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+	if(isnull(tag) || !tag)
+		to_chat(src, SPAN_WARNING("Error: No Tag Found."))
+		return
+	to_chat(src, SPAN_NOTICE("[capitalize_first_letters(tag.name)]:"))
+	to_chat(src, SPAN_NOTICE("<b>Serial Number:</b> [tag.serial_number]"))
+	to_chat(src, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
+	to_chat(src, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
 
 /mob/living/carbon/human/proc/sonar_ping()
 	set name = "Psychic Ping"

@@ -18,6 +18,7 @@
 	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/handcuffs/attack(var/mob/living/carbon/C, var/mob/living/user)
 
@@ -34,8 +35,19 @@
 			place_handcuffs(user, user)
 			return
 
-		//Or just. You know. Don't check for it and place the handcuffs anyways!
-		place_handcuffs(C, user)
+		var/can_place
+		if(istype(user, /mob/living/silicon/robot))
+			can_place = TRUE
+		else
+			for (var/obj/item/grab/G in C.grabbed_by)
+				if (G.loc == user && G.state >= GRAB_AGGRESSIVE)
+					can_place = TRUE
+					break
+
+		if(can_place)
+			place_handcuffs(C, user)
+		else
+			to_chat(user, "<span class='danger'>You need to have a firm grip on [C] before you can put \the [src] on!</span>")
 
 /obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
@@ -100,7 +112,7 @@
 	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] ([H.ckey])</font>")
 	log_attack("[s] ([H.ckey])",ckey=key_name(H))
 
-	if(O.take_damage(3,0,1,1,"teeth marks"))
+	if(O.take_damage(3, 0, damage_flags = DAM_SHARP|DAM_EDGE, used_weapon = "teeth marks"))
 		H:UpdateDamageIcon()
 
 	last_chew = world.time

@@ -225,11 +225,13 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 //returns 1 if the shuttle is not idle at centcom
 /datum/controller/subsystem/emergency_shuttle/proc/online()
+	if (isnull(shuttle))
+		return FALSE
 	if (!shuttle.location)	//not at centcom
-		return 1
+		return TRUE
 	if (wait_for_launch || shuttle.moving_status != SHUTTLE_IDLE)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 //returns 1 if the shuttle is currently in transit (or just leaving) to the station
 /datum/controller/subsystem/emergency_shuttle/proc/going_to_station()

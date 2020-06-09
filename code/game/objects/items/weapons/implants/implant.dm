@@ -213,7 +213,7 @@ Implant Specifics:<BR>"}
 		var/mob/living/carbon/human/T = imp_in
 		if(elevel == "Localized Limb" && part)
 			small_countdown()
-			return	//to avoid hotspot_expose. 
+			return	//to avoid hotspot_expose.
 		if(elevel == "Destroy Body")
 			explosion(get_turf(T), -1, 0, 1, 6)
 			T.gib()
@@ -223,8 +223,8 @@ Implant Specifics:<BR>"}
 	else if(ismob(imp_in))
 		var/mob/M = imp_in
 		M.gib()
-		
-	var/turf/F = get_turf(imp_in)	
+
+	var/turf/F = get_turf(imp_in)
 	if(F)
 		F.hotspot_expose(3500,125)
 	qdel(src)
@@ -244,7 +244,7 @@ Implant Specifics:<BR>"}
 	if(!imp_in)
 		explosion(get_turf(src), -1, 0, 2, 4)
 	if(ishuman(imp_in) && part)
-		//No tearing off these parts since it's pretty much killing. Mangle them. 
+		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
 			part.createwound(BRUISE, 70)
 			part.add_pain(50)
@@ -642,3 +642,32 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		return
 	spawn(20)
 		malfunction--
+
+/obj/item/implant/anti_augment
+	name = "augmentation disrupter implant"
+	desc = "An implant that emits signals able to disrupt the use of commonly used augments."
+
+/obj/item/implant/anti_augment/get_data()
+	. = {"
+<b>Implant Specifications:</b><BR>
+<b>Name:</b> Augmentation Disrupter Implant<BR>
+<b>Life:</b> Three Months.<BR>
+<b>Important Notes:</b> Emits a signal able to block most augments from functioning..<BR>
+<HR>
+<b>Implant Details:</b><BR>
+<b>Function:</b> Emits a short radio wave that will block most augments.<BR>
+<b>Special Features:</b> Will stop the host from using any augment they might have.<BR>
+<b>Integrity:</b> Implant will last so long as it inside the host."}
+
+/obj/item/implant/anti_augment/emp_act(severity)
+	switch(severity)
+		if(1.0)
+			if (prob(75))
+				qdel(src)
+		if(2.0)
+			if (prob(50))
+				qdel(src)
+		if(3.0)
+			if (prob(25))
+				qdel(src)
+	return

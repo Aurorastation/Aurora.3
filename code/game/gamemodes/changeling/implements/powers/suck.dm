@@ -50,7 +50,7 @@
 				to_chat(T, "<span class='danger'>You feel a sharp stabbing pain!</span>")
 				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
 				var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
-				if(affecting.take_damage(39, 0, 1, 0, "massive puncture wound"))
+				if(affecting.take_damage(40, 0, damage_flags = DAM_SHARP|DAM_EDGE, used_weapon = "massive puncture wound"))
 					T.UpdateDamageIcon()
 
 		feedback_add_details("changeling_powers","A[stage]")

@@ -49,6 +49,8 @@
 
 #define isobj(A) istype(A, /obj)
 
+#define isspace(A) istype(A, /area/space)
+
 #define isobserver(A) istype(A, /mob/abstract/observer)
 
 #define isorgan(A) istype(A, /obj/item/organ/external)
@@ -88,4 +90,5 @@
 
 #define isopenturf(target) istype(target, /turf/simulated/open)
 #define isweakref(target) istype(target, /datum/weakref)
+#define isopenspace(A) istype(A, /turf/simulated/open)
 #define isdatum(target) istype(target, /datum)

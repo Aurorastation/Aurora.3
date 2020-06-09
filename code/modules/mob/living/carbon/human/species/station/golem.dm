@@ -123,6 +123,9 @@ var/global/list/golem_types = list("Coal Golem",
 		return TRUE
 	return FALSE
 
+/datum/species/golem/has_psi_potential()
+	return FALSE
+
 /datum/species/golem/iron
 	name = "Iron Golem"
 	name_plural = "iron golems"
@@ -407,7 +410,7 @@ var/global/list/golem_types = list("Coal Golem",
 	for(var/i in 1 to 5)
 		var/obj/item/material/shard/T = new meat_type(H.loc)
 		var/turf/landing = get_step(H, pick(alldirs))
-		addtimer(CALLBACK(T, /atom/movable/.proc/throw_at, landing, 30, 5), 0)
+		INVOKE_ASYNC(T, /atom/movable/.proc/throw_at, landing, 30, 5)
 	qdel(H)
 
 /datum/species/golem/glass/handle_post_spawn(var/mob/living/carbon/human/H)

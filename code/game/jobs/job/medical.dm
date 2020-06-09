@@ -7,6 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#FF56B4"
 	economic_modifier = 10
@@ -26,7 +27,7 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"
@@ -151,10 +152,10 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	alt_titles = list("Biochemist")
+	alt_titles = list("Chemist")
 	outfit = /datum/outfit/job/pharmacist
 	alt_outfits = list(
-		"Biochemist"=/datum/outfit/job/pharmacist/biochemist
+		"Chemist"=/datum/outfit/job/pharmacist/chemist
 		)
 
 /datum/outfit/job/pharmacist
@@ -173,8 +174,8 @@
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
 
-/datum/outfit/job/pharmacist/biochemist
-	name = "Biochemist"
+/datum/outfit/job/pharmacist/chemist
+	name = "Chemist"
 	jobtype = /datum/job/pharmacist
 
 	uniform = /obj/item/clothing/under/rank/biochemist
@@ -221,9 +222,6 @@
 /datum/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
 	jobtype = /datum/job/psychiatrist
-
-	uniform = /obj/item/clothing/under/rank/psych/turtleneck
-
 
 /datum/job/paramedic
 	title = "Paramedic"
@@ -272,8 +270,6 @@
 /datum/outfit/job/paramedic/emt
 	name = "Emergency Medical Technician"
 	jobtype = /datum/job/paramedic
-
-	uniform = /obj/item/clothing/under/rank/medical/paramedic
 
 /datum/job/intern_med
 	title = "Medical Resident"

@@ -102,10 +102,10 @@
 	icon = 'icons/obj/cryobag.dmi'
 	icon_state = "bodybag_folded"
 
-	attack_self(mob/user)
-		var/obj/structure/closet/body_bag/cryobag/R = new /obj/structure/closet/body_bag/cryobag(user.loc)
-		R.add_fingerprint(user)
-		qdel(src)
+/obj/item/bodybag/cryobag/attack_self(mob/user)
+	var/obj/structure/closet/body_bag/cryobag/R = new /obj/structure/closet/body_bag/cryobag(user.loc)
+	R.add_fingerprint(user)
+	qdel(src)
 
 
 

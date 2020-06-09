@@ -1,5 +1,9 @@
-mob/proc/flash_pain()
-	flick("pain",pain)
+/mob/proc/flash_pain()
+	flick("pain", pain)
+
+/mob/living/carbon/human/flash_pain()
+	if(can_feel_pain())
+		flick("pain", pain)
 
 mob/var/list/pain_stored = list()
 mob/var/last_pain_message = ""
@@ -25,24 +29,25 @@ mob/var/next_pain_time = 0
 	if(burning)
 		switch(amount)
 			if(1 to 10)
-				msg = "<span class='danger'>Your [partname] burns.</span>"
+				msg = species.organ_low_burn_message
 			if(11 to 90)
 				flash_weak_pain()
-				msg = "<span class='danger'><font size=3>Your [partname] burns horribly!</font></span>"
+				msg = species.organ_med_burn_message
 			if(91 to 10000)
 				flash_pain()
-				msg = "<span class='danger'><font size=4>Your [partname] feels like it's on fire!</font></span>"
+				msg = species.organ_high_burn_message
 	else
 		switch(amount)
 			if(5 to 14)
-				msg = "<b>Your [partname] hurts.</b>"
+				msg = species.organ_low_pain_message
 			if(15 to 90)
 				flash_weak_pain()
-				msg = "<b><font size=3>Your [partname] hurts badly!</font></b>"
+				msg = species.organ_med_pain_message
 			if(91 to 10000)
 				flash_pain()
-				msg = "<b><font size=3>Your [partname] is screaming out in pain!</font></b>"
+				msg = species.organ_high_pain_message
 	if(msg && (msg != last_pain_message || prob(10)))
+		msg = replacetext(msg, "%PARTNAME%", partname)
 		last_pain_message = msg
 		to_chat(src, msg)
 	next_pain_time = world.time + 50

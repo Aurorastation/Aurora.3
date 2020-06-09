@@ -1,11 +1,7 @@
 /obj/item/clothing/head/soft
-	name = "cargo cap"
-	desc = "It's a peaked cap in a tasteless yellow color."
-	icon_state = "cargosoft"
-	item_state_slots = list(
-		slot_l_hand_str = "helmet", //probably a placeholder
-		slot_r_hand_str = "helmet"
-		)
+	name = "red cap"
+	desc = "It's a baseball hat in a tasteless red color."
+	icon_state = "redsoft"
 	var/flipped = 0
 	siemens_coefficient = 0.9
 
@@ -24,45 +20,45 @@
 		to_chat(user, "You flip the hat back in normal position.")
 	update_clothing_icon()	//so our mob-overlays update
 
-/obj/item/clothing/head/soft/red
-	name = "red cap"
-	desc = "It's a baseball hat in a tasteless red color."
-	icon_state = "redsoft"
-
-/obj/item/clothing/head/soft/blue
-	name = "blue cap"
-	desc = "It's a peaked cap in a tasteless blue color."
-	icon_state = "bluesoft"
-
-/obj/item/clothing/head/soft/green
-	name = "green cap"
-	desc = "It's a peaked cap in a tasteless green color."
-	icon_state = "greensoft"
+/obj/item/clothing/head/soft/orange
+	name = "orange cap"
+	desc = "It's a peaked cap in a tasteless orange color."
+	icon_state = "orangesoft"
 
 /obj/item/clothing/head/soft/yellow
 	name = "yellow cap"
 	desc = "It's a peaked cap in a tasteless yellow color."
 	icon_state = "yellowsoft"
 
-/obj/item/clothing/head/soft/grey
-	name = "grey cap"
-	desc = "It's a peaked cap in a tasteful grey color."
-	icon_state = "greysoft"
+/obj/item/clothing/head/soft/green
+	name = "green cap"
+	desc = "It's a peaked cap in a tasteless green color."
+	icon_state = "greensoft"
 
-/obj/item/clothing/head/soft/orange
-	name = "orange cap"
-	desc = "It's a peaked cap in a tasteless orange color."
-	icon_state = "orangesoft"
-
-/obj/item/clothing/head/soft/mime
-	name = "white cap"
-	desc = "It's a peaked cap in a tasteless white color."
-	icon_state = "mimesoft"
+/obj/item/clothing/head/soft/blue
+	name = "blue cap"
+	desc = "It's a peaked cap in a tasteless blue color."
+	icon_state = "bluesoft"
 
 /obj/item/clothing/head/soft/purple
 	name = "purple cap"
 	desc = "It's a peaked cap in a tasteless purple color."
 	icon_state = "purplesoft"
+
+/obj/item/clothing/head/soft/black
+	name = "black cap"
+	desc = "It's a peaked cap in a tasteless black color."
+	icon_state = "blacksoft"
+
+/obj/item/clothing/head/soft/grey
+	name = "grey cap"
+	desc = "It's a peaked cap in a tasteful grey color."
+	icon_state = "greysoft"
+
+/obj/item/clothing/head/soft/white
+	name = "white cap"
+	desc = "It's a peaked cap in a tasteless white color."
+	icon_state = "whitesoft"
 
 /obj/item/clothing/head/soft/rainbow
 	name = "rainbow cap"
@@ -88,3 +84,8 @@
 	name = "IAC soft cap"
 	desc = "It's field cap in IAC colors."
 	icon_state = "iachat"
+
+/obj/item/clothing/head/soft/eri
+	name = "eridani cap"
+	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
+	icon_state = "eridanihat"

@@ -7,11 +7,13 @@
 	maxbodytemp = 500
 	mob_size = MOB_SMALL
 
+	var/radio_type = /obj/item/device/radio/borg
 	var/obj/item/device/radio/borg/radio = null
 	var/mob/living/silicon/ai/connected_ai = null
 	var/obj/item/cell/cell = null
 	var/obj/machinery/camera/camera = null
 	var/obj/item/device/mmi/mmi = null
+	var/obj/item/card/id/internal_id = null
 	var/list/req_access = list(access_robotics) //Access needed to pop out the brain.
 	var/positronic
 
@@ -41,13 +43,16 @@
 	speed = -1                    //Spiderbots gotta go fast.
 	pass_flags = PASSTABLE | PASSDOORHATCH
 	speak_emote = list("beeps","clicks","chirps")
+	universal_understand = TRUE
 
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
-	add_language("Ceti Basic")
-	default_language = all_languages["Ceti Basic"]
+	add_language(LANGUAGE_TCB)
+	default_language = all_languages[LANGUAGE_TCB]
+	internal_id = new /obj/item/card/id(src)
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/proc/hide
+	verbs |= /mob/living/simple_animal/spiderbot/proc/control_integrated_radio
 
 /mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
@@ -187,7 +192,7 @@
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 
-	radio = new /obj/item/device/radio/borg(src)
+	radio = new radio_type(src)
 	camera = new /obj/machinery/camera(src)
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
@@ -240,8 +245,6 @@
 	held_item.forceMove(src.loc)
 	held_item = null
 	return 1
-
-	return
 
 /mob/living/simple_animal/spiderbot/verb/get_item()
 	set name = "Pick up item"
@@ -301,3 +304,39 @@
 			if (!underdoor)
 				spawn(3)//A slight delay to let us finish walking out from under the door
 					layer = initial(layer)
+
+/mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL
+
+/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+	switch(message_mode)
+		if("headset")
+			radio.talk_into(src, message, null, verb, speaking)
+			used_radios += radio
+		if("intercom")
+			var/turf/T = get_turf(src)
+			for(var/obj/item/device/radio/intercom/I in view(1, T))
+				I.talk_into(src, message, null, verb, speaking)
+				used_radios += I
+	if(message_mode)
+		radio.talk_into(src, message, message_mode, verb, speaking)
+		used_radios += radio
+
+/mob/living/simple_animal/spiderbot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
+/mob/living/simple_animal/spiderbot/proc/control_integrated_radio()
+	set name = "Radio Settings"
+	set desc = "Allows you to change settings of your radio."
+	set category = "Spiderbot"
+
+	to_chat(src, SPAN_NOTICE("Accessing Subspace Transceiver control..."))
+	if(radio)
+		radio.interact(src)
+
+/mob/living/simple_animal/spiderbot/ai
+	radio_type = /obj/item/device/radio/headset/heads/ai_integrated
+
+/mob/living/simple_animal/spiderbot/ai/Initialize()
+	. = ..()
+	internal_id.access = get_all_station_access()

@@ -7,6 +7,7 @@
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
+	var/can_buckle = TRUE
 
 	var/obj/screen/flash = null
 	var/obj/screen/blind = null

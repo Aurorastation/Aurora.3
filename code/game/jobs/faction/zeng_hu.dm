@@ -12,28 +12,25 @@
 	</p>
 	<p>Some character examples are:
 	<ul>
-	<li><b>Senior Physician</b>: Zeng-Hu has some of the best medical staff
-	in the world and you are one of them. Highly trained and highly experienced
-	you are better then the rest save your colleagues in Zeng-Hu. You expect to
-	be heard and obeyed. Your bedside manner is impeccable and far out classes
-	standard NT training and procedure. The only thing that NT might have that is
-	potentially superior is their chemical recipes and medical equipment. The only
-	way to know this for sure is if you bring some samples back with you - medical
-	cocktails from the pharmacy or perhaps high tech surgical gear. Bring it back
-	to the Odin so we might analyze and assess these NT products.</li>
-	<li><b>Geneticist</b>: Our genetics and robotics research is leagues above
-	the rest and you know. We do own the best premium augmentation subsidiary in
-	the known galaxy - Bishop Cybernetics - after all. Unlike your medical cousins
-	you are much more likely to generate a friendly working atmosphere with non
-	Zeng-Hu colleagues, of course you would? How else would you be able to get
-	your hands on the experimental technologies NT is cooking up on station? We need
-	to know what sort of robotics technology or bio-tech NT are currently dealing with.
-	How you go about this is up to you, so long as you don't comprise yourself or
-	your Zeng-Hu colleagues.</li>
+	<li><b>Senior Surgeon</b>: Zeng-Hu has some of the best medical staff in the world and you are one of them.
+	Highly-trained and highly-experienced you are better then the rest, aside from your colleagues in Zeng-Hu.
+	You expect to be heard and obeyed, as your coworkers really should be taking advice from you in the absence of
+	a chief medical officer. Your bedside manner is impeccable and far outclasses standard NanoTrasen training and
+	procedure. You are the product of the most rigorous employee hiring and training process for medical staff in the
+	Orion Spur, and are expected to act like it. Failure is you will not tolerate.</li>
+	<li><b>Biomechanical Engineer</b>: Our ability to combine medical research with robotics
+	is the best and you know this. We do, after all, own Bishop Cybernetics - the
+	best premium augmentation subsidiary in the known galaxy. Unlike your medical cousins
+	you are much more likely to generate a friendly working atmosphere with non Zeng-Hu colleagues,
+	due to gaps in your training surrounding the exosuits Hephaestus' "well-trained roboticists"
+	love to build. Remember to be professional, effective, driven, and dedicated in your work.
+	Zeng-Hu expects the best from you, Doctor. Do not fail us or our shareholders in Eridani, or
+	you will find your career failing in short order.</li>
 	</ul></p>"}
 	title_suffix = "Zeng"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/doctor,
 		/datum/job/surgeon,
 		/datum/job/pharmacist,
@@ -58,7 +55,7 @@
 		"Trauma Physician" = /datum/outfit/job/doctor/zeng_hu,
 		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
-		"Biochemist" = /datum/outfit/job/pharmacist/zeng_hu,
+		"Chemist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Paramedic" = /datum/outfit/job/paramedic/zeng_hu,

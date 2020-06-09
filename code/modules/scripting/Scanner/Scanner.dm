@@ -6,9 +6,8 @@
 	An object responsible for breaking up source code into tokens for use by the parser.
 */
 /n_Scanner
-	var
-		code
-		list
+	var/code
+
 /*
 	Var: errors
 	A list of fatal errors found by the scanner. If there are any items in this list, then it is not safe to parse the returned tokens.
@@ -16,12 +15,12 @@
 	See Also:
 	- <scriptError>
 */
-			errors   = new
+	var/list/errors   = new
 /*
 	Var: warnings
 	A list of non-fatal problems in the source code found by the scanner.
 */
-			warnings = new
+	var/list/warnings = new
 
 	proc
 /*
@@ -49,21 +48,19 @@
 	A scanner implementation for n_Script.
 */
 /n_Scanner/nS_Scanner
-
-	var
 /*
 	Variable: codepos
 	The scanner's position in the source code.
 */
-		codepos				 = 1
-		line					 = 1
-		linepos 			 = 0 										 //column=codepos-linepos
-		n_scriptOptions/nS_Options/options
+	var/codepos				 = 1
+	var/line					 = 1
+	var/linepos 			 = 0 										 //column=codepos-linepos
+	var/n_scriptOptions/nS_Options/options
 
-		commenting = 0
+	var/commenting = 0
 				// 1: single-line
 				// 2: multi-line
-		list
+
 /*
 	Variable: ignore
 	A list of characters that are ignored by the scanner.
@@ -71,7 +68,8 @@
 	Default Value:
 	Whitespace
 */
-			ignore 			 = list(" ", "\t", "\n") //Don't add tokens for whitespace
+	var/list/ignore 			 = list(" ", "\t", "\n") //Don't add tokens for whitespace
+
 /*
 	Variable: end_stmt
 	A list of characters that end a statement. Each item may only be one character long.
@@ -79,7 +77,7 @@
 	Default Value:
 	Semicolon
 */
-			end_stmt		 = list(";")
+	var/list/end_stmt		 = list(";")
 /*
 	Variable: string_delim
 	A list of characters that can start and end strings.
@@ -87,12 +85,12 @@
 	Default Value:
 	Double and single quotes.
 */
-			string_delim = list("\"", "'")
+	var/list/string_delim = list("\"", "'")
 /*
 	Variable: delim
 	A list of characters that denote the start of a new token. This list is automatically populated.
 */
-			delim 			 = new
+	var/list/delim 			 = new
 
 /*
 	Macro: COL

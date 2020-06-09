@@ -1,9 +1,13 @@
-//only hide, emp, teleport, deafen, blind and tome runes can be imbued atm
-/obj/effect/rune/create_talisman/do_rune_action(mob/living/user)
+/datum/rune/talisman
+	name = "talisman creation rune"
+	desc = "This rune creates a talisman out of a rune around it."
+	rune_flags = NO_TALISMAN
+
+/datum/rune/talisman/do_rune_action(mob/living/user, atom/movable/A)
 	var/obj/item/paper/new_talisman
 	var/cant_talisman
 
-	for(var/obj/item/paper/P in get_turf(src))
+	for(var/obj/item/paper/P in get_turf(A))
 		if(!P.info)
 			new_talisman = P
 			break
@@ -11,26 +15,24 @@
 			cant_talisman = TRUE
 	if(!new_talisman)
 		if(cant_talisman)
-			to_chat(user, span("cult", "The paper is tainted. It is unsuitable."))
-		return fizzle(user)
+			to_chat(user, SPAN_CULT("A tainted paper is unsuitable to bear the markings of the Dark One!"))
+		return fizzle(user, A)
 
 	var/obj/effect/rune/imbued_from
-	for(var/obj/effect/rune/R in orange(1, src))
-		if(R == src)
+	for(var/obj/effect/rune/R in orange(1, A))
+		if(R.rune?.type == src.type)
 			continue
-		if(!R.can_talisman)
+		if(!R.rune?.can_be_talisman())
 			continue
-		var/obj/item/paper/talisman/T = new /obj/item/paper/talisman(get_turf(src))
-		T.imbued_rune = CALLBACK(R, /obj/effect/rune/.proc/do_rune_action)
-		T.rune = R.cult_description
+		var/obj/item/paper/talisman/T = new /obj/item/paper/talisman(get_turf(A))
 		imbued_from = R
-		if(R.network)
-			T.network = R.network
+		T.rune = R.rune
 		break
 	if(imbued_from)
-		visible_message(span("warning", "The runes turn into dust, which then forms into an arcane image on the paper."))
-		user.say("H'drak v[pick("'","`")]loso, mir'kanas verbot!")
+		A.visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"))
+		user.say("H'drak v'loso! Mir'kanas verbot!")
 		qdel(imbued_from)
 		qdel(new_talisman)
+		playsound(A, 'sound/magic/enter_blood.ogg', 50)
 	else
-		return fizzle(user)
+		return fizzle(user, A)

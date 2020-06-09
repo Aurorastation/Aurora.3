@@ -18,7 +18,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 	var/wires_status = 0 // BITFLAG OF WIRES
 
 	var/list/wires
-	var/list/signallers
+	var/list/signalers
 
 	var/table_options = " align='center'"
 	var/row_options1 = " width='80px'"
@@ -28,11 +28,10 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 
 /datum/wires/New(var/atom/holder)
 	wires = list()
-	signallers = list()
+	signalers = list()
 	src.holder = holder
 	if(!istype(holder, holder_type))
 		CRASH("Our holder is null/the wrong type!")
-		return
 
 	// Generate new wires
 	if(random)
@@ -99,7 +98,7 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 		html += "<td[row_options2]>"
 		html += "<A href='?src=\ref[src];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
 		html += " <A href='?src=\ref[src];action=1;pulse=[colour]'>Pulse</A>"
-		html += " <A href='?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaller</A></td></tr>"
+		html += " <A href='?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaler</A></td></tr>"
 	html += "</table>"
 	html += "</div>"
 
@@ -114,6 +113,22 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 
 		var/mob/living/L = usr
 		if(CanUse(L) && href_list["action"])
+			if(href_list["attach"])
+				var/colour = href_list["attach"]
+				// Attach
+				if(!IsAttached(colour))
+					var/obj/item/device/assembly/signaler/I = L.get_active_hand()
+					if(!istype(I))
+						to_chat(usr, SPAN_WARNING("You do not have a signaler to attach!"))
+						return
+					usr.drop_from_inventory(I)
+					Attach(colour, I)
+				// Detach
+				else
+					var/obj/item/O = Detach(colour)
+					if(O)
+						L.put_in_hands(O)
+				return
 			var/obj/item/I = L.get_active_hand()
 			if(!I)
 				return
@@ -124,33 +139,15 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 					var/colour = href_list["cut"]
 					CutWireColour(colour)
 				else
-					to_chat(L, "<span class='error'>You need wirecutters!</span>")
+					to_chat(L, SPAN_WARNING("You need wirecutters!"))
 
 			else if(href_list["pulse"])
 				if(I.ismultitool())
 					var/colour = href_list["pulse"]
 					PulseColour(colour)
 				else
-					to_chat(L, "<span class='error'>You need a multitool!</span>")
-
-			else if(href_list["attach"])
-				var/colour = href_list["attach"]
-				// Detach
-				if(IsAttached(colour))
-					var/obj/item/O = Detach(colour)
-					if(O)
-						L.put_in_hands(O)
-
-				// Attach
-				else
-					if(istype(I, /obj/item/device/assembly/signaler))
-						usr.drop_from_inventory(I)
-						Attach(colour, I)
-					else
-						to_chat(L, "<span class='error'>You need a remote signaller!</span>")
-
-
-
+					to_chat(L, SPAN_WARNING("You need a multitool!"))
+			
 
 		// Update Window
 			Interact(usr)
@@ -227,23 +224,23 @@ var/const/POWER = 8
 	return (index & wires_status)
 
 //
-// Signaller Procs
+// signaler Procs
 //
 
 /datum/wires/proc/IsAttached(var/colour)
-	if(signallers[colour])
+	if(signalers[colour])
 		return 1
 	return 0
 
 /datum/wires/proc/GetAttached(var/colour)
-	if(signallers[colour])
-		return signallers[colour]
+	if(signalers[colour])
+		return signalers[colour]
 	return null
 
 /datum/wires/proc/Attach(var/colour, var/obj/item/device/assembly/signaler/S)
 	if(colour && S)
 		if(!IsAttached(colour))
-			signallers[colour] = S
+			signalers[colour] = S
 			S.forceMove(holder)
 			S.connected = src
 			return S
@@ -252,7 +249,7 @@ var/const/POWER = 8
 	if(colour)
 		var/obj/item/device/assembly/signaler/S = GetAttached(colour)
 		if(S)
-			signallers -= colour
+			signalers -= colour
 			S.connected = null
 			S.forceMove(holder.loc)
 			return S
@@ -260,8 +257,8 @@ var/const/POWER = 8
 
 /datum/wires/proc/Pulse(var/obj/item/device/assembly/signaler/S)
 
-	for(var/colour in signallers)
-		if(S == signallers[colour])
+	for(var/colour in signalers)
+		if(S == signalers[colour])
 			PulseColour(colour)
 			break
 
@@ -312,3 +309,5 @@ var/const/POWER = 8
 /datum/wires/proc/Shuffle()
 	wires_status = 0
 	GenerateWires()
+
+#undef MAX_FLAG

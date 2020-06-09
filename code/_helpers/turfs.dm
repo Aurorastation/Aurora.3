@@ -25,16 +25,18 @@
 			return 0
 	return 1
 
-/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range)
+/proc/get_random_turf_in_range(var/atom/origin, var/outer_range, var/inner_range, var/check_density)
 	origin = get_turf(origin)
 	if(!origin)
 		return
 	var/list/turfs = list()
-	for(var/turf/T in orange(origin, outer_range))
+	for(var/turf/T in orange(outer_range, origin))
 		if(!(T.z in current_map.sealed_levels)) // Picking a turf outside the map edge isn't recommended
 			if(T.x >= world.maxx-TRANSITIONEDGE || T.x <= TRANSITIONEDGE)
 				continue
 			if(T.y >= world.maxy-TRANSITIONEDGE || T.y <= TRANSITIONEDGE)
+				continue
+			if(check_density && turf_contains_dense_objects(T))
 				continue
 		if(!inner_range || get_dist(origin, T) >= inner_range)
 			turfs += T

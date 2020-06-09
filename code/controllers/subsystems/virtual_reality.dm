@@ -6,7 +6,7 @@
 	flags = SS_NO_FIRE
 
 	// MECHA
-	var/list/mechnetworks = list("remotemechs", "prisonmechs") // A list of all the networks a mech can possibly connect to
+	var/list/mechnetworks = list("remotemechs", "aimechs", "prisonmechs") // A list of all the networks a mech can possibly connect to
 	var/list/list/mechs = list() // A list of lists, containing the mechs and their networks
 
 	// IPC BODIES
@@ -41,35 +41,43 @@
 		robots[network].Remove(robot)
 
 
-/mob/living/
+/mob
 	var/mob/living/vr_mob = null // In which mob is our mind
 	var/mob/living/old_mob = null // Which mob is our old mob
 
 // Return to our original body
-/mob/living/proc/body_return()
+/mob/proc/body_return()
 	set name = "Return to Body"
 	set category = "IC"
 
-	if(!vr_mob && !old_mob)
-		return
-
-	if(vr_mob)
-		ckey = vr_mob.ckey
-		vr_mob.ckey = null
-		vr_mob.old_mob = null
-		vr_mob.languages = list(LANGUAGE_TCB)
-		vr_mob = null
-		to_chat(src, span("notice", "System exited safely, we hope you enjoyed your stay."))
 	if(old_mob)
-		old_mob.ckey = ckey
-		ckey = null
-		old_mob.vr_mob = null
-		languages = list(LANGUAGE_TCB)
-		to_chat(old_mob, span("notice", "System exited safely, we hope you enjoyed your stay."))
+		ckey_transfer(old_mob)
+		languages = list(all_languages[LANGUAGE_TCB])
+		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
 		old_mob = null
 	else
-		to_chat(src, span("danger", "Interface error, you cannot exit the system at this time."))
-		to_chat(src, span("warning", "Ahelp to get back into your body, a bug has occurred."))
+		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
+		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
+
+/mob/living/silicon/body_return()
+	set name = "Return to Body"
+	set category = "IC"
+
+	if(old_mob)
+		ckey_transfer(old_mob)
+		speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
+		to_chat(old_mob, SPAN_NOTICE("System exited safely, we hope you enjoyed your stay."))
+		old_mob = null
+	else
+		to_chat(src, SPAN_DANGER("Interface error, you cannot exit the system at this time."))
+		to_chat(src, SPAN_WARNING("Ahelp to get back into your body, a bug has occurred."))
+
+/mob/living/proc/vr_mob_exit_languages()
+	languages = list(all_languages[LANGUAGE_TCB])
+
+/mob/living/silicon/vr_mob_exit_languages()
+	..()
+	speech_synthesizer_langs = list(all_languages[LANGUAGE_TCB])
 
 // Handles saving of the original mob and assigning the new mob
 /datum/controller/subsystem/virtualreality/proc/mind_transfer(var/mob/living/M, var/mob/living/target)
@@ -78,13 +86,41 @@
 	M.vr_mob = target
 	target.ckey = new_ckey
 	M.ckey = "@[new_ckey]"
-	target.verbs += /mob/living/proc/body_return
+	target.verbs += /mob/proc/body_return
 
-	target.languages = M.languages
+	target.get_vr_name(M)
+	M.swap_languages(target)
 
-	to_chat(target, span("notice", "Connection established, system suite active and calibrated."))
-	to_chat(target, span("warning", "To exit this mode, use the \"Return to Body\" verb in the IC tab."))
+	if(target.client)
+		target.client.screen |= global_hud.vr_control
 
+	to_chat(target, SPAN_NOTICE("Connection established, system suite active and calibrated."))
+	to_chat(target, SPAN_WARNING("To exit this mode, use the \"Return to Body\" verb in the IC tab."))
+
+/mob/living/proc/swap_languages(var/mob/target)
+	target.languages = languages
+	if(issilicon(target))
+		var/mob/living/silicon/T = target
+		T.speech_synthesizer_langs = languages
+
+/mob/living/silicon/swap_languages(mob/target)
+	target.languages = speech_synthesizer_langs
+	if(issilicon(target))
+		var/mob/living/silicon/T = target
+		T.speech_synthesizer_langs = speech_synthesizer_langs
+
+/mob/proc/get_vr_name(var/mob/user)
+	return
+
+/mob/living/simple_animal/spiderbot/get_vr_name(mob/user)
+	real_name = "Remote-Bot ([user.real_name])"
+	name = real_name
+
+/mob/proc/ckey_transfer(var/mob/target, var/null_vr_mob = TRUE)
+	target.ckey = src.ckey
+	src.ckey = null
+	if(null_vr_mob)
+		target.vr_mob = null
 
 /datum/controller/subsystem/virtualreality/proc/mech_selection(var/user, var/network)
 	var/list/mech = list()
@@ -105,10 +141,10 @@
 			continue
 		if(mech_pilot.stat == DEAD)
 			continue
-		mech[mech_pilot.name] = mech_pilot
+		mech[R.name] = R
 
 	if(mech.len == 1)
-		to_chat(user, span("warning", "No active remote mechs are available."))
+		to_chat(user, SPAN_WARNING("No active remote mechs are available."))
 		return
 
 	var/desc = input("Please select a remote control compatible mech to take over.", "Remote Mech Selection") in mech|null
@@ -138,7 +174,7 @@
 		robot[R.name] = R
 
 	if(robot.len == 1)
-		to_chat(user, span("warning", "No active remote robots are available."))
+		to_chat(user, SPAN_WARNING("No active remote robots are available."))
 		return
 
 	var/desc = input("Please select a remote control robot to take over.", "Remote Robot Selection") in robot|null

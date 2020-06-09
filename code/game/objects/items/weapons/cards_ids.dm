@@ -12,14 +12,20 @@
  * DATA CARDS - Used for the teleporter
  */
 /obj/item/card
+
 	name = "card"
 	desc = "Does card things."
 	icon = 'icons/obj/card.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
+		)
 	w_class = 1.0
 	var/associated_account_number = 0
 
 	var/list/files = list(  )
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/card/data
 	name = "data disk"
@@ -525,13 +531,13 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "heph_card"
 	overlay_state = "heph_card"
 
-/obj/item/card/id/necropolis
-	name = "\improper Necropolis Incorporated identification card"
+/obj/item/card/id/zavodskoi
+	name = "\improper Zavodskoi Interstellar Incorporated identification card"
 	desc = "An old-fashioned, practical plastic card. Smells faintly of gunpowder."
 	icon_state = "necro_card"
 	overlay_state = "necro_card"
 
-/obj/item/card/id/necropolis/sec
+/obj/item/card/id/zavodskoi/sec
 	desc = "An old-fashioned, practical plastic card. This one is of a higher rank, for Security personnel."
 	icon_state = "necrosec_card"
 	overlay_state = "necrosec_card"

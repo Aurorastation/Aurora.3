@@ -173,11 +173,6 @@
 	M.sleeping = 0
 	M.jitteriness = 0
 	M.intoxication = 0
-	for(var/datum/disease/D in M.viruses)
-		D.spread = "Remissive"
-		D.stage--
-		if(D.stage < 1)
-			D.cure()
 
 /datum/reagent/gold
 	name = "Gold"
@@ -854,3 +849,20 @@
 /datum/reagent/bottle_lightning/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		tesla_zap(M, 6, 1500)
+
+/datum/reagent/stone_dust
+	name = "Stone Dust"
+	id = "stone_dust"
+	description = "Crystalline silica dust, harmful when inhaled."
+	reagent_state = SOLID
+	color = "#5a4d41"
+	taste_description = "dust"
+	specific_heat = 1
+
+/datum/reagent/stone_dust/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
+	. = ..()
+	if(istype(H))
+		if(prob(15))
+			var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
+			if(istype(L) && !L.robotic)
+				L.take_damage(0.5*removed)

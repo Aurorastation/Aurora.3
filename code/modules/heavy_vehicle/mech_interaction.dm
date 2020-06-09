@@ -202,7 +202,7 @@
 		return
 	if(!instant)
 		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
-		if(!do_after(user, 30))
+		if(!do_after(user, entry_speed))
 			return
 	if(!user || user.incapacitated())
 		return
@@ -307,6 +307,14 @@
 			playsound(src.loc,legs.mech_turn_sound,40,1)
 		next_move = world.time + legs.turn_delay
 		set_dir(direction)
+		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
+			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
+			if(S.aura)
+				S.aura.dir = direction
+				if(S.aura.dir == NORTH)
+					S.aura.layer = MECH_UNDER_LAYER
+				else
+					S.aura.layer = ABOVE_MOB_LAYER
 		update_icon()
 
 /mob/living/heavy_vehicle/Move()
@@ -338,7 +346,29 @@
 
 	else
 		if(user.a_intent != I_HURT)
-			if(thing.ismultitool())
+			if(istype(thing, /obj/item/remote_mecha))
+				if(length(pilots))
+					to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
+					return
+				if(!maintenance_protocols)
+					to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
+					return
+				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [thing] into \the [src]..."), SPAN_NOTICE("You begin installing the [thing] into \the [src]..."))
+				if(do_after(user, 30, TRUE, src))
+					if(length(pilots))
+						to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
+						return
+					if(!maintenance_protocols)
+						to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
+						return
+					var/obj/item/remote_mecha/RM = thing
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] into \the [src]."), SPAN_NOTICE("You install the [thing] into \the [src]."))
+					remote_network = RM.mech_remote_network
+					does_hardpoint_lock = RM.hardpoint_lock
+					dummy_type = RM.dummy_path
+					become_remote()
+					qdel(thing)
+			else if(thing.ismultitool())
 				if(hardpoints_locked)
 					to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
 					return
@@ -356,12 +386,23 @@
 				return
 
 			else if(thing.iswrench())
-				if(!maintenance_protocols)
-					to_chat(user, "<span class='warning'>The securing bolts are not visible while maintenance protocols are disabled.</span>")
+				if(length(pilots))
+					to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 					return
-				to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
-				dismantle()
-				return
+				if(!maintenance_protocols)
+					to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
+					return
+				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start disassembling \the [src]..."))
+				if(do_after(user, 30, TRUE, src))
+					if(length(pilots))
+						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
+						return
+					if(!maintenance_protocols)
+						to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
+						return
+					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."))
+					dismantle()
+					return
 			else if(thing.iswelder())
 				if(!getBruteLoss())
 					return

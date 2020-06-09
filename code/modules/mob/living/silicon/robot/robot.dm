@@ -12,7 +12,6 @@
 	var/icontype 				//Persistent icontype tracking allows for cleaner icon updates
 	var/module_sprites[0] 		//Used to store the associations between sprite names and sprite index.
 	var/icon_selected = 0		//If icon selection has been completed yet
-	var/icon_selection_tries = -1//Remaining attempts to select icon before a selection is forced
 	var/spawn_sound = 'sound/voice/liveagain.ogg'
 	var/pitch_toggle = TRUE
 	var/datum/effect/effect/system/ion_trail_follow/ion_trail
@@ -318,6 +317,8 @@
 		return
 
 	var/module_type = robot_modules[mod_type]
+	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
+	spark(get_turf(src), 5, alldirs)
 	new module_type(src)
 
 	hands.icon_state = lowertext(mod_type)
@@ -487,6 +488,19 @@
 	to_chat(src, SPAN_NOTICE("You [C.toggled ? "disable" : "enable"] [C.name]."))
 	C.toggled = !C.toggled
 
+/obj/item/robot_module/janitor/verb/toggle_mop()
+	set category = "Robot Commands"
+	set name = "Toggle Mop"
+	set desc = "Toggle the integrated mop."
+	set src in usr
+	
+	mopping = !mopping
+	if (mopping)
+		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
+		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
+	else 
+		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
+
 /mob/living/silicon/robot/proc/update_robot_light()
 	if(lights_on)
 		if(intense_light)
@@ -502,7 +516,6 @@
 	if(jetpack)
 		stat(null, "Internal Atmosphere Info: [jetpack.name]")
 		stat(null, "Tank Pressure: [jetpack.air_contents.return_pressure()]")
-
 
 // this function displays the cyborgs current cell charge in the stat panel
 /mob/living/silicon/robot/proc/show_cell_power()
@@ -826,9 +839,9 @@
 
 	if(stat == CONSCIOUS)
 		if(a_intent == I_HELP)
-			add_overlay("eyes-[module_sprites[icontype]]-help")
+			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 		else
-			add_overlay("eyes-[module_sprites[icontype]]-harm")
+			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 	if(opened)
 		var/panelprefix = custom_sprite ? src.ckey : "ov"
@@ -965,8 +978,9 @@
 
 	if(module)
 		if(module.type == /obj/item/robot_module/janitor)
+			var/obj/item/robot_module/janitor/J = module
 			var/turf/tile = get_turf(src)
-			if(isturf(tile))
+			if(isturf(tile) && J.mopping)
 				tile.clean_blood()
 				if(istype(tile, /turf/simulated))
 					var/turf/simulated/S = tile
@@ -1001,7 +1015,6 @@
 								cleaned_human.update_inv_shoes(0)
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
-		return
 
 /mob/living/silicon/robot/proc/self_destruct(var/anti_theft = FALSE)
 	if(anti_theft)
@@ -1070,17 +1083,15 @@
 /mob/living/silicon/robot/proc/choose_icon()
 	set category = "Robot Commands"
 	set name = "Choose Icon"
+	set waitfor = 0
 
 	if(!length(module_sprites))
 		to_chat(src, SPAN_DANGER("Something is badly wrong with the sprite selection. Harass a coder."))
 		return
+
 	if(icon_selected)
 		verbs -= /mob/living/silicon/robot/proc/choose_icon
 		return
-
-	if(icon_selection_tries == -1)
-		icon_selection_tries = module_sprites.len+1
-
 
 	if(length(module_sprites) == 1 || !client)
 		if(!(icontype in module_sprites))
@@ -1088,19 +1099,21 @@
 		if(!client)
 			return
 	else
-		icontype = input(src, "Select an icon! [icon_selection_tries ? "You have [icon_selection_tries] more chance\s." : "This is your last try."]", "Icon Selection") in module_sprites
+		var/list/options = list()
+		for(var/i in module_sprites)
+			var/image/radial_button = image(icon = src.icon, icon_state = module_sprites[i])
+			radial_button.overlays.Add(image(icon = src.icon, icon_state = "eyes-[module_sprites[i]]-help"))
+			options[i] = radial_button
+		icontype = show_radial_menu(src, src, options, radius = 42, tooltips = TRUE)
+
+	if(!icontype)
+		return
+
 	icon_state = module_sprites[icontype]
 	updateicon()
-
-	if(length(module_sprites) > 1 && icon_selection_tries >= 1 && client)
-		icon_selection_tries--
-		var/choice = input(src, "Look at your icon - is this what you want?", "Icon Confirmation") in list("Yes", "No")
-		if(choice == "No")
-			choose_icon()
-			return
-
 	icon_selected = TRUE
-	icon_selection_tries = 0
+	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
+	spark(get_turf(src), 5, alldirs)
 	verbs -= /mob/living/silicon/robot/proc/choose_icon
 	to_chat(src, SPAN_NOTICE("Your icon has been set. You now require a module reset to change it."))
 

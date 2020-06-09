@@ -58,6 +58,7 @@
 
 	var/datum/callback/patrol_callback	// this is here so we don't constantly recreate this datum, it being identical each time.
 	var/move_to_delay = 4 //delay for the automated movement.
+	can_take_pai = FALSE
 
 /mob/living/bot/secbot/beepsky
 	name = "Officer Beepsky"
