@@ -370,13 +370,7 @@
 		gun_choices = list()
 		for(var/gun_type in typesof(/obj/item/gun/) - src.type)
 			var/obj/item/gun/G = gun_type
-			src.gun_choices[initial(G.name)] = gun_type
-
-/obj/item/gun/energy/chameleon/change(picked in gun_choices) //Making the gun change its help text to match the weapon's help text.
-	..(picked)
-	var/obj/O = gun_choices[picked]
-	desc = initial(O.desc)
-	desc_info = initial(O.desc_info)
+			src.gun_choices[initial(G.name)] = gun_typ
 
 /obj/item/gun/energy/chameleon/consume_next_projectile()
 	var/obj/item/projectile/P = ..()
@@ -412,10 +406,10 @@
 	var/obj/item/gun/energy/E = copy
 	if(istype(E))
 		copy_projectile = E.projectile_type
-		//charge_meter = E.charge_meter //does not work very well with icon_state changes, ATM
+		desc = E.desc
+		desc_info = E.desc_info
 	else
 		copy_projectile = null
-		//charge_meter = 0
 
 /obj/item/gun/energy/chameleon/verb/change(picked in gun_choices)
 	set name = "Change Gun Appearance"

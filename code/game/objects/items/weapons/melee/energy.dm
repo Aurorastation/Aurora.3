@@ -208,6 +208,7 @@
  * Energy Sword
  */
 /obj/item/melee/energy/sword
+	color
 	name = "energy sword"
 	desc = "May the force be within you."
 	desc_antag = "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted.  It can also has a chance \
