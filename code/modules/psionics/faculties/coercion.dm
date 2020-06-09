@@ -275,7 +275,7 @@
 				to_chat(M,"<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
 		var/mob/living/carbon/human/H = target
-		if (target.can_commune())
+		if(H.can_commune() || H.psi)
 			to_chat(H,"<b>You instinctively sense [user] sending their thoughts into your mind, hearing:</b> [text]")
 		else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 			to_chat(H,"<b>You sense [user]'s psyche enter your mind, whispering quietly:</b> [text]")

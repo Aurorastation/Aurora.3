@@ -130,7 +130,6 @@
 		/obj/item/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/antibody_scanner,
 		/obj/item/device/radio
 		)
 

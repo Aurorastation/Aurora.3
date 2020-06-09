@@ -10,6 +10,7 @@
 	clicksound = "keyboard"
 	clickvol = 30
 
+	var/print_loc
 	var/list/machine_recipes
 	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
 	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
@@ -23,6 +24,8 @@
 
 	var/mat_efficiency = 1
 	var/build_time = 50
+
+	var/does_flick = TRUE
 
 	var/datum/wires/autolathe/wires
 
@@ -40,11 +43,12 @@
 	idle_power_usage = FALSE
 	active_power_usage = FALSE
 	interact_offline = TRUE
-	var/print_loc
+	does_flick = FALSE
 
 /obj/machinery/autolathe/Initialize()
 	. = ..()
 	wires = new(src)
+	print_loc = src
 
 /obj/machinery/autolathe/Destroy()
 	qdel(wires)
@@ -118,12 +122,6 @@
 			dat += "<tr><td width = 180>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
 
 		dat += "</table><hr>"
-	//Hacking.
-	if(panel_open)
-		dat += "<h2>Maintenance Panel</h2>"
-		dat += wires.GetInteractWindow()
-
-		dat += "<hr>"
 
 	user << browse(dat, "window=autolathe")
 	onclose(user, "autolathe")
@@ -147,7 +145,10 @@
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
 		if(O.ismultitool() || O.iswirecutter())
-			attack_hand(user)
+			if(panel_open)
+				wires.Interact(user)
+			else
+				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 			return
 
 	if(O.loc != user && !istype(O, /obj/item/stack))
@@ -221,7 +222,7 @@
 	add_fingerprint(usr)
 
 	if(busy)
-		to_chat(usr, span("notice", "The autolathe is busy. Please wait for the completion of previous operation."))
+		to_chat(usr, SPAN_WARNING("The autolathe is busy. Please wait for the completion of previous operation."))
 		return
 
 	if(href_list["change_category"])
@@ -259,8 +260,9 @@
 			if(!isnull(stored_material[material]))
 				stored_material[material] = max(0, stored_material[material] - round(build_item.resources[material] * mat_efficiency) * multiplier)
 
-		//Fancy autolathe animation.
-		flick("autolathe_n", src)
+		if(does_flick)
+			//Fancy autolathe animation.
+			flick("autolathe_n", src)
 
 		sleep(build_time)
 
@@ -272,11 +274,12 @@
 			return
 
 		//Create the desired item.
-		var/obj/item/I = new build_item.path(get_turf(src))
+		var/obj/item/I = new build_item.path(get_turf(print_loc))
 		I.Created()
 		if(multiplier > 1 && istype(I, /obj/item/stack))
 			var/obj/item/stack/S = I
 			S.amount = multiplier
+		build_item = null
 
 	updateUsrDialog()
 

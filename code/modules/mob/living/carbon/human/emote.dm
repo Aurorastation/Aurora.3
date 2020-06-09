@@ -596,11 +596,10 @@
 				m_type = 1
 			else
 				if (!muzzled)
-					message = "screams!"
-					m_type = 2
+					message = pick(species.scream_emote)
 				else
 					message = "makes a very loud noise."
-					m_type = 2
+				m_type = 2
 		if("swish")
 			src.animate_tail_once()
 

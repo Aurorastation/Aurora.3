@@ -45,7 +45,6 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/imidazoline,
 			/obj/item/reagent_containers/chem_disp_cartridge/peridaxon,
 			/obj/item/reagent_containers/chem_disp_cartridge/bicaridine,
-			/obj/item/reagent_containers/chem_disp_cartridge/deltamivir,
 			/obj/item/reagent_containers/chem_disp_cartridge/thetamycin,
 			/obj/item/reagent_containers/chem_disp_cartridge/coughsyrup,
 			/obj/item/reagent_containers/chem_disp_cartridge/benadryl,

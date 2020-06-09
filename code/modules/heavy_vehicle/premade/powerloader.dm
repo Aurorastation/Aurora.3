@@ -166,3 +166,5 @@
 	dummy_type = /mob/living/simple_animal/spiderbot/ai
 	remote_network = "aimechs"
 	does_hardpoint_lock = FALSE
+
+	h_l_hand = /obj/item/mecha_equipment/toolset

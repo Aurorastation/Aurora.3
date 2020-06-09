@@ -1,40 +1,50 @@
-/obj/effect/rune/blood_drain
-	can_talisman = TRUE
+/datum/rune/blood_drain
+	name = "blood draining rune"
+	desc = "This rune is used to drain the blood of non-believers into a fellow acolyte. All must be standing on the rune."
+	rune_flags = NO_TALISMAN
+	var/list/mob/living/carbon/human/lambs
+	var/mob/living/carbon/human/target
 
-/obj/effect/rune/blood_drain/do_rune_action(mob/living/user)
-	var/drain
-	for(var/obj/effect/rune/blood_drain/R in rune_list)
-		for(var/mob/living/carbon/D in get_turf(R))
-			if(D.stat != DEAD)
-				admin_attack_log(user, D, "Used a blood drain rune.", "Was victim of a blood drain rune.", "used a blood drain rune on")
-				var/bdrain = rand(1, 25)
-				to_chat(D, span("warning", "You feel weakened."))
-				D.take_overall_damage(bdrain, 0)
-				drain += bdrain
-	if(!drain)
-		return fizzle(user)
-	user.say("Yu[pick("'","`")]gular faras desdae. Havas mithum javara. Umathar uf'kal thenar!")
-	user.visible_message("<span class='danger'>Blood flows from the rune into [user]!</span>", \
-	"<span class='danger'>The blood starts flowing from the rune and into your frail body. You feel... empowered.</span>", \
-	"<span class='warning'>You hear a liquid flowing.</span>")
-	playsound(user, 'sound/magic/enter_blood.ogg', 100, 1)
+/datum/rune/blood_drain/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	LAZYCLEARLIST(lambs)
+	target = null
+	return ..()
 
-	if(user.bhunger)
-		user.bhunger = max(user.bhunger-2*drain,0)
-	if(drain >= 50)
-		user.visible_message("<span class='danger'>[user]'s eyes give off an eerie red glow!</span>", \
-		"<span class='danger'>...but it wasn't nearly enough. You crave, crave for more. The hunger consumes you from within.</span>", \
-		"<span class='warning'>You hear a heartbeat.</span>")
-		user.bhunger += drain
-		while(user.bhunger)
-			user.bhunger--
-			sleep(50)
-			user.take_overall_damage(3, 0)
-		return
-	user.heal_organ_damage(drain%5, 0)
-	drain-=drain%5
-	while(drain)
-		drain -= 5
-		sleep(2)
-		user.heal_organ_damage(5, 0)
+/datum/rune/blood_drain/do_rune_action(mob/living/user, atom/movable/A)
+	LAZYINITLIST(lambs)
+	for(var/mob/living/carbon/human/H in get_turf(A))
+		if(iscultist(H))
+			if(!target)
+				target = H
+			continue
+		if(H.stat == DEAD)
+			continue
+		if(H.species.flags & NO_BLOOD)
+			continue
+		LAZYADD(lambs, H)
+	if(length(lambs))
+		START_PROCESSING(SSprocessing, src)
+	else
+		fizzle(user, A)
 	return TRUE
+
+/datum/rune/blood_drain/process()
+	if(target && length(lambs) && (get_turf(target) == get_turf(parent)))
+		for(var/mob/living/carbon/human/H in lambs)
+			if(get_turf(H) == get_turf(parent))
+				if(target.vessel.get_reagent_amount("blood") + 10 > H.species.blood_volume)
+					to_chat(target, SPAN_CULT("You feel refreshed!"))
+					interrupt()
+				target.whisper("Sa'ii, ble-nii...")
+				H.vessel.trans_to_mob(target, 10, CHEM_BLOOD)
+				H.take_overall_damage(10, 10)
+				playsound(target, 'sound/magic/enter_blood.ogg', 50, 1)
+			else
+				interrupt()
+	else
+		interrupt()
+
+/datum/rune/blood_drain/proc/interrupt()
+	parent.visible_message(SPAN_CULT("\The [parent] suddenly disappears, the incantation broken!"))
+	qdel(parent)

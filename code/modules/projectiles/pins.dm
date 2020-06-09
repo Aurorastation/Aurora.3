@@ -217,3 +217,14 @@ Pins Below.
 		return 0
 	else
 		return 1
+
+/obj/item/device/firing_pin/away_site
+	name = "away site firing pin"
+	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-station."
+	fail_message = "<span class='warning'>USER ON STATION LEVEL.</span>"
+
+/obj/item/device/firing_pin/access/pin_auth(mob/living/user)
+	if(!isStationLevel(src.z))
+		return TRUE
+	else
+		return FALSE

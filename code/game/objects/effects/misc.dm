@@ -37,3 +37,43 @@
 
 /proc/shadow(atom/movable/target)
 	new /atom/movable/afterimage(get_turf(target), target)
+
+/obj/effect/constructing_effect
+	icon = 'icons/effects/effects_rfd.dmi'
+	icon_state = ""
+	layer = ABOVE_ALL_MOB_LAYER
+	anchored = TRUE
+	var/delay = 0
+	var/status = 0
+
+/obj/effect/constructing_effect/Initialize(mapload, build_delay, mode)
+	. = ..()
+	delay = build_delay // so the variables transfer over between procs.
+	status = mode
+	if(status == 3)
+		addtimer(CALLBACK(src, /atom/.proc/update_icon), 11)
+		delay -= 11
+		icon_state = "rfd_end_reverse"
+	else
+		update_icon()
+
+/obj/effect/constructing_effect/update_icon()
+	icon_state = "rfd"
+	if(delay < 10)
+		icon_state += "_shortest"
+	else if(delay < 20)
+		icon_state += "_shorter"
+	else if(delay < 37)
+		icon_state += "_short"
+	if(status == 3)
+		icon_state += "_reverse"
+
+/obj/effect/constructing_effect/proc/end_animation()
+	if(status == 3)
+		end()
+	else
+		icon_state = "rfd_end"
+		addtimer(CALLBACK(src, .proc/end), 15)
+
+/obj/effect/constructing_effect/proc/end()
+	qdel(src)

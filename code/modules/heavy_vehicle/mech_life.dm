@@ -75,7 +75,6 @@
 			visible_message("<span class='danger'>\The [src]'s hull bends and buckles under the intense heat!</span>")
 
 /mob/living/heavy_vehicle/death(var/gibbed)
-
 	// Salvage moves into the wreck unless we're exploding violently.
 	var/obj/wreck = new wreckage_path(get_turf(src), src, gibbed)
 	wreck.name = "wreckage of \the [name]"
@@ -94,12 +93,16 @@
 	// Eject the pilot.
 	if(LAZYLEN(pilots))
 		hatch_locked = 0 // So they can get out.
-		for(var/pilot in pilots)
+		for(var/mob/pilot in pilots)
+			pilot.body_return()
 			eject(pilot, silent=1)
+			if(remote_network && istype(pilot, /mob/living/simple_animal/spiderbot))
+				gib(pilot)
 
 	// Handle the rest of things.
 	..(gibbed, (gibbed ? "explodes!" : "grinds to a halt before collapsing!"))
-	if(!gibbed) qdel(src)
+	if(!gibbed)
+		qdel(src)
 
 /mob/living/heavy_vehicle/gib()
 	death(1)

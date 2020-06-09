@@ -83,6 +83,7 @@
 	var/subscreen			// Which specific function of the main screen is being displayed
 
 	var/obj/item/device/pda/ai/pai/pda = null
+	var/obj/item/modular_computer/parent_computer
 
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
@@ -356,7 +357,10 @@
 	if(istype(card.loc,/obj/item/rig_module))
 		to_chat(src, SPAN_WARNING("There is no room to unfold inside this rig module. You're good and stuck."))
 		return FALSE
-	else if(istype(card.loc, /mob))
+	else if(istype(card.loc, /obj/item/modular_computer))
+		to_chat(src, SPAN_WARNING("You are unable to unfold while housed within a computer."))
+		return FALSE
+	else if(istype(card.loc,/mob))
 		var/mob/holder = card.loc
 		if(ishuman(holder))
 			var/mob/living/carbon/human/H = holder
