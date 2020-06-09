@@ -21,5 +21,5 @@
 	short_name = "eridaniparamedic"
 	mob_name_prefix = "Pm. "
 	max_count = 2
-	desc = "A highly trained paramedic. You grab injured people and bring them to the medical doctor doctor. You are trained in nursing duties as well."
+	desc = "A highly trained paramedic. You grab injured people and bring them to the medical doctor. You are trained in nursing duties as well."
 	outfit = /datum/outfit/admin/ert/med_eridani/paramedic
