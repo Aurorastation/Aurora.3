@@ -21,7 +21,7 @@
 
 /obj/item/device/flashlight/flare/Initialize()
 	. = ..()
-	fuel = rand(400, 600) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
+	fuel = rand(400, 600)
 
 /obj/item/device/flashlight/flare/process()
 	var/turf/pos = get_turf(src)

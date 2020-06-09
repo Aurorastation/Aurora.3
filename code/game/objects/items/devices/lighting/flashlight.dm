@@ -29,10 +29,9 @@
 		update_icon()
 	. = ..()
 	if(light_wedge)
-		var/new_dir = pick(NORTH, SOUTH, EAST, WEST)
+		set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		if(spawn_dir)
-			new_dir = spawn_dir
-		set_dir(new_dir)
+			set_dir(spawn_dir)
 		update_light()
 
 /obj/item/device/flashlight/update_icon()
