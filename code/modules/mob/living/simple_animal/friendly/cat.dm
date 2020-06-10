@@ -233,13 +233,14 @@
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/holder/cat/black
 
-/mob/living/simple_animal/cat/fluff/death()
-	.=..()
-	desc = "Oh no, [name] is dead! What kind of monster would do this?"
+/mob/living/simple_animal/cat/fluff/examine(mob/user)
+	..()
+	if(stat == DEAD)
+		to_chat(user, "Oh no, [name] is dead! What kind of monster would do this?")
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
-	desc = "D'aaawwww"
+	desc = "D'aaawwww."
 	icon_state = "kitten"
 	item_state = "kitten"
 	icon_living = "kitten"
@@ -248,9 +249,10 @@
 	gender = NEUTER
 	holder_type = /obj/item/holder/cat/kitten
 
-/mob/living/simple_animal/cat/kitten/death()
-	.=..()
-	desc = "It's a dead kitten! What kind of monster would do this?"
+/mob/living/simple_animal/cat/kitten/examine(mob/user)
+	..()
+	if(stat == DEAD)
+		to_chat(user, "It's a dead kitten! What kind of monster would do this?")
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
