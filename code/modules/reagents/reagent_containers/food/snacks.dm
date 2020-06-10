@@ -302,7 +302,7 @@
 		to_chat(user, span("warning", "There's not enough [C.name] to coat the [src]!"))
 		return 0
 
-	var/id = C.id
+	var/id = C.type
 
 	//First make sure there's space for our batter
 	if (reagents.get_free_space() < req+5)

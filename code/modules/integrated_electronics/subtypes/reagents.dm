@@ -353,9 +353,9 @@
 		for(var/datum/reagent/G in source.reagents.reagent_list)
 			if (!direc)
 				if(G.id in demand)
-					source.reagents.trans_id_to(target, G.id, transfer_amount)
+					source.reagents.trans_type_to(target, G.id, transfer_amount)
 			else
 				if(!(G.id in demand))
-					source.reagents.trans_id_to(target, G.id, transfer_amount)
+					source.reagents.trans_type_to(target, G.id, transfer_amount)
 		activate_pin(2)
 		push_data()

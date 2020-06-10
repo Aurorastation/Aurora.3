@@ -1,6 +1,5 @@
 /datum/reagent
 	var/name = "Reagent"
-	var/id = "reagent"
 	var/description = "A non-descript chemical."
 	var/taste_description = "old rotten bandaids"
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
@@ -46,10 +45,9 @@
 
 /datum/reagent/proc/remove_self(var/amount) // Shortcut
 	if (!holder)
-		//PROCLOG_WEIRD("Null holder found. Name: [name], id: [id]")
 		return
 
-	holder.remove_reagent(id, amount)
+	holder.remove_reagent(type, amount)
 
 // This doesn't apply to skin contact - this is for, e.g. extinguishers and sprays. The difference is that reagent is not directly on the mob's skin - it might just be on their clothing.
 /datum/reagent/proc/touch_mob(var/mob/living/M, var/amount)

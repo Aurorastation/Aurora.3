@@ -126,9 +126,9 @@
 			for (var/datum/reagent/R in I.reagents.reagent_list)
 				if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
 					total_oil += R.volume
-					if (R.id != our_oil.id)
+					if (R.type != our_oil.type)
 						total_removed += R.volume
-						I.reagents.remove_reagent(R.id, R.volume)
+						I.reagents.remove_reagent(R.type, R.volume)
 					else
 						total_our_oil += R.volume
 
@@ -149,8 +149,8 @@
 			for (var/obj/item/I in CI.container)
 				if (I.reagents && I.reagents.total_volume)
 					for (var/datum/reagent/R in I.reagents.reagent_list)
-						if (R.id == our_oil.id)
-							I.reagents.remove_reagent(R.id, R.volume*portion)
+						if (R.type == our_oil.type)
+							I.reagents.remove_reagent(R.type, R.volume*portion)
 
 
 
@@ -237,8 +237,8 @@
 				if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
 					var/delta = oil.get_free_space()
 					delta = min(delta, R.volume)
-					oil.add_reagent(R.id, delta)
-					I.reagents.remove_reagent(R.id, delta)
+					oil.add_reagent(R.type, delta)
+					I.reagents.remove_reagent(R.type, delta)
 					amount += delta
 			if (amount > 0)
 				user.visible_message("[user] pours some oil into \the [src].", span("notice","You pour [amount]u of oil into \the [src]."), "<span class='notice'>You hear something viscous being poured into a metal container.</span>")

@@ -17,13 +17,13 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	if(R.specific_heat > 0)
 		return TRUE
 
-	if(chemical_reagents[R.id].specific_heat > 0) //Don't think this will happen but you never know.
+	if(chemical_reagents[R.type].specific_heat > 0) //Don't think this will happen but you never know.
 		return TRUE
 
-	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.type)
 	if(recipe)
 		for(var/chem in recipe.required_reagents)
-			if(!has_valid_specific_heat(chemical_reagents[chem]))
+			if(!has_va.type_specific_heat(chemical_reagents[chem]))
 				log_ss("chemistry", "ERROR: [recipe.type] has an improper recipe!")
 				return R.fallback_specific_heat > 0
 
@@ -40,10 +40,10 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	if(R.specific_heat > 0)
 		return R.specific_heat
 
-	if(chemical_reagents[R.id].specific_heat > 0) //Don't think this will happen but you never know.
-		return chemical_reagents[R.id].specific_heat
+	if(chemical_reagents[R.type].specific_heat > 0) //Don't think this will happen but you never know.
+		return chemical_reagents[R.type].specific_heat
 
-	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.id)
+	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.type)
 	if(recipe)
 		var/final_heat = 0
 		var/result_amount = recipe.result_amount
@@ -56,15 +56,15 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			final_heat += chem_specific_heat * (recipe.required_reagents[chem]/result_amount)
 
 		if(final_heat > 0)
-			chemical_reagents[R.id].specific_heat = final_heat
+			chemical_reagents[R.type].specific_heat = final_heat
 			return final_heat
 
 	if(R.fallback_specific_heat > 0)
-		chemical_reagents[R.id].specific_heat = R.fallback_specific_heat
+		chemical_reagents[R.type].specific_heat = R.fallback_specific_heat
 		return R.fallback_specific_heat
 
 	log_ss("chemistry", "ERROR: [R.type] does not have a specific heat value set, and there is no associated recipe for it! Please fix this by giving it a specific_heat value!")
-	chemical_reagents[R.id].specific_heat = 1
+	chemical_reagents[R.type].specific_heat = 1
 	return 1
 
 /datum/controller/subsystem/chemistry/proc/find_recipe_by_result(var/result_id)
@@ -134,7 +134,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		log_debug("SSchemistry: Loading chemical: [chemical]")
 		var/datum/chemical_reaction/cc = new()
 		cc.name = chemconfig[chemical]["name"]
-		cc.id = chemconfig[chemical]["id"]
+		cc.type = chemconfig[chemical]["type"]
 		cc.result = chemconfig[chemical]["result"]
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		cc.required_reagents = chemconfig[chemical]["required_reagents"]
@@ -149,11 +149,11 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 				break
 
 		if(LAZYLEN(cc.required_reagents))
-			var/reagent_id = cc.required_reagents[1]
-			LAZYINITLIST(chemical_reactions[reagent_id])
-			chemical_reactions[reagent_id] += cc
+			var/rtype = cc.required_reagents[1]
+			LAZYINITLIST(chemical_reactions[rtype])
+			chemical_reactions[rtype] += cc
 
-//Chemical Reagents - Initialises all /datum/reagent into a list indexed by reagent id
+//Chemical Reagents - Initialises all /datum/reagent into a list indexed by reagent type
 /datum/controller/subsystem/chemistry/proc/initialize_chemical_reagents()
 	var/paths = subtypesof(/datum/reagent)
 	chemical_reagents = list()
@@ -161,7 +161,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		var/datum/reagent/D = new path()
 		if(!D.name)
 			continue
-		chemical_reagents[D.id] = D
+		chemical_reagents[D.type] = D
 
 	sortTim(chemical_reagents, /proc/cmp_text_asc)
 
@@ -179,9 +179,9 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	for(var/path in paths)
 		var/datum/chemical_reaction/D = new path()
 		if(D.required_reagents && D.required_reagents.len)
-			var/reagent_id = D.required_reagents[1]
-			if(!chemical_reactions[reagent_id])
-				chemical_reactions[reagent_id] = list()
-			chemical_reactions[reagent_id] += D
-		if(D.id)
-			chemical_reactions_clean[D.id] = D
+			var/rtype = D.required_reagents[1]
+			if(!chemical_reactions[rtype])
+				chemical_reactions[rtype] = list()
+			chemical_reactions[rtype] += D
+		if(D.type)
+			chemical_reactions_clean[D.type] = D

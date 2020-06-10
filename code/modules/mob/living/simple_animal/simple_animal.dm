@@ -433,7 +433,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				to_chat(user, "<span class='warning'>The [O] is full.</span>")
 				return
 			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-			udder.trans_id_to(G, milk_type , rand(5,10))
+			udder.trans_type_to(G, milk_type , rand(5,10))
 			return
 
 	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))

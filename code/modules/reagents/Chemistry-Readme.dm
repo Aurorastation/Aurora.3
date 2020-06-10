@@ -111,7 +111,7 @@ About the Holder:
 
 			Calls touch() before checking the type of [target], calling splash_mob(target, amount), trans_to_turf(target, amount, multiplier, copy), or trans_to_obj(target, amount, multiplier, copy).
 
-		trans_id_to(var/atom/target, var/id, var/amount = 1)
+		trans_type_to(var/atom/target, var/id, var/amount = 1)
 			Transfers [amount] of [id] to [target]. Returns amount transferred.
 
 		splash_mob(var/mob/target, var/amount = 1, var/clothes = 1)

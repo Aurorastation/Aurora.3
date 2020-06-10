@@ -252,35 +252,35 @@
 
 	for(var/datum/reagent/R in temp_chem_holder.reagents.reagent_list)
 
-		var/reagent_total = temp_chem_holder.reagents.get_reagent_amount(R.id)
+		var/reagent_total = temp_chem_holder.reagents.get_reagent_amount(R.type)
 
 		if(seed && !dead)
 			//Handle some general level adjustments.
-			if(toxic_reagents[R.id])
-				toxins += toxic_reagents[R.id]         * reagent_total
-			if(weedkiller_reagents[R.id])
-				weedlevel -= weedkiller_reagents[R.id] * reagent_total
-			if(pestkiller_reagents[R.id])
-				pestlevel += pestkiller_reagents[R.id] * reagent_total
+			if(toxic_reagents[R.type])
+				toxins += toxic_reagents[R.type]         * reagent_total
+			if(weedkiller_reagents[R.type])
+				weedlevel -= weedkiller_reagents[R.type] * reagent_total
+			if(pestkiller_reagents[R.type])
+				pestlevel += pestkiller_reagents[R.type] * reagent_total
 
 			// Beneficial reagents have a few impacts along with health buffs.
-			if(beneficial_reagents[R.id])
-				health += beneficial_reagents[R.id][1]       * reagent_total
-				yield_mod += beneficial_reagents[R.id][2]    * reagent_total
-				mutation_mod += beneficial_reagents[R.id][3] * reagent_total
+			if(beneficial_reagents[R.type])
+				health += beneficial_reagents[R.type][1]       * reagent_total
+				yield_mod += beneficial_reagents[R.type][2]    * reagent_total
+				mutation_mod += beneficial_reagents[R.type][3] * reagent_total
 
 			// Mutagen is distinct from the previous types and mostly has a chance of proccing a mutation.
-			if(mutagenic_reagents[R.id])
-				mutation_level += reagent_total*mutagenic_reagents[R.id]+mutation_mod
+			if(mutagenic_reagents[R.type])
+				mutation_level += reagent_total*mutagenic_reagents[R.type]+mutation_mod
 
 		// Handle nutrient refilling.
-		if(nutrient_reagents[R.id])
-			nutrilevel += nutrient_reagents[R.id]  * reagent_total
+		if(nutrient_reagents[R.type])
+			nutrilevel += nutrient_reagents[R.type]  * reagent_total
 
 		// Handle water and water refilling.
 		var/water_added = 0
-		if(water_reagents[R.id])
-			var/water_input = water_reagents[R.id] * reagent_total
+		if(water_reagents[R.type])
+			var/water_input = water_reagents[R.type] * reagent_total
 			water_added += water_input
 			waterlevel += water_input
 

@@ -171,8 +171,8 @@
 
 	var/list/temp_chem = list()
 	for(var/datum/reagent/R in src.reagents.reagent_list)
-		temp_chem += R.id
-		temp_chem[R.id] = R.volume
+		temp_chem += R.type
+		temp_chem[R.type] = R.volume
 	B.data["trace_chem"] = list2params(temp_chem)
 	return B
 

@@ -105,7 +105,7 @@
 	var/list/reagents = list()
 	for(var/T in available_chemicals)
 		var/list/reagent = list()
-		reagent["id"] = T
+		reagent["type"] = T
 		reagent["name"] = available_chemicals[T]
 		if(occupant)
 			reagent["amount"] = occupant.reagents.get_reagent_amount(T)

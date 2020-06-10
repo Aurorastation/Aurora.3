@@ -135,6 +135,6 @@ var/list/lunchables_alcohol_reagents_ = list(
 		if(reagent_type in banned_reagents)
 			continue
 		var/datum/reagent/reagent = reagent_type
-		.[initial(reagent.name)] = initial(reagent.id)
+		.[initial(reagent.name)] = initial(reagent.type)
 
 	sortTim(., /proc/cmp_text_asc)
