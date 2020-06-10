@@ -2,7 +2,7 @@
 	name = "Eridani Contractor Doctor"
 
 	uniform = /obj/item/clothing/under/rank/eridani_medic
-	suit = /obj/item/clothing/suit/storage/hazardvest/white
+	suit = /obj/item/clothing/suit/storage/medical_chest_rig
 	head = /obj/item/clothing/head/beret/sec/eri
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
@@ -84,7 +84,7 @@
 /datum/outfit/admin/ert/med_eridani/paramedic
 	name = "Eridani Contractor Paramedic"
 
-	head = /obj/item/clothing/head/helmet
+	head = /obj/item/clothing/head/hardhat/emt
 	mask = /obj/item/clothing/mask/balaclava
 	back = /obj/item/storage/backpack/messenger/med
 	glasses = /obj/item/clothing/glasses/hud/health
