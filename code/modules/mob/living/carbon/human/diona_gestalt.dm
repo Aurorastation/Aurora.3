@@ -304,7 +304,7 @@
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
-	var/gestalt_health = 300 -  getFireLoss() - getBruteLoss() - getToxLoss()
+	var/gestalt_health = (300 -  getFireLoss() - getBruteLoss() - getToxLoss()) / 6
 
 	var/nymphs_to_kill_off = 0
 
@@ -335,8 +335,8 @@
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
-		if(gestalt_health / 6 >= D.maxHealth * 0.20)
-			D.health = gestalt_health / 6
+		if(gestalt_health >= D.maxHealth * 0.20)
+			D.health = gestalt_health
 		else
 			D.health = D.maxHealth * 0.20
 		D.split_languages(src)
