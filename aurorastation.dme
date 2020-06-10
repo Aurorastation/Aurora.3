@@ -210,6 +210,7 @@
 #include "code\controllers\subsystems\parallax.dm"
 #include "code\controllers\subsystems\plants.dm"
 #include "code\controllers\subsystems\power.dm"
+#include "code\controllers\subsystems\profiler.dm"
 #include "code\controllers\subsystems\radio.dm"
 #include "code\controllers\subsystems\records.dm"
 #include "code\controllers\subsystems\responseteam.dm"
