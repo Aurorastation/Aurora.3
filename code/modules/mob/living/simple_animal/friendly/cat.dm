@@ -233,9 +233,9 @@
 	befriend_job = "Chief Medical Officer"
 	holder_type = /obj/item/holder/cat/black
 
-/mob/living/simple_animal/cat/fluff/Runtime/death()
+/mob/living/simple_animal/cat/fluff/death()
 	.=..()
-	desc = "Oh no, Runtime is dead! What kind of monster would do this?"
+	desc = "Oh no, [name] is dead! What kind of monster would do this?"
 
 /mob/living/simple_animal/cat/kitten
 	name = "kitten"
@@ -254,7 +254,7 @@
 
 /mob/living/simple_animal/cat/fluff/bones
 	name = "Bones"
-	desc = "That's Bones the cat. He's a laid back, black cat. Meow."
+	desc = "He's a laid back, black cat. Meow."
 	gender = MALE
 	icon_state = "cat3"
 	item_state = "cat3"
@@ -264,10 +264,6 @@
 	can_nap = 1
 	var/friend_name = "Erstatz Vryroxes"
 	holder_type = /obj/item/holder/cat/black
-
-/mob/living/simple_animal/cat/fluff/bones/death()
-	.=..()
-	desc = "Bones is dead"
 
 /mob/living/simple_animal/cat/kitten/Initialize()
 	. = ..()
