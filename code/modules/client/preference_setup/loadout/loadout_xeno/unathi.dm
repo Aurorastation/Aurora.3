@@ -142,7 +142,7 @@
 
 /datum/gear/augment/autakh
 	display_name = "soul anchor"
-	description = "An implant that connects the Aut'akh to the Mesh."
+	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to be the 'Window to the Soul' and house the concentrated spirit of an individual."
 	path = /obj/item/organ/internal/anchor
 	cost = 1
 	whitelisted = list("Unathi")
@@ -150,7 +150,7 @@
 
 /datum/gear/augment/autakh/calf_override
 	display_name = "calf overdrive"
-	description = "An Aut'akh augment that allows the user to run at high speeds without the cost of stamine, causes damage to the lower body when used."
+	description = "An Aut'akh augment that allows the user to run at high speeds without the cost of stamina, causes damage to the lower body when used."
 	path = /obj/item/organ/internal/augment/calf_override
 
 /datum/gear/augment/autakh/protein_valve
