@@ -8,6 +8,7 @@
 /datum/firemode
 	var/name = "default"
 	var/list/settings = list()
+	var/list/original_settings
 
 /datum/firemode/New(obj/item/gun/gun, list/properties = null)
 	..()
@@ -24,8 +25,19 @@
 			settings[propname] = propvalue
 
 /datum/firemode/proc/apply_to(obj/item/gun/gun)
+	LAZYINITLIST(original_settings)
+
 	for(var/propname in settings)
+		original_settings[propname] = gun.vars[propname]
 		gun.vars[propname] = settings[propname]
+
+/datum/firemode/proc/unapply_to(obj/item/gun/gun)
+	if (LAZYLEN(original_settings))
+		for (var/propname in original_settings)
+			gun.vars[propname] = original_settings[propname]
+
+		LAZYCLEARLIST(original_settings)
+		original_settings = null
 
 //Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
 /obj/item/gun
@@ -587,6 +599,9 @@
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
 		return null
+
+	var/datum/firemode/old_mode = firemodes[sel_mode]
+	old_mode.unapply_to(src)
 
 	sel_mode++
 	if(sel_mode > firemodes.len)
