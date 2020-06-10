@@ -608,20 +608,27 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/flame/lighter/random
-	New()
-		icon_state = "lighter-[pick("r","c","y","g")]"
-		item_state = icon_state
-		base_state = icon_state
+/obj/item/flame/lighter/random/Initialize()
+	. = ..()
+	icon_state = "lighter-[pick("r","c","y","g")]"
+	item_state = icon_state
+	base_state = icon_state
+
+/obj/item/flame/lighter/zippo/update_icon()
+	if(lit)
+		icon_state = "[base_state]on"
+		item_state = "[base_state]on"
+	else
+		icon_state = "[base_state]"
+		item_state = "[base_state]"
 
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)
 		base_state = icon_state
 	if(user.r_hand == src || user.l_hand == src)
 		if(!lit)
-			lit = 1
-			icon_state = "[base_state]on"
-			item_state = "[base_state]on"
+			lit = TRUE
+			update_icon()
 			playsound(src.loc, pick(activation_sound), 75, 1)
 			if(istype(src, /obj/item/flame/lighter/zippo) )
 				user.visible_message(span("notice", "Without even breaking stride, [user] flips open and lights [src] in one smooth movement."))
@@ -642,9 +649,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
 			START_PROCESSING(SSprocessing, src)
 		else
-			lit = 0
-			icon_state = "[base_state]"
-			item_state = "[base_state]"
+			lit = FALSE
+			update_icon()
 			playsound(src.loc, deactivation_sound, 75, 1)
 			if(istype(src, /obj/item/flame/lighter/zippo) )
 				user.visible_message(span("notice", "You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing."))

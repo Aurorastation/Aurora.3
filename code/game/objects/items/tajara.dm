@@ -88,3 +88,73 @@
 			in basic survival and reconnaissance skills emphasizing on self dependence within the frozen wilderness of Adhomai.  As a scouting unit, Ha'narri travel lightly on equipment, \
 			carrying primarily the essentials for survival and only a token amount of ammunition. Many detachments also make use of snow skiis in order to travel quickly in mountainous regions. \
 			They are well-known for their iconic thick light-colored cloaks which they wear while traversing the vast countrysides for warmth, as well as camouflage."
+
+/obj/item/pocketwatch/adhomai
+	name = "adhomian watch"
+	desc = "An watch made in the traditional adhomian style. It can be stored in the pocket or worn around the neck."
+	desc_fluff = "Because your wrists have better things to do."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "adhomai_clock"
+	item_state = "adhomai_clock"
+	contained_sprite = TRUE
+	slot_flags = SLOT_MASK | SLOT_TIE
+
+/obj/item/flame/lighter/adhomai
+	name = "adhomian lighter"
+	desc = "An adhomian lighter, it is designated to protect the flame from the strong winds of the Tajaran homeworld."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "trenchlighter"
+	item_state = "trenchlighter"
+	base_state = "trenchlighter"
+	contained_sprite = TRUE
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/protection = FALSE
+
+/obj/item/flame/lighter/adhomai/update_icon()
+	if(!protection)
+		icon_state = "[base_state]"
+		item_state = "[base_state]"
+		return
+
+	if(lit)
+		icon_state = "[base_state]-on"
+		item_state = "[base_state]-on"
+	else
+		icon_state = "[base_state]-proc"
+		item_state = "[base_state]-proc"
+
+/obj/item/flame/lighter/adhomai/attack_self(mob/living/user)
+	if(!protection)
+		to_chat(user, SPAN_NOTICE("You failt to light \the [src], you need to lift the windshield before lighting it."))
+		return FALSE
+	else
+		..()
+
+/obj/item/flame/lighter/adhomai/attack_hand(mob/user as mob)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.l_store == src && !H.get_active_hand())
+			H.put_in_hands(src)
+			H.l_store = null
+			return
+		if(H.r_store == src && !H.get_active_hand())
+			H.put_in_hands(src)
+			H.r_store = null
+			return
+		if(H.belt == src && !H.get_active_hand())
+			H.put_in_hands(src)
+			H.belt = null
+			return
+
+	if (loc == user)
+		if(!lit)
+			protection = !protection
+			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+			update_icon()
+	else
+		..()
+
+	add_fingerprint(user)
