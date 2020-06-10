@@ -591,7 +591,7 @@
 		new_mob.key = M.key
 	qdel(M)
 
-/datum/reagent/nanites
+/datum/reagent/toxin/nanites
 	name = "Nanomachines"
 	id = "nanites"
 	description = "Microscopic construction robots."
@@ -599,13 +599,6 @@
 	color = "#535E66"
 	taste_description = "slimey metal"
 	fallback_specific_heat = 3
-
-/datum/reagent/nanites/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
-	if(prob(10))
-		M.contract_disease(new /datum/disease/robotic_transformation(0), 1) //What
-
-/datum/reagent/nanites/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.contract_disease(new /datum/disease/robotic_transformation(0), 1)
 
 /datum/reagent/toxin/undead
 	name = "Undead Ichor"
@@ -714,7 +707,7 @@
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 
-		if(H.reagents.has_reagent("deltamivir", 15))
+		if(H.reagents.has_reagent("thetamycin", 15))
 			return
 
 		if(!H.internal_organs_by_name["zombie"] && prob(15))

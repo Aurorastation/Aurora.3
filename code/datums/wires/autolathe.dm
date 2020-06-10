@@ -1,5 +1,4 @@
 /datum/wires/autolathe
-
 	holder_type = /obj/machinery/autolathe
 	wire_count = 6
 
@@ -9,21 +8,17 @@ var/const/AUTOLATHE_DISABLE_WIRE = 4
 
 /datum/wires/autolathe/GetInteractWindow()
 	var/obj/machinery/autolathe/A = holder
+
 	. += ..()
-	. += "<BR>The red light is [A.disabled ? "off" : "on"]."
-	. += "<BR>The green light is [A.shocked ? "off" : "on"]."
-	. += "<BR>The blue light is [A.hacked ? "off" : "on"].<BR>"
+	. += "<BR>\The [A] [A.disabled ? "is dead quiet" : "has a soft electric whirr"]."
+	. += "<BR>\The [A] [A.shocked ? "is making sparking noises" : "is cycling normally"]."
+	. += "<BR>\The [A] [A.hacked ? "rarely" : "occasionally"] makes a beep boop noise.<BR>"
 
 /datum/wires/autolathe/CanUse()
 	var/obj/machinery/autolathe/A = holder
 	if(A.panel_open)
-		return 1
-	return 0
-
-/datum/wires/autolathe/Interact(var/mob/living/user)
-	if(CanUse(user))
-		var/obj/machinery/autolathe/V = holder
-		V.attack_hand(user)
+		return TRUE
+	return FALSE
 
 /datum/wires/autolathe/UpdateCut(index, mended)
 	var/obj/machinery/autolathe/A = holder

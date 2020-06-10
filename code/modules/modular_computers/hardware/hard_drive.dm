@@ -85,6 +85,7 @@
 /obj/item/computer_hardware/hard_drive/proc/install_default_programs()
 	store_file(new /datum/computer_file/program/computerconfig(src))		// Computer configuration utility, allows hardware control and displays more info than status bar
 	store_file(new /datum/computer_file/program/clientmanager(src))			// Client Manager to Enroll the Device
+	store_file(new /datum/computer_file/program/pai_access_lock(src))		// pAI access control, to stop pesky pAI from messing with computers
 
 // Use this proc to remove file from the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F)

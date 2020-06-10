@@ -1,12 +1,17 @@
-/obj/effect/rune/sacrifice/do_rune_action(mob/living/user)
+/datum/rune/sacrifice
+	name = "sacrificial rune"
+	desc = "This rune is used to sacrifice an unbeliever."
+	rune_flags = NO_TALISMAN
+
+/datum/rune/sacrifice/do_rune_action(mob/living/user, atom/movable/A)
 	var/list/mob/living/carbon/human/cultists_in_range = list()
 	var/list/mob/living/carbon/human/victims = list()
 
-	for(var/mob/living/carbon/human/V in get_turf(src)) // Checks for non-cultist humans to sacrifice
+	for(var/mob/living/carbon/human/V in get_turf(A)) // Checks for non-cultist humans to sacrifice
 		if(ishuman(V) && !iscultist(V))
 			victims += V // Checks for cult status and mob type
 
-	for(var/obj/item/I in get_turf(src)) // Checks for MMIs/brains/Intellicards
+	for(var/obj/item/I in get_turf(A)) // Checks for MMIs/brains/Intellicards
 		if(istype(I,/obj/item/organ/internal/brain))
 			var/obj/item/organ/internal/brain/B = I
 			victims += B.brainmob
@@ -16,10 +21,10 @@
 			victims += B.brainmob
 
 		else if(istype(I,/obj/item/aicard))
-			for(var/mob/living/silicon/ai/A in I)
-				victims += A
+			for(var/mob/living/silicon/ai/AI in I)
+				victims += AI
 	
-	for(var/mob/living/carbon/C in orange(1, src))
+	for(var/mob/living/carbon/C in orange(1, A))
 		if(iscultist(C) && !C.stat)
 			cultists_in_range += C
 			C.say("Barhah hra zar[pick("'","`")]garis!")
@@ -52,7 +57,7 @@
 			for(var/mob/C in cultists_in_range)
 				to_chat(C, output)
 
-/obj/effect/rune/sacrifice/proc/do_sacrifice(var/list/mob/cultists, var/mob/victim, var/victim_status, var/probability, var/worthy)
+/datum/rune/sacrifice/proc/do_sacrifice(var/list/mob/cultists, var/mob/victim, var/victim_status, var/probability, var/worthy)
 	var/victim_dead
 	if(victim_status == DEAD)
 		victim_dead = TRUE

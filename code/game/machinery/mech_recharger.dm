@@ -4,9 +4,9 @@
 	desc = "A exosuit recharger, built into the floor."
 	icon = 'icons/mecha/mech_bay.dmi'
 	icon_state = "recharge_floor"
-	density = 0
+	density = FALSE
 	layer = TURF_LAYER + 0.1
-	anchored = 1
+	anchored = TRUE
 	idle_power_usage = 300	// Some electronics, passive drain.
 	active_power_usage = 90 KILOWATTS // When charging
 
@@ -77,31 +77,30 @@
 		charging.updatehealth()
 		if(fully_repaired())
 			for(var/mob/pilot in charging.pilots)
-				pilot.show_message("<span class='notice'>Exosuit integrity has been fully restored.</span>")
+				to_chat(pilot, SPAN_NOTICE("Exosuit integrity has been fully restored."))
 
 	var/obj/item/cell/cell = charging.get_cell()
-	if(cell && !cell.fully_charged() && remaining_energy > 0)
+	if(cell && remaining_energy > 0)
 		cell.give(remaining_energy * CELLRATE)
-		if(cell.fully_charged())
-			for(var/mob/pilot in charging.pilots)
-				pilot.show_message("<span class='notice'>Fully charged.</span>")
-
-	if((!repair || fully_repaired()) && cell.fully_charged())
-		stop_charging()
 
 // An ugly proc, but apparently mechs don't have maxhealth var of any kind.
 /obj/machinery/mech_recharger/proc/fully_repaired()
 	return charging && (charging.health == charging.maxHealth)
 
 /obj/machinery/mech_recharger/proc/start_charging(var/mob/living/heavy_vehicle/M)
-	for(var/mob/pilot in M.pilots)
-		if(stat & (NOPOWER | BROKEN))
-			pilot.show_message("<span class='warning'>Power port not responding. Terminating.</span>")
+	var/no_power = FALSE
+	var/obj/item/cell/C = M.get_cell()
+	if(stat & (NOPOWER | BROKEN))
+		no_power = TRUE
+	if(!no_power && C)
+		charging = M
+		update_use_power(2)
+	for(var/pilot in M.pilots)
+		if(no_power)
+			to_chat(pilot, SPAN_WARNING("Power port not responding. Terminating."))
 			return
-		if(M.get_cell())
-			pilot.show_message("<span class='notice'>Now charging...</span>")
-			charging = M
-			update_use_power(2)
+		if(C)
+			to_chat(pilot, SPAN_NOTICE("Now charging..."))
 
 /obj/machinery/mech_recharger/proc/stop_charging()
 	update_use_power(1)

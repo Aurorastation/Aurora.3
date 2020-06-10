@@ -49,6 +49,7 @@
 	zoomdevicename = "scope"
 
 	var/burst = 1
+	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 1	//delay between shots, if firing in bursts
 	var/move_delay = 0
@@ -94,6 +95,7 @@
 	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -263,7 +265,7 @@
 			to_chat(user, span("warning","\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = (burst - 1)* burst_delay
+	var/shoot_time = (burst - 1) * burst_delay
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
@@ -290,7 +292,10 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, TRUE)
+			var/show_emote = TRUE
+			if(i > 1 && burst_delay < 3 && burst < 5)
+				show_emote = FALSE
+			handle_post_fire(user, target, pointblank, reflex, show_emote)
 			update_icon()
 
 		if(i < burst)
@@ -303,10 +308,9 @@
 	update_held_icon()
 
 	//update timing
-	var/delay = min(max(burst_delay+1, fire_delay), DEFAULT_QUICK_COOLDOWN)
-	if(delay)
-		user.setClickCooldown(delay)
-	next_fire_time = world.time + fire_delay
+	var/delay = max(burst_delay+1, fire_delay)
+	user.setClickCooldown(min(delay, DEFAULT_QUICK_COOLDOWN))
+	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -377,8 +381,8 @@
 
 //called if there was no projectile to shoot
 /obj/item/gun/proc/handle_click_empty(mob/user)
-	if (user)
-		user.visible_message("*click click*", span("danger","*click*"))
+	if(user)
+		to_chat(user, span("danger","*click*"))
 	else
 		src.visible_message("*click click*")
 	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
@@ -393,14 +397,14 @@
 		if(playemote)
 			if(reflex)
 				user.visible_message(
-					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!"),
+					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
 					"You hear a [fire_sound_text]!"
 				)
 			else
 				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
+					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
 					"You hear a [fire_sound_text]!"
 				)
 
@@ -748,8 +752,8 @@
 	if (!QDELETED(src))
 		qdel(src)
 
-/obj/item/offhand/mob_can_equip(var/mob/M, slot)
-		return FALSE
+/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+	return FALSE
 
 /obj/item/gun/Destroy()
 	if (istype(pin))
@@ -818,3 +822,8 @@
 				qdel(pin)
 				pin = null
 	return ..()
+
+//Autofire
+
+/obj/item/gun/proc/can_autofire()
+	return (can_autofire && world.time >= next_fire_time)

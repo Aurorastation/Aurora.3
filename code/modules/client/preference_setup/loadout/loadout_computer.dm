@@ -1,6 +1,6 @@
 /datum/gear/computer
 	display_name = "tablet"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced // for card slots
+	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
 	sort_category = "Modular Computers"
 	cost = 2
 
@@ -11,7 +11,7 @@
 
 /datum/gear/computer/wristbound
 	display_name = "wristbound computer"
-	path = /obj/item/modular_computer/wristbound/preset/advanced/generic
+	path = /obj/item/modular_computer/wristbound/preset/cheap/generic
 
 /datum/gear/computer/wristbound/cargo
 	display_name = "wristbound computer (Cargo)"

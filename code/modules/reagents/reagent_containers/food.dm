@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 /obj/item/reagent_containers/food
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
@@ -29,6 +30,6 @@
 			user.drop_from_inventory(src)	//so trash actually stays in the active hand.
 			var/obj/item/TrashItem = new trash(user)
 			user.put_in_hands(TrashItem)
-			target.visible_message(span("notice", "[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
+			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].",
 								   span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 			qdel(src)

@@ -9,6 +9,7 @@
 	var/colour = "red"
 	var/open = 0
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/lipstick/purple
 	name = "purple lipstick"

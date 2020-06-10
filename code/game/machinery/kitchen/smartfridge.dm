@@ -188,8 +188,6 @@
 /obj/machinery/smartfridge/secure/virology/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial/))
 		return 1
-	if(istype(O,/obj/item/virusdish/))
-		return 1
 	return 0
 
 /obj/machinery/smartfridge/chemistry

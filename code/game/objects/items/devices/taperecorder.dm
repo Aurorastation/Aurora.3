@@ -28,6 +28,8 @@
 
 /obj/item/device/taperecorder/Destroy()
 	listening_objects -= src
+	if(portable_drive)
+		QDEL_NULL(portable_drive)
 	return ..()
 
 /obj/item/device/taperecorder/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)

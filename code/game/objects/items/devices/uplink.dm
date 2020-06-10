@@ -368,7 +368,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 	name = "relay positioning device"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
-	description_antag = "This device allows you to create a single central command report. It has only one use."
+	desc_antag = "This device allows you to create a single central command report. It has only one use."
 	w_class = 2
 
 /obj/item/device/announcer/attack_self(mob/user as mob)
@@ -390,7 +390,7 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/special_uplink
 	name = "special uplink"
 	desc = "A small device with knobs and switches."
-	description_antag = "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items. Make sure to do it in private, it could look suspicious!"
+	desc_antag = "This is hidden uplink! Use it in-hand to access the uplink interface and spend telecrystals to beam in items. Make sure to do it in private, it could look suspicious!"
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	flags = CONDUCT

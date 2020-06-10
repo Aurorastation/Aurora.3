@@ -18,6 +18,8 @@
 	..(user)
 	if(augment_type)
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [augment_type] can be seen floating inside \the [src]'s biogel.")))
+	else
+		to_chat(user, FONT_SMALL(SPAN_WARNING("It is spent.")))
 
 /obj/item/device/augment_implanter/afterattack(mob/living/L, mob/user, proximity)
 	if(!proximity)

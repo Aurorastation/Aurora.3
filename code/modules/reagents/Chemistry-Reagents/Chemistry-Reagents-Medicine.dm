@@ -12,15 +12,10 @@
 	breathe_mul = 0.5
 	scannable = 1
 	taste_description = "bitterness"
-	var/datum/modifier/modifier
 
 /datum/reagent/norepinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
-
-/datum/reagent/norepinephrine/Destroy()
-	QDEL_NULL(modifier)
-	return ..()
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
@@ -163,31 +158,7 @@
 	var/power = 1 + Clamp((get_temperature() - (T0C + 20))*0.1,-0.5,0.5)
 	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
 	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
-	M.adjustOxyLoss(-6 * removed)
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
-	M.adjustToxLoss(-3 * removed)
-
-/datum/reagent/atropine
-	name = "Atropine"
-	id = "atropine"
-	description = "Atropine is an emergency stabilizing reagent designed to heal suffocation, blunt trauma, and burns in critical condition. Side effects include toxins increase, muscle weakness, and increased heartrate."
-	reagent_state = LIQUID
-	metabolism = 1
-	color = "#FF40FF"
-	scannable = 1
-	taste_description = "bitterness"
-	breathe_mul = 0
-
-/datum/reagent/atropine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/reagent_strength = Clamp(1 - (M.health/100),0.1,2)
-	M.adjustOxyLoss(-8 * removed * reagent_strength)
-	M.adjustBruteLoss(-8 * removed * reagent_strength)
-	M.adjustFireLoss(-8 * removed * reagent_strength)
-	M.adjustToxLoss(2 * removed)
-	M.add_chemical_effect(CE_PULSE, 1)
-	if(prob(10))
-		to_chat(M, span("warning", "Your muscles spasm and you find yourself unable to stand!"))
-		M.Weaken(3)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -542,27 +513,8 @@
 		M.adjustToxLoss(115 * removed) // Tested numbers myself
 	else
 		M.apply_radiation(-70 * removed)
-		M.adjustToxLoss(-10 * removed)
 		if(prob(60))
 			M.take_organ_damage(4 * removed, 0)
-
-/datum/reagent/deltamivir
-	name = "Deltamivir"
-	id = "deltamivir"
-	description = "An interferon-delta type III antiviral agent."
-	reagent_state = LIQUID
-	color = "#C1C1C1"
-	metabolism = REM * 0.05 // only performs its effects while in blood
-	ingest_met = REM // .2 units per tick
-	breathe_met = REM * 2 // .4 units per tick
-	// touch is slow
-	overdose = REAGENTS_OVERDOSE
-	scannable = 1
-	taste_description = "bitterness"
-	fallback_specific_heat = 0.605 // assuming it's ethanol-based
-
-/datum/reagent/deltamivir/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_FEVER, dose/12)
 
 /datum/reagent/thetamycin
 	name = "Thetamycin"
@@ -1366,7 +1318,7 @@
 	M.adjustCloneLoss(-20 * removed)
 	M.adjustOxyLoss(-2 * removed)
 	M.heal_organ_damage(20 * removed, 20 * removed)
-	M.adjustToxLoss(-20 * removed)
+	M.adjustToxLoss(-1 * removed)
 	if(dose > 3)
 		M.status_flags &= ~DISFIGURED
 	if(dose > 10)

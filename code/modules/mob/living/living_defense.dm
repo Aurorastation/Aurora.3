@@ -90,15 +90,39 @@
 	//Armor
 	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
 	var/damaged
-	if ((P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP) && prob(absorb))
-		P.damage_flags &= ~DAM_SHARP
-		P.damage_flags &= ~DAM_EDGE
+	if(prob(absorb))
+		if(P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP || P.damage_flags & DAM_LASER)
+			P.damage_flags &= ~DAM_SHARP
+			P.damage_flags &= ~DAM_EDGE
+			P.damage_flags &= ~DAM_LASER
 
 	if(!P.nodamage)
 		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
 		bullet_impact_visuals(P, def_zone, damaged)
 	P.on_hit(src, absorb, def_zone)
 	return absorb
+
+/mob/living/proc/aura_check(var/type)
+	if(!auras)
+		return TRUE
+	. = TRUE
+	var/list/newargs = args - args[1]
+	for(var/a in auras)
+		var/obj/aura/aura = a
+		var/result = 0
+		switch(type)
+			if(AURA_TYPE_WEAPON)
+				result = aura.attackby(arglist(newargs))
+			if(AURA_TYPE_BULLET)
+				result = aura.bullet_act(arglist(newargs))
+			if(AURA_TYPE_THROWN)
+				result = aura.hitby(arglist(newargs))
+			if(AURA_TYPE_LIFE)
+				result = aura.life_tick()
+		if(result & AURA_FALSE)
+			. = FALSE
+		if(result & AURA_CANCEL)
+			break
 
 //For visuals, blood splatters and so on.
 /mob/living/proc/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
@@ -113,16 +137,16 @@
 /mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon=null)
 	flash_pain()
 
-	if (stun_amount)
+	if(stun_amount)
 		Stun(stun_amount)
 		Weaken(stun_amount)
-		apply_effect(STUTTER, stun_amount)
-		apply_effect(EYE_BLUR, stun_amount)
+		apply_effect(stun_amount, STUTTER)
+		apply_effect(stun_amount, EYE_BLUR)
 
-	if (agony_amount)
+	if(agony_amount)
 		apply_damage(agony_amount, PAIN, def_zone, 0, used_weapon)
-		apply_effect(STUTTER, agony_amount/10)
-		apply_effect(EYE_BLUR, agony_amount/10)
+		apply_effect(agony_amount / 10, STUTTER)
+		apply_effect(agony_amount / 10, EYE_BLUR)
 
 /mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
 	  return 0 //only carbon liveforms have this proc
@@ -170,6 +194,8 @@
 
 //this proc handles being hit by a thrown atom
 /mob/living/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+	if(!aura_check(AURA_TYPE_THROWN, AM, speed))
+		return
 	if(istype(AM,/obj/))
 		var/obj/O = AM
 		var/dtype = O.damtype

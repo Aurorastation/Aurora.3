@@ -30,5 +30,13 @@
 				/obj/structure/closet/wizard/souls =				1,
 				/obj/item/monster_manual =							1,
 				/obj/item/poppet =									1,
-				/obj/item/contract/apprentice =						1
+				/obj/item/contract/apprentice =						1,
+				/obj/item/apprentice_pebble =						2
 				)
+
+	apprentice_spells = list(
+		/spell/targeted/heal_target = 1,
+		/spell/targeted/heal_target/sacrifice = 1,
+		/spell/aoe_turf/conjure/grove/sanctuary = 1,
+		/obj/item/poppet = 1
+	)

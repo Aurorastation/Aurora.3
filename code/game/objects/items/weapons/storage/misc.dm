@@ -5,6 +5,7 @@
 	icon_state = "dicebag"
 	use_sound = "rustle"
 	drop_sound = 'sound/items/drop/hat.ogg'
+	pickup_sound = 'sound/items/pickup/hat.ogg'
 	starts_with = list(
 		/obj/item/dice = 1,
 		/obj/item/dice/d20 = 1
@@ -57,6 +58,7 @@
 	icon_state = "cigpaperbook_generic"
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	use_sound = 'sound/items/drop/paper.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
@@ -90,6 +92,7 @@
 	starts_with = list(/obj/item/paper/cig/filter = 10)
 	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/drop/paper.ogg'
 
 /obj/item/storage/fancy/cigpaper/fine
@@ -112,6 +115,7 @@
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	use_sound = 'sound/items/storage/pillbottle.ogg'
 	w_class = 2
 	throwforce = 2
@@ -157,7 +161,8 @@
 		)
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/nico = 6)
 	storage_slots = 6
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/fancy/chewables/tobacco/update_icon()
@@ -183,7 +188,8 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
 	max_storage_space = 8
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 
 /obj/item/storage/chewables/rollable/fine

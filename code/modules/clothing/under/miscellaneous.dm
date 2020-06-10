@@ -24,19 +24,12 @@
 	worn_state = "blue_pyjamas"
 	item_state = "w_suit"
 
-/obj/item/clothing/under/captain_fly
-	name = "rogue's uniform"
-	desc = "For the man who doesn't care because he's still free."
-	icon_state = "captain_fly"
-	item_state = "r_suit"
-	worn_state = "captain_fly"
-
-/obj/item/clothing/under/scratch
+/obj/item/clothing/under/suit_jacket/white
 	name = "white suit"
 	desc = "A white suit, suitable for an excellent host"
-	icon_state = "scratch"
-	item_state = "scratch"
-	worn_state = "scratch"
+	icon_state = "white_suit"
+	item_state = "w_suit"
+	worn_state = "white_suit"
 
 /obj/item/clothing/under/sl_suit
 	desc = "It's a very amish looking suit."
@@ -52,13 +45,6 @@
 	item_state = "waiter"
 	worn_state = "waiter"
 
-/obj/item/clothing/under/rank/mailman
-	name = "mailman's jumpsuit"
-	desc = "<i>'Special delivery!'</i>"
-	icon_state = "mailman"
-	item_state = "b_suit"
-	worn_state = "mailman"
-
 /obj/item/clothing/under/sexyclown
 	name = "sexy-clown suit"
 	desc = "It makes you look HONKable!"
@@ -66,13 +52,6 @@
 	item_state = "clown"
 	worn_state = "sexyclown"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
-/obj/item/clothing/under/rank/vice
-	name = "vice officer's jumpsuit"
-	desc = "It's the standard issue pretty-boy outfit, as seen on Holo-Vision."
-	icon_state = "vice"
-	item_state = "gy_suit"
-	worn_state = "vice"
 
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
@@ -160,20 +139,6 @@
 	worn_state = "owl"
 	item_state = "owl"
 
-/obj/item/clothing/under/johnny
-	name = "johnny~~ jumpsuit"
-	desc = "Johnny~~"
-	icon_state = "johnny"
-	worn_state = "johnny"
-	item_state = "johnny"
-
-/obj/item/clothing/under/rainbow
-	name = "rainbow"
-	desc = "rainbow"
-	icon_state = "rainbow"
-	item_state = "rainbow"
-	worn_state = "rainbow"
-
 /obj/item/clothing/under/psysuit
 	name = "dark undersuit"
 	desc = "A thick, layered grey undersuit lined with power cables. Feels a little like wearing an electrical storm."
@@ -182,19 +147,19 @@
 	worn_state = "psysuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 
-/obj/item/clothing/under/gentlesuit
-	name = "gentlemans suit"
-	desc = "A silk black shirt with a white tie and a matching gray vest and slacks. Feels proper."
-	icon_state = "gentlesuit"
-	item_state = "gy_suit"
-	worn_state = "gentlesuit"
-
 /obj/item/clothing/under/gimmick/rank/captain/suit
 	name = "captain's suit"
 	desc = "A green suit and yellow necktie. Exemplifies authority."
 	icon_state = "green_suit"
 	item_state = "dg_suit"
 	worn_state = "green_suit"
+
+/obj/item/clothing/under/overalls
+	name = "laborer's overalls"
+	desc = "A set of durable overalls for getting the job done."
+	icon_state = "overalls"
+	item_state = "lb_suit"
+	worn_state = "overalls"
 
 /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
 	name = "head of personnel's suit"
@@ -217,48 +182,12 @@
 	item_state = "jensensuit"
 	worn_state = "black_suit"
 
-/obj/item/clothing/under/suit_jacket/female
-	name = "executive suit"
-	desc = "A formal trouser suit for women, intended for the station's finest."
-	icon_state = "black_suit_fem"
-	item_state = "lawyer_black"
-	worn_state = "black_suit_fem"
-
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
 	desc = "A red suit and blue tie. Somewhat formal."
 	icon_state = "red_suit"
 	item_state = "r_suit"
 	worn_state = "red_suit"
-
-/obj/item/clothing/under/overalls
-	name = "laborer's overalls"
-	desc = "A set of durable overalls for getting the job done."
-	icon_state = "overalls"
-	item_state = "lb_suit"
-	worn_state = "overalls"
-
-/obj/item/clothing/under/pirate
-	name = "pirate outfit"
-	desc = "Yarr."
-	icon_state = "pirate"
-	item_state = "sl_suit"
-	worn_state = "pirate"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-
-/obj/item/clothing/under/soviet
-	name = "soviet uniform"
-	desc = "For the Motherland!"
-	icon_state = "soviet"
-	item_state = "gy_suit"
-	worn_state = "soviet"
-
-/obj/item/clothing/under/redcoat
-	name = "redcoat uniform"
-	desc = "Looks old."
-	icon_state = "redcoat"
-	item_state = "r_suit"
-	worn_state = "redcoat"
 
 /obj/item/clothing/under/kilt
 	name = "kilt"
@@ -323,19 +252,6 @@
 	item_state = "y_suit"
 	worn_state = "dress_yellow"
 
-/obj/item/clothing/under/dress/dress_saloon
-	name = "saloon girl dress"
-	desc = "A old western inspired gown for the girl who likes to drink."
-	icon_state = "dress_saloon"
-	item_state = "p_suit"
-	worn_state = "dress_saloon"
-
-/obj/item/clothing/under/dress/dress_evening
-	name = "evening gown"
-	desc = "A silky gown, leaves much to the imagination"
-	icon_state = "red_evening_gown"
-	item_state = "red_evening_gown"
-
 /obj/item/clothing/under/dress/dress_cap
 	name = "captain's dress uniform"
 	desc = "Feminine fashion for the style concious captain."
@@ -351,59 +267,6 @@
 	item_state = "b_suit"
 	worn_state = "dress_hop"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
-/obj/item/clothing/under/dress/dress_hr
-	name = "human resources director uniform"
-	desc = "Superior class for the nosy H.R. Director."
-	icon_state = "huresource"
-	item_state = "y_suit"
-	worn_state = "huresource"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
-//wedding stuff
-/obj/item/clothing/under/wedding/
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-
-/obj/item/clothing/under/wedding/bride_orange
-	name = "orange wedding dress"
-	desc = "A big and puffy orange dress."
-	icon_state = "bride_orange"
-	item_state = "y_suit"
-	worn_state = "bride_orange"
-	flags_inv = HIDESHOES
-
-/obj/item/clothing/under/wedding/bride_purple
-	name = "purple wedding dress"
-	desc = "A big and puffy purple dress."
-	icon_state = "bride_purple"
-	item_state = "p_suit"
-	worn_state = "bride_purple"
-	flags_inv = HIDESHOES
-
-/obj/item/clothing/under/wedding/bride_blue
-	name = "blue wedding dress"
-	desc = "A big and puffy blue dress."
-	icon_state = "bride_blue"
-	item_state = "b_suit"
-	worn_state = "bride_blue"
-	flags_inv = HIDESHOES
-
-/obj/item/clothing/under/wedding/bride_red
-	name = "red wedding dress"
-	desc = "A big and puffy red dress."
-	icon_state = "bride_red"
-	item_state = "r_suit"
-	worn_state = "bride_red"
-	flags_inv = HIDESHOES
-
-/obj/item/clothing/under/wedding/bride_white
-	name = "silky wedding dress"
-	desc = "A white wedding gown made from the finest silk."
-	icon_state = "bride_white"
-	item_state = "nursesuit"
-	worn_state = "bride_white"
-	flags_inv = HIDESHOES
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 /obj/item/clothing/under/sundress
 	name = "sundress"
@@ -442,11 +305,6 @@
 	desc = "A red dress that sweeps to the side."
 	icon_state = "red_swept_dress"
 
-/obj/item/clothing/under/dress/westernbustle
-	name = "western bustle"
-	desc = "A western bustle dress from somewhere in the ancient history of Earth."
-	icon_state = "westernbustle"
-
 /obj/item/clothing/under/dress/blacktango
 	name = "black tango dress"
 	desc = "An earthen black tango dress."
@@ -481,13 +339,6 @@
 	icon_state = "hos_formal_fem"
 	item_state = "r_suit"
 	worn_state = "hos_formal_fem"
-
-/obj/item/clothing/under/assistantformal
-	name = "assistant's formal uniform"
-	desc = "An assistant's formal-wear. Why an assistant needs formal-wear is still unknown."
-	icon_state = "assistant_formal"
-	item_state = "gy_suit"
-	worn_state = "assistant_formal"
 
 /obj/item/clothing/under/suit_jacket/charcoal
 	name = "charcoal suit"
@@ -531,12 +382,6 @@
 	item_state = "lb_suit"
 	worn_state = "mechanic"
 
-/obj/item/clothing/under/sweater
-	desc = "A warm looking sweater and a pair of dark blue slacks."
-	name = "sweater"
-	icon_state = "turtleneck"
-	worn_state = "turtleneck"
-
 /obj/item/clothing/under/cheongsam
 	name = "white cheongsam"
 	desc = "A Chinese dress that hugs the body. This one is white, embroidered with a bright golden dragon."
@@ -573,35 +418,6 @@
 	desc = "A Chinese dress that hugs the body. This one is purple, embroidered with plum blossoms."
 	icon_state = "cheongsampurple"
 	item_state = "cheongsampurple"
-
-/obj/item/clothing/under/blazer
-	name = "blue blazer"
-	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie."
-	icon_state = "blue_blazer"
-	item_state = "blue_blazer"
-	worn_state = "blue_blazer"
-
-//stripper
-/obj/item/clothing/under/stripper
-	body_parts_covered = 0
-
-/obj/item/clothing/under/stripper/stripper_pink
-	name = "pink swimsuit"
-	desc = "A rather skimpy pink swimsuit."
-	icon_state = "stripper_p"
-	siemens_coefficient = 1
-
-/obj/item/clothing/under/stripper/stripper_green
-	name = "green swimsuit"
-	desc = "A rather skimpy green swimsuit."
-	icon_state = "stripper_g"
-	siemens_coefficient = 1
-
-/obj/item/clothing/under/stripper/mankini
-	name = "mankini"
-	desc = "No honest man would wear this abomination"
-	icon_state = "mankini"
-	siemens_coefficient = 1
 
 //swimsuit
 /obj/item/clothing/under/swimsuit
@@ -656,13 +472,6 @@
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
 
-/obj/item/clothing/under/gov
-	name = "green formal uniform"
-	desc = "A neat proper uniform of someone on offical business. Plain, professional attire. The collar is <i>immaculately</i> starched."
-	icon_state = "greensuit"
-	item_state = "greensuit"
-	worn_state = "greensuit"
-
 /obj/item/clothing/under/medical_gown
 	name = "medical gown"
 	desc = "A loose pieces of clothing, commonly worn by medical patients."
@@ -715,15 +524,6 @@
 	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
-/obj/item/clothing/under/rank/dispatch
-	name = "dispatcher's uniform"
-	desc = "A dress shirt and khakis with a security patch sewn on."
-	icon_state = "dispatch"
-	worn_state = "dispatch"
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
-	siemens_coefficient = 0.7
-
 /obj/item/clothing/under/lance
 	name = "ceres lance fatigues"
 	desc = "A set of drab fatigues meant to be worn by the Ceres' Lance Regiment, with their emblem found on the shoulder."
@@ -773,15 +573,6 @@
 	icon_state = "cropdress"
 	item_state = "cropdress_s"
 	worn_state = "cropdress"
-
-
-/obj/item/clothing/under/formalblouse
-	name = "formal blouse"
-	desc = "A formal, office-style blouse, with a black skirt in addition."
-	icon_state = "formalblouse"
-	item_state = "formalblouse_s"
-	worn_state = "formalblouse"
-
 
 /obj/item/clothing/under/croptop
 	name = "crop top"

@@ -25,6 +25,9 @@
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
 
+/mob/living/simple_animal/familiar/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /mob/living/simple_animal/familiar/carcinus
 	name = "crab"
 	desc = "A small crab said to be made of stone and starlight."
@@ -192,10 +195,8 @@
 	desc = "A small rodent. It looks very old."
 	body_color = "gray"
 
-
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-
 
 	health = 25
 	maxHealth = 25
@@ -204,6 +205,7 @@
 	attacktext = "nibbled"
 	universal_speak = 1
 	universal_understand = 1
+	stop_automated_movement = TRUE
 
 	min_oxy = 1 //still require a /bit/ of air.
 	max_co2 = 0
@@ -218,3 +220,6 @@
 	add_language(LANGUAGE_TCB)
 	name = initial(name)
 	desc = initial(desc)
+
+/mob/living/simple_animal/rat/familiar/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

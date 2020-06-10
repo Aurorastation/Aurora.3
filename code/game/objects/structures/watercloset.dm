@@ -190,7 +190,7 @@
 		qdel(mymist)
 
 	if(on)
-		soundloop.start()
+		soundloop.start(src)
 		add_overlay(image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir))
 		if(temperature_settings[watertemp] < T20C)
 			return //no mist for cold water
@@ -199,14 +199,15 @@
 				if(src && on)
 					ismist = 1
 					mymist = new /obj/effect/mist(loc)
-		else
-			soundloop.stop()
+		else //??? what the fuck is this
 			ismist = 1
 			mymist = new /obj/effect/mist(loc)
-	else if(ismist)
-		ismist = 1
-		mymist = new /obj/effect/mist(loc)
-		addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE|TIMER_UNIQUE)
+	else
+		soundloop.stop(src)
+		if(ismist)
+			ismist = 1
+			mymist = new /obj/effect/mist(loc)
+			addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 /obj/machinery/shower/proc/clear_mist()
 	if (!on)

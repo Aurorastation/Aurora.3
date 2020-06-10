@@ -1,13 +1,14 @@
 // Big stompy robots.
 /mob/living/heavy_vehicle
 	name = "exosuit"
-	density = 1
-	opacity = 1
-	anchored = 1
+	density = TRUE
+	opacity = TRUE
+	anchored = TRUE
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
 	mob_size = MOB_LARGE
 	mob_push_flags = ALLMOBS
+	can_buckle = FALSE
 	var/decal
 
 	var/emp_damage = 0
@@ -24,7 +25,7 @@
 	// Access updating/container.
 	var/obj/item/card/id/access_card
 	var/list/saved_access = list()
-	var/sync_access = 1
+	var/sync_access = TRUE
 
 	// Mob currently piloting the mech.
 	var/list/pilots
@@ -32,7 +33,9 @@
 
 	// Remote control stuff
 	var/remote = FALSE // Spawns a robotic pilot to be remote controlled
-	var/mob/living/carbon/human/industrial_xion_remote_mech/dummy // The remote controlled dummy
+	var/does_hardpoint_lock = TRUE
+	var/mob/living/simple_animal/spiderbot/dummy // The remote controlled dummy
+	var/dummy_type = /mob/living/simple_animal/spiderbot
 	var/dummy_colour
 
 	// Visible external components. Not strictly accurately named for non-humanoid machines (submarines) but w/e
@@ -51,13 +54,14 @@
 	var/hardpoints_locked
 	var/maintenance_protocols
 	var/lockdown
+	var/entry_speed = 30
 
 	// Material
 	var/material/material
 
 	// Cockpit access vars.
-	var/hatch_closed = 0
-	var/hatch_locked = 0
+	var/hatch_closed = FALSE
+	var/hatch_locked = FALSE
 	var/force_locked = FALSE // Is it possible to unlock the hatch?
 
 	var/use_air      = FALSE
@@ -147,7 +151,7 @@
 		usr.examinate(M, 1)
 
 /mob/living/heavy_vehicle/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
-	. = ..()
+	..()
 
 	if(!access_card) access_card = new (src)
 
@@ -193,6 +197,13 @@
 
 	// Build icon.
 	update_icon()
+
+	. = INITIALIZE_HINT_LATELOAD
+
+/mob/living/heavy_vehicle/LateInitialize()
+	var/obj/machinery/mech_recharger/MR = locate() in get_turf(src)
+	if(MR)
+		MR.start_charging(src)
 
 /mob/living/heavy_vehicle/return_air()
 	return (body && body.pilot_coverage >= 100 && hatch_closed) ? body.cockpit : loc.return_air()
@@ -241,16 +252,20 @@
 
 	remote = TRUE
 	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
-	if(remote_network)
-		SSvirtualreality.add_mech(src, remote_network)
-	else
+	if(!remote_network)
 		remote_network = "remotemechs"
-		SSvirtualreality.add_mech(src, remote_network)
+	SSvirtualreality.add_mech(src, remote_network)
 
 	if(hatch_closed)
 		hatch_closed = FALSE
 
-	dummy = new /mob/living/carbon/human/industrial_xion_remote_mech(get_turf(src))
+	dummy = new dummy_type(get_turf(src))
+	dummy.real_name = "Remote-Bot"
+	dummy.name = dummy.real_name
+	dummy.mmi = new /obj/item/device/mmi(dummy) // this is literally just because i luck the aesthetics - geeves
+	dummy.verbs -= /mob/living/proc/ventcrawl
+	dummy.verbs -= /mob/living/proc/hide
+	dummy.update_icon()
 	if(dummy_colour)
 		dummy.color = dummy_colour
 	enter(dummy, TRUE)
@@ -258,5 +273,7 @@
 	if(!hatch_closed)
 		hatch_closed = TRUE
 	hatch_locked = TRUE
-	hardpoints_locked = TRUE
+	if(does_hardpoint_lock)
+		hardpoints_locked = TRUE
 	force_locked = TRUE
+	update_icon()

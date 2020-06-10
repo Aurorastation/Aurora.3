@@ -3,7 +3,7 @@
 //All devices that link into the R&D console fall into thise type for easy identification and some shared procs.
 
 /obj/machinery/r_n_d
-	name = "R&D Device"
+	name = "R&D device"
 	icon = 'icons/obj/machines/research.dmi'
 	density = 1
 	anchored = 1
