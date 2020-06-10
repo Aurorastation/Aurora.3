@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Some objects across the board have had their informative descriptions tweaked a tad, as well as their names converted to full lowercase."
