@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Both classes of engineering stationbound and maintenance drone has been given rapid piping fabricators."
