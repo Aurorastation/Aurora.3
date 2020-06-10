@@ -97,7 +97,60 @@
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
-	slot_flags = SLOT_MASK | SLOT_TIE
+	slot_flags = SLOT_TIE
+
+/obj/item/pocketwatch/adhomai/checktime(mob/user)
+	set category = "Object"
+	set name = "Check Time"
+	set src in usr
+
+	if(closed)
+		to_chat(usr, "You check your watch, realising it's closed.")
+	else
+
+		var/adhomian_year = game_year + 1158
+
+		var/current_month = time2text(world.realtime, "Month")
+		var/current_day = text2num(time2text(world.realtime, "DD"))
+		var/adhomian_day
+		var/adhomian_month
+		switch(current_month)
+			if("January", "February", "March")
+				adhomian_month = "Menshe-aysaif"
+				if ("February")
+					adhomian_day = current_day + 15
+				if ("March")
+					adhomian_day = current_day + 30
+
+			if("April", "May", "June")
+				adhomian_month = "Sil'nryy-aysaif"
+				if ("May")
+					adhomian_day = current_day + 15
+				if ("June")
+					adhomian_day = current_day + 30
+
+			if("July", "August", "September")
+				adhomian_month = "Menshe-rhazzimy"
+				if ("August")
+					adhomian_day = current_day + 15
+				if ("September")
+					adhomian_day = current_day + 30
+
+			if("October", "November", "December")
+				adhomian_month = "Sil’nryy-rhazzimy"
+				if ("November")
+					adhomian_day = current_day + 15
+				if ("December")
+					adhomian_day = current_day + 30
+
+		var/real_time = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
+		var/adhomian_time = real_time
+		if(IsOdd(current_day))
+			adhomian_time = real_time + 24
+			adhomian_day -= 1
+
+		to_chat(usr, "You check your \the [src], glancing over at the watch face, reading the time to be '[adhomian_time]'. Today's date is '[adhomian_day]th day of [adhomian_month] [adhomian_year]'.")
+
 
 /obj/item/flame/lighter/adhomai
 	name = "adhomian lighter"
@@ -124,7 +177,7 @@
 		item_state = "[base_state]-on"
 	else
 		icon_state = "[base_state]-proc"
-		item_state = "[base_state]-proc"
+		item_state = "[base_state]"
 
 /obj/item/flame/lighter/adhomai/attack_self(mob/living/user)
 	if(!protection)
