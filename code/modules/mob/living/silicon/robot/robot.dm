@@ -721,7 +721,7 @@
 				return
 		else if(W.isscrewdriver() && opened && !cell)	// haxing
 			wires_exposed = !wires_exposed
-			user.visible_message(SPAN_NOTICE("\The [user] exposes \the [src]'s wires."), SPAN_NOTICE("You expose \the [src]'s wires."))
+			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
 			updateicon()
 		else if(W.isscrewdriver() && opened && cell)	// radio
 			if(radio)
