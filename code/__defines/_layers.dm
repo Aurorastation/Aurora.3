@@ -7,6 +7,7 @@
 #define ON_TURF_LAYER (TURF_LAYER + 0.1)	// sitting on the turf - should be preferred over direct use of TURF_LAYER
 #define AO_LAYER (ON_TURF_LAYER + 0.1)
 #define PIPE_LAYER 2.4 //under wires with their 2.44
+#define UNDER_PIPE_LAYER (PIPE_LAYER - 0.1)
 #define CABLE_LAYER 2.44
 #define ABOVE_CABLE_LAYER (CABLE_LAYER + 0.1)
 #define DOOR_OPEN_LAYER 2.7		//Under all objects if opened. 2.7 due to tables being at 2.6

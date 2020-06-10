@@ -1,5 +1,8 @@
 /obj/structure/girder
 	desc = "The basic building block of all walls."
+	desc_info = "Use metal sheets on this to build a normal wall.<br>\
+	A false wall can be made by using a crowbar on this girder, and then adding some material.<br>\
+	You can dismantle the grider with a wrench, or add support struts with a screwdriver to enable further reinforcement."
 	icon_state = "girder"
 	anchored = 1
 	density = 1
