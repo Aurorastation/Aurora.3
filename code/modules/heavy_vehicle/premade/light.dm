@@ -91,7 +91,7 @@
 	h_r_hand = /obj/item/mecha_equipment/clamp
 
 /mob/living/heavy_vehicle/premade/light/iac
-	name = "medical  exosuit"
+	name = "medical exosuit"
 	desc = "A light and agile medical oriented exosuit."
 	icon_state = "odysseus"
 

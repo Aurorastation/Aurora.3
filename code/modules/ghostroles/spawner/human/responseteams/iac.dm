@@ -8,6 +8,14 @@
 	outfit = /datum/outfit/admin/ert/iac
 	possible_species = list("Human", "Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Diona", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 
+/datum/ghostspawner/human/ert/iac/bodyguard
+	name = "IAC Bodyguard"
+	short_name = "iacbodyguard"
+	mob_name_prefix = "Bdg. "
+	max_count = 2
+	desc = "A highly trained bodyguard. Sticks close to the medics while they work."
+	outfit = /datum/outfit/admin/ert/iac/bodyguard
+
 /datum/ghostspawner/human/ert/iac/paramedic
 	name = "IAC Paramedic"
 	short_name = "iacparamedic"
