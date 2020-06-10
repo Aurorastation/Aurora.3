@@ -122,7 +122,7 @@
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
 	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
 		if(n_name)
-			name += " ([n_name])"
+			name = "[initial(name)] ([n_name])"
 		else
 			name = initial(name)
 		add_fingerprint(usr)

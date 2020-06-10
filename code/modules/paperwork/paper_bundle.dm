@@ -192,7 +192,7 @@
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the bundle?", "Bundle Labelling", null)  as text, MAX_NAME_LEN)
 	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
 		if(n_name)
-			name += " ([n_name])"
+			name = "[initial(name)] ([n_name])"
 		else
 			name = initial(name)
 	add_fingerprint(usr)

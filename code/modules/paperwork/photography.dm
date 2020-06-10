@@ -73,7 +73,7 @@ var/global/photo_count = 0
 	//loc.loc check is for making possible renaming photos in clipboards
 	if(((loc == usr || (loc.loc && loc.loc == usr)) && usr.stat == 0))
 		if(n_name)
-			name += " ([n_name])"
+			name = "[initial(name)] ([n_name])"
 		else
 			name = initial(n_name)
 	add_fingerprint(usr)
