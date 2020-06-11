@@ -9,7 +9,7 @@
 	possible_species = list("Human", "Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Diona", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 
 /datum/ghostspawner/human/ert/med_eridani/bodyguard
-	name = "Eridani Medical Contractor  Bodyguard"
+	name = "Eridani Medical Contractor Bodyguard"
 	short_name = "eridanidocbodyguard"
 	mob_name_prefix = "Bdg. "
 	max_count = 2
