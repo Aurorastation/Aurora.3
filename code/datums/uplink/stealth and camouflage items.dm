@@ -52,3 +52,9 @@
 	desc = "Snap pops with a compound added which deploys a small smokescreen upon exploding."
 	item_cost = 1
 	path = /obj/item/storage/box/snappops/syndi
+
+/datum/uplink_item/item/stealth_items/closet_teleporter
+	name = "Closet Teleportation Set-up"
+	desc = "A box of closet teleporters, devices that can be inserted into closets to set up a teleportation network. Has a one minute cooldown after a batch teleport."
+	item_cost = 4
+	path = /obj/item/storage/box/closet_teleporter

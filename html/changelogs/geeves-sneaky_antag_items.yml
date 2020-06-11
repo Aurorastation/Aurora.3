@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added sharpened bear traps, a mechanical trap that ignores armour in the clamp action, to the Stealthy and Inconspicuous Weapons uplink."
+  - rscadd: "Added closet teleporters to the Stealth and Camouflage Items uplink, a device that start linked and can be attached to closets to set-up a teleport network. Step inside and close the door to teleport."
+  - tweak: "Pushing a wall to try and find a secret entrance now takes a few seconds of touching and feeling."
