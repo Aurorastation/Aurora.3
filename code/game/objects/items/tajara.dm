@@ -181,7 +181,7 @@
 
 /obj/item/flame/lighter/adhomai/attack_self(mob/living/user)
 	if(!protection)
-		to_chat(user, SPAN_NOTICE("You failt to light \the [src], you need to lift the windshield before lighting it."))
+		to_chat(user, SPAN_WARNING("You fail to light \the [src], you need to lift the windshield before lighting it."))
 		return FALSE
 	else
 		..()
