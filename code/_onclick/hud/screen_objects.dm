@@ -308,7 +308,7 @@
 				return
 			var/turf/T = GetAbove(usr)
 			if (!T)
-				to_chat(usr, "<span class='notice'>There is nothing above you!</span>")
+				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
 				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
 			else
