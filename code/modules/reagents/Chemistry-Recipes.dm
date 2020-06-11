@@ -599,7 +599,7 @@
 	name = "Filtered K'ois"
 	id = "koispasteclean"
 	result = "koispasteclean"
-	required_reagents = list(/datum/reagent/koispaste = 2,/datum/reagent/toxin/cardox = 0.1)
+	required_reagents = list(/datum/reagent/kois = 2,/datum/reagent/toxin/cardox = 0.1)
 	catalysts = list("cardox" = 5)
 	result_amount = 1
 
@@ -734,7 +734,7 @@
 	name = "Paxazide"
 	id = "paxazide"
 	result = "paxazide"
-	required_reagents = list(/datum/reagent/truthserum = 1, /datum/reagent/sertraline = 1)
+	required_reagents = list(/datum/reagent/mental/truthserum = 1, /datum/reagent/mental/sertraline = 1)
 	result_amount = 1
 
 /datum/chemical_reaction/berserk
@@ -779,7 +779,7 @@
 	name = "Nightlife"
 	id = "night_juice"
 	result = "night_juice"
-	required_reagents = list(/datum/reagent/methylphenidate = 1, /datum/reagent/synaptizine = 1, /datum/reagent/nitroglycerin = 1)
+	required_reagents = list(/datum/reagent/mental/methylphenidate = 1, /datum/reagent/synaptizine = 1, /datum/reagent/nitroglycerin = 1)
 	required_temperatures_min = list("methylphenidate" = T0C+200, "synaptizine" = T0C+200, "nitroglycerin" = T0C+200)
 	result_amount = 3
 
@@ -2758,7 +2758,7 @@
 	id = "kois_odyne"
 	result = "kois_odyne"
 	result_amount = 3
-	required_reagents = list(/datum/reagent/drink/tonic = 1, /datum/reagent/koispaste = 1, /datum/reagent/drink/toothpaste = 1)
+	required_reagents = list(/datum/reagent/drink/tonic = 1, /datum/reagent/kois = 1, /datum/reagent/drink/toothpaste = 1)
 
 /datum/chemical_reaction/adhomai_milk
 	name = "Fermented Fatshouters Milk"

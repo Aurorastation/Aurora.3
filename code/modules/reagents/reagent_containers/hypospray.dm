@@ -192,7 +192,7 @@
 	reagents.add_reagent(/datum/reagent/norepinephrine, 5)
 	reagents.add_reagent(/datum/reagent/dexalin/plus, 5)
 	reagents.add_reagent(/datum/reagent/oxycodone, 5)
-	reagents.add_reagent(/datum/reagent/methylphenidate, 5)
+	reagents.add_reagent(/datum/reagent/mental/methylphenidate, 5)
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/combat

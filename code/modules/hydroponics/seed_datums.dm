@@ -1151,7 +1151,7 @@
 	name = "shand"
 	seed_name = "S'Rendarr's hand"
 	display_name = "S'Rendarr's hand leaves"
-	chems = list(/datum/reagent/tobacco = list(1,5), /datum/reagent/bicaridine = list(3,5), /datum/reagent/nicotine = list(1,3))
+	chems = list(/datum/reagent/tobacco = list(1,5), /datum/reagent/bicaridine = list(3,5), /datum/reagent/mental/nicotine = list(1,3))
 	kitchen_tag = "shand"
 
 /datum/seed/shand/setup_traits()
@@ -1268,7 +1268,7 @@
 	name = "puretobacco"
 	seed_name = "succulent tobacco"
 	display_name = "succulent tobacco leaves"
-	chems = list(/datum/reagent/nicotine = list(1,10))
+	chems = list(/datum/reagent/mental/nicotine = list(1,10))
 
 /datum/seed/tobacco/puretobacco/New()
 	..()

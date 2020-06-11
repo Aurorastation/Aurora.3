@@ -447,7 +447,7 @@
 
 /obj/item/reagent_containers/food/snacks/koisbar_clean/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispasteclean, 10)
+	reagents.add_reagent(/datum/reagent/kois/clean, 10)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 15)
 
 /obj/item/reagent_containers/food/snacks/koisbar
@@ -460,7 +460,7 @@
 
 /obj/item/reagent_containers/food/snacks/koisbar/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispaste, 10)
+	reagents.add_reagent(/datum/reagent/kois, 10)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 15)
 	reagents.add_reagent(/datum/reagent/hfcs, 2)
 
@@ -506,7 +506,7 @@
 /obj/item/reagent_containers/food/snacks/candy/koko/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/sugar, 3)
-	reagents.add_reagent(/datum/reagent/kokoreed, 7)
+	reagents.add_reagent(/datum/reagent/mental/kokoreed, 7)
 
 /obj/item/reagent_containers/food/snacks/candy/donor
 	name = "donor candy"
@@ -4258,7 +4258,7 @@
 
 /obj/item/reagent_containers/food/snacks/friedkois/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispaste, 6)
+	reagents.add_reagent(/datum/reagent/kois, 6)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 9)
 
 /obj/item/reagent_containers/food/snacks/friedkois/attackby(obj/item/W as obj, mob/user as mob)
@@ -4282,7 +4282,7 @@
 
 /obj/item/reagent_containers/food/snacks/koiskebab1/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispaste, 8)
+	reagents.add_reagent(/datum/reagent/kois, 8)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 12)
 
 /obj/item/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/W as obj, mob/user as mob)
@@ -4302,7 +4302,7 @@
 
 /obj/item/reagent_containers/food/snacks/koiskebab2/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispaste, 12)
+	reagents.add_reagent(/datum/reagent/kois, 12)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 16)
 
 /obj/item/reagent_containers/food/snacks/koiskebab2/attackby(obj/item/W as obj, mob/user as mob)
@@ -4322,7 +4322,7 @@
 
 /obj/item/reagent_containers/food/snacks/koiskebab3/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispaste, 16)
+	reagents.add_reagent(/datum/reagent/kois, 16)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 20)
 
 /obj/item/reagent_containers/food/snacks/soup/kois
@@ -4334,7 +4334,7 @@
 
 /obj/item/reagent_containers/food/snacks/soup/kois/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispaste, 15)
+	reagents.add_reagent(/datum/reagent/kois, 15)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 15)
 
 /obj/item/reagent_containers/food/snacks/koiswaffles
@@ -4348,7 +4348,7 @@
 
 /obj/item/reagent_containers/food/snacks/koiswaffles/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispaste, 25)
+	reagents.add_reagent(/datum/reagent/kois, 25)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 15)
 
 /obj/item/reagent_containers/food/snacks/koisjelly
@@ -4360,7 +4360,7 @@
 
 /obj/item/reagent_containers/food/snacks/koisjelly/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/koispaste, 25)
+	reagents.add_reagent(/datum/reagent/kois, 25)
 	reagents.add_reagent(/datum/reagent/imidazoline, 20)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 25)
 

@@ -157,7 +157,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/methylphenidate, 15)
+		reagents.add_reagent(/datum/reagent/mental/methylphenidate, 15)
 
 /obj/item/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
@@ -165,7 +165,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/escitalopram, 15)
+		reagents.add_reagent(/datum/reagent/mental/escitalopram, 15)
 
 /obj/item/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
@@ -173,7 +173,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/escitalopram, 15)
+		reagents.add_reagent(/datum/reagent/mental/escitalopram, 15)
 
 /obj/item/reagent_containers/pill/norepinephrine
 	name = "norepinephrine pill"
