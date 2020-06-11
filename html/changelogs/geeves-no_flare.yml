@@ -1,0 +1,15 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Emergency flares have been replaced by red glowsticks."
+  - tweak: "Flares are now slightly less bright and last slightly less longer."
+  - tweak: "Glowsticks are now more slightly more bright."
+  - bugfix: "Glowsticks now only show one message after being activated."
+  - rscadd: "Flashlights now face the direction you're facing when dropped. They also face a random direction after being thrown."
+  - tweak: "Desk lamps are slightly less bright."
+  - tweak: "Candles now last twice as long."
+  - tweak: "Lanterns are now less bright and only shed light in 120 degrees."
+  - rscdel: "Diona no longer spawn with flares, as they spawn with the glowstick in their emergency box. And can make their own light."
+  - rscadd: "You can now hit a light fixture with a broken light again to completely shatter the light bulb."

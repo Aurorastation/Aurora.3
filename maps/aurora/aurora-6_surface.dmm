@@ -11912,8 +11912,8 @@
 	pixel_y = 2
 	},
 /obj/item/storage/briefcase/inflatable,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare/glowstick/red,
+/obj/item/device/flashlight/flare/glowstick/red,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/research/station)
