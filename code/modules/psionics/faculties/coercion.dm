@@ -29,7 +29,7 @@
 	if(.)
 		user.visible_message(span("danger", "\The [user] suddenly throws back their head, as though screaming silently!"))
 		to_chat(user, span("danger", "You strike at all around you with a deafening psionic scream!"))
-		for(var/mob/living/M in orange(user, user.psi.get_rank(PSI_COERCION)))
+		for(var/mob/living/M in orange(user.psi.get_rank(PSI_COERCION), user))
 			if(M == user)
 				continue
 			if(prob(60) && iscarbon(M))
@@ -316,11 +316,9 @@
 			var/turf/T = get_turf(L)
 			if(!T || L == user || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L) || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
-			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = user)
+			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T)
 			ping_image.plane = LIGHTING_LAYER+1
 			ping_image.layer = LIGHTING_LAYER+1
-			ping_image.pixel_x = (T.x - user.x) * WORLD_ICON_SIZE
-			ping_image.pixel_y = (T.y - user.y) * WORLD_ICON_SIZE
 			user << ping_image
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
 			var/direction = num2text(get_dir(user, L))
