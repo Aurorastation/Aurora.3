@@ -517,7 +517,7 @@
 	name = "Glycerol"
 	id = "glycerol-butane"
 	result = "glycerol"
-	required_reagents = list(/datum/reagent/triglyceride = 1, /datum/reagent/butanol = 2)
+	required_reagents = list(/datum/reagent/triglyceride = 1, /datum/reagent/alcohol/butanol = 2)
 
 /datum/chemical_reaction/glycerol/on_reaction(var/datum/reagents/holder, var/created_volume)
 	holder.add_reagent(/datum/reagent/acetone, 2 * created_volume / 3) // closest we can get to biofuel, sorry
@@ -585,7 +585,7 @@
 	name = "Cardox Removal"
 	id = "cardox_removal"
 	result = "carbon"
-	required_reagents = list(/datum/reagent/cardox = 0.1, /datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/toxin/cardox = 0.1, /datum/reagent/toxin/phoron = 1)
 	result_amount = 0
 
 /datum/chemical_reaction/monoammoniumphosphate
@@ -599,7 +599,7 @@
 	name = "Filtered K'ois"
 	id = "koispasteclean"
 	result = "koispasteclean"
-	required_reagents = list(/datum/reagent/koispaste = 2,/datum/reagent/cardox = 0.1)
+	required_reagents = list(/datum/reagent/koispaste = 2,/datum/reagent/toxin/cardox = 0.1)
 	catalysts = list("cardox" = 5)
 	result_amount = 1
 
@@ -3165,17 +3165,17 @@
 	name = "Chai Latte"
 	id = "chailatte"
 	result = "chailatte"
-	required_reagents = list(/datum/reagent/chaitea = 1, /datum/reagent/drink/milk = 1)
+	required_reagents = list(/datum/reagent/drink/tea/chai = 1, /datum/reagent/drink/milk = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/chailatte/soy
-	required_reagents = list(/datum/reagent/chaitea = 1, /datum/reagent/drink/milk/soymilk = 1)
+	required_reagents = list(/datum/reagent/drink/tea/chai = 1, /datum/reagent/drink/milk/soymilk = 1)
 
 /datum/chemical_reaction/drink/coco_chaitea
 	name = "Chocolate Chai"
 	id = "coco_chaitea"
 	result = "coco_chaitea"
-	required_reagents = list(/datum/reagent/chaitea = 2, /datum/reagent/nutriment/coco = 1)
+	required_reagents = list(/datum/reagent/drink/tea/chai = 2, /datum/reagent/nutriment/coco = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/coco_chailatte
@@ -3206,7 +3206,7 @@
 	name = "Desert Blossom Tea"
 	id = "desert_tea"
 	result = "desert_tea"
-	required_reagents = list(/datum/reagent/greentea = 2, /datum/reagent/alcohol/butanol/xuizijuice = 1, /datum/reagent/sugar = 1)
+	required_reagents = list(/datum/reagent/drink/tea/green = 2, /datum/reagent/alcohol/butanol/xuizijuice = 1, /datum/reagent/sugar = 1)
 	result_amount = 4
 
 /datum/chemical_reaction/drink/halfandhalf
@@ -3245,13 +3245,13 @@
 	result_amount = 5
 
 /datum/chemical_reaction/drink/mars_tea/green
-	required_reagents = list(/datum/reagent/greentea = 4, /datum/reagent/blackpepper = 1)
+	required_reagents = list(/datum/reagent/drink/tea/green = 4, /datum/reagent/blackpepper = 1)
 
 /datum/chemical_reaction/drink/mendell_tea
 	name = "Mendell Afternoon Tea"
 	id = "mendell_tea"
 	result = "mendell_tea"
-	required_reagents = list(/datum/reagent/greentea = 4, /datum/reagent/drink/mintsyrup = 1, /datum/reagent/drink/lemonjuice = 1)
+	required_reagents = list(/datum/reagent/drink/tea/green = 4, /datum/reagent/drink/mintsyrup = 1, /datum/reagent/drink/lemonjuice = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/drink/berry_tea
@@ -3262,7 +3262,7 @@
 	result_amount = 3
 
 /datum/chemical_reaction/drink/berry_tea/green
-	required_reagents = list(/datum/reagent/greentea = 2, /datum/reagent/drink/berryjuice = 1)
+	required_reagents = list(/datum/reagent/drink/tea/green = 2, /datum/reagent/drink/berryjuice = 1)
 
 /datum/chemical_reaction/drink/pomegranate_icetea
 	name = "Pomegranate Iced Tea"
@@ -3310,13 +3310,13 @@
 	result_amount = 6
 
 /datum/chemical_reaction/drink/sleepytime_tea/green
-	required_reagents = list(/datum/reagent/greentea = 5, /datum/reagent/stoxin = 1)
+	required_reagents = list(/datum/reagent/drink/tea/green = 5, /datum/reagent/stoxin = 1)
 
 /datum/chemical_reaction/drink/hakhma_tea
 	name = "Spiced Hakhma Tea"
 	id = "hakhma_tea"
 	result = "hakhma_tea"
-	required_reagents = list(/datum/reagent/drink/tea = 2, /datum/reagent/beetle_milk = 2, /datum/reagent/spacespice = 1)
+	required_reagents = list(/datum/reagent/drink/tea = 2, /datum/reagent/drink/milk/beetle = 2, /datum/reagent/spacespice = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/drink/sweet_tea
@@ -3351,7 +3351,7 @@
 	name = "Trizkizki Tea"
 	id = "trizkizki_tea"
 	result = "trizkizki_tea"
-	required_reagents = list(/datum/reagent/greentea = 1, /datum/reagent/alcohol/butanol/sarezhiwine = 1, /datum/reagent/drink/grenadine = 1)
+	required_reagents = list(/datum/reagent/drink/tea/green = 1, /datum/reagent/alcohol/butanol/sarezhiwine = 1, /datum/reagent/drink/grenadine = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/tropical_icetea

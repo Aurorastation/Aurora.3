@@ -427,7 +427,7 @@
 
 /obj/item/reagent_containers/syringe/drugs/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/panotoxin,  5)
+	reagents.add_reagent(/datum/reagent/toxin/panotoxin,  5)
 	reagents.add_reagent(/datum/reagent/mindbreaker,  10)
 	mode = SYRINGE_INJECT
 	update_icon()

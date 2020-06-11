@@ -146,7 +146,7 @@
 
 		if(prob(5))
 			to_chat(owner, "<span class='warning'>You feel something squirming inside of you!</span>")
-			owner.reagents.add_reagent(/datum/reagent/blackkois, 4)
+			owner.reagents.add_reagent(/datum/reagent/kois/black, 4)
 
 		else if(prob(10))
 			to_chat(owner, "<span class='warning'>You feel disorientated!</span>")
@@ -188,7 +188,7 @@
 			var/turf/T = get_turf(owner)
 
 			var/datum/reagents/R = new/datum/reagents(100)
-			R.add_reagent(/datum/reagent/blackkois,10)
+			R.add_reagent(/datum/reagent/kois/black,10)
 			R.add_reagent(/datum/reagent/toxin/phoron,5)
 			var/datum/effect/effect/system/smoke_spread/chem/spores/S = new("blackkois")
 

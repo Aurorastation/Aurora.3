@@ -108,7 +108,7 @@
 	icon_state = "pill5"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/cyanide, 50)
+		reagents.add_reagent(/datum/reagent/toxin/cyanide, 50)
 
 /obj/item/reagent_containers/pill/adminordrazine
 	name = "Adminordrazine pill"

@@ -428,7 +428,7 @@
 	taste_description = "cherry"
 	taste_mult = 1.3
 
-/datum/reagent/nutriment/virus_food
+/datum/reagent/nutriment/virusfood
 	name = "Virus Food"
 	description = "A mixture of water, milk, and oxygen. Virus cells can use this mixture to reproduce."
 	reagent_state = LIQUID

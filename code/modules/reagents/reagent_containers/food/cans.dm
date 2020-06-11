@@ -137,7 +137,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/koispasteclean, 10)
+	reagents.add_reagent(/datum/reagent/kois/clean, 10)
 	reagents.add_reagent(/datum/reagent/drink/phoron, 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer

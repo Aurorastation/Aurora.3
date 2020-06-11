@@ -258,7 +258,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/nothing, 100)
+	reagents.add_reagent(/datum/reagent/drink/nothing, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/bitters
 	name = "Angstra Aromatic Bitters"
@@ -288,7 +288,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/mintsyrup, 100)
+	reagents.add_reagent(/datum/reagent/drink/mintsyrup, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/patron
 	name = "Wrapp Artiste patron"
@@ -319,7 +319,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/holywater/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/holywater, 100)
+	reagents.add_reagent(/datum/reagent/water/holywater, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/vermouth
 	name = "Goldeneye vermouth"
@@ -413,7 +413,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/grenadine/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/grenadine, 100)
+	reagents.add_reagent(/datum/reagent/drink/grenadine, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/cola
 	name = "space cola"
@@ -426,7 +426,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/cola/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/cola, 100)
+	reagents.add_reagent(/datum/reagent/drink/space_cola, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
 	name = "\improper Space-Up"
@@ -439,7 +439,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/space_up, 100)
+	reagents.add_reagent(/datum/reagent/drink/spaceup, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
 	name = "\improper Space Mountain Wind"
@@ -452,7 +452,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/spacemountainwind, 100)
+	reagents.add_reagent(/datum/reagent/drink/spacemountainwind, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/pwine
 	name = "Warlock's Velvet"
