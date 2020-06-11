@@ -111,13 +111,21 @@
 		if(!success)
 			return FALSE
 
-	//trap the victim in place
-	set_dir(L.dir)
-	can_buckle = TRUE
-	buckle_mob(L)
-	to_chat(L, FONT_LARGE(SPAN_DANGER("The steel jaws of \the [src] bite into you, trapping you in place!")))
+	var/did_trap = TRUE
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/obj/item/organ/external/limb = H.get_organ(check_zone(target_zone))
+		if(!limb || limb.is_stump()) // oops, we took the limb clean off
+			did_trap = FALSE
+	
+	if(did_trap)
+		//trap the victim in place
+		can_buckle = TRUE
+		buckle_mob(L)
+		can_buckle = initial(can_buckle)
+
 	deployed = FALSE
-	can_buckle = initial(can_buckle)
+	to_chat(L, FONT_LARGE(SPAN_DANGER("The steel jaws of \the [src] bite into you, [did_trap ? "trapping you in place" : "taking your limb clean off"]!")))
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, TRUE) //Really loud snapping sound
 
 	if (istype(L, /mob/living/simple_animal/hostile/bear))
