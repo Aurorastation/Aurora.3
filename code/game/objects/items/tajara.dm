@@ -105,7 +105,7 @@
 	set src in usr
 
 	if(closed)
-		to_chat(usr, "You check your watch, realising it's closed.")
+		to_chat(usr, SPAN_WARNING("You check your watch, realising it's closed."))
 	else
 
 		var/adhomian_year = game_year + 1158
