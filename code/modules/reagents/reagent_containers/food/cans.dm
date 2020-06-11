@@ -160,8 +160,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_cherry, 20)
-	reagents.add_reagent(/datum/reagent/drink/vaam, 15)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/cherry, 20)
+	reagents.add_reagent(/datum/reagent/mental/vaam, 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorakois
 	name = "\improper Zo'ra Soda Kois Twist"
@@ -171,8 +171,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorakois/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_kois, 20)
-	reagents.add_reagent(/datum/reagent/drink/vaam, 15)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/kois, 20)
+	reagents.add_reagent(/datum/reagent/mental/vaam, 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoraphoron
 	name = "\improper Zo'ra Soda Phoron Passion"
@@ -182,8 +182,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zoraphoron/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_phoron, 20)
-	reagents.add_reagent(/datum/reagent/drink/vaam, 15)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/phoron, 20)
+	reagents.add_reagent(/datum/reagent/mental/vaam, 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorahozm
 	name = "\improper High Octane Zorane Might"
@@ -193,8 +193,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorahozm/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_hozm, 20)
-	reagents.add_reagent(/datum/reagent/drink/vaam, 15)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/hozm, 20)
+	reagents.add_reagent(/datum/reagent/mental/vaam, 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoravenom
 	name = "\improper Zo'ra Soda Sour Venom Grass (Diet!)"
@@ -204,8 +204,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zoravenom/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_venom, 20)
-	reagents.add_reagent(/datum/reagent/drink/vaam, 15)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/venomgrass, 20)
+	reagents.add_reagent(/datum/reagent/mental/vaam, 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoraklax
 	name = "\improper Klaxan Energy Crush"
@@ -215,8 +215,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zoraklax/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_klax, 20)
-	reagents.add_reagent(/datum/reagent/drink/vaam, 15)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/klax, 20)
+	reagents.add_reagent(/datum/reagent/mental/vaam, 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoracthur
 	name = "\improper C'thur Rockin' Raspberry"
@@ -226,8 +226,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zoracthur/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_cthur, 20)
-	reagents.add_reagent(/datum/reagent/drink/vaam, 15)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/cthur, 20)
+	reagents.add_reagent(/datum/reagent/mental/vaam, 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoradrone
 	name = "\improper Drone Fuel"
@@ -237,8 +237,8 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zoradrone/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_drone, 30)
-	reagents.add_reagent(/datum/reagent/drink/vaam, 10)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/drone, 30)
+	reagents.add_reagent(/datum/reagent/mental/vaam, 10)
 
 /obj/item/reagent_containers/food/drinks/cans/zorajelly
 	name = "\improper Royal Jelly"
@@ -248,7 +248,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorajelly/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zora_jelly, 30)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda/jelly, 30)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
 	name = "fermented fatshouters milk"

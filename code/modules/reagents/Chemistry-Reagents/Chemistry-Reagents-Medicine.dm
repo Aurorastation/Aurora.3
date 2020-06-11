@@ -1066,7 +1066,7 @@
 	messagedelay = 30
 	ingest_mul = 0 //Stomach acid will melt the nanobots
 
-/datum/reagent/mental/bugjuice
+/datum/reagent/mental/vaam
 	name = "V'krexi Amino Acid Mixture"
 	description = "A mixture of several high-energy amino acids, based on the secretions and saliva of V'krexi larvae."
 	reagent_state = LIQUID
@@ -1085,12 +1085,12 @@
 	)
 	var/datum/modifier/modifier
 
-/datum/reagent/mental/bugjuice/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/vaam/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	. = ..()
 	M.add_chemical_effect(CE_PAINKILLER, 5)
 	M.drowsyness = 0
 
-/datum/reagent/mental/bugjuice/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale)
+/datum/reagent/mental/vaam/overdose(var/mob/living/carbon/human/M, var/alien, var/removed, var/scale)
 	. = ..()
 	M.adjustOxyLoss(1 * removed * scale)
 	M.Weaken(10 * removed * scale)
