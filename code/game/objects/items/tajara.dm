@@ -117,30 +117,30 @@
 		switch(current_month)
 			if("January", "February", "March")
 				adhomian_month = "Menshe-aysaif"
-				if ("February")
+				if (current_month == "February")
 					adhomian_day = current_day + 15
-				if ("March")
+				if (current_month == "March")
 					adhomian_day = current_day + 30
 
 			if("April", "May", "June")
 				adhomian_month = "Sil'nryy-aysaif"
-				if ("May")
+				if (current_month == "May")
 					adhomian_day = current_day + 15
-				if ("June")
+				if (current_month == "June")
 					adhomian_day = current_day + 30
 
 			if("July", "August", "September")
 				adhomian_month = "Menshe-rhazzimy"
-				if ("August")
+				if (current_month == "August")
 					adhomian_day = current_day + 15
-				if ("September")
+				if (current_month == "September")
 					adhomian_day = current_day + 30
 
 			if("October", "November", "December")
 				adhomian_month = "Sil’nryy-rhazzimy"
-				if ("November")
+				if (current_month == "November")
 					adhomian_day = current_day + 15
-				if ("December")
+				if (current_month == "December")
 					adhomian_day = current_day + 30
 
 		var/real_time = text2num(time2text(world.time + (roundstart_hour HOURS), "hh"))
