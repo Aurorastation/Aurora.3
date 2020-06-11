@@ -22,9 +22,9 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message("<span class='warning'>[user] holds their hands over \the [target]...</span>")
+		user.visible_message(SPAN_WARNING("\The [user] holds their hands over \the [target]..."))
 		if(do_after(user, 100, TRUE, target))
-			user.visible_message("<span class='danger'>\The [user] releases a gout of arcing lightning over \the [target]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] releases a gout of arcing lightning over \the [target]!"))
 			playsound(target, 'sound/magic/LightningShock.ogg', 75)
 			var/severity = 1 + user.psi.get_rank(PSI_ENERGISTICS)
 			target.emp_act(severity)
@@ -45,7 +45,7 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message("<span class='danger'>\The [user] sends a jolt of electricity arcing into \the [target]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] sends a jolt of electricity arcing into \the [target]!"))
 		if(istype(target))
 			target.electrocute_act(rand(15,45), user, 1, user.zone_sel.selecting)
 			return TRUE
@@ -66,7 +66,7 @@
 /datum/psionic_power/energistics/lightning/invoke(var/mob/living/user, var/mob/living/target)
 	. = ..()
 	if(.)
-		user.visible_message("<span class='danger'>\The [user] suddenly holds their hand out!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] suddenly holds their hand out!"))
 
 		var/user_rank = user.psi.get_rank(faculty)
 		var/obj/item/projectile/pew
