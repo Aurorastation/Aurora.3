@@ -98,7 +98,7 @@
 
 /obj/structure/reagent_dispensers/extinguisher/Initialize()
 	. = ..()
-	reagents.add_reagent("monoammoniumphosphate",capacity)
+	reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate,capacity)
 
 // Tanks
 /obj/structure/reagent_dispensers/watertank
@@ -109,7 +109,7 @@
 
 /obj/structure/reagent_dispensers/watertank/Initialize()
 	. = ..()
-	reagents.add_reagent("water",capacity)
+	reagents.add_reagent(/datum/reagent/water,capacity)
 
 /obj/structure/reagent_dispensers/lube
 	name = "lube tank"
@@ -119,7 +119,7 @@
 
 /obj/structure/reagent_dispensers/lube/Initialize()
 	. = ..()
-	reagents.add_reagent("lube",capacity)
+	reagents.add_reagent(/datum/reagent/lube,capacity)
 
 /obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
@@ -133,7 +133,7 @@
 
 /obj/structure/reagent_dispensers/fueltank/Initialize()
 	. = ..()
-	reagents.add_reagent("fuel",capacity)
+	reagents.add_reagent(/datum/reagent/fuel,capacity)
 
 /obj/structure/reagent_dispensers/fueltank/examine(mob/user)
 	if(!..(user, 2))
@@ -252,7 +252,7 @@
 
 /obj/structure/reagent_dispensers/virusfood/Initialize()
 	. = ..()
-	reagents.add_reagent("virusfood", capacity)
+	reagents.add_reagent(/datum/reagent/virusfood, capacity)
 
 /obj/structure/reagent_dispensers/acid
 	name = "sulphuric acid dispenser"
@@ -265,11 +265,11 @@
 
 /obj/structure/reagent_dispensers/acid/Initialize()
 	. = ..()
-	reagents.add_reagent("sacid", capacity)
+	reagents.add_reagent(/datum/reagent/acid, capacity)
 
 /obj/structure/reagent_dispensers/peppertank/Initialize()
 	. = ..()
-	reagents.add_reagent("condensedcapsaicin",capacity)
+	reagents.add_reagent(/datum/reagent/condensedcapsaicin,capacity)
 
 //Water Cooler
 
@@ -286,7 +286,7 @@
 
 /obj/structure/reagent_dispensers/water_cooler/Initialize()
 	. = ..()
-	reagents.add_reagent("water",capacity)
+	reagents.add_reagent(/datum/reagent/water,capacity)
 
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
@@ -369,7 +369,7 @@
 
 /obj/structure/reagent_dispensers/cookingoil/Initialize()
 	. = ..()
-	reagents.add_reagent("cornoil",capacity)
+	reagents.add_reagent(/datum/reagent/nutriment/triglyceride/oil/corn,capacity)
 
 /obj/structure/reagent_dispensers/cookingoil/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())
@@ -385,7 +385,7 @@
 
 /obj/structure/reagent_dispensers/coolanttank/Initialize()
 	. = ..()
-	reagents.add_reagent("coolant",1000)
+	reagents.add_reagent(/datum/reagent/coolant,1000)
 
 /obj/structure/reagent_dispensers/coolanttank/bullet_act(var/obj/item/projectile/Proj)
 	if(Proj.get_structure_damage())

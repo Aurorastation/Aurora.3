@@ -83,7 +83,7 @@
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
-		if (!T.vessel.get_reagent_amount("blood"))
+		if (!T.vessel.get_reagent_amount(/datum/reagent/blood))
 			to_chat(src, span("danger", "[T] has no more blood left to give."))
 			break
 
@@ -94,7 +94,7 @@
 
 		// Alive and not of empty mind.
 		if (check_drain_target_state(T))
-			blood = min(15, T.vessel.get_reagent_amount("blood"))
+			blood = min(15, T.vessel.get_reagent_amount(/datum/reagent/blood))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
@@ -112,7 +112,7 @@
 				frenzy_lower_chance = 0
 		// SSD/protohuman or dead.
 		else
-			blood = min(5, T.vessel.get_reagent_amount("blood"))
+			blood = min(5, T.vessel.get_reagent_amount(/datum/reagent/blood))
 			vampire.blood_usable += blood
 
 			frenzy_lower_chance = 40
@@ -129,7 +129,7 @@
 
 			to_chat(src, update_msg)
 		check_vampire_upgrade()
-		T.vessel.remove_reagent("blood", 5)
+		T.vessel.remove_reagent(/datum/reagent/blood, 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
@@ -827,8 +827,8 @@
 	to_chat(T, span("notice", "You feel pure bliss as [src] touches you."))
 	vampire.use_blood(50)
 
-	T.reagents.add_reagent("rezadone", 3)
-	T.reagents.add_reagent("oxycodone", 0.15) //enough to get back onto their feet
+	T.reagents.add_reagent(/datum/reagent/rezadone, 3)
+	T.reagents.add_reagent(/datum/reagent/oxycodone, 0.15) //enough to get back onto their feet
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
@@ -899,11 +899,11 @@
 		if (!mind.vampire)
 			to_chat(src, "<span class='alert'>Your fangs have disappeared!</span>")
 			return
-		if (!T.vessel.get_reagent_amount("blood"))
+		if (!T.vessel.get_reagent_amount(/datum/reagent/blood))
 			to_chat(src, "<span class='alert'>[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body.</span>")
 			break
 
-		T.vessel.remove_reagent("blood", 50)
+		T.vessel.remove_reagent(/datum/reagent/blood, 50)
 
 	T.revive()
 

@@ -23,7 +23,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/datum/chemical_reaction/recipe = find_recipe_by_result(R.type)
 	if(recipe)
 		for(var/chem in recipe.required_reagents)
-			if(!has_va.type_specific_heat(chemical_reagents[chem]))
+			if(!has_valid_specific_heat(chemical_reagents[chem]))
 				log_ss("chemistry", "ERROR: [recipe.type] has an improper recipe!")
 				return R.fallback_specific_heat > 0
 
@@ -134,7 +134,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		log_debug("SSchemistry: Loading chemical: [chemical]")
 		var/datum/chemical_reaction/cc = new()
 		cc.name = chemconfig[chemical]["name"]
-		cc.type = chemconfig[chemical]["type"]
+		cc.id = chemconfig[chemical]["id"]
 		cc.result = chemconfig[chemical]["result"]
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		cc.required_reagents = chemconfig[chemical]["required_reagents"]

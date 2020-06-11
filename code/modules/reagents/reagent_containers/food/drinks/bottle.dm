@@ -196,7 +196,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/gin/Initialize()
 	. = ..()
-	reagents.add_reagent("gin", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/gin, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/victorygin
 	name = "Victory gin"
@@ -209,7 +209,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/victorygin/Initialize()
 	. = ..()
-	reagents.add_reagent("victorygin", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/victorygin, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whiskey
 	name = "Uncle Git's Special Reserve"
@@ -218,7 +218,7 @@
 	center_of_mass = list("x"=16, "y"=4)
 	Initialize()
 		. = ..()
-		reagents.add_reagent("whiskey", 100)
+		reagents.add_reagent(/datum/reagent/alcohol/ethanol/whiskey, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/fireball
 	name = "Uncle Git's Cinnamon Fireball"
@@ -228,7 +228,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/fireball/Initialize()
 	. = ..()
-	reagents.add_reagent("fireball", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/fireball, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/vodka
 	name = "Tunguska Triple Distilled"
@@ -238,7 +238,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/vodka/Initialize()
 	. = ..()
-	reagents.add_reagent("vodka", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/vodka, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/tequilla
 	name = "Caccavo Guaranteed Quality tequila"
@@ -248,7 +248,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/tequilla/Initialize()
 	. = ..()
-	reagents.add_reagent("tequilla", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/tequilla, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing
 	name = "bottle of nothing"
@@ -258,7 +258,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing/Initialize()
 	. = ..()
-	reagents.add_reagent("nothing", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/nothing, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/bitters
 	name = "Angstra Aromatic Bitters"
@@ -268,7 +268,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/bitters/Initialize()
 	. = ..()
-	reagents.add_reagent("bitters",40)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/bitters,40)
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne
 	name = "Tailfeather's Bubbliest champagne"
@@ -278,7 +278,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne/Initialize()
 	. = ..()
-	reagents.add_reagent("champagne",100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/champagne,100)
 
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup
 	name = "Wintergreen Mint Syrup"
@@ -288,7 +288,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup/Initialize()
 	. = ..()
-	reagents.add_reagent("mintsyrup", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/mintsyrup, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/patron
 	name = "Wrapp Artiste patron"
@@ -298,7 +298,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/patron/Initialize()
 	. = ..()
-	reagents.add_reagent("patron", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/patron, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/rum
 	name = "Captain Pete's Cuban Spiced rum"
@@ -308,7 +308,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/rum/Initialize()
 	. = ..()
-	reagents.add_reagent("rum", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/rum, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/holywater
 	name = "flask of holy water"
@@ -319,7 +319,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/holywater/Initialize()
 	. = ..()
-	reagents.add_reagent("holywater", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/holywater, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/vermouth
 	name = "Goldeneye vermouth"
@@ -329,7 +329,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/vermouth/Initialize()
 	. = ..()
-	reagents.add_reagent("vermouth", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/vermouth, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/kahlua
 	name = "Robert Robust's coffee liqueur"
@@ -339,7 +339,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/kahlua/Initialize()
 	. = ..()
-	reagents.add_reagent("kahlua", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/kahlua, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/goldschlager
 	name = "College Girl goldschlager"
@@ -349,7 +349,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/goldschlager/Initialize()
 	. = ..()
-	reagents.add_reagent("goldschlager", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/goldschlager, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/cognac
 	name = "Chateau De Baton Premium cognac"
@@ -359,7 +359,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/cognac/Initialize()
 	. = ..()
-	reagents.add_reagent("cognac", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/cognac, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/wine
 	name = "Doublebeard Bearded Red Wine"
@@ -369,7 +369,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/wine/Initialize()
 	. = ..()
-	reagents.add_reagent("wine", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/wine, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/absinthe
 	name = "Jailbreaker Verte"
@@ -379,7 +379,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/absinthe/Initialize()
 	. = ..()
-	reagents.add_reagent("absinthe", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/absinthe, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/melonliquor
 	name = "Emeraldine melon liquor"
@@ -391,7 +391,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/melonliquor/Initialize()
 	. = ..()
-	reagents.add_reagent("melonliquor", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/melonliquor, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/bluecuracao
 	name = "Miss blue curacao"
@@ -402,7 +402,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/bluecuracao/Initialize()
 	. = ..()
-	reagents.add_reagent("bluecuracao", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/bluecuracao, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/grenadine
 	name = "Briar Rose grenadine syrup"
@@ -413,7 +413,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/grenadine/Initialize()
 	. = ..()
-	reagents.add_reagent("grenadine", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/grenadine, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/cola
 	name = "space cola"
@@ -426,7 +426,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/cola/Initialize()
 	. = ..()
-	reagents.add_reagent("cola", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/cola, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
 	name = "\improper Space-Up"
@@ -439,7 +439,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up/Initialize()
 	. = ..()
-	reagents.add_reagent("space_up", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/space_up, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
 	name = "\improper Space Mountain Wind"
@@ -452,7 +452,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind/Initialize()
 	. = ..()
-	reagents.add_reagent("spacemountainwind", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/spacemountainwind, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/pwine
 	name = "Warlock's Velvet"
@@ -462,7 +462,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/pwine/Initialize()
 	. = ..()
-	reagents.add_reagent("pwine", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/pwine, 100)
 
 //Small bottles
 /obj/item/reagent_containers/food/drinks/bottle/small
@@ -482,7 +482,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/beer/Initialize()
 	. = ..()
-	reagents.add_reagent("beer", 30)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/beer, 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/small/ale
 	name = "\improper Magm-ale"
@@ -493,7 +493,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/ale/Initialize()
 	. = ..()
-	reagents.add_reagent("ale", 30)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/ale, 30)
 
 //aurora's drinks
 
@@ -505,7 +505,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/chartreusegreen/Initialize()
 	. = ..()
-	reagents.add_reagent("chartreusegreen", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/chartreusegreen, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow
 	name = "yellow chartreuse"
@@ -515,7 +515,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow/Initialize()
 	. = ..()
-	reagents.add_reagent("chartreuseyellow", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/chartreuseyellow, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/cremewhite
 	name = "white creme de menthe"
@@ -525,7 +525,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/cremewhite/Initialize()
 	. = ..()
-	reagents.add_reagent("cremewhite", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/cremewhite, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/cremeyvette
 	name = "Creme de Yvette"
@@ -535,7 +535,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/cremeyvette/Initialize()
 	. = ..()
-	reagents.add_reagent("cremeyvette", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/cremeyvette, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/brandy
 	name = "brandy"
@@ -545,7 +545,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/brandy/Initialize()
 	. = ..()
-	reagents.add_reagent("brandy", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/brandy, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/guinness
 	name = "Guinness"
@@ -555,7 +555,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/guinness/Initialize()
 	. = ..()
-	reagents.add_reagent("guinness", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/guinness, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/drambuie
 	name = "Drambuie"
@@ -565,7 +565,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/drambuie/Initialize()
 	. = ..()
-	reagents.add_reagent("drambuie", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/drambuie, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/sbiten
 	name = "sbiten"
@@ -575,7 +575,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/sbiten/Initialize()
 	. = ..()
-	reagents.add_reagent("sbiten", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/sbiten, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead
 	name = "messa's mead"
@@ -588,7 +588,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead/Initialize()
 	. = ..()
-	reagents.add_reagent("messa_mead", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/messa_mead, 100)
 
 // Butanol-based alcoholic drinks
 //=====================================
@@ -602,7 +602,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice/Initialize()
 	. = ..()
-	reagents.add_reagent("xuizijuice", 30)
+	reagents.add_reagent(/datum/reagent/alcohol/butanol/xuizijuice, 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine
 	name = "Sarezhi Wine"
@@ -612,7 +612,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine/Initialize()
 	. = ..()
-	reagents.add_reagent("sarezhiwine", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/butanol/sarezhiwine, 100)
 
 // Synnono Meme (Bottled) Drinks
 //======================================
@@ -626,7 +626,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/boukha/Initialize()
 	. = ..()
-	reagents.add_reagent("boukha", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/boukha, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whitewine
 	name = "Doublebeard Bearded White Wine"
@@ -636,4 +636,4 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/whitewine/Initialize()
 	. = ..()
-	reagents.add_reagent("whitewine", 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/whitewine, 100)

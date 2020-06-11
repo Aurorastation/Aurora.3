@@ -194,7 +194,7 @@
 	pack.desc += " 'MB' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	pack.reagents.add_reagent("tricordrazine", 15 * pack.storage_slots)
+	pack.reagents.add_reagent(/datum/reagent/tricordrazine, 15 * pack.storage_slots)
 	pack.desc += " 'T' has been scribbled on it."
 
 	new /obj/item/flame/lighter/zippo(src)

@@ -54,11 +54,11 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda
 	Initialize()
 		. = ..()
-		reagents.add_reagent("sodawater", 50)
+		reagents.add_reagent(/datum/reagent/drink/sodawater, 50)
 		on_reagent_change()
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/cola
 	Initialize()
 		. = ..()
-		reagents.add_reagent("cola", 50)
+		reagents.add_reagent(/datum/reagent/drink/cola, 50)
 		on_reagent_change()

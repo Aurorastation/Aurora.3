@@ -1110,7 +1110,7 @@ datum
 
 
 			pacid
-				steal_target = /datum/reagent/pacid
+				steal_target = /datum/reagent/acid/polyacid
 				explanation_text = "Steal some polytrinic acid."
 				weight = 40
 
@@ -1151,7 +1151,7 @@ datum
 						if("Sulphuric acid")
 							steal_target = /datum/reagent/acid
 						if("Polytrinic acid")
-							steal_target = /datum/reagent/pacid
+							steal_target = /datum/reagent/acid/polyacid
 						if("Space Lube")
 							steal_target = /datum/reagent/lube
 						if("Unstable mutagen")

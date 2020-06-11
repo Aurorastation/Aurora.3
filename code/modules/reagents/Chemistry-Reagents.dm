@@ -23,6 +23,10 @@
 	var/glass_name = null
 	var/glass_desc = null
 	var/glass_center_of_mass = null
+	var/condiment_icon_state = null
+	var/condiment_name = null
+	var/condiment_desc = null
+	var/condiment_center_of_mass = null
 	var/color = "#000000"
 	var/color_weight = 1
 	var/unaffected_species = IS_DIONA | IS_MACHINE	// Species that aren't affected by this reagent. Does not prevent affect_touch.

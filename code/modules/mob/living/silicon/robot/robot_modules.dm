@@ -118,7 +118,7 @@ var/global/list/robot_modules = list(
 			F.times_used--
 
 	if(E?.reagents.total_volume < E.reagents.maximum_volume)
-		E.reagents.add_reagent("monoammoniumphosphate", E.max_water * 0.2)
+		E.reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
 
 	if(!synths?.len)
 		return
@@ -222,7 +222,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/autopsy_scanner(src)
 	src.modules += new /obj/item/device/breath_analyzer(src)
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent("wulumunusha", 30)
+	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
@@ -248,7 +248,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/hypospray/cmo/PS = src.emag
-		PS.reagents.add_reagent("wulumunusha", 2 * amount)
+		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/medical/rescue
@@ -287,7 +287,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/inflatable_dispenser(src) // Allows usage of inflatables. Since they are basically robotic alternative to EMTs, they should probably have them.
 	src.modules += new /obj/item/device/gps(src) // for coordinating with medical suit health sensors console
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent("wulumunusha", 30)
+	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
@@ -318,7 +318,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/PS = src.emag
-		PS.reagents.add_reagent("wulumunusha", 2 * amount)
+		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/engineering
@@ -531,7 +531,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/reagent_containers/glass/bucket(src) // a hydroponist's bucket
 	src.modules += new /obj/item/matter_decompiler(src) // free drone remains for all
 	src.emag = new /obj/item/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent("lube", 250)
+	src.emag.reagents.add_reagent(/datum/reagent/lube, 250)
 	src.emag.name = "Lube spray"
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -540,7 +540,7 @@ var/global/list/robot_modules = list(
 	LR.Charge(R, amount)
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/S = src.emag
-		S.reagents.add_reagent("lube", 2 * amount)
+		S.reagents.add_reagent(/datum/reagent/lube, 2 * amount)
 
 /obj/item/robot_module/clerical
 	name = "service robot module"
@@ -612,7 +612,7 @@ var/global/list/robot_modules = list(
 	var/datum/reagents/R = new /datum/reagents(50)
 	src.emag.reagents = R
 	R.my_atom = src.emag
-	R.add_reagent("beer2", 50)
+	R.add_reagent(/datum/reagent/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general

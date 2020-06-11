@@ -164,7 +164,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/norepinephrine/Initialize()
 	. =..()
-	reagents.add_reagent("norepinephrine", 5)
+	reagents.add_reagent(/datum/reagent/norepinephrine, 5)
 	update_icon()
 	return
 
@@ -176,8 +176,8 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/stimpack/Initialize()
 	. = ..()
-	reagents.add_reagent("hyperzine", 12)
-	reagents.add_reagent("tramadol", 8)
+	reagents.add_reagent(/datum/reagent/hyperzine, 12)
+	reagents.add_reagent(/datum/reagent/tramadol, 8)
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/survival
@@ -188,11 +188,11 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/survival/Initialize()
 	. = ..()
-	reagents.add_reagent("tricordrazine", 15)
-	reagents.add_reagent("norepinephrine", 5)
-	reagents.add_reagent("dexalinp", 5)
-	reagents.add_reagent("oxycodone", 5)
-	reagents.add_reagent("methylphenidate", 5)
+	reagents.add_reagent(/datum/reagent/tricordrazine, 15)
+	reagents.add_reagent(/datum/reagent/norepinephrine, 5)
+	reagents.add_reagent(/datum/reagent/dexalin/plus, 5)
+	reagents.add_reagent(/datum/reagent/oxycodone, 5)
+	reagents.add_reagent(/datum/reagent/methylphenidate, 5)
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/combat
@@ -206,8 +206,8 @@
 
 /obj/item/reagent_containers/hypospray/combat/Initialize()
 	. = ..()
-	reagents.add_reagent("oxycodone", 5)
-	reagents.add_reagent("synaptizine", 5)
-	reagents.add_reagent("hyperzine", 5)
-	reagents.add_reagent("arithrazine", 5)
+	reagents.add_reagent(/datum/reagent/oxycodone, 5)
+	reagents.add_reagent(/datum/reagent/synaptizine, 5)
+	reagents.add_reagent(/datum/reagent/hyperzine, 5)
+	reagents.add_reagent(/datum/reagent/arithrazine, 5)
 	update_icon()

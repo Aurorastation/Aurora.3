@@ -218,11 +218,11 @@
 		if(!istype(R, /datum/reagent/alcohol))
 			return
 		var/datum/reagent/alcohol/AR = R
-		reagents.add_reagent("water", (1-(AR.strength/100))*AR.volume)
+		reagents.add_reagent(/datum/reagent/water, (1-(AR.strength/100))*AR.volume)
 		if(istype(AR, /datum/reagent/alcohol/ethanol))
-			reagents.add_reagent("ethanol", (AR.strength/100)*AR.volume)
+			reagents.add_reagent(/datum/reagent/alcohol/ethanol, (AR.strength/100)*AR.volume)
 		if(istype(AR, /datum/reagent/alcohol/butanol))
-			reagents.add_reagent("butanol", (AR.strength/100)*AR.volume)
+			reagents.add_reagent(/datum/reagent/alcohol/butanol, (AR.strength/100)*AR.volume)
 		reagents.remove_reagent(AR.id, AR.volume)
 	src.icon_state = "distillery-off"
 

@@ -229,9 +229,9 @@
 				var/mob/living/carbon/human/H = D
 				remove_amount = H.species.blood_volume * 0.05
 			if(remove_amount > 0)
-				vessel.remove_reagent("blood", remove_amount, TRUE)
+				vessel.remove_reagent(/datum/reagent/blood, remove_amount, TRUE)
 				adjustNutritionLoss(-remove_amount * 0.5)
-			var/list/data = vessel.get_data("blood")
+			var/list/data = vessel.get_data(/datum/reagent/blood)
 			newDNA = data["blood_DNA"]
 
 			if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.

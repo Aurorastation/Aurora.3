@@ -22,8 +22,8 @@
 	. = ..()
 	if(paint_type && length(paint_type) > 0)
 		name = paint_type + " " + name
-	reagents.add_reagent("water", volume*3/5)
-	reagents.add_reagent("plasticide", volume/5)
+	reagents.add_reagent(/datum/reagent/water, volume*3/5)
+	reagents.add_reagent(/datum/reagent/plasticide, volume/5)
 	if(paint_reagent)
 		reagents.add_reagent(paint_reagent, volume/5)
 	reagents.handle_reactions()

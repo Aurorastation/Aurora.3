@@ -48,8 +48,8 @@ About the Holder:
 		get_master_reagent_name()
 			Ditto, but returns the name.
 
-		get_master_reagent_id()
-			Ditto, but returns ID.
+		get_master_reagent_type()
+			Ditto, but returns type.
 
 		update_total()
 			Updates total volume, called automatically.

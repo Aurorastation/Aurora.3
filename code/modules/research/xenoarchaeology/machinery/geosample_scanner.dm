@@ -107,7 +107,7 @@
 	for (var/datum/reagent/current_reagent in src.reagents.reagent_list)
 		if (!current_reagent)
 			continue
-		var/cur_purity = coolant_reagents_purity[current_reagent.id]
+		var/cur_purity = coolant_reagents_purity[current_reagent.type]
 		if(!cur_purity)
 			cur_purity = 0.1
 		else if(cur_purity > 1)

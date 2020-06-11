@@ -92,7 +92,7 @@
 	icon_state = "pill17"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dylovene", 25)
+		reagents.add_reagent(/datum/reagent/dylovene, 25)
 
 /obj/item/reagent_containers/pill/tox
 	name = "Toxins pill"
@@ -100,7 +100,7 @@
 	icon_state = "pill5"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("toxin", 50)
+		reagents.add_reagent(/datum/reagent/toxin, 50)
 
 /obj/item/reagent_containers/pill/cyanide
 	name = "Cyanide pill"
@@ -108,7 +108,7 @@
 	icon_state = "pill5"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("cyanide", 50)
+		reagents.add_reagent(/datum/reagent/cyanide, 50)
 
 /obj/item/reagent_containers/pill/adminordrazine
 	name = "Adminordrazine pill"
@@ -116,7 +116,7 @@
 	icon_state = "pill16"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("adminordrazine", 50)
+		reagents.add_reagent(/datum/reagent/adminordrazine, 50)
 
 /obj/item/reagent_containers/pill/stox
 	name = "Sleeping pill"
@@ -124,7 +124,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("stoxin", 15)
+		reagents.add_reagent(/datum/reagent/stoxin, 15)
 
 /obj/item/reagent_containers/pill/kelotane
 	name = "Kelotane pill"
@@ -132,7 +132,7 @@
 	icon_state = "pill11"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("kelotane", 15)
+		reagents.add_reagent(/datum/reagent/kelotane, 15)
 
 /obj/item/reagent_containers/pill/paracetamol
 	name = "Paracetamol pill"
@@ -140,7 +140,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("paracetamol", 15)
+		reagents.add_reagent(/datum/reagent/paracetamol, 15)
 
 /obj/item/reagent_containers/pill/tramadol
 	name = "Tramadol pill"
@@ -148,7 +148,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("tramadol", 15)
+		reagents.add_reagent(/datum/reagent/tramadol, 15)
 
 
 /obj/item/reagent_containers/pill/methylphenidate
@@ -157,7 +157,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("methylphenidate", 15)
+		reagents.add_reagent(/datum/reagent/methylphenidate, 15)
 
 /obj/item/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
@@ -165,7 +165,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("escitalopram", 15)
+		reagents.add_reagent(/datum/reagent/escitalopram, 15)
 
 /obj/item/reagent_containers/pill/escitalopram
 	name = "Escitalopram pill"
@@ -173,7 +173,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("escitalopram", 15)
+		reagents.add_reagent(/datum/reagent/escitalopram, 15)
 
 /obj/item/reagent_containers/pill/norepinephrine
 	name = "norepinephrine pill"
@@ -181,7 +181,7 @@
 	icon_state = "pill20"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("norepinephrine", 30)
+		reagents.add_reagent(/datum/reagent/norepinephrine, 30)
 
 /obj/item/reagent_containers/pill/dexalin
 	name = "Dexalin pill"
@@ -189,7 +189,7 @@
 	icon_state = "pill16"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dexalin", 15)
+		reagents.add_reagent(/datum/reagent/dexalin, 15)
 
 /obj/item/reagent_containers/pill/dexalin_plus
 	name = "Dexalin Plus pill"
@@ -197,7 +197,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dexalinp", 15)
+		reagents.add_reagent(/datum/reagent/dexalinp, 15)
 
 /obj/item/reagent_containers/pill/dermaline
 	name = "Dermaline pill"
@@ -205,7 +205,7 @@
 	icon_state = "pill12"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dermaline", 15)
+		reagents.add_reagent(/datum/reagent/dermaline, 15)
 
 /obj/item/reagent_containers/pill/dylovene
 	name = "Dylovene pill"
@@ -213,7 +213,7 @@
 	icon_state = "pill13"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("dylovene", 15)
+		reagents.add_reagent(/datum/reagent/dylovene, 15)
 
 /obj/item/reagent_containers/pill/bicaridine
 	name = "Bicaridine pill"
@@ -221,7 +221,7 @@
 	icon_state = "pill18"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("bicaridine", 20)
+		reagents.add_reagent(/datum/reagent/bicaridine, 20)
 
 /obj/item/reagent_containers/pill/happy
 	name = "Happy pill"
@@ -229,8 +229,8 @@
 	icon_state = "pill18"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("space_drugs", 15)
-		reagents.add_reagent("sugar", 15)
+		reagents.add_reagent(/datum/reagent/space_drugs, 15)
+		reagents.add_reagent(/datum/reagent/sugar, 15)
 
 /obj/item/reagent_containers/pill/zoom
 	name = "Zoom pill"
@@ -238,9 +238,9 @@
 	icon_state = "pill18"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("impedrezene", 10)
-		reagents.add_reagent("synaptizine", 5)
-		reagents.add_reagent("hyperzine", 5)
+		reagents.add_reagent(/datum/reagent/impedrezene, 10)
+		reagents.add_reagent(/datum/reagent/synaptizine, 5)
+		reagents.add_reagent(/datum/reagent/hyperzine, 5)
 
 /obj/item/reagent_containers/pill/thetamycin
 	name = "thetamycin pill"
@@ -248,7 +248,7 @@
 	icon_state = "pill19"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("thetamycin", 15)
+		reagents.add_reagent(/datum/reagent/thetamycin, 15)
 
 /obj/item/reagent_containers/pill/bio_vitamin
 	name = "Vitamin pill"
@@ -256,7 +256,7 @@
 	icon_state = "pill11"
 	Initialize()
 		. = ..()
-		reagents.add_reagent("nutriment", 20)
+		reagents.add_reagent(/datum/reagent/nutriment, 20)
 		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
 
 /obj/item/reagent_containers/pill/rmt
@@ -266,7 +266,7 @@
 
 /obj/item/reagent_containers/pill/rmt/Initialize()
 	. = ..()
-	reagents.add_reagent("rmt", 15)
+	reagents.add_reagent(/datum/reagent/rmt, 15)
 
 /obj/item/reagent_containers/pill/antihistamine
 	name = "antihistamine"
@@ -275,4 +275,4 @@
 
 /obj/item/reagent_containers/pill/antihistamine/Initialize()
 	. = ..()
-	reagents.add_reagent("diphenhydramine", 5)
+	reagents.add_reagent(/datum/reagent/diphenhydramine, 5)

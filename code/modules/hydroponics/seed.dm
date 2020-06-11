@@ -386,7 +386,7 @@
 			"bicaridine",
 			"hyperzine",
 			"cryoxadone",
-			"blood",
+			/datum/reagent/blood,
 			"water",
 			"potassium",
 			"plasticide",

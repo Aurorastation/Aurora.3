@@ -173,12 +173,12 @@
 		if(nymph.stat == DEAD || nymph.paralysis || nymph.weakened || nymph.stunned || nymph.restrained())
 			return
 		if(weedlevel > 0)
-			nymph.ingested.add_reagent("nutriment", weedlevel/6)
+			nymph.ingested.add_reagent(/datum/reagent/nutriment, weedlevel/6)
 			weedlevel = 0
 			nymph.visible_message("<font color='blue'><b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily.</font>","<font color='blue'>You root through [src], ripping out weeds and eating them noisily.</font>")
 			return
 		if (dead)//Let nymphs eat dead plants
-			nymph.ingested.add_reagent("nutriment", 1)
+			nymph.ingested.add_reagent(/datum/reagent/nutriment, 1)
 			nymph.visible_message("<font color='blue'><b>[nymph]</b> rips out the dead plants from [src], and loudly munches them.</font>","<font color='blue'>You root out the dead plants in [src], eating them with loud chewing sounds.</font>")
 			remove_dead(user)
 			return
@@ -449,10 +449,10 @@
 	if (istype(O,/obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RC = O
 		if (RC.reagents.reagent_list.len == 1)
-			if (RC.reagents.has_reagent("water", 1))
+			if (RC.reagents.has_reagent(/datum/reagent/water, 1))
 				if (waterlevel < maxWaterLevel)
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
-					RC.reagents.remove_reagent("water", amountToRemove, 1)
+					RC.reagents.remove_reagent(/datum/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
 				else

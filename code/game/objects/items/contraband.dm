@@ -46,6 +46,6 @@
 	. = ..()
 	if(is_open_container())
 		flags ^= OPENCONTAINER
-	reagents.add_reagent("venenum",volume)
+	reagents.add_reagent(/datum/reagent/venenum,volume)
 	desc = "Contains venenum."
 	update_icon()

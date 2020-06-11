@@ -488,7 +488,7 @@
 		PowerDown(user)
 	else if(!wielded)
 		to_chat(user, "<span class='notice'>You need to hold this with two hands to turn this on.</span>")
-	else if(reagents.get_reagent_amount("fuel") <= 0)
+	else if(reagents.get_reagent_amount(/datum/reagent/fuel) <= 0)
 		user.visible_message(\
 			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
 			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\

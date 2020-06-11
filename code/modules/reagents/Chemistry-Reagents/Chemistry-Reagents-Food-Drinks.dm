@@ -178,6 +178,8 @@
 		data = list()
 
 	data["cooked"] = newdata["cooked"]
+	
+	return ..()
 
 
 /datum/reagent/nutriment/coating/batter
@@ -349,6 +351,10 @@
 	name = "Corn Oil"
 	description = "An oil derived from various types of corn."
 	taste_description = "corn oil"
+	condiment_name = "corn oil"
+	condiment_desc = "A delicious oil used in cooking. Made from corn."
+	condiment_icon_state = "oliveoil"
+
 
 /datum/reagent/nutriment/honey
 	name = "Honey"
@@ -390,6 +396,8 @@
 	color = "#792300"
 	taste_description = "umami"
 	taste_mult = 1.1
+	condiment_name = "soy sauce"
+	condiment_icon_state = "soysauce"
 
 /datum/reagent/nutriment/ketchup
 	name = "Ketchup"
@@ -398,6 +406,9 @@
 	nutriment_factor = 5
 	color = "#731008"
 	taste_description = "ketchup"
+	condiment_name = "ketchup"
+	condiment_icon_state = "ketchup"
+	condiment_center_of_mass = list("x"=16, "y"=6)
 
 /datum/reagent/nutriment/rice
 	name = "Rice"
@@ -465,6 +476,8 @@
 	reagent_state = LIQUID
 	nutriment_factor = 5
 	color = "#4F330F"
+	condiment_name = "barbecue sauce"
+	condiment_icon_state = "barbecue"
 
 /datum/reagent/nutriment/garlicsauce
 	name = "Garlic Sauce"
@@ -473,6 +486,7 @@
 	reagent_state = LIQUID
 	nutriment_factor = 4
 	color = "#d8c045"
+	condiment_name = "garlic sauce"
 
 /* Non-food stuff like condiments */
 
@@ -483,6 +497,9 @@
 	color = "#FFFFFF"
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "salt"
+	condiment_name = "salt shaker"
+	condiment_icon_state = "saltshaker"
+	condiment_center_of_mass = list("x"=17, "y"=11)
 
 /datum/reagent/sodiumchloride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	M.intoxication -= min(M.intoxication,removed*2) //Salt absorbs alcohol
@@ -495,11 +512,14 @@
 
 /datum/reagent/blackpepper
 	name = "Black Pepper"
-	description = "A powder ground from peppercorns. *AAAACHOOO*"
+	description = "Often used to flavor food or make people sneeze."
 	reagent_state = SOLID
 	color = "#000000"
 	taste_description = "pepper"
 	fallback_specific_heat = 1.25
+	condiment_name = "pepper mill"
+	condiment_icon_state = "peppermillsmall"
+	condiment_center_of_mass = list("x"=17, "y"=11)
 
 /datum/reagent/enzyme
 	name = "Universal Enzyme"
@@ -510,6 +530,8 @@
 	taste_description = "sweetness"
 	taste_mult = 0.7
 	fallback_specific_heat = 1
+	condiment_name = "universal enzyme"
+	condiment_icon_state = "enzyme"
 
 /datum/reagent/frostoil
 	name = "Frost Oil"
@@ -521,6 +543,9 @@
 
 	fallback_specific_heat = 15
 	default_temperature = T0C - 20
+	condiment_name = "coldsauce"
+	condiment_desc = "Leaves the tongue numb in its passage."
+	condiment_icon_state = "coldsauce"
 
 /datum/reagent/frostoil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.bodytemperature = max(M.bodytemperature - 10 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
@@ -528,7 +553,7 @@
 		M.emote("shiver")
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature = max(M.bodytemperature - rand(10,20), 0)
-	holder.remove_reagent("capsaicin", 5)
+	holder.remove_reagent(/datum/reagent/capsaicin, 5)
 
 /datum/reagent/capsaicin
 	name = "Capsaicin Oil"
@@ -538,6 +563,9 @@
 	taste_description = "hot peppers"
 	taste_mult = 1.5
 	fallback_specific_heat = 2
+	condiment_name = "hotsauce"
+	condiment_desc = "You can almost TASTE the stomach ulcers now!"
+	condiment_icon_state = "hotsauce"
 
 	var/agony_dose = 5
 	var/agony_amount = 1
@@ -563,7 +591,7 @@
 			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
-	holder.remove_reagent("frostoil", 5)
+	holder.remove_reagent(/datum/reagent/frostoil, 5)
 
 #define EYES_PROTECTED 1
 #define EYES_MECH 2
@@ -650,7 +678,7 @@
 			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
-	holder.remove_reagent("frostoil", 5)
+	holder.remove_reagent(/datum/reagent/frostoil, 5)
 
 #undef EYES_PROTECTED
 #undef EYES_MECH
@@ -663,6 +691,10 @@
 	taste_description = "spices"
 	taste_mult = 1.5
 	fallback_specific_heat = 2
+	condiment_name = "bottle of space spice"
+	condiment_desc = "An exotic blend of spices for cooking. It must flow."
+	condiment_icon_state = "spacespicebottle"
+	condiment_center_of_mass = list("x"=16, "y"=10)
 
 /datum/reagent/browniemix
 	name = "Brownie Mix"
@@ -755,7 +787,7 @@
 /datum/reagent/drink/carrotjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.reagents.add_reagent("imidazoline", removed * 0.2)
+		M.reagents.add_reagent(/datum/reagent/imidazoline, removed * 0.2)
 
 /datum/reagent/drink/grapejuice
 	name = "Grape Juice"
@@ -947,7 +979,7 @@
 	..()
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0.1 * removed, 0)
-		holder.remove_reagent("capsaicin", 10 * removed)
+		holder.remove_reagent(/datum/reagent/capsaicin, 10 * removed)
 
 /datum/reagent/drink/milk/cream
 	name = "Cream"
@@ -1069,7 +1101,7 @@
 	..()
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0.1 * removed, 0)
-		holder.remove_reagent("capsaicin", 10 * removed)
+		holder.remove_reagent(/datum/reagent/capsaicin, 10 * removed)
 
 
 /datum/reagent/drink/tea/coco_chailatte
@@ -1086,7 +1118,7 @@
 	..()
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0.1 * removed, 0)
-		holder.remove_reagent("capsaicin", 10 * removed)
+		holder.remove_reagent(/datum/reagent/capsaicin, 10 * removed)
 
 /datum/reagent/drink/tea/cofftea
 	name = "Cofftea"
@@ -1280,7 +1312,7 @@
 	..()
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0.1 * removed, 0)
-		holder.remove_reagent("capsaicin", 10 * removed)
+		holder.remove_reagent(/datum/reagent/capsaicin, 10 * removed)
 
 /datum/reagent/drink/tea/sweet_tea
 	name = "Sweet Tea"
@@ -1352,7 +1384,7 @@
 /datum/reagent/drink/coffee/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(adj_temp > 0)
-		holder.remove_reagent("frostoil", 10 * removed)
+		holder.remove_reagent(/datum/reagent/frostoil, 10 * removed)
 
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - (5 * TEMPERATURE_DAMAGE_COEFFICIENT))
@@ -3590,7 +3622,7 @@
 				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
-		holder.remove_reagent("frostoil", 2)
+		holder.remove_reagent(/datum/reagent/frostoil, 2)
 
 /datum/reagent/alcohol/ethanol/cherrytreefireball
 	name = "Cherry Tree Fireball"

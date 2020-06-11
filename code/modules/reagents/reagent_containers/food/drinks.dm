@@ -147,7 +147,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/milk/Initialize()
 	. = ..()
-	reagents.add_reagent("milk", 50)
+	reagents.add_reagent(/datum/reagent/drink/milk, 50)
 
 /obj/item/reagent_containers/food/drinks/soymilk
 	name = "soymilk"
@@ -160,7 +160,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/soymilk/Initialize()
 	. = ..()
-	reagents.add_reagent("soymilk", 50)
+	reagents.add_reagent(/datum/reagent/drink/soymilk, 50)
 
 /obj/item/reagent_containers/food/drinks/coffee
 	name = "robust coffee"
@@ -175,7 +175,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/coffee/Initialize()
 	. = ..()
-	reagents.add_reagent("coffee", 30)
+	reagents.add_reagent(/datum/reagent/drink/coffee, 30)
 
 /obj/item/reagent_containers/food/drinks/pslatte
 	name = "seasonal pumpkin spice latte"
@@ -191,7 +191,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/pslatte/Initialize()
 	. = ..()
-	reagents.add_reagent("sadpslatte", 30)
+	reagents.add_reagent(/datum/reagent/drink/sadpslatte, 30)
 
 /obj/item/reagent_containers/food/drinks/tea
 	name = "duke purple tea"
@@ -206,7 +206,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/tea/Initialize()
 	. = ..()
-	reagents.add_reagent("tea", 30)
+	reagents.add_reagent(/datum/reagent/drink/tea, 30)
 
 /obj/item/reagent_containers/food/drinks/greentea
 	name = "green tea"
@@ -222,7 +222,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/greentea/Initialize()
 	. = ..()
-	reagents.add_reagent("greentea", 30)
+	reagents.add_reagent(/datum/reagent/drink/greentea, 30)
 
 /obj/item/reagent_containers/food/drinks/hotcider
 	name = "hot cider"
@@ -238,7 +238,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/hotcider/Initialize()
 	. = ..()
-	reagents.add_reagent("ciderhot", 30)
+	reagents.add_reagent(/datum/reagent/drink/ciderhot, 30)
 
 /obj/item/reagent_containers/food/drinks/chaitea
 	name = "chai tea"
@@ -254,7 +254,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/chaitea/Initialize()
 	. = ..()
-	reagents.add_reagent("chaitea", 30)
+	reagents.add_reagent(/datum/reagent/drink/chaitea, 30)
 
 /obj/item/reagent_containers/food/drinks/ice
 	name = "ice cup"
@@ -269,7 +269,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/ice/Initialize()
 	. = ..()
-	reagents.add_reagent("ice", 30)
+	reagents.add_reagent(/datum/reagent/drink/ice, 30)
 
 /obj/item/reagent_containers/food/drinks/h_chocolate
 	name = "dutch hot coco"
@@ -284,7 +284,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/h_chocolate/Initialize()
 	. = ..()
-	reagents.add_reagent("hot_coco", 30)
+	reagents.add_reagent(/datum/reagent/drink/hot_coco, 30)
 
 /obj/item/reagent_containers/food/drinks/dry_ramen
 	name = "cup ramen"
@@ -299,7 +299,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/dry_ramen/Initialize()
 	. = ..()
-	reagents.add_reagent("dry_ramen", 30)
+	reagents.add_reagent(/datum/reagent/drink/dry_ramen, 30)
 
 
 /obj/item/reagent_containers/food/drinks/sillycup
@@ -377,7 +377,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/carton/orangejuice/Initialize()
 	. = ..()
-	reagents.add_reagent("orangejuice", 100)
+	reagents.add_reagent(/datum/reagent/drink/orangejuice, 100)
 
 /obj/item/reagent_containers/food/drinks/carton/cream
 	name = "milk cream"
@@ -386,7 +386,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/carton/cream/Initialize()
 	. = ..()
-	reagents.add_reagent("cream", 100)
+	reagents.add_reagent(/datum/reagent/drink/cream, 100)
 
 /obj/item/reagent_containers/food/drinks/carton/tomatojuice
 	name = "tomato juice"
@@ -395,7 +395,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/carton/tomatojuice/Initialize()
 	. = ..()
-	reagents.add_reagent("tomatojuice", 100)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 100)
 
 /obj/item/reagent_containers/food/drinks/carton/limejuice
 	name = "lime juice"
@@ -404,7 +404,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/carton/limejuice/Initialize()
 	. = ..()
-	reagents.add_reagent("limejuice", 100)
+	reagents.add_reagent(/datum/reagent/drink/limejuice, 100)
 
 /obj/item/reagent_containers/food/drinks/carton/lemonjuice
 	name = "lemon juice"
@@ -413,7 +413,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/carton/lemonjuice/Initialize()
 	. = ..()
-	reagents.add_reagent("lemonjuice", 100)
+	reagents.add_reagent(/datum/reagent/drink/lemonjuice, 100)
 
 /obj/item/reagent_containers/food/drinks/carton/dynjuice
 	name = "dyn juice"
@@ -422,7 +422,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/carton/dynjuice/Initialize()
 	. = ..()
-	reagents.add_reagent("dynjuice", 100)
+	reagents.add_reagent(/datum/reagent/drink/dynjuice, 100)
 
 /obj/item/reagent_containers/food/drinks/carton/applejuice
 	name = "apple juice"
@@ -431,7 +431,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/carton/applejuice/Initialize()
 	. = ..()
-	reagents.add_reagent("applejuice", 100)
+	reagents.add_reagent(/datum/reagent/drink/applejuice, 100)
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink

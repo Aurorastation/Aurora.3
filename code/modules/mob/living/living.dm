@@ -612,9 +612,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(H.vessel.get_reagent_amount("blood"))
+												var/total_blood = round(H.vessel.get_reagent_amount(/datum/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent("blood", 1)
+													H.vessel.remove_reagent(/datum/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))

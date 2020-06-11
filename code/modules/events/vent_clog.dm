@@ -24,7 +24,7 @@
 		"paint",
 		"luminol",
 		"fuel",
-		"blood",
+		/datum/reagent/blood,
 		"sterilizine",
 		"ipecac",
 		"monoammoniumphosphate"

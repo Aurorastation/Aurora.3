@@ -520,7 +520,7 @@
 	required_reagents = list("triglyceride" = 1, "butanol" = 2)
 
 /datum/chemical_reaction/glycerol/on_reaction(var/datum/reagents/holder, var/created_volume)
-	holder.add_reagent("acetone", 2 * created_volume / 3) // closest we can get to biofuel, sorry
+	holder.add_reagent(/datum/reagent/acetone, 2 * created_volume / 3) // closest we can get to biofuel, sorry
 
 /datum/chemical_reaction/glucose
 	name = "Glucose"
@@ -892,7 +892,7 @@
 	for(var/turf/simulated/floor/target_tile in range(0,location))
 		target_tile.assume_gas("phoron", created_volume, 400+T0C)
 		spawn (0) target_tile.hotspot_expose(700, 400)
-	holder.del_reagent("napalm")
+	holder.del_reagent(/datum/reagent/napalm)
 	return
 
 /datum/chemical_reaction/zoragel
@@ -3462,7 +3462,7 @@
 	mix_message = "The solution begins to freeze."
 
 /datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	holder.del_reagent("cryosurfactant")
+	holder.del_reagent(/datum/reagent/cryosurfactant)
 	holder.add_thermal_energy(-created_volume*500)
 
 //ICE
@@ -3477,7 +3477,7 @@
 	mix_message = "The solution begins to freeze."
 
 /datum/chemical_reaction/cryosurfactant_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	holder.del_reagent("cryosurfactant")
+	holder.del_reagent(/datum/reagent/cryosurfactant)
 	holder.add_thermal_energy(-created_volume*500)
 
 /datum/chemical_reaction/pyrosilicate_heating
@@ -3490,7 +3490,7 @@
 	catalysts = list("sodiumchloride" = 1)
 
 /datum/chemical_reaction/pyrosilicate_heating/on_reaction(var/datum/reagents/holder, var/created_volume)
-	holder.del_reagent("pyrosilicate")
+	holder.del_reagent(/datum/reagent/pyrosilicate)
 	holder.add_thermal_energy(created_volume*1000)
 
 /datum/chemical_reaction/pyrosilicate_cryosurfactant
@@ -3521,7 +3521,7 @@
 	for(var/turf/simulated/floor/target_tile in range(0,location))
 		target_tile.assume_gas("phoron", created_volume*2, created_thermal_energy / 25) //2 because there is 2 phoron in 1u of phoron salts
 		addtimer(CALLBACK(target_tile, /turf/simulated/floor/.proc/hotspot_expose, 700, 400), 1)
-	holder.del_reagent("phoron_salt")
+	holder.del_reagent(/datum/reagent/toxin/phoron_salt)
 	return
 
 /datum/chemical_reaction/phoron_salt_coldfire
@@ -3541,7 +3541,7 @@
 	var/datum/effect/effect/system/reagents_explosion/e = new()
 	e.set_up(explosion_mod, location, 0, 0)
 	e.start()
-	holder.del_reagent("phoron_salt")
+	holder.del_reagent(/datum/reagent/toxin/phoron_salt)
 	return
 
 /datum/chemical_reaction/mutone

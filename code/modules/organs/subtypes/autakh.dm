@@ -205,18 +205,18 @@
 
 	if(owner.reagents)
 
-		owner.vessel.remove_reagent("blood",rand(15,30))
-		owner.reagents.add_reagent("paracetamol", 5)
-		owner.reagents.add_reagent("norepinephrine", 5)
+		owner.vessel.remove_reagent(/datum/reagent/blood,rand(15,30))
+		owner.reagents.add_reagent(/datum/reagent/paracetamol, 5)
+		owner.reagents.add_reagent(/datum/reagent/norepinephrine, 5)
 
 /obj/item/organ/internal/augment/adrenal/do_broken_act()
 	if(owner.reagents)
-		owner.reagents.add_reagent("toxin", 25)
+		owner.reagents.add_reagent(/datum/reagent/toxin, 25)
 	return TRUE
 
 /obj/item/organ/internal/augment/adrenal/do_bruised_act()
 	if(owner.reagents)
-		owner.reagents.add_reagent("toxin", 10)
+		owner.reagents.add_reagent(/datum/reagent/toxin, 10)
 	return FALSE
 
 
@@ -242,16 +242,16 @@
 	to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
 	if(owner.reagents)
-		owner.reagents.add_reagent("coagulant", 15)
+		owner.reagents.add_reagent(/datum/reagent/coagulant, 15)
 
 /obj/item/organ/internal/augment/haemodynamic/do_broken_act()
 	if(owner.reagents)
-		owner.vessel.remove_reagent("blood",rand(50,75))
+		owner.vessel.remove_reagent(/datum/reagent/blood,rand(50,75))
 	return TRUE
 
 /obj/item/organ/internal/augment/haemodynamic/do_bruised_act()
 	if(owner.reagents)
-		owner.vessel.remove_reagent("blood",rand(25,50))
+		owner.vessel.remove_reagent(/datum/reagent/blood,rand(25,50))
 	return FALSE
 
 //limb implants

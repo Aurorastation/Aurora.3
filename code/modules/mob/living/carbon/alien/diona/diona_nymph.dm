@@ -194,12 +194,12 @@
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent("blood", 560)
+	vessel.add_reagent(/datum/reagent/blood, 560)
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
 				"species" = species.name,

@@ -516,6 +516,8 @@
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
 	fallback_specific_heat = 0.332
+	condiment_name = "sugar"
+	condiment_desc = "Tasty space sugar!"
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(-removed*3)

@@ -66,10 +66,10 @@
 	create_reagents(100)
 	while(product_types.len < 8)
 		product_types.Add(5)
-	reagents.add_reagent("milk", 5)
-	reagents.add_reagent("flour", 5)
-	reagents.add_reagent("sugar", 5)
-	reagents.add_reagent("ice", 5)
+	reagents.add_reagent(/datum/reagent/drink/milk, 5)
+	reagents.add_reagent(/datum/reagent/flour, 5)
+	reagents.add_reagent(/datum/reagent/sugar, 5)
+	reagents.add_reagent(/datum/reagent/drink/ice, 5)
 
 /obj/machinery/icecream_vat/attack_hand(mob/user as mob)
 	user.set_machine(src)
@@ -110,7 +110,7 @@
 			//	if(beaker)
 			//		beaker.reagents.trans_to(I, 10)
 				if(I.reagents.total_volume < 10)
-					I.reagents.add_reagent("sugar", 10 - I.reagents.total_volume, temperature = T0C - 15)
+					I.reagents.add_reagent(/datum/reagent/sugar, 10 - I.reagents.total_volume, temperature = T0C - 15)
 			else
 				to_chat(user, "<span class='warning'>There is not enough icecream left!</span>")
 		else
@@ -193,7 +193,7 @@
 /obj/item/reagent_containers/food/snacks/icecream/Initialize()
 	. = ..()
 	create_reagents(20)
-	reagents.add_reagent("nutriment", 5)
+	reagents.add_reagent(/datum/reagent/nutriment, 5)
 
 /obj/item/reagent_containers/food/snacks/icecream/proc/add_ice_cream(var/flavour_name)
 	name = "[flavour_name] icecream"

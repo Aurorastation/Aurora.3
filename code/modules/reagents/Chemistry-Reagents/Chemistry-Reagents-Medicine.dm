@@ -116,7 +116,7 @@
 	if(alien == IS_VOX)
 		M.adjustToxLoss(removed * strength)
 	M.add_chemical_effect(CE_OXYGENATED, strength/6) // 1 for dexalin, 2 for dexplus
-	holder.remove_reagent("lexorin", strength/3 * removed)
+	holder.remove_reagent(/datum/reagent/lexorin, strength/3 * removed)
 
 //Hyperoxia causes brain and eye damage
 /datum/reagent/dexalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
@@ -276,7 +276,7 @@
 	M.AdjustParalysis(-1)
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
-	holder.remove_reagent("mindbreaker", 5)
+	holder.remove_reagent(/datum/reagent/mindbreaker, 5)
 	M.hallucination = max(0, M.hallucination - 10)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
@@ -749,7 +749,7 @@
 
 /datum/reagent/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
-	M.reagents.add_reagent("nicotine")
+	M.reagents.add_reagent(/datum/reagent/nicotine)
 
 /datum/reagent/tobacco/fine
 	name = "Fine Tobacco"
