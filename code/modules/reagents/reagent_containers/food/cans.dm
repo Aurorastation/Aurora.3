@@ -15,7 +15,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/cola/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/cola, 30)
+	reagents.add_reagent(/datum/reagent/drink/space_cola, 30)
 
 /obj/item/reagent_containers/food/drinks/cans/waterbottle
 	name = "bottled water"

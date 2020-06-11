@@ -60,5 +60,5 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/cola
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/drink/cola, 50)
+		reagents.add_reagent(/datum/reagent/drink/space_cola, 50)
 		on_reagent_change()

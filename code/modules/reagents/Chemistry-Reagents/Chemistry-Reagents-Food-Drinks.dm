@@ -2474,7 +2474,7 @@
 	glass_desc = "Heavy, hot and strong. Just like the Iron fist of the LAW."
 	glass_center_of_mass = list("x"=18, "y"=10)
 
-/datum/reagent/alcohol/ethanol/beepsky_smash/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/alcohol/ethanol/beepskysmash/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
 		M.Stun(2)
@@ -2491,7 +2491,7 @@
 	glass_name = "glass of bilk"
 	glass_desc = "A brew of milk and beer. For those alcoholics who fear osteoporosis."
 
-/datum/reagent/alcohol/ethanol/black_russian
+/datum/reagent/alcohol/ethanol/blackrussian
 	name = "Black Russian"
 	description = "For the lactose-intolerant. Still as classy as a White Russian."
 	color = "#360000"
@@ -2503,7 +2503,7 @@
 	glass_desc = "For the lactose-intolerant. Still as classy as a White Russian."
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/alcohol/ethanol/bloody_mary
+/datum/reagent/alcohol/ethanol/bloodymary
 	name = "Bloody Mary"
 	description = "A strange yet pleasurable mixture made of vodka, tomato and lime juice. Or at least you THINK the red stuff is tomato juice."
 	color = "#664300"
@@ -2698,7 +2698,7 @@
 	glass_desc = "The surprise is, it's green!"
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/alcohol/ethanol/gargle_blaster
+/datum/reagent/alcohol/ethanol/gargleblaster
 	name = "Pan-Galactic Gargle Blaster"
 	description = "Whoah, this stuff looks volatile!"
 	reagent_state = LIQUID
@@ -2801,7 +2801,7 @@
 	glass_desc = "Coffee and alcohol. More fun than a Mimosa to drink in the morning."
 	glass_center_of_mass = list("x"=15, "y"=10)
 
-/datum/reagent/alcohol/ethanol/irish_cream
+/datum/reagent/alcohol/ethanol/irishcream
 	name = "Irish Cream"
 	description = "Whiskey-imbued cream, what else would you expect from the Irish."
 	color = "#664300"
@@ -3226,7 +3226,7 @@
 	glass_desc = "A very nice looking drink. But that's just, like, your opinion, man."
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/alcohol/ethanol/whiskey_cola
+/datum/reagent/alcohol/ethanol/whiskeycola
 	name = "Whiskey Cola"
 	description = "Whiskey, mixed with cola. Surprisingly refreshing."
 	color = "#3E1B00"
