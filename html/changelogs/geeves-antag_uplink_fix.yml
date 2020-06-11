@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "The autodrobe will no longer remove antag headsets or PDAs."
