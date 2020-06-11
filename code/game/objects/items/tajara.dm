@@ -186,7 +186,7 @@
 	else
 		..()
 
-/obj/item/flame/lighter/adhomai/attack_hand(mob/user as mob)
+/obj/item/flame/lighter/adhomai/attack_hand(mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.l_store == src && !H.get_active_hand())
