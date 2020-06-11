@@ -80,6 +80,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggle_antagHUD_restrictions,
 	/client/proc/allow_character_respawn,    // Allows a ghost to respawn ,
 	/client/proc/allow_stationbound_reset,
+	/client/proc/end_round,
 	/client/proc/event_manager_panel,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
@@ -312,6 +313,7 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/toggleaban,
 	/client/proc/create_poll,
 	/client/proc/allow_stationbound_reset,
+	/client/proc/end_round,
 	/client/proc/toggle_log_hrefs,
 	/datum/admins/proc/immreboot,
 	/client/proc/cmd_dev_bst,
@@ -1165,6 +1167,20 @@ var/list/admin_verbs_cciaa = list(
 
 	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
 	target.do_wipe_core()
+
+/client/proc/end_round()
+	set name = "zEnd Roundz"
+	set desc = "This button will end the round."
+	set category = "Server"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(alert("Are you sure you want to end the round?", "Confirm Round End", "No", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("has ended the round with the End Round button.")
+	SSticker.game_tick(TRUE)
 
 /client/proc/restart_sql()
 	set category = "Debug"
