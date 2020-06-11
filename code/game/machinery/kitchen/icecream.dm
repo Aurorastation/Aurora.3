@@ -67,7 +67,7 @@
 	while(product_types.len < 8)
 		product_types.Add(5)
 	reagents.add_reagent(/datum/reagent/drink/milk, 5)
-	reagents.add_reagent(/datum/reagent/flour, 5)
+	reagents.add_reagent(/datum/reagent/nutriment/flour, 5)
 	reagents.add_reagent(/datum/reagent/sugar, 5)
 	reagents.add_reagent(/datum/reagent/drink/ice, 5)
 

@@ -901,7 +901,7 @@
 	glass_name = "glass of earthen-root juice"
 	glass_desc = "Juice extracted from earthen-root, a plant native to Adhomai."
 
-/datum/reagent/drink/juice/garlic
+/datum/reagent/drink/garlicjuice
 	name = "Garlic Juice"
 	description = "Who would even drink this?"
 	taste_description = "garlic"
@@ -913,7 +913,7 @@
 
 	germ_adjust = 7.5 // has allicin, an antibiotic
 
-/datum/reagent/drink/juice/onion
+/datum/reagent/drink/onionjuice
 	name = "Onion Juice"
 	description = "Juice from an onion, for when you need to cry."
 	taste_description = "onion"

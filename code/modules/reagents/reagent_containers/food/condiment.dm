@@ -94,7 +94,7 @@
 	center_of_mass = list("x"=16, "y"=8)
 	volume = 220
 	fixed_state = TRUE
-	reagents_to_add = list(/datum/reagent/flour = 200)
+	reagents_to_add = list(/datum/reagent/nutriment/flour = 200)
 
 /obj/item/reagent_containers/food/condiment/flour/Initialize()
 	. = ..()

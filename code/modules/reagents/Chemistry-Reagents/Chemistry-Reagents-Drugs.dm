@@ -172,7 +172,7 @@
 	if(prob(5))
 		M.emote("twitch")
 
-/datum/reagent/night_juice
+/datum/reagent/drink/night_juice
 	name = "Nightlife"
 	description = "A liquid narcotic commonly used by the more wealthy drug-abusing citizens of the Eridani Federation. Works as a potent stimulant that causes extreme awakefulness. Lethal in high doses."
 	reagent_state = LIQUID
@@ -184,7 +184,7 @@
 	ingest_mul = 0.125
 	var/special_counter = 0
 
-/datum/reagent/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/drink/night_juice/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(!istype(M))
 		return
 

@@ -650,13 +650,13 @@
 		if(5)
 			reagents.add_reagent(/datum/reagent/toxin/phoron, 3)
 		if(6)
-			reagents.add_reagent(/datum/reagent/coco, 3)
+			reagents.add_reagent(/datum/reagent/nutriment/coco, 3)
 		if(7)
 			reagents.add_reagent(/datum/reagent/slimejelly, 3)
 		if(8)
-			reagents.add_reagent(/datum/reagent/banana, 3)
+			reagents.add_reagent(/datum/reagent/drink/banana, 3)
 		if(9)
-			reagents.add_reagent(/datum/reagent/berryjuice, 3)
+			reagents.add_reagent(/datum/reagent/drink/berryjuice, 3)
 		if(10)
 			reagents.add_reagent(/datum/reagent/tricordrazine, 3)
 	if(prob(30))
@@ -678,7 +678,7 @@
 /obj/item/reagent_containers/food/snacks/donut/jelly/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/sprinkles, 1)
-	reagents.add_reagent(/datum/reagent/berryjuice, 5)
+	reagents.add_reagent(/datum/reagent/drink/berryjuice, 5)
 	if(prob(30))
 		src.icon_state = "jdonut2"
 		src.overlay_state = "box-donut2"
@@ -1255,7 +1255,7 @@
 
 /obj/item/reagent_containers/food/snacks/pie/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/banana,5)
+	reagents.add_reagent(/datum/reagent/drink/banana,5)
 
 /obj/item/reagent_containers/food/snacks/pie/throw_impact(atom/hit_atom)
 	..()
@@ -1275,7 +1275,7 @@
 
 /obj/item/reagent_containers/food/snacks/berryclafoutis/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/berryjuice, 5)
+	reagents.add_reagent(/datum/reagent/drink/berryjuice, 5)
 
 /obj/item/reagent_containers/food/snacks/waffles
 	name = "waffles"
@@ -1807,7 +1807,7 @@
 
 /obj/item/reagent_containers/food/snacks/clownstears/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/banana, 5)
+	reagents.add_reagent(/datum/reagent/drink/banana, 5)
 	reagents.add_reagent(/datum/reagent/water, 10)
 
 /obj/item/reagent_containers/food/snacks/soup/vegetable
@@ -1849,11 +1849,11 @@
 		if(1)
 			reagents.add_reagent(/datum/reagent/nutriment, 6)
 			reagents.add_reagent(/datum/reagent/capsaicin, 3)
-			reagents.add_reagent(/datum/reagent/tomatojuice, 2)
+			reagents.add_reagent(/datum/reagent/drink/tomatojuice, 2)
 		if(2)
 			reagents.add_reagent(/datum/reagent/nutriment, 6)
 			reagents.add_reagent(/datum/reagent/frostoil, 3)
-			reagents.add_reagent(/datum/reagent/tomatojuice, 2)
+			reagents.add_reagent(/datum/reagent/drink/tomatojuice, 2)
 		if(3)
 			reagents.add_reagent(/datum/reagent/nutriment, 5)
 			reagents.add_reagent(/datum/reagent/water, 5)
@@ -1863,7 +1863,7 @@
 			reagents.add_reagent(/datum/reagent/water, 10)
 		if(5)
 			reagents.add_reagent(/datum/reagent/nutriment, 2)
-			reagents.add_reagent(/datum/reagent/banana, 10)
+			reagents.add_reagent(/datum/reagent/drink/banana, 10)
 		if(6)
 			reagents.add_reagent(/datum/reagent/nutriment, 6)
 			reagents.add_reagent(/datum/reagent/blood, 10)
@@ -1875,10 +1875,10 @@
 			reagents.add_reagent(/datum/reagent/toxin, 10)
 		if(9)
 			reagents.add_reagent(/datum/reagent/nutriment, 5)
-			reagents.add_reagent(/datum/reagent/tomatojuice, 10)
+			reagents.add_reagent(/datum/reagent/drink/tomatojuice, 10)
 		if(10)
 			reagents.add_reagent(/datum/reagent/nutriment, 6)
-			reagents.add_reagent(/datum/reagent/tomatojuice, 5)
+			reagents.add_reagent(/datum/reagent/drink/tomatojuice, 5)
 			reagents.add_reagent(/datum/reagent/imidazoline, 5)
 
 /obj/item/reagent_containers/food/snacks/soup/wish
@@ -1909,7 +1909,7 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment, 3)
 	reagents.add_reagent(/datum/reagent/capsaicin, 3)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 2)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 2)
 
 /obj/item/reagent_containers/food/snacks/coldchili
 	name = "cold chili"
@@ -1926,7 +1926,7 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment, 3)
 	reagents.add_reagent(/datum/reagent/frostoil, 3)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 2)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 2)
 
 /obj/item/reagent_containers/food/snacks/monkeycube
 	name = "monkey cube"
@@ -2067,7 +2067,7 @@
 /obj/item/reagent_containers/food/snacks/monkeysdelight/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
-	reagents.add_reagent(/datum/reagent/banana, 5)
+	reagents.add_reagent(/datum/reagent/drink/banana, 5)
 	reagents.add_reagent(/datum/reagent/blackpepper, 1)
 	reagents.add_reagent(/datum/reagent/sodiumchloride, 1)
 
@@ -2156,7 +2156,7 @@
 
 /obj/item/reagent_containers/food/snacks/soup/tomato/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/tomatojuice, 10)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 10)
 
 /obj/item/reagent_containers/food/snacks/soup/bluespace
 	name = "bluespace tomato soup"
@@ -2203,7 +2203,7 @@
 /obj/item/reagent_containers/food/snacks/stew/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 4)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 5)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 5)
 	reagents.add_reagent(/datum/reagent/imidazoline, 5)
 	reagents.add_reagent(/datum/reagent/water, 5)
 
@@ -2330,7 +2330,7 @@
 
 /obj/item/reagent_containers/food/snacks/pastatomato/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/tomatojuice, 10)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 10)
 
 /obj/item/reagent_containers/food/snacks/meatballspagetti
 	name = "spaghetti and meatballs"
@@ -2659,7 +2659,7 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 3)
 	reagents.add_reagent(/datum/reagent/capsaicin, 3)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 2)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 2)
 	reagents.add_reagent(/datum/reagent/hyperzine, 5)
 
 /obj/item/reagent_containers/food/snacks/stew/bear
@@ -2674,7 +2674,7 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 4)
 	reagents.add_reagent(/datum/reagent/hyperzine, 5)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 5)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 5)
 	reagents.add_reagent(/datum/reagent/imidazoline, 5)
 	reagents.add_reagent(/datum/reagent/water, 5)
 
@@ -2711,7 +2711,7 @@
 /obj/item/reagent_containers/food/snacks/lomein/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
-	reagents.add_reagent(/datum/reagent/carrotjuice, 3)
+	reagents.add_reagent(/datum/reagent/drink/carrotjuice, 3)
 	reagents.add_reagent(/datum/reagent/imidazoline, 1)
 
 /obj/item/reagent_containers/food/snacks/friedrice
@@ -2729,7 +2729,7 @@
 /obj/item/reagent_containers/food/snacks/friedrice/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/rice, 5)
-	reagents.add_reagent(/datum/reagent/carrotjuice, 3)
+	reagents.add_reagent(/datum/reagent/drink/carrotjuice, 3)
 	reagents.add_reagent(/datum/reagent/imidazoline, 1)
 
 /obj/item/reagent_containers/food/snacks/chickenfillet
@@ -2850,7 +2850,7 @@
 /obj/item/reagent_containers/food/snacks/veggiemomo/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/spacespice, 4)
-	reagents.add_reagent(/datum/reagent/carrotjuice, 3)
+	reagents.add_reagent(/datum/reagent/drink/carrotjuice, 3)
 	reagents.add_reagent(/datum/reagent/imidazoline, 1)
 
 /obj/item/reagent_containers/food/snacks/risotto
@@ -3025,7 +3025,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/bananabread/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/banana, 20)
+	reagents.add_reagent(/datum/reagent/drink/banana, 20)
 
 /obj/item/reagent_containers/food/snacks/bananabreadslice
 	name = "banana-nut bread slice"
@@ -3043,7 +3043,7 @@
 
 /obj/item/reagent_containers/food/snacks/bananabreadslice/filled/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/banana, 4)
+	reagents.add_reagent(/datum/reagent/drink/banana, 4)
 
 /obj/item/reagent_containers/food/snacks/sliceable/tofubread
 	name = "tofubread"
@@ -3646,7 +3646,7 @@
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/margherita/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein/cheese, 5)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 6)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 6)
 
 /obj/item/reagent_containers/food/snacks/margheritaslice
 	name = "margherita slice"
@@ -3663,7 +3663,7 @@
 /obj/item/reagent_containers/food/snacks/margheritaslice/filled/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein/cheese, 1)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 2)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 2)
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza
 	name = "meatpizza"
@@ -3680,7 +3680,7 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 44)
 	reagents.add_reagent(/datum/reagent/nutriment/protein/cheese, 10)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 6)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 6)
 
 /obj/item/reagent_containers/food/snacks/meatpizzaslice
 	name = "meatpizza slice"
@@ -3698,7 +3698,7 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 7)
 	reagents.add_reagent(/datum/reagent/nutriment/protein/cheese, 2)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 2)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 2)
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
 	name = "mushroompizza"
@@ -3745,7 +3745,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/tomatojuice, 6)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 6)
 	reagents.add_reagent(/datum/reagent/imidazoline, 12)
 
 /obj/item/reagent_containers/food/snacks/vegetablepizzaslice
@@ -3762,7 +3762,7 @@
 
 /obj/item/reagent_containers/food/snacks/vegetablepizzaslice/filled/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/tomatojuice, 2)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 2)
 	reagents.add_reagent(/datum/reagent/imidazoline, 2)
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
@@ -5014,7 +5014,7 @@
 
 /obj/item/reagent_containers/food/snacks/truffle/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/coco, 6)
+	reagents.add_reagent(/datum/reagent/nutriment/coco, 6)
 
 /obj/item/reagent_containers/food/snacks/truffle/random
 	name = "mystery chocolate truffle"
@@ -5078,7 +5078,7 @@
 
 /obj/item/reagent_containers/food/snacks/pineapple_ring/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/pineapplejuice,3)
+	reagents.add_reagent(/datum/reagent/drink/pineapplejuice,3)
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/pineapple
 	name = "ham & pineapple pizza"
@@ -5095,7 +5095,7 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 4)
 	reagents.add_reagent(/datum/reagent/nutriment/protein/cheese, 5)
-	reagents.add_reagent(/datum/reagent/tomatojuice, 6)
+	reagents.add_reagent(/datum/reagent/drink/tomatojuice, 6)
 
 /obj/item/reagent_containers/food/snacks/pineappleslice
 	name = "ham & pineapple pizza slice"
@@ -5309,7 +5309,7 @@
 
 /obj/item/reagent_containers/food/snacks/banana_split/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/banana, 3)
+	reagents.add_reagent(/datum/reagent/drink/banana, 3)
 
 /obj/item/reagent_containers/food/snacks/tuna
 	name = "\improper Tuna Snax"

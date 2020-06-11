@@ -40,7 +40,7 @@
 	seed_name = "berry"
 	display_name = "berry bush"
 	mutants = list("glowberries","poisonberries","blueberries")
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/berryjuice = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/berryjuice = list(10,10))
 	kitchen_tag = "berries"
 
 /datum/seed/berry/setup_traits()
@@ -62,7 +62,7 @@
 	seed_name = "blueberry"
 	display_name = "blueberry bush"
 	mutants = list("berries","poisonberries","glowberries")
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/berryjuice = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/berryjuice = list(10,10))
 
 /datum/seed/berry/blue/setup_traits()
 	..()
@@ -99,7 +99,7 @@
 	seed_name = "poison berry"
 	display_name = "poison berry bush"
 	mutants = list("deathberries")
-	chems = list(/datum/reagent/nutriment = list(1), /datum/reagent/toxin = list(3,5), /datum/reagent/poisonberryjuice = list(10,5))
+	chems = list(/datum/reagent/nutriment = list(1), /datum/reagent/toxin = list(3,5), /datum/reagent/toxin/poisonberryjuice = list(10,5))
 
 /datum/seed/berry/poison/setup_traits()
 	..()
@@ -164,7 +164,7 @@
 	seed_name = "tomato"
 	display_name = "tomato plant"
 	mutants = list("bluetomato","bloodtomato") // no killer :(
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/tomatojuice = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/tomatojuice = list(10,10))
 	kitchen_tag = "tomato"
 
 /datum/seed/tomato/setup_traits()
@@ -282,7 +282,7 @@
 	seed_name = "apple"
 	display_name = "apple tree"
 	mutants = list("poisonapple","goldapple")
-	chems = list(/datum/reagent/applejuice = list(1,10), /datum/reagent/nutriment = list(1,10))
+	chems = list(/datum/reagent/drink/applejuice = list(1,10), /datum/reagent/nutriment = list(1,10))
 	kitchen_tag = "apple"
 
 /datum/seed/apple/setup_traits()
@@ -308,7 +308,7 @@
 	seed_name = "golden apple"
 	display_name = "gold apple tree"
 	mutants = null
-	chems = list(/datum/reagent/applejuice = list(1,10), MATERIAL_GOLD = list(1,5))
+	chems = list(/datum/reagent/drink/applejuice = list(1,10), MATERIAL_GOLD = list(1,5))
 	kitchen_tag = "goldapple"
 
 /datum/seed/apple/gold/setup_traits()
@@ -603,7 +603,7 @@
 	seed_name = "plastellium"
 	display_name = "plastellium"
 	mutants = null
-	chems = list(/datum/reagent/plasticide = list(1,10))
+	chems = list(/datum/reagent/toxin/plasticide = list(1,10))
 
 /datum/seed/mushroom/plastic/setup_traits()
 	..()
@@ -695,7 +695,7 @@
 	seed_name = "grape"
 	display_name = "grapevines"
 	mutants = list("greengrapes")
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/sugar = list(1,5), /datum/reagent/grapejuice = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/sugar = list(1,5), /datum/reagent/drink/grapejuice = list(10,10))
 
 /datum/seed/grapes/setup_traits()
 	..()
@@ -716,7 +716,7 @@
 	seed_name = "green grape"
 	display_name = "green grapevines"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/kelotane = list(3,5), /datum/reagent/grapejuice = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/kelotane = list(3,5), /datum/reagent/drink/grapejuice = list(10,10))
 
 /datum/seed/grapes/green/setup_traits()
 	..()
@@ -768,7 +768,7 @@
 	name = "banana"
 	seed_name = "banana"
 	display_name = "banana tree"
-	chems = list(/datum/reagent/banana = list(10,10))
+	chems = list(/datum/reagent/drink/banana = list(10,10))
 	trash_type = /obj/item/bananapeel
 	kitchen_tag = "banana"
 
@@ -849,7 +849,7 @@
 	name = "wheat"
 	seed_name = "wheat"
 	display_name = "wheat stalks"
-	chems = list(/datum/reagent/nutriment = list(1,25), /datum/reagent/flour = list(15,15))
+	chems = list(/datum/reagent/nutriment = list(1,25), /datum/reagent/nutriment/flour = list(15,15))
 	kitchen_tag = "wheat"
 
 /datum/seed/wheat/setup_traits()
@@ -889,7 +889,7 @@
 	name = "carrot"
 	seed_name = "carrot"
 	display_name = "carrots"
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/imidazoline = list(3,5), /datum/reagent/carrotjuice = list(10,20))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/imidazoline = list(3,5), /datum/reagent/drink/carrotjuice = list(10,20))
 	kitchen_tag = "carrot"
 
 /datum/seed/carrots/setup_traits()
@@ -962,7 +962,7 @@
 	name = "watermelon"
 	seed_name = "watermelon"
 	display_name = "watermelon vine"
-	chems = list(/datum/reagent/nutriment = list(1,6), /datum/reagent/watermelonjuice = list(10,6))
+	chems = list(/datum/reagent/nutriment = list(1,6), /datum/reagent/drink/watermelonjuice = list(10,6))
 
 /datum/seed/watermelon/setup_traits()
 	..()
@@ -1005,7 +1005,7 @@
 	name = "lime"
 	seed_name = "lime"
 	display_name = "lime trees"
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/limejuice = list(10,20))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/drink/limejuice = list(10,20))
 	kitchen_tag = "lime"
 
 /datum/seed/citrus/setup_traits()
@@ -1025,7 +1025,7 @@
 	name = "lemon"
 	seed_name = "lemon"
 	display_name = "lemon trees"
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/lemonjuice = list(10,20))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/drink/lemonjuice = list(10,20))
 	kitchen_tag = "lemon"
 
 /datum/seed/citrus/lemon/setup_traits()
@@ -1040,7 +1040,7 @@
 	seed_name = "orange"
 	display_name = "orange trees"
 	kitchen_tag = "orange"
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/orangejuice = list(10,20))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/drink/orangejuice = list(10,20))
 
 /datum/seed/citrus/orange/setup_traits()
 	..()
@@ -1071,7 +1071,7 @@
 	name = "cacao"
 	seed_name = "cacao"
 	display_name = "cacao tree"
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/coco = list(4,5))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/nutriment/coco = list(4,5))
 
 /datum/seed/cocoa/setup_traits()
 	..()
@@ -1191,7 +1191,7 @@
 	name = "earthenroot"
 	seed_name = "earthen-root"
 	display_name = "earthen-roots"
-	chems = list(/datum/reagent/nutriment = list(0,5), /datum/reagent/sugar = list(1,5), /datum/reagent/earthenrootjuice = list(4,8))
+	chems = list(/datum/reagent/nutriment = list(0,5), /datum/reagent/sugar = list(1,5), /datum/reagent/drink/earthenrootjuice = list(4,8))
 	kitchen_tag = "earthenroot"
 
 /datum/seed/earthenroot/setup_traits()
@@ -1307,7 +1307,7 @@
 	name = "garlic"
 	seed_name = "garlic"
 	display_name = "garlic"
-	chems = list(/datum/reagent/garlicjuice = list(1,5))
+	chems = list(/datum/reagent/drink/garlicjuice = list(1,5))
 	kitchen_tag = "garlic"
 
 /datum/seed/garlic/setup_traits()
@@ -1325,7 +1325,7 @@
 	name = "onion"
 	seed_name = "onion"
 	display_name = "onions"
-	chems = list(/datum/reagent/onionjuice = list(1,5))
+	chems = list(/datum/reagent/drink/onionjuice = list(1,5))
 	kitchen_tag = "onion"
 
 /datum/seed/onion/setup_traits()
@@ -1344,7 +1344,7 @@
 	seed_name = "dyn"
 	display_name = "dyn bush"
 	mutants = null
-	chems = list(/datum/reagent/dynjuice = list(2,2), /datum/reagent/dylovene = list(0,1))
+	chems = list(/datum/reagent/drink/dynjuice = list(2,2), /datum/reagent/dylovene = list(0,1))
 	kitchen_tag = "dyn leaf"
 
 /datum/seed/dyn/setup_traits()
