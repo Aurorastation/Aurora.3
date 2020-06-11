@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Attempting to strip someone while holding a grab will now properly strip them, instead of trying to put a grab on them."
