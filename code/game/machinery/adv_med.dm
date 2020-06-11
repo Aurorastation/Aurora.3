@@ -424,7 +424,7 @@
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
 		VUEUI_SET_CHECK(data["occupant"], !!occupant, ., data)
 		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount(/datum/reagent/norepinephrine), ., data)
-		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount(/datum/reagent/stoxin), ., data)
+		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount(/datum/reagent/soporific), ., data)
 		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount(/datum/reagent/bicaridine), ., data)
 		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount(/datum/reagent/dexalin), ., data)
 		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount(/datum/reagent/dermaline), ., data)
@@ -600,7 +600,7 @@
 		"borer_present" = H.has_brain_worms(),
 		"norepinephrine_amount" = H.reagents.get_reagent_amount(/datum/reagent/norepinephrine),
 		"dexalin_amount" = H.reagents.get_reagent_amount(/datum/reagent/dexalin),
-		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/stoxin),
+		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/soporific),
 		"bicaridine_amount" = H.reagents.get_reagent_amount(/datum/reagent/bicaridine),
 		"dermaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/dermaline),
 		"blood_amount" = H.vessel.get_reagent_amount(/datum/reagent/blood),

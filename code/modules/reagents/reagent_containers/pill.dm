@@ -124,7 +124,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/stoxin, 15)
+		reagents.add_reagent(/datum/reagent/soporific, 15)
 
 /obj/item/reagent_containers/pill/kelotane
 	name = "Kelotane pill"

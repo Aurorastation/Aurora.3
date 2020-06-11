@@ -862,7 +862,7 @@
 /obj/item/reagent_containers/food/snacks/tofurkey/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein/tofu, 6)
-	reagents.add_reagent(/datum/reagent/stoxin, 3)
+	reagents.add_reagent(/datum/reagent/soporific, 3)
 
 /obj/item/reagent_containers/food/snacks/stuffing
 	name = "stuffing"

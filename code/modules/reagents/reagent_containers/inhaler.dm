@@ -187,7 +187,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent(/datum/reagent/stoxin, volume)
+		reagents.add_reagent(/datum/reagent/soporific, volume)
 		update_icon()
 		return
 

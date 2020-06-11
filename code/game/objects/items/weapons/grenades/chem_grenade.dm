@@ -269,7 +269,7 @@
 
 	B1.reagents.add_reagent(/datum/reagent/sugar, 20)
 	B1.reagents.add_reagent(/datum/reagent/potassium,20)
-	B1.reagents.add_reagent(/datum/reagent/stoxin, 10)
+	B1.reagents.add_reagent(/datum/reagent/soporific, 10)
 	B1.reagents.add_reagent(/datum/reagent/dylovene, 10)
 	B2.reagents.add_reagent(/datum/reagent/chloralhydrate,40)
 	B2.reagents.add_reagent(/datum/reagent/phosphorus,20)

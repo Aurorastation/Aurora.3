@@ -446,14 +446,14 @@
 	name = "Zombie Powder"
 	id = "zombiepowder"
 	result = "zombiepowder"
-	required_reagents = list(/datum/reagent/toxin/carpotoxin = 5, /datum/reagent/stoxin = 5, /datum/reagent/copper = 5)
+	required_reagents = list(/datum/reagent/toxin/carpotoxin = 5, /datum/reagent/soporific = 5, /datum/reagent/copper = 5)
 	result_amount = 2
 
 /datum/chemical_reaction/dextrotoxin
 	name = "Dextrotoxin"
 	id = "dextrotoxin"
 	result = "dextrotoxin"
-	required_reagents = list(/datum/reagent/toxin/carpotoxin = 3, /datum/reagent/stoxin = 10, /datum/reagent/toxin/phoron = 5)
+	required_reagents = list(/datum/reagent/toxin/carpotoxin = 3, /datum/reagent/soporific = 10, /datum/reagent/toxin/phoron = 5)
 	result_amount = 5
 
 /datum/chemical_reaction/mindbreaker
@@ -2425,7 +2425,7 @@
 	name = "Neurotoxin"
 	id = "neurotoxin"
 	result = "neurotoxin"
-	required_reagents = list(/datum/reagent/alcohol/ethanol/gargleblaster = 1, /datum/reagent/stoxin = 1)
+	required_reagents = list(/datum/reagent/alcohol/ethanol/gargleblaster = 1, /datum/reagent/soporific = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/snowwhite
@@ -3306,11 +3306,11 @@
 	name = "Sleepytime Tea"
 	id = "sleepytime_tea"
 	result = "sleepytime_tea"
-	required_reagents = list(/datum/reagent/drink/tea = 5, /datum/reagent/stoxin = 1)
+	required_reagents = list(/datum/reagent/drink/tea = 5, /datum/reagent/soporific = 1)
 	result_amount = 6
 
 /datum/chemical_reaction/drink/sleepytime_tea/green
-	required_reagents = list(/datum/reagent/drink/tea/green = 5, /datum/reagent/stoxin = 1)
+	required_reagents = list(/datum/reagent/drink/tea/green = 5, /datum/reagent/soporific = 1)
 
 /datum/chemical_reaction/drink/hakhma_tea
 	name = "Spiced Hakhma Tea"
