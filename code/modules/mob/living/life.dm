@@ -157,10 +157,12 @@
 			if(eye_blurry)
 				client.screen += global_hud.blurry
 
+			if(druggy)
+				client.screen += global_hud.druggy
 			if(druggy > 5)
-				add_client_color(/datum/client_color/druggy)
+				add_client_color(/datum/client_color/oversaturated)
 			else
-				remove_client_color(/datum/client_color/druggy)
+				remove_client_color(/datum/client_color/oversaturated)
 	if(machine)
 		var/viewflags = machine.check_eye(src)
 		if(viewflags < 0)

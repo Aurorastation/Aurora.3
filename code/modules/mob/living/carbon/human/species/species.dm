@@ -483,10 +483,12 @@
 	if(H.eye_blurry)
 		H.client.screen += global_hud.blurry
 
+	if(H.druggy)
+		H.client.screen += global_hud.druggy
 	if(H.druggy > 5)
-		H.add_client_color(/datum/client_color/druggy)
+		H.add_client_color(/datum/client_color/oversaturated)
 	else
-		H.remove_client_color(/datum/client_color/druggy)
+		H.remove_client_color(/datum/client_color/oversaturated)
 
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay

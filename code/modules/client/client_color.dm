@@ -109,20 +109,5 @@
 	priority = INFINITY //This effect sort of exists on its own you /have/ to be seeing RED
 	override = TRUE //Because multiplying this will inevitably fail
 
-/datum/client_color/druggy
-	priority = 105
-	var/process_color = 0
-
-/datum/client_color/druggy/New()
-	..()
-	START_PROCESSING(SSprocessing, src)
-
-/datum/client_color/druggy/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/datum/client_color/druggy/process()
-	process_color += 5
-	if(process_color > 360)
-		process_color = 0
-	client_color = color_rotation(process_color)
+/datum/client_color/oversaturated/New()
+	client_color = color_saturation(40)
