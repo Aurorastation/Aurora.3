@@ -55,7 +55,6 @@
 	item_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
-	center_of_mass = list("x" = 13,"y" = 7)
 	force = 8
 	throwforce = 5
 	throw_speed = 3
@@ -67,38 +66,58 @@
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
+	var/random_color = TRUE //if the tool uses random coloring
+	var/static/list/tool_colors = list(
+		COLOR_BLUE,
+		COLOR_RED,
+		COLOR_PINK,
+		COLOR_BROWN,
+		COLOR_GREEN,
+		COLOR_CYAN,
+		COLOR_YELLOW
+	)
 	var/random_icon = TRUE
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
-	if(!random_icon)
+	if(random_color) //random colors!
+		icon_state = "screwdriver"
+		var/our_color = pick(tool_colors)
+		add_atom_colour(tool_colors[our_color])
+		update_icon()
+
+/obj/item/screwdriver/update_icon()
+	var/matrix/tf = matrix()
+	if(istype(loc, /obj/item/storage))
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
+
+	if(!random_color) //icon override
 		return
+	cut_overlays()
+	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[icon_state]_head")
+	base_overlay.appearance_flags = RESET_COLOR
+	add_overlay(base_overlay)
 
-	switch(pick("red","blue","purple","brown","green","cyan","yellow"))
-		if ("red")
-			icon_state = "screwdriver2"
-			item_state = "screwdriver"
-		if ("blue")
-			icon_state = "screwdriver"
-			item_state = "screwdriver_blue"
-		if ("purple")
-			icon_state = "screwdriver3"
-			item_state = "screwdriver_purple"
-		if ("brown")
-			icon_state = "screwdriver4"
-			item_state = "screwdriver_brown"
-		if ("green")
-			icon_state = "screwdriver5"
-			item_state = "screwdriver_green"
-		if ("cyan")
-			icon_state = "screwdriver6"
-			item_state = "screwdriver_cyan"
-		if ("yellow")
-			icon_state = "screwdriver7"
-			item_state = "screwdriver_yellow"
+/obj/item/screwdriver/pickup(mob/user)
+	..()
+	update_icon()
 
-	if (prob(75))
-		src.pixel_y = rand(0, 16)
+/obj/item/screwdriver/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/screwdriver/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/screwdriver/worn_overlays()
+	. = list()
+	if(random_color)
+		var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_head")
+		M.appearance_flags = RESET_COLOR
+		. += M
 
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
@@ -123,10 +142,8 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 		)
-	icon_state = "cutters"
-	item_state = "cutters"
+	icon_state = "wirecutters"
 	flags = CONDUCT
-	center_of_mass = list("x" = 18,"y" = 10)
 	slot_flags = SLOT_BELT
 	force = 6
 	throw_speed = 2
@@ -140,12 +157,56 @@
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
+	var/random_color = TRUE
+	var/static/list/tool_colors = list(
+		COLOR_BLUE,
+		COLOR_RED,
+		COLOR_PINK,
+		COLOR_BROWN,
+		COLOR_GREEN,
+		COLOR_CYAN,
+		COLOR_YELLOW
+	)
 
-/obj/item/wirecutters/New()
-	if(prob(50))
-		icon_state = "cutters-y"
-		item_state = "cutters_yellow"
+/obj/item/wirecutters/Initialize()
+	. = ..()
+	if(random_color) //random colors!
+		var/our_color = pick(tool_colors)
+		add_atom_colour(tool_colors[our_color])
+		update_icon()
+
+/obj/item/wirecutters/update_icon()
+	var/matrix/tf = matrix()
+	if(istype(loc, /obj/item/storage))
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
+
+	if(!random_color) //icon override
+		return
+	cut_overlays()
+	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[icon_state]_head")
+	base_overlay.appearance_flags = RESET_COLOR
+	add_overlay(base_overlay)
+
+/obj/item/wirecutters/pickup(mob/user)
 	..()
+	update_icon()
+
+/obj/item/wirecutters/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/wirecutters/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/wirecutters/worn_overlays()
+	. = list()
+	if(random_color)
+		var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_head")
+		M.appearance_flags = RESET_COLOR
+		. += M
 
 /obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
@@ -166,15 +227,9 @@
 /obj/item/wirecutters/bomb
 	name = "bomb defusal wirecutters"
 	desc = "A tool used to delicately sever the wires used in bomb fuses."
-	icon_state = "mini_wirecutter"
+	icon_state = "mini_wirecutters"
 	toolspeed = 0.6
 	bomb_defusal_chance = 90 // 90% chance, because the thrill of dying must be kept at all times, duh
-
-/obj/item/wirecutters/bomb/Initialize()
-	. = ..()
-	if(prob(50))
-		icon_state = "[initial(icon_state)]-yellow"
-		item_state = "[initial(icon_state)]_yellow"
 
 /*
  * Welding Tool
