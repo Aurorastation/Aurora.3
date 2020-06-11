@@ -105,8 +105,8 @@
 
 			var/obj/effect/rune/R = new(get_turf(scribe), SScult.runes_by_name[chosen_rune])
 			to_chat(scribe, SPAN_CULT("You finish drawing the Geometer's markings."))
-			scribe.blood_DNA = list()
-			scribe.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
+			R.blood_DNA = list()
+			R.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
 			R.color = scribe.species.blood_color
 	else
 		to_chat(user, span("cult", "The book seems full of illegible scribbles."))
