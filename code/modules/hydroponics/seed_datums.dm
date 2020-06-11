@@ -812,7 +812,7 @@
 	name = "potato"
 	seed_name = "potato"
 	display_name = "potatoes"
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/potato = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/potatojuice = list(10,10))
 	kitchen_tag = "potato"
 
 /datum/seed/potato/setup_traits()
@@ -869,7 +869,7 @@
 	name = "rice"
 	seed_name = "rice"
 	display_name = "rice stalks"
-	chems = list(/datum/reagent/nutriment = list(1,25), /datum/reagent/rice = list(10,15))
+	chems = list(/datum/reagent/nutriment = list(1,25), /datum/reagent/nutriment/rice = list(10,15))
 	kitchen_tag = "rice"
 
 /datum/seed/rice/setup_traits()
@@ -1091,7 +1091,7 @@
 	seed_name = "cherry"
 	seed_noun = "pits"
 	display_name = "cherry tree"
-	chems = list(/datum/reagent/nutriment = list(1,15), /datum/reagent/sugar = list(1,15), /datum/reagent/cherryjelly = list(10,15))
+	chems = list(/datum/reagent/nutriment = list(1,15), /datum/reagent/sugar = list(1,15), /datum/reagent/nutriment/cherryjelly = list(10,15))
 	kitchen_tag = "cherries"
 
 /datum/seed/cherries/setup_traits()

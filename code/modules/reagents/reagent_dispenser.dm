@@ -252,7 +252,7 @@
 
 /obj/structure/reagent_dispensers/virusfood/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/virusfood, capacity)
+	reagents.add_reagent(/datum/reagent/nutriment/virusfood, capacity)
 
 /obj/structure/reagent_dispensers/acid
 	name = "sulphuric acid dispenser"
@@ -269,7 +269,7 @@
 
 /obj/structure/reagent_dispensers/peppertank/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/condensedcapsaicin,capacity)
+	reagents.add_reagent(/datum/reagent/capsaicin/condensed,capacity)
 
 //Water Cooler
 

@@ -197,7 +197,7 @@
 	icon_state = "pill8"
 	Initialize()
 		. = ..()
-		reagents.add_reagent(/datum/reagent/dexalinp, 15)
+		reagents.add_reagent(/datum/reagent/dexalin/plus, 15)
 
 /obj/item/reagent_containers/pill/dermaline
 	name = "Dermaline pill"

@@ -77,7 +77,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/space_up/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/space_up, 30)
+	reagents.add_reagent(/datum/reagent/drink/spaceup, 30)
 
 /obj/item/reagent_containers/food/drinks/cans/lemon_lime
 	name = "\improper Lemon-Lime"
@@ -160,7 +160,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/zorasoda/cherry, 20)
+	reagents.add_reagent(/datum/reagent/drink/zorasoda, 20)
 	reagents.add_reagent(/datum/reagent/mental/vaam, 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorakois

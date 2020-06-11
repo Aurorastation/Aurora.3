@@ -293,7 +293,7 @@
 
 	B1.reagents.add_reagent(/datum/reagent/surfactant, 40)
 	B2.reagents.add_reagent(/datum/reagent/water, 40)
-	B2.reagents.add_reagent(/datum/reagent/cleaner, 10)
+	B2.reagents.add_reagent(/datum/reagent/spacecleaner, 10)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
@@ -337,9 +337,9 @@
 
 	B1.reagents.add_reagent(/datum/reagent/phosphorus, 40)
 	B1.reagents.add_reagent(/datum/reagent/potassium, 40)
-	B1.reagents.add_reagent(/datum/reagent/condensedcapsaicin, 40)
+	B1.reagents.add_reagent(/datum/reagent/capsaicin/condensed, 40)
 	B2.reagents.add_reagent(/datum/reagent/sugar, 40)
-	B2.reagents.add_reagent(/datum/reagent/condensedcapsaicin, 80)
+	B2.reagents.add_reagent(/datum/reagent/capsaicin/condensed, 80)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 

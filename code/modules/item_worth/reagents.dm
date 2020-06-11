@@ -138,7 +138,7 @@
 /datum/reagent/drink/nuka_cola
 	value = 0.13
 
-/datum/reagent/drink/doctor_delight
+/datum/reagent/drink/doctorsdelight
 	value = 0.3
 
 /datum/reagent/drink/ice

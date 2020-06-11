@@ -160,7 +160,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/soymilk/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/soymilk, 50)
+	reagents.add_reagent(/datum/reagent/drink/milk/soymilk, 50)
 
 /obj/item/reagent_containers/food/drinks/coffee
 	name = "robust coffee"

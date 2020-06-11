@@ -1054,7 +1054,7 @@
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
 
-/datum/reagent/drink/tea/icetea
+/datum/reagent/drink/icetea
 	name = "Iced Tea"
 	description = "No relation to a certain rap artist/ actor."
 	color = "#984707"
@@ -1087,7 +1087,7 @@
 	glass_name = "cup of chocolate chai tea"
 	glass_desc = "A surprisingly pleasant mix of chocolate and spice."
 
-/datum/reagent/drink/tea/chailatte
+/datum/reagent/drink/tea/chaitealatte
 	name = "Chai Latte"
 	description = "A frothy spiced tea."
 	color = "#DBAD81"
@@ -1097,7 +1097,7 @@
 	glass_name = "cup of chai latte"
 	glass_desc = "For when you need the energy to yell at the barista for making your drink wrong."
 
-/datum/reagent/drink/tea/chailatte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed) //milk effects
+/datum/reagent/drink/tea/chaitealatte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed) //milk effects
 	..()
 	if(alien != IS_DIONA)
 		M.heal_organ_damage(0.1 * removed, 0)
@@ -1798,7 +1798,7 @@
 	glass_name = "glass of R&D Root Beer"
 	glass_desc = "A glass of bubbly R&D Root Beer."
 
-/datum/reagent/drink/space_up
+/datum/reagent/drink/spaceup
 	name = "Space-Up"
 	description = "Tastes like a hull breach in your mouth."
 	color = "#202800"
@@ -1819,7 +1819,7 @@
 	glass_name = "glass of lemon lime soda"
 	glass_desc = "A tangy substance made of 0.5% natural citrus!"
 
-/datum/reagent/drink/doctor_delight
+/datum/reagent/drink/doctorsdelight
 	name = "The Doctor's Delight"
 	description = "A gulp a day keeps the MediBot away. That's probably for the best."
 	reagent_state = LIQUID
@@ -1834,7 +1834,7 @@
 
 	blood_to_ingest_scale = 1
 
-/datum/reagent/drink/doctor_delight/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/drink/doctorsdelight/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
 		M.adjustOxyLoss(-4 * removed)

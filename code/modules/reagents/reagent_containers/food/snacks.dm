@@ -462,7 +462,6 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/kois, 10)
 	reagents.add_reagent(/datum/reagent/toxin/phoron, 15)
-	reagents.add_reagent(/datum/reagent/hfcs, 2)
 
 /obj/item/reagent_containers/food/snacks/salad/aesirsalad
 	name = "aesir salad"
@@ -476,7 +475,7 @@
 
 /obj/item/reagent_containers/food/snacks/salad/aesirsalad/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/doctorsdelight, 8)
+	reagents.add_reagent(/datum/reagent/drink/doctorsdelight, 8)
 	reagents.add_reagent(/datum/reagent/tricordrazine, 8)
 
 /obj/item/reagent_containers/food/snacks/candy
@@ -617,12 +616,12 @@
 
 /obj/item/reagent_containers/food/snacks/donut/normal/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/sprinkles, 1)
+	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
 	if(prob(30))
 		src.icon_state = "donut2"
 		src.overlay_state = "box-donut2"
 		src.name = "frosted donut"
-		reagents.add_reagent(/datum/reagent/sprinkles, 2)
+		reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/donut/chaos
 	name = "chaos donut"
@@ -636,7 +635,7 @@
 /obj/item/reagent_containers/food/snacks/donut/chaos/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment, 2)
-	reagents.add_reagent(/datum/reagent/sprinkles, 1)
+	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
 	var/chaosselect = pick(1,2,3,4,5,6,7,8,9,10)
 	switch(chaosselect)
 		if(1)
@@ -646,7 +645,7 @@
 		if(3)
 			reagents.add_reagent(/datum/reagent/frostoil, 3)
 		if(4)
-			reagents.add_reagent(/datum/reagent/sprinkles, 3)
+			reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 3)
 		if(5)
 			reagents.add_reagent(/datum/reagent/toxin/phoron, 3)
 		if(6)
@@ -663,7 +662,7 @@
 		src.icon_state = "donut2"
 		src.overlay_state = "box-donut2"
 		src.name = "Frosted Chaos Donut"
-		reagents.add_reagent(/datum/reagent/sprinkles, 2)
+		reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
 
 
 /obj/item/reagent_containers/food/snacks/donut/jelly
@@ -677,13 +676,13 @@
 
 /obj/item/reagent_containers/food/snacks/donut/jelly/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/sprinkles, 1)
+	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
 	reagents.add_reagent(/datum/reagent/drink/berryjuice, 5)
 	if(prob(30))
 		src.icon_state = "jdonut2"
 		src.overlay_state = "box-donut2"
 		src.name = "Frosted Jelly Donut"
-		reagents.add_reagent(/datum/reagent/sprinkles, 2)
+		reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/donut/slimejelly
 	name = "jelly donut"
@@ -696,13 +695,13 @@
 
 /obj/item/reagent_containers/food/snacks/donut/slimejelly/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/sprinkles, 1)
+	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
 	reagents.add_reagent(/datum/reagent/slimejelly, 5)
 	if(prob(30))
 		src.icon_state = "jdonut2"
 		src.overlay_state = "box-donut2"
 		src.name = "Frosted Jelly Donut"
-		reagents.add_reagent(/datum/reagent/sprinkles, 2)
+		reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/donut/cherryjelly
 	name = "jelly donut"
@@ -716,13 +715,13 @@
 /obj/item/reagent_containers/food/snacks/donut/cherryjelly/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment, 3)
-	reagents.add_reagent(/datum/reagent/sprinkles, 1)
-	reagents.add_reagent(/datum/reagent/cherryjelly, 5)
+	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
+	reagents.add_reagent(/datum/reagent/nutriment/cherryjelly, 5)
 	if(prob(30))
 		src.icon_state = "jdonut2"
 		src.overlay_state = "box-donut2"
 		src.name = "Frosted Jelly Donut"
-		reagents.add_reagent(/datum/reagent/sprinkles, 2)
+		reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/funnelcake
 	name = "funnel cake"
@@ -1051,7 +1050,7 @@
 	user.visible_message(span("notice", "[user] crushes \the [src] package."), "You crush \the [src] package and feel it rapidly heat up.")
 	name = "cooked Sin-pocket"
 	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
-	reagents.add_reagent(/datum/reagent/doctorsdelight, 5)
+	reagents.add_reagent(/datum/reagent/drink/doctorsdelight, 5)
 	reagents.add_reagent(/datum/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/datum/reagent/synaptizine, 1.25)
 
@@ -1568,7 +1567,7 @@
 
 /obj/item/reagent_containers/food/snacks/syndicake/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/doctorsdelight, 5)
+	reagents.add_reagent(/datum/reagent/drink/doctorsdelight, 5)
 
 /obj/item/reagent_containers/food/snacks/loadedbakedpotato
 	name = "loaded baked potato"
@@ -2222,7 +2221,7 @@
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/cherryjelly, 5)
+	reagents.add_reagent(/datum/reagent/nutriment/cherryjelly, 5)
 
 /obj/item/reagent_containers/food/snacks/jelliedtoast/slime
 
@@ -2250,7 +2249,7 @@
 
 /obj/item/reagent_containers/food/snacks/burger/jelly/cherry/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/cherryjelly, 5)
+	reagents.add_reagent(/datum/reagent/nutriment/cherryjelly, 5)
 
 /obj/item/reagent_containers/food/snacks/soup/milo
 	name = "milosoup"
@@ -2451,7 +2450,7 @@
 
 /obj/item/reagent_containers/food/snacks/jellysandwich/cherry/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/cherryjelly, 5)
+	reagents.add_reagent(/datum/reagent/nutriment/cherryjelly, 5)
 
 /obj/item/reagent_containers/food/snacks/mint
 	name = "mint"
@@ -2728,7 +2727,7 @@
 
 /obj/item/reagent_containers/food/snacks/friedrice/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/rice, 5)
+	reagents.add_reagent(/datum/reagent/nutriment/rice, 5)
 	reagents.add_reagent(/datum/reagent/drink/carrotjuice, 3)
 	reagents.add_reagent(/datum/reagent/imidazoline, 1)
 
@@ -2885,7 +2884,7 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/sodiumchlorid, 1)
 	reagents.add_reagent(/datum/reagent/blackpepper, 1)
-	reagents.add_reagent(/datum/reagent/rice, 4)
+	reagents.add_reagent(/datum/reagent/nutriment/rice, 4)
 
 /obj/item/reagent_containers/food/snacks/honeytoast
 	name = "piece of honeyed toast"
@@ -3340,7 +3339,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/cake/birthday/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/sprinkles, 10)
+	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 10)
 
 /obj/item/reagent_containers/food/snacks/cakeslice/birthday
 	name = "birthday cake slice"
@@ -3358,7 +3357,7 @@
 
 /obj/item/reagent_containers/food/snacks/cakeslice/birthday/filled/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/sprinkles, 2)
+	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/sliceable/bread
 	name = "bread"
@@ -4774,7 +4773,7 @@
 /obj/item/reagent_containers/food/snacks/burrito_hell/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 9)
-	reagents.add_reagent(/datum/reagent/condensedcapsaicin, 20) //what could possibly go wrong
+	reagents.add_reagent(/datum/reagent/capsaicin/condensed, 20) //what could possibly go wrong
 
 /obj/item/reagent_containers/food/snacks/burrito_mystery
 	name = "mystery meat burrito"
@@ -5251,7 +5250,7 @@
 
 /obj/item/reagent_containers/food/snacks/porkbowl/Initialize()
 	..()
-	reagents.add_reagent(/datum/reagent/rice, 6)
+	reagents.add_reagent(/datum/reagent/nutriment/rice, 6)
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 4)
 
 /obj/item/reagent_containers/food/snacks/mashedpotato

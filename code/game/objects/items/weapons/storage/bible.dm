@@ -35,7 +35,7 @@
 				to_chat(user, span("notice", "You bless the water in [A], turning it into holy water."))
 				var/water2holy = A.reagents.get_reagent_amount(/datum/reagent/water)
 				A.reagents.del_reagent(/datum/reagent/water)
-				A.reagents.add_reagent(/datum/reagent/holywater, water2holy)
+				A.reagents.add_reagent(/datum/reagent/water/holywater, water2holy)
 
 /obj/item/storage/bible/attackby(obj/item/W as obj, mob/user as mob)
 	if(src.use_sound)

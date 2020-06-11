@@ -139,7 +139,7 @@
 
 /obj/item/reagent_containers/spray/cleaner/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/cleaner, volume)
+	reagents.add_reagent(/datum/reagent/spacecleaner, volume)
 
 /obj/item/reagent_containers/spray/sterilizine
 	name = "sterilizine"
@@ -163,7 +163,7 @@
 
 /obj/item/reagent_containers/spray/pepper/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/condensedcapsaicin, 40)
+	reagents.add_reagent(/datum/reagent/capsaicin/condensed, 40)
 
 /obj/item/reagent_containers/spray/pepper/examine(mob/user)
 	if(..(user, 1))

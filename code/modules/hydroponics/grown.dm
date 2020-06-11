@@ -82,7 +82,7 @@
 			descriptors |= "numbing"
 		if(reagents.has_reagent(/datum/reagent/nutriment))
 			descriptors |= "nutritious"
-		if(reagents.has_reagent(/datum/reagent/condensedcapsaicin) || reagents.has_reagent(/datum/reagent/capsaicin))
+		if(reagents.has_reagent(/datum/reagent/capsaicin/condensed) || reagents.has_reagent(/datum/reagent/capsaicin))
 			descriptors |= "spicy"
 		if(reagents.has_reagent(/datum/reagent/nutriment/coco))
 			descriptors |= "bitter"
