@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscdel: "Speaking with an ID that doesn't match your voice no longer displays (as Unknown) or (as ID name)."
