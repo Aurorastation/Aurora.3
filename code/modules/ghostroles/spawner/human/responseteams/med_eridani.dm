@@ -17,7 +17,7 @@
 	outfit = /datum/outfit/admin/ert/med_eridani/bodyguard
 
 /datum/ghostspawner/human/ert/med_eridani/paramedic
-	name = "Eridani Medical Contractor  Paramedic"
+	name = "Eridani Medical Contractor Paramedic"
 	short_name = "eridaniparamedic"
 	mob_name_prefix = "Pm. "
 	max_count = 2
