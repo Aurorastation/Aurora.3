@@ -91,7 +91,7 @@
 
 /obj/item/pocketwatch/adhomai
 	name = "adhomian watch"
-	desc = "An watch made in the traditional adhomian style. It can be stored in the pocket or worn around the neck."
+	desc = "A watch made in the traditional adhomian style. It can be stored in a pocket or worn around the neck."
 	desc_fluff = "Because your wrists have better things to do."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "adhomai_clock"
