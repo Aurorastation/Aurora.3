@@ -186,7 +186,7 @@
 /datum/reagent/alcohol/ethanol/sake
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/tequilla
+/datum/reagent/alcohol/ethanol/tequila
 	value = 0.1
 
 /datum/reagent/alcohol/ethanol/thirteenloko
@@ -396,7 +396,7 @@
 /datum/reagent/alcohol/ethanol/syndicatebomb
 	value = 0.21
 
-/datum/reagent/alcohol/ethanol/tequilla_sunrise
+/datum/reagent/alcohol/ethanol/tequila_sunrise
 	value = 0.13
 
 /datum/reagent/alcohol/ethanol/threemileisland

@@ -2231,14 +2231,14 @@
 	glass_desc = "A glass of sake."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
-/datum/reagent/alcohol/ethanol/tequilla
+/datum/reagent/alcohol/ethanol/tequila
 	name = "Tequila"
 	description = "A strong and mildly flavoured, mexican produced spirit. Feeling thirsty hombre?"
 	color = "#FFFF91"
 	strength = 40
 	taste_description = "paint stripper"
 
-	glass_icon_state = "tequillaglass"
+	glass_icon_state = "tequilaglass"
 	glass_name = "glass of Tequilla"
 	glass_desc = "Now all that's missing is the weird colored shades!"
 	glass_center_of_mass = list("x"=16, "y"=12)
@@ -3151,14 +3151,14 @@
 	glass_desc = "Tastes like terrorism!"
 	glass_center_of_mass = list("x"=16, "y"=4)
 
-/datum/reagent/alcohol/ethanol/tequilla_sunrise
+/datum/reagent/alcohol/ethanol/tequila_sunrise
 	name = "Tequila Sunrise"
 	description = "Tequila and orange juice. Much like a Screwdriver, only Mexican~"
 	color = "#FFE48C"
 	strength = 15
 	taste_description = "oranges"
 
-	glass_icon_state = "tequillasunriseglass"
+	glass_icon_state = "tequilasunriseglass"
 	glass_name = "glass of Tequilla Sunrise"
 	glass_desc = "Oh great, now you feel nostalgic about sunrises back on Terra..."
 

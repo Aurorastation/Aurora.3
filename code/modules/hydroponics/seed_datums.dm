@@ -127,7 +127,7 @@
 	seed_name = "nettle"
 	display_name = "nettles"
 	mutants = list("deathnettle")
-	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/sacid = list(0,1))
+	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/acid = list(0,1))
 	kitchen_tag = "nettle"
 	kitchen_tag = "nettle"
 
@@ -148,7 +148,7 @@
 	seed_name = "death nettle"
 	display_name = "death nettles"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/pacid = list(0,1))
+	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/acid/polyacid = list(0,1))
 	kitchen_tag = "deathnettle"
 
 /datum/seed/nettle/death/setup_traits()
@@ -225,7 +225,7 @@
 	seed_name = "bluespace tomato"
 	display_name = "bluespace tomato plant"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/singulo = list(10,5))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/alcohol/ethanol/singulo = list(10,5))
 
 /datum/seed/tomato/blue/teleport/setup_traits()
 	..()
@@ -831,7 +831,7 @@
 	name = "soybean"
 	seed_name = "soybean"
 	display_name = "soybeans"
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/soymilk = list(10,20))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/drink/milk/soymilk = list(10,20))
 	kitchen_tag = "soybeans"
 
 /datum/seed/soybean/setup_traits()

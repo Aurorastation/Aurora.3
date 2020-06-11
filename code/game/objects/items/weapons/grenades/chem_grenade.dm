@@ -359,9 +359,9 @@
 		var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 
 		B1.reagents.add_reagent(/datum/reagent/surfactant, 40)
-		B1.reagents.add_reagent(/datum/reagent/monoammoniumphosphate, 20)
+		B1.reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
 		B2.reagents.add_reagent(/datum/reagent/water, 40)
-		B2.reagents.add_reagent(/datum/reagent/monoammoniumphosphate, 20)
+		B2.reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, 20)
 
 		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 

@@ -570,7 +570,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/gin,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila,
 		/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 		/obj/item/reagent_containers/food/drinks/bottle/rum,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne,

@@ -240,15 +240,15 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/alcohol/ethanol/vodka, 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/tequilla
+/obj/item/reagent_containers/food/drinks/bottle/tequila
 	name = "Caccavo Guaranteed Quality tequila"
 	desc = "Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients!"
-	icon_state = "tequillabottle"
+	icon_state = "tequilabottle"
 	center_of_mass = list("x"=16, "y"=4)
 
-/obj/item/reagent_containers/food/drinks/bottle/tequilla/Initialize()
+/obj/item/reagent_containers/food/drinks/bottle/tequila/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/tequilla, 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/tequila, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing
 	name = "bottle of nothing"
@@ -292,7 +292,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/patron
 	name = "Wrapp Artiste patron"
-	desc = "Silver laced tequilla, served in space night clubs across the galaxy."
+	desc = "Silver laced tequila, served in space night clubs across the galaxy."
 	icon_state = "patronbottle"
 	center_of_mass = list("x"=16, "y"=7)
 
@@ -339,7 +339,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/kahlua/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/alcohol/ethanol/kahlua, 100)
+	reagents.add_reagent(/datum/reagent/alcohol/ethanol/coffee/kahlua, 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/goldschlager
 	name = "College Girl goldschlager"
