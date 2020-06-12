@@ -507,7 +507,7 @@ var/list/gamemode_cache = list()
 
 				if("mixed_secret_enabled")
 					config.mixedsecret_enabled = TRUE
-					votable_modes += ROUNDTYPE_STR_MIXED_SECRET
+					config.votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 				if ("banappeals")
 					config.banappeals = value
