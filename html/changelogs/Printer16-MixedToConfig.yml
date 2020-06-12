@@ -1,0 +1,7 @@
+
+author: Printer16
+
+delete-after: True
+
+changes:
+  - rscdel: "Mixed secret no longer shows up in the gamemode probabilities verb."
