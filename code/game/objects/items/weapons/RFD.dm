@@ -515,7 +515,7 @@ RFD Piping-Class
 	to_chat(user, SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>"))
 
 /obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
-	if(!proximity || !isturf(A))
+	if(!proximity || !isturf(A))s
 		return
 	if(istype(get_area(A), /area/shuttle) || istype(get_area(A), /turf/space))
 		to_chat(user, SPAN_WARNING("You can't lay pipe here!"))
