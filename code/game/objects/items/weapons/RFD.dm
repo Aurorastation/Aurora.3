@@ -515,7 +515,7 @@ RFD Piping-Class
 	to_chat(user, SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>"))
 
 /obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
-	if(!proximity || !isturf(A))s
+	if(!proximity || !isturf(A))
 		return
 	if(istype(get_area(A), /area/shuttle) || istype(get_area(A), /turf/space))
 		to_chat(user, SPAN_WARNING("You can't lay pipe here!"))
@@ -553,6 +553,7 @@ RFD Piping-Class
 		pipe_dir = NORTHEAST
 	new /obj/item/pipe(T, selected_pipe, pipe_dir)
 
+	working = FALSE
 	playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 	return TRUE
 
