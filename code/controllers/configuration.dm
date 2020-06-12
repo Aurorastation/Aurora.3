@@ -330,8 +330,6 @@ var/list/gamemode_cache = list()
 				if (M.votable)
 					src.votable_modes += M.config_tag
 	src.votable_modes += ROUNDTYPE_STR_SECRET
-	if(config.mixedsecret_enabled)
-		votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -509,6 +507,7 @@ var/list/gamemode_cache = list()
 
 				if("mixed_secret_enabled")
 					config.mixedsecret_enabled = TRUE
+					votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 				if ("banappeals")
 					config.banappeals = value
