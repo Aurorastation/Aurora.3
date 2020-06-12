@@ -615,13 +615,15 @@
 	..()
 
 /datum/reagent/toxin/tobacco
-	name = "Space Tobacco"
+	name = "Tobacco"
 	id = "tobacco"
-	description = "Low-grade space tobacco."
-	reagent_state = LIQUID
-	color = "#333300"
+	description = "Cut and processed tobacco leaves."
+	taste_description = "tobacco"
+	reagent_state = SOLID
+	color = "#684b3c"
+	scannable = 1
+	value = 3
 	data = 0
-	taste_description = "low-grade tobacco"
 	strength = 0.004
 	taste_mult = 10
 
@@ -637,14 +639,19 @@
 		if(istype(A))
 			A.take_damage(removed * strength * 0.25,1)
 
-/datum/reagent/toxin/tobacco/rich
-	name = "Earth Tobacco"
-	id = "tobaccorich"
-	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than it's space fairing counterpart."
-	reagent_state = LIQUID
-	data = 0
-	taste_description = "quality tobacco"
-	strength = 0.002
+/datum/reagent/toxin/tobacco/fine
+	name = "Fine Tobacco"
+	id = "tobaccofine"
+	description = "High-grade tobacco. Smooth and mild, refreshingly addictive."
+	taste_description = "fine tobacco"
+	value = 5
+
+/datum/reagent/toxin/tobacco/bad
+	name = "Terrible Tobacco"
+	id = "tobaccobad"
+	description = "Low-grade tobacco. Has an aftertaste of tar and leaves a stain on your tongue."
+	taste_description = "acrid smoke"
+	value = 0
 
 /datum/reagent/toxin/berserk
 	name = "Red Nightshade"
@@ -736,7 +743,7 @@
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
 
 
-			
+
 /datum/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
 	id = "dextrotoxin"
@@ -756,7 +763,7 @@
 		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
-	if(dose > 0.2)	
+	if(dose > 0.2)
 		M.Weaken(10)
 
 /datum/reagent/toxin/dextrotoxin/Destroy()

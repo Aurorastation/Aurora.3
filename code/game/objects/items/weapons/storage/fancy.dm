@@ -162,9 +162,9 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	drop_sound = 'sound/items/drop/gloves.ogg'
-	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	use_sound = 'sound/items/pickup/papercup.ogg'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -227,7 +227,7 @@
 
 /obj/item/storage/fancy/cigarettes/blank
 	name = "\improper blank cigarette packet"
-	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
+	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market! \"Wait, isn't this just paper?\"""
 	icon_state = "Bpacket"
 	item_state = "Bpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/blank
@@ -303,7 +303,7 @@
 
 /obj/item/storage/fancy/cigarettes/rugged
 	name = "\improper Lucky Strike cigarette packet"
-	desc = "A packet of six Lucky Strike cigarettes. Rumored to be part of an Idris money laundering scheme, its original purpose long forgotten."
+	desc = "A packet of six Lucky Strike cigarettes. Rumored to be part of an Idris money laundering scheme, the original purpose long forgotten."
 	icon_state = "Fpacket"
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
