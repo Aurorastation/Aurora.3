@@ -84,10 +84,10 @@
 			var/obj/item/device/laser_assembly/A = item
 			A.ready_to_craft = FALSE
 			A.analyzer = null
-		item = null
-		update_icon()
 		item.forceMove(get_turf(src))
 		user.put_in_hands(item)
+		item = null
+		update_icon()
 
 /obj/machinery/weapons_analyzer/verb/eject()
 	set name = "Eject Inserted Item"
