@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "AI now has access to its own private radio again."
