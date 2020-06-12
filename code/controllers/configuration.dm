@@ -53,6 +53,7 @@ var/list/gamemode_cache = list()
 	var/list/votable_modes = list()		// votable modes
 	var/list/probabilities_secret = list()			// relative probability of each mode in secret/random
 	var/list/probabilities_mixed_secret = list()	// relative probability of each mode in heavy secret mode
+	var/mixedsecret_enabled = FALSE
 	var/ipc_timelock_active = FALSE
 	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
@@ -329,7 +330,8 @@ var/list/gamemode_cache = list()
 				if (M.votable)
 					src.votable_modes += M.config_tag
 	src.votable_modes += ROUNDTYPE_STR_SECRET
-//	votable_modes += ROUNDTYPE_STR_MIXED_SECRET
+	if(config.mixedsecret_enabled)
+		votable_modes += ROUNDTYPE_STR_MIXED_SECRET
 
 /datum/configuration/proc/load(filename, type = "config") //the type can also be game_options, in which case it uses a different switch. not making it separate to not copypaste code - Urist
 	var/list/Lines = file2list(filename)
@@ -504,6 +506,9 @@ var/list/gamemode_cache = list()
 
 				if ("server")
 					config.server = value
+
+				if("mixed_secret_enabled")
+					config.mixedsecret_enabled = TRUE
 
 				if ("banappeals")
 					config.banappeals = value

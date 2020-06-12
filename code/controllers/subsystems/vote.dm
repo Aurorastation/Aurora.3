@@ -245,7 +245,7 @@ var/datum/controller/subsystem/vote/SSvote
 						continue
 					AddChoice(F, capitalize(M.name), "[M.required_players]")
 				AddChoice(ROUNDTYPE_STR_SECRET, "Secret")
-				if(ROUNDTYPE_STR_MIXED_SECRET in choices)
+				if(config.mixedsecret_enabled && ROUNDTYPE_STR_MIXED_SECRET in choices)
 					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
 			if("crew_transfer")
 				if(check_rights(R_ADMIN|R_MOD, 0))

@@ -114,6 +114,8 @@ MOD_TEMPBAN_MAX 1440
 ## Maximum mod job tempban duration (in minutes)
 MOD_JOB_TEMPBAN_MAX 1440
 
+## If mixed secret is enabled or not
+#MIXED_SECRET_ENABLED
 
 ## Probablities for game modes chosen in "secret", "mixed secret" and "random" modes.
 ## S or MS after the PROBABILITY keyword dictates whether the probability is for mixed
