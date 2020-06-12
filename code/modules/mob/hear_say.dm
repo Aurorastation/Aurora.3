@@ -4,7 +4,11 @@
 	if(!istype(src, /mob/living/test) && (!client && !vr_mob))
 		return
 
-	if(speaker && !istype(speaker, /mob/living/test) && (!speaker.client && istype(src,/mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
+	var/use_mob_vars = TRUE
+	if(istype(speaker, /obj/machinery))
+		use_mob_vars = FALSE
+
+	if(speaker && !istype(speaker, /mob/living/test) && ((!use_mob_vars || !speaker.client) && istype(src, /mob/abstract/observer) && client.prefs.toggles & CHAT_GHOSTEARS && !(speaker in view(src))))
 			//Does the speaker have a client?  It's either random stuff that observers won't care about (Experiment 97B says, 'EHEHEHEHEHEHEHE')
 			//Or someone snoring.  So we make it where they won't hear it.
 		return
@@ -53,7 +57,7 @@
 	if(isobserver(src))
 		if(italics && client.prefs.toggles & CHAT_GHOSTRADIO)
 			return
-		if(speaker_name != speaker.real_name && speaker.real_name)
+		if(use_mob_vars && speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
 		if((client.prefs.toggles & CHAT_GHOSTEARS) && (speaker in view(src)))

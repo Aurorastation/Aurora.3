@@ -72,6 +72,10 @@
 
 
 	// Variables used to initialize advertising
+	var/datum/language/vendor_language // assigned in init with the below string, you (almost) never have to modify this directly
+	var/language_string = LANGUAGE_TCB // what the above language will be
+	var/speech_sound // optional sound to play when speaking
+	var/sound_vol // optional volume of above sound
 	var/product_slogans = "" //String of slogans spoken out loud, separated by semicolons
 	var/product_ads = "" //String of small ad messages in the vending screen
 
@@ -126,6 +130,8 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
+
+	vendor_language = all_languages[language_string]
 	
 	add_screen_overlay()
 
@@ -706,12 +712,40 @@
 	if(stat & NOPOWER)
 		return
 
-	if (!message)
+	if(!message)
 		return
 
-	for(var/mob/O in hearers(src, null))
-		O.show_message("<span class='game say'><span class='name'>\The [src]</span> beeps, \"[message]\"</span>",2)
-	return
+	var/message_range = 7
+	var/list/listening = list()
+	var/list/listening_obj = list()
+	var/turf/T = get_turf(src)
+
+	if(T)
+		//make sure the air can transmit speech - speaker's side
+		var/datum/gas_mixture/environment = T.return_air()
+		var/pressure = (environment)? environment.return_pressure() : 0
+		if(pressure < SOUND_MINIMUM_PRESSURE)
+			message_range = 1
+
+		if(sound_vol && pressure < ONE_ATMOSPHERE * 0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
+			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
+
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
+
+	var/list/hear_clients = list()
+	for(var/m in listening)
+		var/mob/M = m
+		var/heard_say = M.hear_say(message, "beeps", vendor_language, null, null, src, speech_sound, sound_vol)
+		if(heard_say && M.client)
+			hear_clients += M.client
+
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, null, FALSE, hear_clients, 30)
+
+	for(var/o in listening_obj)
+		var/obj/O = o
+		spawn(0)
+			if(O) //It's possible that it could be deleted in the meantime.
+				O.hear_talk(src, message, "beeps", vendor_language)
 
 /obj/machinery/vending/power_change()
 	..()
