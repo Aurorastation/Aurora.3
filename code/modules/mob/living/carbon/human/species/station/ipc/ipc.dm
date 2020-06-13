@@ -107,8 +107,8 @@
 	heat_discomfort_strings = list(
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
 		)
-	stamina = -1	// Machines use power and generate heat, stamina is not a thing
-	sprint_speed_factor = 1  // About as capable of speed as a human
+	stamina = 1	// Machines use power and generate heat, stamina is not a thing
+	sprint_speed_factor = 0.8  //Slightly slower than a human.
 
 	max_hydration_factor = -1
 

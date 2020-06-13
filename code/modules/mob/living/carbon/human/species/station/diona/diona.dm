@@ -111,8 +111,8 @@
 
 	reagent_tag = IS_DIONA
 
-	stamina = -1	// Diona sprinting uses energy instead of stamina
-	sprint_speed_factor = 0.5	//Speed gained is minor
+	stamina = 1	// Diona sprinting uses energy instead of stamina
+	sprint_speed_factor = 0.6	//Speed gained is minor
 	sprint_cost_factor = 1.6
 	climb_coeff = 1.3
 	vision_organ = BP_HEAD
