@@ -165,7 +165,6 @@
 		/obj/item/clothing/shoes/magboots               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/swat                   = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/syndigaloshes          = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/jackboots/toeless/fluff = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/black/bst              = TRADER_BLACKLIST
 	)
 
@@ -184,8 +183,6 @@
 		/obj/item/clothing/gloves/rig                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/chameleon             = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/gloves/swat/fluff            = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/gloves/black/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
@@ -253,7 +250,6 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/device/core_sampler              = TRADER_THIS_TYPE,
 		/obj/item/device/depth_scanner             = TRADER_THIS_TYPE,
 		/obj/item/device/beacon_locator            = TRADER_THIS_TYPE,
-		/obj/item/device/antibody_scanner          = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced           = TRADER_BLACKLIST
 	)
 

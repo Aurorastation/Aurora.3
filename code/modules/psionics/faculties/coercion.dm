@@ -8,7 +8,7 @@
 
 /datum/psionic_power/coercion/invoke(var/mob/living/user, var/mob/living/target)
 	if (!istype(target))
-		to_chat(user, span("warning", "You cannot mentally attack \the [target]."))
+		to_chat(user, SPAN_WARNING("You cannot mentally attack \the [target]."))
 		return FALSE
 
 	. = ..()
@@ -27,16 +27,15 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message(span("danger", "\The [user] suddenly throws back their head, as though screaming silently!"))
-		to_chat(user, span("danger", "You strike at all around you with a deafening psionic scream!"))
-		for(var/mob/living/M in orange(user, user.psi.get_rank(PSI_COERCION)))
+		user.visible_message(SPAN_DANGER("\The [user] suddenly throws back their head, as though screaming silently!"), SPAN_NOTICE("You strike at all around you with a deafening psionic scream!"))
+		for(var/mob/living/M in orange(user.psi.get_rank(PSI_COERCION), user))
 			if(M == user)
 				continue
 			if(prob(60) && iscarbon(M))
 				var/mob/living/carbon/C = M
 				if(C.can_feel_pain())
 					M.emote("scream")
-			to_chat(M, span("danger", "Your senses are blasted into oblivion by a psionic scream!"))
+			to_chat(M, SPAN_DANGER("Your senses are blasted into oblivion by a psionic scream!"))
 			M.eye_blind = max(M.eye_blind,3)
 			M.ear_deaf = max(M.ear_deaf,6)
 			M.confused = rand(3,8)
@@ -58,28 +57,28 @@
 		return
 
 	if(target.stat == DEAD || (target.status_flags & FAKEDEATH) || !target.client)
-		to_chat(user, span("warning", "\The [target] is in no state for a mind-read."))
+		to_chat(user, SPAN_WARNING("\The [target] is in no state for a mind-read."))
 		return TRUE
 
 	for (var/obj/item/implant/mindshield/I in target)
 		if (I.implanted)
-			to_chat(user, span("warning", "\The [target]'s mind is protected from the mind-read."))
+			to_chat(user, SPAN_WARNING("\The [target]'s mind is protected from the mind-read."))
 			return TRUE
 
-	user.visible_message(span("warning", "\The [user] touches \the [target]'s temple..."))
+	user.visible_message(SPAN_WARNING("\The [user] touches \the [target]'s temple..."))
 	var/question =  input(user, "Say something?", "Read Mind", "Penny for your thoughts?") as null|text
 	if(!question || user.incapacitated() || !do_after(user, 20))
 		return TRUE
 
 	var/started_mindread = world.time
-	to_chat(user, span("notice", "<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
-	to_chat(target, span("notice", "<b>Your mind is compelled to answer: <i>[question]</i></b>"))
+	to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
+	to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer: <i>[question]</i></b>"))
 
 	var/answer =  input(target, question, "Read Mind") as null|text
 	if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS || target.stat == DEAD)
-		to_chat(user, span("notice", "<b>You receive nothing useful from \the [target].</b>"))
+		to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
 	else
-		to_chat(user, span("notice", "<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
+		to_chat(user, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
 	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
 	return TRUE
 
@@ -98,7 +97,7 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message("<span class='danger'>\The [target] has been struck by \the [user]!</span>")
+		user.visible_message(SPAN_DANGER("\The [target] has been struck by \the [user]!"))
 		playsound(user.loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 		target.stun_effect_act(0, 60, user.zone_sel.selecting)
 		return TRUE
@@ -122,14 +121,14 @@
 	. = ..()
 
 	if(.)
-		to_chat(user, "<span class='danger'>You lash out, stabbing into \the [target] with a lance of psi-power.</span>")
-		to_chat(target, "<span class='danger'>The muscles in your arms cramp horrendously!</span>")
+		to_chat(user, SPAN_DANGER("You lash out, stabbing into \the [target] with a lance of psi-power."))
+		to_chat(target, SPAN_DANGER("The muscles in your arms cramp horrendously!"))
 		if(prob(75))
 			target.emote("scream")
 		if(prob(75) && target.l_hand && target.l_hand.simulated && target.unEquip(target.l_hand))
-			target.visible_message("<span class='danger'>\The [target] drops what they were holding as their left hand spasms!</span>")
+			target.visible_message(SPAN_DANGER("\The [target] drops what they were holding as their left hand spasms!"))
 		if(prob(75) && target.r_hand && target.r_hand.simulated && target.unEquip(target.r_hand))
-			target.visible_message("<span class='danger'>\The [target] drops what they were holding as their right hand spasms!</span>")
+			target.visible_message(SPAN_DANGER("\The [target] drops what they were holding as their right hand spasms!"))
 		return TRUE
 
 /datum/psionic_power/coercion/mindslave
@@ -146,24 +145,24 @@
 	. = ..()
 	if(.)
 		if(target.stat == DEAD || (target.status_flags & FAKEDEATH))
-			to_chat(user, "<span class='warning'>\The [target] is dead!</span>")
+			to_chat(user, SPAN_WARNING("\The [target] is dead!"))
 			return TRUE
 		if(!target.mind || !target.key)
-			to_chat(user, "<span class='warning'>\The [target] is mindless!</span>")
+			to_chat(user, SPAN_WARNING("\The [target] is mindless!"))
 			return TRUE
 		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
-				to_chat(user, span("warning", "\The [target]'s mind is protected from the mindslaving."))
+				to_chat(user, SPAN_WARNING("\The [target]'s mind is protected from the mindslaving."))
 				return TRUE
 
-		user.visible_message("<span class='danger'><i>\The [user] seizes the head of \the [target] in both hands...</i></span>")
-		to_chat(user, "<span class='warning'>You plunge your mentality into that of \the [target]...</span>")
-		to_chat(target, "<span class='danger'>Your mind is invaded by the presence of \the [user]! They are trying to make you a slave!</span>")
+		user.visible_message(SPAN_DANGER("<i>\The [user] seizes the head of \the [target] in both hands...</i>"))
+		to_chat(user, SPAN_WARNING("You plunge your mentality into that of \the [target]..."))
+		to_chat(target, SPAN_DANGER("Your mind is invaded by the presence of \the [user]! They are trying to make you a slave!"))
 		if(!do_after(user, target.stat == CONSCIOUS ? 80 : 40, target, 0, 1))
 			user.psi.backblast(rand(10,25))
 			return TRUE
-		to_chat(user, "<span class='danger'>You sear through \the [target]'s neurons, reshaping as you see fit and leaving them subservient to your will!</span>")
-		to_chat(target, "<span class='danger'>Your defenses have eroded away and \the [user] has made you their mindslave.</span>")
+		to_chat(user, SPAN_DANGER("You sear through \the [target]'s neurons, reshaping as you see fit and leaving them subservient to your will!"))
+		to_chat(target, SPAN_DANGER("Your defenses have eroded away and \the [user] has made you their mindslave."))
 		thralls.add_antagonist(target.mind, TRUE, TRUE, FALSE, TRUE, TRUE)
 		return TRUE
 
@@ -180,14 +179,14 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message(span("warning", "\The [user] holds the head of \the [target] in both hands..."))
-		to_chat(user, span("notice", "You insinuate your mentality into that of \the [target]..."))
-		to_chat(target, span("warning", "Your persona is being probed by the psychic lens of \the [user]."))
+		user.visible_message(SPAN_WARNING("\The [user] holds the head of \the [target] in both hands..."))
+		to_chat(user, SPAN_NOTICE("You insinuate your mentality into that of \the [target]..."))
+		to_chat(target, SPAN_WARNING("Your persona is being probed by the psychic lens of \the [user]."))
 		if(!do_after(user, (target.stat == CONSCIOUS ? 50 : 25), target, 0, 1))
 			user.psi.backblast(rand(5,10))
 			return TRUE
-		to_chat(user, span("notice", "You retreat from \the [target], holding your new knowledge close."))
-		to_chat(target, span("danger", "Your mental complexus is laid bare to judgement of \the [user]."))
+		to_chat(user, SPAN_NOTICE("You retreat from \the [target], holding your new knowledge close."))
+		to_chat(target, SPAN_DANGER("Your mental complexus is laid bare to judgement of \the [user]."))
 		target.show_psi_assay(user)
 		return TRUE
 
@@ -204,14 +203,14 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message(span("warning", "\The [user] holds the head of \the [target] in both hands..."))
-		to_chat(user, span("notice", "You probe \the [target]'s mind for various ailments.."))
-		to_chat(target, span("warning", "Your mind is being cleansed of ailments by \the [user]."))
+		user.visible_message(SPAN_WARNING("\The [user] holds the head of \the [target] in both hands..."))
+		to_chat(user, SPAN_NOTICE("You probe \the [target]'s mind for various ailments.."))
+		to_chat(target, SPAN_WARNING("Your mind is being cleansed of ailments by \the [user]."))
 		if(!do_after(user, (target.stat == CONSCIOUS ? 50 : 25), target, 0, 1))
 			user.psi.backblast(rand(5,10))
 			return TRUE
-		to_chat(user, span("warning", "You clear \the [target]'s mind of ailments."))
-		to_chat(target, span("warning", "Your mind is cleared of ailments."))
+		to_chat(user, SPAN_WARNING("You clear \the [target]'s mind of ailments."))
+		to_chat(target, SPAN_WARNING("Your mind is cleared of ailments."))
 
 		var/coercion_rank = user.psi.get_rank(PSI_COERCION)
 		if(coercion_rank >= PSI_RANK_GRANDMASTER)
@@ -238,7 +237,7 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message("<i><span class='notice'>[user] touches their fingers to their temple.</span></i>")
+		user.visible_message(SPAN_NOTICE("<i>[user] touches their fingers to their temple.</i>"))
 		var/text = input("What would you like to say?", "Speak to creature", null, null)
 		text = sanitize(text)
 
@@ -246,24 +245,24 @@
 			return
 
 		if(target.stat == DEAD)
-			to_chat(user,"<span class='cult'>Not even a psion of your level can speak to the dead.</span>")
+			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
 			return
 
 		if (target.isSynthetic())
-			to_chat(user,"<span class='warning'>This can only be used on living organisms.</span>")
+			to_chat(user, SPAN_WARNING("This can only be used on living organisms."))
 			return
 
 		if (target.is_diona())
-			to_chat(user,"<span class='alium'>The creature's mind is incompatible, formless.</span>")
+			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
 			return
 
 		if (isvaurca(target))
-			to_chat (user, "<span class='cult'>You feel your thoughts pass right through a mind empty of psychic energy.</span>")
+			to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy."))
 			return
 
 		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
-				to_chat(user, span("warning", "\The [target]'s mind rejects your attempt to communicate."))
+				to_chat(user, SPAN_WARNING("\The [target]'s mind rejects your attempt to communicate."))
 				return TRUE
 
 		log_say("[key_name(user)] communed to [key_name(target)]: [text]",ckey=key_name(src))
@@ -271,26 +270,26 @@
 		for (var/mob/M in player_list)
 			if (istype(M, /mob/abstract/new_player))
 				continue
-			else if(M.stat == DEAD &&  M.client.prefs.toggles & CHAT_GHOSTEARS)
-				to_chat(M,"<span class='notice'>[user] psionically says to [target]:</span> [text]")
+			else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)
+				to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
 		var/mob/living/carbon/human/H = target
-		if (target.can_commune())
-			to_chat(H,"<b>You instinctively sense [user] sending their thoughts into your mind, hearing:</b> [text]")
+		if(H.can_commune() || H.psi)
+			to_chat(H, "<b>You instinctively sense [user] sending their thoughts into your mind, hearing:</b> [text]")
 		else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
-			to_chat(H,"<b>You sense [user]'s psyche enter your mind, whispering quietly:</b> [text]")
+			to_chat(H, "<b>You sense [user]'s psyche enter your mind, whispering quietly:</b> [text]")
 		else
-			to_chat(H,"<b>You feel something crawl behind your eyes, hearing:</b> [text]")
+			to_chat(H, "<b>You feel something crawl behind your eyes, hearing:</b> [text]")
 			if(istype(H))
-				if (H.can_commune())
+				if(H.can_commune() || H.stat >= UNCONSCIOUS)
 					return
 				if(prob(10) && !(H.species.flags & NO_BLOOD))
-					to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
+					to_chat(H,SPAN_WARNING("Your nose begins to bleed..."))
 					H.drip(3)
 				else if(prob(25) && (H.can_feel_pain()))
-					to_chat(H,"<span class='warning'>Your head hurts...</span>")
+					to_chat(H,SPAN_WARNING("Your head hurts..."))
 				else if(prob(50))
-					to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
+					to_chat(H,SPAN_WARNING("Your mind buzzes..."))
 
 /datum/psionic_power/coercion/psiping
 	name =              "Psi Ping"
@@ -308,7 +307,7 @@
 		return FALSE
 	. = ..()
 	if(.)
-		to_chat(user, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
+		to_chat(user, SPAN_NOTICE("You take a moment to tune into the local Nlom..."))
 		if(!do_after(user, 3 SECONDS))
 			return
 		var/list/dirs = list()
@@ -316,11 +315,9 @@
 			var/turf/T = get_turf(L)
 			if(!T || L == user || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L) || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
-			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = user)
+			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T)
 			ping_image.plane = LIGHTING_LAYER+1
 			ping_image.layer = LIGHTING_LAYER+1
-			ping_image.pixel_x = (T.x - user.x) * WORLD_ICON_SIZE
-			ping_image.pixel_y = (T.y - user.y) * WORLD_ICON_SIZE
 			user << ping_image
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
 			var/direction = num2text(get_dir(user, L))
@@ -347,6 +344,6 @@
 				feedback += "[dirs[d][dst]] psionic signature\s [dst],"
 			if(feedback.len > 1)
 				feedback[feedback.len - 1] += " and"
-			to_chat(user, span("notice", "You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
+			to_chat(user, SPAN_NOTICE("You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
 		if(!length(dirs))
-			to_chat(user, span("notice", "You detect no psionic signatures but your own."))
+			to_chat(user, SPAN_NOTICE("You detect no psionic signatures but your own."))

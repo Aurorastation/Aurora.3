@@ -1,8 +1,9 @@
 // Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
-	force = 5.0
+	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
+	force = 5
 	throwforce = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50

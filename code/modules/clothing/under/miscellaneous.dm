@@ -182,13 +182,6 @@
 	item_state = "jensensuit"
 	worn_state = "black_suit"
 
-/obj/item/clothing/under/suit_jacket/female
-	name = "executive suit"
-	desc = "A formal trouser suit for women, intended for the station's finest."
-	icon_state = "black_suit_fem"
-	item_state = "lawyer_black"
-	worn_state = "black_suit_fem"
-
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
 	desc = "A red suit and blue tie. Somewhat formal."

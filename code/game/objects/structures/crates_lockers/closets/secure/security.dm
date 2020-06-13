@@ -260,7 +260,7 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/hailer(src)
 	new /obj/item/device/holowarrant(src)
-	new /obj/item/device/flashlight/flare(src)
+	new /obj/item/device/flashlight/flare/glowstick/red(src)
 	//Belts
 	if (prob(50))
 		new /obj/item/clothing/accessory/storage/black_vest(src)
@@ -303,7 +303,7 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/hailer(src)
 	new /obj/item/device/holowarrant(src)
-	new /obj/item/device/flashlight/flare(src)
+	new /obj/item/device/flashlight/flare/glowstick/red(src)
 	new /obj/item/handcuffs(src)
 	//Belts
 	if (prob(50))

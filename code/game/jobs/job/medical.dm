@@ -152,10 +152,10 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	alt_titles = list("Biochemist")
+	alt_titles = list("Chemist")
 	outfit = /datum/outfit/job/pharmacist
 	alt_outfits = list(
-		"Biochemist"=/datum/outfit/job/pharmacist/biochemist
+		"Chemist"=/datum/outfit/job/pharmacist/chemist
 		)
 
 /datum/outfit/job/pharmacist
@@ -174,8 +174,8 @@
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
 
-/datum/outfit/job/pharmacist/biochemist
-	name = "Biochemist"
+/datum/outfit/job/pharmacist/chemist
+	name = "Chemist"
 	jobtype = /datum/job/pharmacist
 
 	uniform = /obj/item/clothing/under/rank/biochemist

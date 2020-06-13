@@ -302,3 +302,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
+
+/datum/species/machine/has_psi_potential()
+	return FALSE

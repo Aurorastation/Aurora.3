@@ -63,6 +63,7 @@
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
+	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -80,7 +81,6 @@
 	suits["charcoal suit"] = /obj/item/clothing/under/suit_jacket/charcoal
 	suits["checkered suit"] = /obj/item/clothing/under/suit_jacket/checkered
 	suits["executive suit"] = /obj/item/clothing/under/suit_jacket/really_black
-	suits["female executive suit"] = /obj/item/clothing/under/suit_jacket/female
 	suits["navy suit"] = /obj/item/clothing/under/suit_jacket/navy
 	suits["purple suit"] = /obj/item/clothing/under/lawyer/purple
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
@@ -211,6 +211,7 @@
 	display_name = "dominia clothing selection"
 	description = "A selection of dominian clothing."
 	path = /obj/item/clothing/under/dominia
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/dominia/New()
 	..()

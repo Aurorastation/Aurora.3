@@ -1,9 +1,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber
+	name = "air scrubber"
+	desc = "Has a valve and pump attached to it."
+	desc_info = "This filters the atmosphere of harmful gas.  Filtered gas goes to the pipes connected to it, typically a scrubber pipe. \
+	It can be controlled from an Air Alarm.  It can be configured to drain all air rapidly with a 'panic syphon' from an air alarm."
 	icon = 'icons/atmos/vent_scrubber.dmi'
 	icon_state = "map_scrubber_off"
 
-	name = "Air Scrubber"
-	desc = "Has a valve and pump attached to it"
 	use_power = 0
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
 	power_rating = 7500			//7500 W ~ 10 HP

@@ -3959,7 +3959,6 @@
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aoj" = (
@@ -3981,8 +3980,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "aok" = (
@@ -19162,8 +19159,8 @@
 	pixel_y = 2
 	},
 /obj/item/storage/briefcase/inflatable,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare/glowstick/red,
+/obj/item/device/flashlight/flare/glowstick/red,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -20505,40 +20502,40 @@
 /area/centcom/legion)
 "eQO" = (
 /obj/structure/table/rack,
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = -2
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 3
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 8
 	},
-/obj/item/device/flashlight/flare{
+/obj/item/device/flashlight/flare/glowstick/red{
 	pixel_y = 8
 	},
 /turf/unsimulated/floor{
@@ -29160,7 +29157,6 @@
 	pixel_x = 32;
 	req_access = list(150)
 	},
-/obj/item/reagent_containers/syringe/antiviral,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "pLp" = (

@@ -1,6 +1,9 @@
 /obj/item/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
 	desc = "A portable anti-armour rifle fitted with a scope, the PTR-7 is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  The gun's chamber can be opened or closed by using it in your hand.  To reload, open the chamber, add a new bullet \
+	then close it.  To use the scope, use the appropriate verb in the object tab."
 	icon = 'icons/obj/guns/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
@@ -199,8 +202,8 @@
 	multi_aim = 0 //Definitely a fuck no. Being able to target one person at this range is plenty.
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=null,    burst_accuracy=list(0,-1,-1), dispersion=list(0, 8))
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="2-round bursts", burst=2, burst_accuracy=list(0,-1,-1), dispersion=list(0, 8))
 		)
 
 /obj/item/gun/projectile/automatic/rifle/w556/verb/scope()

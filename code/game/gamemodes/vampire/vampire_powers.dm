@@ -740,48 +740,6 @@
 	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
 	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, .proc/finish_vamp_timeout))
 
-// Gives a lethal disease to the target.
-/mob/living/carbon/human/proc/vampire_diseasedtouch()
-	set category = "Vampire"
-	set name = "Diseased Touch (100)"
-	set desc = "Infects the victim with corruption from the Veil, causing their organs to fail."
-
-	var/datum/vampire/vampire = vampire_power(100, 0)
-	if (!vampire)
-		return
-
-	var/list/victims = list()
-	for (var/mob/living/carbon/human/H in view(1))
-		if (H == src)
-			continue
-		victims += H
-	if (!victims.len)
-		to_chat(src, "<span class='warning'>No suitable targets.</span>")
-		return
-
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
-
-	if (!vampire_can_affect_target(T))
-		return
-
-	to_chat(src, "<span class='notice'>You infect [T] with a deadly disease. They will soon fade away.</span>")
-
-	T.help_shake_act(src)
-
-	var/datum/disease2/disease/lethal = new
-	lethal.makerandom(3)
-	lethal.infectionchance = 1
-	lethal.stage = lethal.max_stage
-	lethal.spreadtype = "None"
-
-	infect_mob(T, lethal)
-
-	admin_attack_log(src, T, "used diseased touch on [key_name(T)]", "was given a lethal disease by [key_name(src)]", "used diseased touch (<a href='?src=\ref[lethal];info=1'>virus info</a>) on")
-
-	vampire.use_blood(100)
-	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
-	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_diseasedtouch, CALLBACK(src, .proc/finish_vamp_timeout))
-
 // Makes the vampire appear 'friendlier' to others.
 /mob/living/carbon/human/proc/vampire_presence()
 	set category = "Vampire"

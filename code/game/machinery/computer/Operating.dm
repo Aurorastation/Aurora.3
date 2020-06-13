@@ -2,8 +2,9 @@
 
 /obj/machinery/computer/operating
 	name = "patient monitoring console"
-	density = 1
-	anchored = 1.0
+	desc_info = "This console gives information on the status of the patient on the adjacent operating table, notably their consciousness."
+	density = TRUE
+	anchored = TRUE
 
 	light_color = LIGHT_COLOR_CYAN
 	icon_screen = "crew"

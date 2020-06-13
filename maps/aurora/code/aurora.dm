@@ -23,8 +23,7 @@
 		"5" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"6" = /turf/unsimulated/floor/asteroid/ash,
 		"7" = /turf/space,
-		"8" = /turf/space,
-		"9" = /turf/space
+		"8" = /turf/space
 	)
 
 	station_name = "NSS Aurora"

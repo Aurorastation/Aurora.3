@@ -228,4 +228,4 @@
 
 	needspin = FALSE
 
-	firemodes = null
+	firemodes = list()
