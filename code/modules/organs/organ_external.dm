@@ -1040,7 +1040,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if (!force_skintone)
 				force_icon = R.icon
 		if(R.lifelike)
-			limb_flags |= ORGAN_LIFELIKE
+			status |= ORGAN_LIFELIKE
 			name = "[initial(name)]"
 		else
 			name = "[R.company] [initial(name)]"
@@ -1196,9 +1196,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		. += "tear at [amputation_point] so severe that it hangs by a scrap of flesh"
 	//Handle robotic and synthetic organ damage
 	if(status & ORGAN_ASSISTED)
-		var/LL //Life-Like, aka only show that it's robotic in heavy damage
-		if(robotic >= ORGAN_LIFELIKE)
-			LL = 1
+		var/LL = status & ORGAN_LIFELIKE
 		if(brute_dam)
 			switch(brute_dam)
 				if(0 to 20)

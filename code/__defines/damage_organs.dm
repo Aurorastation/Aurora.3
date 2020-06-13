@@ -36,15 +36,15 @@
 #define ORGAN_BROKEN     (1<<2)
 #define ORGAN_DESTROYED  (1<<3)
 #define ORGAN_ROBOT      (1<<4)
-#define ORGAN_LIFELIKE   (1<<5)   // Robotic, made to appear organic.
-#define ORGAN_SPLINTED   (1<<6)
-#define ORGAN_DEAD       (1<<7)
-#define ORGAN_MUTATED    (1<<8)
-#define ORGAN_ASSISTED   (1<<9)
-#define ORGAN_ADV_ROBOT  (1<<10)
-#define ORGAN_PLANT      (1<<11)
-#define ORGAN_ARTERY_CUT (1<<12)
-#define ORGAN_TENDON_CUT (1<<13)
+#define ORGAN_SPLINTED   (1<<5)
+#define ORGAN_DEAD       (1<<6)
+#define ORGAN_MUTATED    (1<<7)
+#define ORGAN_ASSISTED   (1<<8)
+#define ORGAN_ADV_ROBOT  (1<<9)
+#define ORGAN_PLANT      (1<<10)
+#define ORGAN_ARTERY_CUT (1<<11)
+#define ORGAN_TENDON_CUT (1<<12)
+#define ORGAN_LIFELIKE   (1<<13)   // Robotic, made to appear organic.
 
 // Limb behaviour defines.
 #define ORGAN_CAN_AMPUTATE (1<<0) //Can this organ be amputated?
