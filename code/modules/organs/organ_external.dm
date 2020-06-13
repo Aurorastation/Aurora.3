@@ -1040,13 +1040,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 			if (!force_skintone)
 				force_icon = R.icon
 		if(R.lifelike)
-			robotic = ORGAN_LIFELIKE
+			limb_flags |= ORGAN_LIFELIKE
 			name = "[initial(name)]"
 		else
 			name = "[R.company] [initial(name)]"
 			desc = "[R.desc]"
-		if(R.paintable)
-			painted = 1
+			if(R.paintable)
+				painted = 1
 
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
