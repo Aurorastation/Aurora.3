@@ -1169,14 +1169,14 @@ var/list/admin_verbs_cciaa = list(
 	target.do_wipe_core()
 
 /client/proc/end_round()
-	set name = "zEnd Roundz"
+	set name = "End Round"
 	set desc = "This button will end the round."
 	set category = "Server"
 
 	if(!check_rights(R_ADMIN))
 		return
 
-	if(alert("Are you sure you want to end the round?", "Confirm Round End", "No", "No", "Yes") != "Yes")
+	if(alert(usr, "Are you sure you want to end the round?", "Confirm Round End", "No", "Yes") != "Yes")
 		return
 
 	log_and_message_admins("has ended the round with the End Round button.")
