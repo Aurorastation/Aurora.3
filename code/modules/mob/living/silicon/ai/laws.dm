@@ -10,7 +10,9 @@
 		who = world
 	else
 		who = src
-		to_chat(who, "<b>Obey these laws:</b>")
+		to_chat(src, "<b>Obey these laws:</b>")
+		if(vr_mob)
+			to_chat(vr_mob, "<b>Obey these laws:</b>")
 
 	src.laws_sanity_check()
 	src.laws.show_laws(who)
