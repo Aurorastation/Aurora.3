@@ -1,6 +1,7 @@
 /obj/machinery/meter
 	name = "meter"
 	desc = "It measures something."
+	desc_info = "Measures the volume and temperature of the pipe under the meter."
 	icon = 'icons/obj/meter.dmi'
 	icon_state = "meterX"
 	var/obj/machinery/atmospherics/pipe/target = null

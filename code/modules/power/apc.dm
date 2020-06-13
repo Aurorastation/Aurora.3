@@ -72,9 +72,16 @@
 /obj/machinery/power/apc
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
+	desc_info = "An APC (Area Power Controller) regulates and supplies backup power for the area they are in. Their power channels are divided \
+	out into 'environmental' (Items that manipulate airflow and temperature), 'lighting' (the lights), and 'equipment' (Everything else that consumes power).  \
+	Power consumption and backup power cell charge can be seen from the interface, further controls (turning a specific channel on, off or automatic, \
+	toggling the APC's ability to charge the backup cell, or toggling power for the entire area via master breaker) first requires the interface to be unlocked \
+	with an ID with Engineering access or by one of the station's robots or the artificial intelligence."
+	desc_antag = "This can be emagged to unlock it.  It will cause the APC to have a blue error screen. \
+	Wires can be pulsed remotely with a signaler attached to it.  A powersink will also drain any APCs connected to the same wire the powersink is on."
 
 	icon_state = "apc0"
-	anchored = 1
+	anchored = TRUE
 	use_power = 0
 	req_access = list(access_engine_equip)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
@@ -93,14 +100,14 @@
 	var/lighting = 3
 	var/equipment = 3
 	var/environ = 3
-	var/infected = 0
-	var/operating = 1
-	var/charging = 0
+	var/infected = FALSE
+	var/operating = TRUE
+	var/charging = FALSE
 	var/chargemode = 1
 	var/chargecount = 0
-	var/locked = 1
-	var/coverlocked = 1
-	var/aidisabled = 0
+	var/locked = TRUE
+	var/coverlocked = TRUE
+	var/aidisabled = FALSE
 	var/obj/machinery/power/terminal/terminal = null
 	var/lastused_light = 0
 	var/lastused_equip = 0
@@ -110,7 +117,7 @@
 	var/lastused_total = 0
 	var/main_status = 0
 	var/mob/living/silicon/ai/hacker = null // Malfunction var. If set AI hacked the APC and has full control.
-	var/wiresexposed = 0
+	var/wiresexposed = FALSE
 	powernet = 0		// set so that APCs aren't found as powernet nodes //Hackish, Horrible, was like this before I changed it :c
 	var/debug = 0
 	var/autoflag= 0		// 0 = off, 1= eqp and lights off, 2 = eqp off, 3 = all on.

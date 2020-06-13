@@ -88,6 +88,8 @@
 		"Your scales bristle against the cold."
 		)
 
+	pain_messages = list("It hurts so much", "You really need some painkillers", "Ancestors, it hurts")
+
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 
 	allowed_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_DOMINIA, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI)

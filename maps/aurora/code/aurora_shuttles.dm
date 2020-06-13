@@ -238,7 +238,6 @@ AURORA_ESCAPE_POD(3)
 	destination_tags = list(
 		"nav_skipjack_start",
 		"nav_skipjack_surface",
-		"nav_skipjack_above",
 		"nav_skipjack_under",
 		"nav_skipjack_caverns",
 		"nav_skipjack_pool"
@@ -299,7 +298,6 @@ AURORA_ESCAPE_POD(3)
 		"nav_merc_dock",
 		"nav_merc_start",
 		"nav_merc_surface",
-		"nav_merc_above",
 		"nav_merc_under",
 		"nav_merc_caverns"
 		)

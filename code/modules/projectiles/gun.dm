@@ -8,6 +8,7 @@
 /datum/firemode
 	var/name = "default"
 	var/list/settings = list()
+	var/list/original_settings
 
 /datum/firemode/New(obj/item/gun/gun, list/properties = null)
 	..()
@@ -24,13 +25,26 @@
 			settings[propname] = propvalue
 
 /datum/firemode/proc/apply_to(obj/item/gun/gun)
+	LAZYINITLIST(original_settings)
+
 	for(var/propname in settings)
+		original_settings[propname] = gun.vars[propname]
 		gun.vars[propname] = settings[propname]
+
+/datum/firemode/proc/unapply_to(obj/item/gun/gun)
+	if (LAZYLEN(original_settings))
+		for (var/propname in original_settings)
+			gun.vars[propname] = original_settings[propname]
+
+		LAZYCLEARLIST(original_settings)
+		original_settings = null
 
 //Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
+	desc_info = "This is a gun.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire."
 	icon = 'icons/obj/guns/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
@@ -265,7 +279,7 @@
 			to_chat(user, span("warning","\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = (burst - 1)* burst_delay
+	var/shoot_time = (burst - 1) * burst_delay
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
@@ -292,7 +306,10 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, TRUE)
+			var/show_emote = TRUE
+			if(i > 1 && burst_delay < 3 && burst < 5)
+				show_emote = FALSE
+			handle_post_fire(user, target, pointblank, reflex, show_emote)
 			update_icon()
 
 		if(i < burst)
@@ -305,10 +322,9 @@
 	update_held_icon()
 
 	//update timing
-	var/delay = min(max(burst_delay+1, fire_delay), DEFAULT_QUICK_COOLDOWN)
-	if(delay)
-		user.setClickCooldown(delay)
-	next_fire_time = world.time + fire_delay
+	var/delay = max(burst_delay+1, fire_delay)
+	user.setClickCooldown(min(delay, DEFAULT_QUICK_COOLDOWN))
+	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -379,8 +395,8 @@
 
 //called if there was no projectile to shoot
 /obj/item/gun/proc/handle_click_empty(mob/user)
-	if (user)
-		user.visible_message("*click click*", span("danger","*click*"))
+	if(user)
+		to_chat(user, span("danger","*click*"))
 	else
 		src.visible_message("*click click*")
 	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
@@ -395,14 +411,14 @@
 		if(playemote)
 			if(reflex)
 				user.visible_message(
-					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!"),
+					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
 					"You hear a [fire_sound_text]!"
 				)
 			else
 				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
+					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
 					"You hear a [fire_sound_text]!"
 				)
 
@@ -583,6 +599,9 @@
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
 		return null
+
+	var/datum/firemode/old_mode = firemodes[sel_mode]
+	old_mode.unapply_to(src)
 
 	sel_mode++
 	if(sel_mode > firemodes.len)

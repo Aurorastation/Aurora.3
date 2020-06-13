@@ -112,7 +112,10 @@
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
-	icon_state = "helmet_tac"
+	icon = 'icons/clothing/kit/heavy_armor.dmi'
+	item_state = "helmet"
+	icon_state = "helmet"
+	contained_sprite = TRUE
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 

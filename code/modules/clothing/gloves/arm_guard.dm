@@ -35,3 +35,13 @@
 	name = "riot arm guards"
 	desc = "These arm guards will protect your hands and arms from close combat weapons."
 	armor = list(melee = 80, bullet = 20, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
+
+/obj/item/clothing/gloves/arm_guard/mercs
+	name = "heavy arm guards"
+	desc = "These arm guards will protect your hands and arms from harm."
+	icon = 'icons/clothing/kit/heavy_armor.dmi'
+	item_state = "armguards"
+	icon_state = "armguards"
+	contained_sprite = TRUE
+	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	species_restricted = null

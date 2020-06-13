@@ -1,6 +1,8 @@
 /obj/machinery/pipedispenser
-	name = "Pipe Dispenser"
+	name = "pipe dispenser"
 	icon = 'icons/obj/stationobjs.dmi'
+	desc_info = "This can be moved by using a wrench.  You will need to wrench it again when you want to use it.  You can put \
+	excess (atmospheric) pipes into the dispenser, as well.  The dispenser requires electricity to function."
 	icon_state = "pipe_d"
 	density = 1
 	anchored = 1
