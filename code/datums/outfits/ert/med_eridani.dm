@@ -18,13 +18,14 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/firstaid/regular = 2,
+		/obj/item/storage/firstaid/regular = 1,
 		/obj/item/storage/firstaid/surgery = 1,
 		/obj/item/storage/box/gloves = 1,
 		/obj/item/storage/box/syringes = 1,
 		/obj/item/device/flashlight/pen = 1,
-		/obj/item/gun/energy/pistol = 1,
-		/obj/item/clothing/accessory/holster/armpit = 1
+		/obj/item/clothing/accessory/holster/armpit = 1,
+		/obj/item/gun/projectile/automatic/x9 = 1,
+		/obj/item/ammo_magazine/c45x = 2
 	)
 
 	belt_contents = list(
@@ -92,9 +93,10 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/storage/firstaid/adv = 2,
+		/obj/item/storage/firstaid/adv = 1,
 		/obj/item/storage/firstaid/o2 = 1,
 		/obj/item/storage/box/syringes = 1,
-		/obj/item/gun/energy/pistol = 1,
-		/obj/item/clothing/accessory/holster/armpit = 1
+		/obj/item/clothing/accessory/holster/armpit = 1,
+		/obj/item/gun/projectile/automatic/x9 = 1,
+		/obj/item/ammo_magazine/c45x = 2
 	)
