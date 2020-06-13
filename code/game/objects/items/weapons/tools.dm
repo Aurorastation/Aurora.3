@@ -706,32 +706,30 @@
 	var/current_tool = 1
 
 /obj/item/combitool/Initialize()
-	desc = "[initial(desc)] ([tools.len]. [tools.len] possibilit[tools.len == 1 ? "y" : "ies"])"
+	desc = "[initial(desc)] It has [tools.len] possibilit[tools.len == 1 ? "y" : "ies"]."
 	for(var/tool in tools)
-		tools[tool] = image('icons/obj/tools.dmi', icon_state = tool)
+		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
 
 /obj/item/combitool/examine(var/mob/user)
 	. = ..()
 	if(. && tools.len)
-		to_chat(user, "It has the following fittings:")
-		for(var/tool in tools)
-			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
 
 /obj/item/combitool/iswrench()
-	return tools[current_tool] == "wrench"
+	return current_tool == "wrench"
 
 /obj/item/combitool/isscrewdriver()
-	return tools[current_tool] == "screwdriver"
+	return current_tool == "screwdriver"
 
 /obj/item/combitool/iswirecutter()
-	return tools[current_tool] == "wirecutters"
+	return current_tool == "wirecutters"
 
 /obj/item/combitool/iscrowbar()
-	return tools[current_tool] == "crowbar"
+	return current_tool == "crowbar"
 
 /obj/item/combitool/ismultitool()
-	return tools[current_tool] == "multitool"
+	return current_tool == "multitool"
 
 /obj/item/combitool/proc/update_tool()
 	icon_state = "[initial(icon_state)]-[current_tool]"
