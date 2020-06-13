@@ -9,7 +9,7 @@
 	var/total_damage = 0
 	var/brute_damage = 0
 	var/burn_damage = 0
-	var/max_damage = 60
+	var/max_damage = 120
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
@@ -121,7 +121,7 @@
 		to_chat(user, "<span class='warning'>Turn \the [WT] on, first.</span>")
 		return
 	if(WT.remove_fuel(0, user))
-		var/repair_value = 15
+		var/repair_value = 30
 		if(brute_damage)
 			repair_brute_damage(repair_value)
 			to_chat(user, "<span class='notice'>You mend the damage to \the [src].</span>")
@@ -145,7 +145,7 @@
 		if(QDELETED(CC) || QDELETED(src) || !CC.use(needed_amount))
 			return
 
-		repair_burn_damage(25)
+		repair_burn_damage(50)
 		to_chat(user, "<span class='notice'>You mend the damage to \the [src]'s wiring.</span>")
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 25, 1)
 	return
