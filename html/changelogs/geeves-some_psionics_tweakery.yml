@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Blindstrike now has the correct radius."
+  - tweak: "Psi Ping now doesn't shift the psi images when you move."
+  - rscadd: "Mend now properly says that you need to target a specific bodypart to mend it in its description."
