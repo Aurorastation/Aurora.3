@@ -121,3 +121,8 @@
 	name = "Mounted Rapid-Entry System"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	build_path = /obj/item/mecha_equipment/quick_enter
+
+/datum/design/item/mechfab/exosuit_equipment/drill_mover
+	name = "Mounted Drill Loader System"
+	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	build_path = /obj/item/mecha_equipment/drill_mover

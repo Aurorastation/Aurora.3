@@ -1,0 +1,6 @@
+author: Geeves, sprites by Wezzy
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a back-mounted drill loader, an exosuit equipment that can take mining drills and their braces and deploy them elsewhere. Even if they're active and anchored."

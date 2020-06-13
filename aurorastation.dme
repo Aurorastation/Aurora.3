@@ -1591,6 +1591,7 @@
 #include "code\modules\heavy_vehicle\equipment\combat.dm"
 #include "code\modules\heavy_vehicle\equipment\engineering.dm"
 #include "code\modules\heavy_vehicle\equipment\medical.dm"
+#include "code\modules\heavy_vehicle\equipment\mining.dm"
 #include "code\modules\heavy_vehicle\equipment\utility.dm"
 #include "code\modules\heavy_vehicle\interface\_interface.dm"
 #include "code\modules\heavy_vehicle\interface\screen_objectsa.dm"
