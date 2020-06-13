@@ -53,6 +53,11 @@ Contains:
 			to_chat(user, "<span class='warning'>This isn't useful at all on a robotic limb.</span>")
 			return 1
 
+		if(affecting.status & ORGAN_LIFELIKE)
+			to_chat(user, "<span class='warning'>You apply the [src], but it doesn't seem to have any effect...</span>")
+			use(1)
+			return 1
+
 		H.UpdateDamageIcon()
 
 	else

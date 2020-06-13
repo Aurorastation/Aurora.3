@@ -18,6 +18,7 @@ var/global/datum/robolimb/basic_robolimb
 	var/desc = "A generic unbranded robotic prosthesis." // Seen when examining a limb.
 	var/icon = 'icons/mob/human_races/ipc/robotic.dmi'       // Icon base to draw from.
 	var/unavailable_at_chargen                           // If set, not available at chargen.
+	var/lifelike                                         // If set, appears organic.
 	var/list/species_can_use = list(
 		"Human",
 		"Skrell",
@@ -97,6 +98,7 @@ var/global/datum/robolimb/basic_robolimb
 	species_can_use = list("Human")
 	linked_frame = "Shell Frame"
 	fabricator_available = TRUE
+	lifelike = 1
 
 /datum/robolimb/autakh
 	company = PROSTHETIC_AUTAKH

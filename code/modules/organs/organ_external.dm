@@ -1039,10 +1039,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(R)
 			if (!force_skintone)
 				force_icon = R.icon
+		if(R.lifelike)
+			robotic = ORGAN_LIFELIKE
+			name = "[initial(name)]"
+		else
 			name = "[R.company] [initial(name)]"
 			desc = "[R.desc]"
-			if(R.paintable)
-				painted = 1
+		if(R.paintable)
+			painted = 1
 
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
@@ -1190,14 +1194,17 @@ Note that amputating the affected organ does in fact remove the infection from t
 	. = ""
 	if(status & ORGAN_DESTROYED && !is_stump())
 		. += "tear at [amputation_point] so severe that it hangs by a scrap of flesh"
-
+	//Handle robotic and synthetic organ damage
 	if(status & ORGAN_ASSISTED)
+		var/LL //Life-Like, aka only show that it's robotic in heavy damage
+		if(robotic >= ORGAN_LIFELIKE)
+			LL = 1
 		if(brute_dam)
 			switch(brute_dam)
 				if(0 to 20)
-					. += " some dents"
+					. += " some [LL ? pick ("cuts","bruises","scars") : "dents"]"
 				if(21 to INFINITY)
-					. += pick(" a lot of dents"," severe denting")
+					. += " [LL ? pick("exposed wiring","torn-back synthflesh") : pick("a lot of dents","severe denting")]"
 		if(brute_dam && burn_dam)
 			. += " and"
 		if(burn_dam)
@@ -1205,7 +1212,15 @@ Note that amputating the affected organ does in fact remove the infection from t
 				if(0 to 20)
 					. += " some burns"
 				if(21 to INFINITY)
-					. += pick(" a lot of burns"," severe melting")
+					. += "[LL ? pick("roasted synth-flesh","melted internal wiring") : pick("many burns","scorched metal")]"
+		if(open)
+			if(brute_dam || burn_dam)
+				. += " and "
+			if(open == 1)
+				. += "some exposed screws"
+			else
+				. += "an open panel"
+
 		return
 
 	var/list/wound_descriptors = list()
