@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "EMPs now do less damage against robotic and assisted organs."
+  - tweak: "EMPs now does slightly less against IPCs, flooring them for only around a second, but applies a monotone colour filter for some time."

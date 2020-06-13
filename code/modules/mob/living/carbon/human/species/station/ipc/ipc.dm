@@ -136,7 +136,6 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
 		else
 			return 1
-
 	return 0
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)

@@ -58,6 +58,9 @@
 	client_color = list(0.33,0.33,0.33, 0.33,0.33,0.33, 0.33,0.33,0.33)
 	priority = INFINITY
 
+/datum/client_color/monochrome/damage
+	// this is a client color to represent colour fading, which is why it has to be seperate
+
 /datum/client_color/deuteranopia
 	client_color = list(0.47,0.38,0.15, 0.54,0.31,0.15, 0,0.3,0.7)
 	priority = 100

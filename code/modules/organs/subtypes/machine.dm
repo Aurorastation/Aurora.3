@@ -75,13 +75,15 @@
 	..()
 	if(emp_counter)
 		emp_counter--
+		if(!emp_counter)
+			owner.remove_client_color(/datum/client_color/monochrome/damage)
 
 /obj/item/organ/internal/cell/emp_act(severity)
-	emp_counter += 30/severity
-	if(emp_counter >= 30)
-		owner.Paralyse(emp_counter/6)
-		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
-
+	emp_counter += 10 / severity
+	owner.add_client_color(/datum/client_color/monochrome/damage)
+	if(emp_counter >= 25)
+		owner.Paralyse(5)
+		to_chat(owner, SPAN_DANGER("%#/ERR: Power leak detected!$%^/"))
 
 /obj/item/organ/internal/surge
 	name = "surge preventor"
