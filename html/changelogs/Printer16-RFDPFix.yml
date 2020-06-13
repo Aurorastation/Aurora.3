@@ -1,7 +1,0 @@
-
-author: Printer16
-
-delete-after: True
-
-changes:
-  - bugfix: "The RFD-P can now be used more than once."
