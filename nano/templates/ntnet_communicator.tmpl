@@ -10,7 +10,7 @@
 		{{:data.title}}
 	</div>
 	<div class="itemLabel">
-		Operator access: 
+		Operator access:
 	</div>
 	<div class="itemContent">
 		{{if data.is_operator}}
@@ -20,18 +20,12 @@
 		{{/if}}
 	</div>
 	<div class="itemLabel">
-		Chat Controls: 
+		Chat Controls:
 	</div>
 	<div class="itemContent">
 		<table>
 			<tr><td>{{:helper.link("Return to channel list", null, {'PRG_backtomain' : 1})}}
-			<tr><td>{{:helper.link("Direct message", null, {'PRG_directmessage' : 1})}}
-			<tr><td>{{:helper.link("Change nickname", null, {'PRG_changename' : 1})}}
 			<tr><td>{{:helper.link("Toggle administration mode", null, {'PRG_toggleadmin' : 1})}}
-			{{if !data.is_direct}}
-			<tr><td>{{:helper.link("Leave channel", null, {'PRG_leavechannel' : 1})}}
-			{{/if}}
-			<tr><td>{{:helper.link("Save log to local drive", null, {'PRG_savelog' : 1})}}
 			{{if data.is_operator}}
 				<tr><td>{{:helper.link("Rename channel", null, {'PRG_renamechannel' : 1})}}
 				<tr><td>{{:helper.link("Set password", null, {'PRG_setpassword' : 1})}}
@@ -47,29 +41,9 @@
 		{{/if}}
 		<br>
 	{{/for}}
-	<b>Chat Window</b>
-        <div class="statusDisplay" style="overflow: auto;">
-		<div class="item">
-			<div class="itemContent" style="width: 100%;">
-				{{for data.messages}}
-					{{:value.msg}}<br>
-				{{/for}}
-			</div>
-		</div>
-        </div>	
-	<div class="itemLabel">
-		Messaging: 
-	</div>
-	<div class="itemContent">
-		<table>
-			<tr><td>{{:helper.link("Send message", null, {'PRG_speak' : 1})}}</td></tr>
-		</table>
-	</div>
 {{else}}
 	<b>Controls:</b>
 	<table>
-		<tr><td>{{:helper.link("Direct message", null, {'PRG_directmessage' : 1})}}
-		<tr><td>{{:helper.link("Change nickname", null, {'PRG_changename' : 1})}}
 		<tr><td>{{:helper.link("New Channel", null, {'PRG_newchannel' : 1})}}
 		<tr><td>{{:helper.link("Toggle Administration Mode", null, {'PRG_toggleadmin' : 1})}}
 	</table>

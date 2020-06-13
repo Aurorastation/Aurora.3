@@ -386,3 +386,16 @@
 			to_chat(user, message)
 		return
 	visible_message(message, range = message_range)
+
+/obj/item/modular_computer/hear_talk(mob/M, text, verb, datum/language/speaking)
+	if(Adjacent(M) && hard_drive)
+		var/datum/computer_file/program/communicator/P = hard_drive.find_file_by_name("communi")
+		if(P.program_state != PROGRAM_STATE_KILLED && P.channel)
+			var/speaker_name = M.name
+			if(ishuman(M))
+				var/mob/living/carbon/human/H = M
+				speaker_name = H.GetVoice()
+			for(var/datum/computer_file/program/communicator/C in P.channel.clients)
+				if(C == P)
+					continue
+				C.computer.output_message(FONT_SMALL("[speaker_name] [verb], \"[text]\""), 0)
