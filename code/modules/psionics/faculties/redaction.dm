@@ -179,7 +179,7 @@
 			if(G.mind && G.mind.current == target && G.client)
 				to_chat(G, FONT_LARGE(SPAN_NOTICE("<b>Your body has been revived, <b>Re-Enter Corpse</b> to return to it.</b>")))
 				break
-		to_chat(target, FONT_LARGE(SPAN_NOTICE("<font size = 3><b>Life floods back into your body!</b>")))
+		to_chat(target, FONT_LARGE(SPAN_NOTICE("<b>Life floods back into your body!</b>")))
 		target.visible_message(SPAN_NOTICE("\The [target] shudders violently!"))
 		target.adjustOxyLoss(-rand(15,20))
 		target.basic_revival()
