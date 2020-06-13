@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Shift clicking the up-hint in the top right corner will now indicate any open turfs in a radius around you, as long as it's in your line of sight."
