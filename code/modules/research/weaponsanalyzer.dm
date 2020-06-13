@@ -2,8 +2,8 @@
 	name = "weapons analyzer"
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "weapon_analyzer"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 2000
@@ -22,7 +22,7 @@
 	var/name_of_thing = ""
 	if(item)
 		name_of_thing = item.name
-	to_chat(user, span("notice", "It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
+	to_chat(user, SPAN_NOTICE("It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
 
 /obj/machinery/weapons_analyzer/attackby(var/obj/item/I, var/mob/user as mob)
 	if(!I || !user || !ishuman(user))
@@ -31,19 +31,13 @@
 	var/mob/living/carbon/human/H = user
 
 	if(istype(I, /obj/item/gun))
-
-		if(!check_gun(user))
-			return
-
+		check_swap(user, I)
 		item = I
-
 		H.drop_from_inventory(I)
 		I.forceMove(src)
 		update_icon()
 	else if(istype(I, /obj/item/device/laser_assembly))
-		if(!check_gun(user))
-			return
-
+		check_swap(user, I)
 		var/obj/item/device/laser_assembly/A = I
 		A.ready_to_craft = TRUE
 		item = A
@@ -52,11 +46,8 @@
 		A.analyzer = WEAKREF(src)
 		update_icon()
 	else if(istype(I, /obj/item/laser_components) && istype(item, /obj/item/device/laser_assembly))
-		if(!item)
-			to_chat(user, span("warning", "\The [src] does not have any assembly installed!"))
-			return
 		if(process)
-			to_chat(user, span("warning", "\The [src] is busy installing component!"))
+			to_chat(user, SPAN_WARNING("\The [src] is busy installing a component already."))
 			return
 		var/obj/item/device/laser_assembly/A = item
 		var/success = A.attackby(I, user)
@@ -72,12 +63,13 @@
 		process = TRUE
 		update_icon()
 	else if(I)
+		check_swap(user, I)
 		item = I
 		H.drop_from_inventory(I)
 		I.forceMove(src)
 		update_icon()
 
-/obj/machinery/weapons_analyzer/attack_hand(mob/user as mob)
+/obj/machinery/weapons_analyzer/attack_hand(mob/user)
 	user.set_machine(src)
 	ui_interact(user)
 
@@ -85,11 +77,17 @@
 	process = FALSE
 	update_icon()
 
-/obj/machinery/weapons_analyzer/proc/check_gun(var/mob/user)
+/obj/machinery/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
 	if(item)
-		to_chat(user, span("warning", "\The [src] already has \the [item] mounted. Remove it first."))
-		return FALSE
-	return TRUE
+		to_chat(user, SPAN_NOTICE("You swap \the [item] out for \the [I]."))
+		if(istype(item, /obj/item/device/laser_assembly))
+			var/obj/item/device/laser_assembly/A = item
+			A.ready_to_craft = FALSE
+			A.analyzer = null
+		item.forceMove(get_turf(src))
+		user.put_in_hands(item)
+		item = null
+		update_icon()
 
 /obj/machinery/weapons_analyzer/verb/eject()
 	set name = "Eject Inserted Item"
