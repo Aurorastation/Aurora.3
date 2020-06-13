@@ -553,6 +553,7 @@ RFD Piping-Class
 		pipe_dir = NORTHEAST
 	new /obj/item/pipe(T, selected_pipe, pipe_dir)
 
+	working = FALSE
 	playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 	return TRUE
 
