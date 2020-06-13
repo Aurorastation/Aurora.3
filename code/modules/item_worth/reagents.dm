@@ -639,7 +639,7 @@
 /datum/reagent/thermite
 	value = 6
 
-/datum/reagent/space_cleaner
+/datum/reagent/spacecleaner
 	value = 0.7
 
 /datum/reagent/lube

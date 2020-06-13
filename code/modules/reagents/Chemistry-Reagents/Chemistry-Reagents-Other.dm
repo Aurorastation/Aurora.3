@@ -286,7 +286,7 @@
 /datum/reagent/thermite/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustFireLoss(3 * removed)
 
-/datum/reagent/space_cleaner
+/datum/reagent/spacecleaner
 	name = "Space cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	reagent_state = LIQUID
@@ -295,17 +295,17 @@
 	taste_description = "sourness"
 	germ_adjust = 10
 
-/datum/reagent/space_cleaner/touch_obj(var/obj/O)
+/datum/reagent/spacecleaner/touch_obj(var/obj/O)
 	O.clean_blood()
 
-/datum/reagent/space_cleaner/touch_turf(var/turf/T)
+/datum/reagent/spacecleaner/touch_turf(var/turf/T)
 	if(volume >= 1)
 		if(istype(T, /turf/simulated))
 			var/turf/simulated/S = T
 			S.dirt = 0
 		T.clean_blood()
 
-/datum/reagent/space_cleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/spacecleaner/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.r_hand)
 		M.r_hand.clean_blood()
 	if(M.l_hand)

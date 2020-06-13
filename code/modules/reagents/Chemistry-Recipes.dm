@@ -1745,7 +1745,7 @@
 	name = "Garlic Sauce"
 	id = "garlicsauce"
 	result = "garlicsauce"
-	required_reagents = list(/datum/reagent/drink/garlicjuice = 1, /datum/reagent/cornoil = 1)
+	required_reagents = list(/datum/reagent/drink/garlicjuice = 1, /datum/reagent/nutriment/triglyceride/oil/corn = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/cheesewheel
@@ -1779,7 +1779,7 @@
 	name = "Dough"
 	id = "dough"
 	result = null
-	required_reagents = list(/datum/reagent/egg = 3, /datum/reagent/nutriment/flour = 10)
+	required_reagents = list(/datum/reagent/nutriment/protein/egg = 3, /datum/reagent/nutriment/flour = 10)
 	inhibitors = list("water" = 1, "beer" = 1) //To prevent it messing with batter recipes
 	result_amount = 1
 
@@ -1820,14 +1820,14 @@
 	name = "Batter"
 	id = "batter"
 	result = "batter"
-	required_reagents = list(/datum/reagent/egg = 3, /datum/reagent/nutriment/flour = 10, /datum/reagent/water = 5, /datum/reagent/sodiumchloride = 2)
+	required_reagents = list(/datum/reagent/nutriment/protein/egg = 3, /datum/reagent/nutriment/flour = 10, /datum/reagent/water = 5, /datum/reagent/sodiumchloride = 2)
 	result_amount = 20
 
 /datum/chemical_reaction/coating/beerbatter
 	name = "Beer Batter"
 	id = "beerbatter"
 	result = "beerbatter"
-	required_reagents = list(/datum/reagent/egg = 3, /datum/reagent/nutriment/flour = 10, /datum/reagent/alcohol/ethanol/beer = 5, /datum/reagent/sodiumchloride = 2)
+	required_reagents = list(/datum/reagent/nutriment/protein/egg = 3, /datum/reagent/nutriment/flour = 10, /datum/reagent/alcohol/ethanol/beer = 5, /datum/reagent/sodiumchloride = 2)
 	result_amount = 20
 
 /datum/chemical_reaction/browniemix
@@ -1931,7 +1931,7 @@
 	name = "Butanol"
 	id = "butanol"
 	result = "butanol"
-	required_reagents = list(/datum/reagent/cornoil = 10, /datum/reagent/sugar = 10)
+	required_reagents = list(/datum/reagent/nutriment/triglyceride/oil/corn = 10, /datum/reagent/sugar = 10)
 	catalysts = list("enzyme" = 5)
 	result_amount = 5
 
@@ -1979,7 +1979,7 @@
 	name = "Space Beer"
 	id = "spacebeer"
 	result = "beer"
-	required_reagents = list(/datum/reagent/cornoil = 10)
+	required_reagents = list(/datum/reagent/nutriment/triglyceride/oil/corn = 10)
 	catalysts = list("enzyme" = 5)
 	result_amount = 10
 
@@ -2952,7 +2952,7 @@
 	name = "Mountain Marauder"
 	id = "mountain_marauder"
 	result = "mountain_marauder"
-	required_reagents = list(/datum/reagent/adhomai_milk = 1, /datum/reagent/victorygin = 1)
+	required_reagents = list(/datum/reagent/drink/milk/adhomai = 1, /datum/reagent/victorygin = 1)
 	result_amount = 2
 
 //Kaed's Unathi cocktails
@@ -3078,7 +3078,7 @@
 	name = "The Third Incident"
 	id = "thirdincident"
 	result = "thirdincident"
-	required_reagents = list(/datum/reagent/egg = 3, /datum/reagent/alcohol/ethanol/bluecuracao = 10, /datum/reagent/drink/grapejuice = 10)
+	required_reagents = list(/datum/reagent/nutriment/protein/egg = 3, /datum/reagent/alcohol/ethanol/bluecuracao = 10, /datum/reagent/drink/grapejuice = 10)
 	result_amount = 20
 
 /datum/chemical_reaction/drink/upsidedowncup

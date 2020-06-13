@@ -245,7 +245,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/tobacco,10)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,10)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,5) // 2/3 ratio, Adds 0.03 units per second
 
 
@@ -302,7 +302,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/vanilla/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobacco,15)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,15)
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	burn_rate = 0.015
@@ -310,7 +310,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/acmeco/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobacco,5)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,5)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,5)
 	reagents.add_reagent(/datum/reagent/lexorin,2)
 	reagents.add_reagent(/datum/reagent/serotrotium,3)
@@ -328,7 +328,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobacco,5)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,5)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,10)
 
 /obj/item/clothing/mask/smokable/cigarette/nicotine
@@ -336,7 +336,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/nicotine/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobaccofine,5)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/rich,5)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,10)
 
 /obj/item/clothing/mask/smokable/cigarette/rugged
@@ -344,7 +344,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/rugged/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobaccobad,10)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/fake,10)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,5)
 
 /obj/item/clothing/mask/smokable/cigarette/pra
@@ -352,7 +352,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/pra/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobacco,5)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,5)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,5)
 
 ////////////
@@ -380,7 +380,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/cigar/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobaccorich,25)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/rich,25)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,5) // 1/5 Ratio
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana
@@ -395,7 +395,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobaccorich,15)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/rich,15)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,5) // 1/6 Ratio
 	reagents.add_reagent(/datum/reagent/tricordrazine,10)
 
@@ -411,7 +411,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent(/datum/reagent/tobaccorich,30)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/rich,30)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,10) //1/6 Ratio
 	reagents.add_reagent(/datum/reagent/tricordrazine,20)
 

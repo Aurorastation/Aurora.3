@@ -160,10 +160,7 @@
 	volume = 40
 	safety = 1
 	hitsound = "swing_hit"
-
-/obj/item/reagent_containers/spray/pepper/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/capsaicin/condensed, 40)
+	reagents_to_add = list(/datum/reagent/capsaicin/condensed = 40)
 
 /obj/item/reagent_containers/spray/pepper/examine(mob/user)
 	if(..(user, 1))
@@ -193,9 +190,7 @@
 	possible_transfer_amounts = null
 	volume = 10
 
-/obj/item/reagent_containers/spray/waterflower/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/water, 10)
+	reagents_to_add = list(/datum/reagent/water = 10)
 
 /obj/item/reagent_containers/spray/chemsprayer
 	name = "chem sprayer"
@@ -257,9 +252,7 @@
 	item_state = "plantbgone"
 	volume = 100
 
-/obj/item/reagent_containers/spray/plantbgone/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/plantbgone, 100)
+	reagents_to_add = list(/datum/reagent/toxin/plantbgone = 100)
 
 /obj/item/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity) return

@@ -394,57 +394,58 @@
 /obj/item/reagent_containers/syringe/norepinephrine
 	name = "Syringe (norepinephrine)"
 	desc = "Contains norepinephrine - used to stabilize patients."
+	reagents_to_add = list(/datum/reagent/norepinephrine = 15)
 
 /obj/item/reagent_containers/syringe/norepinephrine/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/norepinephrine, 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/reagent_containers/syringe/dylovene
 	name = "Syringe (dylovene)"
 	desc = "Contains anti-toxins."
+	reagents_to_add = list(/datum/reagent/dylovene = 15)
 
 /obj/item/reagent_containers/syringe/dylovene/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/dylovene, 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/reagent_containers/syringe/antibiotic
 	name = "Syringe (thetamycin)"
 	desc = "Contains antibiotics."
+	reagents_to_add = list(/datum/reagent/thetamycin = 15)
 
 /obj/item/reagent_containers/syringe/antibiotic/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/thetamycin, 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
+	reagents_to_add = list(/datum/reagent/toxin/panotoxin = 5, /datum/reagent/mindbreaker = 10)
 
 /obj/item/reagent_containers/syringe/drugs/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/toxin/panotoxin,  5)
-	reagents.add_reagent(/datum/reagent/mindbreaker,  10)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/reagent_containers/syringe/calomel
 	name = "Syringe (calomel)"
 	desc = "Contains purging medicine."
+	reagents_to_add = list(/datum/reagent/calomel = 15)
 
 /obj/item/reagent_containers/syringe/calomel/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/calomel,  15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 
+/obj/item/reagent_containers/syringe/ld50_syringe/chloral
+	reagents_to_add = list(/datum/reagent/chloralhydrate = 60)
+
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/chloralhydrate, 60)
 	mode = SYRINGE_INJECT
 	update_icon()

@@ -301,7 +301,7 @@
 /datum/seed/apple/poison
 	name = "poisonapple"
 	mutants = null
-	chems = list(/datum/reagent/cyanide = list(1,5))
+	chems = list(/datum/reagent/toxin/cyanide = list(1,5))
 
 /datum/seed/apple/gold
 	name = "goldapple"
@@ -516,7 +516,7 @@
 	seed_name = "fly amanita"
 	display_name = "fly amanita mushrooms"
 	mutants = list("destroyingangel","plastic","panocelium")
-	chems = list(/datum/reagent/nutriment = list(1), /datum/reagent/amatoxin = list(3,3), /datum/reagent/psilocybin = list(1,25))
+	chems = list(/datum/reagent/nutriment = list(1), /datum/reagent/toxin/amatoxin = list(3,3), /datum/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/setup_traits()
 	..()
@@ -534,7 +534,7 @@
 	seed_name = "destroying angel"
 	display_name = "destroying angel mushrooms"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/amatoxin = list(13,3), /datum/reagent/psilocybin = list(1,25))
+	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/toxin/amatoxin = list(13,3), /datum/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/death/setup_traits()
 	..()
@@ -790,7 +790,7 @@
 	name = "corn"
 	seed_name = "corn"
 	display_name = "ears of corn"
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/cornoil = list(1,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/nutriment/triglyceride/oil/corn = list(1,10))
 	kitchen_tag = "corn"
 	trash_type = /obj/item/corncob
 
@@ -1151,7 +1151,7 @@
 	name = "shand"
 	seed_name = "S'Rendarr's hand"
 	display_name = "S'Rendarr's hand leaves"
-	chems = list(/datum/reagent/tobacco = list(1,5), /datum/reagent/bicaridine = list(3,5), /datum/reagent/mental/nicotine = list(1,3))
+	chems = list(/datum/reagent/toxin/tobacco = list(1,5), /datum/reagent/bicaridine = list(3,5), /datum/reagent/mental/nicotine = list(1,3))
 	kitchen_tag = "shand"
 
 /datum/seed/shand/setup_traits()
@@ -1211,7 +1211,7 @@
 	name = "nifberries"
 	seed_name = "dirt berries"
 	display_name = "dirt berries shrub"
-	chems = list(/datum/reagent/nutriment = list(0,15), /datum/reagent/oil = list(1,5))
+	chems = list(/datum/reagent/nutriment = list(0,15), /datum/reagent/nutriment/triglyceride/oil = list(1,5))
 	kitchen_tag = "nifberries"
 
 /datum/seed/nifberries/setup_traits()
@@ -1235,7 +1235,7 @@
 	seed_name = "tobacco"
 	display_name = "tobacco leaves"
 	mutants = list("finetobacco", "puretobacco", "badtobacco")
-	chems = list(/datum/reagent/tobacco = list(1,10))
+	chems = list(/datum/reagent/toxin/tobacco = list(1,10))
 
 /datum/seed/tobacco/New()
 	..()
@@ -1255,7 +1255,7 @@
 	name = "finetobacco"
 	seed_name = "fine tobacco"
 	display_name = "fine tobacco leaves"
-	chems = list(/datum/reagent/tobaccofine = list(1,10))
+	chems = list(/datum/reagent/toxin/tobacco/rich = list(1,10))
 
 /datum/seed/tobacco/finetobacco/New()
 	..()
@@ -1283,7 +1283,7 @@
 	seed_name = "low-grade tobacco"
 	display_name = "low-grade tobacco leaves"
 	mutants = list("tobacco")
-	chems = list(/datum/reagent/tobaccobad = list(1,10))
+	chems = list(/datum/reagent/toxin/tobacco/fake = list(1,10))
 
 /datum/seed/peppercorn
 	name = "peppercorn"

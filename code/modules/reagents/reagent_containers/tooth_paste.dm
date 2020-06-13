@@ -7,10 +7,7 @@
 	possible_transfer_amounts = null
 	amount_per_transfer_from_this = 5
 	volume = 20
-
-/obj/item/reagent_containers/toothpaste/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/drink/toothpaste, 20)
+	reagents_to_add = list(/datum/reagent/drink/toothpaste = 20)
 
 /obj/item/reagent_containers/toothpaste/on_reagent_change()
 	update_icon()

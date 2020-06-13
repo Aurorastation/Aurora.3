@@ -735,34 +735,6 @@
 	M.Weaken(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
 
-/datum/reagent/tobacco
-	name = "Tobacco"
-	description = "Cut and processed tobacco leaves."
-	taste_description = "tobacco"
-	reagent_state = SOLID
-	color = "#684b3c"
-	data = 0
-	scannable = 1
-	var/nicotine = REM * 0.2
-	fallback_specific_heat = 1
-	value = 3
-
-/datum/reagent/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.reagents.add_reagent(/datum/reagent/mental/nicotine)
-
-/datum/reagent/tobacco/fine
-	name = "Fine Tobacco"
-	taste_description = "fine tobacco"
-	data = 0
-	value = 5
-
-/datum/reagent/tobacco/bad
-	name = "Terrible Tobacco"
-	taste_description = "acrid smoke"
-	data = 0
-	value = 0
-
 /datum/reagent/mental/methylphenidate
 	name = "Methylphenidate"
 	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."

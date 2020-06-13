@@ -592,29 +592,30 @@
 	reagent_state = LIQUID
 	color = "#333300"
 	data = 0
-	taste_description = "low-grade tobacco"
+	taste_description = "cheap tobacco"
 	strength = 0.004
 	taste_mult = 10
+	var/nicotine = 0.2
 
-/datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(istype(M))
-		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
-		if(istype(H))
-			H.take_damage(removed * strength * 0.5,1)
-		var/obj/item/organ/L = M.internal_organs_by_name[BP_LUNGS]
-		if(istype(L))
-			L.take_damage(removed * strength,1)
-		var/obj/item/organ/A = M.internal_organs_by_name[BP_LIVER]
-		if(istype(A))
-			A.take_damage(removed * strength * 0.25,1)
+/datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_CARDIOTOXIC, removed*strength*0.5)
+	M.add_chemical_effect(CE_PNEUMOTOXIC, removed*strength)
+	M.add_chemical_effect(CE_HEPATOTOXIC, removed*strength*0.25)
+	M.reagents.add_reagent(/datum/reagent/mental/nicotine, removed * nicotine)
 
 /datum/reagent/toxin/tobacco/rich
 	name = "Earth Tobacco"
-	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than it's space fairing counterpart."
-	reagent_state = LIQUID
-	data = 0
-	taste_description = "quality tobacco"
+	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than its spacefaring counterpart."
+	taste_description = "luxury tobacco"
 	strength = 0.002
+	nicotine = 0.5
+
+/datum/reagent/toxin/tobacco/fake
+	name = "Cheap Tobacco"
+	description = "This actually appears to be mostly ground up leaves masquerading as tobacco. There's maybe some nicotine in there somewhere..."
+	taste_description = "acrid smoke"
+	strength = 0.008
+	nicotine = 0.1
 
 /datum/reagent/toxin/berserk
 	name = "Red Nightshade"
