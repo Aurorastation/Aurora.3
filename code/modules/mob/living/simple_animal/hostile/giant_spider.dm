@@ -33,7 +33,7 @@
 	var/busy = 0
 	pass_flags = PASSTABLE
 	move_to_delay = 6
-	speed = 3
+	speed = 0
 	mob_size = 6
 
 	attack_emote = "skitters toward"
