@@ -224,7 +224,7 @@ Pins Below.
 	fail_message = "<span class='warning'>USER ON STATION LEVEL.</span>"
 
 /obj/item/device/firing_pin/access/pin_auth(mob/living/user)
-	if(!isStationLevel(src.z))
+	if(!isStationLevel(gun.z) && !istype(get_area(), /area/centcom))
 		return TRUE
 	else
 		return FALSE
