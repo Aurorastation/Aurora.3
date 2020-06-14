@@ -151,4 +151,5 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 			if(amt_organ > 0)
 				O.take_damage(amt_organ)
 			else
+				amt_organ *= -1
 				O.heal_damage(amt_organ)
