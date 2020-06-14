@@ -138,6 +138,11 @@
 			else
 				RH.take_damage(30)
 
+/obj/item/gun/projectile/heavysniper/unathi/getAmmo()
+	if(chambered)
+		return 1
+	return 0
+
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
 	desc = "A nonlethal modification to the PTR-7 anti-materiel rifle meant for sedation and capture of the most dangerous of game. Fires .50 cal PPS shells that deploy a torpor inducing drug payload."

@@ -270,7 +270,7 @@
 	projectile_type = /obj/item/projectile/bullet/rifle/slugger
 	caliber = "slugger"
 	icon_state = "slugger-sharp"
-	spent_icon = "slugger-sharp"
+	spent_icon = "slugger-spent"
 
 /obj/item/ammo_casing/gauss
 	name = "tungsten slug"
