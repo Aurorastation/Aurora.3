@@ -1,0 +1,6 @@
+author: Geeves, Sprites by Kyres
+
+delete-after: True
+
+changes: 
+  - imageadd: "Replaced the circular buckler sprite with a more rectangular variant. Also renamed it to selfmade shield."
