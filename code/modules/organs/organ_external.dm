@@ -1039,15 +1039,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 		if(R)
 			if (!force_skintone)
 				force_icon = R.icon
-		if(R.lifelike)
-			status |= ORGAN_LIFELIKE
-			name = "[initial(name)]"
-		else
-			name = "[R.company] [initial(name)]"
-			desc = "[R.desc]"
+			if(R.lifelike)
+				status |= ORGAN_LIFELIKE
+				name = "[initial(name)]"
+			else
+				name = "[R.company] [initial(name)]"
+				desc = "[R.desc]"
 			if(R.paintable)
 				painted = 1
-
 			brute_mod = R.brute_mod
 			burn_mod = R.burn_mod
 			robotize_type = company
@@ -1059,7 +1058,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	unmutate()
 	for (var/obj/item/organ/external/T in children)
 		if(T)
-			T.robotize()
+			T.robotize(company)
 
 /obj/item/organ/external/mechassist()
 	..()
@@ -1196,7 +1195,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 		. += "tear at [amputation_point] so severe that it hangs by a scrap of flesh"
 	//Handle robotic and synthetic organ damage
 	if(status & ORGAN_ASSISTED)
-		var/LL = status && ORGAN_LIFELIKE
+		var/LL = status & ORGAN_LIFELIKE
 		if(brute_dam)
 			switch(brute_dam)
 				if(0 to 20)
