@@ -169,6 +169,10 @@
 					if(do_mob(assailant, affecting, 150))
 						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
 						A.Paralyse(20)
+		else if(istype(affecting, /mob/living/simple_animal))
+			var/mob/living/simple_animal/SA = affecting
+			if(SA.stat != DEAD)
+				SA.health -= 1
 
 	adjust_position()
 
@@ -264,9 +268,9 @@
 		if(!allow_upgrade)
 			return
 		if(!affecting.lying)
-			assailant.visible_message(span("warning", "[assailant] grabs [affecting] aggressively by the hands!"))
+			assailant.visible_message(span("warning", "[assailant] grabs [affecting] aggressively!"))
 		else
-			assailant.visible_message(span("warning", "[assailant] pins [affecting] down to the ground by the hands!"))
+			assailant.visible_message(span("warning", "[assailant] pins [affecting] down to the ground!"))
 			apply_pinning(affecting, assailant)
 
 		state = GRAB_AGGRESSIVE
@@ -276,7 +280,7 @@
 		if(isslime(affecting))
 			to_chat(assailant, span("notice", "You try to squeeze [affecting], but your hands sink right through!"))
 			return
-		assailant.visible_message(span("warning", "[assailant] reinforces \his grip on [affecting]'s neck'!"))
+		assailant.visible_message(span("warning", "[assailant] reinforces \his grip on [affecting]'s neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"

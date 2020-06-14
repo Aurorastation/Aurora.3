@@ -29,6 +29,7 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	resist_mod = 2
 
 	mob_size = 5
 
