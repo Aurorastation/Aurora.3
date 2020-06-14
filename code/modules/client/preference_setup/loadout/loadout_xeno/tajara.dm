@@ -172,13 +172,6 @@
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
-/datum/gear/accessory/partymembership
-	display_name = "honorary party member card"
-	path = /obj/item/clothing/accessory/badge/hadii_card
-	sort_category = "Xenowear - Tajara"
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	flags = GEAR_HAS_DESC_SELECTION
-
 /datum/gear/gloves/shumalia_belt
 	display_name = "hammer buckle belt"
 	description = "A leather belt adorned by a hammer shaped buckle, worn by priesthood and worshippers of Shumaila."
@@ -194,3 +187,47 @@
 	cost = 4
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+
+/datum/gear/accessory/tajaran_card
+	display_name = "tajaran cards, badges and pins selection"
+	path = /obj/item/clothing/accessory/badge/hadii_card
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaran_card/New()
+	..()
+	var/card = list()
+	card["honorary party member card"] = /obj/item/clothing/accessory/badge/hadii_card
+	card["almariist pin"] = /obj/item/clothing/accessory/dpra_badge
+	card["royalist badge"] = /obj/item/clothing/accessory/nka_badge
+	gear_tweaks += new/datum/gear_tweak/path(card)
+
+/datum/gear/tajaran_passports
+	display_name = "adhomian passports selection"
+	path = /obj/item/clothing/accessory/badge/pra_passport
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/tajaran_passports/New()
+	..()
+	var/passports = list()
+	passports["people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/pra_passport
+	passports["democratic people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/dpra_passport
+	passports["new kingdom of adhomai passport"] = /obj/item/clothing/accessory/badge/nka_passport
+	gear_tweaks += new/datum/gear_tweak/path(passports)
+
+/datum/gear/accessory/adhomai_zippo
+	display_name = "adhomian lighter"
+	path = /obj/item/flame/lighter/adhomai
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/adhomai_pocketwatch
+	display_name = "adhomian lighter"
+	path = /obj/item/pocketwatch/adhomai
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
