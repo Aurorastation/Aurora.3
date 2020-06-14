@@ -51,8 +51,8 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 		)
-	icon_state = "screwdriver_preview"
-	item_state = "screwdriver_preview"
+	icon_state = "screwdriver"
+	item_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	force = 8
@@ -80,12 +80,11 @@
 /obj/item/screwdriver/Initialize()
 	. = ..()
 	if(build_from_parts) //random colors!
-		icon_state = "screwdriver"
 		var/our_color = pick(tool_colors)
 		var/color_hex = tool_colors[our_color]
 		color = color_hex
-		item_state = "screwdriver-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
-		add_overlay(overlay_image(icon, "screwdriver_head", flags=RESET_COLOR))
+		item_state = "[initial(icon_state)]-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_head", flags=RESET_COLOR))
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
@@ -129,8 +128,8 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 		)
-	icon_state = "wirecutters_preview"
-	item_state = "wirecutters_preview"
+	icon_state = "wirecutters"
+	item_state = "wirecutters"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 6
@@ -159,12 +158,11 @@
 /obj/item/wirecutters/Initialize()
 	. = ..()
 	if(build_from_parts)
-		icon_state = "wirecutters"
 		var/our_color = pick(tool_colors)
 		var/color_hex = tool_colors[our_color]
 		color = color_hex
-		item_state = "wirecutters-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
-		add_overlay(overlay_image(icon, "wirecutters_head", flags=RESET_COLOR))
+		item_state = "[initial(icon_state)]-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_head", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
@@ -204,16 +202,9 @@
 /obj/item/wirecutters/bomb
 	name = "bomb defusal wirecutters"
 	desc = "A tool used to delicately sever the wires used in bomb fuses."
-	icon_state = "mini_wirecutters_preview"
+	icon_state = "mini_wirecutters"
 	toolspeed = 0.6
 	bomb_defusal_chance = 90 // 90% chance, because the thrill of dying must be kept at all times, duh
-
-/obj/item/wirecutters/bomb/Initialize()
-	. = ..()
-	if(build_from_parts)
-		icon_state = "mini_wirecutters"
-		color = pick(tool_colors)
-		add_overlay(overlay_image(icon, "mini_wirecutters_head", flags=RESET_COLOR))
 
 /*
  * Welding Tool
