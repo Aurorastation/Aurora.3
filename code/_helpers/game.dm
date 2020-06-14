@@ -543,3 +543,11 @@ datum/projectile_data
 		if(M.client)
 			viewing += M.client
 	flick_overlay(I, viewing, duration)
+
+/proc/to_chat(target, message)
+	if(ismech(target))
+		var/mob/living/heavy_vehicle/mech = target
+		for(var/pilot in mech.pilots)
+			pilot << message
+	else
+		target << message

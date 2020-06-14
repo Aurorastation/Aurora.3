@@ -63,9 +63,10 @@
 
 	var/turf/center = locate(x + 8, y + 8, z)
 
-	for(var/turf/t in RANGE_TURFS(10, center))
-		if(t.x >= x && t.y >= y && t.x < x + 16 && t.y < y + 16)
-			turfs[t] = t
+	if(center)
+		for(var/turf/t in RANGE_TURFS(10, center))
+			if(t.x >= x && t.y >= y && t.x < x + 16 && t.y < y + 16)
+				turfs[t] = t
 
 	add_sources(visualnet.sources)
 	acquire_visible_turfs(visibleTurfs)

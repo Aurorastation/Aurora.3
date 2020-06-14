@@ -77,7 +77,6 @@
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
 
-#define to_chat(target, message)                            target << message
 #define to_world(message)                                   world << message
 #define sound_to(target, sound)                             target << sound
 #define to_file(file_entry, file_content)                   file_entry << file_content

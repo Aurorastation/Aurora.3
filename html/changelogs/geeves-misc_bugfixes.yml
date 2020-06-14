@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Mech pilots now properly get messages from their mech actions."

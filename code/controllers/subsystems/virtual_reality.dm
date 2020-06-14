@@ -148,10 +148,13 @@
 		return
 
 	var/desc = input("Please select a remote control compatible mech to take over.", "Remote Mech Selection") in mech|null
-	if(!desc)
+	if(!desc || desc == "Return")
 		return
 
 	var/mob/living/heavy_vehicle/chosen_mech = mech[desc]
+	if(!istype(chosen_mech))
+		to_chat(user, SPAN_WARNING("Something went wrong while selecting your mech. Please make an issue on Github describing what you did leading up to this."))
+		return
 	var/mob/living/remote_pilot = chosen_mech.pilots[1] // the first pilot
 	mind_transfer(user, remote_pilot)
 

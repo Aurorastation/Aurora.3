@@ -221,6 +221,8 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 //returns 1 if the shuttle has gone to the station and come back at least once,
 //used for game completion checking purposes
 /datum/controller/subsystem/emergency_shuttle/proc/returned()
+	if(!shuttle)
+		return FALSE
 	return (departed && shuttle.moving_status == SHUTTLE_IDLE && shuttle.location)	//we've gone to the station at least once, no longer in transit and are idle back at centcom
 
 //returns 1 if the shuttle is not idle at centcom
@@ -235,10 +237,14 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 
 //returns 1 if the shuttle is currently in transit (or just leaving) to the station
 /datum/controller/subsystem/emergency_shuttle/proc/going_to_station()
+	if(!shuttle)
+		return FALSE
 	return (!shuttle.direction && shuttle.moving_status != SHUTTLE_IDLE)
 
 //returns 1 if the shuttle is currently in transit (or just leaving) to centcom
 /datum/controller/subsystem/emergency_shuttle/proc/going_to_centcom()
+	if(!shuttle)
+		return FALSE
 	return (shuttle.direction && shuttle.moving_status != SHUTTLE_IDLE)
 
 
