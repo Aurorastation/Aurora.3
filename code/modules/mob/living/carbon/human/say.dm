@@ -59,7 +59,6 @@
 	return ..()
 
 /mob/living/carbon/human/GetVoice()
-
 	var/voice_sub
 	if(istype(back,/obj/item/rig))
 		var/obj/item/rig/rig = back
@@ -75,7 +74,10 @@
 				voice_sub = changer.voice
 	if(voice_sub)
 		return voice_sub
-	if(mind && mind.changeling && mind.changeling.mimicing)
+	var/obj/item/organ/external/head/face = organs_by_name[BP_HEAD]
+	if(face?.disfigured) // if your face is ruined, your ability to vocalize is also ruined
+		return "Unknown" // above ling voice mimicing so they don't get caught out immediately
+	if(mind?.changeling?.mimicing)
 		return mind.changeling.mimicing
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
