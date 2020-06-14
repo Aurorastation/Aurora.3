@@ -165,7 +165,7 @@
 		return
 
 	if(L == user)
-		user.visible_message("\The <b[user]</b> starts climbing into \the [src].", span("notice", "You start climbing into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", span("notice", "You start climbing into \the [src]."), range = 3)
 	else
 		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", span("notice", "You start putting \the [L] into \the [src]."), range = 3)
 
