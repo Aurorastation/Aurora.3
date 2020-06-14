@@ -227,3 +227,10 @@ Frequency:
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
 		target_closet.animate_shake()
 		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 100, TRUE)
+
+/obj/item/closet_teleporter/Destroy()
+	attached_closet = null
+	if(linked_teleporter?.linked_teleporter == src)
+		linked_teleporter.linked_teleporter = null
+	linked_teleporter = null
+	return ..()

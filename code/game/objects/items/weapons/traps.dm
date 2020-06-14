@@ -125,7 +125,7 @@
 		can_buckle = initial(can_buckle)
 
 	deployed = FALSE
-	to_chat(L, FONT_LARGE(SPAN_DANGER("The steel jaws of \the [src] bite into you, [did_trap ? "trapping you in place" : "taking your limb clean off"]!")))
+	to_chat(L, FONT_LARGE(SPAN_DANGER("The steel jaws of \the [src] bite into you, [did_trap ? "trapping you in place" : "cleaving your limb clean off"]!")))
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, TRUE) //Really loud snapping sound
 
 	if (istype(L, /mob/living/simple_animal/hostile/bear))
