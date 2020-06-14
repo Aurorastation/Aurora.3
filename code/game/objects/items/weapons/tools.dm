@@ -213,7 +213,7 @@
 	if(build_from_parts)
 		icon_state = "mini_wirecutters"
 		color = pick(tool_colors)
-		add_overlay(icon, "mini_wirecutters_head", flags=RESET_COLOR)
+		add_overlay(overlay_image(icon, "mini_wirecutters_head", flags=RESET_COLOR))
 
 /*
  * Welding Tool
