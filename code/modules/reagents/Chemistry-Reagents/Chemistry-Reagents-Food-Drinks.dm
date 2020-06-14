@@ -846,7 +846,7 @@
 	glass_name = "glass of poison berry juice"
 	glass_desc = "A glass of deadly juice."
 
-/datum/reagent/drink/potato_juice
+/datum/reagent/drink/potatojuice
 	name = "Potato Juice"
 	description = "Juice of the potato. Bleh."
 	nutrition = 2
@@ -1001,7 +1001,7 @@
 	glass_name = "glass of soy milk"
 	glass_desc = "White and nutritious soy goodness!"
 
-/datum/reagent/drink/milk/adhomai
+/datum/reagent/drink/milk/adhomai/fermented
 	name = "Fatshouters Milk"
 	description = "An opaque white liquid produced by the mammary glands of native adhomian animal."
 	taste_description = "fatty milk"
@@ -2597,7 +2597,7 @@
 	glass_desc = "The confusing scent only proves all the more alluring."
 	glass_center_of_mass = list("x"=16, "y"=9)
 
-/datum/reagent/alcohol/ethanol/cuba_libre
+/datum/reagent/alcohol/ethanol/cubalibre
 	name = "Cuba Libre"
 	description = "Rum, mixed with cola. Viva la revolucion."
 	color = "#3E1B00"
@@ -3801,7 +3801,7 @@
 	glass_desc = "A very classy looking drink."
 	glass_center_of_mass = list("x"=15, "y"=7)
 
-/datum/reagent/alcohol/messa_mead
+/datum/reagent/alcohol/ethanol/messa_mead
 	name = "Messa's Mead"
 	description = "A sweet alcoholic adhomian drink. Produced with Messa's tears and earthen-root."
 	color = "#664300"

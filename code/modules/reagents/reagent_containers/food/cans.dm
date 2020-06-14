@@ -201,7 +201,7 @@
 	center_of_mass = list("x"=16, "y"=10)
 	desc_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
-	reagents_to_add = list(/datum/reagent/drink/milk/adhomai_milk = 30)
+	reagents_to_add = list(/datum/reagent/drink/milk/adhomai/fermented = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk
 	name = "\improper Hakhma Milk"

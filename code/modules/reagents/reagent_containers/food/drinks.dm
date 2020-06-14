@@ -179,7 +179,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/datum/reagent/drink/sadpslatte = 30)
+	reagents_to_add = list(/datum/reagent/drink/coffee/sadpslatte = 30)
 
 /obj/item/reagent_containers/food/drinks/tea
 	name = "duke purple tea"
@@ -204,7 +204,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	drop_sound = 'sound/items/drop/papercup.ogg'
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=14)
-	reagents_to_add = list(/datum/reagent/drink/greentea = 30)
+	reagents_to_add = list(/datum/reagent/drink/tea/greentea = 30)
 
 /obj/item/reagent_containers/food/drinks/hotcider
 	name = "hot cider"
@@ -349,7 +349,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "It's cream. Made from milk. What else did you think you'd find in there?"
 	icon_state = "cream"
 
-	reagents_to_add = list(/datum/reagent/drink/cream = 100)
+	reagents_to_add = list(/datum/reagent/drink/milk/cream = 100)
 
 /obj/item/reagent_containers/food/drinks/carton/tomatojuice
 	name = "tomato juice"

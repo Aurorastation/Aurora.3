@@ -157,7 +157,7 @@
 	name = "Dexalin pill"
 	desc = "Used to treat oxygen deprivation."
 	icon_state = "pill16"
-	reagents_to_add(/datum/reagent/dexalin = 15)
+	reagents_to_add = list(/datum/reagent/dexalin = 15)
 
 /obj/item/reagent_containers/pill/dexalin_plus
 	name = "Dexalin Plus pill"
@@ -221,4 +221,4 @@
 	name = "antihistamine"
 	desc = "Contains diphenhydramine, also known as Benadryl. Helps with sneezing, can cause drowsiness."
 	icon_state = "pill19"
-	reagents_to_add = list(/datum/reagent/diphenhydramine = 5)
+	reagents_to_add = list(/datum/reagent/antihistamine = 5)

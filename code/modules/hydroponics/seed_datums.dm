@@ -551,7 +551,7 @@
 	seed_name = "panocelium"
 	display_name = "panocelium mushrooms"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/panotoxin = list(10,3), /datum/reagent/psilocybin = list(1,25))
+	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/toxin/panotoxin = list(10,3), /datum/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/panocelium/setup_traits()
 	..()
@@ -621,7 +621,7 @@
 	seed_name = "ghost mushroom"
 	display_name = "ghost mushroom"
 	mutants = null
-	chems = list(/datum/reagent/spectrocybin = list(5,15))
+	chems = list(/datum/reagent/toxin/spectrocybin = list(5,15))
 
 /datum/seed/mushroom/ghost/setup_traits()
 	..()
@@ -985,7 +985,7 @@
 	name = "pumpkin"
 	seed_name = "pumpkin"
 	display_name = "pumpkin vine"
-	chems = list(/datum/reagent/pumpkinpulp = list(5,6))
+	chems = list(/datum/reagent/nutriment/pumpkinpulp = list(5,6))
 	kitchen_tag = "pumpkin"
 
 /datum/seed/pumpkin/setup_traits()

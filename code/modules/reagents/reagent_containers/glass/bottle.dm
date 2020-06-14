@@ -156,7 +156,7 @@
 	name = "phoron salt bottle"
 	desc = "A small bottle. Contains phoron salt - a mysterious and unstable chemical."
 	icon_state = "bottle-4"
-	reagents_to_add = list(/datum/reagent/phoron_salt = 60)
+	reagents_to_add = list(/datum/reagent/toxin/phoron_salt = 60)
 
 /obj/item/reagent_containers/glass/bottle/epinephrine
 	name = "epinephrine bottle"
@@ -168,7 +168,7 @@
 	name = "dexalin plus bottle"
 	desc = "A small bottle. Contains Dexalin Plus that is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
 	icon_state = "bottle-4"
-	reagents_to_add = list(/datum/reagent/dexalinp = 60)
+	reagents_to_add = list(/datum/reagent/dexalin/plus = 60)
 
 /obj/item/reagent_containers/glass/bottle/coughsyrup
 	name = "cough syrup bottle"

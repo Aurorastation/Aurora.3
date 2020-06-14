@@ -1035,7 +1035,7 @@ proc/is_blind(A)
 	var/datum/reagents/vessel = new/datum/reagents(600)
 	vessel.add_reagent(/datum/reagent/blood,560)
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
 				"species" = name,

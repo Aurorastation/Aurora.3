@@ -223,7 +223,7 @@
 			reagents.add_reagent(/datum/reagent/alcohol/ethanol, (AR.strength/100)*AR.volume)
 		if(istype(AR, /datum/reagent/alcohol/butanol))
 			reagents.add_reagent(/datum/reagent/alcohol/butanol, (AR.strength/100)*AR.volume)
-		reagents.remove_reagent(AR.id, AR.volume)
+		reagents.remove_reagent(AR.type, AR.volume)
 	src.icon_state = "distillery-off"
 
 /obj/structure/distillery/attackby(obj/item/W, mob/user)

@@ -188,7 +188,7 @@
 	infection_chance -= armor
 	if(prob(infection_chance))
 		if(target.reagents)
-			target.reagents.add_reagent(/datum/reagent/trioxin, 10)
+			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, 10)
 
 
 /datum/unarmed_attack/golem

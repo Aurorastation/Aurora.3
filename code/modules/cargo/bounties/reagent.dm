@@ -45,7 +45,7 @@
 		/datum/reagent/alcohol/ethanol/black_russian,\
 		/datum/reagent/alcohol/ethanol/bloody_mary,\
 		/datum/reagent/alcohol/ethanol/martini,\
-		/datum/reagent/alcohol/ethanol/cuba_libre,\
+		/datum/reagent/alcohol/ethanol/cubalibre,\
 		/datum/reagent/alcohol/ethanol/erikasurprise,\
 		/datum/reagent/alcohol/ethanol/ginfizz,\
 		/datum/reagent/alcohol/ethanol/gintonic,\
