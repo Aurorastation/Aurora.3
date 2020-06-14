@@ -67,7 +67,7 @@
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
 	var/build_from_parts = TRUE //if the tool uses random coloring
-	var/list/tool_colors = list( //if you're wondering why "blue" = COLOR_BLUE, it's so that inhands work.
+	var/tool_colors = list( //if you're wondering why "blue" = COLOR_BLUE, it's so that inhands work.
 		"blue" = COLOR_BLUE,
 		"red" = COLOR_RED,
 		"purple" = COLOR_PURPLE,
@@ -82,9 +82,10 @@
 	if(build_from_parts) //random colors!
 		icon_state = "screwdriver"
 		var/our_color = pick(tool_colors)
-		color = our_color // why it decides to shit itself on brown i have no fucking idea.
+		var/color_hex = tool_colors[our_color]
+		color = color_hex
 		item_state = "screwdriver-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
-		overlays += overlay_image(icon, "screwdriver_head", flags=RESET_COLOR)
+		add_overlay(overlay_image(icon, "screwdriver_head", flags=RESET_COLOR))
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
@@ -145,7 +146,7 @@
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
 	var/build_from_parts = TRUE
-	var/list/tool_colors = list(
+	var/tool_colors = list(
 		"blue" = COLOR_BLUE,
 		"red" = COLOR_RED,
 		"purple" = COLOR_PURPLE,
@@ -160,9 +161,10 @@
 	if(build_from_parts)
 		icon_state = "wirecutters"
 		var/our_color = pick(tool_colors)
-		color = our_color // why it decides to shit itself on brown i have no fucking idea.
+		var/color_hex = tool_colors[our_color]
+		color = color_hex
 		item_state = "wirecutters-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
-		overlays += overlay_image(icon, "wirecutters_head", flags=RESET_COLOR)
+		add_overlay(overlay_image(icon, "wirecutters_head", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
@@ -211,7 +213,7 @@
 	if(build_from_parts)
 		icon_state = "mini_wirecutters"
 		color = pick(tool_colors)
-		overlays += overlay_image(icon, "mini_wirecutters_head", flags=RESET_COLOR)
+		add_overlay(icon, "mini_wirecutters_head", flags=RESET_COLOR)
 
 /*
  * Welding Tool

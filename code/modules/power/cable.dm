@@ -478,7 +478,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
-	var/list/possible_cable_coil_colours = list(
+	var/possible_cable_coil_colours = list(
 		"Yellow" = COLOR_YELLOW,
 		"Green" = COLOR_LIME,
 		"Pink" = COLOR_PINK,
@@ -602,9 +602,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		icon_state = "[initial(icon_state)]"
 		name += " coil"
 	overlays.Cut()
-	overlays += overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR)
+	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
 	if(our_color)
-		color = our_color // apparently makes pink and orange = null, because why the fuck not? i want to kill myself
+		var/color_hex = possible_cable_coil_colours[our_color]
+		color = color_hex
 		item_state = "coil-[our_color]"
 		update_held_icon()
 
@@ -711,6 +712,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 // called when cable_coil is clicked on a turf/simulated/floor
 /obj/item/stack/cable_coil/proc/turf_place(turf/F, mob/user)
+	var/color_hex = possible_cable_coil_colours[our_color]
 	if(!isturf(user.loc))
 		return
 
@@ -752,7 +754,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			var/obj/structure/cable/C = new(F)
 			var/obj/structure/cable/D = new(GetBelow(F))
 
-			C.cableColor(our_color)
+			C.cableColor(color_hex)
 
 			C.d1 = 11
 			C.d2 = dirn
@@ -765,7 +767,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			C.mergeConnectedNetworks(C.d2)
 			C.mergeConnectedNetworksOnTurf()
 
-			D.cableColor(color)
+			D.cableColor(color_hex)
 
 			D.d1 = 12
 			D.d2 = 0
@@ -785,7 +787,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 			var/obj/structure/cable/C = new(F)
 
-			C.cableColor(our_color)
+			C.cableColor(color_hex)
 
 			//set up the new cable
 			C.d1 = 0 //it's a O-X node cable
@@ -813,6 +815,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 // called when cable_coil is click on an installed obj/cable
 // or click on a turf that already contains a "node" cable
 /obj/item/stack/cable_coil/proc/cable_join(obj/structure/cable/C, mob/user)
+	var/color_hex = possible_cable_coil_colours[our_color]
 	var/turf/U = user.loc
 	if(!isturf(U))
 		return
@@ -850,7 +853,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 					return
 
 			var/obj/structure/cable/NC = new(U)
-			NC.cableColor(our_color)
+			NC.cableColor(color_hex)
 
 			NC.d1 = 0
 			NC.d2 = fdirn
@@ -896,7 +899,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				return
 
 
-		C.cableColor(our_color)
+		C.cableColor(color_hex)
 
 		C.d1 = nd1
 		C.d2 = nd2
