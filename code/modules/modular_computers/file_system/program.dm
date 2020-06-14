@@ -127,7 +127,7 @@
 		return FALSE
 
 // Override to set when a program shouldn't appear in the program list
-/datum/computer_file/program/proc/program_hidden()
+/datum/computer_file/program/proc/program_hidden(var/obj/item/modular_computer/parent_computer)
 	return FALSE
 
 // Check if the user can run program. Only humans can operate computer. Automatically called in run_program()

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "The modular computer pAI access lock program should properly only show when you have a pAI in your computer."
