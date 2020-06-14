@@ -282,6 +282,9 @@
 						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
 						"<span class='notice'>You cut apart [src] with [WT].</span>"
 					)
+					if(linked_teleporter)
+						linked_teleporter.forceMove(get_turf(src))
+						linked_teleporter = null
 					qdel(src)
 					return
 		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
