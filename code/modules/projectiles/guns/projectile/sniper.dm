@@ -120,7 +120,8 @@
 	..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.mob_size < 10) // smaller than an unathi
+		var/has_online_rig = H.wearing_rig && !H.wearing_rig.offline
+		if(H.mob_size < 10 && !has_online_rig) // smaller than an unathi
 			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 			H.drop_item(src)
 			src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 3, 3)
