@@ -1,6 +1,7 @@
 /obj/vehicle/bike
 	name = "space-bike"
-	desc = "Space wheelies! Woo! "
+	desc = "Space wheelies! Woo!"
+	desc_info = "Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off."
 	icon = 'icons/obj/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
@@ -14,10 +15,12 @@
 	brute_dam_coeff = 0.5
 	var/protection_percent = 60
 
-	var/land_speed = 10 //if 0 it can't go on turf
+	var/land_speed = 5 //if 0 it can't go on turf
 	var/space_speed = 1
 	var/bike_icon = "bike"
 
+	var/storage_type = /obj/item/storage/toolbox/bike_storage
+	var/obj/item/storage/storage_compartment
 	var/datum/effect_system/ion_trail/ion
 	var/kickstand = TRUE
 	var/can_hover = TRUE
@@ -28,6 +31,8 @@
 	turn_off()
 	add_overlay(image('icons/obj/bike.dmi', "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
+	if(storage_type)
+		storage_compartment = new storage_type(src)
 
 /obj/vehicle/bike/verb/toggle()
 	set name = "Toggle Engine"
@@ -74,6 +79,11 @@
 	if(M.buckled || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
 		return 0
 	return ..(M)
+
+/obj/vehicle/bike/MouseDrop(atom/over)
+	if(usr == over && ishuman(over))
+		var/mob/living/carbon/human/H = over
+		storage_compartment.open(H)
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
@@ -224,11 +234,13 @@
 	fire_dam_coeff = 0.5
 	brute_dam_coeff = 0.4
 
+	storage_type = /obj/item/storage/toolbox/bike_storage/speeder
 	bike_icon = "speeder"
 
 /obj/vehicle/bike/monowheel
 	name = "adhomian monowheel"
 	desc = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
+	desc_info = "Drag yourself onto the monowheel to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off."
 	icon_state = "monowheel_off"
 
 	health = 250
@@ -239,6 +251,7 @@
 
 	mob_offset_y = 1
 
+	storage_type = /obj/item/storage/toolbox/bike_storage/monowheel
 	bike_icon = "monowheel"
 	dir = EAST
 
@@ -265,3 +278,15 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/item/storage/toolbox/bike_storage
+	name = "bike storage"
+	max_w_class = ITEMSIZE_LARGE
+	max_storage_space = 50
+	care_about_storage_depth = FALSE
+
+/obj/item/storage/toolbox/bike_storage/speeder
+	name = "speeder storage"
+
+/obj/item/storage/toolbox/bike_storage/monowheel
+	name = "monowheel storage"
