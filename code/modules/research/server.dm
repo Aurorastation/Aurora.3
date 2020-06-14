@@ -1,5 +1,5 @@
 /obj/machinery/r_n_d/server
-	name = "R&D Server"
+	name = "R&D server"
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
 	var/datum/research/files
@@ -121,7 +121,7 @@
 		return
 
 /obj/machinery/r_n_d/server/centcom
-	name = "Central R&D Database"
+	name = "central R&D database"
 	server_id = -1
 
 /obj/machinery/r_n_d/server/centcom/setup()
@@ -168,7 +168,7 @@
 			id_with_download += text2num(N)
 
 /obj/machinery/computer/rdservercontrol
-	name = "R&D Server Controller"
+	name = "R&D server controller"
 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
@@ -241,7 +241,7 @@
 		var/choice = alert("Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
 			for(var/datum/design/D in temp_server.files.known_designs)
-				if(D.id == href_list["reset_design"])
+				if("[D.type]" == href_list["reset_design"])
 					temp_server.files.known_designs -= D
 					break
 		temp_server.files.RefreshResearch()
@@ -297,7 +297,7 @@
 			dat += "Known Designs<BR>"
 			for(var/datum/design/D in temp_server.files.known_designs)
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.id]'>(Delete)</A><BR>"
+				dat += "<A href='?src=\ref[src];reset_design=[D.type]'>(Delete)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
@@ -319,13 +319,13 @@
 		return 1
 
 /obj/machinery/r_n_d/server/advanced/robotics
-	name = "Robotics R&D Server"
+	name = "robotics R&D server"
 	id_with_upload_string = "1;2"
 	id_with_download_string = "1;2"
 	server_id = 2
 
 /obj/machinery/r_n_d/server/advanced/core
-	name = "Core R&D Server"
+	name = "core R&D server"
 	id_with_upload_string = "1"
 	id_with_download_string = "1"
 	server_id = 1

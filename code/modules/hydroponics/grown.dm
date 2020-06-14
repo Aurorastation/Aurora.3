@@ -7,6 +7,7 @@
 	desc = "Nutritious! Probably."
 	slot_flags = SLOT_HOLSTER
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 	var/plantname
 	var/datum/seed/seed
@@ -273,7 +274,7 @@
 		var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 		if(!flesh_colour) flesh_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 		for(var/i=0,i<2,i++)
-			var/obj/item/stack/tile/grass/G = new (user.loc)
+			var/obj/item/stack/tile/grass_alt/G = new (user.loc)
 			if(flesh_colour) G.color = flesh_colour
 			for (var/obj/item/stack/tile/grass/NG in user.loc)
 				if(G==NG)
@@ -341,6 +342,7 @@ var/list/fruit_icon_cache = list()
 	name = "[S.seed_name] slice"
 	desc = "A slice of \a [S.seed_name]. Tasty, probably."
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 	var/rind_colour = S.get_trait(TRAIT_PRODUCT_COLOUR)
 	var/flesh_colour = S.get_trait(TRAIT_FLESH_COLOUR)

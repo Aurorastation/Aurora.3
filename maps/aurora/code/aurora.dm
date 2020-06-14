@@ -1,6 +1,10 @@
 /datum/map/aurora
 	name = "Aurora"
 	full_name = "NSS Aurora"
+	description = "You're aboard the <b>NSS Aurora</b>, a state-of-the-art station specializing in phoron research and acquisition. \
+				   It is staffed by Nanotrasen personnel and contractors from competing megacorporations. \
+				   Orbiting at the very edge of the Tau Ceti system, approximately 12 light-years away from Sol, \
+				   it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
 	path = "aurora"
 
 	lobby_screens = list("aurora_asteroid", "aurora_postcard")
@@ -19,8 +23,7 @@
 		"5" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"6" = /turf/unsimulated/floor/asteroid/ash,
 		"7" = /turf/space,
-		"8" = /turf/space,
-		"9" = /turf/space
+		"8" = /turf/space
 	)
 
 	station_name = "NSS Aurora"
@@ -63,6 +66,24 @@
 	emergency_shuttle_leaving_dock = "The emergency shuttle has left the station. Estimate %ETA% minutes until the shuttle docks at %dock%."
 	emergency_shuttle_recall_message = "The emergency shuttle has been recalled."
 	emergency_shuttle_called_message = "An emergency evacuation shuttle has been called. It will arrive in approximately %ETA% minutes."
+
+	map_shuttles = list(
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod1,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod2,
+		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
+		/datum/shuttle/autodock/ferry/emergency/aurora,
+		/datum/shuttle/autodock/ferry/arrival/aurora,
+		/datum/shuttle/autodock/ferry/supply/aurora,
+		/datum/shuttle/autodock/ferry/merchant_aurora,
+		/datum/shuttle/autodock/ferry/admin,
+		/datum/shuttle/autodock/ferry/autoreturn/ccia,
+		/datum/shuttle/autodock/ferry/specops/ert_aurora,
+		/datum/shuttle/autodock/multi/antag/skipjack_aurora,
+		/datum/shuttle/autodock/multi/antag/merc_aurora,
+		/datum/shuttle/autodock/ferry/legion,
+		/datum/shuttle/autodock/ferry/research_aurora,
+		/datum/shuttle/autodock/ferry/distress
+	)
 
 /datum/map/aurora/generate_asteroid()
 	// Create the chasms.

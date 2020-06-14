@@ -7,7 +7,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	force = 2
 	throwforce = 5
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 60)
 	var/status = 0		// LIGHT_OK, LIGHT_BURNED or LIGHT_BROKEN
 	var/switchcount = 0	// number of times switched
@@ -17,6 +17,8 @@
 	var/brightness_color = LIGHT_COLOR_HALOGEN
 	var/lighttype = null
 	var/randomize_range = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/light/tube
 	name = "light tube"
@@ -53,7 +55,7 @@
 	brightness_color = LIGHT_COLOR_CYAN
 
 /obj/item/light/tube/large
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	name = "large light tube"
 	brightness_range = 15
 	brightness_power = 6
@@ -148,14 +150,14 @@
 	if(istype(I, /obj/item/reagent_containers/syringe))
 		var/obj/item/reagent_containers/syringe/S = I
 
-		to_chat(user, "You inject the solution into the [src].")
+		to_chat(user, SPAN_NOTICE("You inject the solution into \the [src]."))
 
 		if(S.reagents.has_reagent("phoron", 5))
 
 			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.",ckey=key_name(user))
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 
-			rigged = 1
+			rigged = TRUE
 
 		S.reagents.clear_reagents()
 	else
@@ -167,7 +169,8 @@
 // now only shatter if the intent was harm
 
 /obj/item/light/afterattack(atom/target, mob/user, proximity)
-	if(!proximity) return
+	if(!proximity)
+		return
 	if(istype(target, /obj/machinery/light))
 		return
 	if(user.a_intent != I_HURT)
@@ -177,9 +180,10 @@
 
 /obj/item/light/proc/shatter()
 	if(status == LIGHT_OK || status == LIGHT_BURNED)
-		src.visible_message("<span class='warning'>[name] shatters.</span>","<span class='warning'>You hear a small glass object shatter.</span>")
+		visible_message(SPAN_WARNING("\The [src] shatters!"), SPAN_WARNING("You hear a small glass object shatter!"))
 		status = LIGHT_BROKEN
 		force = 5
-		sharp = 1
-		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
+		sharp = TRUE
+		playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
+		new /obj/item/material/shard(get_turf(src))
 		update()

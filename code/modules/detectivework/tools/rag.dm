@@ -1,17 +1,17 @@
 /mob
 	var/bloody_hands = null
 	var/mob/living/carbon/human/bloody_hands_mob
-	var/track_blood = 0
+	var/track_footprint = 0
 	var/list/feet_blood_DNA
-	var/track_blood_type
-	var/feet_blood_color
+	var/track_footprint_type
+	var/footprint_color
 
 /obj/item/clothing/gloves
 	var/transfer_blood = 0
 	var/mob/living/carbon/human/bloody_hands_mob
 
 /obj/item/clothing/shoes/
-	var/track_blood = 0
+	var/track_footprint = 0
 
 /obj/item/reagent_containers/glass/rag
 	name = "rag"
@@ -30,7 +30,8 @@
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 	var/cleantime = 30
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/last_clean
 	var/clean_msg = FALSE
 

@@ -293,7 +293,7 @@ emp_act
 		if(!(I.flags & NOBLOODY))
 			I.add_blood(src)
 
-		if(prob(33))
+		if(prob(effective_force * 2))
 			var/turf/location = loc
 			if(istype(location, /turf/simulated))
 				location.add_blood(src)
@@ -390,7 +390,8 @@ emp_act
 		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened the hit to your [hit_area].") //I guess "melee" is the best fit here
 
 		if(armor < 100)
-			apply_damage(throw_damage, dtype, zone, armor, is_sharp(O), has_edge(O), O)
+			var/damage_flags = O.damage_flags()
+			apply_damage(throw_damage, dtype, zone, armor, O, damage_flags = damage_flags)
 
 		if(ismob(O.thrower))
 			var/mob/M = O.thrower

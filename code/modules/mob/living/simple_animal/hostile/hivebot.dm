@@ -41,6 +41,9 @@
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
 
+/mob/living/simple_animal/hostile/hivebot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
@@ -281,7 +284,7 @@
 			destinations += T
 	var/area/A = get_area(src)
 	if(!isNotStationLevel(A.z))
-		var/list/area_turfs = get_area_turfs(A, null, 0, FALSE)
+		var/list/area_turfs = get_area_turfs(A)
 		var/list/floor_turfs = list()
 		for(var/turf/simulated/floor/T in (area_turfs))
 			if(turf_clear(T))

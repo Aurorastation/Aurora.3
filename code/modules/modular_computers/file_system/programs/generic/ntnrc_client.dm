@@ -3,18 +3,19 @@
 	filedesc = "NTNet Relay Chat Client"
 	program_icon_state = "command"
 	extended_desc = "This program allows communication over the NTNRC network."
-	size = 8
+	size = 2
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	network_destination = "NTNRC server"
 	ui_header = "ntnrc_idle.gif"
 	available_on_ntnet = TRUE
 	nanomodule_path = /datum/nano_module/program/computer_chatclient
-	var/last_message = null				// Used to generate the toolbar icon
+	var/last_message				// Used to generate the toolbar icon
 	var/username
-	var/datum/ntnet_conversation/channel = null
-	var/operator_mode = 0		// Channel operator mode
-	var/netadmin_mode = 0		// Administrator mode (invisible to other users + bypasses passwords)
+	var/datum/ntnet_conversation/channel
+	var/operator_mode = FALSE		// Channel operator mode
+	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
+	var/list/directmessagechannels = list()
 	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/chatclient/New()
@@ -33,6 +34,7 @@
 		if(!message || !channel)
 			return
 		channel.add_message(message, username, usr)
+		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
 
 	if(href_list["PRG_joinchannel"])
 		. = TRUE
@@ -51,28 +53,34 @@
 
 		if(C.password)
 			var/mob/living/user = usr
-			var/password = sanitize(input(user,"Access Denied. Enter password:"))
-			if(C && (password == C.password))
+			var/password = sanitize(input(user, "Access Denied. Enter password:"))
+			if(C?.password == password)
 				C.add_client(src)
 				channel = C
 			return TRUE
 		C.add_client(src)
+		message_dead(FONT_SMALL("<b>([C.get_dead_title()]) A new client ([username]) has entered the chat.</b>"))
 		channel = C
 	if(href_list["PRG_leavechannel"])
 		. = TRUE
-		if(channel)
+		if(channel && !channel.direct)
 			channel.remove_client(src)
+			message_dead(FONT_SMALL(FONT_SMALL("<b>([channel.get_dead_title()]) A client ([username]) has left the chat.</b>")))
+		channel = null
+	if(href_list["PRG_backtomain"])
+		. = TRUE
 		channel = null
 	if(href_list["PRG_newchannel"])
 		. = TRUE
 		var/mob/living/user = usr
-		var/channel_title = sanitize(input(user,"Enter channel name or leave blank to cancel:"))
+		var/channel_title = sanitize(input(user, "Enter channel name or leave blank to cancel:"))
 		if(!channel_title)
 			return
 		var/datum/ntnet_conversation/C = new /datum/ntnet_conversation(channel_title)
 		C.add_client(src)
 		C.operator = src
 		channel = C
+		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) A new channel has been made by [username].</b>"))
 	if(href_list["PRG_toggleadmin"])
 		. = TRUE
 		if(netadmin_mode)
@@ -95,19 +103,25 @@
 	if(href_list["PRG_changename"])
 		. = TRUE
 		var/mob/living/user = usr
-		var/newname = sanitize(input(user,"Enter new nickname or leave blank to cancel:"))
-		if(!newname)
-			return 1
-		if(channel)
-			channel.add_status_message("[username] is now known as [newname].")
-		username = newname
-
+		var/new_name = sanitize(input(user, "Enter new nickname or leave blank to cancel:"))
+		if(!new_name)
+			return TRUE
+		var/comp_name = ckey(new_name)
+		for(var/cl in ntnet_global.chat_clients)
+			var/datum/computer_file/program/chatclient/C = cl
+			if(ckey(C.username) == comp_name || comp_name == "cancel")
+				alert(user, "This nickname is already taken.")
+				return TRUE
+		for(var/datum/ntnet_conversation/channel in ntnet_global.chat_channels)
+			if(src in channel.clients)
+				channel.add_status_message("[username] is now known as [new_name].")
+		username = new_name
 	if(href_list["PRG_savelog"])
 		. = TRUE
 		if(!channel)
 			return
 		var/mob/living/user = usr
-		var/logname = input(user,"Enter desired logfile name (.log) or leave blank to cancel:")
+		var/logname = input(user, "Enter desired logfile name (.log) or leave blank to cancel:")
 		if(!logname || !channel)
 			return TRUE
 		var/datum/computer_file/data/logfile = new /datum/computer_file/data/logfile()
@@ -121,7 +135,7 @@
 		if(!computer || !computer.hard_drive || !computer.hard_drive.store_file(logfile))
 			if(!computer)
 				// This program shouldn't even be runnable without computer.
-				CRASH("Var computer is null!")
+				crash_with("Var computer is null!")
 				return TRUE
 			if(!computer.hard_drive)
 				computer.visible_message("\The [computer] shows an \"I/O Error - Hard drive connection error\" warning.")
@@ -156,6 +170,30 @@
 			channel.password = ""
 		else
 			channel.password = newpassword
+	if(href_list["PRG_directmessage"])
+		. = TRUE
+		var/clients = list()
+		var/names = list()
+		for(var/cl in ntnet_global.chat_clients)
+			var/datum/computer_file/program/chatclient/C = cl
+			clients[C.username] = C
+			names += C.username
+		names -= username // Remove ourselves
+		names += "== Cancel =="
+		var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
+		if(picked == "== Cancel ==")
+			return
+		var/datum/computer_file/program/chatclient/otherClient = clients[picked]
+		if(picked)
+			if(directmessagechannels[otherClient])
+				channel = directmessagechannels[otherClient]
+				return
+			var/datum/ntnet_conversation/C = new /datum/ntnet_conversation("", TRUE)
+			C.begin_direct(src, otherClient)
+			channel = C
+			directmessagechannels[otherClient] = C
+			otherClient.directmessagechannels[src] = C
+
 
 /datum/computer_file/program/chatclient/process_tick()
 	..()
@@ -170,16 +208,19 @@
 		else
 			last_message = null
 		return 1
-	if(channel && channel.messages && channel.messages.len)
+	if(channel?.messages?.len)
 		ui_header = last_message == channel.messages[channel.messages.len - 1] ? "ntnrc_idle.gif" : "ntnrc_new.gif"
 	else
 		ui_header = "ntnrc_idle.gif"
 
 /datum/computer_file/program/chatclient/kill_program(var/forced = FALSE)
-	if(channel)
-		channel.remove_client(src)
-		channel = null
+	channel = null
+	ntnet_global.chat_clients -= src
 	..(forced)
+
+/datum/computer_file/program/chatclient/run_program(var/mob/user)
+	ntnet_global.chat_clients += src
+	return ..(user)
 
 /datum/nano_module/program/computer_chatclient
 	name = "NTNet Relay Chat Client"
@@ -198,7 +239,7 @@
 
 	data["adminmode"] = C.netadmin_mode
 	if(C.channel)
-		data["title"] = C.channel.title
+		data["title"] = C.channel.get_title(C)
 		var/list/messages[0]
 		for(var/M in C.channel.messages)
 			messages.Add(list(list(
@@ -208,19 +249,21 @@
 		var/list/clients[0]
 		for(var/datum/computer_file/program/chatclient/cl in C.channel.clients)
 			clients.Add(list(list(
-				"name" = cl.username
+				"name" = cl.username,
+				"active" = cl.program_state > PROGRAM_STATE_KILLED
 			)))
 		data["clients"] = clients
 		C.operator_mode = (C.channel.operator == C) ? 1 : 0
 		data["is_operator"] = C.operator_mode || C.netadmin_mode
-
+		data["is_direct"] = C.channel.direct
 	else // Channel selection screen
 		var/list/all_channels[0]
 		for(var/datum/ntnet_conversation/conv in ntnet_global.chat_channels)
-			if(conv && conv.title)
+			if(conv && conv.title && conv.can_see(program))
 				all_channels.Add(list(list(
-					"chan" = conv.title,
-					"id" = conv.id
+					"chan" = conv.get_title(C),
+					"id" = conv.id,
+					"con" = (program in conv.clients)
 				)))
 		data["all_channels"] = all_channels
 

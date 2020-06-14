@@ -43,11 +43,16 @@
 	attack_verb = list("chopped", "torn", "cut")
 	applies_material_colour = 0
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/hatchet/butch
 	name = "butcher's cleaver"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "butch"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
+		)
 	desc = "A huge thing used for chopping and chopping up meat."
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	slot_flags = SLOT_BELT
@@ -57,17 +62,25 @@
 	name = "duelling knife"
 	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_knives.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_knives.dmi',
+		)
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
 
 /obj/item/material/hook
 	name = "meat hook"
-	sharp = 1
-	edge = 1
 	desc = "A sharp, metal hook that sticks into things."
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
+		)
+	sharp = 1
+	edge = 1
 
 /obj/item/material/minihoe // -- Numbers
 	name = "mini hoe"
@@ -85,9 +98,13 @@
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
 
 /obj/item/material/scythe
-	icon_state = "scythe"
 	name = "scythe"
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
+	icon_state = "scythe"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	force_divisor = 0.275 // 16 with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 with weight 20 (steel)
 	sharp = 1
@@ -100,9 +117,9 @@
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
 
 /obj/item/material/scythe/sickle
-	icon_state = "sickle0"
 	name = "sickle"
-	desc = "A short sharp and curved blade on a wood handle, this tool makes it easy to cut grass."
+	desc = "A short sharp and curved blade on a handle, this tool makes it easy to cut grass."
+	icon_state = "sickle"
 	force_divisor = 0.175 // 16 with hardness 60 (steel)
 	thrown_force_divisor = 0.04 // 5 with weight 20 (steel)
 	throw_speed = 2

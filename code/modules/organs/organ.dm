@@ -2,6 +2,7 @@
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
 	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
 	germ_level = 0
 
@@ -11,6 +12,7 @@
 	var/status = 0
 	var/vital //Lose a vital limb, die immediately.
 	var/rejecting   // Is this organ already being rejected?
+	var/is_augment = FALSE
 
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
@@ -28,18 +30,19 @@
 	var/robotic_name
 	var/robotic_sprite
 	var/emp_coeff = 1 //coefficient for damages taken by EMP, if the organ is robotic.
-	
+
 	//Lists.
 	var/list/transplant_data
 	var/list/datum/autopsy_data/autopsy_data = list()
 	var/list/organ_verbs	//verb that are added when you gain the organ
 	var/list/trace_chemicals = list() // traces of chemicals in the organ,
 									  // links chemical IDs to number of ticks for which they'll stay in the blood
-	
+
 	//DNA stuff.
 	var/datum/dna/dna
 	var/datum/species/species
 	var/force_skintone = FALSE		// If true, icon generation will skip is-robotic checks. Used for synthskin limbs.
+	var/list/species_restricted //used by augments and biomods to see what species can have this augment
 
 /obj/item/organ/New(loc, ...)
 	..()
@@ -291,7 +294,7 @@
 	W.time_inflicted = world.time
 
 //Note: external organs have their own version of this proc
-/obj/item/organ/proc/take_damage(amount, var/silent=0)
+/obj/item/organ/proc/take_damage(var/amount, var/silent = 0)
 	if(src.status & ORGAN_ROBOT)
 		src.damage = between(0, src.damage + (amount * 0.8), max_damage)
 	else

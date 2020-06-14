@@ -24,12 +24,13 @@
 		name = "light switch ([area.name])"
 
 	src.on = src.area.lightswitch
+	addtimer(CALLBACK(src, .proc/sync_lights), 25)
 	update_icon()
 
 /obj/machinery/light_switch/update_icon()
 	cut_overlays()
 	if(!(stat & NOPOWER))
-		holographic_overlay(src, icon, "light[on]-overlay")
+		holographic_overlay(src, icon, "light_switch[on]-overlay")
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")
 			set_light(2, 0.3, on ? "#82ff4c" : "#f86060")
 	else if (light_range)
@@ -42,8 +43,14 @@
 /obj/machinery/light_switch/attack_hand(mob/user)
 	playsound(src, "switch", 30)
 	on = !on
+	sync_lights()
 
-	area.lightswitch = on
+/obj/machinery/light_switch/proc/sync_lights()
+	var/area/A = get_area(src)
+	if(!A)
+		return
+
+	A.lightswitch = on
 
 	for(var/obj/machinery/light_switch/L in area)
 		L.on = on
@@ -54,7 +61,6 @@
 			L.stat &= ~POWEROFF
 		else
 			L.stat |= POWEROFF
-
 		L.update()
 
 /obj/machinery/light_switch/power_change()

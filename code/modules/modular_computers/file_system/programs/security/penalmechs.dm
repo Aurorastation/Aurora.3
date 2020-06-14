@@ -1,13 +1,13 @@
 /datum/computer_file/program/penal_mechs
-	filename = "penalmechs"
+	filename = "penalrobotics"
 	filedesc = "Remote Penal Monitoring"
 	program_icon_state = "security"
-	extended_desc = "This program allows monitoring and control of active penal miner mechs."
+	extended_desc = "This program allows monitoring and control of active penal robotics."
 	required_access_run = access_armory
 	required_access_download = access_armory
-	requires_ntnet = 1
-	available_on_ntnet = 1
-	network_destination = "penal mining mech monitoring system"
+	requires_ntnet = TRUE
+	available_on_ntnet = TRUE
+	network_destination = "penal robotics monitoring system"
 	size = 11
 	usage_flags = PROGRAM_ALL_REGULAR
 	color = LIGHT_COLOR_ORANGE
@@ -18,7 +18,7 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-security-penalcontroller", 500, 400, "Penal Mech Monitoring")
-		ui.auto_update_content = 1
+		ui.auto_update_content = TRUE
 	ui.open()
 
 /datum/computer_file/program/penal_mechs/vueui_transfer(oldobj)
@@ -26,7 +26,7 @@
 		var/datum/vueui/ui = o
 		// Let's ensure our ui's autoupdate after transfer.
 		// TODO: revert this value on transfer out.
-		ui.auto_update_content = 1
+		ui.auto_update_content = TRUE
 	return TRUE
 
 /datum/computer_file/program/penal_mechs/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -167,6 +167,6 @@
 	if(!current_camera)
 		return FALSE
 	var/viewflag = current_camera.check_eye(user)
-	if ( viewflag < 0 ) //camera doesn't work
+	if(viewflag < 0) //camera doesn't work
 		reset_current()
 	return viewflag

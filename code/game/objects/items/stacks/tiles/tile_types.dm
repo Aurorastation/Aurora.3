@@ -13,8 +13,13 @@
 	w_class = 3
 	max_amount = 60
 	icon = 'icons/obj/stacks/tiles.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_tiles.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_tiles.dmi',
+		)
 	randpixel = 7
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/stack/tile/New()
 	..()
@@ -24,8 +29,8 @@
  * Grass
  */
 /obj/item/stack/tile/grass
-	name = "grass tile"
-	singular_name = "grass floor tile"
+	name = "synthetic grass tile"
+	singular_name = "synthetic grass tile"
 	desc = "A patch of grass like they often use on golf courses."
 	icon_state = "tile_grass"
 	force = 1.0
@@ -35,6 +40,21 @@
 	flags = 0
 	origin_tech = list(TECH_BIO = 1)
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
+
+/obj/item/stack/tile/grass_alt
+	name = "grass tile"
+	singular_name = "grass floor tile"
+	desc = "A soft patch of grass."
+	icon_state = "tile_grass_alt"
+	force = 1.0
+	throwforce = 1.0
+	throw_speed = 5
+	throw_range = 20
+	flags = 0
+	origin_tech = list(TECH_BIO = 1)
+	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 /*
  * Wood
@@ -50,6 +70,7 @@
 	throw_range = 20
 	flags = 0
 	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
 /*
  * Carpets
@@ -64,7 +85,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/tile/carpet_blue
 	name = "blue carpet"
@@ -76,7 +98,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/tile/carpet_rubber
 	name = "rubber carpet"
@@ -88,7 +111,21 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
+
+/obj/item/stack/tile/carpet_art
+	name = "adhomian carpet"
+	singular_name = "carpet"
+	desc = "A piece of fancy adhomian carpet. It is the same size as a normal floor tile!"
+	icon_state = "tile_carpet_rubber"
+	force = 1.0
+	throwforce = 1.0
+	throw_speed = 5
+	throw_range = 20
+	flags = 0
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/tile/lino
 	name = "old linoleum"
@@ -100,7 +137,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	matter = list(MATERIAL_PLASTIC = 937.5)
 
 /obj/item/stack/tile/lino_grey
@@ -113,7 +151,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	matter = list(MATERIAL_PLASTIC = 937.5)
 
 /*

@@ -5,6 +5,10 @@
 	name = "pill"
 	desc = "a pill."
 	icon = 'icons/obj/chemical.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		)
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
@@ -12,6 +16,7 @@
 	slot_flags = SLOT_EARS
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 	New()
 		..()
@@ -25,7 +30,7 @@
 			if(!M.can_eat(src))
 				return
 
-			M.visible_message(span("notice", "[M] swallows a pill."), span("notice", "You swallow \the [src]."), null, 2)
+			M.visible_message("<b>[M]</b> swallows a pill.", span("notice", "You swallow \the [src]."), null, 2)
 			if(reagents.total_volume)
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 			qdel(src)
@@ -35,7 +40,7 @@
 			if(!M.can_force_feed(user, src))
 				return
 
-			user.visible_message(span("warning", "[user] attempts to force [M] to swallow \the [src]."))
+			user.visible_message(span("warning", "[user] attempts to force [M] to swallow \the [src]!"))
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			if(!do_mob(user, M))
@@ -237,14 +242,6 @@
 		reagents.add_reagent("synaptizine", 5)
 		reagents.add_reagent("hyperzine", 5)
 
-/obj/item/reagent_containers/pill/deltamivir
-	name = "Deltamivir pill"
-	desc = "Contains antiviral agents."
-	icon_state = "pill19"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("deltamivir", 15)
-
 /obj/item/reagent_containers/pill/thetamycin
 	name = "thetamycin pill"
 	desc = "Contains theta-lactam antibiotics."
@@ -261,7 +258,6 @@
 		. = ..()
 		reagents.add_reagent("nutriment", 20)
 		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
-		//Would be absolutely retarded to grind the biogenerator for juices.
 
 /obj/item/reagent_containers/pill/rmt
 	name = "RMT pill"

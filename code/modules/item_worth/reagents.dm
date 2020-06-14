@@ -6,9 +6,6 @@
 /datum/reagent/blood
 	value = 2
 
-/datum/reagent/antibodies
-	value = 6
-
 /datum/reagent/water
 	value = 0
 
@@ -501,7 +498,7 @@
 /datum/reagent/bicaridine
 	value = 4.9
 
-/datum/reagent/kelotane/dermaline
+/datum/reagent/dermaline
 	value = 3.9
 
 /datum/reagent/dylovene
@@ -546,6 +543,9 @@
 /datum/reagent/ryetalyn
 	value = 3.6
 
+/datum/reagent/pneumalin
+	value = 3.2
+
 /datum/reagent/hyperzine
 	value = 3.9
 
@@ -557,9 +557,6 @@
 
 /datum/reagent/arithrazine
 	value = 2.7
-
-/datum/reagent/deltamivir
-	value = 2.5
 
 /datum/reagent/thetamycin
 	value = 2.5
@@ -632,9 +629,6 @@
 
 /datum/reagent/adrenaline
 	value = 3
-
-/datum/reagent/inaprovaline
-	value = 3.5
 
 /datum/reagent/diethylamine
 	value = 0.9
@@ -744,7 +738,7 @@
 /datum/reagent/aslimetoxin
 	value = 3
 
-/datum/reagent/nanites
+/datum/reagent/toxin/nanites
 	value = 9
 
 /datum/reagent/estus

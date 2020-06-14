@@ -2,9 +2,13 @@
 	name = "flashlight"
 	desc = "A hand-held emergency light."
 	icon = 'icons/obj/lighting.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_lighting.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_lighting.dmi',
+		)
 	icon_state = "flashlight"
 	item_state = "flashlight"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
@@ -17,12 +21,18 @@
 	var/on = 0
 	var/brightness_on = 3 //luminosity when on
 	var/activation_sound = 'sound/items/flashlight.ogg'
+	var/spawn_dir // a way for mappers to force which way a flashlight faces upon spawning
 
 /obj/item/device/flashlight/Initialize()
 	if (on)
 		light_range = brightness_on
 		update_icon()
 	. = ..()
+	if(light_wedge)
+		set_dir(pick(NORTH, SOUTH, EAST, WEST))
+		if(spawn_dir)
+			set_dir(spawn_dir)
+		update_light()
 
 /obj/item/device/flashlight/update_icon()
 	if(on)
@@ -47,6 +57,23 @@
 	user.update_action_buttons()
 	return 1
 
+/obj/item/device/flashlight/examine(mob/user, distance)
+	. = ..()
+	if(light_wedge && isturf(loc))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
+
+/obj/item/device/flashlight/dropped(mob/user)
+	. = ..()
+	if(light_wedge)
+		set_dir(user.dir)
+		update_light()
+
+/obj/item/device/flashlight/throw_at(atom/target, range, speed, thrower, do_throw_animation)
+	. = ..()
+	if(light_wedge)
+		var/new_dir = pick(NORTH, SOUTH, EAST, WEST)
+		set_dir(new_dir)
+		update_light()
 
 /obj/item/device/flashlight/attack(mob/living/M as mob, mob/living/user as mob)
 	add_fingerprint(user)
@@ -103,6 +130,7 @@
 	icon_state = "penlight"
 	item_state = "pen"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
 	brightness_on = 2

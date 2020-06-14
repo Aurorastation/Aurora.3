@@ -54,7 +54,7 @@
 
 /obj/item/airlock_electronics/Topic(href, href_list)
 	..()
-	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
+	if(use_check_and_message(usr))
 		return
 	if(href_list["close"])
 		usr << browse(null, "window=airlock")
@@ -142,6 +142,6 @@
 /obj/item/airlock_electronics/secure
 	name = "secure airlock electronics"
 	desc = "Designed to be somewhat more resistant to hacking than standard electronics."
-	description_info = "With these electronics, wires will be randomized and bolts will drop if the airlock is broken."
+	desc_info = "With these electronics, wires will be randomized and bolts will drop if the airlock is broken."
 	origin_tech = list(TECH_DATA = 2)
 	secure = TRUE

@@ -53,6 +53,7 @@ var/list/gamemode_cache = list()
 	var/list/votable_modes = list()		// votable modes
 	var/list/probabilities_secret = list()			// relative probability of each mode in secret/random
 	var/list/probabilities_mixed_secret = list()	// relative probability of each mode in heavy secret mode
+	var/ipc_timelock_active = FALSE
 	var/humans_need_surnames = 0
 	var/allow_random_events = 0			// enables random events mid-round when set to 1
 	var/allow_ai = 1					// allow ai job
@@ -185,7 +186,6 @@ var/list/gamemode_cache = list()
 
 	var/use_discord_pins = 0
 	var/python_path = "python" //Path to the python executable.  Defaults to "python" on windows and "/usr/bin/env python2" on unix
-	var/use_overmap = 0
 
 	// Event settings
 	var/expected_round_length = 3 * 60 * 60 * 10 // 3 hours
@@ -301,6 +301,17 @@ var/list/gamemode_cache = list()
 	var/fail2topic_max_fails = 5
 	var/fail2topic_rule_name = "_DD_Fail2topic"
 	var/fail2topic_enabled = FALSE
+
+	var/time_to_call_emergency_shuttle = 36000  //how many time until the crew can call the transfer shuttle. One hour by default.
+
+	var/forum_api_path
+	// global.forum_api_key - see modules/http/forum_api.dm
+
+	var/news_use_forum_api = FALSE
+
+	var/profiler_is_enabled = FALSE
+	var/profiler_restart_period = 120 SECONDS
+	var/profiler_timeout_threshold = 5 SECONDS
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -651,6 +662,9 @@ var/list/gamemode_cache = list()
 				if("tickcomp")
 					Tickcomp = 1
 
+				if("ipc_timelock_active")
+					ipc_timelock_active = TRUE
+
 				if("humans_need_surnames")
 					humans_need_surnames = 1
 
@@ -718,9 +732,6 @@ var/list/gamemode_cache = list()
 
 				if("max_maint_drones")
 					config.max_maint_drones = text2num(value)
-
-				if("use_overmap")
-					config.use_overmap = 1
 
 				if("expected_round_length")
 					config.expected_round_length = MinutesToTicks(text2num(value))
@@ -867,6 +878,9 @@ var/list/gamemode_cache = list()
 				if("merchant_chance")
 					config.merchant_chance = text2num(value)
 
+				if("time_to_call_emergency_shuttle")
+					config.time_to_call_emergency_shuttle = text2num(value)
+
 				if("force_map")
 					override_map = value
 
@@ -913,6 +927,22 @@ var/list/gamemode_cache = list()
 					fail2topic_rule_name = value
 				if ("fail2topic_enabled")
 					fail2topic_enabled = text2num(value)
+
+
+				if ("forum_api_path")
+					forum_api_path = value
+				if ("forum_api_key")
+					global.forum_api_key = value
+
+				if ("news_use_forum_api")
+					news_use_forum_api = TRUE
+
+				if ("profiler_enabled")
+					profiler_is_enabled = TRUE
+				if ("profiler_restart_period")
+					profiler_restart_period = text2num(value) SECONDS
+				if ("profiler_timeout_threshold")
+					profiler_timeout_threshold = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

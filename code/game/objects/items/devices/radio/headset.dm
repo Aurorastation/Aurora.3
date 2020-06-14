@@ -19,6 +19,9 @@
 	var/ks2type = null
 	var/radio_sound = null
 
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
+
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
 	internal_channels.Cut()
@@ -29,10 +32,8 @@
 	recalculateChannels(1)
 
 /obj/item/device/radio/headset/Destroy()
-	qdel(keyslot1)
-	qdel(keyslot2)
-	keyslot1 = null
-	keyslot2 = null
+	QDEL_NULL(keyslot1)
+	QDEL_NULL(keyslot2)
 	return ..()
 
 /obj/item/device/radio/headset/list_channels(var/mob/user)

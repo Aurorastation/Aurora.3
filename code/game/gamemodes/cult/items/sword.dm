@@ -1,9 +1,11 @@
 /obj/item/melee/cultblade
 	name = "eldritch blade"
 	desc = "A sword humming with unholy energy. It glows with a dim red light."
+	desc_antag = "This sword is a powerful weapon, capable of severing limbs easily, if they are targeted.  Non-believers are unable to use this weapon."
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
-	icon = 'icons/obj/weapons.dmi'
+	contained_sprite = TRUE
 	w_class = 4
 	force = 30
 	throwforce = 10
@@ -11,6 +13,8 @@
 	edge = TRUE
 	sharp = TRUE
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	can_embed = FALSE //can't get stuck anymore, because blood magic
@@ -31,7 +35,7 @@
 		to_chat(user, span("cult", "An unexplicable force rips through you, tearing the sword from your grasp!"))
 
 	//random amount of damage between half of the blade's force and the full force of the blade.
-	user.apply_damage(rand(force/2, force), BRUTE, zone, 0, sharp=1, edge=1)
+	user.apply_damage(rand(force/2, force), BRUTE, zone, 0, damage_flags = DAM_SHARP|DAM_EDGE)
 	user.Weaken(5)
 
 	user.drop_from_inventory(src)

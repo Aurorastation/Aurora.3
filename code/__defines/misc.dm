@@ -1,5 +1,9 @@
 #define DEBUG
 
+// Flags
+#define ALL (~0) //For convenience.
+#define NONE 0
+
 // Turf-only flags.
 #define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
 #define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
@@ -58,6 +62,7 @@
 #define PARALLAX_DUST  0x2
 #define PROGRESS_BARS  0x4
 #define PARALLAX_IS_STATIC 0x8
+#define FLOATING_MESSAGES 0x10
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|CHAT_OOC|CHAT_DEAD|CHAT_GHOSTEARS|CHAT_GHOSTSIGHT|CHAT_PRAYER|CHAT_RADIO|CHAT_ATTACKLOGS|CHAT_LOOC)
 
@@ -68,8 +73,9 @@
 #define ASFX_VOX		8
 #define ASFX_DROPSOUND	16
 #define ASFX_ARCADE		32
+#define ASFX_RADIO		64
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE|ASFX_RADIO)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.
@@ -143,7 +149,7 @@
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
 
-#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon. 
+#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_WALL_MATERIAL "steel"
@@ -181,10 +187,14 @@
 #define PROGRAM_LAPTOP 2
 #define PROGRAM_TABLET 4
 #define PROGRAM_TELESCREEN 8
-#define PROGRAM_SILICON 16
+#define PROGRAM_SILICON_AI 16
 #define PROGRAM_WRISTBOUND 32
+#define PROGRAM_SILICON_ROBOT 64
+#define PROGRAM_SILICON_PAI 128
 
-#define PROGRAM_ALL (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN | PROGRAM_SILICON)
+#define PROGRAM_ALL (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN | PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT | PROGRAM_SILICON_PAI)
+#define PROGRAM_SILICON (PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT | PROGRAM_SILICON_PAI)
+#define PROGRAM_STATIONBOUND (PROGRAM_SILICON_AI | PROGRAM_SILICON_ROBOT)
 #define PROGRAM_ALL_REGULAR (PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_WRISTBOUND | PROGRAM_TELESCREEN)
 
 #define PROGRAM_STATE_KILLED 0
@@ -198,6 +208,10 @@
 #define PROGRAM_ACCESS_ONE 1
 #define PROGRAM_ACCESS_LIST_ONE 2
 #define PROGRAM_ACCESS_LIST_ALL 3
+
+#define PROGRAM_NORMAL 1
+#define PROGRAM_SERVICE 2
+#define PROGRAM_TYPE_ALL (PROGRAM_NORMAL | PROGRAM_SERVICE)
 
 // Special return values from bullet_act(). Positive return values are already used to indicate the blocked level of the projectile.
 #define PROJECTILE_CONTINUE   -1 //if the projectile should continue flying after calling bullet_act()
@@ -277,16 +291,7 @@
 #define NL_PERMANENT_DISABLE 2
 
 // Used for creating soft references to objects. A manner of storing an item reference
-// as text so you don't necessarily fuck with an object's ability to be garbage collected.
-#if DM_VERSION < 513
-
-#define SOFTREF(A) "\ref[A]"
-
-#else
-
 #define SOFTREF(A) ref(A)
-
-#endif
 
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)

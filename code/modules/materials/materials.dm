@@ -185,7 +185,7 @@
 	if(islist(composite_material))
 		for(var/material_string in composite_material)
 			temp_matter[material_string] = composite_material[material_string]
-	else if(SHEET_MATERIAL_AMOUNT)
+	else
 		temp_matter[name] = SHEET_MATERIAL_AMOUNT
 	return temp_matter
 
@@ -656,7 +656,7 @@
 	stack_type = /obj/item/stack/material/wood // why wouldn't it have a stacktype seriously guys why
 	icon_colour = "#824B28"
 	integrity = 50
-	icon_base = "solid"
+	icon_base = "metal"
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks

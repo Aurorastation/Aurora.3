@@ -62,6 +62,9 @@
 	ion_trail = new(src)
 	ion_trail.start()
 
+/mob/living/simple_animal/hostile/retaliate/malf_drone/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /mob/living/simple_animal/hostile/retaliate/malf_drone/Allow_Spacemove(var/check_drift = 0)
 	return 1
 

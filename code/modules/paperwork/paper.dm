@@ -38,6 +38,7 @@
 	var/const/fountainfont = "Segoe Script"
 
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
@@ -282,7 +283,7 @@
 		t = replacetext(t, "\[logo_zh\]", "")
 		t = replacetext(t, "\[logo_idris\]", "")
 		t = replacetext(t, "\[logo_eridani\]", "")
-		t = replacetext(t, "\[logo_necro\]", "")
+		t = replacetext(t, "\[logo_zavodskoi\]", "")
 		t = replacetext(t, "\[logo_hp\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
 

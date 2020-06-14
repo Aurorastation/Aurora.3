@@ -49,7 +49,7 @@
 	name = "Heavy Armor Kit"
 	item_cost = 4
 	path = /obj/item/storage/box/syndie_kit/armor
-	desc = "A heavy armour set consisting of a vest and a helmet. Not EVA capable."
+	desc = "A heavy armour set consisting of a full kit. Not EVA capable."
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
@@ -67,6 +67,12 @@
 	name = "Cryptographic Sequencer"
 	item_cost = 6
 	path = /obj/item/card/emag
+
+/datum/uplink_item/item/tools/personal_shield
+	name = "Personal Shield"
+	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots."
+	item_cost = 6
+	path = /obj/item/device/personal_shield
 
 /datum/uplink_item/item/tools/hacking_tool
 	name = "Door Hacking Tool"

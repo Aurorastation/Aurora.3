@@ -23,9 +23,11 @@ div.item {
 
 .itemLabel, .itemContent {
   display: table-cell;
+  width: 10%;
 }
 
 .itemLabel {
   padding-right: 8px;
+  width: 4%;
 }
 </style>

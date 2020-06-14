@@ -20,18 +20,6 @@
 	LAZYINITLIST(pai_software_by_key)
 	LAZYINITLIST(default_pai_software)
 
-/datum/controller/subsystem/pai/Initialize()
-	// Initialize the pAI software list.
-	for(var/type in subtypesof(/datum/pai_software))
-		var/datum/pai_software/P = new type()
-		if(pai_software_by_key[P.id])
-			var/datum/pai_software/O = pai_software_by_key[P.id]
-			to_world("<span class='warning'>pAI software module [P.name] has the same key as [O.name]!</span>")
-			continue
-		pai_software_by_key[P.id] = P
-		if(P.default)
-			default_pai_software[P.id] = P
-
 /datum/controller/subsystem/pai/Recover()
 	pai_software_by_key = SSpai.pai_software_by_key
 	default_pai_software = SSpai.default_pai_software
@@ -40,7 +28,7 @@
 	if(href_list["download"])
 		var/datum/paiCandidate/candidate = locate(href_list["candidate"])
 		var/obj/item/device/paicard/card = locate(href_list["device"])
-		if (!candidate in pai_candidates)
+		if (!(candidate in pai_candidates))
 			return
 
 		if(card.pai)
@@ -105,7 +93,7 @@
 		return FALSE
 	candidate.ready = FALSE
 	return TRUE
-	
+
 
 /datum/controller/subsystem/pai/proc/recruitWindow(mob/M as mob)
 	var/datum/paiCandidate/candidate
@@ -141,10 +129,10 @@
 			"description" = candidate.description,
 			"role" = candidate.role,
 			"comments" = candidate.comments),
-		nstate = interactive_state)
+		state = interactive_state)
 		ui.metadata = list("candidate" = candidate)
 		ui.header = "minimal"
-		
+
 	return ui.open()
 
 /datum/controller/subsystem/pai/proc/findPAI(obj/item/device/paicard/p, mob/user)

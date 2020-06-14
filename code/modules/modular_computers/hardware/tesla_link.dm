@@ -1,15 +1,13 @@
 /obj/item/computer_hardware/tesla_link
 	name = "tesla link"
 	desc = "An advanced tesla link that wirelessly recharges connected device from nearby area power controller."
-	critical = 0
-	enabled = 1
+	critical = FALSE
 	icon_state = "teslalink"
 	hardware_size = 3
 	origin_tech = list(TECH_DATA = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
-	var/obj/machinery/modular_computer/holder
-	var/passive_charging_rate = 250			// W
+	var/passive_charging_rate = 250 // W
 
 /obj/item/computer_hardware/tesla_link/Destroy()
-	if(holder2 && (holder2.tesla_link == src))
-		holder2.tesla_link = null
+	if(parent_computer?.tesla_link == src)
+		parent_computer.tesla_link = null
 	return ..()

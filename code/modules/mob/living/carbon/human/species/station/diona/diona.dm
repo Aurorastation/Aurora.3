@@ -29,7 +29,6 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
@@ -45,8 +44,24 @@
 	even the simplest concepts of other minds. Their alien physiology allows them survive happily off a diet of nothing but light, \
 	water and other radiation."
 
-	grab_mod = 0.8 // Viney Tentacles and shit to cling onto
-	resist_mod = 2 // Reasonably stronk, not moreso than an Unathi or robot.
+	organ_low_pain_message = "<b>The nymph making up our %PARTNAME% feels injured.</b>"
+	organ_med_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% can barely manage the pain!</font></b>"
+	organ_high_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
+
+	organ_low_burn_message = "<b>The nymph making up our %PARTNAME% notes a burning injury.</b>"
+	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% burns terribly!</font></span>"
+	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font></span>"
+
+	scream_emote = list("creaks in pain!", "rustles in agony!")
+	scream_emote = "screams!"
+	halloss_message = "creaks and crumbles to the floor."
+	halloss_message_self = "We can't take this much pain..."
+	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
+	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
+
+	pain_mod = 0.7
+	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
+	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
 	has_organ = list(
 		"nutrient channel"   = /obj/item/organ/internal/diona/nutrients,
@@ -86,12 +101,12 @@
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
-	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_PAIN | NO_SLIP | NO_CHUBBY | NO_ARTERIES
+	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	character_color_presets = list("Default Bark" = "#000000", "Light Bark" = "#141414", "Brown Bark" = "#2b1d0e", "Green Bark" = "#001400")
 
-	blood_color = "#97dd7c"
+	blood_color = COLOR_DIONA_BLOOD
 	flesh_color = "#907E4A"
 
 	reagent_tag = IS_DIONA
@@ -145,12 +160,6 @@
 /datum/species/diona/get_vision_organ(mob/living/carbon/human/H)
 	return H.organs_by_name[vision_organ]
 
-/datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
-	else
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
-
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (ishuman(H))
 		return ..()
@@ -160,7 +169,7 @@
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs, TRUE)
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.
@@ -183,3 +192,6 @@
 	for(var/mob/living/carbon/alien/diona/D in H.contents)
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
+
+/datum/species/diona/has_psi_potential()
+	return FALSE

@@ -5,6 +5,8 @@
 	icon_state = "cart"
 	item_state = "electronic"
 	w_class = 1
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
 
 	var/obj/item/radio/integrated/radio = null
 	var/access_security = 0
@@ -405,7 +407,7 @@
 
 	if(mode==47)
 		var/supplyData[0]
-		var/datum/shuttle/ferry/supply/shuttle = SScargo.shuttle
+		var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 		if (shuttle)
 			supplyData["shuttle_moving"] = shuttle.has_arrive_time()
 			supplyData["shuttle_eta"] = shuttle.eta_minutes()

@@ -73,7 +73,7 @@
 /obj/item/rig/tesla
 	name = "tesla suit control module"
 	desc = "A tajaran hardsuit designated to be used by the special forces of the Tesla Brigade."
-	description_fluff = "Formed in 2461, the Tesla Brigade is an experimental force composed of augmented veterans. Created after the intense casualties of the Das'nrra campaign and the \
+	desc_fluff = "Formed in 2461, the Tesla Brigade is an experimental force composed of augmented veterans. Created after the intense casualties of the Das'nrra campaign and the \
 	severe loss of Republican Guard units. Additional funding and focus was placed on a previously shelved proposal for heavily armed shock and high technology assault troopers. A \
 	special unit designated to withstand the numerical disadvantages and prolonged engagements special forces of the Republic often faces."
 	suit_type = "tesla suit"
@@ -96,3 +96,11 @@
 		/obj/item/rig_module/mounted/tesla)
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_UTILITY
+
+/obj/item/rig/tesla/process()
+	..()
+	if(wearer)
+		var/obj/item/organ/internal/augment/tesla/T = wearer.internal_organs_by_name[BP_AUG_TESLA]
+		if(T && !T.is_broken())
+			if(cell)
+				cell.give(T.max_charges)

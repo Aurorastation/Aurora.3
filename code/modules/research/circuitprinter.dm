@@ -5,7 +5,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 */
 
 /obj/machinery/r_n_d/circuit_imprinter
-	name = "Circuit Imprinter"
+	name = "circuit imprinter"
 	icon_state = "circuit_imprinter"
 	flags = OPENCONTAINER
 
@@ -16,6 +16,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/max_material_storage = 75000
 	var/mat_efficiency = 1
 	var/speed = 1
+	var/product_offset = FALSE //Set to make the printer spawn its product in a neighboring turf dictated by dir.
 
 	use_power = 1
 	idle_power_usage = 30
@@ -204,7 +205,10 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 	if(D.build_path)
 		var/obj/new_item = D.Fabricate(src, src)
-		new_item.forceMove(loc)
+		if(product_offset)
+			new_item.forceMove(get_step(src, dir))
+		else
+			new_item.forceMove(src.loc)
 		if(mat_efficiency != 1) // No matter out of nowhere
 			if(new_item.matter && new_item.matter.len > 0)
 				for(var/i in new_item.matter)

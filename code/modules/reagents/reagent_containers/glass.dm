@@ -19,6 +19,7 @@
 	var/no_shatter = FALSE //does this container shatter?
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	var/label_text = ""
 
 /obj/item/reagent_containers/glass/Initialize()
@@ -93,11 +94,16 @@
 	name = "beaker"
 	desc = "A beaker."
 	icon = 'icons/obj/chemical.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		)
 	icon_state = "beaker"
 	item_state = "beaker"
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list(MATERIAL_GLASS = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 	fragile = 4
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
@@ -237,6 +243,7 @@
 	flags = OPENCONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 	var/carving_weapon = /obj/item/wirecutters
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
 	no_shatter = TRUE
@@ -288,6 +295,7 @@
 	center_of_mass = list("x" = 16,"y" = 8)
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
 	carving_weapon = /obj/item/material/hatchet
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood
 
@@ -295,4 +303,5 @@
 	if(isprox(D))
 		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return
-	 ..()
+
+	..()

@@ -222,6 +222,9 @@
 	set desc = "Allows you to detach specific nymph, and control it."
 	set category = "Abilities"
 
+	if(use_check_and_message(src))
+		return
+
 	if(nutrition <= 150)
 		to_chat(src, span("warning", "You lack nutrition to perform this action!"))
 		return
@@ -237,7 +240,7 @@
 	if(!O || O.is_stump())
 		to_chat(src, span("warning", "Cannot detach that!"))
 		return
-	
+
 	// Get rid of our limb and replace with stump
 	var/obj/item/organ/external/stump/stump = new (src, 0, O)
 	O.removed(null, TRUE)
@@ -298,7 +301,7 @@
 	else
 		nymph.key = key
 
-/mob/living/carbon/human/proc/diona_split_into_nymphs()
+/mob/living/carbon/human/proc/diona_split_into_nymphs(var/death_split = FALSE)
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
 	var/bestHealth = 0
@@ -333,6 +336,8 @@
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
+		if(death_split && D.health != 0 && D.stat != DEAD)
+			D.health = D.maxHealth * 0.20
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null

@@ -14,6 +14,7 @@
 /obj/item/stack/material/glass
 	name = "glass"
 	singular_name = "glass sheet"
+	desc_info = "Use in your hand to build a window.  Can be upgraded to reinforced glass by adding metal rods, which are made from metal sheets."
 	icon_state = "sheet-glass"
 	var/created_window = /obj/structure/window/basic
 	var/is_reinforced = 0
@@ -21,6 +22,7 @@
 	default_type = "glass"
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/stack/material/glass/attack_self(mob/user as mob)
 	construct_window(user)
@@ -101,6 +103,7 @@
  */
 /obj/item/stack/material/glass/reinforced
 	name = "reinforced glass"
+	desc_info = "Use in your hand to build a window.  Reinforced glass is much stronger against damage."
 	singular_name = "reinforced glass sheet"
 	icon_state = "sheet-rglass"
 	default_type = "reinforced glass"

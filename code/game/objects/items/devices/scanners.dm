@@ -53,33 +53,25 @@ BREATH ANALYZER
 		return "none"
 	. = "minor"
 	if(amount > 50)
-		if(tag)
-			. = "<span class='bad'>severe</span>"
-		else
-			. = "severe"
+		. = "severe"
 	else if(amount > 25)
-		if(tag)
-			. = "<span class='bad'>significant</span>"
-		else
-			. = "significant"
+		. = "significant"
 	else if(amount > 10)
-		if(tag)
-			. = "<span class='average'>moderate</span>"
-		else
-			. = "moderate"
+		. = "moderate"
 
-/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE)
-	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-		user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-		to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-		to_chat(user, "Overall Status: Healthy</span>")
-		return
+/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
+	if(!just_scan)
+		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
+			user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
+			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
+			to_chat(user, "Overall Status: Healthy</span>")
+			return
 
-	if(!usr.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
+		if(!usr.IsAdvancedToolUser())
+			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+			return
 
-	user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
+		user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
@@ -201,7 +193,7 @@ BREATH ANALYZER
 		if(RADS_HIGH to INFINITY)
 			rad_result += span("scan_red", "[b]Extreme levels of radiation poisoning detected![endb]")
 	dat += rad_result
-	
+
 	if(show_limb_damage)
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)
@@ -291,12 +283,6 @@ BREATH ANALYZER
 
 	if(print_reagent_default_message)
 		dat += "No results."
-
-	if(H.virus2.len)
-		for (var/ID in H.virus2)
-			var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
-			if(istype(V))
-				dat += "<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>"
 
 	. += dat
 

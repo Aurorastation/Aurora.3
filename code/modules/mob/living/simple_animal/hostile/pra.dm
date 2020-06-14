@@ -1,7 +1,7 @@
 /mob/living/simple_animal/hostile/republicon
 	name = "republican defensive robot"
 	desc = "An outdated defense drone commonly used by People's Republic of Adhomai Orbital Fleet."
-	description_fluff = "Most heavy and medium Republican ships carry a detachment of very outdated combat robots brought from Solarian military surplus, they are usually armed with \
+	desc_fluff = "Most heavy and medium Republican ships carry a detachment of very outdated combat robots brought from Solarian military surplus, they are usually armed with \
 	blades,	ballistic rifles or rockets. Those machines are usually deployed in rare cases of boarding operations. They possess a rudimentary artificial intelligence and targeting system, \
 	being only capable of perfoming simple tasks outside of attacking. The People's Republic is unable to manufacture this kind of synthetics, but their fleet technicians can \
 	easily repair and reprogram them."
@@ -62,6 +62,12 @@
 	. = ..()
 	add_language(LANGUAGE_SIIK_MAAS)
 	set_default_language(LANGUAGE_SIIK_MAAS)
+
+/mob/living/simple_animal/hostile/republicon/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
+/mob/living/simple_animal/hostile/republicon/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL
 
 /mob/living/simple_animal/hostile/republicon/validator_living(var/mob/living/L, var/atom/current)
 	if((L.faction == src.faction) && !attack_same)

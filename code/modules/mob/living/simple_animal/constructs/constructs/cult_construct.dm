@@ -104,7 +104,7 @@
 
 /mob/living/simple_animal/construct/proc/add_glow()
 	cut_overlays()
-	var/overlay_layer = LIGHTING_LAYER + 0.1
+	var/overlay_layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	if(layer != MOB_LAYER)
 		overlay_layer = TURF_LAYER + 0.2
 
@@ -156,3 +156,6 @@
 		newstate = "[health_prefix]_health[newstate]"
 		if(healths.icon_state != newstate)
 			healths.icon_state = newstate
+
+/mob/living/simple_animal/construct/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

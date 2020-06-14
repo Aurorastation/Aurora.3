@@ -15,6 +15,7 @@
 	var/sides = 2
 	var/cmineral = null
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/coin/New()
 	randpixel_xy()

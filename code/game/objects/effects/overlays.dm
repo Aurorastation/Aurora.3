@@ -1,18 +1,19 @@
 /obj/effect/overlay
 	name = "overlay"
 	unacidable = 1
-	var/i_attached//Added for possible image attachments to objects. For hallucinations and the like.
+	var/i_attached //Added for possible image attachments to objects. For hallucinations and the like.
+	var/no_clean = FALSE // Prevents janitorial cyborgs from cleaning this effect
 
 /obj/effect/overlay/Destroy()
 	i_attached = null
 	return ..()
-	
+
 /obj/effect/overlay/beam//Not actually a projectile, just an effect.
 	name="beam"
 	icon='icons/effects/beam.dmi'
 	icon_state="b_beam"
 	blend_mode = BLEND_ADD
-	layer = LIGHTING_LAYER + 0.1
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	animate_movement = FALSE
 	var/tmp/atom/BeamSource
 
@@ -41,7 +42,7 @@
 
 
 /obj/effect/overlay/bluespacify
-	name = "Bluespace"
+	name = "bluespace"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespacify"
 	layer = 10

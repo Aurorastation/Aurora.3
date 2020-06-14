@@ -4,6 +4,10 @@
 /obj/item/material/knife
 	name = "kitchen knife"
 	icon = 'icons/obj/kitchen.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
+		)
 	icon_state = "knife"
 	desc = "A general purpose Chef's Knife made by SpaceCook Incorporated. Guaranteed to stay sharp for years to come."
 	flags = CONDUCT
@@ -16,6 +20,7 @@
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	unbreakable = 1
 	drop_sound = 'sound/items/drop/knife.ogg'
+	pickup_sound = 'sound/items/pickup/knife.ogg'
 
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
@@ -39,7 +44,7 @@
 	if(!H.get_visible_implants(1))
 		to_chat(usr, "<span class='warning'>There's nothing large enough to remove!</span>")
 		return
-	
+
 	for(var/obj/item/material/shard/S in H.contents)
 		visible_message("<span class='notice'>[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...</span>")
 		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
@@ -97,6 +102,10 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "butterfly"
 	item_state = null
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_knives.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_knives.dmi',
+		)
 	hitsound = null
 	active = 0
 	w_class = 2

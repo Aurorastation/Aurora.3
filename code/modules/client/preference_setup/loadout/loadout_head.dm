@@ -28,16 +28,17 @@
 /datum/gear/head/cap/New()
 	..()
 	var/caps = list()
-	caps["blue cap"] = /obj/item/clothing/head/soft/blue
-	caps["flat cap"] = /obj/item/clothing/head/flatcap
-	caps["green cap"] = /obj/item/clothing/head/soft/green
-	caps["grey cap"] = /obj/item/clothing/head/soft/grey
+	caps["red cap"] = /obj/item/clothing/head/soft
 	caps["orange cap"] = /obj/item/clothing/head/soft/orange
+	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["green cap"] = /obj/item/clothing/head/soft/green
+	caps["blue cap"] = /obj/item/clothing/head/soft/blue
 	caps["purple cap"] = /obj/item/clothing/head/soft/purple
 	caps["rainbow cap"] = /obj/item/clothing/head/soft/rainbow
-	caps["red cap"] = /obj/item/clothing/head/soft/red
-	caps["white cap"] = /obj/item/clothing/head/soft/mime
-	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["black cap"] = /obj/item/clothing/head/soft/black
+	caps["grey cap"] = /obj/item/clothing/head/soft/grey
+	caps["white cap"] = /obj/item/clothing/head/soft/white
+	caps["flat cap"] = /obj/item/clothing/head/flatcap
 	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
 
@@ -57,10 +58,7 @@
 /datum/gear/head/beret/color
 	display_name = "beret (colorable)"
 	path = /obj/item/clothing/head/beret/misc
-
-/datum/gear/head/beret/color/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
@@ -109,10 +107,7 @@
 /datum/gear/head/hairflower
 	display_name = "hair flower pin (colorable)"
 	path = /obj/item/clothing/head/pin/flower/white
-
-/datum/gear/head/hairflower/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/flowercrown
 	display_name = "flowercrown selection"
@@ -215,26 +210,17 @@
 /datum/gear/head/headbando
 	display_name = "basic headband"
 	path = /obj/item/clothing/head/headbando
-
-/datum/gear/head/headbando/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/beanie
 	display_name = "beanie"
 	path = /obj/item/clothing/head/beanie
-
-/datum/gear/head/beanie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/loose_beanie
 	display_name = "loose beanie"
 	path = /obj/item/clothing/head/beanie_loose
-
-/datum/gear/head/loose_beanie/New()
-	..()
-	gear_tweaks += gear_tweak_free_color_choice
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/nonla
 	display_name = "non la hat"
@@ -244,6 +230,7 @@
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
@@ -252,6 +239,7 @@
 /datum/gear/head/tcfl
 	display_name = "tcfl hat selection"
 	path = /obj/item/clothing/head/legion_beret
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/tcfl/New()
 	..()
@@ -259,3 +247,8 @@
 	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/legion_beret
 	tcfl["tcfl beret, field"] = /obj/item/clothing/head/legion
 	gear_tweaks += new/datum/gear_tweak/path(tcfl)
+
+/datum/gear/head/padded_cap
+	display_name = "padded cap"
+	path = /obj/item/clothing/head/padded
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

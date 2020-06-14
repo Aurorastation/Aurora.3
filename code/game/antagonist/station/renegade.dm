@@ -20,8 +20,13 @@ var/datum/antagonist/renegade/renegades
 	..()
 	renegades = src
 
-/datum/antagonist/renegade/create_objectives(var/datum/mind/player)
+/datum/antagonist/renegade/can_become_antag(var/datum/mind/player, var/ignore_role)
+	if(..())
+		if(player.current && ishuman(player.current))
+			return TRUE
+	return FALSE
 
+/datum/antagonist/renegade/create_objectives(var/datum/mind/player)
 	if(!..())
 		return
 
@@ -30,7 +35,6 @@ var/datum/antagonist/renegade/renegades
 	player.objectives |= survive
 
 /datum/antagonist/renegade/equip(var/mob/living/carbon/human/player)
-
 	if(!..())
 		return
 

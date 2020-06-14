@@ -5,13 +5,14 @@
 	icon_state = "candle1"
 	item_state = "candle1"
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	w_class = 1
 	light_color = "#E09D37"
 	var/wax = 2000
 
 /obj/item/flame/candle/Initialize()
 	. = ..()
-	wax = rand(800, 1000) // Enough for 27-33 minutes. 30 minutes on average.
+	wax = rand(1600, 2000)
 
 /obj/item/flame/candle/update_icon()
 	var/i

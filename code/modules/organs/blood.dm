@@ -23,15 +23,12 @@
 		if(B.id == "blood")
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = species.bodytype,
 				"blood_DNA" = dna.unique_enzymes,
 				"blood_colour" = species.blood_color,
 				"blood_type" = dna.b_type,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 			B.color = B.data["blood_colour"]
 
@@ -71,7 +68,7 @@
 						H.bloody_body(src)
 						H.bloody_hands(src)
 						var/blinding = FALSE
-						if(ran_zone("head", 75))
+						if(ran_zone(BP_HEAD, 75))
 							blinding = TRUE
 							for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
 								if(I && (I.body_parts_covered & EYES))
@@ -85,10 +82,13 @@
 							to_chat(H, "<span class='danger'>You are hit by a spray of blood!</span>")
 						hit_mob = TRUE
 
-				if(hit_mob || !A.CanPass(src, sprayloc))
-					break
+				if(!(A.CanPass(src, sprayloc)) || hit_mob)
+					continue
+
 			drip(amt, sprayloc, spraydir)
 			bled += amt
+			if(hit_mob)
+				break
 	return bled
 #undef BLOOD_SPRAY_DISTANCE
 
@@ -157,10 +157,6 @@
 
 	//set reagent data
 	B.data["donor"] = WEAKREF(src)
-	if (!B.data["virus2"])
-		B.data["virus2"] = list()
-	B.data["virus2"] |= virus_copylist(src.virus2)
-	B.data["antibodies"] = src.antibodies
 	B.data["blood_DNA"] = copytext(src.dna.unique_enzymes,1,0)
 	if(src.resistances && src.resistances.len)
 		if(B.data["resistances"])
@@ -199,12 +195,6 @@
 /mob/living/carbon/proc/inject_blood(var/datum/reagent/blood/injected, var/amount)
 	if (!injected || !istype(injected))
 		return
-	var/list/sniffles = virus_copylist(injected.data["virus2"])
-	for(var/ID in sniffles)
-		var/datum/disease2/disease/sniffle = sniffles[ID]
-		infect_virus2(src,sniffle,1)
-	if (injected.data["antibodies"] && prob(5))
-		antibodies |= injected.data["antibodies"]
 	var/list/chems = list()
 	chems = params2list(injected.data["trace_chem"])
 	for(var/C in chems)
@@ -320,10 +310,6 @@ proc/blood_splatter(var/target, var/datum/reagent/blood/source, var/large, var/s
 			B.blood_DNA[source.data["blood_DNA"]] = source.data["blood_type"]
 		else
 			B.blood_DNA[source.data["blood_DNA"]] = "O+"
-
-	// Update virus information.
-	if(source.data["virus2"])
-		B.virus2 = virus_copylist(source.data["virus2"])
 
 	B.fluorescent  = 0
 	B.invisibility = 0

@@ -119,6 +119,12 @@ There are several things that need to be remembered:
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 
+/proc/overlay_image(icon,icon_state,color,flags)
+	var/image/ret = image(icon,icon_state)
+	ret.color = color
+	ret.appearance_flags = flags
+	return ret
+
 /mob/living/carbon/human
 	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
@@ -148,6 +154,11 @@ There are several things that need to be remembered:
 
 		if(species.has_floating_eyes)
 			ovr += species.get_eyes(src)
+
+		for(var/aura in auras)
+			var/obj/aura/A = aura
+			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
+			ovr += aura_overlay
 
 		add_overlay(ovr)
 
@@ -213,6 +224,12 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icons()
 
+//Overlays for the worn overlay so you can overlay while you overlay
+//eg: ammo counters, primed grenade flashing, etc.
+//"item_icons" is used automatically for inhands etc. to make sure it gets the correct inhand file
+/obj/item/proc/worn_overlays(item_icons)
+	. = list()
+
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)
 	if (QDELING(src))
@@ -256,7 +273,7 @@ There are several things that need to be remembered:
 	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
-		base_icon = chest.get_icon()
+		base_icon = chest.get_icon(skeleton)
 
 		for(var/obj/item/organ/external/part in organs)
 			if(isnull(part) || part.is_stump())
@@ -308,20 +325,18 @@ There are several things that need to be remembered:
 		update_icons()
 
 /mob/living/carbon/human/proc/update_underwear(update_icons = TRUE)
-	var/list/ovr
+	overlays_raw[UNDERWEAR_LAYER] = list()
 
-	if(underwear && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[underwear]"))
+	if(species.appearance_flags & HAS_UNDERWEAR)
+		for(var/category in all_underwear)
+			if(hide_underwear[category])
+				continue
+			if(category == "Underwear, top" && hide_underwear["Undershirt"] == FALSE && !istype(all_underwear["Undershirt"], /datum/category_item/underwear/undershirt/none))
+				continue //This piece of "code" is here to prevent tops from showing up over undershirts.
+			var/datum/category_item/underwear/UWI = all_underwear[category]
+			overlays_raw[UNDERWEAR_LAYER] += UWI.generate_image(all_underwear_metadata[category])
 
-	if(undershirt && (species.appearance_flags & HAS_UNDERWEAR))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[undershirt]"))
-
-	if(socks && (species.appearance_flags & HAS_SOCKS))
-		LAZYADD(ovr, SSicon_cache.get_state('icons/mob/human.dmi', "[socks]"))
-
-	overlays_raw[UNDERWEAR_LAYER] = ovr
-
-	if (update_icons)
+	if(update_icons)
 		update_icons()
 
 // This proc generates & returns an icon representing a human's hair, using a cached icon from SSicon_cache if possible.
@@ -739,16 +754,16 @@ There are several things that need to be remembered:
 
 		var/list/ovr
 
-		if(shoes.blood_DNA)
+		if(shoes.blood_color)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
 			bloodsies.color = shoes.blood_color
 			ovr = list(standing, bloodsies)
 
 		overlays_raw[shoe_layer] = ovr || standing
 	else
-		if(feet_blood_DNA)
+		if(footprint_color)
 			var/image/bloodsies = image("icon" = species.blood_mask, "icon_state" = "shoeblood")
-			bloodsies.color = feet_blood_color
+			bloodsies.color = footprint_color
 			overlays_raw[SHOES_LAYER] = bloodsies
 		else
 			overlays_raw[SHOES_LAYER] = null
@@ -1053,6 +1068,11 @@ There are several things that need to be remembered:
 		if(hud_used)
 			hud_used.hidden_inventory_update() 	//Updates the screenloc of the items on the 'other' inventory bar
 
+//update whether handcuffs appears on our hud.
+/mob/living/carbon/proc/update_hud_handcuffed()
+	if(hud_used && hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
+		hud_used.l_hand_hud_object.update_icon()
+		hud_used.r_hand_hud_object.update_icon()
 
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
 	if (QDELING(src))
@@ -1074,6 +1094,7 @@ There are several things that need to be remembered:
 	else
 		overlays_raw[HANDCUFF_LAYER] = null
 
+	update_hud_handcuffed()
 	if(update_icons)
 		update_icons()
 
@@ -1424,3 +1445,4 @@ There are several things that need to be remembered:
 #undef UNDERSCORE_OR_NULL
 #undef GET_BODY_TYPE
 #undef GET_TAIL_LAYER
+

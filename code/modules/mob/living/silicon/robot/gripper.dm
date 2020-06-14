@@ -229,7 +229,6 @@
 		/obj/item/reagent_containers/spray,
 		/obj/item/storage/pill_bottle,
 		/obj/item/hand_labeler,
-		/obj/item/virusdish,
 		/obj/item/paper,
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,
@@ -258,10 +257,11 @@
 	return
 
 /obj/item/gripper/no_use/loader //This is used to disallow building with metal.
-	name = "sheet loader"
-	desc = "A specialized loading device, designed to pick up and insert sheets of materials inside machines."
+	name = "sheet holder"
+	desc = "A specialized holding device, designed to hold sheets of material or tiling."
 	icon_state = "gripper-sheet"
 
 	can_hold = list(
-		/obj/item/stack/material
+		/obj/item/stack/material,
+		/obj/item/stack/tile
 		)

@@ -91,8 +91,8 @@
 	h_r_hand = /obj/item/mecha_equipment/clamp
 
 /mob/living/heavy_vehicle/premade/light/iac
-	name = "IAC exosuit"
-	desc = "A light and agile exosuit painted in the colours of the Interstellar Aid Corps."
+	name = "medical exosuit"
+	desc = "A light and agile medical oriented exosuit."
 	icon_state = "odysseus"
 
 	e_color = COLOR_IAC

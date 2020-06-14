@@ -1,6 +1,11 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "canister"
 	desc = "Holds gas. Has a built-in valve to allow for filling portable tanks."
+	desc_info = "The canister can be connected to a connector port with a wrench.  Tanks of gas (the kind you can hold in your hand) \
+	can be filled by the canister, by using the tank on the canister, increasing the release pressure, then opening the valve until it is full, and then close it.  \
+	*DO NOT* remove the tank until the valve is closed.  A gas analyzer can be used to check the contents of the canister."
+
+	desc_antag = "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1
@@ -144,19 +149,28 @@ update_flag
 		return
 
 	cut_overlays()
+	set_light(FALSE)
 
 	if(update_flag & 1)
 		add_overlay("can-open")
 	if(update_flag & 2)
 		add_overlay("can-connector")
 	if(update_flag & 4)
-		add_overlay("can-o0")
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(indicator_overlay)
+		set_light(1.4, 1, COLOR_RED_LIGHT)
 	if(update_flag & 8)
-		add_overlay("can-o1")
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(indicator_overlay)
+		set_light(1.4, 1, COLOR_RED_LIGHT)
 	else if(update_flag & 16)
-		add_overlay("can-o2")
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(indicator_overlay)
+		set_light(1.4, 1, COLOR_YELLOW)
 	else if(update_flag & 32)
-		add_overlay("can-o3")
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(indicator_overlay)
+		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
 	return
 
 /obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -355,7 +369,7 @@ update_flag
 				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
 			if(istype(holding, /obj/item/tank))
 				holding.manipulated_by = usr.real_name
-			holding.forceMove(loc)
+			usr.put_in_hands(holding)
 			holding = null
 
 	if (href_list["pressure_adj"])

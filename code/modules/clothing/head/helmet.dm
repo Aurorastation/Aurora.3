@@ -17,6 +17,7 @@
 	w_class = 3
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	drop_sound = 'sound/items/drop/helm.ogg'
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()
 	set name = "Toggle Helmet Hair Coverage"
@@ -47,7 +48,7 @@
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
 	desc = "A special Internal Security Division helmet designed to protect the precious craniums of important installation security officers."
-	description_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
+	desc_fluff = "What the heck did you just hecking say about me, you little honker? I'll have you know I graduated top of my class in the Sol Army, and I've been involved in numerous secret raids on the Jargon Federation, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire Sol armed forces. You are nothing to me but just another target. I will wipe you the heck out with precision the likes of which has never been seen before on Biesel, mark my hecking words."
 	icon_state = "hoshelmet"
 	item_state = "hoshelmet"
 	armor = list(melee = 62, bullet = 50, laser = 50, energy = 35, bomb = 10, bio = 2, rad = 0)
@@ -111,7 +112,10 @@
 /obj/item/clothing/head/helmet/merc
 	name = "combat helmet"
 	desc = "A tan helmet made from advanced ceramic."
-	icon_state = "helmet_tac"
+	icon = 'icons/clothing/kit/heavy_armor.dmi'
+	item_state = "helmet"
+	icon_state = "helmet"
+	contained_sprite = TRUE
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 

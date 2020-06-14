@@ -8,7 +8,9 @@
 	flags = CONDUCT | NOBLOODY
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
+	var/global/list/screen_overlays
 	var/radio_sound = null
+	clickvol = 40
 
 /obj/item/device/radio/intercom/custom
 	name = "station intercom (Custom)"
@@ -48,6 +50,17 @@
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
 	power_interface = new(loc, src)
+	generate_overlays()
+	update_icon()
+
+/obj/item/device/radio/intercom/proc/generate_overlays(var/force = 0)
+	if(LAZYLEN(screen_overlays) && !force)
+		return
+	LAZYINITLIST(screen_overlays)
+	screen_overlays["intercom_screen"] = make_screen_overlay(icon, "intercom_screen")
+	screen_overlays["intercom_scanline"] = make_screen_overlay(icon, "intercom_scanline")
+	screen_overlays["intercom_b"] = make_screen_overlay(icon, "intercom_b")
+	screen_overlays["intercom_l"] = make_screen_overlay(icon, "intercom_l")
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
@@ -129,10 +142,19 @@
 	..(dest)
 
 /obj/item/device/radio/intercom/update_icon()
-	if (on)
-		icon_state = "intercom"
+	cut_overlays()
+	if(!on)
+		icon_state = initial(icon_state)
+		set_light(FALSE)
+		return
 	else
-		icon_state = "intercom-p"
+		add_overlay(screen_overlays["intercom_screen"])
+		add_overlay(screen_overlays["intercom_scanline"])
+		set_light(1.4, 1, COLOR_CYAN)
+		if(broadcasting)
+			add_overlay(screen_overlays["intercom_b"])
+		if(listening)
+			add_overlay(screen_overlays["intercom_l"])
 
 /obj/item/device/radio/intercom/broadcasting
 	broadcasting = 1

@@ -75,10 +75,11 @@
 /obj/item/pocketwatch
 	name = "pocketwatch"
 	desc = "A watch that goes in your pocket."
-	description_fluff = "Because your wrists have better things to do."
+	desc_fluff = "Because your wrists have better things to do."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	w_class = 1
 	var/closed = FALSE
@@ -125,6 +126,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "pocketwatch"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	w_class = 1
 	var/datum/weakref/thrall = null
@@ -510,10 +512,16 @@
 
 /obj/machinery/chakraconsole/power_change()
 	..()
+	update_icon()
+
+/obj/machinery/chakraconsole/update_icon()
+	cut_overlays()
 	if((stat & BROKEN) || (stat & NOPOWER))
-		icon_state = "sleeper_s_scannerconsole-p"
+		return
 	else
-		icon_state = initial(icon_state)
+		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "sleeper_s_scannerconsole-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(screen_overlay)
+		set_light(1.4, 1, COLOR_RED)
 
 /obj/machinery/chakraconsole/Initialize()
 	. = ..()
@@ -522,6 +530,7 @@
 		break
 	if(connected)
 		connected.connected = src
+	update_icon()
 
 /obj/machinery/chakraconsole/Destroy()
 	if (connected)
@@ -565,13 +574,13 @@
 				visible_message("<span class='warning'>[connected] begins humming with an electrical tone.</span>", "<span class='warning'>You hear an electrical humming.</span>")
 				if(H && connected.occupant.resolve() == H)
 					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
-					var/retardation = H.getBrainLoss()
+					var/braindamage = H.getBrainLoss()
 					if(sponge && istype(sponge))
 						if(!sponge.lobotomized)
-							to_chat(user, "<span class='notice'>Scans indicate [retardation] distinct abnormalities present in subject.</span>")
+							to_chat(user, "<span class='notice'>Scans indicate [braindamage] distinct abnormalities present in subject.</span>")
 							return
 						else
-							to_chat(user, "<span class='notice'>Scans indicate [retardation+rand(-20,20)] distinct abnormalities present in subject.</span>")
+							to_chat(user, "<span class='notice'>Scans indicate [braindamage+rand(-20,20)] distinct abnormalities present in subject.</span>")
 							return
 
 				to_chat(user, "<span class='warning'>Scans indicate total brain failure in subject.</span>")
