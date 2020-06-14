@@ -299,7 +299,7 @@
 				else if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
-					M.visible_message("<b>[M]</b> taps [src] to get their attention!"), \
+					M.visible_message("<b>[M]</b> taps [src] to get their attention!", \
 								span("notice", "You tap [src] to get their attention!"))
 
 			if(stat != DEAD)
