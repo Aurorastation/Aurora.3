@@ -21,17 +21,6 @@ If d1 = 0 and d2 = dir, it's a O-X cable, getting from the center of the tile to
 If d1 = dir1 and d2 = dir2, it's a full X-X cable, getting from dir1 to dir2
 By design, d1 is the smallest direction and d2 is the highest
 */
-
-var/list/possible_cable_coil_colours = list(
-		"Yellow" = COLOR_YELLOW,
-		"Green" = COLOR_LIME,
-		"Pink" = COLOR_PINK,
-		"Blue" = COLOR_BLUE,
-		"Orange" = COLOR_ORANGE,
-		"Cyan" = COLOR_CYAN,
-		"Red" = COLOR_RED
-	)
-
 /obj/structure/cable
 	level = 1
 	anchored =1
@@ -470,12 +459,12 @@ obj/structure/cable/proc/cableColor(var/colorC)
 #define MAXCOIL 30
 
 /obj/item/stack/cable_coil
-	name = "cable coil"
+	name = "power cable"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "coil"
 	amount = MAXCOIL
 	max_amount = MAXCOIL
-	var/our_color = COLOR_RED
+	var/our_color = "Red"
 	desc = "A coil of power cable."
 	throwforce = 10
 	w_class = 2.0
@@ -489,17 +478,18 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/list/possible_cable_coil_colours = list(
+		"Yellow" = COLOR_YELLOW,
+		"Green" = COLOR_LIME,
+		"Pink" = COLOR_PINK,
+		"Blue" = COLOR_BLUE,
+		"Orange" = COLOR_ORANGE,
+		"Cyan" = COLOR_CYAN,
+		"Red" = COLOR_RED
+	)
 
-/obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
+/obj/item/stack/cable_coil/Initialize(mapload, amt)
 	. = ..(mapload, amt)
-	icon_state = "coil"
-	our_color = pick(possible_cable_coil_colours)
-	add_atom_colour(possible_cable_coil_colours[our_color])
-	update_icon()
-
-	if (param_color) // It should be red by default, so only recolor it if parameter was specified.
-		our_color = param_color
-
 	pixel_x = rand(-2,2)
 	pixel_y = rand(-2,2)
 	update_icon()
@@ -601,27 +591,22 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			to_chat(user, span("warning", "You don't have enough cable for this!"))
 
 /obj/item/stack/cable_coil/update_icon()
+	name = "[initial(name)]"
 	if(amount == 1)
-		icon_state = "coil1"
-		name = "cable piece"
-		cut_overlays()
-		var/mutable_appearance/base_overlay = mutable_appearance(icon, "coil1_end")
-		base_overlay.appearance_flags = RESET_COLOR
-		add_overlay(base_overlay)
+		icon_state = "[initial(icon_state)]1"
+		name += " piece"
 	else if(amount == 2)
-		icon_state = "coil2"
-		name = "cable piece"
-		cut_overlays()
-		var/mutable_appearance/base_overlay = mutable_appearance(icon, "coil2_end")
-		base_overlay.appearance_flags = RESET_COLOR
-		add_overlay(base_overlay)
+		icon_state = "[initial(icon_state)]2"
+		name += " piece"
 	else
-		icon_state = "coil"
-		name = "cable coil"
-		cut_overlays()
-		var/mutable_appearance/base_overlay = mutable_appearance(icon, "coil_end")
-		base_overlay.appearance_flags = RESET_COLOR
-		add_overlay(base_overlay)
+		icon_state = "[initial(icon_state)]"
+		name += " coil"
+	overlays.Cut()
+	overlays += overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR)
+	if(our_color)
+		color = our_color // apparently makes pink and orange = null, because why the fuck not? i want to kill myself
+		item_state = "coil-[our_color]"
+		update_held_icon()
 
 /obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
 	if(W.ismultitool())
@@ -632,15 +617,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	var/selected_type = input("Pick new colour.", "Cable Colour", null, null) as null|anything in possible_cable_coil_colours
 	set_cable_color(selected_type, usr)
 
-/obj/item/stack/cable_coil/proc/set_cable_color(var/selected_color, var/user)
+/obj/item/stack/cable_coil/proc/set_cable_color(selected_color, var/user)
 	if(!selected_color)
 		return
 
-	var/final_color = possible_cable_coil_colours[selected_color]
-	if(!final_color)
-		final_color = possible_cable_coil_colours["Red"]
-		selected_color = "red"
-	our_color = final_color
+	our_color = selected_color
+	if(!our_color)
+		our_color = "Red"
+	update_icon()
 	to_chat(user, "<span class='notice'>You change \the [src]'s color to [lowertext(selected_color)].</span>")
 
 /obj/item/stack/cable_coil/proc/update_wclass()
@@ -958,32 +942,33 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	update_wclass()
 
 /obj/item/stack/cable_coil/yellow
-	our_color = COLOR_YELLOW
+	our_color = "Yellow"
 
 /obj/item/stack/cable_coil/blue
-	our_color = COLOR_BLUE
+	our_color = "Blue"
 
 /obj/item/stack/cable_coil/green
-	our_color = COLOR_LIME
+	our_color = "Green"
 
 /obj/item/stack/cable_coil/pink
-	our_color = COLOR_PINK
+	our_color = "Pink"
 
 /obj/item/stack/cable_coil/orange
-	our_color = COLOR_ORANGE
+	our_color = "Orange"
 
 /obj/item/stack/cable_coil/cyan
-	our_color = COLOR_CYAN
+	our_color = "Cyan"
 
 /obj/item/stack/cable_coil/white
-	our_color = COLOR_WHITE
+	our_color = "White"
 
 /obj/item/stack/cable_coil/random/Initialize()
-	our_color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
+	our_color = pick(possible_cable_coil_colours)
 	. = ..()
 
-//nooses - all catbeast/ligger/squiggers/synths must hang
-
+//////////////////////////////
+// Nooses.
+/////////////////////////////
 /obj/item/stack/cable_coil/verb/make_noose()
 	set name = "Make Noose"
 	set category = "Object"

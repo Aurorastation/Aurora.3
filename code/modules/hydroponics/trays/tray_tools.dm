@@ -10,7 +10,7 @@
 		)
 	toolspeed = 0.7
 	bomb_defusal_chance = 40 // 40% chance to successfully defuse a bomb, higher than standard because plant clippers are smaller
-	random_color = FALSE
+	build_from_parts = FALSE
 
 /obj/item/wirecutters/clippers/update_icon()
 	var/matrix/tf = matrix()
