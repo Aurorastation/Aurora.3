@@ -93,6 +93,9 @@
 	name = "Unknown"
 	real_name = "Unknown"
 
+	for(var/text in flavor_texts)
+		flavor_texts[text] = null
+
 	mutations.Add(HUSK)
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
 	update_body(TRUE)
@@ -115,6 +118,8 @@
 	if(!keep_name)
 		name = "Unknown"
 		real_name = "Unknown"
+		for(var/text in flavor_texts)
+			flavor_texts[text] = null
 
 	mutations.Add(SKELETON)
 	status_flags |= DISFIGURED
