@@ -212,8 +212,8 @@
 /obj/item/clothing/accessory/badge/nka_passport
 	name = "new kingdom of adhomai passport"
 	desc = "A passport issued to the citizens of the New Kingdom of Adhomai."
-	icon_state = "dpra-passport"
-	overlay_state = "dpra-passport"
+	icon_state = "nka-passport"
+	overlay_state = "nka-passport"
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
 	flippable = FALSE

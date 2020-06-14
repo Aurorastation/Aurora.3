@@ -226,7 +226,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/adhomai_pocketwatch
-	display_name = "adhomian lighter"
+	display_name = "adhomian watch"
 	path = /obj/item/pocketwatch/adhomai
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")

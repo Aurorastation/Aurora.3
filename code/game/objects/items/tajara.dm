@@ -97,7 +97,6 @@
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
 	contained_sprite = TRUE
-	slot_flags = SLOT_TIE
 
 /obj/item/pocketwatch/adhomai/checktime(mob/user)
 	set category = "Object"
