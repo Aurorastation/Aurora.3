@@ -103,3 +103,14 @@
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_l_hand = /obj/item/mecha_equipment/mounted_system/medanalyzer
 	h_r_hand = /obj/item/mecha_equipment/clamp
+
+/mob/living/heavy_vehicle/premade/light/kataphract
+	name = "kataphract exosuit"
+	desc = "A light and nimble exosuit, bearing the colour scheme of the Unathi Kataphracts."
+
+	e_color = COLOR_CHESTNUT
+
+	h_back = /obj/item/mecha_equipment/quick_enter
+	h_l_hand = /obj/item/mecha_equipment/clamp
+	h_r_hand = /obj/item/mecha_equipment/catapult
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher

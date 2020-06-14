@@ -52,7 +52,6 @@
 /area/centcom/distress_prep)
 "d" = (
 /obj/structure/closet/crate/freezer{
-	layer = 2.99;
 	name = "rations"
 	},
 /obj/item/reagent_containers/food/snacks/koisbar_clean,
@@ -111,19 +110,20 @@
 /area/centcom/distress_prep)
 "f" = (
 /obj/structure/table/rack,
-/obj/item/storage/backpack/duffel{
+/obj/item/storage/backpack/satchel/hegemony{
 	pixel_x = -2;
-	pixel_y = 4
+	pixel_y = 2
 	},
-/obj/item/storage/backpack/duffel,
+/obj/item/storage/backpack/satchel/hegemony{
+	pixel_x = 2;
+	pixel_y = -2
+	},
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
 /area/centcom/distress_prep)
 "g" = (
-/mob/living/heavy_vehicle/premade/miner{
-	e_color = "#996633"
-	},
+/mob/living/heavy_vehicle/premade/light/kataphract,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
