@@ -291,14 +291,7 @@
 		if(temp)
 			if(skipbody & temp.body_part)
 				continue
-			if(temp.status & ORGAN_ASSISTED)
-				if(!(temp.brute_dam + temp.burn_dam))
-					//wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]!</span>\n"
-					// No need to notify about robotic limbs if they're not damaged, really.
-					continue
-				else
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]. It has[temp.get_wounds_desc()]!</span>\n"
-			else if(temp.wounds.len > 0 || temp.open)
+			if(temp.wounds.len > 0 || temp.open)
 				if(temp.is_stump() && temp.parent_organ && organs_by_name[temp.parent_organ])
 					var/obj/item/organ/external/parent = organs_by_name[temp.parent_organ]
 					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [parent.name].</span><br>"
