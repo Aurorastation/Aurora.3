@@ -534,14 +534,15 @@
 			..()
 
 /obj/machinery/appliance/proc/removal_menu(var/mob/user)
-	if (can_remove_items(user))
+	if(can_remove_items(user))
 		var/list/choices = list()
 		var/list/menuoptions = list()
-		for (var/a in cooking_objs)
+		for(var/a in cooking_objs)
 			var/datum/cooking_item/CI = a
 			if(CI.container)
-				menuoptions[CI.container.label(menuoptions.len)] = CI
-				choices[CI.container.label(menuoptions.len)] = image(CI.container.icon, icon_state = CI.container.icon_state)
+				var/current_iteration_len = menuoptions.len + 1
+				menuoptions[CI.container.label(current_iteration_len)] = CI
+				choices[CI.container.label(current_iteration_len)] = image(CI.container.icon, icon_state = CI.container.icon_state)
 
 		var/selection = RADIAL_INPUT(user, choices)
 		if(selection)
