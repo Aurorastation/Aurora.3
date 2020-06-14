@@ -2736,7 +2736,7 @@
 	glass_desc = "100 proof that teen girls will drink anything with gold in it."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
-/datum/reagent/alcohol/ethanol/hippies_delight
+/datum/reagent/alcohol/ethanol/hippiesdelight
 	name = "Hippies' Delight"
 	description = "You just don't get it maaaan."
 	reagent_state = LIQUID
@@ -3812,7 +3812,7 @@
 	glass_name = "glass of Messa's Mead"
 	glass_desc = "A sweet alcoholic adhomian drink. Produced with Messa's tears."
 
-/datum/reagent/alcohol/winter_offensive
+/datum/reagent/alcohol/ethanol/winter_offensive
 	name = "Winter Offensive"
 	description = "An alcoholic tajaran cocktail, named after the famous military campaign."
 	color = "#664300"
@@ -3824,7 +3824,7 @@
 	glass_name = "glass of Winter Offensive"
 	glass_desc = "An alcoholic tajaran cocktail, named after the famous military campaign."
 
-/datum/reagent/alcohol/mountain_marauder
+/datum/reagent/alcohol/ethanol/mountain_marauder
 	name = "Mountain Marauder"
 	description = "An adhomian beverage made from fermented fatshouters milk and victory gin."
 	color = "#DFDFDF"
@@ -3835,7 +3835,7 @@
 	glass_name = "glass of Mountain Marauder"
 	glass_desc = "An adhomian beverage made from fermented fatshouters milk and victory gin."
 
-/datum/reagent/alcohol/mountain_marauder/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/alcohol/ethanol/mountain_marauder/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
