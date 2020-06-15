@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Changing into a husk or a skeleton now sets your name to Unknown, making you unrecognizable."
