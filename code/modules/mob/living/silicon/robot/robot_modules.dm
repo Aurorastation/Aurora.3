@@ -734,6 +734,11 @@ var/global/list/robot_modules = list(
 					LANGUAGE_YA_SSA =      FALSE
 					)
 
+	channels = list(
+		CHANNEL_COMMON = TRUE,
+		CHANNEL_ENTERTAINMENT = TRUE
+	)
+
 	sprites = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
@@ -765,6 +770,9 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/plastique/cyborg(src)
 	src.modules += new /obj/item/grenade/smokebomb/cyborg(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
+
+	if(R.radio)
+		R.radio.recalculateChannels()
 
 /obj/item/robot_module/combat
 	name = "combat robot module"

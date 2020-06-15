@@ -4,6 +4,7 @@ delete-after: True
 
 changes: 
   - rscadd: "Added a roller bed holder, a health analyzer, a medical borg hypospray, a plastic explosive dispenser, and a smokebomb deployer to syndicate cyborgs."
+  - rscadd: "Syndicate cyborgs now get antag radio channels."
   - tweak: "Syndicate cyborgs' components are two times more robust than normal, at spawn."
   - tweak: "Cyborg grenade launchers now come with a grenade chambered."
   - tweak: "Removed the module selection from the syndicate cyborg UI, as it had no purpose."

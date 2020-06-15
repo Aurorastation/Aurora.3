@@ -25,6 +25,7 @@
 	req_access = list(access_syndicate)
 	id_card_type = /obj/item/card/id/syndicate
 	key_type = /obj/item/device/encryptionkey/syndicate
+	var/datum/antagonist/assigned_antagonist
 
 /mob/living/silicon/robot/syndicate/Initialize()
 	. = ..()
@@ -73,16 +74,22 @@
 	src.ckey = user.ckey
 	SSghostroles.remove_spawn_atom("syndiborg", src)
 	// uggo but i think this is the best possible way of doing this
-	if(traitors)
-		traitors.add_antagonist_mind(src.mind, TRUE)
-	else if(mercs)
-		mercs.add_antagonist_mind(src.mind, TRUE)
-	else if(raiders)
-		raiders.add_antagonist_mind(src.mind, TRUE)
-	else if(revs)
-		revs.add_antagonist_mind(src.mind, TRUE)
-	else if(ninjas)
-		ninjas.add_antagonist_mind(src.mind, TRUE)
+	if(!assigned_antagonist)
+		if(traitors)
+			assigned_antagonist = traitors
+		else if(mercs)
+			assigned_antagonist = mercs
+		else if(raiders)
+			assigned_antagonist = raiders
+		else if(revs)
+			assigned_antagonist = revs
+		else if(ninjas)
+			assigned_antagonist = ninjas
+	if(assigned_antagonist)
+		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
+		if(assigned_antagonist.get_antag_radio())
+			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
+			radio.recalculateChannels()
 	say("Boot sequence complete!")
 
 /mob/living/silicon/robot/syndicate/LateLogin()

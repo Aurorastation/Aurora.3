@@ -51,3 +51,6 @@ var/datum/antagonist/mercenary/mercs
 
 	give_codewords(player)
 	return TRUE
+
+/datum/antagonist/mercenary/get_antag_radio()
+	return CHANNEL_MERCENARY

@@ -161,3 +161,6 @@ var/datum/antagonist/ninja/ninjas
 		else
 			directive += "There are no special supplemental instructions at this time."
 	return directive
+
+/datum/antagonist/ninja/get_antag_radio()
+	return CHANNEL_NINJA
