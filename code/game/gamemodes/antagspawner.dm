@@ -32,7 +32,7 @@
 	if(user?.mind.special_role)
 		var/datum/antagonist/user_antag = all_antag_types[user.mind.special_role]
 		if(user_antag)
-			F.assigned_antag = user_antag
+			F.assigned_antagonist = user_antag
 	F.faction = user.faction
 	F.say("Initiating boot-up sequence!")
 	spark(F, 4, alldirs)

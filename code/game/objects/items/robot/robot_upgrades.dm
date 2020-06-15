@@ -26,7 +26,7 @@
 /obj/item/borg/upgrade/reset/action(var/mob/living/silicon/robot/R)
 	if(..())
 		return FALSE
-	if(istype(R, mob/living/silicon/robot/syndicate))
+	if(istype(R, /mob/living/silicon/robot/syndicate))
 		return FALSE
 	R.uneq_all()
 	R.mod_type = initial(R.mod_type)

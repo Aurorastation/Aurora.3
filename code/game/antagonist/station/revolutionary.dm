@@ -78,4 +78,4 @@ var/datum/antagonist/revolutionary/revs
 				"Antagonist Introduction", "I understand.")
 
 /datum/antagonist/revolutionary/get_antag_radio()
-	return CHANNEL_MERCENARY
+	return "Mercenary"

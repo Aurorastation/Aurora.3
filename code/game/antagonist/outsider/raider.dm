@@ -284,4 +284,4 @@ var/datum/antagonist/raider/raiders
 	return 1
 
 /datum/antagonist/raider/get_antag_radio()
-	return CHANNEL_RAIDER
+	return "Raider"

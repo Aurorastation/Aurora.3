@@ -53,4 +53,4 @@ var/datum/antagonist/mercenary/mercs
 	return TRUE
 
 /datum/antagonist/mercenary/get_antag_radio()
-	return CHANNEL_MERCENARY
+	return "Mercenary"

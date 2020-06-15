@@ -163,4 +163,4 @@ var/datum/antagonist/ninja/ninjas
 	return directive
 
 /datum/antagonist/ninja/get_antag_radio()
-	return CHANNEL_NINJA
+	return "Ninja"

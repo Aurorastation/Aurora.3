@@ -183,4 +183,4 @@ var/datum/antagonist/traitor/traitors
 	to_chat(killer, "New law: 0. [law]")
 
 /datum/antagonist/traitor/get_antag_radio()
-	return CHANNEL_MERCENARY
+	return "Mercenary"
