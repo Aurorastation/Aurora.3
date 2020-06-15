@@ -19,7 +19,7 @@
 	clickvol = 30
 	
 	var/mob/living/carbon/human/occupant = null
-	var/list/available_chemicals = list("norepinephrine" = "Norepinephrine", "stoxin" = "Soporific", "paracetamol" = "Paracetamol", "dylovene" = "Dylovene", "dexalin" = "Dexalin")
+	var/list/available_chemicals = list(/datum/reagent/norepinephrine = "Norepinephrine", /datum/reagent/soporific = "Soporific", /datum/reagent/paracetamol = "Paracetamol", /datum/reagent/dylovene = "Dylovene", /datum/reagent/dexalin = "Dexalin")
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/allow_occupant_types = list(/mob/living/carbon/human)

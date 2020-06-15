@@ -54,7 +54,7 @@
 			var/list/data = list()
 			if(reagent_data.len > 1 && potency > 0)
 				rtotal += round(potency/reagent_data[2])
-			if(rid == "nutriment")
+			if(rid == /datum/reagent/nutriment)
 				data[seed.seed_name] = max(1,rtotal)
 			reagents.add_reagent(rid,max(1,rtotal),data)
 	update_desc()
@@ -194,7 +194,7 @@
 				qdel(src)
 				return
 			else if(seed.chems)
-				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems["woodpulp"]))
+				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems[/datum/reagent/woodpulp]))
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
 					playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
 					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
@@ -211,17 +211,17 @@
 						to_chat(user, "You add the newly-formed wood to the stack. It now contains [NG.amount] planks.")
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["potato"]))
+				else if(!isnull(seed.chems[/datum/reagent/drink/potato]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/rawsticks(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["carrotjuice"]))
+				else if(!isnull(seed.chems[/datum/reagent/drink/carrotjuice]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["soymilk"]))
+				else if(!isnull(seed.chems[/datum/reagent/drink/soymilk]))
 					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/reagent_containers/food/snacks/soydope(get_turf(src))
 					qdel(src)
