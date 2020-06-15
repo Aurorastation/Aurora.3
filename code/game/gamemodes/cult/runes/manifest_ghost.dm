@@ -56,6 +56,7 @@
 	var/can_manifest = TRUE
 	while(user?.stat == CONSCIOUS && C.client && can_manifest && apparition)
 		can_manifest = C.species.take_manifest_ghost_damage(user)
+		sleep(30)
 	apparition_check()
 	return
 
