@@ -127,7 +127,7 @@ default behaviour is:
 				if(confused && prob(50) && !MOVING_DELIBERATELY(src))
 					Weaken(2)
 					playsound(loc, "punch", 25, 1, -1)
-					visible_message("<span class='warning'>[src] [pick("ran", "slammed")] into \the [AM]!</span>")
+					visible_message(SPAN_WARNING("\The [src] [pick("ran", "slammed")] into \the [AM]!"))
 					src.apply_damage(5, BRUTE)
 				return
 			if (!now_pushing)
