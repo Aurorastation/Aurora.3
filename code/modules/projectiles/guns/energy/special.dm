@@ -6,7 +6,7 @@
 	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
 	modifystate = "ionriflestun"
 	projectile_type = /obj/item/projectile/ion/stun
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/ion_stun.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
 	accuracy = 1
@@ -16,7 +16,7 @@
 	charge_cost = 300
 	max_shots = 10
 	secondary_projectile_type = /obj/item/projectile/ion
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/ion_lethal.ogg'
 	can_turret = 1
 	can_switch_modes = 1
 	turret_sprite_set = "ion"
