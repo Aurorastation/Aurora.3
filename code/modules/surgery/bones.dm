@@ -23,8 +23,8 @@
 /datum/surgery_step/glue_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if (affected.stage == 0)
-		user.visible_message("[user] starts applying medication to the damaged bones in [target]'s [affected.name] with \the [tool]." , \
-		"You start applying medication to the damaged bones in [target]'s [affected.name] with \the [tool].")
+		user.visible_message("<b>[user]</b> starts applying medication to the damaged bones in [target]'s [affected.name] with \the [tool]." , \
+		SPAN_NOTICE("You start applying medication to the damaged bones in [target]'s [affected.name] with \the [tool]."))
 	target.custom_pain("Something in your [affected.name] is causing you a lot of pain!",1)
 	..()
 
