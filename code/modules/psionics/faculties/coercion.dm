@@ -248,6 +248,14 @@
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
 			return
 
+		if (target.isSynthetic())
+		for (obj/item/organ/internal/augment/nlom in target)
+		if(aug && !aug.is_broken())
+			continue
+		else
+			to_chat(user, SPAN_WARNING("This can only be used on living organisms."))
+			return
+
 		if (target.is_diona())
 			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
 			return
