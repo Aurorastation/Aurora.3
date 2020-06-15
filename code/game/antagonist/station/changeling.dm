@@ -19,7 +19,7 @@
 	required_age = 10
 
 	welcome_text = "Use say \"#g message\" to communicate with your fellow changelings. Remember: you get all of their absorbed DNA if you perform a Full DNA Extraction them."
-	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
+	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_KEEP_FLAVORTEXT
 	antaghud_indicator = "hudchangeling"
 
 	faction = "Changeling"

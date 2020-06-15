@@ -18,7 +18,7 @@ var/datum/antagonist/thrall/thralls = null
 		"Bishop Accessory Frame"
 	)
 	welcome_text = "You are a vampire or psionic operant's thrall: a pawn to be commanded by them at will."
-	flags = 0
+	flags = ANTAG_KEEP_FLAVORTEXT
 	antaghud_indicator = "hudthrall"
 
 /datum/antagonist/thrall/New()
