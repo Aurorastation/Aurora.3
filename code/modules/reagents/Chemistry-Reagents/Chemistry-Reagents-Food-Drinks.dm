@@ -178,7 +178,7 @@
 		data = list()
 
 	data["cooked"] = newdata["cooked"]
-	
+
 	return ..()
 
 
@@ -2239,7 +2239,7 @@
 	taste_description = "paint stripper"
 
 	glass_icon_state = "tequilaglass"
-	glass_name = "glass of Tequilla"
+	glass_name = "glass of tequila"
 	glass_desc = "Now all that's missing is the weird colored shades!"
 	glass_center_of_mass = list("x"=16, "y"=12)
 
@@ -2535,7 +2535,7 @@
 
 	glass_icon_state = "bravebullglass"
 	glass_name = "glass of Brave Bull"
-	glass_desc = "Tequilla and coffee liquor, brought together in a mouthwatering mixture. Drink up."
+	glass_desc = "Tequila and coffee liquor, brought together in a mouthwatering mixture. Drink up."
 	glass_center_of_mass = list("x"=15, "y"=8)
 
 /datum/reagent/alcohol/ethanol/cmojito
@@ -3159,7 +3159,7 @@
 	taste_description = "oranges"
 
 	glass_icon_state = "tequilasunriseglass"
-	glass_name = "glass of Tequilla Sunrise"
+	glass_name = "glass of Tequila Sunrise"
 	glass_desc = "Oh great, now you feel nostalgic about sunrises back on Terra..."
 
 /datum/reagent/alcohol/ethanol/threemileisland
@@ -4059,7 +4059,7 @@
 	glass_desc = "A mix of spicy cactus juice to warm you up. Maybe a little too warm for non-unathi, though."
 	glass_center_of_mass = list("x"=17, "y"=8)
 
-/datum/reagent/alcohol/butanol/Sandgria
+/datum/reagent/alcohol/butanol/sandgria
 	name = "Sandgria"
 	description = "Sarezhi wine, blended with citrus and a splash of cactus juice."
 	color = "#960707"

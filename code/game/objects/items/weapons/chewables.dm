@@ -102,22 +102,22 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/tobacco/bad
 	name = "chewing tobacco"
 	desc = "A chewy wad of cheap tobacco. Cut in long strands and treated with syrup so it tastes less like an ash-tray when you stuff it into your face."
-	reagents_to_add = list("tobaccobad" = 2)
+	reagents_to_add = list(/datum/reagent/toxin/tobacco/fake = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/generic
 	name = "chewing tobacco"
 	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
-	reagents_to_add = list("tobacco" = 2)
+	reagents_to_add = list(/datum/reagent/toxin/tobacco = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/fine
 	name = "chewing tobacco"
 	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
-	reagents_to_add = list("tobaccofine" = 2)
+	reagents_to_add = list(/datum/reagent/toxin/tobacco/rich = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/nico
 	name = "nicotine gum"
 	desc = "A chewy wad of synthetic rubber, laced with nicotine. Possibly the least disgusting method of nicotine delivery."
-	reagents_to_add = list("nicotine" = 2)
+	reagents_to_add = list(/datum/reagent/mental/nicotine = 2)
 	icon_state = "nic_gum"
 	type_butt = /obj/item/trash/spitgum
 	wrapped = TRUE
@@ -132,7 +132,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
-	reagents_to_add = list("sugar" = 2)
+	reagents_to_add = list(/datum/reagent/sugar = 2)
 
 /obj/item/trash/spitgum
 	name = "old gum"
@@ -149,7 +149,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/gum/Initialize()
 	. = ..()
-	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),10)
+	reagents.add_reagent(pick(/datum/reagent/drink/banana,/datum/reagent/drink/berryjuice,/datum/reagent/drink/grapejuice,/datum/reagent/drink/lemonjuice,/datum/reagent/drink/limejuice,/datum/reagent/drink/orangejuice,/datum/reagent/drink/watermelonjuice),10)
 	color = reagents.get_color()
 	update_icon()
 
@@ -217,7 +217,7 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/candy/lolli/weak_meds
 	name = "medicine lollipop"
 	desc = "A sucrose sphere on a small handle, it has been infused with medication."
-	reagents_to_add = list("sugar" = 6)
+	reagents_to_add = list(/datum/reagent/sugar = 6)
 
 /obj/item/clothing/mask/chewable/candy/lolli/weak_meds/Initialize()
 	. = ..()

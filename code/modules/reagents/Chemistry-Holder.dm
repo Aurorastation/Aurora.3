@@ -251,7 +251,7 @@
 /datum/reagents/proc/get_reagents()
 	. = list()
 	for(var/datum/reagent/current in reagent_list)
-		. += "[current.type] ([current.volume])"
+		. += "[current.name] ([current.volume])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
 /datum/reagents/proc/get_ids_by_phase(var/phase) // this proc will probably need to be changed if you can have one reagent in multiple states at the same time
