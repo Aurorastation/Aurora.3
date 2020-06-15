@@ -124,7 +124,7 @@ BREATH ANALYZER
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
 		if(H.isFBP())
-			pulse_result = "[rand(70, 85)]bpm"
+			pulse_result = "<span class='scan_green'>[rand(70, 85)]bpm</span>"
 		else
 			pulse_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
 	dat += "Pulse rate: [pulse_result]."
@@ -155,13 +155,15 @@ BREATH ANALYZER
 		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
 	else
 		if(H.isFBP())
-			dat += "[b]Blood pressure:[endb] [rand(118, 125)]/[rand(77, 85)] (100%)"
+			dat += "[b]Blood pressure:[endb] <span class='scan_green'>[rand(118, 125)]/[rand(77, 85)]</span> (<span class='scan_green'>100% blood oxygenation</span>)"
 		else
 			dat += "[b]Blood pressure:[endb] N/A"
 
 	// Body temperature.
 	var/temperature_string
-	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
+	if(H.isFBP())
+		temperature_string = "<span class='scan_green'>Body temperature: 36.905&deg;C (98.429&deg;F)</span>"
+	else if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
 		temperature_string = "<span class='scan_warning'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
 	else
 		temperature_string = "<span class='scan_green'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
@@ -198,7 +200,7 @@ BREATH ANALYZER
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)
 			for(var/obj/item/organ/external/org in damaged)
-				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]:"
+				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) && !(org.status & ORGAN_LIFELIKE) ? " (Cybernetic)" : ""]:"
 				if(org.brute_dam > 0)
 					limb_result = "[limb_result] \[<font color = 'red'><b>[get_severity(org.brute_dam, TRUE)] physical trauma</b></font>\]"
 				if(org.burn_dam > 0)
