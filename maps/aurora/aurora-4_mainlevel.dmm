@@ -1806,7 +1806,7 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/condiment/spacespice,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "adz" = (
@@ -59936,7 +59936,7 @@
 "erq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = -8
 	},
 /obj/item/reagent_containers/food/condiment/saltshaker{
@@ -60741,7 +60741,7 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -66747,7 +66747,7 @@
 /area/maintenance/research_port)
 "uuz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 3;
 	pixel_y = 10
 	},
@@ -68344,7 +68344,7 @@
 	pixel_x = -8;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/food/condiment/spacespice{
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
 	pixel_x = 5;
 	pixel_y = 4
 	},
