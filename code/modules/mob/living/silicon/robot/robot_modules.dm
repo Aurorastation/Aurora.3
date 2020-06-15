@@ -67,9 +67,6 @@ var/global/list/robot_modules = list(
 	R.icon_selected = FALSE
 	R.choose_icon()
 
-	for(var/obj/item/I in modules)
-		I.canremove = FALSE
-
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
 	remove_camera_networks(R)
 	remove_languages(R)
@@ -748,6 +745,11 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	..()
+
+	R.faction = "syndicate" // prevents viscerators from attacking us
+	for(var/datum/robot_component/RC in R)
+		RC.max_damage *= 2
+
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/melee/energy/sword(src)
@@ -757,6 +759,11 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/crowbar/robotic(src)
 	src.modules += new /obj/item/robot_emag(src)
 	src.modules += new /obj/item/handcuffs/cyborg(src)
+	src.modules += new /obj/item/roller_holder(src)
+	src.modules += new /obj/item/device/healthanalyzer(src)
+	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/plastique/cyborg(src)
+	src.modules += new /obj/item/grenade/smokebomb/cyborg(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
 /obj/item/robot_module/combat

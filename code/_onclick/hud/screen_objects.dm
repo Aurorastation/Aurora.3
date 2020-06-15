@@ -341,10 +341,14 @@
 		if("store")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
-				if(R.module)
-					R.uneq_active()
-				else
-					to_chat(R, "You haven't selected a module yet.")
+				if(!R.module)
+					to_chat(R, SPAN_WARNING("You haven't selected a module yet."))
+					return
+				var/list/modifiers = params2list(params)
+				if(modifiers["alt"])
+					R.uneq_all()
+					return
+				R.uneq_active()
 
 		else
 			return 0

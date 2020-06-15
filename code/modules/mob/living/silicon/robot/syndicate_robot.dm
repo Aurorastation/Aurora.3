@@ -13,6 +13,7 @@
 	cell_type = /obj/item/cell/super
 	has_pda = FALSE
 	has_jetpack = TRUE
+	flash_resistant = TRUE
 
 	// Look and feel
 	icon_state = "syndie_bloodhound"
@@ -28,6 +29,9 @@
 /mob/living/silicon/robot/syndicate/Initialize()
 	. = ..()
 	verbs += /mob/living/silicon/robot/proc/choose_icon
+	var/datum/robot_component/C = components["surge"]
+	C.installed = TRUE
+	C.wrapped = new C.external_type
 
 /mob/living/silicon/robot/syndicate/updateicon() //because this was the only way I found out how to make their eyes and etc works
 	cut_overlays()
@@ -68,6 +72,8 @@
 		return
 	src.ckey = user.ckey
 	SSghostroles.remove_spawn_atom("syndiborg", src)
+	if(traitors)
+		traitors.add_antagonist_mind(src.mind, TRUE)
 	say("Boot sequence complete!")
 
 //syndicate borg gear
@@ -104,20 +110,24 @@
 
 /obj/item/gun/launcher/grenade/cyborg
 	name = "grenade launcher"
-	desc = "A bulky pump-action grenade launcher. Loaded with 3 frag grenades."
+	desc = "A bulky pump-action grenade launcher. Can be loaded with more grenades."
+	has_safety = FALSE
+	blacklisted_grenades = list()
 
 /obj/item/gun/launcher/grenade/cyborg/Initialize()
 	. = ..()
 
 	grenades = list(
 		new /obj/item/grenade/frag(src),
-		new /obj/item/grenade/frag(src),
 		new /obj/item/grenade/frag(src)
 	)
+	chambered = new /obj/item/grenade/frag(src)
+	update_maptext()
 
 /obj/item/robot_emag
-	desc = "It's a card with a magnetic strip attached to some circuitry, this one is modified to be used by a cyborg."
 	name = "cryptographic sequencer"
+	desc = "It's a card with a magnetic strip attached to some circuitry, this one is modified to be used by a cyborg."
+	desc_antag = "This emag has an unlimited number of uses, however, each use will drain a little bit of your power cell."
 	icon = 'icons/obj/card.dmi'
 	icon_state = "emag"
 
@@ -127,7 +137,7 @@
 	if(!proximity)
 		return
 
-	else if(istype(target,/obj/))
+	else if(isobj(target))
 		var/obj/O = target
 		O.add_fingerprint(user)
 		O.emag_act(1,user,src)
@@ -136,6 +146,5 @@
 			var/mob/living/silicon/robot/R = user
 			if(R.cell)
 				R.cell.use(350)
-		return 1
-
-	return 0
+		return TRUE
+	return FALSE

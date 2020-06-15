@@ -52,6 +52,7 @@
 	var/crisis = FALSE //Admin-settable for combat module use.
 	var/crisis_override = FALSE
 	var/malf_AI_module = FALSE
+	var/flash_resistant = FALSE
 	var/overclocked = FALSE // cyborg controls if they enable the overclock
 	var/overclock_available = FALSE // if the overclock is available for use
 
