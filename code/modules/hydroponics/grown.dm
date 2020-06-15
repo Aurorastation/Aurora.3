@@ -211,7 +211,7 @@
 						to_chat(user, "You add the newly-formed wood to the stack. It now contains [NG.amount] planks.")
 					qdel(src)
 					return
-				else if(!isnull(seed.chems[/datum/reagent/drink/potato]))
+				else if(!isnull(seed.chems[/datum/reagent/drink/potatojuice]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/rawsticks(get_turf(src))
 					qdel(src)
@@ -221,7 +221,7 @@
 					new /obj/item/reagent_containers/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems[/datum/reagent/drink/soymilk]))
+				else if(!isnull(seed.chems[/datum/reagent/drink/milk/soymilk]))
 					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/reagent_containers/food/snacks/soydope(get_turf(src))
 					qdel(src)
