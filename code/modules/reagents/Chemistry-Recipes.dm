@@ -631,12 +631,12 @@
 	required_reagents = list("phoron" = 0.1, "alkysine" = 1, "cryoxadone" = 0.1)
 	result_amount = 1
 
-/datum/chemical_reaction/atropine
-	name = "Atropine"
-	id = "atropine"
-	result = "atropine"
-	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
-	result_amount = 2
+/datum/chemical_reaction/coughsyrup
+	name = "Cough Syrup"
+	id = "coughsyrup"
+	result = "coughsyrup"
+	required_reagents = list("carbon" = 1, "ammonia" = 1, "water" = 1)
+	result_amount = 3
 
 //Mental Medication
 
