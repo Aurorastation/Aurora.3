@@ -1385,7 +1385,7 @@
 		self = 1
 
 	if (src.species.flags & NO_BLOOD)
-		to_chat(usr, span("notice", self ? "Your species does not have a pulse." : "[src]'s species does not have a pulse."))
+		to_chat(usr, span("warning", self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
 	if(!self)
@@ -1398,7 +1398,7 @@
 	if(pulse())
 		to_chat(usr, span("notice", "[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
-		to_chat(usr, span("danger", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
+		to_chat(usr, span("warning", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
