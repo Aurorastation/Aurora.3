@@ -1872,7 +1872,7 @@
 	name = "Goldschlager"
 	id = "goldschlager"
 	result = /datum/reagent/alcohol/ethanol/goldschlager
-	required_reagents = list(/datum/reagent/alcohol/ethanol/vodka = 10, MATERIAL_GOLD = 1)
+	required_reagents = list(/datum/reagent/alcohol/ethanol/vodka = 10, /datum/reagent/gold = 1)
 	mix_message = null
 	reaction_sound = 'sound/effects/pour.ogg'
 	result_amount = 10
@@ -1881,7 +1881,7 @@
 	name = "Patron"
 	id = "patron"
 	result = /datum/reagent/alcohol/ethanol/patron
-	required_reagents = list(/datum/reagent/alcohol/ethanol/tequila = 10, MATERIAL_SILVER = 1)
+	required_reagents = list(/datum/reagent/alcohol/ethanol/tequila = 10, /datum/reagent/silver = 1)
 	result_amount = 10
 
 /datum/chemical_reaction/drink/bilk
