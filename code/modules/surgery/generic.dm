@@ -126,8 +126,8 @@
 
 /datum/surgery_step/generic/cut_open/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts the incision on [target]'s [affected.name] with \the [tool].", \
-		"You start the incision on [target]'s [affected.name] with \the [tool].")
+	user.visible_message("<b>[user]</b> starts the incision on [target]'s [affected.name] with \the [tool].", \
+		SPAN_NOTICE("You start the incision on [target]'s [affected.name] with \the [tool]."))
 	target.custom_pain("You feel a horrible pain as if from a sharp knife in your [affected.name]!", 75)
 	..()
 
