@@ -1,7 +1,0 @@
-
-author: Printer16
-
-delete-after: True
-
-changes:
-  - rscadd: "The wizard can now cancel their teleport when teleporting with their teleportation scroll."
