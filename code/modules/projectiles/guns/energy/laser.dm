@@ -5,7 +5,7 @@
 	icon_state = "laserrifle100"
 	item_state = "laserrifle100"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/carbine.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
 	w_class = 3
