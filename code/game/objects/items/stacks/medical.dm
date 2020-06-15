@@ -49,13 +49,17 @@ Contains:
 				to_chat(user, "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>")
 				return 1
 
-		if(affecting.status & ORGAN_ASSISTED)
-			to_chat(user, "<span class='warning'>This isn't useful at all on a robotic limb.</span>")
+		if(affecting.status & ORGAN_LIFELIKE)
+			if(!(affecting.brute_dam || affecting.burn_dam))
+				to_chat(user, "<span class='notice'> [M] seems healthy, there are no wounds to treat! </span>")
+				return 1
+
+			to_chat(user, "<span class='notice'>You apply [src], but it doesn't seem to have any effect...</span>")
+			use(1)
 			return 1
 
-		if(affecting.status & ORGAN_LIFELIKE)
-			to_chat(user, "<span class='warning'>You apply the [src], but it doesn't seem to have any effect...</span>")
-			use(1)
+		if(affecting.status & ORGAN_ASSISTED)
+			to_chat(user, "<span class='warning'>This isn't useful at all on a robotic limb.</span>")
 			return 1
 
 		H.UpdateDamageIcon()
