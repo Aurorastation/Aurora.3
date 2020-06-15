@@ -266,7 +266,7 @@
 
 		. = ..(container)
 		for (var/obj/item/reagent_containers/food/snacks/amanitajelly/being_cooked in .)
-			being_cooked.reagents.del_reagent("amatoxin")
+			being_cooked.reagents.del_reagent(/datum/reagent/toxin/amatoxin)
 
 /datum/recipe/meatballsoup
 	fruit = list("carrot" = 1, "potato" = 1)
@@ -588,7 +588,7 @@
 
 		. = ..(container)
 		for (var/obj/item/reagent_containers/food/snacks/salad/validsalad/being_cooked in .)
-			being_cooked.reagents.del_reagent("toxin")
+			being_cooked.reagents.del_reagent(/datum/reagent/toxin)
 
 
 
