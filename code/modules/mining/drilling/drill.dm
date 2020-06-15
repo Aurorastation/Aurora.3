@@ -187,6 +187,8 @@
 	return src.attack_hand(user)
 
 /obj/machinery/mining/drill/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/mecha_equipment/drill_mover)) // the drill mover afterattack handles it
+		return
 	if(!active)
 		if(default_deconstruction_screwdriver(user, O))
 			return
@@ -478,11 +480,6 @@
 		playsound(get_turf(src), W.usesound, 100, 1)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the brace."))
 
-		for(var/angle in cardinal) // make it face any drill in cardinal direction from it
-			if(locate(/obj/machinery/mining/drill) in get_step(src, angle))
-				src.dir = angle
-				break
-
 		anchored = !anchored
 		if(anchored)
 			connect()
@@ -494,11 +491,11 @@
 	return ..()
 
 /obj/machinery/mining/brace/proc/connect()
-	var/turf/T = get_step(get_turf(src), src.dir)
-
-	for(var/thing in T.contents)
-		if(istype(thing, /obj/machinery/mining/drill))
-			connected = thing
+	for(var/angle in cardinal) // make it face any drill in cardinal direction from it
+		var/obj/machinery/mining/drill/D = locate() in get_step(src, angle)
+		if(D)
+			src.dir = angle
+			connected = D
 			break
 
 	if(!connected)

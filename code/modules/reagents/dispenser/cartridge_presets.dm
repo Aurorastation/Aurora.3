@@ -72,6 +72,7 @@
 	coffee		spawn_reagent = /datum/reagent/drink/coffee
 	cream		spawn_reagent = /datum/reagent/drink/milk/cream
 	espresso	spawn_reagent = /datum/reagent/drink/coffee/espresso
+	fatshouter_milk	spawn_reagent = /datum/reagent/drink/milk/adhomai
 	greentea	spawn_reagent = /datum/reagent/drink/tea/greentea
 	hot_coco	spawn_reagent = /datum/reagent/drink/hot_coco
 	milk		spawn_reagent = /datum/reagent/drink/milk

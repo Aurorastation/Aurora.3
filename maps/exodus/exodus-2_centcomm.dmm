@@ -8084,18 +8084,6 @@
 	icon_state = "redfull"
 	},
 /area/centcom/specops)
-"aCV" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots/vox,
-/obj/item/clothing/gloves/yellow/vox,
-/obj/item/clothing/suit/space/vox/carapace,
-/obj/item/clothing/head/helmet/space/vox/carapace,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/syndicate_mothership{
-	name = "\improper Raider Base"
-	})
 "aCW" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/item/tank/nitrogen,
@@ -11575,10 +11563,6 @@
 /area/centcom/holding)
 "aNI" = (
 /obj/structure/table/reinforced,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aNJ" = (
@@ -23376,7 +23360,7 @@ axz
 axz
 axz
 axz
-aCV
+aCq
 aya
 alC
 alC

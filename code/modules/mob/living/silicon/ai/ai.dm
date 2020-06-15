@@ -312,6 +312,7 @@ var/list/ai_verbs_default = list(
 		id_card.registered_name = pickedName
 		id_card.assignment = "AI"
 		id_card.access = get_all_station_access()
+		id_card.access += access_synth
 		id_card.update_name()
 
 	if(client)

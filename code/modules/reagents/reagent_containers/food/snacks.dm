@@ -3533,7 +3533,7 @@
 	filling_color = "#75754B"
 	center_of_mass = list("x"=16, "y"=7)
 	reagents_to_add = list(/datum/reagent/nutriment = 6)
-	reagent_data = list(/datum/reagent/nutriment = list("salad" = 3))
+	reagent_data = list(/datum/reagent/nutriment = list("dionae delicacy" = 3))
 	bitesize = 2
 
 
@@ -4829,8 +4829,7 @@
 	icon_state = "lard"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=16)
-	reagents_to_add = list(/datum/reagent/nutriment = 5)
-	reagent_data = list(/datum/reagent/nutriment = list("fat" = 3))
+	reagents_to_add = list(/datum/reagent/nutriment/triglyceride = 5)
 
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy
 	name = "plate of sugar tree candy"
@@ -4867,5 +4866,12 @@
 	reagents_to_add = list(/datum/reagent/nutriment = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("candy" = 3))
 	bitesize = 1
-
 	reagents_to_add = list(/datum/reagent/sugar = 3)
+
+/obj/item/reagent_containers/food/snacks/lardwich
+	name = "hro'zamal lard sandwhich"
+	desc = "A lard sandwhich prepared in the style of Hro'zamal, usually made from Schlorrgo lard."
+	icon_state = "lardwich"
+	reagent_data = list(/datum/reagent/nutriment = list("bread" = 2))
+	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/triglyceride = 5)
+	bitesize = 2

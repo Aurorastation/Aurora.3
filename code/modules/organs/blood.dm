@@ -68,7 +68,7 @@
 						H.bloody_body(src)
 						H.bloody_hands(src)
 						var/blinding = FALSE
-						if(ran_zone("head", 75))
+						if(ran_zone(BP_HEAD, 75))
 							blinding = TRUE
 							for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
 								if(I && (I.body_parts_covered & EYES))
@@ -82,10 +82,13 @@
 							to_chat(H, "<span class='danger'>You are hit by a spray of blood!</span>")
 						hit_mob = TRUE
 
-				if(hit_mob || !A.CanPass(src, sprayloc))
-					break
+				if(!(A.CanPass(src, sprayloc)) || hit_mob)
+					continue
+
 			drip(amt, sprayloc, spraydir)
 			bled += amt
+			if(hit_mob)
+				break
 	return bled
 #undef BLOOD_SPRAY_DISTANCE
 

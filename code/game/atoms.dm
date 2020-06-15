@@ -22,6 +22,9 @@
 	var/list/reagents_to_add
 	var/list/reagent_data
 
+	var/list/atom_colours	 //used to store the different colors on an atom
+							//its inherent color, the colored paint applied on it, special color effect etc...
+
 	//var/chem_is_open_container = 0
 	// replaced by OPENCONTAINER flags and atom/proc/is_open_container()
 	///Chemistry.
