@@ -6,6 +6,7 @@ changes:
   - rscadd: "Added a roller bed holder, a health analyzer, a medical borg hypospray, a plastic explosive dispenser, and a smokebomb deployer to syndicate cyborgs."
   - tweak: "Syndicate cyborgs' components are two times more robust than normal, at spawn."
   - tweak: "Cyborg grenade launchers now come with a grenade chambered."
+  - tweak: "Removed the module selection from the syndicate cyborg UI, as it had no purpose."
   - bugfix: "Cyborgs should now be able to see how many grenades their grenade launchers hold, as well as whether one is chambered or not."
   - bugfix: "Viscerators no longer target syndicate cyborgs."
   - bugfix: "Cyborg mounted SMGs and Net Launchers now properly charge."

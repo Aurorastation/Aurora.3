@@ -72,9 +72,22 @@
 		return
 	src.ckey = user.ckey
 	SSghostroles.remove_spawn_atom("syndiborg", src)
+	// uggo but i think this is the best possible way of doing this
 	if(traitors)
 		traitors.add_antagonist_mind(src.mind, TRUE)
+	else if(mercs)
+		mercs.add_antagonist_mind(src.mind, TRUE)
+	else if(raiders)
+		raiders.add_antagonist_mind(src.mind, TRUE)
+	else if(revs)
+		revs.add_antagonist_mind(src.mind, TRUE)
+	else if(ninjas)
+		ninjas.add_antagonist_mind(src.mind, TRUE)
 	say("Boot sequence complete!")
+
+/mob/living/silicon/robot/syndicate/LateLogin()
+	..()
+	client.screen -= hands // this is useless for us
 
 //syndicate borg gear
 
