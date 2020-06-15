@@ -5,7 +5,7 @@
 	icon = 'icons/obj/guns/erifle.dmi'
 	icon_state = "eriflestun100"
 	icon_state = "eriflestun100"
-	fire_sound = 'sound/weapons/Taser.ogg'
+	fire_sound = 'sound/weapons/rifle_stun.ogg'
 	slot_flags = SLOT_BACK
 	w_class = 4
 	force = 10
@@ -14,7 +14,7 @@
 	accuracy = -1
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/rifle_lethal.ogg'
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
