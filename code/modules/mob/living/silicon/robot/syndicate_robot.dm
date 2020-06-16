@@ -73,18 +73,6 @@
 		return
 	src.ckey = user.ckey
 	SSghostroles.remove_spawn_atom("syndiborg", src)
-	// uggo but i think this is the best possible way of doing this
-	if(!assigned_antagonist)
-		if(traitors)
-			assigned_antagonist = traitors
-		else if(mercs)
-			assigned_antagonist = mercs
-		else if(raiders)
-			assigned_antagonist = raiders
-		else if(revs)
-			assigned_antagonist = revs
-		else if(ninjas)
-			assigned_antagonist = ninjas
 	if(assigned_antagonist)
 		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
 		if(assigned_antagonist.get_antag_radio())
