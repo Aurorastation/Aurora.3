@@ -240,6 +240,9 @@ var/datum/controller/subsystem/vote/SSvote
 				if(SSticker.current_state >= 2)
 					return 0
 				for (var/F in config.votable_modes)
+					if(!config.vote_allow_last_gamemode)
+						if(lowertext(F) == lowertext(SSpersist_config.last_gamemode))
+							continue
 					var/datum/game_mode/M = gamemode_cache[F]
 					if(!M)
 						continue
