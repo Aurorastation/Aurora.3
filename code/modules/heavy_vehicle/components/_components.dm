@@ -121,7 +121,7 @@
 		to_chat(user, "<span class='warning'>Turn \the [WT] on, first.</span>")
 		return
 	if(WT.remove_fuel(0, user))
-		var/repair_value = 30
+		var/repair_value = 15
 		if(brute_damage)
 			repair_brute_damage(repair_value)
 			to_chat(user, "<span class='notice'>You mend the damage to \the [src].</span>")
