@@ -61,8 +61,8 @@
 	var/turf/selected_turf = pick(grow_turfs)
 	if(!selected_turf || !istype(selected_turf))
 		return
-	if(locate(/obj/structure/reagent_crystal) in selected_turf)
-		var/obj/structure/reagent_crystal/P = locate() in selected_turf
+	var/obj/structure/reagent_crystal/P = locate() in selected_turf
+	if(P)
 		P.become_dense()
 		return
 	new /obj/structure/reagent_crystal(selected_turf)
