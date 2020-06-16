@@ -333,6 +333,15 @@
 
 		if("radio")
 			if(issilicon(usr))
+				if(isrobot(usr))
+					var/list/modifiers = params2list(params)
+					if(modifiers["shift"])
+						var/mob/living/silicon/robot/R = usr
+						if(!R.radio.radio_desc)
+							R.radio.setupRadioDescription()
+						to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
+						to_chat(R, R.radio.radio_desc)
+						return
 				usr:radio_menu()
 		if("panel")
 			if(issilicon(usr))

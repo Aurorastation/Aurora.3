@@ -92,10 +92,6 @@
 			radio.recalculateChannels()
 	say("Boot sequence complete!")
 
-/mob/living/silicon/robot/syndicate/LateLogin()
-	..()
-	client.screen -= hands // this is useless for us
-
 //syndicate borg gear
 
 /obj/item/gun/energy/mountedsmg
