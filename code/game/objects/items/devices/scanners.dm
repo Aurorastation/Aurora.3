@@ -161,9 +161,7 @@ BREATH ANALYZER
 
 	// Body temperature.
 	var/temperature_string
-	if(H.isFBP())
-		temperature_string = "<span class='scan_green'>Body temperature: 36.905&deg;C (98.429&deg;F)</span>"
-	else if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
+	if(H.bodytemperature < H.species.cold_level_1 || H.bodytemperature > H.species.heat_level_1)
 		temperature_string = "<span class='scan_warning'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
 	else
 		temperature_string = "<span class='scan_green'>Body temperature: [H.bodytemperature-T0C]&deg;C ([H.bodytemperature*1.8-459.67]&deg;F)</span>"
