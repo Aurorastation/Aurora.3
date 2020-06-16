@@ -1596,7 +1596,7 @@
 #include "code\modules\heavy_vehicle\equipment\mining.dm"
 #include "code\modules\heavy_vehicle\equipment\utility.dm"
 #include "code\modules\heavy_vehicle\interface\_interface.dm"
-#include "code\modules\heavy_vehicle\interface\screen_objectsa.dm"
+#include "code\modules\heavy_vehicle\interface\screen_objects.dm"
 #include "code\modules\heavy_vehicle\premade\_premade.dm"
 #include "code\modules\heavy_vehicle\premade\combat.dm"
 #include "code\modules\heavy_vehicle\premade\heavy.dm"
