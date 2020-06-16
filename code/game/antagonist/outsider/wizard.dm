@@ -71,7 +71,7 @@ var/datum/antagonist/wizard/wizards
 
 /datum/antagonist/wizard/set_antag_name(mob/living/player)
 	player.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
-	player.name = wizard.current.real_name
+	player.name = player.real_name
 	var/newname = sanitize(input(player, "You are a [role_text]. Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
 	if(newname)
 		player.real_name = newname
