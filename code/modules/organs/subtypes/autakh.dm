@@ -138,7 +138,7 @@
 
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-		owner.reagents.add_reagent("Adrenaline", 15)
+		owner.reagents.add_reagent("adrenaline", 15)
 
 /obj/item/organ/internal/augment/venomous_rest
 	name = "venomous rest implant"
