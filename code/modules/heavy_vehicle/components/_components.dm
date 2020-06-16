@@ -145,7 +145,7 @@
 		if(QDELETED(CC) || QDELETED(src) || !CC.use(needed_amount))
 			return
 
-		repair_burn_damage(50)
+		repair_burn_damage(25)
 		to_chat(user, "<span class='notice'>You mend the damage to \the [src]'s wiring.</span>")
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 25, 1)
 	return
