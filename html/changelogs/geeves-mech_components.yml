@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "All mech components have had their health more than doubled."
+  - tweak: "Cyborg components have had their health doubled."
