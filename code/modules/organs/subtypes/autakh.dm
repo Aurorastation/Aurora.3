@@ -107,7 +107,6 @@
 
 /obj/item/organ/internal/augment/calf_override/proc/do_run_act()
 	owner.apply_damage(1, BRUTE, BP_GROIN)
-	take_damage(0.5)
 
 /obj/item/organ/internal/augment/protein_valve
 	name = "protein breakdown valve"
@@ -157,7 +156,8 @@
 		return FALSE
 
 	if(owner.reagents)
-		owner.reagents.add_reagent("norepinephrine", 15)
+		owner.reagents.add_reagent("norepinephrine", 10)
+		owner.reagents.add_reagent("tricordrazine", 10)
 		owner.reagents.add_reagent("stoxin", 15)
 		take_damage(15)
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
@@ -178,7 +178,7 @@
 	if(!.)
 		return FALSE
 
-	owner.visible_message("<b>[user]'s</b> eyes loudly as they focus ahead.")
+	owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as they focus ahead.")
 	take_damage(1)
 	zoom(owner,7,3, FALSE)
 
