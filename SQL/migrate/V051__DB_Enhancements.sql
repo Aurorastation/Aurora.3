@@ -2,7 +2,6 @@
 -- Adds foreign keys to a few tables and add gameid to notes/warnings/bans
 --
 
---- Update foreign kes
 ALTER TABLE `ss13_poll_option`
 	ADD CONSTRAINT `FK_ss13_poll_option_ss13_poll_question` FOREIGN KEY (`pollid`) REFERENCES `ss13_poll_question` (`id`) ON UPDATE CASCADE ON DELETE CASCADE;
 
@@ -83,7 +82,6 @@ ALTER TABLE `ss13_player_notifications`
 	ADD CONSTRAINT `FK_ss13_player_notifications_ss13_player_2` FOREIGN KEY (`created_by`) REFERENCES `ss13_player` (`ckey`) ON UPDATE CASCADE;
 
 
---- add game_id to notes / warnings / bans
 ALTER TABLE `ss13_ban`
 	ADD COLUMN `game_id` VARCHAR(32) NULL DEFAULT NULL AFTER `serverip`;
 
