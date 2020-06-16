@@ -752,8 +752,6 @@ var/global/list/robot_modules = list(
 	..()
 
 	R.faction = "syndicate" // prevents viscerators from attacking us
-	for(var/datum/robot_component/RC in R)
-		RC.max_damage *= 2
 
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/thermal(src)
