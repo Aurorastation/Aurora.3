@@ -144,7 +144,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	remote_network = "remoterobots"
+	remote_network = REMOTE_GENERIC_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/industrial_xion_remote/Stat()
@@ -183,7 +183,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
 
-	remote_network = "bunkerrobots"
+	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/industrial_xion_remote_bunker/Stat()
@@ -205,7 +205,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_penal(src), slot_l_ear)
 
-	remote_network = "prisonrobots"
+	remote_network = REMOTE_PRISON_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/industrial_xion_remote_penal/Stat()
@@ -233,7 +233,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_warden(src), slot_l_ear)
 
-	remote_network = "wardenrobots"
+	remote_network = REMOTE_WARDEN_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/industrial_xion_remote_warden/Stat()
@@ -279,7 +279,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	remote_network = "remoterobots"
+	remote_network = REMOTE_GENERIC_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/unbranded_frame_remote/Stat()
@@ -302,7 +302,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
 
-	remote_network = "bunkerrobots"
+	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/unbranded_frame_remote_bunker/Stat()

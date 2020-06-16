@@ -151,20 +151,20 @@
 /mob/living/heavy_vehicle/premade/ripley/remote
 	name = "remote power loader"
 	dummy_colour = "#ffc44f"
-	remote_network = "remotemechs"
+	remote_network = REMOTE_GENERIC_MECH
 	does_hardpoint_lock = FALSE
 
 /mob/living/heavy_vehicle/premade/ripley/remote_prison
 	name = "penal power loader"
 	dummy_colour = "#302e2b"
-	remote_network = "prisonmechs"
+	remote_network = REMOTE_PRISON_MECH
 
 /mob/living/heavy_vehicle/premade/ripley/remote_ai
 	name = "stationbound power loader"
 	e_color = COLOR_GREEN_GRAY
 	dummy_colour = COLOR_GREEN_GRAY
 	dummy_type = /mob/living/simple_animal/spiderbot/ai
-	remote_network = "aimechs"
+	remote_network = REMOTE_AI_MECH
 	does_hardpoint_lock = FALSE
 
 	h_l_hand = /obj/item/mecha_equipment/toolset
