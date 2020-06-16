@@ -213,7 +213,7 @@ TRANSFER_TIMEOUT 72000
 ## Ghosts who died will still be able to vote.
 #NO_DEAD_VOTE
 
-## uncomment to allow gamemodes to be voted for back-to-back
+## Uncomment to allow gamemodes to be voted for back-to-back
 #VOTE_ALLOW_LAST_GAMEMODE
 
 ## players' votes default to "No vote" (otherwise,  default to "No change")
