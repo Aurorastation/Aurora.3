@@ -239,7 +239,9 @@
 	add_overlay(selecting_appearance)
 
 /obj/screen/Click(location, control, params)
-	if(!usr)	return 1
+	if(!usr)
+		return TRUE
+	var/list/modifiers = params2list(params)
 	switch(name)
 		if("toggle")
 			if(usr.hud_used.inventory_shown)
@@ -286,7 +288,6 @@
 				usr.client.drop_item()
 
 		if("up hint")
-			var/list/modifiers = params2list(params)
 			if(modifiers["shift"])
 				if(ishuman(usr))
 					var/mob/living/carbon/human/H = usr
@@ -317,10 +318,19 @@
 		if("module")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
-//				if(R.module)
-//					R.hud_used.toggle_show_robot_modules()
-//					return 1
+				if(modifiers["shift"])
+					if(R.module)
+						to_chat(R, SPAN_NOTICE("You currently have the [R.module.name] active."))
+					else
+						to_chat(R, SPAN_WARNING("You don't have a module active currently."))
+					return
 				R.pick_module()
+
+		if("health")
+			if(isrobot(usr))
+				if(modifiers["shift"])
+					var/mob/living/silicon/robot/R = usr
+					R.self_diagnosis_verb()
 
 		if("inventory")
 			if(isrobot(usr))
@@ -334,7 +344,6 @@
 		if("radio")
 			if(issilicon(usr))
 				if(isrobot(usr))
-					var/list/modifiers = params2list(params)
 					if(modifiers["shift"])
 						var/mob/living/silicon/robot/R = usr
 						if(!R.radio.radio_desc)
@@ -353,7 +362,6 @@
 				if(!R.module)
 					to_chat(R, SPAN_WARNING("You haven't selected a module yet."))
 					return
-				var/list/modifiers = params2list(params)
 				if(modifiers["alt"])
 					R.uneq_all()
 					return
