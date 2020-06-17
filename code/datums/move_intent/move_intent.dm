@@ -1,8 +1,3 @@
-// Quick and deliberate movements are not necessarily mutually exclusive
-#define MOVE_INTENT_DELIBERATE 1
-#define MOVE_INTENT_EXERTIVE   2
-#define MOVE_INTENT_QUICK      4
-
 /decl/move_intent
 	var/name
 	var/flags = 0
@@ -40,3 +35,11 @@
 /decl/move_intent/run/Initialize()
 	. = ..()
 	move_delay = config.run_delay
+
+/decl/move_intent/walk/animal
+	name = "Fast Walk"
+
+/decl/move_intent/walk/animal/Initialize()
+	. = ..()
+	move_delay = 0
+

@@ -33,7 +33,7 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	speed = 0
+	speed = 4
 	tameable = FALSE
 	flying = 1
 	see_in_dark = 8

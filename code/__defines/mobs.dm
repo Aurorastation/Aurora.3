@@ -357,3 +357,8 @@
 #define AURA_TYPE_WEAPON "Weapon"
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
+
+// Quick and deliberate movements are not necessarily mutually exclusive
+#define MOVE_INTENT_DELIBERATE 1
+#define MOVE_INTENT_EXERTIVE   2
+#define MOVE_INTENT_QUICK      4

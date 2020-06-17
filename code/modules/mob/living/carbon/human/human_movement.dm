@@ -6,8 +6,9 @@
 
 	tally += species.slowdown
 
-	if(isinspace())
-		return -1 // It's hard to be slowed down in space by... anything
+	var/area/A = get_area(src)
+	if(A && !A.has_gravity())
+		tally -= 2
 
 	if(isopenturf(loc)) //open space checks
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))

@@ -114,6 +114,8 @@
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
+	move_intent = /decl/move_intent/walk/animal
+
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
