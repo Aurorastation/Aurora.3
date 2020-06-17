@@ -137,6 +137,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_svd.ogg'
 	load_method = MAGAZINE
 	max_shells = 10
+
 	magazine_type = /obj/item/ammo_magazine/d762
 	allowed_magazines = list(/obj/item/ammo_magazine/d762)
 
