@@ -477,8 +477,6 @@
 
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
 				var/max_reagents = RG.reagents.maximum_volume
-				//user.visible_message(span("notice", "[user] empties [empty_amount]u of \the [RG] into \the [src]."),
-				//					 span("notice", "You empty [empty_amount]u of \the [RG] into \the [src]."))
 				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
 				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
 		return
