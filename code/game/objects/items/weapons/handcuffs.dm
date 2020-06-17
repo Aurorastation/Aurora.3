@@ -2,7 +2,7 @@
 	name = "handcuffs"
 	desc = "Use this to keep prisoners in line."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/handcuffs.dmi'
 	icon_state = "handcuff"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -54,15 +54,15 @@
 
 	var/mob/living/carbon/human/H = target
 	if(!istype(H))
-		return 0
+		return FALSE
 
 	if (!H.has_organ_for_slot(slot_handcuffed))
 		to_chat(user, "<span class='danger'>\The [H] needs at least two wrists before you can cuff them together!</span>")
-		return 0
+		return FALSE
 
 	if(istype(H.gloves,/obj/item/clothing/gloves/rig) && !elastic) // Can't cuff someone who's in a deployed hardsuit.
 		to_chat(user, "<span class='danger'>\The [src] won't fit around \the [H.gloves]!</span>")
-		return 0
+		return FALSE
 
 	user.visible_message("<span class='danger'>\The [user] is attempting to put [cuff_type] on \the [H]!</span>")
 
@@ -88,7 +88,7 @@
 		user.drop_from_inventory(cuffs,target)
 	target.handcuffed = cuffs
 	target.update_inv_handcuffed()
-	return 1
+	return TRUE
 
 /mob/living/carbon/human/RestrainedClickOn(var/atom/A)
 	if (A != src) return ..()
@@ -120,35 +120,64 @@
 /obj/item/handcuffs/cable
 	name = "cable restraints"
 	desc = "Looks like some cables tied together. Could be used to tie something up."
-	icon_state = "cuff_white"
+	icon_state = "cablecuff"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
+		)
 	breakouttime = 300 //Deciseconds = 30s
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraints"
-	elastic = 1
+	elastic = TRUE
+	var/our_color
+	var/build_from_parts = TRUE
+	var/list/possible_cablecuff_colours = list(
+		"Yellow" = COLOR_YELLOW,
+		"Green" = COLOR_LIME,
+		"Pink" = COLOR_PINK,
+		"Blue" = COLOR_BLUE,
+		"Orange" = COLOR_ORANGE,
+		"Cyan" = COLOR_CYAN,
+		"Red" = COLOR_RED,
+		"White" = COLOR_WHITE
+	)
 
-/obj/item/handcuffs/cable/red
-	color = "#DD0000"
+/obj/item/handcuffs/cable/Initialize()
+	. = ..()
+	update_icon()
+
+obj/item/handcuffs/cable/update_icon()
+	if(build_from_parts) //random colors!
+		if(!our_color)
+			our_color = pick(possible_cablecuff_colours)
+		var/color_hex = possible_cablecuff_colours[our_color]
+		color = color_hex
+		item_state = "coil-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_end", flags=RESET_COLOR))
 
 /obj/item/handcuffs/cable/yellow
-	color = "#DDDD00"
-
-/obj/item/handcuffs/cable/blue
-	color = "#0000DD"
+	our_color = "Yellow"
 
 /obj/item/handcuffs/cable/green
-	color = "#00DD00"
+	our_color = "Green"
 
 /obj/item/handcuffs/cable/pink
-	color = "#DD00DD"
+	our_color = "Pink"
+
+/obj/item/handcuffs/cable/blue
+	our_color = "Blue"
 
 /obj/item/handcuffs/cable/orange
-	color = "#DD8800"
+	our_color = "Orange"
 
 /obj/item/handcuffs/cable/cyan
-	color = "#00DDDD"
+	our_color = "Cyan"
+
+/obj/item/handcuffs/cable/red
+	our_color = "Red"
 
 /obj/item/handcuffs/cable/white
-	color = "#FFFFFF"
+	our_color = "White"
 
 /obj/item/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
 	..()
@@ -160,9 +189,16 @@
 			to_chat(user, "<span class='notice'>You wrap the cable restraint around the top of the rod.</span>")
 			qdel(src)
 			update_icon(user)
+	else if(I.iswirecutter())
+		user.visible_message("[user] cuts the [src].", "<span class='notice'>You cut the [src].</span>")
+		var/obj/item/stack/cable_coil/C = new(get_turf(src))
+		C.our_color = our_color
+		C.amount = 15
+		qdel(src)
+		update_icon(user)
 
 /obj/item/handcuffs/cyborg
-	dispenser = 1
+	dispenser = TRUE
 
 /obj/item/handcuffs/cable/tape
 	name = "tape restraints"
@@ -176,8 +212,8 @@
 /obj/item/handcuffs/ziptie
 	name = "ziptie"
 	desc = " A sturdy and reliable plastic ziptie for binding the wrists."
-	icon = 'icons/obj/items.dmi'
 	icon_state = "ziptie"
 	breakouttime = 600
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
-	elastic = 1
+	cuff_type = "zipties"
+	elastic = TRUE

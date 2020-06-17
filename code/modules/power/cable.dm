@@ -485,7 +485,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		"Blue" = COLOR_BLUE,
 		"Orange" = COLOR_ORANGE,
 		"Cyan" = COLOR_CYAN,
-		"Red" = COLOR_RED
+		"Red" = COLOR_RED,
+		"White" = COLOR_WHITE
 	)
 
 /obj/item/stack/cable_coil/Initialize(mapload, amt)
@@ -601,7 +602,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	else
 		icon_state = "[initial(icon_state)]"
 		name += " coil"
-	overlays.Cut()
+	cut_overlays()
 	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
 	if(our_color)
 		var/color_hex = possible_cable_coil_colours[our_color]
@@ -659,7 +660,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			to_chat(usr, "<span class='warning'>You need at least 15 lengths to make restraints!</span>")
 			return
 		var/obj/item/handcuffs/cable/B = new /obj/item/handcuffs/cable(usr.loc)
-		B.color = our_color
+		B.our_color = our_color
+		B.update_icon()
 		to_chat(usr, "<span class='notice'>You wind some cable together to make some restraints.</span>")
 		src.use(15)
 	else
@@ -985,7 +987,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(src.amount <= 24)
 			to_chat(usr, "<span class='warning'>You need at least 25 lengths to make a noose!</span>")
 			return
-		new /obj/structure/noose(usr.loc)
+		var/obj/structure/noose/N = new(usr.loc)
+		N.our_color = our_color
 		to_chat(usr, "<span class='notice'>You wind some cable together to make a noose, tying it to the ceiling.</span>")
 		src.use(25)
 	else
@@ -1000,17 +1003,29 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	anchored = 1
 	can_buckle = 1
 	layer = 5
+	var/our_color = "Red"
 	var/image/over = null
 	var/ticks = 0
+	var/list/possible_cable_coil_colours = list(
+		"Yellow" = COLOR_YELLOW,
+		"Green" = COLOR_LIME,
+		"Pink" = COLOR_PINK,
+		"Blue" = COLOR_BLUE,
+		"Orange" = COLOR_ORANGE,
+		"Cyan" = COLOR_CYAN,
+		"Red" = COLOR_RED,
+		"White" = COLOR_WHITE
+	)
 
-/obj/structure/noose/attackby(obj/item/W, mob/user, params)
-	if(W.iswirecutter())
+/obj/structure/noose/attackby(obj/item/I, mob/user, params)
+	if(I.iswirecutter())
 		user.visible_message("[user] cuts the noose.", "<span class='notice'>You cut the noose.</span>")
 		if(buckled_mob)
 			buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>",\
 										"<span class='danger'>You fall over and hit the ground!</span>")
 			buckled_mob.adjustBruteLoss(10)
 		var/obj/item/stack/cable_coil/C = new(get_turf(src))
+		C.our_color = our_color
 		C.amount = 25
 		qdel(src)
 		return
@@ -1021,6 +1036,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	pixel_y += 16 //Noose looks like it's "hanging" in the air
 	over = image(icon, "noose_overlay")
 	over.layer = MOB_LAYER + 0.1
+	var/color_hex = possible_cable_coil_colours[our_color]
+	color = color_hex
 
 /obj/structure/noose/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
