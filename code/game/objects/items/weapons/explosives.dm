@@ -64,12 +64,7 @@
 	if(ismob(target))
 		add_logs(user, target, "planted [name] on")
 		user.visible_message("<span class='danger'>[user.name] finished planting an explosive on [target.name]!</span>")
-		message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [key_name(target)](<A HREF='?_src_=holder;adminmoreinfo=\ref[target]'>?</A>) with [timer] second fuse",0,1)
-		log_game("[key_name(user)] planted [src.name] on [key_name(target)] with [timer] second fuse",ckey=key_name(user))
-
-	else
-		message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [target.name] at ([target.x],[target.y],[target.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>) with [timer] second fuse",0,1)
-		log_game("[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse",ckey=key_name(user))
+	log_and_message_admins("planted [src.name] on [target.name] with [src.timer] second fuse", user, get_turf(target))
 
 	target.add_overlay(image_overlay, TRUE)
 	to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
@@ -104,7 +99,7 @@
 	desc = "A stationbound-mounted C4 dispenser, how thrilling!"
 	desc_antag = "When used, this dispenser will deploy C4 on a target, upon which it will enter a charging state. After two minutes, it will restock a new C4 bundle."
 	var/can_deploy = TRUE
-	var/recharge_time = 2 MINUTES
+	var/recharge_time = 5 MINUTES
 	maptext_x = 3
 	maptext_y = 2
 
@@ -127,8 +122,7 @@
 	C4.target = target
 	C4.loc = null
 
-	message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [C4.name] on [target.name] at ([target.x],[target.y],[target.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>) with [C4.timer] second fuse",0,1)
-	log_game("[key_name(user)] planted [C4.name] on [target.name] at ([target.x],[target.y],[target.z]) with [C4.timer] second fuse",ckey=key_name(user))
+	log_and_message_admins("planted [C4.name] on [target.name] with [C4.timer] second fuse", user, get_turf(target))
 
 	C4.target.add_overlay(image_overlay, TRUE)
 	to_chat(user, SPAN_NOTICE("Bomb has been planted. Timer counting down from [C4.timer]."))
