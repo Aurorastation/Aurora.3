@@ -151,8 +151,3 @@
 	update_connections(1)
 	update_icon()
 	update_material()
-
-/obj/item/gun/cultify()
-	if(w_class > ITEMSIZE_NORMAL)
-		new /obj/item/gun/energy/rifle/cult(get_turf(src))
-	..()

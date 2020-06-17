@@ -10,7 +10,7 @@
 	e_color = null // Uses pre-coloured assets
 
 	h_head = /obj/item/mecha_equipment/light/cult
-	h_l_hand = /obj/item/mecha_equipment/mounted_system/soul_javelin
+	h_back = /obj/item/mecha_equipment/quick_enter
 	h_r_hand = /obj/item/mecha_equipment/doomblade
 
 /obj/item/mech_component/manipulators/cult
