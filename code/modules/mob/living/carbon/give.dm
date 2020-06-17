@@ -2,7 +2,7 @@
 	set category = "IC"
 	set name = "Give"
 
-	if(use_check(usr))
+	if(use_check(target))
 		to_chat(usr, span("warning", "[target.name] is in no condition to handle items!"))
 		return
 
