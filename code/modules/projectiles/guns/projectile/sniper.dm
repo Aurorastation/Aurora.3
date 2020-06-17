@@ -139,6 +139,7 @@
 	max_shells = 10
 	magazine_type = /obj/item/ammo_magazine/d762
 	allowed_magazines = list(/obj/item/ammo_magazine/d762)
+
 	accuracy = -4
 	scoped_accuracy = 3
 
