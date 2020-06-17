@@ -84,7 +84,7 @@
 	handle_stasis_bag()
 
 	if(!handle_some_updates())
-		return											//We go ahead and process them 5 times for HUD images and other stuff though.
+		return	//We go ahead and process them 5 times for HUD images and other stuff though.
 
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()

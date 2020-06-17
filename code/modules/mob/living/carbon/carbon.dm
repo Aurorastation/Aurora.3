@@ -36,7 +36,7 @@
 
 	if(.)
 		if(src.stat != DEAD)
-			if((move_intent.flags & MOVE_INTENT_EXERTIVE) && src.bodytemperature <= 360)
+			if((move_intent.flags & MOVE_INTENT_EXERTIVE) && src.bodytemperature <= 350)
 				bodytemperature += 2
 
 			var/nut_removed = HUNGER_FACTOR/10
