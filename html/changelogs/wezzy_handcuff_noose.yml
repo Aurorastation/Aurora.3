@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - imageadd: "Improved sprites for cable cuffs, zipties and handcuffs. Tweaks cable coil inhands."
   - rscadd: "Cable cuffs and nooses take the color of the cable coil now."
+  - rscadd: "You can cut cable cuffs with wirecutters to get the materials back."
