@@ -150,3 +150,6 @@
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
+
+/datum/species/bug/has_psi_potential()
+	return FALSE

@@ -282,12 +282,8 @@
 	name = "diffuse laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 15
+	damage = 20
 	eyeblur = 4
-
-	muzzle_type = /obj/effect/projectile/muzzle/laser
-	tracer_type = /obj/effect/projectile/tracer/laser
-	impact_type = /obj/effect/projectile/impact/laser
 
 /obj/item/projectile/beam/megaglaive
 	name = "thermal lance"

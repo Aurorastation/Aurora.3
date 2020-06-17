@@ -35,6 +35,7 @@
 	title_suffix = "Zavod"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/officer,
 		/datum/job/warden,
 		/datum/job/scientist,

@@ -73,7 +73,6 @@
 "p" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -148,7 +147,6 @@
 "D" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -185,7 +183,6 @@
 "I" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -196,7 +193,6 @@
 "J" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{

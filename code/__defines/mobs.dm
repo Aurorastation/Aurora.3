@@ -126,6 +126,7 @@
 #define BP_AUG_RADIO        "integrated radio"
 #define BP_AUG_FUEL_CELL    "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER "integrated air analyzer"
+#define BP_AUG_LANGUAGE     "integrated language processor"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

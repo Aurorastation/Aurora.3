@@ -10,7 +10,8 @@
 	max_storage_space = 28
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
-	drop_sound = 'sound/items/drop/leather.ogg'
+	drop_sound = 'sound/items/drop/toolbelt.ogg'
+	pickup_sound = 'sound/items/pickup/toolbelt.ogg'
 
 	var/show_above_suit = 0
 
@@ -35,6 +36,7 @@
 	desc = "A sturdy belt for holding various tools."
 	icon_state = "utilitybelt"
 	item_state = "utility"
+	equip_sound = 'sound/items/equip/toolbelt.ogg'
 	can_hold = list(
 		///obj/item/combitool,
 		/obj/item/crowbar,
@@ -128,7 +130,6 @@
 		/obj/item/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/antibody_scanner,
 		/obj/item/device/radio
 		)
 
@@ -151,14 +152,13 @@
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/reagent_containers/food/snacks/donut/,
+		/obj/item/reagent_containers/food/snacks/donut, // kek
 		/obj/item/melee/baton,
 		/obj/item/gun/energy/taser,
 		/obj/item/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/flashlight/flare,
-		/obj/item/device/flashlight/flare/glowstick,
 		/obj/item/device/pda,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
@@ -473,7 +473,7 @@
 	contained_sprite = TRUE
 	storage_slots = 1
 	max_w_class = 2
-	description_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
+	desc_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \
 	much combat prowess despite her position as head of the town watch but is a capable commander for defensive tactics."

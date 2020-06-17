@@ -212,6 +212,10 @@
 	if(z in current_map.sealed_levels)
 		return
 
+	if(current_map.use_overmap)
+		overmap_spacetravel(get_turf(src), src)
+		return
+
 	var/move_to_z = src.get_transit_zlevel()
 	if(move_to_z)
 		z = move_to_z
@@ -307,3 +311,39 @@
 
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
+
+/obj/item/proc/do_pickup_animation(atom/target)
+	set waitfor = FALSE
+	if(!isturf(loc))
+		return
+	var/image/I = image(icon = src, loc = loc, layer = layer + 0.1)
+	I.plane = -1
+	I.transform *= 0.75
+	I.appearance_flags = (RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE)
+	var/turf/T = get_turf(src)
+	var/direction
+	var/to_x = 0
+	var/to_y = 0
+
+	if(!QDELETED(T) && !QDELETED(target))
+		direction = get_dir(T, target)
+	if(direction & NORTH)
+		to_y = 32
+	else if(direction & SOUTH)
+		to_y = -32
+	if(direction & EAST)
+		to_x = 32
+	else if(direction & WEST)
+		to_x = -32
+	if(!direction)
+		to_y = 16
+	var/list/viewing = list()
+	for (var/mob/M in viewers(target))
+		if (M.client)
+			viewing |= M.client
+	flick_overlay(I, viewing, 6)
+	var/matrix/M = new
+	M.Turn(pick(-30, 30))
+	animate(I, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = M, easing = CUBIC_EASING)
+	sleep(1)
+	animate(I, alpha = 0, transform = matrix(), time = 1)

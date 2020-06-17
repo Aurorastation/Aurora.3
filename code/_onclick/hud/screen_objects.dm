@@ -12,6 +12,7 @@
 	layer = SCREEN_LAYER
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
+	var/datum/hud/hud = null // A reference to the owner HUD, if any.
 	appearance_flags = NO_CLIENT_COLOR
 
 /obj/screen/Destroy(force = FALSE)
@@ -29,8 +30,34 @@
 
 
 /obj/screen/inventory
-	var/slot_id	//The indentifier for the slot. It has nothing to do with ID cards.
+	var/slot_id	//The identifier for the slot. It has nothing to do with ID cards.
+	var/list/object_overlays = list() // Required for inventory/screen overlays.
 
+/obj/screen/inventory/MouseEntered()
+	..()
+	add_overlays()
+
+/obj/screen/inventory/MouseExited()
+	..()
+	cut_overlay(object_overlays)
+	object_overlays.Cut()
+
+/obj/screen/inventory/proc/add_overlays()
+	var/mob/user = hud.mymob
+
+	if(hud && user && slot_id)
+		var/obj/item/holding = user.get_active_hand()
+		if(!holding || user.get_equipped_item(slot_id))
+			return
+
+		var/image/item_overlay = image(holding)
+		item_overlay.alpha = 92
+		if(!holding.mob_can_equip(user, slot_id, disable_warning = TRUE))
+			item_overlay.color = "#ff0000"
+		else
+			item_overlay.color = "#00ff00"
+		object_overlays += item_overlay
+		add_overlay(object_overlays)
 
 /obj/screen/close
 	name = "close"
@@ -101,77 +128,115 @@
 	icon_state = "zone_sel"
 	screen_loc = ui_zonesel
 	var/selecting = BP_CHEST
+	var/static/list/hover_overlays_cache = list()
+	var/hovering_choice
+	var/mutable_appearance/selecting_appearance
 
 /obj/screen/zone_sel/Click(location, control,params)
+	if(isobserver(usr))
+		return
+
 	var/list/PL = params2list(params)
 	var/icon_x = text2num(PL["icon-x"])
 	var/icon_y = text2num(PL["icon-y"])
-	var/old_selecting = selecting //We're only going to update_icon() if there's been a change
+	var/choice = get_zone_at(icon_x, icon_y)
+	if(!choice)
+		return 1
 
+	return set_selected_zone(choice, usr)
+
+/obj/screen/zone_sel/MouseEntered(location, control, params)
+	MouseMove(location, control, params)
+
+/obj/screen/zone_sel/MouseMove(location, control, params)
+	if(isobserver(usr))
+		return
+
+	var/list/PL = params2list(params)
+	var/icon_x = text2num(PL["icon-x"])
+	var/icon_y = text2num(PL["icon-y"])
+	var/choice = get_zone_at(icon_x, icon_y)
+
+	if(hovering_choice == choice)
+		return
+	vis_contents -= hover_overlays_cache[hovering_choice]
+	hovering_choice = choice
+
+	var/obj/effect/overlay/zone_sel/overlay_object = hover_overlays_cache[choice]
+	if(!overlay_object)
+		overlay_object = new
+		overlay_object.icon_state = "[choice]"
+		hover_overlays_cache[choice] = overlay_object
+	vis_contents += overlay_object
+
+
+/obj/effect/overlay/zone_sel
+	icon = 'icons/mob/zone_sel.dmi'
+	mouse_opacity = 0
+	alpha = 128
+	anchored = TRUE
+	layer = SCREEN_LAYER + 0.1
+
+/obj/screen/zone_sel/MouseExited(location, control, params)
+	if(!isobserver(usr) && hovering_choice)
+		vis_contents -= hover_overlays_cache[hovering_choice]
+		hovering_choice = null
+
+/obj/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
 		if(1 to 3) //Feet
 			switch(icon_x)
 				if(10 to 15)
-					selecting = BP_R_FOOT
+					return BP_R_FOOT
 				if(17 to 22)
-					selecting = BP_L_FOOT
-				else
-					return 1
+					return BP_L_FOOT
 		if(4 to 9) //Legs
 			switch(icon_x)
 				if(10 to 15)
-					selecting = BP_R_LEG
+					return BP_R_LEG
 				if(17 to 22)
-					selecting = BP_L_LEG
-				else
-					return 1
+					return BP_L_LEG
 		if(10 to 13) //Hands and groin
 			switch(icon_x)
 				if(8 to 11)
-					selecting = BP_R_HAND
+					return BP_R_HAND
 				if(12 to 20)
-					selecting = BP_GROIN
+					return BP_GROIN
 				if(21 to 24)
-					selecting = BP_L_HAND
-				else
-					return 1
+					return BP_L_HAND
 		if(14 to 22) //Chest and arms to shoulders
 			switch(icon_x)
 				if(8 to 11)
-					selecting = BP_R_ARM
+					return BP_R_ARM
 				if(12 to 20)
-					selecting = BP_CHEST
+					return BP_CHEST
 				if(21 to 24)
-					selecting = BP_L_ARM
-				else
-					return 1
+					return BP_L_ARM
 		if(23 to 30) //Head, but we need to check for eye or mouth
 			if(icon_x in 12 to 20)
-				selecting = BP_HEAD
 				switch(icon_y)
 					if(23 to 24)
 						if(icon_x in 15 to 17)
-							selecting = BP_MOUTH
+							return BP_MOUTH
 					if(26) //Eyeline, eyes are on 15 and 17
 						if(icon_x in 14 to 18)
-							selecting = BP_EYES
+							return BP_EYES
 					if(25 to 27)
 						if(icon_x in 15 to 17)
-							selecting = BP_EYES
+							return BP_EYES
+				return BP_HEAD
 
-	if(old_selecting != selecting)
-		update_icon()
-	return 1
-
-/obj/screen/zone_sel/proc/set_selected_zone(bodypart)
-	var/old_selecting = selecting
-	selecting = bodypart
-	if(old_selecting != selecting)
+/obj/screen/zone_sel/proc/set_selected_zone(choice, mob/user)
+	if(isobserver(user))
+		return
+	if(choice != selecting)
+		selecting = choice
 		update_icon()
 
 /obj/screen/zone_sel/update_icon()
 	cut_overlays()
-	add_overlay(image('icons/mob/zone_sel.dmi', "[selecting]"))
+	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
+	add_overlay(selecting_appearance)
 
 /obj/screen/Click(location, control, params)
 	if(!usr)	return 1
@@ -221,9 +286,29 @@
 				usr.client.drop_item()
 
 		if("up hint")
+			var/list/modifiers = params2list(params)
+			if(modifiers["shift"])
+				if(ishuman(usr))
+					var/mob/living/carbon/human/H = usr
+					if(H.last_special + 50 > world.time)
+						return
+					H.last_special = world.time
+				to_chat(usr, SPAN_NOTICE("You take look around to see if there are any holes in the roof around."))
+				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
+					if(T.density)
+						continue
+					var/turf/above_turf = GetAbove(T)
+					if(!isopenspace(above_turf))
+						continue
+					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
+					up_image.plane = LIGHTING_LAYER + 1
+					up_image.layer = LIGHTING_LAYER + 1
+					usr << up_image
+					addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, up_image), 12)
+				return
 			var/turf/T = GetAbove(usr)
 			if (!T)
-				to_chat(usr, "<span class='notice'>There is nothing above you!</span>")
+				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
 				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
 			else
@@ -338,3 +423,20 @@
 				usr.m_intent = "run"
 
 		update_move_icon(usr)
+
+// Hand slots are special to handle the handcuffs overlay
+/obj/screen/inventory/hand
+	var/image/handcuff_overlay
+
+/obj/screen/inventory/hand/update_icon()
+	..()
+	if(!hud)
+		return
+	if(!handcuff_overlay)
+		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
+		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
+	overlays.Cut()
+	if(hud.mymob && iscarbon(hud.mymob))
+		var/mob/living/carbon/C = hud.mymob
+		if(C.handcuffed)
+			overlays |= handcuff_overlay

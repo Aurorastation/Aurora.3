@@ -152,33 +152,58 @@
 	var/obj/item/laser_components/focusing_lens/focusing_lens
 	var/obj/item/laser_components/modulator/modulator
 
+	var/ready_to_craft = FALSE // Use by weapons analyzer.
+	var/datum/weakref/analyzer
+
 /obj/item/device/laser_assembly/Initialize()
 	. = ..()
 	update_icon()
 
 /obj/item/device/laser_assembly/attackby(var/obj/item/D as obj, var/mob/user as mob)
 	var/obj/item/laser_components/A = D
+	var/success = FALSE
 	if(!istype(A))
 		return ..()
+	if(!ready_to_craft)
+		to_chat(user, SPAN_WARNING("You cannot modify \the [src] by hand, you need to use a weapons analyzer."))
+		return
+
 	if(ismodifier(A) && gun_mods.len < modifier_cap)
+		var/obj/item/laser_components/modifier/m = A
+		for(var/v in gun_mods)
+			var/obj/item/laser_components/modifier/M = v
+			if(M.type == m.type)
+				to_chat(user, span("warning", "\The [name] already has [m]."))
+				return FALSE
 		gun_mods += A
 		user.drop_from_inventory(A,src)
+		success = TRUE
+
 	else if(islasercapacitor(A) && stage == 1)
 		capacitor = A
 		user.drop_from_inventory(A,src)
 		stage = 2
+		success = TRUE
+
 	else if(isfocusinglens(A) && stage == 2)
 		focusing_lens = A
 		user.drop_from_inventory(A,src)
 		stage = 3
+		success = TRUE
+
 	else if(ismodulator(A) && stage == 3)
 		modulator = A
 		user.drop_from_inventory(A,src)
+		success = TRUE
+
 	else
 		return ..()
 	to_chat(user, "<span class='notice'>You insert \the [A] into the assembly.</span>")
 	update_icon()
-	check_completion()
+	if(check_completion())
+		success = 2 // meaning complete
+
+	return success
 
 /obj/item/device/laser_assembly/update_icon()
 	..()
@@ -192,9 +217,14 @@
 
 /obj/item/device/laser_assembly/proc/check_completion()
 	if(capacitor && focusing_lens && modulator)
-		finish()
+		return finish()
 
 /obj/item/device/laser_assembly/proc/finish()
+
+	var/obj/machinery/weapons_analyzer/an = analyzer.resolve()
+	if(!an)
+		return FALSE
+
 	var/obj/item/gun/energy/laser/prototype/A = new /obj/item/gun/energy/laser/prototype
 	A.icon_state = icon_state
 	A.modifystate = icon_state
@@ -206,15 +236,18 @@
 	A.modulator = modulator
 	modulator.forceMove(A)
 	if(gun_mods.len)
-		for(var/obj/item/laser_components/modifier/mod in gun_mods)
+		for(var/v in gun_mods)
+			var/obj/item/laser_components/modifier/mod = v
 			A.gun_mods += mod
 			mod.forceMove(A)
 			if(mod.gun_overlay)
 				A.underlays += mod.gun_overlay
-	A.forceMove(get_turf(src))
+	A.forceMove(an)
+	an.item = A
 	A.updatetype()
 	A.pin = null
 	gun_mods = null
 	focusing_lens = null
 	capacitor = null
 	qdel(src)
+	return TRUE

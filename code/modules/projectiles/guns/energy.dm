@@ -1,6 +1,8 @@
 /obj/item/gun/energy
 	name = "energy gun"
 	desc = "A basic energy-based gun."
+	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energykill100"
 	item_state = "energykill100"

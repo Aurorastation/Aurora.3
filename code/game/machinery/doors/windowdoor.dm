@@ -58,10 +58,17 @@
 	return ..()
 
 /obj/machinery/door/window/CollidedWith(atom/movable/AM as mob|obj)
-	if (istype(AM, /obj))
+	if (istype(AM, /mob/living/bot))
 		var/mob/living/bot/bot = AM
 		if(istype(bot))
 			if(density && src.check_access(bot.botcard))
+				open()
+				addtimer(CALLBACK(src, .proc/close), 50)
+		return
+	if(istype(AM, /mob/living/simple_animal/spiderbot))
+		var/mob/living/simple_animal/spiderbot/bot = AM
+		if(istype(bot))
+			if(density && src.check_access(bot.internal_id))
 				open()
 				addtimer(CALLBACK(src, .proc/close), 50)
 		return
@@ -69,7 +76,7 @@
 		return
 	if (src.operating)
 		return
-	if (src.density && (!issmall(AM) || ishuman(AM) || isrobot(AM)) && src.allowed(AM))
+	if (src.density && (ishuman(AM) || isrobot(AM)) && src.allowed(AM))
 		open()
 		//secure doors close faster
 		var/time = check_access(null) ? 50 : 20

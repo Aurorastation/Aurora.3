@@ -266,6 +266,12 @@
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 
+/obj/item/ammo_casing/slugger
+	projectile_type = /obj/item/projectile/bullet/rifle/slugger
+	caliber = "slugger"
+	icon_state = "slugger-sharp"
+	spent_icon = "slugger-spent"
+
 /obj/item/ammo_casing/gauss
 	name = "tungsten slug"
 	desc = "A heavy tungsten gauss slug."

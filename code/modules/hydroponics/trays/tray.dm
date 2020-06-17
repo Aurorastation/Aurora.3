@@ -454,9 +454,9 @@
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
 					RC.reagents.remove_reagent("water", amountToRemove, 1)
 					waterlevel += amountToRemove
-					user.visible_message("[user] transfers [amountToRemove]u of water to the tray."," You transfer [amountToRemove]u of water to the tray.")
+					user.visible_message("<b>[user]</b> transfers some water to the tray.", "You transfer about [amountToRemove] units of water to the tray.")
 				else
-					to_chat(user, "This tray is full of water already.")
+					to_chat(user, SPAN_WARNING("This tray is full of water already."))
 				return 1
 
 	if (O.is_open_container())

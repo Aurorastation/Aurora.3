@@ -1,8 +1,8 @@
 /obj/machinery/power/am_control_unit
 	name = "antimatter control unit"
 	desc = "The control unit for an antimatter reactor. Probably safe."
-	description_info = "Use a wrench to attach the control unit to the ground, then arrange the reactor sections nearby. Reactor sections can only be activated if they are near the control unit, but otherwise are not restricted in how they must be placed."
-	description_antag = "The antimatter engine will quickly destabilize if the fuel injection rate is set too high, causing a large explosion."
+	desc_info = "Use a wrench to attach the control unit to the ground, then arrange the reactor sections nearby. Reactor sections can only be activated if they are near the control unit, but otherwise are not restricted in how they must be placed."
+	desc_antag = "The antimatter engine will quickly destabilize if the fuel injection rate is set too high, causing a large explosion."
 	icon = 'icons/obj/machines/new_ame.dmi'
 	icon_state = "control"
 	var/icon_mod = "on" // on, critical, or fuck

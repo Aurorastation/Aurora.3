@@ -2,6 +2,7 @@
 	name = "organ"
 	icon = 'icons/obj/surgery.dmi'
 	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
 	default_action_type = /datum/action/item_action/organ
 	germ_level = 0
 

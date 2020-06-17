@@ -4,7 +4,7 @@
  */
 
 /obj/item/paper
-	name = "sheet of paper"
+	name = "paper"
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
@@ -38,6 +38,7 @@
 	var/const/fountainfont = "Segoe Script"
 
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
@@ -92,7 +93,7 @@
 	if (old_name && icon_state == "paper_plane")
 		to_chat(user, span("notice", "You're going to have to unfold it before you can read it."))
 		return
-	if(name != "sheet of paper")
+	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user))
 		show_content(usr)
@@ -116,11 +117,14 @@
 	if((usr.is_clumsy()) && prob(50))
 		to_chat(usr, span("warning", "You cut yourself on the paper."))
 		return
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null)  as text, MAX_NAME_LEN)
+	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
 
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0 && n_name)
-		name = n_name
+	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+		if(n_name)
+			name = "[initial(name)] ([n_name])"
+		else
+			name = initial(name)
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)

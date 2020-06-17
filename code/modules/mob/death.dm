@@ -58,6 +58,12 @@
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.
 		src.visible_message("<b>\The [src.name]</b> [deathmessage]", range = messagerange)
 
+	// If we have a remotely controlled mob, we come back to our body to die properly
+	if(vr_mob)
+		vr_mob.body_return()
+	// Alternatively, if we are the remotely controlled mob, just kick our controller out
+	if(old_mob)
+		body_return()
 	stat = DEAD
 
 	update_canmove()

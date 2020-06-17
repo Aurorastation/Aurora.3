@@ -16,7 +16,7 @@
 
 /datum/uplink_item/item/stealth_items/id
 	name = "Agent ID card"
-	item_cost = 3
+	item_cost = 4
 	path = /obj/item/card/id/syndicate
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
@@ -31,6 +31,7 @@
 
 /datum/uplink_item/item/stealth_items/chameleon_projector
 	name = "Chameleon-Projector"
+	desc = "A device that can be used to mimic common items by scanning, then transforming into them."
 	item_cost = 8
 	path = /obj/item/device/chameleon
 
@@ -45,3 +46,9 @@
 	desc = "Designed to both hide identities and keep your face comfy and warm."
 	item_cost = 1
 	path = /obj/item/clothing/mask/balaclava/grey
+
+/datum/uplink_item/item/stealth_items/stealthpop
+	name = "Stealthpops"
+	desc = "Snap pops with a compound added which deploys a small smokescreen upon exploding."
+	item_cost = 1
+	path = /obj/item/storage/box/snappops/syndi

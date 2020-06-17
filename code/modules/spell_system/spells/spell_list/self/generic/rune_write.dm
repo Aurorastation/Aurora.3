@@ -20,20 +20,16 @@
 	if(!isturf(user.loc))
 		to_chat(user, span("warning", "You do not have enough space to write a proper rune."))
 
-	var/rune = input(user, "Choose a rune to scribe", "Rune Scribing") in rune_types //not cancellable.
+	var/rune = input(user, "Choose a rune to scribe", "Rune Scribing") as null|anything in SScult.runes_by_name//not cancellable.
 	if(locate(/obj/effect/rune) in get_turf(user))
 		to_chat(user, span("warning", "There is already a rune in this location."))
 		return
 
-	var/rune_path = rune_types[rune]
-	var/obj/effect/rune/R = new rune_path(get_turf(user))
+	if(!rune)
+		return
 
-	var/network
-	if(istype(R, /obj/effect/rune/teleport))
-		network = input(user, "Choose a teleportation network for the rune to connect to.", "Teleport Rune") in teleport_network
-	if(network)
-		R.network = network
-	R.cult_description = rune
+	var/RD = SScult.runes_by_name[rune]
+	var/obj/effect/rune/R = new(get_turf(user), RD)
 	R.color = "#A10808"
 
 	var/area/A = get_area(R)

@@ -1,6 +1,7 @@
 /obj/item/melee/cultblade
 	name = "eldritch blade"
 	desc = "A sword humming with unholy energy. It glows with a dim red light."
+	desc_antag = "This sword is a powerful weapon, capable of severing limbs easily, if they are targeted.  Non-believers are unable to use this weapon."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
@@ -13,6 +14,7 @@
 	sharp = TRUE
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 	var/does_cult_check = TRUE
 
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")

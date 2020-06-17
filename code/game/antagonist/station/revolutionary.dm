@@ -3,7 +3,7 @@ var/datum/antagonist/revolutionary/revs
 /datum/antagonist/revolutionary
 	id = MODE_REVOLUTIONARY
 	role_text = "Head Contender"
-	role_text_plural = "The Contenders"
+	role_text_plural = "Contenders"
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
 	antag_indicator = "contenderhead"

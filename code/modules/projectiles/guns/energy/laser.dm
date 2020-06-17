@@ -55,10 +55,12 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/captain
 	name = "antique laser gun"
 	icon = 'icons/obj/guns/caplaser.dmi'
+	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
+	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly. Unlike most weapons, this weapon recharges itself."
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	has_item_ratio = FALSE
-	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
 	force = 5
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
@@ -74,7 +76,7 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/lasercannon
 	name = "laser cannon"
 	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
-	description_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
+	desc_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon100"
 	item_state = "lasercannon100"
@@ -105,7 +107,7 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/xray
 	name = "xray laser gun"
 	desc = "A Nanotrasen designed high-power laser sidearm capable of expelling concentrated xray blasts."
-	description_fluff = "The NT XG-1 is a laser sidearm developed and produced by Nanotrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
+	desc_fluff = "The NT XG-1 is a laser sidearm developed and produced by Nanotrasen. A recent invention, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover. It is compact with relatively high capacity to other sidearms."
 	icon = 'icons/obj/guns/xray.dmi'
 	icon_state = "xray"
 	item_state = "xray"
@@ -131,6 +133,9 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
 	desc = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
+	To use the scope, use the appropriate verb in the object tab."
 	icon = 'icons/obj/guns/sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"
@@ -166,32 +171,46 @@ obj/item/gun/energy/retro
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
 /obj/item/gun/energy/laser/shotgun
-	name = "quad-beam laser"
-	desc = "A Nanotrasen designed laser weapon, designed to split a single beam four times."
-	description_fluff = "The NT QB-2 is a laser weapon developed and produced by Nanotrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
-	icon = 'icons/obj/guns/ecarbine.dmi' // using this as placeholder until proper sprites are made
-	icon_state = "energykill100"
-	item_state = "energykill100"
+	name = "laser shotgun"
+	desc = "A Nanotrasen designed laser weapon, designed to split a single amplified beam four times."
+	desc_fluff = "The NT QB-2 is a laser weapon developed and produced by Nanotrasen. Designed to fill in the niche that ballistic shotguns do, but in the form of laser weaponry. It is equipped with a special crystal lens that splits a single laser beam into four."
+	icon = 'icons/obj/guns/lasershotgun.dmi'
+	icon_state = "lasershotgun"
+	item_state = "lasershotgun"
+	modifystate = null
+	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = 3
+	w_class = ITEMSIZE_LARGE
 	accuracy = 0
 	force = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam/shotgun
-	max_shots = 12
+	max_shots = 20
 	sel_mode = 1
+	is_wieldable = TRUE
 	burst = 4
 	burst_delay = 0
 	move_delay = 0
 	fire_delay = 2
 	dispersion = list(10)
-	can_turret = 1
-	turret_is_lethal = 1
+	can_turret = TRUE
+	turret_is_lethal = TRUE
 	turret_sprite_set = "laser"
 
-	modifystate = "energykill"
+/obj/item/gun/energy/laser/shotgun/update_icon()
+	..()
+	if(wielded)
+		item_state = "[initial(icon_state)]-wielded"
+	else
+		item_state = initial(item_state)
+	update_held_icon()
+
+/obj/item/gun/energy/laser/shotgun/research
+	name = "expedition shotgun"
+	desc = "A Nanotrasen designed laser weapon, designed to split a single amplified beam four times. This one is marked for expeditionary use."
+	pin = /obj/item/device/firing_pin/away_site
 
 ////////Laser Tag////////////////////
 

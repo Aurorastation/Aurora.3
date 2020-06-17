@@ -268,6 +268,14 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 			if(R.receive_range(display_freq, level) > -1)
 				radios += R
 
+	// --- Radio sounds. ---
+
+	for(var/obj/item/device/radio/R in radios)
+		if((R.last_radio_sound + 1 SECOND) < world.time && R != radio)
+			playsound(R.loc, 'sound/effects/radio_chatter.ogg', 2.5, 0, -6, required_asfx_toggles = ASFX_RADIO)
+			R.last_radio_sound = world.time
+
+
 	// Get a list of mobs who can hear from the radios we collected.
 	var/list/receive = get_mobs_in_radio_ranges(radios)
 
@@ -280,7 +288,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	// Did not understand the message:
 	var/list/heard_voice 	= list() // voice message	(ie "chimpers")
 	var/list/heard_garbled	= list() // garbled message (ie "f*c* **u, **i*er!")
-	var/list/heard_gibberish= list() // completely screwed over message (ie "F%! (O*# *#!<>&**%!")
+	var/list/heard_gibberish= list() // completely screwed over message ie "F%! (O*# *#!<>&**%!")
 
 	for (var/mob/R in receive)
 

@@ -2,6 +2,9 @@
 /obj/item/melee/baton
 	name = "stunbaton"
 	desc = "A stun baton for incapacitating people with."
+	desc_info = "The baton needs to be turned on to apply the stunning effect.  Use it in your hand to toggle it on or off.  If your intent is \
+	set to 'harm', you will inflict damage when using it, regardless if it is on or not.  Each stun reduces the baton's charge, which can be replenished by \
+	putting it inside a weapon recharger."
 	icon_state = "stunbaton"
 	item_state = "baton"
 	slot_flags = SLOT_BELT
@@ -10,6 +13,8 @@
 	edge = 0
 	throwforce = 7
 	w_class = 3
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	origin_tech = list(TECH_COMBAT = 2)
 	attack_verb = list("beaten")
 	var/stunforce = 0
