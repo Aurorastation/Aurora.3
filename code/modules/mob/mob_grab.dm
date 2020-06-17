@@ -170,9 +170,8 @@
 						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
 						A.Paralyse(20)
 		else if(istype(affecting, /mob/living/simple_animal))
-			var/mob/living/simple_animal/SA = affecting
-			if(SA.stat != DEAD)
-				SA.health -= 1
+			if(affecting.stat != DEAD)
+				affecting.health -= 1
 
 	adjust_position()
 

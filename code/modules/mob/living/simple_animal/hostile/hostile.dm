@@ -183,7 +183,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		var/obj/machinery/porta_turret/T = target_mob
 		src.do_attack_animation(T)
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
-		visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [T]!"))
+		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
