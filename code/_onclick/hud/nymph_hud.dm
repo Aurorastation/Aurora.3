@@ -1,7 +1,7 @@
 /mob/living/carbon/alien/instantiate_hud(var/datum/hud/HUD)
-	HUD.larva_hud()
+	HUD.nymph_hud()
 
-/datum/hud/proc/larva_hud()
+/datum/hud/proc/nymph_hud()
 
 	src.adding = list()
 	src.other = list()
@@ -16,7 +16,7 @@
 	
 
 	mymob.healths = new /obj/screen()
-	mymob.healths.icon = 'icons/mob/screen/alien.dmi'
+	mymob.healths.icon = 'icons/hud/diona_health.dmi'
 	mymob.healths.icon_state = "health0"
 	mymob.healths.name = "health"
 	mymob.healths.screen_loc = ui_alien_health
@@ -38,7 +38,7 @@
 
 	mymob.fire = new /obj/screen()
 	mymob.fire.icon = 'icons/mob/screen/alien.dmi'
-	mymob.fire.icon_state = "fire0"
+	mymob.fire.icon_state = "blank"
 	mymob.fire.name = "fire"
 	mymob.fire.screen_loc = ui_fire
 

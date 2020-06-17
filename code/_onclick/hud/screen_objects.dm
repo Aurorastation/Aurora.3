@@ -286,9 +286,29 @@
 				usr.client.drop_item()
 
 		if("up hint")
+			var/list/modifiers = params2list(params)
+			if(modifiers["shift"])
+				if(ishuman(usr))
+					var/mob/living/carbon/human/H = usr
+					if(H.last_special + 50 > world.time)
+						return
+					H.last_special = world.time
+				to_chat(usr, SPAN_NOTICE("You take look around to see if there are any holes in the roof around."))
+				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
+					if(T.density)
+						continue
+					var/turf/above_turf = GetAbove(T)
+					if(!isopenspace(above_turf))
+						continue
+					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
+					up_image.plane = LIGHTING_LAYER + 1
+					up_image.layer = LIGHTING_LAYER + 1
+					usr << up_image
+					addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, up_image), 12)
+				return
 			var/turf/T = GetAbove(usr)
 			if (!T)
-				to_chat(usr, "<span class='notice'>There is nothing above you!</span>")
+				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
 				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
 			else
