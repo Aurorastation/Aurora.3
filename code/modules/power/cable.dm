@@ -635,8 +635,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/item/stack/cable_coil/proc/update_wclass()
 	if(amount == 1)
 		w_class = ITEMSIZE_TINY
+		slot_flags = SLOT_EARS
 	else
 		w_class = ITEMSIZE_SMALL
+		slot_flags = null
 
 /obj/item/stack/cable_coil/examine(mob/user)
 	if(get_dist(src, user) > 1)
@@ -662,13 +664,14 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(src.amount <= 14)
 			to_chat(user, SPAN_WARNING("You need at least 15 lengths to make restraints!"))
 			return
+		to_chat(user, SPAN_NOTICE("You start winding some cable together to make some restraints."))
 		if(do_after(user, 150))
 			new/obj/item/handcuffs/cable(user.loc, our_color)
 			to_chat(user, SPAN_NOTICE("You wind some cable together to make some restraints."))
 			playsound(src.loc, 'sound/weapons/cablecuff.ogg', 30, 1, -2)
 			src.use(15)
 	else
-		to_chat(user, SPAN_NOTICE("You cannot do that."))
+		to_chat(user, SPAN_WARNING("You cannot do that."))
 
 /obj/item/stack/cable_coil/cyborg
 	name = "cable coil synthesizer"
@@ -990,13 +993,15 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		if(src.amount <= 24)
 			to_chat(user, SPAN_WARNING("You need at least 25 lengths to make a noose!"))
 			return
+		user.visible_message(SPAN_WARNING("[user] starts winding some cable together to make a noose, tying it to the ceiling!"),
+							 SPAN_NOTICE("You start to wind some cable together to make a noose, tying it to the ceiling."))
 		if(do_after(user, 250))
 			new/obj/structure/noose(user.loc, our_color)
 			to_chat(user, SPAN_NOTICE("You wind some cable together to make a noose, tying it to the ceiling."))
 			playsound(user.loc, 'sound/effects/noose_idle.ogg', 50, 1, -3)
 			src.use(25)
 	else
-		to_chat(user, SPAN_NOTICE("You cannot do that."))
+		to_chat(user, SPAN_WARNING("You cannot do that."))
 
 /obj/structure/noose
 	name = "noose"
@@ -1013,7 +1018,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/structure/noose/attackby(obj/item/I, mob/user, params)
 	if(I.iswirecutter())
-		user.visible_message("[user] cuts the noose.", SPAN_NOTICE("You cut the noose."))
+		user.visible_message("[user] cuts the noose.",
+							 SPAN_NOTICE("You cut the noose."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if(buckled_mob)
 			buckled_mob.visible_message(SPAN_DANGER("[buckled_mob] falls over and hits the ground!"),\
