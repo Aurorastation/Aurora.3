@@ -148,7 +148,7 @@
 		our_color = new_color
 	update_icon()
 
-obj/item/handcuffs/cable/update_icon()
+/obj/item/handcuffs/cable/update_icon()
 	if(build_from_parts) //random colors!
 		if(!our_color)
 			our_color = pick(possible_cablecuff_colours)
