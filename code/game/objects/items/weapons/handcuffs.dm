@@ -141,8 +141,8 @@
 /obj/item/handcuffs/cable/update_icon()
 	if(build_from_parts) //random colors!
 		if(!our_color)
-			our_color = pick(possible_cablecuff_colours)
-		var/color_hex = possible_cablecuff_colours[our_color]
+			our_color = pick(possible_cable_coil_colours)
+		var/color_hex = possible_cable_coil_colours[our_color]
 		color = color_hex
 		item_state = "coil-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
 		add_overlay(overlay_image(icon, "[initial(icon_state)]_end", flags=RESET_COLOR))
