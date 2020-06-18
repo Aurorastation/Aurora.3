@@ -327,6 +327,7 @@
 			outfit_catagories["Ceres Lance"] = typesof(/datum/outfit/admin/lance)
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
 			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
+			outfit_catagories["Job"] = subtypesof(/datum/outfit/job)
 			outfit_catagories["Miscellaneous"] = typesof(/datum/outfit/admin/random)
 			outfit_catagories["Miscellaneous"] += /datum/outfit/admin/random_employee
 
