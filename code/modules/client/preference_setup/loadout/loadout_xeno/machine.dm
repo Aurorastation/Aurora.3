@@ -1,5 +1,5 @@
 /datum/gear/head/goldenchains
-	display_name = "golden deep headchains"
+	display_name = "golden deep headchains (selection)"
 	path = /obj/item/clothing/head/headchain
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
@@ -15,7 +15,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(headchains)
 
 /datum/gear/head/goldencrests
-	display_name = "golden deep crests"
+	display_name = "golden deep crests (selection)"
 	path = /obj/item/clothing/head/crest
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
@@ -31,7 +31,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(crest)
 
 /datum/gear/gloves/armchains
-	display_name = "golden deep armchains"
+	display_name = "golden deep armchains (selection)"
 	path = /obj/item/clothing/gloves/armchain
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
@@ -47,7 +47,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(armchains)
 
 /datum/gear/gloves/bracers
-	display_name = "golden deep bracers"
+	display_name = "golden deep bracers (selection)"
 	path = /obj/item/clothing/gloves/goldbracer
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
@@ -63,7 +63,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(bracers)
 
 /datum/gear/ears/antennae
-	display_name = "antennae"
+	display_name = "antennae (selection, colourable)"
 	path = /obj/item/clothing/head/antenna
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
@@ -84,7 +84,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
 
 /datum/gear/ears/trinary_halo
-	display_name = "trinary perfection antenna"
+	display_name = "trinary perfection antenna (colourable)"
 	path = /obj/item/clothing/head/antenna/trinary_halo
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
@@ -99,7 +99,7 @@
 	sort_category = "Xenowear - IPC"
 
 /datum/gear/suit/idris
-	display_name = "Idris Unit coats"
+	display_name = "Idris Unit coat (selection)"
 	path = /obj/item/clothing/suit/armor/vest/idris
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	sort_category = "Xenowear - IPC"

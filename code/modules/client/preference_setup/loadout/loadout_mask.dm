@@ -6,7 +6,7 @@
 	sort_category = "Masks"
 
 /datum/gear/mask/surgical
-	display_name = "surgical mask selection"
+	display_name = "surgical mask (selection)"
 	path = /obj/item/clothing/mask/surgical
 
 /datum/gear/mask/surgical/New()
@@ -17,6 +17,6 @@
 	gear_tweaks += new/datum/gear_tweak/path(masks)
 
 /datum/gear/mask/cloth
-	display_name = "cloth mask"
+	display_name = "cloth mask (colourable)"
 	path = /obj/item/clothing/mask/cloth
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

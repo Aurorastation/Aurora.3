@@ -4,6 +4,7 @@
 	desc_fluff = "Fortunately, it comes with Itch-Proof technology. The only thing they haven't invented is a better fashion sense for you, though."
 	icon_state = "sweater"
 	item_state = "sweater"
+	siemens_coefficient = 0.9
 
 /obj/item/clothing/accessory/sweaterargyle
 	name = "argyle sweater"
@@ -25,6 +26,13 @@
 	desc_fluff = "Reminds you of family picture day. Wearing this is entirely your own volition, unfortunately."
 	icon_state = "sweaterargylevest"
 	item_state = "sweaterargylevest"
+
+/obj/item/clothing/accessory/sweatervestplain
+	name = "sweater vest"
+	desc = "A warm sweater vest made with flax."
+	desc_fluff = "The next lachrymose thing not affectionately knitted by your loved ones."
+	icon_state = "sweatervest2"
+	item_state = "sweatervest2"
 
 /obj/item/clothing/accessory/sweaterturtleneck
 	name = "turtleneck sweater"
@@ -54,6 +62,7 @@
 	icon_state = "sweaterargyletubeneck"
 	item_state = "sweaterargyletubeneck"
 
+
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
 	desc = "A casual dress shirt."
@@ -65,6 +74,62 @@
 	desc = "A casual dress shirt. This one has its sleeves rolled up."
 	icon_state = "dressshirt_r"
 	item_state = "dressshirt_r"
+
+//Misc Sweaters
+/obj/item/clothing/accessory/sweater/pink
+	name = "pink sweater"
+	desc = "A warm knit sweater. This one's pink in color."
+	icon_state = "sweater_pink"
+
+/obj/item/clothing/accessory/sweater/mint
+	name = "mint sweater"
+	desc = "A warm knit sweater. This one has a minty tint to it."
+	icon_state = "sweater_mint"
+
+/obj/item/clothing/accessory/sweater/blue
+	name = "blue sweater"
+	desc = "A warm knit sweater. This one's colored in a lighter blue."
+	icon_state = "sweater_blue"
+
+/obj/item/clothing/accessory/sweater/heart
+	name = "heart sweater"
+	desc = "A warm knit sweater. This one's colored in a lighter blue, and has a big pink heart right in the center!"
+	icon_state = "sweater_blueheart"
+
+/obj/item/clothing/accessory/sweater/nt
+	name = "dark blue sweater"
+	desc = "A warm knit sweater. This one's a darker blue."
+	icon_state = "sweater_nt"
+
+/obj/item/clothing/accessory/sweater/keyhole
+	name = "keyhole sweater"
+	desc = "A lavender sweater with an open chest."
+	icon_state = "keyholesweater"
+
+/obj/item/clothing/accessory/sweater/blackneck
+	name = "black turtleneck"
+	desc = "A tight turtleneck, entirely black in coloration."
+	icon_state = "turtleneck_black"
+
+/obj/item/clothing/accessory/sweater/winterneck
+	name = "Christmas turtleneck"
+	desc = "A really cheesy holiday sweater, it actually kinda itches."
+	icon_state = "turtleneck_winterred"
+
+/obj/item/clothing/accessory/sweater/uglyxmas
+	name = "ugly Christmas sweater"
+	desc = "A gift that probably should've stayed in the back of the closet."
+	icon_state = "uglyxmas"
+
+/obj/item/clothing/accessory/sweater/flowersweater
+	name = "flowery sweater"
+	desc =  "An oversized and flowery pink sweater."
+	icon_state = "flowersweater"
+
+/obj/item/clothing/accessory/sweater/redneck
+	name = "red turtleneck"
+	desc = "A comfortable turtleneck in a dark red."
+	icon_state = "turtleneck_red"
 
 //Legacy
 /obj/item/clothing/accessory/wcoat
@@ -168,3 +233,8 @@
 	name = "cowled vest"
 	desc = "A body warmer for the 25th century."
 	icon_state = "cowled_vest"
+
+/obj/item/clothing/accessory/suitvest
+	name = "suit vest"
+	desc = "Slick black suit vest."
+	icon_state = "suitvest"

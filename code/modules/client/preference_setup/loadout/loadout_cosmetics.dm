@@ -4,7 +4,7 @@
 	sort_category = "Cosmetics"
 
 /datum/gear/cosmetic/lipstick
-	display_name = "lipstick selection"
+	display_name = "lipstick (selection)"
 	path = /obj/item/lipstick
 
 /datum/gear/cosmetic/lipstick/New()

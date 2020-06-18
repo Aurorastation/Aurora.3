@@ -20,7 +20,7 @@
 	sort_category = "Xenowear - Vaurca"
 
 /datum/gear/mask/vaurca_expression
-	display_name = "human expression mask"
+	display_name = "human expression mask (colourable)"
 	path = /obj/item/clothing/head/expression
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
@@ -32,14 +32,14 @@
 	path = /obj/item/clothing/head/expression/skrell
 
 /datum/gear/head/shaper
-	display_name = "shaper helmet"
+	display_name = "shaper helmet (colourable)"
 	path = /obj/item/clothing/head/shaper
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/cape
-	display_name = "tunnel cloak"
+	display_name = "tunnel cloak (colourable)"
 	path = /obj/item/storage/backpack/cloak
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
@@ -47,7 +47,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/vaurca_robe
-	display_name = "hive cloak"
+	display_name = "hive cloak (selection)"
 	description = "A selection of vaurca colored hive cloaks."
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
@@ -64,14 +64,14 @@
 	gear_tweaks += new/datum/gear_tweak/path(cloaks)
 
 /datum/gear/uniform/vaurca
-	display_name = "vaurca clothes"
+	display_name = "vaurca clothes (colourable)"
 	path = /obj/item/clothing/under/vaurca
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/vaurca
-	display_name = "shaper robes"
+	display_name = "shaper robes (colourable)"
 	path = /obj/item/clothing/suit/vaurca/shaper
 	slot = slot_wear_suit
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
@@ -80,14 +80,14 @@
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/vaurca
-	display_name = "vaurca shoes"
+	display_name = "vaurca shoes (colourable)"
 	path = /obj/item/clothing/shoes/vaurca
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/vaurca_shroud
-	display_name = "vaurcan shroud"
+	display_name = "vaurcan shroud (selection)"
 	description = "A selection of vaurca colored shrouds."
 	path = /obj/item/clothing/head/shroud
 	cost = 1
@@ -105,7 +105,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(shrouds)
 
 /datum/gear/suit/vaurca_mantle
-	display_name = "vaurcan mantle"
+	display_name = "vaurcan mantle (colourable)"
 	path = /obj/item/clothing/suit/vaurca/mantle
 	cost = 1
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
@@ -113,7 +113,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/augment/language_processor
-	display_name = "language processor"
+	display_name = "language processor (selection)"
 	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective hives."
 	path = /obj/item/organ/internal/augment/language/klax
 	cost = 2

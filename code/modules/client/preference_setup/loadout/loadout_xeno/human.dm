@@ -1,5 +1,5 @@
 /datum/gear/uniform/offworlder
-	display_name = "CR suit"
+	display_name = "CR suit (colourable)"
 	path = /obj/item/clothing/under/offworlder
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
@@ -14,14 +14,14 @@
 	path = /obj/item/clothing/under/skirt/offworlder
 
 /datum/gear/eyes/glasses/offworlder
-	display_name = "starshades"
+	display_name = "starshades (colourable)"
 	path = /obj/item/clothing/glasses/spiffygogs/offworlder
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/offworlder
-	display_name = "legbrace"
+	display_name = "legbrace (colourable)"
 	path = /obj/item/clothing/accessory/offworlder/bracer
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
@@ -36,7 +36,7 @@
 	path = /obj/item/clothing/accessory/offworlder/bracer/neckbrace
 
 /datum/gear/accessory/offworlder_armband
-	display_name = "exo-stellar ribbon selection"
+	display_name = "exo-stellar ribbon (selection)"
 	path = /obj/item/clothing/accessory/armband/offworlder
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
@@ -56,7 +56,7 @@
 	sort_category = "Xenowear - Human"
 
 /datum/gear/mask/offworlder/overmask
-	display_name = "overmask"
+	display_name = "overmask (colourable)"
 	path = /obj/item/clothing/mask/breath/offworlder
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -65,12 +65,12 @@
 	path = /obj/item/clothing/mask/offworlder/veil
 
 /datum/gear/mask/offworlder/overmask/scarf
-	display_name = "pioneer scarf"
+	display_name = "pioneer scarf (colourable)"
 	path = /obj/item/clothing/mask/offworlder
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/gloves/offworlder
-	display_name = "starmitts"
+	display_name = "starmitts (colourable)"
 	path = /obj/item/clothing/gloves/offworlder
 	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"

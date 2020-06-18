@@ -20,7 +20,7 @@
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/gloves/unathi
-	display_name = "unathi gloves selection"
+	display_name = "unathi gloves (selection)"
 	description = "A selection of unathi colored gloves."
 	path = /obj/item/clothing/gloves/black/unathi
 	whitelisted = list("Unathi")
@@ -40,7 +40,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(un_gloves)
 
 /datum/gear/uniform/unathi
-	display_name = "sinta tunic"
+	display_name = "sinta tunic (colourable)"
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"

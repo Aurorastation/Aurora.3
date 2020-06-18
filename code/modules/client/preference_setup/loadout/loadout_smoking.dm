@@ -17,7 +17,7 @@
 	cost = 2
 
 /datum/gear/smoking/cigarettes
-	display_name = "cigarette packet selection"
+	display_name = "cigarette packet (selection)"
 	description = "A selection of cigarette packets."
 	path = /obj/item/storage/fancy/cigarettes
 	cost = 2
@@ -35,7 +35,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew
-	display_name = "chewing tobacco selection"
+	display_name = "chewing tobacco (selection)"
 	description = "A selection of chewing tobacco."
 	path = /obj/item/storage/chewables/tobacco
 	cost = 2
@@ -50,7 +50,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(chews)
 
 /datum/gear/smoking/leaves
-	display_name = "tobacco leaf selection"
+	display_name = "tobacco leaf (selection)"
 	description = "A selection of tobacco leaves."
 	path = /obj/item/storage/chewables/rollable
 	cost = 2
@@ -65,7 +65,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(leaves)
 
 /datum/gear/smoking/pipe
-	display_name = "pipe selection"
+	display_name = "pipe (selection)"
 	path = /obj/item/clothing/mask/smokable/pipe
 
 /datum/gear/smoking/pipe/New()
@@ -80,7 +80,7 @@
 	path = /obj/item/storage/cigfilters
 
 /datum/gear/smoking/cigpaper
-	display_name = "cigarette paper selection"
+	display_name = "cigarette paper (selection)"
 	description = "A selection of cigarette papers."
 	path = /obj/item/storage/fancy/cigpaper
 

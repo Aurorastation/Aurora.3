@@ -156,6 +156,18 @@
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
+/datum/gear/accessory/sweater/misc
+	display_name = "sweater, misc (selection)"
+	path = /obj/item/clothing/accessory/sweather/winterred
+	description = "A selection of sweaters and sweater vests."
+
+/datum/gear/accessory/sweater/misc/New()
+	..()
+	var/sweatermisc = list()
+	sweatermisc["sweater"] = /obj/item/clothing/accessory/sweater
+	sweatermisc["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	gear_tweaks += new/datum/gear_tweak/path(sweater)
+
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt (colourable)"
 	path = /obj/item/clothing/accessory/dressshirt
@@ -326,3 +338,7 @@
 /datum/gear/accessory/bracelet/friendship
 	display_name = "friendship bracelet"
 	path = /obj/item/clothing/accessory/bracelet/friendship
+
+/datum/gear/accessory/suitvest
+	display_name = "suit vest"
+	path = /obj/item/clothing/accessory/suitvest

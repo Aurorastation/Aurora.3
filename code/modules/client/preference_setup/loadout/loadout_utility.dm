@@ -4,7 +4,7 @@
 	sort_category = "Utility"
 
 /datum/gear/utility/briefcase
-	display_name = "briefcase selection"
+	display_name = "briefcase (selection)"
 	description = "A selection of briefcases."
 	path = /obj/item/storage/briefcase
 
@@ -23,11 +23,17 @@
 	cost = 2
 
 /datum/gear/utility/briefcase/clutch
-	display_name = "clutch bag"
+	display_name = "clutch bag (colourable)"
 	path = /obj/item/storage/briefcase/clutch
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/purse
+	display_name = "purse (colourable)"
+	path = /obj/item/storage/backpack/purse
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/folder
-	display_name = "folders"
+	display_name = "folder (selection)"
 	path = /obj/item/folder
 
 /datum/gear/utility/folder/New()
@@ -41,7 +47,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(folders)
 
 /datum/gear/utility/fountainpen
-	display_name = "fountain pen selection"
+	display_name = "fountain pen (selection)"
 	description = "A selection of fountain pens."
 	path = /obj/item/pen/fountain
 	cost = 1
@@ -56,7 +62,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(fountainpens)
 
 /datum/gear/utility/hearing_aid
-	display_name = "hearing aid selection"
+	display_name = "hearing aid (selection)"
 	path = /obj/item/device/hearing_aid
 	cost = 1
 
@@ -76,17 +82,17 @@
 	path = /obj/item/storage/wallet
 
 /datum/gear/utility/wallet_colourable
-	display_name = "wallet, colourable"
+	display_name = "wallet (colourable)"
 	path = /obj/item/storage/wallet/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/wallet_purse
-	display_name = "wallet, purse"
+	display_name = "wallet, purse (colourable)"
 	path = /obj/item/storage/wallet/purse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/lanyard
-	display_name = "lanyard"
+	display_name = "lanyard (colourable)"
 	path = /obj/item/storage/wallet/lanyard
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -111,7 +117,7 @@
 	path = 	/obj/item/device/camera
 
 /datum/gear/utility/fannypack
-	display_name = "fannypack selection"
+	display_name = "fannypack (selection)"
 	cost = 2
 	path = /obj/item/storage/belt/fannypack
 
@@ -128,3 +134,8 @@
 	cost = 0
 	path = /obj/item/storage/belt/utility/alt
 	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Roboticist")
+
+/datum/gear/utility/stethoscope
+	display_name = "stethoscope"
+	path = /obj/item/clothing/accessory/stethoscope
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident", "Roboticist")

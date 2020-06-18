@@ -6,7 +6,7 @@
 	sort_category = "Shoes and Footwear"
 
 /datum/gear/shoes/workboots
-	display_name = "workboots selection"
+	display_name = "workboots (selection)"
 	path = /obj/item/clothing/shoes/workboots
 
 /datum/gear/shoes/workboots/New()
@@ -26,7 +26,7 @@
 	path = /obj/item/clothing/shoes/sandal
 
 /datum/gear/shoes/color
-	display_name = "shoe selection"
+	display_name = "shoe (selection)"
 	path = /obj/item/clothing/shoes/black
 
 /datum/gear/shoes/color/New()
@@ -45,7 +45,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/dress
-	display_name = "oxford shoe selection"
+	display_name = "oxford shoe (selection)"
 	path = /obj/item/clothing/shoes/laceup
 
 /datum/gear/shoes/dress/New()
@@ -57,7 +57,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/flats
-	display_name = "flats selection"
+	display_name = "flats (selection)"
 	description = "Low-heeled dress flats, in a selection of colors."
 	path = /obj/item/clothing/shoes/flats
 
@@ -73,7 +73,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/cowboy
-	display_name = "cowboy boots selection"
+	display_name = "cowboy boots (selection)"
 	path = /obj/item/clothing/shoes/cowboy
 
 /datum/gear/shoes/cowboy/New()
@@ -85,17 +85,17 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/heels
-	display_name = "high heels"
+	display_name = "high heels (colourable)"
 	path = /obj/item/clothing/shoes/heels
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/tongs
-	display_name = "flip flops"
+	display_name = "flip flops (colourable)"
 	path = /obj/item/clothing/shoes/sandal/flipflop
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/hitops
-	display_name = "high-top selection"
+	display_name = "high-top (selection)"
 	description = "High-top sneakers, in a selection of colors."
 	path = /obj/item/clothing/shoes/hitops
 
@@ -124,7 +124,7 @@
 	path = /obj/item/clothing/shoes/circuitry
 
 /datum/gear/shoes/slippers
-	display_name = "bunny slippers"
+	display_name = "bunny slippers (selection)"
 	path = /obj/item/clothing/shoes/slippers
 
 /datum/gear/shoes/slippers/New()
@@ -135,6 +135,6 @@
 	gear_tweaks += new/datum/gear_tweak/path(slippers)
 
 /datum/gear/shoes/clog
-	display_name = "plastic clogs"
+	display_name = "plastic clogs (colourable)"
 	path = /obj/item/clothing/shoes/sandal/clogs
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

@@ -519,3 +519,13 @@
 	canremove = 0
 	species_restricted = list("Vaurca Breeder")
 	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/back.dmi')
+
+//Purse
+/obj/item/storage/backpack/purse
+	name = "purse"
+	desc = "A small, fashionable bag typically worn over the shoulder."
+	icon_state = "lgpurse"
+	item_state = "lgpurse"
+	w_class = 4
+	max_w_class = 3
+	max_storage_space = 15

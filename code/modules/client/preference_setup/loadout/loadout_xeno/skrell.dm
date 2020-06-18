@@ -1,5 +1,5 @@
 /datum/gear/ears/skrell/chains	//Chains
-	display_name = "headtail chain selection"
+	display_name = "headtail chain (selection)"
 	path = /obj/item/clothing/ears/skrell/chain
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
@@ -13,7 +13,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(chaintypes))
 
 /datum/gear/ears/skrell/bands
-	display_name = "headtail band selection"
+	display_name = "headtail band (selection)"
 	path = /obj/item/clothing/ears/skrell/band
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
@@ -27,7 +27,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(bandtypes))
 
 /datum/gear/ears/skrell/cloth/short
-	display_name = "short headtail cloth"
+	display_name = "short headtail cloth (selection)"
 	path = /obj/item/clothing/ears/skrell/cloth_short/black
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
@@ -41,7 +41,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(shorttypes))
 
 /datum/gear/ears/skrell/cloth/average
-	display_name = "average headtail cloth"
+	display_name = "average headtail cloth (selection)"
 	path = /obj/item/clothing/ears/skrell/cloth_average/black
 	sort_category = "Xenowear - Skrell"
 	whitelisted = list("Skrell")
@@ -55,7 +55,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(averagetypes))
 
 /datum/gear/accessory/capes
-	display_name = "shoulder capes"
+	display_name = "shoulder cape (selection)"
 	path = /obj/item/clothing/accessory/poncho/shouldercape
 	whitelisted = list("Skrell")
 	sort_category = "Xenowear - Skrell"
@@ -89,7 +89,7 @@
 	sort_category = "Xenowear - Skrell"
 
 /datum/gear/ears/skrell/goop
-	display_name = "glowing algae"
+	display_name = "glowing algae (colourable)"
 	path = /obj/item/clothing/ears/skrell/goop
 	whitelisted = list("Skrell")
 	sort_category = "Xenowear - Skrell"
@@ -98,9 +98,9 @@
 /datum/gear/ears/skrell/goop/New()
 	..()
 	var/algae = list()
-	algae["glowing algae(dots)"] = /obj/item/clothing/ears/skrell/goop
-	algae["glowing algae(stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes
-	algae["glowing algae(circles)"] = /obj/item/clothing/ears/skrell/goop/circles
+	algae["glowing algae (dots)"] = /obj/item/clothing/ears/skrell/goop
+	algae["glowing algae (stripes)"] = /obj/item/clothing/ears/skrell/goop/stripes
+	algae["glowing algae (circles)"] = /obj/item/clothing/ears/skrell/goop/circles
 	gear_tweaks += new/datum/gear_tweak/path(algae)
 
 /datum/gear/mask/skrell

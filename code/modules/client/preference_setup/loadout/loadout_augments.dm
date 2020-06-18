@@ -25,7 +25,7 @@
 
 
 /datum/gear/augment/combitool
-	display_name = "retractable combitool"
+	display_name = "retractable combitool (selection)"
 	description = "An augment that allows the user to deploy a robotic combitool."
 	path = /obj/item/organ/internal/augment/tool/combitool
 	cost = 5

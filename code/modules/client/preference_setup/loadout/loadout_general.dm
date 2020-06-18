@@ -67,7 +67,7 @@
 		spawned_flask.reagents.set_temperature(T0C + 45)
 
 /datum/gear/lunchbox
-	display_name = "lunchbox"
+	display_name = "lunchbox (selection)"
 	description = "A little lunchbox."
 	cost = 2
 	path = /obj/item/storage/toolbox/lunchbox
@@ -84,7 +84,7 @@
 	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks())
 
 /datum/gear/banner
-	display_name = "banner selection"
+	display_name = "banner (selection)"
 	path = /obj/item/flag
 
 /datum/gear/banner/New()
@@ -106,7 +106,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
 /datum/gear/flag
-	display_name = "flag selection"
+	display_name = "flag (selection)"
 	cost = 2
 	path = /obj/item/flag
 
@@ -129,7 +129,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
 /datum/gear/towel
-	display_name = "towel"
+	display_name = "towel (colourable)"
 	path = /obj/item/towel
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -146,7 +146,7 @@
 	path = /obj/item/battle_monsters/wrapped
 
 /datum/gear/toothpaste
-	display_name = "toothpaste and toothbrush"
+	display_name = "toothpaste and toothbrush (selection)"
 	path = /obj/item/storage/box/toothpaste
 
 /datum/gear/toothpaste/New()

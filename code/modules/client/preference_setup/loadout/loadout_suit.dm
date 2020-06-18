@@ -7,7 +7,7 @@
 	cost = 2
 
 /datum/gear/suit/colorapron
-	display_name = "apron, multipurpose"
+	display_name = "apron, multipurpose (colourable)"
 	path = /obj/item/clothing/suit/apron/colored
 	slot = slot_wear_suit
 	sort_category = "Suits and Overwear"
@@ -15,7 +15,7 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/leather
-	display_name = "jacket selection"
+	display_name = "jacket (selection)"
 	description = "A selection of jackets."
 	path = /obj/item/clothing/suit/storage/toggle/leather_jacket
 
@@ -51,7 +51,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(jackets)
 
 /datum/gear/suit/hazard_vest
-	display_name = "hazard vest selection"
+	display_name = "hazard vest (selection)"
 	path = /obj/item/clothing/suit/storage/hazardvest
 
 /datum/gear/suit/hazard_vest/New()
@@ -64,17 +64,17 @@
 	gear_tweaks += new/datum/gear_tweak/path(hazard)
 
 /datum/gear/suit/hoodie
-	display_name = "hoodie"
+	display_name = "hoodie (colourable)"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/labcoat
-	display_name = "labcoat"
+	display_name = "labcoat (colourable)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/overalls
-	display_name = "overalls"
+	display_name = "overalls (colourable)"
 	path = /obj/item/clothing/suit/apron/overalls
 	cost = 1
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -92,7 +92,7 @@
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/suit/poncho
-	display_name = "poncho selection"
+	display_name = "poncho (selection)"
 	path = /obj/item/clothing/accessory/poncho
 	cost = 1
 
@@ -112,17 +112,17 @@
 
 
 /datum/gear/suit/suitjacket
-	display_name = "suit jacket"
+	display_name = "suit jacket (colourable)"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/blazer
-	display_name = "blazer"
+	display_name = "blazer (colourable)"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/trenchcoats
-	display_name = "trenchcoat selection"
+	display_name = "trenchcoat (selection)"
 	description = "A selection of trenchcoats."
 	path = /obj/item/clothing/suit/storage/toggle/trench
 
@@ -137,7 +137,7 @@
 
 
 /datum/gear/suit/det_trenchcoat
-	display_name = "detective trenchcoat selection"
+	display_name = "detective trenchcoat (selection)"
 	description = "A selection of detective trenchcoats."
 	path = /obj/item/clothing/suit/storage/toggle/det_trench
 	allowed_roles = list("Detective")
@@ -230,7 +230,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/dominia
-	display_name = "dominia coat and jacket selection"
+	display_name = "dominia coat and jacket (selection)"
 	description = "A selection of Dominian coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 	flags = GEAR_HAS_DESC_SELECTION
@@ -245,7 +245,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tcfl
-	display_name = "Tau Ceti Foreign Legion jacket selection"
+	display_name = "Tau Ceti Foreign Legion jacket (selection)"
 	description = "A selection of fine, surplus jackets of the Foreign Legion."
 	path = /obj/item/clothing/suit/storage/legion
 	flags = GEAR_HAS_DESC_SELECTION
@@ -253,12 +253,12 @@
 /datum/gear/suit/tcfl/New()
 	..()
 	var/tcfljac = list()
-	tcfljac ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
-	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	tcfljac ["TCFL jacket"] = /obj/item/clothing/suit/storage/legion
+	tcfljac ["TCFL jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
 	gear_tweaks += new/datum/gear_tweak/path(tcfljac)
 
 /datum/gear/suit/dep_jacket
-	display_name = "department jackets selection"
+	display_name = "department jackets (selection)"
 	description = "A selection of department jackets."
 	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
 
@@ -275,12 +275,12 @@
 
 
 /datum/gear/suit/miscellaneous/peacoat
-	display_name = "peacoat"
+	display_name = "peacoat (colourable)"
 	path = /obj/item/clothing/suit/storage/toggle/peacoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/varsity
-	display_name = "varsity jacket selection"
+	display_name = "varsity jacket (selection)"
 	path = /obj/item/clothing/suit/storage/toggle/varsity
 
 /datum/gear/suit/varsity/New()
@@ -292,7 +292,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(varsities))
 
 /datum/gear/suit/track
-	display_name = "track jacket selection"
+	display_name = "track jacket (selection)"
 	path = /obj/item/clothing/suit/storage/toggle/track
 
 /datum/gear/suit/track/New()
@@ -312,7 +312,7 @@
 	path = /obj/item/clothing/suit/jacket/puffer/vest
 
 /datum/gear/suit/cardigan
-	display_name = "cardigan selection"
+	display_name = "cardigan (selection, colourable)"
 	description = "A selection of cardigans."
 	path = /obj/item/clothing/suit/storage/toggle/cardigan
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

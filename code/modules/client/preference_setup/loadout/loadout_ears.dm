@@ -6,7 +6,7 @@
 	sort_category = "Earwear"
 
 /datum/gear/ears/bandanna
-	display_name = "neck bandanna selection"
+	display_name = "neck bandanna (selection)"
 	path = /obj/item/clothing/ears/bandanna
 
 /datum/gear/ears/bandanna/New()

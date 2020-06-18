@@ -6,7 +6,7 @@
 	sort_category = "Gloves and Handwear"
 
 /datum/gear/gloves/color
-	display_name = "gloves selection"
+	display_name = "gloves (selection)"
 	path = /obj/item/clothing/gloves/black
 
 /datum/gear/gloves/color/New()
@@ -28,12 +28,12 @@
 	gear_tweaks += new/datum/gear_tweak/path(gloves)
 
 /datum/gear/gloves/evening
-	display_name = "evening gloves"
+	display_name = "evening gloves (colourable)"
 	path = /obj/item/clothing/gloves/evening
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/gloves/ring
-	display_name = "ring selection"
+	display_name = "ring (selection)"
 	description = "A selection of rings."
 	path = /obj/item/clothing/ring/engagement
 
@@ -54,7 +54,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(ringtype)
 
 /datum/gear/gloves/watch
-	display_name = "watch selection"
+	display_name = "watch (selection)"
 	description = "A selection of watches."
 	path = /obj/item/clothing/gloves/watch
 

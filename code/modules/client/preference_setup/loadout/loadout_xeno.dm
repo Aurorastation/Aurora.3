@@ -5,7 +5,7 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Diona", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
 
 /datum/gear/shoes/footwraps
-	display_name = "cloth footwraps"
+	display_name = "cloth footwraps (colourable)"
 	path = /obj/item/clothing/shoes/footwraps
 	sort_category = "Xenowear"
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -18,7 +18,7 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
 /datum/gear/shoes/workboots_toeless
-	display_name = "toeless workboots selection"
+	display_name = "toeless workboots (selection)"
 	path = /obj/item/clothing/shoes/workboots/toeless
 	sort_category = "Xenowear"
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -32,7 +32,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/caligae
-	display_name = "caligae selection"
+	display_name = "caligae (selection)"
 	path = /obj/item/clothing/shoes/caligae
 	whitelisted = list("Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear"

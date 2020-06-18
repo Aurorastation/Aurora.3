@@ -1,5 +1,5 @@
 /datum/gear/gloves/tajara
-	display_name = "tajara gloves selection"
+	display_name = "tajara gloves (selection)"
 	description = "A selection of tajaran gloves."
 	path = /obj/item/clothing/gloves/black/tajara
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -20,7 +20,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(taj_gloves)
 
 /datum/gear/suit/tajara_coat
-	display_name = "tajara coat selection"
+	display_name = "tajara coat (selection)"
 	description = "A selection of tajaran native coats."
 	path = /obj/item/clothing/suit/storage/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -37,7 +37,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tajara_priest
-	display_name = "tajaran religious suits selection"
+	display_name = "tajaran religious suit (selection)"
 	description = "A selection of tajaran religious robes."
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -61,7 +61,7 @@
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
-	display_name = "tajaran uniform selection"
+	display_name = "tajaran uniform (selection)"
 	description = "A selection of tajaran native uniforms."
 	path = /obj/item/clothing/under/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -80,7 +80,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/tajara_dress
-	display_name = "tajaran dress selection"
+	display_name = "tajaran dress (selection)"
 	description = "A selection of tajaran native dresses."
 	path = /obj/item/clothing/under/dress/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -100,7 +100,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/accessory/tajara
-	display_name = "fur scarf"
+	display_name = "fur scarf (selection)"
 	description = "A selection of tajaran colored fur scarfs."
 	path = /obj/item/clothing/accessory/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -121,7 +121,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(scarf)
 
 /datum/gear/head/tajara
-	display_name = "adhomian headgear selection"
+	display_name = "adhomian headgear (selection)"
 	description = "A selection of tajaran native headgear."
 	path = /obj/item/clothing/head/tajaran/circlet
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -137,7 +137,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(circlet)
 
 /datum/gear/accessory/tajara_wrap
-	display_name = "marriage wrap"
+	display_name = "marriage wrap (selection)"
 	description = "A holy cloth wrap that signifies marriage amongst tajara."
 	path = /obj/item/clothing/accessory/tajaran_wrap
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -189,7 +189,7 @@
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/accessory/tajaran_card
-	display_name = "tajaran cards, badges and pins selection"
+	display_name = "tajaran cards, badges and pins (selection)"
 	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -204,7 +204,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(card)
 
 /datum/gear/tajaran_passports
-	display_name = "adhomian passports selection"
+	display_name = "adhomian passport (selection)"
 	path = /obj/item/clothing/accessory/badge/pra_passport
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")

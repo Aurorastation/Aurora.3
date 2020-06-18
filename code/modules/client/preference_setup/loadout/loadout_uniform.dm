@@ -19,7 +19,7 @@
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/uniform/jumpsuit
-	display_name = "generic jumpsuits"
+	display_name = "generic jumpsuit (selection)"
 	description = "A selection of generic colored jumpsuits."
 	path = /obj/item/clothing/under/color/grey
 
@@ -49,7 +49,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(jumpsuit)
 
 /datum/gear/uniform/skirt
-	display_name = "skirt selection"
+	display_name = "skirt (selection, colourable)"
 	description = "A selection of skirts."
 	path = /obj/item/clothing/under/skirt
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -67,7 +67,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
-	display_name = "suit selection"
+	display_name = "suit (selection)"
 	description = "A selection of formal suits."
 	path = /obj/item/clothing/under/sl_suit
 
@@ -91,7 +91,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(suits)
 
 /datum/gear/uniform/scrubs
-	display_name = "scrubs selection"
+	display_name = "scrubs (selection)"
 	path = /obj/item/clothing/under/rank/medical/black
 	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
@@ -105,7 +105,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(scrubs)
 
 /datum/gear/uniform/dress
-	display_name = "dress selection"
+	display_name = "dress (selection)"
 	description = "A selection of dresses."
 	path = /obj/item/clothing/under/sundress
 
@@ -145,7 +145,7 @@
 	allowed_roles = list("Head of Personnel")
 
 /datum/gear/uniform/pants
-	display_name = "pants selection"
+	display_name = "pants (selection)"
 	description = "A selection of pants."
 	path = /obj/item/clothing/under/pants
 
@@ -192,7 +192,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(pants)
 
 /datum/gear/uniform/colorpants
-	display_name = "pants (recolorable)"
+	display_name = "pants (selection, colourable)"
 	path = /obj/item/clothing/under/pants/dress
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -208,7 +208,7 @@
 	path = /obj/item/clothing/under/syndicate/tacticool
 
 /datum/gear/uniform/dominia
-	display_name = "dominia clothing selection"
+	display_name = "dominia clothing (selection)"
 	description = "A selection of dominian clothing."
 	path = /obj/item/clothing/under/dominia
 	flags = GEAR_HAS_DESC_SELECTION
@@ -224,12 +224,12 @@
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/miscellaneous/kimono
-	display_name = "kimono"
+	display_name = "kimono (colourable)"
 	path = /obj/item/clothing/under/kimono
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/uniform/officer
-	display_name = "uniforms, (Security Officer)"
+	display_name = "uniform, (Security Officer) (selection)"
 	description = "A selection of officer uniforms."
 	path = /obj/item/clothing/under/rank/security
 	allowed_roles = list("Security Officer")
@@ -243,7 +243,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/detective
-	display_name = "uniforms, (Investigations)"
+	display_name = "uniform, (Investigations) (selection)"
 	description = "A selection of Investigations staff uniforms."
 	path = /obj/item/clothing/under/det
 	allowed_roles = list("Detective", "Forensic Technician")
@@ -258,7 +258,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/warden
-	display_name = "uniforms, (Warden)"
+	display_name = "uniform, (Warden) (selection)"
 	description = "A selection of Warden uniforms."
 	path = /obj/item/clothing/under/rank/warden
 	allowed_roles = list("Warden")
@@ -293,7 +293,7 @@
 	allowed_roles = list("Cargo Technician")
 
 /datum/gear/uniform/pyjama
-	display_name = "pyjamas"
+	display_name = "pyjamas (selection)"
 	path = /obj/item/clothing/under/pj/blue
 
 /datum/gear/uniform/pyjama/New()
