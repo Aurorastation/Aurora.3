@@ -167,6 +167,41 @@
 	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
 	can_repair = TRUE
 
+/obj/machinery/suit_cycler/MouseDrop_T(mob/living/M, mob/living/user)
+	if(use_check_and_message(user))
+		return
+	if(!istype(M))
+		return
+
+	if(user != M)
+		to_chat(user, SPAN_WARNING("You need a grab to do this!"))
+		return
+
+	if(active || locked)
+		to_chat(user, SPAN_WARNING("\The [src] is locked."))
+		return
+
+	if(occupant)
+		to_chat(user, SPAN_WARNING("\The [src] is already occupied!"))
+		return
+
+	if(contents.len)
+		to_chat(user, SPAN_WARNING("There's no space in \the [src] for you!"))
+		return
+
+	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."), range = 3)
+	if(do_after(user, 20, TRUE, src))
+		if(M.client)
+			M.client.perspective = EYE_PERSPECTIVE
+			M.client.eye = src
+		user.visible_message("<b>\The [user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), range = 3)
+		M.forceMove(src)
+		occupant = M
+
+		add_fingerprint(user)
+		updateUsrDialog()
+		update_icon()
+
 /obj/machinery/suit_cycler/attack_ai(mob/user)
 	return src.attack_hand(user)
 
@@ -200,7 +235,7 @@
 			to_chat(user, SPAN_WARNING("\The [G.affecting] doesn't fit into \the [src]!"))
 			return
 
-		if(locked)
+		if(active || locked)
 			to_chat(user, SPAN_DANGER("The suit cycler is locked."))
 			return
 
@@ -208,8 +243,11 @@
 			to_chat(user, SPAN_WARNING("There is no room inside \the [src] for \the [G.affecting]."))
 			return
 
-		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src].", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]."), range = 3)
+		if(occupant)
+			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
+			return
 
+		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), range = 3)
 		if(do_after(user, 20, TRUE, src))
 			if(!G || !G.affecting)
 				return
@@ -217,6 +255,7 @@
 			if(M.client)
 				M.client.perspective = EYE_PERSPECTIVE
 				M.client.eye = src
+			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
 			M.forceMove(src)
 			occupant = M
 
@@ -225,7 +264,7 @@
 
 			updateUsrDialog()
 			update_icon()
-			return
+		return
 	else if(I.isscrewdriver())
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance panel."))
@@ -317,10 +356,10 @@
 	var/dat = ""
 
 	if(src.active)
-		dat+= "<br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></font>"
+		dat += "<font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></font>"
 
 	else if(locked)
-		dat += "<br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"
+		dat += "<font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"
 		if(src.allowed(usr))
 			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>\[unlock unit\]</a>"
 	else
