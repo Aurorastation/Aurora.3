@@ -35,20 +35,26 @@
 	. = ..()
 
 	if(.)
-		if(src.stat != 2)
-			if(src.nutrition)
-				adjustNutritionLoss(nutrition_loss*0.1)
-			if(src.hydration)
-				adjustHydrationLoss(hydration_loss*0.1)
+		if(src.stat != DEAD)
+			if((move_intent.flags & MOVE_INTENT_EXERTIVE) && src.bodytemperature <= (species ? species.heat_level_1 - 5 : 360))
+				bodytemperature += 2
 
-		if((FAT in src.mutations) && src.m_intent == "run" && src.bodytemperature <= 360)
-			src.bodytemperature += 2
+			var/nut_removed = nutrition_loss
+			var/hyd_removed = hydration_loss
+			if(move_intent.flags & MOVE_INTENT_EXERTIVE)
+				nut_removed *= 2
+				hyd_removed *= 2
 
-		// Moving around increases germ_level faster
-		if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
-			germ_level++
+			if(nutrition)
+				adjustNutritionLoss(nut_removed*0.1)
+			if(hydration)
+				adjustHydrationLoss(hyd_removed*0.1)
 
-		src.help_up_offer = 0
+			// Moving around increases germ_level faster
+			if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
+				germ_level++
+
+		src.help_up_offer = FALSE
 
 /mob/living/carbon/relaymove(var/mob/living/user, direction)
 	if((user in contents) && istype(user))

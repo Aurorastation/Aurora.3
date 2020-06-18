@@ -339,8 +339,8 @@
 /obj/item/toy/snappop/Crossed(H as mob|obj)
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/M = H
-		if(M.m_intent == "run")
-			to_chat(M, SPAN_WARNING("You step on the snap pop!"))
+		if(MOVING_QUICKLY(M))
+			to_chat(M, "<span class='warning'>You step on the snap pop!</span>")
 			do_pop()
 
 /obj/item/toy/snappop/proc/do_pop()

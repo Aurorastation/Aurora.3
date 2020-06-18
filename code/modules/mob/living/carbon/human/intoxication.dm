@@ -90,14 +90,14 @@
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
 		H.move_delay_mod += -0.75
-		H.sprint_cost_factor += -0.1
+		H.sprint_cost_factor += -0.2
 
 /datum/modifier/buzzed/deactivate()
 	..()
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
 		H.move_delay_mod -= -0.75
-		H.sprint_cost_factor -= -0.1
+		H.sprint_cost_factor -= -0.2
 
 /datum/modifier/buzzed/custom_validity()
 	var/mob/living/carbon/human/H = target
@@ -116,14 +116,14 @@
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
 		H.move_delay_mod += 2
-		H.sprint_cost_factor += 0.2
+		H.sprint_cost_factor += 0.4
 
 /datum/modifier/drunk/deactivate()
 	..()
 	var/mob/living/carbon/human/H = target
 	if(istype(H))
 		H.move_delay_mod -= 2
-		H.sprint_cost_factor -= -0.2
+		H.sprint_cost_factor -= -0.4
 
 /datum/modifier/drunk/custom_validity()
 	var/mob/living/carbon/human/H = target

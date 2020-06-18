@@ -22,24 +22,6 @@
 /mob/living/silicon/ai/instantiate_hud(var/datum/hud/HUD)
 	HUD.ai_hud()
 
-/datum/hud/proc/blob_hud(ui_style = 'icons/mob/screen/midnight.dmi')
-
-	blobpwrdisplay = new /obj/screen()
-	blobpwrdisplay.name = "blob power"
-	blobpwrdisplay.icon_state = "block"
-	blobpwrdisplay.screen_loc = ui_health
-	blobpwrdisplay.layer = SCREEN_LAYER
-
-	blobhealthdisplay = new /obj/screen()
-	blobhealthdisplay.name = "blob health"
-	blobhealthdisplay.icon_state = "block"
-	blobhealthdisplay.screen_loc = ui_internal
-	blobhealthdisplay.layer = SCREEN_LAYER
-
-	mymob.client.screen = null
-
-	mymob.client.screen += list(blobpwrdisplay, blobhealthdisplay)
-
 /mob/living/carbon/slime/instantiate_hud(var/datum/hud/HUD)
 	HUD.slime_hud()
 

@@ -107,8 +107,8 @@
 	heat_discomfort_strings = list(
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
 		)
-	stamina = -1	// Machines use power and generate heat, stamina is not a thing
-	sprint_speed_factor = 1  // About as capable of speed as a human
+	stamina = 1	// Machines use power and generate heat, stamina is not a thing
+	sprint_speed_factor = 0.8  //Slightly slower than a human.
 
 	max_hydration_factor = -1
 
@@ -123,21 +123,6 @@
 datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
-
-/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	if (H.stat == CONSCIOUS)
-		H.bodytemperature += cost * sprint_temperature_factor
-		H.adjustNutritionLoss(cost * sprint_charge_factor)
-		if(H.nutrition <= 0 && H.max_nutrition > 0)
-			H.Weaken(15)
-			H.m_intent = "walk"
-			H.hud_used.move_intent.update_move_icon(H)
-			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
-			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
-		else
-			return 1
-
-	return 0
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
@@ -296,6 +281,22 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
+
+/datum/species/machine/has_special_sprint()
+	return TRUE
+
+/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	if (H.stat == CONSCIOUS)
+		H.bodytemperature += cost * sprint_temperature_factor
+		H.adjustNutritionLoss(cost * sprint_charge_factor)
+		if(H.nutrition <= 0 && H.max_nutrition > 0)
+			H.Weaken(15)
+			H.set_moving_slowly()
+			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
+			playsound(get_turf(H), 'sound/machines/buzz-two.ogg', 100, 0)
+		else
+			return
+	return
 
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
