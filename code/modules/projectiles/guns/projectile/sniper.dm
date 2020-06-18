@@ -21,6 +21,7 @@
 	accuracy = -3
 	scoped_accuracy = 4
 	var/bolt_open = 0
+	var/has_scope = TRUE
 
 	is_wieldable = TRUE
 
@@ -82,10 +83,65 @@
 	set name = "Use Scope"
 	set popup_menu = 1
 
+	if(!has_scope)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a scope!"))
+		return
+
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+
+/obj/item/gun/projectile/heavysniper/unathi
+	name = "hegemony slugger"
+	desc = "An incredibly large firearm, produced by an Ouerean Guild. Uses custom slugger rounds."
+	icon = 'icons/obj/guns/unathi_slugger.dmi'
+	icon_state = "slugger"
+	item_state = "slugger"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 4)
+	w_class = ITEMSIZE_HUGE
+	fire_sound = 'sound/effects/Explosion1.ogg'
+	caliber = "slugger"
+	ammo_type = /obj/item/ammo_casing/slugger
+	magazine_type = null
+	has_scope = FALSE
+
+/obj/item/gun/projectile/heavysniper/unathi/update_icon()
+	if(bolt_open && length(loaded))
+		icon_state = "slugger-open-loaded"
+	else if(bolt_open && !length(loaded))
+		icon_state = "slugger-open"
+	else
+		icon_state = "slugger"
+	if(wielded)
+		item_state = "slugger-wielded"
+	else
+		item_state = "slugger"
+	update_held_icon()
+
+/obj/item/gun/projectile/heavysniper/unathi/handle_post_fire(mob/user)
+	..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/has_online_rig = H.wearing_rig && !H.wearing_rig.offline
+		if(H.mob_size < 10 && !has_online_rig) // smaller than an unathi
+			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+			H.drop_item(src)
+			src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 3, 3)
+
+			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
+			var/active_hand = H.hand
+
+			if(active_hand)
+				LH.take_damage(30)
+			else
+				RH.take_damage(30)
+
+/obj/item/gun/projectile/heavysniper/unathi/getAmmo()
+	if(chambered)
+		return 1
+	return 0
 
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"

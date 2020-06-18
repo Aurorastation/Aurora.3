@@ -7,6 +7,7 @@
 	name = "Kataphracts"
 	chance = 15
 	spawner = /datum/ghostspawner/human/ert/kataphract
+	equipment_map = /datum/map_template/distress_kataphract
 
 /datum/responseteam/iac
 	name = "Interstellar Aid Corps"

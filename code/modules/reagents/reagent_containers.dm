@@ -149,7 +149,7 @@
 	return 1
 
 /obj/item/reagent_containers/proc/self_feed_message(var/mob/user)
-	user.visible_message("<span class='notice'>\The [user] drinks from \the [src]</span>","<span class='notice'>You drink from \the [src]</span>")
+	user.visible_message("<b>[user]</b> drinks from \the [src].</span>","<span class='notice'>You drink from \the [src].")
 
 /obj/item/reagent_containers/proc/other_feed_message_start(var/mob/user, var/mob/target)
 	user.visible_message("<span class='warning'>[user] is trying to feed [target] \the [src]!</span>")
