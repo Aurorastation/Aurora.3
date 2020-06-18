@@ -138,10 +138,10 @@
 			else
 				RH.take_damage(30)
 
-/obj/item/gun/projectile/heavysniper/unathi/getAmmo()
+/obj/item/gun/projectile/heavysniper/unathi/get_ammo()
 	if(chambered)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
