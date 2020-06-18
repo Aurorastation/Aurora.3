@@ -190,7 +190,7 @@ obj/item/handcuffs/cable/update_icon()
 			qdel(src)
 			update_icon(user)
 	else if(I.iswirecutter())
-		user.visible_message("[user] cuts the [src].", "<span class='notice'>You cut the [src].</span>")
+		user.visible_message("<b>\The [user]</b> cuts \the [src].", SPAN_NOTICE("You cut \The [src]."))
 		var/obj/item/stack/cable_coil/C = new(get_turf(src))
 		C.our_color = our_color
 		C.amount = 15
