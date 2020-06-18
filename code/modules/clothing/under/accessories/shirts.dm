@@ -13,6 +13,13 @@
 	icon_state = "sweaterargyle"
 	item_state = "sweaterargyle"
 
+/obj/item/clothing/accessory/sweaterloose
+	name = "loose sweater"
+	desc = "A warm knit sweater with the
+	desc_fluff = "Because wearing it tucked in just wasn't cool enough for you."
+	icon_state = "sweater_loose"
+	item_state = "sweater_loose"
+
 /obj/item/clothing/accessory/sweatervest
 	name = "sweater vest"
 	desc = "A warm knit sweater vest."
@@ -48,6 +55,13 @@
 	icon_state = "sweaterargyleturtleneck"
 	item_state = "sweaterargyleturtleneck"
 
+/obj/item/clothing/accessory/sweaterplainturtleneck
+	name = "turtleneck sweater"
+	desc = "A tight turtleneck, entirely plain in colouration."
+	desc_fluff = "See you next week, Frederico."
+	icon_state = "sweater_turtleneck2"
+	item_state = "sweater_turtleneck2"
+
 /obj/item/clothing/accessory/sweatertubeneck
 	name = "tubeneck sweater"
 	desc = "A warm knit tubeneck sweater."
@@ -62,6 +76,11 @@
 	icon_state = "sweaterargyletubeneck"
 	item_state = "sweaterargyletubeneck"
 
+/obj/item/clothing/accessory/sweater/keyhole
+	name = "keyhole sweater"
+	desc = "A sweater with an open chest."
+	icon_state = "keyholesweater"
+	item_state = "keyholesweater"
 
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
@@ -76,60 +95,35 @@
 	item_state = "dressshirt_r"
 
 //Misc Sweaters
-/obj/item/clothing/accessory/sweater/pink
-	name = "pink sweater"
-	desc = "A warm knit sweater. This one's pink in color."
-	icon_state = "sweater_pink"
-
-/obj/item/clothing/accessory/sweater/mint
-	name = "mint sweater"
-	desc = "A warm knit sweater. This one has a minty tint to it."
-	icon_state = "sweater_mint"
-
-/obj/item/clothing/accessory/sweater/blue
-	name = "blue sweater"
-	desc = "A warm knit sweater. This one's colored in a lighter blue."
-	icon_state = "sweater_blue"
-
 /obj/item/clothing/accessory/sweater/heart
 	name = "heart sweater"
 	desc = "A warm knit sweater. This one's colored in a lighter blue, and has a big pink heart right in the center!"
 	icon_state = "sweater_blueheart"
+	item_state = "sweater_blueheart"
 
 /obj/item/clothing/accessory/sweater/nt
 	name = "dark blue sweater"
 	desc = "A warm knit sweater. This one's a darker blue."
 	icon_state = "sweater_nt"
+	item_state = "sweater_nt"
 
-/obj/item/clothing/accessory/sweater/keyhole
-	name = "keyhole sweater"
-	desc = "A lavender sweater with an open chest."
-	icon_state = "keyholesweater"
-
-/obj/item/clothing/accessory/sweater/blackneck
-	name = "black turtleneck"
-	desc = "A tight turtleneck, entirely black in coloration."
-	icon_state = "turtleneck_black"
-
-/obj/item/clothing/accessory/sweater/winterneck
+/obj/item/clothing/accessory/sweater/xmasneck
 	name = "Christmas turtleneck"
 	desc = "A really cheesy holiday sweater, it actually kinda itches."
 	icon_state = "turtleneck_winterred"
+	item_state = "turtleneck_winterred"
 
 /obj/item/clothing/accessory/sweater/uglyxmas
 	name = "ugly Christmas sweater"
 	desc = "A gift that probably should've stayed in the back of the closet."
 	icon_state = "uglyxmas"
+	item_state = "uglyxmas"
 
 /obj/item/clothing/accessory/sweater/flowersweater
 	name = "flowery sweater"
 	desc =  "An oversized and flowery pink sweater."
 	icon_state = "flowersweater"
-
-/obj/item/clothing/accessory/sweater/redneck
-	name = "red turtleneck"
-	desc = "A comfortable turtleneck in a dark red."
-	icon_state = "turtleneck_red"
+	item_state = "flowersweater"
 
 //Legacy
 /obj/item/clothing/accessory/wcoat
@@ -144,6 +138,11 @@
 	desc = "For some classy, murderous fun."
 	icon_state = "wcoat_rec"
 	item_state = "wcoat_rec"
+
+/obj/item/clothing/accessory/wcoat_rec/elegant
+	name = "elegant waistcoat"
+	icon_state = "elegant_waistcoat"
+	item_state = "elegant_waistcoat"
 
 /obj/item/clothing/accessory/longsleeve
 	name = "long-sleeved shirt"

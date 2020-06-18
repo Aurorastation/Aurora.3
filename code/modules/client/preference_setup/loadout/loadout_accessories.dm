@@ -10,9 +10,16 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/waistcoat
-	display_name = "waistcoat (colourable)"
+	display_name = "waistcoat (selection, colourable)"
 	path = /obj/item/clothing/accessory/wcoat_rec
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/waistcoat/New()
+	..()
+	var/a_waistcoats = list()
+	a_waistcoats["waistcoat"] = /obj/item/clothing/accessory/wcoat_rec
+	a_waistcoats["elegant waistcoat"] = /obj/item/clothing/accessory/wcoat_rec/elegant
+	gear_tweaks += new/datum/gear_tweak/path(a_waistcoats)
 
 /datum/gear/accessory/armband/coloured
 	display_name = "armband (colourable)"
@@ -56,6 +63,11 @@
 	holsters["brown holster, waist"] = /obj/item/clothing/accessory/holster/waist/brown
 	holsters["brown holster, thigh"] = /obj/item/clothing/accessory/holster/thigh/brown
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
+
+/datum/gear/accessory/tie_colourable
+	display_name = "tie (colourable)
+	path = /obj/item/clothing/accessory/tie/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/tie
 	display_name = "tie (selection)"
@@ -147,6 +159,7 @@
 	..()
 	var/sweater = list()
 	sweater["sweater"] = /obj/item/clothing/accessory/sweater
+	sweater["loose sweater"] = /obj/item/clothing/accessory/sweaterloose
 	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
 	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
 	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
@@ -154,6 +167,9 @@
 	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
+	sweater["flax sweater vest"] = /obj/item/clothing/accessory/sweatervestplain
+	sweater["flax turtleneck"] = /obj/item/clothing/accessory/sweaterplainturtleneck
+	sweater["keyhole sweater"] = /obj/item/clothing/accessory/sweater/keyhole
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/sweater/misc
@@ -164,9 +180,12 @@
 /datum/gear/accessory/sweater/misc/New()
 	..()
 	var/sweatermisc = list()
-	sweatermisc["sweater"] = /obj/item/clothing/accessory/sweater
-	sweatermisc["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
-	gear_tweaks += new/datum/gear_tweak/path(sweater)
+	sweatermisc["NT sweater"] = /obj/item/clothing/accessory/sweater/nt
+	sweatermisc["heart sweater"] = /obj/item/clothing/accessory/sweater/heart
+	sweatermisc["xmas sweater"] = /obj/item/clothing/accessory/sweater/xmasneck
+	sweatermisc["ugly xmas sweater"] = /obj/item/clothing/accessory/sweater/uglyxmas
+	sweatermisc["flower sweater"] = /obj/item/clothing/accessory/sweater/flowersweater
+	gear_tweaks += new/datum/gear_tweak/path(sweatermisc)
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt (colourable)"
