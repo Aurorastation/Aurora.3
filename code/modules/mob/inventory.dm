@@ -367,7 +367,7 @@ var/list/slot_equipment_priority = list( \
 
 	//actually throw it!
 	if (item)
-		src.visible_message("<span class='warning'>[src] has thrown [item].</span>")
+		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
 
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)

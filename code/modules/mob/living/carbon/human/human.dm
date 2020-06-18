@@ -1959,7 +1959,7 @@
 	if(istype(heart) && !(heart.status & ORGAN_DEAD))
 		var/active_breaths = 0
 		if(!nervous_system_failure() && active_breaths)
-			visible_message("\The [src] jerks and gasps for breath!")
+			visible_message("\The <b>[src]</b> jerks and gasps for breath!")
 		else
 			visible_message("\The <b>[src]</b> twitches a bit as \his heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.

@@ -1123,7 +1123,7 @@
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60)
-			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
+			visible_message("<b>[src]</b>'s body becomes limp.", "Your body becomes limp.")
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
