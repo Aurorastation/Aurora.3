@@ -61,3 +61,16 @@
 	name = "medical exo-stellar ribbon"
 	desc = "Durable cloth meant to be worn over or attached to the chest pieces of the ESS modules. This one is white and green."
 	icon_state = "ribbon_med"
+
+/obj/item/clothing/accessory/armband/colourable
+	name = "armband"
+	desc = "A fancy armband!"
+	icon_state = "armband_colour"
+
+/obj/item/clothing/accessory/armband/brassard
+	name = "brassard"
+	desc = "An armband which can be found on various uniforms across the galaxy."
+	icon_state = "black_brassard"
+
+/obj/item/clothing/accessory/armband/brassard/white
+	icon_state = "white_brassard"

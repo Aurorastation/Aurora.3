@@ -724,3 +724,83 @@
 	desc = "A digital patch which can be attached to the shoulder sleeve of clothing. This one shows the Idris Incorporated logo with a flashing chevron."
 	icon_state = "idrissec_patch"
 	overlay_state = "idrissec_patch"
+
+//Sash and Capes
+/obj/item/clothing/accessory/sash
+	name = "sash"
+	desc = "A plain, unadorned sash."
+	icon_state = "sash"
+	overlay_state = "sash"
+	flippable = 1
+
+/obj/item/clothing/accessory/halfcape
+	name = "half cape"
+	desc = "A tasteful half-cape, suitable for inspired nobles and retro anime protagonists."
+	icon_state = "halfcape"
+	overlay_state = "halfcape"
+	flippable = 1
+
+/obj/item/clothing/accessory/fullcape
+	name = "full cape"
+	desc = "A gaudy full cape. You're thinking about wearing it, aren't you?"
+	icon_state = "fullcape"
+	overlay_state = "fullcape"
+
+//Bracelets
+/obj/item/clothing/accessory/bracelet
+	name = "bracelet"
+	desc = "A simple bracelet with a clasp."
+	icon_state = "bracelet"
+	w_class = 1
+
+/obj/item/clothing/accessory/bracelet/friendship
+	name = "friendship bracelet"
+	desc = "A beautiful friendship bracelet in all the colours of the rainbow."
+	icon_state = "friendbracelet"
+
+/obj/item/clothing/accessory/bracelet/material
+	icon_state = "materialbracelet"
+
+/obj/item/clothing/accessory/bracelet/material/New(var/newloc, var/new_material)
+	..(newloc)
+	if(!new_material)
+		new_material = MATERIAL_STEEL
+	material = get_material_by_name(new_material)
+	if(!istype(material))
+		qdel(src)
+		return
+	name = "[material.display_name] bracelet"
+	desc = "[desc] It is made from [material.display_name]."
+	color = material.icon_colour
+
+/obj/item/clothing/accessory/bracelet/material/get_material()
+	return material
+
+/obj/item/clothing/accessory/bracelet/material/wood/New(var/newloc)
+	..(newloc, "wood")
+
+/obj/item/clothing/accessory/bracelet/material/plastic/New(var/newloc)
+	..(newloc, "plastic")
+
+/obj/item/clothing/accessory/bracelet/material/iron/New(var/newloc)
+	..(newloc, "iron")
+
+/obj/item/clothing/accessory/bracelet/material/steel/New(var/newloc)
+	..(newloc, "steel")
+
+/obj/item/clothing/accessory/bracelet/material/silver/New(var/newloc)
+	..(newloc, "silver")
+
+/obj/item/clothing/accessory/bracelet/material/gold/New(var/newloc)
+	..(newloc, "gold")
+
+/obj/item/clothing/accessory/bracelet/material/platinum/New(var/newloc)
+	..(newloc, "platinum")
+
+/obj/item/clothing/accessory/bracelet/material/phoron/New(var/newloc)
+	..(newloc, "phoron")
+
+/obj/item/clothing/accessory/bracelet/material/glass/New(var/newloc)
+	..(newloc, "glass")
+
+	..()

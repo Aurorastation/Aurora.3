@@ -22,6 +22,10 @@
 	path = /obj/item/storage/secure/briefcase
 	cost = 2
 
+/datum/gear/utility/briefcase/clutch
+	display_name = "clutch bag"
+	path = /obj/item/storage/briefcase/clutch
+
 /datum/gear/utility/folder
 	display_name = "folders"
 	path = /obj/item/folder

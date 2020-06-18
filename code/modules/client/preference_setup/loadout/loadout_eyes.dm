@@ -38,7 +38,7 @@
 	path = /obj/item/clothing/glasses/regular/scanners
 
 /datum/gear/eyes/sciencegoggles
-	display_name = "science Goggles"
+	display_name = "science goggles"
 	path = /obj/item/clothing/glasses/science
 
 /datum/gear/eyes/materialaviators

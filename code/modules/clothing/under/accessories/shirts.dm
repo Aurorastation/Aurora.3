@@ -148,3 +148,23 @@
 	if(prob(50))
 		icon_state = "hawaii_red"
 	color = color_rotation(rand(-11,12)*15)
+
+/obj/item/clothing/accessory/asymmetric
+	name = "blue asymmetrical jacket"
+	desc = "Insultingly avant-garde in prussian blue."
+	icon_state = "asym_blue"
+
+/obj/item/clothing/accessory/asymmetric/purple
+	name = "purple asymmetrical jacket"
+	desc = "Insultingly avant-garde in mauve."
+	icon_state = "asym_purple"
+
+/obj/item/clothing/accessory/asymmetric/green
+	name = "green asymmetrical jacket"
+	desc = "Insultingly avant-garde in aqua."
+	icon_state = "asym_green"
+
+/obj/item/clothing/accessory/cowled_vest
+	name = "cowled vest"
+	desc = "A body warmer for the 25th century."
+	icon_state = "cowled_vest"

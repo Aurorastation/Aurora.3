@@ -5,17 +5,22 @@
 	sort_category = "Accessories"
 
 /datum/gear/accessory/suspenders
-	display_name = "suspenders"
+	display_name = "suspenders (colourable)"
 	path = /obj/item/clothing/accessory/suspenders
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/waistcoat
-	display_name = "waistcoat"
+	display_name = "waistcoat (colourable)"
 	path = /obj/item/clothing/accessory/wcoat_rec
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/armband/coloured
+	display_name = "armband (colourable)"
+	path = /obj/item/clothing/accessory/armband/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/armband
-	display_name = "armband selection"
+	display_name = "armband (selection)"
 	path = /obj/item/clothing/accessory/armband
 
 /datum/gear/accessory/armband/New()
@@ -23,6 +28,8 @@
 	var/armbands = list()
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
+	armbands["black brassard"] = /obj/item/clothing/accessory/armband/brassard
+	armbands["white brassard"] = /obj/item/clothing/accessory/armband/brassard/white
 	armbands["cargo armband"] = /obj/item/clothing/accessory/armband/cargo
 	armbands["EMT armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
@@ -33,7 +40,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
 /datum/gear/accessory/holster
-	display_name = "holster selection"
+	display_name = "holster (selection)"
 	path = /obj/item/clothing/accessory/holster/armpit
 	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison")
 
@@ -51,7 +58,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
 /datum/gear/accessory/tie
-	display_name = "tie selection"
+	display_name = "tie (selection)"
 	path = /obj/item/clothing/accessory/blue
 
 /datum/gear/accessory/tie/New()
@@ -73,7 +80,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(ties)
 
 /datum/gear/accessory/bowtie
-	display_name = "bowtie"
+	display_name = "bowtie (colourable)"
 	path = /obj/item/clothing/accessory/tie/bowtie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -113,7 +120,7 @@
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/pouches
-	display_name = "drop pouches, simple"
+	display_name = "drop pouches, simple (colourable)"
 	path = /obj/item/clothing/accessory/storage/pouches/colour
 	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -131,7 +138,7 @@
 	cost = 2
 
 /datum/gear/accessory/sweater
-	display_name = "sweater selection"
+	display_name = "sweater (selection, colourable)"
 	path = /obj/item/clothing/accessory/sweater
 	description = "A selection of sweaters and sweater vests."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -150,22 +157,22 @@
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/dressshirt
-	display_name = "dress shirt"
+	display_name = "dress shirt (colourable)"
 	path = /obj/item/clothing/accessory/dressshirt
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/dressshirt_r
-	display_name = "dress shirt, rolled up"
+	display_name = "dress shirt, rolled up (colourable)"
 	path = /obj/item/clothing/accessory/dressshirt_r
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve
-	display_name = "long-sleeved shirt"
+	display_name = "long-sleeved shirt (colourable)"
 	path = /obj/item/clothing/accessory/longsleeve
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve_s
-	display_name = "long-sleeved shirt, striped"
+	display_name = "long-sleeved shirt, striped (selection)"
 	path = /obj/item/clothing/accessory/longsleeve_s
 
 /datum/gear/accessory/longsleeve_s/New()
@@ -176,12 +183,12 @@
 	gear_tweaks += new/datum/gear_tweak/path(lshirt)
 
 /datum/gear/accessory/tshirt
-	display_name = "t-shirt"
+	display_name = "t-shirt (colourable)"
 	path = /obj/item/clothing/accessory/tshirt
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/silversun
-	display_name = "silversun floral shirt selection"
+	display_name = "silversun floral shirt (selection)"
 	path = /obj/item/clothing/accessory/silversun
 
 /datum/gear/accessory/silversun/New()
@@ -193,7 +200,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(shirts)
 
 /datum/gear/accessory/scarf
-	display_name = "scarf selection"
+	display_name = "scarf (selection, colourable)"
 	path = /obj/item/clothing/accessory/scarf
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -217,7 +224,7 @@
 	path = /obj/item/clothing/accessory/dogtags
 
 /datum/gear/accessory/holobadge
-	display_name = "badge, holo"
+	display_name = "badge, holo (selection)"
 	path = /obj/item/clothing/accessory/badge/holo
 	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
 
@@ -256,6 +263,66 @@
 	path = /obj/item/clothing/accessory/badge/idbadge/intel
 
 /datum/gear/accessory/sleeve_patch
-	display_name = "shoulder sleeve patch"
+	display_name = "shoulder sleeve patch (colourable)"
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/namepin
+	display_name = "pin tag (colourable)"
+	path = /obj/item/clothing/accessory/namepin
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/asym
+	display_name = "asymmetric jacket (selection)"
+	path = /obj/item/clothing/accessory/asymmetric
+
+/datum/gear/accessory/asym/New()
+	..()
+	var/asyms = list()
+	asyms["asymmetric jacket, blue"] = /obj/item/clothing/accessory/asymmetric
+	asyms["asymmetric jacket, purple"] = /obj/item/clothing/accessory/asymmetric/purple
+	asyms["asymmetric jacket, green"] = /obj/item/clothing/accessory/asymmetric/green
+	gear_tweaks += new/datum/gear_tweak/path(asyms)
+
+/datum/gear/accessory/sash
+	display_name = "sash (colourable)"
+	path = /obj/item/clothing/accessory/sash
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/cowledvest
+	display_name = "cowled vest"
+	path = /obj/item/clothing/accessory/cowledvest
+
+/datum/gear/accessory/halfcape
+	display_name = "half cape"
+	path = /obj/item/clothing/accessory/halfcape
+
+/datum/gear/accessory/fullcape
+	display_name = "full cape"
+	path = /obj/item/clothing/accessory/fullcape
+
+/datum/gear/accessory/bracelet
+	display_name = "bracelet (colourable)"
+	path = /obj/item/clothing/accessory/bracelet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/bracelet/material
+	display_name = "bracelet (selection)"
+	path = /obj/item/clothing/accessory/bracelet/material/plastic
+
+/datum/gear/accessory/bracelet/material/New()
+	..()
+	var/bracelettype = list()
+	bracelettype["bracelet, steel"] = /obj/item/clothing/accessory/bracelet/material/steel
+	bracelettype["bracelet, iron"] = /obj/item/clothing/accessory/bracelet/material/iron
+	bracelettype["bracelet, silver"] = /obj/item/clothing/accessory/bracelet/material/silver
+	bracelettype["bracelet, gold"] = /obj/item/clothing/accessory/bracelet/material/gold
+	bracelettype["bracelet, platinum"] = /obj/item/clothing/accessory/bracelet/material/platinum
+	bracelettype["bracelet, glass"] = /obj/item/clothing/accessory/bracelet/material/glass
+	bracelettype["bracelet, wood"] = /obj/item/clothing/accessory/bracelet/material/wood
+	bracelettype["bracelet, plastic"] = /obj/item/clothing/accessory/bracelet/material/plastic
+	gear_tweaks += new/datum/gear_tweak/path(bracelettype)
+
+/datum/gear/accessory/bracelet/friendship
+	display_name = "friendship bracelet"
+	path = /obj/item/clothing/accessory/bracelet/friendship

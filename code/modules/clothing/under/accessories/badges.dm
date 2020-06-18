@@ -240,3 +240,12 @@
     icon_state = "trinary_badge"
     overlay_state = "trinary_badge"
     badge_string = null
+
+/obj/item/clothing/accessory/badge/namepin
+	name = "pin tag"
+	desc = "A small strip of metal to label its wearer."
+	icon_state = "namepintag"
+	overlay_state = "namepintag"
+	badge_string = null
+	slot_flags = SLOT_TIE
+	w_class = 1

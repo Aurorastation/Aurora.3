@@ -35,3 +35,13 @@
 	desc = "The NanoTrasen-branded briefcase is an elegant, yet functional upgrade to the traditional black briefcase. The logo is the only difference, though."
 	icon_state = "briefcase_corpnt"
 	item_state = "briefcase_corpnt"
+
+/obj/item/storage/briefcase/clutch
+	name = "clutch purse"
+	desc = "A fashionable handheld bag."
+	icon_state = "clutchbag"
+	item_state = "clutchbag"
+	force = 2
+	w_class = 3
+	max_w_class = 2
+	max_storage_space = 8
