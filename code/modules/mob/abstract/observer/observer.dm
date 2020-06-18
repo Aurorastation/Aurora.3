@@ -397,13 +397,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	moved_event.register(following, src, /atom/movable/proc/move_to_destination)
 	destroyed_event.register(following, src, /mob/abstract/observer/proc/stop_following)
 
-	to_chat(src, "<span class='notice'>Now following \the [following].</span>")
+	to_chat(src, SPAN_NOTICE("Now following \the <b>[following]</b>."))
 	move_to_destination(following, following.loc, following.loc)
 	updateghostsight()
 
 /mob/abstract/observer/proc/stop_following()
 	if(following)
-		to_chat(src, "<span class='notice'>No longer following \the [following]</span>")
+		to_chat(src, SPAN_NOTICE("No longer following \the <b>[following]</b>."))
 		moved_event.unregister(following, src)
 		destroyed_event.unregister(following, src)
 		following = null

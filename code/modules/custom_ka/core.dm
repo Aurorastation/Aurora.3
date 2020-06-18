@@ -174,7 +174,7 @@
 			disaster = "overheat"
 
 	if(warning_message)
-		to_chat(user,"<b>\The [src]</b> flashes, \"[warning_message].\"")
+		to_chat(user,"<b>[src]</b> flashes, \"[warning_message].\"")
 		playsound(src,'sound/machines/buzz-two.ogg', 50, 0)
 		handle_click_empty(user)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*4)

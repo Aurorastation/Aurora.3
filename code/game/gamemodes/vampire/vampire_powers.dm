@@ -979,7 +979,7 @@
 		else
 			use_hand = "right"
 
-	src.visible_message("<span class='warning'><b>\The [src]</b> seizes [T] aggressively!</span>")
+	src.visible_message("<span class='warning'><b>[src]</b> seizes [T] aggressively!</span>")
 
 	var/obj/item/grab/G = new(src, T)
 	if (use_hand == "left")
