@@ -142,8 +142,10 @@
 		"White" = COLOR_WHITE
 	)
 
-/obj/item/handcuffs/cable/Initialize()
+/obj/item/handcuffs/cable/Initialize(mapload, new_color)
 	. = ..()
+	if(new_color)
+		our_color = new_color
 	update_icon()
 
 obj/item/handcuffs/cable/update_icon()
@@ -191,9 +193,8 @@ obj/item/handcuffs/cable/update_icon()
 			update_icon(user)
 	else if(I.iswirecutter())
 		user.visible_message("[user] cuts the [src].", "<span class='notice'>You cut the [src].</span>")
-		var/obj/item/stack/cable_coil/C = new(get_turf(src))
-		C.our_color = our_color
-		C.amount = 15
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		new /obj/item/stack/cable_coil(get_turf(src), 15, our_color)
 		qdel(src)
 		update_icon(user)
 
