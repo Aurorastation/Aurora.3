@@ -67,3 +67,9 @@
 	description = "An augment that allows the user to synthetize welding fuel into nutrients."
 	path = /obj/item/organ/internal/augment/fuel_cell
 	cost = 3
+
+/datum/gear/augment/codex
+	display_name = "integrated codex"
+	description = "An augment installed into the head that interfaces with the user's neural network, granting them immediate access to a vast database of knowledge."
+	path = /obj/item/organ/internal/augment/codex
+	cost = 2

@@ -1,5 +1,6 @@
-#define SS_INIT_PERSISTENT_CONFIG 24
-#define SS_INIT_MISC_FIRST  23
+#define SS_INIT_PERSISTENT_CONFIG 25
+#define SS_INIT_MISC_FIRST  24
+#define SS_INIT_MISC_CODEX  23
 #define SS_INIT_SEEDS       22	// Plant controller setup.
 #define SS_INIT_MAPLOAD     21	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
 #define SS_INIT_JOBS        20

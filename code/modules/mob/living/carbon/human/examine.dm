@@ -56,7 +56,7 @@
 	msg += "<EM>[src.name]</EM>"
 
 	if(!species.hide_name)
-		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[species.name]</font></b>"
+		msg += ", a <b><font color='[species.examine_color || species.flesh_color]'>[species.name]</font></b>[(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value())) ?  SPAN_NOTICE(" \[<a href='?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>?</a>\]") : ""]"
 	msg += "!\n"
 
 	//uniform

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a codex augment, which will give you more information about various things. The look-up is tied to the IC tab."

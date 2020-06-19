@@ -5,6 +5,7 @@
 	var/taste_description = "old rotten bandaids"
 	var/taste_mult = 1 //how this taste compares to others. Higher values means it is more noticable
 	var/datum/reagents/holder = null
+	var/hidden_from_codex
 	var/reagent_state = SOLID
 	var/list/data = null
 	var/volume = 0

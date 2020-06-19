@@ -334,3 +334,9 @@
 /obj/item/organ/internal/augment/language/cthur
 	name = "C'thur language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
+
+/obj/item/organ/internal/augment/codex
+	name = "integrated codex"
+	desc = "An augment installed into the head that interfaces with the user's neural network, granting them immediate access to a vast database of knowledge."
+	parent_organ = BP_HEAD
+	organ_tag = BP_AUG_CODEX

@@ -94,6 +94,8 @@
 	// Wallrot crumble message.
 	var/rotting_touch_message = "crumbles under your touch"
 
+	var/hidden_from_codex
+
 	//What golem species is created with this material
 	var/golem = null
 
@@ -763,6 +765,7 @@
 	shard_type = SHARD_STONE_PIECE
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
+	hidden_from_codex = TRUE
 
 /material/cult/place_dismantled_girder(var/turf/target)
 	new /obj/structure/girder/cult(target)

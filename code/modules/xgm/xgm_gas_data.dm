@@ -15,6 +15,8 @@
 	var/list/overlay_limit = list()
 	//Flags.
 	var/list/flags = list()
+	//If it shouldn't autogenerate a codex entry
+	var/list/hidden_from_codex = list()
 
 /decl/xgm_gas
 	var/id = ""
@@ -24,6 +26,8 @@
 
 	var/tile_overlay = null
 	var/overlay_limit = null
+
+	var/hidden_from_codex
 
 	var/flags = 0
 
@@ -42,5 +46,6 @@
 		if(gas.tile_overlay) gas_data.tile_overlay[gas.id] = image('icons/effects/tile_effects.dmi', gas.tile_overlay, FLY_LAYER)
 		if(gas.overlay_limit) gas_data.overlay_limit[gas.id] = gas.overlay_limit
 		gas_data.flags[gas.id] = gas.flags
+		gas_data.hidden_from_codex[gas.id] = gas.hidden_from_codex
 
 	return 1

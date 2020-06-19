@@ -93,6 +93,7 @@
 
 	max_hydration_factor = -1
 
+	hidden_from_codex = TRUE
 	hud_type = /datum/hud_data/construct
 
 /datum/species/shadow/handle_death(var/mob/living/carbon/human/H)

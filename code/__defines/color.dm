@@ -118,3 +118,8 @@
 #define COLOR_ASSEMBLY_BLUE     "#38559E"
 #define COLOR_ASSEMBLY_PURPLE   "#6F6192"
 #define COLOR_ASSEMBLY_HOT_PINK "#FF69B4"
+
+// Codex category colours.
+#define CODEX_COLOR_LORE      "#abdb9b"
+#define CODEX_COLOR_MECHANICS "#9ebcd8"
+#define CODEX_COLOR_ANTAG     "#e5a2a2"
