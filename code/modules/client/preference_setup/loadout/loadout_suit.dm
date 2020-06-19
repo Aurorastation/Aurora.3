@@ -324,3 +324,19 @@
 	cardigan["sweater cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/sweater
 	cardigan["argyle cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/argyle
 	gear_tweaks += new/datum/gear_tweak/path(cardigan)
+
+/datum/gear/suit/himeo
+	display_name = "himean coat"
+	path = /obj/item/clothing/suit/storage/toggle/himeo
+
+/datum/gear/suit/vysoka
+	display_name = "chokha selection"
+	description = "A selection of Vysokan chokhas."
+	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
+
+/datum/gear/suit/vysoka/New()
+	..()
+	var/coat = list()
+	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka_f
+	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka_m
+	gear_tweaks += new/datum/gear_tweak/path(coat)
