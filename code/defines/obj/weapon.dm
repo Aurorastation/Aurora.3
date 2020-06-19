@@ -222,6 +222,61 @@
 
 	return washit
 
+/obj/item/cane/white
+	name = "white cane"
+	desc = "A white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
+	icon_state = "whitecane"
+	item_state = "whitecane"
+
+/obj/item/cane/white/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
+    if(user.a_intent == I_HELP)
+        user.visible_message("<span class='notice'>\The [user] has lightly tapped [M] on the ankle with their white cane!</span>")
+        return TRUE
+    else
+        . = ..()
+
+//Code for Telescopic White Cane written by Gozulio
+
+/obj/item/cane/white/collapsible
+	name = "telescopic white cane"
+	desc = "A telescopic white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
+	icon_state = "whitecane1in"
+	item_state = null
+	slot_flags = SLOT_BELT
+	w_class = 2
+	force = 3
+	var/on = 0
+
+/obj/item/cane/white/collapsible/attack_self(mob/user as mob)
+	on = !on
+	if(on)
+		user.visible_message("<span class='notice'>\The [user] extends the white cane.</span>",\
+				"<span class='warning'>You extend the white cane.</span>",\
+				"You hear an ominous click.")
+		icon_state = "whitecane1out"
+		item_state = "whitecane"
+		w_class = 3
+		force = 5
+		attack_verb = list("smacked", "struck", "cracked", "beaten")
+	else
+		user.visible_message("<span class='notice'>\The [user] collapses the white cane.</span>",\
+		"<span class='notice'>You collapse the white cane.</span>",\
+		"You hear a click.")
+		icon_state = "whitecane1in"
+		item_state = null
+		w_class = 2
+		force = 3
+		attack_verb = list("hit", "poked", "prodded")
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	playsound(src, 'sound/weapons/empty.ogg', 50, 1)
+	add_fingerprint(user)
+	return TRUE
+
 /obj/item/cane/concealed
 	var/concealed_blade
 

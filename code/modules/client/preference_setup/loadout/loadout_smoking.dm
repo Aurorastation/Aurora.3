@@ -8,8 +8,18 @@
 	path = /obj/item/flame/lighter/zippo
 
 /datum/gear/smoking/lighter
-	display_name = "cheap lighter"
+	display_name = "cheap lighter (selection)"
 	path = /obj/item/flame/lighter
+
+/datum/gear/smoking/lighter/New()
+	..()
+	var/cheaplighters = list()
+	cheaplighters["red lighter"] = /obj/item/flame/lighter/red
+	cheaplighters["cyan lighter"] = /obj/item/flame/lighter/cyan
+	cheaplighters["yellow lighter"] = /obj/item/flame/lighter/yellow
+	cheaplighters["green lighter"] = /obj/item/flame/lighter/green
+	cheaplighters["random lighter"] = /obj/item/flame/lighter/random
+	gear_tweaks += new/datum/gear_tweak/path(cheaplighters)
 
 /datum/gear/smoking/cigarcase
 	display_name = "cigar case"
@@ -90,3 +100,23 @@
 	cigpaper["Gen. Eric cigarette paper"] = /obj/item/storage/fancy/cigpaper
 	cigpaper["Trident cigarette paper"] = /obj/item/storage/fancy/cigpaper/fine
 	gear_tweaks += new/datum/gear_tweak/path(cigpaper)
+
+/datum/gear/smoking/ashtray
+	display_name = "ashtray, plastic"
+	path = /obj/item/weapon/material/ashtray/plastic
+
+/datum/gear/smoking/ecig
+	display_name = "electronic cigarette (selection)"
+	path = /obj/item/clothing/mask/smokable/ecig/util
+
+/datum/gear/smoking/ecig/New()
+	..()
+	var/l_ecigs = list()
+	l_ecigs["simple e-cig"] = /obj/item/clothing/mask/smokable/ecig/simple
+	l_ecigs["deluxe e-cig"] = /obj/item/clothing/mask/smokable/ecig/deluxe
+	gear_tweaks += new/datum/gear_tweak/path(l_ecigs)
+
+/datum/gear/smoking/ecig/util
+	display_name = "electronic cigarette (colourable)"
+	path = /obj/item/clothing/mask/smokable/ecig/util
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

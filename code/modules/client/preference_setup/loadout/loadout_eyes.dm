@@ -200,3 +200,8 @@
 /datum/gear/eyes/circuitry
 	display_name = "goggles, circuitry (empty)"
 	path = /obj/item/clothing/glasses/circuitry
+
+/datum/gear/eyes/blindfold
+	display_name = "blindfold (colourable)"
+	path = /obj/item/clothing/glasses/blindfold/colour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

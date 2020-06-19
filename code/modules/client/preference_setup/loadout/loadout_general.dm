@@ -2,9 +2,25 @@
 	display_name = "cane"
 	path = /obj/item/cane
 
+/datum/gear/cane/white
+	display_name = "cane, white"
+	path = /obj/item/cane/white
+
+/datum/gear/cane/white2
+	display_name = "cane, white telescopic"
+	path = /obj/item/cane/white/collapsible
+
+/datum/gear/crutch
+	display_name = "crutch"
+	path = /obj/item/cane/crutch
+
 /datum/gear/dice
 	display_name = "pack of dice"
 	path = /obj/item/storage/pill_bottle/dice
+
+/datum/gear/dice/cup
+	display_name = "dice cup and dice"
+	path = /obj/item/weapon/storage/dicecup/loaded
 
 /datum/gear/dicegaming
 	display_name = "pack of gaming dice"
@@ -156,3 +172,16 @@
 	toothpaste["toothpaste and green toothbrush"] = /obj/item/storage/box/toothpaste/green
 	toothpaste["toothpaste and red toothbrush"] = /obj/item/storage/box/toothpaste/red
 	gear_tweaks += new/datum/gear_tweak/path(toothpaste)
+
+/datum/gear/figure
+	display_name = "action figure selection"
+	description = "A \"Space Life\" brand action figure."
+	path = /obj/item/toy/figure
+
+/datum/gear/figure/New()
+	..()
+	var/list/figures = list()
+	for(var/figure in typesof(/obj/item/toy/figure/) - /obj/item/toy/figure)
+		var/obj/item/toy/figure/figure_type = figure
+		figures[initial(figure_type.name)] = figure_type
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(figures))

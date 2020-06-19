@@ -66,3 +66,57 @@
 	icon_state = "d10010"
 	sides = 10
 	side_mult = 10
+
+/*
+ *Liar's Dice cup
+ */
+
+/obj/item/storage/dicecup
+	name = "dice cup"
+	desc = "A cup used to conceal and hold dice."
+	icon = 'icons/obj/dice.dmi'
+	icon_state = "dicecup"
+	w_class = 2
+	storage_slots = 5
+	can_hold = list(
+		/obj/item/weapon/dice,
+		)
+
+/obj/item/storage/dicecup/attack_self(mob/user as mob)
+	user.visible_message("<span class='notice'>[user] shakes [src].</span>", \
+							 "<span class='notice'>You shake [src].</span>", \
+							 "<span class='notice'>You hear dice rolling.</span>")
+	rollCup(user)
+
+/obj/item/storage/dicecup/proc/rollCup(mob/user as mob)
+	for(var/obj/item/weapon/dice/I in src.contents)
+		var/obj/item/weapon/dice/D = I
+		D.rollDice(user, 1)
+
+/obj/item/storage/dicecup/proc/revealDice(var/mob/viewer)
+	for(var/obj/item/weapon/dice/I in src.contents)
+		var/obj/item/weapon/dice/D = I
+		to_chat(viewer, "The [D.name] shows a [D.result].")
+
+/obj/item/storage/dicecup/verb/peekAtDice()
+	set category = "Object"
+	set name = "Peek at Dice"
+	set desc = "Peek at the dice under your cup."
+
+	revealDice(usr)
+
+/obj/item/storage/dicecup/verb/revealDiceHand()
+
+	set category = "Object"
+	set name = "Reveal Dice"
+	set desc = "Reveal the dice hidden under your cup."
+
+	for(var/mob/living/player in viewers(3))
+		to_chat(player, "[usr] reveals their dice.")
+		revealDice(player)
+
+
+/obj/item/storage/dicecup/loaded/New()
+	..()
+	for(var/i = 1 to 5)
+		new /obj/item/weapon/dice( src )

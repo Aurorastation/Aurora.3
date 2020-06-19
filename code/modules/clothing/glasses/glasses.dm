@@ -435,6 +435,10 @@ BLIND     // can't see anything
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
+/obj/item/clothing/glasses/sunglasses/blindfold/colour
+	icon_state = "blindfold_colour"
+	item_state = "blindfold_colour"
+
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"
 	desc = "Specially designed Vaurca blindfold, designed to let in just enough light to see."

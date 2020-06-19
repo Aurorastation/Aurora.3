@@ -222,3 +222,21 @@
 
 /obj/item/storage/toolbox/lunchbox/syndicate/filled
 	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/mars
+	name = "\improper Martian lunchbox"
+	icon_state = "lunchbox_mars"
+	item_state = "lunchbox_mars"
+	desc = "A little lunchbox. This one displays a Martian landscape with an M in the foreground."
+
+/obj/item/storage/toolbox/lunchbox/mars/filled
+	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/cti
+	name = "\improper CTI lunchbox"
+	icon_state = "lunchbox_cti"
+	item_state = "lunchbox_cti"
+	desc = "A little lunchbox. This one has CTI written on it."
+
+/obj/item/storage/toolbox/lunchbox/cti/filled
+	filled = TRUE
