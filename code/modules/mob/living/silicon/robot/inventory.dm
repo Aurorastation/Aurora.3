@@ -88,6 +88,7 @@
 		module_state_3 = null
 		inv3.icon_state = "inv3"
 	updateicon()
+	hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/activated(obj/item/O)
 	updateicon()

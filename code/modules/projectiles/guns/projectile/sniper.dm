@@ -138,10 +138,10 @@
 			else
 				RH.take_damage(30)
 
-/obj/item/gun/projectile/heavysniper/unathi/getAmmo()
+/obj/item/gun/projectile/heavysniper/unathi/get_ammo()
 	if(chambered)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/gun/projectile/heavysniper/tranq
 	name = "tranquilizer rifle"
@@ -193,8 +193,10 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_svd.ogg'
 	load_method = MAGAZINE
 	max_shells = 10
+
 	magazine_type = /obj/item/ammo_magazine/d762
 	allowed_magazines = list(/obj/item/ammo_magazine/d762)
+
 	accuracy = -4
 	scoped_accuracy = 3
 
