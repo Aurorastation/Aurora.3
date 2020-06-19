@@ -999,6 +999,13 @@
 	if(can_feel_pain())
 		flick("weak_pain", pain)
 
+/mob/living/proc/flash_strong_pain()
+	return
+
+/mob/living/carbon/human/flash_strong_pain()
+	if(can_feel_pain())
+		flick("strong_pain", pain)
+
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
 
