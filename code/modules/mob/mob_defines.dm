@@ -6,7 +6,7 @@
 	sight = DEFAULT_SIGHT
 	var/datum/mind/mind
 
-	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
+	var/stat = CONSCIOUS //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
 	var/can_buckle = TRUE
 
 	var/obj/screen/flash = null
@@ -132,7 +132,6 @@
 	var/intent = null//Living
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living
-	var/m_intent = "walk"//Living
 	var/lastKnownIP = null
 	var/obj/buckled = null//Living
 	var/obj/item/l_hand = null//Living
@@ -141,6 +140,13 @@
 	var/obj/item/tank/internal = null//Human/Monkey
 	var/obj/item/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
+
+	var/decl/move_intent/move_intent = /decl/move_intent/walk
+	var/list/move_intents = list(/decl/move_intent/walk)
+
+	var/decl/move_intent/default_walk_intent
+	var/decl/move_intent/default_run_intent
+	var/last_quick_move_time = 0
 
 	var/seer = 0 //for cult//Carbon, probably Human
 

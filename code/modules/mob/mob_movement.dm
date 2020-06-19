@@ -229,9 +229,6 @@
 	if(!mob.canmove)
 		return
 
-	//if(istype(mob.loc, /turf/space) || (mob.flags & NOGRAV))
-	//	if(!mob.Process_Spacemove(0))	return 0
-
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
 
@@ -244,7 +241,6 @@
 				return 0
 			else
 				mob.inertia_dir = 0 //If not then we can reset inertia and move
-
 
 		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
 			for(var/mob/M in range(mob, 1))
@@ -285,28 +281,27 @@
 				//drunk wheelchair driving
 				if(mob.confused && prob(25))
 					direct = pick(cardinal)
-				move_delay += max((mob.movement_delay() + config.walk_speed) * config.walk_delay_multiplier, min_move_delay)
+				move_delay += max((mob.movement_delay() + config.walk_delay) * config.walk_delay_multiplier, min_move_delay)
 				return mob.buckled.relaymove(mob,direct)
 
-		var/tally = mob.movement_delay() + config.walk_speed
+		var/tally = mob.movement_delay()
+		var/mob_is_human = ishuman(mob) //Calculate this once to reuse it later.
 
-		// Apply human specific modifiers.
-		var/mob_is_human = ishuman(mob)	// Only check this once and just reuse the value.
-		if (mob_is_human)
+		if(mob_is_human)
 			var/mob/living/carbon/human/H = mob
-			//If we're sprinting and able to continue sprinting, then apply the sprint bonus ontop of this
-			if (H.m_intent == "run" && H.species.handle_sprint_cost(H, tally)) //This will return false if we collapse from exhaustion
+			if(MOVING_QUICKLY(H))
+				if(H.species.has_special_sprint())
+					H.species.handle_sprint_cost(H, tally)
+				else
+					H.adjust_stamina(-(H.get_stamina_used_per_step()))
 				tally = (tally / (1 + H.sprint_speed_factor)) * config.run_delay_multiplier
+				H.last_quick_move_time = world.time
 			else
-				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay) //clamp walking speed if its limited
-		else
-			tally *= config.walk_delay_multiplier
-
+				tally = max(tally * config.walk_delay_multiplier, H.min_walk_delay)
 		move_delay += tally
 
 		var/tickcomp = 0 //moved this out here so we can use it for vehicles
 		if(config.Tickcomp)
-			// move_delay -= 1.3 //~added to the tickcomp calculation below
 			tickcomp = ((1/(world.tick_lag))*1.3) - 1.3
 			move_delay = move_delay + tickcomp
 
@@ -347,10 +342,10 @@
 						if(mob != M)
 							M.animate_movement = 3
 					for(var/mob/M in L)
-						spawn( 0 )
+						spawn(0)
 							step(M, direct)
 							return
-						spawn( 1 )
+						spawn(1)
 							M.other_mobs = null
 							M.animate_movement = 2
 							return
@@ -360,12 +355,12 @@
 		else
 			. = mob.SelfMove(n, direct)
 
-		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
+		for(var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(reverse_dir[direct])
 			G.adjust_position()
 
-		for (var/obj/item/grab/G in mob.grabbed_by)
+		for(var/obj/item/grab/G in mob.grabbed_by)
 			G.adjust_position()
 
 		moving = 0
@@ -373,6 +368,12 @@
 	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
 		var/atom/O = mob.loc
 		return O.relaymove(mob, direct)
+
+/mob/proc/get_stamina_used_per_step()
+	return 1
+
+/mob/living/carbon/human/get_stamina_used_per_step()
+	return sprint_cost_factor
 
 /mob/proc/SelfMove(turf/n, direct)
 	return Move(n, direct)
@@ -550,3 +551,96 @@
 
 /mob/proc/mob_negates_gravity()
 	return 0
+
+/mob/proc/set_next_usable_move_intent()
+	var/checking_intent = (istype(move_intent) ? move_intent.type : move_intents[1])
+	for(var/i = 1 to length(move_intents)) // One full iteration of the move set.
+		checking_intent = next_in_list(checking_intent, move_intents)
+		if(set_move_intent(decls_repository.get_decl(checking_intent)))
+			return
+
+/mob/proc/set_move_intent(var/decl/move_intent/next_intent)
+	if(next_intent && move_intent != next_intent && next_intent.can_be_used_by(src))
+		move_intent = next_intent
+		if(hud_used)
+			hud_used.move_intent.icon_state = move_intent.hud_icon_state
+		return TRUE
+	return FALSE
+
+/mob/proc/get_movement_datum_by_flag(var/move_flag = MOVE_INTENT_DELIBERATE)
+	for(var/m_intent in move_intents)
+		var/decl/move_intent/check_move_intent = decls_repository.get_decl(m_intent)
+		if(check_move_intent.flags & move_flag)
+			return check_move_intent
+
+/mob/proc/get_movement_datum_by_missing_flag(var/move_flag = MOVE_INTENT_DELIBERATE)
+	for(var/m_intent in move_intents)
+		var/decl/move_intent/check_move_intent = decls_repository.get_decl(m_intent)
+		if(!(check_move_intent.flags & move_flag))
+			return check_move_intent
+
+/mob/proc/get_movement_datums_by_flag(var/move_flag = MOVE_INTENT_DELIBERATE)
+	. = list()
+	for(var/m_intent in move_intents)
+		var/decl/move_intent/check_move_intent = decls_repository.get_decl(m_intent)
+		if(check_move_intent.flags & move_flag)
+			. += check_move_intent
+
+/mob/proc/get_movement_datums_by_missing_flag(var/move_flag = MOVE_INTENT_DELIBERATE)
+	. = list()
+	for(var/m_intent in move_intents)
+		var/decl/move_intent/check_move_intent = decls_repository.get_decl(m_intent)
+		if(!(check_move_intent.flags & move_flag))
+			. += check_move_intent
+
+/mob/verb/SetDefaultWalk()
+	set name = "Set Default Walk"
+	set desc = "Select your default walking style."
+	set category = "IC"
+	var/choice = input(usr, "Select a default walk.", "Set Default Walk") as null|anything in get_movement_datums_by_missing_flag(MOVE_INTENT_QUICK)
+	if(choice && (choice in get_movement_datums_by_missing_flag(MOVE_INTENT_QUICK)))
+		default_walk_intent = choice
+		to_chat(src, "You will now default to [default_walk_intent] when moving deliberately.")
+
+/mob/verb/SetDefaultRun()
+	set name = "Set Default Run"
+	set desc = "Select your default running style."
+	set category = "IC"
+	var/choice = input(usr, "Select a default run.", "Set Default Run") as null|anything in get_movement_datums_by_flag(MOVE_INTENT_QUICK)
+	if(choice && (choice in get_movement_datums_by_flag(MOVE_INTENT_QUICK)))
+		default_run_intent = choice
+		to_chat(src, "You will now default to [default_run_intent] when moving quickly.")
+
+/client/verb/setmovingslowly()
+	set hidden = 1
+	if(mob)
+		mob.set_moving_slowly()
+
+/mob/proc/set_moving_slowly()
+	if(!default_walk_intent)
+		default_walk_intent = get_movement_datum_by_missing_flag(MOVE_INTENT_QUICK)
+	if(default_walk_intent && move_intent != default_walk_intent)
+		set_move_intent(default_walk_intent)
+
+/client/verb/setmovingquickly()
+	set hidden = 1
+	if(mob)
+		mob.set_moving_quickly()
+
+/mob/proc/set_moving_quickly()
+	if(!default_run_intent)
+		default_run_intent = get_movement_datum_by_flag(MOVE_INTENT_QUICK)
+	if(default_run_intent && move_intent != default_run_intent)
+		set_move_intent(default_run_intent)
+
+/mob/proc/can_sprint()
+	return FALSE
+
+/mob/proc/adjust_stamina(var/amt)
+	return
+
+/mob/proc/get_stamina()
+	return 100
+
+/mob/proc/get_maximum_stamina()
+	return 100

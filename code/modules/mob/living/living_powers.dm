@@ -20,7 +20,7 @@
 
 
 	//First a quick block of code to calculate our normal/best movedelay
-	var/delay = config.walk_speed + movement_delay()
+	var/delay = config.walk_delay + movement_delay()
 	var/speed = 1 / (delay/10)
 	var/newspeed
 	var/list/options = list("No limit",speed*0.95,speed*0.9,speed*0.85,speed*0.8,speed*0.7,speed*0.6,speed*0.5, "Custom")

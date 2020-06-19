@@ -356,7 +356,7 @@
 // Yes, it's not the full calculation. But it's relatively close, and will make it seamless.
 /obj/vehicle/post_buckle_mob(var/mob/M)
 	if (M.client)
-		M.client.move_delay = M.movement_delay() + config.walk_speed
+		M.client.move_delay = M.movement_delay() + config.walk_delay
 
 //-------------------------------------------------------
 // Stat update procs

@@ -112,7 +112,7 @@
 		to_chat(user, span("warning", "\The [initial(name)] is dry!"))
 	else
 		if ( !(last_clean && world.time < last_clean + 120) )
-			user.visible_message("\The [user] starts to wipe down \the [A] with \the [src]!")
+			user.visible_message("\The <b>[user]</b> starts to wipe down \the [A] with \the [src]!")
 			clean_msg = TRUE
 			last_clean = world.time
 		else

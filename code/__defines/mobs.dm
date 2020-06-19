@@ -236,6 +236,10 @@
 #define CREW_HYDRATION_VERYTHIRSTY 0.1
 #define CREW_HYDRATION_DEHYDRATED 0
 
+//Movement.
+#define MOVING_DELIBERATELY(X) (X.move_intent.flags & MOVE_INTENT_DELIBERATE)
+#define MOVING_QUICKLY(X) (X.move_intent.flags & MOVE_INTENT_QUICK)
+
 #define TINT_NONE 0
 #define TINT_MODERATE 1
 #define TINT_HEAVY 2
@@ -353,3 +357,8 @@
 #define AURA_TYPE_WEAPON "Weapon"
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
+
+// Quick and deliberate movements are not necessarily mutually exclusive
+#define MOVE_INTENT_DELIBERATE 1
+#define MOVE_INTENT_EXERTIVE   2
+#define MOVE_INTENT_QUICK      4

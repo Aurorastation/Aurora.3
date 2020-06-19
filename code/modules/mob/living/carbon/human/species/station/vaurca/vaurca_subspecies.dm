@@ -31,7 +31,7 @@
 
 	stamina = 115
 	sprint_speed_factor = 1.0
-	sprint_cost_factor = 0.40
+	sprint_cost_factor = 0.8
 	stamina_recovery = 3
 
 
@@ -70,7 +70,7 @@
 
 	stamina = 175
 	sprint_speed_factor = 1
-	sprint_cost_factor = 0.80
+	sprint_cost_factor = 1.6
 	stamina_recovery = 3
 
 	spawn_flags = IS_RESTRICTED
@@ -126,7 +126,7 @@
 	stamina = 200
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
-	sprint_cost_factor = 0.5
+	sprint_cost_factor = 1.0
 
 	heat_level_1 = 1000 //Default 360
 	heat_level_2 = 4000 //Default 400

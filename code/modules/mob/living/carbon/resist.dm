@@ -202,7 +202,7 @@
 
 		if((isunathi(src)) || (HULK in mutations))
 			say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ))
-			stamina -= 100 //takes a bunch of stamina
+			stamina = max(0, (stamina - 100)) //takes a bunch of stamina
 
 		qdel(handcuffed)
 		handcuffed = null

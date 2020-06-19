@@ -98,7 +98,7 @@
 	stamina	=	120			  // Vox are even faster than unathi and can go longer, but recover slowly
 	sprint_speed_factor = 3
 	stamina_recovery = 1
-	sprint_cost_factor = 0.7
+	sprint_cost_factor = 1.4
 
 	cold_level_1 = 80
 	cold_level_2 = 50

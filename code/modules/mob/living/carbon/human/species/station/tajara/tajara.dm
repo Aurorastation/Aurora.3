@@ -32,7 +32,7 @@
 	stamina = 90	// Tajara evolved to maintain a steady pace in the snow, sprinting wastes energy
 	stamina_recovery = 4
 	sprint_speed_factor = 0.65
-	sprint_cost_factor = 0.75
+	sprint_cost_factor = 1.5
 
 	blurb = "The Tajaran race is a species of feline-like bipeds hailing from the planet of Adhomai in the S'rendarr \
 	system. They have been brought up into the space age by the Humans and Skrell, who alledgedly influenced their \

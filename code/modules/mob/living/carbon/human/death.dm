@@ -81,13 +81,20 @@
 	handle_hud_list()
 
 /mob/living/carbon/human/proc/ChangeToHusk()
-	if(HUSK in mutations)	return
+	if(HUSK in mutations)
+		return
 
 	if(f_style)
 		f_style = "Shaved"		//we only change the icon_state of the hair datum, so it doesn't mess up their UI/UE
 	if(h_style)
 		h_style = "Bald"
 	update_hair(0)
+
+	name = "Unknown"
+	real_name = "Unknown"
+
+	for(var/text in flavor_texts)
+		flavor_texts[text] = null
 
 	mutations.Add(HUSK)
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
@@ -99,7 +106,7 @@
 	mutations |= HUSK
 	return
 
-/mob/living/carbon/human/proc/ChangeToSkeleton()
+/mob/living/carbon/human/proc/ChangeToSkeleton(var/keep_name = FALSE)
 	if(SKELETON in src.mutations)	return
 
 	if(f_style)
@@ -107,6 +114,12 @@
 	if(h_style)
 		h_style = "Bald"
 	update_hair(0)
+
+	if(!keep_name)
+		name = "Unknown"
+		real_name = "Unknown"
+		for(var/text in flavor_texts)
+			flavor_texts[text] = null
 
 	mutations.Add(SKELETON)
 	status_flags |= DISFIGURED

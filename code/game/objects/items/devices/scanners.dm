@@ -22,15 +22,13 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1
 
-/obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
 	health_scan_mob(M, user, mode)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
 	health_scan_mob(user, user, mode)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio) //Used for ratios.
 	var/degree = "none"
@@ -62,7 +60,7 @@ BREATH ANALYZER
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
 	if(!just_scan)
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-			user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
+			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
 			to_chat(user, "Overall Status: Healthy</span>")
 			return
@@ -71,7 +69,7 @@ BREATH ANALYZER
 			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
+		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")

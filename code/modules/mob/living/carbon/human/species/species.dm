@@ -165,6 +165,8 @@
 	var/appearance_flags = 0      // Appearance/display related features.
 	var/spawn_flags = 0           // Flags that specify who can spawn as this species
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
+	// Move intents. Earlier in list == default for that type of movement.
+	var/list/move_intents = list(/decl/move_intent/walk, /decl/move_intent/run, /decl/move_intent/creep)
 	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
 	var/greater_form              // Greater form, if any, ie. human for monkeys.
 	var/holder_type
@@ -176,7 +178,6 @@
 	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
 	var/sprint_speed_factor = 0.7	// The percentage of bonus speed you get when sprinting. 0.4 = 40%
 	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
-	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
@@ -501,53 +502,6 @@
 
 	return 1
 
-/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	if (!H.exhaust_threshold)
-		return 1 // Handled.
-
-	cost *= H.sprint_cost_factor
-	if (H.stamina == -1)
-		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
-		return 0
-
-	var/remainder = 0
-	if (H.stamina > cost)
-		H.stamina -= cost
-		H.hud_used.move_intent.update_move_icon(H)
-		return 1
-	else if (H.stamina > 0)
-		remainder = cost - H.stamina
-		H.stamina = 0
-	else
-		remainder = cost
-
-	if(H.disabilities & ASTHMA)
-		H.adjustOxyLoss(remainder*0.15)
-
-	if(H.disabilities & COUGHING)
-		H.adjustHalLoss(remainder*0.1)
-
-	if (breathing_organ && has_organ[breathing_organ])
-		var/obj/item/organ/O = H.internal_organs_by_name[breathing_organ]
-		if(O.is_bruised())
-			H.adjustOxyLoss(remainder*0.15)
-			H.adjustHalLoss(remainder*0.25)
-
-	H.adjustHalLoss(remainder*0.25)
-	H.updatehealth()
-	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
-		H.flash_pain()
-
-	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
-		H.m_intent = "walk"
-		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
-		H.flash_pain()
-		return 0
-
-	H.hud_used.move_intent.update_move_icon(H)
-	return 1
-
 /datum/species/proc/get_light_color(mob/living/carbon/human/H)
 	return
 
@@ -602,4 +556,10 @@
 	return TRUE
 
 /datum/species/proc/handle_despawn()
+	return
+
+/datum/species/proc/has_special_sprint()
+	return FALSE
+
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	return

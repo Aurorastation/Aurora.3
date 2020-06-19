@@ -210,6 +210,24 @@
 	damage = 50
 	weaken = 1
 
+/obj/item/projectile/bullet/rifle/slugger
+	name = "slugger round"
+	damage = 80
+	weaken = 3
+	penetrating = 5
+	armor_penetration = 15
+	maiming = TRUE
+	maim_rate = 3
+	maim_type = DROPLIMB_BLUNT
+
+/obj/item/projectile/bullet/rifle/slugger/on_hit(var/atom/movable/target, var/blocked = 0)
+	if(!istype(target))
+		return FALSE
+	var/throwdir = get_dir(firer, target)
+	target.throw_at(get_edge_target_turf(target, throwdir), 3, 3)
+	..()
+	return TRUE
+
 /obj/item/projectile/bullet/rifle/tranq
 	name = "dart"
 	icon_state = "dart"
