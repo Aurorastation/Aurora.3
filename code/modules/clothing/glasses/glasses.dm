@@ -137,6 +137,13 @@ BLIND     // can't see anything
 	desc = "A pair of sunglasses with a toggleable health HUD. Does not protect against flashes."
 	icon_state = "sunMedHud"
 
+/obj/item/clothing/glasses/hud/health/fakesunglasses/verb/toggle()
+	set category = "Object"
+	set name = "Toggle Sunglasses"
+	set src in usr
+
+	attack_self(usr)
+
 /obj/item/clothing/glasses/hud/health/fakesunglasses/prescription
 	name = "prescription medical HUD sunglasses"
 	desc = "A pair of sunglasses with a toggleable health HUD and prescription overlay. Does not protect against flashes."
