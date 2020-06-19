@@ -132,6 +132,15 @@ BLIND     // can't see anything
 
 	attack_self(usr)
 
+/obj/item/clothing/glasses/hud/health/fakesunglasses
+	name = "medical HUD sunglasses"
+	desc = "A pair of sunglasses with a toggleable health HUD. Does not protect against flashes."
+	icon_state = "sunMedHud"
+
+/obj/item/clothing/glasses/hud/health/fakesunglasses/prescription
+	name = "prescription medical HUD sunglasses"
+	desc = "A pair of sunglasses with a toggleable health HUD and prescription overlay. Does not protect against flashes."
+	prescription = 1
 
 /obj/item/clothing/glasses/science
 	name = "science goggles"
@@ -268,6 +277,11 @@ BLIND     // can't see anything
 	vision_flags = SEE_OBJS
 	item_flags = AIRTIGHT
 
+/obj/item/clothing/glasses/material/prescription
+	name = "prescription material scanner"
+	desc = "Optical Material Scanner with prescription lenses."
+	prescription = 1
+
 /obj/item/clothing/glasses/material/aviator
 	name = "material aviators"
 	desc = "Modified aviator glasses with a toggled ability to make your head ache. Comes with bonus prescription interface."
@@ -339,6 +353,18 @@ BLIND     // can't see anything
 	desc = "Why would you wear something so controversial yet so brave?"
 	icon_state = "circle_glasses"
 	item_state = "circle_glasses"
+
+/obj/item/clothing/glasses/regular/rimless
+	name = "rimless glasses"
+	desc = "Sleek modern glasses with a single sculpted lens."
+	icon_state = "glasses_rimless"
+	item_state = "glasses_rimless"
+
+/obj/item/clothing/glasses/regular/thin
+	name = "thin-rimmed glasses"
+	desc = "Glasses with frames are so last century."
+	icon_state = "glasses_thin"
+	item_state = "glasses_thin"
 
 /obj/item/clothing/glasses/sunglasses
 	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."
@@ -434,6 +460,10 @@ BLIND     // can't see anything
 	icon_state = "bigsunglasses"
 	item_state = "sun"
 
+/obj/item/clothing/glasses/sunglasses/big/prescription
+	name = "prescription sunglasses"
+	prescription = 1
+
 /obj/item/clothing/glasses/fakesunglasses //Sunglasses without flash immunity
 	name = "stylish sunglasses"
 	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes."
@@ -450,6 +480,10 @@ BLIND     // can't see anything
 	icon_state = "aviator"
 	item_state = "aviator"
 	prescription = 1
+
+/obj/item/clothing/glasses/fakesunglasses/big
+	icon_state = "bigsunglasses"
+	item_state = "sun"
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
@@ -527,6 +561,10 @@ BLIND     // can't see anything
 	set src in usr
 
 	attack_self(usr)
+
+/obj/item/clothing/glasses/sunglasses/sechud/prescription
+	name = "prescription HUDsunglasses"
+	prescription = 1
 
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
