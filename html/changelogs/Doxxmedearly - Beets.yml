@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes: 
+  - rscadd: "You can now toggle headphones on and off by using it in-hand."
