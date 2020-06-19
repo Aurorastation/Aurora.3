@@ -22,3 +22,9 @@
 	desc = "A plain black bandanna."
 	icon_state = "band_bk"
 	item_state = "band_bk"
+
+/obj/item/clothing/ears/bandanna/colour
+	name = "bandanna"
+	desc = "A plain bandanna."
+	icon_state = "band_clr"
+	item_state = "band_clr"
