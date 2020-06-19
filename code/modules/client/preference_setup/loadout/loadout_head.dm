@@ -42,6 +42,11 @@
 	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
 
+/datum/gear/head/cap_colour
+	display_name = "cap (colourable)"
+	path = /obj/item/clothing/head/soft/colour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/beret
 	display_name = "beret, red"
 	path = /obj/item/clothing/head/beret
