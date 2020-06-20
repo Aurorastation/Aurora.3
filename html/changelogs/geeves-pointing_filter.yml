@@ -1,6 +1,0 @@
-author: Geeves, MoondancerPony
-
-delete-after: True
-
-changes: 
-  - rscadd: "Pointing at something now highlights it instead of making an arrow. Pointing at turfs unaffected."
