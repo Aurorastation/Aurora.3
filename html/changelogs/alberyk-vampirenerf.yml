@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Vampires can no longer suck blood if their own mouth is being blocked by something."
