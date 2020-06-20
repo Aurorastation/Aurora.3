@@ -8179,9 +8179,6 @@
 	pixel_x = -28
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "zd" = (
