@@ -85,6 +85,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 	max_nutrition_factor = -1
 
@@ -132,6 +133,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 	max_nutrition_factor = -1
 
@@ -208,6 +210,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
 
