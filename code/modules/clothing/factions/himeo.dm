@@ -10,10 +10,11 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/soft/himeo
-	icon_state = "cap_himeo"
-	item_state = "cap_himeo"
-	icon = 'icons/clothing/head/himeo_cap.dmi'
+
 	name = "himean cap"
 	desc = "A heavy winter coat from Himeo, made of synthetic fish fur. It looks extremely comfortable, if a bit hot for the Aurora's normal temperature."
 	desc_fluff = "The M372 field cap is a standard-issue cap of Himeo's military, and a common sight throughout the planet and the space around it. This particular model is a reproduction, due to its lack of the traditional ear covers on the Himean model."
+	icon = 'icons/clothing/head/himeo_cap.dmi'
+	icon_state = "cap_himeo"
+	item_state = "cap_himeo"
 	contained_sprite = TRUE

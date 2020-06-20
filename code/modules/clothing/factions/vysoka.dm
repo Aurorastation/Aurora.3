@@ -17,10 +17,10 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/soft/vysoka
-	icon_state = "cap_vysoka"
-	item_state = "cap_vysoka"
-	icon = 'icons/clothing/head/vysoka_cap.dmi'
 	name = "vysokan fur cap"
 	desc = "A fur hat from Vysoka made of authentic ohdker fur."
 	desc_fluff = "The ohdker is a common animal on Vysoka that serves as a livestock and beast of burden, depending on the needs at the time. Its fur is highly prized on Vysoka, and major cities often export it off-world to location such as Xanu Prime."
+	icon_state = "cap_vysoka"
+	item_state = "cap_vysoka"
+	icon = 'icons/clothing/head/vysoka_cap.dmi'
 	contained_sprite = TRUE
