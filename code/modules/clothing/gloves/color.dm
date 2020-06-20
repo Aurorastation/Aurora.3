@@ -169,3 +169,7 @@
 	fingerprint_chance = 100
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+
+/obj/item/clothing/gloves/fingerless/colour
+	icon_state = "fingerlessgloves_colour"
+	item_state = "fingerlessgloves_colour"

@@ -11,6 +11,16 @@
 	if(ishuman(A) && user != A)
 		user.visible_message("<span class='warning'>\The [user] gets down on one knee, presenting \the [src] to [A].</span>","<span class='warning'>You get down on one knee, presenting \the [src] to [A].</span>")
 
+/obj/item/clothing/gloves/ring/cti
+	name = "blue gem ring"
+	desc = "A silver-coloured ring with a blue gemstone."
+	icon_state = "cti-grad"
+
+/obj/item/clothing/gloves/ring/mariner
+	name = "red gem ring"
+	desc = "A gold-coloured ring with a red gemstone."
+	icon_state = "mariner-grad"
+
 //Reagent Rings
 
 /obj/item/clothing/ring/reagent

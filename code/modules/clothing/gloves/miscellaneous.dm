@@ -464,3 +464,17 @@
 	. = ..()
 	if(mounted)
 		mounted.switch_firemodes()
+
+/obj/item/clothing/gloves/forensic
+	desc = "Specially made gloves for handling forensic evidence. The luminescent threads woven into the material stand out under scrutiny."
+	name = "forensic gloves"
+	icon_state = "forensic"
+	item_state = "black"
+	permeability_coefficient = 0.05
+
+/obj/item/clothing/gloves/duty
+	desc = "These brown duty gloves are made from a durable synthetic."
+	name = "work gloves"
+	icon_state = "workgloves"
+	item_state = "workgloves"
+	armor = list(melee = 10, bullet = 10, laser = 10, energy = 5, bomb = 0, bio = 0, rad = 0)

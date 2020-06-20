@@ -5,6 +5,11 @@
 	slot = slot_gloves
 	sort_category = "Gloves and Handwear"
 
+/datum/gear/gloves/fingerless_colour
+	display_name = "fingerless gloves (colourable)"
+	path = /obj/item/clothing/gloves/fingerless/colour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/gloves/color
 	display_name = "gloves (selection)"
 	path = /obj/item/clothing/gloves/black
@@ -45,6 +50,8 @@
 /datum/gear/gloves/ring/New()
 	..()
 	var/ringtype = list()
+	ringtype["blue gem ring"] = /obj/item/clothing/ring/cti
+	ringtype["red gem ring"] = /obj/item/clothing/ring/mariner
 	ringtype["engagement ring"] = /obj/item/clothing/ring/engagement
 	ringtype["signet ring"] = /obj/item/clothing/ring/seal/signet
 	ringtype["ring, steel"] = /obj/item/clothing/ring/material/steel
@@ -76,3 +83,28 @@
 /datum/gear/gloves/circuitry
 	display_name = "gloves, circuitry (empty)"
 	path = /obj/item/clothing/gloves/circuitry
+
+/datum/gear/gloves/disposable
+	display_name = "gloves, disposable (selection)"
+	path = /obj/item/clothing/gloves/sterile/latex
+	cost = 2
+
+/datum/gear/gloves/disposable/New()
+	..()
+	var/dispos_gloves = list()
+	dispos_gloves["latex gloves"] = /obj/item/clothing/gloves/sterile/latex
+	dispos_gloves["nitrile gloves"] = /obj/item/clothing/gloves/sterile/nitrile
+	gear_tweaks += new/datum/gear_tweak/path(dispos_gloves)
+
+//I added the rest of security to the allowed_roles because:
+//as much as I don't want to encourage the rest of security to do the investigators' work,
+//I think it wouldn't make much sense to have them not be able to provide the aid they can in HANDLING physical evidence--though feel free to disagree
+/datum/gear/gloves/forensic
+	display_name = "gloves, forensic"
+	path = /obj/item/clothing/gloves/forensic
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+
+/datum/gear/gloves/duty
+	display_name = "gloves, work"
+	path = /obj/item/clothing/gloves/duty
+	cost = 3
