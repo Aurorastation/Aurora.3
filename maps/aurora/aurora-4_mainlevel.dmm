@@ -54500,6 +54500,9 @@
 /obj/machinery/status_display/supply_display{
 	pixel_y = 32
 	},
+/obj/machinery/light/small{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/quartermaster/storage)
 "bZC" = (
@@ -54788,6 +54791,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cab" = (
@@ -55058,13 +55062,8 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cax" = (
-/obj/machinery/button/remote/blast_door{
-	id = "qm_warehouse";
-	name = "Warehouse Door Control";
-	pixel_x = 24;
-	req_access = list(31)
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/stairs/north,
+/turf/simulated/floor/tiled/ramp,
 /area/quartermaster/storage)
 "cay" = (
 /obj/machinery/button/remote/blast_door{
@@ -55354,13 +55353,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "caY" = (
-/obj/machinery/light_switch{
-	pixel_x = 32
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/ramp,
 /area/quartermaster/storage)
 "caZ" = (
 /obj/machinery/light_switch{
@@ -55742,10 +55735,14 @@
 /area/maintenance/cargo)
 "cbU" = (
 /obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cbV" = (
 /obj/structure/bed/chair/office/dark,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "cbW" = (
@@ -56253,6 +56250,9 @@
 "ccV" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
@@ -59957,6 +59957,22 @@
 /obj/item/device/floor_painter,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
+"euo" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/large_stock_marker,
+/obj/machinery/light_switch{
+	pixel_x = 24;
+	pixel_y = -4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "qm_warehouse";
+	name = "Warehouse Door Control";
+	pixel_x = 24;
+	req_access = list(31);
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "exI" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -61347,6 +61363,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
+"hNn" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "hND" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/freezer{
@@ -61678,6 +61700,12 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"iFr" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "iFV" = (
 /turf/simulated/floor/reinforced,
 /area/assembly/chargebay)
@@ -65242,6 +65270,12 @@
 /obj/random/junk,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"rpy" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "rqe" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/bottle{
@@ -65812,6 +65846,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/cargo)
+"sHo" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "sHA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -66745,6 +66785,11 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/research_port)
+"utY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "uuz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/item/reagent_containers/food/condiment/peppermill{
@@ -66791,6 +66836,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"uym" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/quartermaster/storage)
 "uzs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -91778,8 +91830,8 @@ cav
 caW
 caU
 cbU
-caU
-caU
+iFr
+hNn
 cdo
 bZx
 cdT
@@ -92031,12 +92083,12 @@ bYR
 hPx
 bZC
 bZZ
+uym
+uym
 caw
-caw
-caw
-caw
+utY
 ccv
-caU
+sHo
 bZD
 bZx
 cdT
@@ -92286,13 +92338,13 @@ bWz
 bWg
 bYR
 vap
-bZD
+euo
 caa
 cax
 caY
 caU
 cbV
-caU
+rpy
 ccV
 bZD
 bZx
