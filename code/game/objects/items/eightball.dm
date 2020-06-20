@@ -134,3 +134,17 @@
 
 /obj/item/eightball/broken/get_answer()
 	return fixed_answer
+
+/obj/item/eightball/conch
+	name = "magic conch shell"
+	desc = "All hail the Magic Conch!"
+	icon_state = "conch"
+	use_action = "pulls the string"
+	possible_answers = list(
+		"Yes.",
+		"No.",
+		"Try asking again.",
+		"Nothing.",
+		"I don't think so.",
+		"Neither.",
+		"Maybe someday.")

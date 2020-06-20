@@ -46,6 +46,16 @@
 	display_name = "spaceball booster pack"
 	path = /obj/item/pack/spaceball
 
+/datum/gear/cahwhite
+	display_name = "Cards Against The Galaxy (white deck)"
+	path = /obj/item/weapon/deck/cah
+	description = "The ever-popular Cards Against The Galaxy word game. Warning: may include traces of broken fourth wall. This is the white deck."
+
+/datum/gear/cahblack
+	display_name = "Cards Against The Galaxy (black deck)"
+	path = /obj/item/weapon/deck/cah/black
+	description = "The ever-popular Cards Against The Galaxy word game. Warning: may include traces of broken fourth wall. This is the black deck."
+
 /datum/gear/flask
 	display_name = "flask"
 	path = /obj/item/reagent_containers/food/drinks/flask/barflask
@@ -174,7 +184,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(toothpaste)
 
 /datum/gear/figure
-	display_name = "action figure selection"
+	display_name = "action figure (selection)"
 	description = "A \"Space Life\" brand action figure."
 	path = /obj/item/toy/figure
 
@@ -185,3 +195,49 @@
 		var/obj/item/toy/figure/figure_type = figure
 		figures[initial(figure_type.name)] = figure_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(figures))
+
+/datum/gear/plushie
+	display_name = "plushie (selection)"
+	path = /obj/item/toy/plushie/
+
+/datum/gear/plushie/New()
+	..()
+	var/list/plushies = list()
+	for(var/plushie in subtypesof(/obj/item/toy/plushie/) - /obj/item/toy/plushie/therapy)
+		var/obj/item/toy/plushie/plushie_type = plushie
+		plushies[initial(plushie_type.name)] = plushie_type
+	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(plushies))
+
+/datum/gear/toy
+	display_name = "toy (selection)"
+	description = "Choose from a number of toys."
+	path = /obj/item/toy/
+
+/datum/gear/toy/New()
+	..()
+	var/toytype = list()
+	toytype["blink toy"] = /obj/item/toy/blink
+	toytype["gravitational singularity"] = /obj/item/toy/spinningtoy
+	toytype["water flower"] = /obj/item/weapon/reagent_containers/spray/waterflower
+	toytype["bosun's whistle"] = /obj/item/toy/bosunwhistle
+	toytype["magic 8 ball"] = /obj/item/toy/eightball
+	toytype["magic conch shell"] = /obj/item/toy/eightball/conch
+	toytype["stick horse"] = /obj/item/toy/stickhorse
+	toytype["inflatable duck"] = /obj/item/inflatable_duck
+	toytype["xmas tree"] = /obj/item/toy/xmastree
+	gear_tweaks += new/datum/gear_tweak/path(toytype)
+
+/datum/gear/characterbox
+	display_name = "\improper TTRPG figurine box"
+	path = /obj/item/weapon/storage/box/characters
+
+/datum/gear/bouquet
+	display_name = "bouquet of flowers (selection)"
+	path = /obj/item/toy/bouquet
+
+/datum/gear/bouquet/New()
+	..()
+	var/bouquettype = list()
+	bouquettype["real bouquet of flowers"] = /obj/item/toy/bouquet
+	bouquettype["fake bouquet of flowers"] = /obj/item/toy/bouquet/fake
+	gear_tweaks += new/datum/gear_tweak/path(bouquettype)

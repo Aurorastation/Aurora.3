@@ -297,7 +297,10 @@
 		/obj/item/toy/figure/warden,
 		/obj/item/toy/figure/psychologist,
 		/obj/item/toy/figure/paramedic,
-		/obj/item/toy/figure/ert
+		/obj/item/toy/figure/ert,
+		/obj/item/toy/figure/owl,
+		/obj/item/toy/figure/griffin,
+		/obj/item/toy/figure/AI
 	)
 
 /obj/random/plushie
@@ -313,12 +316,45 @@
 		/obj/item/toy/plushie/ivancarp,
 		/obj/item/toy/plushie/nymph,
 		/obj/item/toy/plushie/mouse,
+		/obj/item/toy/plushie/mouse/dead,
 		/obj/item/toy/plushie/kitten,
 		/obj/item/toy/plushie/lizard,
 		/obj/item/toy/plushie/farwa,
 		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
-		/obj/item/toy/plushie/bearfire
+		/obj/item/toy/plushie/bearfire,
+		/obj/item/toy/plushie/corgi,
+		/obj/item/toy/plushie/girly_corgi,
+		/obj/item/toy/plushie/robo_corgi,
+		/obj/item/toy/plushie/octopus,
+		/obj/item/toy/plushie/carp/small,
+		/obj/item/toy/plushie/carp/small/ice,
+		/obj/item/toy/plushie/carp/silent,
+		/obj/item/toy/plushie/carp/electric,
+		/obj/item/toy/plushie/carp/gold,
+		/obj/item/toy/plushie/carp/toxin,
+		/obj/item/toy/plushie/carp/dragon,
+		/obj/item/toy/plushie/carp/pink,
+		/obj/item/toy/plushie/carp/candy,
+		/obj/item/toy/plushie/carp/nebula,
+		/obj/item/toy/plushie/carp/void,
+		/obj/item/toy/plushie/red_fox,
+		/obj/item/toy/plushie/black_fox,
+		/obj/item/toy/plushie/marble_fox,
+		/obj/item/toy/plushie/blue_fox,
+		/obj/item/toy/plushie/orange_fox,
+		/obj/item/toy/plushie/coffee_fox,
+		/obj/item/toy/plushie/pink_fox,
+		/obj/item/toy/plushie/purple_fox,
+		/obj/item/toy/plushie/crimson_fox,
+		/obj/item/toy/plushie/deer,
+		/obj/item/toy/plushie/black_cat,
+		/obj/item/toy/plushie/grey_cat,
+		/obj/item/toy/plushie/white_cat,
+		/obj/item/toy/plushie/orange_cat,
+		/obj/item/toy/plushie/siamese_cat,
+		/obj/item/toy/plushie/tabby_cat,
+		/obj/item/toy/plushie/tuxedo_cat
 	)
 
 /obj/random/smalltank
@@ -1131,10 +1167,12 @@
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 1,
 		/obj/item/eightball/broken						= 1,
+		/obj/item/eightball/conch						= 11,
 		/obj/item/spirit_board					= 5,
 		/obj/item/device/laser_pointer					= 1,
-		/obj/item/clothing/accessory/badge/press/plastic = 2
-
+		/obj/item/clothing/accessory/badge/press/plastic = 2,
+		/obj/item/toy/stickhorse						= 5,
+		/obj/item/toy/bouquet/fake						= 1
 
 	)
 
@@ -1163,6 +1201,7 @@
 		/obj/item/device/megaphone						= 11,
 		/obj/item/eightball								= 11,
 		/obj/item/eightball/haunted						= 5,
+		/obj/item/eightball/conch						= 11,
 		/obj/item/spirit_board					= 5,
 		/obj/item/clothing/accessory/badge/press/plastic = 2
 	)

@@ -752,6 +752,11 @@
 	desc = "A plushie of a delightful mouse! What was once considered a vile rodent is now your very best friend."
 	icon_state = "mouseplushie"
 
+/obj/item/toy/plushie/mouse/dead
+	name = "dead mouse plush"
+	desc = "A plushie of a... mouse. It has a swollen tongue which flops around loosely."
+	icon_state = "mouseplushie-old"
+
 /obj/item/toy/plushie/kitten
 	name = "kitten plush"
 	desc = "A plushie of a cute kitten! Watch as it purrs it's way right into your heart."
@@ -783,6 +788,181 @@
 	name = "firefighter bear plush"
 	desc = "A bear plushie. Only you can stop phoron fires!"
 	icon_state = "bearplushie_fire"
+
+/obj/item/toy/plushie/corgi
+	name = "corgi plushie"
+	icon_state = "corgi"
+	pokephrase = "Woof!"
+
+/obj/item/toy/plushie/girly_corgi
+	name = "corgi plushie"
+	icon_state = "girlycorgi"
+	pokephrase = "Arf!"
+
+/obj/item/toy/plushie/robo_corgi
+	name = "borgi plushie"
+	icon_state = "robotcorgi"
+	pokephrase = "Bark."
+
+/obj/item/toy/plushie/octopus
+	name = "octopus plushie"
+	icon_state = "loveable"
+	pokephrase = "Squish!"
+
+//Small Carp Plushies
+/obj/item/toy/plushie/carp/small
+	name = "space carp plushie"
+	desc = "An adorable stuffed toy that resembles a space carp."
+	icon_state = "basecarp"
+	attack_verb = list("bitten", "eaten", "fin slapped")
+	var/bitesound = 'sound/weapons/bite.ogg'
+
+// Attack mob
+/obj/item/toy/plushie/carp/small/attack(mob/M as mob, mob/user as mob)
+	playsound(src, bitesound, 20, 1)	// Play bite sound in local area
+	return ..()
+
+// Attack self
+/obj/item/toy/plushie/carp/small/attack_self(mob/user as mob)
+	playsound(src, bitesound, 20, 1)
+	return ..()
+
+/obj/random/carp_plushie
+	name = "Random Carp Plushie"
+	desc = "This is a random carp plushie."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "basecarp"
+
+/obj/random/carp_plushie/item_to_spawn()
+	return pick(typesof(/obj/item/toy/plushie/carp)) //can pick any carp plushie, even the original.
+
+/obj/item/toy/plushie/carp/small/ice
+	name = "ice carp plushie"
+	icon_state = "icecarp"
+
+/obj/item/toy/plushie/carp/silent
+	name = "monochrome carp plushie"
+	icon_state = "silentcarp"
+
+/obj/item/toy/plushie/carp/electric
+	name = "electric carp plushie"
+	icon_state = "electriccarp"
+
+/obj/item/toy/plushie/carp/gold
+	name = "golden carp plushie"
+	icon_state = "goldcarp"
+
+/obj/item/toy/plushie/carp/toxin
+	name = "toxic carp plushie"
+	icon_state = "toxincarp"
+
+/obj/item/toy/plushie/carp/dragon
+	name = "dragon carp plushie"
+	icon_state = "dragoncarp"
+
+/obj/item/toy/plushie/carp/pink
+	name = "pink carp plushie"
+	icon_state = "pinkcarp"
+
+/obj/item/toy/plushie/carp/candy
+	name = "candy carp plushie"
+	icon_state = "candycarp"
+
+/obj/item/toy/plushie/carp/nebula
+	name = "nebula carp plushie"
+	icon_state = "nebulacarp"
+
+/obj/item/toy/plushie/carp/void
+	name = "void carp plushie"
+	icon_state = "voidcarp"
+
+//Fox Plushies
+/obj/item/toy/plushie/red_fox
+	name = "red fox plushie"
+	icon_state = "redfox"
+	pokephrase = "Gecker!"
+
+/obj/item/toy/plushie/black_fox
+	name = "black fox plushie"
+	icon_state = "blackfox"
+	pokephrase = "Ack!"
+
+/obj/item/toy/plushie/marble_fox
+	name = "marble fox plushie"
+	icon_state = "marblefox"
+	pokephrase = "Awoo!"
+
+/obj/item/toy/plushie/blue_fox
+	name = "blue fox plushie"
+	icon_state = "bluefox"
+	pokephrase = "Yoww!"
+
+/obj/item/toy/plushie/orange_fox
+	name = "orange fox plushie"
+	icon_state = "orangefox"
+	pokephrase = "Yagh!"
+
+/obj/item/toy/plushie/coffee_fox
+	name = "coffee fox plushie"
+	icon_state = "coffeefox"
+	pokephrase = "Gerr!"
+
+/obj/item/toy/plushie/pink_fox
+	name = "pink fox plushie"
+	icon_state = "pinkfox"
+	pokephrase = "Yack!"
+
+/obj/item/toy/plushie/purple_fox
+	name = "purple fox plushie"
+	icon_state = "purplefox"
+	pokephrase = "Whine!"
+
+/obj/item/toy/plushie/crimson_fox
+	name = "crimson fox plushie"
+	icon_state = "crimsonfox"
+	pokephrase = "Auuu!"
+
+//some deer I guess
+/obj/item/toy/plushie/deer
+	name = "deer plushie"
+	icon_state = "deer"
+	pokephrase = "Bleat!"
+
+//Cat plushies
+/obj/item/toy/plushie/black_cat
+	name = "black cat plushie"
+	icon_state = "blackcat"
+	pokephrase = "Mlem!"
+
+/obj/item/toy/plushie/grey_cat
+	name = "grey cat plushie"
+	icon_state = "greycat"
+	pokephrase = "Mraw!"
+
+/obj/item/toy/plushie/white_cat
+	name = "white cat plushie"
+	icon_state = "whitecat"
+	pokephrase = "Mew!"
+
+/obj/item/toy/plushie/orange_cat
+	name = "orange cat plushie"
+	icon_state = "orangecat"
+	pokephrase = "Meow!"
+
+/obj/item/toy/plushie/siamese_cat
+	name = "siamese cat plushie"
+	icon_state = "siamesecat"
+	pokephrase = "Mrew?"
+
+/obj/item/toy/plushie/tabby_cat
+	name = "tabby cat plushie"
+	icon_state = "tabbycat"
+	pokephrase = "Purr!"
+
+/obj/item/toy/plushie/tuxedo_cat
+	name = "tuxedo cat plushie"
+	icon_state = "tuxedocat"
+	pokephrase = "Mrowww!!"
 
 //Squid Plushies
 
@@ -845,3 +1025,130 @@
 	throwforce = 1
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+
+// DND Character minis. Use the naming convention (type)character for the icon states.
+/obj/item/toy/character
+	w_class = ITEMSIZE_SMALL
+	pixel_z = 5
+
+/obj/item/toy/character/alien
+	name = "xenomorph xiniature"
+	desc = "A miniature xenomorph. Scary!"
+	icon_state = "aliencharacter"
+
+/obj/item/toy/character/cleric
+	name = "cleric miniature"
+	desc = "A wee little cleric, with his wee little staff."
+	icon_state = "clericcharacter"
+
+/obj/item/toy/character/warrior
+	name = "warrior miniature"
+	desc = "That sword would make a decent toothpick."
+	icon_state = "warriorcharacter"
+
+/obj/item/toy/character/thief
+	name = "thief miniature"
+	desc = "Hey, where did my wallet go!?"
+	icon_state = "thiefcharacter"
+
+/obj/item/toy/character/wizard
+	name = "wizard miniature"
+	desc = "MAGIC!"
+	icon_state = "wizardcharacter"
+
+/obj/item/toy/character/voidone
+	name = "void one miniature"
+	desc = "The dark lord has risen!"
+	icon_state = "darkmastercharacter"
+
+/obj/item/toy/character/lich
+	name = "lich miniature"
+	desc = "Murderboner extraordinaire."
+	icon_state = "lichcharacter"
+
+/obj/item/weapon/storage/box/characters
+	name = "box of miniatures"
+	desc = "The nerd's best friends."
+	icon_state = "box"
+/obj/item/weapon/storage/box/characters/starts_with = list(
+//	/obj/item/toy/character/alien,
+	/obj/item/toy/character/cleric,
+	/obj/item/toy/character/warrior,
+	/obj/item/toy/character/thief,
+	/obj/item/toy/character/wizard,
+	/obj/item/toy/character/voidone,
+	/obj/item/toy/character/lich
+	)
+
+/obj/item/toy/figure/AI
+	name = "toy AI"
+	desc = "A little toy model AI core!"// with real law announcing action!" //Alas, requires a rewrite of how ion laws work.
+	icon_state = "AI"
+	w_class = ITEMSIZE_SMALL
+	var/cooldown = 0
+/*
+/obj/item/toy/figure/AI/attack_self(mob/user)
+	if(!cooldown) //for the sanity of everyone
+		var/message = generate_ion_law()
+		to_chat(user, "<span class='notice'>You press the button on [src].</span>")
+		playsound(src, 'sound/machines/click.ogg', 20, 1)
+		visible_message("<span class='danger'>[message]</span>")
+		cooldown = 1
+		spawn(30) cooldown = 0
+		return
+	..()
+*/
+/obj/item/toy/figure/owl
+	name = "owl action figure"
+	desc = "An action figure modeled after 'The Owl', defender of justice."
+	icon_state = "owlprize"
+	w_class = ITEMSIZE_SMALL
+	var/cooldown = 0
+
+/obj/item/toy/figure/owl/attack_self(mob/user)
+	if(!cooldown) //for the sanity of everyone
+		var/message = pick("You won't get away this time, Griffin!", "Stop right there, criminal!", "Hoot! Hoot!", "I am the night!")
+		to_chat(user, "<span class='notice'>You pull the string on the [src].</span>")
+		//playsound(src, 'sound/misc/hoot.ogg', 25, 1)
+		visible_message("<span class='danger'>[message]</span>")
+		cooldown = 1
+		spawn(30) cooldown = 0
+		return
+	..()
+
+/obj/item/toy/figure/griffin
+	name = "griffin action figure"
+	desc = "An action figure modeled after 'The Griffin', criminal mastermind."
+	icon_state = "griffinprize"
+	w_class = ITEMSIZE_SMALL
+	var/cooldown = 0
+
+/obj/item/toy/figure/griffin/attack_self(mob/user)
+	if(!cooldown) //for the sanity of everyone
+		var/message = pick("You can't stop me, Owl!", "My plan is flawless! The vault is mine!", "Caaaawwww!", "You will never catch me!")
+		to_chat(user, "<span class='notice'>You pull the string on the [src].</span>")
+		//playsound(src, 'sound/misc/caw.ogg', 25, 1)
+		visible_message("<span class='danger'>[message]</span>")
+		cooldown = 1
+		spawn(30) cooldown = 0
+		return
+	..()
+
+//Flowers fake & real
+
+/obj/item/toy/bouquet
+	name = "bouquet"
+	desc = "A lovely bouquet of flowers. Smells nice!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "bouquet"
+	w_class = ITEMSIZE_SMALL
+
+/obj/item/toy/bouquet/fake
+	name = "plastic bouquet"
+	desc = "A cheap plastic bouquet of flowers. Smells like cheap, toxic plastic."
+
+/obj/item/toy/stickhorse
+	name = "stick horse"
+	desc = "A pretend horse on a stick for any aspiring little cowboy to ride."
+	icon_state = "stickhorse"
+	w_class = ITEMSIZE_LARGE
