@@ -9,6 +9,7 @@
 	return
 
 //mob verbs are faster than object verbs. See above.
+var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
 	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
 		return FALSE
@@ -16,7 +17,10 @@
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
+	if(next_point_time >= world.time)
+		return FALSE
 
+	next_point_time = world.time + 25
 	face_atom(A)
 	if(isturf(A))
 		if(pointing_effect)
@@ -25,9 +29,10 @@
 		pointing_effect.invisibility = invisibility
 		addtimer(CALLBACK(src, .proc/clear_point), 20)
 	else
-		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 2, size = 1, color = "#F00")
-		LAZYADD(A.filters, pointglow)
-		addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
+		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
+		if(!(pointglow in A.filters))
+			LAZYADD(A.filters, pointglow)
+			addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
 	visible_message("<b>\The [src]</b> points to \the [A].")
 	return TRUE
 
