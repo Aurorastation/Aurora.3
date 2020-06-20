@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - admin: "Added an admin verb that ends the round smoothly, displaying the end round card."
+  - bugfix: "Wizard learned spells are now properly displayed at round."
+  - bugfix: "Antags added to gamemodes they don't belong in, now properly update the gamemode's antag template, allowing their things to be displayed at round end."
+  - bugfix: "Fixed a typo in the apprentice pebble spawn-in calling it an 'artificer pebble' in deadchat."
