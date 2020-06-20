@@ -157,6 +157,10 @@
 	icon_state = "black_leather"
 	item_state = "black_leather"
 
+/obj/item/clothing/gloves/black_leather/colour
+	icon_state = "full_leather_colour"
+	item_state = "full_leather_colour"
+
 /obj/item/clothing/gloves/fingerless
 	desc = "A pair of gloves that don't actually cover the fingers."
 	name = "fingerless gloves"

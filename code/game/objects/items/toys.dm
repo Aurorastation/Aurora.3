@@ -1141,6 +1141,7 @@
 	desc = "A lovely bouquet of flowers. Smells nice!"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "bouquet"
+	item_state = "bouquet"
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/toy/bouquet/fake
@@ -1151,4 +1152,5 @@
 	name = "stick horse"
 	desc = "A pretend horse on a stick for any aspiring little cowboy to ride."
 	icon_state = "stickhorse"
+	item_state = "stickhorse"
 	w_class = ITEMSIZE_LARGE
