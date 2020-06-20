@@ -56,7 +56,7 @@
 	var/min_n2 = 0
 	var/max_n2 = 0
 	var/unsuitable_atoms_damage = 2	//This damage is taken when atmos doesn't fit all the requirements above
-	var/speed = 0 //LETS SEE IF I CAN SET SPEEDS FOR SIMPLE MOBS WITHOUT DESTROYING EVERYTHING. Higher speed is slower, negative speed is faster
+	var/speed = 4
 
 	//LETTING SIMPLE ANIMALS ATTACK? WHAT COULD GO WRONG. Defaults to zero so Ian can still be cuddly
 	var/melee_damage_lower = 0
@@ -483,15 +483,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 
 /mob/living/simple_animal/movement_delay()
-	var/tally = ..()
+	var/tally = speed
 
-	tally += speed
 	if(purge)//Purged creatures will move more slowly. The more time before their purge stops, the slower they'll move.
 		if(tally <= 0)
 			tally = 1
 		tally *= purge
 
-	if (!nutrition)
+	if(!nutrition)
 		tally += 4
 
 	return tally + config.animal_delay

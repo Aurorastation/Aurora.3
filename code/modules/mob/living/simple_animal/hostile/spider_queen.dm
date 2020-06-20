@@ -32,7 +32,7 @@
 
 	pass_flags = PASSTABLE
 	move_to_delay = 6
-	speed = 1
+	speed = 4
 	mob_size = 15
 	environment_smash = 2
 
