@@ -423,7 +423,7 @@
 			
 /mob/living/carbon/alien/diona/proc/remove_hat()
 	set category = "Abilities"
-	set name = "Remove_hat"
+	set name = "Remove Hat"
 	set desc = " Remove your hat."
 	
 	if(hat != null)
