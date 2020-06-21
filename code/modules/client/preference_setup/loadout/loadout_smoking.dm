@@ -4,8 +4,26 @@
 	sort_category = "Smoking"
 
 /datum/gear/smoking/zippo
-	display_name = "zippo"
+	display_name = "Zippo lighter"
 	path = /obj/item/flame/lighter/zippo
+
+/datum/gear/smoking/zippo/New()
+	..()
+	var/zippolighters = list()
+	zippolighters["regular Zippo"] = /obj/item/flame/lighter/zippo
+	zippolighters["holy black Zippo"] = /obj/item/flame/lighter/zippo/black
+	zippolighters["blue Zippo"] = /obj/item/flame/lighter/zippo/blue
+	zippolighters["engraved Zippo"] = /obj/item/flame/lighter/zippo/engraved
+	zippolighters["golden Zippo"] = /obj/item/flame/lighter/zippo/gold
+	zippolighters["moth Zippo"] = /obj/item/flame/lighter/zippo/moff
+	zippolighters["red Zippo"] = /obj/item/flame/lighter/zippo/red
+	zippolighters["ironic Zippo"] = /obj/item/flame/lighter/zippo/ironic
+	zippolighters["capitalist Zippo"] = /obj/item/flame/lighter/zippo/capitalist
+	zippolighters["communist Zippo"] = /obj/item/flame/lighter/zippo/communist
+	zippolighters["royal Zippo"] = /obj/item/flame/lighter/zippo/royal
+	zippolighters["Gonzo Zippo"] = /obj/item/flame/lighter/zippo/gonzo
+	zippolighters["rainbow Zippo"] = /obj/item/flame/lighter/zippo/rainbow
+	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter
 	display_name = "cheap lighter (selection)"

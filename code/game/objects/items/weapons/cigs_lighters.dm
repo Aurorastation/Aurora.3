@@ -609,6 +609,62 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/flame/lighter/zippo/black
+	name = "holy Zippo lighter"
+	desc = "Only in regards to Christianity, that is."
+	icon_state = "blackzippo"
+
+/obj/item/flame/lighter/zippo/blue
+	name = "blue Zippo lighter"
+	icon_state = "bluezippo"
+
+/obj/item/flame/lighter/zippo/engraved
+	name = "engraved Zippo lighter"
+	icon_state = "engravedzippo"
+	item_state = "zippo"
+
+/obj/item/flame/lighter/zippo/gold
+	name = "golden Zippo lighter"
+	icon_state = "goldzippo"
+
+/obj/item/flame/lighter/zippo/moff
+	name = "moth Zippo lighter"
+	desc = "Too cute to be a Tymisian."
+	icon_state = "moffzippo"
+
+/obj/item/flame/lighter/zippo/red
+	name = "red Zippo lighter"
+	icon_state = "redzippo"
+
+/obj/item/flame/lighter/zippo/ironic
+	name = "ironic Zippo lighter"
+	desc = "What a quiant idea."
+	icon_state = "ironiczippo"
+
+/obj/item/flame/lighter/zippo/capitalist
+	name = "capitalist Zippo lighter"
+	desc = "Made of gold and obsidian, this is truly not worth however much you spent on it."
+	icon_state = "cappiezippo"
+
+/obj/item/flame/lighter/zippo/communist
+	name = "communist Zippo lighter"
+	desc = "All you need to spark a revolution."
+	icon_state = "commiezippo"
+
+/obj/item/flame/lighter/zippo/royal
+	name = "royal Zippo lighter"
+	desc = "An incredibly fancy lighter, gilded and covered in the color of royalty."
+	icon_state = "royalzippo"
+
+/obj/item/flame/lighter/zippo/gonzo
+	name = "\improper Gonzo Zippo lighter"
+	desc = "A lighter with the iconic Gonzo fist painted on it."
+	icon_state = "gonzozippo"
+
+/obj/item/flame/lighter/zippo/rainbow
+	name = "rainbow Zippo lighter"
+	icon_state = "rainbowzippo"
+
 /obj/item/flame/lighter/red
 	icon_state = "lighter-r"
 	item_state = "lighter-r"
