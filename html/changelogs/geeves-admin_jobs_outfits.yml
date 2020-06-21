@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - admin: "Admins can now assign job outfits via the Set Human Outfit command."
