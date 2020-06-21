@@ -6792,7 +6792,7 @@
 /area/medical/abandoned)
 "qL" = (
 /obj/machinery/camera/network/supply{
-	c_tag = "Warehouse - North"
+	c_tag = "Warehouse - Upper North"
 	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
@@ -8747,7 +8747,7 @@
 /area/maintenance/interstitial_cargo)
 "Dj" = (
 /obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Main Warehouse";
+	c_tag = "Cargo - Upper Warehouse";
 	dir = 1
 	},
 /obj/structure/table/standard,

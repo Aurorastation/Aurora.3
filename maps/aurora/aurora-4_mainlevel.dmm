@@ -54489,7 +54489,7 @@
 /area/quartermaster/storage)
 "bZB" = (
 /obj/machinery/camera/network/supply{
-	c_tag = "Warehouse - North"
+	c_tag = "Warehouse - Lower North"
 	},
 /obj/structure/disposalpipe/tagger{
 	dir = 2;
@@ -56397,7 +56397,7 @@
 /area/quartermaster/storage)
 "cdo" = (
 /obj/machinery/camera/network/supply{
-	c_tag = "Cargo - Main Warehouse";
+	c_tag = "Cargo - Lower Warehouse";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
