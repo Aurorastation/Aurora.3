@@ -392,3 +392,75 @@
 
 /obj/item/weldingtool/robotic
 	icon = 'icons/obj/robot_items.dmi'
+
+/obj/item/inductive_charger
+	name = "inductive charger"
+	desc = "A phoron-enhanced induction charger hooked up to its attached stationbound's internal cell."
+	desc_fluff = "Harnessing the energy potential found in phoron structures, Nanotrasen engineers have created an induction charger capable of outputting more power than inserted. The expense and limit of energy output of using this method of charging prevents it from being used on a large scale, being far outclassed by Phoron-Supermatter charging systems."
+	desc_info = "Click on an adjacent object that contains or is a power cell to attempt to find and charge it. After a successful charge, the inductive charger recharge in one minute."
+	icon = 'icons/obj/robot_items.dmi'
+	icon_state = "inductive_charger"
+	var/ready_to_use = TRUE
+	var/recharge_time = 1 MINUTE
+	maptext_x = 3
+	maptext_y = 2
+
+/obj/item/inductive_charger/Initialize()
+	. = ..()
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
+
+/obj/item/inductive_charger/attack(mob/living/M, mob/living/user, target_zone)
+	return
+
+/obj/item/inductive_charger/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	var/mob/living/silicon/robot/R = user
+	if(!istype(R))
+		to_chat(user, SPAN_WARNING("Only cyborgs can use this!"))
+		return
+	if(!ready_to_use)
+		to_chat(user, SPAN_WARNING("\The [src] is still gathering charge!"))
+		return
+
+	user.visible_message("<b>\The [user]</b> begins waving \the [src] around \the [target]...", SPAN_NOTICE("You prepare to wirelessly charge \the [target]..."), range = 3)
+	if(!do_after(user, 50, TRUE, target))
+		return
+	if(R.cell.charge < 1000)
+		to_chat(user, SPAN_WARNING("You have no spare charge in your internal cell to give!"))
+		return
+
+	if(isipc(target))
+		var/mob/living/carbon/human/IPC = target
+		if(IPC.nutrition == IPC.max_nutrition)
+			to_chat(user, SPAN_WARNING("\The [IPC] is already fully charged!"))
+			return
+		var/charge_value = R.cell.use((IPC.max_nutrition - IPC.nutrition) / 2) * 2
+		IPC.nutrition = min(IPC.max_nutrition, charge_value)
+		user.visible_message("<b>\The [user] holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC]."), range = 3)
+		addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+		ready_to_use = FALSE
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
+	else if(isobj(target))
+		var/obj/item/cell/C
+		if(istype(target, /obj/item/cell))
+			C = target
+		else
+			C = locate() in target
+		if(!C)
+			to_chat(user, SPAN_WARNING("\The [target] doesn't contain a cell, or it's buried too deep for you to reach!"))
+			return
+		if(C.fully_charged())
+			to_chat(user, SPAN_WARNING("\The [C] is already fully charged!"))
+			return
+		var/charge_amount = min(C.maxcharge - C.charge, 5000) // to prevent us from shitting all our power into this cell
+		var/charge_value = R.cell.use(charge_amount / 2) * 2
+		C.give(charge_value)
+		user.visible_message("<b>\The [user] holds \the [src] over \the [target], topping up its battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target]."), range = 3)
+		addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+		ready_to_use = FALSE
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
+	else
+		to_chat(user, SPAN_WARNING("\The [src] cannot be used on \the [target]!"))
+
+/obj/item/inductive_charger/proc/recharge()
+	ready_to_use = TRUE
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
