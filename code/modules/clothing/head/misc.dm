@@ -206,6 +206,9 @@
 	icon_state = "flat_cap"
 	siemens_coefficient = 0.9
 
+/obj/item/clothing/head/flatcap/colour
+	icon_state = "flat_cap_colour"
+
 /obj/item/clothing/head/pirate
 	name = "pirate hat"
 	desc = "Yarr."
@@ -363,6 +366,16 @@
 /obj/item/clothing/head/cowboy/wide
 	name = "wide-brimmed cowboy hat"
 	icon_state = "cowboy_wide"
+
+/obj/item/clothing/head/cowboy/black
+	name = "black cowboy hat"
+	desc = "You can almost hear the old western music."
+	icon_state = "cowboy_black"
+
+/obj/item/clothing/head/cowboy/small
+	name = "small cowboy hat"
+	desc = "For the tiniest of cowboys."
+	icon_state = "cowboy"
 
 /obj/item/clothing/head/sombrero
 	name = "sombrero"
@@ -705,3 +718,23 @@
 	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/kippa
+	name = "kippa"
+	desc = "A small, brimless cap."
+	icon_state = "kippa"
+
+/obj/item/clothing/head/taqiyah
+	name = "taqiyah"
+	desc = "A short, rounded skullcap usually worn for religious purposes."
+	icon_state = "taqiyah"
+
+/obj/item/clothing/head/maangtikka
+	name = "maang tikka"
+	desc = "A jeweled headpiece originating in India."
+	icon_state = "maangtikka"
+
+/obj/item/clothing/head/jingasa
+	name = "jingasa"
+	desc = "A wide, flat rain hat originally from Japan."
+	icon_state = "jingasa"

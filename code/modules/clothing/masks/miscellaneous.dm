@@ -204,3 +204,33 @@
 	item_state = "muzzle"
 	down_body_parts_covered = null
 	adjustable = TRUE
+
+/obj/item/clothing/mask/bandanna
+	name = "black bandanna"
+	desc = "A fine bandanna with nanotech lining. Can be worn on the head or face."
+	w_class = ITEMSIZE_TINY
+	flags_inv = HIDEFACE
+	slot_flags = SLOT_MASK|SLOT_HEAD
+	body_parts_covered = FACE
+	icon_state = "bandcolour"
+	item_state_slots = list(slot_r_hand_str = "bandcolour", slot_l_hand_str = "bandcolour")
+
+/obj/item/clothing/mask/bandana/equipped(var/mob/user, var/slot)
+	switch(slot)
+		if(slot_wear_mask) //Mask is the default for all the settings
+			flags_inv = initial(flags_inv)
+			body_parts_covered = initial(body_parts_covered)
+			icon_state = initial(icon_state)
+
+		if(slot_head)
+			flags_inv = 0
+			body_parts_covered = HEAD
+			icon_state = "[initial(icon_state)]_up"
+
+	return ..()
+
+/obj/item/clothing/mask/bandanna/skull
+	name = "skull bandanna"
+	desc = "A fine black bandanna with nanotech lining and a skull emblem. Can be worn on the head or face."
+	icon_state = "bandskull"
+	item_state_slots = list(slot_r_hand_str = "bandskull", slot_l_hand_str = "bandskull")

@@ -103,11 +103,16 @@
 /datum/gear/head/hardhat/New()
 	..()
 	var/hardhat = list()
-	hardhat["hardhat, yellow"] = /obj/item/clothing/head/hardhat
-	hardhat["hardhat, blue"] = /obj/item/clothing/head/hardhat/dblue
-	hardhat["hardhat, orange"] = /obj/item/clothing/head/hardhat/orange
-	hardhat["hardhat, red"] = /obj/item/clothing/head/hardhat/red
+	hardhat["yellow hardhat"] = /obj/item/clothing/head/hardhat
+	hardhat["blue hardhat"] = /obj/item/clothing/head/hardhat/dblue
+	hardhat["orange hardhat"] = /obj/item/clothing/head/hardhat/orange
+	hardhat["red hardhat"] = /obj/item/clothing/head/hardhat/red
 	gear_tweaks += new/datum/gear_tweak/path(hardhat)
+
+/datum/gear/head/hairbow
+	display_name = "hair bow, small (colourable)"
+	path = /obj/item/clothing/head/pin/bow
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/hairflower
 	display_name = "hair flower pin (colourable)"
@@ -122,9 +127,9 @@
 /datum/gear/head/flowercrown/New()
 	..()
 	var/flowercrown = list()
-	flowercrown["crown, sunflower"] = /obj/item/clothing/head/sunflower_crown
-	flowercrown["crown, harebell"] = /obj/item/clothing/head/lavender_crown
-	flowercrown["crown, poppy"] = /obj/item/clothing/head/poppy_crown
+	flowercrown["sunflower crown"] = /obj/item/clothing/head/sunflower_crown
+	flowercrown["harebell crown"] = /obj/item/clothing/head/lavender_crown
+	flowercrown["poppy crown"] = /obj/item/clothing/head/poppy_crown
 	gear_tweaks += new/datum/gear_tweak/path(flowercrown)
 
 /datum/gear/head/pin
@@ -147,20 +152,27 @@
 /datum/gear/head/hats/New()
 	..()
 	var/hats = list()
-	hats["hat, boatsman"] = /obj/item/clothing/head/boaterhat
-	hats["hat, bowler"] = /obj/item/clothing/head/bowler
-	hats["hat, fez"] = /obj/item/clothing/head/fez
-	hats["hat, tophat"] = /obj/item/clothing/head/that
-	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
-	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
-	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
-	hats["hat, dark brown fedora"] = /obj/item/clothing/head/fedora/brown/dark
-	hats["hat, grey fedora"] = /obj/item/clothing/head/fedora/grey
-	hats["hat, beaver"] = /obj/item/clothing/head/beaverhat
-	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
-	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
-	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
+	hats["boatsman hat"] = /obj/item/clothing/head/boaterhat
+	hats["bowler hat"] = /obj/item/clothing/head/bowler
+	hats["fez"] = /obj/item/clothing/head/fez
+	hats["tophat"] = /obj/item/clothing/head/that
+	hats["feather trilby"] = /obj/item/clothing/head/feathertrilby
+	hats["fedora, black"] = /obj/item/clothing/head/fedora
+	hats["fedora, brown"] = /obj/item/clothing/head/fedora/brown
+	hats["fedora, dark brown"] = /obj/item/clothing/head/fedora/brown/dark
+	hats["fedora, grey"] = /obj/item/clothing/head/fedora/grey
+	hats["beaver hat"] = /obj/item/clothing/head/beaverhat
+	hats["cowboy hat"] = /obj/item/clothing/head/cowboy
+	hats["cowboy hat, wide-brimmed"] = /obj/item/clothing/head/cowboy/wide
+	hats["cowboy hat, black"] = /obj/item/clothing/head/cowboy/black
+	hats["cowboy hat, small"] = /obj/item/clothing/head/cowboy/small
+	hats["sombrero"] = /obj/item/clothing/head/sombrero
 	gear_tweaks += new/datum/gear_tweak/path(hats)
+
+/datum/gear/head/hats/flatcap_colour
+	display_name = "flat cap (colourable)"
+	path = /obj/item/clothing/head/flatcap/colour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/hijab
 	display_name = "hijab (selection)"
@@ -178,6 +190,11 @@
 	hijab["white hijab"] = /obj/item/clothing/head/hijab/white
 
 	gear_tweaks += new/datum/gear_tweak/path(hijab)
+
+/datum/gear/head/hijab/colourable
+	display_name = "hijab (colourable)"
+	path = /obj/item/head/hijab/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/turban
 	display_name = "turban (selection)"
@@ -198,6 +215,11 @@
 
 	gear_tweaks += new/datum/gear_tweak/path(turbans)
 
+/datum/gear/head/turban/colourable
+	display_name = "turban (colourable)"
+	path = /obj/item/head/turban/white
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/surgical
 	display_name = "surgical cap (selection)"
 	path = /obj/item/clothing/head/surgery/blue
@@ -206,10 +228,10 @@
 /datum/gear/head/surgical/New()
 	..()
 	var/surgical = list()
-	surgical["surgical cap, purple"] = /obj/item/clothing/head/surgery/purple
-	surgical["surgical cap, blue"] = /obj/item/clothing/head/surgery/blue
-	surgical["surgical cap, green"] = /obj/item/clothing/head/surgery/green
-	surgical["surgical cap, black"] = /obj/item/clothing/head/surgery/black
+	surgical["purple surgical cap"] = /obj/item/clothing/head/surgery/purple
+	surgical["blue surgical cap"] = /obj/item/clothing/head/surgery/blue
+	surgical["green surgical cap"] = /obj/item/clothing/head/surgery/green
+	surgical["black surgical cap"] = /obj/item/clothing/head/surgery/black
 	gear_tweaks += new/datum/gear_tweak/path(surgical)
 
 /datum/gear/head/headbando
@@ -232,7 +254,7 @@
 	path = /obj/item/clothing/head/nonla
 
 /datum/gear/head/iacberet
-	display_name = "IAC Beret"
+	display_name = "IAC beret"
 	path = /obj/item/clothing/head/soft/iacberet
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
 	flags = GEAR_HAS_DESC_SELECTION
@@ -249,11 +271,54 @@
 /datum/gear/head/tcfl/New()
 	..()
 	var/tcfl = list()
-	tcfl["TCFL beret, dress"] = /obj/item/clothing/head/legion_beret
-	tcfl["TCFL beret, field"] = /obj/item/clothing/head/legion
+	tcfl["dress TCFL beret, "] = /obj/item/clothing/head/legion_beret
+	tcfl["field TCFL beret, "] = /obj/item/clothing/head/legion
 	gear_tweaks += new/datum/gear_tweak/path(tcfl)
 
 /datum/gear/head/padded_cap
 	display_name = "padded cap (colourable)"
 	path = /obj/item/clothing/head/padded
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/kippa
+	display_name = "kippa (colourable)"
+	path = /obj/item/clothing/head/kippa
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/taqiyah
+	display_name = "taqiyah (colourable)"
+	path = /obj/item/clothing/head/taqiyah
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/maangtikka
+	display_name = "maang tikka"
+	path = /obj/item/clothing/head/maangtikka
+
+/datum/gear/head/jingasa
+	display_name = "jingasa"
+	path = /obj/item/clothing/head/jingasa
+
+/datum/gear/head/wig/philosopher
+	display_name = "natural philosopher's wig"
+	path = /obj/item/clothing/head/philosopher_wig
+
+/datum/gear/head/wig
+	display_name = "powdered wig"
+	path = /obj/item/clothing/head/powdered_wig
+
+/datum/gear/head/welding
+	display_name = "welding helmet"
+	path = /obj/item/clothing/head/welding
+	cost = 2
+	allowed_roles = list("Chief Engineer","Station Engineer","Atmospheric Technician","Engineering Apprentice","Research Director","Roboticist")
+
+/datum/gear/head/welding/New()
+	..()
+	var/weldinghelmets = list()
+	weldinghelmets["normal welding helmet"] = /obj/item/clothing/head/welding
+	weldinghelmets["demon welding helmet"] = /obj/item/clothing/head/welding/demon
+	weldinghelmets["knight welding helmet"] = /obj/item/clothing/head/welding/knight
+	weldinghelmets["fancy welding helmet"] = /obj/item/clothing/head/welding/fancy
+	weldinghelmets["engie welding helmet"] = /obj/item/clothing/head/welding/engie
+	weldinghelmets["carp welding helmet"] = /obj/item/clothing/head/welding/carp
+	gear_tweaks += new/datum/gear_tweak/path(weldinghelmets)

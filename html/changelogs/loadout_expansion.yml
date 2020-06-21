@@ -38,7 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Lowercased the 'G' in science goggles and capitalised the 'tcfl' in the TCFL items in the loadout menu."
   - tweak: "Parentheses have been placed next to loadout selections to indication whether they are colourable and/or have a variant selection list."
   - rscadd: "Accessory Loadout: ported armbands (colourable), brassards, asymmetrical jackets, full and half capes, sashes, a cowled vest, bracelets (friendship, colourable, and material recipe), suit vest and colourable elegant waistcoat, some more sweaters (both colourable and not) from Polaris."
   - rscadd: "Accessory Loadout: added name pin tags by The Stryker and colourable neckties."
@@ -50,7 +49,9 @@ changes:
   - rscadd: "General Loadout: added crutch, action figures, and toy selections."
   - rscadd: "Gloves Loadout: ported forensic gloves and duty work gloves from Polaris."
   - rscadd: "Gloves Loadout: added colourable full leather gloves, colourable fingerless gloves, disposable gloves selection, and two gemstone rings."
-  - rscadd: "Head Loadout: added colourable softcaps."
+  - rscadd: "Head Loadout: ported cowboy hats, colourable flat cap, maang tikka, jingasa, kippa, and taqiyah from Polaris."
+  - rscadd: "Head Loadout: added colourable softcap, colourable hair bow, colourable hijab, colourable turban, powdered wig, philosopher wig."
+  - rscadd: "Mask Loadout: ported bandannas from Polaris."
   - rscadd: "Smoking Loadout: ported e-cigarettes and zippo lighters from Polaris."
   - rscadd: "Smoking Loadout: added plastic ashtray, colour selection for cheap lighters"
   - rscadd: "Utility Loadout: ported clutch bags and purses from Polaris."

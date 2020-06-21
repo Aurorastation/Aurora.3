@@ -71,6 +71,7 @@
 	"No, the AI's first law is NOT to serve _____.",
 	"The robots are not disposal bins for your _____.",
 	"You can never have too many _____ on shift.",
+	"Failing to fit ______ up the
 	)
 
 // White cards.
@@ -146,5 +147,8 @@
 	"DOCTOR MAXMAN!",
 	"A group of Skrell getting their squish on",
 	"Enough soporific to put the entire station down",
-	"Delicious Vietnamese cuisine"
+	"Delicious Vietnamese cuisine",
+	"Glorsh",
+	"Miranda Trasen",
+	"Michael Frost"
 	)
