@@ -49,13 +49,12 @@
 
 	//These values are duplicated from the species datum so we can handle things on a per-mob basis, allows for chemicals to affect them
 	var/stamina = 0
-	var/max_stamina = 100//Maximum stamina. We start taking oxyloss when this runs out while sprinting
+	var/max_stamina = 100 //Maximum stamina.
 	var/sprint_speed_factor = 0.4
 	var/sprint_cost_factor = 1
 	var/stamina_recovery = 1
 	var/min_walk_delay = 0//When move intent is walk, movedelay is clamped to this value as a lower bound
-	var/exhaust_threshold = 50
-	var/datum/progressbar/stamina_bar	// Progress bar shown when stamina is not at full, and the mob supports stamina. Deleted on Logout or when stamina is full.
+	var/datum/progressbar/stamina_bar
 
 	var/move_delay_mod = 0//Added to move delay, used for calculating movement speeds. Provides a centralised value for modifiers to alter
 

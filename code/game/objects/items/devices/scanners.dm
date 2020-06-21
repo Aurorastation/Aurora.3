@@ -22,15 +22,13 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1
 
-/obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
 	health_scan_mob(M, user, mode)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
 	health_scan_mob(user, user, mode)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio) //Used for ratios.
 	var/degree = "none"
@@ -62,7 +60,7 @@ BREATH ANALYZER
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
 	if(!just_scan)
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-			user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
+			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
 			to_chat(user, "Overall Status: Healthy</span>")
 			return
@@ -71,7 +69,7 @@ BREATH ANALYZER
 			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
+		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
@@ -115,7 +113,7 @@ BREATH ANALYZER
 			pulse_result = 0
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
-		pulse_result = "<span class='scan_green'>[pulse_result]bpm</span>"
+		pulse_result = "<span class='scan_green'>[pulse_result]</span>"
 		if(H.pulse() == PULSE_NONE)
 			pulse_result = "<span class='scan_danger'>[pulse_result]</span>"
 		else if(H.pulse() < PULSE_NORM)
@@ -123,11 +121,8 @@ BREATH ANALYZER
 		else if(H.pulse() > PULSE_NORM)
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
-		if(H.isFBP())
-			pulse_result = "<span class='scan_green'>[rand(70, 85)]bpm</span>"
-		else
-			pulse_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
-	dat += "Pulse rate: [pulse_result]."
+		pulse_result = "<span class='scan_danger'>0</span>"
+	dat += "Pulse rate: [pulse_result]bpm."
 
 	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
@@ -154,10 +149,7 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
 		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
 	else
-		if(H.isFBP())
-			dat += "[b]Blood pressure:[endb] <span class='scan_green'>[rand(118, 125)]/[rand(77, 85)]</span> (<span class='scan_green'>100% blood oxygenation</span>)"
-		else
-			dat += "[b]Blood pressure:[endb] N/A"
+		dat += "[b]Blood pressure:[endb] N/A"
 
 	// Body temperature.
 	var/temperature_string
@@ -198,7 +190,7 @@ BREATH ANALYZER
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)
 			for(var/obj/item/organ/external/org in damaged)
-				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) && !(org.status & ORGAN_LIFELIKE) ? " (Cybernetic)" : ""]:"
+				var/limb_result = "[capitalize(org.name)][BP_IS_ROBOTIC(org) ? " (Cybernetic)" : ""]:"
 				if(org.brute_dam > 0)
 					limb_result = "[limb_result] \[<font color = 'red'><b>[get_severity(org.brute_dam, TRUE)] physical trauma</b></font>\]"
 				if(org.burn_dam > 0)

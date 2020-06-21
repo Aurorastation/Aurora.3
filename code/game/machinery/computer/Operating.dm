@@ -48,7 +48,7 @@
 		src.victim = src.table.victim
 		var/brain_result = victim.get_brain_status()
 		if(victim.isFBP())
-			brain_result = "normal"
+			brain_result = "<span class='danger'>N/A</span>"
 		dat += {"
 <B>Patient Information:</B><BR>
 Brain Activity: <b>[brain_result]</b><br>

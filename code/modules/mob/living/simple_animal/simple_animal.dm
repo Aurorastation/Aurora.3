@@ -114,6 +114,8 @@
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
+	move_intent = /decl/move_intent/walk/animal
+
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -378,11 +380,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<span class='notice'>[M] [response_help] \the [src]</span>")
+				M.visible_message("<span class='notice'>[M] [response_help] \the [src].</span>")
 				poke()
 
 		if(I_DISARM)
-			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src]</span>")
+			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src].</span>")
 			M.do_attack_animation(src)
 			poke(1)
 			//TODO: Push the mob away or something
@@ -481,9 +483,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 
 /mob/living/simple_animal/movement_delay()
-	var/tally = 0 //Incase I need to add stuff other than "speed" later
+	var/tally = ..()
 
-	tally = speed
+	tally += speed
 	if(purge)//Purged creatures will move more slowly. The more time before their purge stops, the slower they'll move.
 		if(tally <= 0)
 			tally = 1
@@ -492,7 +494,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if (!nutrition)
 		tally += 4
 
-	return tally+config.animal_delay
+	return tally + config.animal_delay
 
 /mob/living/simple_animal/cat/proc/handle_movement_target()
 	//if our target is neither inside a turf or inside a human(???), stop

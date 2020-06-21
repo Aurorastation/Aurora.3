@@ -52,6 +52,7 @@
 	var/crisis = FALSE //Admin-settable for combat module use.
 	var/crisis_override = FALSE
 	var/malf_AI_module = FALSE
+	var/flash_resistant = FALSE
 	var/overclocked = FALSE // cyborg controls if they enable the overclock
 	var/overclock_available = FALSE // if the overclock is available for use
 
@@ -407,7 +408,7 @@
 	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
 	for (var/V in components)
 		var/datum/robot_component/C = components[V]
-		dat += "<b>[C.name]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table><br>"
+		dat += "<b>[capitalize_first_letters(C.name)]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
 
 	return dat
 
@@ -459,11 +460,13 @@
 	set name = "Self Diagnosis"
 
 	if(!is_component_functioning("diagnosis unit"))
-		to_chat(src, SPAN_WARNING("Your self-diagnosis component isn't functioning."))
+		to_chat(src, SPAN_WARNING("WARNING: Self-diagnosis component malfunctioning!"))
+		return
 
 	var/datum/robot_component/CO = get_component("diagnosis unit")
 	if(!cell_use_power(CO.active_usage))
-		to_chat(src, SPAN_WARNING("WARNING: Low Power."))
+		to_chat(src, SPAN_WARNING("WARNING: Power too low for self-diagnostic functions."))
+		return
 	var/dat = self_diagnosis()
 	src << browse(dat, "window=robotdiagnosis")
 

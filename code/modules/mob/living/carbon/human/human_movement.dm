@@ -1,36 +1,42 @@
+/mob/living/carbon/human
+	move_intents = list(/decl/move_intent/walk)
+
 /mob/living/carbon/human/movement_delay()
+	var/tally = ..()
 
-	var/tally = 0
-	if(species.slowdown)
-		tally = species.slowdown
+	tally += species.slowdown
 
-	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
+	var/area/A = get_area(src)
+	if(A && !(A.has_gravity()))
+		tally -= 1
 
-	if (isopenturf(loc)) //open space checks
+	if(isopenturf(loc)) //open space checks
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
 			return -1
 
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 
-	var/health_deficiency = (100 - health)
-	if(health_deficiency >= 40) tally += (health_deficiency / 25)
-
 	if(can_feel_pain())
-		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
+		if(get_shock() >= 10)
+			tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
 		tally += I.slowdown
 
+	var/health_deficiency = (maxHealth - health)
+	if(health_deficiency >= 40)
+		tally += (health_deficiency / 25)
+
 	if(species)
 		tally += species.get_species_tally(src)
 
-	if (nutrition < (max_nutrition * 0.2))
+	if(nutrition < (max_nutrition * 0.2))
 		tally++
 		if (nutrition < (max_nutrition * 0.1))
 			tally++
 
-	if (hydration < (max_hydration * 0.2))
+	if(hydration < (max_hydration * 0.2))
 		tally++
 		if (hydration < (max_hydration * 0.1))
 			tally++
@@ -58,40 +64,41 @@
 				tally += 1.5
 
 	if (can_feel_pain())
-		if(shock_stage >= 10)
+		if(shock_stage >= 10 || get_stamina() <= 0)
 			tally += 3
 
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 
-	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
+	if(aiming && aiming.aiming_at)
+		tally += 5 // Iron sights make you slower, it's a well-known fact.
 
-	if (drowsyness) tally += 6
+	if(drowsyness)
+		tally += 6
 
-	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
+	if(!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
 		if(FAT in src.mutations)
 			tally += 1.5
 		if (bodytemperature < 283.222)
 			tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
+
 	if(mRun in mutations)
 		tally = 0
 
 	tally += move_delay_mod
 
 	if(tally > 0 && (CE_SPEEDBOOST in chem_effects))
-		tally = max(0, tally-3)
+		tally = max(0, tally - 3)
 
 	var/turf/T = get_turf(src)
 	if(T)
 		tally += T.movement_cost
 
-	tally += config.human_delay
+	tally = round(tally, 1)
 
-	tally = round(tally,1)
-
-	return tally
+	return tally + config.human_delay
 
 
 /mob/living/carbon/human/Allow_Spacemove(var/check_drift = 0)
@@ -155,7 +162,7 @@
 			return
 		last_x = x
 		last_y = y
-		if (m_intent == "run")
+		if (MOVING_QUICKLY(src))
 			playsound(src, footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
@@ -169,3 +176,6 @@
 
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
+
+/mob/living/carbon/human/can_sprint()
+	return (stamina > 0)
