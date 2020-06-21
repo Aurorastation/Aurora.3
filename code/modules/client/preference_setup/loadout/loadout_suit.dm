@@ -23,7 +23,6 @@
 	..()
 	var/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
-	jackets["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
@@ -115,6 +114,11 @@
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/blazer
+	display_name = "blazer"
+	path = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/trenchcoats
@@ -226,8 +230,8 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/dominia
-	display_name = "dominia great coat selection"
-	description = "A selection of Dominian coats."
+	display_name = "dominia coat and jacket selection"
+	description = "A selection of Dominian coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -237,6 +241,7 @@
 	coat["dominia great coat, red"] = /obj/item/clothing/suit/storage/toggle/dominia
 	coat["dominia great coat, gold"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
+	coat["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tcfl
@@ -306,12 +311,16 @@
 	display_name = "puffer vest"
 	path = /obj/item/clothing/suit/jacket/puffer/vest
 
-/datum/gear/suit/greenjacket
-	display_name = "green suit jacket"
-	path = /obj/item/clothing/suit/storage/toggle/greengov
-
 /datum/gear/suit/cardigan
-	display_name = "cardigan"
-	path = /obj/item/clothing/suit/cardigan
-	cost = 1 // has no pockets or any use whatsoever anyway
+	display_name = "cardigan selection"
+	description = "A selection of cardigans."
+	path = /obj/item/clothing/suit/storage/toggle/cardigan
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/cardigan/New()
+	..()
+	var/cardigan = list()
+	cardigan["cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan
+	cardigan["sweater cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/sweater
+	cardigan["argyle cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/argyle
+	gear_tweaks += new/datum/gear_tweak/path(cardigan)

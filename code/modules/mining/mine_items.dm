@@ -43,8 +43,8 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_mining.dmi',
 		)
 	light_power = 1
-	brightness_on = 6
-	light_wedge = LIGHT_OMNI
+	brightness_on = 4
+	light_wedge = 120
 	light_color = LIGHT_COLOR_FIRE
 
 /*****************************Pickaxe********************************/

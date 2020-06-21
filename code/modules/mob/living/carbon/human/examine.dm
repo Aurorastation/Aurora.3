@@ -262,9 +262,9 @@
 
 
 	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD)
-		if(!key)
+		if(!vr_mob && !key)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd]. It doesn't look like [T.he] [T.is] waking up anytime soon.</span>\n"
-		else if(!client && !bg)
+		else if(!vr_mob && !client && !bg)
 			msg += "<span class='deadsay'>[T.He] [T.is] [species.show_ssd].</span>\n"
 		if(have_client && ((inactivity / 600) > 10)) // inactivity/10/60 > 10 MINUTES
 			msg += "<span class='deadsay'>\[Inactive for [round(inactivity / 600)] minutes.\]\n</span>"
@@ -297,7 +297,7 @@
 					// No need to notify about robotic limbs if they're not damaged, really.
 					continue
 				else
-					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] a robot [temp.name]. It has[temp.get_wounds_desc()]!</span>\n"
+					wound_flavor_text["[temp.name]"] = "<span class='warning'>[T.He] [T.has] [temp.get_wounds_desc()] on [T.his] [temp.name].</span><br>"
 			else if(temp.wounds.len > 0 || temp.open)
 				if(temp.is_stump() && temp.parent_organ && organs_by_name[temp.parent_organ])
 					var/obj/item/organ/external/parent = organs_by_name[temp.parent_organ]

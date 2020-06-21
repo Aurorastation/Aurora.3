@@ -20,6 +20,7 @@ var/list/ai_verbs_default = list(
 	/mob/living/silicon/ai/proc/core,
 	/mob/living/silicon/ai/proc/pick_icon,
 	/mob/living/silicon/ai/proc/sensor_mode,
+	/mob/living/silicon/ai/proc/remote_control_mech,
 	/mob/living/silicon/ai/proc/show_laws_verb,
 	/mob/living/silicon/ai/proc/toggle_acceleration,
 	/mob/living/silicon/ai/proc/toggle_camera_light,
@@ -310,6 +311,8 @@ var/list/ai_verbs_default = list(
 	if(id_card)
 		id_card.registered_name = pickedName
 		id_card.assignment = "AI"
+		id_card.access = get_all_station_access()
+		id_card.access += access_synth
 		id_card.update_name()
 
 	if(client)
@@ -771,6 +774,12 @@ var/list/ai_verbs_default = list(
 	set category = "AI Commands"
 	set desc = "Augment visual feed with internal sensor overlays"
 	toggle_sensor_mode()
+
+/mob/living/silicon/ai/proc/remote_control_mech()
+	set name = "Remote Control Mech"
+	set category = "AI Commands"
+	set desc = "Remotely control any active mechs on your AI mech network."
+	SSvirtualreality.mech_selection(src, "aimechs")
 
 /mob/living/silicon/ai/proc/toggle_hologram_movement()
 	set name = "Toggle Hologram Movement"

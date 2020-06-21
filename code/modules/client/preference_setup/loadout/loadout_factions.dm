@@ -52,6 +52,12 @@
 	slot = slot_head
 	faction = "Eridani Private Military Contractors"
 
+/datum/gear/faction/eridani_cap
+	display_name = "eridani cap"
+	path = /obj/item/clothing/head/soft/eri
+	slot = slot_head
+	faction = "Eridani Private Military Contractors"
+
 /datum/gear/faction/zenghu_uniform_alt
 	display_name = "zeng-hu white uniform"
 	path = /obj/item/clothing/under/rank/zeng/alt

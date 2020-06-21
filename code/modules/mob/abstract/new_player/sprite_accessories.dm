@@ -2766,7 +2766,7 @@ Follow by example and make good judgement based on length which list to include 
 */
 /datum/sprite_accessory/marking
 	icon = 'icons/mob/human_races/markings.dmi'
-	do_colouration = 1 //Almost all of them have it, COLOR_ADD
+	do_colouration = TRUE //Almost all of them have it, COLOR_ADD
 
 	species_allowed = list()
 
@@ -2917,7 +2917,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "skr_tears"
 		body_parts = list(BP_HEAD)
 		species_allowed = list("Skrell")
-		do_colouration = 0
+		do_colouration = FALSE
 
 	skr_arms
 		name = "Skrell Arms"
@@ -2930,6 +2930,55 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_races/markings_diona.dmi'
 		icon_state = "diona_leaves"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
+		species_allowed = list("Diona")
+
+	diona_thorns_head
+		name = "Diona Thorns (Head)"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_thorns"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
+
+	diona_thorns_torso
+		name = "Diona Thorns (Torso)"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_thorns"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Diona")
+
+	diona_flowers_head
+		name = "Diona Flowers (Head)"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_flowers"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
+
+	diona_flowers_torso
+		name = "Diona Flowers (Torso)"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_flowers"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Diona")
+
+	diona_moss
+		name = "Diona Moss"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_moss"
+		body_parts = list(BP_CHEST)
+		species_allowed = list("Diona")
+
+	diona_mushroom
+		name = "Diona Mushroom"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_mushroom"
+		body_parts = list(BP_HEAD)
+		species_allowed = list("Diona")
+
+	diona_antennae
+		name = "Diona Antennae"
+		icon = 'icons/mob/human_races/markings_diona.dmi'
+		icon_state = "diona_antennae"
+		body_parts = list(BP_HEAD)
 		species_allowed = list("Diona")
 
 	bishop_lights

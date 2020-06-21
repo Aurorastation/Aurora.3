@@ -378,9 +378,6 @@
 /mob/living/carbon/slime/attackby(obj/item/W, mob/user)
 	if(W.force > 0)
 		attacked += 10
-		if(prob(25))
-			to_chat(user, span("danger", "[W] passes right through [src]!"))
-			return
 		if(discipline && prob(50)) // wow, buddy, why am I getting attacked??
 			discipline = FALSE
 	if(W.force >= 3)

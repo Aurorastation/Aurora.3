@@ -4,7 +4,6 @@
  *		Cakehat
  *		Ushanka
  *		Pumpkin head
- *		Kitty ears
  *		Chicken mask
  *		Warning cone
  */
@@ -33,7 +32,9 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		"Vox" = 'icons/mob/species/vox/head.dmi',
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
@@ -239,32 +240,6 @@
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
 		set_light(0)
-
-/*
- * Kitty ears
- */
-/obj/item/clothing/head/kitty
-	name = "kitty ears"
-	desc = "A pair of kitty ears. Meow!"
-	icon_state = "kitty"
-	siemens_coefficient = 1.5
-	item_icons = list()
-
-/obj/item/clothing/head/kitty/equipped(mob/living/carbon/human/user, slot)
-	. = ..()
-	if (slot == slot_head && istype(user))
-		var/hairgb = rgb(user.r_hair, user.g_hair, user.b_hair)
-		var/icon/blended = SSicon_cache.kitty_ear_cache[hairgb]
-		if (!blended)
-			blended = icon('icons/mob/head.dmi', "kitty")
-			blended.Blend(hairgb, ICON_ADD)
-			blended.Blend(icon('icons/mob/head.dmi', "kittyinner"), ICON_OVERLAY)
-
-			SSicon_cache.kitty_ear_cache[hairgb] = blended
-
-		icon_override = blended
-	else if (icon_override)
-		icon_override = null
 
 /*
  * Chicken mask

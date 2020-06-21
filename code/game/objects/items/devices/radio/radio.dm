@@ -24,6 +24,7 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio
 	icon = 'icons/obj/radio.dmi'
 	name = "station bounced radio"
+	var/radio_desc = ""
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
 	item_state = "radio"
@@ -52,6 +53,7 @@ var/global/list/default_medbay_channels = list(
 
 
 	var/obj/item/cell/cell = /obj/item/cell/device
+	var/last_radio_sound = -INFINITY
 
 /obj/item/device/radio
 	var/datum/radio_frequency/radio_connection
@@ -123,6 +125,17 @@ var/global/list/default_medbay_channels = list(
 		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
 		ui.set_initial_data(data)
 		ui.open()
+
+/obj/item/device/radio/proc/setupRadioDescription()
+	var/radio_text = ""
+	for(var/i = 1 to channels.len)
+		var/channel = channels[i]
+		var/key = get_radio_key_from_channel(channel)
+		radio_text += "[key] - [channel]"
+		if(i != channels.len)
+			radio_text += ", "
+
+	radio_desc = radio_text
 
 /obj/item/device/radio/proc/list_channels(var/mob/user)
 	return list_internal_channels(user)
@@ -311,6 +324,9 @@ var/global/list/default_medbay_channels = list(
 
 	if(!radio_connection)
 		set_frequency(frequency)
+
+	if(loc == M)
+		playsound(loc, 'sound/effects/walkietalkie.ogg', 5, 0, -1, required_asfx_toggles = ASFX_RADIO)
 
 	/* Quick introduction:
 		This new radio system uses a very robust FTL signaling technology unoriginally

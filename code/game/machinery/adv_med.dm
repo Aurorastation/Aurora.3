@@ -1,7 +1,26 @@
-// Pretty much everything here is stolen from the dna scanner FYI
-
-
 /obj/machinery/bodyscanner
+	name = "body scanner"
+	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
+	desc_info = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
+	This is useful if you are about to perform surgery.<br>\
+	<br>\
+	Click your target with Grab intent, then click on the scanner to place them in it. Click the red terminal to operate. \
+	Right-click the scanner and click 'Eject Occupant' to remove them.  You can enter the scanner yourself in a similar way, using the 'Enter Body Scanner' \
+	verb."
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scanner"
+	density = TRUE
+	anchored = TRUE
+	component_types = list(
+			/obj/item/circuitboard/bodyscanner,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module = 2,
+			/obj/item/device/healthanalyzer
+		)
+	use_power = 1
+	idle_power_usage = 60
+	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
+
 	var/mob/living/carbon/occupant
 	var/last_occupant_name = ""
 	var/locked
@@ -19,22 +38,6 @@
 		"Diona",
 		"Monkey"
 	)
-	name = "Body Scanner"
-	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "body_scanner"
-	density = 1
-	anchored = 1
-	component_types = list(
-			/obj/item/circuitboard/bodyscanner,
-			/obj/item/stock_parts/capacitor = 2,
-			/obj/item/stock_parts/scanning_module = 2,
-			/obj/item/device/healthanalyzer
-		)
-
-	use_power = 1
-	idle_power_usage = 60
-	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
 /obj/machinery/bodyscanner/Initialize()
 	. = ..()
@@ -162,9 +165,9 @@
 		return
 
 	if(L == user)
-		user.visible_message(span("notice", "\The [user] starts climbing into \the [src]."), span("notice", "You start climbing into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", span("notice", "You start climbing into \the [src]."), range = 3)
 	else
-		user.visible_message(span("notice", "\The [user] starts putting \the [L] into \the [src]."), span("notice", "You start putting \the [L] into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", span("notice", "You start putting \the [L] into \the [src]."), range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -252,6 +255,7 @@
 			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/stock_parts/console_screen
 		)
+	var/global/image/console_overlay
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
@@ -267,8 +271,9 @@
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "body_scannerconsole-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		if(!console_overlay)
+			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
+		add_overlay(console_overlay)
 		set_light(1.4, 1, COLOR_RED)
 
 /obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
@@ -429,7 +434,6 @@
 		var/list/missing 		= get_missing_organs(occupant)
 		VUEUI_SET_CHECK_LIST(data["missingparts"], missing, ., data)
 		VUEUI_SET_CHECK(data["hasmissing"], missing.len, ., data)
-		VUEUI_SET_CHECK(data["hasvirus"], occupant.virus2.len || occupant.viruses.len, ., data)
 		VUEUI_SET_CHECK(data["hastgvirus"], occupant.viruses.len, ., data)
 		VUEUI_SET_CHECK_LIST(data["tgvirus"], occupant.viruses, ., data)
 
@@ -580,7 +584,6 @@
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
 		"brain_activity" = H.get_brain_status(),
-		"virus_present" = H.virus2.len,
 		"blood_volume" = H.get_blood_volume(),
 		"blood_oxygenation" = H.get_blood_oxygenation(),
 		"blood_pressure" = H.get_blood_pressure(),
@@ -637,10 +640,6 @@
 	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
 	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
 	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
-
-	for(var/datum/disease/D in occ["tg_diseases_list"])
-		if(!D.hidden[SCANNER])
-			dat += text("<font color='red'><B>Warning: [D.form] Detected</B>\nName: [D.name].\nType: [D.spread].\nStage: [D.stage]/[D.max_stages].\nPossible Cure: [D.cure]</FONT><BR>")
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"

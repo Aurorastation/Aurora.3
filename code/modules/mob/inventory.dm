@@ -156,7 +156,8 @@ var/list/slot_equipment_priority = list( \
 /mob/proc/put_in_hands(var/obj/item/W)
 	if(!W || !istype(W))
 		return 0
-
+	if(isturf(W.loc))
+		W.do_pickup_animation(src)
 	W.forceMove(get_turf(src))
 	W.layer = initial(W.layer)
 	W.dropped()
@@ -366,7 +367,7 @@ var/list/slot_equipment_priority = list( \
 
 	//actually throw it!
 	if (item)
-		src.visible_message("<span class='warning'>[src] has thrown [item].</span>")
+		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
 
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)

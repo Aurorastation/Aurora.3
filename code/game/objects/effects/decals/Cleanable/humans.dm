@@ -34,12 +34,7 @@
 	..(ignore=1)
 
 /obj/effect/decal/cleanable/blood/hide()
-    return
-
-/obj/effect/decal/cleanable/blood/Destroy()
-	for(var/datum/disease/D in viruses)
-		D.cure(0)
-	return ..()
+	return
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
 	. = ..()
@@ -107,7 +102,7 @@
 
 	perp.update_inv_shoes(1)
 	amount--
-	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == "run" ? 20 : 5)))
+	if(amount > 2 && prob(perp.slip_chance(MOVING_QUICKLY(perp) ? 20 : 5)))
 		perp.slip(src, 4)
 
 /obj/effect/decal/cleanable/blood/proc/dry()
@@ -226,11 +221,6 @@
 			var/obj/effect/decal/cleanable/blood/b = new /obj/effect/decal/cleanable/blood/splatter(src.loc)
 			b.basecolor = src.basecolor
 			b.update_icon()
-			for(var/datum/disease/D in src.viruses)
-				var/datum/disease/ND = D.Copy(1)
-				b.viruses += ND
-				ND.holder = b
-
 		if (step_to(src, get_step(src, direction), 0))
 			break
 /obj/effect/decal/cleanable/blood/proc/fall_to_floor()

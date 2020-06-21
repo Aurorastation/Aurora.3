@@ -79,7 +79,7 @@
 	if(istype(A,/mob/living))
 		var/mob/living/M = A
 		if(src.wet_type && src.wet_amount)
-			if(M.buckled || (src.wet_type == 1 && M.m_intent == "walk"))
+			if(M.buckled || (src.wet_type == 1 && MOVING_DELIBERATELY(M)))
 				return
 
 			//Water
@@ -126,7 +126,6 @@
 				B.blood_DNA = list()
 			if(!B.blood_DNA[M.dna.unique_enzymes])
 				B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-				B.virus2 = virus_copylist(M.virus2)
 			return 1 //we bloodied the floor
 		blood_splatter(src,M.get_blood(M.vessel),1)
 		return 1 //we bloodied the floor

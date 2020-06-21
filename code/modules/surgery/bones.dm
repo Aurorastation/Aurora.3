@@ -23,21 +23,21 @@
 /datum/surgery_step/glue_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if (affected.stage == 0)
-		user.visible_message("[user] starts applying medication to the damaged bones in [target]'s [affected.name] with \the [tool]." , \
-		"You start applying medication to the damaged bones in [target]'s [affected.name] with \the [tool].")
+		user.visible_message("<b>[user]</b> starts applying some of [tool] to the damaged bones in [target]'s [affected.name]." , \
+		SPAN_NOTICE("You start applying some of [tool] to the damaged bones in [target]'s [affected.name]."))
 	target.custom_pain("Something in your [affected.name] is causing you a lot of pain!",1)
 	..()
 
 /datum/surgery_step/glue_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='notice'>[user] applies some [tool] to [target]'s bone in [affected.name]</span>", \
-		"<span class='notice'>You apply some [tool] to [target]'s bone in [affected.name] with \the [tool].</span>")
+	user.visible_message("<b>[user]</b> applies some of [tool] to [target]'s bone in [affected.name].", \
+		"<span class='notice'>You apply some of [tool] to [target]'s bone in [affected.name].</span>")
 	affected.stage = 1
 
 /datum/surgery_step/glue_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!</span>" , \
-	"<span class='warning'>Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!</span>")
+	user.visible_message("<span class='warning'>[user]'s hand slips, smearing some of [tool] in the incision in [target]'s [affected.name]!</span>" , \
+	"<span class='warning'>Your hand slips, smearing some of [tool] in the incision in [target]'s [affected.name]!</span>")
 	target.apply_damage(15, PAIN)
 
 /datum/surgery_step/set_bone
@@ -65,7 +65,7 @@
 /datum/surgery_step/set_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected.status & ORGAN_BROKEN)
-		user.visible_message("<span class='notice'>[user] sets the bone in [target]'s [affected.name] in place with \the [tool].</span>", \
+		user.visible_message("<b>[user]</b> sets the bone in [target]'s [affected.name] in place with \the [tool].", \
 			"<span class='notice'>You set the bone in [target]'s [affected.name] in place with \the [tool].</span>")
 		affected.stage = 2
 	else
@@ -101,7 +101,7 @@
 
 /datum/surgery_step/mend_skull/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='notice'>[user] sets [target]'s skull with \the [tool].</span>" , \
+	user.visible_message("<b>[user]</b> sets [target]'s skull with \the [tool]." , \
 		"<span class='notice'>You set [target]'s skull with \the [tool].</span>")
 	affected.stage = 2
 
@@ -138,7 +138,7 @@
 
 /datum/surgery_step/finish_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='notice'>[user] has mended the damaged bones in [target]'s [affected.name] with \the [tool].</span>"  , \
+	user.visible_message("<b>[user]</b> has mended the damaged bones in [target]'s [affected.name] with \the [tool]."  , \
 		"<span class='notice'>You have mended the damaged bones in [target]'s [affected.name] with \the [tool].</span>" )
 	affected.status &= ~ORGAN_BROKEN
 	affected.status &= ~ORGAN_SPLINTED

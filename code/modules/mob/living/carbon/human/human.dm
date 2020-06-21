@@ -179,7 +179,7 @@
 	..()
 	if(statpanel("Status"))
 		stat("Intent:", "[a_intent]")
-		stat("Move Mode:", "[m_intent]")
+		stat("Move Mode:", "[move_intent.name]")
 		if(emergency_shuttle)
 			var/eta_status = emergency_shuttle.get_status_panel_eta()
 			if(eta_status)
@@ -1256,13 +1256,6 @@
 						H.brainmob.mind.transfer_to(src)
 						qdel(H)
 
-	for (var/datum/disease/virus in viruses)
-		virus.cure()
-
-	for (var/ID in virus2)
-		var/datum/disease2/disease/V = virus2[ID]
-		V.cure(src)
-
 	losebreath = 0
 	shock_stage = 0
 
@@ -1392,7 +1385,7 @@
 		self = 1
 
 	if (src.species.flags & NO_BLOOD)
-		to_chat(usr, span("notice", self ? "Your species does not have a pulse." : "[src]'s species does not have a pulse."))
+		to_chat(usr, span("warning", self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
 	if(!self)
@@ -1405,7 +1398,7 @@
 	if(pulse())
 		to_chat(usr, span("notice", "[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
-		to_chat(usr, span("danger", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
+		to_chat(usr, span("warning", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
@@ -1491,13 +1484,20 @@
 	burn_mod = species.burn_mod
 	brute_mod = species.brute_mod
 
+	default_walk_intent = null
+	default_run_intent = null
+	move_intent = null
+	move_intents = species.move_intents.Copy()
+	set_move_intent(decls_repository.get_decl(move_intents[1]))
+	if(!istype(move_intent))
+		set_next_usable_move_intent()
+
 	max_stamina = species.stamina
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
 	sprint_cost_factor = species.sprint_cost_factor
 	stamina_recovery = species.stamina_recovery
 
-	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
 	max_hydration = BASE_MAX_HYDRATION * species.max_hydration_factor
 
@@ -1959,7 +1959,7 @@
 	if(istype(heart) && !(heart.status & ORGAN_DEAD))
 		var/active_breaths = 0
 		if(!nervous_system_failure() && active_breaths)
-			visible_message("\The [src] jerks and gasps for breath!")
+			visible_message("\The <b>[src]</b> jerks and gasps for breath!")
 		else
 			visible_message("\The <b>[src]</b> twitches a bit as \his heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.

@@ -74,7 +74,6 @@
 
 		handle_medical_side_effects()
 
-		//Handles regenerating stamina if we have sufficient air and no oxyloss
 		handle_stamina()
 
 		if (is_diona())
@@ -85,7 +84,7 @@
 	handle_stasis_bag()
 
 	if(!handle_some_updates())
-		return											//We go ahead and process them 5 times for HUD images and other stuff though.
+		return	//We go ahead and process them 5 times for HUD images and other stuff though.
 
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
@@ -96,6 +95,30 @@
 /mob/living/carbon/human/think()
 	..()
 	species.handle_npc(src)
+
+/mob/living/carbon/human/get_stamina()
+	return stamina
+
+/mob/living/carbon/human/get_maximum_stamina()
+	return max_stamina
+
+/mob/living/carbon/human/adjust_stamina(var/amt)
+	var/last_stamina = stamina
+	if(stat == DEAD)
+		stamina = 0
+	else
+		stamina = Clamp(stamina + amt, 0, max_stamina)
+		if(stamina <= 0)
+			to_chat(src, SPAN_WARNING("You are exhausted!"))
+			if(MOVING_QUICKLY(src))
+				set_moving_slowly()
+	if(last_stamina != stamina && hud_used)
+		hud_used.move_intent.update_stamina_bar(src)
+
+/mob/living/carbon/human/proc/handle_stamina()
+	if((world.time - last_quick_move_time) > 5 SECONDS)
+		var/mod = (lying + (nutrition / initial(nutrition))) / 2
+		adjust_stamina(max(config.minimum_stamina_recovery, config.maximum_stamina_recovery * mod) * (1+chem_effects[CE_ENERGETIC]))
 
 /mob/living/carbon/human/proc/handle_some_updates()
 	if(life_tick > 5 && timeofdeath && (timeofdeath < 5 || world.time - timeofdeath > 6000))	//We are long dead, or we're junk mobs spawned like the clowns on the clown shuttle
@@ -227,11 +250,10 @@
 	// Handle side effects from stasis bag
 	if(in_stasis)
 		// First off, there's no oxygen supply, so the mob will slowly take brain damage
-		adjustOxyLoss(0.1)
-
+		adjustOxyLoss(3.5)
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
-		adjustCloneLoss(0.1)
+		adjustCloneLoss(0.8)
 		if(stat != DEAD)
 			blinded = TRUE
 			stat = UNCONSCIOUS
@@ -308,14 +330,6 @@
 	if(head && (head.item_flags & BLOCK_GAS_SMOKE_EFFECT))
 		return
 	..()
-
-/mob/living/carbon/human/handle_post_breath(datum/gas_mixture/breath)
-	..()
-	//spread some viruses while we are at it
-	if(breath && virus2.len > 0 && prob(10))
-		for(var/mob/living/carbon/M in view(1,src))
-			src.spread_disease_to(M)
-
 
 /mob/living/carbon/human/get_breath_from_internal(volume_needed=BREATH_VOLUME)
 	if(internal)
@@ -721,7 +735,7 @@
 		return 0
 
 	//SSD check, if a logged player is awake put them back to sleep!
-	if(species.show_ssd && !client && !teleop)
+	if(species.show_ssd && (!client && !vr_mob) && !teleop)
 		Sleeping(2)
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
 		blinded = 1
@@ -1096,7 +1110,7 @@
 		return 0
 
 	if(shock_stage == 10)
-		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 10, nohalloss = TRUE)
+		custom_pain("[pick(species.pain_messages)]!", 10, nohalloss = TRUE)
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
@@ -1109,7 +1123,7 @@
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60)
-			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
+			visible_message("<b>[src]</b>'s body becomes limp.", "Your body becomes limp.")
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
@@ -1146,8 +1160,6 @@
 			holder.icon_state = "0" 	// X_X
 		else if(is_asystole())
 			holder.icon_state = "flatline"
-		else if(isFBP(src))
-			holder.icon_state = "2"
 		else
 			holder.icon_state = "[pulse()]"
 		hud_list[HEALTH_HUD] = holder
@@ -1161,22 +1173,11 @@
 		hud_list[LIFE_HUD] = holder
 
 	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
-		var/foundVirus = 0
-		for(var/datum/disease/D in viruses)
-			if(!D.hidden[SCANNER])
-				foundVirus++
-		for (var/ID in virus2)
-			if (SSrecords.find_record("id", "[ID]", RECORD_VIRUS))
-				foundVirus = 1
-				break
-
 		var/image/holder = hud_list[STATUS_HUD]
 		if(stat == DEAD)
 			holder.icon_state = "huddead"
 		else if(status_flags & XENO_HOST)
 			holder.icon_state = "hudxeno"
-		else if(foundVirus)
-			holder.icon_state = "hudill"
 		else
 			holder.icon_state = "hudhealthy"
 
@@ -1187,8 +1188,6 @@
 			holder2.icon_state = "hudxeno"
 		else if(has_brain_worms())
 			holder2.icon_state = "hudbrainworm"
-		else if(virus2.len)
-			holder2.icon_state = "hudill"
 		else
 			holder2.icon_state = "hudhealthy"
 
@@ -1332,38 +1331,6 @@
 		return
 	if(XRAY in mutations)
 		sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
-
-/mob/living/carbon/human/proc/handle_stamina()
-	if (species.stamina == -1) //If species stamina is -1, it has special mechanics which will be handled elsewhere
-		return //so quit this function
-
-	if (!exhaust_threshold) // Also quit if there's no exhaust threshold specified, because division by 0 is amazing.
-		return
-
-	if (failed_last_breath || (getOxyLoss() + get_shock()) > exhaust_threshold)//Can't catch our breath if we're suffocating
-		flash_pain()
-		return
-
-	if (nutrition <= 0)
-		if (prob(1.5))
-			to_chat(src, span("warning", "You feel hungry and exhausted, eat something to regain your energy!"))
-		return
-
-	if (hydration <= 0)
-		if (prob(1.5))
-			to_chat(src, span("warning", "You feel thirsty and exhausted, drink something to regain your energy!"))
-		return
-
-	if (stamina != max_stamina)
-		//Any suffocation damage slows stamina regen.
-		//This includes oxyloss from low blood levels
-		var/regen = stamina_recovery * (1 - min(((getOxyLoss()) / exhaust_threshold) + ((get_shock()) / exhaust_threshold), 1))
-		if (regen > 0)
-			stamina = min(max_stamina, stamina+regen)
-			adjustNutritionLoss(stamina_recovery*0.09)
-			adjustHydrationLoss(stamina_recovery*0.32)
-			if (client)
-				hud_used.move_intent.update_move_icon(src)
 
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	var/new_oxy

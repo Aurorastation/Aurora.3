@@ -112,7 +112,7 @@
 	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] ([H.ckey])</font>")
 	log_attack("[s] ([H.ckey])",ckey=key_name(H))
 
-	if(O.take_damage(3,0,1,1,"teeth marks"))
+	if(O.take_damage(3, 0, damage_flags = DAM_SHARP|DAM_EDGE, used_weapon = "teeth marks"))
 		H:UpdateDamageIcon()
 
 	last_chew = world.time

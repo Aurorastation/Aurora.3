@@ -69,7 +69,7 @@
 	var/stripping
 	var/obj/item/held = user.get_active_hand()
 
-	if(!istype(held) || is_robot_module(held))
+	if(!istype(held) || is_robot_module(held) || istype(held, /obj/item/grab))
 		if(!istype(target_slot))  // They aren't holding anything valid and there's nothing to remove, why are we even here?
 			return 0
 		if(!target_slot.canremove)

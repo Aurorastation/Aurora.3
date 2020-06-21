@@ -135,7 +135,7 @@ var/global/list/ore_data = list()
 	worth = 15
 
 /ore/hydrogen
-	name = "hydrogen"
+	name = ORE_HYDROGEN
 	display_name = "metallic hydrogen"
 	smelts_to = "tritium"
 	compresses_to = "mhydrogen"

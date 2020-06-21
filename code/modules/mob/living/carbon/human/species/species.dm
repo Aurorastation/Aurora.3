@@ -67,6 +67,7 @@
 		/datum/unarmed_attack/bite
 		)
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	var/pain_mod =      1                    // Pain multiplier
 	var/brute_mod =     1                    // Physical damage multiplier.
 	var/burn_mod =      1                    // Burn damage multiplier.
 	var/oxy_mod =       1                    // Oxyloss modifier
@@ -96,9 +97,21 @@
 	var/death_sound
 	var/death_message = "falls limp and stops moving..."
 	var/death_message_range = 2
+	var/list/scream_emote = list("screams!")
 	var/knockout_message = "has been knocked unconscious!"
 	var/halloss_message = "slumps to the ground, too weak to continue fighting."
 	var/halloss_message_self = "You're in too much pain to keep going..."
+	var/list/pain_messages = list("It hurts so much", "You really need some painkillers", "Dear god, the pain") // passive message displayed to user when injured
+	var/list/pain_item_drop_cry = list("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
+
+	// External Organ Pain Damage
+	var/organ_low_pain_message = "<b>Your %PARTNAME% hurts.</b>"
+	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
+	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
+
+	var/organ_low_burn_message = "<span class='danger'>Your %PARTNAME% burns.</span>"
+	var/organ_med_burn_message = "<span class='danger'><font size=3>Your %PARTNAME% burns horribly!</font></span>"
+	var/organ_high_burn_message = "<span class='danger'><font size=4>Your %PARTNAME% feels like it's on fire!</font></span>"
 
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.
@@ -152,6 +165,8 @@
 	var/appearance_flags = 0      // Appearance/display related features.
 	var/spawn_flags = 0           // Flags that specify who can spawn as this species
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
+	// Move intents. Earlier in list == default for that type of movement.
+	var/list/move_intents = list(/decl/move_intent/walk, /decl/move_intent/run, /decl/move_intent/creep)
 	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
 	var/greater_form              // Greater form, if any, ie. human for monkeys.
 	var/holder_type
@@ -163,7 +178,6 @@
 	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
 	var/sprint_speed_factor = 0.7	// The percentage of bonus speed you get when sprinting. 0.4 = 40%
 	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
-	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
@@ -330,9 +344,9 @@
 	if(H.isSynthetic())
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_CUT_AWAY || E.is_stump()) continue
-			E.robotize()
+			E.robotize(E.robotize_type)
 		for(var/obj/item/organ/I in H.internal_organs)
-			I.robotize()
+			I.robotize(I.robotize_type)
 
 	if(isvaurca(H))
 		for (var/obj/item/organ/external/E in H.organs)
@@ -459,8 +473,10 @@
 
 	if(!H.druggy)
 		H.see_in_dark = (H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
-		if(H.seer && locate(/obj/effect/rune/see_invisible) in get_turf(H))
-			H.see_invisible = SEE_INVISIBLE_CULT
+		if(H.seer)
+			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(H)
+			if(R && R.type == /datum/rune/see_invisible)
+				H.see_invisible = SEE_INVISIBLE_CULT
 		if(H.see_invisible != SEE_INVISIBLE_CULT && H.equipment_see_invis)
 			H.see_invisible = min(H.see_invisible, H.equipment_see_invis)
 
@@ -478,59 +494,19 @@
 			H.client.screen += global_hud.darkMask
 		else if((!H.equipment_prescription && (H.disabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
 			H.client.screen += global_hud.vimpaired
-	if(H.eye_blurry)	H.client.screen += global_hud.blurry
-	if(H.druggy)		H.client.screen += global_hud.druggy
+	if(H.eye_blurry)
+		H.client.screen += global_hud.blurry
+
+	if(H.druggy)
+		H.client.screen += global_hud.druggy
+	if(H.druggy > 5)
+		H.add_client_color(/datum/client_color/oversaturated)
+	else
+		H.remove_client_color(/datum/client_color/oversaturated)
 
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
 
-	return 1
-
-/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	if (!H.exhaust_threshold)
-		return 1 // Handled.
-
-	cost *= H.sprint_cost_factor
-	if (H.stamina == -1)
-		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
-		return 0
-
-	var/remainder = 0
-	if (H.stamina > cost)
-		H.stamina -= cost
-		H.hud_used.move_intent.update_move_icon(H)
-		return 1
-	else if (H.stamina > 0)
-		remainder = cost - H.stamina
-		H.stamina = 0
-	else
-		remainder = cost
-
-	if(H.disabilities & ASTHMA)
-		H.adjustOxyLoss(remainder*0.15)
-
-	if(H.disabilities & COUGHING)
-		H.adjustHalLoss(remainder*0.1)
-
-	if (breathing_organ && has_organ[breathing_organ])
-		var/obj/item/organ/O = H.internal_organs_by_name[breathing_organ]
-		if(O.is_bruised())
-			H.adjustOxyLoss(remainder*0.15)
-			H.adjustHalLoss(remainder*0.25)
-
-	H.adjustHalLoss(remainder*0.25)
-	H.updatehealth()
-	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
-		H.flash_pain()
-
-	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
-		H.m_intent = "walk"
-		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
-		H.flash_pain()
-		return 0
-
-	H.hud_used.move_intent.update_move_icon(H)
 	return 1
 
 /datum/species/proc/get_light_color(mob/living/carbon/human/H)
@@ -583,5 +559,14 @@
 /datum/species/proc/can_commune()
 	return FALSE
 
+/datum/species/proc/has_psi_potential()
+	return TRUE
+
 /datum/species/proc/handle_despawn()
+	return
+
+/datum/species/proc/has_special_sprint()
+	return FALSE
+
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	return

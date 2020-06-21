@@ -18,7 +18,6 @@
 	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
 		M.heal_organ_damage(1.2 * removed, 1.2 * removed)
-		M.adjustToxLoss(-1.2 * removed)
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.add_chemical_effect(CE_BLOODRESTORE, 6 * removed)
 
@@ -833,11 +832,6 @@
 	glass_name = "glass of lime juice"
 	glass_desc = "A glass of sweet-sour lime juice"
 
-/datum/reagent/drink/limejuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	if(alien != IS_DIONA)
-		M.adjustToxLoss(-0.5 * removed)
-
 /datum/reagent/drink/orangejuice
 	name = "Orange juice"
 	id = "orangejuice"
@@ -972,14 +966,6 @@
 	glass_name = "glass of dyn juice"
 	glass_desc = "Juice from a dyn leaf. Good for you, but normally not consumed undiluted."
 
-/datum/reagent/drink/dynjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.adjustToxLoss(-0.3 * removed)
-
-
-/datum/reagent/drink/dynjuice/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustToxLoss(-0.3 * removed)
-
 /datum/reagent/drink/dynjuice/hot
 	name = "Dyn Tea"
 	id = "dynhot"
@@ -1092,11 +1078,6 @@
 
 	var/last_taste_time = -100
 
-/datum/reagent/drink/tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.adjustToxLoss(-0.1 * removed)
-
-
 /datum/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
@@ -1104,8 +1085,6 @@
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
-	else
-		M.adjustToxLoss(-0.1 * removed)
 
 /datum/reagent/drink/tea/icetea
 	name = "Iced Tea"
@@ -1955,7 +1934,6 @@
 	if(alien != IS_DIONA)
 		M.adjustOxyLoss(-4 * removed)
 		M.heal_organ_damage(2 * removed, 2 * removed)
-		M.adjustToxLoss(-2 * removed)
 		if(M.dizziness)
 			M.dizziness = max(0, M.dizziness - 15)
 		if(M.confused)
@@ -2151,11 +2129,6 @@
 
 	var/last_taste_time = -100
 
-/datum/reagent/drink/toothpaste/teathpaste/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed) //contains tea. Gotta get those tea effects.
-	..()
-	M.adjustToxLoss(-0.1 * removed)
-
-
 /datum/reagent/drink/toothpaste/teathpaste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
@@ -2163,8 +2136,6 @@
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
-	else
-		M.adjustToxLoss(-0.1 * removed)
 
 /* Alcohol */
 
@@ -4462,11 +4433,6 @@
 
 	var/last_taste_time = -100
 
-/datum/reagent/alcohol/butanol/trizkizki_tea/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed) //contains tea. Gotta get those tea effects.
-	..()
-	M.adjustToxLoss(-0.1 * removed)
-
-
 /datum/reagent/alcohol/butanol/trizkizki_tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
@@ -4474,8 +4440,6 @@
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
-	else
-		M.adjustToxLoss(-0.1 * removed)
 
 //ZZZZOOOODDDDAAAAA
 

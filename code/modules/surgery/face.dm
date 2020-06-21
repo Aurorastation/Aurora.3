@@ -34,7 +34,7 @@
 	..()
 
 /datum/surgery_step/generic/cut_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has cut open [target]'s face and neck with \the [tool].</span>" , \
+	user.visible_message("<b>[user]</b> has cut open [target]'s face and neck with \the [tool]." , \
 		"<span class='notice'>You have cut open [target]'s face and neck with \the [tool].</span>",)
 	target.op_stage.face = 1
 
@@ -72,7 +72,7 @@
 	..()
 
 /datum/surgery_step/robotics/face/synthskin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("<span class='notice'>[user] has cut open [target]'s synthskin face and neck with \the [tool].</span>" , \
+	user.visible_message("<b>[user]</b> has cut open [target]'s synthskin face and neck with \the [tool]." , \
 		"<span class='notice'>You have cut open [target]'s synthskin face and neck with \the [tool].</span>",)
 	target.op_stage.face = 1
 

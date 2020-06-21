@@ -574,3 +574,15 @@ FAIL2TOPIC_ENABLED 0
 ## Once enabled, make sure to write a news.json in the configuration
 ## folder as well.
 #NEWS_USE_FORUM_API
+
+### Auto-profiler configuration
+### Able to detect longer pauses in game execution and dump out the profiler
+### data to help diagnose these.
+## Uncomment to enable the auto-profiler.
+#PROFILER_ENABLED
+## Determines the maximum interval of the auto-profiler's snapshots, in SECONDS.
+#PROFILER_RESTART_PERIOD 120
+## Determines the amount of the server should be locked up for before the profile
+## gets dumped. Time is in DECISECONDS (1/10th of a second). Might not be wise to
+## use a value less than 10.
+#PROFILER_TIMEOUT_THRESHOLD 20

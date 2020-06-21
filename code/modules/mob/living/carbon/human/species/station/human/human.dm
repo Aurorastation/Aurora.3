@@ -31,7 +31,7 @@
 	stamina = 130	// Humans can sprint for longer than any other species
 	stamina_recovery = 5
 	sprint_speed_factor = 0.9
-	sprint_cost_factor = 0.5
+	sprint_cost_factor = 1.25
 
 	grab_mod = 1.25 //humans are wily fuckers - geeves
 	climb_coeff = 1

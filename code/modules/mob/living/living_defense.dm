@@ -90,9 +90,11 @@
 	//Armor
 	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
 	var/damaged
-	if ((P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP) && prob(absorb))
-		P.damage_flags &= ~DAM_SHARP
-		P.damage_flags &= ~DAM_EDGE
+	if(prob(absorb))
+		if(P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP || P.damage_flags & DAM_LASER)
+			P.damage_flags &= ~DAM_SHARP
+			P.damage_flags &= ~DAM_EDGE
+			P.damage_flags &= ~DAM_LASER
 
 	if(!P.nodamage)
 		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
@@ -191,7 +193,7 @@
 	return 1
 
 //this proc handles being hit by a thrown atom
-/mob/living/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
 	if(!aura_check(AURA_TYPE_THROWN, AM, speed))
 		return
 	if(istype(AM,/obj/))

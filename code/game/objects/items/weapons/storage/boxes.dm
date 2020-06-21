@@ -121,7 +121,7 @@
 	autodrobe_no_remove = 1
 	starts_with = list(/obj/item/clothing/mask/breath = 1,
 					   /obj/item/tank/emergency_oxygen = 1,
-					   /obj/item/device/flashlight/flare = 1
+					   /obj/item/device/flashlight/flare/glowstick/red = 1
 						)
 
 /obj/item/storage/box/survival/fill()
@@ -485,6 +485,10 @@
 	icon_state = "spbox"
 	can_hold = list(/obj/item/toy/snappop)
 	starts_with = list(/obj/item/toy/snappop = 8)
+
+/obj/item/storage/box/snappops/syndi
+	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
+	starts_with = list(/obj/item/toy/snappop/syndi = 8)
 
 /obj/item/storage/box/matches
 	name = "matchbox"

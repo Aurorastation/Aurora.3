@@ -261,7 +261,7 @@
 		I.forceMove(src)
 		cooking_objs.Add(CI)
 		if (CC.check_contents() == 0)//If we're just putting an empty container in, then dont start any processing.
-			user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
+			user.visible_message("<b>\The [user]</b> puts \the [I] into \the [src].")
 			return
 	else
 		if (CI && istype(CI))
@@ -274,7 +274,7 @@
 		CI.combine_target = selected_option
 
 	// We can actually start cooking now.
-	user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
+	user.visible_message("<b>\The [user]</b> puts \the [I] into \the [src].")
 
 	get_cooking_work(CI)
 	cooking = TRUE
@@ -534,19 +534,23 @@
 			..()
 
 /obj/machinery/appliance/proc/removal_menu(var/mob/user)
-	if (can_remove_items(user))
+	if(can_remove_items(user))
+		var/list/choices = list()
 		var/list/menuoptions = list()
-		for (var/a in cooking_objs)
+		for(var/a in cooking_objs)
 			var/datum/cooking_item/CI = a
-			if (CI.container)
-				menuoptions[CI.container.label(menuoptions.len)] = CI
+			if(CI.container)
+				var/current_iteration_len = menuoptions.len + 1
+				menuoptions[CI.container.label(current_iteration_len)] = CI
+				choices[CI.container.label(current_iteration_len)] = image(CI.container.icon, icon_state = CI.container.icon_state)
 
-		var/selection = input(user, "Which item would you like to remove?", "Remove ingredients") as null|anything in menuoptions
-		if (selection)
+		var/selection = RADIAL_INPUT(user, choices)
+		if(selection)
 			var/datum/cooking_item/CI = menuoptions[selection]
-			eject(CI, user)
-			update_icon()
-		return TRUE
+			if(Adjacent(user))
+				eject(CI, user)
+				update_icon()
+				return TRUE
 	return FALSE
 
 /obj/machinery/appliance/proc/can_remove_items(var/mob/user)

@@ -363,13 +363,6 @@
 	catalysts = list("phoron" = 5)
 	result_amount = 2
 
-/datum/chemical_reaction/deltamivir
-	name = "Deltamivir"
-	id = "deltamivir"
-	result = "deltamivir"
-	required_reagents = list("cryptobiolin" = 1, "tricordrazine" = 1)
-	result_amount = 2
-
 /datum/chemical_reaction/thetamycin
 	name = "Thetamycin"
 	id = "thetamycin"
@@ -637,13 +630,6 @@
 	result = "mannitol"
 	required_reagents = list("phoron" = 0.1, "alkysine" = 1, "cryoxadone" = 0.1)
 	result_amount = 1
-
-/datum/chemical_reaction/atropine
-	name = "Atropine"
-	id = "atropine"
-	result = "atropine"
-	required_reagents = list("tricordrazine" = 1, "phoron" = 0.1, "hydrazine" = 1 )
-	result_amount = 2
 
 /datum/chemical_reaction/coughsyrup
 	name = "Cough Syrup"

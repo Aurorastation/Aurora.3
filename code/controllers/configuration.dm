@@ -145,11 +145,16 @@ var/list/gamemode_cache = list()
 	var/no_click_cooldown = 0
 
 	//Used for modifying movement speed for mobs.
-	//Unversal modifiers
-	var/walk_speed = 0
+	//Universal modifiers
 	var/walk_delay_multiplier = 1
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
+	
+	var/run_delay = 4
+	var/walk_delay = 4
+	var/creep_delay = 6
+	var/minimum_stamina_recovery = 1
+	var/maximum_stamina_recovery = 3
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -308,6 +313,10 @@ var/list/gamemode_cache = list()
 	// global.forum_api_key - see modules/http/forum_api.dm
 
 	var/news_use_forum_api = FALSE
+
+	var/profiler_is_enabled = FALSE
+	var/profiler_restart_period = 120 SECONDS
+	var/profiler_timeout_threshold = 5 SECONDS
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -933,6 +942,13 @@ var/list/gamemode_cache = list()
 				if ("news_use_forum_api")
 					news_use_forum_api = TRUE
 
+				if ("profiler_enabled")
+					profiler_is_enabled = TRUE
+				if ("profiler_restart_period")
+					profiler_restart_period = text2num(value) SECONDS
+				if ("profiler_timeout_threshold")
+					profiler_timeout_threshold = text2num(value)
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 
@@ -971,8 +987,16 @@ var/list/gamemode_cache = list()
 				if("limbs_can_break")
 					config.limbs_can_break = value
 
-				if("walk_speed")
-					config.walk_speed = value
+				if("run_delay")
+					config.run_delay = value
+				if("walk_delay")
+					config.walk_delay = value
+				if("creep_delay")
+					config.creep_delay = value
+				if("minimum_stamina_recovery")
+					config.minimum_stamina_recovery = value
+				if("maximum_stamina_recovery")
+					config.maximum_stamina_recovery = value
 
 				// These should never go to 0 or below. So, we clamp them.
 				if("walk_delay_multiplier")

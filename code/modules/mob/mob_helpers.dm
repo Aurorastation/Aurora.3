@@ -766,6 +766,9 @@ proc/is_blind(A)
 	*/
 
 /obj/proc/report_onmob_location(var/justmoved, var/slot = null, var/mob/reportto)
+	if(istype(reportto.loc, /mob/living/bot))
+		to_chat(reportto, SPAN_NOTICE("You are currently housed within \the [reportto.loc]."))
+		return
 	var/mob/living/carbon/human/H//The person who the item is on
 	var/newlocation
 	var/preposition= ""
@@ -1035,15 +1038,12 @@ proc/is_blind(A)
 		if(B.id == "blood")
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = name,
 				"blood_DNA" = md5("\ref[src]"),
 				"blood_colour" = "#a10808",
 				"blood_type" = null,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 
 			B.color = B.data["blood_colour"]

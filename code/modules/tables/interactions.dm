@@ -61,7 +61,7 @@
 	..()
 	if(ishuman(am))
 		var/mob/living/carbon/human/H = am
-		if(H.a_intent != I_HELP || H.m_intent == "run")
+		if(H.a_intent != I_HELP || MOVING_QUICKLY(H))
 			throw_things(H)
 		else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
 			throw_things(H)
@@ -117,7 +117,7 @@
 		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			if(H.a_intent != I_HELP || H.m_intent == "run")
+			if(H.a_intent != I_HELP || MOVING_QUICKLY(H))
 				throw_things(H)
 			else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
 				throw_things(H)

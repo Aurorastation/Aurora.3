@@ -36,9 +36,8 @@
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
 	stamina_recovery = 5
 
-	sprint_cost_factor = 1.45
+	sprint_cost_factor = 7
 	sprint_speed_factor = 3.2
-	exhaust_threshold = 65
 
 	rarity_value = 3
 	breakcuffs = list(MALE)
@@ -87,6 +86,8 @@
 		"You feel sluggish and cold.",
 		"Your scales bristle against the cold."
 		)
+
+	pain_messages = list("It hurts so much", "You really need some painkillers", "Ancestors, it hurts")
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
 

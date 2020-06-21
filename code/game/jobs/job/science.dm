@@ -7,6 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#FF40FF"
 	economic_modifier = 15

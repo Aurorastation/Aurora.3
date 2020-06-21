@@ -1,13 +1,14 @@
 /obj/structure/lattice
 	name = "lattice"
 	desc = "A lightweight support lattice."
+	desc_info = "Add a metal floor tile to build a floor on top of the lattice.<br>\
+	Lattices can be made by applying metal rods to a space tile."
 	icon = 'icons/obj/smooth/lattice.dmi'
 	icon_state = "lattice"
 	density = FALSE
 	anchored = TRUE
-	w_class = 3
-	layer = 2.3 //under pipes
-	//	flags = CONDUCT
+	w_class = ITEMSIZE_NORMAL
+	layer = UNDER_PIPE_LAYER //under pipes
 	var/restrict_placement = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(

@@ -1,8 +1,13 @@
 /obj/item/device/personal_shield
 	name = "personal shield"
 	desc = "Truely a life-saver: this device protects its user from being hit by objects moving very, very fast, though only for a few shots."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "batterer"
+	icon = 'icons/obj/personal_shield.dmi'
+	icon_state = "personal_shield"
+	item_state = "personal_shield"
+	contained_sprite = TRUE
+	slot_flags = SLOT_BELT
+	w_class = ITEMSIZE_LARGE
+	action_button_name = "Toggle Shield"
 	var/next_recharge
 	var/uses = 5
 	var/obj/aura/personal_shield/device/shield
@@ -28,8 +33,11 @@
 		shield = new /obj/aura/personal_shield/device(user)
 		shield.added_to(user)
 		shield.set_shield(src)
+		user.update_inv_belt()
 	else
 		dissipate()
+		user.update_inv_belt()
+	update_icon()
 
 /obj/item/device/personal_shield/Move()
 	dissipate()
@@ -48,10 +56,12 @@
 		return
 
 /obj/item/device/personal_shield/update_icon()
-	if(uses)
-		icon_state = "batterer"
+	if(uses && shield)
+		icon_state = "[initial(icon_state)]_on"
+		item_state = "[initial(item_state)]_on"
 	else
-		icon_state = "battererburnt"
+		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(item_state)]"
 
 /obj/item/device/personal_shield/Destroy()
 	dissipate()
@@ -62,3 +72,4 @@
 	if(shield?.user)
 		to_chat(shield.user, FONT_LARGE(SPAN_WARNING("\The [src] fades around you, dissipating.")))
 	QDEL_NULL(shield)
+	update_icon()

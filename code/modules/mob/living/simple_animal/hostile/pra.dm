@@ -63,6 +63,9 @@
 	add_language(LANGUAGE_SIIK_MAAS)
 	set_default_language(LANGUAGE_SIIK_MAAS)
 
+/mob/living/simple_animal/hostile/republicon/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /mob/living/simple_animal/hostile/republicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 

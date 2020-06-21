@@ -67,9 +67,6 @@ var/global/list/robot_modules = list(
 	R.icon_selected = FALSE
 	R.choose_icon()
 
-	for(var/obj/item/I in modules)
-		I.canremove = FALSE
-
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
 	remove_camera_networks(R)
 	remove_languages(R)
@@ -357,6 +354,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/rfd/construction/borg(src)
+	src.modules += new /obj/item/rfd/piping/borg(src)
 	src.modules += new /obj/item/screwdriver/robotic(src)
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/weldingtool/experimental(src)
@@ -419,6 +417,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/wirecutters/robotic(src)
 	src.modules += new /obj/item/device/multitool/robotic(src)
+	src.modules += new /obj/item/rfd/piping/borg(src)
 	src.modules += new /obj/item/device/t_scanner(src)
 	src.modules += new /obj/item/device/analyzer(src)
 	src.modules += new /obj/item/gripper(src)
@@ -761,6 +760,11 @@ var/global/list/robot_modules = list(
 					LANGUAGE_YA_SSA =      FALSE
 					)
 
+	channels = list(
+		CHANNEL_COMMON = TRUE,
+		CHANNEL_ENTERTAINMENT = TRUE
+	)
+
 	sprites = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
@@ -772,6 +776,9 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
 	..()
+
+	R.faction = "syndicate" // prevents viscerators from attacking us
+
 	src.modules += new /obj/item/borg/sight/thermal(src)
 	src.modules += new /obj/item/melee/energy/sword(src)
 	src.modules += new /obj/item/gun/energy/mountedsmg(src)
@@ -783,7 +790,15 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/roller_holder(src)
+	src.modules += new /obj/item/device/healthanalyzer(src)
+	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
+	src.modules += new /obj/item/plastique/cyborg(src)
+	src.modules += new /obj/item/grenade/smokebomb/cyborg(src)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
+
+	if(R.radio)
+		R.radio.recalculateChannels()
 
 /obj/item/robot_module/combat
 	name = "combat robot module"
@@ -825,6 +840,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/soap(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/extinguisher(src)
+	src.modules += new /obj/item/rfd/piping/borg(src)
 	src.modules += new /obj/item/device/pipe_painter(src)
 	src.modules += new /obj/item/device/floor_painter(src)
 
