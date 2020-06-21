@@ -32,7 +32,7 @@
 		command_announcement.Announce("The station has passed the radiation belt. Please report to medbay if you experience any unusual symptoms. Maintenance will lose all-access again shortly.", "Anomaly Alert")
 
 /datum/event/radiation_storm/proc/radiate()
-	for(var/mob/living/carbon/C in living_mob_list)
+	for(var/mob/living/C in living_mob_list)
 		var/area/A = get_area(C)
 		if(!A)
 			continue
@@ -40,7 +40,6 @@
 			continue
 		if(A.flags & RAD_SHIELDED)
 			continue
-
 		if(istype(C,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = C
 			if(H.is_diona())
@@ -60,6 +59,9 @@
 				else
 					randmutg(H) // Applies good mutation
 					domutcheck(H,null,MUTCHK_FORCED)
+		//Just having it apply to cats now
+		if(istype(C,/mob/living/simple_animal/cat))
+			C.apply_effect((rand(30,60)),IRRADIATE,blocked=0)
 
 /datum/event/radiation_storm/end()
 	revoke_maint_all_access()
