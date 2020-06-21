@@ -32,7 +32,7 @@ ALTER TABLE `ss13_death`
 	CHANGE COLUMN `byondkey` `ckey` VARCHAR(32) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `name`,
 	CHANGE COLUMN `laname` `laname` VARCHAR(255) NULL DEFAULT NULL COMMENT 'Last attacker name' COLLATE 'utf8mb4_unicode_ci' AFTER `ckey`,
 	CHANGE COLUMN `lakey` `lackey` VARCHAR(32) NULL DEFAULT NULL COMMENT 'Last attacker key' COLLATE 'utf8mb4_unicode_ci' AFTER `laname`,
-	CHANGE COLUMN `gender` `gender` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `lakey`;
+	CHANGE COLUMN `gender` `gender` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci' AFTER `lackey`;
 
 UPDATE ss13_death SET pod = NULL WHERE pod = '';
 UPDATE ss13_death SET coord = NULL WHERE coord = '';
