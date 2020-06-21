@@ -98,6 +98,10 @@
 					attached_satchel.insert_into_storage(ore)
 	else if(istype(get_turf(src), /turf/simulated/floor))
 		var/turf/simulated/floor/T = get_turf(src)
+		var/turf/below_turf = GetBelow(T)
+		if(!istype(below_turf.loc, /area/mine))
+			system_error("Potential station breach below.")
+			return
 		T.ex_act(2.0)
 
 	//Dig out the tasty ores.
