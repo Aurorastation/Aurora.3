@@ -421,7 +421,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is still gathering charge!"))
 		return
 
-	user.visible_message("<b>\The [user]</b> begins waving \the [src] around \the [target]...", SPAN_NOTICE("You prepare to wirelessly charge \the [target]..."), range = 3)
+	user.visible_message("<b>[user]</b> begins waving \the [src] around \the [target]...", SPAN_NOTICE("You prepare to wirelessly charge \the [target]..."), range = 3)
 	if(!do_after(user, 50, TRUE, target))
 		return
 	if(R.cell.charge < 1000)
@@ -435,10 +435,7 @@
 			return
 		var/charge_value = R.cell.use((IPC.max_nutrition - IPC.nutrition) / 2) * 2
 		IPC.nutrition = min(IPC.max_nutrition, charge_value)
-		user.visible_message("<b>[user]</b> holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC]."), range = 3)
-		addtimer(CALLBACK(src, .proc/recharge), recharge_time)
-		ready_to_use = FALSE
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
+		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC]."))
 	else if(isobj(target))
 		var/obj/item/cell/C
 		if(istype(target, /obj/item/cell))
@@ -454,12 +451,15 @@
 		var/charge_amount = min(C.maxcharge - C.charge, 5000) // to prevent us from shitting all our power into this cell
 		var/charge_value = R.cell.use(charge_amount / 2) * 2
 		C.give(charge_value)
-		user.visible_message("<b>\The [user] holds \the [src] over \the [target], topping up its battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target]."), range = 3)
-		addtimer(CALLBACK(src, .proc/recharge), recharge_time)
-		ready_to_use = FALSE
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
+		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [target], topping up its battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target]."))
 	else
 		to_chat(user, SPAN_WARNING("\The [src] cannot be used on \the [target]!"))
+
+/obj/item/inductive_charger/proc/message_and_use(mob/user, var/others_message, var/self_message)
+	user.visible_message(others_message, self_message, range = 3)
+	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+	ready_to_use = FALSE
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
 
 /obj/item/inductive_charger/proc/recharge()
 	ready_to_use = TRUE
