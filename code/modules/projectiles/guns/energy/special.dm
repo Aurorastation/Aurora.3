@@ -221,10 +221,11 @@
 
 /obj/item/gun/energy/net/mounted
 	max_shots = 1
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
+	has_safety = FALSE
 	recharge_time = 40
-	can_turret = 0
+	can_turret = FALSE
 
 /* Vaurca Weapons */
 

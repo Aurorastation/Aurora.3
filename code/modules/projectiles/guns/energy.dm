@@ -53,6 +53,7 @@
 		power_supply = new cell_type(src)
 	else
 		power_supply = new /obj/item/cell/device/variable(src, max_shots*charge_cost)
+	update_maptext()
 
 /obj/item/gun/energy/Destroy()
 	QDEL_NULL(power_supply)
@@ -69,6 +70,7 @@
 			return 0
 
 	power_supply.give(charge_cost) //... to recharge the shot
+	update_maptext()
 	update_icon()
 
 	addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
@@ -87,6 +89,9 @@
 /obj/item/gun/energy/proc/get_external_power_supply()
 	if(isrobot(src.loc))
 		var/mob/living/silicon/robot/R = src.loc
+		return R.cell
+	if(isrobot(src.loc.loc)) // for things inside a robot's module
+		var/mob/living/silicon/robot/R = src.loc.loc
 		return R.cell
 	if(istype(src.loc, /obj/item/rig_module))
 		var/obj/item/rig_module/module = src.loc
@@ -134,3 +139,12 @@
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
 	update_held_icon()
+
+/obj/item/gun/energy/handle_post_fire()
+	..()
+	update_maptext()
+
+/obj/item/gun/energy/get_ammo()
+	if(!power_supply)
+		return 0
+	return round(power_supply.charge / charge_cost)

@@ -41,6 +41,10 @@
 	if(T.head && (T.head.item_flags & AIRTIGHT))
 		to_chat(src, span("warning", "[T]'s headgear is blocking the way to the neck."))
 		return
+	var/obj/item/blocked = check_mouth_coverage()
+	if(blocked)
+		to_chat(src, SPAN_WARNING("\The [blocked] is in the way of your fangs!"))
+		return
 	if (vampire.status & VAMP_DRAINING)
 		to_chat(src, span("warning", "Your fangs are already sunk into a victim's neck!"))
 		return
