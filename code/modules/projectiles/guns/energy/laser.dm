@@ -21,9 +21,10 @@
 
 /obj/item/gun/energy/laser/mounted
 	name = "mounted laser carbine"
-	self_recharge = 1
-	use_external_power = 1
-	can_turret = 0
+	has_safety = FALSE
+	self_recharge = TRUE
+	use_external_power = TRUE
+	can_turret = FALSE
 
 /obj/item/gun/energy/laser/mounted/cyborg/overclocked
 	max_shots = 15

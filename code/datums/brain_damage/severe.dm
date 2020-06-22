@@ -80,8 +80,6 @@
 	if(owner.stat == UNCONSCIOUS || owner.sleeping > 0)
 		return
 	var/sleep_chance = 5
-	if(owner.m_intent == "run")
-		sleep_chance += 15
 	if(owner.drowsyness)
 		sleep_chance += owner.drowsyness + 5
 		if(owner.drowsyness >= 66)

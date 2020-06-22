@@ -589,7 +589,7 @@
 /datum/reagent/toxin/tobacco
 	name = "Space Tobacco"
 	description = "Low-grade space tobacco."
-	reagent_state = LIQUID
+	reagent_state = SOLID
 	color = "#333300"
 	data = 0
 	taste_description = "cheap tobacco"

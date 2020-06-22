@@ -1112,11 +1112,8 @@ There are several things that need to be remembered:
 			standing = image('icons/mob/mob.dmi', "legcuff1")
 		overlays_raw[LEGCUFF_LAYER] = standing
 
-		if(m_intent != "walk")
-			m_intent = "walk"
-			if(hud_used && hud_used.move_intent)
-				hud_used.move_intent.icon_state = "walking"
-
+		if(!MOVING_DELIBERATELY(src))
+			set_moving_slowly()
 	else
 		overlays_raw[LEGCUFF_LAYER] = null
 
