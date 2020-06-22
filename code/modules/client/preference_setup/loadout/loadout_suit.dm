@@ -328,11 +328,13 @@
 /datum/gear/suit/himeo
 	display_name = "himean coat"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/vysoka
 	display_name = "chokha selection"
 	description = "A selection of Vysokan chokhas."
-	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
+	path = /obj/item/clothing/suit/storage/vysoka_m
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/vysoka/New()
 	..()
