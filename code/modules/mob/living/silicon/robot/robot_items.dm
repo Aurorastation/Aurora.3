@@ -435,7 +435,7 @@
 			return
 		var/charge_value = R.cell.use((IPC.max_nutrition - IPC.nutrition) / 2) * 2
 		IPC.nutrition = min(IPC.max_nutrition, charge_value)
-		user.visible_message("<b>\The [user] holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC]."), range = 3)
+		user.visible_message("<b>[user]</b> holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC]."), range = 3)
 		addtimer(CALLBACK(src, .proc/recharge), recharge_time)
 		ready_to_use = FALSE
 		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
