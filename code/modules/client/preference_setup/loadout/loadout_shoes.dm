@@ -15,6 +15,7 @@
 	shoes["brown workboots"] = /obj/item/clothing/shoes/workboots
 	shoes["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
 	shoes["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
+	shoes["winter workboots"] = /obj/item/clothing/shoes/winter/explorer
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/winterboots
@@ -57,20 +58,30 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/flats
-	display_name = "flats (selection)"
+	display_name = "dress flats (selection)"
 	description = "Low-heeled dress flats, in a selection of colors."
 	path = /obj/item/clothing/shoes/flats
 
 /datum/gear/shoes/flats/New()
 	..()
 	var/shoes = list()
-	shoes["dress flats, black"] = /obj/item/clothing/shoes/flats
-	shoes["dress flats, white"] = /obj/item/clothing/shoes/flats/white
-	shoes["dress flats, red"] = /obj/item/clothing/shoes/flats/red
-	shoes["dress flats, blue"] = /obj/item/clothing/shoes/flats/blue
-	shoes["dress flats, green"] = /obj/item/clothing/shoes/flats/green
-	shoes["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
+	shoes["black dress flats"] = /obj/item/clothing/shoes/flats
+	shoes["white dress flats"] = /obj/item/clothing/shoes/flats/white
+	shoes["red dress flats"] = /obj/item/clothing/shoes/flats/red
+	shoes["blue dress flats"] = /obj/item/clothing/shoes/flats/blue
+	shoes["green dress flats"] = /obj/item/clothing/shoes/flats/green
+	shoes["purple dress flats"] = /obj/item/clothing/shoes/flats/purple
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
+
+/datum/gear/shoes/flats_colour
+	display_name = "dress flats (colourable)
+	path = /obj/item/clothing/shoes/flats/colour
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/loafers
+	display_name = "loafers"
+	path = /obj/item/clothing/shoes/flats/loafers
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/cowboy
 	display_name = "cowboy boots (selection)"
@@ -138,3 +149,62 @@
 	display_name = "plastic clogs (colourable)"
 	path = /obj/item/clothing/shoes/sandal/clogs
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/athletic
+	display_name = "athletic shoes (colourable)"
+	path = /obj/item/clothing/shoes/athletic
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/skater
+	display_name = "skater shoes (colourable)"
+	path = /obj/item/clothing/shoes/skater
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/boots/winter/security
+	display_name = "winter boots, security"
+	path = /obj/item/clothing/shoes/boots/winter/security
+	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Detective", "Forensic Technician", "Security Cadet")
+
+/datum/gear/shoes/boots/winter/science
+	display_name = "winter boots, research"
+	path = /obj/item/clothing/shoes/boots/winter/science
+	allowed_roles = list("Research Director", "Scientist", "Roboticist", "Xenobiologist", "Lab Assistant")
+
+/datum/gear/shoes/boots/winter/command
+	display_name = "winter boots, captain"
+	path = /obj/item/clothing/shoes/boots/winter/command
+	allowed_roles = list("Captain")
+
+/datum/gear/shoes/boots/winter/engineering
+	display_name = "winter boots, engineering"
+	path = /obj/item/clothing/shoes/boots/winter/engineering
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Engineering Apprentice")
+
+/datum/gear/shoes/boots/winter/atmos
+	display_name = "winter boots, atmospherics"
+	path = /obj/item/clothing/shoes/boots/winter/atmos
+	allowed_roles = list("Chief Engineer", "Atmospheric Technician", "Engineering Apprentice")
+
+/datum/gear/shoes/boots/winter/medical
+	display_name = "winter boots, medical"
+	path = /obj/item/clothing/shoes/boots/winter/medical
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist", "Pharmacist", "Paramedic", "Medical Resident")
+
+/datum/gear/shoes/boots/winter/mining
+	display_name = "winter boots, mining"
+	path = /obj/item/clothing/shoes/boots/winter/mining
+	allowed_roles = list("Quartermaster", "Shaft Miner")
+
+/datum/gear/shoes/boots/winter/supply
+	display_name = "winter boots, supply"
+	path = /obj/item/clothing/shoes/boots/winter/supply
+	allowed_roles = list("Quartermaster", "Cargo Technician")
+
+/datum/gear/shoes/boots/winter/hydro
+	display_name = "winter boots, gardening"
+	path = /obj/item/clothing/shoes/boots/winter/hydro
+	allowed_roles = list("Gardener")
+
+/datum/gear/shoes/duty
+	display_name = "duty boots"
+	path = 	/obj/item/clothing/shoes/dutyboots

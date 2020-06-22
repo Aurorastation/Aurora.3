@@ -189,6 +189,19 @@
 	icon_state = "whitedf"
 	item_state = "whitedf"
 
+/obj/item/clothing/shoes/flats/colour
+	desc = "A pair of low-heeled women's flats."
+	name = "dress flats"
+	icon_state = "whitedf"
+	item_state = "whitedf"
+
+/obj/item/clothing/shoes/loafers
+	desc = "A pair of loafers."
+	name = "loafers"
+	icon_state = "loafers"
+	item_state = "loafers"
+	species_restricted = null
+
 /obj/item/clothing/shoes/hitops
 	name = "white high-tops"
 	desc = "A pair of shoes that extends past the ankle. Based on a centuries-old, timeless design."

@@ -226,6 +226,58 @@ obj/item/clothing/shoes/sandal/clogs
 	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
 	icon_state = "winterboots_toeless"
 
+/obj/item/clothing/shoes/winter/security
+	name = "security winter boots"
+	desc = "A pair of winter boots. These ones are lined with grey fur, and coloured an angry red."
+	icon_state = "winterboots_sec"
+	armor = list(melee = 30, bullet = 10, laser = 10, energy = 15, bomb = 20, bio = 0, rad = 0)
+
+/obj/item/clothing/shoes/winter/science
+	name = "science winter boots"
+	desc = "A pair of winter boots. These ones are lined with white fur, and are trimmed with scientific advancement!"
+	icon_state = "winterboots_sci"
+
+/obj/item/clothing/shoes/winter/command
+	name = "colony director's winter boots"
+	desc = "A pair of winter boots. They're lined with dark fur, and trimmed in the colours of superiority."
+	icon_state = "winterboots_cap"
+
+/obj/item/clothing/shoes/winter/engineering
+	name = "engineering winter boots"
+	desc = "A pair of winter boots. These ones are lined with orange fur and are trimmed in the colours of disaster."
+	icon_state = "winterboots_eng"
+
+/obj/item/clothing/shoes/winter/atmos
+	name = "atmospherics winter boots"
+	desc = "A pair of winter boots. These ones are lined with beige fur, and are trimmed in breath taking colours."
+	icon_state = "winterboots_atmos"
+
+/obj/item/clothing/shoes/winter/medical
+	name = "medical winter boots"
+	desc = "A pair of winter boots. These ones are lined with white fur, and are trimmed like 30cc of dexalin"
+	icon_state = "winterboots_med"
+
+/obj/item/clothing/shoes/winter/mining
+	name = "mining winter boots"
+	desc = "A pair of winter boots. These ones are lined with greyish fur, and their trim is golden!"
+	icon_state = "winterboots_mining"
+
+/obj/item/clothing/shoes/winter/supply
+	name = "supply winter boots"
+	desc = "A pair of winter boots. These ones are lined with the galactic cargonia colors!"
+	icon_state = "winterboots_sup"
+
+/obj/item/clothing/shoes/winter/hydro
+	name = "hydroponics winter boots"
+	desc = "A pair of winter boots. These ones are lined with brown fur, and their trim is ambrosia green"
+	icon_state = "winterboots_hydro"
+
+/obj/item/clothing/shoes/winter/explorer
+	name = "explorer winter boots"
+	desc = "Steel-toed winter boots for mining or exploration in hazardous environments. Very good at keeping toes warm and uncrushed."
+	icon_state = "explorer"
+	armor = list(melee = 40, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+
 /obj/item/clothing/shoes/black_boots
 	name = "black boots"
 	desc = "A pair of tough looking black boots."
@@ -289,3 +341,15 @@ obj/item/clothing/shoes/sandal/clogs
 	item_state = "blue"
 	permeability_coefficient = 0.01
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
+
+/obj/item/clothing/shoes/athletic
+	name = "athletic shoes"
+	desc = "A pair of sleek atheletic shoes. Made by and for the sporty types."
+	icon_state = "sportshoe"
+	item_state_slots = list(slot_r_hand_str = "sportheld", slot_l_hand_str = "sportheld")
+
+/obj/item/clothing/shoes/skater
+	name = "skater shoes"
+	desc = "A pair of wide shoes with thick soles.  Designed for skating."
+	icon_state = "skatershoe"
+	item_state_slots = list(slot_r_hand_str = "skaterheld", slot_l_hand_str = "skaterheld")
