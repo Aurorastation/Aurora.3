@@ -16,8 +16,9 @@ var/global/datum/robolimb/basic_robolimb
 /datum/robolimb
 	var/company = "Unbranded"                            // Shown when selecting the limb.
 	var/desc = "A generic unbranded robotic prosthesis." // Seen when examining a limb.
-	var/icon = 'icons/mob/human_races/ipc/robotic.dmi'       // Icon base to draw from.
+	var/icon = 'icons/mob/human_races/ipc/robotic.dmi'   // Icon base to draw from.
 	var/unavailable_at_chargen                           // If set, not available at chargen.
+	var/lifelike = FALSE                                 // If set, appears organic.
 	var/list/species_can_use = list(
 		"Human",
 		"Skrell",
@@ -30,7 +31,7 @@ var/global/datum/robolimb/basic_robolimb
 		"Baseline Frame",
 		"Off-Worlder Human"
 	)
-	var/paintable = 0 //tired of istype exceptions. bullshirt to find, and by god do i know it after this project.
+	var/paintable = 0 //tired of istype exceptions. bullshit to find, and by god do i know it after this project.
 	var/linked_frame = "Unbranded Frame" //which machine species this limb will create
 	var/brute_mod = 0.9 //how resistant is this mode to brute damage
 	var/burn_mod = 1.1 //how resistant is this mode to burn damage
@@ -97,6 +98,7 @@ var/global/datum/robolimb/basic_robolimb
 	species_can_use = list("Human")
 	linked_frame = "Shell Frame"
 	fabricator_available = TRUE
+	lifelike = TRUE
 
 /datum/robolimb/autakh
 	company = PROSTHETIC_AUTAKH
