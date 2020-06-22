@@ -426,9 +426,8 @@
 	set name = "Remove Hat"
 	set desc = " Remove your hat."
 	
-	if(hat != null)
+	if(hat)
 		src.drop_from_inventory(hat)
-		hat = null
 		visible_message("<span class='warning'>[src] removes their hat!</span>")
 	else
 		to_chat(src, span("warning", "You have no hat!"))
