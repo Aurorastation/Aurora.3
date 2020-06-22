@@ -202,3 +202,23 @@
 	w_class = 1
 	light_wedge = LIGHT_WIDE
 	body_parts_covered = 0
+
+/obj/item/device/flashlight/color	//Default color is blue, just roll with it.
+	name = "blue flashlight"
+	desc = "A hand-held emergency light. This one is blue."
+	icon_state = "flashlight_blue"
+
+/obj/item/device/flashlight/color/red
+	name = "red flashlight"
+	desc = "A hand-held emergency light. This one is red."
+	icon_state = "flashlight_red"
+
+/obj/item/device/flashlight/color/orange
+	name = "orange flashlight"
+	desc = "A hand-held emergency light. This one is orange."
+	icon_state = "flashlight_orange"
+
+/obj/item/device/flashlight/color/yellow
+	name = "yellow flashlight"
+	desc = "A hand-held emergency light. This one is yellow."
+	icon_state = "flashlight_yellow"

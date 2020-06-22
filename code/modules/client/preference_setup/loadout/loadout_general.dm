@@ -1,18 +1,3 @@
-/datum/gear/cane
-	display_name = "cane"
-	path = /obj/item/cane
-
-/datum/gear/cane/white
-	display_name = "cane, white"
-	path = /obj/item/cane/white
-
-/datum/gear/cane/white2
-	display_name = "cane, white telescopic"
-	path = /obj/item/cane/white/collapsible
-
-/datum/gear/crutch
-	display_name = "crutch"
-	path = /obj/item/cane/crutch
 
 /datum/gear/dice
 	display_name = "pack of dice"

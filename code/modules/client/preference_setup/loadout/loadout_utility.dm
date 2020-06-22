@@ -139,3 +139,70 @@
 	display_name = "stethoscope"
 	path = /obj/item/clothing/accessory/stethoscope
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident", "Roboticist")
+
+/datum/gear/utility/flashlight
+	display_name = "flashlight (selection)"
+	path = /obj/item/device/flashlight
+
+/datum/gear/utility/flashlight/New()
+	..()
+	var/l_flashlights = list()
+	l_flashlights["regular flashlight"] = /obj/item/device/flashlight
+	l_flashlights["blue flashlight"] = /obj/item/device/flashlight/color
+	l_flashlights["orange flashlight"] = /obj/item/device/flashlight/color/orange
+	l_flashlights["red flashlight"] = /obj/item/device/flashlight/color/red
+	l_flashlights["yellow flashlight"] = /obj/item/device/flashlight/color/yellow
+	gear_tweaks += new/datum/gear_tweak/path(l_flashlights)
+
+/datum/gear/utility/corporate_regulations
+	display_name = "book, Corporate Regulations"
+	path = /obj/item/book/manual/wiki/security_space_law
+	cost = 0
+
+/datum/gear/utility/station_procedure
+	display_name = "book, Station Procedure"
+	path = /obj/item/book/manual/wiki/station_procedure
+	cost = 0
+
+/datum/gear/utility/chef_recipes
+	display_name = "book, Chef Recipes"
+	path = /obj/item/book/manual/chef_recipes
+	cost = 0
+
+/datum/gear/utility/barman_recipes
+	display_name = "book, Barman Recipes"
+	path = /obj/item/book/manual/barman_recipes
+	cost = 0
+
+/datum/gear/utility/umbrella
+	display_name = "umbrella"
+	path = /obj/item/melee/umbrella
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/utility/cane
+	display_name = "cane"
+	path = /obj/item/cane
+
+/datum/gear/utility/cane/white
+	display_name = "cane, white"
+	path = /obj/item/cane/white
+
+/datum/gear/utility/cane/white2
+	display_name = "cane, white telescopic"
+	path = /obj/item/cane/white/collapsible
+
+/datum/gear/utility/crutch
+	display_name = "crutch"
+	path = /obj/item/cane/crutch
+
+/datum/gear/utility/crutch2
+	display_name = "second crutch"
+	path = /obj/item/cane/crutch
+
+/datum/gear/utility/wheelchair
+	display_name = "wheelchair"
+	path = /obj/item/wheelchair
+
+/datum/gear/utility/tts_device
+	display_name = "text to speech device"
+	path = /obj/item/device/text_to_speech
