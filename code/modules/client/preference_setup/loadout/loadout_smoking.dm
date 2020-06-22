@@ -23,6 +23,7 @@
 	zippolighters["royal Zippo"] = /obj/item/flame/lighter/zippo/royal
 	zippolighters["Gonzo Zippo"] = /obj/item/flame/lighter/zippo/gonzo
 	zippolighters["rainbow Zippo"] = /obj/item/flame/lighter/zippo/rainbow
+	zippolighters["hinomaru Zippo"] = /obj/item/flame/lighter/zippo/hinomaru
 	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter

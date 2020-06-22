@@ -653,7 +653,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/lighter/zippo/royal
 	name = "royal Zippo lighter"
-	desc = "An incredibly fancy lighter, gilded and covered in the color of royalty."
+	desc = "An incredibly fancy lighter, gilded and covered in the colour of royalty."
 	icon_state = "royalzippo"
 
 /obj/item/flame/lighter/zippo/gonzo
@@ -663,7 +663,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/lighter/zippo/rainbow
 	name = "rainbow Zippo lighter"
+	desc = "A lighter with rainbow colours."
 	icon_state = "rainbowzippo"
+
+/obj/item/flame/lighter/zippo/hinomaru
+	name = "hinomaru Zippo lighter"
+	desc = "A lighter with a large red circle on it."
+	icon_state = "hinomaruzippo"
 
 /obj/item/flame/lighter/red
 	icon_state = "lighter-r"

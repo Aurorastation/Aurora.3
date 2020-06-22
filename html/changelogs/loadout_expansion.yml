@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: Mwahahahaha
+author: Mwahahahaha, The Stryker, The Angry Waffle
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -53,6 +53,6 @@ changes:
   - rscadd: "Head Loadout: added colourable softcap, colourable hair bow, colourable hijab, colourable turban, powdered wig, philosopher wig."
   - rscadd: "Mask Loadout: ported bandanas from Polaris."
   - rscadd: "Smoking Loadout: ported e-cigarettes and zippo lighters from Polaris."
-  - rscadd: "Smoking Loadout: added plastic ashtray, colour selection for cheap lighters"
+  - rscadd: "Smoking Loadout: added plastic ashtray, colour selection for cheap lighters, and hinomaru lighter."
   - rscadd: "Utility Loadout: ported clutch bags and purses from Polaris."
   - bugfix: "Adds a missing west-facing icon for the NanoTrasen lunchbox right-hand icons, as well as missing object icons for black, and white, soft caps."
