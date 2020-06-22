@@ -205,9 +205,9 @@
 	down_body_parts_covered = null
 	adjustable = TRUE
 
-/obj/item/clothing/mask/bandanna
-	name = "black bandanna"
-	desc = "A fine bandanna with nanotech lining. Can be worn on the head or face."
+/obj/item/clothing/mask/bandana
+	name = "black bandana"
+	desc = "A fine bandana with nanotech lining. Can be worn on the head or face."
 	w_class = ITEMSIZE_TINY
 	flags_inv = HIDEFACE
 	slot_flags = SLOT_MASK|SLOT_HEAD
@@ -229,8 +229,8 @@
 
 	return ..()
 
-/obj/item/clothing/mask/bandanna/skull
-	name = "skull bandanna"
-	desc = "A fine black bandanna with nanotech lining and a skull emblem. Can be worn on the head or face."
+/obj/item/clothing/mask/bandana/skull
+	name = "skull bandana"
+	desc = "A fine black bandana with nanotech lining and a skull emblem. Can be worn on the head or face."
 	icon_state = "bandskull"
 	item_state_slots = list(slot_r_hand_str = "bandskull", slot_l_hand_str = "bandskull")
