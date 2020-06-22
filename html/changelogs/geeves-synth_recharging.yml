@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Stationbound Synthesizers now properly regenerate when in a recharging station."
