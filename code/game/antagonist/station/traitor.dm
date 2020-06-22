@@ -181,3 +181,6 @@ var/datum/antagonist/traitor/traitors
 	to_chat(killer, "<b>Your laws have been changed!</b>")
 	killer.set_zeroth_law(law, law_borg)
 	to_chat(killer, "New law: 0. [law]")
+
+/datum/antagonist/traitor/get_antag_radio()
+	return "Mercenary"
