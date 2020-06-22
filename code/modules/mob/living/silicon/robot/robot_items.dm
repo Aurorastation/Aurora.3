@@ -396,18 +396,29 @@
 /obj/item/inductive_charger
 	name = "inductive charger"
 	desc = "A phoron-enhanced induction charger hooked up to its attached stationbound's internal cell."
-	desc_fluff = "Harnessing the energy potential found in phoron structures, Nanotrasen engineers have created an induction charger capable of outputting more power than inserted. The expense and limit of energy output of using this method of charging prevents it from being used on a large scale, being far outclassed by Phoron-Supermatter charging systems."
-	desc_info = "Click on an adjacent object that contains or is a power cell to attempt to find and charge it. After a successful charge, the inductive charger recharge in a few minutes."
+	desc_fluff = "Harnessing the energy potential found in phoron structures, Nanotrasen engineers have created a portable device capable of highly efficient wireless charging. The expense and limit of energy output of using this method of charging prevents it from being used on a large scale, being far outclassed by Phoron-Supermatter charging systems."
+	desc_info = "Click on an adjacent object that contains or is a power cell to attempt to find and charge it. After a successful charge, the inductive charger recharge in a few minutes. The amount transfered can be adjusted by alt clicking it."
 	icon = 'icons/obj/robot_items.dmi'
 	icon_state = "inductive_charger"
 	var/ready_to_use = TRUE
-	var/recharge_time = 1.5 MINUTE
+	var/recharge_time = 300
+	var/transfer_rate = 5000
 	maptext_x = 3
 	maptext_y = 2
 
 /obj/item/inductive_charger/Initialize()
 	. = ..()
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
+
+/obj/item/inductive_charger/AltClick(mob/user)
+	. = ..()
+	var/set_rate = input(user, "How much do you want to transfer per use? (Limit: 1 - 5000)", "Induction Transfer Rate", 5000) as num
+	if(set_rate > 5000)
+		set_rate = 5000
+	else if(set_rate < 1)
+		set_rate = 1
+	transfer_rate = set_rate
+	to_chat(user, SPAN_NOTICE("You set the transfer rate of \the [src] to [transfer_rate]."))
 
 /obj/item/inductive_charger/attack(mob/living/M, mob/living/user, target_zone)
 	return
@@ -433,7 +444,8 @@
 		if(IPC.nutrition == IPC.max_nutrition)
 			to_chat(user, SPAN_WARNING("\The [IPC] is already fully charged!"))
 			return
-		var/charge_value = R.cell.use((IPC.max_nutrition - IPC.nutrition) / 1.20) * 1.20
+		var/charge_amount = min(C.maxcharge - C.charge, transfer_rate)
+		var/charge_value = R.cell.use((IPC.max_nutrition - IPC.nutrition) * 0.8) / 0.8
 		IPC.nutrition = min(IPC.max_nutrition, charge_value)
 		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC]."))
 	else if(isobj(target))
@@ -448,8 +460,8 @@
 		if(C.fully_charged())
 			to_chat(user, SPAN_WARNING("\The [C] is already fully charged!"))
 			return
-		var/charge_amount = min(C.maxcharge - C.charge, 5000) // to prevent us from shitting all our power into this cell
-		var/charge_value = R.cell.use(charge_amount / 1.20) * 1.20
+		var/charge_amount = min(C.maxcharge - C.charge, transfer_rate)
+		var/charge_value = R.cell.use(charge_amount * 0.8) / 0.8
 		C.give(charge_value)
 		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [target], topping up its battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target]."))
 	else
