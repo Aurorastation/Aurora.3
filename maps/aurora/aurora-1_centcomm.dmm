@@ -17994,6 +17994,9 @@
 	icon_state = "0,2"
 	},
 /area/shuttle/distress/centcom)
+"bhr" = (
+/turf/unsimulated/wall/darkshuttlewall,
+/area/burglar_base/pod)
 "bhH" = (
 /turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -18070,6 +18073,21 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
+"blS" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 8
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/burglar_base)
 "blX" = (
 /obj/structure/table/standard,
 /obj/item/stack/medical/advanced/bruise_pack,
@@ -18719,6 +18737,16 @@
 	icon_state = "engine"
 	},
 /area/centcom/legion/hangar5)
+"cnZ" = (
+/obj/item/folder{
+	pixel_y = 2
+	},
+/obj/structure/table/glass,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "coC" = (
 /obj/structure/sign/greencross{
 	name = "Emergency Room"
@@ -18931,6 +18959,15 @@
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/grass/alt,
 /area/centcom/shared_dream)
+"cAN" = (
+/obj/structure/closet/crate,
+/obj/item/gun/custom_ka/frame01/illegal,
+/obj/item/gun/custom_ka/frame01/illegal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "cCe" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -19076,6 +19113,16 @@
 /obj/item/storage/belt/utility/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration/centcom)
+"cIa" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/obj/structure/window/reinforced/crescent,
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 5
+	},
+/turf/unsimulated/floor,
+/area/burglar_base)
 "cJl" = (
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -19538,6 +19585,13 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/merchant_station/warehouse)
+"dqJ" = (
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "dqP" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -19676,6 +19730,11 @@
 	icon_state = "6,0"
 	},
 /area/shuttle/distress/centcom)
+"dDK" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/fancy/tray,
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "dEX" = (
 /obj/structure/closet/secure_closet/merchant,
 /turf/simulated/floor/tiled/dark,
@@ -19857,6 +19916,9 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/legion/hangar5)
+"dOH" = (
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "dPt" = (
 /obj/structure/flora/pottedplant/random,
 /turf/unsimulated/floor{
@@ -20089,6 +20151,16 @@
 	icon_state = "5,10"
 	},
 /area/supply/dock)
+"ead" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/structure/window/reinforced/crescent,
+/obj/machinery/vending/sovietsoda{
+	name = "Syndicate-Sponsored BODA"
+	},
+/turf/simulated/floor/carpet,
+/area/burglar_base)
 "eby" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "15,2"
@@ -20132,6 +20204,11 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
+"ein" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	dir = 6
+	},
+/area/burglar_base/pod)
 "eiw" = (
 /turf/unsimulated/wall/fakepdoor{
 	dir = 4
@@ -20334,6 +20411,17 @@
 	name = "Skipjack"
 	},
 /area/skipjack_station/start)
+"ezR" = (
+/obj/structure/bed/chair/office/bridge/generic{
+	desc = "Looks suspiciously comfortable.";
+	dir = 8;
+	name = "bolted chair"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "eAT" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "10,22"
@@ -20423,6 +20511,10 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
+"eMY" = (
+/obj/machinery/computer/shuttle_control/multi/burglar,
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "eNz" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -20465,6 +20557,18 @@
 /obj/structure/bedsheetbin,
 /turf/simulated/floor/wood,
 /area/skipjack_station/start)
+"ePN" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/burglar_base)
 "ePR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -21039,6 +21143,11 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration/centcom)
+"ftj" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	dir = 5
+	},
+/area/burglar_base/pod)
 "ftu" = (
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -21104,6 +21213,23 @@
 	name = "autoshuttle"
 	},
 /area/shuttle/arrival/centcom)
+"fwV" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	dir = 9
+	},
+/area/burglar_base/pod)
+"fze" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 8
+	},
+/obj/structure/window/reinforced/crescent,
+/obj/machinery/vending/zora{
+	name = "Syndicate-Sponsored Zo'ra Soda";
+	prices = list()
+	},
+/obj/machinery/light,
+/turf/simulated/floor/carpet/blue,
+/area/burglar_base)
 "fzh" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -21596,6 +21722,14 @@
 	icon_state = "floor-shuttle"
 	},
 /area/centcom/legion)
+"glm" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor/plating,
+/area/burglar_base)
 "glx" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -21977,6 +22111,10 @@
 	},
 /turf/space,
 /area/syndicate_station/start)
+"gEt" = (
+/obj/machinery/optable,
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "gEu" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -22331,6 +22469,17 @@
 	icon_state = "0,10"
 	},
 /area/supply/dock)
+"hat" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/unsimulated/floor/plating,
+/area/burglar_base)
 "hau" = (
 /turf/simulated/wall/shuttle/unique/distress{
 	icon_state = "8,4"
@@ -23476,6 +23625,15 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion/hangar5)
+"iot" = (
+/obj/structure/sign/double/map/left{
+	pixel_y = 32
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "ioS" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/southright,
@@ -24228,6 +24386,14 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration/centcom)
+"jne" = (
+/obj/structure/table/rack,
+/obj/item/storage/belt/utility/very_full,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "jnf" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "1,6"
@@ -24241,6 +24407,10 @@
 	icon_state = "dark"
 	},
 /area/centcom/distress_prep)
+"jnL" = (
+/obj/effect/wingrille_spawn/reinforced,
+/turf/unsimulated/floor/plating,
+/area/burglar_base/pod)
 "jon" = (
 /obj/machinery/door/airlock/centcom{
 	icon = 'icons/obj/doors/Doorcomglass.dmi';
@@ -24272,6 +24442,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/start)
+"jqI" = (
+/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/holding)
 "jrk" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon_state = "6,3"
@@ -24559,6 +24738,16 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1/centcom)
+"jKQ" = (
+/obj/machinery/vending/snack{
+	name = "Syndicate-Sponsored Getmore Chocolate Corp";
+	prices = list()
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "jKW" = (
 /obj/machinery/light/spot{
 	icon_state = "tube1";
@@ -25464,6 +25653,13 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration/centcom)
+"kXY" = (
+/obj/machinery/suit_cycler/syndicate,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "kYu" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -25521,6 +25717,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"lcy" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/ammo_magazine/mc9mm{
+	pixel_x = 2
+	},
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm{
+	pixel_x = -2
+	},
+/obj/item/ammo_magazine/mc9mm{
+	pixel_x = -4
+	},
+/obj/item/gun/projectile/pistol{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/obj/item/gun/projectile/pistol{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "ldQ" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/legion/hangar5)
@@ -25538,6 +25756,20 @@
 	},
 /turf/space,
 /area/syndicate_station/start)
+"lfi" = (
+/obj/structure/table/rack,
+/obj/item/clothing/head/helmet/space/void,
+/obj/item/clothing/suit/space/void,
+/obj/item/tank/oxygen/red,
+/obj/item/clothing/shoes/magboots,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "lfp" = (
 /obj/machinery/light{
 	dir = 8;
@@ -25729,6 +25961,18 @@
 	icon_state = "3,4"
 	},
 /area/shuttle/distress/centcom)
+"lsh" = (
+/obj/structure/table/rack,
+/obj/item/clothing/head/helmet/space/void,
+/obj/item/clothing/suit/space/void,
+/obj/item/tank/oxygen/red,
+/obj/item/clothing/shoes/magboots,
+/obj/machinery/light,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "lsU" = (
 /turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/cargo{
@@ -25851,6 +26095,11 @@
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
+"lBW" = (
+/turf/simulated/wall/shuttle/dark/corner/underlay{
+	dir = 10
+	},
+/area/burglar_base/pod)
 "lBZ" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "6,25"
@@ -25956,6 +26205,17 @@
 	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
+"lKr" = (
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/brute,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/fire,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "lKB" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/spacecash/c1000{
@@ -26025,6 +26285,18 @@
 	icon_state = "7,12"
 	},
 /area/syndicate_station/start)
+"lPu" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 4
+	},
+/obj/effect/landmark{
+	name = "burglarspawn"
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "lPG" = (
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -26134,6 +26406,10 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
+"lVU" = (
+/obj/effect/shuttle_landmark/burglar/interim,
+/turf/space/transit,
+/area/space)
 "lWY" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -27895,6 +28171,17 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"oeU" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor/plating,
+/area/burglar_base)
 "ofD" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/mining.dmi';
@@ -27906,6 +28193,15 @@
 	opacity = 0
 	},
 /area/centcom/shared_dream)
+"ogh" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 1
+	},
+/turf/unsimulated/floor,
+/area/burglar_base)
 "ogn" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -28252,6 +28548,14 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape/centcom)
+"oCy" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor/plating,
+/area/burglar_base)
 "oCD" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -28916,6 +29220,10 @@
 	icon_state = "0,5"
 	},
 /area/supply/dock)
+"pta" = (
+/obj/machinery/computer/operating,
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "pux" = (
 /obj/item/pickaxe,
 /turf/unsimulated/floor/asteroid/ash/rocky{
@@ -29007,6 +29315,12 @@
 	icon_state = "3,2"
 	},
 /area/shuttle/merchant/start)
+"pDr" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_r"
+	},
+/turf/unsimulated/floor/plating,
+/area/burglar_base/pod)
 "pDA" = (
 /obj/structure/flora/rock/pile{
 	density = 0;
@@ -29644,6 +29958,17 @@
 	icon_state = "platebot"
 	},
 /area/centcom/distress_prep)
+"qxs" = (
+/obj/structure/bed/chair/office/bridge/generic{
+	desc = "Looks suspiciously comfortable.";
+	dir = 4;
+	name = "bolted chair"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "qxI" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "8,2"
@@ -29655,6 +29980,18 @@
 	},
 /turf/space,
 /area/syndicate_station/start)
+"qxQ" = (
+/obj/structure/bed/chair/comfy/black{
+	dir = 8
+	},
+/obj/effect/landmark{
+	name = "burglarspawn"
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "qzj" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "5,22"
@@ -30514,6 +30851,18 @@
 	icon_state = "1,6"
 	},
 /area/syndicate_station/start)
+"ryV" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 8
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 9
+	},
+/turf/unsimulated/floor,
+/area/burglar_base)
 "rzy" = (
 /obj/structure/bed/chair/office/bridge{
 	dir = 4
@@ -30574,6 +30923,17 @@
 	name = "military corvette"
 	},
 /area/shuttle/administration/centcom)
+"rDV" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Shuttle";
+	opacity = 1;
+	req_access = list(150)
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "rEP" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
@@ -30822,6 +31182,13 @@
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
+"rTn" = (
+/obj/structure/shuttle/engine/heater,
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/burglar_base/pod)
 "rUc" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Cell 1";
@@ -30899,6 +31266,9 @@
 	icon_state = "15,7"
 	},
 /area/syndicate_station/start)
+"saE" = (
+/turf/unsimulated/wall/steel,
+/area/burglar_base)
 "sbN" = (
 /obj/structure/shuttle_part/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -30912,6 +31282,16 @@
 	icon_state = "10,8"
 	},
 /area/shuttle/merchant/start)
+"scA" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor/plating,
+/area/burglar_base)
 "scL" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "9,1"
@@ -31395,6 +31775,17 @@
 	},
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/legion/hangar5)
+"sOh" = (
+/obj/machinery/vending/cigarette{
+	name = "hacked cigarette machine";
+	prices = list();
+	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "sOJ" = (
 /turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/cargo{
@@ -31720,6 +32111,12 @@
 /obj/structure/bed/chair/office/bridge/legion,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion/centcom)
+"tfa" = (
+/obj/structure/shuttle/engine/propulsion{
+	icon_state = "propulsion_l"
+	},
+/turf/unsimulated/floor/plating,
+/area/burglar_base/pod)
 "tfb" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "14,8"
@@ -31964,6 +32361,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"twB" = (
+/obj/machinery/vending/cola{
+	name = "hacked Robust Softdrinks";
+	prices = list()
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "tym" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket{
@@ -31974,6 +32381,17 @@
 	dir = 1
 	},
 /area/centcom/control)
+"tyS" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/card/emag{
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = -10;
+	pixel_x = 2
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "tAQ" = (
 /obj/machinery/door/blast/odin{
 	density = 0;
@@ -32068,6 +32486,16 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/legion/hangar5)
+"tHp" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/grille,
+/turf/unsimulated/floor/plating,
+/area/burglar_base)
 "tHS" = (
 /obj/structure/closet/crate/secure/legion,
 /obj/item/storage/belt/security/tactical,
@@ -32754,6 +33182,13 @@
 	},
 /turf/space,
 /area/skipjack_station/start)
+"uDS" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "uEQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -33276,6 +33711,12 @@
 	icon_state = "floor"
 	},
 /area/centcom/checkpoint/aft)
+"viy" = (
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "viR" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "3,12"
@@ -33745,6 +34186,19 @@
 	icon_state = "dark"
 	},
 /area/centcom/legion)
+"vHw" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 1
+	},
+/obj/structure/window/reinforced/crescent,
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 5
+	},
+/turf/unsimulated/floor,
+/area/burglar_base)
 "vIS" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,10"
@@ -34067,6 +34521,18 @@
 	icon_state = "floor"
 	},
 /area/centcom/legion/hangar5)
+"wdS" = (
+/obj/structure/sign/double/map/right{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "weO" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "7,19"
@@ -34201,6 +34667,15 @@
 	name = "Skipjack"
 	},
 /area/skipjack_station/start)
+"wpe" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 4
+	},
+/turf/unsimulated/floor,
+/area/burglar_base)
 "wpg" = (
 /turf/unsimulated/floor{
 	name = "plating";
@@ -34704,6 +35179,10 @@
 	icon_state = "engine"
 	},
 /area/centcom/legion/hangar5)
+"wZK" = (
+/obj/effect/shuttle_landmark/burglar/start,
+/turf/simulated/floor/carpet/rubber,
+/area/burglar_base/pod)
 "xbK" = (
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -34732,6 +35211,10 @@
 	icon_state = "wood_light"
 	},
 /area/centcom/legion/hangar5)
+"xdj" = (
+/obj/structure/shuttle/engine/propulsion,
+/turf/unsimulated/floor/plating,
+/area/burglar_base/pod)
 "xgn" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -35554,6 +36037,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/start)
+"yjl" = (
+/obj/structure/window/reinforced/crescent{
+	dir = 8
+	},
+/obj/structure/window/reinforced/crescent{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 6
+	},
+/turf/unsimulated/floor,
+/area/burglar_base)
 "yjn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/curtain/open/shower,
@@ -35642,26 +36137,26 @@ aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -35899,26 +36394,26 @@ aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -36152,30 +36647,30 @@ aax
 aaq
 aaq
 aaq
-aaq
-aaq
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
 aaq
 aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -36409,30 +36904,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -36666,30 +37161,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -36923,30 +37418,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -37180,30 +37675,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -37437,30 +37932,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -37694,30 +38189,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -37951,30 +38446,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -38208,30 +38703,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -38465,30 +38960,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -38722,30 +39217,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+lVU
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -38979,30 +39474,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -39236,30 +39731,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -39493,30 +39988,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -39750,30 +40245,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -40007,30 +40502,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -40264,30 +40759,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -40521,30 +41016,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -40778,30 +41273,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -41035,30 +41530,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -41292,30 +41787,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -41549,30 +42044,30 @@ aax
 aaq
 aaq
 aaq
+aax
 aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aax
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -41806,30 +42301,30 @@ aax
 aaq
 aaq
 aaq
-aaq
-aaq
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
+aax
 aaq
 aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -42067,26 +42562,26 @@ aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -42324,26 +42819,26 @@ aaq
 aaq
 aaq
 aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
 bJl
 bJl
-bJl
-bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
 aaM
 aaM
 aaM
@@ -42585,22 +43080,22 @@ bJl
 bJl
 bJl
 bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
 aaM
 aaM
 aaM
@@ -42842,22 +43337,22 @@ bJl
 bJl
 bJl
 bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
 aaM
 aaM
 aaM
@@ -43099,22 +43594,22 @@ bJl
 bJl
 bJl
 bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
 aaM
 aaM
 aaM
@@ -43356,22 +43851,22 @@ bJl
 bJl
 bJl
 bJl
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
+bJl
 aaM
 aaM
 aaM
@@ -59310,24 +59805,24 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
 aaM
 aaM
 aaM
@@ -59567,6 +60062,7 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
@@ -59583,8 +60079,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -59824,6 +60319,7 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
@@ -59840,8 +60336,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -60081,6 +60576,7 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
@@ -60097,8 +60593,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -60338,24 +60833,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+scA
+tHp
+tHp
+tHp
+tHp
+tHp
+oCy
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -60595,24 +61090,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+glm
+kXY
+viy
+lPu
+viy
+kXY
+glm
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -60852,24 +61347,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+glm
+lfi
+viy
+cnZ
+viy
+lsh
+glm
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -61109,24 +61604,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+hat
+jne
+viy
+qxQ
+viy
+jne
+oeU
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -61366,24 +61861,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+saE
+uDS
+viy
+viy
+viy
+uDS
+saE
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -61623,24 +62118,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+saE
+iot
+viy
+viy
+viy
+viy
+saE
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -61880,24 +62375,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+saE
+wdS
+viy
+viy
+viy
+dqJ
+saE
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -62137,24 +62632,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+saE
+jKQ
+viy
+viy
+twB
+sOh
+saE
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -62394,24 +62889,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
+saE
+saE
+rDV
+saE
+saE
+saE
+saE
 aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -62651,6 +63146,15 @@ aaM
 aaM
 aaM
 aaM
+aDQ
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+cIa
 aaM
 aaM
 aaM
@@ -62659,16 +63163,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -62908,6 +63403,7 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
@@ -62915,17 +63411,16 @@ aaM
 aaM
 aaM
 aaM
+ePN
+yjl
+yjl
+yjl
+yjl
+wpe
+fze
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -63165,24 +63660,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
 aaM
 aaM
+blS
+ryV
+ryV
+ryV
+ryV
+ryV
+ogh
+ead
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -63422,6 +63917,14 @@ aaM
 aaM
 aaM
 aaM
+aDQ
+aaM
+aaM
+aaM
+aaM
+aaM
+aaM
+vHw
 aaM
 aaM
 aaM
@@ -63431,15 +63934,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -63679,24 +64174,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
+fwV
+bhr
+jnL
+jnL
+jnL
+jnL
+bhr
+bhr
+lBW
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -63936,24 +64431,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
+bhr
+qxs
+dOH
+tyS
+dDK
+dOH
+cAN
+rTn
+tfa
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -64193,24 +64688,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
+jnL
+eMY
+wZK
+dOH
+dOH
+dOH
+lcy
+rTn
+xdj
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -64450,24 +64945,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
+bhr
+ezR
+dOH
+pta
+gEt
+dOH
+lKr
+rTn
+pDr
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -64707,24 +65202,24 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
 aaM
+ftj
+bhr
+jnL
+jnL
+jnL
+jnL
+bhr
+bhr
+ein
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -64964,6 +65459,7 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
@@ -64980,8 +65476,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -65221,6 +65716,7 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
@@ -65237,8 +65733,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -65478,6 +65973,7 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
@@ -65494,8 +65990,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -65735,6 +66230,7 @@ aaM
 aaM
 aaM
 aaM
+aDQ
 aaM
 aaM
 aaM
@@ -65751,8 +66247,7 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
+aDQ
 aaM
 aaM
 aaM
@@ -65992,24 +66487,24 @@ aaM
 aaM
 aaM
 aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
-aaM
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
+aDQ
 aaM
 aaM
 aaM
@@ -71516,7 +72011,7 @@ aOS
 aCq
 aMQ
 aCo
-aCo
+jqI
 aCo
 aQM
 aIv

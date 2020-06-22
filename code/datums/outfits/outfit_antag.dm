@@ -232,6 +232,46 @@
 		W.handle_item_insertion(id)
 		spawn_money(rand(50,150)*10,W)
 
+/datum/outfit/admin/syndicate/raider/burglar
+	name = "Burglar"
+
+	uniform = list(
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy
+		)
+
+	suit = /obj/item/clothing/suit/armor/bulletproof
+
+	shoes = list(
+		/obj/item/clothing/shoes/laceup/all_species,
+		/obj/item/clothing/shoes/laceup/brown/all_species
+	)
+
+	glasses = list(
+		/obj/item/clothing/glasses/sunglasses,
+		/obj/item/clothing/glasses/sunglasses/aviator
+	)
+
+	head = null
+
+	gloves = list(
+		/obj/item/clothing/gloves/watch,
+		/obj/item/clothing/gloves/watch/silver,
+		/obj/item/clothing/gloves/watch/gold,
+		/obj/item/clothing/gloves/watch/spy
+	)
+
+	l_ear = /obj/item/device/radio/headset/burglar
+	l_pocket = /obj/item/syndie/teleporter
+	r_pocket = /obj/item/device/special_uplink/burglar
+	id = /obj/item/storage/wallet
+
+	r_hand = /obj/item/storage/briefcase/black
+
+	backpack_contents = list()
+
 // Non-syndicate antag outfits
 
 /datum/outfit/admin/highlander

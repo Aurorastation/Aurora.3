@@ -390,6 +390,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BURG_FREQ)
+					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
@@ -578,6 +580,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BURG_FREQ)
+					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
