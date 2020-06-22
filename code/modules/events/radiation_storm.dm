@@ -40,6 +40,7 @@
 			continue
 		if(A.flags & RAD_SHIELDED)
 			continue
+
 		if(istype(C,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = C
 			if(H.is_diona())

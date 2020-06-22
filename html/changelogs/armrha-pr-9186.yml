@@ -1,0 +1,6 @@
+author: armrha
+
+delete-after: True
+
+changes:
+  - rscadd: "Modified mob/living/simple_animal/friendly/cat and /mob/living/simple_animal to allow cats to turn colors in radiation, modified modules/events/radiation_storm so it would apply to cats."
