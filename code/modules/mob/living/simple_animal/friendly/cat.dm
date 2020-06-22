@@ -34,11 +34,11 @@
 	var/mob/living/simple_animal/rat/rattarget = null
 	seek_speed = 5
 	pass_flags = PASSTABLE
-	//Counter for how intense the radiobioluminescence is
-	var/radiobioluminescence = 0
-	var/rblfiltercheck = 0
+	//Counter for how intense the radlight is
+	var/radlight = 0
+	var/rad_filter_exists = 0
 	//How many metabolism procs to wait before rapidly dropping the levels down so the cats stop glowing fairly quickly
-	var/radiobioluminescence_fade_delay = 10
+	var/radlight_fade_delay = 10
 	canbrush = TRUE
 	possession_candidate = 1
 	emote_sounds = list('sound/effects/creatures/cat_meow.ogg', 'sound/effects/creatures/cat_meow2.ogg')
@@ -103,50 +103,47 @@
 	addtimer(CALLBACK(src, .proc/attack_mice), 3)
 	..()
 
-/mob/living/simple_animal/cat/handle_radiobioluminescence()
-	if(rblfiltercheck == 0)
+/mob/living/simple_animal/cat/proc/handle_radiation_light()
+	if(rad_filter_exists == 0)
 		src.filters += filter(type="drop_shadow", size = 2, offset = 2, color = rgb(0,208,0,0))
-		rblfiltercheck = 1
-	radiobioluminescence = clamp(radiobioluminescence, 0, 98)
-	if (radiobioluminescence > 0)
-		radiobioluminescence_fade_delay = clamp(radiobioluminescence_fade_delay-1, 0, 10)
-		var/colorchange = radiobioluminescence/120.0
-		if(radiobioluminescence_fade_delay == 0)
-			radiobioluminescence = clamp(radiobioluminescence - 11, 0, 100)
-		var/colorshift = list()
-		var/radintensity = round(radiobioluminescence/33.0)
+		rad_filter_exists = 1
+	radlight = clamp(radlight, 0, 98)
+	if (radlight > 0)
+		radlight_fade_delay = clamp(radlight_fade_delay-1, 0, 10)
+		var/cc = radlight/120.0
+		if(radlight_fade_delay == 0)
+			radlight = clamp(radlight - 11, 0, 100)
+		var/cshift = list()
+		var/radintensity = round(radlight/33.0)
 		switch(radintensity)
 			if(0)
-				colorchange = colorchange+(colorchange/2.0)
-				colorshift = list(1,colorchange,0,0, 0,1,0,0, 0,colorchange,1,0, 0,0,0,1, 0,0,0,0)
+				cc = cc+(cc/2.0)
+				cshift = list(1,cc,0,0, 0,1,0,0, 0,cc,1,0, 0,0,0,1, 0,0,0,0)
 			if(1)
-				colorchange = colorchange+(colorchange/2.0)
-				colorshift = list(1,0,0,0, 0,1,0,0, colorchange,colorchange,1,0, 0,0,0,1, 0,0,0,0)
+				cc = cc+(cc/2.0)
+				cshift = list(1,0,0,0, 0,1,0,0, cc,cc,1,0, 0,0,0,1, 0,0,0,0)
 			if(2)
-				colorshift = list(1,0,0,0, colorchange,1,0,0, colorchange,0,1,0, 0,0,0,1, 0,0,0,0)
+				cshift = list(1,0,0,0, cc,1,0,0, cc,0,1,0, 0,0,0,1, 0,0,0,0)
 
-		if(color != colorshift || radiobioluminescence == 0)
-			animate(src, color=colorshift,time=8,flags=ANIMATION_PARALLEL)
+		if(color != cshift || radlight == 0)
+			animate(src, color=cshift,time=8,flags=ANIMATION_PARALLEL)
 			switch(radintensity)
 				if(0)
 					animate(src.filters[1], color=rgb(0,208,0,140), time=10, easing = SINE_EASING,flags=ANIMATION_PARALLEL)
-					set_light(1.4, radiobioluminescence/15, "#2cfa1f",)
+					set_light(1.4, radlight/15, "#2cfa1f",)
 				if(1)
 					animate(src.filters[1], color=rgb(208,208,0,140), time=10, easing = SINE_EASING,flags=ANIMATION_PARALLEL)
-					set_light(1.4, radiobioluminescence/25, "#ffff00",)
+					set_light(1.4, radlight/25, "#ffff00",)
 				if(2)
 					animate(src.filters[1], color=rgb(208,0,0,140), time=10, easing = SINE_EASING,flags=ANIMATION_PARALLEL)
-					set_light(1.4, radiobioluminescence/30, "#ca0b00",)
-			if (radiobioluminescence == 0)
+					set_light(1.4, radlight/30, "#ca0b00",)
+			if (radlight == 0)
 				animate(src.filters[1], color=rgb(0,255,0,0), time=5,flags=ANIMATION_PARALLEL)
 				color = color = list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1, 0,0,0,0)
 
-
-
-
 /mob/living/simple_animal/cat/apply_radiation(var/rads)
-	radiobioluminescence += rads*2
-	radiobioluminescence_fade_delay = 10
+	radlight += rads*2
+	radlight_fade_delay = 10
 	total_radiation += rads
 	if (total_radiation < 0)
 		total_radiation = 0
@@ -155,6 +152,14 @@
 	.=..()
 	stat = DEAD
 
+/mob/living/simple_animal/cat/Life()
+	. = ..()
+	handle_radiation_light()
+
+/mob/living/simple_animal/cat/apply_radiation_effects()
+	. = ..()
+	if(. == TRUE)
+		apply_effect((rand(30,60)),IRRADIATE,blocked=0)
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()
 	//see if we should stop fleeing

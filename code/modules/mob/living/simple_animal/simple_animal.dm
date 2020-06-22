@@ -184,7 +184,6 @@
 	handle_paralysed()
 	update_canmove()
 	handle_supernatural()
-	handle_radiobioluminescence()
 	process_food()
 
 	//Movement
@@ -295,10 +294,6 @@
 	if(nutrition < max_nutrition / 3 && isturf(loc))	//If we're hungry enough (and not being held/in a bag), we'll check our tile for food.
 		handle_eating()
 
-//Overriden by cat.
-/mob/living/simple_animal/proc/handle_radiobioluminescence()
-	return
-
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
 		purge -= 1
@@ -311,7 +306,6 @@
 		food_choices += S
 	if(food_choices.len) //Only when sufficiently hungry
 		UnarmedAttack(pick(food_choices))
-
 
 //Simple reagent processing for simple animals
 //This allows animals to digest food, and only food
@@ -763,3 +757,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(wizard_master)
 		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
 	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
+
+/mob/living/simple_animal/apply_radiation_effects()
+	. = ..()

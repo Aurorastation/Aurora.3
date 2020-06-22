@@ -33,36 +33,8 @@
 
 /datum/event/radiation_storm/proc/radiate()
 	for(var/mob/living/C in living_mob_list)
-		var/area/A = get_area(C)
-		if(!A)
-			continue
-		if(isNotStationLevel(A.z))
-			continue
-		if(A.flags & RAD_SHIELDED)
-			continue
+		C.apply_radiation_effects()
 
-		if(istype(C,/mob/living/carbon/human))
-			var/mob/living/carbon/human/H = C
-			if(H.is_diona())
-				var/damage = rand(15, 30)
-				H.adjustToxLoss(-damage)
-				if(prob(5))
-					damage = rand(20, 60)
-					H.adjustToxLoss(-damage)
-				to_chat(H, "<span class='notice'>You can feel flow of energy which makes you regenerate.</span>")
-
-			H.apply_effect((rand(15,30)),IRRADIATE,blocked = H.getarmor(null, "rad"))
-			if(prob(4))
-				H.apply_effect((rand(20,60)),IRRADIATE,blocked = H.getarmor(null, "rad"))
-				if (prob(75))
-					randmutb(H) // Applies bad mutation
-					domutcheck(H,null,MUTCHK_FORCED)
-				else
-					randmutg(H) // Applies good mutation
-					domutcheck(H,null,MUTCHK_FORCED)
-		//Just having it apply to cats now
-		if(istype(C,/mob/living/simple_animal/cat))
-			C.apply_effect((rand(30,60)),IRRADIATE,blocked=0)
 
 /datum/event/radiation_storm/end()
 	revoke_maint_all_access()
