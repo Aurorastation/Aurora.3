@@ -113,11 +113,11 @@ var/global/list/robot_modules = list(
 			F.icon_state = "flash"
 		else if(F.times_used)
 			F.times_used--
+	if(E)
+		if(E.reagents.total_volume < E.reagents.maximum_volume)
+			E.reagents.add_reagent("monoammoniumphosphate", E.max_water * 0.2)
 
-	if(E?.reagents.total_volume < E.reagents.maximum_volume)
-		E.reagents.add_reagent("monoammoniumphosphate", E.max_water * 0.2)
-
-	if(!synths?.len)
+	if(!synths.len)
 		return
 
 	for(var/datum/matter_synth/T in synths)
