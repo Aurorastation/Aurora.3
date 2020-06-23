@@ -67,3 +67,10 @@
 	description = "An augment that allows the user to synthetize welding fuel into nutrients."
 	path = /obj/item/organ/internal/augment/fuel_cell
 	cost = 3
+
+/datum/gear/augment/nlomaug
+	display_name = "psionic receiver"
+	description = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."
+	path = /obj/item/organ/internal/augment/nlom
+	cost = 1
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")

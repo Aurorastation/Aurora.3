@@ -248,20 +248,20 @@
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
 			return
 
-		if (target.isSynthetic())
-		for (obj/item/organ/internal/augment/nlom in target)
-		if(aug && !aug.is_broken())
-			continue
-		else
-			to_chat(user, SPAN_WARNING("This can only be used on living organisms."))
-			return
-
+		var/obj/item/organ/internal/augment/nlom/nlomaug
+		for (nlomaug in target)
+			if(nlomaug && !nlomaug.is_broken())
+				break
+		if (!nlomaug)
+			if(target.isSynthetic())
+				to_chat(user, SPAN_ALIEN("Your thoughts fail to reach any mind at all."))
+				return
+			if (isvaurca(target))
+				to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy."))
+				return
+	// do normal stuff here
 		if (target.is_diona())
 			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
-			return
-
-		if (isvaurca(target))
-			to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy."))
 			return
 
 		for (var/obj/item/implant/mindshield/I in target)
@@ -280,7 +280,7 @@
 		var/mob/living/carbon/human/H = target
 		if(H.can_commune() || H.psi)
 			to_chat(H, "<b>You instinctively sense [user] sending their thoughts into your mind, hearing:</b> [text]")
-		else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
+		else if(nlomaug || prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 			to_chat(H, "<b>You sense [user]'s psyche enter your mind, whispering quietly:</b> [text]")
 		else
 			to_chat(H, "<b>You feel something crawl behind your eyes, hearing:</b> [text]")
@@ -317,8 +317,17 @@
 		var/list/dirs = list()
 		for(var/mob/living/L in range(20))
 			var/turf/T = get_turf(L)
-			if(!T || L == user || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L) || L.invisibility == INVISIBILITY_LEVEL_TWO)
+			if(!T || L == user || L.stat == DEAD || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
+			if(L.isSynthetic() || L.is_diona() || isvaurca(L))
+				var/obj/item/organ/internal/augment/nlomaug = locate() in L
+				if(!nlomaug)
+					continue
+			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T)
+			ping_image.plane = LIGHTING_LAYER+1
+			ping_image.layer = LIGHTING_LAYER+1
+			user << ping_image
+			addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
 			var/direction = num2text(get_dir(user, L))
 			var/dist
 			if(text2num(direction))
