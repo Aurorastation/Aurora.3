@@ -69,3 +69,7 @@
 /datum/accent/dominia
 	name = ACCENT_DOMINIA
 	tag_icon = "dominia"
+
+/datum/accent/jupiter
+	name = ACCENT_JUPITER
+	tag_icon = "jupiter"

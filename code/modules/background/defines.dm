@@ -66,6 +66,7 @@
 #define ACCENT_VENUS "Venusian Cytherean"
 #define ACCENT_VENUSJIN "Venusian Jintarian"
 #define ACCENT_DOMINIA "Dominian"
+#define ACCENT_JUPITER "Jovian"
 
 #define ACCENT_TAJARA "Tajaran"
 

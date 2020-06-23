@@ -231,6 +231,14 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	var/list/obj/item/device/radio/radios = list()
 
+	// --- Gets the accent icon, if there is any ---
+	var/accent_icon
+	if(ishuman(M) && speaking)
+		var/mob/living/carbon/human/H = M
+		if(speaking.allow_accents)
+			var/datum/accent/a = SSrecords.accents[H.accent]
+			accent_icon = "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[a.tag_icon]'>"
+
 	// --- Broadcast only to intercom devices ---
 
 	if(data == 1)
@@ -346,7 +354,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b_extra = ""
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
-		var/part_a = "<span class='[frequency_span_class(display_freq)]'><b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
+		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
 		var/part_b = "</span> <span class='message'>" // Tweaked for security headsets -- TLE
