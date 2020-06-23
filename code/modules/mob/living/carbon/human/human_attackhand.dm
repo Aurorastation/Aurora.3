@@ -375,7 +375,8 @@
 			M.do_attack_animation(src)
 
 			if(usesStamina)
-				M.adjust_stamina(-disarm_cost) //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+				M.stamina = M.stamina - disarm_cost //attempting to knock something out of someone's hands, or pushing them over, is exhausting!
+				M.stamina = Clamp(M.stamina, 0, M.max_stamina)
 			else
 				M.nutrition = M.nutrition - disarm_cost
 				M.nutrition = Clamp(M.nutrition, 0, M.max_nutrition)

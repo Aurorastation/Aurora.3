@@ -112,7 +112,7 @@
 	light_wedge = 45
 
 /mob/living/silicon/pai/movement_delay()
-	return 4
+	return 0.8
 
 /mob/living/silicon/pai/attack_hand(mob/living/carbon/human/M)
 	..()
