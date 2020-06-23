@@ -1999,7 +1999,7 @@
 				B.transform = M.Scale(scale)
 
 /mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
-	if(speaking && speaking.allow_accents)
+	if(accent && speaking && speaking.allow_accents)
 		var/used_accent = accent //starts with the mob's default accent
 
 		if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
