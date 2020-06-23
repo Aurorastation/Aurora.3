@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds a nlom augment. This allows vaurca and IPCs to be picked up by psionic pings and telepathic messages, and allows humans and other races to not be hurt by telepathic messages."
+  - rscadd: "Adds a psionic receiver augment. This allows vaurca and IPCs to be picked up by psionic pings and telepathic messages, and allows humans and other races to not be hurt by telepathic messages."
