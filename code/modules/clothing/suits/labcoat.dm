@@ -176,3 +176,40 @@
 	icon_open = "labcoat_heph_open"
 	icon_closed = "labcoat_heph"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
+
+//Alt Labcoat
+/obj/item/clothing/suit/storage/toggle/labcoat/alt
+	icon_state = "labcoat_new_open"
+	icon_open = "labcoat_new_open"
+	icon_closed = "labcoat_new"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/science/alt
+	icon_state = "labcoat_tox_new_open"
+	icon_open = "labcoat_tox_new_open"
+	icon_closed = "labcoat_tox_new"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/pharmacist/alt
+	icon_state = "labcoat_chem_new_open"
+	icon_open = "labcoat_chem_new_open"
+	icon_closed = "labcoat_chem_new"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/genetics/alt
+	icon_state = "labcoat_gen_new_open"
+	icon_open = "labcoat_gen_new_open"
+	icon_closed = "labcoat_gen"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/biochemist/alt
+	icon_state = "labcoat_vir_new_open"
+	icon_open = "labcoat_vir_new_open"
+	icon_closed = "labcoat_vir_new"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/blueedge
+	icon_state = "blue_edge_labcoat_open"
+	icon_open = "blue_edge_labcoat_open"
+	icon_closed = "blue_edge_labcoat"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/emt
+	name = "\improper EMT lab coat"
+	icon_state = "labcoat_emt_open"
+	icon_open = "labcoat_emt_open"
+	icon_closed = "labcoat_emt"

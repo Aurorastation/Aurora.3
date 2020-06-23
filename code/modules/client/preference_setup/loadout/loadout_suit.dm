@@ -118,9 +118,35 @@
 	gear_tweaks += new/datum/gear_tweak/path(hoodie_misc)
 
 /datum/gear/suit/labcoat
-	display_name = "labcoat (colourable)"
+	display_name = "lab coat (selection, colourable)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/labcoat/New()
+	..()
+	var/l_labcoats = list()
+	l_labcoats["lab coat"] = /obj/item/clothing/suit/storage/toggle/labcoat
+	l_labcoats["alt lab coat"] = /obj/item/clothing/suit/storage/toggle/labcoat/alt
+	gear_tweaks += new/datum/gear_tweak/path(l_labcoats)
+
+/datum/gear/suit/labcoat/alt_tox
+	display_name = "lab coat, alt (research)"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/science/alt
+	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Lab Assistant")
+
+/datum/gear/suit/labcoat/alt_chem
+	display_name = "lab coat, alt (pharmacist)"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist/alt
+	allowed_roles = list("Chief Medical Officer", "Pharmacist")
+
+/datum/gear/suit/labcoat/alt_emt
+	display_name = "lab coat, alt (EMT)"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/emt
+	allowed_roles = list("Chief Medical Officer", "Paramedic")
+
+/datum/gear/suit/labcoat/alt_blueedge
+	display_name = "lab coat, blue edge"
+	path = /obj/item/clothing/suit/storage/toggle/labcoat/blueedge
 
 /datum/gear/suit/overalls
 	display_name = "overalls (colourable)"
