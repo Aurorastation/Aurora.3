@@ -127,7 +127,7 @@
 #define BP_AUG_FUEL_CELL    "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER "integrated air analyzer"
 #define BP_AUG_LANGUAGE     "integrated language processor"
-#define BP_AUG_NLOM         "nlom augment"
+#define BP_AUG_PSI         "psionic receiver"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

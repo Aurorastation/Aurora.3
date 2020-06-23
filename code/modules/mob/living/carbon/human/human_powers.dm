@@ -1098,6 +1098,13 @@ mob/living/carbon/human/proc/change_monitor()
 		var/turf/T = get_turf(L)
 		if(!T || L == src || L.stat == DEAD || L.isSynthetic() || L.is_diona() || isvaurca(L) || L.invisibility == INVISIBILITY_LEVEL_TWO)
 			continue
+		var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = src)
+		ping_image.plane = LIGHTING_LAYER+1
+		ping_image.layer = LIGHTING_LAYER+1
+		ping_image.pixel_x = (T.x - src.x) * WORLD_ICON_SIZE
+		ping_image.pixel_y = (T.y - src.y) * WORLD_ICON_SIZE
+		src << ping_image
+		addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, ping_image), 8)
 		var/direction = num2text(get_dir(src, L))
 		var/dist
 		if(text2num(direction))

@@ -248,11 +248,11 @@
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
 			return
 
-		var/obj/item/organ/internal/augment/nlom/nlomaug
-		for (nlomaug in target)
-			if(nlomaug && !nlomaug.is_broken())
+		var/obj/item/organ/internal/augment/psi/psiaug
+		for (psiaug in target)
+			if(psiaug && !psiaug.is_broken())
 				break
-		if (!nlomaug)
+		if (!psiaug)
 			if(target.isSynthetic())
 				to_chat(user, SPAN_ALIEN("Your thoughts fail to reach any mind at all."))
 				return
@@ -280,7 +280,7 @@
 		var/mob/living/carbon/human/H = target
 		if(H.can_commune() || H.psi)
 			to_chat(H, "<b>You instinctively sense [user] sending their thoughts into your mind, hearing:</b> [text]")
-		else if(nlomaug || prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
+		else if(psiaug || prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 			to_chat(H, "<b>You sense [user]'s psyche enter your mind, whispering quietly:</b> [text]")
 		else
 			to_chat(H, "<b>You feel something crawl behind your eyes, hearing:</b> [text]")
