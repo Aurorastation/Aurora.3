@@ -198,10 +198,20 @@ obj/item/clothing/suit/apron/overalls/blue
 	desc = "A red forensics technician jacket."
 	icon_state = "forensics_red"
 
+/obj/item/clothing/suit/storage/forensics/red/long
+	name = "long red jacket"
+	desc = "A long red forensics technician jacket."
+	icon_state = "forensics_red_long"
+
 /obj/item/clothing/suit/storage/forensics/blue
 	name = "blue jacket"
 	desc = "A blue forensics technician jacket."
 	icon_state = "forensics_blue"
+
+/obj/item/clothing/suit/storage/forensics/blue/long
+	name = "long blue jacket"
+	desc = "A long blue forensics technician jacket."
+	icon_state = "forensics_blue_long"
 
 //Engineering
 /obj/item/clothing/suit/storage/hazardvest

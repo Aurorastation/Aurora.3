@@ -204,5 +204,5 @@
 	path = /obj/item/wheelchair
 
 /datum/gear/utility/tts_device
-	display_name = "text to speech device"
+	display_name = "text-to-speech device"
 	path = /obj/item/device/text_to_speech

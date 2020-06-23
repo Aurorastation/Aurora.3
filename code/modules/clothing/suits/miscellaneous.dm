@@ -220,6 +220,23 @@
 	min_cold_protection_temperature = T0C - 20
 	siemens_coefficient = 0.75
 
+/obj/item/clothing/suit/storage/bomber/alt
+	name = "bomber jacket"
+	desc = "A thick, well-worn WW2 leather bomber jacket."
+	icon_state = "bomberjacket_new"
+	item_state_slots = list(slot_r_hand_str = "brown_jacket", slot_l_hand_str = "brown_jacket")
+	body_parts_covered = UPPER_TORSO|ARMS
+	flags_inv = HIDEHOLSTER
+	cold_protection = UPPER_TORSO|ARMS
+	min_cold_protection_temperature = T0C - 20
+	siemens_coefficient = 0.7
+
+/obj/item/clothing/suit/storage/toggle/bomber/pilot
+	name = "pilot jacket"
+	desc = "A thick, blue bomber jacket."
+	icon_state = "pilot_bomber"
+	item_state_slots = list(slot_r_hand_str = "brown_jacket", slot_l_hand_str = "brown_jacket")
+
 /obj/item/clothing/suit/storage/toggle/leather_jacket
 	name = "leather jacket"
 	desc = "A black leather coat."
@@ -357,49 +374,119 @@
 	icon_open = "brown_jacket_nt_open"
 	icon_closed = "brown_jacket_nt"
 
-/obj/item/clothing/suit/storage/toggle/flannel
-	name = "green flannel shirt"
-	desc = "A flannel shirt, for all your space hipster needs."
-	icon_state = "flannel_green"
-	item_state = "flannel_green"
-	icon_open = "flannel_green_open"
-	icon_closed = "flannel_green"
-	body_parts_covered = UPPER_TORSO|ARMS
+//Flannels
 
-/obj/item/clothing/suit/storage/toggle/flannel/red
-	name = "red flannel shirt"
+/obj/item/clothing/suit/storage/flannel
+	name = "Flannel shirt"
+	desc = "A comfy, black flannel shirt.  Unleash your inner hipster."
+	icon_state = "flannel"
+	item_state_slots = list(slot_r_hand_str = "black_labcoat", slot_l_hand_str = "black_labcoat")
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight,/obj/item/tank/emergency/oxygen, /obj/item/storage/fancy/cigarettes, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+	flags_inv = HIDEHOLSTER
+	var/rolled = 0
+	var/tucked = 0
+	var/buttoned = 0
+
+/obj/item/clothing/suit/storage/flannel/verb/roll_sleeves()
+	set name = "Roll Sleeves"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living))
+		return
+	if(usr.stat)
+		return
+
+	if(rolled == 0)
+		rolled = 1
+		body_parts_covered &= ~(ARMS)
+		to_chat(usr, "<span class='notice'>You roll up the sleeves of your [src].</span>")
+	else
+		rolled = 0
+		body_parts_covered = initial(body_parts_covered)
+		to_chat(usr, "<span class='notice'>You roll down the sleeves of your [src].</span>")
+	update_icon()
+
+/obj/item/clothing/suit/storage/flannel/verb/tuck()
+	set name = "Toggle Shirt Tucking"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living)||usr.stat)
+		return
+
+	if(tucked == 0)
+		tucked = 1
+		to_chat(usr, "<span class='notice'>You tuck in your your [src].</span>")
+	else
+		tucked = 0
+		to_chat(usr, "<span class='notice'>You untuck your [src].</span>")
+	update_icon()
+
+/obj/item/clothing/suit/storage/flannel/verb/button()
+	set name = "Toggle Shirt Buttons"
+	set category = "Object"
+	set src in usr
+	if(!istype(usr, /mob/living)||usr.stat)
+		return
+
+	if(buttoned == 0)
+		buttoned = 1
+		flags_inv = HIDETIE|HIDEHOLSTER
+		to_chat(usr, "<span class='notice'>You button your [src].</span>")
+	else
+		buttoned = 0
+		flags_inv = HIDEHOLSTER
+		to_chat(usr, "<span class='notice'>You unbutton your [src].</span>")
+	update_icon()
+
+/obj/item/clothing/suit/storage/flannel/update_icon()
+	icon_state = initial(icon_state)
+	if(rolled)
+		icon_state += "r"
+	if(tucked)
+		icon_state += "t"
+	if(buttoned)
+		icon_state += "b"
+	update_clothing_icon()
+
+/obj/item/clothing/suit/storage/flannel/red
+	desc = "A comfy, red flannel shirt.  Unleash your inner hipster."
 	icon_state = "flannel_red"
-	item_state = "flannel_red"
-	icon_open = "flannel_red_open"
-	icon_closed = "flannel_red"
+	item_state_slots = list(slot_r_hand_str = "red_labcoat", slot_l_hand_str = "red_labcoat")
 
-/obj/item/clothing/suit/storage/toggle/flannel/blue
-	name = "blue flannel shirt"
-	icon_state = "flannel_blue"
-	item_state = "flannel_blue"
-	icon_open = "flannel_blue_open"
-	icon_closed = "flannel_blue"
+/obj/item/clothing/suit/storage/flannel/aqua
+	desc = "A comfy, aqua flannel shirt.  Unleash your inner hipster."
+	icon_state = "flannel_aqua"
+	item_state_slots = list(slot_r_hand_str = "blue_labcoat", slot_l_hand_str = "blue_labcoat")
 
-/obj/item/clothing/suit/storage/toggle/flannel/gray
-	name = "grey flannel shirt"
-	icon_state = "flannel_gray"
-	item_state = "flannel_gray"
-	icon_open = "flannel_gray_open"
-	icon_closed = "flannel_gray"
+/obj/item/clothing/suit/storage/flannel/brown
+	desc = "A comfy, brown flannel shirt.  Unleash your inner hipster."
+	icon_state = "flannel_brown"
+	item_state_slots = list(slot_r_hand_str = "johnny", slot_l_hand_str = "johnny")
 
-/obj/item/clothing/suit/storage/toggle/flannel/purple
-	name = "purple flannel shirt"
-	icon_state = "flannel_purple"
-	item_state = "flannel_purple"
-	icon_open = "flannel_purple_open"
-	icon_closed = "flannel_purple"
-
-/obj/item/clothing/suit/storage/toggle/flannel/yellow
-	name = "yellow flannel shirt"
+/obj/item/clothing/suit/storage/flannel/yellow
+	desc = "A comfy, yellow flannel shirt. Unlesh your inner hipster."
 	icon_state = "flannel_yellow"
 	item_state = "flannel_yellow"
-	icon_open = "flannel_yellow_open"
-	icon_closed = "flannel_yellow"
+
+/obj/item/clothing/suit/storage/flannel/purple
+	desc = "A comfy, purple flannel shirt. Unleash your inner hipster."
+	icon_state = "flannel_purple"
+	item_state = "flannel_purple"
+
+/obj/item/clothing/suit/storage/flannel/grey
+	desc = "A comfy, grey flannel shirt. Unleash your inner hipster."
+	icon_state = "flannel_grey"
+	item_state = "flannel_grey"
+
+/obj/item/clothing/suit/storage/flannel/blue
+	desc = "A comfy, blue flannel shirt. Unlesh your inner hipster."
+	icon_state = "flannel_blue"
+	item_state = "flannel_blue"
+
+/obj/item/clothing/suit/storage/flannel/green
+	desc = "A comfy, green flannel shirt. Unlesh your inner hipster."
+	icon_state = "flannel_green"
+	item_state = "flannel_green"
 
 /obj/item/clothing/suit/storage/toggle/trench
 	name = "brown trenchcoat"
@@ -609,6 +696,13 @@
 	icon_state = "fib_jacket"
 	item_state = "fib_jacket"
 
+/obj/item/clothing/suit/storage/duster
+	name = "cowboy duster"
+	desc = "A duster commonly seen on cowboys from Earth's late 1800's."
+	icon_state = "duster"
+	blood_overlay_type = "coat"
+	allowed = list(/obj/item/tank/emergency/oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/fancy/cigarettes,/obj/item/flame/lighter)
+
 // Cardigans.
 
 /obj/item/clothing/suit/storage/toggle/cardigan
@@ -638,6 +732,13 @@
 	icon_open = "cardiganargyle_open"
 	icon_closed = "cardiganargyle"
 
+/obj/item/clothing/suit/storage/toggle/cardigan/croptop
+	name = "crop top cardigan"
+	desc = "A cozy cardigan in a classic style."
+	icon_state = "cardigan_crop"
+	item_state = "cardigan_crop"
+	icon_open = "cardigan_crop_open"
+	icon_closed = "cardigan_crop"
 
 /obj/item/clothing/suit/fake_cultrobes
 	name = "occultist robes"
@@ -687,3 +788,108 @@
 		src.item_state = "caution"
 		usr.show_message("You turn the wet floor sign off.")
 	update_clothing_icon()
+
+//Denim jackets
+/obj/item/clothing/suit/storage/toggle/denim_jacket
+	name = "denim jacket"
+	desc = "A denim coat."
+	icon_state = "denim_jacket"
+	item_state = "denim_jacket"
+	icon_open = "denim_jacket_open"
+	icon_closed = "denim_jacket"
+	item_state_slots = list(slot_r_hand_str = "denim_jacket", slot_l_hand_str = "denim_jacket")
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight,/obj/item/tank/emergency/oxygen, /obj/item/storage/fancy/cigarettes, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/toggle/denim_jacket/sleeveless
+	name = "denim vest"
+	desc = "A denim vest."
+	icon_state = "denim_jacket_sleeveless"
+	item_state = "denim_jacket_sleeveless"
+	icon_open = "denim_jacket_sleeveless_open"
+	icon_closed = "denim_jacket_sleeveless"
+	body_parts_covered = UPPER_TORSO
+	item_state_slots = list(slot_r_hand_str = "denim_jacket", slot_l_hand_str = "denim_jacket")
+
+/obj/item/clothing/suit/storage/toggle/denim_jacket/nanotrasen
+	desc = "A denim coat. A corporate logo is proudly displayed on the back."
+	icon_state = "denim_jacket_nt"
+	item_state = "denim_jacket_nt"
+	icon_open = "denim_jacket_nt_open"
+	icon_closed = "denim_jacket_nt"
+	item_state_slots = list(slot_r_hand_str = "denim_jacket", slot_l_hand_str = "denim_jacket")
+
+/obj/item/clothing/suit/storage/toggle/denim_jacket/nanotrasen/sleeveless
+	name = "denim vest"
+	desc = "A denim vest. A corporate logo is proudly displayed on the back."
+	icon_state = "denim_jacket_nt_sleeveless"
+	item_state = "denim_jacket_nt_sleeveless"
+	icon_open = "denim_jacket_nt_sleeveless_open"
+	icon_closed = "denim_jacket_nt_sleeveless"
+	body_parts_covered = UPPER_TORSO
+	item_state_slots = list(slot_r_hand_str = "denim_jacket", slot_l_hand_str = "denim_jacket")
+
+/obj/item/clothing/suit/storage/toggle/greatcoat
+	name = "great coat"
+	desc = "A heavy great coat."
+	icon_state = "gentlecoat"
+	item_state = "gentlecoat"
+	icon_open = "gentlecoat_open"
+	icon_closed = "gentlecoat"
+	item_state_slots = list(slot_r_hand_str = "greatcoat", slot_l_hand_str = "greatcoat")
+
+/obj/item/clothing/suit/storage/toggle/hoodie
+	name = "hoodie"
+	desc = "A warm sweatshirt."
+	icon_state = "hoodie_alt"
+	item_state = "hoodie_alt"
+	icon_open = "hoodie_alt_open"
+	icon_closed = "hoodie_alt"
+	item_state_slots = list(slot_r_hand_str = "suit_grey", slot_l_hand_str = "suit_grey")
+	min_cold_protection_temperature = T0C - 20
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/toggle/hoodie/cti
+	name = "\improper CTI hoodie"
+	desc = "A warm, black sweatshirt. It bears the letters CTI on the back.There is a blue supernova embroidered on the front."
+	icon_state = "cti_hoodie"
+	item_state = "cti_hoodie"
+	icon_open = "cti_hoodie_open"
+	icon_closed = "cti_hoodie"
+	item_state_slots = list(slot_r_hand_str = "suit_black", slot_l_hand_str = "suit_black")
+
+/obj/item/clothing/suit/storage/toggle/hoodie/mu
+	name = "\improper MU hoodie"
+	desc = "A warm, grey sweatshirt.  It bears the letters MU on the front."
+	icon_state = "mu_hoodie"
+	item_state = "mu_hoodie"
+	icon_open = "mu_hoodie_open"
+	icon_closed = "mu_hoodie"
+	item_state_slots = list(slot_r_hand_str = "suit_grey", slot_l_hand_str = "suit_grey")
+
+/obj/item/clothing/suit/storage/toggle/hoodie/nt
+	name = "\improper NT hoodie"
+	desc = "A warm, blue sweatshirt.  It proudly bears the silver NanoTrasen insignia lettering on the back.  The edges are trimmed with silver."
+	icon_state = "nt_hoodie"
+	item_state = "nt_hoodie"
+	icon_open = "nt_hoodie_open"
+	icon_closed = "nt_hoodie"
+	item_state_slots = list(slot_r_hand_str = "suit_blue", slot_l_hand_str = "suit_blue")
+
+/obj/item/clothing/suit/storage/toggle/hoodie/smw
+	name = "\improper Space Mountain Wind hoodie"
+	desc = "A warm, black sweatshirt.  It has the logo for the popular softdrink Space Mountain Wind on both the front and the back."
+	icon_state = "smw_hoodie"
+	item_state = "smw_hoodie"
+	icon_open = "smw_hoodie_open"
+	icon_closed = "smw_hoodie"
+	item_state_slots = list(slot_r_hand_str = "suit_black", slot_l_hand_str = "suit_black")
+
+/obj/item/clothing/suit/storage/toggle/hoodie/nrti
+	name = "\improper NRTI hoodie"
+	desc = "A warm, grey sweatshirt. It bears the letters NRTI on the back."
+	icon_state = "nrti_hoodie"
+	item_state = "nrti_hoodie"
+	icon_open = "nrti_hoodie_open"
+	icon_closed = "nrti_hoodie"
+	item_state_slots = list(slot_r_hand_str = "suit_grey", slot_l_hand_str = "suit_grey")

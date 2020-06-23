@@ -226,9 +226,14 @@ obj/item/clothing/shoes/sandal/clogs
 	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
 	icon_state = "winterboots_toeless"
 
+/obj/item/clothing/shoes/winter/red
+	name = "red winter boots"
+	desc = "A pair of winter boots. These ones are lined with grey fur, and coloured an angry red."
+	icon_state = "winterboots_red"
+
 /obj/item/clothing/shoes/winter/security
 	name = "security winter boots"
-	desc = "A pair of winter boots. These ones are lined with grey fur, and coloured an angry red."
+	desc = "A pair of winter boots. These ones are lined with grey fur, and coloured a cool blue."
 	icon_state = "winterboots_sec"
 	armor = list(melee = 30, bullet = 10, laser = 10, energy = 15, bomb = 20, bio = 0, rad = 0)
 

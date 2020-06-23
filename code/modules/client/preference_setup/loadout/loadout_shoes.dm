@@ -113,13 +113,13 @@
 /datum/gear/shoes/hitops/New()
 	..()
 	var/shoes = list()
-	shoes["high-tops, white"] = /obj/item/clothing/shoes/hitops
-	shoes["high-tops, red"] = /obj/item/clothing/shoes/hitops/red
-	shoes["high-tops, black"] = /obj/item/clothing/shoes/hitops/black
-	shoes["high-tops, blue"] = /obj/item/clothing/shoes/hitops/blue
-	shoes["high-tops, green"] = /obj/item/clothing/shoes/hitops/green
-	shoes["high-tops, purple"] = /obj/item/clothing/shoes/hitops/purple
-	shoes["high-tops, yellow"] = /obj/item/clothing/shoes/hitops/yellow
+	shoes["white high-tops"] = /obj/item/clothing/shoes/hitops
+	shoes["red high-tops"] = /obj/item/clothing/shoes/hitops/red
+	shoes["black high-tops"] = /obj/item/clothing/shoes/hitops/black
+	shoes["blue high-tops"] = /obj/item/clothing/shoes/hitops/blue
+	shoes["green high-tops"] = /obj/item/clothing/shoes/hitops/green
+	shoes["purple high-tops"] = /obj/item/clothing/shoes/hitops/purple
+	shoes["yellow high-tops"] = /obj/item/clothing/shoes/hitops/yellow
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/black_boots
@@ -159,6 +159,10 @@
 	display_name = "skater shoes (colourable)"
 	path = /obj/item/clothing/shoes/skater
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/boots/winter/red
+	display_name = "winter boots, red"
+	path = /obj/item/clopthing/shoes/boots/winter/red
 
 /datum/gear/shoes/boots/winter/security
 	display_name = "winter boots, security"

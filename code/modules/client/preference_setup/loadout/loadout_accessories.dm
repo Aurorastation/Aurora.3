@@ -310,9 +310,9 @@
 /datum/gear/accessory/asym/New()
 	..()
 	var/asyms = list()
-	asyms["asymmetric jacket, blue"] = /obj/item/clothing/accessory/asymmetric
-	asyms["asymmetric jacket, purple"] = /obj/item/clothing/accessory/asymmetric/purple
-	asyms["asymmetric jacket, green"] = /obj/item/clothing/accessory/asymmetric/green
+	asyms["blue asymmetric jacket"] = /obj/item/clothing/accessory/asymmetric
+	asyms["purple asymmetric jacket"] = /obj/item/clothing/accessory/asymmetric/purple
+	asyms["green asymmetric jacket"] = /obj/item/clothing/accessory/asymmetric/green
 	gear_tweaks += new/datum/gear_tweak/path(asyms)
 
 /datum/gear/accessory/sash
@@ -344,14 +344,14 @@
 /datum/gear/accessory/bracelet/material/New()
 	..()
 	var/bracelettype = list()
-	bracelettype["bracelet, steel"] = /obj/item/clothing/accessory/bracelet/material/steel
-	bracelettype["bracelet, iron"] = /obj/item/clothing/accessory/bracelet/material/iron
-	bracelettype["bracelet, silver"] = /obj/item/clothing/accessory/bracelet/material/silver
-	bracelettype["bracelet, gold"] = /obj/item/clothing/accessory/bracelet/material/gold
-	bracelettype["bracelet, platinum"] = /obj/item/clothing/accessory/bracelet/material/platinum
-	bracelettype["bracelet, glass"] = /obj/item/clothing/accessory/bracelet/material/glass
-	bracelettype["bracelet, wood"] = /obj/item/clothing/accessory/bracelet/material/wood
-	bracelettype["bracelet, plastic"] = /obj/item/clothing/accessory/bracelet/material/plastic
+	bracelettype["steel bracelet"] = /obj/item/clothing/accessory/bracelet/material/steel
+	bracelettype["iron bracelet"] = /obj/item/clothing/accessory/bracelet/material/iron
+	bracelettype["silver bracelet"] = /obj/item/clothing/accessory/bracelet/material/silver
+	bracelettype["gold bracelet"] = /obj/item/clothing/accessory/bracelet/material/gold
+	bracelettype["platinum bracelet"] = /obj/item/clothing/accessory/bracelet/material/platinum
+	bracelettype["glass bracelet"] = /obj/item/clothing/accessory/bracelet/material/glass
+	bracelettype["wood bracelet"] = /obj/item/clothing/accessory/bracelet/material/wood
+	bracelettype["plastic bracelet"] = /obj/item/clothing/accessory/bracelet/material/plastic
 	gear_tweaks += new/datum/gear_tweak/path(bracelettype)
 
 /datum/gear/accessory/bracelet/friendship
@@ -361,3 +361,75 @@
 /datum/gear/accessory/suitvest
 	display_name = "suit vest"
 	path = /obj/item/clothing/accessory/suitvest
+
+/datum/gear/accessory/roles/poncho/cloak/hos
+	display_name = "cloak, head of security"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/hos
+	allowed_roles = list("Head of Security")
+
+/datum/gear/accessory/roles/poncho/cloak/cmo
+	display_name = "cloak, chief medical officer"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/cmo
+	allowed_roles = list("Chief Medical Officer")
+
+/datum/gear/accessory/roles/poncho/cloak/ce
+	display_name = "cloak, chief engineer"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/ce
+	allowed_roles = list("Chief Engineer")
+
+/datum/gear/accessory/roles/poncho/cloak/rd
+	display_name = "cloak, research director"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/rd
+	allowed_roles = list("Research Director")
+
+/datum/gear/accessory/roles/poncho/cloak/qm
+	display_name = "cloak, quartermaster"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/qm
+	allowed_roles = list("Quartermaster")
+
+/datum/gear/accessory/roles/poncho/cloak/captain
+	display_name = "cloak, captain"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/captain
+	allowed_roles = list("Captain")
+
+/datum/gear/accessory/roles/poncho/cloak/hop
+	display_name = "cloak, head of personnel"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/hop
+	allowed_roles = list("Head of Personnel")
+
+/datum/gear/accessory/roles/poncho/cloak/cargo
+	display_name = "cloak, cargo"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/cargo
+
+/datum/gear/accessory/roles/poncho/cloak/mining
+	display_name = "cloak, mining"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/mining
+
+/datum/gear/accessory/roles/poncho/cloak/security
+	display_name = "cloak, security"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/security
+
+/datum/gear/accessory/roles/poncho/cloak/service
+	display_name = "cloak, service"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/service
+
+/datum/gear/accessory/roles/poncho/cloak/engineer
+	display_name = "cloak, engineer"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/engineer
+
+/datum/gear/accessory/roles/poncho/cloak/atmos
+	display_name = "cloak, atmos"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/atmos
+
+/datum/gear/accessory/roles/poncho/cloak/research
+	display_name = "cloak, science"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/research
+
+/datum/gear/accessory/roles/poncho/cloak/medical
+	display_name = "cloak, medical"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/medical
+
+/datum/gear/accessory/roles/poncho/cloak/custom //A colorable cloak
+	display_name = "cloak (colourable)"
+	path = /obj/item/clothing/accessory/poncho/roles/cloak/custom
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

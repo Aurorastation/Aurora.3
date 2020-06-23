@@ -483,7 +483,7 @@
 	item_state = "cargoponcho"
 
 /*
- * Cloak
+ * Cloaks
  */
 /obj/item/clothing/accessory/poncho/roles/cloak
 	name = "quartermaster's cloak"
@@ -581,6 +581,12 @@
 	desc = "A simple dark blue cloak awarded by NanoTrasen for failing the introductory literacy test."
 	icon_state = "seccloak"
 	item_state = "seccloak"
+
+/obj/item/clothing/accessory/poncho/roles/cloak/custom //A colorable cloak
+	name = "cloak"
+	desc = "A simple, bland cloak."
+	icon_state = "colorcloak"
+	item_state = "colorcloak"
 
 /obj/item/clothing/accessory/poncho/shouldercape
 	name = "shoulder cape"
