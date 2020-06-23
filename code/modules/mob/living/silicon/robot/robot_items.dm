@@ -444,8 +444,8 @@
 		if(IPC.nutrition == IPC.max_nutrition)
 			to_chat(user, SPAN_WARNING("\The [IPC] is already fully charged!"))
 			return
-		var/charge_amount = min(C.maxcharge - C.charge, transfer_rate)
-		var/charge_value = R.cell.use((IPC.max_nutrition - IPC.nutrition) * 0.8) / 0.8
+		var/charge_amount = min(IPC.max_nutrition - IPC.nutrition, transfer_rate)
+		var/charge_value = R.cell.use(IPC.max_nutrition - IPC.nutrition) * 0.9
 		IPC.nutrition = min(IPC.max_nutrition, charge_value)
 		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC]."))
 	else if(isobj(target))
@@ -461,7 +461,7 @@
 			to_chat(user, SPAN_WARNING("\The [C] is already fully charged!"))
 			return
 		var/charge_amount = min(C.maxcharge - C.charge, transfer_rate)
-		var/charge_value = R.cell.use(charge_amount * 0.8) / 0.8
+		var/charge_value = R.cell.use(charge_amount) * 0.9
 		C.give(charge_value)
 		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [target], topping up its battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target]."))
 	else
