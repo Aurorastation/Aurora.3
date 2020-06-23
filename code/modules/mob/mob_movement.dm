@@ -467,12 +467,13 @@
 //If there's no gravity then there's no up or down so naturally you can't stand on anything.
 //For the same reason lattices in space don't count - those are things you grip, presumably.
 /mob/proc/check_solid_ground()
-	if(istype(loc, /turf/space))
-		return 0
+	var/turf/T = get_turf(src)
 
-	if(!lastarea)
-		lastarea = get_area(loc)
-	if(!lastarea.has_gravity())
+	if (!T) // nullspace so sure, have gravity.
+		return 1
+	else if (istype(T, /turf/space))
+		return 0
+	else if (!T.loc.has_gravity())
 		return 0
 
 	return 1
