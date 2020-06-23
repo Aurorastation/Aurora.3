@@ -45,3 +45,32 @@
 #define RELIGION_HIVEPANTHEON "Hive Pantheon"
 #define RELIGION_PREIMMINENNCE "Preimminennce"
 #define RELIGION_PILOTDREAM "Pilot Dream"
+
+//accent defines
+
+#define ACCENT_CETI "Biesellite"
+#define ACCENT_COC "Frontiersfolk"
+#define ACCENT_ELYRA "Elyran"
+#define ACCENT_ERIDANI "Eridanian"
+#define ACCENT_ERIDANIDREG "Eridanian Dreg"
+#define ACCENT_SOL "Solarian"
+#define ACCENT_SCARAB "Scarab Fleets"
+#define ACCENT_SILVERSUN "Silversun"
+#define ACCENT_PHONG "New Hai Phongese"
+#define ACCENT_MARTIAN "Martian"
+#define ACCENT_KONYAN "Konyanger"
+#define ACCENT_LUNA "Lunan"
+#define ACCENT_GIBSON "New Gibsoner"
+#define ACCENT_HIMEO "Himean"
+#define ACCENT_VYSOKA "Vysokan"
+#define ACCENT_VENUS "Venusian Cytherean"
+#define ACCENT_VENUSJIN "Venusian Jintarian"
+#define ACCENT_DOMINIA "Dominian"
+
+#define ACCENT_TAJARA "Tajaran"
+
+#define ACCENT_UNATHI "Sinta'unathi"
+
+#define ACCENT_SKRELL "Jargonian"
+
+#define ACCENT_DIONA "Diona"

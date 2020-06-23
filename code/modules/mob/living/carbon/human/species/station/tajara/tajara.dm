@@ -75,6 +75,9 @@
 	default_citizenship = CITIZENSHIP_PRA
 	allowed_religions = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 
+	default_accent = ACCENT_TAJARA
+	allowed_accents = list(ACCENT_TAJARA)
+
 	zombie_type = "Tajara Zombie"
 
 /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
