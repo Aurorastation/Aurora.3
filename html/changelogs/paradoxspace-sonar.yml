@@ -27,7 +27,7 @@
 #################################
 
 # Your name.  
-author: ChangeMe
+author: Snakebitten
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,5 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Psychic ping no longer produces a little visual bubble."
-  - tweak: "You are no longer alerted by Commune that someone isn't organic."
+  - rscadd: "Adds a nlom augment. This allows vaurca and IPCs to be picked up by psionic pings and telepathic messages, and allows humans and other races to not be hurt by telepathic messages."
