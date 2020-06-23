@@ -48,9 +48,7 @@
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.GetVoice()
 
-		if(language.allow_accents)
-			var/datum/accent/accent = SSrecords.accents[H.accent]
-			accent_icon = "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[accent.tag_icon]'>"
+		accent_icon = H.get_accent_icon(language)
 
 	if(italics)
 		message = "<i>[message]</i>"

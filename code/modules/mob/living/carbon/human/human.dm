@@ -1997,3 +1997,8 @@
 				var/scale = min(1, round(P.damage / 50, 0.2))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
+
+/mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
+	if(speaking && speaking.allow_accents)
+		var/datum/accent/a = SSrecords.accents[accent]
+		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[a.tag_icon]'>"

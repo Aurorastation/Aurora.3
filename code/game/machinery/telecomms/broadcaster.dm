@@ -235,9 +235,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	var/accent_icon
 	if(ishuman(M) && speaking)
 		var/mob/living/carbon/human/H = M
-		if(speaking.allow_accents)
-			var/datum/accent/a = SSrecords.accents[H.accent]
-			accent_icon = "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[a.tag_icon]'>"
+		H.get_accent_icon(speaking)
 
 	// --- Broadcast only to intercom devices ---
 
