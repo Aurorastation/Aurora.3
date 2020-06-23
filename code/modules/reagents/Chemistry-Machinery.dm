@@ -302,18 +302,18 @@
 	var/limit = 10
 	var/list/holdingitems = list()
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list("iron"),
-		/obj/item/stack/material/uranium = list("uranium"),
-		/obj/item/stack/material/phoron = list("phoron"),
-		/obj/item/stack/material/gold = list("gold"),
-		/obj/item/stack/material/silver = list("silver"),
-		/obj/item/stack/material/platinum = list("platinum"),
-		/obj/item/stack/material/mhydrogen = list("hydrazine"), // i guess
-		/obj/item/stack/material/steel = list("iron", "carbon"),
-		/obj/item/stack/material/plasteel = list("iron", "iron", "carbon", "carbon", "platinum"), //8 iron, 8 carbon, 4 platinum,
-		/obj/item/stack/material/sandstone = list("silicon", "acetone"),
-		/obj/item/stack/material/glass = list("silicate"),
-		/obj/item/stack/material/glass/phoronglass = list("platinum", "silicate", "silicate", "silicate"), //5 platinum, 15 silicate,
+		/obj/item/stack/material/iron = list(/datum/reagent/iron),
+		/obj/item/stack/material/uranium = list(/datum/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/datum/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/datum/reagent/gold),
+		/obj/item/stack/material/silver = list(/datum/reagent/silver),
+		/obj/item/stack/material/platinum = list(/datum/reagent/platinum),
+		/obj/item/stack/material/mhydrogen = list(/datum/reagent/hydrazine), // i guess
+		/obj/item/stack/material/steel = list(/datum/reagent/iron, /datum/reagent/carbon),
+		/obj/item/stack/material/plasteel = list(/datum/reagent/iron, /datum/reagent/iron, /datum/reagent/carbon, /datum/reagent/carbon, /datum/reagent/platinum), //8 iron, 8 carbon, 4 platinum,
+		/obj/item/stack/material/sandstone = list(/datum/reagent/silicon, /datum/reagent/acetone),
+		/obj/item/stack/material/glass = list(/datum/reagent/silicate),
+		/obj/item/stack/material/glass/phoronglass = list(/datum/reagent/platinum, /datum/reagent/silicate, /datum/reagent/silicate, /datum/reagent/silicate), //5 platinum, 15 silicate,
 		)
 
 /obj/machinery/reagentgrinder/Initialize()

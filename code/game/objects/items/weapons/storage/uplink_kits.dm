@@ -187,9 +187,9 @@
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
 	// Dylovene. Going with 1.5 rather than 1.6666666...
-	fill_cigarre_package(pack, list("potassium" = 1.5, "ammonia" = 1.5, "silicon" = 1.5))
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 1.5, /datum/reagent/ammonia = 1.5, /datum/reagent/silicon = 1.5))
 	// Mindbreaker
-	fill_cigarre_package(pack, list("silicon" = 4.5, "hydrazine" = 4.5, "dylovene" = 4.5))
+	fill_cigarre_package(pack, list(/datum/reagent/silicon = 4.5, /datum/reagent/hydrazine = 4.5, /datum/reagent/dylovene = 4.5))
 
 	pack.desc += " 'MB' has been scribbled on it."
 

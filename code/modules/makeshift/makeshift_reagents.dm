@@ -15,14 +15,14 @@
 	var/list/forbidden = list(/obj/item/reagent_containers/inhaler, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/glass, /obj/item/extinguisher)
 	// duplicate from blender code, since it's not really worth a define. also, it has fewer things.
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list("iron"),
-		/obj/item/stack/material/uranium = list("uranium"),
-		/obj/item/stack/material/phoron = list("phoron"),
-		/obj/item/stack/material/gold = list("gold"),
-		/obj/item/stack/material/silver = list("silver"),
-		/obj/item/stack/material/steel = list("iron", "carbon"),
-		/obj/item/stack/material/sandstone = list("silicon", "acetone"),
-		/obj/item/stack/material/glass = list("silicate"),
+		/obj/item/stack/material/iron = list(/datum/reagent/iron),
+		/obj/item/stack/material/uranium = list(/datum/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/datum/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/datum/reagent/gold),
+		/obj/item/stack/material/silver = list(/datum/reagent/silver),
+		/obj/item/stack/material/steel = list(/datum/reagent/iron, /datum/reagent/carbon),
+		/obj/item/stack/material/sandstone = list(/datum/reagent/silicon, /datum/reagent/acetone),
+		/obj/item/stack/material/glass = list(/datum/reagent/silicate),
 		) // removed borosilicate glass, platinum, and plasteel, too tough. just steal a grinder if you need it
 
 /obj/structure/chemkit/Initialize()
