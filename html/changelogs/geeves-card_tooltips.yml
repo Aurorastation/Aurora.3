@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "You can now draw from card decks and hands by clicking on them with an empty hand while it's in one of your hands."
-  - rscadd: "Mousing over a card that's next to you, or face-side-up, will show a tooltip of what it is."
-  - tweak: "Drawing a card from a deck now draws a specific card. Dealing a card to someone will pick the first card of the deck, meaning that it has to be shuffled to be random."
