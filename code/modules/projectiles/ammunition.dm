@@ -47,7 +47,23 @@
 		else
 			to_chat(user, "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>")
 			BB.name = "[initial(BB.name)] (\"[label_text]\")"
-
+	else if(istype(W, /obj/item/ammo_casing))
+		if(W.type != src.type)
+			to_chat(user, SPAN_WARNING("Ammo of different types cannot stack!"))
+			return
+		if(!src.BB)
+			to_chat(user, SPAN_WARNING("That round is spent!"))
+			return
+		var/obj/item/ammo_casing/B = W
+		if(!B.BB)
+			to_chat(user, SPAN_WARNING("Your round is spent!"))
+			return
+		var/obj/item/ammo_pile/pile = new /obj/item/ammo_pile(get_turf(user))
+		pile.ammo_type = src.type
+		pile.add_ammo(src)
+		pile.add_ammo(W)
+		pile.check_name()
+		user.put_in_hands(pile)
 	..()
 
 /obj/item/ammo_casing/update_icon()
