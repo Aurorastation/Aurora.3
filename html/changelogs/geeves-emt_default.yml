@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "EMTs are now the default role Paramedic role, with Paramedic being the alt-title, as Paramedics are EMTs with more certifications and training."
