@@ -108,13 +108,13 @@
 		else if (href_list["add"])
 
 			if(href_list["amount"])
-				var/rtype = href_list["add"]
+				var/rtype = text2path(href_list["add"])
 				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
 				R.trans_type_to(src, rtype, amount)
 
 		else if (href_list["addcustom"])
 
-			var/rtype = href_list["addcustom"]
+			var/rtype = text2path(href_list["addcustom"])
 			useramount = input("Select the amount to transfer.", 30, useramount) as num
 			useramount = Clamp(useramount, 0, 200)
 			src.Topic(null, list("amount" = "[useramount]", "add" = "[rtype]"))
@@ -122,7 +122,7 @@
 		else if (href_list["remove"])
 
 			if(href_list["amount"])
-				var/rtype = href_list["remove"]
+				var/rtype = text2path(href_list["remove"])
 				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
 				if(mode)
 					reagents.trans_type_to(beaker, rtype, amount)
@@ -132,7 +132,7 @@
 
 		else if (href_list["removecustom"])
 
-			var/rtype = href_list["removecustom"]
+			var/rtype = text2path(href_list["removecustom"])
 			useramount = input("Select the amount to transfer.", 30, useramount) as num
 			useramount = Clamp(useramount, 0, 200)
 			src.Topic(null, list("amount" = "[useramount]", "remove" = "[rtype]"))
