@@ -182,6 +182,11 @@
 	item_state = "jensensuit"
 	worn_state = "black_suit"
 
+/obj/item/clothing/under/suit_jacket/really_black/skirt
+	name = "executive skirt suit"
+	desc = "A formal black suit and red necktie, intended for the station's finest."
+	icon_state = "really_black_suit_skirt"
+
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
 	desc = "A red suit and blue tie. Somewhat formal."
@@ -300,6 +305,23 @@
 	icon_state = "whitedress"
 	flags_inv = HIDESHOES
 
+/obj/item/clothing/under/dress/white2
+	name = "long dress"
+	desc = "A long dress."
+	icon_state = "whitedress2"
+	flags_inv = HIDESHOES
+
+/obj/item/clothing/under/dress/white3
+	name = "short dress"
+	desc = "A short, plain dress."
+	icon_state = "whitedress3"
+
+/obj/item/clothing/under/dress/white4
+	name = "long flared dress"
+	desc = "A long dress that flares out at the bottom."
+	icon_state = "whitedress4"
+	flags_inv = HIDESHOES
+
 /obj/item/clothing/under/dress/red_swept_dress
 	name = "red swept dress"
 	desc = "A red dress that sweeps to the side."
@@ -318,6 +340,42 @@
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear, made of strong woven spider-silk. This variant seems to be tailored to resemble a dress, revealing much more skin."
 	icon_state = "crdress"
 	worn_state = "crdress"
+
+/obj/item/clothing/under/dress/black_corset
+	name = "black corset"
+	desc = "A black corset and skirt for those fancy nights out."
+	icon_state = "black_corset"
+	worn_state = "black_corset"
+
+/obj/item/clothing/under/dress/festivedress
+	name = "festive dress"
+	desc = "A red and white dress themed after some winter holidays. Tastefully festive!"
+	icon_state = "festivedress"
+
+/obj/item/clothing/under/dress/flower_dress
+	name = "flower dress"
+	desc = "A beautiful dress with a skirt of flowers."
+	icon_state = "flower_dress"
+
+/obj/item/clothing/under/dress/flamenco
+	name = "flamenco dress"
+	desc = "A Mexican flamenco dress."
+	icon_state = "flamenco"
+
+/obj/item/clothing/under/dress/westernbustle
+	name = "western bustle"
+	desc = "A western bustle dress from Earth's late 1800s."
+	icon_state = "westernbustle"
+
+/obj/item/clothing/under/dress/maid
+	name = "nanny dress"
+	desc = "A simple nanny uniform for housekeeping."
+	icon_state = "maid"
+	worn_state = "maid"
+
+/obj/item/clothing/under/dress/maid/janitor
+	icon_state = "janimaid"
+	worn_state = "janimaid"
 
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
@@ -418,6 +476,24 @@
 	desc = "A Chinese dress that hugs the body. This one is purple, embroidered with plum blossoms."
 	icon_state = "cheongsampurple"
 	item_state = "cheongsampurple"
+
+/obj/item/clothing/under/cheongsam/brightred
+	name = "red cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is red, with a golden phoenix woven along the fabric."
+	icon_state = "cheongsambrightred"
+	item_state = "cheongsambrightred"
+
+/obj/item/clothing/under/cheongsam/brightblue
+	name = "blue cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is blue, the cloth accompanied with white lotus patterns."
+	icon_state = "cheongsambrightblue"
+	item_state = "cheongsambrightblue"
+
+/obj/item/clothing/under/cheongsam/black
+	name = "black cheongsam"
+	desc = "A Chinese dress that hugs the body. This one is a lighter shade of black, adorned with golden dragon imagery."
+	icon_state = "cheongsamblack"
+	item_state = "cheongsamblack"
 
 //swimsuit
 /obj/item/clothing/under/swimsuit
@@ -574,6 +650,17 @@ obj/item/clothing/under/kamishimo
 	item_state = "darkreddress_s"
 	worn_state = "darkreddress"
 
+/obj/item/clothing/under/dress/lilacdress
+	name = "lilac dress"
+	desc = "A simple black dress adorned in fake purple lilacs."
+	icon_state = "lilacdress"
+	worn_state = "lilacdress"
+
+/obj/item/clothing/under/dress/littleblackdress
+	name = "little black dress"
+	desc = "A little strapless black dress with a red ribbon and flower accessory."
+	icon_state = "littleblackdress"
+	worn_state = "littleblackdress"
 
 /obj/item/clothing/under/cropdress
 	name = "crop dress"
@@ -588,3 +675,119 @@ obj/item/clothing/under/kamishimo
 	icon_state = "croptop"
 	item_state = "croptop_s"
 	worn_state = "croptop"
+
+/obj/item/clothing/under/croptop/red
+	name = "red crop top"
+	desc = "A red shirt that has had the top cropped."
+	icon_state = "croptop_red"
+	item_state = "croptop_red_s"
+	worn_state = "croptop_red"
+
+/obj/item/clothing/under/croptop/grey
+	name = "grey crop top"
+	desc = "A grey shirt that has had the top cropped."
+	icon_state = "croptop_grey"
+	item_state = "croptop_grey_s"
+	worn_state = "croptop_grey"
+
+/obj/item/clothing/under/cuttop
+	name = "grey cut top"
+	desc = "A grey shirt that has had the top cut low."
+	icon_state = "cuttop"
+	item_state_slots = list(slot_r_hand_str = "grey", slot_l_hand_str = "grey")
+	worn_state = "cuttop"
+
+/obj/item/clothing/under/cuttop/red
+	name = "red cut top"
+	desc = "A red shirt that has had the top cut low."
+	icon_state = "cuttop_red"
+	item_state_slots = list(slot_r_hand_str = "red", slot_l_hand_str = "red")
+	worn_state = "cuttop_red"
+
+obj/item/clothing/under/bathrobe
+	name = "bathrobe"
+	desc = "A fluffy robe to keep you from showing off to the world."
+	icon_state = "bathrobe"
+	worn_state = "bathrobe"
+
+/obj/item/clothing/under/blazer
+	name = "blue blazer"
+	desc = "A bold but yet conservative outfit, red corduroys, navy blazer and a tie."
+	icon_state = "blue_blazer"
+	item_state_slots = list(slot_r_hand_str = "lawyer_blue", slot_l_hand_str = "lawyer_blue")
+
+/obj/item/clothing/under/blazer/skirt
+	name = "ladies blue blazer"
+	desc = "A bold but yet conservative outfit, a red pencil skirt and a navy blazer."
+	icon_state = "blue_blazer_skirt"
+
+/obj/item/clothing/under/haltertop
+	name = "halter top"
+	desc = "Jean shorts and a black halter top. Perfect for casual Fridays!"
+	icon_state = "haltertop"
+
+/obj/item/clothing/under/moderncoat
+	name = "modern wrapped coat"
+	desc = "The cutting edge of fashion."
+	icon_state = "moderncoat"
+	item_state_slots = list(slot_r_hand_str = "red", slot_l_hand_str = "red")
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/ascetic
+	name = "plain ascetic garb"
+	desc = "Popular with freshly grown vatborn and new age cultists alike."
+	icon_state = "ascetic"
+	item_state_slots = list(slot_r_hand_str = "white", slot_l_hand_str = "white")
+
+/obj/item/clothing/under/dress/sari
+	name = "red sari"
+	desc = "A colorful traditional dress originating from India."
+	icon_state = "sari_red"
+	item_state_slots = list(slot_r_hand_str = "darkreddress", slot_l_hand_str = "darkreddress")
+
+/obj/item/clothing/under/dress/sari/green
+	name = "green sari"
+	icon_state = "sari_green"
+	item_state_slots = list(slot_r_hand_str = "dress_green", slot_l_hand_str = "dress_green")
+
+/obj/item/clothing/under/dress/polka
+	name = "polka dot dress"
+	desc = "A sleeveless, cream colored dress with red polka dots."
+	icon_state = "polka"
+
+/obj/item/clothing/under/dress/blackwhite_short
+	name = "short dress"
+	desc = "A short, black and white dress."
+	icon_state = "blackwhite_short"
+
+/obj/item/clothing/under/dress/twistfront
+	name = "twistfront crop dress"
+	desc = "A black skirt and red twistfront croptop. Fancy!"
+	icon_state = "twistfront"
+
+/obj/item/clothing/under/dress/vneck
+	name = "v-neck dress"
+	desc = "A black v-neck dress with an exaggerated neckline covered in a sheer mesh."
+	icon_state = "vneckdress"
+
+/obj/item/clothing/under/dress/barmaid
+	name = "barmaid dress"
+	desc = "A white dress styled like a Ye Old Barmaid. Saucy!"
+	icon_state = "wench"
+
+/obj/item/clothing/under/dress/pinktutu
+	name = "pink tutu"
+	desc = "A black leotard with a pink mesh tutu. Perfect for ballet practice."
+	icon_state = "pinktutu"
+
+/obj/item/clothing/under/oldman
+	name = "old man's suit"
+	desc = "A classic suit for the older gentleman, with built in back support."
+	icon_state = "oldman"
+	item_state_slots = list(slot_r_hand_str = "johnny", slot_l_hand_str = "johnny")
+
+/obj/item/clothing/under/oldwoman
+	name = "old woman's attire"
+	desc = "A typical outfit for the older woman, a lovely cardigan and comfortable skirt."
+	icon_state = "oldwoman"
+	item_state_slots = list(slot_r_hand_str = "johnny", slot_l_hand_str = "johnny")
