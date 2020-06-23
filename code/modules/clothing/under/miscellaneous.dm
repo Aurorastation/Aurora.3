@@ -459,6 +459,7 @@
 	desc = "A traditional Japanese kimono."
 	icon_state = "kimono"
 	item_state = "kimono"
+	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
 /obj/item/clothing/under/kimono/ronin
 	name = "ronin kimono"
@@ -468,9 +469,16 @@
 
 /obj/item/clothing/under/kimono/fancy
 	name = "fancy kimono"
-	desc = "A Japanese kimono, this one is very luxurious. It brings to mine iced tea cans."
+	desc = "A Japanese kimono, this one is very luxurious. It brings to mind iced tea cans."
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
+
+obj/item/clothing/under/kamishimo
+	name = "kamishimo"
+	desc = "Traditional Japanese menswear."
+	icon_state = "kamishimo"
+	item_state = "kamishimo"
+	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
 /obj/item/clothing/under/medical_gown
 	name = "medical gown"

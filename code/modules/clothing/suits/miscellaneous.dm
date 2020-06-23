@@ -349,6 +349,30 @@
 	icon_state = "mold_alt"
 	item_state = "mold_alt"
 
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/green
+	icon_state = "militaryjacket_green"
+	item_state = "militaryjacket_green"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/tan
+	icon_state = "militaryjacket_tan"
+	item_state = "militaryjacket_tan"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/white
+	icon_state = "militaryjacket_white"
+	item_state = "militaryjacket_white"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/navy
+	icon_state = "militaryjacket_navy"
+	item_state = "militaryjacket_navy"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/grey
+	icon_state = "militaryjacket_grey"
+	item_state = "militaryjacket_grey"
+
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/black
+	icon_state = "militaryjacket_black"
+	item_state = "militaryjacket_black"
+
 //This one has buttons for some reason
 /obj/item/clothing/suit/storage/toggle/brown_jacket
 	name = "leather jacket"
@@ -893,3 +917,38 @@
 	icon_open = "nrti_hoodie_open"
 	icon_closed = "nrti_hoodie"
 	item_state_slots = list(slot_r_hand_str = "suit_grey", slot_l_hand_str = "suit_grey")
+
+/obj/item/clothing/suit/storage/snowsuit
+	name = "snowsuit"
+	desc = "A suit made to keep you nice and toasty on cold winter days. Or at least alive."
+	icon_state = "snowsuit"
+	item_state_slots = list(slot_r_hand_str = "labcoat", slot_l_hand_str = "labcoat")
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight,/obj/item/tank/emergency/oxygen, /obj/item/storage/fancy/cigarettes, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+
+/obj/item/clothing/suit/storage/snowsuit/command
+	name = "command snowsuit"
+	icon_state = "snowsuit_command"
+
+/obj/item/clothing/suit/storage/snowsuit/security
+	name = "security snowsuit"
+	icon_state = "snowsuit_security"
+
+/obj/item/clothing/suit/storage/snowsuit/medical
+	name = "medical snowsuit"
+	icon_state = "snowsuit_medical"
+
+/obj/item/clothing/suit/storage/snowsuit/engineering
+	name = "engineering snowsuit"
+	icon_state = "snowsuit_engineering"
+
+/obj/item/clothing/suit/storage/snowsuit/cargo
+	name = "cargo snowsuit"
+	icon_state = "snowsuit_cargo"
+
+/obj/item/clothing/suit/storage/snowsuit/science
+	name = "science snowsuit"
+	icon_state = "snowsuit_science"

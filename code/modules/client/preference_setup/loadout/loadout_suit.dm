@@ -40,6 +40,12 @@
 	jackets["military jacket, tan"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
 	jackets["old military jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old
 	jackets["old military jacket, badge"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
+	jackets["old military jacket, green"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/green
+	jackets["old military jacket, tan"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/tan
+	jackets["old military jacket, white"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/white
+	jackets["old military jacket, navy"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/navy
+	jackets["old military jacket, grey"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/grey
+	jackets["old military jacket, black"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/black
 	jackets["black vest"] = /obj/item/clothing/suit/storage/toggle/leather_vest
 	jackets["brown vest"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/sleeveless
 	jackets["leather coat"] = /obj/item/clothing/suit/storage/leathercoat
@@ -147,10 +153,12 @@
 	poncho["green poncho"] = /obj/item/clothing/accessory/poncho/green
 	poncho["purple poncho"] = /obj/item/clothing/accessory/poncho/purple
 	poncho["red poncho"] = /obj/item/clothing/accessory/poncho/red
+	poncho["black-red poncho"] = /obj/item/clothing/accessory/poncho/blackred
 	poncho["medical poncho"] = /obj/item/clothing/accessory/poncho/roles/medical
 	poncho["engineering poncho"] = /obj/item/clothing/accessory/poncho/roles/engineering
 	poncho["science poncho"] = /obj/item/clothing/accessory/poncho/roles/science
 	poncho["cargo poncho"] = /obj/item/clothing/accessory/poncho/roles/cargo
+	poncho["security poncho"] = /obj/item/clothing/accessory/poncho/roles/security
 	gear_tweaks += new/datum/gear_tweak/path(poncho)
 
 
@@ -404,3 +412,37 @@
 /datum/gear/suit/greatcoat
 	display_name = "greatcoat"
 	path = /obj/item/clothing/suit/greatcoat
+
+/datum/gear/suit/snowsuit
+	display_name = "snowsuit"
+	path = /obj/item/clothing/suit/storage/snowsuit
+
+/datum/gear/suit/snowsuit/command
+	display_name = "snowsuit, command"
+	path = /obj/item/clothing/suit/storage/snowsuit/command
+	allowed_roles = list("Captain","Research Director","Head of Personnel","Head of Security","Chief Engineer",)
+
+/datum/gear/suit/snowsuit/security
+	display_name = "snowsuit, security"
+	path = /obj/item/clothing/suit/storage/snowsuit/security
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Detective", "Forensic Technician", "Security Cadet")
+
+/datum/gear/suit/snowsuit/medical
+	display_name = "snowsuit, medical"
+	path = /obj/item/clothing/suit/storage/snowsuit/medical
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Pharmacist")
+
+/datum/gear/suit/snowsuit/science
+	display_name = "snowsuit, science"
+	path = /obj/item/clothing/suit/storage/snowsuit/science
+	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
+
+/datum/gear/suit/snowsuit/engineering
+	display_name = "snowsuit, engineering"
+	path = /obj/item/clothing/suit/storage/snowsuit/engineering
+	allowed_roles = list("Chief Engineer","Atmospheric Technician", "Station Engineer", "Engineering Apprentice")
+
+/datum/gear/suit/snowsuit/cargo
+	display_name = "snowsuit, supply"
+	path = /obj/item/clothing/suit/storage/snowsuit/cargo
+	allowed_roles = list("Quartermaster","Shaft Miner","Cargo Technician","Head of Personnel")

@@ -458,6 +458,12 @@
 	icon_state = "blueponcho"
 	item_state = "blueponcho"
 
+/obj/item/clothing/accessory/poncho/blackred
+	name = "black-red poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is black and red."
+	icon_state = "blackredponcho"
+	item_state = "blackredponcho"
+
 /obj/item/clothing/accessory/poncho/roles/medical
 	name = "medical poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with green and blue tint, standard Medical colors."
@@ -481,6 +487,12 @@
 	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, the colors of Cargo."
 	icon_state = "cargoponcho"
 	item_state = "cargoponcho"
+
+/obj/item/clothing/accessory/poncho/roles/security
+	name = "security poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is black with red, standard Security colors."
+	icon_state = "secponcho"
+	item_state = "secponcho"
 
 /*
  * Cloaks

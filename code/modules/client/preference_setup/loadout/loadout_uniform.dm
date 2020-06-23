@@ -228,6 +228,20 @@
 	path = /obj/item/clothing/under/kimono
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/uniform/miscellaneous/kimonomisc
+	display_name = "kimono (selection)"
+	path = /obj/item/clothing/under/kimono/ronin
+
+/datum/gear/uniform/miscellaneous/kimonomisc/New()
+	..()
+	var/kimonomisc = list()
+	kimonomisc["ronin kimono"] = /obj/item/clothing/under/kimono/ronin
+	kimonomisc["fancy kimono"] = /obj/item/clothing/under/kimono/fancy
+
+/datum/gear/uniform/miscellaneous/kamishimo
+	display_name = "kamishimo"
+	path = obj/item/clothing/under/kamishimo
+
 /datum/gear/uniform/officer
 	display_name = "uniform, (Security Officer) (selection)"
 	description = "A selection of officer uniforms."
