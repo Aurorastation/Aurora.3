@@ -36,6 +36,16 @@
 		"A loose holographic outfit, sturdy, baggy and cool with plentiful pockets. The baggy over-wear is a trend on the Elyran world Perispolis due to its hot climate, and this particular style has spread like wildfire across other warm worlds as well. "
 		)
 
+/obj/item/clothing/under/elyra_holo/Initialize()
+	for(var/option in names)
+		if(!clothing_mode)
+			names[option] = image('icons/clothing/under/uniforms/elyra_holoclothes.dmi', icon_state)
+			clothing_mode = 1
+		else
+			names[option] = image('icons/clothing/under/uniforms/elyra_holoclothes.dmi', initial(icon_state) + "_[names.Find(option) - 1]")
+	clothing_mode = 0
+	.=..()
+
 /obj/item/clothing/under/elyra_holo/attack_self(mob/user)
 	select_appearance(user)
 
@@ -46,11 +56,13 @@
 	select_appearance(usr)
 
 /obj/item/clothing/under/elyra_holo/proc/select_appearance(mob/user as mob)
-	var/appearance_choice = input("Select an appearance:", "Holoclothing Appearance", names[clothing_mode + 1]) in names
-	if(!(cooldown + 10 SECONDS < world.time))
+	if(!(cooldown + 7 SECONDS < world.time))
 		to_chat(user, SPAN_WARNING("The hardlight fabric needs time to recover before transforming again!"))
 		return
-	clothing_mode = names.Find(appearance_choice) -1
+	var/appearance_choice = RADIAL_INPUT(user, names)
+	if(!appearance_choice)
+		return
+	clothing_mode = names.Find(appearance_choice) - 1
 	cooldown = world.time
 
 	addtimer(CALLBACK(src, .proc/transform_holoclothing_appearance, user), 20)
