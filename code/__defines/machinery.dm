@@ -65,6 +65,14 @@
 #define NETWORK_CALYPSO "Calypso"
 #define NETWORK_POD "General Utility Pod"
 
+//temporary, for now
+#define NETWORK_DECK_ONE_AFT "Deck 1 Aft"
+#define NETWORK_DECK_ONE_FORE "Deck 1 Fore"
+#define NETWORK_DECK_TWO_AFT "Deck 2 Aft"
+#define NETWORK_DECK_TWO_FORE "Deck 2 Fore"
+#define NETWORK_DECK_THREE_AFT "Deck 3 Aft"
+#define NETWORK_DECK_THREE_FORE "Deck 3 Fore"
+
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
 var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret")
 
@@ -77,7 +85,7 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define STAGE_FIVE	9
 #define STAGE_SUPER	11
 
-// Interaction flags 
+// Interaction flags
 #define STATUS_INTERACTIVE 2 // GREEN Visability
 #define STATUS_UPDATE 1 // ORANGE Visability
 #define STATUS_DISABLED 0 // RED Visability
@@ -111,7 +119,7 @@ var/list/restricted_camera_networks = list(NETWORK_ERT,NETWORK_MERCENARY,"Secret
 #define M_PROCESSES 0x1
 #define M_USES_POWER 0x2
 
-// If this is returned from a machine's process() proc, the machine will stop processing but 
+// If this is returned from a machine's process() proc, the machine will stop processing but
 // will continue to have power calculations done.
 #define M_NO_PROCESS 27
 
