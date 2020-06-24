@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Overlays have been added to webs, making it look like you're travelling through them instead of travelling over them."

@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Cargo warehouse now has the proper amount of stock to account for two Z-levels."
