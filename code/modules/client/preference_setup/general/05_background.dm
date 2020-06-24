@@ -156,7 +156,12 @@
 		var/choice = input(user, "Please choose an accent.", "Character Preference", pref.accent) as null|anything in S.allowed_accents
 		if(!choice || !CanUseTopic(user))
 			return TOPIC_NOACTION
-		pref.accent = choice
+		show_accent_menu(user, choice)
+		return TOPIC_REFRESH
+
+	else if(href_list["set_accent"])
+		pref.accent = (html_decode(href_list["set_accent"]))
+		sanitize_character()
 		return TOPIC_REFRESH
 
 	else if(href_list["set_medical_records"])
@@ -212,3 +217,14 @@
 		dat += "<br>[religion.description]"
 		dat += "<br><center>\[<a href='?src=\ref[src];set_religion=[html_encode(religion.name)]'>Select</a>\]</center>"
 		show_browser(user, dat.Join(), "window=religionpreview;size=400x500")
+
+/datum/category_item/player_setup_item/general/background/proc/show_accent_menu(mob/user, selected_accent)
+	var/datum/accent/accent = SSrecords.accents[selected_accent]
+
+	if(accent)
+
+		var/list/dat = list("<center><b>[accent.name]</center></b>")
+		dat += "<br>[accent.description]"
+		dat += {"<br><img style="height:100px;"<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[accent.tag_icon]'"></center>"}
+		dat += "<br><center>\[<a href='?src=\ref[src];set_accent=[html_encode(accent.name)]'>Select</a>\]</center>"
+		show_browser(user, dat.Join(), "window=accentpreview;size=400x500")
