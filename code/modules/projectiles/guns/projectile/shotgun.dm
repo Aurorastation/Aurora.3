@@ -57,7 +57,6 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
-	var/pump_fail_msg = "<span class='warning'>You cannot rack the shotgun without gripping it with both hands!</span>"
 	var/pump_snd = 'sound/weapons/shotgunpump.ogg'
 	var/has_wield_state = TRUE
 
@@ -73,10 +72,11 @@
 
 /obj/item/gun/projectile/shotgun/pump/proc/pump(mob/M)
 	if(!wielded)
-		to_chat(M, pump_fail_msg)
-		return
+		if(!do_after(M, 20, TRUE)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
+			return
 
 	playsound(M, pump_snd, 60, 1)
+	to_chat(M, SPAN_NOTICE("You rack \the [src]!"))
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src)) //Eject casing
@@ -120,6 +120,7 @@
 /obj/item/gun/projectile/shotgun/doublebarrel
 	name = "double-barreled shotgun"
 	desc = "A true classic."
+	desc_info = "Use in hand to unload, alt click to change firemodes."
 	icon = 'icons/obj/guns/dshotgun.dmi'
 	icon_state = "dshotgun"
 	item_state = "dshotgun"
@@ -148,6 +149,15 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel"
 
+/obj/item/gun/projectile/shotgun/doublebarrel/attack_self(mob/user)
+	unload_ammo(user, TRUE)
+
+/obj/item/gun/projectile/shotgun/doublebarrel/AltClick(mob/user)
+	if(Adjacent(user))
+		var/datum/firemode/new_mode = switch_firemodes(user)
+		if(new_mode)
+			to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+
 /obj/item/gun/projectile/shotgun/doublebarrel/update_icon()
 	..()
 	if(wielded && has_wield_state)
@@ -155,6 +165,9 @@
 	else
 		item_state = "[icon_state]"
 	update_held_icon()
+
+/obj/item/gun/projectile/shotgun/doublebarrel/shell
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
