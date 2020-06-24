@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Firelocks now have windows that allow you to see through them. Shooting through them is difficult, as the window is quite small."

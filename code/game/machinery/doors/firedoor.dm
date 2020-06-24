@@ -12,16 +12,17 @@
 	icon = 'icons/obj/doors/DoorHazard.dmi'
 	icon_state = "door_open"
 	req_one_access = list(access_atmospherics, access_engine_equip, access_emt)
-	opacity = 0
-	density = 0
+	opacity = FALSE
+	density = FALSE
+	glass = TRUE
 	layer = DOOR_OPEN_LAYER - 0.01
 	open_layer = DOOR_OPEN_LAYER - 0.01 // Just below doors when open
 	closed_layer = DOOR_CLOSED_LAYER + 0.2 // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
-	block_air_zones = 0
-	hashatch = 1
+	block_air_zones = FALSE
+	hashatch = TRUE
 	hatch_colour = "#f7d003"
 
 	var/blocked = 0
@@ -140,6 +141,14 @@
 			visible_message("<span class='notice'>\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"].</span>")
 		return
 	..()
+
+/obj/machinery/door/firedoor/CanPass(atom/movable/mover, turf/target, height, air_group)
+	if(istype(mover, /obj/item/projectile/beam) && density && prob(80)) // only have a 20% chance of getting your shot through the window
+		var/obj/item/projectile/beam/B = mover
+		if(B.firer && Adjacent(B.firer) && B.pass_flags & PASSGLASS) // except if you're right next to it
+			return TRUE
+		return FALSE
+	. = ..()
 
 /obj/machinery/door/firedoor/get_material()
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
