@@ -11,11 +11,13 @@
 
 /obj/item/ammo_pile/Initialize(mapload, ...)
 	. = ..()
-	if(ammo_type && max_ammo)
-		for(var/i = 1, i <= max_ammo, i++)
+	if(ammo_type)
+		var/obj/first_round = new ammo_type(get_turf(src))
+		add_ammo(first_round)
+		check_name_and_ammo()
+		for(var/i = 1, i <= max_ammo - 1, i++)
 			var/obj/C = new ammo_type(get_turf(src))
 			add_ammo(C)
-		check_name()
 	addtimer(CALLBACK(src, .proc/check_ammo), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
 
 /obj/item/ammo_pile/examine(mob/user)
@@ -89,11 +91,12 @@
 	else
 		..()
 
-/obj/item/ammo_pile/proc/check_name()
+/obj/item/ammo_pile/proc/check_name_and_ammo()
 	if(length(ammo))
 		var/obj/item/ammo_casing/first_round = ammo[1]
 		name = "[first_round.caliber] pile"
 		desc = "A pile of [first_round.caliber] rounds."
+		max_ammo = first_round.max_stack
 
 /obj/item/ammo_pile/proc/get_next_ammo() //Returns the next shell to be used.
 	if(!length(ammo))
@@ -103,7 +106,8 @@
 	return to_load
 
 /obj/item/ammo_pile/proc/check_ammo()
-	switch(length(ammo))
+	var/ammo_amount = length(ammo)
+	switch(ammo_amount)
 		if(0)
 			qdel(src)
 		if(1)
@@ -115,6 +119,12 @@
 			qdel(src)
 			if(gunman)
 				gunman.put_in_hands(bullet)
+	if(ammo_amount)
+		var/obj/first_round = ammo[1]
+		if(ammo_amount > 7)
+			w_class = first_round.w_class + 2 // too many to fit in your pockets, generally
+		else
+			w_class = first_round.w_class + 1
 
 /obj/item/ammo_pile/proc/add_ammo(var/obj/item/ammo_casing/bullet)
 	if(!bullet.BB)
@@ -137,6 +147,17 @@
 	cut_overlay(ammo_overlay[bullet])
 	ammo -= bullet
 	check_ammo()
+
+/obj/item/ammo_pile/proc/scatter()
+	for(var/thing in ammo)
+		var/obj/bullet = thing
+		bullet.forceMove(get_turf(src))
+		bullet.throw_at_random(FALSE, 2, 7)
+		remove_ammo(bullet)
+
+/obj/item/ammo_pile/throw_at()
+	..()
+	scatter()
 
 /obj/item/ammo_pile/slug
 	ammo_type = /obj/item/ammo_casing/shotgun

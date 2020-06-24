@@ -11,6 +11,7 @@
 
 	var/leaves_residue = 1
 	var/caliber = ""					//Which kind of guns it can be loaded into
+	var/max_stack = 5					// how many of us can fit in a pile
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
@@ -51,6 +52,9 @@
 		if(W.type != src.type)
 			to_chat(user, SPAN_WARNING("Ammo of different types cannot stack!"))
 			return
+		if(max_stack == 1)
+			to_chat(user, SPAN_WARNING("\The [src] cannot be stacked!"))
+			return
 		if(!src.BB)
 			to_chat(user, SPAN_WARNING("That round is spent!"))
 			return
@@ -62,7 +66,7 @@
 		pile.ammo_type = src.type
 		pile.add_ammo(src)
 		pile.add_ammo(W)
-		pile.check_name()
+		pile.check_name_and_ammo()
 		user.put_in_hands(pile)
 	..()
 
