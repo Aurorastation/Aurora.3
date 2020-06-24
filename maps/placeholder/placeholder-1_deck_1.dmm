@@ -31,13 +31,6 @@
 /obj/machinery/door/airlock/lift,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"ag" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "11,1"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "ah" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -137,11 +130,6 @@
 "ar" = (
 /turf/simulated/wall,
 /area/template_noop)
-"as" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,13"
-	},
-/area/template_noop)
 "av" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/tiled,
@@ -150,11 +138,6 @@
 /obj/machinery/door/airlock/glass_command,
 /turf/simulated/floor/tiled,
 /area/janitor)
-"az" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,3"
-	},
-/area/template_noop)
 "aA" = (
 /obj/effect/floor_decal/corner/white/full{
 	dir = 8
@@ -217,13 +200,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"aG" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "8,1"
-	},
-/turf/template_noop,
-/area/template_noop)
 "aH" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -238,13 +214,6 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"aJ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,21"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "aK" = (
 /turf/simulated/floor/wood,
@@ -333,13 +302,6 @@
 /obj/item/clothing/head/helmet/space/void/mining,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"bc" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,5"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "bd" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	icon_state = "warningcorner";
@@ -350,13 +312,6 @@
 "be" = (
 /turf/simulated/floor/plating,
 /area/janitor)
-"bf" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "bh" = (
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	icon_state = "wide_corner_full";
@@ -384,11 +339,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"bl" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "4,9"
-	},
-/area/template_noop)
 "bm" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -411,11 +361,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"bu" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,6"
-	},
 /area/template_noop)
 "bv" = (
 /obj/machinery/alarm{
@@ -496,13 +441,6 @@
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"bF" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,5"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "bH" = (
 /obj/machinery/door/window{
 	name = "Briefing Oversight";
@@ -521,11 +459,6 @@
 	dir = 4
 	},
 /area/janitor)
-"bL" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,19"
-	},
-/area/template_noop)
 "bM" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
@@ -557,13 +490,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"bU" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,1"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "bV" = (
 /obj/machinery/door/airlock/research{
@@ -642,20 +568,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/airmix,
 /area/template_noop)
-"ce" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"cf" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "ch" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -668,13 +580,6 @@
 /turf/simulated/floor/tiled/ramp{
 	dir = 1
 	},
-/area/template_noop)
-"ck" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "4,22"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "cl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -798,13 +703,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"cF" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,5"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "cG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	icon_state = "intact-scrubbers";
@@ -875,11 +773,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"cS" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,14"
-	},
-/area/janitor)
 "cU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	icon_state = "intact";
@@ -917,46 +810,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"db" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,14"
-	},
-/area/janitor)
-"dd" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,4"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"df" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,13"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"di" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,13"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"dj" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,2"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"dl" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,21"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "dm" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -966,20 +819,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/oxygen,
 /area/template_noop)
-"dn" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,4"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"dq" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,12"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "dr" = (
 /obj/structure/table/reinforced,
 /obj/item/device/flashlight/lamp,
@@ -1000,10 +839,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"dz" = (
-/obj/structure/window/shuttle/unique/hts_canary,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "dA" = (
@@ -1047,31 +882,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"dL" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,12"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"dM" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,11"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "dO" = (
 /obj/machinery/atmospherics/unary/heater,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"dR" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,11"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "dS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1140,13 +954,6 @@
 	icon_state = "plating"
 	},
 /area/template_noop)
-"dZ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,10"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "ec" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -1159,18 +966,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"ed" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,7"
-	},
-/area/template_noop)
-"ee" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,11"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "eh" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1178,11 +973,6 @@
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
 	dir = 4
-	},
-/area/template_noop)
-"ei" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,20"
 	},
 /area/template_noop)
 "ej" = (
@@ -1280,13 +1070,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"eB" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,10"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "eC" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -1320,20 +1103,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"eG" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,9"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"eH" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,9"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "eI" = (
 /obj/machinery/power/apc{
 	dir = 2;
@@ -1342,13 +1111,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"eJ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,8"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "eL" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1361,13 +1123,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"eM" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,10"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "eN" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -1483,13 +1238,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"fh" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "8,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "fj" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/spot{
@@ -1514,13 +1262,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"fm" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,9"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "fn" = (
 /obj/effect/floor_decal/corner_wide/mauve/full,
@@ -1560,20 +1301,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"fy" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "9,1"
-	},
-/turf/template_noop,
-/area/template_noop)
-"fA" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,8"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "fC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
@@ -1619,18 +1346,6 @@
 	icon_state = "plating"
 	},
 /area/template_noop)
-"fG" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,8"
-	},
-/area/janitor)
-"fI" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "fJ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -1666,13 +1381,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
-"fN" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,13"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "fO" = (
 /obj/machinery/door/firedoor,
@@ -1774,13 +1482,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"gi" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,1"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "gj" = (
 /obj/machinery/atmospherics/omni/filter{
 	name = "Phoron Filter";
@@ -1847,13 +1548,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"gq" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,13"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "gr" = (
 /obj/machinery/door/airlock/glass_mining{
 	name = "Cargo Bay";
@@ -1897,11 +1591,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"gv" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "5,3"
-	},
-/area/template_noop)
 "gy" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	icon_state = "intact";
@@ -1931,13 +1620,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/janitor)
-"gC" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,0"
-	},
-/turf/simulated/floor/plating,
 /area/janitor)
 "gF" = (
 /obj/machinery/door/firedoor,
@@ -2019,18 +1701,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"gR" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,11"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"gS" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,19"
-	},
-/area/template_noop)
 "gT" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -2057,13 +1727,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"gW" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "gY" = (
@@ -2117,6 +1780,7 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "hm" = (
+/turf/space,
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	icon_state = "wide_corner_full";
@@ -2126,18 +1790,12 @@
 	icon_state = "wide_corner";
 	dir = 5
 	},
-/turf/space,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
 "hn" = (
 /obj/machinery/suspension_gen,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"hp" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,8"
-	},
-/area/janitor)
 "hq" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -2171,13 +1829,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"hv" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,16"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "hy" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -2197,13 +1848,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"hB" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,16"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "hC" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -2214,13 +1858,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"hD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "8,0"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "hE" = (
 /obj/structure/bed/chair/office/dark{
@@ -2289,13 +1926,6 @@
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"hX" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,0"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "hY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_command{
@@ -2304,13 +1934,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"hZ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,8"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "ib" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
@@ -2337,11 +1960,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"ii" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,22"
-	},
-/area/template_noop)
 "ij" = (
 /obj/effect/floor_decal/corner/white{
 	icon_state = "corner_white";
@@ -2392,20 +2010,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"ip" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,9"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"iq" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,8"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "is" = (
 /obj/machinery/disposal/deliveryChute{
 	dir = 4
@@ -2429,28 +2033,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"iy" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,7"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"iB" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,7"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "iD" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"iG" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "1,3"
-	},
 /area/template_noop)
 "iH" = (
 /obj/machinery/door/airlock/external{
@@ -2496,30 +2081,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"iP" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "6,1"
-	},
-/turf/template_noop,
-/area/template_noop)
 "iQ" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"iS" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"iT" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,17"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "iV" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2532,11 +2096,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
-"iW" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,12"
-	},
-/area/template_noop)
 "iY" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -2544,11 +2103,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"iZ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,7"
-	},
-/area/janitor)
 "ja" = (
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
@@ -2572,13 +2126,6 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"jf" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "4,2"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "jg" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -2620,13 +2167,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"jm" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,21"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "jr" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/plating,
@@ -2648,11 +2188,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"ju" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,14"
-	},
-/area/template_noop)
 "jv" = (
 /obj/structure/closet/radiation,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2720,18 +2255,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"jF" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,9"
-	},
-/area/template_noop)
-"jH" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,10"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "jJ" = (
 /obj/machinery/mineral/unloading_machine,
 /obj/machinery/door/firedoor,
@@ -2795,13 +2318,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"jR" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "jS" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4
@@ -2832,18 +2348,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"jX" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"jZ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,7"
-	},
-/area/janitor)
 "ka" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2854,13 +2358,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"kb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,10"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "kc" = (
 /obj/effect/floor_decal/corner/white/full,
 /turf/simulated/floor/tiled/dark,
@@ -2894,13 +2391,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"km" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "9,0"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "kn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2940,13 +2430,6 @@
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/template_noop)
-"kx" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,10"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "ky" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "Mix to Filtering"
@@ -2970,18 +2453,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"kD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "9,0"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"kE" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,10"
-	},
-/area/template_noop)
 "kF" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -3038,13 +2509,6 @@
 	},
 /turf/simulated/floor/tiled/ramp,
 /area/template_noop)
-"kO" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,7"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "kP" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	icon_state = "wide_corner_full_light";
@@ -3103,11 +2567,6 @@
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
-"kZ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,4"
-	},
-/area/template_noop)
 "la" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -3141,24 +2600,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"le" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"lf" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "6,6"
-	},
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,18"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "li" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /turf/simulated/floor/tiled,
@@ -3172,24 +2613,12 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"lk" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,13"
-	},
-/area/janitor)
 "ll" = (
 /obj/item/reagent_containers/glass/bucket{
 	pixel_x = -4;
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"lm" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,2"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "lo" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -3205,18 +2634,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"lq" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,7"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"lr" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,12"
-	},
-/area/template_noop)
 "lt" = (
 /obj/machinery/computer/shuttle_control/research,
 /obj/effect/floor_decal/corner_wide/mauve/full,
@@ -3226,30 +2643,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"lu" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,15"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"lv" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,6"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "lw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"lx" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,20"
-	},
 /area/template_noop)
 "ly" = (
 /obj/machinery/door/airlock/research{
@@ -3263,11 +2661,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"lB" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,6"
-	},
-/area/janitor)
 "lC" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
@@ -3280,12 +2673,6 @@
 /obj/effect/floor_decal/corner_wide/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"lG" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "5,0"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "lH" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	frequency = 1441;
@@ -3312,13 +2699,6 @@
 "lK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"lN" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "11,1"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "lO" = (
 /obj/machinery/door/window{
@@ -3385,13 +2765,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"lV" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,14"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "lW" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -3420,13 +2793,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"mb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,21"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "mc" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -3466,17 +2832,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"mi" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,13"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "mj" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "2,9"
-	},
+/turf/space,
 /area/template_noop)
 "mm" = (
 /obj/machinery/door/airlock/research{
@@ -3502,11 +2859,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/plating,
-/area/template_noop)
-"mp" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,6"
-	},
 /area/template_noop)
 "mr" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
@@ -3552,11 +2904,6 @@
 	icon_state = "plating"
 	},
 /area/template_noop)
-"mz" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,9"
-	},
-/area/template_noop)
 "mA" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6;
@@ -3567,37 +2914,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"mB" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,6"
-	},
-/area/janitor)
-"mD" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "3,14"
-	},
-/area/janitor)
-"mE" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,6"
-	},
-/area/janitor)
-"mF" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "4,21"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "mG" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"mH" = (
-/turf/simulated/wall/shuttle/unique/hts_canary,
 /area/template_noop)
 "mI" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -3627,11 +2949,6 @@
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"mN" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,12"
-	},
-/area/janitor)
 "mO" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6;
@@ -3641,20 +2958,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"mP" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,22"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"mQ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,8"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "mR" = (
 /obj/effect/floor_decal/corner/white{
@@ -3728,13 +3031,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"nb" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,6"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "nc" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -3787,32 +3083,12 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"nj" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "8,6"
-	},
-/area/janitor)
-"nk" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,9"
-	},
-/area/janitor)
-"nl" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,6"
-	},
-/area/janitor)
 "nn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"no" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,12"
-	},
-/area/janitor)
 "nq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -3833,12 +3109,6 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/yellow{
 	icon_state = "up";
 	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"nv" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "8,2"
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
@@ -3898,11 +3168,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"nE" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,6"
-	},
-/area/janitor)
 "nF" = (
 /obj/machinery/button/remote/blast_door{
 	id = "planetary_bay2";
@@ -3924,20 +3189,6 @@
 /obj/item/device/multitool,
 /obj/item/device/floor_painter,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"nG" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "7,0"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"nH" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,10"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "nK" = (
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -3972,12 +3223,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"nO" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "5,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "nP" = (
 /obj/structure/table/standard,
 /obj/item/device/destTagger,
@@ -3997,12 +3242,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"nS" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "5,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "nV" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -4011,11 +3250,6 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/nitrogen,
-/area/template_noop)
-"nW" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "5,7"
-	},
 /area/template_noop)
 "nX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4131,11 +3365,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"on" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,9"
-	},
-/area/template_noop)
 "oq" = (
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/effect/floor_decal/corner_wide/mauve/full{
@@ -4144,18 +3373,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"or" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,12"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"os" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,6"
-	},
-/area/janitor)
 "ot" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -4197,18 +3414,6 @@
 /obj/machinery/computer/atmos_alert,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"oB" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,6"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"oE" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,5"
-	},
-/area/janitor)
 "oF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4271,13 +3476,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"oS" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,19"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "oU" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -4287,13 +3485,6 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"oW" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,3"
-	},
-/turf/simulated/floor/tiled,
 /area/template_noop)
 "oX" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -4306,22 +3497,6 @@
 /area/template_noop)
 "pc" = (
 /turf/simulated/floor/tiled/ramp,
-/area/template_noop)
-"pd" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "2,8"
-	},
-/area/template_noop)
-"pe" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,8"
-	},
-/area/template_noop)
-"pf" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "3,0"
-	},
-/turf/simulated/floor/tiled,
 /area/template_noop)
 "ph" = (
 /obj/effect/floor_decal/industrial/warning/corner,
@@ -4429,12 +3604,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"pr" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "6,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "ps" = (
 /obj/machinery/recharge_station,
 /obj/machinery/light{
@@ -4487,11 +3656,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"pA" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,19"
-	},
-/area/template_noop)
 "pB" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
 	req_access = null;
@@ -4515,18 +3679,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
-"pF" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,5"
-	},
-/area/janitor)
-"pH" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,0"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "pL" = (
 /obj/structure/closet/walllocker/emerglocker/west,
 /obj/effect/floor_decal/corner_wide/mauve/full{
@@ -4577,13 +3729,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"pT" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,4"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "pW" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	icon_state = "wide_corner_light";
@@ -4632,20 +3777,8 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"qg" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,5"
-	},
-/area/janitor)
 "qh" = (
 /turf/simulated/floor/reinforced/nitrogen,
-/area/template_noop)
-"qi" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "7,1"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "qj" = (
 /obj/machinery/sleeper{
@@ -4654,18 +3787,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"qk" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,5"
-	},
-/area/janitor)
-"ql" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "4,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "qm" = (
 /obj/machinery/disposal,
 /obj/effect/decal/warning_stripes,
@@ -4674,26 +3795,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"qo" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,5"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "qq" = (
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
-"qr" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,17"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "qs" = (
 /obj/effect/floor_decal/corner/brown/full{
@@ -4702,27 +3809,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"qt" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,4"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"qu" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,19"
-	},
-/area/template_noop)
 "qw" = (
 /obj/machinery/artifact_analyser,
 /turf/simulated/floor/bluegrid,
 /area/template_noop)
-"qz" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,4"
-	},
-/area/janitor)
 "qA" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -4819,11 +3909,6 @@
 	dir = 8
 	},
 /area/template_noop)
-"qN" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "2,5"
-	},
-/area/template_noop)
 "qO" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -4831,17 +3916,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"qP" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "7,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"qR" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,15"
-	},
-/area/janitor)
 "qU" = (
 /obj/machinery/papershredder,
 /obj/machinery/requests_console{
@@ -4926,11 +4000,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"rj" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,4"
-	},
-/area/janitor)
 "rl" = (
 /obj/effect/floor_decal/corner/white/full{
 	dir = 8
@@ -5063,30 +4132,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"rI" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"rJ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,13"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "rK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"rL" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "1,1"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "rM" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -5179,11 +4228,6 @@
 /obj/machinery/portable_atmospherics/canister/sleeping_agent,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"sa" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,11"
-	},
-/area/janitor)
 "sc" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
@@ -5216,31 +4260,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"sj" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,13"
-	},
-/area/template_noop)
 "sk" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "O2 to Connector"
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"sm" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,20"
-	},
-/area/template_noop)
 "sn" = (
 /turf/simulated/floor/carpet/blue,
-/area/template_noop)
-"so" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,20"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "sp" = (
 /obj/effect/floor_decal/corner/white{
@@ -5283,11 +4310,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"su" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,4"
-	},
-/area/janitor)
 "sv" = (
 /obj/structure/closet/crate/internals{
 	name = "emergency equipment"
@@ -5328,13 +4350,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"sx" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,18"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "sy" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/small{
@@ -5360,11 +4375,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"sB" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,4"
-	},
-/area/janitor)
 "sC" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
@@ -5392,20 +4402,6 @@
 /obj/item/modular_computer/console/preset/supply,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"sF" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,4"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"sH" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,3"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "sI" = (
 /obj/effect/floor_decal/industrial/loading{
 	icon_state = "loadingarea";
@@ -5413,16 +4409,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"sJ" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "5,5"
-	},
-/area/template_noop)
-"sK" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,3"
-	},
-/area/janitor)
 "sL" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -5470,11 +4456,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"sU" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "3,3"
-	},
-/area/janitor)
 "sV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
@@ -5490,29 +4471,10 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"sX" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "6,0"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"sZ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,3"
-	},
-/area/janitor)
 "tc" = (
 /obj/structure/lattice,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/template_noop)
-"te" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,22"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "tg" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/dark,
@@ -5552,38 +4514,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"tm" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,22"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"tn" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,15"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"to" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,17"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "tp" = (
 /obj/structure/computerframe,
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"tq" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,3"
-	},
 /area/template_noop)
 "tr" = (
 /obj/machinery/door/firedoor,
@@ -5599,11 +4535,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"ts" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,18"
-	},
-/area/template_noop)
 "tt" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -5614,25 +4545,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"tu" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "4,22"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"tw" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "5,8"
-	},
-/area/template_noop)
-"tx" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,22"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "ty" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -5667,19 +4579,12 @@
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "tB" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,22"
-	},
+/turf/space,
 /area/janitor)
 "tC" = (
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
-"tD" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "12,14"
-	},
 /area/template_noop)
 "tF" = (
 /obj/item/stool/padded,
@@ -5689,11 +4594,6 @@
 /obj/machinery/mineral/stacking_machine,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/template_noop)
-"tH" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,16"
-	},
 /area/template_noop)
 "tI" = (
 /obj/effect/floor_decal/corner/brown{
@@ -5737,13 +4637,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"tO" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,10"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "tQ" = (
 /obj/structure/table/standard,
 /obj/item/device/multitool,
@@ -5752,11 +4645,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"tS" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,18"
-	},
 /area/template_noop)
 "tT" = (
 /obj/structure/bed/chair/office/bridge/generic{
@@ -5794,18 +4682,6 @@
 	},
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"tW" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,5"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"tY" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,11"
-	},
 /area/template_noop)
 "ua" = (
 /obj/machinery/door/airlock/external{
@@ -5864,18 +4740,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"ul" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,22"
-	},
-/area/janitor)
-"um" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "1,9"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "un" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -5897,11 +4761,6 @@
 /obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/janitor)
-"ur" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,6"
-	},
-/area/template_noop)
 "ut" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -5909,18 +4768,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"uu" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,3"
-	},
-/area/janitor)
-"uv" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,22"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "uw" = (
 /obj/machinery/door/blast/shutters{
 	dir = 4;
@@ -5930,13 +4777,6 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"ux" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,6"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "uy" = (
 /obj/structure/plasticflaps,
@@ -6067,13 +4907,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"uR" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,22"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "uS" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -6096,13 +4929,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
-"uY" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,7"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "va" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6145,13 +4971,6 @@
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"vf" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,22"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "vi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	icon_state = "intact";
@@ -6167,12 +4986,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"vk" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "6,3"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "vn" = (
 /obj/machinery/computer/shuttle_control/research,
 /obj/effect/floor_decal/corner_wide/mauve/full,
@@ -6221,13 +5034,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"vu" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,11"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "vx" = (
 /obj/structure/closet/crate/bin{
 	name = "Subject wear"
@@ -6242,13 +5048,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"vy" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,18"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "vz" = (
 /obj/effect/floor_decal/corner/blue{
@@ -6301,13 +5100,6 @@
 	pixel_x = 24
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"vH" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,9"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "vK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -6405,13 +5197,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"vW" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,18"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "vX" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -6446,10 +5231,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"wb" = (
-/obj/structure/window/shuttle/unique/hts_canary,
-/turf/simulated/floor/plating,
-/area/template_noop)
 "wc" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -6477,19 +5258,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"wg" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,8"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"wi" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "9,3"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "wj" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -6506,13 +5274,6 @@
 	},
 /obj/effect/floor_decal/corner_wide/mauve/full,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"wm" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,9"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "wn" = (
 /obj/machinery/door/firedoor,
@@ -6547,13 +5308,6 @@
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
-/area/template_noop)
-"wt" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,17"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "wu" = (
 /obj/structure/grille,
@@ -6595,34 +5349,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"wB" = (
-/turf/space,
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,3"
-	},
-/area/janitor)
 "wE" = (
 /obj/structure/bed/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"wF" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,18"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"wG" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,22"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"wI" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,11"
-	},
 /area/template_noop)
 "wJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6662,18 +5391,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"wP" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,20"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"wQ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,14"
-	},
-/area/template_noop)
 "wS" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 4
@@ -6693,13 +5410,6 @@
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"wX" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,19"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "wZ" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -6721,13 +5431,6 @@
 	name = "Cell 3"
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"xc" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,17"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "xf" = (
 /obj/effect/floor_decal/corner/white{
@@ -6765,13 +5468,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"xk" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,21"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "xl" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/portables_connector,
@@ -6782,11 +5478,6 @@
 	icon_state = "camera"
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
-"xm" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "12,11"
-	},
 /area/template_noop)
 "xn" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -6801,13 +5492,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"xq" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,8"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "xs" = (
 /obj/effect/floor_decal/corner/purple{
@@ -6844,24 +5528,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"xw" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,15"
-	},
-/area/template_noop)
-"xx" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "2,0"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"xz" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,21"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "xB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -6922,14 +5588,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"xL" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "11,21"
-	},
-/turf/space,
-/turf/simulated/floor/plating,
-/area/janitor)
 "xM" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "Mix to Vent"
@@ -6940,11 +5598,6 @@
 /obj/effect/floor_decal/corner_wide/mauve/full,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"xO" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,12"
-	},
-/area/janitor)
 "xP" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/effect/floor_decal/corner/white,
@@ -6964,34 +5617,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"xS" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"xU" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,16"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"xV" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"xW" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,16"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "xY" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -6999,13 +5624,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"xZ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "4,21"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "ya" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -7041,18 +5659,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"yg" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,9"
-	},
-/area/janitor)
-"yi" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,17"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "yj" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
@@ -7062,13 +5668,6 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"yo" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,21"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "yp" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	icon_state = "corner_light_full";
@@ -7104,13 +5703,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"yu" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,13"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "yw" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window{
@@ -7130,11 +5722,6 @@
 /obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"yx" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,21"
-	},
-/area/janitor)
 "yz" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -7153,13 +5740,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"yB" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,10"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "yE" = (
 /obj/machinery/cryopod,
 /turf/simulated/floor/tiled,
@@ -7168,16 +5748,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"yL" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,3"
-	},
-/area/janitor)
-"yM" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "12,3"
-	},
-/area/janitor)
 "yN" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -7189,18 +5759,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"yO" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,21"
-	},
-/area/janitor)
-"yP" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,17"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "yR" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -7255,18 +5813,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"zc" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,21"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"zd" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "3,14"
-	},
-/area/template_noop)
 "ze" = (
 /obj/machinery/alarm{
 	dir = 8;
@@ -7309,18 +5855,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"zn" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,21"
-	},
-/area/template_noop)
-"zr" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "zs" = (
 /obj/structure/sign/securearea{
 	pixel_x = 32
@@ -7338,25 +5872,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"zx" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,19"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"zy" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "12,3"
-	},
-/area/template_noop)
-"zB" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "7,1"
-	},
-/turf/template_noop,
 /area/template_noop)
 "zD" = (
 /obj/machinery/door/firedoor,
@@ -7415,13 +5930,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"zI" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,21"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "zJ" = (
 /turf/simulated/floor/shuttle/dark_blue,
 /area/template_noop)
@@ -7465,13 +5973,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"zQ" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,7"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "zS" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -7480,18 +5981,6 @@
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/template_noop)
-"zT" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,10"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"zU" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,17"
-	},
-/area/janitor)
 "zW" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -7515,13 +6004,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"zZ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Aa" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -7541,18 +6023,6 @@
 /obj/effect/floor_decal/industrial/loading,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Af" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,11"
-	},
-/area/template_noop)
-"Ag" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,5"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Ah" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -7565,13 +6035,6 @@
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"Aj" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,21"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Al" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
 	req_access = null;
@@ -7579,24 +6042,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"An" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,9"
-	},
-/area/template_noop)
 "Ao" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"Aq" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,2"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ar" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -7617,22 +6068,11 @@
 /obj/structure/bed/chair/office/dark,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Au" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,3"
-	},
-/area/janitor)
 "Av" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
 /obj/machinery/computer/rdconsole/robotics,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"Ax" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "4,0"
-	},
-/turf/simulated/floor/tiled,
 /area/template_noop)
 "Ay" = (
 /obj/machinery/door/firedoor,
@@ -7650,26 +6090,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
-"Az" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,3"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"AB" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "5,0"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"AD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,12"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "AE" = (
 /obj/effect/floor_decal/corner/white/full,
@@ -7696,13 +6116,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"AL" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,18"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "AN" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -7724,13 +6137,6 @@
 /obj/item/device/flashlight/heavy,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"AR" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "AS" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark,
@@ -7747,11 +6153,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Ba" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,10"
-	},
-/area/janitor)
 "Bd" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6;
@@ -7805,43 +6206,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Bn" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,15"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Bo" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/template_noop)
-"Bq" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,16"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Br" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,16"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Bs" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Bt" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,5"
-	},
 /area/template_noop)
 "Bu" = (
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -7871,27 +6239,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Bz" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"BA" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "4,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"BB" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,20"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "BD" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -7923,13 +6270,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"BH" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,14"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "BI" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -7964,13 +6304,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"BM" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,13"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "BO" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/blast/shutters{
@@ -7980,13 +6313,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"BP" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,20"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "BQ" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -8077,20 +6403,6 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"BX" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,14"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"BY" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,9"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "BZ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -8108,13 +6420,6 @@
 	name = "Science Lift Defense Screen"
 	},
 /turf/simulated/floor/plating,
-/area/template_noop)
-"Ca" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,5"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Cc" = (
 /obj/effect/floor_decal/corner/white/full{
@@ -8137,11 +6442,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Cg" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,20"
-	},
-/area/janitor)
 "Ch" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8;
@@ -8183,13 +6483,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"Cl" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "5,9"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Cn" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/computer/general_air_control/large_tank_control{
@@ -8219,11 +6512,6 @@
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Cv" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,20"
-	},
-/area/janitor)
 "Cx" = (
 /obj/structure/bed/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner/blue/diagonal,
@@ -8291,11 +6579,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"CE" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,20"
-	},
-/area/janitor)
 "CG" = (
 /obj/machinery/door/blast/shutters{
 	dir = 4;
@@ -8319,11 +6602,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"CJ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,20"
-	},
-/area/janitor)
 "CK" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -8340,18 +6618,6 @@
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
-/area/template_noop)
-"CM" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,11"
-	},
-/area/template_noop)
-"CN" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,19"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "CO" = (
 /obj/effect/floor_decal/corner/paleblue{
@@ -8425,25 +6691,6 @@
 /turf/simulated/floor/tiled/ramp{
 	icon_state = "ramptop";
 	dir = 8
-	},
-/area/janitor)
-"CZ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,6"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Da" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "1,9"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"Db" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,20"
 	},
 /area/janitor)
 "Dh" = (
@@ -8524,16 +6771,6 @@
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Du" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,5"
-	},
-/area/template_noop)
-"Dv" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,11"
-	},
-/area/janitor)
 "Dw" = (
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/structure/bed/chair/shuttle,
@@ -8615,13 +6852,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"DF" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,7"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "DG" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -8645,18 +6875,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"DH" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,20"
-	},
-/area/janitor)
-"DI" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,20"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "DJ" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 10;
@@ -8682,11 +6900,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"DR" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "1,5"
-	},
 /area/template_noop)
 "DS" = (
 /obj/machinery/alarm{
@@ -8752,27 +6965,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"Eb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,20"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Ec" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "5,9"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"Eh" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,4"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Ei" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -8782,38 +6974,10 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Ek" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,8"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"En" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,4"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Eo" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Ep" = (
 /obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/simulated/wall/r_wall,
-/area/template_noop)
-"Eq" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,9"
-	},
-/turf/simulated/floor/tiled,
 /area/template_noop)
 "Es" = (
 /obj/structure/window/reinforced{
@@ -8834,11 +6998,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Eu" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,17"
-	},
-/area/template_noop)
 "Ev" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
@@ -8849,12 +7008,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Ew" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "6,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Ex" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate,
@@ -8863,36 +7016,11 @@
 /obj/item/storage/briefcase/inflatable,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Ez" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "7,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"ED" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,19"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"EE" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,19"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "EG" = (
 /obj/structure/table/steel,
 /obj/item/pickaxe/drill,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"EH" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,4"
-	},
 /area/template_noop)
 "EJ" = (
 /obj/structure/table/standard,
@@ -8939,16 +7067,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"EQ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,6"
-	},
-/area/template_noop)
-"ES" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,17"
-	},
-/area/janitor)
 "ET" = (
 /obj/machinery/door/airlock/glass_mining{
 	name = "Beta Hangar Access";
@@ -8966,23 +7084,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"EZ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,14"
-	},
-/area/template_noop)
-"Fa" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,8"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Fb" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,14"
-	},
-/area/template_noop)
 "Fc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8997,20 +7098,6 @@
 	icon_state = "plating"
 	},
 /area/template_noop)
-"Fe" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,6"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Ff" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,19"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Fh" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/plating,
@@ -9046,18 +7133,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Fm" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,15"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Fn" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,20"
-	},
-/area/template_noop)
 "Fo" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -9068,11 +7143,6 @@
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Fr" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,11"
-	},
-/area/janitor)
 "Fv" = (
 /obj/effect/floor_decal/corner_wide/mauve,
 /turf/simulated/floor/tiled/white,
@@ -9092,11 +7162,6 @@
 	name = "Canister Ports"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Fy" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,10"
-	},
 /area/template_noop)
 "Fz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -9124,16 +7189,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"FC" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "5,4"
-	},
-/area/template_noop)
-"FD" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,11"
-	},
-/area/janitor)
 "FE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9181,13 +7236,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"FK" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,16"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "FL" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -9257,11 +7305,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/reinforced/n20,
 /area/template_noop)
-"FY" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,19"
-	},
-/area/janitor)
 "FZ" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -9333,18 +7376,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Gi" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,15"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Gj" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,19"
-	},
-/area/janitor)
 "Gk" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -9383,13 +7414,6 @@
 "Go" = (
 /turf/simulated/wall/elevator,
 /area/template_noop)
-"Gp" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,12"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Gq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -9405,13 +7429,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/template_noop)
-"Gs" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,14"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Gt" = (
 /obj/machinery/light{
@@ -9505,32 +7522,6 @@
 /obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"GC" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"GD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,12"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"GI" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "3,9"
-	},
-/area/template_noop)
-"GJ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,18"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "GL" = (
 /obj/structure/bed/chair/shuttle,
 /obj/effect/floor_decal/corner_wide/mauve/full{
@@ -9569,18 +7560,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
-"GO" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "8,6"
-	},
-/area/template_noop)
-"GP" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,17"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "GQ" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -9588,11 +7567,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"GS" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,19"
-	},
-/area/janitor)
 "GT" = (
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/lattice/catwalk/indoor,
@@ -9604,20 +7578,6 @@
 	req_one_access = list(5)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"GV" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,15"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"GW" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,9"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "GY" = (
 /obj/effect/floor_decal/industrial/loading,
@@ -9697,12 +7657,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Hj" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "8,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Hk" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -9754,18 +7708,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Ht" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,13"
-	},
-/area/janitor)
-"Hu" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "11,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Hx" = (
 /obj/machinery/power/apc/super{
 	name = "south bump";
@@ -9780,19 +7722,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Hz" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "9,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"HA" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "8,0"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "HB" = (
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled,
@@ -9806,13 +7735,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"HG" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,10"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "HH" = (
 /obj/machinery/light_switch{
 	pixel_x = 0;
@@ -9836,38 +7758,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"HJ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,11"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "HL" = (
 /turf/simulated/floor/reinforced/oxygen,
-/area/template_noop)
-"HM" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "6,3"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "HP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"HR" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "9,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"HS" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,8"
-	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "HU" = (
@@ -9885,18 +7781,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"HX" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,19"
-	},
-/area/janitor)
-"HZ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Ia" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -9920,13 +7804,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"Ic" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,18"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Id" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Engineering Sublevel Substation Bypass"
@@ -9949,13 +7826,6 @@
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
-/area/template_noop)
-"If" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,21"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "Ig" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -9987,23 +7857,6 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Ij" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,17"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Ik" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,14"
-	},
-/area/janitor)
-"Il" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "4,5"
-	},
 /area/template_noop)
 "In" = (
 /obj/effect/floor_decal/corner/white{
@@ -10087,20 +7940,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Iz" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"IA" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "IB" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
@@ -10149,13 +7988,6 @@
 	},
 /turf/simulated/wall,
 /area/template_noop)
-"IG" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,19"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "IH" = (
 /obj/machinery/button/remote/blast_door{
 	id = "xenoarch_screen";
@@ -10209,13 +8041,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"IS" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,19"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "IT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/airlock_sensor{
@@ -10273,13 +8098,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Jb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,17"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Jc" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -10290,13 +8108,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Jd" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,22"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "Je" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
@@ -10313,26 +8124,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Jh" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "11,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Ji" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/template_noop)
-"Jj" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,8"
-	},
-/turf/simulated/floor/tiled,
 /area/template_noop)
 "Jk" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -10361,13 +8158,6 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Jr" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,19"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Ju" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/template_noop)
@@ -10385,13 +8175,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Jz" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "11,22"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "JB" = (
 /obj/structure/cryofeed,
@@ -10423,13 +8206,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"JG" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,6"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "JI" = (
 /obj/structure/window/reinforced{
@@ -10484,18 +8260,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"JQ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "10,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"JR" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,11"
-	},
-/area/janitor)
 "JS" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/red{
 	dir = 4
@@ -10517,28 +8281,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"JY" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,12"
-	},
-/area/template_noop)
-"JZ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "12,14"
-	},
-/area/janitor)
-"Kb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,14"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Kc" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "3,9"
-	},
-/area/janitor)
 "Ke" = (
 /obj/effect/floor_decal/corner/mauve{
 	icon_state = "corner_white";
@@ -10564,11 +8306,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Kh" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,10"
-	},
-/area/janitor)
 "Kj" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -10622,28 +8359,9 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Ks" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,14"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Kt" = (
 /obj/effect/floor_decal/corner_wide/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"Ku" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,22"
-	},
-/area/template_noop)
-"Kv" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,4"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Kw" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -10657,18 +8375,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Kx" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Ky" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,11"
-	},
-/area/janitor)
 "KA" = (
 /obj/machinery/power/apc/super{
 	dir = 8;
@@ -10677,13 +8383,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"KB" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,11"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "KD" = (
 /obj/machinery/artifact_harvester,
 /turf/simulated/floor/bluegrid,
@@ -10720,13 +8419,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"KJ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,18"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "KK" = (
 /obj/machinery/door/blast/shutters{
 	id = "cargo_hold";
@@ -10735,13 +8427,6 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"KL" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,19"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "KP" = (
 /obj/machinery/door/blast/regular{
@@ -10759,33 +8444,12 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"KS" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,18"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"KT" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "KV" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
 	name = "Phoron to Connector"
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"KX" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,17"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "La" = (
 /obj/machinery/mech_recharger,
@@ -10815,13 +8479,6 @@
 /obj/effect/floor_decal/industrial/loading,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
-"Le" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,21"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Lf" = (
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	icon_state = "wide_corner_full";
@@ -10842,20 +8499,6 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"Li" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,15"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Lj" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Lk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /turf/simulated/floor/tiled,
@@ -10868,13 +8511,6 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Ln" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,3"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Lo" = (
 /obj/effect/floor_decal/corner/red{
@@ -10921,35 +8557,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Lx" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,11"
-	},
-/area/template_noop)
-"Ly" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,3"
-	},
-/area/template_noop)
-"Lz" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,18"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"LA" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,6"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"LB" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "1,7"
-	},
-/area/template_noop)
 "LE" = (
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	icon_state = "wide_corner_full";
@@ -10977,13 +8584,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/janitor)
-"LK" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,7"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "LO" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner_wide/mauve{
@@ -11015,13 +8615,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"LR" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,18"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "LS" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -11038,11 +8631,6 @@
 	icon_state = "plating"
 	},
 /area/template_noop)
-"LW" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,9"
-	},
-/area/janitor)
 "LY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -11068,13 +8656,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/janitor)
-"Mb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,15"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Mc" = (
 /obj/machinery/power/apc/high{
 	dir = 4;
@@ -11117,11 +8698,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Mm" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,5"
-	},
-/area/template_noop)
 "Mn" = (
 /obj/machinery/door/blast/regular{
 	dir = 4;
@@ -11136,13 +8712,6 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Mu" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,8"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Mw" = (
 /obj/effect/floor_decal/corner/brown{
@@ -11172,11 +8741,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"My" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,5"
-	},
-/area/template_noop)
 "MB" = (
 /obj/structure/window/reinforced{
 	icon_state = "rwindow";
@@ -11185,11 +8749,6 @@
 /obj/effect/floor_decal/corner/white/full,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"MC" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,4"
-	},
-/area/template_noop)
 "MF" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9;
@@ -11197,32 +8756,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"MG" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,7"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"MI" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,13"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"ML" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,15"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"MO" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,20"
-	},
-/area/template_noop)
 "MQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -11306,18 +8839,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Na" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,20"
-	},
-/area/template_noop)
-"Nb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,16"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Nf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/large_stock_marker,
@@ -11326,13 +8847,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Ni" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,16"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Nj" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
@@ -11369,18 +8883,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Ns" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,11"
-	},
-/area/template_noop)
-"Nt" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "6,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Nu" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6;
@@ -11392,12 +8894,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Nv" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "3,0"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "Nx" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
@@ -11472,16 +8968,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"NH" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,18"
-	},
-/area/janitor)
-"NJ" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "1,8"
-	},
-/area/template_noop)
 "NN" = (
 /obj/effect/floor_decal/industrial/loading,
 /obj/machinery/door/firedoor/multi_tile,
@@ -11504,13 +8990,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"NP" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,18"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "NQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -11518,13 +8997,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"NS" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "NT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	icon_state = "intact";
@@ -11547,11 +9019,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"NX" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,16"
-	},
-/area/janitor)
 "NY" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
@@ -11559,11 +9026,6 @@
 	use_power = 1
 	},
 /turf/simulated/floor/reinforced/phoron,
-/area/template_noop)
-"NZ" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,15"
-	},
 /area/template_noop)
 "Ob" = (
 /obj/effect/floor_decal/corner/white{
@@ -11588,13 +9050,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"Od" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,10"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Oe" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9;
@@ -11632,13 +9087,6 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Ol" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,3"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "Om" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -11673,20 +9121,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"Or" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,19"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Os" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,10"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "Ot" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 1;
@@ -11744,13 +9178,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"OD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,13"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "OE" = (
 /obj/machinery/air_sensor{
 	frequency = 1441;
@@ -11760,13 +9187,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/template_noop)
-"OF" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "7,0"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "OG" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -11790,13 +9210,6 @@
 	use_power = 1
 	},
 /turf/simulated/floor/reinforced/n20,
-/area/template_noop)
-"OK" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,6"
-	},
-/turf/simulated/floor/tiled,
 /area/template_noop)
 "OM" = (
 /obj/structure/cable/green{
@@ -11840,13 +9253,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"OQ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,2"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "OR" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
@@ -11889,11 +9295,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"OU" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,14"
-	},
-/area/janitor)
 "OV" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -11969,29 +9370,12 @@
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Ph" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,18"
-	},
-/area/janitor)
-"Pi" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,3"
-	},
-/area/template_noop)
 "Pj" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "Filtering to Vent"
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Pl" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,1"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Pm" = (
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
@@ -12005,11 +9389,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Pp" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,6"
-	},
 /area/template_noop)
 "Pt" = (
 /obj/machinery/mech_recharger,
@@ -12044,24 +9423,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Px" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "6,6"
-	},
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,18"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Py" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,15"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Pz" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -12092,13 +9453,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor/multi_tile,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"PD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,14"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "PE" = (
 /obj/machinery/door/blast/shutters{
@@ -12139,20 +9493,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"PL" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,18"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"PM" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,18"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "PN" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/space/void/security,
@@ -12181,10 +9521,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "PS" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "11,22"
-	},
 /turf/space,
 /turf/simulated/floor/plating,
 /area/janitor)
@@ -12207,45 +9543,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"PX" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,18"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"PY" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "6,21"
-	},
-/area/template_noop)
-"Qb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "4,1"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Qc" = (
 /obj/effect/floor_decal/corner/brown/full{
 	icon_state = "corner_white_full";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Qd" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,2"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"Qe" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,10"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "Qg" = (
 /obj/effect/floor_decal/corner_wide/mauve/full,
@@ -12283,13 +9586,6 @@
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Qj" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,20"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "Ql" = (
 /obj/structure/grille,
@@ -12332,13 +9628,6 @@
 "Qn" = (
 /turf/simulated/floor/airless,
 /area/template_noop)
-"Qo" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,17"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Qp" = (
 /obj/machinery/button/remote/blast_door{
 	id = "research_eva";
@@ -12365,11 +9654,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Qt" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,9"
-	},
-/area/janitor)
 "Qu" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -12438,13 +9722,6 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/reinforced,
 /area/template_noop)
-"QD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,1"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "QG" = (
 /obj/effect/floor_decal/corner/white/full{
 	dir = 8
@@ -12466,13 +9743,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"QI" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,17"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "QJ" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	icon_state = "wide_corner";
@@ -12506,19 +9776,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"QR" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,17"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"QS" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "2,0"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "QT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	icon_state = "intact";
@@ -12526,13 +9783,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"QV" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,20"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "QW" = (
 /obj/structure/sign/securearea{
@@ -12568,13 +9818,6 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Ra" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,9"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "Rb" = (
 /obj/effect/floor_decal/industrial/loading{
@@ -12626,23 +9869,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Rk" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "6,1"
-	},
-/turf/template_noop,
-/area/janitor)
-"Rl" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,8"
-	},
-/area/template_noop)
-"Rm" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "3,3"
-	},
-/area/template_noop)
 "Rn" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4;
@@ -12667,11 +9893,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"Rq" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,14"
-	},
 /area/template_noop)
 "Rr" = (
 /obj/effect/floor_decal/corner/white/full{
@@ -12704,13 +9925,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Rv" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "7,1"
-	},
-/turf/template_noop,
-/area/janitor)
 "Rx" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -12796,20 +10010,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"RI" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,16"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"RK" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,6"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "RL" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/white{
@@ -12864,11 +10064,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"RV" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,16"
-	},
-/area/janitor)
 "RW" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/research{
@@ -12898,11 +10093,6 @@
 "Sa" = (
 /obj/effect/floor_decal/corner/brown,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Sb" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,3"
-	},
 /area/template_noop)
 "Sc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12990,18 +10180,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Sm" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,11"
-	},
-/area/template_noop)
-"Sn" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Sp" = (
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor1";
@@ -13009,26 +10187,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
-"Sq" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,16"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Sr" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,16"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Ss" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "4,0"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Su" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -13078,18 +10236,6 @@
 /obj/machinery/light/spot,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"SD" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "1,4"
-	},
-/area/template_noop)
-"SF" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "8,1"
-	},
-/turf/template_noop,
-/area/janitor)
 "SG" = (
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor{
@@ -13113,13 +10259,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"SI" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,17"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13201,23 +10340,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"SW" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,16"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"SX" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,11"
-	},
-/area/template_noop)
-"SY" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "12,9"
-	},
-/area/janitor)
 "SZ" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -13238,13 +10360,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Tb" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,12"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Td" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -13252,22 +10367,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Te" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,17"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Tf" = (
 /turf/space,
 /turf/simulated/floor/tiled,
 /area/janitor)
-"Th" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,6"
-	},
-/area/template_noop)
 "Tj" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6;
@@ -13302,35 +10405,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"To" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,10"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Tp" = (
 /obj/effect/floor_decal/corner_wide/mauve,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"Tr" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,16"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Tw" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
 /turf/simulated/floor/plating,
 /area/janitor)
-"Tx" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,12"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Tz" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/structure/lattice/catwalk/indoor,
@@ -13351,13 +10433,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"TC" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,10"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "TD" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -13371,11 +10446,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"TF" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "12,9"
-	},
-/area/template_noop)
 "TG" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	icon_state = "rampbot";
@@ -13388,20 +10458,6 @@
 	},
 /obj/structure/plasticflaps,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"TK" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,5"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"TM" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,0"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "TN" = (
 /obj/machinery/door/firedoor,
@@ -13437,20 +10493,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"TT" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,22"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"TV" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,15"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "TZ" = (
 /obj/effect/floor_decal/industrial/loading{
 	icon_state = "loadingarea";
@@ -13465,39 +10507,8 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Ua" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,14"
-	},
-/area/template_noop)
-"Ub" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "9,11"
-	},
-/area/janitor)
 "Uc" = (
 /turf/simulated/wall/shuttle/cardinal,
-/area/template_noop)
-"Ud" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,16"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Ue" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,16"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Uf" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,12"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Ug" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -13516,13 +10527,6 @@
 /obj/item/device/flashlight/lamp,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet/blue,
-/area/janitor)
-"Ul" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,16"
-	},
-/turf/simulated/floor/plating,
 /area/janitor)
 "Um" = (
 /obj/machinery/door/firedoor,
@@ -13552,20 +10556,6 @@
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Uq" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,9"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Ut" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,5"
-	},
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "Uu" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9;
@@ -13576,13 +10566,6 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Uw" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -13605,18 +10588,6 @@
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
-/area/template_noop)
-"UA" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "3,11"
-	},
-/area/janitor)
-"UC" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,14"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "UD" = (
 /obj/effect/floor_decal/corner/mauve/full{
@@ -13650,13 +10621,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"UI" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,9"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "UK" = (
 /obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
@@ -13676,24 +10640,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"UL" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,15"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "UM" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
 	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"UN" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,9"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -13732,33 +10682,12 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"UU" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,7"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"UW" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "9,1"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "UX" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
 /area/template_noop)
-"UY" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,15"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "UZ" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -13812,43 +10741,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"Vk" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "6,0"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Vm" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"Vn" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,14"
-	},
-/area/janitor)
-"Vo" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Vp" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,8"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Vt" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "4,8"
-	},
 /area/template_noop)
 "Vu" = (
 /obj/machinery/requests_console{
@@ -13902,13 +10800,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
-"VD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "11,21"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "VE" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow,
 /obj/machinery/meter,
@@ -13944,11 +10835,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"VM" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "11,17"
-	},
 /area/template_noop)
 "VQ" = (
 /obj/machinery/door/window/westright{
@@ -13986,20 +10872,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"VW" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,15"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"VY" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "5,22"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "VZ" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	icon_state = "wide_corner_light";
@@ -14024,20 +10896,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/janitor)
-"Wd" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Wg" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,11"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Wh" = (
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
@@ -14061,24 +10919,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Wl" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,15"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Wm" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Wn" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,15"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Wo" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -14115,13 +10959,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Wx" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,17"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "Wy" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/suit_storage_unit/standard_unit,
@@ -14130,13 +10967,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"WA" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,10"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "WC" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_atmos{
@@ -14162,27 +10992,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"WE" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,5"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"WF" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,14"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"WH" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,17"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "WI" = (
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/template_noop)
@@ -14199,18 +11008,6 @@
 /obj/machinery/shieldgen,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"WO" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,7"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"WP" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "3,11"
-	},
-/area/template_noop)
 "WQ" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	icon_state = "corner_white_full";
@@ -14225,13 +11022,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"WS" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,15"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "WT" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled,
@@ -14254,20 +11044,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"WZ" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,11"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Xc" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,3"
-	},
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Xe" = (
 /obj/structure/table/reinforced/steel,
@@ -14301,11 +11077,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"Xi" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,7"
-	},
-/area/template_noop)
 "Xj" = (
 /obj/structure/table/standard,
 /obj/item/cell/high{
@@ -14318,18 +11089,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Xl" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,14"
-	},
-/area/janitor)
-"Xm" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "1,9"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Xn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -14349,11 +11108,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"Xo" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "12,11"
-	},
-/area/janitor)
 "Xp" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -14399,13 +11153,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Xv" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "12,1"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "Xw" = (
 /obj/effect/floor_decal/corner/brown{
 	icon_state = "corner_white";
@@ -14436,20 +11183,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"XD" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,14"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"XE" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,16"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "XH" = (
 /obj/structure/cable{
@@ -14500,11 +11233,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"XP" = (
-/turf/simulated/wall/shuttle/unique/hts_canary{
-	icon_state = "5,6"
-	},
-/area/template_noop)
 "XQ" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6;
@@ -14519,11 +11247,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"XR" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "2,12"
-	},
-/area/janitor)
 "XU" = (
 /obj/effect/floor_decal/corner/blue{
 	icon_state = "corner_white";
@@ -14545,13 +11268,6 @@
 /turf/simulated/floor{
 	icon_state = "plating"
 	},
-/area/template_noop)
-"XX" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "2,22"
-	},
-/turf/simulated/floor/plating,
 /area/template_noop)
 "XY" = (
 /obj/effect/floor_decal/corner/white{
@@ -14683,38 +11399,6 @@
 "Ym" = (
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
-"Yo" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "15,11"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
-"Yq" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,12"
-	},
-/area/template_noop)
-"Ys" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "13,10"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Yu" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "3,15"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
-"Yv" = (
-/obj/structure/window/shuttle/unique/ncv_intrepid{
-	icon_state = "9,3"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Yw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -14785,13 +11469,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"YG" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "9,1"
-	},
-/turf/template_noop,
-/area/janitor)
 "YH" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	icon_state = "intact";
@@ -14847,23 +11524,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"YP" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "0,18"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
 "YQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"YR" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,15"
-	},
-/area/janitor)
 "YS" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -14917,13 +11582,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"YZ" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,9"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Zc" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 1
@@ -14968,13 +11626,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Zj" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Zm" = (
 /obj/machinery/light/small{
 	dir = 4;
@@ -14986,21 +11637,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Zo" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "6,7"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Zp" = (
 /obj/effect/floor_decal/corner/white,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Zq" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "4,16"
-	},
 /area/template_noop)
 "Zr" = (
 /obj/effect/floor_decal/corner/white{
@@ -15042,12 +11681,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"Zu" = (
-/obj/structure/window/shuttle/unique/hts_canary{
-	icon_state = "1,2"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "Zv" = (
 /obj/structure/table/rack,
 /obj/item/stack/packageWrap,
@@ -15077,13 +11710,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"ZC" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,9"
-	},
-/turf/simulated/floor/plating,
-/area/template_noop)
 "ZD" = (
 /obj/effect/floor_decal/corner_wide/mauve{
 	icon_state = "wide_corner";
@@ -15104,20 +11730,8 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"ZF" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "13,3"
-	},
-/area/template_noop)
 "ZG" = (
 /obj/effect/floor_decal/corner/mauve,
-/turf/simulated/floor/tiled,
-/area/template_noop)
-"ZH" = (
-/obj/structure/shuttle_part/hts_canary{
-	desc = "A Hephaestus mining shuttle, it looks like it has seen plenty of abuse. It is clearly built to last.";
-	icon_state = "0,4"
-	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "ZI" = (
@@ -15139,13 +11753,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"ZK" = (
-/obj/structure/shuttle_part/ncv_intrepid{
-	desc = "A top of the line NanoTrasen survey runner, equipped with the latest in sensory hardware and the propulsion suites to match.";
-	icon_state = "14,12"
-	},
-/turf/simulated/floor/plating,
-/area/janitor)
 "ZL" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9;
@@ -15188,11 +11795,6 @@
 	icon_state = "plating"
 	},
 /area/template_noop)
-"ZP" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "5,4"
-	},
-/area/template_noop)
 "ZQ" = (
 /obj/effect/floor_decal/corner/blue/full{
 	icon_state = "corner_white_full";
@@ -15228,11 +11830,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"ZT" = (
-/turf/simulated/wall/shuttle/unique/ncv_intrepid{
-	icon_state = "10,11"
-	},
-/area/janitor)
 "ZU" = (
 /obj/effect/floor_decal/industrial/warning{
 	icon_state = "warning";
@@ -19611,14 +16208,14 @@ rs
 WR
 rN
 RL
-UI
-Uw
-zQ
-Fe
-Ca
-ce
-Ln
-Aq
+og
+og
+og
+og
+og
+og
+og
+og
 og
 og
 og
@@ -19868,16 +16465,16 @@ rs
 WR
 rN
 RL
-um
-NJ
-LB
-mH
-DR
-SD
-iG
-Zu
-rL
-wb
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 WM
 tk
 WM
@@ -20126,15 +16723,15 @@ WR
 eQ
 zW
 mj
-pd
+mj
 AN
 MU
-qN
+mj
 tI
 gp
 OB
 QZ
-QS
+WM
 WM
 tk
 WM
@@ -20391,7 +16988,7 @@ Qu
 Hi
 wE
 Ah
-Nv
+WM
 WM
 tk
 WM
@@ -20639,16 +17236,16 @@ BO
 Ad
 eQ
 zW
-bl
-Vt
+mj
+mj
 SQ
 Ia
-Il
+mj
 CC
 Wj
 VF
 DP
-Ss
+WM
 WM
 tk
 WM
@@ -20896,16 +17493,16 @@ BO
 pM
 rN
 RL
-Cl
-tw
-nW
-XP
-sJ
-FC
-gv
-nO
-nS
-AB
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 WM
 tk
 WM
@@ -21153,14 +17750,14 @@ rs
 kc
 rN
 RL
-Uq
-bf
-UU
-LA
-WE
-Kv
-Xc
-lm
+og
+og
+og
+og
+og
+og
+og
+og
 og
 og
 og
@@ -23207,18 +19804,18 @@ eL
 gf
 gf
 og
-YP
-to
-RI
-Li
-UC
-mi
-Uf
-gR
-Os
-UN
-Mu
-DF
+og
+og
+og
+og
+og
+og
+og
+og
+og
+og
+og
+og
 og
 og
 og
@@ -23463,24 +20060,24 @@ kw
 WM
 WM
 WM
-wX
-wF
-GP
-FK
-tn
-PD
-yu
-Gp
-WZ
-TC
-fm
-mQ
-cf
-JG
-bF
-pT
-GC
-rI
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 WM
@@ -23717,27 +20314,27 @@ WR
 rN
 DQ
 fM
-XX
-aJ
-so
-zx
-sx
-KX
-XE
-Py
-wQ
-sj
-lr
-Ns
-zT
-on
-Rl
-ed
-Pp
-Du
-kZ
-tq
-xV
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+mj
+mj
+mj
+mj
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+WM
 WM
 WM
 WM
@@ -23974,28 +20571,28 @@ JF
 Bx
 DQ
 Lb
-Jd
-mb
-Qj
-CN
-NP
-qr
-hv
-ML
-zd
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+mj
 Cr
 jc
-WP
-Od
-GI
+mj
+WM
+mj
 RZ
 Vj
 xN
 ZN
 jv
-Rm
-jX
-KT
+mj
+WM
+WM
 WM
 WM
 Zd
@@ -24231,28 +20828,28 @@ rN
 rN
 DQ
 Lb
-ck
-mF
-sm
-pA
-tS
-Eu
-Zq
-xw
-Fb
+WM
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+mj
 sn
 zj
-wI
-kE
-An
+mj
+mj
+mj
 zX
 Tp
 Lf
 YQ
 WJ
-Ly
-jf
-ql
+mj
+WM
+WM
 WM
 WM
 Zd
@@ -24488,29 +21085,29 @@ rN
 rN
 DQ
 Lb
-VY
-dl
-ei
+WM
+WM
+mj
 Sy
 UQ
 mI
 gk
 Wy
-Rq
+mj
 mm
-iW
-Sm
+mj
+mj
 iO
 vj
 UZ
 Ko
-bu
-Bt
-ZP
-az
-zZ
-Lj
-TM
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 WM
 Zd
 pw
@@ -24745,10 +21342,10 @@ Rd
 rN
 Cc
 Bd
-Ku
-PY
-Na
-bL
+mj
+mj
+mj
+mj
 bm
 Re
 NQ
@@ -24756,18 +21353,18 @@ nM
 oU
 es
 Vc
-CM
+mj
 hT
 xQ
 xQ
 nB
-ur
+mj
 SL
 Nj
-HM
-pr
-Nt
-sX
+WM
+WM
+WM
+WM
 WM
 Zd
 pw
@@ -25022,9 +21619,9 @@ JP
 zX
 rA
 lt
-qP
-qi
-nG
+WM
+WM
+WM
 WM
 Zd
 pw
@@ -25275,13 +21872,13 @@ No
 xQ
 xQ
 lI
-GO
+mj
 jM
 aR
 BL
-nv
-fh
-hD
+WM
+WM
+WM
 WM
 Zd
 pw
@@ -25516,10 +22113,10 @@ BS
 Iu
 QG
 Qm
-ii
-zn
-Fn
-qu
+mj
+mj
+mj
+mj
 uB
 BJ
 Ho
@@ -25527,18 +22124,18 @@ IL
 WD
 aC
 hI
-Af
+mj
 GA
 Tp
 Ao
 rr
-EQ
+mj
 LE
 od
-Yv
-HR
-UW
-km
+WM
+WM
+WM
+WM
 WM
 Zd
 pw
@@ -25773,29 +22370,29 @@ rs
 Iu
 DQ
 Lb
-wG
-If
-MO
+WM
+WM
+mj
 Sy
 mS
 rY
 Qv
 xv
-EZ
+mj
 fg
-JY
-tY
+mj
+mj
 LQ
 Mc
 Yb
 hy
-Th
-My
-MC
-Pi
-JQ
-bU
-hX
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 WM
 Zd
 pw
@@ -26030,28 +22627,28 @@ nR
 Iu
 DQ
 Lb
-Jz
-VD
-lx
-gS
-ts
-VM
-tH
-NZ
-ju
+WM
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+mj
 oq
 Wi
-SX
-Fy
-jF
+mj
+mj
+mj
 ss
 Wq
 gJ
 gJ
 Bf
-Sb
-Hu
-lN
+mj
+WM
+WM
 WM
 WM
 Zd
@@ -26287,28 +22884,28 @@ sW
 Iu
 DQ
 Lb
-TT
-Le
-QV
-oS
-lf
-iT
-hB
-lu
-tD
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+mj
 ey
 FJ
-xm
-yB
-TF
+mj
+WM
+mj
 Rh
 yd
 Bo
 ff
 sO
-zy
-jR
-IA
+mj
+WM
+WM
 WM
 WM
 Zd
@@ -26544,27 +23141,27 @@ sW
 Iu
 DQ
 Ml
-mP
-jm
-wP
-KL
-GJ
-WH
-Sr
-Mb
-Ua
-as
-Yq
-Lx
-nH
-mz
-pe
-Xi
-mp
-Mm
-EH
-ZF
-xS
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+mj
+mj
+mj
+mj
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+WM
 WM
 WM
 WM
@@ -26804,24 +23401,24 @@ wn
 WM
 WM
 WM
-Or
-Ic
-Te
-Bq
-GV
-lV
-gq
-GD
-HJ
-Qe
-Ra
-wg
-uY
-CZ
-bc
-En
-Sn
-zr
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 WM
@@ -27062,18 +23659,18 @@ Zi
 og
 og
 og
-AL
-Wx
-Br
-TV
-Gs
-fN
-AD
-ee
-HG
-wm
-gW
-WO
+og
+og
+og
+og
+og
+og
+og
+og
+og
+og
+og
+og
 og
 og
 og
@@ -32885,14 +29482,14 @@ rN
 rN
 rN
 rs
-ZC
-xq
-Zj
-ux
-tW
-dn
-le
-Iz
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 Wb
@@ -33142,16 +29739,16 @@ rN
 rN
 rN
 rs
-um
-NJ
-LB
-mH
-DR
-SD
-iG
-Zu
-rL
-wb
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 Wb
 aa
 aa
@@ -33400,15 +29997,15 @@ rN
 rN
 rs
 mj
-pd
+mj
 AN
 MU
-qN
+mj
 tI
 gp
 OB
 QZ
-xx
+rN
 Wb
 aa
 aa
@@ -33665,7 +30262,7 @@ Qu
 Hi
 wE
 Ah
-pf
+rN
 Wb
 aa
 aa
@@ -33913,16 +30510,16 @@ rN
 rN
 rN
 rs
-bl
-Vt
+mj
+mj
 SQ
 Ia
-Il
+mj
 CC
 Wj
 VF
 DP
-Ax
+rN
 Wb
 aa
 aa
@@ -34170,16 +30767,16 @@ rN
 rN
 rN
 rs
-Cl
-tw
-nW
-XP
-sJ
-FC
-gv
-nO
-nS
-AB
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 Wb
 aa
 aa
@@ -34242,18 +30839,18 @@ WM
 WM
 WM
 WM
-vy
-wt
-xU
-Fm
-Kb
-MI
-Tb
-Wg
-To
-vH
-Fa
-iS
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 WM
@@ -34427,14 +31024,14 @@ rN
 rN
 rN
 rs
-YZ
-Ek
-Zo
-nb
-cF
-Eh
-fI
-Vo
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 Wb
@@ -34498,24 +31095,24 @@ WM
 WM
 WM
 WM
-wX
-wF
-GP
-FK
-tn
-PD
-yu
-Gp
-WZ
-TC
-fm
-mQ
-cf
-JG
-bF
-pT
-GC
-rI
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 aa
@@ -34752,27 +31349,27 @@ aa
 aa
 aa
 WM
-XX
-aJ
-so
-zx
-sx
-KX
-XE
-Py
-wQ
-sj
-lr
-Ns
-zT
-on
-Rl
-ed
-Pp
-Du
-kZ
-tq
-xV
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+mj
+mj
+mj
+mj
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+WM
 WM
 WM
 aa
@@ -35009,28 +31606,28 @@ aa
 aa
 aa
 WM
-Jd
-mb
-Qj
-CN
-NP
-qr
-hv
-ML
-zd
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+mj
 Cr
 jc
-WP
-Od
-GI
+mj
+WM
+mj
 RZ
 Vj
 xN
 ZN
 jv
-Rm
-jX
-KT
+mj
+WM
+WM
 WM
 aa
 aa
@@ -35198,14 +31795,14 @@ rN
 rN
 rN
 rs
-ZC
-xq
-Zj
-ux
-tW
-dn
-le
-Iz
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 Wb
@@ -35266,28 +31863,28 @@ aa
 aa
 aa
 WM
-ck
-mF
-sm
-pA
-tS
-Eu
-Zq
-xw
-Fb
+WM
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+mj
 sn
 zj
-wI
-kE
-An
+mj
+mj
+mj
 zX
 Tp
 Lf
 YQ
 WJ
-Ly
-jf
-ql
+mj
+WM
+WM
 WM
 aa
 aa
@@ -35455,16 +32052,16 @@ rN
 rN
 rN
 rs
-um
-NJ
-LB
-mH
-DR
-SD
-iG
-Zu
-rL
-wb
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 Wb
 aa
 aa
@@ -35523,29 +32120,29 @@ aa
 aa
 aa
 WM
-VY
-dl
-ei
+WM
+WM
+mj
 Sy
 UQ
 mI
 gk
 Wy
-Rq
+mj
 mm
-iW
-Sm
+mj
+mj
 iO
 vj
 UZ
 Ko
-bu
-Bt
-ZP
-az
-zZ
-Lj
-TM
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 aa
 aa
 aa
@@ -35713,15 +32310,15 @@ rN
 rN
 rs
 mj
-pd
+mj
 AN
 MU
-qN
+mj
 tI
 gp
 OB
 QZ
-QS
+WM
 Wb
 aa
 aa
@@ -35780,10 +32377,10 @@ aa
 aa
 aa
 WM
-Ku
-PY
-Na
-bL
+mj
+mj
+mj
+mj
 bm
 Re
 NQ
@@ -35791,18 +32388,18 @@ nM
 oU
 es
 Vc
-CM
+mj
 hT
 xQ
 xQ
 nB
-ur
+mj
 SL
 Nj
-HM
-pr
-iP
-sX
+WM
+WM
+aa
+WM
 aa
 aa
 aa
@@ -35978,7 +32575,7 @@ Qu
 Hi
 wE
 Ah
-Nv
+WM
 Wb
 aa
 aa
@@ -36057,9 +32654,9 @@ JP
 zX
 rA
 lt
-qP
-zB
-nG
+WM
+aa
+WM
 aa
 aa
 aa
@@ -36226,16 +32823,16 @@ rN
 rN
 rN
 rs
-bl
-Vt
+mj
+mj
 SQ
 Ia
-Il
+mj
 CC
 Wj
 VF
 DP
-Ss
+WM
 Wb
 aa
 aa
@@ -36310,13 +32907,13 @@ No
 xQ
 xQ
 lI
-GO
+mj
 jM
 aR
 BL
-nv
-aG
-hD
+WM
+aa
+WM
 aa
 aa
 aa
@@ -36483,16 +33080,16 @@ rN
 rN
 rN
 rs
-Cl
-tw
-nW
-XP
-sJ
-FC
-gv
-nO
-nS
-AB
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 Wb
 aa
 aa
@@ -36551,10 +33148,10 @@ aa
 aa
 aa
 WM
-ii
-zn
-Fn
-qu
+mj
+mj
+mj
+mj
 uB
 BJ
 Ho
@@ -36562,18 +33159,18 @@ IL
 WD
 aC
 hI
-Af
+mj
 GA
 Tp
 Ao
 rr
-EQ
+mj
 LE
 od
-Yv
-HR
-fy
-km
+WM
+WM
+aa
+WM
 aa
 aa
 aa
@@ -36740,14 +33337,14 @@ rN
 rN
 rN
 rs
-YZ
-Ek
-Zo
-nb
-cF
-Eh
-fI
-Vo
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 Wb
@@ -36808,29 +33405,29 @@ aa
 aa
 aa
 WM
-wG
-If
-MO
+WM
+WM
+mj
 Sy
 mS
 rY
 Qv
 xv
-EZ
+mj
 fg
-JY
-tY
+mj
+mj
 LQ
 Mc
 Yb
 hy
-Th
-My
-MC
-Pi
-JQ
-bU
-hX
+mj
+mj
+mj
+mj
+WM
+WM
+WM
 aa
 aa
 aa
@@ -37065,28 +33662,28 @@ aa
 aa
 aa
 WM
-Jz
-VD
-lx
-gS
-ts
-VM
-tH
-NZ
-ju
+WM
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+mj
 oq
 Wi
-SX
-Fy
-jF
+mj
+mj
+mj
 ss
 Wq
 gJ
 gJ
 Bf
-Sb
-Hu
-lN
+mj
+WM
+WM
 WM
 aa
 aa
@@ -37322,28 +33919,28 @@ aa
 aa
 aa
 WM
-TT
-Le
-QV
-oS
-lf
-iT
-hB
-lu
-tD
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+mj
 ey
 FJ
-xm
-yB
-TF
+mj
+WM
+mj
 Rh
 yd
 Bo
 ff
 sO
-zy
-jR
-IA
+mj
+WM
+WM
 WM
 aa
 aa
@@ -37579,27 +34176,27 @@ aa
 aa
 aa
 WM
-mP
-jm
-wP
-KL
-GJ
-WH
-Sr
-Mb
-Ua
-as
-Yq
-Lx
-nH
-mz
-pe
-Xi
-mp
-Mm
-EH
-ZF
-xS
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+mj
+mj
+mj
+mj
+WM
+mj
+mj
+mj
+mj
+mj
+mj
+mj
+WM
 WM
 WM
 aa
@@ -37839,24 +34436,24 @@ WM
 WM
 WM
 WM
-Or
-Ic
-Te
-Bq
-GV
-lV
-gq
-GD
-HJ
-Qe
-Ra
-wg
-uY
-CZ
-bc
-En
-Sn
-zr
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 aa
@@ -38097,18 +34694,18 @@ WM
 WM
 WM
 WM
-vW
-xc
-xW
-Gi
-Ks
-OD
-Tx
-Yo
-tO
-GW
-Vp
-Wd
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
+WM
 WM
 WM
 WM
@@ -38613,14 +35210,14 @@ aa
 aa
 aa
 aa
-BY
-HS
-LK
-OK
-TK
-ZH
-Ol
-Qd
+rN
+rN
+rN
+rN
+rN
+rN
+rN
+rN
 rN
 rN
 aa
@@ -38870,16 +35467,16 @@ aa
 aa
 aa
 aa
-Da
-NJ
-LB
-mH
-DR
-SD
-iG
-Zu
-rL
-dz
+rN
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+rN
 aa
 aa
 aa
@@ -39128,15 +35725,15 @@ aa
 aa
 aa
 mj
-pd
+mj
 AN
 MU
-qN
+mj
 tI
 gp
 OB
 QZ
-xx
+rN
 aa
 aa
 aa
@@ -39393,7 +35990,7 @@ Qu
 Hi
 wE
 Ah
-pf
+rN
 aa
 aa
 aa
@@ -39641,16 +36238,16 @@ aa
 aa
 aa
 aa
-bl
-Vt
+mj
+mj
 SQ
 Ia
-Il
+mj
 CC
 Wj
 VF
 DP
-Ax
+rN
 aa
 aa
 aa
@@ -39898,16 +36495,16 @@ aa
 aa
 aa
 aa
-Ec
-tw
-nW
-XP
-sJ
-FC
-gv
-nO
-nS
-lG
+rN
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+rN
 aa
 aa
 aa
@@ -40155,14 +36752,14 @@ aa
 aa
 aa
 aa
-Eq
-Jj
-MG
-RK
-Ut
-dd
-oW
-dj
+rN
+rN
+rN
+rN
+rN
+rN
+rN
+rN
 rN
 rN
 aa
@@ -40669,14 +37266,14 @@ aa
 aa
 aa
 aa
-BY
-HS
-LK
-OK
-TK
-ZH
-Ol
-Qd
+rN
+rN
+rN
+rN
+rN
+rN
+rN
+rN
 rN
 rN
 aa
@@ -40926,16 +37523,16 @@ aa
 aa
 aa
 aa
-Da
-NJ
-LB
-mH
-DR
-SD
-iG
-Zu
-rL
-dz
+rN
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+rN
 aa
 aa
 aa
@@ -41184,15 +37781,15 @@ aa
 aa
 aa
 mj
-pd
+mj
 AN
 MU
-qN
+mj
 tI
 gp
 OB
 QZ
-xx
+rN
 aa
 aa
 aa
@@ -41449,7 +38046,7 @@ Qu
 Hi
 wE
 Ah
-pf
+rN
 aa
 aa
 aa
@@ -41697,16 +38294,16 @@ aa
 aa
 aa
 aa
-bl
-Vt
+mj
+mj
 SQ
 Ia
-Il
+mj
 CC
 Wj
 VF
 DP
-Ax
+rN
 aa
 aa
 aa
@@ -41954,16 +38551,16 @@ aa
 aa
 aa
 aa
-Ec
-tw
-nW
-XP
-sJ
-FC
-gv
-nO
-nS
-lG
+rN
+mj
+mj
+mj
+mj
+mj
+mj
+WM
+WM
+rN
 aa
 aa
 aa
@@ -42211,14 +38808,14 @@ aa
 aa
 aa
 aa
-Eq
-Jj
-MG
-RK
-Ut
-dd
-oW
-dj
+rN
+rN
+rN
+rN
+rN
+rN
+rN
+rN
 rN
 rN
 aa
@@ -44191,18 +40788,18 @@ be
 be
 be
 be
-KJ
-Qo
-Tr
-UL
-WF
-df
-dq
-dM
-dZ
-eG
-eJ
-iy
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
 be
 be
 be
@@ -44447,24 +41044,24 @@ be
 be
 be
 be
-ED
-KS
-QI
-Ud
-VW
-BH
-BM
-or
-KB
-eM
-Xm
-fA
-iB
-lv
-Ag
-qt
-sH
-AR
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
 be
 be
 be
@@ -44701,27 +41298,27 @@ Vh
 Vh
 be
 be
-te
-xk
-BB
-EE
-Lz
-yi
-Nb
-WS
-cS
-Ht
-XR
-JR
-kx
-nk
-fG
-iZ
-lB
-oE
-qz
-sK
-Bs
+be
+be
+be
+be
+be
+be
+be
+be
+tB
+tB
+tB
+tB
+be
+tB
+tB
+tB
+tB
+tB
+tB
+tB
+be
 be
 be
 be
@@ -44958,28 +41555,28 @@ Vh
 Vh
 be
 be
-tm
-xz
-BP
-Ff
-LR
-yP
-Ni
-Yu
-mD
+be
+be
+be
+be
+be
+be
+be
+be
+tB
 oj
 bO
-UA
-jH
-Kc
+tB
+be
+tB
 Og
 js
 lE
 oI
 qK
-sU
-Bz
-Pl
+tB
+be
+be
 be
 be
 Sp
@@ -45215,28 +41812,28 @@ Vh
 Vh
 be
 be
-tu
-xZ
-Cg
-FY
-NH
-zU
-NX
-YR
-db
+be
+be
+tB
+tB
+tB
+tB
+tB
+tB
+tB
 Va
 Uj
-Fr
-Ba
-yg
+tB
+tB
+tB
 kC
 Fv
 ma
 pC
 qY
-sZ
-BA
-Qb
+tB
+be
+be
 be
 be
 Sp
@@ -45472,29 +42069,29 @@ Vh
 Vh
 be
 be
-tx
-yo
-Cv
+be
+be
+tB
 He
 Oc
 Ar
 PU
 ZM
-Ik
+tB
 YC
-xO
-Dv
+tB
+tB
 GL
 dw
 ie
 sf
-mB
-pF
-rj
-uu
-Eo
-QD
-gC
+tB
+tB
+tB
+tB
+be
+be
+be
 be
 Sp
 be
@@ -45730,9 +42327,9 @@ Vh
 be
 be
 tB
-yx
-CE
-Gj
+tB
+tB
+tB
 Oq
 AS
 ZU
@@ -45740,18 +42337,18 @@ cZ
 LP
 MF
 HE
-sa
+tB
 ZD
 Zh
 Zh
 ec
-mE
+tB
 pL
 rv
-vk
-Ew
-Rk
-Vk
+be
+be
+ZZ
+be
 be
 Sp
 be
@@ -46006,9 +42603,9 @@ mX
 kC
 rP
 vn
-Ez
-Rv
-OF
+be
+ZZ
+be
 be
 Sp
 be
@@ -46259,13 +42856,13 @@ YS
 Zh
 Zh
 LO
-nj
+tB
 pZ
 si
 hm
-Hj
-SF
-HA
+be
+ZZ
+be
 be
 Sp
 be
@@ -46500,10 +43097,10 @@ Vh
 Vh
 be
 be
-ul
-yO
-CJ
-GS
+tB
+tB
+tB
+tB
 Ow
 CB
 RN
@@ -46511,18 +43108,18 @@ RB
 ze
 kG
 IB
-Ub
+tB
 Lg
 Fv
 mc
 rT
-nl
+tB
 qf
 st
-wi
-Hz
-YG
-kD
+be
+be
+ZZ
+be
 be
 Sp
 be
@@ -46757,29 +43354,29 @@ Vh
 Vh
 be
 be
-uv
-zc
-Db
+be
+be
+tB
 He
 OR
 Ea
 ca
 aF
-Xl
+tB
 bV
-no
-ZT
+tB
+tB
 Dw
 ct
 gB
 jy
-nE
-qg
-su
-wB
-HZ
-gi
-pH
+tB
+tB
+tB
+tB
+be
+be
+be
 be
 Sp
 be
@@ -47015,27 +43612,27 @@ Vh
 be
 be
 PS
-xL
-DH
-HX
-Ph
-ES
-RV
-qR
-Vn
+PS
+tB
+tB
+tB
+tB
+tB
+tB
+tB
 Gv
 dr
-Ky
-Kh
-Qt
+tB
+tB
+tB
 LZ
 jt
 oc
 oc
 sv
-yL
-Jh
-ag
+tB
+be
+be
 be
 be
 Sp
@@ -47271,28 +43868,28 @@ Vh
 Vh
 be
 be
-uR
-zI
-DI
-IG
-Px
-Ij
-Sq
-UY
-JZ
+be
+be
+be
+be
+be
+be
+be
+be
+tB
 gs
 yr
-Xo
-kb
-SY
+tB
+be
+tB
 uo
 jV
 oe
 qj
 sy
-yM
-Kx
-Xv
+tB
+be
+be
 be
 be
 Sp
@@ -47528,27 +44125,27 @@ Vh
 Vh
 be
 be
-vf
-Aj
-Eb
-IS
-PL
-Jb
-SW
-Bn
-OU
-lk
-mN
-FD
-Ys
-LW
-hp
-jZ
-os
-qk
-sB
-Au
-NS
+be
+be
+be
+be
+be
+be
+be
+be
+tB
+tB
+tB
+tB
+be
+tB
+tB
+tB
+tB
+tB
+tB
+tB
+be
 be
 be
 be
@@ -47788,24 +44385,24 @@ be
 be
 be
 be
-Jr
-PM
-QR
-Ue
-Wl
-BX
-rJ
-ZK
-vu
-WA
-ip
-hZ
-kO
-oB
-qo
-sF
-Az
-OQ
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
 be
 be
 be
@@ -48046,18 +44643,18 @@ be
 be
 be
 be
-PX
-SI
-Ul
-Wn
-XD
-di
-dL
-dR
-eB
-eH
-iq
-lq
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
+be
 be
 be
 be
@@ -63037,12 +59634,12 @@ og
 rN
 og
 WM
-NJ
-LB
-mH
-DR
-SD
-iG
+mj
+mj
+mj
+mj
+mj
+mj
 WM
 WM
 WM
@@ -63294,10 +59891,10 @@ og
 rN
 WM
 mj
-pd
+mj
 WM
 WM
-qN
+mj
 rN
 rN
 rN
@@ -63807,11 +60404,11 @@ og
 rN
 rN
 WM
-bl
-Vt
+mj
+mj
 WM
 WM
-Il
+mj
 rN
 rN
 rN
@@ -64065,12 +60662,12 @@ rN
 rN
 og
 WM
-tw
-nW
-XP
-sJ
-FC
-gv
+mj
+mj
+mj
+mj
+mj
+mj
 WM
 WM
 WM
@@ -66893,18 +63490,18 @@ WM
 WM
 WM
 WM
-wQ
-sj
-lr
-Ns
+mj
+mj
+mj
+mj
 WM
-on
-Rl
-ed
-Pp
-Du
-kZ
-tq
+mj
+mj
+mj
+mj
+mj
+mj
+mj
 WM
 WM
 WM
@@ -67150,18 +63747,18 @@ WM
 WM
 WM
 WM
-zd
+mj
 sn
 sn
-WP
+mj
 WM
-GI
+mj
 Wh
 Wh
 Wh
 WM
 WM
-Rm
+mj
 WM
 WM
 WM
@@ -67401,24 +63998,24 @@ og
 WM
 WM
 WM
-sm
-pA
-tS
-Eu
-Zq
-xw
-Fb
+mj
+mj
+mj
+mj
+mj
+mj
+mj
 sn
 sn
-wI
-kE
-An
+mj
+mj
+mj
 Wh
 Wh
 Wh
 WM
 WM
-Ly
+mj
 WM
 WM
 WM
@@ -67658,24 +64255,24 @@ og
 WM
 WM
 WM
-ei
+mj
 og
 og
 og
 og
 og
-Rq
+mj
 sn
-iW
-Sm
+mj
+mj
 Wh
 Wh
 Wh
 Wh
-bu
-Bt
-ZP
-az
+mj
+mj
+mj
+mj
 WM
 WM
 WM
@@ -67913,10 +64510,10 @@ rN
 rN
 og
 og
-Ku
-PY
-Na
-bL
+mj
+mj
+mj
+mj
 og
 og
 og
@@ -67924,12 +64521,12 @@ og
 og
 og
 og
-CM
+mj
 Wh
 Wh
 Wh
 Wh
-ur
+mj
 Wh
 Wh
 WM
@@ -68443,7 +65040,7 @@ Wh
 Wh
 Wh
 Wh
-GO
+mj
 Wh
 Wh
 Wh
@@ -68684,10 +65281,10 @@ WM
 WM
 og
 og
-ii
-zn
-Fn
-qu
+mj
+mj
+mj
+mj
 og
 og
 og
@@ -68695,12 +65292,12 @@ og
 og
 og
 og
-Af
+mj
 Wh
 Wh
 Wh
 Wh
-EQ
+mj
 Wh
 Wh
 WM
@@ -68943,24 +65540,24 @@ og
 WM
 WM
 WM
-MO
+mj
 og
 og
 og
 og
 og
-EZ
+mj
 rN
-JY
-tY
+mj
+mj
 Wh
 Wh
 Wh
 Wh
-Th
-My
-MC
-Pi
+mj
+mj
+mj
+mj
 WM
 WM
 WM
@@ -69200,24 +65797,24 @@ og
 WM
 WM
 WM
-lx
-gS
-ts
-VM
-tH
-NZ
-ju
+mj
+mj
+mj
+mj
+mj
+mj
+mj
 rN
 rN
-SX
-Fy
-jF
+mj
+mj
+mj
 Wh
 Wh
 Wh
 Wh
 Wh
-Sb
+mj
 WM
 WM
 WM
@@ -69463,18 +66060,18 @@ WM
 WM
 WM
 WM
-tD
+mj
 rN
 rN
-xm
+mj
 WM
-TF
+mj
 zJ
 WM
 WM
 Wh
 Wh
-zy
+mj
 WM
 WM
 WM
@@ -69720,18 +66317,18 @@ WM
 WM
 WM
 WM
-Ua
-as
-Yq
-Lx
+mj
+mj
+mj
+mj
 WM
-mz
-pe
-Xi
-mp
-Mm
-EH
-ZF
+mj
+mj
+mj
+mj
+mj
+mj
+mj
 WM
 WM
 WM
