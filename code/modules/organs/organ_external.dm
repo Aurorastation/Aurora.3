@@ -1203,11 +1203,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 				if(21 to INFINITY)
 					. += "[LL ? pick("exposed wiring","torn-back synthflesh") : pick("a lot of dents","severe denting")]"
 		if(brute_dam && burn_dam)
-			. += " and"
+			. += " and "
 		if(burn_dam)
 			switch(burn_dam)
 				if(0 to 20)
-					. += "some burns"
+					. += "some [LL ? pick ("fresh skins","burn scars","healing burns") : "burns"]"
 				if(21 to INFINITY)
 					. += "[LL ? pick("roasted synth-flesh","melted internal wiring") : pick("many burns","scorched metal")]"
 		if(open)
