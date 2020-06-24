@@ -504,3 +504,18 @@
 	overalls_outfits["overalls"] = /obj/item/clothing/under/overalls
 	overalls_outfits["sleek overalls"] = /obj/item/clothing/under/overalls/sleek
 	gear_tweaks += new/datum/gear_tweak/path(overalls_outfits)
+
+/datum/gear/uniform/utility
+	display_name = "utility jumpsuit (selection)"
+	description = "A selection of comfortable utility jumpsuits."
+	path = /obj/item/clothing/under/utility
+
+/datum/gear/uniform/utility/New()
+	..()
+	var/utility_uniforms = list()
+	utility_uniforms["black utility uniform"] = /obj/item/clothing/under/utility
+	utility_uniforms["navy utility uniform"] = /obj/item/clothing/under/utility/blue
+	utility_uniforms["grey utility uniform"] = /obj/item/clothing/under/utility/grey
+	utility_uniforms["green utility uniform"] = /obj/item/clothing/under/utility/green
+	utility_uniforms["tan utility uniform"] = /obj/item/clothing/under/utility/tan
+	gear_tweaks += new/datum/gear_tweak/path(utility_uniforms)

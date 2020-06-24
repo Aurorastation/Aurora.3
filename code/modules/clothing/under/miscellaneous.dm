@@ -842,3 +842,46 @@ obj/item/clothing/under/bathrobe
 	desc = "A typical outfit for the older woman, a lovely cardigan and comfortable skirt."
 	icon_state = "oldwoman"
 	item_state_slots = list(slot_r_hand_str = "johnny", slot_l_hand_str = "johnny")
+
+/obj/item/clothing/under/utility
+	name = "utility uniform"
+	desc = "A comfortable black utility jumpsuit."
+	icon_state = "blackutility"
+	worn_state = "blackutility"
+	siemens_coefficient = 0.9
+
+/obj/item/clothing/under/utility/crewman
+	icon_state = "blackutility_crew"
+	worn_state = "blackutility_crew"
+
+/obj/item/clothing/under/utility/command
+	icon_state = "blackutility_com"
+	worn_state = "blackutility_com"
+
+/obj/item/clothing/under/utility/blue
+	desc = "A comfortable blue utility jumpsuit."
+	icon_state = "navyutility"
+	worn_state = "navyutility"
+
+/obj/item/clothing/under/utility/blue/officer
+	icon_state = "navyutilityoff"
+	worn_state = "navyutilityoff"
+
+/obj/item/clothing/under/utility/blue/combat
+	icon_state = "navyutilitycombat"
+	worn_state = "navyutilitycombat"
+
+/obj/item/clothing/under/utility/grey
+	desc = "A comfortable grey utility jumpsuit."
+	icon_state = "greyutility"
+	worn_state = "greyutility"
+
+/obj/item/clothing/under/utility/green
+	desc = "A comfortable green utility jumpsuit."
+	icon_state = "greenutility"
+	worn_state = "greenutility"
+
+/obj/item/clothing/under/utility/tan
+	desc = "A comfortable tan utility jumpsuit."
+	icon_state = "tanutility"
+	worn_state = "tanutility"
