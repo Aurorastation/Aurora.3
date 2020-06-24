@@ -235,7 +235,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	var/accent_icon
 	if(ishuman(M) && speaking)
 		var/mob/living/carbon/human/H = M
-		H.get_accent_icon(speaking)
+		accent_icon = H.get_accent_icon(speaking)
 
 	// --- Broadcast only to intercom devices ---
 

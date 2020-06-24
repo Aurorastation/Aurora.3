@@ -224,7 +224,7 @@
 	if(accent)
 
 		var/list/dat = list("<center><b>[accent.name]</center></b>")
+		dat += "<br><center><IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[accent.tag_icon]'></center>"
 		dat += "<br>[accent.description]"
-		dat += {"<br><img style="height:100px;"<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[accent.tag_icon]'"></center>"}
 		dat += "<br><center>\[<a href='?src=\ref[src];set_accent=[html_encode(accent.name)]'>Select</a>\]</center>"
 		show_browser(user, dat.Join(), "window=accentpreview;size=400x500")
