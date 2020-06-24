@@ -118,20 +118,29 @@
 	suits["amish suit"] = /obj/item/clothing/under/sl_suit
 	suits["black suit"] = /obj/item/clothing/under/suit_jacket
 	suits["black suit with skirt"] = /obj/item/clothing/under/skirt/outfit
-	suits["blue suit"] = /obj/item/clothing/under/lawyer/blue
+	suits["black suit, alt"] = /obj/item/clothing/under/suit_jacket/alt
+	suits["black suit, alt skirt"] = /obj/item/clothing/under/suit_jacket/alt/skirt
+	suits["black lawyer suit"] = /obj/item/clothing/under/lawyer/black
+	suits["black lawyer skirt"] = /obj/item/clothing/under/lawyer/black/skirt
+	suits["blue lawyer suit"] = /obj/item/clothing/under/lawyer/blue
+	suits["blue lawyer skirt"] = /obj/item/clothing/under/lawyer/blue/skirt
 	suits["burgundy suit"] = /obj/item/clothing/under/suit_jacket/burgundy
 	suits["charcoal suit"] = /obj/item/clothing/under/suit_jacket/charcoal
 	suits["checkered suit"] = /obj/item/clothing/under/suit_jacket/checkered
 	suits["executive suit"] = /obj/item/clothing/under/suit_jacket/really_black
 	suits["executive skirt"] = /obj/item/clothing/under/suit_jacket/really_black/skirt
+	suits["gentleman suit"] = /obj/item/clothing/under/gentlesuit
+	suits["lady suit"] = /obj/item/clothing/under/gentlesuit/skirt
 	suits["navy suit"] = /obj/item/clothing/under/suit_jacket/navy
 	suits["old man suit"] = /obj/item/clothing/under/oldman
 	suits["old woman attire"] = /obj/item/clothing/under/oldwoman
 	suits["purple suit"] = /obj/item/clothing/under/lawyer/purple
+	suits["purple skirt"] = /obj/item/clothing/under/lawyer/purple/skirt
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
 	suits["red lawyer suit"] = /obj/item/clothing/under/lawyer/red
-	suits["shiny black suit"] = /obj/item/clothing/under/lawyer/black
+	suits["red lawyer skrit"] = /obj/item/clothing/under/lawyer/red/skirt
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
+	suits["vice suit"] = /obj/item/clothing/under/vice
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
 	gear_tweaks += new/datum/gear_tweak/path(suits)
 
@@ -503,6 +512,7 @@
 	var/overalls_outfits = list()
 	overalls_outfits["overalls"] = /obj/item/clothing/under/overalls
 	overalls_outfits["sleek overalls"] = /obj/item/clothing/under/overalls/sleek
+	overalls_outfits["service overalls"] = /obj/item/clothing/under/serviceoveralls
 	gear_tweaks += new/datum/gear_tweak/path(overalls_outfits)
 
 /datum/gear/uniform/utility

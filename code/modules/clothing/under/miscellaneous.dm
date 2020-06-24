@@ -484,6 +484,41 @@
 	item_state = "lb_suit"
 	worn_state = "tan_suit"
 
+/obj/item/clothing/under/suit_jacket/alt
+	name = "female executive suit"
+	desc = "A formal trouser suit for women, intended for the station's finest."
+	icon_state = "black_suit_fem"
+	item_state_slots = list(slot_r_hand_str = "lawyer_black", slot_l_hand_str = "lawyer_black")
+	worn_state = "black_suit_fem"
+
+/obj/item/clothing/under/suit_jacket/alt/skirt
+	name = "executive skirt"
+	desc = "A formal suit skirt for women, intended for the station's finest."
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	icon_state = "black_formal_skirt"
+	item_state = "black_formal_skirt"
+	worn_state = "black_formal_skirt"
+
+/obj/item/clothing/under/gentlesuit
+	name = "gentlemans suit"
+	desc = "A silk black shirt with matching gray slacks. Feels proper."
+	icon_state = "gentlesuit"
+	item_state_slots = list(slot_r_hand_str = "grey", slot_l_hand_str = "grey")
+	worn_state = "gentlesuit"
+
+/obj/item/clothing/under/gentlesuit/skirt
+	name = "lady's suit"
+	desc = "A silk black blouse with a matching gray skirt. Feels proper."
+	icon_state = "gentlesuit_skirt"
+	worn_state = "gentlesuit_skirt"
+
+/obj/item/clothing/under/vice
+	name = "vice suit"
+	desc = "It's the standard issue pretty-boy outfit, as seen on Holo-Vision."
+	icon_state = "vice"
+	item_state_slots = list(slot_r_hand_str = "grey", slot_l_hand_str = "grey")
+	worn_state = "vice"
+
 /obj/item/clothing/under/serviceoveralls
 	name = "workman outfit"
 	desc = "The very image of a working man. Not that you're probably doing work."

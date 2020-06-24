@@ -102,11 +102,21 @@
 	item_state = "lawyer_black"
 	worn_state = "lawyer_black"
 
+/obj/item/clothing/under/lawyer/black/skirt
+	name = "black lawyer skirt"
+	icon_state = "lawyer_black_skirt"
+	worn_state = "lawyer_black_skirt"
+
 /obj/item/clothing/under/lawyer/red
 	name = "red Lawyer suit"
 	icon_state = "lawyer_red"
 	item_state = "lawyer_red"
 	worn_state = "lawyer_red"
+
+/obj/item/clothing/under/lawyer/red/skirt
+	name = "red lawyer skirt"
+	icon_state = "lawyer_red_skirt"
+	worn_state = "lawyer_red_skirt"
 
 /obj/item/clothing/under/lawyer/blue
 	name = "blue Lawyer suit"
@@ -114,11 +124,21 @@
 	item_state = "lawyer_blue"
 	worn_state = "lawyer_blue"
 
+/obj/item/clothing/under/lawyer/blue/skirt
+	name = "blue lawyer skirt"
+	icon_state = "lawyer_blue_skirt"
+	worn_state = "lawyer_blue_skirt"
+
 /obj/item/clothing/under/lawyer/purple
 	name = "purple suit"
 	icon_state = "lawyer_purple"
 	item_state = "ba_suit"
 	worn_state = "lawyer_purple"
+
+/obj/item/clothing/under/lawyer/purpsuit/skirt
+	name = "purple skirt suit"
+	icon_state = "lawyer_purp_skirt"
+	worn_state = "lawyer_purp_skirt"
 
 /obj/item/clothing/under/librarian
 	name = "sensible suit"
