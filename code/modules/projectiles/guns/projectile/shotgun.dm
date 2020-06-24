@@ -166,9 +166,6 @@
 		item_state = "[icon_state]"
 	update_held_icon()
 
-/obj/item/gun/projectile/shotgun/doublebarrel/shell
-	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-
 /obj/item/gun/projectile/shotgun/doublebarrel/pellet
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 
