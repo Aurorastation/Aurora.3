@@ -593,6 +593,13 @@
 	icon_closed = "trackjacketwhite"
 	contained_sprite = 1
 
+/obj/item/clothing/suit/storage/toggle/track/black
+	name = "black track jacket"
+	icon_state = "trackjacketblack"
+	item_state = "trackjacketblack"
+	icon_open = "trackjacketblack_open"
+	icon_closed = "trackjacketblack"
+
 /obj/item/clothing/suit/storage/toggle/varsity
 	name = "black varsity jacket"
 	desc = "A favorite of jocks everywhere from Sol to the Coalition."

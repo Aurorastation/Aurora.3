@@ -90,7 +90,22 @@
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
 	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
+	skirts["pleated skirt, alt"] = /obj/item/clothing/under/skirt/pleated/alt
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
+
+/datum/gear/uniform/skirt/misc
+	display_name = "skirt, misc (selection)"
+	description = "A selection of non-colourable skirts."
+	path = /obj/item/clothing/under/skirt/denim
+
+/datum/gear/uniform/skirt/misc/New()
+	..()
+	var/misc_skirts = list()
+	misc_skirts["denim skirt"] = /obj/item/clothing/under/skirt/denim
+	misc_skirts["plaid skirt outfit, blue"] = /obj/item/clothing/under/skirt/outfit/plaid_blue
+	misc_skirts["plaid skirt outfit, purple"] =/obj/item/clothing/under/skirt/outfit/plaid_purple
+	misc_skirts["plaid skirt outfit, red"] = /obj/item/clothing/under/skirt/outfit/plaid_red
+	gear_tweaks += new/datum/gear_tweak/path(misc_skirts)
 
 /datum/gear/uniform/suit
 	display_name = "suit (selection)"
@@ -102,6 +117,7 @@
 	var/suits = list()
 	suits["amish suit"] = /obj/item/clothing/under/sl_suit
 	suits["black suit"] = /obj/item/clothing/under/suit_jacket
+	suits["black suit with skirt"] = /obj/item/clothing/under/skirt/outfit
 	suits["blue suit"] = /obj/item/clothing/under/lawyer/blue
 	suits["burgundy suit"] = /obj/item/clothing/under/suit_jacket/burgundy
 	suits["charcoal suit"] = /obj/item/clothing/under/suit_jacket/charcoal
@@ -146,6 +162,7 @@
 	dress["dress, flame"] = /obj/item/clothing/under/dress/dress_fire
 	dress["dress, green"] = /obj/item/clothing/under/dress/dress_green
 	dress["dress, orange"] = /obj/item/clothing/under/dress/dress_orange
+	dress["dress, purple"] = /obj/item/clothing/under/dress/dress_purple
 	dress["dress, pink"] = /obj/item/clothing/under/dress/dress_pink
 	dress["dress, yellow"] = /obj/item/clothing/under/dress/dress_yellow
 	dress["dress, white"] = /obj/item/clothing/under/dress/white
@@ -159,6 +176,7 @@
 	dress["dress, festive"] = /obj/item/clothing/under/dress/festivedress
 	dress["dress, black and white"] = /obj/item/clothing/under/dress/blackwhite_short
 	dress["dress, flamenco"] = /obj/item/clothing/under/dress/flamenco
+	dress["dress, saloon"] = /obj/item/clothing/under/dress/saloon_dress
 	dress["dress, western bustle"] = /obj/item/clothing/under/dress/westernbustle
 	dress["dress, barmaid"] = /obj/item/clothing/under/dress/barmaid
 	dress["dress, flower dress"] = /obj/item/clothing/under/dress/flower_dress
@@ -170,6 +188,12 @@
 	dress["dress, twist front"] = /obj/item/clothing/under/dress/twistfront
 	dress["dress, v-neck"] = /obj/item/clothing/under/dress/vneck
 	dress["corset, black"] = /obj/item/clothing/under/dress/black_corset
+	dress["gown, white"] = /obj/item/clothing/under/dress/ballgown
+	dress["gown, red"] = /obj/item/clothing/under/dress/ballgown/red
+	dress["gown, red evening"] = /obj/item/clothing/under/dress/redeveninggown
+	dress["gown, orange"] = /obj/item/clothing/under/dress/ballgown/orange
+	dress["gown, purple"] = /obj/item/clothing/under/dress/ballgown/purple
+	dress["gown, blue"] = /obj/item/clothing/under/dress/ballgown/blue
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/dress_colour
@@ -241,23 +265,47 @@
 	..()
 	var/pants = list()
 	pants["jeans"] = /obj/item/clothing/under/pants
-	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
-	pants["must hang jeans"] = /obj/item/clothing/under/pants/musthang
-	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
-	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
-	pants["white pants"] = /obj/item/clothing/under/pants/white
-	pants["black pants"] = /obj/item/clothing/under/pants/black
-	pants["red pants"] = /obj/item/clothing/under/pants/red
-	pants["tan pants"] = /obj/item/clothing/under/pants/tan
-	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
+	pants["jeans, baggy"] = /obj/item/clothing/under/pants/baggy
+	pants["jeans, ripped"] = /obj/item/clothing/under/pants/ripped
+	pants["jeans, classic"] = /obj/item/clothing/under/pants/classic
+	pants["jeans, classic baggy"] = /obj/item/clothing/under/pants/classic/baggy
+	pants["jeans, classic ripped"] = /obj/item/clothing/under/pants/classic/ripped
+	pants["jeans, must hang"] = /obj/item/clothing/under/pants/musthang
+	pants["jeans, must hang baggy"] = /obj/item/clothing/under/pants/musthang/baggy
+	pants["jeans, must hang ripped"] = /obj/item/clothing/under/pants/musthang/ripped
+	pants["jeans, designer"] = /obj/item/clothing/under/pants/designer
+	pants["jeans, black"] = /obj/item/clothing/under/pants/jeansblack
+	pants["jeans, black baggy"] = /obj/item/clothing/under/pants/jeansblack/baggy
+	pants["jeans, black ripped"] = /obj/item/clothing/under/pants/jeansblack/ripped
+	pants["jeans, grey"] = /obj/item/clothing/under/pants/jeansgrey
+	pants["jeans, grey baggy"] = /obj/item/clothing/under/pants/jeansgrey/baggy
+	pants["jeans, grey ripped"] = /obj/item/clothing/under/pants/jeansgrey/ripped
+	pants["jeans, young folks"] = /obj/item/clothing/under/pants/youngfolksjeans
+	pants["jeans, young folks baggy"] = /obj/item/clothing/under/pants/youngfolksjeans/baggy
+	pants["pants, white"] = /obj/item/clothing/under/pants/white
+	pants["pants, white baggy"] = /obj/item/clothing/under/pants/white/baggy
+	pants["pants, black"] = /obj/item/clothing/under/pants/black
+	pants["pants, black baggy"] = /obj/item/clothing/under/pants/black/baggy
+	pants["pants, red"] = /obj/item/clothing/under/pants/red
+	pants["pants, red baggy"] = /obj/item/clothing/under/pants/red/baggy
+	pants["pants, tan"] = /obj/item/clothing/under/pants/tan
+	pants["pants, tan baggy"] = /obj/item/clothing/under/pants/tan/baggy
+	pants["pants, khaki"] = /obj/item/clothing/under/pants/khaki
+	pants["pants, khaki baggy"] = /obj/item/clothing/under/pants/khaki/baggy
+	pants["pants, camo"] = /obj/item/clothing/under/pants/camo
+	pants["pants, camo baggy"] = /obj/item/clothing/under/pants/camo/baggy
+	pants["pants, tacticool"] = /obj/item/clothing/under/pants/tacticool
 	pants["track pants"] = /obj/item/clothing/under/pants/track
-	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
-	pants["green track pants"] = /obj/item/clothing/under/pants/track/green
-	pants["white track pants"] = /obj/item/clothing/under/pants/track/white
-	pants["red track pants"] = /obj/item/clothing/under/pants/track/red
-	pants["camo pants"] = /obj/item/clothing/under/pants/camo
-	pants["tacticool pants"] = /obj/item/clothing/under/pants/tacticool
-	pants["designer jeans"] = /obj/item/clothing/under/pants/designer
+	pants["track pants, baggy"] = /obj/item/clothing/under/pants/track/baggy
+	pants["track pants, blue"] = /obj/item/clothing/under/pants/track/blue
+	pants["track pants, green"] = /obj/item/clothing/under/pants/track/green
+	pants["track pants, white"] = /obj/item/clothing/under/pants/track/white
+	pants["track pants, red"] = /obj/item/clothing/under/pants/track/red
+	pants["utility, orange"] = /obj/item/clothing/under/pants/utility/orange
+	pants["utility, blue"] = /obj/item/clothing/under/pants/utility/blue
+	pants["utility, green"] = /obj/item/clothing/under/pants/utility
+	pants["utility, white"] = /obj/item/clothing/under/pants/utility/white
+	pants["utility, red"] = /obj/item/clothing/under/pants/utility/red
 	gear_tweaks += new/datum/gear_tweak/path(pants)
 
 /datum/gear/uniform/colorpants
@@ -269,7 +317,9 @@
 	..()
 	var/colorpants = list()
 	colorpants["dress pants"] = /obj/item/clothing/under/pants/dress
+	colorpants["dress pants, belt"] = /obj/item/clothing/under/pants/dress/belt
 	colorpants["striped pants"] = /obj/item/clothing/under/pants/striped
+	colorpants["yoga pants"] = /obj/item/clothing/under/pants/yogapants
 	gear_tweaks += new/datum/gear_tweak/path(colorpants)
 
 /datum/gear/uniform/shorts
@@ -443,3 +493,14 @@
 /datum/gear/uniform/pinktutu
 	display_name = "pink tutu"
 	path = /obj/item/clothing/under/dress/pinktutu
+
+/datum/gear/uniform/overalls_outfit
+	display_name = "overalls (selection)"
+	path = /obj/item/clothing/under/overalls
+
+/datum/gear/uniform/overalls_outfit/New()
+	..()
+	var/overalls_outfits = list()
+	overalls_outfits["overalls"] = /obj/item/clothing/under/overalls
+	overalls_outfits["sleek overalls"] = /obj/item/clothing/under/overalls/sleek
+	gear_tweaks += new/datum/gear_tweak/path(overalls_outfits)

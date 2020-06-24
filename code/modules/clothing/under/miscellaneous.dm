@@ -161,6 +161,11 @@
 	item_state = "lb_suit"
 	worn_state = "overalls"
 
+/obj/item/clothing/under/overalls/sleek
+	name = "sleek overalls"
+	desc = "A set of modern pleather reinforced overalls."
+	icon_state = "overalls_sleek"
+
 /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
 	name = "head of personnel's suit"
 	desc = "A teal suit and yellow necktie. An authoritative yet tacky ensemble."
@@ -243,6 +248,13 @@
 	item_state = "y_suit"
 	worn_state = "dress_orange"
 
+/obj/item/clothing/under/dress/dress_purple
+	name = "purple dress"
+	desc = "A simple, tight fitting purple dress."
+	icon_state = "tian_dress"
+	item_state = "p_suit"
+	worn_state = "tian_dress"
+
 /obj/item/clothing/under/dress/dress_pink
 	name = "pink dress"
 	desc = "A simple, tight fitting pink dress."
@@ -298,6 +310,38 @@
 	name = "sailor dress"
 	desc = "Formal wear for a leading lady."
 	icon_state = "sailor_dress"
+
+/obj/item/clothing/under/dress/redeveninggown
+	name = "red evening gown"
+	desc = "Fancy dress for space bar singers."
+	icon_state = "red_evening_gown"
+
+/obj/item/clothing/under/dress/ballgown
+	name = "ball gown"
+	desc = "A white ballgown made from the finest silk."
+	icon_state = "bride_white"
+	flags_inv = HIDESHOES
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+
+/obj/item/clothing/under/dress/ballgown/orange
+	desc = "A big and puffy orange dress."
+	icon_state = "bride_orange"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/dress/ballgown/purple
+	desc = "A big and puffy purple dress."
+	icon_state = "bride_purple"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/dress/ballgown/blue
+	desc = "A big and puffy blue dress."
+	icon_state = "bride_blue"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+
+/obj/item/clothing/under/dress/ballgown/red
+	desc = "A big and puffy red dress."
+	icon_state = "bride_red"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
 
 /obj/item/clothing/under/dress/white
 	name = "white dress"
@@ -376,6 +420,13 @@
 /obj/item/clothing/under/dress/maid/janitor
 	icon_state = "janimaid"
 	worn_state = "janimaid"
+
+/obj/item/clothing/under/dress/saloon_dress
+	name = "saloon dress"
+	desc = "A old western inspired gown for the girl who likes to drink."
+	icon_state = "dress_saloon"
+	item_state = "dress_saloon"
+	item_state_slots = list(slot_r_hand_str = "dress_white", slot_l_hand_str = "dress_white")
 
 /obj/item/clothing/under/captainformal
 	name = "captain's formal uniform"
