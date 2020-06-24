@@ -473,7 +473,10 @@
 		return 1
 	else if (istype(T, /turf/space))
 		return 0
-	else if (!T.loc.has_gravity())
+
+	var/area/A = T.loc
+
+	if (!A.has_gravity())
 		return 0
 
 	return 1
