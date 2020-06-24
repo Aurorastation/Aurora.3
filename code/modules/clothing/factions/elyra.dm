@@ -55,7 +55,7 @@
 	set src in usr
 	select_appearance(usr)
 
-/obj/item/clothing/under/elyra_holo/proc/select_appearance(mob/user as mob)
+/obj/item/clothing/under/elyra_holo/proc/select_appearance(mob/user)
 	if(!(cooldown + 7 SECONDS < world.time))
 		to_chat(user, SPAN_WARNING("The hardlight fabric needs time to recover before transforming again!"))
 		return
