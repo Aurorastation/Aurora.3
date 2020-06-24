@@ -72,6 +72,6 @@
 
 #define ACCENT_UNATHI "Sinta'unathi"
 
-#define ACCENT_SKRELL "Jargonian"
+#define ACCENT_SKRELL "Standard Nral'Malic"
 
 #define ACCENT_DIONA "Diona"
