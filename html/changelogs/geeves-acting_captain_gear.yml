@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added an optional acting captain uniform briefcase to the captain's locker. It includes a jacket, a cap, an armband, and a captain radio."
