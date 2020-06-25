@@ -59,7 +59,7 @@
 				channel = C
 			return TRUE
 		C.add_client(src)
-		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) A new client ([username]) has entered the chat.</b>"))
+		message_dead(FONT_SMALL("<b>([C.get_dead_title()]) A new client ([username]) has entered the chat.</b>"))
 		channel = C
 	if(href_list["PRG_leavechannel"])
 		. = TRUE

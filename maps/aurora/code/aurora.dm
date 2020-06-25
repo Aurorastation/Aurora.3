@@ -1,9 +1,10 @@
 /datum/map/aurora
 	name = "Aurora"
 	full_name = "NSS Aurora"
-	description = "The NSS Aurora is a phoron research and extraction station. It houses facilities for studying all manner of ways to acquire phoron, \
-	 			   even ways one may think impossible to be related to acquiring the element. It is located on the 361224 Colossus asteroid, \
-				   known for its anomalous and phoron rich nature, partly due to its own location in the Romanovich Cloud."
+	description = "You're aboard the <b>NSS Aurora</b>, a state-of-the-art station specializing in phoron research and acquisition. \
+				   It is staffed by Nanotrasen personnel and contractors from competing megacorporations. \
+				   Orbiting at the very edge of the Tau Ceti system, approximately 12 light-years away from Sol, \
+				   it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
 	path = "aurora"
 
 	lobby_screens = list("aurora_asteroid", "aurora_postcard")
@@ -13,7 +14,7 @@
 	contact_levels = list(3, 4, 5, 6, 7)
 	player_levels = list(2, 3, 4, 5, 6, 7, 8)
 	restricted_levels = list()
-	accessible_z_levels = list("8" = 10, "7" = 15, "2" = 60)
+	accessible_z_levels = list("7" = 15, "2" = 60)
 	base_turf_by_z = list(
 		"1" = /turf/space,
 		"2" = /turf/space,
@@ -22,8 +23,7 @@
 		"5" = /turf/unsimulated/floor/asteroid/ash/rocky,
 		"6" = /turf/unsimulated/floor/asteroid/ash,
 		"7" = /turf/space,
-		"8" = /turf/space,
-		"9" = /turf/space
+		"8" = /turf/space
 	)
 
 	station_name = "NSS Aurora"

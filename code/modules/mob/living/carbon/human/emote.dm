@@ -324,7 +324,7 @@
 					if(H && show_ssd && !H.client && !H.teleop)
 						if(H.bg)
 							to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
-						else
+						else if(!vr_mob)
 							message = "<span class='danger'>slaps [M] across the face, but they do not respond... Maybe they have S.S.D?</span>"
 					else if(H.client && H.willfully_sleeping)
 						message = "<span class='danger'>slaps [M] across the face, waking them up. Ouch!</span>"
@@ -596,11 +596,10 @@
 				m_type = 1
 			else
 				if (!muzzled)
-					message = "screams!"
-					m_type = 2
+					message = pick(species.scream_emote)
 				else
 					message = "makes a very loud noise."
-					m_type = 2
+				m_type = 2
 		if("swish")
 			src.animate_tail_once()
 

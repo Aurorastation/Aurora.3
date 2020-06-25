@@ -211,6 +211,9 @@
 	color
 	name = "energy sword"
 	desc = "May the force be within you."
+	desc_antag = "The energy sword is a very strong melee weapon, capable of severing limbs easily, if they are targeted.  It can also has a chance \
+	to block projectiles and melee attacks while it is on and being held.  The sword can be toggled on or off by using it in your hand.  While it is off, \
+	it can be concealed in your pocket or bag."
 	icon_state = "sword0"
 	active_force = 30
 	active_throwforce = 20

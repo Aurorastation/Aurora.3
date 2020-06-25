@@ -5,6 +5,7 @@
 	name = "omni gas mixer"
 	icon_state = "map_mixer"
 	base_icon = "mixer"
+	desc_info = "Combines gas from custom input and output directions.  The percentage of combined gas can be defined."
 
 	use_power = 1
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff

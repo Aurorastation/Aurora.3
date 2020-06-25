@@ -4,15 +4,12 @@
 /area/space)
 "ab" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/grille,
@@ -20,11 +17,9 @@
 /area/derelict/ship)
 "ac" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/grille,
@@ -37,11 +32,9 @@
 /area/derelict/ship)
 "ae" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/grille,
@@ -50,7 +43,6 @@
 "af" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -66,7 +58,6 @@
 "ah" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/grille,
@@ -77,11 +68,9 @@
 /area/template_noop)
 "aj" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/grille,
@@ -97,11 +86,9 @@
 "am" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/grille,
@@ -219,8 +206,7 @@
 /area/derelict/ship)
 "aG" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Laser Rifle)";
-	req_access = list(3)
+	name = "Weaponry (Laser Rifle)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/derelict/ship)
@@ -232,15 +218,12 @@
 "aI" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -276,15 +259,12 @@
 "aN" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/grille,
@@ -409,15 +389,12 @@
 "bo" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/grille,
@@ -460,18 +437,15 @@
 /area/derelict/ship)
 "bw" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /turf/simulated/floor/greengrid,
 /area/derelict/ship)
 "bx" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/machinery/shield_capacitor,
@@ -479,18 +453,15 @@
 /area/derelict/ship)
 "by" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /turf/simulated/floor/greengrid,
 /area/derelict/ship)
 "bz" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /turf/simulated/floor/greengrid,
@@ -501,7 +472,6 @@
 /area/derelict/ship)
 "bB" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /turf/simulated/floor/greengrid,
@@ -519,15 +489,12 @@
 /area/derelict/ship)
 "bE" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -536,7 +503,6 @@
 /area/derelict/ship)
 "bF" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced,
@@ -544,7 +510,6 @@
 /area/derelict/ship)
 "bG" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -568,11 +533,9 @@
 /area/derelict/ship)
 "bK" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -590,16 +553,13 @@
 /area/derelict/ship)
 "bN" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -617,12 +577,10 @@
 /area/derelict/ship)
 "bQ" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -643,12 +601,10 @@
 /area/derelict/ship)
 "bT" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/grille,
@@ -701,7 +657,6 @@
 "cc" = (
 /obj/machinery/shower{
 	dir = 4;
-	icon_state = "shower";
 	pixel_y = -8
 	},
 /obj/structure/curtain/open/shower,
@@ -751,9 +706,7 @@
 "ck" = (
 /obj/structure/sink{
 	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11;
-	pixel_y = 0
+	pixel_x = 11
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
@@ -837,17 +790,14 @@
 /area/derelict/ship)
 "cz" = (
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 1
 	},
 /turf/simulated/floor,
@@ -894,7 +844,6 @@
 /area/derelict/ship)
 "cL" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
-	icon_state = "wall3";
 	dir = 10
 	},
 /area/derelict/ship)
@@ -916,7 +865,6 @@
 /area/derelict/ship)
 "cP" = (
 /turf/simulated/wall/shuttle/dark/corner/underlay{
-	icon_state = "wall3";
 	dir = 6
 	},
 /area/derelict/ship)

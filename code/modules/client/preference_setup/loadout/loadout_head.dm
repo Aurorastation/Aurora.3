@@ -252,3 +252,13 @@
 	display_name = "padded cap"
 	path = /obj/item/clothing/head/padded
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/himeo
+	display_name = "himean cap"
+	path = /obj/item/clothing/head/soft/himeo
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/vysoka
+	display_name = "vysokan fur cap"
+	path = /obj/item/clothing/head/soft/vysoka
+	flags = GEAR_HAS_DESC_SELECTION

@@ -4,7 +4,8 @@
 	/client/proc/Toggle_asfx_vote,
 	/client/proc/toggle_vox_voice,
 	/client/proc/Toggle_dropsounds,
-	/client/proc/Toggle_arcadesounds
+	/client/proc/Toggle_arcadesounds,
+	/client/proc/Toggle_radiosounds
 )
 
 /client/verb/asf_toggle()
@@ -87,3 +88,15 @@
 		to_chat(src, "You will now hear arcade sounds.")
 	else
 		to_chat(src, "<font color='red'>You will no longer hear arcade sounds.</font>")
+
+/client/proc/Toggle_radiosounds()
+	set name = "Toggle Radio SFX"
+	set category = "SoundFx Prefs"
+	set desc = "Toggles hearing noises made by radios."
+
+	prefs.asfx_togs ^= ASFX_RADIO
+	prefs.save_preferences()
+	if(prefs.asfx_togs & ASFX_RADIO)
+		to_chat(src, "You will now hear radio sounds.")
+	else
+		to_chat(src, "<font color='red'>You will no longer hear radio sounds.</font>")

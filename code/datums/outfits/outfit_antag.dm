@@ -170,11 +170,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = list(
-		/obj/item/clothing/under/soviet,
-		/obj/item/clothing/under/pirate,
-		/obj/item/clothing/under/redcoat,
 		/obj/item/clothing/under/serviceoveralls,
-		/obj/item/clothing/under/captain_fly,
 		/obj/item/clothing/under/det,
 		/obj/item/clothing/under/brown,
 		/obj/item/clothing/under/syndicate/tracksuit
@@ -281,3 +277,22 @@
 	backpack_contents = list(
 		/obj/item/storage/box = 1
 	)
+
+/datum/outfit/admin/wizard/apprentice
+	name = "Space Wizard Apprentice"
+	l_hand = null
+	r_pocket = null
+
+/datum/outfit/admin/wizard/skeleton
+	name = "Skeleton Warrior"
+	allow_backbag_choice = FALSE
+
+	uniform = /obj/item/clothing/under/gladiator
+	back = /obj/item/material/twohanded/spear/bone
+	suit = /obj/item/clothing/suit/armor/bone
+	head = /obj/item/clothing/head/helmet/bone
+	l_ear = null
+	r_pocket = null
+	l_hand = null
+
+	backpack_contents = null

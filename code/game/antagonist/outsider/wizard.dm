@@ -100,24 +100,6 @@ var/datum/antagonist/wizard/wizards
 		feedback_set_details("round_end_result","loss - wizard killed")
 		to_world("<span class='danger'><font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed by the crew! The Space Wizards Federation has been taught a lesson they will not soon forget!</font></span>")
 
-/datum/antagonist/wizard/print_player_summary()
-	..()
-	for(var/p in current_antagonists)
-		var/datum/mind/player = p
-		var/text = "<b>[player.name]'s spells were:</b>"
-		if(!player.learned_spells || !player.learned_spells.len)
-			text += "<br>None!"
-		else
-			for(var/s in player.learned_spells)
-				var/spell/spell = s
-				text += "<br><b>[spell.name]</b> - "
-				text += "Speed: [spell.spell_levels["speed"]] Power: [spell.spell_levels["power"]]"
-		if(player.ambitions)
-			text += "<br><font color='purple'><b>Their goals for today were:</b></font>"
-			text += "<br>  '[player.ambitions]'"
-		text += "<br>"
-		to_world(text)
-
 
 //To batch-remove wizard spells. Linked to mind.dm.
 /mob/proc/spellremove()

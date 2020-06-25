@@ -607,13 +607,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/tofurkey
 
-// Fuck Science!
-/datum/recipe/ruinedvirusdish
-	items = list(
-		/obj/item/virusdish
-	)
-	result = /obj/item/ruinedvirusdish
-
 //////////////////////////////////////////
 // bs12 food port stuff
 //////////////////////////////////////////
@@ -1191,3 +1184,12 @@
 		/obj/item/reagent_containers/food/snacks/icecream
 	)
 	result = /obj/item/reagent_containers/food/snacks/banana_split
+
+/datum/recipe/lardwich
+	items = list(
+		/obj/item/reagent_containers/food/snacks/flatbread,
+		/obj/item/reagent_containers/food/snacks/flatbread,
+		/obj/item/reagent_containers/food/snacks/spreads/lard
+	)
+	result = /obj/item/reagent_containers/food/snacks/lardwich
+	reagent_mix = RECIPE_REAGENT_REPLACE

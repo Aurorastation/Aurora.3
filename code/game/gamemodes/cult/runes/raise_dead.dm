@@ -1,9 +1,14 @@
-/obj/effect/rune/raise_dead/do_rune_action(mob/living/user)
+/datum/rune/raise_dead
+	name = "revival rune"
+	desc = "This rune is used to revive a body in exchange for a dead sacrifice."
+	rune_flags = NO_TALISMAN
+
+/datum/rune/raise_dead/do_rune_action(mob/living/user, atom/movable/A)
 	var/mob/living/carbon/human/corpse_to_raise
 	var/mob/living/carbon/human/body_to_maim
 
 	var/is_sacrifice_target
-	for(var/mob/living/carbon/human/M in get_turf(src))
+	for(var/mob/living/carbon/human/M in get_turf(A))
 		if(M.stat == DEAD)
 			if(M.mind == cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
@@ -18,9 +23,9 @@
 		return fizzle(user)
 
 	is_sacrifice_target = FALSE
-	for(var/obj/effect/rune/raise_dead/R in rune_list)
+	for(var/datum/rune/R in SScult.rune_list)
 		var/found_sacrifice = FALSE
-		for(var/mob/living/carbon/human/N in get_turf(R))
+		for(var/mob/living/carbon/human/N in get_turf(R.parent))
 			if(N?.mind == cult?.sacrifice_target)
 				is_sacrifice_target = TRUE
 			else
@@ -39,7 +44,7 @@
 		return fizzle(user)
 
 	var/mob/abstract/observer/ghost
-	for(var/mob/abstract/observer/O in get_turf(src))
+	for(var/mob/abstract/observer/O in get_turf(A))
 		if(!O.client)
 			continue
 		if(O.mind?.current?.stat != DEAD)
@@ -51,9 +56,9 @@
 
 	if(!ghost)
 		to_chat(user, span("warning", "You require a restless spirit which clings to this world. Beckon their prescence with the sacred chants of Nar-Sie."))
-		var/area/A = get_area(src)
+		var/area/Ar = get_area(A)
 		for(var/mob/M in dead_mob_list)
-			to_chat(M, "[ghost_follow_link(user, M)] <span class='cult'>A cultist is attempting to revive a body in [A.name]!</span>")
+			to_chat(M, "[ghost_follow_link(user, M)] <span class='cult'>A cultist is attempting to revive a body in [Ar.name]!</span>")
 		return fizzle(user)
 
 	corpse_to_raise.revive()

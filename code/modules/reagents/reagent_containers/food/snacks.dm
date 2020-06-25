@@ -42,8 +42,8 @@
 
 /obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
 	if(!reagents.total_volume && !trash)
-		target.visible_message(SPAN_NOTICE("[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
-					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
+		target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
+					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
 		qdel(src)
 	else
 		..()
@@ -3987,7 +3987,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#75754B"
 	center_of_mass = list("x"=16, "y"=7)
-	nutriment_desc = list("salad" = 3)
+	nutriment_desc = list("dionae delicacy" = 3)
 	nutriment_amt = 6
 	bitesize = 2
 
@@ -5498,8 +5498,10 @@
 	icon_state = "lard"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=16)
-	nutriment_desc = list("fat" = 3)
-	nutriment_amt = 5
+
+/obj/item/reagent_containers/food/snacks/spreads/lard/Initialize()
+	. = ..()
+	reagents.add_reagent("triglyceride", 5)
 
 /obj/item/reagent_containers/food/snacks/chipplate/tajcandy
 	name = "plate of sugar tree candy"
@@ -5540,6 +5542,18 @@
 /obj/item/reagent_containers/food/snacks/tajcandy/Initialize()
 	. = ..()
 	reagents.add_reagent("sugar", 3)
+
+/obj/item/reagent_containers/food/snacks/lardwich
+	name = "hro'zamal lard sandwhich"
+	desc = "A lard sandwhich prepared in the style of Hro'zamal, usually made from Schlorrgo lard."
+	icon_state = "lardwich"
+	nutriment_desc = list("bread" = 2)
+	nutriment_amt = 6
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/lardwich/Initialize()
+	. = ..()
+	reagents.add_reagent("triglyceride", 5)
 
 #undef NUTRIMENT_GOOD
 #undef NUTRIMENT_BAD

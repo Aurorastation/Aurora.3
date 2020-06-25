@@ -88,18 +88,16 @@
 			E.flash_act()
 
 		else
-			flashfail = 1
-
+			flashfail = TRUE
 	else if(issilicon(M))
 		if(isrobot(M))
 			var/mob/living/silicon/robot/R = M
-			if(R.overclocked)
-				return
-
-		M.Weaken(rand(3,7)) //should be that borg is disabled for around 3-7 seconds
-
+			if(R.overclocked || R.flash_resistant)
+				flashfail = TRUE
+		if(!flashfail)
+			M.Weaken(rand(3, 7)) //should be that borg is disabled for around 3-7 seconds
 	else
-		flashfail = 1
+		flashfail = TRUE
 
 	if(isrobot(user))
 		spawn(0)

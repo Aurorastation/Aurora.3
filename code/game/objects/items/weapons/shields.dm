@@ -92,18 +92,21 @@
 		..()
 
 /obj/item/shield/buckler
-	name = "buckler"
-	desc = "A wooden buckler used to block sharp things from entering your body back in the day."
-	icon_state = "buckler"
+	name = "selfmade shield"
+	desc = "A sturdy buckler used to block sharp things from entering your body back in the day."
+	icon = 'icons/obj/square_shield.dmi'
+	icon_state = "square_buckler"
+	item_state = "square_buckler"
+	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
 	force = 8
 	throwforce = 8
 	base_block_chance = 60
 	throw_speed = 10
 	throw_range = 20
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_MATERIAL = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, "Wood" = 1000)
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_WOOD = 1000)
 	attack_verb = list("shoved", "bashed")
 
 /obj/item/shield/buckler/handle_shield(mob/user)

@@ -2,8 +2,8 @@
 
 /obj/machinery/mineral/processing_unit_console
 	name = "ore redemption console"
-	icon = 'icons/obj/machines/mining_machines.dmi'
-	icon_state = "console"
+	icon = 'icons/obj/terminals.dmi'
+	icon_state = "production_console"
 	density = FALSE
 	anchored = TRUE
 	use_power = 1
@@ -23,7 +23,7 @@
 
 /obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
 	. = ..()
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
