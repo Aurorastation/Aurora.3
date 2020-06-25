@@ -694,7 +694,6 @@
 	taste_mult = 1.5
 	fallback_specific_heat = 2
 	condiment_name = "bottle of space spice"
-	condiment_desc = "An exotic blend of spices for cooking. It must flow."
 	condiment_icon_state = "spacespicebottle"
 	condiment_center_of_mass = list("x"=16, "y"=10)
 

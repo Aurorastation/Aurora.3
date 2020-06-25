@@ -101,10 +101,12 @@
 	randpixel_xy()
 
 /obj/item/reagent_containers/food/condiment/shaker/spacespice
+	icon_state = "spacespicebottle"
 	volume = 40
 	reagents_to_add = list(/datum/reagent/spacespice = 40)
 
 /obj/item/reagent_containers/food/condiment/barbecue
+	icon_state = "barbecue"
 	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/nutriment/barbecue = 20)
 
