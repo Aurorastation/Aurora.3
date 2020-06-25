@@ -204,9 +204,7 @@
 	dress["dress, twist front"] = /obj/item/clothing/under/dress/twistfront
 	dress["dress, v-neck"] = /obj/item/clothing/under/dress/vneck
 	dress["corset, black"] = /obj/item/clothing/under/dress/black_corset
-	dress["gown, white"] = /obj/item/clothing/under/dress/ballgown
 	dress["gown, red"] = /obj/item/clothing/under/dress/ballgown/red
-	dress["gown, red evening"] = /obj/item/clothing/under/dress/redeveninggown
 	dress["gown, orange"] = /obj/item/clothing/under/dress/ballgown/orange
 	dress["gown, purple"] = /obj/item/clothing/under/dress/ballgown/purple
 	dress["gown, blue"] = /obj/item/clothing/under/dress/ballgown/blue
@@ -224,6 +222,8 @@
 	whitedresses["short dress"] = /obj/item/clothing/under/dress/white3
 	whitedresses["long dress"] = /obj/item/clothing/under/dress/white2
 	whitedresses["long flared dress"] = /obj/item/clothing/under/dress/white4
+	whitedresses["evening gown"] = /obj/item/clothing/under/dress/eveninggown
+	whitedresses["short gown"] = /obj/item/clothing/under/dress/ballgown
 	gear_tweaks += new/datum/gear_tweak/path(whitedresses)
 
 /datum/gear/uniform/cheongsam
@@ -690,7 +690,7 @@
 	display_name = "uniform, Medical Doctor (selection)"
 	description = "A selection of alternative outfits for the Physician and the Surgeon."
 	path = /obj/item/clothing/under/rank/medical
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist", "Paramedic")
 	cost = 0
 
 /datum/gear/uniform/uniform_md/New()
@@ -704,11 +704,47 @@
 	md_uniforms["alt physician fem jeans"] = /obj/item/clothing/under/rank/medical/alt/jeans/female
 	gear_tweaks += new/datum/gear_tweak/path(md_uniforms)
 
+/datum/gear/uniform/uniform_pharm
+	display_name = "uniform, Pharmacist (selection)"
+	description = "A selection of alternative outfits for the Pharmacist."
+	path = /obj/item/clothing/under/rank/pharmacist
+	allowed_roles = list("Chief Medical Officer", "Pharmacist")
+	cost = 0
+
+/datum/gear/uniform/uniform_pharm/New()
+	..()
+	var/pharm_uniforms = list()
+	pharm_uniforms["standard pharmacist uniform"] = /obj/item/clothing/under/rank/pharmacist
+	pharm_uniforms["alt pharmacist uniform"] = /obj/item/clothing/under/rank/pharmacist/alt
+	pharm_uniforms["alt pharmacist jeans"] = /obj/item/clothing/under/rank/pharmacist/alt/jeans
+	pharm_uniforms["alt pharmacist fem jeans"] = /obj/item/clothing/under/rank/pharmacist/alt/jeans/female
+	pharm_uniforms["pharmacist polo"] = /obj/item/clothing/under/rank/pharmacist/alt/shirt
+	pharm_uniforms["standard chemist uniform"] = /obj/item/clothing/under/rank/biochemist
+	pharm_uniforms["alt chemist uniform"] = /obj/item/clothing/under/rank/biochemist/alt
+	pharm_uniforms["alt chemist jeans"] = /obj/item/clothing/under/rank/biochemist/alt/jeans
+	pharm_uniforms["alt chemist fem jeans"] = /obj/item/clothing/under/rank/biochemist/alt/jeans/female
+	pharm_uniforms["chemist polo"] = /obj/item/clothing/under/rank/biochemist/shirt
+	gear_tweaks += new/datum/gear_tweak/path(pharm_uniforms)
+
+/datum/gear/uniform/uniform_psych
+	display_name = "uniform, Psychiatrist (selection)
+	description = "A selection of alternative outfits for the Psychiatrist."
+	path = /obj/item/clothing/under/rank/psych
+	allowed_roles = list("Chief Medical Officer", "Psychiatrist")
+	cost = 0
+
+/datum/gear/uniform/uniform_psych/New()
+	..()
+	var/psych_uniforms = list()
+	psych_uniforms["standard psych uniform"] = /obj/item/clothing/under/rank/psych
+	psych_uniforms["alt psych uniform"] = /obj/item/clothing/under/rank/psych/alt
+	gear_tweaks += new/datum/gear_tweak/path(psych_uniforms)
+
 /datum/gear/uniform/uniform_mresident
 	display_name = "uniform, Medical Resident (selection)"
 	description = "A selection of alternative outfits for the Medical Resident."
-	path =
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist", "Medical Resident")
+	path = /obj/item/clothing/under/rank/medical/intern
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist", "Paramedic", "Medical Resident",)
 	cost = 0
 
 /datum/gear/uniform/uniform_mresident/New()

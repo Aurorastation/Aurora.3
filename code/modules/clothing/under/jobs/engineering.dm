@@ -50,7 +50,7 @@
 	icon_state = "engine"
 	item_state = "engi_suit"
 	worn_state = "engine"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 10)
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 10)
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/engineer/alt

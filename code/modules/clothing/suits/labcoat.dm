@@ -199,9 +199,9 @@
 	icon_closed = "labcoat_gen"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/biochemist/alt
-	icon_state = "labcoat_vir_new_open"
-	icon_open = "labcoat_vir_new_open"
-	icon_closed = "labcoat_vir_new"
+	icon_state = "labcoat_biochem_new_open"
+	icon_open = "labcoat_biochem_new_open"
+	icon_closed = "labcoat_biochem_new"
 
 /obj/item/clothing/suit/storage/toggle/labcoat/blueedge
 	icon_state = "blue_edge_labcoat_open"

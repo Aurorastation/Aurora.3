@@ -137,9 +137,16 @@
 	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Lab Assistant")
 
 /datum/gear/suit/labcoat/alt_chem
-	display_name = "lab coat, alt (pharmacist)"
+	display_name = "lab coat, alt (pharmacist/biochemist) (selection)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist/alt
 	allowed_roles = list("Chief Medical Officer", "Pharmacist")
+
+/datum/gear/suit/labcoat/alt_chem/New()
+	..()
+	var/chem_coats = list()
+	chem_coats["pharmacist lab coat"] = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist/alt
+	chem_coats["chemist lab coat"] = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist/alt
+	gear_tweaks += new/datum/gear_tweak/path(chem_coats)
 
 /datum/gear/suit/labcoat/alt_emt
 	display_name = "lab coat, alt (EMT)"

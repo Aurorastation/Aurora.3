@@ -74,6 +74,47 @@
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
+/obj/item/clothing/under/rank/pharmacist/alt
+	icon_state = "chemistry_alt"
+	worn_state = "chemistry_alt"
+
+/obj/item/clothing/under/rank/pharmacist/alt/jeans
+	icon_state = "chemistryj"
+	worn_state = "chemistryj"
+
+/obj/item/clothing/under/rank/pharmacist/alt/jeans/female
+	icon_state = "chemistryjf"
+	worn_state = "chemistryjf"
+
+/obj/item/clothing/under/rank/pharmacist/shirt
+	icon_state = "chemistry_new"
+	worn_state = "chemistry_new"
+
+/obj/item/clothing/under/rank/biochemist
+	desc = "Made of a special fiber that gives increased protection against hazards."
+	name = "chemist's jumpsuit"
+	icon_state = "virology"
+	item_state = "w_suit"
+	worn_state = "virology"
+	permeability_coefficient = 0.50
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+
+/obj/item/clothing/under/rank/biochemist/alt
+	icon_state = "biochemist_alt"
+	worn_state = "biochemist_alt"
+
+/obj/item/clothing/under/rank/biochemist/alt/jeans
+	icon_state = "biochemistj"
+	worn_state = "biochemistj"
+
+/obj/item/clothing/under/rank/biochemist/alt/jeans/female
+	icon_state = "biochemistjf"
+	worn_state = "biochemistjf"
+
+/obj/item/clothing/under/rank/biochemist/shirt
+	icon_state = "biochemist_new"
+	worn_state = "biochemist_new"
+
 /obj/item/clothing/under/rank/xenoarcheologist
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a xenoarcheologist."
 	name = "xenoarcheologist's jumpsuit"
@@ -211,11 +252,6 @@
 	item_state = "w_suit"
 	worn_state = "psych"
 
-/obj/item/clothing/under/rank/biochemist
-	desc = "Made of a special fiber that gives increased protection against hazards."
-	name = "chemist's jumpsuit"
-	icon_state = "virology"
-	item_state = "w_suit"
-	worn_state = "virology"
-	permeability_coefficient = 0.50
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+/obj/item/clothing/under/rank/psych/alt
+	icon_state = "psych_alt"
+	worn_state = "psych_alt"
