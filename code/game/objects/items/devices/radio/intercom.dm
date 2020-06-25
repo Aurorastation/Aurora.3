@@ -14,8 +14,8 @@
 
 /obj/item/device/radio/intercom/custom
 	name = "station intercom (Custom)"
-	broadcasting = 0
-	listening = 0
+	broadcasting = FALSE
+	listening = FALSE
 
 /obj/item/device/radio/intercom/interrogation
 	name = "station intercom (Interrogation)"
@@ -31,8 +31,8 @@
 
 /obj/item/device/radio/intercom/department
 	canhear_range = 5
-	broadcasting = 0
-	listening = 1
+	broadcasting = FALSE
+	listening = TRUE
 
 /obj/item/device/radio/intercom/department/medbay
 	name = "station intercom (Medbay)"
@@ -59,10 +59,8 @@
 	LAZYINITLIST(screen_overlays)
 	screen_overlays["intercom_screen"] = make_screen_overlay(icon, "intercom_screen")
 	screen_overlays["intercom_scanline"] = make_screen_overlay(icon, "intercom_scanline")
-	screen_overlays["intercom_b_1"] = make_screen_overlay(icon, "intercom_b_1")
-	screen_overlays["intercom_l_1"] = make_screen_overlay(icon, "intercom_l_1")
-	screen_overlays["intercom_b_0"] = make_screen_overlay(icon, "intercom_b_0")
-	screen_overlays["intercom_l_0"] = make_screen_overlay(icon, "intercom_l_0")
+	screen_overlays["intercom_b"] = make_screen_overlay(icon, "intercom_b")
+	screen_overlays["intercom_l"] = make_screen_overlay(icon, "intercom_l")
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
@@ -153,11 +151,13 @@
 		add_overlay(screen_overlays["intercom_screen"])
 		add_overlay(screen_overlays["intercom_scanline"])
 		set_light(1.4, 1, COLOR_CYAN)
-		add_overlay(screen_overlays["intercom_b_[broadcasting]"])
-		add_overlay(screen_overlays["intercom_l_[listening]"])
+		if(broadcasting)
+			add_overlay(screen_overlays["intercom_b"])
+		if(listening)
+			add_overlay(screen_overlays["intercom_l"])
 
 /obj/item/device/radio/intercom/broadcasting
-	broadcasting = 1
+	broadcasting = TRUE
 
 /obj/item/device/radio/intercom/locked
     var/locked_frequency
@@ -172,8 +172,8 @@
 /obj/item/device/radio/intercom/locked/ai_private
 	name = "\improper AI intercom"
 	frequency = AI_FREQ
-	broadcasting = 1
-	listening = 1
+	broadcasting = TRUE
+	listening = TRUE
 
 /obj/item/device/radio/intercom/locked/confessional
 	name = "confessional intercom"
