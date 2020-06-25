@@ -186,13 +186,13 @@
 		user.drop_from_inventory(W, src)
 		signaler = S
 		S.machine = src
-		user.visible_message(SPAN_WARNING("\The [user] attaches \the [S] to \the [src]."),
+		user.visible_message("<b>\The [user]</b> attaches \the [S] to \the [src].",
 							SPAN_NOTICE("You attach \the [S] to \the [src]."))
 		return
 	if(W.iswirecutter() && signaler)
 		signaler.forceMove(get_turf(user))
 		signaler.machine = null
-		user.visible_message(SPAN_WARNING("\The [user] removes \the [signaler] from \the [src]."),
+		user.visible_message("<b>\The [user]</b> removes \the [signaler] from \the [src].",
 							SPAN_NOTICE("You remove \the [signaler] to \the [src]."))
 		signaler = null
 		return
@@ -207,7 +207,7 @@
 			if(EMITTER_LOOSE)
 				state = EMITTER_BOLTED
 				playsound(get_turf(src), W.usesound, 75, TRUE)
-				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+				user.visible_message("<b>\The [user]</b> secures \the [src] to the floor.", \
 					SPAN_NOTICE("You secure \the [src]'s external struts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
@@ -216,7 +216,7 @@
 			if(EMITTER_BOLTED)
 				state = EMITTER_LOOSE
 				playsound(get_turf(src), W.usesound, 75, TRUE)
-				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s struts from the floor."), \
+				user.visible_message("<b>\The [user]</b> unsecures \the [src]'s struts from the floor.", \
 					SPAN_NOTICE("You unsecure \the [src]'s external struts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = FALSE
@@ -231,7 +231,7 @@
 		if(EB.build_state != BARREL_UNMODIFIED)
 			to_chat(user, SPAN_WARNING("\The [EB] has auxiliary attachments and can't fit into the [src]!"))
 			return
-		user.visible_message(SPAN_NOTICE("\The [user] installs \the [EB] into \the [src]."), SPAN_NOTICE("You install \the [EB] into \the [src]."), range = 3)
+		user.visible_message("<b>\The [user]</b> installs \the [EB] into \the [src].", SPAN_NOTICE("You install \the [EB] into \the [src]."), range = 3)
 		user.drop_from_inventory(EB, src)
 		barrel = EB
 		return
@@ -252,9 +252,9 @@
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a barrel!"))
 			return
 		barrel_secured = !barrel_secured
-		var/others_msg = "\The [user] [barrel_secured ? "" : "un"]secures \the [src]'s barrel."
+		var/others_msg = "<b>\The [user]</b> [barrel_secured ? "" : "un"]secures \the [src]'s barrel."
 		var/self_msg = "You [barrel_secured ? "" : "un"]secure \the [src]'s barrel."
-		user.visible_message(SPAN_WARNING(others_msg), SPAN_WARNING(self_msg), range = 3)
+		user.visible_message(others_msg, SPAN_WARNING(self_msg), range = 3)
 		playsound(get_turf(src), W.usesound, 75, TRUE)
 		return
 
@@ -269,7 +269,7 @@
 			to_chat(user, SPAN_WARNING("You jam \the [W] into \the [src] while it's active, shocking yourself!"))
 			electrocute_mob(user, powernet, src)
 			return
-		user.visible_message(SPAN_WARNING("\The [user] starts prying out \the [src]'s barrel..."), SPAN_NOTICE("You start prying out \the [src]'s barrel..."), range = 3)
+		user.visible_message("<b>\The [user]</b> starts prying out \the [src]'s barrel...", SPAN_NOTICE("You start prying out \the [src]'s barrel..."), range = 3)
 		if(do_after(user, 50, TRUE, src))
 			if(!barrel)
 				to_chat(user, SPAN_WARNING("\The [src] doesn't have a barrel!"))
@@ -277,8 +277,12 @@
 			if(barrel_secured)
 				to_chat(user, SPAN_WARNING("\The [src] barrel is still secured within its housing!"))
 				return
+			if(active)
+				to_chat(user, SPAN_WARNING("You jam \the [W] into \the [src] while it's active, shocking yourself!"))
+				electrocute_mob(user, powernet, src)
+				return
 			playsound(get_turf(src), W.usesound, 75, TRUE)
-			user.visible_message(SPAN_WARNING("\The [user] pries out \the [src]'s barrel."), SPAN_NOTICE("You pry out \the [src]'s barrel."), range = 3)
+			user.visible_message("<b>\The [user]</b> pries out \the [src]'s barrel.", SPAN_NOTICE("You pry out \the [src]'s barrel."), range = 3)
 			barrel.forceMove(get_turf(src))
 			user.put_in_hands(barrel)
 			barrel = null
@@ -323,11 +327,11 @@
 				if(ES.build_state != STOCK_BOTTOMED)
 					to_chat(user, SPAN_WARNING("\The [ES] isn't finished and cannot be attached!"))
 					return
-				user.visible_message(SPAN_WARNING("\The [user] starts adding \the [ES] to \the [src]..."), SPAN_NOTICE("You start adding \the [ES] to \the [src]..."), range = 3)
+				user.visible_message("<b>\The [user]</b> starts adding \the [ES] to \the [src]...", SPAN_NOTICE("You start adding \the [ES] to \the [src]..."), range = 3)
 				if(do_after(user, 50, TRUE, src))
 					if(build_state != BARREL_UNMODIFIED)
 						return
-					user.visible_message(SPAN_WARNING("\The [user] adds \the [ES] to \the [src]."), SPAN_NOTICE("You add \the [ES] to \the [src]."), range = 3)
+					user.visible_message("<b>\The [user]</b> adds \the [ES] to \the [src].", SPAN_NOTICE("You add \the [ES] to \the [src]."), range = 3)
 					icon_state = "emitter_barrel-1"
 					build_state = BARREL_STOCKED
 					qdel(ES)
@@ -335,28 +339,28 @@
 			if(W.iscoil())
 				var/obj/item/stack/cable_coil/CC = W
 				if(CC.amount < 5)
-					to_chat(user, SPAN_WARNING("You need atleast 5 lengths of coil in \the [CC]!"))
+					to_chat(user, SPAN_WARNING("You need at least 5 lengths of coil in \the [CC]!"))
 					return
-				user.visible_message(SPAN_WARNING("\The [user] starts wiring up \the [src]..."), SPAN_NOTICE("You start wiring up \the [src]..."), range = 3)
+				user.visible_message("<b>\The [user]</b> starts wiring up \the [src]...", SPAN_NOTICE("You start wiring up \the [src]..."), range = 3)
 				if(do_after(user, 50, TRUE, src))
 					if(build_state != BARREL_STOCKED)
 						return
 					if(CC.amount < 5)
-						to_chat(user, SPAN_WARNING("You need atleast 5 lengths of coil in \the [CC]!"))
+						to_chat(user, SPAN_WARNING("You need at least 5 lengths of coil in \the [CC]!"))
 						return
 					CC.use(5)
-					user.visible_message(SPAN_WARNING("\The [user] wires up \the [src]."), SPAN_NOTICE("You wire up \the [src]."), range = 3)
+					user.visible_message("<b>\The [user]</b> wires up \the [src].", SPAN_NOTICE("You wire up \the [src]."), range = 3)
 					icon_state = "emitter_barrel-2"
 					build_state = BARREL_WIRED
 			else if(W.iswelder())
 				var/obj/item/weldingtool/WT = W
 				if(WT.remove_fuel(3, user))
-					user.visible_message(SPAN_WARNING("\The [user] starts removing the stock from \the [src]..."), SPAN_NOTICE("You start removing the stock from \the [src]..."), range = 3)
+					user.visible_message("<b>\The [user]</b> starts removing the stock from \the [src]...", SPAN_NOTICE("You start removing the stock from \the [src]..."), range = 3)
 					playsound(get_turf(src), W.usesound, 75, TRUE)
 					if(do_after(user, 50, TRUE, src))
 						if(build_state != BARREL_STOCKED)
 							return
-						user.visible_message(SPAN_WARNING("\The [user] removes the stock from \the [src]."), SPAN_NOTICE("You remove the stock from \the [src]."), range = 3)
+						user.visible_message("<b>\The [user]</b> removes the stock from \the [src].", SPAN_NOTICE("You remove the stock from \the [src]."), range = 3)
 						var/obj/item/emitter_stock/ES = new /obj/item/emitter_stock(get_turf(src))
 						ES.build_state = STOCK_BOTTOMED
 						ES.icon_state = "emitter_stock-1"
@@ -365,23 +369,23 @@
 						icon_state = "emitter_barrel"
 		if(BARREL_WIRED)
 			if(W.isscrewdriver())
-				user.visible_message(SPAN_WARNING("\The [user] starts fastening and securing all \the [src]'s attachments..."), SPAN_NOTICE("You start fastening and securing all \the [src]'s attachments..."), range = 3)
+				user.visible_message("<b>\The [user]</b> starts fastening and securing all of \the [src]'s attachments...", SPAN_NOTICE("You start fastening and securing all of \the [src]'s attachments..."), range = 3)
 				playsound(get_turf(src), W.usesound, 75, TRUE)
 				if(do_after(user, 50, TRUE, src))
 					if(build_state != BARREL_WIRED)
 						return
-					user.visible_message(SPAN_WARNING("\The [user] fastens and secures all \the [src]'s attachments."), SPAN_NOTICE("You fasten and secure all \the [src]'s attachments."), range = 3)
+					user.visible_message("<b>\The [user]</b> fastens and secures all of \the [src]'s attachments.", SPAN_NOTICE("You fasten and secure all of \the [src]'s attachments."), range = 3)
 					var/obj/item/gun/energy/emitter_rifle/ER = new /obj/item/gun/energy/emitter_rifle(get_turf(src))
 					user.put_in_hands(ER)
 					transfer_fingerprints_to(ER)
 					qdel(src)
 			else if(W.iswirecutter())
-				user.visible_message(SPAN_WARNING("\The [user] starts snipping off \the [src]'s wiring..."), SPAN_NOTICE("You start snipping off \the [src]'s wiring..."), range = 3)
+				user.visible_message("<b>\The [user]</b> starts snipping off \the [src]'s wiring...", SPAN_NOTICE("You start snipping off \the [src]'s wiring..."), range = 3)
 				playsound(get_turf(src), W.usesound, 75, TRUE)
 				if(do_after(user, 50, TRUE, src))
 					if(build_state != BARREL_WIRED)
 						return
-					user.visible_message(SPAN_WARNING("\The [user] snips off \the [src]'s wiring."), SPAN_NOTICE("You snips off \the [src]'s wiring."), range = 3)
+					user.visible_message("<b>\The [user]</b> snips off \the [src]'s wiring.", SPAN_NOTICE("You snips off \the [src]'s wiring."), range = 3)
 					var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(get_turf(src), 5)
 					user.put_in_hands(CC)
 					build_state = BARREL_STOCKED
@@ -403,7 +407,7 @@
 				if(R.amount < 5)
 					to_chat(user, SPAN_WARNING("You need atleast 5 rods in the stack of rods!"))
 					return
-				user.visible_message(SPAN_WARNING("\The [user] starts creating a trigger and grip for \the [src]..."), SPAN_NOTICE("You start creating a trigger and grip for \the [src]..."), range = 3)
+				user.visible_message("<b>\The [user]</b> starts creating a trigger and grip for \the [src]...", SPAN_NOTICE("You start creating a trigger and grip for \the [src]..."), range = 3)
 				if(do_after(user, 50, TRUE, src))
 					if(build_state != STOCK_UNMODIFIED)
 						return
@@ -411,18 +415,18 @@
 						to_chat(user, SPAN_WARNING("You need atleast 5 rods in the stack of rods!"))
 						return
 					R.use(5)
-					user.visible_message(SPAN_WARNING("\The [user] creates a trigger and grip for \the [src]."), SPAN_NOTICE("You create a trigger and grip for \the [src]."), range = 3)
+					user.visible_message("<b>\The [user]</b> creates a trigger and grip for \the [src].", SPAN_NOTICE("You create a trigger and grip for \the [src]."), range = 3)
 					build_state = STOCK_BOTTOMED
 					icon_state = "emitter_stock-1"
 			else if(W.iswelder())
 				var/obj/item/weldingtool/WT = W
 				if(WT.remove_fuel(3, user))
-					user.visible_message(SPAN_WARNING("\The [user] starts cutting \the [src] apart..."), SPAN_NOTICE("You start cutting \the [src] apart..."), range = 3)
+					user.visible_message("<b>\The [user]</b> starts cutting \the [src] apart...", SPAN_NOTICE("You start cutting \the [src] apart..."), range = 3)
 					playsound(get_turf(src), W.usesound, 75, TRUE)
 					if(do_after(user, 50, TRUE, src))
 						if(build_state != STOCK_UNMODIFIED)
 							return
-						user.visible_message(SPAN_WARNING("\The [user] cuts \the [src] apart."), SPAN_NOTICE("You cut \the [src] apart."), range = 3)
+						user.visible_message("<b>\The [user]</b> cuts \the [src] apart.", SPAN_NOTICE("You cut \the [src] apart."), range = 3)
 						var/obj/item/stack/material/plasteel/P = new /obj/item/stack/material/plasteel(get_turf(src), 10) // a bit of a lossy conversion
 						user.put_in_hands(P)
 						qdel(src)
@@ -432,12 +436,12 @@
 			if(W.iswelder())
 				var/obj/item/weldingtool/WT = W
 				if(WT.remove_fuel(3, user))
-					user.visible_message(SPAN_WARNING("\The [user] starts slicing \the [src]'s trigger and grips off..."), SPAN_NOTICE("You start cutting \the [src]'s trigger and grips off..."), range = 3)
+					user.visible_message("<b>\The [user]</b> starts slicing \the [src]'s trigger and grips off...", SPAN_NOTICE("You start cutting \the [src]'s trigger and grips off..."), range = 3)
 					playsound(get_turf(src), W.usesound, 75, TRUE)
 					if(do_after(user, 50, TRUE, src))
 						if(build_state != STOCK_BOTTOMED)
 							return
-						user.visible_message(SPAN_WARNING("\The [user] cuts \the [src]'s trigger and grips off."), SPAN_NOTICE("You cut \the [src]'s trigger and grips off."), range = 3)
+						user.visible_message("<b>\The [user]</b> cuts \the [src]'s trigger and grips off.", SPAN_NOTICE("You cut \the [src]'s trigger and grips off."), range = 3)
 						var/obj/item/stack/rods/R = new /obj/item/stack/rods(get_turf(src), 5)
 						user.put_in_hands(R)
 						build_state = STOCK_UNMODIFIED
