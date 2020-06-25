@@ -1,5 +1,6 @@
 /datum/accent/ceti
 	name = ACCENT_CETI
+	description = "Often described as the \"true\" way of speaking Tau Ceti Basic, the Biesellite accent is easy to reproduce due to the phonetics of TCB."
 	tag_icon = "biesel"
 
 /datum/accent/coc

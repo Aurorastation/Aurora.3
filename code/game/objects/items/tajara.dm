@@ -136,7 +136,7 @@
 					adhomian_day = current_day + 30
 
 			if("October", "November", "December")
-				adhomian_month = "Sil’nryy-rhazzimy"
+				adhomian_month = "Sil'nryy-rhazzimy"
 				if (current_month == "November")
 					adhomian_day = current_day + 15
 				if (current_month == "December")

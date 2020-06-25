@@ -68,7 +68,16 @@
 #define ACCENT_DOMINIA "Dominian"
 #define ACCENT_JUPITER "Jovian"
 
-#define ACCENT_TAJARA "Tajaran"
+#define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
+#define ACCENT_NAZIRASIIK "Nazira Siik'maas"
+#define ACCENT_CREVAN "Crevan Creole"
+#define ACCENT_DASNRRASIIK "Das'nrra Siik'maas:"
+#define ACCENT_HIGHHARRSIIK "High-Harr'masir Siik'maas"
+#define ACCENT_LOWHARRSIIK "Lower-Harr'masir Siik'maas"
+#define ACCENT_AMOHDASIIK "Amohdan Siik'maas"
+#define ACCENT_RURALDELVAHHI "Rural Delvahhi"
+#define ACCENT_NOMADDELVAHHI "Nomadic Delvahhi"
+#define ACCENT_OLDYASSA "Old Ya'ssa"
 
 #define ACCENT_UNATHI "Sinta'unathi"
 
