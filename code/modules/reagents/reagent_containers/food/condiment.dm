@@ -102,7 +102,7 @@
 
 /obj/item/reagent_containers/food/condiment/shaker/spacespice
 	volume = 40
-	reagents_to_add = list(/datum/reagent/sodiumchloride = 40)
+	reagents_to_add = list(/datum/reagent/spacespice = 40)
 
 /obj/item/reagent_containers/food/condiment/barbecue
 	fixed_state = TRUE

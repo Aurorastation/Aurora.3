@@ -343,7 +343,7 @@
 	applies_material_colour = 0
 	default_material = "steel"
 	parry_chance = 5
-	var/fuel_type = "fuel"
+	var/fuel_type = /datum/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.

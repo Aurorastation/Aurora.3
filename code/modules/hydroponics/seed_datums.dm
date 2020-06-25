@@ -414,8 +414,8 @@
 	display_name = "black k'ois spores"
 	mutants = null
 	chems = list(
-				"blackkois" = list(4),
-				"phoron" = list(2))
+				/datum/reagent/kois/black = list(4),
+				/datum/reagent/toxin/phoron = list(2))
 
 /datum/seed/koisspore/black/setup_traits()
 	..()

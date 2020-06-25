@@ -418,7 +418,7 @@
 	id = "stoxin"
 	result = /datum/reagent/soporific
 	required_reagents = list(/datum/reagent/chloralhydrate = 1, /datum/reagent/sugar = 4)
-	inhibitors = list("phosphorus") // Messes with the smoke
+	inhibitors = list(/datum/reagent/phosphorus) // Messes with the smoke
 	result_amount = 5
 
 /datum/chemical_reaction/chloralhydrate
@@ -1074,7 +1074,7 @@
 	result_amount = 5
 
 /datum/chemical_reaction/blood_paint/send_data(var/datum/reagents/T)
-	var/t = T.get_data("blood")
+	var/t = T.get_data(/datum/reagent/blood)
 	if(t && t["blood_colour"])
 		return t["blood_colour"]
 	return "#FE191A" // Probably red

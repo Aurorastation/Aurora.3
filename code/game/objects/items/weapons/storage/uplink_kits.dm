@@ -170,19 +170,19 @@
 	..()
 	var/obj/item/storage/fancy/cigarettes/pack
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("aluminum" = 5, "potassium" = 5, "sulfur" = 5))
+	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("aluminum" = 5, "potassium" = 5, "sulfur" = 5))
+	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("potassium" = 5, "sugar" = 5, "phosphorus" = 5))
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("potassium" = 5, "sugar" = 5, "phosphorus" = 5))
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
