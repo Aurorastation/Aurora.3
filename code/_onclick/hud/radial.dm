@@ -312,4 +312,4 @@ var/global/list/radial_menus = list()
 	radial_menus -= uniqueid
 	return answer
 
-#define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices)
+#define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices, tooltips = TRUE)

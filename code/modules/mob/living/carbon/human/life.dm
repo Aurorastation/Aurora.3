@@ -1100,7 +1100,7 @@
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60)
-			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
+			visible_message("<b>[src]</b>'s body becomes limp.", "Your body becomes limp.")
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
@@ -1137,8 +1137,6 @@
 			holder.icon_state = "0" 	// X_X
 		else if(is_asystole())
 			holder.icon_state = "flatline"
-		else if(isFBP(src))
-			holder.icon_state = "2"
 		else
 			holder.icon_state = "[pulse()]"
 		hud_list[HEALTH_HUD] = holder

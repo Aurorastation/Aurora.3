@@ -76,7 +76,7 @@
 		return
 	if (src.operating)
 		return
-	if (src.density && (!issmall(AM) || ishuman(AM) || isrobot(AM)) && src.allowed(AM))
+	if (src.density && (ishuman(AM) || isrobot(AM)) && src.allowed(AM))
 		open()
 		//secure doors close faster
 		var/time = check_access(null) ? 50 : 20

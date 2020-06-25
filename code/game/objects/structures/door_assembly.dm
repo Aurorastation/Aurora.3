@@ -205,9 +205,11 @@
 	else if(W.iswrench() && state == 0)
 		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
-			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
+			user.visible_message("<b>[user]</b> begins unsecuring the airlock assembly from the floor.", \
+								SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))
 		else
-			user.visible_message("[user] begins securing the airlock assembly to the floor.", "You starts securing the airlock assembly to the floor.")
+			user.visible_message("<b>[user]</b> begins securing the airlock assembly to the floor.", \
+								SPAN_NOTICE("You start securing the airlock assembly to the floor."))
 
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return

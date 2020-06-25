@@ -22,7 +22,7 @@
 	if (config.news_use_forum_api)
 		load_forum_news_config()
 
-		load_from_forums()
+		INVOKE_ASYNC(src, .proc/load_from_forums)
 
 	..()
 

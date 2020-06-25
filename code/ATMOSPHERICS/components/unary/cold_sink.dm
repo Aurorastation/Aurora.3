@@ -3,7 +3,10 @@
 
 /obj/machinery/atmospherics/unary/freezer
 	name = "gas cooling system"
-	desc = "Cools gas when connected to pipe network"
+	desc = "Cools gas when connected to pipe network."
+	desc_info = "Cools down the gas of the pipe it is connected to.  It uses massive amounts of electricity while on. \
+	It can be upgraded by replacing the capacitors, manipulators, and matter bins.  It can be deconstructed by screwing the maintenance panel open with a \
+	screwdriver, and then using a crowbar."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "freezer_0"
 	density = 1

@@ -35,6 +35,7 @@
 #define SS_PRIORITY_OVERLAY   100	// Applies overlays. May cause overlay pop-in if it gets behind.
 //#define SS_PRIORITY_DEFAULT  50	// This is defined somewhere else.
 #define SS_PRIORITY_TIMER      20	// Timed event scheduling. This is important.
+#define SS_PRIORITY_PROFILE    15
 #define SS_PRIORITY_SMOOTHING  10	// Smooth turf generation.
 #define SS_PRIORITY_ORBIT       5	// Orbit datum updates.
 #define SS_PRIORITY_ICON_UPDATE 5	// Queued icon updates. Mostly used by APCs and tables.

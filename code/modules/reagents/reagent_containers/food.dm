@@ -28,8 +28,8 @@
 	if(!reagents.total_volume)
 		if(trash)
 			user.drop_from_inventory(src)	//so trash actually stays in the active hand.
-			var/obj/item/TrashItem = new trash(user)
-			user.put_in_hands(TrashItem)
+			var/obj/item/trash_item = new trash(user)
+			user.put_in_hands(trash_item)
 			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].",
 								   span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 			qdel(src)

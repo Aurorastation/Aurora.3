@@ -121,7 +121,7 @@
 	autodrobe_no_remove = 1
 	starts_with = list(/obj/item/clothing/mask/breath = 1,
 					   /obj/item/tank/emergency_oxygen = 1,
-					   /obj/item/device/flashlight/flare = 1
+					   /obj/item/device/flashlight/flare/glowstick/red = 1
 						)
 
 /obj/item/storage/box/survival/fill()
@@ -860,3 +860,12 @@
 /obj/item/storage/box/dynamite/throw_impact(atom/hit_atom)
 	..()
 	spill()
+
+/obj/item/storage/box/closet_teleporter
+	starts_with = list(/obj/item/closet_teleporter = 2)
+
+/obj/item/storage/box/closet_teleporter/fill()
+	var/obj/item/closet_teleporter/CT_1 = new /obj/item/closet_teleporter(src)
+	var/obj/item/closet_teleporter/CT_2 = new /obj/item/closet_teleporter(src)
+	CT_1.linked_teleporter = CT_2
+	CT_2.linked_teleporter = CT_1

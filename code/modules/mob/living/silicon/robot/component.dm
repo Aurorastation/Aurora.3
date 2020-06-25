@@ -281,7 +281,7 @@
 	var/burn = 0
 	var/icon_state_broken = "broken"
 	var/total_dam = 0
-	var/max_dam = 30
+	var/max_dam = 60
 
 /obj/item/robot_parts/robot_component/binary_communication_device
 	name = "binary communication device"

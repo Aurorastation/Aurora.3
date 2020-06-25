@@ -21,9 +21,10 @@
 
 /obj/item/gun/energy/laser/mounted
 	name = "mounted laser carbine"
-	self_recharge = 1
-	use_external_power = 1
-	can_turret = 0
+	has_safety = FALSE
+	self_recharge = TRUE
+	use_external_power = TRUE
+	can_turret = FALSE
 
 /obj/item/gun/energy/laser/mounted/cyborg/overclocked
 	max_shots = 15
@@ -55,10 +56,12 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/captain
 	name = "antique laser gun"
 	icon = 'icons/obj/guns/caplaser.dmi'
+	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
+	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly. Unlike most weapons, this weapon recharges itself."
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	has_item_ratio = FALSE
-	desc = "This is an antique laser gun. All craftsmanship is of the highest quality. The object menaces with spikes of energy."
 	force = 5
 	fire_sound = 'sound/weapons/Laser.ogg'
 	slot_flags = SLOT_BELT
@@ -131,6 +134,9 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
 	desc = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
+	To use the scope, use the appropriate verb in the object tab."
 	icon = 'icons/obj/guns/sniper.dmi'
 	icon_state = "sniper"
 	item_state = "sniper"

@@ -72,7 +72,7 @@
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
-		user.visible_message("<span class='notice'>\The [user] injects \the [H] with \the [src].</span>","<span class='notice'>You stick \the [src] in \the [H]'s mouth and press the injection button.</span>")
+		user.visible_message("<span class='notice'>\The [user] injects \the [H] with \a [src].</span>","<span class='notice'>You stick \the [src] in \the [H]'s mouth and press the injection button.</span>")
 
 	if(H.reagents)
 		var/contained = reagentlist()
