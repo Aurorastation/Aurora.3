@@ -726,7 +726,7 @@ var/list/gamemode_cache = list()
 					config.character_slots = text2num(value)
 
 				if("loadout_slots")
-					config.character_slots = text2num(value)
+					config.loadout_slots = text2num(value)
 
 				if("allow_drone_spawn")
 					config.allow_drone_spawn = text2num(value)
