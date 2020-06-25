@@ -1123,7 +1123,6 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icons()
 
-
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
@@ -1133,7 +1132,9 @@ There are several things that need to be remembered:
 		r_hand.screen_loc = ui_rhand	//TODO
 
 		//determine icon state to use
-		var/t_state
+		var/t_state = r_hand.item_state || r_hand.icon_state
+
+		var/image/result_layer
 		if(r_hand.contained_sprite)
 			r_hand.auto_adapt_species(src)
 			t_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_tag)][r_hand.item_state][WORN_RHAND]"
@@ -1142,8 +1143,6 @@ There are several things that need to be remembered:
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				t_state = r_hand.item_state_slots[slot_r_hand_str]
-			else
-				t_state = r_hand.item_state || r_hand.icon_state
 
 			//determine icon to use
 			var/icon/t_icon
@@ -1155,11 +1154,19 @@ There are several things that need to be remembered:
 			else
 				t_icon = INV_R_HAND_DEF_ICON
 
-			overlays_raw[R_HAND_LAYER] = image(t_icon, t_state)
+			result_layer = image(t_icon, t_state)
+
+			if(r_hand.color)
+				result_layer.color = r_hand.color
+
+			var/list/worn_overlays = r_hand.worn_overlays(r_hand.item_icons)
+			if(worn_overlays && worn_overlays.len)
+				result_layer += (worn_overlays)
+
+			overlays_raw[R_HAND_LAYER] = result_layer
 
 	if(update_icons)
 		update_icons()
-
 
 /mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
 	if (QDELING(src))
@@ -1170,7 +1177,9 @@ There are several things that need to be remembered:
 		l_hand.screen_loc = ui_lhand	//TODO
 
 		//determine icon state to use
-		var/t_state
+		var/t_state = l_hand.item_state || l_hand.icon_state
+
+		var/image/result_layer
 		if(l_hand.contained_sprite)
 			l_hand.auto_adapt_species(src)
 			t_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
@@ -1179,8 +1188,6 @@ There are several things that need to be remembered:
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				t_state = l_hand.item_state_slots[slot_l_hand_str]
-			else
-				t_state = l_hand.item_state || l_hand.icon_state
 
 			//determine icon to use
 			var/icon/t_icon
@@ -1192,7 +1199,16 @@ There are several things that need to be remembered:
 			else
 				t_icon = INV_L_HAND_DEF_ICON
 
-			overlays_raw[L_HAND_LAYER] = image(t_icon, t_state)
+			result_layer = image(t_icon, t_state)
+
+			if(l_hand.color)
+				result_layer.color = l_hand.color
+
+			var/list/worn_overlays = l_hand.worn_overlays(l_hand.item_icons)
+			if(worn_overlays && worn_overlays.len)
+				result_layer += (worn_overlays)
+
+			overlays_raw[L_HAND_LAYER] = result_layer
 
 	if(update_icons)
 		update_icons()

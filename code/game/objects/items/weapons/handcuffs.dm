@@ -121,6 +121,7 @@
 	name = "cable restraints"
 	desc = "Looks like some cables tied together. Could be used to tie something up."
 	icon_state = "cablecuff"
+	color = COLOR_RED
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_materials.dmi',
@@ -129,47 +130,42 @@
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraints"
 	elastic = TRUE
-	var/our_color
 	var/build_from_parts = TRUE
 
 /obj/item/handcuffs/cable/Initialize(mapload, new_color)
 	. = ..()
 	if(new_color)
-		our_color = new_color
-	update_icon()
+		color = new_color
 
-/obj/item/handcuffs/cable/update_icon()
 	if(build_from_parts) //random colors!
-		if(!our_color)
-			our_color = pick(possible_cable_coil_colours)
-		var/color_hex = possible_cable_coil_colours[our_color]
-		color = color_hex
-		item_state = "coil-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
+		if(!color)
+			color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
 		add_overlay(overlay_image(icon, "[initial(icon_state)]_end", flags=RESET_COLOR))
 
 /obj/item/handcuffs/cable/yellow
-	our_color = "Yellow"
-
-/obj/item/handcuffs/cable/green
-	our_color = "Green"
-
-/obj/item/handcuffs/cable/pink
-	our_color = "Pink"
+	color = COLOR_YELLOW
 
 /obj/item/handcuffs/cable/blue
-	our_color = "Blue"
+	color = COLOR_BLUE
+
+/obj/item/handcuffs/cable/green
+	color = COLOR_GREEN
+
+/obj/item/handcuffs/cable/pink
+	color = COLOR_PINK
 
 /obj/item/handcuffs/cable/orange
-	our_color = "Orange"
+	color = COLOR_ORANGE
 
 /obj/item/handcuffs/cable/cyan
-	our_color = "Cyan"
-
-/obj/item/handcuffs/cable/red
-	our_color = "Red"
+	color = COLOR_CYAN
 
 /obj/item/handcuffs/cable/white
-	our_color = "White"
+	color = COLOR_WHITE
+
+/obj/item/handcuffs/cable/random/Initialize()
+	color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
+	. = ..()
 
 /obj/item/handcuffs/cable/attackby(var/obj/item/I, mob/user as mob)
 	..()
@@ -184,7 +180,7 @@
 	else if(I.iswirecutter())
 		user.visible_message("[user] cuts the [src].", SPAN_NOTICE("You cut the [src]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-		new/obj/item/stack/cable_coil(get_turf(src), 15, our_color)
+		new/obj/item/stack/cable_coil(get_turf(src), 15, color)
 		qdel(src)
 		update_icon(user)
 

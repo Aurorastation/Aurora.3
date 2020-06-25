@@ -21,28 +21,17 @@ If d1 = 0 and d2 = dir, it's a O-X cable, getting from the center of the tile to
 If d1 = dir1 and d2 = dir2, it's a full X-X cable, getting from dir1 to dir2
 By design, d1 is the smallest direction and d2 is the highest
 */
-var/static/list/possible_cable_coil_colours = list(
-		"Yellow" = COLOR_YELLOW,
-		"Green" = COLOR_LIME,
-		"Pink" = COLOR_PINK,
-		"Blue" = COLOR_BLUE,
-		"Orange" = COLOR_ORANGE,
-		"Cyan" = COLOR_CYAN,
-		"Red" = COLOR_RED,
-		"White" = COLOR_WHITE
-	)
-
 /obj/structure/cable
 	level = 1
 	anchored =1
 	var/datum/powernet/powernet
 	name = "power cable"
-	desc = "A flexible superconducting cable for heavy-duty power transfer"
+	desc = "A flexible superconducting cable for heavy-duty power transfer."
 	icon = 'icons/obj/power_cond_white.dmi'
 	icon_state = "0-1"
 	var/d1 = 0
 	var/d2 = 1
-	layer = 2.44 //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
+	layer = CABLE_LAYER //Just below unary stuff, which is at 2.45 and above pipes, which are at 2.4
 	color = COLOR_RED
 	var/obj/machinery/power/breakerbox/breaker_box
 
@@ -159,6 +148,7 @@ var/static/list/possible_cable_coil_colours = list(
 
 		for(var/mob/O in viewers(src, null))
 			O.show_message(SPAN_WARNING("[user] cuts the cable."), 1)
+			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 
 		if(d1 == 11 || d2 == 11)
 			var/turf/turf = GetBelow(src)
@@ -176,7 +166,7 @@ var/static/list/possible_cable_coil_colours = list(
 	else if(W.iscoil())
 		var/obj/item/stack/cable_coil/coil = W
 		if (coil.get_amount() < 1)
-			to_chat(user, "Not enough cable")
+			to_chat(user, "You don't have enough cable.")
 			return
 		coil.cable_join(src, user)
 
@@ -473,10 +463,13 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	name = "power cable"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "coil"
+	item_state = "coil"
+	desc = "A coil of wire used in delicate electronics and cable laying."
+	singular_name = "length"
+	gender = NEUTER
 	amount = MAXCOIL
 	max_amount = MAXCOIL
-	var/our_color = "Red"
-	desc = "A coil of wire used in delicate electronics and cable laying."
+	color = COLOR_RED
 	throwforce = 10
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 2
@@ -484,18 +477,32 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	item_state = "coil"
 	attack_verb = list("whipped", "lashed", "disciplined", "flogged")
 	stacktype = /obj/item/stack/cable_coil
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	var/static/list/possible_cable_coil_colours = list(
+		"Yellow" = COLOR_YELLOW,
+		"Green" = COLOR_LIME,
+		"Pink" = COLOR_PINK,
+		"Blue" = COLOR_BLUE,
+		"Orange" = COLOR_ORANGE,
+		"Cyan" = COLOR_CYAN,
+		"Red" = COLOR_RED,
+		"White" = COLOR_WHITE
+	)
 
-/obj/item/stack/cable_coil/Initialize(mapload, amt, new_color)
+/obj/item/stack/cable_coil/iscoil()
+	return TRUE
+
+/obj/item/stack/cable_coil/Initialize(mapload, amt, param_color = null)
 	. = ..(mapload, amt)
+
+	if(param_color) // It should be red by default, so only recolor it if parameter was specified.
+		color = param_color
+
 	pixel_x = rand(-2,2)
 	pixel_y = rand(-2,2)
-	if(new_color)
-		our_color = new_color
 	update_icon()
 	update_wclass()
 
@@ -595,6 +602,9 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			to_chat(user, SPAN_WARNING("You don't have enough cable for this!"))
 
 /obj/item/stack/cable_coil/update_icon()
+	if(!color)
+		color = pick(possible_cable_coil_colours)
+		update_held_icon()
 	name = "[initial(name)]"
 	if(amount == 1)
 		icon_state = "[initial(icon_state)]1"
@@ -607,11 +617,6 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		name += " coil"
 	cut_overlays()
 	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
-	if(our_color)
-		var/color_hex = possible_cable_coil_colours[our_color]
-		color = color_hex
-		item_state = "coil-[our_color]"
-		update_held_icon()
 
 /obj/item/stack/cable_coil/attackby(var/obj/item/W, var/mob/user)
 	if(W.ismultitool())
@@ -626,33 +631,20 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(!selected_color)
 		return
 
-	our_color = selected_color
-	if(!our_color)
-		our_color = "Red"
-	update_icon()
+	var/final_color = possible_cable_coil_colours[selected_color]
+	if(!final_color)
+		final_color = possible_cable_coil_colours["Red"]
+		selected_color = "Red"
+	color = final_color
 	to_chat(user, SPAN_NOTICE("You change \the [src]'s color to [lowertext(selected_color)]."))
 
 /obj/item/stack/cable_coil/proc/update_wclass()
 	if(amount == 1)
 		w_class = ITEMSIZE_TINY
-		slot_flags = SLOT_EARS
+		slot_flags = SLOT_BELT | SLOT_EARS //one cable piece can fit in your ear.
 	else
 		w_class = ITEMSIZE_SMALL
-		slot_flags = null
-
-/obj/item/stack/cable_coil/examine(mob/user)
-	if(get_dist(src, user) > 1)
-		return
-
-	if(get_amount() == 1)
-		to_chat(user, "A short piece of power cable.")
-	else if(get_amount() == 2)
-		to_chat(user, "A piece of power cable.")
-	else
-		to_chat(user, "A coil of power cable. There are <b>[get_amount()]</b> lengths of cable in the coil.")
-
-/obj/item/stack/cable_coil/iscoil()
-	return TRUE
+		slot_flags = SLOT_BELT
 
 /obj/item/stack/cable_coil/verb/make_restraint(mob/user)
 	set name = "Make Cable Restraints"
@@ -666,7 +658,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			return
 		to_chat(user, SPAN_NOTICE("You start winding some cable together to make some restraints."))
 		if(do_after(user, 150))
-			new/obj/item/handcuffs/cable(user.loc, our_color)
+			new/obj/item/handcuffs/cable(user.loc, color)
 			to_chat(user, SPAN_NOTICE("You wind some cable together to make some restraints."))
 			playsound(src.loc, 'sound/weapons/cablecuff.ogg', 30, 1, -2)
 			src.use(15)
@@ -720,7 +712,6 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 // called when cable_coil is clicked on a turf/simulated/floor
 /obj/item/stack/cable_coil/proc/turf_place(turf/F, mob/user)
-	var/color_hex = possible_cable_coil_colours[our_color]
 	if(!isturf(user.loc))
 		return
 
@@ -762,7 +753,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			var/obj/structure/cable/C = new(F)
 			var/obj/structure/cable/D = new(GetBelow(F))
 
-			C.cableColor(color_hex)
+			C.cableColor(color)
 
 			C.d1 = 11
 			C.d2 = dirn
@@ -775,7 +766,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			C.mergeConnectedNetworks(C.d2)
 			C.mergeConnectedNetworksOnTurf()
 
-			D.cableColor(color_hex)
+			D.cableColor(color)
 
 			D.d1 = 12
 			D.d2 = 0
@@ -795,7 +786,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 			var/obj/structure/cable/C = new(F)
 
-			C.cableColor(color_hex)
+			C.cableColor(color)
 
 			//set up the new cable
 			C.d1 = 0 //it's a O-X node cable
@@ -823,7 +814,6 @@ obj/structure/cable/proc/cableColor(var/colorC)
 // called when cable_coil is click on an installed obj/cable
 // or click on a turf that already contains a "node" cable
 /obj/item/stack/cable_coil/proc/cable_join(obj/structure/cable/C, mob/user)
-	var/color_hex = possible_cable_coil_colours[our_color]
 	var/turf/U = user.loc
 	if(!isturf(U))
 		return
@@ -861,7 +851,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 					return
 
 			var/obj/structure/cable/NC = new(U)
-			NC.cableColor(color_hex)
+			NC.cableColor(color)
 
 			NC.d1 = 0
 			NC.d2 = fdirn
@@ -907,7 +897,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				return
 
 
-		C.cableColor(color_hex)
+		C.cableColor(color)
 
 		C.d1 = nd1
 		C.d2 = nd2
@@ -953,28 +943,28 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	update_wclass()
 
 /obj/item/stack/cable_coil/yellow
-	our_color = "Yellow"
+	color = COLOR_YELLOW
 
 /obj/item/stack/cable_coil/blue
-	our_color = "Blue"
+	color = COLOR_BLUE
 
 /obj/item/stack/cable_coil/green
-	our_color = "Green"
+	color = COLOR_GREEN
 
 /obj/item/stack/cable_coil/pink
-	our_color = "Pink"
+	color = COLOR_PINK
 
 /obj/item/stack/cable_coil/orange
-	our_color = "Orange"
+	color = COLOR_ORANGE
 
 /obj/item/stack/cable_coil/cyan
-	our_color = "Cyan"
+	color = COLOR_CYAN
 
 /obj/item/stack/cable_coil/white
-	our_color = "White"
+	color = COLOR_WHITE
 
 /obj/item/stack/cable_coil/random/Initialize()
-	our_color = pick(possible_cable_coil_colours)
+	color = pick(possible_cable_coil_colours)
 	. = ..()
 
 //////////////////////////////
@@ -996,7 +986,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		user.visible_message(SPAN_WARNING("[user] starts winding some cable together to make a noose, tying it to the ceiling!"),
 							 SPAN_NOTICE("You start to wind some cable together to make a noose, tying it to the ceiling."))
 		if(do_after(user, 250))
-			new/obj/structure/noose(user.loc, our_color)
+			new/obj/structure/noose(user.loc, color)
 			to_chat(user, SPAN_NOTICE("You wind some cable together to make a noose, tying it to the ceiling."))
 			playsound(user.loc, 'sound/effects/noose_idle.ogg', 50, 1, -3)
 			src.use(25)
@@ -1012,7 +1002,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	anchored = 1
 	can_buckle = 1
 	layer = 5
-	var/our_color = "Red"
+	color = null
 	var/image/over = null
 	var/ticks = 0
 
@@ -1025,20 +1015,20 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			buckled_mob.visible_message(SPAN_DANGER("[buckled_mob] falls over and hits the ground!"),\
 										SPAN_DANGER("You fall over and hit the ground!"))
 			buckled_mob.adjustBruteLoss(10)
-		new/obj/item/stack/cable_coil(get_turf(src), 25, our_color)
+		new/obj/item/stack/cable_coil(get_turf(src), 25, color)
 		qdel(src)
 		return
 	..()
 
-/obj/structure/noose/Initialize(mapload, new_color)
+/obj/structure/noose/Initialize(mapload, param_color = null)
 	. = ..()
 	pixel_y += 16 //Noose looks like it's "hanging" in the air
 	over = image(icon, "noose_overlay")
 	over.layer = MOB_LAYER + 0.1
-	if(new_color)
-		our_color = new_color
-	var/color_hex = possible_cable_coil_colours[our_color]
-	color = color_hex
+	if(param_color)
+		color = param_color
+	if(!color)
+		color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
 
 /obj/structure/noose/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
