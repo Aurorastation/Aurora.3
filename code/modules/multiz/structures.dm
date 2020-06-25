@@ -210,6 +210,10 @@
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
+/obj/structure/stairs/Crossed(obj/O)
+	if(istype(O))
+		O.stair_act()
+
 /obj/structure/stairs/proc/upperStep(var/turf/T)
 	return (T == loc)
 

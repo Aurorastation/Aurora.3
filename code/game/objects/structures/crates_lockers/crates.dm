@@ -8,7 +8,6 @@
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 	climbable = 1
-//	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
 	var/rigged = 0
 	var/tablestatus = 0
 	pass_flags = PASSTABLE
@@ -85,8 +84,14 @@
 	pass_flags = PASSTABLE//Crates can only slide under tables when closed
 	return 1
 
-
-
+/obj/structure/closet/crate/stair_act()
+	if(!opened)
+		visible_message(SPAN_WARNING("\The [src] flies open as it bounces on the stairs!"))
+		for(var/thing in src)
+			var/atom/movable/AM = thing
+			AM.forceMove(get_turf(src))
+			AM.throw_at_random(TRUE, 1, 2)
+		open()
 
 /obj/structure/closet/crate/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)

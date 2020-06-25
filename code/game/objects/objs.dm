@@ -249,3 +249,7 @@
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+
+// have the object do something when it crosses a stair turf
+/obj/proc/stair_act()
+	return

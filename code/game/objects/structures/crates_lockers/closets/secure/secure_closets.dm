@@ -196,6 +196,10 @@
 		else
 			togglelock(user)//Attempt to lock locker if closed
 
+/obj/structure/closet/secure_closet/stair_act()
+	if(!locked)
+		..()
+
 /obj/structure/closet/secure_closet/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
 	if(!broken)
 		broken = 1

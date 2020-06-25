@@ -170,6 +170,15 @@
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
 
+/obj/structure/bed/stair_act()
+	if(buckled_mob)
+		var/mob/M = buckled_mob
+		M.lying = TRUE
+		M.Paralyse(3)
+		M.visible_message("<b>\The [M]</b> goes flying out of \the [src] as it bounces on the stairs!", SPAN_WARNING("You go flying out of \the [src] as it bounces on the stairs!"))
+		unbuckle_mob()
+		M.throw_at_random(FALSE, 1, 2)
+
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
 	desc = "For prime comfort during psychiatric evaluations."
@@ -339,6 +348,9 @@
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
 	set_light(2,1,LIGHT_COLOR_CYAN)
+
+/obj/structure/bed/roller/hover/stair_act()
+	return
 
 /obj/item/roller
 	name = "roller bed"

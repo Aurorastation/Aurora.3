@@ -194,6 +194,9 @@
 	.=..()
 	set_light(1,1,LIGHT_COLOR_CYAN)
 
+/obj/structure/bed/chair/office/hover/stair_act()
+	return
+
 /obj/structure/bed/chair/office/hover/command
 	icon_state = "hover_command"
 
