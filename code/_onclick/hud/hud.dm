@@ -41,6 +41,8 @@ var/list/global_huds
 	druggy.icon_state = "druggy"
 	druggy.layer = 17
 	druggy.mouse_opacity = 0
+	druggy.alpha = 127
+	druggy.blend_mode = BLEND_MULTIPLY
 
 	//that white blurry effect you get when you eyes are damaged
 	blurry = new /obj/screen()
@@ -136,10 +138,13 @@ var/list/global_huds
 	var/show_intent_icons = 0
 	var/hotkey_ui_hidden = 0	//This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
+	var/obj/screen/lingchemdisplay
+	var/obj/screen/blobpwrdisplay
+	var/obj/screen/blobhealthdisplay
 	var/obj/screen/r_hand_hud_object
 	var/obj/screen/l_hand_hud_object
 	var/obj/screen/action_intent
-	var/obj/screen/movement/move_intent
+	var/obj/screen/movement_intent/move_intent
 
 	var/list/adding
 	var/list/other
@@ -159,6 +164,9 @@ datum/hud/New(mob/owner)
 	hurt_intent = null
 	disarm_intent = null
 	help_intent = null
+	lingchemdisplay = null
+	blobpwrdisplay = null
+	blobhealthdisplay = null
 	r_hand_hud_object = null
 	l_hand_hud_object = null
 	action_intent = null

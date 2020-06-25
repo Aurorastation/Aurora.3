@@ -239,7 +239,9 @@
 	add_overlay(selecting_appearance)
 
 /obj/screen/Click(location, control, params)
-	if(!usr)	return 1
+	if(!usr)
+		return TRUE
+	var/list/modifiers = params2list(params)
 	switch(name)
 		if("toggle")
 			if(usr.hud_used.inventory_shown)
@@ -286,7 +288,6 @@
 				usr.client.drop_item()
 
 		if("up hint")
-			var/list/modifiers = params2list(params)
 			if(modifiers["shift"])
 				if(ishuman(usr))
 					var/mob/living/carbon/human/H = usr
@@ -317,10 +318,19 @@
 		if("module")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
-//				if(R.module)
-//					R.hud_used.toggle_show_robot_modules()
-//					return 1
+				if(modifiers["shift"])
+					if(R.module)
+						to_chat(R, SPAN_NOTICE("You currently have the [R.module.name] active."))
+					else
+						to_chat(R, SPAN_WARNING("You don't have a module active currently."))
+					return
 				R.pick_module()
+
+		if("health")
+			if(isrobot(usr))
+				if(modifiers["shift"])
+					var/mob/living/silicon/robot/R = usr
+					R.self_diagnosis_verb()
 
 		if("inventory")
 			if(isrobot(usr))
@@ -333,6 +343,14 @@
 
 		if("radio")
 			if(issilicon(usr))
+				if(isrobot(usr))
+					if(modifiers["shift"])
+						var/mob/living/silicon/robot/R = usr
+						if(!R.radio.radio_desc)
+							R.radio.setupRadioDescription()
+						to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
+						to_chat(R, R.radio.radio_desc)
+						return
 				usr:radio_menu()
 		if("panel")
 			if(issilicon(usr))
@@ -341,10 +359,13 @@
 		if("store")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
-				if(R.module)
-					R.uneq_active()
-				else
-					to_chat(R, "You haven't selected a module yet.")
+				if(!R.module)
+					to_chat(R, SPAN_WARNING("You haven't selected a module yet."))
+					return
+				if(modifiers["alt"])
+					R.uneq_all()
+					return
+				R.uneq_active()
 
 		else
 			return 0
@@ -376,26 +397,53 @@
 				usr.update_inv_r_hand(0)
 	return 1
 
-/obj/screen/movement
+/obj/screen/movement_intent
+	name = "mov_intent"
 	screen_loc = ui_movi
 	layer = SCREEN_LAYER
 
-/obj/screen/movement/proc/update_stamina_bar(var/mob/living/user)
-	if(!user.client)
+//This updates the run/walk button on the hud
+/obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
+	if (!user.client)
 		return
-	
-	if(user.get_stamina() == user.get_maximum_stamina())
-		if(user.stamina_bar)
+
+	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
+		if (user.stamina_bar)
 			QDEL_NULL(user.stamina_bar)
 	else
-		if(!user.stamina_bar)
-			user.stamina_bar = new(user, user.get_maximum_stamina(), src)
-		user.stamina_bar.update(user.get_stamina())
+		if (!user.stamina_bar)
+			user.stamina_bar = new(user, user.max_stamina, src)
 
+		user.stamina_bar.update(user.stamina)
 
-/obj/screen/movement/Click(var/location, var/control, var/params)
-	if(istype(usr))
-		usr.set_next_usable_move_intent()
+	if (user.m_intent == "run")
+		icon_state = "running"
+	else
+		icon_state = "walking"
+
+/obj/screen/movement_intent/Click(location, control, params)
+	if(!usr)
+		return 1
+	var/list/modifiers = params2list(params)
+
+	if(iscarbon(usr))
+		var/mob/living/carbon/C = usr
+		if (modifiers["alt"])
+			C.set_walk_speed()
+			return
+
+		if(C.legcuffed)
+			to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
+			C.m_intent = "walk"	//Just incase
+			C.hud_used.move_intent.icon_state = "walking"
+			return 1
+		switch(usr.m_intent)
+			if("run")
+				usr.m_intent = "walk"
+			if("walk")
+				usr.m_intent = "run"
+
+		update_move_icon(usr)
 
 // Hand slots are special to handle the handcuffs overlay
 /obj/screen/inventory/hand

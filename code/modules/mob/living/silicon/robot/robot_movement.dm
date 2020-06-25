@@ -21,3 +21,11 @@
 
 	if(cell_use_power(actuatorComponent.active_usage))
 		return ..()
+
+/mob/living/silicon/robot/Move()
+	. = ..()
+	
+	if(client)
+		var/turf/B = GetAbove(get_turf(src))
+		if(up_hint)
+			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"

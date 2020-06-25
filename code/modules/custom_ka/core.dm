@@ -103,7 +103,12 @@
 			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
-		to_chat(user,"It has [round(installed_cell.stored_charge / cost_increase)] shots remaining.")
+		to_chat(user,"It has [get_ammo()] shots remaining.")
+
+/obj/item/gun/custom_ka/get_ammo()
+	if(!installed_cell)
+		return 0
+	return round(installed_cell.stored_charge / cost_increase)
 
 /obj/item/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
 	to_chat(user,"<span class='warning'>You override the safeties on the [src]...</span>")

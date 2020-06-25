@@ -9,17 +9,34 @@
 	return
 
 //mob verbs are faster than object verbs. See above.
+var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
+	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
+		return FALSE
 	if(src.stat || !src.canmove || src.restrained())
-		return 0
+		return FALSE
 	if(src.status_flags & FAKEDEATH)
-		return 0
-	if(!..())
-		return 0
+		return FALSE
+	if(next_point_time >= world.time)
+		return FALSE
 
-	src.visible_message("<b>[src]</b> points to [A].")
-	return 1
+	next_point_time = world.time + 25
+	face_atom(A)
+	if(isturf(A))
+		if(pointing_effect)
+			clear_point()
+		pointing_effect = new /obj/effect/decal/point(A)
+		pointing_effect.invisibility = invisibility
+		addtimer(CALLBACK(src, .proc/clear_point), 20)
+	else
+		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
+		LAZYADD(A.filters, pointglow)
+		addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
+	visible_message("<b>\The [src]</b> points to \the [A].")
+	return TRUE
 
+/mob/living/proc/remove_filter(var/atom/A, var/filter_to_remove)
+	LAZYREMOVE(A.filters, filter_to_remove)
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -123,12 +140,7 @@ default behaviour is:
 		now_pushing = FALSE
 		spawn(0)
 			. = ..()
-			if (!istype(AM, /atom/movable) || AM.anchored)
-				if(confused && prob(50) && !MOVING_DELIBERATELY(src))
-					Weaken(2)
-					playsound(loc, "punch", 25, 1, -1)
-					visible_message(SPAN_WARNING("\The [src] [pick("ran", "slammed")] into \the [AM]!"))
-					src.apply_damage(5, BRUTE)
+			if (!istype(AM, /atom/movable))
 				return
 			if (!now_pushing)
 				now_pushing = TRUE

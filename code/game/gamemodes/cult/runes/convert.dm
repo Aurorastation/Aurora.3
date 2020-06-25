@@ -70,7 +70,7 @@
 		if(!waiting_for_input[target]) //so we don't spam them with dialogs if they hesitate
 			waiting_for_input[target] = TRUE
 
-			if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist"))//putting jobban check here because is_convertable uses mind as argument
+			if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist") || player_is_antag(target.mind))//putting jobban check here because is_convertable uses mind as argument
 				//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
 				to_chat(target, span("cult", "Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind, something sinister takes root."))
 				to_chat(target, span("cult", "And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come."))

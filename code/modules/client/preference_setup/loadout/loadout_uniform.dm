@@ -223,6 +223,18 @@
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
+/datum/gear/uniform/elyra_holo
+	display_name = "elyran holographic suit selection"
+	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Perispolisean clothes respectively."
+	path = /obj/item/clothing/under/elyra_holo
+
+/datum/gear/uniform/elyra_holo/New()
+	..()
+	var/suit = list()
+	suit["elyran holographic suit, feminine"] = /obj/item/clothing/under/elyra_holo
+	suit["elyran holographic suit, masculine"] = /obj/item/clothing/under/elyra_holo/masc
+	gear_tweaks += new/datum/gear_tweak/path(suit)
+
 /datum/gear/uniform/miscellaneous/kimono
 	display_name = "kimono"
 	path = /obj/item/clothing/under/kimono
