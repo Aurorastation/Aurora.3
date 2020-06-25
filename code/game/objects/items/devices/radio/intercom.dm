@@ -59,8 +59,10 @@
 	LAZYINITLIST(screen_overlays)
 	screen_overlays["intercom_screen"] = make_screen_overlay(icon, "intercom_screen")
 	screen_overlays["intercom_scanline"] = make_screen_overlay(icon, "intercom_scanline")
-	screen_overlays["intercom_b"] = make_screen_overlay(icon, "intercom_b")
-	screen_overlays["intercom_l"] = make_screen_overlay(icon, "intercom_l")
+	screen_overlays["intercom_b_1"] = make_screen_overlay(icon, "intercom_b_1")
+	screen_overlays["intercom_l_1"] = make_screen_overlay(icon, "intercom_l_1")
+	screen_overlays["intercom_b_0"] = make_screen_overlay(icon, "intercom_b_0")
+	screen_overlays["intercom_l_0"] = make_screen_overlay(icon, "intercom_l_0")
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
@@ -151,10 +153,8 @@
 		add_overlay(screen_overlays["intercom_screen"])
 		add_overlay(screen_overlays["intercom_scanline"])
 		set_light(1.4, 1, COLOR_CYAN)
-		if(broadcasting)
-			add_overlay(screen_overlays["intercom_b"])
-		if(listening)
-			add_overlay(screen_overlays["intercom_l"])
+		add_overlay(screen_overlays["intercom_b_[broadcasting]"])
+		add_overlay(screen_overlays["intercom_l_[listening]"])
 
 /obj/item/device/radio/intercom/broadcasting
 	broadcasting = 1
