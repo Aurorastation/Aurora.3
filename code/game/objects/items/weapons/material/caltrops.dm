@@ -35,7 +35,7 @@
 		if(H.shoes || H.wear_suit?.body_parts_covered & FEET)
 			damage_coef -= 0.1
 
-		if(MOVING_QUICKLY(H))
+		if (H.m_intent == "run")
 			damage_coef += 0.4
 
 
