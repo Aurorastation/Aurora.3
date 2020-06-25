@@ -146,6 +146,30 @@
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
+/obj/item/clothing/under/rank/medical/alt
+	icon_state = "medical_alt"
+	worn_state = "medical_alt"
+
+/obj/item/clothing/under/rank/medical/alt/skirt
+	icon_state = "medical_altf"
+	worn_state = "medical_altf"
+
+/obj/item/clothing/under/rank/medical/alt/short
+	icon_state = "medical_short"
+	worn_state = "medical_short"
+
+/obj/item/clothing/under/rank/medical/alt/jeans
+	icon_state = "medical_altj"
+	worn_state = "medical_altj"
+
+/obj/item/clothing/under/rank/medical/alt/jeans/female
+	icon_state = "medical_altjf"
+	worn_state = "medical_altjf"
+
+/obj/item/clothing/under/rank/medical/orderly
+	icon_state = "orderly"
+	worn_state = "orderly"
+
 /obj/item/clothing/under/rank/medical/intern
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is still a medical intern."
 	name = "medical resident's jumpsuit"

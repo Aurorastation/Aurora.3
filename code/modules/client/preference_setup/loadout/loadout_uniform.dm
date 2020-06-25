@@ -686,6 +686,38 @@
 	cmo_uniforms["alt CMO fem jeans"] = /obj/item/clothing/under/rank/chief_medical_officer/alt/jeans/female
 	gear_tweaks += new/datum/gear_tweak/path(cmo_uniforms)
 
+/datum/gear/uniform/uniform_md
+	display_name = "uniform, Medical Doctor (selection)"
+	description = "A selection of alternative outfits for the Physician and the Surgeon."
+	path = /obj/item/clothing/under/rank/medical
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist")
+	cost = 0
+
+/datum/gear/uniform/uniform_md/New()
+	..()
+	var/md_uniforms = list()
+	md_uniforms["standard physician uniform"] = /obj/item/clothing/under/rank/medical
+	md_uniforms["alt physician uniform"] = /obj/item/clothing/under/rank/medical/alt
+	md_uniforms["alt physician short-sleeve uniform"] = /obj/item/clothing/under/rank/medical/alt/short
+	md_uniforms["alt physician skirt"] = /obj/item/clothing/under/rank/medical/alt/skirt
+	md_uniforms["alt physician jeans"] = /obj/item/clothing/under/rank/medical/alt/jeans
+	md_uniforms["alt physician fem jeans"] = /obj/item/clothing/under/rank/medical/alt/jeans/female
+	gear_tweaks += new/datum/gear_tweak/path(md_uniforms)
+
+/datum/gear/uniform/uniform_mresident
+	display_name = "uniform, Medical Resident (selection)"
+	description = "A selection of alternative outfits for the Medical Resident."
+	path =
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist", "Medical Resident")
+	cost = 0
+
+/datum/gear/uniform/uniform_mresident/New()
+	..()
+	var/mresident_uniforms = list()
+	mresident_uniforms["standard resident uniform"] = /obj/item/clothing/under/rank/medical/intern
+	mresident_uniforms["orderly uniform"] = /obj/item/clothing/under/rank/medical/orderly
+	gear_tweaks += new/datum/gear_tweak/path(mresident_uniforms)
+
 /datum/gear/uniform/science_alt
 	display_name = "scientist, alt"
 	path = /obj/item/clothing/under/rank/scientist/science_alt
