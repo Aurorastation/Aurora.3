@@ -34,6 +34,11 @@
 		cuttops[initial(cuttop_type.name)] = cuttop_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(cuttops))
 
+/datum/gear/uniform/uniform_chaplain
+	display_name = "clergy outfit"
+	description = "A religious outfit typically worn by religious folk."
+	path = /obj/item/clothing/under/rank/chaplain
+
 /datum/gear/uniform/cropdress
     display_name = "crop dress"
     path = /obj/item/clothing/under/cropdress
@@ -522,10 +527,18 @@
 
 /datum/gear/uniform/uniform_gardener
 	display_name = "uniform, Gardener"
-	description = "The standard uniform for the Gardener."
+	description = "A selection of alternative outfits for the Gardener."
 	path = /obj/item/clothing/under/rank/hydroponics
 	allowed_roles = list("Head of Personnel", "Gardener")
 	cost = 0
+
+/datum/gear/uniform/uniform_gardener/New()
+	..()
+	var/gardener_uniforms = list()
+	gardener_uniforms["standard gardener uniform"] = /obj/item/clothing/under/rank/hydroponics
+	gardener_uniforms["standard gardener jeans"] = /obj/item/clothing/under/rank/hydroponics/jeans
+	gardener_uniforms["standard gardener fem jeans"] = /obj/item/clothing/under/rank/hydroponics/jeans/female
+	gear_tweaks += new/datum/gear_tweak/path(gardener_uniforms)
 
 /datum/gear/uniform/uniform_quartermaster
 	display_name = "uniform, Quartermaster"
@@ -546,7 +559,7 @@
 
 /datum/gear/uniform/uniform_cargot
 	display_name = "uniform, Cargo Technician (selection)"
-	description = "For those that value leg-room."
+	description = "A selection of alternative outfits for the Cargo Technician."
 	path = /obj/item/clothing/under/rank/cargo
 	allowed_roles = list("Head of Personnel", "Quartermaster", "Cargo Technician")
 	cost = 0
@@ -562,6 +575,116 @@
 	cargot_uniforms["alt cargo technician fem jeans"] = /obj/item/clothing/under/rank/cargo/old/jeans/female
 	cargot_uniforms["old cargo technician uniform"] = /obj/item/clothing/under/rank/cargo/old/tech
 	gear_tweaks += new/datum/gear_tweak/path(cargot_uniforms)
+
+/datum/gear/uniform/uniform_miner
+	display_name = "uniform, Shaft Miner (selection)"
+	description = "A selection of alternative outfits for the Shaft Miner."
+	path = /obj/item/clothing/under/rank/miner
+	allowed_roles = list("Head of Personnel", "Quartermaster", "Shaft Miner")
+	cost = 0
+
+/datum/gear/uniform/uniform_miner
+	..()
+	var/miner_uniforms = list()
+	miner_uniforms["standard miner uniform"] = /obj/item/clothing/under/rank/miner
+	miner_uniforms["alt miner uniform"] = /obj/item/clothing/under/rank/miner/alt
+	gear_tweaks += new/datum/gear_tweak/path(miner_uniforms)
+
+/datum/gear/uniform/uniform_janitor
+	display_name = "uniform, Janitor (selection)"
+	description = "A selection of alternative outfits for the Janitor."
+	path = /obj/itemc/lothing/under/rank/janitor
+	allowed_roles = list("Head of Personnel", "Janitor")
+	cost = 0
+
+/datum/gear/uniform/uniform_janitor/New()
+	..()
+	var/janitor_uniforms = list()
+	janitor_uniforms["standard janitor uniform"] = /obj/itemc/lothing/under/rank/janitor
+	janitor_uniforms["alt janitor uniform"] = /obj/itemc/lothing/under/rank/janitor/alt
+	gear_tweaks += new/datum/gear_tweak/path(janitor_uniforms)
+
+/datum/gear/uniform/uniform_chaplain/job
+	display_name = "uniform, Chaplain"
+	description = "The standard uniform for the Chaplain."
+	allowed_roles = list("Head of Personnel", "Chaplain")
+	cost = 0
+
+/datum/gear/uniform/uniform_ce
+	display_name = "uniform, Chief Engineer (selection)"
+	description = "A selection of alternative outfits for the Chief Engineer."
+	allowed_roles = list("Chief Engineer")
+	cost = 0
+
+/datum/gear/uniform/uniform_ce/New()
+	..()
+	var/ce_uniforms = list()
+	ce_uniforms["standard CE uniform"] = /obj/item/clothing/under/rank/chief_engineer
+	ce_uniforms["alt CE uniform"] = /obj/item/clothing/under/rank/chief_engineer/alt
+	ce_uniforms["alt CE jeans"] = /obj/item/clothing/under/rank/chief_engineer/alt/jeans
+	ce_uniforms["alt CE fem jeans"] = /obj/item/clothing/under/rank/chief_engineer/alt/jeans/female
+	gear_tweaks += new/datum/gear_tweak/path(ce_uniforms)
+
+/datum/gear/uniform/uniform_stationeng
+	display_name = "uniform, Station Engineer (selection)"
+	description = "A selection of alternative outfits for the Station Engineer."
+	allowed_roles = list("Chief Engineer", "Station Engineer")
+	cost = 0
+
+/datum/gear/uniform/uniform_stationeng/New()
+	..()
+	var/stationeng_uniforms = list()
+	stationeng_uniforms["standard engineer uniform"] = /obj/item/clothing/under/rank/engineer
+	stationeng_uniforms["alt engineer uniform"] = /obj/item/clothing/under/rank/engineer/alt
+	stationeng_uniforms["alt engineer jeans"] = /obj/item/clothing/under/rank/engineer/alt/jeans
+	stationeng_uniforms["alt engineer fem jeans"] = /obj/item/clothing/under/rank/engineer/alt/jeans/female
+	gear_tweaks += new/datum/gear_tweak/path(stationeng_uniforms)
+
+/datum/gear/uniform/uniform_atmos
+	display_name = "uniform, Atmospheric Technician (selection)"
+	description = "A selection of alternative outfits for the Atmospheric Technician."
+	allowed_roles = list("Chief Engineer", "Atmospheric Technician")
+	cost = 0
+
+/datum/gear/uniform/uniform_atmos/New()
+	..()
+	var/atmos_uniforms = list()
+	atmos_uniforms["standard atmos tech uniform"] = /obj/item/clothing/under/rank/atmospheric_technician
+	atmos_uniforms["alt atmos tech uniform"] = /obj/item/clothing/under/rank/atmospheric_technician/alt
+	atmos_uniforms["alt atmos tech jeans"] = /obj/item/clothing/under/rank/atmospheric_technician/alt/jeans
+	atmos_uniforms["alt atmos tech fem jeans"] = /obj/item/clothing/under/rank/atmospheric_technician/alt/female
+	atmos_uniforms["old atmos tech uniform"] = /obj/item/clothing/under/rank/atmospheric_technician/old
+	gear_tweaks += new/datum/gear_tweak/path(atmos_uniforms)
+
+/datum/gear/uniform/uniform_engapp
+	display_name = "uniform, Engineering Apprentice (selection)"
+	description = "A selection of alternative outfits for the Engineering Apprentice."
+	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Engineering Apprentice")
+	cost = 0
+
+/datum/gear/uniform/uniform_engapp/New()
+	..()
+	var/engapp_uniforms = list()
+	engapp_uniforms["standard apprentice uniform"] = /obj/item/clothing/under/rank/engineer/apprentice
+	engapp_uniforms["hazard apprentice uniform"] = /obj/item/clothing/under/rank/engineer/apprentice/hazard
+	gear_tweaks += new/datum/gear_tweak/path(engapp_uniforms)
+
+/datum/gear/uniform/uniform_cmo
+	display_name = "uniform, Chief Medical Officer (selection)
+	description = "A selection of alternative outfits for the Chief Medical Officer."
+	path = /obj/item/clothing/under/rank/chief_medical_officer
+	allowed_roles = list("Chief Medical Officer")
+	cost = 0
+
+/datum/gear/uniform/uniform_cmo/New()
+	..()
+	var/cmo_uniforms = list()
+	cmo_uniforms["standard CMO uniform"] = /obj/item/clothing/under/rank/chief_medical_officer
+	cmo_uniforms["alt CMO uniform"] = /obj/item/clothing/under/rank/chief_medical_officer/alt
+	cmo_uniforms["alt CMO skirt"] = /obj/item/clothing/under/rank/chief_medical_officer/alt/skirt
+	cmo_uniforms["alt CMO jeans"] = /obj/item/clothing/under/rank/chief_medical_officer/alt/jeans
+	cmo_uniforms["alt CMO fem jeans"] = /obj/item/clothing/under/rank/chief_medical_officer/alt/jeans/female
+	gear_tweaks += new/datum/gear_tweak/path(cmo_uniforms)
 
 /datum/gear/uniform/science_alt
 	display_name = "scientist, alt"

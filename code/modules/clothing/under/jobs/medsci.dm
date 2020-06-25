@@ -95,6 +95,22 @@
 	permeability_coefficient = 0.50
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
+/obj/item/clothing/under/rank/chief_medical_officer/alt
+	icon_state = "cmo_alt"
+	worn_state = "cmo_alt"
+
+/obj/item/clothing/under/rank/chief_medical_officer/alt/skirt
+	icon_state = "cmo_altf"
+	worn_state = "cmo_altf"
+
+/obj/item/clothing/under/rank/chief_medical_officer/alt/jeans
+	icon_state = "cmoj"
+	worn_state = "cmoj"
+
+/obj/item/clothing/under/rank/chief_medical_officer/alt/jeans/female
+	icon_state = "cmojf"
+	worn_state = "cmojf"
+
 /obj/item/clothing/under/rank/geneticist
 	desc = "It's made of a special fiber that gives special protection against biohazards. It has a genetics rank stripe on it."
 	name = "geneticist's jumpsuit"

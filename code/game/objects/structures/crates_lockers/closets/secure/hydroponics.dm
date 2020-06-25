@@ -17,6 +17,8 @@
 			new /obj/item/clothing/suit/apron/overalls/blue(src)
 	new /obj/item/storage/bag/plants(src)
 	new /obj/item/clothing/under/rank/hydroponics(src)
+	new /obj/item/clothing/under/rank/hydroponics/jeans(src)
+	new /obj/item/clothing/under/rank/hydroponics/jeans/female(src)
 	new /obj/item/device/analyzer/plant_analyzer(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/clothing/head/greenbandana(src)

@@ -130,6 +130,14 @@
 	worn_state = "hydroponics"
 	permeability_coefficient = 0.50
 
+/obj/item/clothing/under/rank/hydroponics/jeans
+	icon_state = "hydroponics_jeans"
+	worn_state = "hydroponics_jeans"
+
+/obj/item/clothing/under/rank/hydroponics/jeans/female
+	icon_state = "hydroponics_jeansf"
+	worn_state = "hydroponics_jeansf"
+
 /obj/item/clothing/under/rank/liaison
 	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
 	name = "corporate liaison uniform"
@@ -144,6 +152,10 @@
 	worn_state = "janitor"
 	item_state = "janitor"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
+
+/obj/itemc/lothing/under/rank/janitor/alt
+	icon_state = "janitor_alt"
+	worn_state = "janitor_alt"
 
 /obj/item/clothing/under/lawyer
 	desc = "Slick threads."
@@ -213,6 +225,10 @@
 	icon_state = "miner"
 	item_state = "lb_suit"
 	worn_state = "miner"
+
+/obj/item/clothing/under/rank/miner/alt
+	icon_state = "miner_alt"
+	worn_state = "miner_alt"
 
 /obj/item/clothing/under/rank/hephaestus
 	name = "Hephaestus Industries engineer uniform"
