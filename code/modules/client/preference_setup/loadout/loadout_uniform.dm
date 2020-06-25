@@ -137,11 +137,13 @@
 	suits["purple suit"] = /obj/item/clothing/under/lawyer/purple
 	suits["purple skirt"] = /obj/item/clothing/under/lawyer/purple/skirt
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
+	suits["red skirt"] = /obj/item/clothing/under/suit_jacket/red/skirt
 	suits["red lawyer suit"] = /obj/item/clothing/under/lawyer/red
 	suits["red lawyer skrit"] = /obj/item/clothing/under/lawyer/red/skirt
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
 	suits["vice suit"] = /obj/item/clothing/under/vice
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
+	suits["white skirt"] = /obj/item/clothing/under/suit_jacket/white/skirt
 	gear_tweaks += new/datum/gear_tweak/path(suits)
 
 /datum/gear/uniform/scrubs
@@ -252,18 +254,6 @@
 /datum/gear/uniform/haltertop
 	display_name = "halter top"
 	path = /obj/item/clothing/under/haltertop
-
-/datum/gear/uniform/uniform_captain
-	display_name = "uniform, captain dress"
-	path = /obj/item/clothing/under/dress/dress_cap
-	allowed_roles = list("Captain")
-	cost = 0
-
-/datum/gear/uniform/uniform_hop
-	display_name = "uniform, HoP dress"
-	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Head of Personnel")
-	cost = 0
 
 /datum/gear/uniform/pants
 	display_name = "pants (selection)"
@@ -399,75 +389,9 @@
 	display_name = "kamishimo"
 	path = obj/item/clothing/under/kamishimo
 
-/datum/gear/uniform/officer
-	display_name = "uniform, (Security Officer) (selection)"
-	description = "A selection of officer uniforms."
-	path = /obj/item/clothing/under/rank/security
-	allowed_roles = list("Security Officer")
-	cost = 0
-
-/datum/gear/uniform/officer/New()
-	..()
-	var/uniform = list()
-	uniform["standard officer uniform"] = /obj/item/clothing/under/rank/security
-	uniform["corporate officer uniform"] = /obj/item/clothing/under/rank/security/corp
-	uniform["blue officer uniform"] = /obj/item/clothing/under/rank/security/blue
-	gear_tweaks += new/datum/gear_tweak/path(uniform)
-
-/datum/gear/uniform/detective
-	display_name = "uniform, (Investigations) (selection)"
-	description = "A selection of Investigations staff uniforms."
-	path = /obj/item/clothing/under/det
-	allowed_roles = list("Detective", "Forensic Technician")
-	cost = 0
-
-/datum/gear/uniform/detective/New()
-	..()
-	var/uniform = list()
-	uniform["tan investigator uniform"] = /obj/item/clothing/under/det
-	uniform["grey investigator uniform"] = /obj/item/clothing/under/det/forensics
-	uniform["black investigator uniform"] = /obj/item/clothing/under/det/black
-	uniform["brown investigator uniform"] = /obj/item/clothing/under/det/classic
-	gear_tweaks += new/datum/gear_tweak/path(uniform)
-
-/datum/gear/uniform/warden
-	display_name = "uniform, (Warden) (selection)"
-	description = "A selection of Warden uniforms."
-	path = /obj/item/clothing/under/rank/warden
-	allowed_roles = list("Warden")
-	cost = 0
-
-/datum/gear/uniform/warden/New()
-	..()
-	var/uniform = list()
-	uniform["standard warden uniform"] = /obj/item/clothing/under/rank/warden
-	uniform["corporate warden uniform"] = /obj/item/clothing/under/rank/warden/corp
-	uniform["dark blue warden uniform"] = /obj/item/clothing/under/rank/warden/dark_blue
-	gear_tweaks += new/datum/gear_tweak/path(uniform)
-
-
-/datum/gear/uniform/hos
-	display_name = "uniform, corporate (Head of Security)"
-	path = /obj/item/clothing/under/rank/head_of_security/corp
-	allowed_roles = list("Head of Security")
-	cost = 0
-
 /datum/gear/uniform/circuitry
 	display_name = "jumpsuit, circuitry (empty)"
 	path = /obj/item/clothing/under/circuitry
-
-/datum/gear/uniform/science_alt
-	display_name = "scientist, alt"
-	path = /obj/item/clothing/under/rank/scientist/science_alt
-	allowed_roles = list("Scientist", "Xenobiologist")
-	cost = 0
-
-/datum/gear/uniform/cargo_alt
-	display_name = "cargo technician, shorts"
-	description = "For those that value leg-room."
-	path = /obj/item/clothing/under/rank/cargo/alt
-	allowed_roles = list("Cargo Technician")
-	cost = 0
 
 /datum/gear/uniform/pyjama
 	display_name = "pyjamas (selection)"
@@ -529,3 +453,210 @@
 	utility_uniforms["green utility uniform"] = /obj/item/clothing/under/utility/green
 	utility_uniforms["tan utility uniform"] = /obj/item/clothing/under/utility/tan
 	gear_tweaks += new/datum/gear_tweak/path(utility_uniforms)
+
+//Uniform Alternatives
+//Standard uniforms also included in the event someone wants a standard uniform in their bag after it's replaced by other clothes
+/datum/gear/uniform/uniform_captain
+	display_name = "uniform, Captain (selection)"
+	description = "A selection of alternative outfits for the Captain."
+	path = /obj/item/clothing/under/rank/captain
+	allowed_roles = list("Captain")
+	cost = 0
+
+/datum/gear/uniform/uniform_captain/New()
+	..()
+	var/captain_uniforms = list()
+	captain_uniforms["standard captain uniform"] = /obj/item/clothing/under/rank/captain
+	captain_uniforms["standard captain dress"] = /obj/item/clothing/under/dress/dress_cap
+	captain_uniforms["formal captain uniform"] = /obj/item/clothing/under/captainformal
+	captain_uniforms["green suit"] = /obj/item/clothing/under/gimmick/rank/captain/suit
+	captain_uniforms["green skirt"] = /obj/item/clothing/under/gimmick/rank/captain/suit/skirt
+	gear_tweaks += new/datum/gear_tweak/path(captain_uniforms)
+
+/datum/gear/uniform/uniform_hop
+	display_name = "uniform, Head of Personnel (selection)"
+	description = "A selection of alternative outfits for the Head of Personnel."
+	path = /obj/item/clothing/under/rank/head_of_personnel
+	allowed_roles = list("Head of Personnel")
+	cost = 0
+
+/datum/gear/uniform/uniform_hop/New()
+	..()
+	var/hop_uniforms = list()
+	hop_uniforms["standard HoP uniform"] = /obj/item/clothing/under/rank/head_of_personnel
+	hop_uniforms["standard HoP dress"] = /obj/item/clothing/under/dress/dress_hop
+	hop_uniforms["whimsy HoP uniform"] = /obj/item/clothing/under/rank/head_of_personnel_whimsy
+	hop_uniforms["alternative HoP uniform"] = /obj/item/clothing/under/rank/head_of_personnel/alt
+	hop_uniforms["human resources skirt"] = /obj/item/clothing/under/dress/dress_hr
+	hop_uniforms["teal suit"] = /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
+	hop_uniforms["teal skirt"] = /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit/skirt
+	gear_tweaks += new/datum/gear_tweak/path(hop_uniforms)
+
+/datum/gear/uniform/uniform_bartender
+	display_name = "uniform, Bartender (selection)"
+	description = "A selection of alternative outfits for the Bartender."
+	path = /obj/item/clothing/under/rank/bartender
+	allowed_roles = list("Head of Personnel", "Bartender")
+	cost = 0
+
+/datum/gear/uniform/uniform_bartender/New()
+	..()
+	var/bartender_uniforms = list()
+	bartender_uniforms["standard bartender uniform"] = /obj/item/clothing/under/rank/bartender
+	bartender_uniforms["standard bartender skirt"] = /obj/item/clothing/under/rank/bartender/skirt
+	gear_tweaks += new/datum/gear_tweak/path(bartender_uniforms)
+
+/datum/gear/uniform/uniform_chef
+	display_name = "uniform, Chef (selection)"
+	description = "A selection of alternative outfits for the Chef."
+	path = /obj/item/clothing/under/rank/chef
+	allowed_roles = list("Head of Personnel", "Chef")
+	cost = 0
+
+/datum/gear/uniform/uniform_chef/New()
+	..()
+	var/chef_uniforms = list()
+	chef_uniforms["standard chef uniform"] = /obj/item/clothing/under/rank/chef
+	chef_uniforms["waiter uniform"] = /obj/item/clothing/under/waiter
+	gear_tweaks += new/datum/gear_tweak/path(chef_uniforms)
+
+/datum/gear/uniform/uniform_gardener
+	display_name = "uniform, Gardener"
+	description = "The standard uniform for the Gardener."
+	path = /obj/item/clothing/under/rank/hydroponics
+	allowed_roles = list("Head of Personnel", "Gardener")
+	cost = 0
+
+/datum/gear/uniform/uniform_quartermaster
+	display_name = "uniform, Quartermaster"
+	description = "A selection of alternative outfits for the Quartermaster."
+	path = /obj/item/clothing/under/rank/cargo/qm
+	allowed_roles = list("Head of Personnel", "Quartermaster")
+	cost = 0
+
+/datum/gear/uniform/uniform_quartermaster/New()
+	..()
+	var/qm_uniforms = list()
+	qm_uniforms["standard quartermaster uniform"] = /obj/item/clothing/under/rank/cargo/qm
+	qm_uniforms["alt quartermaster uniform"] = /obj/item/clothing/under/rank/cargo/qm/alt
+	qm_uniforms["alt quartermaster skirt"] = /obj/item/clothing/under/rank/cargo/qm/alt/skirt
+	qm_uniforms["alt quartermaster jeans"] = /obj/item/clothing/under/rank/cargo/qm/alt/jeans
+	qm_uniforms["alt quartermaster fem jeans"] = /obj/item/clothing/under/rank/cargo/qm/alt/jeans/female
+	gear_tweaks += new/datum/gear_tweak/path(qm_uniforms)
+
+/datum/gear/uniform/uniform_cargot
+	display_name = "uniform, Cargo Technician (selection)"
+	description = "For those that value leg-room."
+	path = /obj/item/clothing/under/rank/cargo
+	allowed_roles = list("Head of Personnel", "Quartermaster", "Cargo Technician")
+	cost = 0
+
+/datum/gear/uniform/uniform_cargot
+	..()
+	var/cargot_uniforms = list()
+	cargot_uniforms["standard cargo technician uniform"] = /obj/item/clothing/under/rank/cargo
+	cargot_uniforms["standard cargo technician shorts"] = /obj/item/clothing/under/rank/cargo/alt
+	cargot_uniforms["alt cargo technician uniform"] = /obj/item/clothing/under/rank/cargo/old
+	cargot_uniforms["alt cargo technician skirt"] = /obj/item/clothing/under/rank/cargo/old/skirt
+	cargot_uniforms["alt cargo technician jeans"] = /obj/item/clothing/under/rank/cargo/old/jeans
+	cargot_uniforms["alt cargo technician fem jeans"] = /obj/item/clothing/under/rank/cargo/old/jeans/female
+	cargot_uniforms["old cargo technician uniform"] = /obj/item/clothing/under/rank/cargo/old/tech
+	gear_tweaks += new/datum/gear_tweak/path(cargot_uniforms)
+
+/datum/gear/uniform/science_alt
+	display_name = "scientist, alt"
+	path = /obj/item/clothing/under/rank/scientist/science_alt
+	allowed_roles = list("Scientist", "Xenobiologist")
+	cost = 0
+
+/datum/gear/uniform/uniform_hos
+	display_name = "uniform, Head of Security (selection)"
+	description = "A selection of alternative outfits for the Head of Security."
+	path = /obj/item/clothing/under/rank/head_of_security
+	allowed_roles = list("Head of Security")
+	cost = 0
+
+/datum/gear/uniform/uniform_hos/New()
+	..()
+	var/hos_uniforms = list()
+	hos_uniforms["standard HoS uniform"] = /obj/item/clothing/under/rank/head_of_security
+	hos_uniforms["corporate HoS uniform"] = /obj/item/clothing/under/rank/head_of_security/corp
+	hos_uniforms["navy HoS uniform"] = /obj/item/clothing/under/rank/head_of_security/navy
+	hos_uniforms["dark navy HoS uniform"] = /obj/item/clothing/under/rank/head_of_security/darknavy
+	hos_uniforms["tan HoS uniform"] = /obj/item/clothing/under/rank/head_of_security/tan
+	hos_uniforms["formal HoS uniform"] = /obj/item/clothing/under/hosformalmale
+	hos_uniforms["formal HoS dress"] = /obj/item/clothing/under/hosformalfem
+	gear_tweaks += new/datum/gear_tweak/path(hos_uniforms)
+
+/datum/gear/uniform/uniform_officer
+	display_name = "uniform, Security Officer (selection)"
+	description = "A selection of alternative uniforms for the Security Officer."
+	path = /obj/item/clothing/under/rank/security
+	allowed_roles = list("Security Officer")
+	cost = 0
+
+/datum/gear/uniform/uniform_officer/New()
+	..()
+	var/seco_uniforms = list()
+	seco_uniforms["standard officer uniform"] = /obj/item/clothing/under/rank/security
+	seco_uniforms["corporate officer uniform"] = /obj/item/clothing/under/rank/security/corp
+	seco_uniforms["blue officer uniform"] = /obj/item/clothing/under/rank/security/blue
+	seco_uniforms["blue officer uniform, alt"] = /obj/item/clothing/under/rank/security/blue/alt
+	seco_uniforms["navy officer uniform"] = /obj/item/clothing/under/rank/security/navy
+	seco_uniforms["dark navy officer uniform"] = /obj/item/clothing/under/rank/security/darknavy
+	seco_uniforms["tan officer uniform"] = /obj/item/clothing/under/rank/security/tan
+	gear_tweaks += new/datum/gear_tweak/path(seco_uniforms)
+
+/datum/gear/uniform/uniform_detective
+	display_name = "uniform, Investigations (selection)"
+	description = "A selection of alternative uniforms for the Detective and the Forensic Technician."
+	path = /obj/item/clothing/under/det
+	allowed_roles = list("Detective", "Forensic Technician")
+	cost = 0
+
+/datum/gear/uniform/uniform_detective/New()
+	..()
+	var/inv_uniforms = list()
+	inv_uniforms["tan investigator uniform"] = /obj/item/clothing/under/det
+	inv_uniforms["grey investigator uniform"] = /obj/item/clothing/under/det/forensics
+	inv_uniforms["black investigator uniform"] = /obj/item/clothing/under/det/black
+	inv_uniforms["brown investigator uniform"] = /obj/item/clothing/under/det/classic
+	inv_uniforms["dark grey investigator uniform"] = /obj/item/clothing/under/det/grey
+	inv_uniforms["dark grey investigator waistcoat"] = /obj/item/clothing/under/det/grey/waistcoat
+	inv_uniforms["muted investigator uniform"] = /obj/item/clothing/under/det/muted
+	inv_uniforms["muted investigator waistcoat"] = /obj/item/clothing/under/det/muted/waistcoat
+	inv_uniforms["blue investigator uniform"] = /obj/item/clothing/under/det/blue
+	inv_uniforms["corporate investigator uniform"] = /obj/item/clothing/under/det/corporate
+	gear_tweaks += new/datum/gear_tweak/path(inv_uniforms)
+
+/datum/gear/uniform/uniform_warden
+	display_name = "uniform, Warden (selection)"
+	description = "A selection of alternative uniforms for the Warden."
+	path = /obj/item/clothing/under/rank/warden
+	allowed_roles = list("Warden")
+	cost = 0
+
+/datum/gear/uniform/uniform_warden/New()
+	..()
+	var/warden_uniforms = list()
+	warden_uniforms["standard warden uniform"] = /obj/item/clothing/under/rank/warden
+	warden_uniforms["corporate warden uniform"] = /obj/item/clothing/under/rank/warden/corp
+	warden_uniforms["dark blue warden uniform"] = /obj/item/clothing/under/rank/warden/dark_blue
+	warden_uniforms["blue warden uniform"] = /obj/item/clothing/under/rank/warden/blue
+	warden_uniforms["tan warden uniform"] = /obj/item/clothing/under/rank/warden/tan
+	warden_uniforms["navy warden uniform"] = /obj/item/clothing/under/rank/warden/navy
+	gear_tweaks += new/datum/gear_tweak/path(warden_uniforms)
+
+/datum/gear/uniform/uniform_securitycadet
+	display_name = "uniform, Security Cadet (selection)"
+	description = "A selection of alternative uniforms for the Security Cadet."
+	path = /obj/item/clothing/under/rank/cadet
+	allowed_roles = list("Security Cadet")
+	cost = 0
+
+/datum/gear/uniform/uniform_securitycadet/New()
+	..()
+	var/cadet_uniforms = list()
+	cadet_uniforms["standard cadet uniform"] = /obj/item/clothing/under/rank/cadet
+	cadet_uniforms["navy cadet uniform"] = /obj/item/clothing/under/rank/cadet/navy
+	gear_tweaks += new/datum/gear_tweak/path(cadet_uniforms)

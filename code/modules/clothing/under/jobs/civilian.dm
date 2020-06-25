@@ -7,19 +7,17 @@
 	item_state = "ba_suit"
 	worn_state = "ba_suit"
 
+/obj/item/clothing/under/rank/bartender/skirt
+	desc = "Short and cute."
+	icon_state = "ba_suit_skirt"
+	worn_state = "ba_suit_skirt"
+
 /obj/item/clothing/under/rank/captain //Alright, technically not a 'civilian' but its better then giving a .dm file for a single define.
 	desc = "It's a blue jumpsuit with some gold markings denoting the rank of \"Captain\"."
 	name = "captain's jumpsuit"
 	icon_state = "captain"
 	item_state = "b_suit"
 	worn_state = "captain"
-
-/obj/item/clothing/under/rank/cargo
-	name = "quartermaster's jumpsuit"
-	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
-	icon_state = "qm"
-	item_state = "lb_suit"
-	worn_state = "qm"
 
 /obj/item/clothing/under/rank/cargo
 	name = "cargo technician's jumpsuit"
@@ -33,6 +31,57 @@
 	icon_state = "cargo_alt"
 	worn_state = "cargo_alt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/under/rank/cargo/old
+	desc = "Shooooorts! They're comfy and easy to wear!"
+	icon_state = "cargo_old"
+	worn_state = "cargo_old"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/under/rank/cargo/old/skirt
+	icon_state = "cargo_oldf"
+	worn_state = "cargo_oldf"
+
+/obj/item/clothing/under/rank/cargo/old/tech
+	icon_state = "cargotech"
+	worn_state = "cargotech"
+
+/obj/item/clothing/under/rank/cargo/old/jeans
+	name = "cargo technician's jumpjeans"
+	desc = "Jeeeaaans! They're comfy!"
+	icon_state = "cargoj"
+	item_state_slots = list(slot_r_hand_str = "cargo", slot_l_hand_str = "cargo")
+	worn_state = "cargoj"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
+
+/obj/item/clothing/under/rank/cargo/old/jeans/female
+	icon_state = "cargojf"
+	worn_state = "cargojf"
+
+/obj/item/clothing/under/rank/cargo/qm
+	name = "quartermaster's jumpsuit"
+	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
+	icon_state = "qm"
+	item_state = "lb_suit"
+	worn_state = "qm"
+
+/obj/item/clothing/under/rank/cargo/qm/alt
+	icon_state = "qm_old"
+	worn_state = "qm_old"
+
+/obj/item/clothing/under/rank/cargo/qm/alt/skirt
+	icon_state = "qm_oldf"
+	worn_state = "qm_oldf"
+
+/obj/item/clothing/under/rank/cargo/qm/alt/jeans
+	name = "quartermaster's jumpjeans"
+	desc = "Jeeeaaans! They're comfy!"
+	icon_state = "qmj"
+	worn_state = "qmj"
+
+/obj/item/clothing/under/rank/cargo/qm/alt/jeans/female
+	icon_state = "qmjf"
+	worn_state = "qmjf"
 
 /obj/item/clothing/under/rank/chaplain
 	desc = "It's a black jumpsuit, often worn by religious folk."
@@ -68,6 +117,10 @@
 	icon_state = "hopwhimsy"
 	item_state = "b_suit"
 	worn_state = "hopwhimsy"
+
+/obj/item/clothing/under/rank/head_of_personnel/alt
+	icon_state = "hop2"
+	worn_state = "hop2"
 
 /obj/item/clothing/under/rank/hydroponics
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."

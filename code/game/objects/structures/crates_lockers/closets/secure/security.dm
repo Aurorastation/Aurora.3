@@ -56,6 +56,8 @@
 	new /obj/item/clothing/under/dress/dress_cap(src)
 	new /obj/item/clothing/head/helmet/formalcaptain(src)
 	new /obj/item/clothing/under/captainformal(src)
+	new /obj/item/clothing/under/gimmick/rank/captain/suit(src)
+	new /obj/item/clothing/under/gimmick/rank/captain/suit/skirt(src)
 
 /obj/structure/closet/secure_closet/hop
 	name = "head of personnel's locker"
@@ -98,6 +100,7 @@
 	..()
 	new /obj/item/clothing/under/rank/head_of_personnel(src)
 	new /obj/item/clothing/under/dress/dress_hop(src)
+	new /obj/item/clothing/under/dress/dress_hr(src)
 	new /obj/item/clothing/under/lawyer/black(src)
 	new /obj/item/clothing/under/lawyer/red(src)
 	new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
@@ -106,6 +109,9 @@
 	new /obj/item/clothing/shoes/laceup/brown(src)
 	new /obj/item/clothing/shoes/white(src)
 	new /obj/item/clothing/head/caphat/hop(src)
+	new /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit(src)
+	new /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit/skirt(src)
+	new /obj/item/clothing/under/rank/head_of_personnel/alt(src)
 
 /obj/structure/closet/secure_closet/hos
 	name = "head of security's locker"
@@ -153,7 +159,7 @@
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security(src)
 
-/obj/structure/closet/secure_closet/hos2
+/obj/structure/closet/secure_closet/hos2 //does this even get used?
 	name = "head of security's attire"
 	req_access = list(access_hos)
 	icon_state = "hossecure1"
@@ -169,6 +175,11 @@
 	new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
+	new /obj/item/clothing/under/rank/head_of_security/navy(src)
+	new /obj/item/clothing/under/rank/head_of_security/darknavy(src)
+	new /obj/item/clothing/under/rank/head_of_security/tan(src)
+	new /obj/item/clothing/under/hosformalmale(src)
+	new /obj/item/clothing/under/hosformalfem(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
 	new /obj/item/clothing/head/beret/sec/hos(src)
 	new /obj/item/clothing/head/helmet/hos/cap(src)
@@ -206,6 +217,10 @@
 	new /obj/item/clothing/suit/storage/vest/warden(src)
 	new /obj/item/clothing/under/rank/warden(src)
 	new /obj/item/clothing/under/rank/warden/corp(src)
+	new /obj/item/clothing/under/rank/warden/dark_blue(src)
+	new /obj/item/clothing/under/rank/warden/blue(src)
+	new /obj/item/clothing/under/rank/warden/tan(src)
+	new /obj/item/clothing/under/rank/warden/navy(src)
 	new /obj/item/clothing/suit/armor/vest/warden(src)
 	new /obj/item/clothing/suit/armor/vest/warden/commissar(src)
 	new /obj/item/clothing/head/beret/sec/warden(src)
@@ -252,6 +267,7 @@
 	new /obj/item/clothing/head/beret/sec/cadet(src)
 	new /obj/item/clothing/suit/storage/hazardvest/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
+	new /obj/item/clothing/under/rank/cadet/navy(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
@@ -350,6 +366,13 @@
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/under/det/grey(src)
+	new /obj/item/clothing/accessory/red(src)
+	new /obj/item/clothing/under/det/grey/waistcoat(src)
+	new /obj/item/clothing/under/det/muted(src)
+	new /obj/item/clothing/under/det/muted/waistcoat(src)
+	new /obj/item/clothing/under/det/blue(src)
+	new /obj/item/clothing/under/det/corporate(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/brown(src)
 	//Tools
@@ -381,6 +404,13 @@
 	new /obj/item/clothing/under/det/forensics(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
+	new /obj/item/clothing/under/det/grey(src)
+	new /obj/item/clothing/accessory/red(src)
+	new /obj/item/clothing/under/det/grey/waistcoat(src)
+	new /obj/item/clothing/under/det/muted(src)
+	new /obj/item/clothing/under/det/muted/waistcoat(src)
+	new /obj/item/clothing/under/det/blue(src)
+	new /obj/item/clothing/under/det/corporate(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)

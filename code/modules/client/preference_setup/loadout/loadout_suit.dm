@@ -6,12 +6,14 @@
 	sort_category = "Suits and Overwear"
 	cost = 2
 
+/datum/gear/suit/classic_chefapron
+	display_name = "apron, classic chef (colourable)"
+	path = /obj/item/clothing/suit/chef/classic
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/suit/colorapron
 	display_name = "apron, multipurpose (colourable)"
 	path = /obj/item/clothing/suit/apron/colored
-	slot = slot_wear_suit
-	sort_category = "Suits and Overwear"
-	cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/leather

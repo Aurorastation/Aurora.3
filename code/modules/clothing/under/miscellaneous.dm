@@ -26,10 +26,16 @@
 
 /obj/item/clothing/under/suit_jacket/white
 	name = "white suit"
-	desc = "A white suit, suitable for an excellent host"
+	desc = "A white suit, suitable for an excellent host."
 	icon_state = "white_suit"
 	item_state = "w_suit"
 	worn_state = "white_suit"
+
+/obj/item/clothing/under/suit_jacket/white/skirt
+	name = "white suit skirt"
+	desc = "A white skirt, suitable for an excellent host."
+	icon_state = "white_suit_skirt"
+	worn_state = "white_suit_skirt"
 
 /obj/item/clothing/under/sl_suit
 	desc = "It's a very amish looking suit."
@@ -154,6 +160,12 @@
 	item_state = "dg_suit"
 	worn_state = "green_suit"
 
+/obj/item/clothing/under/gimmick/rank/captain/suit/skirt
+	name = "captain's skirt"
+	desc = "A green skirt and yellow necktie. Exemplifies authority."
+	icon_state = "green_suit_skirt"
+	worn_state = "green_suit_skirt"
+
 /obj/item/clothing/under/overalls
 	name = "laborer's overalls"
 	desc = "A set of durable overalls for getting the job done."
@@ -172,6 +184,12 @@
 	icon_state = "teal_suit"
 	item_state = "g_suit"
 	worn_state = "teal_suit"
+
+/obj/item/clothing/under/gimmick/rank/head_of_personnel/suit/skirt
+	name = "head of personnel's skirt"
+	desc = "A teal skirt and yellow necktie. An authoritative yet tacky ensemble."
+	icon_state = "teal_suit_skirt"
+	worn_state = "teal_suit_skirt"
 
 /obj/item/clothing/under/suit_jacket
 	name = "black suit"
@@ -198,6 +216,12 @@
 	icon_state = "red_suit"
 	item_state = "r_suit"
 	worn_state = "red_suit"
+
+/obj/item/clothing/under/suit_jacket/red/skirt
+	name = "red skirt suit"
+	desc = "A red skirt and blue tie. Somewhat formal."
+	icon_state = "red_suit_skirt"
+	worn_state = "red_suit_skirt"
 
 /obj/item/clothing/under/kilt
 	name = "kilt"
@@ -448,6 +472,12 @@
 	icon_state = "hos_formal_fem"
 	item_state = "r_suit"
 	worn_state = "hos_formal_fem"
+
+/obj/item/clothing/under/dress/dress_hr
+	name = "human resources director uniform"
+	desc = "Superior class for the nosy H.R. Director."
+	icon_state = "huresource"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/suit_jacket/charcoal
 	name = "charcoal suit"

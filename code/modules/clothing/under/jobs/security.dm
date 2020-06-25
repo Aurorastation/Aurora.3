@@ -25,6 +25,22 @@
 	icon_state = "officer_blue"
 	worn_state = "officer_blue"
 
+/obj/item/clothing/under/rank/security/blue/alt
+	icon_state = "officer_bluealt"
+	worn_state = "officer_bluealt"
+
+/obj/item/clothing/under/rank/security/navy
+	icon_state = "officer_navy"
+	worn_state = "officer_navy"
+
+/obj/item/clothing/under/rank/security/darknavy
+	icon_state = "officer_darknavy"
+	worn_state = "officer_darknavy
+
+/obj/item/clothing/under/rank/security/tan
+	icon_state = "officer_tan"
+	worn_state = "officer_tan"
+
 /obj/item/clothing/under/rank/cadet
 	name = "security cadet's uniform"
 	desc = "It's made of a slightly sturdier material, to allow for robust protection."
@@ -32,6 +48,10 @@
 	worn_state = "cadet_standard"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.75
+
+/obj/item/clothing/under/rank/cadet/navy
+	icon_state = "cadet_navy"
+	worn_state = "cadet_navy"
 
 /obj/item/clothing/under/rank/warden
 	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the word \"Warden\" written on the shoulders."
@@ -48,6 +68,18 @@
 /obj/item/clothing/under/rank/warden/dark_blue
 	icon_state = "warden_darkblue"
 	worn_state = "warden_darkblue"
+
+/obj/item/clothing/under/rank/warden/blue
+	icon_state = "warden_blue"
+	worn_state = "warden_blue"
+
+/obj/item/clothing/under/rank/warden/tan
+	icon_state = "warden_tan"
+	worn_state = "warden_tan"
+
+/obj/item/clothing/under/rank/warden/navy
+	icon_state = "warden_navy"
+	worn_state = "warden_navy"
 
 /*
  * Detective / Forensics
@@ -71,6 +103,34 @@
 	icon_state = "detective_classic"
 	worn_state = "detective_classic"
 
+/obj/item/clothing/under/det/grey
+	name = "hard-worn suit"
+	icon_state = "detective_grey"
+	worn_state = "detective_grey"
+
+/obj/item/clothing/under/det/grey/waistcoat
+	icon_state = "detective_grey_waistcoat"
+	worn_state = "detective_grey_waistcoat"
+
+/obj/item/clothing/under/det/muted
+	name = "hard-worn suit"
+	icon_state = "detective2"
+	worn_state = "detective2"
+
+/obj/item/clothing/under/det/muted/waistcoat
+	icon_state = "detective2_waistcoat"
+	worn_state = "detective2_waistcoat"
+
+/obj/item/clothing/under/det/blue
+	name = "hard-worn suit"
+	icon_state = "detective3"
+	worn_state = "detective3"
+
+/obj/item/clothing/under/det/corporate
+	name = "corporate investigator's uniform"
+	icon_state = "detective_corporate"
+	worn_state = "detective_corporate"
+
 /obj/item/clothing/under/det/forensics
 	name = "grey investigator's uniform"
 	icon_state = "forensic_standard"
@@ -90,6 +150,18 @@
 /obj/item/clothing/under/rank/head_of_security/corp
 	icon_state = "hos_corporate"
 	worn_state = "hos_corporate"
+
+/obj/item/clothing/under/rank/head_of_security/navy
+	icon_state = "hos_navy"
+	worn_state = "hos_navy
+
+/obj/item/clothing/under/rank/head_of_security/tan
+	icon_state = "hos_tan"
+	worn_state = "hos_tan"
+
+/obj/item/clothing/under/rank/head_of_security/darknavy
+	icon_state = "hos_darknavy"
+	worn_state = "hos_darknavy"
 
 /*
  * Contractors

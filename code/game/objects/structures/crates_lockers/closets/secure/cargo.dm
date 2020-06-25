@@ -12,6 +12,10 @@
 	..()
 	new /obj/item/clothing/under/rank/cargo(src)
 	new /obj/item/clothing/under/rank/cargo/alt(src)
+	new /obj/item/clothing/under/rank/cargo/old(src)
+	new /obj/item/clothing/under/rank/cargo/old/skirt(src)
+	new /obj/item/clothing/under/rank/cargo/old/jeans(src)
+	new /obj/item/clothing/under/rank/cargo/old/jeans/female(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/device/radio/headset/headset_cargo/alt(src)
@@ -31,7 +35,11 @@
 	icon_off = "secureqmoff"
 
 /obj/structure/closet/secure_closet/quartermaster/fill()
-	new /obj/item/clothing/under/rank/cargo(src)
+	new /obj/item/clothing/under/rank/cargo/qm(src)
+	new /obj/item/clothing/under/rank/cargo/qm/alt(src)
+	new /obj/item/clothing/under/rank/cargo/qm/alt/skirt(src)
+	new /obj/item/clothing/under/rank/cargo/qm/alt/jeans(src)
+	new /obj/item/clothing/under/rank/cargo/qm/alt/jeans/female(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/device/radio/headset/qm(src)
 	new /obj/item/device/radio/headset/qm/alt(src)
