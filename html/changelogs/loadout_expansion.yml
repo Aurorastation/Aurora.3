@@ -67,4 +67,5 @@ changes:
   - tweak: "Ported the ability from Polaris to tuck in and roll sleeves on flannel shirts."
   - tweak: "Allows kimono to be worn as a suit/overwear."
   - tweak: "Made cheongsam and shorts (which also has short shorts) their own separate selection lists in the loadout menu."
+  - tweak: "Rewrote the Cards Against the Galaxy cards to be more in-universe with help from The Stryker, Schwann, and The Angry Waffle."
   - bugfix: "Adds a missing west-facing icon for the NanoTrasen lunchbox right-hand icons, as well as missing object icons for black, and white, soft caps."
