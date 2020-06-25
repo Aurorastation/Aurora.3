@@ -128,7 +128,7 @@
 #define BP_AUG_AIR_ANALYZER  "integrated air analyzer"
 #define BP_AUG_LANGUAGE      "integrated language processor"
 #define BP_AUG_CODEX         "integrated codex"
-#define BP_AUG_PSI         "psionic receiver"
+#define BP_AUG_PSI           "psionic receiver"
 
 //Organ defines
 #define PROCESS_ACCURACY 10

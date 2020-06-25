@@ -340,6 +340,7 @@
 	desc = "An augment installed into the head that interfaces with the user's neural network, granting them immediate access to a vast database of knowledge."
 	parent_organ = BP_HEAD
 	organ_tag = BP_AUG_CODEX
+
 // Snakebitten!
 /obj/item/organ/internal/augment/psi
 	name = "psionic receiver"
