@@ -371,6 +371,8 @@
 	nutriment_factor = 1
 	color = "#FFFFFF"
 	taste_description = "chalky wheat"
+	condiment_name = "flour sack"
+	condiment_icon_state = "flour"
 
 /datum/reagent/nutriment/flour/touch_turf(var/turf/simulated/T)
 	if(!istype(T, /turf/space))
@@ -498,7 +500,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "salt"
 	condiment_name = "salt shaker"
-	condiment_icon_state = "saltshaker"
+	condiment_icon_state = "saltshakersmall"
 	condiment_center_of_mass = list("x"=17, "y"=11)
 
 /datum/reagent/sodiumchloride/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)

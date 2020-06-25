@@ -93,8 +93,6 @@
 	possible_transfer_amounts = null
 	w_class = 2.0
 
-	var/fertilizer //Reagent contained, if any.
-
 	//Like a shot glass!
 	amount_per_transfer_from_this = 10
 	volume = 60
@@ -111,14 +109,14 @@
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "bottle of E-Z-Nutrient"
 	icon_state = "bottle16"
-	fertilizer = "eznutrient"
+	reagents_to_add = list(/datum/reagent/toxin/fertilizer/eznutrient = 60)
 
 /obj/item/reagent_containers/glass/fertilizer/l4z
 	name = "bottle of Left 4 Zed"
 	icon_state = "bottle18"
-	fertilizer = "left4zed"
+	reagents_to_add = list(/datum/reagent/toxin/fertilizer/left4zed = 60)
 
 /obj/item/reagent_containers/glass/fertilizer/rh
 	name = "bottle of Robust Harvest"
 	icon_state = "bottle15"
-	fertilizer = "robustharvest"
+	reagents_to_add = list(/datum/reagent/toxin/fertilizer/robustharvest = 60)

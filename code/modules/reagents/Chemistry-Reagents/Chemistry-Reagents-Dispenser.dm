@@ -518,6 +518,7 @@
 	fallback_specific_heat = 0.332
 	condiment_name = "sugar"
 	condiment_desc = "Tasty space sugar!"
+	condiment_icon_state = "sugar"
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(-removed*3)
