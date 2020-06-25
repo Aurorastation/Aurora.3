@@ -58,6 +58,7 @@
 	var/jumpsuit = list()
 	jumpsuit["grey jumpsuit"] = /obj/item/clothing/under/color/grey
 	jumpsuit["black jumpsuit"] = /obj/item/clothing/under/color/black
+	jumpsuit["black jumpshorts"] = /obj/item/clothing/under/color/blackf
 	jumpsuit["blue jumpsuit"] = /obj/item/clothing/under/color/blue
 	jumpsuit["green jumpsuit"] = /obj/item/clothing/under/color/green
 	jumpsuit["orange jumpsuit"] = /obj/item/clothing/under/color/orange_nonprisoner
@@ -107,6 +108,7 @@
 	..()
 	var/misc_skirts = list()
 	misc_skirts["denim skirt"] = /obj/item/clothing/under/skirt/denim
+	misc_skirts["black jumpskirt"] = /obj/item/clothing/under/color/blackjumpskirt
 	misc_skirts["plaid skirt outfit, blue"] = /obj/item/clothing/under/skirt/outfit/plaid_blue
 	misc_skirts["plaid skirt outfit, purple"] =/obj/item/clothing/under/skirt/outfit/plaid_purple
 	misc_skirts["plaid skirt outfit, red"] = /obj/item/clothing/under/skirt/outfit/plaid_red
@@ -754,10 +756,63 @@
 	mresident_uniforms["orderly uniform"] = /obj/item/clothing/under/rank/medical/orderly
 	gear_tweaks += new/datum/gear_tweak/path(mresident_uniforms)
 
-/datum/gear/uniform/science_alt
-	display_name = "scientist, alt"
-	path = /obj/item/clothing/under/rank/scientist/science_alt
-	allowed_roles = list("Scientist", "Xenobiologist")
+/datum/gear/uniform/uniform_rd
+	display_name = "uniform, Research Director (selection)"
+	description = "A selection of alternative outfits for the Research Director."
+	path = /obj/item/clothing/under/rank/research_director
+	allowed_roles = list("Research Director")
+	cost = 0
+
+/datum/gear/uniform/uniform_rd
+	..()
+	var/rd_uniforms = list()
+	rd_uniforms["standard RD uniform"] = /obj/item/clothing/under/rank/research_director
+	rd_uniforms["alt RD uniform"] = /obj/item/clothing/under/rank/research_director/rdalt
+	rd_uniforms["alt RD dress"] = /obj/item/clothing/under/rank/research_director/dress_rd
+	rd_uniforms["old RD uniform"] = /obj/item/clothing/under/rank/research_director/old
+	rd_uniforms["old RD dress"] = /obj/item/clothing/under/rank/research_director/old/dress
+	gear_tweaks += new/datum/gear_tweak/path(rd_uniforms)
+
+/datum/gear/uniform/uniform_scientist
+	display_name = "uniform, RnD (selection)"
+	description = "A selection of alternative outfits for the Scientist and Xenobiologist."
+	path = /obj/item/clothing/under/rank/scientist
+	allowed_roles = list("Research Director", "Scientist", "Xenobiologist")
+	cost = 0
+
+/datum/gear/uniform/uniform_scientist/New()
+	..()
+	var/rnd_uniforms = list()
+	rnd_uniforms["standard scientist uniform"] = /obj/item/clothing/under/rank/scientist
+	rnd_uniforms["standard archaeologist uniform"] = /obj/item/clothing/under/rank/scientist/xenoarcheologist
+	rnd_uniforms["standard botanist uniform"] = /obj/item/clothing/under/rank/scientist/botany
+	rnd_uniforms["alt scientist uniform"] = /obj/item/clothing/under/rank/scientist/science_alt
+	rnd_uniforms["white scientist jumpsuit"] = /obj/item/clothing/under/rank/scientist/white
+	rnd_uniforms["white scientist jeans"] = /obj/item/clothing/under/rank/scientist/white/jeans
+	rnd_uniforms["white scientist fem jeans"] = /obj/item/clothing/under/rank/scientist/white/jeans/female
+	rnd_uniforms["scientist polo"] = /obj/item/clothing/under/rank/scientist/shirt
+	gear_tweaks += new/datum/gear_tweak/path(rnd_uniforms)
+
+/datum/gear/uniform/uniform_roboticist
+	display_name = "uniform, Roboticist (selection)"
+	description = "A selection of alternative outfits for the Roboticist."
+	path = /obj/item/clothing/under/rank/roboticist
+	allowed_roles = list("Research Director", "Roboticist")
+	cost = 0
+
+/datum/gear/uniform/uniform_roboticist/New()
+	..()
+	var/robotics_uniforms = list()
+	robotics_uniforms["standard roboticist jumpsuit"] = /obj/item/clothing/under/rank/roboticist
+	robotics_uniforms["black roboticist jumpsuit"] = /obj/item/clothing/under/rank/roboticist/black
+	robotics_uniforms["alt black roboticist jumpsuit"] = /obj/item/clothing/under/rank/roboticist/black/alt
+	gear_tweaks += new/datum/gear_tweak/path(robotics_uniforms)
+
+/datum/gear/uniform/uniform_labassistant
+	display_name = "uniform, Lab Assistant"
+	description = "The standard uniform for the Lab Assistant."
+	path = /obj/item/clothing/under/rank/scientist/intern
+	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Lab Assistant")
 	cost = 0
 
 /datum/gear/uniform/uniform_hos
@@ -814,6 +869,7 @@
 	inv_uniforms["brown investigator uniform"] = /obj/item/clothing/under/det/classic
 	inv_uniforms["dark grey investigator uniform"] = /obj/item/clothing/under/det/grey
 	inv_uniforms["dark grey investigator waistcoat"] = /obj/item/clothing/under/det/grey/waistcoat
+	inv_uniforms["dark grey skirt"] = /obj/item/clothing/under/det/skirt
 	inv_uniforms["muted investigator uniform"] = /obj/item/clothing/under/det/muted
 	inv_uniforms["muted investigator waistcoat"] = /obj/item/clothing/under/det/muted/waistcoat
 	inv_uniforms["blue investigator uniform"] = /obj/item/clothing/under/det/blue
@@ -851,3 +907,17 @@
 	cadet_uniforms["standard cadet uniform"] = /obj/item/clothing/under/rank/cadet
 	cadet_uniforms["navy cadet uniform"] = /obj/item/clothing/under/rank/cadet/navy
 	gear_tweaks += new/datum/gear_tweak/path(cadet_uniforms)
+
+/datum/gear/uniform/uniform_liaison
+	display_name = "uniform, Corporate Liaison (selection)"
+	description = "A selection of alternative uniforms for the Corporate Liaison."
+	path = /obj/item/clothing/under/rank/liaison
+	allowed_roles = list("Corporate Liasion")
+	cost = 0
+
+/datum/gear/uniform/uniform/liaison/New()
+	..()
+	var/liaison_uniforms = list()
+	liaison_uniforms["standard liaison uniform"] = /obj/item/clothing/under/rank/liaison
+	liaison_uniforms["standard liaison skirt"] = /obj/item/clothing/under/rank/liaison/skirt
+	gear_tweaks += new/datum/gear_tweak/path(liaison_uniforms)

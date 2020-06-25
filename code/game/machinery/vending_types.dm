@@ -402,7 +402,7 @@
 		/obj/item/reagent_containers/glass/beaker = 4,
 		/obj/item/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/bruise_pack = 5,
-		/obj/item/stack/medical/ointment = 5,		
+		/obj/item/stack/medical/ointment = 5,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,
@@ -961,7 +961,9 @@
 	vend_id = "robo-tools"
 	products = list(
 		/obj/item/clothing/suit/storage/toggle/labcoat = 4,
-		/obj/item/clothing/under/rank/roboticist = 4,
+		/obj/item/clothing/under/rank/roboticist = 2,
+		/obj/item/clothing/under/rank/roboticist/black = 1,
+		/obj/item/clothing/under/rank/roboticist/black/alt = 1,
 		/obj/item/stack/cable_coil = 4,
 		/obj/item/device/flash = 4,
 		/obj/item/cell/high = 12,

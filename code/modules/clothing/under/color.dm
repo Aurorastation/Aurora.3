@@ -4,6 +4,20 @@
 	item_state = "bl_suit"
 	worn_state = "black"
 
+/obj/item/clothing/under/color/blackf
+	name = "feminine black jumpsuit"
+	desc = "It's very smart and in a ladies size!"
+	icon_state = "black"
+	item_state = "bl_suit"
+	worn_state = "blackf"
+
+/obj/item/clothing/under/color/blackjumpskirt
+	name = "black jumpskirt"
+	desc = "A slimming black jumpskirt."
+	icon_state = "blackjumpskirt"
+	item_state_slots = list(slot_r_hand_str = "black", slot_l_hand_str = "black")
+	worn_state = "blackjumpskirt"
+
 /obj/item/clothing/under/color/blue
 	name = "blue jumpsuit"
 	icon_state = "blue"

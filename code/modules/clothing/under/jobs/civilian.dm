@@ -145,6 +145,10 @@
 	item_state = "ba_suit"
 	worn_state = "internalaffairs"
 
+/obj/item/clothing/under/rank/liaison/skirt
+	icon_state = "internalaffairs_skirt"
+	worn_state = "internalaffairs_skirt"
+
 /obj/item/clothing/under/rank/janitor
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
 	name = "janitor's jumpsuit"

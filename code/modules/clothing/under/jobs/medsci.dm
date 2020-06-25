@@ -26,6 +26,14 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
+/obj/item/clothing/under/rank/research_director/old
+	icon_state = "director"
+	worn_state = "director"
+
+/obj/item/clothing/under/rank/research_director/old/dress
+	icon_state = "director_dress"
+	worn_state = "director_dress"
+
 /obj/item/clothing/under/rank/scientist
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a scientist."
 	name = "scientist's jumpsuit"
@@ -58,6 +66,22 @@
 	icon_state = "botany"
 	worn_state = "botany"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 5, rad = 0)
+
+/obj/item/clothing/under/rank/scientist/white
+	icon_state = "scientist_white"
+	worn_state = "scientist_white"
+
+/obj/item/clothing/under/rank/scientist/white/jeans
+	icon_state = "sciencej"
+	worn_state = "sciencej"
+
+/obj/item/clothing/under/rank/scientist/white/jeans/female
+	icon_state = "sciencejf"
+	worn_state = "sciencejf"
+
+/obj/item/clothing/under/rank/scientist/shirt
+	icon_state = "scientist_new"
+	worn_state = "scientist_new"
 
 /obj/item/clothing/under/rank/scientist/intern
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It has markings that denote the wearer as a laboratory assistant."

@@ -131,6 +131,10 @@
 	icon_state = "detective_corporate"
 	worn_state = "detective_corporate"
 
+/obj/item/clothing/under/det/skirt
+	icon_state = "detective_skirt"
+	worn_state = "detective_skirt"
+
 /obj/item/clothing/under/det/forensics
 	name = "grey investigator's uniform"
 	icon_state = "forensic_standard"
