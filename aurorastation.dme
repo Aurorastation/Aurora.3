@@ -1354,6 +1354,7 @@
 #include "code\modules\clothing\ears\earmuffs.dm"
 #include "code\modules\clothing\ears\skrell.dm"
 #include "code\modules\clothing\factions\dominia.dm"
+#include "code\modules\clothing\factions\elyra.dm"
 #include "code\modules\clothing\factions\himeo.dm"
 #include "code\modules\clothing\factions\vysoka.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
