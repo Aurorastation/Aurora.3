@@ -1,0 +1,6 @@
+author: Alberyk, Menown
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added adhomian dice to the loadout, that can be used to play Suns and Moon."
