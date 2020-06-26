@@ -320,6 +320,7 @@ CREATE TABLE `ss13_characters` (
   `citizenship` text,
   `faction` text,
   `religion` text,
+  `accent` text,
   `nt_relation` text,
   `uplink_location` text,
   `organs_data` text,
